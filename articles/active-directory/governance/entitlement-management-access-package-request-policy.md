@@ -1,6 +1,6 @@
 ---
-title: 'Cambio de la configuración de la solicitud y aprobación para un paquete de acceso en la administración de derechos de Azure AD (versión preliminar): Azure Active Directory'
-description: Aprenda a modificar la configuración de la solicitud y aprobación de un paquete de acceso en la administración de derechos de Azure Active Directory (versión preliminar).
+title: 'Cambio de la configuración de la solicitud y aprobación para un paquete de acceso en la administración de derechos de Azure AD: Azure Active Directory'
+description: Aprenda a modificar la configuración de la solicitud y aprobación de un paquete de acceso en la administración de derechos de Azure Active Directory.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -16,19 +16,14 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b060a17d9e7f795b6aad7df0e3e6349bbbd81b3
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 649a4a50766d26f73584dae4481652c8007b2e9e
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72392023"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73174667"
 ---
-# <a name="change-request-and-approval-settings-for-an-access-package-in-azure-ad-entitlement-management-preview"></a>Cambio de la configuración de la solicitud y aprobación para un paquete de acceso en la administración de derechos de Azure AD (versión preliminar)
-
-> [!IMPORTANT]
-> La administración de derechos de Azure Active Directory (Azure AD) está actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
-> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="change-request-and-approval-settings-for-an-access-package-in-azure-ad-entitlement-management"></a>Cambio de la configuración de la solicitud y aprobación para un paquete de acceso en la administración de derechos de Azure AD
 
 Como administrador de paquetes de acceso, puede cambiar los usuarios que pueden solicitar un paquete de acceso en cualquier momento si edita la directiva o agrega una nueva. También puede cambiar la configuración de aprobación.
 

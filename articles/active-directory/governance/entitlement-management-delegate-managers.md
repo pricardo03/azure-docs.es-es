@@ -1,5 +1,5 @@
 ---
-title: 'Delegación de la gobernanza del acceso en administradores de paquetes de acceso desde la administración de derechos de Azure AD (versión preliminar): Azure Active Directory'
+title: 'Delegación de la gobernanza del acceso en administradores de paquetes de acceso en la administración de derechos de Azure AD: Azure Active Directory'
 description: Aprenda a delegar la gobernanza del acceso de los administradores de TI en los administradores de paquetes de acceso y los jefes de proyecto para que ellos mismos puedan encargarse del acceso.
 services: active-directory
 documentationCenter: ''
@@ -16,19 +16,14 @@ ms.date: 10/07/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c7a2b6bfdb4904e11ffba3a9fe1097c7f5cfe9d6
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: efdc61b82a19cc5d370d6069e8c9dcd3ce5e8ae5
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170874"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73174357"
 ---
-# <a name="delegate-access-governance-to-access-package-managers-in-azure-ad-entitlement-management-preview"></a>Delegación de la gobernanza del acceso en administradores de paquetes de acceso desde la administración de derechos de Azure AD (versión preliminar)
-
-> [!IMPORTANT]
-> La administración de derechos de Azure Active Directory (Azure AD) está actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
-> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="delegate-access-governance-to-access-package-managers-in-azure-ad-entitlement-management"></a>Delegación de la gobernanza del acceso en administradores de paquetes de acceso en la administración de derechos de Azure AD
 
 Para delegar la creación y administración de paquetes de acceso en un catálogo, se agregan usuarios al rol de administrador de paquetes de acceso. Estos administradores deben estar familiarizados con la necesidad de que los usuarios soliciten acceso a los recursos de un catálogo. Por ejemplo, si se utiliza un catálogo en un proyecto, el administrador de paquetes de acceso para ese catálogo podría ser un responsable del proyecto.  Los administradores de paquetes de acceso no pueden agregar recursos a un catálogo, pero sí pueden administrar los paquetes de acceso y las directivas del catálogo.  Cuando se delegar en un administrador de paquetes de acceso, esta persona puede responsabilizarse después de los siguientes aspectos:
 

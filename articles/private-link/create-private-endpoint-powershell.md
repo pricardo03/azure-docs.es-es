@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 43b8dfd571537aaaf6753d6b762ab84cfe4cfd0d
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 91670d51328b3adb67ba8b2ed05d3b86f9bc0010
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72376162"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053921"
 ---
 # <a name="create-a-private-endpoint-using-azure-powershell"></a>Creación de un punto de conexión privado mediante Azure PowerShell
 Un punto de conexión privado es el bloque de creación fundamental para el vínculo privado en Azure. Permite que los recursos de Azure, como las máquinas virtuales, se comuniquen de manera privada con recursos de vínculos privados. 
@@ -50,7 +50,7 @@ $virtualNetwork = New-AzVirtualNetwork `
 
 ### <a name="add-a-subnet"></a>Adición de una subred
 
-Azure implementa recursos en una subred dentro de una red virtual, por lo que es necesario crear una subred. Cree una configuración de subred denominada *mySubnet* con  [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig). En el ejemplo siguiente se crea una subred denominada *mySubnet* con la marca de directiva de la red del punto de conexión privado establecida en **Deshabilitado**.
+Azure implementa recursos en una subred dentro de una red virtual, por lo que es necesario crear una subred. Cree una configuración de subred denominada *mySubnet* con [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig). En el ejemplo siguiente se crea una subred denominada *mySubnet* con la marca de directiva de la red del punto de conexión privado establecida en **Deshabilitado**.
 
 ```azurepowershell
 $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
@@ -62,7 +62,7 @@ $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
 
 ### <a name="associate-the-subnet-to-the-virtual-network"></a>Asociación de la subred a la red virtual
 
-Puede escribir la configuración de la subred en la red virtual con  [Set-AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork). Este comando crea la subred:
+Puede escribir la configuración de la subred en la red virtual con [Set-AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork). Este comando crea la subred:
 
 ```azurepowershell
 $virtualNetwork | Set-AzVirtualNetwork
@@ -164,10 +164,10 @@ New-AzPrivateDnsRecordSet -Name $recordName -RecordType A -ZoneName "privatelink
 } 
 } 
 ``` 
-  
+  
 ## <a name="connect-to-a-vm-from-the-internet"></a>Conexión a una máquina virtual desde Internet
 
-Use  [Get-AzPublicIpAddress](/powershell/module/az.network/Get-AzPublicIpAddress)  para devolver la dirección IP pública de una máquina virtual. Este ejemplo devuelve la dirección IP pública de la máquina virtual *myVM*:
+Use [Get-AzPublicIpAddress](/powershell/module/az.network/Get-AzPublicIpAddress) para devolver la dirección IP pública de una máquina virtual. Este ejemplo devuelve la dirección IP pública de la máquina virtual *myVM*:
 
 ```azurepowershell
 Get-AzPublicIpAddress `
@@ -175,7 +175,7 @@ Get-AzPublicIpAddress `
   -ResourceGroupName myResourceGroup `
   | Select IpAddress 
 ```  
-Abra un símbolo del sistema en el equipo local. Ejecute el comando mstsc. Reemplace  <publicIpAddress>  por la dirección IP pública que se devolvió en el último paso: 
+Abra un símbolo del sistema en el equipo local. Ejecute el comando mstsc. Reemplace <publicIpAddress> por la dirección IP pública que se devolvió en el último paso: 
 
 
 > [!NOTE]
@@ -187,7 +187,7 @@ mstsc /v:<publicIpAddress>
 1. Cuando se le pida, seleccione **Conectar**. 
 2. Escriba el nombre de usuario y la contraseña que especificó al crear la máquina virtual.
   > [!NOTE]
-  > Es posible que tenga que seleccionar Más opciones > Usar otra cuenta para especificar las credenciales que escribió al crear la máquina virtual. 
+  > Es posible que tenga que seleccionar Más opciones > Usar otra cuenta para especificar las credenciales que escribió al crear la máquina virtual. 
   
 3. Seleccione **Aceptar**. 
 4. Puede que reciba una advertencia de certificado. Si la recibe, seleccione **Sí** o **Continuar**. 
@@ -195,7 +195,7 @@ mstsc /v:<publicIpAddress>
 ## <a name="access-sql-database-server-privately-from-the-vm"></a>Acceso al servidor de SQL Database de forma privada desde la máquina virtual
 
 1. En el Escritorio remoto de myVm, abra PowerShell.
-2. Escriba  `nslookup myserver.database.windows.net`. 
+2. Escriba `nslookup myserver.database.windows.net`. 
 
     Recibirá un mensaje similar a este:
     ```azurepowershell

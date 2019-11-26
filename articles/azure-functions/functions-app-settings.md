@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/22/2018
 ms.author: glenga
-ms.openlocfilehash: 4426b83ee62f4a894f72e197cbe541b8b669695d
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 896179a393b870390991a8e9942f6e7287ec5c90
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70086807"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73063305"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referencia de configuración de aplicación para Azure Functions
 
@@ -161,11 +161,12 @@ Número máximo de instancias al que se puede escalar horizontalmente la aplicac
 
 ## <a name="website_node_default_version"></a>DEFAULT_VERSION\_DEL NODO\_DEL SITIO WEB
 
-El valor predeterminado es "8.11.1".
+_Solo Windows._  
+Establece la versión de Node.js que se usará al ejecutar la aplicación de funciones en Windows. Debe usar una tilde (~) para que el entorno de ejecución use la última versión disponible de la versión principal de destino. Por ejemplo, cuando se establece en `~10`, se usa la versión más reciente de Node.js 10. Cuando se especifica una versión principal con una tilde, no es necesario actualizar manualmente la versión secundaria. 
 
 |Clave|Valor de ejemplo|
 |---|------------|
-|DEFAULT_VERSION\_DEL NODO\_DEL SITIO WEB|8.11.1|
+|DEFAULT_VERSION\_DEL NODO\_DEL SITIO WEB|~10|
 
 ## <a name="website_run_from_package"></a>WEBSITE\_RUN\_FROM\_PACKAGE
 

@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: article
 ms.workload: identity
-ms.date: 06/18/2019
+ms.date: 10/24/2019
 ms.author: mimart
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db8d8d6df16c5df7e29d8bb870c5d5eda6d8a2d3
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 6656361fd4634c46cd5216b57eb8465536319f09
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68477258"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73062817"
 ---
 # <a name="add-an-unlisted-non-gallery-application-to-your-azure-ad-organization"></a>Agregue una aplicación no enumerada (que no esté en la galería) a su organización de Azure AD
 
@@ -33,21 +33,36 @@ En este artículo se describe cómo agregar una aplicación que no esté en la g
 ## <a name="add-a-non-gallery-application"></a>Incorporación de una aplicación ajena a la galería
 
 1. Inicie sesión en el [portal de Azure Active Directory](https://aad.portal.azure.com/) con su cuenta de administrador de la plataforma de identidad de Microsoft.
-1. Seleccione **Aplicaciones empresariales** > **Nueva aplicación**.
-2. (Opcional pero recomendado) En el cuadro de búsqueda **Agregar desde la galería**, especifique el nombre para mostrar de la aplicación. Si la aplicación aparece en los resultados de la búsqueda, selecciónela y omita el resto de este procedimiento.
-3. Seleccione **Aplicación situada fuera de la galería**. Se abre la página **Agregue su propia aplicación**.
 
-   ![Agregar aplicación](./media/configure-single-sign-on-non-gallery-applications/add-your-own-application.png)
-5. Escriba el nombre para mostrar para la nueva aplicación.
-6. Seleccione **Agregar**. Se abre la página **Información general** de la aplicación.
+2. Seleccione **Aplicaciones empresariales** > **Nueva aplicación**.
+
+3. (Opcional pero recomendado) En el cuadro de búsqueda **	Examinar la Galería de Azure AD**, especifique el nombre para mostrar de la aplicación. 
+
+4. Seleccione **Cree su propia aplicación**. Se abre la página **Cree su propia aplicación**.
+
+   ![Agregar aplicación](media/add-non-gallery-app/create-your-own-application.png)
+
+5. Empiece a escribir el nombre para mostrar para la nueva aplicación. Si hay aplicaciones de la galería con nombres similares, aparecerán en una lista de resultados de la búsqueda.
+
+   > [!NOTE]
+   > Se recomienda usar la versión de la galería de su aplicación siempre que sea posible. Si la aplicación que quiere agregar aparece en los resultados de la búsqueda, selecciónela y omita el resto de este procedimiento.
+
+6. En **¿Cuál es el objetivo de utilizar la aplicación?** elija **Integrar cualquier otra aplicación que no se encuentre en la galería**. Esta opción se utiliza normalmente para las aplicaciones SAML y WS-Fed.
+
+   > [!NOTE]
+   > Las otras dos opciones se usan en los escenarios siguientes:
+   >* **Configurar Application Proxy para el acceso remoto seguro a una aplicación local** abre la página de configuración de Azure AD Application Proxy y los conectores.
+   >* **Registrar una aplicación con la que está trabajando para integrarla con Azure AD** abre la página **Registros de aplicaciones**. Esta opción se usa normalmente para las aplicaciones de OpenID Connect.
+
+7. Seleccione **Crear**. Se abre la página **Información general** de la aplicación.
 
 ## <a name="configure-user-sign-in-properties"></a>Configuración de las propiedades de inicio de sesión de usuario
 
 1. Seleccione **Propiedades** para abrir el panel de propiedades para editarlas.
 
-    ![Panel Editar propiedades](media/add-application-portal/edit-properties.png)
+    ![Panel Editar propiedades](media/add-non-gallery-app/edit-properties.png)
 
-1. Establezca las siguientes opciones para determinar cómo los usuarios que están asignados o no asignados a la aplicación pueden iniciar sesión en la aplicación y si un usuario puede ver la aplicación en el panel de acceso.
+2. Establezca las siguientes opciones para determinar cómo los usuarios que están asignados o no asignados a la aplicación pueden iniciar sesión en la aplicación y si un usuario puede ver la aplicación en el panel de acceso.
 
     - **Enabled for users to sign-in** (Habilitado para que los usuarios inicien sesión) determina si los usuarios asignados a la aplicación pueden iniciar sesión.
     - **Asignación de usuarios necesaria** determina si los usuarios que no están asignados a la aplicación pueden iniciar sesión.
@@ -83,11 +98,11 @@ En este artículo se describe cómo agregar una aplicación que no esté en la g
 
      ¿*Puede el usuario ver la aplicación en el panel de acceso y el iniciador de aplicaciones de Office 365?
 
-1. Para usar un logotipo personalizado, cree uno de 215 x 215 píxeles y guárdelo en formato PNG. A continuación, vaya a su logotipo y cárguelo.
+3. Para usar un logotipo personalizado, cree uno de 215 x 215 píxeles y guárdelo en formato PNG. A continuación, vaya a su logotipo y cárguelo.
 
-    ![Cambio del logotipo](media/add-application-portal/change-logo.png)
+    ![Cambio del logotipo](media/add-non-gallery-app/change-logo.png)
 
-1. Cuando haya terminado, seleccione **Guardar**.
+4. Cuando haya terminado, seleccione **Guardar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

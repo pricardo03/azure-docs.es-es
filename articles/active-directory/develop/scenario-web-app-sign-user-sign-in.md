@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/17/2019
+ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d5c45005d6a54765458b463acb12c21a1f3b6d0c
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: d727b570361e721c49173138bb60ae89df710e81
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71336760"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175230"
 ---
 # <a name="web-app-that-signs-in-users---sign-in-and-sign-out"></a>Aplicación web que permite iniciar sesión a los usuarios (inicio y cierre de sesión)
 
@@ -161,7 +161,7 @@ public class AuthPageController {
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-A diferencia de otras plataformas, MSAL.Python se encarga de permitir al usuario iniciar sesión desde la página de inicio de sesión. Consulte [app.py#L20-L28](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/e03be352914bfbd58be0d4170eba1fb7a4951d84/app.py#L20-L28)
+A diferencia de otras plataformas, Python de MSAL se encarga de permitir al usuario iniciar sesión desde la página de inicio de sesión. Consulte [app.py#L20-L28](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/e03be352914bfbd58be0d4170eba1fb7a4951d84/app.py#L20-L28)
 
 ```Python
 @app.route("/login")
@@ -227,7 +227,7 @@ Durante el registro de la aplicación, habrá registrado un **URI posterior al c
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-Durante el registro de la aplicación, registrará un **URI posterior al cierre de sesión**. En este tutorial, ha registrado `http://localhost:8080/msal4jsample/` en el campo **URL de cierre de sesión** de la sección **Configuración avanzada** de la página **Autenticación**.
+Durante el registro de la aplicación, registrará un **URI posterior al cierre de sesión**. En este tutorial, ha registrado `http://localhost:8080/msal4jsample/sign_out` en el campo **URL de cierre de sesión** de la sección **Configuración avanzada** de la página **Autenticación**.
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
@@ -423,7 +423,7 @@ public class AccountController : Controller
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-En el inicio rápido de Java, el URI de redireccionamiento posterior al cierre de sesión solo muestra la página index.html. 
+En el inicio rápido de Java, el URI de redireccionamiento posterior al cierre de sesión solo muestra la página index.html.
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 

@@ -1,6 +1,6 @@
 ---
 title: 'Movimiento de datos de Blob Storage con el Explorador de Azure Storage: Team Data Science Process'
-description: Mover datos hacia y desde Azure Blob Storage con el Explorador de Azure Storage
+description: Aprenda a usar el Explorador de Azure Storage para cargar y descargar datos de Azure Blob Storage.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 8ec4289c641b3f140950575ac2f8016f894f2c9c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 880b81c07aeed7359dfe35e1361a20ecb11e27dd
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61430820"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053949"
 ---
 # <a name="move-data-to-and-from-azure-blob-storage-using-azure-storage-explorer"></a>Mover datos hacia y desde Azure Blob Storage con el Explorador de Azure Storage
 El Explorador de Azure Storage es una herramienta gratuita de Microsoft que permite trabajar con los datos de Azure Storage en Windows, macOS y Linux. En este tema se describe cómo usarlo para cargar y descargar datos del Almacenamiento de blobs de Azure. La herramienta se puede descargar desde el [Explorador de Microsoft Azure Storage](https://storageexplorer.com/).

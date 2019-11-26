@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 879404b264e9ea6c544c6edf509001b38997bb0c
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: d8606ad9afb6642fa29cc3cae523c31e129c7ebd
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69874345"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73061483"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integración de la infraestructura existente de NPS con Azure Multi-Factor Authentication
 
@@ -119,7 +119,7 @@ Si necesita iniciar una nueva ronda de sincronización, use las instrucciones de
 Existen dos factores que afectan a la disponibilidad de los métodos de autenticación con una implementación de extensión NPS:
 
 1. El algoritmo de cifrado de contraseña utilizado entre el cliente RADIUS (VPN, servidor Netscaler u otros) y los servidores NPS.
-   - **PAP** es compatible con todos los métodos de autenticación de Azure MFA en la nube: llamada de teléfono, mensaje de texto unidireccional, notificación de aplicación móvil y código de verificación de la aplicación móvil.
+   - **PAP** es compatible con todos los métodos de autenticación de Azure MFA en la nube: llamada de teléfono, mensaje de texto unidireccional, notificación de aplicación móvil, token de hardware OATH y código de verificación de la aplicación móvil.
    - **CHAPV2** y **EAP** admiten llamadas de teléfono y notificaciones de aplicación móvil.
 
       > [!NOTE]

@@ -1,5 +1,5 @@
 ---
-title: 'Depuración de Apache Hadoop: Consulta de registros e interpretación de mensajes de error en Azure HDInsight'
+title: 'Depuración de Apache Hadoop: registros y mensajes de error en Azure HDInsight'
 description: Conozca los mensajes de error que puede recibir cuando administre HDInsight con PowerShell, así como los pasos que debe seguir para la recuperación.
 ms.reviewer: jasonh
 author: ashishthaps
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 8ad2bdd0f12abad08515f0314b9c03cc971127cb
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 2e5cb1676670642121caec71a973374063fe4320
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71059217"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044855"
 ---
 # <a name="analyze-apache-hadoop-logs-in-azure-hdinsight"></a>Análisis de los registros de Apache Hadoop en Azure HDInsight
 
@@ -73,7 +73,7 @@ Power Query puede instalarse desde [Microsoft Power Query para Excel](https://ww
 5. Haga clic con el botón derecho en la tabla hadoopservicelog, en el panel **Navegador**, y seleccione **Editar**. Verá cuatro columnas. Opcionalmente, puede eliminar las columnas **Clave de partición**, **Clave de fila** y **Marca de tiempo** seleccionándolas y haciendo clic en **Quitar columnas** en las opciones de la cinta.
 6. Haga clic en el icono Expandir, en la columna Contenido, para elegir las columnas que desea importar en la hoja de cálculo de Excel. Para esta demostración, se ha elegido TraceLevel y ComponentName: Pueden aportar información básica sobre los componentes que tenían problemas.
    
-    ![Selección de columnas en Excel de registros de HDInsight Hadoop](./media/apache-hadoop-debug-jobs/hdinsight-hadoop-analyze-logs-using-excel-power-query-filter.png "HDInsight Hadoop logs choose columns excel")
+    ![Registros de Hadoop de HDInsight: elegir columnas en Excel](./media/apache-hadoop-debug-jobs/hdinsight-hadoop-analyze-logs-using-excel-power-query-filter.png "Registros de Hadoop de HDInsight: elegir columnas en Excel")
 7. Haga clic en **Aceptar** para importar los datos.
 8. Seleccione las columnas **TraceLevel**, Rol y **ComponentName** y, luego, haga clic en el control **Agrupar por** en la cinta.
 9. Haga clic en **Aceptar** en el cuadro de diálogo Agrupar por.
@@ -93,21 +93,20 @@ Ahora puede usar Excel para filtrar y ordenar según sea necesario. Puede intere
    
         TraceLevel eq 'ERROR'
    
-    ![Selección de columnas en vs de registros de HDInsight Hadoop](./media/apache-hadoop-debug-jobs/hdinsight-hadoop-analyze-logs-visual-studio-filter.png "HDInsight Hadoop logs choose columns vs")
+    ![Registros de Hadoop de HDInsight: elegir columnas en Visual Studio](./media/apache-hadoop-debug-jobs/hdinsight-hadoop-analyze-logs-visual-studio-filter.png "Registros de Hadoop de HDInsight: elegir columnas en Visual Studio")
    
     Para más información sobre cómo construir filtros, consulte [Construcción de cadenas de filtro para el Diseñador de tablas](../../vs-azure-tools-table-designer-construct-filter-strings.md).
 
 ## <a name="logs-written-to-azure-blob-storage"></a>Registros escritos en Azure Blob Storage
+
 Los registros que se escriben en las tablas de Azure proporcionan un nivel de información sobre lo que ocurre en un clúster de HDInsight. Sin embargo, estas tablas no proporcionan registros de nivel de tarea, que pueden ser útiles para obtener detalles sobre los problemas cuando se producen. Para proporcionar este nivel de detalle superior, los clústeres de HDInsight están configurados para escribir registros de tareas en su cuenta de Blob Storage para cualquier trabajo que se envíe a través de Templeton. En la práctica, esto hace referencia a los trabajos enviados mediante los cmdlets de Microsoft Azure PowerShell o las API de envío de trabajos de .NET, no a los trabajos enviados a través de RDP o el acceso de línea de comandos al clúster. 
 
 Para ver los registros, consulte [Acceso a registros de aplicación de YARN de Apache Hadoop en HDInsight basado en Linux](../hdinsight-hadoop-access-yarn-app-logs-linux.md).
 
-
-Para más información sobre los registros de aplicación, consulte [Simplifying user-logs management and access in YARN](https://hortonworks.com/blog/simplifying-user-logs-management-and-access-in-yarn/) (Simplificación de la administración de registros de usuario y el acceso en YARN).
-
-
 ## <a name="view-cluster-health-and-job-logs"></a>Visualización de los registros de trabajo y del estado del clúster
+
 ### <a name="access-the-ambari-ui"></a>Acceder a la interfaz de usuario de Ambari
+
 En Azure Portal, haga clic en un nombre de clúster de HDInsight para abrir el panel del clúster. En el panel del clúster, haga clic en **Panel**.
 
 ![HDInsight: inicio del panel del clúster](./media/apache-hadoop-debug-jobs/hdi-debug-launch-dashboard.png)
@@ -120,7 +119,7 @@ Puede utilizar la IU de YARN para hacer lo siguiente:
 
 * **Obtener el estado del clúster**. En el panel izquierdo, expanda **Clúster** y haga clic en **Acerca de**. Esta acción presenta detalles del estado del clúster, como la memoria total asignada, los núcleos que se están usando, el estado del administrador de recursos del clúster, la versión del clúster, etc.
   
-    ![HDInsight: inicio del panel del clúster yarn](./media/apache-hadoop-debug-jobs/hdi-debug-yarn-cluster-state.png "HDInsight: inicio del panel del clúster yarn")
+    ![HDInsight: inicio del panel del clúster de Yarn](./media/apache-hadoop-debug-jobs/hdi-debug-yarn-cluster-state.png "HDInsight: inicio del panel del clúster de Yarn")
 * **Obtener el estado del nodo**. En el panel izquierdo, expanda **Clúster** y haga clic en **Nodos**. Esto enumera todos los nodos del clúster, la dirección HTTP de cada nodo, los recursos asignados a cada nodo, etc.
 * **Supervisar el estado de los trabajos**. En el panel izquierdo, expanda **Clúster** y haga clic en **Aplicaciones** para enumerar todos los trabajos del clúster. Si desea ver los trabajos que se encuentran en un estado específico (como nuevo, enviado, en ejecución, etc.), haga clic en el vínculo apropiado en **Aplicaciones**. Además, puede hacer clic en el nombre del trabajo para obtener más información sobre el trabajo, incluyendo la salida, los registros, etc.
 

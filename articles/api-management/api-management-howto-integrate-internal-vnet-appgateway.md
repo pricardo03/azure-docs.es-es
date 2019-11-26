@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 06/26/2018
+ms.date: 11/04/2019
 ms.author: sasolank
-ms.openlocfilehash: b994f75327cb78cd422d75682ee68ea7840a87e8
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: d1ab7089ba76890488aa73d03e0fd9fc8efbe4d5
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70193959"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176744"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>Integración de API Management en una red virtual interna con Application Gateway
 
@@ -123,7 +123,7 @@ Azure Resource Manager requiere que todos los grupos de recursos especifiquen un
 
 ## <a name="create-a-virtual-network-and-a-subnet-for-the-application-gateway"></a>Creación de una red virtual y una subred para la puerta de enlace de aplicaciones
 
-En el ejemplo siguiente se muestra cómo crear una red virtual con Resource Manager:
+En el ejemplo siguiente se muestra cómo crear una red virtual con Resource Manager.
 
 ### <a name="step-1"></a>Paso 1
 
@@ -208,12 +208,15 @@ Cree y establezca los objetos de configuración del nombre de host para el servi
 
 ```powershell
 $proxyHostnameConfig = New-AzApiManagementCustomHostnameConfiguration -Hostname $gatewayHostname -HostnameType Proxy -PfxPath $gatewayCertPfxPath -PfxPassword $certPwd
-$portalHostnameConfig = New-AzApiManagementCustomHostnameConfiguration -Hostname $portalHostname -HostnameType Portal -PfxPath $portalCertPfxPath -PfxPassword $certPortalPwd
+$portalHostnameConfig = New-AzApiManagementCustomHostnameConfiguration -Hostname $portalHostname -HostnameType DeveloperPortal -PfxPath $portalCertPfxPath -PfxPassword $certPortalPwd
 
 $apimService.ProxyCustomHostnameConfiguration = $proxyHostnameConfig
 $apimService.PortalCustomHostnameConfiguration = $portalHostnameConfig
 Set-AzApiManagement -InputObject $apimService
 ```
+
+> [!NOTE]
+> Para configurar la conectividad del portal para desarrolladores heredada, debe reemplazar `-HostnameType DeveloperPortal` por `-HostnameType Portal`.
 
 ## <a name="create-a-public-ip-address-for-the-front-end-configuration"></a>Creación de una dirección IP pública para la configuración del front-end
 

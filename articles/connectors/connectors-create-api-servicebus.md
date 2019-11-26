@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 09/19/2019
 tags: connectors
-ms.openlocfilehash: 0cf5486e77e69f83973f7e62669e5ab45d1c94a2
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: 477fdc2291d875c57bfb0ae3cb87b6df9bd41398
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72679200"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73024306"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Intercambio de mensajes en la nube con Azure Logic Apps y Azure Service Bus
 
@@ -79,7 +79,7 @@ Confirme que la aplicación lógica tiene permiso para acceder al espacio de nom
 
    Todos los desencadenadores de Service Bus son desencadenadores de *sondeo prolongado*. Esto significa que, cuando se activa un desencadenador, este procesa todos los mensajes y espera 30 segundos a que aparezcan más en la suscripción del tema o la cola. Si no es el caso, se omite la ejecución del desencadenador. De lo contrario, el desencadenador sigue leyendo mensajes hasta que la suscripción del tema o de la cola se queda vacía. El siguiente sondeo del desencadenador se basa en el intervalo de periodicidad especificado en las propiedades del desencadenador.
 
-   Algunos desencadenadores, como **Cuando llegan uno o más mensajes a una cola (autocompletar)** , pueden devolver uno o varios mensajes. Cuando se activan estos desencadenadores, devuelven entre uno y el número de mensajes especificados por la propiedad **Recuento máximo de mensajes** del desencadenador.
+   Algunos desencadenadores, como **Cuando llegan uno o más mensajes a una cola (autocompletar)** , pueden devolver uno o más mensajes. Cuando se activan estos desencadenadores, devuelven entre uno y el número de mensajes especificados por la propiedad **Recuento máximo de mensajes** del desencadenador.
 
 1. Si el desencadenador se conecta a su espacio de nombres de Service Bus por primera vez, siga estos pasos cuando el Diseñador de aplicación lógica le pida información de conexión.
 

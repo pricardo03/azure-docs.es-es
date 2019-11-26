@@ -1,21 +1,20 @@
 ---
 title: 'Ejemplos y escenarios comunes: Azure Logic Apps'
-description: Ejemplos, escenarios comunes, tutoriales y guías detalladas de Azure Logic Apps
+description: Consulte ejemplos, escenarios comunes, tutoriales y guías detalladas de Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
-ms.topic: article
-ms.assetid: e06311bc-29eb-49df-9273-1f05bbb2395c
+ms.topic: conceptual
 ms.date: 07/31/2019
-ms.openlocfilehash: 000de22105615c3f6aa015b07e13bf8a47955b52
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 9e245d1a0054d9de5b8b524416c8c92eb02353a7
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68706801"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73025518"
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Escenarios comunes, ejemplos, tutoriales y guías detalladas de Azure Logic Apps
 

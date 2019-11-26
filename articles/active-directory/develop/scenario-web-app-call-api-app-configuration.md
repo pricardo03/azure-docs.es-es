@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/16/2019
+ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1131cba204b7b7af33cc0441ee455b6e333aba20
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 231ecdb6afae1fc36d11b2c12aa82c7e860bb708
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71310079"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175318"
 ---
 # <a name="web-app-that-calls-web-apis---code-configuration"></a>Aplicación web que llama a las API web: configuración de código
 
@@ -38,8 +38,8 @@ Las bibliotecas que admiten el flujo de código de autorización para aplicacion
 | Biblioteca MSAL | DESCRIPCIÓN |
 |--------------|-------------|
 | ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Las plataformas admitidas son las plataformas .NET Framework y .NET Core (no UWP, Xamarin.iOS ni Xamarin.Android, ya que estas plataformas se usan para compilar aplicaciones cliente públicas) |
-| ![MSAL.Python](media/sample-v2-code/logo_python.png) <br/> MSAL.Python | Desarrollo en curso: en versión preliminar pública |
-| ![MSAL.Java](media/sample-v2-code/logo_java.png) <br/> MSAL.Java | Desarrollo en curso: en versión preliminar pública |
+| ![Python de MSAL](media/sample-v2-code/logo_python.png) <br/> Python de MSAL | Desarrollo en curso: en versión preliminar pública |
+| ![Java de MSAL](media/sample-v2-code/logo_java.png) <br/> Java de MSAL | Desarrollo en curso: en versión preliminar pública |
 
 Seleccione la pestaña correspondiente a la plataforma que le interese:
 
@@ -70,8 +70,8 @@ Los fragmentos de código de este artículo y de los siguientes se han extraído
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-Los fragmentos de código de este artículo y los siguientes se han extraído del ejemplo de aplicación web msal4j de [aplicación web de Java que llama a Microsoft Graph](https://github.com/Azure-Samples/ms-identity-java-webapp).
-El ejemplo permite actualmente que msal4j genere la dirección URL del código de autorización y controla la navegación al punto de conexión de autorización de la plataforma de identidad de Microsoft. También es posible usar la seguridad de Sprint para iniciar la sesión del usuario. Es posible que desee consultar dicho ejemplo para obtener detalles completos de la implementación.
+Los fragmentos de código de este artículo y los siguientes se han extraído del ejemplo de aplicación web de Java de MSAL de [aplicación web de Java que llama a Microsoft Graph](https://github.com/Azure-Samples/ms-identity-java-webapp).
+El ejemplo permite actualmente que Java de MSAL genere la dirección URL del código de autorización y controla la navegación al punto de conexión de autorización de la plataforma de identidad de Microsoft. También es posible usar la seguridad de Sprint para iniciar la sesión del usuario. Es posible que desee consultar dicho ejemplo para obtener detalles completos de la implementación.
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
@@ -370,14 +370,14 @@ public partial class Startup
         }
       });
   }
-  
+
   private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotification context)
   {
       // Upon successful sign in, get the access token & cache it using MSAL
       IConfidentialClientApplication clientApp = MsalAppBuilder.BuildConfidentialClientApplication(new ClaimsPrincipal(context.AuthenticationTicket.Identity));
       AuthenticationResult result = await clientApp.AcquireTokenByAuthorizationCode(new[] { "Mail.Read" }, context.Code).ExecuteAsync();
   }
-  
+
   private Task OnAuthenticationFailed(AuthenticationFailedNotification<OpenIdConnectMessage, OpenIdConnectAuthenticationOptions> notification)
   {
       notification.HandleResponse();
@@ -534,17 +534,17 @@ public static class MsalAppBuilder
             .WithRedirectUri(AuthenticationConfig.RedirectUri)
             .WithAuthority(new Uri(AuthenticationConfig.Authority))
             .Build();
-  
+
       // After the ConfidentialClientApplication is created, we overwrite its default UserTokenCache with our implementation
       MSALPerUserMemoryTokenCache userTokenCache = new MSALPerUserMemoryTokenCache(clientapp.UserTokenCache, currentUser ?? ClaimsPrincipal.Current);
-  
+
       return clientapp;
   }
 ```
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-msal4j proporciona métodos para serializar y deserializar la caché de tokens. En el ejemplo de Java se controla la serialización de la sesión, como se muestra en el método `getAuthResultBySilentFlow` de [AuthHelper.java#L99-L122](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/d55ee4ac0ce2c43378f2c99fd6e6856d41bdf144/src/main/java/com/microsoft/azure/msalwebsample/AuthHelper.java#L99-L122).
+Java de MSAL proporciona métodos para serializar y deserializar la caché de tokens. En el ejemplo de Java se controla la serialización de la sesión, como se muestra en el método `getAuthResultBySilentFlow` de [AuthHelper.java#L99-L122](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/d55ee4ac0ce2c43378f2c99fd6e6856d41bdf144/src/main/java/com/microsoft/azure/msalwebsample/AuthHelper.java#L99-L122).
 
 ```Java
 IAuthenticationResult getAuthResultBySilentFlow(HttpServletRequest httpRequest, HttpServletResponse httpResponse)
@@ -560,7 +560,7 @@ IAuthenticationResult getAuthResultBySilentFlow(HttpServletRequest httpRequest, 
   }
 
   SilentParameters parameters = SilentParameters.builder(
-          Collections.singleton("User.ReadBasic.All"),
+          Collections.singleton("User.Read"),
           result.account()).build();
 
   CompletableFuture<IAuthenticationResult> future = app.acquireTokenSilently(parameters);

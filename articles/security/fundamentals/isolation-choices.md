@@ -1,10 +1,10 @@
 ---
 title: Aislamiento en la nube pública de Azure | Microsoft Docs
-description: Obtenga información acerca de los servicios de computación en la nube que incluyen una amplia selección de instancias y servicios de proceso, que se pueden escalar tanto vertical como horizontalmente para satisfacer las necesidades de su aplicación o de su empresa.
+description: Conozca cómo Azure proporciona aislamiento contra usuarios malintencionados y no malintencionados y ofrece a los arquitectos varias opciones de aislamiento.
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: barbkess
+manager: rkarlin
 editor: TomSh
 ms.assetid: ''
 ms.service: security
@@ -13,38 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 10/28/2019
 ms.author: TomSh
-ms.openlocfilehash: a3e4a598446c0b59cd678e186906abc61d3d727d
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 5e6910db7765c4cb8f151401a6803e6d4d3f998e
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123072"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73159764"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Aislamiento en la nube pública de Azure
-##  <a name="introduction"></a>Introducción
-### <a name="overview"></a>Información general
-Para ayudar a clientes actuales y potenciales de Azure a comprender y utilizar las diversas funcionalidades relacionadas con la seguridad disponibles en torno a la plataforma de Azure, Microsoft ha desarrollado una serie de notas del producto, información general de seguridad, procedimientos recomendados y listas de comprobación.
-Los temas varían en extensión y detalle, y se actualizan periódicamente. Este documento forma parte de esa serie, como se resume en la breve descripción de la siguiente sección.
+Azure permite ejecutar aplicaciones y máquinas virtuales (VM) en una infraestructura física compartida. Una de las motivaciones económicas principales para ejecutar aplicaciones en un entorno de nube es la capacidad de distribuir el costo de los recursos compartidos entre varios clientes. Esta práctica de multiinquilino mejora la eficiencia al multiplexar los recursos entre los distintos clientes a un bajo costo. Lamentablemente, también presenta el riesgo del uso compartido de servidores físicos y otros recursos de infraestructura al ejecutar aplicaciones confidenciales y máquinas virtuales que pueden pertenecer a un usuario arbitrario y potencialmente malintencionado.
 
-### <a name="azure-platform"></a>Plataforma Azure
-Azure es una plataforma de servicios en la nube abierta y flexible que admite la más amplia selección de sistemas operativos, lenguajes de programación, marcos, herramientas, bases de datos y dispositivos. Por ejemplo, puede:
-- Ejecutar contenedores de Linux con integración con Docker.
-- Compilar aplicaciones con JavaScript, Python, .NET, PHP, Java y Node.js.
-- Crear back-ends para dispositivos iOS, Android y Windows.
-
-Microsoft Azure admite las mismas tecnologías en las que ya confían millones de desarrolladores y profesionales de TI.
-
-Al crear en un proveedor de servicios en la nube pública, o migrar recurso de TI al mismo, está confiando en la capacidad de la organización para proteger sus aplicaciones y datos con los servicios y controles que proporcionan para administrar la seguridad de sus recursos en la nube.
-
-La infraestructura de Azure está diseñada desde la instalación hasta las aplicaciones para hospedar millones de clientes simultáneamente, y proporciona una base de confianza en la que las empresas pueden satisfacer sus necesidades de seguridad. Además, Azure ofrece una amplia gama de opciones de seguridad configurables, así como la posibilidad de controlarlas, por lo que puede personalizar la seguridad para satisfacer los requisitos únicos de sus implementaciones. Este documento le ayuda a cumplir estos requisitos.
-
-### <a name="abstract"></a>Descripción breve
-
-Microsoft Azure permite ejecutar aplicaciones y máquinas virtuales (VM) en una infraestructura física compartida. Una de las motivaciones económicas principales para ejecutar aplicaciones en un entorno de nube es la capacidad de distribuir el costo de los recursos compartidos entre varios clientes. Esta práctica de multiinquilino mejora la eficiencia al multiplexar los recursos entre los distintos clientes a un bajo costo. Lamentablemente, también presenta el riesgo del uso compartido de servidores físicos y otros recursos de infraestructura al ejecutar aplicaciones confidenciales y máquinas virtuales que pueden pertenecer a un usuario arbitrario y potencialmente malintencionado.
-
-En este artículo se describe cómo Microsoft Azure proporciona aislamiento contra usuarios malintencionados y no malintencionados y cómo sirve como guía para diseñar soluciones en la nube, ya que ofrece diversas opciones de aislamiento a los arquitectos. Estas notas del producto se centran en la tecnología de la plataforma de Azure y los controles de seguridad orientados al cliente y no pretende indicar ningún SLA, modelo de precios o consideraciones prácticas sobre DevOps.
+En este artículo se describe cómo Azure proporciona aislamiento contra usuarios malintencionados y no malintencionados y cómo sirve como guía para el diseño de soluciones en la nube, ya que ofrece a los arquitectos diversas opciones de aislamiento.
 
 ## <a name="tenant-level-isolation"></a>Aislamiento en el nivel de inquilino
 Una de las principales ventajas de la informática en la nube es el concepto de una infraestructura común compartida por varios clientes simultáneamente, dando lugar a economías de escala. Este concepto se denomina multiinquilinato. Microsoft trabaja continuamente para asegurarse de que la arquitectura multiinquilino de Microsoft Cloud Azure admita las normas de seguridad, confidencialidad, privacidad, integridad y disponibilidad.
@@ -350,4 +331,3 @@ Microsoft Azure proporciona diversos servicios de computación en la nube que in
 - [Aislamiento del almacenamiento](https://msenterprise.global.ssl.fastly.net/vnext/PDFs/A01_AzureSecurityWhitepaper20160415c.pdf)
 
 Microsoft Azure separa la computación basada en máquinas virtuales de cliente del almacenamiento. Esta separación permite escalar la computación y el almacenamiento de forma independiente, facilitando así el multiinquilinato y el aislamiento. Por tanto, Azure Storage se ejecuta en hardware independiente sin conectividad de red con Azure Compute, excepto en el nivel lógico. Todas las peticiones se ejecutan sobre HTTP o HTTPS, a elección del cliente.
-

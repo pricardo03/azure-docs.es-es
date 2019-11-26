@@ -7,12 +7,12 @@ ms.date: 07/17/2019
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 17fa443c3b0113d80a020f2a43c7099cf5a832d2
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: e3ff86770ec0337c9a4a11b30c6d88e8365bfa24
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68772898"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73064101"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-functions-trigger-for-cosmos-db"></a>Diagnóstico y solución de problemas al usar el desencadenador de Azure Functions para Azure Cosmos DB
 
@@ -60,7 +60,7 @@ Este error significa que el contenedor de concesiones actual tiene particiones, 
 
 Este problema aparece si se usa Azure Portal y se intenta seleccionar el botón **Ejecutar** en la pantalla al inspeccionar una función de Azure que usa el desencadenador. El desencadenador no requiere que seleccione Ejecutar para iniciarse, se iniciará automáticamente cuando se implemente la función de Azure. Si desea comprobar la secuencia de registro de la función de Azure en Azure Portal, basta con que vaya al contenedor supervisado e inserte algunos elementos nuevos; verá automáticamente el desencadenador ejecutándose.
 
-### <a name="my-changes-take-too-long-be-received"></a>Mis cambios tardan demasiado en recibirse
+### <a name="my-changes-take-too-long-to-be-received"></a>Mis cambios tardan demasiado en recibirse
 
 Este escenario puede tener varias causas y todas deben comprobarse:
 
@@ -78,7 +78,7 @@ Cuando la función de Azure recibe los cambios, a menudo los procesa y, opcional
 
 Si faltan algunos cambios en el destino, esto podría significar que se trata de algún error que sucede durante la ejecución de la función de Azure después de recibir los cambios.
 
-En este escenario, la mejor forma de proceder consiste en agregar `try/catch blocks` en el código y dentro de los bucles que podrían estar procesando los cambios, para detectar errores en un subconjunto determinado de elementos y controlarlos según corresponda (enviarlos a otro almacenamiento adicional para seguir con el análisis o volver a intentarlo). 
+En este escenario, la mejor forma de proceder consiste en agregar bloques `try/catch` en el código y dentro de los bucles que podrían estar procesando los cambios, con el fin de detectar errores en un subconjunto determinado de elementos y administrarlos según corresponda (enviarlos a otro almacenamiento adicional para seguir con el análisis o volver a intentarlo). 
 
 > [!NOTE]
 > El desencadenador de Azure Functions para Cosmos DB, de forma predeterminada, no volverá a intentar un lote de cambios si se ha producido una excepción no controlada durante la ejecución del código. Esto significa que la razón por la que no han llegado los cambios al destino es que se producen errores al procesarlos.
@@ -103,6 +103,10 @@ Cuando se establece [StartFromBeginning](../azure-functions/functions-bindings-c
 Este error se produce si el proyecto de Azure Functions (o cualquier proyecto al que se haga referencia) contiene una referencia de NuGet manual al SDK de Azure Cosmos DB con una versión diferente de la proporcionada por la [Extensión Cosmos DB de Azure Functions](./troubleshoot-changefeed-functions.md#dependencies).
 
 Para solucionar esta situación, quite la referencia manual de NuGet que se ha agregado y deje que la referencia del SDK de Azure Cosmos DB se resuelva con el paquete de la Extensión de Azure Functions de Cosmos DB.
+
+### <a name="changing-azure-functions-polling-interval-for-the-detecting-changes"></a>Cambio del intervalo de sondeo de Azure Functions para detectar cambios
+
+Como se explicó anteriormente en [Mis cambios tardan demasiado en recibirse](./troubleshoot-changefeed-functions.md#my-changes-take-too-long-to-be-received), la función de Azure se suspenderá durante un período configurable (5 segundos, de forma predeterminada) antes de comprobar si hay nuevos cambios (para evitar un consumo elevado de RU). Puede configurar este tiempo de suspensión en la opción `FeedPollDelay/feedPollDelay` de la [configuración](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration) del desencadenador (el valor debe especificarse en milisegundos).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

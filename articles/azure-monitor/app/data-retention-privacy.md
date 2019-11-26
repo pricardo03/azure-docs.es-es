@@ -6,13 +6,13 @@ ms.subservice: application-insights
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 08/22/2019
-ms.openlocfilehash: 62758ef82b074e093e837b2095dd9f27ab31657b
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.date: 09/29/2019
+ms.openlocfilehash: aacd41debfa8810facc41896051767eb4ab6e3b6
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72678092"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73052490"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Recopilación, retención y almacenamiento de datos en Application Insights
 
@@ -21,16 +21,17 @@ Al instalar el SDK de [Azure Application Insights][start] en su aplicación, se 
 En primer lugar, la respuesta corta:
 
 * Es improbable que los módulos de telemetría estándar que se ejecutan "de fábrica" envíen información confidencial al servicio. La telemetría se ocupa de la carga, las métricas de rendimiento y uso, los informes de excepciones y otros datos de diagnóstico. Los principales datos del usuario que aparecen los informes de diagnóstico son direcciones URL; pero, en cualquier caso, la aplicación no debería colocar información confidencial como texto sin formato en una dirección URL.
-* Puede escribir código que envíe telemetría personalizada adicional que le ayude con el uso de la supervisión y el diagnóstico. (Esta extensibilidad es una excelente característica de Application Insights.) Por error, sería posible escribir este código de modo que incluya datos personales y otra información confidencial. Si la aplicación trabaja con estos datos, debe aplicar procesos de revisión exhaustivos a todo el código que escriba.
+* Puede escribir código que envíe telemetría personalizada adicional que le ayude con el uso de la supervisión y el diagnóstico. (Esta extensibilidad es una excelente característica de Application Insights.) Por error, sería posible escribir este código de modo que incluya datos personales y otra información confidencial. Si la aplicación trabaja con estos datos, debe aplicar un proceso de revisión exhaustivo a todo el código que escriba.
 * Al desarrollar y probar la aplicación, es fácil de inspeccionar lo que envía el SDK. Los datos aparecen en las ventanas de salida de depuración tanto del IDE como del explorador. 
 * Los datos se almacenan en servidores de [Microsoft Azure](https://azure.com) de EE. UU o Europa. (La aplicación puede ejecutarse en cualquier lugar). Azure tiene [procesos de seguridad exhaustivos y satisface un amplio intervalo de estándares de cumplimiento](https://azure.microsoft.com/support/trust-center/). Solo usted y el equipo que designe tienen acceso a sus datos. El personal de Microsoft puede acceder a ellos de forma restringida solo en circunstancias concretas y siempre con su conocimiento. Los datos se cifran en tránsito y en reposo.
+*   Revise los datos recopilados, ya que esto puede incluir datos que se permiten en algunas circunstancias, pero no en otras.  Un buen ejemplo de esto es el nombre de dispositivo. El nombre del dispositivo de un servidor no tiene ningún impacto en la privacidad y resulta útil, pero el nombre de dispositivo de un teléfono o portátil puede tener un impacto en la privacidad y resultar menos útil. Un SDK desarrollado principalmente para los servidores de destino, va a recopilar el nombre del dispositivo de forma predeterminada, por lo que es posible que deba sobrescribirse en eventos normales y excepciones.
 
 En el resto de este artículo se describen más detalladamente estas respuestas. El artículo está diseñado para ser independiente, por lo que puede mostrarlo a compañeros que no formen parte de su equipo.
 
 ## <a name="what-is-application-insights"></a>¿Qué es Application Insights?
 [Azure Application Insights][start] es un servicio que proporciona Microsoft que le ayuda a mejorar el rendimiento y la facilidad de uso de la aplicación activa. Supervisa la aplicación durante todo el tiempo que se ejecute, tanto durante las pruebas como después de haberla publicado o implementado. Application Insights crea gráficos y tablas que muestran, por ejemplo, en qué horas del día se obtiene la mayoría de los usuarios, la capacidad de respuesta de la aplicación y lo bien que la atienden los servicios externos de los que depende. Si hay bloqueos, errores o problemas de rendimiento, puede buscar en los datos de la telemetría para diagnosticar la causa. Y el servicio le enviará mensajes de correo electrónico si se produce cualquier tipo de cambio en la disponibilidad y rendimiento de la aplicación.
 
-Para obtener esta funcionalidad, instale un SDK de Application Insights en la aplicación, que se convierte en parte de su código. Cuando se ejecuta la aplicación, el SDK supervisa su funcionamiento y envía la telemetría al servicio Application Insights. Se trata de un servicio en la nube hospedado por [Microsoft Azure](https://azure.com). (No obstante, Application Insights funciona con cualquier aplicación, no solo con las hospedadas en Azure.)
+Para obtener esta funcionalidad, instale un SDK de Application Insights en la aplicación, que se convierte en parte de su código. Cuando se ejecuta la aplicación, el SDK supervisa su funcionamiento y envía la telemetría al servicio Application Insights. Se trata de un servicio en la nube hospedado por [Microsoft Azure](https://azure.com). (No obstante, Application Insights funciona con cualquier aplicación, no solo con las hospedadas en Azure).
 
 El servicio de Application Insights almacena y analiza los datos de telemetría. Para ver el análisis o realizar búsquedas en la telemetría almacenada, inicie sesión en su cuenta de Azure y abra el recurso Application Insights de la aplicación. También puede compartir el acceso a los datos con otros miembros del equipo o con determinados suscriptores de Azure.
 
@@ -39,7 +40,6 @@ Los datos exportados del servicio Application Insights se pueden exportar, por e
 Los SDK de Application Insights están disponible para varios tipos de aplicaciones: servicios web hospedados en Azure o en sus propios servidores de Java EE o ASP.NET; clientes web (es decir, el código se ejecuta en una página web); servicios y aplicaciones de escritorio, y aplicaciones para dispositivos, como Windows Phone, iOS y Android. Todos ellos envían telemetría al mismo servicio.
 
 ## <a name="what-data-does-it-collect"></a>¿Qué datos recopila?
-### <a name="how-is-the-data-is-collected"></a>¿Cómo se recopilan los datos?
 Hay tres orígenes de datos:
 
 * El SDK, que se integra con la aplicación en la [fase de desarrollo](../../azure-monitor/app/asp-net.md) o [en tiempo de ejecución](../../azure-monitor/app/monitor-performance-live-website-now.md). Existen distintos SDK para los diferentes tipos de aplicaciones. También hay un [SDK para páginas web](../../azure-monitor/app/javascript.md), que se carga en el explorador del usuario final junto con la página.
@@ -52,11 +52,11 @@ Hay tres orígenes de datos:
 ### <a name="what-kinds-of-data-are-collected"></a>¿Qué tipos de datos se recopilan?
 Las principales categorías son:
 
-* [Telemetría de servidor web](../../azure-monitor/app/asp-net.md) : solicitudes HTTP.  Identificador URI, tiempo invertido en procesar la solicitud, código de respuesta y dirección IP del cliente. Identificador de sesión.
+* [Telemetría de servidor web](../../azure-monitor/app/asp-net.md) : solicitudes HTTP.  Identificador URI, tiempo invertido en procesar la solicitud, código de respuesta y dirección IP del cliente. `Session id`.
 * [Páginas web](../../azure-monitor/app/javascript.md) : contadores de sesión, página y usuario. Tiempos de carga de las páginas. Excepciones. Llamadas AJAX.
 * Contadores de rendimiento: memoria, CPU, E/S, ocupación de la red.
 * Contexto de cliente y servidor: SO, configuración regional, tipo de dispositivo, explorador y resolución de pantalla.
-* [Excepciones](../../azure-monitor/app/asp-net-exceptions.md) y bloqueos: **volcados de pila**, identificador de compilación y tipo de CPU. 
+* [Excepciones](../../azure-monitor/app/asp-net-exceptions.md) y bloqueos: **volcados de pila**, `build id` y tipo de CPU. 
 * [Dependencias](../../azure-monitor/app/asp-net-dependencies.md) : llamadas a servicios externos como REST, SQL y AJAX. Identificador URI o cadena de conexión, duración, con éxito, comando.
 * [Pruebas de disponibilidad](../../azure-monitor/app/monitor-web-app-availability.md) : duración de prueba y pasos, respuestas.
 * [Registros de seguimiento](../../azure-monitor/app/asp-net-trace-logs.md) y [telemetría personalizada](../../azure-monitor/app/api-custom-events-metrics.md) -  **: todo el código que se escribe en los registros o telemetría**.
@@ -84,7 +84,7 @@ Los datos que se mantengan más de 90 días generarán cargos adicionales. Más
 
 Los datos agregados (es decir, recuentos, promedios y otros datos estadísticos que se ven en el Explorador de métricas) se retienen con un nivel de detalle de un minuto durante 90 días.
 
-Las [instantáneas de depuración](../../azure-monitor/app/snapshot-debugger.md) se guardan durante 15 días. Esta directiva de retención se establece para cada aplicación. Si necesita aumentar este valor, puede solicitar un aumento abriendo una incidencia de soporte técnico en Azure Portal.
+[Las instantáneas de depuración](../../azure-monitor/app/snapshot-debugger.md) se guardan durante 15 días. Esta directiva de retención se establece para cada aplicación. Si necesita aumentar este valor, puede solicitar un aumento abriendo una incidencia de soporte técnico en Azure Portal.
 
 ## <a name="who-can-access-the-data"></a>¿Quién puede acceder a los datos?
 Usted puede ver los datos y, si tiene una cuenta de organización, también pueden los miembros del equipo. 
@@ -103,7 +103,7 @@ Microsoft usa los datos con el fin exclusivo de proporcionarle el servicio.
 ## <a name="how-secure-is-my-data"></a>¿Están seguros mis datos?
 Application Insights es un servicio de Azure. Las directivas de seguridad se describen en las [notas del producto de seguridad, privacidad y cumplimiento de Azure](https://go.microsoft.com/fwlink/?linkid=392408).
 
-Los datos se almacenan en servidores de Microsoft Azure. En el caso de las cuentas de Azure Portal, las restricciones se describen en el documento [Trusted Cloud: Microsoft Azure Security, Privacy, and Compliance](https://go.microsoft.com/fwlink/?linkid=392408).
+Los datos se almacenan en servidores de Microsoft Azure. En el caso de las cuentas de Azure Portal, las restricciones se describen en el documento [Seguridad, privacidad y cumplimiento de Azure](https://go.microsoft.com/fwlink/?linkid=392408).
 
 El acceso a los datos por parte del personal de Microsoft está restringido. El acceso a los datos solo se realiza con su permiso y si es necesario para prestarle soporte en el uso de Application Insights. 
 
@@ -118,7 +118,7 @@ Si comparte el código con otros proyectos, no olvide quitar la clave de instrum
 Todos los datos se cifran en reposo y al moverse entre centros de datos.
 
 #### <a name="is-the-data-encrypted-in-transit-from-my-application-to-application-insights-servers"></a>¿Se cifran los datos en tránsito desde mi aplicación a los servidores de Application Insights?
-Sí, se usa https para enviar datos al portal desde casi todos los SDK, incluidos dispositivos y servidores web y páginas web HTTPS. La única excepción son los datos enviados desde páginas web HTTP sin formato.
+Sí, se usa https para enviar datos al portal desde casi todos los SDK, incluidos servidores web, dispositivos y páginas web HTTPS. La única excepción son los datos enviados desde páginas web HTTP sin formato.
 
 ## <a name="does-the-sdk-create-temporary-local-storage"></a>¿El SDK crea almacenamiento local temporal?
 
@@ -126,13 +126,13 @@ Sí, algunos canales de telemetría conservarán los datos localmente si no se p
 
 Los canales de telemetría que utilizan almacenamiento local crean archivos temporales en los directorios TEMP o APPDATA que están restringidos a la cuenta específica que ejecuta la aplicación. Esto puede ocurrir cuando un punto de conexión no estaba disponible temporalmente o se alcanza el límite. Una vez que se resuelva este problema, el canal de telemetría reanudará el envío de todos los datos nuevos y conservados.
 
-Los datos conservados no se cifran localmente. Si esto supone un problema, revise los datos y limite la recopilación de datos privados. (Consulte [Cómo exportar y eliminar datos privados](https://docs.microsoft.com/azure/application-insights/app-insights-customer-data#how-to-export-and-delete-private-data) para más información).
+Los datos conservados no se cifran localmente. Si esto supone un problema, revise los datos y limite la recopilación de datos privados. (Para obtener más información, consulte [Cómo exportar y eliminar datos privados](https://docs.microsoft.com/azure/application-insights/app-insights-customer-data#how-to-export-and-delete-private-data)).
 
 Si un cliente necesita para configurar este directorio con requisitos de seguridad específicos, se puede configurar para cada marco de trabajo. Asegúrese de que el proceso que ejecuta la aplicación tiene acceso de escritura a este directorio, pero asegúrese también de que este directorio está protegido para evitar que usuarios no deseados puedan leer datos de telemetría.
 
 ### <a name="java"></a>Java
 
-`C:\Users\username\AppData\Local\Temp` se utiliza para guardar los datos. Esta ubicación no es configurable desde el directorio de configuración y los permisos para acceder a esta carpeta están restringidos a un usuario determinado con las credenciales necesarias. (Consulte la [implementación](https://github.com/Microsoft/ApplicationInsights-Java/blob/40809cb6857231e572309a5901e1227305c27c1a/core/src/main/java/com/microsoft/applicationinsights/internal/util/LocalFileSystemUtils.java#L48-L72) aquí).
+`C:\Users\username\AppData\Local\Temp` se utiliza para guardar los datos. Esta ubicación no es configurable desde el directorio de configuración y los permisos para acceder a esta carpeta están restringidos a un usuario determinado con las credenciales necesarias. (Para obtener más información, consulte [Implementación](https://github.com/Microsoft/ApplicationInsights-Java/blob/40809cb6857231e572309a5901e1227305c27c1a/core/src/main/java/com/microsoft/applicationinsights/internal/util/LocalFileSystemUtils.java#L48-L72)).
 
 ###  <a name="net"></a>.Net
 
@@ -167,7 +167,7 @@ El fragmento de código siguiente muestra cómo establecer `ServerTelemetryChann
 services.AddSingleton(typeof(ITelemetryChannel), new ServerTelemetryChannel () {StorageFolder = "/tmp/myfolder"});
 ```
 
-Consulte [Configuración personalizada de AspNetCore](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration) para más información. )
+(Para obtener más información, consulte [Configuración personalizada de AspNetCore](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration)).
 
 ### <a name="nodejs"></a>Node.js
 
@@ -181,9 +181,9 @@ El prefijo de la carpeta `appInsights-node` se puede invalidar cambiando el valo
 
 Para garantizar la seguridad de los datos en tránsito a los puntos de conexión de Application Insights, se recomienda encarecidamente a los clientes configurar su aplicación para que use al menos Seguridad de la capa de transporte (TLS) 1.2. Las versiones anteriores de TLS/Capa de sockets seguros (SSL) han demostrado ser vulnerables y, si bien todavía funcionan para permitir la compatibilidad con versiones anteriores, **no se recomiendan**, y el sector está cambiando rápidamente para abandonar la compatibilidad de estos protocolos más antiguos. 
 
-[PCI Security Standards Council](https://www.pcisecuritystandards.org/) ha establecido una [fecha límite de 30 de junio de 2018](https://www.pcisecuritystandards.org/pdfs/PCI_SSC_Migrating_from_SSL_and_Early_TLS_Resource_Guide.pdf) para deshabilitar las versiones anteriores de TLS/SSL y actualizar a protocolos más seguros. Una vez que Azure quite la compatibilidad heredada, si la aplicación o los clientes no pueden comunicarse a través de TLS 1.2 como mínimo, podría no ser capaz de enviar datos a Application Insights. El enfoque que adopte para probar y validar la compatibilidad con TLS de la aplicación variará según la plataforma y sistema operativo, así como el lenguaje o marco que use la aplicación.
+[PCI Security Standards Council](https://www.pcisecuritystandards.org/) ha establecido una [fecha límite el 30 de junio de 2018](https://www.pcisecuritystandards.org/pdfs/PCI_SSC_Migrating_from_SSL_and_Early_TLS_Resource_Guide.pdf) para deshabilitar las versiones anteriores de TLS/SSL y actualizar a protocolos más seguros. Una vez que Azure quite la compatibilidad heredada, si la aplicación o los clientes no pueden comunicarse a través de TLS 1.2 como mínimo, podría no ser capaz de enviar datos a Application Insights. El enfoque que adopte para probar y validar la compatibilidad con TLS de la aplicación variará según la plataforma y sistema operativo, así como el lenguaje o marco que use la aplicación.
 
-No se recomienda establecer explícitamente la aplicación para que solo use TLS 1.2, a menos que sea absolutamente necesario, ya que esto puede interrumpir las características de seguridad a nivel de la plataforma que le permiten detectar y aprovechar automáticamente las ventajas de los protocolos más seguros más recientes a medida que estén disponibles, como TLS 1.3. Se recomienda realizar una auditoría completa del código de la aplicación para comprobar la codificación rígida de versiones específicas de TLS/SSL.
+No se recomienda establecer explícitamente la aplicación para que solo use TLS 1.2, a menos que sea necesario. Eso se debe a que puede interrumpir las características de seguridad a nivel de la plataforma que le permiten detectar y aprovechar automáticamente las ventajas de los protocolos más seguros más recientes a medida que estén disponibles, como TLS 1.3. Se recomienda realizar una auditoría completa del código de la aplicación para comprobar la codificación rígida de versiones específicas de TLS/SSL.
 
 ### <a name="platformlanguage-specific-guidance"></a>Instrucciones específicas para la plataforma y el lenguaje
 
@@ -212,7 +212,7 @@ openssl version -a
 
 ### <a name="run-a-test-tls-12-transaction-on-linux"></a>Ejecución de una transacción de TLS 1.2 de prueba en Linux
 
-Para ejecutar una prueba preliminar básica para ver si el sistema de Linux puede comunicarse a través de TLS 1.2, abra el terminal y ejecute:
+Para ejecutar una prueba preliminar a fin de comprobar si el sistema de Linux puede comunicarse a través de TLS 1.2, abra el terminal y ejecute lo siguiente:
 
 ```terminal
 openssl s_client -connect bing.com:443 -tls1_2
@@ -251,9 +251,9 @@ En el caso de los [SDK de otras plataformas][platforms], consulte los documentos
 | Clase de datos recopilados | Se incluyen (no es una lista exhaustiva) |
 | --- | --- |
 | **Propiedades** |**Cualquier dato - determinado por el código** |
-| DeviceContext |Identificador, IP, configuración regional, modelo de dispositivo, red, tipo de red, nombre de OEM, resolución de pantalla, instancia de rol, nombre de rol, tipo de dispositivo |
+| DeviceContext |`Id`, IP, configuración regional, modelo de dispositivo, red, tipo de red, nombre de OEM, resolución de pantalla, instancia de rol, nombre de rol, tipo de dispositivo |
 | ClientContext |Sistema operativo, configuración regional, idioma, red, resolución de ventana |
-| Sesión |identificador de sesión |
+| Sesión |`session id` |
 | ServerContext |Nombre del equipo, configuración regional, sistema operativo, dispositivo, sesión de usuario, contexto de usuario, operación |
 | Inferidos |ubicación geográfica de dirección IP, marca de tiempo, sistema operativo, explorador |
 | Métricas |Nombre y valor de la métrica |
@@ -263,8 +263,8 @@ En el caso de los [SDK de otras plataformas][platforms], consulte los documentos
 | Ajax |Llamadas HTTP de la página web al servidor |
 | Requests |URL, duración, código de respuesta |
 | Dependencias |Tipo (SQL, HTTP,...), cadena de conexión o URI, sincrónico/asincrónico, duración, éxito, instrucción SQL (con monitor de estado) |
-| **Excepciones** |Tipo, **mensaje**, pilas de llamadas, archivo de origen y número de línea, identificador de subproceso |
-| Bloqueos |Identificador de proceso, identificador de proceso principal, identificador de subproceso de bloqueo; revisión de aplicación, identificador, compilación; tipo de excepción, dirección, razón; símbolos y registros confusos, direcciones binarias inicial y final, nombre binario y ruta de acceso, tipo de cpu |
+| **Excepciones** |Tipo, **mensaje**, pilas de llamadas, archivo de origen, número de línea, `thread id` |
+| Bloqueos |`Process id`, `parent process id`, `crash thread id`; revisión de aplicación, `id`, compilación; tipo de excepción, dirección, razón; símbolos y registros confusos, direcciones binarias inicial y final, nombre binario y ruta de acceso, tipo de CPU |
 | Seguimiento |**Mensaje** y nivel de gravedad |
 | Contadores de rendimiento |Tiempo de procesador, memoria disponible, velocidad de solicitudes, tasa de excepciones, bytes privados del proceso, velocidad de E/S, duración de la solicitud, longitud de la cola de solicitudes |
 | Disponibilidad |Código de respuesta de prueba web, duración de cada paso de la prueba, nombre de la prueba, marca de tiempo, éxito, tiempo de respuesta, ubicación de la prueba |

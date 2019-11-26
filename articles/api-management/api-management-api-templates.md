@@ -11,19 +11,19 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 9d75dff413e7b6e61d38b95e08bf9c891b583014
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: eee95a2b6acde3ad3b7d94cf5cdd0f74f9f09fd9
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073817"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176873"
 ---
 # <a name="api-templates-in-azure-api-management"></a>Plantillas de API en Azure API Management
 
 Azure API Management le ofrece la posibilidad de personalizar el contenido de las páginas del portal para desarrolladores mediante un conjunto de plantillas que configuran su contenido. Por medio de la sintaxis [DotLiquid](http://dotliquidmarkup.org/) y el editor que prefiera, como [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers) (DotLiquid para diseñadores), y un conjunto proporcionado de [recursos de cadena](api-management-template-resources.md#strings), [recursos de glifo](api-management-template-resources.md#glyphs) y [controles de página](api-management-page-controls.md) localizados, puede disponer de una gran flexibilidad para configurar el contenido de las páginas como considere oportuno mediante estas plantillas.  
-  
+
 Las plantillas de esta sección le permiten personalizar el contenido de las páginas de API en el portal para desarrolladores.  
   
 -   [API list](#APIList)  
@@ -41,12 +41,14 @@ Las plantillas de esta sección le permiten personalizar el contenido de las pá
 > [!NOTE]
 >  En la siguiente documentación se incluyen plantillas predeterminadas de ejemplo; sin embargo, están sujetas a cambios debido a mejoras continuas. Puede ver las plantillas predeterminadas en vivo en el portal para desarrolladores; para ello, vaya hasta a las plantillas individuales que desee. Para más información sobre cómo trabajar con plantillas, consulte [Cómo personalizar el portal para desarrolladores de API Management mediante plantillas](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
 
+[!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
+
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
 ## <a name="APIList"></a> API list  
  La plantilla **API list** le permite personalizar el cuerpo de la página de lista de API en el portal para desarrolladores.  
   
- ![Lista de API del portal para desarrolladores](./media/api-management-api-templates/APIM-Developer-Portal-Templates-API-List.png "Plantillas de lista de API del portal para desarrolladores")  
+ ![Developer Portal API List](./media/api-management-api-templates/APIM-Developer-Portal-Templates-API-List.png "APIM Developer Portal Templates API List (Lista de API de plantillas del portal para desarrolladores de APIM)") (Lista de API del portal para desarrolladores)  
   
 ### <a name="default-template"></a>Plantilla predeterminada  
   
@@ -114,7 +116,7 @@ Las plantillas de esta sección le permiten personalizar el contenido de las pá
 ## <a name="Product"></a> Operation  
  La plantilla **Operation** le permite personalizar el cuerpo de la página de operación en el portal para desarrolladores.  
   
- ![Página de operación del portal para desarrolladores](./media/api-management-api-templates/APIM-Developer-Portal-templates-Operation-page.png "Página de operación de las plantillas del portal para desarrolladores")  
+ ![Developer Portal Operation page](./media/api-management-api-templates/APIM-Developer-Portal-templates-Operation-page.png "APIM Developer Portal templates Operation page (Página Operation de plantillas del portal para desarrolladores de APIM)") (Página Operation del portal para desarrolladores)  
   
 ### <a name="default-template"></a>Plantilla predeterminada  
   
@@ -644,7 +646,7 @@ Las plantillas de esta sección le permiten personalizar el contenido de las pá
 ## <a name="CodeSamples"></a> Ejemplos de código  
  Las siguientes plantillas le permiten personalizar el cuerpo de los ejemplos de código individuales en la página de operación.  
   
- ![Ejemplos de código de plantillas del portal para desarrolladores](./media/api-management-api-templates/APIM-Developer-Portal-Templates-Code-samples.png "Ejemplos de código de las plantillas del portal para desarrolladores de APIM")  
+ ![Developer Portal Templates Code samples](./media/api-management-api-templates/APIM-Developer-Portal-Templates-Code-samples.png "APIM Developer Portal Templates Code samples (Ejemplos de código de plantillas del portal para desarrolladores de APIM)") (Ejemplos de código de plantillas del portal para desarrolladores)  
   
 -   [Curl](#Curl)  
   

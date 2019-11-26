@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 30394ba7b71d7dcb4233e5dca341dda47fd9ffa7
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 477f7d4824d3165357228d200dca9e556a072744
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72376315"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053520"
 ---
 # <a name="create-a-private-endpoint-using-azure-cli"></a>Creación de un punto de conexión privado mediante la CLI de Azure
 Un punto de conexión privado es el bloque de creación fundamental para Private Link en Azure. Permite que los recursos de Azure, como las máquinas virtuales, se comuniquen de manera privada con recursos de Private Link. En este inicio rápido, obtendrá información sobre cómo crear una máquina virtual en una red virtual, un servidor de SQL Database con un punto de conexión privado mediante la CLI de Azure. A continuación, puede acceder a la máquina virtual y acceder de forma segura al recurso de vínculo privado (un servidor de Azure SQL Database privado en este ejemplo). 
@@ -39,7 +39,7 @@ az network vnet create \
  --subnet-name mySubnet
 ```
 ## <a name="disable-subnet-private-endpoint-policies"></a>Deshabilitación de las directivas de punto de conexión privado 
-Azure implementa los recursos en una subred de una red virtual, por lo que debe crear o actualizar la subred para deshabilitar las directivas de red del punto de conexión privado. Actualice una configuración de subred denominada  *mySubnet* con [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update):
+Azure implementa los recursos en una subred de una red virtual, por lo que debe crear o actualizar la subred para deshabilitar las directivas de red del punto de conexión privado. Actualice una configuración de subred denominada *mySubnet* con [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update):
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -49,7 +49,7 @@ az network vnet subnet update \
  --disable-private-endpoint-network-policies true
 ```
 ## <a name="create-the-vm"></a>Creación de la máquina virtual 
-Cree la máquina virtual con az vm create. Cuando se le solicite, proporcione una contraseña que se usará como credenciales de inicio de sesión para la VM. En este ejemplo se crea una máquina virtual llamada  *myVm*: 
+Cree la máquina virtual con az vm create. Cuando se le solicite, proporcione una contraseña que se usará como credenciales de inicio de sesión para la VM. En este ejemplo se crea una máquina virtual llamada *myVm*: 
 ```azurecli-interactive
 az vm create \
   --resource-group myResourceGroup \
@@ -148,7 +148,7 @@ Conéctese a la máquina virtual *myVm* desde Internet de la siguiente manera:
 
 En esta sección, se conectará al servidor de SQL Database desde la máquina virtual mediante el punto de conexión privado.
 
- 1. En el Escritorio remoto de  *myVm*, abra PowerShell.
+ 1. En el Escritorio remoto de *myVm*, abra PowerShell.
  2. Escriba nslookup myserver.database.windows.net  Recibirá un mensaje similar al siguiente: 
 
 ```
@@ -165,7 +165,7 @@ En esta sección, se conectará al servidor de SQL Database desde la máquina v
  Contraseña: escriba una contraseña proporcionada durante la creación.
  Recordar contraseña: seleccione Sí.
  
- 5. Seleccione  **Conectar**.
+ 5. Seleccione **Conectar**.
  6. Examine las **Bases de datos** en el menú izquierdo.
  7. (Opcionalmente) Cree o consulte información de *mydatabase*.
  8. Cierre la conexión de Escritorio remoto a *myVm*.

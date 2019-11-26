@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 948712b684d1cd1b072862b7253d745f89b0cc56
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: b4795eeb24d1d0ac373a700a6b60b8facec0e37d
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72245929"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73064005"
 ---
 # <a name="azure-disk-encryption-scenarios-on-windows-vms"></a>Escenarios de Azure Disk Encryption en máquinas virtuales Windows
 
@@ -26,15 +26,12 @@ El cifrado de disco solo se puede aplicar a las máquinas virtuales que tengan [
 - [Requisitos de la directiva de grupo](disk-encryption-overview.md#group-policy-requirements)
 - [Requisitos de almacenamiento de la clave de cifrado](disk-encryption-overview.md#encryption-key-storage-requirements)
 
-
-
 >[!IMPORTANT]
-> - Si ya ha usado Azure Disk Encryption con Azure AD para cifrar una VM, debe seguir usando esta opción para cifrar la VM. Para más información, consulte [Azure Disk Encryption con Azure AD (versión anterior)](disk-encryption-overview-aad.md). 
+> - Si ya ha usado Azure Disk Encryption con Azure AD para cifrar una VM, debe seguir usando esta opción para cifrar la VM. Para más información, consulte [Azure Disk Encryption con Azure AD (versión anterior)](disk-encryption-overview-aad.md). 
 >
 > - Es preciso [hacer una instantánea](snapshot-copy-managed-disk.md) o crear una copia de seguridad antes de cifrar los discos. Las copias de seguridad garantizan que, en caso de un error inesperado durante el cifrado, sea posible una opción de recuperación. Las máquinas virtuales con discos administrados requieren una copia de seguridad antes del cifrado. Una vez realizada la copia de seguridad, puede usar el [cmdlet Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) para cifrar los discos administrados mediante la especificación del parámetro -skipVmBackup. Para más información sobre cómo realizar la copia de seguridad y la restauración de máquinas virtuales cifradas, consulte [Copia de seguridad y restauración de máquinas virtuales de Azure cifradas](../../backup/backup-azure-vms-encryption.md). 
 >
 > - Cifrar o deshabilitar el cifrado puede provocar el reinicio de una máquina virtual.
-
 
 ## <a name="install-tools-and-connect-to-azure"></a>Instalación de herramientas y conexión a Azure
 
@@ -244,7 +241,8 @@ Puede deshabilitar el cifrado con Azure PowerShell, la CLI de Azure o una planti
 Azure Disk Encryption no funciona para los siguientes escenarios, características ni tecnologías:
 
 - VM de cifrado de nivel básico o VM creadas a través del método de creación de VM clásico.
-- VM Windows que configuradas con sistemas RAID basados en software.
+- VM de cifrado configuradas con sistemas RAID basados en software.
+- VM de cifrado configuradas con espacios de almacenamiento directo (S2D), o bien versiones de Windows Server anteriores a 2016 configuradas con espacios de almacenamiento de Windows.
 - Integración con un sistema de administración de claves local.
 - Azure Files (sistema de archivos compartido).
 - Network File System (NFS).

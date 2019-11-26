@@ -1,5 +1,5 @@
 ---
-title: 'Administración de clústeres de HDInsight con Enterprise Security Enterprise: Azure'
+title: 'Administración de clústeres de Enterprise Security Package: Azure HDInsight'
 description: Aprenda a administrar clústeres de Azure HDInsight con Enterprise Security Package.
 ms.service: hdinsight
 author: omidm1
@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/24/2018
-ms.openlocfilehash: b98c62908885bc13cd5f473967cc70709af693d2
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 35accc587fe197da751a8695e3ec0b21ea9fbbd4
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034114"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044913"
 ---
 # <a name="manage-hdinsight-clusters-with-enterprise-security-package"></a>Administración de clústeres de HDInsight con Enterprise Security Package
 Aprenda sobre los usuarios y roles de Enterprise Security Package (ESP) de HDInsight y cómo administrar clústeres de ESP.
@@ -58,7 +58,7 @@ Puede vincular un clúster normal mediante un nombre de usuario administrado de 
 
 3. Puede ver un clúster vinculado en el nodo de **HDInsight** si la información de entrada es correcta. Ahora puede enviar una aplicación a este clúster vinculado.
 
-   ![IntelliJ del clúster vinculado de Azure Explorar](./media/apache-domain-joined-manage/linked-cluster-intellij.png "IntelliJ del clúster vinculado]")
+   ![IntelliJ del clúster vinculado de Azure Explorer](./media/apache-domain-joined-manage/linked-cluster-intellij.png "IntelliJ del clúster vinculado")
 
 4. También puede desvincular un clúster de **Azure Explorer**.
 

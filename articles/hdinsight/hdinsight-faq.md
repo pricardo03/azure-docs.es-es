@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.openlocfilehash: 6bff2210e77f7af98c1289b08159a89f42f2a3bd
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 044a63274f7f24831b1f791982f36898199616a6
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827606"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73052510"
 ---
 # <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight: Preguntas más frecuentes
 
@@ -239,6 +239,13 @@ En los escenarios en los que debe controlar la programación, puede seguir estos
 
 Para más información sobre la configuración y ejecución de un trabajo Cron, consulte [How do I set up a Cron job?](https://askubuntu.com/questions/2368/how-do-i-set-up-a-cron-job) (¿Cómo configuro un trabajo Cron?).
 
+### <a name="why-is-llap-available-on-spark-esp-clusters"></a>¿Por qué LLAP está disponible en los clústeres de Spark para ESP?
+En los clústeres de Spark para ESP, LLAP está habilitado por motivos de seguridad (es decir, Apache Ranger), no por el rendimiento. Debe usar máquinas virtuales con nodos de mayor tamaño para integrar el uso de recursos de LLAP (por ejemplo, D13V2 como mínimo). 
+
+### <a name="how-can-i-add-addional-aad-groups-after-creating-an-esp-cluster"></a>¿Cómo puedo agregar grupos de AAD adicionales después de crear un clúster de ESP?
+Hay dos formas de lograrlo: 1. Puede volver a crear el clúster y agregar el grupo adicional en el momento de la creación del clúster. Si usa la sincronización con ámbito en AAD-DS, asegúrese de que el grupo B está incluido en la sincronización con ámbito.
+2\. Agregue el grupo como un subgrupo anidado del grupo anterior que se usó para crear el clúster de ESP. Por ejemplo, si creó un clúster de ESP con el grupo `A`, puede agregar más adelante al grupo `B` como un subgrupo anidado de `A` y, después de aproximadamente una hora, se sincronizará y estará disponible en el clúster automáticamente. 
+
 ## <a name="storage"></a>Storage
 
 ### <a name="can-i-add-an-azure-data-lake-storage-gen2-to-an-existing-hdinsight-cluster-as-an-additional-storage-account"></a>¿Puedo agregar Azure Data Lake Storage Gen2 a un clúster de HDInsight existente como una cuenta de almacenamiento adicional?
@@ -380,3 +387,7 @@ Para información sobre las capacidades de integración del procesamiento de flu
 ### <a name="is-there-a-way-to-dynamically-terminate-the-head-node-of-the-cluster-when-the-cluster-is-idle-for-a-specific-period"></a>¿Hay alguna manera de terminar de forma dinámica el nodo principal del clúster cuando este está inactivo durante un período específico?
 
 No se puede hacer esto con los clústeres de HDInsight. Puede usar Azure Data Factory para estos escenarios.
+
+### <a name="what-compliance-offerings-does-hdinsight-offer"></a>¿Qué ofertas de cumplimiento ofrece HDInsight?
+
+Para obtener información sobre el cumplimiento, acceda al [Centro de confianza de Microsoft](https://www.microsoft.com/trust-center) y la [Información general sobre el cumplimiento de Microsoft Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942).

@@ -8,12 +8,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: aed716b01fe748be40ee22e3eba5742983c2a523
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: dfbe7e607395006f9bd7da0be0d5673353e2801f
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620931"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162596"
 ---
 # <a name="introduction-to-stream-analytics-geospatial-functions"></a>Introducción a las funciones geoespaciales de Stream Analytics
 
@@ -111,7 +111,7 @@ FROM input
 Para obtener más información, consulte la referencia sobre [CreatePolygon](https://docs.microsoft.com/stream-analytics-query/createpolygon).
 
 
-## <a name="stdistance"></a>ST_DISTANCE
+## <a name="st_distance"></a>ST_DISTANCE
 La función `ST_DISTANCE` devuelve la distancia en metros entre dos puntos. 
 
 La siguiente consulta usa `ST_DISTANCE` para generar un evento cuando una gasolinera está a menos de 10 km del automóvil.
@@ -124,7 +124,7 @@ JOIN Station s ON ST_DISTANCE(c.Location, s.Location) < 10 * 1000
 
 Para obtener más información, consulte la referencia sobre [ST_DISTANCE](https://docs.microsoft.com/stream-analytics-query/st-distance).
 
-## <a name="stoverlaps"></a>ST_OVERLAPS
+## <a name="st_overlaps"></a>ST_OVERLAPS
 La función `ST_OVERLAPS` compara dos polígonos. Si los polígonos se superponen, la función devuelve un 1. La función devuelve 0 si los polígonos no se superponen. 
 
 La siguiente consulta usa `ST_OVERLAPS` para generar un evento cuando un edificio está dentro de una posible zona de inundación.
@@ -145,7 +145,7 @@ JOIN Storm s ON ST_OVERLAPS(c.Location, s.Course)
 
 Para obtener más información, consulte la referencia sobre [ST_OVERLAPS](https://docs.microsoft.com/stream-analytics-query/st-overlaps).
 
-## <a name="stintersects"></a>ST_INTERSECTS
+## <a name="st_intersects"></a>ST_INTERSECTS
 La función `ST_INTERSECTS` compara dos LineString. Si las LineString forman una intersección, la función devuelve 1. La función devuelve 0 si las LineString no forman una intersección.
 
 La siguiente consulta de ejemplo usa `ST_INTERSECTS` para determinar si un camino pavimentado forma una intersección con un camino de tierra.
@@ -171,7 +171,7 @@ FROM input
 
 Para obtener más información, consulte la referencia sobre [ST_INTERSECTS](https://docs.microsoft.com/stream-analytics-query/st-intersects).
 
-## <a name="stwithin"></a>ST_WITHIN
+## <a name="st_within"></a>ST_WITHIN
 La `ST_WITHIN` función determina si un punto o polígono está dentro de un polígono. Si el polígono contiene el punto o polígono, la función devuelve 1. La función devuelve 0 si el punto o polígono no se encuentra dentro del polígono declarado.
 
 La siguiente consulta de ejemplo usa `ST_WITHIN` para determinar si el punto de destino de entrega está dentro del polígono del almacén especificado.

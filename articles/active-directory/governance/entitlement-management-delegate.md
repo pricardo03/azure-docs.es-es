@@ -1,5 +1,5 @@
 ---
-title: 'Delegación y roles en la administración de derechos de Azure AD (versión preliminar): Azure Active Directory'
+title: 'Delegación y roles en la administración de derechos de Azure AD: Azure Active Directory'
 description: Aprenda a delegar la gobernanza del acceso de los administradores de TI en los administradores de departamentos y los jefes de proyecto para que ellos mismos puedan encargarse del acceso.
 services: active-directory
 documentationCenter: ''
@@ -16,19 +16,14 @@ ms.date: 10/07/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d44a4265c3729bff3d983395a37a6cb64a463d4
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 6d68728c4ca4f9fe511faedcf2ca177b7160f112
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389118"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73174261"
 ---
-# <a name="delegation-and-roles-in-azure-ad-entitlement-management-preview"></a>Delegación y roles en la administración de derechos de Azure AD (versión preliminar)
-
-> [!IMPORTANT]
-> La administración de derechos de Azure Active Directory (Azure AD) está actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
-> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="delegation-and-roles-in-azure-ad-entitlement-management"></a>Delegación y roles en la administración de derechos de Azure AD
 
 De forma predeterminada, los administradores globales y los administradores de usuarios pueden crear y gestionar todos los aspectos de Administración de derechos de Azure AD. No obstante, es posible que los usuarios de estos roles no conozcan todas las situaciones en las que se requieren paquetes de acceso. Por lo general, son los usuarios dentro de los departamentos, equipos o proyectos respectivos los que saben con quién colaboran, con qué recursos cuentan y durante cuánto tiempo. En lugar de conceder permisos sin restricciones a los usuarios que no son administradores, puede conceder a los usuarios los permisos mínimos que necesitan para realizar su trabajo y evitar la creación de derechos de acceso conflictivos o inadecuados.
 
@@ -99,6 +94,7 @@ En la siguiente tabla se enumeran las tareas que pueden realizar los roles de ad
 | Tarea | Administración | Creador de catálogos | Propietario del catálogo | Administrador de paquetes de acceso |
 | --- | :---: | :---: | :---: | :---: |
 | [Delegación en un creador de catálogo](entitlement-management-delegate-catalog.md) | :heavy_check_mark: |  |  |  |
+| [Adición de una organización conectada](entitlement-management-organization.md) | :heavy_check_mark: |  |  |  |
 | [Creación de un catálogo](entitlement-management-catalog-create.md) | :heavy_check_mark: | :heavy_check_mark: |  |  |
 | [Adición de un recurso a un catálogo](entitlement-management-catalog-create.md#add-resources-to-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |
 | [Adición de un propietario de catálogo](entitlement-management-catalog-create.md#add-additional-catalog-owners) | :heavy_check_mark: |  | :heavy_check_mark: |  |
@@ -112,8 +108,9 @@ En la siguiente tabla se enumeran las tareas que pueden realizar los roles de ad
 | [Asignación directa de un usuario a un paquete de acceso](entitlement-management-access-package-assignments.md#directly-assign-a-user) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
 | [Visualización de quién tiene una asignación en un paquete de acceso](entitlement-management-access-package-assignments.md#view-who-has-an-assignment) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
 | [Visualización de las solicitudes de un paquete de acceso](entitlement-management-access-package-requests.md#view-requests) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
-| [Visualización de errores de entrega de una solicitud](entitlement-management-access-package-requests.md#view-a-requests-delivery-errors) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
-| [Cancelación de una solicitud pendiente](entitlement-management-access-package-requests.md#cancel-a-pending-request) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| [Visualización de errores de entrega de una solicitud](entitlement-management-troubleshoot.md#view-a-requests-delivery-errors) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| [Nuevo procesamiento de una solicitud](entitlement-management-troubleshoot.md#reprocess-a-request) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| [Cancelación de una solicitud pendiente](entitlement-management-troubleshoot.md#cancel-a-pending-request) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
 | [Ocultación de un paquete de acceso](entitlement-management-access-package-edit.md#change-the-hidden-setting) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
 | [Eliminación de un paquete de acceso](entitlement-management-access-package-edit.md#delete-an-access-package) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
 

@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: efb668971bc4a8c5a0968836aab71107aa6b88d5
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: d635950c8b34986cd5824660166017317948cbd8
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072647"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176912"
 ---
 # <a name="application-templates-in-azure-api-management"></a>Plantillas de aplicación en Azure API Management
 Azure API Management le ofrece la posibilidad de personalizar el contenido de las páginas del portal para desarrolladores mediante un conjunto de plantillas que configuran su contenido. Por medio de la sintaxis [DotLiquid](http://dotliquidmarkup.org/) y el editor que prefiera, como [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers) (DotLiquid para diseñadores), y un conjunto proporcionado de [recursos de cadena](api-management-template-resources.md#strings), [recursos de glifo](api-management-template-resources.md#glyphs) y [controles de página](api-management-page-controls.md) localizados, puede disponer de una gran flexibilidad para configurar el contenido de las páginas como considere oportuno mediante estas plantillas.  
@@ -32,12 +32,14 @@ Azure API Management le ofrece la posibilidad de personalizar el contenido de la
 > [!NOTE]
 >  En la siguiente documentación se incluyen plantillas predeterminadas de ejemplo; sin embargo, están sujetas a cambios debido a mejoras continuas. Puede ver las plantillas predeterminadas en vivo en el portal para desarrolladores; para ello, vaya hasta a las plantillas individuales que desee. Para más información sobre cómo trabajar con plantillas, consulte [Cómo personalizar el portal para desarrolladores de API Management mediante plantillas](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
 
+[!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
+
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
 ##  <a name="ProductList"></a> Application list  
  La plantilla **Application list** le permite personalizar el cuerpo de la página de lista de aplicaciones en el portal para desarrolladores.  
   
- ![Plantillas del portal para desarrolladores de la página de lista de aplicaciones](./media/api-management-application-templates/APIM-Application-List-Page-Developer-Portal-Templates.png "Plantillas del portal para desarrolladores de la página de lista de aplicaciones de APIM")  
+ ![Application List Page Developer Portal Templates](./media/api-management-application-templates/APIM-Application-List-Page-Developer-Portal-Templates.png "APIM Application List Page Developer Portal Templates (Plantillas del portal para desarrolladores de la página de la lista de aplicaciones de APIM)") (Plantillas del portal para desarrolladores de la página de la lista de aplicaciones)  
   
 ### <a name="default-template"></a>Plantilla predeterminada  
   
@@ -138,7 +140,7 @@ Azure API Management le ofrece la posibilidad de personalizar el contenido de la
 ##  <a name="Application"></a> Application  
  La plantilla **Application** le permite personalizar el cuerpo de la página de aplicación en el portal para desarrolladores.  
   
- ![Plantillas del portal para desarrolladores de la página de aplicación](./media/api-management-application-templates/APIM-Application-Page-Developer-Portal-Templates.png "Plantillas del portal para desarrolladores de la página de aplicación de APIM")  
+ ![Application Page Developer Portal Templates](./media/api-management-application-templates/APIM-Application-Page-Developer-Portal-Templates.png "APIM Application Page Developer Portal Templates (Plantillas del portal para desarrolladores de la página de aplicación de APIM)") (Plantillas del portal para desarrolladores de la página de aplicación)  
   
 ### <a name="default-template"></a>Plantilla predeterminada  
   

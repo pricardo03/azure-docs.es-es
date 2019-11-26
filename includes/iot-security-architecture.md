@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: f01d4a3a53ac9acf1350e4eea0526cf8584140a4
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: a2eafd6bb34b897f3492ddcffd6841f0fabc4ca7
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72789098"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73034553"
 ---
 Cuando se diseña un sistema, es importante conocer las posibles amenazas a las que puede estar expuesto y agregar las defensas adecuadas según corresponda durante su diseño y arquitectura. Es importante diseñar el producto desde el principio teniendo en cuenta la seguridad, ya que conocer la forma en que un atacante podría poner en peligro un sistema ayuda a tomar las medidas pertinentes desde el principio.
 
@@ -116,7 +116,7 @@ Una puerta de enlace de campo se diferencia de un enrutador de tráfico en que t
 
 ### <a name="the-cloud-gateway-zone"></a>La zona de la puerta de enlace en la nube
 
-La puerta de enlace en la nube es un sistema que permite la comunicación remota desde y hacia los dispositivos o puertas de enlace de campo de varios sitios a través de un espacio de la red pública, normalmente hacia un sistema de análisis de datos y de control basado en la nube, una federación de dichos sistemas. En algunos casos, una puerta de enlace en la nube puede facilitar inmediatamente el acceso a los dispositivos especiales desde terminales como teléfonos o tabletas. En el contexto que se trata aquí, "nube" hace referencia a un sistema dedicado al procesamiento de datos que no está enlazado con el mismo sitio que los dispositivos o puertas de enlace de campo conectados. Además, en una zona de nube, las medidas operativas también impiden el acceso físico dirigido y no necesariamente se exponen a una infraestructura de "nube pública".  
+Una puerta de enlace en la nube es un sistema que permite la comunicación remota desde y hacia los dispositivos o puertas de enlace de campo de varios sitios a través de un espacio de la red pública, normalmente hacia un sistema de análisis de datos y de control basado en la nube, una federación de dichos sistemas. En algunos casos, una puerta de enlace en la nube puede facilitar inmediatamente el acceso a los dispositivos especiales desde terminales como teléfonos o tabletas. En el contexto que se trata aquí, "nube" hace referencia a un sistema dedicado al procesamiento de datos que no está enlazado con el mismo sitio que los dispositivos o puertas de enlace de campo conectados. Además, en una zona de nube, las medidas operativas también impiden el acceso físico dirigido y no necesariamente se exponen a una infraestructura de "nube pública".  
 
 Una puerta de enlace en la nube puede asignarse a una superposición de virtualización de redes para aislar la puerta de enlace en la nube y todos sus dispositivos o puertas de enlace de campo conectados del resto del tráfico de red. La puerta de enlace en la nube no es un sistema de control de dispositivos ni unas instalaciones de almacenamiento o procesamiento de los datos de los dispositivos; dichas instalaciones hacen de interfaz con la puerta de enlace en la nube. La zona de la puerta de enlace en la nube incluye la propia puerta de enlace en la nube, junto con todas las puertas de enlace de campo y los dispositivos conectados directa o indirectamente a ella. El borde de la zona es un área expuesta distinta a través de la que se comunican todas las partes externas.
 

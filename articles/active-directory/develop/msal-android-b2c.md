@@ -1,5 +1,6 @@
 ---
-title: Azure AD B2C (biblioteca de autenticación de Microsoft para Android) | Azure
+title: Azure AD B2C (biblioteca de autenticación de Microsoft para Android)
+titleSuffix: Microsoft identity platform
 description: Aprenda las consideraciones específicas de uso de Azure AD B2C con la biblioteca de autenticación de Microsoft para Android (MSAL.Android)
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,12 +18,12 @@ ms.author: brianmel
 ms.reviewer: rapong
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c55356b19c8150c76858efb4edc593406c1722a4
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 8b5061f1ab341e5872dfa82c9f5c5b133ae40bdf
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71678828"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803241"
 ---
 # <a name="use-msal-for-android-with-b2c"></a>Uso de MSAL para Android con B2C
 
@@ -58,7 +59,7 @@ El archivo de configuración para la aplicación declararía dos `authorities`. 
 }
 ```
 
-`redirect_uri` debe estar registrado en la configuración de la aplicación y también en `AndroidManifest.xml` para admitir el redireccionamiento durante el [flujo de concesión de código de autorización](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-reference-oauth-code).
+`redirect_uri` debe estar registrado en la configuración de la aplicación y también en `AndroidManifest.xml` para admitir el redireccionamiento durante el [flujo de concesión de código de autorización](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-oauth-code).
 
 ## <a name="initialize-ipublicclientapplication"></a>Inicialización de IPublicClientApplication
 
@@ -157,7 +158,7 @@ AcquireTokenParameters parameters = new AcquireTokenParameters.Builder()
 
 ## <a name="handle-password-change-policies"></a>Administración de directivas de cambio de contraseña
 
-El flujo de usuario de registro o de inicio de sesión de la cuenta local muestra el vínculo **"¿Ha olvidado la contraseña?"** Al hacer clic en este vínculo, no se desencadena automáticamente ningún flujo de usuario de restablecimiento de contraseña,
+El flujo de usuario de registro o de inicio de sesión de la cuenta local muestra el vínculo "¿Ha olvidado la contraseña?" Al hacer clic en este vínculo, no se desencadena automáticamente ningún flujo de usuario de restablecimiento de contraseña,
 
 sino que se devuelve a la aplicación el código de error `AADB2C90118`. La aplicación debería controlar este código de error mediante la ejecución de un flujo de usuario específico que restablezca la contraseña.
 
@@ -219,7 +220,7 @@ String id = account.getId();
 // Get the IdToken Claims
 //
 // For more information about B2C token claims, see reference documentation
-// https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-reference-tokens
+// https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-tokens
 Map<String, ?> claims = account.getClaims();
 
 // Get the 'preferred_username' claim through a convenience function

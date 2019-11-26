@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: 24812b8d97080d59fd50f4dc528117b3020fd8dc
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 4bdf842ae24d90850280a5a19038dbd00168ff2c
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72753265"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053361"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Optimización del costo de rendimiento aprovisionado en Azure Cosmos DB
 
@@ -77,7 +77,7 @@ HTTP Status 429,
 
 Los SDK nativos (.NET/.NET Core, Java, Node.js y Python) capturan implícitamente esta respuesta, respetan el encabezado retry-after especificado por el servidor y reintentan la solicitud. A menos que varios clientes accedan a la cuenta al mismo tiempo, el siguiente reintento se realizará correctamente.
 
-Si tiene más de un cliente de manera acumulativa funcionando constantemente por encima de la tasa de solicitud, el número de reintentos predeterminado que actualmente se establece en 9 puede no ser suficiente. En este caso, el cliente genera un `DocumentClientException` con el estado de código 429 para la aplicación. El número de reintentos predeterminado se puede cambiar estableciendo `RetryOptions` en la instancia ConnectionPolicy. De forma predeterminada, la excepción `DocumentClientException` con el código de estado 429 se devuelve tras un tiempo de espera acumulativo de 30 segundos si la solicitud sigue funcionando por encima de la tasa de solicitudes. Esto sucede incluso cuando el número de reintentos actual es inferior al número de reintentos máximo de 9, el valor predeterminado, o un valor definido por el usuario. 
+Si tiene más de un cliente de manera acumulativa funcionando constantemente por encima de la tasa de solicitud, el número de reintentos predeterminado que actualmente está establecido en 9 puede no ser suficiente. En estos casos, el cliente genera un `RequestRateTooLargeException` con el estado de código 429 para la aplicación. El número de reintentos predeterminado se puede cambiar estableciendo `RetryOptions` en la instancia ConnectionPolicy. De forma predeterminada, la excepción `RequestRateTooLargeException` con el código de estado 429 se devuelve tras un tiempo de espera acumulativo de 30 segundos si la solicitud sigue funcionando por encima de la tasa de solicitudes. Esto sucede incluso cuando el número de reintentos actual es inferior al número de reintentos máximo de 9, el valor predeterminado, o un valor definido por el usuario. 
 
 [MaxRetryAttemptsOnThrottledRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretryattemptsonthrottledrequests?view=azure-dotnet) se establece en 3, por lo que, en este caso, si una operación de solicitud tiene una tasa limitada al superar el rendimiento reservado para el contenedor, la operación de solicitud volverá a intentarlo tres veces antes de iniciar la excepción en la aplicación. [MaxRetryWaitTimeInSeconds](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretrywaittimeinseconds?view=azure-dotnet#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryWaitTimeInSeconds) se establece en 60, por lo que, en este caso, si el tiempo de espera acumulativo de reintento desde la primera solicitud supera los 60 segundos, se inicia la excepción.
 

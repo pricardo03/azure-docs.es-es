@@ -1,5 +1,6 @@
 ---
-title: Paso del estado personalizado en las solicitudes de autenticación (Biblioteca de autenticación de Microsoft para JavaScript) | Azure
+title: Paso del estado personalizado en las solicitudes de autenticación (Biblioteca de autenticación de Microsoft para JavaScript)
+titleSuffix: Microsoft identity platform
 description: Aprenda a pasar un valor de estado personalizado en la solicitud de autenticación con la Biblioteca de autenticación de Microsoft para JavaScript (MSAL.js).
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,12 +18,12 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2ae12624b3d897f05437f7795d1a1eee32ca37a
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 527c1937da8634f7448c82ca8c0331fb5cfb85e3
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69532754"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73150612"
 ---
 # <a name="pass-custom-state-in-authentication-requests-using-msaljs"></a>Paso del estado personalizado en solicitudes de autenticación con MSAL.js
 El parámetro *state*, tal como se define en OAuth 2.0, se incluye en una solicitud de autenticación y también se devuelve en la respuesta del token para evitar ataques de falsificación de la solicitud entre sitios. De forma predeterminada, la Biblioteca de autenticación de Microsoft para JavaScript (MSAL.js) pasa un valor único del parámetro *state* generado al azar en las solicitudes de autenticación.
@@ -51,7 +52,7 @@ Por ejemplo:
 ```javascript
 let loginRequest = {
     scopes: ["user.read", "user.write"],
-    state: “page_url”
+    state: "page_url"
 }
 
 myMSALObj.loginPopup(loginRequest);

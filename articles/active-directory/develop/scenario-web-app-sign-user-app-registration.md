@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ab7c3699abdd5c094b1b14cd53f76023fa8c1ac
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 641f71f6111930b54d0a2bd548f16d3cb0c07189
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309597"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175264"
 ---
 # <a name="web-app-that-signs-in-users---app-registration"></a>Aplicación web que inicia la sesión de los usuarios: registro de la aplicación
 
@@ -76,13 +76,22 @@ Si navega a este vínculo, puede crear el arranque de la creación de la aplicac
 
 4. Cuando aparezca la página **Registrar una aplicación**, escriba un nombre descriptivo para la aplicación, por ejemplo, "java-webapp", seleccione "Cuentas en cualquier directorio organizativo y cuentas Microsoft personales (por ejemplo, Skype, Xbox, Outlook.com)" y elija "Aplicación web o API" como *Tipo de aplicación*.
 1. Haga clic en **Registrar** para registrar la aplicación.
-1. En el menú de la izquierda, haga clic en **Autenticación** y, en *URI de redirección*, seleccione "Web". Tendrá que escribir dos URI de redirección diferentes: uno para la página de inicio de sesión y otro para la página de usuarios de Graph. En ambos casos, debe usar el mismo host y número de puerto, seguido de "/msal4jsample/secure/aad" para la página de inicio de sesión y de "msal4jsample/graph/users" para la página de usuarios.
- De forma predeterminada, en el ejemplo se usa: 
+1. En el menú de la izquierda, haga clic en **Autenticación** y, en *URI de redirección*, seleccione "Web". Tendrá que escribir dos URI de redirección diferentes: uno para la página de inicio de sesión y otro para la página de Graph. En ambos casos, debe usar el mismo host y número de puerto, seguido de "/msal4jsample/secure/aad" para la página de inicio de sesión y de "msal4jsample/graph/me" para la página de información de usuario.
+ De forma predeterminada, en el ejemplo se usa:
 
-    - `http://localhost:8080/msal4jsample/secure/aad`. 
-    - `http://localhost:8080/msal4jsample/graph/users`
+    - `http://localhost:8080/msal4jsample/secure/aad`.
+    - `http://localhost:8080/msal4jsample/graph/me`
 
-Haga clic en **Guardar**.
+    En la sección **Configuración avanzada**, establezca **Dirección URL de cierre de sesión** en `http://localhost:8080/msal4jsample/sign_out`.
+
+     Haga clic en **Guardar**.
+
+1. Seleccione **Certificados y secretos** en el menú y, en la sección **Secretos de cliente**, haga clic en **Nuevo secreto de cliente**:
+
+    - Escritura de una descripción de la clave
+    - Seleccione una duración de la clave **En 1 año**.
+    - El valor de clave se mostrará al seleccionar **Agregar**.
+    - Copie el valor de la clave para más adelante. Este valor de clave no se volverá a mostrar ni a recuperar de ninguna otra forma, de modo que regístrelo en cuanto esté visible en Azure Portal.
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
@@ -94,8 +103,14 @@ Haga clic en **Guardar**.
 1. En la página **Información general** de la aplicación, busque el valor de **Id. de aplicación (cliente)** y regístrelo para usarlo más tarde. Lo necesitará para configurar el archivo de configuración de Visual Studio para este proyecto.
 1. En la página Introducción de la aplicación, seleccione la sección **Autenticación**.
    - En la sección **Configuración avanzada**, establezca **Dirección URL de cierre de sesión** en `http://localhost:5000/logout`.
-1. Seleccione **Guardar**.
 
+  Seleccione **Guardar**.
+1. En el menú de la izquierda, elija **Certificates & secrets** (Certificados y secretos) y haga clic en **Nuevo secreto de cliente** en la sección **Client Secrets** (Secretos de cliente):
+
+      - Escritura de una descripción de la clave
+      - Seleccione una duración de la clave de **En 1 año**.
+      - Al hacer clic en **Agregar**, se mostrará el valor de la clave.
+      - Copie el valor de la clave. Lo necesitará más adelante.
 ---
 
 ## <a name="register-an-app-using-powershell"></a>Registro de una aplicación mediante PowerShell

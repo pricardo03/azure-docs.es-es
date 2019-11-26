@@ -1,6 +1,6 @@
 ---
-title: 'Ocultación o eliminación de un paquete de acceso en la administración de derechos de Azure AD (versión preliminar): Azure Active Directory'
-description: Aprenda a ocultar o eliminar un paquete de acceso en la administración de derechos de Azure Active Directory (versión preliminar).
+title: 'Ocultación o eliminación de un paquete de acceso en la administración de derechos de Azure AD: Azure Active Directory'
+description: Aprenda a ocultar o eliminar un paquete de acceso en la administración de derechos de Azure Active Directory.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -16,19 +16,14 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab6f3a86d8e88ee2d7465fd32bde7b7555f1f326
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 4391cd20f3919e8def28fa3c1d5007f91b2d9f0b
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389179"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73174753"
 ---
-# <a name="hide-or-delete-an-access-package-in-azure-ad-entitlement-management-preview"></a>Ocultación o eliminación de un paquete de acceso en la administración de derechos de Azure AD (versión preliminar)
-
-> [!IMPORTANT]
-> La administración de derechos de Azure Active Directory (Azure AD) está actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
-> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="hide-or-delete-an-access-package-in-azure-ad-entitlement-management"></a>Ocultación o eliminación de un paquete de acceso en la administración de derechos de Azure AD
 
 De forma predeterminada, los paquetes de acceso son detectables. Esto significa que si una directiva permite que un usuario solicite el paquete de acceso, verá automáticamente que el paquete de acceso se muestra en el portal Mi acceso. Sin embargo, puede cambiar la configuración de **Oculto** de forma que el paquete de acceso no aparezca en el portal Mi acceso del usuario.
 

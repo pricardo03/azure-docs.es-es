@@ -1,5 +1,5 @@
 ---
-title: Creación de un clúster de Hadoop con cuentas de almacenamiento de transferencia segura en Azure HDInsight
+title: 'Apache Hadoop y el almacenamiento de transferencia segura: Azure HDInsight'
 description: Aprenda a crear clústeres de HDInsight con cuentas de almacenamiento de Azure habilitadas para transferencia segura.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/24/2018
-ms.openlocfilehash: d182ca9f74f86922a4d8c94c9b3557f6111b7d53
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: b8a5d48e977009cf592f271760232a3b0138c8c5
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71098757"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044958"
 ---
 # <a name="create-apache-hadoop-cluster-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Creación de un clúster de Apache Hadoop con cuentas de almacenamiento de transferencia segura en Azure HDInsight
 

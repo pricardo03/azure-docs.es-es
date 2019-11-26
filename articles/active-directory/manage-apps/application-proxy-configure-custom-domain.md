@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/16/2019
+ms.date: 10/24/2019
 ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6aa42c63809472e1681a820031e48fe4f86fb584
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 189b8666adde0eedcb451655657a4a82dc5e4fec
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756506"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73062518"
 ---
 # <a name="configure-custom-domains-with-azure-ad-application-proxy"></a>Configuración de dominios personalizados con Azure AD Application Proxy
 
@@ -77,38 +77,40 @@ Para instrucciones más detalladas, consulte [Incorporación del nombre de domin
 
 Para publicar la aplicación a través de Application Proxy con un dominio personalizado:
 
-1. En el caso de una nueva aplicación, en Azure Active Directory, seleccione **Aplicaciones empresariales** en el panel de navegación de la izquierda, seleccione **Nueva aplicación** y luego seleccione **Aplicación local**. 
+1. Para una nueva aplicación, desde Azure Active Directory, seleccione **Aplicaciones empresariales** en el menú izquierdo de navegación. Seleccione **Nueva aplicación**. En la sección **Aplicaciones locales**, seleccione **Incorporación de una aplicación local**. 
    
    En el caso de una aplicación que ya esté en **Aplicaciones empresariales**, selecciónela en la lista y luego seleccione **Proxy de la aplicación** en el panel de navegación de la izquierda. 
 
-1. En la página **Proxy de aplicación**, en el campo **Dirección URL interna**, escriba la dirección URL interna de la aplicación. 
+2. En la página de configuración de Proxy de aplicación, escriba un **Nombre** si va a agregar su propia aplicación local.
+
+3.  En el campo **Dirección URL interna**, escriba la dirección URL interna de la aplicación.
    
-1. En el campo **Dirección URL externa**, despliegue la lista y seleccione el dominio personalizado que desee usar.
+4. En el campo **Dirección URL externa**, despliegue la lista y seleccione el dominio personalizado que desee usar.
    
-1. Seleccione **Guardar**.
+5. Seleccione **Agregar**.
    
    ![Selección de un dominio personalizado](./media/application-proxy-configure-custom-domain/application-proxy.png)
    
-1. Si el dominio ya tiene un certificado, el campo **Certificado** mostrará la información de dicho certificado. En caso contrario, seleccione el campo **Certificado**. 
+6. Si el dominio ya tiene un certificado, el campo **Certificado** mostrará la información de dicho certificado. En caso contrario, seleccione el campo **Certificado**. 
    
    ![Haga clic para cargar un certificado.](./media/application-proxy-configure-custom-domain/certificate.png)
    
-1. En la página **Certificados SSL**, busque y seleccione el archivo de certificado PFX. Escriba la contraseña del certificado y seleccione **Cargar certificado**. Para más información sobre los certificados, consulte la sección [Certificados para dominios personalizados](#certificates-for-custom-domains).
+7. En la página **Certificados SSL**, busque y seleccione el archivo de certificado PFX. Escriba la contraseña del certificado y seleccione **Cargar certificado**. Para más información sobre los certificados, consulte la sección [Certificados para dominios personalizados](#certificates-for-custom-domains).
    
    ![Carga del certificado](./media/application-proxy-configure-custom-domain/ssl-certificate.png)
    
    > [!TIP] 
    > Un dominio personalizado solo necesita cargar su certificado una vez. Después, el certificado cargado se aplica automáticamente al usar el dominio personalizado para otras aplicaciones.
    
-1. Si agregó un certificado, en la página **Proxy de aplicación**, seleccione **Guardar**. 
+8. Si agregó un certificado, en la página **Proxy de aplicación**, seleccione **Guardar**. 
    
-1. En la barra de información de la página **Proxy de aplicación**, tenga en cuenta la entrada CNAME que debe agregar a la zona DNS. 
+9. En la barra de información de la página **Proxy de aplicación**, tenga en cuenta la entrada CNAME que debe agregar a la zona DNS. 
    
    ![Incorporación de la entrada CNAME para DNS](./media/application-proxy-configure-custom-domain/dns-info.png)
    
-1. Siga las instrucciones que se indican en [Administración de registros y conjuntos de registros DNS mediante Azure Portal](../../dns/dns-operations-recordsets-portal.md) para agregar un registro DNS que redirija la nueva dirección URL externa al dominio *msappproxy.net*.
+10. Siga las instrucciones que se indican en [Administración de registros y conjuntos de registros DNS mediante Azure Portal](../../dns/dns-operations-recordsets-portal.md) para agregar un registro DNS que redirija la nueva dirección URL externa al dominio *msappproxy.net*.
    
-1. Para comprobar que el registro DNS está configurado correctamente, use el comando [nslookup](https://social.technet.microsoft.com/wiki/contents/articles/29184.nslookup-for-beginners.aspx) para confirmar que la dirección URL externa es accesible y que el dominio *msapproxy.net* aparece como un alias.
+11. Para comprobar que el registro DNS está configurado correctamente, use el comando [nslookup](https://social.technet.microsoft.com/wiki/contents/articles/29184.nslookup-for-beginners.aspx) para confirmar que la dirección URL externa es accesible y que el dominio *msapproxy.net* aparece como un alias.
 
 Ahora la aplicación está configurada para usar el dominio personalizado. Asegúrese de asignar usuarios a la aplicación antes de probarla o liberarla. 
 

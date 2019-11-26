@@ -1,6 +1,6 @@
 ---
-title: 'Consulta, incorporación y eliminación de asignaciones para un paquete de acceso en la administración de derechos de Azure AD (versión preliminar): Azure Active Directory'
-description: Aprenda a consultar, agregar y eliminar asignaciones de un paquete de acceso en la administración de derechos de Azure Active Directory (versión preliminar).
+title: 'Consulta, incorporación y eliminación de asignaciones para un paquete de acceso en la administración de derechos de Azure AD: Azure Active Directory'
+description: Aprenda a consultar, agregar y eliminar asignaciones de un paquete de acceso en la administración de derechos de Azure Active Directory.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -16,19 +16,14 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 694c8866a69d8488511be1670ba3d3013a4a3423
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 3f06da43e758c24da65664b34dd83f876a00e3a0
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72392027"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73174900"
 ---
-# <a name="view-add-and-remove-assignments-for-an-access-package-in-azure-ad-entitlement-management-preview"></a>Consulta, incorporación y eliminación de asignaciones para un paquete de acceso en la administración de derechos de Azure AD (versión preliminar)
-
-> [!IMPORTANT]
-> La administración de derechos de Azure Active Directory (Azure AD) está actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
-> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="view-add-and-remove-assignments-for-an-access-package-in-azure-ad-entitlement-management"></a>Consulta, incorporación y eliminación de asignaciones para un paquete de acceso en la administración de derechos de Azure AD
 
 En la administración de derechos de Azure AD, puede ver a quién se le han asignado los paquetes de acceso, su directiva y su estado. Si un paquete de acceso tiene una directiva adecuada, también puede asignar directamente al usuario un paquete de acceso. En este artículo se explica cómo consultar, agregar y eliminar asignaciones en un paquete de acceso.
 
@@ -70,11 +65,9 @@ En algunos casos, es posible que quiera asignar directamente usuarios específic
 
     ![Asignaciones - Add user to access package (Agregar usuario al paquete de acceso)](./media/entitlement-management-access-package-assignments/assignments-add-user.png)
 
-1. Haga clic en **Agregar usuarios** para seleccionar los usuarios a los que quiere asignar el paquete de acceso.
+1. Haga clic en **Agregar usuarios** para seleccionar los usuarios a los que quiere asignar este paquete de acceso.
 
-1. En la lista **Seleccionar directiva**, seleccione una directiva que tenga la configuración [Ninguno (solo para las asignaciones directas del administrador)](entitlement-management-access-package-request-policy.md#none-administrator-direct-assignments-only).
-
-    Si este paquete de acceso no tiene este tipo de directiva, haga clic en **Crear nueva directiva** para agregar una.
+1. En la lista **Seleccionar directiva**, seleccione una directiva por la que se regirán y se realizará un seguimiento de las solicitudes y el ciclo de vida futuros de los usuarios. Si desea que los usuarios seleccionados tengan una configuración de la directiva diferente, puede hacer clic en **Crear nueva directiva** para agregar una nueva directiva.
 
 1. Establezca la fecha y hora en la que quiere que comience y finalice la asignación de los usuarios seleccionados. Si no se proporciona una fecha de finalización, se utilizará la configuración del ciclo de vida de la directiva.
 

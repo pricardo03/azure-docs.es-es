@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 10/03/2019
-ms.openlocfilehash: 891e8a261e092de0ffcef3941dd48f01942a8030
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.date: 10/27/2019
+ms.openlocfilehash: e25e31a9ed656d625d2025d8d0086d23ecf10682
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802586"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73043205"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-from-postgresql-to-azure-db-for-postgresql-single-server"></a>Problemas conocidos y limitaciones de migración con las migraciones en línea de PostgreSQL a Azure DB for PostgreSQL: servidor único
 
@@ -152,6 +152,9 @@ ALTER USER PG_User SET search_path = fnRenames, pg_catalog, "$user", public;
 -- ALTER USER PG_User SET search_path TO DEFAULT;
 COMMIT;
 ```
+
+  > [!NOTE]
+  > En el script anterior, "PG_User" hace referencia al nombre de usuario que se utiliza para la conexión con el origen de la migración.
 
 ## <a name="limitations-when-migrating-online-from-aws-rds-postgresql"></a>Limitaciones al migrar en línea desde AWS RDS PostgreSQL
 

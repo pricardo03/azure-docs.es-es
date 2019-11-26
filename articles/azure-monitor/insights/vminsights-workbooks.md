@@ -1,5 +1,5 @@
 ---
-title: Creación de informes interactivos con libros de Azure Monitor | Microsoft Docs
+title: Creación de informes interactivos Azure Monitor para VM con libros | Microsoft Docs
 description: Simplifique la creación de informes complejos con libros parametrizados predefinidos y personalizados de Azure Monitor para VM.
 ms.service: azure-monitor
 ms.subservice: ''
@@ -7,14 +7,14 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 10/15/2019
-ms.openlocfilehash: 47e2e5d80241ac093d136b45c853d94a9dd43cbe
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: dff5027f2ff9ff244f0fa04177a04e446e98465b
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553739"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73200534"
 ---
-# <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>Crear informes interactivos con libros de Azure Monitor
+# <a name="create-interactive-reports-azure-monitor-for-vms-with-workbooks"></a>Creación de informes interactivos Azure Monitor para VM con libros
 
 Los libros combinan texto, [consultas de registros](../log-query/query-language.md), métricas y parámetros en informes interactivos avanzados. Otros miembros del equipo con acceso a los mismos recursos de Azure pueden editar los libros.
 

@@ -1,5 +1,6 @@
 ---
-title: Configurar el inicio de sesión único en macOS e iOS | Plataforma de identidad de Microsoft
+title: Configuración del inicio de sesión único en macOS e iOS
+titleSuffix: Microsoft identity platform
 description: Aprenda a configurar el inicio de sesión único (SSO) en macOS e iOS.
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,12 +18,12 @@ ms.author: twhitney
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a407b57a380d059703383b02e37decb8761786f4
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: fd944af95f80cf456260beb072c703aab0d15ceb
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71269350"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175280"
 ---
 # <a name="how-to-configure-sso-on-macos-and-ios"></a>Procedimientos para: Configuración del inicio de sesión único en macOS e iOS
 
@@ -175,7 +176,7 @@ En los pasos siguientes se describe cómo habilitar el inicio de sesión único 
     }
     ```
     
-**Si usa Xcode 11**, debe colocar la devolución de llamada de MSAL en el archivo `SceneDelegate` en su lugar.
+**Si usa Xcode 11**, debe colocar la devolución de llamada de MSAL en el archivo `SceneDelegate` en su lugar.
 Si admite UISceneDelegate y UIApplicationDelegate para la compatibilidad con sistemas operativos iOS anteriores, la devolución de llamada de MSAL debe colocarse en ambos archivos.
 
 Objective-C:
@@ -209,4 +210,4 @@ func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>)
     
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga más información sobre los [flujos de autenticación y escenarios de aplicaciones](authentication-flows-app-scenarios.md).
+Más información sobre [flujos de autenticación y escenarios de aplicaciones](authentication-flows-app-scenarios.md).

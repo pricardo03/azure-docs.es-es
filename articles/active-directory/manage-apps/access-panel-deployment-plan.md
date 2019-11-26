@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/16/2019
+ms.date: 09/27/2019
 ms.author: baselden
 ms.reviewer: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 41cc8114061ff7d23951baa3e6215d4332dff0ed
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 99c52f65bdec2b164cca86a6346d8865d210cf38
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71258515"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176061"
 ---
 # <a name="plan-an-azure-active-directory-access-panel-deployment"></a>Planeamiento de la implementación del Panel de acceso de Azure Active Directory
 
@@ -226,6 +226,10 @@ Planee el orden en el que va a agregar las aplicaciones al iniciador de la pági
 #### <a name="add-applications-to-the-my-apps-panel"></a>Adición de aplicaciones al panel Aplicaciones
 
 Se puede agregar cualquier aplicación habilitada para el inicio de sesión único de Azure AD al panel Aplicaciones. Otras aplicaciones se agregan mediante la opción de inicio de sesión único vinculado. Puede configurar un icono de la aplicación que se vincule a la dirección URL de la aplicación web existente. El inicio de sesión único vinculado le permite empezar a dirigir a los usuarios al portal Aplicaciones sin migrar todas las aplicaciones al inicio de sesión único de Azure AD. Puede moverse gradualmente a aplicaciones configuradas con inicio de sesión único de Azure AD sin interrumpir la experiencia de los usuarios.
+
+#### <a name="use-my-apps-workspaces-preview"></a>Uso de áreas de trabajo Aplicaciones (versión preliminar)
+
+De forma predeterminada, todas las aplicaciones se muestran juntas en una sola página. Sin embargo, puede usar áreas de trabajo para agrupar aplicaciones relacionadas y presentarlas en una pestaña independiente, lo que facilita su búsqueda. Por ejemplo, puede usar áreas de trabajo para crear agrupaciones lógicas de aplicaciones para roles de trabajo, tareas, proyectos, etc. Para obtener información, consulte [Cómo usar áreas de trabajo Aplicaciones para personalizar paneles de acceso para usuarios (versión preliminar)](access-panel-workspaces.md). 
 
 #### <a name="plan-whether-to-use-my-apps-or-an-existing-portal"></a>Decidir si utilizar Aplicaciones o un portal ya existente
 

@@ -1,6 +1,6 @@
 ---
-title: Modificación de los roles de recurso de un paquete de acceso en la administración de derechos de Azure AD (versión preliminar) - Azure Active Directory
-description: Aprenda a modificar los roles de recurso de un paquete de acceso existente en la administración de derechos de Azure Active Directory (versión preliminar).
+title: 'Modificación de los roles de recurso de un paquete de acceso en la administración de derechos de Azure AD: Azure Active Directory'
+description: Aprenda a modificar los roles de recurso de un paquete de acceso existente en la administración de derechos de Azure Active Directory.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -16,19 +16,14 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b719546ec598f2e99061597e99a3d4e875b12cf
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 102bbfbd1c02c93830f5c7fce89fe95d7fde54c5
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72429809"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73174647"
 ---
-# <a name="change-resource-roles-for-an-access-package-in-azure-ad-entitlement-management-preview"></a>Modificación de los roles de recurso de un paquete de acceso en la administración de derechos de Azure AD (versión preliminar)
-
-> [!IMPORTANT]
-> La administración de derechos de Azure Active Directory (Azure AD) está actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
-> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="change-resource-roles-for-an-access-package-in-azure-ad-entitlement-management"></a>Modificación de los roles de recurso de un paquete de acceso en la administración de derechos de Azure AD
 
 Como administrador de paquetes de acceso, puede cambiar los recursos de un paquete de acceso en cualquier momento sin preocuparse de aprovisionar el acceso del usuario a los nuevos recursos o quitárselo de los recursos anteriores. En este artículo, se explica cómo se pueden modificar los roles de recursos de un paquete de acceso existente.
 

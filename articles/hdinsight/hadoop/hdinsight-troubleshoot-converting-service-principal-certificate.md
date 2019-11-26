@@ -1,5 +1,5 @@
 ---
-title: Conversión del contenido del certificado de entidad de servicio a Base 64 en Azure HDInsight
+title: 'Conversión del contenido del certificado a base-64: Azure HDInsight'
 description: Conversión del contenido del certificado de entidad de servicio al formato de cadena con codificación Base 64 en Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 07/31/2019
-ms.openlocfilehash: 0f9158164ec598682841b217b9954145f8540c6c
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: ad41ef464f592fd09b070ab6f715e9a07fb3cf21
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71087424"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044488"
 ---
 # <a name="converting-service-principal-certificate-contents-to-base-64-encoded-string-format-in-hdinsight"></a>Conversión del contenido del certificado de entidad de servicio al formato de cadena con codificación Base 64 en HDInsight
 

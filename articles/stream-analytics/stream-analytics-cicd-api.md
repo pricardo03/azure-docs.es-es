@@ -1,5 +1,5 @@
 ---
-title: Implementación de CI/CD para Azure Stream Analytics en IoT Edge mediante API REST
+title: Uso de las API REST con el fin de realizar la integración continua y la entrega continua (CI/CD) para Azure Stream Analytics en IoT Edge
 description: Obtenga información sobre cómo implementar una canalización de integración e implementación continuas para Azure Stream Analytics mediante API REST.
 services: stream-analytics
 author: mamccrea
@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/04/2018
-ms.openlocfilehash: 40beb620e037061b189762a51e3c29d0fd251b27
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a716991eaa84a6937c959885ff9c4ae5c18be35e
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61362083"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73163639"
 ---
 # <a name="implement-cicd-for-stream-analytics-on-iot-edge-using-apis"></a>Implementación de CI/CD para Stream Analytics en IoT Edge mediante API
 
@@ -28,11 +28,11 @@ Las API REST se pueden llamar tanto desde Linux como desde Windows. En los coman
 En Linux, puede usar los comandos `Curl` o `Wget`:
 
 ```bash
-curl -u { <username:password> }  -H "Content-Type: application/json" -X { <method> } -d "{ <request body>}” { <url> }   
+curl -u { <username:password> }  -H "Content-Type: application/json" -X { <method> } -d "{ <request body> }" { <url> }   
 ```
 
 ```bash
-wget -q -O- --{ <method> }-data="<request body>”--header=Content-Type:application/json --auth-no-challenge --http-user="<Admin>" --http-password="<password>" <url>
+wget -q -O- --{ <method> } -data="<request body>" --header=Content-Type:application/json --auth-no-challenge --http-user="<Admin>" --http-password="<password>" <url>
 ```
  
 ### <a name="windows"></a>Windows
@@ -48,7 +48,7 @@ $headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"
 $headers.Add("Content-Type", 'application/json') 
 $headers.Add("Authorization", $basicAuthValue) 
 $content = "<request body>" 
-$response = Invoke-RestMethod <url>-Method <method> -Body $content -Headers $Headers 
+$response = Invoke-RestMethod <url> -Method <method> -Body $content -Headers $Headers 
 echo $response 
 ```
  
@@ -63,7 +63,7 @@ Para crear un trabajo de Stream Analytics, llame al método PUT con la API Strea
 Ejemplo del comando mediante **curl**:
 
 ```curl
-curl -u { <username:password> }  -H "Content-Type: application/json" -X { <method> } -d "{ <request body>}” https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/Microsoft.StreamAnalytics/streamingjobs/{jobname}?api-version=2017-04-01-preview  
+curl -u { <username:password> } -H "Content-Type: application/json" -X { <method> } -d "{ <request body> }" https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/Microsoft.StreamAnalytics/streamingjobs/{jobname}?api-version=2017-04-01-preview  
 ``` 
  
 Ejemplo del cuerpo de la solicitud en JSON:
@@ -178,7 +178,7 @@ Ejemplo de un cuerpo de respuesta una vez que la publicación se realiza correct
 { 
   edgePackageUrl : null 
   error : null 
-  manifest : "{"supportedPlatforms":[{"os":"linux","arch":"amd64","features":[]},{"os":"linux","arch":"arm","features":[]},{"os":"windows","arch":"amd64","features":[]}],"schemaVersion":"2","name":"{jobname}","version":"1.0.0.0","type":"docker","settings":{"image":"{imageurl}","createOptions":null},"endpoints":{"inputs":["],"outputs":["{outputnames}"]},"twin":{"contentType":"assignments","content":{"properties.desired":{"ASAJobInfo":"{asajobsasurl}","ASAJobResourceId":"{asajobresourceid}","ASAJobEtag":"{etag}",”PublishTimeStamp”:”{publishtimestamp}”}}}}" 
+  manifest : "{"supportedPlatforms":[{"os":"linux","arch":"amd64","features":[]},{"os":"linux","arch":"arm","features":[]},{"os":"windows","arch":"amd64","features":[]}],"schemaVersion":"2","name":"{jobname}","version":"1.0.0.0","type":"docker","settings":{"image":"{imageurl}","createOptions":null},"endpoints":{"inputs":["\],"outputs":["{outputnames}"]},"twin":{"contentType":"assignments","content":{"properties.desired":{"ASAJobInfo":"{asajobsasurl}","ASAJobResourceId":"{asajobresourceid}","ASAJobEtag":"{etag}","PublishTimeStamp":"{publishtimestamp}"}}}}" 
   status : "Succeeded" 
 } 
 ```

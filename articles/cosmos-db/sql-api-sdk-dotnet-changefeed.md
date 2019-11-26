@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 01/30/2019
 ms.author: maquaran
-ms.openlocfilehash: ea6de5f42910457efa5ca6c458d7af63faa38e18
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 2392eb1f02ede13aca88419c00ea33ae38cfd8ab
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68637755"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73023887"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>SDK para los procesadores de fuente de cambios de .NET: descarga y notas de la versión
 
@@ -42,6 +42,15 @@ ms.locfileid: "68637755"
 ## <a name="release-notes"></a>Notas de la versión
 
 ### <a name="v2-builds"></a>compilaciones v2
+
+### <a name="a-name228228"></a><a name="2.2.8"/>2.2.8
+* Mejoras en la estabilidad y el diagnóstico:
+  * Se agregó compatibilidad para detectar las lecturas de la fuente de cambios que tardan mucho tiempo. Cuando dura más que el valor especificado por la propiedad `ChangeFeedProcessorOptions.ChangeFeedTimeout`, se realizan los pasos siguientes:
+    * Se anula la operación para leer la fuente de cambios en la partición problemática.
+    * La instancia del procesador de la fuente de cambios quita la propiedad de la concesión problemática. La concesión quitada se recogerá durante el siguiente paso de adquisición de la concesión, que realizará la misma instancia de procesador de fuente de cambios u otra. De este modo, la lectura de la fuente de cambios comenzará de nuevo.
+    * Se envía una incidencia al monitor de estado. El monitor de estado predeterminado envía todas las incidencias detectadas al registro de seguimiento.
+  * Se ha agregado una nueva propiedad pública: `ChangeFeedProcessorOptions.ChangeFeedTimeout`. El valor predeterminado de esta propiedad es 10 minutos.
+  * Se ha agregado un nuevo valor de enumeración público: `Monitoring.MonitoredOperation.ReadChangeFeed`. Cuando el valor de `HealthMonitoringRecord.Operation` se establece en `Monitoring.MonitoredOperation.ReadChangeFeed`, indica que la incidencia de estado está relacionada con la lectura de la fuente de cambios.
 
 ### <a name="a-name227227"></a><a name="2.2.7"/>2.2.7
 * La estrategia de equilibrio de carga mejorada para el escenario en el que se obtienen todas las concesiones tarda más que el intervalo de expiración de la concesión, p. ej., debido a problemas de red:
@@ -170,6 +179,7 @@ El servicio rechazará cualquier solicitud realizada a Cosmos DB mediante un SDK
 
 | Versión | Fecha de lanzamiento | Fecha de retirada |
 | --- | --- | --- |
+| [2.2.8](#2.2.8) |28 de octubre de 2019 |--- |
 | [2.2.7](#2.2.7) |14 de mayo de 2019 |--- |
 | [2.2.6](#2.2.6) |29 de enero de 2019 |--- |
 | [2.2.5](#2.2.5) |13 de diciembre de 2018 |--- |

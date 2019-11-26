@@ -6,14 +6,14 @@ author: dlepow
 manager: gwallace
 ms.service: container-registry
 ms.topic: article
-ms.date: 07/12/2019
+ms.date: 10/23/2019
 ms.author: danlep
-ms.openlocfilehash: 27c38f51104dfb170c59860c96a8e3a86973bb1e
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 6e55b65d58fe6545d8212b4233f2f45261d18ee5
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638921"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73043884"
 ---
 # <a name="acr-tasks-reference-yaml"></a>Referencia de ACR Tasks: YAML
 
@@ -107,9 +107,9 @@ El objeto de red tiene estas propiedades.
 | -------- | ---- | -------- | ----------- | ------- | 
 | `name` | string | Sin | El nombre de la red. | None |
 | `driver` | string | Sí | El controlador para administrar la red. | None |
-| `ipv6` | booleano | Sí | Si la red IPv6 está habilitada. | `false` |
-| `skipCreation` | booleano | Sí | Si se omite la creación de la red. | `false` |
-| `isDefault` | booleano | Sí | Si la red es una red predeterminada proporcionada con Azure Container Registry. | `false` |
+| `ipv6` | bool | Sí | Si la red IPv6 está habilitada. | `false` |
+| `skipCreation` | bool | Sí | Si se omite la creación de la red. | `false` |
+| `isDefault` | bool | Sí | Si la red es una red predeterminada proporcionada con Azure Container Registry. | `false` |
 
 ## <a name="task-step-types"></a>Tipos de pasos de tareas
 
@@ -128,7 +128,7 @@ Compila una imagen de contenedor. El tipo de paso `build` representa un medio mu
 ### <a name="syntax-build"></a>Sintaxis: build
 
 ```yml
-version: v1.0.0
+version: v1.1.0
 steps:
   - [build]: -t [imageName]:[tag] -f [Dockerfile] [context]
     [property]: [value]
@@ -148,22 +148,22 @@ El tipo de paso `build` admite las siguientes propiedades. Encuentre detalles de
 
 | | | |
 | -------- | ---- | -------- |
-| `detach` | booleano | Opcional |
-| `disableWorkingDirectoryOverride` | booleano | Opcional |
+| `detach` | bool | Opcional |
+| `disableWorkingDirectoryOverride` | bool | Opcional |
 | `entryPoint` | string | Opcional |
 | `env` | [string, string, ...] | Opcional |
 | `expose` | [string, string, ...] | Opcional |
 | `id` | string | Opcional |
-| `ignoreErrors` | booleano | Opcional |
+| `ignoreErrors` | bool | Opcional |
 | `isolation` | string | Opcional |
-| `keep` | booleano | Opcional |
-| `network` | objeto | Opcional |
+| `keep` | bool | Opcional |
+| `network` | object | Opcional |
 | `ports` | [string, string, ...] | Opcional |
-| `pull` | booleano | Opcional |
+| `pull` | bool | Opcional |
 | `repeat` | int | Opcional |
 | `retries` | int | Opcional |
 | `retryDelay` | int (segundos) | Opcional |
-| `secret` | objeto | Opcional |
+| `secret` | object | Opcional |
 | `startDelay` | int (segundos) | Opcional |
 | `timeout` | int (segundos) | Opcional |
 | `when` | [string, string, ...] | Opcional |
@@ -183,9 +183,9 @@ az acr run -f build-hello-world.yaml https://github.com/AzureCR/acr-tasks-sample
 #### <a name="build-image---context-in-subdirectory"></a>Imagen de compilación: contexto en el subdirectorio
 
 ```yml
-version: v1.0.0
+version: v1.1.0
 steps:
-  - build: -t {{.Run.Registry}}/hello-world -f hello-world.dockerfile ./subDirectory
+  - build: -t $Registry/hello-world -f hello-world.dockerfile ./subDirectory
 ```
 
 ## <a name="push"></a>push
@@ -197,21 +197,21 @@ Inserta una o varias imágenes compiladas o etiquetadas de nuevo en un registro 
 El tipo de paso `push` admite una colección de imágenes. La sintaxis de la colección YAML admite formatos alineados y anidados. La inserción de una sola imagen se representa normalmente mediante sintaxis alineada:
 
 ```yml
-version: v1.0.0
+version: v1.1.0
 steps:
   # Inline YAML collection syntax
-  - push: ["{{.Run.Registry}}/hello-world:{{.Run.ID}}"]
+  - push: ["$Registry/hello-world:$ID"]
 ```
 
 Para una mejor legibilidad, use sintaxis anidada al insertar varias imágenes:
 
 ```yml
-version: v1.0.0
+version: v1.1.0
 steps:
   # Nested YAML collection syntax
   - push:
-    - {{.Run.Registry}}/hello-world:{{.Run.ID}}
-    - {{.Run.Registry}}/hello-world:latest
+    - $Registry/hello-world:$ID
+    - $Registry/hello-world:latest
 ```
 
 ### <a name="properties-push"></a>Propiedades: push
@@ -222,7 +222,7 @@ El tipo de paso `push` admite las siguientes propiedades. Encuentre detalles de 
 | -------- | ---- | -------- |
 | `env` | [string, string, ...] | Opcional |
 | `id` | string | Opcional |
-| `ignoreErrors` | booleano | Opcional |
+| `ignoreErrors` | bool | Opcional |
 | `startDelay` | int (segundos) | Opcional |
 | `timeout` | int (segundos) | Opcional |
 | `when` | [string, string, ...] | Opcional |
@@ -254,7 +254,7 @@ El tipo de paso `cmd` ejecuta un contenedor.
 ### <a name="syntax-cmd"></a>Sintaxis: cmd
 
 ```yml
-version: v1.0.0
+version: v1.1.0
 steps:
   - [cmd]: [containerImage]:[tag (optional)] [cmdParameters to the image]
 ```
@@ -265,22 +265,22 @@ El tipo de paso `cmd` admite las siguientes propiedades:
 
 | | | |
 | -------- | ---- | -------- |
-| `detach` | booleano | Opcional |
-| `disableWorkingDirectoryOverride` | booleano | Opcional |
+| `detach` | bool | Opcional |
+| `disableWorkingDirectoryOverride` | bool | Opcional |
 | `entryPoint` | string | Opcional |
 | `env` | [string, string, ...] | Opcional |
 | `expose` | [string, string, ...] | Opcional |
 | `id` | string | Opcional |
-| `ignoreErrors` | booleano | Opcional |
+| `ignoreErrors` | bool | Opcional |
 | `isolation` | string | Opcional |
-| `keep` | booleano | Opcional |
-| `network` | objeto | Opcional |
+| `keep` | bool | Opcional |
+| `network` | object | Opcional |
 | `ports` | [string, string, ...] | Opcional |
-| `pull` | booleano | Opcional |
+| `pull` | bool | Opcional |
 | `repeat` | int | Opcional |
 | `retries` | int | Opcional |
 | `retryDelay` | int (segundos) | Opcional |
-| `secret` | objeto | Opcional |
+| `secret` | object | Opcional |
 | `startDelay` | int (segundos) | Opcional |
 | `timeout` | int (segundos) | Opcional |
 | `when` | [string, string, ...] | Opcional |
@@ -330,33 +330,31 @@ az acr run -f bash-echo-3.yaml https://github.com/Azure-Samples/acr-tasks.git
 El tipo de paso `cmd` hace referencia a las imágenes mediante el formato estándar `docker run`. Se da por hecho que las imágenes que no comienzan con un registro se originan en docker.io. El ejemplo anterior se podría representar igualmente como:
 
 ```yml
-version: v1.0.0
+version: v1.1.0
 steps:
   - cmd: docker.io/bash:3.0 echo hello world
 ```
 
 Mediante la convención de referencia de imágenes `docker run` estándar, `cmd` puede ejecutar imágenes de cualquier registro privado o en Docker Hub público. Si va a hacer referencia a imágenes que se encuentran en el mismo registro donde se ejecutan las tareas de ACR, no es necesario especificar credenciales de registro.
 
-* Ejecute una imagen proveniente de Azure Container Registry
-
-    Reemplace `[myregistry]` por el nombre del registro.
+* Ejecute una imagen proveniente de Azure Container Registry. En el ejemplo siguiente se da por supuesto que tiene un registro llamado `myregistry` y una imagen personalizada llamada `myimage:mytag`.
 
     ```yml
-    version: v1.0.0
+    version: v1.1.0
     steps:
-        - cmd: [myregistry].azurecr.io/bash:3.0 echo hello world
+        - cmd: myregistry.azurecr.io/myimage:mytag
     ```
 
-* Generalizar la referencia del registro con una variable de ejecución
+* Generalice la referencia del registro con una variable de ejecución o un alias.
 
-    En lugar de codificar de forma rígida el nombre del registro en un archivo `acr-task.yaml`, puede hacer que sea más fácil de trasladar mediante una [variable de ejecución](#run-variables). La variable `Run.Registry` se expande en tiempo de ejecución al nombre del registro en el que se ejecuta la tarea.
+    En lugar de codificar de forma rígida el nombre del registro en un archivo `acr-task.yaml`, puede hacer que sea más fácil de trasladar mediante una [variable de ejecución](#run-variables) o [alias](#aliases). La variable `Run.Registry` o el alias `$Registry` se expanden en tiempo de ejecución al nombre del registro en el que se ejecuta la tarea.
 
-    Para generalizar la tarea anterior de modo que funcione en cualquier registro de contenedor de Azure, haga referencia a la variable [Run.Registry](#runregistry) en el nombre de imagen:
+    Por ejemplo, para generalizar la tarea anterior de modo que funcione en cualquier registro de contenedor de Azure, haga referencia a la variable $Registry en el nombre de imagen:
 
     ```yml
-    version: v1.0.0
+    version: v1.1.0
     steps:
-      - cmd: {{.Run.Registry}}/bash:3.0 echo hello world
+      - cmd: $Registry/myimage:mytag
     ```
 
 ## <a name="task-step-properties"></a>Propiedades de pasos de tareas
@@ -365,23 +363,23 @@ Cada tipo de paso admite varias propiedades adecuadas para su tipo. En la tabla 
 
 | Propiedad | type | Opcional | DESCRIPCIÓN | Valor predeterminado |
 | -------- | ---- | -------- | ----------- | ------- |
-| `detach` | booleano | Sí | Si el contenedor se debe desasociar cuando se ejecuta. | `false` |
-| `disableWorkingDirectoryOverride` | booleano | Sí | Si se deshabilita la funcionalidad de invalidación de `workingDirectory`. Use en combinación con `workingDirectory` para tener el control total sobre el directorio de trabajo del contenedor. | `false` |
+| `detach` | bool | Sí | Si el contenedor se debe desasociar cuando se ejecuta. | `false` |
+| `disableWorkingDirectoryOverride` | bool | Sí | Si se deshabilita la funcionalidad de invalidación de `workingDirectory`. Use en combinación con `workingDirectory` para tener el control total sobre el directorio de trabajo del contenedor. | `false` |
 | `entryPoint` | string | Sí | Invalida el elemento `[ENTRYPOINT]` del contenedor de un paso. | None |
 | `env` | [string, string, ...] | Sí | Matriz de cadenas en formato `key=value` que define las variables de entorno del paso. | None |
 | `expose` | [string, string, ...] | Sí | La matriz de los puertos que están expuestos desde el contenedor. |  None |
 | [`id`](#example-id) | string | Sí | Identifica el paso de forma única dentro de la tarea. Otros pasos de la tarea pueden hacer referencia al elemento `id` del paso, por ejemplo, para la comprobación de dependencias con `when`.<br /><br />`id` también es el nombre del contenedor en ejecución. Los procesos que se ejecutan en otros contenedores de la tarea pueden hacer referencia a `id` como su nombre de host DNS, o para acceder a él con registros de docker [id], por ejemplo. | `acb_step_%d`, donde `%d` es el índice basado en 0 del orden descendente de los pasos en el archivo YAML. |
-| `ignoreErrors` | booleano | Sí | Si el paso se debe marcar como correcto, independientemente de que hubo un error en la ejecución de un contenedor. | `false` |
+| `ignoreErrors` | bool | Sí | Si el paso se debe marcar como correcto, independientemente de que hubo un error en la ejecución de un contenedor. | `false` |
 | `isolation` | string | Sí | El nivel de aislamiento del contenedor. | `default` |
-| `keep` | booleano | Sí | Si se debe mantener el contenedor del paso después de la ejecución. | `false` |
-| `network` | objeto | Sí | Identifica una red en el que se ejecuta el contenedor. | None |
+| `keep` | bool | Sí | Si se debe mantener el contenedor del paso después de la ejecución. | `false` |
+| `network` | object | Sí | Identifica una red en el que se ejecuta el contenedor. | None |
 | `ports` | [string, string, ...] | Sí | Matriz de los puertos que se publican desde el contenedor al host. |  None |
-| `pull` | booleano | Sí | Si se debe forzar una extracción del contenedor antes de ejecutarlo para evitar cualquier comportamiento de almacenamiento en caché. | `false` |
-| `privileged` | booleano | Sí | Si se debe ejecutar el contenedor en modo con privilegios. | `false` |
+| `pull` | bool | Sí | Si se debe forzar una extracción del contenedor antes de ejecutarlo para evitar cualquier comportamiento de almacenamiento en caché. | `false` |
+| `privileged` | bool | Sí | Si se debe ejecutar el contenedor en modo con privilegios. | `false` |
 | `repeat` | int | Sí | El número de reintentos para repetir la ejecución de un contenedor. | 0 |
 | `retries` | int | Sí | El número de reintentos si se produce un error en la ejecución de un contenedor. Solo se realiza un reintento si el código de salida de un contenedor es distinto de cero. | 0 |
 | `retryDelay` | int (segundos) | Sí | El retraso en segundos entre los reintentos de la ejecución de un contenedor. | 0 |
-| `secret` | objeto | Sí | Identifica un secreto de Azure Key Vault o una [identidad administrada para los recursos de Azure](container-registry-tasks-authentication-managed-identity.md). | None |
+| `secret` | object | Sí | Identifica un secreto de Azure Key Vault o una [identidad administrada para los recursos de Azure](container-registry-tasks-authentication-managed-identity.md). | None |
 | `startDelay` | int (segundos) | Sí | Número de segundos para retrasar la ejecución de un contenedor. | 0 |
 | `timeout` | int (segundos) | Sí | Número máximo de segundos que se puede ejecutar un paso antes de terminar. | 600 |
 | [`when`](#example-when) | [string, string, ...] | Sí | Configura la dependencia de un paso de uno o varios pasos dentro de la tarea. | None |
@@ -451,10 +449,17 @@ az acr run -f when-parallel-dependent.yaml https://github.com/Azure-Samples/acr-
 ACR Tasks incluye un conjunto predeterminado de variables que están disponibles para los pasos de la tarea cuando se ejecutan. Se puede acceder a estas variables con el formato `{{.Run.VariableName}}`, donde `VariableName` es uno de los siguientes:
 
 * `Run.ID`
+* `Run.SharedVolume`
 * `Run.Registry`
+* `Run.RegistryName`
 * `Run.Date`
+* `Run.OS`
+* `Run.Architecture`
 * `Run.Commit`
 * `Run.Branch`
+* `Run.TaskName`
+
+Normalmente, los nombres de variable se explican por sí solos. A continuación se indican los detalles de las variables de uso frecuente. A partir de la versión de YAML `v1.1.0`, puede usar un [alias de tarea](#aliases) abreviado predefinido en el lugar de la mayoría de las variables de ejecución. Por ejemplo, en lugar de `{{.Run.Registry}}`, utilice el alias `$Registry`.
 
 ### <a name="runid"></a>Run.ID
 
@@ -463,9 +468,9 @@ Cada ejecución, mediante `az acr run`, o la ejecución basada en desencadenador
 Se usa normalmente para etiquetar de forma única una imagen:
 
 ```yml
-version: v1.0.0
+version: v1.1.0
 steps:
-    - build: -t {{.Run.Registry}}/hello-world:{{.Run.ID}} .
+    - build: -t $Registry/hello-world:$ID .
 ```
 
 ### <a name="runregistry"></a>Run.Registry
@@ -473,9 +478,21 @@ steps:
 El nombre completo de servidor del registro. Se usa normalmente para hacer referencia genérica al registro donde se ejecuta la tarea.
 
 ```yml
-version: v1.0.0
+version: v1.1.0
 steps:
-  - build: -t {{.Run.Registry}}/hello-world:{{.Run.ID}} .
+  - build: -t $Registry/hello-world:$ID .
+```
+
+### <a name="runregistryname"></a>Run.RegistryName
+
+Nombre del registro de contenedor. Se suele usar en pasos de tarea que no requieren un nombre de servidor completo. Por ejemplo, pasos de `cmd` que ejecutan comandos de la CLI de Azure en los registros.
+
+```yml
+version 1.1.0
+steps:
+# List repositories in registry
+- cmd: az login --identity
+- cmd: az acr repository list --name $RegistryName
 ```
 
 ### <a name="rundate"></a>Run.Date
@@ -490,11 +507,88 @@ Para una tarea desencadenada por una confirmación en un repositorio de GitHub, 
 
 Para una tarea desencadenada por una confirmación en un repositorio de GitHub, el nombre de la rama.
 
+## <a name="aliases"></a>Alias
+
+A partir de la versión `v1.1.0`, ACR Tasks admite alias que están disponibles para los pasos de la tarea cuando se ejecutan. Los alias son similares en concepto a los alias (métodos abreviados de comandos) que se admiten en Bash y otros shell de comandos. 
+
+Con un alias, puede iniciar cualquier comando o grupo de comandos (incluidas las opciones y los nombres de archivo) al escribir una sola palabra.
+
+ACR Tasks admite varios alias predefinidos y también los alias personalizados que cree.
+
+### <a name="predefined-aliases"></a>Alias predefinidos
+
+Los siguientes alias de tarea están disponibles para usarse en lugar de [variables de ejecución](#run-variables):
+
+| Alias | Variable de ejecución |
+| ----- | ------------ |
+| `ID` | `Run.ID` |
+| `SharedVolume` | `Run.SharedVolume` |
+| `Registry` | `Run.Registry` |
+| `RegistryName` | `Run.RegistryName` |
+| `Date` | `Run.Date` |
+| `OS` | `Run.OS` |
+| `Architecture` | `Run.Architecture` |
+| `Commit` | `Run.Commit` |
+| `Branch` | `Run.Branch` |
+
+En los pasos de la tarea, anteponga la directiva `$` a un alias, como en este ejemplo:
+
+```yaml
+version: v1.1.0
+steps:
+  - build: -t $Registry/hello-world:$ID -f hello-world.dockerfile .
+```
+
+### <a name="image-aliases"></a>Alias de imagen
+
+Cada uno de los siguientes alias apunta a una imagen estable en Microsoft Container Registry (MCR). Puede hacer referencia a cada uno de ellas en la sección `cmd` de un archivo de tarea sin usar una directiva.
+
+| Alias | Imagen |
+| ----- | ----- |
+| `acr` | `mcr.microsoft.com/acr/acr-cli:0.1` |
+| `az` | `mcr.microsoft.com/acr/azure-cli:d0725bc` |
+| `bash` | `mcr.microsoft.com/acr/bash:d0725bc` |
+| `curl` | `mcr.microsoft.com/acr/curl:d0725bc` |
+
+En la tarea de ejemplo siguiente se usan varios alias para [purgar](container-registry-auto-purge.md) las etiquetas de imagen con una antigüedad mayor a siete días en el repositorio `samples/hello-world` del registro de ejecución:
+
+```yaml
+version: v1.1.0
+steps:
+  - cmd: acr tag list --registry $RegistryName --repository samples/hello-world
+  - cmd: acr purge --registry $RegistryName --filter samples/hello-world:.* --ago 7d
+```
+
+### <a name="custom-alias"></a>Alias personalizados
+
+Defina un alias personalizado en el archivo YAML y úselo tal y como se muestra en el ejemplo siguiente. Un alias solo puede contener caracteres alfanuméricos. La directiva predeterminada para expandir un alias es el carácter `$`.
+
+```yml
+version: v1.1.0
+alias:
+  values:
+    repo: myrepo
+steps:
+  - build: -t $Registry/$repo/hello-world:$ID -f Dockerfile .
+```
+
+Puede vincularse a un archivo YAML local o remoto para las definiciones de alias personalizadas. En el ejemplo siguiente se vincula a un archivo YAML en Azure Blob Storage:
+
+```yml
+version: v1.1.0
+alias:
+  src:  # link to local or remote custom alias files
+    - 'https://link/to/blob/remoteAliases.yml?readSasToken'
+[...]
+```
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para información general sobre las tareas de varios pasos, consulte [Ejecución de tareas de varios pasos de compilación, prueba y aplicación de revisiones en ACR Tasks](container-registry-tasks-multi-step.md).
 
 Para compilaciones paso a paso, consulte la [Introducción a ACR Tasks](container-registry-tasks-overview.md).
+
+
 
 <!-- IMAGES -->
 

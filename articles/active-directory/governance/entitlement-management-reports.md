@@ -1,6 +1,6 @@
 ---
-title: 'Visualización de informes y registros en la administración de derechos de Azure AD (versión preliminar): Azure Active Directory'
-description: Obtenga información sobre cómo ver el informe de asignaciones de usuario y los registros de auditoría en la administración de derechos de Azure Active Directory (versión preliminar).
+title: 'Consulta de informes y registros en la administración de derechos de Azure AD: Azure Active Directory'
+description: Obtenga información sobre cómo ver el informe de asignaciones de usuario y los registros de auditoría en la administración de derechos de Azure Active Directory.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -12,45 +12,70 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/19/2019
+ms.date: 10/28/2019
 ms.author: ajburnle
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2420fc25795ec74939649fb8a17ead7c8cfdd1df
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 3302fc3b2513794cd66d1ebf6db2cbcdb0f713dd
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69032451"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73173885"
 ---
-# <a name="view-reports-and-logs-in-azure-ad-entitlement-management-preview"></a>Visualización de informes y registros en la administración de derechos de Azure AD (versión preliminar)
+# <a name="view-reports-and-logs-in-azure-ad-entitlement-management"></a>Consulta de informes y registros en la administración de derechos de Azure AD
 
-> [!IMPORTANT]
-> La administración de derechos de Azure Active Directory (Azure AD) está actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
-> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Los informes de administración de derechos de Azure AD y el registro de auditoría de Azure AD proporcionan detalles adicionales sobre los recursos a los que tienen acceso los usuarios. Como administrador, puede ver los paquetes de acceso y las asignaciones de recursos para un usuario. Además, puede ver los registros de solicitudes para auditarlos o para determinar el estado de la solicitud de un usuario. En este artículo se describe cómo usar los informes de administración de derechos y los registros de auditoría de Azure AD.
 
-El informe de asignaciones de usuarios y el registro de auditoría de Azure Active Directory proporcionan detalles adicionales sobre los usuarios del directorio. Como administrador, puede ver los recursos a los que un usuario tiene acceso. Además, puede ver los registros de solicitudes para auditarlos o para determinar el estado de la solicitud de un usuario. En este artículo se describe cómo usar el informe de asignaciones del usuario y los registros de auditoría de Azure AD.
-
-Vea el siguiente vídeo para obtener información sobre cómo usar la administración de derechos para administrar el acceso de los usuarios en Azure Active Directory:
+Vea el siguiente vídeo para obtener información sobre cómo ver los recursos a los que tienen acceso los usuarios en la administración de derechos:
 
 >[!VIDEO https://www.youtube.com/embed/omtNJ7ySjS0]
 
-## <a name="view-resources-a-user-has-access-to"></a>Visualización de los recursos a los que tiene acceso un usuario
+## <a name="view-access-packages-for-a-user"></a>Consulta de los paquetes de acceso de un usuario
+
+Este informe le permite mostrar todos los paquetes de acceso que puede solicitar un usuario y los paquetes de acceso asignados actualmente al usuario.
+
+**Rol necesario:** administrador global o administrador de usuarios.
 
 1. Haga clic en **Azure Active Directory** y, luego, haga clic en **Gobernanza de identidades**.
 
-1. En el menú de la izquierda, haga clic en **Informe de asignaciones de usuarios**.
+1. En el menú izquierdo, haga clic en **Informes**.
+
+1. Haga clic en **Paquetes de acceso de un usuario**.
 
 1. Haga clic en **Seleccionar usuarios** para abrir el panel de selección de usuarios.
 
-1. Busque en la lista el usuario del que quiere ver los recursos a los que tiene acceso.
+1. Busque el usuario en la lista y, a continuación, haga clic en **Seleccionar**.
 
-1. Haga clic en el usuario y luego haga clic en **Seleccionar**.
+    En la pestaña **Puede solicitar** se muestra una lista de los paquetes de acceso que puede solicitar el usuario. Esta lista viene determinada por las [directivas de solicitud](entitlement-management-access-package-request-policy.md#for-users-in-your-directory) definidas para los paquetes de acceso. 
 
-    Se muestra una lista de los recursos a los que el usuario tiene acceso. Incluye el paquete de acceso, la directiva y las fechas.
+    ![Paquetes de acceso de un usuario](./media/entitlement-management-reports/access-packages-report.png)
 
-    ![Informe de asignaciones de usuarios](./media/entitlement-management-reports/user-assignments-report.png)
+1. Si hay más de un rol o directiva de recursos para un paquete de acceso, haga clic en la entrada de roles o directivas de recursos para ver detalles de la selección.
+
+1. Haga clic en la pestaña **Asignado** para ver una lista de los paquetes de acceso asignados actualmente al usuario. Si se asigna un paquete de acceso a un usuario, significa que el usuario tiene acceso a todos los roles de recurso del paquete de acceso.
+
+## <a name="view-resource-assignments-for-a-user"></a>Consulta de las asignaciones de recursos de un usuario
+
+Este informe le permite mostrar los recursos asignados actualmente a un usuario en la administración de derechos. Tenga en cuenta que este informe es para recursos administrados con la administración de derechos. El usuario podría tener acceso a otros recursos de su directorio fuera de la administración de derechos.
+
+**Rol necesario:** administrador global o administrador de usuarios.
+
+1. Haga clic en **Azure Active Directory** y, luego, haga clic en **Gobernanza de identidades**.
+
+1. En el menú izquierdo, haga clic en **Informes**.
+
+1. Haga clic en **Asignaciones de recursos de un usuario**.
+
+1. Haga clic en **Seleccionar usuarios** para abrir el panel de selección de usuarios.
+
+1. Busque el usuario en la lista y, a continuación, haga clic en **Seleccionar**.
+
+    Se muestra una lista de los recursos asignados actualmente al usuario. En la lista también se muestran el paquete de acceso y la directiva de la que se obtuvo el rol de recurso, junto con la fecha de inicio y finalización para el acceso.
+    
+    Si un usuario obtuvo acceso al mismo recurso en dos o más paquetes, puede hacer clic en una flecha para ver cada paquete y directiva.
+
+    ![Asignaciones de recursos de un usuario](./media/entitlement-management-reports/resource-assignments-report.png)
 
 ## <a name="determine-the-status-of-a-users-request"></a>Determinar el estado de la solicitud de un usuario
 
@@ -68,7 +93,7 @@ Cuando Azure AD recibe una solicitud nueva, escribe un registro de auditoría, d
 
 Azure AD escribirá registros de auditoría adicionales mientras la solicitud esté en curso, que incluirán:
 
-| Categoría | Actividad | Estado de la solicitud |
+| Category | Actividad | Estado de la solicitud |
 | :---- | :------------ | :------------ |
 | `EntitlementManagement` | `Auto approve access package assignment request` | La solicitud no requiere aprobación |
 | `UserManagement` | `Create request approval` | La solicitud requiere aprobación |

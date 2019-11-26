@@ -5,15 +5,15 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: include
-ms.date: 10/07/2019
+ms.date: 10/29/2019
 ms.author: jaredro
 ms.custom: include file
-ms.openlocfilehash: 9c53aac47e965a6eba681008d6b6476142190ef8
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: 1f6c65d6d8da275d6c52ac2802092dbb5e4e507d
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72023090"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73182278"
 ---
 ### <a name="what-is-expressroute-direct"></a>¿Qué es ExpressRoute Direct?
 
@@ -25,31 +25,7 @@ Los clientes tendrán que trabajar con sus operadores locales y proveedores de u
 
 ### <a name="what-locations-currently-support-expressroute-direct"></a>¿Qué ubicaciones admiten actualmente ExpressRoute Direct? 
 
-Los puertos disponibles serán dinámicos y estarán disponibles por PowerShell para ver la capacidad. Las ubicaciones incluyen y *están sujetas a cambios según disponibilidad*:
-
-* Ámsterdam
-* Ámsterdam2
-* Auckland 
-* Chicago
-* Dallas
-* Dublín
-* RAE de Hong Kong
-* Londres
-* Londres2
-* Melbourne
-* Ciudad de Nueva York
-* Perth
-* San Antonio
-* Seattle
-* Seúl
-* Silicon Valley
-* Singapur2 
-* Sidney
-* Taipéi
-* Tokio
-* Toronto
-* Washington DC
-* Washington DC2
+Compruebe la disponibilidad en la página [Ubicación](../articles/expressroute/expressroute-locations-providers.md). 
 
 ### <a name="what-is-the-sla-for-expressroute-direct"></a>¿Qué es el Acuerdo de Nivel de Servicio de ExpressRoute Direct?
 

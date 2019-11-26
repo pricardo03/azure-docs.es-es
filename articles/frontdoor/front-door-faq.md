@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2019
 ms.author: sharadag
-ms.openlocfilehash: 37ec8a611f94b869c8277c135f8e6dc5d2108392
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 4001b3ed8d7a92d8a751486ab4fd3a097d032373
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442895"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72809725"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door-service"></a>Preguntas más frecuentes sobre Azure Front Door Service
 
@@ -144,6 +144,8 @@ Azure Front Door Service es una plataforma multiinquilino distribuida globalm
 
 ### <a name="what-tls-versions-are-supported-by-azure-front-door-service"></a>¿Qué versiones de TLS son compatibles con Azure Front Door Service?
 
+Todos los perfiles de Front Door creados después de septiembre de 2019 usan TLS 1.2 como valor mínimo predeterminado.
+
 Front Door admite las versiones 1.0, 1.1 y 1.2 de TLS. Aún no se admite TLS 1.3.
 
 ### <a name="what-certificates-are-supported-on-azure-front-door-service"></a>¿Qué certificados se admiten en Azure Front Door Service?
@@ -185,7 +187,7 @@ Sí, Azure Front Door Service admite la descarga de SSL y SSL de extremo a ex
 
 ### <a name="can-i-configure-ssl-policy-to-control-ssl-protocol-versions"></a>¿Se puede configurar la directiva SSL para controlar las versiones del protocolo SSL?
 
-No, Front Door actualmente no admite la denegación de versiones específicas de TLS ni puede establecer la versión de TLS mínima. 
+Puede configurar una versión mínima de TLS en Azure Front Door a través de la [API de REST de Azure](https://docs.microsoft.com/rest/api/frontdoorservice/frontdoor/frontdoors/createorupdate#minimumtlsversion). Actualmente, puede elegir entre 1.0 y 1.2.
 
 ### <a name="can-i-configure-front-door-to-only-support-specific-cipher-suites"></a>¿Puedo configurar Front Door para admitir únicamente determinados conjuntos de cifrado?
 

@@ -1,5 +1,5 @@
 ---
-title: 'Flujos de trabajo de Apache Oozie con Enterprise Security Package: Azure HDInsight'
+title: 'Flujos de trabajo de Apache Oozie y Enterprise Security: Azure HDInsight'
 description: Proteja los flujos de trabajo de Apache Oozie con Enterprise Security Package de Azure HDInsight. Aprenda a definir un flujo de trabajo de Oozie y enviar un trabajo de Oozie.
 ms.service: hdinsight
 author: omidm1
@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,seodec18
 ms.topic: conceptual
 ms.date: 02/15/2019
-ms.openlocfilehash: 99f8c2b40445fe282800d096353bee1c7a934ebe
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 03826d1005253c408374ea4c78266eef97aab2aa
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70918121"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044831"
 ---
 # <a name="run-apache-oozie-in-hdinsight-hadoop-clusters-with-enterprise-security-package"></a>Ejecución de Apache Oozie en clústeres HDInsight Hadoop con Enterprise Security Package
 
@@ -61,9 +61,9 @@ Las definiciones de flujo de trabajo de Oozie se escriben en el lenguaje de defi
    tar -xvf oozie-examples.tar.gz
    hdfs dfs -put examples /user/<DomainUser>/
    ```
-   Reemplace `DomainUser` con el nombre de usuario del dominio. 
-   Reemplace `DomainUserPath` con la ruta de acceso del directorio principal del usuario de dominio. 
-   Reemplace `ClusterVersion` con la versión de Hortonworks Data Platform (HDP) del clúster.
+   Reemplace `DomainUser` con el nombre de usuario del dominio.
+   Reemplace `DomainUserPath` con la ruta de acceso del directorio principal del usuario de dominio.
+   Reemplace `ClusterVersion` con la versión de su plataforma de datos de clúster.
 
 2. Use la instrucción siguiente para crear y editar un archivo nuevo:
    ```bash

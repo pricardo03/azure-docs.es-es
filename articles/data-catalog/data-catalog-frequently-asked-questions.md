@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 2e286854b9a38c1189ff85307f3e29454be46fb9
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 3877648723a8866ec7d9c5f1987ae3a276114d5e
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70898727"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73152061"
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Preguntas frecuentes sobre Azure Data Catalog
 En este artículo se responden algunas de las preguntas más frecuentes relativas al servicio Azure Data Catalog.
@@ -87,7 +87,7 @@ Las propiedades específicas varían de un origen de datos a otro, pero en gener
 >
 
 > [!NOTE]
-> En el caso de orígenes de datos como SQL Server Analysis Services que tienen una propiedad **Description** de primera clase, la herramienta de registro de orígenes de datos de Data Catalog extrae el valor de dicha propiedad. En el caso de las bases de datos relacionales de SQL Server, que no tienen una propiedad **Description** de primera clase, la herramienta de registro de orígenes de datos de Data Catalog extrae el valor de la propiedad extendida **ms_description** de los objetos y columnas. Para más información, consulte [Usar propiedades extendidas en objetos de base de datos](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx).
+> En el caso de orígenes de datos como SQL Server Analysis Services que tienen una propiedad **Description** de primera clase, la herramienta de registro de orígenes de datos de Data Catalog extrae el valor de dicha propiedad. En el caso de las bases de datos relacionales de SQL Server *locales* que no tienen una propiedad **Description** de primera clase, la herramienta de registro de orígenes de datos de Data Catalog extrae el valor de la propiedad extendida **ms_description** de los objetos y columnas. Para más información, consulte [Usar propiedades extendidas en objetos de base de datos](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx).
 >
 >
 
