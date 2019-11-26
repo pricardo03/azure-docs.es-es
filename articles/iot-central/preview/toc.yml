@@ -71,6 +71,8 @@
           href: howto-version-device-template.md
         - name: Administración de los dispositivos
           href: howto-manage-devices.md
+        - name: Configuración de reglas
+          href: howto-configure-rules.md
         - name: Analizar los datos del dispositivo
           href: howto-create-analytics.md
         - name: Adición de iconos al panel

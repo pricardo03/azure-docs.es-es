@@ -84,16 +84,18 @@
               href: concepts-limits.md
         - name: Acceso a datos y seguridad
           items:
-            - name: Reglas de firewall
-              href: concepts-firewall-rules.md
+            - name: Introducción a la seguridad
+              href: concepts-security.md
             - name: Configuración de SSL
               href: concepts-ssl-connection-security.md
-            - name: Protección contra amenazas avanzada
-              href: concepts-data-access-and-security-threat-protection.md
-            - name: Virtual network
-              href: concepts-data-access-and-security-vnet.md
             - name: Arquitectura de conectividad
               href: concepts-connectivity-architecture.md
+            - name: Reglas de firewall
+              href: concepts-firewall-rules.md
+            - name: Virtual network
+              href: concepts-data-access-and-security-vnet.md
+            - name: Protección contra amenazas avanzada
+              href: concepts-data-access-and-security-threat-protection.md
             - name: Autenticación de Azure AD
               href: concepts-aad-authentication.md
         - name: Continuidad del negocio

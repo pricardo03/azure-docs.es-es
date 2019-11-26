@@ -124,8 +124,6 @@
               href: sql-database-threat-detection-overview.md
             - name: Atributos de seguridad
               href: sql-database-security-attributes.md
-            - name: Restricciones de características
-              href: sql-database-feature-restrictions.md
         - name: Seguridad de base de datos única
           items:
             - name: Controles de acceso a la red

@@ -337,7 +337,7 @@
     - name: Escenarios
       items:
         - name: Centros de atención al cliente
-          href: get-started.md
+          href: call-center-transcription.md
           displayName: 'IVRs, IVR, Telephony Data, Transcription for Telephony Data, Real-time Transcription for Call Centers'
     - name: Guías de procedimientos
       items:
