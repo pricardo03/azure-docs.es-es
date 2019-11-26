@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/02/2017
 ms.author: sumukhs
-ms.openlocfilehash: 8ddb5d0566c57dd1d507d543ac53c0975a83dd43
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 60a4669e20aa8aaf80ae174c88631f3dc572656d
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60723574"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73242892"
 ---
 # <a name="configure-stateful-reliable-services"></a>Configurar Reliable Services con estado
 Hay dos conjuntos de valores de configuración para los servicios de confianza. Un conjunto es global para todos los servicios de confianza del clúster, mientras que el otro conjunto es específico para un servicio de confianza determinado.
@@ -125,6 +125,7 @@ ReplicatorConfig
 | SharedLogPath |Nombre de ruta de acceso completo |"" |Especifica la ruta de acceso completa donde se creará el archivo de registro compartido para esta réplica. Normalmente, los servicios no deben usar esta opción de configuración. Sin embargo, si se especifica SharedLogPath, también se debe especificar SharedLogId. |
 | SlowApiMonitoringDuration |Segundos |300 |Establece el intervalo de supervisión para las llamadas API administradas. Ejemplo: función de devolución de llamada de copia de seguridad proporcionada por el usuario. Una vez transcurrido el intervalo, se enviará un informe de mantenimiento de advertencias a Health Manager. |
 | LogTruncationIntervalSeconds |Segundos |0 |Intervalo configurable en el que se iniciará el truncamiento del registro en cada réplica. Sirve para garantizar que el registro también se trunca según el tiempo en lugar de simplemente según el tamaño del registro. Esta opción obliga también a purgar las entradas eliminadas en un diccionario de confianza. Por tanto, se puede usar para asegurarse de que se purgan los elementos eliminados de manera oportuna. |
+| EnableStableReads |Boolean |False |La habilitación de las lecturas estables restringe las réplicas secundarias para devolver valores con cuórum confirmado. |
 
 ### <a name="sample-configuration-via-code"></a>Ejemplo de configuración mediante código
 ```csharp

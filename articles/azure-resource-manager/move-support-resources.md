@@ -4,14 +4,14 @@ description: Enumera los tipos de recursos de Azure que se pueden trasladar a un
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 10/03/2019
+ms.date: 10/24/2019
 ms.author: tomfitz
-ms.openlocfilehash: 81096a4299ec190cb4299f1b8ea4f9c2533d37ad
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 05f7d022588eee0e5e97f10d6300da04c4be6270
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71948042"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73161944"
 ---
 # <a name="move-operation-support-for-resources"></a>Compatibilidad con la operación de traslado para recursos
 En este artículo se indica si un tipo de recurso de Azure es compatible con la operación de traslado. También proporciona información sobre las condiciones especiales que se deben tener en cuenta a la hora de mover un recurso.
@@ -30,7 +30,6 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > - [Microsoft.AzureActiveDirectory](#microsoftazureactivedirectory)
 > - [Microsoft.AzureData](#microsoftazuredata)
 > - [Microsoft.AzureStack](#microsoftazurestack)
-> - [Microsoft.Backup](#microsoftbackup)
 > - [Microsoft.Batch](#microsoftbatch)
 > - [Microsoft.BatchAI](#microsoftbatchai)
 > - [Microsoft.BingMaps](#microsoftbingmaps)
@@ -54,6 +53,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > - [Microsoft.CortanaAnalytics](#microsoftcortanaanalytics)
 > - [Microsoft.CostManagement](#microsoftcostmanagement)
 > - [Microsoft.CustomerInsights](#microsoftcustomerinsights)
+> - [Microsoft.CustomProviders](#microsoftcustomproviders)
 > - [Microsoft.DataBox](#microsoftdatabox)
 > - [Microsoft.DataBoxEdge](#microsoftdataboxedge)
 > - [Microsoft.Databricks](#microsoftdatabricks)
@@ -65,6 +65,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > - [Microsoft.DataLakeAnalytics](#microsoftdatalakeanalytics)
 > - [Microsoft.DataLakeStore](#microsoftdatalakestore)
 > - [Microsoft.DataMigration](#microsoftdatamigration)
+> - [Microsoft.DataShare](#microsoftdatashare)
 > - [Microsoft.DBforMariaDB](#microsoftdbformariadb)
 > - [Microsoft.DBforMySQL](#microsoftdbformysql)
 > - [Microsoft.DBforPostgreSQL](#microsoftdbforpostgresql)
@@ -128,7 +129,6 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > - [Microsoft.ServiceFabric](#microsoftservicefabric)
 > - [Microsoft.ServiceFabricMesh](#microsoftservicefabricmesh)
 > - [Microsoft.SignalRService](#microsoftsignalrservice)
-> - [Microsoft.SiteRecovery](#microsoftsiterecovery)
 > - [Microsoft.Solutions](#microsoftsolutions)
 > - [Microsoft.Sql](#microsoftsql)
 > - [Microsoft.SqlVirtualMachine](#microsoftsqlvirtualmachine)
@@ -245,13 +245,6 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | registrations | Sí | Sí |
-
-## <a name="microsoftbackup"></a>Microsoft.Backup
-
-> [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription |
-> | ------------- | ----------- | ---------- |
-> | backupvault | Sin | Sin |
 
 ## <a name="microsoftbatch"></a>Microsoft.Batch
 
@@ -463,6 +456,13 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | ------------- | ----------- | ---------- |
 > | hubs | Sí | Sí |
 
+## <a name="microsoftcustomproviders"></a>Microsoft.CustomProviders
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Resource group | Subscription |
+> | ------------- | ----------- | ---------- |
+> | resourceproviders | Sí | Sí |
+
 ## <a name="microsoftdatabox"></a>Microsoft.DataBox
 
 > [!div class="mx-tableFixed"]
@@ -544,6 +544,13 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | services | Sin | Sin |
 > | services/projects | Sin | Sin |
 > | slots | Sin | Sin |
+
+## <a name="microsoftdatashare"></a>Microsoft.DataShare
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Resource group | Subscription |
+> | ------------- | ----------- | ---------- |
+> | accounts | Sin | Sin |
 
 ## <a name="microsoftdbformariadb"></a>Microsoft.DBforMariaDB
 
@@ -934,7 +941,6 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | publicipprefixes | Sí | Sí |
 > | routefilters | Sin | Sin |
 > | routetables | Sí | Sí |
-> | securegateways | Sí | Sí |
 > | serviceendpointpolicies | Sí | Sí |
 > | trafficmanagerprofiles | Sí | Sí |
 > | virtualhubs | Sin | Sin |
@@ -1124,16 +1130,6 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | ------------- | ----------- | ---------- |
 > | signalr | Sí | Sí |
 
-## <a name="microsoftsiterecovery"></a>Microsoft.SiteRecovery
-
-> [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription |
-> | ------------- | ----------- | ---------- |
-> | siterecoveryvault | Sin | Sin |
-
-> [!IMPORTANT]
-> Vea [Guía de movimiento de Recovery Services](../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json).
-
 ## <a name="microsoftsolutions"></a>Microsoft.Solutions
 
 > [!div class="mx-tableFixed"]
@@ -1287,9 +1283,9 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | dedicatedcloudnodes | Sí | Sí |
-> | dedicatedcloudservices | Sí | Sí |
-> | virtualmachines | Sí | Sí |
+> | dedicatedcloudnodes | Sin | Sin |
+> | dedicatedcloudservices | Sin | Sin |
+> | virtualmachines | Sin | Sin |
 
 ## <a name="microsoftweb"></a>Microsoft.Web
 

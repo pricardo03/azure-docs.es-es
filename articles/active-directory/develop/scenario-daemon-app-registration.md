@@ -16,12 +16,12 @@ ms.date: 09/15/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fddd95564e3683aaee067f0442573c41e93376dd
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 8d0d88f72cca45280bd76ac7bb9d7a6e0a1d37fb
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71264388"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175450"
 ---
 # <a name="daemon-app-that-calls-web-apis---app-registration"></a>Aplicación de demonio que llama a las API web: registro de la aplicación
 
@@ -36,7 +36,7 @@ Dado que las aplicaciones de demonio solo tienen sentido en el inquilino de Azur
 
 ## <a name="authentication---no-reply-uri-needed"></a>Autenticación: sin necesidad de URI de respuesta
 
-En caso de que la aplicación cliente confidencial use **solo** el flujo de credenciales del cliente, no es necesario registrar la URL de respuesta. No se necesita para la configuración ni construcción de la aplicación. El flujo de credenciales de cliente no la usa.
+En caso de que la aplicación cliente confidencial use **solo** el flujo de credenciales del cliente, no es necesario registrar el URI de respuesta. No se necesita para la configuración ni construcción de la aplicación. El flujo de credenciales de cliente no la usa.
 
 ## <a name="api-permissions---app-permissions-and-admin-consent"></a>Permisos de API: Permisos de aplicación y consentimiento del administrador
 
@@ -45,7 +45,7 @@ Una aplicación de demonio solo puede solicitar permisos de aplicación a las AP
 ![Permisos de aplicación y consentimiento del administrador](media/scenario-daemon-app/app-permissions-and-admin-consent.png)
 
 > [!NOTE]
-> La API web a la que desea llamar debe definir los **permisos de aplicación (roles de aplicación)** , no los permisos delegados. Para más información sobre cómo exponer una API de este tipo, consulte [API web protegida: Registro de aplicación. Si una aplicación de demonio llama a la API web](https://docs.microsoft.com/en-us/azure/active-directory/develop/scenario-protected-web-api-app-registration#if-your-web-api-is-called-by-a-daemon-app).
+> La API web a la que desea llamar debe definir los **permisos de aplicación (roles de aplicación)** , no los permisos delegados. Para más información sobre cómo exponer una API de este tipo, consulte [API web protegida: Registro de aplicación. Si una aplicación de demonio llama a la API web](scenario-protected-web-api-app-registration.md#if-your-web-api-is-called-by-a-daemon-app).
 
 Las aplicaciones de demonio requieren tener un consentimiento previo del administrador de inquilinos para la aplicación que llama a la API web. Este consentimiento se proporciona en la misma página **API Permission**, cuando un administrador de inquilinos selecciona **Grant admin consent to *nuestra organización*** (Conceder consentimiento del administrador a nuestra organización).
 

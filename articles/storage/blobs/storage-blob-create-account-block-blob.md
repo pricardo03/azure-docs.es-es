@@ -1,6 +1,6 @@
 ---
 title: 'Crear una cuenta de almacenamiento de blob en bloques: Azure Storage| Microsoft Docs'
-description: Aquí se muestra cómo crear una cuenta de almacenamiento de blob en bloques de Azure con las características de rendimiento Premium.
+description: Aquí se muestra cómo crear una cuenta de almacenamiento de BlockBlobStorage con las características de rendimiento Premium.
 author: tamram
 services: storage
 ms.service: storage
@@ -8,22 +8,84 @@ ms.topic: conceptual
 ms.date: 03/23/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 9d8fb8f5f470dc47088efb30b7f823a0b8c624c8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 98a9295363461864d3abbb11bbc22b8bd8d6fdfa
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65141015"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933183"
 ---
-# <a name="create-a-block-blob-storage-account"></a>Creación de una cuenta de almacenamiento de blobs en bloques
+# <a name="create-a-blockblobstorage-account"></a>Creación de una cuenta BlockBlobStorage
 
-El tipo de cuenta de almacenamiento de blob en bloques le permite crear blobs en bloques con características de rendimiento Premium. Este tipo de cuenta de almacenamiento está optimizado para cargas de trabajo con altas tasas de transacciones o que requieren tiempos de acceso muy rápidos. En este artículo se muestra cómo crear una cuenta de almacenamiento de blob en bloques mediante Azure Portal, la CLI de Azure o Azure PowerShell.
+El tipo de cuenta BlockBlobStorage le permite crear blobs en bloques con características de rendimiento Premium. Este tipo de cuenta de almacenamiento está optimizado para cargas de trabajo con altas tasas de transacciones o que requieren tiempos de acceso muy rápidos. En este artículo se muestra cómo crear una cuenta BlockBlobStorage mediante Azure Portal, la CLI de Azure o Azure PowerShell.
 
-Para obtener más información sobre las cuentas de almacenamiento de blob en bloques, consulte [Introducción a las cuentas de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-account-overview).
+Para obtener más información sobre las cuentas de BlockBlobStorage, consulte [Introducción a las cuentas de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-account-overview).
 
-## <a name="create-account-in-the-azure-portal"></a>Crear una cuenta en Azure Portal
+## <a name="prerequisites"></a>Requisitos previos
 
-Para crear una cuenta de almacenamiento de blob en bloques en Azure Portal, siga estos pasos:
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
+
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+
+Ninguno.
+
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+
+Este artículo de procedimientos requiere la versión 1.2.0 del módulo Az de Azure PowerShell o cualquier versión posterior. Ejecute `Get-Module -ListAvailable Az` para buscar la versión actual. Si necesita instalarla o actualizarla, consulte el artículo sobre [cómo instalar el módulo de Azure PowerShell](/powershell/azure/install-Az-ps).
+
+# <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+Puede iniciar sesión en Azure y ejecutar los comandos de la CLI de Azure de dos maneras:
+
+- Puede ejecutar los comandos de la CLI desde Azure Portal, en Azure Cloud Shell.
+- Puede instalar la CLI y ejecutar sus comandos en local.
+
+### <a name="use-azure-cloud-shell"></a>Uso de Azure Cloud Shell
+
+Azure Cloud Shell es un shell de Bash gratuito que puede ejecutarse directamente en Azure Portal. La CLI de Azure está preinstalada y configurada para su uso con la cuenta. Haga clic en el botón **Cloud Shell** del menú situado en la sección superior derecha de Azure Portal:
+
+[![Cloud Shell](../common/media/storage-quickstart-create-account/cloud-shell-menu.png)](https://portal.azure.com)
+
+El botón inicia un shell interactivo que se puede usar para ejecutar los pasos de este artículo de procedimientos:
+
+[![Captura de pantalla en la que aparece la ventana de Cloud Shell del portal](../common/media/storage-quickstart-create-account/cloud-shell.png)](https://portal.azure.com)
+
+### <a name="install-the-cli-locally"></a>Instalación local de la CLI
+
+También puede instalar y usar la CLI de Azure localmente. Para este artículo de procedimientos es preciso usar la versión 2.0.46 de la CLI de Azure o cualquier versión posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli). 
+
+---
+
+## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
+
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+
+Inicie sesión en el [Azure Portal](https://portal.azure.com).
+
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+
+Inicie sesión en la suscripción de Azure con el comando `Connect-AzAccount` y siga las instrucciones que aparecen en pantalla para autenticarse.
+
+```powershell
+Connect-AzAccount
+```
+
+# <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+Para iniciar Azure Cloud Shell, inicie sesión en [Azure Portal](https://portal.azure.com).
+
+Para iniciar sesión en la instalación local de la CLI, ejecute el comando [az login](/cli/azure/reference-index#az-login):
+
+```cli
+az login
+```
+
+---
+
+## <a name="create-a-blockblobstorage-account"></a>Creación de una cuenta BlockBlobStorage
+
+## <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+Para crear una cuenta de BlockBlobStorage en Azure Portal, siga estos pasos:
 
 1. En Azure Portal, seleccione **Todos los servicios** > la categoría **Almacenamiento** > **Cuentas de almacenamiento**.
 
@@ -55,7 +117,7 @@ Para crear una cuenta de almacenamiento de blob en bloques en Azure Portal, siga
 
 1. Seleccione **Crear**.
 
-## <a name="create-account-using-azure-powershell"></a>Creación de una cuenta con Azure PowerShell
+## <a name="azure-powershelltabazure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -81,7 +143,7 @@ Para crear una cuenta de almacenamiento de blob en bloques en Azure Portal, siga
    New-AzResourceGroup -Name $resourceGroup -Location $location
    ```
 
-1. Cree una cuenta de almacenamiento de blob en bloques. Reemplace los valores por expresiones de código delimitadas y ejecute el siguiente comando.
+1. Cree la cuenta BlockBlobStorage. Reemplace los valores por expresiones de código delimitadas y ejecute el siguiente comando.
 
    ```powershell
    $resourcegroup = "resource_group_name"
@@ -91,7 +153,7 @@ Para crear una cuenta de almacenamiento de blob en bloques en Azure Portal, siga
    New-AzStorageAccount -ResourceGroupName $resourcegroup -Name $storageaccount -Location $location -Kind "BlockBlobStorage" -SkuName "Premium_LRS"
    ```
 
-## <a name="create-account-using-azure-cli"></a>Crear una cuenta con la CLI de Azure
+## <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
 Para crear una cuenta de blob en bloques con la CLI de Azure, debe instalar primero la CLI de Azure en su versión 2.0.46 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
 
@@ -109,7 +171,7 @@ Para crear una cuenta de blob en bloques con la CLI de Azure, debe instalar prim
     --location "<location>"
    ```
 
-1. Cree una cuenta de almacenamiento de blob en bloques. Reemplace los valores entre corchetes (incluidos los corchetes) y ejecute el siguiente comando.
+1. Cree la cuenta BlockBlobStorage. Reemplace los valores entre corchetes (incluidos los corchetes) y ejecute el siguiente comando.
 
    ```azurecli
    az storage account create \
@@ -119,6 +181,8 @@ Para crear una cuenta de blob en bloques con la CLI de Azure, debe instalar prim
     --kind "BlockBlobStorage" \
     --sku "Premium_LRS"
    ```
+
+---
 
 ## <a name="next-steps"></a>Pasos siguientes
 

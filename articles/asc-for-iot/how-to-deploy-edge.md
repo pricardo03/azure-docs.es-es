@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/08/2019
 ms.author: mlottner
-ms.openlocfilehash: 128265cd3e69cd27bab6538c9eb376410439824d
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: e85738c344189486726b4e7b7f5a76ab03c0ffa9
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72176672"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72991441"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>Implementación de un módulo de seguridad en el dispositivo IoT Edge
 
@@ -107,7 +107,7 @@ Hay tres pasos para crear una implementación de IoT Edge de Azure Security Cent
 1. Haga clic en **Save**(Guardar).
 1. Desplácese hasta el final de la pestaña y seleccione **Configurar las opciones avanzadas del entorno en tiempo de ejecución de Edge**. 
    
-1. Cambie el valor de **Imagen** de **Edge Hub** a **mcr.microsoft.com/azureiotedge-hub:1.0.9-rc2**.
+1. Cambie el valor de **Imagen** de **Edge Hub** a **mcr.microsoft.com/azureiotedge-hub:1.0.8.3**.
 
 1. Verifique que **Opciones de creación** se ha establecido en: 
          
@@ -168,9 +168,9 @@ Si encuentra algún problema, los registros de contenedor son la mejor manera co
    
    | NOMBRE | IMAGEN |
    | --- | --- |
-   | azureiotsecurity | mcr.microsoft.com/ascforiot/azureiotsecurity:1.0.0 |
-   | edgeHub | mcr.microsoft.com/azureiotedge-hub:1.0.9-rc2 |
-   | edgeAgent | mcr.microsoft.com/azureiotedge-agent:1.0 |
+   | azureiotsecurity | mcr.microsoft.com/ascforiot/azureiotsecurity:1.0.1 |
+   | edgeHub | mcr.microsoft.com/azureiotedge-hub:1.0.8.3 |
+   | edgeAgent | mcr.microsoft.com/azureiotedge-agent:1.0.1 |
    
    Si no están presentes los contenedores mínimos necesarios, compruebe si el manifiesto de implementación de IoT Edge está alineado con la configuración recomendada. Para más información, consulte [Implementación del módulo IoT Edge](#deployment-using-azure-portal).
 

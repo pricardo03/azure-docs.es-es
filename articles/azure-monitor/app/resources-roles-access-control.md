@@ -1,27 +1,22 @@
 ---
 title: Recursos, roles y control de acceso en Azure Application Insights | Microsoft Docs
 description: Propietarios, colaboradores y lectores de las perspectivas de su organización.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 49f736a5-67fe-4cc6-b1ef-51b993fb39bd
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 02/14/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 0f348e3e7dc2812bf354d1f8ec86330b0742439a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 02/14/2019
+ms.openlocfilehash: cdc534325fd693dd34f2dc25c9953cd40ca96163
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60373715"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162300"
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Recursos, roles y control de acceso en Application Insights
 
-Puede controlar quién tiene acceso de lectura y actualización a sus datos en Azure [Application Insights][start], mediante el uso del [control de acceso basado en rol de Microsoft Azure](../../role-based-access-control/role-assignments-portal.md).
+Puede controlar quién tiene acceso de lectura y actualización a sus datos de Azure [Application Insights][start], mediante el [control de acceso basado en rol de Microsoft Azure](../../role-based-access-control/role-assignments-portal.md).
 
 > [!IMPORTANT]
 > Asigne acceso a los usuarios para el **grupo de recursos o la suscripción** a los que pertenece el recurso de aplicación, no para el propio recurso. Asigne el rol de **colaborador de componentes de Application Insights** . De esta forma, se garantiza el control de acceso uniforme a las alertas y las pruebas web junto con su recurso de aplicación. [Más información](#access).
@@ -35,13 +30,13 @@ En primer lugar, vamos a ver algunas definiciones:
 
 * **Recurso** : una instancia de un servicio de Microsoft Azure. El recurso de Application Insights recopila, analiza y muestra los datos de telemetría enviados desde su aplicación.  Otros tipos de recursos de Azure son aplicaciones web, bases de datos y máquinas virtuales.
   
-    Para ver todos los recursos, vaya a [Azure Portal][portal], inicie sesión y haga clic en Todos los recursos. Para buscar un recurso, escriba parte del nombre en el campo de filtro.
+    Para ver todos los recursos, abra [Azure Portal][portal], inicie sesión y haga clic en Todos los recursos. Para buscar un recurso, escriba parte del nombre en el campo de filtro.
   
     ![Enumeración de los recursos de Azure](./media/resources-roles-access-control/10-browse.png)
 
 <a name="resource-group"></a>
 
-* [**Grupo de recursos**][group]: cada recurso pertenece a un grupo. Un grupo es una forma cómoda de administrar los recursos relacionados, especialmente de cara al control de acceso. Por ejemplo, en un grupo de recursos podría colocar una aplicación web, un recurso de Application Insights para supervisar la aplicación y un recurso de almacenamiento para mantener los datos exportados.
+* [**Grupo de recursos**][group]: cada recurso pertenece a un solo grupo. Un grupo es una forma cómoda de administrar los recursos relacionados, especialmente de cara al control de acceso. Por ejemplo, en un grupo de recursos podría colocar una aplicación web, un recurso de Application Insights para supervisar la aplicación y un recurso de almacenamiento para mantener los datos exportados.
 
 * [**Suscripción**](https://portal.azure.com): para usar Application Insights u otros recursos de Azure, inicie sesión en una suscripción de Azure. Cada grupo de recursos pertenece a una suscripción de Azure, donde elije su paquete de precios y, si se trata de una suscripción de la organización, selecciona los miembros y sus permisos de acceso.
 * [**Cuenta de Microsoft**][account]: el nombre de usuario y la contraseña que usa para iniciar sesión en suscripciones de Microsoft Azure, XBox Live, Outlook.com y otros servicios de Microsoft.
@@ -59,7 +54,7 @@ Para controlar el acceso a estos recursos, se recomienda por lo tanto lo siguien
 
 Debe tener derechos de propietario a la suscripción o al grupo de recursos.
 
-El usuario debe tener una [cuenta de Microsoft][account] o tener acceso a su [cuenta de Microsoft de organización](../../active-directory/fundamentals/sign-up-organization.md). Puede proporcionar acceso individual y también a grupos de usuarios definidos en Active Directory de Azure.
+El usuario debe tener una [cuenta de Microsoft][account] o acceder a su [cuenta Microsoft de la organización](../../active-directory/fundamentals/sign-up-organization.md). Puede proporcionar acceso individual y también a grupos de usuarios definidos en Active Directory de Azure.
 
 #### <a name="navigate-to-resource-group-or-directly-to-the-resource-itself"></a>Vaya al grupo de recursos o directamente al recurso mismo.
 
@@ -81,7 +76,7 @@ Para ver la información sobre todos los roles integrados de control de acceso b
 
 Cuando corresponda, tendrá un vínculo a la documentación de referencia oficial asociada.
 
-| Rol | En el grupo de recursos: |
+| Role | En el grupo de recursos: |
 | --- | --- |
 | [Propietario](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) |Puede cambiar cualquier cosa, incluido el acceso de usuario. |
 | [Colaborador](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) |Puede editar cualquier cosa, incluidos todos los recursos. |
@@ -130,16 +125,16 @@ Como algunos roles pueden vincularse a notificaciones y alertas de correo electr
 ### <a name="query-within-the-context-of-a-specific-application-insights-resource-for-owners-and-contributors"></a>Consulta en el contexto de un recurso específico de Application Insights para propietarios y colaboradores
 
 ```powershell
-$resourceGroup = “RGNAME”
-$resourceName = “AppInsightsName”
-$resourceType = “microsoft.insights/components”
+$resourceGroup = "RGNAME"
+$resourceName = "AppInsightsName"
+$resourceType = "microsoft.insights/components"
 (Get-AzRoleAssignment -ResourceGroup $resourceGroup -ResourceType $resourceType -ResourceName $resourceName | Where-Object {$_.RoleDefinitionName -in @('Owner', 'Contributor') } | Select -ExpandProperty SignInName | Sort-Object -Unique) -Join ", "
 ```
 
 ### <a name="query-within-the-context-of-a-specific-resource-group-for-owners-and-contributors"></a>Consulta en el contexto de un grupo de recursos específico para propietarios y colaboradores
 
 ```powershell
-$resourceGroup = “RGNAME”
+$resourceGroup = "RGNAME"
 (Get-AzRoleAssignment -ResourceGroup $resourceGroup | Where-Object {$_.RoleDefinitionName -in @('Owner', 'Contributor') } | Select -ExpandProperty SignInName | Sort-Object -Unique) -Join ", "
 ```
 

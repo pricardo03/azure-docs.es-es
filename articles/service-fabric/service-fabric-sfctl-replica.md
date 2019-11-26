@@ -3,22 +3,23 @@ title: 'CLI de Azure Service Fabric: réplica de sfctl | Microsoft Docs'
 description: Se describen los comandos de réplica de sfctl de la CLI de Service Fabric.
 services: service-fabric
 documentationcenter: na
-author: Christina-Kang
+author: jeffj6123
 manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
+ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/06/2018
-ms.author: bikang
-ms.openlocfilehash: d5563dc2d1b2caaa85645b037d6bf93426cc0b23
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.date: 9/17/2019
+ms.author: jejarry
+ms.openlocfilehash: 34e53311e5338e540c1d987896112de39890de3b
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035270"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901049"
 ---
 # <a name="sfctl-replica"></a>réplica de sfctl
 Administre las réplicas que pertenecen a las particiones del servicio.
@@ -48,7 +49,7 @@ Obtiene los detalles de la réplica implementada en un nodo de Service Fabric. L
 | --node-name [Obligatorio] | El nombre del nodo. |
 | --partition-id [Obligatorio] | La identidad de la partición. |
 | --replica-id [Obligatorio] | El identificador de la réplica. |
-| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
@@ -73,7 +74,7 @@ Obtiene la lista que contiene la información sobre las réplicas implementadas 
 | --node-name [Obligatorio] | El nombre del nodo. |
 | --partition-id | La identidad de la partición. |
 | --service-manifest-name | El nombre de un manifiesto de servicio registrado como parte de un tipo de aplicación en un clúster de Service Fabric. |
-| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
@@ -97,7 +98,7 @@ Obtiene el estado de una réplica de Service Fabric. Use EventsHealthStateFilter
 | --partition-id [Obligatorio] | La identidad de la partición. |
 | --replica-id [Obligatorio] | El identificador de la réplica. |
 | --events-health-state-filter | Permite filtrar la colección de objetos HealthEvent devueltos según el estado de mantenimiento. Los valores posibles para este parámetro incluyen el valor entero de uno de los siguientes estados de mantenimiento. Se devuelven únicamente los eventos que coinciden con el filtro. Todos los eventos se utilizan para evaluar el estado de mantenimiento agregado. Si no se especifica, se devuelven todas las entradas. Los valores de estado se marcan según la enumeración, por lo que el valor puede ser una combinación de estos valores obtenidos mediante el operador bit a bit "OR". Por ejemplo, si el valor proporcionado es 6, se devuelven todos los eventos con el valor HealthState de Ok (2) y Warning (4).  <br> - Default: valor predeterminado. Coincide con cualquier HealthState. El valor predeterminado es cero.  <br> - None: filtro que no coincide con ningún valor de HealthState. Se utiliza para no devolver ningún resultado en una determinada colección de estados. El valor es 1.  <br> - Ok: filtro que asocia la entrada con el valor de HealthState de Ok. El valor es 2.  <br> - Warning: filtro que asocia la entrada con el valor de HealthState de Warning. El valor es 4.  <br> - Error: filtro que asocia la entrada con el valor de HealthState de Error. El valor es 8.  <br> - All: filtro que asocia la entrada con cualquier valor de HealthState. El valor es 65535. |
-| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
@@ -120,7 +121,7 @@ La respuesta incluye el identificador, el rol, el estado, el estado, el nombre d
 | --- | --- |
 | --partition-id [Obligatorio] | La identidad de la partición. |
 | --replica-id [Obligatorio] | El identificador de la réplica. |
-| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
@@ -143,7 +144,7 @@ El punto de conexión de GetReplicas devuelve información sobre las réplicas d
 | --- | --- |
 | --partition-id [Obligatorio] | La identidad de la partición. |
 | --continuation-token | El parámetro continuation token se utiliza para obtener el siguiente conjunto de resultados. Un token de continuación con un valor no vacío se incluye en la respuesta de la API cuando los resultados del sistema no caben en una única respuesta. Cuando este valor se pasa a la siguiente llamada de la API, la API devuelve el siguiente conjunto de resultados. Si no hay más resultados, el token de continuación no contiene ningún valor. El valor de este parámetro no debe ser la dirección URL codificada. |
-| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
@@ -168,7 +169,7 @@ Esta API simula un error de réplica de Service Fabric mediante la eliminación 
 | --partition-id [Obligatorio] | La identidad de la partición. |
 | --replica-id [Obligatorio] | El identificador de la réplica. |
 | --force-remove | Elimina una aplicación o un servicio de Service Fabric de manera forzada sin pasar por la secuencia de apagado correcta. Este parámetro puede usarse para forzar la eliminación de una aplicación o un servicio cuya eliminación normal requiere un tiempo de espera a causa de problemas del código del servicio que impiden el cierre correcto de las réplicas. |
-| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
@@ -199,7 +200,7 @@ Informa del estado de mantenimiento de la réplica de Service Fabric especificad
 | --remove-when-expired | Valor que indica si el informe se quita del almacén de estado cuando expire. <br><br> Si se establece en true, el informe se quita del almacén de estado una vez que expire. Si se establece en false, el informe se trata como un error cuando expire. El valor de esta propiedad es false de forma predeterminada. Cuando los clientes notifican periódicamente, deben establecer RemoveWhenExpired en false (valor predeterminado). De esta manera, si el notificador tiene problemas (por ejemplo, un interbloqueo) y no puede informar, la entidad se evalúa al llegar el error cuando expira el informe de mantenimiento. De este modo, se marca que la entidad está en estado de mantenimiento Error. |
 | --sequence-number | El número de secuencia para este informe de estado como una cadena numérica. <br><br> El número de secuencia del informe se usa por el almacén de estado para detectar informes obsoletos. Si no se especifica, se genera automáticamente un número de secuencia por el cliente de estado cuando se agrega un informe. |
 | --service-kind | El tipo de réplica de servicio (con o sin estado) para el que se va a notificar el mantenimiento. Los valores posibles son los siguientes\: "Stateless", "Stateful".  Valor predeterminado\: Stateful. |
-| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --timeout -t | Valor predeterminado\: 60. |
 | --ttl | La duración durante la cual este informe de mantenimiento es válido. Este campo usa el formato ISO8601 para especificar la duración. <br><br> Cuando los clientes notifican periódicamente, deben enviar informes con una frecuencia mayor que el período de vida. Si los clientes notifican en transición, pueden establecer el período de vida en Infinito. Cuando expira el período de vida, el evento de estado que contiene la información de estado se quita del almacén de estado, si RemoveWhenExpired es true, o se evalúa en el error, si RemoveWhenExpired es false. Si no se especifica, el período de vida se establece de forma predeterminada en un valor infinito. |
 
 ### <a name="global-arguments"></a>Argumentos globales
@@ -224,7 +225,7 @@ Reinicia una réplica de servicio de un servicio persistente que se ejecuta en u
 | --node-name [Obligatorio] | El nombre del nodo. |
 | --partition-id [Obligatorio] | La identidad de la partición. |
 | --replica-id [Obligatorio] | El identificador de la réplica. |
-| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 

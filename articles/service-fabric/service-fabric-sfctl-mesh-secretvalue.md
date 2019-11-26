@@ -3,22 +3,23 @@ title: 'CLI de Azure Service Fabric: sfctl mesh secretvalue | Microsoft Docs'
 description: Se describen los comandos de sfctl mesh secretvalue de la CLI de Service Fabric.
 services: service-fabric
 documentationcenter: na
-author: Christina-Kang
+author: jeffj6123
 manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
+ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/06/2018
-ms.author: bikang
-ms.openlocfilehash: 5200c40afe62ce3a236a3a16b59b64deb8d24ced
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.date: 9/17/2019
+ms.author: jejarry
+ms.openlocfilehash: 96ce4efe00d89c136a0c11d445170b2f67be6fcd
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035939"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901191"
 ---
 # <a name="sfctl-mesh-secretvalue"></a>sfctl mesh secretvalue
 Obtiene y elimina recursos de mesh secretvalue.
@@ -29,7 +30,7 @@ Obtiene y elimina recursos de mesh secretvalue.
 | --- | --- |
 | delete | Elimina el valor especificado del recurso de secreto con nombre. |
 | list | Enumera los nombres de todos los valores del recurso de secreto especificado. |
-| show | Recupera el valor de una versión especificada de un recurso de secreto. |
+| show | Enumera el valor especificado del recurso de secreto. |
 
 ## <a name="sfctl-mesh-secretvalue-delete"></a>sfctl mesh secretvalue delete
 Elimina el valor especificado del recurso de secreto con nombre.
@@ -75,7 +76,7 @@ Obtiene información sobre todos los recursos de valor de secreto del recurso de
 | --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 ## <a name="sfctl-mesh-secretvalue-show"></a>sfctl mesh secretvalue show
-Recupera el valor de una versión especificada de un recurso de secreto.
+Enumera el valor especificado del recurso de secreto.
 
 ### <a name="arguments"></a>Argumentos
 

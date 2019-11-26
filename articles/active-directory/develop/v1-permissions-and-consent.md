@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: jesakowi, justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6fb4342e024d826c65ed33184aaf33012d09190a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a467593d16c54e73d58f9cb2b67a4fa31eb0179e
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65545194"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73042328"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v10-endpoint"></a>Permisos y consentimiento en el punto de conexión v1.0 de Azure Active Directory
 
@@ -38,7 +38,7 @@ Los *permisos*, también conocidos como *ámbitos*, facilitan la autorización d
 Azure AD define dos tipos de permisos:
 
 * **Permisos delegados**: se utilizan en aplicaciones que tienen un usuario con la sesión iniciada. Para estas aplicaciones, el usuario o un administrador dan su consentimiento para los permisos que la aplicación requiere y a la aplicación se le delega el permiso para actuar como el usuario que inició sesión al realizar llamadas a una API. En función de la API de que se trate, es posible que el usuario no tenga la capacidad de dar su consentimiento a la API directamente y, en su lugar, tenga que [pedir a un administrador que proporcione el "consentimiento del administrador"](/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview).
-* **Permisos de aplicación**: los usan las aplicaciones que se ejecutan sin la presencia de un usuario con la sesión iniciada; por ejemplo, las aplicaciones que se ejecutan como demonios o servicios en segundo plano. Los permisos de aplicación solo puede [autorizarlos un administrador](/azure/active-directory/develop/active-directory-v2-scopes#requesting-consent-for-an-entire-tenant), porque suelen ser muy eficaces y permitir el acceso a los datos más allá de los límites de usuario o a datos que deberían estar restringidos a los administradores.
+* **Permisos de aplicación**: los usan las aplicaciones que se ejecutan sin la presencia de un usuario con la sesión iniciada; por ejemplo, las aplicaciones que se ejecutan como demonios o servicios en segundo plano. Los permisos de aplicación solo puede [autorizarlos un administrador](/azure/active-directory/develop/active-directory-v2-scopes#requesting-consent-for-an-entire-tenant), porque suelen ser muy eficaces y permitir el acceso a los datos más allá de los límites de usuario o a datos que deberían estar restringidos a los administradores. Los usuarios que se definen como propietarios de la aplicación de recursos (es decir, la API que publica los permisos) también pueden conceder permisos de aplicación para las API que poseen.
 
 Los permisos efectivos son los permisos que la aplicación tendrá al realizar solicitudes a una API. 
 

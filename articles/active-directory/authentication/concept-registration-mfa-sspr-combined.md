@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 65f3490e9cb62aa2d5c18b8fd564796dd6d3946c
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: a312c39352f0d13b4354e7b0dfcd897bf4cc0992
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70162415"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72808471"
 ---
 # <a name="combined-security-information-registration-preview"></a>Registro de información de seguridad combinado (vista preliminar)
 
@@ -35,6 +35,9 @@ El registro de información de seguridad combinado de Azure AD no está actualme
 
 > [!IMPORTANT]
 > Los usuarios que están habilitados para la versión preliminar original y la experiencia de registro combinado mejorada verán el nuevo comportamiento. Los usuarios que están habilitados para ambas experiencias verán solo la nueva experiencia de mi perfil. La nueva página de mi perfil se alinea con el aspecto del registro combinado y ofrece una experiencia perfecta para los usuarios. Los usuarios pueden ver mi perfil yendo a [https://myprofile.microsoft.com](https://myprofile.microsoft.com).
+
+> [!NOTE] 
+> Podría encontrar un mensaje de error al intentar obtener acceso a la opción de información de seguridad. Por ejemplo, "No podemos iniciar su sesión". En este caso, confirme que no tiene ningún objeto de configuración o de directiva de grupo que bloquee las cookies de terceros en el explorador web. 
 
 Las páginas de mi perfil se localizan basándose en la configuración de idioma del equipo que accede a la página. Microsoft almacena el idioma usado más recientemente en la caché del explorador, por lo que los posteriores intentos de acceder a las páginas se representarán en el último idioma utilizado. Si se borra la caché, las páginas se volverán a representar. Si quiere forzar un idioma específico, puede agregar `?lng=<language>` al final de la dirección URL, donde `<language>` es el código del idioma que quiere representar.
 

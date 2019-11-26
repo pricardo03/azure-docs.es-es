@@ -12,12 +12,12 @@ ms.date: 05/22/2019
 ms.author: baselden
 ms.reviewer: jeeds
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c5975b57b6f960badf747e33deb238adf260199
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: ede458e7d4c1cb1a8d7e3f2e2c9df54d5925d6d8
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967213"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175972"
 ---
 # <a name="choose-the-right-federation-protocol-for-your-multi-tenant-application"></a>Elección del protocolo de federación correcto para una aplicación multiinquilino
 
@@ -80,7 +80,7 @@ SAML 2.0 es un estándar maduro y la mayoría de las plataformas tecnológicas 
 
 ### <a name="trade-offs"></a>Ventajas y desventajas
 
-Al usar los protocolos SAML 2.0 o WSFed para aplicaciones para dispositivos móviles, determinadas directivas de acceso condicional, incluida la autenticación multifactor (MFA) tendrán una experiencia que se verá limitada. Además, si desea acceder a Microsoft Graph, será preciso que implemente la autorización mediante OAuth 2.0 para generar los tokens necesarios. 
+Al usar los protocolos SAML 2.0 o WSFed para aplicaciones para dispositivos móviles, determinadas directivas de acceso condicional, incluida la autenticación multifactor (MFA), tendrán una experiencia que se verá limitada. Además, si desea acceder a Microsoft Graph, será preciso que implemente la autorización mediante OAuth 2.0 para generar los tokens necesarios. 
 
 ### <a name="implementation"></a>Implementación
 

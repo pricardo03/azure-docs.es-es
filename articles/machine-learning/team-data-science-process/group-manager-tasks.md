@@ -1,6 +1,6 @@
 ---
 title: Tareas del administrador de grupo de control de proceso de ciencia de datos en equipo
-description: Un detallado tutorial de las tareas de un administrador de grupo en un proyecto en equipo de ciencia de datos.
+description: Siga este detallado tutorial de las tareas que realiza un administrador de grupos en un proyecto en equipo de ciencia de datos.
 author: marktab
 manager: cgronlun
 editor: cgronlun
@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 09/24/2019
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: f95bb30f547e863fc7a796e69fffe1e2334e489c
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: a3d23950f5cbfaac00b03b25e3c19078c76ad0a5
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326810"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053302"
 ---
 # <a name="team-data-science-process-group-manager-tasks"></a>Tareas del administrador de grupo de control de proceso de ciencia de datos en equipo
 
@@ -250,7 +250,7 @@ Para configurar permisos para los miembros:
    
 1. En la página de ese grupo, seleccione **Miembros** y, a continuación, seleccione **Agregar**. 
    
-1. En el cuadro de diálogo **Invitar a miembros**, busque y seleccione los miembros que desea agregar al grupo y, a continuación, seleccione **Guardar**. 
+1. En el cuadro de diálogo **Invitar a los miembros**, busque y seleccione los miembros que desea agregar al grupo y, a continuación, seleccione **Guardar**. 
    
    ![Concesión de permisos a los miembros](./media/group-manager-tasks/grant-permissions.png)
 

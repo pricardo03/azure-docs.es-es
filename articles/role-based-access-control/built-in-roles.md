@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 09/25/2019
+ms.date: 10/28/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 65a049070806fd702497d50236e9d541de2e8b1a
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: dff222788480eea882614ad29478df1dce359199
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71842292"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73101289"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Roles integrados en los recursos de Azure
 
@@ -114,6 +114,7 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 | [Lector de aplicaciones administradas](#managed-applications-reader) | Le permite leer los recursos de una aplicación administrada y solicitar acceso JIT. |
 | [Colaborador de identidad administrada](#managed-identity-contributor) | Le permite crear, leer, actualizar y eliminar identidades asignadas por el usuario. |
 | [Operador de identidad administrada](#managed-identity-operator) | Le permite leer y asignar identidades asignadas por el usuario. |
+| [Rol para eliminar la asignación de registros de servicios administrados](#managed-services-registration-assignment-delete-role) | El rol para eliminar la asignación de registros de servicios administrados permite que los usuarios que administran el inquilino eliminen la asignación de registros asignada a su inquilino. |
 | [Colaborador de grupo de administración](#management-group-contributor) | Rol de colaborador de grupo de administración |
 | [Lector de grupo de administración](#management-group-reader) | Rol de lector de grupo de administración |
 | [Colaborador de supervisión](#monitoring-contributor) | Puede leer todos los datos de supervisión y editar la configuración de supervisión. Consulte también [Introducción a roles, permisos y seguridad con Azure Monitor](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). |
@@ -279,7 +280,7 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > | **Descripción** | Lector de datos de cuarentena de ACR |
 > | **Id** | cdda3590-29a3-44f6-95f2-9f980659eb04 |
 > | **Acciones** |  |
-> | Microsoft.ContainerRegistry/registries/quarantineRead/read | Extrae u obtiene imágenes en cuarentena de un registro de contenedor |
+> | Microsoft.ContainerRegistry/registries/quarantine/read | Extrae u obtiene imágenes en cuarentena de un registro de contenedor |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
@@ -294,8 +295,8 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > | **Descripción** | Escritura de datos de cuarentena de ACR |
 > | **Id** | c8d4ff99-41c3-41a8-9f60-21dfdad59608 |
 > | **Acciones** |  |
-> | Microsoft.ContainerRegistry/registries/quarantineRead/read | Extrae u obtiene imágenes en cuarentena de un registro de contenedor |
-> | Microsoft.ContainerRegistry/registries/quarantineWrite/write | Escribe o modifica el estado de cuarentena de las imágenes que estén en cuarentena |
+> | Microsoft.ContainerRegistry/registries/quarantine/read | Extrae u obtiene imágenes en cuarentena de un registro de contenedor |
+> | Microsoft.ContainerRegistry/registries/quarantine/write | Escribe o modifica el estado de cuarentena de las imágenes que estén en cuarentena |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |
@@ -1838,6 +1839,7 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > | Microsoft.ClassicStorage/storageAccounts/listKeys/action | Enumera las claves de acceso de las cuentas de almacenamiento. |
 > | Microsoft.ClassicStorage/storageAccounts/read | Devuelve la cuenta de almacenamiento con la cuenta especificada. |
 > | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alerta de Insights |
+> | Microsoft.Insights/metricAlerts/* |  |
 > | Microsoft.Insights/diagnosticSettings/* | Crea, actualiza o lee la configuración de diagnóstico de Analysis Server. |
 > | Microsoft.Insights/logdefinitions/* | Este permiso es necesario para los usuarios que necesitan acceder a registros de actividades a través del portal. Enumere las categorías de registro del registro de actividad. |
 > | Microsoft.Insights/metricDefinitions/* | Leer definiciones de métrica (lista de tipos de métricas disponibles para un recurso). |
@@ -1870,6 +1872,7 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > | **Acciones** |  |
 > | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
 > | Microsoft.Insights/alertRules/*/read | Permite leer reglas de alerta de Insights. |
+> | Microsoft.Insights/metricAlerts/*/read |  |
 > | Microsoft.Insights/diagnosticSettings/*/read | Obtiene la configuración de diagnóstico de Logic Apps. |
 > | Microsoft.Insights/metricDefinitions/*/read | Obtiene las métricas disponibles para Logic Apps. |
 > | Microsoft.Logic/*/read | Lee los recursos de Logic Apps. |
@@ -1961,6 +1964,23 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
+
+## <a name="managed-services-registration-assignment-delete-role"></a>Rol para eliminar la asignación de registros de servicios administrados
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descripción** | El rol para eliminar la asignación de registros de servicios administrados permite que los usuarios que administran el inquilino eliminen la asignación de registros asignada a su inquilino. |
+> | **Id** | 91c1777a-f3dc-4fae-b103-61d183457e46 |
+> | **Acciones** |  |
+> | Microsoft.ManagedServices/registrationAssignments/read | Recupera una lista de las asignaciones del registro de servicios administrados. |
+> | Microsoft.ManagedServices/registrationAssignments/delete | Quita la asignación del registro de servicios administrados. |
+> | Microsoft.ManagedServices/operationStatuses/read | Lee el estado de la operación de los recursos. |
 > | **NotActions** |  |
 > | *Ninguna* |  |
 > | **DataActions** |  |

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: b-juche
-ms.openlocfilehash: 02852b325a22f274b4aa6e793b03c733c38bb9aa
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 8e6a1c3472c6b20b27cf181edbeeb96ab71eb58d
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984135"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73242482"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Instrucciones para el planeamiento de red de Azure NetApp Files
 
@@ -99,7 +99,7 @@ Un escenario básico consiste en crear o conectarse a un volumen de Azure NetApp
 
 Si en la misma región tiene redes virtuales adicionales que deben acceder a los recursos de las demás, las redes virtuales se pueden conectar mediante [emparejamiento de redes virtuales](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) para habilitar la conectividad segura a través de la infraestructura de Azure. 
 
-Piense en la red virtual 2 y la red virtual 3 en el diagrama anterior. Si la VM 2 tiene que conectarse a la VM 3 o al volumen 2, o si la VM 3 tiene que conectarse a la VM 2 o al volumen 1, tiene que habilitar el emparejamiento de redes virtuales entre la red virtual 2 y la red virtual 3. 
+Piense en la red virtual 2 y la red virtual 3 en el diagrama anterior. Si la VM 1 tiene que conectarse a la VM 2 o al volumen 2, o si la VM 2 tiene que conectarse a la VM 1 o al volumen 1, tiene que habilitar el emparejamiento de redes virtuales entre la red virtual 2 y la red virtual 3. 
 
 Además, considere un escenario donde la red virtual 1está emparejada con la red virtual 2, y la red virtual 2 está emparejada con la red virtual 3 en la misma región. Los recursos de la red virtual 1 pueden conectarse a los recursos de la red virtual 2, pero no pueden conectarse a los recursos de la red virtual 3, a menos que la red virtual 1 y la red virtual 3 estén emparejadas. 
 

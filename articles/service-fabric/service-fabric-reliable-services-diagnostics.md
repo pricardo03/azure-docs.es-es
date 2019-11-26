@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/24/2018
 ms.author: dekapur
-ms.openlocfilehash: f49176f944aa2abfa1d355ce0bd207d1b544c275
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 50e3368aa8808307fa479a290eaf10ca3f22289d
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60772965"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73242874"
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>Funcionalidad de diagnóstico para Reliable Services con estado
 La clase StatefulServiceBase de Reliable Services con estado de Azure Service Fabric emite eventos [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) que pueden usarse para depurar el servicio, ofrecer información acerca de cómo funciona el tiempo de ejecución y ayudar a solucionar problemas.
@@ -50,7 +50,7 @@ StatefulRunAsyncSlowCancellation se genera cada vez que una solicitud de cancela
 ## <a name="performance-counters"></a>contadores de rendimiento
 El tiempo de ejecución de Reliable Services define las siguientes categorías de contador de rendimiento:
 
-| Categoría | DESCRIPCIÓN |
+| Category | DESCRIPCIÓN |
 | --- | --- |
 | Replicador transaccional de Service Fabric |Contadores específicos del replicador transaccional de Azure Service Fabric |
 | Service Fabric TStore |Contadores específicos de Azure Service Fabric TStore |
@@ -82,21 +82,23 @@ En el ejemplo anterior, `00d0126d-3e36-4d68-98da-cc4f7195d85e` es la representac
 #### <a name="service-fabric-tstore-category"></a>Categoría de Service Fabric TStore
 En la categoría `Service Fabric TStore`, los nombres de instancias de contadores tienen el formato siguiente:
 
-`ServiceFabricPartitionId:ServiceFabricReplicaId:ServiceFabricStateProviderId_PerformanceCounterInstanceDifferentiator`
+`ServiceFabricPartitionId:ServiceFabricReplicaId:StateProviderId_PerformanceCounterInstanceDifferentiator_StateProviderName`
 
 *ServiceFabricPartitionId* es la representación de cadena del identificador de partición de Service Fabric con el que está asociada la instancia de contador de rendimiento. El identificador de partición es un GUID y su representación de cadena se genera mediante [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) con el especificador de formato "D".
 
 *ServiceFabricReplicaId* es el identificador asociado a una réplica específica de una instancia de Reliable Services. El identificador de la réplica se incluye en el nombre de la instancia de contador de rendimiento para garantizar su unicidad y evitar conflictos con otras instancias de contador de rendimiento generadas por la misma partición. Encontrará más detalles sobre las réplicas y su función en Reliable Services [aquí](service-fabric-concepts-replica-lifecycle.md).
 
-*ServiceFabricStateProviderId* es el identificador asociado con un proveedor de estado dentro de un servicio de confianza. El id. del proveedor de estado se incluye en el nombre de instancia del contador de rendimiento para diferenciar un TStore de otro.
+*StateProviderId* es el identificador asociado con un proveedor de estado dentro de un servicio de confianza. El identificador del proveedor de estado se incluye en el nombre de instancia del contador de rendimiento para diferenciar un TStore de otro.
 
 *PerformanceCounterInstanceDifferentiator* es un identificador diferenciador asociado con una instancia del contador de rendimiento dentro de un proveedor de estado. Este diferenciador se incluye en el nombre de la instancia del contador de rendimiento para garantizar su unicidad y evitar conflictos con otras instancias del contador de rendimiento generadas por el mismo proveedor de estado.
 
+*StateProviderName* es el nombre asociado con un proveedor de estado dentro de un servicio de confianza. El nombre del proveedor de estado se incluye en el nombre de la instancia del contador de rendimiento para que los usuarios puedan identificar fácilmente el estado que proporciona.
+
 El siguiente nombre de instancia de contador es típico de un contador de la categoría `Service Fabric TStore`:
 
-`00d0126d-3e36-4d68-98da-cc4f7195d85e:131652217797162571:142652217797162571_1337`
+`00d0126d-3e36-4d68-98da-cc4f7195d85e:131652217797162571:142652217797162571_1337_urn:MyReliableDictionary/dataStore`
 
-En el ejemplo anterior, `00d0126d-3e36-4d68-98da-cc4f7195d85e` es la representación de cadena del identificador de la partición de Service Fabric, `131652217797162571` es el identificador de la réplica, `142652217797162571` es el identificador del proveedor de estado y `1337` es el diferenciador de la instancia del contador de rendimiento.
+En el ejemplo anterior, `00d0126d-3e36-4d68-98da-cc4f7195d85e` es la representación de cadena del identificador de la partición de Service Fabric, `131652217797162571` es el identificador de la réplica, `142652217797162571` es el identificador del proveedor de estado y `1337` es el diferenciador de la instancia del contador de rendimiento. `urn:MyReliableDictionary/dataStore` es el nombre del proveedor de estado que almacena los datos para la colección denominada `urn:MyReliableDictionary`.
 
 ### <a name="transactional-replicator-performance-counters"></a>Contadores de rendimiento del replicador de transacciones
 

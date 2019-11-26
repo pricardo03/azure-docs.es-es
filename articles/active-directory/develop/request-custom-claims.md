@@ -1,5 +1,6 @@
 ---
-title: Solicitud de notificaciones personalizadas con MSAL para iOS y macOS | Plataforma de identidad de Microsoft
+title: Solicitud de notificaciones personalizadas mediante MSAL para iOS y macOS
+titleSuffix: Microsoft identity platform
 description: Obtenga información sobre cómo solicitar notificaciones personalizadas.
 services: active-directory
 documentationcenter: ''
@@ -17,12 +18,12 @@ ms.author: twhitney
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a6e09d58742bffd74f07f79b3ec55c1e81533632
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: 6c34da9e8faa8c2c2e24e7f00569e2b7c8af674f
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71269366"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802595"
 ---
 # <a name="how-to-request-custom-claims-using-msal-for-ios-and-macos"></a>Procedimientos para: solicitar notificaciones personalizadas mediante MSAL para iOS y macOS
 
@@ -135,4 +136,4 @@ application.acquireToken(with: parameters) { (result: MSALResult?, error: Error?
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga más información sobre los [flujos de autenticación y escenarios de aplicaciones](authentication-flows-app-scenarios.md).
+Más información sobre [flujos de autenticación y escenarios de aplicaciones](authentication-flows-app-scenarios.md).

@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: dde4b4efc62ec444cbbd662a70e7507a1b8f70e7
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 436825c6e5df2be524dc06ccdaf82f0156714679
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71066976"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73241654"
 ---
 # <a name="deep-dive---advanced-analytics"></a>Profundización: análisis avanzado
 
@@ -78,7 +78,7 @@ Como parte de HDInsight, puede crear un clúster de HDInsight con [ML Services](
 
 ### <a name="azure-machine-learning-and-apache-hive"></a>Azure Machine Learning y Apache Hive
 
-[Azure Machine Learning Studio](https://studio.azureml.net/) no solo proporciona herramientas para el análisis predictivo de modelos, sino también un servicio totalmente administrado que se puede usar para implementar los modelos predictivos como servicios web listos para consumir. Azure Machine Learning proporciona herramientas para crear completas soluciones de análisis predictivos en la nube a fin de crear, probar, operacionalizar y administrar modelos predictivos rápidamente. Seleccione entre una biblioteca de algoritmos de gran tamaño, utilice un estudio basado en web para la compilación de modelos e implemente fácilmente el modelo como un servicio web.
+[Azure Machine Learning Studio](https://studio.azureml.net/) (clásico) no solo proporciona herramientas para el análisis predictivo de modelos, sino también un servicio totalmente administrado que se puede usar para implementar los modelos predictivos como servicios web listos para consumir. Azure Machine Learning proporciona herramientas para crear completas soluciones de análisis predictivos en la nube a fin de crear, probar, operacionalizar y administrar modelos predictivos rápidamente. Seleccione entre una biblioteca de algoritmos de gran tamaño, utilice un estudio basado en web para la compilación de modelos e implemente fácilmente el modelo como un servicio web.
 
 ### <a name="apache-spark-and-deep-learning"></a>Apache Spark y aprendizaje profundo
 

@@ -133,6 +133,9 @@
         - name: Procesamiento de datos de Event Hubs
           href: ../event-hubs/process-data-azure-stream-analytics.md
           maintainContext: true
+        - name: "Procesamiento de Azure\_SQL\_Database"
+          href: ../sql-database/sql-database-stream-analytics.md
+          maintainContext: true
         - name: Escenarios geoespaciales
           href: geospatial-scenarios.md
     - name: Supervisión

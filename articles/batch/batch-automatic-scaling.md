@@ -11,15 +11,15 @@ ms.service: batch
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: multiple
-ms.date: 10/08/2019
+ms.date: 10/24/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017,fasttrack-edit
-ms.openlocfilehash: a788226ad5bd3f8cd6416ad032fc439e860fd713
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: ab16fc959a332076cac1d615b86d37e8c66e2f67
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286698"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933696"
 ---
 # <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Creación de una fórmula automática para escalar nodos de ejecución en un grupo de Batch
 
@@ -105,7 +105,7 @@ Puede obtener y establecer los valores de estas variables definidas por el servi
 | Variables definidas por el servicio de solo escritura | DESCRIPCIÓN |
 | --- | --- |
 | $TargetDedicatedNodes |Número objetivo de nodos de ejecución dedicados para el grupo. El número de nodos dedicados se especifica como destino porque un grupo podría no lograr siempre el número de nodos deseado. Por ejemplo, podría pasar que el grupo no alcanzara el número de destino si el número de nodos dedicados se modifica con una evaluación de escalado automático antes de que el grupo haya alcanzado el valor de destino inicial. <br /><br /> Podría pasar que un grupo de una cuenta creada con la configuración del servicio de Batch no alcanzara su valor de destino si el destino supera una cuota de núcleos o de nodos de la cuenta de Batch. Podría pasar que un grupo de una cuenta creada con la configuración de suscripción de usuario no alcanzara su valor de destino si el destino supera la cuota de núcleos compartidos de la suscripción.|
-| $TargetLowPriorityNodes |Número objetivo de nodos de ejecución de prioridad baja para el grupo. El número de nodos de prioridad baja se especifica como destino porque un grupo podría no lograr siempre el número de nodos deseado. Por ejemplo, podría pasar que el grupo no alcanzara el número de destino si el número de nodos de prioridad baja se modifica con una evaluación de escalado automático antes de que el grupo haya alcanzado el valor de destino inicial. Además, también podría pasar que un grupo no alcanzara el valor de destino si el destino supera una cuota de núcleos o de nodos de la cuenta de Batch. <br /><br /> Para obtener más información sobre los nodos de ejecución de prioridad baja, consulte [Uso de máquinas virtuales de prioridad baja con Batch (versión preliminar)](batch-low-pri-vms.md). |
+| $TargetLowPriorityNodes |Número objetivo de nodos de ejecución de prioridad baja para el grupo. El número de nodos de prioridad baja se especifica como destino porque un grupo podría no lograr siempre el número de nodos deseado. Por ejemplo, podría pasar que el grupo no alcanzara el número de destino si el número de nodos de prioridad baja se modifica con una evaluación de escalado automático antes de que el grupo haya alcanzado el valor de destino inicial. Además, también podría pasar que un grupo no alcanzara el valor de destino si el destino supera una cuota de núcleos o de nodos de la cuenta de Batch. <br /><br /> Para obtener más información sobre los nodos de ejecución de prioridad baja, consulte [Uso de máquinas virtuales de prioridad baja con Batch](batch-low-pri-vms.md). |
 | $NodeDeallocationOption |La acción que se produce cuando se quitan los nodos de ejecución de un grupo. Los valores posibles son:<ul><li>**requeue**: el valor predeterminado. Finaliza las tareas de inmediato y las vuelve a colocar en la cola de trabajos para que se vuelvan a programar. Esta acción garantiza que el número de nodos de destino se alcanza lo antes posible, pero es posible que sea menos eficaz, ya que cualquier tarea en ejecución se interrumpirá y tendrá que reiniciarse, con lo que el trabajo que se haya hecho hasta ese momento no sirve para nada. <li>**terminate**: finaliza las tareas de inmediato y las quitar de la cola de trabajos.<li>**taskcompletion**: espera a que finalicen las tareas actualmente en ejecución y, a continuación, quita el nodo del grupo. Esta opción se usa para evitar que las tareas se interrumpan y se vuelvan a poner en la cola, lo que hace que cualquier trabajo que haya realizado hasta ese momento sea baldío. <li>**retaineddata**: espera a que todos los datos que se conservan en la tarea local en el nodo se limpien antes de quitar el nodo del grupo.</ul> |
 
 > [!NOTE]

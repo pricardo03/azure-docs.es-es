@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: pafarley
-ms.openlocfilehash: 53d06f84172da0c4717cabe79f4f5152e73e9555
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: b02324923e3f004395105b8e04165390cb950fe7
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72754266"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044127"
 ---
 # <a name="create-human-reviews"></a>Creación de revisiones humanas
 
@@ -56,4 +56,4 @@ Las revisiones de texto funcionan de modo similar a las revisiones de imágenes.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En esta guía, ha aprendido a configurar y usar las revisiones de la [herramienta de revisión](https://contentmoderator.cognitive.microsoft.com) de Content Moderator. A continuación, consulte la [guía de la API REST](../try-review-api-review.md) o la [guía del SDK de .NET](../moderation-reviews-quickstart-dotnet.md) para aprender a crear revisiones mediante programación.
+En esta guía, ha aprendido a configurar y usar las revisiones de la [herramienta de revisión](https://contentmoderator.cognitive.microsoft.com) de Content Moderator. A continuación, consulte la [guía de la API REST](../try-review-api-review.md) o el [inicio rápido del SDK de .NET](../dotnet-sdk-quickstart.md) para aprender a crear revisiones mediante programación.

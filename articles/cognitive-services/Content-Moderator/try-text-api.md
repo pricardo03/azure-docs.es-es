@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 05/29/2019
-ms.openlocfilehash: bf3f08436fb4bac56907b342c991709947f4c24d
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 467bf7fe26df2f826d6d44d42a9e30b98795232f
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72754199"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73043927"
 ---
 # <a name="moderate-text-from-the-api-console"></a>Moderación de texto desde la consola de API
 
@@ -61,9 +61,6 @@ Para **Content-Type**, seleccione el tipo de contenido que quiera filtrar. Para 
 ### <a name="sample-text-to-scan"></a>Texto de ejemplo que se va a examinar
 
 En el cuadro **Request body** (Cuerpo de la solicitud), escriba algo de texto. En el ejemplo siguiente se muestra un error intencionado en el texto.
-
-> [!NOTE]
-> El número de la seguridad social no válido del texto de ejemplo siguiente es intencionado. El propósito es transmitir la entrada de ejemplo y el formato de salida.
 
 ```
 Is this a grabage or crap email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.
@@ -176,4 +173,4 @@ Para una explicación detallada de todas las secciones de la respuesta JSON, con
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Use la API REST en el código o empiece con el [inicio rápido de moderación de texto para .NET](text-moderation-quickstart-dotnet.md) para integrarlo en su aplicación.
+Use la API REST del código o siga el [inicio rápido del SDK de .NET](dotnet-sdk-quickstart.md) para realizar la integración con la aplicación.

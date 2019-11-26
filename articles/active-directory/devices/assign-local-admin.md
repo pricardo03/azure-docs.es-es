@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 35cb6cba02a1bdcf9f19c7f02b7e2ca4d01e0d3f
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: 5372bf853092ea55952b45a1300d0f979f1b086c
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67983667"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73062270"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Administración del grupo de administradores locales en dispositivos unidos a Azure AD
 
@@ -59,10 +59,10 @@ Para modificar el rol de administrador de dispositivos, configure **Administrado
 >[!NOTE]
 > Esta opción requiere un inquilino de Azure AD Premium. 
 
-Los administradores de dispositivos se asignan a todos los dispositivos unidos a Azure AD. No se puede definir el ámbito de los administradores de dispositivos a un conjunto específico de dispositivos. La actualización del rol de administrador de dispositivos no necesariamente tiene un impacto inmediato en los usuarios afectados. Para los dispositivos en los que un usuario ya ha iniciado sesión, la actualización de privilegios se lleva a cabo:
+Los administradores de dispositivos se asignan a todos los dispositivos unidos a Azure AD. No se puede definir el ámbito de los administradores de dispositivos a un conjunto específico de dispositivos. La actualización del rol de administrador de dispositivos no necesariamente tiene un impacto inmediato en los usuarios afectados. En los dispositivos en los que un usuario ya ha iniciado sesión, la actualización de los privilegios tiene lugar cuando las *dos* acciones siguientes tienen lugar:
 
-- Cuando un usuario cierra sesión.
-- Después de 4 horas, cuando se emite un nuevo token de actualización principal. 
+- Han pasado 4 horas para que Azure AD emita un nuevo token de actualización principal con los privilegios adecuados. 
+- El usuario cierra sesión y la vuelve a iniciar, sin bloquear o desbloquear, para actualizar su perfil.
 
 ## <a name="manage-regular-users"></a>Administración de los usuarios normales
 

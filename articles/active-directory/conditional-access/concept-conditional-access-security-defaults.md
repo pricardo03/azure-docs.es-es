@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.date: 10/23/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 502fb8b49770b4933c44aa1eb447abb746943c0d
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: bde1741d12cc7ef181fb60bc7eecbec1fed8cbd0
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554813"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73151226"
 ---
 # <a name="what-are-security-defaults"></a>¿Cuáles son los valores de seguridad predeterminados?
 
@@ -113,6 +113,7 @@ Estas son las guías paso a paso sobre cómo puede usar el acceso condicional pa
 - [Exigir autenticación multifactor para administradores](howto-conditional-access-policy-admin-mfa.md)
 - [Exigir autenticación multifactor para la administración de Azure](howto-conditional-access-policy-azure-management.md)
 - [Bloquear la autenticación heredada](howto-conditional-access-policy-block-legacy.md)
+- [Exigir autenticación multifactor para todos los usuarios](howto-conditional-access-policy-all-users-mfa.md)
 
 ## <a name="enabling-security-defaults"></a>Habilitación de los valores de seguridad predeterminados
 

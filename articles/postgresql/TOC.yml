@@ -175,6 +175,10 @@
   items:
     - name: Servidor único
       items:
+        - name: Administración de un servicio
+          items:
+            - name: Portal de Azure
+              href: howto-create-manage-server-portal.md
         - name: Authentication
           items:
             - name: Creación de usuarios

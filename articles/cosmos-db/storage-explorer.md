@@ -4,15 +4,15 @@ description: Obtenga información sobre cómo conectarse a Azure Cosmos DB y adm
 author: deborahc
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/23/2019
+ms.date: 10/23/2019
 ms.author: dech
 ms.custom: seodec18
-ms.openlocfilehash: 6c3c8aee51a4484013126a5959d3d275a88aa1cc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fd044d4f32aefc00e1b04f7060e0fc0dc74fd6c7
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66242645"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882348"
 ---
 # <a name="work-with-data-using-azure-storage-explorer"></a>Uso de datos con el Explorador de Azure Storage
 
@@ -59,7 +59,7 @@ Una manera alternativa de conectarse a Azure Cosmos DB es usar una cadena de con
 
     ![Conectarse a Cosmos DB mediante una cadena de conexión](./media/storage-explorer/connect-to-db-by-connection-string.png)
 
-2. Actualmente solo se admiten SQL y Table API. Elija API, pegue el valor de **Cadena de conexión**, escriba el valor de **Etiqueta de cuenta**, haga clic en **Siguiente** para consultar el resumen y, después, haga clic en **Conectar** para conectar la cuenta de Azure Cosmos DB. Para más información sobre cómo recuperar la cadena de conexión, vea [Obtener la cadena de conexión](https://docs.microsoft.com/azure/cosmos-db/manage-account).
+2. Actualmente solo se admiten SQL y Table API. Elija API, pegue el valor de **Cadena de conexión**, escriba el valor de **Etiqueta de cuenta**, haga clic en **Siguiente** para consultar el resumen y, después, haga clic en **Conectar** para conectar la cuenta de Azure Cosmos DB. Para más información sobre cómo recuperar la cadena de conexión primaria, vea [Obtener la cadena de conexión](manage-with-powershell.md#list-keys).
 
     ![Cadena de conexión](./media/storage-explorer/connection-string.png)
 
@@ -73,7 +73,7 @@ Siga estos pasos para conectarse a una instancia de Azure Cosmos DB mediante un 
 
     ![Conectarse a Cosmos DB mediante un Emulator](./media/storage-explorer/emulator-entry.png)
 
-3. Actualmente solo se admite SQL API. Pegue el valor de **Cadena de conexión**, escriba el valor de **Etiqueta de cuenta**, haga clic en **Siguiente** para consultar el resumen y, después, haga clic en **Conectar** para conectar la cuenta de Azure Cosmos DB. Para más información sobre cómo recuperar la cadena de conexión, vea [Obtener la cadena de conexión](https://docs.microsoft.com/azure/cosmos-db/manage-account).
+3. Actualmente solo se admite SQL API. Pegue el valor de **Cadena de conexión**, escriba el valor de **Etiqueta de cuenta**, haga clic en **Siguiente** para consultar el resumen y, después, haga clic en **Conectar** para conectar la cuenta de Azure Cosmos DB. Para más información sobre cómo recuperar la cadena de conexión primaria, vea [Obtener la cadena de conexión](manage-with-powershell.md#list-keys).
 
     ![Cuadro de diálogo Connect to Cosmos DB by Emulator (Conectarse a Cosmos DB mediante un Emulator)](./media/storage-explorer/emulator-dialog.png)
 
@@ -103,7 +103,7 @@ Puede realizar muchas tareas de acción rápida haciendo clic con el botón dere
     ![Buscar desde aquí](./media/storage-explorer/search-from-here.png) 
 
 ### <a name="database-and-collection-management"></a>Administración de bases de datos y recopilaciones
-#### <a name="create-a-database"></a>Creación de una base de datos 
+#### <a name="create-a-database"></a>Crear una base de datos 
 -   Haga clic con el botón derecho en la cuenta de Azure Cosmos DB, elija **Crear base de datos**, escriba el nombre de la base de datos y presione **Entrar** para completar la acción.
        
     ![Crear base de datos](./media/storage-explorer/create-database.png) 

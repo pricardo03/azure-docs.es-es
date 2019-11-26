@@ -1,5 +1,5 @@
 ---
-title: Error "watchdog BUG soft lockup - CPU" desde un clúster de Azure HDInsight
+title: Error "watchdog BUG soft lockup - CPU" en un clúster de Azure HDInsight
 description: El error "watchdog BUG soft lockup - CPU" aparece en registros de syslog del kernel desde un clúster de Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/05/2019
-ms.openlocfilehash: 8f9b60c6e181c9f47635e7d46ce103032d395028
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 1d357566a7b2478fff77ed4d88af4ee8a9535050
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71087347"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044740"
 ---
 # <a name="scenario-watchdog-bug-soft-lockup---cpu-error-from-an-azure-hdinsight-cluster"></a>Escenario: error "watchdog: BUG: soft lockup - CPU" desde un clúster de Azure HDInsight
 

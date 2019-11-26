@@ -3,25 +3,26 @@ title: 'CLI de Azure Service Fabric: sfctl | Microsoft Docs'
 description: Se describen los comandos de sfctl de la CLI de Service Fabric.
 services: service-fabric
 documentationcenter: na
-author: Christina-Kang
+author: jeffj6123
 manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
+ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/06/2018
-ms.author: bikang
-ms.openlocfilehash: 35b881268ca21a840836c96388a4562a54d17d3b
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.date: 9/17/2019
+ms.author: jejarry
+ms.openlocfilehash: 7e7fc7bbc65e92960d7839f6531ef1f7c1935ed3
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035805"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900877"
 ---
 # <a name="sfctl"></a>sfctl
-Comandos para administrar clústeres y entidades de Service Fabric. Esta versión es compatible con el entorno de ejecución de Service Fabric 6.4.
+Comandos para administrar clústeres y entidades de Service Fabric. Esta versión es compatible con el entorno de ejecución de Service Fabric 6.5.
 
 Los comandos siguientes siguen el patrón nombre-verbo. Consulte los subgrupos para más información.
 
@@ -33,6 +34,7 @@ Los comandos siguientes siguen el patrón nombre-verbo. Consulte los subgrupos p
 | [cluster](service-fabric-sfctl-cluster.md) | Seleccione, administre y opere clústeres de Service Fabric. |
 | [compose](service-fabric-sfctl-compose.md) | Cree, elimine y administre aplicaciones de Docker Compose. |
 | [container](service-fabric-sfctl-container.md) | Ejecute los comandos relacionados con el contenedor en un nodo de clúster. |
+| [eventos](service-fabric-sfctl-events.md) | Recupere eventos del almacén de eventos (si ya está instalado el servicio EventStore). |
 | [is](service-fabric-sfctl-is.md) | Consulte y envíe comandos al servicio de infraestructura. |
 | [mesh](service-fabric-sfctl-mesh.md) | Elimina y administra aplicaciones de Service Fabric Mesh. |
 | [node](service-fabric-sfctl-node.md) | Administre los nodos que forman un clúster. |

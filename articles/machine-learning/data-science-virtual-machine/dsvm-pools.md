@@ -1,7 +1,7 @@
 ---
 title: Grupos compartidos
 titleSuffix: Azure Data Science Virtual Machine
-description: Implementación de grupos de instancias de DSVM como recursos compartidos para un equipo
+description: Aprenda a crear e implementar un grupo compartido de instancias de Data Science Virtual Machine (DSVM) como recurso compartido para un equipo.
 keywords: aprendizaje profundo, AI, herramientas de ciencia de datos, data science virtual machine, análisis geoespacial, proceso de ciencia de datos en equipo
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.openlocfilehash: 929040b5dc8650a757fb9c0da58cb82a76a72b5b
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 2a74df3aaf70270353b10f757cf3a61e8f479d74
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195618"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73052994"
 ---
 # <a name="create-a-shared-pool-of-data-science-virtual-machines"></a>Crear un grupo compartido de máquinas virtuales de Data Science Virtual Machine
 

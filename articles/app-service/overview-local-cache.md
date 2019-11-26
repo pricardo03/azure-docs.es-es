@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 03/04/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: bfb66789df3236c096ea00bcc83ddc435e87f047
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 4dffa7dcafe4aabe3e8dcb56d4f5084d0c6ef821
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71097661"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819670"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Información general de caché local de Azure App Service
 
@@ -93,7 +93,7 @@ Use esta configuración de aplicación para habilitar la caché local en funció
 ```
 
 ## <a name="change-the-size-setting-in-local-cache"></a>Cambio de la configuración de tamaño en la caché local
-El tamaño predeterminado de la caché local es **300 MB**. Esto incluye las carpetas /site y /siteextensions que se copian desde el almacén de contenido así como en cualquier registro y carpeta de datos creados localmente. Para aumentar este límites, use la configuración de aplicación `WEBSITE_LOCAL_CACHE_SIZEINMB`. Puede aumentar el tamaño hasta **2 GB** (2000 MB) por aplicación.
+El tamaño predeterminado de la caché local es **1 GB**. Esto incluye las carpetas /site y /siteextensions que se copian desde el almacén de contenido así como en cualquier registro y carpeta de datos creados localmente. Para aumentar este límites, use la configuración de aplicación `WEBSITE_LOCAL_CACHE_SIZEINMB`. Puede aumentar el tamaño hasta **2 GB** (2000 MB) por aplicación.
 
 ## <a name="best-practices-for-using-app-service-local-cache"></a>Prácticas recomendadas para usar la caché local de App Service
 Se recomienda que use la caché local conjuntamente con la característica [Entornos de ensayo](../app-service/deploy-staging-slots.md) .
@@ -105,6 +105,7 @@ Se recomienda que use la caché local conjuntamente con la característica [Ento
 * La configuración temporal incluye un nombre y se adhiere a una ranura. Por tanto, cuando la ranura de ensayo se intercambia por producción, hereda la configuración de aplicación de la caché local. La ranura de producción recién intercambiada se ejecutará en la caché local después de unos minutos y se calentará como parte del calentamiento de la ranura después del intercambio. Por tanto, cuando se completa el intercambio de ranura, la ranura de producción del usuario se ejecuta en la caché local.
 
 ## <a name="frequently-asked-questions-faq"></a>Preguntas más frecuentes
+
 ### <a name="how-can-i-tell-if-local-cache-applies-to-my-app"></a>¿Cómo puedo saber si la caché local se aplica a mi aplicación?
 Si la aplicación necesita un almacén de contenido confiable y de alto rendimiento, y no usa el almacén de contenido para escribir datos críticos en tiempo de ejecución y tiene un tamaño inferior a 2 GB, la respuesta es sí. Para obtener el tamaño total de las carpetas /site y /siteextensions, puede utilizar la extensión del sitio de "uso de disco de las aplicaciones web de Azure".
 

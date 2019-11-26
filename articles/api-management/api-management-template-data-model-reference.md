@@ -11,23 +11,23 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 323b3effb4c4a63d03ab7ea5251e0d59271d9dcd
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 5625ff7e4fc51b9b6b894698719247902a480f44
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072146"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176545"
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Referencia de modelo de datos de la plantilla de Azure API Management
 Este tema describe las representaciones de entidad y tipo de elementos comunes que se usan en los modelos de datos en las plantillas de portal para desarrolladores de Azure API Management.  
   
  Para más información sobre cómo trabajar con plantillas, consulte [Cómo personalizar el portal para desarrolladores de API Management mediante plantillas](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
 
-[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+[!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
-El portal para desarrolladores no está disponible en el nivel Consumo.
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="reference"></a>Referencia
 
@@ -68,7 +68,7 @@ El portal para desarrolladores no está disponible en el nivel Consumo.
 |`path`|string|Dirección URL relativa que identifica de forma única esta API y todas las rutas de acceso a sus recursos dentro de la instancia del servicio API Management. Se anexa a la dirección URL base del punto de conexión de API que se especificó durante la creación de la instancia de servicio para formar una dirección URL pública para esta API.|  
 |`protocols`|matriz de número|Describe en qué protocolos se pueden invocar las operaciones en esta API. Los valores permitidos son `1 - http` y `2 - https`, o ambos.|  
 |`authenticationSettings`|[Configuración de autenticación del servidor de autorización](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-contract-reference#AuthenticationSettings)|Colección de ajustes de autenticación que se incluyen en esta API.|  
-|`subscriptionKeyParameterNames`|objeto|Propiedad opcional que puede utilizarse para especificar nombres personalizados para los parámetros de la consulta o encabezado que contiene la clave de suscripción. Cuando esta propiedad está presente, debe contener al menos una de las dos propiedades siguientes.<br /><br /> `{   "subscriptionKeyParameterNames":   {     "query": “customQueryParameterName",     "header": “customHeaderParameterName"   } }`|  
+|`subscriptionKeyParameterNames`|object|Propiedad opcional que puede utilizarse para especificar nombres personalizados para los parámetros de la consulta o encabezado que contiene la clave de suscripción. Cuando esta propiedad está presente, debe contener al menos una de las dos propiedades siguientes.<br /><br /> `{   "subscriptionKeyParameterNames":   {     "query": “customQueryParameterName",     "header": “customHeaderParameterName"   } }`|  
   
 ##  <a name="APISummary"></a> Resumen de API  
  La entidad `API summary` tiene las siguientes propiedades:  

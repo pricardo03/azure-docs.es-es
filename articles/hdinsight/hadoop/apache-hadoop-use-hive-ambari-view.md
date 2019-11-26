@@ -1,19 +1,19 @@
 ---
-title: 'Uso de las vistas de Apache Ambari para trabajar con Hive en HDInsight (Apache Hadoop): Azure'
+title: Uso de la vista de Hive de Apache Ambari con Apache Hadoop en HDInsight
 description: Obtenga información acerca de cómo usar la Vista de Hive desde el explorador web para enviar consultas de Hive. La Vista de Hive es parte de la interfaz de usuario web Ambari que se proporciona con el clúster de HDInsight basado en Linux.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 03/21/2019
-ms.author: hrasheed
-ms.openlocfilehash: da4d1ed7dec8b3b0bc61dd2959a868d03875039c
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.date: 10/24/2019
+ms.openlocfilehash: 6c199a0dd75b89d9c9368e799c97a28b73758d06
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71077009"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73097101"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>Uso de Apache Ambari Hive View con Apache Hadoop en HDInsight
 
@@ -30,9 +30,9 @@ Aprenda a ejecutar consultas de Hive utilizando Apache Ambari Hive View. La vist
 
 1. En [Azure Portal](https://portal.azure.com/), seleccione su clúster.  Consulte [Enumeración y visualización de clústeres](../hdinsight-administer-use-portal-linux.md#showClusters) para obtener instrucciones. El clúster se abre en una nueva hoja del portal.
 
-2. Desde **Paneles de clúster**, seleccione **Vistas de Ambari**. Cuando se le solicite autenticarse, use el nombre de cuenta y la contraseña de inicio de sesión del clúster (el valor predeterminado es `admin`) que proporcionó al crear el clúster.
+1. Desde **Paneles de clúster**, seleccione **Vistas de Ambari**. Cuando se le solicite autenticarse, use el nombre de cuenta y la contraseña de inicio de sesión del clúster (el valor predeterminado es `admin`) que proporcionó al crear el clúster. También puede ir a `https://CLUSTERNAME.azurehdinsight.net/#/main/views` en el explorador, donde `CLUSTERNAME` es el nombre del clúster.
 
-3. En la lista de vistas, seleccione __Vista de Hive__.
+1. En la lista de vistas, seleccione __Vista de Hive__.
 
     ![Apache Ambari: seleccionar Vista de Apache Hive](./media/apache-hadoop-use-hive-ambari-view/select-apache-hive-view.png)
 
@@ -40,7 +40,7 @@ Aprenda a ejecutar consultas de Hive utilizando Apache Ambari Hive View. La vist
 
     ![Imagen de la hoja de cálculo de consulta de la vista de Hive](./media/apache-hadoop-use-hive-ambari-view/ambari-worksheet-view.png)
 
-4. En la pestaña __Consulta__, pegue las instrucciones HiveQL siguientes en la hoja de cálculo:
+1. En la pestaña __Consulta__, pegue las instrucciones HiveQL siguientes en la hoja de cálculo:
 
     ```hiveql
     DROP TABLE log4jLogs;
@@ -54,8 +54,8 @@ Aprenda a ejecutar consultas de Hive utilizando Apache Ambari Hive View. La vist
         t7 string)
     ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
     STORED AS TEXTFILE LOCATION '/example/data/';
-    SELECT t4 AS loglevel, COUNT(*) AS count FROM log4jLogs 
-        WHERE t4 = '[ERROR]' 
+    SELECT t4 AS loglevel, COUNT(*) AS count FROM log4jLogs
+        WHERE t4 = '[ERROR]'
         GROUP BY t4;
     ```
 
@@ -75,9 +75,9 @@ Aprenda a ejecutar consultas de Hive utilizando Apache Ambari Hive View. La vist
    > [!IMPORTANT]  
    > Deje la selección de __base de datos__ en el __valor predeterminado__. Los ejemplos de este documento usan la base de datos predeterminada que se incluye en HDInsight.
 
-5. Para iniciar la consulta, seleccione **Ejecutar** debajo de la hoja de cálculo. El botón se vuelve de color naranja y el texto cambia a **Detener**.
+1. Para iniciar la consulta, seleccione **Ejecutar** debajo de la hoja de cálculo. El botón se vuelve de color naranja y el texto cambia a **Detener**.
 
-6. Cuando finalice la consulta, los resultados de la operación aparecerán en la pestaña **Resultados**. El texto siguiente es el resultado de la consulta:
+1. Cuando finalice la consulta, los resultados de la operación aparecerán en la pestaña **Resultados**. El texto siguiente es el resultado de la consulta:
 
         loglevel       count
         [ERROR]        3
@@ -133,7 +133,7 @@ Si desea declarar y guardar un conjunto de UDF, utilice la pestaña **UDF** situ
 
 Cuando agregue una UDF a la vista de Hive, aparecerá el botón **Insert udfs** (Insertar UDF) en la parte inferior del **Editor de consultas**. Al seleccionar esta entrada se muestra una lista desplegable de UDF definidas en la vista de Hive. Al seleccionar una función definida por el usuario se agregan instrucciones HiveQL a la consulta para habilitar dicha función.
 
-Por ejemplo, si definió una función definida por el usuario con las siguientes propiedades:
+Por ejemplo, si especificó una función definida por el usuario con las siguientes propiedades:
 
 * Nombre de recurso: myudfs
 

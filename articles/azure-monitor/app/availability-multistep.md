@@ -6,14 +6,14 @@ ms.subservice: application-insights
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 07/25/2019
+ms.date: 10/23/2019
 ms.reviewer: sdash
-ms.openlocfilehash: f34695cb4a92fbed285ba8c56764606a124194a4
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 80a39151a3d40c9b9d7cb49c6ab41aab602c5991
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72678237"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72817390"
 ---
 # <a name="multi-step-web-tests"></a>Pruebas web de varios pasos
 
@@ -34,38 +34,12 @@ Para encontrar el requisito de las herramientas de prueba. Inicie el **Instalado
 > [!NOTE]
 > Las pruebas web de varios pasos tienen costes adicionales asociados. Para más información, consulte la [guía oficial de precios](https://azure.microsoft.com/pricing/details/application-insights/).
 
-## <a name="record-a-multi-step-web-test"></a>Registro de una prueba web de varios pasos
+## <a name="record-a-multi-step-web-test"></a>Registro de una prueba web de varios pasos 
 
-Para crear una prueba de varios pasos, grabe el escenario con Visual Studio Enterprise y, a continuación, cargue la grabación en Application Insights. Application Insights reproduce el escenario a intervalos establecidos y comprueba la respuesta.
+> [!WARNING]
+> Ya no se recomienda usar la grabadora de varios pasos. La grabadora se desarrolló para páginas HTML estáticas con interacciones básicas y no proporciona una experiencia funcional para páginas web modernas.
 
-> [!IMPORTANT]
-> * No puede usar funciones codificadas ni bucles en las pruebas. La prueba debe estar contenida completamente en el script .webtest. Sin embargo, puede usar complementos estándar.
-> * En las pruebas web de varios pasos solo se admiten caracteres latinos. Si utiliza Visual Studio en otros idiomas, actualice el archivo de definición de la prueba web para convertir o excluir los caracteres no latinos.
-
-Utilice Visual Studio Enterprise para grabar una sesión web.
-
-1. Cree un proyecto de rendimiento web y prueba de carga. **Archivo** > **Nuevo** > **Proyecto** > **Visual C#**   >  **Prueba**
-
-    ![Interfaz de nuevo proyecto de Visual Studio](./media/availability-multistep/vs-web-performance-and-load-test.png)
-
-2. Abra el archivo `.webtest` y empiece a grabar.
-
-    ![Interfaz de usuario de grabación de prueba de Visual Studio](./media/availability-multistep/open-web-test.png)
-
-3. Haga clic por los pasos que desee probar para simular como parte de la grabación.
-
-    ![Interfaz de usuario de grabación de explorador](./media/availability-multistep/record.png)
-
-4. Edite la prueba para:
-
-    * Agregar validaciones que comprueben el texto recibido y los códigos de respuesta.
-    * Quite las interacciones innecesarias. También puede quitar las solicitudes dependientes de imágenes o agregar sitios de seguimiento que no sean relevantes para considerar la prueba como éxito.
-    
-    Tenga en cuenta que solo se puede editar el script de prueba: no se puede agregar código personalizado ni llamar a otras pruebas web. No inserte bucles en la prueba. Puede utilizar complementos de prueba web estándar.
-
-5. Ejecute la prueba en Visual Studio para validar y asegurarse de que funciona.
-
-    El ejecutor de pruebas web abre un explorador web y repite las acciones grabadas. Asegúrese de que todo se comporta del modo esperado.
+Para obtener instrucciones sobre cómo crear pruebas web de Visual Studio, consulte la [documentación oficial de Visual Studio 2019](https://docs.microsoft.com/visualstudio/test/how-to-create-a-web-service-test?view=vs-2019).
 
 ## <a name="upload-the-web-test"></a>Carga de la prueba web
 
@@ -96,7 +70,7 @@ Utilice Visual Studio Enterprise para grabar una sesión web.
 |**Clásico** | Ya no se recomienda usar alertas clásicas para nuevas pruebas de disponibilidad.|
 |**Umbral de la ubicación de la alerta**|se recomienda un mínimo de 3/5 ubicaciones. La relación óptima entre el umbral de ubicación de la alerta y el número de ubicaciones de prueba es **umbral de ubicación de la alerta** = **número de ubicaciones de prueba - 2, con un mínimo de cinco ubicaciones de prueba.**|
 
-## <a name="advanced-configuration"></a>Configuración avanzada
+## <a name="configuration"></a>Configuración
 
 ### <a name="plugging-time-and-random-numbers-into-your-test"></a>Inserción de números de tiempo y aleatorios en la prueba
 

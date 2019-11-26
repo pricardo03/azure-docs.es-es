@@ -1,5 +1,6 @@
 ---
-title: Consideraciones sobre Xamarin iOS (Microsoft Authentication Library for .NET) | Azure
+title: Consideraciones sobre Xamarin iOS (Microsoft Authentication Library for .NET)
+titleSuffix: Microsoft identity platform
 description: Obtenga información sobre las consideraciones específicas al usar Xamarin iOS con Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,12 +18,12 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 054033c0fc9f1138ef9ecf7eaceca626f6f53423
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: 5cc4eb0084e0606251d3fbd80d08723701c6a260
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70872851"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175624"
 ---
 # <a name="xamarin-ios-specific-considerations-with-msalnet"></a>Consideraciones específicas de Xamarin iOS con MSAL.NET
 En Xamarin iOS, hay varias consideraciones que debe tener en cuenta al usar MSAL.NET.

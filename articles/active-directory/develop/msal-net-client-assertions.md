@@ -1,5 +1,6 @@
 ---
-title: Aserciones de cliente en la biblioteca de autenticación de Microsoft para .NET | Azure
+title: Aserciones de cliente en la biblioteca de autenticación de Microsoft para .NET
+titleSuffix: Microsoft identity platform
 description: Obtenga información sobre la compatibilidad con las aserciones de cliente para aplicaciones cliente confidenciales en la Biblioteca de autenticación de Microsoft para .NET (MSAL.NET).
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,12 +18,12 @@ ms.author: jmprieur
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1ea75499334f3f6eb2f5d3c15526067fcef4eb8
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: fcf11ac8dc39dcb1d70b932dbe870687f5446a52
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68442502"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802856"
 ---
 # <a name="confidential-client-assertions"></a>Aserciones de cliente confidenciales
 Con el fin de demostrar su identidad, las aplicaciones cliente confidenciales intercambian un secreto con Azure AD. El secreto puede ser:

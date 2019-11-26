@@ -1,15 +1,16 @@
 ---
 ms.topic: include
 ms.service: time-series-insights
-author: kingdomofends
-ms.author: adgera
+author: deepakpalled
+ms.author: dpalled
+manager: cshankar
 ms.date: 10/09/2019
-ms.openlocfilehash: 61842a8f410d972c21614f625f7d4f36476cb239
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: 038d25a01c02799f48b8430fb6ac3facc1cd3bd6
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72259105"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990864"
 ---
 ## <a name="business-disaster-recovery"></a>Recuperación ante desastres de la empresa
 
@@ -23,7 +24,7 @@ Entre las características de alta disponibilidad adicionales proporcionadas med
 
 - **Conmutación por error**: Azure proporciona [replicación geográfica y equilibrio de carga](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region).
 - **Restauración de datos** y **recuperación del almacenamiento**: Azure proporciona [varias opciones para conservar y recuperar datos](https://docs.microsoft.com/azure/architecture/resiliency/recovery-data-corruption).
-- **Recuperación del sitio**: Azure proporciona características de recuperación del sitio a través de [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/).
+- **Azure Site Recovery**: Azure proporciona características de recuperación del sitio a través de [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/).
 - **Azure Backup**: [Azure Backup ](https://docs.microsoft.com/azure/backup/backup-architecture) admite la copia de seguridad local y en la nube de las máquinas virtuales de Azure.
 
 Asegúrese de habilitar las características de Azure pertinentes para proporcionar una alta disponibilidad global entre regiones para los dispositivos y usuarios.
@@ -35,8 +36,8 @@ Asegúrese de habilitar las características de Azure pertinentes para proporcio
 
 Algunos servicios IoT de Azure también incluyen características de recuperación ante desastres de empresa integradas:
 
-- [Recuperación ante desastres de alta disponibilidad de IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-ha-dr), incluida la redundancia entre regiones
-- [Directivas de Event Hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr)
+- [Recuperación ante desastres de alta disponibilidad de Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-ha-dr), incluida la redundancia entre regiones
+- [Directivas de Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr)
 - [Redundancia de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
 
 La integración de Time Series Insights con los demás servicios proporciona oportunidades adicionales de recuperación ante desastres. Por ejemplo, los datos de telemetría enviados al centro de eventos pueden conservarse en una copia de seguridad de la base de datos de Azure Blob Storage.

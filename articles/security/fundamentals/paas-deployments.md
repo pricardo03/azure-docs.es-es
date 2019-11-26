@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/06/2019
+ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 67a34b2b0a997a118cb2fe1b99de04bd58063307
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: ddcf5a1df31b4b36e25b2522ada21deab19fe032
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70999055"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73159878"
 ---
 # <a name="securing-paas-deployments"></a>Protección de implementaciones de PaaS
 
@@ -34,28 +34,14 @@ En este artículo se proporciona información que ayuda a:
 [Desarrollo de aplicaciones seguras en Azure](abstract-develop-secure-apps.md) es una guía general que incluye los controles y las preguntas de seguridad que se deben considerar en cada fase del ciclo de vida de desarrollo de software al desarrollar aplicaciones para la nube.
 
 ## <a name="cloud-security-advantages"></a>Ventajas de seguridad en la nube
-La nube ofrece ventajas de seguridad. En un entorno local, las organizaciones probablemente tengan responsabilidades inadecuadas y recursos limitados disponibles para invertir en seguridad, de tal manera que se crea un entorno donde los atacantes pueden aprovechar vulnerabilidades a todos los niveles.
+Es importante comprender la [división de responsabilidad](shared-responsibility.md) entre usted y Microsoft. De forma local, es propietario de la pila completa, pero a medida que se pasa a la nube, algunas responsabilidades se transfieren a Microsoft.
 
-![Ventajas de seguridad de la era en la nube](./media/paas-deployments/advantages-of-cloud.png)
+La [nube ofrece ventajas de seguridad](shared-responsibility.md#cloud security advantages). En un entorno local, las organizaciones probablemente tengan responsabilidades inadecuadas y recursos limitados disponibles para invertir en seguridad, de tal manera que se crea un entorno donde los atacantes pueden aprovechar vulnerabilidades a todos los niveles.
 
 Las organizaciones pueden mejorar los tiempos de detección de amenazas y respuesta mediante la utilización de inteligencia de la nube y funciones de seguridad basada en la nube del proveedor.  Con la transferencia de responsabilidades al proveedor de nube, las organizaciones pueden obtener más cobertura de seguridad, lo que les permite reasignar recursos de seguridad y presupuestos a otras prioridades empresariales.
 
-## <a name="division-of-responsibility"></a>División de responsabilidad
-Es importante comprender la división de responsabilidad entre usted y Microsoft. De forma local, es propietario de la pila completa, pero a medida que se pasa a la nube, algunas responsabilidades se transfieren a Microsoft. La matriz de responsabilidad siguiente muestra las áreas de la pila en una implementación de IaaS, PaaS y SaaS de la que tanto usted como Microsoft son responsables.
-
-![Zonas de responsabilidad](./media/paas-deployments/responsibility-zones.png)
-
-Para todos los tipos de implementación de nube, es propietario de los datos y las identidades. Asimismo, es responsable de proteger la seguridad de los datos y las identidades, los recursos locales y los componentes en la nube que controla (que varía según el tipo de servicio).
-
-Las responsabilidades que siempre tiene, con independencia del tipo de implementación, son:
-
-- Datos
-- Puntos de conexión
-- Cuenta
-- administración de acceso
-
 ## <a name="security-advantages-of-a-paas-cloud-service-model"></a>Ventajas de seguridad de un modelo de servicio en la nube de PaaS
-Con la misma matriz de responsabilidad, se van a indicar las ventajas de seguridad de una implementación de PaaS en Azure frente a una implementación local.
+Echemos un vistazo a las ventajas de seguridad de una implementación de PaaS de Azure frente a las instalaciones locales.
 
 ![Ventajas de seguridad de PaaS](./media/paas-deployments/advantages-of-paas.png)
 
@@ -181,5 +167,3 @@ Vea [Patrones y procedimientos recomendados de seguridad en Azure](best-practice
 En los siguientes recursos se ofrece más información general sobre la seguridad de Azure y los servicios de Microsoft relacionados:
 * [Blog del equipo de seguridad de Azure](https://blogs.msdn.microsoft.com/azuresecurity/): ofrece información actualizada sobre lo último en seguridad de Azure
 * [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx): aquí podrá notificar vulnerabilidades de seguridad de Microsoft, incluidos problemas con Azure, o también mediante correo electrónico a secure@microsoft.com.
-
-

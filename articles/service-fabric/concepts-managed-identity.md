@@ -7,16 +7,16 @@ ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: atsenthi
-ms.openlocfilehash: edce98e6babb676ee72f1d254b929e557332dd75
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: e2f05ba28109a9b3c88d80eb218bf94014f0f082
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72333135"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73243034"
 ---
 # <a name="managed-identity-for-service-fabric-application-preview"></a>Identidad administrada para la aplicación de Service Fabric (versión preliminar)
 
-Un desafío común al compilar aplicaciones en la nube consiste en el modo de administrar las credenciales del código para autenticar los servicios en la nube. Mantener las credenciales seguras es una tarea importante, ya que nunca aparecen en las estaciones de trabajo de los desarrolladores y no se controlan en el código fuente. La característica Identidad administrada para recursos de Azure en Azure Active Directory (Azure AD) resuelve este problema. Esta característica proporciona a los servicios de Azure una identidad administrada automáticamente en Azure AD. Puede usar esta identidad para autenticarse en cualquier servicio que admita la autenticación de Azure AD, incluido Key Vault, sin necesidad de credenciales en el código.
+Un desafío común al compilar aplicaciones en la nube consiste en el modo de administrar las credenciales del código para autenticar los servicios en la nube. Mantener las credenciales seguras es una tarea importante, ya que nunca aparecen en las estaciones de trabajo de los desarrolladores y no se controlan en el código fuente. La característica Identidad administrada para recursos de Azure en Azure Active Directory (Azure AD) resuelve este problema. Esta característica proporciona a los servicios de Azure una identidad de sistema administrada automáticamente en Azure AD. Puede usar esta identidad para autenticarse en cualquier servicio que admita la autenticación de Azure AD, incluido Key Vault, sin necesidad de credenciales en el código.
 
 La característica Identidad administrada para recursos de Azure se incluye gratuitamente en Azure AD con las suscripciones de Azure. No hay costo adicional.
 
@@ -78,3 +78,4 @@ Los escenarios siguientes no se admiten o no se recomiendan. Tenga en cuenta que
 * [Implementación de una aplicación de Azure Service Fabric con una identidad administrada asignada por el usuario](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
 * [Aprovechamiento de la identidad administrada de una aplicación de Service Fabric desde el código de servicio](./how-to-managed-identity-service-fabric-app-code.md)
 * [Concesión de acceso a otros recursos de Azure para una aplicación de Azure Service Fabric](./how-to-grant-access-other-resources.md)
+* [Declaración y uso de secretos de aplicación como KeyVaultReferences](./service-fabric-keyvault-references.md) 

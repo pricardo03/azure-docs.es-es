@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 1bd049e6f929b6c3247ca1842412d5527605e643
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 80845fca8d163a4ebe9257f19825624acef3a815
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60516596"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73243016"
 ---
 # <a name="service-movement-cost"></a>Costo del movimiento del servicio
 Un factor que Cluster Resource Manager de Service Fabric toma en cuenta al intentar determinar qué cambios se deben realizar en un clúster es el costo de esos cambios. La noción de "costo" se valora frente a la cantidad de mejora que se puede introducir en el clúster. El costo se tiene en cuenta al mover los servicios por cuestiones de equilibrio, desfragmentación y otros requisitos. El objetivo es cumplir los requisitos de la forma menos perjudicial o costosa. 
@@ -76,7 +76,14 @@ this.Partition.ReportMoveCost(MoveCost.Medium);
 ```
 
 ## <a name="impact-of-move-cost"></a>Impacto del costo de movimiento
-MoveCost tiene cuatro niveles: cero, bajo, medio y alto. Los valores de MoveCost están relacionados entre sí, excepto en el caso del valor Zero. Zero significa que mover una réplica es gratuito y que no se debe tener en cuenta en la puntuación de la solución. Establecer el costo de movimiento en High *no* garantiza que la réplica se mantenga en un mismo lugar.
+MoveCost tiene cinco niveles: Zero, Low, Medium, High y VeryHigh. Se aplican las reglas siguientes:
+
+* Los valores de MoveCost están relacionados entre sí, excepto en el caso de Zero y VeryHigh. 
+* Zero significa que mover una réplica es gratuito y que no se debe tener en cuenta en la puntuación de la solución.
+* Establecer el costo de movimiento en High o VeryHigh *no* ofrece ninguna garantía con respecto a que la réplica no se moverá *nunca*.
+* Las réplicas con el costo de movimiento VeryHigh solo se moverán si hay una infracción de restricción en el clúster que no se puede corregir de otra manera (aunque sea necesario mover muchas otras réplicas para corregir la infracción).
+
+
 
 <center>
 
@@ -88,6 +95,9 @@ MoveCost ayuda a encontrar las soluciones que provocan la menor interrupción po
 - La cantidad de estados o de datos que el servicio tiene que mover.
 - El costo de desconexión de los clientes. El costo de mover una réplica principal es normalmente mayor que el costo de mover una réplica secundaria.
 - El costo de interrumpir una operación en curso. Algunas operaciones en el nivel de almacén de datos o las operaciones realizadas en respuesta a una llamada del cliente son costosas. Llegadas a un cierto punto, no quiere detenerlas si no es necesario. Por lo tanto, mientras la operación está en ejecución, aumenta el costo de movimiento de este objeto de servicio para disminuir la probabilidad de que se mueva. Cuando finaliza la operación, devuelve el costo a la normalidad.
+
+> [!IMPORTANT]
+> Se debe considerar con cuidado el uso del costo de movimiento VeryHigh, ya que restringe significativamente la capacidad de Cluster Resource Manager para encontrar una solución de selección de ubicación globalmente óptima en el clúster. Las réplicas con el costo de movimiento VeryHigh solo se moverán si hay una infracción de restricción en el clúster que no se puede corregir de otra manera (aunque sea necesario mover muchas otras réplicas para corregir la infracción).
 
 ## <a name="enabling-move-cost-in-your-cluster"></a>Habilitación del costo de movimiento en el clúster
 Para que sea posible tener en cuenta el MoveCost más pormenorizado, MoveCost tiene que estar habilitado en el clúster. Sin esta configuración, se utilizará el modo predeterminado de recuento de movimientos para calcular MoveCost y se omiten los informes de MoveCost.

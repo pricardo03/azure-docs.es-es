@@ -1,5 +1,5 @@
 ---
-title: Solución de problemas genéricos de rendimiento para máquinas virtuales de Azure con Linux o Windows
+title: Solución de problemas de rendimiento de máquinas virtuales de Azure en Linux o Windows
 description: En este artículo se describe la solución de problemas genéricos de rendimiento de máquinas virtuales (VM) mediante la supervisión y la observación de los cuellos de botella, y se proporcionan posibles correcciones para las incidencias que se pueden producir.
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: v-miegge
-ms.openlocfilehash: 3fdac123ee7bda9d91d96940aebd6bddf4ea00f8
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 50c0a670eb492aef01c3499bc2c8605917f4c7b8
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790932"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965485"
 ---
-# <a name="generic-performance-troubleshooting-for-azure-virtual-machine-running-linux-or-windows"></a>Solución de problemas de rendimiento genérico para una máquina virtual de Azure con Linux o Windows
+# <a name="troubleshoot-azure-virtual-machine-performance-on-linux-or-windows"></a>Solución de problemas de rendimiento de máquinas virtuales de Azure en Linux o Windows
 
 En este artículo se describe la solución de problemas genéricos de rendimiento de máquinas virtuales (VM) mediante la supervisión y la observación de los cuellos de botella, y se proporcionan posibles correcciones para las incidencias que se pueden producir. Además de la supervisión, también puede usar Perfinsights, que puede proporcionar un informe con recomendaciones sobre los procedimientos recomendados y cuellos de botella clave en torno a E/S, CPU o memoria. Perfinsights está disponible tanto para VM de [Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights) y [Linux](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfinsights-linux) en Azure.
 

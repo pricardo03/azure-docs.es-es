@@ -1,24 +1,18 @@
 ---
-title: Eliminación y restauración de un área de trabajo de Azure Log Analytics | Microsoft Docs
+title: Eliminación y recuperación de un área de trabajo de Azure Log Analytics | Microsoft Docs
 description: Obtenga información para eliminar el área de trabajo de Log Analytics si creó uno en una suscripción personal o reestructure el modelo de área de trabajo.
-services: log-analytics
-documentationcenter: log-analytics
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 10/11/2019
+author: MGoedtel
 ms.author: magoedte
-ms.openlocfilehash: fb6714a52a65ef5efe4725b99acb30cb67af20c3
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.date: 10/28/2019
+ms.openlocfilehash: 709d63b2c764049a698bc538d9ec451b4e75feaa
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299269"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044237"
 ---
 # <a name="delete-and-restore-azure-log-analytics-workspace"></a>Eliminación y restauración de un área de trabajo de Azure Log Analytics
 
@@ -60,12 +54,14 @@ Las áreas de trabajo se pueden eliminar un mediante [PowerShell](https://docs.m
 
 Si tiene permisos de colaborador en la suscripción y en el grupo de recursos a los que estaba asociada el área de trabajo antes de la operación de eliminación temporal, puede recuperarla durante el periodo de dicha eliminación, incluidos sus datos, configuración y agentes conectados. Después del período de eliminación temporal, el área de trabajo no podrá recuperarse y se pondrá en cola para su eliminación permanente. Los nombres de las áreas de trabajo eliminadas se conservan durante el periodo de eliminación temporal y no se pueden usar al intentar crear un área de trabajo nueva.  
 
-Para recuperar un área de trabajo, vuelva a crear el área de trabajo mediante el uso de los métodos de creación de áreas de trabajo [PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/New-AzOperationalInsightsWorkspace) o [API REST]( https://docs.microsoft.com/rest/api/loganalytics/workspaces/createorupdate), siempre que estas propiedades se rellenen con los detalles del área de trabajo eliminada, lo que incluye:
+Para recuperar un área de trabajo, puede volver a crearla con los siguientes métodos de creación de áreas de trabajo: [PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/New-AzOperationalInsightsWorkspace) o [API REST]( https://docs.microsoft.com/rest/api/loganalytics/workspaces/createorupdate), siempre que se rellenen las siguientes propiedades con los detalles del área de trabajo eliminada:
 
 * Id. de suscripción
 * Nombre del grupo de recursos
 * Nombre del área de trabajo
 * Region
+
+El área de trabajo y todos sus datos se restauran después de la operación de recuperación. Las soluciones y los servicios vinculados se quitaron permanentemente del área de trabajo cuando se eliminó y se deben volver a configurar para restaurarla a su estado configurado anterior. Puede que algunos de los datos no estén disponibles para la consulta después de la recuperación del área de trabajo hasta que se vuelvan a instalar las soluciones asociadas y se agreguen sus esquemas al área de trabajo.
 
 > [!NOTE]
 > * Desde [Azure Portal](https://portal.azure.com) no se pueden recuperar áreas de trabajo. 

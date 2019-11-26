@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 34b26dd1b9b8990da9e84c8d7cfc993d8bbe85a7
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 37f337f158c3ca53170d963f1304801a12b732da
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72376300"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053886"
 ---
 # <a name="migrate-workloads-using-layer-2-stretched-networks"></a>Migración de cargas de trabajo mediante redes extendidas de Capa 2
 
@@ -57,10 +57,10 @@ En la tabla siguiente se enumeran las versiones de vSphere compatibles y los tip
 
 | Versión de vSphere | Tipo de vSwitch de origen | Controlador de NIC virtual | Tipo de vSwitch de destino | Se admite? |
 ------------ | ------------- | ------------ | ------------- | ------------- 
-| Todo | DVS | Todo | DVS | Sí |
+| All | DVS | All | DVS | Sí |
 | vSphere 6.7UI o versiones posteriores, 6.5P03 o versiones posteriores | DVS | VMXNET3 | N-VDS | Sí |
 | vSphere 6.7UI o versiones posteriores, 6.5P03 o versiones posteriores | DVS | E1000 | N-VDS | [No se admite por VWware](https://kb.vmware.com/s/article/56991) |
-| vSphere 6.7UI o 6.5P03, NSX-V o versiones inferiores a NSX-T2.2, 6.5P03 o versiones superiores | Todo | Todo | N-VDS | [No se admite por VWware](https://kb.vmware.com/s/article/56991) |
+| vSphere 6.7UI o 6.5P03, NSX-V o versiones inferiores a NSX-T2.2, 6.5P03 o versiones superiores | All | All | N-VDS | [No se admite por VWware](https://kb.vmware.com/s/article/56991) |
 
 A partir de la versión de VMware NSX-T 2.3:
 
@@ -137,7 +137,7 @@ En los pasos siguientes se muestra cómo capturar el identificador del enrutador
 ## <a name="fetch-the-logical-switch-id-needed-for-l2vpn"></a>Captura del identificador del conmutador lógico necesario para L2VPN
 
 1. Inicie sesión en el [administrador de NSX-T](https://nsx-t-manager-ip-address).
-2. Seleccione **Redes** > **Conmutación** > **Conmutadores** > **<\Conmutador lógico\> ** > **Información general**.
+2. Seleccione **Networking** > **Switching** > **Switches** >  **<\Logical switch\>**  > **Overview** (Redes > Cambiar > Modificadores >\Modificador lógico > Información general).
 3. Anote el UUID del conmutador lógico de extensión, que es necesario al configurar L2VPN.
 
     ![obtención de la salida del enrutador lógico](media/l2vpn-fetch-switch01.png)

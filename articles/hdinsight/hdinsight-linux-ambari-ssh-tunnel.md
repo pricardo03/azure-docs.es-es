@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/28/2019
-ms.openlocfilehash: d976826fe90946697a32c5b1edb9dd323b01cc1c
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.date: 10/28/2019
+ms.openlocfilehash: 6f4efd9a316b92f17f89cea66a7c81e84ac3cf06
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105466"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72991348"
 ---
 # <a name="use-ssh-tunneling-to-access-apache-ambari-web-ui-jobhistory-namenode-apache-oozie-and-other-uis"></a>Use la tunelización SSH para tener acceso a la interfaz de usuario web de Apache Ambari, JobHistory, NameNode, Apache Oozie y otras interfaces de usuario.
 
@@ -56,10 +56,10 @@ La [tunelización Secure Shell (SSH) ](https://en.wikipedia.org/wiki/Tunneling_p
 
 ## <a name="usessh"></a>Creación de un túnel con el comando SSH
 
-Use el siguiente comando para crear un túnel SSH con el comando `ssh` . Reemplace `sshuser` por un usuario SSH para su clúster de HDInsight y sustituya `clustername` por el nombre de su clúster de HDInsight.
+Use el siguiente comando para crear un túnel SSH con el comando `ssh` . Reemplace `sshuser` por un usuario SSH para su clúster de HDInsight y sustituya `CLUSTERNAME` por el nombre de su clúster de HDInsight.
 
 ```cmd
-ssh -C2qTnNf -D 9876 sshuser@clustername-ssh.azurehdinsight.net
+ssh -C2qTnNf -D 9876 sshuser@CLUSTERNAME-ssh.azurehdinsight.net
 ```
 
 Este comando crea una conexión que enruta el tráfico al puerto local 9876 al clúster a través de SSH. Las opciones son:
@@ -84,9 +84,12 @@ Una vez que se completa el comando, el tráfico enviado al puerto 9876 de la má
 1. Abra PuTTY y asegúrese de que la opción **Sesión** está seleccionada en el menú izquierdo. Si ya ha guardado una sesión, seleccione el nombre de la sesión en la lista **Sesiones guardadas** y seleccione **Cargar**.
 
 1. Si aún no tiene una sesión guardada, escriba su información de conexión:
-    * **Nombre de host (o dirección IP)** : dirección SSH para el clúster de HDInsight. Por ejemplo, **mycluster-ssh.azurehdinsight.net**
-    * **Puerto**: 22
-    * **Tipo de conexión**: SSH
+
+    |Propiedad |Valor |
+    |---|---|
+    |Nombre de host (o dirección IP)|La dirección SSH del clúster de HDInsight. Por ejemplo, **mycluster-ssh.azurehdinsight.net**.|
+    |Port|22|
+    |Tipo de conexión.|SSH|
 
 1. Seleccione **Guardar**.
 
@@ -96,15 +99,15 @@ Una vez que se completa el comando, el tráfico enviado al puerto 9876 de la má
 
 1. Proporcione la siguiente información en el formulario **Options controlling SSH port forwarding** (Opciones que controlan el desvío de puertos SSH):
 
-   * **Source port** : el puerto en el cliente que desea desviar. Por ejemplo, **9876**.
+    |Propiedad |Valor |
+    |---|---|
+    |Puerto de origen|El puerto en el cliente que desea desviar. Por ejemplo, **9876**.|
+    |Destination|La dirección SSH del clúster de HDInsight. Por ejemplo, **mycluster-ssh.azurehdinsight.net**.|
+    |Dinámica|Habilita el enrutamiento dinámico del proxy SOCKS.|
 
-   * **Destino**: la dirección SSH del clúster de HDInsight. Por ejemplo, **mycluster-ssh.azurehdinsight.net**.
+    ![Opciones de tunelización de configuración de PuTTY](./media/hdinsight-linux-ambari-ssh-tunnel/hdinsight-putty-tunnel.png)
 
-   * **Dynamic** : habilita el enrutamiento dinámico del proxy SOCKS.
-
-     ![Opciones de tunelización de configuración de PuTTY](./media/hdinsight-linux-ambari-ssh-tunnel/hdinsight-putty-tunnel.png)
-
-1. Seleccione **Agregar** para agregar la configuración y, a continuación, en **Abrir** para abrir una conexión SSH.
+1. Seleccione **Agregar** para agregar la configuración y, a continuación, seleccione **Abrir** para abrir una conexión SSH.
 
 1. Cuando se le solicite, inicie sesión en el servidor.
 

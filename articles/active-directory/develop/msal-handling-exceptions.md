@@ -1,6 +1,7 @@
 ---
-title: Errores y excepciones (MSAL) | Plataforma de identidad de Microsoft
-description: Aprenda a controlar errores y excepciones,y obtenga más información sobre el acceso condicional y el desafío de las notificaciones en las aplicaciones de MSAL.
+title: Errores y excepciones (MSAL)
+titleSuffix: Microsoft identity platform
+description: Aprenda a controlar errores y excepciones, y obtenga más información sobre el acceso condicional y el desafío de las notificaciones en las aplicaciones de MSAL.
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -16,12 +17,12 @@ ms.date: 09/08/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 635793d18bf33752a2672788bb632571743410b7
-ms.sourcegitcommit: 387da88b8262368c1b67fffea58fe881308db1c2
+ms.openlocfilehash: fe8483bd6055acb0a2c741192ec80211b9969a16
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71982766"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175868"
 ---
 # <a name="handle-msal-exceptions-and-errors"></a>Control de excepciones y errores en MSAL
 

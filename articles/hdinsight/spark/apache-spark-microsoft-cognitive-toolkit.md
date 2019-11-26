@@ -1,5 +1,5 @@
 ---
-title: Microsoft Cognitive Toolkit con Azure HDInsight Spark para aprendizaje profundo
+title: 'Microsoft Cognitive Toolkit con Apache Spark: Azure HDInsight'
 description: Aprenda cómo un modelo de aprendizaje profundo de Microsoft Cognitive Toolkit formado se puede aplicar a un conjunto de datos mediante la API de Spark Python en un clúster de Azure HDInsight Spark.
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: hrasheed
-ms.openlocfilehash: aaa690b62b44f5f21db0861d99d45734cf210db0
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 0f4172c7a5b287c85c0548c7fe9812305a1ee1e6
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448695"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73241539"
 ---
 # <a name="use-microsoft-cognitive-toolkit-deep-learning-model-with-azure-hdinsight-spark-cluster"></a>Uso del modelo de aprendizaje profundo de Microsoft Cognitive Toolkit con un clúster de Azure HDInsight Spark
 
@@ -79,7 +79,7 @@ Para usar Microsoft Cognitive Toolkit con el clúster de Azure HDInsight Spark, 
 
 3. En el cuaderno de Jupyter, haga clic en **Cargar** en la esquina superior derecha y, a continuación, navegue hasta la ubicación donde clonó el repositorio de GitHub.
 
-    ![Cargar el cuaderno de Jupyter en el clúster de Azure HDInsight Spark](./media/apache-spark-microsoft-cognitive-toolkit/hdinsight-microsoft-cognitive-toolkit-load-jupyter-notebook.png "Cargar el cuaderno de Jupyter en el clúster de Azure HDInsight Spark")
+    ![Carga del cuaderno de Jupyter en el clúster de Azure HDInsight Spark](./media/apache-spark-microsoft-cognitive-toolkit/hdinsight-microsoft-cognitive-toolkit-load-jupyter-notebook.png "Carga del cuaderno de Jupyter en el clúster de Azure HDInsight Spark")
 
 4. Haga clic en **Cargar** de nuevo.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: atsenthi
-ms.openlocfilehash: aa388a688e76b0ba69231d8a11aa1bfa686f7f51
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 44abb297b9ce0eafadd3af9539d5b12751360319
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72166548"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73242931"
 ---
 # <a name="resource-governance"></a>Gobernanza de recursos
 
@@ -56,7 +56,7 @@ En este momento, la suma de los límites es igual a la capacidad del nodo. Un pr
 
 Sin embargo, hay dos situaciones en las que otros procesos pueden competir por la CPU. En estas situaciones, un proceso y un contenedor del ejemplo pueden experimentar el problema del entorno ruidoso:
 
-* *Combinación de servicios con gobierno y sin gobierno y contenedores*: si el usuario crea un servicio sin especificar una gobernanza de recursos, el entorno de tiempo de ejecución considera que no estaba consumiendo ningún recurso y puede colocarlo en el nodo de nuestro ejemplo. En este caso, este nuevo proceso consume eficazmente algún recurso de CPU a costa de los servicios que se ejecutan en el nodo. Hay dos soluciones al problema. Una solución consiste en no combinar servicios con gobierno y sin gobierno en el mismo clúster, y la otra en usar [restricciones de posición](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) para que estos dos tipos de servicio no finalicen en el mismo conjunto de nodos.
+* *Combinación de servicios con gobierno y sin gobierno y contenedores*: si el usuario crea un servicio sin especificar una gobernanza de recursos, el entorno de tiempo de ejecución considera que no estaba consumiendo ningún recurso y puede colocarlo en el nodo de nuestro ejemplo. En este caso, este nuevo proceso consume eficazmente algún recurso de CPU a costa de los servicios que se ejecutan en el nodo. Hay dos soluciones para este problema. Una solución consiste en no combinar servicios con gobierno y sin gobierno en el mismo clúster, y la otra en usar [restricciones de posición](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) para que estos dos tipos de servicio no finalicen en el mismo conjunto de nodos.
 
 * *Cuando se inicia otro proceso en el nodo, fuera de Service Fabric (por ejemplo, un servicio de sistema operativo)* : En esta situación, el proceso fuera de Service Fabric también competirá por la CPU con los servicios existentes. La solución a este problema consiste en configurar correctamente las capacidades del nodo en la cuenta para la sobrecarga del sistema operativo, tal como se muestra en la sección siguiente.
 
@@ -110,6 +110,18 @@ Para obtener un rendimiento óptimo, también es necesario activar la siguiente 
 </Section>
 ```
 
+> [!IMPORTANT]
+> A partir de la versión 7.0 de Service Fabric, actualizamos la regla de cómo se calculan las capacidades de los recursos de nodo en casos donde el usuario proporciona manualmente los valores de las capacidades de los recursos de nodo. Consideremos el escenario siguiente:
+>
+> * Hay 10 núcleos de CPU en total en el nodo.
+> * SF está configurado para usar el 80 % del total de los recursos para los servicios de usuario (configuración predeterminada), que deja un búfer del 20 % para los demás servicios que se ejecutan en el nodo (incluidos los servicios del sistema de Service Fabric).
+> * El usuario decide invalidar manualmente la capacidad de recursos del nodo correspondiente a la métrica de núcleos de la CPU y la establece en 5 núcleos.
+>
+> Modificamos la regla sobre cómo se calcula la capacidad disponible para los servicios de usuario de Service Fabric de la manera siguiente:
+>
+> * Antes de Service Fabric 7.0, la capacidad disponible de los servicios de usuario se calcularía en **5 núcleos** (se omite el búfer de capacidad del 20 %).
+> * A partir de Service Fabric 7.0, la capacidad disponible de los servicios de usuario se calcularía en **4 núcleos** (no se omite el búfer de capacidad del 20 %).
+
 ## <a name="specify-resource-governance"></a>Especificación de la gobernanza de recursos
 
 Los límites de la gobernanza de recursos se especifican en el manifiesto de aplicación (sección ServiceManifestImport) como se muestra en el ejemplo siguiente:
@@ -141,7 +153,7 @@ Los límites de memoria son absolutos, por lo que ambos paquetes de código est�
 
 ### <a name="using-application-parameters"></a>Uso de los parámetros de la aplicación
 
-Al especificar la gobernanza de recursos es posible utilizar [parámetros de la aplicación](service-fabric-manage-multiple-environment-app-configuration.md) para administrar varias configuraciones de la aplicación. En el ejemplo siguiente se muestra el uso de los parámetros de la aplicación:
+Al especificar la configuración de gobernanza de recursos, es posible utilizar [parámetros de la aplicación](service-fabric-manage-multiple-environment-app-configuration.md) para administrar varias configuraciones de la aplicación. En el ejemplo siguiente se muestra el uso de los parámetros de la aplicación:
 
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>
@@ -185,6 +197,27 @@ En este ejemplo, se establecen los valores de los parámetros predeterminados pa
 > La especificación de la gobernanza de recursos con parámetros de la aplicación está disponible a partir de Service Fabric versión 6.1.<br>
 >
 > Cuando se usan parámetros de la aplicación para especificar la gobernanza de recursos, Service Fabric no se puede degradar a una versión anterior a la versión 6.1.
+
+## <a name="enforcing-the-resource-limits-for-user-services"></a>Aplicación de los límites de recursos para los servicios de usuario
+
+Si bien la aplicación de la gobernanza de recursos a los servicios de Service Fabric garantiza que esos servicios gobernados por los recursos no pueden exceder la cuota de recursos, muchos usuarios todavía tienen que ejecutar algunos de sus servicios de Service Fabric en modo no controlado. Cuando se usan los servicios de Service Fabric sin control, es posible que surjan situaciones donde los servicios "descontrolados" consuman todos los recursos disponibles en los nodos de Service Fabric, lo que puede generar problemas graves como:
+
+* El colapso de los recursos de otros servicios que se ejecutan en los nodos (incluidos los servicios de sistema de Service Fabric)
+* Nodos que terminan en un estado incorrecto
+* API de administración de clústeres de Service Fabric sin capacidad de respuesta
+
+Para evitar que se produzcan estas situaciones, Service Fabric le permite  *aplicar los límites de recursos para todos los servicios de usuario de Service Fabric que se ejecutan en el nodo* (tanto controlados como no controlados) para garantizar que los servicios de usuario nunca usen más que la cantidad de recursos especificada. Para ello, el valor de la configuración EnforceUserServiceMetricCapacities de la sección PlacementAndLoadBalancing de ClusterManifest se establece en true. De manera predeterminada, esta configuración está desactivada.
+
+```xml
+<SectionName="PlacementAndLoadBalancing">
+    <ParameterName="EnforceUserServiceMetricCapacities" Value="false"/>
+</Section>
+```
+
+Comentarios adicionales:
+
+* La aplicación de límites para los recursos solo se aplica a las métricas de recursos `servicefabric:/_CpuCores` y `servicefabric:/_MemoryInMB`.
+* La aplicación de límites para los recursos solo funciona si las capacidades de nodo para las métricas de recursos están disponibles para Service Fabric, ya sea a través de un mecanismo de detección automática como mediante usuarios que especifican de manera manual las capacidades de nodo (tal como se explicó en la sección [Configuración del clúster para habilitar la gobernanza de recursos](service-fabric-resource-governance.md#cluster-setup-for-enabling-resource-governance)). Si las capacidades de nodo no están configuradas, no se puede usar la funcionalidad de aplicación de límites para los recursos ya que Service Fabric no puede saber cuántos recursos reservar para los servicios de usuario. Service Fabric emitirá una advertencia de estado si el valor de "EnforceUserServiceMetricCapacities" es true, pero las capacidades de nodo no están configuradas.
 
 ## <a name="other-resources-for-containers"></a>Otros recursos para los contenedores
 

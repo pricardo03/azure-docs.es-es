@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 8e8ea11da0339103375009709be8795cdede2448
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 1a5871a052998e9dd32d698c5a89f57064cc7d6b
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972924"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72987566"
 ---
 # <a name="use-azure-ad-as-an-identity-provider-for-vcenter-on-cloudsimple-private-cloud"></a>Uso de Azure AD como proveedor de identidades para vCenter en la nube privada de CloudSimple
 
@@ -99,3 +99,10 @@ También puede configurar otras características de Azure AD,  aunque son neces
 3. Inicie sesión en vCenter de la nube privada una vez que se hayan escalado los privilegios.
 4. Siga las instrucciones indicadas en [Agregar un origen de identidades en vCenter](set-vcenter-identity.md#add-an-identity-source-on-vcenter) con los valores del paso anterior para configurar Azure Active Directory como origen de identidades.
 5. Agregue usuarios o grupos de Azure AD a los grupos de vCenter como se describe en el tema de VMware [Incorporación de miembros a un grupo de inicio de sesión único de vCenter](https://docs.vmware.com/en/VMware-vSphere/5.5/com.vmware.vsphere.security.doc/GUID-CDEA6F32-7581-4615-8572-E0B44C11D80D.html).
+
+> [!CAUTION]
+> Los nuevos usuarios solo se deben agregar a *Cloud-Owner-Group*, *Cloud-Global-Cluster-Admin-Group*, *Cloud-Global-Storage-Admin-Group*, *Cloud-Global-Network-Admin-Group* o *Cloud-Global-VM-Admin-Group*.  Los usuarios agregados al grupo *Administradores* se quitarán automáticamente.  Solo se deben agregar cuentas de servicio al grupo *Administradores*.
+
+## <a name="next-steps"></a>Pasos siguientes
+
+* [Más información sobre el modelo de permisos de la nube privada](learn-private-cloud-permissions.md)

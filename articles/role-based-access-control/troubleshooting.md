@@ -15,12 +15,12 @@ ms.date: 08/22/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 158222c256e3efc7ca87d7a3781ca68e1c4307b1
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: e8a5b8b5794687f9e3b1707fda4cbe381e277317
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72750185"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819772"
 ---
 # <a name="troubleshoot-rbac-for-azure-resources"></a>Solución de problemas del control de acceso basado en rol para recursos de Azure
 
@@ -29,7 +29,7 @@ En este artículo se responden preguntas comunes acerca del control de acceso ba
 ## <a name="problems-with-rbac-role-assignments"></a>Problemas con las asignaciones de roles RBAC
 
 - Si no puede agregar una asignación de roles en Azure Portal, en **Control de acceso (IAM)** porque la opción **Agregar** > **Agregar asignación de roles** está deshabilitada o porque recibe el error de permisos "El cliente con el identificador de objeto no está autorizado para realizar la acción", compruebe que ha iniciado sesión con un usuario que tenga asignado un rol con el permiso `Microsoft.Authorization/roleAssignments/write`, como [Propietario](built-in-roles.md#owner) o [Administrador de acceso de usuario](built-in-roles.md#user-access-administrator), en el ámbito en el que intenta asignar el rol.
-- Si aparece el mensaje de error "No se pueden crear más asignaciones de roles (código: RoleAssignmentLimitExceeded)" al intentar asignar un rol, pruebe a asignar los roles a grupos en su lugar para reducir el número de asignaciones de roles. Azure admite hasta **2000** asignaciones de roles por suscripción.
+- Si aparece el mensaje de error "No se pueden crear más asignaciones de roles (código: RoleAssignmentLimitExceeded)" al intentar asignar un rol, pruebe a asignar los roles a grupos en su lugar para reducir el número de asignaciones de roles. Azure admite hasta **2000** asignaciones de roles por suscripción. Este límite de asignaciones de roles es fijo y no se puede aumentar.
 
 ## <a name="problems-with-custom-roles"></a>Problemas con roles personalizados
 

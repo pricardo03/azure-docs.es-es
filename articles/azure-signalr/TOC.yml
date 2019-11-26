@@ -61,6 +61,8 @@
   items:
     - name: Escala
       items:
+        - name: Instancia única
+          href: signalr-howto-scale-signalr.md
         - name: Varias instancias
           href: signalr-howto-scale-multi-instances.md
     - name: Seguridad

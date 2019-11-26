@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: atsenthi
-ms.openlocfilehash: a795e01d37504dad360dc094b6b2aea2955b6a4a
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: bb3fd77df60be68408fceea683ee4b8b74d77427
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170456"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73242907"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Especificación de los recursos en un manifiesto de servicio
 ## <a name="overview"></a>Información general
@@ -30,6 +30,8 @@ Cuando se define un recurso de punto de conexión en el manifiesto de servicio, 
 
 > [!WARNING] 
 > Por naturaleza, los puertos estáticos no deben superponerse con el intervalo de puertos de la aplicación especificado en ClusterManifest. Si especifica un puerto estático, asígnelo fuera de este intervalo o se producirán conflictos entre los puertos. Con la versión 6.5CU2, emitiremos una **advertencia de estado** cuando detectemos este tipo de conflicto, pero dejaremos que la implementación siga sincronizándose con el comportamiento de 6.5 incluido. Sin embargo, podemos evitar la implementación de la aplicación con las siguientes versiones principales.
+>
+> Con la versión 7.0, se emitirá una **advertencia de mantenimiento** cuando se detecte que el uso de un intervalo de puertos de aplicación va más allá de HostingConfig::ApplicationPortExhaustThresholdPercentage(default 80%).
 >
 
 ```xml

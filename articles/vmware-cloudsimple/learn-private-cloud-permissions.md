@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 0c617cbd17d9b9620c957eec45aadd962db34831
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 5e0904cc2fd9866a9f8354eac9815945043eca5c
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194131"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72987586"
 ---
 # <a name="cloudsimple-private-cloud-permission-model-of-vmware-vcenter"></a>Modelo de permisos de la nube privada de VMware vCenter de CloudSimple
 
@@ -41,6 +41,9 @@ Durante la implementación de una nube privada se crea un grupo denominado **Clo
 | Cloud-Global-VM-Admin-Group | Los miembros de este grupo pueden administrar máquinas virtuales en el vCenter de la nube privada | [Cloud-VM-Admin-Role](#cloud-vm-admin-role) |
 
 Para conceder permisos a usuarios individuales para que administren la nube privada, cree cuentas de usuario que se agreguen a los grupos adecuados.
+
+> [!CAUTION]
+> Los nuevos usuarios solo se deben agregar a *Cloud-Owner-Group*, *Cloud-Global-Cluster-Admin-Group*, *Cloud-Global-Storage-Admin-Group*, *Cloud-Global-Network-Admin-Group* o *Cloud-Global-VM-Admin-Group*.  Los usuarios agregados al grupo *Administradores* se quitarán automáticamente.  Solo se deben agregar cuentas de servicio al grupo *Administradores*.
 
 ## <a name="list-of-vcenter-privileges-for-default-roles"></a>Lista de privilegios de vCenter para roles predeterminados
 

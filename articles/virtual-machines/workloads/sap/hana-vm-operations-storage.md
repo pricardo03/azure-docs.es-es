@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/21/2019
+ms.date: 10/25/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bcd27378039d539e36c72cf6e8fec7e8a1425e54
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 1faf6e4c9124d494507a124013d5fd8588f4b41b
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72750334"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934916"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Configuraciones de almacenamiento de máquinas virtuales de Azure en SAP HANA
 
@@ -40,7 +40,7 @@ Las condiciones de certificación mínimas de SAP HANA para los diferentes tipos
 
 - SSD Premium de Azure: /hana/log se debe almacenar en caché con el [Acelerador de escritura](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator) de Azure. El volumen /hana/data puede colocarse en el SSD Premium sin el Acelerador de escritura de Azure o bien en un disco Ultra.
 - Disco Ultra de Azure al menos para el volumen /hana/log. El volumen /hana/data se puede colocar en el SSD Premium sin el Acelerador de escritura de Azure o en un disco Ultra para obtener un tiempo de reinicio más rápido.
-- Volúmenes de **NFS v4.1** a partir de Azure NetApp Files para /hana/log **y** /hana/data.
+- Volúmenes de **NFS v4.1** sobre Azure NetApp Files para /hana/log **y** /hana/data. El volumen de/hana/sharedpuede usar el protocolo NFS v3 o NFS v 4.1. El protocolo NFS v4.1 es obligatorio para los volúmenes /hana/data y /hana/log.
 
 Algunos de los tipos de almacenamiento se pueden combinar. Por ejemplo, es posible colocar /hana/data en Premium Storage y /hana/log se puede colocar en un almacenamiento en disco Ultra para obtener la baja latencia necesaria. Sin embargo, no se recomienda mezclar volúmenes NFS por ejemplo, /hana/data, y usar uno de los otros tipos de almacenamiento certificados para /hana/log
 
@@ -230,10 +230,10 @@ En esta configuración, puede conservar los volúmenes /hana/data y /hana/log en
 Los tipos de máquina virtual M416xx_v2 no están disponibles todavía por parte de Microsoft para el público. Los valores de la lista están diseñados como punto de partida y deben valorarse según las demandas reales. La ventaja del disco Ultra de Azure es que los valores de IOPS y de rendimiento se pueden adaptar sin necesidad de apagar la máquina virtual o detener la carga de trabajo que se aplica al sistema.  
 
 ## <a name="nfs-v41-volumes-on-azure-netapp-files"></a>Volúmenes de NFS v4.1 en Azure NetApp Files
-Azure NetApp Files proporciona recursos compartidos de NFS nativos que se pueden usar para los volúmenes /hana/shared, /hana/data y /hana/log. El uso de recursos compartidos de NFS basados en ANF para estos volúmenes requiere el uso del protocolo v4.1 NFS. El protocolo NFS v3 no admite el uso de volúmenes relacionados con HANA al basar los recursos compartidos en ANF. 
+Azure NetApp Files proporciona recursos compartidos de NFS nativos que se pueden usar para los volúmenes /hana/shared, /hana/data y /hana/log. El uso de recursos compartidos de NFS basados en ANF para los volúmenes /hana/data y /hana/log requiere el uso del protocolo NFS v4.1. El protocolo NFS v3 no admite el uso de los volúmenes/hana/data y /hana/log al basar los recursos compartidos en ANF. 
 
 > [!IMPORTANT]
-> No se admite el protocolo NFS v3 implementado en Azure NetApp Files para su uso con /hana/shared, /hana/data y /hana/log
+> No se admite el protocolo NFS v3 implementado en Azure NetApp Files para su uso con /hana/shared, /hana/data y /hana/log. El uso de NFS 4.1 es obligatorio para los volúmenes/hana/data y /hana/log desde un punto de vista funcional. Por su parte, para el volumen /hana/shared se puede usar el protocolo NFS v3 o NFS v4.1 desde un punto de vista funcional.
 
 ### <a name="important-considerations"></a>Consideraciones importantes
 A la hora de considerar Azure NetApp Files para SAP Netweaver y SAP HANA, tenga en cuenta los siguientes aspectos importantes:
@@ -270,21 +270,21 @@ Los [límites de rendimiento de Azure NetApp Files](https://docs.microsoft.com/a
 
 Para cumplir los requisitos de rendimiento mínimo de SAP para los datos y el registro, y de acuerdo con las directrices para `/hana/shared`, los tamaños recomendados serían los siguientes:
 
-| Volumen | Size<br /> Capa Premium Storage | Size<br /> Capa de almacenamiento Ultra |
+| Volumen | Size<br /> Capa Premium Storage | Size<br /> Capa de almacenamiento Ultra | Protocolo NFS admitido |
 | --- | --- | --- |
-| /hana/log/ | 4 TiB | 2 TiB |
-| /hana/data | 6,3 TiB | 3,2 TiB |
-| /hana/shared | Max (512 GB, 1xRAM) por cuatro nodos de trabajo | Max (512 GB, 1xRAM) por cuatro nodos de trabajo |
+| /hana/log/ | 4 TiB | 2 TiB | v4.1 |
+| /hana/data | 6,3 TiB | 3,2 TiB | v4.1 |
+| /hana/shared | Max (512 GB, 1xRAM) por cuatro nodos de trabajo | Max (512 GB, 1xRAM) por cuatro nodos de trabajo | v3 o v4.1 |
 
 La configuración de SAP HANA para el diseño que se presenta en este artículo, con la capa de almacenamiento Ultra de Azure NetApp Files, tendría el siguiente aspecto:
 
-| Volumen | Size<br /> Capa de almacenamiento Ultra |
+| Volumen | Size<br /> Capa de almacenamiento Ultra | Protocolo NFS admitido |
 | --- | --- |
-| /hana/log/mnt00001 | 2 TiB |
-| /hana/log/mnt00002 | 2 TiB |
-| /hana/data/mnt00001 | 3,2 TiB |
-| /hana/data/mnt00002 | 3,2 TiB |
-| /hana/shared | 2 TiB |
+| /hana/log/mnt00001 | 2 TiB | v4.1 |
+| /hana/log/mnt00002 | 2 TiB | v4.1 |
+| /hana/data/mnt00001 | 3,2 TiB | v4.1 |
+| /hana/data/mnt00002 | 3,2 TiB | v4.1 |
+| /hana/shared | 2 TiB | v3 o v4.1 |
 
 > [!NOTE]
 > Las recomendaciones de tamaño de Azure NetApp Files que se han indicado se dirigen a satisfacer los requisitos mínimos que SAP expresa a sus proveedores de infraestructura. En escenarios reales de implementaciones de clientes y de cargas de trabajo, es posible que no sea suficiente. Utilice estas recomendaciones como punto de partida y adáptelas en función de los requisitos de la carga de trabajo específica.  

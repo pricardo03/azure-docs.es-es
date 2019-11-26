@@ -11,18 +11,21 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/08/2019
 ms.author: iainfou
-ms.openlocfilehash: 3876c6f80e9f18059ab4abac67732cdbf2ca24fa
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: ffcff84c7778ec3d6395e1c7a706c0deb2a0dc90
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72248308"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72893434"
 ---
 # <a name="password-and-account-lockout-policies-on-managed-domains"></a>Directivas de bloqueo de cuenta y contraseña en dominios administrados
 
 Para administrar la seguridad del usuario en Azure Active Directory Domain Services (Azure AD DS), puede definir directivas de contraseña específicas que controlen la configuración de bloqueo de cuenta o la longitud mínima y la complejidad de la contraseña. Se crea y aplica una directiva de contraseñas específica predeterminada a todos los usuarios de un dominio administrado de Azure AD DS. Para proporcionar un control pormenorizado y satisfacer las necesidades específicas de la empresa o las de cumplimiento, se pueden crear y aplicar directivas adicionales a grupos de usuarios específicos.
 
 En este artículo se muestra cómo crear y configurar una directiva de contraseñas específica en Azure AD DS mediante el Centro de administración de Active Directory.
+
+> [!NOTE]
+> Las directivas de contraseña solo están disponibles para dominios administrados de Azure AD DS creados con el modelo de implementación de Resource Manager. En el caso de los dominios administrados más antiguos creados con el modelo clásico, [migre desde el modelo de red virtual clásico al de Resource Manager][migrate-from-classic].
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -34,6 +37,7 @@ Para completar este artículo, necesitará los siguientes recursos y privilegios
   * Si es necesario, [cree un inquilino de Azure Active Directory][create-azure-ad-tenant] o [asocie una suscripción a Azure con su cuenta][associate-azure-ad-tenant].
 * Un dominio administrado de Azure Active Directory Domain Services habilitado y configurado en su inquilino de Azure AD.
   * Si es necesario, complete el tutorial para [crear y configurar una instancia de Azure Active Directory Domain Services][create-azure-ad-ds-instance].
+  * La instancia de Azure AD DS debe haberse creado mediante el modelo de implementación de Resource Manager. Si fuera necesario, [migre desde el modelo de red virtual clásica a Resource Manager][migrate-from-classic].
 * Una máquina virtual de administración de Windows Server que esté unida al dominio administrado de Azure AD DS.
   * Si es necesario, complete el tutorial para [crear una máquina virtual de administración][tutorial-create-management-vm].
 * Una cuenta de usuario que sea miembro del grupo de *administradores de Azure AD DC* en el inquilino de Azure AD.
@@ -130,3 +134,4 @@ Para más información acerca de las directivas de contraseñas y el uso del cen
 [associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
 [create-azure-ad-ds-instance]: tutorial-create-instance.md
 [tutorial-create-management-vm]: tutorial-create-management-vm.md
+[migrate-from-classic]: migrate-from-classic-vnet.md

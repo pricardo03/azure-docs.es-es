@@ -1,5 +1,6 @@
 ---
-title: Personalización de notificaciones para una aplicación de un inquilino de Azure AD (Versión preliminar pública)
+title: Personalización de notificaciones para una aplicación de inquilino de Azure AD (versión preliminar pública)
+titleSuffix: Microsoft identity platform
 description: En esta página se describe la asignación de notificaciones de Azure Active Directory.
 services: active-directory
 author: rwike77
@@ -11,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/28/2019
+ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9350a30ac6258664b3a8405923467a8468a6758
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 53ef51d52e699612508a446acbc075f766565d63
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835456"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803515"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Procedimientos para: Personalizar las notificaciones emitidas en tokens para una determinada aplicación de un inquilino (versión preliminar)
 
@@ -323,7 +324,7 @@ El elemento ID identifica la propiedad en el origen que proporciona el valor de 
 | Usuario | othermail | Otro correo |
 | Usuario | country | Country |
 | Usuario | city | City |
-| Usuario | state | Estado |
+| Usuario | state | State |
 | Usuario | jobtitle | Puesto |
 | Usuario | employeeid | Id. de empleado |
 | Usuario | facsimiletelephonenumber | Número de teléfono de fax |
@@ -465,7 +466,7 @@ En este ejemplo se crea una directiva que quita el conjunto de notificaciones b�
       Get-AzureADPolicy
       ```
 1. Asigne la directiva a su entidad de servicio. También necesita obtener el valor de ObjectId de su entidad de servicio.
-   1. Para ver todas las entidades de servicio de su organización, puede consultar Microsoft Graph. O bien, en Azure AD Graph Explorer, inicie sesión en su cuenta de Azure AD.
+   1. Para ver todas las entidades de servicio de su organización, puede [consultar Microsoft Graph](/graph/traverse-the-graph). O bien, en el [Probador de Graph](https://developer.microsoft.com/graph/graph-explorer), inicie sesión en su cuenta de Azure AD.
    2. Cuando tenga el valor de ObjectId de la entidad de servicio, ejecute el siguiente comando:  
      
       ``` powershell
@@ -489,7 +490,7 @@ En este ejemplo se crea una directiva que agrega EmployeeID y TenantCountry a lo
       Get-AzureADPolicy
       ```
 1. Asigne la directiva a su entidad de servicio. También necesita obtener el valor de ObjectId de su entidad de servicio. 
-   1. Para ver todas las entidades de servicio de su organización, puede consultar Microsoft Graph. O bien, en Azure AD Graph Explorer, inicie sesión en su cuenta de Azure AD.
+   1. Para ver todas las entidades de servicio de su organización, puede [consultar Microsoft Graph](/graph/traverse-the-graph). O bien, en el [Probador de Graph](https://developer.microsoft.com/graph/graph-explorer), inicie sesión en su cuenta de Azure AD.
    2. Cuando tenga el valor de ObjectId de la entidad de servicio, ejecute el siguiente comando:  
      
       ``` powershell
@@ -513,7 +514,7 @@ En este ejemplo se crea una directiva que emite una notificación "JoinedData" p
       Get-AzureADPolicy
       ```
 1. Asigne la directiva a su entidad de servicio. También necesita obtener el valor de ObjectId de su entidad de servicio. 
-   1. Para ver todas las entidades de servicio de su organización, puede consultar Microsoft Graph. O bien, en Azure AD Graph Explorer, inicie sesión en su cuenta de Azure AD.
+   1. Para ver todas las entidades de servicio de su organización, puede [consultar Microsoft Graph](/graph/traverse-the-graph). O bien, en el [Probador de Graph](https://developer.microsoft.com/graph/graph-explorer), inicie sesión en su cuenta de Azure AD.
    2. Cuando tenga el valor de ObjectId de la entidad de servicio, ejecute el siguiente comando: 
      
       ``` powershell

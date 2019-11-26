@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b75e9aa3c588f5046ec55c0d809ca74060ad9c2
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 39ec09c1ecb94a5ae189317d89cce4bc8f279b48
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509343"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175689"
 ---
 # <a name="how-to-require-mfa-for-access-from-untrusted-networks-with-conditional-access"></a>Procedimientos para: Uso obligatorio de MFA para el acceso desde redes que no son de confianza con el acceso condicional   
 
@@ -47,10 +47,10 @@ Con el acceso condicional de Azure AD, puede abordar este requisito con una ún
 
 La dificultad de este escenario consiste en convertir el *acceso desde una ubicación de red que no es de confianza* en una condición de acceso condicional. En una directiva de acceso condicional, puede configurar la [condición de ubicación](location-condition.md) para abordar los escenarios relacionados con las ubicaciones de red. La condición de ubicación permite seleccionar ubicaciones con nombre, que son agrupaciones lógicas de intervalos de direcciones IP, países y regiones.  
 
-Normalmente, su organización posee uno o más intervalos de direcciones, por ejemplo, 199.30.16.0 - 199.30.16.24.
+Normalmente, su organización posee uno o más intervalos de direcciones, por ejemplo, 199.30.16.0 - 199.30.16.15.
 Para configurar una ubicación con nombre, puede:
 
-- Especificar este intervalo (199.30.16.0/24) 
+- Especificar este intervalo (199.30.16.0/28) 
 - Asignar un nombre descriptivo como **Red corporativa** 
 
 En lugar de intentar definir cuáles son todas las ubicaciones que no son de confianza, hacer lo siguiente:

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 01/28/2018
-ms.openlocfilehash: e79d9be6b893184bd615fbc569893e53a2c72861
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 9796b41d0df091bc6eb23ba525a79da278e00bbd
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555595"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802310"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Información general sobre las alertas en Microsoft Azure 
 
@@ -184,9 +184,9 @@ El consumo y la administración de instancias de alertas requiere que el usuario
 
 Es posible que quiera consultar mediante programación las alertas generadas en la suscripción. Esto podría llevarse a cabo para crear vistas personalizadas fuera de Azure Portal, o bien para analizar las alertas a fin de identificar patrones y tendencias.
 
-Puede consultar las alertas generadas en sus suscripciones, ya sea mediante la [API de REST de Alert Management](https://aka.ms/alert-management-api) o la [API de REST de Azure Resource Graph para alertas](https://docs.microsoft.com/rest/api/azureresourcegraph/resources/resources).
+Puede consultar las alertas generadas en sus suscripciones, ya sea mediante la [API REST de Alert Management](https://aka.ms/alert-management-api) o la [API REST de Azure Resource Graph para alertas](https://docs.microsoft.com/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources).
 
-La [API de REST de Azure Resource Graph para alertas](https://docs.microsoft.com/rest/api/azureresourcegraph/resources/resources) permite consultar instancias de alertas a escala. Esto se recomienda cuando tiene que administrar las alertas generadas en muchas suscripciones. 
+La [API REST de Azure Resource Graph para alertas](https://docs.microsoft.com/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources) permite consultar instancias de alertas a escala. Esto se recomienda cuando tiene que administrar las alertas generadas en muchas suscripciones. 
 
 La siguiente solicitud a la API de ejemplo devuelve el recuento de alertas de una suscripción:
 

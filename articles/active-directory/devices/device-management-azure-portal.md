@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60f38b60b5fbf0166f25c423663d157cf8f13ee2
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: b1b44a7df499dc0b6ce4370bf74ece35c99a4493
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860894"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73200229"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Administración de identidades de dispositivos con Azure Portal
 
@@ -136,6 +136,7 @@ Para habilitar o deshabilitar un dispositivo, tiene dos opciones:
 
 - Para poder habilitar o deshabilitar un dispositivo, tiene que ser administrador global o administrador de dispositivos en la nube de Azure AD. 
 - Cuando se deshabilita un dispositivo, ya no puede autenticarse correctamente con Azure AD, lo que evita que pueda acceder a los recursos de Azure AD que están protegidos por la entidad emisora de certificados de dispositivo o mediante las credenciales de WH4B.
+- Al deshabilitar el dispositivo, se revocará el token de actualización principal (PRT) y todos los tokens de actualización (RT) del dispositivo.
 
 ### <a name="delete-an-azure-ad-device"></a>Eliminar un dispositivo de Azure AD
 
@@ -210,7 +211,7 @@ Puede personalizar la vista de lista, haga clic en **Columnas** en la barra de h
 
 Para restringir los datos del informe a un nivel que se adapte a sus necesidades, puede filtrar los datos de auditoría con los siguientes campos:
 
-- Categoría
+- Category
 - Tipo de recurso de actividad
 - Actividad
 - Intervalo de fechas

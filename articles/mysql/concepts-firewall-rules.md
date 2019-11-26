@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 09/22/2019
-ms.openlocfilehash: 1d75b9e7d997b0c62c7e235187907f0556318efe
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.date: 10/25/2019
+ms.openlocfilehash: 434ecbcf5158009b8e74ae392aeea95b5ea8b281
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71970405"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72963434"
 ---
 # <a name="azure-database-for-mysql-server-firewall-rules"></a>Reglas de firewall del servidor de Azure Database para MySQL
 Los firewalls impiden todo acceso al servidor de bases de datos, excepto a aquellos equipos a los que haya concedido permiso. Asimismo, otorgan acceso al servidor según la dirección IP de origen de cada solicitud.
@@ -43,6 +43,9 @@ Para permitir que las aplicaciones de Azure se conecten al servidor Azure Databa
 
 ![Configurar el permiso de acceso a los servicios de Azure en el portal](./media/concepts-firewall-rules/allow-azure-services.png)
 
+### <a name="connecting-from-a-vnet"></a>Conexión desde una red virtual
+Para conectarse de forma segura a su servidor de Azure Database for MySQL desde una red virtual, considere la posibilidad de usar [puntos de conexión de servicio de red virtual](./concepts-data-access-and-security-vnet.md). 
+
 ## <a name="programmatically-managing-firewall-rules"></a>Administración mediante programación de reglas de firewall
 Además de Azure Portal, las reglas de firewall se pueden administrar mediante programación con la CLI de Azure. Consulte también la información sobre la [creación y administración de reglas de firewall de Azure Database for MySQL mediante la CLI de Azure](./howto-manage-firewall-using-cli.md).
 
@@ -65,3 +68,4 @@ Tenga en cuenta los siguientes puntos cuando el acceso al servicio del servidor 
 
 * [Creación y administración de reglas de firewall de Azure Database for MySQL mediante Azure Portal](./howto-manage-firewall-using-portal.md)
 * [Creación y administración de reglas de firewall de Azure Database for MySQL mediante la CLI de Azure](./howto-manage-firewall-using-cli.md)
+- [Puntos de conexión de servicio de red virtual en Azure Database for MySQL](./concepts-data-access-and-security-vnet.md)

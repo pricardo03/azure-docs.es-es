@@ -1,5 +1,5 @@
 ---
-title: RpcTimeoutException para el servidor Thrift de Apache Spark en Azure HDInsight
+title: 'RpcTimeoutException para Thrift de Apache Spark: Azure HDInsight'
 description: Al procesar conjuntos de datos grandes mediante el servidor Thrift de Apache Spark verá 502 errores.
 ms.service: hdinsight
 ms.topic: troubleshooting
@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 07/29/2019
-ms.openlocfilehash: 220465105733b715c1990fd73904b9dc095637d4
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: c9e71c745d62432af3c0fe035d28009e3e5be761
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71088614"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73241036"
 ---
 # <a name="scenario-rpctimeoutexception-for-apache-spark-thrift-server-in-azure-hdinsight"></a>Escenario: RpcTimeoutException para el servidor Thrift de Apache Spark en Azure HDInsight
 

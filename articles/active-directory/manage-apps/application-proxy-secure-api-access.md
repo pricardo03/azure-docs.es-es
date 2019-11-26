@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/23/2019
+ms.date: 10/24/2019
 ms.author: celested
 ms.reviewer: japere
-ms.openlocfilehash: c2b99525e3d0a61c02dc502fcd0927ea65993e5b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b741f42bb215df59903fed7ed84094b7d037ce65
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108623"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73063040"
 ---
 # <a name="secure-access-to-on-premises-apis-with-azure-ad-application-proxy"></a>Acceso seguro a API locales con Azure AD Application Proxy
 
@@ -57,7 +57,7 @@ Para publicar la API web SecretAPI mediante Application Proxy:
    
 1. En la parte superior de la página **Aplicaciones empresariales - Todas las aplicaciones, seleccione** **Nueva aplicación**.
    
-1. En la página **Agregar una aplicación**, en **Agregar una aplicación**, seleccione **Aplicación local**. 
+1. En la página **Examinar la Galería de Azure AD**, en **Aplicaciones locales**, seleccione **Agregar una aplicación local**. Se abre la página **Agregar aplicación local propia**.
    
 1. Si no tiene instalado un conector de Application Proxy, se le pedirá que lo instale. Seleccione **Descargar conector de Application Proxy** para descargar el conector e instalarlo. 
    

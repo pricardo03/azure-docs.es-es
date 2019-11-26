@@ -1,5 +1,6 @@
 ---
-title: Migración de aplicaciones de Xamarin iOS que usan Microsoft Authenticator de ADAL.NET a MSAL.NET | Azure
+title: Migración de aplicaciones de Xamarin iOS que usan Microsoft Authenticator de ADAL.NET a MSAL.NET
+titleSuffix: Microsoft identity platform
 description: Aprenda a migrar aplicaciones de Xamarin iOS que usan Microsoft Authenticator de la biblioteca de autenticación de Azure AD para .NET (ADAL.NET) a la biblioteca de autenticación de Microsoft para .NET (MSAL.NET).
 documentationcenter: dev-center-name
 author: jmprieur
@@ -16,12 +17,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fdfb2d7d33111f1adf998cd75446576d2010a365
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 3c64f9f371424eddc7295b6ec40bda1ebdaaafd5
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71257777"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175592"
 ---
 # <a name="migrate-ios-applications-that-use-microsoft-authenticator-from-adalnet-to-msalnet"></a>Migración de aplicaciones de iOS que usan Microsoft Authenticator de ADAL.NET a MSAL.NET
 
