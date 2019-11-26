@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/09/2019
+ms.date: 10/24/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff5152a2d65ea3921f0fef7f3a020bcea80d1769
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: d004d1183c9f5c1aec2dae7ab2d638528f164cd9
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68421259"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73062497"
 ---
 # <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy"></a>Inicio de sesión único de SAML para aplicaciones en el entorno local con Application Proxy
 
@@ -41,7 +41,7 @@ Los diagramas de protocolos siguientes describen la secuencia de inicio de sesi�
 
 1. En Azure Portal, seleccione **Azure Active Directory > Aplicaciones empresariales** y seleccione **Nueva aplicación**.
 
-2. En **Agregar aplicación propia**, seleccione **Aplicación situada fuera de la galería**.
+2. En la sección **Aplicaciones locales**, seleccione **Incorporación de una aplicación local**.
 
 3. Escriba el nombre para mostrar de la nueva aplicación y seleccione **Agregar**.
 
