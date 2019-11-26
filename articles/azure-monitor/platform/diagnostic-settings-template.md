@@ -1,5 +1,5 @@
 ---
-title: Creación de la configuración de diagnóstico en Azure con una plantilla de Resource Manager | Microsoft Docs
+title: Creación de la configuración de diagnóstico en Azure con una plantilla de Resource Manager
 description: Cree una configuración de diagnóstico con una plantilla de Resource Manager para reenviar los registros de plataforma de Azure a los registros de Azure Monitor, a Azure Storage o a Azure Event Hubs.
 author: bwren
 services: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 303682a9d7b3c3fe8ba6c8dd6fe2a44741bcafce
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 0cb4cee732b1784de489d97769294c455cfd5efd
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597285"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73200489"
 ---
 # <a name="create-diagnostic-setting-in-azure-using-a-resource-manager-template"></a>Creación de la configuración de diagnóstico en Azure con una plantilla de Resource Manager
 Los [registros de plataforma](platform-logs-overview.md) en Azure proporcionan información detallada de diagnóstico y auditoría para los recursos de Azure y la plataforma de Azure de la que dependen. En este artículo se proporcionan detalles sobre el uso de una [plantilla de Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) para la configuración de diagnóstico para la recopilación de los registros de plataforma en distintos destinos. Esto permite empezar a recopilar automáticamente los registros de plataforma cuando se crea un recurso.

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 67022c6bd9e237ce24d8e63285f7ebabadca87c6
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 308809a9b78de9d3c0e77ed6028e62c42ff4e1c5
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71671310"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882584"
 ---
 # <a name="azure-storage-account-overview"></a>Información general acerca de la cuenta de Azure Storage
 
@@ -44,7 +44,7 @@ Las cuentas de almacenamiento de uso general v2 ofrecen varios niveles de acceso
 
 ### <a name="general-purpose-v1-accounts"></a>Cuentas de uso general v1
 
-Las cuentas de uso general v1 proporcionan acceso a todos los servicios de Azure Storage, pero puede que no incluyan las características más recientes o que no tengan los precios más bajos por gigabyte. Las cuentas de almacenamiento de uso general v1 son compatibles con estos servicios de Azure Storage:
+Las cuentas de almacenamiento de uso general v1 proporcionan acceso a todos los servicios de Azure Storage, pero puede que no incluyan las características más recientes o que no tengan los precios más bajos por gigabyte. Las cuentas de almacenamiento de uso general v1 son compatibles con estos servicios de Azure Storage:
 
 - Blobs (todos los tipos)
 - Archivos
@@ -60,17 +60,19 @@ Si bien se recomienda usar las cuentas de uso general v2 en la mayoría de los c
 
 * Usa una versión de la [API de REST de servicios de almacenamiento](https://msdn.microsoft.com/library/azure/dd894041.aspx) anterior al 14-02-2014 o una biblioteca de cliente con una versión inferior a la 4.x y no puede actualizar la aplicación.
 
-### <a name="block-blob-storage-accounts"></a>Cuentas de almacenamiento de blob en bloques
+### <a name="blockblobstorage-accounts"></a>Cuentas BlockBlobStorage
 
-Una cuenta de almacenamiento de blob en bloques es una aquella especializada en almacenar datos de objetos no estructurados como blobs de bloques. Admiten el almacenamiento de blobs en bloques y de blobs adjuntos, pero no de blobs en páginas, tablas ni colas.
+Una cuenta BlockBlobStorage es una cuenta de almacenamiento especializada que se usa para almacenar datos de objetos no estructurados y crear blobs en bloques premium. Este tipo de cuenta de almacenamiento admite de blobs en bloques y blobs en anexos, pero no de blobs en páginas, tablas ni colas.
 
-En comparación con las cuentas de almacenamiento de blobs y de uso general v2, proporcionan cuentas de almacenamiento de blob en bloques coherentes y baja latencia y mayores tasas de transacción.
+En comparación con las cuentas de uso general v2 y BlobStorage, las cuentas BlockBlobStorage ofrecen latencia baja y coherente y mayores tasas de transacción.
 
-Las cuentas de almacenamiento de blob en bloques no admiten actualmente los niveles de acceso frecuente, esporádico ni de archivo.
+Las cuentas BlockBlobStorage no admiten actualmente los niveles de acceso frecuente, esporádico ni de archivo.
 
-### <a name="filestorage-storage-accounts"></a>Cuentas de almacenamiento FileStorage
+### <a name="filestorage-accounts"></a>Cuentas FileStorage
 
-Una cuenta de almacenamiento FileStorage es una cuenta de almacenamiento especializada que se utiliza para almacenar y crear recursos compartidos de archivos de prémium. Las cuentas de almacenamiento FileStorage ofrecen características dedicadas de rendimiento único, como la ampliación de IOPS. Para más información sobre estas características, consulte la sección sobre los [niveles de rendimiento de recursos compartidos de archivo](../files/storage-files-planning.md#file-share-performance-tiers) en la guía de planeación de archivos.
+Una cuenta FileStorage es una cuenta de almacenamiento especializada que se usa para almacenar y crear recursos compartidos de archivos premium. Este tipo de cuenta de almacenamiento admite archivos, pero no de blobs en bloques, blobs en anexos, blobs en páginas, tablas ni colas. 
+
+Las cuentas FileStorage ofrecen características dedicadas de rendimiento único, como la ampliación de IOPS. Para más información sobre estas características, consulte la sección sobre los [niveles de rendimiento de recursos compartidos de archivo](../files/storage-files-planning.md#file-share-performance-tiers) en la guía de planeación de archivos.
 
 ## <a name="naming-storage-accounts"></a>Nomenclatura de las cuentas de almacenamiento
 
@@ -86,7 +88,7 @@ Las cuentas de almacenamiento de uso general pueden configurarse para cada uno d
 * Un nivel de rendimiento estándar para almacenar blobs, archivos, tablas, colas y discos de máquina virtual de Azure.
 * Un nivel de rendimiento prémium para almacenar solo los discos de máquina virtual no administrados.
 
-Las cuentas de almacenamiento de blob en bloques proporcionan un nivel de rendimiento prémium para almacenar blobs en bloques y blobs en anexos.
+Las cuentas de almacenamiento BlockBlobStorage proporcionan un nivel de rendimiento premium para almacenar blobs en bloques y blobs en anexos.
 
 Las cuentas de almacenamiento FileStorage proporcionan un nivel de rendimiento prémium para los recursos compartidos de archivos de Azure.
 
@@ -186,5 +188,5 @@ También se puede usar este servicio Import/Export para transferir datos desde A
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para aprender a crear una cuenta de Azure Storage de uso general, consulte [Creación de una cuenta de almacenamiento](storage-quickstart-create-account.md).
-* Para más información acerca de cómo crear una cuenta de almacenamiento de blob en bloques, consulte [Creación de una cuenta de almacenamiento de blobs en bloques](../blobs/storage-blob-create-account-block-blob.md).
+* Para más información sobre cómo crear una cuenta BlockBlobStorage, consulte [Creación de una cuenta de almacenamiento de blobs en bloques](../blobs/storage-blob-create-account-block-blob.md).
 * Para administrar o eliminar una cuenta de almacenamiento, consulte [Manage Azure storage accounts](storage-account-manage.md) (Administrar cuentas de Azure Storage).

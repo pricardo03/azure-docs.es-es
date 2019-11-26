@@ -3,22 +3,23 @@ title: 'CLI de Azure Service Fabric: sfctl chaos | Microsoft Docs'
 description: Describe los comandos de sfctl chaos de la CLI Service Fabric.
 services: service-fabric
 documentationcenter: na
-author: Christina-Kang
+author: jeffj6123
 manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
+ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/06/2018
-ms.author: bikang
-ms.openlocfilehash: 27178b2f26086bf693dc9cda342c66f7d47a34d7
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.date: 9/17/2019
+ms.author: jejarry
+ms.openlocfilehash: f48ef260ab05f98da99c3ae317d0c350d018119f
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035103"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901757"
 ---
 # <a name="sfctl-chaos"></a>sfctl chaos
 Inicie, detenga e informe sobre el servicio de prueba de Chaos.
@@ -46,10 +47,10 @@ Para obtener el siguiente segmento de los eventos de Chaos, puede especificar el
 |Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --continuation-token | El parámetro continuation token se utiliza para obtener el siguiente conjunto de resultados. Un token de continuación con un valor no vacío se incluye en la respuesta de la API cuando los resultados del sistema no caben en una única respuesta. Cuando este valor se pasa a la siguiente llamada de la API, la API devuelve el siguiente conjunto de resultados. Si no hay más resultados, el token de continuación no contiene ningún valor. El valor de este parámetro no debe ser la dirección URL codificada. |
-| --end-time-utc | El valor de hora del archivo de Windows que representa la hora de finalización del intervalo de tiempo para el que se genera un informe de Chaos. Consulte [Método DateTime.ToFileTimeUtc](https://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx) para más información. |
+| --end-time-utc | El valor de hora del archivo de Windows que representa la hora de finalización del intervalo de tiempo para el que se genera un informe de Chaos. Consulte [Método DateTime.ToFileTimeUtc](https\://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx) para más información. |
 | --max-results | El número máximo de resultados que se devuelven como parte de las consultas paginadas. Este parámetro define el límite superior en el número de resultados devueltos. Los resultados devueltos pueden ser menos que el número máximo de resultados especificado si no caben en el mensaje según las restricciones del tamaño máximo del mensaje definidas en la configuración. Si este parámetro es cero o no se especifica, la consulta paginada incluye tantos resultados como quepan en el mensaje devuelto. |
-| --start-time-utc | El valor de hora del archivo de Windows que representa la hora de inicio del intervalo de tiempo para el que se genera un informe de Chaos. Consulte [Método DateTime.ToFileTimeUtc](https://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx) para más información. |
-| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --start-time-utc | El valor de hora del archivo de Windows que representa la hora de inicio del intervalo de tiempo para el que se genera un informe de Chaos. Consulte [Método DateTime.ToFileTimeUtc](https\://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx) para más información. |
+| --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
@@ -70,7 +71,7 @@ Obtenga el estado de Chaos indicando si Chaos se ejecuta o no, los parámetros d
 
 |Argumento|DESCRIPCIÓN|
 | --- | --- |
-| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
@@ -85,7 +86,7 @@ Obtenga el estado de Chaos indicando si Chaos se ejecuta o no, los parámetros d
 ## <a name="sfctl-chaos-start"></a>sfctl chaos start
 Inicia Chaos en el clúster.
 
-Si Chaos no está aún en ejecución en el clúster, inicia Chaos con los parámetros de Chaos especificados. Si ya se está ejecutando Chaos cuando se realiza esta llamada, se produce un error en la llamada con el código de error FABRIC_E_CHAOS_ALREADY_RUNNING.
+Si Chaos no está aún en ejecución en el clúster, inicia Chaos con los parámetros de Chaos especificados. Si ya se está ejecutando Chaos cuando se realiza esta llamada, se produce un error en la llamada con el código de error FABRIC_E_CHAOS_ALREADY_RUNNING. Consulte el artículo [Inducción de errores controlados con Caos en clústeres de Service Fabric](https\://docs.microsoft.com/azure/service-fabric/service-fabric-controlled-chaos) para obtener más detalles.
 
 ### <a name="arguments"></a>Argumentos
 
@@ -100,7 +101,7 @@ Si Chaos no está aún en ejecución en el clúster, inicia Chaos con los parám
 | --max-percent-unhealthy-apps | Al evaluar el estado del clúster durante Chaos, el porcentaje máximo permitido de aplicaciones en mal estado antes de informar de un error. <br><br> El porcentaje máximo permitido de aplicaciones en mal estado antes de informar de un error. Por ejemplo, para permitir el 10 % de las aplicaciones en mal estado, este valor sería 10. El valor representa el porcentaje máximo tolerado de aplicaciones que pueden ser incorrectas antes de que el clúster se considere erróneo. Si se respeta el porcentaje, pero hay al menos una aplicación en mal estado, el estado se evalúa como Warning. Esto se calcula dividiendo el número de aplicaciones en mal estado sobre el número total de instancias de la aplicación en el clúster, excluidas las aplicaciones de los tipos de aplicación que se incluyen en ApplicationTypeHealthPolicyMap. El cálculo se redondea hacia arriba para tolerar un error en números reducidos de aplicaciones. El porcentaje predeterminado es cero. |
 | --max-percent-unhealthy-nodes | Al evaluar el estado del clúster durante Chaos, el porcentaje máximo permitido de nodos en mal estado antes de informar de un error. <br><br> El porcentaje máximo permitido de nodos en mal estado antes de informar de un error. Por ejemplo, para permitir el 10 % de los nodos en mal estado, este valor sería 10. El valor representa el porcentaje máximo tolerado de nodos que pueden ser incorrectos antes de que el clúster se considere erróneo. Si se respeta el porcentaje, pero hay al menos un nodo en mal estado, el estado se evalúa como Warning. El porcentaje se calcula dividiendo el número de nodos en mal estado sobre el número total de nodos del clúster. El cálculo se redondea hacia arriba para tolerar un error en números reducidos de nodos. El porcentaje predeterminado es cero. En los clústeres grandes, siempre habrá nodos inactivos o inoperativos debido a reparaciones, por lo que este porcentaje debe configurarse para tolerar ese hecho. |
 | --time-to-run | Tiempo total (en segundos) para el que se ejecutará Chaos antes de la detención automática. El valor máximo permitido es 4.294.967.295 (System.UInt32.MaxValue).  Valor predeterminado\: 4294967295. |
-| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --timeout -t | Valor predeterminado\: 60. |
 | --wait-time-between-faults | Tiempo de espera (en segundos) entre errores consecutivos dentro de una única iteración.  Valor predeterminado\: 20. <br><br> Cuanto mayor sea el valor, menor será la superposición entre errores y más sencilla será la secuencia de transiciones de estado por las que pasa el clúster. La recomendación es comenzar con un valor entre 1 y 5, y tener cuidado al mover hacia arriba. |
 | --wait-time-between-iterations | Separación de tiempo (en segundos) entre dos iteraciones consecutivas de Chaos. Cuanto mayor sea el valor, menor será la tasa de inserción de errores.  Valor predeterminado\: 30. |
 | --warning-as-error | Indica si las advertencias se tratan con el mismo nivel de gravedad que los errores. |
@@ -124,7 +125,7 @@ Impide que Chaos ejecute nuevos errores. Los errores sobre la marcha seguirán e
 
 |Argumento|DESCRIPCIÓN|
 | --- | --- |
-| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 

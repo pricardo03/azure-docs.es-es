@@ -3,22 +3,23 @@ title: 'CLI de Azure Service Fabric: servicio de sfctl | Microsoft Docs'
 description: Se describen los comandos del servicio de sfctl de la CLI de Service Fabric.
 services: service-fabric
 documentationcenter: na
-author: Christina-Kang
+author: jeffj6123
 manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
+ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/06/2018
-ms.author: bikang
-ms.openlocfilehash: e215ab6d3ee56f2cccdd5887c240d9046327f110
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.date: 9/17/2019
+ms.author: jejarry
+ms.openlocfilehash: 63f901da3f64e62a55ab27904b8a38156957a7ee
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035220"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901006"
 ---
 # <a name="sfctl-service"></a>servicio de sfctl
 Cree, elimine y administre servicios, tipos de servicio y paquetes de servicio.
@@ -59,7 +60,7 @@ Obtiene el nombre de la aplicación para el servicio especificado. Si un servici
 |Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --service-id [Obligatorio] | La identidad del servicio. Este suele ser el nombre completo del servicio sin el esquema de URI "fabric\:". A partir de la versión 6.0, los nombres jerárquicos se delimitan con el carácter "\~". Por ejemplo, si el nombre del servicio es "fabric\:/myapp/app1/svc1", la identidad del servicio sería "myapp\~app1\~svc1" en 6.0+ y "myapp/svc1/svc1" en las versiones anteriores. |
-| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
@@ -84,7 +85,7 @@ Obtiene la lista de paquetes de código implementados en un nodo de Service Fabr
 | --node-name [Obligatorio] | El nombre del nodo. |
 | --code-package-name | El nombre del paquete de código especificado en un manifiesto de servicio registrado como parte de un tipo de aplicación en un clúster de Service Fabric. |
 | --service-manifest-name | El nombre de un manifiesto de servicio registrado como parte de un tipo de aplicación en un clúster de Service Fabric. |
-| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
@@ -131,7 +132,7 @@ Crea el servicio de Service Fabric especificado.
 | --stateful | Indica que el servicio es un servicio con estado. |
 | --stateless | Indica que el servicio es un servicio sin estado. |
 | --target-replica-set-size | El tamaño del conjunto de réplica de destino como número. Esto se aplica solo a servicios con estado. |
-| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --timeout -t | Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
@@ -154,7 +155,7 @@ Una servicio debe crearse para poder eliminarlo. De forma predeterminada, Servic
 | --- | --- |
 | --service-id [Obligatorio] | La identidad del servicio. Este suele ser el nombre completo del servicio sin el esquema de URI "fabric\:". A partir de la versión 6.0, los nombres jerárquicos se delimitan con el carácter "\~". Por ejemplo, si el nombre del servicio es "fabric\:/myapp/app1/svc1", la identidad del servicio sería "myapp\~app1\~svc1" en 6.0+ y "myapp/svc1/svc1" en las versiones anteriores. |
 | --force-remove | Elimina una aplicación o un servicio de Service Fabric de manera forzada sin pasar por la secuencia de apagado correcta. Este parámetro puede usarse para forzar la eliminación de una aplicación o un servicio cuya eliminación normal requiere un tiempo de espera a causa de problemas del código del servicio que impiden el cierre correcto de las réplicas. |
-| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
@@ -179,7 +180,7 @@ Obtiene la lista que contiene información sobre los tipos de servicio específi
 | --node-name         [Obligatorio] | El nombre del nodo. |
 | --service-type-name [Obligatorio] | Especifica el nombre de un tipo de servicio de Service Fabric. |
 | --service-manifest-name | El nombre del manifiesto de servicio para filtrar la lista de información de tipo de servicio implementado. Si se especifica, la respuesta solo contendrá la información sobre los tipos de servicio que se definen en este manifiesto de servicio. |
-| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
@@ -203,7 +204,7 @@ Obtiene la lista que contiene información sobre los tipos de servicio desde las
 | --application-id [Obligatorio] | La identidad de la aplicación. Este suele ser el nombre completo de la aplicación sin el esquema de URI "fabric\:". A partir de la versión 6.0, los nombres jerárquicos se delimitan con el carácter "\~". Por ejemplo, si el nombre de la aplicación es "fabric\:/myapp/app1", la identidad de la aplicación sería "myapp\~app1" en 6.0+ y "myapp/app1" en las versiones anteriores. |
 | --node-name [Obligatorio] | El nombre del nodo. |
 | --service-manifest-name | El nombre del manifiesto de servicio para filtrar la lista de información de tipo de servicio implementado. Si se especifica, la respuesta solo contendrá la información sobre los tipos de servicio que se definen en este manifiesto de servicio. |
-| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
@@ -225,7 +226,7 @@ Obtiene la descripción de un servicio de Service Fabric existente. Debe crearse
 |Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --service-id [Obligatorio] | La identidad del servicio. Este suele ser el nombre completo del servicio sin el esquema de URI "fabric\:". A partir de la versión 6.0, los nombres jerárquicos se delimitan con el carácter "\~". Por ejemplo, si el nombre del servicio es "fabric\:/myapp/app1/svc1", la identidad del servicio sería "myapp\~app1\~svc1" en 6.0+ y "myapp/svc1/svc1" en las versiones anteriores. |
-| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
@@ -252,7 +253,7 @@ Obtiene los registros de contenedor para el contenedor implementado en un nodo d
 | --service-manifest-name [Obligatorio] | El nombre de un manifiesto de servicio registrado como parte de un tipo de aplicación en un clúster de Service Fabric. |
 | --previous | Especifica si se deben obtener los registros de contenedor de los contenedores cerrados/fallidos de la instancia de paquete de código. |
 | --tail | Número de líneas para mostrar desde el final de los registros. El valor predeterminado es 100. "all" para mostrar los registros completos. |
-| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
@@ -277,7 +278,7 @@ Obtiene la información de estado del servicio especificado. Use EventsHealthSta
 | --events-health-state-filter | Permite filtrar la colección de objetos HealthEvent devueltos según el estado de mantenimiento. Los valores posibles para este parámetro incluyen el valor entero de uno de los siguientes estados de mantenimiento. Se devuelven únicamente los eventos que coinciden con el filtro. Todos los eventos se utilizan para evaluar el estado de mantenimiento agregado. Si no se especifica, se devuelven todas las entradas. Los valores de estado se marcan según la enumeración, por lo que el valor puede ser una combinación de estos valores obtenidos mediante el operador bit a bit "OR". Por ejemplo, si el valor proporcionado es 6, se devuelven todos los eventos con el valor HealthState de Ok (2) y Warning (4).  <br> - Default: valor predeterminado. Coincide con cualquier HealthState. El valor predeterminado es cero.  <br> - None: filtro que no coincide con ningún valor de HealthState. Se utiliza para no devolver ningún resultado en una determinada colección de estados. El valor es 1.  <br> - Ok: filtro que asocia la entrada con el valor de HealthState de Ok. El valor es 2.  <br> - Warning: filtro que asocia la entrada con el valor de HealthState de Warning. El valor es 4.  <br> - Error: filtro que asocia la entrada con el valor de HealthState de Error. El valor es 8.  <br> - All: filtro que asocia la entrada con cualquier valor de HealthState. El valor es 65535. |
 | --exclude-health-statistics | Indica si las estadísticas de mantenimiento se deben devolver como parte del resultado de la consulta. El valor predeterminado es false. Las estadísticas muestran el número de entidades secundarias en estado de mantenimiento Ok, Warning y Error. |
 | --partitions-health-state-filter | Permite el filtrado de los objetos de estado de mantenimiento de particiones devueltos en el resultado del la consulta de estado de servicio en función de su estado de mantenimiento. Los valores posibles para este parámetro incluyen el valor entero de uno de los siguientes estados de mantenimiento. Se devuelven únicamente las particiones que coinciden con el filtro. Todas las particiones se utilizan para evaluar el estado de mantenimiento agregado. Si no se especifica, se devuelven todas las entradas. Los valores de estado se marcan según la enumeración, por lo que el valor puede ser una combinación de estos valores obtenidos mediante el operador bit a bit 'OR'. Por ejemplo, si el valor proporcionado es 6, se devolverá el estado de mantenimiento de las particiones con el valor HealthState de Ok (2) y Warning (4).  <br> - Default: valor predeterminado. Coincide con cualquier HealthState. El valor predeterminado es cero.  <br> - None: filtro que no coincide con ningún valor de HealthState. Se utiliza para no devolver ningún resultado en una determinada colección de estados. El valor es 1.  <br> - Ok: filtro que asocia la entrada con el valor de HealthState de Ok. El valor es 2.  <br> - Warning: filtro que asocia la entrada con el valor de HealthState de Warning. El valor es 4.  <br> - Error: filtro que asocia la entrada con el valor de HealthState de Error. El valor es 8.  <br> - All: filtro que asocia la entrada con cualquier valor de HealthState. El valor es 65535. |
-| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
@@ -300,7 +301,7 @@ Devuelve la información sobre el servicio específico que pertenece a una aplic
 | --- | --- |
 | --application-id [Obligatorio] | La identidad de la aplicación. Este suele ser el nombre completo de la aplicación sin el esquema de URI "fabric\:". A partir de la versión 6.0, los nombres jerárquicos se delimitan con el carácter "\~". Por ejemplo, si el nombre de la aplicación es "fabric\:/myapp/app1", la identidad de la aplicación sería "myapp\~app1" en 6.0+ y "myapp/app1" en las versiones anteriores. |
 | --service-id [Obligatorio] | La identidad del servicio. Este suele ser el nombre completo del servicio sin el esquema de URI "fabric\:". A partir de la versión 6.0, los nombres jerárquicos se delimitan con el carácter "\~". Por ejemplo, si el nombre del servicio es "fabric\:/myapp/app1/svc1", la identidad del servicio sería "myapp\~app1\~svc1" en 6.0+ y "myapp/svc1/svc1" en las versiones anteriores. |
-| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
@@ -324,7 +325,7 @@ Devuelve la información sobre todos los servicios que pertenecen a la aplicaci�
 | --application-id [Obligatorio] | La identidad de la aplicación. Este suele ser el nombre completo de la aplicación sin el esquema de URI "fabric\:". A partir de la versión 6.0, los nombres jerárquicos se delimitan con el carácter "\~". Por ejemplo, si el nombre de la aplicación es "fabric\:/myapp/app1", la identidad de la aplicación sería "myapp\~app1" en 6.0+ y "myapp/app1" en las versiones anteriores. |
 | --continuation-token | El parámetro continuation token se utiliza para obtener el siguiente conjunto de resultados. Un token de continuación con un valor no vacío se incluye en la respuesta de la API cuando los resultados del sistema no caben en una única respuesta. Cuando este valor se pasa a la siguiente llamada de la API, la API devuelve el siguiente conjunto de resultados. Si no hay más resultados, el token de continuación no contiene ningún valor. El valor de este parámetro no debe ser la dirección URL codificada. |
 | --service-type-name | El nombre de tipo de servicio usado para filtrar los servicios que se van a consultar. |
-| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
@@ -348,7 +349,7 @@ Obtiene el manifiesto que describe un tipo de servicio. La respuesta contiene el
 | --application-type-name [Obligatorio] | Nombre del tipo de aplicación. |
 | --application-type-version [Obligatorio] | La versión del tipo de aplicación. |
 | --service-manifest-name [Obligatorio] | El nombre de un manifiesto de servicio registrado como parte de un tipo de aplicación en un clúster de Service Fabric. |
-| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
@@ -372,7 +373,7 @@ Descarga los paquetes asociados con el manifiesto de servicio especificado en la
 | --node-name             [Obligatorio] | El nombre del nodo. |
 | --service-manifest-name [Obligatorio] | El nombre de manifiesto de servicio asociado a los paquetes que se van a descargar. |
 | --share-policy | Lista con codificación JSON de las directivas de uso compartido. Cada elemento de la directiva de uso compartido se compone de los elementos "name" y "scope". El nombre corresponde al nombre del código, configuración o paquete de datos que va a compartirse. El ámbito puede ser "None", "All", "Code", "Config" o "Data". |
-| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --timeout -t | Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
@@ -397,7 +398,7 @@ Obtiene la información sobre el estado de un paquete de servicio para una aplic
 | --node-name            [Obligatorio] | El nombre del nodo. |
 | --service-package-name [Obligatorio] | El nombre del paquete de servicio. |
 | --events-health-state-filter | Permite filtrar la colección de objetos HealthEvent devueltos según el estado de mantenimiento. Los valores posibles para este parámetro incluyen el valor entero de uno de los siguientes estados de mantenimiento. Se devuelven únicamente los eventos que coinciden con el filtro. Todos los eventos se utilizan para evaluar el estado de mantenimiento agregado. Si no se especifica, se devuelven todas las entradas. Los valores de estado se marcan según la enumeración, por lo que el valor puede ser una combinación de estos valores obtenidos mediante el operador bit a bit "OR". Por ejemplo, si el valor proporcionado es 6, se devuelven todos los eventos con el valor HealthState de Ok (2) y Warning (4).  <br> - Default: valor predeterminado. Coincide con cualquier HealthState. El valor predeterminado es cero.  <br> - None: filtro que no coincide con ningún valor de HealthState. Se utiliza para no devolver ningún resultado en una determinada colección de estados. El valor es 1.  <br> - Ok: filtro que asocia la entrada con el valor de HealthState de Ok. El valor es 2.  <br> - Warning: filtro que asocia la entrada con el valor de HealthState de Warning. El valor es 4.  <br> - Error: filtro que asocia la entrada con el valor de HealthState de Error. El valor es 8.  <br> - All: filtro que asocia la entrada con cualquier valor de HealthState. El valor es 65535. |
-| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
@@ -421,7 +422,7 @@ Devuelve la información sobre los paquetes de servicio implementados en un nodo
 | --application-id       [Obligatorio] | La identidad de la aplicación. Este suele ser el nombre completo de la aplicación sin el esquema de URI "fabric\:". A partir de la versión 6.0, los nombres jerárquicos se delimitan con el carácter "\~". Por ejemplo, si el nombre de la aplicación es "fabric\:/myapp/app1", la identidad de la aplicación sería "myapp\~app1" en 6.0+ y "myapp/app1" en las versiones anteriores. |
 | --node-name            [Obligatorio] | El nombre del nodo. |
 | --service-package-name [Obligatorio] | El nombre del paquete de servicio. |
-| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
@@ -444,7 +445,7 @@ Devuelve la información sobre los paquetes de servicio implementados en un nodo
 | --- | --- |
 | --application-id [Obligatorio] | La identidad de la aplicación. Este suele ser el nombre completo de la aplicación sin el esquema de URI "fabric\:". A partir de la versión 6.0, los nombres jerárquicos se delimitan con el carácter "\~". Por ejemplo, si el nombre de la aplicación es "fabric\:/myapp/app1", la identidad de la aplicación sería "myapp\~app1" en 6.0+ y "myapp/app1" en las versiones anteriores. |
 | --node-name [Obligatorio] | El nombre del nodo. |
-| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
@@ -466,7 +467,7 @@ Indica al clúster de Service Fabric que debería intentar recuperar el servicio
 |Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --service-id [Obligatorio] | La identidad del servicio. Este suele ser el nombre completo del servicio sin el esquema de URI "fabric\:". A partir de la versión 6.0, los nombres jerárquicos se delimitan con el carácter "\~". Por ejemplo, si el nombre del servicio es "fabric\:/myapp/app1/svc1", la identidad del servicio sería "myapp\~app1\~svc1" en 6.0+ y "myapp/svc1/svc1" en las versiones anteriores. |
-| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
@@ -495,7 +496,7 @@ Informa del estado de mantenimiento del servicio de Service Fabric especificado.
 | --immediate | Una marca que indica si el informe se debe enviar inmediatamente. <br><br> Se envía un informe de mantenimiento a una aplicación de puerta de enlace de Service Fabric, que la reenvía al almacén de estado. Si Immediate se establece en true, el informe se envía inmediatamente de la puerta de enlace HTTP al almacén de estado, independientemente de la configuración de cliente de Fabric que esté usando la aplicación de la puerta de enlace HTTP. Esto es útil para los informes críticos que deben enviarse tan pronto como sea posible. En función del tiempo y otras condiciones, el envío del informe puede aún generar un error, por ejemplo, si se cierra la puerta de enlace HTTP o el mensaje no llega a la puerta de enlace. Si Immediate se establece en false, el informe se envía en función de la configuración de cliente de mantenimiento de la puerta de enlace HTTP. Por lo tanto, se procesará por lotes de acuerdo con la configuración de HealthReportSendInterval. Esta es la configuración recomendada porque permite que el cliente de mantenimiento optimice los mensajes de notificación de estado destinados al almacén de estado, así como el procesamiento de informes de mantenimiento. De forma predeterminada, los informes no se envían inmediatamente. |
 | --remove-when-expired | Valor que indica si el informe se quita del almacén de estado cuando expire. <br><br> Si se establece en true, el informe se quita del almacén de estado una vez que expire. Si se establece en false, el informe se trata como un error cuando expire. El valor de esta propiedad es false de forma predeterminada. Cuando los clientes notifican periódicamente, deben establecer RemoveWhenExpired en false (valor predeterminado). De esta manera, si el notificador tiene problemas (por ejemplo, un interbloqueo) y no puede informar, la entidad se evalúa al llegar el error cuando expira el informe de mantenimiento. De este modo, se marca que la entidad está en estado de mantenimiento Error. |
 | --sequence-number | El número de secuencia para este informe de estado como una cadena numérica. <br><br> El número de secuencia del informe se usa por el almacén de estado para detectar informes obsoletos. Si no se especifica, se genera automáticamente un número de secuencia por el cliente de estado cuando se agrega un informe. |
-| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --timeout -t | Valor predeterminado\: 60. |
 | --ttl | La duración durante la cual este informe de mantenimiento es válido. Este campo usa el formato ISO8601 para especificar la duración. <br><br> Cuando los clientes notifican periódicamente, deben enviar informes con una frecuencia mayor que el período de vida. Si los clientes notifican en transición, pueden establecer el período de vida en Infinito. Cuando expira el período de vida, el evento de estado que contiene la información de estado se quita del almacén de estado, si RemoveWhenExpired es true, o se evalúa en el error, si RemoveWhenExpired es false. Si no se especifica, el período de vida se establece de forma predeterminada en un valor infinito. |
 
 ### <a name="global-arguments"></a>Argumentos globales
@@ -521,7 +522,7 @@ Resuelve una partición de servicio de Service Fabric para obtener los puntos de
 | --partition-key-type | Tipo de clave para la partición. Este parámetro es obligatorio si el esquema de partición para el servicio es Int64Range o Named. Los valores posibles son los siguientes. -None (1): indica que no se especifica el parámetro PartitionKeyValue. Esto es válido para las particiones con el esquema de partición como Singleton. Este es el valor predeterminado. El valor es 1. -Int64Range (2): indica que el parámetro PartitionKeyValue es una clave de partición int64. Esto es válido para las particiones con el esquema de partición como Int64Range. El valor es 2. - Named (3): indica que el parámetro PartitionKeyValue es un nombre de la partición. Esto es válido para las particiones con el esquema de partición como Named. El valor es 3. |
 | --partition-key-value | Clave de partición. Es obligatorio si el esquema de partición para el servicio es Int64Range o Named. Esto no es el identificador de partición, sino el valor de clave entero o el nombre del identificador de partición. Por ejemplo, si el servicio usa particiones por rangos de 0 a 10, PartitionKeyValue sería un entero en ese rango. Consulte la descripción del servicio para ver el rango o el nombre. |
 | --previous-rsp-version | El valor en el campo Versión de la respuesta que se recibió anteriormente. Es obligatorio si el usuario sabe que el resultado que se obtuvo anteriormente está obsoleto. |
-| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
@@ -544,7 +545,7 @@ Obtiene la lista que contiene la información sobre los tipos de servicio que so
 | --- | --- |
 | --application-type-name [Obligatorio] | Nombre del tipo de aplicación. |
 | --application-type-version [Obligatorio] | La versión del tipo de aplicación. |
-| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
@@ -579,7 +580,7 @@ Actualiza el servicio especificado con la descripción de actualización determi
 | --stateful | Indica que el servicio de destino es un servicio con estado. |
 | --stateless | Indica que el servicio de destino es un servicio sin estado. |
 | --target-replica-set-size | El tamaño del conjunto de réplica de destino como número. Esto se aplica solo a servicios con estado. |
-| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --timeout -t | Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 

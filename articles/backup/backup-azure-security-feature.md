@@ -1,5 +1,5 @@
 ---
-title: Características de seguridad para proteger copias de seguridad híbridas mediante Azure Backup
+title: Características de seguridad que protegen las copias de seguridad híbridas mediante Azure Backup
 description: Aprenda a usar las características de seguridad de Azure Backup para que las copias de seguridad sean más seguras
 ms.reviewer: utraghuv
 author: dcurwin
@@ -8,14 +8,15 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/08/2017
 ms.author: dacurwin
-ms.openlocfilehash: 2cd298323d8f455010978361078d474415e77dfa
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: a72e43d068f9fc6cf06a4786d511bbc6c25e85d4
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954521"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72968437"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Características de seguridad para proteger copias de seguridad híbridas mediante Azure Backup
+
 Cada vez es mayor la preocupación que generan problemas de seguridad como malware, ransomware e intrusión. Estos problemas de seguridad pueden ser costosos, en términos de dinero y datos. Para protegerse contra dichos ataques, Azure Backup proporciona características de seguridad que protegen las copias de seguridad híbridas. En este artículo se habla de cómo habilitar y usar estas características mediante un agente de Azure Recovery Services y Azure Backup Server. Estas características son:
 
 - **Prevención**. Se agrega una capa adicional de autenticación cada vez que se realiza una operación crítica, como cambiar la frase de contraseña. Esta validación se realiza para asegurarse de que dichas operaciones solo pueden realizarlas usuarios que tengan credenciales de Azure válidas.
@@ -34,6 +35,7 @@ Cada vez es mayor la preocupación que generan problemas de seguridad como malwa
 >
 
 ## <a name="enable-security-features"></a>Habilitar características de seguridad
+
 Si va a crear un almacén de Recovery Services, puede usar todas las características de seguridad. Si trabaja con un almacén existente, habilite las características de seguridad siguiendo estos pasos:
 
 1. Inicie sesión en Azure Portal con las credenciales de Azure.
@@ -58,6 +60,7 @@ Si va a crear un almacén de Recovery Services, puede usar todas las caracterís
     ![Captura de pantalla de configuración de seguridad](./media/backup-azure-security-feature/enable-security-settings-dpm-update.png)
 
 ## <a name="recover-deleted-backup-data"></a>Recuperar datos de copia de seguridad eliminados
+
 Backup conserva los datos de copia de seguridad eliminados durante 14 días adicionales y no los elimina inmediatamente si se realiza la operación de **detener copia de seguridad con la eliminación de datos de copia de seguridad**. Para restaurar estos datos dentro del período de 14 días, siga los pasos que se muestran a continuación, según lo que use:
 
 En el caso de los usuarios del **agente de Azure Recovery Services**:
@@ -76,13 +79,15 @@ En el caso de los usuarios de **Data Protection Manager**:
 2. Si este servidor no está disponible, utilice [Agregar DPM externo](backup-azure-alternate-dpm-server.md) para usar otro servidor Data Protection Manager para obtener estos datos.
 
 ## <a name="prevent-attacks"></a>Prevenir ataques
+
 Se han agregado comprobaciones para asegurarse de que los usuarios válidos son los únicos que pueden realizar varias operaciones. Entre estas se incluyen la adición de una capa de autenticación adicional y el mantenimiento de una duración de retención mínima con fines de recuperación.
 
 ### <a name="authentication-to-perform-critical-operations"></a>Autenticación para realizar operaciones críticas
+
 Como parte de la adición de una capa de autenticación adicional para las operaciones críticas, se le solicita que escriba un PIN se seguridad al realizar las operaciones **Detener la protección con eliminación de datos** y **Cambio de la frase de contraseña**.
 
 > [!NOTE]
-> 
+>
 > Actualmente, no se admite el pin de seguridad para **Detener la protección con eliminación de datos** para DPM y MABS.
 
 Para recibir este PIN:
@@ -93,6 +98,7 @@ Para recibir este PIN:
     Este PIN solo es válido durante cinco minutos y se genera automáticamente después de ese período.
 
 ### <a name="maintain-a-minimum-retention-range"></a>Mantener una duración de retención mínima
+
 Para asegurarse de que siempre hay un número válido de puntos de recuperación disponibles, se han agregado las siguientes comprobaciones:
 
 - Para la retención diaria, se deben realizar un mínimo de **siete** días de retención.
@@ -101,19 +107,22 @@ Para asegurarse de que siempre hay un número válido de puntos de recuperación
 - Para la retención anual, se debe realizar un mínimo de **un** año de retención.
 
 ## <a name="notifications-for-critical-operations"></a>Notificaciones de operaciones críticas
+
 Normalmente, al realizarse una operación crítica, se envía una notificación por correo electrónico al administrador de suscripciones con detalles sobre la operación. Puede configurar destinatarios de correo electrónico adicionales para estas notificaciones con Azure Portal.
 
 Las características de seguridad que se mencionan en este artículo proporcionan mecanismos de defensa contra ataques dirigidos. Lo que es más importante, en caso de producirse un ataque, es que estas características permiten recuperar los datos.
 
 ## <a name="troubleshooting-errors"></a>Solución de errores
+
 | Operación | Detalles del error | Resolución |
 | --- | --- | --- |
 | Cambio de directiva |No se ha podido modificar la directiva de copia de seguridad. Error: No se pudo realizar la operación actual debido a un error de servicio interno [0x29834]. Vuelva a intentar la operación más tarde. Si el problema persiste, póngase en contacto con el servicio de soporte técnico de Microsoft. |**Causa:**<br/>Este error se genera cuando está habilitada la configuración de seguridad, intenta reducir la duración de retención por debajo de los valores mínimos especificados anteriormente y se encuentra en una versión no admitida (las versiones admitidas se especifican en la primera nota de este artículo). <br/>**Acción recomendada:**<br/> En este caso, debe establecer el período de retención por encima del período de retención mínimo especificado (siete días para un valor diario, cuatro semanas para uno semanal, tres semanas para mensual o un año para la copia anual) para continuar con las actualizaciones relacionadas con la directiva. Si lo desea, el enfoque preferido sería actualizar el agente de copia de seguridad y Azure Backup Server o DPM UR para aprovechar todas las actualizaciones de seguridad. |
-| Cambiar la frase de contraseña |El PIN de seguridad escrito no es correcto. (Id.: 100130) Proporcione el PIN de seguridad correcto para completar esta operación. |**Causa:**<br/> Este error se genera cuando se escribe un PIN de seguridad no válido o caducado mientras se realiza una operación crítica (por ejemplo, cambiar la frase de contraseña). <br/>**Acción recomendada:**<br/> Para completar la operación, debe escribir un PIN de seguridad válido. Para obtener el PIN, inicie sesión en Azure Portal y navegue hasta el almacén de Recovery Services > Configuración > Propiedades > Generar PIN de seguridad. Use este código PIN para cambiar la frase de contraseña. |
-| Cambiar la frase de contraseña |Error en la operación Id.: 120002 |**Causa:**<br/>Este error se genera cuando está habilitada la configuración de seguridad, intenta cambiar la frase de contraseña y se encuentra en una versión no compatible (las versiones válidas se especifican en la primera nota de esta artículo).<br/>**Acción recomendada:**<br/> Para cambiar la frase de contraseña, primero debe actualizar el agente de copia de seguridad a la versión mínima 2.0.9052, Azure Backup Server a la actualización mínima 1 o DPM a la actualización mínima DPM 2012 R2 UR12 o DPM 2016 UR2 (los enlaces de descarga se encuentran después) y, finalmente escriba el PIN de seguridad válido. Para obtener el PIN, inicie sesión en Azure Portal y navegue hasta el almacén de Recovery Services > Configuración > Propiedades > Generar PIN de seguridad. Use este código PIN para cambiar la frase de contraseña. |
+| Cambiar la frase de contraseña |El PIN de seguridad escrito no es correcto. (Id.: 100130) Proporcione el PIN de seguridad correcto para completar esta operación. |**Causa:**<br/> Este error se genera cuando se escribe un PIN de seguridad no válido o caducado mientras se realiza una operación crítica (por ejemplo, cambiar la frase de contraseña). <br/>**Acción recomendada:**<br/> Para completar la operación, debe escribir un PIN de seguridad válido. Para obtener el PIN, inicie sesión en Azure Portal y navegue hasta Almacén de Recovery Services > Configuración > Propiedades > Generar PIN de seguridad. Use este código PIN para cambiar la frase de contraseña. |
+| Cambiar la frase de contraseña |Error en la operación Id.: 120002 |**Causa:**<br/>Este error se genera cuando está habilitada la configuración de seguridad, intenta cambiar la frase de contraseña y se encuentra en una versión no compatible (las versiones válidas se especifican en la primera nota de esta artículo).<br/>**Acción recomendada:**<br/> Para cambiar la frase de contraseña, primero debe actualizar el agente de copia de seguridad a la versión mínima 2.0.9052, Azure Backup Server a la actualización mínima 1 o DPM a la actualización mínima DPM 2012 R2 UR12 o DPM 2016 UR2 (los enlaces de descarga se encuentran después) y, finalmente escriba el PIN de seguridad válido. Para obtener el PIN, inicie sesión en Azure Portal y navegue hasta Almacén de Recovery Services > Configuración > Propiedades > Generar PIN de seguridad. Use este código PIN para cambiar la frase de contraseña. |
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Comience a usar el almacén de Azure Recovery Services](backup-azure-vms-first-look-arm.md) para habilitar estas características.
-* [Descargue la versión más reciente del agente de Azure Recovery Services](https://aka.ms/azurebackup_agent) para proteger los equipos con Windows y los datos de copia de seguridad frente a ataques.
-* [Descargue la versión más reciente de Azure Backup Server](https://aka.ms/latest_azurebackupserver) para proteger las cargas de trabajo y los datos de copia de seguridad frente a ataques.
-* [Descargue UR12 para System Center 2012 R2 Data Protection Manager](https://support.microsoft.com/help/3209592/update-rollup-12-for-system-center-2012-r2-data-protection-manager) o [descargue UR2 para System Center 2016 Data Protection Manager](https://support.microsoft.com/help/3209593/update-rollup-2-for-system-center-2016-data-protection-manager) para proteger las cargas de trabajo y los datos de copia de seguridad frente a ataques.
+
+- [Comience a usar el almacén de Azure Recovery Services](backup-azure-vms-first-look-arm.md) para habilitar estas características.
+- [Descargue la versión más reciente del agente de Azure Recovery Services](https://aka.ms/azurebackup_agent) para proteger los equipos con Windows y los datos de copia de seguridad frente a ataques.
+- [Descargue la versión más reciente de Azure Backup Server](https://aka.ms/latest_azurebackupserver) para proteger las cargas de trabajo y los datos de copia de seguridad frente a ataques.
+- [Descargue UR12 para System Center 2012 R2 Data Protection Manager](https://support.microsoft.com/help/3209592/update-rollup-12-for-system-center-2012-r2-data-protection-manager) o [descargue UR2 para System Center 2016 Data Protection Manager](https://support.microsoft.com/help/3209593/update-rollup-2-for-system-center-2016-data-protection-manager) para proteger las cargas de trabajo y los datos de copia de seguridad frente a ataques.

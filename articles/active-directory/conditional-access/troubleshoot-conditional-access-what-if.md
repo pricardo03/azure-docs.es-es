@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1d463bc889385f8f157ebb9892acc7a4a8b2a2e
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 661afc08c76c6cde61b02a29a55b4a8bec932e21
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68278637"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175810"
 ---
 # <a name="troubleshooting-conditional-access-using-the-what-if-tool"></a>Solución de problemas de acceso condicional con la herramienta What If
 
@@ -25,6 +25,9 @@ La [herramienta What If](what-if-tool.md) de Acceso condicional es eficaz para i
 La herramienta What If se encuentra en **Azure Portal** > **Azure Active Directory** > **Acceso condicional** > **What If**.
 
 ![Herramienta What If de Acceso condicional en el estado predeterminado](./media/troubleshoot-conditional-access-what-if/conditional-access-what-if-tool.png)
+
+> [!NOTE]
+> Actualmente, la herramienta What If no evalúa las directivas en modo de solo informe.
 
 ## <a name="gathering-information"></a>Recopilación de información
 

@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 09/01/2019
 ms.author: juliako
-ms.openlocfilehash: 983b66be6b51c9af5987e539ea1175a65c9269b3
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: f0dede42891069bb5d01ddc33f3797c20c5493d7
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70861971"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72968738"
 ---
 # <a name="automatically-identify-and-transcribe-multi-language-content-preview"></a>Identificación y transcripción automática del contenido de varios idiomas (versión preliminar)
 
@@ -86,9 +86,8 @@ Además, cada instancia de la sección transcripción incluirá el idioma en el 
 * La creación y edición de proyectos no está disponible actualmente para vídeos en varios idiomas.
 * Los modelos de lenguaje personalizados no están disponibles cuando se usa la detección en varios idiomas.
 * No se admite la adición de palabras clave.
-* No se admite la API de "actualizar transcripción".
 * Al exportar archivos de subtítulos, la indicación de idioma no aparecerá.
-
+* La API de transcripción de actualización no admite archivos en varios idiomas.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

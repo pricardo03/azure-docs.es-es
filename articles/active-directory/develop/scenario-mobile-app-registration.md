@@ -1,5 +1,6 @@
 ---
-title: Aplicación móvil que llama a las API web (configuración del código de la aplicación) | Plataforma de identidad de Microsoft
+title: 'Aplicación móvil que llama a las API web: configuración del código de la aplicación'
+titleSuffix: Microsoft identity platform
 description: Obtenga información sobre cómo compilar una aplicación móvil que llama a las API web (configuración del código de la aplicación)
 services: active-directory
 documentationcenter: dev-center-name
@@ -16,12 +17,12 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9bebaa5d35876d562e567a8398cc7a9ce7e6f488
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: 5f55e73fa1a73908d7e77bacc6af24ea1a40ba92
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68413583"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803740"
 ---
 # <a name="mobile-app-that-calls-web-apis---app-registration"></a>Aplicación móvil que llama a las API web: registro de la aplicación
 

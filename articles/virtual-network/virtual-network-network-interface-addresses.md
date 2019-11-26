@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: kumud
-ms.openlocfilehash: 4582f7be8e48e493a1adcb8ffc6c3a8bfe43a58e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7df58c3f866ffd28348ecfa2e43bdccbd1d96001
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65506374"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965691"
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Incorporación, cambio o eliminación de direcciones IP para una interfaz de red de Azure
 
@@ -43,7 +43,7 @@ La cuenta en la que inicia sesión o con la que se conecta a Azure debe tener as
 
 ## <a name="add-ip-addresses"></a>Incorporación de direcciones IP
 
-Puede agregar a una interfaz de red tantas direcciones [privadas](#private) y [públicas](#public) [IPv4](#ipv4) como sea necesario, dentro de los límites indicados en el artículo sobre los [límites de Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). No puede usar el portal para agregar una dirección IPv6 a una interfaz de red existente (a pesar de que puede usar el portal para agregar una dirección IPv6 privada a una interfaz de red cuando crea la interfaz de red). Puede usar PowerShell o la CLI para agregar una dirección IPv6 privada a una [configuración IP secundaria](#secondary) (siempre que no haya ninguna configuración IP secundaria existente) para una interfaz de red existente que no esté conectada a una máquina virtual. No puede usar ninguna herramienta para agregar una dirección IPv6 pública a una interfaz de red. Consulte [IPv6](#ipv6) para detalles sobre cómo usar las direcciones IPv6.
+Puede agregar a una interfaz de red tantas direcciones [privadas](#private) y [públicas](#public) [IPv4](#ipv4) como sea necesario, dentro de los límites indicados en el artículo sobre los [límites de Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). Puede agregar una dirección IPv6 privada a una [configuración IP secundaria](#secondary) (siempre que no haya ninguna configuración IP secundaria existente) para una interfaz de red existente. Cada interfaz de red puede tener como máximo una dirección IPv6 privada. Opcionalmente, puede agregar una dirección IPv6 pública a una configuración de interfaz de red IPv6. Consulte [IPv6](#ipv6) para detalles sobre cómo usar las direcciones IPv6.
 
 1. En el cuadro que contiene el texto *Buscar recursos*, en la parte superior de Azure Portal, escriba *interfaces de red*. Cuando aparezcan las **interfaces de red** en los resultados de búsqueda, selecciónelas.
 2. En la lista, seleccione la interfaz de red para la que quiere agregar una dirección IPv4.
@@ -54,7 +54,7 @@ Puede agregar a una interfaz de red tantas direcciones [privadas](#private) y [p
    |Configuración|¿Necesario?|Detalles|
    |---|---|---|
    |NOMBRE|Sí|Debe ser único para la interfaz de red|
-   |Type|Sí|Debido a que agrega una configuración IP a una interfaz de red existente y cada interfaz de red debe tener una configuración IP [principal](#primary), la única opción es **Secundaria**.|
+   |type|Sí|Debido a que agrega una configuración IP a una interfaz de red existente y cada interfaz de red debe tener una configuración IP [principal](#primary), la única opción es **Secundaria**.|
    |Método de asignación de direcciones IP privadas|Sí|[**Dinámica**](#dynamic): Azure asigna la siguiente dirección disponible para el intervalo de dirección de subred en el que se implementa la interfaz de red. [**Estática**](#static): asigna una dirección o usada para el intervalo de dirección de subred en el que se implementa la interfaz de red.|
    |Dirección IP pública|Sin|**Deshabilitado:** ningún recurso de dirección IP pública está asociado actualmente a la configuración de IP. **Habilitada:** seleccione una dirección IP pública IPv4 existente o cree una nueva. Para más información sobre cómo crear una dirección IP pública, lea el artículo [Direcciones IP públicas](virtual-network-public-ip-address.md#create-a-public-ip-address).|
 6. Agregue manualmente las direcciones IP privadas secundarias al sistema operativo de la máquina virtual siguiendo las instrucciones que aparecen en el artículo [Asignación de varias direcciones IP a sistemas operativos de máquinas virtuales](virtual-network-multiple-ip-addresses-portal.md#os-config). Consulte las direcciones IP [privadas](#private) para ver consideraciones especiales antes de agregar manualmente direcciones IP a un sistema operativo de máquina virtual. No agregue ninguna dirección IP pública al sistema operativo de máquina virtual.
@@ -112,14 +112,14 @@ Las direcciones IP [privadas](#private) y (opcionalmente) [públicas](#public) s
 Cada interfaz de red tiene asignada una configuración IP principal. Una configuración IP principal:
 
 - Tiene asignada una dirección [IPv4](#private) [privada](#ipv4). No puede asignar una dirección [IPv6](#ipv6) privada a una configuración IP principal.
-- También puede tener asignada una dirección IPv4 [pública](#public). No puede asignar una dirección IPv6 pública a una configuración IP principal o secundaria. Sin embargo, puede asignar una dirección IPv6 pública a un equilibrador de carga de Azure, que puede equilibrar la carga de tráfico a la dirección IPv6 privada de una máquina virtual. Para más información, consulte [detalles y limitaciones de IPv6](../load-balancer/load-balancer-ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#details-and-limitations).
+- También puede tener asignada una dirección IPv4 [pública](#public). No puede asignar una dirección IPv6 pública a una configuración IP principal (IPv4). 
 
 ### <a name="secondary"></a>Secundario
 
 Además de una configuración IP principal, una interfaz de red puede tener ninguna o más configuraciones IP secundarias asignadas. Una configuración IP secundaria:
 
 - Debe tener asignada una dirección IPv4 o IPv6 privada. Si la dirección es IPv6, la interfaz de red solo puede tener una configuración IP secundaria. Si la dirección es IPv4, la interfaz de red puede tener asignadas varias configuraciones IP secundarias. Para más información sobre cuántas direcciones IPv4 privadas y públicas se pueden asignar a una interfaz de red, consulte el artículo sobre los [límites de Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
-- También puede tener asignada una dirección IPv4 pública, si la dirección IP privada es IPv4. Si la dirección IP privada es IPv6, no puede asignar una dirección IPv4 o IPv6 pública a la configuración IP. Asignar varias direcciones IP a una interfaz de red resulta útil en escenarios como:
+- También puede tener asignada una dirección IPv6 o IPv4 pública. Asignar varias direcciones IPv4 a una interfaz de red resulta útil en escenarios como:
   - Hospede varios sitios web o servicios con direcciones IP y certificados SSL diferentes en un único servidor.
   - Una máquina virtual que actúa como una aplicación virtual de red, por ejemplo, un firewall o un equilibrador de carga.
   - La capacidad de agregar cualquiera de las direcciones IPv4 privadas para cualquiera de las interfaces de red a un grupo de servidores de back-end de Azure Load Balancer. En el pasado, solo la dirección IPv4 principal de la interfaz de red principal podía agregarse a un grupo de servidores back-end. Para más información sobre cómo equilibrar la carga de varias configuraciones IPv4, consulte el artículo [Equilibrio de carga en varias configuraciones IP](../load-balancer/load-balancer-multiple-ip.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
@@ -131,7 +131,7 @@ Puede asignar los tipos siguientes de direcciones IP a una [configuración IP](#
 
 ### <a name="private"></a>Privada
 
-Las direcciones [IPv4](#ipv4) privadas permiten que una máquina virtual se comunique con otros recursos en una red virtual o en otras redes conectadas. No es posible establecer una comunicación entrante a una máquina virtual ni tampoco la máquina virtual puede establecer una comunicación saliente con una dirección [IPv6](#ipv6) privada, con una excepción. Una máquina virtual se puede comunicar con el equilibrador de carga de Azure mediante una dirección IPv6. Para más información, consulte [detalles y limitaciones de IPv6](../load-balancer/load-balancer-ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#details-and-limitations).
+Las direcciones [IPv4](#ipv4) o IPv6 privadas permiten que una máquina virtual se comunique con otros recursos en una red virtual o en otras redes conectadas. 
 
 De manera predeterminada, los servidores DHCP de Azure asignan la dirección IPv4 privada para la [configuración IP principal](#primary) de la interfaz de red a la interfaz de red de Azure dentro del sistema operativo de la máquina virtual. A menos que sea necesario, nunca debe establecer la dirección IP de una interfaz de red dentro del sistema operativo de la máquina virtual.
 
@@ -168,11 +168,11 @@ Las direcciones IP públicas y privadas se asignan con uno de los siguientes mé
 Las direcciones IPv4 e IPv6 (opcionalmente) privadas dinámicas se asignan de manera predeterminada.
 
 - **Solo pública**: Azure asigna la dirección de un intervalo único a cada región de Azure. Para saber qué intervalos se asignan a cada región, vea [Intervalos de direcciones IP del centro de datos de Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653). La dirección puede cambiar cuando una máquina virtual está detenida (desasignada) y se vuelve a iniciar. No puede asignar una dirección IPv6 pública a una configuración IP con un método de asignación.
-- **Solo privado**: Azure reserva las cuatro primeras direcciones en cada intervalo de direcciones de subred y no las asigna. Azure asigna la siguiente dirección disponible a un recurso del intervalo de direcciones de subred. Por ejemplo, si el intervalo de direcciones de la subred es 10.0.0.0/16 y ya están asignadas las direcciones 10.0.0.0.4-10.0.0.14 (.0 a .3 están reservados), Azure asigna 10.0.0.15 al recurso. Este es el método de asignación predeterminado. Una vez asignadas, las direcciones IP dinámicas solo se liberan si se elimina una interfaz de red y se asigna a otra subred diferente de la misma red virtual, o bien el método de asignación se cambia a estática y se especifica otra dirección IP. De forma predeterminada, cuando se cambia el método de asignación de dinámica a estática, Azure asigna la dirección asignada dinámicamente anterior como dirección estática. Solo puede asignar una dirección IPv6 privada con el método de asignación dinámico.
+- **Solo privado**: Azure reserva las cuatro primeras direcciones en cada intervalo de direcciones de subred y no las asigna. Azure asigna la siguiente dirección disponible a un recurso del intervalo de direcciones de subred. Por ejemplo, si el intervalo de direcciones de la subred es 10.0.0.0/16 y ya están asignadas las direcciones 10.0.0.0.4-10.0.0.14 (.0 a .3 están reservados), Azure asigna 10.0.0.15 al recurso. Este es el método de asignación predeterminado. Una vez asignadas, las direcciones IP dinámicas solo se liberan si se elimina una interfaz de red y se asigna a otra subred diferente de la misma red virtual, o bien el método de asignación se cambia a estática y se especifica otra dirección IP. De forma predeterminada, cuando se cambia el método de asignación de dinámica a estática, Azure asigna la dirección asignada dinámicamente anterior como dirección estática. 
 
 ### <a name="static"></a>estática
 
-De manera opcional, puede asignar una dirección IPv4 estática pública o privada a una configuración IP. No puede asignar una dirección IPv6 estática pública ni privada a una configuración IP. Para más información sobre cómo Azure asigna direcciones IPv4 estáticas públicas, consulte [Dirección IP pública](virtual-network-public-ip-address.md).
+De manera opcional, puede asignar una dirección IPv4 o IPv6 estática pública o privada a una configuración IP. Para más información sobre cómo Azure asigna direcciones IPv4 estáticas públicas, consulte [Dirección IP pública](virtual-network-public-ip-address.md).
 
 - **Solo pública**: Azure asigna la dirección de un intervalo único a cada región de Azure. Puede descargar la lista de intervalos (prefijos) para las nubes de Azure [Pública](https://www.microsoft.com/download/details.aspx?id=56519), [Gobierno de Estados Unidos](https://www.microsoft.com/download/details.aspx?id=57063), [China](https://www.microsoft.com/download/details.aspx?id=57062) y [Alemania](https://www.microsoft.com/download/details.aspx?id=57064). La dirección no cambia hasta que el recurso de dirección IP pública se asigna o se elimina, o el método de asignación cambia a dinámico. Si el recurso de dirección IP pública está asociado a una configuración de dirección IP, se debe desasociar de la configuración de dirección IP antes de cambiar su método de asignación.
 - **Solo privado**: se selecciona y asigna una dirección del intervalo de direcciones de la subred. La dirección que se asigna puede ser cualquiera que esté en el intervalo de direcciones de subred, salvo que sea una de las cuatro primeras y que no esté asignada a otro recurso de la subred. Las direcciones estáticas solo se liberan cuando se elimina la interfaz de red. Si cambia el método de asignación a estática, Azure asigna dinámicamente la dirección IP estática asignada anteriormente como dirección estática, aunque no sea la siguiente dirección disponible en el intervalo de direcciones de la subred. La dirección también cambia si la interfaz de red se asigna a otra subred de la misma red virtual, pero para ello, antes hay que cambiar el método de asignación de estática a dinámica. Una vez que ha asignado la interfaz de red a otra subred, puede volver a cambiar el método de asignación a estática y asignar una dirección IP del intervalo de direcciones de la nueva subred.
@@ -187,7 +187,7 @@ Cada interfaz de red debe tener una configuración IP [principal](#primary) con 
 
 ### <a name="ipv6"></a>IPv6
 
-Puede no asignar ninguna dirección [IPv6](#ipv6) privada o asignar una a una configuración IP secundaria de una interfaz de red. La interfaz de red no puede tener ninguna configuración IP secundaria existente. No puede agregar una configuración IP con una dirección IPv6 mediante el portal. Use PowerShell o la CLI para agregar una configuración IP con una dirección IPv6 privada a una interfaz de red existente. La interfaz de red no puede asociarse a una máquina virtual existente.
+Puede no asignar ninguna dirección [IPv6](#ipv6) privada o asignar una a una configuración IP secundaria de una interfaz de red. La interfaz de red no puede tener ninguna configuración IP secundaria existente. Cada interfaz de red puede tener como máximo una dirección IPv6 privada. Opcionalmente, puede agregar una dirección IPv6 pública a una configuración de interfaz de red IPv6.
 
 > [!NOTE]
 > Aunque puede crear una interfaz de red con una dirección IPv6 mediante el portal, no se puede agregar una interfaz de red a una máquina virtual nueva o existente, mediante el portal. Use PowerShell o la CLI de Azure para crear una interfaz de red con una dirección IPv6 privada y, luego, conectar la interfaz de red cuando crea una máquina virtual. No puede conectar a una máquina virtual existente una interfaz de red con una dirección IPv6 privada asignada. No puede agregar una dirección IPv6 privada a una configuración IP para ninguna interfaz de red conectada a una máquina virtual con ninguna herramienta (portal, CLI o PowerShell).

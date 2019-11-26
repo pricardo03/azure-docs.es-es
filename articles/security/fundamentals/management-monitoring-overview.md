@@ -13,29 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/28/2019
+ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 9ed2d00d6f229d958e0df024c70381051840548c
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 7ad7a29a92d25556190b4cf44f4e48158a6f0952
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727002"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162754"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Información general sobre la administración y la supervisión de la seguridad en Azure
 En este artículo se proporciona información general sobre los servicios y características de seguridad que proporciona Azure para ayudarle a administrar y supervisar servicios en la nube y máquinas virtuales de Azure.
-
-## <a name="shared-responsibility"></a>Responsabilidad compartida
-
-La seguridad de los servicios en la nube de Microsoft se basa en la colaboración y la responsabilidad compartida entre usted y Microsoft. Microsoft es responsable de la plataforma Azure y de la seguridad física de sus centros de datos (mediante el uso de protecciones de seguridad, como puertas de entrada con notificación de bloqueo, barreras y restricciones). Además, Azure proporciona fuertes niveles de seguridad en la nube en la capa de software que satisfacen las necesidades de seguridad, privacidad y cumplimiento de sus clientes.
-
-Usted es el propietario de sus datos e identidades, es responsable de protegerlos, de la seguridad de los recursos locales y de la seguridad de los componentes de nube sobre los que tiene el control. Microsoft proporciona controles de seguridad y funcionalidades que le ayudarán a proteger los datos y las aplicaciones. Su grado de responsabilidad de la seguridad se basa en el tipo de servicio en la nube.
-
-En el siguiente gráfico se resume cómo se reparte la responsabilidad entre Microsoft y el cliente.
-
-![Responsabilidad compartida](./media/management-monitoring-overview/shared-responsibility.png)
-
-Para obtener más información sobre la administración de la seguridad, consulte [Administración de la seguridad en Azure](management.md).
 
 ## <a name="role-based-access-control"></a>Control de acceso basado en roles
 
@@ -150,3 +138,7 @@ Intelligent Security Graph proporciona una protección contra amenazas en tiempo
 
 * [Intelligent Security Graph](https://www.microsoft.com/security/intelligence)
 
+## <a name="next-steps"></a>Pasos siguientes
+Información sobre el [modelo de responsabilidad compartida](shared-responsibility.md) y las tareas de seguridad que administra Microsoft y las que administra el usuario.
+
+Para obtener más información sobre la administración de la seguridad, consulte [Administración de la seguridad en Azure](management.md).

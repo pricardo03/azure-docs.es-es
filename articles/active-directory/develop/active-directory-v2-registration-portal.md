@@ -1,5 +1,6 @@
 ---
-title: Temas de ayuda del portal de registro de aplicaciones | Microsoft Docs
+title: Temas de ayuda del portal de registro de aplicaciones
+titleSuffix: Microsoft identity platform
 description: Descripción de las distintas características del portal de registro de aplicaciones de Microsoft.
 services: active-directory
 documentationcenter: ''
@@ -18,12 +19,12 @@ ms.author: ryanwi
 ms.reviewer: lenalepa
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49675d8b18020c73a27a41fedff47697e29d829e
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 61787e7a86a1c40ec04fb7a3d605158c85782d94
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68988486"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803396"
 ---
 # <a name="app-registration-reference"></a>Referencia del registro de aplicaciones
 En este documento se proporciona el contexto y las descripciones de las distintas características que se encuentran en la experiencia de [Registros de aplicaciones](https://aka.ms/appregistrations) en Azure Portal.

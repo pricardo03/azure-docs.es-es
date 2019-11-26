@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: a6e3d466321fcd8f32f46359c97f67400a8f86c6
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 4f700ac34b6c6e2a651366bee7dd1785c608064f
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828155"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72893923"
 ---
 # <a name="create-a-cloudsimple-private-cloud"></a>Crear una nube privada de CloudSimple
 
@@ -31,6 +31,16 @@ Crear una nube privada le ayuda a satisfacer una variedad de necesidades comunes
 
 Al crear una nube privada, obtendrá un clúster de vSphere único y todas las VM de administración que se crean en ese clúster.
 
+## <a name="before-you-begin"></a>Antes de empezar
+
+Los nodos deben aprovisionarse antes de poder crear su propia nube privada. Para más información sobre el aprovisionamiento de nodos, consulte el artículo [Aprovisionamiento de nodos para Azure VMware Solution by CloudSimple](create-nodes.md).
+
+Asigne un intervalo de CIDR para las subredes vSphere/vSAN de la nube privada. Una nube privada se crea como un entorno de pila VMware aislada (con hosts ESXi, vCenter, vSAN y NSX) administrado por un servidor vCenter. Los componentes de administración se implementan en la red que se ha seleccionado para CIDR de subredes vSphere/vSAN. El intervalo de CIDR de red se divide en subredes diferentes durante la implementación. El espacio de direcciones de la subred vSphere/vSAN debe ser único. No se debe superponer con otras redes que se comuniquen con el entorno de CloudSimple. Las redes que se comunican con CloudSimple incluyen redes locales y redes virtuales de Azure. Para más información sobre las subredes vSphere/vSAN, consulte la introducción a las VLAN y subredes.
+
+* Prefijo de intervalo de CIDR de subredes vSphere/vSAN mínimo: /24
+* Prefijo de intervalo de CIDR de subredes vSphere/vSAN máximo: /21
+
+
 ## <a name="access-the-cloudsimple-portal"></a>Acceso al portal de CloudSimple
 
 Acceda al [portal de CloudSimple](access-cloudsimple-portal.md).
@@ -46,7 +56,7 @@ Acceda al [portal de CloudSimple](access-cloudsimple-portal.md).
 
 5. En el portal de CloudSimple, proporcione un nombre para su nube privada.
 6. Seleccione la **ubicación** para la nube privada.
-7. Seleccione **tipo de nodo** de acuerdo con lo que haya comprado en Azure.
+7. Seleccione **Tipo de nodo** de acuerdo con lo que haya aprovisionado en Azure.
 8. Especifique el **número de nodos**.  Para crear una nube privada, se requiere un mínimo de tres nodos.
 
     ![Creación de una nube privada: información básica](media/create-private-cloud-basic-info.png)

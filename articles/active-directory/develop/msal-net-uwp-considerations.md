@@ -1,5 +1,6 @@
 ---
-title: Consideraciones sobre la Plataforma universal de Windows (Biblioteca de autenticación de Microsoft para .NET) | Azure
+title: Consideraciones sobre la Plataforma universal de Windows (Biblioteca de autenticación de Microsoft para .NET)
+titleSuffix: Microsoft identity platform
 description: Obtenga información sobre las consideraciones específicas al usar la Plataforma universal de Windows con la Biblioteca de autenticación de Microsoft para .NET (MSAL.NET).
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,12 +18,12 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 263264742088a0012ea844946e13cffbab634b29
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 27a41ad084d21c7623011b5678fb84ed27d68325
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69532466"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802663"
 ---
 # <a name="universal-windows-platform-specific-considerations-with-msalnet"></a>Consideraciones específicas de la Plataforma universal de Windows con MSAL.NET
 En UWP, hay varias consideraciones que debe tener en cuenta al usar MSAL.NET.

@@ -1,5 +1,5 @@
 ---
-title: Copia de seguridad de VM de Azure en un almacén de Recovery Services con Azure Backup
+title: Copia de seguridad de máquinas virtuales de Azure en un almacén de Recovery Services con Azure Backup
 description: Aquí se describe cómo realizar una copia de seguridad de VM de Azure en un almacén de Recovery Services con Azure Backup
 service: backup
 author: dcurwin
@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: dacurwin
-ms.openlocfilehash: 1f8086580d60d13251052636d4d771855e9605a5
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 2ef8e7e77481c0df6e85545d16c3859949184d2f
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954951"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72968536"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Copia de seguridad de máquinas virtuales de Azure en un almacén de Recovery Services
 
@@ -22,28 +22,26 @@ En este artículo se describe cómo realizar una copia de seguridad de VM de Azu
 En este artículo, aprenderá a:
 
 > [!div class="checklist"]
+>
 > * Prepare las máquinas virtuales de Azure.
 > * Crear un almacén.
 > * Detecte VM y configure una directiva de copia de seguridad.
 > * Habilite la copia de seguridad de VM de Azure.
 > * Realizar la copia de seguridad inicial.
 
-
 > [!NOTE]
 > EN Este artículo describe cómo configurar un almacén y seleccionar VM para hacer una copia de seguridad. Resulta útil si desea realizar copias de seguridad de varias máquinas virtuales. Como alternativa, puede [realizar una copia de seguridad de una VM de Azure](backup-azure-vms-first-look-arm.md) directamente desde la configuración de la VM.
 
 ## <a name="before-you-start"></a>Antes de comenzar
 
-
-- [Revise](backup-architecture.md#architecture-direct-backup-of-azure-vms) la arquitectura de copia de seguridad de máquinas virtuales de Azure.
-- [Más información sobre](backup-azure-vms-introduction.md) la copia de seguridad de máquinas virtuales de Azure y la extensión de reserva.
-- [Revise la matriz de compatibilidad](backup-support-matrix-iaas.md) antes de configurar la copia de seguridad.
+* [Revise](backup-architecture.md#architecture-direct-backup-of-azure-vms) la arquitectura de copia de seguridad de máquinas virtuales de Azure.
+* [Más información sobre](backup-azure-vms-introduction.md) la copia de seguridad de máquinas virtuales de Azure y la extensión de reserva.
+* [Revise la matriz de compatibilidad](backup-support-matrix-iaas.md) antes de configurar la copia de seguridad.
 
 Además, hay un par de cosas que puede que deba hacer en algunas circunstancias:
 
-- **Instalar el agente de máquina virtual en la máquina virtual**: Azure Backup realiza una copia de seguridad de máquinas virtuales de Azure instalando una extensión en el agente de máquina virtual de Azure que se ejecuta en la máquina. Si la máquina virtual se creó a partir de una imagen de Azure Marketplace, el agente se instala y se ejecuta. Si crea una máquina virtual personalizada o migra una máquina local, es posible que deba [instalar el agente manualmente](#install-the-vm-agent).
-- **Permitir explícitamente el acceso saliente**: por lo general, no es necesario permitir explícitamente el acceso de red saliente para que una máquina virtual de Azure pueda comunicarse con Azure Backup. Sin embargo, algunas máquinas virtuales podrían experimentar problemas de conexión, que muestran el error **ExtensionSnapshotFailedNoNetwork** al intentar conectarse. Si esto sucede, debe [permitir explícitamente el acceso saliente](#explicitly-allow-outbound-access) para que la extensión Azure Backup pueda comunicarse con las direcciones IP públicas de Azure y gestionar el tráfico de copia de seguridad.
-
+* **Instalar el agente de máquina virtual en la máquina virtual**: Azure Backup realiza una copia de seguridad de máquinas virtuales de Azure instalando una extensión en el agente de máquina virtual de Azure que se ejecuta en la máquina. Si la máquina virtual se creó a partir de una imagen de Azure Marketplace, el agente se instala y se ejecuta. Si crea una máquina virtual personalizada o migra una máquina local, es posible que deba [instalar el agente manualmente](#install-the-vm-agent).
+* **Permitir explícitamente el acceso saliente**: por lo general, no es necesario permitir explícitamente el acceso de red saliente para que una máquina virtual de Azure pueda comunicarse con Azure Backup. Sin embargo, algunas máquinas virtuales podrían experimentar problemas de conexión, que muestran el error **ExtensionSnapshotFailedNoNetwork** al intentar conectarse. Si esto sucede, debe [permitir explícitamente el acceso saliente](#explicitly-allow-outbound-access) para que la extensión Azure Backup pueda comunicarse con las direcciones IP públicas de Azure y gestionar el tráfico de copia de seguridad.
 
 ## <a name="create-a-vault"></a>Creación de un almacén
 
@@ -59,15 +57,14 @@ Además, hay un par de cosas que puede que deba hacer en algunas circunstancias:
      ![Creación del almacén de Recovery Services, paso 2](./media/backup-azure-arm-vms-prepare/rs-vault-menu.png)
 
 4. En el **Almacén de Recovery Services**, escriba un nombre descriptivo para identificar el almacén.
-    - El nombre debe ser único para la suscripción de Azure.
-    - Puede contener entre 2 y 50 caracteres.
-    - Debe comenzar por una letra y solo puede contener letras, números y guiones.
+    * El nombre debe ser único para la suscripción de Azure.
+    * Puede contener entre 2 y 50 caracteres.
+    * Debe comenzar por una letra y solo puede contener letras, números y guiones.
 5. Seleccione la suscripción de Azure, el grupo de recursos y la región geográfica en la que se debe crear el almacén. A continuación, haga clic en **Crear**.
-    - La creación del almacén puede tardar un tiempo.
-    - Supervise las notificaciones del estado en la parte superior derecha del portal.
+    * La creación del almacén puede tardar un tiempo.
+    * Supervise las notificaciones del estado en la parte superior derecha del portal.
 
-
- Una vez que se crea el almacén, aparece en la lista de almacenes de Recovery Services. Si no lo ve, haga clic en **Actualizar**.
+Una vez que se crea el almacén, aparece en la lista de almacenes de Recovery Services. Si no lo ve, haga clic en **Actualizar**.
 
 ![Lista de copias de seguridad](./media/backup-azure-arm-vms-prepare/rs-list-of-vaults.png)
 
@@ -75,13 +72,12 @@ Además, hay un par de cosas que puede que deba hacer en algunas circunstancias:
 > El servicio Azure Backup crea un grupo de recursos independiente (que no sea el grupo de recursos de VM) para almacenar la instantánea con el formato de nomenclatura **AzureBackupRG_geography_number** (ejemplo: AzureBackupRG_northeurope_1). Los datos de este grupo de recursos se conservarán durante el intervalo de días especificado en la sección *Conservar las instantáneas de recuperación instantánea* de la directiva de copia de seguridad de la máquina virtual de Azure.  Si se aplica un bloqueo a este grupo de recursos, pueden producirse errores de copia de seguridad.<br>
 Este grupo de recursos también debe excluirse de todas las restricciones de nombre o etiqueta, ya que una directiva de restricción podría bloquear la creación de colecciones de puntos de recursos en el grupo, lo que provocaría errores de copia de seguridad.
 
-
 ### <a name="modify-storage-replication"></a>Modificar la replicación de almacenamiento
 
 De forma predeterminada, los almacenes usan el [almacenamiento con redundancia geográfica (GRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs).
 
-- Si el almacén es su mecanismo principal de copia de seguridad, le recomendamos que use GRS.
-- Puede usar el [almacenamiento con redundancia local (LRS) ](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) si busca una opción más barata.
+* Si el almacén es su mecanismo principal de copia de seguridad, le recomendamos que use GRS.
+* Puede usar el [almacenamiento con redundancia local (LRS) ](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) si busca una opción más barata.
 
 Modifique el tipo de replicación del almacenamiento tal como se indica a continuación:
 
@@ -90,6 +86,7 @@ Modifique el tipo de replicación del almacenamiento tal como se indica a contin
 3. Seleccione el tipo de replicación de almacenamiento y haga clic en **Guardar**.
 
       ![Establecimiento de la configuración de almacenamiento del nuevo almacén](./media/backup-try-azure-backup-in-10-mins/full-blade.png)
+
 > [!NOTE]
    > No puede modificar el tipo de replicación de almacenamiento después de configurar el almacén y si este contiene elementos de copia de seguridad. Si quiere hacer esto, debe volver a crear el almacén.
 
@@ -101,22 +98,21 @@ Configurar una directiva de copia de seguridad para el almacén.
 
    ![Botón Backup](./media/backup-azure-arm-vms-prepare/backup-button.png)
 
-
 2. En **Objetivo de copia de seguridad** >  **¿Dónde se ejecuta su carga de trabajo?** , seleccione **Azure**. En **What do you want to back up?** (¿De qué desea realizar una copia de seguridad?), seleccione **Máquina virtual** >  **Aceptar**. Esto registra la extensión de la máquina virtual en el almacén.
 
    ![Paneles Backup y Objetivo de Backup](./media/backup-azure-arm-vms-prepare/select-backup-goal-1.png)
 
 3. En **Directiva de copia de seguridad**, seleccione la directiva que desea asociar al almacén.
-    - La directiva predeterminada hace una copia de seguridad de la VM una vez al día. Asimismo, las copias de seguridad diarias se conservan durante 30 días. Las instantáneas de recuperación instantánea se conservan durante dos días.
-    - Si no quiere usar la directiva predeterminada, seleccione **Crear nueva** y cree una directiva personalizada tal como se describe en el siguiente procedimiento.
+    * La directiva predeterminada hace una copia de seguridad de la VM una vez al día. Asimismo, las copias de seguridad diarias se conservan durante 30 días. Las instantáneas de recuperación instantánea se conservan durante dos días.
+    * Si no quiere usar la directiva predeterminada, seleccione **Crear nueva** y cree una directiva personalizada tal como se describe en el siguiente procedimiento.
 
       ![Directiva de copia de seguridad predeterminada](./media/backup-azure-arm-vms-prepare/default-policy.png)
 
 4. En **Seleccionar máquinas virtuales**, seleccione las VM de las que quiere hacer una copia de seguridad usando la directiva. A continuación, haga clic en **Aceptar**.
 
-   - Las VM seleccionadas son validadas.
-   - Solo se puede seleccionar máquinas virtuales de la región en que se encuentre el almacén.
-   - Las copias de seguridad de las máquinas virtuales solo se pueden realizar en un almacén individual.
+   * Las VM seleccionadas son validadas.
+   * Solo se puede seleccionar máquinas virtuales de la región en que se encuentre el almacén.
+   * Las copias de seguridad de las máquinas virtuales solo se pueden realizar en un almacén individual.
 
      ![Panel "Seleccionar máquinas virtuales"](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
 
@@ -126,12 +122,11 @@ Configurar una directiva de copia de seguridad para el almacén.
 
 Después de habilitar la copia de seguridad:
 
-- El servicio Backup instala la extensión de copia de seguridad tanto si la máquina virtual está en ejecución como si no lo está.
-- Una copia de seguridad inicial se ejecutará según la programación de copia de seguridad.
-- Cuando se ejecuten las copias de seguridad, tenga en cuenta que:
-    - Una VM que se está ejecutando tiene una mayor oportunidad de capturar un punto de recuperación coherente con la aplicación.
-    - Sin embargo, incluso si la VM está desactivada, se hace una copia de seguridad. Esa VM se conoce como una VM sin conexión. En este caso, el punto de recuperación será coherente frente a bloqueos.
-
+* El servicio Backup instala la extensión de copia de seguridad tanto si la máquina virtual está en ejecución como si no lo está.
+* Una copia de seguridad inicial se ejecutará según la programación de copia de seguridad.
+* Cuando se ejecuten las copias de seguridad, tenga en cuenta que:
+  * Una VM que se está ejecutando tiene una mayor oportunidad de capturar un punto de recuperación coherente con la aplicación.
+  * Sin embargo, incluso si la VM está desactivada, se hace una copia de seguridad. Esa VM se conoce como una VM sin conexión. En este caso, el punto de recuperación será coherente frente a bloqueos.
 
 ### <a name="create-a-custom-policy"></a>Creación de una directiva personalizada
 
@@ -139,12 +134,12 @@ Si creó una nueva directiva de copia de seguridad, complete la configuración d
 
 1. En **Nombre de directiva**, especifique un nombre descriptivo.
 2. En **Programación de copia de seguridad**, especifique cuándo se deben realizar las copias de seguridad. Puede realizar copias de seguridad diarias o semanales para VM de Azure.
-2. En **Restauración instantánea**, especifique cuánto tiempo quiere conservar las instantáneas localmente para la restauración instantánea.
-    - Cuando realice la restauración, los discos de la VM con copia de seguridad se copian desde el almacén a través de la red, hasta la ubicación de almacenamiento de recuperación. Con la restauración instantánea, puede aprovechar las instantáneas almacenadas localmente y que se tomaron durante un trabajo de copia de seguridad, sin esperar a que los datos de la copia de seguridad se transfieran al almacén.
-    - Puede conservar las instantáneas para la restauración instantánea durante uno y cinco días. Dos días es la configuración predeterminada.
-3. En el **rango de retención** , especifique cuánto tiempo quiere conservar sus puntos de copia de seguridad diarios o semanales.
-4. En **Retención del punto de copia de seguridad mensual**, especifique si quiere mantener una copia de seguridad mensual de sus copias de seguridad diarias o semanales.
-5. Haga clic en **Aceptar** para guardar la directiva.
+3. En **Restauración instantánea**, especifique cuánto tiempo quiere conservar las instantáneas localmente para la restauración instantánea.
+    * Cuando realice la restauración, los discos de la VM con copia de seguridad se copian desde el almacén a través de la red, hasta la ubicación de almacenamiento de recuperación. Con la restauración instantánea, puede aprovechar las instantáneas almacenadas localmente y que se tomaron durante un trabajo de copia de seguridad, sin esperar a que los datos de la copia de seguridad se transfieran al almacén.
+    * Puede conservar las instantáneas para la restauración instantánea durante uno y cinco días. Dos días es la configuración predeterminada.
+4. En el **rango de retención** , especifique cuánto tiempo quiere conservar sus puntos de copia de seguridad diarios o semanales.
+5. En **Retención del punto de copia de seguridad mensual**, especifique si quiere mantener una copia de seguridad mensual de sus copias de seguridad diarias o semanales.
+6. Haga clic en **Aceptar** para guardar la directiva.
 
     ![Nueva directiva de copia de seguridad](./media/backup-azure-arm-vms-prepare/new-policy.png)
 
@@ -185,12 +180,11 @@ Completed | Completed | Completed
 Completed | Con error | Completado con advertencia
 Con error | Con error | Con error
 
-
 Con esta capacidad y para la misma VM, se pueden ejecutar dos copias de seguridad en paralelo, pero en cualquier fase (instantánea, transferir datos al almacén) solo se puede ejecutar una subtarea. Por lo tanto, si un trabajo de copia de seguridad en curso produce un error en la copia de seguridad del día siguiente, este se evitará con esta funcionalidad de desacoplamiento. Las copias de seguridad del día siguiente pueden tener una instantánea completada mientras que la opción **Transferir datos al almacén** se omite si el trabajo de copia de seguridad de un día anterior está en curso.
 El punto de recuperación incremental creado en el almacén capturará toda la rotación desde el último punto de recuperación creado en ese almacén. Esto no costará nada al usuario.
 
-
 ## <a name="optional-steps-install-agentallow-outbound"></a>Pasos opcionales (instalar agente / permitir salida)
+
 ### <a name="install-the-vm-agent"></a>Instalar el agente de máquina virtual
 
 Azure Backup realiza una copia de seguridad de máquinas virtuales de Azure instalando una extensión en el agente de máquina virtual de Azure que se ejecuta en la máquina. Si la VM se creó a partir de una imagen de Azure Marketplace, el agente se instala y se ejecuta. Si creó una VM personalizada o migra una máquina local, es posible que deba instalar el agente manualmente.
@@ -204,9 +198,8 @@ Azure Backup realiza una copia de seguridad de máquinas virtuales de Azure inst
 
 Asegúrese de que la extensión de la copia de seguridad que se ejecuta en la VM tiene acceso saliente a direcciones IP públicas de Azure.
 
-- Por lo general, no es necesario permitir explícitamente el acceso de red saliente para que una VM de Azure pueda comunicarse con Azure Backup.
-- Si tiene dificultades para conectar las VM o si ve el error **ExtensionSnapshotFailedNoNetwork** cuando intenta conectarse, debe permitir el acceso explícitamente para que la extensión de copia de seguridad pueda comunicarse con las direcciones IP públicas de Azure para el tráfico de copia de seguridad. Los métodos de acceso se resumen en la siguiente tabla.
-
+* Por lo general, no es necesario permitir explícitamente el acceso de red saliente para que una VM de Azure pueda comunicarse con Azure Backup.
+* Si tiene dificultades para conectar las VM o si ve el error **ExtensionSnapshotFailedNoNetwork** cuando intenta conectarse, debe permitir el acceso explícitamente para que la extensión de copia de seguridad pueda comunicarse con las direcciones IP públicas de Azure para el tráfico de copia de seguridad. Los métodos de acceso se resumen en la siguiente tabla.
 
 **Opción** | **Acción** | **Detalles**
 --- | --- | ---
@@ -228,9 +221,9 @@ Si un NSG administra el acceso a la VM, permita el acceso de salida para el alma
 4. En **Rangos de puertos de origen**, escriba un asterisco (*) para permitir el acceso de salida desde cualquier puerto.
 5. En **Destino**, seleccione **Etiqueta de servicio**. En la lista, seleccione **Storage.region**. La región es donde se encuentran el almacén y las VM de las que quiere realizar una copia de seguridad.
 6. En **Intervalos de puertos de destino** , seleccione el puerto.
-    - VM con discos no administrados con una cuenta de almacenamiento sin cifrar: 80
-    - VM con discos no administrados con una cuenta de almacenamiento cifrada: 443 (configuración predeterminada)
-    - VM con discos administrados: 8443.
+    * VM con discos no administrados con una cuenta de almacenamiento sin cifrar: 80
+    * VM con discos no administrados con una cuenta de almacenamiento cifrada: 443 (configuración predeterminada)
+    * VM con discos administrados: 8443.
 7. En **Protocolo**: seleccione **TCP**.
 8. En **Prioridad**, especifique un valor de prioridad inferior a las reglas de denegación elevadas.
 
@@ -241,14 +234,13 @@ Puede aplicar la regla de NSG a varias máquinas virtuales para permitir el acce
 
 >[!VIDEO https://www.youtube.com/embed/1EjLQtbKm1M]
 
-
 ##### <a name="route-backup-traffic-through-a-proxy"></a>Enrutamiento del tráfico de la copia de seguridad a través de un proxy
 
 El tráfico de la copia de seguridad se puede enrutar a través de un proxy y, después, dé al proxy acceso a los intervalos de Azure necesarios. Configure la VM proxy para permitir lo siguiente:
 
-- La máquina virtual de Azure debe enrutar todo el tráfico HTTP enlazado dirigido a la red pública de Internet a través del proxy.
-- El proxy debería permitir el tráfico de entrada desde las VM de la red virtual aplicable.
-- El grupo de seguridad de red (NSG) **NSF-lockdown** necesita una regla de seguridad que permita el tráfico de Internet de salida desde la máquina virtual proxy.
+* La máquina virtual de Azure debe enrutar todo el tráfico HTTP enlazado dirigido a la red pública de Internet a través del proxy.
+* El proxy debería permitir el tráfico de entrada desde las VM de la red virtual aplicable.
+* El grupo de seguridad de red (NSG) **NSF-lockdown** necesita una regla de seguridad que permita el tráfico de Internet de salida desde la máquina virtual proxy.
 
 ###### <a name="set-up-the-proxy"></a>Configuración del proxy
 
@@ -258,13 +250,14 @@ Si no tiene un proxy de la cuenta del sistema, configure uno como se indica a co
 2. Ejecute **PsExec.exe -i -s cmd.exe** para ejecutar el símbolo del sistema en una cuenta del sistema.
 3. Ejecute el explorador en el contexto del sistema. Por ejemplo, use: **%PROGRAMFILES%\Internet Explorer\iexplore.exe** en el caso de Internet Explorer.  
 4. Defina la configuración del proxy.
-   - En equipos Linux:
-     - Agregue esta línea al archivo **/etc/environment**:
-       - **http_proxy=http:\//proxy IP address:proxy port**
-     - Agregue estas líneas al archivo **/etc/waagent.conf**:
-         - **HttpProxy.Host=proxy IP address**
-         - **HttpProxy.Port=proxy port**
-   - En los equipos Windows, en la configuración del explorador, especifique que se debe usar un proxy. Si actualmente usa a un proxy en una cuenta de usuario, puede utilizar este script para aplicar el valor en el nivel de cuenta del sistema.
+   * En equipos Linux:
+     * Agregue esta línea al archivo **/etc/environment**:
+       * **http_proxy=http:\//proxy IP address:proxy port**
+     * Agregue estas líneas al archivo **/etc/waagent.conf**:
+         * **HttpProxy.Host=proxy IP address**
+         * **HttpProxy.Port=proxy port**
+   * En los equipos Windows, en la configuración del explorador, especifique que se debe usar un proxy. Si actualmente usa a un proxy en una cuenta de usuario, puede utilizar este script para aplicar el valor en el nivel de cuenta del sistema.
+
        ```powershell
       $obj = Get-ItemProperty -Path Registry::"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections"
       Set-ItemProperty -Path Registry::"HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections" -Name DefaultConnectionSettings -Value $obj.DefaultConnectionSettings
@@ -284,9 +277,9 @@ Permita las conexiones de entrada en la configuración del proxy.
 3. En **Tipo de regla** seleccione **Personalizado** > **Siguiente**.
 4. En **Programa**, seleccione **Todos los programas** > **Siguiente**.
 5. En **Puertos y protocolos**:
-   - Establezca el tipo en **TCP**.
-   - Establezca los **puertos locales** en **Puertos específicos**.
-   - Establezca el **puerto remoto** en **Todos los puertos**.
+   * Establezca el tipo en **TCP**.
+   * Establezca los **puertos locales** en **Puertos específicos**.
+   * Establezca el **puerto remoto** en **Todos los puertos**.
 
 6. Finalice el asistente y especifique el nombre de la regla.
 
@@ -295,7 +288,7 @@ Permita las conexiones de entrada en la configuración del proxy.
 En el grupo de seguridad de red **NSF-lockdown**, permita el tráfico desde puerto en la dirección IP 10.0.0.5 a cualquier dirección de Internet en los puertos 80 (HTTP) o 443 (HTTPS).
 
 El siguiente script de PowerShell proporciona un ejemplo en el que se permite el tráfico.
-En lugar de permitir el tráfico de salida a todas las direcciones de Internet públicas, puede especificar un intervalo de direcciones IP (`-DestinationPortRange`), o bien usar la etiqueta de servicio storage.region.   
+En lugar de permitir el tráfico de salida a todas las direcciones de Internet públicas, puede especificar un intervalo de direcciones IP (`-DestinationPortRange`), o bien usar la etiqueta de servicio storage.region.
 
 ```powershell
 Get-AzureNetworkSecurityGroup -Name "NSG-lockdown" |
@@ -306,12 +299,10 @@ Set-AzureNetworkSecurityRule -Name "allow-proxy " -Action Allow -Protocol TCP -T
 
 Azure Firewall se puede configurar para permitir el acceso de salida para el tráfico de red a Azure Backup.
 
-- [Más información](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal) acerca de cómo implementar Azure Firewall.
-- [Más información acerca de](https://docs.microsoft.com/azure/firewall/fqdn-tags) las etiquetas FQDN.
-
-
+* [Más información](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal) acerca de cómo implementar Azure Firewall.
+* [Más información acerca de](https://docs.microsoft.com/azure/firewall/fqdn-tags) las etiquetas FQDN.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Solucione todos los problemas que se produzcan con los [agentes de VM de Azure](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md) o con la [copia de seguridad de VM de Azure](backup-azure-vms-troubleshoot.md).
-- [Restaure](backup-azure-arm-restore-vms.md) las VM de Azure.
+* Solucione todos los problemas que se produzcan con los [agentes de VM de Azure](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md) o con la [copia de seguridad de VM de Azure](backup-azure-vms-troubleshoot.md).
+* [Restaure](backup-azure-arm-restore-vms.md) las VM de Azure.

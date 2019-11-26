@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9dc8381fe964ce924ed37d6b7e6d22dc730eae89
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 19b29181f023b49cca7159fbbcad4a4675744a96
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72452930"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819728"
 ---
 # <a name="blocking-legacy-authentication"></a>Bloqueo de la autenticación heredada
  
@@ -33,9 +33,11 @@ Para poder bloquear la autenticación heredada en su directorio, primero debe en
 
 1. Vaya a Azure Portal > Azure Active Directory > Inicios de sesión.
 1. Agregue la columna Aplicación cliente si no se muestra; para ello, haga clic en Columnas > Aplicación cliente.
-1. Filtre por Aplicación cliente > Otros clientes y haga clic en Aplicar.
+1. Filtre por Aplicación cliente > compruebe todas las demás opciones de cliente presentadas y haga clic en Aplicar.
+1. Filtre por Estado > Correcto y haga clic en Aplicar. 
+1. Expanda el intervalo de fechas si es necesario con el filtro Fecha.
 
-Al filtrar solo se muestran los intentos de inicio de sesión que se realizaron con protocolos de autenticación heredada. Al hacer clic en cada intento de inicio de sesión individual se muestran detalles adicionales. El campo Aplicación cliente en la pestaña Información básica indicará qué protocolo de autenticación heredada se usó. Estos registros indicarán qué usuarios dependen todavía de la autenticación heredada y qué aplicaciones usan protocolos heredados para realizar solicitudes de autenticación. Para los usuarios que no aparecen en estos registros y se les confirme que no van a usar la autenticación heredada, implemente una directiva de acceso condicional o habilite la directiva de base de referencia: bloqueo de la autenticación heredada solo para estos usuarios.
+Al filtrar solo se mostrarán los intentos de inicio de sesión correctos que se realizaron con los protocolos seleccionados de autenticación heredada. Al hacer clic en cada intento de inicio de sesión individual se muestran detalles adicionales. La columna Aplicación cliente o el campo Aplicación cliente de la pestaña Información básica indicará el protocolo de autenticación heredado que se usó, después de seleccionar una fila de datos individual. Estos registros indicarán qué usuarios dependen todavía de la autenticación heredada y qué aplicaciones usan protocolos heredados para realizar solicitudes de autenticación. Para los usuarios que no aparecen en estos registros y se les confirme que no van a usar la autenticación heredada, implemente una directiva de acceso condicional o habilite la directiva de base de referencia: bloqueo de la autenticación heredada solo para estos usuarios.
 
 ## <a name="moving-away-from-legacy-authentication"></a>Retirada de la autenticación heredada 
 

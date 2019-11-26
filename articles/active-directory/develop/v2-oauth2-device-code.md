@@ -1,6 +1,6 @@
 ---
 title: Uso de la Plataforma de identidad de Microsoft para el inicio de sesión de usuarios en dispositivos sin explorador | Azure
-description: Cree flujos de autenticación sin explorador e insertados mediante el uso de la concesión de código de dispositivo.
+description: Cree flujos de autenticación sin explorador e insertados mediante el uso de la concesión de autorización de dispositivo.
 services: active-directory
 documentationcenter: ''
 author: rwike77
@@ -12,30 +12,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/30/2019
+ms.date: 10/24/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fdd99899494e9f7b3c0caa4e83f18803b969db1e
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 90922a48f213ecd506f08f616fe8c28ab44776a2
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70192722"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72893894"
 ---
-# <a name="microsoft-identity-platform-and-the-oauth-20-device-code-flow"></a>Flujo de código de dispositivo de OAuth 2.0 y la Plataforma de identidad de Microsoft
+# <a name="microsoft-identity-platform-and-the-oauth-20-device-authorization-grant-flow"></a>Flujo de concesión de autorización de dispositivo de OAuth 2.0 y la Plataforma de identidad de Microsoft
 
 [!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
-La Plataforma de identidad de Microsoft admite la [concesión de código de dispositivo](https://tools.ietf.org/html/draft-ietf-oauth-device-flow-12), lo que permite que los usuarios inicien sesión en dispositivos con limitaciones de entrada, como un televisor inteligente, un dispositivo IoT o una impresora.  Para habilitar este flujo, el dispositivo pide que el usuario visite una página web en su explorador en otro dispositivo para iniciar sesión.  Una vez que el usuario inicia sesión, el dispositivo es capaz de obtener tokens de acceso y tokens de actualización según sea necesario.  
-
-> [!IMPORTANT]
-> En este momento, el punto de conexión de la Plataforma de identidad de Microsoft solo es compatible con el flujo de dispositivo para los inquilinos de Azure AD, pero no para las cuentas personales.  Esto significa que debe usar un punto de conexión configurado como inquilino, o bien el punto de conexión `organizations`.  Esta compatibilidad se habilitará pronto. 
->
-> Las cuentas personales invitadas a un inquilino de Azure AD podrán usar la concesión de flujo de dispositivo, pero solo en el contexto del inquilino.
->
-> Como nota adicional, el campo de respuesta `verification_uri_complete` no se incluye ni se admite en este momento.  Lo mencionamos porque, si lee el estándar, verá que `verification_uri_complete` aparece como parte opcional del estándar de flujo de código del dispositivo.
+La Plataforma de identidad de Microsoft admite la [concesión de autorización de dispositivo](https://tools.ietf.org/html/rfc8628), lo que permite que los usuarios inicien sesión en dispositivos con limitaciones de entrada, como un televisor inteligente, un dispositivo IoT o una impresora.  Para habilitar este flujo, el dispositivo pide que el usuario visite una página web en su explorador en otro dispositivo para iniciar sesión.  Una vez que el usuario inicia sesión, el dispositivo es capaz de obtener tokens de acceso y tokens de actualización según sea necesario.  
 
 > [!NOTE]
 > No todas las características y escenarios de Azure Active Directory son compatibles con el punto de conexión de la Plataforma de identidad de Microsoft. Para determinar si debe usar el punto de conexión de la Plataforma de identidad de Microsoft, conozca las [limitaciones de esta plataforma](active-directory-v2-limitations.md).
@@ -67,7 +60,7 @@ scope=user.read%20openid%20profile
 
 | Parámetro | Condición | DESCRIPCIÓN |
 | --- | --- | --- |
-| `tenant` | Obligatorio |El inquilino de directorio al que quiere solicitar permiso. Puede estar en formato de nombre descriptivo o GUID.  |
+| `tenant` | Obligatorio | Puede ser /common, /consumers u /organizations.  También puede ser el inquilino de directorio al que desea solicitar permiso en el formato de nombre descriptivo o GUID.  |
 | `client_id` | Obligatorio | El **identificador de aplicación (cliente)** que la experiencia [Azure Portal: Registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908) asignó a la aplicación. |
 | `scope` | Recomendado | Una lista separada por espacios de [ámbitos](v2-permissions-and-consent.md) que desea que el usuario consienta.  |
 
@@ -84,23 +77,29 @@ Una respuesta correcta será un objeto JSON que contiene la información necesar
 |`interval`        | int | Número de segundos que el cliente debe esperar entre solicitudes de sondeo. |
 | `message`        | Cadena | Cadena legible con instrucciones para el usuario. Esto se puede traducir mediante la inclusión de un **parámetro de consulta** en la solicitud del formulario `?mkt=xx-XX`, con el código de referencia cultural del idioma correspondiente. |
 
+> [!NOTE]
+> El campo de respuesta `verification_uri_complete` no se incluye ni se admite en este momento.  Lo mencionamos porque, si lee el [estándar](https://tools.ietf.org/html/rfc8628), verá que `verification_uri_complete` aparece como parte opcional del estándar de flujo de código del dispositivo.
+
 ## <a name="authenticating-the-user"></a>Autenticación del usuario
 
-Después de recibir `user_code` y `verification_uri`, el cliente los muestra al usuario y le pide que inicie sesión con su teléfono móvil o explorador de PC.  Además, el cliente puede usar un código QR u otro mecanismo similar para mostrar el valor de `verfication_uri_complete`, que le lleva al paso de introducir el valor de `user_code` del usuario.
+Después de recibir `user_code` y `verification_uri`, el cliente los muestra al usuario y le pide que inicie sesión con su teléfono móvil o explorador de PC.
+
+Si el usuario se autentica con una cuenta personal (en /common o /consumers), se le pedirá que vuelva a iniciar sesión para transferir el estado de autenticación al dispositivo.  También se les pedirá que den su consentimiento para asegurarse de que son conscientes de los permisos que se conceden.  Esto no se aplica a las cuentas profesionales o educativas usadas para la autenticación. 
 
 Mientras el usuario se autentica en `verification_uri`, el cliente debe sondear el punto de conexión `/token` para obtener el token solicitado mediante el uso de `device_code`.
 
 ``` 
-POST https://login.microsoftonline.com/tenant/oauth2/v2.0/token
+POST https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token
 Content-Type: application/x-www-form-urlencoded
 
 grant_type: urn:ietf:params:oauth:grant-type:device_code
 client_id: 6731de76-14a6-49ae-97bc-6eba6914391e
-device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8
+device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8...
 ```
 
 | Parámetro | Obligatorio | DESCRIPCIÓN|
 | -------- | -------- | ---------- |
+| `tenant`  | Obligatorio | El mismo inquilino o alias de inquilino usado en la solicitud inicial. | 
 | `grant_type` | Obligatorio | Debe ser `urn:ietf:params:oauth:grant-type:device_code`|
 | `client_id`  | Obligatorio | Debe coincidir con el valor de `client_id` utilizado en la solicitud inicial. |
 | `device_code`| Obligatorio | Valor de `device_code` devuelto en la solicitud de autorización de dispositivo.  |
@@ -114,7 +113,7 @@ El flujo de código de dispositivo es un protocolo de sondeo, por lo que el clie
 | `authorization_pending` | El usuario no ha finalizado la autenticación, pero canceló el flujo. | Repetir la solicitud después de, por lo menos, los segundos especificados en `interval`. |
 | `authorization_declined` | El usuario final ha denegado la solicitud de autorización.| Detener el sondeo y revertir a un estado de no autenticado.  |
 | `bad_verification_code`| No se reconoció el valor de `device_code` que se envió al punto de conexión `/token`. | Comprobar que el cliente está enviando el valor correcto de `device_code` en la solicitud. |
-| `expired_token` | Han transcurrido al menos `expires_in` segundos y la autenticación ya no es posible con este `device_code`. | Detener el sondeo y revertir a un estado de no autenticado. |
+| `expired_token` | Han transcurrido al menos `expires_in` segundos y la autenticación ya no es posible con este `device_code`. | Detener el sondeo y revertir a un estado de no autenticado. |   
 
 ### <a name="successful-authentication-response"></a>Respuesta de autenticación correcta
 

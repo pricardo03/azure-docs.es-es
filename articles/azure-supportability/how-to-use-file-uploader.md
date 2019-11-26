@@ -1,6 +1,6 @@
 ---
-title: Directrices de la utilidad Carga de archivos de nueva solicitud de soporte técnico de Microsoft Azure | Microsoft Docs
-description: Describe las directrices de uso de la utilidad Carga de archivos de nueva solicitud de soporte técnico de Microsoft Azure
+title: 'Solicitud de soporte técnico de Azure: directrices de carga de archivos'
+description: Describe las directrices de uso de la opción de carga de archivos de solicitud de soporte técnico de Microsoft Azure
 author: genlin
 tags: billing
 ms.assetid: 86697fdf-3499-4cab-ab3f-10d40d3c1f70
@@ -8,22 +8,22 @@ ms.service: azure-supportability
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: f01c70a2a077e28e8de5118332b780f27dc9ec93
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: 8c22ce859aa58aeb8339b16265f6614bd7e723f8
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72248684"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72936071"
 ---
-# <a name="microsoft-azure-new-support-request-file-upload-utility-guidelines"></a>Directrices de la utilidad Carga de archivos de nueva solicitud de soporte técnico de Microsoft Azure
-Cuando se [crea una solicitud de soporte técnico](https://portal.azure.com/#create/Microsoft.Support), la utilidad Carga de archivos puede ayudarle a cargar fácilmente los archivos de diagnóstico o cualquier otro archivo que crea que es pertinente para el incidente.  
+# <a name="microsoft-azure-new-support-request-file-upload-utility-guidelines"></a>Directrices de la utilidad de carga de archivos de nueva solicitud de soporte técnico de Microsoft Azure
+Cuando se [crea una solicitud de soporte técnico](https://portal.azure.com/#create/Microsoft.Support), la opción de carga de archivos puede ayudarle a cargar fácilmente los archivos de diagnóstico o cualquier otro archivo que crea que es pertinente para el incidente.  
 
 > [!NOTE]
 > Para proteger su privacidad, no incluya ninguna información personal en su carga.
 >
 >
 
-Siga estas directrices cuando use la utilidad Carga de archivos:
+Siga estas directrices cuando use la opción de carga de archivos:
 
 * Todos los archivos deben tener una extensión de nombre de archivo, por ejemplo, .docx o .xlsx. Consulte en la tabla la lista de extensiones de nombre de archivo permitidas.
 * El nombre de archivo debe ser de 110 caracteres como máximo.

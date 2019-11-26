@@ -1,5 +1,5 @@
 ---
-title: 'Delegación de la gobernanza del acceso en los creadores de catálogos desde la administración de derechos de Azure AD (versión preliminar): Azure Active Directory'
+title: 'Delegación de la gobernanza del acceso en los creadores de catálogos desde la administración de derechos de Azure AD: Azure Active Directory'
 description: Aprenda a delegar la gobernanza del acceso de los administradores de TI en los creadores de catálogos y los jefes de proyecto para que ellos mismos puedan encargarse del acceso.
 services: active-directory
 documentationCenter: ''
@@ -12,23 +12,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 10/07/2019
+ms.date: 10/26/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da6183599f2dacd1a98d8fe359edda741b903b50
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: f71007b886d3cc25a7cf9dc23d784144ed4e1fbd
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170882"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73174383"
 ---
-# <a name="delegate-access-governance-to-catalog-creators-in-azure-ad-entitlement-management-preview"></a>Delegación de la gobernanza del acceso en los creadores de catálogos desde la administración de derechos de Azure AD (versión preliminar)
-
-> [!IMPORTANT]
-> La administración de derechos de Azure Active Directory (Azure AD) está actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
-> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="delegate-access-governance-to-catalog-creators-in-azure-ad-entitlement-management"></a>Delegación de la gobernanza del acceso en los creadores de catálogos desde la administración de derechos de Azure AD
 
 Para delegar en usuarios que no son administradores de modo que puedan crear sus propios catálogos, puede agregarlos al rol de creador de catálogos definido en la administración de derechos de Azure AD. Puede agregar usuarios individuales o bien agregar un grupo, cuyos miembros pueden luego crear catálogos.
 
@@ -44,13 +39,27 @@ Siga estos pasos para asignar un usuario al rol de creador de catálogos.
 
 1. Haga clic en **Editar**.
 
-    ![Configuración para agregar creadores de catálogos](./media/entitlement-management-delegate/settings-delegate.png)
+    ![Configuración para agregar creadores de catálogos](./media/entitlement-management-delegate-catalog/settings-delegate.png)
 
 1. En la sección **Delegate entitlement management** (Delegar la administración de derechos), haga clic en **Agregar creador de catálogos** para seleccionar los usuarios o grupos en los que desea delegar este rol de administración de derechos.
 
 1. Haga clic en **Seleccionar**.
 
 1. Haga clic en **Save**(Guardar).
+
+## <a name="allow-delegated-roles-to-access-the-azure-portal"></a>Permitir a los roles delegados tener acceso al Azure Portal
+
+Para permitir que los roles delegados, como creadores de catálogos y administradores de paquetes de acceso, tengan acceso al Azure Portal para administrar los paquetes de acceso, debe comprobar la configuración del portal de administración.
+
+**Rol necesario:** administrador global o administrador de usuarios.
+
+1. En Azure Portal, haga clic en **Azure Active Directory** y luego en **Usuarios**.
+
+1. Seleccione **Configuración de usuario** en el menú a la izquierda.
+
+1. Cerciórese de que **Restringir el acceso al portal de administración de Azure AD** está establecido en **No**.
+
+    ![Configuración de usuario de Azure AD: portal de administración](./media/entitlement-management-delegate-catalog/user-settings.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

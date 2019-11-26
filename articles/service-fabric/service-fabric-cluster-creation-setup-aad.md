@@ -14,21 +14,23 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/28/2019
 ms.author: atsenthi
-ms.openlocfilehash: 6c195357c4a037534307571a53589b2ae861d88b
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 77814d04daca0ebb649ffa2e8ff46becddec4f0f
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67486022"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901504"
 ---
 # <a name="set-up-azure-active-directory-for-client-authentication"></a>Configuración de Azure Active Directory para la autenticación de cliente
 
-Para los clústeres que se ejecutan en Azure, es recomendable proteger el acceso a los puntos de conexión de administración con Azure Active Directory (Azure AD).  En este artículo se describe cómo configurar Azure AD para autenticar a los clientes de un clúster de Service Fabric; esta operación se debe realizar antes [crear el clúster](service-fabric-cluster-creation-via-arm.md).  Azure AD permite a las organizaciones (conocidas como inquilinos) administrar el acceso de los usuarios a las aplicaciones. Las aplicaciones se dividen en las que tienen interfaz de usuario de inicio de sesión basada en web y las que tienen una experiencia de cliente nativa. 
+Para los clústeres que se ejecutan en Azure, es recomendable proteger el acceso a los puntos de conexión de administración con Azure Active Directory (Azure AD). En este artículo se describe cómo configurar Azure AD para autenticar a los clientes de un clúster de Service Fabric.
 
-Un clúster de Service Fabric ofrece diversos puntos de entrada a su funcionalidad de administración, como [Service Fabric Explorer][service-fabric-visualizing-your-cluster] y [Visual Studio][service-fabric-manage-application-in-visual-studio] basados en web. Como consecuencia, creará dos aplicaciones de Azure AD para controlar el acceso al clúster: una aplicación web y una aplicación nativa.  Una vez creadas las aplicaciones, debe asignar usuarios a los roles de solo lectura y administrador.
+En este artículo, el término "aplicación" se usará para hacer referencia a [aplicaciones de Azure Active Directory](../active-directory/develop/developer-glossary.md#client-application), no a aplicaciones de Service Fabric; la distinción se realizará cuando sea necesario. Azure AD permite a las organizaciones (conocidas como inquilinos) administrar el acceso de los usuarios a las aplicaciones.
+
+Un clúster de Service Fabric ofrece diversos puntos de entrada a su funcionalidad de administración, como [Service Fabric Explorer][service-fabric-visualizing-your-cluster] y [Visual Studio][service-fabric-manage-application-in-visual-studio] basados en web. Como consecuencia, creará dos aplicaciones de Azure AD para controlar el acceso al clúster: una aplicación web y una aplicación nativa. Una vez creadas las aplicaciones, asignará usuarios a los roles de solo lectura y administrador.
 
 > [!NOTE]
-> Debe realizar los pasos siguientes antes de crear el clúster. Dado que los scripts esperan los puntos de conexión y los nombres de los clústeres, los valores deben planearse y no se pueden usar los que ya haya creado.
+> En Linux, debe realizar los pasos siguientes antes de crear el clúster. En Windows, también tiene la opción de [configurar la autenticación de Azure AD para un clúster existente](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides/blob/master/Security/Configure%20Azure%20Active%20Directory%20Authentication%20for%20Existing%20Cluster.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 En este artículo se supone que ya ha creado un inquilino. En caso de que no lo haya hecho, lea [Obtención de un inquilino de Azure Active Directory][active-directory-howto-tenant].
@@ -57,7 +59,7 @@ Ejecute el comando `Get-AzureSubscription` de PowerShell para encontrar su *Tena
 
 El valor de *ClusterName* se usa como prefijo en las aplicaciones de Azure AD que crea el script. No es necesario que coincida exactamente con el nombre del clúster real. Está diseñado solo para facilitar la asignación de artefactos de Azure AD al clúster de Service Fabric con el que se utilizan.
 
-El valor de *WebApplicationReplyUrl* es el punto de conexión predeterminado al que Azure AD devuelve a los usuarios cuando terminan el inicio de sesión. Establézcalo como el punto de conexión de Service Fabric Explorer para el clúster, que de manera predeterminada es el siguiente:
+El valor de *WebApplicationReplyUrl* es el punto de conexión predeterminado al que Azure AD devuelve a los usuarios cuando terminan el inicio de sesión. Establézcalo como el punto de conexión de Service Fabric Explorer para el clúster. Si va a crear aplicaciones de Azure AD para representar un clúster existente, asegúrese de que esta dirección URL coincida con el punto de conexión del clúster existente. Si va a crear aplicaciones para un nuevo clúster, planifique el punto de conexión que tendrá el clúster y asegúrese de no usar el punto de conexión de un clúster existente. De forma predeterminada, el punto de conexión Service Fabric Explorer es:
 
 https://&lt;cluster_domain&gt;:19080/Explorer
 
@@ -66,7 +68,7 @@ Se le pedirá que inicie sesión en una cuenta con privilegios administrativos p
    * *ClusterName*\_Clúster
    * *ClusterName*\_Cliente
 
-El script imprimirá el código JSON que necesita la plantilla de Azure Resource Manager al [crear el clúster](service-fabric-cluster-creation-create-template.md#add-azure-ad-configuration-to-use-azure-ad-for-client-access), por lo que es buena idea mantener abierta la ventana de PowerShell.
+El script imprimirá el código JSON que necesita la plantilla de Azure Resource Manager al [crear el clúster habilitado por AAD](service-fabric-cluster-creation-create-template.md#add-azure-ad-configuration-to-use-azure-ad-for-client-access), por lo que es buena idea mantener abierta la ventana de PowerShell.
 
 ```json
 "azureActiveDirectory": {
@@ -125,7 +127,7 @@ Para obtener más información, consulte el [cmdlet Connect-ServiceFabricCluster
 Sí. Pero recuerde agregar la dirección URL de Service Fabric Explorer a la aplicación del clúster (web). De lo contrario, Service Fabric Explorer no funciona.
 
 ### <a name="why-do-i-still-need-a-server-certificate-while-azure-ad-is-enabled"></a>¿Por qué todavía necesito el certificado de servidor con Azure AD habilitado?
-FabricClient y FabricGateway realizan una autenticación mutua. Durante la autenticación de Azure AD, la integración de Azure AD proporciona la identidad del cliente al servidor y el certificado de servidor se utiliza para comprobar la identidad del servidor. Para más información sobre cómo funciona el certificado en Service Fabric, consulte [Certificados X.509 y Service Fabric][x509-certificates-and-service-fabric].
+FabricClient y FabricGateway realizan una autenticación mutua. Durante la autenticación de Azure AD, la integración de Azure AD proporciona una identidad del cliente al servidor y el cliente usa el certificado de servidor para comprobar la identidad del servidor. Para más información sobre cómo funciona el certificado en Service Fabric, consulte [Certificados X.509 y Service Fabric][x509-certificates-and-service-fabric].
 
 ## <a name="next-steps"></a>Pasos siguientes
 Después de configurar las aplicaciones de Azure Active Directory y establecer los roles para los usuarios, [configure e implemente un clúster](service-fabric-cluster-creation-via-arm.md).

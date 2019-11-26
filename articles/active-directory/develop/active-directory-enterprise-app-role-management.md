@@ -1,5 +1,6 @@
 ---
-title: Configuración de la notificación de rol emitida en el token SAML para aplicaciones empresariales en Azure AD | Microsoft Docs
+title: Configuración de la notificación de rol para aplicaciones empresariales en Azure AD
+titleSuffix: Microsoft identity platform
 description: Aprenda a configurar la notificación de rol emitida en el token SAML para aplicaciones empresariales en Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -17,12 +18,12 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 699c8ce559d26ad226ad1dfd7f7266fe8c4acdfb
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: c671626a431a47e5100cf42ca0c9e29ab580ab3a
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70207194"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803494"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Procedimientos para: Configuración de la notificación de rol emitida en el token SAML para aplicaciones empresariales
 

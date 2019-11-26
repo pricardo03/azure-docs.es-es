@@ -1,6 +1,6 @@
 ---
 title: Visualización de trabajos de Azure Stream Analytics en Visual Studio
-description: En este artículo se describe cómo ver y administrar trabajos de Stream Analytics en Visual Studio.
+description: Obtenga información sobre cómo ver, iniciar y detener, probar conexiones, comprobar los resultados y exportar los trabajos de Azure Stream Analytics con Visual Studio.
 services: stream-analytics
 author: su-jie
 ms.author: sujie
@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 07/10/2018
-ms.openlocfilehash: ae532ed19c2273e43aa739e84d5a68cadb717b86
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: d73955436e651dfdb9db9d602481213fcc2cf502
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70173029"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72893550"
 ---
 # <a name="use-visual-studio-to-view-azure-stream-analytics-jobs"></a>Uso de Visual Studio para ver trabajos de Azure Stream Analytics
 
@@ -38,8 +38,6 @@ Puede usar la vista de trabajos para interactuar con trabajos de Azure Stream An
 
     ![Lista del Explorador de servidores de Stream Analytics](./media/stream-analytics-vs-tools/stream-analytics-tools-for-vs-list-jobs-01.png)
 
-
-
 2. Expanda el nodo de trabajos y haga doble clic en el nodo **Vista de trabajos** para abrir la vista de trabajos.
     
    ![Nodo de trabajo expandido](./media/stream-analytics-vs-tools/stream-analytics-tools-for-vs-job-view-01.png)
@@ -50,13 +48,11 @@ Los trabajos de Azure Stream Analytics se pueden administrar totalmente desde la
     
    ![Controles de trabajos de Stream Analytics](./media/stream-analytics-vs-tools/azure-stream-analytics-job-view-controls.png)
 
-
 ## <a name="check-job-results"></a>Comprobación de resultados de trabajos
 
 Las herramientas de Stream Analytics para Visual Studio admiten actualmente la vista previa de la salida para Azure Data Lake Storage y Blob Storage. Para ver el resultado, simplemente haga doble clic en el nodo de salida del diagrama de trabajos en **Job View** (Vista de trabajos) y escriba las credenciales adecuadas.
 
    ![Salida de blob de trabajo de Stream Analytics](./media/stream-analytics-vs-tools/stream-analytics-blob-preview.png)
-
 
 ## <a name="export-jobs-to-a-project"></a>Exportación de trabajos a un proyecto
 

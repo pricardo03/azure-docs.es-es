@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 10/10/2019
 tags: connectors
-ms.openlocfilehash: 36b0ea7233b449584bd83450b45276da5baa135b
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: ee86f53795b1b3e7bd61480a490d4e18c844d4c2
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264342"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72804260"
 ---
 # <a name="create-and-run-automated-event-based-workflows-by-using-http-webhooks-in-azure-logic-apps"></a>Creación y ejecución de flujos de trabajo basados en eventos automatizados mediante webhooks HTTP en Azure Logic Apps
 
@@ -75,7 +75,7 @@ Este desencadenador integrado registra una dirección URL de devolución de llam
 
 1. Para agregar otros parámetros disponibles, abra la lista **Agregar nuevo parámetro** y seleccione los parámetros que quiera.
 
-   Para obtener más información acerca de los tipos de autenticación disponibles para webhook HTTP, consulte [Autenticar los desencadenadores y acciones HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
+   Para obtener más información sobre los tipos de autenticación disponibles para webhook de HTTP, consulte [Incorporación de la autenticación en las llamadas salientes](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
 1. Continúe creando el flujo de trabajo de la aplicación lógica con acciones que se ejecuten cuando se activa el desencadenador.
 
@@ -111,7 +111,7 @@ Esta acción integrada registra una dirección URL de devolución de llamada con
 
 1. Para agregar otros parámetros disponibles, abra la lista **Agregar nuevo parámetro** y seleccione los parámetros que quiera.
 
-   Para obtener más información acerca de los tipos de autenticación disponibles para webhook HTTP, consulte [Autenticar los desencadenadores y acciones HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
+   Para obtener más información sobre los tipos de autenticación disponibles para webhook de HTTP, consulte [Incorporación de la autenticación en las llamadas salientes](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
 1. Cuando haya finalizado, recuerde guardar la aplicación lógica. En la barra de herramientas del diseñador, seleccione **Guardar**.
 

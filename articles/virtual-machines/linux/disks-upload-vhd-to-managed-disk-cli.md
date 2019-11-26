@@ -9,18 +9,18 @@ ms.topic: article
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: 3257e75849c3e00ae4b221746ebd25798a0aa6f0
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 5215a7d899af15dc028189aee5760a6ec5b6577d
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72757580"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803993"
 ---
 # <a name="upload-a-vhd-to-azure-using-azure-cli"></a>Carga de un disco duro virtual mediante la CLI de Azure
 
 En este artículo se explica cómo cargar un disco duro virtual de una máquina local en un disco administrado de Azure. Antes había que seguir un proceso más complicado, que incluía el almacenamiento provisional de los datos en una cuenta de almacenamiento y la administración de dicha cuenta. Ya no es preciso administrar una cuenta de almacenamiento ni almacenar en ella datos temporalmente para cargar un disco duro virtual. En su lugar, cree un disco administrado vacío y cargue un disco duro virtual directamente en él. Así se simplifica la carga de máquinas virtuales locales en Azure y permite cargar un disco duro virtual hasta 32 TiB directamente en un disco administrado de gran tamaño.
 
-Si va a proporcionar una solución de copia de seguridad para las máquinas virtuales de IaaS en Azure, se recomienda usar la carga directa para restaurar las copias de seguridad de clientes en discos administrados. Si va a cargar un disco duro virtual desde una máquina externa a Azure, las velocidades dependerán del ancho de banda local. Si usa una máquina virtual de Azure, el ancho de banda será el mismo que el de los discos duros estándar.
+Si va a proporcionar una solución de copia de seguridad para las máquinas virtuales de IaaS en Azure, se recomienda usar la carga directa para restaurar las copias de seguridad de clientes en discos administrados. Si va a cargar un disco duro virtual desde una máquina externa en Azure, las velocidades dependerán del ancho de banda local. Si usa una máquina virtual de Azure, el ancho de banda será el mismo que el de los discos duros estándar.
 
 Actualmente, la carga directa es compatible con los HDD estándar, la unidad de estado sólido estándar y los discos administrados SSD prémium. Aún no es compatible con el almacenamiento en discos Ultra.
 
@@ -29,7 +29,7 @@ Actualmente, la carga directa es compatible con los HDD estándar, la unidad de 
 - Descargue la [versión más reciente de AzCopy, v10](../../storage/common/storage-use-azcopy-v10.md#download-and-install-azcopy).
 - [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
 - Un archivo VHD almacenado localmente
-- Si tiene previsto cargar un disco duro virtual desde on-pem: Un disco duro virtual que [se ha preparado para Azure](../windows/prepare-for-upload-vhd-image.md), almacenado localmente.
+- Si tiene previsto cargar un disco duro virtual desde el entorno local: Un disco duro virtual que [se ha preparado para Azure](../windows/prepare-for-upload-vhd-image.md), almacenado localmente.
 - O bien, un disco administrado en Azure, si desea realizar una acción de copia.
 
 ## <a name="create-an-empty-managed-disk"></a>Creación de un disco administrado vacío

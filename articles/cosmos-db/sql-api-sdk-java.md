@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 03/13/2019
 ms.author: sngun
-ms.openlocfilehash: bf89d419bcd97c276df35701bc4fd808f599094a
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: eb8110c953787d1ebf7f01037808ee77db2eb8b4
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68637693"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934152"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>SDK de Java de Azure Cosmos DB para API de SQL: Notas de la versión y recursos
 > [!div class="op_single_selector"]
@@ -42,6 +42,30 @@ El SDK de Java de API de SQL admite las operaciones sincrónicas. En caso de que
 |**Tiempo de ejecución mínimo admitido**|[Java Development Kit (JDK) 7+](https://aka.ms/azure-jdks)|
 
 ## <a name="release-notes"></a>Notas de la versión
+
+### <a name="a-name244244"></a><a name="2.4.4"/>2.4.4
+* Optimización de las actualizaciones de caché del intervalo de claves de partición.
+
+### <a name="a-name242242"></a><a name="2.4.2"/>2.4.2
+* Optimización de las actualizaciones de caché de colección.
+
+### <a name="a-name241241"></a><a name="2.4.1"/>2.4.1
+* Adición de compatibilidad para recuperar el mensaje de excepción interna de la cadena de diagnóstico de la solicitud.
+
+### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
+* Introducción de la API de la versión en PartitionKeyDefinition.
+
+### <a name="a-name230230"></a><a name="2.3.0"/>2.3.0
+* Adición de compatibilidad de tiempo de espera independiente para el modo directo.
+
+### <a name="a-name223223"></a><a name="2.2.3"/>2.2.3
+* Consumo de mensaje de error nulo del servicio y generación de excepción de cliente de documento.
+
+### <a name="a-name222222"></a><a name="2.2.2"/>2.2.2
+* Mejora de la conexión de socket, adición del valor predeterminado true de SoKeepAlive.
+
+### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
+* Adición de compatibilidad con cadenas de diagnóstico de solicitud.
 
 ### <a name="a-name213213"></a><a name="2.1.3"/>2.1.3
 * Se ha corregido un error en PartitionKey para Hash V2.

@@ -1,22 +1,20 @@
 ---
 title: Copia de seguridad y restauración de un servidor en Azure Database for MariaDB
 description: Copia de seguridad y restauración de un servidor en Azure Database for MariaDB mediante la CLI de Azure.
-author: rachel-msft
-ms.author: raagyema
+author: ajlam
+ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 11/10/2018
-ms.openlocfilehash: 409fe7b76306036cad19980459ca718c87118d8f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 10/25/2019
+ms.openlocfilehash: ae2e8049c58be312eed380fe2197985e61d28a26
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66171383"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965219"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mariadb-using-the-azure-cli"></a>Copia de seguridad y restauración de un servidor en Azure Database for MariaDB mediante la CLI de Azure
-
-## <a name="backup-happens-automatically"></a>Las copias de seguridad se realizan automáticamente
 
 Periódicamente, se realizan copias de seguridad de los servidores de Azure Database for MariaDB para habilitar las características de restauración. Con esta característica, puede restaurar el servidor y todas sus bases de datos en un servidor nuevo a un momento dado anterior.
 
@@ -78,11 +76,13 @@ El comando `az mariadb server restore` requiere los siguientes parámetros:
 | restore-point-in-time | 2018-03-13T13:59:00Z | Seleccione un momento dado anterior para restaurar. Esta fecha y hora debe estar dentro del período de retención de copia de seguridad del servidor de origen. Use el formato de fecha y hora ISO8601. Por ejemplo, puede usar su propia zona horaria, como `2018-03-13T05:59:00-08:00`. También puede utilizar el formato de hora Zulú UTC, por ejemplo, `2018-03-13T13:59:00Z`. |
 | source-server | mydemoserver | Nombre o identificador del servidor de origen desde el que se va a restaurar. |
 
-Cuando se restaura un servidor a un momento dado anterior, se crea un servidor. El servidor de origen y las bases de datos de ese momento dado anterior se copian en el servidor nuevo.
+Cuando se restaura un servidor a un momento dado anterior, se crea un nuevo servidor. El servidor de origen y las bases de datos de ese momento dado anterior se copian en el servidor nuevo.
 
-Los valores de ubicación y plan de tarifa del servidor restaurado son los mismos que los del servidor de origen.
+Los valores de ubicación y plan de tarifa del servidor restaurado son los mismos que los del servidor de origen. 
 
-Una vez finalizada la restauración, busque el servidor nuevo y compruebe que los datos se restauraron según lo previsto.
+Una vez finalizada la restauración, busque el servidor nuevo y compruebe que los datos se restauraron según lo previsto. El nuevo servidor tiene el mismo nombre de inicio de sesión y contraseña de administrador del servidor que el servidor existente tenía cuando se inició la restauración. La contraseña se puede cambiar en la página **Información general** del nuevo servidor.
+
+El servidor creado durante una restauración no tiene las reglas de firewall o los puntos de conexión de servicio VNet que existían en el servidor original. Estas reglas deben configurarse por separado para este nuevo servidor.
 
 ## <a name="geo-restore"></a>Restauración geográfica
 
@@ -119,12 +119,14 @@ El comando `az mariadb server georestore` requiere los siguientes parámetros:
 |location | estado | Ubicación del nuevo servidor. |
 |sku-name| GP_Gen5_8 | Este parámetro establece el plan de tarifa, la generación del proceso y el número de núcleos virtuales del nuevo servidor. GP_Gen5_8 se asigna a un servidor Gen 5 de uso general con ocho núcleos virtuales.|
 
->[!Important]
->Al crear un nuevo servidor mediante una restauración geográfica, hereda el mismo tamaño de almacenamiento y plan de tarifa que el servidor de origen. Estos valores no se pueden cambiar durante la creación. Después de crea el nuevo servidor, se puede escalar verticalmente su tamaño de almacenamiento.
+Al crear un nuevo servidor mediante una restauración geográfica, hereda el mismo tamaño de almacenamiento y plan de tarifa que el servidor de origen. Estos valores no se pueden cambiar durante la creación. Después de crea el nuevo servidor, se puede escalar verticalmente su tamaño de almacenamiento.
 
-Una vez finalizada la restauración, busque el servidor nuevo y compruebe que los datos se restauraron según lo previsto.
+Una vez finalizada la restauración, busque el servidor nuevo y compruebe que los datos se restauraron según lo previsto. El nuevo servidor tiene el mismo nombre de inicio de sesión y contraseña de administrador del servidor que el servidor existente tenía cuando se inició la restauración. La contraseña se puede cambiar en la página **Información general** del nuevo servidor.
+
+El servidor creado durante una restauración no tiene las reglas de firewall o los puntos de conexión de servicio VNet que existían en el servidor original. Estas reglas deben configurarse por separado para este nuevo servidor.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Más información acerca de las [copias de seguridad](concepts-backup.md) del servicio.
-- Más información sobre las opciones de [continuidad del negocio](concepts-business-continuity.md).
+- Más información sobre las [copias de seguridad](concepts-backup.md) del servicio
+- Más información sobre las [réplicas](concepts-read-replicas.md)
+- Más información sobre las opciones de [continuidad del negocio](concepts-business-continuity.md)

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba53049d580f3f90499dc0471b9ac981f4a374f2
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 2abc5434f11bf00c6872775b1336694c04972e95
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562172"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73200218"
 ---
 # <a name="understand-secure-azure-managed-workstations"></a>Descripción de las estaciones de trabajo seguras administradas por Azure
 
@@ -91,7 +91,7 @@ Esta guía hace referencia a varios perfiles y roles de seguridad que pueden ayu
 
 * **Seguridad mejorada**: esta solución protegida, de nivel inicial es adecuada para usuarios domésticos, de pequeñas empresas y desarrolladores en general.
 
-   Una estación de trabajo mejorada basada en directivas es una forma de aumentar la seguridad de un perfil de seguridad bajo. Proporciona una forma segura de trabajar con los datos del cliente a la vez que usa herramientas de productividad como el correo electrónico o la exploración web. Puede usar directivas de auditoría e Intune para supervisar el comportamiento de los usuarios y el uso de perfiles de una estación de trabajo mejorada. Puede implementar el perfil de la estación de trabajo mejorada con el script de Windows 10 (1809) y este aprovecha la protección de malware avanzada mediante [Advanced Threat Protection (ATP)](https://docs.microsoft.com/office365/securitycompliance/office-365-atp).
+   Una estación de trabajo mejorada basada en directivas es una forma de aumentar la seguridad de un perfil de seguridad bajo. Proporciona una forma segura de trabajar con los datos del cliente a la vez que usa herramientas de productividad como el correo electrónico o la exploración web. Puede usar directivas de auditoría e Intune para supervisar el comportamiento de los usuarios y el uso de perfiles de una estación de trabajo mejorada. Puede implementar el perfil de la estación de trabajo mejorada con el script de Windows 10 (1809) y este aprovecha la protección de malware avanzada mediante [Advanced Threat Protection (ATP)](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection).
 
 * **Seguridad alta**: la manera más eficaz de reducir la superficie de ataque de una estación de trabajo es suprimir la posibilidad de autoadministrarla. La eliminación de los derechos administrativos locales es un paso que mejora la seguridad, pero puede afectar a la productividad si se implementa de forma incorrecta. El perfil de alta seguridad se basa en el perfil de seguridad mejorada con una diferencia importante: la eliminación del administrador local. Este perfil está diseñado para usuarios de alto perfil: ejecutivos, usuarios de datos sobre nóminas e información confidencial, y aprobadores de servicios y procesos.
 

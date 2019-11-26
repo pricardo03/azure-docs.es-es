@@ -9,14 +9,15 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: gregman
-ms.openlocfilehash: 9e3f7e3b23cba3fab87ee35aa2a15b6305d9ece4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b32bbfa5e849c1a0490bba5d09d1838268033b26
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67054181"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72964656"
 ---
 # <a name="run-azure-iot-edge-on-windows-server-virtual-machines"></a>Ejecución de Azure IoT Edge en máquinas virtuales de Windows Server
+
 El entorno de ejecución de Azure IoT Edge es lo que convierte a un dispositivo en un dispositivo IoT Edge. El entorno de ejecución se puede implementar en dispositivos tan pequeños como un Raspberry Pi o tan grandes como un servidor industrial. Una vez que un dispositivo está configurado con el entorno de ejecución de IoT Edge, puede empezar a implementar lógica de negocios en él desde la nube.
 
 Para más información acerca de cómo funciona el entorno de ejecución de IoT Edge y los componentes que se incluyen, consulte [Información del entorno de ejecución de Azure IoT Edge y su arquitectura](iot-edge-runtime.md).
@@ -24,6 +25,7 @@ Para más información acerca de cómo funciona el entorno de ejecución de IoT 
 En este artículo se enumeran los pasos para ejecutar el entorno de ejecución de Azure IoT Edge en una máquina virtual de Windows Server 2019 con la oferta de Azure Marketplace de [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview). Siga las instrucciones de [Instalación del entorno de ejecución de Azure IoT Edge en Windows](how-to-install-iot-edge-windows.md) para usarlo con otras versiones.
 
 ## <a name="deploy-from-the-azure-marketplace"></a>Implementación desde Azure Marketplace
+
 1.  Vaya a la oferta de Azure Marketplace de [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview) o busque "Windows Server" en [Azure Marketplace](https://azuremarketplace.microsoft.com/).
 2.  Seleccione **OBTENERLA AHORA**. 
 3.  En **Plan de Software**, busque "Windows Server 2019 Datacenter Server Core with Containers" y seleccione **Continuar** en el cuadro de diálogo siguiente.
@@ -32,7 +34,7 @@ En este artículo se enumeran los pasos para ejecutar el entorno de ejecución d
     *   Si es la primera vez que prueba una máquina virtual, es más fácil usar una contraseña y habilitar RDP y SSH en el menú del puerto de entrada público. 
     *   Si tiene una carga de trabajo con uso intensivo de recursos, debe actualizar el tamaño de máquina virtual mediante la adición de más CPU o memoria.
 5.  Una vez implementada la máquina virtual, configúrela para conectarse a IoT Hub:
-    1.  Copie la cadena de conexión del dispositivo desde el dispositivo de IoT Edge creado en IoT Hub (puede seguir la guía [Registro de un nuevo dispositivo Azure IoT Edge desde Azure Portal](how-to-register-device-portal.md) si no está familiarizado con este proceso)
+    1.  Copie la cadena de conexión del dispositivo IoT Edge creado en IoT Hub. Vea el procedimiento [Recuperar la cadena de conexión en Azure Portal](how-to-register-device.md#retrieve-the-connection-string-in-the-azure-portal).
     1.  Seleccione el recurso de máquina virtual recién creado en Azure Portal y abra la opción **Ejecución de comando**.
     1.  Seleccione la opción **RunPowerShellScript**.
     1.  Copie este script en la ventana de comandos con la cadena de conexión del dispositivo: 
@@ -40,51 +42,53 @@ En este artículo se enumeran los pasos para ejecutar el entorno de ejecución d
         . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
         Install-IoTEdge -Manual -DeviceConnectionString '<connection-string>'
         ```
-    1.  Ejecute el script para instalar el entorno de ejecución de Edge y establezca la cadena de conexión mediante la selección de **Ejecutar**.
+    1.  Ejecute el script para instalar el entorno de ejecución de IoT Edge y establezca la cadena de conexión mediante la selección de **Ejecutar**.
     1.  Transcurrido un minuto o dos, debería ver un mensaje sobre la instalación del entorno de ejecución de Edge y su correcto aprovisionamiento.
 
-
 ## <a name="deploy-from-the-azure-portal"></a>Implementación desde Azure Portal
+
 1. Desde Azure Portal, busque "Windows Server" y seleccione **Windows Server 2019 Datacenter** para iniciar el flujo de trabajo de creación de la máquina virtual. 
 2. En **Seleccionar un plan de software**, elija "Windows Server 2019 Datacenter Server Core with Containers" y seleccione **Crear**.
 3. Siga el paso 5 de las instrucciones de "Implementación desde Azure Marketplace" anteriores.
 
 ## <a name="deploy-from-azure-cli"></a>Implementación desde la CLI de Azure
+
 1. Si está usando la CLI de Azure en el escritorio, empiece por iniciar sesión:
 
    ```azurecli-interactive
    az login
    ```
-    
+
 1. Si tiene varias suscripciones, seleccione la que desea utilizar:
    1. Muestre las suscripciones:
-    
+
       ```azurecli-interactive
       az account list --output table
       ```
-    
+
    1. Copie el campo SubscriptionID para la suscripción que desea utilizar.
    1. Ejecute este comando con el identificador que acaba de copiar:
-    
+
       ```azurecli-interactive 
       az account set -s {SubscriptionId}
       ```
-    
+
 1. Cree un grupo de recursos nuevo (o especifique uno que ya exista en los pasos siguientes):
 
    ```azurecli-interactive
    az group create --name IoTEdgeResources --location westus2
    ```
-    
+
 1. Creación de una máquina virtual:
 
    ```azurecli-interactive
    az vm create -g IoTEdgeResources -n EdgeVM --image MicrosoftWindowsServer:WindowsServer:2019-Datacenter-Core-with-Containers:latest  --admin-username azureuser --generate-ssh-keys --size Standard_DS1_v2
    ```
+
    * Este comando le solicitará contraseña, pero puede agregar la opción `--admin-password` para establecerla más fácilmente en un script.
    * La imagen de Windows Server Core admite línea de comandos solo con Escritorio remoto, por lo tanto, si quiere la experiencia de escritorio completa, debe especificar `MicrosoftWindowsServer:WindowsServer:2019-Datacenter-with-Containers:latest` como imagen.
 
-1. Establezca la cadena de conexión del dispositivo (puede seguir la guía [Registro de un nuevo dispositivo Azure IoT Edge con la CLI de Azure](how-to-register-device-cli.md) si no está familiarizado con este proceso):
+1. Establezca la cadena de conexión del dispositivo (puede seguir el procedimiento [Recuperar la cadena de conexión con la CLI de Azure](how-to-register-device.md#retrieve-the-connection-string-with-the-azure-cli) si no está familiarizado con este proceso):
 
    ```azurecli-interactive
    az vm run-command invoke -g IoTEdgeResources -n EdgeVM --command-id RunPowerShellScript --script ". {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `Install-IoTEdge -Manual -DeviceConnectionString '<connection-string>'"

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 07/15/2019
+ms.date: 10/18/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5d374f4ddac2e4d013bab1c5e88a87af1da2c1f
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 95ea7eb470a5880bc88b3df903d33854f363e974
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68667132"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72881312"
 ---
 # <a name="identity-protection-and-b2b-users"></a>Protección de identidades y usuarios de Colaboración B2B
 
@@ -33,9 +33,9 @@ El riesgo del usuario para los usuarios de Colaboración B2B se evalúa en su di
 
 Existen limitaciones en la implementación de Identity Protection para los usuarios de Colaboración B2B en un directorio de recursos debido a su identidad existente en su directorio particular. Las principales limitaciones son las siguientes:
 
-- Si un usuario invitado desencadena la directiva de riesgo de usuario de Identity Protection para forzar el restablecimiento de la contraseña, se bloqueará. Este bloqueo se debe a la imposibilidad de restablecer contraseñas en el directorio de recursos.
-- Los usuarios invitados no aparecen en el informe de usuarios de riesgo. Esta pérdida de visibilidad se debe a la evaluación del riesgo que se produce en el directorio particular del usuario de B2B.
-- Los administradores no pueden descartar ni corregir un usuario de Colaboración B2B de riesgo en su directorio de recursos. Esta pérdida de funcionalidad se debe a que los administradores del directorio de recursos no tienen acceso al directorio particular del usuario de B2B.
+- Si un usuario invitado desencadena la directiva de riesgo de usuario de Identity Protection para forzar el restablecimiento de la contraseña, **se bloqueará**. Este bloqueo se debe a la imposibilidad de restablecer contraseñas en el directorio de recursos.
+- **Los usuarios invitados no aparecen en el informe de usuarios de riesgo**. Esta pérdida de visibilidad se debe a la evaluación del riesgo que se produce en el directorio particular del usuario de B2B.
+- Los administradores **no pueden descartar ni corregir un usuario de Colaboración B2B de riesgo** en su directorio de recursos. Esta pérdida de funcionalidad se debe a que los administradores del directorio de recursos no tienen acceso al directorio particular del usuario de B2B.
 
 ### <a name="why-cant-i-remediate-risky-b2b-collaboration-users-in-my-directory"></a>¿Por qué no puedo corregir a los usuarios de Colaboración B2B de riesgo en mi directorio?
 
@@ -54,4 +54,3 @@ La exclusión de los usuarios de B2B de las directivas de acceso condicional bas
 Consulte los siguientes artículos sobre la colaboración de B2B de Azure AD:
 
 - [¿Qué es la colaboración B2B de Azure AD?](../b2b/what-is-b2b.md)
-- [¿Qué es el acceso condicional?](../conditional-access/overview.md)

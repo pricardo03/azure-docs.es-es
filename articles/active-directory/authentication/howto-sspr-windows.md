@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/17/2019
+ms.date: 10/28/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ab46bd29aef2fab26c744e1e4c199f6c9a9fff1
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: 519993be873e7864dab4de4f66919c56aebfc379
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68304211"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73171869"
 ---
 # <a name="how-to-enable-password-reset-from-the-windows-login-screen"></a>Procedimientos para: Habilitar el restablecimiento de contraseña desde la pantalla de inicio de sesión de Windows
 
@@ -24,30 +24,10 @@ En el caso de los equipos que ejecutan Windows 7, 8, 8.1 y 10, puede permitir qu
 
 ![Pantallas de inicio de sesión de Windows 7 y 10 de ejemplo en las que se muestra el vínculo de SSPR](./media/howto-sspr-windows/windows-reset-password.png)
 
-## <a name="general-prerequisites"></a>Requisitos previos generales
-
-- Un administrador debe habilitar el autoservicio de restablecimiento de contraseña de Azure AD desde Azure Portal.
-- **Los usuarios deben registrarse para SSPR antes de usar esta característica**
-- Requisitos del proxy de red
-   - Dispositivos Windows 10 
-       - Puerto 443 para `passwordreset.microsoftonline.com` y `ajax.aspnetcdn.com`
-       - Los dispositivos Windows 10 solo admiten la configuración de proxy de nivel de equipo
-   - Dispositivos Windows 7, 8 y 8.1
-       - Puerto 443 para `passwordreset.microsoftonline.com`
-
 ## <a name="general-limitations"></a>Limitaciones generales
 
 - El restablecimiento de contraseña no se admite actualmente desde Escritorio remoto o sesiones mejoradas de Hyper-V.
-- No se admite el desbloqueo de cuentas, la notificación de aplicación móvil y el código de aplicación móvil.
 - Esta característica no funciona para las redes con la red autenticación 802.1X implementada y la opción "Realizar inmediatamente antes de que el usuario inicie sesión". Para las redes con la autenticación de red 802.1X implementada se recomienda usar la autenticación del equipo para habilitar esta característica.
-
-## <a name="windows-10-password-reset"></a>Restablecimiento de contraseña de Windows 10
-
-### <a name="windows-10-specific-prerequisites"></a>Requisitos previos específicos de Windows 10
-
-- Ejecute al menos la actualización de abril de 2018 (v1803) de Windows 10, y los dispositivos deben estar:
-    - Unido a Azure AD
-    - Híbrido unido a Azure AD
 - Los equipos unidos a Azure AD híbrido deben tener una línea de visión de conectividad de red a un controlador de dominio para usar las nuevas credenciales en caché de contraseña y actualización.
 - Si se usa una imagen, antes de ejecutar sysprep, asegúrese de que se borra la caché web para la cuenta predefinida de administrador antes de realizar el paso de CopyProfile. Puede encontrar más información sobre este paso en el artículo de soporte técnico [Rendimiento deficiente cuando se usa el perfil de usuario predeterminado personalizado](https://support.microsoft.com/help/4056823/performance-issue-with-custom-default-user-profile).
 - Se sabe que los valores siguientes interfieren con la capacidad de usar y restablecer contraseñas en dispositivos Windows 10
@@ -61,7 +41,21 @@ En el caso de los equipos que ejecutan Windows 7, 8, 8.1 y 10, puede permitir qu
 - La combinación de las tres configuraciones específicas siguientes puede hacer que esta característica no funcione.
     - Inicio de sesión interactivo: No requiere CTRL + ALT + SUPR = Deshabilitado
     - DisableLockScreenAppNotifications = 1 o Habilitado
-    - IsContentDeliveryPolicyEnforced = 1 o True 
+    - IsContentDeliveryPolicyEnforced = 1 o True
+
+## <a name="windows-10-password-reset"></a>Restablecimiento de contraseña de Windows 10
+
+### <a name="windows-10-prerequisites"></a>Requisitos previos de Windows 10
+
+- Un administrador debe habilitar el autoservicio de restablecimiento de contraseña de Azure AD desde Azure Portal.
+- **Los usuarios deben registrarse para SSPR antes de usar esta característica**
+- Requisitos del proxy de red
+   - Dispositivos Windows 10 
+       - Puerto 443 para `passwordreset.microsoftonline.com` y `ajax.aspnetcdn.com`
+       - Los dispositivos Windows 10 solo admiten la configuración de proxy de nivel de equipo
+- Ejecute al menos la actualización de abril de 2018 (v1803) de Windows 10, y los dispositivos deben estar:
+    - Unido a Azure AD
+    - Híbrido unido a Azure AD
 
 ### <a name="enable-for-windows-10-using-intune"></a>Habilitación para Windows 10 con Intune
 
@@ -95,7 +89,6 @@ La implementación de cambios de configuración para habilitar el restablecimien
    - `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\AzureADAccount`
       - `"AllowPasswordReset"=dword:00000001`
 
-
 #### <a name="troubleshooting-windows-10-password-reset"></a>Solución de problemas de restablecimiento de contraseña de Windows 10
 
 El registro de auditoría de Azure AD incluirá información sobre la dirección IP y el ClientType donde se produjo el restablecimiento de contraseña.
@@ -106,8 +99,13 @@ Cuando los usuarios restablecen su contraseña desde la pantalla de inicio de se
 
 ## <a name="windows-7-8-and-81-password-reset"></a>Restablecimiento de contraseña de Windows 7, 8 y 8.1
 
-### <a name="windows-7-8-and-81-specific-prerequisites"></a>Requisitos previos específicos de Windows 7, 8 y 8.1
+### <a name="windows-7-8-and-81-prerequisites"></a>Requisitos previos de Windows 7, 8 y 8.1
 
+- Un administrador debe habilitar el autoservicio de restablecimiento de contraseña de Azure AD desde Azure Portal.
+- **Los usuarios deben registrarse para SSPR antes de usar esta característica**
+- Requisitos del proxy de red
+   - Dispositivos Windows 7, 8 y 8.1
+       - Puerto 443 para `passwordreset.microsoftonline.com`
 - Sistema operativo Windows 7 o Windows 8.1 revisado.
 - TLS 1.2 habilitada mediante las instrucciones que se encuentran en [Configuración del registro de TLS](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings#tls-12).
 - Si en el equipo hay más de un proveedor de credenciales de terceros habilitado, los usuarios verán más de un perfil de usuario en la pantalla de inicio de sesión.
@@ -152,7 +150,7 @@ Ahora que ha configurado el restablecimiento de contraseña para los dispositivo
 
 Cuando los usuarios intenten iniciar sesión, ahora verán un vínculo **Restablecer contraseña** o **He olvidado mi contraseña** que abre la experiencia de autoservicio de restablecimiento de contraseña en la pantalla de inicio de sesión. Esta funcionalidad permite a los usuarios restablecer su contraseña sin tener que usar otro dispositivo para acceder a un explorador web.
 
-Los usuarios encontrarán instrucciones para usar esta característica en el artículo sobre el [restablecimiento de la contraseña profesional o educativa](../user-help/active-directory-passwords-update-your-own-password.md#reset-password-at-sign-in)
+Los usuarios encontrarán instrucciones para usar esta característica en el artículo sobre el [restablecimiento de la contraseña profesional o educativa](../user-help/active-directory-passwords-update-your-own-password.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

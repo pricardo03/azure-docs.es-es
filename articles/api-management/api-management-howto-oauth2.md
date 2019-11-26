@@ -10,18 +10,21 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 08/10/2018
+ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: e6b5c8c2f734a12fe246a82ce1aa1dc53893ab64
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 99a49aa4627dc23d5f7531ac961d63e3e75ccff9
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072372"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176616"
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Procedimiento para autorizar a las cuentas de desarrollador para que usen OAuth 2.0 en Azure API Management
 
 Muchas API admiten [OAuth 2.0](https://oauth.net/2/) para proteger la API y garantizar que solo usuarios válidos obtengan acceso y que, además, solo puedan tener acceso a los recursos para los que estén autorizados. Para usar la consola interactiva para desarrolladores de la Azure API Management, el servicio permite configurar la instancia del servicio para que funcione con la API habilitada para OAuth 2.0.
+
+> [!IMPORTANT]
+> La autorización de OAuth 2.0 todavía no está disponible en la consola interactiva del nuevo portal para desarrolladores.
 
 ## <a name="prerequisites"> </a>Requisitos previos
 
@@ -92,11 +95,11 @@ En esta guía se explica cómo configurar la instancia del servicio Administraci
 
     ![Configuración de OAuth 2.0](./media/api-management-howto-oauth2/oauth-07.png)
 
-## <a name="step3"></a>Probar la autorización de usuario OAuth 2.0 en el portal para desarrolladores
+## <a name="step3"></a>Probar la autorización de usuario OAuth 2.0 en el portal para desarrolladores (heredado)
 
-Tras configurar el servidor de autorización OAuth 2.0 y las API para que usen dicho servidor, puede probarlo. Para ello, vaya al portal para desarrolladores y llame a una API.  Haga clic en **Portal para desarrolladores** en el menú superior de la página **Introducción** de la instancia de Azure API Management.
+[!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
-![Portal para desarrolladores][api-management-developer-portal-menu]
+Tras configurar el servidor de autorización OAuth 2.0 y las API para que usen dicho servidor, puede probarlo. Para ello, vaya al portal para desarrolladores y llame a una API. Haga clic en **Portal para desarrolladores (heredado)** en el menú superior de la página **Introducción** de la instancia de Azure API Management.
 
 Haga clic en **API** en el menú superior y seleccione **API eco**.
 
@@ -128,7 +131,6 @@ Para obtener más información acerca del uso de OAuth 2.0 y Administración de 
 
 [api-management-oauth2-signin]: ./media/api-management-howto-oauth2/api-management-oauth2-signin.png
 [api-management-request-header-token]: ./media/api-management-howto-oauth2/api-management-request-header-token.png
-[api-management-developer-portal-menu]: ./media/api-management-howto-oauth2/api-management-developer-portal-menu.png
 [api-management-open-console]: ./media/api-management-howto-oauth2/api-management-open-console.png
 [api-management-apis-echo-api]: ./media/api-management-howto-oauth2/api-management-apis-echo-api.png
 

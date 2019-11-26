@@ -3,22 +3,23 @@ title: 'CLI de Azure Service Fabric: aplicación de sfctl | Microsoft Docs'
 description: Se describen los comandos de aplicación de sfctl de la CLI de Service Fabric.
 services: service-fabric
 documentationcenter: na
-author: Christina-Kang
+author: jeffj6123
 manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
+ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/06/2018
-ms.author: bikang
-ms.openlocfilehash: 5d9728db919f15eda49602f2619f1c27fbb42b57
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.date: 9/17/2019
+ms.author: jejarry
+ms.openlocfilehash: 163faaab8fa2503458503d9f2b72d27a3e5856f0
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036546"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901284"
 ---
 # <a name="sfctl-application"></a>aplicación de sfctl
 Cree, elimine y administre aplicaciones y tipos de aplicaciones.
@@ -37,7 +38,7 @@ Cree, elimine y administre aplicaciones y tipos de aplicaciones.
 | list | Obtiene la lista de aplicaciones creadas en el clúster de Service Fabric que coinciden con los filtros especificados. |
 | load | Obtiene la información de carga sobre una aplicación de Service Fabric. |
 | manifest | Obtiene el manifiesto que describe un tipo de aplicación. |
-| provision | Aprovisiona o registra un tipo de aplicación de Service Fabric con el clúster mediante el paquete .sfpkg en el almacén externo o mediante el paquete de aplicación en el almacén de imágenes. |
+| provision | Aprovisiona o registra un tipo de aplicación de Service Fabric con el clúster mediante el paquete ".sfpkg" en el almacén externo o mediante el paquete de aplicación en el almacén de imágenes. |
 | report-health | Envía un informe de estado sobre la aplicación de Service Fabric. |
 | type | Obtiene la lista de tipos de aplicaciones del clúster de Service Fabric que coinciden exactamente con el nombre especificado. |
 | type-list | Obtiene la lista de tipos de aplicaciones del clúster de Service Fabric. |
@@ -62,7 +63,7 @@ Crea una aplicación de Service Fabric con la descripción especificada.
 | --metrics | Una lista codificada de JSON con las descripciones de las métricas de capacidad de la aplicación. Una métrica se define como un nombre, asociado con un conjunto de funcionalidades de cada nodo en que se encuentra la aplicación. |
 | --min-node-count | El número mínimo de nodos que Service Fabric reserva como capacidad para esta aplicación. Tenga en cuenta que esto no significa que los servicios de esta aplicación estarán colocados en todos estos nodos. |
 | --parameters | Una lista codificada en JSON con los reemplazos de los parámetros de la aplicación que se aplicarán al crear la aplicación. |
-| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --timeout -t | Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
@@ -85,7 +86,7 @@ Una aplicación debe crearse para poder eliminarla. Al eliminar una aplicación,
 | --- | --- |
 | --application-id [Obligatorio] | La identidad de la aplicación. Este suele ser el nombre completo de la aplicación sin el esquema de URI "fabric\:". A partir de la versión 6.0, los nombres jerárquicos se delimitan con el carácter "\~". Por ejemplo, si el nombre de la aplicación es "fabric\:/myapp/app1", la identidad de la aplicación sería "myapp\~app1" en 6.0+ y "myapp/app1" en las versiones anteriores. |
 | --force-remove | Elimina una aplicación o un servicio de Service Fabric de manera forzada sin pasar por la secuencia de apagado correcta. Este parámetro puede usarse para forzar la eliminación de una aplicación o un servicio cuya eliminación normal requiere un tiempo de espera a causa de problemas del código del servicio que impiden el cierre correcto de las réplicas. |
-| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
@@ -109,7 +110,7 @@ Esta consulta devuelve información de la aplicación del sistema si el identifi
 | --application-id [Obligatorio] | La identidad de la aplicación. Este suele ser el nombre completo de la aplicación sin el esquema de URI "fabric\:". A partir de la versión 6.0, los nombres jerárquicos se delimitan con el carácter "\~". Por ejemplo, si el nombre de la aplicación es "fabric\:/myapp/app1", la identidad de la aplicación sería "myapp\~app1" en 6.0+ y "myapp/app1" en las versiones anteriores. |
 | --node-name [Obligatorio] | El nombre del nodo. |
 | --include-health-state | Incluir el estado de mantenimiento de una entidad. Si este parámetro es falso o no se especifica, el estado de mantenimiento devuelto es "Unknown". Cuando se establece en true, la consulta va en paralelo al nodo y al servicio del sistema de mantenimiento antes de que los resultados se combinen. Como resultado, la consulta es más costosa y puede tardar más tiempo. |
-| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
@@ -135,7 +136,7 @@ Obtiene la información sobre el mantenimiento de una aplicación implementada e
 | --deployed-service-packages-health-state-filter | Permite filtrar los objetos de estado de mantenimiento del paquete de servicio implementado devueltos en el resultado de la consulta de mantenimiento de la aplicación implementada según su estado de mantenimiento. Los valores posibles para este parámetro incluyen el valor entero de uno de los siguientes estados de mantenimiento. Se devuelven únicamente los paquetes de servicio implementados que coinciden con el filtro. Todos los paquetes de servicio implementados se utilizan para evaluar el estado de mantenimiento agregado de la aplicación implementada. Si no se especifica, se devuelven todas las entradas. Los valores de estado se marcan según la enumeración, por lo que el valor puede ser una combinación de estos valores obtenidos mediante el operador bit a bit "OR". Por ejemplo, si el valor proporcionado es 6, se devuelve el estado de mantenimiento de los paquetes de servicio con el valor HealthState de Ok (2) y Warning (4).  <br> - Default: valor predeterminado. Coincide con cualquier HealthState. El valor predeterminado es cero.  <br> - None: filtro que no coincide con ningún valor de HealthState. Se utiliza para no devolver ningún resultado en una determinada colección de estados. El valor es 1.  <br> - Ok: filtro que asocia la entrada con el valor de HealthState de Ok. El valor es 2.  <br> - Warning: filtro que asocia la entrada con el valor de HealthState de Warning. El valor es 4.  <br> - Error: filtro que asocia la entrada con el valor de HealthState de Error. El valor es 8.  <br> - All: filtro que asocia la entrada con cualquier valor de HealthState. El valor es 65535. |
 | --events-health-state-filter | Permite filtrar la colección de objetos HealthEvent devueltos según el estado de mantenimiento. Los valores posibles para este parámetro incluyen el valor entero de uno de los siguientes estados de mantenimiento. Se devuelven únicamente los eventos que coinciden con el filtro. Todos los eventos se utilizan para evaluar el estado de mantenimiento agregado. Si no se especifica, se devuelven todas las entradas. Los valores de estado se marcan según la enumeración, por lo que el valor puede ser una combinación de estos valores obtenidos mediante el operador bit a bit "OR". Por ejemplo, si el valor proporcionado es 6, se devuelven todos los eventos con el valor HealthState de Ok (2) y Warning (4).  <br> - Default: valor predeterminado. Coincide con cualquier HealthState. El valor predeterminado es cero.  <br> - None: filtro que no coincide con ningún valor de HealthState. Se utiliza para no devolver ningún resultado en una determinada colección de estados. El valor es 1.  <br> - Ok: filtro que asocia la entrada con el valor de HealthState de Ok. El valor es 2.  <br> - Warning: filtro que asocia la entrada con el valor de HealthState de Warning. El valor es 4.  <br> - Error: filtro que asocia la entrada con el valor de HealthState de Error. El valor es 8.  <br> - All: filtro que asocia la entrada con cualquier valor de HealthState. El valor es 65535. |
 | --exclude-health-statistics | Indica si las estadísticas de mantenimiento se deben devolver como parte del resultado de la consulta. El valor predeterminado es false. Las estadísticas muestran el número de entidades secundarias en estado de mantenimiento Ok, Warning y Error. |
-| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
@@ -160,7 +161,7 @@ Obtiene la lista de las aplicaciones implementadas en un nodo de Service Fabric.
 | --continuation-token | El parámetro continuation token se utiliza para obtener el siguiente conjunto de resultados. Un token de continuación con un valor no vacío se incluye en la respuesta de la API cuando los resultados del sistema no caben en una única respuesta. Cuando este valor se pasa a la siguiente llamada de la API, la API devuelve el siguiente conjunto de resultados. Si no hay más resultados, el token de continuación no contiene ningún valor. El valor de este parámetro no debe ser la dirección URL codificada. |
 | --include-health-state | Incluir el estado de mantenimiento de una entidad. Si este parámetro es falso o no se especifica, el estado de mantenimiento devuelto es "Unknown". Cuando se establece en true, la consulta va en paralelo al nodo y al servicio del sistema de mantenimiento antes de que los resultados se combinen. Como resultado, la consulta es más costosa y puede tardar más tiempo. |
 | --max-results | El número máximo de resultados que se devuelven como parte de las consultas paginadas. Este parámetro define el límite superior en el número de resultados devueltos. Los resultados devueltos pueden ser menos que el número máximo de resultados especificado si no caben en el mensaje según las restricciones del tamaño máximo del mensaje definidas en la configuración. Si este parámetro es cero o no se especifica, la consulta paginada incluye tantos resultados como quepan en el mensaje devuelto. |
-| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
@@ -186,7 +187,7 @@ Devuelve el estado de mantenimiento de la aplicación de Service Fabric. La resp
 | --events-health-state-filter | Permite filtrar la colección de objetos HealthEvent devueltos según el estado de mantenimiento. Los valores posibles para este parámetro incluyen el valor entero de uno de los siguientes estados de mantenimiento. Se devuelven únicamente los eventos que coinciden con el filtro. Todos los eventos se utilizan para evaluar el estado de mantenimiento agregado. Si no se especifica, se devuelven todas las entradas. Los valores de estado se marcan según la enumeración, por lo que el valor puede ser una combinación de estos valores obtenidos mediante el operador bit a bit "OR". Por ejemplo, si el valor proporcionado es 6, se devuelven todos los eventos con el valor HealthState de Ok (2) y Warning (4).  <br> - Default: valor predeterminado. Coincide con cualquier HealthState. El valor predeterminado es cero.  <br> - None: filtro que no coincide con ningún valor de HealthState. Se utiliza para no devolver ningún resultado en una determinada colección de estados. El valor es 1.  <br> - Ok: filtro que asocia la entrada con el valor de HealthState de Ok. El valor es 2.  <br> - Warning: filtro que asocia la entrada con el valor de HealthState de Warning. El valor es 4.  <br> - Error: filtro que asocia la entrada con el valor de HealthState de Error. El valor es 8.  <br> - All: filtro que asocia la entrada con cualquier valor de HealthState. El valor es 65535. |
 | --exclude-health-statistics | Indica si las estadísticas de mantenimiento se deben devolver como parte del resultado de la consulta. El valor predeterminado es false. Las estadísticas muestran el número de entidades secundarias en estado de mantenimiento Ok, Warning y Error. |
 | --services-health-state-filter | Permite filtrar los objetos de estado de mantenimiento de los servicios devueltos en el resultado del la consulta de mantenimiento de los servicios en función de su estado de mantenimiento. Los valores posibles para este parámetro incluyen el valor entero de uno de los siguientes estados de mantenimiento. Se devuelven únicamente los servicios que coinciden con el filtro. Todos los servicios se utilizan para evaluar el estado de mantenimiento agregado. Si no se especifica, se devuelven todas las entradas. Los valores de estado se marcan según la enumeración, por lo que el valor puede ser una combinación de estos valores obtenidos mediante el operador bit a bit "OR". Por ejemplo, si el valor proporcionado es 6, se devuelve el estado de mantenimiento de los servicios con el valor HealthState de Ok (2) y Warning (4).  <br> - Default: valor predeterminado. Coincide con cualquier HealthState. El valor predeterminado es cero.  <br> - None: filtro que no coincide con ningún valor de HealthState. Se utiliza para no devolver ningún resultado en una determinada colección de estados. El valor es 1.  <br> - Ok: filtro que asocia la entrada con el valor de HealthState de Ok. El valor es 2.  <br> - Warning: filtro que asocia la entrada con el valor de HealthState de Warning. El valor es 4.  <br> - Error: filtro que asocia la entrada con el valor de HealthState de Error. El valor es 8.  <br> - All: filtro que asocia la entrada con cualquier valor de HealthState. El valor es 65535. |
-| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
@@ -209,7 +210,7 @@ Devuelve la información sobre la aplicación que se creó o que está en proces
 | --- | --- |
 | --application-id [Obligatorio] | La identidad de la aplicación. Este suele ser el nombre completo de la aplicación sin el esquema de URI "fabric\:". A partir de la versión 6.0, los nombres jerárquicos se delimitan con el carácter "\~". Por ejemplo, si el nombre de la aplicación es "fabric\:/myapp/app1", la identidad de la aplicación sería "myapp\~app1" en 6.0+ y "myapp/app1" en las versiones anteriores. |
 | --exclude-application-parameters | La marca que especifica si los parámetros de la aplicación se excluirán del resultado. |
-| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
@@ -235,7 +236,7 @@ Obtiene la información sobre las aplicaciones que se crearon o que están en pr
 | --continuation-token | El parámetro continuation token se utiliza para obtener el siguiente conjunto de resultados. Un token de continuación con un valor no vacío se incluye en la respuesta de la API cuando los resultados del sistema no caben en una única respuesta. Cuando este valor se pasa a la siguiente llamada de la API, la API devuelve el siguiente conjunto de resultados. Si no hay más resultados, el token de continuación no contiene ningún valor. El valor de este parámetro no debe ser la dirección URL codificada. |
 | --exclude-application-parameters | La marca que especifica si los parámetros de la aplicación se excluirán del resultado. |
 | --max-results | El número máximo de resultados que se devuelven como parte de las consultas paginadas. Este parámetro define el límite superior en el número de resultados devueltos. Los resultados devueltos pueden ser menos que el número máximo de resultados especificado si no caben en el mensaje según las restricciones del tamaño máximo del mensaje definidas en la configuración. Si este parámetro es cero o no se especifica, la consulta paginada incluye tantos resultados como quepan en el mensaje devuelto. |
-| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
@@ -257,7 +258,7 @@ Devuelve la información de carga sobre la aplicación que se creó o que está 
 |Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --application-id [Obligatorio] | La identidad de la aplicación. Este suele ser el nombre completo de la aplicación sin el esquema de URI "fabric\:". A partir de la versión 6.0, los nombres jerárquicos se delimitan con el carácter "\~". Por ejemplo, si el nombre de la aplicación es "fabric\:/myapp/app1", la identidad de la aplicación sería "myapp\~app1" en 6.0+ y "myapp/app1" en las versiones anteriores. |
-| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
@@ -280,7 +281,7 @@ La respuesta contiene el manifiesto de aplicación XML como una cadena.
 | --- | --- |
 | --application-type-name [Obligatorio] | Nombre del tipo de aplicación. |
 | --application-type-version [Obligatorio] | La versión del tipo de aplicación. |
-| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
@@ -293,9 +294,9 @@ La respuesta contiene el manifiesto de aplicación XML como una cadena.
 | --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 ## <a name="sfctl-application-provision"></a>sfctl application provision
-Aprovisiona o registra un tipo de aplicación de Service Fabric con el clúster mediante el paquete .sfpkg en el almacén externo o mediante el paquete de aplicación en el almacén de imágenes.
+Aprovisiona o registra un tipo de aplicación de Service Fabric con el clúster mediante el paquete ".sfpkg" en el almacén externo o mediante el paquete de aplicación en el almacén de imágenes.
 
-Aprovisiona un tipo de aplicación de Service Fabric con el clúster. Es necesario para poder crear instancias de las aplicaciones nuevas. La operación de aprovisionamiento se puede realizar en el paquete de aplicación especificado por relativePathInImageStore o mediante el identificador URI del .sfpkg externo. A menos que se establezca --external-provision, este comando espera un aprovisionamiento del almacén de imágenes.
+Aprovisiona un tipo de aplicación de Service Fabric con el clúster. El aprovisionamiento es necesario para poder crear instancias de las aplicaciones nuevas. La operación de aprovisionamiento se puede realizar en el paquete de aplicación especificado por relativePathInImageStore o mediante el identificador URI del ".sfpkg" externo. A menos que se establezca --external-provision, este comando espera un aprovisionamiento del almacén de imágenes.
 
 ### <a name="arguments"></a>Argumentos
 
@@ -307,7 +308,7 @@ Aprovisiona un tipo de aplicación de Service Fabric con el clúster. Es necesar
 | --application-type-version | Solo para aprovisionamiento de un almacén externo de tipo. La versión del tipo de aplicación representa la versión del tipo de aplicación que se encuentra en el manifiesto de aplicación. |
 | --external-provision | La ubicación desde donde se puede registrar o aprovisionar un paquete de aplicación. Indica que el aprovisionamiento es para un paquete de aplicación que se ha cargado previamente en un almacén externo. El paquete de aplicación termina con la extensión *.sfpkg. |
 | --no-wait | Indica si el aprovisionamiento se debe realizar o no de forma asincrónica. <br><br> Cuando se establece en true, la operación de aprovisionamiento se devuelve cuando el sistema acepta la solicitud y la operación de aprovisionamiento continúa sin ningún límite de tiempo de espera. El valor predeterminado es false. Para paquetes de aplicación de gran tamaño, se recomienda establecer el valor en true. |
-| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --timeout -t | Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
@@ -336,7 +337,7 @@ Informa del estado de mantenimiento de la aplicación de Service Fabric especifi
 | --immediate | Una marca que indica si el informe se debe enviar inmediatamente. <br><br> Se envía un informe de mantenimiento a una aplicación de puerta de enlace de Service Fabric, que la reenvía al almacén de estado. Si Immediate se establece en true, el informe se envía inmediatamente de la puerta de enlace HTTP al almacén de estado, independientemente de la configuración de cliente de Fabric que esté usando la aplicación de la puerta de enlace HTTP. Esto es útil para los informes críticos que deben enviarse tan pronto como sea posible. En función del tiempo y otras condiciones, el envío del informe puede aún generar un error, por ejemplo, si se cierra la puerta de enlace HTTP o el mensaje no llega a la puerta de enlace. Si Immediate se establece en false, el informe se envía en función de la configuración de cliente de mantenimiento de la puerta de enlace HTTP. Por lo tanto, se procesará por lotes de acuerdo con la configuración de HealthReportSendInterval. Esta es la configuración recomendada porque permite que el cliente de mantenimiento optimice los mensajes de notificación de estado destinados al almacén de estado, así como el procesamiento de informes de mantenimiento. De forma predeterminada, los informes no se envían inmediatamente. |
 | --remove-when-expired | Valor que indica si el informe se quita del almacén de estado cuando expire. <br><br> Si se establece en true, el informe se quita del almacén de estado una vez que expire. Si se establece en false, el informe se trata como un error cuando expire. El valor de esta propiedad es false de forma predeterminada. Cuando los clientes notifican periódicamente, deben establecer RemoveWhenExpired en false (valor predeterminado). De esta manera, si el notificador tiene problemas (por ejemplo, un interbloqueo) y no puede informar, la entidad se evalúa al llegar el error cuando expira el informe de mantenimiento. De este modo, se marca que la entidad está en estado de mantenimiento Error. |
 | --sequence-number | El número de secuencia para este informe de estado como una cadena numérica. <br><br> El número de secuencia del informe se usa por el almacén de estado para detectar informes obsoletos. Si no se especifica, se genera automáticamente un número de secuencia por el cliente de estado cuando se agrega un informe. |
-| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --timeout -t | Valor predeterminado\: 60. |
 | --ttl | La duración durante la cual este informe de mantenimiento es válido. Este campo usa el formato ISO8601 para especificar la duración. <br><br> Cuando los clientes notifican periódicamente, deben enviar informes con una frecuencia mayor que el período de vida. Si los clientes notifican en transición, pueden establecer el período de vida en Infinito. Cuando expira el período de vida, el evento de estado que contiene la información de estado se quita del almacén de estado, si RemoveWhenExpired es true, o se evalúa en el error, si RemoveWhenExpired es false. Si no se especifica, el período de vida se establece de forma predeterminada en un valor infinito. |
 
 ### <a name="global-arguments"></a>Argumentos globales
@@ -363,7 +364,7 @@ Devuelve la información sobre los tipos de aplicaciones aprovisionados o en pro
 | --continuation-token | El parámetro continuation token se utiliza para obtener el siguiente conjunto de resultados. Un token de continuación con un valor no vacío se incluye en la respuesta de la API cuando los resultados del sistema no caben en una única respuesta. Cuando este valor se pasa a la siguiente llamada de la API, la API devuelve el siguiente conjunto de resultados. Si no hay más resultados, el token de continuación no contiene ningún valor. El valor de este parámetro no debe ser la dirección URL codificada. |
 | --exclude-application-parameters | La marca que especifica si los parámetros de la aplicación se excluirán del resultado. |
 | --max-results | El número máximo de resultados que se devuelven como parte de las consultas paginadas. Este parámetro define el límite superior en el número de resultados devueltos. Los resultados devueltos pueden ser menos que el número máximo de resultados especificado si no caben en el mensaje según las restricciones del tamaño máximo del mensaje definidas en la configuración. Si este parámetro es cero o no se especifica, la consulta paginada incluye tantos resultados como quepan en el mensaje devuelto. |
-| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
@@ -388,7 +389,7 @@ Devuelve la información sobre los tipos de aplicaciones aprovisionados o en pro
 | --continuation-token | El parámetro continuation token se utiliza para obtener el siguiente conjunto de resultados. Un token de continuación con un valor no vacío se incluye en la respuesta de la API cuando los resultados del sistema no caben en una única respuesta. Cuando este valor se pasa a la siguiente llamada de la API, la API devuelve el siguiente conjunto de resultados. Si no hay más resultados, el token de continuación no contiene ningún valor. El valor de este parámetro no debe ser la dirección URL codificada. |
 | --exclude-application-parameters | La marca que especifica si los parámetros de la aplicación se excluirán del resultado. |
 | --max-results | El número máximo de resultados que se devuelven como parte de las consultas paginadas. Este parámetro define el límite superior en el número de resultados devueltos. Los resultados devueltos pueden ser menos que el número máximo de resultados especificado si no caben en el mensaje según las restricciones del tamaño máximo del mensaje definidas en la configuración. Si este parámetro es cero o no se especifica, la consulta paginada incluye tantos resultados como quepan en el mensaje devuelto. |
-| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
@@ -412,7 +413,7 @@ Esta operación solo puede realizarse si se han eliminado todas las instancias d
 | --application-type-name [Obligatorio] | Nombre del tipo de aplicación. |
 | --application-type-version [Obligatorio] | La versión del tipo de aplicación, tal como se define en el manifiesto de aplicación. |
 | --async-parameter | La marca indica si el desaprovisionamiento se debe realizar o no de forma asincrónica. Cuando se establece en true, la operación de desaprovisionamiento se devuelve cuando el sistema acepta la solicitud y la operación de desaprovisionamiento continúa sin ningún límite de tiempo de espera. El valor predeterminado es false. Sin embargo, se recomienda que lo establezca en true para los paquetes de aplicación de gran tamaño que se han aprovisionado. |
-| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
@@ -446,7 +447,7 @@ Valida los parámetros de actualización de la aplicación proporcionados e inic
 | --mode | El modo usado para supervisar el mantenimiento durante una actualización gradual.  Valor predeterminado\: UnmonitoredAuto. |
 | --replica-set-check-timeout | El período de tiempo máximo para bloquear el procesamiento de un dominio de actualización y evitar la pérdida de disponibilidad cuando hay problemas inesperados. Se mide en segundos. |
 | --service-health-policy | Mapa codificado en JSON con una directiva de mantenimiento de tipo de servicio por cada nombre de tipo de servicio. El mapa está vacío de forma predeterminada. |
-| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --timeout -t | Valor predeterminado\: 60. |
 | --upgrade-domain-timeout | El período de tiempo del que dispone cada dominio de actualización para completarse antes de la ejecución de FailureAction.  Valor predeterminado\: P10675199DT02H48M05.4775807S. <br><br> En primer lugar se interpreta como una cadena que representa una duración ISO 8601. Si se produce un error, se interpreta como un número que representa el total de milisegundos. |
 | --upgrade-timeout | El período de tiempo en el que se debe completar la actualización general antes de que se ejecute FailureAction.  Valor predeterminado\: P10675199DT02H48M05.4775807S. <br><br> En primer lugar se interpreta como una cadena que representa una duración ISO 8601. Si se produce un error, se interpreta como un número que representa el total de milisegundos. |
 | --warning-as-error | Indica si las advertencias se tratan con el mismo nivel de gravedad que los errores. |
@@ -472,7 +473,7 @@ Reanuda la actualización de una aplicación de Service Fabric manual no supervi
 | --- | --- |
 | --application-id [Obligatorio] | La identidad de la aplicación. Este suele ser el nombre completo de la aplicación sin el esquema de URI "fabric\:". A partir de la versión 6.0, los nombres jerárquicos se delimitan con el carácter "\~". Por ejemplo, si el nombre de la aplicación es "fabric\:/myapp/app1", la identidad de la aplicación sería "myapp\~app1" en 6.0+ y "myapp/app1" en las versiones anteriores. |
 | --upgrade-domain-name [Obligatorio] | El nombre de dominio de actualización en la que se va a reanudar la actualización. |
-| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
@@ -494,7 +495,7 @@ Comienza a revertir la actualización de la aplicación actual a la versión ant
 |Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --application-id [Obligatorio] | La identidad de la aplicación. Este suele ser el nombre completo de la aplicación sin el esquema de URI "fabric\:". A partir de la versión 6.0, los nombres jerárquicos se delimitan con el carácter "\~". Por ejemplo, si el nombre de la aplicación es "fabric\:/myapp/app1", la identidad de la aplicación sería "myapp\~app1" en 6.0+ y "myapp/app1" en las versiones anteriores. |
-| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
@@ -516,7 +517,7 @@ Devuelve información sobre el estado de la última actualización de la aplicac
 |Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --application-id [Obligatorio] | La identidad de la aplicación. Este suele ser el nombre completo de la aplicación sin el esquema de URI "fabric\:". A partir de la versión 6.0, los nombres jerárquicos se delimitan con el carácter "\~". Por ejemplo, si el nombre de la aplicación es "fabric\:/myapp/app1", la identidad de la aplicación sería "myapp\~app1" en 6.0+ y "myapp/app1" en las versiones anteriores. |
-| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
@@ -538,8 +539,9 @@ Opcionalmente, se muestra el progreso de carga de cada archivo en el paquete. El
 |Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --path   [Obligatorio] | Ruta de acceso al paquete de aplicación local. |
-| --imagestore-string | Almacén de imágenes de destino en el que cargar el paquete de aplicación.  Predeterminado\: fabric\:ImageStore. |
+| --imagestore-string | Almacén de imágenes de destino en el que cargar el paquete de aplicación.  Predeterminado\: fabric\:ImageStore. <br><br> Para la carga en una ubicación de archivo, inicie este parámetro con "file\:". De lo contrario, el valor debe ser la cadena de conexión del almacén de imágenes, como el valor predeterminado. |
 | --show-progress | Muestra el progreso de la carga de archivos para paquetes grandes. |
+| --timeout -t | Tiempo de espera total en segundos. La carga no se realizará correctamente y devolverá un error una vez transcurrido el tiempo de espera de carga. Este tiempo de espera se aplica a todo el paquete de la aplicación y los tiempos de espera de archivos individuales serán iguales a la duración del tiempo de espera restante.  Valor predeterminado\: 300 |
 
 ### <a name="global-arguments"></a>Argumentos globales
 

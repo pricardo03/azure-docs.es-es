@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/20/2017
+ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: b720d64f5b0a5f66375083b7854658aa754db150
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: ff608cac9786ebc0d3908ce4d88fb501e621be6c
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "70072299"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176608"
 ---
 # <a name="azure-api-management-page-controls"></a>Controles de página de Azure API Management
 Azure API Management proporciona los siguientes controles para su uso en las plantillas del portal para desarrolladores.  
@@ -28,9 +28,11 @@ Para usar un control, colóquelo en la ubicación deseada en la plantilla del po
 <app-actions params="{ appId: '{{app.id}}' }"></app-actions>  
 ```  
   
- Los valores de los parámetros se pasan como parte del modelo de datos de la plantilla. En la mayoría de los casos, puede pegarlos simplemente en el ejemplo proporcionado para cada control para que funcione correctamente. Para más información sobre los valores de parámetros, puede ver la sección del modelo de datos de cada plantilla en la que se puede usar un control.  
-  
- Para más información sobre cómo trabajar con plantillas, consulte [Cómo personalizar el portal para desarrolladores de API Management mediante plantillas](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+Los valores de los parámetros se pasan como parte del modelo de datos de la plantilla. En la mayoría de los casos, puede pegarlos simplemente en el ejemplo proporcionado para cada control para que funcione correctamente. Para más información sobre los valores de parámetros, puede ver la sección del modelo de datos de cada plantilla en la que se puede usar un control.  
+
+Para más información sobre cómo trabajar con plantillas, consulte [Cómo personalizar el portal para desarrolladores de API Management mediante plantillas](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+
+[!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
@@ -60,7 +62,7 @@ Para usar un control, colóquelo en la ubicación deseada en la plantilla del po
   
 |Parámetro|DESCRIPCIÓN|  
 |---------------|-----------------|  
-|appId|Identificador de la aplicación.|  
+|appId|El identificador de la aplicación.|  
   
 ### <a name="developer-portal-templates"></a>Plantillas del portal para desarrolladores  
  El control `app-actions` se puede usar en las siguientes plantillas del portal para desarrolladores:  
@@ -204,7 +206,7 @@ Para usar un control, colóquelo en la ubicación deseada en la plantilla del po
   
 |Parámetro|DESCRIPCIÓN|  
 |---------------|-----------------|  
-|subscriptionId|Identificador de la suscripción para cancelar.|  
+|subscriptionId|El identificador de la suscripción para cancelar.|  
 |cancelUrl|Dirección URL de cancelación de la suscripción.|  
   
 ### <a name="developer-portal-templates"></a>Plantillas del portal para desarrolladores  

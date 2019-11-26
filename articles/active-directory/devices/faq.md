@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d44b868f2ea92c2d7bb8d7139822112a8545045
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: ec7730dc1143586eb4c5c05fd475b8412546b7a6
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/23/2019
-ms.locfileid: "72787456"
+ms.locfileid: "72809259"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Preguntas más frecuentes sobre la administración de dispositivos de Azure Active Directory
 
@@ -62,6 +62,8 @@ Los únicos que aparecen entre los **dispositivos del USUARIO** son los siguient
 - El usuario deshabilita el dispositivo en el portal Mis aplicaciones. 
 - Un administrador (o usuario) elimina o deshabilita el dispositivo en Azure Portal o mediante PowerShell.
 - Solo unido a Azure AD híbrido: Un administrador quita la unidad organizativa de los dispositivos del ámbito de sincronización, lo que da lugar a la eliminación de los dispositivos de Azure AD.
+- Actualización de AAD Connect a la versión 1.4.xx.x. [Descripción de Azure AD Connect 1.4.xx.x y desaparición del dispositivo](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-device-disappearance).
+
 
 Vea a continuación cómo se pueden rectificar estas acciones.
 

@@ -3,22 +3,23 @@ title: 'CLI de Azure Service Fabric: sfctl chaos schedule | Microsoft Docs'
 description: Describe los comandos de sfctl chaos schedule de la CLI Service Fabric.
 services: service-fabric
 documentationcenter: na
-author: Christina-Kang
+author: jeffj6123
 manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
+ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/06/2018
-ms.author: bikang
-ms.openlocfilehash: 1664978110b7c700906cbf4e6c80806ac70f1f05
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.date: 9/17/2019
+ms.author: jejarry
+ms.openlocfilehash: 443a8186ac6e57360105e59e30f84db997cd2251
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036528"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72897553"
 ---
 # <a name="sfctl-chaos-schedule"></a>sfctl chaos schedule
 Obtenga y establezca la programación de chaos.
@@ -39,7 +40,7 @@ Obtiene la versión de Chaos Schedule en uso y la programación Chaos Schedule q
 
 |Argumento|DESCRIPCIÓN|
 | --- | --- |
-| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
@@ -54,7 +55,7 @@ Obtiene la versión de Chaos Schedule en uso y la programación Chaos Schedule q
 ## <a name="sfctl-chaos-schedule-set"></a>sfctl chaos schedule set
 Establezca la programación que usa Chaos.
 
-Chaos programará automáticamente ejecuciones según la programación Chaos Schedule. La versión en la programación de entrada proporcionada debe coincidir con la versión de Chaos Schedule del servidor. Si la versión proporcionada no coincide con la versión del servidor, no se actualiza Chaos Schedule. Si la versión que se proporciona coincide con la versión del servidor, se actualiza Chaos Schedule y la versión de Chaos Schedule en el servidor se incrementa en uno y se ajusta hacia 0 después de 2,147,483,647. Si está ejecutando Chaos cuando se realiza esta llamada, se producirá un error en la llamada.
+Chaos programará automáticamente ejecuciones según la programación Chaos Schedule. La programación de Chaos se actualizará si la versión proporcionada coincide con la versión del servidor. Al actualizar la programación de Chaos, la versión del servidor se incrementa en 1. La versión del servidor se ajustará de nuevo a 0 después de alcanzar un número grande. Si está ejecutando Chaos cuando se realiza esta llamada, se producirá un error en la llamada.
 
 ### <a name="arguments"></a>Argumentos
 
@@ -64,7 +65,7 @@ Chaos programará automáticamente ejecuciones según la programación Chaos Sch
 | --expiry-date-utc | La fecha y hora en que se debe dejar de usar Schedule para programar Chaos.  Valor predeterminado\: 9999-12-31T23\:59\:59.999Z. |
 | --jobs | Lista codificada en JSON de ChaosScheduleJobs que representa cuándo ejecutar Chaos y con qué parámetros se ejecuta Chaos. |
 | --start-date-utc | La fecha y hora en que se debe empezar a usar Schedule para programar Chaos.  Valor predeterminado\: 1601-01-01T00\:00\:00.000Z. |
-| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --timeout -t | Valor predeterminado\: 60. |
 | --version | El número de versión de Schedule. |
 
 ### <a name="global-arguments"></a>Argumentos globales

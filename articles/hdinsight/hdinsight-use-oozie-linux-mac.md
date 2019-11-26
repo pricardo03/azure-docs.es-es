@@ -6,13 +6,13 @@ ms.author: omidm
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 05/06/2019
-ms.openlocfilehash: b0cb5f9fa0a0bc64b38225fba03568cf31021572
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.date: 10/30/2019
+ms.openlocfilehash: 89364a3ee948abbe5d233052878abe92bc7663a7
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71181100"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73241676"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Uso de Apache Oozie con Apache Hadoop para definir y ejecutar un flujo de trabajo en Azure HDInsight basado en Linux
 
@@ -28,14 +28,13 @@ Oozie también puede usarse para programar trabajos específicos de un sistema, 
 > [!NOTE]  
 > Otra opción para definir los flujos de trabajo con HDInsight es utilizar Azure Data Factory. Para más información acerca de Data Factory, consulte [Uso de Apache Pig y Apache Hive con Data Factory][azure-data-factory-pig-hive]. Para usar Oozie en clústeres con Enterprise Security Package, vea [Ejecución de Apache Oozie en clústeres HDInsight Hadoop con Enterprise Security Package](domain-joined/hdinsight-use-oozie-domain-joined-clusters.md).
 
-
 ## <a name="prerequisites"></a>Requisitos previos
 
 * **Un clúster de Hadoop en HDInsight**. Consulte [Introducción a HDInsight en Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
 * **Un cliente SSH**. Consulte [Conexión a HDInsight (Apache Hadoop) mediante SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-* **Una instancia de Azure SQL Database**.  Consulte [Creación de una base de datos de Azure SQL en Azure Portal](../sql-database/sql-database-get-started.md).  En este artículo se usa una base de datos denominada `oozietest`.
+* **Una instancia de Azure SQL Database**.  Consulte [Creación de una base de datos de Azure SQL en Azure Portal](../sql-database/sql-database-get-started.md).  En este artículo se usa una base de datos denominada **oozietest**.
 
 * El [esquema de URI](./hdinsight-hadoop-linux-information.md#URI-and-scheme) para el almacenamiento principal de clústeres. Sería `wasb://` para Azure Storage, `abfs://` para Azure Data Lake Storage Gen2 o `adl://` para Azure Data Lake Storage Gen1. Si se habilita la transferencia segura para Azure Storage, el identificador URI sería `wasbs://`. Consulte también el artículo acerca de la [transferencia segura](../storage/common/storage-require-secure-transfer.md).
 
@@ -64,10 +63,10 @@ El flujo de trabajo usado en este documento contiene dos acciones. Las acciones 
 
 Oozie espera que almacene todos los recursos necesarios para un trabajo en el mismo directorio. En este ejemplo se usa `wasbs:///tutorials/useoozie`. Para crear el directorio, siga estos pasos:
 
-1. Edite el código siguiente para reemplazar `sshuser` con el nombre de usuario SSH del clúster, y reemplace `clustername` con el nombre del clúster.  A continuación, escriba el código para conectarse al clúster de HDInsight [con SSH](hdinsight-hadoop-linux-use-ssh-unix.md).  
+1. Edite el código siguiente para reemplazar `sshuser` con el nombre de usuario SSH del clúster, y reemplace `CLUSTERNAME` con el nombre del clúster.  A continuación, escriba el código para conectarse al clúster de HDInsight [con SSH](hdinsight-hadoop-linux-use-ssh-unix.md).  
 
     ```bash
-    ssh sshuser@clustername-ssh.azurehdinsight.net
+    ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
 2. Para crear el directorio, use el comando siguiente:
@@ -79,10 +78,10 @@ Oozie espera que almacene todos los recursos necesarios para un trabajo en el mi
     > [!NOTE]  
     > El parámetro `-p` hace que todos los directorios de la ruta de acceso se creen. El directorio `data` se usará para almacenar los datos que usa el script `useooziewf.hql`.
 
-3. Edite el código siguiente para reemplazar `username` con el nombre de usuario SSH.  Para asegurarse de que Oozie pueda suplantar su cuenta de usuario, use el comando siguiente:
+3. Edite el código siguiente para reemplazar `sshuser` con el nombre de usuario SSH.  Para asegurarse de que Oozie pueda suplantar su cuenta de usuario, use el comando siguiente:
 
     ```bash
-    sudo adduser username users
+    sudo adduser sshuser users
     ```
 
     > [!NOTE]  
@@ -111,7 +110,7 @@ Siga estos pasos para crear un script de lenguaje de consulta de Hive (HiveQL) q
     nano useooziewf.hql
     ```
 
-3. Cuando se abra el editor nano de GNU, use la siguiente consulta como contenido del archivo:
+1. Cuando se abra el editor nano de GNU, use la siguiente consulta como contenido del archivo:
 
     ```hiveql
     DROP TABLE ${hiveTableName};
@@ -128,9 +127,9 @@ Siga estos pasos para crear un script de lenguaje de consulta de Hive (HiveQL) q
 
      El archivo de definición de flujo de trabajo (workflow.xml en este artículo) pasa estos valores a este script de HiveQL en tiempo de ejecución.
 
-4. Para guardar el archivo, seleccione Ctrl+X, escriba `Y` y, a continuación, seleccione **Entrar**.  
+1. Para guardar el archivo, seleccione **Ctrl+X**, escriba **Y** y luego seleccione **Entrar**.  
 
-5. Use los comandos siguientes para copiar `useooziewf.hql` en `wasbs:///tutorials/useoozie/useooziewf.hql`:
+1. Use los comandos siguientes para copiar `useooziewf.hql` en `wasbs:///tutorials/useoozie/useooziewf.hql`:
 
     ```bash
     hdfs dfs -put useooziewf.hql /tutorials/useoozie/useooziewf.hql
@@ -213,7 +212,7 @@ Las definiciones de flujo de trabajo de Oozie se escriben en lenguaje de definic
 
      Tenga en cuenta también la entrada `<archive>mssql-jdbc-7.0.0.jre8.jar</archive>` de la sección de Sqoop. Esta entrada indica a Oozie que haga que este archivo esté disponible para Sqoop cuando se ejecuta esta acción.
 
-3. Para guardar el archivo, seleccione Ctrl+X, escriba `Y` y, a continuación, seleccione **Entrar**.  
+3. Para guardar el archivo, seleccione **Ctrl+X**, escriba **Y** y luego seleccione **Entrar**.  
 
 4. Use el comando siguiente para copiar el archivo `workflow.xml` en `/tutorials/useoozie/workflow.xml`:
 
@@ -376,7 +375,7 @@ La definición del trabajo describe dónde encontrar workflow.xml. También se d
 
 4. Cuando se abra el editor nano, pegue el XML editado como contenido del archivo.
 
-5. Para guardar el archivo, seleccione Ctrl+X, escriba `Y` y, a continuación, seleccione **Entrar**.
+5. Para guardar el archivo, seleccione **Ctrl+X**, escriba **Y** y luego seleccione **Entrar**.
 
 ## <a name="submit-and-manage-the-job"></a>Envío y administración del trabajo
 
@@ -449,7 +448,7 @@ Los pasos siguientes usan el comando Oozie para enviar y administrar flujos de t
 
     Si comprueba el estado después de este comando, estará en estado de ejecución y se devolverá información para las acciones realizadas dentro del trabajo.  Esta operación tardará algunos minutos en completarse.
 
-6. Edite el código siguiente para reemplazar `<serverName>` con el nombre del servidor de Azure SQL y `<sqlLogin>` con el inicio de sesión del servidor de Azure SQL.  Cuando la tarea se complete correctamente, puede comprobar que los datos se han generado y exportado a la tabla de SQL Database mediante el siguiente comando.  Escriba la contraseña en el símbolo del sistema.
+6. Edite el código siguiente para reemplazar `<serverName>` con el nombre del servidor de Azure SQL y `<sqlLogin>` con el inicio de sesión del servidor de Azure SQL.  *Cuando la tarea se complete* correctamente, puede comprobar que los datos se han generado y exportado a la tabla de base de datos SQL mediante el siguiente comando.  Escriba la contraseña en el símbolo del sistema.
 
     ```bash
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <sqlLogin> -p 1433 -D oozietest
@@ -566,7 +565,7 @@ Puede utilizar el coordinador para especificar un inicio, un fin y la frecuencia
     > * `${coordTimezone}`: los trabajos del coordinador se encuentran en una zona horaria fija sin horario de verano (representado normalmente mediante UTC). Esta zona horaria se conoce como la *zona de horaria de procesamiento de Oozie*.
     > * `${wfPath}`: la ruta de acceso a workflow.xml.
 
-2. Para guardar el archivo, seleccione Ctrl+X, escriba `Y` y, a continuación, seleccione **Entrar**.
+2. Para guardar el archivo, seleccione **Ctrl+X**, escriba **Y** y luego seleccione **Entrar**.
 
 3. Use el siguiente comando para copiar el archivo en el directorio de trabajo para este trabajo:
 
@@ -621,7 +620,7 @@ Puede utilizar el coordinador para especificar un inicio, un fin y la frecuencia
 
        Estos valores establecen la hora de inicio en las 12:00 del 10 de mayo de 2018 y la fecha de finalización el 12 de mayo de 2018. El intervalo para ejecutar este trabajo se configura diariamente. La frecuencia está en minutos, por lo que 24 horas x 60 minutos = 1440 minutos. Por último, la zona horaria se establece en UTC.
 
-5. Para guardar el archivo, seleccione Ctrl+X, escriba `Y` y, a continuación, seleccione **Entrar**.
+5. Para guardar el archivo, seleccione **Ctrl+X**, escriba **Y** y luego seleccione **Entrar**.
 
 6. Para enviar e iniciar el trabajo, use el comando siguiente:
 
@@ -650,7 +649,7 @@ Con la IU Oozie, puede ver registros de Oozie. La IU de Oozie también contiene 
 
    1. Ver el trabajo en la interfaz de usuario web de Oozie.
 
-   2. Si hay un error en una acción determinada, seleccione la acción para ver si el campo **Error Message** ofrece más información sobre el error.
+   2. Si hay un error o falla en una acción determinada, seleccione la acción para ver si el campo **Mensaje de error** ofrece más información sobre el error.
 
    3. Si está disponible, use la dirección URL de la acción para ver más detalles (por ejemplo, registros de JobTracker) para la acción.
 
@@ -674,7 +673,7 @@ Las siguientes son errores específicos que pueden surgir y cómo resolverlos.
 
 **Causa**: la configuración actual de permisos no permite a Oozie suplantar la cuenta de usuario especificada.
 
-**Resolución**: Oozie puede suplantar a los usuarios del grupo **users**. Utilice el `groups USERNAME` para ver los grupos de los que es miembro la cuenta de usuario. Si el usuario no es miembro del grupo **users** , use el siguiente comando para agregar el usuario al grupo:
+**Resolución**: Oozie puede suplantar a los usuarios del grupo **users**. Utilice el `groups USERNAME` para ver los grupos de los que es miembro la cuenta de usuario. Si el usuario no es miembro del grupo **Usuarios**, use el siguiente comando para agregar el usuario al grupo:
 
     sudo adduser USERNAME users
 
@@ -712,41 +711,10 @@ En este artículo ha aprendido cómo definir un flujo de trabajo de Oozie y cóm
 * [Carga de datos para trabajos de Apache Hadoop en HDInsight][hdinsight-upload-data]
 * [Uso de Apache Sqoop con Apache Hadoop en HDInsight][hdinsight-use-sqoop].
 * [Uso de Apache Hive con Apache Hadoop en HDInsight][hdinsight-use-hive]
-* [Uso de Apache Pig con Apache Hadoop en HDInsight][hdinsight-use-pig]
-* [Desarrollo de programas MapReduce de Java para HDInsight][hdinsight-develop-mapreduce]
+* [Desarrollo de programas MapReduce de Java para HDInsight](hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md)
 
-[hdinsight-cmdlets-download]: https://go.microsoft.com/fwlink/?LinkID=325563
 [azure-data-factory-pig-hive]: ../data-factory/transform-data.md
 [hdinsight-versions]:  hdinsight-component-versioning.md
-[hdinsight-storage]: hdinsight-use-blob-storage.md
-[hdinsight-get-started]: hdinsight-get-started.md
 [hdinsight-use-sqoop]:hadoop/apache-hadoop-use-sqoop-mac-linux.md
-[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-use-mapreduce]:hadoop/hdinsight-use-mapreduce.md
 [hdinsight-use-hive]:hadoop/hdinsight-use-hive.md
-[hdinsight-use-pig]:hadoop/hdinsight-use-pig.md
-[hdinsight-storage]: hdinsight-use-blob-storage.md
-[hdinsight-get-started-emulator]: hdinsight-get-started-emulator.md
-[hdinsight-develop-mapreduce]:hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md
-
-[sqldatabase-get-started]: sql-database-get-started.md
-
-[azure-create-storageaccount]:../storage/common/storage-create-storage-account.md
-
-[apache-hadoop]: https://hadoop.apache.org/
-[apache-oozie-400]: https://oozie.apache.org/docs/4.0.0/
-[apache-oozie-332]: https://oozie.apache.org/docs/3.3.2/
-
-[powershell-download]: https://azure.microsoft.com/downloads/
-[powershell-about-profiles]: https://go.microsoft.com/fwlink/?LinkID=113729
-[powershell-install-configure]: /powershell/azureps-cmdlets-docs
-[powershell-start]: https://technet.microsoft.com/library/hh847889.aspx
-[powershell-script]: https://technet.microsoft.com/library/ee176961.aspx
-
-[cindygross-hive-tables]: https://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
-
-[img-preparation-output]: ./media/hdinsight-use-oozie-linux-mac/HDI.UseOozie.Preparation.Output1.png
-[img-runworkflow-output]: ./media/hdinsight-use-oozie/HDI.UseOozie.RunWF.Output.png
-
-[technetwiki-hive-error]: https://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx

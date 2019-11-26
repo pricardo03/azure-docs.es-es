@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: normesta
 ms.reviewer: fryu
-ms.openlocfilehash: 36c6c914c96048825c82a8d1f590a7e805373c08
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 3b61e8680ef2484b1ad42837711adef171fdde25
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854614"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882634"
 ---
 # <a name="azure-storage-analytics-logging"></a>Registro de Azure Storage Analytics
 
@@ -179,7 +179,7 @@ queueClient.SetServiceProperties(serviceProperties);
 
 ## <a name="download-storage-logging-log-data"></a>Descargar datos de registro del registro de almacenamiento
 
- Para ver y analizar los datos de registro, conviene descargar en un equipo local los blobs que contengan los datos de registro de su interés. Muchas herramientas de exploración del almacenamiento permiten descargar blobs de la cuenta de almacenamiento; también puede usar la herramienta de la línea de comandos para copiar de Azure suministrada por el equipo de Azure Storage (**AzCopy**) para descargar los datos de registro.  
+ Para ver y analizar los datos de registro, conviene descargar en un equipo local los blobs que contengan los datos de registro de su interés. Muchas herramientas de exploración del almacenamiento permiten descargar blobs de la cuenta de almacenamiento; también puede usar la herramienta de la línea de comandos para copiar de Azure [AzCopy](storage-use-azcopy-v10.md), suministrada por el equipo de Azure Storage, para descargar los datos de registro.  
 
  Para estar seguro de que descarga los datos de registro de su interés y no descarga los mismos datos de registro más de una vez:  
 
@@ -187,20 +187,17 @@ queueClient.SetServiceProperties(serviceProperties);
 
 -   Use los metadatos de los blobs que contienen datos de registro para identificar el período específico en el que el blob contiene los datos de registro y, así, detectar el blob exacto que necesita descargar.  
 
-> [!NOTE]
->  AzCopy forma parte Azure SDK, pero siempre puede descargar la versión más reciente de [https://aka.ms/AzCopy](https://aka.ms/AzCopy). AzCopy se instala de forma predeterminada en la carpeta **C:\Archivos de programa (x86)\Microsoft SDKs\Windows Azure\AzCopy**; agregue esta carpeta a su ruta de acceso antes de intentar ejecutar la herramienta en un símbolo del sistema o en una ventana de PowerShell.  
+Para empezar a trabajar con AzCopy, consulte [Introducción a AzCopy](storage-use-azcopy-v10.md). 
 
- En el siguiente ejemplo se muestra cómo descargar los datos de registro de Queue service correspondientes a las horas 9 A.M., 10 A.M. y 11 A.M. del 20 de mayo de 2014. El parámetro **/S** hace que AzCopy cree una estructura de carpetas locales en función de las fechas y las horas reflejadas en los nombres de los archivos de registro; el parámetro **/V** hace que AzCopy genere una salida detallada, y el parámetro **/Y** hace que AzCopy sobrescriba los archivos locales. Reemplace **<yourstorageaccount\>** por el nombre de la cuenta de almacenamiento y **<yourstoragekey\>** , por la clave de la cuenta de almacenamiento.  
+En el siguiente ejemplo se muestra cómo descargar los datos de registro de Queue service correspondientes a las horas 9 A.M., 10 A.M. y 11 A.M. del 20 de mayo de 2014.
 
 ```
-AzCopy 'http://<yourstorageaccount>.blob.core.windows.net/$logs/queue'  'C:\Logs\Storage' '2014/05/20/09' '2014/05/20/10' '2014/05/20/11' /sourceKey:<yourstoragekey> /S /V /Y  
-```  
+azcopy copy 'https://mystorageaccount.blob.core.windows.net/$logs/queue' 'C:\Logs\Storage' --include-path '2014/05/20/09;2014/05/20/10;2014/05/20/11' --recursive
+```
 
- AzCopy tiene también algunos parámetros útiles que controlan cómo establece la hora última modificación en los archivos que descarga, y si intentará descargar archivos que son más antiguos o más recientes que los archivos que ya existen en el equipo local. También lo puede ejecutar en modo reiniciable. Para conocer todos los detalles, acceda a la ayuda ejecutando el comando**AzCopy /?** .  
+Para obtener más información sobre cómo descargar archivos específicos, consulte [Descarga de archivos específicos](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-blobs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#download-specific-files).
 
- Para obtener un ejemplo de cómo descargar datos de registro mediante programación, vea la entrada de blog [Registro de Windows Azure Storage: Usar registros para llevar un seguimiento de las solicitudes de almacenamiento](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-logging-using-logs-to-track-storage-requests.aspx) y busque la palabra "DumpLogs" en la página.  
-
- Cuando haya descargado los datos de registro, puede ver las entradas de registro en los archivos. Estos archivos de registro usan un formato de texto delimitado que muchas herramientas de lectura de registros son capaces de analizar, como el Analizador de mensajes de Microsoft; para obtener más información, vea la guía [Supervisión, diagnóstico y solución de problemas de Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md). Cada herramienta tiene diferentes recursos para aplicar formato, filtrar, ordenar y buscar contenido en los archivos de registro. Para obtener más información sobre el contenido y el formato de los archivos de registro del registro de almacenamiento, vea [Formato de registros de Storage Analytics](/rest/api/storageservices/storage-analytics-log-format) y [Operaciones registradas y mensajes de estado de Storage Analytics](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages).
+Cuando haya descargado los datos de registro, puede ver las entradas de registro en los archivos. Estos archivos de registro usan un formato de texto delimitado que muchas herramientas de lectura de registros son capaces de analizar, como el Analizador de mensajes de Microsoft; para obtener más información, vea la guía [Supervisión, diagnóstico y solución de problemas de Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md). Cada herramienta tiene diferentes recursos para aplicar formato, filtrar, ordenar y buscar contenido en los archivos de registro. Para obtener más información sobre el contenido y el formato de los archivos de registro del registro de almacenamiento, vea [Formato de registros de Storage Analytics](/rest/api/storageservices/storage-analytics-log-format) y [Operaciones registradas y mensajes de estado de Storage Analytics](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

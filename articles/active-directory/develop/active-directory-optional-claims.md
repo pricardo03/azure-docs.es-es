@@ -1,5 +1,6 @@
 ---
-title: Notificaciones opcionales para la aplicación de Azure AD | Microsoft Docs
+title: Obtenga información sobre cómo proporcionar notificaciones opcionales a la aplicación de Azure AD
+titleSuffix: Microsoft identity platform
 description: Guía en la que se agregan notificaciones personalizadas o adicionales a los tokens SAML 2.0 y web JSON (JWT) que emite Azure Active Directory.
 documentationcenter: na
 author: rwike77
@@ -17,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6e097df21051019495b3bf9bb6c83cb3dba03c8
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: b74e680979ccbcc94f8a49e993c6d64797ab80b1
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835332"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803410"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Procedimientos para: Proporcionar notificaciones opcionales a la aplicación de Azure AD
 

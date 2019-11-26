@@ -1,5 +1,6 @@
 ---
-title: Migración a MSAL.NET | Azure
+title: Migración a MSAL.NET
+titleSuffix: Microsoft identity platform
 description: Conozca las diferencias entre la Microsoft Authentication Library for .NET (MSAL.NET) y Azure AD Authentication Library for .NET (ADAL.NET) y cómo migrar a MSAL.NET.
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,12 +18,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9a132834952d2654f400217bd6eed1a3745efbf9
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 5059acea753b4b8b7db80bfc79b4bb9718e0484e
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71264272"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175562"
 ---
 # <a name="migrating-applications-to-msalnet"></a>Migración de aplicaciones a MSAL.NET
 
@@ -30,7 +31,7 @@ Tanto Microsoft Authentication Library for .NET (MSAL.NET) como Azure AD Authent
 
 - puede autenticar un conjunto más amplio de identidades de Microsoft (identidades de Azure AD y cuentas Microsoft, así como cuentas de redes sociales y locales mediante Azure AD B2C) puesto que se usa el punto de conexión de la plataforma de identidad de Microsoft.
 - los usuarios obtendrán la mejor experiencia de inicio de sesión único.
-- la aplicación puede permitir el consentimiento incremental y es más fácil admitir el acceso condicional.
+- la aplicación puede permitir el consentimiento incremental y es más fácil admitir el acceso condicional
 - se beneficia de la innovación.
 
 **MSAL.NET es ahora la biblioteca de autenticación recomendada para la plataforma de identidad de Microsoft**. No se implementarán nuevas características en ADAL.NET. Los trabajos se centran en mejorar MSAL.
@@ -82,7 +83,7 @@ MSAL.NET tiene más excepciones explícitas. Por ejemplo, cuando se produce un e
 ```csharp
 catch(AdalException exception)
 {
- if (exception.ErrorCode == “user_interaction_required”)
+ if (exception.ErrorCode == "user_interaction_required")
  {
   try
   {“try to authenticate interactively”}}
@@ -181,7 +182,7 @@ Si desea leer y escribir con MSAL.NET Azure Active Directory mediante la API Gra
 
 ```csharp
 ResourceId = "https://graph.windows.net/";
-var scopes = new [] { ResourceId + “Directory.Read”, ResourceID + “Directory.Write”}
+var scopes = new [] { ResourceId + "Directory.Read", ResourceID + "Directory.Write"}
 ```
 
 #### <a name="warning-should-you-have-one-or-two-slashes-in-the-scope-corresponding-to-a-v10-web-api"></a>Advertencia: debe tener uno o dos barras diagonales en el ámbito correspondiente a una API web v1.0

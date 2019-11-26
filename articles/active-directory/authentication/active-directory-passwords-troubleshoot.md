@@ -4,7 +4,7 @@ description: Solución de problemas de autoservicio de restablecimiento de contr
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 02/01/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sahenry
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ecb2086f15159142ea55f96b2405b464c1f23a7
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 003ceb19fafade4972ebb0cf4e60ceda34dc1928
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72786813"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72893443"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Solución de problemas del autoservicio de restablecimiento de contraseñas
 
@@ -142,7 +142,7 @@ Un procedimiento recomendado para solucionar problemas con la escritura diferida
 | 33001| ADUnKnownError| Este evento indica que se produjo un error desconocido que devuelve Active Directory. Compruebe en el registro de eventos de servidor de Azure AD Connect si hay eventos del origen ADSync para obtener más información.|
 | 33002| ADUserNotFoundError| Este evento indica que el usuario que está intentando restablecer o cambiar una contraseña no se encontró en el directorio local. Esto puede ocurrir cuando el usuario se ha eliminado en el entorno local pero no en la nube. Este error también puede producirse si hay un problema con la sincronización. Compruebe los registros de sincronización, así como los últimos detalles de ejecución de la sincronización para más información.|
 | 33003| ADMutliMatchError| Si una solicitud de restablecimiento o cambio de contraseña se origina desde la nube, usamos el delimitador de la nube especificado durante el proceso de configuración de Azure AD Connect para determinar cómo vincular tal solicitud de nuevo a un usuario en el entorno local. Este evento indica que hemos encontrado dos usuarios en el directorio local con el mismo atributo delimitador de la nube. Compruebe los registros de sincronización, así como los últimos detalles de ejecución de la sincronización para más información.|
-| 33004| ADPermissionsError| Este evento indica que la cuenta de servicio del Agente de administración de Active Directory no tiene los permisos adecuados en la cuenta en cuestión para establecer una nueva contraseña. Asegúrese de que la cuenta de ADMA en el bosque del usuario tiene los permisos de restablecimiento y cambio de contraseña en todos los objetos del bosque. Para más información sobre cómo establecer los permisos, consulte el paso 4: Configure los permisos adecuados de Active Directory.|
+| 33004| ADPermissionsError| Este evento indica que la cuenta de servicio del Agente de administración de Active Directory no tiene los permisos adecuados en la cuenta en cuestión para establecer una nueva contraseña. Asegúrese de que la cuenta de ADMA en el bosque del usuario tiene los permisos de restablecimiento y cambio de contraseña en todos los objetos del bosque. Para más información sobre cómo establecer los permisos, consulte el paso 4: Configure los permisos adecuados de Active Directory. Este error también puede producirse si el atributo AdminCount del usuario está establecido en 1.|
 | 33005| ADUserAccountDisabled| Este evento indica que hemos intentado restablecer o cambiar una contraseña de una cuenta deshabilitada en el entorno local. Habilite la cuenta y vuelva a intentarlo.|
 | 33006| ADUserAccountLockedOut| Este evento indica que hemos intentado restablecer o cambiar una contraseña de una cuenta bloqueada en el entorno local. Los bloqueos se aplican cuando un usuario intenta modificar o restablecer la contraseña demasiadas veces en poco tiempo. Desbloquee la cuenta y vuelva a intentarlo.|
 | 33007| ADUserIncorrectPassword| Este evento indica que el usuario ha especificado una contraseña incorrecta actual al realizar una operación de cambio de contraseña. Especifique la contraseña actual correcta e inténtelo de nuevo.|

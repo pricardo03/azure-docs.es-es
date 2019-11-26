@@ -1,6 +1,7 @@
 ---
-title: Consideraciones sobre Xamarin Android (Microsoft Authentication Library for .NET) | Azure
-description: Obtenga información sobre las consideraciones específicas al usar Xamarin Android con Microsoft Authentication Library for .NET (MSAL.NET).
+title: Consideraciones sobre el explorador del sistema Xamarin Android (biblioteca de autenticación de Microsoft para .NET)
+titleSuffix: Microsoft identity platform
+description: Obtenga información sobre las consideraciones específicas al usar los exploradores del sistema en Xamarin Android con la biblioteca de autenticación de Microsoft para .NET (MSAL.NET).
 services: active-directory
 documentationcenter: dev-center-name
 author: TylerMSFT
@@ -12,19 +13,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/24/2019
+ms.date: 10/30/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b0c810097913e896027245b15600ed75aabcd25
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: f83283cc02c60eb452d0e414c0b21843b48f343b
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69532579"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73150361"
 ---
-# <a name="xamarin-android-specific-considerations-with-msalnet"></a>Consideraciones específicas de Xamarin Android con MSAL.NET
+#  <a name="xamarin-android-system-browser-considerations-with-msalnet"></a>Consideraciones del explorador del sistema de Xamarin Android con MSAL.NET
+
 En este artículo se describen las consideraciones específicas al usar el explorador del sistema en Xamarin Android con Microsoft Authentication Library for .NET (MSAL.NET).
 
 A partir de la versión preliminar de MSAL.NET 2.4.0, MSAL.NET es compatible con los exploradores que no sean Chrome y ya no requiere que Chrome esté instalado en el dispositivo Android para la autenticación.

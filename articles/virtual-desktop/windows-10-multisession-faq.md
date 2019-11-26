@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/28/2019
 ms.author: helohr
-ms.openlocfilehash: a44f1e93302b90b88ef63030fab17433855af4ff
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: f1ba54547b947e18d2d42520c0fb51a0855fb37c
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70143271"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901602"
 ---
 # <a name="windows-10-enterprise-multi-session-faq"></a>Preguntas frecuentes sobre la sesión múltiple de Windows 10 Enterprise
 
@@ -28,7 +28,7 @@ Cuántas sesiones interactivas que pueden estar activas al mismo tiempo dependen
  
 ## <a name="why-does-my-application-report-windows-10-enterprise-multi-session-as-a-server-operating-system"></a>¿Por qué mi aplicación indica la sesión múltiple de Windows 10 Enterprise como un sistema operativo Windows Server?
 
-La sesión múltiple de Windows 10 Enterprise es una edición virtual de Windows 10 Enterprise. Una de las diferencias es que este sistema operativo indica [ProductType](https://docs.microsoft.com/windows/desktop/cimwin32prov/win32-operatingsystem) con un valor de 2, el mismo valor que Windows Server. Esta propiedad garantiza la compatibilidad del sistema operativo con las herramientas de administración de RDSH existentes, con aplicaciones de RDSH compatibles con sesión múltiple y con optimizaciones de rendimiento del sistema principalmente de bajo nivel para entornos de RDSH. Algunos instaladores de aplicaciones pueden bloquear la instalación en la sesión múltiple de Windows 10 en función de si detectan que ProductType está establecido en Client. Si la aplicación no se instala, póngase en contacto con el proveedor de la aplicación para obtener una versión actualizada. 
+La sesión múltiple de Windows 10 Enterprise es una edición virtual de Windows 10 Enterprise. Una de las diferencias es que este sistema operativo indica [ProductType](https://docs.microsoft.com/windows/desktop/cimwin32prov/win32-operatingsystem) con un valor de 3, el mismo valor que Windows Server. Esta propiedad garantiza la compatibilidad del sistema operativo con las herramientas de administración de RDSH existentes, con aplicaciones de RDSH compatibles con sesión múltiple y con optimizaciones de rendimiento del sistema principalmente de bajo nivel para entornos de RDSH. Algunos instaladores de aplicaciones pueden bloquear la instalación en la sesión múltiple de Windows 10 en función de si detectan que ProductType está establecido en Client. Si la aplicación no se instala, póngase en contacto con el proveedor de la aplicación para obtener una versión actualizada. 
  
 ## <a name="can-i-run-windows-10-enterprise-multi-session-on-premises"></a>¿Es posible ejecutar la sesión múltiple de Windows 10 Enterprise en un entorno local?
 

@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 9178b8007d707af2df150102b2d344a44106a9ca
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: f241f243860635db443b732f94d12956bbe0f9d8
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755183"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990615"
 ---
 # <a name="consistency-availability-and-performance-tradeoffs"></a>Inconvenientes de la coherencia, disponibilidad y rendimiento 
 
@@ -62,6 +62,10 @@ En la tabla siguiente se define la relación entre el modelo de coherencia y la 
 *K* = número de versiones *"K"* (es decir, actualizaciones) de un elemento.
 
 *T* = intervalo de tiempo *"T"* desde la última actualización.
+
+## <a name="strong-consistency-and-multi-master"></a>Coherencia fuerte y arquitectura multimaestro
+
+Las cuentas de Cosmos configuradas para la arquitectura multimaestro no se pueden configurar para coherencia fuerte, ya que no es posible que un sistema distribuido proporcione un RPO de cero y un RTO de cero. Además, no hay ventaja en la latencia de escritura por usar la coherencia fuerte con la arquitectura multimaestro, ya que cualquier escritura en cualquier región debe replicarse y confirmarse en todas las regiones configuradas dentro de la cuenta. Esto produce la misma latencia de escritura que una sola cuenta maestra.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

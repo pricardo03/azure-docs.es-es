@@ -15,18 +15,18 @@ ms.date: 06/07/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fbea0567ec125ce12acd8f757b32df723876fe09
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: 64161451c0c8b1af7666fcd104d337856e5803c7
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338570"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72821452"
 ---
 # <a name="custom-roles-for-azure-resources"></a>Roles personalizados en los recursos de Azure
 
 Si los [roles integrados para los recursos de Azure](built-in-roles.md) no cumplen las necesidades específicas de su organización, puede crear sus propios roles personalizados. Igual que los roles integrados, puede asignar roles personalizados a usuarios, grupos y entidades de servicio en los ámbitos de suscripción, grupo de recursos y recurso.
 
-Los roles personalizados se almacenan en un directorio de Azure Active Directory (Azure AD) y se pueden compartir entre suscripciones. Cada directorio puede tener hasta **5000** roles personalizados. (Para nubes especializadas, como Azure Government, Azure Alemania y Azure China 21Vianet, el límite es de 2000 roles personalizados). Se pueden crear roles personalizados con Azure PowerShell, la CLI de Azure o la API REST.
+Los roles personalizados se pueden compartir entre suscripciones que confían en el mismo directorio de Azure AD. Hay un límite de **5000** roles personalizados por directorio. (Para nubes especializadas, como Azure Government, Azure Alemania y Azure China 21Vianet, el límite es de 2000 roles personalizados). Se pueden crear roles personalizados con Azure PowerShell, la CLI de Azure o la API REST.
 
 ## <a name="custom-role-example"></a>Ejemplo de rol personalizado
 

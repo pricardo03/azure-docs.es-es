@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: sngun
 ms.openlocfilehash: 27f39af480db8c0a044489a2efe6d2e4447b6db1
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 10/25/2019
 ms.locfileid: "71261304"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Sugerencias de rendimiento para Azure Cosmos DB y .NET
@@ -112,7 +112,7 @@ Así que si se está preguntando "¿Cómo puedo mejorar el rendimiento de la bas
 
 2. **Uso de las API de transmisión**
 
-    El SDK V3 de .NET contiene las API de transmisión que reciben y devuelven datos sin serialización. 
+    El [SDK V3 de .NET](sql-api-sdk-dotnet-standard.md) contiene las API de transmisión que reciben y devuelven datos sin serialización. 
 
     Las aplicaciones de nivel intermedio que no consumen las respuestas del SDK directamente, sino que las retransmiten a otros niveles de aplicación, pueden beneficiarse de las API de transmisión. Consulte los ejemplos de [administración de elementos](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ItemManagement) sobre el control de la transmisión.
 

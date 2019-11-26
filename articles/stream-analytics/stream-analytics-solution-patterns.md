@@ -1,18 +1,18 @@
 ---
 title: Patrones de soluciones de Azure Stream Analytics
-description: Obtenga información sobre los diferentes patrones de solución comunes de Azure Stream Analytics.
+description: Obtenga información sobre los patrones de soluciones comunes para Azure Stream Analytics, como los paneles, la mensajería de eventos, los almacenes de datos, el enriquecimiento de datos de referencia y la supervisión.
 author: zhongc
 ms.author: zhongc
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: cbc9ffe9510cf0888e8d8b62ea112b6517117eed
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 2d936a538a54edce9e3f13ea7865d57b8243c4a5
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70173034"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901672"
 ---
 # <a name="azure-stream-analytics-solution-patterns"></a>Patrones de soluciones de Azure Stream Analytics
 

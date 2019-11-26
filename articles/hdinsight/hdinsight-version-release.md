@@ -1,18 +1,18 @@
 ---
 title: Introducción a HDInsight 4.0 (Azure)
 description: Comparación entre las características, limitaciones y recomendaciones de actualización de HDInsight 3.6 y HDInsight 4.0.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: hrasheed
+ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/15/2019
-ms.openlocfilehash: 74cd6a6919db1c01535fb984d1e8e0d0ad2d5ade
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.date: 10/22/2019
+ms.openlocfilehash: 0463e3297bbb2fda50adfeefaa89f0a7a3ef8b0a
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70879331"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901525"
 ---
 # <a name="azure-hdinsight-40-overview"></a>Introducción a Azure HDInsight 4.0
 
@@ -40,7 +40,7 @@ Hive admite ahora vistas materializadas dinámicas, o procesamiento previo de lo
 
 HDI 4.0 incluye Apache Hive 3, lo que requiere el cumplimiento con la atomicidad, coherencia, aislamiento y durabilidad (ACID) de las tablas transaccionales que residen en el almacén de Hive. Se puede administrar y acceder a las tablas compatibles con ACID y a los datos de estas mediante Hive. Los datos de las tablas CRUD (crear, recuperar, actualizar y eliminar) deben tener el formato de archivo con columnas y filas optimizadas (ORC). Las tablas de solo inserción admiten todos los formatos de archivos.
 
-* ACID v2 tiene mejoras de rendimiento en el formato de almacenamiento y el motor de ejecución. 
+* ACID v2 tiene mejoras de rendimiento en el formato de almacenamiento y el motor de ejecución.
 
 * ÁCIDO está habilitado de forma predeterminada para permitir la compatibilidad total de las actualizaciones de datos.
 
@@ -71,7 +71,6 @@ Ya no tiene que preocuparse por acceder accidentalmente a tablas transaccionales
 
 Más información sobre [Apache Spark](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.0/spark-overview/content/analyzing_data_with_apache_spark.html).
 
-
 ### <a name="apache-oozie"></a>Apache Oozie
 
 Apache Oozie 4.3.1 se incluye en HDI 4.0 con los cambios siguientes:
@@ -86,14 +85,14 @@ Más información sobre [Apache Oozie](https://docs.hortonworks.com/HDPDocuments
 
 Como en cualquier otra versión principal, es importante probar concienzudamente los componentes antes de implementar la versión más reciente en un entorno de producción. HDInsight 4.0 está disponible para comenzar el proceso de actualización, pero HDInsight 3.6 es la opción predeterminada para evitar contratiempos accidentales.
 
-No hay ninguna ruta de actualización a HDInsight 4.0 que se admita desde versiones anteriores de HDInsight. Como han cambiado los formatos de Metastore y de datos de blob, HDInsight 4.0 no es compatible con versiones anteriores. Es importante que mantenga su nuevo entorno de HDInsight 4.0 separado del entorno de producción actual. Si implementa HDInsight 4.0 en el entorno actual, la instancia de Metastore se actualizará y esta acción no se podrá deshacer.  
+No hay ninguna ruta de actualización a HDInsight 4.0 que se admita desde versiones anteriores de HDInsight. Como han cambiado los formatos de metastore y de datos de blob, HDInsight 4.0 no es compatible con versiones anteriores. Es importante que mantenga su nuevo entorno de HDInsight 4.0 separado del entorno de producción actual. Si implementa HDInsight 4.0 en el entorno actual, metastore se actualizará y esta acción no se podrá deshacer.  
 
 ## <a name="limitations"></a>Limitaciones
 
 * HDInsight 4.0 no admite MapReduce para Apache Hive. En su lugar, use Apache Tez. Más información sobre [Apache Tez](https://tez.apache.org/).
-* HDInsight 4.0 no es compatible con Apache Storm. 
-* Hive View ya no está disponible en HDInsight 4.0. 
-* No se admite el intérprete de shell de Apache Zeppeling en clústeres de Spark e Interactive Query.
+* HDInsight 4.0 no es compatible con Apache Storm.
+* Hive View ya no está disponible en HDInsight 4.0.
+* No se admite el intérprete de shell de Apache Zeppelin en clústeres de Spark e Interactive Query.
 * No puede *deshabilitar* LLAP en un clúster LLAP de Spark. Solo puede desactivarlo.
 * Azure Data Lake Storage Gen2 no puede guardar cuadernos de Jupyter en un clúster de Spark.
 

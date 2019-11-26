@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 07/05/2019
 tags: connectors
-ms.openlocfilehash: df856e0d76dbd5903964bc80aa01b97b7461128a
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 4f585778808b133fe5c731ab6a3189594cbfc0f9
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122697"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72804229"
 ---
 # <a name="send-outgoing-calls-to-http-or-https-endpoints-by-using-azure-logic-apps"></a>Envío de llamadas salientes a puntos de conexión HTTP o HTTPS mediante Azure Logic Apps
 
@@ -45,7 +45,7 @@ Este desencadenador integrado realiza una llamada HTTP a la dirección URL espec
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com). Abra la aplicación lógica en blanco en el diseñador de aplicación lógica.
 
-1. En el diseñador, en el cuadro de búsqueda, escriba "http" como filtro. En la lista **Desencadenadores**, seleccione el desencadenador **HTTP**.
+1. En **Elegir una acción**, en el cuadro de búsqueda, escriba "http" como filtro. En la lista **Desencadenadores**, seleccione el desencadenador **HTTP**.
 
    ![Selección del desencadenador HTTP](./media/connectors-native-http/select-http-trigger.png)
 
@@ -53,15 +53,15 @@ Este desencadenador integrado realiza una llamada HTTP a la dirección URL espec
 
 1. Proporcione los valores de los [parámetros del desencadenador HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md##http-trigger) que quiere incluir en la llamada al punto de conexión de destino. Establezca la periodicidad con la que quiere que el desencadenador compruebe el punto de conexión de destino.
 
-   ![Introducción de los parámetros de desencadenador HTTP](./media/connectors-native-http/http-trigger-parameters.png)
+   Si selecciona un tipo de autenticación distinto de **Ninguno**, la configuración de autenticación difiere en función de la selección. Para obtener más información, consulte [Incorporación de la autenticación en las llamadas salientes](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound) más adelante en este tema.
 
-   Para obtener más información sobre los tipos de autenticación disponibles para HTTP, consulte [Autenticación de acciones y desencadenadores HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
+   ![Introducción de los parámetros de desencadenador HTTP](./media/connectors-native-http/http-trigger-parameters.png)
 
 1. Para agregar otros parámetros disponibles, abra la lista **Agregar nuevo parámetro** y seleccione los parámetros que quiera.
 
 1. Continúe creando el flujo de trabajo de la aplicación lógica con acciones que se ejecuten cuando se activa el desencadenador.
 
-1. Cuando haya finalizado, recuerde guardar la aplicación lógica. En la barra de herramientas del diseñador, seleccione **Guardar**.
+1. Cuando haya terminado, recuerde guardar la aplicación lógica. En la barra de herramientas del diseñador, seleccione **Save** (Guardar).
 
 ## <a name="add-an-http-action"></a>Adición de una acción HTTP
 
@@ -75,7 +75,7 @@ Esta acción integrada realiza una llamada HTTP a la dirección URL especificada
 
    Para agregar una acción entre un paso y otro, mueva el puntero sobre la flecha entre ellos. Seleccione el signo más ( **+** ) que aparece y, luego, seleccione **Agregar una acción**.
 
-1. En el diseñador, en el cuadro de búsqueda, escriba "http" como filtro. En la lista **Acciones**, seleccione la acción **HTTP**.
+1. En **Elegir una acción**, en el cuadro de búsqueda, escriba "http" como filtro. En la lista **Acciones**, seleccione la acción **HTTP**.
 
    ![Selección de la acción de HTTP](./media/connectors-native-http/select-http-action.png)
 
@@ -83,13 +83,13 @@ Esta acción integrada realiza una llamada HTTP a la dirección URL especificada
 
 1. Proporcione los valores de los [parámetros de la acción HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md##http-action) que quiere incluir en la llamada al punto de conexión de destino.
 
-   ![Introducción de los parámetros de acción de HTTP](./media/connectors-native-http/http-action-parameters.png)
+   Si selecciona un tipo de autenticación distinto de **Ninguno**, la configuración de autenticación difiere en función de la selección. Para obtener más información, consulte [Incorporación de la autenticación en las llamadas salientes](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound) más adelante en este tema.
 
-   Para obtener más información sobre los tipos de autenticación disponibles para HTTP, consulte [Autenticación de acciones y desencadenadores HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
+   ![Introducción de los parámetros de acción de HTTP](./media/connectors-native-http/http-action-parameters.png)
 
 1. Para agregar otros parámetros disponibles, abra la lista **Agregar nuevo parámetro** y seleccione los parámetros que quiera.
 
-1. Cuando haya finalizado, recuerde guardar la aplicación lógica. En la barra de herramientas del diseñador, seleccione **Save** (Guardar).
+1. Cuando haya terminado, recuerde guardar la aplicación lógica. En la barra de herramientas del diseñador, seleccione **Save** (Guardar).
 
 ## <a name="content-with-multipartform-data-type"></a>Contenido con el tipo multipart/form-data
 

@@ -1,23 +1,18 @@
 ---
-title: 'Referencia de la API de Azure Application Insights Agent: Establecimiento de la configuración | Microsoft Docs'
+title: Referencia de la API de Azure Application Insights Agent
 description: Referencia de la API de Application Insights Agent. Set-ApplicationInsightsMonitoringConfig. Supervise el rendimiento de los sitios web sin volver a implementarlos. Funciona con las aplicaciones web de ASP.NET hospedadas en local, en las máquinas virtuales o en Azure.
-services: application-insights
-documentationcenter: .net
-author: TimothyMothra
-manager: alexklim
-ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 04/23/2019
+author: TimothyMothra
 ms.author: tilee
-ms.openlocfilehash: 2ab941b5587a8836f1e472fbce3966b12bfa1e11
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.date: 04/23/2019
+ms.openlocfilehash: d90739fbdc862d67dc2ce0f1dfdf5af5f4089a44
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388249"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899672"
 ---
 # <a name="application-insights-agent-api-set-applicationinsightsmonitoringconfig"></a>API de Application Insights Agent: Set-ApplicationInsightsMonitoringConfig
 
@@ -72,7 +67,7 @@ Puede crear un solo script de instalación para varios equipos si establece `Mac
 > [!IMPORTANT]
 > Las aplicaciones se harán coincidir con las reglas en el orden en que estas se proporcionan. Por tanto, debe especificar las reglas más específicas en primer lugar y las más genéricas las últimas.
 
-#### <a name="schema"></a>Esquema
+#### <a name="schema"></a>Schema
 `@(@{MachineFilter='.*';AppFilter='.*';InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'})`
 
 - **MachineFilter** es una expresión regular de C# requerida del nombre de la máquina virtual o del equipo.

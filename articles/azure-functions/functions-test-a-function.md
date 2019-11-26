@@ -10,12 +10,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: cshoe
-ms.openlocfilehash: 9155df315a5afb9a0fa7722c955333a47a73085a
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 250d470e2450820f57720e0e1a6d274291cf162c
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596851"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72809632"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Estrategias para probar el código en Azure Functions
 
@@ -309,7 +309,8 @@ module.exports = {
     IsPastDue: false
 };
 ```
-Este módulo implementa la propiedad `IsPastDue` para que permanezca como una instancia de temporizador falsa.
+
+Este módulo implementa la propiedad `IsPastDue` para que permanezca como una instancia de temporizador falsa. Aquí no se requieren configuraciones de temporizador, como expresiones NCRONTAB, ya que la herramienta de ejecución de pruebas llama a la función directamente para probar el resultado.
 
 A continuación, utilice la extensión Functions de VS Code para [crear una nueva función HTTP de JavaScript](/azure/javascript/tutorial-vscode-serverless-node-01) y asígnele el nombre *HttpTrigger*. Una vez creada la función, agregue un nuevo archivo en la misma carpeta denominado **index.test.js** y agregue el código siguiente:
 

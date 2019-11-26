@@ -10,12 +10,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: jehollan
-ms.openlocfilehash: b581d7c9b5876813e36ebbf41be713b44dd97735
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 8e07032f84ead4bb003176af84cb4c731819ffa4
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70096088"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900061"
 ---
 # <a name="azure-functions-on-kubernetes-with-keda"></a>Azure Functions en Kubernetes con KEDA
 
@@ -51,6 +51,9 @@ func init --docker-only
 
 Para crear una imagen e implementar las funciones en Kubernetes, ejecute el siguiente comando:
 
+> [!NOTE]
+> Las herramientas principales usarán la CLI de Docker para compilar y publicar la imagen. Asegúrese de que Docker ya está instalado y conectado a su cuenta con `docker login`.
+
 ```cli
 func kubernetes deploy --name <name-of-function-deployment> --registry <container-registry-username>
 ```
@@ -58,6 +61,10 @@ func kubernetes deploy --name <name-of-function-deployment> --registry <containe
 > Reemplace `<name-of-function-deployment>` por el nombre de la aplicación de función.
 
 Esto crea un recurso `Deployment` de Kubernetes, un recurso `ScaledObject` y `Secrets`, que incluye las variables de entorno importadas desde su archivo `local.settings.json`.
+
+### <a name="deploying-a-function-app-from-a-private-registry"></a>Implementación de una aplicación de funciones desde un registro privado
+
+El flujo anterior también funciona con registros privados.  Si extrae la imagen de contenedor de un registro privado, incluya la marca `--pull-secret` que hace referencia al secreto de Kubernetes que contiene las credenciales del registro privado al ejecutar `func kubernetes deploy`.
 
 ## <a name="removing-a-function-app-from-kubernetes"></a>Eliminación de una aplicación de función de Kubernetes
 

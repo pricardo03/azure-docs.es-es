@@ -1,5 +1,5 @@
 ---
-title: Escenarios de agregación geoespacial y de geovalla con Azure Stream Analytics
+title: Agregación geoespacial y de geovalla con Azure Stream Analytics
 description: En este artículo se describe cómo usar Azure Stream Analytics para la agregación geoespacial y de geovalla.
 services: stream-analytics
 author: mamccrea
@@ -7,12 +7,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/02/2019
-ms.openlocfilehash: cc301855e4cdcb8eb687e753835577399cfe72b0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d44b2fae677554594f0cc280c1129bbd6effddf2
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60789576"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72935071"
 ---
 # <a name="geofencing-and-geospatial-aggregation-scenarios-with-azure-stream-analytics"></a>Escenarios de agregación geoespacial y de geovalla con Azure Stream Analytics
 

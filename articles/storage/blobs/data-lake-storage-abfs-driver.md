@@ -8,12 +8,12 @@ ms.reviewer: jamesbak
 ms.date: 12/06/2018
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 6e74830a3a62ea54c5d8e7f9815fe2ba6eed6d58
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 370717e09e788faa56662c4c88e2e7c0de21eef7
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72166506"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933150"
 ---
 # <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>Controlador del sistema de archivos de Azure Blob (ABFS): un controlador de Azure Storage dedicado para Hadoop
 
@@ -50,15 +50,18 @@ El controlador ABFS admite dos formas de autenticación, de modo que la aplicaci
 
 - **Token de portador de OAuth de Azure Active Directory**: el controlador adquiere y actualiza los tokens de portador de Azure AD con la identidad del usuario final o una entidad de servicio configurada. Al usar este modelo de autenticación, se autoriza todo acceso en función de cada llamada, mediante la identidad asociada con el token suministrado y se evalúa en relación con la lista de control de acceso POSIX (ACL) asignada.
 
+   > [!NOTE] 
+   > Azure Data Lake Storage Gen2 solo admite puntos de conexión de Azure AD v1.0.
+
 ### <a name="configuration"></a>Configuración
 
 Toda la configuración del controlador ABFS se almacena en el archivo de configuración <code>core-site.xml</code>. En las distribuciones de Hadoop con [Ambari](https://ambari.apache.org/), la configuración también puede administrarse mediante el portal web o la API REST de Ambari.
 
-Se puede encontrar información detallada de todas las entradas de configuración admitidas en la [documentación oficial de Hadoop](https://hadoop.apache.org/docs/r3.2.0/hadoop-azure/abfs.html).
+Se puede encontrar información detallada de todas las entradas de configuración admitidas en la [documentación oficial de Hadoop](https://hadoop.apache.org/docs/stable/hadoop-azure/abfs.html).
 
 ### <a name="hadoop-documentation"></a>Documentación de Hadoop
 
-El controlador ABFS está completamente documentado en la [documentación oficial de Hadoop](https://hadoop.apache.org/docs/r3.2.0/hadoop-azure/abfs.html).
+El controlador ABFS está completamente documentado en la [documentación oficial de Hadoop](https://hadoop.apache.org/docs/stable/hadoop-azure/abfs.html).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

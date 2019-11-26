@@ -3,22 +3,23 @@ title: 'CLI de Azure Service Fabric: almacén de sfctl | Microsoft Docs'
 description: Se describen los comandos del almacén de sfctl de la CLI de Service Fabric.
 services: service-fabric
 documentationcenter: na
-author: Christina-Kang
+author: jeffj6123
 manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
+ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/06/2018
-ms.author: bikang
-ms.openlocfilehash: ccd9e8323f6e0de7b81c7600e7828e4858c51201
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.date: 9/17/2019
+ms.author: jejarry
+ms.openlocfilehash: e8a085c4aa6df34441f22da5542231999930d89f
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035857"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900955"
 ---
 # <a name="sfctl-store"></a>almacén de sfctl
 Realice operaciones básicas a nivel de archivo en el almacén de imágenes del clúster.
@@ -41,7 +42,7 @@ Elimina el contenido existente del almacén de imágenes que se encuentra en la 
 |Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --content-path [Obligatorio] | Ruta de acceso relativa al archivo o la carpeta del almacén de imágenes desde su raíz. |
-| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
@@ -62,7 +63,7 @@ Devuelve la información sobre el contenido del almacén de imágenes en la raí
 
 |Argumento|DESCRIPCIÓN|
 | --- | --- |
-| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
@@ -84,7 +85,7 @@ Devuelve la información sobre el contenido del almacén de imágenes en la inst
 |Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --content-path [Obligatorio] | Ruta de acceso relativa al archivo o la carpeta del almacén de imágenes desde su raíz. |
-| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 

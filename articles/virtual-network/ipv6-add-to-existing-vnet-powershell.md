@@ -13,16 +13,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/21/2019
 ms.author: kumud
-ms.openlocfilehash: 47f73ca8ece8db5fad3f8a7709d8787db42626f4
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 907a6de2ff89ddd3c2cb5bdab67e1deb984141dc
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791196"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965234"
 ---
 # <a name="upgrade-an-ipv4-application-to-ipv6-in-azure-virtual-network---powershell-preview"></a>Actualización de una aplicación IPv4 a IPv6 en Azure Virtual Network: PowerShell (versión preliminar)
 
-En este artículo se muestra cómo agregar direcciones IPv6 a una aplicación que usa una dirección IP pública IPv4 en Azure Virtual Network para una instancia de Standard Load Balancer. La actualización local incluye una subred y una red virtual, una instancia de Standard Load Balancer con configuraciones de front-end IPv4 + IPv6, máquinas virtuales con NIC que tienen configuraciones IPv4 + IPv6, un grupo de seguridad de red e IP públicas.
+En este artículo se muestra cómo agregar conectividad IPv6 a una aplicación IPv4 existente en una instancia de Azure Virtual Network con una instancia de Standard Load Balancer e IP pública. La actualización local incluye:
+- Espacio de direcciones IPv6 para la red virtual y la subred
+- Standard Load Balancer con configuraciones de front-end IPv4 e IPV6
+- Máquinas virtuales con NIC que tienen una configuración IPv4 + IPv6
+- IP pública de IPv para que el equilibrador de carga tenga conectividad IPv6 accesible desde Internet
 
 > [!Important]
 > La compatibilidad de IPv6 con Azure Virtual Network se encuentra actualmente en versión preliminar pública. Esta versión preliminar se ofrece sin contrato de nivel de servicio y no es aconsejable usarla para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -66,7 +70,7 @@ Para poder generar la red virtual de doble pila, debe recuperar el grupo de recu
 
 ## <a name="create-an-ipv6-ip-addresses"></a>Creación de direcciones IP IPv6
 
-Cree direcciones IPv6 públicas con [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) para su instancia de Standard Load Balancer. En el ejemplo siguiente, se crea una dirección IP pública IPv6 denominada *PublicIP_v6* en el grupo de recursos *myResourceGroupSLB*:
+Cree una dirección IPv6 pública con [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) para su instancia de Standard Load Balancer. En el ejemplo siguiente, se crea una dirección IP pública IPv6 denominada *PublicIP_v6* en el grupo de recursos *myResourceGroupSLB*:
 
 ```azurepowershell
   
@@ -81,7 +85,7 @@ Cree direcciones IPv6 públicas con [New-AzPublicIpAddress](/powershell/module/a
 
 ## <a name="configure-load-balancer-frontend"></a>Configuración del front-end del equilibrador de carga
 
-Recupere la configuración del equilibrador de carga existente y, a continuación, configúrelo con la nueva dirección IP IPv6 mediante [Add-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/Add-AzLoadBalancerFrontendIpConfig) como se indica a continuación:
+Recupere la configuración del equilibrador de carga existente y, a continuación, agregue la nueva dirección IP IPv6 mediante [Add-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/Add-AzLoadBalancerFrontendIpConfig) como se indica a continuación:
 
 ```azurepowershell
 # Retrieve the load balancer configuration
@@ -124,7 +128,7 @@ $lb | Set-AzLoadBalancer
 ```
 ## <a name="add-ipv6-address-ranges"></a>Incorporación de intervalos de direcciones IPv6
 
-Agregue intervalos de direcciones IPv6 a la red virtual y a la subred que hospeda el equilibrador de carga como se indica a continuación:
+Agregue intervalos de direcciones IPv6 a la red virtual y a la subred que hospeda las máquinas virtuales como se indica a continuación:
 
 ```azurepowershell
 #Add IPv6 ranges to the VNET and subnet
@@ -145,7 +149,7 @@ $vnet |  Set-AzVirtualNetwork
 ```
 ## <a name="add-ipv6-configuration-to-nic"></a>Incorporación de la configuración IPv6 a NIC
 
-Configuración de las dos NIC de máquina virtual con una dirección IPv6 mediante [Add-AzNetworkInterfaceIpConfig](/powershell/module/az.network/Add-AzNetworkInterfaceIpConfig) como se indica a continuación:
+Configuración de todas las NIC de máquina virtual con una dirección IPv6 mediante [Add-AzNetworkInterfaceIpConfig](/powershell/module/az.network/Add-AzNetworkInterfaceIpConfig) como se indica a continuación:
 
 ```azurepowershell
 
@@ -185,4 +189,4 @@ Remove-AzResourceGroup -Name MyAzureResourceGroupSLB
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo, ha actualizado una instancia de Standard Load Balancer existente con una configuración de direcciones IP de front-end IPv4 a una configuración de doble pila (IPv4 e IPv6). También ha agregado configuraciones IPv6 a las NIC de las máquinas virtuales en el grupo back-end. Para más información sobre la compatibilidad de IPv6 en las redes virtuales de Azure, consulte [¿Qué es IPv6 para Azure Virtual Network?](ipv6-overview.md)
+En este artículo, ha actualizado una instancia de Standard Load Balancer existente con una configuración de direcciones IP de front-end IPv4 a una configuración de doble pila (IPv4 e IPv6). También ha agregado configuraciones IPv6 a las NIC de las máquinas virtuales en el grupo back-end y a la instancia de Virtual Network que las hospeda. Para más información sobre la compatibilidad de IPv6 en las redes virtuales de Azure, consulte [¿Qué es IPv6 para Azure Virtual Network?](ipv6-overview.md)

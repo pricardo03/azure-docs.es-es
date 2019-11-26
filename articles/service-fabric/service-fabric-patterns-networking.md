@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
 ms.author: atsenthi
-ms.openlocfilehash: 90b2a1954d60f1e86ab61afb264483177f4aca3b
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 638ee162b770f949eaf0a0fc34b745698364d019
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073948"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900089"
 ---
 # <a name="service-fabric-networking-patterns"></a>Patrones de redes de Service Fabric
 Puede integrar el clúster de Azure Service Fabric con otras características de red de Azure. En este artículo se muestra cómo crear clústeres que usan las siguientes características:
@@ -30,6 +30,8 @@ Puede integrar el clúster de Azure Service Fabric con otras características de
 - [Equilibrador de carga interno y externo](#internalexternallb)
 
 Service Fabric se ejecuta en un conjunto de escalado de máquinas virtuales estándar. Cualquier funcionalidad que pueda usar en un conjunto de escalado de máquinas virtuales, puede usarse con un clúster de Service Fabric. Las secciones de red de las plantillas de Azure Resource Manager para los conjuntos de escalado de máquinas virtuales y Service Fabric son idénticas. Después de implementar en una red virtual existente, es fácil incorporar otras características de red como Azure ExpressRoute, Azure VPN Gateway, un grupo de seguridad de red y emparejamiento de redes virtuales.
+
+### <a name="allowing-the-service-fabric-resource-provider-to-query-your-cluster"></a>Permitir que el proveedor de recursos de Service Fabric consulte el clúster
 
 Service Fabric es único en relación con otras características de red en un aspecto. [Azure Portal](https://portal.azure.com) usa internamente el proveedor de recursos de Service Fabric para llamar a un clúster con el fin de obtener información de los nodos y las aplicaciones. El proveedor de recursos de Service Fabric requiere acceso de entrada público al puerto de la puerta de enlace HTTP (puerto 19080 de forma predeterminada) en el punto de conexión de administración. [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) utiliza el punto de conexión de administración para administrar el clúster. Este puerto también lo emplea el proveedor de recursos de Service Fabric para consultar información sobre el clúster con el fin de que se muestre en Azure Portal. 
 
@@ -293,7 +295,7 @@ Después de la implementación, puede ver que el equilibrador de carga está enl
 <a id="internallb"></a>
 ## <a name="internal-only-load-balancer"></a>Equilibrador de carga solo interno
 
-Este escenario reemplaza el equilibrador de carga externo en la plantilla predeterminada de Service Fabric por un equilibrador de carga solo interno. Para conocer las implicaciones en Azure Portal y en el proveedor de recursos de Service Fabric, consulte la sección anterior.
+Este escenario reemplaza el equilibrador de carga externo en la plantilla predeterminada de Service Fabric por un equilibrador de carga solo interno. Consulte [anteriormente en este artículo](#allowing-the-service-fabric-resource-provider-to-query-your-cluster) para conocer las implicaciones en Azure Portal y en el proveedor de recursos de Service Fabric.
 
 1. Elimine el parámetro `dnsName`. (No es necesario).
 
@@ -391,7 +393,7 @@ Después de la implementación, el equilibrador de carga usará la dirección IP
 <a id="internalexternallb"></a>
 ## <a name="internal-and-external-load-balancer"></a>Equilibrador de carga interno y externo
 
-En este escenario, comienza por el equilibrador de carga externo de un solo tipo de nodo y se agrega un equilibrador de carga interno adicional al mismo tipo de nodo. Un puerto de back-end conectado a un grupo de direcciones de back-end solo se puede asignar a un único equilibrador de carga. Elija qué equilibrador de carga tendrá los puertos de la aplicación y cuál tendrá los puntos de conexión de administración (puertos 19000 y 19080). Si pone los puntos de conexión de administración en el equilibrador de carga interno, tenga en cuenta las restricciones del proveedor de recursos de Service Fabric descritas anteriormente en este artículo. En el ejemplo que estamos utilizando, los puntos de conexión de administración permanecen en el equilibrador de carga externo. También puede agregar un puerto de aplicación 80 y colocarlo en el equilibrador de carga interno.
+En este escenario, comienza por el equilibrador de carga externo de un solo tipo de nodo y se agrega un equilibrador de carga interno adicional al mismo tipo de nodo. Un puerto de back-end conectado a un grupo de direcciones de back-end solo se puede asignar a un único equilibrador de carga. Elija qué equilibrador de carga tendrá los puertos de la aplicación y cuál tendrá los puntos de conexión de administración (puertos 19000 y 19080). Si pone los puntos de conexión de administración en el equilibrador de carga interno, tenga en cuenta las restricciones del proveedor de recursos de Service Fabric descritas [anteriormente en este artículo](#allowing-the-service-fabric-resource-provider-to-query-your-cluster). En el ejemplo que estamos utilizando, los puntos de conexión de administración permanecen en el equilibrador de carga externo. También puede agregar un puerto de aplicación 80 y colocarlo en el equilibrador de carga interno.
 
 En un clúster de dos tipos de nodo, un tipo de nodo está en el equilibrador de carga externo. El otro estará en el equilibrador de carga interno. Para usar un clúster de dos tipos de nodo, en la plantilla de dos tipos de nodo creada en el portal (que incluye dos equilibradores de carga), cambie el segundo equilibrador de carga a un equilibrador de carga interno. Para más información, consulte la sección [Equilibrador de carga solo interno](#internallb).
 

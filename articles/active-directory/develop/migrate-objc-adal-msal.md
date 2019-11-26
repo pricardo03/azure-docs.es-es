@@ -1,6 +1,7 @@
 ---
 let application: MSALPublicClientApplication!
-title: Migración de aplicaciones a MSAL.ObjectiveC | Plataforma de identidad de Microsoft
+title: Migre aplicaciones a MSAL.ObjectiveC
+titleSuffix: Microsoft identity platform
 description: Conozca las diferencias entre la biblioteca de autenticación de Microsoft para ObjectiveC (MSAL para iOS y macOS) y la biblioteca de autenticación de Azure AD para ObjectiveC (ADAL.ObjC) y cómo migrar a MSAL para iOS y macOS.
 services: active-directory
 documentationcenter: dev-center-name
@@ -18,12 +19,12 @@ ms.author: twhitney
 ms.reviewer: oldalton
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dcceec31785b3d8ebc6d9566e7d2eba857d792ef
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: 8ccf88bcffdf484772f5f3ad35316d2c74fb104e
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71269378"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175630"
 ---
 # <a name="migrate-applications-to-msal-for-ios-and-macos"></a>Migración de aplicaciones a MSAL para iOS y macOS
 
@@ -72,7 +73,7 @@ Hay dos maneras de proporcionar ámbitos en MSAL:
 
 * Proporcionar una lista de todos los permisos que la aplicación necesita. Por ejemplo: 
 
-    `@[@"https://graph.microsot.com/directory.read", @"https://graph.microsoft.com/directory.write"]`
+    `@[@"https://graph.microsoft.com/directory.read", @"https://graph.microsoft.com/directory.write"]`
 
     En este caso, la aplicación solicita los permisos `directory.read` y `directory.write`. Se le pedirá al usuario que dé su consentimiento para esos permisos, si no lo ha hecho antes para esta aplicación. La aplicación también podría recibir permisos adicionales para los que el usuario ya haya dado su consentimiento. Solo se le pedirá al usuario que dé su consentimiento para permisos nuevos o permisos que aún no se hayan concedido.
 
@@ -208,7 +209,7 @@ En macOS, MSAL puede lograr SSO con otras aplicaciones basadas en MSAL para iOS 
 En iOS, MSAL también admite otros dos tipos de SSO:
 
 * SSO mediante el explorador web. MSAL para iOS admite `ASWebAuthenticationSession`, que proporciona SSO mediante cookies compartidas entre otras aplicaciones del dispositivo y específicamente el explorador Safari.
-* SSO mediante un agente de autenticación En un dispositivo iOS, Microsoft Authenticator actúa como agente de autenticación. Puede seguir directivas de acceso condicional, como requerir un dispositivo conforme, y proporciona SSO para los dispositivos registrados. A partir de la versión 0.3.0, los SDK de MSAL admiten un agente de forma predeterminada.
+* SSO mediante un agente de autenticación En un dispositivo iOS, Microsoft Authenticator actúa como agente de autenticación. Puede seguir directivas de acceso condicional, como requerir un dispositivo compatible, y proporciona SSO para los dispositivos registrados. A partir de la versión 0.3.0, los SDK de MSAL admiten un agente de forma predeterminada.
 
 ## <a name="intune-mam-sdk"></a>ADK de MAM de Intune
 

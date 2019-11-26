@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/08/2019
 ms.author: kumud
-ms.openlocfilehash: 265a14fa216741a5a5994389e671e7558a527261
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: d4ca26606eb8be5b9092f40b70b57b9d5d85385c
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70013712"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72804005"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-using-basic-load-balancer---cli-preview"></a>Implementación de una aplicación de pila doble IPv6 con Basic Load Balancer: CLI (versión preliminar)
 
@@ -36,7 +36,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 Si, en su lugar, decide instalar y usar la CLI de Azure en un entorno local, para esta guía de inicio rápido se necesita la versión 2.0.49 de la CLI de Azure o una versión posterior. Ejecute `az --version` para buscar la versión instalada. Consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli) para obtener información sobre la instalación o actualización.
 
 ## <a name="prerequisites"></a>Requisitos previos
-Para usar IPv6 para la característica Azure Virtual Network, debe configurar la suscripción mediante Azure PowerShell como se indica a continuación:
+Para usar IPv6 para la característica Azure Virtual Network, debe configurar la suscripción mediante la CLI de Azure como se indica a continuación:
 
 ```azurecli
 az feature register --name AllowIPv6VirtualNetwork --namespace Microsoft.Network
@@ -55,7 +55,7 @@ az provider register --namespace Microsoft.Network
 ```
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Para poder generar la red virtual de doble pila, debe crear primero un grupo de recursos con [az group create](/cli/azure/group). En el ejemplo siguiente, se crea un grupo de recursos llamado *myRGDualStack* en la ubicación *eastus*:
+Para poder generar la red virtual de doble pila, debe crear primero un grupo de recursos con [az group create](/cli/azure/group). En el ejemplo siguiente, se crea un grupo de recursos denominado *DsResourceGroup01* en la ubicación *eastus*:
 
 ```azurecli
 az group create \
@@ -64,7 +64,7 @@ az group create \
 ```
 
 ## <a name="create-ipv4-and-ipv6-public-ip-addresses-for-load-balancer"></a>Creación de direcciones IP públicas IPv4 e IPv6 para el equilibrador de carga
-Para obtener acceso los puntos de conexión IPv4 e IPv6 en Internet, necesita direcciones IP públicas IPv4 e IPv6 para el equilibrador de carga. Cree una dirección IP pública con [az network public-ip create](/cli/azure/network/public-ip). En el ejemplo siguiente, se crean las direcciones IP públicas IPv4 e IPv6 denominadas *dsPublicIP_v4* y *dsPublicIP_v6* en el grupo de recursos *myRGDualStack*:
+Para obtener acceso los puntos de conexión IPv4 e IPv6 en Internet, necesita direcciones IP públicas IPv4 e IPv6 para el equilibrador de carga. Cree una dirección IP pública con [az network public-ip create](/cli/azure/network/public-ip). En el ejemplo siguiente, se crean unas direcciones IP públicas IPv4 e IPv6 denominadas *dsPublicIP_v4* y *dsPublicIP_v6* en el grupo de recursos *DsResourceGroup01*:
 
 ```azurecli
 # Create an IPV4 IP address
@@ -384,7 +384,7 @@ Para ver la red virtual de doble pila IPv6 en Azure Portal, siga estos pasos:
 Cuando ya no se necesiten, puede usar el comando [az group delete](/cli/azure/group#az-group-delete) para quitar el grupo de recursos, la máquina virtual y todos los recursos relacionados.
 
 ```azurecli
- az group delete --name DsRG1
+ az group delete --name DsResourceGroup01
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

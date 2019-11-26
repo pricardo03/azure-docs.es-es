@@ -6,14 +6,14 @@ author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 08/07/2019
+ms.date: 10/21/2019
 ms.author: rajanaki
-ms.openlocfilehash: 8038f7c909cfeaf15039afa7335dd6b0460a2622
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 191161c8185f45712052000285013a6e61c9fa6a
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72293467"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72968897"
 ---
 # <a name="customize-networking-configurations-of-the-target-azure-vm"></a>Personalización de las configuraciones de red de la máquina virtual de Azure de destino
 
@@ -31,15 +31,12 @@ Al replicar máquinas virtuales de Azure, se pueden proporcionar las siguientes 
 - [Dirección IP pública](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#public-ip-addresses)
 - [Grupo de seguridad de red](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group) tanto de la subred como de la NIC
 
- > [!IMPORTANT]
-  > Por el momento, esta configuración solo se admite en la operación de conmutación por error, pero no en la de conmutación por error de prueba.
-
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Asegúrese de planear las configuraciones de recuperación de antemano.
 - Cree los recursos de red por adelantado. Proporciónelos como una entrada para que el servicio de Azure Site Recovery pueda respetar esta configuración y asegúrese de que la máquina virtual de conmutación por error se adhiere a ella.
 
-## <a name="customize-failover-networking-configurations"></a>Personalización de las configuraciones de red de conmutación por error
+## <a name="customize-failover-and-test-failover-networking-configurations"></a>Personalización de las configuraciones de conmutación por error y de red de conmutación por error de prueba
 
 1. Vaya a **Elementos replicados**. 
 2. Seleccione la máquina virtual de Azure que desee.
@@ -47,13 +44,16 @@ Al replicar máquinas virtuales de Azure, se pueden proporcionar las siguientes 
 
      ![Personalización de las configuraciones de red de conmutación por error](media/azure-to-azure-customize-networking/edit-networking-properties.png)
 
-4. Seleccione **Editar** junto a la NIC que desee configurar. En la siguiente hoja que se abre, seleccione en el destino los recursos creados previamente correspondientes.
+4. Seleccione una red virtual de conmutación por error de prueba. Puede optar por dejarla en blanco y seleccionar una en el momento de la conmutación por error de prueba.
+5. Seleccione **Editar** junto a la NIC que desee configurar. En la siguiente hoja que se abre, seleccione los recursos creados previamente correspondientes en la conmutación por error de prueba y a la ubicación de conmutación por error.
 
     ![Edición de la configuración de la NIC](media/azure-to-azure-customize-networking/nic-drilldown.png) 
 
-5. Seleccione **Aceptar**.
+6. Seleccione **Aceptar**.
 
 Site Recovery ahora respetará esta configuración y garantizará que la máquina virtual de la conmutación por error esté conectada al recurso seleccionado a través de la NIC correspondiente.
+
+Al desencadenar la conmutación por error de prueba a través del plan de recuperación, siempre pedirá la red virtual de Azure. Esta red virtual se usará para la conmutación por error de prueba de las máquinas que no tienen la configuración de conmutación por error de prueba preconfigurada.
 
 ## <a name="troubleshooting"></a>solución de problemas
 
@@ -72,9 +72,8 @@ Validaciones del equilibrador de carga interno:
 - Si la máquina virtual de destino está configurada para colocarse en una zona de disponibilidad, compruebe si el equilibrador de carga tiene redundancia de zona o forma parte de cualquier zona de disponibilidad. (los equilibradores de carga de la SKU básica no admiten zonas y, en este caso, no se mostrarán en la lista desplegable).
 - Asegúrese de que el equilibrador de carga interno tiene un grupo back-end y una configuración de front-end creados previamente.
 
-
 Dirección IP pública:
-    
+
 - La suscripción y la región de la dirección IP pública y de la máquina virtual de destino deben ser las mismas.
 - La SKU de la dirección IP pública de la máquina virtual de destino y la del equilibrador de carga interno deben coincidir.
 

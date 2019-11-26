@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 10/28/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: ecec18945b53711094307162c4aeab2e0580bd5e
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: a1f08589ae28b3e19d2a4fdb3e3862e127a810cc
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71063852"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73099716"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predicates y PredicateValidations
 
@@ -30,6 +30,8 @@ En el siguiente diagrama se muestra la relación entre los elementos:
 ## <a name="predicates"></a>Predicados
 
 El elemento **Predicate** define una validación básica para comprobar el valor de un tipo de notificación y devuelve `true` o `false`. La validación se realiza mediante el uso de un elemento **Method** especificado y un conjunto de elementos **Parameter** relevantes para el método. Por ejemplo, un predicado puede comprobar si la longitud de un valor de notificación de cadena está dentro del intervalo de parámetros mínimos y máximos especificados, o si un valor de notificación de cadena contiene un juego de caracteres. Si se produce un error en la comprobación, el elemento **UserHelpText** proporciona un mensaje de error para los usuarios. El valor del elemento **UserHelpText** se puede localizar mediante la [personalización de idioma](localization.md).
+
+El elemento **Predicados** debe aparecer directamente después del elemento **ClaimsSchema** en el elemento [BuildingBlocks](buildingblocks.md).
 
 El elemento **Predicates** contiene el elemento siguiente:
 
@@ -111,6 +113,8 @@ En el ejemplo siguiente se muestra un método `IsDateRange` con los parámetros 
 ## <a name="predicatevalidations"></a>PredicateValidations
 
 Mientras que los predicados definen la validación que se va a comparar con un tipo de notificación, **PredicateValidations** agrupa un conjunto de predicados para formar una validación de entrada de usuario que se puede aplicar a un tipo de notificación. Cada elemento **PredicateValidation** contiene un conjunto de elementos **PredicateGroup** que contienen un conjunto de elementos **PredicateReference** que dirigen a un elemento **Predicate**. Para pasar la validación, el valor de la notificación debe superar todas las pruebas de cualquier predicado en todo el **PredicateGroup** con su conjunto de elementos **PredicateReference**.
+
+El elemento **PredicateValidations** debe aparecer directamente después del elemento **Predicados** en el elemento [BuildingBlocks](buildingblocks.md).
 
 ```XML
 <PredicateValidations>
@@ -194,7 +198,7 @@ Con **Predicates** y **PredicateValidationsInput** puede controlar los requisito
 - **Lowercase** con el método `IncludesCharacters` valida que la contraseña contiene una letra minúscula.
 - **Uppercase** con el método `IncludesCharacters` valida que la contraseña contiene una letra mayúscula.
 - **Number** con el método `IncludesCharacters` valida que la contraseña contiene un dígito.
-- **Symbol** con el método `IncludesCharacters` valida que la contraseña contiene uno de los siguientes símbolos `@#$%^&*\-_+=[]{}|\:',?/~"();!`
+- **Symbol** con el método `IncludesCharacters` valida que la contraseña contiene uno de los diversos caracteres de símbolos.
 - **PIN** con el método `MatchesRegex` valida que la contraseña solo contiene números.
 - **AllowedAADCharacters** con el método `MatchesRegex` valida que se ha proporcionado el único carácter no válido de la contraseña.
 - **DisallowedWhitespace** con el método `MatchesRegex` valida que la contraseña no empiece ni termine con un carácter de espacio en blanco.
@@ -233,7 +237,7 @@ Con **Predicates** y **PredicateValidationsInput** puede controlar los requisito
   <Predicate Id="Symbol" Method="IncludesCharacters">
     <UserHelpText>a symbol</UserHelpText>
     <Parameters>
-      <Parameter Id="CharacterSet">@#$%^&amp;*\-_+=[]{}|\:',?/`~"();!</Parameter>
+      <Parameter Id="CharacterSet">@#$%^&amp;*\-_+=[]{}|\\:',.?/`~"();!</Parameter>
     </Parameters>
   </Predicate>
 

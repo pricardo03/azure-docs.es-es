@@ -15,12 +15,12 @@ ms.date: 07/16/2018
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11453ad9132664313df2b56cb3664512628a16ba
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1291db8cd895a1104183ae2b5388eb6a23305874
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108235"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72895932"
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>Guía de introducción a la integración de Azure Active Directory con las aplicaciones
 
@@ -77,7 +77,7 @@ Cada una de las aplicaciones puede tener requisitos de autenticación diferentes
 Con el proxy de la aplicación de Microsoft Azure Active Directory, puede proporcionar acceso seguro a las aplicaciones que se encuentran dentro de la red privada, desde cualquier parte y en cualquier dispositivo. Cuando haya instalado un conector de proxy de aplicación dentro de su entorno, se podrá configurar con facilidad con Azure AD.
 
 ### <a name="integrating-custom-applications"></a>Integración de aplicaciones personalizadas
-Si va a crear una nueva aplicación y quiere ayudar a los desarrolladores a aprovechar la eficacia de Azure AD, consulte [Directrices para los desarrolladores](../active-directory-applications-guiding-developers-for-lob-applications.md).
+Si va a escribir una nueva aplicación y quiere ayudar a los desarrolladores a aprovechar la eficacia de Azure AD, consulte [Directrices para los desarrolladores](../active-directory-applications-guiding-developers-for-lob-applications.md).
 
 Si quiere agregar su aplicación personalizada a la Galería de aplicaciones de Azure, consulte ["Traiga su propia aplicación" con la configuración de SALM de autoservicio de Azure AD](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-now-in-preview/).
 

@@ -1,5 +1,5 @@
 ---
-title: Copia de seguridad de un servidor Exchange en Azure Backup con System Center 2012 R2 DPM
+title: Hacer una copia de seguridad de un servidor Exchange en Azure Backup a través de System Center DPM
 description: Obtenga información acerca de cómo realizar una copia de seguridad de un servidor Exchange en Azure Backup con System Center 2012 R2 DPM
 ms.reviewer: kasinh
 author: dcurwin
@@ -8,17 +8,19 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: dacurwin
-ms.openlocfilehash: 0c8975aed79e78b4bb66ce1516b85ceeb78628e8
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 21f38105913e03adfbf400e82d3572e6e5084538
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689418"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72968503"
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-system-center-2012-r2-dpm"></a>Copia de seguridad de un servidor Exchange en Azure Backup con System Center 2012 R2 DPM
+
 En este artículo se describe cómo configurar un servidor de System Center 2012 R2 Data Protection Manager (DPM) para realizar una copia de seguridad de un servidor Microsoft Exchange en Azure Backup.  
 
 ## <a name="updates"></a>Actualizaciones
+
 Para registrar correctamente el servidor DPM con Copia de seguridad de Azure, debe instalar el paquete acumulativo de actualizaciones más reciente de System Center 2012 R2 DPM y la versión más reciente de Azure Backup Agent. Obtenga el último paquete acumulativo de actualizaciones en el [Catálogo de Microsoft Update](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=System%20Center%202012%20R2%20Data%20protection%20manager).
 
 > [!NOTE]
@@ -27,6 +29,7 @@ Para registrar correctamente el servidor DPM con Copia de seguridad de Azure, de
 >
 
 ## <a name="prerequisites"></a>Requisitos previos
+
 Antes de continuar, asegúrese de que se cumplen todos los [requisitos previos](backup-azure-dpm-introduction.md#prerequisites-and-limitations) para usar Microsoft Azure Backup a fin de proteger las cargas de trabajo. Entre estos requisitos previos se incluyen los siguientes:
 
 * Se ha creado un almacén de Copia de seguridad en el sitio de Azure.
@@ -36,12 +39,14 @@ Antes de continuar, asegúrese de que se cumplen todos los [requisitos previos](
 * Si va a proteger Exchange 2016, actualice al paquete acumulativo de actualizaciones 9 de DPM 2012 R2 o posterior.
 
 ## <a name="dpm-protection-agent"></a>Agente de protección DPM
+
 Para instalar al agente de protección DPM en el servidor Exchange, siga estos pasos:
 
 1. Asegúrese de que los firewalls estén configurados correctamente. Consulte [Configuración de excepciones de firewall para el agente](https://technet.microsoft.com/library/Hh758204.aspx).
 2. Instale el agente en el servidor Exchange; para ello, haga clic en **Administración > Agentes > Instalar** en la Consola de administrador DPM. Consulte [Instalación del agente de protección DPM](https://technet.microsoft.com/library/hh758186.aspx?f=255&MSPPError=-2147217396) para ver pasos detallados.
 
 ## <a name="create-a-protection-group-for-the-exchange-server"></a>Creación de un grupo de protección para el servidor Exchange
+
 1. En la Consola de administrador DPM, haga clic en **Protección** y luego en **Nuevo** en la cinta de herramientas para abrir el asistente **Crear nuevo grupo de protección**.
 2. En la pantalla **Bienvenido** del asistente, haga clic en **Siguiente**.
 3. En la pantalla **Seleccionar tipo de grupo de protección**, seleccione **Servidores** y haga clic en **Siguiente**.
@@ -103,6 +108,7 @@ Para instalar al agente de protección DPM en el servidor Exchange, siga estos p
 19. Haga clic en **Cerrar**.
 
 ## <a name="recover-the-exchange-database"></a>Recuperación de la base de datos de Exchange
+
 1. Para recuperar una base de datos de Exchange, haga clic en **Recuperación** en la Consola de administrador DPM.
 2. Busque la base de datos de Exchange que desea recuperar.
 3. Seleccione un punto de recuperación en línea en la lista desplegable *Hora de recuperación* .
@@ -119,4 +125,5 @@ Para los puntos de recuperación en línea, existen cinco tipos de recuperación
     ![Elegir replicación en línea](./media/backup-azure-backup-exchange-server/choose-online-replication.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 * [Preguntas más frecuentes de Azure Backup](backup-azure-backup-faq.md)

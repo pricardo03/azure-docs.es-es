@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/05/2017
 ms.author: mathoma
-ms.openlocfilehash: 57a325dd297955296a94db134b6a2a6d58a37f03
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: a91098d06f481afaae75eb497d5a076c3eb42c07
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828613"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72896951"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Configuración del almacenamiento para máquinas virtuales de SQL Server
 
@@ -130,15 +130,12 @@ Azure usa la siguiente configuración para crear el grupo de almacenamiento en m
 | Tamaños de disco |1 TB cada uno |
 | Memoria caché |Lectura |
 | Tamaño de la asignación |Tamaño de la unidad de asignación NTFS = 64 KB |
-| Inicialización de archivo instantáneo |habilitado |
-| Bloquear páginas en memoria |habilitado |
-| Recuperación |Recuperación simple (sin resistencia) |
-| Número de columnas |Número de discos de datos<sup>1</sup> |
-| TempDB location (Ubicación de TempDB) |Almacenada en discos de datos<sup>2</sup> |
+| Recuperación | Recuperación simple (sin resistencia) |
+| Número de columnas |Número de discos de datos hasta 8<sup>1</sup> |
+
 
 <sup>1</sup> después de crear el grupo de almacenamiento, no puede modificar el número de columnas en el grupo de almacenamiento.
 
-<sup>2</sup> esta configuración solo se aplica a la primera unidad que se crea con la característica de configuración del almacenamiento.
 
 ## <a name="workload-optimization-settings"></a>Configuración de optimización de la carga de trabajo
 

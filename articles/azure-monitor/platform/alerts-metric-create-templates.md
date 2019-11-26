@@ -1,19 +1,19 @@
 ---
 title: Creación de una alerta de métrica con una plantilla de Resource Manager
 description: Obtenga información sobre cómo usar una plantilla de Resource Manager para crear una alerta de métrica.
-author: snehithm
+author: harelbr
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 9/27/2018
-ms.author: snmuvva
+ms.author: harelbr
 ms.subservice: alerts
-ms.openlocfilehash: b08c7d1b91f89aba4c9cb8a23bb5c688521cb37e
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 3bc17830a4852aa3af1a22f53e54c86ee002150d
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72372774"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73099749"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Creación de una alerta de métrica con una plantilla de Resource Manager
 
@@ -27,8 +27,9 @@ En este artículo se explica cómo usar una [plantilla de Azure Resource Manager
 Los pasos básicos son los siguientes:
 
 1. Use una de las plantillas siguientes como archivo JSON que describa cómo crear la alerta.
-2. Editar y usar el archivo de parámetros correspondiente como archivo JSON para personalizar la alerta
-3. Implemente la plantilla mediante [cualquier método de implementación](../../azure-resource-manager/resource-group-template-deploy.md).
+2. Editar y usar el archivo de parámetros correspondiente como archivo JSON para personalizar la alerta.
+3. Para el parámetro `metricName`, consulte las métricas disponibles en [Métricas compatibles de Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported).
+4. Implemente la plantilla mediante [cualquier método de implementación](../../azure-resource-manager/resource-group-template-deploy.md).
 
 ## <a name="template-for-a-simple-static-threshold-metric-alert"></a>Plantilla para una alerta de métricas de umbral estático simple
 
@@ -2970,6 +2971,9 @@ Para este tutorial, guarde el archivo json siguiente como availabilityalert.json
     },
     "actionGroupId": {
       "type": "string"
+    },
+    "location": {
+      "type": "string"
     }
   },
   "variables": {
@@ -2981,7 +2985,7 @@ Para este tutorial, guarde el archivo json siguiente como availabilityalert.json
       "name": "[variables('pingTestName')]",
       "type": "Microsoft.Insights/webtests",
       "apiVersion": "2014-04-01",
-      "location": "West Central US",
+      "location": "[parameters('location')]",
       "tags": {
         "[concat('hidden-link:', resourceId('Microsoft.Insights/components', parameters('appName')))]": "Resource"
       },
@@ -3060,13 +3064,16 @@ Guarde el archivo json siguiente como availabilityalert.parameters.json y modif�
     "contentVersion": "1.0.0.0",
     "parameters": {
         "appName": {
-            "value": "Replace with your Application Insights component name"
+            "value": "Replace with your Application Insights resource name"
         },
         "pingURL": {
             "value": "https://www.yoursite.com"
         },
         "actionGroupId": {
             "value": "/subscriptions/replace-with-subscription-id/resourceGroups/replace-with-resourceGroup-name/providers/microsoft.insights/actiongroups/replace-with-action-group-name"
+        },
+        "location": {
+            "value": "Replace with the location of your Application Insights resource"
         }
     }
 }

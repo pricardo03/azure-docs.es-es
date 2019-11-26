@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/30/2019
+ms.date: 10/24/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 9306e44655bd172343f20ac4fda2b2c56afcfb88
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 603de4d9bed936ecb91f130b0e30f6d1383a9092
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67164492"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72935819"
 ---
 # <a name="tutorial-optimize-costs-from-recommendations"></a>Tutorial: Optimización de los costos a partir de las recomendaciones
 
@@ -29,10 +29,10 @@ En este tutorial, aprenderá a:
 > * Comprobar la acción para asegurarse de que la máquina virtual cambió el tamaño correctamente
 
 ## <a name="prerequisites"></a>Requisitos previos
-Las recomendaciones están disponibles para varios tipos de cuenta y ámbitos de Azure, entre las que se incluyen las de los clientes con [Contrato Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/). Para ver la lista completa de tipos de cuenta compatibles, consulte [Understand Cost Management data](understand-cost-mgt-data.md) (Información sobre los datos de Cost Management). Debe tener al menos acceso de lectura a uno o varios de los siguientes ámbitos para ver datos de costos. Para más información sobre los ámbitos, consulte [Descripción y uso de ámbitos](understand-work-scopes.md).
+Hay recomendaciones disponibles para varios tipos de cuenta y ámbitos de Azure. Para ver la lista completa de tipos de cuenta compatibles, consulte [Understand Cost Management data](understand-cost-mgt-data.md) (Información sobre los datos de Cost Management). Debe tener al menos acceso de lectura a uno o varios de los siguientes ámbitos para ver datos de costos. Para más información sobre los ámbitos, consulte [Descripción y uso de ámbitos](understand-work-scopes.md).
 
 - Subscription
-- Grupos de recursos
+- Resource group
 
 Debe tener máquinas virtuales activas con al menos 14 días de actividad.
 
@@ -63,7 +63,7 @@ Entre las recomendaciones de impacto medio se incluyen:
 
 ## <a name="act-on-a-recommendation"></a>Actuar en función de una recomendación
 
-Azure Advisor supervisa el uso de las máquinas virtuales durante 14 días e identifica aquellas infrautilizadas. Se considera que una máquina virtual tiene una utilización escasa si su uso de la CPU es del 5 % o menos y el de la red es de 7 MB o menos durante cuatro o más días.
+Azure Advisor supervisa el uso de las máquinas virtuales durante siete días e identifica las que están infrautilizadas. Se considera que una máquina virtual tiene una utilización escasa si su uso de la CPU es del 5 % o menos y el de la red es de 7 MB o menos durante cuatro o más días.
 
 La configuración de uso de la CPU del 5 % o menos es el valor predeterminado, pero se puede ajustar. Para más información sobre cómo ajustar la configuración, consulte [Recomendación de la configuración de la regla de uso promedio de CPU para una máquina virtual con poco uso](../advisor/advisor-get-started.md#configure-low-usage-vm-recommendation).
 
@@ -79,14 +79,14 @@ En los detalles de la VM, compruebe el uso de la máquina virtual para confirmar
 
 Anote el tamaño actual de la máquina virtual. Después de comprobar que debe cambiarse el tamaño de la máquina virtual, cierre los detalles de la VM para ver la lista de máquinas virtuales.
 
-En la lista de candidatos para apagar o cambiar el tamaño, seleccione **Cambiar el tamaño de la máquina virtual**.
+En la lista de candidatos para apagar o cambiar el tamaño, seleccione **Resize *&lt;FromVirtualMachineSKU&gt;* to *&lt;ToVirtualMachineSKU&gt;*** (**Cambiar tamaño de FromVirtualMachineSKU a *ToVirtualMachineSKU***).
 ![Recomendaciones de ejemplo con la opción de cambiar el tamaño de la máquina virtual](./media/tutorial-acm-opt-recommendations/resize-vm.png)
 
-A continuación, se le presentará una lista de opciones de cambio de tamaño disponibles. Elija la que ofrezca el mejor rendimiento y rentabilidad para su escenario. En el ejemplo siguiente, la opción elegida cambia el tamaño de una **DS14\_V2** a una **DS13\_V2**. Seguir la recomendación ahorra 551,30 USD/mes o 6615,60 USD/año.
+A continuación, se le presentará una lista de opciones de cambio de tamaño disponibles. Elija la que ofrezca el mejor rendimiento y rentabilidad para su escenario. En el ejemplo siguiente, la opción elegida cambia el tamaño de **Standard_D8s_v3** a **Standard_D2s_v3**.
 
 ![Lista de ejemplo de los tamaños de máquina virtual disponibles donde puede elegir un tamaño](./media/tutorial-acm-opt-recommendations/choose-size.png)
 
-Después de elegir un tamaño adecuado, haga clic en **Seleccionar** para iniciar la acción de cambio de tamaño.
+Después de elegir un tamaño adecuado, haga clic en **Cambiar tamaño** para iniciar la acción de cambio de tamaño.
 
 El cambio de tamaño requiere que se reinicie la máquina virtual en ejecución activa. Si la máquina virtual está en un entorno de producción, se recomienda ejecutar la operación de cambio de tamaño después del horario comercial. Programar el reinicio puede reducir las interrupciones causadas por la falta de disponibilidad momentánea.
 

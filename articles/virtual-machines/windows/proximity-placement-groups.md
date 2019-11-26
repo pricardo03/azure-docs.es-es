@@ -1,35 +1,28 @@
 ---
-title: Uso de los grupos de selección de ubicación de proximidad para máquinas virtuales Windows | Microsoft Docs
+title: Uso de los grupos de selección de ubicación de proximidad para máquinas virtuales Windows
 description: Obtenga información sobre la creación y el uso de los grupos de selección de ubicación de proximidad para máquinas virtuales Windows en Azure.
 services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 07/01/2019
+ms.date: 10/30/2019
 ms.author: cynthn
-ms.openlocfilehash: af75b3f98232d6507fc8b0fda179bebc75828086
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 6d0c35737151b060dcffba8944f4a1361d36dc14
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70088836"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73171209"
 ---
-# <a name="preview-deploy-vms-to-proximity-placement-groups-using-powershell"></a>Vista previa: Implementación de máquinas virtuales en grupos de selección de ubicación de proximidad con PowerShell
+# <a name="deploy-vms-to-proximity-placement-groups-using-powershell"></a>Implementación de máquinas virtuales en grupos de selección de ubicación de proximidad con PowerShell
 
 
-Para acercar las máquinas virtuales lo máximo posible con la menor latencia, debe implementarlas dentro de un [grupo de selección de ubicación de proximidad](co-location.md#preview-proximity-placement-groups).
+Para acercar las máquinas virtuales lo máximo posible con la menor latencia, debe implementarlas dentro de un [grupo de selección de ubicación de proximidad](co-location.md#proximity-placement-groups).
 
 Un grupo de selección de ubicación de proximidad es una agrupación lógica que se usa para asegurarse de que los recursos de proceso de Azure se encuentran físicamente cercanos entre sí. Los grupos de selección de ubicación de proximidad son útiles para las cargas de trabajo en las que la latencia baja es un requisito.
-
-> [!IMPORTANT]
-> Los grupos de selección de ubicación de proximidad se encuentran actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
-> Los grupos de selección de ubicación de proximidad no están disponibles en estas regiones durante la versión preliminar: **Japón Oriental**, **Este de Australia** e **India central**.
 
 
 ## <a name="create-a-proximity-placement-group"></a>Creación de un grupo de selección de ubicación por proximidad

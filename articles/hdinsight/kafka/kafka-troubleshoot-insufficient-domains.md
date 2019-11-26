@@ -1,5 +1,5 @@
 ---
-title: No se pudo crear el clúster debido a que no hay suficientes dominios de error en la región de Azure HDInsight
+title: No hay suficientes dominios de error en el error de la región de Azure HDInsight
 description: No se pudo crear el clúster debido a que no hay suficientes dominios de error en la región de Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/09/2019
-ms.openlocfilehash: 1e0fae699752f5e2417a4a3cbd42f4f1d2bd891f
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: defb0666a6537d62b22dca301f69a5163e887d3f
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091238"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73241909"
 ---
 # <a name="scenario-cluster-creation-failed-due-to-not-sufficient-fault-domains-in-region-in-azure-hdinsight"></a>Escenario: No se pudo crear el clúster debido a `not sufficient fault domains in region` en Azure HDInsight
 

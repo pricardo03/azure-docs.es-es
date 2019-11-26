@@ -1,6 +1,6 @@
 ---
-title: 'Aprobación o denegación de solicitudes de acceso en la administración de derechos de Azure AD (versión preliminar): Azure Active Directory'
-description: Obtenga información sobre cómo usar el portal Mi acceso para aprobar o denegar solicitudes para un paquete de acceso en la administración de derechos de Azure Active Directory (versión preliminar).
+title: 'Aprobación o denegación de solicitudes de acceso en la administración de derechos de Azure AD: Azure Active Directory'
+description: Obtenga información sobre cómo usar el portal Mi acceso para aprobar o denegar solicitudes para un paquete de acceso en la administración de derechos de Azure Active Directory.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -12,23 +12,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/18/2019
+ms.date: 10/27/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78243f02cbbe3d06b94ee52d6193865dbfa27121
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 3eb7960d58723d6fdd165841baea3416d5a84348
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489002"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73199772"
 ---
-# <a name="approve-or-deny-access-requests-in-azure-ad-entitlement-management-preview"></a>Aprobación o denegación de solicitudes de acceso en la administración de derechos de Azure AD (versión preliminar)
-
-> [!IMPORTANT]
-> La administración de derechos de Azure Active Directory (Azure AD) está actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
-> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="approve-or-deny-access-requests-in-azure-ad-entitlement-management"></a>Aprobación o denegación de solicitudes de acceso en la administración de derechos de Azure AD
 
 Con la administración de derechos de Azure AD, puede configurar directivas para requerir aprobación para los paquetes de acceso y elegir uno o varios aprobadores. En este artículo se describe cómo los aprobadores designados pueden aprobar o denegar solicitudes para paquetes de acceso.
 
@@ -40,7 +35,7 @@ El primer paso para aprobar o denegar solicitudes de acceso es buscar y abrir la
 
 1. Buscar un correo electrónico de Microsoft Azure que le pida que apruebe o deniegue una solicitud. Este es un ejemplo de correo electrónico:
 
-    ![Correo electrónico de solicitud de aprobación para un paquete de acceso](./media/entitlement-management-shared/email-approve-request.png)
+    ![Correo electrónico de solicitud de aprobación para un paquete de acceso](./media/entitlement-management-shared/approver-request-email.png)
 
 1. Haga clic en el vínculo **Aprobar o denegar una solicitud** para abrir la solicitud de acceso.
 
@@ -70,7 +65,7 @@ Después de abrir una solicitud de acceso pendiente de aprobación, puede ver lo
 
 1. Si es necesario, escriba un motivo.
 
-    ![Portal Mi acceso: solicitud de acceso](./media/entitlement-management-shared/my-access-approve-request.png)
+    ![Portal Mi acceso: solicitud de acceso](./media/entitlement-management-request-approve/my-access-approve-request.png)
 
 1. Haga clic en **Enviar** para enviar su decisión.
 

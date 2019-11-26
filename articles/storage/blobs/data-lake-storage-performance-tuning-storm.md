@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: ed13735b4da4818e969c4dddff68b55af6e71a15
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 108eeb03c0ed484e40b884372018bbbef686ee62
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855418"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73159863"
 ---
 # <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-storage-gen2"></a>Guía para la optimización del rendimiento de Storm en HDInsight y Azure Data Lake Storage Gen2
 
@@ -110,7 +110,7 @@ Si se alcanzan los límites de ancho de banda proporcionados por Data Lake Stora
 
 Para comprobar si le están aplicando limitaciones, habilite el registro de depuración en el lado cliente:
 
-1. En **Ambari** > **Storm** > **Config** > **Advanced storm-worker-log4j**, cambie **&lt;nivel de raíz="info"&gt;** por **&lt;nivel de raíz=”debug”&gt;** . Reinicie todos los nodos/servicios para que la configuración surta efecto.
+1. En **Ambari** > **Storm** > **Config** > **Advanced storm-worker-log4j**, cambie **&lt;nivel de raíz="info"&gt;** por **&lt;nivel de raíz="debug"&gt;** . Reinicie todos los nodos/servicios para que la configuración surta efecto.
 2. Supervise los registros de topología de Storm en los nodos de trabajo (en /var/log/storm/worker-artifacts/&lt;NombreTopología&gt;/&lt;puerto&gt;/worker.log) para controlar las excepciones de limitación de Data Lake Storage Gen2.
 
 ## <a name="next-steps"></a>Pasos siguientes

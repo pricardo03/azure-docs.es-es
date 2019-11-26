@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 10/12/2018
 ms.author: vturecek
-ms.openlocfilehash: 39e6273382133493a77321deed2baec4718bc912
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: b2a1b1426af3e72756a7a85a173ef4a2a5671b02
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72383661"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900193"
 ---
 # <a name="aspnet-core-in-azure-service-fabric-reliable-services"></a>ASP.NET Core en Reliable Services de Azure Service Fabric
 
@@ -339,6 +339,9 @@ new KestrelCommunicationListener(serviceContext, (url, listener) => ...
 ```
 
 En esta configuración, `KestrelCommunicationListener` seleccionará automáticamente un puerto no utilizado en el intervalo de puertos de la aplicación.
+
+Para HTTPS, debe tener el punto de conexión configurado con el protocolo HTTPS sin un puerto especificado en ServiceManifest.xml y pasar el nombre del punto de conexión al constructor KestrelCommunicationListener.
+
 
 ## <a name="service-fabric-configuration-provider"></a>Proveedor de configuración de Service Fabric
 La configuración de aplicaciones en ASP.NET Core se basa en pares de clave-valor establecidos por el proveedor de configuración. Lea [Configuración en ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/) para comprender más sobre la compatibilidad general de configuración de ASP.NET Core.

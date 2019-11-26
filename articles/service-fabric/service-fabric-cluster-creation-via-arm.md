@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/16/2018
 ms.author: atsenthi
-ms.openlocfilehash: 4a865102cbc33da4140f3e25e4b4926eade8e162
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 241349724929845afa2fd2a4bacabf9b5017cc7c
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599963"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901563"
 ---
 # <a name="create-a-service-fabric-cluster-using-azure-resource-manager"></a>Creación de un clúster de Service Fabric con Azure Resource Manager 
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.locfileid: "68599963"
 
 Un [clúster de Azure Service Fabric](service-fabric-deploy-anywhere.md) es un conjunto de máquinas virtuales conectadas a la red, en las que se implementan y administran los microservicios.  Un clúster de Service Fabric que se ejecuta en Azure es un recurso de Azure y se implementa mediante Azure Resource Manager. En este artículo se describe cómo implementar un clúster de Service Fabric seguro en Azure mediante Resource Manager. Puede usar una plantilla de clúster predeterminada o una plantilla personalizada.  Si no dispone de una plantilla personalizada, puede [aprender cómo crear una](service-fabric-cluster-creation-create-template.md).
 
-La seguridad del clúster se configura cuando el clúster se configura por primera vez y no se puede cambiar más adelante. Antes de configurar un clúster, lea [Escenarios de seguridad de los clústeres de Service Fabric][service-fabric-cluster-security]. En Azure, Service Fabric usa un certificado x509 para proteger el clúster y sus puntos de conexión, autenticar a los clientes y cifrar los datos. También se recomienda Azure Active Directory para proteger el acceso a los puntos de conexión de administración. Los inquilinos y usuarios de Azure AD deben crearse antes de crear el clúster.  Para obtener más información, lea [Set up Azure AD to authenticate clients](service-fabric-cluster-creation-setup-aad.md) (Configuración de Azure AD para autenticar clientes).
+El tipo de seguridad elegido para proteger el clúster (es decir: identidad de Windows, X509, etc.) se debe especificar para la creación inicial del clúster y no se puede cambiar después. Antes de configurar un clúster, lea [Escenarios de seguridad de los clústeres de Service Fabric][service-fabric-cluster-security]. En Azure, Service Fabric usa un certificado x509 para proteger el clúster y sus puntos de conexión, autenticar a los clientes y cifrar los datos. También se recomienda Azure Active Directory para proteger el acceso a los puntos de conexión de administración. Para obtener más información, lea [Set up Azure AD to authenticate clients](service-fabric-cluster-creation-setup-aad.md) (Configuración de Azure AD para autenticar clientes).
 
 Si va a crear un clúster de producción para ejecutar cargas de trabajo de producción, se recomienda leer primero la [Lista de comprobación sobre la preparación de producción](service-fabric-production-readiness-checklist.md).
 

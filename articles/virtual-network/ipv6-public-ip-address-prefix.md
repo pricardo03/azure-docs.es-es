@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/15/2019
 ms.author: kumud
-ms.openlocfilehash: 2d00ccdeb89ba5d983e4a3e089e78a8d748e4092
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 8254a7d86d5cadc2ddc03940f4ab2d08de74bd86
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597956"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965173"
 ---
 # <a name="reserved-public-ipv6-address-prefix-preview"></a>Prefijo de dirección IPv6 pública reservada (versión preliminar)
 
@@ -46,7 +46,7 @@ El tamaño del prefijo se especifica como un tamaño de máscara de enrutamiento
 Para los costos asociados con el uso de direcciones IP públicas de Azure, tanto direcciones IP individuales como intervalos IP, consulte [Precios de las direcciones IP públicas](https://azure.microsoft.com/pricing/details/ip-addresses/).
 
 ## <a name="limitations"></a>Limitaciones
-IPv6 solo se admite en IP públicas básicas con asignación "dinámica", lo que significa que la dirección IPv6 cambiará si elimina y vuelve a implementar la aplicación (máquinas virtuales o equilibradores de carga) en Azure. Solo la IP pública IPv6 estándar admite la asignación dinámica y estática (reservada).
+IPv6 solo se admite en IP públicas básicas con asignación "dinámica", lo que significa que la dirección IPv6 cambiará si elimina y vuelve a implementar la aplicación (máquinas virtuales o equilibradores de carga) en Azure. Las IP públicas estándar IPv6 admiten únicamente la asignación estática (reservada), aunque los equilibradores de carga internos estándar también pueden admitir la asignación dinámica desde dentro de la subred a la que están asignadas.  
 
 Como procedimiento recomendado, se recomienda usar IP públicas estándar e instancias de Standard Load Balancer para las aplicaciones IPv6.
 

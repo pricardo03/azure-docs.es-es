@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/31/2019
 ms.author: jafreebe
 ms.custom: ''
-ms.openlocfilehash: d1b6444b8512b1b55ac46370e805f8f662f5f555
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 121ea4b7e29510ef86b61350ed97ffca5d133d56
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070681"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73199495"
 ---
 # <a name="deployment-best-practices"></a>Procedimientos recomendados de implementación
 
@@ -69,7 +69,7 @@ Siempre que sea posible, use [ranuras de implementación](deploy-staging-slots.m
 
 El contenido de Azure App Service se almacena en Azure Storage y surge de manera duradera como un recurso compartido de contenido. Sin embargo, algunas aplicaciones solo necesitan un almacén de contenido de solo lectura y de gran rendimiento que puedan ejecutar con alta disponibilidad. Estas aplicaciones pueden beneficiarse del uso de la [memoria caché local](overview-local-cache.md). No se recomienda la memoria caché local para los sitios de administración de contenido como WordPress.
 
-Use siempre la memoria caché local junto con [ranuras de implementación] (deploy-staging-slots md) para evitar tiempos de inactividad. Consulte [esta sección](overview-local-cache.md#best-practices-for-using-app-service-local-cache) para información sobre el uso conjunto de estas características.
+Use siempre la memoria caché local junto con [ranuras de implementación](deploy-staging-slots.md) para evitar tiempos de inactividad. Consulte [esta sección](overview-local-cache.md#best-practices-for-using-app-service-local-cache) para información sobre el uso conjunto de estas características.
 
 ### <a name="high-cpu-or-memory"></a>CPU o memoria elevadas
 

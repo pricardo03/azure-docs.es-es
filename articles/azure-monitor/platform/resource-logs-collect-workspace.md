@@ -1,5 +1,5 @@
 ---
-title: Recopilación de registros de recurso de Azure en el área de trabajo de Log Analytics en Azure Monitor
+title: Recopilación de registros de recursos de Azure en el área de trabajo de Log Analytics
 description: Aprenda a transmitir registros de Azure Diagnostics a un área de trabajo de Log Analytics en Azure Monitor.
 author: bwren
 services: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 2f5dba7c36ec04263f6d227d82b9fc50b82890a3
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 92de47041791c8b6c540844adb62391268b81c34
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71263003"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73200507"
 ---
 # <a name="collect-azure-resource-logs-in-log-analytics-workspace-in-azure-monitor"></a>Recopilación de registros de recurso de Azure en el área de trabajo de Log Analytics en Azure Monitor
 Los [registros de recurso](resource-logs-overview.md) en Azure proporcionan datos exhaustivos y frecuentes acerca del funcionamiento interno de un recurso de Azure. En este artículo se describe la recopilación de registros de recurso en un área de trabajo de Log Analytics que permita el análisis con otros datos de supervisión recopilados en los registros de Azure Monitor mediante consultas de registro eficaces y también el aprovechamiento de otras características de Azure Monitor, como las alertas y las visualizaciones. 
@@ -33,7 +33,7 @@ Si no la tiene, [cree un área de trabajo](../learn/quick-create-workspace.md). 
 Los registros de recurso no se recopilan de forma predeterminada. Recopílelos en un área de trabajo de Log Analytics y otros destinos mediante la creación de configuración de diagnóstico para un recurso de Azure. Consulte [Creación de una configuración de diagnóstico para recopilar registros y métricas en Azure](diagnostic-settings.md) para más información.
 
 ## <a name="collection-mode"></a>Modo de recopilación
-Los datos recopilados en un área de trabajo de Log Analytics se almacenan en tablas, tal como se describe en Estructura de los registros de Azure Monitor. Las tablas que usan los registros de recurso dependen del tipo de colección del recurso:
+Los datos recopilados en un área de trabajo de Log Analytics se almacenan en tablas, tal como se describe en [Estructura de registros de Azure Monitor](../log-query/logs-structure.md). Las tablas que usan los registros de recurso dependen del tipo de colección del recurso:
 
 - Azure Diagnostics: todos los datos se escriben en la tabla _AzureDiagnostics_.
 - Específicos del recurso: los datos se escriben en una tabla individual para cada categoría del recurso.

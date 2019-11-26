@@ -4,12 +4,12 @@ ms.author: robinsh
 ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
-ms.openlocfilehash: b8d4c2691af8429e7b3a6c1916d12f1af609e744
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 2d9549c88ace63997ff6d17568b6ba5131e8a15f
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72391780"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73083751"
 ---
 En la tabla siguiente se enumeran los límites asociados a los diferentes niveles de servicio (S1, S2, S3 y F1). Para información sobre el costo de cada *unidad* en cada nivel, consulte los [Precios de IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/).
 
@@ -27,7 +27,7 @@ En la tabla siguiente se enumeran los límites que se aplican a los recursos de 
 
 | Resource | Límite |
 | --- | --- |
-| Cantidad máxima de Centros de IoT de pago por suscripción a Azure |50 |
+| Cantidad máxima de Centros de IoT de pago por suscripción a Azure |100 |
 | Cantidad máxima de Centros de IoT gratis por suscripción a Azure |1 |
 | Número máximo de caracteres incluido en un identificador de dispositivo | 128 |
 | Número máximo de identidades del dispositivo<br/> devueltas en una sola llamada |1000 |
@@ -53,7 +53,7 @@ En la tabla siguiente se enumeran los límites que se aplican a los recursos de 
 | Nivel máximo de transferencia de datos de secuencia de dispositivos | 300 MB por día (solo para S1, S2, S3 y F1) |
 
 > [!NOTE]
-> Si necesita más de 50 centros de IoT de pago en una suscripción de Azure, póngase en contacto con el servicio de soporte técnico de Microsoft.
+> Si necesita más de 100 centros de IoT de pago en una suscripción de Azure, póngase en contacto con el servicio de soporte técnico de Microsoft.
 
 > [!NOTE]
 > Actualmente, el número total de dispositivos más módulos que es posible registrar en un único centro de IoT se limita a 1 millón. Si quiere aumentar este límite, póngase en contacto con el [soporte técnico de Microsoft](https://azure.microsoft.com/support/options/).

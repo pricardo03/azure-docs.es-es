@@ -3,22 +3,23 @@ title: 'CLI de Azure Service Fabric: sfctl property | Microsoft Docs'
 description: Describe los comandos de sfctl property de la CLI de Service Fabric.
 services: service-fabric
 documentationcenter: na
-author: Christina-Kang
+author: jeffj6123
 manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
+ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/06/2018
-ms.author: bikang
-ms.openlocfilehash: 34e6fc0d4e6e0817f9312a6565a2dd5dd99fdab9
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.date: 9/17/2019
+ms.author: jejarry
+ms.openlocfilehash: 368dad54c611e4532b46f11669bcf8e363b9a740
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035255"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901073"
 ---
 # <a name="sfctl-property"></a>sfctl property
 Almacene y consulte las propiedades con nombres de Service Fabric.
@@ -43,7 +44,7 @@ Elimina la propiedad de Service Fabric especificada con un nombre concreto. Es n
 | --- | --- |
 | --name-id       [obligatorio] | Nombre de Service Fabric, sin el esquema de URI "fabric\:". |
 | --property-name [obligatorio] | Especifica el nombre de la propiedad que se va a obtener. |
-| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
@@ -66,7 +67,7 @@ Obtiene la propiedad de Service Fabric especificada con un nombre concreto. Esto
 | --- | --- |
 | --name-id       [obligatorio] | Nombre de Service Fabric, sin el esquema de URI "fabric\:". |
 | --property-name [obligatorio] | Especifica el nombre de la propiedad que se va a obtener. |
-| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
@@ -90,7 +91,7 @@ Un nombre de Service Fabric puede tener una o varias propiedades con nombre que 
 | --name-id [obligatorio] | Nombre de Service Fabric, sin el esquema de URI "fabric\:". |
 | --continuation-token | El parámetro continuation token se utiliza para obtener el siguiente conjunto de resultados. Un token de continuación con un valor no vacío se incluye en la respuesta de la API cuando los resultados del sistema no caben en una única respuesta. Cuando este valor se pasa a la siguiente llamada de la API, la API devuelve el siguiente conjunto de resultados. Si no hay más resultados, el token de continuación no contiene ningún valor. El valor de este parámetro no debe ser la dirección URL codificada. |
 | --include-values | Permite especificar si se deben incluir los valores de las propiedades devueltas. True si se deben devolver valores con los metadatos; False para devolver solo los metadatos de propiedad. |
-| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
@@ -114,8 +115,8 @@ Crea o actualiza la propiedad de Service Fabric especificada con un nombre concr
 | --name-id       [obligatorio] | Nombre de Service Fabric, sin el esquema de URI "fabric\:". |
 | --property-name [obligatorio] | El nombre de la propiedad de Service Fabric. |
 | --value         [obligatorio] | Describe un valor de propiedad de Service Fabric. Se trata de una cadena JSON. <br><br> La cadena json tiene dos campos, el "tipo" de los datos y el "valor" de los datos. El valor de "tipo" debe ser el primer elemento en aparecer en la cadena JSON, y puede ser "Binary", "Int64", "Double", "String" o "Guid". El valor debe poder compatible con la serialización para los tipos especificados. Los valores de "tipo" y "datos" deben proporcionarse como cadenas. |
-| --custom-id-type | Identificador de tipo personalizado de la propiedad. Con esta propiedad, el usuario es capaz de etiquetar el tipo del valor de la propiedad. |
-| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --custom-id-type | El identificador del tipo personalizado de la propiedad. Con esta propiedad, el usuario es capaz de etiquetar el tipo del valor de la propiedad. |
+| --timeout -t | Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 

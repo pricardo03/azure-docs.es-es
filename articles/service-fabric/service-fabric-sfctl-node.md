@@ -3,22 +3,23 @@ title: 'CLI de Azure Service Fabric: sfctl node | Microsoft Docs'
 description: Describe los comandos de sfctl node de la CLI Service Fabric.
 services: service-fabric
 documentationcenter: na
-author: Christina-Kang
+author: jeffj6123
 manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
+ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/06/2018
-ms.author: bikang
-ms.openlocfilehash: 9d41f978dd6a87287d8743e321acf35ff4909544
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.date: 9/17/2019
+ms.author: jejarry
+ms.openlocfilehash: 29a66beb354edc96a9ece2bb37766dbde6a9fe49
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69034979"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901104"
 ---
 # <a name="sfctl-node"></a>sfctl node
 Administre los nodos que forman un clúster.
@@ -50,7 +51,7 @@ Desactive un nodo de clúster de Service Fabric con la intención de desactivaci
 | --- | --- |
 | --node-name [Obligatorio] | El nombre del nodo. |
 | --deactivation-intent | Describe la intención o el motivo para desactivar el nodo. Los valores posibles son los siguientes. |
-| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
@@ -72,7 +73,7 @@ Active un nodo de clúster de Service Fabric, que está actualmente desactivado.
 |Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --node-name [Obligatorio] | El nombre del nodo. |
-| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
@@ -95,7 +96,7 @@ Obtiene el estado de un nodo de Service Fabric. Use EventsHealthStateFilter para
 | --- | --- |
 | --node-name [Obligatorio] | El nombre del nodo. |
 | --events-health-state-filter | Permite filtrar la colección de objetos HealthEvent devueltos según el estado de mantenimiento. Los valores posibles para este parámetro incluyen el valor entero de uno de los siguientes estados de mantenimiento. Se devuelven únicamente los eventos que coinciden con el filtro. Todos los eventos se utilizan para evaluar el estado de mantenimiento agregado. Si no se especifica, se devuelven todas las entradas. Los valores de estado se marcan según la enumeración, por lo que el valor puede ser una combinación de estos valores obtenidos mediante el operador bit a bit "OR". Por ejemplo, si el valor proporcionado es 6, se devuelven todos los eventos con el valor HealthState de Ok (2) y Warning (4).  <br> - Default: valor predeterminado. Coincide con cualquier HealthState. El valor predeterminado es cero.  <br> - None: filtro que no coincide con ningún valor de HealthState. Se utiliza para no devolver ningún resultado en una determinada colección de estados. El valor es 1.  <br> - Ok: filtro que asocia la entrada con el valor de HealthState de Ok. El valor es 2.  <br> - Warning: filtro que asocia la entrada con el valor de HealthState de Warning. El valor es 4.  <br> - Error: filtro que asocia la entrada con el valor de HealthState de Error. El valor es 8.  <br> - All: filtro que asocia la entrada con cualquier valor de HealthState. El valor es 65535. |
-| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
@@ -117,7 +118,7 @@ La respuesta incluye el nombre, el estado, el id., el mantenimiento, el tiempo d
 |Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --node-name [Obligatorio] | El nombre del nodo. |
-| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
@@ -141,7 +142,7 @@ La respuesta incluye el nombre, el estado, el identificador, el mantenimiento, e
 | --continuation-token | El parámetro continuation token se utiliza para obtener el siguiente conjunto de resultados. Un token de continuación con un valor no vacío se incluye en la respuesta de la API cuando los resultados del sistema no caben en una única respuesta. Cuando este valor se pasa a la siguiente llamada de la API, la API devuelve el siguiente conjunto de resultados. Si no hay más resultados, el token de continuación no contiene ningún valor. El valor de este parámetro no debe ser la dirección URL codificada. |
 | --max-results | El número máximo de resultados que se devuelven como parte de las consultas paginadas. Este parámetro define el límite superior en el número de resultados devueltos. Los resultados devueltos pueden ser menos que el número máximo de resultados especificado si no caben en el mensaje según las restricciones del tamaño máximo del mensaje definidas en la configuración. Si este parámetro es cero o no se especifica, la consulta paginada incluye tantos resultados como quepan en el mensaje devuelto. |
 | --node-status-filter | Permite filtrar los nodos según NodeStatus. Se devolverán únicamente los nodos que coinciden con el valor de filtro especificado. El valor de filtro puede ser uno de los siguientes.  Valor predeterminado\: predeterminado. |
-| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
@@ -163,7 +164,7 @@ Recupera la información de carga de un nodo de Service Fabric para todas las m�
 |Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --node-name [Obligatorio] | El nombre del nodo. |
-| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
@@ -178,16 +179,14 @@ Recupera la información de carga de un nodo de Service Fabric para todas las m�
 ## <a name="sfctl-node-remove-state"></a>sfctl node remove-state
 Notifica a Service Fabric que el estado persistente en un nodo se quitó o perdió de forma permanente.
 
-Esto implica que no es posible recuperar el estado persistente de ese nodo. Por lo general, esto ocurre si se borró un disco duro, o si se bloquea un disco duro. El nodo debe estar inactivo para que esta operación se realice correctamente. Esta operación permite a Service Fabric saber que las réplicas en ese nodo ya no existen, y que Service Fabric debe dejar de esperar a que esas réplicas vuelvan a activarse. No ejecute este cmdlet si no se ha quitado el estado en el nodo y el nodo puede recuperarse con su estado intacto.
-
-A partir de Service Fabric 6.5, para poder usar este cmdlet para los nodos de inicialización, cambie los nodos de inicialización a nodos regulares (de no inicialización) y, después, invoque este cmdlet para quitar el estado del nodo. Si el clúster se está ejecutando en Azure, después de que el nodo de inicialización deje de funcionar, Service Fabric intentará cambiarlo automáticamente a un nodo que no sea de inicialización. Para conseguirlo, asegúrese de que el número de nodos que no son de inicialización en el tipo de nodo principal no sea inferior al número de nodos de inicialización inactivos. Si es necesario, agregue más nodos al tipo de nodo principal. Para un clúster independiente, si no se espera que el nodo de inicialización inactivo vuelva con su estado intacto, quite el nodo del clúster, vea cómo [quitar nodos del clúster independiente de Service Fabric](/azure/service-fabric/service-fabric-cluster-windows-server-add-remove-nodes) 
+Esto implica que no es posible recuperar el estado persistente de ese nodo. Por lo general, esto ocurre si se borró un disco duro, o si se bloquea un disco duro. El nodo debe estar inactivo para que esta operación se realice correctamente. Esta operación permite a Service Fabric saber que las réplicas en ese nodo ya no existen, y que Service Fabric debe dejar de esperar a que esas réplicas vuelvan a activarse. No ejecute este cmdlet si no se ha quitado el estado en el nodo y el nodo puede recuperarse con su estado intacto. A partir de Service Fabric 6.5, para poder usar esta API para los nodos de inicialización, cambie los nodos de inicialización a nodos regulares (no de inicialización) y, después, invoque esta API para quitar el estado del nodo. Si el clúster se está ejecutando en Azure, después de que el nodo de inicialización deje de funcionar, Service Fabric intentará cambiarlo automáticamente a un nodo que no sea de inicialización. Para conseguirlo, asegúrese de que el número de nodos que no son de inicialización en el tipo de nodo principal no sea inferior al número de nodos de inicialización inactivos. Si es necesario, agregue más nodos al tipo de nodo principal. Para un clúster independiente, si no se espera que el nodo de inicialización inactivo vuelva con su estado intacto, quite el nodo del clúster, vea https\://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-windows-server-add-remove-nodes.
 
 ### <a name="arguments"></a>Argumentos
 
 |Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --node-name [Obligatorio] | El nombre del nodo. |
-| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
@@ -216,7 +215,7 @@ Informa del estado de mantenimiento del nodo de Service Fabric especificado. El 
 | --immediate | Una marca que indica si el informe se debe enviar inmediatamente. <br><br> Se envía un informe de mantenimiento a una aplicación de puerta de enlace de Service Fabric, que la reenvía al almacén de estado. Si Immediate se establece en true, el informe se envía inmediatamente de la puerta de enlace HTTP al almacén de estado, independientemente de la configuración de cliente de Fabric que esté usando la aplicación de la puerta de enlace HTTP. Esto es útil para los informes críticos que deben enviarse tan pronto como sea posible. En función del tiempo y otras condiciones, el envío del informe puede aún generar un error, por ejemplo, si se cierra la puerta de enlace HTTP o el mensaje no llega a la puerta de enlace. Si Immediate se establece en false, el informe se envía en función de la configuración de cliente de mantenimiento de la puerta de enlace HTTP. Por lo tanto, se procesará por lotes de acuerdo con la configuración de HealthReportSendInterval. Esta es la configuración recomendada porque permite que el cliente de mantenimiento optimice los mensajes de notificación de estado destinados al almacén de estado, así como el procesamiento de informes de mantenimiento. De forma predeterminada, los informes no se envían inmediatamente. |
 | --remove-when-expired | Valor que indica si el informe se quita del almacén de estado cuando expire. <br><br> Si se establece en true, el informe se quita del almacén de estado una vez que expire. Si se establece en false, el informe se trata como un error cuando expire. El valor de esta propiedad es false de forma predeterminada. Cuando los clientes notifican periódicamente, deben establecer RemoveWhenExpired en false (valor predeterminado). De esta manera, si el notificador tiene problemas (por ejemplo, un interbloqueo) y no puede informar, la entidad se evalúa al llegar el error cuando expira el informe de mantenimiento. De este modo, se marca que la entidad está en estado de mantenimiento Error. |
 | --sequence-number | El número de secuencia para este informe de estado como una cadena numérica. <br><br> El número de secuencia del informe se usa por el almacén de estado para detectar informes obsoletos. Si no se especifica, se genera automáticamente un número de secuencia por el cliente de estado cuando se agrega un informe. |
-| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --timeout -t | Valor predeterminado\: 60. |
 | --ttl | La duración durante la cual este informe de mantenimiento es válido. Este campo usa el formato ISO8601 para especificar la duración. <br><br> Cuando los clientes notifican periódicamente, deben enviar informes con una frecuencia mayor que el período de vida. Si los clientes notifican en transición, pueden establecer el período de vida en Infinito. Cuando expira el período de vida, el evento de estado que contiene la información de estado se quita del almacén de estado, si RemoveWhenExpired es true, o se evalúa en el error, si RemoveWhenExpired es false. Si no se especifica, el período de vida se establece de forma predeterminada en un valor infinito. |
 
 ### <a name="global-arguments"></a>Argumentos globales
@@ -241,7 +240,7 @@ Reinicia un nodo de clúster de Service Fabric que ya se inició.
 | --node-name [Obligatorio] | El nombre del nodo. |
 | --create-fabric-dump | Especifique en True para crear un volcado de memoria del proceso de nodo de tejido. Distingue mayúsculas de minúsculas.  Valor predeterminado\: false. |
 | --node-instance-id | El identificador de instancia del nodo de destino. Si se especificó el identificador de instancia, se reinicia el nodo solo si coincide con la instancia actual del nodo. Un valor predeterminado de "0" coincidiría con cualquier identificador de instancia. El identificador de instancia puede obtenerse mediante la consulta get node.  Valor predeterminado\: 0. |
-| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
@@ -267,7 +266,7 @@ Inicia o detiene un nodo de clúster.  Un nodo de clúster es un proceso, no la 
 | --node-transition-type [Obligatorio] | Indica el tipo de transición que se va a realizar.  NodeTransitionType.Start iniciará un nodo detenido. NodeTransitionType.Stop detendrá un nodo que está en funcionamiento. |
 | --operation-id [Obligatorio] | Un GUID que identifica una llamada de esta API.  Se pasa a la API GetProgress correspondiente. |
 | --stop-duration-in-seconds [Obligatorio] | La duración, en segundos, para conservar el nodo detenido.  El valor mínimo es 600; y el máximo, 14400.  Después de que expire este tiempo, el nodo automáticamente volverá a estar en funcionamiento. |
-| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
@@ -290,7 +289,7 @@ Obtiene el progreso de una operación iniciada mediante StartNodeTransition, con
 | --- | --- |
 | --node-name [Obligatorio] | El nombre del nodo. |
 | --operation-id [obligatorio] | Un GUID que identifica una llamada de esta API.  Se pasa a la API GetProgress correspondiente. |
-| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 

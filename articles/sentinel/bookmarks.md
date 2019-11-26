@@ -3,7 +3,7 @@ title: Seguimiento de los datos durante una búsqueda en Azure Sentinel mediante
 description: En este artículo se describe cómo usar los marcadores de búsqueda de Azure Sentinel para llevar un seguimiento de los datos.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: cabailey
 manager: rkarlin
 editor: ''
 ms.assetid: 320ccdad-8767-41f3-b083-0bc48f1eeb37
@@ -14,22 +14,27 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/24/2019
-ms.author: rkarlin
-ms.openlocfilehash: aa414e37470cc11b7dc83e7416590aa2babf6818
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.date: 10/24/2019
+ms.author: cabailey
+ms.openlocfilehash: f4714dd09ada01f1adaa9081819e836601599a53
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240254"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72935328"
 ---
 # <a name="keep-track-of-data-during-hunting-with-azure-sentinel"></a>Seguimiento de los datos durante una búsqueda con Azure Sentinel
 
 La búsqueda de amenazas suele conllevar revisar una infinidad de datos de registro en busca de pruebas que evidencien comportamientos malintencionados. Durante este proceso, los investigadores dan con eventos que quieren recordar, volver a ver y analizar como parte de la validación de posibles hipótesis y para entender la historia completa de un riesgo.
 
-Los marcadores de búsqueda de Azure Sentinel le ayudarán a eso precisamente, ya que conservan las consultas que se han ejecutado en Log Analytics, así como los resultados de consulta que considere importantes. También puede registrar las observaciones realizadas dentro de un contexto y hacer referencia a sus hallazgos agregando notas y etiquetas. Los datos marcados están visibles tanto para usted como para sus compañeros de equipo para, así, colaborar de forma más sencilla.
+Los marcadores de búsqueda de Azure Sentinel le ayudarán a eso precisamente, ya que conservan las consultas que se han ejecutado en **Azure Sentinel - Logs** (Azure Sentinel: registros), así como los resultados de consulta que considere importantes. También puede registrar las observaciones realizadas dentro de un contexto y hacer referencia a sus hallazgos agregando notas y etiquetas. Los datos marcados están visibles tanto para usted como para sus compañeros de equipo para, así, colaborar de forma más sencilla.
 
-Puede volver a ver los datos marcados en cualquier momento en la pestaña **Marcadores** de la página **Búsqueda**. Puede usar opciones de filtrado y de búsqueda para encontrar rápidamente datos concretos de la investigación actual. Si lo desea, también puede ver los datos marcados directamente en la tabla **HuntingBookmark** de Azure Monitor. Esto le permite filtrar, resumir y combinar los datos marcados con otros orígenes de datos, lo que facilita el hallazgo de pruebas definitivas.
+Puede volver a ver los datos marcados en cualquier momento en la pestaña **Marcadores** de la página **Búsqueda**. Puede usar opciones de filtrado y de búsqueda para encontrar rápidamente datos concretos de la investigación actual. Si lo desea, también puede ver los datos marcados directamente en la tabla **HuntingBookmark** del área de trabajo de Log Analytics. Por ejemplo:
+
+> [!div class="mx-imgBorder"]
+> ![Vista de la tabla HuntingBookmark](./media/bookmarks/bookmark-table.png)
+
+La visualización de los marcadores de la table le permite filtrar, resumir y combinar los datos marcados con otros orígenes de datos, lo que facilita la búsqueda de pruebas definitivas.
 
 Actualmente en versión preliminar, si encuentra algo que debe abordarse con urgencia mientras realiza una búsqueda en los registros, en un par de clics, puede crear un marcador y promoverlo a un incidente, o bien agregar el marcador a un incidente ya existente. Para más información acerca de los incidentes, consulte [Tutorial: Investigación de incidentes con Azure Sentinel](tutorial-investigate-cases.md). 
 
@@ -48,23 +53,23 @@ También en versión preliminar, puede visualizar los datos marcados haciendo cl
     
     Esta acción abre los resultados de la consulta en el panel **Registros**.
 
-4. En la lista de resultados de la consulta, expanda la fila que contiene la información que sea de su interés.
+4. En la lista de resultados de la consulta de registro, use las casillas para seleccionar una o más filas que contengan la información que le interese.
 
-5. Seleccione los puntos suspensivos (...) situados a la izquierda y, a continuación, seleccione **Agregar un marcador de búsqueda**:
+5. Seleccione **Agregar marcador**:
     
     > [!div class="mx-imgBorder"]
     > ![Agregar un marcador de búsqueda a una consulta](./media/bookmarks/add-hunting-bookmark.png)
 
-6. A la derecha, en el panel **Agregar un marcador de búsqueda**, puede actualizar el nombre del marcador y agregar etiquetas y notas que le ayuden a recordar por qué ese elemento es de su interés.
+6. A la derecha, en el panel **Agregar marcador**, puede actualizar el nombre del marcador y agregar etiquetas y notas que le ayuden a identificar el interés que tiene el elemento.
 
-7. En la sección **Información de consulta**, use los cuadros desplegables para extraer información de los resultados de consulta para los tipos de entidad de **cuenta**, **host** y **dirección IP**. Esta acción asigna el tipo de entidad seleccionado a una columna específica del resultado de la consulta. Por ejemplo:
+7. En la sección **Información de consulta**, use los cuadros desplegables para extraer información de los resultados de consulta para los tipos de entidad **cuenta**, **host** y **dirección IP**. Esta acción asigna el tipo de entidad seleccionado a una columna específica del resultado de la consulta. Por ejemplo:
     
     > [!div class="mx-imgBorder"]
     > ![Asignar tipos de entidad para el marcador de búsqueda](./media/bookmarks/map-entity-types-bookmark.png)
     
     Para ver el marcador del gráfico de investigación (actualmente en versión preliminar), debe asignar al menos un tipo de entidad que sea de **cuenta**, **host** o **dirección IP**. 
 
-5. Haga clic en **Agregar** para confirmar los cambios y agregar el marcador. Todos los datos marcados se comparten con otros investigadores, y es un primer paso hacia una experiencia de investigación colaborativa.
+5. Haga clic en **Guardar** para confirmar los cambios y agregar el marcador. Todos los datos marcados se comparten con otros investigadores, y es un primer paso hacia una experiencia de investigación colaborativa.
 
  
 > [!NOTE]
@@ -118,6 +123,9 @@ Para obtener instrucciones sobre cómo usar el gráfico de investigación, consu
 
 Para ver el marcador en el incidente: Vaya a **Sentinel** > **Administración de amenazas** > **Incidentes** y seleccione el incidente con el marcador. Seleccione **Ver detalles completos** y, a continuación, seleccione la pestaña **Marcadores**.
 
+> [!TIP]
+> Como alternativa a la opción **Acciones de incidente (versión preliminar)** de la barra de comandos, puede usar el menú contextual ( **...** ) para uno o varios marcadores y seleccionar las opciones para **Crear incidente**, **Agregar a incidente existente** y **Quitar del incidente**. 
+
 ## <a name="view-bookmarked-data-in-logs"></a>Ver datos marcados en registros
 
 Para ver consultas y resultados marcados o sus historiales, seleccione el marcador que quiera en la pestaña **Búsqueda** > **Marcadores** y use los vínculos que aparecen en el panel de detalles: 
@@ -140,9 +148,9 @@ Esta vista muestra todos los marcadores con los metadatos asociados. Puede usar 
  
 1.  En Azure Portal, vaya a **Sentinel** > **Administración de amenazas** > **Búsqueda** > **Marcadores** y seleccione los marcadores que desea eliminar. 
 
-2. Seleccione los puntos suspensivos (...) al final de la fila y seleccione **Delete bookmark** (Eliminar marcador).
+2. Haga clic con el botón derecho en las selecciones y seleccione la opción para eliminar el marcador o los marcadores. Por ejemplo, **Eliminar marcador** si ha seleccionado un solo marcador y **Delete 2 bookmarks** (Eliminar 2 marcadores) si ha seleccionado dos marcadores.
     
-Al eliminar el marcador, este se quita de la lista de la pestaña **Bookmarks** (Marcadores). La tabla **HuntingBookmark** de Log Analytics seguirá conteniendo entradas de marcadores anteriores, pero la entrada más reciente cambiará el valor de **SoftDelete** a true, lo que permite excluir marcadores antiguos del filtro. Cuando un marcador se elimina, no se quitan las entidades de la experiencia de investigación que estén relacionadas con otros marcadores o alertas. 
+Al eliminar el marcador, este se quita de la lista de la pestaña **Bookmarks** (Marcadores). La tabla **HuntingBookmark** del área de trabajo de Log Analytics seguirá conteniendo entradas de marcadores anteriores, pero la entrada más reciente cambiará el valor de **SoftDelete** a true, lo que permite excluir marcadores antiguos del filtro. Cuando un marcador se elimina, no se quitan las entidades de la experiencia de investigación que estén relacionadas con otros marcadores o alertas. 
 
 
 ## <a name="next-steps"></a>Pasos siguientes

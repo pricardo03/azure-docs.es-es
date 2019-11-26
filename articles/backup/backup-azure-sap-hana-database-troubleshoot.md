@@ -1,5 +1,5 @@
 ---
-title: Solución de problemas al realizar copias de seguridad de bases de datos de SAP HANA con Azure Backup | Microsoft Docs
+title: 'Solución de problemas de errores de copia de seguridad de bases de datos de SAP HANA: Azure Backup'
 description: En este artículo se describe cómo se solucionan los errores comunes que pueden producirse al usar Azure Backup para realizar copias de seguridad de bases de datos de SAP HANA.
 ms.reviewer: pullabhk
 author: dcurwin
@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/03/2019
 ms.author: dacurwin
-ms.openlocfilehash: 00e37030417da97d2c57b0fb5872422e7048a2bc
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 004d10b794c6eca2e078e437880f44d91ca30acb
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954455"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72968449"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Solución de problemas al realizar copias de seguridad de bases de datos de SAP HANA en Azure
 
@@ -32,13 +32,13 @@ Qué hace el script de registro previo:
     - CATALOG READ: para leer el catálogo de copia de seguridad.
     - SAP_INTERNAL_HANA_SUPPORT: para acceder a algunas tablas privadas.
 2. Agrega una clave a Hdbuserstore para que el complemento de HANA controle todas las operaciones (consultas de base de datos, operaciones de restauración, configuración y ejecución de copias de seguridad).
-   
+
    Para confirmar la creación de la clave, ejecute el comando HDBSQL en la máquina HANA con credenciales SIDADM:
 
     ``` hdbsql
     hdbuserstore list
     ```
-    
+
     La salida de comandos debe mostrar la tecla {SID}{DBNAME}, con el usuario como AZUREWLBACKUPHANAUSER.
 
 > [!NOTE]
@@ -67,7 +67,8 @@ Supongamos que hay una copia de seguridad de una instancia "H21" de HANA de SDC.
 
 ![Entradas de restauración de SDC](media/backup-azure-sap-hana-database/hana-sdc-restore.png)
 
-Observe lo siguiente
+Tenga en cuenta los siguientes puntos:
+
 - De manera predeterminada, el nombre de la base de datos restaurada se rellenará con el nombre del elemento de copia de seguridad, es decir, h21(sdc).
 - Si selecciona el destino como H11, el nombre de la base de datos restaurada NO CAMBIARÁ de manera automática. **Se debe editar para cambiarlo a h11(sdc)** . En el caso de SDC, el nombre de la base de datos restaurada será el identificador de la instancia de destino en minúsculas más "sdc" entre corchetes.
 - Como SDC solo puede tener una base de datos única, también debe hacer clic en la casilla para permitir reemplazar los datos existentes de la base de datos por los datos del punto de recuperación.

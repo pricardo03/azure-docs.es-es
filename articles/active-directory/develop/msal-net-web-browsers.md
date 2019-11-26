@@ -1,5 +1,6 @@
 ---
-title: Exploradores web en la biblioteca de autenticación de Microsoft para .NET | Azure
+title: Exploradores web en la biblioteca de autenticación de Microsoft para .NET
+titleSuffix: Microsoft identity platform
 description: Obtenga información sobre las consideraciones específicas al usar Xamarin Android con Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,12 +18,12 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1285c5c61cee25e387ca5fb598f0e062088e549
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 2446166aa8078040c06d7cb54ce01666d9931727
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69532503"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802678"
 ---
 # <a name="using-web-browsers-in-msalnet"></a>Uso de los exploradores web en MSAL.NET
 Se requieren exploradores web para la autenticación no interactiva. De forma predeterminada, MSAL.NET admite el [explorador web del sistema](#system-web-browser-on-xamarinios-xamarinandroid) en Xamarin.iOS y Xamarin.Android. Pero [también puede habilitar el explorador web insertado](#enable-embedded-webviews-on-ios-and-android) en función de los necesidades (UX, necesidad de inicio de sesión único (SSO), seguridad) en aplicaciones [Xamarin.iOS](#choosing-between-embedded-web-browser-or-system-browser-on-xamarinios) y [Xamarin.Android](#detecting-the-presence-of-custom-tabs-on-xamarinandroid). E incluso puede [elegir dinámicamente](#detecting-the-presence-of-custom-tabs-on-xamarinandroid) qué explorador web utilizar en función de la presencia de Chrome o de un explorador compatible con las pestañas personalizadas de Chrome en Android. MSAL.NET solo admite el explorador del sistema en aplicaciones de escritorio de .NET Core.

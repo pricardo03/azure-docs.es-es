@@ -1,5 +1,5 @@
 ---
-title: 'Problemas de descarga con JDBC/ODBC y el marco Apache Thrift: Azure HDInsight'
+title: 'Incidencias con JDBC/ODBC y el marco Apache Thrift: Azure HDInsight'
 description: No se pueden descargar conjuntos de datos grandes con JDBC/ODBC y el marco de software Apache Thrift en Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 07/29/2019
-ms.openlocfilehash: 939d94d0fdf07a67f2ad151b45494f03ce184d62
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 7423687cbca069792a584277699c6bf8ce904d5d
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71087110"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73241745"
 ---
 # <a name="unable-to-download-large-data-sets-using-jdbcodbc-and-apache-thrift-software-framework-in-hdinsight"></a>No se pueden descargar conjuntos de datos grandes con JDBC/ODBC y el marco de software Apache Thrift en HDInsight
 

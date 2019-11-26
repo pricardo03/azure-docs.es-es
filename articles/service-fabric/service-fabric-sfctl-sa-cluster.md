@@ -3,22 +3,23 @@ title: 'CLI de Azure Service Fabric: sfctl sa-cluster | Microsoft Docs'
 description: Describe los comandos de clúster independientes de sfctl de la CLI de Service Fabric.
 services: service-fabric
 documentationcenter: na
-author: Christina-Kang
+author: jeffj6123
 manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
+ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/06/2018
-ms.author: bikang
-ms.openlocfilehash: 902ebab5dc12d7649edd0ed6e594e663e5332ce3
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.date: 9/17/2019
+ms.author: jejarry
+ms.openlocfilehash: ecdd288d7cb320b91ab4c69697d334f8d9459e62
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035242"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901011"
 ---
 # <a name="sfctl-sa-cluster"></a>sfctl sa-cluster
 Administre clústeres de Service Fabric independientes.
@@ -41,7 +42,7 @@ La configuración de clúster contiene propiedades del clúster que incluyen dis
 |Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --configuration-api-version [obligatorio] | La versión de API de la configuración de json de clúster independiente. |
-| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
@@ -68,7 +69,7 @@ Valide los parámetros de actualización de configuración suministrados e inici
 | --health-check-retry | El período de tiempo entre intentos para realizar comprobaciones de mantenimiento si la aplicación o el clúster no funcionan correctamente.  Valor predeterminado\: PT0H0M0S. |
 | --health-check-stable | La cantidad de tiempo que la aplicación o el clúster deben tener un estado correcto antes de que la actualización continúe con el siguiente dominio de actualización.  Valor predeterminado\: PT0H0M0S. <br><br> En primer lugar se interpreta como una cadena que representa una duración ISO 8601. Si se produce un error, se interpreta como un número que representa el total de milisegundos. |
 | --health-check-wait | El período de tiempo de espera después de completar un dominio de actualización antes de iniciar el proceso de comprobaciones de mantenimiento.  Valor predeterminado\: PT0H0M0S. |
-| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --timeout -t | Valor predeterminado\: 60. |
 | --unhealthy-applications | El porcentaje máximo permitido de aplicaciones en mal estado durante la actualización. Los valores permitidos son enteros entre 0 y 100. |
 | --unhealthy-nodes | El porcentaje máximo permitido de nodos en mal estado durante la actualización. Los valores permitidos son enteros entre 0 y 100. |
 | --upgrade-domain-delta-unhealthy-nodes | El porcentaje máximo permitido de degradación de mantenimiento delta de dominio de actualización durante la actualización. Los valores permitidos son enteros entre 0 y 100. |
@@ -88,10 +89,9 @@ Valide los parámetros de actualización de configuración suministrados e inici
 ### <a name="examples"></a>Ejemplos
 
 Iniciar una actualización de la configuración de clúster
-
-```
-sfctl sa-cluster config-upgrade --cluster-config <YOUR CLUSTER CONFIG> --application-health-
-policies "{"fabric:/System":{"ConsiderWarningAsError":true}}"
+``` 
+sfctl sa-cluster config-upgrade --cluster-config <YOUR CLUSTER CONFIG> --application-health-    
+policies "{"fabric:/System":{"ConsiderWarningAsError":true}}"   
 ```
 
 ## <a name="sfctl-sa-cluster-upgrade-status"></a>sfctl sa-cluster upgrade-status
@@ -103,7 +103,7 @@ Obtenga los detalles del estado de actualización de configuración de clúster 
 
 |Argumento|DESCRIPCIÓN|
 | --- | --- |
-| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
+| --timeout -t | Tiempo de espera del servidor para realizar la operación en segundos. Este tiempo de espera especifica el tiempo que el cliente está dispuesto a esperar a que se complete la operación solicitada. El valor predeterminado para este parámetro es 60 segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 

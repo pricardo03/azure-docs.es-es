@@ -1,5 +1,5 @@
 ---
-title: Restauración de la clave y el secreto de Key Vault para máquinas virtuales cifradas mediante Azure Backup
+title: Restauración de la clave y el secreto de Key Vault para máquinas virtuales cifradas con Azure Backup
 description: Aprenda a restaurar la clave y el secreto de Key Vault en Azure Backup con PowerShell
 ms.reviewer: geg
 author: dcurwin
@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/28/2017
 ms.author: dacurwin
-ms.openlocfilehash: cca8cf3a222b71954e6727e184ff5d16839a6a68
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 289042f70c44ab3b818a5350cc2e3db19e4d8a26
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954556"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72969108"
 ---
 # <a name="restore-key-vault-key-and-secret-for-encrypted-vms-using-azure-backup"></a>Restauración de la clave y el secreto de Key Vault para máquinas virtuales cifradas mediante Azure Backup
 
@@ -31,6 +31,7 @@ En este artículo se explica cómo usar Azure Backup para restaurar máquinas vi
 
 > [!NOTE]
 > Una vez que se haya restaurado el disco de la máquina virtual cifrada, asegúrese de que:
+>
 > * $details se rellena con los detalles del trabajo de restauración de disco, como se mencionó en los [pasos de PowerShell en la sección para restaurar los discos](backup-azure-vms-automation.md#restore-an-azure-vm)
 > * La máquina virtual debe crearse desde los discos restaurados solo **después de que la clave y el secreto se restauren en el almacén de claves**.
 
@@ -95,6 +96,7 @@ Restore-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -InputFile $sec
   ```
 
 > [!NOTE]
+>
 > * El valor de $secretname puede obtenerse haciendo referencia a la salida de $encryptionObject.OsDiskKeyAndSecretDetails.SecretUrl y usando el texto después de secrets/. Por ejemplo, la dirección URL de secreto de salida es https://keyvaultname.vault.azure.net/secrets/B3284AAA-DAAA-4AAA-B393-60CAA848AAAA/xx000000xx0849999f3xx30000003163 y el nombre del secreto B3284AAA-DAAA-4AAA-B393-60CAA848AAAA
 > * El valor de la etiqueta DiskEncryptionKeyFileName es igual que el nombre de secreto.
 >
@@ -130,6 +132,7 @@ Set-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -Name $secretname -
 ```
 
 > [!NOTE]
+>
 > * El valor de $secretname puede obtenerse haciendo referencia a la salida de $rp1.KeyAndSecretDetails.SecretUrl y usando el texto después de secrets/. Por ejemplo, la dirección URL de secreto de salida es https://keyvaultname.vault.azure.net/secrets/B3284AAA-DAAA-4AAA-B393-60CAA848AAAA/xx000000xx0849999f3xx30000003163 y el nombre del secreto B3284AAA-DAAA-4AAA-B393-60CAA848AAAA
 > * El valor de la etiqueta DiskEncryptionKeyFileName es igual que el nombre de secreto.
 > * El valor de DiskEncryptionKeyEncryptionKeyURL puede obtenerse del almacén de claves después de restaurar las claves y usar el cmdlet [Get-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/get-azurekeyvaultkey).

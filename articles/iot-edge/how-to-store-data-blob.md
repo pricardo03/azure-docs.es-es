@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 7d504bae16b5b9b10debd916ef8888e90e79364e
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 55edc69e706fad8888146e9d97541a1c2bae821d
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844174"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73163802"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge"></a>Almacenamiento de datos en el perímetro con Azure Blob Storage en IoT Edge
 
@@ -140,8 +140,8 @@ Ejemplo:<br>
 Si necesita ejecutar el servicio como un usuario distinto de **absie**, puede especificar el identificador de usuario personalizado en createOptions en la propiedad "User" del manifiesto de implementación. En tal caso, debe usar el identificador `0` predeterminado o de grupo raíz.
 
 ```json
-“createOptions”: { 
-  “User”: “<custom user ID>:0” 
+"createOptions": { 
+  "User": "<custom user ID>:0" 
 } 
 ```
 Ahora, conceda al usuario del contenedor acceso al directorio.
@@ -260,6 +260,12 @@ Compatible:
 No compatible:
 
 - Colocar bloque desde dirección URL
+
+## <a name="event-grid-on-iot-edge-integration"></a>Integración de Event Grid en IoT Edge
+> [!CAUTION]
+> Integración de Event Grid en IoT Edge se encuentra en versión preliminar
+
+Ahora el Azure Blob Storage en el módulo de IoT Edge proporciona integración con Event Grid en IoT Edge. Para obtener información detallada sobre esta integración, consulte el [tutorial para implementar los módulos, publicar eventos y comprobar la entrega de eventos](../event-grid/edge/react-blob-storage-events-locally.md).
 
 ## <a name="release-notes"></a>Notas de la versión
 
