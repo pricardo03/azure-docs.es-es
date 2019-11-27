@@ -1,10 +1,11 @@
 ---
-title: 'Administración de cuentas de administrador de acceso de emergencia: Azure Active Directory | Microsoft Docs'
+title: 'Administración de cuentas de administrador de acceso de emergencia: Azure AD | Microsoft Docs'
 description: En este artículo se describe cómo usar las cuentas de acceso de emergencia para ayudar a evitar que se bloquee inadvertidamente su acceso a la organización de Azure Active Directory (Azure AD).
 services: active-directory
 author: markwahl-msft
+manager: daveba
 ms.author: curtand
-ms.date: 09/09/2019
+ms.date: 11/08/2019
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -12,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04016df86a9bed06f2cbb79d459b10486a9b7d67
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 80ab7e0603f63fb395832b0da887916dc032c3bf
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772420"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74028128"
 ---
 # <a name="manage-emergency-access-accounts-in-azure-ad"></a>Administración de cuentas de acceso de emergencia en Azure AD
 

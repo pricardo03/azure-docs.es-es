@@ -1,5 +1,5 @@
 ---
-title: Tutorial de la infraestructura de Azure de ejemplo | Microsoft Docs
+title: Tutorial de la infraestructura de Azure de ejemplo
 description: Obtenga información sobre las directrices clave de diseño e implementación para implementar una infraestructura de ejemplo en Azure.
 documentationcenter: ''
 services: virtual-machines-linux
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 12/15/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 71b0dd15d183f3209c7424c537dde1e3df29d097
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: cf63db18dac5fa202bbf339723c6555c4acb2ca2
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70083140"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036035"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-linux-vms"></a>Tutorial de la infraestructura de Azure de ejemplo para máquinas virtuales Linux
 Este artículo le guía a través de la creación de una infraestructura de aplicación de ejemplo. Detallaremos el diseño de una infraestructura para una tienda en línea sencilla que reúna todas las directrices y decisiones relacionadas con las convenciones de nomenclatura, los conjuntos de disponibilidad, las redes virtuales, los equilibradores de carga y, realmente, la implementación de sus máquinas virtuales (VM).

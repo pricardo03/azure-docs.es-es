@@ -1,5 +1,5 @@
 ---
-title: Instalación de un servidor de destino maestro de Linux para la conmutación por recuperación a un sitio local | Microsoft Docs
+title: Instalación de un servidor de destino maestro para la conmutación por recuperación de máquinas virtuales Linux con Azure Site Recovery
 description: Aprenda a configurar un servidor de destino maestro de Linux para la conmutación por recuperación a un sitio local durante la recuperación ante desastres de máquinas virtuales de VMware en Azure con Azure Site Recovery.
 author: mayurigupta13
 services: site-recovery
@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: mayg
-ms.openlocfilehash: 5b4b3f5025edef242b87215665fd65f131157943
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 5b4d625d28584bb601905e9439c112c845219e54
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69904411"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954373"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Instalación de un servidor de destino maestro de Linux para la conmutación por recuperación
 Después de conmutar por error las máquinas virtuales a Azure, puede conmutarlas por recuperación en el sitio local. Para ello, debe volver a proteger la máquina virtual de Azure en el sitio local. Para realizar este proceso, necesitará un servidor de destino maestro local que reciba el tráfico. 

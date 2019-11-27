@@ -1,21 +1,21 @@
 ---
 title: Uso del reconocimiento de entidades con Text Analytics API
 titleSuffix: Azure Cognitive Services
-description: Obtenga información sobre cómo reconocer entidades con la API REST de Text Analytics.
+description: Obtenga información sobre cómo identificar y eliminar la ambigüedad de la identidad de una entidad encontrada en el texto con la API REST de Text Analytics.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 10/21/2019
+ms.date: 11/12/2019
 ms.author: aahi
-ms.openlocfilehash: e51e5945df8b08ec81db0c85416b31b3ec788ffd
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5933c7ec56ded971e4daf96ea6d4302c04921f2f
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488650"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74031424"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Uso del reconocimiento de entidades con nombre en Text Analytics
 
@@ -33,7 +33,7 @@ El reconocimiento de entidades con nombre (NER) es la capacidad de identificar d
 
 ## <a name="named-entity-recognition-v3-public-preview"></a>Versión preliminar pública de reconocimiento de entidades con nombre v3
 
-La [siguiente versión del reconocimiento de entidades con nombre](https://cognitiveusw2ppe.portal.azure-api.net/docs/services/TextAnalytics-v3-0-Preview-1/operations/56f30ceeeda5650db055a3c7/console) ahora está disponible en versión preliminar pública. Proporciona actualizaciones para la vinculación de entidad y el reconocimiento de entidades con nombre. 
+La [siguiente versión del reconocimiento de entidades con nombre]( https://cognitiveusw2ppe.portal.azure-api.net/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionGeneral) ahora está disponible en versión preliminar pública. Proporciona actualizaciones para la vinculación de entidad y el reconocimiento de entidades con nombre. 
 
 :::row:::
     :::column span="":::

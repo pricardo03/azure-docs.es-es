@@ -1,5 +1,5 @@
 ---
-title: Características y extensiones de las máquinas virtuales de Azure para Linux | Microsoft Docs
+title: Características y extensiones de las máquinas virtuales de Azure para Linux
 description: Obtenga información acerca de qué extensiones están disponibles para máquinas virtuales de Azure, agrupadas por lo que proporcionan o mejoran.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
-ms.openlocfilehash: f66ec2ea9d0c042b698db1725980e981a27a55d0
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 67df46742be52b03bd91af19654fbfac5df29646
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71169001"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073760"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Características y extensiones de las máquinas virtuales para Linux
 

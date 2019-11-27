@@ -9,12 +9,12 @@ ms.date: 06/28/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: e075091461949639fc36ffb9feab69ac5399ae61
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0196e6fb4b2cd52fd66a26e07e8d4ce71983bc16
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73491985"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013191"
 ---
 # <a name="zone-redundant-storage-zrs-for-building-highly-available-azure-storage-applications"></a>Almacenamiento con redundancia de zona (ZRS) para crear aplicaciones de Azure Storage de alta disponibilidad
 
@@ -24,7 +24,7 @@ ms.locfileid: "73491985"
 
 ZRS actualmente admite los tipos de cuenta de uso general v2 estándar y de almacenamiento FileStorage. Para más información acerca de los tipos de cuentas de almacenamiento, consulte la [Introducción a la cuenta de Azure Storage](storage-account-overview.md).
 
-ZRS está disponible para blobs en bloques, blobs en páginas que no son de disco, archivos, tablas y colas.
+ZRS está disponible para blobs en bloques, blobs en páginas que no son de disco, recursos compartidos estándar, archivos, tablas y colas.
 
 Para las cuentas de uso general v2 estándar, ZRS está disponible con carácter general en las regiones siguientes:
 
@@ -39,7 +39,7 @@ Para las cuentas de uso general v2 estándar, ZRS está disponible con carácter
 - Este de EE. UU. - 2
 - Oeste de EE. UU. 2
 
-Para las cuentas de FileStorage, ZRS está disponible con carácter general en las regiones siguientes:
+Para las cuentas de FileStorage (recursos compartidos premium), ZRS está disponible con carácter general en las regiones siguientes:
 
 - Oeste de Europa
 - Este de EE. UU.

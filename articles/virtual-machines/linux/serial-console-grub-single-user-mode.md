@@ -1,5 +1,5 @@
 ---
-title: Consola serie de Azure para GRUB y el modo de usuario único | Microsoft Docs
+title: Consola serie de Azure para GRUB y el modo de usuario único
 description: Uso de la consola serie para GRUB en máquinas virtuales de Azure.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: cce4e558331cad0045772f53f7fc3c78aeed2bb7
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 87f16ec615c8b47c93745b33be12d3acd6d9177a
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70082202"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035054"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Uso de la consola serie para acceder a GRUB y al modo de usuario único
 GRUB son las siglas de GRand Unified Bootloader. Con GRUB es posible modificar la configuración de arranque para arrancar en modo usuario único, entre otras cosas.

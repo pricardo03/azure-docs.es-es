@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 270dbb24d851645ff7a7f0bcf5f78bfb95bcd095
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 5ae97f18bb15b5ab2fe092a1e3b857ea3ef0aed0
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73604727"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012982"
 ---
 # <a name="aks-troubleshooting"></a>Solución de problemas de AKS
 
@@ -118,6 +118,7 @@ Siga los pasos de *Antes de empezar* del documento adecuado para crear correctam
 
 Tanto AKS como la plataforma de Azure implementan las restricciones de nomenclatura. Si un parámetro o nombre de recurso infringe una de estas restricciones, se devuelve un error en el que se le pide brindar otra entrada. Se aplican estas directrices de nomenclatura comunes:
 
+* Los nombres de clúster deben tener entre 1 y 63 caracteres. Los únicos caracteres permitidos son letras, números, guiones y guiones bajos. El primer y el último carácter deben ser una letra o un número.
 * El nombre del grupo de recursos *MC_* de AKS combina el nombre del grupo de recursos y el nombre del recurso. La sintaxis generada automáticamente de `MC_resourceGroupName_resourceName_AzureRegion` no puede tener más de 80 caracteres. Si es necesario, disminuya la longitud del nombre del grupo de recursos o del nombre del clúster de AKS.
 * *dnsPrefix* debe empezar y terminar con valores alfanuméricos. Los caracteres válidos incluyen valores alfanuméricos y guiones (-). *dnsPrefix* no puede incluir caracteres especiales, como un punto (.).
 

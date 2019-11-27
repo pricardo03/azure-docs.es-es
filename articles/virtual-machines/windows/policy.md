@@ -1,5 +1,5 @@
 ---
-title: Aplicación de seguridad con directivas en máquinas virtuales Windows en Azure | Microsoft Docs
+title: Aplicación de seguridad con directivas en máquinas virtuales Windows en Azure
 description: Aplicación de una directiva a una máquina virtual Windows de Azure Resource Manager
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: kasing
-ms.openlocfilehash: 172906c3b03b7c001763e8c374487a3ff33c8f07
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: a2ee5f36b7dba03bea3cc219651804c5039115d5
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70088949"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74032970"
 ---
 # <a name="apply-policies-to-windows-vms-with-azure-resource-manager"></a>Aplicar directivas a máquinas virtuales con Windows con Azure Resource Manager
 Mediante las directivas, una organización puede aplicar varias convenciones y reglas en toda la empresa. La aplicación del comportamiento deseado puede ayudar a reducir el riesgo a la vez que se contribuye al éxito de la organización. En este artículo, describimos cómo puede usar las directivas de Azure Resource Manager para definir el comportamiento deseado para las máquinas virtuales de su organización.

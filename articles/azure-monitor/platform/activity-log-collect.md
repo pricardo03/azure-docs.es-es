@@ -7,14 +7,18 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/30/2019
-ms.openlocfilehash: 514dcf05eaa37bd338ef6359977b9a5508838459
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: a53694f97da144f3932efe39941d3f22ef739c7b
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932863"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048228"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics-workspace-in-azure-monitor"></a>Recopilación y análisis de los registros de actividad de Azure en un área de trabajo de Log Analytics en Azure Monitor
+
+> [!NOTE]
+> Ahora puede recopilar el Registro de actividad en un área de trabajo Log Analytics mediante una configuración de diagnóstico similar a la de la recopilación de registros de recursos. Consulte [Collect and analyze Azure activity logs in Log Analytics workspace in Azure Monitor](activity-log-collect.md) (Recopilación y análisis de registros de actividad en un área de trabajo de Log Analytics en Azure Monitor).
+
 El [registro de actividad de Azure](activity-logs-overview.md) proporciona información de los eventos de nivel de suscripción que se han producido en la suscripción de Azure. Este artículo describe cómo recopilar el registro de actividad de un área de trabajo de Log Analytics y cómo usar la [solución de supervisión](../insights/solutions.md) de Activity Log Analytics, que proporciona vistas y consultas de registros para analizar estos datos. 
 
 La conexión del registro de actividad a un área de trabajo de Log Analytics proporciona las siguientes ventajas:

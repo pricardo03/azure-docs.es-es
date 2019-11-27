@@ -1,21 +1,21 @@
 ---
 title: Referencia de Translator Text API V3.0
 titleSuffix: Azure Cognitive Services
-description: Documentación de referencia para Translator Text API V3.0.
+description: Documentación de referencia para Translator Text API V3.0. La versión 3 de Translator Text API proporciona una API web moderna basada en JSON.
 services: cognitive-services
 author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 03/29/2018
+ms.date: 11/14/2019
 ms.author: swmachan
-ms.openlocfilehash: a441ca83230a1c715aadda79683964aaab6d6213
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 172bf452cc5197db95e0e1e55c7c687971194899
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72252976"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123035"
 ---
 # <a name="translator-text-api-v30"></a>Translator Text API v3.0
 
@@ -165,3 +165,21 @@ El código de error es un número de 6 dígitos que combina el código de estado
 | 500000| Se ha producido un error inesperado. Si el error continúa, notifíquelo con la fecha y hora del error, con el identificador de la solicitud del encabezado de respuesta X-RequestId y con el identificador de cliente del encabezado de solicitud X-ClientTraceId.|
 | 503000| El servicio no está disponible temporalmente. Inténtelo de nuevo. Si el error continúa, notifíquelo con la fecha y hora del error, con el identificador de la solicitud del encabezado de respuesta X-RequestId y con el identificador de cliente del encabezado de solicitud X-ClientTraceId.|
 
+## <a name="metrics"></a>Métricas 
+Las métricas le permiten ver la información de uso y disponibilidad del traductor en Azure Portal, en la sección de métricas, tal como se muestra en la captura de pantalla siguiente. Para obtener más información, vea [Métricas de datos y plataforma](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics).
+
+![Métricas del traductor](../media/translatormetrics.png)
+
+En esta tabla se enumeran las métricas disponibles con la descripción de cómo se usan para supervisar las llamadas a la API de traducción.
+
+| Métricas | DESCRIPCIÓN |
+|:----|:-----|
+| TotalCalls| Número total de llamadas a API.|
+| TotalTokenCalls| Número total de llamadas API a través del servicio de token mediante el token de autenticación.|
+| SuccessfulCalls| Número de llamadas correctas.|
+| TotalErrors| Número de llamadas con respuesta de error.|
+| BlockedCalls| Número de llamadas que han superado la tasa o el límite de cuota.|
+| ServerErrors| Número de llamadas con error interno del servidor (5XX).|
+| ClientErrors| Número de llamadas con error en el cliente (4XX).|
+| Latencia| Duración para completar la solicitud en milisegundos.|
+| CharactersTranslated| Número total de caracteres de la solicitud entrante de texto.|

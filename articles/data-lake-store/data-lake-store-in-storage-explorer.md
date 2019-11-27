@@ -1,25 +1,17 @@
 ---
-title: Administración de recursos Azure Data Lake Storage Gen1 en el Explorador Azure Storage
+title: 'Administración de recursos de Data Lake Storage Gen1: Explorador de Azure Storage'
 description: Más información para acceder a los datos y recursos de Azure Data Lake Storage Gen1 y administrarlos en el Explorador de Azure Storage
-Keywords: Azure Data Lake Store, Azure Storage Explorer
-services: Data Lake Store
-documentationcenter: ''
 author: jejiang
-manager: DJ
-editor: Jenny Jiang
-ms.assetid: ''
 ms.service: data-lake-store
-ms.custom: Azure Data Lake Store
-ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/05/2018
 ms.author: jejiang
-ms.openlocfilehash: 18ef1f182611a9c8fbf24cd08026633f5449bbe9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a5117f72f933e1e48dc471a75624a8d3921f55af
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60613539"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73832260"
 ---
 # <a name="manage-azure-data-lake-storage-gen1-resources-by-using-storage-explorer"></a>Administración de recursos Azure Data Lake Storage Gen1 con el Explorador de Storage
 
@@ -28,10 +20,11 @@ ms.locfileid: "60613539"
 Otra ventaja es que, para administrar datos de Data Lake Storage Gen1, no es necesario disponer de permiso de suscripción. En el Explorador de Storage, puede adjuntar la ruta de acceso de Data Lake Storage Gen1 al nodo de **Local and Attached** (locales y conectados) siempre que un usuario conceda el permiso.
 
 ## <a name="prerequisites"></a>Requisitos previos
+
 Para completar los pasos de este artículo, necesitará lo siguiente:
 
-*   Una suscripción de Azure. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial).
-*   Cuenta de Data Lake Storage Gen1. Para instrucciones sobre cómo crear una, consulte la [introducción a Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal).
+* Una suscripción de Azure. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial).
+* Cuenta de Data Lake Storage Gen1. Para instrucciones sobre cómo crear una, consulte la [introducción a Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal).
 
 ## <a name="install-storage-explorer"></a>Instalación del Explorador de Azure Storage
 
@@ -40,18 +33,18 @@ Instale la versión más reciente del Explorador de Azure Storage desde la [pág
 ## <a name="connect-to-an-azure-subscription"></a>Conexión a una suscripción de Azure
 
 1. En el Explorador de Storage, seleccione el icono de complemento de la izquierda.
-       
+
    ![Icono de complemento](./media/data-lake-store-in-storage-explorer/plug-in-icon.png)
- 
-2. Seleccione **Add an Azure Account** (Agregar una cuenta de Azure) y seleccione **Iniciar sesión**.
+
+1. Seleccione **Add an Azure Account** (Agregar una cuenta de Azure) y seleccione **Iniciar sesión**.
 
    ![Cuadro de diálogo "Connect to Azure Storage"](./media/data-lake-store-in-storage-explorer/connect-to-azure-subscription.png)
 
-2. En el cuadro de diálogo **Inicie sesión en su cuenta**, escriba sus credenciales de Azure.
+1. En el cuadro de diálogo **Inicie sesión en su cuenta**, escriba sus credenciales de Azure.
 
     ![Cuadro de diálogo para iniciar sesión en Azure](./media/data-lake-store-in-storage-explorer/sign-in.png)
 
-3. Seleccione la suscripción en la lista y luego seleccione **Aplicar**.
+1. Seleccione la suscripción en la lista y luego seleccione **Aplicar**.
 
     ![Información de suscripción y el botón "Aplicar"](./media/data-lake-store-in-storage-explorer/apply-subscription.png)
 
@@ -62,7 +55,9 @@ Instale la versión más reciente del Explorador de Azure Storage desde la [pág
 Ha conectado correctamente Data Lake Storage Gen1 a la suscripción de Azure.
 
 ## <a name="connect-to-data-lake-storage-gen1"></a>Conexión a Data Lake Storage Gen 1
+
 Puede tener acceso a recursos que no existen en su suscripción si alguien le proporciona el URI para los recursos. Después, puede conectar a Data Lake Storage Gen1 con el URI una vez iniciada la sesión.
+
 1. Abra el Explorador de Storage.
 2. En el panel izquierdo, expanda **Local and Attached** (Local y asociada).
 3. Haga clic con el botón derecho en **Data Lake Store** y seleccione **Connect to Data Lake Store** (Conectar a Data Lake Store).
@@ -76,6 +71,7 @@ Puede tener acceso a recursos que no existen en su suscripción si alguien le pr
       ![Resultado de conectar a Data Lake Storage Gen1](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-attach-finish.png)
 
 ## <a name="view-a-data-lake-storage-gen1-accounts-contents"></a>Ver el contenido de una cuenta de Data Lake Storage Gen1
+
 Los recursos de una cuenta de Azure Data Lake Storage Gen1 contienen archivos y carpetas.
 
 Los siguientes pasos muestran cómo ver el contenido de una cuenta de Data Lake Storage Gen1 en el Explorador de Storage:
@@ -83,25 +79,27 @@ Los siguientes pasos muestran cómo ver el contenido de una cuenta de Data Lake 
 1. Abra el Explorador de Storage.
 2. En el panel izquierdo, expanda la suscripción que contenga la cuenta de Data Lake Storage Gen1 que desee ver.
 3. Expanda **Data Lake Store**.
-4. Haga clic con el botón derecho en el nodo de la cuenta de Data Lake Storage Gen1 que desee ver y seleccione **Open** (Abrir). Para abrir la cuenta de Data Lake Storage Gen1 también puede hacer doble clic en ella. 
-   
+4. Haga clic con el botón derecho en el nodo de la cuenta de Data Lake Storage Gen1 que desee ver y seleccione **Open** (Abrir). Para abrir la cuenta de Data Lake Storage Gen1 también puede hacer doble clic en ella.
+
    El panel principal muestra el contenido de la cuenta de Data Lake Storage Gen1.
 
-   ![Panel principal con una lista de carpetas](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-toolbar-mainpane.png) 
+   ![Panel principal con una lista de carpetas](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-toolbar-mainpane.png)
 
 ## <a name="manage-resources-in-data-lake-storage-gen1"></a>Administrar recursos en Data Lake Storage Gen1
 
 A continuación se muestran las operaciones de administración de recursos de Data Lake Storage Gen1:
-*   Examinar los recursos de Data Lake Storage Gen1 en diferentes cuentas de Data Lake Storage Gen1.  
-*   Usar una cadena de conexión para conectarse a Data Lake Storage Gen1 y realizar la administración directamente. 
-*   Ver los recursos de Data Lake Storage Gen1 compartidos por otros usuarios mediante la lista de control de acceso de **Local and Attached** (Locales y conectados).
-*   Realizar operaciones CRUD de archivo y carpeta: admite archivos de selección múltiple y carpetas recursivas. 
-*   Arrastrar, colocar y agregar una carpeta para tener acceso rápidamente a ubicaciones recientes. Esta operación refleja la experiencia del Explorador de archivos del escritorio. 
-*   Copiar y abrir el hipervínculo de Data Lake Storage Gen1 en el Explorador de Storage con un solo clic. 
-*   Mostrar el registro de actividad en el panel inferior derecho para ver el estado de actividad.
-*   Mostrar las estadísticas de las carpetas y las propiedades de los archivos.
+
+* Examinar los recursos de Data Lake Storage Gen1 en diferentes cuentas de Data Lake Storage Gen1.  
+* Usar una cadena de conexión para conectarse a Data Lake Storage Gen1 y realizar la administración directamente.
+* Ver los recursos de Data Lake Storage Gen1 compartidos por otros usuarios mediante la lista de control de acceso de **Local and Attached** (Locales y conectados).
+* Realizar operaciones CRUD de archivo y carpeta: admite archivos de selección múltiple y carpetas recursivas.
+* Arrastrar, colocar y agregar una carpeta para tener acceso rápidamente a ubicaciones recientes. Esta operación refleja la experiencia del Explorador de archivos del escritorio.
+* Copiar y abrir el hipervínculo de Data Lake Storage Gen1 en el Explorador de Storage con un solo clic.
+* Mostrar el registro de actividad en el panel inferior derecho para ver el estado de actividad.
+* Mostrar las estadísticas de las carpetas y las propiedades de los archivos.
 
 ## <a name="manage-resources-in-azure-storage-explorer"></a>Administración de recursos en el Explorador de Azure Storage
+
 Después de crear una cuenta de Data Lake Storage Gen1, puede:
 
 * Cargar archivos y carpetas, descargarlos y abrir recursos en el equipo local.
@@ -114,7 +112,7 @@ Los elementos siguientes muestran cómo administrar los recursos de una cuenta d
 
 1. En la barra de herramientas del panel principal, seleccione **Upload** (Cargar) y **Upload Files** (Cargar archivos) en el menú desplegable.
 
-   ![Elemento del menú "Upload Files"](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-upload-files-menu.png) 
+   ![Elemento del menú "Upload Files"](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-upload-files-menu.png)
 
 2. En el cuadro de diálogo **Select files to upload** (Seleccionar archivos para cargar), seleccione los archivos que desea cargar.
 
@@ -126,19 +124,19 @@ Los elementos siguientes muestran cómo administrar los recursos de una cuenta d
 
 1. En la barra de herramientas del panel principal, seleccione **Upload** (Cargar) y **Upload Folder** (Cargar carpeta) en el menú desplegable.
 
-   ![Elemento del menú "Upload Folder"](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-upload-folder-menu.png) 
-     
+   ![Elemento del menú "Upload Folder"](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-upload-folder-menu.png)
+
 2. En el cuadro de diálogo **Select folder to upload** (Seleccionar carpeta para cargar), seleccione la carpeta que desea cargar. Después, haga clic en **Select Folder** (Seleccionar carpeta).
 
-   ![Cuadro de diálogo para cargar carpetas](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-upload-folder-dialog.png)      
+   ![Cuadro de diálogo para cargar carpetas](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-upload-folder-dialog.png)
 
    Se inicia la carga.
 
-   ![Cuadro de diálogo con la carga en curso](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-upload-folder-drag.png) 
+   ![Cuadro de diálogo con la carga en curso](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-upload-folder-drag.png)
 
 > [!NOTE]
-> Puede arrastrar directamente las carpetas y los archivos a un equipo local para comenzar la carga. 
-       
+> Puede arrastrar directamente las carpetas y los archivos a un equipo local para comenzar la carga.
+
 ### <a name="download-folders-or-files-to-your-local-computer"></a>Descarga de archivos o carpetas en el equipo local
 
 1. Seleccione las carpetas o archivos que desea descargar.
@@ -153,7 +151,7 @@ Los elementos siguientes muestran cómo administrar los recursos de una cuenta d
 
 El archivo se descargará y se abrirá mediante la aplicación asociada al tipo de archivo subyacente. O bien, se abrirá la carpeta en el panel principal.
 
-![Archivo abierto](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-open.png) 
+![Archivo abierto](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-open.png)
 
 ### <a name="copy-folders-or-files-to-the-clipboard"></a>Copia de carpetas o archivos en el Portapapeles
 
@@ -166,7 +164,7 @@ El archivo se descargará y se abrirá mediante la aplicación asociada al tipo 
 
 > [!NOTE]
 > No se admiten las operaciones de copiar y pegar entre tipos de almacenamiento. Puede copiar los archivos o carpetas de Data Lake Storage Gen1 y pegarlos en otra cuenta de Data Lake Storage Gen1. Pero *no puede* copiar archivos o carpetas de Data Lake Storage Gen1 y pegarlos en Azure Blob Storage o viceversa.
-> 
+>
 > La operación de copiar y pegar consiste en descargar las carpetas o los archivos en el equipo local y después cargarlos en el destino. La herramienta *no* realiza la acción en el back-end. La operación de copiar y pegar archivos de gran tamaño es lenta. Se está llevando a cabo la optimización del movimiento o la copia de archivos de alto rendimiento.
 
 ### <a name="delete-folders-or-files"></a>Eliminación de archivos o carpetas
@@ -189,12 +187,13 @@ El archivo se descargará y se abrirá mediante la aplicación asociada al tipo 
 Después de anclar una carpeta al nodo de **Quick Access**, puede acceder fácilmente a los recursos.
 
 ### <a name="use-deep-links"></a>Uso de vínculos profundos
+
 Si tiene una dirección URL, puede escribirla en la ruta de acceso de dirección del Explorador de archivos o un explorador. A continuación, Explorador de Storage.exe se ejecuta automáticamente para ir a la ubicación de la dirección URL.
 
 ![Vínculo profundo en el Explorador de archivos](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-deep-link.png)
 
-
 ## <a name="next-steps"></a>Pasos siguientes
+
 * Vea las [notas de la versión y los vídeos más recientes del Explorador de Storage](https://www.storageexplorer.com).
 * Aprenda a [administrar Azure Cosmos DB en el Explorador de Azure Storage](https://docs.microsoft.com/azure/cosmos-db/storage-explorer).
 * [Introducción al Explorador de Storage](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).

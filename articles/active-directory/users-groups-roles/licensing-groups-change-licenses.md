@@ -1,27 +1,27 @@
 ---
-title: 'Cambio de las asignaciones de licencias para usuarios y grupos: Azure Active Directory | Microsoft Docs'
-description: Describe el proceso recomendado para migrar usuarios de un grupo a distintas licencias de servicio (Office 365 Enterprise E1 y E3) mediante las licencias de grupo.
+title: 'Cambio de planes de licencias para usuarios y grupos: Azure AD | Microsoft Docs'
+description: Migración de los usuarios dentro de un grupo a planes de servicio distintos mediante el uso de licencias de grupo en Azure Active Directory
 services: active-directory
 keywords: Licencias de Azure AD
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 09/27/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7212983470e71ff6d7c1c33de142767ecf38d1f
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: bf2f04e1728f94c89bddcc31c287cc017a79020f
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72034016"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74025901"
 ---
 # <a name="change-license-assignments-for-a-user-or-group-in-azure-active-directory"></a>Cambio de las asignaciones de licencia de un usuario o grupo en Azure Active Directory
 

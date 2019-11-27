@@ -1,5 +1,5 @@
 ---
-title: Referencia de la biblioteca cliente de funciones definidas por el usuario de Azure Digital Twins | Microsoft Docs
+title: Referencia de la biblioteca cliente de funciones definidas por el usuario (Azure Digital Twins) | Microsoft Docs
 description: Referencia de la biblioteca cliente de funciones definidas por el usuario de Azure Digital Twins.
 ms.author: alinast
 author: alinamstanciu
@@ -9,12 +9,12 @@ services: digital-twins
 ms.topic: article
 ms.date: 08/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 36fb8a5588321426ccae7d6c6577fb4b48f3a4db
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 0bbf247adbeab89cf8b16ed089eb13e53cf501f5
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71948903"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74009237"
 ---
 # <a name="user-defined-functions-client-library-reference"></a>Referencia de la biblioteca cliente de funciones definidas por el usuario
 

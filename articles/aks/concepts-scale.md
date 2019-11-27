@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: zarhoads
-ms.openlocfilehash: 1972a91e1ed8a39bcd467272108e0e772116344e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5bceb6715fc3fd2f9f23738936df2f2c549d0212
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73472883"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048188"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Opciones de escalado de aplicaciones en Azure Kubernetes Service (AKS)
 
@@ -51,7 +51,7 @@ Actualmente, estos valores de recuperación no se pueden ajustar a partir del va
 
 ## <a name="cluster-autoscaler"></a>Cluster Autoscaler
 
-Para responder a las cambiantes exigencias de pods, Kubernetes tiene un componente Cluster Autoscaler, que actualmente está en versión preliminar en AKS, que ajusta el número de nodos en función de los recursos de proceso solicitados en el grupo de nodos. De manera predeterminada, Cluster Autoscaler comprueba en el servidor de la API de métricas cada 10 segundos los cambios necesarios en el recuento de nodos. Si Cluster Autoscaler determina que es necesario un cambio, el número de nodos del clúster de AKS aumenta o disminuye en consecuencia. Clúster Autoscaler funciona con clústeres de AKS habilitados para RBAC que ejecutan Kubernetes 1.10.x o una versión superior.
+Para responder a las distintas exigencias de pods, Kubernetes tiene un componente Cluster Autoscaler que ajusta el número de nodos según los recursos de proceso solicitados en el grupo de nodos. De manera predeterminada, Cluster Autoscaler comprueba en el servidor de la API de métricas cada 10 segundos los cambios necesarios en el recuento de nodos. Si Cluster Autoscaler determina que es necesario un cambio, el número de nodos del clúster de AKS aumenta o disminuye en consecuencia. Clúster Autoscaler funciona con clústeres de AKS habilitados para RBAC que ejecutan Kubernetes 1.10.x o una versión superior.
 
 ![Cluster Autoscaler de Kubernetes](media/concepts-scale/cluster-autoscaler.png)
 
@@ -81,7 +81,7 @@ Para escalar rápidamente el clúster de AKS, puedes realizar la integración co
 
 ![Escalado de ráfaga de Kubernetes en ACI](media/concepts-scale/burst-scaling.png)
 
-ACI le permite implementar rápidamente instancias de contenedor sin sobrecarga de infraestructura adicional. Cuando se conecta con AKS, ACI se convierte en una extensión lógica y segura de su clúster de AKS. El componente Virtual Kubelet se instala en el clúster de AKS que presenta ACI como un nodo de Kubernetes virtual. Kubernetes puede programar pods que se ejecuten como instancias de ACI a través de los nodos virtuales, no como pods en nodos de máquina virtual directamente en el clúster de AKS. Los nodos virtuales se encuentran actualmente en versión preliminar en AKS.
+ACI le permite implementar rápidamente instancias de contenedor sin sobrecarga de infraestructura adicional. Cuando se conecta con AKS, ACI se convierte en una extensión lógica y segura de su clúster de AKS. El componente de [nodos virtuales][virtual-nodes-cli], que se basa en [Virtual Kubelet][virtual-kubelet], se instala en el clúster de AKS que presenta ACI como un nodo de Kubernetes virtual. Kubernetes puede programar pods que se ejecuten como instancias de ACI a través de los nodos virtuales, no como pods en nodos de máquina virtual directamente en el clúster de AKS. Los nodos virtuales se encuentran actualmente en versión preliminar en AKS.
 
 La aplicación no requiere ninguna modificación para usar los nodos virtuales. Puede escalar las implementaciones en AKS y ACI sin ningún retraso, ya que Cluster Autoscaler implementa los nodos nuevos en el clúster de AKS.
 
@@ -104,6 +104,7 @@ Para obtener más información sobre los conceptos básicos de Kubernetes y AKS,
 - [Almacenamiento de Kubernetes/AKS][aks-concepts-storage]
 
 <!-- LINKS - external -->
+[virtual-kubelet]: https://virtual-kubelet.io/
 
 <!-- LINKS - internal -->
 [aks-quickstart]: kubernetes-walkthrough.md
@@ -117,3 +118,4 @@ Para obtener más información sobre los conceptos básicos de Kubernetes y AKS,
 [aks-concepts-storage]: concepts-storage.md
 [aks-concepts-identity]: concepts-identity.md
 [aks-concepts-network]: concepts-network.md
+[virtual-nodes-cli]: virtual-nodes-cli.md

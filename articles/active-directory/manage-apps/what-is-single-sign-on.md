@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/17/2019
+ms.date: 11/14/2019
 ms.author: mimart
 ms.reviewer: arvindh, japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ddbb233bb9d0970169f040e3040b44a0b75aa1f8
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 8f8d1c9f53d08d017c6c07abf8e00ab77e6879e3
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68477172"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091395"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Inicio de sesión único en aplicaciones de Azure Active Directory
 
@@ -97,6 +97,8 @@ Se admite el inicio de sesión único basado en contraseñas para cualquier apli
    > Internet Explorer se encuentra en un periodo de compatibilidad limitada y ya no recibe nuevas actualizaciones de software. Microsoft Edge es el explorador recomendado.
 
 - Microsoft Edge en Windows 10 Anniversary Edition o versión posterior
+- Microsoft Edge para iOS y Android
+- Explorador administrado con Intune
 - Chrome en Windows 7 o posterior, y en Mac OS X o posterior
 - Firefox 26.0 o posterior en Windows XP SP2 o posterior, y en Mac OS X 10.6 o posterior
 

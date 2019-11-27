@@ -10,12 +10,12 @@ ms.author: maxluk
 author: maxluk
 ms.reviewer: sdgilley
 ms.date: 08/02/2019
-ms.openlocfilehash: bfe44e552618dfbee13e8c85ef424f52d4b7ae5f
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: a7c19486fe6787c4548a77dcdd93a92a92c97d8c
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73814986"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931107"
 ---
 # <a name="train-and-register-chainer-models-at-scale-with-azure-machine-learning"></a>Entrenamiento y registro de modelos de Chainer a escala con Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -193,7 +193,7 @@ model = run.register_model(model_name='chainer-dnn-mnist', model_path='outputs/m
 ```
 
 > [!TIP]
-> Si recibe un error que indica que no se encuentra el modelo, espere un minuto y vuelva a intentarlo.  A veces hay un pequeño intervalo entre el final de la ejecución de entrenamiento y la disponibilidad del modelo en el directorio de resultados.
+> El modelo que acaba de registrar se implementa exactamente de la misma manera que cualquier otro modelo registrado en Azure Machine Learning, independientemente del estimador que haya usado para el entrenamiento. El procedimiento de implementación contiene una sección sobre el registro de modelos, pero puede ir directamente a la [creación de un destino de proceso](how-to-deploy-and-where.md#choose-a-compute-target) para la implementación, dado que ya tiene un modelo registrado.
 
 También puede descargar una copia local del modelo. Esto puede ser útil para realizar trabajos de validación de modelo adicionales de forma local. En el script de entrenamiento, `chainer_mnist.py`, un objeto de protector guarda el modelo en una carpeta local (local para el destino de proceso). Puede usar el objeto Run para descargar una copia del almacén de datos.
 

@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/06/2019
 ms.author: azfuncdf
-ms.openlocfilehash: a59e5443c80c9372f646edfdae2261157a41acc9
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: d854f41ffc883b40f9159a7dacdde0fb3bb7240f
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73614884"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904057"
 ---
 # <a name="developers-guide-to-durable-entities-in-net"></a>Guía del desarrollador de entidades duraderas en .NET
 
@@ -117,7 +117,7 @@ Por ejemplo, se puede modificar la entidad de contador para que inicie una orque
 
 ## <a name="accessing-entities-directly"></a>Acceso directo a las entidades
 
-Se puede acceder directamente a las entidades basadas en clases mediante nombres de cadena explícitos para la entidad y sus operaciones. A continuación se proporcionan algunos ejemplos; para una explicación más detallada de los conceptos subyacentes (por ejemplo, las señales y las llamadas), consulte el análisis en [Acceso a las entidades](durable-functions-entities.md#accessing-entities). 
+Se puede acceder directamente a las entidades basadas en clases mediante nombres de cadena explícitos para la entidad y sus operaciones. A continuación se proporcionan algunos ejemplos; para una explicación más detallada de los conceptos subyacentes (por ejemplo, la diferencia entre señales y llamadas), consulte el análisis en [Acceso a entidades](durable-functions-entities.md#access-entities). 
 
 > [!NOTE]
 > Siempre que sea posible, se recomienda [acceder a las entidades mediante interfaces](#accessing-entities-through-interfaces), ya que así se proporciona una comprobación de más tipos.

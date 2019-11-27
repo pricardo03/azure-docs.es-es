@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 51a51e63f1d45d67cda63d4491a3bac572434dc0
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: a35cf935d990dbb61f440d2592d59d21f33a2ae8
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991906"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037241"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Control de acceso en Azure Data Lake Storage Gen2
 
@@ -90,7 +90,7 @@ Los permisos de un objeto de contenedor son **lectura**, **escritura** y **ejecu
 | **Ejecución (X)** | No significa nada en el contexto de Data Lake Storage Gen2 | Se requiere para atravesar los elementos secundarios de un directorio. |
 
 > [!NOTE]
-> Si va a conceder permisos únicamente mediante listas de control de acceso (no mediante RBAC), para conceder a una entidad de servicio acceso de lectura o escritura a un archivo, necesitará otorgarle permisos de **ejecución** al contenedor y a cada carpeta de la jerarquía de carpetas que conduce al archivo.
+> Si va a conceder permisos únicamente mediante listas de control de acceso (no mediante RBAC), para conceder a una entidad de seguridad acceso de lectura o escritura a un archivo, necesitará otorgarle permisos de **ejecución** al contenedor y a cada carpeta de la jerarquía de carpetas que conduce al archivo.
 
 #### <a name="short-forms-for-permissions"></a>Formas abreviadas de los permisos
 
@@ -281,7 +281,7 @@ Utilice siempre grupos de seguridad de Azure AD como la entidad asignada en las 
 
 - El autor de la llamada tiene los permisos de "superusuario",
 
-o
+Or
 
 - El directorio principal debe tener permisos de escritura y ejecución.
 - Tanto el directorio que se va a eliminar como todos los directorios que contiene requieren permisos de lectura, escritura y ejecución.

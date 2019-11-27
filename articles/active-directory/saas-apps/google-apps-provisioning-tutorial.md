@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54b158528a67dfe77f33f41f3bb4b4570eb4c508
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 4d4c08802b9a19398e7968901974cad86d9d946a
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802205"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74120320"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Tutorial: Configuración de G Suite para el aprovisionamiento automático de usuarios
 
@@ -199,6 +199,12 @@ Para más información sobre cómo leer los registros de aprovisionamiento de Az
 
 > [!NOTE]
 > Otra opción viable para automatizar el aprovisionamiento de usuarios en G Suite consiste en usar [Google Cloud Directory Sync](https://support.google.com/a/answer/106368?hl=en). Esta opción aprovisiona las identidades de Active Directory locales en G Suite.
+
+## <a name="common-issues"></a>Problemas comunes
+* G Suite requiere que todos los usuarios aprovisionados provengan de dominios comprobados. Asegúrese de que cualquier usuario que desee aprovisionar tiene un UPN de un dominio comprobado en G Suite. Si un usuario de un dominio no comprobado está en el ámbito del aprovisionamiento, verá un error en los [registros de aprovisionamiento](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) como "GoogleAppsInvalidDomain". Puede evitar estos errores y asegurarse de que los usuarios de dominios no comprobados están fuera del ámbito mediante el uso de un [filtro de ámbito](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
+    * Atributo de destino: userPrincipalName
+    * Operador: REGEX MATCH o NOT REGEX MATCH
+    * Valor: .*@domain.com
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

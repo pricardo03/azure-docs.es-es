@@ -1,5 +1,5 @@
 ---
-title: 'Tamaños de las máquinas virtuales Linux en Azure: HPC | Microsoft Docs'
+title: 'Tamaños de máquina virtual Linux de Azure: HPC'
 description: Enumera los tamaños diferentes disponibles para las máquinas virtuales de informática de alto rendimiento Linux en Azure. Se proporciona información sobre el número de unidades vCPU, discos de datos y NIC, así como sobre el rendimiento de almacenamiento y el ancho de banda de red para los tamaños de esta serie.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/12/2018
 ms.author: jonbeck
-ms.openlocfilehash: ee99869c2b7a7b3ab38fdd9eae0687862ea53819
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 214ab48b6b0dca37eff3b3f155aaa92afc7fee16
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100874"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034890"
 ---
 # <a name="high-performance-compute-virtual-machine-sizes"></a>Tamaños de máquina virtual de proceso de alto rendimiento
 

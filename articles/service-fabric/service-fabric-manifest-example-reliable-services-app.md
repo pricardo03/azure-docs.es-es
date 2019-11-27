@@ -1,5 +1,5 @@
 ---
-title: Ejemplos del manifiesto de una aplicación de Reliable Services en Azure Service Fabric | Microsoft Docs
+title: Ejemplos del manifiesto de una aplicación de Reliable Services en Azure Service Fabric
 description: Obtenga información acerca de cómo configurar un manifiesto de servicio y de aplicación para una aplicación de Service Fabric de Reliable Services.
 services: service-fabric
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/11/2018
 ms.author: pepogors
-ms.openlocfilehash: a5678b4c4c0f7a9d8d3f3cf6e838580de2059a8f
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 9cc79610b6dc9f9d2869a41e0b483168087368cc
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035635"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013223"
 ---
 # <a name="reliable-services-application-and-service-manifest-examples"></a>Ejemplos de manifiesto de servicio y de aplicación de servicios confiables
 Los siguientes son ejemplos de los manifiestos de aplicación y de servicio para una aplicación de Service Fabric con un front-end web de ASP.NET Core y un back-end con estado. El propósito de estos ejemplos es mostrar qué opciones están disponibles y cómo usarlas. Estos manifiestos de aplicación y de servicio se basan en los manifiestos de la [Guía de inicio rápido de Service Fabric .NET](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/).

@@ -1,5 +1,5 @@
 ---
-title: Configuración del método de enrutamiento de tráfico round-robin ponderado con Azure Traffic Manager | Microsoft Docs
+title: 'Configuración del enrutamiento de tráfico round-robin ponderado: Azure Traffic Manager'
 description: En este artículo se explica cómo equilibrar la carga del tráfico con un método round-robin en Traffic Manager
 services: traffic-manager
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: allensu
-ms.openlocfilehash: 4ca43bf958606a71911bf5d35f31e4fe0b342601
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0bfed558ec8db0ef715dad044c3965c1b1d8052b
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071274"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74040328"
 ---
 # <a name="configure-the-weighted-traffic-routing-method-in-traffic-manager"></a>Configuración del método de enrutamiento de tráfico ponderado en Traffic Manager
 

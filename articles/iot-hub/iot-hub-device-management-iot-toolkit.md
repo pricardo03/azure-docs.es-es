@@ -1,5 +1,5 @@
 ---
-title: Administración de dispositivos de Azure IoT con Azure IoT Tools para Visual Studio Code | Microsoft Docs
+title: Administración de dispositivos de Azure IoT con Azure IoT Tools en VS Code
 description: Use Azure IoT Tools para Visual Studio Code para la administración de dispositivos de Azure IoT Hub, incluye métodos directos y opciones de administración de las propiedades deseadas de los dispositivos gemelos.
 author: formulahendry
 ms.service: iot-hub
@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/04/2019
 ms.author: junhan
-ms.openlocfilehash: f5697e0b51e8349de62e71be1471beb76aa48765
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 03997bb6999af9ebaad36cc95f7834e3b9ed4569
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67838734"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953210"
 ---
 # <a name="use-azure-iot-tools-for-visual-studio-code-for-azure-iot-hub-device-management"></a>Uso de Azure IoT Tools para Visual Studio Code para la administración de dispositivos de Azure IoT Hub
 

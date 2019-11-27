@@ -1,7 +1,6 @@
 ---
-title: Reglas de salida de Azure Load Balancer
-titlesuffix: Azure Load Balancer
-description: Usar reglas de salida para definir traducciones de direcciones de red de salida
+title: 'Reglas de salida: Azure Load Balancer'
+description: Con esta ruta de aprendizaje, empiece a usar reglas de salida para definir las traducciones de las direcciones de red de salida.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -13,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 7/17/2019
 ms.author: allensu
-ms.openlocfilehash: d1874d610feb041545e1675ad5b40a1b5e753b67
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 316b28faa458b03431cb48f02a8087116415b061
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497992"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075898"
 ---
 # <a name="load-balancer-outbound-rules"></a>Reglas de salida de Load Balancer
 

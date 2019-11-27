@@ -1,19 +1,19 @@
 ---
-title: 'Creación de un circuito de ExpressRoute (plantilla de Resource Manager): Azure | Microsoft Docs'
+title: 'Plantilla de Azure ExpressRoute: Creación de un circuito ExpressRoute'
 description: Cree, aprovisione, elimine y desaprovisione un circuito de ExpressRoute.
-services: expressroute;azure-resource-manager
+services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: article
-ms.date: 07/05/2019
+ms.date: 11/13/2019
 ms.author: cherylmc
 ms.reviewer: ganesr
-ms.openlocfilehash: 103c61b6ad244bf4b140f897c070ce5bfd54cded
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 25ed38e72f5a21622a87e36ad811ffd66f6a4c90
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67849231"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083510"
 ---
 # <a name="create-an-expressroute-circuit-by-using-azure-resource-manager-template"></a>Creación de un circuito de ExpressRoute mediante una plantilla de Azure Resource Manager
 
@@ -64,8 +64,8 @@ Para crear un circuito de ExpressRoute mediante la implementación de una planti
     Write-Host "Press [ENTER] to continue ..."
     ```
 
-   * **Nivel** determina si está habilitado un complemento estándar o premium de ExpressRoute. Puede especificar **Estándar** para obtener la SKU estándar o **Premium** si quiere el complemento Premium.
-
+   * El **nivel de SKU** determina si un circuito ExpressRoute es [Local](expressroute-faqs.md#expressroute-local), Estándar o [Premium](expressroute-faqs.md#expressroute-premium). Puede especificar *Local*, *Estándar* o *Premium*.
+   * La **familia de SKU** determina el tipo de facturación. Puede seleccionar *Metereddata* para el plan de datos limitado y *Unlimiteddata* para el plan de datos ilimitado. Puede cambiar el tipo de facturación de *Metereddata* a *Unlimiteddata*, pero no se puede cambiar el tipo de *Unlimiteddata* a *Metereddata*. Un circuito *Local* solo es *Unlimiteddata*.
    * La **ubicación de emparejamiento** es la ubicación física de emparejamiento con Microsoft.
 
      > [!IMPORTANT]

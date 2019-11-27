@@ -1,20 +1,18 @@
 ---
-title: Configuración de la recuperación ante desastres para la implementación de aplicaciones de SAP NetWeaver de niveles múltiples con Azure Site Recovery | Microsoft Docs
+title: Configuración de la recuperación ante desastres de SAP NetWeaver con Azure Site Recovery
 description: En este artículo se describe cómo configurar la recuperación ante desastres para la implementación de aplicaciones de SAP NetWeaver mediante Azure Site Recovery.
 author: asgang
 manager: rochakm
 ms.service: site-recovery
-ms.workload: backup-recovery
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: asgang
-ms.openlocfilehash: 0848738b71a605d8baf049847daa3ae2428a7abe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ca3126c983d62cb28c543215b86ab9709a4736d8
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65793672"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083786"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>Configuración de la recuperación ante desastres para la implementación de una aplicación de SAP NetWeaver de niveles múltiples
 

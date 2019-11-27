@@ -1,5 +1,5 @@
 ---
-title: Información general de hosts dedicados de Azure para máquinas virtuales | Microsoft Docs
+title: Información general de hosts dedicados de Azure para máquinas virtuales
 description: Obtenga más información sobre cómo se pueden usar los hosts dedicados de Azure para implementar máquinas virtuales.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 07/25/2019
 ms.author: cynthn
-ms.openlocfilehash: 5f2b34b3acb559d74414ea622fba2769ede7f0a7
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: f4a5e78afdf774af056d7c9b8a108c3418c2caa4
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976638"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036389"
 ---
 # <a name="preview-azure-dedicated-hosts"></a>Vista previa: Hosts dedicados de Azure
 

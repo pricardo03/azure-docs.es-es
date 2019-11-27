@@ -1,24 +1,18 @@
 ---
 title: Conexión de equipos mediante la puerta de enlace de Log Analytics | Microsoft Docs
 description: Conecte los dispositivos y los equipos supervisados por Operations Manager con la puerta de enlace de Log Analytics para enviar datos al servicio de Log Analytics y Azure Automation cuando no tengan acceso a Internet.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ae9a1623-d2ba-41d3-bd97-36e65d3ca119
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/12/2019
+author: MGoedtel
 ms.author: magoedte
-ms.openlocfilehash: 1d735a3740b473806835f2e80f40cea02b48387e
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.date: 10/30/2019
+ms.openlocfilehash: 7574f5c17c1b4598336b8db3108946164dc203f2
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68955108"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847278"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Conexión de equipos sin acceso a Internet mediante la puerta de enlace de Log Analytics en Azure Monitor
 
@@ -28,18 +22,18 @@ ms.locfileid: "68955108"
 
 Este artículo describe cómo configurar la comunicación con Azure Automation y Azure Monitor mediante la puerta de enlace de Log Analytics cuando los equipos que están directamente conectados o están supervisados por Operations Manager no tienen acceso a Internet. 
 
-La puerta de enlace de Log Analytics es un proxy de reenvío de HTTP que admite la tunelización HTTP mediante el comando HTTP CONNECT. Esta puerta de enlace envía datos a Azure Automation y a un área de trabajo de Log Analytics en Azure Monitor en nombre de los equipos que no pueden conectarse a Internet. No almacena en caché los datos de los agentes, el agente controla los datos de almacenamiento en caché en esta situación hasta que se restaure la comunicación.
+La puerta de enlace de Log Analytics es un proxy de reenvío de HTTP que admite la tunelización HTTP mediante el comando HTTP CONNECT. Esta puerta de enlace envía datos a Azure Automation y a un área de trabajo de Log Analytics en Azure Monitor en nombre de los equipos que no pueden conectarse a Internet. 
 
 La puerta de enlace de Log Analytics admite lo siguiente:
 
-* Creación de informes de los mismos cuatro agentes de área de trabajo de Log Analytics que están detrás de él y que están configurados con trabajos híbridos de runbook de Azure Automation.  
+* Informes de las mismas áreas de trabajo de Log Analytics configuradas en cada agente que hay detrás y que están configuradas con Hybrid Runbook Workers de Azure Automation.  
 * Equipos Windows en los que Microsoft Monitoring Agent está directamente conectado a un área de trabajo de Log Analytics en Azure Monitor.
 * Equipos Linux en los que el agente de Log Analytics está directamente conectado a un área de trabajo de Azure Monitor.  
 * System Center Operations Manager 2012 SP1 con UR7, Operations Manager 2012 R2 con UR3 o un grupo de administración en Operations Manager 2016 o posterior integrado con Log Analytics.  
 
 Algunas directivas de seguridad de TI no permiten la conexión a Internet para los equipos de red. Estos equipos no conectados podrían ser dispositivos de punto de venta (POS) o los servidores que admiten servicios de TI, por ejemplo. Para conectar estos dispositivos a Azure Automation o un área de trabajo de Log Analytics para poder administrarlos y supervisarlos, configúrelos para que se comuniquen directamente con la puerta de enlace de Log Analytics. La puerta de enlace de Log Analytics puede recibir información de configuración y reenviar los datos en su nombre. Si los equipos están configurados con el agente de Log Analytics para conectarse directamente a un área de trabajo de Log Analytics, los equipos se comunicarán en su lugar con la puerta de enlace de Log Analytics.  
 
-La puerta de enlace de Log Analytics transfiere datos desde los agentes al servicio directamente. No analiza los datos mientras están en tránsito.
+La puerta de enlace de Log Analytics transfiere datos desde los agentes al servicio directamente. No analiza ninguno de los datos en tránsito ni almacena datos en la memoria caché cuando pierde la conectividad con el servicio. Cuando la puerta de enlace no puede comunicarse con el servicio, el agente continúa ejecutándose y pone en cola los datos recopilados en el disco del equipo supervisado. Cuando se restaura la conexión, el agente envía los datos en caché recopilados a Azure Monitor.
 
 Cuando un grupo de administración de Operations Manager se integra en Log Analytics, se pueden configurar los servidores de administración para que se conecten a la puerta de enlace de Log Analytics para recibir información de configuración y enviar los datos recopilados según la solución que haya habilitado.  Los agentes de Operations Manager envían algunos datos al servidor de administración. Por ejemplo, los agentes pueden enviar alertas de Operations Manager, datos de evaluación de configuración, datos del espacio de instancia y datos de capacidad. Otros datos de gran volumen, como registros, datos de rendimiento y eventos de seguridad de Internet Information Services (IIS), se envían directamente a la puerta de enlace de Log Analytics. 
 
@@ -173,7 +167,7 @@ En la tabla siguiente se resaltan los parámetros admitidos por el programa de i
 Para realizar una instalación silenciosa de la puerta de enlace y configurarla con un número de puerto y una dirección de proxy específicos, escriba lo siguiente:
 
 ```dos
-Msiexec.exe /I “oms gateway.msi” /qn PORTNUMBER=8080 PROXY=”10.80.2.200” HASPROXY=1 LicenseAccepted=1 
+Msiexec.exe /I "oms gateway.msi" /qn PORTNUMBER=8080 PROXY="10.80.2.200" HASPROXY=1 LicenseAccepted=1 
 ```
 
 Con la opción de línea de comandos/qn se oculta el programa de instalación, con /qb se muestra el programa de instalación durante la instalación silenciosa.  
@@ -181,7 +175,7 @@ Con la opción de línea de comandos/qn se oculta el programa de instalación, c
 Si tiene que proporcionar credenciales para autenticarse con el proxy, escriba lo siguiente:
 
 ```dos
-Msiexec.exe /I “oms gateway.msi” /qn PORTNUMBER=8080 PROXY=”10.80.2.200” HASPROXY=1 HASAUTH=1 USERNAME=”<username>” PASSWORD=”<password>” LicenseAccepted=1 
+Msiexec.exe /I "oms gateway.msi" /qn PORTNUMBER=8080 PROXY="10.80.2.200" HASPROXY=1 HASAUTH=1 USERNAME="<username>" PASSWORD="<password>" LicenseAccepted=1 
 ```
 
 Después de la instalación, puede confirmar que se ha aceptado la configuración (excluido el nombre de usuario y contraseña) mediante los siguientes cmdlets de PowerShell:
@@ -300,50 +294,11 @@ Para configurar servidores o grupos específicos que utilicen el servidor de pue
 
 ### <a name="configure-for-automation-hybrid-runbook-workers"></a>Configuración de Hybrid Runbook Workers de Automation
 
-Si tiene Hybrid Runbook Workers de Automation en su entorno, siga los pasos siguientes de soluciones temporales manuales para configurar la puerta de enlace de OMS para que sea compatible con los trabajos.
+Si tiene Hybrid Runbook Workers de Azure Automation en su entorno, siga estos pasos para configurar la puerta de enlace de OMS de modo que sea compatible con los trabajos.
 
-Para seguir los pasos de esta sección, es preciso saber en qué región de Azure reside la cuenta de Automation. Para buscar la ubicación:
+Consulte la sección sobre [configuración de la red](../../automation/automation-hybrid-runbook-worker.md#network-planning) de la documentación de Automation para buscar la dirección URL de cada región.
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
-1. Seleccione el servicio Azure Automation.
-1. Seleccione la cuenta de Azure Automation apropiada.
-1. Vea su región en **Ubicación**.
-
-   ![Captura de pantalla de la ubicación de la cuenta de Automation en Azure Portal](./media/gateway/location.png)
-
-Utilice las siguientes tablas para identificar la dirección URL de cada ubicación.
-
-**Direcciones URL del servicio de datos del tiempo de ejecución del trabajo**
-
-| **Ubicación** | **URL** |
-| --- | --- |
-| Centro-Norte de EE. UU |ncus-jobruntimedata-prod-su1.azure-automation.net |
-| Europa occidental |we-jobruntimedata-prod-su1.azure-automation.net |
-| Centro-Sur de EE. UU |scus-jobruntimedata-prod-su1.azure-automation.net |
-| Este de EE. UU. 2 |eus2-jobruntimedata-prod-su1.azure-automation.net |
-| Canadá central |cc-jobruntimedata-prod-su1.azure-automation.net |
-| Europa del Norte |ne-jobruntimedata-prod-su1.azure-automation.net |
-| Sudeste de Asia |sea-jobruntimedata-prod-su1.azure-automation.net |
-| India Central |cid-jobruntimedata-prod-su1.azure-automation.net |
-| Japón |jpe-jobruntimedata-prod-su1.azure-automation.net |
-| Australia |ase-jobruntimedata-prod-su1.azure-automation.net |
-
-**Direcciones URL de servicio Agente**
-
-| **Ubicación** | **URL** |
-| --- | --- |
-| Centro-Norte de EE. UU |ncus-agentservice-prod-1.azure-automation.net |
-| Europa occidental |we-agentservice-prod-1.azure-automation.net |
-| Centro-Sur de EE. UU |scus-agentservice-prod-1.azure-automation.net |
-| Este de EE. UU. 2 |eus2-agentservice-prod-1.azure-automation.net |
-| Canadá central |cc-agentservice-prod-1.azure-automation.net |
-| Europa del Norte |ne-agentservice-prod-1.azure-automation.net |
-| Sudeste de Asia |sea-agentservice-prod-1.azure-automation.net |
-| India Central |cid-agentservice-prod-1.azure-automation.net |
-| Japón |jpe-agentservice-prod-1.azure-automation.net |
-| Australia |ase-agentservice-prod-1.azure-automation.net |
-
-Si el equipo se registra automáticamente como Hybrid Runbook Worker automáticamente, use la solución Update Management para la administración de la revisión. Siga estos pasos:
+Si el equipo se registra automáticamente como Hybrid Runbook Worker, por ejemplo, si la solución de administración de actualizaciones está habilitada para una o más máquinas virtuales, siga estos pasos:
 
 1. Agregue las direcciones URL del servicio de datos en tiempo de ejecución del trabajo a la lista de hosts permitidos de puerta de enlace de Log Analytics. Por ejemplo: `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
 1. Reinicie el servicio de puerta de enlace de Log Analytics mediante el siguiente cmdlet de PowerShell: `Restart-Service OMSGatewayService`

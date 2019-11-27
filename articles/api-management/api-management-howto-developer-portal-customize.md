@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 7547db502056304307094541dcfd2474eda999d8
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: c8aa3fb124420c933e17b0e9f7e52b7f114a7f61
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73620434"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012904"
 ---
 # <a name="access-and-customize-developer-portal"></a>Acceso al portal para desarrolladores y su personalización
 
@@ -38,7 +38,7 @@ Puede encontrar más detalles del portal para desarrolladores en [Introducción 
 
 > [!WARNING]
 > El portal para desarrolladores se está implementando actualmente en los servicios de API Management.
-> Si el servicio se ha creado recientemente o es uno de nivel de desarrollador, ya debería tener la versión más reciente. De lo contrario, podría experimentar problemas (por ejemplo, con la funcionalidad de publicación). El lanzamiento de características se completará el lunes 11 de noviembre de 2019. 
+> Si el servicio se ha creado recientemente o es uno de nivel de desarrollador, ya debería tener la versión más reciente. De lo contrario, podría experimentar problemas (por ejemplo, con la funcionalidad de publicación). Se espera que el lanzamiento de la característica esté completo el viernes 22 de noviembre de 2019. 
 
 ## <a name="prerequisites"></a>Requisitos previos
 

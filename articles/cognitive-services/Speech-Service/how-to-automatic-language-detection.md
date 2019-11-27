@@ -1,5 +1,5 @@
 ---
-title: 'Procedimiento: uso de la detección automática de idioma para la conversión de voz en texto: servicio de Voz'
+title: Uso de detección automática de idioma para la conversión de voz en texto
 titleSuffix: Azure Cognitive Services
 description: El SDK de Voz admite la detección automática de idioma para la conversión de voz en texto. Al usar esta característica, el audio proporcionado se compara con una lista de idiomas proporcionada y se determina la coincidencia más probable. Después, el valor devuelto se puede usar para seleccionar el modelo de lenguaje usado para la conversión de voz en texto.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/26/2019
 ms.author: qiohu
-ms.openlocfilehash: e156704d3ad54c3437f921fae536a497e1d94868
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a72f477e64c856c545801533c131c397de627c00
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73506491"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74110180"
 ---
 # <a name="automatic-language-detection-for-speech-to-text"></a>Detección automática de idioma para la conversión de voz en texto
 
@@ -30,7 +30,7 @@ En este artículo, aprenderá a usar `AutoDetectSourceLanguageConfig` para const
 
 La detección automática de idioma actualmente tiene un límite de servicio de dos idiomas por detección. Tenga en cuenta esta limitación al construir el objeto `AudoDetectSourceLanguageConfig`. En los ejemplos siguientes, creará un objeto `AutoDetectSourceLanguageConfig` y lo usará para construir un `SpeechRecognizer`.
 
->[!TIP]
+> [!TIP]
 > También puede especificar un modelo personalizado para utilizarlo al realizar la conversión de voz en texto. Para obtener más información, consulte [Uso de un modelo personalizado para la detección automática de idioma](#use-a-custom-model-for-automatic-language-detection).
 
 En los fragmentos de código siguientes se muestra cómo usar la detección automática de idioma en las aplicaciones:
@@ -80,4 +80,4 @@ AutoDetectSourceLanguageConfig autoDetectSourceLanguageConfig = AutoDetectSource
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Documentación de referencia del SDK de voz](speech-sdk.md)
+- [Documentación de referencia del SDK de voz](speech-sdk.md)

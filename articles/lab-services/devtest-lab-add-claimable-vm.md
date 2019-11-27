@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2019
 ms.author: spelluru
-ms.openlocfilehash: fdffa3862f45b99c2c3f2ed41934e09247808ca7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7ad10a1763b4882aa3bb6aec7447f57ebaf07369
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60311831"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123699"
 ---
 # <a name="create-and-manage-claimable-vms-in-azure-devtest-labs"></a>Creación y administración de VM reclamables en Azure DevTest Labs
 Una imagen virtual reclamable se agrega a un laboratorio de forma similar a como se [agrega una máquina virtual estándar](devtest-lab-add-vm.md): desde una *base* que es una [imagen personalizada](devtest-lab-create-template.md), [fórmula](devtest-lab-manage-formulas.md), o [imagen de Marketplace](devtest-lab-configure-marketplace-images.md). Este tutorial le guía por el proceso de utilización de Azure Portal para agregar una máquina virtual reclamable a un laboratorio de DevTest Labs, y muestra los procesos que sigue un usuario para reclamar la VM y anular la reclamación de esta.
@@ -72,7 +72,7 @@ Un usuario puede reclamar cualquier máquina virtual de la lista de máquinas vi
   ![Solicite cualquier máquina virtual reclamable.](./media/devtest-lab-add-vm/devtestlab-claim-any.png)
 
 
-Una vez que un usuario reclama una máquina virtual, se mueve a su lista de máquinas virtuales y ya no podrá reclamarla otro usuario.
+Una vez que un usuario reclame una máquina virtual, DevTest Labs iniciará el equipo y lo trasladará a la lista "Mis máquinas virtuales" del usuario del laboratorio. Esto significa que el usuario del laboratorio tendrá ahora privilegios de propietario en esta máquina. El tiempo necesario para este paso puede variar en función de los tiempos de inicio, así como de cualquier otra acción personalizada que se realice durante el evento de la reclamación. Una vez reclamada, la máquina deja de estar disponible en el grupo reclamable.  
 
 ## <a name="unclaim-a-vm"></a>Anular la reclamación de una VM
 
@@ -86,7 +86,7 @@ Cuando un usuario ha terminado de usar una VM reclamada y desea ponerla a dispos
 
   ![Anule la reclamación de VM en el panel de administración de VM.](./media/devtest-lab-add-vm/devtestlab-unclaim-VM.png)
 
-Cuando un usuario anule la reclamación de VM, ya no tendrá permisos para esa VM de laboratorio específica.
+Cuando un usuario anula la reclamación de una máquina virtual, ya no tiene permisos de propietario para esa máquina virtual de laboratorio específica y estará disponible para que la reclame cualquier otro usuario de laboratorio en el estado en que se devolvió al grupo. 
 
 ### <a name="transferring-the-data-disk"></a>Transferencia de disco de datos
 Si una VM reclamable dispone de un disco de datos conectado a ella y un usuario anula la reclamación de ella, el disco de datos continua con la VM. Cuando otro usuario reclama esa VM, el nuevo usuario reclama el disco de datos, así como la VM.

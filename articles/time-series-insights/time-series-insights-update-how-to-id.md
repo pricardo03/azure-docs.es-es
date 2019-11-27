@@ -1,62 +1,78 @@
 ---
-title: Procedimientos recomendados para elegir un id. de serie temporal en la versión preliminar de Azure Time Series Insights | Microsoft Docs
-description: Descripción de los procedimientos recomendados al elegir un id. de serie temporal en la versión preliminar de Azure Time Series Insights.
-author: ashannon7
+title: 'Procedimientos recomendados para elegir un identificador de serie temporal: Azure Time Series Insights | Microsoft Docs'
+description: Conozca los procedimientos recomendados para elegir un identificador de serie temporal en la versión preliminar de Azure Time Series Insights.
+author: deepakpalled
 ms.author: dpalled
-ms.workload: big-data
 manager: cshankar
+ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/09/2019
+ms.date: 10/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7057ce27cbbba8d70835493fc91a88ad823369bb
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: cf826c47c61e3714a05dd81fe3eea4e6ee0b03f4
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68947199"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012493"
 ---
 # <a name="best-practices-for-choosing-a-time-series-id"></a>Procedimientos recomendados al elegir un id. de serie temporal
 
-En este artículo se detalla la clave de partición de la versión preliminar de Azure Time Series Insights, el id. de serie temporal y los procedimientos recomendados para elegir uno.
+En este artículo se resume la importancia del identificador de serie temporal en el entorno de la versión preliminar de Azure Time Series Insights y los procedimiento recomendados para elegir uno.
 
 ## <a name="choose-a-time-series-id"></a>Elección de un identificador de Time Series
 
-Elegir un id. de serie temporal es como elegir una clave de partición para una base de datos. Es una decisión importante que debe tomarse en el tiempo de diseño. Tenga en cuenta que no puede actualizar un entorno de la versión preliminar de Time Series Insights existente para usar un id. de serie temporal distinto. En otras palabras, cuando se crea un entorno con un id. de serie temporal, la directiva es una propiedad inmutable que no se puede cambiar.
+Elegir un id. de serie temporal es como elegir una clave de partición para una base de datos. Se debe seleccionar cuando se crea un entorno de versión preliminar de Time Series Insights. Es una propiedad *inmutable*. En otras palabras, después de crear un entorno de versión preliminar de Time Series Insights con un identificador de serie temporal, no se puede cambiar en dicho entorno. 
 
 > [!IMPORTANT]
-> El id. de serie temporal distingue entre mayúsculas y minúsculas y es inmutable (esto es, no se puede cambiar después de configurarse).
+> El identificador de serie temporal distingue mayúsculas de minúsculas.
 
-Teniendo eso en cuenta, es fundamental seleccionar un id. de serie temporal adecuado. Cuando seleccione un id. de serie temporal, tenga en cuenta estos procedimientos recomendados:
+Es fundamental seleccionar un identificador de serie temporal adecuado. Estos son algunos de los procedimientos recomendado que puede seguir:
 
-* Elija un nombre de propiedad que tenga una amplia gama de valores e incluso patrones de acceso. Se recomienda tener una clave de partición con muchos valores distintos (por ejemplo, centenares o miles). Para muchos clientes, esto será algo como DeviceID o SensorID en su JSON.
+* Elija una clave de partición con muchos valores distintos (por ejemplo, centenares o miles). En muchos casos, puede ser el identificador de dispositivo, identificador de sensor o identificador de etiqueta de JSON.
 * El id. de serie temporal debe ser único en el nivel de nodo hoja de su [Modelo de serie temporal](./time-series-insights-update-tsm.md).
-* Una cadena de caracteres para el nombre de propiedad del id. de serie temporal puede tener hasta 128 caracteres, y los valores de propiedad del id. de serie temporal pueden tener hasta 1024 caracteres.
-* Si faltan algunos valores únicos de la propiedad del id. de serie temporal, se tratan como valores NULL, que participan en la restricción de exclusividad.
-
-Además, puede seleccionar hasta *tres* (3) propiedades clave como id. de serie temporal.
+* Si el origen del evento es un centro de IoT, lo más probable es que el identificador de serie temporal sea *iothub-connection-device-id*.
+* El límite de caracteres de la cadena de nombre de la propiedad del identificador de serie temporal es 128. En el caso del valor de la propiedad del identificador de serie temporal, el límite de caracteres es 1.024.
+* Si falta un valor de propiedad único para el identificador de serie temporal, se trata como un valor NULL y sigue la misma regla de la restricción de unicidad.
+* Puede seleccionar hasta *tres* propiedades clave como identificador de serie temporal. Su combinación será una clave compuesta que representa el identificador de serie temporal.  
 
   > [!NOTE]
-  > Recuerde que sus *tres* (3) propiedades clave deben ser cadenas.
+  > Las tres propiedades clave deben ser cadenas.
+  > Tendría que realizar consultas en esta clave compuesta, en lugar de hacerlo propiedad a propiedad.
 
-En los siguientes escenarios se describe la opción para seleccionar más de una propiedad clave como id. de serie temporal:  
+En los siguientes escenarios se describe cómo seleccionar más de una propiedad clave como identificador de serie temporal.  
 
-### <a name="scenario-one"></a>Escenario 1
+### <a name="example-1-time-series-id-with-a-unique-key"></a>Ejemplo 1: identificador de serie temporal con una clave única
 
-* Tiene varios activos heredados, cada uno con una clave única.
-* Por ejemplo, la propiedad *deviceId* se encarga de identificar de manera única un tipo de activo y la propiedad única *objectId* se encarga de otro tipo. Ninguno de los dos tipos de activos contiene la propiedad única del otro. En este ejemplo, debe seleccionar dos claves, deviceId y objectId, como claves únicas.
-* Como se aceptan valores de tipo NULL, si falta una propiedad en la carga del evento, esta cuenta como un valor de `null`. Esta es también la forma adecuada de manejar el envío de datos a dos orígenes de eventos diferentes donde los datos de cada origen de eventos tienen un id. de serie temporal único.
+* Tiene flotas de recursos heredadas. Cada una tiene una clave única.
+* Cada flota se identifica de forma única mediante la propiedad **deviceId**. En el caso de otra flota, la propiedad única es **objectId**. Ninguna de las flotas contiene la propiedad única de la otra. En este ejemplo, debe seleccionar dos claves, **deviceId** y **objectId**, como claves únicas.
+* Aceptamos valores NULL y la falta de la presencia de una propiedad en la carga del evento cuenta como un valor NULL. Esta es también la forma adecuada de controlar el envío de datos a dos orígenes de eventos diferentes, donde los datos de cada origen de eventos tienen un identificador de serie temporal único.
 
-### <a name="scenario-two"></a>Escenario 2
+### <a name="example-2-time-series-id-with-a-composite-key"></a>Ejemplo 2: identificador de serie temporal con una clave compuesta
 
 * Necesita que varias propiedades sean únicas dentro del mismo tipo de activos. 
-* Por ejemplo, digamos que es un fabricante de edificios inteligentes e implementa sensores en cada habitación. En cada habitación tendrá normalmente los mismos valores para *sensorId*, como *sensor1*, *sensor2* y *sensor3*.
-* Además, el edificio tiene números de pisos y habitaciones que se superponen en los sitios de la propiedad *flrRm*, que tienen valores como *1a*, *2b*, *3a*, etc.
-* Finalmente, tiene la propiedad *location*, que contiene valores como *Redmond*, *Barcelona* y *Tokio*. Para que los valores sean únicos, debe designar las tres propiedades siguientes como sus claves de id. de serie temporal: *sensorId*, *flrRm* y *location*.
+* Es fabricante de edificios inteligentes e implementa sensores en todas las habitaciones. En cada una de ellas, lo habitual es que tenga los mismos valores para **sensorId**. Algunos ejemplos son **sensor1**, **sensor2**y **sensor3**.
+* Los números de las plantas y de las estancias del edificio se solapan en la propiedad **flrRm**. Estos números tienen valores como **1a**, **2b** y **3a**.
+* Tiene una propiedad, **location**, que contiene valores como **Redmond**, **Barcelona** y **Tokio**. Para que los valores sean únicos, designe las tres propiedades siguientes como sus claves del identificador de serie temporal: **sensorId**, **flrRm** y **location**.
+
+Ejemplo de evento sin procesar:
+
+```JSON
+{
+  "sensorId": "sensor1",
+  "flrRm": "1a",
+  "location": "Redmond",
+  "temperature": 78
+}
+```
+
+En Azure Portal, esta clave compuesta se puede especificar así: 
+
+`[{"name":"sensorId","type":"String"},{"name":"flrRm","type":"String"},{"name":"location","type":"string"}]`
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Consiga más información sobre el [modelado de datos](./time-series-insights-update-tsm.md).
+* Más información sobre el [modelado de datos](./time-series-insights-update-tsm.md).
 
-* Planifique el [entorno de Azure Time Series Insights (versión preliminar)](./time-series-insights-update-plan.md).
+* Planee el [entorno de la versión preliminar de Azure Time Series Insights](./time-series-insights-update-plan.md).

@@ -1,5 +1,5 @@
 ---
-title: 'Configuración de Network Performance Monitor para circuitos ExpressRoute: Azure | Microsoft Docs'
+title: 'Azure ExpressRoute: Configuración de NPM para circuitos'
 description: Configure la supervisión de red basada en la nube (NPM) de circuitos Azure ExpressRoute. Aborda la supervisión a través de emparejamiento privado de ExpressRoute y emparejamiento de Microsoft.
 services: expressroute
 author: cherylmc
@@ -7,13 +7,12 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 01/25/2019
 ms.author: cherylmc
-ms.custom: seodec18
-ms.openlocfilehash: 180075f13be2cc2507a78e3d10a67a49a0c0cb12
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 54fa3dcbfbbcb3153f81407a9bc9b52511405390
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60840326"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076600"
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Configuración de Network Performance Monitor para ExpressRoute
 

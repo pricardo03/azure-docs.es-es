@@ -1,29 +1,29 @@
 ---
-title: 'Visualización del historial de auditoría de los roles de Azure AD en PIM: Azure Active Directory | Microsoft Docs'
+title: 'Visualización del informe de auditoría para roles de Azure AD en PIM: Azure AD | Microsoft Docs'
 description: Aprenda a visualizar el historial de auditoría de los roles de Azure AD en Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 06/10/2019
+ms.date: 10/22/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3547ff218e9a15151e4abe2ceff53292d3f01ac0
-ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
+ms.openlocfilehash: 7c4a157d8d5bcd281ca9fee488e58c455034e898
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70804326"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74022063"
 ---
 # <a name="view-audit-history-for-azure-ad-roles-in-pim"></a>Visualización del historial de auditoría de los roles de Azure AD en PIM
 
-Puede utilizar el historial de auditoría de Privileged Identity Management (PIM) de Azure Active Directory (Azure AD) para ver todas las asignaciones de roles y las activaciones de los últimos 30 días de todos los roles con privilegios. Si quiere ver el historial de auditoría completo de la actividad en el directorio, incluido el administrador, el usuario final y la actividad de sincronización, puede usar los [informes de actividad y seguridad de Azure Active Directory](../reports-monitoring/overview-reports.md).
+Puede utilizar el historial de auditoría de Privileged Identity Management (PIM) para ver todas las asignaciones de roles y las activaciones de los últimos 30 días para todos los roles con privilegios. Si quiere ver el historial de auditoría completo de la actividad de la organización de Azure Active Directory (Azure AD), incluidos el administrador, el usuario final y la actividad de sincronización, puede usar los [informes de actividad y seguridad de Azure Active Directory](../reports-monitoring/overview-reports.md).
 
 ## <a name="view-audit-history"></a>Visualización del historial de auditoría
 
@@ -63,7 +63,7 @@ Siga estos pasos para ver el historial de auditoría de los roles de Azure AD.
 
 1. En **Intervalo de tiempo**, seleccione un intervalo de tiempo.
 
-1. En **Roles**, agregue marcas de verificación a los roles que desee ver.
+1. En **Roles**, seleccione las casillas para indicar los roles que desea ver.
 
     ![Panel Actualizar parámetros de gráfico](media/pim-how-to-use-audit-log/update-chart-parameters.png)
 
@@ -71,4 +71,4 @@ Siga estos pasos para ver el historial de auditoría de los roles de Azure AD.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Visualización de la actividad y del historial de auditoría para los roles de recursos de Azure en PIM](azure-pim-resource-rbac.md)
+- [Visualización de la actividad y del historial de auditoría para los roles de recursos de Azure en Privileged Identity Management](azure-pim-resource-rbac.md)

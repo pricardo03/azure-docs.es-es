@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/07/2017
 ms.author: ancav
 ms.subservice: autoscale
-ms.openlocfilehash: e6423f2ce3659fd3dd738dcc8a990261bc7bf60c
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: f83c68dd2f2ddbb73974a2ea4e91e746308945c6
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "60334375"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73958110"
 ---
 # <a name="get-started-with-auto-scale-by-custom-metric-in-azure"></a>Introducción al escalado automático mediante métricas personalizadas en Azure
 En este artículo se describe cómo escalar el recurso mediante una métrica personalizada en Azure Portal.
@@ -35,7 +35,7 @@ En este artículo se presupone que tiene una aplicación web con Application Ins
   ![Escalar por métrica personalizada][6]
 - De forma similar al paso anterior, agregue una regla de escalado que reduzca horizontalmente y disminuya el recuento de escala en 1 si la métrica personalizada está por debajo del umbral.
   ![Escala en función de la CPU][7]
-- Establezca los límites de instancias. Por ejemplo, si desea escalar entre 2-5 instancias en función de las fluctuaciones de la métrica personalizada, establezca el "mínimo" en "2", el "máximo" en "5" y el "valor predeterminado" en "2".
+- Establezca los límites de la instancia. Por ejemplo, si desea escalar entre 2-5 instancias en función de las fluctuaciones de la métrica personalizada, establezca el "mínimo" en "2", el "máximo" en "5" y el "valor predeterminado" en "2".
   > Nota: En caso de que haya algún problema al leer las métricas de recursos y la capacidad actual sea inferior a la predeterminada, el escalado automático escalará horizontalmente al valor predeterminado a fin de garantizar la disponibilidad del recurso. Si la capacidad actual ya es mayor que la predeterminada, el escalado automático no reducirá horizontalmente.
 - Haga clic en "Guardar".
 

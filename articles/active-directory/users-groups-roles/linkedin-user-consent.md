@@ -1,24 +1,24 @@
 ---
-title: 'Consentimiento y uso compartido de datos de conexiones de cuentas de LinkedIn: Azure Active Directory | Microsoft Docs'
+title: 'Uso compartido de datos y consentimiento de LinkedIn: Azure Active Directory | Microsoft Docs'
 description: Se explica cómo la integración de LinkedIn comparte datos a través de aplicaciones de Microsoft en Azure Active Directory
 services: active-directory
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e6e24f4e726e25ae65ecceaeb161f8e16d61721
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a21c986ccfe96bae5d341e0ba2ee6622d998d076
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60469649"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74025386"
 ---
 # <a name="linkedin-account-connections-data-sharing-and-consent"></a>Consentimiento y uso compartido de datos de conexiones de cuentas de LinkedIn
 

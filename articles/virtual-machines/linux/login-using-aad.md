@@ -1,5 +1,5 @@
 ---
-title: Inicio de sesión en una máquina virtual Linux con credenciales de Azure Active Directory | Microsoft Docs
+title: Inicio de sesión en una máquina virtual Linux con credenciales de Azure Active Directory
 description: Aprenda a crear y configurar una máquina virtual Linux para iniciar sesión con la autenticación de Azure Active Directory.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/29/2019
 ms.author: iainfou
-ms.openlocfilehash: b473844f1507285e0052ca1f8de00f6ca3207e6f
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: a67d3a9fb74b1a4f07fc4995c268bb40a84834f7
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327090"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035924"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Vista previa: Inicio de sesión en una máquina virtual Linux en Azure mediante la autenticación de Azure Active Directory
 

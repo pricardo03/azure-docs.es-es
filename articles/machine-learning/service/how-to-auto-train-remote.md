@@ -11,12 +11,12 @@ ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 4276a713e62f96cc5340fc7be0e8391939d32342
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5104e6e037341c41a032f80287c6d56d17361d4c
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497329"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73932194"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>Entrenamiento de modelos con aprendizaje automático automatizado en la nube
 
@@ -151,24 +151,6 @@ automl_config = AutoMLConfig(task='classification',
                              )
 ```
 
-### <a name="enable-model-explanations"></a>Habilitación de las explicaciones de modelo
-
-Establezca el parámetro opcional `model_explainability` en el constructor `AutoMLConfig`. Además, se debe pasar un objeto dataframe de validación como parámetro `X_valid` para usar la característica de explicación del modelo.
-
-```python
-automl_config = AutoMLConfig(task='classification',
-                             debug_log='automl_errors.log',
-                             path=project_folder,
-                             compute_target=compute_target,
-                             run_configuration=run_config,
-                             X = X,
-                             y = y,
-                             **automl_settings,
-                             model_explainability=True,
-                             X_valid=X_test
-                             )
-```
-
 ## <a name="submit-training-experiment"></a>Envío del experimento de entrenamiento
 
 Ahora, envíe la configuración para seleccionar automáticamente el algoritmo y los hiperparámetros, y entrenar el modelo.
@@ -237,59 +219,13 @@ remote_run.get_portal_url()
 
 La misma información está disponible en el área de trabajo.  Para obtener más información sobre estos resultados, consulte [Descripción de los resultados del aprendizaje automático automatizado](how-to-understand-automated-ml.md).
 
-### <a name="view-logs"></a>Ver registros
-
-Busque los registros en la DSVM en `/tmp/azureml_run/{iterationid}/azureml-logs`.
-
-## <a name="explain"></a> Explicación del mejor modelo
-
-La recuperación de los datos de explicación de modelos le permite ver información detallada sobre los modelos para aumentar la transparencia sobre lo que se ejecuta en el back-end. En este ejemplo, ejecuta explicaciones de modelo únicamente para el mejor modelo de ajuste. Si se ejecuta para todos los modelos en la canalización, el tiempo de ejecución será significativo. La información de explicación de modelos incluye:
-
-* shap_values: Información de explicación generada por shap lib.
-* expected_values: Valor esperado del modelo que se aplica para el conjunto de datos X_train
-* overall_summary: Valores de importancia de características a nivel del modelo en orden descendente.
-* overall_imp: Nombres de las características ordenados igual que overall_summary.
-* per_class_summary: Valores de importancia de características a nivel de la clase en orden descendente. Solo está disponible para el caso de clasificación.
-* per_class_imp: Nombres de las características ordenadas igual que per_class_summary. Solo está disponible para el caso de clasificación.
-
-Use el código siguiente para seleccionar la mejor canalización de las iteraciones. El método `get_output` devuelve la mejor ejecución y el modelo ajustado de la última invocación de ajuste.
-
-```python
-best_run, fitted_model = remote_run.get_output()
-```
-
-Importe la función `retrieve_model_explanation` y ejecútela en el mejor modelo.
-
-```python
-from azureml.train.automl.automlexplainer import retrieve_model_explanation
-
-shap_values, expected_values, overall_summary, overall_imp, per_class_summary, per_class_imp = \
-    retrieve_model_explanation(best_run)
-```
-
-Imprima los resultados de las variables de explicación `best_run` que quiere ver.
-
-```python
-print(overall_summary)
-print(overall_imp)
-print(per_class_summary)
-print(per_class_imp)
-```
-
-Imprimir las variables de resumen de explicación `best_run` genera la siguiente salida.
-
-![Salida de la consola de explicación de modelos](./media/how-to-auto-train-remote/expl-print.png)
-
-También puede visualizar la importancia de características mediante la UI del widget o en el área de trabajo de [Azure Machine Learning Studio](https://ml.azure.com). 
-
-![UI de explicación de modelos](./media/how-to-auto-train-remote/model-exp.png)
-
 ## <a name="example"></a>Ejemplo
 
-En el cuaderno [how-to-use-azureml/automated-machine-learning/remote-amlcompute/auto-ml-remote-amlcompute.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/remote-amlcompute/auto-ml-remote-amlcompute.ipynb) se muestran los conceptos de este artículo.
+En el siguiente [cuaderno](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/regression/auto-ml-regression.ipynb) se demuestran los conceptos de este artículo.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Más información acerca de [cómo configurar opciones para el aprendizaje automático](how-to-configure-auto-train.md).
+* Más información acerca de [cómo configurar opciones para el aprendizaje automático](how-to-configure-auto-train.md).
+* Consulte el [procedimiento](how-to-machine-learning-interpretability-automl.md) sobre cómo habilitar las características de interpretación de modelos en experimentos de ML automatizados.

@@ -1,5 +1,5 @@
 ---
-title: Traslado de archivos a máquinas virtuales Linux de Azure o desde ella mediante SCP | Microsoft Docs
+title: Traslado de archivos a máquinas virtuales Linux de Azure, o desde ellas, mediante SCP
 description: Traslado seguro de archivos a la máquina virtual Linux de Azure o desde ella mediante SCP y un par de claves de SSH.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 56b264b61976607a3afdaa7a6ec7dc5da2091aba
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: d78a8e59a55718048df2022cec75c7a2b56f1a6b
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71173941"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036597"
 ---
 # <a name="move-files-to-and-from-a-linux-vm-using-scp"></a>Traslado de archivos a una máquina virtual Linux o desde ella mediante SCP
 

@@ -1,20 +1,21 @@
 ---
-title: Solución de problemas de afinidad de sesión de Azure Application Gateway
+title: Solución de problemas de afinidad de sesión
+titleSuffix: Azure Application Gateway
 description: En este artículo se proporciona información sobre cómo solucionar problemas de afinidad de sesión en Azure Application Gateway
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: article
-ms.date: 02/22/2019
+ms.date: 11/14/2019
 ms.author: absha
-ms.openlocfilehash: 66f61b5d6fcb86ed93e4dbae802ae7a80613c83d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9f14521c15c3497bed4ffbeba44cb5d78ee4df7b
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66397852"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74047985"
 ---
-# <a name="troubleshoot-azure-application-gateway-session-affinity-issues"></a>Solución de problemas de afinidad de sesión de Azure Application Gateway
+# <a name="troubleshoot-azure-application-gateway-session-affinity-issues"></a>Solución de problemas de afinidad de sesión en Azure Application Gateway
 
 Aprenda a diagnosticar y resolver problemas de afinidad de sesión con Azure Application Gateway.
 

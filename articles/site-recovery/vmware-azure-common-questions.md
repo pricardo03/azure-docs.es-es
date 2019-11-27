@@ -1,19 +1,18 @@
 ---
-title: Preguntas comunes sobre la recuperación ante desastres de VMware a Azure con Azure Site Recovery | Microsoft Docs
+title: Preguntas comunes sobre la recuperación ante desastres de VMware con Azure Site Recovery
 description: Obtenga respuestas a las preguntas comunes sobre cómo configurar la recuperación ante desastres de máquinas virtuales de VMware locales en Azure mediante Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-services: site-recovery
-ms.date: 06/27/2019
+ms.date: 11/14/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: c1897b73164b05dfd881729147e6d082be547530
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 508fa7e33cd8572d70b7ebf261edba67fd40dd93
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002275"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084162"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>Preguntas frecuentes sobre la replicación de VMware en Azure
 

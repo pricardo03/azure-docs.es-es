@@ -1,17 +1,17 @@
 ---
-title: Administración de servidores VMware vCenter para la recuperación ante desastres de máquinas virtuales de VMware en Azure con Azure Site Recovery | Microsoft Docs
+title: Administración de servidores de VMware vCenter en Azure Site Recovery
 description: En este artículo se describe cómo agregar y administrar VMware vCenter para la recuperación ante desastres de máquinas virtuales de VMware en Azure con Azure Site Recovery.
 author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: ramamill
-ms.openlocfilehash: 59088d8351bf89c859312774e3e9e396be8dd532
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 8f339103f67f37d10999ef43fa57a6eb27b60f37
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69904252"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083974"
 ---
 # <a name="manage-vmware-vcenter-server"></a>Administración de servidores VMware vCenter
 

@@ -1,20 +1,20 @@
 ---
-title: Solución de problemas de errores de instalación de inserción del servicio de movilidad durante la habilitación de la replicación para recuperación ante desastres	 | Microsoft Docs
-description: Solución de problemas de errores de instalación del servicio de movilidad durante la habilitación de la replicación para recuperación ante desastres
+title: Solución de problemas de instalación de inserción de Mobility Service con Azure Site Recovery
+description: Solución de problemas de errores de instalación del servicio de movilidad durante la habilitación de la replicación para recuperación ante desastres con Azure Site Recovery.
 author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
 ms.date: 09/11/2019
-ms.openlocfilehash: 4aa18379962c289f5094795988a247f4c7e35df2
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: 3646499ad2104566cb82f3f26c6b55d05f84dc7d
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910637"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953774"
 ---
-# <a name="troubleshoot-mobility-service-push-installation-issues"></a>Solución de problemas de instalación de inserción de Mobility Service
+# <a name="troubleshoot-mobility-service-push-installation"></a>Solución de problemas de instalación de inserción de Mobility Service 
 
 La instalación del servicio de movilidad es un paso clave durante la habilitación de la replicación. Para realizar este paso correctamente, simplemente se deben cumplir los requisitos previos y usar las configuraciones admitidas. Los errores más comunes que aparecen durante la instalación del servicio de movilidad se deben a:
 

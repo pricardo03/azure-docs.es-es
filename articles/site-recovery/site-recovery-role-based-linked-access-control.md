@@ -1,21 +1,21 @@
 ---
-title: Administración del acceso de Azure Site Recovery con el control de acceso basado en rol (RBAC) | Microsoft Docs
+title: Administración del control de acceso basado en rol de Azure en Azure Site Recovery
 description: En este artículo se describe cómo aplicar control de acceso basado en rol (RBAC) para administrar el acceso de Azure Site Recovery.
 ms.service: site-recovery
 ms.date: 04/08/2019
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 33fc2cd19152fb6cbbffb106aa058948d39555f9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ce389f9281b02662f87353f00c9bca92cdf86937
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61471441"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083775"
 ---
 # <a name="manage-site-recovery-access-with-role-based-access-control-rbac"></a>Administración del acceso de Site Recovery con el control de acceso basado en rol (RBAC)
 
-El control de acceso basado en roles (RBAC) de Azure permite realizar una administración detallada del acceso para Azure. Con el uso de RBAC, puede separar las responsabilidades entre los miembros del equipo y conceder únicamente permisos de acceso específicos a los usuarios según sea necesario para realizar tareas específicas.
+El control de acceso basado en rol de Azure permite realizar una administración detallada del acceso para Azure. Con el uso de RBAC, puede separar las responsabilidades entre los miembros del equipo y conceder únicamente permisos de acceso específicos a los usuarios según sea necesario para realizar tareas específicas.
 
 Azure Site Recovery proporciona 3 roles integrados para controlar las operaciones de administración de Site Recovery. Más información sobre [roles integrados del control de acceso basado en rol de Azure](../role-based-access-control/built-in-roles.md)
 
@@ -37,6 +37,9 @@ Un usuario necesita los siguientes permisos para completar la replicación de un
 
 > [!IMPORTANT]
 >Asegúrese de que los permisos pertinentes se agregan según el modelo de implementación (Resource Manager o clásico) utilizado para la implementación de recursos.
+
+> [!NOTE]
+> Si va a habilitar la replicación para una máquina virtual de Azure y desea permitir que Site Recovery administre las actualizaciones, al habilitar la replicación también puede crear una nueva cuenta de Automation en cuyo caso necesitará permiso para crear una cuenta de Automation en la misma suscripción también como almacén.
 
 | **Tipo de recurso** | **Modelo de implementación** | **Permiso** |
 | --- | --- | --- |

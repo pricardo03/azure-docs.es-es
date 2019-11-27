@@ -1,18 +1,18 @@
 ---
 title: Procedimientos recomendados de configuración de dispositivos para Azure IoT Hub | Microsoft Docs
-description: Procedimientos recomendados para configurar dispositivos IoT a escala
+description: Conozca los procedimientos recomendados sobre el uso de la administración automática de dispositivos con el fin de minimizar las tareas repetitivas y complejas implicadas en la administración de dispositivos IoT a escala.
 author: chrisgre
 ms.author: chrisgre
 ms.date: 06/28/2019
 ms.topic: conceptual
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: 33e77d63b958df292ee9b4ac8ded41f3693cb6bc
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: a3b70af71c2ce19835ac2ef8fc8ceed79ca5fe1a
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485806"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889525"
 ---
 # <a name="best-practices-for-device-configuration-within-an-iot-solution"></a>Procedimientos recomendados para la configuración de dispositivos en una solución de IoT
 

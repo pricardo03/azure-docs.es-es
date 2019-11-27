@@ -1,6 +1,6 @@
 ---
-title: Copia de datos con Azure SQL Database como origen y destino mediante Azure Data Factory
-description: Aprenda a copiar datos desde cualquier almacén de datos de origen compatible a Azure SQL Database, o bien desde SQL Database a cualquier almacén de datos receptor compatible mediante Data Factory.
+title: Copia y transformación de datos en Azure SQL Database mediante Data Factory
+description: Aprenda a copiar datos con Azure SQL Database como origen o destino y a transformarlos en Azure SQL Database mediante Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -10,21 +10,21 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 11/13/2019
 ms.author: jingwang
-ms.openlocfilehash: 4ef47bc1064c095792a90ed69880106af77e9dfd
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: b899d9884a80a882ca03d3d970421227a48a3803
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681122"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075590"
 ---
-# <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Copia de datos hacia y desde Azure SQL Database mediante Azure Data Factory
-> [!div class="op_single_selector" title1="Seleccione la versión de Azure Data Factory que está usando:"]
+# <a name="copy-and-transform-data-in-azure-sql-database-by-using-azure-data-factory"></a>Copia y transformación de datos en Azure SQL Database mediante Azure Data Factory
+> [!div class="op_single_selector" title1="Seleccione la versión de Azure Data Factory que usa:"]
 > * [Versión 1](v1/data-factory-azure-sql-connector.md)
 > * [Versión actual](connector-azure-sql-database.md)
 
-En este artículo se explica cómo copiar datos en y desde Azure SQL Database. Para información sobre Azure Data Factory, lea el [artículo de introducción](introduction.md).
+En este artículo se explica el uso de la actividad de copia en Azure Data Factory para copiar datos con Azure SQL Database como origen y destino, y el uso de Data Flow para transformarlos en Azure SQL Database. Para información sobre Azure Data Factory, lea el [artículo de introducción](introduction.md).
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
@@ -35,7 +35,7 @@ Este conector de Azure SQL Database es compatible con las actividades siguientes
 - [Actividad de búsqueda](control-flow-lookup-activity.md)
 - [Actividad GetMetadata](control-flow-get-metadata-activity.md)
 
-En concreto, este conector de Azure SQL Database admite estas funciones:
+Para la actividad de copia, este conector de Azure SQL Database admite estas funciones:
 
 - Copia de datos mediante la autenticación con SQL y la autenticación de tokens de aplicaciones de Azure Active Directory (Azure AD) con una entidad de servicio o identidades administradas para los recursos de Azure.
 - Como origen, la recuperación de datos mediante una consulta SQL o un procedimiento almacenado.
@@ -227,9 +227,9 @@ Para usar la autenticación de identidad administrada, siga estos pasos.
 
 ## <a name="dataset-properties"></a>Propiedades del conjunto de datos
 
-Si desea obtener una lista completa de secciones y propiedades disponibles para definir los conjuntos de datos, consulte [Conjuntos de datos](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services). En esta sección se proporciona una lista de las propiedades que admite el conjunto de datos de Azure SQL Database.
+Si desea obtener una lista completa de secciones y propiedades disponibles para definir los conjuntos de datos, consulte [Conjuntos de datos](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services). 
 
-Las siguientes propiedades son compatibles para copiar datos dese y a Azure SQL Database:
+Las siguientes propiedades se admiten con el conjunto de datos de Azure SQL Database:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
@@ -538,7 +538,7 @@ En el ejemplo siguiente se muestra cómo usar un procedimiento almacenado para r
     )
     ```
 
-2. En la base de datos, defina el procedimiento almacenado con el mismo nombre que **SqlWriterStoredProcedureName**. Dicho procedimiento administra los datos de entrada del origen especificado y los combina en la tabla de salida. El nombre del parámetro del tipo de tabla del procedimiento almacenado es el mismo que el de **tableName** que se ha definido en el conjunto de datos.
+2. En la base de datos, defina el procedimiento almacenado con el mismo nombre que **sqlWriterStoredProcedureName**. Dicho procedimiento administra los datos de entrada del origen especificado y los combina en la tabla de salida. El nombre del parámetro del tipo de tabla del procedimiento almacenado es el mismo que el de **tableName** que se ha definido en el conjunto de datos.
 
     ```sql
     CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @category varchar(256)
@@ -560,9 +560,9 @@ En el ejemplo siguiente se muestra cómo usar un procedimiento almacenado para r
     ```json
     "sink": {
         "type": "AzureSqlSink",
-        "SqlWriterStoredProcedureName": "spOverwriteMarketing",
+        "sqlWriterStoredProcedureName": "spOverwriteMarketing",
         "storedProcedureTableTypeParameterName": "Marketing",
-        "SqlWriterTableType": "MarketingType",
+        "sqlWriterTableType": "MarketingType",
         "storedProcedureParameters": {
             "category": {
                 "value": "ProductA"

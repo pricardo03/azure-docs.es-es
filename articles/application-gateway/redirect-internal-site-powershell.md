@@ -1,23 +1,19 @@
 ---
-title: Creación de una puerta de enlace de aplicaciones con redireccionamiento interno mediante Azure PowerShell | Microsoft Docs
+title: Redireccionamiento interno con PowerShell
+titleSuffix: Azure Application Gateway
 description: Obtenga información sobre cómo crear una puerta de enlace de aplicaciones que redirija el tráfico web interno al grupo de back-end de servidores adecuado mediante Azure Powershell.
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 7/13/2018
+ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: 266569494c58ac75371c1a891e9cbffb4c351056
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 4e0c7707066028996e360a342db9f8dc0fd87599
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232122"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075123"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-azure-powershell"></a>Creación de una puerta de enlace de aplicaciones con redireccionamiento interno mediante Azure PowerShell
 
@@ -296,11 +292,11 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 
 ## <a name="test-the-application-gateway"></a>Prueba de la puerta de enlace de aplicaciones
 
-Escriba el nombre de dominio en la barra de direcciones del explorador. Por ejemplo, [http://www.contoso.com](http://www.contoso.com).
+Escriba el nombre de dominio en la barra de direcciones del explorador. Por ejemplo, [https://www.contoso.com](https://www.contoso.com).
 
 ![Prueba del sitio de contoso en la puerta de enlace de aplicaciones](./media/redirect-internal-site-powershell/application-gateway-iistest.png)
 
-Cambie la dirección para su otro dominio, por ejemplo http://www.contoso.org y verá que se ha redirigido el tráfico hacia el agente de escucha para www.contoso.com.
+Cambie la dirección al otro dominio, por ejemplo https://www.contoso.org, para ver que el tráfico se ha redirigido de nuevo al cliente de escucha de `www.contoso.com`.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

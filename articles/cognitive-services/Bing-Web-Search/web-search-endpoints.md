@@ -1,7 +1,7 @@
 ---
 title: Punto de conexión de Web Search
 titleSuffix: Azure Cognitive Services
-description: Resumen del punto de conexión de Web Search API.
+description: Para obtener los resultados de la búsqueda web, envíe una solicitud `GET` al punto de conexión siguiente. Los encabezados y parámetros de dirección URL definen especificaciones adicionales.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: aahi
-ms.openlocfilehash: be622c5636c253c48bec4d67fba58319262c2603
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 2edc6a4cf4d4fb174c1b2067d8b3fb3b6f31859f
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883559"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111343"
 ---
 # <a name="web-search-endpoint"></a>Punto de conexión de Web Search
 

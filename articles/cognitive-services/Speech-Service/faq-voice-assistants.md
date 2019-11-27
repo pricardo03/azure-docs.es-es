@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: travisw
-ms.openlocfilehash: eccf2a7a1b9c7ea7a21cd5d0cf0f60728284c05d
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 8480299c2c889a243150028ac9651f4b62656aec
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73579664"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74110344"
 ---
-# <a name="voice-assistants-frequently-asked-questions"></a>Asistentes de voz: Preguntas más frecuentes
+# <a name="voice-assistants-frequently-asked-questions"></a>Preguntas más frecuentes sobre los asistentes de voz
 
 Si no encuentra respuestas a sus preguntas en este documento, [consulte otras opciones de soporte técnico](support.md).
 
@@ -35,9 +35,9 @@ Si no encuentra respuestas a sus preguntas en este documento, [consulte otras op
 
 **R:** La mejor manera de empezar es la creación de una aplicación de comandos personalizados (versión preliminar) o un bot de Bot Framework.
 
-* [Creación de una aplicación de comandos personalizados (versión preliminar)](quickstart-custom-speech-commands-create-new.md)
-* [Creación de un bot de Bot Framework básico](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
-* [Conexión de un bot al canal Direct Line Speech](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+- [Creación de una aplicación de comandos personalizados (versión preliminar)](quickstart-custom-speech-commands-create-new.md)
+- [Creación de un bot de Bot Framework básico](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
+- [Conexión de un bot al canal Direct Line Speech](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
 
 ## <a name="debugging"></a>Depuración
 
@@ -47,14 +47,13 @@ Si no encuentra respuestas a sus preguntas en este documento, [consulte otras op
 
 La versión más reciente de Direct Line Speech simplifica el proceso de comunicación con el bot desde un dispositivo. En la página de registro del canal, la lista desplegable de la parte superior asocia el registro del canal Direct Line Speech con un recurso de voz. Una vez asociado, el SDK de Voz v 1.8 incluye Factory Method `BotFrameworkConfig::FromSubscription` que configurará un `DialogServiceConnector` para que se comunique con el bot que ha asociado a la suscripción.
 
-Si todavía está migrando la aplicación cliente de v1.7 a v1.8, `DialogServiceConfig::FromBotSecret` puede seguir trabajando con un valor no vacío y no nulo para su parámetro de secreto de canal, por ejemplo, el secreto anterior que utilizó. Simplemente se omitirá cuando se use una suscripción de voz asociada a un registro de canal más reciente. Tenga en cuenta que el valor *debe* ser no nulo y no estar vacío, ya que se comprueban en el dispositivo antes de que la asociación del lado de servicio sea apropiada.
-
+Si todavía está migrando la aplicación cliente de v1.7 a v1.8, `DialogServiceConfig::FromBotSecret` puede seguir trabajando con un valor no vacío y no nulo para su parámetro de secreto de canal, por ejemplo, el secreto anterior que utilizó. Simplemente se omitirá cuando se use una suscripción de voz asociada a un registro de canal más reciente. Tenga en cuenta que el valor _debe_ ser no nulo y no estar vacío, ya que se comprueban en el dispositivo antes de que la asociación del lado de servicio sea apropiada.
 
 Para obtener una guía más detallada, consulte la [sección del tutorial](tutorial-voice-enable-your-bot-speech-sdk.md#register-the-direct-line-speech-channel) que le guía por el registro del canal.
 
 **P: Se genera un error 401 durante la conexión y nada funciona. Sé que mi clave de suscripción de voz es válida. ¿Qué está ocurriendo?**
 
-**R:** Cuando administre la suscripción en Azure Portal, asegúrese de que usa el recurso **Voz** (Microsoft.CognitiveServicesSpeechServices, "Voz") y *no* el recurso **Cognitive Services** (Microsoft.CognitiveServicesAllInOne, "Todos los servicios de Cognitive Services"). Consulte también [regiones admitidas del servicio de voz para los asistentes de voz](regions.md#voice-assistants).
+**R:** Cuando administre la suscripción en Azure Portal, asegúrese de que usa el recurso **Voz** (Microsoft.CognitiveServicesSpeechServices, "Voz") y _no_ el recurso **Cognitive Services** (Microsoft.CognitiveServicesAllInOne, "Todos los servicios de Cognitive Services"). Consulte también [regiones admitidas del servicio de voz para los asistentes de voz](regions.md#voice-assistants).
 
 ![Suscripción correcta para Direct Line Speech](media/voice-assistants/faq-supported-subscription.png "ejemplo de una suscripción de voz compatible")
 
@@ -62,8 +61,8 @@ Para obtener una guía más detallada, consulte la [sección del tutorial](tutor
 
 **R:** Este error indica un problema de comunicación entre su asistente y el servicio del asistente de voz.
 
-* En el caso de los comandos personalizados (versión preliminar), asegúrese de que la aplicación de comandos personalizados (versión preliminar) esté publicada.
-* En el caso de Direct Line Speech, asegúrese de que ha [conectado su bot al canal Direct Line Speech](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech), [ha agregado compatibilidad con el protocolo de transmisión](https://aka.ms/botframework/addstreamingprotocolsupport) al bot (con la compatibilidad relacionada con socket web) y, luego, compruebe que su bot responde a las solicitudes entrantes del canal.
+- En el caso de los comandos personalizados (versión preliminar), asegúrese de que la aplicación de comandos personalizados (versión preliminar) esté publicada.
+- En el caso de Direct Line Speech, asegúrese de que ha [conectado su bot al canal Direct Line Speech](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech), [ha agregado compatibilidad con el protocolo de transmisión](https://aka.ms/botframework/addstreamingprotocolsupport) al bot (con la compatibilidad relacionada con socket web) y, luego, compruebe que su bot responde a las solicitudes entrantes del canal.
 
 **P: Este código todavía no funciona o recibo un error diferente cuando uso `DialogServiceConnector`. ¿qué debo hacer?**
 
@@ -71,5 +70,5 @@ Para obtener una guía más detallada, consulte la [sección del tutorial](tutor
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Solución de problemas](troubleshooting.md)
-* [Notas de la versión](releasenotes.md)
+- [Solución de problemas](troubleshooting.md)
+- [Notas de la versión](releasenotes.md)

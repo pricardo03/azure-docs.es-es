@@ -1,19 +1,19 @@
 ---
 title: ¿Qué son las notificaciones de mantenimiento del servicio de Azure?
 description: Las notificaciones de mantenimiento del servicio permiten ver los mensajes de mantenimiento del servicio que publica Microsoft Azure.
-author: dkamstra
+author: stephbaron
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 4/12/2018
-ms.author: dukek
+ms.author: stbaron
 ms.subservice: logs
-ms.openlocfilehash: 87efa7442b0c67f2ee5f83b6b3e8ac8530ce5285
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b41c2cdc54ab5eecdc4503cbd98e69932c901a3d
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67081805"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74007084"
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Visualización de las notificaciones de mantenimiento del servicio mediante Azure Portal
 
@@ -22,7 +22,6 @@ Azure publica las notificaciones de mantenimiento del servicio, que contienen in
 Hay varias clases de las notificaciones de mantenimiento del servicio:  
 
 - **Acción requerida:** Azure puede haber observado algo inusual en su cuenta y le ayuda a remediarlo. Azure le envía una notificación en la que se detallan las acciones que debe realizar o se proporciona información sobre cómo ponerse en contacto con los equipos de ingeniería o soporte técnico de Azure.  
-- **Recuperación asistida:** se ha producido un evento y los ingenieros han confirmado que todavía le afecta. El equipo de ingeniería de Azure necesitará trabajar con usted directamente para restaurar completamente los servicios.  
 - **Incidente:** un evento que tiene repercusiones en el servicio está afectando a uno o varios recursos de la suscripción.  
 - **Mantenimiento:** una actividad de mantenimiento planeado que puede afectar a uno o varios de los recursos de la suscripción.  
 - **Información:** posibles optimizaciones que puedan ayudarle a mejorar el uso de los recursos. 
@@ -60,19 +59,18 @@ Properties.communicationId | La comunicación con la cual está asociado este ev
 ### <a name="details-on-service-health-level-information"></a>Detalles sobre la información de estado del servicio
 
 **Action Required** (properties.incidentType == ActionRequired)
-- Información: Se necesita una acción del administrador para evitar que los servicios existentes se vean afectados
+- Información: Se necesita una acción del administrador para evitar que los servicios existentes se vean afectados.
     
 **Maintenance** (properties.incidentType == Maintenance)
-- Advertencia: mantenimiento de emergencia
-- Información: mantenimiento planeado estándar
+- Advertencia: Mantenimiento de emergencia
+- Información: Mantenimiento planeado estándar
 
 **Information** (properties.incidentType == Information)
-- Información: Se necesita que el administrador para evite que los servicios existentes se vean afectados
+- Información: Se necesita que el administrador evite que los servicios existentes se vean afectados.
 
 **Security** (properties.incidentType == Security)
-- Error: Problemas generalizados de acceso a varios servicios en distintas regiones que afectan a numerosos grupos de clientes.
-- Advertencia: Problemas de acceso a servicios concretos o en regiones concretas que afectan a un subgrupo de clientes.
-- Información: Problemas que afectan a las operaciones de administración o de latencia, sin afectar a la disponibilidad del servicio.
+- Advertencia: Aviso de seguridad que afecta a los servicios existentes y puede requerir la acción del administrador.
+- Información: Aviso de seguridad que afecta a los servicios existentes.
 
 **Service Issues** (properties.incidentType == Incident)
 - Error: Problemas generalizados de acceso a varios servicios en distintas regiones que afectan a numerosos grupos de clientes.

@@ -1,6 +1,6 @@
 ---
-title: Ampliar la compatibilidad de SQL Server 2008 y SQL Server 2008 R2 con Azure
-description: Obtenga información sobre cómo ampliar la compatibilidad de SQL Server 2008 y SQL Server 2008 R2 al migrar su instancia de SQL Server a Azure o mediante la compra de compatibilidad ampliada para mantener las instancias locales.
+title: Ampliación de la compatibilidad con SQL Server 2008 y SQL Server 2008 R2
+description: Amplíe la compatibilidad de SQL Server 2008 y SQL Server 2008 R2 mediante la migración de una instancia de SQL Server a Azure o mediante la compra de compatibilidad ampliada para mantener las instancias locales.
 services: virtual-machines-windows
 documentationcenter: ''
 author: MashaMSFT
@@ -13,12 +13,13 @@ ms.workload: iaas-sql-server
 ms.date: 04/08/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 93e0032cd283eda034519ca29a0e1cf501b5cde6
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 6b2546226d31334592034cfe0455fc32644a3900
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100466"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132780"
 ---
 # <a name="extend-support-for-sql-server-2008-and-sql-server-2008-r2-with-azure"></a>Ampliar la compatibilidad de SQL Server 2008 y SQL Server 2008 R2 con Azure
 
@@ -63,7 +64,7 @@ SQL Server necesita instantáneas coherentes con la aplicación de Azure Site R
 
 Las soluciones de recuperación ante desastres para SQL Server con finalización del soporte en una máquina virtual de Azure son las siguientes:
 
-- **Copias de seguridad de SQL Server**: use Azure Backup para ayudar a proteger el servidor SQL Server con finalización del soporte contra ransomware, la eliminación accidental y daños. Actualmente, la solución se ofrece como versión preliminar para EOS SQL Server y admite SQL Server 2008 y 2008 R2 que se ejecutan en Windows 2008 R2 SP1. Para más información, consulte [este artículo](https://docs.microsoft.com/azure/backup/backup-azure-sql-database#support-for-sql-server-2008-and-sql-server-2008-r2).
+- **Copias de seguridad de SQL Server**: use Azure Backup para ayudar a proteger el servidor SQL Server con finalización del soporte contra ransomware, la eliminación accidental y daños. Actualmente, la solución se ofrece como versión preliminar para EOS SQL Server y admite SQL Server 2008 y 2008 R2 que se ejecutan en Windows 2008 R2 SP1. Para más información, consulte [este artículo](https://docs.microsoft.com/azure/backup/backup-azure-sql-database#scenario-support).
 - **Trasvase de registros**: puede crear una réplica de trasvase de registros en otra zona o región de Azure con restauraciones continuas para reducir el RTO. Tiene que configurar manualmente el trasvase de registros.
 - **Azure Site Recovery**: Puede replicar la VM entre zonas y regiones a través de la replicación de Azure Site Recovery. SQL Server necesita instantáneas coherentes con la aplicación para garantizar la recuperación en caso de desastre. Azure Site Recovery ofrece un RPO mínimo de una hora y un RTO de dos horas (más el tiempo de recuperación de SQL Server) para la recuperación ante desastres de SQL Server con finalización del soporte.
 

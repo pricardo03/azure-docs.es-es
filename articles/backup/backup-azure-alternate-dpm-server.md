@@ -8,24 +8,26 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/09/2019
 ms.author: dacurwin
-ms.openlocfilehash: 0a6d1fd73d99cf15137e937dbfe2336d49a63d90
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 5742aaebe0a1314b229a2a0d33b1de51d5b6d4f4
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68955059"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091136"
 ---
 # <a name="recover-data-from-azure-backup-server"></a>Recuperación de datos de Azure Backup Server
+
 Puede usar Azure Backup Server para recuperar los datos de los que creó una copia de seguridad en un almacén de Recovery Services. El proceso para hacerlo está integrado en la consola de administración de Azure Backup Server y es similar al flujo de trabajo de recuperación de otros componentes de Azure Backup.
 
 > [!NOTE]
-> Este artículo se puede aplicar a [System Center Data Protection Manager 2012 R2 con UR7 o posterior](https://support.microsoft.com/en-us/kb/3065246), en combinación con el [agente de Azure Backup más reciente](https://aka.ms/azurebackup_agent).
+> Este artículo se puede aplicar a [System Center Data Protection Manager 2012 R2 con UR7 o posterior](https://support.microsoft.com/kb/3065246), en combinación con el [agente de Azure Backup más reciente](https://aka.ms/azurebackup_agent).
 >
 >
 
 Para recuperar datos de una instancia de Azure Backup Server:
 
-1. En la pestaña **Recuperación** de la consola de administración de Azure Backup Server, haga clic en **"Agregar DPM externo"** (en la parte superior izquierda de la pantalla).   
+1. En la pestaña **Recuperación** de la consola de administración de Azure Backup Server, haga clic en **"Agregar DPM externo"** (en la parte superior izquierda de la pantalla).
+
     ![Agregar DPM externo](./media/backup-azure-alternate-dpm-server/add-external-dpm.png)
 2. Descargue las nuevas **credenciales del almacén** asociado al **Azure Backup Server** en donde se recuperan los datos, elija el Azure Backup Server en la lista de servidores registrados en el almacén de Recovery Services y escriba la **frase de contraseña de cifrado** asociada al servidor cuyos datos se recuperan.
 
@@ -80,6 +82,7 @@ Para recuperar datos de una instancia de Azure Backup Server:
     ![Borrar DPM externo](./media/backup-azure-alternate-dpm-server/clear-external-dpm.png)
 
 ## <a name="troubleshooting-error-messages"></a>Solución de mensajes de error
+
 | No. | Mensaje de error | Pasos para solucionar problemas |
 |:---:|:--- |:--- |
 | 1. |Este servidor no está registrado en el almacén especificado por las credenciales del almacén. |**Causa:** Este error aparece cuando el archivo de credenciales del almacén seleccionado no pertenece al almacén de Recovery Services asociado al Azure Backup Server en el que se intenta la recuperación. <br> **Resolución:** Descargue el archivo de credenciales del almacén de Recovery Services en el que está registrado el Azure Backup Server. |
@@ -91,5 +94,5 @@ Para recuperar datos de una instancia de Azure Backup Server:
 
 Lea las otras preguntas más frecuentes:
 
-- [Preguntas comunes](backup-azure-vm-backup-faq.md) sobre las copias de seguridad de máquinas virtuales de Azure
-- [Preguntas comunes](backup-azure-file-folder-backup-faq.md) sobre el agente de Azure Backup
+* [Preguntas comunes](backup-azure-vm-backup-faq.md) sobre las copias de seguridad de máquinas virtuales de Azure
+* [Preguntas comunes](backup-azure-file-folder-backup-faq.md) sobre el agente de Azure Backup

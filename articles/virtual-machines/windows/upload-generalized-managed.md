@@ -1,5 +1,5 @@
 ---
-title: Creación de una VM de Azure administrada a partir de un VHD local generalizado | Microsoft Docs
+title: Creación de una máquina virtual de Azure administrada a partir de un VHD local generalizado
 description: Cargue un VHD generalizado en Azure y úselo para crear máquinas virtuales nuevas en el modelo de implementación de Resource Manager.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: cynthn
-ms.openlocfilehash: ead44c321ffb7afb69295d1bf8c0e1acd26cb9ce
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: d0995fed61d169cc173ca01767c2e48f4f798b0d
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749074"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74067427"
 ---
 # <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>Carga de un VHD generalizado y su uso para crear máquinas virtuales nuevas en Azure
 

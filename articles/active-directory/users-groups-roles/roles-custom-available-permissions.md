@@ -1,55 +1,48 @@
 ---
-title: 'Permisos de rol de administrador personalizado para la administración del registro de aplicaciones: Azure Active Directory | Microsoft Docs'
+title: 'Permisos de rol de administrador personalizado disponibles: Azure AD | Microsoft Docs'
 description: Permisos de rol de administrador personalizado para delegar la administración de identidades.
 services: active-directory
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 07/31/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99f31c5928273973a9089ae9ef1fd184cdb78bbb
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: d6156857202c1cca94df6d70ec2059daf55178f1
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69033398"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74025146"
 ---
 # <a name="application-registration-subtypes-and-permissions-in-azure-active-directory"></a>Permisos y subtipos del registro de aplicaciones en Azure Active Directory
 
 Este artículo contiene los permisos del registro de aplicaciones disponibles actualmente para las definiciones de rol personalizado en Azure Active Directory (Azure AD).
 
-## <a name="single-tenant-v-multi-tenant-permissions"></a>Permisos de un solo inquilino frente a permisos de varios inquilinos
+## <a name="permissions-for-managing-single-directory-applications"></a>Permisos para administrar aplicaciones de un solo directorio
 
-Los permisos de rol personalizado difieren para aplicaciones de un solo inquilino y de varios inquilinos. Las aplicaciones de un solo inquilino únicamente están disponibles para los usuarios de la organización Azure AD en la que se registra la aplicación. Las aplicaciones de varios inquilinos están disponibles para todas las organizaciones de Azure AD. Las aplicaciones de un solo inquilino se definen como las que tienen **Tipos de cuenta compatibles** establecidos en "Solo las cuentas de este directorio organizativo". En Graph API, las aplicaciones de un solo inquilino tienen la propiedad signInAudience establecida en "AzureADMyOrg".
+Al elegir los permisos para el rol personalizado, tiene la opción de conceder acceso para administrar únicamente las aplicaciones de un solo directorio. Las aplicaciones de un solo directorio únicamente están disponibles para los usuarios de la organización Azure AD en la que se registra la aplicación. Las aplicaciones de un solo directorio se definen como las que tienen **Tipos de cuenta compatibles** establecidos en "Solo las cuentas de este directorio organizativo". En Graph API, las aplicaciones de un solo directorio tienen la propiedad signInAudience establecida en "AzureADMyOrg".
 
-## <a name="application-registration-subtypes-and-permissions"></a>Permisos y subtipos del registro de aplicaciones
+Para conceder acceso para administrar únicamente aplicaciones de un solo directorio, use los permisos siguientes con el subtipo **applications.myOrganization**. Por ejemplo, microsoft.directory/applications.myOrganization/basic/update.
 
 Vea la [información general sobre los roles personalizados](roles-custom-overview.md) para una explicación de lo que significa el subtipo de términos generales, el permiso y el conjunto de propiedades. La siguiente información es específica de los registros de aplicaciones.
-
-### <a name="subtypes"></a>Subtipos
-
-Solo hay un subtipo de registro de aplicaciones: applications.myOrganization. Por ejemplo, microsoft.directory/applications.myOrganization/basic/update. Este subtipo se establece en la página **Autenticación** para un registro de aplicaciones específico y corresponde a establecer la propiedad signInAudience en "AzureADMyOrg" mediante Graph API o PowerShell. El subtipo restringe el permiso a los registros de aplicaciones que se marcan como accesibles solo por las cuentas de la organización (aplicaciones de un solo inquilino).
-
-Puede usar el permiso restringido para conceder permisos de lectura o administración a las aplicaciones internas solo sin conceder permisos de lectura o administración a las aplicaciones a las que tienen acceso las cuentas de otras organizaciones.
-
-Hay versiones de applications.myOrganization de todos los permisos de lectura y actualización, así como del permiso de eliminación. No hay ninguna versión de applications.myOrganization de creación en este momento. Los permisos estándar (por ejemplo, microsoft.directory/applications/basic/update) conceden permisos de lectura o administración para todos los tipos de registro de aplicaciones.
-
-![Declaración de una aplicación de un solo inquilino o una aplicación de varios inquilinos](./media/roles-custom-available-permissions/supported-account-types.png)
-
-Los detalles de los siguientes permisos para la versión preliminar de roles personalizados se muestran en [Permisos de rol personalizado disponibles en Azure Active Directory](roles-custom-available-permissions.md).
 
 ### <a name="create-and-delete"></a>Creación y eliminación
 
 Hay dos permisos disponibles para conceder la capacidad de crear registros de aplicaciones, cada uno con un comportamiento diferente.
 
-- **microsoft.directory/applications/createAsOwner**: Al asignar este permiso, el creador se agrega como el primer propietario del registro de aplicaciones creado y el registro de aplicaciones creado contará en la cuota de objetos creados de 250 del creador.
-- **microsoft.directory/applicationPolicies/create**: Al asignar este permiso, el creador no se agrega como el primer propietario del registro de aplicaciones creado y el registro de aplicaciones creado no contará en la cuota de objetos creados de 250 del creador. Use este permiso con precaución, ya que no hay nada que impida que la persona asignada cree registros de aplicaciones hasta que se alcance la cuota de nivel de directorio. Si se asignan ambos permisos, el permiso de creación tiene prioridad.
+#### <a name="microsoftdirectoryapplicationscreateasowner"></a>microsoft.directory/applications/createAsOwner
+
+Al asignar este permiso, el creador se agrega como el primer propietario del registro de aplicaciones creado y el registro de aplicaciones creado contará en la cuota de objetos creados de 250 del creador.
+
+#### <a name="microsoftdirectoryapplicationscreate"></a>microsoft.directory/applications/create
+
+Al asignar este permiso, el creador no se agrega como el primer propietario del registro de aplicaciones creado y el registro de aplicaciones creado no contará en la cuota de objetos creados de 250 del creador. Use este permiso con precaución, ya que no hay nada que impida que la persona asignada cree registros de aplicaciones hasta que se alcance la cuota de nivel de directorio. Si se asignan ambos permisos, el permiso de creación tiene prioridad.
 
 Si se asignan ambos permisos, el permiso /create tendrá prioridad. Aunque el permiso /createAsOwner no agrega automáticamente el creador como primer propietario, los propietarios se pueden especificar durante la creación del registro de aplicaciones al usar Graph API o los cmdlets de PowerShell.
 
@@ -78,19 +71,11 @@ Todos los usuarios miembros de la organización pueden leer la información de r
 
 #### <a name="microsoftdirectoryapplicationsallpropertiesread"></a>microsoft.directory/applications/allProperties/read
 
-Capacidad para leer todas las propiedades de aplicaciones de un solo inquilino y de varios inquilinos fuera de propiedades confidenciales, como las credenciales.
+Capacidad para leer todas las propiedades de aplicaciones de un solo inquilino y de varios inquilinos fuera de propiedades que no se pueden leer en ninguna situación, como las credenciales.
 
 #### <a name="microsoftdirectoryapplicationsmyorganizationallpropertiesread"></a>microsoft.directory/applications.myOrganization/allProperties/read
 
 Concede los mismos permisos que microsoft.directory/applications/allProperties/read, pero solo para las aplicaciones de un solo inquilino.
-
-#### <a name="microsoftdirectoryapplicationsstandardread-grants-access-to-all-fields-on-the-application-registration-branding-page"></a>microsoft.directory/applications/standard/read: concede acceso a todos los campos de la página de personalización de marca del registro de aplicaciones.
-
-![Este permiso concede acceso a la página de personalización de marca del registro de aplicaciones](./media/roles-custom-available-permissions/app-registration-branding.png)
-
-#### <a name="microsoftdirectoryapplicationsmyorganizationstandardread"></a>microsoft.directory/applications.myOrganization/standard/read
-
-Concede los mismos permisos que microsoft.directory/applications/standard/read, pero solo para las aplicaciones de un solo inquilino.
 
 #### <a name="microsoftdirectoryapplicationsownersread"></a>microsoft.directory/applications/owners/read
 
@@ -98,46 +83,19 @@ Permite leer la propiedad de propietarios en aplicaciones de un solo inquilino y
 
 ![Este permiso concede acceso a la página de propietarios del registro de aplicaciones](./media/roles-custom-available-permissions/app-registration-owners.png)
 
-Concede acceso a las siguientes propiedades de la entidad de la aplicación:
+#### <a name="microsoftdirectoryapplicationsstandardread"></a>microsoft.directory/applications/standard/read
 
-- AllowActAsForAllClients
-- AllowPassthroughUsers
-- AppAddress
-- AppBrandingElements
-- AppCategory
-- AppCreatedDateTime
-- AppData
-- AppId
-- AppInformationalUrl
-- ApplicationTag
-- AppLogoUrl
-- AppMetadata
-- AppOptions
-- BinaryExtensionAttribute
-- BooleanExtensionAttribute
-- CountriesBlockedForMinors
-- CreatedOnBehalfOf
-- DateTimeExtensionAttribute
-- DisplayName
-- ExtensionAttributeDefinition
-- IntegerExtensionAttribute
-- KnownClientApplications
-- LargeIntegerExtensionAttribute
-- LegalAgeGroupRule
-- LocalizedAppBrandingElements
-- MainLogo
-- MsaAppId
-- ResourceApplicationSet
-- ServiceDiscoveryEndpoint
-- StringExtensionAttribute
-- TrustedCertificateSubject
-- WebApi
-- WebApp
-- WwwHomepage
+Concede acceso para leer las propiedades de registro de aplicación estándar. Esto incluye las propiedades de las páginas de registro de aplicación.
+
+#### <a name="microsoftdirectoryapplicationsmyorganizationstandardread"></a>microsoft.directory/applications.myOrganization/standard/read
+
+Concede los mismos permisos que microsoft.directory/applications/standard/read, pero solo para las aplicaciones de un solo inquilino.
 
 ### <a name="update"></a>Actualizar
 
 #### <a name="microsoftdirectoryapplicationsallpropertiesupdate"></a>microsoft.directory/applications/allProperties/update
+
+Capacidad de actualizar todas las propiedades de las aplicaciones de un solo directorio y de varios directorios.
 
 #### <a name="microsoftdirectoryapplicationsmyorganizationallpropertiesupdate"></a>microsoft.directory/applications.myOrganization/allProperties/update
 
@@ -145,14 +103,9 @@ Concede los mismos permisos que microsoft.directory/applications/allProperties/u
 
 #### <a name="microsoftdirectoryapplicationsaudienceupdate"></a>microsoft.directory/applications/audience/update
 
-Concede acceso a todos los campos de la página de autenticación del registro de aplicaciones:
+Capacidad de actualizar la propiedad de tipo de cuenta compatible (signInAudience) en aplicaciones de un solo directorio y de varios directorios.
 
-![Este permiso concede acceso a la página de autenticación del registro de aplicaciones](./media/roles-custom-available-permissions/supported-account-types.png)
-
-Concede acceso a las siguientes propiedades del recurso de la aplicación:
-
-- AvailableToOtherTenants
-- SignInAudience
+![Este permiso concede acceso a la propiedad de tipo de cuenta compatible con el registro de aplicación en la página de autenticación](./media/roles-custom-available-permissions/supported-account-types.png)
 
 #### <a name="microsoftdirectoryapplicationsmyorganizationaudienceupdate"></a>microsoft.directory/applications.myOrganization/audience/update
 
@@ -164,20 +117,6 @@ Capacidad de actualizar la dirección URL de respuesta, la dirección URL de cie
 
 ![Concede acceso a la autenticación del registro de aplicaciones, pero no a los tipos de cuenta compatibles](./media/roles-custom-available-permissions/supported-account-types.png)
 
- Concede acceso a las siguientes propiedades del recurso de la aplicación:
-
-- AcceptMappedClaims
-- AccessTokenAcceptedVersion
-- AddIns
-- GroupMembershipClaims
-- IsDeviceOnlyAuthSupported
-- OAuth2LegacyUrlPathMatching
-- OauthOidcResponsePolicyBitmap
-- OptionalClaims
-- OrgRestrictions
-- PublicClient
-- UseCustomTokenSigningKey
-
 #### <a name="microsoftdirectoryapplicationsmyorganizationauthenticationupdate"></a>microsoft.directory/applications.myOrganization/authentication/update
 
 Concede los mismos permisos que microsoft.directory/applications/authentication/update, pero solo para las aplicaciones de un solo inquilino.
@@ -187,42 +126,6 @@ Concede los mismos permisos que microsoft.directory/applications/authentication/
 Capacidad para actualizar el nombre, el logotipo, la dirección URL de la página principal, la dirección URL de los términos de servicio y las propiedades de la dirección URL de la declaración de privacidad en aplicaciones de un solo inquilino y de varios inquilinos. Concede acceso a todos los campos de la página de personalización de marca del registro de aplicaciones:
 
 ![Este permiso concede acceso a la página de personalización de marca del registro de aplicaciones](./media/roles-custom-available-permissions/app-registration-branding.png)
-
-Concede acceso a las siguientes propiedades del recurso de la aplicación:
-
-- AllowActAsForAllClients
-- AllowPassthroughUsers
-- AppAddress
-- AppBrandingElements
-- AppCategory
-- AppData
-- AppId
-- AppInformationalUrl
-- ApplicationTag
-- AppLogoUrl
-- AppMetadata
-- AppOptions
-- BinaryExtensionAttribute
-- BooleanExtensionAttribute
-- CountriesBlockedForMinors
-- CreatedOnBehalfOf
-- DateTimeExtensionAttribute
-- DisplayName
-- ExtensionAttributeDefinition
-- IntegerExtensionAttribute
-- KnownClientApplications
-- LargeIntegerExtensionAttribute
-- LegalAgeGroupRule
-- LocalizedAppBrandingElements
-- MainLogo
-- MsaAppId
-- ResourceApplicationSet
-- ServiceDiscoveryEndpoint
-- StringExtensionAttribute
-- TrustedCertificateSubject
-- WebApi
-- WebApp
-- WwwHomepage
 
 #### <a name="microsoftdirectoryapplicationsmyorganizationbasicupdate"></a>microsoft.directory/applications.myOrganization/basic/update
 
@@ -234,13 +137,6 @@ Capacidad para actualizar las propiedades de certificados y secretos de cliente 
 
 ![Este permiso concede acceso a la página de certificados y registros del registro de aplicaciones](./media/roles-custom-available-permissions/app-registration-secrets.png)
 
-Concede acceso a las siguientes propiedades del recurso de la aplicación:
-- AsymmetricKey
-- EncryptedSecretKey
-- KeyDescription
-- SharedKeyReference
-- TokenEncryptionKeyId
-
 #### <a name="microsoftdirectoryapplicationsmyorganizationcredentialsupdate"></a>microsoft.directory/applications.myOrganization/credentials/update
 
 Concede los mismos permisos que microsoft.directory/applications/credentials/update, pero solo para las aplicaciones de un solo inquilino.
@@ -250,9 +146,6 @@ Concede los mismos permisos que microsoft.directory/applications/credentials/upd
 Capacidad de actualizar la propiedad de propietario en un solo inquilino y en varios inquilinos. Concede acceso a todos los campos de la página de propietarios del registro de aplicaciones:
 
 ![Este permiso concede acceso a la página de propietarios del registro de aplicaciones](./media/roles-custom-available-permissions/app-registration-owners.png)
-
-Concede acceso a las siguientes propiedades del recurso de la aplicación:
-- Propietarios
 
 #### <a name="microsoftdirectoryapplicationsmyorganizationownersupdate"></a>microsoft.directory/applications.myOrganization/owners/update
 
@@ -265,14 +158,6 @@ Capacidad para actualizar los permisos delegados, los permisos de aplicación, l
 ![Este permiso concede acceso a la página Permisos de API del registro de aplicaciones](./media/roles-custom-available-permissions/app-registration-api-permissions.png)
 
 ![Este permiso concede acceso a la página Exponer una API del registro de aplicaciones](./media/roles-custom-available-permissions/app-registration-expose-api.png)
-
-Concede acceso a las siguientes propiedades del recurso de la aplicación:
-
-- AppIdentifierUri
-- Entitlement
-- PreAuthorizedApplications
-- RecordConsentConditions
-- RequiredResourceAccess
 
 #### <a name="microsoftdirectoryapplicationsmyorganizationpermissionsupdate"></a>microsoft.directory/applications.myOrganization/permissions/update
 

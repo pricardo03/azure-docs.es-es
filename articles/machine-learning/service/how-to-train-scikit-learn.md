@@ -10,12 +10,12 @@ ms.author: maxluk
 author: maxluk
 ms.date: 08/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: ea466486509c4b5dadc48ef830c9f05ec42ab5b3
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 6d71ea59b7094134cc70b9eeea6da89feacb3a14
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73814851"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931054"
 ---
 # <a name="build-scikit-learn-models-at-scale-with-azure-machine-learning"></a>Creación de modelos de Scikit-learn a escala con Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -177,20 +177,47 @@ import joblib
 joblib.dump(svm_model_linear, 'model.joblib')
 ```
 
-Registre el modelo en el área de trabajo con el código siguiente.
+Registre el modelo en el área de trabajo con el código siguiente. Para que la implementación de modelo sin código esté disponible, especifique los parámetros `model_framework`, `model_framework_version` y `resource_configuration`. Esto le permite implementar directamente el modelo como un servicio web desde el modelo registrado y el objeto `ResourceConfiguration` define el recurso de proceso del servicio web.
 
 ```Python
-model = run.register_model(model_name='sklearn-iris', model_path='model.joblib')
+from azureml.core import Model
+from azureml.core.resource_configuration import ResourceConfiguration
+
+model = run.register_model(model_name='sklearn-iris', 
+                           model_path='model.joblib',
+                           model_framework=Model.Framework.SCIKITLEARN,
+                           model_framework_version='0.19.1',
+                           resource_configuration=ResourceConfiguration(cpu=1, memory_in_gb=0.5))
 ```
+
+## <a name="deployment"></a>Implementación
+
+El modelo que acaba de registrar se puede implementar exactamente de la misma manera que cualquier otro modelo registrado en Azure Machine Learning, independientemente del estimador que haya usado para el entrenamiento. El procedimiento de implementación contiene una sección sobre el registro de modelos, pero puede ir directamente a la [creación de un destino de proceso](how-to-deploy-and-where.md#choose-a-compute-target) para la implementación, ya que ya tiene un modelo registrado.
+
+### <a name="preview-no-code-model-deployment"></a>(Versión preliminar) Implementación de modelo sin código
+
+En lugar de la ruta de implementación tradicional, también puede usar la característica de implementación sin código (versión preliminar) para Scikit-learn. Se admite la implementación de modelo sin código para todos los tipos de modelos integrados de Scikit-learn. Mediante el registro del modelo como se ha indicado anteriormente con los parámetros `model_framework`, `model_framework_version` y `resource_configuration`, solo tiene que usar la función estática `deploy()` para implementar el modelo.
+
+```python
+web_service = Model.deploy(ws, "scikit-learn-service", [model])
+```
+
+NOTA:  Estas dependencias se incluyen en el contenedor de inferencia Scikit-learn integrado previamente.
+
+```yaml
+    - azureml-defaults
+    - inference-schema[numpy-support]
+    - scikit-learn
+    - numpy
+```
+
+El [procedimiento](how-to-deploy-and-where.md) completo trata la implementación en Azure Machine Learning más detalladamente.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+En este artículo ha entrenado y registrado un modelo de Scikit-learn y ha aprendido sobre las opciones de implementación. Consulte estos otros artículos para más información sobre Azure Machine Learning.
 
-En este artículo, ha entrenado y registrado un modelo Keras en Azure Machine Learning. Para obtener información sobre cómo implementar un modelo, continúe con nuestro artículo sobre implementación de modelos.
-
-> [!div class="nextstepaction"]
-> [Cómo y dónde implementar los modelos](how-to-deploy-and-where.md)
 * [Seguir métricas de ejecución durante el entrenamiento](how-to-track-experiments.md)
 * [Ajustar los hiperparámetros](how-to-tune-hyperparameters.md)
-* [Implementar un modelo entrenado](how-to-deploy-and-where.md)
 * [Arquitectura de referencia para el entrenamiento del aprendizaje profundo distribuido en Azure](/azure/architecture/reference-architectures/ai/training-deep-learning)

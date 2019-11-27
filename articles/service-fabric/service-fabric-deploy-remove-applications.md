@@ -1,5 +1,5 @@
 ---
-title: Implementación de la aplicación de Azure Service Fabric | Microsoft Docs
+title: Implementación de Azure Service Fabric con PowerShell
 description: Cómo implementar y quitar aplicaciones de Service Fabric con PowerShell.
 services: service-fabric
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
 ms.author: atsenthi
-ms.openlocfilehash: 3cfebadf6dadeb81b1b57e671b19594b75645e31
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 0080ba0807a4cb31fedeb132932e2e08137dd40b
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599612"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013287"
 ---
 # <a name="deploy-and-remove-applications-using-powershell"></a>Implementación y eliminación de aplicaciones con PowerShell
 

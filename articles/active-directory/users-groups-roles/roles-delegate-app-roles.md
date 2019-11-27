@@ -1,26 +1,25 @@
 ---
-title: 'Delegación de los permisos de creación y administración del administrador de aplicaciones: Azure Active Directory | Microsoft Docs'
+title: 'Delegación de la administración de administradores de aplicaciones: Azure AD | Microsoft Docs'
 description: Concesión de permisos para la administración del acceso a las aplicaciones en Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
-editor: ''
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 09/04/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d5a29ca7ed4eb23c2e0edd4d39cc2920e779acb
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 461ee1fc73448f16ba68850d6137fb396c658abd
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72025513"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74024869"
 ---
 # <a name="delegate-app-registration-permissions-in-azure-active-directory"></a>Delegación de permisos de registro de aplicaciones en Azure Active Directory
 

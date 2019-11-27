@@ -1,5 +1,5 @@
 ---
-title: Uso de la CLI de Azure para configurar un grupo de disponibilidad Always On para SQL Server en una máquina virtual de Azure
+title: Configuración de un grupo de disponibilidad (CLI de Azure)
 description: Use la CLI de Azure para crear el clúster de conmutación por error de Windows, el cliente de escucha de grupo de disponibilidad y el equilibrador de carga interno en una máquina virtual con SQL Server en Azure.
 services: virtual-machines-windows
 documentationcenter: na
@@ -13,12 +13,13 @@ ms.workload: iaas-sql-server
 ms.date: 02/12/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 58174704051709a720950ac51591a1d53b9d01bb
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.custom: seo-lt-2019
+ms.openlocfilehash: a6600af353daf2bfa7b49196f48ba5b60e6c45fb
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100563"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74022365"
 ---
 # <a name="use-the-azure-cli-to-configure-an-always-on-availability-group-for-sql-server-on-an-azure-vm"></a>Uso de la CLI de Azure para configurar un grupo de disponibilidad Always On para SQL Server en una máquina virtual de Azure
 En este artículo se describe cómo usar la [CLI de Azure](/cli/azure/sql/vm?view=azure-cli-latest/) para implementar un clúster de conmutación por error de Windows, agregarle máquinas virtuales con SQL Server, así como crear el equilibrador de carga interno y el cliente de escucha de un grupo de disponibilidad Always On. La implementación del grupo de disponibilidad Always On se sigue realizando manualmente con SQL Server Management Studio (SSMS). 

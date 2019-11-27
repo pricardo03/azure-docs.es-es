@@ -6,14 +6,14 @@ ms.subservice: logs
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.date: 12/17/2018
+ms.date: 11/12/2019
 ms.reviewer: carlrab
-ms.openlocfilehash: 75e8cffea08c7db4526c647a32ed92be2d1779f1
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: b092c547edf37b31e6099227d8cc0e69048bad7a
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899121"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961965"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Supervisión de instancias de Azure SQL Database con Azure SQL Analytics (versión preliminar)
 
@@ -39,6 +39,21 @@ Azure SQL Analytics es una solución de supervisión de uso solo en la nube que 
 | [Agentes de Windows](../platform/agent-windows.md) | Sin | La solución no utiliza agentes directos de Windows. |
 | [Agentes de Linux](../learn/quick-collect-linux-computer.md) | Sin | La solución no utiliza agentes directos de Linux. |
 | [Grupo de administración de System Center Operations](../platform/om-agents.md) | Sin | La solución no utiliza ninguna conexión directa entre el agente de Operations Manager y Azure Monitor. |
+
+## <a name="azure-sql-analytics-options"></a>Opciones de Azure SQL Analytics
+
+La siguiente tabla describe opciones compatibles para dos versiones del panel de Azure SQL Analytics, una para las bases de datos y los grupos elásticos de Azure SQL Database y la otra para Instancia administrada.
+
+| Opción de Azure SQL Analytics | DESCRIPCIÓN | Compatibilidad de instancias de SQL Database y grupos elásticos | Compatibilidad de Instancia administrada |
+| --- | ------- | ----- | ----- |
+| Recurso por tipo | Perspectiva que considera todos los recursos supervisados. | Sí | Sí |
+| Información detallada | Proporciona un informe detallado jerárquico del rendimiento de Intelligent Insights. | Sí | Sí |
+| Errors | Ofrece un informe detallado jerárquico de los errores de SQL que se produjeron en las bases de datos. | Sí | Sí |
+| Tiempos de expiración | Ofrece un informe detallado jerárquico de los tiempos de expiración de SQL que se produjeron en las bases de datos. | Sí | Sin |
+| Bloqueos | Ofrece un informe detallado jerárquico de los bloqueos de SQL que se produjeron en las bases de datos. | Sí | Sin |
+| Esperas de la base de datos | Ofrece un informe detallado jerárquico de las estadísticas de espera de SQL en el nivel de base de datos. Incluye resúmenes del tiempo de espera total y el tiempo de espera por tipo de espera. |Sí | Sí |
+| Duración de la consulta | Ofrece un informe detallado jerárquico de las estadísticas de ejecución de consulta, como la duración de la consulta, el uso de CPU, el uso de E/S de datos y el uso de E/S de registro. | Sí | Sí |
+| Esperas de consulta | Ofrece un informe detallado jerárquico de las estadísticas de espera de consulta por categoría de espera. | Sí | Sí |
 
 ## <a name="configuration"></a>Configuración
 Use el proceso que se describe en cómo [agregar soluciones de Azure Monitor desde la Galería de soluciones](../../azure-monitor/insights/solutions.md) para agregar la solución Azure SQL Analytics (versión preliminar) al área de trabajo de Log Analytics.
@@ -94,21 +109,6 @@ Si selecciona cualquiera de los iconos, se abre un informe detallado de la persp
 Si selecciona la vista de Instancia administrada, aparecerán los detalles de uso de Instancia administrada, las bases de datos que contiene y los datos de telemetría de las consultas que se han ejecutado en la instancia.
 
 ![Tiempos de expiración de Azure SQL Analytics](./media/azure-sql/azure-sql-sol-metrics-mi.png)
-
-### <a name="perspectives"></a>Perspectivas
-
-La siguiente tabla describe las perspectivas compatibles de dos versiones del panel, una para las bases de datos y los grupos elásticos de Azure SQL Database y la otra para Instancia administrada.
-
-| Perspectiva | DESCRIPCIÓN | Compatibilidad de instancias de SQL Database y grupos elásticos | Compatibilidad de Instancia administrada |
-| --- | ------- | ----- | ----- |
-| Recurso por tipo | Perspectiva que considera todos los recursos supervisados. | Sí | Sí |
-| Información detallada | Proporciona un informe detallado jerárquico del rendimiento de Intelligent Insights. | Sí | Sí |
-| Errors | Ofrece un informe detallado jerárquico de los errores de SQL que se produjeron en las bases de datos. | Sí | Sí |
-| Tiempos de expiración | Ofrece un informe detallado jerárquico de los tiempos de expiración de SQL que se produjeron en las bases de datos. | Sí | Sin |
-| Bloqueos | Ofrece un informe detallado jerárquico de los bloqueos de SQL que se produjeron en las bases de datos. | Sí | Sin |
-| Esperas de la base de datos | Ofrece un informe detallado jerárquico de las estadísticas de espera de SQL en el nivel de base de datos. Incluye resúmenes del tiempo de espera total y el tiempo de espera por tipo de espera. |Sí | Sí |
-| Duración de la consulta | Ofrece un informe detallado jerárquico de las estadísticas de ejecución de consulta, como la duración de la consulta, el uso de CPU, el uso de E/S de datos y el uso de E/S de registro. | Sí | Sí |
-| Esperas de consulta | Ofrece un informe detallado jerárquico de las estadísticas de espera de consulta por categoría de espera. | Sí | Sí |
 
 ### <a name="intelligent-insights-report"></a>Informe de Intelligent Insights
 

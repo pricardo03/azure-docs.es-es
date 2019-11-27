@@ -15,12 +15,12 @@ ms.date: 09/11/2018
 ms.author: mimart
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4bb1ed48d501ca3166e0b906c622507b59ef059a
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 82360dacd68de512bc12ff5d39ddbd3a21578aa7
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "70812691"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74120120"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito
 El objetivo de este artículo es explicar cómo usar filtros de ámbito para definir reglas basadas en atributos que determinarán qué usuarios se aprovisionarán en una aplicación.
@@ -110,6 +110,14 @@ Los filtros de ámbito se configuran como parte de las asignaciones de atributos
 >[!IMPORTANT] 
 > Si guarda un nuevo filtro de ámbito, se realizará una sincronización completa de la aplicación y todos los usuarios del sistema de origen volverán a ser evaluados mediante el nuevo filtro de ámbito. Si un usuario de la aplicación que estaba en el ámbito de aprovisionamiento se encuentra ahora fuera del mismo, su cuenta se deshabilita o se desaprovisiona de la aplicación. Para invalidar este comportamiento predeterminado, consulte [Omisión de la eliminación de usuarios fuera del ámbito](skip-out-of-scope-deletions.md).
 
+
+## <a name="common-scoping-filters"></a>Filtros de ámbito comunes
+| Atributo de destino| Operator | Valor | DESCRIPCIÓN|
+|----|----|----|----|
+|userPrincipalName|REGEX MATCH|.\*@domain.com |Todos los usuarios con un elemento userPrincipal con el dominio @domain.com estarán en el ámbito del aprovisionamiento.|
+|userPrincipalName|NOT REGEX MATCH|.\*@domain.com|Todos los usuarios con un elemento userPrincipal con el dominio @domain.com estarán fuera del ámbito del aprovisionamiento.|
+|department|EQUALS|sales (ventas)|Todos los usuarios del departamento de ventas están en el ámbito del aprovisionamiento|
+|WorkerID|REGEX MATCH|(1[0-9][0-9][0-9][0-9][0-9][0-9])| Todos los empleados con el elemento workerID entre 1 millón y 2 millones están en el ámbito del aprovisionamiento.|
 
 ## <a name="related-articles"></a>Artículos relacionados
 * [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS](user-provisioning.md)

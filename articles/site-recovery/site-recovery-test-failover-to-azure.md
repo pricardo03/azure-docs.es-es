@@ -1,20 +1,20 @@
 ---
-title: Ejecución de un simulacro de recuperación ante desastres en Azure mediante Azure Site Recovery
-description: Obtenga información sobre cómo ejecutar un simulacro de recuperación ante desastres desde el entorno local a Azure mediante el servicio Azure Site Recovery.
+title: Ejecución de una recuperación ante desastres de prueba (simulacro de recuperación ante desastres) en Azure en Azure Site Recovery
+description: Obtenga información sobre cómo ejecutar una conmutación por error de prueba desde su entorno local a Azure con el servicio Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 8342f60d8a0f91cc4807d25307510c1cbe7ee5c8
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 26c734b7a2e9f5592ee6d51dfee4650a3998ab1a
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814359"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091741"
 ---
-# <a name="run-a-disaster-recovery-drill-to-azure"></a>Ejecución de un simulacro de recuperación ante desastres en Azure 
+# <a name="run-a-test-failover-disaster-recovery-drill-to-azure"></a>Ejecución de una recuperación ante desastres de prueba (simulacro de recuperación ante desastres) en Azure 
 
 
 En este artículo se describe cómo obtener detalles de recuperación ante desastres en Azure mediante una conmutación por error de prueba de Site Recovery.  

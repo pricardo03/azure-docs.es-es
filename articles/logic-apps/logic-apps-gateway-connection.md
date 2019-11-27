@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 11/06/2019
-ms.openlocfilehash: e0354f96036cce968e6b6909a18f97ff48347eda
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 20cdcfdd3795a7614c054ed96b82cc99fc2c5894
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796249"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74068905"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Conexión a orígenes de datos locales desde Azure Logic Apps
 
@@ -27,9 +27,9 @@ En este artículo se muestra cómo crear el recurso de puerta de enlace de Azure
 
 Para información sobre cómo usar la puerta de enlace con otros servicios, consulte estos artículos:
 
-* [Puerta de enlace de datos local de Microsoft Power BI](https://powerbi.microsoft.com/documentation/powerbi-gateway-onprem/)
-* [Puerta de enlace de datos local de Power Automate](https://flow.microsoft.com/documentation/gateway-manage/)
-* [Puerta de enlace de datos local de Microsoft Power Apps](https://powerapps.microsoft.com/tutorials/gateway-management/)
+* [Puerta de enlace de datos local de Microsoft Power Automate](/power-automate/gateway-reference)
+* [Puerta de enlace de datos local de Microsoft Power BI](/power-bi/service-gateway-onprem)
+* [Puerta de enlace de datos local de Microsoft Power Apps](/powerapps/maker/canvas-apps/gateway-reference)
 * [Puerta de enlace de datos local de Azure Analysis Services](../analysis-services/analysis-services-gateway.md)
 
 <a name="supported-connections"></a>

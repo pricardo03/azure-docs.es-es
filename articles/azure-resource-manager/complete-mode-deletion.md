@@ -4,14 +4,14 @@ description: Muestra cómo los tipos de recursos controlan la eliminación en mo
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 10/03/2019
+ms.date: 10/27/2019
 ms.author: tomfitz
-ms.openlocfilehash: de1b5080e72f79626ca0c749efe4122721f14922
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 34e6ee348a6e15e1178f5e7cb65edfb946c1280c
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72528590"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953265"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>Eliminación de recursos de Azure en implementaciones en modo completo
 
@@ -20,6 +20,8 @@ En este artículo, se describe cómo se eliminan los tipos de recursos cuando no
 Los tipos de recursos con la marca **Sí** se eliminan cuando el tipo no está en la plantilla que se implementó en modo completo.
 
 Los tipos de recursos con la marca **No** no se eliminan automáticamente cuando no están en la plantilla; sin embargo, sí lo hacen cuando se elimina el recurso principal. Para ver una descripción completa de este comportamiento, consulte [Modos de implementación de Azure Resource Manager](deployment-modes.md).
+
+Si implementa en [más de un grupo de recursos en una plantilla](resource-manager-cross-resource-group-deployment.md), se pueden eliminar los recursos del grupo de recursos especificado en la operación de implementación. Los recursos de los grupos de recursos secundarios no se eliminarán.
 
 Vaya a un espacio de nombres del proveedor de recursos:
 > [!div class="op_single_selector"]
@@ -61,7 +63,6 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > - [Microsoft.ContainerInstance](#microsoftcontainerinstance)
 > - [Microsoft.ContainerRegistry](#microsoftcontainerregistry)
 > - [Microsoft.ContainerService](#microsoftcontainerservice)
-> - [Microsoft.ContentModerator](#microsoftcontentmoderator)
 > - [Microsoft.CortanaAnalytics](#microsoftcortanaanalytics)
 > - [Microsoft.CostManagement](#microsoftcostmanagement)
 > - [Microsoft.CustomerLockbox](#microsoftcustomerlockbox)
@@ -277,6 +278,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | dataAliases | Sin |
 > | denyAssignments | Sin |
 > | elevateAccess | Sin |
+> | findOrphanRoleAssignments | Sin |
 > | locks | Sin |
 > | permisos | Sin |
 > | policyAssignments | Sin |
@@ -394,6 +396,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | billingAccounts/createBillingRoleAssignment | Sin |
 > | billingAccounts/createInvoiceSectionOperations | Sin |
 > | billingAccounts/customers | Sin |
+> | billingAccounts/customers/billingPermissions | Sin |
 > | billingAccounts/customers/billingSubscriptions | Sin |
 > | billingAccounts/customers/initiateTransfer | Sin |
 > | billingAccounts/customers/policies | Sin |
@@ -451,6 +454,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | Tipo de recurso | Eliminación del modo completo |
 > | ------------- | ----------- |
 > | blockchainMembers | Sí |
+> | cordaMembers | Sí |
 > | watchers | Sí |
 
 ## <a name="microsoftblueprint"></a>Microsoft.Blueprint
@@ -641,6 +645,8 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | proximityPlacementGroups | Sí |
 > | restorePointCollections | Sí |
 > | restorePointCollections/restorePoints | Sin |
+> | sharedVMExtensions | Sí |
+> | sharedVMExtensions/versions | Sin |
 > | sharedVMImages | Sí |
 > | sharedVMImages/versions | Sin |
 > | snapshots | Sí |
@@ -700,6 +706,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | registries/buildTasks | Sí |
 > | registries/buildTasks/steps | Sin |
 > | registries/eventGridFilters | Sin |
+> | registries/generateCredentials | Sin |
 > | registries/getBuildSourceUploadUrl | Sin |
 > | registries/GetCredentials | Sin |
 > | registries/importImage | Sin |
@@ -710,7 +717,9 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | registries/runs | Sin |
 > | registries/runs/cancel | Sin |
 > | registries/scheduleRun | Sin |
+> | registries/scopeMaps | Sin |
 > | registries/tasks | Sí |
+> | registries/tokens | Sin |
 > | registries/updatePolicies | Sin |
 > | registries/webhooks | Sí |
 > | registries/webhooks/getCallbackConfig | Sin |
@@ -724,14 +733,6 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | containerServices | Sí |
 > | managedClusters | Sí |
 > | openShiftManagedClusters | Sí |
-
-## <a name="microsoftcontentmoderator"></a>Microsoft.ContentModerator
-
-> [!div class="mx-tableFixed"]
-> | Tipo de recurso | Eliminación del modo completo |
-> | ------------- | ----------- |
-> | applications | Sí |
-> | updateCommunicationPreference | Sin |
 
 ## <a name="microsoftcortanaanalytics"></a>Microsoft.CortanaAnalytics
 
@@ -821,8 +822,6 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | datacatalogs/datasources/scans | Sin |
 > | datacatalogs/datasources/scans/datasets | Sin |
 > | datacatalogs/datasources/scans/triggers | Sin |
-> | datacatalogs/scantargets | Sin |
-> | datacatalogs/scantargets/datasets | Sin |
 
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
 
@@ -887,6 +886,9 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | ------------- | ----------- |
 > | servers | Sí |
 > | servers/advisors | Sin |
+> | servers/privateEndpointConnectionProxies | Sin |
+> | servers/privateEndpointConnections | Sin |
+> | servers/privateLinkResources | Sin |
 > | servers/queryTexts | Sin |
 > | servers/recoverableServers | Sin |
 > | servers/topQueryStatistics | Sin |
@@ -900,6 +902,9 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | ------------- | ----------- |
 > | servers | Sí |
 > | servers/advisors | Sin |
+> | servers/privateEndpointConnectionProxies | Sin |
+> | servers/privateEndpointConnections | Sin |
+> | servers/privateLinkResources | Sin |
 > | servers/queryTexts | Sin |
 > | servers/recoverableServers | Sin |
 > | servers/topQueryStatistics | Sin |
@@ -914,6 +919,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | serverGroups | Sí |
 > | servers | Sí |
 > | servers/advisors | Sin |
+> | servers/keys | Sin |
 > | servers/privateEndpointConnectionProxies | Sin |
 > | servers/privateEndpointConnections | Sin |
 > | servers/privateLinkResources | Sin |
@@ -943,6 +949,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | ------------- | ----------- |
 > | applicationgroups | Sí |
 > | applicationgroups/applications | Sin |
+> | applicationgroups/desktops | Sin |
 > | applicationgroups/startmenuitems | Sin |
 > | hostpools | Sí |
 > | hostpools/sessionhosts | Sin |
@@ -1088,6 +1095,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | Tipo de recurso | Eliminación del modo completo |
 > | ------------- | ----------- |
 > | autoManagedVmConfigurationProfiles | Sí |
+> | configurationProfileAssignments | Sin |
 > | guestConfigurationAssignments | Sin |
 > | software | Sin |
 > | softwareUpdateProfile | Sin |
@@ -1129,6 +1137,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | Tipo de recurso | Eliminación del modo completo |
 > | ------------- | ----------- |
 > | machines | Sí |
+> | machines/extensions | Sí |
 
 ## <a name="microsofthybriddata"></a>Microsoft.HybridData
 
@@ -1235,6 +1244,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | ------------- | ----------- |
 > | workspaces | Sí |
 > | workspaces/computes | Sin |
+> | namespaces/eventgridfilters | Sin |
 
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
 
@@ -1322,6 +1332,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | mediaservices/liveEvents | Sí |
 > | mediaservices/liveEvents/liveOutputs | Sin |
 > | mediaservices/liveOutputOperations | Sin |
+> | mediaservices/mediaGraphs | Sin |
 > | mediaservices/streamingEndpointOperations | Sin |
 > | mediaservices/streamingEndpoints | Sí |
 > | mediaservices/streamingLocators | Sin |
@@ -1439,7 +1450,6 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | publicIPPrefixes | Sí |
 > | routeFilters | Sí |
 > | routeTables | Sí |
-> | secureGateways | Sí |
 > | serviceEndpointPolicies | Sí |
 > | trafficManagerGeographicHierarchies | Sin |
 > | trafficmanagerprofiles | Sí |
@@ -1520,6 +1530,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | Tipo de recurso | Eliminación del modo completo |
 > | ------------- | ----------- |
 > | policyEvents | Sin |
+> | policyMetadata | Sin |
 > | policyStates | Sin |
 > | policyTrackedResources | Sin |
 > | remediations | Sin |
@@ -1610,6 +1621,8 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | ------------- | ----------- |
 > | deployments | Sin |
 > | deployments/operations | Sin |
+> | deploymentScripts | Sí |
+> | deploymentScripts/logs | Sin |
 > | links | Sin |
 > | notifyResourceJobs | Sin |
 > | providers | Sin |
@@ -1659,6 +1672,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | applicationWhitelistings | Sin |
 > | assessmentMetadata | Sin |
 > | assessments | Sin |
+> | automations | Sí |
 > | AutoProvisioningSettings | Sin |
 > | Compliances | Sin |
 > | dataCollectionAgents | Sin |

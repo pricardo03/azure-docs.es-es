@@ -1,7 +1,7 @@
 ---
 title: Método de idiomas de Translator Text API
 titleSuffix: Azure Cognitive Services
-description: Use el método de idiomas de Translator Text API.
+description: El método Languages obtiene el conjunto de idiomas admitidos actualmente en otras operaciones de Translator Text API.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,14 +10,14 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
-ms.openlocfilehash: 3dd875fbf9a8da464abe1b6312cec84c030dc624
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 37f70399e8125db559098869cdfffdf4533498d7
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934017"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73835832"
 ---
-# <a name="translator-text-api-30-languages"></a>Translator Text API 3.0: Languages
+# <a name="translator-text-api-30-languages"></a>Translator Text API 3.0: Lenguajes
 
 Obtiene el conjunto de idiomas admitidos actualmente por otras operaciones de Translator Text API. 
 

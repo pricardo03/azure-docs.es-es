@@ -1,7 +1,7 @@
 ---
 title: Configuración de la experiencia de Bing Custom Search | Microsoft Docs
 titleSuffix: Azure Cognitive Services
-description: Describe cómo crear servicios de búsqueda de sitio y verticales.
+description: 'El portal le permite crear una instancia de búsqueda que especifica los sectores de la Web: dominios, subpáginas y páginas web.'
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: 1827bfdbebaf1ffa17c7c631a94aa8fc6471d13b
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: c14376cc80373371ec5fcb8f22a00584a6b2f714
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854099"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072813"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>Configuración de la experiencia de Bing Custom Search
 
@@ -27,7 +27,7 @@ Al definir los sectores de la web, use los siguientes elementos:
 
 | Nombre del sector | DESCRIPCIÓN                                                                                                                                                                                                                                                                                                |
 |------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Dominio     | Un sector de dominio incluye todo el contenido que se encuentra en un dominio de Internet. Por ejemplo, `www.microsoft.com`. Si se omite `www.`, Bing también busca en los subdominios del dominio. Por ejemplo, si especifica `microsoft.com`, Bing también devuelve los resultados de `support.microsoft.com` o `technet.microsoft.com`. |
+| Domain     | Un sector de dominio incluye todo el contenido que se encuentra en un dominio de Internet. Por ejemplo, `www.microsoft.com`. Si se omite `www.`, Bing también busca en los subdominios del dominio. Por ejemplo, si especifica `microsoft.com`, Bing también devuelve los resultados de `support.microsoft.com` o `technet.microsoft.com`. |
 | Subpágina    | Un sector de subpágina incluye todo el contenido encontrado en la subpágina y las rutas de acceso que hay debajo de ella. Puede especificar como máximo dos subpáginas en la ruta de acceso. Por ejemplo: `www.microsoft.com/en-us/windows/`                                                                                                                       |
 | Página web    | Un sector de página web puede incluir solo esa página web en una búsqueda personalizada. Opcionalmente, puede especificar si se deben incluir subpáginas.                                                                                                                                                                                  |
 

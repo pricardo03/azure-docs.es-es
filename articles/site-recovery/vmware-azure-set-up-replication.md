@@ -1,5 +1,5 @@
 ---
-title: Configuración y administración de directivas de replicación para la recuperación ante desastres de VMware en Azure con Azure Site Recovery | Microsoft Docs
+title: Configuración de directivas de replicación para la recuperación ante desastres de VMware con Azure Site Recovery | Microsoft Docs
 description: Se describe cómo configurar opciones de replicación para la recuperación ante desastres de VMware en Azure con Azure Site Recovery.
 author: sujayt
 manager: rochakm
@@ -7,14 +7,15 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: 019f9f2019619053f87a7923d656513a419d4675
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 45921bdf802a649b7b802f44d2842a543e44f02b
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231443"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954319"
 ---
-# <a name="configure-and-manage-replication-policies-for-vmware-disaster-recovery-to-azure"></a>Configuración y administración de directivas de replicación para la recuperación ante desastres de VMware en Azure
+# <a name="configure-and-manage-replication-policies-for-vmware-disaster-recovery"></a>Configuración y administración de directivas de replicación para la recuperación ante desastres de VMware
+
 En este artículo se describe cómo configurar una directiva de replicación cuando se replican máquinas virtuales de VMware en Azure mediante [Azure Site Recovery](site-recovery-overview.md).
 
 ## <a name="create-a-policy"></a>Para crear una directiva

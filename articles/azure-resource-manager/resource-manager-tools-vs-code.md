@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.author: jgao
-ms.openlocfilehash: 8d2b818846eeae44ffe05b4546a333510c638621
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 4c0fd0968ce52e50a9171eecb3dfaebd1e2a4c46
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70196874"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075013"
 ---
 # <a name="use-visual-studio-code-to-create-azure-resource-manager-templates"></a>Uso de Visual Studio Code para crear plantillas de Azure Resource Manager
 
@@ -121,5 +121,5 @@ Las advertencias incluyen:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para más información sobre Resource Manager y las plantillas de Resource Manager, consulte [Información general de Azure Resource Manager](./resource-group-overview.md).
+- Para más información sobre la creación de plantillas de Azure Resource Manager, consulte [Tutorial: Creación e implementación de la primera plantilla de Azure Resource Manager](template-tutorial-create-first-template.md).
 - Para seguir una guía de inicio rápido con Visual Studio Code, consulte [Inicio rápido: Creación de plantillas de Azure Resource Manager mediante Visual Studio Code](./resource-manager-quickstart-create-templates-use-visual-studio-code.md).

@@ -1,6 +1,6 @@
 ---
-title: Automatización de la compilación, prueba y aplicación de revisiones para imágenes con tareas de varios pasos de Azure Container Registry
-description: Una introducción a las tareas de varios pasos, una característica de ACR Tasks de Azure Container Registry que proporciona flujos de trabajos basados en tareas para compilar y probar imágenes de contenedor en la nube, así como aplicarles revisiones.
+title: 'Tarea de varios pasos para compilar, probar y revisar imágenes: Azure Container Registry'
+description: Introducción a tareas de varios pasos, una característica de ACR Tasks de Azure Container Registry que proporciona flujos de trabajos basados en tareas para compilar, probar y revisar imágenes de contenedor en la nube.
 services: container-registry
 author: dlepow
 manager: gwallace
@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: danlep
-ms.openlocfilehash: 89962fbce6863b16a0d8b229047eb19a821e37bb
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 27321dbcdeae3a830b6ddf5ea70cbaa098d7e4e3
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68310563"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931491"
 ---
 # <a name="run-multi-step-build-test-and-patch-tasks-in-acr-tasks"></a>Ejecución de tareas de varios pasos de compilación, prueba y aplicación de revisiones en ACR Tasks
 

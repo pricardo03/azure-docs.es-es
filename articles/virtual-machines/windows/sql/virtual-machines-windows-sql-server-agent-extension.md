@@ -1,5 +1,5 @@
 ---
-title: Automatización de las tareas de administración en Azure Virtual Machines con la extensión del Agente de IaaS de SQL Server | Microsoft Docs
+title: Automatización de las tareas de administración con la extensión Agente de IaaS
 description: En este artículo se describe cómo administrar la extensión Agente de IaaS de SQL Server, que automatiza tareas de administración específicas de SQL Server. Entre ellas se incluyen la copia de seguridad automatizada, la aplicación de revisiones automatizada y la integración de Azure Key Vault.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -16,12 +16,13 @@ ms.workload: iaas-sql-server
 ms.date: 08/30/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 3240bb689447c16de8c62e9e8118b0b0df2b1ea3
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 9aae386e21df6711fc4984a7abfd34f418399f76
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70259423"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034193"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-by-using-the-sql-server-iaas-agent-extension"></a>Automatización de las tareas de administración en Azure Virtual Machines con la extensión del Agente de IaaS de SQL Server
 > [!div class="op_single_selector"]

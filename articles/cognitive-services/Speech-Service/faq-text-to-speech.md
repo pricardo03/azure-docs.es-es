@@ -1,7 +1,7 @@
 ---
-title: Preguntas más frecuentes sobre el servicio de Text to Speech en Azure
+title: Preguntas más frecuentes sobre Text to Speech
 titleSuffix: Azure Cognitive Services
-description: Obtenga respuestas a las preguntas más habituales sobre el servicio Text to Speech.
+description: Obtenga respuestas a las preguntas más frecuentes sobre el servicio de Text to Speech.
 services: cognitive-services
 author: PanosPeriorellis
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: panosper
-ms.openlocfilehash: a5ca7d8a6b09dc277664fdc7db2433466e665d56
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 19b8be83a3678164197ec0650b07091e941a04d7
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606673"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74110492"
 ---
 # <a name="text-to-speech-frequently-asked-questions"></a>Preguntas más frecuentes sobre Text to Speech
 
@@ -25,7 +25,7 @@ Si no encuentra respuestas a sus preguntas en estas P+F, [consulte otras opcione
 
 **P: ¿Cuál es la diferencia entre un modelo de voz estándar y un modelo de voz personalizado?**
 
-**R.** : El modelo de voz estándar (también denominado *fuente de voz*) se ha entrenado con datos de Microsoft y ya está implementado en la nube. Puede usar un modelo de voz personalizado para adaptar un modelo promedio y transferir la expresión y el timbre de acuerdo con el estilo de voz del orador, o bien entrenar un nuevo modelo completo en función de los datos de entrenamiento que preparó el usuario. Actualmente son cada vez más los clientes que quieren una voz única y distintiva para sus bots. La plataforma de compilación de voz personalizada es la opción correcta para eso.
+**R.** : El modelo de voz estándar (también denominado _fuente de voz_) se ha entrenado con datos de Microsoft y ya está implementado en la nube. Puede usar un modelo de voz personalizado para adaptar un modelo promedio y transferir la expresión y el timbre de acuerdo con el estilo de voz del orador, o bien entrenar un nuevo modelo completo en función de los datos de entrenamiento que preparó el usuario. Actualmente son cada vez más los clientes que quieren una voz única y distintiva para sus bots. La plataforma de compilación de voz personalizada es la opción correcta para eso.
 
 **P: ¿Dónde empiezo si quiero usar un modelo de voz estándar?**
 
@@ -63,5 +63,5 @@ Proporcionamos servicios adicionales para ayudarlo a preparar guiones para la gr
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Solución de problemas](troubleshooting.md)
-* [Notas de la versión](releasenotes.md)
+- [Solución de problemas](troubleshooting.md)
+- [Notas de la versión](releasenotes.md)

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 05/01/2019
 ms.author: juliako
-ms.openlocfilehash: 901542e2a69d2c7880825d76c1d69d3795713ed2
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: fb36387764efbdaa1ad3d164ba419bee49770871
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231180"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74049003"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Guía de migración para mover de Media Services v2 a v3
 
@@ -38,7 +38,7 @@ Si tiene un servicio de vídeo desarrollado actualmente en la parte superior de 
 *  v3 se basa en una superficie de API unificada que expone la funcionalidad de administración y operaciones creada en Azure Resource Manager. Las plantillas de Azure Resource Manager se pueden usar para crear e implementar transformaciones, puntos de conexión de streaming, Eventos en directo, etc.
 * Documento [Especificación OpenAPI (anteriormente denominada Swagger)](https://aka.ms/ams-v3-rest-sdk).
     Expone el esquema para todos los componentes de servicio, incluida la codificación basada en archivos.
-* Diferentes SDK disponibles para [.NET](https://aka.ms/ams-v3-dotnet-ref), .NET Core, [Node.js](https://aka.ms/ams-v3-nodejs-ref), [Python](https://aka.ms/ams-v3-python-ref), [Java](https://aka.ms/ams-v3-java-ref), [Go](https://aka.ms/ams-v3-go-ref) y Ruby.
+* Diferentes SDK disponibles para [.NET](https://aka.ms/ams-v3-dotnet-ref), .NET Core, [Node.js](/javascript/api/overview/azure/mediaservices/management), [Python](https://aka.ms/ams-v3-python-ref), [Java](https://aka.ms/ams-v3-java-ref), [Go](https://aka.ms/ams-v3-go-ref) y Ruby.
 * La integración de la [CLI de Azure](https://aka.ms/ams-v3-cli-ref) para la compatibilidad de scripting sencilla.
 
 ### <a name="new-features"></a>Nuevas características
@@ -73,7 +73,8 @@ Si tiene un servicio de vídeo desarrollado actualmente en la parte superior de 
     * Evento en directo reemplaza a Canal.<br/>La facturación de Eventos en directo se basa en los medidores de Canal en vivo. Para más información, consulte la [facturación](live-event-states-billing.md) y los [precios](https://azure.microsoft.com/pricing/details/media-services/).
     * Salida en vivo reemplaza a Programa.
 * Los objetos LiveOutput comienzan al crearlos y se detienen cuando se eliminan. Los programas funcionaban de forma diferente en las API v2; deben iniciarse después de la creación.
-*  Para obtener información sobre un trabajo, debe conocer el nombre de la transformación en la que se ha creado dicho trabajo. 
+* Para obtener información sobre un trabajo, debe conocer el nombre de la transformación en la que se ha creado dicho trabajo. 
+* En la versión v2, se generan archivos de metadatos de [entrada](../previous/media-services-input-metadata-schema.md) y [salida](../previous/media-services-output-metadata-schema.md) como resultado de un trabajo de codificación. En la versión v3, el formato de metadatos cambió de XML a JSON. 
 
 > [!NOTE]
 > Revise las convenciones de nomenclatura que se aplican a [los recursos de Media Services v3](media-services-apis-overview.md#naming-conventions). Revise también [los blobs de nomenclatura](assets-concept.md#naming-blobs).

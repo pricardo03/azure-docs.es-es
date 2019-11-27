@@ -1,5 +1,5 @@
 ---
-title: Ejemplos del manifiesto de una aplicación contenedora en Azure Service Fabric | Microsoft Docs
+title: Ejemplos de manifiestos de aplicación de Azure Service Fabric
 description: Obtenga información acerca de cómo establecer la configuración de un manifiesto de servicio y de aplicación para una aplicación de Service Fabric.
 services: service-fabric
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/11/2018
 ms.author: pepogors
-ms.openlocfilehash: dc3384821ddfba0a137a74297bc44903b6ed5d1d
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 969f15ecb45164e3b3f26c22f756a022e55782ed
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650578"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013173"
 ---
 # <a name="service-fabric-application-and-service-manifest-examples"></a>Ejemplos de manifiestos de servicio y de aplicación de Service Fabric
 Esta sección contiene ejemplos de manifiestos de servicio y de aplicación. Estos ejemplos no están diseñados para mostrar escenarios importantes, sino para explicar las distintas configuraciones que están disponibles y cómo usarlas. 

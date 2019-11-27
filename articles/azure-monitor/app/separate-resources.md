@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/15/2017
-ms.openlocfilehash: bcf741e82e247a5b79a478ef1015a70cccb4d274
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: c4d029de782ae408b83c265322a865db7b166c1e
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899913"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73928299"
 ---
 # <a name="separating-telemetry-from-development-test-and-production"></a>Separación de la telemetría de desarrollo, prueba y producción
 
@@ -51,7 +51,7 @@ Establezca la clave en un método de inicialización, como global.aspx.cs en un 
 En este ejemplo, las ikeys para los distintos recursos se colocan en diferentes versiones del archivo de configuración web. Si cambia el archivo de configuración web (algo que se puede hacer como parte del script de lanzamiento), se intercambiará el recurso de destino.
 
 ### <a name="web-pages"></a>Páginas web
-La iKey también se usa en las páginas web de su aplicación, en el [script que obtuvo desde la hoja Inicio rápido](../../azure-monitor/app/javascript.md). En vez de codificarla literalmente en el script, genérela desde el estado del servidor. Por ejemplo, en una aplicación ASP.NET:
+La clave de instrumentación también se usa en las páginas web de la aplicación, en el [script que obtuvo desde la hoja Inicio rápido](../../azure-monitor/app/javascript.md). En vez de codificarla literalmente en el script, genérela desde el estado del servidor. Por ejemplo, en una aplicación ASP.NET:
 
 *JavaScript en Razor*
 
@@ -81,7 +81,7 @@ En el [portal.azure.com](https://portal.azure.com), agregue un recurso de Applic
 
 El recurso tarda unos segundos en crearse. Verá una alerta cuando esté listo.
 
-(Puede escribir un [script de PowerShell](../../azure-monitor/app/powershell-script-create-resource.md) para crear un recurso  automáticamente.)
+(Puede escribir un [script de PowerShell](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource#creating-a-resource-automatically) para crear un recurso  automáticamente.)
 
 ### <a name="getting-the-instrumentation-key"></a>Obtención de la clave de instrumentación
 La clave de instrumentación identifica al recurso que ha creado. 
@@ -134,7 +134,7 @@ Hay diferentes métodos de establecer la propiedad de versión de la aplicación
     Para permitir que MSBuild genere números de versión, establezca la versión como `1.0.*` en AssemblyReference.cs.
 
 ## <a name="version-and-release-tracking"></a>Versión y seguimiento de versiones
-Para realizar el seguimiento de la versión de la aplicación, asegúrese de que `buildinfo.config` lo genera el proceso de Microsoft Build Engine. En su archivo .csproj, agregue:  
+Para realizar el seguimiento de la versión de la aplicación, asegúrese de que `buildinfo.config` lo genera el proceso de Microsoft Build Engine. En el archivo `.csproj`, agregue lo siguiente:  
 
 ```XML
 
@@ -145,7 +145,7 @@ Para realizar el seguimiento de la versión de la aplicación, asegúrese de que
 
 Cuando tenga la información de la compilación, el módulo web de Application Insights agregará automáticamente la **versión de la aplicación** como una propiedad a cada elemento de telemetría. Esto le permite filtrar por versión al realizar [búsquedas de diagnósticos](../../azure-monitor/app/diagnostic-search.md) o al [explorar métricas](../../azure-monitor/app/metrics-explorer.md).
 
-Sin embargo, tenga en cuenta que el número de versión de la compilación solo lo genera Microsoft Build Engine, no la compilación de desarrollador de Visual Studio.
+Tenga en cuenta, sin embargo, que el número de versión de la compilación solo lo genera Microsoft Build Engine, no la compilación de desarrollador de Visual Studio.
 
 ### <a name="release-annotations"></a>Anotaciones de la versión
 Si usa Azure DevOps, puede [obtener un marcador de anotación](../../azure-monitor/app/annotations.md) agregado a los gráficos, siempre que publique una nueva versión. La siguiente imagen muestra cómo aparece este marcador.

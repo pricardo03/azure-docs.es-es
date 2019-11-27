@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 1eef7b6505c4800acbe8aa69cf6f17eecc503aed
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 6bf8c8690977ef1036c853d8c1c01a3a366b50df
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796017"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74011476"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Introducción al portal para desarrolladores de Azure API Management
 
@@ -27,7 +27,7 @@ En este artículo se describen las diferencias entre las versiones autohospedada
 
 > [!WARNING]
 > El nuevo portal para desarrolladores se está implementando actualmente en los servicios de API Management.
-> Si el servicio se ha creado recientemente o es uno de nivel de desarrollador, ya debería tener la versión más reciente. De lo contrario, podría experimentar problemas (por ejemplo, con la funcionalidad de publicación). El lanzamiento de características se completará el lunes 11 de noviembre de 2019.
+> Si el servicio se ha creado recientemente o es uno de nivel de desarrollador, ya debería tener la versión más reciente. De lo contrario, podría experimentar problemas (por ejemplo, con la funcionalidad de publicación). Se espera que el lanzamiento de la característica esté completo el viernes 22 de noviembre de 2019.
 >
 > [Obtenga información sobre cómo migrar desde la versión preliminar a la versión disponible con carácter general](#preview-to-ga) del portal para desarrolladores.
 

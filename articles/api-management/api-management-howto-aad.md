@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 6116ece6035b326440108c1f2b2effd1b6bb9258
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 5d2b43599c1e1f95f505d7987675e5fd40810fa4
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072542"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012957"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Autorización de las cuentas de desarrollador mediante Azure Active Directory en Azure API Management
 
@@ -98,7 +98,17 @@ Después de agregar un grupo externo de Azure AD, puede revisar y configurar sus
  
 Los usuarios de la instancia de Azure AD configurada ya pueden iniciar sesión en el portal para desarrolladores. Pueden ver los grupos para los que tengan visibilidad y suscribirse a ellos.
 
-## <a name="a-idlog_in_to_dev_portalsign-in-to-the-developer-portal-by-using-an-azure-ad-account"></a><a id="log_in_to_dev_portal"/>Inicio de sesión en el portal para desarrolladores con una cuenta de Azure AD
+## <a name="a-idlog_in_to_dev_portal-developer-portal---add-azure-ad-account-authentication"></a><a id="log_in_to_dev_portal"/> Portal para desarrolladores: incorporación de autenticación de cuenta de Azure AD
+
+En el portal para desarrolladores, el inicio de sesión con AAD es posible con el widget **OAuth buttons**. El widget ya está incluido en la página de inicio de sesión del contenido predeterminado del portal para desarrolladores.
+
+![Widget de botones de AAD](./media/api-management-howto-aad/portal-oauth-widget.png)
+
+Aunque se creará automáticamente una nueva cuenta cada vez que un nuevo usuario inicie sesión con AAD, puede considerar la idea de agregar el mismo widget a la página de registro.
+
+## <a name="legacy-developer-portal---how-to-sign-in-with-azure-ad"></a>Portal para desarrolladores heredado: registro con Azure AD
+
+[!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
 Para iniciar sesión en el portal para desarrolladores mediante una cuenta de Azure AD que ha configurado en las secciones anteriores:
 

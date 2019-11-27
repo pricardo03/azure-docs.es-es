@@ -9,12 +9,12 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: a02e690e344678b512503f8c3beb57023a838ac0
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: c4ce0d4ecd64273bcb3226b4b543ba378aad538c
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686662"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74078950"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configuración de redes virtuales y firewalls de Azure Storage
 
@@ -358,14 +358,14 @@ Puede administrar las reglas de red IP para las cuentas de almacenamiento a trav
 
 ## <a name="exceptions"></a>Excepciones
 
-Las reglas de red ayudan a crear un entorno seguro para las conexiones entre las aplicaciones y los datos para la mayoría de los escenarios. Sin embargo, algunas aplicaciones usan servicios que no se pueden aislar de forma exclusiva a través de las reglas de red virtual o de dirección IP. Pero estos servicios se deben conceder al almacenamiento para habilitar toda la funcionalidad de la aplicación. En tales situaciones, puede usar la configuración ***permitir servicios de Microsoft de confianza…*** para habilitar el acceso a los datos, registros o análisis.
+Las reglas de red ayudan a crear un entorno seguro para las conexiones entre las aplicaciones y los datos para la mayoría de los escenarios. Sin embargo, algunas aplicaciones dependen de servicios de Azure que no se pueden aislar de forma exclusiva a través de las reglas de red virtual o de dirección IP. Pero estos servicios se deben conceder al almacenamiento para habilitar toda la funcionalidad de la aplicación. En tales situaciones, puede usar la opción ***Permitir servicios de Microsoft de confianza…*** para habilitar el acceso de dichos servicios a los datos, registros o análisis.
 
 ### <a name="trusted-microsoft-services"></a>Servicios de Microsoft de confianza
 
-Algunos servicios de Microsoft funcionan desde redes que no se pueden incluir en las reglas de red. Puede conceder a un subconjunto de estos servicios de Microsoft de confianza el acceso a la cuenta de almacenamiento, a la vez que mantiene las reglas de red para otras aplicaciones. Estos servicios de confianza pueden usar la autenticación sólida para conectarse a su cuenta de almacenamiento de forma segura. Habilitamos dos tipos de acceso de confianza para los servicios de Microsoft.
+Algunos servicios de Microsoft funcionan desde redes que no se pueden incluir en las reglas de red. Puede conceder a un subconjunto de estos servicios de Microsoft de confianza el acceso a la cuenta de almacenamiento, a la vez que mantiene las reglas de red para otras aplicaciones. Estos servicios de confianza usarán una autenticación sólida para conectarse a su cuenta de almacenamiento de forma segura. Hemos habilitado dos modos de acceso de confianza para los servicios de Microsoft.
 
 - Los recursos de algunos servicios, **cuando están registrados en su suscripción**, pueden acceder a su cuenta de almacenamiento **de la misma suscripción** para ciertas operaciones, como la escritura de registros o la realización de copias de seguridad.
-- A los recursos de algunos servicios se les puede conceder acceso explícito a su cuenta de almacenamiento mediante la [**asignación de un rol de RBAC**](storage-auth-aad.md#assign-rbac-roles-for-access-rights) a la instancia del recurso.
+- A los recursos de algunos servicios se les puede conceder acceso explícito a su cuenta de almacenamiento mediante la **asignación de un rol de RBAC** a la identidad administrada que le asigna el sistema.
 
 
 Al habilitar la opción **Allow trusted Microsoft services...** (Permitir servicios de Microsoft de confianza), se concede acceso a los recursos de los siguientes servicios registrados en la misma suscripción que la cuenta de almacenamiento para un conjunto limitado de operaciones, tal como se describe:
@@ -383,15 +383,15 @@ Al habilitar la opción **Allow trusted Microsoft services...** (Permitir servic
 | Conexión a Azure         | Microsoft.Network          | Almacenamiento y análisis de los registros de tráfico de red. [Más información](/azure/network-watcher/network-watcher-packet-capture-overview). |
 | Azure Site Recovery      | Microsoft.SiteRecovery     | Habilite la replicación para la recuperación ante desastres de máquinas virtuales de IaaS de Azure al usar la caché habilitada para firewall, el origen o las cuentas de almacenamiento de destino.  [Más información](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication). |
 
-La opción **Allow trusted Microsoft services...** (Permitir servicios de Microsoft de confianza) permite que una instancia concreta de los servicios siguientes acceda a la cuenta de almacenamiento, si asigna explícitamente un rol de RBAC a la [identidad administrada asignada por el sistema](../../active-directory/managed-identities-azure-resources/overview.md) en la instancia de ese recurso.
+La opción **Permitir servicios de Microsoft de confianza...** también permite que una instancia concreta de los servicios siguientes acceda a la cuenta de almacenamiento, si se [asigna explícitamente un rol de RBAC](storage-auth-aad.md#assign-rbac-roles-for-access-rights) a la [identidad administrada que el sistema ha asignado](../../active-directory/managed-identities-azure-resources/overview.md) para la instancia de ese recurso. En ese caso, el ámbito de acceso de la instancia corresponde al rol de RBAC que se asigna a la identidad administrada.
 
 | Servicio                        | Nombre del proveedor de recursos          | Propósito                            |
 | :----------------------------- | :------------------------------ | :--------------------------------- |
 | Azure Data Factory             | Microsoft.DataFactory/factories | Permite el acceso a las cuentas de almacenamiento a través del tiempo de ejecución de ADF. |
-| Azure Logic Apps               | Microsoft.Logic/workflows       | Permite a las aplicaciones lógicas acceder a las cuentas de almacenamiento. [Más información](/azure/logic-apps/create-managed-service-identity#authenticate-access-with-managed-identity.md). |
+| Azure Logic Apps               | Microsoft.Logic/workflows       | Permite a las aplicaciones lógicas acceder a las cuentas de almacenamiento. [Más información](/azure/logic-apps/create-managed-service-identity#authenticate-access-with-managed-identity). |
 | Servicio Azure Machine Learning | Microsoft.MachineLearningServices | Las áreas de trabajo autorizadas de Azure Machine Learning escriben los resultados del experimento, los modelos y los registros en Blob Storage. [Más información](/azure/machine-learning/service/how-to-enable-virtual-network#use-a-storage-account-for-your-workspace). | 
 | Azure SQL Data Warehouse       | Microsoft.Sql                   | Permite importar y exportar los datos de instancias de SQL Database específicas mediante PolyBase. [Más información](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview). |
-| Azure Stream Analytics         | Microsoft.StreamAnalytics       | Permite que los datos de un trabajo de streaming se escriban en Blob Storage. Esta funcionalidad actualmente está en su versión preliminar. [Más información](/azure/stream-analytics/blob-output-managed-identity.md). |
+| Azure Stream Analytics         | Microsoft.StreamAnalytics       | Permite que los datos de un trabajo de streaming se escriban en Blob Storage. Esta funcionalidad actualmente está en su versión preliminar. [Más información](/azure/stream-analytics/blob-output-managed-identity). |
 
 
 ### <a name="storage-analytics-data-access"></a>Acceso a datos de análisis de almacenamiento

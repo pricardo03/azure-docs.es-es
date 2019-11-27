@@ -7,17 +7,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 11/12/2019
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 178628db11b95fbd345e94111ebf15809da3fc35
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 55abdab6a427547ee8bd498500deee94b8f67453
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684301"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954738"
 ---
 # <a name="configure-self-hosted-ir-as-a-proxy-for-azure-ssis-ir-in-adf"></a>Configuración del entorno de ejecución de integración autohospedado como un proxy para Azure-SSIS IR en Azure Data Factory
 En este artículo se describe cómo ejecutar paquetes de SQL Server Integration Services (SSIS) en Azure-SSIS Integration Runtime (IR) en Azure Data Factory (ADF) con el modo de entorno de ejecución de integración autohospedado configurado como proxy.  Esta característica permite acceder a los datos locales sin necesidad de [unir la instancia de Azure-SSIS IR a una red virtual](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network).  Esto resulta útil cuando la red corporativa tiene una directiva de configuración o restrictiva demasiado compleja para que pueda insertar la instancia de Azure-SSIS IR en ella.
@@ -87,10 +87,10 @@ Las segundas tareas de almacenamiento provisional que se ejecutan en Azure-SSIS 
 
 ## <a name="current-limitations"></a>Limitaciones actuales
 
-- Actualmente solo se admiten administradores de conexiones de OLEDB o de archivo plano y orígenes de OLEDB y de archivo plano. 
+- Actualmente solo se admiten tareas de flujo de datos con administradores de conexiones de ODBC, OLEDB o archivos planos y orígenes de ODBC, OLEDB y archivos planos. 
 - Solo se admiten actualmente los servicios vinculados de Azure Blob Storage configurados con la autenticación de **clave de cuenta**/**URI SAS**/**entidad de servicio**.
 - Actualmente solo se admite el entorno de ejecución de integración autohospedado aprovisionado en el mismo ADF en el que se ha aprovisionado la instancia de Azure-SSIS IR.
-- No se admite el uso de parámetros o variables de SSIS dentro de las propiedades de los orígenes ni de los administradores de conexiones de OLEDB o de archivo plano.
+- En este momento no se admite el uso de parámetros o variables de SSIS dentro de las propiedades de orígenes y administradores de conexiones de ODBC, OLEDB o archivos planos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Cuando configure el entorno de ejecución de integración autohospedado como un proxy para Azure-SSIS IR, puede implementar y ejecutar los paquetes para acceder a los datos locales como actividades de ejecución de paquetes SSIS en las canalizaciones de ADF; consulte [Ejecución de un paquete de SSIS mediante la actividad de ejecución de paquete de SSIS en las canalizaciones de Azure Data Factory](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity).

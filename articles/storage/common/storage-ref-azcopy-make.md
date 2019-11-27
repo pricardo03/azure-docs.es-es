@@ -8,12 +8,12 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: ebed5c8dbe5001e9beab17bdbff41610277143b2
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 67d685684c5227377a0f8a7e822a06e785a69d89
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72514695"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034042"
 ---
 # <a name="azcopy-make"></a>azcopy make
 
@@ -26,6 +26,13 @@ Crea un contenedor o recurso compartido de archivos representado por la direcci�
 ```azcopy
 azcopy make [resourceURL] [flags]
 ```
+
+## <a name="related-conceptual-articles"></a>Artículos conceptuales relacionados
+
+- [Introducción a AzCopy](storage-use-azcopy-v10.md)
+- [Transferencia de datos con AzCopy y Blob Storage](storage-use-azcopy-blobs.md)
+- [Transferencia de datos con AzCopy y File Storage](storage-use-azcopy-files.md)
+- [Configurar, optimizar y solucionar problemas de AzCopy](storage-use-azcopy-configure.md)
 
 ## <a name="examples"></a>Ejemplos
 

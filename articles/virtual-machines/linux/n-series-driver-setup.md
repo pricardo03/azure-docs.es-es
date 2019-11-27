@@ -1,5 +1,5 @@
 ---
-title: Instalación de controladores de GPU de la serie N de Azure para Linux | Microsoft Docs
+title: Instalación de controladores de GPU de la serie N de Azure para Linux
 description: Instalación de controladores de GPU de NVIDIA para máquinas virtuales de la serie N que se ejecutan en Linux en Azure
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3abc221295a90dfbf7e46e3bd5bff1c8c0937162
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: 6ebc991d54ef902eb653cf2d99b2f74f18551568
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035007"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035621"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Instalación de controladores de GPU de NVIDIA en máquinas virtuales de la serie N con Linux
 

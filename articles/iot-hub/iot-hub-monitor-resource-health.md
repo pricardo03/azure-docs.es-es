@@ -6,14 +6,14 @@ manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 02/27/2019
+ms.date: 11/11/2019
 ms.author: kgremban
-ms.openlocfilehash: 6dea1add1e329cfc894068732898a856a69c9b4c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f801abc40caf273c28a0c01dedf9735f5198c2af
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66166208"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73929701"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Supervisión del mantenimiento de Azure IoT Hub y diagnóstico de problemas rápidamente
 
@@ -345,7 +345,7 @@ En este caso, no se calcula `durationMs` dado que es posible que el reloj de IoT
 
 | Propiedad | Escriba | DESCRIPCIÓN |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
-| **messageSize** | Entero | Tamaño del mensaje de dispositivo a nube en bytes. |
+| **messageSize** | Integer | Tamaño del mensaje de dispositivo a nube en bytes. |
 | **deviceId** | Cadena de caracteres alfanuméricos ASCII de 7 bits. | Identidad del dispositivo |
 | **callerLocalTimeUtc** | Marca de tiempo UTC | Hora de creación del mensaje según el reloj local del dispositivo. |
 | **calleeLocalTimeUtc** | Marca de tiempo UTC | Hora de llegada del mensaje a la puerta de enlace de IoT Hub según el reloj del lado de servicio de IoT Hub. |
@@ -414,6 +414,54 @@ En la sección `properties`, este registro contiene información adicional sobre
 | **endpointName** | Cadena | Nombre del punto de conexión de enrutamiento. |
 | **endpointType** | Cadena | Tipo del punto de conexión de enrutamiento. |
 | **parentSpanId** | Cadena | El valor de [span-id](https://w3c.github.io/trace-context/#parent-id) del mensaje principal, que, en este caso, sería el seguimiento de mensajes de entrada de IoT Hub. |
+
+#### <a name="configurations"></a>Configurations
+
+Los registros de configuración de IoT Hub realizan el seguimiento de los eventos y errores del conjunto de características de administración automática de dispositivos.
+
+```json
+{
+    "records":
+    [
+         {
+             "time": "2019-09-24T17:21:52Z",
+             "resourceId": "Resource Id",
+             "operationName": "ReadManyConfigurations",
+             "category": "Configurations",
+             "resultType": "",
+             "resultDescription": "",
+             "level": "Information",
+             "durationMs": "17",
+             "properties": "{\"configurationId\":\"\",\"sdkVersion\":\"2018-06-30\",\"messageSize\":\"0\",\"statusCode\":null}",
+             "location": "southcentralus"
+         }
+    ]
+}
+```
+
+### <a name="device-streams-preview"></a>Flujos de dispositivos (versión preliminar)
+
+La categoría de flujos de dispositivos realiza el seguimiento de las interacciones de solicitud y respuesta enviadas a dispositivos individuales.
+
+```json
+{
+    "records":
+    [
+         {
+             "time": "2019-09-19T11:12:04Z",
+             "resourceId": "Resource Id",
+             "operationName": "invoke",
+             "category": "DeviceStreams",
+             "resultType": "",
+             "resultDescription": "",    
+             "level": "Information",
+             "durationMs": "74",
+             "properties": "{\"deviceId\":\"myDevice\",\"moduleId\":\"myModule\",\"sdkVersion\":\"2019-05-01-preview\",\"requestSize\":\"3\",\"responseSize\":\"5\",\"statusCode\":null,\"requestName\":\"myRequest\",\"direction\":\"c2d\"}",
+             "location": "Central US"
+         }
+    ]
+}
+```
 
 ### <a name="read-logs-from-azure-event-hubs"></a>Lectura de registros de Azure Event Hubs
 

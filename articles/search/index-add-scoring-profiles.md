@@ -1,5 +1,5 @@
 ---
-title: Incorporación de perfiles de puntuación para impulsar los documentos pertinentes en los resultados de la búsqueda
+title: Aumento del rango de búsqueda mediante perfiles de puntuación
 titleSuffix: Azure Cognitive Search
 description: Potencie las puntuaciones de clasificación de búsqueda en los resultados de búsqueda de Azure Cognitive Search mediante la incorporación de perfiles de puntuación.
 manager: nitinme
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 2b92f8031a0d35696447f8ab796d24c504d57457
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 60442ab101423d0a91fa35a7a12a0b930417af71
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790121"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113606"
 ---
 # <a name="add-scoring-profiles-to-an-azure-cognitive-search-index"></a>Incorporación de perfiles de puntuación a un índice de Azure Cognitive Search
 

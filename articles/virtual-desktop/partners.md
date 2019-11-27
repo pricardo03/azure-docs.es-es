@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 11/05/2019
+ms.date: 11/14/2019
 ms.author: helohr
-ms.openlocfilehash: cf344d6c551ecd3d301d79c29efe9e7adb7f8d83
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: c482291e665656bf16f28cd114a9cb8141ae77c3
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73646879"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084028"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Integraciones de partners de Windows Virtual Desktop
 
@@ -133,6 +133,16 @@ Nerdio amplía el valor de Windows Virtual Desktop al facilitar el aprovisionami
 - [Consultar el resumen de la solución conjunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3p0Mh).
 - [Ir al sitio web del asociado](https://getnerdio.com/windows-virtual-desktop/).
 
+## <a name="numecent"></a>Numecent
+
+![Logotipo de Numecent](./media/partners/numecent.png)
+
+Numecent es un proveedor de servicios de valor añadido de Windows Virtual Desktop que reduce significativamente el total de costos operativos mediante la incorporación y migración rápidas de aplicaciones de Windows complicadas o incompatibles en entornos de Windows Virtual Desktop. Numecent también minimiza la cantidad de configuración que los usuarios han de hacer, reduce las actualizaciones de aplicaciones y simplifica los procesos complejos. Dado que Numecent Cloudpaging admite sin problemas más aplicaciones que cualquier otra herramienta de entrega de aplicaciones, reduce el tiempo y las cargas de trabajo de TI en entornos con un conjunto de aplicaciones diverso. 
+
+Cuando se usa con Windows Virtual Desktop, Cloudpaging reduce aún más los costos al completar el ciclo de vida de los activos de software desde la implementación hasta la actualización, la medición y la eliminación de aplicaciones. Cloudpaging simplifica la administración de imágenes al aprovisionar dinámicamente las aplicaciones según sea necesario en tiempo real en las implementaciones de Windows Virtual Desktop. Cloudpaging ayuda a las aplicaciones a ejecutarse sin intervención ni administración a través de las actualizaciones periódicas de Windows 10. Cloudpaging también reduce el costo de las licencias de aplicaciones costosas, ya que permite una implementación y un uso más eficientes de estas aplicaciones. 
+
+- [Ir al sitio web del asociado](https://www.numecent.com/partners/cloudpaging-for-windows-applications-windows-virtual-desktop/).
+
 ## <a name="policypak"></a>PolicyPak
 
 ![Logotipo de PolicyPak](./media/partners/policypak.png)
@@ -147,21 +157,22 @@ Los principales casos de uso para PolicyPak son la eliminación de derechos de a
 
 ![Logotipo de PrinterLogic](./media/partners/printerlogic.png)
 
-PrinterLogic es una plataforma de proveedor de servicios de valor añadido de Windows Virtual Desktop que capacita a los profesionales de TI para eliminar todos los servidores de impresión y ofrecer una infraestructura de impresión sin servidor de alta disponibilidad. PrinterLogic extiende el valor de Windows Virtual Desktop y Azure facilitando la administración e implementación de objetos de impresora de forma centralizada en cualquier sistema operativo de punto de conexión o impresora.   
+PrinterLogic es una plataforma de proveedor de servicios de valor añadido de Windows Virtual Desktop que capacita a los profesionales de TI para eliminar todos los servidores de impresión y ofrecer una infraestructura de impresión sin servidor de alta disponibilidad. PrinterLogic extiende el valor de Windows Virtual Desktop y Azure facilitando la administración e implementación de objetos de impresora de forma centralizada en cualquier sistema operativo de punto de conexión o impresora. 
 
-Disponible como SaaS o como pila web en su propia nube privada, la plataforma PrinterLogic garantiza que los usuarios siempre tengan las impresoras adecuadas que necesitan en sus sesiones virtuales en función del identificador de usuario, el nombre de dispositivo o la ubicación. Esta funcionalidad se complementa por medio de un completo conjunto de características de administración de impresión empresariales como los informes y el seguimiento de impresión, la impresión móvil y la impresión de la versión de notificación segura. 
+Disponible como SaaS o como pila web en su propia nube privada, la plataforma PrinterLogic garantiza que los usuarios siempre tengan las impresoras adecuadas que necesitan en sus sesiones virtuales en función del identificador de usuario, el nombre de dispositivo o la ubicación. Esta funcionalidad se complementa por medio de un completo conjunto de características de administración de impresión empresariales como los informes y el seguimiento de impresión, la impresión móvil y la impresión de la versión de notificación segura. 
 
 - [Ir al sitio web del asociado](https://www.printerlogic.com).
 
-## <a name="numecent"></a>Numecent
+## <a name="printix"></a>Printix
 
-![Logotipo de Numecent](./media/partners/numecent.png)
+![Logotipo de Printix](./media/partners/printix.png)
 
-Numecent es un proveedor de servicios de valor añadido de Windows Virtual Desktop que reduce significativamente el total de costos operativos mediante la incorporación y migración rápidas de aplicaciones de Windows complicadas o incompatibles en entornos de Windows Virtual Desktop. Numecent también minimiza la cantidad de configuración que los usuarios han de hacer, reduce las actualizaciones de aplicaciones y simplifica los procesos complejos. Dado que Numecent Cloudpaging admite sin problemas más aplicaciones que cualquier otra herramienta de entrega de aplicaciones, reduce el tiempo y las cargas de trabajo de TI en entornos con un conjunto de aplicaciones diverso. 
+Printix es un proveedor de servicios de valor añadido de escritorio virtual de Windows que automatiza la conexión del usuario a los recursos de impresión de la oficina. Como la pieza que falta en la migración de Azure de los clientes, Printix es el servicio más rentable disponible para quitar la infraestructura y las tareas de TI asociadas a la compatibilidad y la optimización del flujo de trabajo de impresión para todos los usuarios, independientemente de su ubicación.
 
-Cuando se usa con Windows Virtual Desktop, Cloudpaging reduce aún más los costos al completar el ciclo de vida de los activos de software desde la implementación hasta la actualización, la medición y la eliminación de aplicaciones. Cloudpaging simplifica la administración de imágenes al aprovisionar dinámicamente las aplicaciones según sea necesario en tiempo real en las implementaciones de Windows Virtual Desktop. Cloudpaging ayuda a las aplicaciones a ejecutarse sin intervención ni administración a través de las actualizaciones periódicas de Windows 10. Cloudpaging también reduce el costo de las licencias de aplicaciones costosas, ya que permite una implementación y un uso más eficientes de estas aplicaciones. 
+La impresión es una tarea fundamental en todas las oficinas y pequeñas empresas. Con el fin de aprovechar al máximo Windows Virtual Desktop y ofrecer una experiencia excelente al usuario, es esencial asegurarse de que los usuarios pueden conectarse a las impresoras con un esfuerzo mínimo y la máxima fiabilidad. Con Printix, puede sacar el máximo partido de Windows Virtual Desktop a través del inicio de sesión único (SSO), la configuración silenciosa, las actualizaciones regulares y la supervisión continua del entorno de impresión.
 
-- [Ir al sitio web del asociado](https://www.numecent.com/partners/cloudpaging-for-windows-applications-windows-virtual-desktop/).
+- [Consultar el resumen de la solución conjunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4aiK2)
+- [Ir al sitio web del partner](https://www.printix.net/printix-for-windows-virtual-desktop)
 
 ## <a name="rdpsoft"></a>RDPSoft
 

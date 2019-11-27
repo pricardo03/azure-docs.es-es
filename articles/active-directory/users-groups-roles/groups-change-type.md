@@ -1,26 +1,25 @@
 ---
-title: Cambio del tipo de pertenencia de un grupo estático a uno dinámico en Azure Active Directory | Microsoft Docs
+title: 'Cambio de la pertenencia a un grupo estático a dinámico: Azure AD | Microsoft Docs'
 description: Creación de reglas de pertenencia para rellenar automáticamente grupos y creación de una referencia de regla.
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
-editor: ''
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd753ca4994975302a0bc6fede61964f80196d7c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 34451fcc4597f77464e5e9566613e21e9fecdbc6
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60472078"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74027307"
 ---
 # <a name="change-static-group-membership-to-dynamic-in-azure-active-directory"></a>Cambio de la pertenencia de un grupo estático a dinámico en Azure Active Directory
 

@@ -1,5 +1,5 @@
 ---
-title: 'Visualización de los datos de telemetría de simulación de dispositivos con Time Series Insights: Azure | Microsoft Docs'
+title: 'Visualización de datos de telemetría simulados con Time Series Insights: Azure | Microsoft Docs'
 description: Obtenga información sobre cómo configurar el entorno de Time Series Insights para explorar y analizar los datos de telemetría que genere el acelerador de soluciones de simulación de dispositivos.
 author: dominicbetts
 manager: timlt
@@ -8,12 +8,12 @@ ms.date: 08/20/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: 5d20adc11e0d679e12fd060e719593a50180db8e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2bbd7911a40d6a256d478e2533ad2469b8fd6973
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65834825"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889339"
 ---
 # <a name="use-time-series-insights-to-visualize-telemetry-sent-from-the-device-simulation-solution-accelerator"></a>Use Time Series Insights para visualizar los datos de telemetría que se envíen desde el acelerador de soluciones de simulación de dispositivos
 
@@ -67,8 +67,8 @@ Los pasos siguientes utilizan la CLI de Azure en Azure Cloud Shell para crear el
     | ------- | ----- |
     | Nombre del entorno | En la captura de pantalla siguiente se usa el nombre **Contoso-TSI**. Elija un nombre exclusivo de su elección al completar este paso. |
     | Subscription | Seleccione la suscripción de Azure en el menú desplegable. |
-    | Grupos de recursos | **contoso-simulation**. Use el nombre del acelerador de la soluciones. |
-    | Ubicación | En este ejemplo se utiliza **Este de EE. UU.** . Cree el entorno en la misma región que el acelerador de simulación de dispositivos. |
+    | Resource group | **contoso-simulation**. Use el nombre del acelerador de la soluciones. |
+    | Location | En este ejemplo se utiliza **Este de EE. UU.** . Cree el entorno en la misma región que el acelerador de simulación de dispositivos. |
     | SKU |**S1** |
     | Capacity | **1** |
 
@@ -98,7 +98,7 @@ Cree un origen del evento para conectarlo a IoT Hub. Asegúrese de utilizar el g
     | Configuración | Valor |
     | ------- | ----- |
     | Nombre de origen de eventos | En la captura de pantalla siguiente se usa el nombre **contoso-iot-hub**. Use un nombre exclusivo de su elección al completar este paso. |
-    | Origen | **IoT Hub** |
+    | Source | **IoT Hub** |
     | Opción de importación | **Usar IoT Hub desde suscripciones disponibles** |
     | Id. de suscripción | Seleccione la suscripción de Azure en el menú desplegable. |
     | Nombre de IoT Hub | **contoso-simulation7d894**. Use el nombre de su IoT Hub en el acelerador de soluciones del simulador de dispositivos. |

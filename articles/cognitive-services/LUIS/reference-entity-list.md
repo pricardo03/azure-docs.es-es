@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 09/29/2019
+ms.date: 11/11/2019
 ms.author: diberry
-ms.openlocfilehash: 1757faf8ab2be0b62956b6939ee068929f9275a4
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 1307e6cfca0debe7623eb775c69527a74584033d
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695253"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74011989"
 ---
 # <a name="list-entity"></a>Entidad de lista 
 
@@ -28,11 +28,36 @@ Una entidad de lista no está relacionada con el aprendizaje automático. Es una
 * Son un conjunto conocido.
 * No cambian a menudo. Si necesita cambiar la lista a menudo o desea que la lista se expanda automáticamente, es mejor una entidad sencilla potenciada con una lista de frases. 
 * El conjunto no excede los [límites](luis-boundaries.md) máximos de LUIS para este tipo de entidad.
-* El texto de la expresión es una coincidencia exacta con un sinónimo o el nombre canónico. LUIS no usa la lista más allá de las coincidencias exactas de texto. La coincidencia aproximada, la falta de distinción entre mayúsculas y minúsculas, la lematización, los plurales y otras variaciones no se resuelven con una entidad de lista. Para administrar las variaciones, considere el uso de un [patrón](luis-concept-patterns.md#syntax-to-mark-optional-text-in-a-template-utterance) con la sintaxis de texto opcional.
+* El texto de la expresión es una coincidencia exacta con un sinónimo o el nombre canónico. LUIS no usa la lista más allá de las coincidencias exactas de texto. La coincidencia aproximada, la falta de distinción entre mayúsculas y minúsculas, la lematización, los plurales y otras variaciones no se resuelven con una entidad de lista. Para administrar las variaciones, considere el uso de un [patrón](reference-pattern-syntax.md#syntax-to-mark-optional-text-in-a-template-utterance) con la sintaxis de texto opcional.
 
 ![entidad de lista](./media/luis-concept-entities/list-entity.png)
 
-## <a name="example-json"></a>Ejemplo de JSON
+## <a name="example-json-to-import-into-list-entity"></a>Ejemplo. JSON para importarse en la entidad de lista
+
+  Puede importar los valores en una entidad de lista existente con el formato .json siguiente:
+
+  ```JSON
+  [
+      {
+          "canonicalForm": "Blue",
+          "list": [
+              "navy",
+              "royal",
+              "baby"
+          ]
+      },
+      {
+          "canonicalForm": "Green",
+          "list": [
+              "kelly",
+              "forest",
+              "avacado"
+          ]
+      }
+  ]  
+  ```
+
+## <a name="example-json-response"></a>Ejemplo de respuesta JSON
 
 Imagine que la aplicación tiene una lista, denominada `Cities`, que permite variaciones de nombres de ciudades, incluidos la ciudad del aeropuerto (Sea-tac), el código del aeropuerto (SEA), el código postal (98101) y el código de área telefónica (206).
 

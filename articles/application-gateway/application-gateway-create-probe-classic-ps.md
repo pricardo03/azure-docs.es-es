@@ -1,26 +1,18 @@
 ---
-title: Creación de un sondeo personalizado para Azure Application Gateway mediante PowerShell clásico | Microsoft Docs
+title: 'Creación de un sondeo personalizado mediante PowerShell: Azure Application Gateway'
 description: Aprenda a crear un sondeo personalizado para la puerta de enlace de aplicaciones mediante PowerShell en el modelo de implementación clásica.
 services: application-gateway
-documentationcenter: na
 author: vhorne
-manager: jpconnock
-editor: ''
-tags: azure-service-management
-ms.assetid: 338a7be1-835c-48e9-a072-95662dc30f5e
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/26/2017
+ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: 01c1768f60da98206f0dfd041745428256f545fc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5f05c6d82a00e78a4237019128db541eb63f20ba
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "58861886"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012248"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>Creación de un sondeo personalizado para la Puerta de enlace de aplicaciones de Azure (clásica) mediante PowerShell
 

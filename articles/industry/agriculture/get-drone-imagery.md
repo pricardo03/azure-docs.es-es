@@ -5,16 +5,18 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 598248a0efb3322a9c22a5e38e4986f5ba5142ab
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 6ee4391369744f966ce273697e5ba9e7f0590edd
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73797469"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890992"
 ---
 # <a name="get-drone-imagery-from-drone-partners"></a>Obtención de imágenes con drones de asociados
 
-En este artículo se describe cómo puede incorporar los datos del ortomosaico de las imágenes con drones de los asociados al centro de datos de Azure FarmBeats. Actualmente se admiten los siguientes asociados de imágenes:  
+En este artículo se describe cómo puede incorporar los datos del ortomosaico de las imágenes con drones de los asociados al centro de datos de Azure FarmBeats. Un ortomosaico es una imagen o ilustración aérea que se corrige geométricamente y se ensambla a partir de los datos recopilados por los drones.
+
+Actualmente se admiten los siguientes partners de imágenes.
 
   ![Proyecto de FarmBeats](./media/get-drone-imagery-from-drone-partner/drone-partner-1.png)
 
@@ -53,7 +55,7 @@ Para ello, siga los pasos que se describen a continuación:
 
     ```azurepowershell-interactive 
 
-    PS> ./generateCredentials.ps1   
+    ./generateCredentials.ps1   
 
     ```
 

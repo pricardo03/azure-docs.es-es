@@ -1,5 +1,5 @@
 ---
-title: Reprotección de máquinas virtuales de Azure a un sitio local durante la recuperación ante desastres de máquinas virtuales de VMware y servidores físicos | Microsoft Docs
+title: Reprotección de máquinas virtuales o servidores físicos de VMware en un entorno local con Azure Site Recovery
 description: Después de la conmutación por error en Azure durante la recuperación ante desastres de máquinas virtuales de VMware y servidores físicos, sepa cómo realizar la conmutación por recuperación desde Azure al sitio local.
 author: mayurigupta13
 manager: rochakm
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: mayg
-ms.openlocfilehash: cf1ccdf953781ca9b9bd17152f2cf32677997d12
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: f3d5f38d940b99c6a74d784f174c91d4127353dc
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791801"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961341"
 ---
 # <a name="reprotect-and-fail-back-machines-to-an-on-premises-site-after-failover-to-azure"></a>Reprotección y conmutación por recuperación de máquinas en un sitio local después de la conmutación por error en Azure
 

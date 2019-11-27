@@ -8,12 +8,12 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 058506110a8ac4b11f272406a854f72062a1c90d
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: e7998ea0753ba7ab5d97142c34dc9e333f8b4f5d
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72514708"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034078"
 ---
 # <a name="azcopy-login"></a>azcopy login
 
@@ -35,6 +35,13 @@ Consulte los ejemplos para más información.
 ```azcopy
 azcopy login [flags]
 ```
+
+## <a name="related-conceptual-articles"></a>Artículos conceptuales relacionados
+
+- [Introducción a AzCopy](storage-use-azcopy-v10.md)
+- [Transferencia de datos con AzCopy y Blob Storage](storage-use-azcopy-blobs.md)
+- [Transferencia de datos con AzCopy y File Storage](storage-use-azcopy-files.md)
+- [Configurar, optimizar y solucionar problemas de AzCopy](storage-use-azcopy-configure.md)
 
 ## <a name="examples"></a>Ejemplos
 

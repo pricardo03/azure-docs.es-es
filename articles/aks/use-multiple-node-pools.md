@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/9/2019
 ms.author: mlearned
-ms.openlocfilehash: 3495d62c7447ba50d9ffe48e68b15dbe36867ac9
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 9c8bae879c5e28914981eec34afb0759dd963004
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73662589"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73928976"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Creación y administración de varios grupos de nodos para un clúster de Azure Kubernetes Service (AKS)
 
@@ -36,7 +36,7 @@ Se aplican las siguientes limitaciones cuando crea y administra clústeres de AK
 * El clúster de AKS debe usar el equilibrador de carga de SKU estándar para usar varios grupos de nodos; la característica no es compatible con los equilibradores de carga de SKU básica.
 * El clúster de AKS debe usar conjuntos de escalado de máquinas virtuales para los nodos.
 * No pueden agregar ni eliminar grupos de nodos mediante una plantilla de Resource Manager como sucede con la mayoría de las operaciones. En su lugar, [use una plantilla de Resource Manager independiente](#manage-node-pools-using-a-resource-manager-template) para realizar cambios en los grupos de nodos de un clúster de AKS.
-* El nombre de un grupo de nodos debe empezar con una letra minúscula y solo puede contener caracteres alfanuméricos. En el caso de los grupos de nodos de Linux, la longitud debe estar comprendida entre 1 y 12 caracteres. Para los grupos de nodos de Windows, la longitud debe estar comprendida entre 1 y 6 caracteres.
+* El nombre de un grupo de nodos solo puede contener caracteres alfanuméricos en minúsculas y debe comenzar con una letra minúscula. En el caso de los grupos de nodos de Linux, la longitud debe estar comprendida entre 1 y 12 caracteres. Para los grupos de nodos de Windows, la longitud debe estar comprendida entre 1 y 6 caracteres.
 * El clúster de AKS puede tener un máximo de ocho grupos de nodos.
 * El clúster de AKS puede tener un máximo de 400 nodos distribuidos entre esos ocho grupos de nodos.
 * Todos los grupos de nodos deben residir en la misma subred.
@@ -46,7 +46,7 @@ Se aplican las siguientes limitaciones cuando crea y administra clústeres de AK
 Para empezar, cree un clúster de AKS con un grupo de nodo único. El ejemplo siguiente usa el comando [az group create][az-group-create] para crear un grupo de recursos denominado *myResourceGroup* en la región *eastus*. Se crea un clúster de AKS denominado *myAKSCluster* mediante el comando [az aks create][az-aks-create]. Se emplea la línea de código *--kubernetes-version* con el valor *1.13.10* para mostrar cómo actualizar un grupo de nodos en un paso posterior. Puede especificar cualquier [versión admitida de Kubernetes][supported-versions].
 
 > [!NOTE]
-> No se admite la SKU *Básico* del equilibrador de carga cuando se usan varios grupos de nodos. De forma predeterminada, los clústeres de AKS se crean con el equilibrador de carga de SKU *Estándar* de la CLI de Azure y Azure Portal.
+> **No se admite** la SKU *Básico* del equilibrador de carga cuando se usan varios grupos de nodos. De forma predeterminada, los clústeres de AKS se crean con el equilibrador de carga de SKU *Estándar* de la CLI de Azure y Azure Portal.
 
 ```azurecli-interactive
 # Create a resource group in East US
@@ -191,28 +191,34 @@ Se recomienda que actualice todos los grupos de nodos de un clúster de AKS a la
 ## <a name="upgrade-a-cluster-control-plane-with-multiple-node-pools"></a>Actualización del plano de control de un clúster con varios grupos de nodos
 
 > [!NOTE]
-> Kubernetes usa el esquema de versiones estándar de [Versionamiento Semántico](https://semver.org/). El número de versión se expresa como *x.y.z*, donde *x* es la versión principal, *y* es la versión secundaria y *z* es la versión de revisión. Por ejemplo, en la versión *1.12.6*, 1 es la versión principal, 12 es la versión secundaria y 6 es la versión de revisión. La versión de Kubernetes del plano de control, así como el grupo de nodos inicial, se establece durante la creación del clúster. Todos los grupos de nodos adicionales tienen establecida la versión de Kubernetes cuando se agregan al clúster. Las versiones de Kubernetes pueden diferir entre los grupos de nodos, así como entre un grupo de nodos y el plano de control, pero se aplican las restricciones siguientes:
-> 
-> * La versión del grupo de nodos debe tener la misma versión principal que el plano de control.
-> * La versión del grupo de nodos puede ser una versión secundaria anterior a la versión del plano de control.
-> * La versión del grupo de nodos puede ser cualquier versión de revisión, siempre y cuando se sigan las otras dos restricciones.
+> Kubernetes usa el esquema de versiones estándar de [Versionamiento Semántico](https://semver.org/). El número de versión se expresa como *x.y.z*, donde *x* es la versión principal, *y* es la versión secundaria y *z* es la versión de revisión. Por ejemplo, en la versión *1.12.6*, 1 es la versión principal, 12 es la versión secundaria y 6 es la versión de revisión. Las versiones de Kubernetes del plano de control y del grupo de nodos inicial se establecen durante la creación del clúster. Todos los grupos de nodos adicionales tienen establecida la versión de Kubernetes cuando se agregan al clúster. Las versiones de Kubernetes pueden diferir entre los grupos de nodos, así como entre un grupo de nodos y el plano de control.
 
-Un clúster de AKS tiene dos objetos de recursos de clúster con las versiones de Kubernetes asociadas. La primera es una versión de Kubernetes del plano de control. El segundo es un grupo de agentes con una versión de Kubernetes. Un plano de control se asigna a uno o varios grupos de nodos. El comportamiento de una operación de actualización depende del comando de la CLI de Azure que se use.
+Un clúster de AKS tiene dos objetos de recursos de clúster con las versiones de Kubernetes asociadas.
 
-* La actualización del plano de control requiere el uso de `az aks upgrade`
-   * Esto actualiza la versión del plano de control y todos los grupos de nodos del clúster.
-   * Al pasar `az aks upgrade` con la marca `--control-plane-only` solo se actualiza el plano de control de clúster y no se cambia ninguno de los grupos de nodos asociados.
-* La actualización de grupos de nodos individuales requiere el uso de `az aks nodepool upgrade`.
-   * Esto actualiza solo el grupo de nodos de destino con la versión de Kubernetes especificada.
+1. Un plano de control del clúster con una versión de Kubernetes.
+2. Un grupo de nodos con una versión de Kubernetes.
 
-La relación entre las versiones de Kubernetes que contienen los grupos de nodos también debe seguir un conjunto de reglas.
+Un plano de control se asigna a uno o varios grupos de nodos. El comportamiento de una operación de actualización depende del comando de la CLI de Azure que se use.
 
-* No se puede cambiar a la versión anterior de Kubernetes en el plano de control ni en el grupo de nodos.
-* Si no se especifica una versión de Kubernetes del grupo de nodos, el comportamiento depende del cliente que se use. Para la declaración de la plantilla de Resource Manager, se usa la versión existente definida para el grupo de nodos. Si no se establece ninguna, se usa la versión del plano de control.
-* Se puede actualizar o escalar un plano de control o un grupo de nodos en un momento dado, pero no se pueden enviar ambas operaciones simultáneamente.
-* La versión de Kubernetes de un grupo de nodos debe tener la misma versión principal que el plano de control.
-* La versión de Kubernetes de un grupo de nodos puede ser, como máximo, dos (2) versiones secundarias menores que la del plano de control, nunca mayor.
-* Un grupo de nodos puede ser de cualquier versión de revisión de Kubernetes menor o igual que la del plano de control, nunca mayor.
+La actualización de un plano de control de AKS requiere el uso de `az aks upgrade`. De este modo se actualiza la versión del plano de control y todos los grupos de nodos del clúster. 
+
+Si se emite el comando `az aks upgrade` con la marca `--control-plane-only`, solo se actualiza el plano de control del clúster. No se cambia ninguno de los grupos de nodos asociados del clúster.
+
+La actualización de los grupos de nodos individuales requiere el uso de `az aks nodepool upgrade`. Esto actualiza solo el grupo de nodos de destino con la versión de Kubernetes especificada.
+
+### <a name="validation-rules-for-upgrades"></a>Reglas de validación para actualizaciones
+
+Las actualizaciones válidas para las versiones de Kubernetes del plano de control o de los grupos de nodos de un clúster se validan mediante los siguientes conjuntos de reglas.
+
+* Reglas para establecer las versiones válidas a las que se puede actualizar:
+   * La versión del grupo de nodos debe tener la misma versión *principal* que el plano de control.
+   * La versión del grupo de nodos puede ser dos versiones *secundarias* anterior a la versión del plano de control.
+   * La versión del grupo de nodos puede ser dos versiones de *revisión* anterior a la versión del plano de control.
+
+* Reglas para enviar una operación de actualización:
+   * No se puede cambiar a la versión anterior de Kubernetes en el plano de control ni en el grupo de nodos.
+   * Si no se especifica una versión de Kubernetes del grupo de nodos, el comportamiento depende del cliente que se use. La declaración en las plantillas de Resource Manager revierte a versión existente definida para el grupo de nodos. Si no se establece ninguna, se usa la versión del plano de control para la reversión.
+   * Puede actualizar o escalar un plano de control o un grupo de nodos en un momento dado, pero no puede enviar simultáneamente varias operaciones en un único recurso de plano de control o de grupo de nodos.
 
 ## <a name="scale-a-node-pool-manually"></a>Escalado manual de un grupo de nodos
 
@@ -450,11 +456,11 @@ Solo los pods a los que se ha aplicado este valor taint se pueden programar en l
 
 ## <a name="manage-node-pools-using-a-resource-manager-template"></a>Administración de grupos de nodos con una plantilla de Resource Manager
 
-Cuando usa una plantilla de Azure Resource Manager para crear y administrar recursos, normalmente puede actualizar la configuración de la plantilla y volver a implementarla para actualizar el recurso. Con grupos de nodos de AKS, el perfil del grupo de nodos inicial no se podrá actualizar una vez que se haya creado el clúster de AKS. Este comportamiento significa que no se puede actualizar una plantilla de Resource Manager existente, realizar un cambio en los grupos de nodos y volver a implementar. En su lugar, debe crear una plantilla de Resource Manager independiente que actualice solo los grupos de agentes de un clúster de AKS existente.
+Cuando usa una plantilla de Azure Resource Manager para crear y administrar recursos, normalmente puede actualizar la configuración de la plantilla y volver a implementarla para actualizar el recurso. Con grupos de nodos de AKS, el perfil del grupo de nodos inicial no se podrá actualizar una vez que se haya creado el clúster de AKS. Este comportamiento significa que no se puede actualizar una plantilla de Resource Manager existente, realizar un cambio en los grupos de nodos y volver a implementar. En su lugar, debe crear una plantilla de Resource Manager independiente que actualice solo los grupos de nodos de un clúster de AKS existente.
 
 Cree una plantilla como `aks-agentpools.json` y pegue el siguiente ejemplo de manifiesto. Esta plantilla de ejemplo configura los valores siguientes:
 
-* Actualiza el grupo de agentes de *Linux* denominado *myagentpool* para que ejecute tres nodos.
+* Actualiza el grupo de nodos de *Linux* denominado *myagentpool* para que ejecute tres nodos.
 * Establece los nodos en el grupo de nodos para ejecutar la versión de Kubernetes *1.13.10*.
 * Define el tamaño del nodo como *Standard_DS2_v2*.
 

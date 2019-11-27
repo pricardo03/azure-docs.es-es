@@ -4,20 +4,20 @@ description: Describe la estructura y las propiedades de plantillas de Azure Res
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 11/12/2019
 ms.author: tomfitz
-ms.openlocfilehash: e5ef3dcd7c2eec08237d5eb31fb95a0e450d9ac9
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: 8fe665ed9a9c580f5ce7d7bf43e71b9672a2bc5b
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286724"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075029"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager
 
 En este artículo se describe la estructura de una plantilla de Azure Resource Manager. Presenta las distintas secciones de una plantilla y las propiedades que están disponibles en esas secciones.
 
-Este artículo está destinado a los usuarios que ya estén familiarizados con las plantillas de Resource Manager. Proporciona información detallada sobre la estructura de la plantilla. Si desea ver una presentación sobre cómo crear una plantilla, consulte [Plantillas de Azure Resource Manager](template-deployment-overview.md).
+Este artículo está destinado a los usuarios que ya estén familiarizados con las plantillas de Resource Manager. Proporciona información detallada sobre la estructura de la plantilla. Para obtener un tutorial paso a paso que le guíe en el proceso de creación de una plantilla, consulte [Tutorial: Creación e implementación de la primera plantilla de Azure Resource Manager](template-tutorial-create-first-template.md).
 
 ## <a name="template-format"></a>Formato de plantilla
 
@@ -286,6 +286,31 @@ Para ejemplos sobre cómo usar las salidas, consulte [Salidas en una plantilla d
 
 Tiene unas cuantas opciones para agregar comentarios y metadatos a la plantilla.
 
+### <a name="comments"></a>Comentarios
+
+Para los comentarios en línea, puede usar `//` o `/* ... */`, pero esta sintaxis no funciona con todas las herramientas. No puede usar el editor de plantillas del portal para trabajar en plantillas con comentarios insertados. Si agrega este estilo de comentarios, asegúrese de que las herramientas que use admitan los comentarios JSON insertados.
+
+> [!NOTE]
+> Para implementar plantillas con comentarios mediante la CLI de Azure, debe usar el modificador `--handle-extended-json-format`.
+
+```json
+{
+  "type": "Microsoft.Compute/virtualMachines",
+  "name": "[variables('vmName')]", // to customize name, change it in variables
+  "location": "[parameters('location')]", //defaults to resource group location
+  "apiVersion": "2018-10-01",
+  "dependsOn": [ /* storage account and network interface must be deployed first */
+    "[resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]",
+    "[resourceId('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
+  ],
+```
+
+En Visual Studio Code, la [extensión de herramientas de Azure Resource Manager](./resource-manager-tools-vs-code.md#install-resource-manager-tools-extension) puede detectar automáticamente una plantilla de Resource Manager y cambiar el modo de lenguaje en consecuencia. Si ve **Plantilla de Azure Resource Manager** en la esquina inferior derecha de VS Code, puede usar los comentarios en línea. Los comentarios insertados ya no están marcados como no válidos.
+
+![Modo de plantillas de Azure Resource Manager en Visual Studio Code](./media/resource-group-authoring-templates/resource-manager-template-editor-mode.png)
+
+### <a name="metadata"></a>Metadatos
+
 Puede agregar un objeto `metadata` prácticamente en cualquier parte de la plantilla. Resource Manager omite el objeto, pero el editor JSON puede advertirle de que la propiedad no es válida. En el objeto, defina las propiedades que necesita.
 
 ```json
@@ -354,31 +379,6 @@ Para **outputs**, agregue un objeto de metadatos para el valor de salida.
 ```
 
 No se puede agregar un objeto de metadatos a las funciones definidas por el usuario.
-
-Para los comentarios en línea, puede usar `//` o `/* ... */`, pero esta sintaxis no funciona con todas las herramientas. No puede usar el editor de plantillas del portal para trabajar en plantillas con comentarios insertados. Si agrega este estilo de comentarios, asegúrese de que las herramientas que use admitan los comentarios JSON insertados.
-
-> [!NOTE]
-> Para implementar plantillas con comentarios mediante la CLI de Azure, debe usar el modificador `--handle-extended-json-format`.
-
-```json
-{
-  "type": "Microsoft.Compute/virtualMachines",
-  "name": "[variables('vmName')]", // to customize name, change it in variables
-  "location": "[parameters('location')]", //defaults to resource group location
-  "apiVersion": "2018-10-01",
-  "dependsOn": [ /* storage account and network interface must be deployed first */
-    "[resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]",
-    "[resourceId('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
-  ],
-```
-
-En VS Code, puede establecer el modo de lenguaje en JSON con comentarios. Los comentarios insertados ya no están marcados como no válidos. Para cambiar el modo:
-
-1. Abra la selección del modo de lenguaje (presione Ctrl + K M)
-
-1. Seleccione **JSON with Comments** (JSON con comentarios).
-
-   ![Seleccionar modo de lenguaje](./media/resource-group-authoring-templates/select-json-comments.png)
 
 ## <a name="multi-line-strings"></a>Cadenas de varias líneas
 

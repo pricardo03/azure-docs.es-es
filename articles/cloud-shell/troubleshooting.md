@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
-ms.openlocfilehash: 91dc87cd6bda93663fb4b4eae3d498ae56ba4b3e
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 5af73e166f3caa4997851ae4b17d8377550bf40a
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72169591"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961548"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Solución de problemas y limitaciones de Azure Cloud Shell
 
@@ -86,6 +86,12 @@ Entre las resoluciones conocidas de problemas en Azure Cloud Shell se incluyen l
 ## <a name="general-limitations"></a>Limitaciones generales
 
 Azure Cloud Shell tiene las limitaciones conocidas siguientes:
+
+### <a name="quota-limitations"></a>Limitaciones de cuota
+
+Azure Cloud Shell tiene un límite de 20 usuarios simultáneos por inquilino y región. Si intenta abrir más sesiones simultáneas que el límite, verá el error "Tenant User Over Quota" (Usuario inquilino por encima de la cuota). Si tiene una necesidad legítima de tener un mayor número de sesiones abiertas que estas (por ejemplo, para sesiones de aprendizaje), póngase en contacto con el servicio de soporte técnico antes del uso previsto para solicitar un aumento de la cuota.
+
+Cloud Shell se proporciona como servicio gratuito y está diseñado para configurar el entorno de Azure, no como una plataforma de computación de uso general. Un uso automatizado excesivo se puede considerar como incumplimiento de los términos de servicio de Azure y podría dar lugar a que se bloquee el acceso a Cloud Shell.
 
 ### <a name="system-state-and-persistence"></a>Persistencia y estado del sistema
 
@@ -160,7 +166,7 @@ Azure Cloud Shell se toma en serio sus datos, los datos capturados y almacenados
 ### <a name="export"></a>Exportación
 Para poder **exportar** la configuración de usuario, Cloud Shell guarda automáticamente datos tales como el shell, el tamaño y el tipo de fuente preferidos ejecutando los comandos siguientes.
 
-1. [![](https://shell.azure.com/images/launchcloudshell.png "Inicio de Azure Cloud Shell")](https://shell.azure.com)
+1. [![](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)
 2. Ejecute los siguientes comandos en Bash o PowerShell:
 
 Bash:
@@ -183,7 +189,7 @@ Para poder **eliminar** la configuración de usuario, Cloud Shell guarda automá
 >[!Note]
 > Si elimina la configuración de usuario, el recurso compartido real de Azure Files no se eliminará. Vaya a Azure Files para completar esa acción.
 
-1. [![](https://shell.azure.com/images/launchcloudshell.png "Inicio de Azure Cloud Shell")](https://shell.azure.com)
+1. [![](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)
 2. Ejecute los siguientes comandos en Bash o PowerShell:
 
 Bash:

@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 0b40c15956dc03209dcab49641af66bc8ae24187
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 6e3118814eacc6cc63b5db59bd7f1877c1d347dc
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845325"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73927301"
 ---
 # <a name="configure-a-high-availability-connection-from-on-premises-to-cloudsimple-vpn-gateway"></a>Configuración de una conexión de alta disponibilidad desde la ubicación local a la puerta de enlace VPN de CloudSimple
 
@@ -21,37 +21,14 @@ Los administradores de red pueden configurar una conexión VPN de sitio a sitio 
 
 En esta guía se presentan los pasos para configurar el firewall local para una conexión VPN de sitio a sitio de alta disponibilidad por IPsec. Los pasos detallados son específicos para cada tipo de firewall local. Como ejemplo, en esta guía se presentan los pasos para dos tipos de firewall: Cisco ASA y Palo Alto Networks.
 
-## <a name="default-configuration-for-cloudsimple-vpn-gateways"></a>Configuración predeterminada de las puertas de enlace VPN de CloudSimple
-
-De forma predeterminada, las puertas de enlace VPN de CloudSimple se configuran en el modo IKEv1 junto con los siguientes atributos de fase 1 y fase 2. Si quiere usar distintos atributos de VPN o usar IKEv2 en lugar de IKEV1, <a href="https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest" target="_blank">abra una solicitud de soporte técnico</a>.
-
-### <a name="phase-1"></a>Fase 1
-
-| Parámetro | Valor |
-|-----------|-------|
-| Versión de IKE | IKEv1 |
-| Cifrado | AES 256 |
-| Algoritmo hash| SHA 256 |
-| Grupo Diffie Hellman (grupo DH) | 1 |
-| Tiempo de vida | 86 400 segundos |
-| Tamaño de datos | 4 GB |
-
-### <a name="phase-2"></a>Fase 2
-
-| Parámetro | Valor |
-|-----------|-------|
-| Cifrado | AES 256 |
-| Algoritmo hash| SHA 256 |
-| Grupo de confidencialidad directa total (grupo PFS) | None |
-| Tiempo de vida | 28.800 segundos |
-| Tamaño de datos | 4 GB |
-
 ## <a name="before-you-begin"></a>Antes de empezar
 
 Complete las tareas siguientes antes de configurar el firewall local.
 
 1. Compruebe que la organización ha [aprovisionado](create-nodes.md) los nodos necesarios y ha creado al menos una nube privada de CloudSimple.
 2. [Configure una puerta de enlace VPN de sitio a sitio](vpn-gateway.md#set-up-a-site-to-site-vpn-gateway) entre la red local y la nube privada de CloudSimple.
+
+Consulte [Información general sobre puertas de enlace VPN](cloudsimple-vpn-gateways.md) para conocer las propuestas admitidas de fase 1 y fase 2.
 
 ## <a name="configure-on-premises-cisco-asa-firewall"></a>Configuración del firewall de Cisco ASA local
 
@@ -120,7 +97,7 @@ access-list ipsec-acl extended permit ip object AZ_inside object CS_inside
 
 ### <a name="5-configure-the-transform-set"></a>5. Configuración del conjunto de transformaciones
 
-Configure el conjunto de transformaciones (TS), que debe incluir la palabra clave ```ikev1```. Los atributos hash y de cifrado especificados en el conjunto de transformaciones deben coincidir con los parámetros que se muestran en la [Configuración predeterminada de las puertas de enlace VPN de CloudSimple](#default-configuration-for-cloudsimple-vpn-gateways).
+Configure el conjunto de transformaciones (TS), que debe incluir la palabra clave ```ikev1```. Los atributos hash y de cifrado especificados en el conjunto de transformaciones deben coincidir con los parámetros que se muestran en la [Configuración predeterminada de las puertas de enlace VPN de CloudSimple](cloudsimple-vpn-gateways.md).
 
 ```
 crypto ipsec ikev1 transform-set devtest39 esp-aes-256 esp-sha-hmac 
@@ -311,7 +288,7 @@ Configuración de VPN sitio a sitio por IPsec en Cisco ASA versión 8.4 y poster
 
 Configuración de Adaptive Security Virtual Appliance (ASAv) en Azure:
 
-<a href="https://www.cisco.com/c/en/us/td/docs/security/asa/asa96/asav/quick-start-book/asav-96-qsg/asav-azure.html" target="_blank">Cisco Adaptive Security Virtual Appliance (ASAv) Quick Start Guide</a> (Guía de inicio rápido de Adaptive Security Virtual Appliance [ASAv])
+<a href="https://www.cisco.com/c/en/us/td/docs/security/asa/asa96/asav/quick-start-book/asav-96-qsg/asav-azure.html" target="_blank">Guía de inicio rápido de Cisco Adaptive Security Virtual Appliance [ASAv]</a>
 
 Configuración de una VPN de sitio a sitio con id. de proxy en Palo Alto:
 

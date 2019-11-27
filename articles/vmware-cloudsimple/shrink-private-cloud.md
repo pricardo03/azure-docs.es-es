@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 1ae2f87a3719853f4a91cb8ba801be6d578597d3
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 602dca105e91c55c591388a833a36e71f951da8b
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825680"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74108596"
 ---
 # <a name="shrink-a-cloudsimple-private-cloud"></a>Reducción de una nube privada de CloudSimple
 
@@ -24,7 +24,8 @@ CloudSimple ofrece la flexibilidad para reducir dinámicamente una nube privada.
 Las siguientes condiciones deben cumplirse para la reducción de una nube privada.  No se puede eliminar el clúster de administración (primer clúster) creado cuando se creó una nube privada.
 
 * Un clúster de vSphere debe tener tres nodos.  No se puede reducir un clúster con solo tres nodos.
-* El almacenamiento total consumido no debe exceder la capacidad total después de la reducción del clúster. 
+* El almacenamiento total consumido no debe exceder la capacidad total después de la reducción del clúster.
+* Compruebe si alguna de las reglas de Distributed Resource Scheduler (DRS) impiden vMotion de una máquina virtual.  Si las reglas están activas, deshabilítelas o elimínelas.  Entre las reglas de DRS se incluyen las reglas de afinidad de máquina virtual a host.
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
@@ -55,7 +56,8 @@ Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azur
 Se inicia la reducción de la nube privada.  Puede supervisar el progreso en las tareas.  El proceso de reducción puede tardar unas horas según los datos, que debe volver a sincronizarse en vSAN.
 
 > [!NOTE]
-> Si reduce una nube privada eliminando el último o el único clúster del centro de datos, el centro de datos no se eliminará.  
+> 1. Si reduce una nube privada eliminando el último o el único clúster del centro de datos, el centro de datos no se eliminará.
+> 2. Si se produce una infracción de las reglas de DRS, el nodo no se quitará del clúster y la descripción de la tarea mostrará que la eliminación de un nodo infringirá las reglas de DRS en el clúster.    
 
 
 ## <a name="next-steps"></a>Pasos siguientes

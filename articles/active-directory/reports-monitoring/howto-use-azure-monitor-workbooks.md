@@ -1,8 +1,8 @@
 ---
-title: Uso de los libros de Azure Monitor en informes de Azure Active Directory | Microsoft Docs
+title: Libros de Azure Monitor para informes | Microsoft Docs
 description: Aprenda a usar los libros de Azure Monitor en informes de Azure Active Directory.
 services: active-directory
-author: cawrites
+author: MarkusVi
 manager: daveba
 ms.assetid: 4066725c-c430-42b8-a75b-fe2360699b82
 ms.service: active-directory
@@ -11,17 +11,20 @@ ms.topic: conceptual
 ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/18/2019
-ms.author: chadam
+ms.date: 10/30/2019
+ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 9bea8da4f0d694be3a39a8f5dfaca8e54ce2773d
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 2e94d9f56a865999f9169650f621a6af892c27ae
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255663"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014375"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Uso de los libros de Azure Monitor en informes de Azure Active Directory
+
+> [!IMPORTANT]
+> Para optimizar las consultas subyacentes de este libro, haga clic en "Editar", haga clic en el icono Configuración y seleccione el área de trabajo en la que desea ejecutar estas consultas. De forma predeterminada, los libros seleccionarán todas las áreas de trabajo en las que se enrutan los registros de Azure AD. 
 
 Quiere:
 
@@ -31,7 +34,17 @@ Quiere:
 
 - Saber quién está utilizando las autenticaciones heredadas para iniciar sesión en su entorno. (Al [bloquear la autenticación heredada](../conditional-access/block-legacy-authentication.md), puede mejorar la protección del inquilino).
 
-Para ayudarle a resolver estas cuestiones, Active Directory proporciona los libros para la supervisión. Los [libros de Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks) combinan texto, consultas de análisis, métricas de Azure y parámetros en informes interactivos avanzados. 
+- ¿Necesita comprender el impacto de las directivas de acceso condicional en el inquilino?
+
+- ¿Desea tener la posibilidad de revisar las consultas del registro de inicio de sesión? El libro informa del número de usuarios a los que se ha concedido o denegado el acceso, así como de cuántos usuarios han omitido las directivas de acceso condicional al acceder a los recursos.
+
+- ¿Está interesado en desarrollar una comprensión más profunda? El libro proporciona detalles por condición, para que el impacto de una directiva se pueda contextualizar por condición, incluidas la plataforma del dispositivo, el estado del dispositivo, la aplicación cliente, el riesgo de inicio de sesión, la ubicación y la aplicación.
+
+- Obtenga información más detallada sobre las consultas del registro de inicio de sesión, el libro informa del número de usuarios a los que se ha concedido o denegado el acceso, así como de cuántos usuarios han omitido las directivas de acceso condicional al acceder a los recursos.
+
+- Para ayudarle a resolver estas cuestiones, Active Directory proporciona los libros para la supervisión. Los [libros de Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks) combinan texto, consultas de análisis, métricas de Azure y parámetros en informes interactivos avanzados.
+
+
 
 Este artículo:
 
@@ -57,13 +70,12 @@ Para utilizar los libros de Monitor, necesita:
     - Administrador global
 
 ## <a name="roles"></a>Roles
-Debe estar en uno de los roles siguientes y tener [acceso al área de trabajo subyacente de Log Analytics](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/manage-access#manage-access-using-azure-permissions) para administrar los libros:
+Debe estar en uno de los roles siguientes y tener [acceso al área de trabajo subyacente de Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-azure-permissions) para administrar los libros:
 -   Administrador global
 -   Administrador de seguridad
 -   Lector de seguridad
 -   Lector de informes
 -   Administrador de aplicaciones
-
 
 ## <a name="workbook-access"></a>Acceso a los libros 
 
@@ -71,16 +83,11 @@ Para acceder a los libros:
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 
-2. En el menú de navegación de la izquierda, seleccione **Azure Active Directory**.
+1. Vaya a **Azure Active Directory** > **Supervisión** > **Libros**. 
 
-3. En la sección **Supervisión**, seleccione **Workbooks**. 
+1. Seleccione un informe o una plantilla o, en la barra de herramientas, seleccione **Abrir**. 
 
-    ![Seleccionar Insights](./media/howto-use-azure-monitor-workbooks/41.png)
-
-4. Seleccione un informe o una plantilla o, en la barra de herramientas, seleccione **Abrir**. 
-
-    ![Seleccionar Abrir](./media/howto-use-azure-monitor-workbooks/42.png)
-
+![Búsqueda de los libros de Azure Monitor en Azure AD](./media/howto-use-azure-monitor-workbooks/azure-monitor-workbooks-in-azure-ad.png)
 
 ## <a name="sign-in-analysis"></a>Análisis de inicio de sesión
 
@@ -170,7 +177,43 @@ Para los inicios de sesión deshabilitados, obtendrá un desglose por el estado 
 ![Estado de acceso condicional](./media/howto-use-azure-monitor-workbooks/conditional-access-status.png)
 
 
+## <a name="conditional-access-insights"></a>Conditional Access Insights
 
+### <a name="overview"></a>Información general
+
+Los libros contienen consultas del registro de inicio de sesión que pueden ayudar a los administradores de TI a supervisar el impacto de las directivas de acceso condicional en el inquilino. Tiene la capacidad de informar sobre el número de usuarios a los que se les habría concedido o denegado el acceso. El libro contiene información sobre cuántos usuarios habrían omitido las directivas de acceso condicional en función de los atributos de los usuarios en el momento del inicio de sesión. Contiene detalles por condición, para que el impacto de una directiva se pueda contextualizar por condición, incluidas la plataforma del dispositivo, el estado del dispositivo, la aplicación cliente, el riesgo de inicio de sesión, la ubicación y la aplicación.
+
+### <a name="instructions"></a>Instrucciones 
+Para acceder al libro con la información de acceso condicional, seleccione el libro **Información de acceso condicional** en la sección Acceso condicional. Este libro muestra el impacto esperado de cada directiva de acceso condicional en el inquilino. Seleccione una o varias directivas de acceso condicional en la lista desplegable y restrinja el ámbito del libro; para ello, aplique los siguientes filtros: 
+
+- **Intervalo de tiempo**
+
+- **User**
+
+- **Aplicaciones**
+
+- **Vista de datos**
+
+![Estado de acceso condicional](./media/howto-use-azure-monitor-workbooks/access-insights.png)
+
+
+El Resumen de impacto muestra el número de usuarios o inicios de sesión para los que las directivas seleccionadas tenían un resultado determinado. Total es el número de usuarios o inicios de sesión para los que se evaluaron las directivas seleccionadas en el intervalo de tiempo seleccionado. Haga clic en un icono para filtrar los datos del libro por ese tipo de resultado. 
+
+![Estado de acceso condicional](./media/howto-use-azure-monitor-workbooks/impact-summary.png)
+
+Este libro también muestra el impacto de las directivas seleccionadas divididas por cada una de estas seis condiciones: 
+- **Estado del dispositivo**
+- **Plataforma del dispositivo**
+- **Aplicaciones cliente**
+- **Riesgo de inicio de sesión**
+- **Ubicación**
+- **Aplicaciones**
+
+![Estado de acceso condicional](./media/howto-use-azure-monitor-workbooks/device-platform.png)
+
+También puede investigar inicios de sesión individuales, filtrados por los parámetros seleccionados en el libro. Busque usuarios individuales, ordenados por frecuencia de inicio de sesión y consulte los eventos de inicio de sesión correspondientes. 
+
+![Estado de acceso condicional](./media/howto-use-azure-monitor-workbooks/filtered.png)
 
 
 
@@ -211,7 +254,7 @@ Para cada tendencia, va a obtener un desglose por aplicación y protocolo.
 
 ## <a name="sign-ins-failure-analysis"></a>Análisis de errores de inicio de sesión
 
-Use el libro **Análisis de errores de inicios de sesión** para solucionar los errores de lo siguiente:
+Use el libro **Análisis de errores de inicios de sesión** para solucionar errores en:
 
 - Inicios de sesión
 - Directivas de acceso condicional

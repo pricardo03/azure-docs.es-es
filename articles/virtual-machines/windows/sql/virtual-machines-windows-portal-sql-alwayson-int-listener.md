@@ -1,5 +1,5 @@
 ---
-title: Creación del agente de escucha de grupo de disponibilidad de SQL Server en Azure Virtual Machines | Microsoft Docs
+title: Configuración de escuchas del grupo de disponibilidad y del equilibrador de carga (Azure Portal)
 description: Instrucciones paso a paso para crear un agente de escucha en un grupo de disponibilidad AlwaysOn para SQL Server en Azure Virtual Machines
 services: virtual-machines
 documentationcenter: na
@@ -13,14 +13,15 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/16/2017
 ms.author: mikeray
-ms.openlocfilehash: c9c8379787619608421256120139f07c8dbd8d14
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.custom: seo-lt-2019
+ms.openlocfilehash: aefd7a55090da7f55404d6f551ab61268582ff5a
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102253"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039646"
 ---
-# <a name="configure-a-load-balancer-for-an-always-on-availability-group-in-azure"></a>Configuración de un equilibrador de carga para un grupo de disponibilidad AlwaysOn en Azure
+# <a name="configure-a-load-balancer-for-an-availability-group-on-azure-sql-server-vms"></a>Configuración de un equilibrador de carga para un grupo de disponibilidad en máquinas virtuales con SQL Server de Azure
 En este artículo se explica cómo puede crear un equilibrador de carga para un grupo de disponibilidad de SQL Server AlwaysOn en instancias de Azure Virtual Machines que se ejecutan con Azure Resource Manager. Cuando las instancias de SQL Server están implementadas en máquinas virtuales de Azure, los grupos de disponibilidad necesitan un equilibrador de carga. El equilibrador de carga almacena la dirección IP del agente de escucha del grupo de disponibilidad. Si un grupo de disponibilidad abarca varias regiones, cada región necesitará su propio equilibrador de carga.
 
 Para completar esta tarea, debe tener un grupo de disponibilidad de SQL Server implementado en instancias de Azure Virtual Machines que se estén ejecutando con Resource Manager. Las dos máquinas virtuales de SQL Server deben pertenecer al mismo conjunto de disponibilidad. Puede usar la [plantilla de Microsoft](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) para crear automáticamente el grupo de disponibilidad en Resource Manager. Esta plantilla crea automáticamente un equilibrador de carga interno. 

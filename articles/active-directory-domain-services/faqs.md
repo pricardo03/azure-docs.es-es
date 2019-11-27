@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/03/2019
 ms.author: iainfou
-ms.openlocfilehash: 4add98ae092359c6f070bfc93b69257894f44e48
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 61c9d887f1b193258161cd96ccfa3618e8371890
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596427"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74081020"
 ---
 # <a name="frequently-asked-questions-faqs"></a>Preguntas más frecuentes (P+F)
 
@@ -47,7 +47,7 @@ No se admiten redes virtuales clásicas para nuevas implementaciones. Los domini
 Sí. Azure AD Domain Services se puede habilitar en una red virtual de Azure Resource Manager. Ya no se admiten redes virtuales clásicas de Azure para cuando se crea un nuevo dominio administrado.
 
 ### <a name="can-i-migrate-my-existing-managed-domain-from-a-classic-virtual-network-to-a-resource-manager-virtual-network"></a>¿Puedo migrar mi dominio administrado existente de una red virtual clásica a una red virtual de Resource Manager?
-Sí, esta característica se encuentra en versión preliminar. Para obtener más información, consulte [Migración de Azure AD Domain Services desde el modelo de red virtual clásica a Resource Manager (versión preliminar)][migrate-from-classic-vnet.md]
+Sí, esta característica se encuentra en versión preliminar. Para más información, consulte [Migración de Azure AD Domain Services desde el modelo de red virtual clásica a Resource Manager (versión preliminar)](migrate-from-classic-vnet.md).
 
 ### <a name="can-i-enable-azure-ad-domain-services-in-an-azure-csp-cloud-solution-provider-subscription"></a>¿Puedo habilitar Azure AD Domain Services en una suscripción de Azure CSP (proveedor de soluciones en la nube)?
 Sí. Para obtener más información, consulte [cómo habilitar Azure AD Domain Services en las suscripciones de Azure CSP](csp.md).
@@ -62,7 +62,7 @@ El propio servicio no admite directamente este escenario. Su dominio administrad
 Sí. Para más información, consulte [cómo habilitar Azure AD Domain Services mediante PowerShell](powershell-create-instance.md).
 
 ### <a name="can-i-enable-azure-ad-domain-services-using-a-resource-manager-template"></a>¿Puedo habilitar Azure AD Domain Services mediante la plantilla de Resource Manager?
-No, por el momento no es posible habilita Azure AD Domain Services con una plantilla. Para obtener un enfoque de script, consulte [Cómo habilitar Azure ad Domain Services con PowerShell](powershell-create-instance.md).
+Sí, puede crear un dominio administrado de Azure AD Domain Services mediante una plantilla de Resource Manager. Se deben crear una entidad de servicio y un grupo de Azure AD para la administración mediante Azure Portal o Azure PowerShell antes de que se implemente la plantilla. Al crear un dominio administrado de Azure AD Domain Services en Azure Portal, existe la opción de exportar la plantilla para su uso en implementaciones adicionales. También hay una [plantilla de ejemplo en el repositorio de ejemplos de plantillas de GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-AAD-DomainServices).
 
 ### <a name="can-i-add-domain-controllers-to-an-azure-ad-domain-services-managed-domain"></a>¿Puedo agregar controladores de dominio a un dominio administrado de Servicios de dominio de Azure AD?
 No. El dominio de Servicios de dominio de Azure AD es un dominio administrado. No es necesario aprovisionar, configurar o administrar de otro modo controladores de dominio para este dominio. Microsoft proporciona estas actividades de administración como servicio. Por lo tanto, no podrá agregar controladores de dominio adicionales (ni de lectura y escritura ni de solo lectura) para el dominio administrado.

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 76ab6a229de14af1e3808326c62a7bdbbd188e81
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 1ddb947e9bcbdde655b5c83cffb67e8fc13d9d0e
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72941849"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048673"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Conexión de un aplicación cliente de Node.js genérica a una aplicación de Azure IoT Central (Node.js)
 
@@ -30,7 +30,9 @@ Necesitará lo siguiente para completar los pasos de este artículo:
 
 ## <a name="create-a-device-template"></a>Creación de una plantilla de dispositivo
 
-En la aplicación de Azure IoT Central, necesita una plantilla de dispositivo con los siguientes comandos, medidas, propiedades de dispositivo y configuraciones:
+En la aplicación de Azure IoT Central, necesita una plantilla de dispositivo con los siguientes comandos, medidas, propiedades de dispositivo y configuraciones.
+
+Para más información sobre nombres de propiedad válidos, consulte [Formato de etiquetas y propiedades](../../iot-hub/iot-hub-devguide-device-twins.md#tags-and-properties-format).
 
 ### <a name="telemetry-measurements"></a>Medidas de telemetría
 

@@ -1,5 +1,5 @@
 ---
-title: Extensión de máquina virtual del agente de Azure Network Watcher para Linux | Microsoft Docs
+title: Extensión de máquina virtual del agente de Azure Network Watcher para Linux
 description: Implemente el agente de Network Watcher en la máquina virtual Linux mediante una extensión de máquina virtual.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: b59e4c570032bdd3341dc7d519f23f4cd86984c7
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: c04b27ab4a8ea53e09ca3a133d6aef6457fe1526
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70084441"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073046"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-linux"></a>Extensión de máquina virtual del agente de Network Watcher para Linux
 

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 04/11/2019
+ms.date: 11/12/2019
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 21117e551642571d5b974e66d0769ed9906b9d50
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: 85905e31b9375bac7f813782cbc224a6e770b7ce
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018208"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013122"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>Incorporación de usuarios de colaboración B2B de Azure Active Directory en Azure Portal
 
@@ -45,14 +45,18 @@ Para agregar usuarios de colaboración B2B al directorio, siga estos pasos:
    > [!NOTE]
    > La opción **Nuevo usuario invitado** también está disponible en la página **Relaciones de organización**. En **Azure Active Directory**, en **Administrar**, seleccione **Relaciones de organización**.
 
-5. En **Nombre de usuario**, escriba la dirección de correo electrónico del usuario externo. Opcionalmente, puede incluir un mensaje de bienvenida. Por ejemplo:
-
-   ![Muestra dónde se encuentra el nuevo usuario invitado en la interfaz de usuario.](./media/add-users-administrator/InviteGuest.png) 
+5. En la página **Nuevo usuario**, seleccione **Invitar usuario** y, después, agregue la información del usuario invitado. 
 
     > [!NOTE]
     > No se admiten direcciones de correo electrónico de grupos; escriba la dirección de un usuario individual. Además, algunos proveedores de correo electrónico permiten a los usuarios agregar un signo más (+) y texto adicional a sus direcciones de correo electrónico, ya que ello sirve de ayuda a algunas funciones como el filtrado de la bandeja de entrada. Sin embargo, Azure AD no admite actualmente estos símbolos más (+) en las direcciones de correo electrónico. Para evitar problemas de entrega, omita el signo más y los caracteres siguientes hasta el símbolo @.
 
-6. Seleccione **Invitar** para enviar automáticamente la invitación al usuario invitado. 
+   - **Nombre**. Nombre y apellidos del nuevo usuario.
+   - **Dirección de correo (obligatorio)** . La dirección de correo del usuario invitado.
+   - **Mensaje personal (opcional)** Incluye un mensaje de bienvenida personal al usuario invitado.
+   - **Grupos**: Puede agregar al usuario invitado a uno o varios de los grupos existentes, o puede hacerlo después.
+   - **Rol del directorio**: Si necesita permisos administrativos de Azure AD para el usuario, puede agregarlos a un rol de Azure AD. 
+
+7. Seleccione **Invitar** para enviar automáticamente la invitación al usuario invitado. 
  
 Después de enviar la invitación, la cuenta de usuario se agrega automáticamente al directorio como invitado.
 

@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 6/1/2019
+ms.date: 11/15/2019
 ms.author: absha
-ms.openlocfilehash: d67a14b1cbd3fb352ee1c4b271945ab347ee7fed
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 38d86a9ed82c3a242364e788cce371f83575c1ea
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389971"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74108726"
 ---
 # <a name="application-gateway-configuration-overview"></a>Introducción a la configuración de Application Gateway
 
@@ -42,7 +42,7 @@ Además, Azure se reserva 5 direcciones IP en cada subred para uso interno: las 
 
 Ahora imagine una subred que tiene 27 instancias de Application Gateway y una dirección IP de front-end privada. En este caso, necesita 33 direcciones IP: 27 para las instancias de Application Gateway, 1 para la dirección IP de front-end privada y 5 para uso interno. Por lo tanto, necesita una subred de tamaño /26 o superior.
 
-Se recomienda que utilice un tamaño /28 como mínimo. Este tamaño le ofrece 11 direcciones IP utilizables. Si la carga de la aplicación requiere más de 10 direcciones IP, considere la posibilidad de usar un tamaño de subred /27 o/26.
+Se recomienda que utilice un tamaño /28 como mínimo. Este tamaño le ofrece 11 direcciones IP utilizables. Si la carga de la aplicación requiere más de 10 instancias de Application Gateway, considere la posibilidad de usar un tamaño de subred /27 o /26.
 
 #### <a name="network-security-groups-on-the-application-gateway-subnet"></a>Grupos de seguridad de red en la subred de Application Gateway
 
@@ -61,7 +61,7 @@ Los grupos de seguridad se admiten en Application Gateway. Sin embargo, hay vari
 
 En este escenario, puede usar grupos de seguridad de red en la subred de Application Gateway. Ponga las restricciones siguientes en la subred en este orden de prioridad:
 
-1. Permita el tráfico entrante desde una IP o un intervalo IP de origen a toda la subred de Application Gateway o a la dirección IP de front-end privada específica configurada. El grupo de seguridad de red no funciona en una dirección IP pública.
+1. Permita el tráfico entrante desde una IP o un intervalo IP de origen y el destino como toda la subred de Application Gateway o la dirección IP de front-end privada específica configurada. El grupo de seguridad de red no funciona en una dirección IP pública.
 2. Permita las solicitudes entrantes de todos los orígenes a los puertos 65503-65534 para la SKU de Application Gateway v1 y a los puertos 65200-65535 para la SKU v2 para la [comunicación de mantenimiento de back-end](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics). Este intervalo de puertos es necesario para la comunicación de la infraestructura de Azure. Estos puertos están protegidos (bloqueados) mediante certificados de Azure. Sin los certificados adecuados en vigor, las entidades externas no podrán iniciar cambios en esos puntos de conexión.
 3. Permitir sondeos entrantes de Azure Load Balancer (con la etiqueta *AzureLoadBalancer*) y el tráfico de red virtual entrante (con la etiqueta *VirtualNetwork*) en el [grupo de seguridad de red](https://docs.microsoft.com/azure/virtual-network/security-overview).
 4. Bloquear todo el tráfico entrante restante mediante una regla Denegar todo.
@@ -83,13 +83,13 @@ Las UDR en la subred de Application Gateway no son compatibles con la SKU v2. P
 
 Puede configurar la puerta de enlace de aplicaciones para que tenga una dirección IP pública, una dirección IP privada o ambas. Se necesita una dirección IP pública si hospeda un back-end al que los clientes deben acceder desde Internet mediante una IP virtual (VIP) accesible desde Internet. 
 
-No se necesita ninguna dirección IP pública para un punto de conexión interno que no está expuesto a Internet. Eso se conoce como un punto de conexión de *equilibrador de carga interno* (ILB). Un equilibrador de carga interno de puerta de enlace de aplicaciones es útil para aplicaciones de línea de negocio internas no expuestas a Internet. También es útil para los servicios y niveles de una aplicación de varios niveles dentro de un límite de seguridad que no están expuestos a Internet, pero que siguen necesitando distribución de carga round robin, permanencia de sesión o terminación SSL.
+No se necesita ninguna dirección IP pública para un punto de conexión interno que no está expuesto a Internet. Eso se conoce como un punto de conexión de *equilibrador de carga interno* (ILB) o una dirección IP de front-end privada. Un equilibrador de carga interno de puerta de enlace de aplicaciones es útil para aplicaciones de línea de negocio internas no expuestas a Internet. También es útil para los servicios y niveles de una aplicación de varios niveles dentro de un límite de seguridad que no están expuestos a Internet, pero que siguen necesitando distribución de carga round robin, permanencia de sesión o terminación SSL.
 
 Se admite solo 1 dirección IP pública o 1 dirección IP privada. Puede elegir la dirección IP de front-end cuando cree la puerta de enlace de aplicaciones.
 
-- Para una dirección IP pública, puede crear una nueva dirección IP pública o usar una ya existente en la misma ubicación que la puerta de enlace de aplicaciones. Si crea una nueva, el tipo de dirección IP que seleccione (estática o dinámica) no se podrá cambiar más adelante. Para más información, consulte esta comparación entre [direcciones IP públicas estáticas y dinámicas](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#static-versus-dynamic-public-ip-address).
+- Para una dirección IP pública, puede crear una nueva dirección IP pública o usar una ya existente en la misma ubicación que la puerta de enlace de aplicaciones. Para más información, consulte esta comparación entre [direcciones IP públicas estáticas y dinámicas](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#static-versus-dynamic-public-ip-address).
 
-- Para una dirección IP privada, puede especificar una dirección IP privada de la subred en la que se creó la puerta de enlace de aplicaciones. Si no especifica ninguna, se seleccionará automáticamente una dirección IP aleatoria de la subred. Para más información, consulte [Creación de una puerta de enlace de aplicaciones con un equilibrador de carga interno](https://docs.microsoft.com/azure/application-gateway/application-gateway-ilb-arm).
+- Para una dirección IP privada, puede especificar una dirección IP privada de la subred en la que se creó la puerta de enlace de aplicaciones. Si no especifica ninguna, se seleccionará automáticamente una dirección IP aleatoria de la subred. El tipo de dirección IP que seleccione (estática o dinámica) no se podrá cambiar más adelante. Para más información, consulte [Creación de una puerta de enlace de aplicaciones con un equilibrador de carga interno](https://docs.microsoft.com/azure/application-gateway/application-gateway-ilb-arm).
 
 Una dirección IP de front-end está asociada a un *cliente de escucha* que comprueba las solicitudes entrantes en esta dirección IP.
 
@@ -97,19 +97,19 @@ Una dirección IP de front-end está asociada a un *cliente de escucha* que comp
 
 Un cliente de escucha es una entidad lógica que comprueba las solicitudes de conexión entrantes mediante el puerto, protocolo, host y dirección IP. Al configurar el cliente de escucha, debe especificar valores que coincidan con los valores correspondientes de la solicitud entrante de la puerta de enlace.
 
-Cuando crea una puerta de enlace de aplicaciones mediante Azure Portal, también puede crear un cliente de escucha predeterminado eligiendo el protocolo y el puerto de este cliente. Puede elegir si habilita compatibilidad con HTTP2 en el cliente de escucha o no. Después de crear la puerta de enlace de aplicaciones, puede editar la configuración de ese cliente de escucha predeterminado (*appGatewayHttpListener*/*appGatewayHttpsListener*) o crear otros clientes nuevos.
+Cuando crea una puerta de enlace de aplicaciones mediante Azure Portal, también puede crear un cliente de escucha predeterminado eligiendo el protocolo y el puerto de este cliente. Puede elegir si habilita compatibilidad con HTTP2 en el cliente de escucha o no. Después de crear la puerta de enlace de aplicaciones, puede editar la configuración de ese cliente de escucha predeterminado (*appGatewayHttpListener*) o crear otros clientes nuevos.
 
 ### <a name="listener-type"></a>Tipo de cliente de escucha
 
 Cuando crea un nuevo cliente de escucha, puede elegir entre [*básico* y *multisitio*](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#types-of-listeners).
 
-- Si va a hospedar un único sitio detrás de una puerta de enlace de aplicaciones, elija básico. Aprenda a [crear una puerta de enlace de aplicaciones con un cliente de escucha básico](https://docs.microsoft.com/azure/application-gateway/quick-create-portal).
+- Si desea que se acepten todas las solicitudes (para cualquier dominio) y se reenvíen a los grupos de servidores back-end, elija básico. Aprenda a [crear una puerta de enlace de aplicaciones con un cliente de escucha básico](https://docs.microsoft.com/azure/application-gateway/quick-create-portal).
 
-- Si va a configurar más de una aplicación web o varios subdominios del mismo dominio primario en la misma instancia de la puerta de enlace de aplicaciones, elija el cliente de escucha multisitio. Para un cliente de escucha multisitio, también debe especificar un nombre de host. Esto se debe a que Application Gateway se basa en los encabezados de host HTTP 1.1 para hospedar más de un sitio web en la misma dirección IP pública y en el mismo puerto.
+- Si desea reenviar las solicitudes a diferentes grupos de servidores back-end en función del encabezado *host* o el nombre de host, elija un cliente de escucha multisitio; en este caso, también debe especificar un nombre de host que coincida con la solicitud entrante. Esto se debe a que Application Gateway se basa en los encabezados de host HTTP 1.1 para hospedar más de un sitio web en la misma dirección IP pública y en el mismo puerto.
 
 #### <a name="order-of-processing-listeners"></a>Orden de procesamiento de los clientes de escucha
 
-Para la SKU v1, los clientes de escucha se procesan en el orden en que aparecen. Si un cliente de escucha coincide con una solicitud entrante, el cliente de escucha procesa esa solicitud primero. Por tanto, configure clientes de escucha multisitio en vez de básicos para asegurarse de que el tráfico se enruta al back-end correcto.
+En el caso de la SKU v1, la correspondencia de las solicitudes se establece según el orden de las reglas y el tipo de cliente de escucha. Si una regla con un cliente de escucha básico está en primera posición según el orden, se procesa en primer lugar y acepta cualquier solicitud para esa combinación de puerto y dirección IP. Para evitar este comportamiento, configure las reglas con clientes de escucha multisitio en primer lugar e inserte la regla con el cliente de escucha básico en el último lugar de la lista.
 
 Para la SKU v2, los clientes de escucha multisitio se procesan antes que los básicos.
 
@@ -165,7 +165,7 @@ Para configurar una página de error personalizada global, consulte [Configuraci
 
 Puede centralizar la administración de certificados SSL y reducir la sobrecarga de cifrado y descifrado de una granja de servidores back-end. El control centralizado de SSL también le permite especificar una directiva SSL central que se adapte a los requisitos de seguridad. Puede elegir la directiva SSL *predeterminada*, *predefinida* o *personalizada*.
 
-Puede configurar la directiva SSL para controlar las versiones del protocolo SSL. Puede configurar una puerta de enlace de aplicaciones para denegar TLS1.0, TLS1.1 y TLS1.2. De forma predeterminada, SSL 2.0 y 3.0 están deshabilitadas y no se pueden configurar. Para más información, consulte [Introducción a la directiva SSL de Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview).
+Puede configurar la directiva SSL para controlar las versiones del protocolo SSL. Puede configurar una puerta de enlace de aplicaciones para que use una versión de protocolo mínima para los protocolos de enlace TLS a partir de TLS 1.0, TLS 1.1 y TLS 1.2. De forma predeterminada, SSL 2.0 y 3.0 están deshabilitadas y no se pueden configurar. Para más información, consulte [Introducción a la directiva SSL de Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview).
 
 Después de crear un cliente de escucha, puede asociarlo a una regla de enrutamiento de solicitud. Esta regla determina cómo se enrutan las solicitudes que se reciben en el cliente de escucha hacia el back-end.
 
@@ -199,10 +199,6 @@ Asocie la regla al grupo de servidores back-end que contiene los back-end de des
  - En el caso de una regla basada en ruta de acceso, agregue varios grupos de servidores back-end que se correspondan con cada ruta de acceso URL. Aquellas solicitudes que coincidan con la ruta de acceso especificada se reenviarán al grupo de servidores back-end correspondiente. Agregue también un grupo de servidores back-end predeterminado. Las solicitudes que no coincidan con ninguna ruta de acceso URL de la regla se reenviarán a ese grupo.
 
 ### <a name="associated-back-end-http-setting"></a>Configuración de HTTP del back-end asociado
-
-Agregue una configuración de HTTP de back-end para cada regla. Las solicitudes se enrutarán desde la puerta de enlace de aplicaciones a los back-end de destino mediante el número de puerto, el protocolo y cualquier otra información que se especifique en esta configuración.
-
-En una regla básica, se permite solo una configuración de HTTP de back-end. Todas las solicitudes del cliente de escucha asociado se reenviarán a los back-end de destino correspondientes mediante esta configuración de HTTP.
 
 Agregue una configuración de HTTP de back-end para cada regla. Las solicitudes se enrutarán desde la puerta de enlace de aplicaciones a los back-end de destino mediante el número de puerto, el protocolo y cualquier otra información que se especifique en esta configuración.
 
@@ -245,10 +241,10 @@ Para más información sobre el redireccionamiento, consulte:
 
 #### <a name="rewrite-the-http-header-setting"></a>Reescritura del valor del encabezado HTTP
 
-Este valor permite agregar, quitar o actualizar los encabezados de respuesta y de solicitudes HTTP, mientras los paquetes de solicitudes y respuestas se mueven entre el cliente y los grupos de servidores back-end. Solo se puede configurar esta funcionalidad mediante PowerShell. La compatibilidad con Azure Portal y la CLI aún no está disponible. Para más información, consulte:
+Este valor permite agregar, quitar o actualizar los encabezados de respuesta y de solicitudes HTTP, mientras los paquetes de solicitudes y respuestas se mueven entre el cliente y los grupos de servidores back-end. Para más información, consulte:
 
  - [Introducción a la reescritura de encabezados HTTP](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers)
- - [Configuración de la reescritura de encabezados HTTP](https://docs.microsoft.com/azure/application-gateway/add-http-header-rewrite-rule-powershell#specify-the-http-header-rewrite-rule-configuration)
+ - [Configuración de la reescritura de encabezados HTTP](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-portal)
 
 ## <a name="http-settings"></a>Configuración de HTTP
 
@@ -260,7 +256,7 @@ Esta característica es útil cuando se quiere mantener una sesión de usuario e
 
 ### <a name="connection-draining"></a>Purga de la conexión
 
-La purga de conexión ayuda a la correcta eliminación de miembros del grupo de servidores back-end durante las actualizaciones de servicio planeadas. Puede aplicar esta configuración a todos los miembros de un grupo de servidores back-end durante la creación de reglas. Se asegura de que todas las instancias de anulación de registro de un grupo de servidores back-end no reciben solicitudes nuevas. Mientras tanto, a las solicitudes existentes se les permite finalizar dentro de un límite de tiempo que se puede configurar. La purga de conexión se aplica a instancias de back-end que se eliminan explícitamente del grupo de servidores back-end mediante una llamada API. También se aplica a las instancias de back-end que el sondeo de estado notifica como *incorrectas*.
+La purga de conexión ayuda a la correcta eliminación de miembros del grupo de servidores back-end durante las actualizaciones de servicio planeadas. Puede aplicar esta configuración a todos los miembros de un grupo de servidores back-end durante la creación de reglas. Se asegura de que todas las instancias de anulación de registro de un grupo de servidores back-end no reciben solicitudes nuevas. Mientras tanto, a las solicitudes existentes se les permite finalizar dentro de un límite de tiempo que se puede configurar. La purga de conexión se aplica a instancias de back-end que se eliminan explícitamente del grupo de servidores back-end.
 
 ### <a name="protocol"></a>Protocolo
 
@@ -274,7 +270,7 @@ Este valor especifica el puerto en el que escuchan los servidores back-end el tr
 
 ### <a name="request-timeout"></a>Tiempo de espera de solicitud
 
-Este valor es el número de segundos que la puerta de enlace de aplicaciones espera para recibir una respuesta del grupo de servidores back-end antes de devolver el mensaje de error "Se agotó el tiempo de espera de la conexión".
+Este valor es el número de segundos que la puerta de enlace de aplicaciones espera para recibir una respuesta del servidor back-end.
 
 ### <a name="override-back-end-path"></a>Ruta de acceso de back-end de sustitución
 
@@ -301,7 +297,7 @@ Este valor le permite configurar una ruta de reenvío personalizada opcional que
 
 ### <a name="use-for-app-service"></a>Uso para App Service
 
-Se trata de un acceso directo de la interfaz de usuario que selecciona los dos valores necesarios para el back-end de Azure App Service. Habilita la opción **Seleccionar nombre de host de la dirección de back-end** y crea un nuevo sondeo personalizado. (Para más información, consulte la sección dedicada a la opción [Seleccionar nombre de host de la dirección de back-end](#pick) de este artículo). Se crea un nuevo sondeo y se selecciona el encabezado de este a partir de la dirección de un miembro del back-end.
+Se trata de un acceso directo solo para la interfaz de usuario que selecciona los dos valores necesarios para el back-end de Azure App Service. Habilita la opción de **selección del nombre de host de la dirección de back-end** y crea un nuevo sondeo personalizado si no existe ya uno. (Para más información, consulte la sección dedicada a la opción [Seleccionar nombre de host de la dirección de back-end](#pick) de este artículo). Se crea un nuevo sondeo y se selecciona el encabezado de este a partir de la dirección de un miembro del back-end.
 
 ### <a name="use-custom-probe"></a>Usar sondeo personalizado
 
@@ -314,22 +310,22 @@ Esta opción asocia un [sondeo personalizado](https://docs.microsoft.com/azure/a
 
 Esta funcionalidad establece dinámicamente el encabezado *host* de la solicitud en el nombre de host del grupo de servidores back-end. Usa una dirección IP o FQDN.
 
-Esta característica resulta útil cuando el nombre de dominio del back-end es diferente del nombre DNS de la puerta de enlace de aplicaciones y el back-end se basa en un encabezado de host específico o extensión de Indicación de nombre de servidor (SNI) para resolver en el punto de conexión correcto.
+Esta característica resulta útil cuando el nombre de dominio del back-end es diferente del nombre DNS de la puerta de enlace de aplicaciones y el back-end se basa en un encabezado de host específico para resolver en el punto de conexión correcto.
 
 Un ejemplo podría ser el uso de servicios multiinquilino como back-end. Una instancia de App Service es un servicio multiinquilino que usa un espacio compartido con una sola dirección IP. Por lo tanto, solo se puede acceder a una instancia de App Service mediante los nombres de host que se establecen en la configuración del dominio personalizado.
 
-De forma predeterminada, el nombre de dominio personalizado es *example.azurewebsites.<i></i>net*. Para acceder a la instancia de App Service con una puerta de enlace de aplicaciones mediante un nombre de host que no está explícitamente registrado en dicha instancia o mediante el FQDN de la puerta de enlace de aplicaciones, debe reemplazar el nombre de host de la solicitud original por el nombre de host de la instancia de App Service. Para ello, habilite la opción **Seleccionar nombre de host de la dirección de back-end**.
+De forma predeterminada, el nombre de dominio personalizado es *example.azurewebsites.net*. Para acceder a la instancia de App Service con una puerta de enlace de aplicaciones mediante un nombre de host que no está explícitamente registrado en dicha instancia o mediante el FQDN de la puerta de enlace de aplicaciones, debe reemplazar el nombre de host de la solicitud original por el nombre de host de la instancia de App Service. Para ello, habilite la opción **Seleccionar nombre de host de la dirección de back-end**.
 
 Para un dominio personalizado cuyo nombre DNS personalizado ya existente está asignado a la instancia de App Service, no es necesario que habilite esta opción.
 
 > [!NOTE]
-> Esta opción no es necesaria para App Service Environment para PowerApps, ya que es una implementación dedicada.
+> Esta opción no es necesaria para App Service Environment, que es una implementación dedicada.
 
 ### <a name="host-name-override"></a>Sustitución del nombre de host
 
 Esta funcionalidad reemplaza el encabezado *host* de la solicitud entrante en la puerta de enlace de aplicaciones por el nombre de host que especifique.
 
-Por ejemplo, si se especifica *www.contoso<i></i>.com* en la opción **Nombre de host**, la solicitud original *https:/<i></i>/appgw.eastus.cloudapp.net/path1* cambia a *https:/<i></i>/www.contoso.com/path1* cuando la solicitud se reenvía al servidor back-end.
+Por ejemplo, si se especifica *www.contoso.com* en el valor **Nombre de host**, la solicitud original * https://appgw.eastus.cloudapp.azure.com/path1 cambia a * https://www.contoso.com/path1 cuando la solicitud se reenvía al servidor back-end.
 
 ## <a name="back-end-pool"></a>Grupo de servidores back-end
 
@@ -342,7 +338,7 @@ Después de crear un grupo de servidores back-end, debe asociarlo con una o vari
 Una puerta de enlace de aplicaciones supervisa el estado de todos los recursos en su back-end de forma predeterminada. Pero se recomienda encarecidamente que cree un sondeo personalizado para cada configuración de HTTP de back-end para conseguir un mayor control sobre la supervisión del estado. Para más información sobre cómo configurar un sondeo personalizado, consulte [Configuración de sondeo de estado personalizado](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#custom-health-probe-settings).
 
 > [!NOTE]
-> Después de crear un sondeo de estado personalizado, debe asociarlo a una configuración de HTTP de back-end. Un sondeo personalizado no supervisará el estado del grupo de servidores back-end a menos que la configuración de HTTP correspondiente esté explícitamente asociada a un cliente de escucha.
+> Después de crear un sondeo de estado personalizado, debe asociarlo a una configuración de HTTP de back-end. Un sondeo personalizado no supervisará el estado del grupo de servidores back-end a menos que la configuración HTTP correspondiente esté explícitamente asociada a un cliente de escucha mediante una regla.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

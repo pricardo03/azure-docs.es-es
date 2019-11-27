@@ -1,18 +1,18 @@
 ---
 title: Novedades de Azure Site Recovery
-description: Proporciona un resumen de las características nuevas presentadas en Azure Site Recovery
+description: Proporciona un resumen de las nuevas características y las actualizaciones más recientes en el servicio Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 5e3d226b0f15148c5ac4a9da84462f4a3277e112
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: af1b531ac1b38921a99284aad2108e4027d97f4c
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72383561"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091711"
 ---
 # <a name="whats-new-in-site-recovery"></a>Novedades de Site Recovery
 
@@ -20,11 +20,60 @@ El servicio [Azure Site Recovery](site-recovery-overview.md) se actualiza y mejo
 
 Puede seguirla y suscribirse a las notificaciones de actualizaciones de Site Recovery en el canal de [actualizaciones de Azure](https://azure.microsoft.com/updates/?product=site-recovery).
 
+
+
+## <a name="supported-updates"></a>Actualizaciones admitidas
+
+En el caso de los componentes de Site Recovery, se admiten las versiones N-4, donde N es la versión de lanzamiento más reciente. Estos se resumen en la siguiente tabla.
+
+**Actualizar** |  **Instalación unificada** | **Servidor de configuración OVA** | **Agente de Mobility Service** | **Proveedor de Site Recovery** | **Agente de Recovery Services**
+--- | --- | --- | --- | --- | ---
+[Paquete acumulativo 42](https://support.microsoft.com/help/4531426/) | 9.30.5407.1 | 5.1.5200.0 | 9.30.5407.1 | 5.1.5200.0 | 2.0.9165.0
+[Paquete acumulativo 41](https://support.microsoft.com/help/4528026/) | 9.29.5367.1 | 5.1.5000.0 | 9.29.5367.1 | 5.1.5000.0 | 2.0.9165.0
+[Paquete acumulativo 40](https://support.microsoft.com/help/4521530/) | 9.28.5345.1 | 5.1.4800.0 | 9.28.5345.1 | 5.1.4800.0 | 2.0.9165.0
+[Paquete acumulativo 39](https://support.microsoft.com/help/4517283/) | 9.27.5308.1 | 5.1.4600.0 | 9.27.5308.1 | 5.1.4600.0 | 2.0.9165.0
+[Paquete acumulativo 38](https://support.microsoft.com/help/4513507/) | 9.26.5269.1 | 5.1.4500.0 | 9.26.5269.1 | 5.1.4500.0 | 2.0.9165.0
+        
+
+[Más información](service-updates-how-to.md) sobre la instalación y el soporte técnico de las actualizaciones.
+
+
+## <a name="updates-november-2019"></a>Actualizaciones (noviembre de 2019)
+
+### <a name="update-rollup-42"></a>Paquete acumulativo de actualizaciones 42
+
+El [paquete acumulativo de actualizaciones 42](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery) proporciona las siguientes actualizaciones.
+
+**Actualizar** | **Detalles**
+--- | ---
+**Proveedores y agentes** | Actualizaciones de los proveedores y agentes de Site Recovery (como se detalla en el paquete acumulativo de actualizaciones)
+**Mejoras y correcciones de problemas** | Un número de correcciones y mejoras (tal como se detalla en el paquete acumulativo)
+
+
+## <a name="azure-vm-disaster-recovery"></a>Recuperación ante desastres en VM de Azure
+
+En la tabla se resumen las nuevas características de recuperación ante desastres de las máquinas virtuales de Azure.
+
+**Característica** | **Detalles**
+--- | ---
+**UEFI** | Site Recovery admite ahora la recuperación ante desastres para máquinas virtuales de Azure con la arquitectura de arranque basada en UEFI.
+**Linux** | Site Recovery admite ahora máquinas virtuales de Azure que ejecutan Linux con Azure Disk Encryption (ADE).
+**Generación 2** | Ahora se admiten todas las máquinas virtuales de Azure de generación 2 para la recuperación ante desastres.
+**Regiones** | Ahora puede habilitar la recuperación ante desastres para máquinas virtuales de Azure en la geografía de Noruega.
+
+### <a name="vmware-to-azure-disaster-recovery"></a>Recuperación ante desastres de VMware a Azure
+
+En la tabla se resumen las nuevas características para la recuperación ante desastres de VMware en Azure.
+
+**Característica** | **Detalles**
+--- | ---
+**UEFI** | Site Recovery admite ahora la recuperación ante desastres para máquinas virtuales de VMware con la arquitectura de arranque basada en UEFI.<br/><br/> Entre los sistemas operativos admitidos se incluyen Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, SLES 12 SP4, RHEL 8.
+
 ## <a name="update-to-servicing-stack-updatesha-2"></a>Actualización de la pila de servicio/SHA-2
 
 Para la recuperación ante desastres de máquinas virtuales de Azure en una región secundaria o de máquinas virtuales de VMware locales o servidores físicos en Azure, tenga en cuenta lo siguiente:
 
-- A partir de la versión 9.30.x.x (la versión esperada a partir de noviembre de 2019) de la extensión de Mobility Service (para máquinas virtuales de Azure) y del agente de Mobility Service (para máquinas físicas y de VMware), algunos sistemas operativos para máquinas deben ejecutar la actualización de la pila de servicio y SHA-2. En la tabla siguiente se muestran los detalles.
+- A partir de la versión 9.30.5407.1 de la extensión de Mobility Service (para máquinas virtuales de Azure) y del agente de Mobility Service (para máquinas físicas y de VMware), algunos sistemas operativos para máquinas deben ejecutar la actualización de la pila de servicio y SHA-2. En la tabla siguiente se muestran los detalles.
 - Instale la actualización y SHA-2 de acuerdo con el KB vinculado. SHA-1 no se admite desde septiembre de 2019 y, si la firma de código SHA-2 no está habilitada, la extensión del agente no se instalará ni actualizará según lo previsto.
 - Más información sobre los [requisitos y la actualización de SHA-2](https://aka.ms/SHA-2KB).
 
@@ -35,27 +84,43 @@ Para la recuperación ante desastres de máquinas virtuales de Azure en una regi
 **Windows 7 SP1** | [Actualización de la pila de servicio](https://support.microsoft.com/help/4490628)<br/> [SHA-2](https://support.microsoft.com/help/4474419)| [Actualización de la pila de servicio](https://support.microsoft.com/help/4490628)<br/> [SHA-2](https://support.microsoft.com/help/4474419).
 
 
-## <a name="supported-updates"></a>Actualizaciones admitidas
 
-En el caso de los componentes de Site Recovery, se admiten las versiones N-4, donde N es la versión de lanzamiento más reciente. Estos se resumen en la siguiente tabla.
+## <a name="updates-october-2019"></a>Actualizaciones (octubre de 2019)
 
-**Actualizar** |  **Instalación unificada** | **Servidor de configuración OVA** | **Agente de Mobility Service** | **Proveedor de Site Recovery** | **Agente de Recovery Services**
---- | --- | --- | --- | --- | ---
-[Paquete acumulativo 40](https://support.microsoft.com/help/4517283/) | 9.28.5345.1 | 5.1.4800.0 | 9.28.5345.1 | 5.1.4800.0 | 2.0.9165.0
-[Paquete acumulativo 39](https://support.microsoft.com/help/4517283/) | 9.27.5308.1 | 5.1.4600.0 | 9.27.5308.1 | 5.1.4600.0 | 2.0.9165.0
-[Paquete acumulativo 38](https://support.microsoft.com/help/4513507/) | 9.26.5269.1 | 5.1.4500.0 | 9.26.5269.1 | 5.1.4500.0 | 2.0.9165.0
-[Paquete acumulativo 37](https://support.microsoft.com/help/4508614/) | 9.25.5241.1 | 5.1.4300.0 | 9.25.5241.1 | 5.1.4300.0 | 2.0.9163.0
-[Paquete acumulativo 36](https://support.microsoft.com/help/4503156/) | 9.24.5211.1 | 5.1.4150.0 | 9.24.5211.1 | 5.1.4150.0 | 2.0.9160.0 
-        
+### <a name="update-rollup-41"></a>Paquete acumulativo de actualizaciones 41
 
-[Más información](service-updates-how-to.md) sobre la instalación y el soporte técnico de las actualizaciones.
+El [paquete acumulativo de actualizaciones 41](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery) proporciona las siguientes actualizaciones.
+
+**Actualizar** | **Detalles**
+--- | ---
+**Proveedores y agentes** | Actualizaciones de los proveedores y agentes de Site Recovery (como se detalla en el paquete acumulativo de actualizaciones)
+**Mejoras y correcciones de problemas** | Un número de correcciones y mejoras (tal como se detalla en el paquete acumulativo)
+
+
+
+### <a name="azure-vm-disaster-recovery"></a>Recuperación ante desastres en VM de Azure
+
+En la tabla se resumen las nuevas características de recuperación ante desastres de las máquinas virtuales de Azure.
+
+**Característica** | **Detalles**
+--- | ---
+**Configuración de conmutación por error de prueba** | Al configurar una conmutación por error de prueba, ahora puede configurar las opciones de la red y la máquina virtual de la conmutación por error de prueba, incluida la dirección IP, el grupo de seguridad de red, el equilibrador de carga interno y la dirección IP pública de la NIC de cada máquina. Esta configuración es opcional y no cambia el comportamiento actual. Si no configura estas opciones, puede elegir una red virtual de Azure en el momento de la conmutación por error de prueba. [Más información](https://azure.microsoft.com/blog/customize-networking-for-dr-drills-azure-site-recovery/).
+**Planes de recuperación** | Los planes de recuperación ahora están limitados a 100 máquinas virtuales para garantizar la confiabilidad de la conmutación por error.
+
+### <a name="vmware-to-azure-disaster-recovery"></a>Recuperación ante desastres de VMware a Azure
+
+En la tabla se resumen las nuevas características para la recuperación ante desastres de VMware en Azure.
+
+**Característica** | **Detalles**
+--- | ---
+**Planes de recuperación** | Los planes de recuperación ahora están limitados a 100 máquinas virtuales para garantizar la confiabilidad de la conmutación por error.
 
 
 ## <a name="updates-september-2019"></a>Actualizaciones (septiembre de 2019)
 
 ### <a name="update-rollup-40"></a>Paquete acumulativo de actualizaciones 40
 
-El [Paquete acumulativo de actualizaciones 40](h https://support.microsoft.com/help/4521530/update-rollup-40-for-azure-site-recovery) proporciona las siguientes actualizaciones.
+El [Paquete acumulativo de actualizaciones 40](https://support.microsoft.com/help/4521530/update-rollup-40-for-azure-site-recovery) proporciona las siguientes actualizaciones.
 
 **Actualizar** | **Detalles**
 --- | ---

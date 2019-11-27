@@ -9,12 +9,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: ghogen
-ms.openlocfilehash: 9331f13bd85d9df0d47f8fa9d0964974764691f7
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 4cbc4044b5d1270cecd1a271d2a1db02801650dd
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73815116"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012766"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Adición de Key Vault a una aplicación web mediante los servicios conectados de Visual Studio
 
@@ -134,6 +134,21 @@ Cuando ya no necesite el grupo de recursos, elimínelo. De esta forma, se elimin
 1. Escriba el nombre del grupo de recursos en el cuadro de búsqueda de la parte superior del portal. Cuando vea el grupo de recursos que se utiliza en esta guía de inicio rápido en los resultados de búsqueda, selecciónelo.
 2. Seleccione **Eliminar grupo de recursos**.
 3. En el cuadro **ESCRIBA EL NOMBRE DEL GRUPO DE RECURSOS**, escriba el nombre del grupo de recursos y seleccione **Eliminar**.
+
+## <a name="troubleshooting"></a>solución de problemas
+
+Si el almacén de claves se está ejecutando en una cuenta Microsoft diferente de aquella con la cual ha iniciado sesión en Visual Studio (por ejemplo, el almacén de claves se está ejecutando en su cuenta profesional, pero Visual Studio usa su cuenta privada), recibirá un error en el archivo Program.cs que le indica que Visual Studio no puede acceder al almacén de claves. Para corregir este problema:
+
+1. Vaya a [Azure Portal](https://portal.azure.com) y abra el almacén de claves.
+
+1. Elija **Directivas de acceso**, **Agregar directiva de acceso** y elija la cuenta con la que ha iniciado sesión como entidad de seguridad.
+
+1. En Visual Studio, elija **Archivo** > **Configuración de la cuenta**.
+Seleccione **Agregar una cuenta** de la sección **Todas las cuentas**. Inicie sesión con la cuenta que ha elegido como entidad de seguridad de la directiva de acceso.
+
+1. Elija **Herramientas** > **Opciones** y busque **Azure Service Authentication** (Autenticación del servicio de Azure). Después, seleccione la cuenta que acaba de agregar a Visual Studio.
+
+Ahora, al depurar la aplicación, Visual Studio se conectará a la cuenta en la que se encuentra el almacén de claves.
 
 ## <a name="how-your-aspnet-core-project-is-modified"></a>Cómo se modifica el proyecto de ASP.NET Core
 

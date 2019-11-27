@@ -1,25 +1,25 @@
 ---
-title: Reglas automáticas de pertenencia dinámica a grupos en Azure Active Directory | Microsoft Docs
+title: 'Reglas de pertenencia a grupos dinámicos: Azure AD | Microsoft Docs'
 description: Creación de reglas de pertenencia para rellenar automáticamente grupos y creación de una referencia de regla.
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 09/10/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb9b3a4add951079ab918d3ac02ca5e38eff6161
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: a6cfad04d9b0dd3537d60f2651ed341d96bd0210
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72241167"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74027125"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Reglas de pertenencia dinámica a grupos de Azure Active Directory
 
@@ -357,7 +357,10 @@ El nombre de la propiedad personalizada se puede encontrar en el directorio medi
 
 ## <a name="rules-for-devices"></a>Reglas de dispositivos
 
-También puede crear una regla que selecciona objetos de dispositivo para la pertenencia de un grupo. No puede tener usuarios y dispositivos como miembros del grupo a la vez. El atributo **organizationalUnit** ya no aparece y no debe usarse. Intune establece esta cadena en casos concretos, pero Azure AD no la reconoce, por lo que no se agregan dispositivos a grupos basados este atributo.
+También puede crear una regla que selecciona objetos de dispositivo para la pertenencia de un grupo. No puede tener usuarios y dispositivos como miembros del grupo a la vez. 
+
+> [!NOTE]
+> El atributo **organizationalUnit** ya no aparece y no debe usarse. Intune establece esta cadena en casos concretos, pero Azure AD no la reconoce, por lo que no se agregan dispositivos a grupos basados este atributo.
 
 > [!NOTE]
 > systemlabels es un atributo de solo lectura que no se puede establecer con Intune.
@@ -380,7 +383,8 @@ Pueden utilizarse los siguientes atributos del dispositivo.
  isRooted | true false | (device.isRooted -eq true)
  managementType | MDM (para dispositivos móviles)<br>PC (para equipos administrados por el agente de PC de Intune) | (device.managementType -eq "MDM")
  deviceId | un id. de dispositivo de Azure AD válido | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")
- objectId | un id. de objeto de Azure AD válido |  (device.objectId -eq 76ad43c9-32c5-45e8-a272-7b58b58f596d")
+ objectId | un id. de objeto de Azure AD válido |  (device.objectId -eq "76ad43c9-32c5-45e8-a272-7b58b58f596d")
+ devicePhysicalIds | cualquier valor de cadena usado por Autopilot, como todos los dispositivos AutoPilot, OrderID o PurchaseOrderID  | (device.devicePhysicalIDs -any _ -contains "[ZTDId]") (device.devicePhysicalIds -any _ -eq "[OrderID]:179887111881") (device.devicePhysicalIds -any _ -eq "[PurchaseOrderId]:76222342342")
  systemLabels | cualquier cadena que coincida con la propiedad de dispositivo de Intune para etiquetar dispositivos del área de trabajo moderno | (device.systemLabels -contains "M365Managed")
 
 > [!Note]  

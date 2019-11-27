@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: mlearned
-ms.openlocfilehash: 84c06c0ac45a5005646cf7b4fb1e274d0347593c
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: 1c7a406f0b06b94aaa6d8b4af63b1416b11c7c56
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958504"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847329"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Creación dinámica y uso de un volumen persistente con discos de Azure en Azure Kubernetes Service (AKS)
 
@@ -40,7 +40,7 @@ Cada clúster de AKS incluye dos clases de almacenamiento creadas previamente y 
 * La clase de almacenamiento *Premium administrada* aprovisiona un disco de Azure premium.
     * Los discos Premium están respaldados por un disco de latencia reducida y alto rendimiento basado en SSD. Es perfecto para máquinas virtuales que ejecutan cargas de trabajo de producción. Si los nodos de AKS del clúster usan almacenamiento Premium, seleccione la clase *administrada Premium*.
     
-Estas clases de almacenamiento predeterminadas no permiten actualizar el tamaño del volumen una vez creado. Para habilitar esta capacidad, agregue la línea *allowVolumeExpansion: true* a una de las clases de almacenamiento predeterminadas o cree su propia clase de almacenamiento personalizada. Puede editar una clase de almacenamiento existente con el comando `kubectl edit sc`. Para más información sobre las clases de almacenamiento y la creación de la suya propia, consulte [Opciones de almacenamiento de aplicaciones en Azure Kubernetes Service (AKS)][storage-class-concepts].
+Estas clases de almacenamiento predeterminadas no permiten actualizar el tamaño del volumen una vez creado. Para habilitar esta capacidad, agregue la línea *allowVolumeExpansion: true* a una de las clases de almacenamiento predeterminadas o cree su propia clase de almacenamiento personalizada. Puede editar una clase de almacenamiento existente con el comando `kubectl edit sc`. Para más información sobre las clases de almacenamiento y la creación de la suya propia, consulte [Opciones de almacenamiento de aplicaciones en Azure Kubernetes Service (AKS)][storage-class-concepts].
 
 Use el comando [kubectl get sc][kubectl-get] para ver las clases de almacenamiento que se crearon previamente. El ejemplo siguiente muestra las clases de almacenamiento creadas previamente disponibles dentro de un clúster de AKS:
 

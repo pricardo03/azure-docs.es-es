@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 06/26/2019
 ms.author: brendm
 ms.custom: seodec18
-ms.openlocfilehash: fa3cd84978119a5858e63712b4d22c2ea89ea528
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e63d8f03b26c9039fe4093cf15b13522dbb49af9
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470907"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74081466"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Configuración de una aplicación de Java en Linux para Azure App Service
 
@@ -238,6 +238,24 @@ Siga las instrucciones de [Protección de un nombre DNS personalizado con un enl
 En primer lugar, siga las instrucciones para [conceder a su aplicación acceso a Key Vault](../app-service-key-vault-references.md#granting-your-app-access-to-key-vault) y [hace una referencia de KeyVault a su secreto en una configuración de aplicación](../app-service-key-vault-references.md#reference-syntax). Para validar que la referencia se resuelve en el secreto, imprima la variable de entorno mie3ntras acceder de forma remota al terminal de App Service.
 
 Para insertar estos secretos en el archivo de configuración de Spring o Tomcat, use la sintaxis de inserción de variables de entorno (`${MY_ENV_VAR}`). En el caso de los archivos de configuración de Spring, consulte esta documentación acerca de [configuraciones externalizadas](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html).
+
+### <a name="using-the-java-key-store"></a>Uso del almacén de claves de Java
+
+De forma predeterminada, los certificados públicos o privados [cargados en App Service Linux](../configure-ssl-certificate.md) se cargarán en el almacén de claves de Java cuando se inicie el contenedor. Esto significa que los certificados cargados estarán disponibles en el contexto de conexión al realizar conexiones TLS salientes. Después de cargar el certificado, deberá reiniciar la instancia de App Service para que se cargue en el almacén de claves de Java.
+
+Puede depurar o interactuar con la herramienta de claves de Java si [abre una conexión SSH](app-service-linux-ssh-support.md) a la instancia de App Service y ejecuta el comando `keytool`. Consulte la [documentación de la herramienta de claves](https://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html) para obtener una lista de comandos. Los certificados se almacenan en la ubicación predeterminada de archivos del almacén de claves de Java, `$JAVA_HOME/jre/lib/security/cacerts`.
+
+Puede ser necesaria una configuración adicional para el cifrado de la conexión de JDBC. Consulte la documentación del controlador JDBC elegido.
+
+- [PostgreSQL](https://jdbc.postgresql.org/documentation/head/ssl-client.html)
+- [SQL Server](https://docs.microsoft.com/sql/connect/jdbc/connecting-with-ssl-encryption?view=sql-server-ver15)
+- [MySQL](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-reference-using-ssl.html)
+
+#### <a name="manually-initialize-and-load-the-key-store"></a>Inicialización y carga manual del almacén de claves
+
+Puede inicializar el almacén de claves y agregar certificados manualmente. Cree una configuración de aplicación, `SKIP_JAVA_KEYSTORE_LOAD`, con un valor de `1` para deshabilitar en App Service la carga automática de los certificados en el almacén de claves. Todos los certificados públicos cargados en App Service a través de Azure Portal se almacenan en `/var/ssl/certs/`. Los certificados privados se almacenan en `/var/ssl/private/`.
+
+Para más información sobre la API KeyStore, consulte [la documentación oficial](https://docs.oracle.com/javase/8/docs/api/java/security/KeyStore.html).
 
 ## <a name="configure-apm-platforms"></a>Configuración de plataformas APM
 

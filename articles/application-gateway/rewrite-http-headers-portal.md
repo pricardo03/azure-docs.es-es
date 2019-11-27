@@ -1,19 +1,19 @@
 ---
-title: Reescribir los encabezados HTTP de solicitud y respuesta con Azure Application Gateway mediante Azure Portal | Microsoft Docs
+title: 'Reescritura de los encabezados HTTP de solicitud y respuesta en el portal: Azure Application Gateway'
 description: Obtenga información sobre cómo usar Azure Portal para configurar una instancia de Azure Application Gateway para reescribir los encabezados HTTP en las solicitudes y respuestas que se pasan a través de la puerta de enlace.
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: article
-ms.date: 04/10/2019
+ms.date: 11/13/2019
 ms.author: absha
 ms.custom: mvc
-ms.openlocfilehash: e144214a58f9fe383cf4edd878554792d9d6a6f9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b90736b3ed1c1f69488fde4a386cf215d751c362
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64947162"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012855"
 ---
 # <a name="rewrite-http-request-and-response-headers-with-azure-application-gateway---azure-portal"></a>Reescribir los encabezados HTTP de solicitud y respuesta con Azure Application Gateway mediante Azure Portal
 
@@ -37,9 +37,9 @@ Para configurar la reescritura de encabezados HTTP, es preciso completar estos p
 
      Si asocia más de una condición con una acción, la acción se produce solo cuando se cumplen todas las condiciones. En otras palabras, se trata de una operación AND lógica.
 
-   - **Regla de reescritura**: Contiene varias combinaciones de acción de reescritura o condición de reescritura.
+   - **Regla de reescritura**: Contiene varias combinaciones de acción de reescritura y condición de reescritura.
 
-   - **Secuencia de reglas**: Ayuda a determina el orden en el que se ejecutan las reglas de reescritura. Esta configuración es útil cuando haya varias reglas de reescritura en un conjunto de reescritura. Una regla de reescritura que tiene un valor de secuencia de reglas más bajo se ejecuta primero. Si asigna el mismo valor de secuencia de reglas a dos reglas de reescritura, el orden de ejecución es no determinista.
+   - **Secuencia de reglas**: Ayuda a determinar el orden en el que se ejecutan las reglas de reescritura. Esta configuración es útil cuando hay varias reglas de reescritura en un conjunto de reescritura. Una regla de reescritura que tiene un valor de secuencia de reglas más bajo se ejecuta primero. Si asigna el mismo valor de secuencia de reglas a dos reglas de reescritura, el orden de ejecución es no determinista.
 
    - **Conjunto de reescritura**: Contiene varias reglas de reescritura que se asociarán con una regla de enrutamiento de solicitudes.
 

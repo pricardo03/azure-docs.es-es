@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: conexión a una aplicación de comandos personalizados con el SDK de Voz (versión preliminar)'
+title: 'Inicio rápido: Conexión a una aplicación de comandos personalizada con el SDK de Voz: servicio Voz'
 titleSuffix: Azure Cognitive Services
 description: En este artículo, creará una aplicación cliente del SDK de Voz con comandos personalizados.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: donkim
-ms.openlocfilehash: 5f395d37e0133a081a6fcb2e03821a97e4012316
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 890d2200a8047bc12c99eed97277e11776806def
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73506683"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111160"
 ---
 # <a name="quickstart-connect-to-a-custom-commands-application-with-the-speech-sdk-preview"></a>Inicio rápido: conexión a una aplicación de comandos personalizados con el SDK de Voz (versión preliminar)
 
@@ -46,7 +46,7 @@ En este inicio rápido se describe, paso a paso, cómo hacer que una aplicación
 
 1. Abra la [aplicación de comandos personalizados creada anteriormente](./quickstart-custom-speech-commands-create-new.md) y seleccione **Publicar**.
 
-   > [!div class="mx-imgBorder"]
+   > [!div class="mx-imgBorder"] 
    > ![Publicación de la aplicación](media/custom-speech-commands/fulfill-sdk-publish-application.png)
 
 1. Copie el Id. de la aplicación de la notificación de publicación para usarlo posteriormente.
@@ -320,7 +320,7 @@ Agregue el código fuente subyacente como se muestra a continuación:
 
    ```csharp
    //
-   // This code sets up handlers for events relied on by `DialogServiceConnector` to communicate its activities, 
+   // This code sets up handlers for events relied on by `DialogServiceConnector` to communicate its activities,
    // speech recognition results, and other information.
    //
    // ActivityReceived is the main way your client will receive messages, audio, and events
@@ -377,7 +377,7 @@ Agregue el código fuente subyacente como se muestra a continuación:
 1. Agregue el siguiente fragmento de código al cuerpo del método `ListenButton_ButtonClicked` de la clase `MainPage`.
 
    ```csharp
-   // This code sets up `DialogServiceConnector` to listen, since you already established the configuration and 
+   // This code sets up `DialogServiceConnector` to listen, since you already established the configuration and
    // registered the event handlers.
    if (connector == null)
    {
@@ -415,7 +415,7 @@ Agregue el código fuente subyacente como se muestra a continuación:
 1. Seleccione **Hablar** y diga una expresión o frase en inglés en el micrófono del dispositivo. Lo que diga se transmitirá al canal Direct Line Speech y se transcribirá en texto, que aparece en la misma ventana.
 
 ## <a name="next-steps"></a>Pasos siguientes
-> [!div class="nextstepaction"]
-> [How To: Fulfill Commands on the client with the Speech SDK (Preview) (Instrucciones: realización de comandos en el cliente con el SDK de Voz [versión preliminar])](./how-to-custom-speech-commands-fulfill-sdk.md)
-> [Instrucciones: adición de validaciones a los parámetros de comandos personalizados (versión preliminar)](./how-to-custom-speech-commands-validations.md)
 
+> [!div class="nextstepaction"]
+> [Uso de realización de comandos en el cliente con el SDK de Voz (versión preliminar)](./how-to-custom-speech-commands-fulfill-sdk.md)
+> [Procedimiento: adición de validaciones a los parámetros de comandos personalizados (versión preliminar)](./how-to-custom-speech-commands-validations.md)

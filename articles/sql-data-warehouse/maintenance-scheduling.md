@@ -7,35 +7,34 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: design
-ms.date: 07/16/2019
+ms.date: 11/07/2019
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: 91b202f8a5df841fa3d6aa1f0903999b395f8137
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: e9d5a137247c072516c0b25d7f6147ef48fec248
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686072"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839789"
 ---
 # <a name="use-maintenance-schedules-to-manage-service-updates-and-maintenance"></a>Uso de programaciones de mantenimiento para administrar las actualizaciones del servicio y el mantenimiento
 
-Los programas de mantenimiento están ahora disponibles en todas las regiones de Azure SQL Data Warehouse. La característica de programas de mantenimiento integra las notificaciones de mantenimiento planeado de Service Health, el monitor de comprobación de Resource Health y el servicio de programación de mantenimiento de Azure SQL Data Warehouse.
+La característica de programas de mantenimiento integra las notificaciones de mantenimiento planeado de Service Health, el monitor de comprobación de Resource Health y el servicio de programación de mantenimiento de Azure SQL Data Warehouse.
 
-Use programación de mantenimiento para elegir un período de tiempo en el que sea conveniente recibir las nuevas características, actualizaciones y revisiones. Elija una ventana de mantenimiento principal y una secundaria en un período de siete días. Para utilizar esta característica, deberá identificar una ventana principal y una secundaria dentro de intervalos de días separados.
+Debe usar programación de mantenimiento para elegir un período de tiempo en el que sea conveniente recibir las nuevas características, actualizaciones y revisiones. Tendrá que elegir una ventana de mantenimiento principal y una secundaria dentro de un período de siete días, cada ventana debe estar dentro de intervalos de días independientes.
 
-Por ejemplo, puede programar una ventana principal de sábado a las 22:00 a domingo a la 01:00, y luego una ventana secundaria el miércoles de 19:00 a 22:00. Si SQL Data Warehouse no puede realizar el mantenimiento durante la ventana de mantenimiento principal, se intentará nuevamente durante la ventana de mantenimiento secundaria. El mantenimiento del servicio puede producirse durante la ventana principal o la secundaria. Para garantizar una finalización rápida de las operaciones de mantenimiento, DW400(c) y los niveles más bajos de almacenamiento de datos pueden completar el mantenimiento fuera de una ventana de mantenimiento designada.
+Por ejemplo, puede programar una ventana principal de sábado a las 22:00 a domingo a la 01:00, y luego una ventana secundaria el miércoles de 19:00 a 22:00. Si SQL Data Warehouse no puede realizar el mantenimiento durante la ventana de mantenimiento principal, se intentará nuevamente durante la ventana de mantenimiento secundaria. El mantenimiento del servicio puede producirse en ocasiones durante las dos ventanas, la principal y la secundaria. Para garantizar una finalización rápida de las operaciones de mantenimiento, DW400c y los niveles más bajos de almacenamiento de datos pueden completar el mantenimiento fuera de una ventana de mantenimiento designada.
 
 Todos las instancias de Azure SQL Data Warehouse recién creadas tendrán una programación de mantenimiento definida por el sistema aplicada durante la implementación. La programación se podrá editar tan pronto como se complete la implementación.
 
-Cada ventana de mantenimiento puede ser de tres a ocho horas. El mantenimiento puede producirse en cualquier momento dentro de la ventana. Cuando se inicie el mantenimiento, se cancelarán todas las sesiones activas y se revertirán las transacciones no confirmadas. Experimentará varias pérdidas breves de conectividad a medida que el servicio implementa el nuevo código en el almacenamiento de datos. Se le notificará inmediatamente después de que se haya completado el mantenimiento en el almacenamiento de datos.
+Aunque una ventana de mantenimiento puede estar comprendida entre tres y ocho horas, eso no significa que el almacenamiento de datos esté sin conexión durante ese tiempo. El mantenimiento puede producirse en cualquier momento dentro de la ventana y se debe esperar una sola desconexión durante ese período que dure unos 5-6 minutos mientras el servicio implementa nuevo código en el almacenamiento de datos. Puede que DW400c y los niveles más bajos experimenten varias pérdidas de conectividad breves en distintos momentos durante la ventana de mantenimiento. Cuando se inicie el mantenimiento, se cancelarán todas las sesiones activas y se revertirán las transacciones no confirmadas. Para minimizar el tiempo de inactividad de la instancia, debe asegurarse de que no hay transacciones de larga ejecución en el almacenamiento de datos antes del comienzo del período de mantenimiento seleccionado.
 
- Todas las operaciones de mantenimiento deben finalizar dentro de las ventanas de mantenimiento programadas. Sin notificación previa, no se llevará a cabo mantenimiento fuera de las ventanas de mantenimiento especificadas. Si el almacenamiento de datos se pausa durante un período de mantenimiento programado, se actualizará durante la operación de reanudación. 
+Todas las operaciones de mantenimiento deben finalizar dentro de las ventanas de mantenimiento especificadas, a menos que sea necesario implementar una actualización urgente de las horas. Si el almacenamiento de datos se pausa durante un período de mantenimiento programado, se actualizará durante la operación de reanudación. Se le notificará inmediatamente después de que se haya completado el mantenimiento en el almacenamiento de datos.
 
 ## <a name="alerts-and-monitoring"></a>Supervisión y alertas
 
-Una integración con las notificaciones de Service Health y el monitor de comprobación de Resource Health permite a los clientes mantenerse informados de la actividad de mantenimiento inminente. La automatización nueva aprovecha las ventajas de Azure Monitor. Puede decidir cómo recibir notificaciones de eventos de mantenimiento inminentes. Asimismo, puede decidir qué flujos automatizados pueden ayudarle a administrar el tiempo de inactividad y minimizar el impacto en sus operaciones.
-
-A todos los eventos de mantenimiento, con la excepción de DWC400c y los niveles más bajos, les precede una notificación con 24 horas de adelanto. Para minimizar el tiempo de inactividad de la instancia, debe asegurarse de que no hay transacciones de larga ejecución en el almacenamiento de datos antes del comienzo del período de mantenimiento seleccionado.
+Una integración con las notificaciones de Service Health y el monitor de comprobación de Resource Health permite a los clientes mantenerse informados de la actividad de mantenimiento inminente. Esta automatización aprovecha las ventajas de Azure Monitor. Puede decidir cómo recibir notificaciones de eventos de mantenimiento inminentes. Asimismo, puede decidir qué flujos automatizados pueden ayudarle a administrar el tiempo de inactividad y minimizar el impacto en sus operaciones.
+A todos los eventos de mantenimiento, con la excepción de DWC400c y los niveles más bajos, les precede una notificación con 24 horas de adelanto.
 
 > [!NOTE]
 > En caso de que sea necesario implementar una actualización donde el tiempo es fundamental, los tiempos de las notificaciones avanzadas pueden reducirse significativamente.

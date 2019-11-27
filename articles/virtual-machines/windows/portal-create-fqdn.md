@@ -1,5 +1,5 @@
 ---
-title: Creación de FQDN para una VM de Windows en Azure Portal | Microsoft Docs
+title: Creación de un nombre de dominio completo para una máquina virtual Windows en Azure Portal
 description: Aprenda a crear un nombre de dominio completo, o FQDN, para una máquina virtual basada en Resource Manager en Azure Portal.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 08/15/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c86e2739efd951ad9274f2fa0829b9fd7e13e3e5
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 727636b4b59bf4b31fd7592b1a0f2d52d5dbbfd3
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102608"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74032985"
 ---
 # <a name="create-a-fully-qualified-domain-name-in-the-azure-portal-for-a-windows-vm"></a>Creación de un nombre de dominio completo en Azure Portal para una máquina virtual Windows
 

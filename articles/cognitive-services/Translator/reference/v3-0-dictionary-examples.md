@@ -1,7 +1,7 @@
 ---
 title: Método de ejemplos de diccionario de Translator Text API
 titleSuffix: Azure Cognitive Services
-description: Use el método de ejemplos de diccionario de Translator Text API.
+description: El método Dictionary Examples de Translator Text API ofrece ejemplos que muestran cómo se utilizan los términos del diccionario en contexto.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: swmachan
-ms.openlocfilehash: 419e11862b2c584686922cfc8d1db72ee4751a03
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: daa3ff7cb9006a0ec940a57a4db31746dcb0550a
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934032"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888110"
 ---
 # <a name="translator-text-api-30-dictionary-examples"></a>Translator Text API 3.0: Ejemplos de diccionario
 

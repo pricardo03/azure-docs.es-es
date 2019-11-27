@@ -1,5 +1,5 @@
 ---
-title: Administración de interfaces de red en Azure Site Recovery para la recuperación ante desastres local en Azure | Microsoft Docs
+title: Administración de adaptadores de red para la recuperación ante desastres con Azure Site Recovery
 description: Se describe cómo administrar las interfaces de red para la recuperación ante desastres local en Azure con Azure Site Recovery.
 author: mayurigupta13
 manager: rochakm
@@ -7,14 +7,15 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
-ms.openlocfilehash: 5d5dd7bc3f6b60c2f9d7c2179f2bd356ca101dc4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2a4752b501e40f9e8a4f3bc82cb2533c11f9e526
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61471781"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954603"
 ---
-# <a name="manage-virtual-machine-network-interfaces-for-on-premises-disaster-recovery-to-azure"></a>Administración de interfaces de red de máquina virtual para la recuperación ante desastres local en Azure
+# <a name="manage-vm-network-interfaces-for-on-premises-disaster-recovery-to-azure"></a>Administración de interfaces de red de máquina virtual para la recuperación ante desastres local en Azure
+
 Una máquina virtual (VM) en Azure debe tener al menos una interfaz de red conectada. Puede tener tantas interfaces de red conectadas como admita el tamaño de la máquina virtual.
 
 De forma predeterminada, la primera interfaz de red de una máquina virtual de Azure se define como la interfaz de red principal. Todas las demás interfaces de red de la máquina virtual son interfaces de red secundarias. También de forma predeterminada, todo el tráfico saliente de la máquina virtual se envía a la dirección IP asignada a la configuración de IP principal de la interfaz de red principal.

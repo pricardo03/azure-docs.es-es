@@ -1,10 +1,10 @@
 ---
-title: 'Ejemplo de script de Azure PowerShell: enrutamiento del tráfico para la alta disponibilidad de las aplicaciones | Microsoft Docs'
+title: Enrutamiento del tráfico para la alta disponibilidad de las aplicaciones - Azure PowerShell - Traffic Manager
 description: 'Ejemplo de script de Azure PowerShell: enrutamiento del tráfico para la alta disponibilidad de las aplicaciones'
 services: traffic-manager
 documentationcenter: traffic-manager
 author: asudbring
-manager: twooley
+manager: kumudD
 editor: ''
 tags: azure-infrastructure
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: traffic-manager
 ms.date: 04/26/2018
 ms.author: allensu
-ms.openlocfilehash: 1c04859e2fe8841eb679f0b3e22b54ce71f88230
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bd81ef459d4b3a60d5da3dff9fff4119392ac8cd
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67050977"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014635"
 ---
 # <a name="route-traffic-for-high-availability-of-applications-using-azure-powershell"></a>Enrutamiento del tráfico para la alta disponibilidad de las aplicaciones con Azure PowerShell
 

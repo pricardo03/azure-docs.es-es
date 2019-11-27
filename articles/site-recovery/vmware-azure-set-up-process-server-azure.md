@@ -1,19 +1,19 @@
 ---
-title: Configuración de un servidor de procesos en Azure para conmutación por recuperación de máquinas virtuales y servidores físicos de VMware con Azure Site Recovery | Microsoft Docs
+title: Configuración de una conmutación por recuperación física o en VMware de un servidor de procesos en Azure Site Recovery
 description: En este artículo se describe cómo configurar un servidor de procesos en Azure para la conmutación por recuperación de máquinas virtuales de Azure a VMware.
 services: site-recovery
 author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 10/21/2019
 ms.author: ramamill
-ms.openlocfilehash: 037f0ff64b114ce9341702564147825099695aa0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 16214fa07b14c8db2f32fa2c69739b7fa3dc1907
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62110037"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083952"
 ---
 # <a name="set-up-a-process-server-in-azure-for-failback"></a>Configuración de un servidor de procesos en Azure para la conmutación por recuperación
 
@@ -37,7 +37,7 @@ Obtenga más información sobre los procesos de [reprotección](vmware-azure-rep
 
 4. En **Nombre del servidor**, **Nombre de usuario** y **Contraseña**, especifique un nombre para el servidor de procesos y las credenciales a las que se asignarán permisos de administrador en el servidor.
 5. Especifique una cuenta de almacenamiento que se usará para los discos de máquina virtual del servidor, la subred en la que se ubicará la máquina virtual del servidor de procesos y la dirección IP del servidor que se asignará cuando se inicie la máquina virtual.
-6. Haga clic en el botón **Aceptar** para iniciar la implementación de la máquina virtual del servidor de procesos.
+6. Haga clic en el botón **Aceptar** para iniciar la implementación de la máquina virtual del servidor de procesos. El servidor de procesos se implementará en la SKU Standard_A8_v2. Asegúrese de que esta SKU de la máquina virtual esté disponible para la suscripción.
 
 >
 

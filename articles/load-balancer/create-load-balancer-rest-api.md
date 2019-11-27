@@ -1,7 +1,7 @@
 ---
-title: Creación de una instancia de Azure Load Balancer mediante API REST
-titlesuffix: Azure Load Balancer
-description: Aprenda a crear una instancia de Azure Load Balancer mediante API REST.
+title: Creación de un equilibrador de carga mediante API REST
+titleSuffix: Azure Load Balancer
+description: En este artículo aprenderá a crear una instancia de Azure Load Balancer mediante API REST.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: load-balancer
 ms.date: 06/06/2018
 ms.author: allensu
-ms.openlocfilehash: ae8fb4494d27d0c145963c9b32757bdb802e0cc7
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: b8acf1faff17f657999769216f71cfb5fa6e3181
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68275558"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74077087"
 ---
 # <a name="create-an-azure-basic-load-balancer-using-rest-api"></a>Creación de una instancia de Azure Basic Load Balancer mediante API REST
 

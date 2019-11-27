@@ -1,31 +1,31 @@
 ---
-title: 'Ejemplos de PowerShell para administrar grupos y versión preliminar de la escritura diferida de grupos en entornos locales: Azure Active Directory | Microsoft Docs'
+title: 'Ejemplos de PowerShell V2 para la administración de grupos: Azure AD | Microsoft Docs'
 description: En esta página se proporcionan ejemplos de PowerShell para ayudarlo a administrar grupos de Azure Active Directory.
 keywords: Azure AD, Azure Active Directory, PowerShell, grupos, administración de grupos
 services: active-directory
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 06/14/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e22baabda901a34f624cf27c25037ff3ba94e90
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 1aa696ccaecc24df700315962c1f01f3a298c56c
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68381847"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74026705"
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Cmdlets de la versión 2 de Azure Active Directory para la administración de grupos
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](../fundamentals/active-directory-groups-create-azure-portal.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
-> * [PowerShell](groups-settings-v2-cmdlets.md)
+> - [Azure Portal](../fundamentals/active-directory-groups-create-azure-portal.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
+> - [PowerShell](groups-settings-v2-cmdlets.md)
 >
 >
 

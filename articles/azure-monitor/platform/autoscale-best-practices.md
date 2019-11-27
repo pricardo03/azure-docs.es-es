@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/07/2017
 ms.author: ancav
 ms.subservice: autoscale
-ms.openlocfilehash: 3700fb90318da3787830f9b6c202436c0e45e2fe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 604cf0564039a542ec117612bcbf74601388c0f7
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61063393"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74007623"
 ---
 # <a name="best-practices-for-autoscale"></a>Procedimientos recomendados de escalado automático
 La escalabilidad automática de Azure Monitor solo se aplica a [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/) y los [servicios de API Management](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
@@ -48,8 +48,8 @@ Es recomendable tener cuidado a la hora de elegir los diferentes umbrales de esc
 
 *No se recomiendan* opciones de escalado automático como las de los siguientes ejemplos, con valores de umbral iguales o muy similares en condiciones de escalado o reducción horizontal:
 
-* Aumentar las instancias en 1 cuando el número de subprocesos > = 600
-* Disminuir las instancias en 1 cuando el número de subprocesos < = 600
+* Aumentar las instancias en 1 cuando el número de subprocesos <= 600
+* Disminuir las instancias en 1 cuando el número de subprocesos >= 600
 
 Veamos un ejemplo de lo que puede llevar a producir un comportamiento confuso. Considere la siguiente secuencia.
 
@@ -64,7 +64,7 @@ La estimación durante una reducción horizontal está diseñada para evitar sit
 Nuestra recomendación es establecer un margen suficiente entre el escalado horizontal y en los umbrales. Por ejemplo, echemos un vistazo a esta siguiente combinación de reglas, que es mejor.
 
 * Aumentar las instancias en 1 cuando el porcentaje de CPU > = 80
-* Disminuir las instancias en 1 cuando el porcentaje de CPU < = 60
+* Disminuir las instancias en 1 cuando el porcentaje de CPU > = 60
 
 En este caso  
 

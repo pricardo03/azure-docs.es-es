@@ -1,5 +1,5 @@
 ---
-title: Copia de seguridad de archivos en máquinas virtuales de Azure Stack
+title: Copia de seguridad de archivos en máquinas virtuales de Azure Stack - Azure Backup
 description: Use Azure Backup para hacer una copia de seguridad de los archivos y aplicaciones de Azure Stack, así como para restaurarlos, en el entorno de Azure Stack.
 ms.reviewer: adigan
 author: dcurwin
@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/05/2018
 ms.author: dacurwin
-ms.openlocfilehash: d9e7aaca99e551e17e8b4be5ef6146a19e44355f
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: 70da426f1dff843f1e2515052431f54f8ea83780
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210214"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091564"
 ---
 # <a name="back-up-files-and-applications-on-azure-stack"></a>Copia de seguridad de archivos y aplicaciones en Azure Stack
 
@@ -134,7 +134,7 @@ Para ver entidades de Azure Backup Server en Azure Portal, se pueden seguir esto
 2. Hacer clic en la infraestructura de copia de seguridad.
 3. Ver los servidores de administración de copias de seguridad.
 
-## <a name="see-also"></a>Otras referencias
+## <a name="next-steps"></a>Pasos siguientes
 
 Para obtener información sobre cómo usar Azure Backup Server para proteger otras cargas de trabajo, consulte uno de los siguientes artículos:
 

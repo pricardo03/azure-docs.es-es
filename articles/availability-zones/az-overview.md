@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/06/2019
+ms.date: 10/17/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 585f9f27e0562e9eabddd934a2b4f32a441b1777
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 1733493c88129f465782af8ac5e6c4914fd213ca
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72512570"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73957945"
 ---
 # <a name="what-are-availability-zones-in-azure"></a>¿Qué son las zonas de disponibilidad en Azure?
 Las zonas de disponibilidad son una oferta que protege las aplicaciones y datos de los errores del centro de datos. Las zonas de disponibilidad son ubicaciones físicas exclusivas dentro de una región de Azure. Cada zona de disponibilidad consta de uno o varios centros de datos equipados con alimentación, refrigeración y redes independientes. Para garantizar la resistencia, hay tres zonas independientes como mínimo en todas las regiones habilitadas. La separación física de las zonas de disponibilidad dentro de una región protege las aplicaciones y los datos frente a los errores del centro de datos. Los servicios con redundancia de zona replican las aplicaciones y los datos entre zonas de disponibilidad para protegerlos frente a puntos de error únicos. Con las zonas de disponibilidad, Azure ofrece el mejor Acuerdo de Nivel de Servicio del sector de tiempo de actividad de máquina virtual, con un 99,99 %. En el [SLA de Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) completo se explica la disponibilidad garantizada de Azure como un conjunto.
@@ -38,7 +38,7 @@ Para lograr una continuidad del negocio integral en Azure, cree la arquitectura 
 ![vista conceptual de una zona fuera de servicio en una región](./media/az-overview/az-graphic-two.png)
 
 > [!IMPORTANT]
-> Los identificadores de la zona de disponibilidad (los números 1, 2 y 3 de la imagen anterior) se asignan lógicamente a las zonas físicas reales para cada suscripción de manera independiente. Esto significa que la zona de disponibilidad 1 en una suscripción determinada podría hacer referencia a una zona física diferente de la zona de disponibilidad 1 en una suscripción diferente. En consecuencia, se recomienda no retransmitir los identificadores de zona de disponibilidad entre diferentes suscripciones para la ubicación de la máquina virtual.
+> Los identificadores de la zona de disponibilidad (los números 1, 2 y 3 de la imagen anterior) se asignan lógicamente a las zonas físicas reales para cada suscripción de manera independiente. Esto significa que la zona de disponibilidad 1 en una suscripción determinada podría hacer referencia a una zona física diferente de la zona de disponibilidad 1 en una suscripción diferente. En consecuencia, se recomienda no confiar en identificadores de zona de disponibilidad de diferentes suscripciones para la selección de máquina virtual.
 
 ## <a name="services-support-by-region"></a>Soporte técnico de servicios por región
 
@@ -60,7 +60,7 @@ Las combinaciones de servicios y regiones de Azure que admiten zonas de disponib
 | Standard Load Balancer     | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |
 | VPN Gateway            | &#10003;   |  &#10003;    | &#10003;  | &#10003;  | &#10003;       | &#10003;     |  &#10003;  | &#10003;    |  &#10003;   | &#10003;       |
 | Puerta de enlace de ExpressRoute   | &#10003;   |  &#10003;    | &#10003;  | &#10003;  | &#10003;       | &#10003;     |  &#10003;  | &#10003;    |  &#10003;   | &#10003;       |
-| Application Gateway    | &#10003;   |  &#10003;    | &#10003;  | &#10003;  | &#10003;       | &#10003;     |  &#10003;  | &#10003;    |  &#10003;   | &#10003;       |
+| Application Gateway (v2)    | &#10003;   |  &#10003;    | &#10003;  | &#10003;  | &#10003;       | &#10003;     |  &#10003;  | &#10003;    |  &#10003;   | &#10003;       |
 | Azure Firewall           | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    |  &#10003;       | &#10003;       |
 | **Bases de datos**                     |            |              |           |           |                |              |          |             |            |                |
 | Explorador de datos de Azure                   | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;        | &#10003;       |
@@ -71,8 +71,9 @@ Las combinaciones de servicios y regiones de Azure que admiten zonas de disponib
 | Event Hubs                      | &#10003;   |   &#10003; | &#10003;  | &#10003;  | &#10003; | &#10003; | &#10003; | &#10003; | &#10003; | &#10003;       |
 | **Integración**                     |            |              |           |           |                |              |          |             |            |                |
 | Service Bus (solo nivel Premium) | &#10003;   |  &#10003;  | &#10003;  | &#10003;  | &#10003;  | &#10003;     |&#10003;   | &#10003;    |&#10003;      | &#10003;       |
-
-
+| Event Grid | &#10003;   |  &#10003;  | &#10003;  | &#10003;  | &#10003;  | &#10003;     |&#10003;   | &#10003;    |&#10003;      | &#10003;       |
+| **Identidad**                     |            |              |           |           |                |              |          |             |            |                |
+| Azure AD Domain Services | &#10003;   |  &#10003;  | &#10003;  | &#10003;  | &#10003;  | &#10003;     |&#10003;   | &#10003;    |&#10003;      | &#10003;       |
 
 ## <a name="services-resiliency"></a>Resistencia de servicios
 Todos los servicios de administración de Azure están diseñados para ser resistentes ante errores en el nivel de región. Dentro del espectro de errores, uno o varios errores de zona de disponibilidad en una región tienen un radio de error menor en comparación con un error de una región completa. Azure puede recuperarse de un error en un nivel de zona de los servicios de administración dentro de la región o desde otra región de Azure. Azure realiza el mantenimiento crítico zona por zona en una región, para evitar que los errores afecten a los recursos del cliente implementados en las zonas de disponibilidad de una región.
@@ -94,6 +95,7 @@ No hay ningún costo adicional asociado a las máquinas virtuales implementadas 
 - [Crear una puerta de enlace de red virtual con redundancia de zona](../vpn-gateway/create-zone-redundant-vnet-gateway.md)
 - [Adición de una región con redundancia de zona para Azure Cosmos DB](../cosmos-db/high-availability.md#availability-zone-support)
 - [Introducción a las zonas de disponibilidad de Azure Cache for Redis](https://aka.ms/redis/az/getstarted)
+- [Creación de una instancia de Azure Active Directory Domain Services](../active-directory-domain-services/tutorial-create-instance.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Plantillas de inicio rápido](https://aka.ms/azqs)

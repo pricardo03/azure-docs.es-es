@@ -1,5 +1,5 @@
 ---
-title: Actualización de un clúster de Azure Service Fabric | Microsoft Docs
+title: Actualización de la versión de Azure Service Fabric de un clúster
 description: Actualice el código de Service Fabric o la configuración que ejecuta un clúster de Service Fabric, incluida la configuración del modo de actualización del clúster, la incorporación de puertos de aplicación, las revisiones del sistema operativo, etc. ¿Qué se puede esperar cuando se realizan actualizaciones?
 services: service-fabric
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2018
 ms.author: atsenthi
-ms.openlocfilehash: 03fd5f2950349f0dc76021d28845e383c0ba6a64
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 067bf654928240ffe9651d4acf1933a81e631146
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599818"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013354"
 ---
 # <a name="upgrade-the-service-fabric-version-of-a-cluster"></a>Actualización de la versión de Service Fabric de un clúster
 

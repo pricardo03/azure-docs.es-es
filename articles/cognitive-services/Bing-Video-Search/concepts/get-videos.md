@@ -1,7 +1,7 @@
 ---
 title: Búsqueda de vídeos mediante Bing Video Search API
 titleSuffix: Azure Cognitive Services
-description: Obtenga información sobre cómo enviar solicitudes de búsqueda a Bing Video Search API.
+description: Aunque la API Bing Video Search busca y devuelve vídeos pertinentes de Internet, también proporciona varias características para la recuperación de vídeos inteligente y centrada en la web.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: aahi
-ms.openlocfilehash: e3314efe0ea0367eb852fd17aadece17026ff4bb
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 5add9597924aa77ede875d0056e83eceb4f99598
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72512422"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111440"
 ---
 # <a name="search-for-videos-with-the-bing-video-search-api"></a>Búsqueda de vídeos con Bing Video Search API
 

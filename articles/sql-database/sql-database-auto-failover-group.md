@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 10/23/2019
-ms.openlocfilehash: 88bcee1cbb23bf298c5ad3920a7744d8da6ce3fb
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/07/2019
+ms.openlocfilehash: 16fc15a574655f20e3e6e37f164773b41ffe0b78
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821965"
+ms.locfileid: "73839334"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Uso de grupos de conmutación por error automática para permitir la conmutación por error de varias bases de datos de manera transparente y coordinada
 
@@ -246,7 +246,7 @@ Si la aplicación usa una instancia administrada como capa de datos, siga estas 
 
 - **Reconocimiento de las limitaciones conocidas de los grupos de conmutación por error**
 
-  No se admiten los cambios de nombre de base de datos ni los cambios de tamaño de las instancias para las instancias del grupo de conmutación por error. Tendrá que eliminar temporalmente el grupo de conmutación por error para poder realizar estas acciones.
+  No se admiten los cambios de nombre de base de datos para las instancias del grupo de conmutación por error. Tendrá que eliminar temporalmente el grupo de conmutación por error para poder cambiar el nombre a una base de datos.
 
 ## <a name="failover-groups-and-network-security"></a>Grupos de conmutación por error y la seguridad de red
 
@@ -296,7 +296,7 @@ Al configurar un grupo de conmutación por error entre instancias administradas 
    > [!IMPORTANT]
    > Las reglas de seguridad de NSG mal configuradas dan lugar a operaciones de copia de base de datos bloqueadas.
 
-7. La instancia secundaria está configurada con el identificador de zona DNS correcto. La zona DNS es una propiedad de una instancia administrada y su identificador se incluye en la dirección del nombre de host. El identificador de zona se genera como una cadena aleatoria cuando se crea la primera instancia administrada en cada red virtual, y este mismo identificador se asigna a todas las demás instancias de la subred. Una vez que se ha asignado, no se puede modificar la zona DNS. Las instancias administradas incluidas en el mismo grupo de conmutación por error deben compartir la zona DNS. Para lograrlo, debe pasar el identificador de zona de la instancia principal como valor del parámetro DnsZonePartner al crear la instancia secundaria. 
+7. La instancia secundaria está configurada con el identificador de zona DNS correcto. La zona DNS es una propiedad de una instancia administrada y un clúster virtual, cuyo identificador se incluye en la dirección del nombre de host. El identificador de zona se genera como una cadena aleatoria cuando se crea la primera instancia administrada en cada red virtual, y este mismo identificador se asigna a todas las demás instancias de la subred. Una vez que se ha asignado, no se puede modificar la zona DNS. Las instancias administradas incluidas en el mismo grupo de conmutación por error deben compartir la zona DNS. Para lograrlo, debe pasar el identificador de zona de la instancia principal como valor del parámetro DnsZonePartner al crear la instancia secundaria. 
 
    > [!NOTE]
    > Consulte [Adición de una instancia administrada a un grupo de conmutación por error](sql-database-managed-instance-failover-group-tutorial.md) para obtener un tutorial detallado sobre la configuración de grupos de conmutación por error con una instancia administrada.

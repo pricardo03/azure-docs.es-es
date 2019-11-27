@@ -1,5 +1,5 @@
 ---
-title: Uso de las plantillas de inicio rápido de Azure para configurar un grupo de disponibilidad Always On para SQL Server en una máquina virtual de Azure
+title: Configuración de un grupo de disponibilidad (plantilla de inicio rápido de Azure)
 description: Use las plantillas de inicio rápido de Azure para crear el clúster de conmutación por error de Windows, unir las máquinas virtuales con SQL Server al clúster, crear el cliente de escucha y configurar el equilibrador de carga interno en Azure.
 services: virtual-machines-windows
 documentationcenter: na
@@ -14,14 +14,15 @@ ms.workload: iaas-sql-server
 ms.date: 01/04/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 2b44b51da11bc1c51fcbc60992a9b5b870daf02e
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.custom: seo-lt-2019
+ms.openlocfilehash: edf810dfc975eebaf261eac7b89106c9e29c759c
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100578"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74022381"
 ---
-# <a name="use-azure-quickstart-templates-to-configure-an-always-on-availability-group-for-sql-server-on-an-azure-vm"></a>Uso de las plantillas de inicio rápido de Azure para configurar un grupo de disponibilidad Always On para SQL Server en una máquina virtual de Azure
+# <a name="use-azure-quickstart-templates-to-configure-an-availability-group-for-sql-server-on-an-azure-vm"></a>Uso de las plantillas de inicio rápido de Azure para configurar un grupo de disponibilidad para SQL Server en una máquina virtual de Azure
 En este artículo se describe cómo usar las plantillas de inicio rápido de Azure para automatizar parcialmente la implementación de una configuración de grupo de disponibilidad Always On para máquinas virtuales con SQL Server en Azure. Son dos las plantillas de inicio rápido de Azure que se usan en este proceso: 
 
    | Plantilla | DESCRIPCIÓN |

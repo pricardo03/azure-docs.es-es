@@ -1,5 +1,5 @@
 ---
-title: Introducción a Windows Virtual Machines de Azure | Microsoft Docs
+title: 'Introducción a Windows Virtual Machines: Azure'
 description: Aprenda a crear y administrar máquinas virtuales Windows en Azure.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 47ad2346f4574b10d12c46c1f72394225e014854
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: fe62f67071b77c464d5b3b8649d16db597d9ab21
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102564"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033032"
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Información general sobre las máquinas virtuales Windows en Azure
 
@@ -48,7 +48,7 @@ Siempre hay gran cantidad de [consideraciones de diseño](/azure/architecture/re
 * Los recursos relacionados que necesita la máquina virtual
 
 ### <a name="naming"></a>Nomenclatura
-Una máquina virtual tiene un [nombre](/azure/architecture/best-practices/naming-conventions) asignado y un nombre de equipo configurado como parte del sistema operativo. El nombre de una máquina virtual puede tener hasta 15 caracteres.
+Una máquina virtual tiene un [nombre](/azure/architecture/best-practices/resource-naming) asignado y un nombre de equipo configurado como parte del sistema operativo. El nombre de una máquina virtual puede tener hasta 15 caracteres.
 
 Si usa Azure para crear el disco de sistema operativo, el nombre del equipo y el nombre de la máquina virtual son iguales. Si [carga y usa su propia imagen](upload-generalized-managed.md) que contenga un sistema operativo ya configurado y la usa para crear una máquina virtual, los nombres pueden ser diferentes. Se recomienda que, cuando cargue su propio archivo de imagen, haga que el nombre del equipo en el sistema operativo y el nombre de la máquina virtual sean iguales.
 
@@ -100,7 +100,7 @@ Pueden llevarse a cabo estas tareas comunes mediante las extensiones:
 ### <a name="related-resources"></a>Recursos relacionados
 Los recursos de esta tabla se usan en la máquina virtual y deben ya existir o crearse al tiempo que la máquina virtual.
 
-| Recurso | Obligatorio | DESCRIPCIÓN |
+| Resource | Obligatorio | DESCRIPCIÓN |
 | --- | --- | --- |
 | [Grupos de recursos](../../azure-resource-manager/resource-group-overview.md) |Sí |La máquina virtual debe encontrarse en un grupo de recursos. |
 | [Cuenta de almacenamiento](../../storage/common/storage-create-storage-account.md) |Sí |La máquina virtual necesita la cuenta de almacenamiento para almacenar sus discos duros virtuales. |

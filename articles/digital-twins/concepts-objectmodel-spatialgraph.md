@@ -1,5 +1,5 @@
 ---
-title: Descripción de los modelos de objetos de Azure Digital Twins y del grafo de inteligencia espacial | Microsoft Docs
+title: 'Descripción de los modelos de objetos y del grafo de inteligencia espacial: Azure Digital Twins | Microsoft Docs'
 description: Utilice Azure Digital Twins para crear modelos de relaciones entre personas, lugares y dispositivos.
 ms.author: alinast
 author: alinamstanciu
@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 11/05/2019
-ms.openlocfilehash: 65e9e6235fd974a7731fa5e86322793f1b680ad9
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 85fb67248a69a2726fef99ebe4749d61807631e4
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721326"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74010085"
 ---
 # <a name="understand-digital-twins-object-models-and-spatial-intelligence-graph"></a>Descripción de los modelos de objetos de Digital Twins y del grafo de inteligencia espacial
 

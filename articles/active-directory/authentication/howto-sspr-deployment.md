@@ -11,14 +11,17 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 330b02e3db6af90fcfeb962e78b043b04090116e
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: b648d6f914b5e3004ea3b62019bbec33e5a4871d
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70743239"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74081533"
 ---
 # <a name="deploy-azure-ad-self-service-password-reset"></a>Implementar el autoservicio de restablecimiento de contraseña de Azure AD
+
+> [!NOTE]
+> En esta guía se explica el autoservicio de restablecimiento de contraseña y cómo implementarlo. Si está buscando la herramienta de autoservicio de restablecimiento de contraseña para recuperar la cuenta, vaya a [https://aka.ms/sspr](https://aka.ms/sspr). 
 
 El autoservicio de restablecimiento de contraseña (SSPR) es una característica de Azure Active Directory que permite a los empleados restablecer sus contraseñas sin necesidad de ponerse en contacto con el personal de TI. Los empleados deben registrarse o ser registrados en el autoservicio de restablecimiento de contraseña antes de usar el servicio. Durante el registro, el empleado elige uno o varios métodos de autenticación habilitados por su organización.
 

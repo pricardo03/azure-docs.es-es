@@ -1,18 +1,19 @@
 ---
-title: 'Solución de problemas de Azure Application Gateway con App Service: redireccionamiento a una dirección URL de App Service'
+title: Solución de problemas de redireccionamiento a la dirección URL de App Service
+titleSuffix: Azure Application Gateway
 description: En este artículo se proporciona información sobre cómo solucionar el problema de redireccionamiento cuando se utiliza Azure Application Gateway con Azure App Service
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: article
-ms.date: 07/19/2019
+ms.date: 11/14/2019
 ms.author: absha
-ms.openlocfilehash: 4b233117bc0f967368aeac7baec8c4875aa16826
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: d43efd6dbd344f666c23b1ad4414ceb29992e996
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051427"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074491"
 ---
 # <a name="troubleshoot-app-service-issues-in-application-gateway"></a>Solución de problemas de App Service en Application Gateway
 
@@ -76,7 +77,7 @@ Set-Cookie: ARRAffinity=b5b1b14066f35b3e4533a1974cacfbbd969bf1960b6518aa2c2e2619
 
 X-Powered-By: ASP.NET
 ```
-En el ejemplo anterior, observe que el encabezado de respuesta tiene un código de estado 301 para el redireccionamiento. El encabezado de ubicación tiene el nombre de host del servicio de la aplicación en lugar del nombre de host original www.contoso.com.
+En el ejemplo anterior, observe que el encabezado de respuesta tiene un código de estado 301 para el redireccionamiento. El encabezado de ubicación tiene el nombre de host de la instancia de App Service en lugar del nombre de host original `www.contoso.com`.
 
 ## <a name="solution-rewrite-the-location-header"></a>Solución: Reescribir el encabezado de ubicación
 
@@ -97,9 +98,9 @@ Debe tener un dominio personalizado y seguir este proceso:
 
     ![Lista de dominios personalizados de App Service](./media/troubleshoot-app-service-redirection-app-service-url/appservice-2.png)
 
-- Su instancia de App Service está lista para aceptar el nombre de host www.contoso.com. Cambie la entrada CNAME en DNS para que apunte de nuevo al FQDN de Application Gateway, como appgw.eastus.cloudapp.azure.com.
+- La instancia de App Service está lista para aceptar el nombre de host `www.contoso.com`. Cambie la entrada CNAME en DNS para que apunte al FQDN de la puerta de enlace de aplicaciones; por ejemplo, `appgw.eastus.cloudapp.azure.com`.
 
-- Asegúrese de que el dominio www.contoso.com se resuelve en el FQDN de Application Gateway al realizar una consulta de DNS.
+- Asegúrese de que el dominio `www.contoso.com` se resuelve en el FQDN de la puerta de enlace de aplicaciones al realizar una consulta de DNS.
 
 - Establezca el sondeo personalizado para deshabilitar **Seleccionar el nombre de host de la configuración de HTTP de back-end**. En Azure Portal, desactive la casilla de la configuración del sondeo. En PowerShell, no use el conmutador **-PickHostNameFromBackendHttpSettings** en el comando **Set-AzApplicationGatewayProbeConfig**. En el campo de nombre de host del sondeo, escriba el FQDN de App Service, como example.azurewebsites.net. Las solicitudes de sondeo enviadas desde la puerta de enlace de aplicaciones llevan este FQDN en el encabezado de host.
 
@@ -110,7 +111,7 @@ Debe tener un dominio personalizado y seguir este proceso:
 
 - Asocie el sondeo personalizado de nuevo a la configuración de HTTP de back-end y compruebe que el back-end está en buen estado.
 
-- La puerta de enlace de aplicaciones ahora debe reenviar el mismo nombre de host, www.contoso.com, a App Service. El redireccionamiento se produce en el mismo nombre de host. Compruebe los encabezados de solicitud y respuesta de ejemplo siguientes.
+- Ahora la puerta de enlace de aplicaciones debe reenviar el mismo nombre de host, `www.contoso.com`, a la instancia de App Service. El redireccionamiento se produce en el mismo nombre de host. Compruebe los encabezados de solicitud y respuesta de ejemplo siguientes.
 
 Para implementar los pasos mencionados anteriormente con PowerShell en una instalación existente, use el siguiente script de Powershell de ejemplo. Tenga en cuenta que no hemos usado los modificadores **-PickHostname** en la configuración de sondeo y configuración de HTTP.
 

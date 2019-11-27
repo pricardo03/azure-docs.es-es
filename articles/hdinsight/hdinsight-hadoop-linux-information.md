@@ -1,19 +1,19 @@
 ---
 title: Sugerencias para usar Hadoop en HDInsight basado en Linux (Azure)
 description: Obtenga sugerencias de implementación para usar clústeres de HDInsight basado en Linux (Hadoop) en un entorno de Linux conocido que se ejecuta en la nube de Azure.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: f50702688b9a261ed98c2eb3a5892d1bdbe8d11b
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: daaf5763bde560250ddf70e70466fc9f4ed3e1c2
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71308083"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73834106"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Información sobre el uso de HDInsight en Linux
 
@@ -111,12 +111,11 @@ Cuando se usa Azure Storage o Data Lake Storage, no tiene que hacer nada especia
 
 En HDInsight, los recursos de almacenamiento de datos (Azure Blob Storage y Azure Data Lake Storage) se desacoplan de los recursos de proceso. Por lo tanto, puede crear clústeres de HDInsight para realizar cálculos según lo necesite y luego eliminar el clúster cuando el trabajo haya finalizado, manteniendo mientras tanto sus archivos de datos persistentes de forma segura en un almacenamiento en la nube durante todo el tiempo que lo necesite.
 
-
 ### <a name="URI-and-scheme"></a>Identificador URI y esquema
 
 Algunos comandos pueden pedirle que especifique el esquema como parte del identificador URI al acceder a un archivo. Por ejemplo, el componente Storm-HDFS le pide que especifique el esquema. Cuando se usa un almacenamiento no predeterminado (almacenamiento agregado como almacenamiento "adicional" al clúster), debe utilizar siempre el esquema como parte del identificador URI.
 
-Cuando use __Azure Storage__, utilice uno de los siguientes esquemas de URI:
+Cuando use [**Azure Storage**](./hdinsight-hadoop-use-blob-storage.md), utilice uno de los siguientes esquemas de URI:
 
 * `wasb:///`: acceso al almacenamiento predeterminado mediante comunicación sin cifrar.
 
@@ -124,13 +123,13 @@ Cuando use __Azure Storage__, utilice uno de los siguientes esquemas de URI:
 
 * `wasb://<container-name>@<account-name>.blob.core.windows.net/`: se usa al comunicarse con una cuenta de almacenamiento no predeterminada. Por ejemplo, cuando tiene una cuenta de almacenamiento adicional o accede a los datos almacenados en una cuenta de almacenamiento que es accesible públicamente.
 
-Cuando use __Azure Data Lake Storage Gen2__, utilice el siguiente esquema de URI:
+Cuando use [**Azure Data Lake Storage Gen2**](./hdinsight-hadoop-use-data-lake-storage-gen2.md), utilice el siguiente esquema de URI:
 
 * `abfs://`: acceso al almacenamiento predeterminado mediante comunicación cifrada.
 
 * `abfs://<container-name>@<account-name>.dfs.core.windows.net/`: se usa al comunicarse con una cuenta de almacenamiento no predeterminada. Por ejemplo, cuando tiene una cuenta de almacenamiento adicional o accede a los datos almacenados en una cuenta de almacenamiento que es accesible públicamente.
 
-Cuando use __Azure Data Lake Storage Gen1__, utilice uno de los siguientes esquemas de URI:
+Cuando use [**Azure Data Lake Storage Gen1**](./hdinsight-hadoop-use-data-lake-store.md), utilice uno de los siguientes esquemas de URI:
 
 * `adl:///`: accede al almacén Data Lake Storage predeterminado del clúster.
 

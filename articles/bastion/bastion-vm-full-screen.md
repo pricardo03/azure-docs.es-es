@@ -1,5 +1,5 @@
 ---
-title: Cambio de la vista de sesión de máquina virtual a pantalla completa en Azure Bastion | Microsoft Docs
+title: 'Azure Bastion: Vista de la sesión de máquina virtual: pantalla completa'
 description: En este artículo, aprenda a cambiar la vista a pantalla completa.
 services: bastion
 author: cherylmc
@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: cherylmc
-ms.openlocfilehash: a8c9cab825644fe797713c80d3a710c7a2d54850
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 87a6c046d5f20b8f38381acbfefbfef43b09092c
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498060"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014238"
 ---
 # <a name="change-to-full-screen-view-for-a-vm-session-azure-bastion"></a>Cambio a la vista de pantalla completa para una sesión de máquina virtual: Azure Bastion
 

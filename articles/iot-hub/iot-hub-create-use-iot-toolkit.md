@@ -1,18 +1,18 @@
 ---
 title: Creación de una instancia de Azure IoT Hub mediante Azure IoT Tools para VS Code | Microsoft Docs
-description: Cómo usar Azure IoT Tools para VS Code para crear una instancia de IoT Hub.
+description: En este artículo se muestra cómo usar Azure IoT Tools para Visual Studio Code para crear una instancia de Azure IoT Hub en un grupo de recursos.
 author: formulahendry
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/04/2019
 ms.author: junhan
-ms.openlocfilehash: c37eeec6429e8367ade12b58bb4e20022423edf6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3fe4dfae2e86d549056805e87c0fd3927697fe24
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66166261"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890565"
 ---
 # <a name="create-an-iot-hub-using-the-azure-iot-tools-for-visual-studio-code"></a>Creación de una instancia de IoT Hub mediante Azure IoT Tools para Visual Studio Code
 

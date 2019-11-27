@@ -1,7 +1,7 @@
 ---
 title: 'Panel: Language Understanding (LUIS)'
 titleSuffix: Azure Cognitive Services
-description: Corrija las intenciones con el panel de análisis, una herramienta de visualización de informes.
+description: Corrija intenciones y entidades con el panel de la aplicación que se entrena. El panel muestra información general de la aplicación, con los aspectos destacados de las intenciones que se deben corregir.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/22/2019
+ms.date: 11/08/2019
 ms.author: diberry
-ms.openlocfilehash: 22e187bba3782e485685354c203a6273d5bcc618
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: d9ae126753f55349f9bf3eefd20bc4d222866af1
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735053"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888213"
 ---
 # <a name="how-to-use-the-dashboard-to-improve-your-app"></a>Cómo usar el Panel para mejorar la aplicación
 
@@ -154,7 +154,7 @@ Determine los porcentajes del umbral que son adecuados para su negocio.
 
 El filtro le permite buscar las intenciones con una incidencia específica:
 
-|Filtrar|Porcentaje sugerido|Propósito|
+|Filter|Porcentaje sugerido|Propósito|
 |--|--|--|
 |Intenciones más problemáticas|-|**Comience aquí**: la corrección de las expresiones de esta intención mejorará la aplicación más que otras correcciones.|
 |Predicciones correctas por debajo del|60%|Este es el porcentaje de expresiones de la intención seleccionada que son correctas pero tienen una puntuación de confianza por debajo del umbral. |

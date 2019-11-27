@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 08/26/2019
+ms.date: 11/12/2019
 ms.author: juliako
-ms.openlocfilehash: bac784ea3050111184e2908fe5656a1d16545a99
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 8d7db428d7f71383abf5425d7cc1ddbbab3b7a52
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231021"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037867"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Streaming en vivo con Azure Media Services v3
 
@@ -62,6 +62,13 @@ Cuando se utiliza el **objeto LiveEvent** de paso a través, se confía en el co
 ![codificación en directo](./media/live-streaming/live-encoding.svg)
 
 Si utiliza la codificación en la nube con Media Services, deberá configurar el codificador en directo local para que envíe un vídeo con una única velocidad de bits como fuente de contribución (agregado de 32 Mbps como máximo) al objeto LiveEvent (mediante el protocolo de entrada RTMP o MP4 fragmentado). El objeto LiveEvent transcodifica la secuencia de velocidad de bits única entrante en [varias secuencias de vídeo de velocidad de bits](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) a resoluciones diferentes para mejorar la entrega, y las pone a disposición para su entrega a dispositivos de reproducción a través de protocolos estándar del sector como MPEG-DASH, Apple HTTP Live Streaming (HLS) y Microsoft Smooth Streaming. 
+
+### <a name="live-transcription"></a>Transcripción en directo
+
+La transcripción en directo es una característica que puede usar con eventos en directo que son de paso a través o de codificación en directo. Para más información, consulte [transcripción en directo](live-transcription.md). Cuando esta característica está habilitada, el servicio usa la característica [Voz a texto](../../cognitive-services/speech-service/speech-to-text.md) de Cognitive Services para transcribir el texto oral del audio entrante en texto escrito. A continuación, se pone a disposición este texto para su entrega junto con el vídeo y el audio en los protocolos MPEG-DASH y HLS.
+
+> [!NOTE]
+> Actualmente, la transcripción en directo está disponible como una característica en vista previa en la región Oeste de EE. UU. 2.
 
 ## <a name="live-streaming-workflow"></a>Flujo de trabajo de streaming en vivo
 

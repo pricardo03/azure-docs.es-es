@@ -8,12 +8,12 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 84b65470b12212eb1038e18bd442ff07511a5c1a
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 538c54c338540059baa17b9818d444cc863b7309
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72513504"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034065"
 ---
 # <a name="azcopy-logout"></a>azcopy logout
 
@@ -26,6 +26,13 @@ Este comando quitará toda la información de inicio de sesión almacenada en ca
 ```azcopy
 azcopy logout [flags]
 ```
+
+## <a name="related-conceptual-articles"></a>Artículos conceptuales relacionados
+
+- [Introducción a AzCopy](storage-use-azcopy-v10.md)
+- [Transferencia de datos con AzCopy y Blob Storage](storage-use-azcopy-blobs.md)
+- [Transferencia de datos con AzCopy y File Storage](storage-use-azcopy-files.md)
+- [Configurar, optimizar y solucionar problemas de AzCopy](storage-use-azcopy-configure.md)
 
 ## <a name="options"></a>Opciones
 

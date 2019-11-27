@@ -1,5 +1,5 @@
 ---
-title: 'Configuración del emparejamiento de un circuito : ExpressRoute: CLI de Azure | Microsoft Docs'
+title: 'Azure ExpressRoute: Configuración del emparejamiento: CLI'
 description: Este artículo le ayudará a crear y aprovisionar las configuraciones entre pares privados, públicos y de Microsoft de un circuito ExpressRoute. Este artículo también muestra cómo comprobar el estado, actualizar, o eliminar configuraciones entre pares en el circuito.
 services: expressroute
 author: cherylmc
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 3f27e10c47b84b6f037c0d9422e9fba40e0315f7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1683b57aa50cff00d26cc3400b8ab7a903a2c8e0
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64717037"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083239"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-using-cli"></a>Creación y modificación del emparejamiento de un circuito ExpressRoute mediante la CLI
 
@@ -124,6 +124,12 @@ Puede obtener detalles sobre la configuración mediante el ejemplo siguiente:
 ```azurecli-interactive
 az network express-route peering show -g ExpressRouteResourceGroup --circuit-name MyCircuit --name AzureMicrosoftPeering
 ```
+> [!IMPORTANT]
+> Microsoft comprueba si los prefijos públicos anunciados y ASN del mismo nivel (o ASN de cliente) especificados se le han asignado en el registro de enrutamiento de Internet. Si obtiene los prefijos públicos de otra entidad y la asignación no se registra con el registro de enrutamiento, la validación automática no se completará y requerirá la validación manual. Si se produce un error en la validación automática, el valor de "AdvertisedPublicPrefixesState" que aparecerá en la salida del comando anterior será "Se necesita validación". 
+> 
+> Si ve el mensaje "Se necesita validación", recopile los documentos que muestren los prefijos públicos asignados a la organización por la entidad que aparece como propietaria de los prefijos en el registro de enrutamiento, y envíe estos documentos para su validación manual. Abra una incidencia de soporte técnico como se muestra a continuación. 
+> 
+>
 
 La salida es similar a la del ejemplo siguiente:
 

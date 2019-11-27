@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 4c16953d3c708516edbe0b3c13b091dc3181b187
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 75d1f2b6facd438e329555d8595fe159565dbb74
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73465062"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837364"
 ---
 # <a name="datetimev2-prebuilt-entity-for-a-luis-app"></a>Entidad precompilada DatetimeV2 para una aplicación de LUIS
 

@@ -1,65 +1,81 @@
 ---
-title: 'Niveles de rendimiento del almacenamiento de blobs en bloques de Azure: Azure Storage'
-description: Niveles de rendimiento de Azure Blob Storage.
+title: 'Niveles de rendimiento del almacenamiento de blobs en bloques: Azure Storage'
+description: Describe las diferencias entre los niveles de rendimiento Premium y Estándar para el almacenamiento de blobs en bloques de Azure.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 10/02/2019
+ms.date: 11/12/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: ac483a338b7d71142b89b13e41fc048346ac037f
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 64efd1a02b903ec3874066f6c663b86a8080f746
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71803921"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73932269"
 ---
-# <a name="azure-block-blob-storage-performance-tiers"></a>Niveles de rendimiento del almacenamiento de blobs en bloques de Azure
+# <a name="performance-tiers-for-block-blob-storage"></a>Niveles de rendimiento para el almacenamiento de blobs en bloques
 
 A medida que las empresas implementan aplicaciones nativas en la nube sensibles al rendimiento, es importante disponer de opciones para el almacenamiento rentable de datos en diferentes niveles de rendimiento.
 
 El almacenamiento de blobs en bloques de Azure ofrece dos niveles de rendimiento diferentes:
 
-- Premium: optimizado para altas tasas de transacciones y latencia de almacenamiento coherente de un solo dígito
-- Estándar: optimizado para una alta capacidad y un alto rendimiento
+- **Premium**: optimizado para altas tasas de transacciones y latencia de almacenamiento coherente de un solo dígito
+- **Estándar**: optimizado para una alta capacidad y un alto rendimiento
 
 Las siguientes consideraciones se aplican a los distintos niveles de rendimiento:
 
-- El rendimiento Estándar está disponible en todas las [regiones de Azure](https://azure.microsoft.com/global-infrastructure/services/?products=storage). El rendimiento Premium está disponible en [regiones seleccionadas](https://azure.microsoft.com/global-infrastructure/services/?products=storage).
-- El rendimiento Premium ofrece precios optimizados para aplicaciones con altas tasas de transacciones para ayudar a [reducir el costo de almacenamiento total](https://azure.microsoft.com/blog/reducing-overall-storage-costs-with-azure-premium-blob-storage/) de estas cargas de trabajo.
-- El rendimiento Premium requiere el uso de cuentas de almacenamiento de blobs en bloques que sean compatibles con los blobs en bloques y los blobs en anexos.
-- El rendimiento Estándar está disponible en cuentas de almacenamiento de uso general v1, de uso general v2 y de Blob Storage.
-- Ambos tipos de rendimiento son compatibles con los [blobs en bloques de alto rendimiento](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/). Los blobs en bloques de alto rendimiento están disponibles para el rendimiento Premium para tamaños mayores de 256 KiB. Los blobs en bloques de alto rendimiento están disponibles para el rendimiento Estándar para tamaños superiores de "Put Block" o "Put Blob" de 4 MiB.
-- El rendimiento Premium está disponible actualmente solo con el almacenamiento con redundancia local (LRS).
+| Ámbito |Rendimiento Estándar  |Rendimiento Premium  |
+|---------|---------|---------|
+|Disponibilidad en regiones     |   Todas las regiones      | En [regiones seleccionadas](https://azure.microsoft.com/global-infrastructure/services/?products=storage)       |
+|[Tipos de cuenta de almacenamiento](../common/storage-account-overview.md#types-of-storage-accounts) admitidos     |     Uso general v2, BlobStorage y uso general v1    |    BlockBlobStorage     |
+|Admite [blobs en bloques de alto rendimiento](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/)     |    Sí, con tamaños de PutBlock o PutBlob superiores a 4 MiB     |    Sí, con tamaños de PutBlock o PutBlob superiores a 256 KiB    |
+|Redundancia     |     Consulte [Tipos de cuentas de almacenamiento](../common/storage-account-overview.md#types-of-storage-accounts).   |  Actualmente solo se admite almacenamiento con redundancia local (LRS) y con redundancia de zona (ZRS).<div role="complementary" aria-labelledby="zone-redundant-storage"><sup>1</sup></div>     |
+
+<div id="zone-redundant-storage"><sup>1</sup>El almacenamiento con redundancia de zona (ZRS) está disponible en regiones seleccionadas de cuentas de almacenamiento de blobs en bloques de rendimiento Premium.</div>
+
+En relación con el costo, el rendimiento Premium ofrece precios optimizados para aplicaciones con altas tasas de transacciones para ayudar a [reducir el costo de almacenamiento total](https://azure.microsoft.com/blog/reducing-overall-storage-costs-with-azure-premium-blob-storage/) de estas cargas de trabajo.
 
 ## <a name="premium-performance"></a>Rendimiento Premium
 
 El almacenamiento de blobs en bloques de rendimiento Premium hace que los datos estén disponibles a través de un hardware de alto rendimiento. Los datos se almacenan en unidades de estado sólido (SSD) que están optimizadas para baja latencia. Las SSD ofrecen mayor rendimiento en comparación con las unidades de disco duro tradicionales.
 
-El almacenamiento de blobs en bloques de rendimiento Premium es perfecto para cargas de trabajo que requieren tiempos de respuesta rápidos y coherentes. Es mejor para las cargas de trabajo que realizan muchas transacciones pequeñas.
+El almacenamiento de rendimiento Premium es perfecto para cargas de trabajo que requieren tiempos de respuesta rápidos y coherentes. Es mejor para las cargas de trabajo que realizan muchas transacciones pequeñas. Entre las cargas de trabajo de ejemplo se incluyen:
+
+- **Cargas de trabajo interactivas**. Estas cargas de trabajo requieren actualizaciones instantáneas y comentarios de los usuarios como es el caso de las aplicaciones de comercio electrónico y de mapas. Por ejemplo, en una aplicación de comercio electrónico, es probable que los elementos que se ven con menos frecuencia no estén almacenados en caché. Sin embargo, deben mostrarse al cliente a petición de forma instantánea.
+
+- **Análisis**. En un escenario de IoT, se podría insertar un gran número de operaciones más pequeñas en la nube cada segundo. Se podrían tomar grandes cantidades de datos, agregarlos con fines de análisis y, finalmente, eliminarlos de forma casi inmediata. Las funcionalidades de alto nivel de ingesta del almacenamiento de blob en bloques Premium lo hacen especialmente eficaz para este tipo de carga de trabajo.
+
+- **Inteligencia artificial y Aprendizaje automático (IA y ML)** . Este tema trata sobre el uso y procesamiento de diferentes tipos de datos como objetos visuales, voz y texto. Este tipo de informática de alto rendimiento de la carga de trabajo se ocupa de grandes cantidades de datos que requieren una respuesta rápida y tiempos de ingesta eficientes para el análisis de datos.
+
+- **Transformación de datos**. Los procesos que requieren edición, modificación y conversión constante de datos requieren actualizaciones instantáneas. Para una representación de los datos precisa, los consumidores de estos datos deben ver los cambios reflejados inmediatamente.
 
 ## <a name="standard-performance"></a>Rendimiento Estándar
 
 El rendimiento Estándar admite distintos [niveles de acceso](storage-blob-storage-tiers.md) para almacenar los datos de la manera más rentable. Está optimizado para una alta capacidad y un alto rendimiento en grandes conjuntos de datos.
 
+## <a name="migrate-from-standard-to-premium"></a>Migración de Estándar a Premium
+
+No se puede convertir una cuenta de almacenamiento de rendimiento Estándar existente en una cuenta de almacenamiento de blobs en bloques con rendimiento Premium. Para migrar a una cuenta de almacenamiento de rendimiento Premium, debe crear una cuenta de BlockBlobStorage y migrar los datos a la nueva cuenta. Para más información, consulte [Creación de una cuenta de BlockBlobStorage](storage-blob-create-account-block-blob.md).
+
+Para copiar blobs entre cuentas de almacenamiento, puede usar la versión más reciente de la herramienta [AzCopy](../common/storage-use-azcopy-blobs.md) de la línea de comandos. Otras herramientas, como Azure Data Factory, también están disponibles para el movimiento y la transformación de datos.
+
 ## <a name="blob-lifecycle-management"></a>Administración del ciclo de vida de blobs
 
 La administración del ciclo de vida de Blob Storage ofrece una directiva completa basada en reglas:
 
-- Premium: los datos expiran al final de su ciclo de vida
-- Estándar: los datos experimentan una transición al mejor nivel de acceso y expiran al final de su ciclo de vida
+- **Premium**: los datos expiran al final de su ciclo de vida.
+- **Estándar**: los datos experimentan una transición al mejor nivel de acceso y expiran al final de su ciclo de vida.
 
 Para más información, consulte [Administración del ciclo de vida de Azure Blob Storage](storage-lifecycle-management-concepts.md).
 
-Los datos que se almacenan en una cuenta de almacenamiento de blobs en bloques de rendimiento Premium no se pueden migrar entre los niveles de acceso frecuente, esporádico y de archivo. Sin embargo, puede copiar blobs desde una cuenta de almacenamiento de blobs en bloques al nivel de acceso frecuente en una cuenta *diferente*. Use [Put Block From URL](/rest/api/storageservices/put-block-from-url) API o [AzCopy v10](../common/storage-use-azcopy-v10.md) para copiar los datos a una cuenta diferente. **Put Block From URL** API realiza una copia sincrónica de los datos en el servidor. La llamada se completa solo después de que todos los datos se han movido de la ubicación del servidor original a la ubicación de destino.
+Los datos que se almacenan en una cuenta de almacenamiento de blobs en bloques de rendimiento Premium no se pueden mover entre los niveles de acceso frecuente, esporádico y de archivo. Sin embargo, puede copiar blobs desde una cuenta de almacenamiento de blobs en bloques al nivel de acceso frecuente en una cuenta *diferente*. Use [Put Block From URL](/rest/api/storageservices/put-block-from-url) API o [AzCopy v10](../common/storage-use-azcopy-v10.md) para copiar los datos en una cuenta diferente. **Put Block From URL** API realiza una copia sincrónica de los datos en el servidor. La llamada se completa solo después de que todos los datos se han movido de la ubicación del servidor original a la ubicación de destino.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Evaluación de los niveles de acceso frecuente, esporádico y de archivo en cuentas de GPv2 y Blob Storage
+Evaluación de los niveles de acceso frecuente, esporádico y de archivo en cuentas de GPv2 y Blob Storage.
 
-- [Comprobación de la disponibilidad de los niveles de acceso frecuente, esporádico o de archivo por región](https://azure.microsoft.com/regions/#services)
-- [Administración del ciclo de vida de Azure Blob Storage](storage-lifecycle-management-concepts.md)
 - [Obtenga información sobre la rehidratación de datos de blob desde el nivel de archivo](storage-blob-rehydration.md)
 - [Evaluación del uso de las cuentas de almacenamiento actuales mediante la habilitación de las métricas de Azure Storage](../common/storage-enable-and-view-metrics.md)
 - [Comprobación de los precios de los niveles de acceso frecuente, esporádico y de archivo en cuentas de Blob Storage y de GPv2 por región](https://azure.microsoft.com/pricing/details/storage/)

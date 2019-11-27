@@ -1,7 +1,7 @@
 ---
 title: Envío de consultas de búsqueda a Bing Visual Search API
 titleSuffix: Azure Cognitive Services
-description: Obtenga información acerca de los parámetros utilizados en la API REST de Bing Visual Search API.
+description: En este artículo se describen los parámetros y atributos de las solicitudes enviadas a Bing Visual Search API, así como el objeto de respuesta.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.author: aahi
-ms.openlocfilehash: e857401591d45048962e9f606973dbf59dfe99c8
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 2a87bee4769111e01dc49e8fce14569233dfaef3
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194320"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111614"
 ---
 # <a name="sending-search-queries-to-the-bing-visual-search-api"></a>Envío de consultas de búsqueda a Bing Visual Search API
 
@@ -57,7 +57,7 @@ El objeto `imageInfo` debe incluir el campo `url` o `imageInsightsToken`, pero n
 
 El campo `cropArea` es opcional. El área de recorte especifica las esquinas superior izquierda e inferior derecha de una región de interés. Especifique los valores en el intervalo de 0.0 a 1.0. Los valores son un porcentaje del ancho o alto total. Por ejemplo, en el ejemplo anterior, se marca la mitad derecha de la imagen como región de interés. Inclúyala si quiere limitar la solicitud de conclusión a la región de interés.
 
-El objeto `filters` contiene un filtro de sitio (vea el campo `site`) que puede utilizar para restringir los resultados de imágenes y productos similares a un dominio específico. Por ejemplo, si la imagen es de un Surface Book, puede establecer `site` en www.microsoft.com.
+El objeto `filters` contiene un filtro de sitio (vea el campo `site`) que puede utilizar para restringir los resultados de imágenes y productos similares a un dominio específico. Por ejemplo, si la imagen es de un Surface Book, puede establecer `site` en `www.microsoft.com`.
 
 Si quiere obtener conclusiones acerca de una copia local de una imagen, cargue la imagen como datos binarios.
 

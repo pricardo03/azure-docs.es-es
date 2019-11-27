@@ -1,20 +1,20 @@
 ---
-title: Procedimientos recomendados para dar forma a JSON en las consultas de Azure Time Series Insights | Microsoft Docs
-description: Aprenda a mejorar la eficacia de consulta de Azure Time Series Insights.
+title: 'Procedimientos recomendados para dar forma a JSON: consultas de Azure Time Series Insights | Microsoft Docs'
+description: Aprenda a mejorar la eficacia de las consultas de Azure Time Series Insights dando forma a JSON.
 services: time-series-insights
-author: ashannon7
+author: deepakpalled
+ms.author: dpalled
 manager: cshankar
 ms.service: time-series-insights
 ms.topic: article
 ms.date: 10/09/2019
-ms.author: dpalled
 ms.custom: seodec18
-ms.openlocfilehash: 4916397d05ad9d5fcae7624bf558eb7dc5be940f
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: 386d10c8e4bd7d5f46d2081d5a26371fb37ff30f
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274406"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74006999"
 ---
 # <a name="shape-json-to-maximize-query-performance"></a>Dar forma a JSON para maximizar el rendimiento de las consultas 
 
@@ -35,6 +35,9 @@ Piense en cómo envía eventos a Time Series Insights. Concretamente, siempre ha
 1. Asegúrese de que no alcanza los límites máximos de propiedades de Time Series Insights de:
    - 600 propiedades (columnas) para entornos de S1,
    - 800 propiedades (columnas) para entornos de S2.
+
+> [!TIP]
+> Revise los [límites y el planeamiento](time-series-insights-update-plan.md) en la versión preliminar de Azure Time Series Insights.
 
 Las siguientes instrucciones le ayudan a garantizar el máximo rendimiento posible de consultas:
 
@@ -195,7 +198,7 @@ Para una propiedad con un gran número de valores posibles, es mejor enviarlos c
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga más información sobre el envío de [mensajes de dispositivo de IoT Hub a la nube](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
+- Obtenga más información sobre el envío de [mensajes de dispositivo de IoT Hub a la nube](../iot-hub/iot-hub-devguide-messages-construct.md).
 
 - Lea [Azure Time Series Insights query syntax](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-syntax) (Sintaxis de consulta de Azure Time Series Insights) para obtener más información sobre la sintaxis de consulta para la API de REST de acceso a datos de Time Series Insights.
 

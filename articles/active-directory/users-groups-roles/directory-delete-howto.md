@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: addimitu
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7993810343f6bd925afd54cc38a8302420d6aec
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 47a60ed44ddf057ef983f8f76f23fd784bc3efd5
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72439360"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961813"
 ---
 # <a name="delete-a-directory-in-azure-active-directory"></a>Eliminación de un directorio en Azure Active Directory
 
@@ -108,7 +108,7 @@ Cuando inicie la eliminación del producto de suscripción de autoservicio, la a
 
 Para obtener más información sobre los productos y servicios de registro de autoservicio disponibles, consulte [Programas de autoservicio disponibles](https://docs.microsoft.com/office365/admin/misc/self-service-sign-up?view=o365-worldwide#available-self-service-programs).
 
-Para saber qué se puede esperar cuando una suscripción de Office 365 de prueba expira (exceptuando el caso de licencias por volumen, el contrato para empresas o de CSP o asociados de pago), consulte la tabla siguiente. Para obtener más información sobre la retención de datos de Office 365 y el ciclo de vida de la suscripción, consulte  [¿Qué pasa con mis datos y mi acceso cuando termina mi suscripción de Office 365 para empresas?](https://docs.microsoft.com/office365/admin/subscriptions-and-billing/what-if-my-subscription-expires?view=o365-worldwide).
+Para saber qué se puede esperar cuando una suscripción de Office 365 de prueba expira (exceptuando el caso de licencias por volumen, el contrato para empresas o de CSP o asociados de pago), consulte la tabla siguiente. Para obtener más información sobre la retención de datos de Office 365 y el ciclo de vida de la suscripción, consulte [¿Qué pasa con mis datos y mi acceso cuando termina mi suscripción de Office 365 para empresas?](https://docs.microsoft.com/office365/admin/subscriptions-and-billing/what-if-my-subscription-expires?view=o365-worldwide).
 
 Estado del producto | Datos | Acceso a datos
 ------------- | ---- | --------------
@@ -119,13 +119,13 @@ Deleted | Datos eliminados | Los usuarios no disponen de acceso a aplicaciones, 
 
 Puede establecer el estado de un producto de suscripción de autoservicio como Microsoft Power BI o Azure Rights Management Services en **Eliminar** para que se eliminen inmediatamente en el portal de Azure AD.
 
-1. Inicie sesión en el  [Centro de administración de Azure AD](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)  con una cuenta que sea la del administrador global de la organización. Si está intentando eliminar el directorio "Contoso" que tiene el dominio predeterminado inicial "contoso.onmicrosoft.com", inicie sesión con un UPN como admin@contoso.onmicrosoft.com.
+1. Inicie sesión en el [Centro de administración de Azure AD](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) con una cuenta que sea un administrador global de la organización. Si está intentando eliminar el directorio "Contoso" que tiene el dominio predeterminado inicial "contoso.onmicrosoft.com", inicie sesión con un UPN como admin@contoso.onmicrosoft.com.
 
-2. Seleccione **Licencias** y, a continuación,  **Productos de autorregistro**. Puede ver todos los productos de autorregistro por separado desde las suscripciones basadas en puestos. Elija el producto que desee eliminar de forma permanente. Este es un ejemplo en Microsoft Power BI:
+2. Seleccione **Licencias** y, a continuación, seleccione **Productos de registro de autoservicio**. Puede ver todos los productos de autorregistro por separado desde las suscripciones basadas en puestos. Elija el producto que desee eliminar de forma permanente. Este es un ejemplo en Microsoft Power BI:
 
     ![el nombre de usuario se ha escrito incorrectamente o no se ha encontrado](./media/directory-delete-howto/licenses-page.png)
 
-3. Seleccione  **Eliminar**  para eliminar el producto y aceptar los términos en los que los datos se eliminarán de forma inmediata e irrevocable. Esta acción de eliminación quitará todos los usuarios y eliminará el acceso de la organización al producto. Haga clic en Sí para continuar con la eliminación.  
+3. Seleccione **Eliminar** para eliminar el producto y aceptar los términos en los que los datos se eliminarán de forma inmediata e irrevocable. Esta acción de eliminación quitará todos los usuarios y eliminará el acceso de la organización al producto. Haga clic en Sí para continuar con la eliminación.  
 
     ![el nombre de usuario se ha escrito incorrectamente o no se ha encontrado](./media/directory-delete-howto/delete-product.png)
 

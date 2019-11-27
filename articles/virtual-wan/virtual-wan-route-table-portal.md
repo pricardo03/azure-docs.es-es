@@ -1,19 +1,19 @@
 ---
-title: 'Creación de una tabla de rutas de concentrador virtual de Azure Virtual WAN: Azure Portal | Microsoft Docs'
+title: 'Virtual WAN: Creación de una tabla de rutas de concentrador virtual en NVA: Portal de Azure'
 description: Tabla de rutas de concentrador virtual de Virtual WAN para dirigir el tráfico a un dispositivo virtual de red con el portal.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 03/27/2019
+ms.date: 11/12/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to create a route table using the portal.
-ms.openlocfilehash: 2c8b3b4671fd14f9b10b8491861ae2c652f0188b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8f24b94226daffb769993c9f6659909fdff039b6
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60461661"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014984"
 ---
 # <a name="create-a-virtual-wan-hub-route-table-for-nvas-azure-portal"></a>Cree una tabla de rutas de concentrador de Virtual WAN para dispositivos virtuales de red: Portal de Azure
 

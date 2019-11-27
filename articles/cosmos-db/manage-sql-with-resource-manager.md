@@ -1,21 +1,21 @@
 ---
 title: Creación y administración de Azure Cosmos DB con plantillas de Azure Resource Manager
 description: Use las plantillas de Azure Resource Manager para crear y configurar la API de Azure Cosmos DB para SQL (Core)
-author: markjbrown
+author: TheovanKraay
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/31/2019
-ms.author: mjbrown
-ms.openlocfilehash: 5babcadee02da0ba3e112f75e8b4d1aed5f3339f
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.date: 11/12/2019
+ms.author: thvankra
+ms.openlocfilehash: 0cb6e80bafca3bb0bfc339552facae5bd16aced4
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721079"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73960545"
 ---
-# <a name="manage-azure-cosmos-db-sql-core-api-resources-using-azure-resource-manager-templates"></a>Administrar recursos de API de Azure Cosmos DB SQL (Core) con plantillas de Azure Resource Manager
+# <a name="manage-azure-cosmos-db-sql-core-api-resources-using-azure-resource-manager-templates"></a>Administrar recursos de API de Azure Cosmos DB para SQL (Core) con plantillas de Azure Resource Manager
 
-En este artículo se explica cómo realizar diferentes operaciones para automatizar la administración de las cuentas, las bases de datos y los contenedores de Azure Cosmos DB con plantillas de Azure Resource Manager. Este artículo solo tiene ejemplos de cuentas de API de SQL; para buscar ejemplos de otras cuentas de tipo de API, consulte los artículos sobre el uso de plantillas de Resource Manager con la API de Azure Cosmos DB para [Cassandra](manage-cassandra-with-resource-manager.md), [Gremlin](manage-gremlin-with-resource-manager.md), [MongoDB](manage-mongodb-with-resource-manager.md) y [Table](manage-table-with-resource-manager.md).
+En este artículo se explica cómo realizar diferentes operaciones para automatizar la administración de las cuentas, las bases de datos y los contenedores de Azure Cosmos DB con plantillas de Azure Resource Manager. Este artículo solo tiene ejemplos de cuentas de API de SQL; para buscar ejemplos de otras cuentas de tipo de API, consulte los artículos sobre el uso de plantillas de Azure Resource Manager con la API de Azure Cosmos DB para [Cassandra](manage-cassandra-with-resource-manager.md), [Gremlin](manage-gremlin-with-resource-manager.md), [MongoDB](manage-mongodb-with-resource-manager.md) y [Table](manage-table-with-resource-manager.md).
 
 Creación y administración de cuentas de Cosmos DB, bases de datos y contenedores de MongoDB, Gremlin, Cassandra y Table API.
 
@@ -26,7 +26,7 @@ Cree recursos de Azure Cosmos DB con una plantilla de Azure Resource Manager. Es
 > [!NOTE]
 >
 > - No puede agregar ni quitar ubicaciones en una cuenta de Azure Cosmos a la vez que modifica otras propiedades. Estas acciones deben realizarse como operaciones independientes.
-> - Los nombres de las cuentas deben estar en minúsculas y deben tener 44 caracteres o menos.
+> - Los nombres de cuenta deben estar en minúsculas y tener un máximo de 44 caracteres.
 > - Para actualizar las RU/s, vuelva a enviar la plantilla con los valores de propiedad de rendimiento actualizados.
 
 [!code-json[create-cosmosdb-sql](~/quickstart-templates/101-cosmosdb-sql/azuredeploy.json)]
@@ -36,7 +36,7 @@ Cree recursos de Azure Cosmos DB con una plantilla de Azure Resource Manager. Es
 
 ### <a name="deploy-via-powershell"></a>Implementación mediante PowerShell
 
-Para implementar la plantilla de Resource Manager mediante PowerShell, **copie** el script y seleccione **Probar** para abrir Azure Cloud Shell. Para pegar el script, haga clic con el botón derecho en el shell y luego seleccione **Pegar**:
+Para implementar la plantilla de Azure Resource Manager mediante PowerShell, **copie** el script y seleccione **Probar** para abrir Azure Cloud Shell. Para pegar el script, haga clic con el botón derecho en el shell y luego seleccione **Pegar**:
 
 ```azurepowershell-interactive
 
@@ -70,11 +70,11 @@ New-AzResourceGroupDeployment `
  (Get-AzResource --ResourceType "Microsoft.DocumentDb/databaseAccounts" --ApiVersion "2019-08-01" --ResourceGroupName $resourceGroupName).name
 ```
 
-Si decide usar una versión instalada localmente de PowerShell de forma local en lugar de en el shell de Azure Cloud, debe [instalar](/powershell/azure/install-az-ps) el módulo de Azure PowerShell. Ejecute `Get-Module -ListAvailable Az` para encontrar la versión.
+Si decide usar una versión instalada localmente de PowerShell en lugar de una de Azure Cloud Shell, debe [instalar](/powershell/azure/install-az-ps) el módulo de Azure PowerShell. Ejecute `Get-Module -ListAvailable Az` para encontrar la versión.
 
 ### <a name="deploy-via-azure-cli"></a>Implementación mediante la CLI de Azure
 
-Para implementar la plantilla de Resource Manager mediante la CLI de Azure, seleccione **Probar** para abrir Azure Cloud Shell. Para pegar el script, haga clic con el botón derecho en el shell y luego seleccione **Pegar**:
+Para implementar la plantilla de Azure Resource Manager mediante la CLI de Azure, seleccione **Probar** para abrir Azure Cloud Shell. Para pegar el script, haga clic con el botón derecho en el shell y luego seleccione **Pegar**:
 
 ```azurecli-interactive
 read -p 'Enter the Resource Group name: ' resourceGroupName
@@ -141,11 +141,11 @@ New-AzResourceGroupDeployment `
  (Get-AzResource --ResourceType "Microsoft.DocumentDb/databaseAccounts" --ApiVersion "2019-08-01" --ResourceGroupName $resourceGroupName).name
 ```
 
-Si decide usar una versión instalada localmente de PowerShell de forma local en lugar de en el shell de Azure Cloud, debe [instalar](/powershell/azure/install-az-ps) el módulo de Azure PowerShell. Ejecute `Get-Module -ListAvailable Az` para encontrar la versión.
+Si decide usar una versión instalada localmente de PowerShell en lugar de una de Azure Cloud Shell, debe [instalar](/powershell/azure/install-az-ps) el módulo de Azure PowerShell. Ejecute `Get-Module -ListAvailable Az` para encontrar la versión.
 
 ### <a name="deploy-stored-procedure-template-via-azure-cli"></a>Implementación de la plantilla de procedimiento almacenado a través de la CLI de Azure
 
-Para implementar la plantilla de Resource Manager mediante la CLI de Azure, seleccione **Probar** para abrir Azure Cloud Shell. Para pegar el script, haga clic con el botón derecho en el shell y luego seleccione **Pegar**:
+Para implementar la plantilla de Azure Resource Manager mediante la CLI de Azure, seleccione **Probar** para abrir Azure Cloud Shell. Para pegar el script, haga clic con el botón derecho en el shell y luego seleccione **Pegar**:
 
 ```azurecli-interactive
 read -p 'Enter the Resource Group name: ' resourceGroupName

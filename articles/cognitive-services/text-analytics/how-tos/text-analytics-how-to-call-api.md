@@ -1,7 +1,7 @@
 ---
 title: Llamada a la API de Text Analytics
 titleSuffix: Azure Cognitive Services
-description: Obtenga información sobre cómo llamar a la API REST de Text Analytics.
+description: En este artículo se explica cómo se puede llamar a la API REST y a Postman de Text Analytics de Azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: 14d3864f654dac42566441b3729de0cf88482295
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 5697ae4c8864e0b9c4cbfc9e1e1048e1c3d60f77
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68697860"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837208"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Cómo llamar a la API REST de Text Analytics
 

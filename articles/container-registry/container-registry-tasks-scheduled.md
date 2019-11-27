@@ -1,6 +1,6 @@
 ---
-title: Programación de tareas de Azure Container Registry
-description: Establezca temporizadores para que ejecuten una tarea de Azure Container Registry según una programación definida.
+title: Programación de Azure Container Registry Tasks
+description: Aprenda a ejecutar una tarea de Azure Container Registry según una programación definida mediante la configuración de uno o más desencadenadores de temporizador
 services: container-registry
 author: dlepow
 manager: gwallace
@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 06/27/2019
 ms.author: danlep
-ms.openlocfilehash: a4a1099d90b619be383d440067a692c51a2430ac
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 6272b5467aff10171814152eb4188554a22c7a51
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69509062"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931462"
 ---
 # <a name="run-an-acr-task-on-a-defined-schedule"></a>Ejecución de una tarea de ACR según una programación definida
 

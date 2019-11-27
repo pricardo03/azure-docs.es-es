@@ -1,5 +1,5 @@
 ---
-title: 'Listas de frases: LUIS'
+title: 'Descriptores: LUIS'
 titleSuffix: Azure Cognitive Services
 description: Uso de Language Understanding (LUIS) para agregar características de aplicación que pueden mejorar la detección o predicción de intenciones y entidades de categorías y patrones.
 services: cognitive-services
@@ -9,56 +9,51 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 11/03/2019
+ms.date: 11/14/2019
 ms.author: diberry
-ms.openlocfilehash: 0e3e4226eaaa0505eea96d8b3aca820f2327349e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2b5046bb61dcafbba0b0540935e08777fbd747a5
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467616"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123123"
 ---
-# <a name="use-phrase-lists-to-boost-signal-of-word-list"></a>Uso de listas de frases para aumentar la señal de la lista de palabras
+# <a name="use-descriptors-to-boost-signal-of-word-list"></a>Uso de descriptores para aumentar la señal de la lista de palabras
 
 Puede agregar características a la aplicación de LUIS para mejorar su precisión. Las características ayudan a LUIS al proporcionar sugerencias sobre ciertas palabras y frases que forman parte de un vocabulario de dominio de aplicación. 
 
-Una [lista de frases](luis-concept-feature.md) incluye un grupo de valores (palabras o frases) que pertenecen a la misma clase y que se deben tratar de forma similar (por ejemplo, nombres de ciudades o productos). Lo que LUIS aprende sobre una de ellas se aplica automáticamente al resto. Esta lista no es lo mismo que una [entidad de listas](reference-entity-list.md) (coincidencias de texto exactas) de palabras coincidentes.
+Un [descriptor](luis-concept-feature.md) (lista de frases) incluye un grupo de valores (palabras o frases) que pertenecen a la misma clase y que se deben tratar de forma similar (por ejemplo, nombres de ciudades o productos). Lo que LUIS aprende sobre una de ellas se aplica automáticamente al resto. Esta lista no es lo mismo que una [entidad de listas](reference-entity-list.md) (coincidencias de texto exactas) de palabras coincidentes.
 
-Una lista de frases se agrega al vocabulario del dominio de aplicación como una segunda señal para LUIS sobre esas palabras.
+Un descriptor se agrega al vocabulario del dominio de aplicación como una segunda señal para LUIS sobre esas palabras.
 
-Revise los [conceptos de características](luis-concept-feature.md) para comprender cuándo y por qué usar una lista de frases. 
+Revise los [conceptos de características](luis-concept-feature.md) para comprender cuándo y por qué usar un descriptor. 
 
-[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+[!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
-## <a name="add-phrase-list"></a>Incorporación de una lista de frases
+## <a name="add-descriptor"></a>Adición de descriptor
 
-LUIS permite hasta 10 listas de frases por aplicación. 
+1. Abra la aplicación con un clic en su nombre en la página **Mis aplicaciones**, haga clic en **Compilar** y luego en **Descriptores** en el panel izquierdo de la aplicación. 
 
-1. Abra la aplicación con un clic en su nombre en la página **Mis aplicaciones**, haga clic en **Compilar** y luego en **Listas de frases** en el panel izquierdo de la aplicación. 
-
-1. En la página **Listas de frases**, haga clic en **Create new phrase list** (Crear lista de frases). 
+1. En la página **Descriptores**, haga clic en **+Add Descriptor** (+ Agregar descriptor). 
  
-1. En el cuadro de diálogo **Agregar lista de frases**, escriba `Cities` como el nombre de la lista de frases. En el cuadro **Value** (Valor), escriba los valores de la lista de frases. Puede escribir un valor a la vez o un conjunto de valores separados por comas y luego presione **ENTRAR**.
+1. En el cuadro de diálogo para **crear nuevo descriptor de lista de frases**, escriba un nombre como `Cities` para el descriptor. En el cuadro **Valor**, escriba los valores de los descriptores, como `Seattle`. Puede escribir un valor a la vez o un conjunto de valores separados por comas y luego presione **ENTRAR**.
 
-    ![Agregar la lista de frases Ciudades](./media/luis-add-features/add-phrase-list-cities.png)
+    > [!div class="mx-imgBorder"]
+    > ![Adición de ciudades de descriptor](./media/luis-add-features/add-phrase-list-cities.png)
 
-1. LUIS puede proponer valores relacionados para agregarlos a la lista de frases. Haga clic en **Recommend** (Recomendar) para obtener un grupo de valores propuestos que están relacionados semánticamente con los valores agregados. Puede haga clic en cualquiera de los valores propuestos, o bien hacer clic en **Add All** (Agregar todo) para agregarlos todos.
+    Una vez que haya especificado suficientes valores para LUIS, aparecerán sugerencias. Puede **agregar todos** los valores propuestos o seleccionar términos individuales.
 
-    ![Valores propuestos de la lista de frases: agregar todos](./media/luis-add-features/related-values.png)
+1. Mantenga activado **Estos valores son intercambiables** si los valores agregados de la lista de frases son alternativas que se pueden usar indistintamente.
 
-1. Haga clic en **These values are interchangeable** (Estos valores son intercambiables) si los valores agregados de la lista de frases son alternativas que se pueden usar indistintamente.
-
-    ![Valores propuestos de la lista de frases: seleccionar casilla intercambiable](./media/luis-add-features/interchangeable.png)
-
-1. Haga clic en **Done**(Listo). La lista de frases "Ciudades" se agrega a la página **Listas de frases**.
+1. Seleccione **Listo**. El nuevo descriptor se agrega a la página de **descriptores**.
 
 <a name="edit-phrase-list"></a>
 <a name="delete-phrase-list"></a>
 <a name="deactivate-phrase-list"></a>
 
 > [!Note]
-> Puede eliminar o desactivar una lista de frases desde la barra de herramientas contextual de la página **Lista de frases**.
+> Puede eliminar o desactivar un suscriptor desde la barra de herramientas contextual de la página de **descriptores**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Después de agregar, editar, eliminar o desactivar una lista de frases, vuelva a [entrenar y probar la aplicación](luis-interactive-test.md) para ver si mejora el rendimiento.
+Después de agregar, editar, eliminar o desactivar un descriptor, vuelva a [entrenar y probar la aplicación](luis-interactive-test.md) para ver si mejora el rendimiento.

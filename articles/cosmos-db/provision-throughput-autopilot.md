@@ -6,12 +6,12 @@ ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: e0c3c88119c3d064326442881854920b411f5ed4
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 0e9f909aba11d35307e02a98a41ffa04e36e4db2
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748370"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953124"
 ---
 # <a name="create-azure-cosmos-containers-and-databases-in-autopilot-mode-preview"></a>Creación de contenedores y bases de datos de Azure Cosmos en modo Autopilot (versión preliminar)
 
@@ -24,7 +24,7 @@ Además del aprovisionamiento manual del rendimiento, ahora puede configurar con
 
 Ya no es necesario administrar manualmente el rendimiento aprovisionado ni controlar los problemas de limitación de velocidad. Los contenedores de Azure Cosmos configurados en el modo Autopilot se pueden escalar al instante en respuesta a la carga de trabajo sin que ello afecte a la disponibilidad, la latencia, el rendimiento ni el rendimiento de la carga de trabajo globalmente. Con un uso intensivo, los contenedores de Azure Cosmos configurados en el modo Autopilot se pueden escalar o reducir verticalmente sin que ello afecte a las operaciones en curso.
 
-Al configurar contenedores y bases de datos en el modo Autopilot, debe especificar que el rendimiento máximo de `Tmax` no se supere. Los contenedores se pueden escalar inmediatamente en función de las necesidades de carga de trabajo dentro del intervalo de `0.1*Tmax < T < Tmax`. En otras palabras, los contenedores y las bases de datos se escalan de forma instantánea en función de las necesidades de carga de trabajo, desde un mínimo del 10 % del valor máximo de capacidad de proceso configurado hasta dicho valor máximo. Puede cambiar el valor de rendimiento máximo (Tmax) en la base de datos o el contenedor de Autopilot en cualquier momento.
+Al configurar contenedores y bases de datos en el modo Autopilot, debe especificar que el rendimiento máximo de `Tmax` no se supere. Los contenedores se pueden escalar inmediatamente en función de las necesidades de carga de trabajo dentro del intervalo de `0.1*Tmax < T < Tmax`. En otras palabras, los contenedores y las bases de datos se escalan de forma instantánea en función de las necesidades de carga de trabajo, desde un mínimo del 10 % del valor máximo de capacidad de proceso configurado hasta dicho valor máximo. Puede cambiar el valor de rendimiento máximo (Tmax) en la base de datos o el contenedor de Autopilot en cualquier momento. Con la opción AutoPilot, ya no es aplicable el rendimiento mínimo de 400 RU/s por contenedor o base de datos.
 
 Durante la versión preliminar de Autopilot, el sistema permite el funcionamiento dentro del límite de almacenamiento calculado para la capacidad máxima de proceso especificada en el contenedor o la base de datos. Si se supera el límite de almacenamiento, la capacidad máxima de proceso se ajusta automáticamente a un valor superior. Cuando se usa la capacidad de proceso de nivel de base de datos con el modo Autopilot, el número de contenedores permitidos en una base de datos se calcula de la siguiente manera: (0,001 * capacidad máxima de proceso). Por ejemplo, si aprovisiona 20 000 RU/s en modo Autopilot, la base de datos puede tener 20 contenedores.
 

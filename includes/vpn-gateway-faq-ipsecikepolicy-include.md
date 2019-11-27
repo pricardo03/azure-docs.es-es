@@ -8,15 +8,15 @@ ms.topic: include
 ms.date: 11/06/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 6fa1912e80a98c98f058931708e191d0fff5bc66
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 345822847ddd60794cd912ccb52c14f6e240cd66
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73800124"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075410"
 ---
 ### <a name="is-custom-ipsecike-policy-supported-on-all-azure-vpn-gateway-skus"></a>¿Se admite la directiva de IPsec o IKE personalizada en todas las SKU de Azure VPN Gateway?
-La directiva IPsec/IKE personalizada se admite en las puertas de enlace Azure VPN Gateway **VpnGw1, VpnGw2, VpnGw3, Estándar** y **HighPerformance**. La SKU **Basic** **no** se admite.
+La directiva de IPsec o IKE personalizada se admite en todas las SKU de Azure, excepto la SKU básica.
 
 ### <a name="how-many-policies-can-i-specify-on-a-connection"></a>¿Cuántas directivas puedo especificar en una conexión?
 Solo se puede especificar ***una*** combinación de directivas para una conexión dada.
@@ -27,22 +27,22 @@ No, es preciso especificar todos los algoritmos y parámetros de IKE (modo princ
 ### <a name="what-are-the-algorithms-and-key-strengths-supported-in-the-custom-policy"></a>¿Cuáles son los algoritmos y los niveles de las claves que se admiten en la directiva personalizada?
 En la tabla siguiente se enumeran los algoritmos criptográficos y los niveles de las claves admitidos que pueden configurar los clientes. Es preciso seleccionar una opción en cada campo.
 
-| **IPsec/IKEv1, IKEv2**  | **Opciones**                                                                   |
-| ---                     | ---                                                                           |
-| Cifrado IKEv1, IKEv2 | AES256, AES192, AES128, DES3, DES                                             |
-| Integridad de IKEv1 y IKEv2  | SHA384, SHA256, SHA1, MD5                                                     |
-| Grupo DH                | DHGroup24, ECP384, ECP256, DHGroup14 (DHGroup2048), DHGroup2, DHGroup1, Ninguno  |
-| Cifrado IPsec        | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, No      |
-| Integridad de IPsec         | GCMAES256, GCMAES192, GCMAES128, SHA256, SHA1, MD5                            |
-| Grupo PFS               | PFS24, ECP384, ECP256, PFS2048, PFS2, PFS1, No                              |
-| Vigencia de SA QM          | Segundos (entero; **mín. 300**/predeterminado 27000 segundos)<br>KBytes (entero; **mín. 1024**/predeterminado 102400000 KBytes) |
-| Selector de tráfico        | UsePolicyBasedTrafficSelectors ($True/$False; default $False)                 |
-|                         |                                                                               |
+| **IPsec o IKEv2**  | **Opciones**                                                                   |
+| ---              | ---                                                                           |
+| Cifrado IKEv2 | AES256, AES192, AES128, DES3, DES                                             |
+| Integridad de IKEv2  | SHA384, SHA256, SHA1, MD5                                                     |
+| Grupo DH         | DHGroup24, ECP384, ECP256, DHGroup14 (DHGroup2048), DHGroup2, DHGroup1, Ninguno |
+| Cifrado IPsec | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, No      |
+| Integridad de IPsec  | GCMAES256, GCMAES192, GCMAES128, SHA256, SHA1, MD5                            |
+| Grupo PFS        | PFS24, ECP384, ECP256, PFS2048, PFS2, PFS1, No                              |
+| Vigencia de SA QM   | Segundos (entero; **mín. 300**/predeterminado 27000 segundos)<br>KBytes (entero; **mín. 1024**/predeterminado 102400000 KBytes)           |
+| Selector de tráfico | UsePolicyBasedTrafficSelectors ($True/$False; default $False)                 |
+|                  |                                                                               |
 
 > [!IMPORTANT]
 > 1. DHGroup2048 y PFS2048 son los mismos que el grupo Diffie-Hellman **14** en IKE e IPsec PFS. Consulte [Grupos Diffie-Hellman](#DH) para las asignaciones completas.
 > 2. Para los algoritmos GCMAES, debe especificar el mismo algoritmo GCMAES y longitud de clave para el cifrado e integridad de IPsec.
-> 3. La vigencia de SA del modo principal de IKEv1 y IKEv2 se fija en 28 800 segundos en las puertas de enlace de VPN de Azure.
+> 3. La vigencia de SA del modo principal de IKEv2 se fija en 28 800 segundos en las puertas de enlace de VPN de Azure.
 > 4. Las vigencias de SA de QM son parámetros opcionales. Si no se ha especificado ninguno, se usan los valores predeterminados de 27 000 segundos (7,5 h) y 102 400 000 KBytes (102 GB).
 > 5. UsePolicyBasedTrafficSelector es un parámetro de opción en la conexión. Consulte las preguntas frecuentes acerca de "UsePolicyBasedTrafficSelectors".
 

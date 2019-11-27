@@ -1,5 +1,5 @@
 ---
-title: Información sobre Azure Site Recovery Deployment Planner para la recuperación ante desastres de máquinas virtuales de Hyper-V en Azure | Microsoft Docs
+title: Deployment Planner para la recuperación ante desastres de Hyper-V con Azure Site Recovery
 description: Obtenga información sobre la recuperación ante desastres de Hyper-V en Azure de Azure Site Recovery Deployment Planner.
 author: mayurigupta13
 manager: rochakm
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 7/29/2019
 ms.author: mayg
-ms.openlocfilehash: 6e7da548eb2cc6e314d446270cc04d1c57be7ae3
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 72b1311227f5c9f9efc35b2940d3c843a21dc261
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68618838"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954013"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Información sobre Azure Site Recovery Deployment Planner para la recuperación ante desastres de Hyper-V en Azure
 

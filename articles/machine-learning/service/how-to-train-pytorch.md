@@ -11,12 +11,12 @@ author: maxluk
 ms.reviewer: peterlu
 ms.date: 08/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2c704e36f4353b34733ccc29b785c752b2a5c559
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: a18949799b948b962a5b24ffdc7c735fc1380808
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822711"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931085"
 ---
 # <a name="train-pytorch-deep-learning-models-at-scale-with-azure-machine-learning"></a>Entrenamiento de modelos de aprendizaje profundo de PyTorch a escala con Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -174,6 +174,9 @@ Una vez que haya entrenado el modelo, puede registrarlo en el área de trabajo. 
 ```Python
 model = run.register_model(model_name='pt-dnn', model_path='outputs/')
 ```
+
+> [!TIP]
+> El modelo que acaba de registrar se implementa exactamente de la misma manera que cualquier otro modelo registrado en Azure Machine Learning, independientemente del estimador que haya usado para el entrenamiento. El procedimiento de implementación contiene una sección sobre el registro de modelos, pero puede ir directamente a la [creación de un destino de proceso](how-to-deploy-and-where.md#choose-a-compute-target) para la implementación, dado que ya tiene un modelo registrado.
 
 También puede descargar una copia local del modelo mediante el uso del objeto Run. En el script de entrenamiento, `pytorch_train.py`, un objeto de protector de PyTorch guarda el modelo en una carpeta local (local para el destino de proceso). Puede usar el objeto Run para descargar una copia.
 

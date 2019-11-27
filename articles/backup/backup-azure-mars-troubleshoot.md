@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: dacurwin
-ms.openlocfilehash: a59ac45d157f8674374c894a280e51392038524b
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: abd4e91b8fd3332191b58acf38daed06d03801be
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747413"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012839"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>Solución de problemas del agente de Microsoft Azure Recovery Services (MARS)
 
@@ -119,11 +119,13 @@ Si las copias de seguridad programadas no se desencadenan automáticamente, pero
 
   `<MARS agent installation path>\Microsoft Azure Recovery Services Agent\bin\Modules\MSOnlineBackup`
 
-- Si la directiva de ejecución de PowerShell para `LocalMachine` está establecida como restringida, el cmdlet de PowerShell que desencadena la tarea de copia de seguridad puede producir errores. Ejecute estos comandos con permisos elevados para comprobar y establecer la directiva de ejecución en `Unrestricted` o `RemoteSigned`:
+- Si la directiva de ejecución de PowerShell para `LocalMachine` está establecida en `restricted`, el cmdlet de PowerShell que desencadena la tarea de copia de seguridad puede producir errores. Ejecute estos comandos con permisos elevados para comprobar y establecer la directiva de ejecución en `Unrestricted` o `RemoteSigned`:
 
-  `PS C:\WINDOWS\system32> Get-ExecutionPolicy -List`
+ ```PowerShell
+ Get-ExecutionPolicy -List
 
-  `PS C:\WINDOWS\system32> Set-ExecutionPolicy Unrestricted`
+Set-ExecutionPolicy Unrestricted
+```
 
 - Asegúrese de que no falta ningún archivo de MSOnlineBackup del módulo de PowerShell ni está dañado. Haga lo siguiente si falta algún archivo o está dañado:
 
@@ -167,7 +169,7 @@ Si la recuperación sigue sin funcionar, reinicie el cliente o el servidor. Si n
 
 Se puede producir un error en la operación de copia de seguridad si la carpeta de caché (también denominada carpeta temporal) no está configurada correctamente, tiene acceso restringido o faltan requisitos previos.
 
-### <a name="pre-requisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Requisitos previos
 
 Para que las operaciones del agente de MARS se realicen correctamente, la carpeta de caché debe cumplir los siguientes requisitos:
 
@@ -215,13 +217,13 @@ El agente de Microsoft Azure Recovery Services no pudo acceder a la ubicación t
 
 Mensaje de error | Acción recomendada |
 -- | --
-No se pudo realizar la copia de seguridad debido a almacenamiento insuficiente en el volumen donde se encuentra la carpeta temporal | Para resolver este problema, compruebe lo siguiente y vuelva a intentar la operación:<br/>- [Asegúrese de que el agente de MARS es el más reciente.](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)<br/> - [Compruebe y resuelva los problemas de almacenamiento que afecten al espacio de almacenamiento temporal de las copias de seguridad.](#pre-requisites)
+No se pudo realizar la copia de seguridad debido a almacenamiento insuficiente en el volumen donde se encuentra la carpeta temporal | Para resolver este problema, compruebe lo siguiente y vuelva a intentar la operación:<br/>- [Asegúrese de que el agente de MARS es el más reciente.](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)<br/> - [Compruebe y resuelva los problemas de almacenamiento que afecten al espacio de almacenamiento temporal de las copias de seguridad.](#prerequisites)
 
 ### <a name="salbitmaperror"></a>SalBitmapError
 
 Mensaje de error | Acción recomendada |
 -- | --
-No se puede buscar cambios en un archivo. Esto podría deberse a diversos motivos. Vuelva a intentar la operación y, | Para resolver este problema, compruebe lo siguiente y vuelva a intentar la operación:<br/> - [Asegúrese de que el agente de MARS es el más reciente.](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409) <br/> - [Compruebe y resuelva los problemas de almacenamiento que afecten al espacio de almacenamiento temporal de las copias de seguridad.](#pre-requisites)
+No se puede buscar cambios en un archivo. Esto podría deberse a diversos motivos. Vuelva a intentar la operación y, | Para resolver este problema, compruebe lo siguiente y vuelva a intentar la operación:<br/> - [Asegúrese de que el agente de MARS es el más reciente.](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409) <br/> - [Compruebe y resuelva los problemas de almacenamiento que afecten al espacio de almacenamiento temporal de las copias de seguridad.](#prerequisites)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

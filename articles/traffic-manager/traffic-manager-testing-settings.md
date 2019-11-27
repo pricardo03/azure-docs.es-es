@@ -1,6 +1,6 @@
 ---
 title: Verificación de la configuración de Azure Traffic Manager
-description: Este artículo le ayudará a verificar la configuración de Traffic Manager.
+description: En este artículo, aprenderá a comprobar la configuración de Traffic Manager y a probar el método de enrutamiento del tráfico.
 services: traffic-manager
 author: asudbring
 ms.service: traffic-manager
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: allensu
-ms.openlocfilehash: 19ef08a40d0a84aecb070e71bbb8c9b6a88ae059
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ad74e5c51d5939218ebb546993d416b3df1cd04b
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67070938"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74023528"
 ---
 # <a name="verify-traffic-manager-settings"></a>Comprobación de la configuración de Traffic Manager
 

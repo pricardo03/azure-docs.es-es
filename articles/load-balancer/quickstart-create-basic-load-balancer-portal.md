@@ -1,6 +1,6 @@
 ---
-title: 'Guía de inicio rápido: Creación de un equilibrador de carga básico público mediante Azure Portal'
-titlesuffix: Azure Load Balancer
+title: 'Inicio rápido: Creación de una instancia pública de Load Balancer Básico: Azure Portal'
+titleSuffix: Azure Load Balancer
 description: Esta guía de inicio rápido muestra cómo crear una instancia pública de Load Balancer Básico mediante Azure Portal.
 services: load-balancer
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 9819111c8264493648233f40252db4fb4410aaf1
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 3cbb4271909cf739dc3ce13712e388f2fc8e20a5
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68274095"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048697"
 ---
 # <a name="quickstart-create-a-basic-load-balancer-by-using-the-azure-portal"></a>Inicio rápido: Creación de un equilibrador de carga básico público mediante Azure Portal
 

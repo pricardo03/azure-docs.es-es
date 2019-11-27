@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: dacurwin
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 2b951c6660143b1bd2f6502a5441aec3ba8d71e1
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: e8f162b9dc84b863c54d92313307ef4abca76ebb
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792850"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074231"
 ---
 # <a name="monitor-at-scale-by-using-azure-monitor"></a>Supervisión a escala mediante Azure Monitor
 
@@ -209,7 +209,7 @@ Los gráficos predeterminados le proporcionan consultas de Kusto para los escena
 Los datos de diagnóstico del almacén se bombean al área de trabajo de Log Analytics con cierto retraso. Cada evento llega al área de trabajo de Log Analytics *entre 20 y 30 minutos* después de insertarse desde el almacén de Recovery Services. Estos son detalles adicionales sobre el retardo:
 
 - En todas las soluciones, las alertas integradas del servicio de copia de seguridad se insertan en cuanto se crean. Así pues, suelen aparecer en el área de trabajo de Log Analytics tras haber transcurrido de 20 a 30 minutos.
-- En todas las soluciones, los trabajos de copia de seguridad ad hoc y los trabajos de restauración se insertan en cuanto *finalizan*.
+- En todas las soluciones, los trabajos de copia de seguridad a petición y los trabajos de restauración se insertan en cuanto *finalizan*.
 - En todas las soluciones salvo la copia de seguridad SQL, los trabajos de copia de seguridad programados se insertan en cuanto *finalizan*.
 - En el caso de la copia de seguridad de SQL, como pueden realizarse copias de seguridad de registros cada 15 minutos, de todos los trabajos de copia de seguridad programados completados, incluidos los registros, la información se une en lotes y se inserta cada 6 horas.
 - En todas las soluciones, el resto de la información, como el elemento de copia de seguridad, la directiva, los puntos de recuperación, el almacenamiento, etc. se inserta al menos *una vez al día.*

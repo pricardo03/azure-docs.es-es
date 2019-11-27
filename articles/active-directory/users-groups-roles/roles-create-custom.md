@@ -1,24 +1,24 @@
 ---
-title: 'Creación y asignación de un rol personalizado en el control de acceso basado en rol de Azure AD: Azure Active Directory | Microsoft Docs'
+title: Creación de roles personalizados en el control de acceso basado en rol de Azure AD | Microsoft Docs
 description: Cree y asigne roles personalizados de Azure AD con el ámbito de recurso en recursos de Azure Active Directory.
 services: active-directory
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 09/04/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1a5aee1be7580956c32947e9bda7e2928a006c3
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: c2cb19c82f8c19bf87eeef755adb5756b2452512
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72026404"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74025287"
 ---
 # <a name="create-and-assign-a-custom-role-in-azure-active-directory"></a>Creación y asignación de un rol personalizado en Azure Active Directory
 

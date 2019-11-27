@@ -1,5 +1,5 @@
 ---
-title: Acerca de ExpressRoute Direct en Azure | Microsoft Docs
+title: Acerca de Azure ExpressRoute Direct
 description: En esta página se proporciona información general sobre ExpressRoute Direct.
 services: expressroute
 author: jaredr80
@@ -7,13 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jaredro
-ms.custom: seodec18
-ms.openlocfilehash: 916175401cd993392094b2bb16f8fc8746a4d2a8
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: f26fdd75e0a6c6228d329a8b9be4743072ae54c1
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123395"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083597"
 ---
 # <a name="about-expressroute-direct"></a>Acerca de ExpressRoute Direct
 

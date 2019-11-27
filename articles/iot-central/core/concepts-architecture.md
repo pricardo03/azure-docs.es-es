@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 9206bf07a36cc5724b173790eb94037cb86add9c
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 25b0ec1b86a59b944cdb895bd536da32a1f8595b
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72942069"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73884508"
 ---
 # <a name="azure-iot-central-architecture"></a>Arquitectura de Azure IoT Central
 
@@ -83,7 +83,7 @@ Una aplicación puede tener uno o varios dispositivos simulados y reales basados
 
 ## <a name="data-export"></a>Exportación de datos
 
-En una aplicación de Azure IoT Central, puede [exportar continuamente los datos](howto-export-data-event-hubs-service-bus.md) a sus propias instancias de Azure Event Hubs y de Azure Service Bus. También puede exportar los datos periódicamente a la cuenta de Azure Blob Storage. IoT Central puede exportar medidas, dispositivos y plantillas de dispositivo.
+En una aplicación de Azure IoT Central, puede [exportar continuamente los datos](howto-export-data-event-hubs-service-bus.md) a sus propias instancias de Azure Event Hubs y de Azure Blob Storage. IoT Central puede exportar medidas, dispositivos y plantillas de dispositivo.
 
 ## <a name="batch-device-updates"></a>Actualizaciones de dispositivos en lote
 

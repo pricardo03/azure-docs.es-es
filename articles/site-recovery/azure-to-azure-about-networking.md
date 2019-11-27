@@ -1,21 +1,21 @@
 ---
-title: Acerca de las redes en Azure para la recuperación ante desastres de Azure mediante Azure Site Recovery | Microsoft Docs
+title: Acerca de las redes en la recuperación ante desastres de máquinas virtuales de Azure con Azure Site Recovery
 description: Proporciona información general de las redes para la replicación de máquinas virtuales de Azure mediante Azure Site Recovery.
 services: site-recovery
 author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 3/29/2019
+ms.date: 10/22/2019
 ms.author: sutalasi
-ms.openlocfilehash: 9c65d6055807ee2735f1915e8ca289dc0754535b
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 09cd814ade25be438a17b83fb73e74b89c14e22f
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736392"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954203"
 ---
-# <a name="about-networking-in-azure-to-azure-replication"></a>Acerca de las redes en Azure para la replicación de Azure
+# <a name="about-networking-in-azure-vm-disaster-recovery"></a>Acerca de las redes para la recuperación ante desastres de máquinas virtuales de Azure
 
 
 
@@ -48,7 +48,7 @@ Si usa un proxy de firewall basado en la dirección URL para controlar la conect
 
 **URL** | **Detalles**  
 --- | ---
-\* .blob.core.windows.net | Se requiere para que los datos se puedan escribir en la cuenta de almacenamiento de la caché en la región de origen de la máquina virtual. Si conoce toda la caché de las cuentas de almacenamiento para las máquinas virtuales, puede incluir en una lista blanca las direcciones URL de las cuentas de almacenamiento específicas (p. ejemplo, cache1.blob.core.windows.net y cache2.blob.core.windows.net) en lugar de *. blob.core.windows.net
+\* .blob.core.windows.net | Se requiere para que los datos se puedan escribir en la cuenta de almacenamiento de la caché en la región de origen de la máquina virtual. Si conoce todas las cuentas de almacenamiento en caché de las máquinas virtuales, puede permitir el acceso a las direcciones URL de las cuentas de almacenamiento específicas (por ejemplo, cache1.blob.core.windows.net y cache2.blob.core.windows.net) en lugar de *.blob.core.windows.net
 login.microsoftonline.com | Se requiere para la autorización y la autenticación de las direcciones URL del servicio Site Recovery.
 *.hypervrecoverymanager.windowsazure.com | Se requiere para la comunicación del servicio Site Recovery desde la máquina virtual. Puede usar la "IP de recuperación del sitio" correspondiente si el proxy del firewall es compatible con las IP.
 *.servicebus.windows.net | Se requiere para que se puedan escribir datos de supervisión y diagnóstico de Site Recovery desde la máquina virtual. Puede usar la "IP de supervisión de recuperación del sitio" correspondiente si el proxy del firewall es compatible con las IP.
@@ -62,7 +62,7 @@ Si utiliza un firewall basado en IP, proxy o reglas NSG para controlar la conect
     - Permita estas direcciones para que los datos se puedan escribir en la cuenta de almacenamiento en caché, desde la máquina virtual.
 - Cree una regla de grupos de seguridad de red basada en la [etiqueta de servicio de Azure Active Directory (AAD)](../virtual-network/security-overview.md#service-tags) para permitir el acceso a todas las direcciones IP correspondientes a AAD.
     - Si en el futuro se agregan nuevas direcciones a Azure Active Directory (AAD), tendrá que crear nuevas reglas de grupos de seguridad de red.
-- Las direcciones IP de punto de conexión de servicio de Site Recovery ([disponibles en un archivo XML](https://aka.ms/site-recovery-public-ips)), que dependen de la ubicación de destino:
+- Las direcciones IP de punto de conexión de servicio de Site Recovery ([disponibles en un archivo XML](https://aka.ms/site-recovery-public-ips)), que dependen de la ubicación de destino: 
 - Se recomienda crear las reglas de NSG necesarias en un grupo NSG de NSG de prueba y comprobar que no haya ningún problema antes de crear las reglas en un grupo de NSG de producción.
 
 
@@ -117,6 +117,8 @@ Los intervalos de direcciones IP de Site Recovery son los siguientes:
    Centro-oeste de Alemania | 51.116.156.176 | 51.116.154.192
    Oeste de Suiza | 51.107.231.223| 51.107.154.128
    Norte de Suiza | 51.107.68.31| 51.107.58.128
+   Este de Noruega | 51.120.100.64| 51.120.98.128
+   Oeste de Noruega | 51.120.220.65| 51.120.218.160
 
 ## <a name="example-nsg-configuration"></a>Configuración de NSG de ejemplo
 
@@ -154,6 +156,7 @@ Estas reglas son necesarias para que la replicación se pueda habilitar de la re
    **Ubicación** | **Dirección IP de Site Recovery** |  **Dirección IP de supervisión de Site Recovery**
     --- | --- | ---
    East US | 13.82.88.226 | 104.45.147.24
+
 
 ## <a name="network-virtual-appliance-configuration"></a>Configuración de la aplicación virtual de red
 

@@ -1,5 +1,6 @@
 ---
-title: Administrar la caducidad de Azure Blob Storage en Azure Content Delivery Network | Microsoft Docs
+title: Administración de la expiración de Azure Storage Blob
+titleSuffix: Azure Content Delivery Network
 description: Obtenga información sobre las opciones para controlar el período de vida de los blobs de almacenamiento en caché de Azure CDN.
 services: cdn
 documentationcenter: ''
@@ -14,12 +15,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 02/1/2018
 ms.author: mazha
-ms.openlocfilehash: edeb2a798031e34a8ee3f93fd104ebb221ce9c61
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: f28282a802e4b38fadc05c7090fa2a2af154de54
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67593760"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083152"
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-cdn"></a>Administración de la expiración de Azure Storage Blob en Azure CDN
 > [!div class="op_single_selector"]

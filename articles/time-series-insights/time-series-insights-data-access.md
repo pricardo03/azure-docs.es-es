@@ -1,6 +1,6 @@
 ---
-title: Configuración de la seguridad para el acceso y la administración de Azure Time Series Insights | Microsoft Docs
-description: En este artículo se describe cómo configurar la seguridad y los permisos como directivas de acceso de administración y directivas de acceso a datos para proteger la versión preliminar de Azure Time Series Insights.
+title: 'Configuración de la seguridad para conceder acceso a los datos: versión preliminar de Azure Time Series Insights | Microsoft Docs'
+description: Aprenda a configurar la seguridad y los permisos, y a administrar las directivas de acceso a datos en el entorno de la versión preliminar de Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3d835916ab1a9d99149800a50690876080a8c5fd
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: f49567b8060be2bf2a9ca2b8a1bdee23f58fdd6b
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990166"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012683"
 ---
 # <a name="grant-data-access-to-an-environment"></a>Concesión de acceso a datos en un entorno
 

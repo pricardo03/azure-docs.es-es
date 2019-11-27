@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: laobri
 author: lobrien
-ms.date: 10/15/2019
-ms.openlocfilehash: 31c3cd944651b9ba4ca4fcaa275e5b0ccedd947c
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.date: 11/06/2019
+ms.openlocfilehash: ded95800c482d43fcaf27993869f1e71eee68f47
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72559406"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831814"
 ---
 # <a name="schedule-machine-learning-pipelines-with-azure-machine-learning-sdk-for-python"></a>Programación de canalizaciones de aprendizaje automático con el SDK de Azure Machine Learning para Python
 
@@ -94,9 +94,9 @@ Además de los argumentos descritos anteriormente, puede establecer el argumento
 
 ## <a name="view-your-scheduled-pipelines"></a>Visualización de las canalizaciones programadas
 
-En el explorador web, vaya al área de trabajo del servicio Machine Learning. En la sección **Assets** (Recursos) del panel de navegación, elija **Pipelines** (Canalizaciones). Este vínculo le lleva a una lista de las canalizaciones publicadas en el área de trabajo.
+En el explorador web, vaya a Azure Machine Learning. En la sección **Endpoints** (Puntos de conexión) del panel de navegación, elija **Pipeline endpoints** (Puntos de conexión de la canalización). Esto le llevará a una lista de las canalizaciones publicadas en el área de trabajo.
 
-![Página de canalizaciones del área de trabajo](media/how-to-schedule-a-pipeline/pipelines-list.png)
+![Página de canalizaciones de Azure Machine Learning](media/how-to-schedule-pipelines/scheduled-pipelines.png)
 
 En esta página puede ver información de resumen sobre todas las canalizaciones del área de trabajo: nombres, descripciones, estado, etc. Profundice haciendo clic en la canalización. En la página resultante, hay más detalles sobre la canalización y puede profundizar en cada una de las ejecuciones.
 

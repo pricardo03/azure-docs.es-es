@@ -1,19 +1,20 @@
 ---
-title: 'Crear una puerta de enlace de aplicaciones con terminación SSL: Azure PowerShell'
+title: Terminación SSL mediante PowerShell
+titleSuffix: Azure Application Gateway
 description: Aprenda a crear una puerta de enlace de aplicaciones y a agregar un certificado para la terminación SSL mediante Azure PowerShell.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 7/31/2019
+ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 70447e01fc248e889662c5ec15cb65b1c0cc4848
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 2ce5b8472fe10b51cff34677c9ce5a89888bdc01
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688101"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075058"
 ---
 # <a name="create-an-application-gateway-with-ssl-termination-using-azure-powershell"></a>Creación de una puerta de enlace de aplicaciones con terminación SSL mediante Azure PowerShell
 

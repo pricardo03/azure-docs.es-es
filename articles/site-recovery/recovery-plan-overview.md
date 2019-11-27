@@ -1,19 +1,18 @@
 ---
-title: Uso de planes de recuperación en la recuperación ante desastres con Azure Site Recovery
+title: Acerca de los planes de recuperación en Azure Site Recovery
 description: Aprenda a usar planes de recuperación para la recuperación ante desastres con el servicio Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
-services: site-recovery
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: 9e45787e7ae39b62605f5d8a54afd4ad95c9cca7
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 640f7258821718c5d406dd581d1f9c503e0d41c2
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331916"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953887"
 ---
 # <a name="about-recovery-plans"></a>Acerca de los planes de recuperación
 

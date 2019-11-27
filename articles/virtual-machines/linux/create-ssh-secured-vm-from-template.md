@@ -1,5 +1,5 @@
 ---
-title: Creación de una máquina virtual Linux en Azure a partir de una plantilla | Microsoft Docs
+title: Creación de una máquina virtual Linux en Azure a partir de una plantilla
 description: En este artículo se describe cómo usar la CLI de Azure para crear una máquina virtual Linux a partir de una plantilla de Resource Manager.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 03/22/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9f12bfaa09b74bf2d9004044dbedb8d7bb15965c
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 3e32e9f17b5c48e18453724eb683ba2e86dd0cdb
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671591"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036496"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-with-azure-resource-manager-templates"></a>Procedimiento para crear una máquina virtual Linux con plantillas de Azure Resource Manager
 
@@ -31,7 +31,7 @@ Aprenda a crear una máquina virtual (VM) Linux mediante una plantilla de Azure 
 
 Las plantillas de Azure Resource Manager son archivos JSON que definen la infraestructura y la configuración de la solución de Azure. Mediante una plantilla, puede implementar la solución repetidamente a lo largo del ciclo de vida y tener la seguridad de que los recursos se implementan de forma coherente. Para obtener más información sobre el formato de la plantilla y cómo se crea, consulte [Inicio rápido: Creación e implementación de plantillas de Azure Resource Manager mediante Azure Portal](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md). Para ver la sintaxis JSON para los tipos de recursos, consulte [Define resources in Azure Resource Manager templates](/azure/templates/microsoft.compute/allversions) (Definición de recursos en plantillas de Azure Resource Manager).
 
-## <a name="create-a-virtual-machine"></a>de una máquina virtual
+## <a name="create-a-virtual-machine"></a>Creación de una máquina virtual
 
 La creación de una máquina virtual de Azure normalmente incluye dos pasos:
 

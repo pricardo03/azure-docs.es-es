@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: 5b3170d640257774339697ee7915169c2f5e451f
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 0472510801f5827327ac06a3927ca597b6caa612
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973348"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73834351"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-resource-manager-rest-api"></a>Implementación de recursos con las plantillas de Resource Manager y la API de REST de Resource Manager
 
@@ -35,13 +35,17 @@ Para implementar en una **suscripción**, use [Deployments - Create At Subscript
 PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2019-05-01
 ```
 
+Para más información sobre las implementaciones en el nivel de suscripción, consulte [Creación de grupos de recursos y otros recursos en el nivel de suscripción](deploy-to-subscription.md).
+
 Para implementar en un **grupo de administración**, use [Deployments - Create At Management Group Scope](/rest/api/resources/deployments/createorupdateatmanagementgroupscope). La solicitud se envía a:
 
 ```HTTP
 PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{groupId}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2019-05-01
 ```
 
-Los ejemplos de este artículo usan las implementaciones del grupo de recursos. Para obtener más información sobre la implementación de suscripciones, vea [Creación de grupos de recursos y otros recursos en el nivel de suscripción](deploy-to-subscription.md).
+Para obtener más información sobre las implementaciones de nivel de grupo de administración, consulte [Creación de recursos en el nivel de grupo de administración](deploy-to-management-group.md).
+
+Los ejemplos de este artículo usan las implementaciones del grupo de recursos.
 
 ## <a name="deploy-with-the-rest-api"></a>Implementación con la API de REST
 

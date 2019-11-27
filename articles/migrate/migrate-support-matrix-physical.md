@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: raynew
-ms.openlocfilehash: 902e89305aa24e8cbb6d2dd84d6a61c710d11637
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 55ada93e6a77dd7e31640988bad95034f77c90dd
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73715375"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091890"
 ---
 # <a name="support-matrix-for-physical-server-assessment-and-migration"></a>Matriz de compatibilidad para la evaluación y migración de servidores físicos
 
@@ -28,7 +28,7 @@ En la tabla se resumen los escenarios admitidos para los servidores físicos.
 
 **Implementación** | **Detalles***
 --- | ---
-**Evaluación de servidores físicos locales** | [Configure](tutorial-prepare-physical.md) la primera evaluación.
+**Evaluación de servidores físicos locales** | [Configure](tutorial-prepare-physical.md) la primera evaluación.<br/><br/> [Ejecute](tutorial-assess-physical.md) una evaluación.
 **Migración de servidores físicos a Azure** | [Pruebe](tutorial-migrate-physical-virtual-machines.md) a migrar a Azure.
 
 
@@ -37,7 +37,7 @@ En la tabla se resumen los escenarios admitidos para los servidores físicos.
 **Soporte técnico** | **Detalles**
 --- | ---
 **Permisos de Azure** | Necesita permisos de colaborador o propietario en la suscripción para crear un proyecto de Azure Migrate.
-**Servidores físicos** | Evalúe hasta 250 servidores físicos en un solo proyecto. Puede tener varios proyectos en una suscripción a Azure. Un proyecto puede incluir servidores físicos, máquinas virtuales de VMware y máquinas virtuales de Hyper-V, hasta los límites de evaluación.
+**Servidores físicos** | Evalúe hasta 35 000 servidores físicos en un solo proyecto. Puede tener varios proyectos en una suscripción a Azure. Un proyecto puede incluir servidores físicos, máquinas virtuales de VMware y máquinas virtuales de Hyper-V, hasta los límites de evaluación.
 **Geografía** | Puede crear proyectos de Azure Migrate en varias zonas geográficas. Aunque puede crear proyectos en geografías específicas, puede migrar máquinas o acceder a ellas, para otras ubicaciones de destino. La geografía del proyecto solo se usa para almacenar los metadatos detectados.
 
   **Geografía** | **Ubicación de almacenamiento de metadatos**
@@ -66,7 +66,7 @@ En la tabla se resumen los escenarios admitidos para los servidores físicos.
 | :-------------------       | :------------------- |
 | **Implementación de servidor físico**       | El servidor físico puede ser independiente o implementarse en un clúster. |
 | **Permisos**           | **Windows:** Configure una cuenta de usuario local en todos los servidores de Windows que desee incluir en la detección. Es necesario agregar la cuenta de usuario a estos grupos: Usuarios de escritorio remoto, Usuarios del monitor de rendimiento y Usuarios del registro de rendimiento. <br/> **Linux:** Necesita una cuenta raíz en los servidores Linux que desee detectar. |
-| **Sistema operativo** | Azure admite todos los sistemas operativos [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) y [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros). |
+| **Sistema operativo** | Se admiten todos los sistemas operativos [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) y [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) excepto los siguientes:<br/> Windows Server 2003 <br/> SUSE Linux|
 
 
 ## <a name="assessment-appliance-requirements"></a>Evaluación: requisitos del dispositivo
@@ -77,7 +77,7 @@ Para la evaluación, Azure Migrate ejecuta una aplicación ligera para detectar 
 | :-------------------       | :------------------- |
 | **Implementación del dispositivo**   |  La aplicación se implementa en un servidor físico o una máquina virtual.<br/>  El equipo host debe estar ejecutando Windows Server 2012 R2 o posterior.<br/> El host necesita espacio suficiente para asignar 16 GB de RAM, 8 vCPU, alrededor de 80 GB de espacio de almacenamiento y conmutador externo para la máquina virtual del dispositivo.<br/> El dispositivo requiere una dirección IP estática o dinámica y acceso a Internet.
 | **Proyecto de Azure Migrate**  |  Un dispositivo solo puede estar asociado a un proyecto.<br/> Se puede asociar cualquier número de dispositivos a un solo proyecto.<br/> Puede evaluar hasta 35 000 máquinas en un proyecto.
-| **Detección**              | Un solo dispositivo puede detectar hasta 200 servidores.
+| **Detección**              | Un solo dispositivo puede detectar hasta 250 servidores.
 | **Grupo de evaluación**       | Puede agregar hasta 35 000 máquinas en un solo grupo.
 | **Valoración**             | Puede evaluar hasta 35 000 máquinas en una sola evaluación.
 

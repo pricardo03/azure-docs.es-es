@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 07/19/2019
-ms.openlocfilehash: cd7b8c3de46cb88833f27cbebb7d07f944a711e4
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: d4dedf2f90baa5eae005f47719e67bd8e97d8490
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73580833"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039022"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Información de límites y configuración para Azure Logic Apps
 
@@ -77,11 +77,11 @@ Estos son los límites de ejecución de una única aplicación lógica:
 
 | NOMBRE | Límite | Notas |
 | ---- | ----- | ----- |
-| Simultaneidad de desencadenadores | * Ilimitado cuando el control de simultaneidad está desactivado. <p><p>* 25 es el límite predeterminado cuando está activado el control de simultaneidad. No se puede revertir después de activar el control. Puede cambiar el valor predeterminado por otro entre 1 y 50, ambos incluidos. | Este límite describe el número más alto de instancias de aplicaciones lógicas que se pueden ejecutar al mismo tiempo o en paralelo. <p><p>Para cambiar el límite predeterminado a un valor comprendido entre 1 y 50 (ambos inclusive), consulte [Cambio en la simultaneidad de desencadenadores](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) o [Desencadenamiento secuencial de instancias](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
+| Simultaneidad de desencadenadores | * Ilimitado cuando el control de simultaneidad está desactivado. <p><p>* 25 es el límite predeterminado cuando está activado el control de simultaneidad. No se puede revertir después de activar el control. Puede cambiar el valor predeterminado por otro entre 1 y 50, ambos incluidos. | Este límite describe el número más alto de instancias de aplicaciones lógicas que se pueden ejecutar al mismo tiempo o en paralelo. <p><p>**Nota**: Cuando se activa la simultaneidad, el límite SplitOn se reduce a 100 elementos para [desagrupación de matrices](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). <p><p>Para cambiar el límite predeterminado a un valor comprendido entre 1 y 50 (ambos inclusive), consulte [Cambio en la simultaneidad de desencadenadores](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) o [Desencadenamiento secuencial de instancias](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
 | Número máximo de ejecuciones en espera | Cuando se activa el control de simultaneidad, el número mínimo de ejecuciones en espera es 10 más el número de ejecuciones simultáneas (simultaneidad del desencadenador). Puede cambiar el número máximo hasta 100, incluido. | Este límite describe el número más alto de instancias de aplicaciones lógicas que se pueden poner en espera de ejecución en caso de que la aplicación lógica ya esté ejecutando el número máximo de instancias simultáneas. <p><p>Para cambiar el límite predeterminado, consulte [Cambio del límite de ejecuciones en espera](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). |
 | Elementos de matriz de foreach | 100 000 | Este límite describe el número más alto de elementos de matriz que puede procesar un bucle "for each". <p><p>Para filtrar matrices más grandes, puede usar la [acción de consulta](../connectors/connectors-native-query.md). |
 | Simultaneidad de foreach | El límite predeterminado es 20 cuando el control de simultaneidad está desactivado. Puede cambiar el valor predeterminado por otro entre 1 y 50, ambos incluidos. | Este límite es el número más alto de iteraciones de bucles "for each" que se pueden ejecutar al mismo tiempo o en paralelo. <p><p>Para cambiar el límite predeterminado a un valor comprendido entre 1 y 50 (ambos inclusive), consulte [Cambio en el límite de la simultaneidad de los bucles "for each"](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) o [Ejecución secuencial de bucles "for each"](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). |
-| Elementos SplitOn | 100 000 | Para los desencadenadores que devuelven una matriz, puede especificar una expresión que use la propiedad "SplitOn", la cual [divide o desagrupa los elementos de matriz en varias instancias de flujo de trabajo](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) para su procesamiento, en lugar de usar un bucle "foreach". Esta expresión hace referencia a la matriz que se usará para crear y ejecutar una instancia de flujo de trabajo para cada elemento de la matriz. |
+| Elementos SplitOn | * 100 000 sin simultaneidad de desencadenadores <p><p>* 100 con simultaneidad de desencadenadores | Para los desencadenadores que devuelven una matriz, puede especificar una expresión que use la propiedad "SplitOn", la cual [divide o desagrupa los elementos de matriz en varias instancias de flujo de trabajo](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) para su procesamiento, en lugar de usar un bucle "foreach". Esta expresión hace referencia a la matriz que se usará para crear y ejecutar una instancia de flujo de trabajo para cada elemento de la matriz. <p><p>**Nota**: Cuando se activa la simultaneidad, el límite SplitOn se reduce a 100 elementos. |
 | Iteraciones Until | 5\.000 | |
 ||||
 

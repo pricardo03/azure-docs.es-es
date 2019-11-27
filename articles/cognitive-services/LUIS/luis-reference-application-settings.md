@@ -1,7 +1,7 @@
 ---
 title: 'Configuración de la aplicación: LUIS'
 titleSuffix: Azure Cognitive Services
-description: Entienda la configuración de la aplicación para las aplicaciones de comprensión de lenguaje.
+description: La configuración de las aplicaciones de Language Understanding de Azure Cognitive Services se almacena en la aplicación y en el portal.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/16/2019
+ms.date: 11/12/2019
 ms.author: diberry
-ms.openlocfilehash: 6d516590b90efd937789fa0847b707d2521f6459
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: bae4f09b539e26ca8c0d4ce97999776dc0911601
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932592"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961785"
 ---
 # <a name="application-settings"></a>Configuración de la aplicación
 
@@ -150,9 +150,9 @@ Active la normalización de expresiones para la puntuación en el archivo de apl
 ] 
 ```
 
-Las expresiones siguientes muestran cómo afectan las marcas diacríticas a las expresiones:
+Las expresiones siguientes muestran cómo la puntuación influye en las expresiones:
 
-|Con las marcas diacríticas establecidas en False|Con las marcas diacríticas establecidas en True|
+|Con la puntuación establecida en false|Con la puntuación establecida en true|
 |--|--|
 |`Hmm..... I will take the cappuccino`|`Hmm I will take the cappuccino`|
 |||

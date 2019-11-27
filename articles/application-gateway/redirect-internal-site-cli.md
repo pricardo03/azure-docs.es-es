@@ -1,23 +1,19 @@
 ---
-title: 'Creación de una puerta de enlace de aplicaciones con redireccionamiento interno: CLI de Azure | Microsoft Docs'
+title: Redireccionamiento interno mediante la CLI
+titleSuffix: Azure Application Gateway
 description: Obtenga información sobre cómo crear una puerta de enlace de aplicaciones que redirija el tráfico web interno al grupo adecuado mediante la CLI de Azure.
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 7/14/2018
+ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: 25c50d400a68cdbfb9110a9e8e9d66477ad4710a
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: 7d37e36a4cdfed462904e2d02871345ad89d7ac9
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67513367"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074550"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-the-azure-cli"></a>Creación de una puerta de enlace de aplicaciones con redireccionamiento interno mediante la CLI de Azure
 

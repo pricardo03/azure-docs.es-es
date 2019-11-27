@@ -6,14 +6,14 @@ author: axayjo
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 05/06/2019
-ms.author: akjosh; cynthn
+ms.author: akjosh
 ms.custom: include file
-ms.openlocfilehash: 9a564bf7f633903c58a5719327216baee2df6550
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 4d64d556c96d29556ee36179623ff8cc24532b48
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72026159"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74085277"
 ---
 La galería de imágenes compartidas es un servicio que ayuda a crear la estructura y la organización en torno a las imágenes administradas. Las galerías de imágenes compartidas proporcionan:
 
@@ -33,9 +33,10 @@ La característica de galería de imágenes compartidas tiene varios tipos de re
 
 | Resource | DESCRIPCIÓN|
 |----------|------------|
-| **Imagen administrada** | Una imagen básica que se puede usar por sí sola o para crear una **versión de imagen** de una galería de imágenes. Las imágenes administradas se crean desde máquinas virtuales generalizadas. Una imagen administrada es un tipo de VHD especial que se puede usar para crear varias máquinas virtuales y que ahora se puede usar para crear versiones de imágenes compartidas. |
+| **Imagen administrada** | Una imagen básica que se puede usar por sí sola o para crear una **versión de imagen** de una galería de imágenes. Las imágenes administradas se crean a partir de máquinas virtuales [generalizadas](#generalized-and-specialized-images). Una imagen administrada es un tipo de VHD especial que se puede usar para crear varias máquinas virtuales y que ahora se puede usar para crear versiones de imágenes compartidas. |
+| **Instantánea** | Una copia de un disco duro virtual que se puede usar para crear una **versión de imagen**. Las instantáneas pueden tomarse de una máquina virtual [especializada](#generalized-and-specialized-images) (una que no se ha generalizado) y, luego, usarse por sí sola o con instantáneas de discos de datos para crear una versión de imagen especializada.
 | **Galería de imágenes** | Al igual que Azure Marketplace, una **galería de imágenes** es un repositorio para administrar y compartir imágenes, pero usted puede controlar quién tiene acceso. |
-| **Definición de la imagen** | Las imágenes se definen dentro de una galería y contienen información sobre la imagen y los requisitos para usarla en la organización. Puede incluir información como si la imagen es Windows o Linux, los requisitos mínimos y máximo de la memoria, y notas de la versión. Es una definición de un tipo de imagen. |
+| **Definición de la imagen** | Las imágenes se definen dentro de una galería y contienen información sobre la imagen y los requisitos para usarla en la organización. Puede incluir información como si la imagen es generalizada o especializada, el sistema operativo, los requisitos de memoria mínima y máxima y las notas de la versión. Es una definición de un tipo de imagen. |
 | **Versión de la imagen** | Una **versión de la imagen** es lo que se usa para crear una VM cuando se usa una galería. Puede tener varias versiones de una imagen según sea necesario para su entorno. Al igual que una imagen administrada, cuando se usa una **versión de la imagen** para crear una VM, la versión de la imagen se usa para crear nuevos discos para la VM. Las versiones de las imágenes pueden usarse varias veces. |
 
 <br>
@@ -58,7 +59,7 @@ Los tres tienen conjuntos de valores únicos. El formato es similar a cómo pued
 
 Los siguientes son otros parámetros que se pueden establecer en la definición de la imagen para que pueda realizar un seguimiento más sencillo de sus recursos:
 
-* Estado del sistema operativo: puede establecer el estado del sistema operativo en Generalizado o Especializado, pero actualmente solo se admite el estado Generalizado. Las imágenes deben crearse a partir de máquinas virtuales que se hayan generalizado mediante Sysprep para Windows o `waagent -deprovision` para Linux.
+* Estado del sistema operativo: puede establecer el estado del sistema operativo en [generalizado o especializado](#generalized-and-specialized-images).
 * Sistema operativo: puede ser Windows o Linux.
 * Descripción: la descripción de uso para proporcionar información más detallada sobre por qué existe la definición de la imagen. Por ejemplo, podría tener una definición de la imagen para el servidor front-end que tenga la aplicación preinstalada.
 * CLUF: puede utilizarse para señalar un contrato de licencia de usuario final específico para la definición de la imagen.
@@ -68,21 +69,43 @@ Los siguientes son otros parámetros que se pueden establecer en la definición 
 * Número mínimo y máximo de vCPU y recomendaciones de memoria: si la imagen tiene vCPU y recomendaciones de memoria, puede adjuntar esa información a la definición de imagen.
 * Tipos de disco no permitidos: puede proporcionar información acerca de las necesidades de almacenamiento para la máquina virtual. Por ejemplo, si la imagen no es adecuada para los discos HDD estándar, agréguelos a la lista de no permitidos.
 
+## <a name="generalized-and-specialized-images"></a>Imágenes generalizadas y especializadas
+
+Hay dos estados del sistema operativo compatibles con Shared Image Gallery. Normalmente, las imágenes requieren que la máquina virtual usada para crear la imagen se haya generalizado antes de tomar la imagen. La generalización es un proceso que quita la información específica del equipo y del usuario de la máquina virtual. En Windows, se usa también Sysprep. En el caso de Linux, puede usar los parámetros [waagent](https://github.com/Azure/WALinuxAgent) `-deprovision` o `-deprovision+user`.
+
+Las máquinas virtuales especializadas no han pasado por un proceso para quitar la información y las cuentas específicas de la máquina. Además, las máquinas virtuales creadas a partir de imágenes especializadas no tienen un `osProfile` asociado a ellas. Esto significa que las imágenes especializadas tendrán algunas limitaciones.
+
+- Las cuentas que se podrían usar para iniciar sesión en la máquina virtual también se pueden usar en cualquier máquina virtual creada mediante la imagen especializada que se crea a partir de esa máquina virtual.
+- Las máquinas virtuales tendrán el **nombre de equipo** de la máquina virtual de la que se tomó la imagen. Debe cambiar el nombre de equipo para evitar colisiones.
+- `osProfile` es la forma en que se pasa información confidencial a la máquina virtual, mediante `secrets`. Esto puede producir problemas al usar KeyVault, WinRM y otras funciones que usan `secrets` en `osProfile`. En algunos casos, puede usar identidades Managed Service Identity (MSI) para solucionar estas limitaciones.
+
+> [!IMPORTANT]
+> Las imágenes especializadas están actualmente en versión preliminar pública.
+> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>
+> **Limitaciones conocidas de la versión preliminar** Las máquinas virtuales solo se pueden crear a partir de imágenes especializadas mediante el portal o la API. No hay compatibilidad con la CLI ni con PowerShell para la versión preliminar.
+
+
 ## <a name="regional-support"></a>Compatibilidad regional
 
 Las regiones de origen se muestran en la tabla siguiente. Todas las regiones públicas pueden ser regiones de destino, pero para replicar en el Centro de Australia y Centro de Australia 2 debe tener su suscripción en la lista de permitidos. Para solicitar la inclusión en la lista blanca, visite: https://azure.microsoft.com/global-infrastructure/australia/contact/
 
-| Regiones de origen |
-|---------------------|-----------------|------------------|-----------------|
-| Centro de Australia   | EUAP del centro de EE. UU. | Corea Central    | Centro occidental de EE.UU. |
-| Centro de Australia 2 | Asia oriental       | Corea del Sur      | Europa occidental     |
-| Este de Australia      | East US         | Centro-Norte de EE. UU | Oeste de la India      |
-| Sudeste de Australia | Este de EE. UU. 2       | Europa del Norte     | Oeste de EE. UU.         |
-| Sur de Brasil        | EUAP de Este de EE. UU. 2  | Centro-Sur de EE. UU | Oeste de EE. UU. 2       |
-| Centro de Canadá      | Centro de Francia  | Sur de la India      | Este de China      |
-| Este de Canadá         | Sur de Francia    | Sudeste asiático   | Este de China 2    |
-| India Central       | Este de Japón      | Sur de Reino Unido 2         | Norte de China     |
-| Centro de EE. UU.          | Oeste de Japón      | Oeste de Reino Unido          | Norte de China 2   |
+
+| Regiones de origen        |                   |                    |                    |
+| --------------------- | ----------------- | ------------------ | ------------------ |
+| Centro de Australia     | Este de China        | Sur de la India        | Europa occidental        |
+| Centro de Australia 2   | Este de China 2      | Sudeste asiático     | Sur de Reino Unido 2           |
+| Este de Australia        | Norte de China       | Este de Japón         | Oeste de Reino Unido            |
+| Sudeste de Australia   | Norte de China 2     | Oeste de Japón         | Departamento de Defensa de EE. UU. Centro     |
+| Sur de Brasil          | Asia oriental         | Corea Central      | Departamento de Defensa de EE. UU. Este        |
+| Centro de Canadá        | East US           | Corea del Sur        | Gobierno de EE. UU.: Arizona     |
+| Este de Canadá           | Este de EE. UU. 2         | Centro-Norte de EE. UU   | Gobierno de EE. UU.: Texas       |
+| India Central         | EUAP de Este de EE. UU. 2    | Europa del Norte       | Gobierno de EE. UU. - Virginia    |
+| Centro de EE. UU.            | Centro de Francia    | Centro-Sur de EE. UU   | Oeste de la India         |
+| EUAP del centro de EE. UU.       | Sur de Francia      | Centro occidental de EE.UU.    | Oeste de EE. UU.            |
+|                       |                   |                    | Oeste de EE. UU. 2          |
+
+
 
 ## <a name="limits"></a>límites 
 
@@ -163,7 +186,7 @@ Los siguientes SDK admiten la creación de galerías de imágenes compartidas:
 
 - [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/virtualmachines/management?view=azure-dotnet)
 - [Java](https://docs.microsoft.com/java/azure/?view=azure-java-stable)
-- [Node.js](https://docs.microsoft.com/javascript/api/azure-arm-compute/?view=azure-node-latest)
+- [Node.js](https://docs.microsoft.com/javascript/api/@azure/arm-compute)
 - [Python](https://docs.microsoft.com/python/api/overview/azure/virtualmachines?view=azure-python)
 - [Go](https://docs.microsoft.com/azure/go/)
 
@@ -217,15 +240,16 @@ Sí. Hay tres escenarios basados en los tipos de imagen que pueda tener.
 
  Escenario 1: Si tiene una imagen administrada, puede crear una definición de la imagen y versión de la imagen a partir de ella.
 
- Escenario 2: Si tiene una imagen generalizada no administrada, puede crear una imagen administrada a partir de ella y, luego, crear una definición de la imagen y una versión de la imagen a partir de ella. 
+ Escenario 2: Si tiene una imagen no administrada, puede crear una imagen administrada a partir de ella y, luego, crear una definición de la imagen y una versión de la imagen a partir de ella. 
 
- Escenario 3: Si tiene un VHD en el sistema de archivos locales, deberá cargar el VHD, crear una imagen administrada y, luego, crear una definición de la imagen y una versión de la imagen a partir de ella.
-- Si el VHD es de una VM Windows, consulte [Carga de un VHD generalizado](https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed).
+ Escenario 3: Si tiene un VHD en el sistema de archivos local, deberá cargar el VHD en una imagen administrada y, luego, crear una definición de la imagen y una versión de la imagen a partir de ella.
+
+- Si el VHD es de una VM Windows, consulte [Carga de un VHD](https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed).
 - Si el VHD es para una VM Linux, consulte [Cargar un disco duro virtual](https://docs.microsoft.com/azure/virtual-machines/linux/upload-vhd#option-1-upload-a-vhd).
 
 ### <a name="can-i-create-an-image-version-from-a-specialized-disk"></a>¿Puedo crear una versión de la imagen desde un disco especializado?
 
-No, actualmente no admitimos discos especializados como imágenes. Si tiene un disco especializado, deberá [crear una VM a partir del VHD](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-specialized-portal#create-a-vm-from-a-disk) al asociar el disco especializado a una nueva VM. Una vez que tenga una máquina virtual en ejecución, deberá seguir las instrucciones para crear una imagen administrada desde la [máquina virtual Windows](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-custom-images) o la [máquina virtual Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images). Cuando tenga una imagen administrada generalizada, puede iniciar el proceso para crear una descripción de imagen compartida y la versión de la imagen.
+Sí, la compatibilidad con discos especializados como imágenes está en versión preliminar. Solo puede crear una máquina virtual a partir de una imagen especializada mediante el portal ([Windows](../articles/virtual-machines/linux/shared-images-portal.md) o [Linux](../articles/virtual-machines/linux/shared-images-portal.md)) y la API. No hay compatibilidad con PowerShell para la versión preliminar.
 
 ### <a name="can-i-move-the-shared-image-gallery-resource-to-a-different-subscription-after-it-has-been-created"></a>¿Puedo mover el recurso de Shared Image Gallery a otra suscripción después de crearlo?
 
@@ -235,7 +259,7 @@ No, no puede mover el recurso de la galería de imágenes compartidas a otra sus
 
 No, no puede replicar las versiones de la imagen en las nubes.
 
-### <a name="can-i-replicate-my-image-versions-across-subscriptions"></a>¿Puedo replicar las versiones de mis imágenes entre suscripciones? 
+### <a name="can-i-replicate-my-image-versions-across-subscriptions"></a>¿Puedo replicar las versiones de mis imágenes entre suscripciones?
 
 No, puede replicar las versiones de la imagen en varias regiones de una suscripción y usarla en otras suscripciones a través de RBAC.
 

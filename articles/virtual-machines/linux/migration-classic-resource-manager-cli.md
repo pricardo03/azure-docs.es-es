@@ -1,5 +1,5 @@
 ---
-title: Migración de VM a Resource Manager mediante la CLI de Azure | Microsoft Docs
+title: Migración de VM a Resource Manager mediante la CLI de Azure
 description: Este artículo le guía por los pasos de migración de recursos compatible con la plataforma desde el modelo de implementación clásica hasta Azure Resource Manager mediante la CLI de Azure.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
-ms.openlocfilehash: 7af101b036e8e40a14ad5d9931cc897cb1758ea0
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 69107052d84f28dfd08f59dec40ea66eca79ecaa
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70082780"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035769"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-cli"></a>Migración de recursos de IaaS de la implementación clásica a Azure Resource Manager con la CLI de Azure
 En estos pasos se describe cómo utilizar los comandos de la interfaz de la línea de comandos (CLI) de Azure para migrar recursos de infraestructura como servicio (IaaS) del modelo de implementación clásica al modelo de implementación de Azure Resource Manager. El artículo requiere la [CLI de Azure clásica](../../cli-install-nodejs.md). Dado que la CLI de Azure solo se puede aplicar a los recursos de Azure Resource Manager, no se puede utilizar para esta migración.

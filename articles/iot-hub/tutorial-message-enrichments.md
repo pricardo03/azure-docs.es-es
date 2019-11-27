@@ -8,14 +8,14 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: 77d900844705bb86ce4bcfeda31d6ee765cb8d45
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 0dd6c410040eea9eb4039ab5da183cc0b6799493
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69534995"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74005781"
 ---
-# <a name="tutorial-using-azure-iot-hub-message-enrichments-preview"></a>Tutorial: Uso del enriquecimiento de mensajes de Azure IoT Hub (versión preliminar)
+# <a name="tutorial-using-azure-iot-hub-message-enrichments"></a>Tutorial: Uso de enriquecimientos de mensajes de Azure IoT Hub
 
 *El enriquecimiento de mensajes* es la capacidad de IoT Hub para *marcar* los mensajes con información adicional antes de que los mensajes se envíen al punto de conexión designado. Una razón para utilizar el enriquecimiento de mensajes es incluir datos que se pueden usar para simplificar el procesamiento descendente. Por ejemplo, el enriquecimiento de mensajes de telemetría de dispositivos con una etiqueta de dispositivo gemelo puede reducir la carga de los clientes para realizar llamadas API de dispositivos gemelos para obtener esta información. Para más información, consulte la [introducción al enriquecimiento de mensajes](iot-hub-message-enrichments-overview.md).
 
@@ -65,7 +65,7 @@ Puede usar el siguiente script o abrir el script en la carpeta /resources del re
 
 Hay varios nombres de recurso que deben ser únicos globalmente, como el nombre de IoT Hub y el nombre de la cuenta de almacenamiento. Para facilitar la ejecución del script, se anexan los nombres de los recursos con un valor alfanumérico aleatorio denominado *randomValue*. El valor RandomValue se genera una vez en la parte superior del script y se anexa a los nombres de los recursos según sea necesario en el script. Si no desea que sea aleatorio, puede establecerlo en una cadena vacía o en un valor específico.
 
-Si aún no lo ha hecho, abra una [ventana de Cloud Shell para Bash.](https://shell.azure.com). Abra el script en el repositorio sin comprimir, use Ctrl+A para seleccionar todo y, a continuación, CTRL+C para copiarlo. También puede copiar el siguiente script de la CLI o abrirlo directamente en Cloud Shell. Para pegar el script en la ventana de Azure Cloud Shell, haga clic con el botón derecho en la línea de comandos y seleccione **Pegar**. El script ejecuta una instrucción a la vez. Cuando el script deje de ejecutarse, seleccione **Intro** para asegurarse de que ejecuta el último comando. El siguiente bloque de código muestra el script que se usa, con los comentarios que explican lo que está haciendo.
+Si todavía no lo ha hecho, abra una [ventana de Cloud Shell](https://shell.azure.com) y asegúrese de que está establecida en Bash. Abra el script en el repositorio sin comprimir, use Ctrl+A para seleccionar todo y, a continuación, CTRL+C para copiarlo. También puede copiar el siguiente script de la CLI o abrirlo directamente en Cloud Shell. Para pegar el script en la ventana de Cloud Shell, haga clic con el botón derecho en la línea de comandos y seleccione **Pegar**. El script ejecuta una instrucción a la vez. Cuando el script deje de ejecutarse, seleccione **Intro** para asegurarse de que ejecuta el último comando. El siguiente bloque de código muestra el script que se usa, con los comentarios que explican lo que está haciendo.
 
 A continuación se muestran los recursos creados por el script. **Enriched** significa que el recurso es para los mensajes con enriquecimiento. **Original** significa que el recurso es para los mensajes no enriquecidos.
 
@@ -168,10 +168,10 @@ az iot hub device-identity show --device-id $iotDeviceName \
 ##### ROUTING FOR STORAGE #####
 
 # You're going to have two routes and two endpoints.
-# One points to container1 in the storage account
-#   and includes all messages.
-# The other points to container2 in the same storage account
-#   and only includes enriched messages.
+# One route points to the first container ("original") in the storage account
+#   and includes the original messages.
+# The other points to the second container ("enriched") in the same storage account
+#   and includes the enriched versions of the messages.
 
 endpointType="azurestoragecontainer"
 endpointName1="ContosoStorageEndpointOriginal"
@@ -190,7 +190,7 @@ storageConnectionString=$(az storage account show-connection-string \
 # Create the routing endpoints and routes.
 # Set the encoding format to either avro or json.
 
-# This is the endpoint for container 1, for endpoint messages that are not enriched.
+# This is the endpoint for the first container, for endpoint messages that are not enriched.
 az iot hub routing-endpoint create \
   --connection-string $storageConnectionString \
   --endpoint-name $endpointName1 \
@@ -202,7 +202,7 @@ az iot hub routing-endpoint create \
   --resource-group $resourceGroup \
   --encoding json
 
-# This is the endpoint for container 2, for endpoint messages that are enriched.
+# This is the endpoint for the second container, for endpoint messages that are enriched.
 az iot hub routing-endpoint create \
   --connection-string $storageConnectionString \
   --endpoint-name $endpointName2 \
@@ -225,7 +225,8 @@ az iot hub route create \
   --enabled \
   --condition $condition
 
-# This is the route for messages that are not enriched.
+# This is the route for messages that are enriched.
+# Create the route for the second storage endpoint.
 az iot hub route create \
   --name $routeName2 \
   --hub-name $iotHubName \
@@ -240,7 +241,7 @@ En este momento, se establecen todos los recursos y se configura el enrutamiento
 
 ### <a name="view-routing-and-configure-the-message-enrichments"></a>Visualización del enrutamiento y configuración del enriquecimiento de mensajes
 
-1. Seleccione **Grupos de recursos** para ir a su centro de IoT Hub. A continuación, seleccione el grupo de recursos para este tutorial (**ContosoResources_MsgEn**). Busque el centro de IoT Hub en la lista y selecciónelo. Seleccione *Enrutamiento de mensajes** para el centro de IoT Hub.
+1. Seleccione **Grupos de recursos** para ir a su centro de IoT Hub. A continuación, seleccione el grupo de recursos para este tutorial (**ContosoResources_MsgEn**). Busque el centro de IoT Hub en la lista y selecciónelo. Seleccione **Enrutamiento de mensajes** para el centro de IoT.
 
    ![Selección del enrutamiento de mensajes](./media/tutorial-message-enrichments/select-iot-hub.png)
 
@@ -250,7 +251,7 @@ En este momento, se establecen todos los recursos y se configura el enrutamiento
 
 2. Agregue estos valores a la lista para el punto de conexión ContosoStorageEndpointEnriched.
 
-   | NOMBRE | Valor | Punto de conexión (lista desplegable) |
+   | Clave | Valor | Punto de conexión (lista desplegable) |
    | ---- | ----- | -------------------------|
    | myIotHub | $iothubname | AzureStorageContainers > ContosoStorageEndpointEnriched |
    | DeviceLocation | $twin.tags.location | AzureStorageContainers > ContosoStorageEndpointEnriched |
@@ -269,7 +270,7 @@ En este momento, se establecen todos los recursos y se configura el enrutamiento
 
 ## <a name="send-messages-to-the-iot-hub"></a>Envío de mensajes al centro de IoT Hub
 
-Ahora que el enriquecimiento de mensajes está configurado para el punto de conexión, ejecute la aplicación de dispositivo simulado para enviar mensajes al centro de IoT Hub. El centro se ha configurado con opciones que permiten que se cumplan las siguientes situaciones:
+Ahora que el enriquecimiento de mensajes está configurado para el punto de conexión, ejecute la aplicación de dispositivo simulado para enviar mensajes al centro de IoT Hub. El centro se ha configurado con opciones que permiten que tengan lugar las siguientes situaciones:
 
 * Los mensajes enrutados al punto de conexión de almacenamiento ContosoStorageEndpointOriginal no se enriquecerán y almacenarán en el contenedor de almacenamiento `original`.
 
@@ -277,16 +278,16 @@ Ahora que el enriquecimiento de mensajes está configurado para el punto de cone
 
 La aplicación de dispositivo simulado es una de las aplicaciones en la descarga sin comprimir. La aplicación envía mensajes para cada uno de los métodos de enrutamiento de mensajes diferentes en el [tutorial enrutamiento](tutorial-routing.md); esto incluye Azure Storage.
 
-Haga doble clic en el archivo de la solución (IoT_SimulatedDevice.sln) para abrir el código en Visual Studio y abra Program.cs. Reemplace `{your hub name}` por el nombre del centro de IoT Hub. El formato del nombre de host de IoT Hub es **{su nombre del centro}.azure-devices.net**. Para este tutorial, el nombre de host del centro es **ContosoTestHubMsgEn.azure-devices.net**. A continuación, sustituya `{device key}` por la clave de dispositivo que guardó anteriormente al ejecutar el script para crear los recursos.
+Haga doble clic en el archivo de la solución (IoT_SimulatedDevice.sln) para abrir el código en Visual Studio y abra Program.cs. Sustituya el nombre del centro de IoT por el marcador `{your hub name}`. El formato del nombre de host de IoT Hub es **{su nombre del centro}.azure-devices.net**. Para este tutorial, el nombre de host del centro es **ContosoTestHubMsgEn.azure-devices.net**. A continuación, sustituya la clave de dispositivo que guardó anteriormente al ejecutar el script para crear los recursos del marcador `{your device key}`.
 
 Si no dispone de la clave de dispositivo, puede recuperarla desde el portal. Después de iniciar sesión, vaya a **Grupos de recursos**, seleccione el grupo de recursos y, a continuación, seleccione su centro de IoT Hub. Busque su dispositivo de prueba en **Dispositivos IoT** y selecciónelo. Seleccione el icono de copia junto a la **clave principal** para copiarla en el portapapeles.
 
    ```csharp
-        static string myDeviceId = "contoso-test-device";
-        static string iotHubUri = "ContosoTestHubMsgEn.azure-devices.net";
+        private readonly static string s_myDeviceId = "Contoso-Test-Device";
+        private readonly static string s_iotHubUri = "ContosoTestHubMsgEn.azure-devices.net";
         // This is the primary key for the device. This is in the portal.
         // Find your IoT hub in the portal > IoT devices > select your device > copy the key.
-        static string deviceKey = "{your device key here}";
+        private readonly static string s_deviceKey = "{your device key}";
    ```
 
 ## <a name="run-and-test"></a>Ejecución y prueba
@@ -309,13 +310,13 @@ Una vez que se envíen varios mensajes de almacenamiento, visualice los datos.
 
 Los mensajes del contenedor denominados **enriched** cuentan con enriquecimiento de mensajes incluido en los mensajes. Los mensajes en el contenedor denominado **original** contendrán los mensajes sin procesar y sin enriquecimiento. Explore en profundidad uno de los contenedores hasta llegar a la parte inferior y abra el archivo de mensaje más reciente. A continuación, repita el mismo procedimiento con el otro contenedor para comprobar que no hay ningún enriquecimiento agregado a los mensajes de ese contenedor.
 
-Cuando examine los mensajes enriquecidos, deberá ver "Mi centro de IoT Hub" con el nombre del centro, así como la ubicación y el identificador de cliente, con un aspecto similar al siguiente:
+Cuando examine los mensajes enriquecidos, deberá ver "my IoT Hub" con el nombre del centro, así como la ubicación y el identificador de cliente, de esta manera:
 
 ```json
 {"EnqueuedTimeUtc":"2019-05-10T06:06:32.7220000Z","Properties":{"level":"storage","my IoT Hub":"contosotesthubmsgen3276","devicelocation":"$twin.tags.location","customerID":"6ce345b8-1e4a-411e-9398-d34587459a3a"},"SystemProperties":{"connectionDeviceId":"Contoso-Test-Device","connectionAuthMethod":"{\"scope\":\"device\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}","connectionDeviceGenerationId":"636930642531278483","enqueuedTime":"2019-05-10T06:06:32.7220000Z"},"Body":"eyJkZXZpY2VJZCI6IkNvbnRvc28tVGVzdC1EZXZpY2UiLCJ0ZW1wZXJhdHVyZSI6MjkuMjMyMDE2ODQ4MDQyNjE1LCJodW1pZGl0eSI6NjQuMzA1MzQ5NjkyODQ0NDg3LCJwb2ludEluZm8iOiJUaGlzIGlzIGEgc3RvcmFnZSBtZXNzYWdlLiJ9"}
 ```
 
-Aquí se muestra un mensaje no enriquecido. Aquí no se muestra "Mi centro de IoT Hub", la ubicación del dispositivo ni el identificador de cliente, ya que no hay enriquecimientos.
+Este es un mensaje no enriquecido. "my IoT Hub", "devicelocation" y "customerID" no se muestran aquí, puesto que estos son los campos que se agregarían con los enriquecimientos, y este punto de conexión carece de ellos.
 
 ```json
 {"EnqueuedTimeUtc":"2019-05-10T06:06:32.7220000Z","Properties":{"level":"storage"},"SystemProperties":{"connectionDeviceId":"Contoso-Test-Device","connectionAuthMethod":"{\"scope\":\"device\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}","connectionDeviceGenerationId":"636930642531278483","enqueuedTime":"2019-05-10T06:06:32.7220000Z"},"Body":"eyJkZXZpY2VJZCI6IkNvbnRvc28tVGVzdC1EZXZpY2UiLCJ0ZW1wZXJhdHVyZSI6MjkuMjMyMDE2ODQ4MDQyNjE1LCJodW1pZGl0eSI6NjQuMzA1MzQ5NjkyODQ0NDg3LCJwb2ludEluZm8iOiJUaGlzIGlzIGEgc3RvcmFnZSBtZXNzYWdlLiJ9"}

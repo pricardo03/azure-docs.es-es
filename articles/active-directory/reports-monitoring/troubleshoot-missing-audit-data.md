@@ -1,9 +1,9 @@
 ---
-title: Solución del problema de falta de datos en los registros de actividad de Azure Active Directory | Microsoft Docs
+title: Solución de problemas de falta de datos en los registros de actividad | Microsoft Docs
 description: Proporciona una solución para el problema de falta de datos en los registros de actividad de Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: 7cbe4337-bb77-4ee0-b254-3e368be06db7
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 01/15/2018
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a04de319a17255e3b61378cbd716828a237317b3
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 9c335a4d30846f7c1b4dbd6b6aedc4d100a9b43a
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989515"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014282"
 ---
 # <a name="troubleshoot-missing-data-in-the-azure-active-directory-activity-logs"></a>Solución de problemas: Faltan datos en los registros de actividad de Azure Active Directory 
 

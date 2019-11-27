@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: ec1842d534dcb1e9ddef149d3ae879677b29e715
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: b90e5ccf38e95d33c4b5b6f3b8da0e91a4facb5a
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71263027"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74023735"
 ---
 # <a name="create-diagnostic-setting-to-collect-platform-logs-and-metrics-in-azure"></a>Creación de una configuración de diagnóstico para recopilar registros de plataforma y métricas en Azure
 Los [registros de plataforma](resource-logs-overview.md) en Azure proporcionan información detallada de diagnóstico y auditoría para los recursos de Azure y la plataforma de Azure de la que dependen. En este artículo se proporcionan detalles sobre la creación y la configuración de diagnóstico para la recopilación de los registros de plataforma en distintos destinos.
@@ -35,14 +35,15 @@ Una sola configuración de diagnóstico puede definir uno de los destinos. Si de
 ## <a name="destinations"></a>Destinations 
 Los registros de plataforma se pueden enviar a los destinos de la tabla siguiente. La configuración de cada destino se realiza mediante el mismo proceso de creación de la configuración de diagnóstico que se describe en este artículo. Siga los vínculos de la tabla siguiente para más información sobre cómo enviar datos a ese destino.
 
-| Destino | DESCRIPCIÓN |
+| Destination | DESCRIPCIÓN |
 |:---|:---|
 | [Área de trabajo de Log Analytics](resource-logs-collect-workspace.md) | La recopilación de registros de recurso en un área de trabajo de Log Analytics permite el análisis con otros datos de supervisión recopilados en por Azure Monitor mediante consultas de registro eficaces y también el aprovechamiento de otras características de Azure Monitor, como las alertas y las visualizaciones. |
 | [Event Hubs](resource-logs-stream-event-hubs.md) | El envío de registros a Event Hubs permite transmitir datos a sistemas externos, como SIEM de terceros y otras soluciones de análisis de registros. |
 | [Cuenta de Almacenamiento de Azure](resource-logs-collect-storage.md) | El archivado de registros en una cuenta de almacenamiento de Azure es útil para la auditoría, el análisis estático o la copia de seguridad. |
 
 
-
+> [!IMPORTANT]
+> Actualmente, las cuentas de Azure Data Lake Storage Gen2 no se admiten como destino de la configuración de diagnóstico, aunque pueden aparecer como una opción válida en Azure Portal.
 
 ## <a name="create-diagnostic-settings-in-azure-portal"></a>Creación de configuraciones de diagnóstico en Azure Portal
 Puede realizar configuraciones de diagnóstico en Azure Portal desde el menú de Azure Monitor o desde el menú del recurso.
@@ -92,7 +93,7 @@ Transcurridos unos instantes, la nueva configuración aparece en la lista de con
 
 
 ## <a name="create-diagnostic-settings-using-powershell"></a>Creación de una configuración de diagnóstico mediante PowerShell
-Use el cmdlet [Set-AzDiagnosticSetting](https://docs.microsoft.com/en-us/powershell/module/az.monitor/set-azdiagnosticsetting) para crear una configuración de diagnóstico con [Azure PowerShell](powershell-quickstart-samples.md). Consulte la documentación de este cmdlet para las descripciones de sus parámetros.
+Use el cmdlet [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) para crear una configuración de diagnóstico con [Azure PowerShell](powershell-quickstart-samples.md). Consulte la documentación de este cmdlet para las descripciones de sus parámetros.
 
 A continuación se muestra un cmdlet de PowerShell de ejemplo para crear una configuración de diagnóstico con los tres destinos.
 

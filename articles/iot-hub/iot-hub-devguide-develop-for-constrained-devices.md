@@ -1,5 +1,5 @@
 ---
-title: Desarrollo en Azure IoT Hub para dispositivos restringidos mediante los SDK para C de IoT Hub | Microsoft Docs
+title: Desarrollo en Azure IoT Hub para dispositivos restringidos mediante el SDK para C de IoT Hub
 description: 'Guía del desarrollador: instrucciones sobre cómo desarrollar mediante los SDK de Azure IoT para dispositivos restringidos.'
 author: robinsh
 ms.service: iot-hub
@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: robinsh
-ms.openlocfilehash: d69fe6b845d3af04e42ee91daa9359dcb9a88fc5
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: a1918a99efcdcc5764140093ad422f7887ca3c88
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68880961"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954697"
 ---
 # <a name="develop-for-constrained-devices-using-azure-iot-c-sdk"></a>Desarrollo para dispositivos restringidos con los SDK para C de Azure IoT
 

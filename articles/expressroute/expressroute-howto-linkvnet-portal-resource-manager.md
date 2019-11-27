@@ -1,5 +1,5 @@
 ---
-title: 'Vinculación de una red virtual a un circuito en ExpressRoute: Azure Portal | Microsoft Docs'
+title: 'ExpressRoute: Conexión de una red virtual con un circuito: Portal de Azure'
 description: Conecte una red virtual a un circuito de Azure ExpressRoute. Procedimientos
 services: expressroute
 author: cherylmc
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/17/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 6185540340bba4299eb9307432480c91d531779a
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 4c7a24ad692086398059d1afd48c8927e9d18582
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71088916"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74022186"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-the-portal"></a>Conexión de una red virtual con un circuito de ExpressRoute mediante el portal
 > [!div class="op_single_selector"]
@@ -54,10 +54,10 @@ Este artículo le ayuda a crear una conexión para vincular una red virtual con 
 
 1. Asegúrese de que el circuito ExpressRoute y el emparejamiento privado de Azure estén correctamente configurados. Siga las instrucciones de [Creación de un circuito ExpressRoute](expressroute-howto-circuit-arm.md) y de [Creación y modificación del emparejamiento de un circuito ExpressRoute](expressroute-howto-routing-arm.md). El circuito ExpressRoute debe tener un aspecto similar a la imagen que aparece a continuación:
 
-   [![Captura de pantalla del circuito ExpressRoute](./media/expressroute-howto-linkvnet-portal-resource-manager/routing1.png "Ver circuito")](./media/expressroute-howto-linkvnet-portal-resource-manager/routing1-exp.png#lightbox)
+   [![Captura de pantalla de un circuito de ExpressRoute](./media/expressroute-howto-linkvnet-portal-resource-manager/routing1.png "Ver circuito")](./media/expressroute-howto-linkvnet-portal-resource-manager/routing1-exp.png#lightbox)
 2. Ahora puede iniciar el aprovisionamiento de una conexión para vincular la puerta de enlace de red virtual con el circuito ExpressRoute. Haga clic en **Conexión** > **Agregar** para abrir la página **Agregar conexión** y configure los valores.
 
-   [![Captura de pantalla de Agregar conexión](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub1.png "Add Connection Screenshot")](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub1-exp.png#lightbox)
+   [![Captura para agregar conexión](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub1.png "Captura para agregar conexión")](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub1-exp.png#lightbox)
 3. Una vez que la conexión esté correctamente configurada, el objeto de conexión mostrará la información de la conexión.
 
    ![Captura de pantalla de objeto de conexión](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub2.png)

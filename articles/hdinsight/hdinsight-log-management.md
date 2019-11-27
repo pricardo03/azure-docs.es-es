@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 03/19/2019
-ms.openlocfilehash: c069b620e129177be5d374f5b23b5e54befd8ca2
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.date: 11/07/2019
+ms.openlocfilehash: e5abc9e75e11424b5d0dc4c260b412d0e414ad83
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105424"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837937"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Administración de registros de un clúster de HDInsight
 
@@ -45,8 +45,8 @@ Los siguientes detalles del clúster son útiles para ayudar a recopilar informa
 Puede obtener la mayor parte de esta información de nivel superior mediante Azure Portal.  Como alternativa, puede utilizar la [CLI de Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) para obtener información acerca de los clústeres de HDInsight:
 
 ```azurecli
-    az hdinsight list --resource-group <ResourceGroup>
-    az hdinsight show --resource-group <ResourceGroup> --name <ClusterName>
+az hdinsight list --resource-group <ResourceGroup>
+az hdinsight show --resource-group <ResourceGroup> --name <ClusterName>
 ```
 
 También puede usar PowerShell para ver esta información.  Para más información, consulte [Administración de clústeres de Apache Hadoop en HDInsight mediante Azure PowerShell](hdinsight-administer-use-powershell.md).
@@ -112,18 +112,18 @@ Además de los archivos de registro básico generados por HDInsight, los servici
 YARN agrega los registros en todos los contenedores de un nodo de trabajo y los almacena como un archivo de registros agregados por cada nodo de trabajo. Dicho registro se almacena en el sistema de archivos de forma predeterminada una vez finalizada una aplicación. Su aplicación puede usar cientos o miles de contenedores, pero los registros para todos los contenedores que se ejecutan en un único nodo de trabajo se agregarán siempre a un único archivo. Solo hay un registro por nodo de trabajo usado por la aplicación. La agregación de registros está habilitada de forma predeterminada en los clústeres de HDInsight de la versión 3.0 y superior. Los registros agregados se encuentran en el almacenamiento predeterminado del clúster.
 
 ```
-    /app-logs/<user>/logs/<applicationId>
+/app-logs/<user>/logs/<applicationId>
 ```
 
-Los registros agregados no son legibles directamente, ya que se escriben en un formato binario TFile que indexa el contenedor. Use los registros de ResourceManager de YARN o las herramientas de la CLI para ver estos registros como texto sin formato para aplicaciones o contenedores de interés.
+Los registros agregados no son legibles directamente, ya que se escriben en TFile, un formato binario indexado por contenedor. Use los registros de ResourceManager de YARN o las herramientas de la CLI para ver estos registros como texto sin formato para aplicaciones o contenedores de interés.
 
 #### <a name="yarn-cli-tools"></a>Herramientas de la CLI de YARN
 
 Para poder usar las herramientas de la CLI de YARN, tiene que conectarse primero al clúster de HDInsight mediante SSH. Especifique la información de `<applicationId>`, `<user-who-started-the-application>`, `<containerId>` y `<worker-node-address>` al ejecutar estos comandos. Puede ver los registros como texto sin formato con uno de los siguientes comandos:
 
 ```bash
-    yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application>
-    yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application> -containerId <containerId> -nodeAddress <worker-node-address>
+yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application>
+yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application> -containerId <containerId> -nodeAddress <worker-node-address>
 ```
 
 #### <a name="yarn-resourcemanager-ui"></a>Interfaz de usuario de ResourceManager de YARN
@@ -146,7 +146,7 @@ Ahora tiene información suficiente para crear una estrategia de administración
 
 Después de determinar qué archivos de registro se pueden eliminar, puede ajustar los parámetros de registro en muchos servicios de Hadoop para eliminar automáticamente los archivos de registro tras un período de tiempo específico.
 
-Para determinados archivos de registro, puede usar un enfoque de archivado de archivos de registro más económico. Para los registros de actividad de Azure Resource Manager, puede analizar este enfoque con Azure Portal.  Configure el archivado de los registros ARM mediante la selección del vínculo **Registro de actividad** en Azure Portal para la instancia de HDInsight.  En la parte superior de la página de búsqueda de Registro de actividad, seleccione el elemento de menú **Exportar** para abrir el panel **Exportar registro de actividad**.  Rellene la suscripción, la región, si desea exportar a una cuenta de almacenamiento y durante cuántos días se deben conservar los registros. En este mismo panel, también puede indicar si desea exportar a un centro de eventos.
+Para determinados archivos de registro, puede usar un enfoque de archivado de archivos de registro más económico. Para los registros de actividad de Azure Resource Manager, puede analizar este enfoque con Azure Portal.  Configure el archivado de los registros de Resource Manager mediante la selección del vínculo **Registro de actividad** en Azure Portal para la instancia de HDInsight.  En la parte superior de la página de búsqueda de Registro de actividad, seleccione el elemento de menú **Exportar** para abrir el panel **Exportar registro de actividad**.  Rellene la suscripción, la región, si desea exportar a una cuenta de almacenamiento y durante cuántos días se deben conservar los registros. En este mismo panel, también puede indicar si desea exportar a un centro de eventos.
 
 ![Vista previa del registro de actividad de exportación de Azure Portal](./media/hdinsight-log-management/hdi-export-log-files.png)
 

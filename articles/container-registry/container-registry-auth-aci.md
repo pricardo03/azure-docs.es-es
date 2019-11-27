@@ -1,5 +1,5 @@
 ---
-title: Autenticación con Azure Container Registry desde Azure Container Instances
+title: Acceso a Azure Container Registry desde Container Instances
 description: Aprenda a proporcionar acceso a las imágenes de su registro de contenedor privado desde Azure Container Instances mediante una entidad de servicio de Azure Active Directory.
 services: container-registry
 author: dlepow
@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: danlep
-ms.openlocfilehash: b11f88cbb29016032cbf536a2c970573eda82152
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 53cdca72587dafd39abd3f13ad488dcb460bf622
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72262860"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931667"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-container-instances"></a>Autenticación con Azure Container Registry desde Azure Container Instances
 

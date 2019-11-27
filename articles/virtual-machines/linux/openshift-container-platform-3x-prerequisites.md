@@ -1,5 +1,5 @@
 ---
-title: Requisitos previos de OpenShift Container Platform 3.11 en Azure | Microsoft Docs
+title: Requisitos previos de OpenShift Container Platform 3.11 en Azure
 description: Requisitos previos para implementar OpenShift Container Platform 3.11 en Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -12,14 +12,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/14/2019
+ms.date: 10/23/2019
 ms.author: haroldw
-ms.openlocfilehash: 591cc7a4b84f75536446abbcbe32a69a122ddf5a
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 069561c4bed55bf6021b594d693e076ef8d313bd
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72392075"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035471"
 ---
 # <a name="common-prerequisites-for-deploying-openshift-container-platform-311-in-azure"></a>Requisitos previos para implementar OpenShift Container Platform 3.11 en Azure
 
@@ -113,14 +113,16 @@ az group create -l eastus -n openshiftrg
 Cree una entidad de servicio:
 
 ```azurecli
-scope=`az group show --name openshiftrg --query id`
-az ad sp create-for-rbac --name openshiftsp \
-      --role Contributor --password {Strong Password} \
-      --scopes $scope \
+az group show --name openshiftrg --query id
 ```
-Si usa Windows, ejecute ```az group show --name openshiftrg --query id``` y use la salida en lugar de $scope.
+Guarde la salida del comando y úsela en lugar de $scope en el siguiente comando
 
-Tome nota de la propiedad appId que devuelve el comando:
+```azurecli
+az ad sp create-for-rbac --name openshiftsp \
+      --role Contributor --scopes $scope \
+```
+
+Tome nota de la propiedad appId y la contraseña que devuelve el comando:
 ```json
 {
   "appId": "11111111-abcd-1234-efgh-111111111111",
@@ -131,7 +133,7 @@ Tome nota de la propiedad appId que devuelve el comando:
 }
 ```
  > [!WARNING] 
- > Asegúrese de crear una contraseña segura. Siga la guía de las [restricciones y reglas de contraseña de Azure AD](/azure/active-directory/active-directory-passwords-policy).
+ > Asegúrese de anotar la contraseña segura, ya que no se podrá volver a recuperar.
 
 Para más información sobre las entidades de servicio, consulte [Creación de una entidad de servicio de Azure con la CLI de Azure](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest).
 

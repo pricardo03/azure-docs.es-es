@@ -1,28 +1,25 @@
 ---
-title: 'Ejemplo de script de Azure PowerShell: enrutamiento del tráfico para la alta disponibilidad de las aplicaciones | Microsoft Docs'
+title: Enrutamiento del tráfico para la alta disponibilidad de las aplicaciones - Azure PowerShell - Traffic Manager
 description: 'Ejemplo de script de Azure PowerShell: enrutamiento del tráfico para la alta disponibilidad de las aplicaciones'
 services: traffic-manager
 documentationcenter: traffic-manager
-author: KumudD
-manager: timlt
-editor: georgewallace
-tags: azure-infrastructure
-ms.assetid: ''
+author: asudbring
+manager: KumudD
 ms.service: traffic-manager
 ms.devlang: powershell
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: traffic-manager
 ms.date: 05/16/2017
-ms.author: gwallace
-ms.openlocfilehash: 1086fe6d656db9450d84fd6971a271775f54687d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: allensu
+ms.openlocfilehash: 183599fccfad1806faae3cb90de225d388b77da8
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66156921"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74049250"
 ---
-# <a name="route-traffic-for-high-availability-of-applications"></a>Enrutamiento del tráfico para la alta disponibilidad de las aplicaciones
+# <a name="route-traffic-for-high-availability-of-applications---azure-powershell"></a>Enrutamiento del tráfico para la alta disponibilidad de las aplicaciones: Azure PowerShell
 
 Este script crea un grupo de recursos, dos planes de App Service, dos aplicaciones web, un perfil de Traffic Manager y dos puntos de conexión de Traffic Manager. Traffic Manager dirige el tráfico a la aplicación en una región como la región primaria y a la región secundaria cuando no está disponible la aplicación en la región primaria. Antes de ejecutar el script, debe cambiar los valores de MyWebApp, MyWebAppL1 y MyWebAppL2 a valores únicos en todo Azure. Después de ejecutar el script, puede tener acceso a la aplicación en la región primaria con la dirección URL mywebapp.trafficmanager.net.
 

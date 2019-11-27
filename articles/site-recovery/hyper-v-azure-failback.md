@@ -1,5 +1,5 @@
 ---
-title: Ejecución de una conmutación por recuperación en caso de desastre de máquinas virtuales de Hyper-V desde Azure hacia el entorno local | Microsoft Docs
+title: Conmutación por recuperación de máquinas virtuales de Hyper-V desde Azure con Azure Site Recovery
 description: Aprenda a conmutar por recuperación máquinas virtuales de Hyper-V a un sitio local durante una recuperación ante desastres en Azure con el servicio Azure Site Recovery.
 services: site-recovery
 author: rajani-janaki-ram
@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 09/12/2019
 ms.author: rajanaki
-ms.openlocfilehash: 07ecc8547ab155600bccfd1ad8f1ecbb58a18fa3
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: b924c1424a309fb61f690c21e5665a70356c7a62
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70931843"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084222"
 ---
 # <a name="run-a-failback-for-hyper-v-vms"></a>Ejecución de una conmutación por recuperación para máquinas virtuales de Hyper-V
 

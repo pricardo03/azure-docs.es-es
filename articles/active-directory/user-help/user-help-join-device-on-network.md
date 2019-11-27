@@ -1,5 +1,5 @@
 ---
-title: Una su dispositivo de trabajo a la red de su organización - Azure Active Directory | Microsoft Docs
+title: 'Unión del dispositivo de trabajo a la red de la organización: AD'
 description: Aprenda a unir su dispositivo de trabajo a la red de su organización.
 services: active-directory
 author: eross-msft
@@ -13,12 +13,12 @@ ms.date: 08/03/2018
 ms.author: lizross
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62faa47c116cceb941f575a9f76052e8bc57f036
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b122d70179f22c91028c8343b23d74cc616b1f76
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66243274"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74028541"
 ---
 # <a name="join-your-work-device-to-your-organizations-network"></a>Una su dispositivo de trabajo a la red de su organización
 Una su dispositivo Windows 10 de trabajo a la red de su organización para poder tener acceso a recursos potencialmente restringidos.

@@ -1,6 +1,6 @@
 ---
 title: Introducción al enriquecimiento de mensajes de Azure IoT Hub
-description: Introducción al enriquecimiento de mensajes para los mensajes de IoT Hub de Azure
+description: En este artículo se muestran los enriquecimientos de mensajes, que proporcionan al centro de IoT la posibilidad de marcar los mensajes con información adicional antes de enviarlos al punto de conexión designado.
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -8,14 +8,14 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: 40ce5c4f73daac2b88d3a59e46d43dba10db0954
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 83114023eb35221bfa53e3ce4de8a861948c7a3a
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177988"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74005840"
 ---
-# <a name="message-enrichments-for-device-to-cloud-iot-hub-messages-preview"></a>Enriquecimiento de mensajes para mensajes de IoT Hub del dispositivo a la nube (versión preliminar)
+# <a name="message-enrichments-for-device-to-cloud-iot-hub-messages"></a>Enriquecimientos de mensajes para mensajes de IoT Hub del dispositivo a la nube
 
 *El enriquecimiento de mensajes* es la capacidad de IoT Hub para *marcar* los mensajes con información adicional antes de que los mensajes se envíen al punto de conexión designado. Una razón para utilizar el enriquecimiento de mensajes es incluir datos que se pueden usar para simplificar el procesamiento descendente. Por ejemplo, el enriquecimiento de mensajes de telemetría de dispositivos con una etiqueta de dispositivo gemelo puede reducir la carga de los clientes para realizar llamadas API de dispositivos gemelos para obtener esta información.
 
@@ -81,10 +81,6 @@ Para ver cómo probar el enriquecimiento de mensajes, consulte el [tutorial de e
 ## <a name="pricing"></a>Precios
 
 El enriquecimiento de mensajes está disponible sin ningún cargo adicional. Actualmente, se le cobra cuando envía un mensaje a un centro de IoT. Solo se le cobrará una vez por ese mensaje, incluso si el mensaje va a varios puntos de conexión.
-
-## <a name="availability"></a>Disponibilidad
-
-Esta funcionalidad está en versión preliminar pública y está disponible en todas las regiones excepto en Este de EE. UU., Oeste de EE. UU., Oeste de Europa, [Azure Government](/azure/azure-government/documentation-government-welcome), [Azure China 21Vianet](/azure/china) y [Azure Alemania](https://azure.microsoft.com/global-infrastructure/germany/).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

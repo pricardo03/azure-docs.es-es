@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.author: sanpil
 author: sanpil
-ms.date: 08/09/2019
+ms.date: 11/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3dc439c352bb3e6e56fae4b83d783da94720bfe1
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: f87d835973410a7d8e134c676530a9476cd3c2fe
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818414"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012741"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Creación y ejecución de canalizaciones de Machine Learning con el SDK de Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-En este artículo aprenderá a crear, publicar, ejecutar y realizar un seguimiento de una [canalización de aprendizaje automático](concept-ml-pipelines.md) mediante el [SDK de Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).  Use **canalizaciones de Machine Learning** para crear un flujo de trabajo que reúna varias fases de Machine Learning y, luego, publique esa canalización en el área de trabajo de Azure Machine Learning para acceder a ella más adelante o compartirla con los demás.  Las canalizaciones de Machine Learning son ideales para puntuar escenarios por lotes, para usar varios procesos, para reutilizar pasos en lugar de volver a ejecutarlos y para compartir flujos de trabajo de Machine Learning con otros usuarios. 
+En este artículo aprenderá a crear, publicar, ejecutar y realizar un seguimiento de una [canalización de aprendizaje automático](concept-ml-pipelines.md) mediante el [SDK de Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).  Use **canalizaciones de Machine Learning** para crear un flujo de trabajo que reúna varias fases de Machine Learning y, luego, publique esa canalización en el área de trabajo de Azure Machine Learning para acceder a ella más adelante o compartirla con los demás.  Las canalizaciones de Machine Learning son ideales para puntuar escenarios por lotes, para usar varios procesos, para reutilizar pasos en lugar de volver a ejecutarlos y para compartir flujos de trabajo de Machine Learning con otros usuarios.
 
 Si bien se puede usar un tipo distinto de canalización, denominado [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/targets/azure-machine-learning?context=azure%2Fmachine-learning%2Fservice%2Fcontext%2Fml-context&view=azure-devops&tabs=yaml), para la automatización de CI/CD de tareas de Machine Learning, este tipo de canalización nunca se almacena en el área de trabajo. [Compare ambas canalizaciones](concept-ml-pipelines.md#which-azure-pipeline-technology-should-i-use).
 
@@ -101,7 +101,7 @@ blob_input_data = DataReference(
     path_on_datastore="20newsgroups/20news.pkl")
 ```
 
-Los datos intermedios (o salida de un paso) se representan mediante un objeto [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py). `output_data1` se crea como la salida de un paso y se usa como la entrada de uno o más pasos futuros. `PipelineData` introduce una dependencia de datos entre los pasos y crea un orden de ejecución implícito en la canalización.
+Los datos intermedios (o salida de un paso) se representan mediante un objeto [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py). `output_data1` se crea como la salida de un paso y se usa como la entrada de uno o más pasos futuros. `PipelineData` introduce una dependencia de datos entre los pasos y crea un orden de ejecución implícito en la canalización. Este objeto se usará más adelante al crear los pasos de la canalización.
 
 ```python
 from azureml.pipeline.core import PipelineData
@@ -112,9 +112,25 @@ output_data1 = PipelineData(
     output_name="output_data1")
 ```
 
+### <a name="configure-data-using-datasets"></a>Configuración de datos mediante conjuntos de datos
+
+Si tiene datos tabulares almacenados en un archivo o conjunto de archivos, la clase [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) es una alternativa eficaz a `DataReference`. Los objetos de `TabularDataset` admiten control de versiones, diferencias y estadísticas de resumen. Los elementos de `TabularDataset` se evalúan de forma diferida (como los generadores de Python) y resulta eficaz crear subconjuntos mediante la división o el filtrado. La clase `FileDataset` proporciona datos de evaluación diferida similares que representan uno o varios archivos. 
+
+Puede crear una clase `TabularDataset` con métodos como [from_delimited_files](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none-).
+
+```python
+from azureml.data import TabularDataset
+
+iris_tabular_dataset = Dataset.Tabular.from_delimited_files([(def_blob_store, 'train-dataset/tabular/iris.csv')])
+```
+
+ Puede crear una clase `FileDataset` con [from_files](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-).
+
+ Puede obtener más información sobre cómo trabajar con conjuntos de datos en [Adición y registro de conjuntos de datos](how-to-create-register-datasets.md) o en [este cuaderno de ejemplo](https://aka.ms/tabulardataset-samplenotebook).
+
 ## <a name="set-up-compute-target"></a>Configurar el destino de proceso
 
-En Azure Machine Learning, el término computes__ (o __destino de proceso__) se refiere a las máquinas o clústeres que realizarán los pasos del cálculo en su canal de aprendizaje automático.   Consulte los [destinos de proceso del entrenamiento del modelo](how-to-set-up-training-targets.md) para obtener una lista completa de destinos de proceso y cómo crearlos y adjuntarlos a su área de trabajo.  El proceso para crear o adjuntar un destino de proceso es el mismo independientemente de si entrena un modelo o ejecuta un paso de la canalización. Después de crear y adjuntar el destino de proceso, utilice el objeto `ComputeTarget` en su [paso de canalización](#steps).
+En Azure Machine Learning, el término __computes__ (o __destino de proceso__) se refiere a las máquinas o clústeres que realizarán los pasos del cálculo en su canalización de aprendizaje automático.   Consulte los [destinos de proceso del entrenamiento del modelo](how-to-set-up-training-targets.md) para obtener una lista completa de destinos de proceso y cómo crearlos y adjuntarlos a su área de trabajo.  El proceso para crear o adjuntar un destino de proceso es el mismo independientemente de si entrena un modelo o ejecuta un paso de la canalización. Después de crear y adjuntar el destino de proceso, utilice el objeto `ComputeTarget` en su [paso de canalización](#steps).
 
 > [!IMPORTANT]
 > No se admite la realización de operaciones de administración en destinos de proceso desde dentro de trabajos remotos. Puesto que las canalizaciones de aprendizaje automático se envían como un trabajo remoto, no use operaciones de administración en destinos de proceso desde dentro de la canalización.
@@ -319,6 +335,30 @@ steps = [dbStep]
 pipeline1 = Pipeline(workspace=ws, steps=steps)
 ```
 
+### <a name="use-a-dataset"></a>Uso de un conjunto de datos 
+
+Para usar la clase `TabularDataset` o la clase `FileDataset` en la canalización, debe convertirla en un objeto [DatasetConsumptionConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_consumption_config.datasetconsumptionconfig?view=azure-ml-py) mediante una llamada a [as_named_input(name)](https://docs.microsoft.com/python/api/azureml-core/azureml.data.abstract_dataset.abstractdataset?view=azure-ml-py#as-named-input-name-). Puede pasar este objeto `DatasetConsumptionConfig` como una de las `inputs` al paso de la canalización. 
+
+```python
+dataset_consuming_step = PythonScriptStep(
+    script_name="iris_train.py",
+    inputs=[iris_tabular_dataset.as_named_input("iris_data")],
+    compute_target=compute_target,
+    source_directory=project_folder
+)
+```
+
+A continuación, recupere el conjunto de datos de la canalización mediante el diccionario [Run.input_datasets](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#input-datasets).
+
+```python
+# iris_train.py
+from azureml.core import Run, Dataset
+
+run_context = Run.get_context()
+iris_dataset = run_context.input_datasets['iris_data']
+dataframe = iris_dataset.to_pandas_dataframe()
+```
+
 Para obtener más información, consulte el [paquete de pasos de canalizaciones de Azure](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py) y la referencia [de clase de canalización](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29?view=azure-ml-py).
 
 ## <a name="submit-the-pipeline"></a>Enviar la canalización
@@ -351,7 +391,18 @@ Cuando se ejecuta por primera vez una canalización, Azure Machine Learning:
 
 Para obtener más información, consulte la documentación de referencia de la [clase Experimento](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py).
 
+### <a name="view-results-of-a-pipeline"></a>Visualización de los resultados de una canalización
 
+Consulte la lista de todas las canalizaciones y sus detalles de ejecución en Studio:
+
+1. Inicie sesión en [Azure Machine Learning Studio](https://ml.azure.com).
+
+1. [Vea su área de trabajo](how-to-manage-workspace.md#view).
+
+1. A la izquierda, seleccione **Canalizaciones** para ver todas las ejecuciones de la canalización.
+ ![lista de canalizaciones de Machine Learning](./media/how-to-create-your-first-pipeline/pipelines.png)
+ 
+1. Seleccione una canalización específica para ver los resultados de la ejecución.
 
 ## <a name="github-tracking-and-integration"></a>Integración y seguimiento de GitHub
 
@@ -408,21 +459,26 @@ response = requests.post(published_pipeline1.endpoint,
                                "ParameterAssignments": {"pipeline_arg": 20}})
 ```
 
-### <a name="view-results-of-a-published-pipeline"></a>Ver los resultados de una canalización publicada
 
-Vea la lista de todas las canalizaciones publicadas y sus detalles de ejecución:
+### <a name="use-published-pipelines-in-the-studio"></a>Uso de canalizaciones publicadas en Studio
+
+También puede ejecutar una canalización publicada desde Studio:
+
 1. Inicie sesión en [Azure Machine Learning Studio](https://ml.azure.com).
 
-1. [Ver el área de trabajo](how-to-manage-workspace.md#view) para encontrar la lista de canalizaciones.
- ![lista de canalizaciones de Machine Learning](./media/how-to-create-your-first-pipeline/list_of_pipelines.png)
- 
-1. Seleccione una canalización específica para ver los resultados de la ejecución.
+1. [Vea su área de trabajo](how-to-manage-workspace.md#view).
 
-Los resultados también están disponibles en el área de trabajo en [Azure Machine Learning Studio]](https://ml.azure.com).
+1. En el panel izquierdo, seleccione **Puntos de conexión**.
+
+1. En la parte superior, seleccione **Pipeline endpoints** (Puntos de conexión de la canalización).
+ ![lista de las canalizaciones publicadas de Machine Learning](./media/how-to-create-your-first-pipeline/pipeline-endpoints.png)
+
+1. Seleccione una canalización específica para ejecutar, utilizar o revisar los resultados de las ejecuciones anteriores del punto de conexión de la canalización.
+
 
 ### <a name="disable-a-published-pipeline"></a>Deshabilitar una canalización publicada
 
-Para ocultar una canalización de la lista de canalizaciones publicadas, hay que deshabilitarla:
+Para ocultar una canalización de la lista de canalizaciones publicadas hay que deshabilitarla, ya sea en Studio o en el SDK:
 
 ```
 # Get the pipeline by using its ID from Azure Machine Learning studio

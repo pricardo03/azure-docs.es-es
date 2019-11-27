@@ -1,25 +1,25 @@
 ---
-title: Creación de un grupo dinámico y comprobación del estado en Azure Active Directory | Microsoft Docs
+title: 'Creación de un grupo dinámico y comprobación del estado: Azure AD | Microsoft Docs'
 description: Cómo crear reglas de pertenencia a grupos en Azure Portal y comprobar el estado.
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 08/30/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 343acce228c38e38152fc2ea9d8fe0a59d8254d4
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: c487ed02abda652a384f2f295c3edac4b56fc654
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70193933"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74027242"
 ---
 # <a name="create-a-dynamic-group-and-check-status"></a>Creación de un grupo dinámico y comprobación de su estado
 
@@ -28,13 +28,13 @@ La pertenencia dinámica se admite para grupos de seguridad o grupos de Office 
 
 ## <a name="rule-builder-in-the-azure-portal"></a>Generador de reglas en Azure Portal
 
-Azure AD proporciona un generador de reglas para crear y actualizar las reglas importantes con mayor rapidez. El generador de reglas admite la construcción de hasta cinco expresiones. Facilita la creación de reglas con unas cuantas expresiones sencillas; no obstante, no se puede usar para reproducir cada regla. En caso de que no admita la regla que quiere crear, puede usar el cuadro de texto.
+Azure AD proporciona un generador de reglas para crear y actualizar las reglas importantes con mayor rapidez. El generador de reglas admite la construcción de hasta cinco expresiones. Facilita la creación de reglas con unas cuantas expresiones sencillas; no obstante, no se puede usar para reproducir todas las reglas. En caso de que no admita la regla que quiere crear, puede usar el cuadro de texto.
 
-Estos son algunos ejemplos de reglas o sintaxis avanzadas para las que se recomienda usar el cuadro de texto:
+Estos son algunos ejemplos de reglas o sintaxis avanzadas para las que se recomienda construir mediante el cuadro de texto:
 
 - Regla con más de cinco expresiones
 - La regla de subordinados directos
-- Valor de [precedencia de operadores](groups-dynamic-membership.md#operator-precedence)
+- Configuración de la [precedencia de operadores](groups-dynamic-membership.md#operator-precedence)
 - [Reglas con expresiones complejas](groups-dynamic-membership.md#rules-with-complex-expressions); por ejemplo, `(user.proxyAddresses -any (_ -contains "contoso"))`
 
 > [!NOTE]

@@ -1,19 +1,18 @@
 ---
-title: Solución de errores de la replicación de Azure a Azure en Azure Site Recovery| Microsoft Docs
+title: Solución de problemas de replicación de máquinas virtuales de Azure en Azure Site Recovery
 description: Solución de errores al replicar máquinas virtuales de Azure para la recuperación ante desastres.
-services: site-recovery
 author: asgang
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 04/08/2019
 ms.author: asgang
-ms.openlocfilehash: baf7a21d04e8f9bcf86c67abde302a558dfba01c
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: b3c459c0eaac98a1cb704b4346153f77ec974188
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910395"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084921"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Solución de errores de replicación de máquinas virtuales de Azure en Azure
 

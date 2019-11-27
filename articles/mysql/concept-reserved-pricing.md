@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.openlocfilehash: e3b4249aa9fbc31f8a6ca4a33ef8167bd076adec
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 595a96d07cc1804d3ee0830618a70557b768a3b5
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73608476"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74067088"
 ---
 # <a name="prepay-for-azure-database-for-mysql-compute-resources-with-reserved-capacity"></a>Pago por adelantado de recursos de proceso de Azure Database for MySQL con capacidad reservada
 
@@ -32,7 +32,7 @@ Para información sobre cómo se les cobra a los clientes de empresa y a los de 
 
 El tamaño de la reserva se debe basar en la cantidad total de proceso que va a usar el servidor existente o que se va a implementar pronto en una región específica y con el mismo nivel de rendimiento y generación de hardware.</br>
 
-Por ejemplo, imagine que ejecuta una base de datos MySQL de propósito general Gen5 de 32 núcleos virtuales y dos bases de datos MySQL optimizadas para memoria Gen5 de 16 núcleos virtuales. Además, imagine que planea implementar en el próximo mes un grupo elástico Gen5 de propósito general y 32 núcleos virtuales adicional, y un servidor de bases de datos optimizado para memoria Gen5 de 16 núcleos virtuales. Imagine que sabe que necesitará estos recursos durante al menos un año. En este caso, debe comprar una reserva de 1 año de una instancia de Gen5 con 64 núcleos virtuales (2 × 32) para una base de datos única de uso general y otra reserva de 1 año de una instancia de Gen5 con 48 núcleos virtuales (2 × 16 + 16) para una base de datos única optimizada para memoria.
+Por ejemplo, imagine que ejecuta una base de datos MySQL de propósito general Gen5 de 32 núcleos virtuales y dos bases de datos MySQL optimizadas para memoria Gen5 de 16 núcleos virtuales. Además, supongamos que planea implementar en el próximo mes un grupo elástico Gen5 de uso general y 32 núcleos virtuales adicionales, y un servidor de bases de datos optimizado para memoria Gen5 de 16 núcleos virtuales. Vamos a suponer que sabe que necesitará estos recursos durante al menos 1 año. En este caso, debe comprar una reserva de 1 año de una instancia de Gen5 con 64 núcleos virtuales (2 × 32) para una base de datos única de uso general y otra reserva de 1 año de una instancia de Gen5 con 48 núcleos virtuales (2 × 16 + 16) para una base de datos única optimizada para memoria.
 
 
 ## <a name="buy-azure-database-for-mysql-reserved-capacity"></a>Capacidad reservada de Azure Database for MySQL
@@ -77,7 +77,7 @@ Para obtener información sobre cómo administrar la capacidad reservada de Azur
 
 Para obtener más información acerca de Azure Reservations, consulte los siguientes artículos:
 
-* [¿Qué es Azure Reservations?](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations)
+* [¿Qué es Azure Reservations?](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations)
 * [Administración de Azure Reservations](https://docs.microsoft.com/azure/billing/billing-manage-reserved-vm-instance)
 * [Información sobre el descuento de Azure Reservations](https://docs.microsoft.com/azure/billing/billing-understand-reservation-charges)
 * [Información sobre el uso de reservas para suscripciones de pago por uso](https://docs.microsoft.com/azure/billing/billing-understand-reservation-charges-mysql)

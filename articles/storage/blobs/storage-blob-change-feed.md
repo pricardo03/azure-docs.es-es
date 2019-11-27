@@ -8,19 +8,16 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: 07123fd5701e9041ff377ea5309cf1291e737ca6
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: f48c8712a2f4fbd69db7de5247e3293ad57ae1e6
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73693813"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112827"
 ---
 # <a name="change-feed-support-in-azure-blob-storage-preview"></a>Compatibilidad con la fuente de cambios en Azure Blob Storage (versión preliminar)
 
 El propósito de la fuente de cambios es proporcionar registros de transacciones de todos los cambios que se producen en los blobs y en los metadatos de blobs de la cuenta de almacenamiento. La fuente de cambios proporciona un registro **ordenado**, **garantizado**, **durable**, **inmutable** y de **solo lectura** de estos cambios. Las aplicaciones cliente pueden leer estos registros en cualquier momento, ya sea en streaming o en modo por lotes. La fuente de cambios le permite compilar soluciones eficaces y escalables que procesan los eventos de cambio que se producen en su cuenta de Blob Storage a un bajo costo.
-
-> [!NOTE]
-> La fuente de cambios está en versión preliminar pública y se encuentra disponible en las regiones **westcentralus** y **westus2**. Consulte la sección de [condiciones](#conditions) de este artículo. Para inscribirse en la versión preliminar, consulte la sección [Registro de la suscripción](#register) de este artículo.
 
 La fuente de cambios se almacena como [blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) en un contenedor especial de la cuenta de almacenamiento al costo de los [precios de los blobs](https://azure.microsoft.com/pricing/details/storage/blobs/) estándar. Puede controlar el período de retención de estos archivos en función de los requisitos (consulte las [condiciones](#conditions) de la versión actual). Los eventos de cambio se anexan a la fuente de cambios como registros en la especificación de formato de [Apache Avro](https://avro.apache.org/docs/1.8.2/spec.html): un formato compacto, rápido y binario que proporciona estructuras de datos enriquecidos con el esquema en línea. Este formato se usa ampliamente en el ecosistema de Hadoop, en Stream Analytics y en Azure Data Factory.
 
@@ -32,18 +29,31 @@ La compatibilidad con la fuente de cambios es adecuada para escenarios que proce
   
   - Extraer métricas e información de análisis de negocios, en función de los cambios que se produzcan en los objetos, ya sea como transmisión o en modo por lotes.
   
-  - Almacenar, auditar y analizar cambios en los objetos, en cualquier período de tiempo, por seguridad, cumplimiento normativo o inteligencia de la administración de datos empresariales.
+  - Almacenar, auditar y analizar cambios en los objetos, en cualquier período de tiempo, por seguridad, cumplimiento normativo o inteligencia en la administración de datos empresariales.
 
   - Compilar soluciones para la copia de seguridad, el reflejo o la replicación del estado de los objetos en su cuenta para la administración ante desastres o el cumplimiento.
 
   - Crear canalizaciones de aplicaciones conectadas que reaccionen a eventos de cambio o programen ejecuciones basadas en objetos creados o modificados.
 
 > [!NOTE]
-> Los [eventos de Blob Storage](storage-blob-event-overview.md) proporcionan eventos únicos en tiempo real que permiten Azure Functions o sus aplicaciones reaccionen a los cambios que se producen en un blob. La fuente de cambios proporciona un modelo de registro duradero y ordenado de los cambios. Los cambios en la fuente de cambios se ponen a disposición en la fuente de cambios en cuestión de minutos después del cambio. Si es necesario que su aplicación reaccione a eventos mucho más rápido, considere la posibilidad de usar en su lugar los [eventos de Blob Storage](storage-blob-event-overview.md). Los eventos de Blob Storage permiten que Azure Functions o las aplicaciones reaccionen ante eventos individuales en tiempo real.
+> Los [eventos de Blob Storage](storage-blob-event-overview.md) proporcionan eventos únicos en tiempo real que permiten Azure Functions o sus aplicaciones reaccionen a los cambios que se producen en un blob. La fuente de cambios proporciona un modelo de registro duradero y ordenado de los cambios. Los cambios de la fuente de cambios están disponibles en cuestión de minutos después del cambio. Si es necesario que su aplicación reaccione a eventos mucho más rápido, considere la posibilidad de usar en su lugar los [eventos de Blob Storage](storage-blob-event-overview.md). Los eventos de Blob Storage permiten que Azure Functions o las aplicaciones reaccionen ante eventos individuales en tiempo real.
 
-## <a name="enabling-and-disabling-the-change-feed"></a>Habilitación y deshabilitación de la fuente de cambios
+## <a name="enable-and-disable-the-change-feed"></a>Habilitar y deshabilitar la fuente de cambios
 
-Para iniciar la captura de cambios, es necesario habilitar la fuente de cambios. Deshabilite la fuente de cambios para detener la captura de cambios. Puede habilitar y deshabilitar los cambios mediante el uso de plantillas de Azure Resource Manager en el portal o PowerShell.
+Para iniciar la captura de cambios, es necesario habilitar la fuente de cambios en la cuenta de almacenamiento. Deshabilite la fuente de cambios para detener la captura de cambios. Puede habilitar y deshabilitar los cambios mediante el uso de plantillas de Azure Resource Manager en el portal o PowerShell.
+
+Estos son algunos aspectos que hay que tener en cuenta al habilitar la fuente de cambios.
+
+- Solo hay una fuente de cambios para Blob service en cada cuenta de almacenamiento del contenedor **$blobchangefeed**.
+
+- Los cambios se capturan solo en el nivel de Blob service.
+
+- La fuente de cambios captura *todos* los cambios de todos los eventos disponibles que se producen en la cuenta. Las aplicaciones cliente pueden filtrar los tipos de eventos según sea necesario. (Consulte las [condiciones](#conditions) de la versión actual).
+
+- Solo en las cuentas de GPv2 y de Blob Storage se puede habilitar la fuente de cambios. Actualmente no se admiten las cuentas de almacenamiento de GPv1, las de BlockBlobStorage Premium ni las cuentas habilitadas para el espacio de nombres jerárquico.
+
+> [!IMPORTANT]
+> La fuente de cambios está en versión preliminar pública y se encuentra disponible en las regiones **westcentralus** y **westus2**. Consulte la sección de [condiciones](#conditions) de este artículo. Para inscribirse en la versión preliminar, consulte la sección [Registro de la suscripción](#register) de este artículo. Debe registrar la suscripción para poder habilitar la fuente de cambios en las cuentas de almacenamiento.
 
 ### <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
@@ -55,27 +65,28 @@ Para implementar la plantilla con Azure Portal:
 
 3. Elija **Template Deployment**, elija **Crear** y, luego, **Cree su propia plantilla en el editor**.
 
-5. En el editor de plantillas, pegue el JSON siguiente. Reemplace el marcador de posición `<accountName>` por el nombre de la cuenta de almacenamiento.
+4. En el editor de plantillas, pegue el JSON siguiente. Reemplace el marcador de posición `<accountName>` por el nombre de la cuenta de almacenamiento.
 
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {},
-    "variables": {},
-    "resources": [{
-        "type": "Microsoft.Storage/storageAccounts/blobServices",
-        "apiVersion": "2019-04-01",
-        "name": "<accountName>/default",
-        "properties": {
-            "changeFeed": {
-            "enabled": true
-            }
-        } 
-     }]
-}
-```
-4. Elija el botón **Guardar**, especifique el grupo de recursos de la cuenta y, luego, elija el botón **Comprar** para habilitar la fuente de cambios.
+   ```json
+   {
+       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+       "contentVersion": "1.0.0.0",
+       "parameters": {},
+       "variables": {},
+       "resources": [{
+           "type": "Microsoft.Storage/storageAccounts/blobServices",
+           "apiVersion": "2019-04-01",
+           "name": "<accountName>/default",
+           "properties": {
+               "changeFeed": {
+                   "enabled": true
+               }
+           } 
+        }]
+   }
+   ```
+    
+5. Elija el botón **Guardar**, especifique el grupo de recursos de la cuenta y, luego, elija el botón **Comprar** para implementar la plantilla y habilitar la fuente de cambios.
 
 ### <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -84,7 +95,7 @@ Para implementar la plantilla con PowerShell:
 1. Instale el PowershellGet más reciente.
 
    ```powershell
-   install-Module PowerShellGet –Repository PSGallery –Force
+   Install-Module PowerShellGet –Repository PSGallery –Force
    ```
 
 2. Cierre la consola de PowerShell y vuelva a abrirla.
@@ -109,36 +120,15 @@ Para implementar la plantilla con PowerShell:
 
 ---
 
-Estos son algunos aspectos que hay que tener en cuenta al habilitar la fuente de cambios.
-
-- Solo hay una fuente de cambios para Blob service en cada cuenta de almacenamiento. 
-
-- Los cambios se capturan solo en el nivel de Blob service.
-
-- La fuente de cambios captura *todos* los cambios de todos los eventos disponibles que se producen en la cuenta. Las aplicaciones cliente pueden filtrar los tipos de eventos según sea necesario. (Consulte las [condiciones](#conditions) de la versión actual).
-
-- No se admiten las cuentas con un espacio de nombres jerárquico.
-
-## <a name="consuming-the-change-feed"></a>Consumo de la fuente de cambios
-
-La fuente de cambios genera varios archivos de registro y metadatos. Estos archivos se ubican en el contenedor **$blobchangefeed** de la cuenta de almacenamiento. 
-
->[!NOTE]
-> En la versión actual, el contenedor **$blobchangefeed** no está visible en el Explorador de Storage ni en Azure Portal. 
-
-Las aplicaciones cliente pueden usar la fuente de cambios mediante la biblioteca de procesadores de la fuente de cambios de blob que se proporciona con el SDK. 
-
-Consulte [Procesamiento de los registros de la fuente de cambios en Azure Blob Storage](storage-blob-change-feed-how-to.md).
-
-## <a name="understanding-change-feed-organization"></a>Descripción de la organización de la fuente de cambios
+## <a name="understand-change-feed-organization"></a>Descripción de la organización de la fuente de cambios
 
 <a id="segment-index"></a>
 
 ### <a name="segments"></a>Segmentos
 
-La fuente de cambios es un registro de cambios que se organiza en *segmentos* **cada hora** (consulte las [especificaciones](#specifications)). Esto permite que la aplicación cliente consuma los cambios que se producen dentro de intervalos de tiempo específicos sin tener que buscar en todo el registro.
+La fuente de cambios es un registro de los cambios que se organiza en *segmentos* **horarios**, pero que se anexan y se actualizan cada pocos minutos. Estos segmentos se crean solo cuando se produce un evento de cambio de blob en esa hora. Esto permite que la aplicación cliente consuma los cambios que se producen dentro de intervalos de tiempo específicos sin tener que buscar en todo el registro. Para más información, consulte las [especificaciones](#specifications).
 
-Un segmento por hora disponible de la fuente de cambios se describe en un archivo de manifiesto que especifica las rutas de acceso a los archivos de la fuente de cambios para ese segmento. El listado del directorio virtual `$blobchangefeed/idx/segments/` muestra estos segmentos ordenados por hora. La ruta de acceso del segmento describe el inicio del intervalo de tiempo por hora que el segmento representa. (Consulte las [especificaciones](#specifications)). Puede usar esa lista para filtrar los segmentos de registros que le interesan.
+Un segmento por hora disponible de la fuente de cambios se describe en un archivo de manifiesto que especifica las rutas de acceso a los archivos de la fuente de cambios para ese segmento. El listado del directorio virtual `$blobchangefeed/idx/segments/` muestra estos segmentos ordenados por hora. La ruta de acceso del segmento describe el inicio del intervalo de tiempo por hora que el segmento representa. Puede usar esa lista para filtrar los segmentos de registros que le interesan.
 
 ```text
 Name                                                                    Blob Type    Blob Tier      Length  Content Type    
@@ -150,7 +140,7 @@ $blobchangefeed/idx/segments/2019/02/23/0110/meta.json                  BlockBlo
 ```
 
 > [!NOTE]
-> `$blobchangefeed/idx/segments/1601/01/01/0000/meta.json` se crea automáticamente cuando se habilita la fuente de cambios. Puede omitir este archivo sin problemas. Siempre está vacío. 
+> `$blobchangefeed/idx/segments/1601/01/01/0000/meta.json` se crea automáticamente cuando se habilita la fuente de cambios. Puede omitir este archivo sin problemas. Es un archivo de inicialización que siempre está vacío. 
 
 El archivo de manifiesto del segmento (`meta.json`) muestra la ruta de acceso de los archivos de la fuente de cambios para ese segmento en la propiedad `chunkFilePaths`. A continuación, se muestra un ejemplo de un archivo de manifiesto de segmento.
 
@@ -220,12 +210,23 @@ Este es un ejemplo de registro de evento de cambio del archivo de la fuente de c
          }
   }
 }
-
 ```
+
 Para una descripción de cada propiedad, consulte [Esquema de eventos de Azure Event Grid para Blob Storage](https://docs.microsoft.com/azure/event-grid/event-schema-blob-storage?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#event-properties).
 
 > [!NOTE]
 > Los archivos de la fuente de cambios de un segmento no aparecen inmediatamente después de crear un segmento. La duración del retraso se encuentra dentro del intervalo normal de la latencia de publicación de la fuente de cambios que se encuentra dentro de unos minutos del cambio.
+
+## <a name="consume-the-change-feed"></a>Uso de la fuente de cambios
+
+La fuente de cambios genera varios archivos de registro y metadatos. Estos archivos se ubican en el contenedor **$blobchangefeed** de la cuenta de almacenamiento. 
+
+> [!NOTE]
+> En la versión actual, el contenedor **$blobchangefeed** no está visible en el Explorador de Azure Storage ni en Azure Portal. Actualmente no se puede ver el contenedor $blobchangefeed cuando se llama a la API ListContainers, pero se puede llamar a la API ListBlobs directamente en el contenedor para ver los blobs.
+
+Las aplicaciones cliente pueden usar la fuente de cambios mediante la biblioteca de procesadores de la fuente de cambios de blob que se proporciona con el SDK del procesador correspondiente. 
+
+Consulte [Procesamiento de los registros de la fuente de cambios en Azure Blob Storage](storage-blob-change-feed-how-to.md).
 
 <a id="specifications"></a>
 
@@ -239,9 +240,9 @@ Para una descripción de cada propiedad, consulte [Esquema de eventos de Azure E
 
 - Los registros de eventos de cambio se serializan en el archivo de registro mediante la especificación de formato [Apache Avro 1.8.2](https://avro.apache.org/docs/1.8.2/spec.html).
 
-- Los registros de eventos de cambio en los que `eventType` tiene un valor de `Control` son registros del sistema interno y no reflejan un cambio en los objetos de la cuenta. Debe omitirlos.
+- Los registros de eventos de cambio en los que `eventType` tiene un valor de `Control` son registros del sistema interno y no reflejan un cambio en los objetos de la cuenta. Puede omitir estos registros sin problemas.
 
-- Los valores del contenedor de propiedades `storageDiagnonstics` son solo para uso interno y no están diseñados para su uso por parte de la aplicación. Las aplicaciones no deben tener una dependencia contractual de esos datos.
+- Los valores del contenedor de propiedades `storageDiagnonstics` son solo para uso interno y no están diseñados para su uso por parte de la aplicación. Las aplicaciones no deben tener una dependencia contractual de esos datos. Puede omitir esas propiedades sin problemas.
 
 - El tiempo representado por el segmento es **aproximado** con límites de 15 minutos. Por lo tanto, para garantizar el consumo de todos los registros dentro de un tiempo especificado, consuma el segmento de hora consecutivo anterior y siguiente.
 
@@ -275,10 +276,11 @@ Dado que la fuente de cambios solo está en versión preliminar pública, deber�
 
 En una consola de PowerShell, ejecute estos comandos:
 
-   ```powershell
-   Register-AzProviderFeature -FeatureName Changefeed -ProviderNamespace Microsoft.Storage
-   Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
-   ```
+```powershell
+Register-AzProviderFeature -FeatureName Changefeed -ProviderNamespace Microsoft.Storage
+Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
+```
+   
 ### <a name="register-by-using-azure-cli"></a>Registro mediante la CLI de Azure
 
 En Azure Cloud Shell, ejecute estos comandos:
@@ -293,14 +295,23 @@ az provider register --namespace 'Microsoft.Storage'
 ## <a name="conditions-and-known-issues-preview"></a>Condiciones y problemas conocidos (versión preliminar)
 
 En esta sección se describen los problemas conocidos y las condiciones de la versión preliminar pública actual de la fuente de cambios.
-
-- La fuente de cambios solo captura las operaciones de creación, actualización, eliminación y copia.
+- En el caso de la versión preliminar, primero debe [registrar la suscripción](#register) para poder habilitar la fuente de cambios de la cuenta de almacenamiento en las regiones westcentralus o westus2. 
+- La fuente de cambios solo captura las operaciones de creación, actualización, eliminación y copia. Actualmente, las actualizaciones de metadatos no se capturan en la versión preliminar.
 - Los registros de eventos de cambio para cualquier cambio único pueden aparecer más de una vez en la fuente de cambios.
 - Todavía no se puede administrar la duración de los archivos de registro de la fuente de cambios al establecer en ellos la directiva de retención basada en tiempo.
 - La propiedad `url` del archivo de registro siempre está vacía.
 - La propiedad `LastConsumable` del archivo segment.json no muestra el primer segmento que la fuente de cambios finaliza. Este problema solo se produce una vez finalizado el primer segmento. Todos los segmentos posteriores después de la primera hora se capturan con precisión en la propiedad `LastConsumable`.
 
+## <a name="faq"></a>Preguntas más frecuentes
+
+### <a name="what-is-the-difference-between-change-feed-and-storage-analytics-logging"></a>¿Cuál es la diferencia entre la fuente de cambios y el registro de Storage Analytics?
+La fuente de cambios está optimizada para el desarrollo de aplicaciones, ya que solo los eventos de creación, modificación y eliminación de blobs se registran en el registro de la fuente de cambios. El registro de análisis registra todas las solicitudes correctas y con error de todas las operaciones, incluidas las operaciones de lectura y enumeración. Si usa la fuente de cambios, no tiene que preocuparse por filtrar el ruido del registro en una cuenta de transacciones pesadas y se puede centrar solo en los eventos de cambios de los blobs.
+
+### <a name="should-i-use-change-feed-or-storage-events"></a>¿Debo usar fuente de cambios o eventos de Blob Storage?
+Puede usar ambas características ya que fuente de cambios y [eventos de Blob Storage](storage-blob-event-overview.md) son parecidas excepto por la latencia, orden y almacenamiento de los registros de eventos. La fuente de cambios escribe los registros de forma masiva cada pocos minutos al tiempo que garantiza el orden de las operaciones de cambio de blobs. Los eventos de Storage se insertan en tiempo real y es posible que no estén ordenados. Los eventos de fuente de cambios se almacenan de forma duradera dentro de la cuenta de almacenamiento, mientras que los eventos de Storage son transitorios y los consume el controlador de eventos a menos que los almacene explícitamente.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Consulte un ejemplo de cómo leer la fuente de cambios mediante una aplicación cliente de .NET. Consulte [Procesamiento de los registros de la fuente de cambios en Azure Blob Storage](storage-blob-change-feed-how-to.md).
 - Aprenda a reaccionar ante eventos en tiempo real. Consulte [Reacción ante eventos de Blob Storage](storage-blob-event-overview.md).
+- Obtenga más información sobre el registro detallado de las operaciones correctas y aquellas con errores para todas las solicitudes. Consulte [Registro de Azure Storage Analytics](../common/storage-analytics-logging.md)

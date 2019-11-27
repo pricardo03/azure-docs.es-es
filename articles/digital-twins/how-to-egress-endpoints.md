@@ -1,6 +1,6 @@
 ---
-title: Salidas y puntos de conexión en Azure Digital Twins | Microsoft Docs
-description: Instrucciones sobre cómo crear puntos de conexión con Azure Digital Twins.
+title: 'Salidas y puntos de conexión: Azure Digital Twins | Microsoft Docs'
+description: Aprenda a crear salidas y puntos de conexión en Azure Digital Twins.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -8,14 +8,14 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 10/02/2019
-ms.openlocfilehash: 9a5e060d6248d3144720930fe960e0a371a73d6e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 33e8a6a281fbc6620a4608c7b0821b196043423e
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822265"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74010049"
 ---
-# <a name="egress-and-endpoints"></a>Salidas y puntos de conexión
+# <a name="egress-and-endpoints-in-azure-digital-twins"></a>Salidas y puntos de conexión en Azure Digital Twins
 
 Los *puntos de conexión* de Azure Digital Twins representan un mensaje o agente de eventos en la suscripción a Azure de un usuario. Los eventos y mensajes pueden enviarse a Azure Event Hubs, a Azure Event Grid y a los temas de Azure Service Bus.
 

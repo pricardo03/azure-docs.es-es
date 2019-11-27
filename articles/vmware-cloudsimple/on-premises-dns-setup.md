@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 52f86f85ec303d23a78fd942276bfe46d0f12832
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: c2d69d21eb46d502a45c9df1dfaaa947d26ef7c4
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030418"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74108803"
 ---
 # <a name="configure-dns-for-name-resolution-for-private-cloud-vcenter-access-from-on-premises-workstations"></a>Configuración de DNS para la resolución de nombres en el acceso a vCenter de la nube privada desde estaciones de trabajo en el entorno local
 
@@ -46,11 +46,11 @@ El archivo específico y los parámetros que se van a configurar pueden variar e
 Por ejemplo, para la configuración predeterminada del servidor BIND, edite el archivo /etc/named.conf en el servidor DNS y agregue la siguiente información de zona.
 
 ```
-zone “cloudsimple.io”
+zone "az.cloudsimple.io"
 {
     type stub;
     masters { IP address of DNS servers; };
-    file “slaves/cloudsimple.io.db”;
+    file "slaves/cloudsimple.io.db";
 };
 ```
 
@@ -80,14 +80,14 @@ zone “cloudsimple.io”
 
 Un reenviador condicional reenvía todas las solicitudes de resolución de nombres DNS al servidor designado. Con esta configuración, cualquier solicitud a *. cloudsimple.io se reenvía a los servidores DNS ubicados en la nube privada. En los siguientes ejemplos se muestra cómo configurar reenviadores en diferentes tipos de servidores DNS.
 
-### <a name="create-a-conditional-forwarded-on-a-bind-dns-server"></a>Creación de un reenviador condicional en un servidor DNS BIND
+### <a name="create-a-conditional-forwarder-on-a-bind-dns-server"></a>Creación de un reenviador condicional en un servidor DNS BIND
 
 El archivo específico y los parámetros que se van a configurar pueden variar en función de la configuración de DNS individual.
 
 Por ejemplo, para la configuración predeterminada del servidor BIND, edite el archivo /etc/named.conf en el servidor DNS y agregue la siguiente información de reenvío condicional.
 
 ```
-zone “cloudsimple.io” {
+zone "az.cloudsimple.io" {
     type forward;
     forwarders { IP address of DNS servers; };
 };

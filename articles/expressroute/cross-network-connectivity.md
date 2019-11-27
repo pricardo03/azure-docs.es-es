@@ -1,21 +1,18 @@
 ---
-title: Conectividad entre redes de Azure | Microsoft Docs
+title: Conectividad entre redes de Azure
 description: Esta página describe un escenario de aplicación para la conectividad entre redes y la solución basada en las características de red de Azure.
-documentationcenter: na
-services: networking
+services: expressroute
 author: rambk
-manager: tracsman
 ms.service: expressroute
 ms.topic: article
-ms.workload: infrastructure-services
 ms.date: 04/03/2019
 ms.author: rambala
-ms.openlocfilehash: 3bc189cf269084fdb26f141a36755c96554cad7b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e503dc2b4ae8773ebfedc7a9b73bc5ea93dd9d5a
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64865999"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076745"
 ---
 # <a name="cross-network-connectivity"></a>Conectividad entre redes
 
@@ -53,7 +50,7 @@ En este artículo, explicaremos el proceso paso a paso y discutiremos cómo logr
 
 El emparejamiento de redes virtuales proporciona el mejor y más óptimo rendimiento de red cuando se conectan dos redes virtuales. El emparejamiento de redes virtuales admite el emparejamiento de dos redes virtuales en la misma región de Azure (comúnmente denominado emparejamiento de red virtual) y en dos regiones diferentes (comúnmente denominado emparejamiento de red virtual global). 
 
-Vamos a configurar el emparejamiento de red virtual global entre las redes virtuales en las suscripciones a Contoso y Fabrikam. Para crear el emparejamiento de red virtual entre las dos redes virtuales, consulte el artículo [Crear un emparejamiento de redes virtuales][Configure VNet peering].
+Vamos a configurar el emparejamiento de red virtual global entre las redes virtuales en las suscripciones a Contoso y Fabrikam. Para crear el emparejamiento de red virtual entre las dos redes virtuales, consulte el artículo [Creación de un emparejamiento de redes virtuales][Configure VNet peering].
 
 La siguiente imagen muestra la arquitectura de red después de configurar el emparejamiento de red virtual global.
 
@@ -71,7 +68,7 @@ El emparejamiento de red virtual vincula directamente dos redes virtuales (obser
 
 ## <a name="cross-connecting-vnets-to-the-on-premises-networks"></a>Conexión cruzada entre las redes virtuales y las redes locales
 
-Es posible conectar un circuito ExpressRoute a varias redes virtuales. Consulte los [límites de servicio y suscripciones ][Subscription limits] para conocer el número máximo de redes virtuales que se pueden conectar a un circuito ExpressRoute. 
+Es posible conectar un circuito ExpressRoute a varias redes virtuales. Consulte los [límites de servicio y suscripciones][Subscription limits] para conocer el número máximo de redes virtuales que se pueden conectar a un circuito ExpressRoute. 
 
 Vamos a conectar el circuito ExpressRoute de Fabrikam con la red virtual de la suscripción a Contoso y, de igual modo, conectaremos el circuito ExpressRoute de Contoso a la red virtual de la suscripción a Fabrikam para habilitar la conectividad cruzada entre redes virtuales y redes locales. Para conectar una red virtual a un circuito ExpressRoute en una suscripción diferente, es necesario crear y utilizar una autorización.  Consulte el artículo: [Conexión de una red virtual a un circuito ExpressRoute][Connect-ER-VNet].
 
@@ -119,7 +116,7 @@ En la siguiente tabla se muestra la tabla de rutas del emparejamiento privado co
 
 Consulte las [preguntas más frecuentes de Virtual Network][VNet-FAQ] para resolver las dudas adicionales sobre redes virtuales y emparejamiento de redes virtuales. Consulte [P+F de ExpressRoute][ER-FAQ] para resolver las dudas adicionales sobre la conectividad de redes virtuales y ExpressRoute.
 
-Global Reach se está dando a conocer país a país y región a región. Para ver si Global Reach está disponible en los países o regiones que quiere, consulte [ExpressRoute Global Reach][Global Reach].
+Global Reach se está dando a conocer país a país y región a región. Para ver si Global Reach está disponible en los países o regiones que quiere, consulte [Global Reach de ExpressRoute][Global Reach].
 
 <!--Image References-->
 [1]: ./media/cross-network-connectivity/premergerscenario.png "Escenario de aplicación"

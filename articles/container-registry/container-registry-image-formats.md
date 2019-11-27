@@ -1,6 +1,6 @@
 ---
 title: Formatos de contenido de Azure Container Registry
-description: Obtenga más información sobre los formatos de contenido admitidos en Azure Container Registry.
+description: Obtenga información sobre los formatos de contenido que admite Azure Container Registry, como imágenes de contenedor compatibles con Docker, gráficos de Helm, e imágenes y artefactos OCI.
 services: container-registry
 author: dlepow
 manager: gwallace
@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 08/30/2019
 ms.author: danlep
-ms.openlocfilehash: d49aab89c9568f168808c40508b4fe7d3175e902
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 38639f22457d923643e8de09cfbbb2fd7f4d2985
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164534"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74007479"
 ---
 # <a name="content-formats-supported-in-azure-container-registry"></a>Formatos de contenido admitidos en Azure Container Registry
 
@@ -29,7 +29,7 @@ Se admiten los siguientes formatos de imagen de contenedor de Docker:
 
 ## <a name="oci-images"></a>Imágenes OCI
 
-Azure Container Registry admite imágenes que cumplen la [especificación de formato de imagen de Open Container Initiative (OCI)](https://github.com/opencontainers/image-spec/blob/master/spec.md). Entre los formatos de empaquetado se incluye [Singularity Image Format (SIF)](https://www.sylabs.io/2018/03/sif-containing-your-containers/).
+Azure Container Registry admite imágenes que cumplen la [especificación de formato de imagen de Open Container Initiative (OCI)](https://github.com/opencontainers/image-spec/blob/master/spec.md). Entre los formatos de empaquetado se incluye [Singularity Image Format (SIF)](https://github.com/sylabs/sif).
 
 ## <a name="oci-artifacts"></a>Artefactos de OCI
 

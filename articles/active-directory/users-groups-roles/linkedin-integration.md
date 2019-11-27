@@ -1,24 +1,24 @@
 ---
-title: 'Consentimiento administrativo para las conexiones de cuentas de LinkedIn: Azure Active Directory | Microsoft Docs'
+title: 'Consentimiento administrativo para las conexiones de cuentas de LinkedIn: Azure AD | Microsoft Docs'
 description: Se explica cómo habilitar o deshabilitar conexiones de cuentas de integración de LinkedIn para aplicaciones de Microsoft en Azure Active Directory
 services: active-directory
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 04/29/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36ca46d6df9c32f23d3051d1205c3c6b39e69f5a
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 0bf65f69d9dcaf6de2236c98b56b58ec7e021099
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67164714"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74025408"
 ---
 # <a name="integrate-linkedin-account-connections-in-azure-active-directory"></a>Integración de conexiones de cuentas de LinkedIn en Azure Active Directory
 
@@ -96,7 +96,7 @@ Para usar el grupo del paso 2 como grupo seleccionado en las conexiones de cuent
 1. Cree un objeto de directiva de grupo con la configuración siguiente: **Configuración de usuario** > **Plantillas administrativas** > **Microsoft Office 2016** > **Varios** > **Mostrar características de LinkedIn en aplicaciones de Office**.
 1. Seleccione **Habilitado** o **Deshabilitado**.
   
-   Estado | Efecto
+   State | Efecto
    ------ | ------
    **Enabled** | La opción **Mostrar características de LinkedIn en aplicaciones de Office** de Opciones de Office 2016 está habilitada. Los usuarios de la organización no podrán usar las características de LinkedIn en las aplicaciones de Office 2016.
    **Deshabilitada** | La opción **Mostrar características de LinkedIn en aplicaciones de Office** de Opciones de Office 2016 está deshabilitada y los usuarios finales no pueden cambiarla. Los usuarios de la organización no podrán usar las características de LinkedIn en las aplicaciones de Office 2016.

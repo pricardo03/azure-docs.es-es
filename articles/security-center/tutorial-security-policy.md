@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 4ac6ac52d6d950d814a37e94ea2801c2ba8e4170
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+ms.openlocfilehash: 45a27be400753b56c42310a340334feba8a420c5
+ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73521208"
+ms.lasthandoff: 11/11/2019
+ms.locfileid: "73906859"
 ---
 # <a name="working-with-security-policies"></a>Uso de directivas de seguridad
 
@@ -104,6 +104,10 @@ Para más información sobre las recomendaciones, consulte [Administración de l
 
    > [!NOTE]
    > Recuerde que un grupo de administración aplica sus directivas a sus suscripciones. Por lo tanto, si deshabilita la directiva de una suscripción y la suscripción pertenece a un grupo de administración que usa la misma directiva, seguirá recibiendo las recomendaciones de directivas. La directiva se seguirá aplicando desde el nivel de administración y las recomendaciones se seguirán generando.
+
+1. Haga clic en **Ver directiva efectiva**.
+
+   ![deshabilitar la directiva](./media/tutorial-security-policy/view-effective-policy.png)
 
 1. Haga clic en la directiva asignada.
 

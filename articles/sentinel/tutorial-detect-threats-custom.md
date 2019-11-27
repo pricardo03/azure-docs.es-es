@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 5d4c549eaded78c69d3e7fa7173b5ad9b1d82f2f
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 9c4ba09c7e3eca4482ed56b0b337124aeec5b838
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72333143"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73928251"
 ---
 # <a name="tutorial-create-custom-analytic-rules-to-detect-suspicious-threats"></a>Tutorial: Creación de reglas de análisis personalizadas para detectar amenazas sospechosas
 
@@ -56,7 +56,7 @@ Puede crear reglas de análisis personalizadas que le ayuden a buscar los tipos 
     \| make-series dcount(ResourceId)  default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller`
 
    > [!NOTE]
-   > La longitud de la consulta debe estar entre 1 y 1000 caracteres y no puede contener las palabras "buscar \*" ni "unión \*".
+   > La longitud de la consulta debe estar entre 1 y 10 000 caracteres y no puede contener las palabras "buscar \*" ni "unión \*".
 
     1. En **Query scheduling** (Programación de consultas), establezca los siguientes parámetros:
 

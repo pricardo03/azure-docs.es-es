@@ -1,18 +1,19 @@
 ---
-title: Creación de una puerta de enlace de aplicaciones con reglas de enrutamiento basadas en rutas de dirección URL con Azure PowerShell | Microsoft Docs
+title: Reglas de enrutamiento basado en rutas de dirección URL mediante PowerShell
+titleSuffix: Azure Application Gateway
 description: Aprenda a crear reglas de enrutamiento basadas en rutas de dirección URL para una puerta de enlace de aplicaciones y un conjunto de escalado de máquinas virtuales mediante Azure PowerShell.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 09/05/2019
+ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: ebe09e2c10bed1779d9189755f66bbea9bca1d43
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: e7934ba0b33bff7ffb8e89e7b56c5b998a232289
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70306269"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048051"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-routing-rules-using-azure-powershell"></a>Creación de una puerta de enlace de aplicaciones con reglas de enrutamiento basadas en rutas de dirección URL con Azure PowerShell
 

@@ -1,5 +1,5 @@
 ---
-title: Creación de una VM a partir de una imagen administrada en Azure | Microsoft Docs
+title: Creación de una VM a partir de una imagen administrada en Azure
 description: Cree una máquina virtual con Windows a partir de una imagen administrada generalizada con Azure PowerShell o Azure Portal en el modelo de implementación de Resource Manager.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 016b53660499b86de13855cfa994c84d6d9bc702
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 17100769bac2e7af08e0bcba6ca2eb129b621013
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749507"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037525"
 ---
 # <a name="create-a-vm-from-a-managed-image"></a>Creación de una máquina virtual a partir de una imagen administrada
 

@@ -1,5 +1,5 @@
 ---
-title: Aprovisionamiento de Raspberry Pi para la supervisión remota en Node.js con Azure | Microsoft Docs
+title: Conexión de Raspberry Pi a la solución de supervisión remota (Node.js) Azure | Microsoft Docs
 description: Se describe cómo conectar un dispositivo Raspberry Pi al acelerador de la solución de supervisión remota mediante una aplicación creada en Node.js.
 author: dominicbetts
 manager: timlt
@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: dobett
-ms.openlocfilehash: 20d50ac4ac4a1919077ebe67bb529e2dc5abf187
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 98d947e8aabf20fbfdb192cb80c9bc881007d5da
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61449753"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889270"
 ---
 # <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-solution-accelerator-nodejs"></a>Conexión del dispositivo Raspberry Pi al acelerador de soluciones de supervisión remota (Node.js)
 

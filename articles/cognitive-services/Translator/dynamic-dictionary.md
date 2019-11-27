@@ -1,7 +1,7 @@
 ---
 title: Diccionario dinámico de Translator Text API
 titleSuffix: Azure Cognitive Services
-description: Descripción del uso de la característica de diccionario dinámico de Translator Text API.
+description: En este artículo se explica cómo usar la característica de diccionario dinámico de la Translator Text API de Azure Cognitive Services.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: f586702350b38c6d546767f64a8e2f6115b59817
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 5f007660b98a22ff9ffad072991a39cf59518b6a
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68595292"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837351"
 ---
 # <a name="how-to-use-a-dynamic-dictionary"></a>Cómo usar un diccionario dinámico
 

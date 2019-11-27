@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 09/17/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 4f5344259767aaad9ed58ded1da86ae7ee3c03e7
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 21600036302050aeea3e2ea989d86e18b208c087
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470114"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73958043"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Habilitar el registro de diagnósticos para las aplicaciones de Azure App Service
 ## <a name="overview"></a>Información general
@@ -26,7 +26,7 @@ Azure integra diagnósticos para ayudar a depurar [aplicaciones de App Service](
 En este artículo se usa [Azure Portal](https://portal.azure.com) y la CLI de Azure para trabajar con registros de diagnóstico. Para obtener información acerca de cómo trabajar con registros de diagnóstico mediante Visual Studio, consulte [Solución de problemas de Azure en Visual Studio](troubleshoot-dotnet-visual-studio.md).
 
 > [!NOTE]
-> Además de las instrucciones de registro de este artículo, hay una nueva funcionalidad de registro integrada con Supervisión de Azure. Encontrará esta funcionalidad en las [Registros y Configuración de diagnóstico (versión preliminar)](https://aka.ms/appsvcblog-azmon). 
+> Además de las instrucciones de registro de este artículo, hay una nueva funcionalidad de registro integrada con Supervisión de Azure. Encontrará más información sobre esta funcionalidad en la sección [Envío de registros a Azure Monitor (versión preliminar)](#send-logs-to-azure-monitor-preview). 
 >
 >
 
@@ -178,7 +178,28 @@ En el caso de las aplicaciones Windows, el archivo ZIP incluye el contenido del 
 | **Registros de servidor web** | */LogFiles/http/RawLogs/* | Contiene archivos de texto con [formato de archivo de registro extendido W3C](/windows/desktop/Http/w3c-logging). Esta información se puede leer con un editor de texto o una utilidad como [Log Parser](https://go.microsoft.com/fwlink/?LinkId=246619).<br/>App Service no admite los campos `s-computername`, `s-ip` ni `cs-version`. |
 | **Registros de implementación** | */LogFiles/Git/* y */deployments/* | Contienen registros generados por los procesos de implementación internos, así como registros para implementaciones de Git. |
 
+## <a name="send-logs-to-azure-monitor-preview"></a>Envío de registros a Azure Monitor (versión preliminar)
+
+Con la nueva [integración de Azure Monitor](https://aka.ms/appsvcblog-azmon), puede [crear configuraciones de diagnóstico (versión preliminar)](https://azure.github.io/AppService/2019/11/01/App-Service-Integration-with-Azure-Monitor.html#create-a-diagnostic-setting) para enviar registros a cuentas de almacenamiento, Event Hubs y Log Analytics. 
+
+> [!div class="mx-imgBorder"]
+> ![Configuración de diagnóstico (versión preliminar)](media/troubleshoot-diagnostic-logs/diagnostic-settings-page.png)
+
+### <a name="supported-log-types"></a>Tipos de registro admitidos
+
+En la tabla siguiente se muestran las descripciones y los tipos de registros admitidos: 
+
+| Tipo de registro | Soporte técnico de Windows | Linux Support | DESCRIPCIÓN |
+|-|-|-|
+| AppServiceConsoleLogs | TBA | Sí | Salida estándar y error estándar |
+| AppServiceHTTPLogs | Sí | Sí | Registros de servidor web |
+| AppServiceEnvironmentPlatformLogs | Sí | Sí | App Service Environment: escalado, cambios de configuración y registros de estado|
+| AppServiceAuditLogs | Sí | Sí | Actividad de inicio de sesión a través de FTP y KUDU |
+| AppServiceFileAuditLogs | TBA | TBA | Cambios de archivos a través de FTP y KUDU |
+| AppServiceAppLogs | TBA | Java SE y Tomcat | Registros de aplicación |
+
 ## <a name="nextsteps"></a> Pasos siguientes
+* [Consulta de registros con Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
 * [Control de Supervisión de aplicaciones en Azure App Service](web-sites-monitor.md)
 * [Troubleshooting Azure App Service in Visual Studio](troubleshoot-dotnet-visual-studio.md) (Solución de problemas de Azure App Service en Visual Studio)
 * [Analyze app Logs in HDInsight](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413) (Análisis de registros de aplicación en HDInsight)

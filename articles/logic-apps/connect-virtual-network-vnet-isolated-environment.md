@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: 4c4eb5a6cb7527bcb3eb21beebb8063b0bd021d3
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: 883778360bd2315e1424f9f207cbfd994ec1a373
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72680475"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73901193"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Conectarse a redes virtuales de Azure desde Azure Logic Apps mediante un entorno del servicio de integración (ISE)
 
@@ -94,10 +94,11 @@ Aquí está tabla que describe los puertos de la red virtual que usa el ISE y d�
 | Administración de conexiones | Salida | 443 | VirtualNetwork  | AppService | |
 | Publicación de las métricas y registros de diagnóstico | Salida | 443 | VirtualNetwork  | AzureMonitor | |
 | Comunicación de Azure Traffic Manager | Entrada | 443 | AzureTrafficManager | VirtualNetwork | |
-| Diseñador de Logic Apps: propiedades dinámicas | Entrada | 454 | Internet | VirtualNetwork | Las solicitudes proceden de las aplicaciones lógicas [de las direcciones IP entrantes del punto de conexión de acceso de esa región ](../logic-apps/logic-apps-limits-and-config.md#inbound). |
+| Diseñador de Logic Apps: propiedades dinámicas | Entrada | 454 | Consulte las direcciones IP que se permiten en la columna Notas. | VirtualNetwork | Las solicitudes proceden de las direcciones IP [entrantes](../logic-apps/logic-apps-limits-and-config.md#inbound) del punto de conexión de acceso de Logic Apps de esa región. |
+| Comprobación del estado de la red | Entrada | 454 | Consulte las direcciones IP que se permiten en la columna Notas. | VirtualNetwork | Las solicitudes proceden del punto de conexión de acceso de Logic Apps Para las direcciones IP [entrantes](../logic-apps/logic-apps-limits-and-config.md#inbound) y [salientes](../logic-apps/logic-apps-limits-and-config.md#outbound) de esa región. |
 | Dependencia de administración de App Service | Entrada | 454, 455 | AppServiceManagement | VirtualNetwork | |
 | Implementación del conector | Entrada | 454 | AzureConnectors | VirtualNetwork | Necesario para implementar y actualizar conectores. Al cerrar o bloquear este puerto, las implementaciones de ISE producen un error y no se realizan las actualizaciones o correcciones del conector. |
-| Implementación de la directiva de conectores | Entrada | 3443 | AppService | VirtualNetwork | Necesario para implementar y actualizar conectores. Al cerrar o bloquear este puerto, las implementaciones de ISE producen un error y no se realizan las actualizaciones o correcciones del conector. |
+| Implementación de la directiva de conectores | Entrada | 3443 | Internet | VirtualNetwork | Necesario para implementar y actualizar conectores. Al cerrar o bloquear este puerto, las implementaciones de ISE producen un error y no se realizan las actualizaciones o correcciones del conector. |
 | Dependencia de Azure SQL | Salida | 1433 | VirtualNetwork | SQL | |
 | Azure Resource Health | Salida | 1886 | VirtualNetwork | AzureMonitor | Se necesita para publicar el estado de mantenimiento en Resource Health |
 | API Management: punto de conexión de administración | Entrada | 3443 | APIManagement | VirtualNetwork | |

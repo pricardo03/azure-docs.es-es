@@ -1,5 +1,5 @@
 ---
-title: Configuración del método de enrutamiento de tráfico de subred con Azure Traffic Manager
+title: 'Configuración del enrutamiento del tráfico de subred: Azure Traffic Manager'
 description: En este artículo se explica cómo configurar Traffic Manager para enrutar el tráfico desde subredes concretas.
 services: traffic-manager
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: allensu
-ms.openlocfilehash: 1a7bc38a91dc7621a3b09d7901c70eecb21101d6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d3751a14e8c317d6a4f23c1aa051b7e13305acf5
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67060962"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014608"
 ---
 # <a name="direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Dirección del tráfico a puntos de conexión específicos en función de la subred de usuario mediante Traffic Manager
 
@@ -55,8 +55,8 @@ En esta sección, creará dos máquinas virtuales *myEndpointVMEastUS* y *myEndp
     |NOMBRE|myIISVMEastUS|
     |Nombre de usuario| Escriba un nombre de usuario de su elección.|
     |Password| Escriba una contraseña de su elección. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    |Grupos de recursos| Seleccione **Nuevo** y luego escriba *myResourceGroupTM1*.|
-    |Ubicación| Seleccione **Este de EE. UU**.|
+    |Resource group| Seleccione **Nuevo** y luego escriba *myResourceGroupTM1*.|
+    |Location| Seleccione **Este de EE. UU**.|
     |||
 
 4. Seleccione un tamaño de máquina virtual en **Elegir un tamaño**.
@@ -75,8 +75,8 @@ En esta sección, creará dos máquinas virtuales *myEndpointVMEastUS* y *myEndp
 
     |Configuración|Valor|
     |---|---|
-    |Grupos de recursos | Seleccione **Nuevo** y, a continuación, escriba *myResourceGroupTM2*|
-    |Ubicación|Europa occidental|
+    |Resource group | Seleccione **Nuevo** y, a continuación, escriba *myResourceGroupTM2*|
+    |Location|Europa occidental|
     |Nombre de la máquina virtual | myIISVMWEurope|
     |Virtual network | Seleccione **Red virtual**, en **Crear red virtual**, para **Nombre**, escriba *myVNet2*, para cada subred, escriba *mySubnet*.|
     |||
@@ -141,7 +141,7 @@ En esta sección, creará una máquina virtual (*mVMEastUS* and *myVMWestEurope*
     |NOMBRE|myVMEastUS|
     |Nombre de usuario| Escriba un nombre de usuario de su elección.|
     |Password| Escriba una contraseña de su elección. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    |Grupos de recursos| Seleccione **Existente** y, a continuación, seleccione *myResourceGroupTM1*.|
+    |Resource group| Seleccione **Existente** y, a continuación, seleccione *myResourceGroupTM1*.|
     |||
 
 4. Seleccione un tamaño de máquina virtual en **Elegir un tamaño**.
@@ -161,7 +161,7 @@ En esta sección, creará una máquina virtual (*mVMEastUS* and *myVMWestEurope*
     |Configuración|Valor|
     |---|---|
     |Nombre de la máquina virtual | *myVMWEurope*|
-    |Grupos de recursos | Seleccione **Existente** y escriba *myResourceGroupTM2*.|
+    |Resource group | Seleccione **Existente** y escriba *myResourceGroupTM2*.|
     |Virtual network | Seleccione **Red virtual**, en **Crear red virtual**; en **Nombre**, escriba *myVNet4*; para cada subred, escriba *mySubnet4*.|
     |||
 
@@ -178,7 +178,7 @@ Cree un perfil de Traffic Manager que le permita devolver puntos de conexión es
     | NOMBRE                   | Este nombre debe ser único en la zona trafficmanager.net y generará el nombre DNS, trafficmanager.net, que se usa para acceder al perfil de Traffic Manager.                                   |
     | Método de enrutamiento          | Seleccione el método de enrutamiento **Subred**.                                       |
     | Subscription            | Seleccione su suscripción.                          |
-    | Grupos de recursos          | Haga clic en **Existente** y escriba *myResourceGroupTM1*. |
+    | Resource group          | Haga clic en **Existente** y escriba *myResourceGroupTM1*. |
     | |                              |
     |
 
@@ -194,7 +194,7 @@ Agregue las dos máquinas virtuales que se ejecuten en los servidores IIS (*myII
 
     | Configuración                 | Valor                                              |
     | ---                     | ---                                                |
-    | Type                    | Punto de conexión de Azure                                   |
+    | type                    | Punto de conexión de Azure                                   |
     | NOMBRE           | myTestWebSiteEndpoint                                        |
     | Tipo de recurso de destino           | Dirección IP pública                          |
     | Recurso de destino          | **Elija una dirección IP pública** para mostrar la lista de recursos con direcciones IP públicas en la misma suscripción. En **Recurso**, seleccione la dirección IP pública denominada *myIISVMEastUS-ip*. Se trata de la dirección IP pública de la máquina virtual del servidor IIS en la región Este de EE. UU.|

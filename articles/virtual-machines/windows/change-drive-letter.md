@@ -1,5 +1,5 @@
 ---
-title: 'Conversión de la unidad D: de una máquina virtual en un disco de datos | Microsoft Docs'
+title: 'Conversión de la unidad D: de una máquina virtual en un disco de datos '
 description: 'Se describe cómo cambiar las letras de unidad de una máquina virtual de Windows para poder usar la unidad D: como unidad de datos.'
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: cynthn
-ms.openlocfilehash: 846bb7a5ea6c3f363a2811cf3feb30e37ff30504
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 491e7b7be084017cc370fe431c3175ac5b2673f9
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70079874"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033647"
 ---
 # <a name="use-the-d-drive-as-a-data-drive-on-a-windows-vm"></a>Uso de la unidad de disco D: como unidad de datos en una máquina virtual Windows
 Si su aplicación necesita usar la unidad D para almacenar datos, siga estas instrucciones para usar una unidad distinta para el disco temporal. Nunca use el disco temporal para almacenar los datos que desee conservar.

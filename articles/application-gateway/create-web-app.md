@@ -1,20 +1,21 @@
 ---
-title: 'Protección de aplicaciones web con Azure Application Gateway: PowerShell'
+title: Configuración de App Service mediante PowerShell
+titleSuffix: Azure Application Gateway
 description: En este artículo se proporcionan instrucciones sobre cómo configurar aplicaciones web como hosts de back-end en una puerta de enlace de aplicaciones nueva o existente.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 11/15/2019
 ms.author: victorh
-ms.openlocfilehash: dcf21fe111ab742074ab4fe580a021338e1f7c43
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4198c83a167ad8f2d52f4393c39625948e18e6e3
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62122224"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74089513"
 ---
-# <a name="configure-app-service-with-application-gateway"></a>Configuración de App Service con Application Gateway
+# <a name="configure-app-service-with-application-gateway-using-powershell"></a>Configuración de App Service con Application Gateway mediante PowerShell
 
 Application Gateway le permite tener una aplicación de App Service u otro servicio multiinquilino como miembro del grupo de servidores back-end. En este artículo, aprenderá a configurar una aplicación de App Service con Application Gateway. En el primer ejemplo se muestra cómo configurar una puerta de enlace de aplicaciones existente para usar una aplicación web como miembro del grupo de servidores back-end. En el segundo ejemplo se muestra cómo crear una nueva puerta de enlace de aplicaciones con una aplicación web como miembro del grupo de servidores back-end.
 

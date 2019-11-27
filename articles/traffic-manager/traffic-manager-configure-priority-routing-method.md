@@ -1,10 +1,10 @@
 ---
-title: Configuración del método de enrutamiento de tráfico por prioridad con Azure Traffic Manager | Microsoft Docs
+title: 'Configuración del enrutamiento de tráfico por prioridad: Azure Traffic Manager'
 description: En este artículo se explica cómo configurar el método de enrutamiento de tráfico por prioridad en Traffic Manager
 services: traffic-manager
 documentationcenter: ''
 author: asudbring
-manager: twooley
+manager: kumudD
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: allensu
-ms.openlocfilehash: 259457a604727cba6e6964851ec4fcf4b13a20a6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f9954c7733c30efaea4a74e04949556a3a8617fd
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67048490"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74040348"
 ---
 # <a name="configure-priority-traffic-routing-method-in-traffic-manager"></a>Configuración del método de enrutamiento de tráfico por prioridad en Traffic Manager
 

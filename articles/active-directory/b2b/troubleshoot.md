@@ -5,7 +5,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: troubleshooting
-ms.date: 05/25/2017
+ms.date: 11/12/2019
 tags: active-directory
 ms.author: mimart
 author: v-miegge
@@ -15,12 +15,12 @@ ms.custom:
 - it-pro
 - seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6449644f98280d75363f737be11f8e8b824cab36
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 6aee049f91aaa071595ab42e9bb4d6b2f5e8616d
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73795191"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74021837"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Solución de problemas de colaboración B2B de Azure Active Directory
 
@@ -94,6 +94,10 @@ Para resolver este problema, debe asumir el inquilino abandonado. Consulte [Adqu
 ## <a name="a-guest-user-with-a-just-in-time-or-viral-tenant-is-unable-to-reset-their-password"></a>Un usuario invitado con un inquilino Just-In-Time o "viral" no puede restablecer su contraseña
 
 Si el inquilino de la identidad es un inquilino Just-In-Time (JIT) o un inquilino "viral" (es decir, un inquilino de Azure que es independiente y no está administrado), solamente el usuario invitado podrá restablecer su contraseña. A veces, una organización [asumirá la administración de los inquilinos virales](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover) que se crean cuando los empleados usan sus direcciones de correo electrónico del trabajo para registrarse en los servicios. Después de que la organización se haga cargo de un inquilino viral, solo un administrador de dicha organización puede restablecer la contraseña del usuario o habilitar SSPR. Si es necesario, como la organización que invita, puede quitar la cuenta del usuario invitado del directorio y volver a enviar una invitación.
+
+## <a name="a-guest-user-is-unable-to-use-the-azuread-powershell-v1-module"></a>Un usuario invitado no puede usar el módulo de PowerShell v1 de Azure AD.
+
+A partir del 18 de noviembre de 2019, los usuarios invitados del directorio (definidos como cuentas de usuario en las que la propiedad **userType** es igual a **Invitado**) no pueden usar el módulo de PowerShell v1 de Azure AD. En el futuro, un usuario deberá ser un usuario miembro (aquellos en los que **userType** es igual a **Miembro**) o usar el módulo de PowerShell V2 de Azure AD.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 09/24/2019
-ms.openlocfilehash: 9d132faf0b4d1de232e2b7e6e5ab6730978e27a8
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.date: 11/14/2019
+ms.openlocfilehash: 40282fdb192037d63bff8b0037f09b8b27cf3b1e
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555225"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74109185"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-overview"></a>Habilitación de Azure Monitor para VM (versión preliminar)
 
@@ -37,19 +37,23 @@ Antes de empezar, asegúrese de conocer la información de los apartados siguien
 Azure Monitor para VM admite un área de trabajo de Log Analytics en las siguientes regiones:
 
 - Centro occidental de EE.UU.
-- Oeste de EE. UU 2<sup>1</sup>
+- Oeste de EE. UU.
+- Oeste de EE. UU. 2
+- Centro-Sur de EE. UU
 - East US
-- Este de EE. UU. 2<sup>1</sup>
+- Este de EE. UU. 2
+- Centro de EE. UU.
+- Centro-Norte de EE. UU
 - Centro de Canadá
 - Sur de Reino Unido 2
-- Norte de Europa<sup>1</sup>
+- Europa del Norte
 - Europa occidental
+- Asia oriental
 - Sudeste asiático
-- Este de Japón<sup>1</sup>
-- Este de Australia<sup>1</sup>
-- Sudeste de Australia<sup>1</sup>
-
-<sup>1</sup> Actualmente, esta región no admite la característica de estado de Azure Monitor para VM.
+- India Central
+- Este de Japón
+- Este de Australia
+- Sudeste de Australia
 
 >[!NOTE]
 >Puede implementar máquinas virtuales de Azure en cualquier región. Estas máquinas virtuales no se limitan a las regiones admitidas por el área de trabajo de Log Analytics.
@@ -77,29 +81,25 @@ Para configurar el área de trabajo para el escenario a escala, use uno de los m
 
 La siguiente es una lista de los sistemas operativos Windows y Linux que son compatibles con Azure Monitor para VM. Más adelante en esta sección, encontrará una lista completa que detalla las versiones de kernel admitidas y las versiones de sistema operativo Linux principales y secundarias.
 
-|Versión del SO |Rendimiento |Mapas |Health |
-|-----------|------------|-----|-------|
-|Windows Server 2019 | X | X | X |
-|Windows Server 2016 1803 | X | X | X |
-|Windows Server 2016 | X | X | X |
-|Windows Server 2012 R2 | X | X | X |
-|Windows Server 2012 | X | X | |
-|Windows Server 2008 R2 | X | X|  |
-|Windows 10 1803 | X | X | |
-|Windows 8.1 | X | X | |
-|Windows 8 | X | X | |
-|Windows 7 SP1 | X | X | |
-|Red Hat Enterprise Linux (RHEL) 6, 7| X | X| X |
-|Ubuntu 18.04, 16.04 | X | X | X |
-|CentOS Linux 7, 6 | X | X | X |
-|SUSE Linux Enterprise Server (SLES) 12 | X | X | X |
-|Debian 9.4, 8 | X<sup>1</sup> | | X |
+|Versión del SO |Rendimiento |Mapas |
+|-----------|------------|-----|
+|Windows Server 2019 | X | X |
+|Windows Server 2016 1803 | X | X |
+|Windows Server 2016 | X | X |
+|Windows Server 2012 R2 | X | X |
+|Windows Server 2012 | X | X |
+|Windows Server 2008 R2 | X | X|
+|Windows 10 1803 | X | X |
+|Windows 8.1 | X | X |
+|Windows 8 | X | X |
+|Windows 7 SP1 | X | X |
+|Red Hat Enterprise Linux (RHEL) 6, 7| X | X| 
+|Ubuntu 18.04, 16.04 | X | X |
+|CentOS Linux 7, 6 | X | X |
+|SUSE Linux Enterprise Server (SLES) 12 | X | X |
+|Debian 9.4, 8 | X<sup>1</sup> | |
 
 <sup>1</sup> La característica Rendimiento de Azure Monitor para VM solo está disponible desde Azure Monitor. No está disponible directamente desde el panel izquierdo de la máquina virtual de Azure.
-
->[!NOTE]
->La característica de Mantenimiento de Azure Monitor para VM no admite la [virtualización anidada](../../virtual-machines/windows/nested-virtualization.md) en una máquina virtual de Azure.
->
 
 >[!NOTE]
 >En el sistema operativo Linux:
@@ -157,12 +157,12 @@ La siguiente es una lista de los sistemas operativos Windows y Linux que son com
 
 La característica de asignación de Azure Monitor para VM obtiene sus datos de Microsoft Dependency Agent. Dependency Agent depende del agente de Log Analytics en lo que respecta a sus conexiones a Log Analytics. Por tanto, el sistema debe tener instalado y configurado el agente de Log Analytics con Dependency Agent.
 
-Cuando se habilita Azure Monitor para VM para una sola máquina virtual de Azure o cuando se usa el método de implementación a escala, use la extensión Dependency Agent de Azure VM para instalar el agente como parte de la experiencia.
+Si habilita Azure Monitor para VM para una sola máquina virtual de Azure o si usa el método de implementación a escala, use la extensión Dependency Agent de Azure VM para [Windows](../../virtual-machines/extensions/agent-dependency-windows.md) o [Linux](../../virtual-machines/extensions/agent-dependency-linux.md), para instalar el agente como parte de la experiencia.
 
 >[!NOTE]
 >La siguiente información que se describe en esta sección también se aplica a la [solución Service Map](service-map.md).  
 
-En un entorno híbrido, puede descargar e instalar Dependency Agent manualmente: Si las máquinas virtuales se hospedan fuera de Azure, use un método de implementación automatizado.
+En un entorno híbrido, puede descargar e instalar Dependency Agent manualmente o bien usar un método automatizado.
 
 En la tabla siguiente se describen los orígenes conectados que son compatibles con la característica Asignación en un entorno híbrido.
 
@@ -199,6 +199,9 @@ Azure Monitor para VM se habilita mediante alguno de los métodos que se describ
 ## <a name="performance-counters-enabled"></a>Contadores de rendimiento habilitados 
 
 Azure Monitor para VM configura un área de trabajo de Log Analytics para recopilar los contadores de rendimiento que usa. En las tablas siguientes se enumeran los objetos y contadores que se recopilan cada 60 segundos.
+
+>[!NOTE]
+>La siguiente lista de contadores de rendimiento habilitada por Azure Monitor para VM no le impide habilitar contadores adicionales que necesita para recopilar datos de las máquinas virtuales que informan al área de trabajo. Además, si deshabilita estos contadores, impedirá que el conjunto de gráficos de rendimiento incluido en la característica Rendimiento muestre el uso de recursos de las máquinas virtuales.
 
 ### <a name="windows-performance-counters"></a>Contadores de rendimiento de Windows
 
@@ -257,4 +260,4 @@ Ahora que ha habilitado la supervisión para la máquina virtual, la informació
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener información sobre cómo usar la característica de mantenimiento, consulte [Descripción del estado de las máquinas virtuales de Azure con Azure Monitor para VM (versión preliminar)](vminsights-health.md). Para ver las dependencias de las aplicaciones detectadas, consulte [Uso de la asignación de Azure Monitor para VM (versión preliminar) para conocer los componentes de una aplicación](vminsights-maps.md).
+Para aprender a usar la característica de supervisión Rendimiento, consulte [Visualización del rendimiento de Azure Monitor para VM](vminsights-performance.md). Para ver las dependencias de las aplicaciones detectadas, consulte [Uso de la asignación de Azure Monitor para VM (versión preliminar) para conocer los componentes de una aplicación](vminsights-maps.md).

@@ -9,20 +9,20 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 11/06/2019
-ms.openlocfilehash: a8deb7933bb19745bbe4c3b3a209c19c9cc712bd
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: ef46fce8609119777ef73cbe189d7a8ace662c91
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796304"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076936"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Instalación de una puerta de enlace de datos local para Azure Logic Apps
 
 Para poder [conectarse a orígenes de datos locales desde Azure Logic Apps](../logic-apps/logic-apps-gateway-connection.md), descargue e instale la [puerta de enlace de datos local](https://aka.ms/on-premises-data-gateway-installer) en un equipo local. La puerta de enlace funciona como un puente que permite la transferencia de datos rápida y el cifrado entre orígenes de datos locales y las aplicaciones lógicas. Puede usar la misma instalación de puerta de enlace con otros servicios en la nube, tales como Power BI, Power Automate, Power Apps y Azure Analysis Services. Para obtener información sobre cómo usar la puerta de enlace con estos servicios, consulte estos artículos:
 
-* [Puerta de enlace de datos local de Microsoft Power BI](https://powerbi.microsoft.com/documentation/powerbi-gateway-onprem/)
-* [Puerta de enlace de datos local de Microsoft Power Apps](https://powerapps.microsoft.com/tutorials/gateway-management/)
-* [Puerta de enlace de datos local de Power Automate](https://flow.microsoft.com/documentation/gateway-manage/)
+* [Puerta de enlace de datos local de Microsoft Power Automate](/power-automate/gateway-reference)
+* [Puerta de enlace de datos local de Microsoft Power BI](/power-bi/service-gateway-onprem)
+* [Puerta de enlace de datos local de Microsoft Power Apps](/powerapps/maker/canvas-apps/gateway-reference)
 * [Puerta de enlace de datos local de Azure Analysis Services](../analysis-services/analysis-services-gateway.md)
 
 En este artículo se muestra cómo descargar, instalar y configurar la puerta de enlace de datos local para que pueda acceder a los orígenes de datos locales desde Azure Logic Apps. También puede obtener más información sobre [cómo funciona la puerta de enlace de datos](#gateway-cloud-service) más adelante en este tema. Para más información sobre la puerta de enlace, consulte [¿Qué es una puerta de enlace de datos local?](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem).

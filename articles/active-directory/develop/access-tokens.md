@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/28/2019
+ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7ef9b55dd17a6f1d190282f369ccb8b9386e65d
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 34548b623317eff17bcbf5a7749cd411a44bd722
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72324270"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73935857"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Tokens de acceso de la Plataforma de identidad de Microsoft
 
@@ -108,7 +108,7 @@ Las notificaciones están presentes solo si existe un valor que las rellene. Por
 | `hasgroups` | Boolean | Si está presente, siempre es `true`, lo cual indica que el usuario está en al menos un grupo. Se usa en lugar de la notificación `groups` para métodos JWT en flujos de concesión implícita si las notificaciones completas de los grupos amplían el fragmento URI por encima de los límites de longitud de la URL (actualmente 6 o más grupos). Indica que el cliente debe utilizar Graph para determinar los grupos del usuario (`https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects`). |
 | `groups:src1` | Objeto JSON | Para las solicitudes de tokens que no tienen limitación de longitud (consulte `hasgroups` descrito anteriormente) pero que todavía son demasiado grandes para el token, se incluirá un enlace a la lista completa de grupos del usuario. Para métodos JWT como una notificación distribuida, para SAML como una nueva notificación en lugar de la notificación `groups`. <br><br>**Valor de JWT de ejemplo**: <br> `"groups":"src1"` <br> `"_claim_sources`: `"src1" : { "endpoint" : "https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects" }` |
 | `sub` | Cadena, un identificador GUID | La entidad de seguridad sobre la que el token declara información como, por ejemplo, el usuario de una aplicación. Este valor es inmutable y no se puede reasignar ni volver a usar. Se puede usar para realizar comprobaciones de autorización de forma segura, por ejemplo, cuando el token se usa para acceder a un recurso, y se puede usar como clave en tablas de base de datos. Dado que el firmante siempre está presente en los tokens que emite Azure AD, se recomienda usar este valor en un sistema de autorización de propósito general. El asunto es, sin embargo, un identificador en pares (es único para un id. de aplicación determinado). Por lo tanto, si un usuario inicia sesión en dos aplicaciones diferentes con dos identificadores de cliente diferente, esas aplicaciones recibirán dos valores diferentes para la notificación de asunto. Esto puede ser o no deseable dependiendo de los requisitos de arquitectura y privacidad. Vea también la notificación `oid` (que sigue siendo la misma en las todas aplicaciones en un inquilino). |
-| `oid` | Cadena, un identificador GUID | El identificador inmutable de un objeto en la plataforma de identidades Microsoft, en este caso, una cuenta de usuario. También se puede usar para realizar comprobaciones de autorización de forma segura y como clave en tablas de base de datos. Este identificador identifica de forma única el usuario entre aplicaciones: dos aplicaciones diferentes que inician sesión con el mismo usuario recibirán el mismo valor en la notificación `oid`. Por tanto, `oid` puede usarse al realizar consultas en Microsoft Online Services, como Microsoft Graph. Microsoft Graph devuelve este identificador como la propiedad `id` para una cuenta de usuario determinada. Dado que la notificación `oid` permite que varias aplicaciones pongan en correlación a los usuarios, se requiere el ámbito `profile` para recibir esta notificación. Tenga en cuenta que si un usuario existe en varios inquilinos, el usuario contendrá un identificador de objeto distinto en cada inquilino, se consideran cuentas diferentes, incluso si el usuario inicia sesión en todas las cuentas con las mismas credenciales. |
+| `oid` | Cadena, un identificador GUID | El identificador inmutable de un objeto en la plataforma de identidades Microsoft, en este caso, una cuenta de usuario. También se puede usar para realizar comprobaciones de autorización de forma segura y como clave en tablas de base de datos. Este identificador identifica de forma única el usuario entre aplicaciones: dos aplicaciones diferentes que inician sesión con el mismo usuario recibirán el mismo valor en la notificación `oid`. Por tanto, `oid` puede usarse al realizar consultas en Microsoft Online Services, como Microsoft Graph. Microsoft Graph devuelve este identificador como la propiedad `id` de una [cuenta de usuario](/graph/api/resources/user) determinada. Dado que la notificación `oid` permite que varias aplicaciones pongan en correlación a los usuarios, se requiere el ámbito `profile` para recibir esta notificación. Tenga en cuenta que si un usuario existe en varios inquilinos, el usuario contendrá un identificador de objeto distinto en cada inquilino, se consideran cuentas diferentes, incluso si el usuario inicia sesión en todas las cuentas con las mismas credenciales. |
 | `tid` | Cadena, un identificador GUID | Representa el inquilino de Azure AD de donde proviene el usuario. En el caso de las cuentas profesionales y educativas, el GUID es el identificador del inquilino inmutable de la organización a la que pertenece el usuario. En el caso de las cuentas personales, el valor es `9188040d-6c67-4c5b-b112-36a304b66dad`. El ámbito `profile` es necesario para recibir esta notificación. |
 | `unique_name` | Cadena | Solo está presente en los tokens de la versión 1.0. Proporciona un valor en lenguaje natural que identifica al firmante del token. No se asegura que este valor sea único en un inquilino y se debe usar solo con fines de visualización. |
 | `uti` | Cadena opaca | Una notificación interna que Azure usa para volver a validar los tokens. Los recursos no deben usar esta notificación. |
@@ -209,7 +209,7 @@ https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration
 Este documento de metadatos:
 
 * Es un objeto JSON que contiene varias fragmentos de información útiles, como la ubicación de los diferentes puntos de conexión necesarios para realizar la autenticación de OpenID Connect.
-* Incluye un `jwks_uri`, que ofrece la ubicación del conjunto de claves públicas que se utilizan para firmar los tokens. El documento JSON que se encuentra en `jwks_uri` contiene toda la información de clave pública en uso en ese momento concreto. La aplicación puede usar la notificación `kid` en el encabezado de JWT para seleccionar la clave pública que se ha usado en este documento para firmar un determinado token. Después, puede realizar la validación de la firma mediante la clave pública correcta y el algoritmo indicado.
+* Incluye un `jwks_uri`, que ofrece la ubicación del conjunto de claves públicas que se utilizan para firmar los tokens. La clave web JSON (JWK)que se encuentra en `jwks_uri` contiene toda la información de clave pública en uso en ese momento determinado.  El formato JWK se describe en [RFC 7517](https://tools.ietf.org/html/rfc7517).  La aplicación puede usar la notificación `kid` en el encabezado de JWT para seleccionar la clave pública que se ha usado en este documento para firmar un determinado token. Después, puede realizar la validación de la firma mediante la clave pública correcta y el algoritmo indicado.
 
 > [!NOTE]
 > El punto de conexión de v1.0 devuelve las notificaciones `x5t` y `kid`, mientras que el punto de conexión de v2.0 responde solo con la notificación `kid`. De cara al futuro, le recomendamos que utilice la notificación `kid` para validar su token.
@@ -264,9 +264,9 @@ Los tokens de actualización se pueden invalidar o revocar en cualquier momento 
 | [Cierre de sesión único](v1-protocols-openid-connect-code.md#single-sign-out) en la web | Revocada | Permanece activa | Revocada | Permanece activa | Permanece activa |
 
 > [!NOTE]
-> Un inicio de sesión "no basado en contraseña" es aquel en el que el usuario no escribió una contraseña para obtenerlo. Por ejemplo, con la cara con Windows Hello, una clave de FIDO o un PIN.
+> Un inicio de sesión "no basado en contraseña" es aquel en el que el usuario no escribió una contraseña para obtenerlo. Por ejemplo, con la cara con Windows Hello, una clave de FIDO2 o un PIN.
 >
-> Existe un problema conocido con el token de actualización principal de Windows. Si el PRT se obtiene a través de una contraseña y, luego, el usuario inicia sesión a través de Hello, no se cambia el origen del PRT y se revocará si el usuario cambia su contraseña.
+> Los tokens de actualización principales (PRT) en Windows 10 se segregan en función de la credencial. Por ejemplo, Windows Hello y la contraseña tienen sus respectivos PRT, aislados entre sí. Cuando un usuario inicia sesión con una credencial de Hello (PIN o biométrica) y, a continuación, cambia la contraseña, se revocará el PRT basado en la contraseña obtenido previamente. Al volver a iniciar sesión con una contraseña, se invalida el PRT antiguo y se solicita uno nuevo.
 >
 > Los tokens de actualización no se invalidan ni revocan cuando se utilizan para capturar un token de acceso y un token de actualización nuevos.  
 

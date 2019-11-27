@@ -1,5 +1,5 @@
 ---
-title: Tareas posteriores a la implementación de OpenShift Container Platform 3.11 en Azure | Documentos de Microsoft
+title: Tareas posteriores a la implementación de OpenShift Container Platform 3.11 en Azure
 description: Tareas adicionales posteriores a la implementación de un clúster de OpenShift Container Platform 3.11.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: c1e04f048c081da4777045e5bee43991c95b4625
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: d3008e2e2d720b67fcf0846c27d2fed1ef7db307
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72392107"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035504"
 ---
 # <a name="post-deployment-tasks"></a>Tareas posteriores a la implementación
 

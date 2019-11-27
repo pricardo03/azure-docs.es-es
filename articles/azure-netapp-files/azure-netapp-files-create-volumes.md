@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/12/2019
+ms.date: 11/08/2019
 ms.author: b-juche
-ms.openlocfilehash: 1a479b4928631f27d5453d462a59fe7fed09a88c
-ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
+ms.openlocfilehash: 1f312e8a5034d238e4802e9323bc1b5ac5cdae21
+ms.sourcegitcommit: f226cdd6406372b5693d46b6d04900f2f0cda4e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72302764"
+ms.lasthandoff: 11/11/2019
+ms.locfileid: "73906240"
 ---
 # <a name="create-an-nfs-volume-for-azure-netapp-files"></a>Creación de un volumen de NFS para Azure NetApp Files
 
@@ -43,7 +43,7 @@ Debe haber una subred delegada en Azure NetApp Files.
   La compatibilidad con los bits de modo UNIX (lectura, escritura y ejecución) está disponible para NFSv3 y NFSv4.1. Se necesita acceso de nivel de raíz en el cliente NFS para montar volúmenes NFS.
 
 * Usuario o grupo local y compatibilidad con LDAP para NFSv4.1  
-  Actualmente, NFSv4.1 solo admite el acceso raíz a volúmenes. 
+  Actualmente, NFSv4.1 solo admite el acceso raíz a volúmenes. Consulte [Configuración del dominio predeterminado de NFS, versión 4.1, para Azure NetApp Files](azure-netapp-files-configure-nfsv41-domain.md). 
 
 ## <a name="best-practice"></a>Procedimiento recomendado
 
@@ -115,6 +115,7 @@ Debe haber una subred delegada en Azure NetApp Files.
 
 ## <a name="next-steps"></a>Pasos siguientes  
 
+* [Configuración del dominio predeterminado de NFS, versión 4.1, para Azure NetApp Files](azure-netapp-files-configure-nfsv41-domain.md)
 * [Montaje o desmontaje de un volumen para máquinas virtuales Windows o Linux](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [Configuración de la directiva de exportación para un volumen NFS](azure-netapp-files-configure-export-policy.md)
 * [Límites de recursos para Azure NetApp Files](azure-netapp-files-resource-limits.md)

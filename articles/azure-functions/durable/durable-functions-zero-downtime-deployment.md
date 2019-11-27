@@ -1,6 +1,6 @@
 ---
-title: Implementación sin tiempo de inactividad con Durable Functions
-description: Aprenda a habilitar la orquestación de Durable Functions para realizar implementaciones sin tiempo de inactividad.
+title: Implementación sin tiempo de inactividad en Durable Functions
+description: Aprenda a habilitar la orquestación de Durable Functions para realizar implementaciones sin tiempo de inactividad.
 services: functions
 author: tsushi
 manager: gwallace
@@ -8,29 +8,31 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: azfuncdf
-ms.openlocfilehash: b47604f2c8703ba587e98d68dc30552e5944f562
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: af19f8cdcc26d1459bc024f00b963f04bd8d763b
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73614497"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904041"
 ---
-# <a name="zero-downtime-deployment-for-durable-functions"></a>Implementación sin tiempo de inactividad con Durable Functions
+# <a name="zero-downtime-deployment-for-durable-functions"></a>Implementación sin tiempo de inactividad en Durable Functions
 
-El [modelo de ejecución confiable](durable-functions-checkpointing-and-replay.md) de Durable Functions requiere que las orquestaciones sean deterministas, lo que constituye un desafío adicional que se debe tener en cuenta al implementar actualizaciones. Cuando una implementación contiene cambios en las signaturas de las funciones de actividad o la lógica del orquestador, las instancias de orquestación en curso producen errores. Esta situación supone especialmente un problema para las instancias de orquestaciones de larga ejecución, que pueden llevar horas o días de trabajo.
+El [modelo de ejecución confiable](durable-functions-checkpointing-and-replay.md) de Durable Functions requiere que las orquestaciones sean deterministas, lo que constituye un desafío adicional que debe tenerse en cuenta al implementar actualizaciones. Cuando una implementación contiene cambios en las signaturas de las funciones de actividad o la lógica del orquestador, las instancias de orquestación en curso producen errores. Esta situación supone especialmente un problema para las instancias de orquestaciones de larga ejecución, que pueden llevar horas o días de trabajo.
 
-Para evitar que se produzcan estos errores, debe retrasar la implementación hasta que se hayan completado todas las instancias de orquestación en ejecución, o asegurarse de que las instancias de orquestación en curso usan las versiones existentes de las funciones. Para más información acerca del control de versiones, consulte [Control de versiones en Durable Functions](durable-functions-versioning.md).
+Para evitar que se produzcan estos errores, tiene dos opciones: 
+- Retrasar la implementación hasta que se hayan completado todas las instancias de orquestación en ejecución.
+- Asegurarse de que todas las instancias de orquestación en ejecución usan las versiones existentes de las funciones. 
 
 > [!NOTE]
-> En este artículo se ofrecen instrucciones sobre aplicaciones de Functions que tengan como destino Durable Functions 1.x. Todavía no se ha actualizado para tener en cuenta los cambios introducidos en Durable Functions 2.x. Para obtener más información sobre las diferencias entre versiones de extensión, consulte el artículo [Versiones de Durable Functions](durable-functions-versions.md).
+> En este artículo se ofrecen instrucciones sobre aplicaciones de funciones que tengan como destino Durable Functions 1.x. No se ha actualizado para tener en cuenta los cambios introducidos en Durable Functions 2.x. Para obtener más información sobre las diferencias entre versiones de extensión, consulte [Versiones de Durable Functions](durable-functions-versions.md).
 
-En el gráfico siguiente se comparan las tres estrategias principales para lograr una implementación sin tiempo de inactividad con Durable Functions: 
+En el gráfico siguiente se comparan las tres estrategias principales para lograr una implementación sin tiempo de inactividad en Durable Functions: 
 
 | Estrategia |  Cuándo se deben usar | Ventajas | Desventajas |
 | -------- | ------------ | ---- | ---- |
-| **[Control de versiones](#versioning)** |  En aplicaciones que no experimentan [cambios importantes](durable-functions-versioning.md) frecuentes. | Fácil de implementar. |  Mayor tamaño de la aplicación de funciones en la memoria y mayor número de funciones.<br/>Duplicación de código. |
-| **[Comprobación de estado con espacio](#status-check-with-slot)** | Un sistema que no tenga orquestaciones de larga ejecución que duren más de 24 horas u orquestaciones que se superpongan con frecuencia. | Base de código sencilla.<br/>No requiere una administración adicional de la aplicación de funciones. | Requiere administración adicional de la cuenta de almacenamiento o de la central de tareas.<br/>Requiere períodos de tiempo en los que no se ejecuten orquestaciones. |
-| **[Enrutamiento de aplicaciones](#application-routing)** | Un sistema que no tenga períodos de tiempo en los que no se ejecuten orquestaciones como, por ejemplo, aquellos con orquestaciones que duran más de 24 horas u orquestaciones que se superponen con frecuencia. | Controla las nuevas versiones de los sistemas con orquestaciones que se ejecutan continuamente y que tienen cambios importantes. | Requiere un enrutador de aplicación inteligente.<br/>Podría maximizar el número de aplicaciones de funciones que permite la suscripción (el valor predeterminado es 100). |
+| [Control de versiones](#versioning) |  En aplicaciones que no experimentan [cambios importantes](durable-functions-versioning.md) frecuentes. | Fácil de implementar. |  Mayor tamaño de la aplicación de funciones en la memoria y mayor número de funciones.<br/>Duplicación de código. |
+| [Comprobación de estado con espacio](#status-check-with-slot) | Un sistema que no tenga orquestaciones de larga ejecución que duren más de 24 horas u orquestaciones que se superpongan con frecuencia. | Base de código sencilla.<br/>No requiere una administración adicional de la aplicación de funciones. | Requiere administración adicional de la cuenta de almacenamiento o de la central de tareas.<br/>Requiere períodos de tiempo en los que no se ejecuten orquestaciones. |
+| [Enrutamiento de aplicaciones](#application-routing) | Un sistema que no tenga períodos de tiempo en los que no se ejecuten orquestaciones como, por ejemplo, aquellos con orquestaciones que duran más de 24 horas u orquestaciones que se superponen con frecuencia. | Controla las nuevas versiones de los sistemas con orquestaciones que se ejecutan continuamente y que tienen cambios importantes. | Requiere un enrutador de aplicación inteligente.<br/>Podría maximizar el número de aplicaciones de funciones que permite la suscripción. El valor predeterminado es 100. |
 
 ## <a name="versioning"></a>Control de versiones
 
@@ -38,34 +40,34 @@ Defina nuevas versiones de las funciones y deje las versiones anteriores en la a
 
 ![Estrategia de control de versiones](media/durable-functions-zero-downtime-deployment/versioning-strategy.png)
 
-En esta estrategia, se deben copiar todas las funciones y sus referencias a otras funciones actualizadas. Puede simplificar esto mediante la escritura de un script. Este es un [ejemplo de proyecto](https://github.com/TsuyoshiUshio/DurableVersioning) con un script de migración.
+En esta estrategia, se deben copiar todas las funciones y actualizar sus referencias a otras funciones. Puede simplificar esto mediante la escritura de un script. Este es un [ejemplo de proyecto](https://github.com/TsuyoshiUshio/DurableVersioning) con un script de migración.
 
 >[!NOTE]
 >Esta estrategia usa ranuras de implementación para evitar tiempos de inactividad durante la implementación. Para obtener información más detallada sobre cómo crear y usar nuevas ranuras de implementación, consulte [Ranuras de implementación de Azure Functions](../functions-deployment-slots.md).
 
 ## <a name="status-check-with-slot"></a>Comprobación de estado con espacio
 
-Mientras se ejecuta la versión actual de la aplicación de funciones en el espacio de producción, implemente la nueva versión de esa aplicación en el espacio de ensayo. Antes de cambiar entre los espacios de producción y de ensayo, compruebe si hay instancias de orquestación en ejecución. Una vez completadas todas las instancias de orquestación, puede realizar el intercambio. Esta estrategia funciona cuando hay períodos predecibles en los que no hay instancias de orquestación en curso. Este es el mejor enfoque cuando las orquestaciones no son de ejecución prolongada y cuando las ejecuciones de la orquestación no se superponen con frecuencia.
+Mientras se ejecuta la versión actual de la aplicación de funciones en el espacio de producción, implemente la nueva versión de esa aplicación en el espacio de ensayo. Antes de intercambiar entre los espacios de producción y de ensayo, compruebe si hay instancias de orquestación en ejecución. Una vez completadas todas las instancias de orquestación, puede realizar el intercambio. Esta estrategia funciona cuando hay períodos predecibles en los que no hay instancias de orquestación en curso. Este es el mejor enfoque cuando las orquestaciones no son de ejecución prolongada y cuando las ejecuciones de la orquestación no se superponen con frecuencia.
 
 ### <a name="function-app-configuration"></a>Configuración de la aplicación de funciones
 
-Puede usar el siguiente procedimiento para configurar este escenario:
+Use el procedimiento siguiente para configurar este escenario.
 
 1. [Agregue ranuras de implementación](../functions-deployment-slots.md#add-a-slot) a la aplicación de funciones en los espacios de ensayo y de producción.
 
-1. En cada espacio, establezca la [configuración de la aplicación AzureWebJobsStorage](../functions-app-settings.md#azurewebjobsstorage) en la cadena de conexión de una cuenta de almacenamiento compartida. El entorno en tiempo de ejecución de Azure Functions usará esta cadena. El entorno en tiempo de ejecución de Azure Functions usará esta cuenta y administrará las claves de la función.
+1. En cada espacio, establezca la [configuración de la aplicación AzureWebJobsStorage](../functions-app-settings.md#azurewebjobsstorage) en la cadena de conexión de una cuenta de almacenamiento compartida. Azure Functions Runtime usa esta cadena de conexión de la cuenta de almacenamiento. Azure Functions Runtime usará esta cuenta y administrará las claves de la función.
 
-1. Para cada espacio, cree un nuevo valor para la aplicación (por ejemplo, DurableManagementStorage) y establezca su valor en la cadena de conexión de distintas cuentas de almacenamiento. La extensión de Durable Functions usará estas cuentas de almacenamiento para una [ejecución confiable](durable-functions-checkpointing-and-replay.md). Use una cuenta de almacenamiento independiente para cada espacio. No marque este valor como un valor de ranura de implementación.
+1. Para cada espacio, cree un nuevo valor para la aplicación; por ejemplo, `DurableManagementStorage`. Establezca su valor en la cadena de conexión de distintas cuentas de almacenamiento. La extensión de Durable Functions usa estas cuentas de almacenamiento para una [ejecución confiable](durable-functions-checkpointing-and-replay.md). Use una cuenta de almacenamiento independiente para cada espacio. No marque este valor como un valor de ranura de implementación.
 
-1. En la [sección durableTask del archivo host.json](durable-functions-bindings.md#hostjson-settings) de la aplicación de funciones, especifique azureStorageConnectionStringName como el nombre de la configuración de la aplicación que creó en el paso 3.
+1. En la [sección durableTask del archivo host.json](durable-functions-bindings.md#hostjson-settings) de la aplicación de funciones, especifique `azureStorageConnectionStringName` como nombre del valor de aplicación que creó en el paso 3.
 
-En el diagrama siguiente se muestra la configuración descrita de las ranuras de implementación y las cuentas de almacenamiento. En este posible escenario anterior a la implementación, la versión 2 de una aplicación de funciones se ejecuta en el espacio de producción, mientras que la versión 1 permanece en el espacio de ensayo.
+En el diagrama siguiente se muestra la configuración descrita de las ranuras de implementación y las cuentas de almacenamiento. En este posible escenario anterior a la implementación, la versión 2 de una aplicación de funciones se ejecuta en el espacio de producción, mientras que la versión 1 permanece en el espacio de ensayo.
 
-![Ranura de implementación](media/durable-functions-zero-downtime-deployment/deployment-slot.png)
+![Ranuras de implementación y cuentas de almacenamiento](media/durable-functions-zero-downtime-deployment/deployment-slot.png)
 
 ### <a name="hostjson-examples"></a>Ejemplos de host.json
 
-Los siguientes fragmentos JSON son ejemplos de la configuración de la cadena de conexión en el archivo host.json.
+Los siguientes fragmentos JSON son ejemplos del valor de la cadena de conexión en el archivo *host.json*.
 
 #### <a name="functions-20"></a>Functions 2.0
 
@@ -121,7 +123,7 @@ Azure Pipelines comprueba la ejecución de instancias de orquestación de la apl
 
 Ahora la nueva versión de la aplicación de funciones se debería implementar en el espacio de ensayo.
 
-![Ranura de implementación](media/durable-functions-zero-downtime-deployment/deployment-slot-2.png)
+![Espacio de ensayo](media/durable-functions-zero-downtime-deployment/deployment-slot-2.png)
 
 Por último, intercambie los espacios. 
 
@@ -135,10 +137,10 @@ Para usar la misma cuenta de almacenamiento en ambos espacios, puede cambiar los
 
 Esta estrategia es la más compleja. Sin embargo, se puede usar para las aplicaciones de funciones que no tengan tiempo entre las orquestaciones en ejecución.
 
-Para esta estrategia, debe crear un *enrutador de aplicación* delante de Durable Functions. Este enrutador se puede implementar con Durable Functions y tiene las siguientes responsabilidades:
+Para esta estrategia, debe crear un *enrutador de aplicación* delante de Durable Functions. Este enrutador se puede implementar con Durable Functions. El enrutador tiene la responsabilidad de:
 
-* Implementar la aplicación de funciones.
-* Administrar la versión de Durable Functions. 
+* Implemente la aplicación de función.
+* Administrar la versión de Durable Functions. 
 * Enrutar las solicitudes de orquestación a las aplicaciones de funciones.
 
 La primera vez que se recibe una solicitud de orquestación, el enrutador realiza las tareas siguientes:
@@ -151,9 +153,9 @@ El enrutador administra la instrucción sobre qué versión del código de la ap
 
 ![Enrutamiento de aplicaciones (por primera vez)](media/durable-functions-zero-downtime-deployment/application-routing.png)
 
-El enrutador dirige las solicitudes de implementación y orquestación a la aplicación de funciones adecuada según el valor de `version` que se envíe con la solicitud, ignorando la versión de revisión.
+El enrutador dirige las solicitudes de implementación y orquestación a la aplicación de funciones adecuada según la versión que se envíe con la solicitud. Omite la versión de revisión.
 
-Si implementa una nueva versión de la aplicación *sin* ningún cambio importante, puede aumentar la versión de revisión. El enrutador se implementa en la aplicación de funciones existente y las solicitudes de la versión anterior y de la nueva del código se enrutan hacia la misma aplicación de funciones.
+Si implementa una nueva versión de la aplicación sin ningún cambio importante, puede aumentar la versión de revisión. El enrutador se implementa en la aplicación de funciones existente y las solicitudes de la versión anterior y de la nueva del código se enrutan hacia la misma aplicación de funciones.
 
 ![Enrutamiento de aplicaciones (sin cambios importantes)](media/durable-functions-zero-downtime-deployment/application-routing-2.png)
 
@@ -161,13 +163,13 @@ Si implementa una nueva versión de la aplicación con algún cambio importante,
 
 ![Enrutamiento de aplicaciones (con cambios importantes)](media/durable-functions-zero-downtime-deployment/application-routing-3.png)
 
-El enrutador supervisa el estado de las orquestaciones en la versión 1.0.1 y quita las aplicaciones una vez finalizadas todas las orquestaciones.  
+El enrutador supervisa el estado de las orquestaciones en la versión 1.0.1 y quita las aplicaciones una vez finalizadas todas las orquestaciones. 
 
 ### <a name="tracking-store-settings"></a>Seguimiento de la configuración de almacén
 
-Cada aplicación de funciones debe usar colas de programación independientes, posiblemente en cuentas de almacenamiento independientes. Sin embargo, si desea consultar todas las instancias de orquestaciones en todas las versiones de la aplicación, puede compartir las tablas de instancia y de historial entre las aplicaciones de funciones. Puede compartir tablas configurando `trackingStoreConnectionStringName` y `trackingStoreNamePrefix` en el archivo de [configuración host.json](durable-functions-bindings.md#host-json) para que todas usen los mismos valores.
+Cada aplicación de funciones debe usar colas de programación independientes, posiblemente en cuentas de almacenamiento independientes. Si quiere consultar todas las instancias de orquestaciones en todas las versiones de la aplicación, puede compartir las tablas de instancia y de historial entre las aplicaciones de funciones. Puede compartir tablas configurando las opciones `trackingStoreConnectionStringName` y `trackingStoreNamePrefix` en el archivo de [configuración de host.json](durable-functions-bindings.md#host-json) para que todas usen los mismos valores.
 
-Para más información, consulte [Administración de instancias con Durable Functions en Azure](durable-functions-instance-management.md).
+Para más información, consulte [Administración de instancias con Durable Functions en Azure](durable-functions-instance-management.md).
 
 ![Seguimiento de la configuración de almacén](media/durable-functions-zero-downtime-deployment/tracking-store-settings.png)
 

@@ -1,5 +1,6 @@
 ---
-title: Configuración del dominio de editor de una aplicación | Azure
+title: Configuración del dominio de editor de una aplicación
+titleSuffix: Microsoft identity platform
 description: Obtenga información sobre cómo configurar el dominio de editor de una aplicación para que los usuarios sepan dónde se envía su información.
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,14 +18,14 @@ ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, zachowd
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28021c0b8512ca12ead92b0b78541fce690b1f80
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 3558e589004e0488e5b96b0e39bd3f5ceea69658
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71257928"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013061"
 ---
-# <a name="how-to-configure-an-applications-publisher-domain-preview"></a>Procedimientos para: Configurar el dominio de editor de una aplicación (versión preliminar)
+# <a name="how-to-configure-an-applications-publisher-domain"></a>Procedimientos para: Configuración del dominio de editor de una aplicación
 
 El dominio de editor de una aplicación se muestra a los usuarios en la [petición de consentimiento de la aplicación](application-consent-experience.md) para que los usuarios sepan dónde se envía su información. Las aplicaciones multiinquilino registradas después del 21 de mayo de 2019 que no tengan un dominio de editor se muestran como **no verificadas**. Las aplicaciones multiinquilino son aquellas que admiten cuentas ajenas a un único directorio organizativo; por ejemplo, admiten todas las cuentas de Azure AD o admiten todas las cuentas de Azure AD y las cuentas personales de Microsoft.
 

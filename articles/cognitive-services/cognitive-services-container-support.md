@@ -8,14 +8,14 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 11/04/2019
+ms.date: 11/11/2019
 ms.author: dapine
-ms.openlocfilehash: 958acd042acba2a8c6c38ad1e6bac614db509da8
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 2b6118930626ce753060addcf64c568c7c086efb
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73604444"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091228"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Compatibilidad con contenedores en Azure Cognitive Services
 
@@ -29,7 +29,6 @@ La compatibilidad con contenedores en Azure Cognitive Services permite a los des
 > * [Language Understanding (LUIS)][lu-containers]
 > * [Speech Service API][sp-containers]
 > * [Text Analytics][ta-containers]
-> * [Translator Text][tt-containers]
 
 > [!VIDEO https://www.youtube.com/embed/hdfbn4Q8jbo]
 
@@ -39,10 +38,12 @@ Los recursos de Cognitive Services están disponibles en [Microsoft Azure](https
 
 ## <a name="features-and-benefits"></a>Características y ventajas
 
+- **Infraestructura inmutable**: permita que los equipos de DevOps aprovechen un conjunto coherente y confiable de parámetros del sistema conocidos, al tiempo que pueden adaptarse a los cambios. Los contenedores proporcionan la flexibilidad para dinamizar dentro de un ecosistema predecible y evitar el desfase de la configuración.
 - **Control sobre datos**: permita que los clientes elijan dónde Cognitive Services procesa los datos. Esto es esencial para los clientes que no pueden enviar datos a la nube, pero necesitan tener acceso a la tecnología de Cognitive Services. Admite la coherencia en entornos híbridos: a través de datos, administración, identidad y seguridad.
 - **Control sobre las actualizaciones del modelo**: proporcione flexibilidad a los clientes sobre el control de versiones y la actualización de los modelos implementados en sus soluciones.
 - **Arquitectura portátil**: habilite la creación de una arquitectura de aplicación portátil que se pueda implementar en Azure, en el entorno local y en la red perimetral. Los contenedores se pueden implementar directamente en [Azure Kubernetes Service](../aks/index.yml), [Azure Container Instances](../container-instances/index.yml) o en un clúster de [Kubernetes](https://kubernetes.io/) implementado en [Azure Stack](/azure-stack/operator). Para obtener más información, consulte [Implementación de Kubernetes en Azure Stack](/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
-- **Alto rendimiento y baja latencia**: proporcione a los clientes la capacidad de escalar para los requisitos de alto rendimiento y baja latencia permitiendo que Cognitive Services se ejecute físicamente cerca de sus datos y lógica de aplicación. Los contenedores no limitan las transacciones por segundo (TPS) y se pueden escalar tanto vertical como horizontalmente para controlar la demanda si se proporcionan los recursos de hardware necesarios. 
+- **Alto rendimiento y baja latencia**: proporcione a los clientes la capacidad de escalar para los requisitos de alto rendimiento y baja latencia permitiendo que Cognitive Services se ejecute físicamente cerca de sus datos y lógica de aplicación. Los contenedores no limitan las transacciones por segundo (TPS) y se pueden escalar tanto vertical como horizontalmente para controlar la demanda si se proporcionan los recursos de hardware necesarios.
+- **Escalabilidad**: Con la popularidad cada vez mayor del software de creación y orquestación de contenedores, como Kubernetes; la escalabilidad está a la vanguardia de los avances tecnológicos. Basado en un clúster escalable, el desarrollo de aplicaciones se encarga de la alta disponibilidad.
 
 ## <a name="containers-in-azure-cognitive-services"></a>Contenedores en Azure Cognitive Services
 
@@ -62,7 +63,6 @@ Los contenedores de Azure Cognitive Services proporcionan el siguiente conjunto 
 |[Text Analytics][ta-containers] |F0, S|**Extracción de frases clave** ([imagen](https://go.microsoft.com/fwlink/?linkid=2018757&clcid=0x409)) |Extrae las frases clave para identificar los puntos principales. Por ejemplo, si el texto de entrada es "La comida estaba deliciosa y el personal era maravilloso", la API devuelve los principales puntos de conversación: "comida" y "personal maravilloso". |
 |[Text Analytics][ta-containers]|F0, S|**Detección de idioma** ([imagen](https://go.microsoft.com/fwlink/?linkid=2018759&clcid=0x409)) |Se detecta el idioma (120 como máximo) en que está escrito el texto de entrada y se usa un código de idioma único para informar acerca de cada documento enviado en la solicitud. El código de idioma se empareja con una puntuación que indica la intensidad de esta. |
 |[Text Analytics][ta-containers]|F0, S|**Análisis de sentimiento** ([imagen](https://go.microsoft.com/fwlink/?linkid=2018654&clcid=0x409)) |Analiza el texto sin formato para obtener pistas sobre opiniones positivas o negativas. Esta API devuelve una puntuación de la opción, que oscila entre 0 y 1, con respecto a cada documento, donde 1 es la más positiva. Los modelos de análisis se entrenan previamente con una gran cantidad de cuerpo de texto y tecnologías de idioma natural de Microsoft. Para [idiomas seleccionados](./text-analytics/language-support.md), la API puede analizar y puntuar cualquier texto sin formato que se proporcione, y devolver los resultados directamente a la aplicación que realiza la llamada. |
-|[Translator Text][tt-containers]| **N/D** | **Translator Text** | Translator Text es un servicio de traducción automática basado en la nube que puede utilizar para traducir texto casi en tiempo real mediante una sola llamada API REST.<br>[Solicitar acceso](https://aka.ms/translatorcontainerform) |
 
 <!--
 |[Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409) |F0, S0|**Personalizer** ([image](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409))|Azure Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior.|
@@ -86,7 +86,6 @@ Los contenedores de Azure Cognitive Services están disponibles públicamente a 
 > * [Form Recognizer](form-recognizer/form-recognizer-container-howto.md#request-access-to-the-container-registry)
 > * [Lectura](computer-vision/computer-vision-how-to-install-containers.md)
 > * [Voz a texto y texto a voz](Speech-Service/speech-container-howto.md#request-access-to-the-container-registry)
-> * [Translator Text](translator/how-to-install-containers.md#request-access-to-the-container-registry)
 
 [!INCLUDE [Container repositories and images](containers/includes/cognitive-services-container-images.md)]
 
@@ -121,7 +120,6 @@ Instale y explore la funcionalidad proporcionada por los contenedores en Azure C
 * [Contenedores de Language Understanding (LUIS)][lu-containers]
 * [Contenedores de Speech Service API][sp-containers]
 * [Contenedores de Text Analytics][ta-containers]
-* [Contenedores de Translator Text][tt-containers]
 
 <!--* [Personalizer containers](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409)
 -->
@@ -137,4 +135,3 @@ Instale y explore la funcionalidad proporcionada por los contenedores en Azure C
 [sp-containers-tts]: speech-service/speech-container-howto.md?tabs=tts
 [sp-containers-ctts]: speech-service/speech-container-howto.md?tabs=ctts
 [ta-containers]: text-analytics/how-tos/text-analytics-how-to-install-containers.md
-[tt-containers]: translator/how-to-install-containers.md

@@ -1,5 +1,5 @@
 ---
-title: Administración del servidor de configuración para la recuperación ante desastres de servidores físicos locales en Azure con Azure Site Recovery | Microsoft Docs
+title: Administración del servidor de configuración de los servidores físicos de Azure Site Recovery
 description: En este artículo se describe cómo administrar el servidor de configuración de Azure Site Recovery para la recuperación ante desastres de servidores físicos en Azure.
 services: site-recovery
 author: mayurigupta13
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: mayg
-ms.openlocfilehash: f87210cd14570687eebae88896830bb3ee00b74e
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: f443f0362ecad8448895322686a7175b2813141e
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73242996"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084612"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Administración del servidor de configuración para la recuperación ante desastres del servidor físico
 

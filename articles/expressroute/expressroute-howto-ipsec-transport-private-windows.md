@@ -1,5 +1,5 @@
 ---
-title: 'Configuración del modo de transporte de IPsec para el emparejamiento privado de hosts de Windows: ExpressRoute: Azure | Microsoft Docs'
+title: 'Emparejamiento privado de Azure ExpressRoute: Configuración del modo de transporte IPsec: hosts de Windows'
 description: Cómo habilitar el modo de transporte de IPsec entre máquinas virtuales Windows de Azure y los hosts locales de Windows a través del emparejamiento privado de ExpressRoute mediante GPO y unidades organizativas.
 services: expressroute
 author: fabferri
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/17/2018
 ms.author: fabferri
 ms.custom: seodec18
-ms.openlocfilehash: d728980517988e2dc39be4e4b64d20157a1aef54
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1bc33047d31262af443cddc418853fbacd88aec1
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60367279"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74022006"
 ---
 # <a name="configure-ipsec-transport-mode-for-expressroute-private-peering"></a>Configuración del modo de transporte de IPsec para emparejamiento privado de ExpressRoute
 

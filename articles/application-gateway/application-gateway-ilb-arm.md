@@ -1,25 +1,18 @@
 ---
-title: Uso de Azure Application Gateway con el equilibrador de carga interno mediante PowerShell | Microsoft Docs
+title: Uso de Azure Application Gateway con un equilibrador de carga interno
 description: En esta página se proporcionan instrucciones para crear, configurar, iniciar y eliminar una puerta de enlace de aplicaciones de Azure con un equilibrador de carga interno (ILB) en el Administrador de recursos de Azure
-documentationcenter: na
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
-ms.assetid: 75cfd5a2-e378-4365-99ee-a2b2abda2e0d
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/23/2018
+ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: 70b350e228785e47a41cb83ce0d80b93c8a601c1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e0dedb13bf7365e011eb3403fb7ec110a4290ec9
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66135236"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012897"
 ---
 # <a name="create-an-application-gateway-with-an-internal-load-balancer-ilb"></a>Creación de una puerta de enlace de aplicaciones con un equilibrador de carga interno (ILB)
 

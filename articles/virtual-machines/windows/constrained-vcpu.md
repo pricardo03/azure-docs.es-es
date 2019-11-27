@@ -1,5 +1,5 @@
 ---
-title: 'Tamaños de vCPU restringidas de Azure: Windows | Microsoft Docs'
+title: 'Tamaños de vCPU restringidas de Azure: Windows'
 description: Enumera los tamaños VM que pueden tener un recuento de vCPU restringido.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/09/2018
 ms.author: jonbeck
-ms.openlocfilehash: ebd936b7003caaf12030876560ab3ca94537142f
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 41260c269fca966ddbe4fdc8d70194f26ac6dcd3
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70079826"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039460"
 ---
 # <a name="constrained-vcpu-capable-vm-sizes"></a>Tamaños de VM que admiten vCPU restringidas
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25cd36b6b3e8a6974618189985152e55c2676999
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: bb90fafb48be1d3389597c6188b0200743f90c3e
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69874299"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74065973"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Informes en Azure Multi-Factor Authentication
 
@@ -24,16 +24,16 @@ Azure Multi-Factor Authentication proporciona varios tipos de informes que usted
 
 | Informe | Location | DESCRIPCIÓN |
 |:--- |:--- |:--- |
-| Historial de usuarios bloqueados | Azure AD > Servidor MFA > Bloquear o desbloquear usuarios | Muestra el historial de solicitudes para bloquear o desbloquear usuarios. |
+| Historial de usuarios bloqueados | Azure AD > Seguridad > MFA > Bloquear y desbloquear usuarios | Muestra el historial de solicitudes para bloquear o desbloquear usuarios. |
 | Alertas de fraude y de uso | Azure AD > Inicios de sesión | Proporciona información sobre el uso general, el resumen del usuario, detalles del usuario; así como un historial de alertas de fraude enviadas durante el intervalo de fechas especificado. |
-| Uso de componentes locales | Azure AD > Servidor MFA > Informe de actividad | Proporciona información sobre el uso general de MFA a través de la extensión NPS, AD FS y el servidor MFA. |
-| Historial de usuarios omitidos | Azure AD > Servidor MFA > Omisión por única vez | Proporciona un historial de solicitudes para omitir Multi-Factor Authentication para un usuario. |
-| Estado del servidor | Azure AD > Servidor MFA > Estado del servidor | Muestra el estado de los servidores de Multi-Factor Authentication asociados a su cuenta. |
+| Uso de componentes locales | Azure AD > Seguridad > MFA > Informe de actividad | Proporciona información sobre el uso general de MFA a través de la extensión NPS, AD FS y el servidor MFA. |
+| Historial de usuarios omitidos | Azure AD > Seguridad > MFA > Omisión por única vez | Proporciona un historial de solicitudes para omitir Multi-Factor Authentication para un usuario. |
+| Estado del servidor | Azure AD > Seguridad > MFA > Estado del servidor | Muestra el estado de los servidores de Multi-Factor Authentication asociados a su cuenta. |
 
 ## <a name="view-mfa-reports"></a>Visualización de informes de MFA
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
-2. A la izquierda, seleccione **Azure Active Directory** > **MFA Server** (Servidor MFA).
+2. En la parte izquierda, seleccione **Azure Active Directory** > **Seguridad** > **MFA**.
 3. Seleccione el informe que desee ver.
 
    ![Informe de estado del Servidor MFA en Azure Portal](./media/howto-mfa-reporting/report.png)

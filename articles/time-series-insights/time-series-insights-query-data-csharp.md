@@ -1,6 +1,6 @@
 ---
-title: Consulta de datos desde un entorno de Azure Time Series Insights GA mediante código de C# | Microsoft Docs
-description: En este artículo se describe cómo consultar datos de un entorno de Azure Time Series Insights mediante la creación de una aplicación personalizada escrita en el lenguaje de .NET C# (c-sharp).
+title: Consulta de datos desde un entorno de GA mediante código de C# (Azure Time Series Insights) | Microsoft Docs
+description: Aprenda a consultar datos desde un entorno de Azure Time Series Insights mediante una aplicación personalizada escrita en C#.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/03/2019
 ms.custom: seodec18
-ms.openlocfilehash: 23e4ad5667019b5bc38f9ba11d14632d4d55d5b7
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 5946a1484a62b041772f388b0629d131afe37b92
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72989972"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012548"
 ---
 # <a name="query-data-from-the-azure-time-series-insights-ga-environment-using-c"></a>Consulta de datos desde el entorno de Azure Time Series Insights GA mediante C#
 

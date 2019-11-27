@@ -1,35 +1,32 @@
 ---
-title: 'Autenticación de servicio a servicio: Java con Azure Data Lake Storage Gen1 mediante Azure Active Directory | Microsoft Docs'
+title: 'Autenticación entre servicios: Data Lake Storage Gen1 – SDK de Java'
 description: Aprenda a realizar la autenticación de servicio a servicio con Azure Data Lake Storage Gen1 mediante Azure Active Directory con Java.
-services: data-lake-store
-documentationcenter: ''
 author: twooley
-manager: mtillman
-editor: cgronlun
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: c32eada2acca73e089c2296ce8e59c529d7af665
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f355da7cd9c035b4ed0845bbd374a93bfb4a7350
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60195001"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904531"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-java"></a>Autenticación de servicio a servicio con Azure Data Lake Storage Gen1 mediante Java
+
 > [!div class="op_single_selector"]
 > * [Uso de Java](data-lake-store-service-to-service-authenticate-java.md)
 > * [Uso de SDK de .NET](data-lake-store-service-to-service-authenticate-net-sdk.md)
 > * [Uso de Python](data-lake-store-service-to-service-authenticate-python.md)
 > * [Uso de la API de REST](data-lake-store-service-to-service-authenticate-rest-api.md)
-> 
+>
 >  
 
 En este artículo, aprenderá a usar el SDK de Java para realizar la autenticación de servicio a servicio con Azure Data Lake Storage Gen1. No se admite la autenticación de usuario final con Data Lake Storage Gen1 mediante el SDK de Java.
 
 ## <a name="prerequisites"></a>Requisitos previos
+
 * **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 * **Cree una aplicación "web" de Azure Active Directory**. Debe haber completado los pasos descritos en [Service-to-service authentication with Data Lake Storage Gen1 using Azure Active Directory](data-lake-store-service-to-service-authenticate-using-active-directory.md) (Autenticación entre servicios con Data Lake Storage Gen1 mediante Azure Active Directory).
@@ -39,10 +36,11 @@ En este artículo, aprenderá a usar el SDK de Java para realizar la autenticaci
 * (Opcional) Un IDE como [IntelliJ IDEA](https://www.jetbrains.com/idea/download/), [Eclipse](https://www.eclipse.org/downloads/) o similar.
 
 ## <a name="service-to-service-authentication"></a>Autenticación entre servicios
+
 1. Cree un proyecto de Maven mediante [mvn archetype](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html) en la línea de comandos o con un entorno de desarrollo integrado. Para ver instrucciones sobre cómo crear un proyecto de Java mediante IntelliJ, consulte [este artículo](https://www.jetbrains.com/help/idea/2016.1/creating-and-running-your-first-java-application.html). Para ver instrucciones sobre cómo crear un proyecto con Eclipse, consulte [este artículo](https://help.eclipse.org/mars/index.jsp?topic=%2Forg.eclipse.jdt.doc.user%2FgettingStarted%2Fqs-3.htm).
 
 2. Agregue las siguientes dependencias a su archivo **pom.xml** de Maven. Agregue el siguiente fragmento de código antes de la etiqueta **\</project>** :
-   
+
         <dependencies>
           <dependency>
             <groupId>com.microsoft.azure</groupId>
@@ -55,7 +53,7 @@ En este artículo, aprenderá a usar el SDK de Java para realizar la autenticaci
             <version>1.7.21</version>
           </dependency>
         </dependencies>
-   
+
     La primera dependencia es el uso del SDK de Data Lake Storage Gen1 (`azure-data-lake-store-sdk`) desde el repositorio de Maven. La segunda dependencia consiste en especificar qué plataforma de registro (`slf4j-nop`) se usará para esta aplicación. El SDK de Data Lake Storage Gen1 usa la fachada de registro [slf4j](https://www.slf4j.org/), que permite elegir entre una serie de plataformas de registro populares, como slf4j, registro de Java, Logback, etc., o no registrarse. En este ejemplo, se deshabilita el registro; por tanto, se usa el enlace **slf4j-nop**. Para usar otras opciones de registro en su aplicación, consulte [este artículo](https://www.slf4j.org/manual.html#projectDep).
 
 3. Agregue las siguientes instrucciones de importación a la aplicación.
@@ -80,8 +78,7 @@ En este artículo, aprenderá a usar el SDK de Java para realizar la autenticaci
 El SDK de Data Lake Storage Gen1 proporciona métodos útiles que permiten obtener los tokens de seguridad necesarios para comunicarse con la cuenta de Data Lake Storage Gen1. Sin embargo, el SDK no obliga a que se usen solo estos métodos. También puede usar cualquier otro medio de obtención del token, como el [SDK de Azure Active Directory](https://github.com/AzureAD/azure-activedirectory-library-for-java) o su propio código personalizado.
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 En este artículo, ha aprendido a usar la autenticación de usuario final para autenticarse en Data Lake Storage Gen1 mediante el SDK de Java. Ahora puede consultar los siguientes artículos, que tratan sobre cómo usar el SDK de Java con Data Lake Storage Gen1.
 
 * [Operaciones de datos en Data Lake Storage Gen1 mediante el SDK de Java](data-lake-store-get-started-java-sdk.md)
-
-

@@ -1,23 +1,22 @@
 ---
-title: Escalado del entorno de Azure Time Series Insights | Microsoft Docs
-description: En este artículo se describe cómo escalar el entorno de Azure Time Series Insights. Use Azure Portal para agregar o restar capacidad en una SKU de precios.
+title: 'Escalado del entorno: Azure Time Series Insights | Microsoft Docs'
+description: Aprenda a escalar el entorno de Azure Time Series Insights mediante Azure Portal.
 ms.service: time-series-insights
 services: time-series-insights
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
 manager: cshankar
-ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: a899de22137decc1eb1578369a2751710c17abda
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: b17cdb2ec27676d5d20d6f12bad309368fe32aa3
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72332868"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74006801"
 ---
 # <a name="how-to-scale-your-time-series-insights-environment"></a>Escalado de su entorno de Time Series Insights
 
@@ -27,21 +26,9 @@ Puede usar Azure Portal para aumentar o disminuir la capacidad en una SKU de pre
 
 Sin embargo, el plan de tarifa de la SKU no se puede cambiar. Por ejemplo, un entorno con una SKU de precios de S1 no se puede convertir en una de S2 o viceversa.
 
-## <a name="s1-sku-ingress-rates-and-capacities"></a>Capacidades y tasas de entrada de SKU de S1
+## <a name="ga-limits"></a>Límites de la disponibilidad general
 
-| Capacidad de SKU de S1 | Velocidad de entrada | Capacidad máxima de almacenamiento
-| --- | --- | --- |
-| 1 | 1 GB (1 millones de eventos) | 30 GB (30 millones de eventos) al mes |
-| 10 | 10 GB (10 millones de eventos) | 300 GB (300 millones de eventos) al mes |
-
-## <a name="s2-sku-ingress-rates-and-capacities"></a>Capacidades y tasas de entrada de SKU de S2
-
-| Capacidad de SKU de S2 | Velocidad de entrada | Capacidad máxima de almacenamiento
-| --- | --- | --- |
-| 1 | 10 GB (10 millones de eventos) | 300 GB (300 millones de eventos) al mes |
-| 10 | 100 GB (100 millones de eventos) | 3 TB (3 mil millones de eventos) al mes |
-
-Las capacidades se escalan linealmente, por lo que una SKU de S1 con capacidad 2 admite una velocidad de entrada de 2 GB (2 millones) de eventos al día y 60 GB (60 millones de eventos) al mes.
+[!INCLUDE [Azure Time Series Insights GA limits](../../includes/time-series-insights-ga-limits.md)]
 
 ## <a name="change-the-capacity-of-your-environment"></a>Cambio de la capacidad del entorno
 

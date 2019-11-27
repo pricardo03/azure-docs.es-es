@@ -7,12 +7,12 @@ ms.service: firewall-manager
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: victorh
-ms.openlocfilehash: fe733b686f2b56beee26a6c33c4d6264d621e627
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: bcea9a8674e4b1979698b7d28eb4192172b0dc11
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73511365"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931318"
 ---
 # <a name="deploy-a-trusted-security-partner-preview"></a>Implementación de un asociado de seguridad de confianza (versión preliminar)
 
@@ -27,7 +27,7 @@ Para esta versión preliminar los asociados de seguridad admitidos son **ZScaler
 ## <a name="prerequisites"></a>Requisitos previos
 
 > [!IMPORTANT]
-> La versión preliminar de Azure Firewall Manager se debe habilitar explícitamente con el comando `Register-AzProviderFeature` PowerShell.
+> La versión preliminar de Azure Firewall Manager se debe habilitar explícitamente mediante el comando `Register-AzProviderFeature` de PowerShell.
 
 Desde el símbolo del sistema de PowerShell, ejecute los siguientes comandos:
 
@@ -83,12 +83,11 @@ Para configurar túneles en VPN Gateway del centro de conectividad virtual, los 
 
    > [!NOTE]
    > Puede limitar el acceso solo a su grupo de recursos para un control más granular.
-3. Siga las instrucciones del siguiente vínculo.
+3. Siga las instrucciones de [ZScaler: configuración de la integración con Microsoft Azure Virtual WAN](https://help.zscaler.com/zia/configuring-microsoft-azure-virtual-wan-integration) para:
 
-   - Para iniciar sesión en el portal de socios y agregar sus credenciales para que el socio de confianza tenga acceso a su centro de conectividad seguro.
-   - Una vez que se validen sus credenciales de autenticación de Azure AD, use las siguientes instrucciones para sincronizar los centros de conectividad virtuales en el portal de socios y configure el túnel con el centro de virtual.
-
-   [ZScaler: Configuración de una integración Virtual WAN de Microsoft Azure](https://help.zscaler.com/zia/configuring-microsoft-azure-virtual-wan-integration)
+   - Inicie sesión en el portal de asociados y agregue sus credenciales para conceder al asociado de confianza acceso a su centro protegido.
+   - Sincronice los centros virtuales en el portal de asociados y configure el túnel de acceso al concentrador virtual. Puede hacerlo una vez que se hayan validado las credenciales de autenticación de Azure AD.
+   
 4. Puede ver el estado de creación del túnel en el portal de la Azure Virtual WAN en Azure. Una vez que los túneles se muestren **conectados** tanto en Azure como en el portal asociado, continúe con los siguientes pasos para configurar las rutas en la selección de las sucursales y VNets que deberán enviar el tráfico de Internet al asociado.
 
 ## <a name="configure-route-settings"></a>Configurar los parámetros de la ruta
@@ -116,7 +115,7 @@ Una vez finalizados los pasos de configuración de la ruta, las máquinas virtua
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Tutorial: Proteja su red en la nube con la versión preliminar de Azure Firewall Manager en Azure Portal](secure-cloud-network.md)
+- [Tutorial: Protección de una red en la nube con la versión preliminar de Azure Firewall Manager en Azure Portal](secure-cloud-network.md)
 
 
 

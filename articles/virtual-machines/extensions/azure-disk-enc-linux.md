@@ -1,5 +1,5 @@
 ---
-title: Azure Disk Encryption para Linux | Microsoft Docs
+title: Azure Disk Encryption para Linux
 description: Implementa Azure Disk Encryption para Linux en una máquina virtual mediante una extensión de máquina virtual.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/10/2019
 ms.author: ejarvi
-ms.openlocfilehash: 1801ca8bd59153de81ef680253da229e2bd4a338
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 4fa7f7d1419a8cd1006a632ba67587ab3434bf5a
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597865"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073805"
 ---
 # <a name="azure-disk-encryption-for-linux-microsoftazuresecurityazurediskencryptionforlinux"></a>Azure Disk Encryption para Linux (Microsoft.Azure.Security.AzureDiskEncryptionForLinux)
 

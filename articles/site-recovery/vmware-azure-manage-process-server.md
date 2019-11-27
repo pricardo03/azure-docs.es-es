@@ -1,18 +1,18 @@
 ---
-title: Administración de un servidor de procesos usado para la recuperación ante desastres de VM de VMware y servidores físicos en Azure con Azure Site Recovery | Microsoft Docs
-description: En este artículo se describe la administración de un servidor de procesos configurado para la recuperación ante desastres de VM de VMware y servidores físicos en Azure con Azure Site Recovery.
+title: Administración de un servidor de procesos para la recuperación ante desastres de servidores físicos o máquinas virtuales de VMware en Azure Site Recovery
+description: En este artículo se describe la administración de un servidor de procesos para la recuperación ante desastres de servidores físicos o máquinas virtuales de VMware con Azure Site Recovery.
 author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/28/2019
 ms.author: ramamill
-ms.openlocfilehash: 2c27779719c73adf4d7fc1a61a0c77d03df71815
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ef16e3b75ca8e051b1b7abb1a92843279884c697
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64925596"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954348"
 ---
 # <a name="manage-process-servers"></a>Administración de servidores de proceso
 
@@ -67,7 +67,20 @@ Mueva toda la carga de trabajo controlada por un servidor de procesos a otro ser
 
 Los cambios tardarán unos 15 minutos en verse reflejados en el portal. Para un efecto más rápido, [actualice el servidor de configuración](vmware-azure-manage-configuration-server.md#refresh-configuration-server).
 
+## <a name="register-a-master-target-server"></a>Registro de un servidor de destino maestro
 
+El servidor de destino maestro reside en el servidor de configuración y en los servidores de procesos de escalado horizontal. Debe estar registrado en el servidor de configuración. En caso de que se produzca un error en este registro, el estado de los elementos protegidos puede verse afectado. Para registrar el servidor de destino maestro en el servidor de configuración, inicie sesión en el servidor de configuración específico o en el servidor de procesos de escalado horizontal en el que se requiere el registro. Vaya a carpeta **%PROGRAMDATA%\ASR\Agent** y ejecute lo siguiente en el símbolo del sistema de administrador.
+
+   ```
+   cmd
+   cdpcli.exe --registermt
+
+   net stop obengine
+
+   net start obengine
+
+   exit
+   ```
 
 ## <a name="reregister-a-process-server"></a>Volver a registrar un servidor de procesos
 

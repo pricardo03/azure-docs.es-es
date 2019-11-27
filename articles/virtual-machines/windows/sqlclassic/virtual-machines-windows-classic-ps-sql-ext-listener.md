@@ -1,5 +1,5 @@
 ---
-title: Configuración de un agente de escucha externo para grupos de disponibilidad AlwaysOn | Microsoft Docs
+title: Configuración de un agente de escucha externo para grupos de disponibilidad
 description: Este tutorial le guiará a través de los pasos necesarios para crear un agente de escucha de grupo de disponibilidad AlwaysOn en Azure que sea accesible desde el exterior usando la dirección IP virtual pública del servicio en la nube asociado.
 services: virtual-machines-windows
 documentationcenter: na
@@ -14,14 +14,15 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mikeray
-ms.openlocfilehash: 78881830d4e558daaad6e1929b30287e2731fb1b
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.custom: seo-lt-2019
+ms.openlocfilehash: d2dce6875ec39810a81bb5ae454d953a7b7ab0a9
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100410"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74032718"
 ---
-# <a name="configure-an-external-listener-for-always-on-availability-groups-in-azure"></a>Configuración de un agente de escucha externo para grupos de disponibilidad AlwaysOn en Azure
+# <a name="configure-an-external-listener-for-availability-groups-on-azure-sql-server-vms"></a>Configuración de un agente de escucha externo para grupos de disponibilidad en máquinas virtuales con SQL Server de Azure
 > [!div class="op_single_selector"]
 > * [Agente de escucha interno](../classic/ps-sql-int-listener.md)
 > * [Agente de escucha externo](../classic/ps-sql-ext-listener.md)

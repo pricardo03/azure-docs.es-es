@@ -1,5 +1,5 @@
 ---
-title: Mover un recurso de máquina virtual Windows en Azure | Microsoft Docs
+title: Traslado de un recurso de máquina virtual Windows en Azure
 description: Mueva una máquina virtual Windows a otro grupo de recursos o suscripción de Azure en el modelo de implementación de Resource Manager.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 07/03/2019
 ms.author: cynthn
-ms.openlocfilehash: 6b189c4bfcc61084ed197649d376cae8fdf2eb56
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 9264e36922cb88c541ba9fb2fe54a9606f371b72
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67723089"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033171"
 ---
 # <a name="move-a-windows-vm-to-another-azure-subscription-or-resource-group"></a>Movimiento de una máquina virtual Windows a otro grupo de recursos o suscripción de Azure
 Este artículo le guiará en el procedimiento para mover una máquina virtual (VM) Windows entre suscripciones o grupos de recursos. Mover máquinas virtuales entre suscripciones puede ser útil si originalmente creó una en una suscripción personal y ahora quiere moverla a la suscripción de su compañía para seguir trabajando. Para poder mover la máquina virtual, no es necesario iniciarla y debe mantenerse en ejecución durante el desplazamiento.

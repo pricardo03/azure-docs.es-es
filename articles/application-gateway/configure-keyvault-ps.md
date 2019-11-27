@@ -1,18 +1,19 @@
 ---
-title: Configuración de la terminación SSL con certificados de Key Vault mediante Azure PowerShell
-description: Obtenga información sobre cómo puede integrar Azure Application Gateway con Key Vault para certificados de servidor que se adjuntan a los clientes de escucha con HTTPS habilitado.
+title: 'Configuración de la terminación SSL con certificados de Key Vault: PowerShell'
+titleSuffix: Azure Application Gateway
+description: Obtenga información sobre cómo puede integrar Azure Application Gateway con Key Vault para certificados de servidor que se adjuntan a los clientes de escucha con HTTPS habilitado.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 4/22/2019
+ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: b7408d6169e1cf42bcda8855a19076c739d086dd
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: c40c4cf9f25ce17bc7042191324aeb864696995f
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71001010"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074596"
 ---
 # <a name="configure-ssl-termination-with-key-vault-certificates-by-using-azure-powershell"></a>Configuración de la terminación SSL con certificados de Key Vault mediante Azure PowerShell
 

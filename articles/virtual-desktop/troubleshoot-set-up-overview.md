@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 04/08/2019
+ms.date: 11/09/2019
 ms.author: helohr
-ms.openlocfilehash: aa4254673d426579a5e5f0e90e389db7c6cadff0
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 7f80fb07bbed3bdb478bce557241a92cd571cc83
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607349"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904893"
 ---
 # <a name="troubleshooting-overview-feedback-and-support"></a>Información general sobre solución de problemas, comentarios y soporte técnico
 
@@ -44,6 +44,7 @@ Use la siguiente tabla para identificar y resolver los problemas que puedan surg
 | Conexión de clientes                                                                    | Consulte [Conexiones de cliente de Escritorio remoto](troubleshoot-client-connection.md) y si no se soluciona el problema, consulte [Configuración de máquina virtual de host de sesión](troubleshoot-vm-configuration.md). |
 | Capacidad de respuesta del escritorio o de las aplicaciones remotas                                      | Si los problemas están asociados a una aplicación o producto específicos, póngase en contacto con el equipo responsable de dicho producto. |
 | Errores o mensajes de las licencias                                                          | Si los problemas están asociados a una aplicación o producto específicos, póngase en contacto con el equipo responsable de dicho producto. |
+| Problemas al usar Windows Virtual Desktop en GitHub (plantillas de Azure Resource Manager, herramienta de diagnóstico y herramienta de administración) | Consulte [Plantillas de ARM para Servicios de Escritorio remoto](https://github.com/Azure/RDS-Templates/blob/master/README.md) para informar de problemas. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -54,4 +55,4 @@ Use la siguiente tabla para identificar y resolver los problemas que puedan surg
 - Para más información sobre el servicio, consulte [Entorno de Windows Virtual Desktop](https://docs.microsoft.com/azure/virtual-desktop/environment-setup).
 - Para realizar un tutorial de solución de problemas, consulte [Tutorial: Solución de problemas de las implementaciones de plantillas de Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot).
 - Para más información sobre las acciones de auditoría, consulte [Operaciones de auditoría con Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
-- Si desea conocer más detalles sobre las acciones que permiten determinar los errores durante la implementación, consulte [Visualización de operaciones de implementación con el Portal de Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations).
+- Para obtener información sobre las acciones que permiten determinar los errores que se producen durante la implementación, consulte [Visualización de operaciones de implementación](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations).

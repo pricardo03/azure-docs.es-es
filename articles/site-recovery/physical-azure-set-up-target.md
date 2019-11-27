@@ -1,5 +1,5 @@
 ---
-title: Configuración del entorno de destino para la recuperación ante desastres de servidores físicos locales en Azure | Microsoft Docs
+title: Configuración del entorno de destino para servidores físicos en Azure Site Recovery
 description: En este artículo se describe cómo configurar el entorno de destino de Azure para la recuperación ante desastres de servidores físicos mediante Azure Site Recovery.
 author: Rajeswari-Mamilla
 manager: rochakm
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 41220ccdca945610d7d8ca87af0857114e2cef85
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 685f04b27cd315b04ef5c45e155e825eebe2747b
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60949078"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953899"
 ---
 # <a name="prepare-target-vmware-to-azure"></a>Preparación del destino (VMware a Azure)
 
@@ -21,7 +21,7 @@ En este artículo se describe cómo preparar el entorno de Azure para comenzar a
 ## <a name="prerequisites"></a>Requisitos previos
 
 En este artículo se da por supuesto lo siguiente:
-- Ha creado un almacén de Recovery Services para proteger sus servidores físicos. Puede crear un almacén de Recovery Services desde [Azure Portal](https://portal.azure.com "Azure Portal").
+- Ha creado un almacén de Recovery Services para proteger sus servidores físicos. Puede crear un almacén de Recovery Services desde [Azure Portal](https://portal.azure.com "Portal de Azure").
 - Ha [configurado el entorno local](physical-azure-disaster-recovery.md) para replicar servidores físicos en Azure.
 
 ## <a name="prepare-target"></a>Preparación del destino

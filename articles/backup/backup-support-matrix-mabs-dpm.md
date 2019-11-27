@@ -1,5 +1,5 @@
 ---
-title: Matriz de compatibilidad para Microsoft Azure Backup Server y System Center DPM
+title: Matriz de compatibilidad para Microsoft Azure Backup Server y System Center DPM
 description: En este artículo se resume la compatibilidad de Azure Backup al usar Microsoft Azure Backup Server o System Center DPM para realizar copias de seguridad de recursos locales y de máquinas virtuales de Azure.
 author: dcurwin
 ms.service: backup
@@ -7,12 +7,12 @@ ms.date: 02/17/2019
 ms.topic: conceptual
 ms.author: dacurwin
 manager: carmonm
-ms.openlocfilehash: d14cd996fe0e5a67cc3b554fe1e12146cd6b8e1c
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: d9c55773772b4f331de95bd98b1973225357c0cd
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981078"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012785"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Matriz de compatibilidad para copia de seguridad con Microsoft Azure Backup Server o System Center DPM
 
@@ -30,7 +30,7 @@ MABS se basa en System Center DPM y proporciona una funcionalidad similar con un
 - Azure proporciona almacenamiento de copia de seguridad a largo plazo tanto para MABS como para DPM. Además, DPM permite realizar una copia de seguridad de los datos para su almacenamiento en cinta a largo plazo. MABS no proporciona esta funcionalidad.
 - Puede realizar una copia de seguridad de un servidor DPM principal con un servidor DPM secundario. El servidor secundario protegerá la base de datos del servidor principal y las réplicas del origen de datos almacenadas en el servidor principal. Si se produce un error en el servidor principal, el servidor secundario puede continuar protegiendo las cargas de trabajo que protege el servidor principal, hasta que este vuelva a estar disponible.  MABS no proporciona esta funcionalidad.
 
-Puede descargar MABS del [Centro de descarga de Microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=57520). Se puede ejecutar de forma local o en una máquina virtual de Azure.
+Puede descargar MABS del [Centro de descarga de Microsoft](https://www.microsoft.com/download/details.aspx?id=57520). Se puede ejecutar de forma local o en una máquina virtual de Azure.
 
 DPM y MABS admiten la copia de seguridad de una amplia variedad de aplicaciones y sistemas operativos cliente y de servidor. Proporcionan varios escenarios de copia de seguridad:
 

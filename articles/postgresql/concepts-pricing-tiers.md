@@ -5,13 +5,13 @@ author: jan-eng
 ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 07/31/2019
-ms.openlocfilehash: f65bc0a9969ac713c2fb9f8629b97fbe522e9fe0
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.date: 11/08/2019
+ms.openlocfilehash: 4f8bbf22d1081948cf6effd5fdbd8b6a6b7d5332
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624843"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903295"
 ---
 # <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>Limitaciones de Azure Database for PostgreSQL: servidor único
 
@@ -22,7 +22,7 @@ Puede crear un servidor de Azure Database for PostgreSQL en tres planes de tarif
 | Generación de procesos | Gen 4, Gen 5 | Gen 4, Gen 5 | Gen 5 |
 | Núcleos virtuales | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
 | Memoria por núcleo virtual | 2 GB | 5 GB | 10 GB |
-| Tamaño de almacenamiento | De 5 GB a 1 TB | De 5 GB a 4 TB | De 5 GB a 4 TB |
+| Tamaño de almacenamiento | De 5 GB a 1 TB | De 5 GB a 16 TB | De 5 GB a 16 TB |
 | Tipo de almacenamiento | Azure Standard Storage | Azure Premium Storage | Azure Premium Storage |
 | Período de retención de copias de seguridad de base de datos | De 7 a 35 días | De 7 a 35 días | De 7 a 35 días |
 
@@ -47,9 +47,15 @@ El almacenamiento que se aprovisiona es la cantidad de capacidad de almacenamien
 |    | **Básico** | **Uso general** | **Memoria optimizada** |
 |:---|:----------|:--------------------|:---------------------|
 | Tipo de almacenamiento | Azure Standard Storage | Azure Premium Storage | Azure Premium Storage |
-| Tamaño de almacenamiento | De 5 GB a 1 TB | De 5 GB a 4 TB | De 5 GB a 4 TB |
+| Tamaño de almacenamiento | De 5 GB a 1 TB | De 5 GB a 16 TB | De 5 GB a 16 TB |
 | Tamaño de incremento de almacenamiento | 1 GB | 1 GB | 1 GB |
-| E/S | Variable |3 IOPS/GB<br/>100 IOPS mín.<br/>6000 IOPS máx. | 3 IOPS/GB<br/>100 IOPS mín.<br/>6000 IOPS máx. |
+| E/S | Variable |3 IOPS/GB<br/>100 IOPS mín.<br/>20 000 IOPS máx. | 3 IOPS/GB<br/>100 IOPS mín.<br/>20 000 IOPS máx. |
+
+> [!NOTE]
+> Se admite el almacenamiento de hasta 16 TB y 20 000 IOPS en las siguientes regiones: Este de EE. UU., Este de EE. UU. 2, Centro de EE. UU., Oeste de EE. UU., Norte de Europa, Oeste de Europa, Sur de Reino Unido, Oeste de Reino Unido, Sudeste Asiático, Asia Oriental, Este de Japón, Oeste de Japón, Centro de Corea del Sur, Sur de Corea del Sur, Este de Australia, Sudeste de Australia.
+>
+> El resto de regiones admiten hasta 4 TB de almacenamiento y 6000 IOPS.
+>
 
 Puede agregar capacidad de almacenamiento adicional durante y después de la creación del servidor y permitir que el sistema aumente el almacenamiento automáticamente en función del consumo de almacenamiento de su carga de trabajo. 
 
@@ -59,26 +65,6 @@ Puede agregar capacidad de almacenamiento adicional durante y después de la cre
 El plan Básico no proporciona una garantía de IOPS. En los planes de tarifa Uso general y Memoria optimizada, el valor de IOPS se escala con el tamaño de almacenamiento aprovisionado en una proporción 3:1.
 
 Puede supervisar el consumo de E/S en Azure Portal o mediante los comandos de la CLI de Azure. Las métricas pertinentes que se deben supervisar son el [límite de almacenamiento, el porcentaje de almacenamiento, el almacenamiento usado y el porcentaje de E/S](concepts-monitoring.md).
-
-### <a name="large-storage-preview"></a>Almacenamiento de gran tamaño (versión preliminar)
-
-Estamos aumentando los límites de almacenamiento en nuestros niveles De uso general y Optimizados para memoria. Los servidores recién creados que participen en la versión preliminar pueden aprovisionar hasta 16 TB de almacenamiento. La escala IOPS en una proporción de 3:1 es de hasta 20 000 IOPS. Con el almacenamiento disponible actualmente, puede agregar capacidad de almacenamiento adicional durante y después de la creación del servidor, y permitir que el sistema aumente el almacenamiento de manera automática en función del consumo de almacenamiento de su carga de trabajo.
-
-|              | **Uso general** | **Memoria optimizada** |
-|:-------------|:--------------------|:---------------------|
-| Tipo de almacenamiento | Azure Premium Storage | Azure Premium Storage |
-| Tamaño de almacenamiento | De 32 GB a 16 TB| De 32 GB a 16 TB |
-| Tamaño de incremento de almacenamiento | 1 GB | 1 GB |
-| E/S | 3 IOPS/GB<br/>100 IOPS mín.<br/>20 000 IOPS máx. | 3 IOPS/GB<br/>100 IOPS mín.<br/>20 000 IOPS máx. |
-
-> [!IMPORTANT]
-> El almacenamiento de gran tamaño actualmente se encuentra disponible en versión preliminar pública en las siguientes regiones: Este de EE. UU., Este de EE. UU. 2, Centro de EE. UU., Oeste de EE. UU., Norte de Europa, Oeste de Europa, Sur de Reino Unido, Oeste de Reino Unido, Sudeste Asiático, Asia Oriental, Este de Japón, Oeste de Japón, Centro de Corea del Sur, Sur de Corea del Sur, Este de Australia, Sudeste de Australia.
->
-> La versión preliminar de almacenamiento de gran tamaño actualmente no admite:
->
-> * Conexiones entrantes a través de puntos de conexión de servicio de red virtual.
-> * Copias de seguridad geográficamente redundantes
-> * Réplicas de lectura
 
 ### <a name="reaching-the-storage-limit"></a>Alcance del límite de almacenamiento
 

@@ -1,5 +1,5 @@
 ---
-title: 'Configuración del emparejamiento de un circuito: ExpressRoute: Azure: clásico | Microsoft Docs'
+title: 'Azure ExpressRoute: Configuración del emparejamiento: clásico'
 description: Este artículo le guiará por los pasos necesarios para crear y aprovisionar las configuraciones entre pares privados, públicos y de Microsoft de un circuito ExpressRoute. Este artículo también muestra cómo comprobar el estado, actualizar, o eliminar configuraciones entre pares en el circuito.
 services: expressroute
 author: cherylmc
@@ -7,13 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: cherylmc
-ms.custom: seodec18
-ms.openlocfilehash: 01ec721fb7e7dea0e4e31e0c3052cc4246cf14b0
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 814a73900b05b66d1bacc946b9f994135d3fc9f6
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748196"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083439"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>Creación y modificación del emparejamiento de un circuito ExpressRoute (clásica)
 > [!div class="op_single_selector"]

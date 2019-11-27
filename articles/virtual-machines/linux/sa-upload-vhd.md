@@ -1,5 +1,5 @@
 ---
-title: Carga de un disco de Linux personalizado con la CLI de Azure | Microsoft Docs
+title: Carga de un disco de Linux personalizado con la CLI de Azure
 description: Creación y carga en Azure de un disco duro virtual (VHD) mediante el modelo de implementación de Resource Manager y la CLI de Azure
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: cynthn
-ms.openlocfilehash: 9614614782179f9160aebdc4deca88f067778060
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: ef2db7f13ea5192634855b69a0d355e0f1e11ecb
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67708365"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035078"
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-with-the-azure-cli"></a>Carga y creación de una máquina virtual Linux a partir de un disco personalizado mediante la CLI de Azure
 

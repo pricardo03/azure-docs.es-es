@@ -1,5 +1,5 @@
 ---
-title: Descripción de cómo utilizar Swagger de referencia de Azure Digital Twins | Microsoft Docs
+title: 'Uso de la documentación de referencia de Swagger: Azure Digital Twins | Microsoft Docs'
 description: Descripción de cómo utilizar la documentación de referencia de Swagger de Azure Digital Twins | Microsoft Docs
 ms.author: alinast
 author: alinamstanciu
@@ -9,12 +9,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 10/03/2019
 ms.custom: seodec18
-ms.openlocfilehash: 06cbdf6fbba89b6666e6fe3162fd591e93dffecd
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: ccea63e8edee739ce6743d7638b4e5300ad07f8f
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958872"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74009882"
 ---
 # <a name="azure-digital-twins-swagger-reference-documentation"></a>Documentación de referencia de Swagger de Azure Digital Twins
 
@@ -95,7 +95,7 @@ Los ejemplos incluyen también los códigos de error para ayudar a depurar o mej
 > [!NOTE]
 > * La entidad de seguridad de usuario que creó el recurso de Azure Digital Twins tendrá una asignación del rol Administrador de espacio y podrá crear asignaciones de roles adicionales para otros usuarios. Estos usuarios y sus roles se pueden autorizar para llamar a las API.
 
-1. Siga los pasos de [este inicio rápido](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) o [registre la aplicación de Digital Twins con Azure Active Directory heredado](./how-to-use-legacy-aad.md) para crear y configurar una aplicación de Azure AD. También puede volver a usar un registro de aplicación existente.
+1. Siga los pasos de [esta guía de inicio rápido](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) para crear y configurar una aplicación de Azure AD. También puede volver a usar un registro de aplicación existente.
 
 1. Agregue la siguiente dirección URL de respuesta al registro de aplicación:
 

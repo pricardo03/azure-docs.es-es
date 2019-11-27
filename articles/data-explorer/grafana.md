@@ -1,24 +1,24 @@
 ---
 title: Visualización de datos desde Azure Data Explorer mediante Grafana
-description: En este procedimiento, aprenderá a configurar Azure Data Explorer como origen de datos de Grafana y a visualizarlos después desde un clúster de ejemplo.
+description: En este artículo, aprenderá a configurar Azure Data Explorer como origen de datos de Grafana y a visualizarlos después desde un clúster de ejemplo.
 author: orspod
 ms.author: orspodek
-ms.reviewer: mblythe
+ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 6/30/2019
-ms.openlocfilehash: f1eb9fb0d81d1e9cdf3dd8628a6d7ad1f0ccce92
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.date: 11/13/2019
+ms.openlocfilehash: a1c52007ea86ca0812c4a73a92ce81db6ddadc7b
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73581970"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74038018"
 ---
 # <a name="visualize-data-from-azure-data-explorer-in-grafana"></a>Visualización de datos desde Azure Data Explorer en Grafana
 
 Grafana es una plataforma de análisis que permite consultar y visualizar datos y crear y compartir paneles basados en las visualizaciones. Grafana proporciona un *complemento* para Azure Data Explorer, que permite conectarse a datos desde Azure Data Explorer y visualizarlos. En este artículo, aprenderá a configurar Azure Data Explorer como origen de datos de Grafana y a visualizarlos después desde un clúster de ejemplo.
 
-Con el siguiente video, puede aprender a usar el complemento Azure Data Explorer de Grafana, configurar Azure Data Explorer como origen de datos para Grafana y, después, visualizar los datos. 
+Use el vídeo siguiente para aprender a usar el complemento Azure Data Explorer de Grafana, configurar Azure Data Explorer como origen de datos de Grafana y, después, visualizar los datos. 
 
 > [!VIDEO https://www.youtube.com/embed/fSR_qCIFZSA]
 
@@ -26,7 +26,7 @@ Además, puede [configurar el origen de datos](#configure-the-data-source) y [vi
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Necesita lo siguiente para completar este procedimiento:
+Para completar este artículo, necesitará lo siguiente:
 
 * [Grafana versión 5.3.0 o una versión posterior](https://docs.grafana.org/installation/) para su sistema operativo
 
@@ -111,8 +111,26 @@ Ahora que ya ha terminado de configurar Azure Data Explorer como origen de datos
 
 1. En el menú superior, seleccione el icono para guardar: ![Icono Save (Guardar)](media/grafana/save-icon.png).
 
+## <a name="create-alerts"></a>Creación de alertas
+
+1. En el panel de inicio, seleccione **Alertas** > **Canales de notificación** para crear un canal de notificación nuevo.
+
+    ![crear canal de notificación](media/grafana/create-notification-channel.png)
+
+1. Cree un **Canal de notificación** y, luego, elija **Guardar**.
+
+    ![Creación de un canal de notificación](media/grafana/new-notification-channel-adx.png)
+
+1. En el **Panel**, seleccione **Editar** en el menú desplegable.
+
+    ![seleccionar editar en el panel](media/grafana/edit-panel-4-alert.png)
+
+1. Seleccione el icono de campana de alerta para abrir el panel **Alertar**. Seleccione **Crear alerta**. Complete estas propiedades en el panel **Alerta**.
+
+    ![propiedades de alerta](media/grafana/alert-properties.png)
+
+1. Seleccione el icono **Save dashboard** (Guardar panel) para guardar los cambios.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Write queries for Azure Data Explorer](write-queries.md) (Escritura de consultas del Explorador de datos de Azure)
-
-* [Tutorial: Visualización de datos desde Azure Data Explorer en Power BI](visualize-power-bi.md)

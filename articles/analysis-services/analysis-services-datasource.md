@@ -4,15 +4,15 @@ description: Describe los orígenes de datos y los conectores admitidos para los
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/16/2019
+ms.date: 11/14/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5539d290ea182e24a50a103a762f011202ebf33a
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 038773b41d84a7b2b4f845a8bf70e9eed849bc80
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73572959"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74120022"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Orígenes de datos admitidos en Azure Analysis Services
 
@@ -35,7 +35,7 @@ Los orígenes de datos y los conectores que se muestran en Obtener datos o en el
 <a name="tab1400a">1</a>: Tabular 1400 y modelos posteriores solamente.   
 <a name="azsqlmanaged">2</a>: Compatible con Instancia administrada de Azure SQL Database. Dado que la instancia administrada se ejecuta dentro de una red virtual de Azure con una dirección IP privada, el punto de conexión público debe estar habilitado en la instancia. Si no está habilitado, se requiere una puerta de enlace de datos local.    
 <a name="databricks">3</a>: Actualmente no se admite Azure Databricks con el conector de Spark.   
-<a name="gen2">4</a>: Actualmente no se admite ADLS Gen2.
+<a name="gen2">4</a>: el conector ADLS Gen2 no se admite actualmente; no obstante, se puede usar el conector de Blob Storage con un origen de datos ADLS Gen2.
 
 
 **Proveedor**   
@@ -43,14 +43,14 @@ Los modelos En memoria y DirectQuery que se conectan a orígenes de datos de Azu
 
 ## <a name="other-data-sources"></a>Otros orígenes de datos
 
-Para conectarse a los orígenes de datos locales desde el servidor AS de Azure, se necesita una puerta de enlace local. Cuando se usa una puerta de enlace, se requieren proveedores de 64 bits.
+Para conectarse a los orígenes de datos locales desde el servidor Azure Analysis Services, se necesita una puerta de enlace local. Cuando se usa una puerta de enlace, se requieren proveedores de 64 bits.
 
 ### <a name="in-memory-and-directquery"></a>En memoria y DirectQuery
 
 |Origen de datos | Proveedor en memoria | Proveedor de DirectQuery |
 |  --- | --- | --- |
-| SQL Server |SQL Server Native Client 11.0, Proveedor OLE DB de Microsoft para SQL Server, Proveedor de datos .NET Framework para SQL Server | Proveedor de datos .NET Framework para SQL Server |
-| SQL Server Data Warehouse |SQL Server Native Client 11.0, Proveedor OLE DB de Microsoft para SQL Server, Proveedor de datos .NET Framework para SQL Server | Proveedor de datos .NET Framework para SQL Server |
+| SQL Server |Microsoft OLE DB Driver for SQL Server MSOLEDBSQL (recomendado), SQL Server Native Client 11.0, proveedor de datos .NET Framework para SQL Server | Proveedor de datos .NET Framework para SQL Server |
+| SQL Server Data Warehouse |Microsoft OLE DB Driver for SQL Server MSOLEDBSQL (recomendado), SQL Server Native Client 11.0, proveedor de datos .NET Framework para SQL Server | Proveedor de datos .NET Framework para SQL Server |
 | Oracle | Proveedor OLE DB para Oracle, Proveedor de datos de Oracle para .NET |Proveedor de datos de Oracle para .NET |
 | Teradata |Proveedor OLE DB para Teradata, Proveedor de datos de Teradata para .NET |Proveedor de datos de Teradata para .NET |
 | | | |

@@ -1,5 +1,5 @@
 ---
-title: Intercambio de discos del sistema operativo en una máquina virtual de Azure con PowerShell | Microsoft Docs
+title: Intercambio de discos del sistema operativo en una máquina virtual de Azure con PowerShell
 description: Intercambie el disco del sistema operativo que se usa en una máquina virtual de Azure mediante PowerShell.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 04/24/2018
 ms.author: cynthn
-ms.openlocfilehash: 50428f8f28a4211c54e7e3e9ee19421197490666
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: ec66892804f3c2d1f831168a2955f2498462cbf3
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749303"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033024"
 ---
 # <a name="change-the-os-disk-used-by-an-azure-vm-using-powershell"></a>Intercambio del disco del sistema operativo que se usa en una máquina virtual de Azure mediante PowerShell
 

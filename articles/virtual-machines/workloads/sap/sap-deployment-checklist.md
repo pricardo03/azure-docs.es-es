@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/15/2019
+ms.date: 11/08/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a77c0e38db06698e714c3d0c3df0d9a5f028787b
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: 097429e9c761d447a7164c813a6c84d3f07f0ab6
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "71672953"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73891413"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Lista de comprobación de planeamiento e implementación de cargas de trabajo de SAP en Azure
 
@@ -160,7 +160,7 @@ Se recomienda configurar y validar una solución completa de alta disponibilidad
    1.  Compruebe que las reglas del [grupo de seguridad de red y de ASC](https://docs.microsoft.com/azure/virtual-network/security-overview) funcionan según lo previsto y blindan los recursos protegidos.
    1.  Asegúrese de que se cifren todos los recursos que deben cifrarse. Defina e implemente procesos para realizar copias de seguridad de los certificados, almacenarlos y acceder a ellos, y para restaurar las entidades cifradas.
    1.  Utilice [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-faq) para los discos del sistema operativo siempre que sea posible desde el punto de vista de la compatibilidad con el sistema operativo.
-   1.  Asegúrese de que no está usando demasiados niveles de cifrado. En algunos casos, tiene sentido usar Azure Disk Encryption junto con uno de los métodos de Cifrado de datos transparente del DBMS.
+   1.  Asegúrese de que no está usando demasiados niveles de cifrado. En algunos casos, tiene sentido usar Azure Disk Encryption con uno de los métodos de Cifrado de datos transparente del DBMS para proteger distintos discos o componentes en el mismo servidor.  Por ejemplo, en un servidor de DBMS de SAP, Azure Disk Encryption (ADE) puede estar habilitado en el disco de arranque del sistema operativo (si el sistema operativo admite ADE) y en los discos de datos no utilizados por los archivos de persistencia de datos de DBMS.  Un ejemplo consiste en usar ADE en el disco que contiene las claves de cifrado TDE de DBMS.
 1. Pruebas de rendimiento. Basándose en las medidas y el seguimiento de SAP, realice estas comparaciones en SAP:
    - Si procede, compare los diez principales informes en línea con la implementación actual.
    - Si procede, compare los diez principales trabajos por lotes con la implementación actual.

@@ -16,12 +16,12 @@ ms.date: 04/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 04/04/2019
-ms.openlocfilehash: c9754c1d7fee5af13de6176dbf8a1ca6e57a71eb
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 3aaa99caca461d4b8e339cf4c1f7847adef4027a
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213159"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076845"
 ---
 # <a name="diagnose-dropped-notifications-in-azure-notification-hubs"></a>Diagnóstico de notificaciones eliminadas en Azure Notification Hubs
 
@@ -33,7 +33,7 @@ Es fundamental entender primero cómo Notification Hubs inserta notificaciones e
 
 En un flujo de notificaciones de envío típico, el mensaje se envía desde el *back-end de la aplicación* a Notification Hubs. Notification Hubs procesa todos los registros. Tiene en cuenta las etiquetas y expresiones de etiquetas configuradas para determinar los destinos. Los destinos son los registros que necesitan recibir la notificación push. Estos registros pueden comprender cualquiera de nuestras plataformas compatibles: Android, Baidu (dispositivos Android en China), Fire OS (Amazon), iOS, Windows y Windows Phone.
 
-Con los destinos establecidos, Notification Hubs inserta las notificaciones en el *servicio de notificaciones push* para la plataforma del dispositivo. Algunos ejemplos son Apple Push Notification Service (APN) de Apple y Firebase Cloud Messaging (FCM) de Google. Notification Hubs lleva a las notificaciones a dividirse en varios lotes de registros. Se autentica con el servicio de notificaciones push respectivo basado en las credenciales que se establecieron en Azure Portal, en **Configuración del centro de notificaciones**. Luego, el servicio de notificaciones de inserción reenvía las notificaciones a los respectivos *dispositivos cliente*.
+Con los destinos establecidos, Notification Hubs inserta las notificaciones en el *servicio de notificaciones push* para la plataforma del dispositivo. Algunos ejemplos incluyen Apple Push Notification Service (APNs) para iOS y macOS, y Firebase Cloud Messaging (FCM) para dispositivos Android. Notification Hubs lleva a las notificaciones a dividirse en varios lotes de registros. Se autentica con el servicio de notificaciones push respectivo basado en las credenciales que se establecieron en Azure Portal, en **Configuración del centro de notificaciones**. Luego, el servicio de notificaciones de inserción reenvía las notificaciones a los respectivos *dispositivos cliente*.
 
 El tramo final de la entrega de notificaciones tiene lugar entre el servicio de notificaciones push de la plataforma y el dispositivo. La entrega de la notificación se puede producir en cualquiera de las cuatro fases del proceso de notificación push (cliente, back-end de la aplicación, Notification Hubs y servicio de notificaciones push de la plataforma). Para más información sobre la arquitectura de Notification Hubs, consulte [Introducción a Notification Hubs].
 

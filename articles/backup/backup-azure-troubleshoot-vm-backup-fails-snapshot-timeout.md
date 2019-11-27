@@ -1,5 +1,5 @@
 ---
-title: 'Solución de problemas de Azure Backup: Estado del agente invitado no disponible'
+title: 'Solución de problemas de Azure Backup: Problemas del agente y la extensión'
 description: Síntomas, causas y soluciones de errores de Azure Backup relacionados con el agente, la extensión y los discos.
 ms.reviewer: saurse
 author: dcurwin
@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.author: dacurwin
-ms.openlocfilehash: 9d76dfa338a697825868c31cfe6fc11e5235730b
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: 50db82206bbc0b98dcc80bd504022799011697d4
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72533726"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074131"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Solución de problemas de Azure Backup: Problemas con el agente o la extensión
 
@@ -29,7 +29,7 @@ En este artículo se proporcionan los pasos de solución de problemas que pueden
 
 El agente de máquina virtual de Azure podría estar detenido, obsoleto, en un estado incoherente o no instalado e impedir que el servicio Azure Backup desencadene instantáneas.  
 
-- Si el agente de máquina virtual está detenido o se encuentra en un estado incoherente, **reinícielo** y vuelva a intentar la operación de copia de seguridad (pruebe a realizar una copia de seguridad ad hoc). Para conocer los pasos necesarios para reiniciar el agente, consulte [Máquinas virtuales Windows](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms) o [Máquinas virtuales Linux](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent).
+- Si el agente de máquina virtual está detenido o se encuentra en un estado incoherente, **reinícielo** y vuelva a intentar la operación de copia de seguridad (pruebe a realizar una copia de seguridad a petición). Para conocer los pasos necesarios para reiniciar el agente, consulte [Máquinas virtuales Windows](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms) o [Máquinas virtuales Linux](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent).
 - Si el agente de máquina virtual no está instalado o está obsoleto, instale o actualice el agente de máquina virtual y vuelva a intentar la operación de copia de seguridad. Para conocer los pasos necesarios para instalar o actualizar el agente, consulte [Máquinas virtuales Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) o [Máquinas virtuales Linux](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent).  
 
 ## <a name="guestagentsnapshottaskstatuserror---could-not-communicate-with-the-vm-agent-for-snapshot-status"></a>GuestAgentSnapshotTaskStatusError: No se pudo comunicar con el agente de máquina virtual para el estado de la instantánea
@@ -239,15 +239,15 @@ Si elimina el grupo de recursos de la máquina virtual o la propia máquina virt
 
 Para limpiar los puntos de restauración, siga cualquiera de los métodos siguientes:<br>
 
-- [Limpieza de la colección de puntos de restauración mediante la ejecución de la copia de seguridad ad hoc](#clean-up-restore-point-collection-by-running-ad-hoc-backup)<br>
+- [Limpieza de la colección de puntos de restauración mediante la ejecución de la copia de seguridad a petición](#clean-up-restore-point-collection-by-running-on-demand-backup)<br>
 - [Eliminación de la colección de puntos de restauración desde Azure Portal](#clean-up-restore-point-collection-from-azure-portal)<br>
 
-#### <a name="clean-up-restore-point-collection-by-running-ad-hoc-backup"></a>Limpieza de la colección de puntos de restauración mediante la ejecución de la copia de seguridad ad hoc
+#### <a name="clean-up-restore-point-collection-by-running-on-demand-backup"></a>Limpieza de la colección de puntos de restauración mediante la ejecución de la copia de seguridad a petición
 
-Después de quitar el bloqueo, desencadene una copia de seguridad ad hoc o manual. Esto garantizará que los puntos de restauración se limpian automáticamente. Esta operación ad oc o manual probablemente produzca un error la primera vez; sin embargo, así se garantizará la limpieza automática en lugar de la eliminación manual de los puntos de restauración. Después de la limpieza, debería realizarse correctamente la siguiente copia de seguridad programada.
+Después de quitar el bloqueo, desencadene una copia de seguridad a petición. Esto garantizará que los puntos de restauración se limpian automáticamente. Esta operación a petición probablemente produzca un error la primera vez; sin embargo, así se garantizará la limpieza automática en lugar de la eliminación manual de los puntos de restauración. Después de la limpieza, debería realizarse correctamente la siguiente copia de seguridad programada.
 
 > [!NOTE]
-> Se realizará la limpieza automática unas horas después de desencadenar la copia de seguridad ad hoc o manual. Si la copia de seguridad programada sigue produciendo un error, pruebe a eliminar manualmente la colección de puntos de restauración mediante los pasos indicados [aquí](#clean-up-restore-point-collection-from-azure-portal).
+> Se realizará la limpieza automática unas horas después de desencadenar la copia de seguridad a petición. Si la copia de seguridad programada sigue produciendo un error, pruebe a eliminar manualmente la colección de puntos de restauración mediante los pasos indicados [aquí](#clean-up-restore-point-collection-from-azure-portal).
 
 #### <a name="clean-up-restore-point-collection-from-azure-portal"></a>Eliminación de la colección de puntos de restauración desde Azure Portal <br>
 

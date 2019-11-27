@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.openlocfilehash: 5eba5601a50640261fa1b488d959f606d4514737
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 985746989af39aa55d5d8af735edf62f4c4b77b7
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67612213"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73932285"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Aprovechamiento de la paralelización de consultas en Azure Stream Analytics
 En este artículo se muestra cómo aprovechar la paralelización en Azure Stream Analytics. Aprenda a escalar los trabajos de Stream Analytics mediante la configuración de particiones de entrada y el ajuste de la definición de consultas de análisis.
@@ -60,7 +60,7 @@ Un trabajo *embarazosamente paralelo* es el escenario más escalable que tenemos
 
 1. Si la lógica de la consulta depende de la misma clave que procesa la misma instancia de consulta, ha de asegurarse de que los eventos vayan a la misma partición de la entrada. En Event Hubs o IoT Hub, esto significa que los datos del evento deben tener establecido el valor **PartitionKey**. También puede usar remitentes con particiones. En Blob Storage, esto significa que los eventos se envían a la misma carpeta de partición. Si la lógica de consulta no requiere que la misma instancia de consulta procese la misma clave, puede ignorar este requisito. Un ejemplo de esta lógica sería una sencilla consulta select-project-filter.  
 
-2. Una vez dispuestos los datos en la salida, hay que asegurarse de que la consulta está particionada. Esto requiere el uso de **PARTITION BY** en todos los pasos. Se pueden usar varios pasos, pero todos deben particionarse con la misma clave. En los niveles de compatibilidad 1.0 y 1.1, la clave de partición debe establecerse en **PartitionId** para que el trabajo sea totalmente paralelo. En el caso de los trabajos con un nivel de compatibilidad 1.2 o superior, se puede especificar una columna personalizada como clave de partición en la configuración de entrada, y el trabajo se paralelizará automáticamente incluso sin la cláusula PARTITION BY.
+2. Una vez dispuestos los datos en la salida, hay que asegurarse de que la consulta está particionada. Esto requiere el uso de **PARTITION BY** en todos los pasos. Se pueden usar varios pasos, pero todos deben particionarse con la misma clave. En los niveles de compatibilidad 1.0 y 1.1, la clave de partición debe establecerse en **PartitionId** para que el trabajo sea totalmente paralelo. En el caso de los trabajos con un nivel de compatibilidad 1.2 o superior, se puede especificar una columna personalizada como clave de partición en la configuración de entrada, y el trabajo se paralelizará automáticamente incluso sin la cláusula PARTITION BY. En la salida del centro de eventos, la propiedad de la columna de clave de partición debe establecerse para usar "PartitionId".
 
 3. La mayoría de las salidas puede aprovechar la creación de particiones, pero si se usa un tipo de salida que no la admite, el trabajo no estará completamente en paralelo. Consulte la [sección de salida](#outputs) para más detalles.
 
@@ -77,7 +77,7 @@ En las siguientes secciones se describen algunos escenarios de ejemplo que son e
 ### <a name="simple-query"></a>Consulta sencilla
 
 * Entrada: Event Hubs con 8 particiones
-* Salida: Event Hubs con 8 particiones
+* Salida: Centro de eventos con 8 particiones (la columna de clave de partición debe establecerse para usar "PartitionId")
 
 Consulta:
 
@@ -144,7 +144,7 @@ Los ejemplos anteriores muestran algunos trabajos de Stream Analytics que se aju
 
 ### <a name="compatibility-level-12---multi-step-query-with-different-partition-by-values"></a>Nivel de compatibilidad 1.2: consulta de varios pasos con diferentes valores de PARTITION BY 
 * Entrada: Event Hubs con 8 particiones
-* Salida: Event Hubs con 8 particiones
+* Salida: Centro de eventos con 8 particiones (la columna de clave de partición debe establecerse para usar "TollBoothId")
 
 Consulta:
 

@@ -11,16 +11,16 @@ ms.date: 04/02/2019
 ms.author: jrasnick
 ms.reviewer: igorstan, carlrab
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 605dfadaf4cd1686b124b120151e6a88a43f1a68
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 85f705022a0ff5970d30c61206d4f2631254b7ce
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73693089"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74077100"
 ---
 # <a name="column-level-security"></a>Seguridad de nivel de columna
 La seguridad de nivel de columna (CLS) permite a los clientes controlar el acceso a columnas de la tabla de la base de datos según el contexto de ejecución del usuario o su pertenencia a grupos.
-
+Actualización al vídeo siguiente: desde que se publicó este vídeo, la [seguridad de nivel de fila](/sql/relational-databases/security/row-level-security?toc=%2Fazure%2Fsql-data-warehouse%2Ftoc&view=sql-server-2017) también está disponible en SQL Data Warehouse. 
 > [!VIDEO https://www.youtube.com/embed/OU_ESg0g8r8]
 
 CLS simplifica el diseño y la codificación de la seguridad de la aplicación. CLS le permite implementar restricciones de acceso a columnas para proteger la información confidencial. Por ejemplo, garantiza que determinados usuarios puedan acceder solo a ciertas columnas de una tabla pertenecientes a su departamento. La lógica de restricción de acceso está en el nivel de la base de datos, en lugar de encontrarse en otro nivel de la aplicación lejos de los datos. La base de datos aplica las restricciones de acceso cada vez que se intenta acceder a los datos desde cualquier nivel. Esta restricción hace que el sistema de seguridad resulte más sólido y confiable, ya que reduce el área expuesta del sistema de seguridad global. Además, CLS también elimina la necesidad de introducir vistas para filtrar las columnas a fin de imponer restricciones de acceso a los usuarios.

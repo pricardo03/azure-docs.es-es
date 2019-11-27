@@ -1,0 +1,76 @@
+---
+title: Configuración del dominio predeterminado de NFSv4.1 para Azure NetApp Files | Microsoft Docs
+description: Se describe cómo configurar el cliente NFS para usar NFSv4.1 con Azure NetApp Files.
+documentationcenter: ''
+author: b-juche
+manager: ''
+editor: ''
+ms.assetid: ''
+ms.service: azure-netapp-files
+ms.workload: storage
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: conceptual
+ms.date: 11/08/2019
+ms.author: b-juche
+ms.openlocfilehash: 77178a23206eadae941794c92b8dd99fe2ca1e05
+ms.sourcegitcommit: f226cdd6406372b5693d46b6d04900f2f0cda4e6
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/11/2019
+ms.locfileid: "73906251"
+---
+# <a name="configure-nfsv41-default-domain-for-azure-netapp-files"></a>Configuración del dominio predeterminado de NFS, versión 4.1, para Azure NetApp Files
+
+NFSv4 introduce el concepto de dominio de autenticación. Actualmente, Azure NetApp Files admite la asignación de usuarios solo de raíz desde el servicio al cliente NFS. Para usar la funcionalidad de NFSv4.1 con Azure NetApp Files, debe actualizar el cliente NFS.
+
+## <a name="default-behavior-of-usergroup-mapping"></a>Comportamiento predeterminado de asignación de usuarios o grupos
+
+La asignación de raíz se establece de forma predeterminada en el usuario `nobody` porque el dominio NFSv4 está establecido en `localdomain`. Al montar un volumen de NFSv4.1 de Azure NetApp Files como raíz, verá los permisos de archivo de la siguiente manera:  
+
+![Comportamiento predeterminado de asignación de usuarios o grupos para NFSv4.1](../media/azure-netapp-files/azure-netapp-files-nfsv41-default-behavior-user-group-mapping.png)
+
+Como se muestra en el ejemplo anterior, el usuario para `file1` debe ser `root`, pero se asigna a `nobody` de forma predeterminada.  En este artículo se muestra cómo usar establecer el usuario `file1` en `root`.  
+
+## <a name="steps"></a>Pasos 
+
+1. Edite el archivo `/etc/idmapd.conf` en el cliente NFS.   
+    Quite la marca de comentario de la línea `#Domain` (es decir, quite `#` de la línea) y cambie el valor `localdomain` a `defaultv4iddomain.com`. 
+
+    Configuración inicial: 
+    
+    ![Configuración inicial para NFSv4.1](../media/azure-netapp-files/azure-netapp-files-nfsv41-initial-config.png)
+
+    Configuración actualizada:
+    
+    ![Configuración actualizada para NFSv4.1](../media/azure-netapp-files/azure-netapp-files-nfsv41-updated-config.png)
+
+2. Desmonte los volúmenes NFS montados actualmente.
+3. Actualice el archivo `/etc/idmapd.conf`.
+4. Reinicie el servicio `rpcbind` en el host (`service rpcbind restart`) o simplemente reinicie el host.
+5. Monte los volúmenes NFS según sea necesario.   
+
+    Consulte [Montaje o desmontaje de un volumen para máquinas virtuales Windows o Linux](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md). 
+
+El siguiente ejemplo muestra el cambio de usuario o grupo resultante: 
+
+![Configuración resultante para NFSv4.1](../media/azure-netapp-files/azure-netapp-files-nfsv41-resulting-config.png)
+
+Como se muestra en el ejemplo, el usuario o grupo ahora ha cambiado de `nobody` a `root`.
+
+## <a name="behavior-of-other-non-root-users-and-groups"></a>Comportamiento de otros usuarios y grupos (no raíz)
+
+Azure NetApp Files admite usuarios locales (usuarios creados localmente en un host) que tienen permisos asociados a archivos o carpetas en volúmenes NFSv4.1. Sin embargo, el servicio no admite actualmente la asignación de usuarios o grupos en varios nodos. Por lo tanto, los usuarios creados en un host no se asignan de forma predeterminada a los usuarios creados en otro host. 
+
+En el ejemplo siguiente, `Host1` tiene tres cuentas de usuario de prueba existentes (`testuser01`, `testuser02` y `testuser03`): 
+
+![Configuración resultante para NFSv4.1](../media/azure-netapp-files/azure-netapp-files-nfsv41-host1-users.png)
+
+En `Host2`, observe que las cuentas de usuario de prueba no se han creado, pero el mismo volumen está montado en ambos hosts:
+
+![Configuración resultante para NFSv4.1](../media/azure-netapp-files/azure-netapp-files-nfsv41-host2-users.png)
+
+## <a name="next-step"></a>Paso siguiente 
+
+[Montaje o desmontaje de un volumen para máquinas virtuales Windows o Linux](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
+

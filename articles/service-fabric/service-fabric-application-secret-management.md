@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/04/2019
 ms.author: vturecek
-ms.openlocfilehash: b05473fd9868821285853b089fe711aa48f347fc
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: a24f670314d2f6679e37b438a74421e0e84604e2
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973432"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075485"
 ---
 # <a name="manage-encrypted-secrets-in-service-fabric-applications"></a>Administración de secretos cifrados en aplicaciones de Service Fabric
 Esta guía le lleva por los pasos para administrar secretos en una aplicación de Service Fabric. Los secretos pueden ser cualquier información confidencial, como cadenas de conexión de almacenamiento, contraseñas u otros valores que no se deben administrar en texto sin formato.
@@ -147,10 +147,12 @@ string MyEnvVariable = Environment.GetEnvironmentVariable("MyEnvVariable");
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-Más información sobre la [seguridad de aplicaciones y servicios](service-fabric-application-and-service-security.md)
+* [Almacén de secretos](service-fabric-application-secret-store.md) de Service Fabric 
+* Más información sobre la [seguridad de aplicaciones y servicios](service-fabric-application-and-service-security.md)
 
 <!-- Links -->
 [parameters-link]:service-fabric-how-to-parameterize-configuration-files.md
 [environment-variables-link]: service-fabric-how-to-specify-environment-variables.md
 [secret-management-windows-specific-link]: service-fabric-application-secret-management-windows.md
 [secret-management-linux-specific-link]: service-fabric-application-secret-management-linux.md
+[service fabric secrets store]: service-fabric-application-secret-store.md

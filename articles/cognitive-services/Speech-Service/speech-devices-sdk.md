@@ -1,7 +1,7 @@
 ---
 title: 'Acerca del SDK de los dispositivos de voz: servicio Voz'
 titleSuffix: Azure Cognitive Services
-description: Introducción al SDK de dispositivos de voz. El servicio de Voz funciona con una amplia variedad de dispositivos y orígenes de audio. Ahora puede llevar las aplicaciones de voz al siguiente nivel con hardware y software coincidente. El SDK de dispositivos de voz es una biblioteca pre-ajustada que está emparejada con kits de desarrollo específicos integrados de la matriz del micrófono.
+description: Introducción al SDK de dispositivos de voz. El servicio de Voz funciona con una amplia variedad de dispositivos y orígenes de audio. El SDK de dispositivos de voz es una biblioteca pre-ajustada que está emparejada con kits de desarrollo específicos integrados de la matriz del micrófono.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 243072477c7d249d7066a7a448061c51a0bd2f34
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 31d1a60cc6c1316dcfccb4f9ba2571708fddd991
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73468723"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072374"
 ---
 # <a name="about-the-speech-devices-sdk"></a>Introducción a Speech Devices SDK
 
@@ -23,9 +23,9 @@ Los [servicios de Voz](overview.md) funcionan con una amplia variedad de disposi
 
 El SDK de dispositivos de voz puede ayudarle a:
 
-* Probar rápidamente nuevos escenarios de voz.
-* Integrar más fácilmente los servicios de Voz basados en la nube en el dispositivo.
-* Crear una experiencia de usuario excepcional para sus clientes.
+- Probar rápidamente nuevos escenarios de voz.
+- Integrar más fácilmente los servicios de Voz basados en la nube en el dispositivo.
+- Crear una experiencia de usuario excepcional para sus clientes.
 
 El SDK de dispositivos de voz consume el [SDK de voz](speech-sdk.md). Emplea el SDK de voz para enviar el audio que se procesa mediante nuestro algoritmo de procesamiento de audio avanzado desde la matriz del micrófono del dispositivo a los [servicios de Voz](overview.md). Usa audio multicanal para proporcionar un [reconocimiento de voz](speech-to-text.md) de campo lejano más preciso mediante la supresión de ruido, la cancelación del eco, la formación de haces y la eliminación de la reverberación.
 
@@ -53,6 +53,5 @@ La aplicación se crea con el paquete del SDK de Voz y el entorno de desarrollo 
 
 > [!div class="nextstepaction"]
 > [Elija el dispositivo de voz](get-speech-devices-sdk.md)
->
 > [!div class="nextstepaction"]
-> [Get a Speech Services subscription key for free](get-started.md) (Consiga una clave de suscripción a los servicios de voz gratis)
+> [Obtenga una clave de suscripción gratuita a los servicios de Voz](get-started.md)

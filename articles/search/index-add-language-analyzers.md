@@ -1,5 +1,5 @@
 ---
-title: Incorporación de analizadores de idioma a los campos de cadena de un índice
+title: Incorporación de analizadores de idioma a los campos de cadena
 titleSuffix: Azure Cognitive Search
 description: Análisis de texto de léxico en varios idiomas para consultas e índices en idiomas distintos del inglés en Azure Cognitive Search.
 manager: nitinme
@@ -19,14 +19,14 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: f5833da5b15c893499b0d786972eff61c7391137
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: ebdbcdda4efd7fdf9eb0e3e04cfa4d1987e03716
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790137"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111813"
 ---
-# <a name="add-language-analyzers-to-an-azure-cognitive-search-index"></a>Incorporación de analizadores de idiomas a un índice de Azure Cognitive Search
+# <a name="add-language-analyzers-to-string-fields-in-an-azure-cognitive-search-index"></a>Incorporación de analizadores de idioma a campos de cadena en un índice de Azure Cognitive Search
 
 Un *analizador de idiomas* es un componente específico de un [analizador de texto](search-analyzers.md) que realiza un análisis léxico mediante las reglas lingüísticas del idioma de destino. Cada campo de búsqueda tiene una propiedad **analyzer**. Si el índice contiene cadenas traducidas, como campos independientes para texto en inglés y en chino, puede especificar los analizadores de idiomas en cada campo para acceder a las funcionalidades lingüísticas enriquecidas de esos analizadores.  
 
@@ -63,7 +63,7 @@ Para más información sobre las propiedades del índice, consulte [Creación de
 |--------------|-----------------------------|--------------------------|  
 |Árabe|ar.microsoft|ar.lucene|  
 |Armenio||hy.lucene|  
-|Bangla|bn.microsoft||  
+|Bengalí|bn.microsoft||  
 |Vasco||eu.Lucene|  
 |Búlgaro|bg.microsoft|bg.lucene|  
 |Catalán|ca.microsoft|ca.lucene|  

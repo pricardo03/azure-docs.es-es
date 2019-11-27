@@ -1,27 +1,26 @@
 ---
-title: 'Azure Site Recovery: Preguntas más frecuentes | Microsoft Docs'
-description: En este artículo se analizan las preguntas más frecuentes acerca de Azure Site Recovery.
-services: site-recovery
+title: Preguntas generales sobre el servicio Azure Site Recovery
+description: En este artículo se analizan las preguntas generales más frecuentes acerca de Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 6/27/2019
+ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: a9c7aa2be945e4fbaa65bdd2a145d576422c5539
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: fb88d28ea47495dcbdb0844901a03ee7efa4e4eb
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67491769"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74078533"
 ---
-# <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: preguntas más frecuentes (P+F)
-En este artículo se resumen las preguntas más frecuentes sobre Azure Site Recovery.</br>
-Para realizar consultas concretas en distintos escenarios de ASR, consulte las Preguntas más frecuentes específicas del escenario.<br>
+# <a name="general-questions-about-azure-site-recovery"></a>Preguntas generales acerca de Azure Site Recovery
 
-- [Recuperación ante desastres de máquinas virtuales de Azure en Azure](azure-to-azure-common-questions.md)
-- [Recuperación ante desastres de máquinas virtuales de VMware en Azure](vmware-azure-common-questions.md)
-- [Recuperación ante desastres de máquinas virtuales de Hyper-V en Azure](hyper-v-azure-common-questions.md)
+En este artículo se resumen las preguntas más frecuentes sobre Azure Site Recovery. Para escenarios específicos, revise estos artículos
+
+- [Preguntas acerca de la recuperación ante desastres de máquinas virtuales de Azure en Azure](azure-to-azure-common-questions.md)
+- [Preguntas acerca de la recuperación ante desastres de máquinas virtuales de VMware en Azure](vmware-azure-common-questions.md)
+- [Preguntas acerca de la recuperación ante desastres de máquinas virtuales de Hyper-V en Azure](hyper-v-azure-common-questions.md)
  
 ## <a name="general"></a>General
 
@@ -171,7 +170,7 @@ Sí, [se puede usar ExpressRoute](concepts-expressroute-with-site-recovery.md) p
 Necesita un almacenamiento LRS o GRS. Se recomienda GRS para que los datos sean resistentes si se produce una interrupción regional o si no se puede recuperar la región principal. La cuenta debe estar en la misma región que el almacén de Recovery Services. Al implementar Site Recovery en Azure Portal, Premium Storage es compatible con máquinas virtuales de VMware, máquinas virtuales de Hyper-V y con la replicación de servidores físicos. Los discos administrados solo con compatibles con LRS.
 
 ### <a name="how-often-can-i-replicate-data"></a>¿Con qué frecuencia se pueden replicar los datos?
-* **Hyper-V:** Las máquinas virtuales de Hyper-V se pueden replicar cada 5 minutos 30 segundos (excepto en el caso de almacenamiento premium).
+* **Hyper-V:** Las máquinas virtuales de Hyper-V se pueden replicar cada 30 segundos (excepto en el caso de Premium Storage), cinco minutos o 15 minutos.
 * **Máquinas virtuales de Azure, máquinas virtuales de VMware y servidores físicos:** en este caso no es relevante la frecuencia de replicación. La replicación es continua.
 
 ### <a name="can-i-extend-replication-from-existing-recovery-site-to-another-tertiary-site"></a>¿Se puede ampliar la replicación desde el sitio de recuperación existente a otro tercer sitio?

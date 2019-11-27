@@ -1,5 +1,5 @@
 ---
-title: Controlador de extensiones de configuración de estado deseado de Azure | Microsoft Docs
+title: Controlador de extensiones de Desired State Configuration de Azure
 description: Cargue y aplique una configuración de DSC de PowerShell en una máquina virtual de Azure con la extensión DSC
 services: virtual-machines-windows
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: windows
 ms.workload: ''
 ms.date: 03/26/2018
 ms.author: robreed
-ms.openlocfilehash: ee5a6c732bcb48cd347b8d87b95d2896d7230a08
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 592c731d1851ac36cf9b57864750df0603b6c3fd
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70092368"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073787"
 ---
 # <a name="powershell-dsc-extension"></a>Extensión DSC de PowerShell
 

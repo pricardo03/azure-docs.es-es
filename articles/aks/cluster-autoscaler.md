@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/18/2019
 ms.author: mlearned
-ms.openlocfilehash: f27b910910ca21aa36582506e6c7b2d1d39da88a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8ce5d2965d0127eec01620c702d7d83bd0b39416
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73472868"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73885781"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Escalar automáticamente un clúster para satisfacer las necesidades de la aplicación en Azure Kubernetes Service (AKS)
 
@@ -122,6 +122,35 @@ Puede escalar manualmente el clúster después de deshabilitar el escalado autom
 ## <a name="re-enable-a-disabled-cluster-autoscaler"></a>Volver a habilitar un escalado automático de clústeres deshabilitado
 
 Si quiere volver a habilitar el escalado automático de clústeres en un clúster existente, puede volver a habilitarlo mediante el comando [az aks update][az-aks-update], especificando los parámetros *--enable-cluster-autoscaler*, *--min-count* y *--max-count*.
+
+## <a name="retrieve-cluster-autoscaler-logs-and-status"></a>Recuperación de registros y estado del escalador automático del clúster
+
+Para diagnosticar y depurar los eventos del escalador automático, los registros y el estado se pueden recuperar desde el complemento del escalador automático.
+
+AKS administra el escalador automático del clúster en su nombre y lo ejecuta en el plano de control administrado. Los registros del nodo principal deben estar configurados para que se puedan ver como resultado.
+
+Para configurar los registros que se van a insertar desde el escalador automático del clúster en Log Analytics, siga estos pasos.
+
+1. Configure una regla para que los registros de diagnóstico inserten registros del escalador automático del clúster en Log Analytics. [Las instrucciones se detallan aquí](https://docs.microsoft.com/azure/aks/view-master-logs#enable-diagnostics-logs), asegúrese de activar la casilla correspondiente a `cluster-autoscaler` al seleccionar las opciones para "Registros".
+1. Haga clic en la sección "Registros" en el clúster mediante Azure Portal.
+1. Escriba la consulta de ejemplo siguiente en Log Analytics:
+
+```
+AzureDiagnostics
+| where Category == "cluster-autoscaler"
+```
+
+Debería ver devueltos registros similares a los siguientes, siempre y cuando haya registros para recuperar.
+
+![Registros de Log Analytics](media/autoscaler/autoscaler-logs.png)
+
+El escalador automático del clúster también escribirá el estado de mantenimiento en un archivo ConfigMap llamado `cluster-autoscaler-status`. Para recuperar estos registros, ejecute el siguiente comando `kubectl`. Se informará del estado de mantenimiento para cada grupo de nodos configurado con el escalador automático del clúster.
+
+```
+kubectl get configmap -n kube-system cluster-autoscaler-status -o yaml
+```
+
+Para más información sobre lo que se registra del escalador automático, consulte las preguntas más frecuentes sobre el [proyecto de GitHub Kubernetes/autoscaler](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#ca-doesnt-work-but-it-used-to-work-yesterday-why).
 
 ## <a name="use-the-cluster-autoscaler-with-multiple-node-pools-enabled"></a>Uso del escalado automático de clústeres con varios grupos de nodos habilitados
 

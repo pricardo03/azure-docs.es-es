@@ -1,7 +1,7 @@
 ---
 title: 'Implementación de un equilibrador de carga con conexión a Internet con IPv6: plantilla de Azure'
-titlesuffix: Azure Load Balancer
-description: Cómo implementar la compatibilidad de IPv6 con Azure Load Balancer y máquinas virtuales con equilibrio de carga.
+titleSuffix: Azure Load Balancer
+description: Aprenda a implementar la compatibilidad de IPv6 con Azure Load Balancer y máquinas virtuales con equilibrio de carga mediante una plantilla de Azure.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: 4286879dc53cc835532c7a8243eaf88813545265
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: f92011a6955398ef85e44fae1ce8f782cc9cc12c
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68274994"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075998"
 ---
 # <a name="deploy-an-internet-facing-load-balancer-solution-with-ipv6-using-a-template"></a>Implementación de una solución de equilibrador de carga orientado a Internet con IPv6 mediante el uso de una plantilla
 
@@ -29,6 +29,8 @@ ms.locfileid: "68274994"
 > * [Plantilla](load-balancer-ipv6-internet-template.md)
 
 
+>[NOTA: Cambio en el procedimiento recomendado para IPv6] En este artículo se describe una característica de IPv6 introductoria que permite que los equilibradores de carga básicos proporcionen conectividad IPv4 e IPv6.  Ahora hay disponible conectividad IPv6 más completa con [IPv6 para redes virtuales de Azure](../virtual-network/ipv6-overview.md) que integra conectividad IPv6 con las redes virtuales e incluye características clave como las reglas de grupo de seguridad de red IPv6, el enrutamiento definido por el usuario IPv6, el equilibrio de carga de IPv6 básico y estándar, etc.  IPv6 para redes virtuales de Azure es el procedimiento recomendado para las aplicaciones IPv6 en Azure. 
+>Consulte [Implementación de plantilla en IPv6 para redes virtuales de Azure](../virtual-network/ipv6-configure-standard-load-balancer-template-json.md)
 
 Azure Load Balancer es un equilibrador de carga de nivel 4 (TCP y UDP) que distribuye proporcionando una alta disponibilidad el tráfico entrante entre las instancias de servicio correctas de los servicios en la nube o las máquinas virtuales de un conjunto de carga equilibrada. Azure Load Balancer también pueden presentar prestar servicios en varios puertos, varias direcciones IP o ambos.
 

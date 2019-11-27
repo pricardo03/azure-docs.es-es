@@ -1,6 +1,6 @@
 ---
 title: Modelo de datos de registros de Azure Monitor para Azure Backup
-description: Este artículo informa de manera detallada sobre el modelo de datos de registros de Azure Monitor para datos de Azure Backup.
+description: En este artículo, obtendrá información acerca de los detalles del modelo de datos de Log Analytics de Azure Monitor para los datos de Azure Backup.
 ms.reviewer: adigan
 author: dcurwin
 manager: carmonm
@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: dacurwin
-ms.openlocfilehash: 878e4e7508d82f78e82f1fd8bda69079d9468e9f
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 283dc4c1ad4bc683833da3d689d842fa84079a00
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689236"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074947"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Modelo de datos de Log Analytics para datos de Azure Backup
 
@@ -48,12 +48,12 @@ Esta tabla proporciona detalles acerca de los campos relacionados con la alerta.
 | State_s |Texto |Estado actual del objeto de la alerta por ejemplo, Active o Deleted |
 | BackupManagementType_s |Texto |Tipo de proveedor para realizar la copia de seguridad, por ejemplo, IaaSVM o FileFolder al que pertenece esta alerta |
 | OperationName |Texto |Nombre de la operación actual, por ejemplo, Alerta |
-| Categoría |Texto |Categoría de datos de diagnóstico insertados en los registros de Azure Monitor. Siempre AzureBackupReport |
-| Recurso |Texto |Este es el recurso para el que se están recopilando datos; muestra el nombre del almacén de Recovery Services |
+| Category |Texto |Categoría de datos de diagnóstico insertados en los registros de Azure Monitor. Siempre AzureBackupReport |
+| Resource |Texto |Este es el recurso para el que se están recopilando datos; muestra el nombre del almacén de Recovery Services |
 | ProtectedContainerUniqueId_s |Texto |Identificador único del servidor protegido asociado a la alerta (fue ProtectedServerUniqueId_s en V1)|
 | VaultUniqueId_s |Texto |Identificador único del almacén protegido asociado a la alerta |
 | SourceSystem |Texto |Sistema de origen de los datos actuales: Azure |
-| ResourceId |Texto |Identificador único para el recurso sobre el que se recopilan los datos. Por ejemplo, el id. del recurso del almacén de Recovery Services |
+| ResourceId |Texto |Identificador único para el recurso sobre el que se recopilan los datos. Por ejemplo, el identificador del recurso del almacén de Recovery Services. |
 | SubscriptionId |Texto |Identificador de la suscripción del recurso (p. ej., Almacén de Recovery Services) para el que se recopilan los datos |
 | ResourceGroup |Texto |Grupo de recursos del recurso (p. ej., Almacén de Recovery Services) para el que se recopilan los datos |
 | ResourceProvider |Texto |Proveedor de recursos para el que se recopilan los datos. Por ejemplo, Microsoft.RecoveryServices. |
@@ -80,10 +80,10 @@ Esta tabla proporciona detalles acerca de los campos relacionados con el element
 | State_s |Texto |Estado del objeto del elemento de copia de seguridad, por ejemplo, Active o Deleted |
 | BackupManagementType_s |Texto |Tipo de proveedor para realizar la copia de seguridad, por ejemplo, IaaSVM o FileFolder al que pertenece este elemento de copia de seguridad |
 | OperationName |Texto |Nombre de la operación, por ejemplo, BackupItem |
-| Categoría |Texto |Categoría de datos de diagnóstico insertados en los registros de Azure Monitor. Siempre AzureBackupReport |
-| Recurso |Texto |Recurso para el que se recopilan datos, por ejemplo, nombre de almacén de Recovery Services |
+| Category |Texto |Categoría de datos de diagnóstico insertados en los registros de Azure Monitor. Siempre AzureBackupReport |
+| Resource |Texto |Recurso para el que se recopilan datos, por ejemplo, nombre de almacén de Recovery Services |
 | SourceSystem |Texto |Sistema de origen de los datos actuales: Azure |
-| ResourceId |Texto |Id. de recurso para el que se recopilan datos, por ejemplo, id. de recurso del almacén de Recovery Services. |
+| ResourceId |Texto |Identificador de recurso para el que se recopilan datos, por ejemplo, el identificador de recurso del almacén de Recovery Services. |
 | SubscriptionId |Texto |Identificador de la suscripción del recurso (p. ej., Almacén de Recovery Services) para los datos que se recopilan |
 | ResourceGroup |Texto |Grupo de recursos del recurso (p. ej., Almacén de Recovery Services) para los datos que se recopilan |
 | ResourceProvider |Texto |Proveedor de recursos de datos que se recopilan, por ejemplo, Microsoft.RecoveryServices |
@@ -96,19 +96,19 @@ Esta tabla proporciona detalles acerca de las asociaciones de elementos de copia
 | Campo | Tipo de datos | DESCRIPCIÓN |
 | --- | --- | --- |
 | EventName_s |Texto |Este campo representa el nombre de este evento; es siempre AzureBackupCentralReport |  
-| BackupItemUniqueId_s |Texto |Identificador exclusivo del elemento de copia de seguridad |
+| BackupItemUniqueId_s |Texto |Identificador exclusivo del elemento de copia de seguridad. |
 | SchemaVersion_s |Texto |Este campo indica la versión actual del esquema; es **V2**. |
 | State_s |Texto |Estado actual del objeto de la asociación del elemento de copia de seguridad, por ejemplo, Active o Deleted |
 | BackupManagementType_s |Texto |Tipo de proveedor para el servidor que realiza el trabajo de copia de seguridad, por ejemplo, IaaSVM o FileFolder. |
 | BackupItemSourceSize_s |Texto | Tamaño de front-end del elemento de copia de seguridad. |
 | BackupManagementServerUniqueId_s |Texto | Campo para identificar de forma única el servidor de administración de copia de seguridad mediante el que se protege el elemento de copia de seguridad, si procede. |
-| Categoría |Texto |Este campo representa la categoría de datos de diagnóstico insertada en Log Analytics; es AzureBackupReport |
+| Category |Texto |Este campo representa la categoría de datos de diagnóstico insertada en Log Analytics; es AzureBackupReport |
 | OperationName |Texto |Este campo representa el nombre de la operación actual: BackupItemAssociation |
-| Recurso |Texto |Este es el recurso para el que se están recopilando datos; muestra el nombre del almacén de Recovery Services |
+| Resource |Texto |Este es el recurso para el que se están recopilando datos; muestra el nombre del almacén de Recovery Services |
 | ProtectedContainerUniqueId_s |Texto |Identificador único del servidor protegido asociado al elemento de copia de seguridad (fue ProtectedServerUniqueId_s en V1) |
 | VaultUniqueId_s |Texto |Identificador único del almacén que contiene el elemento de copia de seguridad. |
 | SourceSystem |Texto |Sistema de origen de los datos actuales: Azure |
-| ResourceId |Texto |Identificador de recursos de datos que se recopilan. Por ejemplo, el id. del recurso del almacén de Recovery Services. |
+| ResourceId |Texto |Identificador de recursos de datos que se recopilan. Por ejemplo, el identificador del recurso del almacén de Recovery Services. |
 | SubscriptionId |Texto |Identificador de la suscripción del recurso (p. ej., Almacén de Recovery Services) para el que se recopilan los datos. |
 | ResourceGroup |Texto |Grupo de recursos del recurso (p. ej., Almacén de Recovery Services) para el que se recopilan los datos. |
 | ResourceProvider |Texto |Proveedor de recursos de datos que se recopilan, por ejemplo, Microsoft.RecoveryServices |
@@ -127,7 +127,7 @@ Esta tabla proporciona detalles acerca de las asociaciones de elementos de copia
 |BackupManagementServerType_s     |Texto         |Tipo del servidor de administración de copia de seguridad, como MABS o SC DPM.|
 |BackupManagementServerUniqueId_s     |Texto         |Campo para identificar de forma única el servidor de administración de copia de seguridad.       |
 | SourceSystem |Texto |Sistema de origen de los datos actuales: Azure |
-| ResourceId |Texto |Identificador de recursos de datos que se recopilan. Por ejemplo, el id. del recurso del almacén de Recovery Services. |
+| ResourceId |Texto |Identificador de recursos de datos que se recopilan. Por ejemplo, el identificador del recurso del almacén de Recovery Services. |
 | SubscriptionId |Texto |Identificador de la suscripción del recurso (p. ej., Almacén de Recovery Services) para el que se recopilan los datos. |
 | ResourceGroup |Texto |Grupo de recursos del recurso (p. ej., Almacén de Recovery Services) para el que se recopilan los datos. |
 | ResourceProvider |Texto |Proveedor de recursos de datos que se recopilan, por ejemplo, Microsoft.RecoveryServices |
@@ -145,8 +145,8 @@ Esta tabla proporciona detalles acerca de los campos relacionados con los trabaj
 | State_s |Texto |Estado actual del objeto del trabajo, por ejemplo, Active o Deleted |
 | BackupManagementType_s |Texto |Tipo de proveedor para el servidor que realiza el trabajo de copia de seguridad, por ejemplo, IaaSVM o FileFolder. |
 | OperationName |Texto |Este campo representa el nombre de la operación actual: Job |
-| Categoría |Texto |Este campo representa la categoría de datos de diagnóstico insertados en los registros de Azure Monitor; es AzureBackupReport. |
-| Recurso |Texto |Este es el recurso para el que se están recopilando datos; muestra el nombre del almacén de Recovery Services |
+| Category |Texto |Este campo representa la categoría de datos de diagnóstico insertados en los registros de Azure Monitor; es AzureBackupReport. |
+| Resource |Texto |Este es el recurso para el que se están recopilando datos; muestra el nombre del almacén de Recovery Services |
 | ProtectedServerUniqueId_s |Texto |Identificador único del servidor protegido asociado al trabajo. |
 | ProtectedContainerUniqueId_s |Texto | Identificador único del contenedor protegido donde se ejecuta el trabajo. |
 | VaultUniqueId_s |Texto |Identificador único del almacén protegido. |
@@ -158,12 +158,12 @@ Esta tabla proporciona detalles acerca de los campos relacionados con los trabaj
 | AdHocOrScheduledJob_s |Texto | Campo para especificar si el trabajo es ad hoc o programado. |
 | JobDurationInSecs_s | Number |Duración del trabajo total en segundos |
 | DataTransferredInMB_s | Number |Datos transferidos en MB para este trabajo|
-| JobUniqueId_g |Texto |Identificador único que identifica el trabajo |
+| JobUniqueId_g |Texto |Identificador único que identifica el trabajo. |
 | RecoveryJobDestination_s |Texto | Destino de un trabajo de recuperación, donde se recuperan los datos. |
 | RecoveryJobRPDateTime_s |DateTime | La fecha y hora cuando se creó el punto de recuperación que se va a recuperar. |
 | RecoveryJobRPLocation_s |Texto | La ubicación donde se almacenó el punto de recuperación que se va a recuperar.|
 | SourceSystem |Texto |Sistema de origen de los datos actuales: Azure |
-| ResourceId |Texto |Identificador de recursos de datos que se recopilan. Por ejemplo, el id. del recurso del almacén de Recovery Services.|
+| ResourceId |Texto |Identificador de recursos de datos que se recopilan. Por ejemplo, el identificador del recurso del almacén de Recovery Services.|
 | SubscriptionId |Texto |Identificador de la suscripción del recurso (p. ej., Almacén de Recovery Services) para el que se recopilan los datos |
 | ResourceGroup |Texto |Grupo de recursos del recurso (p. ej., Almacén de Recovery Services) para el que se recopilan los datos |
 | ResourceProvider |Texto |Proveedor de recursos para el que se recopilan los datos. Por ejemplo, Microsoft.RecoveryServices. |
@@ -180,9 +180,9 @@ Esta tabla proporciona detalles acerca de los campos relacionados con las direct
 | State_s |Texto ||Estado actual del objeto de la directiva, por ejemplo, Active o Deleted |
 | BackupManagementType_s |Texto ||Tipo de proveedor para el servidor que realiza el trabajo de copia de seguridad, por ejemplo, IaaSVM o FileFolder. |
 | OperationName |Texto ||Este campo representa el nombre de la operación actual: Policy |
-| Categoría |Texto ||Este campo representa la categoría de datos de diagnóstico insertados en los registros de Azure Monitor; es AzureBackupReport. |
-| Recurso |Texto ||Este es el recurso para el que se están recopilando datos; muestra el nombre del almacén de Recovery Services |
-| PolicyUniqueId_g |Texto ||Identificador único que identifica la directiva |
+| Category |Texto ||Este campo representa la categoría de datos de diagnóstico insertados en los registros de Azure Monitor; es AzureBackupReport. |
+| Resource |Texto ||Este es el recurso para el que se están recopilando datos; muestra el nombre del almacén de Recovery Services |
+| PolicyUniqueId_g |Texto ||Identificador único que identifica la directiva. |
 | PolicyName_s |Texto ||Nombre de la directiva definida |
 | BackupFrequency_s |Texto ||Frecuencia con la que se ejecutan las copias de seguridad, por ejemplo, a diario o semanalmente |
 | BackupTimes_s |Texto ||Fecha y hora en que se programan las copias de seguridad |
@@ -211,7 +211,7 @@ Esta tabla proporciona detalles acerca de los campos relacionados con las direct
 | LogBackupRetentionDuration_s |Número decimal |v2|Duración de retención de las copias de seguridad de registro de SQL en la copia de seguridad de máquinas virtuales de Azure.|
 | DiffBackupDaysofTheWeek_s |Texto |v2|Días de la semana de las copias de seguridad diferenciales de SQL en la copia de seguridad de máquinas virtuales de Azure.|
 | SourceSystem |Texto ||Sistema de origen de los datos actuales: Azure |
-| ResourceId |Texto ||Identificador de recursos de datos que se recopilan. Por ejemplo, el id. del recurso del almacén de Recovery Services. |
+| ResourceId |Texto ||Identificador de recursos de datos que se recopilan. Por ejemplo, el identificador del recurso del almacén de Recovery Services. |
 | SubscriptionId |Texto ||Identificador de la suscripción del recurso (p. ej., Almacén de Recovery Services) para el que se recopilan los datos |
 | ResourceGroup |Texto ||Grupo de recursos del recurso (p. ej., Almacén de Recovery Services) para el que se recopilan los datos |
 | ResourceProvider |Texto ||Proveedor de recursos para el que se recopilan los datos. Por ejemplo, Microsoft.RecoveryServices. |
@@ -228,13 +228,13 @@ Esta tabla proporciona detalles acerca de las asociaciones de directivas con var
 | State_s |Texto ||Estado actual del objeto de la directiva, por ejemplo, Active o Deleted |
 | BackupManagementType_s |Texto ||Tipo de proveedor para el servidor que realiza el trabajo de copia de seguridad, por ejemplo, IaaSVM o FileFolder. |
 | OperationName |Texto ||Este campo representa el nombre de la operación actual: PolicyAssociation |
-| Categoría |Texto ||Este campo representa la categoría de datos de diagnóstico insertados en los registros de Azure Monitor; es AzureBackupReport. |
-| Recurso |Texto ||Este es el recurso para el que se están recopilando datos; muestra el nombre del almacén de Recovery Services |
-| PolicyUniqueId_g |Texto ||Identificador único que identifica la directiva |
-| VaultUniqueId_s |Texto ||Identificador exclusivo del almacén al que pertenece esta directiva |
+| Category |Texto ||Este campo representa la categoría de datos de diagnóstico insertados en los registros de Azure Monitor; es AzureBackupReport. |
+| Resource |Texto ||Este es el recurso para el que se están recopilando datos; muestra el nombre del almacén de Recovery Services |
+| PolicyUniqueId_g |Texto ||Identificador único que identifica la directiva. |
+| VaultUniqueId_s |Texto ||Identificador exclusivo del almacén al que pertenece esta directiva. |
 | BackupManagementServerUniqueId_s |Texto |v2 |Campo para identificar de forma única el servidor de administración de copia de seguridad mediante el que se protege el elemento de copia de seguridad, si procede.        |
 | SourceSystem |Texto ||Sistema de origen de los datos actuales: Azure |
-| ResourceId |Texto ||Identificador de recursos de datos que se recopilan. Por ejemplo, el id. del recurso del almacén de Recovery Services. |
+| ResourceId |Texto ||Identificador de recursos de datos que se recopilan. Por ejemplo, el identificador del recurso del almacén de Recovery Services. |
 | SubscriptionId |Texto ||Identificador de la suscripción del recurso (p. ej., Almacén de Recovery Services) para el que se recopilan los datos |
 | ResourceGroup |Texto ||Grupo de recursos del recurso (p. ej., Almacén de Recovery Services) para el que se recopilan los datos |
 | ResourceProvider |Texto ||Proveedor de recursos para el que se recopilan los datos. Por ejemplo, Microsoft.RecoveryServices. |
@@ -272,12 +272,12 @@ Esta tabla proporciona detalles acerca de los campos relacionados con el almacen
 | State_s |Texto |Estado actual del objeto de almacenamiento, por ejemplo, Active o Deleted |
 | BackupManagementType_s |Texto |Tipo de proveedor para el servidor que realiza el trabajo de copia de seguridad, por ejemplo, IaaSVM o FileFolder. |
 | OperationName |Texto |Este campo representa el nombre de la operación actual: Storage |
-| Categoría |Texto |Este campo representa la categoría de datos de diagnóstico insertados en los registros de Azure Monitor; es AzureBackupReport. |
-| Recurso |Texto |Este es el recurso para el que se están recopilando datos; muestra el nombre del almacén de Recovery Services |
-| ProtectedServerUniqueId_s |Texto |Id. exclusivo del servidor protegido para el que se calcula el almacenamiento |
-| VaultUniqueId_s |Texto |Se calcula el identificador único del almacén para el almacenamiento |
+| Category |Texto |Este campo representa la categoría de datos de diagnóstico insertados en los registros de Azure Monitor; es AzureBackupReport. |
+| Resource |Texto |Este es el recurso para el que se están recopilando datos; muestra el nombre del almacén de Recovery Services |
+| ProtectedServerUniqueId_s |Texto |Identificador exclusivo del servidor protegido para el que se calcula el almacenamiento. |
+| VaultUniqueId_s |Texto |Identificador exclusivo del almacén para el que se calcula el almacenamiento. |
 | SourceSystem |Texto |Sistema de origen de los datos actuales: Azure |
-| ResourceId |Texto |Identificador de recursos de datos que se recopilan. Por ejemplo, el id. del recurso del almacén de Recovery Services. |
+| ResourceId |Texto |Identificador de recursos de datos que se recopilan. Por ejemplo, el identificador del recurso del almacén de Recovery Services. |
 | SubscriptionId |Texto |Identificador de la suscripción del recurso (p. ej., Almacén de Recovery Services) para el que se recopilan los datos |
 | ResourceGroup |Texto |Grupo de recursos del recurso (p. ej., Almacén de Recovery Services) para el que se recopilan los datos |
 | ResourceProvider |Texto |Proveedor de recursos para el que se recopilan los datos. Por ejemplo, Microsoft.RecoveryServices. |
@@ -311,14 +311,14 @@ Esta tabla proporciona detalles acerca de los campos relacionados con el almacé
 | SchemaVersion_s |Texto |Este campo indica la versión actual del esquema; es **V2**. |
 | State_s |Texto |Estado actual del objeto del almacén por ejemplo, Active o Deleted |
 | OperationName |Texto |Este campo representa el nombre de la operación actual: Vault |
-| Categoría |Texto |Este campo representa la categoría de datos de diagnóstico insertados en los registros de Azure Monitor; es AzureBackupReport. |
-| Recurso |Texto |Este es el recurso para el que se están recopilando datos; muestra el nombre del almacén de Recovery Services |
-| VaultUniqueId_s |Texto |Id. exclusivo del almacén |
+| Category |Texto |Este campo representa la categoría de datos de diagnóstico insertados en los registros de Azure Monitor; es AzureBackupReport. |
+| Resource |Texto |Este es el recurso para el que se están recopilando datos; muestra el nombre del almacén de Recovery Services |
+| VaultUniqueId_s |Texto |Identificador exclusivo del almacén. |
 | VaultName_s |Texto |Nombre del almacén |
 | AzureDataCenter_s |Texto |Centro de datos donde se encuentra el almacén |
 | StorageReplicationType_s |Texto |Tipo de replicación de almacenamiento para el almacén, por ejemplo, GeoRedundant |
 | SourceSystem |Texto |Sistema de origen de los datos actuales: Azure |
-| ResourceId |Texto |Identificador de recursos de datos que se recopilan. Por ejemplo, el id. del recurso del almacén de Recovery Services. |
+| ResourceId |Texto |Identificador de recursos de datos que se recopilan. Por ejemplo, el identificador del recurso del almacén de Recovery Services. |
 | SubscriptionId |Texto |Identificador de la suscripción del recurso (p. ej., Almacén de Recovery Services) para el que se recopilan los datos |
 | ResourceGroup |Texto |Grupo de recursos del recurso (p. ej., Almacén de Recovery Services) para el que se recopilan los datos |
 | ResourceProvider |Texto |Proveedor de recursos para el que se recopilan los datos. Por ejemplo, Microsoft.RecoveryServices. |

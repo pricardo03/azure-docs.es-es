@@ -1,5 +1,5 @@
 ---
-title: Expansión de la unidad de sistema operativo de una máquina virtual de Windows en Azure | Microsoft Docs
+title: Expansión de la unidad de sistema operativo de una máquina virtual de Windows en Azure
 description: Expanda el tamaño de la unidad de sistema operativo de una máquina virtual con Azure PowerShell en el modelo de implementación de Resource Manager.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: kirpas
 ms.subservice: disks
-ms.openlocfilehash: 12fa8cb09a9864b49c9368462ae3d5ca1d88f2c9
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: c76f57d15cd4cbdad5ded3b7545aab4d57272a50
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749420"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033491"
 ---
 # <a name="how-to-expand-the-os-drive-of-a-virtual-machine"></a>Cómo ampliar la unidad de sistema operativo de una máquina virtual
 

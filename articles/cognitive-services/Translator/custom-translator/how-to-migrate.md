@@ -1,7 +1,7 @@
 ---
-title: Migración del área de trabajo y los proyectos de Microsoft Translator Hub Custom Translator
+title: Migración del área de trabajo y los proyectos de Microsoft Translator Hub - Custom Translator
 titleSuffix: Azure Cognitive Services
-description: Migre el área de trabajo y los proyectos de Microsoft Translator Hub a Custom Translator.
+description: En este artículo se explica cómo migrar los proyectos y el área de trabajo del centro a Custom Translator de Azure Cognitive Services.
 author: swmachan
 manager: nitinme
 ms.service: cognitive-services
@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 9c97eaef30a08123605ed4c01810745e312d6aa0
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: 7ea7b48e1fc36399a0ca173f9068faf8b88849d5
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72675509"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73836589"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Migración del área de trabajo y los proyectos de Microsoft Translator Hub a Custom Translator
 

@@ -1,18 +1,19 @@
 ---
-title: Certificados necesarios para la creación de listas de permitidos en Azure Application Gateway
-description: En este artículo se proporcionan ejemplos de cómo se puede convertir un certificado SSL en un certificado de autenticación, y el certificado raíz de confianza que es necesario para la creación de listas de permitidos de instancias de back-end en Azure Application Gateway.
+title: Certificados necesarios para permitir servidores back-end
+titleSuffix: Azure Application Gateway
+description: En este artículo se proporcionan ejemplos de cómo un certificado SSL se puede convertir en un certificado de autenticación y en un certificado raíz de confianza, necesarios para que se permitan instancias de back-end en Azure Application Gateway.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 07/23/2019
+ms.date: 11/14/2019
 ms.author: absha
-ms.openlocfilehash: ae1ac3df3da4e5c25e5538f0e8cc4cd12f9186c6
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 48944c513bd075e3859503fdadc4001261dc8c4a
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774790"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048169"
 ---
 # <a name="create-certificates-to-allow-the-backend-with-azure-application-gateway"></a>Creación de certificados para permitir el back-end con Azure Application Gateway
 

@@ -1,17 +1,14 @@
 ---
 title: Uso de parámetros para crear planos técnicos dinámicos
-description: Conozca más información sobre los parámetros estáticos y dinámicos, y sobre como usarlos para crear planos técnicos dinámicos.
-author: DCtheGeek
-ms.author: dacoulte
+description: Obtenga información sobre los parámetros estáticos y dinámicos y cómo usarlos para crear planos técnicos seguros y dinámicos.
 ms.date: 03/12/2019
 ms.topic: conceptual
-ms.service: blueprints
-ms.openlocfilehash: 2bb38e0698d7504ba1bb139ca1bd5e3b14e5cdd4
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 31fff8fddd8e1969ef0d33047ae070f6302c9c83
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981068"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74128924"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Creación de planos técnicos mediante parámetros
 

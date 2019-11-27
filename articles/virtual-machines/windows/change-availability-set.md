@@ -1,5 +1,5 @@
 ---
-title: Cambio de un conjunto de disponibilidad de máquina virtual | Microsoft Docs
+title: Cambio de un conjunto de disponibilidad de máquinas virtuales
 description: Aprenda a cambiar un conjunto de disponibilidad para sus máquinas virtuales mediante Azure Portal o Azure PowerShell con el modelo de implementación de Resource Manager.
 keywords: ''
 services: virtual-machines-windows
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 02/12/2019
 ms.author: cynthn
-ms.openlocfilehash: 5390643723f2907301554e69a1142cef181deb13
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 7d03d684edfded1450043b943fc188c7aa07dc16
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749595"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039569"
 ---
 # <a name="change-the-availability-set-for-a-windows-vm"></a>Cambio del conjunto de disponibilidad de una máquina virtual Windows
 En los pasos siguientes se describe cómo cambiar el conjunto de disponibilidad de una máquina virtual con Azure PowerShell. Una máquina virtual solo puede agregarse a un conjunto de disponibilidad cuando se crea. Para cambiar el conjunto de disponibilidad, debe eliminar la máquina virtual y volver a crearla. 

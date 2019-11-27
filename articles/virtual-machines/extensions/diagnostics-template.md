@@ -1,5 +1,5 @@
 ---
-title: Agregar supervisión y diagnósticos a una máquina virtual de Azure | Microsoft Docs
+title: Adición de supervisión y diagnósticos a una máquina virtual de Azure
 description: Use una plantilla de Azure Resource Manager para crear una máquina virtual Windows con la extensión Azure Diagnostics.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/31/2017
 ms.author: saurabh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9ba8fdba3b7283185920432b5b096b80b2e32021
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 2490c3de60e0deac6a1a4ddc5abc95cb46e240b2
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70092534"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073845"
 ---
 # <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>Uso de la supervisión y el diagnóstico con una máquina virtual Windows y plantillas de Azure Resource Manager
 La extensión Azure Diagnostics proporciona funcionalidades de supervisión y diagnóstico en una máquina virtual de Azure basada en Windows. Para habilitar estas funcionalidades en la máquina virtual, incluya la extensión como parte de la plantilla de Azure Resource Manager. Para obtener más información sobre cómo incluir cualquier extensión como parte de una plantilla de máquina virtual, consulte [Creación de plantillas del Administrador de recursos de Azure con extensiones de máquina virtual](../windows/template-description.md#extensions) . En este artículo se describe cómo agregar la extensión de Diagnósticos de Azure a una plantilla de máquina virtual de Windows.  

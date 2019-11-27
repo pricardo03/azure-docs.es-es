@@ -12,12 +12,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 11/25/2014
 ms.author: gwallace
-ms.openlocfilehash: 2bb721002ad072bb850869ed52b9738380ff9e6e
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 168ec65cfd0ff4e87c33324daa353b554111c8aa
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69636126"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838551"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-java-application-on-azure"></a>Realización de una llamada telefónica con Twilio en una aplicación Java en Azure
 El siguiente ejemplo muestra cómo se puede usar Twilio para realizar una llamada desde una página web hospedada en Azure. La aplicación resultante le pedirá al usuario los valores de una llamada telefónica, como se muestra en la siguiente captura de pantalla.
@@ -180,7 +180,7 @@ Cuando esté listo para implementar en Azure, recompile para su implementación 
 Este código se ha proporcionado para mostrar la funcionalidad básica usando Twilio en Java en Azure. Antes de implementarlo en Azure en producción, es posible que desee agregar más controles de errores u otras características. Por ejemplo:
 
 * En lugar de usar un formulario web, puede usar blobs de Azure Storage o una instancia de SQL Database para almacenar los números de teléfono y el texto de llamada. Para obtener más información acerca de cómo usar los blobs de Azure Storage en Java, consulte [Uso del servicio Blob Storage desde Java][howto_blob_storage_java]. 
-* Puede usar **RoleEnvironment.getConfigurationSettings** para recuperar el identificador de la cuenta de Twilio y el token de autenticación desde los ajustes de configuración de su implementación, en vez de codificar de forma rígida los valores en el makecall.jsp. Para obtener información sobre la clase **RoleEnvironment**, vea [Uso de la biblioteca Azure Service Runtime en JSP][azure_runtime_jsp] y la documentación del paquete Azure Service Runtime en [http://dl.windowsazure.com/javadoc][azure_javadoc].
+* Puede usar **RoleEnvironment.getConfigurationSettings** para recuperar el identificador de la cuenta de Twilio y el token de autenticación desde los ajustes de configuración de su implementación, en vez de codificar de forma rígida los valores en el makecall.jsp. Para obtener información sobre la clase **RoleEnvironment**, vea [Uso de la biblioteca en tiempo de ejecución del servicio de Azure en JSP][azure_runtime_jsp].
 * El código de makecall.jsp asigna una dirección URL proporcionada por Twilio, [https://twimlets.com/message][twimlet_message_url], a la variable **Url**. Esta URL proporciona una respuesta del Lenguaje de marcado de Twilio (TwiML) que informa a Twilio acerca de cómo proceder con la llamada. Por ejemplo, la TwiML que se devuelve puede contener un verbo **&lt;Say&gt;** que se traduce en el texto que se está hablado con el destinatario de la llamada. En lugar de usar la dirección URL proporcionada por Twilio, puede crear su propio servicio para responder a la solicitud de Twilio. Para obtener más información, vea [Uso de Twilio para capacidades de voz y SMS en Java][howto_twilio_voice_sms_java]. Puede encontrar más información sobre TwiML en [https://www.twilio.com/docs/api/twiml][twiml] y sobre **&lt; Say&gt;** y otros verbos de Twilio en [https://www.twilio.com/docs/api/twiml/say][twilio_say].
 * Lea las directrices de seguridad de Twilio en [https://www.twilio.com/docs/security][twilio_docs_security].
 
@@ -204,7 +204,6 @@ Para obtener más información sobre Twilio, vea [https://www.twilio.com/docs][t
 [howto_blob_storage_java]: https://www.windowsazure.com/develop/java/how-to-guides/blob-storage/
 [howto_sql_azure_java]: https://msdn.microsoft.com/library/windowsazure/hh749029.aspx
 [azure_runtime_jsp]: https://msdn.microsoft.com/library/windowsazure/hh690948.aspx
-[azure_javadoc]: http://dl.windowsazure.com/javadoc
 [twilio_docs_security]: https://www.twilio.com/docs/security
 [twilio_docs]: https://www.twilio.com/docs
 [twilio_say]: https://www.twilio.com/docs/api/twiml/say

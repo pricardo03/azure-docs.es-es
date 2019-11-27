@@ -1,7 +1,7 @@
 ---
 title: Puntos de conexión de Bing News Search
 titleSuffix: Azure Cognitive Services
-description: Resumen del punto de conexión de News Search API.
+description: En este artículo se proporciona un resumen de los puntos de conexión de la API de búsqueda de noticias; noticias, noticias más importantes y noticias sobre tendencias.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 1/10/2019
 ms.author: aahi
-ms.openlocfilehash: 82e37e8fa47b467e7c2fe98f801482675809a266
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: dc7d16fe809e3e324f384b0d9e088dd7e6ab261c
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68423783"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111486"
 ---
 # <a name="bing-news-search-api-endpoints"></a>Puntos de conexión de Bing News Search API
 

@@ -1,7 +1,7 @@
 ---
-title: Preguntas más frecuentes sobre el servicio Speech to Text en Azure
+title: Preguntas más frecuentes sobre el servicio Speech to Text
 titleSuffix: Azure Cognitive Services
-description: Obtenga respuestas a las preguntas más habituales sobre el servicio Speech to Text.
+description: Obtenga respuestas a las preguntas más frecuentes sobre el servicio Speech to Text.
 services: cognitive-services
 author: PanosPeriorellis
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/17/2019
 ms.author: panosper
-ms.openlocfilehash: 3b957181015cba06eb361272ca1004ba3e7a7008
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 277d8e3fe8f54b8e95d8acc93d26100d3ac64db1
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73579681"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74110706"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Preguntas más frecuentes sobre el servicio Speech to Text
 
@@ -25,7 +25,7 @@ Si no encuentra respuestas a sus preguntas en estas P+F, [consulte otras opcione
 
 **P: ¿Qué diferencia hay entre un modelo de línea base y un modelo personalizado de conversión de voz en texto?**
 
-**R.** : Un modelo de línea base se ha entrenado con datos propiedad de Microsoft y ya está implementado en la nube.  Puede usar un modelo personalizado con el fin de adaptar un modelo para que se ajuste mejor a un entorno concreto que tenga ruido ambiental o lenguaje específicos. Fábricas, coches o calles ruidosas requerirán un modelo acústico adaptado. Temas como la biología, la física, la radiología, los nombres de productos y los acrónimos personalizados requerirán un modelo de lenguaje adaptado.
+**R.** : Un modelo de línea base se ha entrenado con datos propiedad de Microsoft y ya está implementado en la nube. Puede usar un modelo personalizado con el fin de adaptar un modelo para que se ajuste mejor a un entorno concreto que tenga ruido ambiental o lenguaje específicos. Fábricas, coches o calles ruidosas requerirán un modelo acústico adaptado. Temas como la biología, la física, la radiología, los nombres de productos y los acrónimos personalizados requerirán un modelo de lenguaje adaptado.
 
 **P: ¿Por dónde empiezo si quiero usar un modelo de línea base?**
 
@@ -71,26 +71,31 @@ Si ha adaptado e implementado un modelo con la línea de base V1.0, esa implemen
 
 Póngase en contacto con el [servicio de soporte técnico de Speech](mailto:speechsupport@microsoft.com?subject=Request%20for%20higher%20concurrency%20for%20Speech-to-text) si requiere una escala mayor.
 
-Para aumentar la simultaneidad de un modelo personalizado, se necesita la siguiente información:
+Para aumentar la simultaneidad de un ***modelo personalizado***, se necesita la siguiente información:
 
-- La región donde se implementa el modelo.
-- El identificador del punto de conexión del modelo implementado.
+- La región donde se implementa el modelo,
+- el identificador del punto de conexión del modelo implementado:
+  - Inicie sesión en el [portal de Custom Speech](https://aka.ms/customspeech),
+  - inicie sesión (si es necesario),
+  - seleccione el proyecto y la implementación,
+  - seleccione el punto de conexión para el que necesita el aumento de simultaneidad,
+  - copie el `Endpoint ID`.
 
-Para aumentar la simultaneidad de los modelos base, se necesita la siguiente información:
+Para aumentar la simultaneidad de un ***modelo base***, se necesita la siguiente información:
 
 - La región del servicio
 
 y bien
 
-- un token de acceso para la suscripción (consulte [aquí](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-speech-to-text#how-to-get-an-access-token))
+- un token de acceso para la suscripción (consulte [aquí](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-speech-to-text#how-to-get-an-access-token)),
 
 o
 
 - el identificador del recurso de la suscripción:
-  - Vaya a https://portal.azure.com,
+  - Vaya a [Azure Portal](https://portal.azure.com),
   - seleccione `Cognitive Services` en el cuadro de búsqueda,
   - en los servicios mostrados, seleccione el servicio de voz para el que desea aumentar la simultaneidad,
-  - muestre las propiedades de este servicio,
+  - muestre `Properties` de este servicio,
   - copie el `Resource ID`completo.
 
 **P: ¿Puedo descargar mi modelo y ejecutarlo localmente?**
@@ -118,13 +123,13 @@ o
 
 **R.** : El límite actual de un conjunto de datos es de 2 GB. El límite se debe a la restricción del tamaño de un archivo para la carga HTTP.
 
-**P: ¿Puedo comprimir mis archivos de texto para cargar un archivo de texto mayor?** 
+**P: ¿Puedo comprimir mis archivos de texto para cargar un archivo de texto mayor?**
 
 **R.** :  No. Actualmente solo se permiten los archivos de texto no comprimidos.
 
 **P: El informe de datos indica que ha habido expresiones erróneas. ¿Cuál es el problema?**
 
-**R.** : No es un problema que no se pueda cargar el 100 % de las expresiones de un archivo. Si la gran mayoría de las expresiones de un conjunto de datos acústicos o de lenguaje (por ejemplo, más del 95 %) se importan correctamente, el conjunto de datos se podrá usar. Pero se recomienda comprender la causa del error de las expresiones y corregir los problemas. Los problemas más comunes, como los errores de formato, son fáciles de corregir. 
+**R.** : No es un problema que no se pueda cargar el 100 % de las expresiones de un archivo. Si la gran mayoría de las expresiones de un conjunto de datos acústicos o de lenguaje (por ejemplo, más del 95 %) se importan correctamente, el conjunto de datos se podrá usar. Pero se recomienda comprender la causa del error de las expresiones y corregir los problemas. Los problemas más comunes, como los errores de formato, son fáciles de corregir.
 
 ## <a name="creating-an-acoustic-model"></a>Creación de un modelo acústico
 
@@ -134,11 +139,11 @@ o
 
 **P: ¿Qué datos debo recopilar?**
 
-**R.** : Recopile datos lo más cercanos posibles al escenario de aplicación y caso de uso. La colección de datos debe coincidir con la aplicación y los usuarios de destino en términos de dispositivo o dispositivos, entornos y tipos de hablante. En general, debe recopilar datos de un intervalo lo más amplio posible de hablantes. 
+**R.** : Recopile datos lo más cercanos posibles al escenario de aplicación y caso de uso. La colección de datos debe coincidir con la aplicación y los usuarios de destino en términos de dispositivo o dispositivos, entornos y tipos de hablante. En general, debe recopilar datos de un intervalo lo más amplio posible de hablantes.
 
 **P: ¿Cómo debo recopilar los datos acústicos?**
 
-**R.** : Puede crear una aplicación de recopilación de datos autónoma o usar software de grabación de audio comercial. También puede crear una versión de la aplicación que registre los datos de audio y después los use. 
+**R.** : Puede crear una aplicación de recopilación de datos autónoma o usar software de grabación de audio comercial. También puede crear una versión de la aplicación que registre los datos de audio y después los use.
 
 **P: ¿Debo transcribir los datos de adaptación yo mismo?**
 
@@ -162,7 +167,7 @@ o
 
 **R.** : Los resultados muestran una comparación entre el modelo de línea base y el personalizado. Debe aspirar a superar el modelo de línea de base para que la personalización sea útil.
 
-**P: ¿Cómo puedo determinar el valor WER de un modelo base para ver si se produjo una mejora?** 
+**P: ¿Cómo puedo determinar el valor WER de un modelo base para ver si se produjo una mejora?**
 
 **R.** : Los resultados de la prueba sin conexión muestran la precisión de línea base del modelo personalizado y la mejora sobre la línea base.
 
@@ -174,21 +179,21 @@ o
 
 **P: ¿Puedo simplemente cargar una lista de palabras?**
 
-**R.** : La carga de una lista de palabras las agregará al vocabulario, pero no enseñará al sistema cómo se usan normalmente. Al proporcionar expresiones completas o parciales (oraciones o frases que es probable que digan los usuarios), el modelo de lenguaje puede aprender las palabras nuevas y cómo se usan. El modelo de lenguaje personalizado es bueno no solo para agregar palabras nuevas al sistema, sino también para ajustar la probabilidad de palabras conocidas para la aplicación. Al proporcionar expresiones completas se ayuda al sistema a aprender mejor. 
+**R.** : La carga de una lista de palabras las agregará al vocabulario, pero no enseñará al sistema cómo se usan normalmente. Al proporcionar expresiones completas o parciales (oraciones o frases que es probable que digan los usuarios), el modelo de lenguaje puede aprender las palabras nuevas y cómo se usan. El modelo de lenguaje personalizado es bueno no solo para agregar palabras nuevas al sistema, sino también para ajustar la probabilidad de palabras conocidas para la aplicación. Al proporcionar expresiones completas se ayuda al sistema a aprender mejor.
 
 ## <a name="tenant-model-custom-speech-with-office-365-data"></a>Modelo de inquilino (Custom Speech con datos de Office 365)
 
 **P: ¿Qué información se incluye en el modelo de inquilino y cómo se crea?**
 
-**R:** Un modelo de inquilino se crea con documentos y correos electrónicos de [grupos públicos](https://support.office.com/article/learn-about-office-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2) que puede ver cualquier usuario de la organización. 
- 
+**R:** Un modelo de inquilino se crea con documentos y correos electrónicos de [grupos públicos](https://support.office.com/article/learn-about-office-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2) que puede ver cualquier usuario de la organización.
+
 **P: ¿Qué experiencias de voz mejora el modelo de inquilino?**
 
-**R:** Cuando el modelo de inquilino se habilita, se crea y se publica, se usa para mejorar el reconocimiento de las aplicaciones empresariales compiladas con el servicio Voz, que también pasan un token de AAD de usuario que indica la pertenencia a la empresa. 
- 
+**R:** Cuando el modelo de inquilino se habilita, se crea y se publica, se usa para mejorar el reconocimiento de las aplicaciones empresariales compiladas con el servicio Voz, que también pasan un token de AAD de usuario que indica la pertenencia a la empresa.
+
 Las experiencias de voz integradas en Office 365, como el Dictado y los subtítulos de PowerPoint, no cambian cuando se crea un modelo de inquilino para las aplicaciones del servicio Voz.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Solución de problemas](troubleshooting.md)
-* [Notas de la versión](releasenotes.md)
+- [Solución de problemas](troubleshooting.md)
+- [Notas de la versión](releasenotes.md)

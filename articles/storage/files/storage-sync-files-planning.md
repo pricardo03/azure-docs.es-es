@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: e1f7aeb5615c1a22c1970f118c24c996ac936870
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 3c70d2086fc5866b07c31966343397f8ccc809be
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826821"
+ms.locfileid: "73846743"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planeamiento de una implementación de Azure Files Sync
 Use Azure File Sync para centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma Windows Server en una caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a sus datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -169,7 +169,7 @@ Tenga en cuenta que el ahorro de volumen solo se aplica al servidor; los datos d
 > La desduplicación de datos y la nube por niveles no se admiten actualmente en un mismo volumen en Server 2019 debido a un error que se corregirá en una actualización futura.
 
 **Windows Server 2012 R2**  
-Azure File Sync no admite la desduplicación de datos y la nube por niveles en el mismo volumen. Si la desduplicación de datos está habilitada en un volumen, se debe deshabilitar la nube por niveles. 
+Azure File Sync no admite la desduplicación de datos y la nube por niveles en el mismo volumen en Windows Server 2012 R2. Si la desduplicación de datos está habilitada en un volumen, se debe deshabilitar la nube por niveles. 
 
 **Notas**
 - Si la desduplicación de datos está instalada antes de instalar el agente de Azure File Sync, es necesario reiniciar para que se admita en el mismo volumen la desduplicación de datos y la nube por niveles.

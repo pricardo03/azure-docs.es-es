@@ -1,6 +1,6 @@
 ---
 title: 'Configuración de la supervisión: Azure Digital Twins | Microsoft Docs'
-description: Configuración de la supervisión en Azure Digital Twins.
+description: Aprenda a configurar las opciones de supervisión y registro de Azure Digital Twins.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -9,12 +9,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 10/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: d7d81636bfb60c2d5fa059da01ac535e09b829f4
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 38d55df5f705aa3639540c4731c4c17c61c9b9ac
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949995"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74005976"
 ---
 # <a name="how-to-configure-monitoring-in-azure-digital-twins"></a>Configuración de la supervisión en Azure Digital Twins
 

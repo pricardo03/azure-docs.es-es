@@ -1,7 +1,7 @@
 ---
 title: 'Creación de un equilibrador de carga público con IPv6: CLI de Azure'
-titlesuffix: Azure Load Balancer
-description: Aprenda a crear un equilibrador de carga público con IPv6 mediante la CLI de Azure.
+titleSuffix: Azure Load Balancer
+description: Con esta ruta de aprendizaje, empiece a crear un equilibrador de carga público con IPv6 mediante la CLI de Azure.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -14,15 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: allensu
-ms.openlocfilehash: 0ee85a92753845e0e67fff22da894a048acb1b14
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: f7c0eb9bd258d2efbdb4df78f2cf86861f77a975
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68274957"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076012"
 ---
 # <a name="create-a-public-load-balancer-with-ipv6-using-azure-cli"></a>Creación de un equilibrador de carga público con IPv6 mediante la CLI de Azure
 
+>[NOTA: Cambio en el procedimiento recomendado para IPv6] En este artículo se describe una característica de IPv6 introductoria que permite que los equilibradores de carga básicos proporcionen conectividad IPv4 e IPv6.  Ahora hay disponible conectividad IPv6 más completa con [IPv6 para redes virtuales de Azure](../virtual-network/ipv6-overview.md) que integra conectividad IPv6 con las redes virtuales e incluye características clave como las reglas de grupo de seguridad de red IPv6, el enrutamiento definido por el usuario IPv6, el equilibrio de carga de IPv6 básico y estándar, etc.  IPv6 para redes virtuales de Azure es el procedimiento recomendado para las aplicaciones IPv6 en Azure. 
+>Consulte [IPv6 para la implementación de la red virtual de Azure mediante la CLI](../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md)
 
 Azure Load Balancer es un equilibrador de carga de nivel 4 (TCP y UDP) Los equilibradores de carga proporcionan una alta disponibilidad mediante la distribución del tráfico entrante entre las instancias de servicio correctas de los servicios en la nube o las máquinas virtuales de un conjunto de equilibradores de carga. Los equilibradores de carga también pueden prestar estos servicios en varios puertos, varias direcciones IP o ambos.
 
@@ -296,8 +298,4 @@ Para crear máquinas virtuales, debe tener una cuenta de almacenamiento. Para el
     az vm create --resource-group $rgname --name $vm2Name --image $imageurn --admin-username $vmUserName --admin-password $mySecurePassword --nics $nic2Id --location $location --availability-set $availabilitySetName --size "Standard_A1" 
     ```
 
-## <a name="next-steps"></a>Pasos siguientes
 
-[Introducción a la configuración de un equilibrador de carga interno](load-balancer-get-started-ilb-arm-cli.md)  
-[Configuración de un modo de distribución del equilibrador de carga](load-balancer-distribution-mode.md)  
-[Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)

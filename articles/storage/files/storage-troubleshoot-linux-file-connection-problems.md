@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 5c501e6c2bc1a30273682352a68565ccc897ff50
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 005e93837d1d420526f6fb33e79d25a94da6fab7
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699203"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838544"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Solución de problemas de Azure File en Linux
 
@@ -60,7 +60,7 @@ Para resolver el problema, use la [herramienta de solución de problemas para lo
 
 Por seguridad, se bloquean las conexiones a recursos compartidos de archivos de Azure si no el canal de comunicación no está cifrado y si el intento de conexión no se realiza desde el mismo centro de datos donde residen los recursos compartidos de archivos de Azure. Las conexiones no cifradas del mismo centro de datos también se pueden bloquear si la configuración de [transferencia segura requerida](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) está habilitada en la cuenta de almacenamiento. Se proporciona un canal de comunicación cifrado solamente si el sistema operativo cliente del usuario admite el cifrado SMB.
 
-Para más información, consulte [Requisitos previos para el montaje de un recurso compartido de archivos de Azure con Linux y el paquete cifs-utils](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-linux#prerequisites-for-mounting-an-azure-file-share-with-linux-and-the-cifs-utils-package). 
+Para más información, consulte [Requisitos previos para el montaje de un recurso compartido de archivos de Azure con Linux y el paquete cifs-utils](storage-how-to-use-files-linux.md#prerequisites). 
 
 ### <a name="solution-for-cause-1"></a>Solución para la causa 1
 
@@ -126,7 +126,7 @@ Algunas distribuciones de Linux aún no admiten características de cifrado de S
 
 ### <a name="solution"></a>Solución
 
-La característica de cifrado de SMB 3.0 para Linux se introdujo en el kernel 4.11. Esta característica permite montar un recurso compartido de archivos de Azure desde el entorno local o una región distinta de Azure. Esta funcionalidad se incluye en las distribuciones de Linux enumeradas en [Versiones mínimas recomendadas con funcionalidades de montaje correspondientes (SMB versión 2.1 frente a SMB versión 3.0)](storage-how-to-use-files-linux.md#minimum-recommended-versions-with-corresponding-mount-capabilities-smb-version-21-vs-smb-version-30). Otras distribuciones requieren kernel 4.11 y versiones posteriores.
+La característica de cifrado de SMB 3.0 para Linux se introdujo en el kernel 4.11. Esta característica permite montar un recurso compartido de archivos de Azure desde el entorno local o una región distinta de Azure. Algunas distribuciones de Linux pueden haber adaptado los cambios del kernel de la 4.11 a las versiones anteriores del kernel Linux que mantienen. Para ayudar a determinar si su versión de Linux admite SMB 3,0 con cifrado, consulte [Uso de Azure Files con Linux](storage-how-to-use-files-linux.md). 
 
 Si el cliente de SMB de Linux no admite el cifrado, monte Azure Files con SMB 2.1 desde una máquina virtual Linux de Azure que se encuentre en el mismo centro de datos que el recurso de archivos. Compruebe que el ajuste [Se requiere transferencia segura]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) esté deshabilitado en la cuenta de almacenamiento. 
 
@@ -281,7 +281,7 @@ Este problema de reconexión en el kernel de Linux se ha corregido como parte de
 - [CIFS: Fix a possible memory corruption during reconnect](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=53e0e11efe9289535b060a51d4cf37c25e0d0f2b) (CIFS: Corregir un posible daño de memoria durante la reconexión)
 - [CIFS: Fix a possible double locking of mutex during reconnect (or kernel v4.9 and later)](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=96a988ffeb90dba33a71c3826086fe67c897a183) (CIFS: Corregir un posible bloqueo doble de exclusión mutua durante la reconexión: para el kernel v4.9 y versiones posteriores)
 
-Pero es posible que estos cambios todavía no se migren a todas las distribuciones de Linux. Encontrará esta corrección y otras correcciones de reconexión en la sección [Versiones mínimas recomendadas con funcionalidades de montaje correspondientes (SMB versión 2.1 frente a SMB versión 3.0)](storage-how-to-use-files-linux.md#minimum-recommended-versions-with-corresponding-mount-capabilities-smb-version-21-vs-smb-version-30) del artículo [Uso de Azure Files con Linux](storage-how-to-use-files-linux.md). Puede obtener esta corrección actualizando a una de estas versiones de kernel recomendadas.
+Pero es posible que estos cambios todavía no se migren a todas las distribuciones de Linux. Si usa una distribución de Linux popular, puede consultar en [Uso de Azure Files con Linux](storage-how-to-use-files-linux.md) qué versión de la distribución tiene los cambios de kernel necesarios.
 
 ### <a name="workaround"></a>Solución alternativa
 

@@ -1,5 +1,5 @@
 ---
-title: Análisis del informe de Azure Site Recovery Deployment Planner para la recuperación ante desastres de máquinas virtuales de Hyper-V en Azure | Microsoft Docs
+title: Análisis del informe de Deployment Planner de Hyper-V en Azure Site Recovery
 description: En este artículo se describe cómo analizar un informe generado por Azure Site Recovery Deployment Planner para la recuperación ante desastres de máquinas virtuales de Hyper-V en Azure.
 services: site-recovery
 author: mayurigupta13
@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/21/2019
 ms.author: mayg
-ms.openlocfilehash: aafeeb59446ac914bba25874f74871fc5f189498
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 0d39f763d3cdc90f89e0bcd17d0facc67551ffc0
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693582"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084961"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Análisis del informe de Azure Site Recovery Deployment Planner
 En este artículo se describen las hojas que contiene el informe de Excel generado por Azure Site Recovery Deployment Planner en un escenario de Hyper-V en Azure.

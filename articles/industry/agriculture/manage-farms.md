@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: c83ac8a42a91c9db06726e917ed142e20995b987
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 929672dceabc7d9b591f05ef3f4f716f2117e09c
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73797321"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74128681"
 ---
 # <a name="manage-farms"></a>Administración de granjas
 
@@ -58,7 +58,7 @@ La página de la lista Farms (Granjas) muestra una lista de granjas que se han c
 En la página **Farms** (Granjas) se muestra una lista de las granjas que se han creado.
 
 1.  Seleccione una para ver y editar la granja.
-2.  Seleccione **Edit Farm** (Editar granja) para editar la información de la granja. En la ventana **Farm Details** (Detalles de la granja) puede editar los campos **Name** (Nombre), **Crops** (Cultivos), **Address** (Dirección) y **Farm Boundary** (Límite de la granja).
+2.  Seleccione **Edit Farm** (Editar granja) para editar la información de la granja. En la ventana **Farm Details** (Detalles de la granja) puede editar los campos **Name** (Nombre), **Crops** (Cultivos), **Address** (Dirección) y **Define Farm Boundary** (Definir límite de la granja).
 
     ![Proyecto de FarmBeats](./media/create-farms/edit-farm-1.png)
 

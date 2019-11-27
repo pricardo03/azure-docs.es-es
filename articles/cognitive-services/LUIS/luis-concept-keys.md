@@ -1,5 +1,5 @@
 ---
-title: Creación y claves de tiempo de ejecución - LUIS
+title: Uso de las claves de creación y tiempo de ejecución con LUIS
 titleSuffix: Azure Cognitive Services
 description: 'LUIS usa dos claves: la clave de creación para crear el modelo y la clave de tiempo de ejecución para consultar el punto de conexión de predicción con expresiones del usuario.'
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: 973a8dd56437506d907159f212164ff147ba975c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b58aa97dbb97bade87a38456c58df8f93a29946f
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73487504"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73901697"
 ---
 # <a name="authoring-and-runtime-keys"></a>Creación y claves en tiempo de ejecución
 

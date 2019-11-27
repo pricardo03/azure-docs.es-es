@@ -1,24 +1,24 @@
 ---
-title: Cómo saber si una página de inicio de sesión de Azure AD acepta cuentas Microsoft | Microsoft Docs
+title: ¿Mi página de inicio de sesión de Azure AD acepta cuentas de Microsoft? | Microsoft Docs
 description: Cómo los mensajes en pantalla reflejan la búsqueda del nombre de usuario durante el inicio de sesión
 services: active-directory
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 04/10/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: kexia
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d26ff0f9259e3531259673f94fe477444cc786b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 221ab7c50a84650f1b2adf3fdb2b284365795f42
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60468218"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74024284"
 ---
 # <a name="sign-in-options-for-microsoft-accounts-in-azure-active-directory"></a>Opciones de inicio de sesión para cuentas Microsoft en Azure Active Directory
 

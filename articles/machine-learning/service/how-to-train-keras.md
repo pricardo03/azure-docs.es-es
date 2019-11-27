@@ -11,12 +11,12 @@ author: maxluk
 ms.reviewer: peterlu
 ms.date: 08/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: c6a6af6d32e0664e66696523f53ac81cd921609e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: a61b7e058e485121d87c5d3bb1050b4289e4ceed
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73814869"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931067"
 ---
 # <a name="train-and-register-a-keras-classification-model-with-azure-machine-learning"></a>Entrenamiento y registro de un modelo de clasificación Keras con Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -189,6 +189,9 @@ Una vez que haya entrenado el modelo de DNN, puede registrarlo en el área de tr
 ```Python
 model = run.register_model(model_name='keras-dnn-mnist', model_path='outputs/model')
 ```
+
+> [!TIP]
+> El modelo que acaba de registrar se implementa exactamente de la misma manera que cualquier otro modelo registrado en Azure Machine Learning, independientemente del estimador que haya usado para el entrenamiento. El procedimiento de implementación contiene una sección sobre el registro de modelos, pero puede ir directamente a la [creación de un destino de proceso](how-to-deploy-and-where.md#choose-a-compute-target) para la implementación, dado que ya tiene un modelo registrado.
 
 También puede descargar una copia local del modelo. Esto puede ser útil para realizar trabajos de validación de modelo adicionales de forma local. En el script de entrenamiento, `mnist-keras.py`, un objeto de protector de TensorFlow guarda el modelo en una carpeta local (local para el destino de proceso). Puede usar el objeto Run para descargar una copia del almacén de datos.
 

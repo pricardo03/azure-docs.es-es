@@ -11,12 +11,12 @@ manager: jroth
 ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 10/18/2018
-ms.openlocfilehash: 7581831e846e6de835c261d3430a88f1dcee9eb4
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 0b1d9fad2992397a3a6768d0f5e7ff26a400a2b3
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73673695"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889325"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>Creación de un desencadenador que ejecuta una canalización en respuesta a un evento
 
@@ -38,35 +38,37 @@ En esta sección se muestra cómo crear un desencadenador de eventos dentro de l
 
 1. Vaya al **Lienzo de creación**
 
-2. En la esquina inferior izquierda, haga clic en el botón **Desencadenadores**.
+1. En la esquina inferior izquierda, haga clic en el botón **Desencadenadores**.
 
-3. Haga clic en **+ Nuevo** para abrir la navegación del lado Crear desencadenador.
+1. Haga clic en **+ Nuevo** para abrir la navegación del lado Crear desencadenador.
 
-4. Seleccionar un tipo de desencadenador **Evento**
+1. Seleccionar un tipo de desencadenador **Evento**
 
-![Crear un desencadenador de eventos](media/how-to-create-event-trigger/event-based-trigger-image1.png)
+    ![Crear un desencadenador de eventos](media/how-to-create-event-trigger/event-based-trigger-image1.png)
 
-5. Seleccione la cuenta de almacenamiento en la lista desplegable de suscripción de Azure o manualmente con el identificador de recurso de la cuenta de almacenamiento. Elija en qué contenedor quiere que se produzcan los eventos. La selección de contenedores es opcional, pero tenga en cuenta que si se seleccionan todos los contenedores el número de eventos puede resultar grande.
+1. Seleccione la cuenta de almacenamiento en la lista desplegable de suscripción de Azure o manualmente con el identificador de recurso de la cuenta de almacenamiento. Elija en qué contenedor quiere que se produzcan los eventos. La selección de contenedores es opcional, pero tenga en cuenta que si se seleccionan todos los contenedores el número de eventos puede resultar grande.
 
    > [!NOTE]
    > Actualmente, el desencadenador de eventos solo es compatible con las cuentas de almacenamiento de Azure Data Lake Storage Gen2 y de la versión 2 de uso general. Debido a una limitación de Azure Event Grid, Azure Data Factory solo admite un máximo de 500 desencadenadores de eventos por cuenta de almacenamiento.
 
-6. Las propiedades **Blob path begins with** y **Blob path ends with** permiten especificar los contenedores, las carpetas y los nombres de blob en los que quiere recibir eventos. El desencadenador de eventos requiere que se defina al menos una de estas propiedades. Como se muestra en ejemplos que podrá encontrar en este mismo artículo, se pueden usar varios patrones para las propiedades **Blob path begins with** y **Blob path ends with**.
+1. Las propiedades **Blob path begins with** y **Blob path ends with** permiten especificar los contenedores, las carpetas y los nombres de blob en los que quiere recibir eventos. El desencadenador de eventos requiere que se defina al menos una de estas propiedades. Como se muestra en ejemplos que podrá encontrar en este mismo artículo, se pueden usar varios patrones para las propiedades **Blob path begins with** y **Blob path ends with**.
 
     * **Blob path begins with:** la ruta de acceso del blob debe comenzar con una ruta de acceso de carpeta. Entre los valores válidos se incluyen `2018/` y `2018/april/shoes.csv`. No se puede seleccionar este campo si no se ha seleccionado un contenedor.
     * **Blob path ends with:** la ruta de acceso del blob debe terminar con un nombre de archivo o una extensión. Entre los valores válidos se incluyen `shoes.csv` y `.csv`. El nombre de contenedor y carpeta es opcional, pero, cuando se especifica, deben estar separados por un segmento `/blobs/`. Por ejemplo, un contenedor denominado "Orders" puede tener un valor de `/orders/blobs/2018/april/shoes.csv`. Para especificar una carpeta en cualquier contenedor, omita el carácter "/" inicial. Por ejemplo, `april/shoes.csv` desencadenará un evento en cualquier archivo denominado `shoes.csv` en la carpeta a denominada "April" en cualquier contenedor. 
 
-7. Seleccione si el desencadenador responderá a un evento **Blob creado**, **Blob eliminado** o a ambos. En la ubicación de almacenamiento especificada, cada evento desencadenará las canalizaciones Data Factory asociadas al desencadenador.
+1. Seleccione si el desencadenador responderá a un evento **Blob creado**, **Blob eliminado** o a ambos. En la ubicación de almacenamiento especificada, cada evento desencadenará las canalizaciones Data Factory asociadas al desencadenador.
 
     ![Configuración del desencadenador de eventos](media/how-to-create-event-trigger/event-based-trigger-image2.png)
 
-8. Una vez que haya configurado el desencadenador, haga clic en **Siguiente: Vista previa de datos**. Esta pantalla muestra los blobs existentes que coinciden con la configuración del desencadenador de eventos. Asegúrese de que tiene filtros específicos. La configuración de filtros demasiado amplios puede coincidir con un gran número de archivos creados o eliminados y puede afectar significativamente al costo. Una vez comprobadas las condiciones de filtro, haga clic en **Finalizar**.
+1. Seleccione si el desencadenador omitirá o no los blobs con cero bytes.
+
+1. Una vez que haya configurado el desencadenador, haga clic en **Siguiente: Vista previa de datos**. Esta pantalla muestra los blobs existentes que coinciden con la configuración del desencadenador de eventos. Asegúrese de que tiene filtros específicos. La configuración de filtros demasiado amplios puede coincidir con un gran número de archivos creados o eliminados y puede afectar significativamente al costo. Una vez comprobadas las condiciones de filtro, haga clic en **Finalizar**.
 
     ![Vista previa de datos del desencadenador de eventos](media/how-to-create-event-trigger/event-based-trigger-image3.png)
 
-9. Para adjuntar una canalización a este desencadenador, vaya al lienzo de canalización, haga clic en **Agregar desencadenador** y seleccione **Nuevo/editar**. Cuando aparezca la barra de navegación lateral, haga clic en el desplegable **Choose trigger** (Elegir desencadenador...) y seleccione el desencadenador que creó. Haga clic en **Siguiente: Vista previa de los datos** para confirmar que la configuración es correcta y, después, **Siguiente** para validar que la vista previa de los datos es correcta.
+1. Para adjuntar una canalización a este desencadenador, vaya al lienzo de canalización, haga clic en **Agregar desencadenador** y seleccione **Nuevo/editar**. Cuando aparezca la barra de navegación lateral, haga clic en el desplegable **Choose trigger** (Elegir desencadenador...) y seleccione el desencadenador que creó. Haga clic en **Siguiente: Vista previa de los datos** para confirmar que la configuración es correcta y, después, **Siguiente** para validar que la vista previa de los datos es correcta.
 
-10. Si la canalización tiene parámetros, puede especificarlos en el parámetro de ejecución del desencadenador. El desencadenador de eventos captura el nombre de archivo y la ruta de acceso del blob en las propiedades `@triggerBody().folderPath` y `@triggerBody().fileName`. Para usar los valores de estas propiedades en una canalización, debe asignar las propiedades a los parámetros de la canalización. Después de asignar las propiedades a los parámetros, puede tener acceso a los valores capturados por el desencadenador mediante la expresión `@pipeline().parameters.parameterName` en toda la canalización. Cuando haya terminado, haga clic en **Finalizar**.
+1. Si la canalización tiene parámetros, puede especificarlos en el parámetro de ejecución del desencadenador. El desencadenador de eventos captura el nombre de archivo y la ruta de acceso del blob en las propiedades `@triggerBody().folderPath` y `@triggerBody().fileName`. Para usar los valores de estas propiedades en una canalización, debe asignar las propiedades a los parámetros de la canalización. Después de asignar las propiedades a los parámetros, puede tener acceso a los valores capturados por el desencadenador mediante la expresión `@pipeline().parameters.parameterName` en toda la canalización. Cuando haya terminado, haga clic en **Finalizar**.
 
     ![Asignación de propiedades a los parámetros de la canalización](media/how-to-create-event-trigger/event-based-trigger-image4.png)
 
@@ -82,6 +84,7 @@ En la tabla siguiente se proporciona información general acerca de los elemento
 | **eventos** | El tipo de eventos que provocan la activación de este desencadenador. | Array    | Microsoft.Storage.BlobCreated, Microsoft.Storage.BlobDeleted | Sí, cualquier combinación de estos valores. |
 | **blobPathBeginsWith** | La ruta de acceso del blob debe comenzar con el patrón proporcionado para que se active el desencadenador. Por ejemplo, `/records/blobs/december/` solo activa el desencadenador de blobs en la carpeta `december` bajo el contenedor `records`. | Cadena   | | Tendrá que proporcionar un valor para al menos una de estas propiedades: `blobPathBeginsWith` o `blobPathEndsWith`. |
 | **blobPathEndsWith** | La ruta de acceso del blob debe finalizar con el patrón proporcionado para que se active el desencadenador. Por ejemplo, `december/boxes.csv` solo activa el desencadenador de blobs denominado "`boxes`" en una carpeta `december`. | Cadena   | | Tendrá que proporcionar un valor para al menos una de estas propiedades: `blobPathBeginsWith` o `blobPathEndsWith`. |
+| **ignoreEmptyBlobs** | Indica si los blobs de cero bytes desencadenarán o no la ejecución de una canalización. De manera predeterminada, se establece en true. | Boolean | true o false | Sin |
 
 ## <a name="examples-of-event-based-triggers"></a>Ejemplos de desencadenadores basados en eventos
 

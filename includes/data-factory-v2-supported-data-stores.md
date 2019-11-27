@@ -5,17 +5,17 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 09/16/2019
+ms.date: 10/25/2019
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: aa8d91b5b400525dfd0f0a2db32c3c66daa0b06f
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: b4cf80f2385a13fb95c563cab678a8fd5136ce78
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71032748"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73850487"
 ---
-| Categoría | Almacén de datos | Se admite como origen | Se admite como receptor | Compatible con [IR de Azure](../articles/data-factory/concepts-integration-runtime.md#azure-integration-runtime) | Compatible con [IR autohospedado](../articles/data-factory/concepts-integration-runtime.md#self-hosted-integration-runtime) |
+| Category | Almacén de datos | Se admite como origen | Se admite como receptor | Compatible con [IR de Azure](../articles/data-factory/concepts-integration-runtime.md#azure-integration-runtime) | Compatible con [IR autohospedado](../articles/data-factory/concepts-integration-runtime.md#self-hosted-integration-runtime) |
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | **Las tablas de Azure** |[Almacenamiento de blobs de Azure](../articles/data-factory/connector-azure-blob-storage.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure Cosmos DB (API de SQL)](../articles/data-factory/connector-azure-cosmos-db.md) |✓ |✓ |✓ |✓  |
@@ -30,16 +30,16 @@ ms.locfileid: "71032748"
 | &nbsp; |[Azure SQL Database](../articles/data-factory/connector-azure-sql-database.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Instancia administrada de Azure SQL Database](../articles/data-factory/connector-azure-sql-database-managed-instance.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure SQL Data Warehouse](../articles/data-factory/connector-azure-sql-data-warehouse.md) |✓ |✓ |✓ |✓  |
-| &nbsp; |[Índice de Azure Search](../articles/data-factory/connector-azure-search.md) | |✓ |✓ |✓  |
+| &nbsp; |[Índice de Azure Cognitive Search](../articles/data-factory/connector-azure-search.md) | |✓ |✓ |✓  |
 | &nbsp; |[Azure Table Storage](../articles/data-factory/connector-azure-table-storage.md) |✓ |✓ |✓ |✓  |
 | **Base de datos** |[Amazon Redshift](../articles/data-factory/connector-amazon-redshift.md) |✓ | |✓ |✓  |
 | &nbsp; |[DB2](../articles/data-factory/connector-db2.md) |✓ | |✓ |✓  |
-| &nbsp; |[Drill (versión preliminar)](../articles/data-factory/connector-drill.md) |✓ | |✓ |✓  |
+| &nbsp; |[Drill](../articles/data-factory/connector-drill.md) |✓ | |✓ |✓  |
 | &nbsp; |[Google BigQuery](../articles/data-factory/connector-google-bigquery.md) |✓ | |✓ |✓  |
 | &nbsp; |[Greenplum](../articles/data-factory/connector-greenplum.md) |✓ | |✓ |✓  |
 | &nbsp; |[HBase](../articles/data-factory/connector-hbase.md) |✓ | |✓ |✓  |
 | &nbsp; |[Hive](../articles/data-factory/connector-hive.md) |✓ | |✓ |✓  |
-| &nbsp; |[Apache Impala (versión preliminar)](../articles/data-factory/connector-impala.md) |✓ | |✓ |✓  |
+| &nbsp; |[Apache Impala](../articles/data-factory/connector-impala.md) |✓ | |✓ |✓  |
 | &nbsp; |[Informix](../articles/data-factory/connector-informix.md) |✓ | | |✓  |
 | &nbsp; |[MariaDB](../articles/data-factory/connector-mariadb.md) |✓ | |✓ |✓  |
 | &nbsp; |[Microsoft Access](../articles/data-factory/connector-microsoft-access.md) |✓ | | |✓  |
@@ -71,15 +71,15 @@ ms.locfileid: "71032748"
 | &nbsp; |[OData genérico](../articles/data-factory/connector-odata.md) |✓ | |✓ |✓  |
 | &nbsp; |[ODBC genérico](../articles/data-factory/connector-odbc.md) |✓ |✓ | |✓  |
 | &nbsp; |[REST genérico](../articles/data-factory/connector-rest.md) |✓ | |✓ |✓  |
-| **Servicios y aplicaciones** |[Servicio web de Amazon Marketplace (versión preliminar)](../articles/data-factory/connector-amazon-marketplace-web-service.md) |✓ | |✓ |✓  |
+| **Servicios y aplicaciones** |[Servicio web de Amazon Marketplace](../articles/data-factory/connector-amazon-marketplace-web-service.md) |✓ | |✓ |✓  |
 | &nbsp; |[Common Data Service](../articles/data-factory/connector-dynamics-crm-office-365.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Concur (versión preliminar)](../articles/data-factory/connector-concur.md) |✓ | |✓ |✓  |
 | &nbsp; |[Dynamics 365](../articles/data-factory/connector-dynamics-crm-office-365.md) |✓ |✓ |✓ |✓  |
-| &nbsp; |[Dynamics AX (versión preliminar)](../articles/data-factory/connector-dynamics-ax.md) |✓ | |✓ |✓  |
+| &nbsp; |[Dynamics AX](../articles/data-factory/connector-dynamics-ax.md) |✓ | |✓ |✓  |
 | &nbsp; |[Dynamics CRM](../articles/data-factory/connector-dynamics-crm-office-365.md) |✓ |✓ |✓ |✓  |
-| &nbsp; |[Google AdWords (versión preliminar)](../articles/data-factory/connector-google-adwords.md) |✓ | |✓ |✓  |
+| &nbsp; |[Google AdWords](../articles/data-factory/connector-google-adwords.md) |✓ | |✓ |✓  |
 | &nbsp; |[HubSpot (versión preliminar)](../articles/data-factory/connector-hubspot.md) |✓ | |✓ |✓  |
-| &nbsp; |[Jira (versión preliminar)](../articles/data-factory/connector-jira.md) |✓ | |✓ |✓  |
+| &nbsp; |[Jira](../articles/data-factory/connector-jira.md) |✓ | |✓ |✓  |
 | &nbsp; |[Magento (versión preliminar)](../articles/data-factory/connector-magento.md) |✓ | |✓ |✓  |
 | &nbsp; |[Marketo (versión preliminar)](../articles/data-factory/connector-marketo.md) |✓ | |✓ |✓  |
 | &nbsp; |[Office 365](../articles/data-factory/connector-office-365.md) |✓ | |✓ |✓  |
@@ -90,14 +90,14 @@ ms.locfileid: "71032748"
 | &nbsp; |[QuickBooks (versión preliminar)](../articles/data-factory/connector-quickbooks.md) |✓ | |✓ |✓  |
 | &nbsp; |[Salesforce](../articles/data-factory/connector-salesforce.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Servicio de Salesforce en la nube](../articles/data-factory/connector-salesforce-service-cloud.md) |✓ |✓ |✓ |✓  |
-| &nbsp; |[Salesforce Marketing Cloud (versión preliminar)](../articles/data-factory/connector-salesforce-marketing-cloud.md) |✓ | |✓ |✓  |
+| &nbsp; |[Nube de marketing de Salesforce](../articles/data-factory/connector-salesforce-marketing-cloud.md) |✓ | |✓ |✓  |
 | &nbsp; |[SAP Cloud for Customer (C4C)](../articles/data-factory/connector-sap-cloud-for-customer.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[SAP ECC](../articles/data-factory/connector-sap-ecc.md) |✓ | |✓ |✓ |
 | &nbsp; |[ServiceNow](../articles/data-factory/connector-servicenow.md) |✓ | |✓ |✓  |
 | &nbsp; |[Shopify (versión preliminar)](../articles/data-factory/connector-shopify.md) |✓ | |✓ |✓  |
 | &nbsp; |[Square (versión preliminar)](../articles/data-factory/connector-square.md) |✓ | |✓ |✓  |
 | &nbsp; |[Tabla web (tabla HTML)](../articles/data-factory/connector-web-table.md) |✓ | | |✓  |
-| &nbsp; |[Xero (versión preliminar)](../articles/data-factory/connector-xero.md) |✓ | |✓ |✓  |
+| &nbsp; |[Xero](../articles/data-factory/connector-xero.md) |✓ | |✓ |✓  |
 | &nbsp; |[Zoho (versión preliminar)](../articles/data-factory/connector-zoho.md) |✓ | |✓ |✓  |
 
 > [!NOTE]

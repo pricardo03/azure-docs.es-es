@@ -1,9 +1,9 @@
 ---
-title: Búsqueda de informes de actividad de usuario de Azure Active Directory en Azure Portal | Microsoft Docs
+title: Búsqueda de informes de actividad de usuarios en Azure Portal | Microsoft Docs
 description: Obtenga información sobre dónde están los informes de actividad de usuario de Azure Active Directory en Azure Portal.
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13f1746b710acd24316de3d294c1822ba108a378
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: d356f8c10ae3770d9f4ade100ab0496ee58d772f
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "70127387"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74008206"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Búsqueda de informes de actividad en Azure Portal
 
@@ -52,7 +52,7 @@ Puede usar los filtros avanzados en el informe de auditoría para acceder a una 
 
 Las categorías son:
 
-- Todo
+- All
 - AdministrativeUnit
 - ApplicationManagement
 - Authentication
@@ -73,7 +73,7 @@ También puede filtrar por un servicio específico mediante el filtro desplegabl
 
 Los servicios son:
 
-- Todo
+- All
 - Revisiones de acceso
 - Account Provisioning (Aprovisionamiento de cuentas) 
 - Inicio de sesión único de aplicaciones

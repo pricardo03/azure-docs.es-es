@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2019
 ms.author: mikhegn
-ms.openlocfilehash: 75568cf3c88c02968b3e3e95971f81cf1b9285d3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 9b873b5a68979b8225c44c32e0b9494408e35ac1
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496347"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73927177"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Visualización del clúster mediante el Explorador de Service Fabric
 
@@ -129,7 +129,11 @@ El visor del almacén de imágenes es una característica que se ofrece si se us
 ![Mapa de clúster del Explorador de Service Fabric][sfx-imagestore]
 
 ## <a name="backup-and-restore"></a>Copia de seguridad y restauración
-Service Fabric Explorer ofrece la posibilidad de interactuar con [Copia de seguridad y restauración](./service-fabric-reliable-services-backup-restore.md). Son posibles las siguientes operaciones:
+Service Fabric Explorer ofrece la posibilidad de interactuar con [Copia de seguridad y restauración](./service-fabric-reliable-services-backup-restore.md). Para ver las características de copia de seguridad y restauración en SFX, debe estar habilitado el modo avanzado .
+
+![Habilitación del modo avanzado][0]
+ 
+Son posibles las siguientes operaciones:
 
 * Crear, editar y eliminar una directiva de copia de seguridad.
 * Habilitar y deshabilitar la copia de seguridad para una aplicación, un servicio o una partición.
@@ -151,3 +155,4 @@ Para más información sobre el servicio de copia de seguridad y restauración, 
 [sfx-create-app-instance]: ./media/service-fabric-visualizing-your-cluster/sfx-create-app-instance.png
 [sfx-eventstore]: ./media/service-fabric-diagnostics-eventstore/eventstore.png
 [sfx-imagestore]: ./media/service-fabric-visualizing-your-cluster/sfx-image-store.png
+[0]: ./media/service-fabric-backuprestoreservice/advanced-mode.png

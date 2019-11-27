@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 04/16/2019
-ms.openlocfilehash: 0c21271eb19a8fd69cb42e30c6a45bd3af9a5600
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 1f5f5f2064baa4b2821ccb7b9a2237e6aeeb86f5
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820479"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048770"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Arquitectura de conectividad para una instancia administrada en Azure SQL Database
 
@@ -110,7 +110,7 @@ Implemente una instancia administrada en una subred dedicada dentro de la red vi
 |mi_subnet   |Any           |Any     |MI SUBNET        |MI SUBNET  |Allow |
 
 > [!IMPORTANT]
-> Asegúrese de solo haya una regla de entrada para los puertos 9000, 9003, 1438, 1440, 1452 y una regla de salida para los puertos 80, 443, 12000. El aprovisionamiento de instancias administradas mediante implementaciones de Azure Resource Manager producirá un error si las reglas de entrada y salida están configuradas por separado para cada puerto. Si estos puertos están en reglas distintas, la implementación generará el código de error `VnetSubnetConflictWithIntendedPolicy`
+> Asegúrese de que solo haya una regla de entrada para los puertos 9000, 9003, 1438, 1440, 1452 y una regla de salida para los puertos 443, 12000. El aprovisionamiento de instancias administradas mediante implementaciones de Azure Resource Manager producirá un error si las reglas de entrada y salida están configuradas por separado para cada puerto. Si estos puertos están en reglas distintas, la implementación generará el código de error `VnetSubnetConflictWithIntendedPolicy`
 
 \* MI SUBNET se refiere al intervalo de direcciones IP de la subred con el formato 10.x.x.x/y. Puede encontrar esta información en Portal de Azure, en las propiedades de subred.
 

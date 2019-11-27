@@ -1,6 +1,6 @@
 ---
 title: Replicación geográfica de un registro de contenedor de Azure
-description: Introducción a la creación y la administración de registros de contenedor de Azure con replicación geográfica.
+description: Introducción a la creación y administración de un registro de contenedor de Azure con replicación geográfica, que permite que el registro atienda varias regiones con réplicas regionales de varios maestros.
 services: container-registry
 author: stevelas
 manager: gwallace
@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 08/16/2019
 ms.author: stevelas
-ms.openlocfilehash: c0de5f958c6dcbf935de4eec9557cf64620abbcf
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: cddd55d3dfc2609b7a32a276e106e152f0868b32
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70208002"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931653"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Replicación geográfica en Azure Container Registry
 
@@ -121,7 +121,7 @@ En el ejemplo anterior, Contoso consolidó dos registros en uno y agregó répli
  
 Es posible que un cliente de Docker que inserte una imagen en un registro con replicación geográfica no inserte todas las capas de imagen y su manifiesto en una sola región replicada. Esto puede deberse a que Azure Traffic Manager enruta las solicitudes del registro al registro replicado más cercano a la red. Si el registro tiene dos regiones de replicación *cercanas*, las capas de imagen y el manifiesto se pueden distribuir a los dos sitios, y se produce un error en la operación de extracción cuando se valida el manifiesto. Este problema se produce debido a la manera en que el nombre DNS del registro se resuelve en algunos hosts de Linux. Este problema no se produce en Windows, que proporciona una memoria caché de DNS del lado cliente.
  
-Si ocurre este problema, una solución consiste en aplicar una caché DNS del lado cliente como `dnsmasq` en el host de Linux. Ayuda a garantizar que el nombre del registro se resuelva de forma coherente. Si usa una máquina virtual Linux en Azure para enviarla a un registro, consulte las opciones en [Opciones de resolución de nombres DNS para máquinas virtuales Linux en Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/azure-dns)en Azure.
+Si ocurre este problema, una solución consiste en aplicar una caché DNS del lado cliente como `dnsmasq` en el host de Linux. Ayuda a garantizar que el nombre del registro se resuelva de forma coherente. Si usa una máquina virtual Linux en Azure para enviarla a un registro, consulte las opciones en [Opciones de resolución de nombres DNS para máquinas virtuales Linux en Azure](../virtual-machines/linux/azure-dns.md)en Azure.
 
 Para optimizar la resolución DNS para la réplica más cercana al insertar imágenes, configure un registro con replicación geográfica en las mismas regiones de Azure que el origen de las operaciones de inserción o la región más cercana cuando trabaje fuera de Azure.
 

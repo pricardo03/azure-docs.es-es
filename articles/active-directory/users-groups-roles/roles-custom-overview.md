@@ -1,24 +1,24 @@
 ---
-title: 'Versión preliminar de los roles de administrador de Azure con permisos personalizables: Azure Active Directory | Microsoft Docs'
+title: Roles de administrador personalizados en Azure Active Directory | Microsoft Docs
 description: Versión preliminar de los roles personalizados de Azure AD para delegar la administración de identidades. Administre roles de Azure en Azure Portal, PowerShell o Graph API.
 services: active-directory
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 09/04/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c26e77fdf6e10e53f5acc0271986700c98fa690d
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: e5c7919dcc89e34831cb4cae7921b60b35eb4c69
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772553"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74024962"
 ---
 # <a name="custom-administrator-roles-in-azure-active-directory-preview"></a>Roles de administrador personalizados en Azure Active Directory (versión preliminar)
 

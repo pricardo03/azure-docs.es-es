@@ -1,5 +1,5 @@
 ---
-title: Obtener datos de utilización de la máquina virtual de Azure mediante la API de REST | Microsoft Docs
+title: Obtención de datos de utilización de una máquina virtual de Azure mediante la API REST
 description: Use las API de REST de Azure para recopilar métricas de utilización de una máquina virtual.
 services: virtual-machines
 author: rloutlaw
@@ -10,12 +10,12 @@ ms.custom: REST
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: routlaw
-ms.openlocfilehash: 53e93d20f4a8c4877374d8242521ca97d481e15d
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 523b81e53f2b0622b237993dbd88fb9492079c86
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67667456"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035803"
 ---
 # <a name="get-virtual-machine-usage-metrics-using-the-rest-api"></a>Obtener métricas de utilización de máquina virtual mediante la API de REST
 

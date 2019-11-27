@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: b81060bc3d8409a9ccb74ba85c85e6f779650ffd
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: b18e9688141ee64eb7dfcb82ce58db198e324b5b
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792417"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847530"
 ---
 # <a name="upgrading-versions-of-the-azure-search-net-management-sdk"></a>Actualización de las versiones del SDK de administración de .NET para Azure Search
 
@@ -46,7 +46,5 @@ Si se produce un error en la compilación, podría deberse a que implementó alg
 
 Una vez que haya solucionado los errores de compilación, puede realizar cambios a la aplicación para aprovechar las ventajas de la nueva funcionalidad, si lo desea. Las nuevas características en el SDK se detallan en [Novedades de la versión 2](#WhatsNew).
 
-## <a name="conclusion"></a>Conclusión
-Agradecemos sus comentarios sobre el SDK. Si tiene algún problema, no dude en pedirnos ayuda en el [foro de MSDN sobre Azure Search](https://social.msdn.microsoft.com/Forums/azure/home?forum=azuresearch). Si encuentra un error, puede enviarlo al [repositorio de GitHub del SDK de .NET para Azure](https://github.com/Azure/azure-sdk-for-net/issues). Asegúrese de agregar "[Azure Search]" como prefijo en el título del problema.
-
-Gracias por usar Azure Search.
+## <a name="next-steps"></a>Pasos siguientes
+Agradecemos sus comentarios sobre el SDK. Si tiene problemas, envíe sus preguntas a [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-cognitive-search?tab=Newest). Si encuentra un error, puede enviarlo al [repositorio de GitHub del SDK de .NET para Azure](https://github.com/Azure/azure-sdk-for-net/issues). Asegúrese de que etiqueta el título de la incidencia con "[search]".

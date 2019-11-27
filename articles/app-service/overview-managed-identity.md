@@ -8,15 +8,15 @@ editor: ''
 ms.service: app-service
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 08/15/2019
+ms.date: 10/30/2019
 ms.author: mahender
 ms.reviewer: yevbronsh
-ms.openlocfilehash: 1774fcf0af287bba03c2c5c79e14883e3594ef0c
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: a2f6d7f881e404e9e4dbdb8087cabf25f67d561b
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260152"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847322"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Cómo usar identidades administradas para App Service y Azure Functions
 
@@ -41,11 +41,11 @@ Para configurar una identidad administrada en el portal, primero creará una apl
 
 2. Si utiliza una aplicación de función, vaya a **Características de la plataforma**. Para otros tipos de aplicación, desplácese hacia abajo hasta el grupo **Configuración** en el panel de navegación izquierdo.
 
-3. Seleccione **Identidad administrada**.
+3. Seleccione **Identidad**.
 
 4. En la pestaña **Asignado por el sistema**, cambie **Estado** a **Activado**. Haga clic en **Save**(Guardar).
 
-![Identidad administrada en App Service](media/app-service-managed-service-identity/msi-blade-system.png)
+    ![Identidad administrada en App Service](media/app-service-managed-service-identity/msi-blade-system.png)
 
 ### <a name="using-the-azure-cli"></a>Uso de la CLI de Azure
 
@@ -168,13 +168,13 @@ En primer lugar, tendrá que crear un recurso de identidad asignada por el usuar
 
 3. Si utiliza una aplicación de función, vaya a **Características de la plataforma**. Para otros tipos de aplicación, desplácese hacia abajo hasta el grupo **Configuración** en el panel de navegación izquierdo.
 
-4. Seleccione **Identidad administrada**.
+4. Seleccione **Identidad**.
 
 5. En la pestaña **Usuario asignado**, haga clic **Agregar**.
 
 6. Busque la identidad que creó anteriormente y selecciónela. Haga clic en **Agregar**.
 
-![Identidad administrada en App Service](media/app-service-managed-service-identity/msi-blade-user.png)
+    ![Identidad administrada en App Service](media/app-service-managed-service-identity/msi-blade-user.png)
 
 ### <a name="using-an-azure-resource-manager-template"></a>Uso de una plantilla de Azure Resource Manager
 
@@ -193,7 +193,7 @@ Se puede crear cualquier recurso de tipo `Microsoft.Web/sites` con una identidad
 > [!NOTE] 
 > Una aplicación puede tener identidades asignadas por el sistema y asignadas por el usuario al mismo tiempo. En este caso, la propiedad `type` sería `SystemAssigned,UserAssigned`.
 
-Al agregar el tipo asignado por el usuario se indica a Azure que debe crear y administrar la identidad para la aplicación.
+Al agregar el tipo asignado por el usuario se indica a Azure que use la identidad asignada por el usuario especificada para la aplicación.
 
 Por ejemplo, una aplicación web podría tener el aspecto siguiente:
 ```json
@@ -245,55 +245,7 @@ Una aplicación puede utilizar su identidad para obtener tokens para otros recur
 > [!IMPORTANT]
 > Es posible que tenga que configurar el recurso de destino para permitir el acceso desde la aplicación. Por ejemplo, si se solicita un token a Key Vault, debe asegurarse de que ha agregado una directiva de acceso que incluya la identidad de la aplicación. De lo contrario, las llamadas a Key Vault se rechazarán, incluso si incluyen el token. Para más información sobre los recursos que admiten tokens de Azure Active Directory, consulte [Servicios de Azure que admiten autenticación de Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
-Hay un protocolo de REST sencillo para obtener un token en App Service y Azure Functions. Para las aplicaciones de .NET, la biblioteca Microsoft.Azure.Services.AppAuthentication proporciona una abstracción sobre este protocolo y admite una experiencia de desarrollo local.
-
-### <a name="asal"></a>Uso de la biblioteca Microsoft.Azure.Services.AppAuthentication para .NET
-
-En el caso de aplicaciones y funciones de .NET, la manera más sencilla de trabajar con una identidad administrada es usar el paquete Microsoft.Azure.Services.AppAuthentication. Esta biblioteca también le permite probar el código localmente en la máquina de desarrollo, con su cuenta de usuario de Visual Studio, la [CLI de Azure](/cli/azure) o la autenticación integrada de Active Directory. Para obtener más información sobre las opciones de desarrollo local con esta biblioteca, consulte la [referencia de Microsoft.Azure.Services.AppAuthentication]. En esta sección se muestra cómo empezar a usar la biblioteca en su código.
-
-1. Agregue referencias a los paquetes de NuGet [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) y a otros paquetes necesarios para la aplicación. El ejemplo siguiente también usa [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault).
-
-2. Agregue el código siguiente a la aplicación, modificándolo para que tenga como destino el recurso correcto. En este ejemplo se muestran dos formas de trabajar con Azure Key Vault:
-
-```csharp
-using Microsoft.Azure.Services.AppAuthentication;
-using Microsoft.Azure.KeyVault;
-// ...
-var azureServiceTokenProvider = new AzureServiceTokenProvider();
-string accessToken = await azureServiceTokenProvider.GetAccessTokenAsync("https://vault.azure.net");
-// OR
-var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
-```
-
-Para obtener más información sobre Microsoft.Azure.Services.AppAuthentication y las operaciones que expone, consulte la [referencia de Microsoft.Azure.Services.AppAuthentication] y el [ejemplo de .NET sobre App Service y KeyVault con MSI](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet).
-
-
-### <a name="using-the-azure-sdk-for-java"></a>Uso del SDK de Azure para Java
-
-Para aplicaciones y funciones de Java, la manera más sencilla de trabajar con una identidad administrada es con el [SDK de Azure para Java](https://github.com/Azure/azure-sdk-for-java). En esta sección se muestra cómo empezar a usar la biblioteca en su código.
-
-1. Agregue una referencia a la [biblioteca de Azure SDK](https://mvnrepository.com/artifact/com.microsoft.azure/azure). Para los proyectos de Maven, puede agregar este fragmento de código a la sección `dependencies` del archivo POM del proyecto:
-
-```xml
-<dependency>
-    <groupId>com.microsoft.azure</groupId>
-    <artifactId>azure</artifactId>
-    <version>1.23.0</version>
-</dependency>
-```
-
-2. Use el objeto `AppServiceMSICredentials` para la autenticación. En este ejemplo se muestra cómo se puede utilizar este mecanismo para trabajar con Azure Key Vault:
-
-```java
-import com.microsoft.azure.AzureEnvironment;
-import com.microsoft.azure.management.Azure;
-import com.microsoft.azure.management.keyvault.Vault
-//...
-Azure azure = Azure.authenticate(new AppServiceMSICredentials(AzureEnvironment.AZURE))
-        .withSubscription(subscriptionId);
-Vault myKeyVault = azure.vaults().getByResourceGroup(resourceGroup, keyvaultName);
-
-```
+Hay un protocolo de REST sencillo para obtener un token en App Service y Azure Functions. Se puede usar con todas las aplicaciones y todos los lenguajes. En el caso de .NET y Java, el SDK de Azure ofrece una abstracción sobre este protocolo y facilita una experiencia de desarrollo local.
 
 ### <a name="using-the-rest-protocol"></a>Uso del protocolo de REST
 
@@ -354,26 +306,29 @@ Content-Type: application/json
 
 ### <a name="code-examples"></a>Ejemplos de código
 
-<a name="token-csharp"></a>Para realizar esta solicitud en C#:
-
-```csharp
-public static async Task<HttpResponseMessage> GetToken(string resource, string apiversion)  {
-    HttpClient client = new HttpClient();
-    client.DefaultRequestHeaders.Add("Secret", Environment.GetEnvironmentVariable("MSI_SECRET"));
-    return await client.GetAsync(String.Format("{0}/?resource={1}&api-version={2}", Environment.GetEnvironmentVariable("MSI_ENDPOINT"), resource, apiversion));
-}
-```
+# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
 > [!TIP]
 > Para los lenguajes. NET, también puede usar [Microsoft.Azure.Services.AppAuthentication](#asal) en lugar de crear esta solicitud personalmente.
 
-<a name="token-js"></a>En Node.js:
+```csharp
+private readonly HttpClient _client;
+// ...
+public async Task<HttpResponseMessage> GetToken(string resource)  {
+    var request = new HttpRequestMessage(HttpMethod.Get, 
+        String.Format("{0}/?resource={1}&api-version=2017-09-01", Environment.GetEnvironmentVariable("MSI_ENDPOINT"), resource));
+    request.Headers.Add("Secret", Environment.GetEnvironmentVariable("MSI_SECRET"));
+    return await _client.SendAsync(request);
+}
+```
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const rp = require('request-promise');
-const getToken = function(resource, apiver, cb) {
+const getToken = function(resource, cb) {
     let options = {
-        uri: `${process.env["MSI_ENDPOINT"]}/?resource=${resource}&api-version=${apiver}`,
+        uri: `${process.env["MSI_ENDPOINT"]}/?resource=${resource}&api-version=2017-09-01`,
         headers: {
             'Secret': process.env["MSI_SECRET"]
         }
@@ -383,7 +338,7 @@ const getToken = function(resource, apiver, cb) {
 }
 ```
 
-<a name="token-python"></a>En Python:
+# <a name="pythontabpython"></a>[Python](#tab/python)
 
 ```python
 import os
@@ -392,8 +347,8 @@ import requests
 msi_endpoint = os.environ["MSI_ENDPOINT"]
 msi_secret = os.environ["MSI_SECRET"]
 
-def get_bearer_token(resource_uri, token_api_version):
-    token_auth_uri = f"{msi_endpoint}?resource={resource_uri}&api-version={token_api_version}"
+def get_bearer_token(resource_uri):
+    token_auth_uri = f"{msi_endpoint}?resource={resource_uri}&api-version=2017-09-01"
     head_msi = {'Secret':msi_secret}
 
     resp = requests.get(token_auth_uri, headers=head_msi)
@@ -402,15 +357,64 @@ def get_bearer_token(resource_uri, token_api_version):
     return access_token
 ```
 
-<a name="token-powershell"></a>En PowerShell:
+# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 
 ```powershell
-$apiVersion = "2017-09-01"
 $resourceURI = "https://<AAD-resource-URI-for-resource-to-obtain-token>"
-$tokenAuthURI = $env:MSI_ENDPOINT + "?resource=$resourceURI&api-version=$apiVersion"
+$tokenAuthURI = $env:MSI_ENDPOINT + "?resource=$resourceURI&api-version=2017-09-01"
 $tokenResponse = Invoke-RestMethod -Method Get -Headers @{"Secret"="$env:MSI_SECRET"} -Uri $tokenAuthURI
 $accessToken = $tokenResponse.access_token
 ```
+
+---
+
+### <a name="asal"></a>Uso de la biblioteca Microsoft.Azure.Services.AppAuthentication para .NET
+
+En el caso de aplicaciones y funciones de .NET, la manera más sencilla de trabajar con una identidad administrada es usar el paquete Microsoft.Azure.Services.AppAuthentication. Esta biblioteca también le permite probar el código localmente en la máquina de desarrollo, con su cuenta de usuario de Visual Studio, la [CLI de Azure](/cli/azure) o la autenticación integrada de Active Directory. Para obtener más información sobre las opciones de desarrollo local con esta biblioteca, consulte la [referencia de Microsoft.Azure.Services.AppAuthentication]. En esta sección se muestra cómo empezar a usar la biblioteca en su código.
+
+1. Agregue referencias a los paquetes de NuGet [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) y a otros paquetes necesarios para la aplicación. El ejemplo siguiente también usa [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault).
+
+2. Agregue el código siguiente a la aplicación, modificándolo para que tenga como destino el recurso correcto. En este ejemplo se muestran dos formas de trabajar con Azure Key Vault:
+
+    ```csharp
+    using Microsoft.Azure.Services.AppAuthentication;
+    using Microsoft.Azure.KeyVault;
+    // ...
+    var azureServiceTokenProvider = new AzureServiceTokenProvider();
+    string accessToken = await azureServiceTokenProvider.GetAccessTokenAsync("https://vault.azure.net");
+    // OR
+    var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
+    ```
+
+Para obtener más información sobre Microsoft.Azure.Services.AppAuthentication y las operaciones que expone, consulte la [referencia de Microsoft.Azure.Services.AppAuthentication] y el [ejemplo de .NET sobre App Service y KeyVault con MSI](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet).
+
+### <a name="using-the-azure-sdk-for-java"></a>Uso del SDK de Azure para Java
+
+Para aplicaciones y funciones de Java, la manera más sencilla de trabajar con una identidad administrada es con el [SDK de Azure para Java](https://github.com/Azure/azure-sdk-for-java). En esta sección se muestra cómo empezar a usar la biblioteca en su código.
+
+1. Agregue una referencia a la [biblioteca de Azure SDK](https://mvnrepository.com/artifact/com.microsoft.azure/azure). Para los proyectos de Maven, puede agregar este fragmento de código a la sección `dependencies` del archivo POM del proyecto:
+
+    ```xml
+    <dependency>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>azure</artifactId>
+        <version>1.23.0</version>
+    </dependency>
+    ```
+
+2. Use el objeto `AppServiceMSICredentials` para la autenticación. En este ejemplo se muestra cómo se puede utilizar este mecanismo para trabajar con Azure Key Vault:
+
+    ```java
+    import com.microsoft.azure.AzureEnvironment;
+    import com.microsoft.azure.management.Azure;
+    import com.microsoft.azure.management.keyvault.Vault
+    //...
+    Azure azure = Azure.authenticate(new AppServiceMSICredentials(AzureEnvironment.AZURE))
+            .withSubscription(subscriptionId);
+    Vault myKeyVault = azure.vaults().getByResourceGroup(resourceGroup, keyvaultName);
+
+    ```
+
 
 ## <a name="remove"></a>Eliminación una identidad
 

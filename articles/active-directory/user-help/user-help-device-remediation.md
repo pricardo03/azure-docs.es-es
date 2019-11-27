@@ -1,6 +1,6 @@
 ---
-title: 'Solución de problemas: error "No se puede llegar allí desde aquí": Azure Active Directory | Microsoft Docs'
-description: Solución de problemas de los posibles motivos por los que obtiene el mensaje de error "No se puede llegar allí desde aquí".
+title: 'Correcciones del error "No se puede llegar allí desde aquí": Azure AD'
+description: Encuentre correcciones posibles para el motivo por el que obtiene el mensaje de error "No se puede llegar allí desde aquí".
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -14,14 +14,15 @@ ms.author: lizross
 ms.reviewer: jairoc
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a317680a39d4594aacdf84ccdf963bb84bfbf07b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3d6385343ed26e5043e1491529fd2454caff4d04
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60473810"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74028555"
 ---
-# <a name="potential-reasons-for-the-you-cant-get-there-from-here-error-message"></a>Solución de problemas de los posibles motivos por los que obtiene el mensaje de error "No se puede llegar allí desde aquí".
+# <a name="possible-fixes-for-the-you-cant-get-there-from-here-error-message"></a>Correcciones posibles para el mensaje de error "No se puede llegar allí desde aquí"
+
 Durante el acceso a servicios o aplicaciones web internos de su organización, es posible que obtenga un mensaje de error que dice, **No se puede llegar allí desde aquí**. Este mensaje indica que la organización ha establecido una directiva que impide el acceso del dispositivo a los recursos de la organización. Si bien es posible que tenga que ponerse en contacto con su departamento de soporte técnico para solucionar este problema, aquí tiene algunas cosas que puede probar primero.
 
 ## <a name="make-sure-youre-using-a-supported-browser"></a>Comprobación de que usa un explorador compatible

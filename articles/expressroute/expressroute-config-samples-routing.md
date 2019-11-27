@@ -1,5 +1,5 @@
 ---
-title: 'Ejemplos de configuración de enrutadores: Azure ExpressRoute | Microsoft Docs'
+title: 'Azure ExpressRoute: Ejemplos de configuración de enrutadores'
 description: Esta página ofrece ejemplos de configuración de enrutador para enrutadores Cisco y Juniper.
 services: expressroute
 author: cherylmc
@@ -7,13 +7,12 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: cherylmc
-ms.custom: seodec18
-ms.openlocfilehash: 2d7fb060896de8df266489451a11ba343760c747
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2c37dadeb669fb88f858b5487379828a8dddec6c
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60367479"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076659"
 ---
 # <a name="router-configuration-samples-to-set-up-and-manage-routing"></a>Ejemplos de configuración de enrutadores para configurar y administrar enrutamiento
 Esta página ofrece ejemplos de configuración de enrutamiento e interfaces para enrutadores Cisco serie IOS-XE y Juniper serie MX al trabajar con ExpressRoute. Solo pretenden ser ejemplos de carácter informativo y no se deben usar tal cual. Puede trabajar con el proveedor para elaborar las configuraciones adecuadas para la red. 

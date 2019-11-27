@@ -1,10 +1,9 @@
 ---
-title: Administración eficaz de costos de SQL Server en máquinas virtuales de Azure | Microsoft Docs
+title: Guía de precios y administración de los costos
 description: Se proporcionan procedimientos recomendados para elegir el modelo de fijación de precios adecuado de máquinas virtuales de SQL Server.
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
-manager: craigg
 editor: ''
 tags: azure-service-management
 ms.assetid: ''
@@ -15,14 +14,15 @@ ms.workload: iaas-sql-server
 ms.date: 08/09/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 604f18fe2fbf4d8b4f3778817455d92a2811620b
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 076d6fc387aaee85a1cd407fa48e7347ff185ef4
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72028631"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74038876"
 ---
-# <a name="pricing-guidance-for-sql-server-azure-vms"></a>Orientación de precios de SQL Server para máquinas virtuales de Azure
+# <a name="pricing-guidance-for-azure-sql-server-vms"></a>Guía de precios para máquinas virtuales con Azure SQL Server
 
 En este artículo se proporcionan orientaciones sobre precios de [máquinas virtuales de SQL Server](virtual-machines-windows-sql-server-iaas-overview.md) en Azure. Hay varias opciones que afectan al costo, y es importante elegir la imagen correcta que equilibra los costes con los requisitos empresariales.
 

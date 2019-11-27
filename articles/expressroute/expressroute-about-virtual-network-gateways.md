@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: mialdrid
 ms.custom: seodec18
-ms.openlocfilehash: ba03d643c8d3770da60d4225d6c2b84d2a07766f
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: f12f92294a9c30ddedea3c433ff65de4a635fd4d
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72325533"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889646"
 ---
 # <a name="expressroute-virtual-network-gateway-and-fastpath"></a>Puerta de enlace de red virtual de ExpressRoute y FastPath
 Para conectar una red virtual de Azure y una red local a través de ExpressRoute, primero debe crear una puerta de enlace de red virtual. Una puerta de enlace de red virtual tiene dos propósitos: intercambiar las rutas de IP entre las redes y enrutar el tráfico de red. En este artículo se explican los tipos de puerta de enlace, las SKU de puerta de enlace y el rendimiento estimado por SKU. En este artículo también se explica [FastPath](#fastpath) de ExpressRoute, una característica que permite que el tráfico de red desde la red local omita la puerta de enlace de red virtual para mejorar el rendimiento.
@@ -43,6 +43,26 @@ En la tabla siguiente se muestran los tipos de puerta de enlace y los rendimient
 >
 >
 
+## <a name="gwsub"></a>Subred de puerta de enlace
+
+Antes de crear una puerta de enlace de ExpressRoute, debe crear una subred de puerta de enlace. La subred de puerta de enlace contiene las direcciones IP que usan los servicios y las máquinas virtuales de la puerta de enlace de red virtual. Al crear la puerta de enlace de red virtual, las máquinas virtuales de puerta de enlace se implementan en la subred de puerta de enlace y se configuran con las opciones necesarias de puerta de enlace de ExpressRoute. Nunca implemente nada más (por ejemplo, máquinas virtuales adicionales) en la subred de puerta de enlace. Para que la subred de puerta de enlace funcione correctamente, su nombre tiene que ser “GatewaySubnet2”. La asignación del nombre "GatewaySubnet" a la subred de puerta de enlace permite a Azure saber que se trata de la subred donde se implementarán las máquinas virtuales y los servicios de la puerta de enlace de red virtual.
+
+>[!NOTE]
+>[!INCLUDE [vpn-gateway-gwudr-warning.md](../../includes/vpn-gateway-gwudr-warning.md)]
+>
+
+Al crear la subred de puerta de enlace, especifique el número de direcciones IP que contiene la subred. Las direcciones IP de la subred de puerta de enlace se asignan a las máquinas virtuales y los servicios de puerta de enlace. Algunas configuraciones requieren más direcciones IP que otras. 
+
+Cuando planee el tamaño de la subred de puerta de enlace, consulte la documentación de la configuración que piensa crear. Por ejemplo, la configuración de coexistencia de ExpressRoute/VPN Gateway requiere una subred de puerta de enlace mayor que la mayoría de las restantes. Debe asegurarse también de que la subred de puerta de enlace contenga suficientes direcciones IP para acomodar posibles configuraciones adicionales. Aunque es posible crear una subred de puerta de enlace solo de /29, se recomienda que sea de /27, o incluso mayor, (/27, /26, etc.), siempre que se disponga de espacio para hacerlo, ya que puede albergar más configuraciones.
+
+En el ejemplo de PowerShell de Resource Manager siguiente, se muestra una subred de puerta de enlace con el nombre GatewaySubnet. Puede ver que la notación CIDR especifica /27, que permite suficientes direcciones IP para la mayoría de las configuraciones que existen.
+
+```azurepowershell-interactive
+Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/27
+```
+
+[!INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]
+
 ### <a name="zrgw"></a>SKU de puerta de enlace con redundancia de zona
 
 También puede implementar puertas de enlace de ExpressRoute en Azure Availability Zones. De este modo, se dividen física y lógicamente en distintas Availability Zones, lo que protege la conectividad de red local con Azure de errores de nivel de zona.
@@ -65,7 +85,7 @@ FastPath está disponible en todos los circuitos de ExpressRoute. En cualquier c
 FastPath no es compatible con estas características:
 * UDR en la subred de puerta de enlace: si aplica un UDR a la subred de puerta de enlace de la red virtual, el tráfico de la red local se seguirá enviando a la puerta de enlace de red virtual.
 * Emparejamiento de redes virtuales: si tiene otras redes virtuales emparejadas con la que está conectada a ExpressRoute, el tráfico de la red local a las otras redes virtuales (es decir, las llamadas redes virtuales de "radio") se seguirá enviado a la puerta de enlace de red virtual. La solución es conectar todas las redes virtuales directamente al circuito de ExpressRoute.
-* Equilibrador de carga básico: si implementa un equilibrador de carga interno básico en la red virtual o el servicio PaaS de Azure que implementa en la red virtual usa un equilibrador de carga interno básico, el tráfico de la red local a las direcciones IP virtuales hospedadas en el equilibrador de carga básico se enviará a la puerta de enlace de red virtual. La solución es actualizar el equilibrador de carga básico a un [equilibrador de carga estándar](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-overview).
+* Equilibrador de carga básico: si implementa un equilibrador de carga interno básico en la red virtual o el servicio PaaS de Azure que implementa en la red virtual usa un equilibrador de carga interno básico, el tráfico de la red local a las direcciones IP virtuales hospedadas en el equilibrador de carga básico se enviará a la puerta de enlace de red virtual. La solución es actualizar el equilibrador de carga básico a un [equilibrador de carga estándar](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview).
 * Vínculo privado: si se conecta a un [punto de conexión privado](../private-link/private-link-overview.md) de la red virtual desde la red local, la conexión pasará por la puerta de enlace de red virtual.
  
 ## <a name="resources"></a>API de REST y cmdlets de PowerShell

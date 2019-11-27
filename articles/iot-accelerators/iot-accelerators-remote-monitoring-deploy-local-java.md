@@ -1,5 +1,5 @@
 ---
-title: 'Implementación local de la solución de supervisión remota (mediante el IDE de IntelliJ): Azure | Microsoft Docs'
+title: 'Implementación local de la solución de supervisión remota: IDE de Intellij| Microsoft Docs'
 description: En esta guía paso a paso, se explica cómo se implementa el acelerador de soluciones Supervisión remota en una máquina local utilizando IntelliJ para las pruebas y el desarrollo.
 author: v-krghan
 manager: dominicbetts
@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: 2f3c11763bb2f406caf9d33275fc29b0d140da9a
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: 779ee1e057d74b11c5e0ba58dc2fd32b803f1e0e
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "70743316"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888806"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---intellij"></a>Implementación local del acelerador de soluciones de supervisión remota: IntelliJ
 
@@ -172,12 +172,12 @@ En los pasos siguientes, se explica cómo se ejecutan los microservicios de Supe
 
 Como ejemplo, en la siguiente imagen se muestra cómo se agrega una configuración de un servicio:
 
-[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[
+[![Captura de pantalla de la ventana de configuraciones de ejecución o depuración del IDE de IntelliJ, que muestra la opción storageAdapter resaltada en la lista de tareas sbt del panel izquierdo y entradas en los cuadros de nombre, tareas, directorio de trabajo y parámetros de VM del panel derecho.](./media/deploy-locally-intellij/run-configurations.png)](./media/deploy-locally-intellij/run-configurations.png#lightbox)
 
 #### <a name="create-a-compound-configuration"></a>Creación de una configuración compuesta
 
 1. Para ejecutar juntos todos los servicios, seleccione **Add new Configuration** > **Compound** (Agregar nueva configuración > Compuesta).
-1. Escriba un nombre y agregue las tareas de sbt.
+1. Escriba un **Nombre** y seleccione **add sbt tasks** (agregar tareas de sbt).
 1. Seleccione **Aplicar** > **Aceptar** para guardar los valores.
 
 Como ejemplo, en la siguiente imagen se muestra cómo se agregan todas las tareas de sbt a la misma configuración:

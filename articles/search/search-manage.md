@@ -1,5 +1,5 @@
 ---
-title: Administración de servicios de Azure Cognitive Search en el portal
+title: Administración de servicios en el portal
 titleSuffix: Azure Cognitive Search
 description: Administrar un servicio de Azure Cognitive Search, un servicio hospedado de búsqueda en la nube de Microsoft Azure, mediante Azure Portal.
 manager: nitinme
@@ -9,12 +9,12 @@ tags: azure-portal
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 052d772c8ef885d594146d456ebb3cdcbbc0e383
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: e00a810e7977e1c45c1833e0b901ff6804f7fb32
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793498"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113288"
 ---
 # <a name="service-administration-for-azure-cognitive-search-in-the-azure-portal"></a>Administración de los servicios de Azure Cognitive Search en Azure Portal
 > [!div class="op_single_selector"]

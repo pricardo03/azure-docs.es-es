@@ -1,5 +1,5 @@
 ---
-title: Configuración del acceso a WinRM para una máquina virtual de Azure | Microsoft Docs
+title: Configuración del acceso a WinRM para una máquina virtual de Azure
 description: Configure el acceso a WinRM para usarlo con una máquina virtual Azure creada con el modelo de implementación de Resource Manager.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 06/16/2016
 ms.author: kasing
-ms.openlocfilehash: 25091e8e58fbdba908fb00ece3cd2d3d296c5ab1
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: ca52a458104b4de0f7b3ed2aa3f76109a5623c97
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749055"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74067312"
 ---
 # <a name="setting-up-winrm-access-for-virtual-machines-in-azure-resource-manager"></a>Configuración de acceso a WinRM para máquinas virtuales en Azure Resource Manager
 

@@ -5,15 +5,15 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 09/18/2019
+ms.date: 10/28/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 4fd27acc58f5aaeb9b7680062ad97aaba22dec51
-ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
+ms.openlocfilehash: f27a6df86ebbe2b07b73016f304ac364e88664bb
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71686992"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73891045"
 ---
 # <a name="expressroute-faq"></a>P+F de ExpressRoute
 
@@ -43,7 +43,7 @@ No. Puede adquirir una conexión VPN de cualquier velocidad de su proveedor de s
 
 ### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-do-i-have-the-ability-to-burst-up-to-higher-speeds-if-necessary"></a>Si pago por un circuito ExpressRoute de un ancho de banda determinado, ¿puedo aumentar la velocidad si quiero?
 
-Sí. Los circuitos ExpressRoute están configurados para aumentar hasta dos veces el límite de ancho de banda adquirido sin coste adicional. Consulte con su proveedor de servicios para ver si son compatibles con esta capacidad. No es para un período de tiempo prolongado y no está garantizado. 
+Sí. Los circuitos ExpressRoute están configurados para aumentar hasta dos veces el límite de ancho de banda adquirido sin coste adicional. Consulte con su proveedor de servicios para ver si son compatibles con esta capacidad. No es para un período de tiempo prolongado y no está garantizado.  Si el tráfico fluye a través de una puerta de enlace de ExpressRoute, el ancho de banda de la SKU es fijo y no ampliable.
 
 ### <a name="can-i-use-the-same-private-network-connection-with-virtual-network-and-other-azure-services-simultaneously"></a>¿Es posible usar la misma conexión de red privada con Red virtual y otros servicios de Azure simultáneamente?
 
@@ -66,6 +66,7 @@ ExpressRoute admite [tres dominios de enrutamiento](expressroute-circuit-peering
 * [Office 365](https://aka.ms/ExpressRouteOffice365)
 * Power BI: disponible a través de una comunidad regional de Azure, consulte [aquí](https://docs.microsoft.com/power-bi/service-admin-where-is-my-tenant-located) información sobre la región de su inquilino de Power BI.
 * Azure Active Directory
+* [Windows Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop/)
 * [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/) (comunidad de Servicios globales de Azure)
 * Se admiten la mayoría de los servicios de Azure. Compruébelo directamente con el servicio que desea utilizar para comprobar la compatibilidad.<br><br>**Los siguientes servicios no son compatibles**:
     * CDN
@@ -87,12 +88,20 @@ ExpressRoute admite [tres dominios de enrutamiento](expressroute-circuit-peering
     * Servidor de la autenticación multifactor (heredado)
     * Traffic Manager
 
+### <a name="why-i-see-advertised-public-prefixes-status-as-validation-needed-while-configuring-microsoft-peering"></a>¿Por qué veo el estado de "Prefijos públicos anunciados" como "Se necesita validación" mientras configuro el emparejamiento de Microsoft?
+
+Microsoft comprueba si los prefijos públicos anunciados y ASN del mismo nivel (o ASN de cliente) especificados se le han asignado en el registro de enrutamiento de Internet. Si obtiene los prefijos públicos de otra entidad y la asignación no se registra con el registro de enrutamiento, la validación automática no se completará y requerirá la validación manual. Si se produce un error en la validación automática, aparecerá el mensaje "Se necesita validación".
+
+Si ve el mensaje "Se necesita validación", recopile los documentos que muestren los prefijos públicos asignados a la organización por la entidad que aparece como propietaria de los prefijos en el registro de enrutamiento, y envíe estos documentos para su validación manual. Abra una incidencia de soporte técnico como se muestra a continuación.
+
+![](./media/expressroute-faqs/ticket-portal-msftpeering-prefix-validation.png)
+
 ### <a name="is-dynamics-365-supported-on-expressroute"></a>¿Se admite Dynamics 365 en ExpressRoute?
 
 Los entornos de Dynamics 365 y Common Data Service (CDS) se hospedan en Azure y, por tanto, los clientes se benefician de la compatibilidad de ExpressRoute subyacente con los recursos de Azure. Puede conectarse a sus puntos de conexión de servicio si el filtro del enrutador incluye las regiones de Azure en las que se hospedan los entornos de Dynamics 365 o CDS.
 
 > [!NOTE]
-> [ExpressRoute Premium](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-faqs#expressroute-premium) **no** es necesario para la conectividad de Dynamics 365 mediante Azure ExpressRoute.
+> [ExpressRoute Premium](https://docs.microsoft.com/azure/expressroute/expressroute-faqs#expressroute-premium) **no** es necesario para la conectividad de Dynamics 365 mediante Azure ExpressRoute.
 
 ## <a name="data-and-connections"></a>Datos y conexiones
 
@@ -303,7 +312,7 @@ Sí. Las tarifas de ExpressRoute Premium se aplican a las tarifas de circuito Ex
 
 ## <a name="expressroute-local"></a>ExpressRoute Local
 ### <a name="what-is-expressroute-local"></a>¿Qué es ExpressRoute Local?
-ExpressRoute Local es una SKU del circuito ExpressRoute disponible en [ExpressRoute Direct](expressroute-erdirect-about.md). Una característica clave de ExpressRoute Local es que un circuito Local en la ubicación de emparejamiento de ExpressRoute le ofrece acceso solo a una o a dos regiones de Azure en el mismo metro o cerca. En cambio, un circuito ExpressRoute Standard proporciona acceso a todas las regiones de Azure en un área geopolítica y un circuito Premium en todas las regiones de Azure globalmente. 
+ExpressRoute Local es una SKU del circuito ExpressRoute, además de la SKU estándar y la SKU Premium. Una característica clave de ExpressRoute Local es que un circuito Local en la ubicación de emparejamiento de ExpressRoute le ofrece acceso solo a una o a dos regiones de Azure en el mismo metro o cerca. En cambio, un circuito ExpressRoute Standard proporciona acceso a todas las regiones de Azure en un área geopolítica y un circuito Premium en todas las regiones de Azure globalmente. 
 
 ### <a name="what-are-the-benefits-of-expressroute-local"></a>¿Cuáles son las ventajas de ExpressRoute Local?
 Aunque puede que tenga que pagar la transferencia de datos de salida para el circuito ExpressRoute Premium o Standard, no paga la transferencia de datos de salida para el circuito de ExpressRoute Local. En otras palabras, el precio de ExpressRoute Local incluye las tasas de transferencia de datos. ExpressRoute Local es una solución más económica si tiene gran cantidad de datos que transferir y puede llevarlos a través de una conexión privada a una ubicación de emparejamiento de ExpressRoute cerca de las regiones de Azure deseadas. 
@@ -314,9 +323,6 @@ En comparación con un circuito ExpressRoute Standard, un circuito ExpressRoute 
 * ExpressRoute Global Reach no está disponible en ExpressRoute Local
 
 ExpressRoute Local también tiene los mismos límites de recursos (por ejemplo, el número de redes virtuales por circuito) que ExpressRoute Standard. 
-
-### <a name="how-to-configure-expressroute-local"></a>¿Cómo se configura ExpressRoute Local? 
-ExpressRoute Local solo está disponible en ExpressRoute Direct. Primero deberá configurar el puerto de ExpressRoute Direct. Una vez creado dicho puerto, puede crear un circuito ExpressRoute Local siguiendo las instrucciones [aquí](expressroute-howto-erdirect.md).
 
 ### <a name="where-is-expressroute-local-available-and-which-azure-regions-is-each-peering-location-mapped-to"></a>¿Donde está disponible ExpressRoute Local y a qué regiones de Azure se asigna cada ubicación de emparejamiento?
 ExpressRoute Local está disponible en las ubicaciones de emparejamiento donde haya cerca una o dos regiones de Azure. No está disponible en una ubicación de emparejamiento donde no haya ninguna región de Azure en ese estado, provincia o país. Vea las asignaciones exactas en [la página de ubicaciones](expressroute-locations-providers.md).  

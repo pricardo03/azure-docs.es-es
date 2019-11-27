@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: f9a3c4875f01c650485034fe46f53bb5aa1fd75b
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: cb7ebe5d9519f1a3967a29f4c883c420a892817f
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68722651"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73957997"
 ---
 # <a name="azure-maps-traffic-coverage"></a>Cobertura de tráfico en Azure Maps
 
 Azure Maps proporciona información de tráfico enriquecida en forma de **flujo** e **incidentes** de tráfico. Estos datos se pueden visualizar en mapas o se pueden utilizar para generar rutas más inteligentes que se apoyan en las condiciones de conducción reales.
 
-Sin embargo, Maps no tiene el mismo nivel de información y precisión en todas las regiones. La tabla siguiente proporciona información acerca de qué tipo de información de tráfico puede solicitar en cada región: 
+Sin embargo, Maps no tiene el mismo nivel de información y precisión en todos los países o regiones. La tabla siguiente proporciona información acerca de qué tipo de información de tráfico puede solicitar en cada país o región: 
 
 ## <a name="americas"></a>América
 

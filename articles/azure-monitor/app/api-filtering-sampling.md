@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 11/23/2016
-ms.openlocfilehash: 1e02e227180bb0082dd87ab8f5d2fe64e19b60f2
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 550ac9ff3b425e682fdda16501613aa41a80d765
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677802"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847243"
 ---
 # <a name="filtering-and-preprocessing-telemetry-in-the-application-insights-sdk"></a>Filtro y preprocesamiento de la telemetría en el SDK de Application Insights
 
@@ -25,11 +25,11 @@ Puede escribir y configurar complementos para el SDK de Application Insights con
 
 Antes de comenzar:
 
-* Instale el SDK adecuado para su aplicación: [ASP.NET](asp-net.md), [ASP.NET Core](asp-net-core.md), [No HTTP/Trabajo para .NET/.NET Core](worker-service.md) o [Java](../../azure-monitor/app/java-get-started.md).
+* Instale el SDK adecuado para su aplicación: [ASP.NET](asp-net.md), [ASP.NET Core](asp-net-core.md), [No HTTP/Trabajo para .NET/.NET Core](worker-service.md), [Java](../../azure-monitor/app/java-get-started.md) o [JavaScript](javascript.md)
 
 <a name="filtering"></a>
 
-## <a name="filtering-itelemetryprocessor"></a>Filtrado: ITelemetryProcessor
+## <a name="filtering"></a>Filtros
 
 Esta técnica le ofrece un control directo sobre lo que se incluirá en la transmisión de telemetría o lo que se excluirá de ella. El filtrado se puede usar para impedir el envío de elementos de telemetría a Application Insights. Se puede utilizar junto con el muestreo o por separado.
 
@@ -198,7 +198,30 @@ public void Process(ITelemetry item)
 
 <a name="add-properties"></a>
 
-## <a name="add-properties-itelemetryinitializer"></a>Agregar propiedades: ITelemetryInitializer
+### <a name="javascript-web-applications"></a>Aplicaciones web de JavaScript
+
+**Filtrado con ITelemetryInitializer**
+
+1. Cree una función de devolución de llamada del inicializador de telemetría. La función de devolución de llamada toma `ITelemetryItem` como parámetro, que es el evento que se está procesando. La devolución de `false` desde esta devolución de llamada da lugar a que se filtre el elemento de telemetría.  
+
+   ```JS
+   var filteringFunction = (envelope) => {
+     if (envelope.data.someField === 'tobefilteredout') {
+        return false;
+     }
+  
+     return true;
+   };
+   ```
+
+2. Agregue la devolución de llamada del inicializador de telemetría:
+
+   ```JS
+   appInsights.addTelemetryInitializer(filteringFunction);
+   ```
+
+## <a name="addmodify-properties-itelemetryinitializer"></a>Agregar o modificar propiedades: ITelemetryInitializer
+
 
 Use los inicializadores de telemetría para enriquecer la telemetría con información adicional o para invalidar las propiedades de telemetría establecidas por los módulos de telemetría estándar.
 

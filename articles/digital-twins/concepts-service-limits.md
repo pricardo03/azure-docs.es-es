@@ -1,19 +1,19 @@
 ---
-title: Límites de servicio de la versión preliminar pública de Azure Digital Twins | Microsoft Docs
-description: Descripción de los límites de servicio de la versión preliminar pública de Azure Digital Twins.
+title: 'Límites de servicio de la versión preliminar pública: Azure Digital Twins | Microsoft Docs'
+description: Obtenga información sobre los límites de servicio de la versión preliminar pública de Azure Digital Twins.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/03/2019
-ms.openlocfilehash: 88a66506b5102a4efaeefe1c7033b337dff9889a
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.date: 10/22/2019
+ms.openlocfilehash: 3cea4fe65e49bfa2d49822d443103ae6cc6ce69f
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949240"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014168"
 ---
 # <a name="public-preview-service-limits"></a>Límites de servicio de la versión preliminar pública
 
@@ -70,7 +70,8 @@ Los siguientes límites establecen el total de llamadas de las funciones definid
 
 Los siguientes límites suponen el máximo de mensajes que los dispositivos pueden enviar a la instancia de Azure Digital Twins:
 
-- 100 mensajes por segundo
+- 100 mensajes por segundo en todos los dispositivos
+-   25 mensajes por segundo por dispositivo
 
 ## <a name="next-steps"></a>Pasos siguientes
 

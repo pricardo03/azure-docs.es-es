@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: mlearned
-ms.openlocfilehash: e0b7154e3c4d6a6f493aac93ffcbcc424a67c300
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: d855e7a65b7e1ad24dcfc4fe6a6d5e02f9004bb0
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932311"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74089538"
 ---
 # <a name="connect-with-ssh-to-azure-kubernetes-service-aks-cluster-nodes-for-maintenance-or-troubleshooting"></a>Conexión con SSH a los nodos de clúster de Azure Kubernetes Service (AKS) para mantenimiento o solución de problemas
 
@@ -37,14 +37,16 @@ Para configurar un clúster de AKS basado en un conjunto de escalado de máquina
 Use el comando [az aks show][az-aks-show] para obtener el nombre del grupo de recursos del clúster de AKS y, después, el comando [vmss list][az-vmss-list] para obtener el nombre del conjunto de escalado.
 
 ```azurecli-interactive
-$CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
+CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
 SCALE_SET_NAME=$(az vmss list --resource-group $CLUSTER_RESOURCE_GROUP --query [0].name -o tsv)
 ```
 
 En el ejemplo anterior se asigna el nombre del grupo de recursos del clúster para *myAKSCluster* en *myResourceGroup* a *CLUSTER_RESOURCE_GROUP*. Luego, el ejemplo usa *CLUSTER_RESOURCE_GROUP* para mostrar el nombre del conjunto de escalado y asignarlo a *SCALE_SET_NAME*.  
 
-> [!NOTE]
-> Actualmente, las claves SSH solo se pueden agregar a los nodos de Linux mediante la CLI de Azure. Si desea conectarse a un nodo de Windows Server mediante SSH, use las claves SSH que se proporcionan al crear el clúster de AKS y omita el siguiente conjunto de comandos para agregar la clave pública SSH. Seguirá necesitando la dirección IP del nodo cuyos problemas desea solucionar, que se muestra en el comando final de esta sección. Como alternativa, puede [conectarse a los nodos de Windows Server mediante conexiones RDP (protocolo de escritorio remoto)][aks-windows-rdp], en lugar de usar SSH.
+> [!IMPORTANT]
+> En este punto, solo debe actualizar las claves SSH de los clústeres de AKS basados en conjuntos de escalado de máquinas virtuales mediante la CLI de Azure.
+> 
+> En los nodos de Linux, las claves SSH actualmente solo se pueden agregar mediante la CLI de Azure. Si desea conectarse a un nodo de Windows Server mediante SSH, use las claves SSH que se proporcionan al crear el clúster de AKS y omita el siguiente conjunto de comandos para agregar la clave pública SSH. Seguirá necesitando la dirección IP del nodo cuyos problemas desea solucionar, que se muestra en el comando final de esta sección. Como alternativa, puede [conectarse a los nodos de Windows Server mediante conexiones RDP (protocolo de escritorio remoto)][aks-windows-rdp], en lugar de usar SSH.
 
 Para agregar sus claves SSH a los nodos de un conjunto de escalado de máquinas virtuales, use los comandos [az vmss extension set][az-vmss-extension-set] y [az vmss update-instances][az-vmss-update-instances].
 
@@ -94,7 +96,7 @@ Para configurar un clúster de AKS basado en un conjunto de disponibilidad de m�
 Use el comando [az aks show][az-aks-show] para obtener el nombre del grupo de recursos del clúster de AKS y, después, el comando [az vm list][az-vm-list] para enumerar el nombre de la máquina virtual del nodo de Linux del clúster.
 
 ```azurecli-interactive
-$CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
+CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
 az vm list --resource-group $CLUSTER_RESOURCE_GROUP -o table
 ```
 

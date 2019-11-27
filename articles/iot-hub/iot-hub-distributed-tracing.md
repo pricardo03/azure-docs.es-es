@@ -1,6 +1,6 @@
 ---
-title: Incorporación de los id. de correlación a los mensajes de IoT con seguimiento distribuido (versión preliminar)
-description: ''
+title: Incorporación de identificadores de correlación a mensajes de IoT con seguimiento distribuido (versión preliminar)
+description: Aprenda a usar la funcionalidad de seguimiento distribuido para realizar un seguimiento de los mensajes de IoT en todos los servicios de Azure que usa la solución.
 author: jlian
 manager: briz
 ms.service: iot-hub
@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: jlian
-ms.openlocfilehash: e4403c245a3cae671f83260ae313ed400b0f7721
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 835a359d3b5781ad814e423e4a69e8d60379c97b
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71259349"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953152"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Seguimiento de mensajes del dispositivo a la nube de Azure IoT con seguimiento distribuido (versión preliminar)
 
@@ -28,7 +28,7 @@ La habilitación del seguimiento distribuido para IoT Hub le ofrece la capacidad
 - Medir y comprender la latencia y el flujo de mensajes desde los dispositivos a IoT Hub y los puntos de conexión de enrutamiento.
 - Comenzar a considerar cómo desea implementar el seguimiento distribuido para los servicios que no son de Azure en su solución de IoT.
 
-En este artículo, se usa el [SDK de dispositivo de IoT de Azure para C](./iot-hub-device-sdk-c-intro.md) con seguimiento distribuido. La compatibilidad con el seguimiento distribuido aún está en curso para lo demás SDK.
+En este artículo, se usa el [SDK de dispositivo de IoT de Azure para C](iot-hub-device-sdk-c-intro.md) con seguimiento distribuido. La compatibilidad con el seguimiento distribuido aún está en curso para lo demás SDK.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -38,7 +38,7 @@ En este artículo, se usa el [SDK de dispositivo de IoT de Azure para C](./iot-h
   - **Sudeste Asiático**
   - **Oeste de EE. UU. 2**
 
-- En este artículo se da por supuesto que está familiarizado con el envío de mensajes de telemetría a IoT hub. Asegúrese de que ha completado el [Inicio rápido: Envío de telemetría desde un dispositivo a un centro de IoT y su lectura con una aplicación de back-end (C)](./quickstart-send-telemetry-c.md).
+- En este artículo se da por supuesto que está familiarizado con el envío de mensajes de telemetría a IoT hub. Asegúrese de que ha completado el [Inicio rápido: Envío de telemetría desde un dispositivo a un centro de IoT y su lectura con una aplicación de back-end (C)](quickstart-send-telemetry-c.md).
 
 - Registre un dispositivo con IoT hub (los pasos están disponibles en cada inicio rápido) y anote la cadena de conexión.
 

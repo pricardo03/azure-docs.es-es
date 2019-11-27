@@ -1,19 +1,18 @@
 ---
 title: Consulta sobre el enrutamiento de mensajes de Azure IoT Hub | Microsoft Docs
-description: 'Guía del desarrollador: Sintaxis de consulta para el enrutamiento de mensajes en Azure IoT Hub'
+description: Obtenga información sobre el lenguaje de consulta de enrutamiento de mensajes de IoT Hub que puede usar para aplicar consultas enriquecidas a mensajes para recibir los datos que le interesan.
 author: ash2017
-manager: briz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: 7f6439d79e5d46621b92b1c24ba5caf87889f443
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 859b15954f64f8b481f6b86c04fc28b542599f02
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877073"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890494"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>Sintaxis de las consultas de enrutamiento de mensajes de IoT Hub
 

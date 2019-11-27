@@ -1,5 +1,5 @@
 ---
-title: Se produce un error en los trabajos de Apache Spark con InvalidClassException en Azure HDInsight
+title: 'Error InvalidClassException en Apache Spark: Azure HDInsight'
 description: Error del trabajo de Apache Spark con InvalidClassException, la versión de la clase no coincide, en Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 07/29/2019
-ms.openlocfilehash: c32b6a5ed7e8c052096f6125a5246fc9685302d4
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 124d5586180258589c5db17454b8fbf1e465fc24
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71088687"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74106490"
 ---
 # <a name="apache-spark-job-fails-with-invalidclassexception-class-version-mismatch-in-azure-hdinsight"></a>Error del trabajo de Apache Spark con InvalidClassException, la versión de la clase no coincide, en Azure HDInsight
 
@@ -34,7 +34,10 @@ org.apache.commons.lang3.time.FastDateFormat; local class incompatible: stream c
 
 ## <a name="cause"></a>Causa
 
-Este error puede deberse a la incorporación de un archivo jar adicional a la configuración `spark.yarn.jars`, que es un archivo jar “sombreado” que incluye una versión diferente del paquete `commons-lang3` e introduce una discordancia de clase. De forma predeterminada, Spark 2.1/2/3 usa la versión 3,5 de `commons-lang3`.
+Este error puede deberse a la incorporación de un archivo jar adicional a la configuración `spark.yarn.jars`, especialmente si se trata de un archivo jar "sombreado" que incluye una versión diferente del paquete `commons-lang3` e introduce una discordancia de clase. De forma predeterminada, Spark 2.1/2/3 usa la versión 3,5 de `commons-lang3`.
+
+> [!TIP]
+> Para sombrear una biblioteca, debe incluir el contenido en un archivo jar propio y cambiar el paquete. Este procedimiento es diferente al del empaquetamiento de la biblioteca, que incluye la biblioteca en un archivo jar propio sin volver a empaquetar.
 
 ## <a name="resolution"></a>Resolución
 

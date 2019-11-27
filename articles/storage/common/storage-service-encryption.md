@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 42c674e236d769d48f6f17fc43494ac006219a8a
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: cfac7fdbbdbf06ae74385fbc33e61d11cb99ff87
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73795692"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74066315"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>Cifrado de Azure Storage para datos en reposo
 
 Azure Storage cifra automáticamente los datos al guardarlos en la nube. Mediante el cifrado, se protegen los datos y es más fácil cumplir los compromisos de cumplimiento y seguridad de la organización. Los datos de Azure Storage se cifran y descifran de forma transparente mediante el [cifrado AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) de 256 bits, uno de los cifrados de bloques más sólidos que hay disponibles, y son compatibles con FIPS 140-2. El cifrado de Azure Storage es similar al cifrado de BitLocker en Windows.
 
-El cifrado de Azure Storage está habilitado para todas las cuentas de almacenamiento nuevas y existentes y no se puede deshabilitar. Como los datos están protegidos de forma predeterminada, no es necesario modificar el código o las aplicaciones para aprovechar el cifrado de Azure Storage.
+El cifrado de Azure Storage está habilitado en todas las cuentas de almacenamiento nuevas y no se puede deshabilitar. Como los datos están protegidos de forma predeterminada, no es necesario modificar el código o las aplicaciones para aprovechar el cifrado de Azure Storage.
 
 Las cuentas de almacenamiento se cifran independientemente de su nivel de rendimiento (Estándar o Premium) o del modelo de implementación (Azure Resource Manager o clásico). Todas las opciones de redundancia de Azure Storage admiten el cifrado y se cifran todas las copias de una cuenta de almacenamiento. Se cifran todos los recursos de Azure Storage, incluidos los blobs, los discos, los archivos, las colas y las tablas. También se cifran todos los metadatos de objetos.
 
@@ -194,7 +194,7 @@ public static void UploadBlobWithClientKey(CloudBlobContainer container)
 
 ## <a name="azure-storage-encryption-versus-disk-encryption"></a>Cifrado de Azure Storage frente a cifrado de disco
 
-Con el cifrado de Azure Storage, se cifran todas las cuentas de Azure Storage y los recursos que contienen, incluidos los blobs en páginas que guardan los discos de máquinas virtuales de Azure. Además, se pueden cifrar los discos de máquinas virtuales de Azure con [Azure Disk Encryption](../../security/azure-security-disk-encryption-overview.md). Azure Disk Encryption usa el estándar del sector [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) en Windows y [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) en Linux para proporcionar soluciones de cifrado basado en el sistema que se integran con Azure Key Vault.
+El cifrado de Azure Storage cifra los blobs en páginas que respaldan los discos de máquinas virtuales de Azure. Además, existe la posibilidad de cifrar todos los discos de máquinas virtuales de Azure, incluidos los discos temporales locales, con [Azure Disk Encryption](../../security/azure-security-disk-encryption-overview.md). Azure Disk Encryption usa el estándar del sector [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) en Windows y [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) en Linux para proporcionar soluciones de cifrado basado en el sistema que se integran con Azure Key Vault.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

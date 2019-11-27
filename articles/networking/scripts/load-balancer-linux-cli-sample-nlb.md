@@ -1,12 +1,10 @@
 ---
-title: 'Ejemplo de script de la CLI Azure: equilibrio de carga del tráfico a las máquinas virtuales para lograr una alta disponibilidad | Microsoft Docs'
-description: 'Ejemplo de script de la CLI Azure: equilibrio de carga del tráfico a las máquinas virtuales para lograr una alta disponibilidad'
+title: 'Equilibrio de carga del tráfico a las máquinas virtuales para conseguir una alta disponibilidad mediante la CLI de Azure: Azure Load Balancer'
+description: Con este ejemplo puede familiarizarse con el equilibrio de carga del tráfico a las máquinas virtuales para lograr alta disponibilidad.
 services: load-balancer
 documentationcenter: load-balancer
-author: KumudD
-manager: timlt
-editor: tysonn
-tags: ''
+author: asudbring
+manager: KumudD
 ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: azurecli
@@ -14,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 07/07/2017
-ms.author: kumud
-ms.openlocfilehash: 916e9e1f7287757f19e93ecf7b8cc38f556e2dc8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: allensu
+ms.openlocfilehash: 8712cd1cff9e3a6623b67e1b39a19df7c6d0172e
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60564653"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74067059"
 ---
 # <a name="load-balance-traffic-to-vms-for-high-availability"></a>Equilibrio de carga del tráfico a las máquinas virtuales para lograr una alta disponibilidad
 

@@ -8,18 +8,23 @@ ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 8a1802f0f24ba5ccad3ec1c45f3baa29dfe6909f
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 306f6cb0b50b7befcbf51e6164a5da887d35616e
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71263039"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74030887"
 ---
 # <a name="archive-azure-resource-logs-to-storage-account"></a>Archivado de registros de recurso de Azure en la cuenta de almacenamiento
 Los [registros de recurso](resource-logs-overview.md) en Azure proporcionan datos exhaustivos y frecuentes acerca del funcionamiento interno de un recurso de Azure. En este artículo se describe la recopilación de registros de recurso en una cuenta de almacenamiento de Azure para conservar los datos para su archivado.
 
 ## <a name="prerequisites"></a>Requisitos previos
 Si no la tiene, puede crear una [cuenta de almacenamiento de Azure](../../storage/common/storage-quickstart-create-account.md). La cuenta de almacenamiento no tiene que estar en la misma suscripción que la del recurso que envía los registros, siempre que el usuario que realiza la configuración tenga el acceso RBAC adecuado a ambas suscripciones.
+
+
+> [!IMPORTANT]
+> Actualmente, las cuentas de Azure Data Lake Storage Gen2 no se admiten como destino de la configuración de diagnóstico, aunque pueden aparecer como una opción válida en Azure Portal.
+
 
 No debe utilizar una cuenta de almacenamiento existente que tenga otros datos sin supervisión almacenados en ella, para que pueda controlar mejor el acceso a los datos de supervisión. Sin embargo, si también va a archivar el [registro de actividad](activity-logs-overview.md) en una cuenta de almacenamiento, puede que tenga sentido utilizar esa misma cuenta de almacenamiento para mantener todos los datos de supervisión en una ubicación central.
 

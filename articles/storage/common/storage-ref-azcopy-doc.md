@@ -8,12 +8,12 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: b11d831be847716d4edfac4f9a0725e07a60c52a
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: d071517377053e8f4f22ad00966e2be688b0d486
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72513856"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74029859"
 ---
 # <a name="azcopy-doc"></a>azcopy doc
 
@@ -28,6 +28,13 @@ De forma predeterminada, los archivos se almacenan en una carpeta denominada "do
 ```azcopy
 azcopy doc [flags]
 ```
+
+## <a name="related-conceptual-articles"></a>Artículos conceptuales relacionados
+
+- [Introducción a AzCopy](storage-use-azcopy-v10.md)
+- [Transferencia de datos con AzCopy y Blob Storage](storage-use-azcopy-blobs.md)
+- [Transferencia de datos con AzCopy y File Storage](storage-use-azcopy-files.md)
+- [Configurar, optimizar y solucionar problemas de AzCopy](storage-use-azcopy-configure.md)
 
 ## <a name="options"></a>Opciones
 

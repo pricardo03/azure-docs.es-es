@@ -1,24 +1,24 @@
 ---
-title: 'Conceder un permiso individual para superar las restricciones en los registros de aplicaciones: Azure Active Directory | Microsoft Docs'
-description: Asigne un rol personalizado para conceder registros de aplicaciones sin restricciones en Azure Active Directory.
+title: 'Eliminación de los límites para la creación de registros de aplicaciones: Azure AD | Microsoft Docs'
+description: Asignación de un rol personalizado para conceder registros de aplicaciones sin restricciones en Azure Active Directory
 services: active-directory
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 07/31/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c91de3de743d168bea207f27fb162486ea625a63
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 12803e2f65e17155e8bbcaf4842789adc101b0dd
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72026288"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74024405"
 ---
 # <a name="quickstart-grant-permission-to-create-unlimited-app-registrations"></a>Inicio rápido: Concesión de permisos para crear registros de aplicaciones ilimitados
 

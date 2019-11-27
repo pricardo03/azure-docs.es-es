@@ -1,5 +1,5 @@
 ---
-title: Configuración de una VPN de sitio a sitio mediante el emparejamiento de Microsoft de Azure ExpressRoute | Microsoft Docs
+title: 'Azure ExpressRoute: Configuración de VPN de sitio a sitio en el emparejamiento de Microsoft'
 description: Configure la conectividad de IPsec/IKE a Azure a través de un circuito de emparejamiento de Microsoft de ExpressRoute mediante una puerta de enlace VPN de sitio a sitio.
 services: expressroute
 author: cherylmc
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: d26210ab226f8e907aa845d51dca94f59badd6a3
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 89c7e398e24fb48c1829dbaa2811f440c5485a60
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748078"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74038100"
 ---
 # <a name="configure-a-site-to-site-vpn-over-expressroute-microsoft-peering"></a>Configuración de una VPN de sitio a sitio a través del emparejamiento de Microsoft de ExpressRoute
 

@@ -1,19 +1,18 @@
 ---
-title: Exclusión de discos de la replicación al configurar la recuperación ante desastres con el servicio Azure Site Recovery | Microsoft Docs
+title: Exclusión de discos de replicación en la recuperación ante desastres con Azure Site Recovery
 description: Describe cómo excluir discos de máquina virtual de la replicación durante la recuperación ante desastres en Azure.
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
-services: site-recovery
 ms.topic: conceptual
-ms.date: 01/19/2019
+ms.date: 11/12/2019
 ms.author: mayg
-ms.openlocfilehash: f86ded99ef5280a4e6929c39a9fd323d1b61f6f0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 12304067e1a92559c2313fd7382f271249a8c784
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60773934"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961451"
 ---
 # <a name="exclude-disks-from-replication"></a>Excluir discos de la replicación
 En este artículo se describe cómo excluir discos de la replicación. Esta exclusión puede optimizar el ancho de banda consumido con la replicación u optimizar los recursos del lado del destino que utilizan estos discos.

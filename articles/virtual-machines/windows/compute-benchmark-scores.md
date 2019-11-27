@@ -1,5 +1,5 @@
 ---
-title: Puntuaciones de las pruebas comparativas de proceso para máquinas virtuales Windows de Azure | Microsoft Docs
+title: Puntuaciones de pruebas comparativas de proceso de máquinas virtuales Windows de Azure
 description: Comparación de puntuaciones de las pruebas comparativas de proceso de SPECint para máquinas virtuales de Azure con Windows Server.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/09/2018
 ms.author: cynthn
 ms.reviewer: davberg
-ms.openlocfilehash: 665a4d89c056b5825e35f0925ba3eaaf55d06c0f
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: e2faf3ad7ed41c14745337414703d9fb0db54152
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70089373"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033573"
 ---
 # <a name="compute-benchmark-scores-for-windows-vms"></a>Puntuaciones de pruebas comparativas de proceso para máquinas virtuales Windows
 Las siguientes puntuaciones de pruebas comparativas SPECInt muestran el rendimiento de proceso para máquinas virtuales específicas que ejecutan Windows Server. Las puntuaciones de pruebas comparativas de proceso también están disponibles para las [máquinas virtuales Linux](../linux/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

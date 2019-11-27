@@ -1,5 +1,5 @@
 ---
-title: Configuración de la recuperación ante desastres en Azure para máquinas virtuales de Hyper-V mediante PowerShell y Azure Resource Manager | Microsoft Docs
+title: Configuración de la recuperación ante desastres de máquinas virtuales de Hyper-V mediante Azure Site Recovery y PowerShell
 description: Automatice la recuperación ante desastres de máquinas virtuales de Hyper-V en Azure con el servicio Azure Site Recovery mediante PowerShell y Azure Resource Manager.
 author: sujayt
 manager: rochakm
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 06/18/2019
 ms.author: sutalasi
-ms.openlocfilehash: 1779a33e4ac021c1807ce10dc224e0b8c8c53ebb
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 73f5f64a64ab28cdb4b57d0904911f62c2020cf0
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200523"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082676"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>Configurar la recuperación ante desastres en Azure para máquinas virtuales de Hyper-V mediante PowerShell y Azure Resource Manager
 

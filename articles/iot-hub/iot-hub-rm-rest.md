@@ -1,20 +1,19 @@
 ---
 title: Creación de un centro de IoT de Azure mediante la API de REST del proveedor de recursos | Microsoft Docs
-description: Describe cómo usar la API de REST del proveedor de recursos para crear un centro de IoT.
+description: Aprenda a usar la API REST de C# del proveedor de recursos para crear y administrar una instancia de IoT Hub mediante programación.
 author: robinsh
-manager: philmea
 ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: 6d91f5e61dfd7c3cb4d1869edf0c6cb8c2c85190
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7d5e38e2ecfa2406ff0f58f73d828aa45d84c512
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65827493"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890479"
 ---
 # <a name="create-an-iot-hub-using-the-resource-provider-rest-api-net"></a>Creación de un centro de IoT mediante la API de REST del proveedor de recursos (.NET)
 

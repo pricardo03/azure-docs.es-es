@@ -1,5 +1,5 @@
 ---
-title: 'Asignación y eliminación de roles de administrador personalizados con Microsoft Graph API: Azure Active Directory | Microsoft Docs'
+title: Asignación de roles de administrador de Azure AD con Microsoft Graph API | Microsoft Docs
 description: Asignación y eliminación de roles de administrador de Azure AD con Graph API en Azure Active Directory
 services: active-directory
 author: curtand
@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 07/31/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 898f444e868a469aed5358f49f48f5bcbfab4450
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 2f5be5829843e9857239ca5ea9a7395f569f563a
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68707441"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74025341"
 ---
 # <a name="assign-custom-admin-roles-using-graph-api-in-azure-active-directory"></a>Asignación de roles de administrador personalizados mediante Graph API en Azure Active Directory 
 

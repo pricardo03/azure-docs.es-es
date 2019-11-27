@@ -1,5 +1,5 @@
 ---
-title: 'Configuración del emparejamiento de un circuito en ExpressRoute: Azure | Microsoft Docs'
+title: 'Azure ExpressRoute: Configuración del emparejamiento'
 description: En este artículo se documentan los pasos para crear y aprovisionar el emparejamiento privado de ExpressRoute y de Microsoft. Este artículo también muestra cómo comprobar el estado, actualizar o eliminar emparejamientos de un circuito.
 services: expressroute
 author: mialdrid
@@ -7,13 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: mialdrid
-ms.custom: seodec18
-ms.openlocfilehash: 08d8103c4b35148a87d347e31b11c7c8c968598b
-ms.sourcegitcommit: dda9fc615db84e6849963b20e1dce74c9fe51821
+ms.openlocfilehash: 5fb728cccd77d0cefd10c124cb7215dc3b880fe3
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67622347"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083535"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit"></a>Creación y modificación del emparejamiento de un circuito ExpressRoute
 
@@ -61,11 +60,11 @@ Esta sección le ayuda a crear, obtener, actualizar y eliminar la configuración
 
    **Estado del circuito y proveedor: No aprovisionado**
 
-    [![](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-m.png "Estado de proveedor: No aprovisionado")](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-m-lightbox.png#lightbox)
+    [![](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-m.png "Provider status: Not provisioned")](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-m-lightbox.png#lightbox)
 
    **Estado del circuito y proveedor: Aprovisionado**
 
-   [![](./media/expressroute-howto-routing-portal-resource-manager/provisioned-m.png "Estado de proveedor: Aprovisionado")](./media/expressroute-howto-routing-portal-resource-manager/provisioned-m-lightbox.png#lightbox)
+   [![](./media/expressroute-howto-routing-portal-resource-manager/provisioned-m.png "Provider status = Provisioned")](./media/expressroute-howto-routing-portal-resource-manager/provisioned-m-lightbox.png#lightbox)
 2. Establezca la configuración del emparejamiento de Microsoft para el circuito. Asegúrese de que tiene la siguiente información antes de empezar:
 
    * Una subred /30 para el vínculo principal. Debe ser un prefijo de IPv4 público válido que sea de su propiedad y esté registrado en un Registro regional de Internet (RIR) o un Registro de enrutamiento de Internet (IRR). Desde esta subred asignará la primera dirección IP utilizable para el enrutador, ya que Microsoft usa la segunda dirección IP utilizable para su enrutador.
@@ -78,10 +77,16 @@ Esta sección le ayuda a crear, obtener, actualizar y eliminar la configuración
    * **Opcional:** un hash MD5 si elige usar uno.
 3. Puede seleccionar el emparejamiento que desea configurar, como se muestra en el ejemplo siguiente. Seleccione la fila del emparejamiento de Microsoft.
 
-   [![Seleccionar la fila del emparejamiento de Microsoft](./media/expressroute-howto-routing-portal-resource-manager/select-peering-m.png "Select the Microsoft peering row")](./media/expressroute-howto-routing-portal-resource-manager/select-peering-m-lightbox.png#lightbox)
+   [![Selección de la fila de emparejamiento de Microsoft](./media/expressroute-howto-routing-portal-resource-manager/select-peering-m.png "Selección de la fila de emparejamiento de Microsoft")](./media/expressroute-howto-routing-portal-resource-manager/select-peering-m-lightbox.png#lightbox)
 4. Configure el emparejamiento de Microsoft **Guarde** la configuración una vez que haya especificado todos los parámetros. La siguiente imagen muestra un ejemplo de configuración:
 
    ![Configuración del emparejamiento de Microsoft](./media/expressroute-howto-routing-portal-resource-manager/configuration-m.png)
+
+> [!IMPORTANT]
+> Microsoft comprueba si los prefijos públicos anunciados y ASN del mismo nivel (o ASN de cliente) especificados se le han asignado en el registro de enrutamiento de Internet. Si obtiene los prefijos públicos de otra entidad y la asignación no se registra con el registro de enrutamiento, la validación automática no se completará y requerirá la validación manual. Si se produce un error en la validación automática, aparecerá el mensaje "Se necesita validación". 
+>
+> Si ve el mensaje "Se necesita validación", recopile los documentos que muestren los prefijos públicos asignados a la organización por la entidad que aparece como propietaria de los prefijos en el registro de enrutamiento, y envíe estos documentos para su validación manual. Abra una incidencia de soporte técnico como se muestra a continuación. 
+>
 
    Si el circuito llega a un estado de validación necesaria, debe abrir una incidencia de soporte técnico para mostrar la prueba de propiedad de los prefijos a nuestro equipo de soporte técnico. Puede abrir un vale de soporte técnico directamente desde el portal, tal como se muestra en el ejemplo siguiente:
 
@@ -89,13 +94,13 @@ Esta sección le ayuda a crear, obtener, actualizar y eliminar la configuración
 
 5. Después de que la configuración se haya aceptado correctamente, verá algo similar a la imagen siguiente:
 
-   ![Estado de emparejamiento: Configurado](./media/expressroute-howto-routing-portal-resource-manager/configured-m.png "Peering status: Configured")
+   ![Estado de emparejamiento: Configured](./media/expressroute-howto-routing-portal-resource-manager/configured-m.png "Estado de emparejamiento: Configurado")
 
 ### <a name="getmsft"></a>Visualización de detalles del emparejamiento de Microsoft
 
 Para ver las propiedades de un emparejamiento de Microsoft, seleccione la fila del emparejamiento.
 
-[![Ver las propiedades de emparejamiento de Microsoft](./media/expressroute-howto-routing-portal-resource-manager/view-peering-m.png "Ver propiedades")](./media/expressroute-howto-routing-portal-resource-manager/view-peering-m-lightbox.png#lightbox)
+[![Consulta de las propiedades de emparejamiento de Microsoft](./media/expressroute-howto-routing-portal-resource-manager/view-peering-m.png "Ver propiedades")](./media/expressroute-howto-routing-portal-resource-manager/view-peering-m-lightbox.png#lightbox)
 ### <a name="updatemsft"></a>Actualización de la configuración de emparejamiento de Microsoft
 
 Puede seleccionar la fila del emparejamiento que desee modificar y, después, modificar las propiedades del mismo y guardar las modificaciones.
@@ -120,11 +125,11 @@ Esta sección le ayuda a crear, obtener, actualizar y eliminar la configuración
 
    **Estado del circuito y proveedor: No aprovisionado**
 
-   [![](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-p.png "Estado de proveedor: No aprovisionado")](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-p-lightbox.png#lightbox)
+   [![](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-p.png "Provider status = Not Provisioned")](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-p-lightbox.png#lightbox)
 
    **Estado del circuito y proveedor: Aprovisionado**
 
-   [![](./media/expressroute-howto-routing-portal-resource-manager/provisioned-p.png "Estado de proveedor: Aprovisionado")](./media/expressroute-howto-routing-portal-resource-manager/provisioned-p-lightbox.png#lightbox)
+   [![](./media/expressroute-howto-routing-portal-resource-manager/provisioned-p.png "Provider Status = Provisioned")](./media/expressroute-howto-routing-portal-resource-manager/provisioned-p-lightbox.png#lightbox)
 
 2. Establecimiento de la configuración entre pares privados de Azure para el circuito. Asegúrese de que tiene los elementos siguientes antes de continuar con los siguientes pasos:
 
@@ -136,7 +141,7 @@ Esta sección le ayuda a crear, obtener, actualizar y eliminar la configuración
    * **Opcional:** un hash MD5 si elige usar uno.
 3. Seleccione la fila de emparejamiento privado de Azure, como se muestra en el ejemplo siguiente:
 
-   [![Seleccionar la fila del emparejamiento privado](./media/expressroute-howto-routing-portal-resource-manager/select-peering-p.png "Select the private peering row")](./media/expressroute-howto-routing-portal-resource-manager/select-peering-p-lightbox.png#lightbox)
+   [![Selección de la fila de emparejamiento privado](./media/expressroute-howto-routing-portal-resource-manager/select-peering-p.png "Selección de la fila de emparejamiento privado")](./media/expressroute-howto-routing-portal-resource-manager/select-peering-p-lightbox.png#lightbox)
 4. Configure el emparejamiento privado. **Guarde** la configuración una vez que haya especificado todos los parámetros.
 
    ![configurar el emparejamiento privado](./media/expressroute-howto-routing-portal-resource-manager/configuration-p.png)
@@ -148,7 +153,7 @@ Esta sección le ayuda a crear, obtener, actualizar y eliminar la configuración
 
 Para ver las propiedades del emparejamiento privado de Azure seleccione el emparejamiento.
 
-[![Ver propiedades de emparejamiento privado](./media/expressroute-howto-routing-portal-resource-manager/view-p.png "View private peering properties")](./media/expressroute-howto-routing-portal-resource-manager/view-p-lightbox.png#lightbox)
+[![Consulta de las propiedades de emparejamiento privado](./media/expressroute-howto-routing-portal-resource-manager/view-p.png "Consulta de las propiedades de emparejamiento privado")](./media/expressroute-howto-routing-portal-resource-manager/view-p-lightbox.png#lightbox)
 
 ### <a name="updateprivate"></a>Actualización del establecimiento de configuración del emparejamiento privado de Azure
 

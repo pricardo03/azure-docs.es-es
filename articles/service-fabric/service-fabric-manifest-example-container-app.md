@@ -1,5 +1,5 @@
 ---
-title: Ejemplos del manifiesto de una aplicación contenedora en Azure Service Fabric | Microsoft Docs
+title: Ejemplos del manifiesto de una aplicación contenedora en Azure Service Fabric
 description: Obtenga información acerca de cómo configurar un manifiesto de servicio y de aplicación para una aplicación de Service Fabric de varios contenedores.
 services: service-fabric
 documentationcenter: na
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/08/2018
 ms.author: pepogors
-ms.openlocfilehash: ece0b763a2dbe501b0f46d026c59e1294a448c59
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 2d79f7dbf492b9473bcff147891df308674a8cf0
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650604"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013242"
 ---
 # <a name="multi-container-application-and-service-manifest-examples"></a>Ejemplos de manifiesto de servicio y de aplicación con varios contenedores
 A continuación se muestran ejemplos de manifiestos de servicio y de aplicación para una aplicación de Service Fabric de varios contenedores. El propósito de estos ejemplos es mostrar qué opciones están disponibles y cómo usarlas. Estos manifiestos de aplicación y de servicio se basan en los manifiestos del [ejemplo de contenedor de Windows Server 2016](https://github.com/Azure-Samples/service-fabric-containers/tree/master/Windows).

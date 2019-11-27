@@ -1,7 +1,7 @@
 ---
 title: Método Detect de Translator Text API
 titleSuffix: Azure Cognitive Services
-description: Use el método Detect de Translator Text API.
+description: Identifique el idioma de un fragmento de texto con el método Detect de Translator Text API de Azure Cognitive Services.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
-ms.openlocfilehash: ba73b75e30639dd3f5cf5523124c926ea3442fa1
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 370f3b14c12fc05f181d6497b7069bbf1cf3c9cc
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932018"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837295"
 ---
 # <a name="translator-text-api-30-detect"></a>Translator Text API 3.0: Detect
 

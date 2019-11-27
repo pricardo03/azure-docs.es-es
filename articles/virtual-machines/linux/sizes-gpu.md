@@ -1,5 +1,5 @@
 ---
-title: 'Tamaños de las máquinas virtuales Linux en Azure: cálculo acelerado | Microsoft Docs'
+title: 'Tamaños de las máquinas virtuales Linux en Azure: cálculo acelerado'
 description: Enumera los tamaños diferentes optimizados para GPU disponibles para las máquinas virtuales Linux en Azure. Se proporciona información sobre el número de unidades vCPU, discos de datos y NIC, así como sobre el rendimiento de almacenamiento y el ancho de banda de red para los tamaños de esta serie.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/11/2019
 ms.author: jonbeck
-ms.openlocfilehash: ed8af91701a5ed77636bb86e8798981f37546f23
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 983e85dc0ebefb27804c0f3a794360def6050ba9
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70082129"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034903"
 ---
 # <a name="gpu-optimized-virtual-machine-sizes"></a>Tamaños de máquinas virtuales optimizadas para GPU
 

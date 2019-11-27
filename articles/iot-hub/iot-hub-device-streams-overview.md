@@ -1,18 +1,18 @@
 ---
-title: Flujos de dispositivos Azure IoT Hub (versión preliminar) | Microsoft Docs
-description: Información general sobre los flujos de dispositivo IoT Hub
+title: Flujos de dispositivos de Azure IoT Hub | Microsoft Docs
+description: Información general de flujos de dispositivos de Azure IoT Hub, que facilitan túneles TCP bidireccionales seguros para diversos escenarios de comunicación de la nube al dispositivo.
 author: robinsh
 services: iot-hub
 ms.service: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: robinsh
-ms.openlocfilehash: 86f8c6e527f58a7c4cfca6233165f0ab05426409
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: ff738e56226f7cbb720a754573a9d8607e0e3247
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67672570"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890470"
 ---
 # <a name="iot-hub-device-streams-preview"></a>Flujos de dispositivos IoT Hub (versión preliminar)
 
@@ -140,7 +140,7 @@ Siga estos pasos para configurar los registros de Azure Monitor para las activid
 
 ## <a name="regional-availability"></a>Disponibilidad regional
 
-Durante la versión preliminar pública, los flujos de datos de los dispositivos de IoT Hub estarán disponibles en las regiones Centro de EE. UU. y EUAP del centro de EE. UU. Asegúrese de que crea el centro en una de estas regiones.
+Durante la versión preliminar pública, los flujos de datos de los dispositivos de IoT Hub estarán disponibles en las regiones Centro de EE. UU., EUAP de centro de EE. UU., Norte de Europa y Sudeste Asiático. Asegúrese de que crea el centro en una de estas regiones.
 
 ## <a name="sdk-availability"></a>Disponibilidad del SDK
 

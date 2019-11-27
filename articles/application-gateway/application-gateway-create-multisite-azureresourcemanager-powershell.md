@@ -1,23 +1,19 @@
 ---
-title: Creación de una puerta de enlace de aplicaciones con hospedaje de varios sitios mediante Azure PowerShell | Microsoft Docs
+title: Hospedaje de varios sitios mediante PowerShell
+titleSuffix: Azure Application Gateway
 description: Aprenda a crear una puerta de enlace de aplicaciones que hospeda varios sitios mediante Azure PowerShell.
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 01/26/2018
+ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: 11962d8958811bc87fb94dc6fe78cb760fdaa20e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 449095c92c30638b25836a2c7803176f7f0512e5
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66729709"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048063"
 ---
 # <a name="create-an-application-gateway-with-multiple-site-hosting-using-azure-powershell"></a>Creación de una puerta de enlace de aplicaciones con hospedaje de varios sitios mediante Azure PowerShell
 
@@ -260,7 +256,7 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 
 ## <a name="test-the-application-gateway"></a>Prueba de la puerta de enlace de aplicaciones
 
-Escriba el nombre de dominio en la barra de direcciones del explorador. Por ejemplo, http://www.contoso.com.
+Escriba el nombre de dominio en la barra de direcciones del explorador. Por ejemplo, https://www.contoso.com.
 
 ![Prueba del sitio de contoso en la puerta de enlace de aplicaciones](./media/application-gateway-create-multisite-azureresourcemanager-powershell/application-gateway-iistest.png)
 

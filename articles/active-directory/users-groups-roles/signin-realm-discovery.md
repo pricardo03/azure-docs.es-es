@@ -1,24 +1,24 @@
 ---
-title: 'Búsqueda de nombres de usuario durante la autenticación de inicio de sesión: Azure Active Directory | Microsoft Docs'
-description: Cómo los mensajes en pantalla reflejan la búsqueda del nombre de usuario durante el inicio de sesión
+title: 'Búsqueda de nombres de usuario durante el inicio de sesión: Azure Active Directory | Microsoft Docs'
+description: Cómo los mensajes en pantalla reflejan la búsqueda del nombre de usuario durante el inicio de sesión de Azure Active Directory
 services: active-directory
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 04/15/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: kexia
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db627359b75aa0ea19e30a8d22bcacaa3409cb4a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c8b6a65a964016f702fcf75aa4cbdab33a952e3b
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66418159"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74024248"
 ---
 # <a name="home-realm-discovery-for-azure-active-directory-sign-in-pages"></a>Detección del dominio de inicio para las páginas de inicio de sesión de Azure Active Directory
 

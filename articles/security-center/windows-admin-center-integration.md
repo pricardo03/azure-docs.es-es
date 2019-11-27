@@ -8,14 +8,14 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 48bf2cc3feb9ea3983200a2ef778669b5cfe36fa
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+ms.openlocfilehash: 842c7c81e3bf9615eb56d50ee2d6fce794845b6e
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73521370"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73960692"
 ---
-# <a name="integrate-azure-security-center-with-windows-admin-center"></a>Integración de Azure Security Center con Windows Admin Center
+# <a name="integrate-azure-security-center-with-windows-admin-center-preview"></a>Integración de Azure Security Center con Windows Admin Center (versión preliminar)
 
 Windows Admin Center es una herramienta de administración para los servidores de Windows. Es una ubicación única para que los administradores del sistema obtengan acceso a la mayoría de las herramientas de administración que se usan con más frecuencia. Desde Windows Admin Center, puede incorporar directamente sus servidores locales en Azure Security Center. Asimismo, puede ver un resumen de las recomendaciones y alertas de seguridad directamente en Windows Admin Center.
 

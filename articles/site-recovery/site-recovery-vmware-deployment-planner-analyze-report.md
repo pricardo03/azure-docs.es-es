@@ -1,20 +1,20 @@
 ---
-title: Análisis del informe de Azure Site Recovery Deployment Planner para la recuperación ante desastres de VMware en Azure | Microsoft Docs
-description: En este artículo se describe cómo analizar el informe generado por Azure Site Recovery Deployment Planner para la recuperación ante desastres de VMware en Azure.
+title: Análisis del informe de Deployment Planner para la recuperación ante desastres de VMware con Azure Site Recovery
+description: En este artículo se describe cómo analizar un informe que haya generado Deployment Planner para la recuperación ante desastres de VMware en Azure, mediante Azure Site Recovery.
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/21/2019
+ms.date: 11/4/2019
 ms.author: mayg
-ms.openlocfilehash: 4240e17320cc62dc1a0e74db2f40a452a63f2982
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: b6ac10b47a8bbc987eb1e338991100ee17eacd61
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72690725"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961380"
 ---
-# <a name="analyze-the-azure-site-recovery-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>Analice el informe de Azure Site Recovery Deployment Planner para la recuperación ante desastres de VMware en Azure
+# <a name="analyze-the-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>Análisis del informe de Deployment Planner para la recuperación ante desastres de VMware en Azure
 
 El informe de Microsoft Excel generado contiene las siguientes hojas:
 ## <a name="on-premises-summary"></a>Resumen local
@@ -232,8 +232,6 @@ Por ejemplo, si las características de carga de trabajo de un disco lo colocan 
 * El valor de IOPS de origen supera el límite que admite el almacenamiento, 80 000 por máquina virtual.
 
 * La actividad de datos media supera el límite que admite Site Recovery de 20 MB/s para el tamaño medio de E/S del disco.
-
-* La actividad de datos media supera el límite que admite Site Recovery, 25 MB/s para el tamaño medio de E/S de la máquina virtual (la suma de todas las actividades de los discos).
 
 * La actividad de datos máxima en todos los discos de la máquina virtual supera el límite máximo que admite Site Recovery, 54 MB/s por máquina virtual.
 

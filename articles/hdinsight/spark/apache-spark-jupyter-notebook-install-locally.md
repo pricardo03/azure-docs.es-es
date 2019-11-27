@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 06/06/2019
-ms.openlocfilehash: 46164cfc0c2baff919808a831a67180b65a23ff7
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.date: 11/07/2019
+ms.openlocfilehash: 225ee7028b9610a4974f9bee05da667d78d3355e
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71337646"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903731"
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>Instalación de un cuaderno de Jupyter Notebook en el equipo y conexión al clúster de Apache Spark en HDInsight Linux
 
@@ -30,9 +30,9 @@ Para más información acerca de los kernels personalizados y Sparkmagic disponi
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Los requisitos previos descritos aquí no se aplican a la instalación de Jupyter. Se facilitan para conectar el cuaderno de Jupyter Notebook con un clúster de HDInsight, una vez instalado el cuaderno.
+* Un clúster de Apache Spark en HDInsight. Para obtener instrucciones, vea [Creación de clústeres Apache Spark en HDInsight de Azure](apache-spark-jupyter-spark-sql.md). Se trata de un requisito previo para conectar el cuaderno de Jupyter Notebook a un clúster de HDInsight una vez instalado el cuaderno.
 
-* Un clúster de Apache Spark en HDInsight. Para obtener instrucciones, vea [Creación de clústeres Apache Spark en HDInsight de Azure](apache-spark-jupyter-spark-sql.md).
+* Experiencia en el uso de Jupyter Notebooks con Spark en HDInsight.
 
 ## <a name="install-jupyter-notebook-on-your-computer"></a>Instalación de cuadernos de Jupyter Notebook en el equipo
 
@@ -46,7 +46,7 @@ Descargue el [instalador de Anaconda](https://www.anaconda.com/download/) para s
 
     |Versión del clúster | Comando de instalación |
     |---|---|
-    |v3.6 y v3.5 |`pip install sparkmagic==0.12.7`|
+    |v3.6 y v3.5 |`pip install sparkmagic==0.13.1`|
     |v3.4|`pip install sparkmagic==0.2.3`|
 
 1. Ejecute el comando siguiente para asegurarse de que `ipywidgets` está instalado correctamente:
@@ -116,6 +116,10 @@ En esta sección, configurará el conjunto de Sparkmagic que instaló anteriorme
         "url": "https://{CLUSTERDNSNAME}.azurehdinsight.net/livy"
       },
 
+      "custom_headers" : {
+        "X-Requested-By": "livy"
+      },
+
       "heartbeat_refresh_seconds": 5,
       "livy_server_heartbeat_timeout_seconds": 60,
       "heartbeat_retry_seconds": 1
@@ -146,7 +150,7 @@ En esta sección, configurará el conjunto de Sparkmagic que instaló anteriorme
 
     a. Cree un nuevo notebook. En la esquina de la derecha, seleccione **Nuevo**. Debería ver el kernel predeterminado **Python 2** o **Python 3** y los kernels que ha instalado. Los valores reales pueden variar según las opciones de instalación.  Seleccione **PySpark**.
 
-    ![Kernels disponibles en Jupyter Notebook](./media/apache-spark-jupyter-notebook-install-locally/jupyter-kernels-notebook.png "Kernels en Jupyter Notebook")
+    ![Kernels disponibles en Jupyter Notebook](./media/apache-spark-jupyter-notebook-install-locally/jupyter-kernels-notebook.png "Kernels de Jupyter Notebook")
 
     > [!IMPORTANT]  
     > Después de seleccionar **Nuevo**, revise si el shell presenta errores.  Si ve el error `TypeError: __init__() got an unexpected keyword argument 'io_loop'`, es posible que esté experimentando un problema conocido con determinadas versiones de Tornado.  Si es así, detenga el kernel y degrade la versión de la instalación de Tornado con el siguiente comando: `pip install tornado==4.5.3`.

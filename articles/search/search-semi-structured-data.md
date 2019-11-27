@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial de REST: Indexación de datos semiestructurados en blobs JSON'
+title: 'Tutorial: Indexación de datos semiestructurados en blobs JSON'
 titleSuffix: Azure Cognitive Search
 description: Aprenda a indexar y realizar búsquedas en blobs JSON de Azure semiestructurados mediante las API REST de Azure Cognitive Search y Postman.
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 569289a2d750f96423bd03ac82cb9e33f893ee15
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: d8d3204c8a5ace17ae47a17d4c4ffec2ec7977f2
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72794286"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112258"
 ---
 # <a name="rest-tutorial-index-and-search-semi-structured-data-json-blobs-in-azure-cognitive-search"></a>Tutorial de REST: Indexación y búsqueda de datos semiestructurados (blobs JSON) en Azure Cognitive Search
 

@@ -1,5 +1,5 @@
 ---
-title: 'Migración de recursos clásicos a Azure Resource Manager: información general | Microsoft Docs'
+title: 'Migración de recursos clásicos a Azure Resource Manager: información general'
 description: Este artículo le guía a través de la migración compatible con la plataforma de recursos del modelo clásico a Azure Resource Manager
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,13 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: kasing
-ms.openlocfilehash: 2f6ceffbe1211446b21bd47bf815270b436fb6f6
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 4852f719f48947ad3b7b94a9419e6b1bab3bda2b
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102687"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033256"
 ---
+# <a name="platform-supported-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Migración compatible con la plataforma de recursos de IaaS del modelo clásico al de Azure Resource Manager
 [!INCLUDE [virtual-machines-common-migration-faq](../../../includes/virtual-machines-common-classic-resource-manager-migration-overview.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes

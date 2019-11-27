@@ -1,5 +1,5 @@
 ---
-title: Configuración del método de enrutamiento de tráfico de varios valores en Azure Traffic Manager
+title: 'Configuración del enrutamiento de tráfico de varios valores: Azure Traffic Manager'
 description: En este artículo se explica cómo configurar Traffic Manager para enrutar el tráfico a puntos de conexión A/AAAA.
 services: traffic-manager
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: allensu
-ms.openlocfilehash: 5db8e2932a43a2d6c6cb8a99c4f32b37a4a5a3f8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3e5e6cb55b86df8a48f96771fb2436afa8acaa18
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67050903"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74040371"
 ---
 # <a name="configure-multivalue-routing-method-in-traffic-manager"></a>Configuración del método de enrutamiento de varios valores en Traffic Manager
 
@@ -46,8 +46,8 @@ Cree un perfil de Traffic Manager que dirija el tráfico de usuario mediante el 
     | NOMBRE                   | Este nombre debe ser único en la zona trafficmanager.net y generará el nombre DNS, trafficmanager.net, que se usa para acceder al perfil de Traffic Manager.                                   |
     | Método de enrutamiento          | Seleccione el método de enrutamiento de **varios valores**.                                       |
     | Subscription            | Seleccione su suscripción.                          |
-    | Grupos de recursos          | Seleccione *myResourceGroupTM1*. |
-    | Ubicación                | Esta configuración se refiere a la ubicación del grupo de recursos y no tiene efecto alguno sobre el perfil de Traffic Manager que se implementará globalmente.                              |
+    | Resource group          | Seleccione *myResourceGroupTM1*. |
+    | Location                | Esta configuración se refiere a la ubicación del grupo de recursos y no tiene efecto alguno sobre el perfil de Traffic Manager que se implementará globalmente.                              |
    |        |           | 
   
    ![Crear un perfil de Traffic Manager](./media/traffic-manager-multivalue-routing-method/create-traffic-manager-profile.png)
@@ -62,7 +62,7 @@ Agregue dos direcciones IP como puntos de conexión externos para el perfil de T
 
     | Configuración                 | Valor                                              |
     | ---                     | ---                                                |
-    | Type                    | Punto de conexión externo                                   |
+    | type                    | Punto de conexión externo                                   |
     | NOMBRE           | myEndpoint1                                        |
     | Nombre de dominio completo (FQDN) o IP           | Escriba la dirección IP pública del punto de conexión que desea agregar a este perfil de Traffic Manager                         |
     |        |           |

@@ -1,5 +1,5 @@
 ---
-title: Restricción del acceso a un registro de contenedor de Azure desde una red virtual
+title: Restricción del acceso a Azure Container Registry con una red virtual
 description: Permita el acceso a un registro de contenedor de Azure solo desde recursos que estén en una red virtual de Azure o desde intervalos de direcciones IP públicas.
 services: container-registry
 author: dlepow
@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 07/01/2019
 ms.author: danlep
-ms.openlocfilehash: 3050a52da4d39657bd7b2fb38e235b9bd418faf4
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 5ba5c180def9539c486fb8727a0a78b4f98fa185
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619883"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931331"
 ---
 # <a name="restrict-access-to-an-azure-container-registry-using-an-azure-virtual-network-or-firewall-rules"></a>Restricción del acceso a un registro de contenedor de Azure mediante una red virtual de Azure o reglas de firewall
 
@@ -54,7 +54,7 @@ Si, en su lugar, necesita configurar reglas de acceso para que los recursos lleg
 
 ## <a name="about-network-rules-for-a-container-registry"></a>Acerca de las reglas de red para un registro de contenedor
 
-De manera predeterminada los registros de contenedor de aceptan las conexiones a través de Internet de hosts de cualquier red. Con una red virtual, puede permitir que solo accedan de forma segura al registro los recursos de Azure, como un clúster de AKS o una máquina virtual de Azure, sin traspasar un límite de red. También puede configurar reglas de firewall de red para incluir en la lista blanca rangos concretos de direcciones IP de Internet públicas. 
+De manera predeterminada los registros de contenedor de aceptan las conexiones a través de Internet de hosts de cualquier red. Con una red virtual, puede permitir que solo accedan de forma segura al registro los recursos de Azure, como un clúster de AKS o una máquina virtual de Azure, sin traspasar un límite de red. También puede configurar reglas de firewall de red para permitir solo rangos concretos de direcciones IP de Internet públicas. 
 
 Para limitar el acceso a un registro, en primer lugar debe cambiar la acción predeterminada del registro para que deniegue todas las conexiones de red. Luego, agregue las reglas de acceso a la red. Los clientes a los que se les ha concedido acceso a través de las reglas de red deben seguir [realizando la autenticación en el registro de contenedor](https://docs.microsoft.com/azure/container-registry/container-registry-authentication) y tener autorización para acceder a los datos.
 

@@ -1,6 +1,6 @@
 ---
 title: Métricas y alertas en Azure Traffic Manager
-description: En este artículo se describen las métricas disponibles para Traffic Manager en Azure.
+description: En este artículo, obtendrá información acerca de las métricas y alertas disponibles para Traffic Manager en Azure.
 services: traffic-manager
 author: asudbring
 ms.service: traffic-manager
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/11/2018
 ms.author: allensu
-ms.openlocfilehash: e689398a38030a712ec6beb651131d0424e44476
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7e374e11053f0a1baabed72fdb240b34e2107b2a
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071115"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74038080"
 ---
 # <a name="traffic-manager-metrics-and-alerts"></a>Métricas y alertas de Traffic Manager
 

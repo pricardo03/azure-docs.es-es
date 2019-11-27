@@ -10,12 +10,12 @@ ms.service: azure-functions
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: d8aee88f6ef3f6a73beadfdf242d79d9b361de0a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 081a0e9ac165fdee2426780be6d1440cf8d4fcc0
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73469398"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904017"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>Enlaces de Azure Cosmos DB para Azure Functions 2.x
 
@@ -292,6 +292,10 @@ El desencadenador no indica si un documento se actualizó o se insertó; solo pr
 
 El enlace de entrada de Azure Cosmos DB usa SQL API para recuperar uno o varios documentos de Azure Cosmos DB y los pasa al parámetro de entrada de la función. Se puede determinar el identificador de documento o los parámetros de consulta según el desencadenador que invoca la función.
 
+> [!NOTE]
+> Si la colección tiene [particiones](../cosmos-db/partition-data.md#logical-partitions), las operaciones de búsqueda también tienen que especificar el valor de la clave de partición.
+>
+
 ## <a name="input---examples"></a>Entrada: ejemplos
 
 Vea los ejemplos específicos del lenguaje que leen un solo documento mediante la especificación de un valor del identificador:
@@ -324,6 +328,7 @@ namespace CosmosDBSamplesV2
     public class ToDoItem
     {
         public string Id { get; set; }
+        public string PartitionKey { get; set; }
         public string Description { get; set; }
     }
 }
@@ -333,7 +338,7 @@ namespace CosmosDBSamplesV2
 
 #### <a name="queue-trigger-look-up-id-from-json-c"></a>Desencadenador de cola, buscar identificador de JSON (C#)
 
-En el ejemplo siguiente se muestra una [función de C#](functions-dotnet-class-library.md) que recupera un documento individual. La función la desencadena un mensaje de la cola que contiene un objeto JSON. El desencadenador de la cola analiza el JSON en un objeto denominado `ToDoItemLookup`, que contiene el identificador que se va a buscar. Dicho identificador se usa para recuperar un documento de `ToDoItem` de la base de datos y colección especificadas.
+En el ejemplo siguiente se muestra una [función de C#](functions-dotnet-class-library.md) que recupera un documento individual. La función la desencadena un mensaje de la cola que contiene un objeto JSON. El desencadenador de la cola analiza el JSON en un objeto denominado `ToDoItemLookup`, que contiene el identificador y el valor de la clave de partición que se van a buscar. El identificador y el valor de la clave de partición se utilizan para recuperar un documento `ToDoItem` de la base de datos y colección especificadas.
 
 ```cs
 namespace CosmosDBSamplesV2
@@ -341,6 +346,8 @@ namespace CosmosDBSamplesV2
     public class ToDoItemLookup
     {
         public string ToDoItemId { get; set; }
+
+        public string ToDoItemPartitionKeyValue { get; set; }
     }
 }
 ```
@@ -361,10 +368,11 @@ namespace CosmosDBSamplesV2
                 databaseName: "ToDoItems",
                 collectionName: "Items",
                 ConnectionStringSetting = "CosmosDBConnection",
-                Id = "{ToDoItemId}")]ToDoItem toDoItem,
+                Id = "{ToDoItemId}",
+                PartitionKey = "{ToDoItemPartitionKeyValue}")]ToDoItem toDoItem,
             ILogger log)
         {
-            log.LogInformation($"C# Queue trigger function processed Id={toDoItemLookup?.ToDoItemId}");
+            log.LogInformation($"C# Queue trigger function processed Id={toDoItemLookup?.ToDoItemId} Key={toDoItemLookup?.ToDoItemPartitionKeyValue}");
 
             if (toDoItem == null)
             {
@@ -383,7 +391,7 @@ namespace CosmosDBSamplesV2
 
 #### <a name="http-trigger-look-up-id-from-query-string-c"></a>Desencadenador de HTTP, buscar identificador de cadena de consulta (C#)
 
-En el ejemplo siguiente se muestra una [función de C#](functions-dotnet-class-library.md) que recupera un documento individual. La función la desencadena una solicitud HTTP que utiliza una cadena de consulta para especificar el identificador que se va a buscar. Dicho identificador se usa para recuperar un documento de `ToDoItem` de la base de datos y colección especificadas.
+En el ejemplo siguiente se muestra una [función de C#](functions-dotnet-class-library.md) que recupera un documento individual. La función la desencadena una solicitud HTTP que utiliza una cadena de consulta para especificar el identificador y el valor de la clave de partición que se van a buscar. El identificador y el valor de la clave de partición se utilizan para recuperar un documento `ToDoItem` de la base de datos y colección especificadas.
 
 >[!NOTE]
 >El parámetro de la cadena de consulta HTTP distingue mayúsculas de minúsculas.
@@ -409,7 +417,8 @@ namespace CosmosDBSamplesV2
                 databaseName: "ToDoItems",
                 collectionName: "Items",
                 ConnectionStringSetting = "CosmosDBConnection",
-                Id = "{Query.id}")] ToDoItem toDoItem,
+                Id = "{Query.id}",
+                PartitionKey = "{Query.partitionKey}")] ToDoItem toDoItem,
             ILogger log)
         {
             log.LogInformation("C# HTTP trigger function processed a request.");
@@ -432,7 +441,7 @@ namespace CosmosDBSamplesV2
 
 #### <a name="http-trigger-look-up-id-from-route-data-c"></a>Desencadenador de HTTP, buscar identificador de datos de ruta (C#)
 
-En el ejemplo siguiente se muestra una [función de C#](functions-dotnet-class-library.md) que recupera un documento individual. La función la desencadena una solicitud HTTP que utiliza los datos de la ruta para especificar el identificador que se va a buscar. Dicho identificador se usa para recuperar un documento de `ToDoItem` de la base de datos y colección especificadas.
+En el ejemplo siguiente se muestra una [función de C#](functions-dotnet-class-library.md) que recupera un documento individual. La función la desencadena una solicitud HTTP que utiliza datos de ruta para especificar el identificador y el valor de la clave de partición que se van a buscar. El identificador y el valor de la clave de partición se utilizan para recuperar un documento `ToDoItem` de la base de datos y colección especificadas.
 
 ```cs
 using Microsoft.AspNetCore.Http;
@@ -449,12 +458,13 @@ namespace CosmosDBSamplesV2
         [FunctionName("DocByIdFromRouteData")]
         public static IActionResult Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post",
-                Route = "todoitems/{id}")]HttpRequest req,
+                Route = "todoitems/{partitionKey}/{id}")]HttpRequest req,
             [CosmosDB(
                 databaseName: "ToDoItems",
                 collectionName: "Items",
                 ConnectionStringSetting = "CosmosDBConnection",
-                Id = "{id}")] ToDoItem toDoItem,
+                Id = "{id}",
+                PartitionKey = "{partitionKey}")] ToDoItem toDoItem,
             ILogger log)
         {
             log.LogInformation("C# HTTP trigger function processed a request.");
@@ -481,6 +491,9 @@ En el ejemplo siguiente se muestra una [función de C#](functions-dotnet-class-l
 
 En el ejemplo se muestra cómo utilizar una expresión de enlace en el parámetro `SqlQuery`. Puede pasar datos de ruta al parámetro `SqlQuery` tal como se muestra, pero actualmente [no se pueden pasar valores de una cadena de consulta](https://github.com/Azure/azure-functions-host/issues/2554#issuecomment-392084583).
 
+> [!NOTE]
+> Si tiene que realizar una consulta solo con el identificador, se recomienda utilizar una búsqueda, como en los [ ejemplos anteriores](#http-trigger-look-up-id-from-query-string-c), ya que consumirá menos [unidades de solicitud](../cosmos-db/request-units.md). Las operaciones de lectura de punto (GET) son [más eficaces](../cosmos-db/optimize-cost-queries.md) que las consultas por identificador.
+>
 
 ```cs
 using Microsoft.AspNetCore.Http;
@@ -730,7 +743,7 @@ Este es el código de script de C#:
 
 #### <a name="http-trigger-look-up-id-from-query-string-c-script"></a>Desencadenador de HTTP, buscar identificador de cadena de consulta (script de C#)
 
-En el ejemplo siguiente se muestra una [función de script de C#](functions-reference-csharp.md) que recupera un documento individual. La función la desencadena una solicitud HTTP que utiliza una cadena de consulta para especificar el identificador que se va a buscar. Dicho identificador se usa para recuperar un documento de `ToDoItem` de la base de datos y colección especificadas.
+En el ejemplo siguiente se muestra una [función de script de C#](functions-reference-csharp.md) que recupera un documento individual. La función la desencadena una solicitud HTTP que utiliza una cadena de consulta para especificar el identificador y el valor de la clave de partición que se van a buscar. El identificador y el valor de la clave de partición se utilizan para recuperar un documento `ToDoItem` de la base de datos y colección especificadas.
 
 Este es el archivo *function.json*:
 
@@ -759,7 +772,8 @@ Este es el archivo *function.json*:
       "collectionName": "Items",
       "connectionStringSetting": "CosmosDBConnection",
       "direction": "in",
-      "Id": "{Query.id}"
+      "Id": "{Query.id}",
+      "PartitionKey" : "{Query.partitionKeyValue}"
     }
   ],
   "disabled": false
@@ -792,7 +806,7 @@ public static HttpResponseMessage Run(HttpRequestMessage req, ToDoItem toDoItem,
 
 #### <a name="http-trigger-look-up-id-from-route-data-c-script"></a>Desencadenador de HTTP, buscar identificador de datos de ruta (script de C#)
 
-En el ejemplo siguiente se muestra una [función de script de C#](functions-reference-csharp.md) que recupera un documento individual. La función la desencadena una solicitud HTTP que utiliza los datos de la ruta para especificar el identificador que se va a buscar. Dicho identificador se usa para recuperar un documento de `ToDoItem` de la base de datos y colección especificadas.
+En el ejemplo siguiente se muestra una [función de script de C#](functions-reference-csharp.md) que recupera un documento individual. La función la desencadena una solicitud HTTP que utiliza datos de ruta para especificar el identificador y el valor de la clave de partición que se van a buscar. El identificador y el valor de la clave de partición se utilizan para recuperar un documento `ToDoItem` de la base de datos y colección especificadas.
 
 Este es el archivo *function.json*:
 
@@ -808,7 +822,7 @@ Este es el archivo *function.json*:
         "get",
         "post"
       ],
-      "route":"todoitems/{id}"
+      "route":"todoitems/{partitionKeyValue}/{id}"
     },
     {
       "name": "$return",
@@ -822,7 +836,8 @@ Este es el archivo *function.json*:
       "collectionName": "Items",
       "connectionStringSetting": "CosmosDBConnection",
       "direction": "in",
-      "Id": "{id}"
+      "Id": "{id}",
+      "PartitionKey": "{partitionKeyValue}"
     }
   ],
   "disabled": false
@@ -1046,7 +1061,7 @@ Este es el código de JavaScript:
 
 #### <a name="http-trigger-look-up-id-from-query-string-javascript"></a>Desencadenador de HTTP, buscar identificador de cadena de consulta (JavaScript)
 
-En el ejemplo siguiente se muestra una [función de JavaScript](functions-reference-node.md) que recupera un documento individual. La función la desencadena una solicitud HTTP que utiliza una cadena de consulta para especificar el identificador que se va a buscar. Dicho identificador se usa para recuperar un documento de `ToDoItem` de la base de datos y colección especificadas.
+En el ejemplo siguiente se muestra una [función de JavaScript](functions-reference-node.md) que recupera un documento individual. La función la desencadena una solicitud HTTP que utiliza una cadena de consulta para especificar el identificador y el valor de la clave de partición que se van a buscar. El identificador y el valor de la clave de partición se utilizan para recuperar un documento `ToDoItem` de la base de datos y colección especificadas.
 
 Este es el archivo *function.json*:
 
@@ -1075,7 +1090,8 @@ Este es el archivo *function.json*:
       "collectionName": "Items",
       "connectionStringSetting": "CosmosDBConnection",
       "direction": "in",
-      "Id": "{Query.id}"
+      "Id": "{Query.id}",
+      "PartitionKey": "{Query.partitionKeyValue}"
     }
   ],
   "disabled": false
@@ -1104,7 +1120,7 @@ module.exports = function (context, req, toDoItem) {
 
 #### <a name="http-trigger-look-up-id-from-route-data-javascript"></a>Desencadenador de HTTP, buscar identificador de datos de ruta (JavaScript)
 
-En el ejemplo siguiente se muestra una [función de JavaScript](functions-reference-node.md) que recupera un documento individual. La función la desencadena una solicitud HTTP que utiliza una cadena de consulta para especificar el identificador que se va a buscar. Dicho identificador se usa para recuperar un documento de `ToDoItem` de la base de datos y colección especificadas.
+En el ejemplo siguiente se muestra una [función de JavaScript](functions-reference-node.md) que recupera un documento individual. La función la desencadena una solicitud HTTP que utiliza una cadena de consulta para especificar el identificador y el valor de la clave de partición que se van a buscar. El identificador y el valor de la clave de partición se utilizan para recuperar un documento `ToDoItem` de la base de datos y colección especificadas.
 
 Este es el archivo *function.json*:
 
@@ -1120,7 +1136,7 @@ Este es el archivo *function.json*:
         "get",
         "post"
       ],
-      "route":"todoitems/{id}"
+      "route":"todoitems/{partitionKeyValue}/{id}"
     },
     {
       "name": "$return",
@@ -1134,7 +1150,8 @@ Este es el archivo *function.json*:
       "collectionName": "Items",
       "connection": "CosmosDBConnection",
       "direction": "in",
-      "Id": "{id}"
+      "Id": "{id}",
+      "PartitionKey": "{partitionKeyValue}"
     }
   ],
   "disabled": false
@@ -1257,7 +1274,7 @@ def main(queuemsg: func.QueueMessage, documents: func.DocumentList) -> func.Docu
 
 #### <a name="http-trigger-look-up-id-from-query-string-python"></a>Desencadenador de HTTP, buscar identificador de cadena de consulta (Python)
 
-En el ejemplo siguiente se muestra una [función de Python](functions-reference-python.md) que recupera un documento individual. La función la desencadena una solicitud HTTP que utiliza una cadena de consulta para especificar el identificador que se va a buscar. Dicho identificador se usa para recuperar un documento de `ToDoItem` de la base de datos y colección especificadas.
+En el ejemplo siguiente se muestra una [función de Python](functions-reference-python.md) que recupera un documento individual. La función la desencadena una solicitud HTTP que utiliza una cadena de consulta para especificar el identificador y el valor de la clave de partición que se van a buscar. El identificador y el valor de la clave de partición se utilizan para recuperar un documento `ToDoItem` de la base de datos y colección especificadas.
 
 Este es el archivo *function.json*:
 
@@ -1286,7 +1303,8 @@ Este es el archivo *function.json*:
       "collectionName": "Items",
       "connectionStringSetting": "CosmosDBConnection",
       "direction": "in",
-      "Id": "{Query.id}"
+      "Id": "{Query.id}",
+      "PartitionKey": "{Query.partitionKeyValue}"
     }
   ],
   "disabled": true,
@@ -1315,7 +1333,7 @@ def main(req: func.HttpRequest, todoitems: func.DocumentList) -> str:
 
 #### <a name="http-trigger-look-up-id-from-route-data-python"></a>Desencadenador de HTTP, buscar identificador de datos de ruta (Python)
 
-En el ejemplo siguiente se muestra una [función de Python](functions-reference-python.md) que recupera un documento individual. La función la desencadena una solicitud HTTP que utiliza una cadena de consulta para especificar el identificador que se va a buscar. Dicho identificador se usa para recuperar un documento de `ToDoItem` de la base de datos y colección especificadas.
+En el ejemplo siguiente se muestra una [función de Python](functions-reference-python.md) que recupera un documento individual. La función la desencadena una solicitud HTTP que utiliza una cadena de consulta para especificar el identificador y el valor de la clave de partición que se van a buscar. El identificador y el valor de la clave de partición se utilizan para recuperar un documento `ToDoItem` de la base de datos y colección especificadas.
 
 Este es el archivo *function.json*:
 
@@ -1331,7 +1349,7 @@ Este es el archivo *function.json*:
         "get",
         "post"
       ],
-      "route":"todoitems/{id}"
+      "route":"todoitems/{partitionKeyValue}/{id}"
     },
     {
       "name": "$return",
@@ -1345,7 +1363,8 @@ Este es el archivo *function.json*:
       "collectionName": "Items",
       "connection": "CosmosDBConnection",
       "direction": "in",
-      "Id": "{id}"
+      "Id": "{id}",
+      "PartitionKey": "{partitionKeyValue}"
     }
   ],
   "disabled": false,
@@ -1489,7 +1508,7 @@ public class ToDoItem {
 
 #### <a name="http-trigger-look-up-id-from-query-string---string-parameter-java"></a>Desencadenador de HTTP, buscar identificador de cadena de consulta - Parámetro String (Java)
 
-En el ejemplo siguiente se muestra una función de Java que recupera un documento individual. La función la desencadena una solicitud HTTP que utiliza una cadena de consulta para especificar el identificador que se va a consultar. Dicho identificador se usa para recuperar un documento de la base de datos y la colección especificadas, en forma de cadena.
+En el ejemplo siguiente se muestra una función de Java que recupera un documento individual. La función la desencadena una solicitud HTTP que utiliza una cadena de consulta para especificar el identificador y el valor de la clave de partición que se van a buscar. El identificador y el valor de la clave de partición se utilizan para recuperar un documento de la base de datos y colección especificadas, en forma de cadena.
 
 ```java
 public class DocByIdFromQueryString {
@@ -1504,7 +1523,7 @@ public class DocByIdFromQueryString {
               databaseName = "ToDoList",
               collectionName = "Items",
               id = "{Query.id}",
-              partitionKey = "{Query.id}",
+              partitionKey = "{Query.partitionKeyValue}",
               connectionStringSetting = "Cosmos_DB_Connection_String")
             Optional<String> item,
             final ExecutionContext context) {
@@ -1535,7 +1554,7 @@ En la [biblioteca en tiempo de ejecución de funciones de Java](/java/api/overvi
 
 #### <a name="http-trigger-look-up-id-from-query-string---pojo-parameter-java"></a>Desencadenador de HTTP, buscar identificador de cadena de consulta - Parámetro POJO (Java)
 
-En el ejemplo siguiente se muestra una función de Java que recupera un documento individual. La función la desencadena una solicitud HTTP que utiliza una cadena de consulta para especificar el identificador que se va a consultar. Dicho identificador se usa para recuperar un documento de la base de datos y colección especificadas. A continuación, el documento se convierte en una instancia de la anotación ```ToDoItem``` POJO creada previamente y se pasa como argumento a la función.
+En el ejemplo siguiente se muestra una función de Java que recupera un documento individual. La función la desencadena una solicitud HTTP que utiliza una cadena de consulta para especificar el identificador y el valor de la clave de partición que se van a buscar. El identificador y el valor de la clave de partición se utilizan para recuperar un documento de la base de datos y colección especificadas. A continuación, el documento se convierte en una instancia de la anotación ```ToDoItem``` POJO creada previamente y se pasa como argumento a la función.
 
 ```java
 public class DocByIdFromQueryStringPojo {
@@ -1550,7 +1569,7 @@ public class DocByIdFromQueryStringPojo {
               databaseName = "ToDoList",
               collectionName = "Items",
               id = "{Query.id}",
-              partitionKey = "{Query.id}",
+              partitionKey = "{Query.partitionKeyValue}",
               connectionStringSetting = "Cosmos_DB_Connection_String")
             ToDoItem item,
             final ExecutionContext context) {
@@ -1577,7 +1596,7 @@ public class DocByIdFromQueryStringPojo {
 
 #### <a name="http-trigger-look-up-id-from-route-data-java"></a>Desencadenador de HTTP, buscar identificador de datos de ruta (Java)
 
-En el ejemplo siguiente se muestra una función de Java que recupera un documento individual. La función la desencadena una solicitud HTTP que utiliza un parámetro de ruta para especificar el identificador que se va a consultar. Dicho identificador se usa para recuperar un documento de la base de datos y colección especificadas, y lo devuelve como ```Optional<String>```.
+En el ejemplo siguiente se muestra una función de Java que recupera un documento individual. La función la desencadena una solicitud HTTP que utiliza un parámetro de ruta para especificar el identificador y el valor de la clave de partición que se van a buscar. El identificador y el valor de la clave de partición se utilizan para recuperar un documento de la base de datos y colección especificadas, que se devuelve como un objeto ```Optional<String>```.
 
 ```java
 public class DocByIdFromRoute {
@@ -1587,13 +1606,13 @@ public class DocByIdFromRoute {
             @HttpTrigger(name = "req",
               methods = {HttpMethod.GET, HttpMethod.POST},
               authLevel = AuthorizationLevel.ANONYMOUS,
-              route = "todoitems/{id}")
+              route = "todoitems/{partitionKeyValue}/{id}")
             HttpRequestMessage<Optional<String>> request,
             @CosmosDBInput(name = "database",
               databaseName = "ToDoList",
               collectionName = "Items",
               id = "{id}",
-              partitionKey = "{id}",
+              partitionKey = "{partitionKeyValue}",
               connectionStringSetting = "Cosmos_DB_Connection_String")
             Optional<String> item,
             final ExecutionContext context) {
@@ -1623,6 +1642,10 @@ public class DocByIdFromRoute {
 #### <a name="http-trigger-look-up-id-from-route-data-using-sqlquery-java"></a>Desencadenador de HTTP, buscar identificador de datos de ruta, mediante SqlQuery (Java)
 
 En el ejemplo siguiente se muestra una función de Java que recupera un documento individual. La función la desencadena una solicitud HTTP que utiliza un parámetro de ruta para especificar el identificador que se va a consultar. Ese identificador se usa para recuperar un documento de la base de datos y la colección especificadas, convirtiendo el conjunto de resultados en una anotación ```ToDoItem[]```, ya que pueden devolverse muchos documentos, en función de los criterios de consulta.
+
+> [!NOTE]
+> Si tiene que realizar una consulta solo con el identificador, se recomienda utilizar una búsqueda, como en los [ ejemplos anteriores](#http-trigger-look-up-id-from-query-string---pojo-parameter-java), ya que consumirá menos [unidades de solicitud](../cosmos-db/request-units.md). Las operaciones de lectura de punto (GET) son [más eficaces](../cosmos-db/optimize-cost-queries.md) que las consultas por identificador.
+>
 
 ```java
 public class DocByIdFromRouteSqlQuery {
@@ -1724,7 +1747,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 |**id**    | **Id** | Identificador del documento que se va a recuperar. Esta propiedad es compatible con [expresiones de enlace](./functions-bindings-expressions-patterns.md). No establezca las propiedades **id** y **sqlQuery** a la vez. Si no establece alguna de ellas, se recupera toda la colección. |
 |**sqlQuery**  |**SqlQuery**  | Consulta SQL de Azure Cosmos DB que se usa para recuperar varios documentos. La propiedad es compatible con los enlaces en tiempo de ejecución, como en este ejemplo: `SELECT * FROM c where c.departmentId = {departmentId}`. No establezca las propiedades **id** y **sqlQuery** a la vez. Si no establece alguna de ellas, se recupera toda la colección.|
 |**connectionStringSetting**     |**ConnectionStringSetting**|Nombre de la configuración de aplicación que contiene la cadena de conexión de Azure Cosmos DB.        |
-|**partitionKey**|**PartitionKey**|Especifica el valor de la clave de partición para la búsqueda. Puede incluir parámetros de enlace.|
+|**partitionKey**|**PartitionKey**|Especifica el valor de la clave de partición para la búsqueda. Puede incluir parámetros de enlace. Se requiere para las búsquedas en colecciones [con particiones](../cosmos-db/partition-data.md#logical-partitions).|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

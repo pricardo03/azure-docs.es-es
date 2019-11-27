@@ -1,7 +1,7 @@
 ---
 title: 'Entrenamiento de un modelo de Custom Speech: servicio de Voz'
 titleSuffix: Azure Cognitive Services
-description: El entrenamiento de voz a texto es necesario para mejorar la precisión del reconocimiento en el modelo de línea de base de Microsoft o en un modelo personalizado que tenga pensado crear. Un modelo se entrena mediante transcripciones con etiqueta humana y el texto relacionado. Estos conjuntos de datos, junto con los datos de audio cargados anteriormente, se usan para refinar y entrenar el modelo de texto a voz para el reconocimiento de palabras, frases, acrónimos, nombres y otros términos específicos de cada producto.
+description: El entrenamiento de un modelo de conversión de voz a texto puede mejorar la precisión del reconocimiento del modelo de base de referencia de Microsoft o de un modelo personalizado. Un modelo se entrena mediante transcripciones con etiqueta humana y el texto relacionado.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,26 +10,27 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 21a0cd5e257f57a9371a30c6fe57afb88e174b53
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: 7630659deeece7fbf8d0ca1fd00b539a8de83b0e
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70801476"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072493"
 ---
 # <a name="train-a-model-for-custom-speech"></a>Entrenamiento de un modelo de Custom Speech
 
-El entrenamiento de voz a texto es necesario para mejorar la precisión del reconocimiento en el modelo de línea de base de Microsoft o en un modelo personalizado que tenga pensado crear. Un modelo se entrena mediante transcripciones con etiqueta humana y el texto relacionado. Estos conjuntos de datos, junto con los datos de audio cargados anteriormente, se usan para refinar y entrenar el modelo de texto a voz para el reconocimiento de palabras, frases, acrónimos, nombres y otros términos específicos de cada producto. Cuantos más conjuntos de datos en dominio proporcione (datos que están relacionados con qué dirán los usuarios y qué espera reconocer), más preciso será su modelo y, por lo tanto, mejor será el reconocimiento. Tenga en cuenta que el uso de datos no relacionados en el entrenamiento puede reducir o perjudicar la precisión del modelo.
+El entrenamiento de un modelo de voz a texto puede mejorar la precisión del reconocimiento en el modelo de línea de base de Microsoft o en un modelo personalizado que tenga pensado crear. Un modelo se entrena mediante transcripciones con etiqueta humana y el texto relacionado. Estos conjuntos de datos, junto con los datos de audio cargados anteriormente, se usan para refinar y entrenar el modelo de texto a voz para el reconocimiento de palabras, frases, acrónimos, nombres y otros términos específicos de cada producto. Cuantos más conjuntos de datos en dominio proporcione (datos que están relacionados con qué dirán los usuarios y qué espera reconocer), más preciso será su modelo y, por lo tanto, mejor será el reconocimiento. Tenga en cuenta que el uso de datos no relacionados en el entrenamiento puede reducir o perjudicar la precisión del modelo.
 
 ## <a name="use-training-to-resolve-accuracy-issues"></a>Uso del entrenamiento para solucionar problemas de precisión
 
 Si se está encontrando con problemas de reconocimiento en el modelo, el uso de transcripciones con etiqueta humana y los datos relacionados para realizar entrenamiento adicional puede ayudar a mejorar la precisión. Use esta tabla para determinar qué conjunto de datos se debe usar para solucionar su problema:
 
 | Caso de uso | Tipo de datos |
-|----------|-----------|
-| Mejorar la precisión del reconocimiento en el vocabulario y la gramática específicos del sector, como la terminología médica o la jerga de TI | Texto relacionado (frases o expresiones) |
+| -------- | --------- |
+| Mejorar la precisión del reconocimiento en el vocabulario y la gramática específicos del sector, como la terminología médica o la jerga de TI. | Texto relacionado (frases o expresiones) |
 | Definir el formato fonético y mostrado de una palabra o término que tenga una pronunciación no estándar, como nombres de producto o acrónimos | Texto relacionado (pronunciación) |
-| Mejorar la precisión del reconocimiento en estilos de habla, acentos o ruidos de fondo específicos | Transcripciones de audio con etiqueta humana |
+| Mejorar la precisión del reconocimiento en estilos de habla, acentos o ruidos de fondo específicos. | Transcripciones de audio con etiqueta humana |
+
 > [!IMPORTANT]
 > Si no ha cargado un conjunto de datos, consulte [Preparación y prueba de los datos](how-to-custom-speech-test-data.md). En este documento se proporcionan instrucciones para cargar datos y directrices para crear conjuntos de datos de alta calidad.
 
@@ -46,25 +47,24 @@ El primer paso para entrenar un modelo es cargar los datos de entrenamiento. Use
 7. Una vez finalizado el entrenamiento, puede elegir realizar pruebas de precisión en el modelo recién entrenado. Este paso es opcional.
 8. Seleccione **Create** (Crear) para generar el modelo personalizado.
 
-En la tabla de entrenamiento se muestra una nueva entrada que corresponde a este modelo recién creado. En la tabla también se muestra el estado:  Procesando, Correcto, Error.
+En la tabla de entrenamiento se muestra una nueva entrada que corresponde a este modelo recién creado. En la tabla también se muestra el estado: Procesando, Correcto, Error.
 
 ## <a name="evaluate-the-accuracy-of-a-trained-model"></a>Evaluación de la precisión de un modelo entrenado
 
 Puede inspeccionar los datos y evaluar la precisión del modelo mediante estos documentos:
 
-* [Inspección de los datos](how-to-custom-speech-inspect-data.md)
-* [Evaluación de los datos](how-to-custom-speech-evaluate-data.md)
-
+- [Inspección de los datos](how-to-custom-speech-inspect-data.md)
+- [Evaluación de los datos](how-to-custom-speech-evaluate-data.md)
 
 Si eligió probar la precisión, es importante seleccionar un conjunto de datos acústico diferente del usado para la creación del modelo para obtener una idea realista del rendimiento del modelo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Implementación del modelo](how-to-custom-speech-deploy-model.md)
+- [Implementación del modelo](how-to-custom-speech-deploy-model.md)
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Preparación y prueba de los datos](how-to-custom-speech-test-data.md)
-* [Inspección de los datos](how-to-custom-speech-inspect-data.md)
-* [Evaluación de los datos](how-to-custom-speech-evaluate-data.md)
-* [Entrenamiento del modelo](how-to-custom-speech-train-model.md)
+- [Preparación y prueba de los datos](how-to-custom-speech-test-data.md)
+- [Inspección de los datos](how-to-custom-speech-inspect-data.md)
+- [Evaluación de los datos](how-to-custom-speech-evaluate-data.md)
+- [Entrenamiento del modelo](how-to-custom-speech-train-model.md)

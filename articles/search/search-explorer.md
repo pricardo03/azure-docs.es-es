@@ -1,5 +1,5 @@
 ---
-title: Uso de la herramienta Explorador de búsqueda para consultar datos en Azure Portal
+title: Herramienta de consulta Explorador de búsqueda de Azure Portal
 titleSuffix: Azure Cognitive Search
 description: El explorador de búsqueda está integrado en Azure Portal y resulta útil para explorar el contenido y validar las consultas en Azure Cognitive Search. Especifique cadenas para la búsqueda de términos o frases, o expresiones de búsqueda completas con sintaxis avanzada.
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 0bb50bd50c58b85f1d5de100c34d00d114a9ed77
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: ff2986c4e90cb997df250d647bdfbd068d70e51f
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792958"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112102"
 ---
 # <a name="use-search-explorer-in-the-azure-portal-for-querying-documents-in-azure-cognitive-search"></a>Uso del Explorador de búsqueda en Azure Portal para consultar documentos en Azure Cognitive Search 
 

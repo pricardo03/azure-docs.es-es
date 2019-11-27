@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 10/31/2019
+ms.date: 11/12/2019
 ms.author: helohr
-ms.openlocfilehash: 2552fcbd860a0cc98aa7e2a6c7f92796a8d588ca
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 420978e79da99847f16e5c85b2d2510083ca97a7
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73605783"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74006265"
 ---
 # <a name="connect-with-the-windows-desktop-client"></a>Conexión con el cliente de Escritorio de Windows
 
@@ -28,8 +28,8 @@ Para acceder a los recursos de Windows Virtual Desktop en dispositivos con Windo
 Elija el cliente que coincida con su versión de Windows:
 
 - [Windows 64 bits](https://go.microsoft.com/fwlink/?linkid=2068602)
-- [Windows 32 bits (versión preliminar)](https://go.microsoft.com/fwlink/?linkid=2098960)
-- [Windows ARM64 (versión preliminar)](https://go.microsoft.com/fwlink/?linkid=2098961)
+- [Windows 32 bits](https://go.microsoft.com/fwlink/?linkid=2098960)
+- [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2098961)
 
 Puede instalar el cliente para el usuario actual, lo que no requiere derechos de administrador, o bien el administrador puede instalar y configurar el cliente, con el fin de que todos los usuarios del dispositivo puedan acceder a él.
 

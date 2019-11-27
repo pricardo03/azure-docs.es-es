@@ -1,6 +1,6 @@
 ---
-title: Uso compartido de vistas personalizadas de Azure Time Series Insights con direcciones URL con parámetros | Microsoft Docs
-description: En este artículo se describe cómo desarrollar direcciones URL con parámetros en Azure Time Series Insights, de forma que una vista de cliente pueda compartirse fácilmente.
+title: 'Uso compartido de vistas personalizadas con direcciones URL con parámetros: Azure Time Series Insights | Microsoft Docs'
+description: Aprenda a desarrollar direcciones URL con parámetros en Azure Time Series Insights para compartir fácilmente vistas personalizadas.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 10/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: e62455a0c8412a579c0fab9d7fabd6016f47dbf3
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 145af35f8c36d7f4659c3937209cb0d4d5b221a3
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72991110"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74006370"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Uso compartido de una vista personalizada mediante una dirección URL con parámetros
 

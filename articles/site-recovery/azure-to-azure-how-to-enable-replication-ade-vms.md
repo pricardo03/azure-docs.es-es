@@ -1,5 +1,5 @@
 ---
-title: Configuración de la replicación en máquinas virtuales habilitadas para Azure Disk Encryption en Azure Site Recovery
+title: Habilitación de la replicación para máquinas virtuales de Azure cifradas en Azure Site Recovery
 description: En este artículo se describe cómo configurar la replicación de máquinas virtuales habilitadas para Azure Disk Encryption de una región de Azure a otra mediante Site Recovery.
 author: asgang
 manager: rochakm
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 08/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: bf0ee89bb091a13560a7a7d8d9e77c74827d94a2
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 2b6c6f2882701515d868e96ae10af85890004587
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70861318"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954681"
 ---
 # <a name="replicate-azure-disk-encryption-enabled-virtual-machines-to-another-azure-region"></a>Replicación de máquinas virtuales habilitadas para Azure Disk Encryption en otra región de Azure
 

@@ -8,14 +8,18 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 68bf455bbdfb6d2d45c5eccc60c3ad8ce40d3247
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 33302d7252c56badfed1dc7adea6a4f7cbf961b6
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515785"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048250"
 ---
 # <a name="export-azure-activity-log-to-storage-or-azure-event-hubs"></a>Exportación del registro de actividad de Azure al almacenamiento o a Azure Event Hubs
+
+> [!NOTE]
+> Ahora puede recopilar el registro de actividad en un área de trabajo de Log Analytics mediante una configuración de diagnóstico similar a la de la recopilación de registros de recursos. Consulte [Collect and analyze Azure activity logs in Log Analytics workspace in Azure Monitor](activity-log-collect.md) (Recopilación y análisis de registros de actividad en un área de trabajo de Log Analytics en Azure Monitor).
+
 El [registro de actividad de Azure](activity-logs-overview.md) proporciona información de los eventos de nivel de suscripción que se han producido en la suscripción de Azure. Además de ver el registro de actividades en Azure Portal o copiarlo en un área de trabajo de Log Analytics donde se puede analizar con otros datos recopilados por Azure Monitor, puede crear un perfil de registro para archivar el registro de actividad en una cuenta de almacenamiento de Azure o transmitirlo a un centro de eventos.
 
 ## <a name="archive-activity-log"></a>Archivo del registro de actividad

@@ -1,10 +1,10 @@
 ---
-title: 'Revisión del acceso a los roles de recursos de Azure en PIM: Azure Active Directory | Microsoft Docs'
+title: 'Revisión del acceso a los roles de recursos de Azure en PIM: Azure Active Directory | Microsoft Docs'
 description: Aprenda a revisar el acceso a los roles de recursos de Azure en Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
@@ -12,46 +12,42 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: pim
-ms.date: 03/30/2018
+ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 22c0ce1a5eee4b8d4cc40c47dadd4bcdc74d03ba
-ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
+ms.openlocfilehash: 7ddb4d0ff1339f1427c5041528cdbe464a345b37
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70804106"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847016"
 ---
-# <a name="review-access-to-azure-resource-roles-in-pim"></a>Revisión del acceso a los roles de recursos de Azure en PIM
-Azure Active Directory (Azure AD) Privileged Identity Management (PIM) simplifica el modo en que las empresas administran el acceso con privilegios a los recursos de Azure. 
+# <a name="review-access-to-azure-resource-roles-in-privileged-identity-management"></a>Revisión de acceso a los roles de recursos de Azure en Privileged Identity Management
 
-Si se le ha asignado un rol administrativo, el administrador de roles con privilegios de su organización le puede pedir que revise y confirme periódicamente que aún necesita ese rol para su trabajo. Puede que reciba un correo electrónico con un vínculo o que vaya directamente al [Portal de Azure](https://portal.azure.com). Siga los pasos de este artículo para realizar una autorrevisión de los roles asignados.
+Las revisiones de acceso de Privileged Identity Management (PIM) pueden ayudar a proteger el acceso a roles con privilegios en Azure Active Directory (Azure AD). En este artículo se describen los pasos necesarios para completar una revisión de las asignaciones de roles con privilegios en una revisión de acceso de Azure AD.
+
+Si se le asigna una función administrativa, es posible que se le pida que su administrador complete una revisión de acceso para confirmar su necesidad de un rol. La solicitud de confirmación puede llegar en un correo electrónico que incluye un vínculo, o puede confirmarse en [Azure Portal](https://portal.azure.com).
 
 Si es un administrador de roles con privilegios interesado en las revisiones de acceso, puede obtener más información en [Inicio de una revisión de acceso](pim-resource-roles-start-access-review.md).
 
-## <a name="add-the-privileged-identity-management-application"></a>Incorporación de la aplicación Privileged Identity Management
-Puede usar la aplicación PIM de Azure Active Directory (Azure AD) en [Azure Portal](https://portal.azure.com/) para realizar la revisión. Si no tiene la aplicación en el portal, siga estos pasos para comenzar.
-
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
-2. Seleccione su nombre de usuario en la esquina superior derecha de Azure Portal y seleccione el directorio donde va a trabajar.
-3. Seleccione **Todos los servicios** y use el cuadro de texto **Filtro** para buscar *Azure AD Privileged Identity Management*.
-4. Seleccione **Anclar al panel** y, después, seleccione **Crear**. Se abre la aplicación PIM.
-
 ## <a name="approve-or-deny-access"></a>Aprobación o denegación de acceso
-Al aprobar o denegar el acceso, lo que hace es indicar al revisor si aún usa o no este rol. Elija **Aprobar** si desea permanecer en el rol o **Denegar** si no va a volver a necesitar el acceso. El estado cambia solo cuando el revisor aplica a los resultados.
+
+Puede aprobar o denegar el acceso en función de si sigue usando este rol o no. Elija **Aprobar** si desea permanecer en el rol o **Denegar** si no va a volver a necesitar el acceso. El estado solo cambia después de que el revisor aplica los resultados.
 
 Para buscar y completar la revisión de acceso, siga estos pasos:
-1. Vaya a la aplicación PIM de Azure AD.
-2. Seleccione la hoja **Revisar acceso**.
 
-   ![Captura de pantalla de la aplicación PIM, con la hoja Revisar acceso seleccionada](media/pim-resource-roles-perform-access-review/rbac-access-review-complete.png)
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+1. Seleccione **Azure Active Directory** y abra **Privileged Identity Management**.
+1. Seleccione **Revisar acceso**.
 
-3. Seleccione la revisión que quiere completar. 
-4. Elija **Aprobar** o **Denegar**. En el cuadro de texto **Proporcionar un motivo**, puede que necesite incluir un motivo de su decisión.
+   ![Captura de pantalla de la aplicación Privileged Identity Management, con la hoja Revisar acceso seleccionada](media/pim-resource-roles-perform-access-review/rbac-access-review-complete.png)
+
+1. Seleccione la revisión que quiere completar.
+1. Elija **Aprobar** o **Denegar**. En el cuadro **Proporcionar un motivo**, escriba si es necesario una justificación comercial para su decisión.
 
    ![Captura de pantalla de la página de detalles de la revisión](media/pim-resource-roles-perform-access-review/rbac-access-review-choice.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Realización de una revisión de acceso de los roles de Azure AD en PIM](pim-how-to-perform-security-review.md)
+- [Realización de una revisión de acceso de mis roles de Azure AD en Privileged Identity Management](pim-how-to-perform-security-review.md)

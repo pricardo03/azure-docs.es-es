@@ -1,7 +1,7 @@
 ---
-title: Indexación de un blob en varios documentos de índice de búsqueda del indizador de blobs de Azure para la búsqueda de texto completo
+title: Indexación de blobs que contienen varios documentos
 titleSuffix: Azure Cognitive Search
-description: Rastree el contenido de texto de los blobs de Azure mediante el indizador de blobs de Azure Cognitive Search. Cada blob puede contener uno o varios documentos de índice de búsqueda.
+description: Rastree blobs de Azure para buscar contenido de texto mediante el indexador de blobs de Azure Cognitive Search, en el que cada blob podría producir uno o más documentos de índice de búsqueda.
 manager: nitinme
 author: arv100kri
 ms.author: arjagann
@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 127354e55a81e379825b41759f2b6150ba554a12
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 1840bda0ecc9462a5d8f796b616d728d0bb412f7
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818542"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112266"
 ---
 # <a name="indexing-blobs-to-produce-multiple-search-documents"></a>Indexación de blobs para producir varios documentos de búsqueda
 De manera predeterminada, un indexador de blobs tratará el contenido de un blob como un único documento de búsqueda. Determinados valores de **parsingMode** admiten escenarios donde un blob individual puede dar lugar a varios documentos de búsqueda. A continuación, se muestran los diferentes tipos de **parsingMode** que permiten que un indexador extraiga más de un documento de búsqueda de un blob:

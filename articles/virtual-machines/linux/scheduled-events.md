@@ -1,5 +1,5 @@
 ---
-title: Eventos programados para VM Linux en Azure| Microsoft Docs
+title: Scheduled Events para máquinas virtuales Linux en Azure
 description: Programe los eventos usando Azure Metadata Service para las máquinas virtuales Linux.
 services: virtual-machines-windows, virtual-machines-linux, cloud-services
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: d427544ab9396211e4cbb247527a0eb848f42926
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 1e348adc06a970fcd7222ce612c13f0ff3e01585
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70091282"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035096"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Azure Metadata Service: Scheduled Events para máquinas virtuales Linux
 
@@ -76,9 +76,9 @@ El servicio Scheduled Events tiene versiones. Las versiones son obligatorias; la
 
 | Versión | Tipo de versión | Regions | Notas de la versión | 
 | - | - | - | - | 
-| 01-11-2017 | Disponibilidad general | Todo | <li> Se agregó compatibilidad para la expulsión de la máquina virtual de baja prioridad EventType 'Preempt'<br> | 
-| 2017-08-01 | Disponibilidad general | Todo | <li> Se quitó el guion bajo antepuesto de los nombres de recursos en las máquinas virtuales de IaaS<br><li>Se aplicó el requisito de encabezado de metadatos para todas las solicitudes | 
-| 2017-03-01 | Vista previa | Todo | <li>Versión inicial.
+| 01-11-2017 | Disponibilidad general | All | <li> Se agregó compatibilidad para la expulsión de la máquina virtual de baja prioridad EventType 'Preempt'<br> | 
+| 2017-08-01 | Disponibilidad general | All | <li> Se quitó el guion bajo antepuesto de los nombres de recursos en las máquinas virtuales de IaaS<br><li>Se aplicó el requisito de encabezado de metadatos para todas las solicitudes | 
+| 2017-03-01 | Vista previa | All | <li>Versión inicial.
 
 
 > [!NOTE] 

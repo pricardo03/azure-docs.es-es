@@ -8,15 +8,13 @@ ms.topic: include
 ms.date: 09/23/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: ee8a711a867f8abdc831b0d1d9d0b504b1104955
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: a7e9e36f75d0b0638fadbf92e713a924e816807d
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71310121"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012395"
 ---
-# <a name="creating-an-incremental-snapshot-preview-for-managed-disks"></a>Creación de una instantánea incremental (versión preliminar) para discos administrados
-
 Las instantáneas incrementales (versión preliminar) son copias de seguridad en un momento dado de los discos administrados que, cuando se realizan, solo constan de todos los cambios desde la última instantánea. Al intentar descargar o usar una instantánea incremental, se utiliza el VHD completo. Esta nueva funcionalidad para las instantáneas de discos administrados puede permitir que sean más rentables, ya que no es necesario almacenar todo el disco con cada instantánea individual a menos que decida hacerlo expresamente. Al igual que las instantáneas normales, las instantáneas incrementales se pueden usar para crear un disco administrado completo o para realizar una instantánea normal.
 
 Hay algunas diferencias entre una instantánea incremental y una instantánea normal. Las instantáneas incrementales usan siempre el almacenamiento de discos HDD estándar, independientemente del tipo de almacenamiento del disco, mientras que las instantáneas periódicas pueden usar discos SSD Premium. Si usa instantáneas periódicas en Premium Storage para escalar verticalmente implementaciones de máquinas virtuales, le recomendamos que use imágenes personalizadas en el almacenamiento estándar de [Shared Image Gallery](../articles/virtual-machines/linux/shared-image-galleries.md). Le ayudará a lograr una escala más masiva con un costo más bajo. Además, las instantáneas incrementales pueden ofrecer mejor confiabilidad con el [almacenamiento con redundancia de zona](../articles/storage/common/storage-redundancy-zrs.md). Si el almacenamiento con redundancia de zona está disponible en la región seleccionada, una instantánea incremental lo usará automáticamente. Si el almacenamiento con redundancia de zona no está disponible en la región, la instantánea tendrá como valor predeterminado el [almacenamiento con redundancia local](../articles/storage/common/storage-redundancy-lrs.md). Puede invalidar este comportamiento y seleccionar uno manualmente, pero no es recomendable.
@@ -27,7 +25,7 @@ Si aún no se ha suscrito a la versión preliminar y le gustaría empezar a usar
 
 ## <a name="restrictions"></a>Restricciones
 
-- Las instantáneas incrementales solo están disponibles actualmente en el Centro-oeste de EE. UU.
+- Las instantáneas incrementales solo están disponibles actualmente en las regiones Centro-oeste de EE. UU. y Norte de Europa.
 - Actualmente, las instantáneas incrementales no se pueden crear después de cambiar el tamaño de un disco.
 - Las instantáneas incrementales no se pueden mover entre suscripciones.
 - En este momento, solo se pueden generar URI de SAS de hasta cinco instantáneas de una determinada familia de instantáneas en un momento dado.
@@ -45,7 +43,7 @@ Install-Module -Name Az -AllowClobber -Scope CurrentUser
 
 Una vez instalada, inicie sesión en PowerShell con `az login`.
 
-Para crear una instantánea incremental con Azure PowerShell, establezca la configuración con [New-AzSnapShotConfig](https://docs.microsoft.com/en-us/powershell/module/az.compute/new-azsnapshotconfig?view=azps-2.7.0) con el parámetro `-Incremental` y, después, páselo como una variable a [New-AzSnapshot](https://docs.microsoft.com/en-us/powershell/module/az.compute/new-azsnapshot?view=azps-2.7.0) con el parámetro `-Snapshot`.
+Para crear una instantánea incremental con Azure PowerShell, establezca la configuración con [New-AzSnapShotConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshotconfig?view=azps-2.7.0) con el parámetro `-Incremental` y, después, páselo como una variable a [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot?view=azps-2.7.0) con el parámetro `-Snapshot`.
 
 Reemplace `<yourDiskNameHere>`, `<yourResourceGroupNameHere>` y `<yourDesiredSnapShotNameHere>` por sus valores; a continuación, puede usar el script siguiente para crear una instantánea incremental:
 

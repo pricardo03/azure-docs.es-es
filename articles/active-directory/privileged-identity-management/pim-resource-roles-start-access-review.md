@@ -1,28 +1,28 @@
 ---
-title: 'Creación de una revisión de acceso de roles de recursos de Azure en PIM: Azure Active Directory | Microsoft Docs'
+title: 'Creación de una revisión de acceso de los roles de recursos de Azure en PIM: Azure AD | Microsoft Docs'
 description: Aprenda a crear una revisión de acceso para los roles de recursos de Azure en Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: pim
-ms.date: 04/29/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba674c143cd8d85b9764c8ade776b52dd1d3598d
-ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
+ms.openlocfilehash: ae70b8386b1dc3ebd570d2651cded3eda75dfc53
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70804143"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847084"
 ---
-# <a name="create-an-access-review-of-azure-resource-roles-in-pim"></a>Creación de una revisión de acceso de los roles de recursos de Azure en PIM
+# <a name="create-an-access-review-of-azure-resource-roles-in-privileged-identity-management"></a>Creación de una revisión de acceso de los roles de recursos de Azure en Privileged Identity Management
 
 El acceso a los roles de recursos de Azure con privilegios para los empleados cambia con el tiempo. Para reducir el riesgo asociado con las asignaciones de roles obsoletas, debe revisar el acceso periódicamente. Puede usar Azure Active Directory (Azure AD) Privileged Identity Management (PIM) para crear revisiones de acceso para roles de recursos de Azure con privilegios. También puede configurar revisiones de acceso periódicas que se produzcan automáticamente.
 
@@ -30,7 +30,7 @@ En este artículo se describe cómo crear una o varias revisiones de acceso para
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- [Administrador de roles con privilegios](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator)
+[Administrador de roles con privilegios](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator)
 
 ## <a name="open-access-reviews"></a>Abrir las revisiones de acceso
 
@@ -38,17 +38,15 @@ En este artículo se describe cómo crear una o varias revisiones de acceso para
 
 1. Abra **Azure AD Privileged Identity Management**.
 
-1. En el menú izquierdo, haga clic en **Recursos de Azure**.
+1. En el menú izquierdo, seleccione **Recursos de Azure**.
 
-1. Haga clic en el recurso que quiera administrar, por ejemplo, una suscripción o un grupo de administración.
+1. Seleccione el recurso que desea administrar, por ejemplo, una suscripción o un grupo de administración.
 
-1. En Administrar, haga clic en **Revisiones de acceso**.
+1. En Administrar, seleccione **Revisiones de acceso**.
 
     ![Recursos de Azure: lista de revisiones de acceso que muestra el estado de todas las revisiones](./media/pim-resource-roles-start-access-review/access-reviews.png)
 
-
 [!INCLUDE [Privileged Identity Management access reviews](../../../includes/active-directory-privileged-identity-management-access-reviews.md)]
-
 
 ## <a name="start-the-access-review"></a>Inicio de la revisión de acceso
 

@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: jehollan, klam, LADocs
 ms.topic: article
-ms.date: 06/04/2019
-ms.openlocfilehash: 2ab6ace7c30c3dd385928b6b0ae8000485d5f495
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.date: 11/08/2019
+ms.openlocfilehash: c65a0464bbad6dbaca51dbc5bbc0d84adbd605d7
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72680141"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904645"
 ---
 # <a name="call-or-trigger-logic-apps-by-using-azure-functions-and-azure-service-bus"></a>Llamada o desencadenamiento de aplicaciones lógicas con Azure Functions y Azure Service Bus
 
@@ -32,13 +32,13 @@ Puede utilizar [Azure Functions](../azure-functions/functions-overview.md) para 
 
 ## <a name="create-logic-app"></a>Creación de la aplicación lógica
 
-En este escenario, tiene una función que ejecuta cada aplicación lógica que desea desencadenar. En primer lugar, cree una aplicación lógica que se inicie con un desencadenador de solicitud HTTP. La función llama a ese punto de conexión siempre que se reciba un mensaje en cola.  
+En este escenario, tiene una función que ejecuta cada aplicación lógica que desea desencadenar. En primer lugar, cree una aplicación lógica que se inicie con un desencadenador de solicitud HTTP. La función llama a ese punto de conexión siempre que se reciba un mensaje en cola.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) y cree la aplicación lógica en blanco.
 
    Si es la primera vez que usa aplicaciones lógicas, revise [Inicio rápido: Creación de la primera aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-1. En el cuadro de búsqueda, escriba "solicitud http". En la lista de desencadenadores, seleccione este desencadenador: **Cuando se recibe una solicitud HTTP**
+1. En el cuadro de búsqueda, escriba `http request`. En la lista de desencadenadores, seleccione el desencadenador **Cuando se recibe una solicitud HTTP**.
 
    ![Seleccionar un desencadenador](./media/logic-apps-scenario-function-sb-trigger/when-http-request-received-trigger.png)
 
@@ -50,9 +50,9 @@ En este escenario, tiene una función que ejecuta cada aplicación lógica que d
 
    Si no tiene un esquema, pero tiene una carga de ejemplo en formato JSON, puede generar un esquema a partir de dicha carga.
 
-   1. En el desencadenador Request, elija **Usar una carga de ejemplo para generar el esquema**.
+   1. En el desencadenador de solicitud, seleccione **Use sample payload to generate schema** (Usar una carga de ejemplo para generar el esquema).
 
-   1. En **Enter or paste a sample JSON payload** (Especificar o pegar una carga JSON de ejemplo), proporcione una carga de ejemplo y luego elija **Listo**.
+   1. En **Permite especificar o pegar una carga de JSON de ejemplo**, proporcione una carga de ejemplo y luego seleccione **Listo**.
 
       ![Especificación de la carga de ejemplo](./media/logic-apps-scenario-function-sb-trigger/enter-sample-payload.png)
 
@@ -102,9 +102,9 @@ A continuación, cree la función que actúa como desencadenador y escuche la co
 
 1. En Azure Portal, abra y expanda la aplicación de función, si aún no está abierta. 
 
-1. En el nombre de la aplicación de función, expanda **Functions**. En el panel **Functions**, elija **Nueva función**.
+1. En el nombre de la aplicación de función, expanda **Functions**. En el panel **Functions**, seleccione **Nueva función**.
 
-   ![Expanda "Functions" y elija "Nueva función"](./media/logic-apps-scenario-function-sb-trigger/create-new-function.png)
+   ![Expanda "Functions" y seleccione "Nueva función"](./media/logic-apps-scenario-function-sb-trigger/add-new-function-to-function-app.png)
 
 1. Seleccione esta plantilla en función de si ha creado una nueva aplicación de función donde seleccionó .NET como la pila en tiempo de ejecución o si está usando una aplicación de función existente.
 
@@ -116,9 +116,17 @@ A continuación, cree la función que actúa como desencadenador y escuche la co
 
      ![Selección de la plantilla para la aplicación de función existente](./media/logic-apps-scenario-function-sb-trigger/legacy-add-queue-trigger-template.png)
 
-1. En el panel **Azure Service Bus Queue trigger** (Desencadenador de cola de Azure Service Bus), proporcione un nombre para el desencadenador y configure la **conexión de Service Bus** para la cola, que usa el cliente de escucha y`OnMessageReceive()` del SDK de Azure Service Bus y elija **Create** (Crear).
+1. En el panel **Azure Service Bus Queue trigger** (Desencadenador de cola de Azure Service Bus), proporcione un nombre para el desencadenador y configure la **conexión de Service Bus** para la cola, que usa el cliente de escucha `OnMessageReceive()` del SDK de Azure Service Bus y seleccione **Create** (Crear).
 
-1. Escriba una función básica para llamar al punto de conexión de la aplicación lógica creado anteriormente usando el mensaje de cola como desencadenador. En el ejemplo se usa el tipo de contenido de mensaje `application/json`, pero puede cambiarlo si es necesario. Si es posible, vuelva a usar la instancia de los clientes HTTP. Para más información, consulte [Manage connections in Azure Functions](../azure-functions/manage-connections.md) (Administración de conexiones en Azure Functions).
+1. Escriba una función básica para llamar al punto de conexión de la aplicación lógica creado anteriormente usando el mensaje de cola como desencadenador. Antes de escribir la función, revise estas consideraciones:
+
+   * En el ejemplo se usa el tipo de contenido de mensaje `application/json`, pero puede cambiarlo si es necesario.
+   
+   * Debido a la posible ejecución simultánea de funciones, grandes volúmenes o cargas pesadas, evite crear instancias de la clase [HTTPClient](https://docs.microsoft.com/dotnet/api/system.net.http.httpclient) con la`using` instrucción y crear directamente instancias de HTTPClient por solicitud. Para obtener más información, consulte el artículo sobre el [uso de HttpClientFactory para implementar solicitudes HTTP resistentes](https://docs.microsoft.com/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net-core).
+   
+   * Si es posible, vuelva a usar la instancia de los clientes HTTP. Para más información, consulte [Manage connections in Azure Functions](../azure-functions/manage-connections.md) (Administración de conexiones en Azure Functions).
+
+   En este ejemplo se utiliza el [método `Task.Run`](https://docs.microsoft.com/dotnet/api/system.threading.tasks.task.run) en modo [asincrónico](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/async). Para obtener más información, consulte [Programación asincrónica con Async y Await](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/async/).
 
    ```CSharp
    using System;
@@ -126,17 +134,16 @@ A continuación, cree la función que actúa como desencadenador y escuche la co
    using System.Net.Http;
    using System.Text;
 
-   // Callback URL for previously created Request trigger
+   // Can also fetch from App Settings or environment variable
    private static string logicAppUri = @"https://prod-05.westus.logic.azure.com:443/workflows/<remaining-callback-URL>";
 
-   // Reuse the instance of HTTP clients if possible
+   // Reuse the instance of HTTP clients if possible: https://docs.microsoft.com/azure/azure-functions/manage-connections
    private static HttpClient httpClient = new HttpClient();
 
-   public static void Run(string myQueueItem, ILogger log)
+   public static async Task Run(string myQueueItem, TraceWriter log) 
    {
-       log.LogInformation($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
-
-       var response = httpClient.PostAsync(logicAppUri, new StringContent(myQueueItem, Encoding.UTF8, "application/json")).Result;
+      log.Info($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
+      var response = await httpClient.PostAsync(logicAppUri, new StringContent(myQueueItem, Encoding.UTF8, "application/json")); 
    }
    ```
 
@@ -146,4 +153,4 @@ A continuación, cree la función que actúa como desencadenador y escuche la co
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Llamar, desencadenar o anidar flujos de trabajo con puntos de conexión HTTP en Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md)
+* [Llamar, desencadenar o anidar flujos de trabajo con puntos de conexión HTTP en Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md)

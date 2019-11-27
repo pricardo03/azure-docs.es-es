@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17a2661883dd069e8cb719672f6b92442f1a8a0a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9e12fe38ba69f6ac8f27130e01baff0c358aa409
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60357517"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74021769"
 ---
 # <a name="how-to-configure-password-writeback"></a>Procedimiento: Configurar la escritura diferida de contraseñas
 
@@ -59,7 +59,7 @@ Para poder usar la escritura diferida de contraseñas, debe tener una de las sig
 > Los planes de licencias de Office 365 independientes *no admiten "Self-Service Password Reset/Change/Unlock with on-premises writeback"* (Autoservicio de restablecimiento/modificación/desbloqueo de contraseñas con escritura en diferido local) y requieren que tenga uno de los planes anteriores para que sirva esta funcionalidad.
 >
 
-## <a name="active-directory-permissions"></a>Permisos de Active Directory
+## <a name="active-directory-permissions-and-on-premises-password-complexity-policies"></a>Permisos de Active Directory y directivas de complejidad de contraseñas locales 
 
 La cuenta especificada en la utilidad de Azure AD Connect debe tener establecidos los siguientes elementos si quiere estar en el ámbito de SSPR:
 
@@ -98,6 +98,8 @@ Para configurar los permisos adecuados para que se realice la escritura diferida
     * **Escribir lockoutTime**
     * **Escribir pwdLastSet**
 9. Haga clic en **Aplicar o Aceptar** para aplicar los cambios y salir de los cuadros de diálogo abiertos.
+
+Puesto que el origen de autoridad es local, las directivas de complejidad de contraseñas se aplican desde el mismo origen de datos conectado. Asegúrese de que ha cambiado las directivas de grupo existentes para "Duración mínima de la contraseña". La directiva de grupo no se debe establecer en 1, lo que significa que la contraseña debe tener al menos un día antes de poder actualizarse. Debe asegurarse de que está establecida en 0. Esta configuración se puede encontrar en `gpmc.msc`, en **Configuración del equipo > Directivas > Configuración de Windows > Configuración de seguridad > Directivas de cuenta**. Ejecute `gpupdate /force` para asegurarse de que el cambio surta efecto. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -1,5 +1,5 @@
 ---
-title: Administración de la disponibilidad de máquinas virtuales Linux en Azure | Microsoft Docs
+title: Administración de la disponibilidad de máquinas virtuales Linux en Azure
 description: Aprenda a utilizar varias máquinas virtuales para garantizar la alta disponibilidad de su aplicación Linux en Azure.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ab269bcd56a5e60fdc8434a58b61163cb8769763
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 5742ed346c6761dd443d6252e5c9e457fa952b87
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70082920"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035899"
 ---
 # <a name="manage-the-availability-of-linux-virtual-machines"></a>Manage the availability of Linux virtual machines (Administración de la disponibilidad de las máquinas virtuales con Linux)
 

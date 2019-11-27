@@ -1,5 +1,6 @@
 ---
-title: Registro en las aplicaciones de Microsoft Authentication Library (MSAL) | Azure
+title: Registro en aplicaciones de la biblioteca de autenticación de Microsoft (MSAL)
+titleSuffix: Microsoft identity platform
 description: Aprenda a registrar aplicaciones de la biblioteca de autenticación de Microsoft (MSAL).
 services: active-directory
 documentationcenter: dev-center-name
@@ -12,17 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/05/2019
+ms.date: 10/31/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d3235037d2b60322ab3e5c393c0a19b1a42bdc6c
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: e9045fd6c1f5dcc4587b6ff85d567584f02421ba
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71678032"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73902898"
 ---
 # <a name="logging-in-msal-applications"></a>Inicio de sesión en aplicaciones de MSAL
 
@@ -116,14 +117,15 @@ Para deshabilitar el registro de datos personales y de datos de la organización
 Logger.getInstance().setEnablePII(false);
 ```
 
-De forma predeterminada, el registro se deshabilita en logcat. Para habilitar las siguientes opciones: 
+De forma predeterminada, el registro se deshabilita en logcat. Para habilitar las siguientes opciones:
+
 ```java
 Logger.getInstance().setEnableLogcatLog(true);
 ```
 
 ## <a name="logging-in-msaljs"></a>Registro en MSAL.js
 
- Puede habilitar el registro en MSAL.js si pasa un objeto de registrador durante la configuración para crear una instancia de `UserAgentApplication`. El objeto de registrador tiene las siguientes propiedades:
+ Puede habilitar el registro en MSAL.js (Javascript) si pasa un objeto de registrador durante la configuración para crear una instancia de `UserAgentApplication`. El objeto de registrador tiene las siguientes propiedades:
 
 - `localCallback`: una instancia de devolución de llamada que el desarrollador puede proporcionar para consumir y publicar registros de una manera personalizada. Implemente el método localCallback según cómo quiera redirigir los registros.
 - `level` (opcional): el nivel de registro configurable. Los niveles de registro admitidos son: `Error`, `Warning`, `Info` y `Verbose`. El valor predeterminado es `Info`.
@@ -137,7 +139,7 @@ function loggerCallback(logLevel, message, containsPii) {
 
 var msalConfig = {
     auth: {
-        clientId: “<Enter your client id>”,
+        clientId: "<Enter your client id>",
     },
      system: {
              logger: new Msal.Logger(
@@ -201,9 +203,9 @@ MSALGlobalConfig.loggerConfig.setLogCallback { (level, message, containsPII) in
 }
 ```
 
-### <a name="personal-identifiable-information-pii"></a>Información de identificación personal
+### <a name="personal-data"></a>Datos personales
 
-De forma predeterminada, MSAL no captura ni registra información de identificación personal. La biblioteca permite a los desarrolladores de aplicaciones activar esta opción una propiedad en la clase MSALLogger. Al activar la información de identificación personal, la aplicación tiene la responsabilidad de controlar la información confidencial y cumplir con los requisitos normativos de forma segura.
+De forma predeterminada, MSAL no captura ni registra información de identificación personal. La biblioteca permite a los desarrolladores de aplicaciones activar esta opción una propiedad en la clase MSALLogger. Al activar `pii.Enabled`, la aplicación tiene la responsabilidad de controlar la información confidencial y cumplir con los requisitos normativos de forma segura.
 
 Objective-C
 ```objc
@@ -237,7 +239,7 @@ Para establecer el nivel de registro al iniciar sesión con MSAL para iOS y macO
 | `MSALLogLevelError` | Nivel predeterminado; imprime información solo cuando se producen errores. |
 | `MSALLogLevelWarning` | Advertencias |
 | `MSALLogLevelInfo` |  Puntos de entrada de la biblioteca, con parámetros y varias operaciones de llavero. |
-|`MSALLogLevelVerbose`     |  Seguimiento de API       |
+|`MSALLogLevelVerbose`     |  Seguimiento de API |
 
 Por ejemplo:
 
@@ -260,3 +262,51 @@ Por ejemplo:
 `TID = 551563 MSAL 0.2.0 iOS Sim 12.0 [2018-09-24 00:36:38 - 36764181-EF53-4E4E-B3E5-16FE362CFC44] acquireToken returning with error: (MSALErrorDomain, -42400) User cancelled the authorization session.`
 
 Proporcionar los identificadores de correlación y las marcas de tiempo son útiles para el seguimiento de problemas. La información del identificador de correlación y las marcas de tiempo está disponible en el mensaje de registro. El único lugar confiable para recuperarlos es en los mensajes de registro de MSAL.
+
+## <a name="logging-in-msal-for-java"></a>Registro en MSAL para Java
+
+MSAL para Java (MSAL4J) le permite usar la biblioteca de registro que ya usa con la aplicación, siempre y cuando sea compatible con SLF4J. MSAL4j usa la [fachada de registro simple para Java](http://www.slf4j.org/) (SLF4J) como fachada o abstracción simple para varios marcos de registro, tales como [java.util.logging](https://docs.oracle.com/javase/7/docs/api/java/util/logging/package-summary.html), [Logback](http://logback.qos.ch/) y [Log4j](https://logging.apache.org/log4j/2.x/). SLF4J permite al usuario final conectar el marco de registro deseado en el momento de la implementación.
+
+Por ejemplo, para usar Logback como marco de registro de la aplicación, agregue la dependencia Logback al archivo POM de Maven de la aplicación:
+
+```xml
+<dependency>
+    <groupId>ch.qos.logback</groupId>
+    <artifactId>logback-classic</artifactId>
+    <version>1.2.3</version>
+</dependency>
+```
+
+Agregue luego el archivo de configuración Logback:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="true">
+
+</configuration>
+```
+
+SLF4J se enlaza automáticamente a Logback en el momento de la implementación. Los registros de MSAL se escribirán en la consola.
+
+Para obtener instrucciones sobre cómo enlazar a otros marcos de registro, consulte el [manual de SLF4J](http://www.slf4j.org/manual.html).
+
+### <a name="personal-and-organization-information"></a>Información personal y de la organización
+
+De forma predeterminada, el registro de MSAL no captura ni registra ningún dato personal o de la organización. En el ejemplo siguiente, el registro de datos personales o de la organización está desactivado de forma predeterminada:
+
+```java
+    PublicClientApplication app2 = PublicClientApplication.builder(PUBLIC_CLIENT_ID)
+            .authority(AUTHORITY)
+            .build();
+```
+
+Active el registro de datos personales y de la organización estableciendo `logPii()` en el generador de aplicaciones cliente. Si activa el registro de datos personales o de la organización, la aplicación asume la responsabilidad de controlar de forma segura datos altamente confidenciales y de cumplir los requisitos normativos.
+
+En el ejemplo siguiente, el registro de datos personales o de la organización está habilitado:
+
+```java
+PublicClientApplication app2 = PublicClientApplication.builder(PUBLIC_CLIENT_ID)
+        .authority(AUTHORITY)
+        .logPii(true)
+        .build();
+```

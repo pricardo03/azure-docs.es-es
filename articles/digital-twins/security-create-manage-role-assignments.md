@@ -1,6 +1,6 @@
 ---
 title: 'Creación y administración de las asignaciones de roles: Azure Digital Twins | Microsoft Docs'
-description: Aprenda a crear y administrar las asignaciones de roles en Azure Digital Twins.
+description: Aprenda a crear y administrar asignaciones de roles en Azure Digital Twins.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -9,12 +9,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 68714a06f72a522df0245d9c044bb6ff6557d52f
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 45ce22f208ee31b7202705eb4e42c38bedf09a8b
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949820"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013984"
 ---
 # <a name="create-and-manage-role-assignments-in-azure-digital-twins"></a>Crear y administrar las asignaciones de roles en Azure Digital Twins
 
@@ -60,7 +60,7 @@ Anteriormente, se introdujo el atributo **objectIdType**.
 
 Azure Digital Twins admite operaciones completas *CREATE*, *READ* y *DELETE* para las asignaciones de roles. Las operaciones *UPDATE* se controlan mediante la adición de asignaciones de roles, la eliminación de asignaciones de roles o la modificación de los nodos de [Spatial Intelligence Graph](./concepts-objectmodel-spatialgraph.md) a los que dan acceso las asignaciones de roles.
 
-[![Puntos de conexión de asignación de roles](media/security-roles/roleassignments.png)](media/security-roles/roleassignments.png#lightbox)
+[![Puntos de conexión de asignación de roles](media/security-roles/role-assignments.png)](media/security-roles/role-assignments.png#lightbox)
 
 La documentación de referencia de Swagger proporcionada contiene información adicional acerca de todos los puntos de conexión de API disponibles, las operaciones de solicitudes y las definiciones.
 
@@ -112,7 +112,7 @@ Con el siguiente cuerpo JSON:
 
 ### <a name="retrieve-all-roles"></a>Recuperar todos los roles
 
-[![Roles de sistema](media/security-roles/system.png)](media/security-roles/system.png#lightbox)
+[![Roles de sistema](media/security-roles/system-api.png)](media/security-roles/system-api.png#lightbox)
 
 Para obtener una lista de todos los roles disponibles (definiciones de roles), realice una solicitud HTTP GET autenticada a:
 

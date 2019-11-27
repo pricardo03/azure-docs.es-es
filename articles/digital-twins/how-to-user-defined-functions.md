@@ -7,14 +7,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 11/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 24b7f05bc59f3eb951897f5e36030b531d8f3aa9
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: 4db6f0052c92d4532917a996eda82a27d97d3063
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71959092"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74009563"
 ---
 # <a name="how-to-create-user-defined-functions-in-azure-digital-twins"></a>Creación de funciones definidas por el usuario en Azure Digital Twins
 
@@ -54,16 +54,18 @@ Con el cuerpo JSON:
 
 ```JSON
 {
-  "Name": "Temperature Matcher",
-  "Conditions": [
+  "id": "3626464-f39b-46c0-d9b0c-436aysj55",
+  "name": "Temperature Matcher",
+  "spaceId": "YOUR_SPACE_IDENTIFIER",
+  "conditions": [
     {
+      "id": "ag7gq35cfu3-e15a-4e9c-6437-sj6w68sy44s",
       "target": "Sensor",
       "path": "$.dataType",
       "value": "\"Temperature\"",
       "comparison": "Equals"
     }
-  ],
-  "SpaceId": "YOUR_SPACE_IDENTIFIER"
+  ]
 }
 ```
 

@@ -9,14 +9,14 @@ ms.reviewer: larryfr
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 08/23/2019
+ms.date: 11/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: e2074cec65ea4c1df803999c6a995f73ea4227ee
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: f4420824192ff3fd967cb6676cbe1de81ce7ad4c
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796685"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953913"
 ---
 # <a name="use-secrets-in-training-runs"></a>Uso de secretos en ejecuciones de entrenamiento
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -29,7 +29,7 @@ El flujo básico para el uso de secretos es:
  1. En el equipo local, inicie sesión en Azure y conéctese al área de trabajo.
  2. En el equipo local, establezca un secreto en el almacén de claves del área de trabajo.
  3. Envíe una ejecución remota.
- 4. Dentro de la ejecución remota, obtenga el secreto de Valor de clave y úselo.
+ 4. Dentro de la ejecución remota, obtenga el secreto de valor de clave y úselo.
 
 ## <a name="set-secrets"></a>Establecimiento de secretos
 
@@ -45,7 +45,7 @@ keyvault = ws.get_default_keyvault()
 keyvault.set_secret(name="mysecret", value = my_secret)
 ```
 
-No ponga el valor del secreto en código de Python porque no es seguro almacenarlo en un archivo como texto no cifrado. En su lugar, obtenga el valor del secreto de la variable de entorno, por ejemplo, el secreto de compilación de Azure DevOps o de la entrada interactiva del usuario.
+No ponga el valor del secreto en código Python porque no es seguro almacenarlo en un archivo como texto no cifrado. En su lugar, obtenga el valor del secreto de una variable de entorno, por ejemplo, el secreto de compilación de Azure DevOps, o de la entrada interactiva del usuario.
 
 Puede enumerar los nombres de secretos mediante el método [list_secrets](https://docs.microsoft.com/python/api/azureml-core/azureml.core.keyvault.keyvault?view=azure-ml-py#list-secrets--). El método __set_secret__ actualiza el valor del secreto si el nombre ya existe.
 

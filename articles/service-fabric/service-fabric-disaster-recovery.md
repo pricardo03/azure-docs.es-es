@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 7153a6ed4a91e59eea936f1e17d827a40bb99371
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1be891d38eb918d65cd8efda86e9a81fa629cf38
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60948517"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73883989"
 ---
 # <a name="disaster-recovery-in-azure-service-fabric"></a>Recuperación ante desastres en Service Fabric de Azure
 Una parte fundamental de la entrega de alta disponibilidad es garantizar que los servicios sobreviven a cualquier tipo de error. Esto es especialmente importante para los errores imprevistos y que se encuentran fuera de control. En este artículo se describen algunos modos de error comunes que podrían ser desastres si no hubieran modelado y administrado correctamente. También se explican las mitigaciones y las acciones que deben realizarse en caso de desastre. El objetivo es limitar o eliminar el riesgo de pérdida de datos o de tiempo de inactividad cuando se produzcan errores, tanto planeados como de otro tipo.
@@ -139,7 +139,7 @@ En los clústeres independientes de Service Fabric y Azure, el "tipo de nodo pri
 ## <a name="next-steps"></a>Pasos siguientes
 - Obtenga más información sobre cómo simular varios errores mediante la [plataforma de comprobación](service-fabric-testability-overview.md)
 - Lea otros recursos sobre alta disponibilidad y recuperación ante desastres. Microsoft ha publicado una gran cantidad de instrucciones sobre estos temas. Aunque algunos de estos documentos se refieren a técnicas específicas para su uso en otros productos, contienen muchos procedimientos recomendados generales que se pueden aplicar también en el contexto de Service Fabric:
-  - [Lista de comprobación de disponibilidad](../best-practices-availability-checklist.md)
+  - [Lista de comprobación de disponibilidad](/azure/architecture/checklist/resiliency-per-service)
   - [Exploración en profundidad de la recuperación ante desastres](../sql-database/sql-database-disaster-recovery-drills.md)
   - [Recuperación ante desastres y alta disponibilidad para aplicaciones de Azure][dr-ha-guide]
 - Más información sobre las [opciones de soporte técnico de Service Fabric](service-fabric-support.md)

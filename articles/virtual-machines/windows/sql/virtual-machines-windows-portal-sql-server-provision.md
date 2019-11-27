@@ -1,5 +1,5 @@
 ---
-title: Guía de aprovisionamiento de máquinas virtuales Windows con SQL Server en Azure Portal | Microsoft Docs
+title: Aprovisionamiento de una máquina virtual con Azure Portal
 description: En esta guía de procedimientos se describen las opciones para crear máquinas virtuales de Windows SQL Server 2017 en Azure Portal.
 services: virtual-machines-windows
 documentationcenter: na
@@ -14,12 +14,13 @@ ms.workload: infrastructure-services
 ms.date: 05/04/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 1e0bc4647476cd5c6aa0f38456ef8890b4ddcaa5
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 68fda45038da48660da0c29787b3a86e00d9b129
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828780"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033582"
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Aprovisionamiento de una máquina virtual Windows con SQL Server en Azure Portal
 

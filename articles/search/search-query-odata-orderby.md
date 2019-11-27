@@ -1,7 +1,7 @@
 ---
 title: Referencia de order by de OData
 titleSuffix: Azure Cognitive Search
-description: Referencia del lenguaje OData para la sintaxis de order-by en las consultas de Azure Cognitive Search.
+description: Documentación de referencia sobre sintaxis y lenguaje para el uso de la función order-by en las consultas de Azure Cognitive Search.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: e3ca19b5696b9a7ad9b68b180313753a5c9de912
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 99ec639b88f3334530243242aadfa0ab52a40df0
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793303"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113154"
 ---
 # <a name="odata-orderby-syntax-in-azure-cognitive-search"></a>Sintaxis de $orderby de OData en Azure Cognitive Search
 
@@ -45,7 +45,7 @@ sortable_function ::= geo_distance_call | 'search.score()'
 También está disponible un diagrama de sintaxis interactivo:
 
 > [!div class="nextstepaction"]
-> [Diagrama de sintaxis de OData para Azure Cognitive Search](https://azuresearch.github.io/odata-syntax-diagram/#order_by_clause)
+> [Diagrama de la sintaxis de OData para Azure Cognitive Search](https://azuresearch.github.io/odata-syntax-diagram/#order_by_clause)
 
 > [!NOTE]
 > Consulte [Referencia de sintaxis de expresiones OData para Azure Cognitive Search](search-query-odata-syntax-reference.md) para obtener la EBNF completa.
@@ -81,6 +81,6 @@ Clasificar hoteles en orden descendente por search.score y valoración, y despu�
 ## <a name="next-steps"></a>Pasos siguientes  
 
 - [Procedimientos para trabajar con los resultados de búsqueda en Azure Cognitive Search](search-pagination-page-layout.md)
-- [Información general sobre el lenguaje de expresiones OData para Azure Cognitive Search](query-odata-filter-orderby-syntax.md)
+- [Introducción al lenguaje de expresiones OData para Azure Cognitive Search](query-odata-filter-orderby-syntax.md)
 - [Referencia de sintaxis de expresiones OData para Azure Cognitive Search](search-query-odata-syntax-reference.md)
 - [Búsqueda de documentos &#40;API REST de Azure Cognitive Search&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)

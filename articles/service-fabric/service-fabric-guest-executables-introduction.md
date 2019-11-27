@@ -1,5 +1,5 @@
 ---
-title: Implementación de un ejecutable invitado en Azure Service Fabric | Microsoft Docs
+title: Empaquetado de un ejecutable en Azure Service Fabric | Microsoft Docs
 description: Obtenga información sobre cómo empaquetar una aplicación existente como ejecutable invitado para implementarla en un clúster de Service Fabric.
 services: service-fabric
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 03/15/2018
 ms.author: atsenthi
-ms.openlocfilehash: 521c7a198d9085cdc93d325e63ad9d46cc4c7928
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: bd6984db67a8a7b9c38988558ada51e12d337f52
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599460"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013272"
 ---
 # <a name="deploy-an-existing-executable-to-service-fabric"></a>Implementación de un ejecutable existente en Service Fabric
 Puede ejecutar cualquier tipo de código, como Node.js, Java o C++ en Azure Service Fabric como servicio. Service Fabric hace referencia a estos tipos de servicios como ejecutables invitados.

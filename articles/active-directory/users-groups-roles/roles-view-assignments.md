@@ -1,24 +1,24 @@
 ---
-title: Visualización de permisos de roles de administrador en el centro de administración Azure Active Directory | Microsoft Docs
+title: Visualización de asignaciones de roles personalizados en el portal de Azure AD | Microsoft Docs
 description: Ahora puede ver y administrar los miembros de un rol de administrador de Azure AD en el centro de administración de AD.
 services: active-directory
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 09/04/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dbe3b0218b73649d40f27d17ee2c7de2853c6b7c
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: d989a515a1a3c1dc12ca357a3ab2126e78800ffa
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72025557"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74024414"
 ---
 # <a name="view-custom-role-assignments-in-azure-active-directory"></a>Visualización de asignación de roles personalizados en Azure Active Directory
 
