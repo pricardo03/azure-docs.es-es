@@ -1,5 +1,5 @@
 ---
-title: 'Inicio de sesión con la verificación en dos pasos o la información de seguridad: Azure Active Directory | Microsoft Docs'
+title: 'Inicio de sesión con la información de autenticación de identidad: Azure AD'
 description: Obtenga información sobre cómo iniciar sesión con los distintos métodos de verificación de identidad en la información de seguridad.
 services: active-directory
 author: eross-msft
@@ -13,12 +13,12 @@ ms.date: 07/18/2019
 ms.author: lizross
 ms.custom: user-help
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b20ea1131ceda0527ed35d1a1082d05f25da6bac
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 1c79e82680ae81137ee4164e88e62235f934565a
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68382315"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74028525"
 ---
 # <a name="sign-in-using-two-step-verification-or-security-info"></a>Inicio de sesión con la información de seguridad o la verificación en dos pasos
 
@@ -83,7 +83,7 @@ Si por algún motivo no puede usar su método de inicio de sesión principal, pu
     >[!Note]
     >Si no ve el vínculo **Sign in another way** (Iniciar sesión de otro modo), significa que no ha configurado ningún otro método de comprobación y que tendrá que ponerse en contacto con el administrador para solicitar ayuda para iniciar sesión en su cuenta. Después de que el administrador lo ayuda a iniciar sesión, asegúrese de agregar métodos de comprobación adicionales. Para más información sobre cómo agregar métodos de comprobación, consulte el artículo [Administración de la configuración de la verificación en dos pasos](multi-factor-authentication-end-user-manage-settings.md).
     >
-    >Si ve el vínculo pero sigue sin ver ningún otro método de comprobación, tendrá que ponerse en contacto con el administrador para que lo ayude a iniciar sesión en su cuenta.
+    >Si ve el vínculo **Sign in another way** (Iniciar sesión de otro modo) pero sigue sin ver ningún otro método de comprobación, tendrá que ponerse en contacto con el administrador para que lo ayude a iniciar sesión en su cuenta.
 
 2. Elija el método de comprobación alternativo y siga con el proceso de verificación en dos pasos.
 

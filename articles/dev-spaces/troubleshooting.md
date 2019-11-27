@@ -9,12 +9,12 @@ ms.date: 09/25/2019
 ms.topic: conceptual
 description: Desarrollo rápido de Kubernetes con contenedores y microservicios en Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores, Helm, service mesh, enrutamiento de service mesh, kubectl, k8s '
-ms.openlocfilehash: 87aa96614b6aec4843723233a77d0a1dc1b66453
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 5d327dd1041172bc546b2e0cb5ec3a140f401d84
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300363"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072188"
 ---
 # <a name="troubleshooting-guide"></a>Guía de solución de problemas
 
@@ -94,6 +94,14 @@ A pesar del mensaje de error al ejecutar `az aks use-dev-spaces` con una versió
 
 Para corregir este problema, actualice la instalación de la [CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) a la versión 2.0.63 o posterior. Esta actualización resolverá el mensaje de error que recibe al ejecutar `az aks use-dev-spaces`. Como alternativa, puede continuar usando la versión actual de la CLI y la CLI de Azure Dev Spaces.
 
+### <a name="error-unable-to-reach-kube-apiserver"></a>Error "No se puede conectar con kube-apiserver"
+
+Este error puede aparecer cuando Azure Dev Spaces no puede conectarse al servidor de la API del clúster de AKS. 
+
+Si el acceso al servidor de la API del clúster de AKS está bloqueado o si tiene [intervalos de direcciones IP autorizadas en el servidor de la API](../aks/api-server-authorized-ip-ranges.md) que estén habilitados para el clúster de AKS, también deberá [crear](../aks/api-server-authorized-ip-ranges.md#create-an-aks-cluster-with-api-server-authorized-ip-ranges-enabled) o [actualizar](../aks/api-server-authorized-ip-ranges.md#update-a-clusters-api-server-authorized-ip-ranges) el clúster de forma que [permita otros intervalos adicionales basados en la región](https://github.com/Azure/dev-spaces/tree/master/public-ips).
+
+Asegúrese de que el servidor de la API está disponible ejecutando comandos kubectl. Si el servidor de la API no está disponible, póngase en contacto con el soporte técnico de AKS y vuelva a intentarlo cuando esté en funcionamiento.
+
 ## <a name="common-issues-when-preparing-your-project-for-azure-dev-spaces"></a>Problemas comunes al preparar el proyecto para Azure Dev Spaces
 
 ### <a name="warning-dockerfile-could-not-be-generated-due-to-unsupported-language"></a>Advertencia: "Dockerfile could not be generated due to unsupported language" (No se pudo generar un archivo Dockerfile debido a un lenguaje no admitido)
@@ -143,7 +151,7 @@ Este error se produce si el cliente de Helm ya no puede comunicarse con el pod T
 
 Para corregir este problema, reinicie los nodos del agente en el clúster.
 
-### <a name="error-release-azds-identifier-spacename-servicename-failed-services-servicename-already-exists-or-pull-access-denied-for-servicename-repository-does-not-exist-or-may-require-docker-login"></a>Error "release azds-identifierspacenameservicename failed: services 'servicename' already exists" (Error en la versión azds-identifierspacenameservicename: los servicios 'servicename' ya existen) o "Pull access denied for servicename, repository does not exist or may require 'docker login'" (Se ha denegado el acceso de extracción para servicename, el repositorio no existe o requiere iniciar sesión en docker)
+### <a name="error-release-azds-identifier-spacename-servicename-failed-services-servicename-already-exists-or-pull-access-denied-for-servicename-repository-does-not-exist-or-may-require-docker-login"></a>Error "release azds-\<identifier\>-\<spacename\>-\<servicename\> failed: services "\<servicename\>" already exists" ("error en la versión azds-\<identificador\>-\<nombre de espacio\>-\<nombre de servicio\>: el servicio "\<nombrede servicio\>" ya existe") o "Pull access denied for \<servicename\>, repository does not exist or may require "docker login"" ("Acceso de inserción denegado para \<nombre de servicio\>. Es posible que el repositorio no exista o que sea necesario iniciar sesión en docker").
 
 Estos errores se pueden producir si combina comandos directos de Helm (como `helm install`, `helm upgrade` o `helm delete`) con comandos de Dev Spaces (como `azds up` y `azds down`) en el mismo espacio de desarrollo. Se producen porque Dev Spaces dispone de su propia instancia de Tiller que entrará en conflicto con su propia instancia de Tiller que se ejecuta en el mismo espacio de desarrollo.
 
@@ -431,3 +439,17 @@ A continuación se muestra un ejemplo de una anotación de recursos de proxy que
 ```
 azds.io/proxy-resources: "{\"Limits\": {\"cpu\": \"300m\",\"memory\": \"400Mi\"},\"Requests\": {\"cpu\": \"150m\",\"memory\": \"200Mi\"}}"
 ```
+
+### <a name="enable-azure-dev-spaces-on-an-existing-namespace-with-running-pods"></a>Habilitación de Azure Dev Spaces en un espacio de nombres existente con pods en ejecución
+
+Es posible que ya tenga un clúster de AKS y un espacio de nombres con pods en ejecución en los que desee habilitar Azure Dev Spaces.
+
+Para habilitar Azure Dev Spaces en un espacio de nombres existente de un clúster de AKS, ejecute `use-dev-spaces` y use `kubectl` para reiniciar todos los pods de dicho espacio de nombres.
+
+```console
+az aks get-credentials --resource-group MyResourceGroup --name MyAKS
+az aks use-dev-spaces -g MyResourceGroup -n MyAKS --space my-namespace --yes
+kubectl -n my-namespace delete pod --all
+```
+
+Una vez que se han reiniciado los pods, puede empezar a usar el espacio de nombres existente con Azure Dev Spaces.

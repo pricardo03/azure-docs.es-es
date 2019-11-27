@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 6cdebb8f6abea2b50dd8aad58ccc9fb5e680cba9
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 635431fb87e5f164f92ab4b7a1027ee96e9d801a
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73797477"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73891024"
 ---
 # <a name="generate-maps"></a>Generación de mapas
 
@@ -170,7 +170,7 @@ La humedad del suelo es el agua que se retiene en los espacios entre las partíc
 Asegúrese de lo siguiente antes de intentar generar un mapa térmico de humedad del suelo:
 
 - Se deben implementar al menos tres sensores de humedad del suelo. Microsoft recomienda no intentar crear un mapa de humedad del suelo sin que se hayan implementado antes los sensores y se hayan asociado estos a la granja.  
-- Al menos una escena de Sentinel sin nube debe estar disponible durante los últimos 120 días a partir del día para el que se solicitó el mapa de humedad del suelo.
+- La generación del mapa térmico de humedad del suelo se ve afectada por la cobertura de los caminos, la cobertura de las nubes y la sombra de las nubes de Sentinel. Al menos una escena de Sentinel sin nube debe estar disponible durante los últimos 120 días a partir del día para el que se solicitó el mapa de humedad del suelo.
 - Al menos la mitad de los sensores implementados en la granja debe estar en línea y transmitir datos al centro de datos.
 - El mapa térmico debe generarse mediante medidas de sensor del mismo proveedor.
 
@@ -220,6 +220,6 @@ Para ello, siga los pasos que se describen a continuación:
 4. Seleccione el icono **Sort** (Ordenar) junto a los encabezados de tabla para ordenar estas por granja, fecha, fecha de creación, identificador de trabajo y tipo de trabajo.
 5. Desplácese por la lista de mapas disponibles mediante los botones de navegación situados al final de la página.
 6. Seleccione el trabajo que desee ver. Una ventana emergente mostrará la vista previa del mapa seleccionado.
-7. Seleccione el menú desplegable **Download** (Descargar) para seleccionar el formato de descarga y el mapa se descargará y se guardará en la carpeta local del equipo.
+7. Seleccione el menú desplegable **Download** (Descargar) para seleccionar el formato de descarga; el mapa se descargará y se guardará en la carpeta especificada.
 
     ![Proyecto de FarmBeats](./media/get-sensor-data-from-sensor-partner/download-soil-moisture-map-1.png)

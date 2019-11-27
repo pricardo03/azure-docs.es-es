@@ -8,25 +8,27 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 06/08/2018
 ms.author: danlep
-ms.openlocfilehash: 28205d6db85d7a5051f283445d95dd2375e174c8
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 7f9696e9803e9ab168c59b6c5e7413a4f754a6ae
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325867"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904443"
 ---
 # <a name="configure-liveness-probes"></a>Configuración de sondeos de ejecución
 
-Las aplicaciones en contenedores pueden ejecutarse durante largos períodos de tiempo y provocar la interrupción de estados que quizás deban repararse con un reinicio del contenedor. Azure Container Instances admite que los sondeos de ejecución incluyan configuraciones para que pueda reiniciar el contenedor si una funcionalidad crítica no funciona.
+Las aplicaciones en contenedores pueden ejecutarse durante largos períodos de tiempo y provocar la interrupción de estados que quizás deban repararse con un reinicio del contenedor. Azure Container Instances admite sondeos de ejecución para que pueda configurar los contenedores dentro del grupo de contenedores para que se reinicien si una funcionalidad crítica no funciona. El sondeo de ejecución se comporta como un[sondeo de ejecución de Kubernetes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/).
 
 En este artículo se explica cómo implementar un grupo de contenedores que incluya un sondeo de ejecución y se muestra el reinicio automático de un contenedor incorrecto simulado.
+
+Azure Container Instances también admite [sondeos de preparación](container-instances-readiness-probe.md), que se pueden configurar para asegurarse de que el tráfico llega a un contenedor solo cuando esté listo para ello.
 
 ## <a name="yaml-deployment"></a>Implementación de YAML
 
 Cree un archivo `liveness-probe.yaml` con el siguiente fragmento de código. Este archivo define un grupo de contenedores que consta de un contenedor NGNIX que, con el tiempo, se vuelve incorrecto.
 
 ```yaml
-apiVersion: 2018-06-01
+apiVersion: 2018-10-01
 location: eastus
 name: livenesstest
 properties:
@@ -69,7 +71,7 @@ La implementación define un comando de inicio que se ejecutará cuando el conte
 /bin/sh -c "touch /tmp/healthy; sleep 30; rm -rf /tmp/healthy; sleep 600"
 ```
 
- A continuación, se suspenderá durante 30 segundos antes de eliminar el archivo y entrará en modo de suspensión durante 10 minutos.
+ Luego se suspenderá durante 30 segundos antes de eliminar el archivo y entrará en modo de suspensión durante 10 minutos.
 
 ### <a name="liveness-command"></a>Comando de ejecución
 
@@ -87,7 +89,7 @@ Estos eventos se pueden ver desde Azure Portal o la CLI de Azure.
 
 ![Evento incorrecto del portal:][portal-unhealthy]
 
-Al ver los eventos en Azure Portal, los eventos de tipo `Unhealthy` se desencadenarán al producirse un error del comando de ejecución. El evento posterior será del tipo `Killing`, lo que significa la eliminación de un contenedor y que puede comenzar un reinicio. El recuento de reinicio del contenedor incrementará cada vez que esto suceda.
+Al ver los eventos en Azure Portal, los eventos de tipo `Unhealthy` se desencadenarán al producirse un error del comando de ejecución. El evento posterior será del tipo `Killing`, lo que significa la eliminación de un contenedor y que puede comenzar un reinicio. El recuento de reinicio del contenedor se incrementa cada vez que se produce este evento.
 
 Los reinicios se completan en contexto para recursos como las direcciones IP públicas y se conservará el contenido específico de nodo.
 

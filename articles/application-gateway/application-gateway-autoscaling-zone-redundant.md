@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 10/09/2019
+ms.date: 11/09/2019
 ms.author: victorh
-ms.openlocfilehash: f58ac4448f50e8e02f2838fef02c9f884f69266b
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 8f3a732d5d6128ff38f81f715113e87710b11c47
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177447"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847269"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Escalabilidad automática y Application Gateway con redundancia de zona v2 
 
@@ -41,8 +41,8 @@ La SKU Standard_v2 y WAF_v2 está disponible en las siguientes regiones: Centro-
 
 Con la SKU v2, el modelo de precios está orientado al consumo y ya no está asociado a recuentos de instancias o tamaños. El modelo de precios de la SKU v2 presenta dos componentes:
 
-- **Precio fijo**: precio por hora (o por fracción de hora) para aprovisionar una instancia de Gateway Standard_v2 o WAF_v2.
-- **Precio por unidad de capacidad**: este es el costo basado en el consumo que se suma al costo fijo. La unidad de capacidad se cobra también por hora o fracciones de hora de proceso. Hay tres dimensiones para la unidad de capacidad: unidad de proceso, conexiones persistentes y rendimiento. La unidad de proceso es una medida de la capacidad de procesador consumida. Los factores que afectan a la unidad de proceso son las conexiones TLS/seg, los cálculos de reescritura de direcciones URL y el procesamiento de reglas de WAF. La conexión persistente es una medida de las conexiones TCP establecidas para la puerta de enlace de aplicaciones en un intervalo de facturación determinado. El rendimiento es el promedio de megabits/seg procesados por el sistema en un intervalo de facturación determinado.
+- **Precio fijo**: precio por hora (o por fracción de hora) para aprovisionar una instancia de Gateway Standard_v2 o WAF_v2. Tenga en cuenta que 0 instancias mínimas adicionales todavía garantizan una alta disponibilidad del servicio que siempre se incluye con el precio fijo.
+- **Precio por unidad de capacidad**: se trata del costo basado en el consumo que se suma al costo fijo. La unidad de capacidad se cobra también por hora o fracciones de hora de proceso. Hay tres dimensiones para la unidad de capacidad: unidad de proceso, conexiones persistentes y rendimiento. La unidad de proceso es una medida de la capacidad de procesador consumida. Los factores que afectan a la unidad de proceso son las conexiones TLS/seg, los cálculos de reescritura de direcciones URL y el procesamiento de reglas de WAF. La conexión persistente es una medida de las conexiones TCP establecidas para la puerta de enlace de aplicaciones en un intervalo de facturación determinado. El rendimiento es el promedio de megabits/seg procesados por el sistema en un intervalo de facturación determinado.  La facturación se realiza en un nivel de unidad de capacidad para cualquier elemento que esté por encima del número de instancias reservadas.
 
 Cada unidad de capacidad se compone a lo sumo de: 1 unidad de proceso, o 2500 conexiones persistentes, o rendimiento de 2,22 Mbps.
 
@@ -77,7 +77,7 @@ Precio total: 148,8 $ + 297,6 $ = 446,4 $
 
 **Ejemplo 2**
 
-Se aprovisiona un servicio de Application Gateway Standard_v2 durante un mes y en este tiempo recibe 25 nuevas conexiones SSL/seg, un promedio de transferencia de datos de 8,88 Mbps. Suponiendo que las conexiones tienen una duración breve, el precio sería:
+Se aprovisiona un servicio de Application Gateway Standard_v2 durante un mes, con un mínimo de cero instancias, y en este tiempo recibe 25 nuevas conexiones SSL por segundo, un promedio de transferencia de datos de 8,88 Mbps. Suponiendo que las conexiones tienen una duración breve, el precio sería:
 
 Precio fijo = 744(horas) * 0,20 $ = 148,8 $
 
@@ -85,10 +85,37 @@ Precio de unidad de capacidad = 744(horas) * Máx (unidad de proceso de 25/50 pa
 
 Precio total = 148,8 $ + 23,81 = 172,61 $
 
+Como puede ver, solo se le facturarán cuatro unidades de capacidad, no toda la instancia. 
+
 > [!NOTE]
 > La función Max devuelve el valor más grande en un par de valores.
 
+
 **Ejemplo 3**
+
+Se aprovisiona un servicio de Application Gateway Standard_v2 durante un mes, con un mínimo de cinco instancias. Suponiendo que no haya tráfico y las conexiones tengan una duración breve, el precio sería:
+
+Precio fijo = 744(horas) * 0,20 $ = 148,8 $
+
+Precio de unidad de capacidad = 744(horas) * Máx (unidad de proceso de 0/50 para conexiones por segundo, unidad de capacidad de 0/2,22 para rendimiento) * 0,008 $ = 744 * 50 * 0,008 = 297,60 $.
+
+Precio total = 148,80 $ + 297,60 = 446,4 $
+
+En este caso, se le facturará la totalidad de las cinco instancias, aunque no haya tráfico.
+
+**Ejemplo 4**
+
+Se aprovisiona un servicio de Application Gateway Standard_v2 durante un mes, con un mínimo de cinco instancias, pero esta vez hay un promedio de transferencia de datos de 125 Mbps y 25 conexiones SSL por segundo. Suponiendo que no haya tráfico y las conexiones tengan una duración breve, el precio sería:
+
+Precio fijo = 744(horas) * 0,20 $ = 148,8 $
+
+Precio de unidad de capacidad = 744(horas) * Máx (unidad de proceso de 25/50 para conexiones por segundo, unidad de capacidad de 125/2,22 para rendimiento) * 0,008 $ = 744 * 57 * 0,008 = 339,26 $.
+
+Precio total = 148,80 $ + 339,26 $ = 488,06 $
+
+En este caso, se le facturarán las cinco instancias completas, además de siete unidades de capacidad (que corresponde a 7/10 de una instancia).  
+
+**Ejemplo 5**
 
 Se aprovisiona un servicio Application Gateway WAF_v2 durante un mes. En este tiempo, recibe 25 nuevas conexiones SSL por segundo, un promedio de transferencia de datos de 8,88 mbps, y realiza 80 solicitudes por segundo. Suponiendo que las conexiones son de corta duración, y que el cálculo de unidad de proceso para la aplicación admite 10 solicitudes por segundo por unidad de proceso, el precio sería:
 
@@ -105,7 +132,7 @@ Precio total = 267,84 $ + 85,71 $ = 353,55 $
 
 Application Gateway and WAF pueden configurarse para escalarse de dos maneras:
 
-- **Escalado automático**: con el escalado automático habilitado, las SKU v2 de Application Gateway y WAF se escalan o reducen verticalmente en función de los requisitos del tráfico de la aplicación. Este modo ofrece una mayor elasticidad a su aplicación y elimina la necesidad de adivinar el tamaño de la puerta de enlace de aplicaciones o el número de instancias. Este modo también le permite ahorrar costos al no requerir que se ejecute la puerta de enlace a una capacidad máxima de aprovisionamiento para una carga de tráfico máxima prevista. Debe especificar un número de instancias mínimo y opcionalmente máximo. La capacidad mínima garantiza que Application Gateway y WAF v2 no caigan por debajo del número mínimo de instancias especificado, incluso en ausencia de tráfico. Cada instancia cuenta como 10 unidades de capacidad reservada adicionales. 0 significa que no hay capacidad reservada y que es puramente de escalado automático por naturaleza. Tenga en cuenta que 0 instancias mínimas adicionales todavía garantizan una alta disponibilidad del servicio que siempre se incluye con el precio fijo. Opcionalmente, también puede especificar un número máximo de instancias, lo que garantiza que Application Gateway no se amplíe más allá del número de instancias especificado. Se le seguirá facturando por la cantidad de tráfico atendido por el servicio Gateway. Los números de instancias pueden oscilar entre 0 y 125. El valor predeterminado para el número máximo de instancias es 20 si no se especifica. 
+- **Escalado automático**: con el escalado automático habilitado, las SKU v2 de Application Gateway y WAF se escalan o reducen verticalmente en función de los requisitos del tráfico de la aplicación. Este modo ofrece una mayor elasticidad a su aplicación y elimina la necesidad de adivinar el tamaño de la puerta de enlace de aplicaciones o el número de instancias. Este modo también le permite ahorrar costos al no requerir que se ejecute la puerta de enlace a una capacidad máxima de aprovisionamiento para una carga de tráfico máxima prevista. Debe especificar un número de instancias mínimo y opcionalmente máximo. La capacidad mínima garantiza que Application Gateway y WAF v2 no caigan por debajo del número mínimo de instancias especificado, incluso en ausencia de tráfico. Cada instancia cuenta como 10 unidades de capacidad reservada adicionales. Cero significa que no hay capacidad reservada y es por naturaleza estrictamente de escalado automático. Tenga en cuenta que un mínimo de cero instancias adicionales todavía garantiza una alta disponibilidad del servicio que siempre se incluye con el precio fijo. Opcionalmente, también puede especificar un número máximo de instancias, lo que garantiza que Application Gateway no se amplíe más allá del número de instancias especificado. Se le seguirá facturando por la cantidad de tráfico atendido por el servicio Gateway. Los números de instancias pueden oscilar entre 0 y 125. El valor predeterminado para el número máximo de instancias es 20 si no se especifica.
 - **Manual**: también puede elegir el modo Manual para que la puerta de enlace no se escale automáticamente. En este modo, si hay más tráfico del que puede asumir Application Gateway o WAF, podría perderse tráfico. Con el modo manual, es obligatorio especificar el número de instancias. El número de instancias puede variar de 1 a 125 instancias.
 
 ## <a name="feature-comparison-between-v1-sku-and-v2-sku"></a>Comparación de características entre SKU v1 y SKU v2
@@ -124,6 +151,7 @@ En la tabla siguiente se comparan las características disponibles con cada SKU.
 | Hospedaje de varios sitios                             | &#x2713; | &#x2713; |
 | Redireccionamiento de tráfico                               | &#x2713; | &#x2713; |
 | Firewall de aplicaciones web (WAF)                    | &#x2713; | &#x2713; |
+| Reglas personalizadas del firewall de aplicaciones web                                  |          | &#x2713; |
 | Terminación de la Capa de sockets seguros (SSL)            | &#x2713; | &#x2713; |
 | Cifrado SSL de un extremo a otro                         | &#x2713; | &#x2713; |
 | Afinidad de sesión                                  | &#x2713; | &#x2713; |

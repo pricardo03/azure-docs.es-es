@@ -1,18 +1,18 @@
 ---
 title: Compatibilidad de plataformas de SDK de dispositivo IoT de Azure | Microsoft Docs
-description: 'Conceptos: lista de plataformas compatibles con los SDK de dispositivo IoT de Azure'
+description: Los SDKs de dispositivos de código abierto están disponibles en GitHub en C,.NET (C#), Java, Node.js y Python, para conectar dispositivos a Azure IOT Hub y al servicio Device Provisioning (DPS).
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 10/08/2019
 ms.author: robinsh
-ms.openlocfilehash: ac5817675d3cfc97a8732ee2e10ec7b9246b12a5
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: d39fd95f8704650db16c1dc1553efaba2f727052
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693327"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889423"
 ---
 # <a name="azure-iot-device-sdks-platform-support"></a>Compatibilidad de plataformas de SDK de dispositivo IoT de Azure
 
@@ -50,7 +50,7 @@ El [SDK de dispositivo Azure IoT Hub para C](https://github.com/Azure/azure-iot-
 | iOS 12.2            | OpenSSL o Native OSX        | XCode emulado en OSX 10.13.4                                                               |
 | Familia de productos de Windows 10   | SChannel                     |                                                                                             |
 | Mbed OS 5.4         | Mbed TLS 2                   | [MXChip IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/)                  |
-| SO de Azure Sphere     | WolfSSL                      | [Azure Sphere MT3620](https://azure.microsoft.com/en-us/services/azure-sphere/get-started/) |
+| SO de Azure Sphere     | WolfSSL                      | [Azure Sphere MT3620](https://azure.microsoft.com/services/azure-sphere/get-started/) |
 
 ### <a name="python-sdk"></a>SDK de Python
 
@@ -115,11 +115,11 @@ Microsoft trabaja con varios asociados para ampliar continuamente el universo de
 
 * Para examinar los dispositivos IoT de Azure certificados, consulte [Catálogo de dispositivos Microsoft Azure Certified for IoT](https://catalog.azureiotsolutions.com/).
 
-* Para más información acerca de los asociados de confianza de Microsoft o para averiguar cómo convertirse en uno de ellos, consulte [Microsoft Azure Certified Internet of Things Trusted Partners](https://azure.microsoft.com/en-us/marketplace/certified-iot-partners/) (Asociados de confianza certificados de Internet de las cosas de Microsoft Azure).
+* Para más información acerca de los asociados de confianza de Microsoft o para averiguar cómo convertirse en uno de ellos, consulte [Microsoft Azure Certified Internet of Things Trusted Partners](https://azure.microsoft.com/marketplace/certified-iot-partners/) (Asociados de confianza certificados de Internet de las cosas de Microsoft Azure).
 
 ## <a name="connecting-to-iot-hub-without-an-sdk"></a>Conexión a IoT Hub sin un SDK
 
-Si no puede usar alguno de los SDK de dispositivo IoT Hub, puede conectarse directamente a IoT Hub mediante las [API REST de IoT Hub](https://docs.microsoft.com/en-us/rest/api/iothub/) desde cualquier aplicación capaz de enviar y recibir solicitudes y respuestas HTTPS.
+Si no puede usar alguno de los SDK de dispositivo IoT Hub, puede conectarse directamente a IoT Hub mediante las [API REST de IoT Hub](https://docs.microsoft.com/rest/api/iothub/) desde cualquier aplicación capaz de enviar y recibir solicitudes y respuestas HTTPS.
 
 ## <a name="support-and-other-resources"></a>Compatibilidad y otros recursos
 

@@ -1,55 +1,53 @@
 ---
-title: 'Crear una revisión de acceso para los roles de Azure AD en PIM: Azure Active Directory | Microsoft Docs'
+title: 'Creación de una revisión de acceso para los roles de Azure AD en PIM: Azure AD | Microsoft Docs'
 description: Aprenda a crear una revisión de acceso para los roles de Azure AD en Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 04/27/2019
+ms.date: 10/22/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2069f0161ea2600a62ab123206d0ebe3c00642c3
-ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
+ms.openlocfilehash: 2f7e9ef503a9a3469ecbc835be8d9229fbd0167f
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70804370"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847114"
 ---
-# <a name="create-an-access-review-of-azure-ad-roles-in-pim"></a>Crear una revisión de acceso de roles de Azure AD en PIM
+# <a name="create-an-access-review-of-azure-ad-roles-in-privileged-identity-management"></a>Cree una revisión de acceso para los roles de Azure AD en Azure AD Privileged Identity Management (PIM).
 
-El acceso a los roles de Azure AD con privilegios para los empleados cambia con el tiempo. Para reducir el riesgo asociado con las asignaciones de roles obsoletas, debe revisar el acceso periódicamente. Puede usar Azure Active Directory (Azure AD) Privileged Identity Management (PIM) para crear revisiones de acceso para roles de Azure AD con privilegios. También puede configurar revisiones de acceso periódicas que se produzcan automáticamente.
+Para reducir el riesgo asociado con las asignaciones de roles obsoletas, debe revisar el acceso periódicamente. Puede usar Azure AD Privileged Identity Management (PIM) para crear revisiones de acceso para roles de Azure AD con privilegios. También puede configurar revisiones de acceso periódicas que se produzcan automáticamente.
 
 En este artículo se describe cómo crear una o varias revisiones de acceso para los roles de Azure AD con privilegios.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- [Administrador de roles con privilegios](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator)
+[Administrador de roles con privilegios](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator)
 
 ## <a name="open-access-reviews"></a>Abrir las revisiones de acceso
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com/) con un usuario que sea miembro del rol Administrador de roles con privilegios.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/) con un usuario que sea miembro del rol Administrador de roles con privilegios.
 
 1. Abra **Azure AD Privileged Identity Management**.
 
-1. En el menú izquierdo, haga clic en **roles de Azure AD** y, a continuación, haga clic en las **revisiones de acceso**.
+1. En el menú izquierdo, seleccione **Roles de Azure AD** y elija **Revisiones de acceso**.
 
-1. En Administrar, haga clic en **Revisiones de acceso**.
+1. En Administrar, seleccione **Revisiones de acceso**.
 
     ![Roles de Azure AD: lista de revisiones de acceso que muestra el estado de todas las revisiones](./media/pim-how-to-start-security-review/access-reviews.png)
 
-
 [!INCLUDE [Privileged Identity Management access reviews](../../../includes/active-directory-privileged-identity-management-access-reviews.md)]
-
 
 ## <a name="start-the-access-review"></a>Inicio de la revisión de acceso
 
-Una vez que haya especificado la configuración para una revisión de acceso, haga clic en **Iniciar**. La revisión de acceso aparecerá en la lista con un indicador de su estado.
+Cuando haya especificado la configuración de una revisión de acceso, seleccione **Iniciar**. La revisión de acceso aparecerá en la lista con un indicador de su estado.
 
 ![Lista de revisiones de acceso que muestra el estado de las revisiones iniciadas](./media/pim-how-to-start-security-review/access-reviews-list.png)
 

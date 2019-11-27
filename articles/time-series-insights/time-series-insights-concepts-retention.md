@@ -1,5 +1,5 @@
 ---
-title: Descripción de la retención de datos en el entorno de Azure Time Series Insights | Microsoft Docs
+title: Descripción de la retención de datos en el entorno, Azure Time Series Insights | Microsoft Docs
 description: En este artículo se describen dos parámetros de configuración que controlan la retención de datos en el entorno Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/03/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9dd771d44452ddc36913caf04f3c3a2d15ff1f08
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 8200c2511d4f85705ff56df43f128034d29b0604
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990125"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012698"
 ---
 # <a name="understand-data-retention-in-azure-time-series-insights"></a>Descripción de la retención de datos en Azure Time Series Insights
 
@@ -43,8 +43,8 @@ A continuación se describen con más detalle ambas directivas de retención de 
 
 ## <a name="purge-old-data"></a>Purgar datos antiguos
 
-- **Purgar datos antiguos**  es la configuración predeterminada para los entornos de Azure Time Series Insights.  
-- Esta es la opción preferida cuando los usuarios quieren ver siempre los **datos más recientes** de su entorno de Time Series Insights.
+- **Purgar datos antiguos** es la configuración predeterminada para los entornos de Azure Time Series Insights.  
+- **Purgar datos antiguos** es la opción preferida cuando los usuarios quieren ver siempre los *datos más recientes* de su entorno de Time Series Insights.
 - La configuración **Purgar datos antiguos** *purga* los datos una vez que se alcanzan los límites del entorno (tiempo de retención, tamaño o cantidad, lo que llegue antes). La retención está establecida en 30 días de forma predeterminada.
 - Los datos ingeridos hace más tiempo se purgan primero (enfoque "primero en entrar, primero en salir").
 

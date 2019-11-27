@@ -1,6 +1,6 @@
 ---
 title: Glosario de términos de Azure IoT Hub | Microsoft Docs
-description: 'Guía del desarrollador: glosario de términos comunes relativos a Azure IoT Hub.'
+description: 'Guía del desarrollador: glosario en el que se explican algunos de los términos comunes empleados en los artículos de Azure IoT Hub.'
 author: robinsh
 manager: philmea
 ms.author: robinsh
@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
-ms.openlocfilehash: 6f89e27b06179c33857d581c0c6e3fc78c683d48
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6c4215933b3816b445c55282bae9a36e88c0311f
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62119816"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890525"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glosario de términos de IoT Hub
 En este artículo se enumeran algunos de los términos comunes que se utilizan en los artículos de IoT Hub.
@@ -30,7 +30,7 @@ El back-end de la solución puede usar las [configuraciones automáticas de disp
 ## <a name="azure-classic-cli"></a>CLI de Azure clásica
 La [CLI de Azure clásica](../cli-install-nodejs.md) es una herramienta de comandos multiplataforma, de código abierto y basada en shell que se utiliza para crear y administrar recursos en Microsoft Azure. Esta versión de la CLI solo debe usarse para las implementaciones clásicas.
 
-## <a name="azure-cli"></a>Azure CLI
+## <a name="azure-cli"></a>CLI de Azure
 La [CLI de Azure](https://docs.microsoft.com/cli/azure/install-az-cli2) es una herramienta de comandos multiplataforma, de código abierto y basada en shell que se utiliza para crear y administrar recursos en Microsoft Azure.
 
 
@@ -214,7 +214,7 @@ En el contexto de un [dispositivo gemelo](iot-hub-devguide-device-twins.md), la 
 ## <a name="reported-properties"></a>Propiedades notificadas
 En el contexto de un [dispositivo gemelo](iot-hub-devguide-device-twins.md), las propiedades notificadas son una subsección del dispositivo gemelo que se usa con las [propiedades deseadas](#desired-properties) para sincronizar la configuración o la condición del dispositivo. Solo la [aplicación para dispositivo](#device-app) puede establecer las propiedades notificadas y solo la [aplicación de back-end](#back-end-app) las puede leer y consultar.
 
-## <a name="resource-group"></a>Grupos de recursos
+## <a name="resource-group"></a>Resource group
 [Azure Resource Manager](#azure-resource-manager) usa grupos de recursos para agrupar recursos relacionados. Se puede usar un grupo de recursos para realizar operaciones en todos los recursos del grupo al mismo tiempo.
 
 ## <a name="retry-policy"></a>Directiva de reintentos
