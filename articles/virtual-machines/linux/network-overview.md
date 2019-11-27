@@ -1,5 +1,5 @@
 ---
-title: Redes virtuales y máquinas virtuales Linux en Azure | Microsoft Docs
+title: Redes virtuales y máquinas virtuales Linux en Azure
 description: Obtenga información sobre redes, ya que tiene mucho que ver con los fundamentos de la creación de máquinas virtuales Linux en Azure.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: 2b0bcf0109bfdbc0b08f696e21d8adfd08ce04bd
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 6d02ce362a1f64cf0dc9e40e3947bdfd01f4aeb4
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70082664"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035571"
 ---
 # <a name="virtual-networks-and-virtual-machines-in-azure"></a>Redes virtuales y máquinas virtuales en Azure 
 

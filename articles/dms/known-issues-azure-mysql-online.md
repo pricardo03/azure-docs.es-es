@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 08/06/2019
-ms.openlocfilehash: fc5565ab9e3be21b96ce5aa5a938cf22ec3caeb0
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.date: 11/08/2019
+ms.openlocfilehash: 39c1928f1d38276418b2e1a3e766c4b9d8a0d8d2
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68848479"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73902794"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-mysql"></a>Problemas conocidos y limitaciones de migración con las migraciones en línea a Azure DB for MySQL
 
@@ -83,7 +83,7 @@ Las columnas de objetos grandes (LOB) son columnas que pueden alcanzar un tamañ
     SELECT max(length(description)) as LEN from catalog;
     ```
 
-    **Solución alternativa**: si tiene un objeto LOB mayor de 32 KB, póngase en contacto con el equipo de ingeniería en [Ask Azure Database Migrations](mailto:AskAzureDatabaseMigrations@service.microsoft.com). 
+    **Solución alternativa**: si tiene un objeto LOB mayor de 32 KB, póngase en contacto con el equipo de ingeniería en [Ask Azure Database Migrations](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
 
 ## <a name="limitations-when-migrating-online-from-aws-rds-mysql"></a>Limitaciones al migrar en línea desde AWS RDS MySQL
 
@@ -112,7 +112,7 @@ Al intentar realizar una migración en línea desde AWS RDS MySQL hasta Azure Da
 
 - **Error:** la base de datos de destino {database} está vacía. Migre el esquema.
 
-  **Limitación**: este error se produce cuando la base de datos de Azure Database for MySQL de destino no tiene el esquema necesario. La migración del esquema es necesaria para habilitar la migración de datos al destino.
+  **Limitación**: Este error se produce cuando la base de datos de Azure Database for MySQL de destino no tiene el esquema necesario. La migración del esquema es necesaria para habilitar la migración de datos al destino.
 
   **Solución alternativa**: [migre el esquema](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online#migrate-the-sample-schema) de la base de datos de origen a la de destino.
 
@@ -130,4 +130,10 @@ Al intentar realizar una migración en línea desde AWS RDS MySQL hasta Azure Da
     CREATE INDEX partial_name ON customer (name(10));
     ```
 
-- En DMS, el límite de bases de datos para migrar en una única actividad de migración es de cuatro.
+- En Azure Database Migration Service, el número de bases de datos que se van a migrar en una única actividad de migración se limita a cuatro.
+
+- **Error:** Tamaño de fila demasiado grande (> 8126). Puede ser útil cambiar algunas columnas a TEXTO o BLOB. En el formato de fila actual, el prefijo BLOB de 0 bytes se almacena en línea.
+
+  **Limitación**: Este error se produce cuando se realiza la migración a Azure Database for MySQL mediante el motor de almacenamiento InnoDB y el tamaño de la fila de la tabla es demasiado grande (> 8126 bytes).
+
+  **Solución alternativa**: Actualice el esquema de la tabla que tiene un tamaño de fila superior a 8126 bytes. No se recomienda cambiar el modo strict porque los datos se truncarán. No se admite el cambio de page_size.

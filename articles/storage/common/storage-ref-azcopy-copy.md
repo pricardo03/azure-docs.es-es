@@ -8,12 +8,12 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: e7f08c175972826a8b226d7e80f563ac71ba23db
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 0c1b09fbc425a80fe1f8d075c5a83455167073c3
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72514758"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74029997"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
@@ -33,6 +33,13 @@ Copia los datos de origen en una ubicación de destino. Estas son las direccione
   - AWS S3 (clave de acceso) -> blob en bloques de Azure (autenticación con SAS u OAuth)
 
 Consulte los ejemplos para más información.
+
+## <a name="related-conceptual-articles"></a>Artículos conceptuales relacionados
+
+- [Introducción a AzCopy](storage-use-azcopy-v10.md)
+- [Transferencia de datos con AzCopy y Blob Storage](storage-use-azcopy-blobs.md)
+- [Transferencia de datos con AzCopy y File Storage](storage-use-azcopy-files.md)
+- [Configurar, optimizar y solucionar problemas de AzCopy](storage-use-azcopy-configure.md)
 
 ## <a name="advanced"></a>Avanzado
 
@@ -172,7 +179,7 @@ Copia de un subconjunto de cubos mediante un símbolo comodín (*) en el nombre 
 
 **--check-length**                         Comprueba la longitud de un archivo en el destino después de la transferencia. Si hay una discrepancia entre el origen y el destino, la transferencia se marca como errónea. (el valor predeterminado es true)
 
-**--check-md5** string                     Especifica qué tan estrictamente se deben validar los hashes MD5 al descargarse. Solo está disponible al descargar. Opciones disponibles: NoCheck, LogOnly, FailIfDifferent, FailIfDifferentOrMissing. (el valor predeterminado es "FailIfDifferent") (el valor predeterminado es "FailIfDifferent")
+**--check-md5** string                     Especifica qué tan estrictamente se deben validar los hashes MD5 al descargarse. Solo está disponible al descargar. Opciones disponibles: NoCheck, LogOnly, FailIfDifferent, FailIfDifferentOrMissing. (el valor predeterminado es "FailIfDifferent")
 
 **--content-disposition** string           Establece el encabezado content-disposition. Devuelto al descargar.
 
@@ -204,15 +211,15 @@ Copia de un subconjunto de cubos mediante un símbolo comodín (*) en el nombre 
 
 **--include-pattern** string               Incluye solo estos archivos al copiar. Esta opción admite caracteres comodín (*). Separe los archivos con ";".
 
-**--log-level** string                     Define el nivel de detalle del registro para el archivo de registro. Niveles disponibles: INFO (todas las solicitudes y respuestas), WARNING (respuestas lentas), ERROR (solo solicitudes con error) y NONE (sin registros de salida). (Valor predeterminado: "INFO"). (Valor predeterminado: "INFO").
+**--log-level** string                     Define el nivel de detalle del registro para el archivo de registro. Niveles disponibles: INFO (todas las solicitudes y respuestas), WARNING (respuestas lentas), ERROR (solo solicitudes con error) y NONE (sin registros de salida). (Valor predeterminado: "INFO").
 
 **--metadata** string                      Carga en Azure Storage con estos pares clave-valor como metadatos.
 
 **--no-guess-mime-type**                   Impide que AzCopy detecte el tipo de contenido en función de la extensión o el contenido del archivo.
 
-**--overwrite** string                     Sobrescribe los archivos y blobs en conflicto en el destino si esta marca está establecida en true. (el valor predeterminado es "true") Los valores posibles son "true", "false" y "prompt". (el valor predeterminado es "true")
+**--overwrite** string                     Sobrescribe los archivos y blobs en conflicto en el destino si esta marca está establecida en true. Los valores posibles son "true", "false" y "prompt". (el valor predeterminado es "true")
 
-**--page-blob-tier** string                Carga un blob en páginas en Azure Storage con este nivel de blobs. (el valor predeterminado es "None") (el valor predeterminado es "None")
+**--page-blob-tier** string                Carga un blob en páginas en Azure Storage con este nivel de blobs. (el valor predeterminado es "None")
 
 **--preserve-last-modified-time**          Solo está disponible si el destino es un sistema de archivos.
 
@@ -222,9 +229,9 @@ Copia de un subconjunto de cubos mediante un símbolo comodín (*) en el nombre 
 
 **--s2s-detect-source-changed**           Comprueba si el origen ha cambiado después de la enumeración.
 
-**--s2s-handle-invalid-metadata** string   Especifica cómo se administran las claves de metadatos no válidas. Opciones disponibles: ExcludeIfInvalid, FailIfInvalid, RenameIfInvalid. (el valor predeterminado es "ExcludeIfInvalid") (el valor predeterminado es "ExcludeIfInvalid")
+**--s2s-handle-invalid-metadata** string   Especifica cómo se administran las claves de metadatos no válidas. Opciones disponibles: ExcludeIfInvalid, FailIfInvalid, RenameIfInvalid. (el valor predeterminado es "ExcludeIfInvalid")
 
-**--s2s-preserve-access-tier**             Conserva el nivel de acceso durante la copia de servicio a servicio. Consulte [Azure Blob Storage: niveles de acceso frecuente, esporádico y de archivo](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers) para asegurarse de que la cuenta de almacenamiento de destino admite la configuración del nivel de acceso. En los casos en los que no se admite el establecimiento del nivel de acceso, use s2sPreserveAccessTier=false para omitir la copia del nivel de acceso. (El valor predeterminado es true).  (El valor predeterminado es true).
+**--s2s-preserve-access-tier**             Conserva el nivel de acceso durante la copia de servicio a servicio. Consulte [Azure Blob Storage: niveles de acceso frecuente, esporádico y de archivo](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers) para asegurarse de que la cuenta de almacenamiento de destino admite la configuración del nivel de acceso. En los casos en los que no se admite el establecimiento del nivel de acceso, use s2sPreserveAccessTier=false para omitir la copia del nivel de acceso. (El valor predeterminado es true)
 
 **--s2s-preserve-properties**              Conserva las propiedades completas durante la copia de servicio a servicio. Para el origen de archivo no único de AWS S3 y Azure Files, la operación de lista no devuelve las propiedades completas de objetos y archivos. Para conservar las propiedades completas, AzCopy debe enviar una solicitud adicional por objeto o archivo. (El valor predeterminado es true)
 
@@ -232,7 +239,7 @@ Copia de un subconjunto de cubos mediante un símbolo comodín (*) en el nombre 
 
 **--cap-mbps uint32**      Limita la velocidad de transferencia, en megabits por segundo. El rendimiento en un momento dado puede variar ligeramente del límite. Si esta opción se establece en cero o se omite, el rendimiento no se limita.
 
-**--output-type** string   Da formato a la salida del comando. Las opciones incluyen: text, json. El valor predeterminado es "text". (el valor predeterminado es "text")
+**--output-type** string   Formato de la salida del comando. Las opciones incluyen: text, json. El valor predeterminado es "text". (Valor predeterminado: "text").
 
 ## <a name="see-also"></a>Otras referencias
 

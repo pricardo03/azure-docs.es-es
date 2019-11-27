@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Enrutar el tráfico para mejorar la respuesta del sitio web mediante Azure Traffic Manager'
+title: 'Tutorial: mejorar la respuesta del sitio web mediante Azure Traffic Manager'
 description: Este artículo del tutorial describe cómo crear un perfil de Traffic Manager para crear un sitio web con alta capacidad de respuesta.
 services: traffic-manager
 author: asudbring
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/23/2018
 ms.author: allensu
-ms.openlocfilehash: 304beeae02da5836ba88a56d7166fc681e263501
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a988b16bb07b1486c4434114eb8653c959aefc6a
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66258350"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74023291"
 ---
 # <a name="tutorial-improve-website-response-using-traffic-manager"></a>Tutorial: Mejorar la respuesta del sitio web mediante Traffic Manager
 
@@ -144,8 +144,8 @@ Cree un perfil de Traffic Manager que dirija el tráfico de usuario mediante el 
     | NOMBRE                   | Este nombre debe ser único en la zona trafficmanager.net y generará el nombre DNS, trafficmanager.net, que se usa para acceder al perfil de Traffic Manager.                                   |
     | Método de enrutamiento          | Seleccione el método de enrutamiento de **rendimiento**.                                       |
     | Subscription            | Seleccione su suscripción.                          |
-    | Grupos de recursos          | Seleccione el grupo de recursos *myResourceGroupTM1*. |
-    | Ubicación                | Seleccione **Este de EE. UU**. Esta configuración se refiere a la ubicación del grupo de recursos y no tiene efecto alguno sobre el perfil de Traffic Manager que se implementará globalmente.                              |
+    | Resource group          | Seleccione el grupo de recursos *myResourceGroupTM1*. |
+    | Location                | Seleccione **Este de EE. UU**. Esta configuración se refiere a la ubicación del grupo de recursos y no tiene efecto alguno sobre el perfil de Traffic Manager que se implementará globalmente.                              |
     |
 
     ![Crear un perfil de Traffic Manager](./media/tutorial-traffic-manager-improve-website-response/traffic-manager-profile.png)
@@ -160,7 +160,7 @@ Agregue las dos máquinas virtuales que ejecutan los servidores IIS (*myIISVMEas
 
     | Configuración                 | Valor                                              |
     | ---                     | ---                                                |
-    | Type                    | Punto de conexión de Azure                                   |
+    | type                    | Punto de conexión de Azure                                   |
     | NOMBRE           | myEastUSEndpoint                                        |
     | Tipo de recurso de destino           | Dirección IP pública                          |
     | Recurso de destino          | **Elija una dirección IP pública** para mostrar la lista de recursos con direcciones IP públicas en la misma suscripción. En **Recurso**, seleccione la dirección IP pública denominada *myIISVMEastUS-ip*. Se trata de la dirección IP pública de la máquina virtual del servidor IIS en la región Este de EE. UU.|

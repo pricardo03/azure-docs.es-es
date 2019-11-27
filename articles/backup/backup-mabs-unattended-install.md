@@ -7,18 +7,18 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: dacurwin
-ms.openlocfilehash: 3777aecea5e25b33a7010ad90887829406e491ae
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: a02d9f42242b9a762c58ef65a798ff6ab8f53914
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210155"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074794"
 ---
 # <a name="run-an-unattended-installation-of-azure-backup-server"></a>Ejecución de una instalación desatendida de Azure Backup Server
 
 Obtenga información sobre cómo ejecutar una instalación desatendida de Azure Backup Server.
 
-Estos pasos no se aplican si va a instalar Azure Backup Server v1.
+Estos pasos no se aplican si va a instalar Azure Backup Server V1.
 
 ## <a name="install-backup-server"></a>Instalación de Backup Server v2
 
@@ -60,6 +60,7 @@ Puede usar estas marcas para la instalación:</br>
 **/x**: Ruta de acceso de desinstalación</br>
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 Después de instalar Backup Server, sepa cómo preparar el servidor o empezar a proteger la carga de trabajo.
 
 - [Preparar cargas de trabajo de Backup Server](backup-azure-microsoft-azure-backup.md)

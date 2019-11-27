@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/15/2018
 ms.author: atsenthi
-ms.openlocfilehash: 3fa40d794d02da08d29b6cac652edf493977f8e1
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: fd1787318e8573183293ddd832a11cf8cfe09cf2
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599729"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73832619"
 ---
 # <a name="view-logs-for-a-service-fabric-container-service"></a>Visualización de registros para un servicio de contenedor de Service Fabric
 Azure Service Fabric es un orquestador de contenedores que admite [contenedores Linux y Windows](service-fabric-containers-overview.md).  Este artículo describe cómo ver los registros de contenedor de un servicio de contenedor en ejecución o de un contenedor no alcanzado para así poder realizar diagnósticos y solucionar problemas.
 
 ## <a name="access-the-logs-of-a-running-container"></a>Acceso a los registros de un contenedor en ejecución
-Registros de contenedor se pueden acceder mediante [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).  En un explorador web, vaya a [http://mycluster.region.cloudapp.azure.com:19080/Explorer](http://mycluster.region.cloudapp.azure.com:19080/Explorer) para abrir Service Fabric Explorer desde el punto de conexión de administración del clúster.  
+Registros de contenedor se pueden acceder mediante [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).  En un explorador web, vaya a `http://mycluster.region.cloudapp.azure.com:19080/Explorer` para abrir Service Fabric Explorer desde el punto de conexión de administración del clúster.  
 
 Los registros de contenedor se encuentran en el nodo de clúster en el que se ejecuta la instancia de servicio de contenedor. Como ejemplo, obtenga los registros del contenedor de front-end web de la [aplicación de ejemplo de votación de Linux](service-fabric-quickstart-containers-linux.md). En la vista de árbol, expanda **Cluster**> **Applications (Aplicaciones)** > **VotingType**>**fabric:/Voting/azurevotefront**.  A continuación, expanda la partición (d1aa737e-f22a-e347-be16-eec90be24bc1, en este ejemplo) y compruebe que el contenedor se está ejecutando en el nodo de clúster *_lnxvm_0*.
 

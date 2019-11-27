@@ -1,5 +1,5 @@
 ---
-title: Preparación de un disco duro virtual de Windows para cargarlo en Azure | Microsoft Docs
+title: Preparación de un disco duro virtual de Windows para cargar en Azure
 description: Aprenda a preparar un VHD o un VHDX de Windows para cargarlo en Azure
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2019
 ms.author: genli
-ms.openlocfilehash: 555b250f211cf22e766e64960b3359692f73c843
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: 4b6fea63cd56ddee7eaeaed50a74a01cc8549f0a
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72285719"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74032937"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Preparación de un VHD o un VHDX de Windows antes de cargarlo en Azure
 
@@ -446,7 +446,7 @@ Los siguientes valores de configuración no afectan a la carga de discos duros v
    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management' -Name "PagingFiles" -Value "D:\pagefile.sys" -Type MultiString -Force
    ```
   Si hay un disco de datos conectado a la máquina virtual, la letra de unidad del volumen de unidad temporal suele ser *D*. Esta designación podría ser diferente, dependiendo de la configuración y del número de unidades disponibles.
-  * Se recomienda deshabilitar los bloqueadores de script que pueda incluir el software antivirus, ya que podrían interferir y bloquear los scripts del agente de aprovisionamiento de Windows que se ejecutan al implementar una nueva máquina virtual a partir de una imagen.
+  * Se recomienda deshabilitar los bloqueadores de script que pueda incluir el software antivirus, Podrían interferir y bloquear los scripts del agente de aprovisionamiento de Windows que se ejecutan al implementar una nueva máquina virtual desde la imagen.
   
 ## <a name="next-steps"></a>Pasos siguientes
 * [Carga de una imagen de máquina virtual de Windows en Azure para implementaciones de Resource Manager](upload-generalized-managed.md)

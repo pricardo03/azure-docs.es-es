@@ -6,15 +6,16 @@ ms.subservice: ''
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 05/06/2019
-ms.openlocfilehash: dd1618151b97ab4f958bfd5d50333b9551014f0f
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.date: 11/11/2019
+ms.openlocfilehash: b513408f551a255facc897b7ba83c68e2befe282
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554072"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73928261"
 ---
 # <a name="how-to-update-azure-monitor-for-containers-to-enable-metrics"></a>Actualización de Azure Monitor para contenedores para habilitar métricas
+
 Azure Monitor para contenedores permite recopilar métricas de pods y nodos de clústeres de Azure Kubernetes Services (AKS) y escribirlos en el almacén de métricas de Azure Monitor. La finalidad de este cambio es presentar los cálculos de agregado (Avg, Count, Max, Min, Sum) de mejor forma y más oportuna en los gráficos de rendimiento, así como ofrecer compatibilidad con el anclaje de gráficos de rendimiento en los paneles de Azure Portal y compatibilidad con alertas de métricas.
 
 Las siguientes métricas están habilitadas como parte de esta característica:
@@ -28,8 +29,12 @@ La actualización del clúster para admitir estas nuevas capacidades se puede re
 
 Cada proceso asigna el rol **Publicador de métricas de supervisión** a la entidad de servicio del clúster para que los datos recopilados por el agente se puedan publicar en el recurso del clúster. El rol Publicador de métricas de supervisión tiene permiso únicamente para insertar métricas en el recurso; no puede modificar ningún estado, actualizar el recurso ni leer datos. Para obtener más información sobre este rol, vea [Rol Publicador de métricas de supervisión](../../role-based-access-control/built-in-roles.md#monitoring-metrics-publisher).
 
-## <a name="prerequisites"></a>Requisitos previos 
-Antes de empezar, asegúrese de que es miembro del rol **[Propietario](../../role-based-access-control/built-in-roles.md#owner)** en el recurso de clúster de AKS para habilitar la recopilación de métricas de rendimiento personalizadas de nodos y pods. 
+## <a name="prerequisites"></a>Requisitos previos
+
+Antes de empezar, confirme lo siguiente:
+
+* Las métricas personalizadas solo están disponibles en un subconjunto de regiones de Azure. [Aquí](../platform/metrics-custom-overview.md#supported-regions) se documenta una lista de regiones admitidas.
+* Es miembro del rol **[Propietario](../../role-based-access-control/built-in-roles.md#owner)** en el recurso de clúster de AKS para habilitar la recopilación de métricas de rendimiento personalizadas de nodos y pods. 
 
 Si decide usar la CLI de Azure, primero debe instalar y usar la CLI localmente. Debe ejecutar la versión 2.0.59 de la CLI de Azure, o cualquier versión posterior. Para identificar la versión, ejecute `az --version`. Si necesita instalar o actualizar la CLI de Azure, consulte [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
@@ -42,6 +47,7 @@ En el caso de los clústeres de AKS existentes supervisados por Azure Monitor pa
 Si se hace clic en **Habilitar**, iniciará el proceso para actualizar el clúster. Este proceso puede tardar varios segundos en finalizar, y se puede realizar un seguimiento del progreso en Notificaciones en el menú.
 
 ## <a name="upgrade-all-clusters-using-bash-in-azure-command-shell"></a>Actualizar todos los clústeres con Bash en el Shell de comandos de Azure
+
 Haga lo siguiente para actualizar todos los clústeres de la suscripción con Bash en el Shell de comandos de Azure.
 
 1. Ejecute el siguiente comando mediante la CLI de Azure.  Edite el valor de **subscriptionId** utilizando el valor de la página **AKS Overview** (Introducción a AKS) del clúster de AKS.
@@ -59,6 +65,7 @@ Haga lo siguiente para actualizar todos los clústeres de la suscripción con Ba
     ```
 
 ## <a name="upgrade-per-cluster-using-azure-cli"></a>Actualizar cada clúster mediante la CLI de Azure
+
 Haga lo siguiente para actualizar un clúster concreto de la suscripción usando la CLI de Azure.
 
 1. Ejecute el siguiente comando mediante la CLI de Azure. Edite los valores de **subscriptionId**, **resourceGroupName** y **clusterName** utilizando los valores de la página **AKS Overview** (Introducción a AKS) del clúster de AKS.  Para obtener el valor de **clientIdOfSPN**, se devuelve al ejecutar el comando `az aks show`, como se muestra en el siguiente ejemplo.
@@ -71,6 +78,7 @@ Haga lo siguiente para actualizar un clúster concreto de la suscripción usando
     ``` 
 
 ## <a name="upgrade-all-clusters-using-azure-powershell"></a>Actualizar todos los clústeres con Azure PowerShell
+
 Haga lo siguiente para actualizar todos los clústeres de la suscripción con Azure PowerShell.
 
 1. Copie y pegue el siguiente script en el archivo:
@@ -326,6 +334,7 @@ Haga lo siguiente para actualizar todos los clústeres de la suscripción con Az
     ```
 
 ## <a name="upgrade-per-cluster-using-azure-powershell"></a>Actualizar cada clúster mediante Azure PowerShell
+
 Haga lo siguiente para actualizar un clúster concreto con mediante Azure PowerShell.
 
 1. Copie y pegue el siguiente script en el archivo:
@@ -576,4 +585,5 @@ Haga lo siguiente para actualizar un clúster concreto con mediante Azure PowerS
     ```
 
 ## <a name="verify-update"></a>Comprobar la actualización 
+
 Después de iniciar la actualización a través de uno de los métodos descritos anteriormente, puede usar el Explorador de métricas de Azure Monitor y comprobar en el **Espacio de nombres de métrica** si aparece **insights**. Si es así, esto indica que puede continuar y empezar a configurar [alertas de métricas](../platform/alerts-metric.md) o a anclar gráficos a [paneles](../../azure-portal/azure-portal-dashboards.md).  

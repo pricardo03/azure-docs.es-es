@@ -1,5 +1,5 @@
 ---
-title: Grupos de disponibilidad de SQL Server - Azure Virtual Machines - Información general | Microsoft Docs
+title: Información general de los grupos de disponibilidad
 description: En este artículo se describen los grupos de disponibilidad de SQL Server en Azure Virtual Machines.
 services: virtual-machines
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/13/2017
 ms.author: mikeray
-ms.openlocfilehash: d89e25b6a39649bb8421fd32b8842c3c76807268
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 8119990ab4ab4a918e325976092100086a547aa4
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102163"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037492"
 ---
-# <a name="introducing-sql-server-always-on-availability-groups-on-azure-virtual-machines"></a>Introducción a grupos de disponibilidad de SQL Server AlwaysOn en Azure Virtual Machines #
+# <a name="introducing-sql-server-availability-groups-on-azure-virtual-machines"></a>Presentación de SQL Server grupos de disponibilidad en máquinas virtuales de Azure
 
 En este artículo se describen los grupos de disponibilidad de SQL Server en Azure Virtual Machines. 
 
@@ -42,7 +43,7 @@ Para aumentar la redundancia y la alta disponibilidad, las máquinas virtuales d
 | [CLI de la máquina virtual de SQL](virtual-machines-windows-sql-availability-group-cli.md) | 2016 | 2017 </br>2016   | Ent | Testigo en la nube | Sin | Sí | Sí | Sí | No | Sin |
 | [Plantillas de inicio rápido](virtual-machines-windows-sql-availability-group-quickstart-template.md) | 2016 | 2017</br>2016  | Ent | Testigo en la nube | Sin | Sí | Sí | Sí | No | Sin |
 | [Plantilla del portal](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) | 2016 </br>2012 R2 | 2016</br>2014 | Ent | Recurso compartido de archivos | Sin | No | No | No | No | Sin |
-| [Manual](virtual-machines-windows-portal-sql-availability-group-prereq.md) | Todo | Todo | Todo | Todo | Sí | Sí | Sí | Sí | Sí | Sí |
+| [Manual](virtual-machines-windows-portal-sql-availability-group-prereq.md) | All | All | All | All | Sí | Sí | Sí | Sí | Sí | Sí |
 | &nbsp; | &nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |
 
 Cuando esté listo para crear un grupo de disponibilidad de SQL Server en Azure Virtual Machines, consulte estos tutoriales.

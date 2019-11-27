@@ -1,5 +1,5 @@
 ---
-title: Carga de un VHD generalizado para crear varias máquinas virtuales en Azure | Microsoft Docs
+title: Carga de un disco duro virtual generalizado para crear varias máquinas virtuales en Azure
 description: Cargue un VHD generalizado en una cuenta de Azure Storage a fin de crear una máquina virtual de Windows para usarla con el modelo de implementación de Resource Manager.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/18/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: 24ed7b75dfa8cb09c530a3f4a896aa9ff9aa92b5
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 933b648f15418c4838d3da1ea8379267765c784b
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749180"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073338"
 ---
 # <a name="upload-a-generalized-vhd-to-azure-to-create-a-new-vm"></a>Carga de un VHD generalizado en Azure para crear una máquina virtual nueva
 

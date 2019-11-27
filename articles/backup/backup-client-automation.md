@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: dacurwin
-ms.openlocfilehash: 78b83eb725da09dc98df05865ba4d41c505f0f4c
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: bf79957bec4b330ca9acce3f8b92aab1a0944440
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747250"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074855"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Implementación y administración de copias de seguridad en Azure para Windows Server o cliente de Windows mediante PowerShell
 
@@ -547,9 +547,9 @@ IsExclude : True
 IsRecursive : True
 ```
 
-### <a name="performing-an-ad-hoc-backup"></a>Realización de una copia de seguridad ad hoc
+### <a name="performing-an-on-demand-backup"></a>Realización de una copia de seguridad a petición
 
-Una vez establecida una directiva de copia de seguridad, las copias de seguridad se producirán en función de la programación. También es posible desencadenar una copia de seguridad ad hoc con el cmdlet [Start-OBBackup](https://technet.microsoft.com/library/hh770426):
+Una vez establecida una directiva de copia de seguridad, las copias de seguridad se producirán en función de la programación. También es posible desencadenar una copia de seguridad a petición mediante el cmdlet [Start-OBBackup](https://technet.microsoft.com/library/hh770426):
 
 ```powershell
 Get-OBPolicy | Start-OBBackup

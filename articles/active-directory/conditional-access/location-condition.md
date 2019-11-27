@@ -12,12 +12,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd62cda209a8ac95a41fa271ce3a96001a3b4811
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 799a994e1351f62fac9f5a07060658cea60c9274
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67164773"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74065732"
 ---
 # <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>¿Qué es la condición de ubicación del acceso condicional de Azure Active Directory? 
 
@@ -50,7 +50,7 @@ Una ubicación con nombre tiene los siguientes componentes:
 - **Intervalos de IP**: uno o varios intervalos de direcciones IPv4 en formato CIDR. No se admite la operación para especificar un rango de direcciones IPv6.
 
    > [!NOTE]
-   > Actualmente, los rangos de direcciones IPv6 no se pueden incluir en una ubicación con nombre. Esto significa que los rangos IPv6 no se pueden excluir de una directiva de acceso condicional.
+   > Los intervalos de direcciones IPv6 no se pueden incluir actualmente en una ubicación con nombre. Esto significa que los intervalos IPv6 no se pueden excluir de una Directiva de acceso condicional.
 
 - **Marcar como ubicación de confianza**: marca que puede establecer a una ubicación con nombre para indicar una ubicación de confianza. Las ubicaciones de confianza son áreas de red que controla el departamento de TI. Además del acceso condicional, Azure Identity Protection y los informes de seguridad de Azure AD también usan las ubicaciones con nombre de confianza para reducir los [falsos positivos](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations-1).
 - **Países o regiones**: esta opción le permite seleccionar uno o más países o regiones para definir una ubicación con nombre.

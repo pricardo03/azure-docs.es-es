@@ -1,5 +1,5 @@
 ---
-title: 'Desconexión de un disco de datos de una máquina virtual Windows: Azure | Microsoft Docs'
+title: 'Desconexión de un disco de datos de una máquina virtual de Windows: Azure'
 description: Desconecte un disco de datos de una máquina virtual de Azure creada mediante el modelo de implementación de Resource Manager.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/17/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: de33ed80055c26870a29b4c4393a9072ec8dda5e
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 93db2935fdc41787bb1820d1f8ce85ac05ef0863
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749478"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033340"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-windows-virtual-machine"></a>Desacoplamiento de un disco de datos de una máquina virtual de Windows
 

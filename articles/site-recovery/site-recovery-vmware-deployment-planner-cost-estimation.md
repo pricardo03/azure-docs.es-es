@@ -1,20 +1,20 @@
 ---
-title: Revisión del informe de estimación de costos en Azure Site Recovery Deployment Planner | Microsoft Docs
-description: En este artículo se describe cómo revisar el informe de estimación de costos en Azure Site Recovery Deployment Planner para VMware para la recuperación ante desastres de Azure.
+title: Revisar las estimaciones de costes en Azure Site Recovery Deployment Planner
+description: En este artículo se describe cómo revisar el informe de estimación de coste en Azure Site Recovery Deployment Planner para la recuperación ante desastres de VMware.
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 7/29/2019
 ms.author: mayg
-ms.openlocfilehash: 1f825b67baf36c9a1a9187d555522f5a5955d1c7
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 27678fff1c0322f9755e7726026c73934810d5d6
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68620077"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953338"
 ---
-# <a name="review-the-cost-estimation-report-in-the-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>Revisión del informe de estimación de costos en Site Recovery Deployment Planner para la recuperación ante desastres de VMware en Azure
+# <a name="review-cost-estimations-in-the-vmware-deployment-planner"></a>Revisión de las estimaciones de costes en VMware Deployment Planner 
 
 El informe de Deployment Planner ofrece un resumen de la estimación de costos incluida en las hojas de [Recomendaciones](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations) y del análisis detallado de los costos en la hoja Estimación de costos. Incluye el análisis detallado del costo por máquina virtual. 
 

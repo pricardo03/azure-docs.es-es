@@ -1,22 +1,23 @@
 ---
-title: Supervisión de los registros de acceso, los registros de rendimiento, el mantenimiento del back-end y las métricas de Azure Application Gateway
+title: Registros de mantenimiento y diagnóstico de back-end
+titleSuffix: Azure Application Gateway
 description: Obtenga información acerca de cómo habilitar y administrar registros de acceso y registros de rendimiento para Azure Application Gateway.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 10/09/2019
+ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: 9e1fe0e5bae462715a8cb2950cca100f0f409325
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 448e5bf798f5b1c3006888f846722e54fec46ef8
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73718736"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075296"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Mantenimiento del back-end y registros de diagnóstico para Application Gateway
 
-Con Azure Application Gateway, puede supervisar los recursos de las siguientes maneras:
+Puede supervisar los recursos de Azure Application Gateway de las maneras siguientes:
 
 * [Mantenimiento del back-end](#back-end-health): Application Gateway permite supervisar el mantenimiento de los servidores en los grupos de back-end a través de Azure Portal y de PowerShell. El mantenimiento de los grupos de back-end también se puede encontrar en los registros de diagnóstico de rendimiento.
 
@@ -33,7 +34,7 @@ Application Gateway permite supervisar el mantenimiento de cada uno de los miemb
 El informe de mantenimiento del back-end refleja la salida del sondeo de mantenimiento de Application Gateway en las instancias de back-end. Cuando el sondeo es correcto y el back-end puede recibir tráfico, se considera que su mantenimiento es correcto. En caso contrario, se considera incorrecto.
 
 > [!IMPORTANT]
-> Si hay un grupo de seguridad de red (NSG) en una subred de Application Gateway, abra los intervalos de puertos 65503-65534 en la subred de Application Gateway para el tráfico de entrada. Este intervalo de puertos es necesario para la comunicación de la infraestructura de Azure. Están protegidos (bloqueados) mediante certificados de Azure. Sin los certificados apropiados, las entidades externas, incluidos los clientes de esas puertas de enlace, no podrán iniciar ningún cambio en esos puntos de conexión.
+> Si hay un grupo de seguridad de red (NSG) en una subred Application Gateway, abra los intervalos de puertos 65503-65534 para las SKU v1 y 65200-65535 para las SKU de v2 en la subred Application Gateway para el tráfico entrante. Este intervalo de puertos es necesario para la comunicación de la infraestructura de Azure. Están protegidos (bloqueados) mediante certificados de Azure. Sin los certificados apropiados, las entidades externas, incluidos los clientes de esas puertas de enlace, no podrán iniciar ningún cambio en esos puntos de conexión.
 
 
 ### <a name="view-back-end-health-through-the-portal"></a>Visualización del mantenimiento del back-end mediante el portal

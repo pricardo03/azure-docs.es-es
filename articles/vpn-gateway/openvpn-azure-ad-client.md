@@ -1,26 +1,34 @@
 ---
-title: 'Configure un cliente VPN para conexiones VPN P2S: Autenticación de Azure AD| Microsoft Docs'
+title: 'Configuración de un cliente VPN para conexiones P2S de protocolo OpenVPN: Autenticación de Azure AD| Microsoft Docs'
 description: Puede usar la P2S VPN para conectarse a la red virtual con la autenticación de Azure AD
 services: vpn-gateway
-author: cherylmc
+author: anzaman
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 10/08/2019
-ms.author: cherylmc
-ms.openlocfilehash: 704dcd6335766a6058de4e520b8dcbca0d304c9d
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.date: 11/07/2019
+ms.author: alzam
+ms.openlocfilehash: 714cabc204c9ec9a0c3bbc93be287957c91d1936
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721474"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73932330"
 ---
-# <a name="configure-a-vpn-client-for-p2s-vpn-connections-azure-ad-authentication-preview"></a>Configure un cliente VPN para conexiones VPN P2S: Autenticación Azure AD (versión preliminar)
+# <a name="configure-a-vpn-client-for-p2s-openvpn-protocol-connections-azure-ad-authentication-preview"></a>Configuración de un cliente VPN para conexiones P2S de protocolo OpenVPN: Autenticación Azure AD (versión preliminar)
 
 Este artículo le ayuda a configurar un cliente VPN para conectarse a una red virtual mediante una VPN de punto a sitio y la autenticación Azure Active Directory. Antes de poder conectarse y autenticarse con Azure AD, primero debe configurar el inquilino de Azure AD. Para más información, consulte [Configurar un inquilino de Azure AD](openvpn-azure-ad-tenant.md).
 
+> [!NOTE]
+> La autenticación de Azure AD solo se admite para las conexiones de protocolo OpenVPN®.
+>
+
 ## <a name="profile"></a>Trabajar con perfiles de cliente
 
-Para conectarse, es preciso [descargar](https://www.microsoft.com/p/azure-vpn-client-preview/9np355qt2sqb?rtc=1&activetab=pivot:overviewtab) el cliente VPN de Azure y configurar un perfil de cliente VPN en todos los equipos que deseen conectarse a la red virtual. Puede crear un perfil de cliente en un equipo, exportarlo y, después, importarlo en otros equipos.
+Para conectarse, es preciso descargar el cliente VPN de Azure (versión preliminar) y configurar un perfil de cliente VPN en todos los equipos que deseen conectarse a la red virtual. Puede crear un perfil de cliente en un equipo, exportarlo y, después, importarlo en otros equipos.
+
+### <a name="to-download-the-azure-vpn-client"></a>Para descargar el cliente VPN de Azure
+
+Use este [vínculo](https://www.microsoft.com/p/azure-vpn-client-preview/9np355qt2sqb?rtc=1&activetab=pivot:overviewtab) para descargar el cliente VPN de Azure (versión preliminar).
 
 ### <a name="cert"></a>Para crear un perfil de cliente basado en certificados
 

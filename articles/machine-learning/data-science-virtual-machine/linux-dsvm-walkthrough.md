@@ -9,12 +9,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 07/16/2018
-ms.openlocfilehash: 59f2db8ec4dd8affe1c87ca2bb85a7ff7b8a4d7c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b073c4244d2a7abc7c2c066c3fad036f0caa5faa
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73485388"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73929541"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-in-azure"></a>Ciencia de datos con una instancia de Data Science Virtual Machine de Linux en Azure
 
@@ -58,8 +58,8 @@ A continuación, concatene los dos archivos juntos:
 
 El conjunto de datos tiene varios tipos de estadísticas para cada correo electrónico:
 
-* Las columnas como **word\_freq\_*WORD*** indican el porcentaje de palabras en el correo electrónico que coinciden con *WORD*. Por ejemplo, si **word\_freq\_make** es **1**, el 1 % de todas las palabras en el correo electrónico son *make*.
-* Las columnas como **char\_freq\_*CHAR*** indican el porcentaje de todos los caracteres en el correo electrónico que son *CHAR*.
+* Las columnas, como **word\_freq\__WORD_** indican el porcentaje de palabras en el correo electrónico que coinciden con *WORD*. Por ejemplo, si **word\_freq\_make** es **1**, el 1 % de todas las palabras en el correo electrónico son *make*.
+* Las columnas, como **char\_freq\__CHAR_** indican el porcentaje de todos los caracteres en el correo electrónico que son *CHAR*.
 * **capital\_run\_length\_longest** es la mayor longitud de una secuencia de letras mayúsculas.
 * **capital\_run\_length\_average** es la longitud media de todas las secuencias de letras mayúsculas.
 * **capital\_run\_length\_total** es la longitud media de todas las secuencias de letras mayúsculas.

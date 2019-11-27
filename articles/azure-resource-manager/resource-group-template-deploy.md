@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 08/21/2019
 ms.author: tomfitz
-ms.openlocfilehash: 88aabb676d3a15dd2efff3acd751818301519ae1
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 0634b069c79495ad6de536b27ebd9981eeb36128
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71972705"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837092"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>Implementación de recursos con las plantillas de Resource Manager y Azure PowerShell
 
@@ -33,9 +33,11 @@ Para implementar en una **suscripción**, use [New-AzDeployment](/powershell/mod
 New-AzDeployment -Location <location> -TemplateFile <path-to-template>
 ```
 
-Actualmente, solo se admiten las implementaciones del grupo de administración mediante la API REST. Consulte [Implementación de recursos con las plantillas de Resource Manager y la API REST de Resource Manager](resource-group-template-deploy-rest.md).
+Para más información sobre las implementaciones en el nivel de suscripción, consulte [Creación de grupos de recursos y otros recursos en el nivel de suscripción](deploy-to-subscription.md).
 
-Los ejemplos de este artículo usan las implementaciones del grupo de recursos. Para más información sobre las implementaciones de suscripciones, consulte [Creación de grupos de recursos y otros recursos en el nivel de suscripción](deploy-to-subscription.md).
+Actualmente, solo se admiten las implementaciones del grupo de administración mediante la API REST. Para obtener más información sobre las implementaciones de nivel de grupo de administración, consulte [Creación de recursos en el nivel de grupo de administración](deploy-to-management-group.md).
+
+Los ejemplos de este artículo usan las implementaciones del grupo de recursos.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

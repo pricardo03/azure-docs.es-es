@@ -1,5 +1,5 @@
 ---
-title: Selección de imágenes de máquina virtual Windows en Azure | Microsoft Docs
+title: Selección de imágenes de máquina virtual Windows en Azure
 description: Use Azure PowerShell para determinar el publicador, la oferta, la SKU y la versión para imágenes de VM de Marketplace.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/25/2019
 ms.author: cynthn
-ms.openlocfilehash: 32264fc6c58dd1cb6c1514af1c07391ab0e9193d
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 2388b51c8103b6bcbae0c32d3c4d78a176caf282
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749588"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039529"
 ---
 # <a name="find-windows-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>Buscar imágenes de VM de Windows en Azure Marketplace con Azure PowerShell
 

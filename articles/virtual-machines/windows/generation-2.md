@@ -1,5 +1,5 @@
 ---
-title: Compatibilidad de Azure para máquinas virtuales de generación 2 | Microsoft Docs
+title: Soporte técnico de Azure con máquinas virtuales de generación 2
 description: Información general de compatibilidad de Azure para máquinas virtuales de generación 2
 services: virtual-machines-windows
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: lahugh
-ms.openlocfilehash: 63cf3301a08ce4073998c5d281f155a6b3eefe4d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d6fcbcb7f5d1b6bb25840ad1bddc5327b068c15d
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73491925"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075479"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Compatibilidad para máquinas virtuales de generación 2 en Azure
 
@@ -59,7 +59,9 @@ Las VM de generación 2 admiten las siguientes imágenes de Marketplace:
 * Windows Server 2012 Datacenter
 * SUSE Linux Enterprise Server 15 SP1
 * SUSE Linux Enterprise Server 12 SP4
-* Ubuntu Server 16.04+
+* Ubuntu Server 16.04, 18.04, 19,04, 19,10
+* RHEL 8.0
+
 
 ## <a name="on-premises-vs-azure-generation-2-vms"></a>Máquinas virtuales locales frente a VM de generación 2 de Azure
 
@@ -90,7 +92,7 @@ Actualmente Azure no admite algunas de las características que admite Hyper-V e
 | Disco de SO > 2 TB                    | :x:                | :heavy_check_mark: |
 | Disco personalizado/imagen/intercambiar SO         | :heavy_check_mark: | :heavy_check_mark: |
 | Compatibilidad con los conjuntos de escalado de máquinas virtuales | :heavy_check_mark: | :heavy_check_mark: |
-| Azure Site Recovery               | :heavy_check_mark: | :x:                |
+| Azure Site Recovery               | :heavy_check_mark: | :heavy_check_mark: |
 | Copia de seguridad y restauración                    | :heavy_check_mark: | :heavy_check_mark: |
 | Galería de imágenes compartidas              | :heavy_check_mark: | :heavy_check_mark: |
 | Azure Disk Encryption             | :heavy_check_mark: | :x:                |

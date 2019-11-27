@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/06/2019
 ms.author: ccompy
-ms.custom: seodec18
-ms.openlocfilehash: 72874e7b96e2ec8909a325b5ae598b900ebe8079
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.custom: fasttrack-edit
+ms.openlocfilehash: ff2dac5d27cfffb92922038c1d1c67cd5118557a
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791892"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082391"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Hybrid Connections de Azure App Service #
 
@@ -220,6 +220,12 @@ Para usar esta API, necesita la clave de envío y el identificador de recurso de
 
     armclient login
     armclient put /subscriptions/ebcidic-asci-anna-nath-rak1111111/resourceGroups/myapp-rg/providers/Microsoft.Web/sites/myhcdemoapp/hybridConnectionNamespaces/demo-relay/relays/relay-demo-hc?api-version=2016-08-01 @hctest.json
+
+## <a name="secure-your-hybrid-connections"></a>Proteja su Conexiones híbridas ##
+
+Cualquier usuario que tenga permisos suficientes en la retransmisión de Azure Service Bus subyacente puede agregar una conexión híbrida existente a otros App Service Web Apps. Esto significa que, si debe evitar que otros usuarios puedan reutilizar la misma conexión híbrida (por ejemplo, cuando el recurso de destino es un servicio que no tiene ninguna medida de seguridad adicional para evitar el acceso no autorizado), debe bloquear el acceso a Azure Service Bus Relay.
+
+Cualquier persona con `Reader` acceso a la Retransmisión podrá _ver_ la conexión híbrida al intentar agregarla a su aplicación web en Azure portal, pero no podrá _agregarla_ ya que carece de los permisos para recuperar la cadena de conexión que se usa para establecer la conexión de retransmisión. Para agregar correctamente la conexión híbrida, deben tener el permiso `listKeys` (`Microsoft.Relay/namespaces/hybridConnections/authorizationRules/listKeys/action`). El rol `Contributor` o cualquier otro rol que incluya este permiso en la Retransmisión permitirá a los usuarios usar la conexión híbrida y agregarla a su propia Web Apps.
 
 ## <a name="troubleshooting"></a>solución de problemas ##
 

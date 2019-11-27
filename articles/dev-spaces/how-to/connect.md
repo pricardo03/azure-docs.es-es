@@ -9,12 +9,12 @@ ms.date: 11/04/2019
 ms.topic: conceptual
 description: Obtenga información sobre cómo conectar la máquina de desarrollo a un clúster de AKS con Azure Dev Spaces
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores
-ms.openlocfilehash: 0adaa4266978cf9c9ef42359c0cf4f81c5c5f056
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 15e46fba19d92e08a9c87a63f6f01ec6b0836910
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73571759"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888922"
 ---
 # <a name="connect-your-development-machine-to-an-aks-cluster-preview"></a>Conexión de una máquina de desarrollo a un clúster de AKS (versión preliminar)
 
@@ -96,7 +96,7 @@ Después de seleccionar el modo de conexión, se le pedirá que escriba el puert
 Después de seleccionar el puerto TCP de la aplicación, Azure Dev Spaces establecerá una conexión con el clúster de AKS. Azure Dev Spaces inserta un agente en el clúster de AKS para redirigir el tráfico entre el clúster de AKS y la máquina de desarrollo. El establecimiento de esta conexión puede tardar unos minutos. Azure Dev Spaces también solicitará acceso de administrador para modificar el archivo de *hosts* en la máquina de desarrollo.
 
 > [!IMPORTANT]
-> Una vez que Azure Dev Spaces establece una conexión con el clúster de AKS, es posible que los demás servicios del clúster de AKS no funcionen correctamente hasta que inicie el servicio en la máquina de desarrollo. Además, si el servicio tiene una dependencia que no está disponible en la máquina de desarrollo, es posible que tenga que modificar la aplicación o proporcionar una [configuración adicional](#additional-configuration).
+> Una vez que Azure Dev Spaces establezca una conexión con el clúster de AKS, es posible que los demás servicios del clúster de AKS no funcionen correctamente hasta que inicie el servicio en la máquina de desarrollo si elige el modo de conexión *Reemplazar*. En su lugar, puede elegir el modo de conexión *Clonar* para crear un espacio de desarrollo secundario para el redireccionamiento y evitar cualquier interrupción en el espacio primario. Además, si el servicio tiene una dependencia que no está disponible en la máquina de desarrollo, es posible que tenga que modificar la aplicación o proporcionar una [configuración adicional](#additional-configuration).
 
 Azure Dev Spaces abre una ventana de terminal titulada *AZDS Connect - Bikes* después de establecer una conexión con el clúster de AKS. Esta ventana de terminal tiene todas las variables de entorno y las entradas de DNS configuradas desde el clúster de AKS. Cualquier código que se ejecute en esta ventana de terminal o que use el depurador de Visual Studio Code se conecta al clúster de AKS.
 

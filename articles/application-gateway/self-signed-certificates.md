@@ -1,5 +1,6 @@
 ---
-title: Generación de un certificado autofirmado de Azure Application Gateway con una entidad de certificación raíz personalizada
+title: Generación de certificados autofirmados con una entidad de certificación raíz personalizada
+titleSuffix: Azure Application Gateway
 description: Aprenda a generar un certificado autofirmado de Azure Application Gateway con una entidad de certificación raíz personalizada.
 services: application-gateway
 author: vhorne
@@ -7,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 07/23/2019
 ms.author: victorh
-ms.openlocfilehash: 659c4cb3a6f0d50176875b76eeb2784c711eafd1
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: fb3d2e70d9485c63d6de156abe9d192afa818814
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967143"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075083"
 ---
 # <a name="generate-an-azure-application-gateway-self-signed-certificate-with-a-custom-root-ca"></a>Generación de un certificado autofirmado de Azure Application Gateway con una entidad de certificación raíz personalizada
 
@@ -87,7 +88,7 @@ Use el siguiente comando para generar la clave para el certificado de servidor.
 La CSR es una clave pública que se asigna a una entidad de certificación al solicitar un certificado. La entidad de certificación emite el certificado para esta solicitud específica.
 
 > [!NOTE]
-> El nombre común del certificado de servidor debe ser diferente del dominio del emisor. Por ejemplo, en este caso, el nombre común para el emisor es www.contoso.com y el nombre común del certificado de servidor es www.fabrikam.com
+> El nombre común del certificado de servidor debe ser diferente del dominio del emisor. Por ejemplo, en este caso, el CN del emisor es `www.contoso.com` y el CN del certificado de servidor es `www.fabrikam.com`.
 
 
 1. Use el comando siguiente para generar la CSR:

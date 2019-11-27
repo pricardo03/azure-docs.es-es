@@ -7,12 +7,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: 34759077bd7223d17fea70d32bda63fd1b2595eb
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 4e55932d47389e09b135d571d0e000b9795e6edc
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73668136"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73884965"
 ---
 # <a name="azure-functions-networking-options"></a>Opciones de redes de Azure Functions
 
@@ -65,7 +65,7 @@ Puede usar la integración de red virtual para habilitar el acceso de aplicacion
 
 Hay dos formas de integración de red virtual:
 
-+ **Integración de red virtual regional (versión preliminar)** : permite la integración con redes virtuales de la misma región. Este tipo de integración requiere una subred en una red virtual de la misma región. Esta característica todavía está en versión preliminar, pero se admite para las aplicaciones de funciones que se ejecutan en Windows, con las advertencias indicadas después de la siguiente tabla de problemas y soluciones.
++ **Integración de red virtual regional (versión preliminar)**: permite la integración con redes virtuales de la misma región. Este tipo de integración requiere una subred en una red virtual de la misma región. Esta característica todavía está en versión preliminar, pero se admite para las aplicaciones de funciones que se ejecutan en Windows, con las advertencias indicadas después de la siguiente tabla de problemas y soluciones.
 + **Integración de red virtual con requisito de puerta de enlace**: permite la integración con redes virtuales de regiones remotas o con redes virtuales clásicas. Este tipo de integración requiere la implementación de una puerta de enlace de red virtual en la red virtual. Se trata de una característica basada en VPN de punto a sitio que solo se admite para las aplicaciones de funciones que se ejecutan en Windows.
 
 Una aplicación solo puede usar un tipo de la característica de integración de red virtual a la vez. Aunque ambos son útiles para muchos escenarios, en la tabla siguiente se indica dónde se debe usar cada uno:
@@ -116,6 +116,12 @@ Con el fin de proporcionar un mayor nivel de seguridad, puede restringir una ser
 Al crear una aplicación de funciones, debe crear una cuenta de Azure Storage de uso general compatible con Blob, Queue y Table Storage, o vincular a una. En la actualidad, no es posible usar ninguna restricción de red virtual en esta cuenta. Si configura un punto de conexión de servicio de red virtual en la cuenta de almacenamiento que usa para la aplicación de funciones, se interrumpe la aplicación.
 
 [Más información sobre los requisitos de la cuenta de almacenamiento](./functions-create-function-app-portal.md#storage-account-requirements).
+
+### <a name="using-key-vault-references"></a>Usar referencias de almacén de claves 
+
+Las referencias de almacén de claves permiten usar secretos de Azure Key Vault en la aplicación Azure Functions sin necesidad de realizar cambios en el código. Azure Key Vault es un servicio que proporciona administración centralizada de los secretos, con control total sobre las directivas de acceso y el historial de auditoría.
+
+Actualmente las [referencias de almacén de claves](../app-service/app-service-key-vault-references.md) no funcionarán si el almacén de claves está protegido con puntos de conexión de servicio. Para conectarse a un almacén de claves mediante la integración de la red virtual, deberá llamar al almacén de claves en el código de la aplicación.
 
 ## <a name="virtual-network-triggers-non-http"></a>Desencadenadores de red virtual (no HTTP)
 

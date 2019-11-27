@@ -8,15 +8,13 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 95fe5471789b66c253aa21d73433f5192cd01e6b
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 92aa28c131d81c41d515762ac2a346048c143790
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73612178"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74008564"
 ---
-# <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Preguntas más frecuentes sobre los discos de máquina virtual de IaaS de Azure y los discos premium administrados y no administrados
-
 En este artículo se responden algunas de las preguntas más frecuentes acerca de Azure Managed Disks y los discos SSD Premium de Azure.
 
 ## <a name="managed-disks"></a>Managed Disks
@@ -350,18 +348,6 @@ No. Pero si exporta un disco duro virtual a una cuenta de almacenamiento cifrada
 
 ## <a name="premium-disks-managed-and-unmanaged"></a>Discos premium: Administrados y no administrados
 
-**¿Qué regiones admiten la capacidad de ráfagas para el tamaño de disco SSD Premium aplicable?**
-
-La capacidad de ráfaga se admite actualmente en el Centro-oeste de EE. UU. de Azure.
-
-**¿En qué regiones se admiten los tamaños de disco administrado de 4/8/16 GiB (P1/P2/P3, E1/E2/E3)?**
-
-Estos nuevos tamaños de disco se admiten actualmente en la región Centro-oeste de EE. UU. de Azure.
-
-**¿Se admiten los tamaños de disco P1/P2/P3 en discos no administrados o blobs en páginas?**
-
-No, solo se admite en Managed Disks de SSD Premium. 
-
 **Si una máquina virtual usa una serie de tamaño que admite discos SSD premium, como DSv2, ¿puedo conectar discos de datos tanto premium como estándar?** 
 
 Sí.
@@ -391,6 +377,22 @@ El SSD local es un almacenamiento temporal que se incluye con una máquina virtu
 No hay ningún inconveniente a la hora de usar TRIM en discos de Azure, ya sea en discos estándar o premium.
 
 ## <a name="new-disk-sizes-managed-and-unmanaged"></a>Nuevos tamaños de disco: Administrados y no administrados
+
+**¿Qué regiones admiten la capacidad de ráfagas para el tamaño de disco SSD Premium aplicable?**
+
+La capacidad de ráfaga se admite actualmente en el Centro-oeste de EE. UU. de Azure.
+
+**¿En qué regiones se admiten los tamaños de disco administrado de 4/8/16 GiB (P1/P2/P3, E1/E2/E3)?**
+
+Estos nuevos tamaños de disco se admiten actualmente en la región Centro-oeste de EE. UU. de Azure.
+
+**¿Se admiten los tamaños de disco P1/P2/P3 en discos no administrados o blobs en páginas?**
+
+No, solo se admite en discos administrados SSD premium admitidos. 
+
+**¿Se admiten los tamaños de disco E1/E2/E3 en discos no administrados o blobs en páginas?**
+
+No, los discos administrados SSD estándar de cualquier tamaño no se pueden usar con discos no administrados ni blobs en páginas.
 
 **¿Cuál es el mayor tamaño de disco administrado compatible con discos de datos y sistema operativo?**
 

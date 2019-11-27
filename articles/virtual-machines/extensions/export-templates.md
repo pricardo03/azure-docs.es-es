@@ -1,5 +1,5 @@
 ---
-title: Exportación de grupos de recursos de Azure que contienen extensiones de VM | Microsoft Docs
+title: Exportación de grupos de recursos de Azure que contienen extensiones de máquina virtual
 description: Exportar plantillas de Resource Manager que incluyen extensiones de máquina virtual.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: akjosh
-ms.openlocfilehash: 652ed732a7fe8f08e48aba6fc4bd1b52164d1fa0
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 79991dad96742109817d579b951082d1a30e3951
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71169050"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073122"
 ---
 # <a name="exporting-resource-groups-that-contain-vm-extensions"></a>Exportación de grupos de recursos que contienen extensiones de VM
 

@@ -4,18 +4,18 @@ ms.service: dns
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: victorh
-ms.openlocfilehash: f7fa018225d82e2db4a3c51b333aea6fcb9a1514
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 261ae22348cd82b129727261c619727917e19c96
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67186945"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73832052"
 ---
 ### <a name="record-names"></a>Nombres de registro
 
-En DNS de Azure, los registros se especifican mediante el uso de nombres relativos. En un nombre de dominio *completo* (FQDN) se incluye el nombre de zona, mientras que uno *relativo*, no. Por ejemplo, el nombre de registro relativo "www" de la zona "contoso.com" proporciona el nombre de registro completo "www.contoso.com".
+En DNS de Azure, los registros se especifican mediante el uso de nombres relativos. En un nombre de dominio *completo* (FQDN) se incluye el nombre de zona, mientras que uno *relativo*, no. Por ejemplo, el nombre de registro relativo `www` en la zona `contoso.com` proporciona el nombre de registro completo `www.contoso.com`.
 
-Un registro de *vértice* es un registro DNS en la raíz (o *vértice*) de una zona DNS. Por ejemplo, en la zona DNS "contoso.com", un registro de vértice también tiene el nombre completo "contoso.com" (que a veces se denomina dominio *simple*).  Por convención, el nombre relativo "\@" se utiliza para representar registros de vértice.
+Un registro de *vértice* es un registro DNS en la raíz (o *vértice*) de una zona DNS. Por ejemplo, en la zona DNS `contoso.com`, un registro de vértice también tiene el nombre completo `contoso.com` (que a veces se denomina dominio *simple*).  Por convención, el nombre relativo "\@" se utiliza para representar registros de vértice.
 
 ### <a name="record-types"></a>Tipos de registro
 

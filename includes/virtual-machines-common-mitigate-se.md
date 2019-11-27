@@ -5,17 +5,17 @@ services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 08/08/2019
+ms.date: 11/12/2019
 ms.author: cynthn;kareni
 ms.custom: include file
-ms.openlocfilehash: b13b809b04f6cf878d68311b756ed2ca826f9697
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 6668d9753d0b93ab907d37cdeff8315f488cff7a
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68935309"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73935878"
 ---
-**Última actualización del documento**: 9 de agosto de 2019 a las 10:00 a. m. PST.
+**Última actualización del documento**: 12 de noviembre 2019 10:00 h PST.
 
 La divulgación de una [nueva clase de vulnerabilidades de CPU](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002), conocidas como ataques de canal lateral de ejecución especulativa, han generado preguntas de los clientes que buscan mayor claridad.  
 
@@ -28,17 +28,12 @@ Encontrará más información acerca de cómo integrar la seguridad en todos los
 > [!NOTE] 
 > Desde que este documento se publicó por primera vez, se han divulgado varias variantes de esta clase de vulnerabilidad. Microsoft continúa realizando grandes esfuerzos por proteger a nuestros clientes y proporcionarles orientación. Esta página se actualizará a medida que se publiquen más correcciones. 
 > 
-> El 14 de mayo de 2019 [Intel reveló](https://www.intel.com/content/www/us/en/security-center/advisory/intel-sa-00233.html) un nuevo conjunto de vulnerabilidad de canal lateral de ejecución especulativa conocido como Muestreo de datos de microarquitectura (MDS) (consulte las instrucciones de seguridad de Microsoft [ADV190013](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV190013)), al que se han asignado varios identificadores: 
-> - CVE-2019-11091: Memoria sin caché de muestreo de datos de microarquitectura (MDSUM)
-> - CVE-2018-12126: Muestreo de datos de búfer de almacén de microarquitectura (MSBDS) 
-> - CVE-2018-12127: Muestreo de datos de puerto de carga microarquitectura (MLPDS)
-> - CVE-2018-12130: Muestreo de datos de búfer de relleno de microarquitectura (MFBDS)
->
-> Esta vulnerabilidad afecta a los procesadores Intel® Core® y los procesadores Intel® Xeon®.  Microsoft Azure ha publicado actualizaciones del sistema operativo y está implementando nuevo microcódigo, a medida que Intel reveló lo anterior, en toda nuestra flota para proteger a nuestros clientes contra estos nuevos puntos vulnerables.   Azure está trabajando estrechamente con Intel para probar y validar el nuevo microcódigo antes de su lanzamiento oficial en la plataforma. 
+> El 12 de noviembre de 2019, [Intel publicó](https://software.intel.com/security-software-guidance/insights/deep-dive-intel-transactional-synchronization-extensions-intel-tsx-asynchronous-abort) un aviso técnico sobre la vulnerabilidad anulación asincrónica de transacciones (TAA) de Intel® Extensiones de sincronización transaccional (Intel® TSX) al que se le asignó [CVE-2019-11135](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2019-11135). Esta vulnerabilidad afecta a los procesadores Intel® Core® y los procesadores Intel® Xeon®.  Microsoft Azure ha publicado actualizaciones del sistema operativo y está implementando nuevo microcódigo, a medida que Intel reveló lo anterior, en toda nuestra flota para proteger a nuestros clientes contra estos nuevos puntos vulnerables.   Azure está trabajando estrechamente con Intel para probar y validar el nuevo microcódigo antes de su lanzamiento oficial en la plataforma. 
 >
 > **Los clientes que ejecutan código que no es de confianza dentro de su máquina virtual** deben tomar medidas para protegerse frente a estos puntos vulnerables; para ello, lea a continuación para obtener instrucciones acerca de todas las vulnerabilidades de canal lateral de ejecución especulativa (ADV de Avisos de Microsoft [180002](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002), [180018](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/adv180018) y [190013](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV190013)).
 >
 > Otros clientes deben evaluar estos puntos vulnerables desde la perspectiva de la defensa en profundidad y considerar las implicaciones en la seguridad y el rendimiento de la configuración que han elegido.
+> 
 
 
 
@@ -103,6 +98,7 @@ Windows OS support for kernel VA shadow is enabled: True
 Windows OS support for speculative store bypass disable is enabled system-wide: False
 Windows OS support for L1 terminal fault mitigation is enabled: True
 Windows OS support for MDS mitigation is enabled: True
+Windows OS support for TAA mitigation is enabled: True
 ```
 
 Si el resultado muestra `MDS mitigation is enabled: False`, [póngase en contacto con el soporte técnico de Azure](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) para conocer las opciones de mitigación disponibles.
@@ -180,6 +176,9 @@ Este artículo proporciona instrucciones para los siguientes ataques de canal la
 - CVE-2018-12126: Muestreo de datos de búfer de almacén de microarquitectura (MSBDS)
 - CVE-2018-12127: Muestreo de datos de puerto de carga microarquitectura (MLPDS)
 - CVE-2018-12130: Muestreo de datos de búfer de relleno de microarquitectura (MFBDS)
+
+Anulación asincrónica de transacciones de Extensiones de sincronización transaccional (Intel® TSX):  
+- [CVE-2019-11135](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2019-11135): asincrónica de transacciones de TSX (TAA)
 
 
 

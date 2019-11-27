@@ -1,5 +1,5 @@
 ---
-title: Grupos de disponibilidad de SQL Server - Azure Virtual Machines - Tutorial | Microsoft Docs
+title: 'Tutorial: Configurar grupo de disponibilidad'
 description: Este tutorial muestra cómo crear un grupo de disponibilidad de SQL Server AlwaysOn en Azure Virtual Machines.
 services: virtual-machines
 documentationCenter: na
@@ -9,20 +9,20 @@ editor: monicar
 tags: azure-service-management
 ms.assetid: 08a00342-fee2-4afe-8824-0db1ed4b8fca
 ms.service: virtual-machines-sql
-ms.custom: na
+ms.custom: seo-lt-2019
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
-ms.openlocfilehash: 6485b7c102977f4fb6963418084f4da050c68558
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 5c4eb5241cc5e50c11c05cac6909e37557ba106d
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71036520"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037512"
 ---
-# <a name="tutorial-configure-always-on-availability-group-in-azure-vm-manually"></a>Tutorial: Configuración manual de grupos de disponibilidad AlwaysOn en máquinas virtuales de Azure
+# <a name="tutorial-configure-availability-group-on-azure-sql-server-vm-manually"></a>Tutorial: Configuración de un grupo de disponibilidad en Azure SQL Server VM manualmente
 
 Este tutorial muestra cómo crear un grupo de disponibilidad de SQL Server AlwaysOn en Azure Virtual Machines. El tutorial crea un grupo de disponibilidad con una réplica de base de datos en dos servidores SQL Server.
 

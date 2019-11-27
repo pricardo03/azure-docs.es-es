@@ -5,21 +5,22 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: e7de815b7254fb071b3094f9ae636b712b38684b
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 1e819c94732e1cbc2de39e6400f8305b7df5aca1
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73797233"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73927649"
 ---
 # <a name="sensor-partner-integration"></a>Integración de partners de sensores
-En este artículo se proporciona información sobre el componente **Traductor** de Azure FarmBeats.
+
+En este artículo se proporciona información sobre el componente **Translator** de FarmBeats de Azure, que permite la integración de asociados de sensor.
 
 Con este componente, los partners pueden desarrollar sensores que se integren con FarmBeats utilizando nuestra API y enviando telemetría y datos de dispositivos de clientes al centro de datos de FarmBeats. Los datos se visualizan mediante el acelerador de FarmBeats. Además, se pueden usar para fusionar datos y crear modelos de inteligencia artificial o de aprendizaje automático.
 
 ## <a name="link-farmbeats-account"></a>Vinculación de una cuenta de FarmBeats
 
-Una vez que los clientes han adquirido e implementado dispositivos o sensores, pueden acceder a la telemetría y a los datos de los dispositivos en el portal de SaaS (software como servicio) de los partners de dispositivo. Los partners de dispositivos deben permitir que los clientes vinculen su cuenta a su instancia de FarmBeats en Azure. Las credenciales siguientes deben rellenarlas el cliente o el SI:
+Una vez que los clientes han adquirido e implementado dispositivos o sensores, pueden acceder a la telemetría y a los datos de los dispositivos en el portal de SaaS (software como servicio) de los partners de dispositivo. Los partners de dispositivos deben permitir que los clientes vinculen su cuenta a su instancia de FarmBeats en Azure. Las credenciales siguientes deben rellenarlas el cliente o el integrador del sistema:
 
    - Nombre para mostrar (un campo opcional para que el usuario defina un nombre para esta integración)
    - Punto de conexión de API
@@ -41,14 +42,11 @@ Los clientes tienen la capacidad de desvincular una integración de FarmBeats. L
 
 ## <a name="edit-farmbeats-integration"></a>Edición de la integración de FarmBeats
 
-El cliente puede editar la integración de FarmBeats. El escenario principal de edición es cuando el secreto de cliente o la cadena de conexión cambian debido a la expiración; en este caso, el cliente solo puede editar los campos siguientes.
+El cliente puede modificar la configuración de la integración de FarmBeats, si cambia el secreto de cliente o la cadena de conexión. En este caso, el cliente solo puede editar los campos siguientes:
 
    - Nombre para mostrar (si procede)
    - Secreto de cliente (debe mostrarse con el formato "2x8***********" o la característica Mostrar u ocultar, en lugar de con texto no cifrado)
    - Cadena de conexión (debe mostrarse con el formato "2x8***********" o en la característica Mostrar u ocultar, en lugar de texto no cifrado)
-
-   > [!NOTE]
-   > La acción Editar no debe interrumpir la creación de objetos de metadatos.
 
 ## <a name="view-last-telemetry-sent"></a>Visualización de la última telemetría enviada
 
@@ -126,14 +124,14 @@ Si lo desea, puede incluir parámetros de consulta en llamadas GET para filtrar,
 
 La siguiente solicitud de ejemplo se usa para obtener la lista de dispositivos:
 
-```
-curl -X GET "https://microsoft-farmbeats.azurewebsites.net/Device" -H "Content-Type: application/json" -H "Authorization: Bearer <Access-Token>”
+```bash
+curl -X GET "https://microsoft-farmbeats.azurewebsites.net/Device" -H "Content-Type: application/json" -H "Authorization: Bearer <Access-Token>"
 ```
 La mayoría de las llamadas GET, POST y PUT requieren un cuerpo de solicitud JSON.
 
 La siguiente solicitud de ejemplo se usa para crear un dispositivo (este ejemplo tiene una estructura de JSON de entrada con el cuerpo de la solicitud).
 
-```
+```bash
 curl -X POST "https://microsoft-farmbeats.azurewebsites.net/Device" -H  "accept: application/json" -H  "Content-Type: application/json" -H "Authorization: Bearer <Access-Token>" -d "{  \"deviceModelId\": \"ID123\",  \"hardwareId\": \"MHDN123\",  \"reportingInterval\": 900,  \"name\": \"Device123\",  \"description\": \"Test Device 123\",}"
 ```
 
@@ -192,7 +190,7 @@ ParentDeviceId | Identificador del dispositivo primario al que está conectado e
   description  | Proporcione una descripción significativa.
   properties  | Propiedades adicionales del fabricante.
 
- Para obtener información sobre cada uno de los objetos y sus propiedades, consulte [Swagger](httpa://aka.ms/FarmBeatsDatahubSwagger).
+ Para obtener información sobre cada uno de los objetos y sus propiedades, consulte [Swagger](https://aka.ms/FarmBeatsDatahubSwagger).
 
  > [!NOTE]
  > Las API devuelven identificadores únicos para cada instancia creada. El componente Traductor debe conservar este identificador para la sincronización de los metadatos y la administración de dispositivos.
@@ -243,35 +241,34 @@ write_client.stop()
 
 El formato de mensaje canónico es como el siguiente:
 
-```
+```json
 {
-“deviceid”: “<id of the Device created>”,
- "timestamp": "<timestamp in ISO 8601 format>",
+"deviceid": "<id of the Device created>",
+"timestamp": "<timestamp in ISO 8601 format>",
 "version" : "1",
 "sensors": [
     {
-      "id": "<id of the sensor created>”
+      "id": "<id of the sensor created>",
       "sensordata": [
         {
           "timestamp": "< timestamp in ISO 8601 format >",
-          "<sensor measure name (as defined in the Sensor Model)>": value
+          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
         },
         {
           "timestamp": "<timestamp in ISO 8601 format>",
-          "<sensor measure name (as defined in the Sensor Model)>": value
+          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
         }
       ]
     }
+ ]
 }
-
 ```
-
 Todos los nombres de clave en la estructura de JSON de telemetría deben estar en minúsculas, por ejemplo, deviceid, sensordata, etc.
 
 Mensaje de telemetría de ejemplo:
 
 
-```
+```json
 {
   "deviceid": "7f9b4b92-ba45-4a1d-a6ae-c6eda3a5bd12",
   "timestamp": "2019-06-22T06:55:02.7279559Z",

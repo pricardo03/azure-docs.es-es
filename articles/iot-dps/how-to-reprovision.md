@@ -1,19 +1,18 @@
 ---
 title: Reaprovisionamiento de dispositivos en Azure IoT Hub Device Provisioning Service | Microsoft Docs
-description: Reaprovisionamiento de dispositivos con la instancia de Device Provisioning Service
+description: Obtenga información sobre cómo reaprovisionar dispositivos con la instancia del servicio de aprovisionamiento de dispositivos y por qué es posible que tenga que hacerlo.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
-ms.openlocfilehash: 92680a453d93c8dc0189c6ae376449a8e7a22076
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 41e6274e81c91584cf5212bc7ca7b2f31582b4db
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60627361"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888992"
 ---
 # <a name="how-to-reprovision-devices"></a>Reaprovisionamiento de dispositivos
 

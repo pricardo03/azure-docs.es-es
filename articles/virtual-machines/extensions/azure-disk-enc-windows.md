@@ -1,5 +1,5 @@
 ---
-title: Azure Disk Encryption para Windows | Microsoft Docs
+title: Azure Disk Encryption para Windows
 description: Implementa Azure Disk Encryption en una máquina virtual Windows mediante una extensión de máquina virtual.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: ejarvi
-ms.openlocfilehash: 00891122015bb3e6adb500b6f6c30fa031161b92
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 8435663dcf92e2617ea2fe9218649e94243272d2
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72598011"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073206"
 ---
 # <a name="azure-disk-encryption-for-windows-microsoftazuresecurityazurediskencryption"></a>Azure Disk Encryption para Windows (Microsoft.Azure.Security.AzureDiskEncryption)
 
@@ -36,11 +36,11 @@ Para obtener una lista completa de los requisitos previos, consulte [Azure Disk 
 
 ## <a name="extension-schemata"></a>Esquema de extensión
 
-Hay dos esquemas para Azure Disk Encryption: v1.1, un esquema más reciente recomendado que no usa las propiedades de Azure Active Directory (AAD), y v0.1, que es un esquema más antiguo que requiere propiedades de AAD. Debe usar la versión de esquema que corresponde a la extensión que usa: el esquema v1.1 para la versión de extensión 1.1 de AzureDiskEncryption o el esquema v0.1 para la versión extensión 0.1 de AzureDiskEncryption.
+Hay dos esquemas para la extensión AzureDiskEncryption de Windows: v2.2, un esquema más reciente y recomendado que no usa las propiedades de Azure Active Directory (AAD) y v1.1, un esquema anterior que requiere propiedades de AAD. Debe usar la versión de esquema correspondiente a la extensión que está usando: esquema v2.2 para la extensión AzureDiskEncryption, versión 2.2, esquema v1.1 para la versión 1.1 de la extensión AzureDiskEncryption.
 
-### <a name="schema-v11-no-aad-recommended"></a>Esquema v1.1: Sin AAD (recomendado)
+### <a name="schema-v22-no-aad-recommended"></a>Esquema v2.2: Sin AAD (recomendado)
 
-Se recomienda usar el esquema v1.1 y no requiere propiedades de Azure Active Directory.
+El esquema v2.2 se recomienda para todas las máquinas virtuales nuevas y no requiere propiedades de Azure Active Directory.
 
 ```json
 {
@@ -67,9 +67,9 @@ Se recomienda usar el esquema v1.1 y no requiere propiedades de Azure Active Dir
 ```
 
 
-### <a name="schema-v01-with-aad"></a>Esquema v0.1: con AAD 
+### <a name="schema-v11-with-aad"></a>Esquema v1.1: con AAD 
 
-El esquema 0.1 quiere `aadClientID` y `aadClientSecret` o `AADClientCertificate`.
+El esquema 1.1 requiere `aadClientID` y `aadClientSecret` o `AADClientCertificate`, y no se recomienda para las nuevas máquinas virtuales.
 
 Uso de `aadClientSecret`:
 
@@ -139,10 +139,10 @@ Uso de `AADClientCertificate`:
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.Azure.Security | string |
 | type | AzureDiskEncryptionForLinux | string |
-| typeHandlerVersion | 0.1, 1.1 | int |
-| (esquema 0.1) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | GUID | 
-| (esquema 0.1) AADClientSecret | password | string |
-| (esquema 0.1) AADClientCertificate | thumbprint | string |
+| typeHandlerVersion | 1.1, 2.2 | string |
+| (esquema 1.1) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | GUID | 
+| (esquema 1.1) AADClientSecret | password | string |
+| (esquema 1.1) AADClientCertificate | thumbprint | string |
 | DiskFormatQuery | {"dev_path":"","name":"","file_system":""} | Diccionario de JSON |
 | EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | string | 
 | KeyEncryptionAlgorithm | 'RSA-OAEP', 'RSA-OAEP-256', 'RSA1_5' | string |

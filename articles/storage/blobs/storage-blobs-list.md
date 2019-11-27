@@ -1,23 +1,25 @@
 ---
 title: 'Enumeración de blobs con .NET: Azure Storage'
-description: Obtenga información sobre cómo enumerar los blobs de un contenedor en la cuenta de Azure Storage mediante la biblioteca cliente .NET.
+description: Obtenga información sobre cómo enumerar los blobs de un contenedor en la cuenta de Azure Storage mediante la biblioteca cliente .NET. En los ejemplos de código se muestra cómo enumerar los blobs en una lista plana o cómo enumerar los blobs de manera jerárquica, como si estuvieran organizados en directorios o carpetas.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 09/04/2019
+ms.date: 11/08/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: bf9d2d59e993de3807a10a6c39f88b2063024bfc
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 4b6dc9d80cfe96e501e575d265b9fa383b1c4d2c
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72599802"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73902018"
 ---
 # <a name="list-blobs-with-net"></a>Enumeración de blobs con .NET
 
-Al enumerar blobs desde el código, puede especificar una serie de opciones para administrar cómo se devuelven los resultados de Azure Storage. En este artículo se muestra cómo enumerar blobs con [la biblioteca cliente de Azure Storage para .NET](/dotnet/api/overview/azure/storage/client).  
+Al enumerar blobs desde el código, puede especificar una serie de opciones para administrar cómo se devuelven los resultados de Azure Storage. Puede especificar el número de resultados que se van a devolver en cada conjunto de resultados y luego recuperar los conjuntos subsiguientes. Puede especificar un prefijo para devolver los blobs cuyos nombres comienzan por ese carácter o cadena. También puede enumerar los blobs en una estructura de lista plana o de forma jerárquica. Una lista jerárquica devuelve los blobs como si estuvieran organizados en carpetas. 
+
+En este artículo se muestra cómo enumerar blobs con [la biblioteca cliente de Azure Storage para .NET](/dotnet/api/overview/azure/storage/client).  
 
 ## <a name="understand-blob-listing-options"></a>Descripción de las opciones de enumeración de blobs
 
@@ -53,7 +55,7 @@ Para devolver metadatos de blob con los resultados, especifique el valor **Metad
 
 ### <a name="flat-listing-versus-hierarchical-listing"></a>Lista plana frente a lista jerárquica
 
-Los blobs de Azure Storage están organizados en un paradigma plano, en lugar de un paradigma jerárquico (como un sistema de archivos clásico). Aunque los blobs pueden organizarse en *directorios virtuales* para imitar un paradigma jerárquico. Un directorio virtual forma parte del nombre del blob delimitado por el carácter delimitador.
+Los blobs de Azure Storage están organizados en un paradigma plano, en lugar de un paradigma jerárquico (como un sistema de archivos clásico). Sin embargo, los blobs se pueden organizar en *directorios virtuales* para imitar una estructura de carpetas. Un directorio virtual forma parte del nombre del blob y se indica mediante el carácter delimitador.
 
 Para organizar los blobs en directorios virtuales, use un carácter delimitador en el nombre del blob. El carácter delimitador predeterminado es una barra diagonal (/), pero puede especificar cualquier carácter como delimitador.
 

@@ -7,12 +7,12 @@ ms.subservice: logs
 ms.topic: conceptual
 ms.author: bwren
 ms.date: 10/31/2019
-ms.openlocfilehash: 9f8783dc6d3c14b086364639b60273dbae626cee
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 6104a8b01cc9fca5ff8de973e7fc2af77cda8515
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73586993"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048202"
 ---
 # <a name="collect-azure-activity-log-with-diagnostic-settings-preview"></a>Recopilación del registro de actividad de Azure con configuración de diagnóstico (versión preliminar)
 El [Registro de actividad de Azure](activity-logs-overview.md) es un [registro de plataforma](platform-logs-overview.md) que proporciona información de los eventos de nivel de suscripción que se han producido en Azure. Hasta ahora, ha creado un perfil de registro para enviar las entradas del registro de actividad a [un centro de eventos o una cuenta de almacenamiento](activity-log-export.md), y ha usado un conector para recopilarlos en un [área de trabajo Log Analytics](activity-log-collect.md).
@@ -22,6 +22,8 @@ Ahora puede configurar la recopilación del registro de actividad de Azure con l
 - Método coherente para recopilar todos los registros de la plataforma.
 - Recopilación del registro de actividad en varias suscripciones e inquilinos.
 - Filtrado de la colección para recopilar solo los registros de determinadas categorías.
+- Recopilar todas las categorías de registro de actividad. Algunas categorías no se recopilan con el método anterior.
+- Latencia más rápida para la ingesta de registros. El método anterior tiene aproximadamente 15 minutos de latencia mientras que la configuración de diagnóstico solo agrega aproximadamente 1 minuto.
 
 ## <a name="considerations"></a>Consideraciones
 Tenga en cuenta los detalles siguientes de la recopilación del registro de actividad con la configuración de diagnóstico antes de habilitar esta característica.

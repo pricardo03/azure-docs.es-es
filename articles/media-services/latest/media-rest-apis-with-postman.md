@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2019
+ms.date: 11/07/2019
 ms.author: juliako
-ms.openlocfilehash: c402381534087f1e8cdab711bd1b2a34c78417f4
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: 7b4e2d14e8719808db138a4f2607b19cece401a6
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72675723"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839597"
 ---
 # <a name="configure-postman-for-media-services-rest-api-calls"></a>Configuración de Postman para llamadas API de REST de Azure Media Services
 
@@ -91,6 +91,11 @@ Antes de empezar a manipular recursos de AMS v3, debe obtener y establecer el to
 4. La respuesta regresa con el token y establece la variable de entorno "AccessToken" en el valor del token.  
 
     ![Obtención del token de AAD](./media/develop-with-postman/postman-get-aad-auth-token.png)
+
+## <a name="troubleshooting"></a>solución de problemas 
+
+* Si en la aplicación se produce el error "HTTP 504: Tiempo de espera de puerta de enlace ", asegúrese de que la variable de ubicación no se haya establecido explícitamente en un valor distinto de la ubicación esperada de la cuenta de Media Services. 
+* Si aparece el error "no se encuentra la cuenta", asegúrese también de que la propiedad ubicación en el mensaje JSON del cuerpo se haya establecido en la ubicación en la que se encuentra la cuenta de Media Services. 
 
 ## <a name="see-also"></a>Otras referencias
 

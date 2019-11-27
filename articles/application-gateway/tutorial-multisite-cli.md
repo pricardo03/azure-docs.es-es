@@ -1,23 +1,18 @@
 ---
-title: Creación de una puerta de enlace de aplicaciones con hospedaje de varios sitios mediante la CLI de Azure | Microsoft Docs
+title: 'Hospedaje de varios sitios mediante la CLI: Azure Application Gateway'
 description: Aprenda a crear una puerta de enlace de aplicaciones que hospede varios sitios mediante la CLI de Azure.
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 7/14/2018
+ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: ce5701d4125123798c6b6a654e4fa4a4887778a3
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 5edc2e5228146aee913027a83e495d94c003e237
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68717261"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74047330"
 ---
 # <a name="create-an-application-gateway-with-multiple-site-hosting-using-the-azure-cli"></a>Creación de una puerta de enlace de aplicaciones con hospedaje de varios sitios mediante la CLI de Azure
 

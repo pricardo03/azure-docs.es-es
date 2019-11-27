@@ -9,12 +9,12 @@ ms.service: app-service
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 65b1c7f4649ff90c1305d4007428ea02bb003369
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: a1889def8d177c312618f12b3fa0480cc4b849b3
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70886257"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74046862"
 ---
 # <a name="security-controls-for-azure-app-service"></a>Controles de seguridad de Azure App Service
 
@@ -26,7 +26,7 @@ En este artículo se explican los controles de seguridad integrados en Azure App
 
 | Control de seguridad | Sí/No | Notas | Documentación
 |---|---|--|
-| Compatibilidad con punto de conexión de servicio| Sí | Disponible actualmente en versión preliminar para App Service.| [Restricciones de acceso de Azure App Service](app-service-ip-restrictions.md)
+| Compatibilidad con punto de conexión de servicio| Sí | Disponible para App Service.| [Restricciones de acceso de Azure App Service](app-service-ip-restrictions.md)
 | Compatibilidad con la inserción de redes virtuales| Sí | App Service Environment son implementaciones privadas de App Service dedicadas a un solo cliente insertado en una red virtual del cliente. | [Introducción a App Service Environment](environment/intro.md)
 | Compatibilidad con el aislamiento de red y los firewalls| Sí | En la variación pública de varios inquilinos de App Service, los clientes pueden configurar las ACL (restricciones de IP) para bloquear el tráfico entrante permitido.  App Service Environment se implementa directamente en las redes virtuales y, por tanto, se puede proteger con NSG. | [Restricciones de acceso de Azure App Service](app-service-ip-restrictions.md)
 | Compatibilidad con la tunelización forzada| Sí | App Service Environment se puede implementar en la red virtual de un cliente que tenga configurada la tunelización forzada. | [Configuración de un entorno de App Service Environment con tunelización forzada](environment/forced-tunnel-support.md)
@@ -64,4 +64,4 @@ En este artículo se explican los controles de seguridad integrados en Azure App
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga más información sobre los [controles de seguridad integrados en los servicios de Azure](../security/fundamentals/security-controls.md).
+- Más información sobre los [controles de seguridad integrados en los servicios de Azure](../security/fundamentals/security-controls.md).

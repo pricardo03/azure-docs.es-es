@@ -4,14 +4,14 @@ description: Se describe cómo crear un grupo de recursos en una plantilla de Az
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 10/07/2019
+ms.date: 11/07/2019
 ms.author: tomfitz
-ms.openlocfilehash: d8b1be1d79ae0426d73c45408dd3c4f4f4660afb
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: 04a46700b68bcf498956f93c96ce2dccf1b555fe
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72532194"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73832731"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Creación de grupos de recursos y otros recursos en el nivel de suscripción
 
@@ -23,7 +23,7 @@ Para implementar plantillas en el nivel de suscripción, use la CLI de Azure, Po
 
 Puede implementar los siguientes tipos de recursos en el nivel de suscripción:
 
-* [deployments](/azure/templates/microsoft.resources/deployments) 
+* [deployments](/azure/templates/microsoft.resources/deployments)
 * [peerAsns](/azure/templates/microsoft.peering/peerasns)
 * [policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
 * [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)
@@ -32,14 +32,20 @@ Puede implementar los siguientes tipos de recursos en el nivel de suscripción:
 * [roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
 * [roleDefinitions](/azure/templates/microsoft.authorization/roledefinitions)
 
-### <a name="schema"></a>Esquema
+### <a name="schema"></a>Schema
 
 El esquema que se usa para las implementaciones de nivel de suscripción es diferente del esquema de las implementaciones de grupo de recursos.
 
-Para el esquema, use:
+Para las plantillas, use:
 
 ```json
 https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#
+```
+
+Para los archivos de parámetros, use:
+
+```json
+https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentParameters.json#
 ```
 
 ## <a name="deployment-commands"></a>Comandos de implementación
@@ -76,14 +82,14 @@ En el caso de las implementaciones de nivel de suscripción, debe proporcionar u
 
 Puede proporcionar un nombre para la implementación o usar el nombre de implementación predeterminado. El nombre predeterminado es el nombre del archivo de plantilla. Por ejemplo, al implementar una plantilla llamada **azuredeploy.json**, se crea un nombre de predeterminado **azuredeploy**.
 
-Para cada nombre de implementación, la ubicación es inmutable. No se puede crear una implementación en una ubicación si ya existe una implementación con el mismo en otra ubicación. Si recibe el código de error `InvalidDeploymentLocation`, use un nombre diferente o utilice la ubicación de la implementación anterior que tenía ese mismo nombre.
+Para cada nombre de implementación, la ubicación es inmutable. No se puede crear una implementación en una ubicación si ya existe una implementación con el mismo nombre en otra ubicación. Si recibe el código de error `InvalidDeploymentLocation`, use un nombre diferente o utilice la ubicación de la implementación anterior que tenía ese mismo nombre.
 
 ## <a name="use-template-functions"></a>Usar funciones de plantillas
 
 En las implementaciones de nivel de suscripción, hay algunas consideraciones importantes que deben tenerse en cuenta al usar las funciones de plantilla:
 
 * La función [resourceGroup()](resource-group-template-functions-resource.md#resourcegroup) **no** se admite.
-* La función [resourceId()](resource-group-template-functions-resource.md#resourceid) sí se admite. Utilícela para obtener el identificador de los recursos que se utilizan en las implementaciones de nivel de suscripción. Por ejemplo, puede obtener el identificador de recursos de una definición de directiva con `resourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))`.
+* La función [resourceId()](resource-group-template-functions-resource.md#resourceid) sí se admite. Utilícela para obtener el identificador de los recursos que se utilizan en las implementaciones de nivel de suscripción. Por ejemplo, puede obtener el id. de recurso de una definición de directiva con `resourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))`. O bien, use la función [subscriptionResourceId ()](resource-group-template-functions-resource.md#subscriptionresourceid) para obtener el id. de recurso para un recurso de nivel de suscripción.
 * Se admiten las funciones [reference()](resource-group-template-functions-resource.md#reference) y [list()](resource-group-template-functions-resource.md#list).
 
 ## <a name="create-resource-groups"></a>Crear grupos de recursos

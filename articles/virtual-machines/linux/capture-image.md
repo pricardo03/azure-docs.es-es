@@ -1,5 +1,5 @@
 ---
-title: Capturar una imagen de una máquina virtual de Linux mediante la CLI de Azure | Microsoft Docs
+title: Capture una imagen de una máquina virtual Linux en Azure con CLI de Azure
 description: Capture una imagen de una máquina virtual de Azure que se usará para realizar implementaciones masivas mediante la CLI de Azure.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 0767031ff6eee59de6cf447464328f66c50ef71a
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: ed7d45fb9148bd441a3798c48be8b25e1da2b8c1
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72552798"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036918"
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>Creación de una imagen de una máquina virtual o un disco duro virtual
 

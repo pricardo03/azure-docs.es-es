@@ -1,5 +1,5 @@
 ---
-title: 'Tamaños de las máquinas virtuales Windows en Azure: almacenamiento | Microsoft Docs'
+title: 'Tamaños de máquinas virtuales Windows de Azure: Almacenamiento'
 description: Enumera los tamaños diferentes de almacenamiento optimizado disponibles para las máquinas virtuales Windows en Azure. Se proporciona información sobre el número de unidades vCPU, discos de datos y NIC, así como sobre el rendimiento de almacenamiento y el ancho de banda de red para los tamaños de esta serie.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/17/2019
 ms.author: jonbeck
-ms.openlocfilehash: fdb21f2c96f66da140cdefa9a0b7b54dd2dc66ec
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 6b351da38a5edd359baf5d9fe6587f3114651b55
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102255"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073923"
 ---
 # <a name="storage-optimized-virtual-machine-sizes"></a>Tamaños de máquina virtual optimizada para almacenamiento
 

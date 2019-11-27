@@ -8,23 +8,27 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/26/2017
 ms.author: dacurwin
-ms.openlocfilehash: 96adca2da28517c28ba3583f5d15f07311d2792a
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: f3db0e6a78eada52f2b5936f5194138d97ebcca6
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954504"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074889"
 ---
 # <a name="data-model-for-azure-backup-reports"></a>Modelo de datos para informes de Azure Backup
-En este artículo se describe el modelo de datos de Power BI utilizado para crear informes de Azure Backup. Con este modelo de datos, puede filtrar los informes existentes en función de los campos correspondientes, y lo que es más importante, crear sus propios informes mediante el uso de las tablas y campos del modelo. 
+
+En este artículo se describe el modelo de datos de Power BI utilizado para crear informes de Azure Backup. Con este modelo de datos, puede filtrar los informes existentes en función de los campos correspondientes, y lo que es más importante, crear sus propios informes mediante el uso de las tablas y campos del modelo.
 
 ## <a name="creating-new-reports-in-power-bi"></a>Creación de informes nuevos en Power BI
+
 Power BI proporciona características de personalización que se usan para [crear informes mediante el modelo de datos](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/).
 
 ## <a name="using-azure-backup-data-model"></a>Uso del modelo de datos de Azure Backup
+
 Los siguientes campos se pueden usar como parte del modelo de datos para crear informes y personalizar los informes existentes.
 
 ### <a name="alert"></a>Alerta
+
 Esta tabla proporciona los campos y agregaciones básicos de diversos campos relacionados con las alertas.
 
 | Campo | Tipo de datos | DESCRIPCIÓN |
@@ -42,6 +46,7 @@ Esta tabla proporciona los campos y agregaciones básicos de diversos campos rel
 | EntityState |Texto |Estado actual del objeto de alerta. Por ejemplo, Activo o Eliminado |
 
 ### <a name="backup-item"></a>Elemento de copia de seguridad
+
 Esta tabla proporciona campos y agregaciones básicos en diversos campos relacionados con el elemento de copia de seguridad.
 
 | Campo | Tipo de datos | DESCRIPCIÓN |
@@ -50,7 +55,7 @@ Esta tabla proporciona campos y agregaciones básicos en diversos campos relacio
 | #UnprotectedBackupItems |Número entero |Número de elementos de copia de seguridad detenidos para su protección o configurados para que se realicen copias de seguridad, pero las copias de seguridad no se han iniciado|
 | AsOnDateTime |Fecha y hora |Hora de la última actualización de la fila seleccionada |
 | BackupItemFriendlyName |Texto |Nombre descriptivo del elemento de copia de seguridad |
-| BackupItemId |Texto |Identificador de elemento de copia de seguridad |
+| BackupItemId |Texto |Identificador del elemento de copia de seguridad |
 | BackupItemName |Texto |Nombre de elemento de copia de seguridad |
 | BackupItemType |Texto |Tipo de elemento de copia de seguridad. Por ejemplo, VM o FileFolder |
 | EntityState |Texto |Estado actual del objeto del elemento de copia de seguridad. Por ejemplo, Activo o Eliminado |
@@ -60,6 +65,7 @@ Esta tabla proporciona campos y agregaciones básicos en diversos campos relacio
 | ProtectionState |Texto |Estado de protección del elemento de copia de seguridad. Por ejemplo, Protected o ProtectionStopped |
 
 ### <a name="calendar"></a>Calendario
+
 Esta tabla proporciona detalles acerca de los campos relacionados con el calendario.
 
 | Campo | Tipo de datos | DESCRIPCIÓN |
@@ -77,6 +83,7 @@ Esta tabla proporciona detalles acerca de los campos relacionados con el calenda
 | YearDate |Fecha |Fecha del año en que finaliza el año, se selecciona para filtrar datos |
 
 ### <a name="job"></a>Trabajo
+
 Esta tabla proporciona campos y agregaciones básicos en diversos campos relacionados con el trabajo.
 
 | Campo | Tipo de datos | DESCRIPCIÓN |
@@ -94,9 +101,10 @@ Esta tabla proporciona campos y agregaciones básicos en diversos campos relacio
 | JobStartDate |Date |Fecha en que comenzó la ejecución del trabajo |
 | JobStartTime |Hora |Hora en que comenzó la ejecución del trabajo |
 | Estado del trabajo |Texto |Estado del trabajo finalizado. Por ejemplo, Completed, Failed |
-| JobUniqueId |Texto |Identificador único que identifica el trabajo |
+| JobUniqueId |Texto |Identificador único para identificar el trabajo |
 
 ### <a name="policy"></a>Directiva
+
 Esta tabla proporciona campos y agregaciones básicos en diversos campos relacionados con la directiva.
 
 | Campo | Tipo de datos | DESCRIPCIÓN |
@@ -117,7 +125,7 @@ Esta tabla proporciona campos y agregaciones básicos en diversos campos relacio
 | MonthlyRetentionTimes |Texto |Fecha y hora en que se ha configurado la retención mensual |
 | MonthlyRetentionWeeksOfTheMonth |Texto |Semanas del mes en que se configura la retención mensual. Por ejemplo, First, Last, etc. |
 | PolicyName |Texto |Nombre de la directiva definida |
-| PolicyUniqueId |Texto |Identificador único que identifica la directiva |
+| PolicyUniqueId |Texto |Identificador único para identificar la Directiva |
 | RetentionType |Texto |Tipo de directiva de retención. Por ejemplo, Daily, Weekly, Monthly o Yearly |
 | WeeklyRetentionDaysOfTheWeek |Texto |Días de la semana seleccionados para la retención semanal |
 | WeeklyRetentionDuration |Número decimal |Duración total de la retención semanal de las copias de seguridad configuradas, en semanas |
@@ -131,6 +139,7 @@ Esta tabla proporciona campos y agregaciones básicos en diversos campos relacio
 | YearlyRetentionWeeksOfTheMonth |Texto |Semanas del mes en que se configura la retención anual. Por ejemplo, First, Last, etc. |
 
 ### <a name="protected-server"></a>Servidor protegido
+
 Esta tabla proporciona campos y agregaciones básicos en diversos campos relacionados con el servidor protegido.
 
 | Campo | Tipo de datos | DESCRIPCIÓN |
@@ -147,9 +156,10 @@ Esta tabla proporciona campos y agregaciones básicos en diversos campos relacio
 | ProtectedServerName |Texto |Nombre del servidor protegido |
 | ProtectedServerType |Texto |Tipo de servidor protegido del que se realiza la copia de seguridad. Por ejemplo, IaaSVMContainer |
 | ProtectedServerName |Texto |Nombre del servidor protegido al que pertenece el elemento de copia de seguridad |
-| RegisteredContainerId |Texto |Identificador de contenedor registrado para copia de seguridad |
+| RegisteredContainerId |Texto |Identificador del contenedor registrado para la copia de seguridad |
 
 ### <a name="storage"></a>Storage
+
 Esta tabla proporciona campos y agregaciones básicos en diversos campos relacionados con el almacenamiento.
 
 | Campo | Tipo de datos | DESCRIPCIÓN |
@@ -161,6 +171,7 @@ Esta tabla proporciona campos y agregaciones básicos en diversos campos relacio
 | LastUpdatedDate |Date |Fecha de última actualización de la fila seleccionada |
 
 ### <a name="time"></a>Hora
+
 Esta tabla proporciona detalles acerca de los campos relacionados con el tiempo.
 
 | Campo | Tipo de datos | DESCRIPCIÓN |
@@ -173,6 +184,7 @@ Esta tabla proporciona detalles acerca de los campos relacionados con el tiempo.
 | TimeKey |Texto |Valor de clave que representa el tiempo |
 
 ### <a name="vault"></a>Almacén
+
 Esta tabla proporciona campos y agregaciones básicos en diversos campos relacionados con el almacén.
 
 | Campo | Tipo de datos | DESCRIPCIÓN |
@@ -182,11 +194,12 @@ Esta tabla proporciona campos y agregaciones básicos en diversos campos relacio
 | AzureDataCenter |Texto |Centro de datos donde se encuentra el almacén |
 | EntityState |Texto |Estado actual del objeto de almacén. Por ejemplo, Activo o Eliminado |
 | StorageReplicationType |Texto |Tipo de replicación de almacenamiento para el almacén. Por ejemplo, GeoRedundant |
-| SubscriptionId |Texto |Identificador de suscripción del cliente seleccionado para la generación de informes |
+| SubscriptionId |Texto |Identificador de suscripción del cliente seleccionado para generar informes |
 | VaultName |Texto |Nombre del almacén |
 | VaultTags |Texto |Etiquetas asociadas al almacén |
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 Una vez que revise el modelo de datos para crear informes de Azure Backup, consulte los siguientes artículos para más información acerca de cómo crear y ver informes en Power BI.
 
 * [Creación de un informe de Power BI nuevo mediante la importación de un conjunto de datos](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/)

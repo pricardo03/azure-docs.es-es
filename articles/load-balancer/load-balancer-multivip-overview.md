@@ -1,10 +1,9 @@
 ---
-title: Varios servidores front-end para Azure Load Balancer
-titlesuffix: Azure Load Balancer
-description: Introducción a varios servidores front-end en Azure Load Balancer
+title: 'Varios servidores front-end: Azure Load Balancer'
+description: Con esta ruta de aprendizaje, empiece a trabajar con una visión general de varios front-ends en Azure Load Balancer
 services: load-balancer
 documentationcenter: na
-author: chkuhtz
+author: asudbring
 ms.service: load-balancer
 ms.custom: seodec18
 ms.devlang: na
@@ -12,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
-ms.author: chkuhtz
-ms.openlocfilehash: b109e87a8fcbef0bfca356c83716509ebc6cecd4
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.author: allensu
+ms.openlocfilehash: 58309133a46e32f409a0414be71791de73db9bed
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68884206"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075944"
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Varios servidores front-end para Azure Load Balancer
 
@@ -30,7 +29,7 @@ Al definir un Azure Load Balancer, las configuraciones de un grupo de servidores
 
 La tabla siguiente contiene algunas configuraciones de front-end de ejemplo:
 
-| Front-end | Dirección IP | protocolo | port |
+| Front-end | Dirección IP | protocol | port |
 | --- | --- | --- | --- |
 | 1 |65.52.0.1 |TCP |80 |
 | 2 |65.52.0.1 |TCP |*8080* |
@@ -54,7 +53,7 @@ Se analizan aún más estos escenarios empezando con el comportamiento predeterm
 
 En este escenario, los servidores front-end están configurados del modo siguiente:
 
-| Front-end | Dirección IP | protocolo | port |
+| Front-end | Dirección IP | protocol | port |
 | --- | --- | --- | --- |
 | ![front-end verde](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |
 | ![front-end violeta](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |*65.52.0.2* |TCP |80 |
@@ -70,7 +69,7 @@ Se definen dos reglas:
 
 La asignación completa en Azure Load Balancer ahora se realiza como sigue:
 
-| Regla | Dirección IP del front-end | protocolo | port | Destino | port |
+| Regla | Dirección IP del front-end | protocol | port | Destination | port |
 | --- | --- | --- | --- | --- | --- |
 | ![regla verde](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |Dirección IP de DIP |80 |
 | ![regla violeta](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |65.52.0.2 |TCP |80 |Dirección IP de DIP |81 |
@@ -104,7 +103,7 @@ En este escenario, cada máquina virtual del grupo back-end tiene tres interface
 
 Se asume que la configuración front-end es la misma que en el escenario anterior:
 
-| Front-end | Dirección IP | protocolo | port |
+| Front-end | Dirección IP | protocol | port |
 | --- | --- | --- | --- |
 | ![front-end verde](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |
 | ![front-end violeta](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |*65.52.0.2* |TCP |80 |
@@ -118,7 +117,7 @@ Se definen dos reglas:
 
 En la tabla siguiente se muestra la asignación completa en el equilibrador de carga:
 
-| Regla | Dirección IP del front-end | protocolo | port | Destino | port |
+| Regla | Dirección IP del front-end | protocol | port | Destination | port |
 | --- | --- | --- | --- | --- | --- |
 | ![regla verde](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |igual que el front-end (65.52.0.1) |igual que el front-end (80) |
 | ![regla violeta](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |65.52.0.2 |TCP |80 |igual que el front-end (65.52.0.2) |igual que el front-end (80) |

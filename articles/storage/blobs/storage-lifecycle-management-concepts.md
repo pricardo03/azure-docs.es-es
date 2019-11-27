@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
-ms.openlocfilehash: e4d961603ab0ade1bb175161fffd7f085a1f644b
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 41e1228d127ddbbf0749036fc6f0129da1208bc7
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70934081"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74077114"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Administración del ciclo de vida de Azure Blob Storage
 
@@ -56,7 +56,7 @@ En este artículo se muestra cómo administrar la directiva mediante el portal y
 > [!NOTE]
 > Si habilita reglas de firewall para la cuenta de almacenamiento, puede que se bloqueen las solicitudes de administración del ciclo de vida. Puede desbloquear estas solicitudes proporcionando excepciones para los servicios de confianza de Microsoft. Para más información, consulte la sección Excepciones en [Configuración de firewalls y redes virtuales](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 
-### <a name="azure-portal"></a>Portal de Azure
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
 Hay dos formas de agregar una directiva en Azure Portal. 
 
@@ -126,7 +126,7 @@ Hay dos formas de agregar una directiva en Azure Portal.
 
 6. Para obtener más información sobre este ejemplo JSON, consulte las secciones [Directiva](#policy) y [Reglas](#rules).
 
-### <a name="powershell"></a>PowerShell
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 El siguiente script de PowerShell puede usarse para agregar una directiva a la cuenta de almacenamiento. La variable `$rgname` se debe inicializar con el nombre del grupo de recursos. La variable `$accountName` se debe inicializar con el nombre de la cuenta de almacenamiento.
 
@@ -156,7 +156,7 @@ $rule1 = New-AzStorageAccountManagementPolicyRule -Name Test -Action $action -Fi
 $policy = Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -StorageAccountName $accountName -Rule $rule1
 ```
 
-## <a name="azure-resource-manager-template-with-lifecycle-management-policy"></a>Plantilla de Azure Resource Manager con la directiva de administración del ciclo de vida
+# <a name="templatetabtemplate"></a>[Plantilla](#tab/template)
 
 Puede definir la administración del ciclo de vida mediante plantillas de Azure Resource Manager. Aquí tiene una plantilla de ejemplo para implementar una cuenta de almacenamiento de RA-GRS GPv2 con una directiva de administración del ciclo de vida.
 
@@ -197,6 +197,8 @@ Puede definir la administración del ciclo de vida mediante plantillas de Azure 
   "outputs": {}
 }
 ```
+
+---
 
 ## <a name="policy"></a>Directiva
 
@@ -345,6 +347,9 @@ En este ejemplo se muestra cómo realizar la transición de blobs en bloques con
 
 Algunos datos permanecen inactivos en la nube y, una vez almacenados, no se accede a ellos prácticamente nunca. La siguiente directiva del ciclo de vida está configurada para archivar datos cuando se ingieran. En este ejemplo se realiza la transición de los blobs en bloques en la cuenta de almacenamiento en el contenedor `archivecontainer` a un nivel de archivo. La transición se realiza al actuar en los blobs 0 días después de la hora de la última modificación:
 
+> [!NOTE] 
+> Se recomienda cargar los blobs directamente en el nivel de archivo para que sea más eficaz. Puede usar el encabezado x-ms-acess-tier para [PutBlob](https://docs.microsoft.com/rest/api/storageservices/put-blob) o [PutBlockList](https://docs.microsoft.com/rest/api/storageservices/put-block-list) con la versión de REST 2018-11-09 y versiones más recientes o las bibliotecas de cliente de blob storage más recientes. 
+
 ```json
 {
   "rules": [
@@ -427,9 +432,11 @@ En el caso de los datos que se modifican y a los que se accede con regularidad a
 **He creado una directiva, ¿por qué las acciones no se ejecutan inmediatamente?**  
 La plataforma ejecuta la directiva del ciclo de vida una vez al día. Una vez que configure una directiva, algunas acciones pueden tardar hasta 24 horas en ejecutarse por primera vez.  
 
-**He rehidratado manualmente un blob archivado, ¿cómo evito que vuelva temporalmente al nivel de archivo?**  
-Cuando se mueve un blob desde un nivel de acceso a otro, su hora de última modificación no cambia. Si rehidrata manualmente un blob archivado al nivel de acceso frecuente, el motor de administración del ciclo de vida podría devolverlo al nivel de archivo. Deshabilite la regla que afecte temporalmente a este blob para impedir que se vuelva a archivar. Copie el blob en otra ubicación si debe quedarse permanentemente en el nivel de almacenamiento de acceso frecuente. Vuelva a habilitar la regla cuando el blob se pueda volver a mover con seguridad al nivel de archivo. 
+**Si actualizo una directiva existente, ¿cuánto tiempo tardan en ejecutarse las acciones?**  
+La directiva actualizada tarda hasta 24 horas en entrar en vigor. Una vez que la directiva está en vigor, las acciones pueden tardar hasta 24 horas en ejecutarse. Por lo tanto, la directiva puede tardar hasta 48 horas en ejecutarse.   
 
+**He rehidratado manualmente un blob archivado, ¿cómo evito que vuelva temporalmente al nivel de archivo?**  
+Cuando se mueve un blob desde un nivel de acceso a otro, su hora de última modificación no cambia. Si rehidrata manualmente un blob archivado al nivel de acceso frecuente, el motor de administración del ciclo de vida podría devolverlo al nivel de archivo. Deshabilite la regla que afecte temporalmente a este blob para impedir que se vuelva a archivar. Vuelva a habilitar la regla cuando el blob se pueda volver a mover con seguridad al nivel de archivo. También puede copiar el blob en otra ubicación si necesita permanecer en el nivel de acceso frecuente o esporádico de forma permanente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

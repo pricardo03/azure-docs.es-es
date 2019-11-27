@@ -1,19 +1,19 @@
 ---
-title: Plantillas del Administrador de recursos de Azure
-description: Describe cómo usar las plantillas de Azure Resource Manager para la implementación de recursos.
+title: Información general sobre plantillas de Azure Resource Manager
+description: Describe las ventajas del uso de plantillas de Azure Resource Manager para la implementación de recursos.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/25/2019
 ms.author: tomfitz
-ms.openlocfilehash: 96f140cfa5e6151ad53ca242d1fc87ba3397316e
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: 956450e5a47e4d0e16de44b6bc72c6cb24d05889
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "71300150"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074382"
 ---
-# <a name="azure-resource-manager-templates"></a>Plantillas del Administrador de recursos de Azure
+# <a name="azure-resource-manager-templates-overview"></a>Información general sobre plantillas de Azure Resource Manager
 
 Con el traslado a la nube, muchos equipos han adoptado métodos de desarrollo más ágiles. Estos equipos se iteran rápidamente. Necesitan implementar repetidamente sus soluciones en la nube y saber que su infraestructura se encuentra en un estado confiable. Dado que la infraestructura se ha convertido en parte del proceso iterativo, ha desaparecido la división entre las operaciones y el desarrollo. Por ello, los equipos necesitan administrar la infraestructura y el código de aplicación a través de un proceso unificado.
 
@@ -125,5 +125,6 @@ Para más información acerca de las plantillas anidadas, consulte [Uso de plant
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+* Para obtener un tutorial paso a paso que le guíe en el proceso de creación de una plantilla, consulte [Tutorial: Cree e implemente la primera plantilla de Azure Resource Manager](template-tutorial-create-first-template.md).
 * Para obtener más información sobre las propiedades en los archivos de plantilla, consulte [Información sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](resource-group-authoring-templates.md).
 * Para obtener información sobre la exportación de plantillas, consulte [Guía de inicio rápido: Creación e implementación de plantillas de Azure Resource Manager mediante Azure Portal](./resource-manager-quickstart-create-templates-use-the-portal.md).

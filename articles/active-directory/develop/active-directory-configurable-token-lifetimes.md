@@ -19,12 +19,12 @@ ms.author: ryanwi
 ms.custom: aaddev, annaba, identityplatformtop40
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23cdf7887d6d0812a9e991580e2095b603a4b4df
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 021d0c19ecc4bf63861bf95d99b6ba6b8e910220
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73473943"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74046548"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Vigencia de tokens configurable en Azure Active Directory (versión preliminar)
 
@@ -53,11 +53,11 @@ Los clientes utilizan tokens de acceso para acceder a un recurso protegido. Solo
 
 ### <a name="saml-tokens"></a>Tokens de SAML
 
-Muchas aplicaciones SAAS basadas en web usan tokens SAML, que se obtienen mediante el punto de conexión del protocolo SAML2 de Azure Active Directory.  También las usan las aplicaciones mediante WS-Federation.    La duración predeterminada del token es de 1 hora. Después de Desde y la perspectiva de aplicaciones, el período de validez del token se especifica mediante el valor NotOnOrAfter del elemento <conditions...> en el token.  Después del período de validez del token, el cliente debe iniciar una nueva solicitud de autenticación, que a menudo se satisfará sin iniciar sesión de forma interactiva como resultado del token de sesión de inicio de sesión único (SSO).
+Muchas aplicaciones SAAS basadas en web usan tokens SAML, que se obtienen mediante el punto de conexión del protocolo SAML2 de Azure Active Directory. También las usan las aplicaciones mediante WS-Federation. La duración predeterminada del token es de 1 hora. Desde la perspectiva de una aplicación, el período de validez del token se especifica mediante el valor NotOnOrAfter del elemento `<conditions …>` en el token. Una vez finalizado el período de validez del token, el cliente debe iniciar una nueva solicitud de autenticación, que a menudo se satisfará sin iniciar sesión de forma interactiva como resultado del token de sesión de inicio de sesión único (SSO).
 
-El valor de NotOnOrAfter se puede cambiar mediante el parámetro AccessTokenLifetime en una directiva TokenLifetimePolicy.  Se establecerá en la duración configurada en la directiva, si la hay, más un factor de sesgo de reloj de cinco minutos.
+El valor de NotOnOrAfter se puede cambiar mediante el parámetro `AccessTokenLifetime` en un `TokenLifetimePolicy`. Se establecerá en la duración configurada en la directiva, si la hay, más un factor de sesgo de reloj de cinco minutos.
 
-Tenga en cuenta que la confirmación de asunto NotOnOrAfter especificada en el elemento <SubjectConfirmationData> no se ve afectada por la configuración de la duración del token. 
+Tenga en cuenta que la confirmación de asunto NotOnOrAfter especificada en el elemento `<SubjectConfirmationData>` no se ve afectada por la configuración de la duración del token. 
 
 ### <a name="refresh-tokens"></a>Tokens de actualización
 

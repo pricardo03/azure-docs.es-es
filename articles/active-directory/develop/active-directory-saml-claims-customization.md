@@ -1,31 +1,31 @@
 ---
-title: Personalización de notificaciones de token de SAML para aplicaciones empresariales en Azure AD | Microsoft Docs
+title: Personalización de notificaciones de token SAML para aplicaciones empresariales en Azure AD
+titleSuffix: Microsoft identity platform
 description: Aprenda a personalizar las notificaciones emitidas en el token SAML para aplicaciones empresariales en Azure AD.
 services: active-directory
 documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.assetid: f1daad62-ac8a-44cd-ac76-e97455e47803
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 10/01/2019
+ms.topic: article
+ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f4f26c82d4cda6ce3d8bf01c7fd52fa579e86dcf
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 1490a25e69ff22fde1f5c870868f20ea6f9a1cf7
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72240228"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74046987"
 ---
-# <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Procedimientos para: Personalización de las notificaciones emitidas en el token SAML para aplicaciones empresariales
+# <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Cómo: personalizar las notificaciones emitidas en el token SAML para aplicaciones empresariales
 
 Hoy en día, Azure Active Directory (Azure AD) admite el inicio de sesión único (SSO) con la mayoría de las aplicaciones empresariales, incluidas las aplicaciones previamente integradas en la galería de aplicaciones de Azure AD, así como las aplicaciones personalizadas. Cuando un usuario se autentica en una aplicación a través de Azure AD con el protocolo SAML 2.0, Azure AD envía un token a la aplicación (mediante HTTP POST). A continuación, la aplicación valida y usa el token para que el usuario inicie sesión en lugar de solicitar un nombre de usuario y una contraseña. Estos tokens SAML contienen trozos de información sobre el usuario conocidos como *notificaciones*.
 
@@ -42,7 +42,7 @@ Hay dos razones posibles por las que tendría que editar las notificaciones emit
 * La aplicación requiere que la notificación `NameIdentifier` o NameID tenga un valor que no sea el del nombre de usuario (o nombre principal de usuario) almacenado en Azure AD.
 * La aplicación se ha creado para requerir un conjunto diferente de URI o valores de notificación.
 
-## <a name="editing-nameid"></a>Edición de NameID
+## <a name="editing-nameid"></a>Edición de nameID
 
 Para editar la notificación NameID (valor de identificador de nombre):
 
@@ -65,6 +65,7 @@ En el menú desplegable **Elija el formato del identificador de nombre**, puede 
 | **Persistent** | Azure AD usará Persistent como el formato de NameID. |
 | **EmailAddress** | Azure AD usará EmailAddress como el formato de NameID. |
 | **Unspecified** | Azure AD usará Unspecified como el formato de NameID. |
+| **Nombre completo del dominio de Windows** | Azure AD usará WindowsDomainQualifiedName como formato NameID. |
 
 También se admite NameID transitorio, pero no está disponible en la lista desplegable y no se puede configurar en Azure. Para obtener más información sobre el atributo NameIDPolicy, consulte [Protocolo SAML de inicio de sesión único](single-sign-on-saml-protocol.md).
 
@@ -77,8 +78,8 @@ Seleccione el origen que desee para la notificación `NameIdentifier` (o NameID)
 | Email | Dirección de correo electrónico del usuario |
 | userprincipalName | Nombre principal de usuario (UPN) del usuario. |
 | onpremisessamaccount | Nombre de cuenta SAM que se ha sincronizado desde Azure AD local. |
-| objectid | Valor de objectid del usuario en Azure AD. |
-| employeeid | Valor de employeeid del usuario. |
+| objectid | ObjectId del usuario en Azure AD |
+| employeeid | Id. de empleado del usuario |
 | Sincronización de Azure AD Connect: Extensiones de directorio | Extensiones de directorio [sincronizadas desde Active Directory local con Azure AD Connect Sync](../hybrid/how-to-connect-sync-feature-directory-extensions.md) |
 | Atributos de extensión 1-15 | Los atributos de extensión locales usados para extender el esquema de AD Azure. |
 
@@ -90,7 +91,7 @@ También puede asignar cualquier valor constante (estático) a cualquier notific
 
 1. Haga clic en la notificación que desea modificar.
 
-1. Escriba el valor constante en el **atributo de origen** según su organización y haga clic en **Guardar**.
+1. Escriba el valor constante sin comillas en el **Atributo de origen** según su organización y haga clic en **Guardar**.
 
     ![Apertura de la sección Atributos y notificaciones de usuario en Azure Portal](./media/active-directory-saml-claims-customization/organization-attribute.png)
 
@@ -117,19 +118,27 @@ Para agregar notificaciones específicas de la aplicación:
 1. Escriba el **nombre** de las notificaciones. El valor no tiene que seguir un patrón de URI estrictamente, de acuerdo con la especificación SAML. Si necesita un patrón de URI, puede colocarlo en el campo **Espacio de nombres**.
 1. Seleccione el **origen** en el que la notificación va a recuperar su valor. Puede seleccionar un atributo de usuario en la lista desplegable de atributos de origen o aplicar una transformación al atributo de usuario antes de emitirlo como una notificación.
 
-### <a name="application-specific-claims---transformations"></a>Notificaciones específicas de la aplicación: transformaciones
+### <a name="claim-transformations"></a>Transformaciones de notificación
 
-También puede usar las funciones de transformaciones de notificaciones.
+Para aplicar una transformación a un atributo de usuario:
+
+1. En **Administrar notificaciones**, seleccione *Transformación* como origen de la notificación para abrir la página **Administrar la transformación**.
+2. Seleccione la función en la lista desplegable transformación. Dependiendo de la función seleccionada, tendrá que proporcionar parámetros y un valor constante para evaluar en la transformación. Consulte la tabla siguiente para más información sobre las funciones disponibles.
+3. Para aplicar varias transformaciones, haga clic en **Agregar transformación**. Puede aplicar un máximo de dos transformaciones a una notificación. Por ejemplo, puede extraer primero el prefijo de correo del `user.mail`. Después, convierta la cadena en mayúsculas.
+
+   ![Edición del valor de la notificación NameID (identificador de nombre)](./media/active-directory-saml-claims-customization/sso-saml-multiple-claims-transformation.png)
+
+Puede utilizar las siguientes funciones para transformar notificaciones.
 
 | Función | DESCRIPCIÓN |
 |----------|-------------|
 | **ExtractMailPrefix()** | Quita el sufijo de dominio de la dirección de correo electrónico o el nombre principal de usuario. De este modo se extrae solo la primera parte del nombre de usuario por la que se pasa (por ejemplo, "joe_smith" en lugar de joe_smith@contoso.com). |
-| **Join()** | Crea un nuevo valor al combinar dos atributos. Si quiere, puede usar un separador entre los dos atributos. |
+| **Join()** | Crea un nuevo valor al combinar dos atributos. Si quiere, puede usar un separador entre los dos atributos. Para la transformación de notificaciones NameID, la combinación está restringida a un dominio comprobado. Si el valor de identificador de usuario seleccionado tiene un dominio, extraerá el nombre de usuario para anexar el dominio comprobado seleccionado. Por ejemplo, si selecciona el correo electrónico (joe_smith@contoso.com) como valor de identificador de usuario y selecciona contoso.onmicrosoft.com como dominio comprobado, el resultado será joe_smith@contoso.onmicrosoft.com. |
 | **ToLower()** | Convierte los caracteres del atributo seleccionado en caracteres en minúscula. |
 | **ToUpper()** | Convierte los caracteres del atributo seleccionado en caracteres en mayúscula. |
 | **Contains()** | Genera un atributo o una constante si la entrada coincide con el valor especificado. En caso contrario, puede especificar otra salida si no hay ninguna coincidencia.<br/>Por ejemplo, si quiere emitir una notificación en la que el valor es la dirección de correo electrónico del usuario si contiene el dominio "@contoso.com"; en caso contrario, quiere obtener el nombre principal de usuario. Para ello, configuraría los siguientes valores:<br/>*Parámetro 1 (entrada)* : user.email<br/>*Valor*: "@contoso.com"<br/>Parámetro 2 (salida): user.email<br/>Parámetro 3 (salida si no hay ninguna coincidencia): user.userprincipalname |
-| **EndWith()** | Genera un atributo o una constante si la entrada finaliza con el valor especificado. En caso contrario, puede especificar otra salida si no hay ninguna coincidencia.<br/>Por ejemplo, si quiere emitir una notificación en la que el valor sea el employeeid del usuario si employeeid termina con "000"; en caso contrario, quiere obtener un atributo de extensión. Para ello, configuraría los siguientes valores:<br/>*Parámetro 1 (entrada)* : user.employeeid<br/>*Valor*: "000"<br/>Parámetro 2 (salida): user.employeeid<br/>Parámetro 3 (salida si no hay ninguna coincidencia): user.extensionattribute1 |
-| **StartWith()** | Genera un atributo o una constante si la entrada empieza con el valor especificado. En caso contrario, puede especificar otra salida si no hay ninguna coincidencia.<br/>Por ejemplo, si quiere emitir una notificación en la que el valor sea el employeeid del usuario si el país o la región empieza con "US"; en caso contrario, quiere obtener un atributo de extensión. Para ello, configuraría los siguientes valores:<br/>*Parámetro 1 (entrada)* : user.country<br/>*Valor*: "US"<br/>Parámetro 2 (salida): user.employeeid<br/>Parámetro 3 (salida si no hay ninguna coincidencia): user.extensionattribute1 |
+| **EndWith()** | Genera un atributo o una constante si la entrada finaliza con el valor especificado. En caso contrario, puede especificar otra salida si no hay ninguna coincidencia.<br/>Por ejemplo, si quiere emitir una notificación en la que el valor es el Id. de empleado del usuario, si el Id. de empleado termina con "000", de lo contrario, quiere generar un atributo de extensión. Para ello, configuraría los siguientes valores:<br/>*Parámetro 1 (entrada)* : user.employeeid<br/>*Valor*: "000"<br/>Parámetro 2 (salida): user.employeeid<br/>Parámetro 3 (salida si no hay ninguna coincidencia): user.extensionattribute1 |
+| **StartWith()** | Genera un atributo o una constante si la entrada empieza con el valor especificado. En caso contrario, puede especificar otra salida si no hay ninguna coincidencia.<br/>Por ejemplo, si quiere emitir una notificación en la que el valor es el Id. de empleado del usuario, si el país o la región comienza por "US", en caso contrario, quiere generar un atributo de extensión. Para ello, configuraría los siguientes valores:<br/>*Parámetro 1 (entrada)* : user.country<br/>*Valor*: "US"<br/>Parámetro 2 (salida): user.employeeid<br/>Parámetro 3 (salida si no hay ninguna coincidencia): user.extensionattribute1 |
 | **Extract(): después de la coincidencia** | Devuelve el valor de substring que aparece después de la coincidencia con el valor especificado.<br/>Por ejemplo, si el valor de la entrada es "Finance_BSimon", el valor coincidente es "Finance_" y, por lo tanto, el resultado de la notificación es "BSimon". |
 | **Extract(): antes de la coincidencia** | Devuelve el valor de substring que aparece antes de la coincidencia con el valor especificado.<br/>Por ejemplo, si el valor de la entrada es "BSimon_US", el valor coincidente es "_US" y, por lo tanto, el resultado de la notificación es "BSimon". |
 | **Extract(): entre coincidencias** | Devuelve el valor de substring que aparece antes de la coincidencia con el valor especificado.<br/>Por ejemplo, si el valor de la entrada es "Finance_BSimon_US", el valor coincidente es "Finance_", el segundo valor coincidente es "_US" y, por lo tanto, el resultado de la notificación es "BSimon". |
@@ -137,10 +146,39 @@ También puede usar las funciones de transformaciones de notificaciones.
 | **ExtractAlpha(): sufijo** | Devuelve la parte alfabética del sufijo de la cadena.<br/>Por ejemplo, si el valor de la entrada es "123_Simon", devuelve "Simon". |
 | **ExtractNumeric(): prefijo** | Devuelve la parte numérica del prefijo de la cadena.<br/>Por ejemplo, si el valor de la entrada es "123_BSimon", devuelve "123". |
 | **ExtractNumeric(): sufijo** | Devuelve la parte numérica del sufijo de la cadena.<br/>Por ejemplo, si el valor de la entrada es "BSimon_123", devuelve "123". |
-| **IfEmpty()** | Genera un atributo o una constante si la entrada es nula o está vacía.<br/>Por ejemplo, si quiere obtener un atributo que está almacenado en un valor de extensionattribute si el valor de employeeid de un usuario determinado está vacío. Para ello, configuraría los siguientes valores:<br/>Parámetro 1 (entrada): user.employeeid<br/>Parámetro 2 (salida): user.extensionattribute1<br/>Parámetro 3 (salida si no hay ninguna coincidencia): user.employeeid |
-| **IfNotEmpty()** | Genera un atributo o una constante si la entrada no es nula ni está vacía.<br/>Por ejemplo, si quiere obtener un atributo que está almacenado en un valor de extensionattribute si el valor de employeeid de un usuario determinado no está vacío. Para ello, configuraría los siguientes valores:<br/>Parámetro 1 (entrada): user.employeeid<br/>Parámetro 2 (salida): user.extensionattribute1 |
+| **IfEmpty()** | Genera un atributo o una constante si la entrada es nula o está vacía.<br/>Por ejemplo, si quiere generar un atributo almacenado en un extensionattribute si el Id. de empleado de un usuario determinado está vacío. Para ello, configuraría los siguientes valores:<br/>Parámetro 1 (entrada): user.employeeid<br/>Parámetro 2 (salida): user.extensionattribute1<br/>Parámetro 3 (salida si no hay ninguna coincidencia): user.employeeid |
+| **IfNotEmpty()** | Genera un atributo o una constante si la entrada no es nula ni está vacía.<br/>Por ejemplo, si quiere generar un atributo almacenado en un extensionattribute si el Id. de empleado para un usuario determinado no está vacío. Para ello, configuraría los siguientes valores:<br/>Parámetro 1 (entrada): user.employeeid<br/>Parámetro 2 (salida): user.extensionattribute1 |
 
 Si necesita transformaciones adicionales, envíe su idea al [foro de comentarios de Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=160599), en la categoría *Aplicación SaaS*.
+
+## <a name="emitting-claims-based-on-conditions"></a>Emisión de notificaciones basadas en condiciones
+
+Puede especificar el origen de una notificación en función del tipo de usuario y el grupo al que pertenece el usuario. 
+
+El tipo de usuario puede ser:
+- **Cualquiera**: Todos los usuarios pueden tener acceso a la aplicación.
+- **Miembros**: Miembro nativo del inquilino
+- **Todos los invitados**: El usuario se traslada de una organización externa con o sin Azure AD.
+- **Invitados de AAD**: El usuario invitado pertenece a otra organización mediante Azure AD.
+- **Invitados externos**: El usuario invitado pertenece a una organización externa que no tiene Azure AD.
+
+
+Un escenario en el que esto resulta útil es cuando el origen de una notificación es diferente para un invitado y para un empleado que tiene acceso a una aplicación. Es posible que quiera especificar que, si el usuario es un empleado, el origen del NameID es user.email, pero, si el usuario es un invitado, el NameID se obtiene de user.extensionattribute1.
+
+Para agregar una condición de notificaciones:
+
+1. En **Administrar notificaciones**, expanda las Condiciones de la notificación.
+2. Seleccione el tipo de usuario.
+3. Seleccione los grupos a los que debe pertenecer el usuario. Puede seleccionar hasta 10 grupos únicos en todas las notificaciones para una aplicación determinada. 
+4. Seleccione el **origen** en el que la notificación va a recuperar su valor. Puede seleccionar un atributo de usuario en la lista desplegable de atributos de origen o aplicar una transformación al atributo de usuario antes de emitirlo como una notificación.
+
+El orden en que se agregan las condiciones es importante. Azure AD evalúa las condiciones de arriba a abajo para decidir qué valor se va a emitir en la notificación. 
+
+Por ejemplo, Britta Simon es un usuario invitado en el inquilino de Contoso. Pertenece a otra organización que también usa Azure AD. Dada la siguiente configuración para la aplicación de Fabrikam, cuando Britta intenta iniciar sesión en Fabrikam, Azure AD evaluará las condiciones como se indica a continuación.
+
+En primer lugar, Azure AD comprueba si el tipo de usuario de Britta es `All guests`. Como, esto es así Azure AD asigna el origen de la notificación a `user.extensionattribute1`. En segundo lugar, Azure AD comprueba si el tipo de usuario de Britta es `AAD guests`, ya que esto también se cumple Azure AD asigna el origen de la notificación a `user.mail`. Por último, la notificación se emite con el valor `user.email` para Britta.
+
+![Configuración condicional de notificaciones](./media/active-directory-saml-claims-customization/sso-saml-user-conditional-claims.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

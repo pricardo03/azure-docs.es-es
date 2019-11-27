@@ -1,5 +1,5 @@
 ---
-title: 'Extensión del controlador de GPU de NVIDIA: VM de Microsoft Azure | Microsoft Docs'
+title: 'Extensión de controlador de GPU NVIDIA: máquinas virtuales Windows de Azure'
 description: Extensión de Microsoft Azure para instalar controladores de GPU de NVIDIA en VM de proceso de la serie N que ejecutan Windows.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: akjosh
-ms.openlocfilehash: 13a7189d9758fd6d1e7daac38e948e1b482a019b
-ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
+ms.openlocfilehash: c388f433327b5328483f10fbef637a6fdfd08832
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71686769"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073018"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>Extensión del controlador de GPU de NVIDIA para Windows
 

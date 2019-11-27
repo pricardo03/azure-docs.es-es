@@ -1,5 +1,5 @@
 ---
-title: Implementación de hosts dedicados de Azure mediante la CLI | Microsoft Docs
+title: Implementación de hosts dedicados de Azure mediante la CLI
 description: Implemente máquinas virtuales en hosts dedicados mediante la CLI de Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 07/29/2019
 ms.author: cynthn
-ms.openlocfilehash: 0c060e2ab94c0a57d4d4dc897702e115cfabd9a0
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: ece9967321cfca44b102d78722f0df3d8f980bdb
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827292"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036399"
 ---
 # <a name="preview-deploy-vms-to-dedicated-hosts-using-the-azure-cli"></a>Vista previa: Implementación de máquinas virtuales en hosts dedicados mediante la CLI de Azure
  
@@ -32,7 +32,7 @@ Asegúrese de tener instalada la CLI de Azure, versión 2.0.70 o posterior, y de
 > Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
 > **Limitaciones conocidas de la versión preliminar**
-> - Actualmente, los conjuntos de escalado de máquinas virtuales no se admiten en hosts dedicados.
+> - Actualmente, los conjuntos de escalado de máquinas virtuales no se admiten en los hosts dedicados.
 > - La versión preliminar inicial admite las siguientes series de máquinas virtuales: DSv3 y ESv3. 
  
 
@@ -104,7 +104,7 @@ az vm host create \
 
 
  
-## <a name="create-a-virtual-machine"></a>de una máquina virtual 
+## <a name="create-a-virtual-machine"></a>Creación de una máquina virtual 
 Cree una máquina virtual en un host dedicado mediante [az vm create](/cli/azure/vm#az-vm-create). Si especificó una zona de disponibilidad al crear el grupo host, debe usar la misma zona al crear la máquina virtual.
 
 ```bash

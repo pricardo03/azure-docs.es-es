@@ -1,19 +1,20 @@
 ---
-title: 'Guía de inicio rápido: Configuración del cifrado SSL de un extremo a otro con Azure Application Gateway: Azure Portal | Microsoft Docs'
+title: Configuración del cifrado SSL de un extremo a otro mediante el portal
+titleSuffix: Azure Application Gateway
 description: Aprenda a usar Azure Portal para crear una puerta de enlace de aplicaciones con el cifrado SSL de un extremo a otro.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 4/30/2019
+ms.date: 11/14/2019
 ms.author: absha
 ms.custom: mvc
-ms.openlocfilehash: ba31b5ebf83edcd08060a2acc3b5639a521e2729
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: a878b966266bdd326db35d266bc14b2f81161e92
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243666"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075138"
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-the-portal"></a>Configuración de SSL de un extremo a otro con Application Gateway mediante el portal
 

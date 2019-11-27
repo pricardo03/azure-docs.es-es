@@ -1,6 +1,6 @@
 ---
-title: Envío de mensajes a un servidor MQTT mediante la biblioteca cliente de MQTT de Azure | Microsoft Docs
-description: Uso de DevKit como un cliente para enviar mensajes a un servidor MQTT
+title: Enviar mensajes a un servidor de MQTT mediante la biblioteca de cliente de Azure MQTT
+description: Aprenda a usar la biblioteca cliente de MQTT para enviar mensajes a un agente MQTT. También aprenderá a configurar el mXChip IoT DevKit para que sea un cliente MQTT.
 author: liydu
 manager: jeffya
 ms.service: iot-hub
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/02/2018
 ms.author: liydu
-ms.openlocfilehash: 6afe0a2fe366b83af45682245776c803c99483d3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 14feb02fbac800cd37da882a1872beb8269d9938
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73484038"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954241"
 ---
 # <a name="send-messages-to-an-mqtt-server"></a>Envío de mensajes a un servidor MQTT
 

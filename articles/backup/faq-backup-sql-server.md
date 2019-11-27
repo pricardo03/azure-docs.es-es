@@ -1,5 +1,5 @@
 ---
-title: 'Preguntas frecuentes: copia de seguridad de bases de datos de SQL Server en máquinas virtuales de Azure con Azure Backup'
+title: 'Preguntas más frecuentes: copia de seguridad de bases de datos de SQL Server en máquinas virtuales de Azure - Azure Backup'
 description: Busque las respuestas a preguntas habituales sobre la copia de seguridad de bases de datos de SQL Server en máquinas virtuales de Azure con Azure Backup.
 ms.reviewer: vijayts
 author: dcurwin
@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: dacurwin
-ms.openlocfilehash: 27f416d4ed16de0277952f82c3f7dbac607890d6
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: d9272aa4a46a5835558be8c695b62ec0770e3827
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72750225"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074057"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Preguntas más frecuentes sobre las bases de datos de SQL Server que se ejecutan en una copia de seguridad de máquina virtual de Azure
 
@@ -74,7 +74,7 @@ No. Los trabajos de copia de seguridad correctos no generan alertas. Las alertas
 
 ## <a name="can-i-see-scheduled-backup-jobs-in-the-backup-jobs-menu"></a>¿Se pueden ver los trabajos de copia de seguridad programados en el menú de Trabajos de copia de seguridad?
 
-El menú de **Trabajo de copia de seguridad** solo muestra los trabajos de copia de seguridad ad hoc. Para el trabajo programado, utilice la [Supervisión mediante Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).
+En el menú de **Trabajo de copia de seguridad** solo se mostrarán los trabajos de copia de seguridad a petición. Para el trabajo programado, utilice la [Supervisión mediante Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).
 
 ## <a name="are-future-databases-automatically-added-for-backup"></a>¿Las bases de datos futuras se agregan automáticamente para copia de seguridad?
 

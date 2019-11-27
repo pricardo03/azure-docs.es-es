@@ -5,15 +5,15 @@ services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 06/27/2019
+ms.date: 11/06/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: cae108a1d4226e8c0fe39f9cd1cedc1e6a024ffc
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.openlocfilehash: 729e757c69887bbdce324e2d8383c970995dc94a
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67465448"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903666"
 ---
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure 
 
@@ -47,7 +47,9 @@ Cree la definición de imagen de la galería dentro de la galería. En este ejem
 
 1. En la página de la nueva galería de imágenes, seleccione **Add a new image definition** (Agregar una nueva definición de imagen) en la parte superior de la página. 
 1. En **Nombre de definición de la imagen**, escriba *myImageDefinition*.
-1. En **Sistema operativo**, seleccione la opción correcta en función de la imagen de origen.
+1. En **Sistema operativo**, seleccione la opción correcta en función de la VM de origen.
+1. En **Generación de VM**, seleccione la opción en función de la VM de origen. En la mayoría de los casos, será *Gen 1*. Para obtener más información, consulte [Compatibilidad para máquinas virtuales de generación 2 en Azure](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2).
+1. En **Estado del sistema operativo**, seleccione la opción en función de la VM de origen. Para más información, consulte [Generalizada o Especializada](../articles/virtual-machines/linux/shared-image-galleries.md#generalized-and-specialized-images).
 1. En **Publicador**, escriba *myPublisher*. 
 1. En **Oferta**, escriba *myOffer*.
 1. En **SKU**, escriba *mySKU*.
@@ -62,6 +64,10 @@ Cree una versión de la imagen a partir de una imagen administrada. En este ejem
 
 Los caracteres permitidos para la versión de una imagen son números y puntos. Los números deben estar dentro del rango de un entero de 32 bits. Formato: *VersiónPrincipal*.*VersiónSecundaria*.*Revisión*.
 
+Los pasos para crear una versión de la imagen son ligeramente diferentes, en función de si el origen es una imagen generalizada o una instantánea de una VM especializada. 
+
+### <a name="option-generalized"></a>Opción: Generalizada
+
 1. En la página de la definición de imagen, seleccione **Agregar versión** en la parte superior de la página.
 1. En **Región**, seleccione la región donde se almacena la imagen administrada. Las versiones de imagen deben crearse en la misma región que la imagen administrada a partir de la que se crean.
 1. En **Nombre**, escriba *1.0.0*. El nombre de la versión de la imagen debe seguir el formato *principal*. *secundaria*.*revisión* con números enteros. 
@@ -74,6 +80,19 @@ Los caracteres permitidos para la versión de una imagen son números y puntos. 
 1. Cuando la implementación finalice, seleccione **Ir al recurso**.
 
 La imagen puede tardar un rato en replicarse en todas las regiones de destino.
+
+### <a name="option-specialized"></a>Opción: Especializada
+
+1. En la página de la definición de imagen, seleccione **Agregar versión** en la parte superior de la página.
+1. En **Región**, seleccione la región en la que se almacenará la instantánea. Las versiones de imagen deben crearse en la misma región que el origen a partir del que se crean.
+1. En **Nombre**, escriba *1.0.0*. El nombre de la versión de la imagen debe seguir el formato *principal*. *secundaria*.*revisión* con números enteros. 
+1. En **Instantánea del disco del sistema operativo**, seleccione la instantánea de la VM de origen en la lista desplegable. Si la VM de origen tenía un disco de datos que quiere incluir, seleccione el número de **LUN**correcto de la lista desplegable y luego seleccione la instantánea del disco de datos en **Instantánea del disco de datos**. 
+1. En **Excluir de las últimas**, deje el valor predeterminado de *No*.
+1. En **End of life date** (Fecha del final de la duración), seleccione una fecha del calendario que sea un par de meses en el futuro.
+1. En **Replicación**, deje **Número de réplicas predeterminado** en 1. Como debe replicar en la región de origen, deje la primera réplica como predeterminada y, luego, elija una segunda región de réplica, en este caso *Este de EE. UU.* .
+1. Cuando haya terminado, seleccione **Revisar y crear**. Azure validará la configuración.
+1. Una vez que la versión de la imagen supere la validación, seleccione **Crear**.
+1. Cuando la implementación finalice, seleccione **Ir al recurso**.
 
 ## <a name="share-the-gallery"></a>Uso compartido de la galería
 

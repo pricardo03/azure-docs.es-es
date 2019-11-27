@@ -1,27 +1,27 @@
 ---
-title: Copia de datos con Azure Blob Storage como origen o destino mediante Data Factory
-description: Aprenda a copiar datos desde cualquier almacén de datos de origen compatible a Azure Blob Storage o desde Blob Storage a cualquier almacén de datos de receptor compatible mediante Data Factory.
+title: Copia y transformación de datos en Azure Blob Storage mediante Data Factory
+description: Aprenda a copiar datos en y desde Blob Storage, y a transformar datos en Blob Storage mediante Data Factory.
 author: linda33wj
 manager: craigg
 ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/24/2019
+ms.date: 11/13/2019
 ms.author: jingwang
-ms.openlocfilehash: 7d17d1ee60f2049dccfb8bc711f3b76bb51689b6
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 45fb61ee624ae5ab159f097c233907be7ec35c98
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681358"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075635"
 ---
-# <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>Copia de datos con Azure Blob Storage como origen o destino mediante Azure Data Factory
+# <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory"></a>Copia y transformación de datos en Azure Blob Storage mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
 > * [Versión 1](v1/data-factory-azure-blob-connector.md)
 > * [Versión actual](connector-azure-blob-storage.md)
 
-En este artículo se describe cómo copiar datos a y desde Azure Blob Storage. Para información sobre Azure Data Factory, lea el [artículo de introducción](introduction.md).
+En este artículo se explica el uso de la Actividad de copia en Azure Data Factory para copiar datos desde y hacia Azure Blob Storage, y usar el flujo de datos para transformar datos en Azure Blob Storage. Para información sobre Azure Data Factory, lea el [artículo de introducción](introduction.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -35,7 +35,7 @@ Este conector de Azure Blob es compatible con las actividades siguientes:
 - [Actividad GetMetadata](control-flow-get-metadata-activity.md)
 - [Actividad de eliminación](delete-activity.md)
 
-En concreto, este conector de Blob Storage admite las siguientes operaciones:
+En la Actividad de copia, este conector de Blob Storage admite:
 
 - Copia de blobs con cuentas de Azure Storage de uso general y almacenamiento de blobs en frío y en caliente como orígenes y destinos. 
 - Copia de blobs mediante el uso de una clave de cuenta, una firma de acceso compartido de servicio, una entidad de servicio o identidades administradas paras las autenticaciones de recursos de Azure.
@@ -469,7 +469,7 @@ Las propiedades siguientes se admiten para Azure Blob en la configuración `stor
 #### <a name="legacy-source-model"></a>Modelo de origen heredado
 
 >[!NOTE]
->El siguiente modelo de origen de copia se sigue admitiendo tal cual para la compatibilidad con versiones anteriores. A partir de ahora, se recomienda usar el nuevo modelo mencionado en la sección anterior; además, la interfaz de usuario de creación de ADF ha pasado a generar el nuevo modelo.
+>El siguiente modelo de origen de copia se sigue admitiendo tal cual para la compatibilidad con versiones anteriores. A partir de ahora, se recomienda usar el nuevo modelo mencionado anteriormente; además, la interfaz de usuario de creación de ADF ha pasado a generar el nuevo modelo.
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
@@ -559,7 +559,7 @@ Las propiedades siguientes se admiten para Azure Blob en la configuración `stor
 #### <a name="legacy-sink-model"></a>Modelo de receptor heredado
 
 >[!NOTE]
->El siguiente modelo de receptor de copia se sigue admitiendo tal cual para compatibilidad con versiones anteriores. A partir de ahora, se recomienda usar el nuevo modelo mencionado en la sección anterior; además, la interfaz de usuario de creación de ADF ha pasado a generar el nuevo modelo.
+>El siguiente modelo de receptor de copia se sigue admitiendo tal cual para compatibilidad con versiones anteriores. A partir de ahora, se recomienda usar el nuevo modelo mencionado anteriormente; además, la interfaz de usuario de creación de ADF ha pasado a generar el nuevo modelo.
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |

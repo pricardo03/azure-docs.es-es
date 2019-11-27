@@ -1,5 +1,5 @@
 ---
-title: Descripción y ajuste de las unidades de streaming en Azure Stream Analytics
+title: Unidades de streaming en Azure Stream Analytics
 description: En este artículo se describe la configuración de unidades de streaming y otros factores que afectan al rendimiento en Azure Stream Analytics.
 services: stream-analytics
 author: JSeb225
@@ -8,13 +8,13 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/21/2019
-ms.openlocfilehash: 54296f0b4aed22457a5218154111a42ad01ec262
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.date: 10/28/2019
+ms.openlocfilehash: 25105847b7134b7119252a66ac7e8502771ce5db
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67329339"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961275"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Descripción y ajuste de las unidades de streaming
 
@@ -34,6 +34,7 @@ La métrica de uso del % de SU, que oscila de 0 % al 100 %, describe el consumo 
     ![Configuración del trabajo de Stream Analytics en Azure Portal][img.stream.analytics.preview.portal.settings.scale]
     
 4. Use el control deslizante para establecer las unidades de streaming del trabajo. Tenga en cuenta que está limitado a la configuración de unidades de streaming específica. 
+5. Puede cambiar el número de SU asignados a su trabajo incluso cuando se está ejecutando. Esto no es posible si el trabajo usa una [salida sin particiones](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#query-using-non-partitioned-output) o si tiene una [consulta de varios pasos con diferentes valores de PARTITION BY](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#multi-step-query-with-different-partition-by-values). El trabajo también debe tener al menos 6 SU para cambiar esta configuración cuando se ejecuta. Quizás se vea restringido de elegir entre un conjunto de valores de SU cuando el trabajo se está ejecutando. 
 
 ## <a name="monitor-job-performance"></a>Supervisión del rendimiento del trabajo
 Mediante Azure Portal, puede realizar el seguimiento de la capacidad de procesamiento de un trabajo:
@@ -98,7 +99,7 @@ Una vez que la consulta está particionada, se extiende por varios nodos. Como r
 Las particiones de Event Hub se deben particionar según la clave de agrupación para evitar la necesidad de un paso de reducción. Para obtener más información, consulte [Información general sobre Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md). 
 
 ## <a name="temporal-joins"></a>Combinaciones temporales
-La memoria consumida (tamaño del estado) de una combinación temporal es proporcional al número de eventos en el espacio de ondulación temporal de la combinación, que es la tasa de entrada del evento multiplicada por el tamaño del espacio de ondulación. En otras palabras, la memoria utilizada por las combinaciones es proporcional al intervalo de tiempo DateDiff multiplicado por la tasa media de los eventos.
+La memoria consumida (tamaño del estado) de una unión temporal es proporcional al número de eventos en el espacio de ondulación temporal de la unión, que es la tasa de entrada del evento multiplicada por el tamaño del espacio de ondulación. En otras palabras, la memoria utilizada por las combinaciones es proporcional al intervalo de tiempo DateDiff multiplicado por la tasa media de los eventos.
 
 La cantidad de eventos no coincidentes en la combinación afecta el uso de memoria de la consulta. La consulta siguiente busca las impresiones de anuncios que generan clics:
 
@@ -110,7 +111,7 @@ La cantidad de eventos no coincidentes en la combinación afecta el uso de memor
 
 En este ejemplo, es posible que se muestren muchos anuncios, pero que pocas personas hagan clic en ellos, por lo que es necesario mantener todos los eventos en la ventana de tiempo. La memoria consumida es proporcional al tamaño de ventana y la tasa de eventos. 
 
-Para corregir esto, envíe eventos a Event Hub particionados por las claves de combinación (en este caso, el identificador) y escale horizontalmente la consulta permitiendo que el sistema procese de manera independiente cada partición de entrada con **PARTITION BY**, como se muestra a continuación:
+Para corregir esto, envíe eventos a Event Hub particionados por las claves de unión (en este caso, el identificador) y escale horizontalmente la consulta permitiendo que el sistema procese de manera independiente cada partición de entrada con **PARTITION BY**, como se muestra a continuación:
 
    ```sql
    SELECT clicks.id

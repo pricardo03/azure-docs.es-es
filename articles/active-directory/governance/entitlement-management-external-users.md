@@ -1,5 +1,5 @@
 ---
-title: 'Gobernanza del acceso de los usuarios externos en la administración de derechos de Azure AD (versión preliminar): Azure Active Directory'
+title: 'Gobernanza del acceso de los usuarios externos en la administración de derechos de Azure AD: Azure Active Directory'
 description: Obtenga información acerca de la configuración que puede especificar para controlar el acceso de los usuarios externos en la administración de derechos de Azure Active Directory.
 services: active-directory
 documentationCenter: ''
@@ -12,23 +12,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 10/15/2019
+ms.date: 10/26/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 419970985b9531ffab348491730aaf6c00e143b1
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: e76e5c5d2cfcfd983f2b5cdc279f0c13fa6706e4
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72527099"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73832705"
 ---
-# <a name="govern-access-for-external-users-in-azure-ad-entitlement-management-preview"></a>Gobernanza del acceso de los usuarios externos en la administración de derechos de Azure AD (versión preliminar)
-
-> [!IMPORTANT]
-> La administración de derechos de Azure Active Directory (Azure AD) está actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
-> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="govern-access-for-external-users-in-azure-ad-entitlement-management"></a>Gobernanza del acceso de los usuarios externos en la administración de derechos de Azure AD
 
 La administración de derechos de Azure AD emplea [Azure AD de negocio a negocio (B2B)](../b2b/what-is-b2b.md) para colaborar con personas ajenas a su organización en otro directorio. Con Azure AD B2B, los usuarios externos se autentican en su directorio particular, pero están representados en el directorio. La representación en el directorio permite asignar al usuario acceso a los recursos.
 
@@ -50,11 +45,13 @@ En el diagrama y los pasos siguientes se proporciona información general sobre 
 
 ![Diagrama que muestra el ciclo de vida de los usuarios externos](./media/entitlement-management-external-users/external-users-lifecycle.png)
 
+1. [Agrega una organización conectada](entitlement-management-organization.md) para el directorio de Azure AD o el dominio con el que desea colaborar.
+
 1. Se crea un paquete de acceso en el directorio que incluye una directiva [Para usuarios que no están en el directorio](entitlement-management-access-package-create.md#for-users-not-in-your-directory).
 
 1. Envía un [vínculo al portal Mi acceso](entitlement-management-access-package-settings.md) a su contacto en la organización externa que pueden compartir con sus usuarios para solicitar el paquete de acceso.
 
-1. Un usuario externo (**Solicitante A** en este ejemplo) usa el vínculo al portal Mi acceso para [solicitar acceso](entitlement-management-request-access.md) al paquete de acceso.
+1. Un usuario externo (**Solicitante A** en este ejemplo) usa el vínculo al portal Mi acceso para [solicitar acceso](entitlement-management-request-access.md) al paquete de acceso. La forma en que el usuario inicia sesión depende del tipo de autenticación del directorio o dominio definido en la organización conectada.
 
 1. Un aprobador [aprueba la solicitud](entitlement-management-request-approve.md) (o se aprueba automáticamente).
 
@@ -71,6 +68,52 @@ En el diagrama y los pasos siguientes se proporciona información general sobre 
 1. En función de la configuración de la directiva, la asignación de paquetes de acceso para el usuario externo expira con el tiempo y se quita el acceso del usuario externo.
 
 1. En función del ciclo de vida de la configuración de usuarios externos, cuando el usuario externo ya no tenga ninguna asignación de paquete de acceso, no podrá iniciar sesión y la cuenta de usuario invitado se quitará de su directorio.
+
+## <a name="settings-for-external-users"></a>Configuración de usuarios externos
+
+Para asegurarse de que los usuarios ajenos a la organización puedan solicitar paquetes de acceso y obtener acceso a los recursos de estos, hay algunas opciones de configuración que debe comprobar que se han configurado correctamente.
+
+### <a name="enable-catalog-for-external-users"></a>Habilitar un catálogo para usuarios externos
+
+- De forma predeterminada, al crear un [nuevo catálogo](entitlement-management-catalog-create.md), este se habilita para permitir que los usuarios externos soliciten los paquetes de acceso que contiene. Asegúrese de que la opción **Habilitado para los usuarios externos** se haya establecido en **Sí**.
+
+    ![Edición de la configuración del catálogo](./media/entitlement-management-shared/catalog-edit.png)
+
+### <a name="configure-your-azure-ad-b2b-external-collaboration-settings"></a>Configurar las opciones de colaboración externa de Azure AD B2B
+
+- Permitir a los invitados invitar a otros invitados a su directorio significa que las invitaciones se pueden producir fuera de la administración de derechos. Se recomienda establecer la opción **Los invitados pueden invitar** en **No** para permitir solo invitaciones controladas correctamente.
+- Si usa la lista de elementos permitidos de B2B, debe asegurarse de que todos los dominios con los que desee asociarse mediante la administración de derechos se agreguen a la lista. Como alternativa, si usa la lista de denegación de elementos de B2B, debe asegurarse de que el dominio con el que desee asociar no se agregue a la lista.
+- Si crea una directiva de administración de derechos para **todos los usuarios** (todas las organizaciones conectadas + cualquier usuario externo nuevo), tendrá prioridad la configuración de la lista de elementos permitidos o denegados de B2B. Por lo tanto, asegúrese de incluir en la lista de elementos permitidos los dominios que desea incluir en esta directiva si usa uno y excluirlos de la lista de elementos denegados si usa este tipo de lista.
+- Si desea crear una directiva de administración de derechos que incluya **todos los usuarios** (todas las organizaciones conectadas y cualquier usuario externo nuevo), primero debe habilitar la autenticación de código de acceso de un solo uso de correo electrónico para su directorio. Para obtener más información, consulte [Autenticación con código de acceso de un solo uso de correo electrónico (versión preliminar)](../b2b/one-time-passcode.md#opting-in-to-the-preview).
+- Para obtener más información sobre la configuración de colaboración externa de Azure AD B2B, consulte [Habilitación de la colaboración externa B2B y administración de quién puede invitar a otros usuarios](../b2b/delegate-invitations.md).
+
+    ![Comprobación de la configuración de colaboración externa de Azure AD](./media/entitlement-management-external-users/collaboration-settings.png)
+
+### <a name="review-your-conditional-access-policies"></a>Revisar las directivas de acceso condicional
+
+- Asegúrese de excluir los invitados de las directivas de acceso condicional que los nuevos usuarios invitados no podrán cumplir, ya que esto les impedirá que puedan iniciar sesión en su directorio. Por ejemplo, es probable que los invitados no tengan un dispositivo registrado, que no estén en una ubicación conocida y no deseen volver a registrarse para la autenticación multifactor (MFA), por lo que agregar estos requisitos en una directiva de acceso condicional impedirá que los invitados usen la administración de derechos de administración. Para más información, consulte [¿Qué son las condiciones en el acceso condicional de Azure Active Directory?](../conditional-access/conditions.md).
+
+    ![Configuración de la exclusión de directiva de acceso condicional de Azure AD](./media/entitlement-management-external-users/conditional-access-exclude.png)
+
+### <a name="review-your-sharepoint-online-external-sharing-settings"></a>Revisar la configuración de uso compartido externo de SharePoint Online
+
+- Si desea incluir sitios de SharePoint Online en los paquetes de acceso para usuarios externos, asegúrese de que la configuración de uso compartido externo en el nivel de la organización se haya establecido en **Cualquiera** (los usuarios no necesitan iniciar sesión) o **Invitados nuevos y existentes** (los invitados deben iniciar sesión o proporcionar un código de verificación). Para más información, consulta [Activar o desactivar el uso compartido externo](https://docs.microsoft.com/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
+
+- Si desea restringir el uso compartido externo fuera de la administración de derechos, puede establecer la configuración de uso compartido externo en **Invitados existentes**. Luego, solo los nuevos usuarios que se invitan a través de la administración de derechos podrán obtener acceso a estos sitios. Para más información, consulta [Activar o desactivar el uso compartido externo](https://docs.microsoft.com/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
+
+- Asegúrese de que la configuración de nivel de sitio habilite el acceso de invitado (las mismas selecciones que se muestran anteriormente). Para más información, consulte [Activar o desactivar el uso compartido externo de un sitio](https://docs.microsoft.com/sharepoint/change-external-sharing-site).
+
+### <a name="review-your-office-365-group-sharing-settings"></a>Revisar la configuración de uso compartido de grupos de Office 365
+
+- Si quiere incluir grupos de Office 365 en los paquetes de acceso para usuarios externos, asegúrese de que la opción **Permitir que los usuarios agreguen nuevos invitados a la organización** se haya establecido en **Activado** para permitir el acceso de invitado. Para más información, consulte [Administrar el acceso de invitado a grupos de Office 365](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups?view=o365-worldwide#manage-guest-access-to-office-365-groups).
+
+- Si desea que los usuarios externos puedan acceder al sitio de SharePoint Online y a los recursos asociados a un grupo de Office 365, asegúrese de activar el uso compartido externo de SharePoint Online. Para más información, consulta [Activar o desactivar el uso compartido externo](https://docs.microsoft.com/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
+
+- Para obtener información sobre cómo establecer la directiva de invitado para los grupos de Office 365 en el nivel de directorio de PowerShell, consulte [Ejemplo: Configuración de la directiva de invitado para grupos en el nivel de directorio](../users-groups-roles/groups-settings-cmdlets.md#example-configure-guest-policy-for-groups-at-the-directory-level).
+
+### <a name="review-your-teams-sharing-settings"></a>Revisar la configuración de uso compartido de Teams
+
+- Si quiere incluir Teams en los paquetes de acceso para usuarios externos, asegúrese de que la opción **Permitir el acceso de invitado en Teams** se haya establecido en **Activado** para permitir el acceso de invitado. Para más información, consulte [Configurar el acceso de invitado en el centro de administración de Microsoft Teams](/microsoftteams/set-up-guests#configure-guest-access-in-the-teams-admin-center).
 
 ## <a name="manage-the-lifecycle-of-external-users"></a>Administración del ciclo de vida de los usuarios externos
 
@@ -102,20 +145,8 @@ Puede seleccionar lo que ocurre cuando un usuario externo, invitado a su directo
 
 1. Haga clic en **Save**(Guardar).
 
-## <a name="enable-a-catalog-for-external-users"></a>Habilitación de un catálogo para usuarios externos
-
-Al crear un [catálogo nuevo](entitlement-management-catalog-create.md), hay una opción que permite a los usuarios de los directorios externos solicitar los paquetes de acceso del catálogo. Si no desea que los usuarios externos tengan permisos para solicitar los paquetes de acceso del catálogo, establezca **Habilitado para usuarios externos** en **No**.
-
-**Rol necesario:** administrador global, administrador de usuarios o propietario del catálogo.
-
-![Panel Nuevo catálogo](./media/entitlement-management-shared/new-catalog.png)
-
-También puede cambiar esta configuración después de crear el catálogo.
-
-![Edición de la configuración del catálogo](./media/entitlement-management-shared/catalog-edit.png)
-
 ## <a name="next-steps"></a>Pasos siguientes
 
+- [Adición de una organización conectada](entitlement-management-organization.md)
 - [Para los usuarios que no están en el directorio](entitlement-management-access-package-request-policy.md#for-users-not-in-your-directory)
-- [Creación y administración de un catálogo de recursos](entitlement-management-catalog-create.md)
-- [Delegación y roles](entitlement-management-delegate.md)
+- [Solución de problemas](entitlement-management-troubleshoot.md)

@@ -8,16 +8,19 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: divswa, klam, LADocs
 ms.topic: article
-ms.date: 06/18/2019
+ms.date: 11/01/2019
 tags: connectors
-ms.openlocfilehash: 5b80339e90947b7cc45b1edb5df00652a13291ac
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 20702f5bc0dfc513d1fba84b69595dec885613ac
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67293472"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837108"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-azure-logic-apps"></a>Supervisión, creación y administración de archivos SFTP mediante Azure Logic Apps
+
+> [!IMPORTANT]
+> Use el [conector SFTP-SSH](../connectors/connectors-sftp-ssh.md), ya que el conector SFTP está en desuso. Ya no puede seleccionar desencadenadores y acciones de SFTP en el diseñador de aplicación lógica.
 
 Para automatizar las tareas que supervisan, crear, envían y reciben archivos en un servidor [Secure File Transfer Protocol (SFTP)](https://www.ssh.com/ssh/sftp/), puede crear y automatizar los flujos de trabajo de integración con Azure Logic Apps y el conector SFTP. SFTP es un protocolo de red que proporciona acceso a archivos, transferencia de archivos y administración de archivos a través de cualquier flujo de datos confiable. Estas son algunas tareas de ejemplo que se pueden automatizar:
 
@@ -87,7 +90,7 @@ Cuando un desencadenador encuentra un nuevo archivo, el desencadenador comprueba
 
    1. Abra el archivo de clave privada SSH en un editor de texto. Estos pasos usan Bloc de notas como ejemplo.
 
-   1. En el menú **Edición** del Bloc de notas, seleccione **Seleccionar todo**.
+   1. En el menú **Edición** del Bloc de notas, elija **Seleccionar todo**.
 
    1. Seleccione **Editar** > **Copiar**.
 

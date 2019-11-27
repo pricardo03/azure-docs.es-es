@@ -1,46 +1,46 @@
 ---
-title: 'Activación de mis roles de recursos de Azure en PIM: Azure Active Directory | Microsoft Docs'
+title: Active los roles de recursos de Azure en PIM - Azure AD | Microsoft Docs
 description: Aprenda a activar sus roles de recursos de Azure en Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 06/28/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e2bf1253f1c2f53b839a73034fcdb33f3aab463
-ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
+ms.openlocfilehash: d35c81f7bb478d91bd207327ea37c80aa1778142
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70804340"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74023145"
 ---
-# <a name="activate-my-azure-resource-roles-in-pim"></a>Activación de mis roles de recursos de Azure en PIM
+# <a name="activate-my-azure-resource-roles-in-privileged-identity-management"></a>Active mis roles de recursos de Azure en Privileged Identity Management
 
-Con Azure Active Directory (Azure AD) Privileged Identity Management (PIM), los miembros de roles aptos para recursos de Azure pueden programar la activación para una fecha y hora futuras. Asimismo, también pueden seleccionar una duración de activación específica dentro del valor máximo establecido (configurado por los administradores).
+Use Privileged Identity Management (PIM) para permitir que los miembros del rol válidos para los recursos de Azure programen la activación de una fecha y hora futuras. Asimismo, también pueden seleccionar una duración de activación específica dentro del valor máximo establecido (configurado por los administradores).
 
-Este artículo se dirige a los miembros que necesitan activar su rol de recursos de Azure en PIM.
+Este artículo es para los miembros que necesitan activar su rol de recurso de Azure en Privileged Identity Management.
 
 ## <a name="activate-a-role"></a>Activación de un rol
 
-Cuando necesite asumir un rol de recursos de Azure, puede solicitar la activación mediante la opción de navegación **Mis roles** de PIM.
+Cuando necesite asumir un rol de recurso de Azure, puede solicitar la activación mediante la opción de navegación **Mis roles** en Privileged Identity Management.
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 
-1. Abra **Azure AD Privileged Identity Management**. Para obtener información acerca de cómo agregar el icono de PIM al panel, consulte [Comenzar a usar Azure AD Privileged Identity Management](pim-getting-started.md).
+1. Abra **Azure AD Privileged Identity Management**. Para información sobre cómo agregar el icono de Privileged Identity Management en el panel, consulte [Primer uso de PIM](pim-getting-started.md).
 
-1. Haga clic en **Mis roles**.
+1. Seleccione **Mis roles**.
 
     ![Mi página de roles en la que se muestran los roles que el usuario puede activar](./media/pim-resource-roles-activate-your-roles/resources-my-roles.png)
 
-1. Haga clic en **Roles de recursos de Azure** para ver una lista de los roles de recursos de Azure aptos.
+1. Seleccione **Roles de recursos de Azure** para ver una lista de los roles de recursos de Azure válidos.
 
    ![Mis roles: página de roles de recursos de Azure](./media/pim-resource-roles-activate-your-roles/resources-my-roles-azure-resources.png) 
 
@@ -48,17 +48,17 @@ Cuando necesite asumir un rol de recursos de Azure, puede solicitar la activaci�
 
     ![Roles de recursos de Azure: mi lista de roles elegibles](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate.png)
 
-1. Haga clic en **Activar** para abrir el panel de activación.
+1. Seleccione **Activar** para abrir el Panel de activación.
 
-1. Si el rol requiere la autenticación multifactor (MFA), haga clic en **Compruebe su identidad antes de proceder**. Solo tiene que autenticarse una vez por sesión.
+1. Si el rol requiere la autenticación multifactor, seleccione **Compruebe su identidad antes de proceder**. Solo tiene que autenticarse una vez por sesión.
 
     ![Comprobación de mi identidad con MFA antes de la activación del rol](./media/pim-resource-roles-activate-your-roles/resources-my-roles-mfa.png)
 
-1. Haga clic en **Comprobar mi identidad** y siga las instrucciones para realizar una comprobación de seguridad adicional.
+1. Seleccione **Comprobar mi identidad** y siga las instrucciones para proporcionar comprobación de seguridad adicional.
 
     ![Pantalla para proporcionar una comprobación de seguridad, como un código PIN](./media/pim-resource-roles-activate-your-roles/resources-mfa-enter-code.png)
 
-1. Si desea especificar un ámbito reducido, haga clic en **Ámbito** para abrir el panel de filtro de recursos.
+1. Si desea especificar un ámbito reducido, seleccione **Ámbito** para abrir el Panel filtro de recursos.
 
     Es una práctica recomendada solo solicitar acceso a los recursos que necesita. En el panel de filtro de recursos, puede especificar los grupos de recursos o recursos a los que necesita acceso.
 
@@ -70,7 +70,7 @@ Cuando necesite asumir un rol de recursos de Azure, puede solicitar la activaci�
 
     ![Panel Activar completado con el ámbito, la hora de inicio, la duración y el motivo](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate-done.png)
 
-1. Haga clic en **Activar**.
+1. Seleccione **Activar**.
 
     Si el rol no requiere aprobación, se activa y se agrega a la lista de roles activos. Si quiere usar el rol, siga los pasos de la siguiente sección.
 
@@ -84,11 +84,11 @@ En caso de cualquier retraso tras la activación, siga estos pasos para usar los
 
 1. Abra Azure AD Privileged Identity Management.
 
-1. Haga clic en **Mis roles** para ver una lista de sus roles de Azure AD y roles de recursos de Azure aptos.
+1. Seleccione **Mis roles** para ver una lista de los roles de Azure AD válidos y los roles de recursos de Azure.
 
-1. Haga clic en **Roles de recursos de Azure**.
+1. Seleccione **Roles de recursos de Azure**.
 
-1. Haga clic en la pestaña **Roles activos**.
+1. Seleccione la pestaña **Roles activos**.
 
 1. Cuando el rol esté activo, cierre sesión en el portal e iníciela de nuevo.
 
@@ -100,7 +100,7 @@ Puede ver el estado de las solicitudes pendientes de activación.
 
 1. Abra Azure AD Privileged Identity Management.
 
-1. Haga clic en **Mis solicitudes** para ver una lista de sus solicitudes de rol de Azure AD y rol de recursos de Azure.
+1. Seleccione **Mis solicitudes** para ver una lista de los roles de Azure AD y las solicitudes de rol de recursos de Azure.
 
     ![Mis solicitudes: página de recursos de Azure que muestra las solicitudes pendientes](./media/pim-resource-roles-activate-your-roles/resources-my-requests.png)
 
@@ -112,11 +112,11 @@ Si no necesita activar un rol que requiera aprobación, puede cancelar una solic
 
 1. Abra Azure AD Privileged Identity Management.
 
-1. Haga clic en **Mis solicitudes**.
+1. Seleccione **Mis solicitudes**.
 
-1. Para el rol que desea cancelar, haga clic en el vínculo **Cancelar**.
+1. En el rol que desea cancelar, seleccione el vínculo **Cancelar**.
 
-    Al hacer clic en Cancelar, la solicitud se cancela. Para volver a activar el rol, tendrá que enviar una nueva solicitud de activación.
+    Al seleccionar cancelar, se cancelará la solicitud. Para volver a activar el rol, tendrá que enviar una nueva solicitud de activación.
 
    ![Mi lista de solicitudes con la acción Cancelar resaltada](./media/pim-resource-roles-activate-your-roles/resources-my-requests-cancel.png)
 
@@ -124,15 +124,15 @@ Si no necesita activar un rol que requiera aprobación, puede cancelar una solic
 
 ### <a name="permissions-are-not-granted-after-activating-a-role"></a>Permisos no concedidos después de activar un rol
 
-Al activar un rol en PIM, la activación podría no propagarse al instante a todos los portales que requieren el rol con privilegios. A veces, incluso si el cambio se propaga, el almacenamiento en caché web en un portal puede provocar que el cambio no surta efecto de inmediato. Esto es lo que debe de hacer si se retrasa la activación.
+Al activar un rol en Privileged Identity Management, la activación podría no propagarse al instante a todos los portales que requieren el rol con privilegios. A veces, incluso si el cambio se propaga, el almacenamiento en caché web en un portal puede provocar que el cambio no surta efecto de inmediato. Esto es lo que debe de hacer si se retrasa la activación.
 
 1. Cierre sesión en Azure Portal y vuelva a iniciar sesión.
 
     Al activar un rol de recurso de Azure, verá las fases de la activación. Una vez que finalizan todas las fases, verá un vínculo para **Cerrar sesión**. Puede usar este vínculo para cerrar la sesión. Esto solucionará la mayoría de los casos de retraso de activación.
 
-1. En PIM, compruebe que aparece como miembro del rol.
+1. En Privileged Identity Management, compruebe que aparece como miembro del rol.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Ampliación o renovación de roles de recursos de Azure en PIM](pim-resource-roles-renew-extend.md)
-- [Activación de mis roles de Azure AD en PIM](pim-how-to-activate-role.md)
+- [Ampliación o renovación de roles de recursos de Azure en Privileged Identity Management](pim-resource-roles-renew-extend.md)
+- [Activar mis roles de Azure AD en Privileged Identity Management](pim-how-to-activate-role.md)

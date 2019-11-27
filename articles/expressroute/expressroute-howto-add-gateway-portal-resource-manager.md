@@ -1,6 +1,6 @@
 ---
-title: 'Incorporación de una puerta de enlace a una red virtual de Azure para ExpressRoute: Portal | Microsoft Docs'
-description: En este artículo, se indican los pasos para agregar una puerta de enlace de red virtual a una red virtual de Resource Manager ya creada para ExpressRoute.
+title: 'Azure ExpressRoute: Incorporación de una puerta de enlace a una red virtual: portal'
+description: Este artículo le guiará para agregar una puerta de enlace de red virtual a una red virtual de Administrador de recursos ya creada para ExpressRoute mediante Azure Portal.
 services: expressroute
 author: cherylmc
 ms.service: expressroute
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/06/2018
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 68376751a3c673b2d89d028312f992aec40d4dee
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 87b656f0ef999b3b15a89476f5cba4c4fcfc2b1e
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60366017"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037395"
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-the-azure-portal"></a>Configuración de una puerta de enlace de red virtual para ExpressRoute con Azure Portal
 > [!div class="op_single_selector"]
@@ -53,19 +53,19 @@ Puede ver un [vídeo](https://azure.microsoft.com/documentation/videos/azure-exp
 2. En la sección **Configuración** de la hoja de redes virtuales, haga clic en **Subredes** para expandir la hoja Subredes.
 3. En la hoja **Subredes**, haga clic en **+Subred de puerta de enlace** para abrir la hoja **Agregar subred**. 
    
-    ![Agregar la subred de la puerta de enlace](./media/expressroute-howto-add-gateway-portal-resource-manager/addgwsubnet.png "Agregar la subred de la puerta de enlace")
+    ![Agregue la subred de puerta de enlace](./media/expressroute-howto-add-gateway-portal-resource-manager/addgwsubnet.png "Adición de la subred de puerta de enlace")
 
 
 4. El **nombre** de la subred se rellena automáticamente con el valor "GatewaySubnet". Este valor es necesario para que Azure reconozca que se trata de subred de puerta de enlace. Modifique los valores de **Intervalo de direcciones** rellenados automáticamente para ajustarlos a sus requisitos de configuración. Se recomienda crear una subred de puerta de enlace con un /27 o superior (/ 26, / 25, etc.). Luego haga clic en **Aceptar** para guardar los valores y crear la subred de puerta de enlace.
 
-    ![Agregar la subred](./media/expressroute-howto-add-gateway-portal-resource-manager/addsubnetgw.png "Agregar la subred")
+    ![Adición de la subred](./media/expressroute-howto-add-gateway-portal-resource-manager/addsubnetgw.png "Adición de la subred")
 
 ## <a name="create-the-virtual-network-gateway"></a>Creación de la puerta de enlace de red virtual
 
 1. En el portal, a la izquierda, haga clic en **+** y escriba "Puerta de enlace de red virtual" en el cuadro de búsqueda. Busque **Puerta de enlace de red virtual** en los resultados de la búsqueda y haga clic en la entrada. En la hoja **Puerta de enlace de red virtual**, haga clic en **Crear** en la parte inferior de la hoja. Se abrirá la hoja **Crear puerta de enlace de red virtual**.
 2. En la hoja **Create virtual network gateway** (Crear puerta de enlace de red virtual), rellene los valores de la puerta de enlace de red virtual.
 
-    ![Campos de la hoja Create virtual network gateway (Crear puerta de enlace de red virtual)](./media/expressroute-howto-add-gateway-portal-resource-manager/gw.png "Campos de la hoja Create virtual network gateway (Crear puerta de enlace de red virtual)")
+    ![Campos de la hoja crear puerta de enlace de red virtual](./media/expressroute-howto-add-gateway-portal-resource-manager/gw.png "Campos de la hoja Crear puerta de enlace de red virtual")
 3. **Nombre**: Asigne un nombre a la puerta de enlace. Esta acción no es igual a la de asignación de un nombre a una subred de puerta de enlace. Este es el nombre del objeto de puerta de enlace que va a crear.
 4. **Tipo de puerta de enlace**: seleccione **ExpressRoute**.
 5. **SKU**: seleccione la SKU de puerta de enlace en la lista desplegable.

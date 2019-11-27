@@ -1,6 +1,6 @@
 ---
-title: Real User Measurements de Azure Traffic Manager con páginas web | Microsoft Docs
-description: Configuración de páginas web para enviar medidas de usuarios reales a Traffic Manager
+title: 'Mediciones de usuario reales con páginas web: Azure Traffic Manager'
+description: En este artículo, aprenderá a configurar las páginas web para enviar Mediciones de usuario reales a Azure Traffic Manager.
 services: traffic-manager
 documentationcenter: traffic-manager
 author: asudbring
@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 03/16/2018
 ms.author: allensu
 ms.custom: ''
-ms.openlocfilehash: 2d044457df80f16a6e8073e7f3253a611f74d8a8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6e3cf5af5aaa894b1595d67c0056073a458b0a88
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071215"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74040294"
 ---
 # <a name="how-to-send-real-user-measurements-to-azure-traffic-manager-using-web-pages"></a>Envío de medidas de usuarios reales a Azure Traffic Manager mediante páginas web
 
@@ -26,7 +26,7 @@ Para configurar las páginas web para enviar medidas de usuarios reales a Traffi
 
 ## <a name="obtain-a-real-user-measurements-key"></a>Obtención de una clave de Real User Measurements
 
-El servicio identifica las medidas que realiza y envía a Traffic Manager desde su aplicación cliente mediante una cadena única, llamada **Real User Measurements (RUM)** . Puede obtener una clave RUM mediante Azure Portal, una API de REST o por medio de PowerShell o la CLI de Azure.
+El servicio identifica las medidas que realiza y envía a Traffic Manager desde su aplicación cliente mediante una cadena única, llamada **Real User Measurements (RUM)**. Puede obtener una clave RUM mediante Azure Portal, una API de REST o por medio de PowerShell o la CLI de Azure.
 
 Para obtener la clave RUM con Azure Portal:
 1. En un explorador, inicie sesión en Azure Portal. Si aún no tiene una cuenta, puede registrarse para disfrutar de una evaluación gratuita de un mes.

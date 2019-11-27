@@ -1,5 +1,5 @@
 ---
-title: 'Tamaños de las máquinas virtuales Windows en Azure: uso general | Microsoft Docs'
+title: 'Tamaños de máquina virtual Windows de Azure: uso general'
 description: Enumera los tamaños diferentes de uso general disponibles para las máquinas virtuales Windows en Azure. Se proporciona información sobre el número de unidades vCPU, discos de datos y NIC, así como sobre el rendimiento de almacenamiento y el ancho de banda de red para los tamaños de esta serie.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/06/2019
 ms.author: jonbeck
-ms.openlocfilehash: 99bd620df0518ec0ed158003589793ca2e6cd31f
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: b9b66d39345b95d135231acfc348faf0a47103a5
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721555"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74065471"
 ---
 # <a name="general-purpose-virtual-machine-sizes"></a>Tamaños de máquina virtual de uso general
 

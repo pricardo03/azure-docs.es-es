@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 29ea89af780df72b97fef553cf79b84c4b28da05
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 4932089b7315f2756f3760b252c7257868f640fa
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73569872"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74066024"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configuración de Azure Multi-Factor Authentication
 
 Este artículo le ayuda a administrar la configuración de Multi-Factor Authentication en Azure Portal. Abarca varios temas que le permitirán sacar el máximo partido de Azure Multi-Factor Authentication. No todas estas características están disponibles en cada una de las versiones de Azure Multi-Factor Authentication.
 
-Puede acceder a la configuración relacionada con Azure Multi-Factor Authentication desde Azure Portal; para ello, vaya a **Azure Active Directory** > **MFA**.
+Puede tener acceso a la configuración relacionada con Azure Multi-Factor Authentication desde el Azure Portal, para ello, vaya a **Azure Active Directory** > **Seguridad** > **MFA**.
 
 ![Azure Portal: Configuración de Multi-Factor Authentication de Azure AD](./media/howto-mfa-mfasettings/multi-factor-authentication-settings-portal.png)
 
@@ -62,7 +62,7 @@ Utilice la característica de _bloqueo y desbloqueo de usuarios_ para impedirles
 ### <a name="block-a-user"></a>Bloquear a un usuario
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador.
-2. Vaya a **Azure Active Directory** > **MFA** > **Bloquear o desbloquear usuarios**.
+2. Vaya a **Azure Active Directory** > **Seguridad** > **MFA** > **bloqueo/desbloqueo de usuarios**.
 3. Seleccione **Agregar** para bloquear a un usuario.
 4. Seleccione el **Grupo de replicación**. Escriba el nombre de usuario del usuario bloqueado como **nombre de usuario\@dominio.com**. Escriba un comentario en el campo **Motivo**.
 5. Seleccione **Agregar** para acabar de bloquear al usuario.
@@ -70,7 +70,7 @@ Utilice la característica de _bloqueo y desbloqueo de usuarios_ para impedirles
 ### <a name="unblock-a-user"></a>Desbloquear a un usuario
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador.
-2. Vaya a **Azure Active Directory** > **MFA** > **Bloquear o desbloquear usuarios**.
+2. Vaya a **Azure Active Directory** > **Seguridad** > **MFA** > **bloqueo/desbloqueo de usuarios**.
 3. Seleccione **Desbloquear** en la columna **Acción** situada junto al usuario que quiere desbloquear.
 4. Escriba un comentario en el campo **Motivo para desbloquear**.
 5. Seleccione **Desbloquear** para acabar de desbloquear al usuario.
@@ -82,7 +82,7 @@ Configure la característica de _alerta de fraude_ para que los usuarios puedan 
 ### <a name="turn-on-fraud-alerts"></a>Activación de alertas de fraude
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador.
-2. Vaya a **Azure Active Directory** > **MFA** > **Alerta de fraude**.
+2. Vaya a **Azure Active Directory** > **Seguridad** > **MFA** > **Alertas de fraude**.
 3. Establezca la configuración **Permitir a los usuarios enviar alertas de fraude** en **Activado**.
 4. Seleccione **Guardar**.
 
@@ -124,7 +124,7 @@ Puede usar sus propias grabaciones o saludos para la verificación en dos pasos 
 Antes de comenzar, tenga en cuenta las restricciones siguientes:
 
 * Los formatos de archivo compatibles son .wav y. mp3.
-* El límite de tamaño de archivo es 5 MB.
+* El límite de tamaño de archivo es de 1 MB.
 * Los mensajes de autenticación deben durar menos de 20 segundos. Los mensajes que duren más de 20 segundos pueden hacer que la verificación cause error. El usuario podría no responder antes de que finalice el mensaje y se agote el tiempo de espera de la verificación.
 
 ### <a name="custom-message-language-behavior"></a>Comportamiento de idioma de mensaje personalizado
@@ -145,7 +145,7 @@ Por ejemplo, si hay solo un mensaje personalizado en alemán:
 ### <a name="set-up-a-custom-message"></a>Configuración de un mensaje personalizado
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador.
-1. Vaya a **Azure Active Directory** > **MFA** > **Configuración de la llamada telefónica**.
+1. Vaya a **Azure Active Directory** > **Seguridad** > **MFA** > **Configuración de llamada telefónica**.
 1. Seleccione **Agregar saludo**.
 1. Elija el tipo de saludo.
 1. Elija el idioma.
@@ -184,7 +184,7 @@ La característica de _omisión por única vez_ permite a un usuario autenticars
 ### <a name="create-a-one-time-bypass"></a>Creación de una omisión por única vez
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador.
-2. Vaya a **Azure Active Directory** > **MFA** > **Omisión por única vez**.
+2. Vaya a **Azure Active Directory** > **Seguridad** > **MFA** > **de omisión por única vez**.
 3. Seleccione **Agregar**.
 4. Si es necesario, seleccione el grupo de replicación para esta omisión.
 5. Escriba el nombre de usuario como **nombre de usuario\@dominio.com**. Escriba el número de segundos que debería durar la omisión. Escriba el motivo de la omisión.
@@ -193,7 +193,7 @@ La característica de _omisión por única vez_ permite a un usuario autenticars
 ### <a name="view-the-one-time-bypass-report"></a>Visualización del informe de omisión por única vez
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
-2. Vaya a **Azure Active Directory** > **MFA** > **Omisión por única vez**.
+2. Vaya a **Azure Active Directory** > **Seguridad** > **MFA** > **de omisión por única vez**.
 
 ## <a name="caching-rules"></a>Reglas de caché
 
@@ -205,7 +205,7 @@ Puede establecer un período de tiempo para permitir intentos de autenticación 
 ### <a name="set-up-caching"></a>Configuración del almacenamiento en caché
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador.
-2. Vaya a **Azure Active Directory** > **MFA** > **Reglas de caché**.
+2. Vaya a **Azure Active Directory** > **Seguridad** > **MFA** > **reglas de almacenamiento en caché**.
 3. Seleccione **Agregar**.
 4. Seleccione un **tipo de caché** de la lista desplegable. Escriba el número máximo de **segundos de caché**.
 5. Si es necesario, seleccione un tipo de autenticación y especifique una aplicación.
@@ -213,9 +213,11 @@ Puede establecer un período de tiempo para permitir intentos de autenticación 
 
 ## <a name="mfa-service-settings"></a>Configuración del servicio MFA
 
-La configuración para contraseñas de aplicación, IP de confianza, opciones de comprobación y recordar Multi-factor Authentication de Azure Multi-Factor Authentication se pueden encontrar en la configuración del servicio. Se puede acceder a la configuración del servicio desde Azure Portal; para ello, vaya a **Azure Active Directory** > **MFA** > **Inicio** > **Configurar** > **Configuración adicional de MFA basado en la nube**.
+La configuración para contraseñas de aplicación, IP de confianza, opciones de comprobación y recordar Multi-factor Authentication de Azure Multi-Factor Authentication se pueden encontrar en la configuración del servicio. Se puede tener acceso a la configuración del servicio desde el Azure Portal, para ello, vaya a **Azure Active Directory** > **Seguridad** > **MFA** > **Introducción** > **Configurar** > **Configuración de MFA basada en la nube**.
 
 ![Configuración del servicio Azure Multi-Factor Authentication](./media/howto-mfa-mfasettings/multi-factor-authentication-settings-service-settings.png)
+
+Los intervalos de direcciones IP de confianza pueden ser privados o públicos.
 
 ## <a name="app-passwords"></a>Contraseñas de aplicación
 

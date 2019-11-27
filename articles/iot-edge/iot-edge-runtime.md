@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 94e33c855327e70f486746bcd781491823324dec
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4bdf496995e8b466f1346bfe16365b251c6853c3
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490421"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076054"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Información del entorno de ejecución de Azure IoT Edge y su arquitectura
 
@@ -98,6 +98,9 @@ Cada elemento del manifiesto de implementación contiene información específic
    * `on-failure` : si se bloquea el módulo, el agente de IoT Edge lo reinicia. Si el módulo se cierra sin problemas, el agente de IoT Edge no lo reinicia.
    * `on-unhealthy`: si el módulo se bloquea o se consideran incorrecto, el agente de IoT Edge lo reinicia.
    * `always`: si el módulo se bloquea, se considera incorrecto o se apaga, el agente de IoT Edge lo reinicia. 
+* **imagePullPolicy**: si el agente de IoT Edge intenta extraer la imagen más reciente de un módulo automáticamente o no. Si no especifica un valor, el valor predeterminado es *onCreate*. Los valores posibles son: 
+   * `on-create` - Al iniciar un módulo o actualizar un módulo basado en un nuevo manifiesto de implementación, el agente de IoT Edge intentará extraer la imagen del módulo del registro de contenedor.
+   * `never` - El agente de IoT Edge nunca intentará extraer la imagen del módulo del registro de contenedor. La expectativa es que la imagen del módulo se almacene en la memoria caché del dispositivo y que las actualizaciones de las imágenes del módulo se realicen manualmente o se administren mediante una solución de terceros. 
 
 El agente de IoT Edge envía la respuesta de entorno de ejecución a IoT Hub. A continuación, se ofrece una lista de las posibles respuestas:
   * 200 - CORRECTO

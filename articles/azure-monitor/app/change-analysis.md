@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 05/07/2019
-ms.openlocfilehash: dc572d29b4e6d95525959becad0ed8069735e33c
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: ed297a1005f67a14db1da15aba2c47c98e83df9c
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73605985"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73884970"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Uso de Application Change Analysis (versión preliminar) en Azure Monitor
 
@@ -31,11 +31,15 @@ El siguiente diagrama muestra la arquitectura de Change Analysis:
 
 ![Diagrama de la arquitectura del procedimiento mediante el que Change Analysis obtiene los datos de cambio y los envía a las herramientas de cliente](./media/change-analysis/overview.png)
 
-Actualmente Change Analysis se integra con la experiencia **Diagnosticar y solucionar problemas** de la aplicación web de App Service. Para habilitar la detección de cambios y ver los cambios en la aplicación web, consulte la sección *Change Analysis para la característica de aplicaciones web* más adelante en este artículo.
+Actualmente, Application Change Analysis está integrado en la experiencia **Diagnosticar y solucionar problemas** en la aplicación web de App Service, así como en una hoja independiente en Azure Portal.
+Consulte la sección *Visualización de los cambios para todos los recursos de Azure* para acceder a la hoja de Application Change Analysis y la seccióin *Change Analysis para la característica de Web Apps* para usarlo en el portal de Web Apps más adelante en este artículo.
 
-### <a name="azure-resource-manager-deployment-changes"></a>Cambios de implementación de Azure Resource Manager
+### <a name="azure-resource-manager-tracked-properties-changes"></a>Cambios en la propiedades controladas de Azure Resource Manager
 
-Mediante [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview), Change Analysis proporciona un registro histórico de la forma en que los recursos de Azure que hospedan a la aplicación han cambiado con el tiempo. Por ejemplo, Change Analysis puede detectar cambios en las reglas de configuración de IP, las identidades administradas y las reglas de configuración de SSL. Por lo que si se agrega una etiqueta a una aplicación web, Change Analysis refleja el cambio. Esta información está disponible mientras el proveedor de recursos `Microsoft.ChangeAnalysis` está habilitado en la suscripción a Azure.
+Mediante [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview), Change Analysis proporciona un registro histórico de la forma en que los recursos de Azure que hospedan a la aplicación han cambiado con el tiempo. Es posible detectar la configuración controlada, como las identidades administradas, la actualización del sistema operativo de la plataforma y los nombres de host.
+
+### <a name="azure-resource-manager-proxied-setting-changes"></a>Cambios en la configuración con Proxy de Azure Resource Manager
+Las opciones de configuración, como la regla de configuración de IP, configuración de SSL y versiones de extensión, todavía no están disponibles en ARG. Por lo tanto, las consultas de Application Change Analysis se calculan de forma segura para proporcionar más detalles sobre lo que ha cambiado en la aplicación. Esta información aún no está disponible en Azure Resource Graph, pero estará próximamente.
 
 ### <a name="changes-in-web-app-deployment-and-configuration-in-guest-changes"></a>Cambios en la implementación y la configuración de aplicaciones web (cambios en invitado)
 
@@ -50,6 +54,10 @@ Actualmente se admiten las siguientes dependencias:
 - Web Apps
 - Azure Storage
 - Azure SQL
+
+### <a name="enablement"></a>Habilitación
+Es necesario registrar el proveedor de recursos "Microsoft. ChangeAnalysis" con una suscripción para que esté disponible la configuración de propiedades controladas y datos de cambio de configuración con Proxy de Azure Resource Manager. Al entrar en Diagnosticar y solucionar problemas de Web Apps o abra la hoja independiente de Application Change Analysis, este proveedor de recursos se registrará automáticamente. No tiene ningún costo de implementación ni rendimiento para la suscripción.
+En el caso de cambios en el invitado de la aplicación web, se requiere una habilitación independiente para examinar los archivos de código dentro de una aplicación web. Consulte *Habilitación de Change Analysis en la herramienta Diagnosticar y solucionar problemas* más adelante en este artículo para obtener más detalles.
 
 ## <a name="viewing-changes-for-all-resources-in-azure"></a>Visualización de cambios de todos los recursos en Azure
 En Azure Monitor, hay una hoja independiente para que Change Analysis vea todos los cambios en los recursos de información y dependencias de aplicaciones.
@@ -70,7 +78,7 @@ Los recursos admitidos actualmente incluyen:
 - Recursos de redes de Azure
 - Aplicación web con seguimiento de archivos en invitado y cambios de variables de entorno
 
-Si tiene algún comentario, use el botón Enviar comentarios de la hoja o el correo electrónico changeanalysisteam@microsoft.com. 
+Si tiene algún comentario, use el botón Enviar comentarios de la hoja o el correo electrónico changeanalysisteam@microsoft.com.
 
 ![Captura de pantalla del botón de comentarios de la hoja Change Analysis](./media/change-analysis/change-analysis-feedback.png)
 
@@ -94,12 +102,12 @@ En Azure Monitor, Change Analysis también está integrado en la experiencia de 
 
    ![Captura de las opciones de "Application Crashes"](./media/change-analysis/enable-changeanalysis.png)
 
-1. Active **Change Analysis** y seleccione **Guardar**.
+1. Active **Change Analysis** y seleccione **Guardar**. La herramienta muestra todas las aplicaciones web en un plan de App Services. Puede usar el modificador nivel de plan para activar Application Change Analysis para todas las aplicaciones web de un plan.
 
     ![Captura de pantalla de la interfaz de usuario "Habilitar Change Analysis"](./media/change-analysis/change-analysis-on.png)
 
 
-1. Para obtener acceso a Change Analysis, seleccione **Diagnosticar y solucionar problemas** > **Availability and Performance (disponibilidad y rendimiento)**  > **Application Crashes (bloqueos de aplicación)** . Verá un gráfico que resume el tipo de cambios a lo largo del tiempo junto con detalles sobre estos cambios:
+1. Para obtener acceso a Change Analysis, seleccione **Diagnosticar y solucionar problemas** > **Availability and Performance (disponibilidad y rendimiento)**  > **Application Crashes (bloqueos de aplicación)** . Verá un gráfico con un resumen del tipo de cambios a lo largo del tiempo, junto con detalles sobre estos cambios: De forma predeterminada, se muestran los cambios en las últimas 24 horas para ayudar a solucionar problemas inmediatos.
 
      ![Captura de pantalla de la vista de diferencias de cambios](./media/change-analysis/change-view.png)
 

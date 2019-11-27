@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 10/12/2018
-ms.openlocfilehash: b451597d2d91117e11b1becd8b4ab96f981dade8
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: ce0b917f34cab31227e721e119c72cd5d1f99bff
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931315"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73832015"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Preguntas más frecuentes sobre la solución Network Performance Monitor.
 
@@ -98,6 +98,42 @@ NPM usa un mecanismo probabilístico para asignar las probabilidades de error a 
 ### <a name="how-can-i-create-alerts-in-npm"></a>¿Cómo se pueden crear alertas en NPM?
 Consulte la [sección de alertas en la documentación](https://docs.microsoft.com/azure/log-analytics/log-analytics-network-performance-monitor#alerts) para obtener instrucciones detalladas.
 
+### <a name="what-are-the-default-log-analytics-queries-for-alerts"></a>¿Cuáles son las consultas de Log Analytics predeterminadas para alertas?
+Consulta del monitor de rendimiento
+
+    NetworkMonitoring 
+     | where (SubType == "SubNetwork" or SubType == "NetworkPath") 
+     | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy") and RuleName == "<<your rule name>>"
+    
+Consulta del monitor de conectividad de servicio
+
+    NetworkMonitoring                 
+     | where (SubType == "EndpointHealth" or SubType == "EndpointPath")
+     | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy" or ServiceResponseHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy") and TestName == "<<your test name>>"
+    
+Consultas del monitor de ExpressRoute: Consulta de circuitos
+
+    NetworkMonitoring
+    | where (SubType == "ERCircuitTotalUtilization") and (UtilizationHealthState == "Unhealthy") and CircuitResourceId == "<<your circuit resource ID>>"
+
+Emparejamiento privado
+
+    NetworkMonitoring 
+     | where (SubType == "ExpressRoutePeering" or SubType == "ERVNetConnectionUtilization" or SubType == "ExpressRoutePath")   
+    | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy" or UtilizationHealthState == "Unhealthy") and CircuitName == "<<your circuit name>>" and VirtualNetwork == "<<vnet name>>"
+
+Emparejamiento de Microsoft
+
+    NetworkMonitoring 
+     | where (SubType == "ExpressRoutePeering" or SubType == "ERMSPeeringUtilization" or SubType == "ExpressRoutePath")
+    | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy" or UtilizationHealthState == "Unhealthy") and CircuitName == ""<<your circuit name>>" and PeeringType == "MicrosoftPeering"
+
+Consulta común   
+
+    NetworkMonitoring
+    | where (SubType == "ExpressRoutePeering" or SubType == "ERVNetConnectionUtilization" or SubType == "ERMSPeeringUtilization" or SubType == "ExpressRoutePath")
+    | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy" or UtilizationHealthState == "Unhealthy") 
+
 ### <a name="can-npm-monitor-routers-and-servers-as-individual-devices"></a>¿Puede NPM supervisar los enrutadores y los servidores como los dispositivos individuales?
 NPM solo identifica el nombre de host y de IP de los saltos de red subyacentes (conmutadores, enrutadores, servidores, etc.) entre las direcciones IP de origen y destino. También identifica la latencia entre estos saltos identificados. No supervisa individualmente estos saltos subyacentes.
 
@@ -110,17 +146,23 @@ El uso de ancho de banda corresponde al total de ancho de banda entrante y salie
 ### <a name="can-we-get-incoming-and-outgoing-bandwidth-information-for-the-expressroute"></a>¿Se puede obtener información de ancho de banda entrante y saliente de ExpressRoute?
 Se pueden capturar los valores entrantes y salientes del ancho de banda principal y secundario.
 
-Para obtener información de nivel de emparejamiento, utilice la consulta que se menciona a continuación en la búsqueda de registros.
+Para obtener información de nivel de emparejamiento de Microsoft, utilice la consulta que se menciona a continuación en la búsqueda de registros.
 
     NetworkMonitoring 
-    | where SubType == "ExpressRoutePeeringUtilization"
-    | project CircuitName,PeeringName,PrimaryBytesInPerSecond,PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
+     | where SubType == "ERMSPeeringUtilization"
+     | project  CircuitName,PeeringName,PrimaryBytesInPerSecond,PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
+    
+Para obtener información de nivel de emparejamiento privada, utilice la consulta que se menciona a continuación en la búsqueda de registros.
+
+    NetworkMonitoring 
+     | where SubType == "ERVNetConnectionUtilization"
+     | project  CircuitName,PeeringName,PrimaryBytesInPerSecond,PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
   
-Para obtener información de nivel de circuito, utilice la consulta que se menciona a continuación. 
+Para obtener información de nivel de circuito, utilice la consulta que se menciona a continuación en la búsqueda de registros.
 
     NetworkMonitoring 
-    | where SubType == "ExpressRouteCircuitUtilization"
-    | project CircuitName,PrimaryBytesInPerSecond, PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
+        | where SubType == "ERCircuitTotalUtilization"
+        | project CircuitName, PrimaryBytesInPerSecond, PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
 
 ### <a name="which-regions-are-supported-for-npms-performance-monitor"></a>¿Qué regiones se admiten con Monitor de rendimiento de NPM?
 NPM puede supervisar la conectividad entre redes en cualquier parte del mundo, desde un área de trabajo que se hospede en una de las [regiones admitidas](../../azure-monitor/insights/network-performance-monitor.md#supported-regions).
@@ -142,8 +184,8 @@ Es posible que un salto no responda a un comando traceroute en uno o varios de l
 * Los dispositivos de red no permiten el tráfico ICMP_TTL_EXCEEDED.
 * Un firewall bloquea la respuesta ICMP_TTL_EXCEEDED del dispositivo de red.
 
-### <a name="i-get-alerts-for-unhealthy-tests-but-i-do-not-see-the-high-values-in-npms-loss-and-latency-graph-how-do-i-check-what-is-unhealthy-"></a>Recibo alertas para las pruebas con un estado incorrecto, pero no veo los valores altos en el gráfico de pérdida y latencia de NPM. ¿Cómo compruebo qué elementos tienen un estado incorrecto?
-NPM genera una alerta si la latencia de extremo a extremo entre el origen y el destino cruza el umbral en cualquiera de las rutas de acceso entre ellos. Algunas redes tienen más de una ruta de acceso que conecta el mismo origen y destino. NPM genera una alerta si el estado de alguna de las rutas de acceso es incorrecto. La pérdida y latencia que se muestran en los gráficos es el valor medio de todas las rutas de acceso, por lo que puede que no muestre el valor exacto de una única ruta de acceso. Para saber dónde se ha superado el umbral, busque la columna "SubType" en la alerta. Si el problema se debe a una ruta de acceso, el valor de SubType será NetworkPath (para las pruebas del Monitor de rendimiento), EndpointPath (para las pruebas del Monitor de conectividad de servicio) y ExpressRoutePath (para las pruebas del Monitor de ExpressRotue). 
+### <a name="i-get-alerts-for-unhealthy-tests-but-i-do-not-see-the-high-values-in-npms-loss-and-latency-graph-how-do-i-check-what-is-unhealthy"></a>Recibo alertas para las pruebas con un estado incorrecto, pero no veo los valores altos en el gráfico de pérdida y latencia de NPM. ¿Cómo compruebo qué elementos tienen un estado incorrecto?
+NPM genera una alerta si la latencia de extremo a extremo entre el origen y el destino cruza el umbral en cualquiera de las rutas de acceso entre ellos. Algunas redes tienen varias rutas de acceso que conectan el mismo origen y destino. NPM genera una alerta si el estado de alguna de las rutas de acceso es incorrecto. La pérdida y latencia que se muestran en los gráficos es el valor medio de todas las rutas de acceso, por lo que puede que no muestre el valor exacto de una única ruta de acceso. Para saber dónde se ha superado el umbral, busque la columna "SubType" en la alerta. Si el problema se debe a una ruta de acceso, el valor de SubType será NetworkPath (para las pruebas del Monitor de rendimiento), EndpointPath (para las pruebas del Monitor de conectividad de servicio) y ExpressRoutePath (para las pruebas del Monitor de ExpressRotue). 
 
 Consulta de ejemplo para buscar la ruta de acceso incorrecta:
 
