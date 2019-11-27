@@ -10,16 +10,16 @@ ms.assetid: 6d42fb79-d9cf-48da-8445-f482c4c536af
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/25/2019
+ms.date: 11/14/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b879b20846cf7dd2121dfa8b55487e72cb7625f
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 80b90a22a793c15104bba3eb91e88f851158e13f
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71291120"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74106948"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Instalación personalizada de Azure AD Connect
 Se utiliza **Configuración personalizada** de Azure AD Connect cuando se desea contar con más opciones para la instalación. Se utiliza si tiene varios bosques o si desea configurar características opcionales que no se incluyen en la instalación rápida. Se usa en todos aquellos casos en que la opción [**Instalación rápida**](how-to-connect-install-express.md) no vale para su implementación o topología.
@@ -87,7 +87,9 @@ Después de escribir el nombre del bosque y de hacer clic en **Agregar directori
 ![Directorio de conexión](./media/how-to-connect-install-custom/connectdir02.png)
 
 #### <a name="enterprise-admin-and-domain-admin-accounts-not-supported"></a>No se admiten las cuentas de administrador de organización ni de administrador de dominio
-A partir de la compilación 1.4.###.#, ya no se admite el uso de una cuenta de administrador de organización o de administrador de dominio como cuenta de AD DS Connector.  Si intenta especificar una cuenta que sea administrador de organización o administrador de dominio al especificar **usar cuenta existente**, recibirá un error.
+A partir de la compilación 1.4.18.0, ya no se admite el uso de una cuenta de Administrador de Organización o de Administrador de Dominio como cuenta de AD DS Connector.  Si intenta ingresar una cuenta que es un administrador de empresa o administrador de dominio al especificar **usar la cuenta existente**, recibirá el siguiente error:
+
+  **“No está permitido usar una cuenta de administrador de empresa o dominio para su cuenta de bosque de AD.  Deje que Azure AD Connect cree la cuenta o especifique una cuenta de sincronización con los permisos correctos.  &lt;Más información&gt;”**
 
 ### <a name="azure-ad-sign-in-configuration"></a>Configuración de inicio de sesión de Azure AD
 Esta página le permite revisar los dominios UPN presentes en el entorno local de AD DS y que se han comprobado en Azure AD. Esta página también le permite configurar el atributo que se usará para userPrincipalName.
@@ -95,7 +97,7 @@ Esta página le permite revisar los dominios UPN presentes en el entorno local d
 ![Dominios sin comprobar](./media/how-to-connect-install-custom/aadsigninconfig2.png)  
 Revise los dominios marcados como **Not Added** (Sin agregar) y **Not Verified** (Sin comprobar). Asegúrese de que los dominios que usa se han comprobado en Azure AD. Cuando haya comprobado los dominios, haga clic en el símbolo de actualización. Para más información, consulte [agregar y comprobar el dominio](../active-directory-domains-add-azure-portal.md)
 
-**UserPrincipalName**: userPrincipalName es el atributo que los usuarios utilizan al iniciar sesión en Azure AD y Office 365. Los dominios utilizados, también conocidos como sufijo UPN, deben comprobarse en Azure AD antes de que se sincronicen los usuarios. Microsoft recomienda mantener el atributo userPrincipalName predeterminado. Si este atributo no es enrutable y no se puede comprobar, se puede seleccionar otro. Por ejemplo, se puede seleccionar email como atributo que contiene el identificador de inicio de sesión. El uso de cualquier atributo distinto de userPrincipalName se conoce como **id. alternativo**. El valor del atributo Alternate ID debe seguir el estándar RFC822. Se puede utilizar un identificador alternativo con la sincronización de hash de contraseñas, la autenticación de paso a través y la federación. El atributo no debe definirse en Active Directory como de valores múltiples, aunque solo tenga un valor. Para más información sobre el identificador alternativo, [haga clic aquí.](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-pta-faq#does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname)
+**UserPrincipalName**: userPrincipalName es el atributo que los usuarios utilizan al iniciar sesión en Azure AD y Office 365. Los dominios utilizados, también conocidos como sufijo UPN, deben comprobarse en Azure AD antes de que se sincronicen los usuarios. Microsoft recomienda mantener el atributo userPrincipalName predeterminado. Si este atributo no es enrutable y no se puede comprobar, se puede seleccionar otro. Por ejemplo, se puede seleccionar email como atributo que contiene el identificador de inicio de sesión. El uso de cualquier atributo distinto de userPrincipalName se conoce como **id. alternativo**. El valor del atributo Alternate ID debe seguir el estándar RFC822. Se puede utilizar un identificador alternativo con la sincronización de hash de contraseñas, la autenticación de paso a través y la federación. El atributo no debe definirse en Active Directory como de valores múltiples, aunque solo tenga un valor. Para más información sobre el identificador alternativo, [haga clic aquí.](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-faq#does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname)
 
 >[!NOTE]
 > Al habilitar la autenticación de paso a través, debe tener al menos un dominio verificado para continuar con el asistente.

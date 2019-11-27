@@ -1,21 +1,21 @@
 ---
-title: Tutorial de C# para llamar a Cognitive Services APIs en una canalización de indexación de inteligencia artificial
+title: 'Tutorial: Creación de conjunto de aptitudes en C# mediante .NET'
 titleSuffix: Azure Cognitive Search
-description: Siga paso a paso un ejemplo de extracción de datos, lenguaje natural y procesamiento de inteligencia artificial de imágenes en una canalización de indexación de enriquecimiento de Azure Cognitive Search.
+description: Siga paso a paso el código de ejemplo que muestra la extracción de datos, el lenguaje natural y el procesamiento de inteligencia artificial de imágenes en una canalización de indexación de enriquecimiento de Azure Cognitive Search.
 manager: nitinme
 author: MarkHeff
 ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 7a8146f524a6e6f9abed2440c98a83aa3878f0c7
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 84b98b637236213cdd5b87c6b0a38d87c110c21b
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790221"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111733"
 ---
-# <a name="c-tutorial-call-cognitive-services-apis-in-an-azure-cognitive-search-indexing-pipeline"></a>Tutorial de C#: Llamada a Cognitive Services APIs en una canalización de indexación de Azure Cognitive Search
+# <a name="tutorial-create-an-ai-enrichment-pipeline-using-c-and-the-net-sdk"></a>Tutorial: Creación de una canalización de enriquecimiento de inteligencia artificial mediante C# y el SDK de .NET
 
 En este tutorial, aprenderá la mecánica para programar el enriquecimiento de datos en Azure Cognitive Search mediante *aptitudes cognitivas*. Las aptitudes tienen el respaldo de las funcionalidades del procesamiento de lenguaje natural (NLP) y del análisis de imágenes de Cognitive Services. A través de la composición y configuración del conjunto de aptitudes puede extraer texto y representaciones de texto de un archivo con una imagen o con un documento digitalizado. También puede detectar el idioma, las entidades, las frases clave, etc. El resultado final es un contenido adicional abundante en un índice de búsqueda, creado por una canalización de indexación alimentado por inteligencia artificial.
 
@@ -612,7 +612,7 @@ Las advertencias son comunes con algunas combinaciones de aptitudes y archivos d
  
 ## <a name="query-your-index"></a>Consulta del índice
 
-Una vez finalizada la indexación, puede ejecutar consultas que devuelvan el contenido de los campos individuales. De forma predeterminada, Azure Cognitive Search devuelve los primeros 50 resultados. Los datos de ejemplo tiene un tamaño reducido, por lo que la configuración predeterminada funciona bien. Sin embargo, si trabaja con conjuntos de datos más grandes, deberá incluir parámetros en la cadena de consulta para que se devuelvan más resultados. Para instrucciones, consulte [Cómo paginar los resultados de la búsqueda en Azure Cognitive Search](search-pagination-page-layout.md).
+Una vez finalizada la indexación, puede ejecutar consultas que devuelvan el contenido de los campos individuales. De forma predeterminada, Azure Cognitive Search devuelve los primeros 50 resultados. Los datos de ejemplo tiene un tamaño reducido, por lo que la configuración predeterminada funciona bien. Sin embargo, si trabaja con conjuntos de datos más grandes, deberá incluir parámetros en la cadena de consulta para que se devuelvan más resultados. Para ver las instrucciones, consulte [Cómo paginar los resultados de la búsqueda en Azure Cognitive Search](search-pagination-page-layout.md).
 
 Como paso de verificación, consulte el índice para todos los campos.
 

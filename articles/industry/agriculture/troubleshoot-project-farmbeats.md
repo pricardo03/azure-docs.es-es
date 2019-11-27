@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: ab0d3aac6944e331223d91eb98b50b3308be12c3
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: ad1cb3b08f92923ef45b48d79ad8bbdc3277d370
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73797217"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74131974"
 ---
 # <a name="troubleshooting"></a>solución de problemas
 
@@ -251,7 +251,7 @@ En el panel del grupo de recursos, busque la cuenta de almacenamiento (datahublo
 
 **Significado**: la configuración del registro de aplicación de Azure AD no se ha realizado correctamente.  
 
-**Acción correctiva**: pida al administrador de TI (que tenga acceso de lectura de inquilino) que use nuestro [script](https://aka.ms/PPCreateAADappregistration) para generar la creación del registro de aplicación de Azure AD. Este script también se ocupará automáticamente de los pasos de configuración. como  
+**Acción correctiva**: pida al administrador de TI (que tiene acceso de lectura de inquilino) que use nuestro [script](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect/tree/master/AppCreationScripts) para crear el registro de aplicación de Azure AD. Este script también se ocupará automáticamente de los pasos de configuración.
 
 **Error**: no se ha podido crear la nueva aplicación de Active Directory "dummyname" en este inquilino: ya existe otro objeto con el mismo valor para los URI de identificador de propiedad.
 

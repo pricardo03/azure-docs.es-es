@@ -1,5 +1,5 @@
 ---
-title: Asociación de un recurso de Cognitive Services con un conjunto de aptitudes
+title: Adjuntar Cognitive Services a un conjunto de aptitudes
 titleSuffix: Azure Cognitive Search
 description: Instrucciones para asociar una suscripción todo en uno de Cognitive Services a una canalización de enriquecimiento de inteligencia artificial en Azure Cognitive Search.
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 11ca5f71cb0d08a4bebf72407035a9557c794f9f
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: d65b9b60ce93656c9acdc76c77291114468d345a
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72788027"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113934"
 ---
 # <a name="attach-a-cognitive-services-resource-to-a-skillset-in-azure-cognitive-search"></a>Asociación de un recurso de Cognitive Services con un conjunto de aptitudes en Azure Cognitive Search 
 

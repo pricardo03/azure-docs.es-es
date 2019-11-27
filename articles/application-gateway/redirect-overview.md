@@ -1,24 +1,18 @@
 ---
 title: Introducción al redireccionamiento para Azure Application Gateway
-description: Aprenda sobre la funcionalidad de redirección de Azure Application Gateway
+description: Obtenga información sobre la funcionalidad de redirección en Azure Application Gateway para redirigir el tráfico recibido en un agente de escucha a otro agente de escucha o a un sitio externo.
 services: application-gateway
-documentationcenter: na
 author: amsriva
-manager: jpconnock
-tags: azure-resource-manager
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 3/19/2018
+ms.date: 11/16/2019
 ms.author: amsriva
-ms.openlocfilehash: 8e88e0e11b3ccab7cc2c68b2617df2d588680780
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5943d8aad4d5dd0d981fae9b2325dd3fc75b31e8
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60715814"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74129890"
 ---
 # <a name="application-gateway-redirect-overview"></a>Introducción a la redirección de Application Gateway
 

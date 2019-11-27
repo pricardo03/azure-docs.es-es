@@ -1,5 +1,5 @@
 ---
-title: Creación de una máquina virtual de Azure con Accelerated Networking | Microsoft Docs
+title: Crear una máquina virtual Azure con Accelerated Networking - Azure PowerShell
 description: Aprenda a crear una máquina virtual Linux con Accelerated Networking.
 services: virtual-network
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/04/2018
 ms.author: gsilva
-ms.openlocfilehash: f8f4f55f2c2aa4a0f9cce08e10c9f12f81a54dba
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 16837782af2f08e27363091dc21587a100194cd8
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71678006"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083695"
 ---
-# <a name="create-a-windows-virtual-machine-with-accelerated-networking"></a>Creación de una máquina virtual Windows con Accelerated Networking
+# <a name="create-a-windows-virtual-machine-with-accelerated-networking-using-azure-powershell"></a>Creación de una máquina virtual Windows con Accelerated Networking mediante Azure PowerShell
 
 En este tutorial, aprenderá a crear una máquina virtual Windows con Accelerated Networking. Para crear una máquina virtual Linux con redes aceleradas, consulte [Creación de una máquina virtual Linux con redes aceleradas](create-vm-accelerated-networking-cli.md). Accelerated Networking habilita la virtualización de E/S de raíz única (SR-IOV) en una máquina virtual (VM), lo que mejora significativamente su rendimiento en la red. Este método de alto rendimiento omite el host de la ruta de acceso de datos, lo que reduce la latencia, la inestabilidad y la utilización de la CPU para usarse con las cargas de trabajo de red más exigentes en los tipos de máquina virtual admitidos. En la siguiente imagen, se muestra la comunicación entre dos máquinas virtuales (VM) con y sin Accelerated Networking:
 

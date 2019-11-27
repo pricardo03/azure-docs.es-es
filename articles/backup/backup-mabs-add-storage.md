@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: dacurwin
-ms.openlocfilehash: 48d58ac303a843c627067c9a0287628c35b65f66
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 92717e704fb3f9e79b364fcf47bbcc096c5dd1d0
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019063"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74090738"
 ---
 # <a name="add-storage-to-azure-backup-server"></a>Adición de almacenamiento a Azure Backup Server
 
@@ -22,18 +22,20 @@ Azure Backup Server v2 (y versiones posteriores) es compatible con Modern Backup
 > [!NOTE]
 > Para utilizar Modern Backup Storage, debe ejecutar Backup Server V2 o V3 en Windows Server 2016 o V3 en Windows Server 2019.
 > Si ejecuta Backup Server V2 en una versión anterior de Windows Server, Azure Backup Server no puede sacar partido de Modern Backup Storage. En su lugar, protege las cargas de trabajo como lo hace con Backup Server V1. Para más información, consulte la [matriz de protección](backup-mabs-protection-matrix.md) de la versión de Backup Server.
+>
+> Para lograr los mejores rendimientos de copia de seguridad, se recomienda implementar MABS V3 con almacenamiento en capas en Windows Server 2019. Consulte el artículo de DPM "[Configurar MBS con Tiered Storage](https://docs.microsoft.com/system-center/dpm/add-storage?view=sc-dpm-2019#set-up-mbs-with-tiered-storage)" para conocer los pasos para configurar el almacenamiento en capas.
 
 ## <a name="volumes-in-backup-server"></a>Volúmenes en Backup Server
 
 Backup Server V2 o versiones posteriores acepta volúmenes de almacenamiento. Al agregar un volumen, Backup Server da formato al volumen en Sistema de archivos resistente (ReFS), que requiere Modern Backup Storage. Para agregar un volumen y expandirlo más adelante si es necesario, se recomienda utilizar este flujo de trabajo:
 
-1.  Configure Backup Server en una máquina virtual.
-2.  Cree un volumen en un disco virtual en un grupo de almacenamiento:
-    1.  Agregue un disco a un grupo de almacenamiento y cree un disco virtual con la distribución simple.
-    2.  Agregue discos adicionales y extienda el disco virtual.
-    3.  Cree volúmenes en el disco virtual.
-3.  Agregue los volúmenes a Backup Server.
-4.  Configure el almacenamiento con reconocimiento de la carga de trabajo.
+1. Configure Backup Server en una máquina virtual.
+2. Cree un volumen en un disco virtual en un grupo de almacenamiento:
+    1. Agregue un disco a un grupo de almacenamiento y cree un disco virtual con la distribución simple.
+    2. Agregue discos adicionales y extienda el disco virtual.
+    3. Cree volúmenes en el disco virtual.
+3. Agregue los volúmenes a Backup Server.
+4. Configure el almacenamiento con reconocimiento de la carga de trabajo.
 
 ## <a name="create-a-volume-for-modern-backup-storage"></a>Creación de un volumen para Modern Backup Storage
 
@@ -65,6 +67,11 @@ El uso de Backup Server V2 o versiones posteriores con volúmenes como almacenam
 
 ## <a name="add-volumes-to-backup-server-disk-storage"></a>Adición de volúmenes al almacenamiento de disco de Backup Server
 
+> [!NOTE]
+>
+> - Agregue solo un disco al grupo para mantener el recuento de columnas en 1. Después, puede agregar discos según sea necesario posteriormente.
+> - Si agrega varios discos al bloque de almacenamiento, el número de discos se almacena como el número de columnas. Cuando se agregan más discos, solo pueden ser un múltiplo del número de columnas.
+
 Para agregar un volumen a Backup Server, en el panel **Administración**, vuelva a examinar el almacenamiento y, después, seleccione **Agregar**. Aparece una lista de todos los volúmenes disponibles para agregarse al almacenamiento de Backup Server. Después de que se hayan agregado los volúmenes disponibles a la lista de volúmenes seleccionados, puede asignarles un nombre descriptivo para facilitar su administración. Para dar formato a estos volúmenes en ReFS para que Backup Server pueda usar las ventajas de Modern Backup Storage, seleccione **Aceptar**.
 
 ![Adición de volúmenes disponibles](./media/backup-mabs-add-storage/mabs-add-storage-7.png)
@@ -75,7 +82,7 @@ Con el almacenamiento con reconocimiento de la carga de trabajo, puede seleccion
 
 ### <a name="update-dpmdiskstorage"></a>Update-DPMDiskStorage
 
-Puede configurar el almacenamiento con reconocimiento de la carga de trabajo mediante el cmdlet de PowerShell Update-DPMDiskStorage, que actualiza las propiedades de un volumen en el bloque de almacenamiento en una instancia de Azure Backup Server. 
+Puede configurar el almacenamiento con reconocimiento de la carga de trabajo mediante el cmdlet de PowerShell Update-DPMDiskStorage, que actualiza las propiedades de un volumen en el bloque de almacenamiento en una instancia de Azure Backup Server.
 
 Sintaxis:
 
@@ -84,6 +91,7 @@ Sintaxis:
 ```powershell
 Update-DPMDiskStorage [-Volume] <Volume> [[-FriendlyName] <String> ] [[-DatasourceType] <VolumeTag[]> ] [-Confirm] [-WhatIf] [ <CommonParameters>]
 ```
+
 En la captura de pantalla siguiente se muestra el cmdlet Update-DPMDiskStorage en la ventana de PowerShell.
 
 ![El comando Update-DPMDiskStorage en la ventana de PowerShell](./media/backup-mabs-add-storage/mabs-add-storage-8.png)
@@ -92,8 +100,8 @@ Los cambios que realice con PowerShell se reflejan en la consola de administrado
 
 ![Discos y volúmenes en la consola de administrador](./media/backup-mabs-add-storage/mabs-add-storage-9.png)
 
-
 ## <a name="migrate-legacy-storage-to-modern-backup-storage"></a>Migrar el almacenamiento heredado a Modern Backup Storage
+
 Después de instalar Backup Server V2 o actualizar a esta versión, y después de actualizar el sistema operativo a Windows Server 2016, actualice los grupos de protección para que usen Modern Backup Storage. De forma predeterminada, los grupos de protección no se cambian. Siguen funcionando tal como se han configurado inicialmente.
 
 La actualización de los grupos de protección para que usen Modern Backup Storage es opcional. Para actualizar el grupo de protección, detenga la protección de todos los orígenes de datos mediante la opción de conservar datos. Después, agregue los orígenes de datos a un nuevo grupo de protección.
@@ -120,11 +128,12 @@ Para agregar almacenamiento en disco:
 
     ![Cuadro de diálogo Agregar almacenamiento en disco](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-add-disk-storage.png)
 
-4. En el cuadro de diálogo **Agregar almacenamiento en disco**, seleccione **Agregar discos**.
+2. En el cuadro de diálogo **Agregar almacenamiento en disco**, seleccione **Agregar discos**.
 
-5. En la lista de discos disponibles, seleccione los discos que quiera agregar y haga clic en **Agregar** y en **Aceptar**.
+3. En la lista de discos disponibles, seleccione los discos que quiera agregar y haga clic en **Agregar** y en **Aceptar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 Después de instalar Backup Server, sepa cómo preparar el servidor o empezar a proteger la carga de trabajo.
 
 - [Preparar cargas de trabajo de Backup Server](backup-azure-microsoft-azure-backup.md)

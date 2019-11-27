@@ -7,18 +7,18 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: mlearned
-ms.openlocfilehash: da84f72c1ccf85e1f3d0f003a5aca961118c0a0e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 78fb06c7ecd20d8ed2af40bcc294f2fb1b166d96
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73472918"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74120618"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Conceptos básicos de Kubernetes de Azure Kubernetes Service (AKS)
 
 Dado que el desarrollo de aplicaciones evoluciona hacia un enfoque basado en contenidos, cobra importancia la necesidad de organizar y administrar los recursos. Kubernetes es la plataforma líder que ofrece la capacidad de proporcionar programación de confianza de cargas de trabajo de aplicación con tolerancia a errores. Azure Kubernetes Service (AKS) es un oferta de Kubernetes administrado que simplifica aún más la administración e implementación de aplicaciones basadas en contenedores.
 
-En este artículo se presentan los componentes principales de la infraestructura de Kubernetes, como el *patrón de clúster*, los *nodos* y los *grupos de nodos*. También se presentan los recursos de la carga de trabajo, como los *pods*, las *implementaciones* y los *conjuntos*, junto con información acerca de cómo agrupar los recursos en *espacios de nombres*.
+Este artículo presenta los componentes centrales de la infraestructura de Kubernetes, como el *​​plano de control*, *nodos* y *agrupaciones de nodos*. También se presentan los recursos de la carga de trabajo, como los *pods*, las *implementaciones* y los *conjuntos*, junto con información acerca de cómo agrupar los recursos en *espacios de nombres*.
 
 ## <a name="what-is-kubernetes"></a>¿Qué es Kubernetes?
 
@@ -28,33 +28,33 @@ Puede compilar y ejecutar aplicaciones modernas, portátiles y basadas en micros
 
 Como plataforma abierta, Kubernetes le permite compilar aplicaciones con el lenguaje de programación, el sistema operativo, las bibliotecas o el bus de mensajería que prefiera. La integración continua y las herramientas de entrega continua (CI/CD) existentes pueden integrarse con Kubernetes para programar e implementar versiones.
 
-Azure Kubernetes Service (AKS) proporciona un servicio de Kubernetes administrado que reduce la complejidad de las principales tareas de administración e implementación, incluida la coordinación de actualizaciones. Los patrones de clúster de AKS se administran mediante la plataforma Azure y el usuario solo paga por los nodos de AKS que ejecuten sus aplicaciones. AKS se ha diseñado sobre el motor de código abierto de Azure Kubernetes Service ([aks-engine][aks-engine]).
+Azure Kubernetes Service (AKS) proporciona un servicio de Kubernetes administrado que reduce la complejidad de las principales tareas de administración e implementación, incluida la coordinación de actualizaciones. El plano de control de AKS es administrado por la plataforma de Azure, y solo paga por los nodos de AKS que ejecutan sus aplicaciones. AKS se ha diseñado sobre el motor de código abierto de Azure Kubernetes Service ([aks-engine][aks-engine]).
 
 ## <a name="kubernetes-cluster-architecture"></a>Arquitectura del clúster de Kubernetes
 
 Un clúster de Kubernetes se divide en dos componentes:
 
-- Los nodos del *patrón de clúster* proporcionan los servicios principales de Kubernetes y la orquestación de cargas de trabajo de la aplicación.
+- Los nodos del *plano de control* proporcionan los servicios centrales de Kubernetes y la orquestación de las cargas de trabajo de las aplicaciones.
 - Los *nodos* ejecutan las cargas de trabajo de la aplicación.
 
-![Componentes del nodo y del patrón de clúster de Kubernetes](media/concepts-clusters-workloads/cluster-master-and-nodes.png)
+![Plano de control de Kubernetes y componentes de nodo](media/concepts-clusters-workloads/control-plane-and-nodes.png)
 
-## <a name="cluster-master"></a>Patrón de clúster
+## <a name="control-plane"></a>Plano de control
 
-Al crear un clúster de AKS, se crea y se configura automáticamente un patrón de clúster. Este patrón de clúster se proporciona como un recurso de Azure administrado que se extrae del usuario. No hay ningún costo para el patrón de clúster, solo los nodos que forman parte del clúster de AKS.
+Cuando crea un clúster AKS, se crea y configura automáticamente un plano de control. Este plano de control se proporciona como un recurso de Azure administrado que se extrae del usuario. No hay ningún costo para el plano de control, solo los nodos que forman parte del clúster de AKS.
 
-El patrón de clúster incluye los siguientes componentes principales de Kubernetes:
+El plano de control incluye los siguientes componentes principales de Kubernetes:
 
 - *kube-apiserver*: el servidor de la API es el modo en el que se exponen las API de Kubernetes subyacentes. Este componente proporciona la interacción de las herramientas de administración, como `kubectl` o el panel de Kubernetes.
 - *etcd*: para mantener el estado del clúster de Kubernetes y la configuración, el componente *etcd* de alta disponibilidad es un valor clave en Kubernetes.
 - *kube-scheduler*: al crear o escalar aplicaciones, Scheduler determina qué nodos pueden ejecutar la carga de trabajo y los inicia.
 - *kube-controller-manager*: el administrador de controladores supervisa un número de controladores más pequeños que realizan acciones como la replicación de los pods y el control de las operaciones del nodo.
 
-AKS proporciona un patrón de clúster de inquilino único con un servidor de API dedicado, Scheduler, etc. El usuario define el número de nodos, así como su tamaño, y la plataforma Azure configura la comunicación segura entre el patrón de clúster y los nodos. La interacción con el patrón de clúster se produce a través de las API de Kubernetes, como `kubectl` o el panel de Kubernetes.
+AKS proporciona un plano de control de inquilino único con un servidor de API dedicado, Scheduler, etc. El usuario define el número de nodos, así como su tamaño, y la plataforma Azure configura la comunicación segura entre el plano de control y los nodos. La interacción con el plano de control se produce a través de las API de Kubernetes, como `kubectl` o el panel de Kubernetes.
 
-Este patrón de clúster administrado significa que no es necesario configurar componentes como el almacén *etcd* de alta disponibilidad, pero también significa que no puede obtener acceso al patrón de clúster directamente. Las actualizaciones de Kubernetes se organizan a través de la CLI de Azure o Azure Portal, que actualiza el patrón de clúster y, a continuación, los nodos. Para solucionar los posibles problemas, puede revisar los registros maestros del clúster mediante registros de Azure Monitor.
+Este plano de control administrado significa que no es necesario configurar componentes como el almacén *etcd* de alta disponibilidad, pero también significa que no puede obtener acceso al plano de control directamente. Las actualizaciones de Kubernetes se organizan a través de la CLI de Azure o Azure Portal, que actualiza el plano de control y, a continuación, los nodos. Para solucionar los posibles problemas, puede revisar los registros del plano de control mediante registros de Azure Monitor.
 
-Si tiene que configurar el patrón de clúster de una manera determinada o necesita acceso directo a él, puede implementar su propio clúster de Kubernetes con [aks-engine][aks-engine].
+Si tiene que configurar el plano de control de una manera determinada o necesita acceso directo a él, puede implementar su propio clúster de Kubernetes con [aks-engine][aks-engine].
 
 Para los procedimientos recomendados asociados, consulte [Procedimientos recomendados para administrar la seguridad y las actualizaciones de los clústeres en Azure Kubernetes Service (AKS)][operator-best-practices-cluster-security].
 
@@ -62,7 +62,7 @@ Para los procedimientos recomendados asociados, consulte [Procedimientos recomen
 
 Para ejecutar las aplicaciones y los servicios de soporte técnico, necesitará un *nodo* de Kubernetes. Un clúster de AKS tiene uno o varios nodos, que consiste en una máquina virtual (VM) de Azure que ejecuta los componentes del nodo de Kubernetes y el entorno de ejecución del contenedor:
 
-- `kubelet` es el agente de Kubernetes que procesa las solicitudes de orquestación desde el patrón de clúster y la programación de la ejecución de los contenedores solicitados.
+- `kubelet` es el agente de Kubernetes que procesa las solicitudes de orquestación desde el plano de control y la programación de la ejecución de los contenedores solicitados.
 - Las redes virtuales se controlan mediante *kube-proxy* en cada nodo. El proxy enruta el tráfico de red y administra las direcciones IP para los servicios y los pods.
 - El *entorno de ejecución del contenedor* es el componente que permite que las aplicaciones en contenedor ejecuten recursos adicionales e interactúen con ellos, como la red virtual y el almacenamiento. En AKS, Moby se usa como el entorno de ejecución del contenedor.
 
@@ -87,7 +87,7 @@ kubectl describe node [NODE_NAME]
 Para mantener la funcionalidad y el rendimiento de los nodos, AKS reserva los siguientes recursos en cada nodo. A medida que aumentan los recursos de un nodo, la reserva de recursos también crece debido a la mayor cantidad de pods implementados por el usuario que necesitan administración.
 
 >[!NOTE]
-> El uso de complementos, como OMS, consumirá más recursos del nodo.
+> El uso de complementos AKS como Container Insights (OMS) consumirá recursos de nodo adicionales.
 
 - **CPU**: la CPU reservada depende del tipo de nodo y la configuración del clúster, lo que puede provocar que pueda asignarse menos CPU debido a la ejecución de otras características adicionales.
 
@@ -95,16 +95,24 @@ Para mantener la funcionalidad y el rendimiento de los nodos, AKS reserva los si
 |---|---|---|---|---|---|---|---|
 |Reservado para Kube (milinúcleos)|60|100|140|180|260|420|740|
 
-- **Memoria**: la reserva de memoria sigue un ritmo progresivo.
-  - 25 % de los primeros 4 GB de memoria
-  - 20 % de los siguientes 4 GB de memoria (hasta 8 GB)
-  - 10 % de los siguientes 8 GB de memoria (hasta 16 GB)
-  - 6 % de los siguientes 112 GB de memoria (hasta 128 GB)
-  - 2 % de cualquier memoria que esté por encima de 128 GB
+- **Memoria**: la memoria reservada incluye la suma de dos valores
 
-Estas reservas significan que la cantidad de CPU y memoria disponibles para las aplicaciones puede parecer menos de lo que contiene el nodo propiamente dicho. Si hay restricciones de recursos debido al número de aplicaciones que se ejecutan, estas reservas garantizan que CPU y memoria permanecen disponibles para los componentes principales de Kubernetes. Las reservas de recursos no se pueden cambiar.
+1. El demonio kubelet se instala en todos los nodos de agente de Kubernetes para administrar la creación y terminación de contenedores. De forma predeterminada en AKS, este demonio tiene la siguiente regla de desalojo: memory.available <750Mi, lo que significa que un nodo siempre debe tener al menos 750 Mi asignables en todo momento.  Cuando un host está por debajo de ese umbral de memoria disponible, el kubelet terminará uno de los pods en ejecución para liberar memoria en la máquina host y protegerla.
 
-El sistema operativo del nodo subyacente también requiere cierta cantidad de recursos de CPU y memoria para completar sus propias funciones esenciales.
+2. El segundo valor es una tasa progresiva de memoria reservada para que el demonio kubelet funcione correctamente (kube-reserved).
+    - 25 % de los primeros 4 GB de memoria
+    - 20 % de los siguientes 4 GB de memoria (hasta 8 GB)
+    - 10 % de los siguientes 8 GB de memoria (hasta 16 GB)
+    - 6 % de los siguientes 112 GB de memoria (hasta 128 GB)
+    - 2 % de cualquier memoria que esté por encima de 128 GB
+
+Como resultado de estas dos reglas definidas impuestas para mantener a los Kubernetes y los nodos de agente en buen estado, la cantidad de CPU y memoria asignables parecerá menos de lo que el nodo en sí podría ofrecer. Las reservas de recursos definidas anteriormente no se pueden cambiar.
+
+Por ejemplo, si un nodo ofrece 7 GB, informará del 34% de la memoria no asignable:
+
+`750Mi + (0.25*4) + (0.20*3) = 0.786GB + 1 GB + 0.6GB = 2.386GB / 7GB = 34% reserved`
+
+Además de las reservas para Kubernetes, el sistema operativo del nodo subyacente también reserva una cantidad de recursos de CPU y memoria para mantener las funciones del sistema operativo.
 
 Para consultar los procedimientos recomendados asociados, consulte[Procedimientos recomendados para características básicas del programador en Azure Kubernetes Service (AKS)][operator-best-practices-scheduler].
 

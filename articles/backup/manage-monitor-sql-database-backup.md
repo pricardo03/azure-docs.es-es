@@ -1,5 +1,5 @@
 ---
-title: Administración y supervisión de bases de datos de SQL Server en una máquina virtual de Azure con Azure Backup
+title: Administración y supervisión de bases de datos de SQL Server en una máquina virtual de Azure - Azure Backup
 description: En este artículo se describe cómo administrar y supervisar las bases de datos de SQL Server que se ejecutan en una máquina virtual de Azure.
 author: dcurwin
 manager: carmonm
@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.author: dacurwin
-ms.openlocfilehash: 5ef4ca3f6cbf45ac67bad6531926a7de54cd2012
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 1aba8777a5b0f5851922e292004a74d74065eabf
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70934823"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74090528"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Administración y supervisión de bases de datos SQL Server con copia de seguridad
 
@@ -31,7 +31,6 @@ Azure Backup muestra todos los trabajos desencadenados manualmente en el portal 
 >
 
 Para más información sobre los escenarios de supervisión, consulte [Supervisión en Azure Portal](backup-azure-monitoring-built-in-monitor.md) y [Supervisión con Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).  
-
 
 ## <a name="view-backup-alerts"></a>Visualización de alertas de copia de seguridad
 
@@ -57,14 +56,14 @@ Para supervisar las alertas de copia de seguridad de bases de datos:
 
 Puede detener la copia de seguridad de una base de datos SQL Server de las dos formas siguientes:
 
-* Detener todos los trabajos futuros de copia de seguridad y eliminar todos los puntos de recuperación.
-* Detener todos los trabajos futuros de copia de seguridad y dejar intactos los puntos de recuperación.
+- Detener todos los trabajos futuros de copia de seguridad y eliminar todos los puntos de recuperación.
+- Detener todos los trabajos futuros de copia de seguridad y dejar intactos los puntos de recuperación.
 
 Si decide dejar los puntos de recuperación, tenga en cuenta estos detalles:
 
-* Todos los puntos de recuperación permanecerán intactos para siempre; al detenerse la protección de los datos se detendrá la eliminación de todos los puntos y se conservarán los datos.
-* Se le cobrará la instancia protegida y el almacenamiento consumido. Para más información, consulte [Precios de Azure Backup](https://azure.microsoft.com/pricing/details/backup/).
-* Si elimina un origen de datos sin detener las copias de seguridad, las nuevas copias de seguridad producirán errores.
+- Todos los puntos de recuperación permanecerán intactos para siempre; al detenerse la protección de los datos se detendrá la eliminación de todos los puntos y se conservarán los datos.
+- Se le cobrará la instancia protegida y el almacenamiento consumido. Para más información, consulte [Precios de Azure Backup](https://azure.microsoft.com/pricing/details/backup/).
+- Si elimina un origen de datos sin detener las copias de seguridad, las nuevas copias de seguridad producirán errores.
 
 Para detener la protección de una base de datos:
 
@@ -82,22 +81,20 @@ Para detener la protección de una base de datos:
 
     ![Seleccionar Detener copia de seguridad](./media/backup-azure-sql-database/stop-db-button.png)
 
-
 5. En el menú **Detener copia de seguridad**, seleccione si desea conservar o eliminar los datos. También puede proporcionar una razón y un comentario.
 
     ![Conservación o eliminación de datos en el menú Detener copia de seguridad](./media/backup-azure-sql-database/stop-backup-button.png)
 
 6. Seleccione **Detener copia de seguridad**.
 
-
 > [!NOTE]
 >
 >Para más información sobre la opción de eliminación de datos, consulte las preguntas más frecuentes a continuación:
->* [Si elimino una base de datos de una instancia protegida automáticamente, ¿qué ocurrirá con las copias de seguridad?](faq-backup-sql-server.md#if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups)
->* [Si detengo la operación de copia de seguridad de una base de datos protegida automáticamente, ¿cuál será su comportamiento?](faq-backup-sql-server.md#if-i-change-the-name-of-the-database-after-it-has-been-protected-what-will-be-the-behavior)
+>
+>- [Si elimino una base de datos de una instancia protegida automáticamente, ¿qué ocurrirá con las copias de seguridad?](faq-backup-sql-server.md#if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups)
+>- [Si detengo la operación de copia de seguridad de una base de datos protegida automáticamente, ¿cuál será su comportamiento?](faq-backup-sql-server.md#if-i-change-the-name-of-the-database-after-it-has-been-protected-what-will-be-the-behavior)
 >
 >
-
 
 ## <a name="resume-protection-for-a-sql-database"></a>Reanudación de la protección en una base de datos SQL
 
@@ -115,12 +112,13 @@ Para reanudar la protección en una base de datos SQL
 
 Puede ejecutar diferentes tipos de copias de seguridad a petición:
 
-* Copia de seguridad completa
-* Copiar solo copia de seguridad completa
-* Copia de seguridad diferencial
-* Copia de seguridad de registro
+- Copia de seguridad completa
+- Copiar solo copia de seguridad completa
+- Copia de seguridad diferencial
+- Copia de seguridad de registro
 
-Aunque puede que tenga que especificar la duración de la retención de la copia de seguridad completa de solo copia, el intervalo de retención de la copia de seguridad completa ad hoc se establece automáticamente en 45 días desde el momento actual. <br/>
+Aunque puede que tenga que especificar la duración de la retención de la copia de seguridad completa de solo copia, el intervalo de retención de la copia de seguridad completa a petición se establece automáticamente en 45 días desde el momento actual.
+
 Para más información, vea [Tipos de copia de seguridad en SQL Server](backup-architecture.md#sql-server-backup-types).
 
 ## <a name="unregister-a-sql-server-instance"></a>Anulación del registro de una instancia de SQL Server
@@ -141,8 +139,8 @@ Anule el registro de una instancia de SQL Server después de deshabilitar la pro
 
    ![Seleccionar Eliminar](./media/backup-azure-sql-database/delete-protected-server.jpg)
 
-
 ## <a name="modify-policy"></a>Modificación de directivas
+
 Modifique la directiva para cambiar la frecuencia de las copias de seguridad o la duración de retención.
 
 > [!NOTE]
@@ -154,22 +152,21 @@ En el panel del almacén, vaya a **Administrar** > **Directivas de copia de segu
 
   ![Modificación de la directiva de copia de seguridad](./media/backup-azure-sql-database/modify-backup-policy-impact.png)
 
-La modificación de directivas afectará a todos los elementos de Backup asociados y al desencadenador de los trabajos de **configuración de la protección** correspondientes. 
+La modificación de directivas afectará a todos los elementos de Backup asociados y al desencadenador de los trabajos de **configuración de la protección** correspondientes.
 
-#### <a name="inconsistent-policy"></a>Directiva incoherente 
+### <a name="inconsistent-policy"></a>Directiva incoherente
 
 A veces, una operación de modificación de directiva puede conducir a una versión de directiva **incoherente** para algunos elementos de copia de seguridad. Esto sucede cuando el trabajo de **protección de configuración**  correspondiente fracasa para el elemento de copia de seguridad después de que se desencadene una operación de modificación de directiva. Aparece como se indica a continuación en la vista del elemento de copia de seguridad:
- 
+
   ![Directiva incoherente](./media/backup-azure-sql-database/inconsistent-policy.png)
 
 Puede corregir la versión de directiva de todos los elementos afectados en un solo clic:
 
   ![Corrección de la directiva incoherente](./media/backup-azure-sql-database/fix-inconsistent-policy.png)
- 
 
 ## <a name="re-register-extension-on-the-sql-server-vm"></a>Volver a registrar la extensión en la máquina virtual de SQL Server
 
-A veces, la extensión de la carga de trabajo en la máquina virtual puede verse afectada por diversas razones. En tales casos, todas las operaciones que se desencadenen en la máquina virtual comenzarán a generar errores. Quizás tenga que volver a registrar la extensión en la máquina virtual. La operación **Volver a registrar** vuelve a instalar la extensión de copia de seguridad de cargas de trabajo en la máquina virtual para que las operaciones puedan continuar.  <br>
+A veces, la extensión de la carga de trabajo en la máquina virtual puede verse afectada por diversas razones. En tales casos, todas las operaciones que se desencadenen en la máquina virtual comenzarán a generar errores. Quizás tenga que volver a registrar la extensión en la máquina virtual. La operación **Volver a registrar** vuelve a instalar la extensión de copia de seguridad de cargas de trabajo en la máquina virtual para que las operaciones puedan continuar.
 
 Use esta opción con precaución; cuando se desencadena en una máquina virtual que ya tiene una extensión correcta, esta operación hará que la extensión se reinicie. Esto puede dar lugar a errores en todos los trabajos en curso. Compruebe uno o varios de los [síntomas](backup-sql-server-azure-troubleshoot.md#re-registration-failures) antes de desencadenar la operación de repetición del registro.
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/03/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 196aeb69a1948a44afb8170fa5f48d42b978854d
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 2af3ec61537dc28ab652b669ff46500db19ab307
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070456"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74130590"
 ---
 # <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>Guía de implementación de aplicaciones web mediante plantillas de Azure Resource Manager
 
@@ -46,7 +46,7 @@ Los recursos se implementan en el orden siguiente:
 **Nivel 3**
 * Control de código fuente: depende de la aplicación web.
 * Extensión del sitio MSDeploy: depende de la aplicación web.
-* Instancia de Application Insights destinada a la granja de servidores: depende de la aplicación web.
+* Instancia de Azure Application Insights destinada a la aplicación web: depende de la aplicación web.
 
 **Nivel 4**
 * Certificado de App Service: depende del control de código o de MSDeploy (si alguno está presente). De lo contrario, depende de la aplicación web.

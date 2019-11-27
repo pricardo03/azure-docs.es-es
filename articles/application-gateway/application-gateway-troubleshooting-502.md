@@ -1,18 +1,18 @@
 ---
-title: Solución de errores de puerta de enlace incorrecta (502) en el servicio Azure Application Gateway
-description: Obtenga información sobre cómo solucionar errores 502 en el servicio Application Gateway.
+title: Solución de errores de puerta de enlace incorrecta en Azure Application Gateway
+description: 'Obtenga información sobre cómo solucionar errores de Application Gateway: 502, el servidor web ha recibido una respuesta no válida mientras actuaba como puerta de enlace o servidor proxy.'
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 4/25/2019
+ms.date: 11/16/2019
 ms.author: amsriva
-ms.openlocfilehash: 2a1c7e480e896da6852949c9d765d17290e4e9ce
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 17bed17b536f6e88fc821fd83e09a1d6ea218bc3
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64697164"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74130473"
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Solución de errores de puerta de enlace incorrecta en el servicio Puerta de enlace de aplicaciones
 
@@ -111,7 +111,7 @@ Se han agregado las siguientes propiedades adicionales:
 | NOMBRE |Nombre del sondeo. Este nombre se usa para hacer referencia al sondeo en la configuración de HTTP de back-end. |
 | Protocolo |Protocolo usado para enviar el sondeo. El sondeo utiliza el protocolo definido en la configuración de HTTP del back-end. |
 | Host |Nombre de host para enviar el sondeo. Solo es aplicable cuando se ha configurado un entorno multisitio en la instancia de Application Gateway. Es diferente al nombre de host de máquina virtual. |
-| Ruta de acceso |Ruta de acceso relativa del sondeo. La ruta de acceso válida se inicia desde '/'. La sonda se envía a \<protocolo\>://\<host\>:\<puerto\>\<ruta de acceso\> |
+| Path |Ruta de acceso relativa del sondeo. La ruta de acceso válida se inicia desde '/'. La sonda se envía a \<protocolo\>://\<host\>:\<puerto\>\<ruta de acceso\> |
 | Intervalo |Intervalo de sondeo en segundos. Es el intervalo de tiempo entre dos sondeos consecutivos. |
 | Tiempo de espera |Tiempo de espera del sondeo en segundos. Si no se recibe una respuesta válida dentro del período de espera, el sondeo se marca como erróneo. |
 | Umbral incorrecto |Número de reintentos de sondeo. El servidor back-end se marca como inactivo después de que el número de errores de sondeo consecutivos alcanza el umbral incorrecto. |

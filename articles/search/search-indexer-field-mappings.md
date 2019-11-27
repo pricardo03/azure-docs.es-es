@@ -1,5 +1,5 @@
 ---
-title: Asignaciones de campos para la indexación automatizada mediante indexadores
+title: Asignaciones de campos en indexadores
 titleSuffix: Azure Cognitive Search
 description: Configure asignaciones de campos en un indexador para tener en cuenta las diferencias en los nombres de campo y las representaciones de datos.
 manager: nitinme
@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: cc863ee3dc7f2dc8049fcd22189acac94a855352
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 72623787cdb27c568fe2b4ec075010674a3996ef
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72786970"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74124001"
 ---
 # <a name="field-mappings-and-transformations-using-azure-cognitive-search-indexers"></a>Transformaciones y asignaciones de campos mediante indexadores de Azure Cognitive Search
 
@@ -175,11 +175,14 @@ Azure Cognitive Search admite dos codificaciones Base64 distintas. Debe usar los
 
 #### <a name="base64-encoding-options"></a>Opciones de codificación Base64
 
-Azure Cognitive Search admite dos codificaciones Base64 distintas: **token de dirección URL de HttpServerUtility** y **codificación Base64 segura para direcciones URL sin espaciado interno**. Una cadena codificada con Base64 durante la indexación se debe descodificar más adelante con las mismas opciones de codificación o, de lo contrario, el resultado no coincidirá con el original.
+Azure Cognitive Search admite la codificación Base64 de seguridad de direcciones URL y la codificación Base64 normal. Una cadena codificada con Base64 durante la indexación se debe descodificar más adelante con las mismas opciones de codificación o, de lo contrario, el resultado no coincidirá con el original.
 
 Si los parámetros `useHttpServerUtilityUrlTokenEncode` o `useHttpServerUtilityUrlTokenDecode` para codificar y descodificar respectivamente se establecen en `true`, `base64Encode` se comporta como [HttpServerUtility.UrlTokenEncode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) y `base64Decode` se comporta como [HttpServerUtility.UrlTokenDecode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokendecode.aspx).
 
-Si no usa la versión completa de .NET Framework (es decir, usa .NET Core u otro marco) para generar los valores de clave para emular el comportamiento de Azure Cognitive Search, debe establecer `useHttpServerUtilityUrlTokenEncode` y `useHttpServerUtilityUrlTokenDecode` en `false`. Dependiendo de la biblioteca que use, las funciones de codificación y descodificación Base64 pueden diferir de las usadas por Azure Cognitive Search.
+> [!WARNING]
+> Si se utiliza `base64Encode` para generar valores de clave, `useHttpServerUtilityUrlTokenEncode` debe establecerse en true. Solo se puede usar la codificación Base64 de seguridad de direcciones URL para los valores de clave. Consulte [Reglas de nomenclatura &#40;Azure Cognitive Search&#41;](https://docs.microsoft.com/rest/api/searchservice/naming-rules) para obtener el conjunto completo de restricciones sobre los caracteres de los valores de clave.
+
+Las bibliotecas .NET de Azure Cognitive Search asumen .NET Framework completo, que proporciona codificación integrada. Las opciones `useHttpServerUtilityUrlTokenEncode` y `useHttpServerUtilityUrlTokenDecode` aprovechan esta funcionalidad integrada. Si usa .NET Core u otro marco, se recomienda establecer esas opciones en `false` y llamar directamente a las funciones de codificación y descodificación de su marco de trabajo.
 
 La tabla siguiente compara diferentes codificaciones Base64 de la cadena `00>00?00`. Para determinar el procesamiento adicional necesario (si existe) para las funciones de Base64, aplique la función de codificación de bibliotecas en la cadena `00>00?00` y compare el resultado con el resultado esperado `MDA-MDA_MDA`.
 

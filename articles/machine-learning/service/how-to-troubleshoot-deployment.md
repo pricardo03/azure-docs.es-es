@@ -11,12 +11,12 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 10/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3a79c95d627bbdec3a91a1d048a48ff061b308ca
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 1dc66ae0f69c19524b32b55c654f7c8fd2d32762
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489363"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123214"
 ---
 # <a name="troubleshooting-azure-machine-learning-azure-kubernetes-service-and-azure-container-instances-deployment"></a>Solución de problemas con la implementación de Azure Machine Learning, Azure Kubernetes Service y Azure Container Instances
 
@@ -42,11 +42,21 @@ Al implementar un modelo en Azure Machine Learning, el sistema realiza una serie
 
 Más información sobre este proceso en la introducción a la [administración de modelos](concept-model-management-and-deployment.md).
 
+## <a name="prerequisites"></a>Requisitos previos
+
+* Una **suscripción de Azure**. Si no tiene una ya, pruebe la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
+* El [SDK de Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
+* La[CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+* La [extensión de la CLI para Azure Machine Learning](reference-azure-machine-learning-cli.md).
+* Para depurar localmente, debe tener una instalación de Docker en funcionamiento en el sistema local.
+
+    Para comprobar la instalación de Docker, use el comando `docker run hello-world` desde un símbolo del sistema o terminal. Para obtener información sobre la instalación de Docker o la solución de problemas de Docker, consulte la [Documentación de Docker](https://docs.docker.com/).
+
 ## <a name="before-you-begin"></a>Antes de empezar
 
 Si tiene algún problema, lo primero es dividir la tarea de implementación (descrita anteriormente) en pasos individuales para aislar el problema.
 
-Dividir la implementación en tareas es útil si se utilizan las API [Webservice.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#deploy-workspace--name--model-paths--image-config--deployment-config-none--deployment-target-none-) o [Webservice.deploy_from_model()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-), ya que ambas funciones realizan los pasos mencionados anteriormente como una acción única. Normalmente estas API son prácticas, pero resulta útil dividir los pasos para solucionar problemas al reemplazarlas por las siguientes llamadas API.
+Dividir la implementación en tareas es útil si se utilizan las API [Webservice.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#deploy-workspace--name--model-paths--image-config--deployment-config-none--deployment-target-none--overwrite-false-) o [Webservice.deploy_from_model()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none--overwrite-false-), ya que ambas funciones realizan los pasos mencionados anteriormente como una acción única. Normalmente estas API son prácticas, pero resulta útil dividir los pasos para solucionar problemas al reemplazarlas por las siguientes llamadas API.
 
 1. Registre el modelo. Este es un código de ejemplo:
 
@@ -154,15 +164,12 @@ Para evitar este problema, se recomienda uno de los siguientes enfoques:
 
 ## <a name="debug-locally"></a>Depuración local
 
-Si tiene problemas al implementar un modelo en ACI o AKS, intente implementarlo como local. El uso como local facilita la solución de problemas. Se descarga la imagen de Docker que contiene el modelo y se inicia en el sistema local.
-
-> [!IMPORTANT]
-> Las implementaciones locales requieren una instalación de Docker en funcionamiento en el sistema local. Docker se debe ejecutar antes de implementar como local. Para obtener información sobre cómo instalar y usar Docker, vea [https://www.docker.com/](https://www.docker.com/).
+Si tiene problemas al implementar un modelo en ACI o AKS, intente implementarlo como un servicio web local. El uso de un servicio web local facilita la solución de problemas. Se descarga la imagen de Docker que contiene el modelo y se inicia en el sistema local.
 
 > [!WARNING]
-> No se admiten las implementaciones locales en escenarios de producción.
+> No se admiten las implementaciones de servicios web locales en escenarios de producción.
 
-Para implementar de forma local, modifique el código para usar `LocalWebservice.deploy_configuration()` con el fin de crear una configuración de implementación. Luego use `Model.deploy()` para implementar el servicio. En el ejemplo siguiente se implementa un modelo (incluido en la variable `model`) como local:
+Para implementar de forma local, modifique el código para usar `LocalWebservice.deploy_configuration()` con el fin de crear una configuración de implementación. Luego use `Model.deploy()` para implementar el servicio. En el ejemplo siguiente se implementa un modelo (incluido en la variable `model`) como un servicio web local:
 
 ```python
 from azureml.core.model import InferenceConfig, Model
@@ -173,14 +180,14 @@ inference_config = InferenceConfig(runtime="python",
                                    entry_script="score.py",
                                    conda_file="myenv.yml")
 
-# Create a local deployment, using port 8890 for the  endpoint
+# Create a local deployment, using port 8890 for the web service endpoint
 deployment_config = LocalWebservice.deploy_configuration(port=8890)
 # Deploy the service
 service = Model.deploy(
     ws, "mymodel", [model], inference_config, deployment_config)
 # Wait for the deployment to complete
 service.wait_for_deployment(True)
-# Display the port that the  is available on
+# Display the port that the web service is available on
 print(service.port)
 ```
 
@@ -290,7 +297,7 @@ Hay dos cosas que ayudan a impedir los códigos de estado 503:
     > [!IMPORTANT]
     > Este cambio no hace que las réplicas se creen *más rápidamente*. En lugar de eso, se crean con un umbral de uso más bajo. En lugar de esperar a que el servicio se use en un 70 %, si se cambia el valor a un 30 %, las réplicas se crearán cuando se produzca este 30 % de uso.
     
-    Si ya usa el número máximo de réplicas actuales y siguen apareciendo los códigos de estado 503, aumente el valor de `autoscale_max_replicas` con el fin de aumentar el número máximo de réplicas.
+    Si el servicio web ya usa el número máximo de réplicas actuales y siguen apareciendo los códigos de estado 503, aumente el valor de `autoscale_max_replicas` con el fin de aumentar el número máximo de réplicas.
 
 * Cambie el número mínimo de réplicas. El aumento en el número mínimo de réplicas proporciona un grupo más grande para controlar los picos entrantes.
 
@@ -325,8 +332,8 @@ En algunos casos, es posible que tenga que depurar interactivamente el código d
 
 > [!IMPORTANT]
 > Este método de depuración no funciona cuando se usa `Model.deploy()` y `LocalWebservice.deploy_configuration` para implementar un modelo de manera local. En su lugar, debe crear una imagen con la clase [ContainerImage](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py). 
->
-> Las implementaciones locales requieren una instalación de Docker en funcionamiento en el sistema local. Docker se debe ejecutar antes de implementar como local. Para obtener información sobre cómo instalar y usar Docker, vea [https://www.docker.com/](https://www.docker.com/).
+
+Las implementaciones de servicios web locales requieren una instalación de Docker en funcionamiento en el sistema local. Para obtener más información sobre el uso de Docker, consulte la [Documentación de Docker](https://docs.docker.com/).
 
 ### <a name="configure-development-environment"></a>Configuración del entorno de desarrollo
 

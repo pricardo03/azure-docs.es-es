@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: dacurwin
-ms.openlocfilehash: c6b49e794011d915f8cd7b29e6317e80391f2675
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 07ec5b76756b462e03e9349edd2daff96933588c
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747371"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091642"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperación de archivos desde una copia de seguridad de máquina virtual de Azure
 
@@ -66,17 +66,13 @@ Para restaurar archivos o carpetas desde el punto de recuperación, vaya a la m�
     Si lo hace en un equipo con acceso restringido, asegúrese de que hay acceso a los siguientes recursos:
 
     - download.Microsoft.com
-    - Direcciones URL del servicio de recuperación (geo-nombre hace referencia a la región donde reside el almacén de Recovery Services)
-        - https:\//pod01-rec2.geo-name.backup.windowsazure.com (para regiones geográficas públicas de Azure)
-        - https:\//pod01-rec2.geo-name.backup.windowsazure.cn (For Azure China 21Vianet)
-        - https:\//pod01-rec2.geo-name.backup.windowsazure.us (para Azure Gobierno de EE. UU.)
-        - https:\//pod01-rec2.geo-name.backup.windowsazure.de (para Azure Alemania)
+    - Direcciones URL de Recovery Services (el nombre geográfico hace referencia a la región en la que reside el almacén de Recovery Services) - <https://pod01-rec2.geo-name.backup.windowsazure.com> (para zonas geográficas públicas Azure) - <https://pod01-rec2.geo-name.backup.windowsazure.cn> (para Azure China 21Vianet) - <https://pod01-rec2.geo-name.backup.windowsazure.us> (para Azure Gobierno de EE. UU.) - <https://pod01-rec2.geo-name.backup.windowsazure.de> (para Azure Alemania)
     - Puerto de salida 3260
 
 > [!Note]
 >
-> - El nombre de archivo de script descargado tendrá el **geo-nombre** que se va a rellenar en la dirección URL. Por ejemplo: El nombre de script descargado empieza por \'VMname\'\_\'geoname\'_\'GUID\', como ContosoVM_wcus_12345678.....<br><br>
-> - La dirección URL sería "https:\//pod01-rec2.wcus.backup.windowsazure.com"
+> - El nombre de archivo de script descargado tendrá el **geo-nombre** que se va a rellenar en la dirección URL. Por ejemplo, El nombre de script descargado empieza por \'VMname\'\_\'geoname\'_\'GUID\', como ContosoVM_wcus_12345678
+> - La dirección URL sería <https://pod01-rec2.wcus.backup.windowsazure.com>"
 
    En el caso de Linux, el script requiere los componentes "open-iscsi" e "lshw" para conectar con el punto de recuperación. Si los componentes no existen en el equipo donde se ejecuta el script, este solicita permiso para instalarlos. Otorgue el consentimiento para instalar los componentes necesarios.
 
@@ -141,21 +137,21 @@ Para enumerar los nombres de grupo de volúmenes en un volumen físico.
 
 ```bash
 #!/bin/bash
-$ pvs <volume name as shown above in the script output>
+pvs <volume name as shown above in the script output>
 ```
 
 Para enumerar todos los volúmenes lógicos, los nombres y sus rutas de acceso en un grupo de volúmenes.
 
 ```bash
 #!/bin/bash
-$ lvdisplay <volume-group-name from the pvs command’s results>
+lvdisplay <volume-group-name from the pvs command’s results>
 ```
 
 Para montar los volúmenes lógicos en la ruta de acceso de su elección.
 
 ```bash
 #!/bin/bash
-$ mount <LV path> </mountpath>
+mount <LV path> </mountpath>
 ```
 
 #### <a name="for-raid-arrays"></a>Para matrices RAID
@@ -164,7 +160,7 @@ El siguiente comando muestra los detalles sobre todos los discos RAID.
 
 ```bash
 #!/bin/bash
-$ mdadm –detail –scan
+mdadm –detail –scan
 ```
 
  El disco RAID pertinente se muestra como `/dev/mdm/<RAID array name in the protected VM>`.
@@ -173,7 +169,7 @@ Use el comando Montar si el disco RAID tiene volúmenes físicos.
 
 ```bash
 #!/bin/bash
-$ mount [RAID Disk Path] [/mountpath]
+mount [RAID Disk Path] [/mountpath]
 ```
 
 Si el disco RAID tiene otra LVM configurada, utilice el procedimiento anterior para las particiones de LVM, pero con el nombre de volumen en lugar del nombre de disco RAID.
@@ -186,6 +182,7 @@ En la siguiente tabla se muestra la compatibilidad entre los sistemas operativos
 
 |Sistema operativo de servidor | Sistema operativo de cliente compatible  |
 | --------------- | ---- |
+| Windows Server 2019    | Windows 10 |
 | Windows Server 2016    | Windows 10 |
 | Windows Server 2012 R2 | Windows 8.1 |
 | Windows Server 2012    | Windows 8  |

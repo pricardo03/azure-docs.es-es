@@ -5,18 +5,18 @@ services: sql-data-warehouse
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: ''
-ms.date: 09/18/2019
+ms.date: 11/12/2019
 author: anumjs
 ms.author: anjangsh
 ms.reviewer: jrasnick
 manager: craigg
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 967263bde459739482100524e5f85bed96cee6f9
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 468a61c83948033905b3727add528520611b8bd4
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824297"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74092238"
 ---
 # <a name="azure-sql-data-warehouse-release-notes"></a>Notas de la versión de Azure SQL Data Warehouse
 
@@ -28,9 +28,23 @@ Puesto que se lanzan nuevas características en todas las regiones, compruebe la
 
 Salida de ejemplo:
 
-![Versión de SQL Data Warehouse](./media/release-notes/sql_data_warehouse_version.png)
+![Versión de SQL Data Warehouse](./media/release-notes/t47-1-version.png)
 
-Use la fecha identificada para confirmar qué versión se ha aplicado a su instancia de Azure SQL DW.
+Use la versión identificada para confirmar qué versión se ha aplicado a su instancia de Azure SQL DW.
+
+## <a name="october-2019"></a>Octubre de 2019
+
+| Mejoras en el servicio | Detalles |
+| --- | --- |
+|**Copiar (versión preliminar)**|Nos complace anunciar la versión preliminar pública de una instrucción de COPIA sencilla y flexible para la ingesta de datos. Con solo una instrucción, ahora puede ingerir datos sin problemas con flexibilidad adicional y sin necesidad de usuarios con privilegios elevados. Para más información, consulte [Documentación del comando COPIAR](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest).|
+|**Aislamiento de cargas de trabajo (versión preliminar)**|Para dar soporte a los clientes a medida que componen sus almacenamientos de datos, anunciamos nuevas características para la administración de cargas de trabajo inteligentes. La nueva funcionalidad [Aislamiento de cargas de trabajo](/azure/sql-data-warehouse/sql-data-warehouse-workload-isolation) le permite administrar la ejecución de cargas de trabajo heterogéneas, a la vez que proporciona flexibilidad y control sobre los recursos de almacenamiento de datos. Esto conduce a una mayor predicción de ejecución y mejora la capacidad de cumplir los Acuerdos de Nivel de Servicio predefinidos. </br>Además del aislamiento de la carga de trabajo, ahora hay opciones adicionales disponibles para la [Clasificación de la carga de trabajo](/azure/sql-data-warehouse/sql-data-warehouse-workload-classification).  Más allá de la clasificación de inicio de sesión, la sintaxis [Crear clasificador de carga de trabajo](/sql/t-sql/statements/create-workload-classifier-transact-sql?view=azure-sqldw-latest) proporciona la capacidad de clasificar las solicitudes en función de la etiqueta de la consulta, el contexto de la sesión y la hora.|
+|**PREDICCIÓN (versión preliminar)**|Ahora puede puntuar los modelos de aprendizaje automático en el almacenamiento de datos, evitando la necesidad de movimiento de datos grande y complejo. La función de PREDICCIÓN de T-SQL se basa en el marco de modelo abierto y toma datos y el modelo de aprendizaje automático como entrada para generar predicciones.
+|**SSDT CI/CD (GA)**|Hoy nos complace anunciar la disponibilidad general de la [última característica solicitada](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/13313247--in-preview-database-project-from-visual-studio-t) para los proyectos de base de datos SQL Data Warehouse - SQL Server Data Tools (SSDT). Esta versión incluye compatibilidad con SSDT con Visual Studio 2019 junto con la integración de plataforma nativa con Azure DevOps que proporciona capacidades integradas de integración e implementación continuas (CI/CD) para implementaciones de nivel empresarial. |
+|**Vista materializada (GA)**|Una vista materializada conserva los datos que ha devuelto la consulta de visualización de definición y se actualiza automáticamente a medida que cambian los datos en las tablas subyacentes. Mejora el rendimiento de las consultas complejas (por lo general, consultas con combinaciones y agregaciones), a la vez que ofrece operaciones de mantenimiento simples. Para más información, consulte [Optimización del rendimiento con vistas materializadas](/azure/sql-data-warehouse/performance-tuning-materialized-views).  Instale [SQL Server Management Studio 18.4 o posterior](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15) para el scripting de vistas materializadas.|
+|**Enmascaramiento dinámico de datos (GA)**|Enmascaramiento dinámico de datos (DDM) impide el acceso no autorizado a los datos confidenciales de su almacenamiento de datos ocultándolos sobre la marcha en los resultados de las consultas, según las reglas de enmascaramiento que usted defina. Para más información, consulte [Enmascaramiento dinámico de datos de SQL Database](/azure/sql-database/sql-database-dynamic-data-masking-get-started).|
+|**Aislamiento de instantánea de lectura confirmada (GA)**|Puede usar ALTER DATABASE para habilitar o deshabilitar el aislamiento de instantánea en una base de datos de usuario. Para evitar el impacto en la carga de trabajo actual, puede establecer esta opción durante la ventana de mantenimiento de la base de datos o esperar hasta que no haya ninguna otra conexión activa con la base de datos. Para obtener más información, consulte [Opciones de ALTER DATABASE SET](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest).|
+|**Índice de almacén de columnas agrupado ordenado (GA)**|El almacén de columnas es un habilitador clave para almacenar y poner en cola de manera eficaz grandes cantidades de datos. Los índices de almacén de columnas agrupados ordenados optimizan aún más la ejecución de consultas porque habilitan la eliminación eficaz de segmentos.   Para más información, consulte [Optimización del rendimiento con el índice de almacén de columnas agrupado ordenado](/azure/sql-data-warehouse/performance-tuning-ordered-cci).|
+|**Conjunto de resultados de almacenamiento en caché (GA)**|Cuando se habilita la copia en caché del conjunto de resultados, Azure SQL Data Warehouse copia automáticamente en caché los resultados de la consulta realizada en la base de datos de usuario para un uso repetido. Esto permite que las ejecuciones posteriores de la consulta obtengan los resultados directamente de la memoria caché persistente, por lo que no es necesario volver a realizar el proceso. La copia en caché del conjunto de resultados mejora el rendimiento de las consultas y reduce la utilización de recursos de proceso. Además, las consultas que usan conjuntos de resultados en la memoria caché no usan ningún espacio de simultaneidad y, por lo tanto, no cuentan para los límites de simultaneidad existentes. Por seguridad, los usuarios solo pueden acceder a los resultados en la memoria caché si tienen los mismos permisos de acceso a los datos que los usuarios que crearon estos resultados. Para más información, consulte [Optimización del rendimiento con Conjunto de resultados de almacenamiento en caché](/azure/sql-data-warehouse/performance-tuning-result-set-caching). Se aplica a la versión: 10.0.10783.0 o superior.|
 
 ## <a name="september-2019"></a>Septiembre de 2019
 

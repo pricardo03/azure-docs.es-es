@@ -1,5 +1,5 @@
 ---
-title: Administración de la mensajería de dispositivos en la nube de Azure IoT Hub con Herramientas de Azure IoT para Visual Studio Code | Microsoft Docs
+title: Uso de Azure IoT Tools para VSCode para la mensajería del Hub de TI de administrador
 description: Aprenda a usar Azure IoT Tools para Visual Studio Code con el fin de supervisar los mensajes del dispositivo a la nube y enviar mensajes de la nube al dispositivo en Azure IoT Hub.
 author: formulahendry
 ms.service: iot-hub
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 01/18/2019
 ms.author: junhan
-ms.openlocfilehash: 1289e9c8f8cfc9360c9b2325507b43bab3a69028
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 785c6f2b36396558cc21ce6c025be59c456ff32d
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67838504"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083253"
 ---
 # <a name="use-azure-iot-tools-for-visual-studio-code-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>Uso de Azure IoT Tools para Visual Studio Code a fin de enviar y recibir mensajes entre el dispositivo e IoT Hub
 

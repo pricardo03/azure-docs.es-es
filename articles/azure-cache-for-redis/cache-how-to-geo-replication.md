@@ -1,33 +1,25 @@
 ---
 title: Configuración de replicación geográfica para Azure Cache for Redis | Microsoft Docs
 description: Obtenga información sobre cómo replicar las instancias de Azure Cache for Redis en distintas regiones geográficas.
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: jhubbard
-editor: ''
-ms.assetid: 375643dc-dbac-4bab-8004-d9ae9570440d
 ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: yegu
-ms.openlocfilehash: 4254175955c3560c7bd0fdd08c6b60c318238b76
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ce50c665fa79c361f638fda4ec373d5215c407f8
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60552388"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74129415"
 ---
-# <a name="how-to-configure-geo-replication-for-azure-cache-for-redis"></a>Configuración de replicación geográfica para Azure Cache for Redis
+# <a name="how-to-set-up-geo-replication-for-azure-cache-for-redis"></a>Configuración de replicación geográfica para Azure Cache for Redis
 
 Replicación geográfica proporciona un mecanismo para vincular dos instancias de Azure Cache for Redis de nivel Premium. Una memoria caché se elige como la caché vinculada principal y la otra, como la caché vinculada secundaria. La caché vinculada secundaria pasa a ser de solo lectura, por lo que los datos escritos en la caché principal se replican en la caché vinculada secundaria. Esta funcionalidad se puede usar para replicar una caché en varias regiones de Azure. En este artículo se proporciona una guía para configurar la replicación geográfica para las instancias de Azure Cache for Redis de nivel Premium.
 
 ## <a name="geo-replication-prerequisites"></a>Requisitos previos de la replicación geográfica
 
-Para configurar la replicación geográfica entre dos cachés, se deben cumplir los siguientes requisitos:
+Para configurar la replicación geográfica entre dos cachés, se deben cumplir los siguientes requisitos previos:
 
 - Ambas deben ser cachés de [nivel Premium](cache-premium-tier-intro.md).
 - Ambas cachés deben estar en la misma suscripción de Azure.
@@ -88,7 +80,7 @@ Una vez que se configura la replicación geográfica, se aplican las siguientes 
 
 ## <a name="remove-a-geo-replication-link"></a>Quitar un vínculo de replicación geográfica
 
-1. Para quitar el vínculo entre dos cachés y detener la replicación geográfica, haga clic en **Unlink caches** (Desvincular cachés) en la hoja **Replicación geográfica**.
+1. Para quitar el vínculo entre dos cachés y detener la replicación geográfica, haga clic en **Desvincular cachés** en la hoja **Replicación geográfica**.
     
     ![Desvincular cachés](./media/cache-how-to-geo-replication/cache-geo-location-unlink.png)
 
@@ -106,8 +98,8 @@ Una vez que se configura la replicación geográfica, se aplican las siguientes 
 - [¿Puedo vincular más de dos cachés?](#can-i-link-more-than-two-caches-together)
 - [¿Puedo vincular dos cachés de distintas suscripciones de Azure?](#can-i-link-two-caches-from-different-azure-subscriptions)
 - [¿Puedo vincular dos cachés de tamaños distintos?](#can-i-link-two-caches-with-different-sizes)
-- [¿Puedo usar la replicación geográfica con agrupación en clústeres habilitada?](#can-i-use-geo-replication-with-clustering-enabled)
-- [¿Puedo usar la replicación geográfica con cachés en una VNET?](#can-i-use-geo-replication-with-my-caches-in-a-vnet)
+- [¿Puedo usar la replicación geográfica con la agrupación en clústeres habilitada?](#can-i-use-geo-replication-with-clustering-enabled)
+- [¿Puedo usar la replicación geográfica con mis cachés en una VNET?](#can-i-use-geo-replication-with-my-caches-in-a-vnet)
 - [¿Qué es la programación de replicación para la replicación geográfica de Redis?](#what-is-the-replication-schedule-for-redis-geo-replication)
 - [¿Cuánto tiempo tarda la replicación geográfica?](#how-long-does-geo-replication-replication-take)
 - [¿Se garantiza el punto de recuperación de replicación?](#is-the-replication-recovery-point-guaranteed)
@@ -139,11 +131,11 @@ No, ambas cachés deben estar en la misma suscripción de Azure.
 
 Sí, siempre que la caché vinculada secundaria sea mayor que la caché vinculada principal.
 
-### <a name="can-i-use-geo-replication-with-clustering-enabled"></a>¿Puedo usar la replicación geográfica con agrupación en clústeres habilitada?
+### <a name="can-i-use-geo-replication-with-clustering-enabled"></a>¿Puedo usar la replicación geográfica con la agrupación en clústeres habilitada?
 
 Sí, siempre que ambas cachés tengan la misma cantidad de particiones.
 
-### <a name="can-i-use-geo-replication-with-my-caches-in-a-vnet"></a>¿Puedo usar la replicación geográfica con cachés en una VNET?
+### <a name="can-i-use-geo-replication-with-my-caches-in-a-vnet"></a>¿Puedo usar la replicación geográfica con mis cachés en una VNET?
 
 Sí, la replicación geográfica de cachés en redes virtuales es compatible con advertencias:
 

@@ -1,19 +1,19 @@
 ---
-title: Configuración de Postman para Azure Digital Twins | Microsoft Docs
-description: Configuración de Postman para Azure Digital Twins
+title: Configuración de Postman - Azure Digital Twins | Microsoft Docs
+description: Aprenda a configurar y usar Postman para probar las API de Azure Digital Twins.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 09/30/2019
-ms.openlocfilehash: 14e6a52f86586eaae019d9658c2f813a15fc3474
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.date: 11/13/2019
+ms.openlocfilehash: 6a001d6b501a22b4b07599792a64af735c5d4d9b
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949210"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74090502"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Configuración de Postman para Azure Digital Twins
 
@@ -56,16 +56,17 @@ Configure la aplicación Azure Active Directory para usar el flujo de concesión
 
 1. Dependiendo de la configuración de la organización, es posible que tenga que tomar medidas adicionales para conceder acceso de administrador a esta API. Para más información, póngase en contacto con el administrador. Una vez aprobado el acceso de administrador, la columna **CONSENTIMIENTO DEL ADMINISTRADOR NECESARIO** en el panel **Permisos de API** se mostrará de forma similar a lo siguiente para las API:
 
-    [![Adición de permisos de API](../../includes/media/digital-twins-permissions/aad-app-admin-consent.png)](../../includes/media/digital-twins-permissions/aad-app-admin-consent.png#lightbox)
+    [![Aprobación del consentimiento del administrador](../../includes/media/digital-twins-permissions/aad-app-admin-consent.png)](../../includes/media/digital-twins-permissions/aad-app-admin-consent.png#lightbox)
 
+1. Configure un segundo **URI de redirección** para `https://www.getpostman.com/oauth2/callback`.
 
-1. Seleccione **Manifiesto** para abrir el manifiesto de aplicación para la aplicación. Establezca *oauth2AllowImplicitFlow* en `true`.
+    [![Agregue un URI de redirección de Postman](media/how-to-configure-postman/authentication-redirect-uri.png)](media/how-to-configure-postman/authentication-redirect-uri.png#lightbox)
 
-    [![Flujo implícito de Azure Active Directory](media/how-to-configure-postman/implicit-flow.png)](media/how-to-configure-postman/implicit-flow.png#lightbox)
+1. Para asegurarse de que [la aplicación esté registrada como **cliente público**](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-app-registration), abra el panel **Autenticación** para el registro de la aplicación y desplácese hacia abajo en ese panel. En la sección **Tipo de cliente predeterminado**, seleccione **Sí** para **Tratar la aplicación como cliente público** y elija **Guardar**.
 
-1. Configure una **URL de respuesta** en `https://www.getpostman.com/oauth2/callback`.
+    Consulte **Tokens de acceso** para habilitar la opción **oauth2AllowImplicitFlow** en el archivo Manifest.json.
 
-    [![Dirección URL de respuesta de Azure Active Directory](media/how-to-configure-postman/reply-url.png)](media/how-to-configure-postman/reply-url.png#lightbox)
+    [![Opciones de configuración de cliente público](../../includes/media/digital-twins-permissions/aad-public-client.png)](../../includes/media/digital-twins-permissions/aad-public-client.png#lightbox)
 
 1. Copie y mantenga el valor de **Id. de aplicación** de la aplicación de Azure Active Directory. Se usa en los pasos siguientes.
 
@@ -106,10 +107,6 @@ Instale y configure Postman para obtener un token de Azure Active Directory. Des
     [![Ejemplo de cliente de Postman](media/how-to-configure-postman/postman-oauth-token.png)](media/how-to-configure-postman/postman-oauth-token.png#lightbox)
 
 1. Seleccione **Request Token** (Solicitar token).
-
-    >[!TIP]
-    >Si recibe el mensaje de error "No se pudo completar OAuth 2", pruebe lo siguiente:
-    > * Cierre Postman, vuelva a abrirlo e inténtelo de nuevo.
   
 1. Desplácese hacia abajo y seleccione **Use Token** (Usar token).
 
@@ -117,13 +114,13 @@ Instale y configure Postman para obtener un token de Azure Active Directory. Des
 
 Después de completar los pasos anteriores, configure Postman para realizar una solicitud POST de varias partes HTTP autenticada:
 
-1. En la pestaña **Encabezado**, agregue una clave de encabezado de solicitud HTTP **Content-Type** con el valor `multipart/mixed`.
+1. En la pestaña **Encabezados**, agregue una clave de encabezado de solicitud HTTP **Content-Type** con el valor `multipart/mixed`.
 
    [![Tipo de contenido de varias partes o mixto](media/how-to-configure-postman/content-type.png)](media/how-to-configure-postman/content-type.png#lightbox)
 
 1. Serialice los datos no textuales en archivos. Los datos JSON se guardarían como archivo JSON.
 1. En la pestaña **Cuerpo**, seleccione `form-data`. 
-1. Agregue cada archivo; para ello, asigne un nombre de **clave`file` y seleccione** .
+1. Agregue cada archivo; para ello, asigne un nombre de **clave`File` y seleccione** .
 1. A continuación, seleccione cada archivo con el botón **Elegir archivo**.
 
    [![Ejemplo de cliente de Postman](media/how-to-configure-postman/form-body.png)](media/how-to-configure-postman/form-body.png#lightbox)
@@ -133,7 +130,7 @@ Después de completar los pasos anteriores, configure Postman para realizar una 
    > * No es necesario especificar esos encabezados para cada parte.
    > * Debe seleccionar `multipart/mixed` u otro **Content-Type** adecuado para toda la solicitud.
 
-1. Por último, seleccione **Enviar** para enviar la solicitud HTTP POST con varias partes.
+1. Por último, seleccione **Enviar** para enviar la solicitud HTTP POST con varias partes. Un código de estado de `200` o `201` indica una solicitud correcta. También verá el mensaje de respuesta adecuado.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

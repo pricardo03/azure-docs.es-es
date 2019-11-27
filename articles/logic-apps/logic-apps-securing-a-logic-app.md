@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 10/11/2019
-ms.openlocfilehash: 2177ba8b3864e8d453a097b391a18ebbbb5baa11
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c9dfc4ed6fce186fea9474222875a072edb32f59
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499921"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084722"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteger el acceso y los datos en Azure Logic Apps
 
@@ -163,9 +163,9 @@ Si [automatiza las implementaciones de aplicaciones lógicas mediante una planti
 
 <a name="add-authentication"></a>
 
-### <a name="add-azure-active-directory-oauth-or-other-security"></a>Incorporación de Azure Active Directory, OAuth u otra medida de seguridad
+### <a name="add-azure-active-directory-oauth-or-other-security"></a>Incorporación de Azure Active Directory OAuth u otra medida de seguridad
 
-Para agregar más protocolos de autorización a la aplicación lógica, considere la posibilidad de usar el servicio de [Azure API Management](../api-management/api-management-key-concepts.md). Este servicio le permite exponer su aplicación lógica como API y le ofrece una supervisión enriquecida, seguridad, directiva y documentación para cualquier punto de conexión. API Management puede exponer un punto de conexión público o privado para la aplicación lógica. Después, puede usar Azure Active Directory, OAuth, el certificado u otros estándares de seguridad para autorizar el acceso a ese extremo. Cuando API Management recibe una solicitud, el servicio la envía a la aplicación lógica y también hace cualquier transformación o restricción necesaria en el proceso. Para permitir que solo API Management desencadene la aplicación lógica, puede usar la configuración del intervalo IP entrante de la aplicación lógica.
+Para agregar más protocolos de autorización a la aplicación lógica, considere la posibilidad de usar el servicio de [Azure API Management](../api-management/api-management-key-concepts.md). Este servicio le permite exponer su aplicación lógica como API y le ofrece una supervisión enriquecida, seguridad, directiva y documentación para cualquier punto de conexión. API Management puede exponer un punto de conexión público o privado para la aplicación lógica. Para autorizar el acceso a este punto de conexión, puede usar [Azure Active Directory, OAuth](#azure-active-directory-oauth-authentication), el [certificado del cliente](#client-certificate-authentication) u otros estándares de seguridad para autorizar el acceso a ese extremo. Cuando API Management recibe una solicitud, el servicio la envía a la aplicación lógica y también hace cualquier transformación o restricción necesaria en el proceso. Para permitir que solo API Management desencadene la aplicación lógica, puede usar la configuración del intervalo IP entrante de la aplicación lógica.
 
 <a name="secure-operations"></a>
 
@@ -361,7 +361,7 @@ Estas son algunas [consideraciones que se deben tener en cuenta](#obfuscation-co
 
 Si implementa en entornos diferentes, considere la posibilidad de parametrizar los valores de la definición de flujo de trabajo que varían en función de esos entornos. De este modo, puede evitar los datos incluidos en el código mediante una [plantilla de Azure Resource Manager ](../azure-resource-manager/template-deployment-overview.md) para implementar la aplicación lógica, proteger los datos confidenciales definiendo parámetros seguros y pasar dichos datos como entradas separadas mediante los [parámetros de la plantilla](../azure-resource-manager/template-parameters.md) con un [archivo de parámetros](../azure-resource-manager/resource-manager-parameter-files.md).
 
-Por ejemplo, si autentica acciones HTTP con [Azure Active Directory](#azure-active-directory-oauth-authentication), puede definir y proteger los parámetros que aceptan el id. de cliente y el secreto de cliente que se usan para la autenticación. Para definir estos parámetros para la aplicación lógica, use la sección `parameters` dentro de la definición de flujo de trabajo de la aplicación lógica y Resource Manager para la implementación. Para ocultar los valores de parámetros que no quiera mostrar al editar la aplicación lógica o visualizar el historial de ejecución, defina los parámetros con el tipo `securestring` o `secureobject` y use la codificación necesaria. Los parámetros de este tipo no se devuelven con la definición del recurso y no son accesibles al visualizar el recurso después de la implementación. Para tener acceso a estos valores de parámetro durante el tiempo de ejecución, use la expresión `@parameters('<parameter-name>')` dentro de la definición del flujo de trabajo. Esta expresión solo se evalúa en tiempo de ejecución y se describe con el [lenguaje de definición de flujo de trabajo](../logic-apps/logic-apps-workflow-definition-language.md).
+Por ejemplo, si autentica acciones HTTP con [Azure Active Directory OAuth](#azure-active-directory-oauth-authentication), puede definir y proteger los parámetros que aceptan el id. de cliente y el secreto de cliente que se usan para la autenticación. Para definir estos parámetros para la aplicación lógica, use la sección `parameters` dentro de la definición de flujo de trabajo de la aplicación lógica y Resource Manager para la implementación. Para ocultar los valores de parámetros que no quiera mostrar al editar la aplicación lógica o visualizar el historial de ejecución, defina los parámetros con el tipo `securestring` o `secureobject` y use la codificación necesaria. Los parámetros de este tipo no se devuelven con la definición del recurso y no son accesibles al visualizar el recurso después de la implementación. Para tener acceso a estos valores de parámetro durante el tiempo de ejecución, use la expresión `@parameters('<parameter-name>')` dentro de la definición del flujo de trabajo. Esta expresión solo se evalúa en tiempo de ejecución y se describe con el [lenguaje de definición de flujo de trabajo](../logic-apps/logic-apps-workflow-definition-language.md).
 
 > [!NOTE]
 > Si usa un parámetro en el encabezado o el cuerpo de una solicitud, ese parámetro se puede ver al visualizar el historial de ejecución de la aplicación lógica y la solicitud HTTP saliente. Asegúrese de definir también las directivas de acceso al contenido según corresponda. También puede usar la [ofuscación](#obfuscate) para ocultar entradas y salidas en el historial de ejecución. Los encabezados de autorización nunca son visibles a través de entradas o salidas. Por lo tanto, si aquí se usa un secreto, no se podrá recuperar.
@@ -573,7 +573,17 @@ Estas son algunas de las maneras de proteger los puntos de conexión que reciben
 
 * Incorporación de la autenticación en las solicitudes salientes.
 
-  Cuando trabaja con un desencadenador o acción basados en HTTP que realiza llamadas salientes, como HTTP, HTTP + Swagger o webhook, puede agregar autenticación a la solicitud enviada por la aplicación lógica. Por ejemplo, puede usar la autenticación básica, la autenticación de certificado de cliente, la autenticación de [Active Directory OAuth](../active-directory/develop/about-microsoft-identity-platform.md) o una identidad administrada. Para obtener más información, consulte [Incorporación de autenticación a las llamadas salientes](#add-authentication-outbound) más adelante en este tema.
+  Cuando trabaja con un desencadenador o acción basados en HTTP que realiza llamadas salientes, como HTTP, HTTP + Swagger o webhook, puede agregar autenticación a la solicitud enviada por la aplicación lógica. Por ejemplo, puede usar estos tipos de autenticación:
+
+  * [Autenticación básica](#basic-authentication)
+
+  * [Autenticación de certificados de clientes](#client-certificate-authentication)
+
+  * [Autenticación de Active Directory OAuth](#azure-active-directory-oauth-authentication)
+
+  * [Autenticación de identidad administrada](#managed-identity-authentication)
+  
+  Para obtener más información, consulte [Incorporación de autenticación a las llamadas salientes](#add-authentication-outbound) más adelante en este tema.
 
 * Restricción del acceso desde direcciones IP de aplicación lógica.
 
@@ -649,8 +659,8 @@ Si la opción [Certificado de cliente](../active-directory/authentication/active
 | Propiedad (diseñador) | Propiedad (JSON) | Obligatorio | Value | DESCRIPCIÓN |
 |---------------------|-----------------|----------|-------|-------------|
 | **Autenticación** | `type` | Sí | **Certificado de cliente** <br>o <br>`ClientCertificate` | Tipo de autenticación que se usará para los certificados de cliente de Capa de sockets seguros (SSL). Aunque se admiten los certificados autofirmados, no se admiten los certificados autofirmados para SSL. |
-| **Pfx** | `pfx` | Sí | <*contenido-archivo-pfx-codificado*> | El contenido codificado en base 64 del archivo de intercambio de información personal (PFX) |
-| **Contraseña** | `password`| Sí | <*contraseña-archivo-pfx*> | La contraseña para acceder al archivo PFX |
+| **Pfx** | `pfx` | Sí | <*contenido-archivo-pfx-codificado*> | El contenido codificado en base 64 del archivo de intercambio de información personal (PFX) <p><p>Para convertir el archivo PFX en formato codificado en Base64, puede usar PowerShell siguiendo estos pasos: <p>1. Guarde el contenido del certificado en una variable: <p>   `$pfx_cert = get-content 'c:\certificate.pfx' -Encoding Byte` <p>2. Convierta el contenido del certificado mediante la función `ToBase64String()` y guarde el contenido en un archivo de texto: <p>   `[System.Convert]::ToBase64String($pfx_cert) | Out-File 'pfx-encoded-bytes.txt'` |
+| **Contraseña** | `password`| Consulte la descripción | <*contraseña-archivo-pfx*> | La contraseña para acceder al archivo PFX. <p><p>**Nota**: Este valor de propiedad es necesario cuando se trabaja en el Diseñador de aplicaciones lógicas y *no* es necesario cuando se trabaja en la vista de código. |
 |||||
 
 Al usar [parámetros protegidos](#secure-action-parameters) para controlar y proteger la información confidencial, por ejemplo, en una [plantilla de Azure Resource Manager para automatizar la implementación](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), puede usar expresiones para tener acceso a estos valores de parámetro en tiempo de ejecución. Esta definición de acción HTTP de ejemplo especifica el `type` de autenticación como `ClientCertificate` y usa la [función parameters()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) para obtener los valores de parámetro:

@@ -1,5 +1,5 @@
 ---
-title: Uso de discos administrados en plantillas de Azure Resource Manager para máquinas virtuales Windows | Microsoft Docs
+title: Uso de discos administrados en plantillas Azure Resource Manager para máquinas virtuales Windows
 description: Detalles sobre cómo usar discos administrados en plantillas de Azure Resource Manager para máquinas virtuales Windows
 services: virtual-machines-windows
 documentationcenter: ''
@@ -12,11 +12,12 @@ ms.workload: storage
 ms.date: 06/01/2017
 ms.author: jaboes
 ms.subservice: disks
-ms.openlocfilehash: 783706c93006ab3570436c90e5d88bb15fee2fff
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: dc8906547076f796917074a848b4dd09024d1364
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100192"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74064726"
 ---
+# <a name="using-managed-disks-in-azure-resource-manager-templates"></a>Uso de discos administrados en plantillas de Azure Resource Manager
 [!INCLUDE [virtual-machines-using-managed-disks-template-deployments](../../../includes/virtual-machines-using-managed-disks-template-deployments.md)]

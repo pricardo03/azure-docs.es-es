@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 10/15/2019
-ms.openlocfilehash: 068d320c85a1e10027c92b92c1b3c205a999bed7
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 4a89eb36c9aa7369d6145304b572b4245cef3483
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553837"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74109336"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-by-using-azure-policy"></a>Habilitar Azure Monitor para VM (vista preliminar) mediante Azure Policy
 
@@ -30,7 +30,7 @@ Si está interesado en llevar a cabo estas tareas con Azure PowerShell o con una
 
 Originalmente, la experiencia con Azure Policy para administrar e implementar las definiciones de directiva de Azure Monitor para VM se realizaba exclusivamente desde Azure Policy. La característica Administrar la cobertura de la directiva simplifica y facilita la detección, administración y habilitación a escala de la iniciativa **Habilitar Azure Monitor para VM**, que incluye las definiciones de directiva se ha mencionadas anteriormente. Puede acceder a esta nueva característica desde la pestaña **Primeros pasos** en Azure Monitor para VM. Seleccione **Administrar la cobertura de la directiva** para abrir la página **Cobertura de directiva de Azure Monitor para VM**.
 
-![Azure Monitor desde la pestaña Primeros pasos de las VM](./media/vminsights-enable-at-scale-policy/get-started-page-01.png)
+![Azure Monitor desde la pestaña Primeros pasos de las VM](./media/vminsights-enable-at-scale-policy/get-started-page.png)
 
 Desde aquí, puede comprobar y administrar la cobertura de la iniciativa a través de las suscripciones y grupos de administración. Puede conocer cuántas VM existen en cada una de las suscripciones y grupos de administración, y su estado de cumplimiento.
 
@@ -93,7 +93,7 @@ En la tabla siguiente se enumeran las definiciones de directiva para un conjunto
 
 |NOMBRE |DESCRIPCIÓN |type |
 |-----|------------|-----|
-|\[Versión preliminar\]: Habilitar Azure Monitor para conjunto de escalado de máquinas virtuales |Se habilita Azure Monitor para los conjuntos de escalado de máquinas virtuales en el ámbito especificado (grupo de administración, suscripción o grupo de recursos). Toma el área de trabajo de Log Analytics como parámetro. Nota: Si establece la directiva Actualizar el conjunto de escalado en Manual, aplique la extensión a todas las máquinas virtuales del conjunto mediante una llamada a la actualización. En CLI, esto sería az vmss update-instances. |Iniciativa |
+|\[Versión preliminar\]: Habilitar Azure Monitor para conjunto de escalado de máquinas virtuales |Se habilita Azure Monitor para los conjuntos de escalado de máquinas virtuales en el ámbito especificado (grupo de administración, suscripción o grupo de recursos). Toma el área de trabajo de Log Analytics como parámetro. Nota: Si establece la directiva Actualizar el conjunto de escalado en Manual, aplique la extensión a todas las máquinas virtuales del conjunto mediante una llamada a la actualización. En el CLI, esto es `az vmss update-instances`. |Iniciativa |
 |\[Versión preliminar\]: Auditoría de implementación de Dependency Agent en conjuntos de escalado de máquinas virtuales: la imagen de la VM (SO) no está en la lista |Notifica que los conjuntos de escalado de máquinas virtuales no son compatibles si la imagen de la máquina virtual (SO) no está definida en la lista y el agente no está instalado. |Directiva |
 |\[Versión preliminar\]: Auditoría de implementación del agente de Log Analytics en conjuntos de escalado de máquinas virtuales: la imagen de la VM (SO) no está en la lista |Notifica que los conjuntos de escalado de máquinas virtuales no son compatibles si la imagen de la máquina virtual (SO) no está definida en la lista y el agente no está instalado. |Directiva |
 |\[Versión preliminar\]: Implementar Dependency Agent para conjuntos de escalado de máquinas virtuales Linux |Se implementa Dependency Agent en los conjuntos de escalado de máquinas virtuales Linux si la imagen de la máquina virtual (SO) está en la lista definida y el agente no está instalado. |Directiva |
@@ -170,7 +170,7 @@ En la tabla siguiente se asigna cada estado de la asignación posible a la inici
 
 El ejemplo siguiente es para una máquina virtual de Azure, pero también se aplica a conjuntos de escalado de máquinas virtuales. Para aprender a revisar los resultados de cumplimiento, vea [identificación de los resultados de no cumplimiento](../../governance/policy/assign-policy-portal.md#identify-non-compliant-resources). En la página **Cobertura de directiva de Azure Monitor para VM**, seleccione un grupo de administración o una suscripción de la tabla. Seleccione **Ver compatibilidad** haciendo clic en el botón de puntos suspensivos (...).   
 
-![Cumplimiento de directivas en máquinas virtuales de Azure](./media/vminsights-enable-at-scale-policy/policy-view-compliance-01.png)
+![Cumplimiento de directivas en máquinas virtuales de Azure](./media/vminsights-enable-at-scale-policy/policy-view-compliance.png)
 
 En función de los resultados de las directivas incluidas con la iniciativa, las máquinas virtuales se notifican como no compatibles en los siguientes escenarios:
 

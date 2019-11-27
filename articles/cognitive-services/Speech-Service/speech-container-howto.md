@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 11/15/2019
 ms.author: dapine
-ms.openlocfilehash: efb2fd8fd6b77a27130b834c2b192c1e88eec97c
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 4170db596d3d4f4b197120770afa2f6e8b0f8a1c
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73578398"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132605"
 ---
 # <a name="install-and-run-speech-service-containers"></a>Instalación y ejecución de contenedores de servicio de Voz
 
@@ -151,7 +151,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-t
 ```
 
 > [!IMPORTANT]
-> La etiqueta `latest` extrae la configuración regional `en-US` y la voz `jessarus`. Para otras configuraciones regionales, consulte [Configuración regional de conversión de voz a texto](#speech-to-text-locales).
+> La etiqueta `latest` extrae la configuración regional `en-US`. Para otras configuraciones regionales, consulte [Configuración regional de conversión de voz a texto](#speech-to-text-locales).
 
 #### <a name="speech-to-text-locales"></a>Configuraciones regionales de voz a texto
 
@@ -167,7 +167,7 @@ La etiqueta siguiente es un ejemplo del formato:
 2.0.0-amd64-en-us-preview
 ```
 
-Para todas las configuraciones regionales admitidas en la versión 2.0.0 del contenedor de **conversión de voz en texto**, consulte la columna **Compatibilidad con contenedores** de la tabla de [compatibilidad con idioma de conversión de voz en texto](language-support.md#speech-to-text).
+Para ver todas las configuraciones regionales admitidas del contenedor de **conversión de voz a texto**, consulte las [etiquetas de imágenes de la conversión de voz a texto](../containers/container-image-tags.md#speech-to-text).
 
 # <a name="custom-speech-to-texttabcstt"></a>[Conversión de voz a texto personalizada](#tab/cstt)
 
@@ -209,7 +209,7 @@ La etiqueta siguiente es un ejemplo del formato:
 1.3.0-amd64-en-us-jessarus-preview
 ```
 
-Para todas las configuraciones regionales admitidas y las voces correspondientes en la versión 1.3.0 del contenedor de **conversión de texto a voz**, consulte la columna **Compatibilidad con contenedores** de la tabla de [compatibilidad con idioma de voces estándar](language-support.md#standard-voices).
+Para ver todas las configuraciones regionales admitidas y las voces correspondientes del contenedor de **conversión de texto a voz**, consulte las [etiquetas de imágenes de conversión de texto a voz](../containers/container-image-tags.md#text-to-speech).
 
 > [!IMPORTANT]
 > Cuando se construye un HTTP POST de *conversión de texto a voz estándar*, el mensaje del [Lenguaje de marcado de síntesis de voz (SSML)](speech-synthesis-markup.md) requiere un elemento `voice` con un atributo `name`. El valor es la configuración regional del contenedor y la voz correspondiente, que también se conoce como ["nombre corto"](language-support.md#standard-voices). Por ejemplo, la etiqueta `latest` tendría un nombre de voz de `en-US-JessaRUS`.

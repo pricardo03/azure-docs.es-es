@@ -1,5 +1,5 @@
 ---
-title: Conexión e indexación de contenido de Azure SQL Database mediante indexadores
+title: Búsqueda en datos SQL de Azure
 titleSuffix: Azure Cognitive Search
 description: Importe datos en Azure SQL Database mediante indexadores para la búsqueda de texto completo en Búsqueda cognitiva de Azure. En este artículo se tratan las conexiones, la configuración del indexador y la ingesta de datos.
 manager: nitinme
@@ -9,14 +9,14 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 012f555f3837086946eb4581dadc74011a3acc09
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: c09727e8d92a449b41124eae6ad8381d66cb2619
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792195"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113309"
 ---
-# <a name="connect-to-and-index-azure-sql-database-content-using-azure-cognitive-search-indexers"></a>Conexión e indexación de contenido de Azure SQL Database mediante indexadores de Búsqueda cognitiva de Azure
+# <a name="connect-to-and-index-azure-sql-database-content-using-an-azure-cognitive-search-indexer"></a>Conexión e indexación de contenido de Azure SQL Database mediante un indizador de Azure Cognitive Search
 
 Antes de poder consultar un [índice de Búsqueda cognitiva de Azure](search-what-is-an-index.md) debe rellenarlo con datos. Si los datos residen en una base de datos de Azure SQL, un **indexador de Búsqueda cognitiva de Azure para Azure SQL Database** (o **indexador de Azure SQL**, para abreviar) puede automatizar el proceso de indexación, lo que significa menos código que escribir y menos infraestructura de la que preocuparse.
 

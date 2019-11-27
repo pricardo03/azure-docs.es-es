@@ -1,5 +1,5 @@
 ---
-title: Indexación de un origen de datos de Azure Cosmos DB
+title: Búsqueda en datos de Azure Cosmos DB
 titleSuffix: Azure Cognitive Search
 description: Rastree un origen de datos de Azure Cosmos DB e introduzca los datos en un índice de búsqueda de texto completo en Azure Cognitive Search. Los indexadores automatizan la ingesta de datos para orígenes de datos seleccionados, como Azure Cosmos DB.
 author: mgottein
@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 41da5b59c7d9429a068ecd483aa96edb1141b727
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 7e4d51701fd8614831585aac03f2c8a909b2b847
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73719952"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112740"
 ---
 # <a name="how-to-index-cosmos-db-data-using-an-indexer-in-azure-cognitive-search"></a>Indexación de datos de Cosmos DB mediante un indizador en Azure Cognitive Search 
 
@@ -78,17 +78,11 @@ En la página **origen de datos**, el origen debe ser **Cosmos DB** con las espe
 
    ![Definición del origen de datos de Cosmos DB](media/search-howto-index-cosmosdb/cosmosdb-datasource.png "Definición del origen de datos de Cosmos DB")
 
-### <a name="4---skip-the-add-cognitive-search-page-in-the-wizard"></a>4: Omisión de la página "Agregar Cognitive Search" en el asistente
+### <a name="4---skip-the-enrich-content-page-in-the-wizard"></a>4: omitir la página"Enriquecer contenido" del asistente
 
-No es necesario agregar conocimientos cognitivos para la importación de documentos. A menos que tenga una necesidad específica de [agregar enriquecimiento de inteligencia artificial](cognitive-search-concept-intro.md) a su canalización de indexación, debe omitir este paso.
+Agregar habilidades cognitivas (o enriquecimiento) no es un requisito de importación. A menos que tenga una necesidad específica de [agregar enriquecimiento de inteligencia artificial](cognitive-search-concept-intro.md) a su canalización de indexación, debe omitir este paso.
 
-Para omitir el paso, vaya a la página siguiente.
-
-   ![Botón Página siguiente para agregar aptitudes](media/search-get-started-portal/next-button-add-cog-search.png)
-
-Desde esa página puede ir directamente a la personalización del índice.
-
-   ![Omitir el paso sobre aptitud cognitiva](media/search-get-started-portal/skip-cog-skill-step.png)
+Para omitir el paso, haga clic en los botones azules en la parte inferior de la página para "Siguiente" y "Omitir".
 
 ### <a name="5---set-index-attributes"></a>5: Configuración de los atributos de índice
 

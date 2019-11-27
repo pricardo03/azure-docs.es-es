@@ -10,14 +10,14 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 09/27/2019
-ms.openlocfilehash: f733e29fc5fbce764fef9a713747d6793d2ebd43
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b9b58c9b5f32d6ca714ac3ac940b91643fa8020c
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489313"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123553"
 ---
-# <a name="create-and-manage-reusable-environments-for-training-and-deployment-with-azure-machine-learning"></a>Cree y administre entornos reutilizables para aprendizaje e implementación con Azure Machine Learning.
+# <a name="reuse-environments-for-training--deployment-with-azure-machine-learning"></a>Reutilice entornos para entrenamiento e implementación con Azure Machine Learning.
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 En este artículo, aprenderá a crear y administrar [entornos](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) de Azure Machine Learning para que pueda realizar el seguimiento de las dependencias de software de sus proyectos y reproducirlas a medida que evolucionan.
@@ -333,7 +333,7 @@ run = experiment.submit(sk_est)
 
 Puede usar entornos al implementar el modelo como un servicio web. Esto permite un flujo de trabajo reproducible y conectado en el que puede entrenar, probar e implementar el modelo exactamente mediante las mismas bibliotecas en los procesos de entrenamiento e inferencia.
 
-Para implementar un servicio web, combine el entorno, el proceso de inferencia, el script de puntuación y el modelo registrado en el objeto de implementación, [deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config--deployment-config-none--deployment-target-none-). Más información sobre cómo [implementar servicios web](how-to-deploy-and-where.md).
+Para implementar un servicio web, combine el entorno, el proceso de inferencia, el script de puntuación y el modelo registrado en el objeto de implementación, [deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-). Más información sobre cómo [implementar servicios web](how-to-deploy-and-where.md).
 
 En este ejemplo, suponga que ha completado una ejecución de entrenamiento y quiere implementar ese modelo en Azure Container Instance (ACI). Al compilar el servicio web, los archivos de modelo y puntuación se montan en la imagen y la pila de inferencia de Azure Machine Learning se agrega a la imagen.
 

@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: e4752112acf136d9ffb19a0b7383bc3aff5de5e0
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: b9cef4753b6fd324b38d7254139fe288463a0c0c
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448097"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123898"
 ---
 # <a name="limits-in-azure-database-for-postgresql---single-server"></a>Límites de Azure Database for PostgreSQL con un único servidor
 En las secciones siguientes se describen los límites de capacidad y funcionales en el servicio de base de datos. Para más información sobre los niveles de recursos (proceso, memoria, almacenamiento), consulte el artículo acerca de los [planes de tarifa](concepts-pricing-tiers.md).
@@ -21,21 +21,21 @@ En las secciones siguientes se describen los límites de capacidad y funcionales
 ## <a name="maximum-connections"></a>Número máximo de conexiones
 El número máximo de conexiones por plan de tarifa y núcleos virtuales es el siguiente: 
 
-|**Plan de tarifa**| **Núcleos virtuales**| **Conexiones máximas** |
-|---|---|---|
-|Básica| 1| 50 |
-|Básica| 2| 100 |
-|Uso general| 2| 150|
-|Uso general| 4| 250|
-|Uso general| 8| 480|
-|Uso general| 16| 950|
-|Uso general| 32| 1\.500|
-|Uso general| 64| 1900|
-|Memoria optimizada| 2| 300|
-|Memoria optimizada| 4| 500|
-|Memoria optimizada| 8| 960|
-|Memoria optimizada| 16| 1900|
-|Memoria optimizada| 32| 1987|
+|**Plan de tarifa**| **Núcleos virtuales**| **Conexiones máximas** | **Número máximo de conexiones de usuario** |
+|---|---|---|---|
+|Básica| 1| 55 | 50|
+|Básica| 2| 105 | 100|
+|Uso general| 2| 150| 145|
+|Uso general| 4| 250| 245|
+|Uso general| 8| 480| 475|
+|Uso general| 16| 950| 945|
+|Uso general| 32| 1\.500| 1495|
+|Uso general| 64| 1900| 1895|
+|Memoria optimizada| 2| 300| 295|
+|Memoria optimizada| 4| 500| 495|
+|Memoria optimizada| 8| 960| 955|
+|Memoria optimizada| 16| 1900| 1895|
+|Memoria optimizada| 32| 1987| 1982|
 
 Si las conexiones superan el límite, puede que reciba el error siguiente:
 > FATAL:  sorry, too many clients already

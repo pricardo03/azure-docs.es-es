@@ -1,5 +1,5 @@
 ---
-title: Circuitos y emparejamiento de Azure ExpressRoute | Microsoft Docs
+title: Circuitos Azure ExpressRoute y emparejamiento
 description: En esta página se proporciona información general sobre los circuitos ExpressRoute y los dominios de enrutamiento/emparejamiento.
 services: expressroute
 author: mialdrid
@@ -7,13 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: mialdrid
-ms.custom: seodec18
-ms.openlocfilehash: 864b834fcc6810b52f067d8e67b4a48febd0f787
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: f6673e114c249cb86c648155b889e925554e9458
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123477"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083628"
 ---
 # <a name="expressroute-circuits-and-peering"></a>Circuitos ExpressRoute y emparejamiento
 

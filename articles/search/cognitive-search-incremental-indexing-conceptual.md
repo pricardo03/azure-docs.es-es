@@ -1,5 +1,5 @@
 ---
-title: Introducción a la indexación incremental (versión preliminar)
+title: Indexación incremental (versión preliminar)
 titleSuffix: Azure Cognitive Search
 description: Configure la canalización de enriquecimiento con inteligencia artificial para que sus datos lleguen a alcanzar coherencia y puedan admitir actualizaciones de las aptitudes, los conjuntos de aptitudes, los indexadores o los orígenes de datos. Esta característica está actualmente en versión preliminar pública
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 94ce056185ff6a804521bf583ac4f6ffaa513fb0
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 76ab8784f04f3c67e4ea8062505931783048dea1
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73715419"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113590"
 ---
 # <a name="what-is-incremental-indexing-in-azure-cognitive-search"></a>¿Qué es la indexación incremental en Azure Cognitive Search?
 

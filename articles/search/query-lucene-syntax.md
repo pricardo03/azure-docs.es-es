@@ -1,7 +1,7 @@
 ---
 title: Sintaxis de consulta de Lucene
 titleSuffix: Azure Cognitive Search
-description: Referencia de la sintaxis completa de Lucene tal y como se usa con Azure Cognitive Search.
+description: Referencia para la sintaxis de consulta completa de Lucene, tal como se usa en Azure Cognitive Search para caracteres comodín, búsqueda aproximada, RegEx y otras construcciones de consulta avanzadas.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 1b94a1bbab810345ab222be9e7aba2fef0f52549
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 0bb8474b30c05e21a62ded1fa2cb8a6df8e4e321
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72786283"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112189"
 ---
 # <a name="lucene-query-syntax-in-azure-cognitive-search"></a>Sintaxis de consulta de Lucene en Azure Cognitive Search
 

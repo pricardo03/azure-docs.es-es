@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2019
 ms.author: spelluru
-ms.openlocfilehash: 9c11d4648635e62ebc2e68734e14dd2bdc028a7c
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 2b600edc4c360a2b2990be34e44bb8fbd1c8f721
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330668"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74133175"
 ---
 # <a name="set-up-a-lab-to-teach-ethical-hacking-class"></a>Configuración de un laboratorio para impartir una clase de piratería ética 
 En este artículo se muestra cómo configurar una clase que se centra en la parte referida al análisis forense de la piratería ética. Las pruebas de penetración son una práctica que usa la comunidad de piratería ética y que se producen cuando alguien intenta obtener acceso al sistema o a la red para mostrar los puntos vulnerables que un atacante malintencionado podría aprovechar. 
 
-En una clase de piratería ética, los alumnos pueden aprender técnicas modernas para protegerse frente a los puntos vulnerables. Cada alumno obtiene una máquina virtual host de Windows Server que tiene dos máquinas virtuales anidadas: una máquina virtual con una imagen de **Metasploitable** y otra con una imagen de [Kali Linux](https://www.kali.org/). La máquina virtual Metasploitable se usa para la explotación, mientras que la máquina virtual Kali proporciona acceso a las herramientas necesarias para ejecutar tareas de análisis forense.
+En una clase de piratería ética, los alumnos pueden aprender técnicas modernas para protegerse frente a los puntos vulnerables. Cada alumno obtiene una máquina virtual host de Windows Server que tiene dos máquinas virtuales anidadas: una máquina virtual con una imagen de [Metasploitable3](https://github.com/rapid7/metasploitable3) y otra con una imagen de [Kali Linux](https://www.kali.org/). La máquina virtual Metasploitable se usa para la explotación, mientras que la máquina virtual Kali proporciona acceso a las herramientas necesarias para ejecutar tareas de análisis forense.
 
 Este artículo se divide en dos secciones principales. En la primera sección se explica cómo crear el laboratorio educativo. En la segunda se explica cómo crear la máquina de plantilla con la virtualización anidada habilitada y con las herramientas e imágenes necesarias. En este caso, una imagen de Metasploitable y una imagen de Kali Linux en una máquina con Hyper-V habilitado para hospedar las imágenes.
 
@@ -43,6 +43,8 @@ Una vez creada la máquina de plantilla, inicie la máquina y conéctese a ella 
 1. Configure la máquina para la virtualización anidada. Esto permite habilitar todas las características de Windows adecuadas, como Hyper-V, y configura las redes para que las imágenes de Hyper-V puedan comunicarse entre sí y con Internet.
 2. Configure la imagen de [Kali](https://www.kali.org/) Linux. Kali es una distribución de Linux que incluye herramientas para pruebas de penetración y auditoría de seguridad.
 3. Configure la imagen de Metasploitable. En este ejemplo, se utilizará la imagen [Metasploitable3](https://github.com/rapid7/metasploitable3). Esta imagen se crea a propósito para tener puntos vulnerables de seguridad.
+
+Un script que automatiza las tareas descritas anteriormente está disponible en [Scripts de piratería ética de los servicios de laboratorio](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Scripts/EthicalHacking).
 
 ### <a name="prepare-template-machine-for-nested-virtualization"></a>Preparación de una máquina de plantilla para virtualización anidada
 Siga las instrucciones de [este artículo](how-to-enable-nested-virtualization-template-vm.md) para preparar la máquina virtual de plantilla para la virtualización anidada. 

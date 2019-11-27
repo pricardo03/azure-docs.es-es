@@ -1,19 +1,18 @@
 ---
-title: 'Creación y modificación de un circuito ExpressRoute: CLI de Azure | Microsoft Docs'
+title: 'Creación y modificación de un circuito ExpressRoute: CLI de Azure'
 description: En este artículo se muestra cómo crear, aprovisionar, comprobar, actualizar, eliminar y desaprovisionar un circuito ExpressRoute con la CLI.
 services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 11/13/2019
 ms.author: cherylmc
-ms.reviewer: anzaman
-ms.openlocfilehash: e42190814b9365c7db054eb2b5f1842581b64009
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 75729811b63e8de3047e45e9b90f5fa3ec657901
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67657064"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083233"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-cli"></a>Creación y modificación de un circuito ExpressRoute mediante la CLI
 
@@ -142,8 +141,8 @@ En el ejemplo siguiente se muestra cómo crear un circuito ExpressRoute de 200 M
 
 Asegúrese de que especifica el nivel y la familia correctos de SKU.
 
-* El nivel de SKU determina si está habilitado un complemento estándar o premium de ExpressRoute. Puede especificar "Estándar" para obtener la SKU estándar o "Premium" si quiere el complemento Premium.
-* La familia de SKU determina el tipo de facturación. Puede seleccionar "Metereddata" para el plan de datos limitado y "Unlimiteddata" para el plan de datos ilimitado. Puede cambiar el tipo de facturación de "Metereddata" a "Unlimiteddata", pero no se puede cambiar el tipo de "Unlimiteddata" a "Metereddata".
+* El nivel de SKU determina si un circuito ExpressRoute es [Local](expressroute-faqs.md#expressroute-local), Estándar o [Premium](expressroute-faqs.md#expressroute-premium). Puede especificar *Local*, *Estándar* o *Premium*.
+* La familia de SKU determina el tipo de facturación. Puede seleccionar *Metereddata* para el plan de datos limitado y *Unlimiteddata* para el plan de datos ilimitado. Puede cambiar el tipo de facturación de *Metereddata* a *Unlimiteddata*, pero no se puede cambiar el tipo de *Unlimiteddata* a *Metereddata*. Un circuito *Local* solo es *Unlimiteddata*.
 
 
 El circuito ExpressRoute se factura a partir del momento en que se emite una clave de servicio. El ejemplo siguiente es una solicitud para una nueva clave de servicio:

@@ -1,5 +1,5 @@
 ---
-title: Errores y advertencias comunes
+title: Errores y advertencias del indexador
 titleSuffix: Azure Cognitive Search
 description: En este artículo se proporciona información y soluciones a errores y advertencias comunes que pueden surgir durante el enriquecimiento de IA en Azure Cognitive Search.
 manager: nitinme
@@ -8,16 +8,16 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: bbaec55666b877e1d9343d8b80ea44a189c0c5b2
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 0230fbb2cb94001f7965cf1756a8a0d1061978da
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73806123"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74133218"
 ---
-# <a name="common-errors-and-warnings-of-the-ai-enrichment-pipeline-in-azure-cognitive-search"></a>Errores y advertencias comunes de la canalización de enriquecimiento de IA en Azure Cognitive Search
+# <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Solución de errores y advertencias comunes con el indexador en Azure Cognitive Search
 
-En este artículo se proporciona información y soluciones a errores y advertencias comunes que pueden surgir durante el enriquecimiento de IA en Azure Cognitive Search.
+En este artículo se proporciona información y soluciones a errores y advertencias comunes que pueden surgir durante la indexación y el enriquecimiento de IA en Azure Cognitive Search.
 
 ## <a name="errors"></a>Errors
 La indexación se detiene cuando el recuento de errores supera ["maxfaileditems"](cognitive-search-concept-troubleshooting.md#tip-3-see-what-works-even-if-there-are-some-failures). 
@@ -229,6 +229,9 @@ Es posible invalidar este comportamiento, habilitar el progreso incremental y su
 
 Para más información, consulte [Progreso incremental y consultas personalizadas](search-howto-index-cosmosdb.md#IncrementalProgress).
 
+### <a name="some-data-was-lost-during-projection-row-x-in-table-y-has-string-property-z-which-was-too-long"></a>Algunos datos se perdieron durante la proyección. La fila 'X' de la tabla 'Y' tiene la propiedad de cadena 'Z', que era demasiado larga.
+El [servicio de Table Storage](https://azure.microsoft.com/services/storage/tables) tiene límites en cuanto a qué tan grandes pueden ser las [propiedades de las entidades](https://docs.microsoft.com/rest/api/storageservices/understanding-the-table-service-data-model#property-types). Las cadenas pueden tener 32.000 caracteres como máximo. Si una fila con una propiedad de cadena de más de 32.000 caracteres se está proyectando, solo se conservan los primeros 32.000 caracteres. Para evitar este problema, evite proyectar filas con propiedades de cadena de más de 32.000 caracteres.
+
 ### <a name="truncated-extracted-text-to-x-characters"></a>El texto extraído se ha truncado a X caracteres
 Los indexadores limitan la cantidad de texto que se puede extraer de cualquier documento. Este límite depende del plan de tarifa: 32 000 caracteres para el nivel Gratis, 64 000 para Básico y 4 millones para Estándar, Estándar S2 y Estándar S3. El texto que se ha truncado no se indexará. Para evitar esta advertencia, intente dividir los documentos con grandes cantidades de texto en varios documentos más pequeños. 
 
@@ -237,4 +240,5 @@ Para más información, consulte [Límites de índice](search-limits-quotas-capa
 ### <a name="could-not-map-output-field-x-to-search-index"></a>No se pudo asignar el campo de salida "X" al índice de búsqueda
 Las asignaciones de campos de salida que hagan referencia a datos inexistentes o nulos generarán advertencias con cada documento y producirán un campo de índice vacío. Para solucionar este problema, compruebe las rutas de acceso de origen de la asignación de campos de salida en busca de posibles errores tipográficos o establezca un valor predeterminado mediante la [aptitud condicional](cognitive-search-skill-conditional.md#sample-skill-definition-2-set-a-default-value-for-a-value-that-doesnt-exist).
 
-Los indexadores podían ejecutar una aptitud del conjunto de aptitudes, pero la respuesta de la solicitud de API web indicaban que había advertencias durante la ejecución. Revise las advertencias para entender cómo se ven afectados los datos y si es necesario realizar alguna acción o no.
+### <a name="the-data-change-detection-policy-is-configured-to-use-key-column-x"></a>La directiva de detección de cambios de datos está configurada para usar la columna de clave 'X'
+[Las directivas de detección de cambios de datos](https://docs.microsoft.com/rest/api/searchservice/create-data-source#data-change-detection-policies) tienen requisitos específicos para las columnas que usan para detectar cambios. Uno de estos requisitos es que esta columna se actualice cada vez que se cambia el elemento de origen. Otro requisito es que el nuevo valor de esta columna sea mayor que el valor anterior. Las columnas de clave no cumplen este requisito porque no cambian en cada actualización. Para solucionar este problema, seleccione una columna diferente para la directiva de detección de cambios.

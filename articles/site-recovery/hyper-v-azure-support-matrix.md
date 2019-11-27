@@ -5,29 +5,27 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/05/2019
+ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: 9af85d8d9b181d619d8895542f142708626649d1
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: db334b873358fdab6671877dd66e7f49c334ac44
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73620835"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74133035"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Matriz de compatibilidad para la recuperación ante desastres de máquinas virtuales locales de Hyper-V en Azure
 
 
 En este artículo se resumen los ajustes y los componentes compatibles para la recuperación ante desastres de máquinas virtuales de Hyper-V locales en Azure mediante [Azure Site Recovery](site-recovery-overview.md).
 
-> [!WARNING]
-> Tenga en cuenta que la compatibilidad con ASR para usar la configuración de SCVMM pronto estará en desuso y, por lo tanto, le recomendamos que lea los detalles del [desuso](scvmm-site-recovery-deprecation.md) antes de continuar.
 
 
 ## <a name="supported-scenarios"></a>Escenarios admitidos
 
 **Escenario** | **Detalles**
 --- | ---
-Hyper-V con Virtual Machine Manager <br> **Este escenario está a punto de quedar en desuso.** <br>| Ahora puede realizar la recuperación ante desastres en Azure de las máquinas virtuales que se ejecutan en los hosts de Hyper-V administrados en el tejido de System Center Virtual Machine Manager.<br/><br/> Puede implementar este escenario en Azure Portal o mediante PowerShell.<br/><br/> Cuando Virtual Machine Manager administra los hosts de Hyper-V, también puede realizar la recuperación ante desastres en un sitio local secundario. Lea [este tutorial](hyper-v-vmm-disaster-recovery.md) para más información sobre este escenario.
+Hyper-V con Virtual Machine Manager <br> <br>| Ahora puede realizar la recuperación ante desastres en Azure de las máquinas virtuales que se ejecutan en los hosts de Hyper-V administrados en el tejido de System Center Virtual Machine Manager.<br/><br/> Puede implementar este escenario en Azure Portal o mediante PowerShell.<br/><br/> Cuando Virtual Machine Manager administra los hosts de Hyper-V, también puede realizar la recuperación ante desastres en un sitio local secundario. Lea [este tutorial](hyper-v-vmm-disaster-recovery.md) para más información sobre este escenario.
 Hyper-V sin Virtual Machine Manager | Ahora puede realizar la recuperación ante desastres en Azure de las máquinas virtuales que se ejecutan en los hosts de Hyper-V no administrados por Virtual Machine Manager.<br/><br/> Puede implementar este escenario en Azure Portal o mediante PowerShell.
 
 ## <a name="on-premises-servers"></a>Servidores locales
@@ -96,7 +94,7 @@ Redes aceleradas | Sin | Sin
 NFS | N/D | N/D
 SMB 3.0 | Sí | Sí
 SAN (ISCSI) | Sí | Sí
-Varias rutas (MPIO). Probado con:<br></br> Microsoft DSM, EMC PowerPath 5.7 SP4<br/><br/> EMC PowerPath DSM para CLARiiON | Sí | Sí
+Varias rutas (MPIO). Probado con:<br></br> Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM para CLARiiON | Sí | Sí
 
 ## <a name="hyper-v-vm-guest-storage"></a>Almacenamiento de invitado de máquina virtual de Hyper-V
 
@@ -105,7 +103,7 @@ Varias rutas (MPIO). Probado con:<br></br> Microsoft DSM, EMC PowerPath 5.7 SP4<
 VMDK | N/D | N/D
 VHD/VHDX | Sí | Sí
 VM de generación 2 | Sí | Sí
-EFI/UEFI| Sí | Sí
+EFI/UEFI<br></br>La máquina virtual migrada en Azure se convertirá automáticamente en una VM de arranque del BIOS. La máquina virtual debe estar ejecutando Windows Server 2012 o una versión posterior. El disco del sistema operativo debe tener un máximo de cinco particiones y el tamaño del disco del sistema operativo debe ser inferior a 300 GB.| Sí | Sí
 Disco en clúster compartido | Sin | Sin
 Disco cifrado | Sin | Sin
 NFS | N/D | N/D
@@ -132,6 +130,7 @@ Almacenamiento de acceso esporádico | Sin | Sin
 Almacenamiento de acceso frecuente| Sin | Sin
 Blobs en bloques | Sin | Sin
 Cifrado en reposo (SSE)| Sí | Sí
+Cifrado en reposo (CMK)| Sin | Sin
 Premium Storage | Sí | Sí
 Servicio Import/Export | Sin | Sin
 Cuentas de almacenamiento de Azure con firewall habilitado | Sí. Para almacenamiento de destino y en caché. | Sí. Para almacenamiento de destino y en caché.

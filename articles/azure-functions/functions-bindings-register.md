@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: reference
 ms.date: 07/08/2019
 ms.author: cshoe
-ms.openlocfilehash: 93ced443a73d5499d8b305770c3c866c26d540f0
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 40dca0797d75597f4728423eb9d6d071a15d81b9
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70086463"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74129264"
 ---
 # <a name="register-azure-functions-binding-extensions"></a>Registro de las extensiones de enlace de Azure Functions
 
@@ -37,34 +37,17 @@ En la tabla siguiente se indica cuándo y cómo registrar los enlaces.
 
 ## <a name="extension-bundles"></a>Agrupaciones de extensiones para el desarrollo local
 
-Las agrupaciones de extensiones son una tecnología de desarrollo de la versión 2.x del runtime que le permite agregar un conjunto compatible de extensiones de enlaces de Functions al proyecto de aplicación de funciones. Estos paquetes de extensiones se incluyen en el paquete de implementación al implementar en Azure. Las agrupaciones hacen que todos los enlaces publicados por Microsoft estén disponibles mediante un valor del archivo *host.json*. Los paquetes de extensiones definidos en una agrupación son compatibles entre sí, lo cual le ayuda a evitar conflictos entre ellos. Cuando desarrolle localmente, asegúrese de que está utilizando la versión más reciente de [Azure Functions Core Tools](functions-run-local.md#v2).
+Las agrupaciones de extensiones son una tecnología de implementación que permite agregar un conjunto compatible de extensiones de enlace de Functions a la aplicación de función. Al compilar la aplicación, se agrega un conjunto predefinido de extensiones. Los paquetes de extensiones definidos en una agrupación son compatibles entre sí, lo cual le ayuda a evitar conflictos entre ellos. Las agrupaciones de extensiones se habilitan en el archivo host.json de la aplicación.  
+
+Puede usar agrupaciones de extensiones con la versión 2.x y versiones posteriores del tiempo de ejecución de Functions. Cuando desarrolle localmente, asegúrese de que está utilizando la versión más reciente de [Azure Functions Core Tools](functions-run-local.md#v2).
 
 Use agrupaciones de extensiones para todo el desarrollo local con Azure Functions Core Tools o Visual Studio Code.
 
-Si no usa agrupaciones de extensiones, deberá instalar el SDK de .NET Core 2.x en el equipo local antes de instalar las extensiones de enlaces. Las agrupaciones permiten eliminar este requisito para el desarrollo local. 
+Si no usa agrupaciones de extensiones, deberá instalar el SDK de .NET Core 2.x en el equipo local antes de instalar las extensiones de enlaces. Las agrupaciones de extensiones permiten eliminar este requisito para el desarrollo local. 
 
 Para usar agrupaciones de extensiones, actualice el archivo *host.json* para que incluya la siguiente entrada para `extensionBundle`:
-
-```json
-{
-    "version": "2.0",
-    "extensionBundle": {
-        "id": "Microsoft.Azure.Functions.ExtensionBundle",
-        "version": "[1.*, 2.0.0)"
-    }
-}
-```
-
-Las siguientes propiedades están disponibles en `extensionBundle`:
-
-| Propiedad | DESCRIPCIÓN |
-| -------- | ----------- |
-| **`id`** | Espacio de nombres de las agrupaciones de extensiones de Microsoft Azure Functions. |
-| **`version`** | Versión de la agrupación que va a instalar. Functions Runtime siempre elige la máxima versión permitida definida por el rango o intervalo de versiones. El valor de versión anterior permite todas las versiones de agrupaciones desde la 1.0.0 en adelante pero sin incluir la 2.0.0. Para más información, consulte la [notación de intervalo para especificar intervalos de versiones](https://docs.microsoft.com/nuget/reference/package-versioning#version-ranges-and-wildcards). |
-
-Las versiones de las agrupaciones aumentan a medida que cambian los paquetes de la agrupación. Los cambios de versión principal se producen cuando los paquetes de la agrupación aumentan debido a una versión principal, lo cual normalmente coincide con un cambio en la versión principal de Functions Runtime.  
-
-El conjunto actual de extensiones instaladas mediante la agrupación predeterminada se enumera en este [archivo extensions.json](https://github.com/Azure/azure-functions-extension-bundles/blob/master/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json).
+ 
+[!INCLUDE [functions-extension-bundles-json](../../includes/functions-extension-bundles-json.md)]
 
 <a name="local-csharp"></a>
 
@@ -80,12 +63,12 @@ El nombre del paquete que se usa para un enlace determinado se proporciona en el
 
 Reemplace `<TARGET_VERSION>` en el ejemplo con una versión específica del paquete, como `3.0.0-beta5`. Las versiones válidas se enumeran en las páginas individuales del paquete en [NuGet.org](https://nuget.org). Las versiones principales que corresponden al tiempo de ejecución de Functions 1.x o 2.x se especifican en el artículo de referencia del enlace.
 
-Si usa `Install-Package` para hacer referencia a un enlace, no es necesario utilizar [paquetes de extensión](#extension-bundles). Este enfoque es específico de las bibliotecas de clases compiladas en Visual Studio.
+Si usa `Install-Package` para hacer referencia a un enlace, no es necesario usar [agrupaciones de extensiones](#extension-bundles). Este enfoque es específico de las bibliotecas de clases compiladas en Visual Studio.
 
 ## <a name="vs-code"></a> Biblioteca de clases de C# con Visual Studio Code
 
 > [!NOTE]
-> Se recomienda usar [agrupaciones de extensiones](#extension-bundles) para que Functions instale automáticamente un conjunto compatible de paquetes de extensiones de enlace.
+> Se recomienda usar [agrupaciones de extensiones](#extension-bundles) para que Functions instale automáticamente un conjunto compatible de paquetes de extensiones de enlace. 
 
 En **Visual Studio Code**, instale paquetes para un proyecto de biblioteca de clases de C# desde el símbolo del sistema mediante el comando [dotnet add package](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) de la CLI de .NET Core. En el ejemplo siguiente se muestra cómo agregar un enlace:
 
@@ -95,7 +78,7 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.<BINDING_TYPE_NAME> --vers
 
 La CLI de .NET Core solo puede utilizarse para el desarrollo de Azure Functions 2.x.
 
-Reemplace `<BINDING_TYPE_NAME>` por el nombre del paquete proporcionado en el artículo de referencia para el enlace que desee. Puede encontrar el artículo de referencia de enlace deseado en la [lista de enlaces admitidos](./functions-triggers-bindings.md#supported-bindings).
+Reemplace `<BINDING_TYPE_NAME>` por el nombre del paquete que contiene el enlace que necesita. Puede encontrar el artículo de referencia de enlace deseado en la [lista de enlaces admitidos](./functions-triggers-bindings.md#supported-bindings).
 
 Reemplace `<TARGET_VERSION>` en el ejemplo con una versión específica del paquete, como `3.0.0-beta5`. Las versiones válidas se enumeran en las páginas individuales del paquete en [NuGet.org](https://nuget.org). Las versiones principales que corresponden al tiempo de ejecución de Functions 1.x o 2.x se especifican en el artículo de referencia del enlace.
 

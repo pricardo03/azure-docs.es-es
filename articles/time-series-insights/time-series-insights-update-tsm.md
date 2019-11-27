@@ -1,6 +1,6 @@
 ---
-title: Modelo de serie temporal en Azure Time Series Insights | Microsoft Docs
-description: Comprender el modelo de serie temporal de Azure Time Series Insights.
+title: Modelo de serie temporal - Azure Time Series Insights | Microsoft Docs
+description: Más información sobre la versión preliminar del modelo de serie temporal en Azure Time Series Insights.
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -10,14 +10,14 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3c9bface359df020cea0bfff8f82e25e25efbc47
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 5c045a4b5ccda47b786d86f1c004e9da4c8d85f3
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73585247"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112294"
 ---
-# <a name="time-series-model"></a>Modelo de Time Series
+# <a name="time-series-model-in-azure-time-series-insights-preview"></a>Versión preliminar del modelo de serie temporal en Azure Time Series Insights
 
 En este artículo se describen el modelo de serie temporal, las funciones y cómo empezar a crear y actualizar modelos propios en el entorno de la versión preliminar de Azure Time Series Insights.
 
@@ -100,10 +100,10 @@ Las instancias se definen mediante **timeSeriesId**, **typeId**, **name**, **des
 | --- | ---|
 | timeSeriesId | UUID de la serie temporal a la que está asociada la instancia. |
 | typeId | UUID del tipo de modelo de serie temporal al que está asociado la instancia. De forma predeterminada, todas las instancias nuevas detectadas se asocian a un tipo predeterminado.
-| Nombre | La propiedad **name** es opcional y distingue mayúsculas de minúsculas. Si **name** no está disponible, el valor predeterminado es **timeSeriesId**. Si se proporciona un nombre, **timeSeriesId** sigue disponible en el [cuadro](time-series-insights-update-explorer.md#preview-well). |
+| Nombre | La propiedad **name** es opcional y distingue mayúsculas de minúsculas. Si **name** no está disponible, el valor predeterminado es **timeSeriesId**. Si se proporciona un nombre, **timeSeriesId** sigue disponible en el [cuadro](time-series-insights-update-explorer.md#4-time-series-well). |
 | description | Descripción de texto de la instancia. |
 | hierarchyIds | Define a qué jerarquías pertenece la instancia. |
-| instanceFields | Los valores de **instanceFields** son propiedades de una instancia y cualquier dato estático que defina esa instancia. Definen valores de jerarquía o propiedades no jerárquicas a la vez que admiten la indexación para realizar operaciones de búsqueda. |
+| instanceFields | Las propiedades de una instancia y cualquier dato estático que define una instancia. Definen valores de jerarquía o propiedades no jerárquicas a la vez que admiten la indexación para realizar operaciones de búsqueda. |
 
 > [!NOTE]
 > Las jerarquías se crean mediante campos de instancia. Se pueden agregar elementos **instanceFields** adicionales para más definiciones de propiedades de instancia.

@@ -1,5 +1,5 @@
 ---
-title: Uso de conjuntos de aptitudes
+title: Conceptos de conjunto de aptitudes y flujo de trabajo
 titleSuffix: Azure Cognitive Search
 description: Los conjuntos de aptitudes es donde se crea una canalización de enriquecimiento con inteligencia artificial en Azure Cognitive Search. Aprenda conceptos importantes y detalles sobre la composición del conjunto de aptitudes.
 manager: nitinme
@@ -8,14 +8,14 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 8a783581394de05fff9f0060e124e8dc59c96b60
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: acf7305a46e9fc3d19f96f88cf2e9ab5eacddd7c
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790168"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113650"
 ---
-# <a name="working-with-skillsets-in-azure-cognitive-search"></a>Trabajo con aptitudes en Azure Cognitive Search
+# <a name="skillset-concepts-and-composition-in-azure-cognitive-search"></a>Conceptos de conjunto de aptitudes y composición de consultas en Azure Cognitive Search
 
 Este artículo está dirigido a desarrolladores que necesitan una comprensión más profunda de cómo funciona la canalización de enriquecimiento, que ya disponen de un conocimiento conceptual del proceso de enriquecimiento con inteligencia artificial. Si no está familiarizado con este concepto, empiece por:
 + [Enriquecimiento con inteligencia artificial en Azure Cognitive Search](cognitive-search-concept-intro.md)
@@ -32,7 +32,7 @@ Un conjunto de aptitudes tiene tres propiedades:
 
 
 
-Los conjuntos de aptitudes se crean en JSON. Puede compilar conjuntos de aptitudes complejos con bucles y [ramificaciones](https://docs.microsoft.com/en-us/azure/search/cognitive-search-skill-conditional) mediante el [lenguaje de expresiones](https://docs.microsoft.com/azure/search/cognitive-search-skill-conditional). El lenguaje de expresiones utiliza la notación de ruta de acceso [puntero JSON](https://tools.ietf.org/html/rfc6901) con algunas modificaciones para identificar los nodos del árbol de enriquecimiento. ```"/"``` atraviesa un nivel inferior en el árbol y ```"*"``` actúa como un operador for-each en el contexto. Estos conceptos se describen mejor con un ejemplo. Para ilustrar algunos de los conceptos y funcionalidades, recorreremos paso a paso el conjunto de aptitudes de [ejemplo de reseñas de hotel](knowledge-store-connect-powerbi.md). Para ver el conjunto de aptitudes una vez que haya seguido el flujo de trabajo de importación de datos, deberá usar un cliente de API REST para [obtener el conjunto de aptitudes](https://docs.microsoft.com/en-us/rest/api/searchservice/get-skillset).
+Los conjuntos de aptitudes se crean en JSON. Puede compilar conjuntos de aptitudes complejos con bucles y [ramificaciones](https://docs.microsoft.com/azure/search/cognitive-search-skill-conditional) mediante el [lenguaje de expresiones](https://docs.microsoft.com/azure/search/cognitive-search-skill-conditional). El lenguaje de expresiones utiliza la notación de ruta de acceso [puntero JSON](https://tools.ietf.org/html/rfc6901) con algunas modificaciones para identificar los nodos del árbol de enriquecimiento. ```"/"``` atraviesa un nivel inferior en el árbol y ```"*"``` actúa como un operador for-each en el contexto. Estos conceptos se describen mejor con un ejemplo. Para ilustrar algunos de los conceptos y funcionalidades, recorreremos paso a paso el conjunto de aptitudes de [ejemplo de reseñas de hotel](knowledge-store-connect-powerbi.md). Para ver el conjunto de aptitudes una vez que haya seguido el flujo de trabajo de importación de datos, deberá usar un cliente de API REST para [obtener el conjunto de aptitudes](https://docs.microsoft.com/rest/api/searchservice/get-skillset).
 
 ### <a name="enrichment-tree"></a>Árbol de enriquecimiento
 
@@ -50,7 +50,7 @@ Una vez que un documento se encuentra en la canalización de enriquecimiento, se
  A medida que se ejecutan las aptitudes, agregan nuevos nodos al árbol de enriquecimiento. Estos nuevos nodos se pueden usar como entradas para aptitudes de bajada, proyectándose en el almacén de conocimiento o asignándose a campos de índice. Los enriquecimientos no son mutables: una vez creados, los nodos no se pueden editar. A medida que los conjuntos de aptitudes se vuelven más complejos, también lo hará el árbol de enriquecimiento, pero no todos los nodos del árbol de enriquecimiento deben asignarse al índice o al almacén de conocimiento. Puede conservar de forma selectiva solo un subconjunto de enriquecimientos en el índice o el almacén de conocimiento.
 
 Puede conservar de forma selectiva solo un subconjunto de enriquecimientos en el índice o el almacén de conocimiento.
-En el resto de este documento, se asume que estamos trabajando con el [ejemplo de reseñas de hotel](https://docs.microsoft.com/en-us/azure/search/knowledge-store-connect-powerbi), pero los mismos conceptos se aplican al enriquecimiento de documentos de todos los demás orígenes de datos.
+En el resto de este documento, se asume que estamos trabajando con el [ejemplo de reseñas de hotel](https://docs.microsoft.com/azure/search/knowledge-store-connect-powerbi), pero los mismos conceptos se aplican al enriquecimiento de documentos de todos los demás orígenes de datos.
 
 ### <a name="context"></a>Context
 Cada aptitud requiere un contexto. Un contexto determina:

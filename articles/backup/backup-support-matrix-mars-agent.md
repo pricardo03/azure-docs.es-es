@@ -1,5 +1,5 @@
 ---
-title: Matriz de compatibilidad para el agente de Microsoft Azure Recovery Services (MARS)
+title: Matriz de compatibilidad para el agente de Microsoft Azure Recovery Services
 description: En este artículo se resume la compatibilidad con Azure Backup al realizar copias de seguridad de máquinas que ejecutan el agente de Microsoft Azure Recovery Services (MARS).
 author: dcurwin
 ms.service: backup
@@ -7,12 +7,12 @@ ms.date: 08/30/2019
 ms.topic: conceptual
 ms.author: dacurwin
 manager: carmonm
-ms.openlocfilehash: 1559bb096baaa8f19718bf0c3bcd6b2dc767235b
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: a4372a66caaa8af807980a2f58f344cbf8fb1be9
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210131"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74090547"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Matriz de compatibilidad para la copia de seguridad con el agente de Microsoft Azure Recovery Services (MARS)
 
@@ -21,9 +21,13 @@ Puede usar el [servicio Azure Backup](backup-overview.md) para realizar copias d
 ## <a name="the-mars-agent"></a>El agente de MARS
 
 Azure Backup utiliza el agente de MARS para realizar copias de seguridad de máquinas locales y máquinas virtuales de Azure en un almacén de Recovery Services alternativo en Azure. El agente de MARS puede realizar las siguientes acciones:
+
 - Ejecutarse en máquinas Windows locales, para que pueda realizar la copia de seguridad directamente en un almacén de Recovery Services alternativo en Azure.
 - Ejecutarse en máquinas virtuales de Azure con Windows para que pueda realizar copias de seguridad directamente en un almacén.
 - Ejecutarse en un servidor de Microsoft Azure Backup Server (MABS) o en un servidor de System Center Data Protection Manager (DPM). En este escenario, las copias de seguridad de las máquinas y cargas de trabajo se crean en MABS o en el servidor DPM. El agente de MARS, a continuación, realiza una copia de seguridad de este servidor en un almacén de Azure.
+
+> [!NOTE]
+>Azure Backup no admite el ajuste automático del reloj para el horario de verano (DST). Modifique la directiva para asegurarse de que se tenga en cuenta el horario de verano para evitar discrepancias entre el tiempo real y el tiempo de copia de seguridad programado.
 
 Las opciones de copia de seguridad dependen de la ubicación en que está instalado el agente. Para obtener más información, consulte [arquitectura de Azure Backup mediante el agente de MARS](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders). Para obtener información sobre la arquitectura de copia de seguridad de MABS y DPM, consulte [Copia de seguridad en DPM o MABS](backup-architecture.md#architecture-back-up-to-dpmmabs). Consulte también los [requisitos](backup-support-matrix-mabs-dpm.md) de la arquitectura de copia de seguridad.
 
@@ -36,7 +40,6 @@ Instalación en un servidor de copia de seguridad | Al configurar DPM o MABS par
 > [!NOTE]
 > De forma predeterminada, las máquinas virtuales de Azure habilitadas para copia de seguridad tienen instalada una extensión de Azure Backup. Esta extensión realiza una copia de seguridad de toda la máquina virtual. Puede instalar y ejecutar al agente de MARS en una máquina virtual de Azure junto con la extensión si desea realizar copias de seguridad de carpetas y archivos específicos y no de la máquina virtual completa.
 > Cuando ejecuta el agente de MARS en una máquina virtual de Azure, este realiza copias de seguridad de archivos o carpetas ubicados en el almacenamiento temporal de la máquina virtual. Se produce un error de la copia de seguridad si los archivos o las carpetas se eliminan del almacenamiento temporal, o si se elimina dicho almacenamiento temporal.
-
 
 ## <a name="cache-folder-support"></a>Compatibilidad con la carpeta de caché
 
@@ -55,7 +58,7 @@ Cambios de ubicación | Puede cambiar la ubicación de la caché al detener el m
 
 El agente de MARS necesita acceder a estas direcciones URL:
 
-- http://www.msftncsi.com/ncsi.txt
+- <http://www.msftncsi.com/ncsi.txt>
 - *.Microsoft.com
 - *.WindowsAzure.com
 - *.MicrosoftOnline.com
@@ -70,6 +73,9 @@ Limitación de la red | No está disponible para las máquinas de copia de segur
 
 ## <a name="support-for-direct-backups"></a>Compatibilidad con copias de seguridad directas
 
+>[!NOTE]
+> El agente de MARS no es compatible con las SKU de Windows Server Core.
+
 Puede utilizar al agente de MARS para realizar copias de seguridad directamente en Azure desde algunos sistemas operativos que se ejecutan en máquinas locales y máquinas virtuales de Azure. Los sistemas operativos deben ser de 64 bits y ejecutar los Service Pack y actualizaciones más recientes. En la tabla siguiente se resumen estos sistemas operativos:
 
 **Sistema operativo** | **Archivos/carpetas** | **Estado del sistema** | **Requisitos de software o módulo**
@@ -79,15 +85,14 @@ Windows 8.1 (Enterprise, Pro)| Sí |Sin | Comprobar la versión de servidor corr
 Windows 8 (Enterprise, Pro) | Sí | Sin | Comprobar la versión de servidor correspondiente para los requisitos de software o módulo
 Windows 7 (Ultimate, Enterprise, Pro, Home Premium/Basic, Starter) | Sí | Sin | Comprobar la versión de servidor correspondiente para los requisitos de software o módulo
 Windows Server 2016 (Standard, Datacenter, Essentials) | Sí | Sí | - .NET 4.5 <br> Windows PowerShell <br> - Versión compatible más reciente de Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0
-Windows Server 2012 R2 (Standard, Datacenter, Foundation, Essentials) | Sí | Sí | - .NET 4.5 <br> - Windows PowerShell <br> - Versión compatible más reciente de Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0
-Windows Server 2012 (Standard, Datacenter, Foundation) | Sí | Sí |- .NET 4.5 <br> - Windows PowerShell <br> - Versión compatible más reciente de Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0 <br> - Administración y mantenimiento de imágenes de implementación (DISM.exe)
-Windows Server 2008 R2 (Standard, Enterprise, Datacenter, Foundation) | Sí | Sí | - .NET 3.5, .Net 4.5 <br> -    Windows PowerShell <br> - Versión compatible de Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0 <br> - Administración y mantenimiento de imágenes de implementación (DISM.exe)
+Windows Server 2012 R2 (Standard, Datacenter, Foundation, Essentials) | Sí | Sí | - .NET 4.5 <br> Windows PowerShell <br> - Versión compatible más reciente de Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0
+Windows Server 2012 (Standard, Datacenter, Foundation) | Sí | Sí |- .NET 4.5 <br> -Windows PowerShell <br> - Versión compatible más reciente de Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0 <br> - Administración y mantenimiento de imágenes de implementación (DISM.exe)
+Windows Server 2008 R2 (Standard, Enterprise, Datacenter, Foundation) | Sí | Sí | - .NET 3.5, .Net 4.5 <br> -Windows PowerShell <br> - Versión compatible de Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0 <br> - Administración y mantenimiento de imágenes de implementación (DISM.exe)
 Windows Server 2008 SP2 (Standard, Datacenter, Foundation) | Sí | Sin | - .NET 3.5, .Net 4.5 <br> Windows PowerShell <br> - Versión compatible de Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0 <br> - Administración y mantenimiento de imágenes de implementación (DISM.exe) <br> - Base de Virtual Server 2005 + KB KB948515
 Windows Storage Server 2016/2012 R2/2012 (Standard, Workgroup) | Sí | Sin | - .NET 4.5 <br> Windows PowerShell <br> - Versión compatible más reciente de Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0
 Windows Server 2019 (Standard, Datacenter, Essentials) | Sí | Sí | - .NET 4.5 <br> Windows PowerShell <br> - Versión compatible más reciente de Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0
 
 Para obtener más información, consulte el artículo sobre los [Sistemas operativos de MABS y DPM compatibles](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems).
-
 
 ## <a name="backup-limits"></a>Límites de Backup
 
@@ -95,38 +100,37 @@ Azure Backup limita el tamaño del origen de datos de archivo o carpeta del que 
 
 **Sistema operativo** | **Límite de tamaño**
 --- | ---
-Windows Server 2012 o superior |  54 400 GB
-Windows Server 2008 R2 SP1 |    1700 GB
-Windows Server 2008 SP2 | 1700 GB
-Windows 8 o posterior  | 54 400 GB
-Windows 7   | 1700 GB
-
+Windows Server 2012 o superior |54 400 GB
+Windows Server 2008 R2 SP1 |1700 GB
+Windows Server 2008 SP2| 1700 GB
+Windows 8 o posterior| 54 400 GB
+Windows 7| 1700 GB
 
 ## <a name="supported-file-types-for-backup"></a>Tipos de archivo compatibles para copia de seguridad
 
 **Tipo** | **Soporte técnico**
 --- | ---
-Cifrados   | Se admite.
+Cifrados| Se admite.
 Comprimidos | Se admite.
 Dispersos | Se admite.
-Comprimidos y dispersos | Se admite.
-Vínculos físicos  | No compatible. Se omite.
-Punto de repetición de análisis   | No compatible. Se omite.
-Cifrados y dispersos |  No compatible. Se omite.
-Flujo comprimido   | No compatible. Se omite.
-Flujo disperso   | No compatible. Se omite.
-OneDrive (los archivos sincronizados son flujos dispersos).  | No compatible.
+Comprimidos y dispersos |Se admite.
+Vínculos físicos| No compatible. Se omite.
+Punto de repetición de análisis| No compatible. Se omite.
+Cifrados y dispersos |No compatible. Se omite.
+Flujo comprimido| No compatible. Se omite.
+Flujo disperso| No compatible. Se omite.
+OneDrive (los archivos sincronizados son flujos dispersos).| No compatible.
 
 ## <a name="supported-drives-or-volumes-for-backup"></a>Unidades o volúmenes compatibles con la copia de seguridad
 
 **Unidad/volumen** | **Soporte técnico** | **Detalles**
 --- | --- | ---
-Volúmenes de solo lectura   | No compatible | El Servicio de instantánea de copia de volumen (VSS) solo funciona si el volumen es grabable.
-Volúmenes sin conexión | No compatible |   VSS solo funciona si el volumen está en línea.
-Recurso compartido de red   | No compatible |   El volumen debe ser local en el servidor.
-Volúmenes protegidos por BitLocker | No compatible |   El volumen debe desbloquearse antes de que se pueda iniciar la copia de seguridad.
-Identificación del sistema de archivos  | No compatible |   Solo se admite NTFS.
-Medios extraíbles | No compatible |   Todos los orígenes de elementos de copia de seguridad deben tener el estado *corregido*.
+Volúmenes de solo lectura| No compatible | El Servicio de instantánea de copia de volumen (VSS) solo funciona si el volumen es grabable.
+Volúmenes sin conexión| No compatible |VSS solo funciona si el volumen está en línea.
+Recurso compartido de red| No compatible |El volumen debe ser local en el servidor.
+Volúmenes protegidos por BitLocker| No compatible |El volumen debe desbloquearse antes de que se pueda iniciar la copia de seguridad.
+Identificación del sistema de archivos| No compatible |Solo se admite NTFS.
+Medios extraíbles| No compatible |Todos los orígenes de elementos de copia de seguridad deben tener el estado *corregido*.
 Unidades desduplicadas | Compatible | Azure Backup convierte los datos desduplicados en datos normales. Optimiza, cifra, almacena y envía los datos al almacén.
 
 ## <a name="support-for-initial-offline-backup"></a>Compatibilidad con copia de seguridad inicial sin conexión
@@ -145,5 +149,6 @@ Mediante la característica de [restauración instantánea](backup-instant-resto
 Las copias de seguridad no se pueden restaurar en una máquina de destino en la que se ejecuta una versión anterior del sistema operativo. Por ejemplo, una copia de seguridad perteneciente a un equipo con Windows 7 se puede restaurar en Windows 8 o posterior. Sin embargo, una copia de seguridad perteneciente a un equipo con Windows 8 no se puede restaurar en un equipo con Windows 7.
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 - Obtenga más información sobre la [arquitectura de copia de seguridad que usa el agente de MARS](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders).
 - Obtenga información sobre lo que admite cuando [ejecuta el agente de MARS en MABS o un servidor DPM](backup-support-matrix-mabs-dpm.md).

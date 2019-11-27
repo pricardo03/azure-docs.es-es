@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-ms.date: 05/21/2019
-ms.openlocfilehash: d51acaff89c2a8589b6b524c112c11f9c4f18220
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/15/2019
+ms.openlocfilehash: ab3667d79827e9548338b5beda00c9992f100deb
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821770"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132409"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Métricas y registros de diagnóstico de Azure SQL Database
 
@@ -64,6 +64,7 @@ Puede configurar bases de datos de Azure SQL y bases de datos de instancia para 
 | Telemetría de supervisión de bases de datos | Compatibilidad con bases de datos únicas y bases de datos agrupadas | Compatibilidad de base de datos de instancia |
 | :------------------- | ----- | ----- |
 | [Métricas básicas](#basic-metrics): contiene el porcentaje de DTU/CPU, el límite de DTU/CPU, el porcentaje de lectura de datos físicos, el porcentaje de escritura en registro, las conexiones correctas, erróneas o bloqueadas por el firewall, el porcentaje de sesiones, el porcentaje de trabajo, el almacenamiento, el porcentaje de almacenamiento y el porcentaje de almacenamiento de XTP. | Sí | Sin |
+| [Instancia y aplicación avanzadas](#advanced-metrics):  contiene los datos de la base de datos y el tamaño de archivo de registro del sistema tempdb y el archivo de registro porcentual de tempdb usado. | Sí | Sin |
 | [QueryStoreRuntimeStatistics](#query-store-runtime-statistics): contiene la información sobre las estadísticas de tiempo de ejecución de consulta, como el uso de CPU y la duración de la consulta. | Sí | Sí |
 | [QueryStoreWaitStatistics](#query-store-wait-statistics): contiene la información sobre las estadísticas de espera de las consultas (el motivo de la espera de sus consultas), como CPU, LOG y LOCKING. | Sí | Sí |
 | [Errores](#errors-dataset): contiene información sobre los errores de SQL en una base de datos. | Sí | Sí |
@@ -428,6 +429,16 @@ Vea las siguientes tablas para más detalles sobre todas las métricas básicas 
 |**Recurso**|**Métricas**|
 |---|---|
 |Azure SQL Database|Porcentaje de DTU; DTU usada; límite de DTU; porcentaje de CPU; porcentaje de lectura de datos físicos; porcentaje de escritura en registro; conexiones correctas, erróneas o bloqueadas por el firewall; porcentaje de sesiones; porcentaje de trabajos; almacenamiento; porcentaje de almacenamiento; porcentaje de almacenamiento de XTP e interbloqueos |
+
+## <a name="advanced-metrics"></a>Métricas avanzadas
+
+Consulte la siguiente tabla para ver los detalles de las métricas avanzadas.
+
+|**Métrica**|**Nombre de métrica para mostrar**|**Descripción**|
+|---|---|---|
+|tempdb_data_size| Kilobytes de tamaño de archivo de datos Tempdb |Kilobytes de tamaño de archivo de datos Tempdb. No es aplicable a los almacenes de datos. Esta métrica estará disponible para las bases de datos que usan el modelo de compra de núcleos virtuales, o 100 DTU o más para los modelos de compra basados en DTU. |
+|tempdb_log_size| Kilobytes de tamaño de archivo de registro Tempdb |Kilobytes de tamaño de archivo de registro Tempdb. No es aplicable a los almacenes de datos. Esta métrica estará disponible para las bases de datos que usan el modelo de compra de núcleos virtuales, o 100 DTU o más para los modelos de compra basados en DTU. |
+|tempdb_log_used_percent| Porcentaje de registro de tempdb usado |Porcentaje de registro de tempdb usado. No es aplicable a los almacenes de datos. Esta métrica estará disponible para las bases de datos que usan el modelo de compra de núcleos virtuales, o 100 DTU o más para los modelos de compra basados en DTU. |
 
 ## <a name="basic-logs"></a>Registros básicos
 

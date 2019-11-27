@@ -10,12 +10,12 @@ author: ronychatterjee
 ms.author: achatter
 ms.reviewer: davidph
 ms.date: 11/07/2019
-ms.openlocfilehash: 976c849f9cb48e1c197f70d10e911216a6a7425c
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: bdb602598f3d8b4aaed5d6061542d540a82ebc75
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822845"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74114599"
 ---
 # <a name="machine-learning-and-ai-with-onnx-in-sql-database-edge-preview"></a>Aprendizaje automático e inteligencia artificial con ONNX en la versión preliminar de SQL Database Edge
 
@@ -27,31 +27,26 @@ Para inferir modelos de Machine Learning en Azure SQL Database Edge, primero es 
 
 ## <a name="get-onnx-models"></a>Obtención de modelos de ONNX
 
-Hay varias maneras de obtener un modelo en el formato ONNX:
+Para obtener un modelo en el formato ONNX:
 
-- [ONNX Model Zoo](https://github.com/onnx/models): Contiene muchos modelos ONNX previamente entrenados para distintos tipos de tareas que se pueden descargar y están listos para su uso.
+- **Servicios de construcción de modelos**: Servicios como la [función de aprendizaje automático automatizado en Azure Machine Learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) y [Azure Custom Vision Service](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) admiten la exportación directa del modelo entrenado en el formato ONNX.
 
-- [Exportación nativa desde marcos de entrenamiento de Machine Learning](https://onnx.ai/supported-tools): Varios marcos de entrenamiento admiten la funcionalidad de exportación nativa a ONNX, lo que permite guardar el modelo entrenado en una versión específica del formato ONNX, entre las que se incluyen [PyTorch](https://pytorch.org/docs/stable/onnx.html), Chainer y Caffe2. Además, los servicios de creación de modelos como la [característica de aprendizaje automático automatizado de Azure Machine Learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) y [Azure Custom Vision Service](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) proporcionan la exportación de ONNX.
+- [**Convertir y/o exportar modelos existentes**](https://github.com/onnx/tutorials#converting-to-onnx-format): Varios marcos de entrenamiento (p.ej. [PyTorch](https://pytorch.org/docs/stable/onnx.html), Chainer, y Caffe2) admiten la funcionalidad de exportación nativa a ONNX, lo que permite guardar el modelo entrenado en una versión específica del formato ONNX. Para los marcos que no admiten la exportación nativa, existen paquetes instalables de convertidor ONNX independientes que le permiten convertir modelos entrenados desde diferentes marcos de aprendizaje automático al formato ONNX.
 
-- [Convertir los modelos existentes](https://github.com/onnx/tutorials#converting-to-onnx-format): En el caso de los marcos que no admiten la exportación nativa, hay paquetes independientes para convertir los modelos al formato ONNX. Para ver ejemplos y tutoriales, consulte [Conversión al formato ONNX](https://github.com/onnx/tutorials#converting-to-onnx-format). 
-
-### <a name="supported-frameworks"></a>Marcos admitidos
-
-Los convertidores de ONNX permiten convertir los modelos entrenados de diferentes marcos de aprendizaje automático al formato ONNX. Entre los convertidores más usados se encuentran: 
-
-* [PyTorch](http://pytorch.org/docs/master/onnx.html)
-* [Tensorflow](https://github.com/onnx/tensorflow-onnx)
-* [Keras](https://github.com/onnx/keras-onnx)
-* [Scikit-learn](https://github.com/onnx/sklearn-onnx)
-* [CoreML](https://github.com/onnx/onnxmltools)
-
-Para obtener la lista completa de los marcos de trabajo admitidos, consulte [Conversión al formato ONNX](https://github.com/onnx/tutorials#converting-to-onnx-format).
+     **Marcos admitidos**
+   * [PyTorch](http://pytorch.org/docs/master/onnx.html)
+   * [Tensorflow](https://github.com/onnx/tensorflow-onnx)
+   * [Keras](https://github.com/onnx/keras-onnx)
+   * [Scikit-learn](https://github.com/onnx/sklearn-onnx)
+   * [CoreML](https://github.com/onnx/onnxmltools)
+    
+    Para obtener la lista completa de los marcos y ejemplos admitidos, consulte [Conversión al formato ONNX](https://github.com/onnx/tutorials#converting-to-onnx-format).
 
 ## <a name="limitations"></a>Limitaciones
 
 Actualmente, no todas las versiones de ONNX son compatibles con Azure SQL Database Edge. La compatibilidad se limita a los modelos con **tipos de datos numéricos**:
 
-- [int y bigint](https://docs.microsoft.com/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql5)
+- [int y bigint](https://docs.microsoft.com/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql)
 - [real y float](https://docs.microsoft.com/sql/t-sql/data-types/float-and-real-transact-sql).
   
 Otros tipos numéricos se pueden convertir en tipos compatibles mediante [CAST y CONVERT](https://docs.microsoft.com/sql/t-sql/functions/cast-and-convert-transact-sql).

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/01/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64de004a1d9b3aa011c447fdded51658582586b0
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: d87f935f503098757e4efe402b37958283431b6e
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "68825784"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74120535"
 ---
 # <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>Tutorial: Configuración de Salesforce para el aprovisionamiento automático de usuarios
 
@@ -55,12 +55,12 @@ Antes de configurar y habilitar el servicio de aprovisionamiento, debe decidir q
 
 ## <a name="enable-automated-user-provisioning"></a>Habilitación del aprovisionamiento automático de usuarios
 
-Esta sección le guía por los pasos necesarios para conectar la API de aprovisionamiento de cuentas de usuario de Salesforce, así como para configurar el servicio de aprovisionamiento con el fin de crear, actualizar y deshabilitar cuentas de usuario asignadas de Salesforce en función de la asignación de grupos y usuarios en Azure AD.
+Esta sección le guía por los pasos necesarios para conectar la [API - v40 de aprovisionamiento de cuentas de usuario de Salesforce](https://developer.salesforce.com/docs/atlas.en-us.208.0.api.meta/api/implementation_considerations.htm), así como para configurar el servicio de aprovisionamiento con el fin de crear, actualizar y deshabilitar cuentas de usuario asignadas de Salesforce en función de la asignación de grupos y usuarios en Azure AD.
 
 > [!Tip]
 > También puede decidir habilitar el inicio de sesión único basado en SAML para Salesforce siguiendo las instrucciones de [Azure Portal](https://portal.azure.com). El inicio de sesión único puede configurarse independientemente del aprovisionamiento automático, aunque estas dos características se complementan entre sí.
 
-### <a name="configure-automatic-user-account-provisioning"></a>configurar el aprovisionamiento automático de cuentas de usuario
+### <a name="configure-automatic-user-account-provisioning"></a>Configurar el aprovisionamiento automático de cuentas de usuario
 
 El objetivo de esta sección es describir cómo habilitar el aprovisionamiento de cuentas de usuario de Active Directory para Salesforce.
 
@@ -118,6 +118,18 @@ El objetivo de esta sección es describir cómo habilitar el aprovisionamiento d
 Esta acción inicia la sincronización inicial de todos los usuarios y grupos asignados a Salesforce en la sección Usuarios y grupos. Tenga en cuenta que la sincronización inicial tarda más tiempo en realizarse que las posteriores, que se producen aproximadamente cada 40 minutos si se está ejecutando el servicio. Puede usar la sección **Detalles de sincronización** para supervisar el progreso y seguir los vínculos a los registros de actividad de aprovisionamiento, donde se describen todas las acciones que ha llevado a cabo el servicio de aprovisionamiento en la aplicación de Salesforce.
 
 Para más información sobre cómo leer los registros de aprovisionamiento de Azure AD, consulte el tutorial de [Creación de informes sobre el aprovisionamiento automático de cuentas de usuario](../manage-apps/check-status-user-account-provisioning.md).
+
+## <a name="common-issues"></a>Problemas comunes
+* Si tiene problemas para autorizar el acceso a Salesforce, asegúrese de lo siguiente:
+    * Las credenciales usadas tienen acceso de administrador a Salesforce.
+    * La versión de Salesforce que usa es compatible con el acceso web (por ejemplo, las ediciones Developer, Enterprise, Sandbox y Unlimited de Salesforce.)
+    * El acceso a la API web está habilitado para el usuario.
+* El servicio de aprovisionamiento de Azure AD admite el idioma de aprovisionamiento, la configuración regional y la zona horaria para un usuario. Estos atributos se encuentran en las asignaciones de atributos predeterminadas pero no tienen un atributo de origen predeterminado. Asegúrese de seleccionar el atributo de origen predeterminado y de que el atributo de origen esté en el formato esperado por SalesForce. Por ejemplo, localeSidKey para inglés (Estados Unidos) es en_US. Revise la guía proporcionada [ aquí ](https://help.salesforce.com/articleView?id=setting_your_language.htm&type=5) para determinar el formato apropiado de localeSidKey. Los formatos de languageLocaleKey se pueden encontrar [aquí](https://help.salesforce.com/articleView?id=faq_getstart_what_languages_does.htm&type=5). Además de garantizar que el formato sea correcto, es posible que deba asegurarse de que el idioma esté habilitado para sus usuarios como se describe [ aquí ](https://help.salesforce.com/articleView?id=setting_your_language.htm&type=5). 
+* **SalesforceLicenseLimitExceeded:** No se pudo crear el usuario en la aplicación de destino porque no hay licencias disponibles para este usuario. Puede adquirir licencias adicionales para la aplicación de destino o revisar las asignaciones de usuario y la configuración de asignación de atributos para asegurarse de que se asignan los atributos correctos a los usuarios correctos.
+* **SalesforceDuplicateUserName:** No se puede aprovisionar al usuario porque tiene un 'Nombre de usuario' de Salesforce.com que está duplicado en otro inquilino de Salesforce.com.  En Salesforce.com, los valores del atributo 'Nombre de usuario' deben ser únicos en todos los inquilinos de Salesforce.com.  De forma predeterminada, el valor de userPrincipalName de un usuario en Azure Active Directory se convierte en su 'Nombre de usuario' en Salesforce.com.   Tiene dos opciones:  Una opción es buscar y cambiar el nombre del usuario con el duplicado 'Nombre de usuario' en el otro inquilino de Salesforce.com, si también administra ese otro inquilino.  La otra opción es eliminar el acceso del usuario de Azure Active Directory al inquilino de Salesforce.com con el que está integrado su directorio. Se volverá a intentar esta operación en el siguiente intento de sincronización. 
+* **SalesforceRequiredFieldMissing:** Salesforce requiere que ciertos atributos estén presentes en el usuario para crear o actualizar el usuario correctamente. A este usuario le falta uno de los atributos requeridos. Asegúrese de que atributos como correo electrónico y alias se llenen en todos los usuarios que quiera que se aprovisionen en Salesforce. Puede buscar usuarios que no tengan estos atributos mediante [filtros de alcance basados ​​en atributos](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
+* La asignación de atributos predeterminada para el aprovisionamiento en Salesforce incluye la expresión SingleAppRoleAssignments para asignar appRoleAssignments en Azure AD a ProfileName en Salesforce. Asegúrese de que los usuarios no tengan varias asignaciones de roles de aplicación en Azure AD, ya que la asignación de atributos solo admite el aprovisionamiento de un rol. 
+
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

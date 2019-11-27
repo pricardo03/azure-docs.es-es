@@ -1,18 +1,19 @@
 ---
-title: Configuración del Firewall de aplicaciones web V2 en Application Gateway de reglas personalizadas con Azure PowerShell
-description: Información sobre cómo configurar reglas personalizadas del firewall de aplicaciones web v2 con Azure PowerShell
+title: Configuración de reglas personalizadas de v2 con PowerShell
+titleSuffix: Azure Web Application Firewall
+description: Información sobre cómo configurar reglas personalizadas del firewall de aplicaciones web v2 con Azure PowerShell. Puede crear reglas propias que se evalúan en cada solicitud que pasa por el firewall.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
-ms.date: 09/30/2019
+ms.date: 11/16/2019
 ms.author: victorh
-ms.openlocfilehash: 8c307ac5553c2c333425b6c14b9b4da4a6582f62
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 1641b74e3b9e59253b2674b22dfd8cd1b6ca2c2c
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73511505"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74133044"
 ---
 # <a name="configure-web-application-firewall-v2-on-application-gateway-with-a-custom-rule-using-azure-powershell"></a>Configuración del Firewall de aplicaciones web V2 en Application Gateway con una regla personalizada con Azure PowerShell
 

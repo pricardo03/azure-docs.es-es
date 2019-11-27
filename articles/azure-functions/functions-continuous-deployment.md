@@ -1,21 +1,19 @@
 ---
-title: Implementación continua para Azure Functions | Microsoft Docs
+title: Implementación continua para Azure Functions
 description: Use las características de implementación continua de Azure App Service para publicar las funciones.
-services: functions
-documentationcenter: na
 author: ggailey777
-manager: jeconnoc
+manager: gwallace
 ms.assetid: 361daf37-598c-4703-8d78-c77dbef91643
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 09/25/2016
+ms.date: 09/25/2019
 ms.author: glenga
-ms.openlocfilehash: fb3cd885c0a16b3dc3a79150043b25cb271040bd
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: dae75153cffbf2f0e836e1a28b78a9f05f54e6e0
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70097094"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091174"
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Implementación continua para Azure Functions
 
@@ -34,6 +32,9 @@ La unidad de implementación de las funciones en Azure es la aplicación de func
 Para que la implementación continua se realice correctamente, la estructura de directorios debe ser compatible con la estructura básica de carpetas que espera Azure Functions.
 
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
+
+>[!NOTE]  
+> Todavía no se admite la implementación continua para las aplicaciones de Linux que se ejecutan en un plan de consumo. 
 
 ## <a name="credentials"></a>Configuración de la implementación continua
 

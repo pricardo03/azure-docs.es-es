@@ -1,5 +1,5 @@
 ---
-title: Indexación de blobs JSON desde el indexador de blobs de Azure para la búsqueda de texto completo
+title: Búsqueda a través de blobs JSON
 titleSuffix: Azure Cognitive Search
 description: Rastree el contenido de texto de los blobs JSON de Azure mediante el indexador de blobs de Azure Cognitive Search. Los indexadores automatizan la ingesta de datos para orígenes de datos seleccionados, como Azure Blob Storage.
 manager: nitinme
@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: f8ddec95b92121c8dad4a39cf0c7b3f1798ec8ad
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 18f3ed9cb2ef0f700e33e8b643b5e7d167d656a5
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72789517"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112728"
 ---
 # <a name="how-to-index-json-blobs-using-a-blob-indexer-in-azure-cognitive-search"></a>Indexación de blobs JSON con el indexador de blobs de Azure Cognitive Search
 
@@ -65,17 +65,11 @@ En la página **origen de datos**, el origen debe ser **Azure Blob Storage** con
 
    ![Definición del origen de datos del blob](media/search-howto-index-json/import-wizard-json-data-source.png)
 
-### <a name="4---skip-the-add-cognitive-search-page-in-the-wizard"></a>4: Omisión de la página "Agregar Cognitive Search" en el asistente
+### <a name="4---skip-the-enrich-content-page-in-the-wizard"></a>4: omitir la página"Enriquecer contenido" del asistente
 
-No es necesario agregar conocimientos cognitivos para la importación de documentos JSON. A menos que tenga una necesidad específica de [agregar enriquecimiento de inteligencia artificial](cognitive-search-concept-intro.md) a su canalización de indexación, debe omitir este paso.
+Agregar habilidades cognitivas (o enriquecimiento) no es un requisito de importación. A menos que tenga una necesidad específica de [agregar enriquecimiento de inteligencia artificial](cognitive-search-concept-intro.md) a su canalización de indexación, debe omitir este paso.
 
-Para omitir el paso, vaya a la página siguiente.
-
-   ![Botón Página siguiente de Cognitive Search](media/search-get-started-portal/next-button-add-cog-search.png)
-
-Desde esa página puede ir directamente a la personalización del índice.
-
-   ![Omitir el paso sobre aptitud cognitiva](media/search-get-started-portal/skip-cog-skill-step.png)
+Para omitir el paso, haga clic en los botones azules en la parte inferior de la página para "Siguiente" y "Omitir".
 
 ### <a name="5---set-index-attributes"></a>5: Configuración de los atributos de índice
 

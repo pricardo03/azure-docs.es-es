@@ -12,19 +12,30 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 11/13/2019
 ms.author: juliako
 ms.reviewer: milanga; johndeu
-ms.openlocfilehash: d8470ad759d983f25f8f68b93d58f89f23eeb578
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 66edbc872fe5f1d4320107aa21ed2792bdd4fecc
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "69015394"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083884"
 ---
 # <a name="media-analytics-on-the-media-services-platform"></a>Análisis multimedia en la plataforma Media Services 
 
+## <a name="retirement-plans"></a>Planes de retirada
+
+> [!IMPORTANT]
+> Los siguientes procesadores de medios heredados se van a retirar en 2020, consulte los detalles en la tabla siguiente. 
+
+|Nombre de procesador de multimedia|Fecha de retirada|Notas adicionales|
+|---|---|
+|[Azure Media Indexer 2](media-services-process-content-with-indexer2.md)| 1 de enero de 2020|Este procesador multimedia se reemplazará por [Video Indexer de Azure Media Services](https://docs.microsoft.com/azure/media-services/video-indexer/). Para más información, consulte [Migración de Azure Media Indexer 2 a Video Indexer de Azure Media Services](migrate-indexer-v1-v2.md).|
+|[Azure Media Indexer](media-services-index-content.md)|1 de octubre de 2020|Este procesador multimedia se reemplazará por [Video Indexer de Azure Media Services](https://docs.microsoft.com/azure/media-services/video-indexer/). Para más información, consulte [Migración de Azure Media Indexer a Video Indexer de Azure Media Services](migrate-indexer-v1-v2.md)
+ 
 ## <a name="overview"></a>Información general
+
 Cada vez más organizaciones adoptan el vídeo como medio preferido para formar a sus empleados, atraer a sus clientes y documentar las funciones empresariales. La informática en la nube proporciona una manera de almacenar estos archivos multimedia de gran tamaño, transmitirlos y acceder a ellos. Pero a medida que la biblioteca de contenido de vídeo de una empresa crece, necesita un medio igualmente eficaz de extraer información de ese contenido. 
 
 Para satisfacer esta necesidad creciente, Azure Media Services ofrece Análisis multimedia de Azure. Análisis multimedia es una colección de componentes de voz y visión que facilita a las empresas y organizaciones obtener conocimiento útil de sus archivos de vídeo. Generado con los componentes principales de la plataforma Media Services, Análisis multimedia puede ocuparse del procesamiento multimedia a escala desde el primer día.

@@ -1,25 +1,17 @@
 ---
-title: Configuración de una red virtual en el nivel Premium de Azure Redis Cache Microsoft Docs
+title: Configuración de una red virtual en el nivel premium de Azure Cache for Redis
 description: Obtenga información sobre cómo crear y administrar la compatibilidad de red virtual con instancias de Azure Cache for Redis de nivel Premium
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: jhubbard
-editor: ''
-ms.assetid: 8b1e43a0-a70e-41e6-8994-0ac246d8bf7f
 ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: yegu
-ms.openlocfilehash: ec21c26c705dab94b15c1f76be5e62207b9f206f
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: b2ddac9439183321691104d4eedccb0c971d19c9
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71815666"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74129399"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>Configuración de la compatibilidad de red virtual con el nivel Premium de Azure Cache for Redis
 Azure Cache for Redis cuenta con diferentes opciones de caché, lo que proporciona flexibilidad en la elección del tamaño y las características de la memoria caché, incluidas algunas características del nivel Premium, como la agrupación en clústeres, la persistencia y la compatibilidad con las redes virtuales. Una red virtual es una red privada en la nube. Cuando una instancia de Azure Cache for Redis se configure con una red virtual, no será posible acceder a ella públicamente, solo se podrá acceder a ella desde máquinas virtuales y aplicaciones de dentro de la red virtual. En este artículo se describe cómo configurar la compatibilidad con redes virtuales de una instancia de Azure Cache for Redis de nivel Premium.
@@ -104,7 +96,7 @@ Cuando Azure Cache for Redis se hospeda en una red virtual, se usan los puertos 
 
 #### <a name="outbound-port-requirements"></a>Requisitos de puerto de salida
 
-Existen siete requisitos de puerto de salida.
+Existen nueve requisitos de puerto de salida.
 
 - Se pueden realizar todas las conexiones de salida a Internet a través de un dispositivo de auditoría local de un cliente.
 - Tres de los puertos enrutan el tráfico a los puntos de conexión de Azure que funcionan con Azure Storage y Azure DNS.
@@ -113,7 +105,8 @@ Existen siete requisitos de puerto de salida.
 | Puertos | Dirección | Protocolo de transporte | Propósito | IP local | Dirección IP remota |
 | --- | --- | --- | --- | --- | --- |
 | 80, 443 |Salida |TCP |Dependencias de Redis en Azure Storage/PKI (Internet) | (Subred de Redis) |* |
-| 53 |Salida |TCP/UDP |Dependencias de Redis en DNS (Internet y red virtual) | (Subred de Redis) | 168.63.129.16 y 169.254.169.254 <sup>1</sup> y cualquier servidor DNS personalizado para la subred <sup>3</sup> |
+| 443 | Salida | TCP | Dependencia de Redis en Azure Key Vault | (Subred de Redis) | AzureKeyVault <sup>1</sup> |
+| 53 |Salida |TCP/UDP |Dependencias de Redis en DNS (Internet y red virtual) | (Subred de Redis) | 168.63.129.16 y 169.254.169.254 <sup>2</sup> y cualquier servidor DNS personalizado para la subred <sup>3</sup> |
 | 8443 |Salida |TCP |Comunicaciones internas en Redis | (Subred de Redis) | (Subred de Redis) |
 | 10221-10231 |Salida |TCP |Comunicaciones internas en Redis | (Subred de Redis) | (Subred de Redis) |
 | 20226 |Salida |TCP |Comunicaciones internas en Redis | (Subred de Redis) |(Subred de Redis) |
@@ -121,7 +114,9 @@ Existen siete requisitos de puerto de salida.
 | 15000-15999 |Salida |TCP |Comunicaciones internas de Redis y replicación geográfica | (Subred de Redis) |(Subred de Redis) (Subred del mismo nivel de réplica geográfica) |
 | 6379-6380 |Salida |TCP |Comunicaciones internas en Redis | (Subred de Redis) |(Subred de Redis) |
 
-<sup>1</sup> Estas direcciones IP que pertenecen a Microsoft se usan para dirigir la máquina virtual del host que trabaja con Azure DNS.
+<sup>1</sup> Puede usar la etiqueta de servicio "AzureKeyVault" con los grupos de seguridad de red de Resource Manager.
+
+<sup>2</sup> Estas direcciones IP que pertenecen a Microsoft se usan para dirigir la máquina virtual del host que trabaja con Azure DNS.
 
 <sup>3</sup> No es necesario para aquellas subredes sin ningún servidor DNS personalizado o cachés en Redis que ignoran los DNS personalizados.
 
@@ -135,7 +130,7 @@ Existen ocho requisitos de intervalo de puertos de entrada. Las solicitudes entr
 
 | Puertos | Dirección | Protocolo de transporte | Propósito | IP local | Dirección IP remota |
 | --- | --- | --- | --- | --- | --- |
-| 6379, 6380 |Entrada |TCP |Comunicación del cliente con Redis, equilibrio de carga de Azure | (Subred de Redis) | (Subred de Redis), Virtual Network, Azure Load Balancer <sup>2</sup> |
+| 6379, 6380 |Entrada |TCP |Comunicación del cliente con Redis, equilibrio de carga de Azure | (Subred de Redis) | (Subred de Redis), Virtual Network, Azure Load Balancer <sup>1</sup> |
 | 8443 |Entrada |TCP |Comunicaciones internas en Redis | (Subred de Redis) |(Subred de Redis) |
 | 8500 |Entrada |TCP/UDP |Equilibrio de carga de Azure | (Subred de Redis) |Azure Load Balancer |
 | 10221-10231 |Entrada |TCP |Comunicaciones internas en Redis | (Subred de Redis) |(Subred de Redis), Azure Load Balancer |
@@ -144,7 +139,7 @@ Existen ocho requisitos de intervalo de puertos de entrada. Las solicitudes entr
 | 16001 |Entrada |TCP/UDP |Equilibrio de carga de Azure | (Subred de Redis) |Azure Load Balancer |
 | 20226 |Entrada |TCP |Comunicaciones internas en Redis | (Subred de Redis) |(Subred de Redis) |
 
-<sup>2</sup> Puede usar la etiqueta de servicio "AzureLoadBalancer" (Resource Manager) (o "AZURE_LOADBALANCER" para el modelo clásico) para crear las reglas del grupo de seguridad de red.
+<sup>1</sup> Puede usar la etiqueta de servicio "AzureLoadBalancer" (Resource Manager) (o "AZURE_LOADBALANCER" para el modelo clásico) para crear las reglas del grupo de seguridad de red.
 
 #### <a name="additional-vnet-network-connectivity-requirements"></a>Requisitos adicionales de conectividad de red virtual
 
@@ -158,7 +153,7 @@ Existen requisitos de conectividad de red para entornos para una instancia de Az
 ### <a name="how-can-i-verify-that-my-cache-is-working-in-a-vnet"></a>¿Cómo se puede comprobar que la memoria caché funciona una red virtual?
 
 >[!IMPORTANT]
->Al conectarse a una instancia de Azure Cache for Redis que se hospeda en una red virtual, los clientes de caché deben estar en la misma red virtual o en una red virtual con el emparejamiento de VNET habilitado. Esto incluye cualquier aplicación de prueba o herramienta de diagnóstico de hacer ping. Independientemente de dónde se hospede la aplicación cliente, los grupos de seguridad de red deben configurarse de modo que el tráfico de red del cliente pueda llegar a la instancia de Redis.
+>Al conectarse a una instancia de Azure Cache for Redis que se hospeda en una red virtual, los clientes de caché deben estar en la misma red virtual o en una red virtual con el emparejamiento de VNET habilitado dentro de la misma región de Azure. El emparejamiento de VNET global no se admite actualmente. Esto incluye cualquier aplicación de prueba o herramienta de diagnóstico de hacer ping. Independientemente de dónde se hospede la aplicación cliente, los grupos de seguridad de red deben configurarse de modo que el tráfico de red del cliente pueda llegar a la instancia de Redis.
 >
 >
 
@@ -254,4 +249,3 @@ Obtenga información acerca de cómo usar más características de la memoria ca
 [redis-cache-vnet-ip]: ./media/cache-how-to-premium-vnet/redis-cache-vnet-ip.png
 
 [redis-cache-vnet-info]: ./media/cache-how-to-premium-vnet/redis-cache-vnet-info.png
-

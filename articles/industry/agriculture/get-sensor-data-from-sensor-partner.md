@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 380c67e5aeaba9be60e016f173e4da127e4e5f14
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 33fd2221d3f3a0562abf83f014a7b84df972eebc
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73797385"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74128847"
 ---
 # <a name="get-sensor-data-from-sensor-partners"></a>Obtención de datos de sensor de los asociados de sensor
 
@@ -60,7 +60,7 @@ También puede generar las credenciales mediante la ejecución de este script de
 
     ```azurepowershell-interactive 
 
-    PS> ./generateCredentials.ps1   
+    ./generateCredentials.ps1   
 
     ```
 7. Siga las instrucciones en pantalla para capturar los valores. (punto de conexión de API, identificador de inquilino, identificador de cliente, secreto de cliente y cadena de conexión de EventHub).
@@ -86,7 +86,7 @@ Use la sección siguiente para ver los dispositivos y sensores de la granja.
 Actualmente, FarmBeats admite los siguientes dispositivos:
 
 - **Nodo**: dispositivo al que se conectan uno o varios sensores.
-- **Puerta de enlace**: un dispositivo al que están conectados uno o varios sensores.
+- **Puerta de enlace**: un dispositivo al que están conectados uno o varios nodos.
 
 Para ello, siga los pasos que se describen a continuación:
 

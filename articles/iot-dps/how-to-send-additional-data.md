@@ -7,12 +7,12 @@ ms.date: 10/29/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 1ff06afd363745ae465a8f5b625c27a4a9e4a222
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 90402dd6fbe19811b5bb6d5ac0fbdd984b71fd33
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73608608"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123185"
 ---
 # <a name="how-to-transfer-additional-data-between-device-and-dps"></a>Transferencia de datos adicionales entre un dispositivo y DPS
 A veces, DPS necesita más datos de los dispositivos a fin de aprovisionarlos adecuadamente en la instancia correcta de IoT Hub, y el dispositivo necesita proporcionar los datos. A la inversa, DPS puede devolver datos al dispositivo para facilitar la lógica del cliente. 
@@ -21,7 +21,7 @@ A veces, DPS necesita más datos de los dispositivos a fin de aprovisionarlos ad
 Esta característica se puede usar como una mejora de la [asignación personalizada](https://docs.microsoft.com/azure/iot-dps/how-to-use-custom-allocation-policies). Por ejemplo, quiere asignar los dispositivos en función de su modelo sin la intervención de personas. En este caso, usará [asignación personalizada](https://docs.microsoft.com/azure/iot-dps/how-to-use-custom-allocation-policies). Puede configurar el dispositivo para que incluya la información del modelo como parte de la [llamada de registro del dispositivo](https://docs.microsoft.com/rest/api/iot-dps/runtimeregistration/registerdevice). DPS pasará la información del dispositivo en el webhook de asignación personalizada. Y la función puede decidir a qué instancia de IoT Hub se dirigirá el dispositivo cuando reciba información del modelo de dispositivo. Asimismo, si el webhook quiere devolver algunos datos al dispositivo, pasará los datos como cadena en la respuesta del webhook.  
 
 ## <a name="device-sends-data-to-dps"></a>Envío de datos del dispositivo a DPS
-Cuando el dispositivo envía una [llamada de registro del dispositivo](https://docs.microsoft.com/rest/api/iot-dps/runtimeregistration/registerdevice) a DPS. La llamada de registro se puede mejorar para que incorpore otros campos en el cuerpo. El cuerpo será similar al siguiente: 
+Cuando su dispositivo envía una [llamada de dispositivo de registro](https://docs.microsoft.com/rest/api/iot-dps/runtimeregistration/registerdevice) a DPS, la llamada de registro se puede mejorar para que incorpore otros campos en el cuerpo. El cuerpo será similar al siguiente: 
    ```
    { 
        “registrationId”: “mydevice”, 

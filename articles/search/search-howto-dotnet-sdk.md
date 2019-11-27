@@ -1,5 +1,5 @@
 ---
-title: Cómo usar Búsqueda cognitiva de Azure desde una aplicación .NET
+title: Uso de Azure Cognitive Search en .NET
 titleSuffix: Azure Cognitive Search
 description: Obtenga información sobre cómo usar Búsqueda cognitiva de Azure en una aplicación .NET con C# y el SDK de. NET. Las tareas basadas en código incluyen la conexión al servicio, el contenido del índice y la consulta de un índice.
 manager: nitinme
@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: e1903b3b33e1dde5178fadbc37feee191a2eaacd
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 54fcd1fb936b5dd41715798408b604106a24bcf9
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792137"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112595"
 ---
 # <a name="how-to-use-azure-cognitive-search-from-a-net-application"></a>Cómo usar Búsqueda cognitiva de Azure desde una aplicación .NET
 

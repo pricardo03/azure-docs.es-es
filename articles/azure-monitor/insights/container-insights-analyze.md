@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 10/15/2019
-ms.openlocfilehash: f1a5d0d98a442fab80744636eea05d4c2d26f919
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8bb3ac1905167989e27d47304ae539e49a1412e8
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73478879"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132340"
 ---
 # <a name="understand-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>Descripción del rendimiento del clúster de Kubernetes con Azure Monitor para contenedores
 
@@ -320,3 +320,5 @@ Para acceder a estos libros, seleccione cada uno de ellos en la lista desplegabl
 - Consulte [Creación de alertas de rendimiento con Azure Monitor para contenedores](container-insights-alerts.md) para aprender a crear alertas si se produce un uso elevado de la CPU y la memoria, con el fin de admitir sus DevOps o sus procesos y procedimientos operativos.
 
 - En los [ejemplos de consultas de registro](container-insights-log-search.md#search-logs-to-analyze-data) encontrará consultas predefinidas y ejemplos que puede evaluar o personalizar para las alertas, visualización o análisis de los clústeres.
+
+- Vea [Supervisión del estado del clúster](container-insights-health.md) para obtener información sobre cómo ver el estado de mantenimiento del clúster de Kubernetes.

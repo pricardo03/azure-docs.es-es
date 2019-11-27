@@ -7,18 +7,21 @@ ms.date: 06/19/2019
 ms.topic: article
 ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: 278e9ff68fa20a0a99a6447bb4cf7ac7fddbfb7b
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: 5cadd0479a6ddc97cc7ee7d9b5aee1bbffba02bb
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72249116"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74120971"
 ---
 # <a name="networking-limit-increase"></a>Aumento del límite de redes
 
 Para ver el uso de las redes y la cuota actuales, puede visitar la hoja **Usages + Quota** (Usos y cuota) en Azure Portal. También puede utilizar la [CLI](https://docs.microsoft.com//cli/azure/network?view=azure-cli-latest#az-network-list-usages), [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkusage?view=azurermps-6.13.0) o la [API de uso de red](https://docs.microsoft.com/rest/api/virtualnetwork/virtualnetworks/listusage) para ver los límites y el uso de la red.
 
 Puede solicitar un aumento a través de la hoja **Ayuda y soporte técnico** o la hoja **Usages + Quota** (Usos y cuota) en el portal.
+
+> [!Note]
+> Para cambiar el tamaño predeterminado de Prefijo de IP pública, seleccione "Longitud mínima de prefijo de red IP pública" en la lista desplegable.
 
 ## <a name="request-networking-quota-increase-at-subscription-level-using-the-help--support-blade"></a>Solicitud de un aumento de cuota de red en el nivel de suscripción mediante la hoja **Ayuda y soporte técnico**
 

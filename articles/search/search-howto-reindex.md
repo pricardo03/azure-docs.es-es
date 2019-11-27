@@ -1,5 +1,5 @@
 ---
-title: Recompilación de un índice de Azure Cognitive Search
+title: Recompilar un índice de búsqueda
 titleSuffix: Azure Cognitive Search
 description: Agregue elementos nuevos, actualice elementos o documentos existentes o elimine documentos obsoletos en una indexación de recompilación completa o incremental parcial para actualizar un índice de Azure Cognitive Search.
 manager: nitinme
@@ -8,14 +8,14 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 1301ee2494aa24720905b9e3e68edce04fb17e72
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b14c153f52e0427e289afeccdfd22d6510e4ace1
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466448"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112970"
 ---
-# <a name="how-to-rebuild-an-azure-cognitive-search-index"></a>Recompilación de un índice de Azure Cognitive Search
+# <a name="how-to-rebuild-an-index-in-azure-cognitive-search"></a>Cómo recompilar un índice en Azure Cognitive Search
 
 En este artículo se explica cómo recompilar un índice de Azure Cognitive Search, las circunstancias en las que las recompilaciones son necesarias y recomendaciones para mitigar el impacto de las recompilaciones en las solicitudes de consulta en curso.
 

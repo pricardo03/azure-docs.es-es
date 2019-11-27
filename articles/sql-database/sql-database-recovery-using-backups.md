@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 ms.date: 09/26/2019
-ms.openlocfilehash: ba961547bc46b0746997ea95ddd14f1a6d1d8a23
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 1c8717614ec59ef210c7340f70ddedd7f7f86f88
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821209"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091973"
 ---
 # <a name="recover-an-azure-sql-database-by-using-automated-database-backups"></a>Recuperación de una base de datos de Azure SQL mediante copias de seguridad de base de datos
 
@@ -108,11 +108,13 @@ La restauración de bases de datos eliminadas de Azure Portal se realiza desde e
 
 Para recuperar una base de datos única o agrupada que se haya eliminado con Azure Portal, abra la página de información general del servidor y seleccione **Bases de datos eliminadas**. Seleccione la base de datos eliminada que desea restaurar y escriba el nombre de la nueva base de datos que se creará con los datos restaurados desde la copia de seguridad.
 
-  ![Captura de pantalla de las opciones de Bases de datos eliminadas](./media/sql-database-recovery-using-backups/restore-deleted-sql-database-annotated.png)
+  ![Captura de pantalla de restaurar base de datos de Azure SQL eliminada](./media/sql-database-recovery-using-backups/restore-deleted-sql-database-annotated.png)
 
 #### <a name="managed-instance-database"></a>Base de datos de Instancia administrada
 
-No puede utilizar Azure Portal para restaurar una base de datos eliminada en una instancia administrada. Para este fin puede usar PowerShell. 
+Para recuperar una base de datos administrada mediante Azure Portal, abra la página información general de instancia administrada y seleccione bases de datos **eliminadas**. Seleccione la base de datos eliminada que desea restaurar y escriba el nombre de la nueva base de datos que se creará con los datos restaurados desde la copia de seguridad.
+
+  ![Captura de pantalla de restaurar base de datos de instancia de Azure SQL eliminada](./media/sql-database-recovery-using-backups/restore-deleted-sql-managed-instance-annotated.png)
 
 ### <a name="deleted-database-restore-by-using-powershell"></a>Restauración de bases de datos eliminadas mediante PowerShell
 

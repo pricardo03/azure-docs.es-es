@@ -1,17 +1,17 @@
 ---
-title: Conservar direcciones IP durante la conmutación por error de las máquinas virtuales de Azure con Azure Site Recovery | Microsoft Docs
+title: Mantener direcciones IP tras la conmutación por error de máquina virtual de Azure Site Recovery
 description: Describe cómo retener las direcciones IP cuando se conmuta por error máquinas virtuales de Azure para la recuperación ante desastres en una región secundaria con Azure Site Recovery
 ms.service: site-recovery
 ms.date: 4/9/2019
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 7b7772bad5bb1c5b43a4bcc8d727a22c82547043
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 650fb7f0877a98ef53ed3868550f9c084ecb5885
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66479959"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083687"
 ---
 # <a name="retain-ip-addresses-during-failover"></a>Conservar las direcciones IP durante la conmutación por error
 

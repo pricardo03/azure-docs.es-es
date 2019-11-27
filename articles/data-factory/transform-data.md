@@ -11,15 +11,16 @@ ms.date: 07/31/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 97077b9f72de8792e6aba1d72ff34b9185b2d998
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 268c1e66010720d1da052183165ce1cea50a1095
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683797"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74092007"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Transformar datos en Azure Data Factory
 > [!div class="op_single_selector"]
+> * [Asignación de Data Flow](data-flow-create.md)
 > * [Hive](transform-data-using-hadoop-hive.md)  
 > * [Pig](transform-data-using-hadoop-pig.md)  
 > * [de Hadoop](transform-data-using-hadoop-map-reduce.md)  
@@ -34,7 +35,7 @@ ms.locfileid: "73683797"
 > * [.NET personalizado](transform-data-using-dotnet-custom-activity.md)
 
 ## <a name="overview"></a>Información general
-En este artículo se explican las actividades de transformación de datos de Azure Data Factory que puede usar para transformar y procesar los datos sin procesar en predicciones e información. Una actividad de transformación se ejecuta en un entorno informático, como clúster de Azure HDInsight o una instancia de Azure Batch. Proporciona vínculos a artículos con información detallada sobre cada actividad de transformación.
+En este artículo se explican las actividades de transformación de datos de Azure Data Factory que puede usar para transformar y procesar los datos sin procesar en predicciones e información a escala. Una actividad de transformación se ejecuta en un entorno informático, como Azure Databricks o Azure HDInsight. Proporciona vínculos a artículos con información detallada sobre cada actividad de transformación.
 
 Data Factory admite las siguientes actividades de transformación de datos que se pueden agregar a las [canalizaciones](concepts-pipelines-activities.md) tanto individualmente como encadenadas a otra actividad.
 
@@ -49,6 +50,8 @@ La asignación de flujos de datos es una transformación de datos diseñada visu
 Los flujos de datos de limpieza y transformación en Azure Data Factory permiten la preparación de datos sin código en la escala de nube de forma iterativa. Los flujos de datos de limpieza y transformación se integran en [Power Query Online](https://docs.microsoft.com/power-query/) y ponen las funciones de Power Query M a disposición para la limpieza y transformación de datos en la escala de nube a través de la ejecución de Spark. Para más información, consulte [Flujos de datos de limpieza y transformación](wrangling-data-flow-overview.md).
 
 ## <a name="external-transformations"></a>Transformaciones externas
+
+Opcionalmente, puede codificar manualmente las transformaciones y administrar el entorno de proceso externo.
 
 ### <a name="hdinsight-hive-activity"></a>Actividad de HDInsight Hive
 La actividad de Hive de HDInsight en una canalización de Data Factory ejecuta consultas de Hive en su propio clúster de HDInsight o en uno a petición basado en Windows/Linux. Vea el artículo [Actividad de Hive](transform-data-using-hadoop-hive.md) para más información sobre esta actividad. 

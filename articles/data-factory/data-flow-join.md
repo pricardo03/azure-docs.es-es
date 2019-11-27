@@ -7,12 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.openlocfilehash: 4680804017a9b08248bb41ff999c6ba6371e99c8
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 1e9315195ceae435447739055105a66ee81e2a6a
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73675910"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122922"
 ---
 # <a name="join-transformation-in-mapping-data-flow"></a>Transformación Combinación en el flujo de datos de asignación
 
@@ -36,7 +36,7 @@ La combinación externa derecha devuelve todas las filas del flujo derecho y los
 
 ### <a name="full-outer"></a>Externa completa
 
-La combinación externa completa devuelve todas las columnas y filas de ambos lados con valores NULL para las columnas no coincidentes.
+La combinación externa completa devuelve todas las columnas y filas de ambos lados con valores NULL para las columnas que no coinciden.
 
 ### <a name="cross-join"></a>Combinación cruzada
 

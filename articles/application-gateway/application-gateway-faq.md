@@ -7,13 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 08/31/2019
 ms.author: victorh
-ms.custom: fasttrack-edit
-ms.openlocfilehash: 63c3f2080a74142f3f9a68852092cbc527c4483b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 68ce0dca3bc7c5d408bd6e8f267d238ac812a84d
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470076"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74130571"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Preguntas más frecuentes sobre Application Gateway
 
@@ -290,10 +289,6 @@ No, use solo caracteres alfanuméricos en la contraseña del archivo .pfx.
 
 Sí. WAF admite todas las características de la SKU estándar.
 
-### <a name="which-crs-versions-does-application-gateway-support"></a>¿Qué versiones de CRS admite Application Gateway?
-
-Application Gateway admite CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp229) y CRS [3.0](application-gateway-crs-rulegroups-rules.md#owasp30).
-
 ### <a name="how-do-i-monitor-waf"></a>¿Cómo se supervisa el WAF?
 
 Supervise WAF a través del registro de diagnóstico. Para más información, consulte [Diagnostic logging and metrics for Application Gateway](application-gateway-diagnostics.md) (Registro de diagnóstico y métricas de Application Gateway).
@@ -308,7 +303,7 @@ Sí. Para más información, consulte [Personalización de reglas de firewall de
 
 ### <a name="what-rules-are-currently-available-for-waf"></a>¿Qué reglas están disponibles actualmente para WAF?
 
-Actualmente, WAF admite CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp229) y [3.0](application-gateway-crs-rulegroups-rules.md#owasp30). Estas reglas proporcionan seguridad de línea base frente a la mayoría de las 10 vulnerabilidades principales que Open Web Application Security Project (OWASP) identifica: 
+Actualmente, WAF admite CRS [2.2.9](../web-application-firewall/ag/application-gateway-crs-rulegroups-rules.md#owasp229), [3.0](../web-application-firewall/ag/application-gateway-crs-rulegroups-rules.md#owasp30) y [3.1](../web-application-firewall/ag/application-gateway-crs-rulegroups-rules.md#owasp31). Estas reglas proporcionan seguridad de línea base frente a la mayoría de las 10 vulnerabilidades principales que Open Web Application Security Project (OWASP) identifica: 
 
 * Protección contra la inyección de código SQL
 * Protección contra ataques de scripts de sitios

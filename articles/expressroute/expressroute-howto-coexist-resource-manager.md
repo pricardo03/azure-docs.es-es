@@ -1,5 +1,5 @@
 ---
-title: 'Configuración de conexiones de ExpressRoute y VPN de sitio a sitio coexistentes: PowerShell: Azure | Microsoft Docs'
+title: 'Configuración de conexiones coexistentes de VPN S2S y ExpressRoute: Azure PowerShell'
 description: Configure conexiones ExpressRoute y VPN de sitio a sitio que puedan coexistir en el modelo de implementación de Resource Manager con PowerShell.
 services: expressroute
 author: charwen
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/01/2019
 ms.author: charwen
 ms.custom: seodec18
-ms.openlocfilehash: 8a89c5121d5010245ce16cade921bb96346fcbf5
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 84c4d466a820616b8f8dfa69cfa149cb86006f49
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748306"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132856"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-using-powershell"></a>Configuración de conexiones ExpressRoute y de sitio a sitio coexistentes con PowerShell
 > [!div class="op_single_selector"]
@@ -38,7 +38,7 @@ En este artículo, se explican los pasos para configurar ambos escenarios. Este 
 ## <a name="limits-and-limitations"></a>Límites y limitaciones
 * **No se admite el enrutamiento transitorio.** No se puede realizar un enrutamiento (a través de Azure) entre una red local conectada a través de una VPN sitio a sitio y una red local conectada a través de ExpressRoute.
 * **No se admite la puerta de enlace de la SKU de nivel Básico.** Debe utilizar una puerta de enlace de la SKU que no sea de nivel Básico tanto para la [puerta de enlace de ExpressRoute](expressroute-about-virtual-network-gateways.md) como para la [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md).
-* **Solo se admite la VPN Gateway basada en rutas.** Debe usar una [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) basada en rutas.
+* **Solo se admite la VPN Gateway basada en rutas.** Debe usar una [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) basada en rutas. También puede usar una VPN Gateway basada en rutas con una conexión VPN configurada para "selectores de tráfico basados en directivas", tal y como se describe en [Conexión a varios dispositivos VPN basados en directivas](../vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md).
 * **Se debe configurar una ruta estática para VPN Gateway.** Si la red local está conectada tanto a ExpressRoute como a una VPN de sitio a sitio, debe tener configurada una ruta estática en la red local para enrutar la conexión VPN de sitio a sitio a la red pública de Internet.
 * **VPN Gateway se configura de manera predeterminada en ASN 65515 si no se especifica.** Azure VPN Gateway admite el protocolo de enrutamiento de BGP. Para especificar el ASN (número AS) de la red virtual, agregue el modificador - Asn. Si no se especifica este parámetro, el número AS predeterminado es 65515. Puede usar cualquier ASN para la configuración, pero si selecciona un valor distinto de 65515, debe restablecer la puerta de enlace para que la configuración surta efecto.
 

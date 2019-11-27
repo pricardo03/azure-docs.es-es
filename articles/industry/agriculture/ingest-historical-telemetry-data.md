@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 0ff9e055ecc0c4f58e4b3df0494debbe3f4cd8a4
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 5ae64371bd114a898ddca874e23b499bc4a2b8a3
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73797285"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74128784"
 ---
 # <a name="ingest-historical-telemetry-data"></a>Ingesta de datos de telemetría históricos
 
@@ -50,16 +50,17 @@ Siga los pasos que se indican a continuación para generarlos:
 
     ![Proyecto de FarmBeats](./media/for-tutorials/power-shell-two-1.png)
 
-5. Vaya al directorio donde se cargaron los archivos (de forma predeterminada, se cargan en el directorio particular/home/username/.
+5. Vaya al directorio donde se cargaron los archivos.
+
+   >[!NOTE]
+   > De forma predeterminada, el archivo se carga en el directorio particular /home/username/.
 6. Ejecute el script mediante el comando:  
 
     ```azurepowershell-interactive
-    PS> ./generateCredentials.ps1
+    ./generateCredentials.ps1
     ```
 
 7. Siga las instrucciones que aparecen en pantalla para completar el procedimiento.
-
-    En caso de que no tenga acceso a FarmBeats o a su suscripción de Azure, póngase en contacto con el administrador de FarmBeats.
 
 ## <a name="create-devicesensor-metadata"></a>Creación de metadatos de dispositivo o sensor
 
@@ -73,7 +74,7 @@ Siga los pasos que se indican a continuación para generarlos:
 - /**Sensor**: el sensor, que se corresponde con un sensor físico que registra valores. Un sensor normalmente se conecta a un dispositivo con un identificador de dispositivo.  
 
 
-|        Modo de dispositivo   |  Sugerencias   |
+|        Modelo del dispositivo   |  Sugerencias   |
 | ------- | -------             |
 |     Type (Node, Gateway)        |          1 estrella      |
 |          Fabricante            |         2 estrellas     |
@@ -129,7 +130,9 @@ el centro de datos de FarmBeats usa la autenticación del portador, que necesita
 
 Con las credenciales anteriores, el autor de la llamada puede solicitar un token de acceso, que debe enviarse en las posteriores solicitudes de API en la sección de encabezado de la siguiente manera:
 
+```
 headers = *{"Authorization": "Bearer " + access_token, …}*
+```
 
 **Encabezados de solicitud HTTP**:
 
@@ -163,8 +166,10 @@ estos son los encabezados de solicitud más comunes que deben especificarse al r
     "additionalProp3": {}
   }
 }
+```
 
-Device
+Dispositivo
+
 ```json
 {
   "deviceModelId": "string",
@@ -240,17 +245,15 @@ Sensor
     "additionalProp3": {}
   }
 }
-
 ```
 La siguiente solicitud de ejemplo es para crear un dispositivo (contiene código JSON de entrada como carga con el cuerpo de la solicitud).  
 
-```
+```bash
 curl -X POST "https://<datahub>.azurewebsites.net/Device" -H  
 "accept: application/json" -H  "Content-Type: application/json" -H
-"Authorization: Bearer <Access-Token>" -d "
-{  \"deviceModelId\": \"ID123\",  \"hardwareId\": \"MHDN123\",  
+"Authorization: Bearer <Access-Token>" -d "{  \"deviceModelId\": \"ID123\",  \"hardwareId\": \"MHDN123\",  
 \"reportingInterval\": 900,  \"name\": \"Device123\",  
-\"description\": \"Test Device 123\",}"*
+\"description\": \"Test Device 123\"}" *
 ```
 
 > [!NOTE]
@@ -269,30 +272,28 @@ La telemetría se debe enviar al centro de eventos de Azure, donde se procesará
 Una vez que tenga establecida una conexión como cliente de EventHub, puede enviar mensajes a EventHub como JSON.  
 Convierta el formato de datos históricos del sensor en un formato canónico que entienda Azure FarmBeats. El formato de mensaje canónico es así:  
 
-
- ```
-  {   
-      “deviceid”: “<id of the Device created>”,   
-      "timestamp": "<timestamp in ISO 8601 format>",     
-      "version" : "1",   
-      "sensors":
-      [     
-      {        
-          "id": "<id of the sensor created>”       
-          "sensordata": [         
-          {            
-              "timestamp": "< timestamp in ISO 8601 format >",           
-              "<sensor measure name (as defined in the Sensor Model)>": value          
-    },          
-    {            
-    "timestamp": "<timestamp in ISO 8601 format>",           
-     "<sensor measure name (as defined in the Sensor Model)>": value          
-    }        
-    ]      
-    }  
+```json
+{
+"deviceid": "<id of the Device created>",
+"timestamp": "<timestamp in ISO 8601 format>",
+"version" : "1",
+"sensors": [
+    {
+      "id": "<id of the sensor created>",
+      "sensordata": [
+        {
+          "timestamp": "< timestamp in ISO 8601 format >",
+          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
+        },
+        {
+          "timestamp": "<timestamp in ISO 8601 format>",
+          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
+        }
+      ]
     }
+ ]
+}
 ```
-
 
 Después de agregar los dispositivos y sensores correspondientes, obtenga los valores de devideid y sensorid del mensaje de telemetría, como se describe en la sección anterior.
 
