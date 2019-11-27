@@ -1,5 +1,5 @@
 ---
-title: Configurar la conmutación por error entre varios puntos de conexión de Azure CDN con Azure Traffic Manager | Microsoft Docs
+title: Configuración de la conmutación por error entre varios puntos de conexión de Azure CDN con Traffic Manager
 description: Obtenga información sobre cómo configurar Azure Traffic Manager con puntos de conexión de Azure CDN.
 services: cdn
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: magattus
 ms.custom: ''
-ms.openlocfilehash: 276fe9352d0c4ca7ec525b88d65689b56c0ba027
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: de91f61385942db077bc98721eabe9f3f0b8624c
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67593346"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082998"
 ---
 # <a name="set-up-failover-across-multiple-azure-cdn-endpoints-with-azure-traffic-manager"></a>Configurar la conmutación por error entre varios puntos de conexión de Azure CDN con Azure Traffic Manager
 

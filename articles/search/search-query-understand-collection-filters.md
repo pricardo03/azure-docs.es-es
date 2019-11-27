@@ -1,7 +1,7 @@
 ---
 title: Uso de los filtros de colección de OData
 titleSuffix: Azure Cognitive Search
-description: Se describe el funcionamiento de los filtros de colección de OData en consultas de Azure Cognitive Search.
+description: Conozca la mecánica de cómo funcionan los filtros de recopilación de OData en consultas de Azure Cognitive Search, incluyendo las limitaciones y los comportamientos exclusivos de las colecciones.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 9a57e1d16b13d822b6f5b541a7f838b0dd3a69ad
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: f6e8ed5baef9b8594bb1fe03942e831fd8264a56
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72794389"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113072"
 ---
 # <a name="understanding-odata-collection-filters-in-azure-cognitive-search"></a>Uso de los filtros de colección de OData en Azure Cognitive Search
 

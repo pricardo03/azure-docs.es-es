@@ -4,17 +4,17 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 072864d565e2edbddd4b7df851ad0e30daf7e5fa
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 09c4420647043fccc408631fec75854667923721
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67186339"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74085278"
 ---
 El diagnóstico de problemas con un servicio en la nube de Microsoft Azure requiere la recopilación de archivos de registro del servicio en máquinas virtuales cuando se producen los problemas. Puede usar la extensión AzureLogCollector a petición para realizar una recopilación única de registros provenientes de una o más máquinas virtuales del servicio en la nube (desde roles web y roles de trabajo) y transferir los archivos recopilados a una cuenta de almacenamiento de Azure, sin iniciar sesión de manera remota en ninguna de las máquinas virtuales.
 
 > [!NOTE]
-> Puede encontrar descripciones para la mayor parte de la información registrada en http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.asp.
+> Puede encontrar descripciones para la mayor parte de la información registrada en https://blogs.msdn.microsoft.com/kwill/2013/08/09/windows-azure-paas-compute-diagnostics-data/
 > 
 > 
 

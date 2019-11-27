@@ -1,5 +1,5 @@
 ---
-title: 'Ejemplo: Creación de una aptitud cognitiva personalizada con Bing Entity Search API'
+title: Ejemplo de una aptitud personalizada con Bing Entity Search API
 titleSuffix: Azure Cognitive Search
 description: Aquí se muestra cómo usar el servicio Bing Entity Search en una aptitud personalizada asignada a una canalización de indexación enriquecida con IA en Azure Cognitive Search.
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 1f134ac360b6c5bd04c0e141da52b6dad950e208
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2994c55b39d30ff16a0ca135e93a116784feb201
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466820"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113821"
 ---
 # <a name="example-create-a-custom-skill-using-the-bing-entity-search-api"></a>Ejemplo: Creación de una aptitud personalizada con Bing Entity Search API
 

@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/18/2019
-ms.openlocfilehash: 35d3451327a0ce7bcaf567f93c48d532842b4f25
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: 90387a033a43c627be4ce69a93ee37c5b959732d
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72285916"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091798"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Ingesta de datos de Azure Data Explorer
 
@@ -117,11 +117,9 @@ En el caso de las organizaciones con una infraestructura existente que usen un s
 
 ## <a name="supported-data-formats"></a>Formatos de datos compatibles
 
-Para todos los métodos de ingesta, salvo la ingesta de consulta, cambie el formato de los datos para que Azure Data Explorer pueda analizarlos. Los formatos de datos compatibles son:
-
-* TXT, CSV, TSV, TSVE, PSV, SCSV, SOH
-* JSON (separados por línea, multilínea), Avro
-* ZIP y GZIP 
+Para todos los métodos de ingesta, salvo la ingesta de consulta, cambie el formato de los datos para que Azure Data Explorer pueda analizarlos. 
+* Los formatos de datos compatibles son: TXT, CSV, TSV, TSVE, PSV, SCSV, SOH, JSON (separados por línea, multilínea), Avro y Parquet. 
+* Admite la compresión ZIP y GZIP.
 
 > [!NOTE]
 > Cuando se produce la ingesta de datos, los tipos de datos se infieren basándose en las columnas de tabla de destino. Si un registro está incompleto o un campo no se puede analizar como tipo el de datos necesarios, las columnas de tabla correspondientes se rellenará con valores nulos.

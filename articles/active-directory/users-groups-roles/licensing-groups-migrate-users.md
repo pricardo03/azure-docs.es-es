@@ -1,31 +1,31 @@
 ---
-title: Adición de usuarios individuales con licencia a licencias basadas en grupos en Azure Active Directory | Microsoft Docs
+title: 'Adición de usuarios con licencias directas a licencias de grupos: Azure AD | Microsoft Docs'
 description: Migración de licencias de usuarios individuales a licencias basadas en grupos mediante Azure Active Directory
 services: active-directory
 keywords: Licencias de Azure AD
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 09/26/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: seohack1;it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 29ec9c05a7e7d594c64a450fe64e5bb0e0d1b7d0
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: 6c06d81f2f3f6cee781889d05ae08a1fd125df52
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72034771"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74025676"
 ---
 # <a name="how-to-migrate-users-with-individual-licenses-to-groups-for-licensing"></a>Migración de usuarios con licencias individuales a grupos de licencias
 
-Puede que actualmente haya licencias implementadas para usuarios de organizaciones a través de una "asignación directa"; es decir, mediante el uso de scripts de PowerShell u otras herramientas diseñadas para asignar licencias de usuarios individuales. Antes de empezar a usar licencias basadas en grupos para administrar las licencias de su organización, puede usar este plan de migración para reemplazar con facilidad las soluciones existentes por licencias basadas en grupos.
+Puede que actualmente tenga licencias implementadas para usuarios de organizaciones mediante una asignación directa; es decir, mediante el uso de scripts de PowerShell u otras herramientas para asignar licencias de usuarios individuales. Antes de empezar a usar licencias basadas en grupos para administrar las licencias de su organización, puede usar este plan de migración para reemplazar con facilidad las soluciones existentes por licencias basadas en grupos.
 
 Lo más importante es tener en cuenta que hay que evitar una situación tal en que la migración a licencias basadas en grupos conlleve que los usuarios pierdan temporalmente las licencias que actualmente tienen asignadas. Se debe evitar cualquier proceso que pueda dar lugar a la eliminación de licencias a fin de evitar el riesgo de que los usuarios pierdan el acceso a los servicios y a sus datos.
 

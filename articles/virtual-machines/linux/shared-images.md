@@ -1,5 +1,5 @@
 ---
-title: Creación de galerías de imágenes compartidas con la CLI de Azure | Microsoft Docs
+title: Creación de galerías de imágenes compartidas con la CLI de Azure
 description: En este artículo, aprenderá a usar la CLI de Azure para crear una imagen compartida de una máquina virtual en Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -16,12 +16,12 @@ ms.date: 05/06/2019
 ms.author: akjosh
 ms.reviewer: cynthn
 ms.custom: ''
-ms.openlocfilehash: ea884b80698fb257106ef68d293f350b2f55dc06
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: de1afa2367afcb78e8ca68e518acc93e33f61c43
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103555"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034961"
 ---
 # <a name="create-a-shared-image-gallery-with-the-azure-cli"></a>Creación de una galería de imágenes compartidas con la CLI de Azure
 
@@ -33,7 +33,7 @@ La galería es un recurso de nivel superior que proporciona control de acceso ba
 
 La característica de galería de imágenes compartidas tiene varios tipos de recursos. En este artículo, usaremos o crearemos los siguientes elementos:
 
-| Recurso | DESCRIPCIÓN|
+| Resource | DESCRIPCIÓN|
 |----------|------------|
 | **Imagen administrada** | Se trata de una imagen básica que se puede usar por sí sola o para crear una **versión de imagen** de una galería de imágenes. Las imágenes administradas se crean desde máquinas virtuales generalizadas. Una imagen administrada es un tipo de VHD especial que se puede usar para crear varias máquinas virtuales y que ahora se puede usar para crear versiones de imágenes compartidas. |
 | **Galería de imágenes** | Al igual que Azure Marketplace, una **galería de imágenes** es un repositorio para administrar y compartir imágenes, pero usted puede controlar quién tiene acceso. |

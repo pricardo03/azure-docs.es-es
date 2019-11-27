@@ -1,5 +1,5 @@
 ---
-title: Tamaños de las máquinas virtuales Windows en Azure serie B | Microsoft Docs
+title: Tamaños de máquina virtual Windows de Azure de la serie B
 description: Describe la serie B de tamaños de las máquinas virtuales de Azure ampliables.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/07/2017
 ms.author: ayshak
-ms.openlocfilehash: 1757b513d7b5451cd22b82bedef7c4ec48906edf
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: f5493cbfa0b325f7cd731fb1d3774fd1eb4a574f
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103264"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039260"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>Tamaños de las máquinas virtuales ampliables serie B
 

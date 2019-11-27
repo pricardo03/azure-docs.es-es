@@ -1,5 +1,5 @@
 ---
-title: Incorporación de analizadores personalizados a los campos de cadena de un índice
+title: Incorporación de analizadores personalizados a campos de cadena
 titleSuffix: Azure Cognitive Search
 description: Configure los tokenizadores de texto y los filtros de caracteres utilizados en consultas de búsqueda de texto completo de Azure Cognitive Search.
 manager: nitinme
@@ -19,14 +19,14 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: bed011d62fa227697562f552ecb649c4b1fc00c9
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 9bf0fb1a33a98031a78155a3956ac6d6abe33029
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790158"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113634"
 ---
-# <a name="add-custom-analyzers-to-an-azure-cognitive-search-index"></a>Incorporación de analizadores personalizados a un índice de Azure Cognitive Search
+# <a name="add-custom-analyzers-to-string-fields-in-an-azure-cognitive-search-index"></a>Incorporación de analizadores personalizados a campos de cadena en un índice de Azure Cognitive Search
 
 Un *analizador personalizado* es un tipo específico de [analizador de texto](search-analyzers.md) que se compone de una combinación definida por el usuario de un tokenizador existente y unos filtros opcionales. Si combina los tokenizadores y los filtros de nuevas formas, puede personalizar el procesamiento de texto del motor de búsqueda para lograr resultados específicos. Por ejemplo, podría crear un analizador personalizado con un *filtro de caracteres* para quitar el marcado HTML antes de que se tokenicen las entradas de texto.
 

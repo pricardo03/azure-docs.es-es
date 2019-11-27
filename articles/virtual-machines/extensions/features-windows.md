@@ -1,5 +1,5 @@
 ---
-title: Características y extensiones de las máquinas virtuales de Azure para Windows | Microsoft Docs
+title: Características y extensiones de las máquinas virtuales de Azure para Windows
 description: Obtenga información acerca de qué extensiones están disponibles para máquinas virtuales de Azure, agrupadas por lo que proporcionan o mejoran.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8d73a2dcd0aab3b972a3e0a9237e53d05d4a9a53
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 79c6658d2b3758eed94f273bf0b3685bbd146278
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73750023"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073084"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Características y extensiones de las máquinas virtuales para Windows
 
@@ -54,18 +54,18 @@ Para obtener información sobre las instrucciones de instalación y los sistemas
 
 #### <a name="supported-agent-versions"></a>Versiones de agente compatibles
 
-Para brindar la mejor experiencia posible, se requieren versiones mínimas del agente. Para obtener más información, consulte [este artículo](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).
+Para brindar la mejor experiencia posible, se requieren versiones mínimas del agente. Para obtener más información, consulte [este artículo](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).
 
 #### <a name="supported-oses"></a>Sistemas operativos compatibles
 
-Windows Guest Agent se ejecuta en varios sistemas operativos, pero el marco de las extensiones tiene un límite para los sistemas operativos de esas extensiones. Para obtener más información, consulte [este artículo](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems
+Windows Guest Agent se ejecuta en varios sistemas operativos, pero el marco de las extensiones tiene un límite para los sistemas operativos de esas extensiones. Para obtener más información, consulte [este artículo](https://support.microsoft.com/help/4078134/azure-extension-supported-operating-systems
 ).
 
 Algunas extensiones no son compatibles con todos los sistemas operativos y puede aparecer el *código de error 51, "Sistema operativo no compatible"* . Revise la documentación de cada una de las extensiones para información sobre la compatibilidad.
 
 #### <a name="network-access"></a>Acceso de red
 
-Los paquetes de extensiones se descargan del repositorio de extensiones de Azure Storage y las cargas de estado de las extensiones se publican en Azure Storage. Si usa una versión [compatible](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) de los agentes, no necesita autorizar el acceso a Azure Storage en la región de la máquina virtual, porque puede usar el agente para redirigir la comunicación al controlador de tejido de Azure para las comunicaciones de los agentes (la característica HostGAPlugin a través del canal con privilegios en la dirección IP privada [168.63.129.16](https://docs.microsoft.com/en-us/azure/virtual-network/what-is-ip-address-168-63-129-16)). Si usa una versión no compatible del agente, deberá autorizar el acceso de salida a Azure Storage en esa región desde la máquina virtual.
+Los paquetes de extensiones se descargan del repositorio de extensiones de Azure Storage y las cargas de estado de las extensiones se publican en Azure Storage. Si usa una versión [compatible](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) de los agentes, no necesita autorizar el acceso a Azure Storage en la región de la máquina virtual, porque puede usar el agente para redirigir la comunicación al controlador de tejido de Azure para las comunicaciones de los agentes (la característica HostGAPlugin a través del canal con privilegios en la dirección IP privada [168.63.129.16](https://docs.microsoft.com/azure/virtual-network/what-is-ip-address-168-63-129-16)). Si usa una versión no compatible del agente, deberá autorizar el acceso de salida a Azure Storage en esa región desde la máquina virtual.
 
 > [!IMPORTANT]
 > Si bloqueó el acceso a *168.63.129.16* con el firewall invitado o con un proxy, las extensiones generarán un error con independencia de lo mencionado anteriormente. Se requieren los puertos 80, 443 y 32526.

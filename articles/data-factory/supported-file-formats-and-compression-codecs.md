@@ -7,30 +7,23 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/24/2019
+ms.date: 11/13/2019
 ms.author: jingwang
-ms.openlocfilehash: d0183e991a3cbc0481aff44b5b0f03eaa9d43103
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 4a81cc9887610036007b92e43b8bd44f0a8b7740
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683982"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075549"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Formatos de archivo y códecs de compresión admitidos en Azure Data Factory
 
 *Este artículo se aplica a los conectores siguientes: [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md) y [SFTP](connector-sftp.md).*
 
-Si desea **copiar los archivos tal cual** entre los almacenes basados en archivos (copia binaria), omita la sección de formato en las definiciones de los conjuntos de datos de entrada y salida. Si quiere **analizar o generar archivos con un formato concreto**, Azure Data Factory admite los siguientes tipos de formato de archivo:
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-* [Formato de texto](#text-format)
-* [Formato JSON](#json-format)
-* [Formato Parquet](#parquet-format)
-* [Formato ORC](#orc-format)
-* [Formato Avro](#avro-format)
-* [Formato binario](#binary-format)
-
-> [!TIP]
-> Obtenga información sobre cómo copiar los mapas de actividad en los datos de origen para recibirlos desde [Asignación de esquemas en la actividad de copia](copy-activity-schema-and-type-mapping.md).
+>[!NOTE]
+>Data Factory ha presentado el nuevo modelo de conjuntos de datos basado en formato, consulte el artículo sobre formato correspondiente vinculado arriba con los detalles. Todavía se admiten las siguientes configuraciones en el conjunto de datos basado en archivo que se menciona en este artículo, porque cuentan con compatibilidad con versiones anteriores. Se sugiere usar el nuevo modelo de aquí en adelante. 
 
 ## <a name="text-format"></a>Formato de texto
 

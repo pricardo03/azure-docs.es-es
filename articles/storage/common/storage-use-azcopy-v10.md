@@ -4,15 +4,15 @@ description: AzCopy es una utilidad de línea de comandos que puede usar para co
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/16/2019
+ms.date: 10/23/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 37d8c483a1ef49a87205dcc848aae974f5b0e47e
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: af24a6b6d165ba60a0d88a4ddf74a4f18836e813
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72675860"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111760"
 ---
 # <a name="get-started-with-azcopy"></a>Introducción a AzCopy
 
@@ -58,6 +58,8 @@ Para ver una lista de los comandos, escriba `azcopy -h` y, a continuación, pres
 Para obtener información acerca de un comando específico, basta con que incluya el nombre del comando (por ejemplo: `azcopy list -h`).
 
 ![Ayuda en línea](media/storage-use-azcopy-v10/azcopy-inline-help.png)
+
+Para obtener documentación de referencia detallada de cada comando y de los parámetros de los comandos, consulte [azcopy](storage-ref-azcopy.md)
 
 > [!NOTE] 
 > Como propietario de la cuenta de Azure Storage, no se le asignan automáticamente permisos para tener acceso a datos. Antes de hacer nada significativo con AzCopy, debe decidir cómo proporcionará las credenciales de autorización al servicio de almacenamiento. 
@@ -303,16 +305,9 @@ Si tiene previsto usar [Jenkins](https://jenkins.io/) para ejecutar scripts, ase
 /usr/bin/keyctl new_session
 ```
 
-## <a name="use-azcopy-in-storage-explorer"></a>Uso de AzCopy en el Explorador de Storage
+## <a name="use-azcopy-in-azure-storage-explorer"></a>Uso de AzCopy en el Explorador de Azure Storage
 
-Si desea aprovechar las ventajas de rendimiento de AzCopy, pero prefiere usar el Explorador de Storage en lugar de la línea de comandos para interactuar con los archivos, habilite AzCopy en el Explorador de Storage.
-
-En el Explorador de Storage, elija **Versión preliminar**->**Use AzCopy for Improved Blob Upload and Download** (Usar AzCopy para mejorar la carga y la descarga de blobs).
-
-![Habilitación de AzCopy como un motor de transferencia en el Explorador de Azure Storage](media/storage-use-azcopy-v10/enable-azcopy-storage-explorer.jpg)
-
-> [!NOTE]
-> No debe habilitar esta opción si ha habilitado un espacio de nombres jerárquico en su cuenta de almacenamiento. Esto se debe a que el Explorador de Storage utiliza automáticamente AzCopy en las cuentas de almacenamiento que tienen un espacio de nombres jerárquico.  
+El [Explorador de Storage](https://azure.microsoft.com/features/storage-explorer/) usa AzCopy para realizar todas sus operaciones de transferencia de datos. Puede usar el [Explorador de Storage](https://azure.microsoft.com/features/storage-explorer/) si desea aprovechar las ventajas de rendimiento de AzCopy, pero prefiere usar una interfaz gráfica de usuario, en lugar de la línea de comandos, para interactuar con los archivos.
 
 El Explorador de Azure Storage utiliza la clave de la cuenta para realizar operaciones, por lo que después de iniciar sesión en el Explorador de Azure Storage, no tendrá que proporcionar credenciales de autorización adicionales.
 

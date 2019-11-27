@@ -1,19 +1,19 @@
 ---
-title: Conmutación por error y por recuperación de máquinas virtuales de Hyper-V replicadas a un centro de datos secundario durante la recuperación ante desastres con Azure Site Recovery | Microsoft Docs
+title: Configuración de la conmutación por error o la conmutación por recuperación en un sitio secundario de Hyper-V con Azure Site Recovery
 description: Obtenga información sobre cómo conmutar por error máquinas virtuales de Hyper-V al sitio local secundario y conmutar por recuperación al sitio principal durante la recuperación ante desastres con Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: f93c9bd679272f76665a6c8e4a0c611327699839
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: d31355bcb0ce42874c19988738ba06138c7a0b7c
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813709"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082593"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-your-secondary-on-premises-site"></a>Conmutación por error y por recuperación de máquinas virtuales de Hyper-V replicadas a su sitio local secundario
 

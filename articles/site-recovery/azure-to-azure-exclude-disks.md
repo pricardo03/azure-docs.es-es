@@ -1,5 +1,5 @@
 ---
-title: 'Azure Site Recovery: Exclusión de discos durante la replicación de máquinas virtuales de Azure mediante Azure PowerShell | Microsoft Docs'
+title: Exclusión de los discos de máquina virtual de Azure de la replicación con Azure Site Recovery y Azure PowerShell
 description: Aprenda excluir discos de máquinas virtuales de Azure con Azure PowerShell durante Azure Site Recovery.
 author: asgang
 manager: rochakm
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 02/18/2019
 ms.author: asgang
-ms.openlocfilehash: 81d22250262351e3c1bbb2fe28960b3d158bbf57
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: beb4ee6fcf6413634d7d728e3f070294e8ce3787
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147061"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084974"
 ---
 # <a name="exclude-disks-from-powershell-replication-of-azure-vms"></a>Exclusión de discos de la replicación de máquinas virtuales de Azure en PowerShell
 
@@ -29,6 +29,7 @@ Antes de comenzar:
 - Revise los [requisitos de compatibilidad](azure-to-azure-support-matrix.md) de todos los componentes.
 - Asegúrese de que dispone del módulo AzureRm PowerShell "Az". Para instalar o actualizar PowerShell, consulte [Instalación del módulo de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
 - Asegúrese de que ha creado un almacén de Recovery Services y máquinas virtuales protegidas al menos una vez. Si aún no lo ha hecho, siga el proceso en [Configuración de la recuperación ante desastres en máquinas virtuales de Azure mediante Azure PowerShell](azure-to-azure-powershell.md).
+- Si está buscando información sobre cómo agregar discos a una máquina virtual de Azure habilitada para la replicación, [consulte este artículo](azure-to-azure-enable-replication-added-disk.md).
 
 ## <a name="why-exclude-disks-from-replication"></a>¿Por qué excluir discos de la replicación?
 Es posible que deba excluir discos de la replicación por los siguientes motivos:

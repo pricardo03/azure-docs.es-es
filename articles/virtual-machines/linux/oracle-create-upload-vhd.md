@@ -1,5 +1,5 @@
 ---
-title: Creación y carga de un VHD de Oracle Linux | Microsoft Docs
+title: Creación y carga de un disco duro virtual de Oracle Linux
 description: Aprenda a crear y cargar un disco duro virtual de Azure (VHD) que contiene el sistema operativo Oracle Linux.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: szark
-ms.openlocfilehash: ede12520fc6db089aea2d22b02dc32e72496830c
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 16f3bc9e70f8fac6ab28318e1654742a2c3b76a1
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70082455"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035369"
 ---
 # <a name="prepare-an-oracle-linux-virtual-machine-for-azure"></a>Preparación de una máquina virtual Oracle Linux para Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]

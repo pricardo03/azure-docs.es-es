@@ -1,5 +1,5 @@
 ---
-title: Conversión de una máquina virtual Linux en Azure con discos no administrados a discos administrados - Azure Managed Disks | Microsoft Docs
+title: 'Conversión de una máquina virtual Linux en Azure con discos no administrados a discos administrados: Azure Managed Disks'
 description: Conversión de una máquina virtual Linux con discos no administrados en discos administrados mediante la CLI de Azure en el modelo de implementación de Resource Manager
 author: roygara
 ms.service: virtual-machines-linux
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/15/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: a0157e75d0c8d2c2493792bcd8d30a856f8072b6
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 5464dd2ab2ab7c783945cc068a1347d7ef9ad3ab
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68696068"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036607"
 ---
 # <a name="convert-a-linux-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Conversión de una máquina virtual Linux con discos no administrados en discos administrados
 

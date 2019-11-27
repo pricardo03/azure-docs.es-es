@@ -1,7 +1,7 @@
 ---
 title: 'Ejemplos de información de Bing: Bing Visual Search'
 titleSuffix: Azure Cognitive Services
-description: Muestra ejemplos de la información de imágenes que se muestra en Bing.com.
+description: Este artículo contiene ejemplos de cómo Bing Visual Search puede mostrar y usar información de imágenes en Bing.com.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: scottwhi
-ms.openlocfilehash: 94f8d4ea98f42ad919597ef53dc63281825f0e6b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: df66dbeebb04209921ff91c4b99a14580f026718
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60610320"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111635"
 ---
 # <a name="examples-of-bing-insights-usage"></a>Ejemplos del uso de la información de Bing
 

@@ -1,7 +1,7 @@
 ---
 title: Referencia de los operadores de colección de OData
 titleSuffix: Azure Cognitive Search
-description: Operadores de colección de OData, any y all, y expresiones lambda en las consultas de Azure Cognitive Search.
+description: Al crear expresiones de filtro en las consultas de Azure Cognitive Search, use los operadores "any" y "all" en expresiones lambda cuando el filtro se encuentre en un campo de colección o un campo de colección complejo.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: fdb250a844b70cef4f6941debbb1fa7450874932
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 54ddc8222816831b5b436297bbb1b40d03230f0c
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793398"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113237"
 ---
 # <a name="odata-collection-operators-in-azure-cognitive-search---any-and-all"></a>Operadores de colección de OData en Azure Cognitive Search: `any` y `all`
 
@@ -48,7 +48,7 @@ lambda_expression ::= identifier ':' boolean_expression
 También está disponible un diagrama de sintaxis interactivo:
 
 > [!div class="nextstepaction"]
-> [Diagrama de sintaxis de OData para Azure Cognitive Search](https://azuresearch.github.io/odata-syntax-diagram/#collection_filter_expression)
+> [Diagrama de la sintaxis de OData para Azure Cognitive Search](https://azuresearch.github.io/odata-syntax-diagram/#collection_filter_expression)
 
 > [!NOTE]
 > Consulte [Referencia de sintaxis de expresiones OData para Azure Cognitive Search](search-query-odata-syntax-reference.md) para obtener la EBNF completa.

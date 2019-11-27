@@ -1,5 +1,5 @@
 ---
-title: Configuración de la indexación incremental (versión preliminar) del seguimiento de cambios basado en el contenido enriquecido
+title: Incorporación de la indexación incremental (versión preliminar)
 titleSuffix: Azure Cognitive Search
 description: Habilite el seguimiento de cambios y conserve el estado del contenido enriquecido para el procesamiento controlado en un conjunto de aptitudes cognitivas. Esta característica actualmente está en su versión preliminar pública.
 author: vkurpad
@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 74631ee3167c65e59fbd05f53fe5327d1b532dba
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 09defe9648208e2300594169add990d4bcbd7a39
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73719944"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112576"
 ---
 # <a name="how-to-set-up-incremental-indexing-of-enriched-documents-in-azure-cognitive-search"></a>Cómo configurar la indexación incremental de documentos enriquecidos en Azure Cognitive Search
 

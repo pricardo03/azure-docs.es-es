@@ -1,7 +1,7 @@
 ---
-title: 'Selección de un dispositivo de entrada de audio con el SDK de Voz: Speech Service'
+title: Selección de un dispositivo de entrada de audio con el SDK de Voz
 titleSuffix: Azure Cognitive Services
-description: Aprenda a seleccionar dispositivos de entrada de audio en el SDK de Voz.
+description: Obtenga información sobre la selección de dispositivos de entrada de audio en el SDK de Voz (C++, C#, Python, Objective-C, Java, JavaScript) mediante la obtención de los identificadores de los dispositivos de audio conectados a un sistema.
 services: cognitive-services
 author: chlandsi
 manager: nitinme
@@ -10,18 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: 8324f9fccbe46cf6fc0ce297aac29b0d8025b078
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9891cdb59c757035afd17339b052d5587ac99b0c
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562735"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74109980"
 ---
-# <a name="select-an-audio-input-device-with-the-speech-sdk"></a>Selección de un dispositivo de entrada de audio con el SDK de Voz
+# <a name="how-to-select-an-audio-input-device-with-the-speech-sdk"></a>Procedimientos para: Selección de un dispositivo de entrada de audio con el SDK de Voz
 
-La versión 1.3.0 del SDK de Voz presenta una API para seleccionar la entrada de audio.
-En este artículo se describe cómo obtener los identificadores de los dispositivos de audio conectados a un sistema.
-El SDK de Voz puede usar estos posteriormente configurando el dispositivo de audio mediante el objeto `AudioConfig`:
+La versión 1.3.0 del SDK de Voz presenta una API para seleccionar la entrada de audio. En este artículo se describe cómo obtener los identificadores de los dispositivos de audio conectados a un sistema. El SDK de Voz puede usar estos posteriormente configurando el dispositivo de audio mediante el objeto `AudioConfig`:
 
 ```C++
 audioConfig = AudioConfig.FromMicrophoneInput("<device id>");
@@ -46,12 +44,14 @@ audioConfig = AudioConfiguration.fromMicrophoneInput("<device id>");
 ```JavaScript
 audioConfig = AudioConfiguration.fromMicrophoneInput("<device id>");
 ```
->[!Note]
+
+> [!Note]
 > El uso del micrófono no está disponible para JavaScript cuando se ejecuta en Node.js.
 
 ## <a name="audio-device-ids-on-windows-for-desktop-applications"></a>Id. de dispositivos de audio en Windows para aplicaciones de escritorio
 
 Las [cadena del identificador de punto de conexión](/windows/desktop/CoreAudio/endpoint-id-strings) del dispositivo de audio se puede recuperar del objeto [`IMMDevice`](/windows/desktop/api/mmdeviceapi/nn-mmdeviceapi-immdevice) de Windows para las aplicaciones de escritorio.
+
 En el siguiente ejemplo de código se muestra cómo usarlo para enumerar los dispositivos de audio de C++:
 
 ```cpp
@@ -176,6 +176,7 @@ Este sería un ejemplo de id. de dispositivo: `{0.0.1.00000000}.{5f23ab69-6181-4
 ## <a name="audio-device-ids-on-uwp"></a>Id. de dispositivos de audio en UWP
 
 En la Plataforma universal de Windows (UWP), se pueden obtener dispositivos de entrada de audio mediante la propiedad `Id()` del objeto [`DeviceInformation`](/uwp/api/windows.devices.enumeration.deviceinformation) correspondiente.
+
 Los siguientes ejemplos de código muestran cómo hacer esto en C++ y C#:
 
 ```cpp
@@ -226,13 +227,16 @@ Este sería un ejemplo de id. de dispositivo: `\\\\?\\SWD#MMDEVAPI#{0.0.1.000000
 ## <a name="audio-device-ids-on-linux"></a>Id. de dispositivos de audio en Linux
 
 Los identificadores de dispositivo se seleccionan mediante identificadores de dispositivo ALSA estándar.
+
 Los identificadores de las entradas conectadas al sistema se encuentran en la salida del comando `arecord -L`.
 Como alternativa, estas se pueden obtener mediante la [biblioteca C de ALSA](https://www.alsa-project.org/alsa-doc/alsa-lib/).
+
 Los identificadores de ejemplo son `hw:1,0` y `hw:CARD=CC,DEV=0`.
 
 ## <a name="audio-device-ids-on-macos"></a>Id. de dispositivos de audio en macOS
 
 La siguiente función que se implementa en Objective-C crea una lista de los nombres e identificadores de los dispositivos de audio conectados a un Mac.
+
 La cadena `deviceUID` se usa para identificar un dispositivo en el SDK de Voz de macOS.
 
 ```objc
@@ -361,8 +365,8 @@ Por ejemplo, el id. de usuario para el micrófono integrado es `BuiltInMicrophon
 
 ## <a name="audio-device-ids-on-ios"></a>Id. de dispositivos de audio en iOS
 
-La selección de dispositivos de audio con el SDK de Voz no se admite en iOS.
-No obstante, las aplicaciones que usan el SDK pueden influir en el enrutamiento de audio mediante la plataforma [`AVAudioSession`](https://developer.apple.com/documentation/avfoundation/avaudiosession?language=objc).
+La selección de dispositivos de audio con el SDK de Voz no se admite en iOS. No obstante, las aplicaciones que usan el SDK pueden influir en el enrutamiento de audio mediante la plataforma [`AVAudioSession`](https://developer.apple.com/documentation/avfoundation/avaudiosession?language=objc).
+
 Por ejemplo, la instrucción
 
 ```objc

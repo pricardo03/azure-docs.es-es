@@ -1,6 +1,6 @@
 ---
-title: Copia de datos con Azure SQL Data Warehouse como origen o destino mediante Azure Data Factory
-description: Obtenga información sobre cómo copiar datos desde cualquier almacén de origen compatible en Azure SQL Data Warehouse o desde SQL Data Warehouse en cualquier almacén de receptores compatible mediante Data Factory.
+title: Copia y transformación de datos en Azure SQL Data Warehouse mediante Azure Data Factory
+description: Obtenga información sobre cómo copiar datos con Azure SQL Data Warehouse como origen y destino y cómo transformar datos en Azure SQL Data Warehouse mediante Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -10,21 +10,21 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/16/2019
+ms.date: 11/13/2019
 ms.author: jingwang
-ms.openlocfilehash: b64bfd046a42a630e7913c45213053e84377a037
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 4d08a388e98283ff7bf05e938d7b8c48b7065074
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681149"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076765"
 ---
-# <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copia de datos con Azure SQL Data Warehouse como origen o destino mediante Azure Data Factory 
+# <a name="copy-and-transform-data-in-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copia y transformación de datos en Azure SQL Data Warehouse mediante Azure Data Factory 
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que esté usando:"]
 > * [Versión 1](v1/data-factory-azure-sql-data-warehouse-connector.md)
 > * [Versión actual](connector-azure-sql-data-warehouse.md)
 
-En este artículo se explica cómo copiar datos en y desde Azure SQL Data Warehouse. Para información sobre Azure Data Factory, lea el [artículo de introducción](introduction.md).
+En este artículo, se explica el uso de la actividad de copia en Azure Data Factory para copiar datos utilizando Azure SQL Data Warehouse como origen o destino y el uso de Data Flow para transformar datos en Azure Data Lake Storage Gen2. Para información sobre Azure Data Factory, lea el [artículo de introducción](introduction.md).
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
@@ -35,7 +35,7 @@ Este conector de Azure SQL Data Warehouse es compatible con las actividades si
 - [Actividad de búsqueda](control-flow-lookup-activity.md)
 - [Actividad GetMetadata](control-flow-get-metadata-activity.md)
 
-En concreto, este conector de Azure SQL Data Warehouse admite estas funciones:
+Para la actividad de copia, este conector de Azure SQL Data Warehouse admite estas funciones:
 
 - Copiar datos mediante la autenticación con SQL y la autenticación de tokens de aplicaciones de Azure Active Directory (Azure AD) con una entidad de servicio o identidades administradas para recursos de Azure.
 - Como origen, la recuperación de datos mediante una consulta SQL o un procedimiento almacenado.
@@ -227,9 +227,9 @@ Para usar la autenticación de identidad administrada, siga estos pasos:
 
 ## <a name="dataset-properties"></a>Propiedades del conjunto de datos
 
-Si desea ver una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte el artículo sobre [conjuntos de datos](concepts-datasets-linked-services.md). En esta sección se proporciona una lista de las propiedades que el conjunto de datos de Azure SQL Data Warehouse admite.
+Si desea ver una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte el artículo sobre [conjuntos de datos](concepts-datasets-linked-services.md). 
 
-Las siguientes propiedades son compatibles para copiar datos dese y a Azure SQL Data Warehouse:
+Las siguientes propiedades son compatibles con el conjunto de datos de Azure SQL Data Warehouse:
 
 | Propiedad  | DESCRIPCIÓN                                                  | Obligatorio                    |
 | :-------- | :----------------------------------------------------------- | :-------------------------- |

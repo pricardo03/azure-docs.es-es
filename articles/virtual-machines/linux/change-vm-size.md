@@ -1,5 +1,5 @@
 ---
-title: Cambio de tamaño de una máquina virtual Linux con la CLI de Azure | Microsoft Docs
+title: Cambio de tamaño de una máquina virtual Linux con la CLI de Azure
 description: Escalado o reducción en vertical de una máquina virtual de Linux cambiando el tamaño de la VM.
 services: virtual-machines-linux
 documentationcenter: na
@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 02/10/2017
 ms.author: mwasson
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 46baa3d4dbcd466944d7a91e446e380c89f53f2b
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: b6f3f0a937b33b1c5dd1a68d86f80f870a7311d0
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671738"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036875"
 ---
 # <a name="resize-a-linux-virtual-machine-using-azure-cli"></a>Cambiar el tamaño de una máquina virtual Linux que usa la CLI de Azure 
 

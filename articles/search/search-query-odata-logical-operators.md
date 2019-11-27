@@ -1,7 +1,7 @@
 ---
 title: Referencia de los operadores lógicos de OData
 titleSuffix: Azure Cognitive Search
-description: Operadores lógicos de OData and, or y not, en las consultas de Azure Cognitive Search.
+description: Documentación de referencia y sintaxis para usar los operadores lógicos de OData, and, or y not, en las consultas de Azure Cognitive Search.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 4e016047d66e49f17c08d4b92a1c865f4b63e39b
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 2d3952f7d2adc26892cbebcd962f2ea25b86de7d
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793319"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113185"
 ---
 # <a name="odata-logical-operators-in-azure-cognitive-search---and-or-not"></a>Operadores lógicos de OData en Azure Cognitive Search: `and`, `or`, `not`
 
@@ -51,7 +51,7 @@ logical_expression ::=
 También está disponible un diagrama de sintaxis interactivo:
 
 > [!div class="nextstepaction"]
-> [Diagrama de sintaxis de OData para Azure Cognitive Search](https://azuresearch.github.io/odata-syntax-diagram/#logical_expression)
+> [Diagrama de la sintaxis de OData para Azure Cognitive Search](https://azuresearch.github.io/odata-syntax-diagram/#logical_expression)
 
 > [!NOTE]
 > Consulte [Referencia de sintaxis de expresiones OData para Azure Cognitive Search](search-query-odata-syntax-reference.md) para obtener la EBNF completa.

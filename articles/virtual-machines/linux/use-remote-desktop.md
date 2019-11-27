@@ -1,5 +1,5 @@
 ---
-title: Uso del escritorio remoto a una máquina virtual Linux en Azure | Microsoft Docs
+title: Uso del escritorio remoto a una máquina virtual Linux en Azure
 description: Obtenga información acerca de cómo instalar y configurar el escritorio remoto (xrdp) para conectarse a una máquina virtual Linux en Azure con herramientas gráficas
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 09/12/2019
 ms.author: cynthn
-ms.openlocfilehash: 96f1f98f95bb726864553c81245e250cf907fb05
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 8631b05bc42df86ef6865bf2a07c0e3deaaad2fe
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70961538"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034275"
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Instalación y configuración del escritorio remoto para conectarse a una máquina virtual Linux en Azure
 Las máquinas virtuales de Linux (VM) en Azure normalmente se administran desde la línea de comandos mediante una conexión de shell seguro (SSH). Cuando sean nuevas en Linux, o para escenarios de solución de problemas rápidos, el uso del escritorio remoto puede ser más fácil. En este artículo se detalla cómo instalar y configurar un entorno de escritorio ([xfce](https://www.xfce.org)) y el escritorio remoto ([xrdp](https://www.xrdp.org)) para la máquina virtual Linux con el modelo de implementación de Resource Manager.

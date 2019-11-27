@@ -1,5 +1,5 @@
 ---
-title: Introducción al agente de máquina virtual Linux de Azure | Microsoft Docs
+title: Introducción al agente Linux Virtual Machines de Azure
 description: Aprenda a instalar y configurar el Agente de Linux (waagent) para administrar la interacción de la máquina virtual con el controlador de tejido de Azure.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e8bc28c7454296f32dda09894ad3dca2f4fae99b
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 5f22fbd77069488e7aaf490f93f42cde747444a8
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71169163"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073864"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Información y uso del agente de Linux de Azure
 

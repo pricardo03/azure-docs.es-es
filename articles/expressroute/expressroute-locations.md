@@ -6,14 +6,14 @@ author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 11/04/2019
+ms.date: 11/08/2019
 ms.author: cherylmc
-ms.openlocfilehash: 851fbf52571b12b60345a78af3e26a875919fb14
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 397e4215e32ee5d9bf5eced60b456c26fa80c901
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73585224"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083396"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Asociados de ExpressRoute y ubicaciones de emparejamiento
 
@@ -43,12 +43,12 @@ La siguiente tabla proporciona un mapa de las regiones de Azure para las ubicaci
 | **Región geopolítica** | **Regiones de Azure** | **Ubicaciones de ExpressRoute** |
 | --- | --- | --- |
 | **Australia Government** |Centro de Australia, Centro de Australia 2 |Canberra, Canberra 2 |
-| **Europa** | Centro de Francia, Sur de Francia, Europa del Norte, Europa Occidental, Oeste de Reino Unido, Sur de Reino Unido |Ámsterdam, Ámsterdam2, Copenhague, Dublín, Fráncfort, Ginebra, Londres, Londres2, Marsella, Milán, Múnich, Newport (Gales), París, Stavanger, Estocolmo, Zúrich |
+| **Europa** | Centro de Francia, Sur de Francia, Europa del Norte, Europa Occidental, Oeste de Reino Unido, Sur de Reino Unido |Ámsterdam, Ámsterdam2, Copenhague, Dublín, Fráncfort, Ginebra, Londres, Londres2, Marsella, Milán, Múnich, Newport (Gales), Oslo, París, Stavanger, Estocolmo, Zúrich |
 | **Norteamérica** |Este de EE. UU., oeste de EE. UU., este de EE. UU. 2, oeste de EE.UU. 2, centro de EE. UU., centro-sur de EE. UU., centro-norte de EE. UU., centro-oeste de EE. UU., centro de Canadá y este de Canadá |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Ángeles, Miami, Nueva York, San Antonio, Seattle, Silicon Valley, Silicon Valley2, Washington DC, Washington DC2, Montreal, Ciudad de Quebec, Toronto |
 | **Asia** | Este de Asia y Sudeste de Asia |RAE de Hong Kong, Yakarta, Kuala Lumpur, Singapur, Singapur2, Taipéi |
 | **India** | India occidental, India central, India del Sur |Chennai (Madrás), Chennai (Madrás)2, Mumbai (Bombay), Mumbai (Bombay)2 |
 | **Japón** | Oeste de Japón y Este de Japón |Osaka, Tokyo |
-| **Oceanía** | Este de Australia y Sudeste de Australia |Auckland, Melbourne, Perth, Sídney |
+| **Oceanía** | Este de Australia y Sudeste de Australia |Auckland, Melbourne, Perth, Sídney, Sídney2 |
 | **Corea del Sur** | Corea Central, Corea del Sur |Busan, Seúl|
 | **Emiratos Árabes Unidos** | Centro de Emiratos Árabes Unidos, Norte de Emiratos Árabes Unidos | Dubai, Dubai2 |
 | **Sudáfrica** | Oeste de Sudáfrica, Norte de Sudáfrica |Ciudad del cabo, Johannesburgo |
@@ -121,7 +121,7 @@ La siguiente tabla muestra las ubicaciones por proveedor de servicios. Si desea 
 | **[MTN](https://www.mtnbusiness.com/en/enterprise/Pages/microsoft-express-route.aspx)** |Compatible |Compatible |Londres |
 | **[Neutrona Networks](https://www.neutrona.com/index.php/azure-expressroute/)** |Compatible |Compatible |Dallas, Los Ángeles, Miami, Sao Paulo, Washington DC |
 | **[Datos de última generación](https://www.nextgenerationdata.co.uk/ngd-cloud-gateway/)** |Compatible |Compatible |Newport (Gales) |
-| **[NEXTDC](https://www.nextdc.com/services/axon-ethernet/microsoft-expressroute)** |Compatible |Compatible |Melbourne, Perth, Sidney |
+| **[NEXTDC](https://www.nextdc.com/services/axon-ethernet/microsoft-expressroute)** |Compatible |Compatible |Melbourne, Perth, Sídney, Sídney2 |
 | **[NTT Communications](https://www.ntt.com/en/services/network/virtual-private-network.html)** |Compatible |Compatible |Ámsterdam, RAE de Hong Kong, Londres, Los Angeles, Osaka, Singapur, Sídney, Tokio, Washington DC |
 | **[NTT EAST](https://flets.com/cloudgateway/crossconnect/)** |Compatible |Compatible |Tokio |
 | **[NTT SmartConnect](https://cloud.nttsmc.com/cxc/azure.html)** |Compatible |Compatible |Osaka |
@@ -237,9 +237,9 @@ Si es un empleado remoto y no tiene conectividad de fibra o quiere explorar otra
 | **[Chief](https://www.chief.com.tw/dispPageBox/ct.aspx?ddsPageID=ENCLOUDSERVICE&dbid=4852937342)** | Equinix | RAE de Hong Kong |
 | **[Cinia](https://www.cinia.fi/en/services/connectivity-services/direct-public-cloud-connection.html)** | Equinix, Megaport | Fráncfort, Hamburgo |
 | **[CloudXpress](https://www2.telenet.be/fr/business/produits-services/internet/cloudxpress/)** | Equinix | Ámsterdam | 
-| **[CMC Telecom]( https://cmctelecom.vn/san-pham/value-added-service-and-it/cmc-telecom-cloud-express-en/)** | Equinix | Singapur | 
+| **[CMC Telecom](https://cmctelecom.vn/san-pham/value-added-service-and-it/cmc-telecom-cloud-express-en/)** | Equinix | Singapur | 
 | **[Aptum Technologies](https://aptum.com/services/cloud/managed-azure/)**| Equinix | Montreal, Toronto |
-| **[CoreAzure](http://coreazure.com/expressroute)**| Equinix | Londres |
+| **[CoreAzure](http://www.coreazure.com/expressroute/)**| Equinix | Londres |
 | **[Cox Business](https://www.cox.com/business/networking/cloud-connectivity.html)**| Equinix | Dallas, Silicon Valley, Washington DC |
 | **[Crown Castle](https://fiber.crowncastle.com/solutions/added/cloud-connect)**| Equinix | Atlanta, Chicago, Dallas, Los Ángeles, Nueva York, Washington DC |
 | **[Data Foundry](https://www.datafoundry.com/services/cloud-connect)** | Megaport | Dallas |
@@ -336,7 +336,7 @@ Habilitar la conectividad privada para la adaptación a sus necesidades puede se
 | **[Orange Networks](https://orange-networks.com/blog/88-azureexpressroute)** | Europa |
 | **[Perficient](https://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** | Norteamérica |
 | **[Presidio](https://info.presidio.com/microsoft-azure-expressroute)** | Norteamérica |
-| **[sol-tec](https://www.sol-tec.com/services)** | Europa |
+| **[sol-tec](https://www.sol-tec.com/what-we-do/)** | Europa |
 | **[Venha Pra Nuvem](https://venhapranuvem.com.br/)** | Sudamérica |
 | **[Vigilant.IT](https://vigilant.it/expressroute)** | Australia |
 

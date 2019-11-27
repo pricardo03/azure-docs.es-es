@@ -1,5 +1,5 @@
 ---
-title: Cifrado en reposo mediante claves administradas por el cliente en Azure Key Vault (versión preliminar)
+title: Cifrado en reposo mediante claves administradas por el cliente (versión preliminar)
 titleSuffix: Azure Cognitive Search
 description: Complemente el cifrado del lado servidor con índices y mapas de sinónimos de Azure Cognitive Search mediante claves que se crean y administran en Azure Key Vault. Esta característica actualmente está en su versión preliminar pública.
 manager: nitinme
@@ -8,14 +8,14 @@ ms.author: natinimn
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/02/2019
-ms.openlocfilehash: 1521abfa327c69648b38f02d1d6313baa369f304
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 4f78b4b7b38c6e67aa8aebf04e3a8ef0fdbd000f
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721752"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112925"
 ---
-# <a name="content-encryption-of-azure-cognitive-search-using-customer-managed-keys-in-azure-key-vault"></a>Cifrado de contenido de Azure Cognitive Search mediante claves administradas por el cliente en Azure Key Vault
+# <a name="encryption-at-rest-of-content-in-azure-cognitive-search-using-customer-managed-keys-in-azure-key-vault"></a>Cifrado en reposo de contenido de Azure Cognitive Search mediante claves administradas por el cliente en Azure Key Vault
 
 > [!IMPORTANT] 
 > La compatibilidad con el cifrado en reposo está actualmente en versión preliminar pública. La funcionalidad de versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no es aconsejable usarla para cargas de trabajo de producción. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). La [API REST, versión 2019-05-06-Preview](search-api-preview.md) y el [SDK de .NET, versión 8.0-preview](search-dotnet-sdk-migration-version-9.md) ofrecen esta característica. Actualmente no se presta soporte técnico para el portal.

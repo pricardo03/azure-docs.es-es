@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 11/04/2019
+ms.date: 11/12/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 75152fabfc33dda0494d871fbdf9a388f4260c0d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8087025810214f3edbb74e628698eb69558f3500
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495775"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74085276"
 ---
 Al crear una puerta de enlace de red virtual, debe especificar la SKU de la puerta de enlace que desea usar. Seleccione las SKU que cumplan sus requisitos en función de los tipos de cargas de trabajo, rendimientos, características y Acuerdos de Nivel de Servicio. En relación con las SKU de puerta de enlace de red virtual en Azure Availability Zones, vea la información sobre las [SKU de puerta de enlace de Azure Availability Zones](../articles/vpn-gateway/about-zone-redundant-vnet-gateways.md).
 
@@ -21,7 +21,11 @@ Al crear una puerta de enlace de red virtual, debe especificar la SKU de la puer
 
 [!INCLUDE [Aggregated throughput by SKU](./vpn-gateway-table-gwtype-aggtput-include.md)]
 
-[!INCLUDE [classic SKU](./vpn-gateway-classic-sku-support-include.md)]
+> [!NOTE]
+> Las SKU de VpnGw (VpnGw1, VpnGw1AZ, VpnGw2, VpnGw2AZ, VpnGw3, VpnGw3AZ, VpnGw4, VpnGw4AZ, VpnGw5 y VpnGw5AZ) se admiten para el modelo de implementación de Resource Manager únicamente. Las redes virtuales clásicas deben seguir utilizando las SKU antiguas (heredadas).
+>  * Para obtener información sobre cómo trabajar con SKU de puerta de enlace heredadas (Basic, Standard, y HighPerformance), consulte [Trabajo con SKU de puerta de enlace de red virtual (SKU antiguas)](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md).
+>  * Para las SKU de puerta de enlace de ExpressRoute, consulte [Acerca de las puertas de enlace de red virtual para ExpressRoute](../articles/expressroute/expressroute-about-virtual-network-gateways.md).
+>
 
 ###  <a name="feature"></a>SKU de puerta de enlace por conjunto de características
 

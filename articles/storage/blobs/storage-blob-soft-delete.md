@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: ece49ff749a3b51e2fd4982f2df2726c57c6bf3d
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 6f6aa90553f3a69d2d287c7d59e166884a1a8f66
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72785205"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113733"
 ---
 # <a name="soft-delete-for-azure-storage-blobs"></a>Eliminación temporal de blobs de Azure Storage
 
@@ -41,7 +41,7 @@ El período de retención de la eliminación temporal se puede cambiar en cualqu
 
 La eliminación temporal conserva los datos en muchos casos en los que los blobs o las instantáneas de blob se eliminan o se sobrescriben.
 
-Si se usan **Put Blob**, **Put Block**, **Put Block List** o **Copy Blob** cuando se sobrescribe un blob, se genera automáticamente una instantánea del estado del blob antes de la operación de escritura. Esta es una instantánea de eliminación temporal; es invisible, a menos que se enumeren explícitamente los objetos que se han eliminado temporalmente. Para aprender a enumerar objetos que se han eliminado temporalmente, consulte la sección [Recuperación](#recovery).
+Si se sobrescribe un blob mediante **Put Blob**, **Put Block**, **Put Block List** o **Copy Blob**, se genera automáticamente una instantánea del estado del blob antes de la operación de escritura. Esta es una instantánea de eliminación temporal; es invisible, a menos que se enumeren explícitamente los objetos que se han eliminado temporalmente. Para aprender a enumerar objetos que se han eliminado temporalmente, consulte la sección [Recuperación](#recovery).
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-overwrite.png)
 
@@ -76,9 +76,9 @@ En la tabla siguiente se detalla el comportamiento esperado cuando se activa la 
 |--------------------|---------------|-------------|--------------------|
 | [Eliminar](/rest/api/storagerp/StorageAccounts/Delete) | Cuenta | Elimina la cuenta de almacenamiento, incluidos todos los contenedores y blobs que contiene.                           | Sin cambios. Los contenedores y blobs de la cuenta eliminada no se pueden recuperar. |
 | [Delete Container](/rest/api/storageservices/delete-container) | Contenedor | Elimina el contenedor, incluidos todos los blobs que contiene. | Sin cambios. Los blobs del contenedor eliminado no se pueden recuperar. |
-| [Put Blob](/rest/api/storageservices/put-blob) | Blobs en bloques, de anexión y de página | Crea un nuevo blob o reemplaza uno en un contenedor | Si se usa para reemplazar un blob existente, se genera automáticamente una instantánea del estado del blob antes de la llamada. Esto también se aplica a un blob que se ha eliminado antes temporalmente si, y solo si, se reemplaza por un blob del mismo tipo (en bloques, de anexión o de página). Si se reemplaza por un blob de cualquier otro tipo, todos los datos eliminados temporalmente existentes expirarán de forma permanente. |
+| [Put Blob](/rest/api/storageservices/put-blob) | Blobs en bloques, de anexión y de página | Crea un nuevo blob o reemplaza uno en un contenedor | Si se usa para reemplazar un blob existente, se genera automáticamente una instantánea del estado del blob antes de la llamada. Esto también se aplica a cualquier blob que se haya eliminado temporalmente anteriormente si, y solo si, se reemplaza por un blob del mismo tipo (en bloques, de anexión o de página). Si se reemplaza por un blob de cualquier otro tipo, todos los datos eliminados temporalmente existentes expirarán de forma permanente. |
 | [Delete Blob](/rest/api/storageservices/delete-blob) | Blobs en bloques, de anexión y de página | Marca un blob o una instantánea de blob para su eliminación. El blob o la instantánea se eliminan posteriormente, durante la recolección de elementos no utilizados | Si se usa para eliminar una instantánea de blob, esta se marca como eliminada temporalmente. Si se usa para eliminar un blob, este se marca como eliminado temporalmente. |
-| [Copy Blob](/rest/api/storageservices/copy-blob) | Blobs en bloques, de anexión y de página | Copia un blob de origen en un blob de destino de la misma cuenta de almacenamiento o de otra. | Si se usa para reemplazar un blob existente, se genera automáticamente una instantánea del estado del blob antes de la llamada. Esto también se aplica a un blob que se ha eliminado antes temporalmente si, y solo si, se reemplaza por un blob del mismo tipo (en bloques, de anexión o de página). Si se reemplaza por un blob de cualquier otro tipo, todos los datos eliminados temporalmente existentes expirarán de forma permanente. |
+| [Copy Blob](/rest/api/storageservices/copy-blob) | Blobs en bloques, de anexión y de página | Copia un blob de origen en un blob de destino de la misma cuenta de almacenamiento o de otra. | Si se usa para reemplazar un blob existente, se genera automáticamente una instantánea del estado del blob antes de la llamada. Esto también se aplica a cualquier blob que se haya eliminado temporalmente anteriormente si, y solo si, se reemplaza por un blob del mismo tipo (en bloques, de anexión o de página). Si se reemplaza por un blob de cualquier otro tipo, todos los datos eliminados temporalmente existentes expirarán de forma permanente. |
 | [Put Block](/rest/api/storageservices/put-block) | Blobs en bloques | Crea un nuevo bloque que se confirmará como parte de un blob en bloques. | Si se utiliza para confirmar un bloque en un blob que esté activo, no habrá cambio alguno. Si utiliza para confirmar un bloque en un blob que se ha eliminado temporalmente, se crea un nuevo blob y se genera automáticamente una instantánea para capturar el estado del blob eliminado temporalmente. |
 | [Put Block List](/rest/api/storageservices/put-block-list) | Blobs en bloques | Confirma un blob mediante la especificación del conjunto de identificadores de bloque que componen el blob en bloques. | Si se usa para reemplazar un blob existente, se genera automáticamente una instantánea del estado del blob antes de la llamada. Esto también se aplica a un blob que se eliminó temporalmente si, y solo si, es un blob en bloques. Si se reemplaza por un blob de cualquier otro tipo, todos los datos eliminados temporalmente existentes expirarán de forma permanente. |
 | [Put Page](/rest/api/storageservices/put-page) | Blobs en páginas | Escribe un rango de páginas en un blob en páginas. | Sin cambios. Los datos del blob en páginas que se sobrescriben o se borrar con esta operación no se guardan ni se pueden recuperar. |
@@ -150,7 +150,7 @@ Cuando activa inicialmente la eliminación temporal, se recomienda usar un perí
 
 En los pasos siguientes se muestra cómo empezar a trabajar con la eliminación temporal.
 
-### <a name="azure-portal"></a>Portal de Azure
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
 Para habilitar la eliminación temporal, vaya a la opción **Eliminación temporal** de **Blob Service**. Luego, haga clic en **Habilitado** y escriba el número de días que desea conservar los datos que se han eliminado temporalmente.
 
@@ -180,7 +180,7 @@ Después de recuperar las instantáneas de un blob, puede hacer clic en **Promov
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-portal-promote-snapshot.png)
 
-### <a name="powershell"></a>PowerShell
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -217,7 +217,7 @@ Para buscar la directiva de retención de eliminación temporal actual, use el s
    Get-AzStorageServiceProperty -ServiceType Blob -Context $account.Context
 ```
 
-### <a name="azure-cli"></a>CLI de Azure 
+# <a name="clitabazure-cli"></a>[CLI](#tab/azure-CLI)
 
 Para habilitar la eliminación temporal, actualice las propiedades del servicio del cliente del blob:
 
@@ -231,7 +231,7 @@ Para comprobar si la opción eliminación temporal está activada, use el siguie
 az storage blob service-properties delete-policy show --account-name mystorageaccount 
 ```
 
-### <a name="python-client-library"></a>Biblioteca cliente de Python
+# <a name="pythontabpython"></a>[Python](#tab/python)
 
 Para habilitar la eliminación temporal, actualice las propiedades del servicio del cliente del blob:
 
@@ -249,7 +249,7 @@ block_blob_service.set_blob_service_properties(
     delete_retention_policy=DeleteRetentionPolicy(enabled=True, days=7))
 ```
 
-### <a name="net-client-library"></a>Biblioteca cliente de .NET
+# <a name="nettabnet"></a>[.NET](#tab/net)
 
 Para habilitar la eliminación temporal, actualice las propiedades del servicio del cliente del blob:
 
@@ -291,9 +291,11 @@ CloudBlockBlob copySource = allBlobVersions.First(version => ((CloudBlockBlob)ve
 blockBlob.StartCopy(copySource);
 ```
 
-## <a name="are-there-any-special-considerations-for-using-soft-delete"></a>¿Hay ninguna consideración especial para usar la eliminación temporal?
+---
 
-Si existe la posibilidad de que una aplicación u otro usuario de la cuenta de almacenamiento modifiquen o borren sus datos, es aconsejable activar la eliminación temporal. Habilitar eliminación temporal para datos sobrescritos con frecuencia puede generar mayores cargos por capacidad de almacenamiento y una mayor latencia al enumerar los blobs. Este costo adicional se puede mitigar almacenando los datos sobrescritos con frecuencia en una cuenta de almacenamiento independiente en la que la eliminación temporal esté deshabilitada. 
+## <a name="special-considerations"></a>Consideraciones especiales
+
+Si existe la posibilidad de que una aplicación u otro usuario de la cuenta de almacenamiento modifiquen o borren sus datos, es aconsejable activar la eliminación temporal. Habilitar eliminación temporal para datos sobrescritos con frecuencia puede generar mayores cargos por capacidad de almacenamiento y una mayor latencia al enumerar los blobs. Tanto este costo adicional como la latencia se pueden mitigar almacenando los datos que se sobrescriben con frecuencia en una cuenta de almacenamiento independiente en la que la eliminación temporal esté deshabilitada. 
 
 ## <a name="faq"></a>Preguntas más frecuentes
 
@@ -307,7 +309,7 @@ Sí, la eliminación temporal no solo está disponible para las cuentas de almac
 
 ### <a name="is-soft-delete-available-for-all-storage-tiers"></a>¿Está disponible la eliminación temporal para todas las capas de almacenamiento?
 
-Sí, la eliminación temporal está disponible para todas las capas de almacenamiento, es decir, la de acceso frecuente, la de acceso esporádico y la de archivo. Sin embargo, la eliminación temporal no permite la protección contra la sobrescritura en los blobs de la capa de archivo.
+Sí, la eliminación temporal se puede realizar en todas las capas de almacenamiento, es decir, la de acceso frecuente, la de acceso esporádico y la de archivo. Sin embargo, la eliminación temporal no permite la protección contra la sobrescritura en los blobs de la capa de archivo.
 
 ### <a name="can-i-use-the-set-blob-tier-api-to-tier-blobs-with-soft-deleted-snapshots"></a>¿Se puede usar Set Blob Tier API para almacenar los blobs por niveles con instantáneas eliminadas temporalmente?
 
@@ -344,6 +346,8 @@ Sí, la eliminación temporal está disponible para los blobs en bloques, blobs 
 ### <a name="is-soft-delete-available-for-virtual-machine-disks"></a>¿Está la eliminación temporal disponible para los discos de máquina virtual?  
 
 La eliminación temporal está disponible para discos no administrados Premium y Estándar, que son blobs en páginas en segundo plano. La eliminación temporal solo le ayudará a recuperar los datos eliminados por las operaciones **Delete Blob**, **Put Blob**, **Put Block List**, **Put Block** y **Copy Blob**. Los datos que se sobrescriben con una llamada a **Put Page** no se pueden recuperar.
+
+Una máquina virtual de Azure escribe en un disco no administrado mediante llamadas a **Put Page**, por lo que el uso de la eliminación temporal para deshacer las escrituras en un disco no administrado desde una máquina virtual de Azure no es un escenario admitido.
 
 ### <a name="do-i-need-to-change-my-existing-applications-to-use-soft-delete"></a>¿Es preciso cambiar las aplicaciones existentes para usar la eliminación temporal?
 

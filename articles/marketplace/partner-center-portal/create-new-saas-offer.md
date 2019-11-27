@@ -1,19 +1,19 @@
 ---
 title: Creación de una oferta de SaaS en Marketplace comercial
 description: Cómo crear una oferta de software como servicio (SaaS) para mostrarla o venderla en Azure Marketplace, AppSource, o bien a través del programa Proveedor de soluciones en la nube (CSP) mediante el portal de Marketplace comercial de Microsoft Partner Center.
-author: qianw211
+author: ChJenk
 manager: evansma
-ms.author: v-qiwe
+ms.author: v-chjen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 10/04/2019
-ms.openlocfilehash: 9eb283f538759f9591add4b04462de151f2cb014
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/13/2019
+ms.openlocfilehash: a6694d094d185ad70cce8c546e12f48afb69f1ae
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825534"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076958"
 ---
 # <a name="create-a-new-saas-offer"></a>Creación de una oferta de SaaS
 
@@ -33,7 +33,6 @@ Si selecciona otro tipo de oferta, se le puede dirigir a la versión anterior de
 Se muestra el cuadro de diálogo **Nueva oferta**. 
 
 ![Cuadro de diálogo Nueva oferta](./media/new-offer-popup.png)
-
 
 ## <a name="offer-id-and-alias"></a>Identificador y alias de la oferta
 
@@ -105,16 +104,6 @@ En la tabla siguiente se muestra un ejemplo de la división de costos y pagos pa
 > [!NOTE]
 > **Precio reducido del servicio Marketplace:** Para determinadas ofertas de SaaS que haya publicado en nuestro Marketplace comercial, Microsoft reducirá su precio del servicio Marketplace del 20 % (como se describe en el Acuerdo para anunciantes de Microsoft) al 10 %. Para que su oferta sea apta, Microsoft debe haber designado que al menos una de sus ofertas esté lista para realizar una venta conjunta por IP o esté clasificada orden de prioridad para realizar una venta conjunta por IP.  Para recibir este precio reducido del servicio Marketplace durante el mes, se deben cumplir los criterios de idoneidad al menos cinco (5) días hábiles antes del final de cada mes natural.  El precio reducido del servicio Marketplace no se aplica a las máquinas virtuales, las aplicaciones administradas ni cualquier otro producto que esté disponible a través de nuestro Marketplace comercial.  El precio reducido del servicio Marketplace solo estará disponible para las ofertas aptas para los cargos de licencia recaudados por Microsoft entre el 1 de mayo de 2019 y el 30 de junio de 2020.  Transcurrido este tiempo, la tarifa del servicio Marketplace volverá a su importe normal. 
 
-
-
-
-#### <a name="csp-program-opt-in"></a>Participación en el programa CSP
-El programa [Proveedor de soluciones en la nube (CSP)](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers) permite que las ofertas de software lleguen a millones de clientes de Microsoft aptos con una inversión en marketing y comercialización mínima.
-
-- **Canales: hacer que mi oferta esté disponible en el programa CSP.**  (casilla)
-
-Si elige esta opción, los proveedores de soluciones en la nube podrán vender su producto como parte de una solución agrupada a sus clientes. 
-
 ### <a name="list-through-microsoft"></a>Listas a través de Microsoft
 
 La creación de una lista en Marketplace promocionará su negocio. Si selecciona la opción de mostrar solo su oferta, no realizar transacciones a través de Microsoft significa que Microsoft no participa directamente en las transacciones de las licencias de software. No hay precio de transacción asociado y el anunciante conserva el 100 % del precio de las licencias de software abonado por el cliente. Sin embargo, el anunciante es el responsables de dar soporte a todos los aspectos de la transacción de la licencia de software, entre los que se incluyen, entre otros: la cumplimentación del pedido, la medición, la facturación, el pago y el cobro. 
@@ -141,7 +130,7 @@ Recopile información de contacto de los clientes mediante la conexión de su si
 
 Una versión de prueba es una excelente manera de presentar la oferta a clientes potenciales, ya que se les brinda la oportunidad de "probarla antes de comprarla", lo que aumenta la conversión y la generación de clientes potenciales altamente cualificados. [Más información acerca de las versiones de prueba.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive)
 
-- **Habilitación de una versión de prueba** (casilla) 
+- **Habilitación de una versión de prueba** (casilla)
 
 Al habilitar una versión de prueba, se le pedirá que configure un entorno de demostración para que los clientes prueben su oferta durante un período fijo. 
 
@@ -331,7 +320,6 @@ No olvide **guardar** antes de pasar a la siguiente sección.
 
 - [Procedimientos recomendados la descripción de ofertas en Marketplace](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
 
-
 ## <a name="preview"></a>Vista previa
 
 La pestaña **Versión preliminar** permite definir un **público preliminar** limitado para publicar la oferta antes de ponerla a disposición de un público más amplio de Marketplace.
@@ -416,8 +404,7 @@ Para obtener información sobre las suscripciones de clientes que actualmente pa
 
 - **Editar mercados** (opcional)
 
-Todos los planes debe estar disponible al menos en un mercado. Seleccione la casilla de la ubicación del mercado en la que desea que este plan esté disponible. Se incluyen un cuadro de búsqueda y un botón para seleccionar los países con "Impuesto remitido", en los que Microsoft remite de los impuestos de uso y ventas en su nombre, que sirven de ayuda. 
-
+Todos los planes debe estar disponible al menos en un mercado. Seleccione la casilla de la ubicación del mercado en la que desea que este plan esté disponible. Se incluyen un cuadro de búsqueda y un botón para seleccionar los países con "Impuesto remitido", en los que Microsoft remite de los impuestos de uso y ventas en su nombre, que sirven de ayuda.
 
 Si ya se ha establecido los precios del plan en dólares de Estados Unidos (USD) y agrega otra ubicación del mercado, el precio del nuevo mercado se calculará en función de los tipos de cambio actuales. Siempre debe revisar el precio de cada mercado antes de la publicación. Los precios se pueden consultar mediante el vínculo "Exportar precios (xlsx)" después de guardar los cambios.
 
@@ -475,11 +462,15 @@ Mientras que las ofertas de SaaS usan identificadores de inquilino para definir 
 
 [!INCLUDE [Test drive content](./includes/commercial-marketplace-test-drive.md)]
 
+## <a name="cloud-solution-provider-csp-reseller-audience"></a>Audiencia de revendedores de Proveedor de soluciones en la nube (CSP)
+
+Si elige esta opción, los proveedores de soluciones en la nube podrán vender su producto como parte de una solución agrupada a sus clientes. Para más información, consulte [Proveedor de soluciones en la nube (CSP)](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers.md).
+
 ## <a name="publish"></a>Publicar
 
-#### <a name="submit-offer-to-preview"></a>Envío de la oferta para tener una versión preliminar
+Una vez que haya completado todas las secciones necesarias de la oferta, seleccione **Publicar** en la esquina superior derecha del portal. Se le redirigirá a la página **Review and publish** (Revisar y publicar).
 
-Una vez que haya completado todas las secciones necesarias de la oferta, seleccione **Publicar** en la esquina superior derecha del portal. Se le redirigirá a la página **Review and publish** (Revisar y publicar). 
+#### <a name="submit-offer-to-preview"></a>Envío de la oferta para tener una versión preliminar
 
 Si es la primera vez que publica esta oferta, puede:
 

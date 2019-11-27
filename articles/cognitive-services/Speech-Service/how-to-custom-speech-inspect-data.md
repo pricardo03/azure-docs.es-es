@@ -1,7 +1,7 @@
 ---
 title: 'Inspección de la calidad de los datos de Custom Speech: servicio de Voz'
 titleSuffix: Azure Cognitive Services
-description: Custom Speech proporciona herramientas que le permiten inspeccionar visualmente la calidad del reconocimiento de un modelo mediante la comparación de los datos de audio con el resultado de reconocimiento correspondiente. Desde el portal de Custom Speech, puede reproducir el audio cargado y determinar si el resultado de reconocimiento proporcionada es correcto.  Esta herramienta le permite inspeccionar rápidamente la calidad del modelo de voz a texto de línea de base o de un modelo personalizado entrenado sin tener que transcribir los datos de audio.
+description: Custom Speech proporciona herramientas que le permiten inspeccionar visualmente la calidad del reconocimiento de un modelo mediante la comparación de los datos de audio con el resultado de reconocimiento correspondiente. Puede reproducir el audio cargado y determinar si el resultado de reconocimiento proporcionada es correcto.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 0b5f064204c5bca35ccb1a628cb06978180c318c
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: cf0deffb6fe484f7e3ee38b95f285bb4b7cc809c
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70801480"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072562"
 ---
 # <a name="inspect-custom-speech-data"></a>Inspección de los datos de Custom Speech
 
@@ -43,18 +43,18 @@ Después de que la prueba se ha creado correctamente, puede comparar los modelos
 
 ## <a name="side-by-side-model-comparisons"></a>Comparaciones de los modelos en paralelo
 
-Cuando el estado de la prueba sea *Succeeded* (Correcto), haga clic en el nombre del elemento de prueba para ver los detalles de la prueba. En esta página se muestran todas las expresiones del conjunto de datos y se indican los resultados del reconocimiento de los dos modelos al lado de la transcripción del conjunto de datos enviado.
+Cuando el estado de la prueba sea _Succeeded_ (Correcto), haga clic en el nombre del elemento de prueba para ver los detalles de la prueba. En esta página se muestran todas las expresiones del conjunto de datos y se indican los resultados del reconocimiento de los dos modelos al lado de la transcripción del conjunto de datos enviado.
 
 Con el fin de inspeccionar la comparación en paralelo, puede alternar los distintos tipos de error, como inserción, eliminación y sustitución. Al escuchar el audio y comparar los resultados del reconocimiento de cada columna (que muestra la transcripción con la etiqueta humana y los resultados de los dos modelos de conversión de voz a texto), puede decidir qué modelo satisface sus necesidades y dónde hacen falta mejoras.
 
-La inspección de las pruebas de calidad es útil para validar si la calidad de un punto de conexión de reconocimiento de voz es suficiente para una aplicación.  Si necesita una medida objetiva de precisión, que necesite la transcripción del audio, siga las instrucciones que encontrará en [Evaluación de la precisión](how-to-custom-speech-evaluate-data.md).
+La inspección de las pruebas de calidad es útil para validar si la calidad de un punto de conexión de reconocimiento de voz es suficiente para una aplicación. Si necesita una medida objetiva de precisión, que necesite la transcripción del audio, siga las instrucciones que encontrará en [Evaluación de la precisión](how-to-custom-speech-evaluate-data.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Evaluación de los datos](how-to-custom-speech-evaluate-data.md)
-* [Entrenamiento del modelo](how-to-custom-speech-train-model.md)
-* [Implementación del modelo](how-to-custom-speech-deploy-model.md)
+- [Evaluación de los datos](how-to-custom-speech-evaluate-data.md)
+- [Entrenamiento del modelo](how-to-custom-speech-train-model.md)
+- [Implementación del modelo](how-to-custom-speech-deploy-model.md)
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Preparación de los datos de prueba para Custom Speech](how-to-custom-speech-test-data.md)
+- [Preparación de los datos de prueba para Custom Speech](how-to-custom-speech-test-data.md)

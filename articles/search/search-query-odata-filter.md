@@ -1,7 +1,7 @@
 ---
 title: Referencia de filter de OData
 titleSuffix: Azure Cognitive Search
-description: Referencia del lenguaje OData para la sintaxis de filter en consultas de Azure Cognitive Search.
+description: Referencia del lenguaje OData y sintaxis completa que se usa para crear expresiones de filtro en consultas de Azure Cognitive Search.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: ba1f5e8f2369d3222b3c31738e252a20b6de8906
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: b966e9cfa3ef40666dbbd62135f8f964e5eb2023
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793370"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113207"
 ---
 # <a name="odata-filter-syntax-in-azure-cognitive-search"></a>Sintaxis de $filter de OData en Azure Cognitive Search
 
@@ -53,7 +53,7 @@ variable ::= identifier | field_path
 También está disponible un diagrama de sintaxis interactivo:
 
 > [!div class="nextstepaction"]
-> [Diagrama de sintaxis de OData para Azure Cognitive Search](https://azuresearch.github.io/odata-syntax-diagram/#boolean_expression)
+> [Diagrama de la sintaxis de OData para Azure Cognitive Search](https://azuresearch.github.io/odata-syntax-diagram/#boolean_expression)
 
 > [!NOTE]
 > Consulte [Referencia de sintaxis de expresiones OData para Azure Cognitive Search](search-query-odata-syntax-reference.md) para obtener la EBNF completa.

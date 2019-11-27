@@ -1,19 +1,19 @@
 ---
-title: Actualización automática de Mobility Service de Azure en la recuperación ante desastres de Azure | Microsoft Docs
+title: Actualización automática de Mobility Service en Azure Site Recovery
 description: Descripción general de la actualización automática de Mobility Service al replicar VM de Azure mediante Azure Site Recovery.
 services: site-recovery
 author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/20/2019
+ms.date: 10/24/2019
 ms.author: rajanaki
-ms.openlocfilehash: 92a46f7be116d0664b438c9039e311f802c873e5
-ms.sourcegitcommit: 6ad03fa28a0f60cb6dce6144f728c2ceb56ff6e2
+ms.openlocfilehash: 9479ccce534f9c9d48a0aa08d4ea887bc4f30acb
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68708071"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74078862"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Actualización automática de Mobility Service en Azure para la replicación de Azure
 
@@ -31,7 +31,7 @@ Cuando usa Site Recovery para administrar las actualizaciones, se implementa un 
 La programación predeterminada del runbook se repite diariamente a las 12:00 AM en la zona horaria geográfica de la VM replicada. También puede cambiar el horario del runbook a través de la cuenta de automatización.
 
 > [!NOTE]
-> Si comienza con el paquete acumulativo de actualizaciones 35, puede elegir una cuenta de automatización existente que puede usar para las actualizaciones. Antes de esta actualización, Site Recovery creó esta cuenta de forma predeterminada. Esta opción está disponible cuando habilita la replicación de una VM. Si cambia la configuración, se aplicará a todas las VM de Azure protegidas en el mismo almacén.
+> Si comienza con el paquete acumulativo de actualizaciones 35, puede elegir una cuenta de automatización existente que puede usar para las actualizaciones. Antes de esta actualización, Site Recovery creó esta cuenta de forma predeterminada. Tenga en cuenta que solo puede seleccionar esta opción al habilitar la replicación para una máquina virtual. No está disponible para máquinas virtuales de replicación. Los valores que seleccione se aplicarán a todas las máquinas virtuales de Azure protegidas en el mismo almacén.
  
 > La activación de las actualizaciones automáticas no requiere reiniciar las VM de Azure ni afecta a la replicación en curso.
 
@@ -66,7 +66,8 @@ Cuando habilita la replicación para una VM iniciándola [desde la vista de la V
 > [!Note]
 > Cualquiera de las opciones le ofrece información de la cuenta de automatización que se usa para administrar las actualizaciones. Si está usando esta función en un almacén por primera vez, se creará una nueva cuenta de automatización de forma predeterminada. Alternativamente, puede personalizar la configuración y elegir una cuenta de automatización ya existente. Todas las replicaciones habilitadas en el mismo almacén usarán la que se creó anteriormente. Actualmente, en la lista desplegable solo se muestran las cuentas de Automation que se encuentran en el mismo grupo de recursos que el almacén.  
 
-Para obtener una cuenta de automatización personalizada, use el siguiente script:
+> [!IMPORTANT]
+> El siguiente script debe ejecutarse en el contexto de una cuenta de Automation. En el caso de una cuenta de Automation personalizada, use el siguiente script:
 
 ```azurepowershell
 param(
@@ -505,7 +506,7 @@ Write-Tracing -Level Succeeded -Message ("Modify cloud pairing completed.") -Dis
 
 ### <a name="manage-updates-manually"></a>Administrar actualizaciones manualmente
 
-1. Si hay nuevas actualizaciones para la instancia de Mobility Service instalada en sus VM, verá la siguiente notificación: "Hay una nueva actualización del agente de replicación de Site recovery disponible". Haga clic para instalarla".
+1. Si hay nuevas actualizaciones para la instancia de Mobility Service instalada en sus VM, verá la siguiente notificación: "Hay una nueva actualización del agente de replicación de Site Recovery disponible. Haga clic para instalarla".
 
      ![Ventana Elementos replicados](./media/vmware-azure-install-mobility-service/replicated-item-notif.png)
 2. Seleccione la notificación para abrir la página de selección de VM.

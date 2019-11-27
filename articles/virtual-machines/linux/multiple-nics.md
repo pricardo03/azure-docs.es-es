@@ -1,5 +1,5 @@
 ---
-title: Creación de una máquina virtual Linux en Azure con varias NIC | Microsoft Docs
+title: Creación de una máquina virtual Linux en Azure con varias NIC
 description: Aprenda a crear una máquina virtual Linux con varias NIC conectadas a ella mediante la CLI de Azure o plantillas de Resource Manager.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/07/2018
 ms.author: cynthn
-ms.openlocfilehash: 04aaa1da304657ac3cc305b8939ac4fcce126145
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: b4ab46a59bd83bf2d1c08e3a238df3c59797f3e7
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671183"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035607"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Cómo crear una máquina virtual Linux en Azure con red varias tarjetas de interfaz de red
 

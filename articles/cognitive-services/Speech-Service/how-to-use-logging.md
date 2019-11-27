@@ -1,7 +1,7 @@
 ---
 title: 'Registro del SDK de voz: servicio de Voz'
 titleSuffix: Azure Cognitive Services
-description: Habilite el registro en el SDK de voz.
+description: Obtenga información sobre cómo habilitar el registro en el SDK de Voz (C++, C#, Python, Objective-C, Java).
 services: cognitive-services
 author: amitkumarshukla
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: amishu
-ms.openlocfilehash: 31ff21e33860f75d91d01e80e3ee77bd7192f780
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 58f6c97ac819947f84735bc0bc4c125b43db58dc
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559476"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075796"
 ---
 # <a name="enable-logging-in-the-speech-sdk"></a>Habilitar el registro en el SDK de voz
 

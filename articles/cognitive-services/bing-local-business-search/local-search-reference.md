@@ -1,7 +1,7 @@
 ---
 title: Referencia de Bing Local Business Search API v7
 titleSuffix: Azure Cognitive Services
-description: Describe los elementos de programación de Bing Local Business Search APl.
+description: En este artículo se proporcionan detalles técnicos acerca de los objetos de respuesta, y los parámetros de consulta y los encabezados que afectan a los resultados de la búsqueda.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: bing-local-business
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: rosh
-ms.openlocfilehash: c9ebaeb66bc46132160c77c09f93fc2921dc8961
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: db764a73aa1bb18ef2fc0f8f6e5ffe8fd60d388c
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69906344"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075692"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>Referencia de Bing Local Business Search API v7
 
@@ -76,7 +76,7 @@ La solicitud puede incluir los siguientes parámetros de consulta. Consulte la c
 |<a name="count" />count|El número de resultados para devolver, empezando por el índice especificado por el parámetro `offset`.|Cadena|Sin|   
 |<a name="localCategories" />localCategories|Lista de las opciones que definen la búsqueda por categoría de empresa.  Consulte la [Búsqueda de categorías de empresas locales](local-categories.md)|Cadena|Sin|  
 |<a name="mkt" />mkt|Mercado de dónde proceden los resultados. <br /><br />Para obtener una lista de los valores de mercado posibles, consulte Códigos de mercado.<br /><br /> **NOTA:** Local Business Search API solo admite actualmente el mercado estadounidense y el idioma inglés.<br /><br />|Cadena|Sí|
-|<a name="offset"/>offset|El índice de inicio de resultados especificados por el parámetro `count`.|Entero|Sin|  
+|<a name="offset"/>offset|El índice de inicio de resultados especificados por el parámetro `count`.|Integer|Sin|  
 |<a name="query" />q|Término de búsqueda del usuario.|Cadena|Sin|  
 |<a name="responseformat" />responseFormat|Tipo de medio que se usará para la respuesta. A continuación se indican los valores posibles que no distinguen entre mayúsculas y minúsculas.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> El valor predeterminado es JSON. Para obtener información acerca de los objetos JSON que contiene la respuesta, consulte [Objetos de respuesta](#response-objects).<br /><br />  Si especifica JsonLd, el cuerpo de respuesta incluye objetos JSON-LD que contienen los resultados de la búsqueda. Para obtener información acerca de JSON-LD, consulte [JSON-LD](https://json-ld.org/).|Cadena|Sin|  
 |<a name="safesearch" />safeSearch|Filtro que se usa para filtrar el contenido para adultos. Estos son los posibles valores posibles de filtro (no distingue entre mayúsculas y minúsculas).<br /><ul><li>Desactivado: devuelve páginas web con texto, imágenes o vídeos para adultos.<br /><br/></li><li>Moderado: devuelve páginas web con texto para adultos, pero no imágenes o vídeos para adultos.<br /><br/></li><li>Estricto: no devuelve páginas web con texto, imágenes o vídeos para adultos.</li></ul><br /> El valor predeterminado es Moderado.<br /><br /> **NOTA:** Si la solicitud proviene de un mercado para el que la directiva para adultos de Bing requiere que `safeSearch` se defina como Estricto, Bing ignora el valor `safeSearch` y usa Estricto.<br/><br/>**NOTA:** Si usa el operador de consulta `site:`, existe la posibilidad de que la respuesta contenga contenido para adultos, independientemente del valor asignado al parámetro de consulta `safeSearch`. Use `site:` solo si es consciente del contenido del sitio y el escenario admite la posibilidad de contenido para adultos. |Cadena|Sin|  
@@ -191,7 +191,7 @@ Define un elemento del resultado de la búsqueda que se muestra.
 
 |NOMBRE|Valor|type|  
 |-------------|-----------------|----------|
-|resultIndex|Índice basado en cero del elemento en la respuesta que se muestra. Si el elemento no incluye este campo, muestre todos los elementos en la respuesta. Por ejemplo, muestre todos los artículos de noticias en la respuesta de News.|Entero|
+|resultIndex|Índice basado en cero del elemento en la respuesta que se muestra. Si el elemento no incluye este campo, muestre todos los elementos en la respuesta. Por ejemplo, muestre todos los artículos de noticias en la respuesta de News.|Integer|
 |answerType|La respuesta que contiene el elemento que se muestra. Por ejemplo, News.<br /><br />Use el tipo para encontrar la respuesta en el objeto SearchResponse. El tipo es el nombre de un campo de SearchResponse.<br /><br /> Sin embargo, ese el tipo de respuesta solo si el objeto incluye el campo de valor; de lo contario, omítalo.|Cadena|
 |textualIndex|El índice de la respuesta en textualAnswers que se muestra.| Entero sin signo|
 |value|El identificador que identifica una respuesta que se muestra o un elemento de una respuesta que se muestra. Si el identificador identifica una respuesta, muestre todos los elementos de la respuesta.|Identifiable|

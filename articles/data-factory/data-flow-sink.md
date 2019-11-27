@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: 7cfe0cf291e8c39a4600234632090c39ab5cd78e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: fa6a2fd853673493c93dbe65f889468c8e0c8617
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73519329"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082934"
 ---
 # <a name="sink-transformation-for-a-data-flow"></a>Transformación del receptor para un flujo de datos
 
@@ -28,7 +28,7 @@ Para recibir todos los campos de entrada, active **Asignación automática**. Pa
 ## <a name="output"></a>Output 
 En los tipos de receptor de Azure Blob Storage o Data Lake Storage, genere la salida de los datos transformados en una carpeta. Spark genera los archivos de datos de salida con particiones según el esquema de partición que se usa en la transformación del receptor. 
 
-Puede establecer el esquema de partición en la pestaña **Optimizar**. Si quiere que Data Factory combine la salida en un solo archivo, seleccione **Partición única**.
+Puede establecer el esquema de partición en la pestaña **Optimizar**. Si quiere que Data Factory combine la salida en un solo archivo, seleccione **Partición única**. Si desea mantener o crear carpetas con particiones, use **Key partitioning** (Creación de particiones clave) y establezca las claves que desea usar para las estructuras de carpetas con particiones.
 
 ![Opciones de la pestaña Optimize (Optimizar)](media/data-flow/opt001.png "opciones de receptor")
 

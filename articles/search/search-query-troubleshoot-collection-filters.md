@@ -1,7 +1,7 @@
 ---
 title: Solución de problemas de filtros de colección de OData
 titleSuffix: Azure Cognitive Search
-description: Solucione problemas de errores de filtros de colección de OData en consultas de Azure Cognitive Search.
+description: Conozca los enfoques para solucionar errores de filtros de colección de OData en consultas de Azure Cognitive Search.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 0af2525a15618c6bfd9022b4388c547209ee957b
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: e82fa00226c964d5ba774cdf06f5b0f3898bdc55
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793187"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113080"
 ---
 # <a name="troubleshooting-odata-collection-filters-in-azure-cognitive-search"></a>Solución de problemas de filtros de colección de OData en Azure Cognitive Search
 
@@ -228,5 +228,5 @@ Si escribe filtros con frecuencia, y entender las reglas de los primeros princip
 - [Descripción de los filtros de colección de OData en Azure Cognitive Search](search-query-understand-collection-filters.md)
 - [Filtros de Azure Cognitive Search](search-filters.md)
 - [Información general sobre el lenguaje de expresiones OData para Azure Cognitive Search](query-odata-filter-orderby-syntax.md)
-- [Referencia de sintaxis de expresiones de OData para Azure Cognitive Search](search-query-odata-syntax-reference.md)
+- [Referencia de sintaxis de expresiones OData para Azure Cognitive Search](search-query-odata-syntax-reference.md)
 - [Búsqueda de documentos &#40;API REST de Azure Cognitive Search&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)

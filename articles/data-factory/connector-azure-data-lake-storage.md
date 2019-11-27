@@ -1,6 +1,6 @@
 ---
-title: Copia de datos con Azure Data Lake Storage Gen2 como origen o destino mediante Data Factory
-description: Aprenda a copiar datos hacia y desde Azure Data Lake Storage Gen2 mediante Azure Data Factory.
+title: Copia y transformación de los datos de Azure Data Lake Storage Gen2 mediante Data Factory
+description: Aprenda a copiar datos utilizando Azure Data Lake Storage Gen2 como origen y como destino y a transformar los datos de Azure Data Lake Storage Gen2 mediante Azure Data Factory.
 services: data-factory
 author: linda33wj
 manager: craigg
@@ -8,20 +8,20 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/24/2019
+ms.date: 11/13/2019
 ms.author: jingwang
-ms.openlocfilehash: e368597880bbbaee6c7aff7e72d88149840a23d8
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: fb21dbbe087f4dd1c210af1afbba19ba9df1242a
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681287"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076779"
 ---
-# <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Copia de datos con Azure Data Lake Storage Gen2 como origen o destino mediante Azure Data Factory
+# <a name="copy-and-transform-data-in-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Copia y transformación de los datos de Azure Data Lake Storage Gen2 mediante Azure Data Factory
 
 Azure Data Lake Storage Gen2 (ADLS Gen2) es un conjunto de funcionalidades dedicadas al análisis de macrodatos integrado en [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md). Puede usarlo para interactuar con los datos usando el paradigma de sistema de archivos o el de almacenamiento de objetos.
 
-En este artículo se explica cómo copiar datos con Azure Data Lake Storage Gen2 como origen o destino. Para información sobre Azure Data Factory, lea el [artículo de introducción](introduction.md).
+En este artículo, se explica el uso de la actividad de copia en Azure Data Factory para copiar datos utilizando Azure Data Lake Storage Gen2 como origen o destino y el uso de Data Flow para transformar datos en Azure Data Lake Storage Gen2. Para información sobre Azure Data Factory, lea el [artículo de introducción](introduction.md).
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
@@ -33,10 +33,10 @@ Este conector de Azure Data Lake Storage Gen2 es compatible con las actividades 
 - [Actividad GetMetadata](control-flow-get-metadata-activity.md)
 - [Actividad de eliminación](delete-activity.md)
 
-En concreto, con este conector, puede hacer lo siguiente:
+En el caso de la actividad de copia, con este conector puede:
 
-- Copiar los datos mediante la clave de cuenta, la entidad de servicio o identidades administradas para las autenticaciones de recursos de Azure.
-- Copiar los archivos tal cual, o bien analizarlos o generarlos con los [códecs de compresión y los formatos de archivo compatibles](supported-file-formats-and-compression-codecs.md).
+- Copiar datos utilizando Azure Data Lake Storage Gen2 como origen o destino con la clave de cuenta, la entidad de servicio o identidades administradas para las autenticaciones de recursos de Azure.
+- Copiar los archivos tal y como están, o bien analizarlos o generarlos con [códecs de compresión y los formatos de archivo compatibles](supported-file-formats-and-compression-codecs.md).
 
 >[!IMPORTANT]
 >Si habilita la opción **Permitir que los servicios de Microsoft de confianza accedan a esta cuenta de almacenamiento** en la configuración de firewall de Azure Storage y quiere usar Azure Integration Runtime para conectarse a Data Lake Storage Gen2, debe usar la [autenticación de identidad administrada](#managed-identity) para ADLS Gen2.
@@ -243,7 +243,7 @@ Las propiedades siguientes se admiten para Data Lake Store Gen2 en la configurac
 ### <a name="legacy-dataset-model"></a>Modelo de conjunto de datos heredado
 
 >[!NOTE]
->El siguiente modelo de conjunto de datos todavía se admite tal cual para la compatibilidad con versiones anteriores. A partir de ahora, se recomienda usar el nuevo modelo mencionado en la sección anterior; ademas, la interfaz de usuario de creación de ADF ha pasado a generar el nuevo modelo.
+>El siguiente modelo de conjunto de datos se sigue admitiendo tal cual para la compatibilidad con versiones anteriores. A partir de ahora, se recomienda usar el nuevo modelo mencionado en la sección anterior; además, la interfaz de usuario de creación de ADF ha pasado a generar el nuevo modelo.
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
@@ -352,7 +352,7 @@ Las propiedades siguientes se admiten para Data Lake Store Gen2 en la configurac
 #### <a name="legacy-source-model"></a>Modelo de origen heredado
 
 >[!NOTE]
->El siguiente modelo de origen de copia todavía se admite tal cual por compatibilidad con versiones anteriores. A partir de ahora, se recomienda usar el nuevo modelo mencionado anteriormente; ademas, la interfaz de usuario de creación de ADF ha pasado a generar el nuevo modelo.
+>El siguiente modelo de origen de copia se sigue admitiendo tal cual para la compatibilidad con versiones anteriores. A partir de ahora, se recomienda usar el nuevo modelo mencionado anteriormente; además, la interfaz de usuario de creación de ADF ha pasado a generar el nuevo modelo.
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
@@ -442,7 +442,7 @@ Las propiedades siguientes se admiten para Data Lake Store Gen2 en la configurac
 #### <a name="legacy-sink-model"></a>Modelo de receptor heredado
 
 >[!NOTE]
->El siguiente modelo de receptor de copia todavía se admite tal cual por compatibilidad con versiones anteriores. A partir de ahora, se recomienda usar el nuevo modelo mencionado anteriormente; ademas, la interfaz de usuario de creación de ADF ha pasado a generar el nuevo modelo.
+>El siguiente modelo de receptor de copia se sigue admitiendo tal cual para compatibilidad con versiones anteriores. A partir de ahora, se recomienda usar el nuevo modelo mencionado anteriormente; además, la interfaz de usuario de creación de ADF ha pasado a generar el nuevo modelo.
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |

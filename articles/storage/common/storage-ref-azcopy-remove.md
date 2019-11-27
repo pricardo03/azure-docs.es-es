@@ -8,12 +8,12 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: fc23afb9a407fc2e6689c5c8766cb4beba868269
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: abce1acb88e920c0de7bbb6447ec9d838f10486c
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72513429"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033996"
 ---
 # <a name="azcopy-remove"></a>azcopy remove
 
@@ -24,6 +24,13 @@ Elimine blobs o archivos de una cuenta de almacenamiento de Azure.
 ```azcopy
 azcopy remove [resourceURL] [flags]
 ```
+
+## <a name="related-conceptual-articles"></a>Artículos conceptuales relacionados
+
+- [Introducción a AzCopy](storage-use-azcopy-v10.md)
+- [Transferencia de datos con AzCopy y Blob Storage](storage-use-azcopy-blobs.md)
+- [Transferencia de datos con AzCopy y File Storage](storage-use-azcopy-files.md)
+- [Configurar, optimizar y solucionar problemas de AzCopy](storage-use-azcopy-configure.md)
 
 ## <a name="examples"></a>Ejemplos
 

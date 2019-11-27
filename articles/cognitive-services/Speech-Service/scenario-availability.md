@@ -1,7 +1,7 @@
 ---
 title: 'Disponibilidad de escenarios: Speech Service'
 titleSuffix: Azure Cognitive Services
-description: Referencia de las regiones del servicio Voz.
+description: El SDK de Voz presenta muchos escenarios en una amplia variedad de lenguajes y entornos de programación. No todos los escenarios están disponibles en todos los lenguajes de programación o todos los entornos. A continuación se indica la disponibilidad de cada escenario.
 services: cognitive-services
 author: chrisbasoglu
 manager: xdh
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: cbasoglu
-ms.openlocfilehash: 6ec31df7cef8391728eae7845f64f55bb1c6466a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 02632e5bc84c7406ce3a42eb4be71cf6aaf75c15
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73491342"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075754"
 ---
 # <a name="scenario-availability"></a>Disponibilidad de escenarios
 
-El SDK del servicio Voz presenta muchos escenarios en una amplia variedad de lenguajes y entornos de programación.  No todos los escenarios están actualmente disponibles en todos los lenguajes de programación o todos los entornos.  A continuación se indica la disponibilidad de cada escenario.
+El SDK de Voz presenta muchos escenarios en una amplia variedad de lenguajes y entornos de programación. No todos los escenarios están disponibles en todos los lenguajes de programación o todos los entornos. A continuación se indica la disponibilidad de cada escenario.
 
 - **Reconocimiento de voz (SR), lista de frases, intención, traducción y contenedores locales**
   - Todos los lenguajes de programación y entornos donde haya un vínculo de flecha <img src="media/index/link.jpg" height="15" width="15"></img> en [esta](https://aka.ms/csspeech) tabla de inicio rápido.

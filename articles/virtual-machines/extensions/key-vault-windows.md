@@ -1,5 +1,5 @@
 ---
-title: Extensión de máquina virtual de Azure Key Vault para Windows | Microsoft Docs
+title: Extensión de máquina virtual de Azure Key Vault para Windows
 description: Implemente un agente que realice la actualización automática de secretos de Key Vault en máquinas virtuales mediante una extensión de máquina virtual.
 services: virtual-machines-windows
 author: msmbaldwin
@@ -7,12 +7,12 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 09/23/2018
 ms.author: mbaldwin
-ms.openlocfilehash: 7c730ad3f14cc26cd1251b497ef2d146fe99e448
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 4a2323212d2112e17dc613040434d54516aad9d3
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73584366"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073713"
 ---
 # <a name="key-vault-virtual-machine-extension-for-windows"></a>Extensión de máquina virtual de Key Vault para Windows
 

@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: dacurwin
-ms.openlocfilehash: 24e90ebd2994c5fffc1252167c06783421f2ac33
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: d914c2988b5f28940021de24dcfe1183c68b15cc
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035253"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074345"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Arquitectura y componentes de Azure Backup
 
@@ -120,7 +120,7 @@ Copia de seguridad de discos desduplicados | | | ![Parcialmente][yellow]<br/><br
     - Solo se copian los bloques de datos que han cambiado desde la última copia de seguridad.
     - Los datos no se cifran. Azure Backup puede hacer una copia de seguridad de las máquinas virtuales de Azure que se cifraron mediante Azure Disk Encryption.
     - Es posible que los datos de las instantáneas no se copien inmediatamente en el almacén. En momentos de máxima actividad, la copia de seguridad podría durar horas. El tiempo total de copia de seguridad de una VM será inferior a 24 horas para las directivas de copia de seguridad diarias.
-1. Una vez enviados los datos al almacén, se crea un punto de recuperación. De manera predeterminada, las instantáneas se conservan durante dos días antes de ser eliminadas. Esta característica permite la operación de restauración a partir de estas instantáneas, lo cual reduce los tiempos de restauración. Reduce el tiempo necesario para transformar y copiar datos desde el almacén. Consulte [Funcionalidad de restauración instantánea de Azure Backup](https://docs.microsoft.com/en-us/azure/backup/backup-instant-restore-capability).
+1. Una vez enviados los datos al almacén, se crea un punto de recuperación. De manera predeterminada, las instantáneas se conservan durante dos días antes de ser eliminadas. Esta característica permite la operación de restauración a partir de estas instantáneas, lo cual reduce los tiempos de restauración. Reduce el tiempo necesario para transformar y copiar datos desde el almacén. Consulte [Funcionalidad de restauración instantánea de Azure Backup](https://docs.microsoft.com/azure/backup/backup-instant-restore-capability).
 
 Las máquinas virtuales de Azure necesitan acceso a Internet para usar los comandos de control. Si va a realizar la copia de seguridad de las cargas de trabajo que contiene la máquina virtual (por ejemplo, la copia de seguridad de la base de datos de SQL Server), los datos del back-end también necesitan acceso a Internet.
 
@@ -134,7 +134,7 @@ Las máquinas virtuales de Azure necesitan acceso a Internet para usar los coman
     - El agente de MARS solo usa la operación de escritura del sistema Windows para capturar la instantánea.
     - Dado que el agente no usa instancias de VSS Writer de aplicaciones, no captura instantáneas coherentes con la aplicación.
 1. Después de tomar la instantánea con VSS, el agente de MARS crea un disco duro virtual en la carpeta de caché que especificó al configurar la copia de seguridad. El agente también almacena las sumas de comprobación para cada bloque de datos.
-1. Se ejecutan copias de seguridad incrementales según la programación que especifique, a menos que ejecute una copia de seguridad ad hoc.
+1. Se ejecutan copias de seguridad incrementales según la programación que especifique, a menos que ejecute una copia de seguridad a petición.
 1. En las copias de seguridad incrementales, se identifican los archivos modificados y se crea un disco duro virtual. Este disco se comprime y cifra, y se envía al almacén.
 1. Una vez finalizada la copia de seguridad incremental, el nuevo disco duro virtual se combina con el disco duro virtual creado después de la replicación inicial. Este disco duro virtual combinado proporciona el estado más reciente que se usará para la comparación de la copia de seguridad en curso.
 
@@ -148,7 +148,7 @@ Las máquinas virtuales de Azure necesitan acceso a Internet para usar los coman
     - Con DPM o MABS puede proteger volúmenes de copia de seguridad, recursos compartidos, archivos y carpetas. También puede proteger el estado del sistema de las máquinas (reconstrucción completa) y proteger aplicaciones específicas con la configuración de la copia de seguridad con reconocimiento de aplicaciones.
 1. Al configurar la protección para una máquina o una aplicación en DPM o MABS, selecciona hacer la copia de seguridad en el disco local de DPM o MABS para el almacenamiento a corto plazo, y en Azure para la protección en línea. También especificará cuándo se debe ejecutar la copia de seguridad en el almacenamiento local de DPM o MABS y cuándo la copia de seguridad en línea en Azure.
 1. El disco de la carga de trabajo protegida se copia en los discos locales de DPM o MABS, según la programación especificada.
-4. Los discos de DPM o MABS se copian en el almacén por el agente de MARS que se ejecuta en el servidor DPM o MABS.
+1. Los discos de DPM o MABS se copian en el almacén por el agente de MARS que se ejecuta en el servidor DPM o MABS.
 
 ![Copia de seguridad de máquinas y cargas de trabajo protegidas mediante DPM o MABS](./media/backup-architecture/architecture-dpm-mabs.png)
 

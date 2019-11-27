@@ -1,5 +1,5 @@
 ---
-title: Creación de FQDN para una VM de Linux en Azure Portal | Microsoft Docs
+title: Creación de un nombre de dominio completo para una VM Linux en Azure Portal
 description: Aprenda a crear un nombre de dominio completo, o FQDN, para una máquina virtual basada en Resource Manager en Azure Portal.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 08/15/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d7309f4be43c6b653f261e5de5fbe3e638e83294
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 3d30f5a60bf19e9185d992b973414f58942f9954
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70082440"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035306"
 ---
 # <a name="create-a-fully-qualified-domain-name-in-the-azure-portal-for-a-linux-vm"></a>Creación de un nombre de dominio completo en Azure Portal para una máquina virtual Linux
 

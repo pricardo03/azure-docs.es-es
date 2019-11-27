@@ -1,5 +1,5 @@
 ---
-title: Grupos de disponibilidad de SQL Server - Azure Virtual Machines - Recuperación ante desastres | Microsoft Docs
+title: Configuración de un grupo de disponibilidad entre regiones distintas
 description: En este artículo se explica cómo configurar un grupo de disponibilidad de SQL Server en Azure Virtual Machines con una réplica en una región distinta.
 services: virtual-machines
 documentationCenter: na
@@ -9,20 +9,20 @@ editor: monicar
 tags: azure-service-management
 ms.assetid: 388c464e-a16e-4c9d-a0d5-bb7cf5974689
 ms.service: virtual-machines-sql
-ms.custom: na
+ms.custom: seo-lt-2019
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
-ms.openlocfilehash: 9949c389ad0511c3ed5923e0451bc96e7063621f
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 96b7c3cf59f947d1476ad840ae81695356d869b6
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73159734"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037549"
 ---
-# <a name="configure-an-always-on-availability-group-on-azure-virtual-machines-in-different-regions"></a>Configuración de un grupo de disponibilidad AlwaysOn en máquinas virtuales de Azure en distintas regiones
+# <a name="configure-an-availability-group-on-azure-sql-server-virtual-machines-in-different-regions"></a>Configuración de un grupo de disponibilidad en máquinas virtuales de Azure SQL Server en distintas regiones
 
 En este artículo se explica cómo configurar un grupo de disponibilidad de SQL Server AlwaysOn en máquinas virtuales de Azure en una ubicación remota de Azure. Use esta configuración para admitir la recuperación ante desastres.
 

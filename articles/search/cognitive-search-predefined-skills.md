@@ -1,5 +1,5 @@
 ---
-title: Aptitudes integradas para la extracción de datos, el lenguaje natural y el procesamiento de imágenes durante la indexación
+title: Procesamiento integrado de texto e imagen durante la indexación
 titleSuffix: Azure Cognitive Search
 description: Las aptitudes cognitivas de extracción de datos, lenguaje natural y procesamiento de imágenes agregan semántica y estructura al contenido sin procesar de una canalización de Búsqueda cognitiva de Azure.
 manager: nitinme
@@ -8,16 +8,16 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 2f03752c5fda366fc16b681d71ba68486527a30f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f419b19b576ebf6f7f853b41128908487f047df6
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466800"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113365"
 ---
-# <a name="built-in-cognitive-skills-for-content-enrichment-azure-cognitive-search"></a>Aptitudes cognitivas integradas para el enriquecimiento de contenido (Búsqueda cognitiva de Azure)
+# <a name="built-in-cognitive-skills-for-text-and-image-processing-during-indexing-azure-cognitive-search"></a>Aptitudes cognitivas integradas para el procesamiento de texto e imagen durante la indexación (Azure Cognitive Search)
 
-En este artículo se obtiene información sobre las aptitudes cognitivas que proporciona Búsqueda cognitiva de Azure. Una *habilidad cognitiva* es una operación que transforma el contenido de alguna manera. Normalmente es un componente que extrae datos o deduce la estructura y, por tanto, aumenta la comprensión de los datos de entrada. Casi siempre la salida se basa en texto. Un *conjunto de habilidades* es una colección de habilidades que definen la canalización de enriquecimiento. 
+En este artículo, obtendrá información sobre las aptitudes cognitivas proporcionadas con Azure Cognitive Search que puede incluir en un conjunto de aptitudes para extraer contenido y estructura. Una *aptitud cognitiva* es un módulo u operación que transforma el contenido de alguna manera. Normalmente es un componente que extrae datos o deduce la estructura y, por tanto, aumenta la comprensión de los datos de entrada. Casi siempre la salida se basa en texto. Un *conjunto de habilidades* es una colección de habilidades que definen la canalización de enriquecimiento. 
 
 > [!NOTE]
 > A medida que expanda el ámbito aumentando la frecuencia de procesamiento, agregando más documentos o agregando más algoritmos de IA, tendrá que [asociar un recurso facturable de Cognitive Services](cognitive-search-attach-cognitive-services.md). Los cargos se acumulan cuando se llama a las API de Cognitive Services y por la extracción de imágenes como parte de la fase de descifrado de documentos de Azure Cognitive Search. No hay ningún cargo por la extracción de texto de documentos.

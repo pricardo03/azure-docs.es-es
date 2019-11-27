@@ -1,7 +1,7 @@
 ---
 title: Referencia de select de OData
 titleSuffix: Azure Cognitive Search
-description: Referencia del lenguaje OData para la sintaxis de select en consultas de Azure Cognitive Search
+description: Referencia de sintaxis y lenguaje para la selección explícita de campos que se van a devolver en los resultados de búsqueda de las consultas de Azure Cognitive Search.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 7786974f3d39f9cbc81e1ffea955156d623f1476
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 64f15bf3d262249cdda2760c7ddf768be2590419
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793248"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113107"
 ---
 # <a name="odata-select-syntax-in-azure-cognitive-search"></a>Sintaxis de $select de OData en Azure Cognitive Search
 
@@ -110,7 +110,7 @@ Un resultado de ejemplo podría tener este aspecto:
 
 ## <a name="next-steps"></a>Pasos siguientes  
 
-- [Uso de los resultados de la búsqueda en Azure Cognitive Search](search-pagination-page-layout.md)
+- [Procedimientos para trabajar con los resultados de búsqueda en Azure Cognitive Search](search-pagination-page-layout.md)
 - [Introducción al lenguaje de expresiones OData para Azure Cognitive Search](query-odata-filter-orderby-syntax.md)
-- [Referencia de la sintaxis de expresiones OData para Azure Cognitive Search](search-query-odata-syntax-reference.md)
+- [Referencia de sintaxis de expresiones OData para Azure Cognitive Search](search-query-odata-syntax-reference.md)
 - [Búsqueda de documentos &#40;API REST de Azure Cognitive Search&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)

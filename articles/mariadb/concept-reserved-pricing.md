@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.openlocfilehash: e7aa951634dffcafc20f198f85c15f5ac954fe58
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 61736d4f7e6b17c6037837bfdfe6d9cb8a00c5f6
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73608440"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076864"
 ---
 # <a name="prepay-for-azure-database-for-mariadb-compute-resources-with-reserved-capacity"></a>Pago por adelantado de recursos de proceso de Azure Database for MariaDB con capacidad reservada
 
@@ -32,7 +32,7 @@ Para información sobre cómo se les cobra a los clientes de empresa y a los de 
 
 El tamaño de la reserva debe basarse en la cantidad total de proceso que usan las instancias de bases de datos existentes o que se van a implementar pronto en una región específica y con el mismo nivel de rendimiento y generación de hardware.</br>
 
-Por ejemplo, supongamos que se está ejecutando una base de datos MariaDB de propósito general Gen5 de 32 núcleos virtuales y dos bases de datos MariaDB optimizadas para memoria Gen5 de 16 núcleos virtuales. Además, supongamos que planea implementar en el próximo mes un grupo elástico Gen5 de propósito general y 32 núcleos virtuales adicional, y un servidor de bases de datos optimizado para memoria Gen 5 de 16 núcleos virtuales. Vamos a suponer que sabe que necesitará estos recursos durante al menos 1 año. En este caso debe comprar una reserva de 1 año de una instancia de Gen5 con 64 núcleos virtuales (2 × 32) para una base de datos única de uso general y otra reserva de 1 año de una instancia de Gen 5 con 48 núcleos virtuales (2 × 16 + 16) para una base de datos única optimizada para memoria.
+Por ejemplo, supongamos que se está ejecutando una base de datos MariaDB de propósito general Gen5 de 32 núcleos virtuales y dos bases de datos MariaDB optimizadas para memoria Gen5 de 16 núcleos virtuales. Además, supongamos que planea implementar en el próximo mes un grupo elástico Gen5 de uso general y 32 núcleos virtuales adicionales, y un servidor de bases de datos optimizado para memoria Gen5 de 16 núcleos virtuales. Vamos a suponer que sabe que necesitará estos recursos durante al menos 1 año. En este caso debe comprar una reserva de 1 año de una instancia de Gen5 con 64 núcleos virtuales (2 × 32) para una base de datos única de uso general y otra reserva de 1 año de una instancia de Gen 5 con 48 núcleos virtuales (2 × 16 + 16) para una base de datos única optimizada para memoria.
 
 
 ## <a name="buy-azure-database-for-mariadb-reserved-capacity"></a>Compra de capacidad reservada de Azure Database for MariaDB
