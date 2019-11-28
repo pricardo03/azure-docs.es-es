@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 0f3b7826fdcc16d3094785507ec8263da39d6284
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 1d8e473afa2c8e7c0abf58e2dbc9caea030f2f5f
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70881516"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74554985"
 ---
 # <a name="what-is-custom-speech"></a>¿Qué es Custom Speech?
 
@@ -43,7 +43,7 @@ Este diagrama resalta las partes que componen el [portal de Custom Speech](https
 
 ## <a name="set-up-your-azure-account"></a>Configuración de la cuenta de Azure
 
-Para poder usar el [portal de Custom Speech](https://speech.microsoft.com/customspeech) y crear un modelo personalizado, se necesita una suscripción de Servicios de voz. Siga estas instrucciones para crear una suscripción estándar a Servicios de voz: [Creación de una suscripción a Voz](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#new-azure-account).
+Para poder usar el [portal de Custom Speech](https://speech.microsoft.com/customspeech) y crear un modelo personalizado, se necesita una suscripción de Servicios de voz. Siga estas instrucciones para crear una suscripción estándar a Servicios de voz: [Creación de una suscripción a Voz](get-started.md#try-the-speech-service-using-a-new-azure-account).
 
 > [!NOTE]
 > Asegúrese de crear suscripciones estándar (S0); no se admiten las suscripciones de prueba gratuita (F0).

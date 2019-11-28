@@ -3,7 +3,7 @@ title: 'Tutorial de creación de la infraestructura para un clúster de Service 
 description: En este tutorial aprenderá a configurar la infraestructura de una máquina virtual de Azure para ejecutar un clúster de Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: v-vasuke
+author: jpconnock
 manager: jpconnock
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/22/2019
-ms.author: v-vasuke
+ms.author: jeconnoc
 ms.custom: mvc
-ms.openlocfilehash: c9dd9cf0f0fb6d20d6837b07ab46d376e379ca25
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: b24b4d95827dbd398c0eba43dcbad9fbfeb51469
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177730"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74166281"
 ---
 # <a name="tutorial-create-azure-vm-infrastructure-to-host-a-service-fabric-cluster"></a>Tutorial: Creación de la infraestructura de una máquina virtual de Azure para hospedar un clúster de Service Fabric
 
@@ -90,12 +90,18 @@ Inicie dos **máquinas virtuales** más y asegúrese de mantener la misma config
  
 4. Abra el archivo RDP y, cuando se le solicite, escriba el nombre de usuario y la contraseña que proporcionó en la configuración de la máquina virtual.
 
-5. Cuando esté conectado a una instancia, debe asegurarse de que el registro remoto se encuentre en ejecución y abrir los puertos necesarios.
+5. Cuando esté conectado a una instancia, debe asegurarse de que el registro remoto se encuentre en ejecución, habilitar SMB y abrir los puertos necesarios para SMB y el registro remoto.
+
+   Para habilitar SMB, use este comando de PowerShell:
+
+   ```powershell
+   netsh advfirewall firewall set rule group="File and Printer Sharing" new enable=Yes
+   ```
 
 6. Para abrir los puertos en el firewall, este es el comando de PowerShell:
 
    ```powershell
-   New-NetFirewallRule -DisplayName "Service Fabric Ports" -Direction Inbound -Action Allow -RemoteAddress LocalSubnet -Protocol TCP -LocalPort 135, 137-139
+   New-NetFirewallRule -DisplayName "Service Fabric Ports" -Direction Inbound -Action Allow -RemoteAddress LocalSubnet -Protocol TCP -LocalPort 135, 137-139, 445
    ```
 
 7. Repita este proceso para las demás instancias, y no olvide anotar las direcciones IP privadas.
@@ -111,6 +117,15 @@ Inicie dos **máquinas virtuales** más y asegúrese de mantener la misma config
    ```
 
    Si la salida es similar a `Reply from 172.31.20.163: bytes=32 time<1ms TTL=128` repetida cuatro veces, la conexión entre las instancias funciona.
+
+3. Ahora, asegúrese de que el recurso compartido de SMB funciona con el comando siguiente:
+
+   ```
+   net use * \\172.31.20.163\c$
+   ```
+
+   Debe devolver `Drive Z: is now connected to \\172.31.20.163\c$.` como salida.
+
 
    Ahora las instancias están configuradas correctamente para Service Fabric.
 

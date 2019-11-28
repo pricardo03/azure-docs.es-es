@@ -7,14 +7,14 @@ author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 09/19/2019
+ms.date: 11/21/2019
 ms.author: dapine
-ms.openlocfilehash: e3051a72a115e711a99ecd68756967e2cef0cc04
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: c39df1e6af292d3774c6cba62663454bd2d8ad28
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71130057"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383426"
 ---
 ### <a name="deploy-the-language-detection-container-to-an-aks-cluster"></a>Implementación del contenedor de detección de idioma en un clúster de AKS
 
@@ -66,6 +66,13 @@ ms.locfileid: "71130057"
             image: mcr.microsoft.com/azure-cognitive-services/language
             ports:
             - containerPort: 5000
+            resources:
+              requests:
+                memory: 2Gi
+                cpu: 1
+              limits:
+                memory: 4Gi
+                cpu: 1
             env:
             - name: EULA
               value: "accept"
@@ -91,7 +98,7 @@ ms.locfileid: "71130057"
 1. Ejecute el comando `apply` de Kubernetes con el archivo *language.yaml* como destino:
 
     ```console
-    kuberctl apply -f language.yaml
+    kubectl apply -f language.yaml
     ```
 
     Una vez que el comando ha aplicado correctamente la configuración de implementación, se muestra un mensaje similar al siguiente:

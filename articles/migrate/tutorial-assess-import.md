@@ -7,19 +7,16 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: raynew
-ms.openlocfilehash: 856f7f7735435579ac14918ee8026f27b222773e
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 7bf47731f2a3621e7bbdc1b104d94e97f2d03099
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73715516"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158652"
 ---
 # <a name="assess-servers-using-imported-data"></a>Evaluación de servidores con datos importados
 
-> [!NOTE]
-> Si aún no ve esta característica en el portal de Azure Migrate, espere. Aparecerá aproximadamente la semana siguiente.
-
-En este artículo se explica cómo evaluar servidores locales con [Azure Migrate: Server Assesment](migrate-services-overview.md#azure-migrate-server-assessment-tool), mediante la importación de metadatos de servidor con CSV. Con este método de evaluación, no es necesario configurar el dispositivo Azure Migrate para crear una evaluación. Resulta útil cuando: 
+En este artículo se explica cómo evaluar servidores locales con [Azure Migrate: Server Assesment](migrate-services-overview.md#azure-migrate-server-assessment-tool), mediante la importación de metadatos de servidor con CSV. Con este método de evaluación, no es necesario configurar el dispositivo Azure Migrate para crear una evaluación. Resulta útil cuando:
 
 - Desea crear una evaluación inicial rápida antes de implementar el dispositivo.
 - No se puede implementar el dispositivo de Azure Migrate en la organización.
@@ -49,7 +46,7 @@ En este tutorial, aprenderá a:
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/) antes de empezar.
 
 
-## <a name="set-azure-permissions-for-azure-migrate"></a>Configuración de los permisos de Azure para Azure Migrate 
+## <a name="set-azure-permissions-for-azure-migrate"></a>Configuración de los permisos de Azure para Azure Migrate
 
 la cuenta de Azure necesita permisos para crear un proyecto de Azure Migrate.
 
@@ -116,7 +113,7 @@ En la tabla siguiente se resumen los campos de archivo que se van a rellenar.
 
 **Nombre del campo** | **Obligatorio** | **Detalles**
 --- | --- | ---
-**Nombre del servidor** | Sí | Se recomienda especificar el FQDN. 
+**Nombre del servidor** | Sí | Se recomienda especificar el FQDN.
 **Dirección IP** | Sin | Dirección del servidor.
 **Number of cores** (Número de núcleos) | Sí | El número de núcleos de procesador asignados al servidor.
 **Memoria** | Sí | RAM total (MB) asignada al servidor.
@@ -144,7 +141,7 @@ En la tabla siguiente se resumen los campos de archivo que se van a rellenar.
 **Virtual machine manager ID** (Identificador de Virtual Machine Manager) | Sin | Este es el **InstanceUUid** para VMWare vCenter. No es necesario para Hyper-V.
 **MAC address** (Dirección MAC)| Sin | Dirección MAC de servidor.
 **BIOS ID** (IDENTIFICADOR DE BIOS) | Sin | Identificador del BIOS de servidor.
-**Custom server ID** (Identificador de servidor personalizado)| Sin | Identificadores de servidores únicos locales en el entorno local. <br/> Resulta útil para realizar el seguimiento del servidor importado mediante el identificador local. 
+**Custom server ID** (Identificador de servidor personalizado)| Sin | Identificadores de servidores únicos locales en el entorno local. <br/> Resulta útil para realizar el seguimiento del servidor importado mediante el identificador local.
 **Application 1 name** (Nombre de aplicación 1) | Sin | Nombre de las cargas de trabajo que se ejecutan en el servidor.<br/> Puede agregar detalles de más aplicaciones si [agrega columnas](#add-multiple-applications) en la plantilla. Puede agregar hasta cinco aplicaciones.
 **Application 1 type** (Tipo de aplicación 1) | Sin | Tipo de la carga de trabajo que se ejecuta en el servidor
 **Application 1 version** (Versión de aplicación 1) | Sin | Versión de la carga de trabajo que se ejecuta en el servidor.
@@ -162,7 +159,7 @@ La evaluación reconoce nombres específicos del sistema operativo. Cualquier no
 
 ### <a name="add-multiple-disks"></a>Agregar varios discos
 
-La plantilla proporciona los campos predeterminados para el primer disco.  Puede agregar columnas similares para un máximo de ocho discos. 
+La plantilla proporciona los campos predeterminados para el primer disco.  Puede agregar columnas similares para un máximo de ocho discos.
 
 Por ejemplo, para especificar todos los campos de un segundo disco, agregue las columnas:
 
@@ -192,10 +189,10 @@ Después de agregar información a la plantilla de CSV, importe los servidores e
 
 1. En Azure Migrate > **Detectar máquinas**, vaya a la plantilla rellenada.
 2. Haga clic en **Import**.
-3. Se muestra el estado de la importación. 
+3. Se muestra el estado de la importación.
     - Si aparecen advertencias en el estado, puede corregirlas o continuar.
     - Si se mejora la información del servidor según se recomienda en las advertencias, aumenta la precisión de la evaluación.
-    - Para ver y corregir advertencias, si aparecen, haga clic en **Download warning details .CSV** (Descargar archivos .CSV de detalles de advertencias). De este modo, se descarga el archivo CSV, con las advertencias agregadas. Puede revisar las advertencias y corregir los problemas según sea necesario. 
+    - Para ver y corregir advertencias, si aparecen, haga clic en **Download warning details .CSV** (Descargar archivos .CSV de detalles de advertencias). De este modo, se descarga el archivo CSV, con las advertencias agregadas. Puede revisar las advertencias y corregir los problemas según sea necesario.
     Si aparecen errores en el estado [el estado de la importación es **Failed** (Error)], debe corregirlos para poder continuar con la importación. Para ello, descargue el archivo CSV, que ahora tiene los detalles de error agregados. Revise y solucione los errores según sea necesario. Después, vuelva a cargar el archivo modificado.
 4. Si el estado de la importación es **Completed** (Completado), la información del servidor se ha importado.
 
@@ -205,7 +202,7 @@ Después de agregar información a la plantilla de CSV, importe los servidores e
 
 ## <a name="updating-server-information"></a>Actualización de la información del servidor
 
-Para actualizar la información de un servidor, puede cargar los datos para el servidor de nuevo con el mismo **nombre del servidor**. No puede modificar el campo **Nombre del servidor**. 
+Para actualizar la información de un servidor, puede cargar los datos para el servidor de nuevo con el mismo **nombre del servidor**. No puede modificar el campo **Nombre del servidor**.
 
 La eliminación de servidores no se admite actualmente.
 
@@ -300,21 +297,21 @@ Esta vista muestra el costo estimado de almacenamiento y proceso que conlleva ej
 
 NOMBRE | NOMBRE
 --- | ---
-**A - H** | 
+**A - H** |
 Apple Mac OS X 10 | Asianux 3<br/>Asianux 4<br/>Asianux 5
-CentOS<br/>CentOS 4/5 | CoreOS Linux 
-Debian GNU/Linux 4<br/>Debian GNU/Linux 5<br/>Debian GNU/Linux 6<br/>Debian GNU/Linux 7<br/>Debian GNU/Linux 8 | FreeBSD 
-**I - R** | 
+CentOS<br/>CentOS 4/5 | CoreOS Linux
+Debian GNU/Linux 4<br/>Debian GNU/Linux 5<br/>Debian GNU/Linux 6<br/>Debian GNU/Linux 7<br/>Debian GNU/Linux 8 | FreeBSD
+**I - R** |
 IBM OS/2 | MS-DOS |
-Novell NetWare 5<br/>Novell NetWare 6 | Oracle Linux<br/> Oracle Linux 4/5<br/>Oracle Solaris 10<br/> Oracle Solaris 11 
-Red Hat Enterprise Linux 2<br/>Red Hat Enterprise Linux 3<br/>Red Hat Enterprise Linux 4<br/>Red Hat Enterprise Linux 5<br/>Red Hat Enterprise Linux 6<br/>Red Hat Enterprise Linux 7<br/>Red Hat Fedora | 
-**S-T** | 
+Novell NetWare 5<br/>Novell NetWare 6 | Oracle Linux<br/> Oracle Linux 4/5<br/>Oracle Solaris 10<br/> Oracle Solaris 11
+Red Hat Enterprise Linux 2<br/>Red Hat Enterprise Linux 3<br/>Red Hat Enterprise Linux 4<br/>Red Hat Enterprise Linux 5<br/>Red Hat Enterprise Linux 6<br/>Red Hat Enterprise Linux 7<br/>Red Hat Fedora |
+**S-T** |
 SCO OpenServer 5<br/>SCO OpenServer 6<br/>SCO UnixWare 7 | Serenity Systems eComStation 1<br/>Serenity Systems eComStation 2
 Sun Microsystems Solaris 8<br/>Sun Microsystems Solaris 9 | SUSE Linux Enterprise 10<br/> SUSE Linux Enterprise 11<br/>SUSE Linux Enterprise 12<br/>SUSE Linux Enterprise 8/9<br/>SUSE Linux Enterprise 11<br/>SUSE openSUSE
-**U-Z** | 
+**U-Z** |
 Ubuntu Linux | VMware ESXi 4<br/>VMware ESXi 5<br/>VMware ESXi 6
 Windows 10<br/>Windows 2000<br/>Windows 3<br/>Windows 7<br/>Windows 8<br/>Windows 95<br/>Windows 98<br/>Windows NT<br/>Windows Server (R) 2008<br/>Windows Server 2003 | Windows Server 2008<br/>Windows Server 2008 R2<br/>Windows Server 2012<br/>Windows Server 2012 R2<br/>Windows Server 2016<br/>Windows Server 2019<br/>Windows Server Threshold<br/>Windows Vista<br/>Windows Web Server 2008 R2<br/>Windows XP Professional
-    
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

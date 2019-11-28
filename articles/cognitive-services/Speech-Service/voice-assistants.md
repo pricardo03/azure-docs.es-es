@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: travisw
-ms.openlocfilehash: bd808c0c71e02483b4c4b06e612720c1802869a0
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 403768bc81b476dd144d5e4496f3501a3001da8a
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73577970"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74195940"
 ---
 # <a name="about-voice-assistants"></a>Acerca de los asistentes de voz
 
@@ -39,7 +39,8 @@ El primer paso para crear un asistente de voz es decidir qué se debe hacer. Los
 Se recomienda [Direct Line Speech](direct-line-speech.md) como mejor opción predeterminada si aún no está seguro de lo que le gustaría que controlara el asistente. Ofrece integración con un completo conjunto de herramientas y ayudas de creación, como la [solución de asistente virtual y de plantilla de empresa](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview) y el [servicio de QnA Maker](https://docs.microsoft.com/azure/cognitive-services/QnAMaker/Overview/overview) para crear patrones comunes y usar los orígenes de conocimiento existentes.
 
 [Custom Commands (versión preliminar)](custom-commands.md) proporciona una experiencia de creación y hospedaje simplificada específicamente adaptada a escenarios de control y comandos de lenguaje natural.
-   ![Comparación de soluciones de asistentes](media/voice-assistants/assistant-solution-comparison.png "CompComparación de soluciones de asistentes")
+
+   ![Comparación de soluciones de asistentes](media/voice-assistants/assistant-solution-comparison.png "Comparación de soluciones de asistentes")
 
 ## <a name="core-features"></a>Características principales
 

@@ -2,18 +2,15 @@
 title: 'Tutorial: Uso de funciones de Java con Azure Cosmos DB y Event Hubs'
 description: En este tutorial se muestra cómo consumir eventos de Event Hubs para hacer realizar actualizaciones en Azure Cosmos DB mediante una función escrita en Java.
 author: KarlErickson
-manager: barbkess
-ms.service: azure-functions
-ms.devlang: java
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: karler
-ms.openlocfilehash: 172dda0a79620431d41a5be7e872b6b1507a6c81
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 04cb91a62536c493240998270b5bd8d29fd331ba
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73608308"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230627"
 ---
 # <a name="tutorial-create-a-function-in-java-with-an-event-hub-trigger-and-an-azure-cosmos-db-output-binding"></a>Tutorial: Creación de una función en Java con un desencadenador de centro de eventos y un enlace de salida de Azure Cosmos DB
 

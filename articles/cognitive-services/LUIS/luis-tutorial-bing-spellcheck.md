@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 11/15/2019
+ms.date: 11/19/2019
 ms.author: diberry
-ms.openlocfilehash: 238b76040559148c48aa67b99e856a5987b71a7e
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 51b0d02443df872a7fae13116ea77b13d05055fa
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74123162"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74225462"
 ---
 # <a name="correct-misspelled-words-with-bing-spell-check"></a>Corregir palabras incorrectas con Bing Spell Check
 
@@ -26,6 +26,7 @@ Se puede integrar la aplicación de LUIS con [Bing Spell Check API V7](https://a
 
 
 ## <a name="create-first-key-for-bing-spell-check-v7"></a>Crear la primera clave para Bing Spell Check V7
+
 La [primera clave de Bing Spell Check API v7](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api) es gratuita. 
 
 ![Creación de una clave gratuita](./media/luis-tutorial-bing-spellcheck/free-key.png)
@@ -61,9 +62,10 @@ Si la clave gratuita expiró, cree una clave de punto de conexión.
 
 10. Copie la primera clave. Solo necesita una de las dos claves. 
 
-## <a name="using-the-key-in-luis-test-panel"></a>Uso de la clave en el panel de prueba de LUIS
-En LUIS hay dos lugares para usar la clave. El primero es el [panel de prueba](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel). La clave no se guarda en LUIS sino que es una variable de sesión. Tendrá que establecer la clave cada vez que quiera que el panel de prueba aplique el servicio Bing Spell Check API v7 a la expresión. Vea las [instrucciones](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel) en el panel de prueba para configurar la clave.
-
+<!--
+## Using the key in LUIS test panel
+There are two places in LUIS to use the key. The first is in the [test panel](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel). The key isn't saved into LUIS but instead is a session variable. You need to set the key every time you want the test panel to apply the Bing Spell Check API v7 service to the utterance. See [instructions](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel) in the test panel for setting the key.
+-->
 ## <a name="adding-the-key-to-the-endpoint-url"></a>Agregar la clave a la dirección URL del punto de conexión
 La consulta de punto de conexión necesita la clave que se pasa en los parámetros de cadena de consulta para cada consulta a la que quiera aplicar la corrección ortográfica. Es posible que tenga un bot de chat que llama a LUIS o puede llamar directamente a la API de punto de conexión de LUIS. Con independencia de cómo se llame al punto de conexión, cada llamada debe incluir la información necesaria para que las correcciones ortográficas funcionen correctamente.
 

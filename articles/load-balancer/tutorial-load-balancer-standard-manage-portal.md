@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Equilibrio de carga del tráfico de Internet a las máquinas virtuales: Azure Portal'
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: Este tutorial muestra cómo crear y administrar una instancia de Standard Load Balancer mediante Azure Portal.
 services: load-balancer
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/11/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: a0887a66b6cb886419f86d93973b991151141e0a
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 4d4703ccb4ee96eb69a780f91eae1eb6da9e1578
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327218"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74225176"
 ---
 # <a name="tutorial-load-balance-internet-traffic-to-vms-using-the-azure-portal"></a>Tutorial: Equilibrio de carga del tráfico de Internet en máquinas virtuales mediante Azure Portal
 

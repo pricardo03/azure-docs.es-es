@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f76ec20da73c778d024feea9df113de9e4aa0fe9
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: a72236843c13e139f33a669b54f108e91679c8c6
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73573089"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326574"
 ---
 # <a name="tutorial-add-a-sample-model-from-the-portal"></a>Tutorial: Incorporación de un modelo de ejemplo desde el portal
 
@@ -73,6 +73,6 @@ Estos pasos describen cómo eliminar un modelo de un servidor mediante el uso de
 En este tutorial, aprendió a agregar un modelo de ejemplo básico al servidor. Ahora que tiene una base de datos modelo, puede conectarse a ella desde SQL Server Management Studio y agregar roles de usuario. Para más información, continúe con el siguiente tutorial.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Configuración de los roles de administrador del servidor y de usuario](analysis-services-database-users.md)
+> [Tutorial: Configuración de los roles de administrador del servidor y de usuario](tutorials/analysis-services-tutorial-roles.md)
 
 

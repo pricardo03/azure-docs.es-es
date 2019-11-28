@@ -1,19 +1,15 @@
 ---
 title: Escale las implementaciones de Jenkins con agentes de máquina virtual de Azure.
 description: Agregue una funcionalidad adicional a las canalizaciones de Jenkins mediante Azure Virtual Machines con el complemento de agente de máquina virtual de Azure.
-ms.service: jenkins
 keywords: jenkins, azure, devops, máquina virtual, agentes
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: 5cfece551f99a0925099b6ef936703e72f078985
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 2e811d628c017316a5bc50a8ddc22ee24d6f744e
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074673"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158538"
 ---
 # <a name="scale-your-jenkins-deployments-to-meet-demand-with-azure-vm-agents"></a>Escalado de las implementaciones de Jenkins para satisfacer la demanda con agentes de máquina virtual de Azure
 
@@ -52,7 +48,7 @@ En este tutorial, aprenderá lo siguiente:
 1. Desplácese hasta la parte inferior de la página y busque la sección **Cloud** (Nube) con el menú desplegable **Add new cloud** (Agregar nueva nube) y seleccione **Microsoft Azure VM Agents** (Agentes de máquina virtual de Microsoft Azure).
 1. Seleccione una entidad de servicio existente en el menú desplegable **Add** (Agregar) de la sección **Azure Credentials** (Credenciales de Azure). Si no hay ninguna, realice los pasos siguientes para [crear una entidad de servicio](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager) para la cuenta de Azure y agréguela a la configuración de Jenkins:   
 
-     a. Seleccione **Add** (Agregar) junto a **Azure Credentials** (Credenciales de Azure) y elija **Jenkins**.   
+    a. Seleccione **Add** (Agregar) junto a **Azure Credentials** (Credenciales de Azure) y elija **Jenkins**.   
     b. En el cuadro de diálogo **Add Credentials** (Agregar credenciales), seleccione la opción **Microsoft Azure Service Principal** (Entidad de servicio de Microsoft Azure) del menú desplegable **Kind** (Variante).   
     c. Cree una entidad de servicio de Active Directory desde la CLI de Azure o [Cloud Shell](/azure/cloud-shell/overview).
     

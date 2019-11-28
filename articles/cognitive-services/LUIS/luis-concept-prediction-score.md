@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: diberry
-ms.openlocfilehash: 5b8d97005d8f404a296ddb45e92b65e4aa811aa3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b360bc82b80e834492b524acc5c4535b0409eda1
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73486765"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280821"
 ---
 # <a name="prediction-scores-indicate-prediction-accuracy-for-intent-and-entities"></a>Las puntuaciones de predicción indican la precisión de la predicción de las intenciones y las entidades.
 
@@ -68,7 +68,7 @@ Puede desactivar el **entrenamiento no determinista** mediante el [entrenamiento
 
 ## <a name="e-exponent-notation"></a>Notación E (exponencial)
 
-Las puntuaciones de predicción pueden usar la notación exponencial, de forma que *aparecen* por encima del intervalo 0-1, como `9.910309E-07`. Esta puntuación es una indicación de un número muy **pequeño**.
+Las puntuaciones de predicción pueden usar la notación exponencial, de forma que _aparecen_ por encima del intervalo 0-1, como `9.910309E-07`. Esta puntuación es una indicación de un número muy **pequeño**.
 
 |Puntuación de notación E |Puntuación real|
 |--|--|

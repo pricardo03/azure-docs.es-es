@@ -3,17 +3,13 @@ title: 'Tutorial: Actualización de la imagen personalizada de los conjuntos de 
 description: Aprenda a usar Ansible para actualizar conjuntos de escalado de máquinas virtuales en Azure con una imagen personalizada.
 keywords: ansible, azure, devops, bash, cuaderno de estrategias, máquina virtual, conjunto de escalado de máquinas virtuales, vmss
 ms.topic: tutorial
-ms.service: ansible
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 3b7baffe6ce0fadbac2dd56b9c8296c80546fa72
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: b7d3053c09d2dcb667a4fc407035f4814f786932
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72241346"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74155849"
 ---
 # <a name="tutorial-update-the-custom-image-of-azure-virtual-machine-scale-sets-using-ansible"></a>Tutorial: Actualización de la imagen personalizada de los conjuntos de escalado de máquinas virtuales de Azure con Ansible
 

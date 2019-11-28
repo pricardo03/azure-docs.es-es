@@ -2,17 +2,17 @@
 title: 'Tutorial: Creación de registros de Azure DNS personalizados para una aplicación web'
 description: En este tutorial, va a crear registros DNS de dominios personalizados para aplicaciones web mediante Azure DNS.
 services: dns
-author: vhorne
+author: asudbring
 ms.service: dns
 ms.topic: tutorial
 ms.date: 3/11/2019
-ms.author: victorh
-ms.openlocfilehash: 9d7a277db7550c1850ec0c9d555553064ab19f7c
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.author: allensu
+ms.openlocfilehash: e0a0129f45e5e7612b6ecd79475a49822b42ba19
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66730268"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74211216"
 ---
 # <a name="tutorial-create-dns-records-in-a-custom-domain-for-a-web-app"></a>Tutorial: Creación de registros DNS en un dominio personalizado para una aplicación web 
 
@@ -71,7 +71,7 @@ En la página **Dominios personalizados**, copie la dirección IPv4 de la aplica
 
 ![Navegación en el portal a la aplicación de Azure](../app-service/./media/app-service-web-tutorial-custom-domain/mapping-information.png)
 
-### <a name="create-the-a-record"></a>Crear el registro A
+### <a name="create-the-a-record"></a>Crear el registro D
 
 ```azurepowershell
 New-AzDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" `

@@ -1,19 +1,16 @@
 ---
 title: Uso de Azure Deployment Manager con plantillas de Resource Manager | Microsoft Docs
 description: Use plantillas de Resource Manager con Azure Deployment Manager para implementar recursos de Azure.
-services: azure-resource-manager
-documentationcenter: ''
 author: mumian
-ms.service: azure-resource-manager
-ms.date: 10/10/2019
+ms.date: 11/21/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 3f10093b1d3087e87279258d04d86fc3d47ba313
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: db130da9943007e647adf77411b456914af9886f
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72285878"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74307017"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-public-preview"></a>Tutorial: Uso de Azure Deployment Manager con plantillas de Resource Manager (versión preliminar pública)
 
@@ -56,7 +53,7 @@ Para completar este artículo, necesitará lo siguiente:
 
 * Algo de experiencia con el desarrollo de [plantillas Azure Resource Manager](./resource-group-overview.md).
 * Azure PowerShell. Para más información, consulte el artículo de [introducción a Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
-* Cmdlets de Deployment Manager. Para instalar estos cmdlets en versión preliminar, necesita la versión más reciente de PowerShellGet. Para obtener la versión más reciente, consulte [Instalación de PowerShellGet](/powershell/gallery/installing-psget). Después de instalar PowerShellGet, cierre la ventana de PowerShell. Abra una nueva ventana con privilegios elevados de PowerShell y ejecute el siguiente comando:
+* Cmdlets de Deployment Manager. Para instalar estos cmdlets en versión preliminar, necesita la versión más reciente de PowerShellGet. Para obtener la versión más reciente, consulte [Instalación de PowerShellGet](/powershell/scripting/gallery/installing-psget). Después de instalar PowerShellGet, cierre la ventana de PowerShell. Abra una nueva ventana con privilegios elevados de PowerShell y ejecute el siguiente comando:
 
     ```powershell
     Install-Module -Name Az.DeploymentManager
@@ -189,9 +186,6 @@ Más adelante en el tutorial, implementará un lanzamiento. Para realizar las ac
 
 Deberá crear una identidad administrada asignada por el usuario y configurar el control de acceso de la suscripción.
 
-> [!IMPORTANT]
-> La identidad administrada asignada por el usuario debe estar en la misma ubicación que el [lanzamiento](#create-the-rollout-template). Actualmente, los recursos de Deployment Manager, incluido el lanzamiento, solo se pueden crear en Centro de EE. UU. y Este de EE. UU. 2. Sin embargo, esto solo es cierto para los recursos de Deployment Manager (como por ejemplo, la topología del servicio, los servicios, las unidades del servicio, el lanzamiento y los pasos). Los recursos de destino se pueden implementar en cualquier región de Azure compatible. En este tutorial, por ejemplo, los recursos de Deployment Manager se implementan en la región Centro de EE. UU., pero los servicios se implementan en Este de EE. UU. y Oeste de EE. UU. Esta restricción se eliminará próximamente.
-
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. Cree una [identidad administrada asignada por el usuario](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
 3. En el portal, seleccione **Suscripciones** en el menú izquierdo y, luego, seleccione su suscripción.
@@ -214,7 +208,7 @@ Abra **\ADMTemplates\CreateADMServiceTopology.json**.
 La plantilla contiene los parámetros siguientes:
 
 * **projectName**: este nombre se usa para crear los nombres de los recursos del Administrador de implementaciones. Por ejemplo, con el prefijo "jdoe", el nombre de la topología del servicio es **jdoe**ServiceTopology.  Los nombres de recursos se definen en la sección de variables de esta plantilla.
-* **azureResourcelocation**: para simplificar el tutorial, todos los recursos comparten esta ubicación, a menos que se especifique lo contrario. Actualmente, los recursos de Azure Deployment Manager solo se pueden crear en **Centro de EE. UU.** o **Este de EE. UU. 2**.
+* **azureResourcelocation**: para simplificar el tutorial, todos los recursos comparten esta ubicación, a menos que se especifique lo contrario.
 * **artifactSourceSASLocation**: el URI de SAS del contenedor de blobs donde se almacenan los archivos de plantilla y parámetros de la unidad de servicio para la implementación.  Consulte [Preparación de los artefactos](#prepare-the-artifacts).
 * **templateArtifactRoot**: la ruta de desplazamiento del contenedor de blobs donde se almacenan las plantillas y los parámetros. El valor predeterminado es **templates/1.0.0.0**. No cambie este valor a menos que quiera cambiar la estructura de carpetas que se explica en [Preparación de los artefactos](#prepare-the-artifacts). En este tutorial, se usan rutas de acceso relativas.  La ruta de acceso completa se construye mediante la concatenación de **artifactSourceSASLocation**, **templateArtifactRoot** y **templateArtifactSourceRelativePath** (o **parametersArtifactSourceRelativePath**).
 * **targetSubscriptionID**: el identificador de suscripción con el que se van a implementar y facturar los recursos de Deployment Manager. Use el identificador de suscripción de este tutorial.
@@ -269,7 +263,7 @@ La plantilla contiene los parámetros siguientes:
 ![Tutorial de Azure Deployment Manager: parámetros de plantilla de lanzamiento](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-rollout-template-parameters.png)
 
 * **projectName**: este nombre se usa para crear los nombres de los recursos del Administrador de implementaciones. Por ejemplo, con "jdoe", el nombre del lanzamiento es **jdoe**Rollout.  Los nombres se definen en la sección de variables de la plantilla.
-* **azureResourcelocation**: para simplificar el tutorial, todos los recursos de Deployment Manager comparten esta ubicación, a menos que se especifique lo contrario. Actualmente, los recursos de Azure Deployment Manager solo se pueden crear en **Centro de EE. UU.** o **Este de EE. UU. 2**.
+* **azureResourcelocation**: para simplificar el tutorial, todos los recursos de Deployment Manager comparten esta ubicación, a menos que se especifique lo contrario.
 * **artifactSourceSASLocation**: el URI de SAS del directorio raíz (el contenedor de blobs) donde se almacenan los archivos de plantilla y parámetros de la unidad de servicio para la implementación.  Consulte [Preparación de los artefactos](#prepare-the-artifacts).
 * **binaryArtifactRoot**:  el valor predeterminado es **binaries/1.0.0.0**. No cambie este valor a menos que quiera cambiar la estructura de carpetas que se explica en [Preparación de los artefactos](#prepare-the-artifacts). En este tutorial, se usan rutas de acceso relativas.  La ruta de acceso completa se construye mediante la concatenación de **artifactSourceSASLocation**, **binaryArtifactRoot** y el valor de **deployPackageUri** especificado en el archivo CreateWebApplicationParameters.json.  Consulte [Preparación de los artefactos](#prepare-the-artifacts).
 * **managedIdentityID**: la identidad administrada asignada por el usuario que realiza las acciones de implementación. Consulte [Creación de la identidad administrada asignada por el usuario](#create-the-user-assigned-managed-identity).
@@ -311,7 +305,7 @@ Creará un archivo de parámetros que se usa con la plantilla de lanzamiento.
 2. Rellene los valores de parámetros:
 
     * **projectName**: escriba una cadena con cuatro o cinco caracteres. este nombre se usa para crear nombres de recursos de Azure únicos.
-    * **azureResourceLocation**: Actualmente, los recursos de Azure Deployment Manager solo se pueden crear en **Centro de EE. UU.** o **Este de EE. UU. 2**.
+    * **azureResourceLocation**: seleccione una ubicación de Azure.
     * **artifactSourceSASLocation**: el URI de SAS del directorio raíz (el contenedor de blobs) donde se almacenan los archivos de plantilla y parámetros de la unidad de servicio para la implementación.  Consulte [Preparación de los artefactos](#prepare-the-artifacts).
     * **binaryArtifactRoot**: a menos que cambie la estructura de carpetas de los artefactos, use **binaries/1.0.0.0** en este tutorial.
     * **managedIdentityID**: introduzca la identidad administrada asignada por el usuario. Consulte [Creación de la identidad administrada asignada por el usuario](#create-the-user-assigned-managed-identity). La sintaxis es:

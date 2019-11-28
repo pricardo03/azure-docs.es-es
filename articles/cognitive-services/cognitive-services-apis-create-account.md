@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: aahi
-ms.openlocfilehash: 14157ed22ea40a2157f696e91c59af9b58110bf2
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: dd4444bf42bcc8dda95f8fa37b42a365538efa85
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819942"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74482877"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-portal"></a>Creación de un recurso de Cognitive Services con Azure Portal
 
@@ -64,7 +64,7 @@ Use esta guía de inicio rápido para empezar a usar Azure Cognitive Services. D
     |--|--|
     | **Nombre** | Nombre descriptivo para el recurso de Cognitive Services. Por ejemplo, *MyCognitiveServicesResource*. |
     | **Suscripción** | Seleccione una de las suscripciones de Azure disponibles. |
-    | **Ubicación** | Ubicación de la instancia de Cognitive Services. Las diferentes ubicaciones pueden crear latencias, pero no tienen ningún impacto en la disponibilidad del tiempo de ejecución del recurso. No olvide su ubicación de Azure, ya que puede necesitarla cuando llame a Azure Cognitive Services. |
+    | **Ubicación** | Ubicación de la instancia de Cognitive Services. Las diferentes ubicaciones pueden crear latencias, pero no tienen ningún impacto en la disponibilidad del tiempo de ejecución del recurso. |
     | **Plan de tarifa** | Costo de la cuenta de Cognitive Services, que depende del uso y de las opciones que elija. Para obtener más información, consulte los [detalles de los precios](https://azure.microsoft.com/pricing/details/cognitive-services/).
     | **Grupos de recursos** | El grupo de recursos de Azure que contendrá su recurso de Cognitive Services. Puede crear un nuevo grupo o agregarlo a uno ya existente. |
 
@@ -78,7 +78,7 @@ Use esta guía de inicio rápido para empezar a usar Azure Cognitive Services. D
     |--|--|
     | **Nombre** | Nombre descriptivo para el recurso de Cognitive Services. Por ejemplo, *TextAnalyticsResource*. |
     | **Suscripción** | Seleccione una de las suscripciones de Azure disponibles. |
-    | **Ubicación** | Ubicación de la instancia de Cognitive Services. Las diferentes ubicaciones pueden crear latencias, pero no tienen ningún impacto en la disponibilidad del tiempo de ejecución del recurso. No olvide su ubicación de Azure, ya que puede necesitarla cuando llame a Azure Cognitive Services. |
+    | **Ubicación** | Ubicación de la instancia de Cognitive Services. Las diferentes ubicaciones pueden crear latencias, pero no tienen ningún impacto en la disponibilidad del tiempo de ejecución del recurso. |
     | **Plan de tarifa** | Costo de la cuenta de Cognitive Services, que depende del uso y de las opciones que elija. Para obtener más información, consulte los [detalles de los precios](https://azure.microsoft.com/pricing/details/cognitive-services/).
     | **Grupos de recursos** | El grupo de recursos de Azure que contendrá su recurso de Cognitive Services. Puede crear un nuevo grupo o agregarlo a uno ya existente. |
 
@@ -87,6 +87,7 @@ Use esta guía de inicio rápido para empezar a usar Azure Cognitive Services. D
     Haga clic en **Create**(Crear).
 
     ***
+
 
 ## <a name="get-the-keys-for-your-resource"></a>Obtención de las claves del recurso
 

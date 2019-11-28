@@ -1,22 +1,17 @@
 ---
-title: Información general sobre Azure Functions | Microsoft Docs
+title: Información general sobre Azure Functions
 description: Entender cómo utilizar Azure Functions para optimizar las cargas de trabajo asincrónicas en minutos.
-documentationcenter: na
 author: mattchenderson
-manager: jeconnoc
-keywords: Azure funciones, funciones, procesamiento de eventos, webhooks, proceso dinámico, arquitectura sin servidor
 ms.assetid: 01d6ca9f-ca3f-44fa-b0b9-7ffee115acd4
-ms.service: azure-functions
 ms.topic: overview
 ms.date: 10/03/2017
-ms.author: glenga
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: f3fc7691fc3afa3a1fe886655353d9ed41f631cc
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 28a2732965ee0a19f69dcd0fc2cd7705cb5f94a1
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70096075"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230431"
 ---
 # <a name="an-introduction-to-azure-functions"></a>Introducción a Azure Functions  
 Azure Functions es una solución para ejecutar fácilmente pequeños fragmentos de código, o "funciones", en la nube. Simplemente, puede escribir el código que necesita para el problema en cuestión, sin preocuparse de toda la aplicación o la infraestructura para ejecutarlo. Con Functions, puede conseguir que el desarrollo sea aún más productivo y, además, le permite usar el lenguaje de desarrollo que prefiera, como C#, Java, JavaScript, PowerShell y Python. Pague solo el tiempo durante el que se ejecuta el código y confíe en Azure para escalar según sea necesario. Azure Functions permite desarrollar aplicaciones [sin servidor](https://azure.microsoft.com/solutions/serverless/) en Microsoft Azure.
@@ -63,7 +58,7 @@ Azure Functions se integra con diversos servicios de Azure y de terceros. Dichos
 * Local (mediante Service Bus)
 * Twilio (mensajes SMS)
 
-## ¿Cuánto cuesta Azure Functions?
+## <a name="pricing"></a>¿Cuánto cuesta Funciones de Azure?
 Azure Functions tiene dos tipos de planes de precios. Elija la que mejor se adapte a sus necesidades: 
 
 * **Plan de Consumo**: cuando se ejecuta la función, Azure proporciona todos los recursos informáticos necesarios. No tiene que preocuparse de la administración de recursos y solo paga por el tiempo que haya empleado ejecutando el código. 

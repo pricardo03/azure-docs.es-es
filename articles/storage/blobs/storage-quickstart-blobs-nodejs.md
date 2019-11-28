@@ -3,16 +3,16 @@ title: 'Inicio rápido: Biblioteca de Azure Blob Storage v12: JavaScript'
 description: En esta guía de inicio rápido, obtendrá información sobre cómo usar la biblioteca cliente de Azure Blob Storage versión 12 para JavaScript a fin de crear un contenedor y un blob en Blob Storage (objeto). A continuación, aprenderá a descargar el blob en un equipo local y a enumerar todos los blobs en un contenedor.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 11/05/2019
+ms.date: 11/19/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 2e5a5f2a4de4e01d2e4fa66f819e55839959afd0
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 0a6d7ce8f1f6b81c3dbae3d41842345be5d2e551
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74130699"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74422022"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-for-javascript"></a>Inicio rápido: Biblioteca cliente de Azure Blob Storage v12 para JavaScript
 
@@ -105,7 +105,7 @@ Desde el directorio del proyecto:
     const uuidv1 = require('uuid/v1');
     
     async function main() {
-        console.log('Azure Blob storage v12 - Javascript quickstart sample');
+        console.log('Azure Blob storage v12 - JavaScript quickstart sample');
         // Quick start code goes here
     }
     
@@ -114,44 +114,7 @@ Desde el directorio del proyecto:
 
 1. Guarde el nuevo archivo como *blob-quickstart-v12.js* en el directorio *blob-quickstart-v12*.
 
-### <a name="copy-your-credentials-from-the-azure-portal"></a>Copia de las credenciales desde Azure Portal
-
-Cuando la aplicación de ejemplo realiza una solicitud a Azure Storage, debe estar autorizada. Para autorizar una solicitud, agregue a la aplicación las credenciales de la cuenta de almacenamiento en forma de cadena de conexión. Para ver las credenciales de la cuenta de almacenamiento, siga estos pasos:
-
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
-2. Busque su cuenta de almacenamiento.
-3. En la sección **Configuración** de la información general de la cuenta de almacenamiento, seleccione **Claves de acceso**. Aquí puede ver las claves de acceso de la cuenta, así como la cadena de conexión completa de cada clave.
-4. Busque el valor de **Cadena de conexión** en **key1** y seleccione el botón **Copiar** para copiar la cadena de conexión. En el paso siguiente, agregará el valor de la cadena de conexión a una variable de entorno.
-
-    ![Captura de pantalla que muestra cómo copiar una cadena de conexión desde Azure Portal](../../../includes/media/storage-copy-connection-string-portal/portal-connection-string.png)
-
-### <a name="configure-your-storage-connection-string"></a>Configuración de la cadena de conexión de almacenamiento.
-
-Una vez que haya copiado la cadena de conexión, escríbala en una variable de entorno nueva en la máquina local que ejecuta la aplicación. Para establecer la variable de entorno, abra una ventana de consola y siga las instrucciones de su sistema operativo. Reemplace `<yourconnectionstring>` por la cadena de conexión real.
-
-#### <a name="windows"></a>Windows
-
-```cmd
-setx CONNECT_STR "<yourconnectionstring>"
-```
-
-Después de agregar la variable de entorno en Windows, debe iniciar una nueva instancia de la ventana de comandos.
-
-#### <a name="linux"></a>Linux
-
-```bash
-export CONNECT_STR="<yourconnectionstring>"
-```
-
-#### <a name="macos"></a>macOS
-
-```bash
-export CONNECT_STR="<yourconnectionstring>"
-```
-
-#### <a name="restart-programs"></a>Reiniciar programas
-
-Después de agregar la variable de entorno, reinicie todos los programas en ejecución que necesiten leer esta variable. Por ejemplo, reinicie el entorno de desarrollo o el editor antes de continuar.
+[!INCLUDE [storage-quickstart-connection-string-include](../../../includes/storage-quickstart-credentials-include.md)]
 
 ## <a name="object-model"></a>Modelo de objetos
 
@@ -211,7 +174,7 @@ Agregue este código al final de la función `main`:
 
 ```javascript
 // Create the BlobServiceClient object which will be used to create a container client
-const blobServiceClient = await new BlobServiceClient.fromConnectionString(CONNECT_STR);
+const blobServiceClient = await BlobServiceClient.fromConnectionString(CONNECT_STR);
 
 // Create a unique name for the container
 const containerName = 'quickstart' + uuidv1();
@@ -223,7 +186,8 @@ console.log('\t', containerName);
 const containerClient = await blobServiceClient.getContainerClient(containerName);
 
 // Create the container
-await containerClient.create();
+const createContainerResponse = await containerClient.create();
+console.log("Container was created successfully. requestId: ", createContainerResponse.requestId);
 ```
 
 ### <a name="upload-blobs-to-a-container"></a>Carga de los blobs en un contenedor
@@ -243,11 +207,12 @@ const blobName = 'quickstart' + uuidv1() + '.txt';
 // Get a block blob client
 const blockBlobClient = containerClient.getBlockBlobClient(blobName);
 
-console.log('\nUploading to Azure Storage as blob:\n\t', blobName);
+console.log('\nUploading to Azure storage as blob:\n\t', blobName);
 
 // Upload data to the blob
 const data = 'Hello, World!';
-await blockBlobClient.upload(data, data.length);
+const uploadBlobResponse = await blockBlobClient.upload(data, data.length);
+console.log("Blob was uploaded successfully. requestId: ", uploadBlobResponse.requestId);
 ```
 
 ### <a name="list-the-blobs-in-a-container"></a>Enumerar los blobs de un contenedor
@@ -308,7 +273,8 @@ Agregue este código al final de la función `main`:
 console.log('\nDeleting container...');
 
 // Delete container
-await containerClient.delete();
+const deleteContainerResponse = await containerClient.delete();
+console.log("Container was deleted successfully. requestId: ", deleteContainerResponse.requestId);
 ```
 
 ## <a name="run-the-code"></a>Ejecución del código

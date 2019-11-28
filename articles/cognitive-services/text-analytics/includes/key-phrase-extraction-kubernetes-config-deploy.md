@@ -7,14 +7,14 @@ author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 09/19/2019
+ms.date: 11/21/2019
 ms.author: dapine
-ms.openlocfilehash: 5ec535fe2ce23a2ead1163e870aae97fd104ef09
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 35e7b85d31e9696f04dce610b6f2cf942543dc68
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71130062"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383473"
 ---
 ### <a name="deploy-the-key-phrase-extraction-container-to-an-aks-cluster"></a>Implementación del contenedor de extracción de frases clave en un clúster de AKS
 
@@ -66,6 +66,13 @@ ms.locfileid: "71130062"
             image: mcr.microsoft.com/azure-cognitive-services/keyphrase
             ports:
             - containerPort: 5000
+            resources:
+              requests:
+                memory: 2Gi
+                cpu: 1
+              limits:
+                memory: 4Gi
+                cpu: 1
             env:
             - name: EULA
               value: "accept"
@@ -91,7 +98,7 @@ ms.locfileid: "71130062"
 1. Ejecute el comando `apply` de Kubernetes con el archivo *keyphrase.yaml* como destino:
 
     ```console
-    kuberctl apply -f keyphrase.yaml
+    kubectl apply -f keyphrase.yaml
     ```
 
     Una vez que el comando ha aplicado correctamente la configuración de implementación, se muestra un mensaje similar al siguiente:

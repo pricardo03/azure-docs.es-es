@@ -7,15 +7,15 @@ author: bandersmsft
 ms.author: banders
 ms.date: 05/20/2019
 ms.topic: tutorial
-ms.service: cost-management
+ms.service: cost-management-billing
 ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: b72e03f6901fbb2b904328992107e31021c76be6
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: d4117e8a40f277c6ac0213272176b75a1c161eb1
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65969125"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74229801"
 ---
 # <a name="tutorial-manage-costs-by-using-cloudyn"></a>Tutorial: Administración de costos mediante Cloudyn
 
@@ -87,9 +87,9 @@ En la lista de modelos de costos se muestra su nuevo modelo de costos con un **P
 
 El administrador de categorías es una herramienta de limpieza de datos que le permite combinar los valores de varias categorías (etiquetas) para crear otras nuevas. Es una herramienta sencilla basada en reglas en la que usted selecciona una categoría y crea reglas para combinar los valores existentes. Por ejemplo, podría tener categorías para **R&amp;D** y **dev**, en que ambas representan el grupo de desarrollo.
 
-En el portal de Cloudyn, haga clic en el símbolo de engranaje situado en la esquina superior derecha y seleccione **Category Management** (Administración de categorías). Para crear una categoría nueva, seleccione el signo más (**+**). Escriba un nombre para la categoría y después en **Keys** (Claves), introduzca las claves de categoría que quiera incluir en la categoría nueva.
+En el portal de Cloudyn, haga clic en el símbolo de engranaje situado en la esquina superior derecha y seleccione **Category Management** (Administración de categorías). Para crear una categoría nueva, seleccione el signo más ( **+** ). Escriba un nombre para la categoría y después en **Keys** (Claves), introduzca las claves de categoría que quiera incluir en la categoría nueva.
 
-Al definir una regla, puede agregar varios valores con una condición OR. También puede hacer algunas operaciones de cadenas básicas. En cualquiera de los casos, haga clic en el símbolo de puntos suspensivos (**…**) situado a la derecha de **Rule** (Regla).
+Al definir una regla, puede agregar varios valores con una condición OR. También puede hacer algunas operaciones de cadenas básicas. En cualquiera de los casos, haga clic en el símbolo de puntos suspensivos ( **…** ) situado a la derecha de **Rule** (Regla).
 
 Para definir una nueva regla, en el área **Rules** (Reglas), cree una nueva regla. Por ejemplo, escriba **dev** en **Rules** (Reglas) y escriba **R&amp;D** en **Actions** (Acciones). Cuando haya terminado, guarde los cambios.
 

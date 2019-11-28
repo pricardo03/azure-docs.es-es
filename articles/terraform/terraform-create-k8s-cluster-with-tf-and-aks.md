@@ -1,17 +1,14 @@
 ---
 title: 'Tutorial: Creación de un clúster de Kubernetes con Azure Kubernetes Service (AKS) mediante Terraform'
 description: Tutorial que muestra la creación de un clúster de Kubernetes con Azure Kubernetes Service y Terraform
-ms.service: terraform
-author: tomarchermsft
-ms.author: tarcher
 ms.topic: tutorial
 ms.date: 11/07/2019
-ms.openlocfilehash: 1bfeef729bdb3f07fe2cc64cee4fd4f27c49ef67
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 792c075cfb40eb4904a30b63e9902a59ceda9bc1
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73833605"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74159303"
 ---
 # <a name="tutorial-create-a-kubernetes-cluster-with-azure-kubernetes-service-using-terraform"></a>Tutorial: Creación de un clúster de Kubernetes con Azure Kubernetes Service mediante Terraform
 

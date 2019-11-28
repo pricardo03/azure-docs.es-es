@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: cd0fc90988048f98be46370d2c7836d9506cc44a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 6d1c2eff9bc9ffe8a0fb2166d39c16360c0a79cc
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73475255"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74538920"
 ---
 # <a name="tutorial-authenticate-users-in-a-native-desktop-client-using-azure-active-directory-b2c"></a>Tutorial: Autenticación de usuarios en una aplicación cliente de escritorio nativa mediante Azure Active Directory B2C
 
@@ -43,7 +43,7 @@ Anote el **Id. de aplicación (cliente)** para usarlo en un paso posterior.
 
 ## <a name="configure-the-sample"></a>Configuración del ejemplo
 
-En este tutorial, va a configurar un ejemplo que puede descargar desde GitHub. La aplicación de escritorio WPF de ejemplo muestra el registro y el inicio de sesión, y puede llamar a una API web protegida en Azure AD B2C. [Descargue un archivo zip](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop/archive/master.zip), [examine el repositorio](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop) o clone el ejemplo de GitHub.
+En este tutorial, va a configurar un ejemplo que puede descargar desde GitHub. La aplicación de escritorio WPF de ejemplo muestra el registro y el inicio de sesión, y puede llamar a una API web protegida en Azure AD B2C. [Descargue un archivo zip](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop/archive/msalv3.zip), [examine el repositorio](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop) o clone el ejemplo de GitHub.
 
 ```
 git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop.git

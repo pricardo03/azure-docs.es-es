@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 05/29/2019
-ms.openlocfilehash: 467bf7fe26df2f826d6d44d42a9e30b98795232f
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: e0930558f31b27a77fa2cd6b44fcea2fe9091086
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73043927"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74538823"
 ---
 # <a name="moderate-text-from-the-api-console"></a>Moderación de texto desde la consola de API
 
@@ -63,9 +63,7 @@ Para **Content-Type**, seleccione el tipo de contenido que quiera filtrar. Para 
 En el cuadro **Request body** (Cuerpo de la solicitud), escriba algo de texto. En el ejemplo siguiente se muestra un error intencionado en el texto.
 
 ```
-Is this a grabage or crap email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.
-These are all UK phone numbers, the last two being Microsoft UK support numbers: +44 870 608 4000 or 0344 800 2400 or 0800 820 3300.
-Also, 999-99-9999 looks like a social security number (SSN).
+Is this a grabage or crap email abcdef@abcd.com, phone: 4255550111, IP: 255.255.255.255, 1234 Main Boulevard, Panapolis WA 96555. These are all UK phone numbers, the last two being Microsoft UK support numbers: +44 870 608 4000 or 0344 800 2400 or 0800 820 3300. Also, 999-99-9999 looks like a social security number (SSN).
 ```
 
 ## <a name="analyze-the-response"></a>Análisis de la respuesta
@@ -76,8 +74,8 @@ La respuesta siguiente muestra las distintas conclusiones desde la API. Contiene
 > La característica "Classification" (Clasificación) asistida por máquina está en versión preliminar y solo admite inglés.
 
 ```json
-{"OriginalText":"Is this a grabage or crap email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.\r\nThese are all UK phone numbers, the last two being Microsoft UK support numbers: +44 870 608 4000 or 0344 800 2400 or 0800 820 3300.\r\nAlso, 544-56-7788 looks like a social security number (SSN).",
-"NormalizedText":"Is this a grabage or crap email abcdef@ abcd. com, phone: 6657789887, IP: 255. 255. 255. 255, 1 Microsoft Way, Redmond, WA 98052. \r\nThese are all UK phone numbers, the last two being Microsoft UK support numbers: +44 870 608 4000 or 0344 800 2400 or 0800 820 3300. \r\nAlso, 544- 56- 7788 looks like a social security number ( SSN) .",
+{"OriginalText":"Is this a grabage or crap email abcdef@abcd.com, phone: 4255550111, IP: 255.255.255.255, 1234 Main Boulevard, Panapolis WA 96555.\r\nThese are all UK phone numbers: +44 123 456 7890 or 0234 567 8901 or 0456 789 0123.\r\nAlso, 999-99-9999 looks like a social security number (SSN).",
+"NormalizedText":"Is this a grabage or crap email abcdef@ abcd. com, phone: 4255550111, IP: 255. 255. 255. 255, 1234 Main Boulevard, Panapolis WA 96555. \r\nThese are all UK phone numbers: +44 123 456 7890 or 0234 567 8901 or 0456 789 0123. \r\nAlso, 999- 99- 9999 looks like a social security number ( SSN) .",
 "Misrepresentation":null,
 "PII":{  
   "Email":[  
@@ -98,33 +96,33 @@ La respuesta siguiente muestra las distintas conclusiones desde la API. Contiene
   "Phone":[  
     {  
       "CountryCode":"US",
-      "Text":"6657789887",
+      "Text":"4255550111",
       "Index":56
     },
     {  
       "CountryCode":"US",
-      "Text":"870 608 4000",
+      "Text":"425 555 0111",
       "Index":211
     },
     {  
       "CountryCode":"UK",
-      "Text":"+44 870 608 4000",
+      "Text":"+44 123 456 7890",
       "Index":207
     },
     {  
       "CountryCode":"UK",
-      "Text":"0344 800 2400",
+      "Text":"0234 567 8901",
       "Index":227
     },
     {  
       "CountryCode":"UK",
-      "Text":"0800 820 3300",
+      "Text":"0456 789 0123",
       "Index":244
     }
   ],
   "Address":[  
     {  
-      "Text":"1 Microsoft Way, Redmond, WA 98052",
+      "Text":"1234 Main Boulevard, Panapolis WA 96555",
       "Index":89
     }
   ],

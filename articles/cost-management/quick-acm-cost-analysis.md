@@ -7,15 +7,15 @@ author: bandersmsft
 ms.author: banders
 ms.date: 10/14/2019
 ms.topic: quickstart
-ms.service: cost-management
+ms.service: cost-management-billing
 manager: micflan
 ms.custom: seodec18
-ms.openlocfilehash: f2e1d19f69b426cee870d2ede489b7c458404704
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 858672a7fcfcfd5f50c91eb769fdd0d42578195f
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72374768"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74229991"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Inicio rápido: Explore y analice los costos con Análisis de costos
 

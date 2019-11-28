@@ -10,12 +10,12 @@ author: gvashishtha
 ms.author: gopalv
 ms.topic: overview
 ms.date: 10/10/2019
-ms.openlocfilehash: 594879df6e1e88c861a2730160d050194cc884ea
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 2d5dc2d33252849dc0a3e11a65fc54e878dbb8a3
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73891074"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555310"
 ---
 # <a name="what-tools-are-included-on-the-azure-data-science-virtual-machine"></a>¿Qué herramientas se incluyen en Azure Data Science Virtual Machine?
 
@@ -79,7 +79,7 @@ A continuación se muestra una lista actualizada de las herramientas incluidas e
 | &nbsp;&nbsp;&nbsp;&nbsp; [Chainer](https://chainer.org) |<span class='red-x'>&#10060;</span>   |<span class='green-check'>&#9989;</span></br> (5.2.0) | [Chainer en DSVM](./dsvm-deep-learning-ai-frameworks.md#chainer) |
 | &nbsp;&nbsp;&nbsp;&nbsp; [CUDA, cuDNN y controlador NVIDIA](https://developer.nvidia.com/cuda-toolkit) |<span class='green-check'>&#9989;</span></br> (10.0.130) |<span class='green-check'>&#9989;</span></br> (10.0.130) | [CUDA, cuDNN y controlador NVIDIA en DSVM](./dsvm-deep-learning-ai-frameworks.md#cuda-cudnn-nvidia-driver) |
 | &nbsp;&nbsp;&nbsp;&nbsp; [Horovod](https://github.com/horovod/horovod) |<span class='red-x'>&#10060;</span>   |<span class='green-check'>&#9989;</span></br> (0.16.1) | [Horovod en DSVM](./dsvm-deep-learning-ai-frameworks.md#horovod) |
-| &nbsp;&nbsp;&nbsp;&nbsp; [Keras](https://keras.io) |<span class='red-x'>&#10060;</span>   |<span class='green-check'>&#9989;</span></br> (2.2.4) | [Keras en DSVM](./dsvm-deep-learning-ai-frameworks.md#keras) |
+| &nbsp;&nbsp;&nbsp;&nbsp; [Keras](https://keras.io) |<span class='green-check'>&#9989;</span></br> (2.2.4)   |<span class='green-check'>&#9989;</span></br> (2.2.4) | [Keras en DSVM](./dsvm-deep-learning-ai-frameworks.md#keras) |
 | &nbsp;&nbsp;&nbsp;&nbsp; [Microsoft Cognitive Toolkit (CNTK)](https://docs.microsoft.com/cognitive-toolkit/) |<span class='green-check'>&#9989;</span> |<span class='green-check'>&#9989;</span></br> (2.5.1) | [CNTK en DSVM](./dsvm-deep-learning-ai-frameworks.md#microsoft-cognitive-toolkit-cntk) |
 | &nbsp;&nbsp;&nbsp;&nbsp; [MXNet](https://mxnet.apache.org/) |<span class='green-check'>&#9989;</span> |<span class='green-check'>&#9989;</span></br> (1.3.0) | [MXNet en DSVM](./dsvm-deep-learning-ai-frameworks.md#mxnet) |
 | &nbsp;&nbsp;&nbsp;&nbsp; [Servidor de modelos MXNet](https://github.com/awslabs/mxnet-model-server#quick-start) |<span class='green-check'>&#9989;</span> |<span class='green-check'>&#9989;</span></br> (1.0.1) | [MXNet Model Server en DSVM](./dsvm-deep-learning-ai-frameworks.md#mxnet-model-server) |

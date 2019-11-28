@@ -3,17 +3,13 @@ title: 'Tutorial: Creación de una máquina virtual o un conjunto de escalado de
 description: Aprenda a usar Ansible para crear una máquina virtual o un conjunto de escalado de máquinas virtuales basado en una imagen generalizada en Azure Shared Image Gallery.
 keywords: ansible, azure, devops, bash, playbook, virtual machine, virtual machine scale set, shared image gallery
 ms.topic: tutorial
-ms.service: ansible
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 10/14/2019
-ms.openlocfilehash: 4b4190ddabe90af135ea64a8ba3d5905f23c457e
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: f784419736854095cc1bc5da14f3867ac3f7eb12
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72808953"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74155825"
 ---
 # <a name="tutorial-create-a-vm-or-virtual-machine-scale-set-from-the-azure-shared-image-gallery-using-ansible"></a>Tutorial: Creación de una máquina virtual o un conjunto de escalado de máquinas virtuales desde Azure Shared Image Gallery mediante Ansible
 

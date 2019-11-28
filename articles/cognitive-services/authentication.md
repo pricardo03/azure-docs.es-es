@@ -7,14 +7,14 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 07/24/2019
+ms.date: 11/22/2019
 ms.author: erhopf
-ms.openlocfilehash: ae3530af7741b8ce48e08c2a85589ffae8a83f49
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 1c13c2cc4d4e562d3512de90338d874091dfeef6
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70276790"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74423933"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Autenticación de solicitudes en Azure Cognitive Services
 
@@ -119,7 +119,7 @@ Algunos servicios de Azure Cognitive Services aceptan, y en algunos casos requie
 * Servicios Voz: Text-to-speech REST API
 
 >[!NOTE]
-> QnA Maker también utiliza el encabezado de autorización, pero requiere una clave de punto de conexión. Para más información, consulte [QnA Maker: Get answer from knowledge base](./qnamaker/quickstarts/get-answer-from-kb-using-curl.md) (QnA Maker: Obtención de respuesta de Knowledge Base).
+> QnA Maker también utiliza el encabezado de autorización, pero requiere una clave de punto de conexión. Para más información, consulte [QnA Maker: Get answer from knowledge base](./qnamaker/quickstarts/get-answer-from-knowledge-base-using-url-tool.md) (QnA Maker: Obtención de respuesta de Knowledge Base).
 
 >[!WARNING]
 > Los servicios que admiten los tokens de autenticación pueden cambiar con el tiempo. Consulte la referencia de la API de un servicio antes de utilizar este método de autenticación.

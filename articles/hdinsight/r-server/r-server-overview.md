@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: overview
 ms.date: 06/12/2019
-ms.openlocfilehash: 782c860ca50c1ef12eda1ec33f29c5103b396349
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: b04cc3a5e3a5680f7a16e890c39a4a7d83002bd7
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73665285"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74321671"
 ---
 # <a name="what-is-ml-services-in-azure-hdinsight"></a>¿Qué es ML Services en Azure HDInsight?
 
@@ -130,7 +130,7 @@ Como los nodos principales son redundantes y no todos los nodos de datos se ven 
 
 El nodo perimetral de Linux de un clúster de HDInsight es la zona de aterrizaje de los análisis basados en R. Las versiones recientes de HDInsight proporcionan una instalación predeterminada de RStudio Server en el nodo perimetral como un IDE basado en explorador. Puede ser más productivo usar RStudio Server como un IDE para desarrollar y ejecutar scripts de R que si se utiliza simplemente la consola de R.
 
-Además, puede instalar un IDE de escritorio y acceder con él al clúster utilizando un contexto de proceso remoto de MapReduce o Spark. Las opciones incluyen [Herramientas de R para Visual Studio](https://www.visualstudio.com/features/rtvs-vs.aspx) (RTVS) de Microsoft, RStudio y [StatET](http://www.walware.de/goto/statet) basado en Eclipse de Walware.
+Además, puede instalar un IDE de escritorio y acceder con él al clúster utilizando un contexto de proceso remoto de MapReduce o Spark. Las opciones incluyen [Herramientas de R para Visual Studio](https://marketplace.visualstudio.com/items?itemName=MikhailArkhipov007.RTVS2019) (RTVS) de Microsoft, RStudio y [StatET](http://www.walware.de/goto/statet) basado en Eclipse de Walware.
 
 Además, puede acceder a la consola de R del nodo perimetral escribiendo **R** en el símbolo del sistema de Linux una vez que se haya conectado mediante SSH o PuTTY. Cuando utilice la interfaz de la consola, es conveniente ejecutar un editor de texto para desarrollar scripts de R en otra ventana y cortar y pegar las secciones del script en la consola de R según sea necesario.
 

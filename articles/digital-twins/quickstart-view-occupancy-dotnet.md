@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Búsqueda de salas disponibles: Azure Digital Twins'
+title: 'Inicio rápido: Búsqueda de habitaciones disponibles - Azure Digital Twins | Microsoft Docs'
 description: En esta guía de inicio rápido, ejecutará dos aplicaciones de ejemplo de .NET Core para enviar información de telemetría de movimiento simulado y dióxido de carbono a un espacio de Azure Digital Twins. El objetivo es encontrar habitaciones disponibles con aire fresco desde las API de administración tras el procesamiento calculado en la nube.
 ms.author: alinast
 author: alinamstanciu
@@ -10,12 +10,12 @@ ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc seodec18
 ms.date: 11/12/2019
-ms.openlocfilehash: 44ef646328f5f55d16dfa2d6906b78866292ebd9
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: b150167ca6a808e0da337be4a609a21cd974598a
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74123199"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383139"
 ---
 # <a name="quickstart-find-available-rooms-by-using-azure-digital-twins"></a>Guía de inicio rápido: Búsqueda de salas disponibles mediante Azure Digital Twins
 

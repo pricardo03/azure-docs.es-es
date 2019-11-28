@@ -1,23 +1,14 @@
 ---
 title: Inicio de sesión en Azure Notebooks
 description: Inicie sesión rápidamente en Azure Notebooks y configure un identificador de usuario, lo que le ofrece la posibilidad de acceder a proyectos guardados y compartir cuadernos con otras personas.
-services: app-service
-documentationcenter: ''
-author: kraigb
-manager: barbkess
-ms.assetid: fb8c94b1-6d0a-4b77-8d14-ae6efcdd99f4
-ms.service: azure-notebooks
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 04/15/2019
-ms.author: kraigb
-ms.openlocfilehash: 0c12c8673ff61dcca62c72addcbf0d9b33c2c252
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 234703da9662380a59c7673ca3b34a1b01b7dbef
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973057"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277434"
 ---
 # <a name="quickstart-sign-in-and-set-a-user-id"></a>Inicio rápido: Inicio de sesión y establecimiento de un identificador de usuario
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: a2025eb611a394cf4b67c05a4019ccf03bcadf9b
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 2a8bea01d67c1820dc4f5c0a4922872541449a9e
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075862"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74538175"
 ---
 # <a name="speech-service-for-telephony-data"></a>Servicio Voz para datos de telefonía
 
@@ -95,7 +95,6 @@ Una solución típica utiliza estos servicios:
 - El servicio Voz se usan para convertir voz en texto. Se requiere una suscripción estándar (S0) al servicio Voz para usar la API Batch Transcription. Las suscripciones gratuitas (F0) no funcionarán.
 - [Azure Storage](https://azure.microsoft.com/services/storage/) se utiliza para almacenar datos de telefonía y las transcripciones devueltas por la API Batch Transcription. Esta cuenta de almacenamiento debe utilizar notificaciones, específicamente para cuando se agregan nuevos archivos. Estas notificaciones se utilizan para desencadenar el proceso de transcripción.
 - La solución [Azure Functions](https://docs.microsoft.com/azure/azure-functions/) se utiliza para crear un identificador URI de firmas de acceso compartido (SAS) para cada grabación, y desencadenar la petición HTTP POST para iniciar una transcripción. Además, Azure Functions se utiliza para crear solicitudes de recuperación y eliminación de transcripciones mediante la API Batch Transcription.
-- [WebHooks](webhooks.md) se utilizan para recibir notificaciones cuando se completan las transcripciones.
 
 Internamente estamos utilizando las tecnologías anteriores para admitir las llamadas de los clientes de Microsoft en modo por lotes.
 ![Arquitectura por lotes](media/scenarios/call-center-batch-pipeline.png)

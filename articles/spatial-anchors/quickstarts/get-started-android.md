@@ -1,19 +1,19 @@
 ---
-title: 'Inicio rápido: Creación de una aplicación para Android con Azure Spatial Anchors | Microsoft Docs'
+title: 'Inicio rápido: Creación de una aplicación de Android'
 description: En este artículo de inicio rápido aprenderá a compilar una aplicación para Android mediante Spatial Anchors.
 author: craigktreasure
-manager: aliemami
+manager: vriveras
 services: azure-spatial-anchors
 ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 248b66a928d373678d3058be488e226ee51bbcae
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 7c62ded627ab6f6ead5c03ef8cf298b4ee622265
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74092122"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277115"
 ---
 # <a name="quickstart-create-an-android-app-with-azure-spatial-anchors"></a>Inicio rápido: Creación de una aplicación para Android con Azure Spatial Anchors
 

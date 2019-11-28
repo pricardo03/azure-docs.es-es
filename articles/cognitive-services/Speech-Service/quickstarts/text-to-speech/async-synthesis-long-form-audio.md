@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: d308623a323fecd39efa90639da71fb981936fe5
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 6cf6cfb005155b85278935af6f266dfebcbb44c6
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73930573"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74554958"
 ---
 # <a name="quickstart-asynchronous-synthesis-for-long-form-audio-in-python-preview"></a>Inicio rápido: síntesis asincrónica para audio de formato largo en Python (versión preliminar)
 
@@ -30,7 +30,7 @@ Esta guía de inicio rápido requiere:
 
 * Python 2.7.x o 3.x.
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) o su editor favorito de código.
-* Una suscripción a Azure y una clave de suscripción al servicio de Voz. [Cree una cuenta de Azure](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#new-azure-account) y [cree un recurso de voz](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure) para obtener la clave. Al crear el recurso de voz, asegúrese de que el plan de tarifa está establecido en **S0** y la ubicación está establecida en una [región compatible](../../regions.md#standard-and-neural-voices).
+* Una suscripción a Azure y una clave de suscripción al servicio de Voz. [Cree una cuenta de Azure](../../get-started.md#try-the-speech-service-using-a-new-azure-account) y [cree un recurso de voz](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure) para obtener la clave. Al crear el recurso de voz, asegúrese de que el plan de tarifa está establecido en **S0** y la ubicación está establecida en una [región compatible](../../regions.md#standard-and-neural-voices).
 
 ## <a name="create-a-project-and-import-required-modules"></a>Creación de un proyecto e importación de los módulos necesarios
 

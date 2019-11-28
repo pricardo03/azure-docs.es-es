@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Máquinas virtuales de Load Balancer en una zona: Azure Portal'
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: Este tutorial muestra cómo crear una instancia de Standard Load Balancer con un front-end de zona para equilibrar la carga de las máquinas virtuales en una zona de disponibilidad mediante Azure Portal
 services: load-balancer
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 0ec9fae1ce4ef976d5f50e1d8d8412354706c5f8
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 07d4b206c5651bb708ed8b56437a8769dff46557
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68273400"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74225172"
 ---
 # <a name="tutorial-load-balance-vms-within-an-availability-zone-with-standard-load-balancer-by-using-the-azure-portal"></a>Tutorial: Equilibrio de carga de máquinas virtuales en una zona de disponibilidad con Standard Load Balancer mediante Azure Portal
 

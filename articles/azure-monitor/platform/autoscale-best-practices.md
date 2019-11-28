@@ -48,8 +48,8 @@ Es recomendable tener cuidado a la hora de elegir los diferentes umbrales de esc
 
 *No se recomiendan* opciones de escalado automático como las de los siguientes ejemplos, con valores de umbral iguales o muy similares en condiciones de escalado o reducción horizontal:
 
-* Aumentar las instancias en 1 cuando el número de subprocesos <= 600
-* Disminuir las instancias en 1 cuando el número de subprocesos >= 600
+* Aumentar las instancias en 1 cuando el número de subprocesos >= 600
+* Disminuir las instancias en 1 cuando el número de subprocesos <= 600
 
 Veamos un ejemplo de lo que puede llevar a producir un comportamiento confuso. Considere la siguiente secuencia.
 
@@ -64,7 +64,7 @@ La estimación durante una reducción horizontal está diseñada para evitar sit
 Nuestra recomendación es establecer un margen suficiente entre el escalado horizontal y en los umbrales. Por ejemplo, echemos un vistazo a esta siguiente combinación de reglas, que es mejor.
 
 * Aumentar las instancias en 1 cuando el porcentaje de CPU > = 80
-* Disminuir las instancias en 1 cuando el porcentaje de CPU < = 60
+* Disminuir las instancias en 1 cuando el porcentaje de CPU > = 60
 
 En este caso  
 

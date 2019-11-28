@@ -1,18 +1,14 @@
 ---
 title: Adición de un enlace de cola de Azure Storage a la función de Python
 description: Aprenda a agregar un enlace de salida de cola de Azure Storage a la función de Python.
-author: ggailey777
-ms.author: glenga
 ms.date: 10/02/2019
 ms.topic: quickstart
-ms.service: azure-functions
-manager: gwallace
-ms.openlocfilehash: da3fb604bfb65f67e50d56a4520620cabc292b93
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: dede135da56e9ed1eaaed2ae0f7b5cd14d08195c
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082817"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231248"
 ---
 # <a name="add-an-azure-storage-queue-binding-to-your-python-function"></a>Adición de un enlace de cola de Azure Storage a la función de Python
 

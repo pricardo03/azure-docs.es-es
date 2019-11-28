@@ -2,17 +2,17 @@
 title: ¿Qué es Azure Private Link?
 description: Aprenda a usar Azure Private Link para acceder a los servicios PaaS de Azure (por ejemplo, Azure Storage y SQL Database) y a los servicios de asociados o clientes hospedados en Azure a través de un punto de conexión privado de la red virtual.
 services: private-link
-author: KumudD
+author: asudbring
 ms.service: private-link
 ms.topic: overview
 ms.date: 11/04/2019
-ms.author: kumud
-ms.openlocfilehash: aa176cb5ffc67ebba826cf13a1a66608301af5e5
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.author: allensu
+ms.openlocfilehash: e33fce7b3fc19d6dfa83f95b6a9bcb43588945d1
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73601529"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74228070"
 ---
 # <a name="what-is-azure-private-link-preview"></a>¿Qué es Azure Private Link? (versión preliminar)
 Azure Private Link le permite acceder a los servicios PaaS de Azure (por ejemplo, Azure Storage, Azure Cosmos DB y SQL Database) y a los servicios de asociados o clientes hospedados de cliente o asociado mediante un [punto de conexión privado](private-endpoint-overview.md) de la red virtual. El tráfico entre la red virtual y el servicio atraviesa la red troncal de Microsoft, eliminando la exposición a la red pública de Internet. También puede crear su propio [servicio Private Link](private-link-service-overview.md) en la red virtual y enviarlo de forma privada a los clientes. La experiencia de configuración y consumo con Azure Private Link es coherente en los servicios compartidos de PaaS de Azure, de propiedad del cliente y de asociados.

@@ -1,18 +1,14 @@
 ---
 title: 'Tutorial: Copia de seguridad de bases de datos de SQL Server en Azure'
 description: En este tutorial, aprenderá a hacer una copia de seguridad de una base de datos de SQL Server que se ejecuta en una VM de Azure en un almacén de Azure Backup Recovery Services.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: tutorial
 ms.date: 06/18/2019
-ms.author: dacurwin
-ms.openlocfilehash: 96a9940826570bd687fdef5726bdc103139f9902
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 3216404b04647e2fb5f15beb09b9a4ccd6648bba
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074653"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74171880"
 ---
 # <a name="back-up-a-sql-server-database-in-an-azure-vm"></a>Copia de seguridad de una base de datos de SQL Server en una máquina virtual de Azure
 

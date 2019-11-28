@@ -3,18 +3,18 @@ title: 'Tutorial: Creación de un conjunto de aptitudes en Python mediante las A
 titleSuffix: Azure Cognitive Search
 description: Siga paso a paso un ejemplo de extracción de datos, lenguaje natural y procesamiento de inteligencia artificial de imágenes en Azure Cognitive Search mediante un cuaderno de Jupyter Python. Los datos extraídos se indexan y se puede acceder fácilmente a ellos mediante consultas.
 manager: nitinme
-author: LisaLeib
-ms.author: v-lilei
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 1e404998c8f49852248a754e7134f439dcdf5b04
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: d7b4755bb2e69c4a852901b71d917c6baa5d63ae
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113685"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406427"
 ---
 # <a name="tutorial-create-an-ai-enrichment-pipeline-using-rest-and-python"></a>Tutorial: Creación de una canalización de enriquecimiento de inteligencia artificial mediante REST y Python
 

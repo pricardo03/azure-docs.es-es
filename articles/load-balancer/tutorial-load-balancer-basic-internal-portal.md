@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Creación de un equilibrador de carga interno: Azure Portal'
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: En este tutorial se muestra cómo crear un equilibrador de carga interno Básico mediante Azure Portal.
 services: load-balancer
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 09a73b5d97e46797dd880f64383fdf03fd591f3d
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 1b9d943f540a0132abc6a70eba888aa5f8f46093
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68273490"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74225218"
 ---
 # <a name="tutorial-balance-internal-traffic-load-with-a-basic-load-balancer-in-the-azure-portal"></a>Tutorial: Equilibrio de la carga de tráfico interno con un equilibrador de carga básico en Azure Portal
 

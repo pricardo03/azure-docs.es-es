@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: event-hubs
 ms.custom: seodec18
 ms.date: 11/05/2019
-ms.openlocfilehash: 0cfff0196ebc20b9b01bc966b3590470d349e86e
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 3e228fb9d4223ad1d6d906b44ab63c35600faa56
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73717997"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74307349"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Tutorial: Visualización de anomalías de datos de eventos en tiempo real enviados a Azure Event Hubs
 
@@ -156,7 +156,7 @@ Write-Host "Connection string is " $eventHubKey.PrimaryConnectionString
 
 ## <a name="run-app-to-produce-test-event-data"></a>Ejecución de la aplicación para generar datos de eventos de prueba
 
-Los [ejemplos de Event Hubs en GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet) incluyen una [aplicación de detección de anomalías](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/AnomalyDetector) que genera datos de prueba automáticamente. Para simular el uso de tarjetas de crédito, escribe transacciones de tarjeta de crédito en el centro de eventos, y ocasionalmente escribe varias transacciones para la misma tarjeta de crédito en varias ubicaciones para que se etiqueten como anomalías. Para ejecutar esta aplicación, siga estos pasos: 
+Los [ejemplos de Event Hubs en GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet) incluyen una [aplicación de detección de anomalías](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/AnomalyDetector) que genera datos de prueba automáticamente. Para simular el uso de tarjetas de crédito, escribe transacciones de tarjeta de crédito en el centro de eventos, y ocasionalmente escribe varias transacciones para la misma tarjeta de crédito en varias ubicaciones para que se etiqueten como anomalías. Para ejecutar esta aplicación, siga estos pasos: 
 
 1. Descargue los [ejemplos de Azure Event Hubs](https://github.com/Azure/azure-event-hubs/archive/master.zip) desde GitHub y descomprímalos localmente.
 

@@ -11,12 +11,12 @@ author: mumian
 ms.author: jgao
 ms.reviewer: carlrab
 ms.date: 06/28/2019
-ms.openlocfilehash: b7888215a2d463c8007168e215179ace898ca1cc
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 5d090add7bdb2c3ee08f4c186bd57d63f14ab113
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821018"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74422555"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-resource-manager-template"></a>Inicio rápido: Creación de una base de datos única en Azure SQL Database con una plantilla de Azure Resource Manager
 
@@ -32,27 +32,45 @@ El siguiente archivo JSON es la plantilla que se usa en este artículo. La plant
 
 [!code-json[create-azure-sql-database-server-and-database](~/resourcemanager-templates/SQLServerAndDatabase/azuredeploy.json)]
 
-1. Seleccione **Pruébelo** en el bloque de código de PowerShell siguiente para abrir Azure Cloud Shell.
+Seleccione **Pruébelo** en el bloque de código de PowerShell siguiente para abrir Azure Cloud Shell.
 
-    ```azurepowershell-interactive
-    $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
-    $location = Read-Host -Prompt "Enter an Azure location (i.e. centralus)"
-    $adminUser = Read-Host -Prompt "Enter the SQL server administrator username"
-    $adminPassword = Read-Host -Prompt "Enter the SQl server administrator password" -AsSecureString
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-    $resourceGroupName = "${projectName}rg"
+```azurepowershell-interactive
+$projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
+$location = Read-Host -Prompt "Enter an Azure location (i.e. centralus)"
+$adminUser = Read-Host -Prompt "Enter the SQL server administrator username"
+$adminPassword = Read-Host -Prompt "Enter the SQl server administrator password" -AsSecureString
 
+$resourceGroupName = "${projectName}rg"
 
-    New-AzResourceGroup -Name $resourceGroupName -Location $location
-    New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile "D:\GitHub\azure-docs-json-samples\SQLServerAndDatabase\azuredeploy.json" -projectName $projectName -adminUser $adminUser -adminPassword $adminPassword
+New-AzResourceGroup -Name $resourceGroupName -Location $location
+New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile "D:\GitHub\azure-docs-json-samples\SQLServerAndDatabase\azuredeploy.json" -projectName $projectName -adminUser $adminUser -adminPassword $adminPassword
 
-    Read-Host -Prompt "Press [ENTER] to continue ..."
-    ```
+Read-Host -Prompt "Press [ENTER] to continue ..."
+```
 
-1. Seleccione **Copiar** para copiar el script de PowerShell en el Portapapeles.
-1. Haga clic con el botón derecho en el panel del shell y, a continuación, seleccione **Pegar**.
+# <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-    Se tardan unos minutos en crear el servidor de base de datos y la base de datos.
+```azurecli-interactive
+$projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
+$location = Read-Host -Prompt "Enter an Azure location (i.e. centralus)"
+$adminUser = Read-Host -Prompt "Enter the SQL server administrator username"
+$adminPassword = Read-Host -Prompt "Enter the SQl server administrator password" -AsSecureString
+
+$resourceGroupName = "${projectName}rg"
+
+az group create --location $location --name $resourceGroupName
+
+az group deployment create -g $resourceGroupName --template-uri "D:\GitHub\azure-docs-json-samples\SQLServerAndDatabase\azuredeploy.json" `
+    --parameters 'projectName=' + $projectName \
+                 'adminUser=' + $adminUser \
+                 'adminPassword=' + $adminPassword
+
+Read-Host -Prompt "Press [ENTER] to continue ..."
+```
+
+* * *
 
 ## <a name="query-the-database"></a>Consulta de la base de datos
 
@@ -62,16 +80,24 @@ Para consultar la base de datos, vea [Consulta de la base de datos](./sql-databa
 
 Mantenga este grupo de recursos, el servidor de bases de datos y la base de datos única si quiere ir a [Pasos siguientes](#next-steps). Los pasos siguientes muestran cómo conectarse a la base de datos y consultarla mediante distintos métodos.
 
-Para eliminar el grupo de recursos mediante Azure PowerShell:
+Para eliminar el grupo de recursos:
+
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
-$projectName = Read-Host -Prompt "Enter the same project name"
-$resourceGroupName = "${projectName}rg"
-
+$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 Remove-AzResourceGroup -Name $resourceGroupName
-
-Read-Host -Prompt "Press [ENTER] to continue ..."
 ```
+
+# <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+```azurecli-interactive
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+az group delete --name $resourceGroupName
+```
+
+* * *
 
 ## <a name="next-steps"></a>Pasos siguientes
 

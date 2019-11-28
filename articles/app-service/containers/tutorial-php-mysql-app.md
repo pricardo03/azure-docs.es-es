@@ -8,15 +8,15 @@ ms.service: app-service-web
 ms.workload: web
 ms.devlang: php
 ms.topic: tutorial
-ms.date: 03/27/2019
+ms.date: 11/25/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 6d9ef67f39a67fd06a5b42afe4432b5a0156fead
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 4fade03d798096e250cb5b56fbb2003ea4b58e1b
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549838"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74481322"
 ---
 # <a name="build-a-php-and-mysql-app-in-azure-app-service-on-linux"></a>Compilación de una aplicación PHP y MySQL en Azure App Service en Linux
 
@@ -161,7 +161,7 @@ En este paso, creará una base de datos MySQL en [Azure Database for MySQL](/azu
 
 Cree un servidor en Azure Database for MySQL con el comando [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az-mysql-server-create).
 
-En el siguiente comando, sustituya un nombre de servidor único por el marcador de posición *\<mysql-server-name>*, un nombre de usuario por el marcador de posición *\<admin-user>* y una contraseña por el marcador de posición *\<admin-password>*. El nombre del servidor se usa como parte del punto de conexión de MySQL (`https://<mysql-server-name>.mysql.database.azure.com`), por lo que debe ser único en todos los servidores de Azure. Para más información sobre cómo seleccionar la SKU de MySQL DB, consulte [Creación de un servidor de Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/quickstart-create-mysql-server-database-using-azure-cli#create-an-azure-database-for-mysql-server).
+En el siguiente comando, sustituya un nombre de servidor único por el marcador de posición *\<mysql-server-name>* , un nombre de usuario por el marcador de posición *\<admin-user>* y una contraseña por el marcador de posición *\<admin-password>* . El nombre del servidor se usa como parte del punto de conexión de MySQL (`https://<mysql-server-name>.mysql.database.azure.com`), por lo que debe ser único en todos los servidores de Azure. Para más información sobre cómo seleccionar la SKU de MySQL DB, consulte [Creación de un servidor de Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/quickstart-create-mysql-server-database-using-azure-cli#create-an-azure-database-for-mysql-server).
 
 ```azurecli-interactive
 az mysql server create --resource-group myResourceGroup --name <mysql-server-name> --location "West Europe" --admin-user <admin-user> --admin-password <admin-password> --sku-name B_Gen5_1
@@ -202,7 +202,7 @@ az mysql server firewall-rule create --name AllowLocalClient --server <mysql-ser
 
 ### <a name="connect-to-production-mysql-server-locally"></a>Conexión al servidor MySQL de producción local
 
-En la ventana de terminal, conéctese al servidor MySQL de Azure. Use el valor que especificó anteriormente para _&lt;admin-user>_ y _&lt;mysql-server-name>_. Cuando se le solicite una contraseña, utilice la contraseña que especificó al crear la base de datos en Azure.
+En la ventana de terminal, conéctese al servidor MySQL de Azure. Use el valor que especificó anteriormente para _&lt;admin-user>_ y _&lt;mysql-server-name>_ . Cuando se le solicite una contraseña, utilice la contraseña que especificó al crear la base de datos en Azure.
 
 ```bash
 mysql -u <admin-user>@<mysql-server-name> -h <mysql-server-name>.mysql.database.azure.com -P 3306 -p
@@ -239,7 +239,7 @@ En este paso, conectará la aplicación PHP a la base de datos MySQL que creó e
 
 ### <a name="configure-the-database-connection"></a>Configuración de la conexión de base de datos
 
-En la raíz del repositorio, cree un archivo _.env.production_ y copie en él las siguientes variables. Reemplace el marcador de posición _&lt;mysql-server-name>_.
+En la raíz del repositorio, cree un archivo _.env.production_ y copie en él las siguientes variables. Reemplace el marcador de posición _&lt;mysql-server-name>_ .
 
 ```txt
 APP_ENV=production
@@ -262,7 +262,7 @@ Guarde los cambios.
 
 ### <a name="configure-ssl-certificate"></a>Configuración de un certificado SSL
 
-De manera predeterminada, Azure Database for MySQL aplica las conexiones SSL de los clientes. Para conectarse a la base de datos MySQL en Azure, debe utilizar el certificado [_.pem_ proporcionado por Azure Database for MySQL](../../mysql/howto-configure-ssl.md).
+De manera predeterminada, Azure Database for MySQL aplica las conexiones SSL de los clientes. Para conectarse a la base de datos MySQL en Azure, debe utilizar el certificado [ _.pem_ proporcionado por Azure Database for MySQL](../../mysql/howto-configure-ssl.md).
 
 Abra _config/database.php_ y agregue los parámetros _sslmode_ y _options_ a `connections.mysql`, como se muestra en el código siguiente.
 
@@ -270,7 +270,7 @@ Abra _config/database.php_ y agregue los parámetros _sslmode_ y _options_ a `co
 'mysql' => [
     ...
     'sslmode' => env('DB_SSLMODE', 'prefer'),
-    'options' => (env('MYSQL_SSL')) ? [
+    'options' => (env('MYSQL_SSL') && extension_loaded('pdo_mysql')) ? [
         PDO::MYSQL_ATTR_SSL_KEY    => '/ssl/BaltimoreCyberTrustRoot.crt.pem',
     ] : []
 ],
@@ -341,7 +341,7 @@ Para más información, consulte [Change site root](configure-language-php.md#ch
 
 En App Service, las variables de entorno se establecen como _valores de aplicación_ mediante el comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set).
 
-El siguiente comando permite configurar los valores de aplicación `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` y `DB_PASSWORD`. Reemplace los marcadores de posición _&lt;appname>_ y _&lt;mysql-server-name>_.
+El siguiente comando permite configurar los valores de aplicación `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` y `DB_PASSWORD`. Reemplace los marcadores de posición _&lt;appname>_ y _&lt;mysql-server-name>_ .
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings DB_HOST="<mysql-server-name>.mysql.database.azure.com" DB_DATABASE="sampledb" DB_USERNAME="phpappuser@<mysql-server-name>" DB_PASSWORD="MySQLAzure2017" MYSQL_SSL="true"
@@ -370,7 +370,7 @@ Use `php artisan` para generar una nueva clave de aplicación sin guardarla en _
 php artisan key:generate --show
 ```
 
-Establezca la clave de aplicación en la aplicación App Service, para lo que hay que usar el comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set). Reemplace los marcadores de posición _&lt;appname>_ y _&lt;outputofphpartisankey:generate>_.
+Establezca la clave de aplicación en la aplicación App Service, para lo que hay que usar el comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set). Reemplace los marcadores de posición _&lt;appname>_ y _&lt;outputofphpartisankey:generate>_ .
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings APP_KEY="<output_of_php_artisan_key:generate>" APP_DEBUG="true"

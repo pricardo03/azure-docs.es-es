@@ -1,5 +1,5 @@
 ---
-title: Introducción a Azure Spatial Anchors | Microsoft Docs
+title: Introducción a Azure Spatial Anchors
 description: Obtenga información sobre cómo Azure Spatial Anchors le ayuda a desarrollar experiencias de realidad mixta multiplataforma.
 author: craigktreasure
 manager: aliemami
@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 2451922f0eb49a5ccee036db72eb046760287dca
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 503004cba0d4109adcfee62f7acd108cbcb73eb6
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "60240472"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277154"
 ---
 # <a name="azure-spatial-anchors-overview"></a>Introducción a Azure Spatial Anchors
 

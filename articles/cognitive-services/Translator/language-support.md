@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: 5e96ced1bd87a0ed8be19bf4e07f7b0d9b319aad
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 25ab298a8b72b3734e41daf66ef5063b8e43a96e
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837328"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74286616"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Compatibilidad de idiomas y regiones para Translator Text API
 
@@ -81,6 +81,7 @@ Translator Text API admite los siguientes idiomas para la conversión de texto a
 |Malgache|  `mg`    |Solo estadísticas|  Estadística|
 |Malayo| `ms`    |Solo estadísticas   |Estadística|
 |Maltés|   `mt`    |Solo estadísticas|  Estadística|
+|Maori| `mi`  |Solo neuronal| Neuronal|
 |Noruego| `nb`    |Traducción neuronal disponible|  Neuronal|
 |Persa|   `fa`    |Traducción neuronal disponible|  Neuronal|
 |Polaco|    `pl`    |Traducción neuronal disponible|  Neuronal|
@@ -237,6 +238,7 @@ Los siguientes idiomas están disponibles para personalización al y del inglés
 | Letón      | `lv`          |
 | Lituano      | `lt`          |
 |Malgache|  `mg`    |
+|Maori| `mi`  |
 | Noruego      | `nb`          |
 | Persa      | `fa`          |
 | Polaco      | `pl`          |
