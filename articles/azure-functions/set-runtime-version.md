@@ -1,19 +1,14 @@
 ---
 title: Cómo seleccionar un destino para versiones en tiempo de ejecución de Azure Functions
 description: Azure Functions admite varias versiones del runtime. Obtenga información sobre cómo especificar la versión en tiempo de ejecución de una aplicación de función hospedada en Azure.
-services: functions
-author: ggailey777
-manager: jeconnoc
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.author: glenga
-ms.openlocfilehash: c30dbad9e2d433920ade6890eabd85f083f9d968
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 6f93ac7bcbd25c1b120cfeecae9dd4353524855f
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596830"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230317"
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Cómo seleccionar un destino para versiones en tiempo de ejecución de Azure Functions
 

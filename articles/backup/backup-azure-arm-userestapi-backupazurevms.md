@@ -1,21 +1,15 @@
 ---
-title: 'Azure Backup: copia de seguridad de máquinas virtuales de Azure mediante API REST'
+title: copia de seguridad de máquinas virtuales de Azure mediante API REST
 description: En este artículo se aprende a configurar, iniciar y administrar las operaciones de copia de seguridad de Azure Backup mediante la API de REST.
-ms.reviewer: pullabhk
-author: dcurwin
-manager: carmonm
-keywords: API REST; copia de seguridad de Azure VM; restauración de Azure VM;
-ms.service: backup
 ms.topic: conceptual
 ms.date: 08/03/2018
-ms.author: dacurwin
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: 6f64f45aca6948665c088279002d3d8054ef8d80
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 4f73958a46e408f85d1f23371552aad0d5540184
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73929165"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74554904"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Copia de seguridad de una máquina virtual de Azure mediante Azure Backup a través de la API REST
 
@@ -168,7 +162,7 @@ En el ejemplo, los valores anteriores se traducen como:
 
 ### <a name="enabling-protection-for-the-azure-vm"></a>Habilitación de la protección de la máquina virtual de Azure
 
-Una vez que la máquina virtual correspondiente está "almacenada en caché" e "identificada", seleccione la directiva para la protección. Para más información acerca de las directivas existentes en el almacén, consulte el artículo sobre [la enumeración de directivas en la API](https://docs.microsoft.com/rest/api/backup/backuppolicies/list). A continuación, seleccione la [directiva pertinente](https://docs.microsoft.com/rest/api/backup/protectionpolicies(2019-05-13)/get) haciendo referencia al nombre de la directiva. Para crear las directivas, consulte el [ tutorial sobre la creación de directivas](backup-azure-arm-userestapi-createorupdatepolicy.md). "DefaultPolicy" se selecciona en el ejemplo siguiente.
+Una vez que la máquina virtual correspondiente está "almacenada en caché" e "identificada", seleccione la directiva para la protección. Para más información acerca de las directivas existentes en el almacén, consulte el artículo sobre [la enumeración de directivas en la API](https://docs.microsoft.com/rest/api/backup/backuppolicies/list). A continuación, seleccione la [directiva pertinente](/rest/api/backup/protectionpolicies/get) haciendo referencia al nombre de la directiva. Para crear las directivas, consulte el [ tutorial sobre la creación de directivas](backup-azure-arm-userestapi-createorupdatepolicy.md). "DefaultPolicy" se selecciona en el ejemplo siguiente.
 
 La habilitación de la protección es una operación asincrónica *PUT* que crea un elemento protegido.
 

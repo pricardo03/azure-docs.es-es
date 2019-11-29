@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/22/2019
-ms.openlocfilehash: 8f39556fcffea5f254e5362dbb1b55762f60c9b3
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 823527af81e0cb22fb59421b84983684d4cdfffd
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74131941"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74286244"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights para aplicaciones de ASP.NET Core
 
@@ -203,7 +203,7 @@ Lista completa de valores de `ApplicationInsightsServiceOptions`
 |AddAutoCollectedMetricExtractor | Habilitar o deshabilitar el extractor de AutoCollectedMetrics, que es un elemento TelemetryProcessor que envía métricas previamente agregadas sobre las solicitudes o dependencias antes de que tenga lugar el muestreo. | true
 |RequestCollectionOptions.TrackExceptions | Habilitar o deshabilitar los informes de seguimiento de excepciones no controladas por el módulo de recopilación de solicitudes. | false en NETSTANDARD2.0 (porque se realiza un seguimiento de las excepciones con ApplicationInsightsLoggerProvider); en caso contrario, true.
 
-Consulte los [valores configurables en `ApplicationInsightsServiceOptions` ](https://github.com/microsoft/ApplicationInsights-aspnetcore/blob/develop/src/Shared/Extensions/ApplicationInsightsServiceOptions.cs) para obtener la lista más actualizada.
+Consulte los [valores configurables en `ApplicationInsightsServiceOptions` ](https://github.com/microsoft/ApplicationInsights-dotnet/blob/develop/NETCORE/src/Shared/Extensions/ApplicationInsightsServiceOptions.cs) para obtener la lista más actualizada.
 
 ### <a name="sampling"></a>muestreo
 

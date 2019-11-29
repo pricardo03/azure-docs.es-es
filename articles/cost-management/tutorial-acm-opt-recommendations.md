@@ -7,15 +7,15 @@ author: bandersmsft
 ms.author: banders
 ms.date: 10/24/2019
 ms.topic: conceptual
-ms.service: cost-management
+ms.service: cost-management-billing
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 603de4d9bed936ecb91f130b0e30f6d1383a9092
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: a9dbb121cab49024aaf0dc65bbac938764d9f8b2
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72935819"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74229850"
 ---
 # <a name="tutorial-optimize-costs-from-recommendations"></a>Tutorial: Optimización de los costos a partir de las recomendaciones
 

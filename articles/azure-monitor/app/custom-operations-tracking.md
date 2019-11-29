@@ -6,14 +6,14 @@ ms.subservice: application-insights
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 06/30/2017
+ms.date: 11/26/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: f05c8724fe87888c93230b4ca77a7a82fe9357c2
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 3e316527992b4a478b82bef61fb6da608e218ba5
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677469"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74554920"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Seguimiento de las operaciones personalizadas con el SDK de .NET para Application Insights
 
@@ -30,7 +30,7 @@ En este documento se proporcionan instrucciones sobre cómo realizar el seguimie
 ## <a name="overview"></a>Información general
 Una operación es una parte de trabajo lógica ejecutada por una aplicación. Tiene un nombre, una hora de inicio, una duración, un resultado y un contexto de ejecución como el nombre de usuario, las propiedades y el resultado. Si la operación B inició la operación A, la operación B se establece como un elemento primario de A. Una operación solo puede tener un elemento primario, pero puede tener muchas operaciones secundarias. Para más información sobre las operaciones y la correlación de telemetría, vea [Correlación de telemetría en Azure Application Insights](correlation.md).
 
-En el SDK de .NET para Application Insights se describe la operación mediante la clase abstracta [OperationTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Microsoft.ApplicationInsights/Extensibility/Implementation/OperationTelemetry.cs) y sus descendientes [RequestTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Microsoft.ApplicationInsights/DataContracts/RequestTelemetry.cs) y [DependencyTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Microsoft.ApplicationInsights/DataContracts/DependencyTelemetry.cs).
+En el SDK de .NET para Application Insights se describe la operación mediante la clase abstracta [OperationTelemetry](https://github.com/microsoft/ApplicationInsights-dotnet/blob/7633ae849edc826a8547745b6bf9f3174715d4bd/BASE/src/Microsoft.ApplicationInsights/Extensibility/Implementation/OperationTelemetry.cs) y sus descendientes [RequestTelemetry](https://github.com/microsoft/ApplicationInsights-dotnet/blob/7633ae849edc826a8547745b6bf9f3174715d4bd/BASE/src/Microsoft.ApplicationInsights/DataContracts/RequestTelemetry.cs) y [DependencyTelemetry](https://github.com/microsoft/ApplicationInsights-dotnet/blob/7633ae849edc826a8547745b6bf9f3174715d4bd/BASE/src/Microsoft.ApplicationInsights/DataContracts/DependencyTelemetry.cs).
 
 ## <a name="incoming-operations-tracking"></a>Seguimiento de operaciones de entrada 
 El SDK web de Application Insights recopila automáticamente las solicitudes HTTP para las aplicaciones ASP.NET que se ejecutan en una canalización IIS y todas las aplicaciones ASP.NET Core. Hay soluciones admitidas por la comunidad para otras plataformas y marcos de trabajo. Pero si la aplicación no es compatible con ninguna solución admitida por los estándares o la comunidad, puede instrumentarla de forma manual.

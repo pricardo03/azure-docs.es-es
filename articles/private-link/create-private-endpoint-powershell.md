@@ -2,17 +2,17 @@
 title: Creación de un punto de conexión privado de Azure mediante Azure PowerShell | Microsoft Docs
 description: Información acerca de Azure Private Link
 services: private-link
-author: KumudD
+author: asudbring
 ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
-ms.author: kumud
-ms.openlocfilehash: 91670d51328b3adb67ba8b2ed05d3b86f9bc0010
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.author: allensu
+ms.openlocfilehash: 83f1cbc3f8da61370c90744be3f0a7b230e016c3
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053921"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74229401"
 ---
 # <a name="create-a-private-endpoint-using-azure-powershell"></a>Creación de un punto de conexión privado mediante Azure PowerShell
 Un punto de conexión privado es el bloque de creación fundamental para el vínculo privado en Azure. Permite que los recursos de Azure, como las máquinas virtuales, se comuniquen de manera privada con recursos de vínculos privados. 

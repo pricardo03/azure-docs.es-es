@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/29/2018
 ms.author: tomfitz
-ms.openlocfilehash: 3036e5882e236dbbb9cf4f9aae17617822422a82
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: c1b4791f2ec80eba25a00e22cb4298b4c97da4de
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742107"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151083"
 ---
 # <a name="microsoftcomputecredentialscombo-ui-element"></a>Elemento de interfaz de usuario Microsoft.Compute.CredentialsCombo
+
 Grupo de controles con validación integrada para las contraseñas de Windows y Linux, y las claves públicas de SSH.
 
 ## <a name="ui-sample"></a>Ejemplo de interfaz de usuario
@@ -38,6 +39,7 @@ Los usuarios de Linux con clave pública SSH seleccionada ven:
 ![Microsoft.Compute.CredentialsCombo clave Linux](./media/managed-application-elements/microsoft.compute.credentialscombo-linux-key.png)
 
 ## <a name="schema"></a>Esquema
+
 Para Windows, use el esquema siguiente:
 
 ```json
@@ -95,14 +97,8 @@ Para **Linux**, use el esquema siguiente:
 }
 ```
 
-## <a name="remarks"></a>Comentarios
-- `osPlatform` debe especificarse y puede ser **Windows** o **Linux**.
-- Si `constraints.required` está establecido en **true**, los cuadros de texto de clave pública SSH o contraseña deben contener valores para que la validación sea correcta. El valor predeterminado es **true**.
-- Si `options.hideConfirmation` está establecido en **true**, se oculta el segundo cuadro de texto para confirmar la contraseña del usuario. El valor predeterminado es **false**.
-- Si `options.hidePassword` está establecido en **true**, se oculta la opción para utilizar la autenticación de contraseña. Se puede utilizar solo cuando `osPlatform` es **Linux**. El valor predeterminado es **false**.
-- Se pueden implementar restricciones adicionales en las contraseñas permitidas con la propiedad `customPasswordRegex`. La cadena de `customValidationMessage` se muestra cuando se produce un error de validación personalizada en una contraseña. El valor predeterminado para ambas propiedades es **null**.
-
 ## <a name="sample-output"></a>Salida de ejemplo
+
 Si `osPlatform` es **Windows** o `osPlatform` es **Linux** y el usuario proporcionó una contraseña en lugar de una clave pública SSH, el control devuelve la siguiente salida:
 
 ```json
@@ -121,6 +117,15 @@ Si `osPlatform` es **Linux** y el usuario proporcionó una clave pública SSH, e
 }
 ```
 
+## <a name="remarks"></a>Comentarios
+
+- `osPlatform` debe especificarse y puede ser **Windows** o **Linux**.
+- Si `constraints.required` está establecido en **true**, los cuadros de texto de clave pública SSH o contraseña deben contener valores para que la validación sea correcta. El valor predeterminado es **true**.
+- Si `options.hideConfirmation` está establecido en **true**, se oculta el segundo cuadro de texto para confirmar la contraseña del usuario. El valor predeterminado es **false**.
+- Si `options.hidePassword` está establecido en **true**, se oculta la opción para utilizar la autenticación de contraseña. Se puede utilizar solo cuando `osPlatform` es **Linux**. El valor predeterminado es **false**.
+- Se pueden implementar restricciones adicionales en las contraseñas permitidas con la propiedad `customPasswordRegex`. La cadena de `customValidationMessage` se muestra cuando se produce un error de validación personalizada en una contraseña. El valor predeterminado para ambas propiedades es **null**.
+
 ## <a name="next-steps"></a>Pasos siguientes
+
 * Para ver una introducción sobre la creación de definiciones de interfaz de usuario, consulte [Introducción a CreateUiDefinition](create-uidefinition-overview.md).
 * Para ver una descripción de las propiedades comunes de los elementos de interfaz de usuario, consulte [Elementos CreateUiDefinition](create-uidefinition-elements.md).

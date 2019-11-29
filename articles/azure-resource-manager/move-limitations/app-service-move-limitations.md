@@ -1,17 +1,14 @@
 ---
 title: Movimiento de recursos de Azure App Service
 description: Use Azure Resource Manager para trasladar recursos de App Service a un nuevo grupo de recursos o a una nueva suscripción.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 07/09/2019
-ms.author: tomfitz
-ms.openlocfilehash: 04ddf644c58434531dde708ee3b6432b1fce8f91
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: dca9b3a8f328192683cfde586f0ccdb01e84dc16
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72533510"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150902"
 ---
 # <a name="move-guidance-for-app-service-resources"></a>Orientaciones para el traslado de recursos de App Service
 

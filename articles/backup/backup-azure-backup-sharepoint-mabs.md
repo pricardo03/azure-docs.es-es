@@ -1,19 +1,14 @@
 ---
-title: Uso de Azure Backup Server para hacer copia de seguridad de una granja de SharePoint en Azure
+title: Realización de una copia de seguridad de una granja de SharePoint en Azure con MABS
 description: Uso del Azure Backup Server para hacer copia de seguridad de los datos de SharePoint y restaurarlos. En este artículo se proporciona la información sobre cómo configurar la granja de SharePoint para almacenar los datos deseados en Azure. Puede restaurar los datos protegidos de SharePoint desde disco o desde Azure.
-ms.reviewer: kasinh
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 06/08/2018
-ms.author: dacurwin
-ms.openlocfilehash: a7a1b088868add308f128c5a51d8cce4339c637c
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: a48afd84f6c4e1ec80015696dc4b14beea8ebfa4
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091717"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173205"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-mabs"></a>Realización de una copia de seguridad de una granja de SharePoint en Azure con MABS
 

@@ -2,18 +2,18 @@
 title: Controles de seguridad para Azure Load Balancer
 description: Lista de comprobación de los controles de seguridad para evaluar Load Balancer
 services: load-balancer
-author: msmbaldwin
-manager: barbkess
+author: asudbring
+manager: KumudD
 ms.service: load-balancer
 ms.topic: conceptual
 ms.date: 09/04/2019
-ms.author: mbaldwin
-ms.openlocfilehash: e0be6635a0916183e1dfe776bef4c547578383dc
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.author: allensu
+ms.openlocfilehash: 6043e574697489b6566641c352bc21a2b6d87f51
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70886179"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74214896"
 ---
 # <a name="security-controls-for-azure-load-balancer"></a>Controles de seguridad para Azure Load Balancer
 
@@ -63,4 +63,4 @@ En este artículo se explican los controles de seguridad integrados en Azure Loa
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga más información sobre los [controles de seguridad integrados en los servicios de Azure](../security/fundamentals/security-controls.md).
+- Más información sobre los [controles de seguridad integrados en los servicios de Azure](../security/fundamentals/security-controls.md).

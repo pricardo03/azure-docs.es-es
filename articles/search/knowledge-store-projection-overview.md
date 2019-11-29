@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: bb6af4be232810c1f5d135e459238e2e4f2cd5d8
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: e7ed7eef961e357b8c1e4e59790f9f150c286c61
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720039"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326604"
 ---
 # <a name="working-with-projections-in-a-knowledge-store-in-azure-cognitive-search"></a>Trabajar con proyecciones en un almacén de conocimiento en Azure Cognitive Search
 
@@ -114,9 +114,11 @@ A continuación se muestra un ejemplo de proyecciones de tabla.
 
 Como se muestra en este ejemplo, las entidades y frases clave se modelan en tablas diferentes y contendrán una referencia al elemento primario (MainTable) para cada fila.
 
-La siguiente ilustración es una referencia al ejercicio Caselaw en [Cómo empezar a trabajar con el almacén de conocimiento](knowledge-store-howto.md). En un escenario en el que un caso tiene varias opiniones, y cada opinión se enriquece identificando a las entidades que contiene, podría modelar las proyecciones como se muestra aquí.
+<!---
+The following illustration is a reference to the Case-law exercise in [How to get started with knowledge store](knowledge-store-howto.md). In a scenario where a case has multiple opinions, and each opinion is enriched by identifying entities contained within it, you could model the projections as shown here.
 
-![Entidades y relaciones en tablas](media/knowledge-store-projection-overview/TableRelationships.png "Modelado de relaciones en las proyecciones de tabla")
+![Entities and relationships in tables](media/knowledge-store-projection-overview/TableRelationships.png "Modeling relationships in table projections")
+--->
 
 ## <a name="object-projections"></a>Proyecciones de objeto
 

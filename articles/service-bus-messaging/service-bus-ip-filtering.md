@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 45415af479c9581ee04b97af4fb5297d09c5769d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 02d6e150e638321e11a8dec9838e360faa00783e
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496343"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280936"
 ---
 # <a name="use-firewall-rules"></a>Uso de las reglas de firewall
 
@@ -46,7 +46,6 @@ Las reglas de filtro IP se aplican en orden y la primera regla que coincida con 
 > Los servicios de confianza de Microsoft no se admiten cuando se implementa el filtro de IP (reglas de firewall), pero estarán disponibles muy pronto.
 >
 > Estos son los escenarios comunes de Azure que no funcionan con el filtro de IP (tenga en cuenta que la lista **NO** está completa).
-> - Azure Monitor
 > - Azure Stream Analytics
 > - Integración con Azure Event Grid
 > - Enrutamientos de Azure IoT Hub

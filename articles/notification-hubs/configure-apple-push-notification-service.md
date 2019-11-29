@@ -12,12 +12,12 @@ ms.date: 03/25/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 03/25/2019
-ms.openlocfilehash: 74e7e3c74934e292b668b8bff594a5efbca19716
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 116af5192236045ec50409f65a9687ffec5223b5
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212549"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406131"
 ---
 # <a name="configure-apple-push-notification-service-apns-settings-for-a-notification-hub-in-the-azure-portal"></a>Configuración de Apple Push Notification Service (APNS) para un centro de notificaciones en Azure Portal
 En este artículo podrá ver cómo establecer la configuración de Apple Push Notification Service (APNS) para un centro de notificaciones de Azure mediante Azure Portal. 
@@ -38,14 +38,14 @@ El siguiente procedimiento le proporciona los pasos para establecer la configura
    * Escriba una contraseña.
    * Seleccione el modo **Espacio aislado**. O para enviar notificaciones push a los usuarios que compraron la aplicación en la tienda, seleccione el modo **Producción**.
 
-     ![Captura de pantalla de una configuración del certificado APNS en Azure Portal](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-cert.png)
+     ![Captura de pantalla de una configuración del certificado APNS en Azure Portal](./media/configure-apple-push-notification-service/notification-hubs-apple-config-cert.png)
 
    b. Si selecciona **Token**:
 
    * Especifique los valores **Id. de clave**, **Id. de agrupación**, **Id. de equipo** y **Token**.
    * Seleccione el modo **Espacio aislado**. O para enviar notificaciones push a los usuarios que compraron la aplicación en la tienda, seleccione el modo **Producción**.
 
-     ![Captura de pantalla de una configuración del token APNS en Azure Portal](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-token.png)
+     ![Captura de pantalla de una configuración del token APNS en Azure Portal](./media/configure-apple-push-notification-service/notification-hubs-apple-config-token.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para ver un tutorial con instrucciones paso a paso para insertar notificaciones en dispositivos iOS, consulte el artículo siguiente: [Envío de notificaciones push a aplicaciones iOS mediante Notification Hubs y APNS](notification-hubs-ios-apple-push-notification-apns-get-started.md)

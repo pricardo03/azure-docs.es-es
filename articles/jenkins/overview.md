@@ -1,19 +1,15 @@
 ---
 title: Introducción sobre Jenkins y Azure
 description: Hospede la compilación de Jenkins e implemente el servidor de Automation en Azure y use los recursos de proceso y almacenamiento de Azure para extender las canalizaciones de integración y entrega continuas (CI/CD).
-ms.service: jenkins
 keywords: jenkins, azure, devops, introducción
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.topic: overview
 ms.date: 10/23/2019
-ms.openlocfilehash: 9b4ceb144408e0ac1886aa3a7e0e0f48ac4baba3
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 84d9a62c432208893ac5ff960a5f7aec743680d1
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72881960"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74479344"
 ---
 # <a name="azure-and-jenkins"></a>Azure y Jenkins
 
@@ -33,7 +29,7 @@ Supervise y administre la implementación de Azure Jenkins mediante los [registr
 
 ## <a name="scale-your-build-automation-on-demand"></a>Escalado a petición de la automatización de compilaciones
 
-Agregue agentes de compilación a la implementación de Jenkins existente para escalar la capacidad de compilación de este a medida que el número de compilaciones y la complejidad de los trabajos y canalizaciones aumenta. Puede ejecutar estos agentes de compilación en Azure Virtual Machines mediante el [complemento de agentes de Azure VM](jenkins-azure-vm-agents.md). Consulte nuestro [tutorial](/azure/jenkins/jenkins-azure-vm-agents) para obtener más detalles.
+Agregue agentes de compilación a la implementación de Jenkins existente para escalar la capacidad de compilación de este a medida que el número de compilaciones y la complejidad de los trabajos y canalizaciones aumenta. Puede ejecutar estos agentes de compilación en Azure Virtual Machines mediante el [complemento de agentes de Azure VM](https://plugins.jenkins.io/azure-vm-agents). Consulte nuestro [tutorial](/azure/jenkins/jenkins-azure-vm-agents) para obtener más detalles.
 
 Una vez configurado con una [entidad de servicio de Azure](/azure/azure-resource-manager/resource-group-overview), los trabajos y canalizaciones de Jenkins pueden usar esta credencial para:
 

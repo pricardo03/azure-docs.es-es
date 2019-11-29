@@ -2,17 +2,17 @@
 title: Hospedaje de aplicaciones web de Azure con equilibrio de carga en el vértice de zona
 description: Uso de un registro de alias de Azure DNS para hospedar aplicaciones web con equilibrio de carga en el vértice de zona
 services: dns
-author: vhorne
+author: asudbring
 ms.service: dns
 ms.topic: article
 ms.date: 08/10/2019
-ms.author: victorh
-ms.openlocfilehash: 4f9a42f3d054becfed0b0a6acbf92cdf1e421c16
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.author: allensu
+ms.openlocfilehash: a673a74f8f6f919e7ebb7fc3b065ee0742ab3a10
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946941"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74212365"
 ---
 # <a name="host-load-balanced-azure-web-apps-at-the-zone-apex"></a>Hospedaje de aplicaciones web de Azure con equilibrio de carga en el vértice de zona
 

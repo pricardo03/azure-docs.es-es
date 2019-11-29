@@ -1,23 +1,17 @@
 ---
-title: Arquitectura de Azure Blockchain Workbench (versión preliminar)
+title: Arquitectura de Azure Blockchain Workbench
 description: Introducción a la arquitectura de Azure Blockchain Workbench (versión preliminar) y sus componentes.
-services: azure-blockchain
-keywords: ''
-author: PatAltimore
-ms.author: patricka
 ms.date: 09/05/2019
 ms.topic: conceptual
-ms.service: azure-blockchain
 ms.reviewer: brendal
-manager: femila
-ms.openlocfilehash: 4613d441fd0d363654073d4832de19139a7781e7
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: aa972e8ae486d181f0c48df72ec89c925c940451
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73579735"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74324898"
 ---
-# <a name="azure-blockchain-workbench-preview-architecture"></a>Arquitectura de Azure Blockchain Workbench (versión preliminar)
+# <a name="azure-blockchain-workbench-architecture"></a>Arquitectura de Azure Blockchain Workbench
 
 Azure Blockchain Workbench (versión preliminar) simplifica el desarrollo de aplicaciones de cadena de bloques al proporcionar una solución con varios componentes de Azure. Blockchain Workbench se puede implementar mediante una plantilla de solución de Azure Marketplace. La plantilla permite seleccionar los módulos y componentes para implementar, por ejemplo, la pila de cadena de bloques, el tipo de aplicación cliente o la compatibilidad con la integración de IoT. Una vez implementado, Blockchain Workbench proporciona acceso a una aplicación web, una aplicación iOS y una aplicación Android.
 

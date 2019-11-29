@@ -1,21 +1,15 @@
 ---
-title: 'Azure Backup: Creación de almacenes de Recovery Services mediante API REST'
+title: Creación de almacenes de Recovery Services mediante API REST
 description: En este artículo obtendrá información sobre cómo administrar las operaciones de restauración y copia de seguridad de Azure VM mediante la API REST.
-ms.reviewer: pullabhk
-author: dcurwin
-manager: carmonm
-keywords: API REST; copia de seguridad de Azure VM; restauración de Azure VM;
-ms.service: backup
 ms.topic: conceptual
 ms.date: 08/21/2018
-ms.author: dacurwin
 ms.assetid: e54750b4-4518-4262-8f23-ca2f0c7c0439
-ms.openlocfilehash: 7c9d165f623367d1c888b90f76e96ce8fa2e8f89
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 1901c35d2b4d8bcd02cc064fcfc844e19969e3b5
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747569"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173414"
 ---
 # <a name="create-azure-recovery-services-vault-using-rest-api"></a>Creación del almacén de Azure Recovery Services mediante API REST
 

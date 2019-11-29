@@ -1,19 +1,14 @@
 ---
-title: Copia de seguridad de máquinas virtuales de Azure en un almacén de Recovery Services con Azure Backup
+title: Copia de seguridad de máquinas virtuales de Azure en un almacén de Recovery Services
 description: Aquí se describe cómo realizar una copia de seguridad de VM de Azure en un almacén de Recovery Services con Azure Backup
-service: backup
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.author: dacurwin
-ms.openlocfilehash: 2ef8e7e77481c0df6e85545d16c3859949184d2f
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: dc47aa2b4da08a0fc2c9a91b4d547a0d19e1869a
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968536"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173338"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Copia de seguridad de máquinas virtuales de Azure en un almacén de Recovery Services
 
@@ -34,7 +29,7 @@ En este artículo, aprenderá a:
 
 ## <a name="before-you-start"></a>Antes de comenzar
 
-* [Revise](backup-architecture.md#architecture-direct-backup-of-azure-vms) la arquitectura de copia de seguridad de máquinas virtuales de Azure.
+* [Revise](backup-architecture.md#architecture-built-in-azure-vm-backup) la arquitectura de copia de seguridad de máquinas virtuales de Azure.
 * [Más información sobre](backup-azure-vms-introduction.md) la copia de seguridad de máquinas virtuales de Azure y la extensión de reserva.
 * [Revise la matriz de compatibilidad](backup-support-matrix-iaas.md) antes de configurar la copia de seguridad.
 

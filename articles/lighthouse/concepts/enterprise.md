@@ -2,13 +2,13 @@
 title: Azure Lighthouse en escenarios empresariales
 description: Las funcionalidades de Azure Lighthouse se pueden usar para simplificar la administración entre inquilinos en empresas que utilizan varios inquilinos de Azure AD.
 ms.date: 09/25/2019
-ms.topic: overview
-ms.openlocfilehash: ae2241048e6ae481e319154beedab74c23c91163
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.topic: conceptual
+ms.openlocfilehash: f610f943ed7faa0d2ad64ff2f1554cdd41d76ee8
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132502"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463918"
 ---
 # <a name="azure-lighthouse-in-enterprise-scenarios"></a>Azure Lighthouse en escenarios empresariales
 

@@ -7,15 +7,15 @@ author: bandersmsft
 ms.author: banders
 ms.date: 04/26/2019
 ms.topic: conceptual
-ms.service: cost-management
+ms.service: cost-management-billing
 manager: ormaoz
 ms.custom: ''
-ms.openlocfilehash: 772f6cdde575a9ac669c73ecca039914357ffe2f
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: 04f607d7f592112013bcc6cf4cbd61d42a8116a8
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338900"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230167"
 ---
 # <a name="manage-aws-costs-and-usage-in-azure"></a>Administración de los costos y el uso de AWS en Azure
 
@@ -77,20 +77,20 @@ En la siguiente tabla se describen las dimensiones disponibles de agrupamiento y
 
 | Dimension Data | Encabezado de archivo CUR de Amazon | Ámbitos | Comentarios |
 | --- | --- | --- | --- |
-| Zona de disponibilidad | LineItem/AvailabilityZone | Todo |   |
-| Location | product/Region | Todo |   |
-| Medidor |   | Todo |   |
-| Categoría de medición | lineItem/ProductCode | Todo |   |
-| Subcategoría de medición | lineitem/UsageType | Todo |   |
-| Operación | lineItem/Operation | Todo |   |
-| Resource | lineItem/ResourceId | Todo |   |
-| Tipo de recurso | product/instanceType | Todo | Si product/instanceType es nulo, se usa lineItem/UsageType. |
-| ResourceGuid | N/D | Todo | Identificador único global de medición de Azure. |
-| Nombre del servicio | product/ProductName | Todo | Si product/ProductName es nulo, se usa lineItem/ProductCode. |
+| Zona de disponibilidad | LineItem/AvailabilityZone | All |   |
+| Location | product/Region | All |   |
+| Medidor |   | All |   |
+| Categoría de medición | lineItem/ProductCode | All |   |
+| Subcategoría de medición | lineitem/UsageType | All |   |
+| Operación | lineItem/Operation | All |   |
+| Resource | lineItem/ResourceId | All |   |
+| Tipo de recurso | product/instanceType | All | Si product/instanceType es nulo, se usa lineItem/UsageType. |
+| ResourceGuid | N/D | All | Identificador único global de medición de Azure. |
+| Nombre del servicio | product/ProductName | All | Si product/ProductName es nulo, se usa lineItem/ProductCode. |
 | Nivel de servicio |   |   |   |
 | Id. de suscripción | lineItem/UsageAccountId | Cuenta consolidada y grupo de administración |   |
 | Nombre de la suscripción | N/D | Cuenta consolidada y grupo de administración | Los nombres de cuenta se recopilan mediante la API de AWS Organizations. |
-| Etiqueta | resourceTags/\* | Todo | El _usuario:_ el prefijo se quita de las etiquetas definidas por el usuario para permitir las etiquetas de toda la nube. El _aws:_ prefijo que se deja intacto. |
+| Etiqueta | resourceTags/\* | All | El _usuario:_ el prefijo se quita de las etiquetas definidas por el usuario para permitir las etiquetas de toda la nube. El _aws:_ prefijo que se deja intacto. |
 | Identificador de la cuenta de facturación | bill/PayerAccountId | Grupo de administración |   |
 | Nombre de la cuenta de facturación | N/D | Grupo de administración | Los nombres de cuenta se recopilan mediante la API de AWS Organizations. |
 | Proveedor | N/D | Grupo de administración | O AWS o Azure. |

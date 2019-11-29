@@ -1,5 +1,5 @@
 ---
-title: Los vínculos de la página no funcionan para una aplicación de Proxy de aplicación | Microsoft Docs
+title: Los vínculos de la página no funcionan para una aplicación de Proxy de aplicación
 description: Cómo solucionar problemas relacionados con vínculos rotos en aplicaciones de Proxy de aplicación integradas con Azure AD
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 09/10/2018
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f8bb7326ed22217e56bdaf9a119529ba775b69a3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 570699fe83197a1b5442909d8b89e285a1dfa73b
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65783241"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275434"
 ---
 # <a name="links-on-the-page-dont-work-for-an-application-proxy-application"></a>Los vínculos de la página no funcionan para una aplicación de Proxy de aplicación
 

@@ -1,20 +1,16 @@
 ---
 title: Tipos de función en la extensión Durable Functions de Azure Functions
 description: Aprenda acerca de los tipos de funciones y roles que admiten la comunicación de función a función en una orquestación de Durable Functions en Azure Functions.
-services: functions
 author: cgillum
-manager: jeconnoc
-keywords: ''
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 555b4d95358978e84e14e8a2e8b3d1c9cb2efc18
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 7a485f31ed7e112745cf3b45bbfe348e6a2e0fd3
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73614599"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232765"
 ---
 # <a name="durable-functions-types-and-features-azure-functions"></a>Tipos y características de Durable Functions (Azure Functions)
 

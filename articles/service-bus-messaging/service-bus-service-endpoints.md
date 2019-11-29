@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/22/2018
 ms.author: aschhab
-ms.openlocfilehash: 7d31dd004c879fd3e689f4ba7a8ae58cb223ae70
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 99a705c3923821739ddc1dedd8f7c079dc534a1a
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73484936"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277303"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-service-bus"></a>Uso de puntos de conexión de servicio de red virtual con Azure Service Bus
 
@@ -31,7 +31,6 @@ El resultado es una relación privada y aislada entre las cargas de trabajo enla
 > Los servicios de confianza de Microsoft no se admiten cuando se implementan instancias de Virtual Network.
 >
 > Estos son los escenarios comunes de Azure que no funcionan con instancias de Virtual Network (tenga en cuenta que la lista **NO** está completa).
-> - Azure Monitor
 > - Azure Stream Analytics
 > - Integración con Azure Event Grid
 > - Enrutamientos de Azure IoT Hub

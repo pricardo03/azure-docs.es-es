@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 26a951ffaf0253371ffe69c6df798120f0464082
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 0e49e90209c7337081458b7c214d27b37d3b4da1
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72881892"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74462618"
 ---
 # <a name="analyze-your-media-using-the-azure-portal"></a>Análisis del contenido multimedia mediante Azure Portal 
 
@@ -54,15 +54,11 @@ El lenguaje natural que se reconocerá en el archivo multimedia. Por ejemplo, in
 
 ### <a name="captions"></a>Subtítulos
 Puede elegir un formato de subtitulado que se generará a partir del contenido. Un trabajo de indexación puede generar archivos de subtítulos en los siguientes formatos:  
-
-* **SAMI**
+ 
 * **TTML**
 * **WebVTT**
 
 Los archivos de subtítulos (CC) en estos formatos se pueden usar para crear archivos de audio y vídeo accesibles para personas con discapacidades auditivas.
-
-### <a name="aib-file"></a>Archivo AIB
-Seleccione esta opción si desea generar el archivo de blob de índice de audio para utilizarse con la función IFilter de SQL Server personalizada. Para más información, consulte [este blog](https://azure.microsoft.com/blog/using-aib-files-with-azure-media-indexer-and-sql-server/) .
 
 ### <a name="keywords"></a>Palabras clave
 Seleccione esta opción si desea generar un archivo XML de palabras clave. Este archivo contiene las palabras clave que se extraen del contenido de voz, con información de frecuencia y desplazamiento.

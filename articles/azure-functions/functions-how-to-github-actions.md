@@ -2,17 +2,15 @@
 title: Uso de Acciones de GitHub para crear actualizaciones de código en Azure Functions
 description: Obtenga información sobre cómo usar Acciones de GitHub para definir un flujo de trabajo para crear e implementar proyectos de Azure Functions en GitHub.
 author: ahmedelnably
-manager: gwallace
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: aelnably
-ms.openlocfilehash: 681d7a5eab3306a4067ea49bcf8a038e8627f60e
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 18ba99077592a7d03e19fda86bc61e5839b82b5e
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091378"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74226926"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>Entrega continua con Acciones de GitHub
 

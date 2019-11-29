@@ -2,17 +2,17 @@
 title: Introducción a la delegación de Azure DNS
 description: Información sobre cómo cambiar la delegación de dominios y usar los servidores de nombres DNS de Azure para ofrecer hospedaje de dominios.
 services: dns
-author: vhorne
+author: asudbring
 ms.service: dns
 ms.date: 2/19/2019
-ms.author: victorh
+ms.author: allensu
 ms.topic: conceptual
-ms.openlocfilehash: 70c1c1ab0dd5d1998054cf0c68325022803dff06
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3d8a87e199736bf51fcdc051c17c2fded3402b79
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60563157"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74212095"
 ---
 # <a name="delegation-of-dns-zones-with-azure-dns"></a>Delegación de zonas DNS con Azure DNS
 

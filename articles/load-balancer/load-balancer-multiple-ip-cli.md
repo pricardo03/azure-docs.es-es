@@ -1,6 +1,6 @@
 ---
 title: Equilibrio de carga en configuraciones de varias IP mediante la CLI de Azure
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: Aprenda a asignar varias direcciones IP a una máquina virtual con la CLI de Azure.
 services: virtual-network
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: allensu
-ms.openlocfilehash: c1606f14650843ea42cfe55381b5f23bf2742a58
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 69d324647af014a5122c404929c104a9077d5f13
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68274714"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74225303"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-using-azure-cli"></a>Equilibrio de carga en configuraciones de varias IP mediante la CLI de Azure
 

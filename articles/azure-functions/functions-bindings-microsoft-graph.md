@@ -1,19 +1,16 @@
 ---
 title: Enlaces de Microsoft Graph para Azure Functions
 description: Descubra cómo utilizar desencadenadores y enlaces de almacenamiento de Microsoft Graph en Azure Functions.
-services: functions
 author: craigshoemaker
-manager: gwallace
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: cshoe
-ms.openlocfilehash: 1db929e3ec4b400113d04cb7dd1cd4b8d2e86a9a
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: f253aeb202671a3f90eabb1d04af95333540a239
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72176591"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231164"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Enlaces de Microsoft Graph para Azure Functions
 

@@ -2,17 +2,15 @@
 title: Opciones de redes de Azure Functions
 description: Introducción a todas las opciones de redes disponibles en Azure Functions.
 author: alexkarcher-msft
-manager: gwallace
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: 4e55932d47389e09b135d571d0e000b9795e6edc
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: a3df48115dde27478446614c0446d64709adbc6f
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73884965"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74226793"
 ---
 # <a name="azure-functions-networking-options"></a>Opciones de redes de Azure Functions
 
@@ -65,7 +63,7 @@ Puede usar la integración de red virtual para habilitar el acceso de aplicacion
 
 Hay dos formas de integración de red virtual:
 
-+ **Integración de red virtual regional (versión preliminar)**: permite la integración con redes virtuales de la misma región. Este tipo de integración requiere una subred en una red virtual de la misma región. Esta característica todavía está en versión preliminar, pero se admite para las aplicaciones de funciones que se ejecutan en Windows, con las advertencias indicadas después de la siguiente tabla de problemas y soluciones.
++ **Integración de red virtual regional (versión preliminar)** : permite la integración con redes virtuales de la misma región. Este tipo de integración requiere una subred en una red virtual de la misma región. Esta característica todavía está en versión preliminar, pero se admite para las aplicaciones de funciones que se ejecutan en Windows, con las advertencias indicadas después de la siguiente tabla de problemas y soluciones.
 + **Integración de red virtual con requisito de puerta de enlace**: permite la integración con redes virtuales de regiones remotas o con redes virtuales clásicas. Este tipo de integración requiere la implementación de una puerta de enlace de red virtual en la red virtual. Se trata de una característica basada en VPN de punto a sitio que solo se admite para las aplicaciones de funciones que se ejecutan en Windows.
 
 Una aplicación solo puede usar un tipo de la característica de integración de red virtual a la vez. Aunque ambos son útiles para muchos escenarios, en la tabla siguiente se indica dónde se debe usar cada uno:

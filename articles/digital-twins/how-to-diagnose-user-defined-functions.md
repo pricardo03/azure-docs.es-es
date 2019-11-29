@@ -7,14 +7,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/01/2019
+ms.date: 11/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 130250156f0fae3e6c40742278479b5d4612657b
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: d362512ac6d06577a5c46bb0c6dab461f07ae709
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74005933"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74457019"
 ---
 # <a name="how-to-debug-user-defined-functions-in-azure-digital-twins"></a>Depuración de funciones definidas por el usuario en Azure Digital Twins
 
@@ -84,7 +84,7 @@ Sin no se crea una asignación de roles dentro de la API de administración, la 
 
 Compruebe si existe una asignación de roles para la función definida por el usuario a través de la API de administración:
 
-```plaintext
+```URL
 GET YOUR_MANAGEMENT_API_URL/roleassignments?path=/&traverse=Down&objectId=YOUR_USER_DEFINED_FUNCTION_ID
 ```
 
@@ -98,7 +98,7 @@ Descubra cómo [crear una asignación de roles para su función definida por el 
 
 Con la siguiente llamada a la API de administración de las instancias de Azure Digital Twins, puede determinar si se aplica un buscador de coincidencias determinado para el sensor específico.
 
-```plaintext
+```URL
 GET YOUR_MANAGEMENT_API_URL/matchers/YOUR_MATCHER_IDENTIFIER/evaluate/YOUR_SENSOR_IDENTIFIER?enableLogging=true
 ```
 
@@ -122,7 +122,7 @@ Respuesta:
 
 Con la siguiente llamada a las API de administración de Azure Digital Twins, puede determinar los identificadores de las funciones definidas por el usuario que desencadenan la telemetría entrante del sensor determinado:
 
-```plaintext
+```URL
 GET YOUR_MANAGEMENT_API_URL/sensors/YOUR_SENSOR_IDENTIFIER/matchers?includes=UserDefinedFunctions
 ```
 

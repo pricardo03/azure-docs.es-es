@@ -1,17 +1,14 @@
 ---
 title: Movimiento de los recursos de implementación la versión clásica de Azure
 description: Use Azure Resource Manager para mover los recursos de implementación de la versión clásica a un nuevo grupo de recursos o una nueva suscripción.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 07/09/2019
-ms.author: tomfitz
-ms.openlocfilehash: 783fcdca7637f3f67cf146bb827760cb4cdd7cbe
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: b97496e4abfdf248b9f5010417e9284c643a74ad
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72533487"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150839"
 ---
 # <a name="move-guidance-for-classic-deployment-model-resources"></a>Guía para mover los recursos del modelo de implementación clásica
 

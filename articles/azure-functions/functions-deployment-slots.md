@@ -2,18 +2,15 @@
 title: Ranuras de implementación de Azure Functions
 description: Aprenda a crear y a usar ranuras de implementación con Azure Functions.
 author: craigshoemaker
-manager: gwallace
-keywords: azure functions, functions
-ms.service: azure-functions
 ms.topic: reference
 ms.date: 08/12/2019
 ms.author: cshoe
-ms.openlocfilehash: 23a4870332266ce180c2e94aeb0b5ca24073878b
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: a59b62e19ac1e470dcdaaf0281dde9904a70b583
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73576318"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230683"
 ---
 # <a name="azure-functions-deployment-slots"></a>Ranuras de implementación de Azure Functions
 

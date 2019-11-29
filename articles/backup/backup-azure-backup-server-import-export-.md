@@ -1,19 +1,15 @@
 ---
-title: 'Azure Backup: Copia de seguridad sin conexión para DPM y Azure Backup Server'
+title: Copia de seguridad sin conexión para DPM y Azure Backup Server
 description: Azure Backup permite enviar datos fuera de la red mediante el servicio Azure Import/Export. En este artículo se explica el flujo de trabajo de la copia de seguridad sin conexión para DPM y Azure Backup Server (MABS).
 ms.reviewer: saurse
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 05/08/2018
-ms.author: dacurwin
-ms.openlocfilehash: 0763cbd4345dca39f37b77a0f3d991a7d77e30c4
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 4c62fed98a37a821907a889e45d582c452961203
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074305"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173243"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server"></a>Flujo de copia de seguridad sin conexión para DPM y Azure Backup Server
 
@@ -108,7 +104,7 @@ La información de esta sección le ayuda a completar el flujo de trabajo de cop
 
 La utilidad *AzureOfflineBackupDiskPrep* se usa para preparar las unidades SATA que se envían al centro de datos de Azure más próximo. Esta utilidad está disponible en el directorio de instalación del agente de Recovery Services en la ruta de acceso siguiente:
 
-Utilidades del Agente de *\\Microsoft Azure Recovery Services\\\\*
+    *\\Microsoft Azure Recovery Services Agent\\Utils\\*
 
 1. Vaya al directorio y copie el directorio de **AzureOfflineBackupDiskPrep** en un equipo de copia en el que se conectarán las unidades SATA que se van a preparar. Compruebe que se cumplen los siguientes requisitos en el equipo de copia:
 

@@ -1,23 +1,14 @@
 ---
 title: Importación y exportación de datos con proyectos con Azure Notebooks
 description: Procedimiento para importar datos a un proyecto de Azure Notebooks desde orígenes externos y para exportar datos desde un proyecto.
-services: app-service
-documentationcenter: ''
-author: kraigb
-manager: barbkess
-ms.assetid: 586b423b-6668-4bdd-9592-4c237d7458fb
-ms.service: azure-notebooks
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/04/2018
-ms.author: kraigb
-ms.openlocfilehash: b33d5dbfa354061b9b25069b3b300010b7cd49bf
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: bd7ba27859e9d05c0d57c2f78b6449c2bc48ca33
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71970214"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277383"
 ---
 # <a name="work-with-data-files-in-azure-notebook-projects"></a>Trabajar con archivos de datos en proyectos de Azure Notebooks
 

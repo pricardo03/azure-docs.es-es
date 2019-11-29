@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/05/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 795f18365c4b4846d18eddf3212059040bf9e319
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 4b3e51b5e8d0ee9b62a7e7bc39955396f327c7e7
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260210"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74209551"
 ---
 # <a name="how-to-create-an-premium-azure-file-share"></a>Procedimientos para crea un recurso compartido de archivos de Azure premium
 Los recursos compartidos de archivos Premium se ofrecen en medios de almacenamiento de discos de estado sólido (SSD) y son útiles para cargas de trabajo de E/S intensiva, incluido el hospedaje de bases de datos y de informática de alto rendimiento (HPC). Los recursos compartidos de archivos Premium se hospedan en un tipo de cuenta de almacenamiento de propósito especial denominada cuenta FileStorage. Los recursos compartidos de archivos Premium están diseñados para aplicaciones de alto rendimiento y escala empresarial, que proporcionan recursos compartidos coherentes de baja latencia, IOPS alta y alto rendimiento.
@@ -75,7 +75,7 @@ Si quiere limpiar los recursos creados en este artículo, basta con eliminar el 
 
 ### <a name="create-an-account-using-powershell"></a>Creación de una cuenta con PowerShell
 
-En primer lugar, instale la versión más reciente del módulo [PowerShellGet](https://docs.microsoft.com/powershell/gallery/installing-psget).
+En primer lugar, instale la versión más reciente del módulo [PowerShellGet](/powershell/scripting/gallery/installing-psget).
 
 A continuación, actualice el módulo de PowerShell, inicie sesión en la suscripción de Azure, cree un grupo de recursos y, luego, una cuenta de almacenamiento.
 

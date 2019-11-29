@@ -2,17 +2,17 @@
 title: Administración de una conexión de punto de conexión privado en Azure
 description: Aprenda a administrar conexiones de punto de conexión privado en Azure
 services: private-link
-author: KumudD
+author: asudbring
 ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
-ms.author: kumud
-ms.openlocfilehash: 012b236e997ef9144eaab43862f5f4dd2b324fff
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.author: allensu
+ms.openlocfilehash: 929dfedbbbbe58a30eaa186398c595eaaabeb0a9
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104629"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232534"
 ---
 # <a name="manage-a-private-endpoint-connection"></a>Administrar una conexión de punto de conexión privado
 Azure Private Link trabaja en un modelo de flujo de llamadas de aprobación en el que el consumidor del servicio Private Link puede solicitar una conexión al proveedor de servicios para consumir el servicio. A partir de ese momento, el proveedor de servicios puede decidir si va a permitir al consumidor conectarse o no. Azure Private Link permite a los proveedores de servicios administrar la conexión de punto de conexión privado en sus recursos. En este artículo se proporcionan instrucciones sobre cómo administrar las conexiones de punto de conexión privado.

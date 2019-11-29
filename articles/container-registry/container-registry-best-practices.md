@@ -1,19 +1,14 @@
 ---
-title: Procedimientos recomendados en Azure Container Registry
+title: Procedimientos recomendados del registro
 description: Obtenga información sobre cómo de forma eficaz Azure Container Registry mediante los siguientes procedimientos recomendados.
-services: container-registry
-author: dlepow
-manager: gwallace
-ms.service: container-registry
 ms.topic: article
 ms.date: 09/27/2018
-ms.author: danlep
-ms.openlocfilehash: a1ab010300d3f7bec3aeb5969a9a09fa9ee9a6a5
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 4b0512674358d4db2e29596408ebbf44af4ea2a9
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68309766"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74455316"
 ---
 # <a name="best-practices-for-azure-container-registry"></a>Procedimientos recomendados para Azure Container Registry
 

@@ -14,12 +14,12 @@ ms.date: 11/04/2019
 ms.author: cephalin
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 93dfe784d45cd9cd93d22c5e8c3275c563f7f88b
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 1546ded1977e1e26792189e1d992d106d3d77ef2
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73572089"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74271277"
 ---
 # <a name="use-an-ssl-certificate-in-your-code-in-azure-app-service"></a>Uso de un certificado SSL en el código en Azure App Service
 
@@ -141,6 +141,8 @@ Si tiene que cargar un archivo de certificado manualmente, es mejor hacerlo medi
 > ```azurecli-interactive
 > az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings WEBSITE_LOAD_USER_PROFILE=1
 > ```
+>
+> Este enfoque para el uso de certificados en el código usa la funcionalidad SSL de App Service, que requiere que la aplicación tenga el nivel **Básico** u otro superior.
 
 En el siguiente ejemplo de C# se carga un certificado público desde una ruta de acceso relativa de la aplicación:
 

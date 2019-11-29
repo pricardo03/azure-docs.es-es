@@ -1,25 +1,19 @@
 ---
-title: 'Azure Backup: Creación de directivas de copia de seguridad mediante la API REST'
+title: Creación de directivas de copia de seguridad mediante la API REST
 description: En este artículo obtendrá información sobre cómo crear y administrar directivas de copia de seguridad (programación y retención) mediante la API REST.
-ms.reviewer: pullabhk
-author: dcurwin
-manager: carmonm
-keywords: API REST; copia de seguridad de Azure VM; restauración de Azure VM;
-ms.service: backup
 ms.topic: conceptual
 ms.date: 08/21/2018
-ms.author: dacurwin
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
-ms.openlocfilehash: 7d44f99a9f2a5bfb3d3a04fe5355f7b1dc13c404
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: a086fc9c8be22f177d7fb1205e3545ddc52f5c83
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747594"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74554889"
 ---
 # <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>Creación de directivas de copia de seguridad de Azure Recovery Services mediante API REST
 
-Los pasos para crear una directiva de copia de seguridad para un almacén de Azure Recovery Services se describen en el [documento de API REST de directiva](https://docs.microsoft.com/rest/api/backup/protectionpolicies(2019-05-13)/createorupdate). Vamos a usar este documento como referencia para crear una directiva para la copia de seguridad de Azure VM.
+Los pasos para crear una directiva de copia de seguridad para un almacén de Azure Recovery Services se describen en el [documento de API REST de directiva](/rest/api/backup/protectionpolicies/createorupdate). Vamos a usar este documento como referencia para crear una directiva para la copia de seguridad de Azure VM.
 
 ## <a name="backup-policy-essentials"></a>Fundamentos de la directiva de copia de seguridad
 
@@ -52,10 +46,10 @@ Por ejemplo, para crear una directiva para la copia de seguridad de las máquina
 
 |NOMBRE  |Obligatorio  |type  |DESCRIPCIÓN  |
 |---------|---------|---------|---------|
-|properties     |   True      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](https://docs.microsoft.com/rest/api/backup/protectionpolicies(2019-05-13)/createorupdate#azureiaasvmprotectionpolicy)      | Propiedades de ProtectionPolicyResource        |
+|properties     |   True      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](/rest/api/backup/protectionpolicies/createorupdate#azureiaasvmprotectionpolicy)      | Propiedades de ProtectionPolicyResource        |
 |etiquetas     |         | Object        |  Etiquetas del recurso       |
 
-Para obtener una lista completa de las definiciones en el cuerpo de la solicitud, consulte el [documento de la directiva de copia de seguridad de API REST](https://docs.microsoft.com/rest/api/backup/protectionpolicies(2019-05-13)/createorupdate).
+Para obtener una lista completa de las definiciones en el cuerpo de la solicitud, consulte el [documento de la directiva de copia de seguridad de API REST](/rest/api/backup/protectionpolicies/createorupdate).
 
 ### <a name="example-request-body"></a>Cuerpo de solicitud de ejemplo
 
@@ -160,7 +154,7 @@ Devuelve las dos respuestas: 202 - Aceptado cuando se crea otra operación y 200
 
 |NOMBRE  |type  |DESCRIPCIÓN  |
 |---------|---------|---------|
-|200 OK     |    [Protection PolicyResource](https://docs.microsoft.com/rest/api/backup/protectionpolicies(2019-05-13)/createorupdate#protectionpolicyresource)     |  OK       |
+|200 OK     |    [Protection PolicyResource](/rest/api/backup/protectionpolicies/createorupdate#protectionpolicyresource)     |  OK       |
 |202 - Aceptado     |         |     Accepted    |
 
 ### <a name="example-responses"></a>Respuestas de ejemplo

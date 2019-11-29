@@ -1,23 +1,17 @@
 ---
 title: Uso de la inserción de dependencias en Azure Functions con .NET
 description: Aprenda a usar la inserción de dependencias para el registro y uso de servicios en las funciones de .NET.
-services: functions
-documentationcenter: na
 author: craigshoemaker
-manager: gwallace
-keywords: funciones de azure, funciones, arquitectura sin servidor
-ms.service: azure-functions
-ms.devlang: dotnet
 ms.topic: reference
 ms.date: 09/05/2019
 ms.author: cshoe
 ms.reviewer: jehollan
-ms.openlocfilehash: 06415db201582f3e594173e9fe891ee9fdba4b18
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: dbd6762906bc189cad74d78dcd8f28b0cfeba183
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200394"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74226985"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Uso de la inserción de dependencias en Azure Functions con .NET
 

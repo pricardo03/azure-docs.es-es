@@ -2,17 +2,17 @@
 title: Creación de un servicio Private Link de Azure mediante la CLI de Azure
 description: Aprenda a crear un servicio Private Link de Azure mediante la CLI de Azure.
 services: private-link
-author: KumudD
+author: asudbring
 ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
-ms.author: kumud
-ms.openlocfilehash: 57ab18c8dfffb6994983179f434491b97589ebda
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.author: allensu
+ms.openlocfilehash: 3cc171ddabbe8241622d4e599b4b3cd281558976
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73693237"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74229363"
 ---
 # <a name="create-a-private-link-service-using-azure-cli"></a>Creación de un servicio Private Link mediante la CLI de Azure
 En este artículo se muestra cómo crear un servicio Private Link en Azure mediante la CLI de Azure.

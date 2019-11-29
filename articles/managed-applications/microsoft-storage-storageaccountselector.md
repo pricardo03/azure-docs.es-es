@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: c6d4ef50645902aecd57ceb9fc48b7d99bf22d53
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e1f96b42e58bcb09cfc2836c993626a889669fc0
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62104879"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151463"
 ---
 # <a name="microsoftstoragestorageaccountselector-ui-element"></a>Elemento de interfaz de usuario Microsoft.Storage.StorageAccountSelector
+
 Un control para seleccionar una cuenta de almacenamiento nueva o existente.
 
 ## <a name="ui-sample"></a>Ejemplo de interfaz de usuario
@@ -33,7 +34,7 @@ El control permite al usuario crear una cuenta de almacenamiento o seleccionar u
 
 ![Microsoft.Storage.StorageAccountSelector nueva](./media/managed-application-elements/microsoft.storage.storageaccountselector-new.png)
 
-## <a name="schema"></a>Esquema
+## <a name="schema"></a>Schema
 
 ```json
 {
@@ -56,12 +57,6 @@ El control permite al usuario crear una cuenta de almacenamiento o seleccionar u
 }
 ```
 
-## <a name="remarks"></a>Comentarios
-- Si se especifica, se valida automáticamente la unicidad de `defaultValue.name`. Si el nombre de la cuenta de almacenamiento no es único, el usuario debe especificar otro nombre o elegir una cuenta de almacenamiento existente.
-- El valor predeterminado de `defaultValue.type` es **Premium_LRS**.
-- Los tipos no especificados en `constraints.allowedTypes` está oculto, mientras que los tipos no especificado en `constraints.excludedTypes` se muestran. Tanto `constraints.allowedTypes` como `constraints.excludedTypes` son opcionales, pero no se pueden usar simultáneamente.
-- Si el valor de `options.hideExisting` es **true**, el usuario no puede elegir una cuenta de almacenamiento existente. El valor predeterminado es **false**.
-
 ## <a name="sample-output"></a>Salida de ejemplo
 
 ```json
@@ -72,6 +67,13 @@ El control permite al usuario crear una cuenta de almacenamiento o seleccionar u
   "newOrExisting": "new"
 }
 ```
+
+## <a name="remarks"></a>Comentarios
+
+- Si se especifica, se valida automáticamente la unicidad de `defaultValue.name`. Si el nombre de la cuenta de almacenamiento no es único, el usuario debe especificar otro nombre o elegir una cuenta de almacenamiento existente.
+- El valor predeterminado de `defaultValue.type` es **Premium_LRS**.
+- Los tipos no especificados en `constraints.allowedTypes` está oculto, mientras que los tipos no especificado en `constraints.excludedTypes` se muestran. Tanto `constraints.allowedTypes` como `constraints.excludedTypes` son opcionales, pero no se pueden usar simultáneamente.
+- Si el valor de `options.hideExisting` es **true**, el usuario no puede elegir una cuenta de almacenamiento existente. El valor predeterminado es **false**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Para ver una introducción sobre la creación de definiciones de interfaz de usuario, consulte [Introducción a CreateUiDefinition](create-uidefinition-overview.md).

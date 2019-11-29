@@ -1,19 +1,15 @@
 ---
 title: Capacidad de composición de Azure Blockchain Tokens
 description: La capacidad de composición de Azure Blockchain Tokens proporciona flexibilidad para crear tokens para escenarios avanzados.
-services: azure-blockchain
-author: PatAltimore
-ms.author: patricka
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.service: azure-blockchain
 ms.reviewer: brendal
-ms.openlocfilehash: a82d7ba606eac5dcafc26b1a8527810a5a21840d
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: a3fe1b290917de20b7c3af31fe386ed93580d850
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73577111"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325111"
 ---
 # <a name="azure-blockchain-tokens-composability"></a>Capacidad de composición de Azure Blockchain Tokens
 

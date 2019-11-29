@@ -13,20 +13,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: a48c89785e0a448609026aab53364f6cf704e948
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: fd2c1105078b918043791fd0f18395409bb32f7c
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331647"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151720"
 ---
 # <a name="microsoftcommonsection-ui-element"></a>Elemento de interfaz de usuario Microsoft.Common.Section
+
 Control que agrupa uno o varios elementos en un encabezado.
 
 ## <a name="ui-sample"></a>Ejemplo de interfaz de usuario
+
 ![Microsoft.Common.Section](./media/managed-application-elements/microsoft.common.section.png)
 
-## <a name="schema"></a>Esquema
+## <a name="schema"></a>Schema
+
 ```json
 {
   "name": "section1",
@@ -49,6 +52,7 @@ Control que agrupa uno o varios elementos en un encabezado.
 ```
 
 ## <a name="remarks"></a>Comentarios
+
 - `elements` debe tener al menos un elemento y puede tener todos los tipos de elementos, excepto `Microsoft.Common.Section`.
 - Este elemento no admite la propiedad `toolTip`.
 
@@ -62,5 +66,6 @@ steps('configuration').section1.text1
 Los elementos del tipo `Microsoft.Common.Section` no tienen valores de salida por sí mismos.
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 * Para ver una introducción sobre la creación de definiciones de interfaz de usuario, consulte [Introducción a CreateUiDefinition](create-uidefinition-overview.md).
 * Para ver una descripción de las propiedades comunes de los elementos de interfaz de usuario, consulte [Elementos CreateUiDefinition](create-uidefinition-elements.md).

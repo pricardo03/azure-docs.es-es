@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 11/04/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 3518404b76625e2557aaefdc6ab5ad7353683984
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 636fd5fd17838c729cdbc9e2a322c1f991d93948
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823316"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186440"
 ---
 # <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>Diferencias, limitaciones y problemas conocidos de T-SQL en la instancia administrada
 
@@ -565,16 +565,6 @@ La instrucción `RESTORE` en curso, el proceso de migración del servicio de mig
 
 **Solución alternativa**: espere a que finalice el proceso de restauración; también puede cancelarlo si la operación de creación o actualización del nivel de servicio tiene mayor prioridad.
 
-### <a name="missing-validations-in-restore-process"></a>Faltan validaciones en el proceso de restauración
-
-**Fecha:** Septiembre de 2019
-
-La instrucción `RESTORE`y la restauración a un momento dado integrada no realizan algunas comprobaciones necesarias en la base de datos restaurada:
-- La instrucción **DBCC CHECKDB** - `RESTORE` no realiza `DBCC CHECKDB` en la base de datos restaurada. Si una base de datos original está dañada, o el archivo de copia de seguridad resulta dañado mientras se copia en Azure Blob Storage, no se realizarán copias de seguridad automáticas y el soporte técnico de Azure se pondrá en contacto con el cliente. 
-- El proceso de restauración a un momento dado integrada no comprueba que la copia de seguridad automatizada de la instancia de tipo Crítico para la empresa contenga los [objetos OLTP en memoria](sql-database-in-memory.md#in-memory-oltp). 
-
-**Solución alternativa**: Asegúrese de que está ejecutando `DBCC CHECKDB` en la base de datos de origen antes de realizar una copia de seguridad y de usar la opción `WITH CHECKSUM` en la copia de seguridad para evitar posibles daños que podrían restaurarse en Instancia administrada. Asegúrese de que la base de datos de origen no contenga [objetos OLTP en memoria](sql-database-in-memory.md#in-memory-oltp) si la va a restaurar en el nivel Uso general.
-
 ### <a name="resource-governor-on-business-critical-service-tier-might-need-to-be-reconfigured-after-failover"></a>Es posible que sea necesario volver a configurar Resource Governor en el nivel de servicio Crítico para la empresa después de la conmutación por error
 
 **Fecha:** Septiembre de 2019
@@ -582,14 +572,6 @@ La instrucción `RESTORE`y la restauración a un momento dado integrada no reali
 La característica [Resource Governor](/sql/relational-databases/resource-governor/resource-governor) que le permite limitar los recursos asignados a la carga de trabajo de usuario puede clasificar incorrectamente alguna carga de trabajo de usuario después de una conmutación por error o un cambio de nivel de servicio iniciado por el usuario (por ejemplo, el cambio de número máximo de núcleos virtuales o tamaño máximo de almacenamiento de instancia).
 
 **Solución alternativa**: Ejecute `ALTER RESOURCE GOVERNOR RECONFIGURE` periódicamente o como parte del trabajo del Agente SQL que ejecuta la tarea de SQL cuando la instancia se inicia si usa [Resource Governor](/sql/relational-databases/resource-governor/resource-governor).
-
-### <a name="cannot-authenticate-to-external-mail-servers-using-secure-connection-ssl"></a>No se puede autenticar en servidores de correo externos mediante una conexión segura (SSL)
-
-**Fecha:** Agosto de 2019
-
-El correo electrónico de base de datos que se [configura mediante una conexión segura (SSL)](/sql/relational-databases/database-mail/configure-database-mail) no se puede autenticar en algunos servidores de correo electrónico fuera de Azure. Se trata de un problema de configuración de seguridad que se resolverá pronto.
-
-**Solución alternativa**: Quite temporalmente la conexión segura (SSL) de la configuración del correo de la base de datos hasta que se resuelva el problema. 
 
 ### <a name="cross-database-service-broker-dialogs-must-be-re-initialized-after-service-tier-upgrade"></a>Los cuadros de diálogo de Service Broker entre bases de datos se deben volver a inicializar después de la actualización del nivel de servicio
 

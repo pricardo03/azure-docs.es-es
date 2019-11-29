@@ -1,17 +1,14 @@
 ---
 title: Traslado de máquinas virtuales de Azure a una nueva suscripción o grupo de recursos
 description: Use Azure Resource Manager para trasladar máquinas virtuales a un nuevo grupo de recursos o a una nueva suscripción.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 10/10/2019
-ms.author: tomfitz
-ms.openlocfilehash: faeba1c0d7342a4c00f19d4cee8d67b8dbde8e6a
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: b03e9618e621216f74cb02828183df7ee6b502ea
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72528430"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150939"
 ---
 # <a name="move-guidance-for-virtual-machines"></a>Guía del traslado de máquinas virtuales
 

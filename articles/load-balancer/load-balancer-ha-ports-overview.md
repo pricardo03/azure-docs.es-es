@@ -1,6 +1,6 @@
 ---
 title: Introducción a los puertos de alta disponibilidad en Azure
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: Conozca el equilibrio de carga de los puertos de alta disponibilidad en una instancia interna de Load Balancer.
 services: load-balancer
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2019
 ms.author: allensu
-ms.openlocfilehash: 350c6ae2e62a88477ce67132b56d9253166d13ec
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: c6529e2585a7fca2d160d093d303afa02e6f9379
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71130442"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74215073"
 ---
 # <a name="high-availability-ports-overview"></a>Introducción a los puertos de alta disponibilidad
 

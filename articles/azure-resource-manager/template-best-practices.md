@@ -1,17 +1,14 @@
 ---
-title: Procedimientos recomendados para plantillas de Azure Resource Manager
+title: Procedimientos recomendados para las plantillas
 description: En este artículo se describen los enfoques recomendados para la creación de plantillas de Azure Resource Manager. Se ofrecen sugerencias para evitar problemas comunes al usar las plantillas.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.author: tomfitz
-ms.openlocfilehash: bd3167b7f0daf7ebd595b2c33b1147140415c3de
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 7e1b6496302af3edde4d888c67ec3e461d300a5a
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70983820"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150302"
 ---
 # <a name="azure-resource-manager-template-best-practices"></a>Procedimientos recomendados de plantillas de Azure Resource Manager
 

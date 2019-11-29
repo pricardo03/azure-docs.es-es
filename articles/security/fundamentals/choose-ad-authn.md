@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: 71b4a8abc641a3ab11d6b17bbc8de3b42b61c34c
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 71339565eed9f41f8f32da852a727c82df482662
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820555"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483939"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Seleccione el método de autenticación adecuado para su solución de identidad híbrida de Azure Active Directory
 
@@ -185,7 +185,7 @@ En los siguientes diagramas se describen los componentes de arquitectura de alto
 |¿Cuáles son las opciones de acceso condicional?|[Acceso condicional de Azure AD, con Azure AD Premium](../../active-directory/conditional-access/overview.md)|[Acceso condicional de Azure AD, con Azure AD Premium](../../active-directory/conditional-access/overview.md)|[Acceso condicional de Azure AD, con Azure AD Premium](../../active-directory/conditional-access/overview.md)<br><br>[Reglas de notificaciones de AD FS](https://adfshelp.microsoft.com/AadTrustClaims/ClaimsGenerator)|
 |¿Se admite el bloqueo de protocolos heredados?|[Sí](../../active-directory/conditional-access/conditions.md)|[Sí](../../active-directory/conditional-access/conditions.md)|[Sí](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/access-control-policies-w2k12)|
 |¿Se puede personalizar el logotipo, la imagen y la descripción en las páginas de inicio de sesión?|[Sí, con Azure AD Premium](../../active-directory/fundamentals/customize-branding.md)|[Sí, con Azure AD Premium](../../active-directory/fundamentals/customize-branding.md)|[Sí](../../active-directory/hybrid/how-to-connect-fed-management.md)|
-|¿Qué escenarios avanzados se admiten?|[Smart Password Lockout](../../active-directory/authentication/concept-sspr-howitworks.md) (Bloqueo inteligente de contraseñas)<br><br>[Informes de credenciales filtrados, con Azure AD Premium P2](../../active-directory/reports-monitoring/concept-risk-events.md)|[Smart Password Lockout](../../active-directory/authentication/howto-password-smart-lockout.md) (Bloqueo inteligente de contraseñas)|Sistema de autenticación multisitio de baja latencia<br><br>[Bloqueo de extranet de AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection)<br><br>[Integración con sistemas de identidad de terceros](../../active-directory/hybrid/how-to-connect-fed-compatibility.md)|
+|¿Qué escenarios avanzados se admiten?|[Smart Password Lockout](../../active-directory/authentication/howto-password-smart-lockout.md) (Bloqueo inteligente de contraseñas)<br><br>[Informes de credenciales filtrados, con Azure AD Premium P2](../../active-directory/reports-monitoring/concept-risk-events.md)|[Smart Password Lockout](../../active-directory/authentication/howto-password-smart-lockout.md) (Bloqueo inteligente de contraseñas)|Sistema de autenticación multisitio de baja latencia<br><br>[Bloqueo de extranet de AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection)<br><br>[Integración con sistemas de identidad de terceros](../../active-directory/hybrid/how-to-connect-fed-compatibility.md)|
 
 > [!NOTE]
 > Actualmente, los controles personalizados del acceso condicional de Azure AD no admiten el registro de dispositivos.

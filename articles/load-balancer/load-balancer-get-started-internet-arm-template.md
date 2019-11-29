@@ -1,6 +1,6 @@
 ---
 title: 'Creación de un equilibrador de carga público: plantilla de Azure'
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: Aprenda a crear un equilibrador de carga público en Resource Manager con una plantilla
 services: load-balancer
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: a94c7d1b5d1ecd11dd213eccf2354e943a96cabd
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 4cfbbfb17e8be3ae78aad5aa5125020762f864c7
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68275286"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74225359"
 ---
 # <a name="creating-a-public-load-balancer-using-a-template"></a>Creación de un equilibrador de carga público mediante una plantilla
 

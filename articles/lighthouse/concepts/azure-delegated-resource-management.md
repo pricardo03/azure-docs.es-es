@@ -2,13 +2,13 @@
 title: Administración de recursos delegados de Azure
 description: Los servicios administrados permiten a los proveedores de servicios vender ofertas de administración de recursos a los clientes de Azure Marketplace.
 ms.date: 07/11/2019
-ms.topic: overview
-ms.openlocfilehash: e79252d38e5e3363ef1d6a82ec060b896fa247a8
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.topic: conceptual
+ms.openlocfilehash: ccbd09cd51216f9076e3b5bd462ee2180ac8f3ab
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74133390"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74464009"
 ---
 # <a name="azure-delegated-resource-management"></a>Administración de recursos delegados de Azure
 

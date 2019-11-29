@@ -1,20 +1,16 @@
 ---
 title: 'Orquestaciones infinitas en Durable Functions: Azure'
 description: Aprenda a implementar orquestaciones infinitas mediante la extensión Durable Functions para Azure Functions.
-services: functions
 author: cgillum
-manager: jeconnoc
-keywords: ''
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 99f57f2e0b34f2e596ff9cf1a872650228ef0acd
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 8d28ae18c44c434dba053b23a60eb78728f8d8e0
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73614848"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232905"
 ---
 # <a name="eternal-orchestrations-in-durable-functions-azure-functions"></a>Orquestaciones infinitas en Durable Functions (Azure Functions)
 
@@ -55,7 +51,7 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> El ejemplo de C# anterior corresponde a Durable Functions 2.x. En el caso de Durable Functions 1.x, debe usar `DurableOrchestrationContext` en lugar de `IDurableOrchestrationContext`. Para obtener más información sobre las diferencias entre versiones, vea el artículo [Versiones de Durable Functions](durable-functions-versions.md).
+> El ejemplo de C# anterior corresponde a Durable Functions 2.x. En el caso de Durable Functions 1.x, debe usar `DurableOrchestrationContext` en lugar de `IDurableOrchestrationContext`. Para obtener más información sobre las diferencias entre versiones, vea el artículo [Versiones de Durable Functions](durable-functions-versions.md).
 
 ### <a name="javascript-functions-20-only"></a>JavaScript (solo Functions 2.0)
 

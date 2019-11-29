@@ -1,6 +1,6 @@
 ---
 title: Configuración de puertos de alta disponibilidad para Azure Load Balancer
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: Aprenda a usar los puertos de alta disponibilidad para el tráfico interno de equilibrio de carga en todos los puertos.
 services: load-balancer
 documentationcenter: na
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2018
 ms.author: allensu
-ms.openlocfilehash: c0cf1eb62c8e01988c9014478ff72816e45ea64c
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: c2e787a1f81d9f3d31b981c31a0249dd362b7bb9
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68275611"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74225401"
 ---
 # <a name="configure-high-availability-ports-for-an-internal-load-balancer"></a>Configuración de los puertos de alta disponibilidad para un equilibrador de carga interno
 

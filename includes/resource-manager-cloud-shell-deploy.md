@@ -4,12 +4,12 @@ ms.service: azure-resource-manager
 ms.topic: include
 ms.date: 01/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: 7c081b3bc5f9e6273f680b24897f9aced4999afa
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: aac2f3ea2b52ac0319f96279deed13c1145749bd
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67186699"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74451412"
 ---
 ## <a name="deploy-template-from-cloud-shell"></a>Implementación de una plantilla desde Cloud Shell
 
@@ -19,7 +19,7 @@ Puede usar [Cloud Shell](../articles/cloud-shell/overview.md) para implementar l
 
 1. Seleccione el grupo de recursos de Cloud Shell. El patrón de nombre es `cloud-shell-storage-<region>`.
 
-   ![Selección de un grupo de recursos](./media/resource-manager-cloud-shell-deploy/select-cs-resource-group.png)
+   ![Selección de un grupo de recursos](./media/resource-manager-cloud-shell-deploy/select-cloud-shell-resource-group.png)
 
 1. Seleccione la cuenta de almacenamiento de Cloud Shell.
 

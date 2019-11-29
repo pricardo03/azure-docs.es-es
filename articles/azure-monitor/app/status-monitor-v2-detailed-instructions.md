@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 8a9ae2364b51c0c201f2efffb3a7433594f76c49
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 3b053b7876494a3b2e6f392850c0323b56b1c3ec
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899639"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230263"
 ---
 # <a name="application-insights-agent-formerly-named-status-monitor-v2-detailed-instructions"></a>Application Insights Agent (antes Monitor de estado v2): Instrucciones detalladas
 
@@ -77,7 +77,7 @@ Con estos pasos, se preparará el servidor para descargar los módulos de la Gal
 
 > [!NOTE] 
 > La Galería de PowerShell es compatible con Windows 10, Windows Server 2016 y PowerShell 6.
-> Para obtener información sobre las versiones anteriores, consulte [Instalación de PowerShellGet](https://docs.microsoft.com/powershell/gallery/installing-psget).
+> Para obtener información sobre las versiones anteriores, consulte [Instalación de PowerShellGet](/powershell/scripting/gallery/installing-psget).
 
 
 1. Ejecute PowerShell como administrador con una directiva de ejecución con privilegios elevados.
@@ -118,7 +118,7 @@ Con estos pasos, se preparará el servidor para descargar los módulos de la Gal
 
 4. Instale la versión más reciente de PowerShellGet.
     - Description: Este módulo contiene las herramientas que se usan para obtener otros módulos de la Galería de PowerShell. La versión 1.0.0.1 se distribuye con Windows 10 y Windows Server. Se requiere la versión 1.6.0 o posterior. Para determinar qué versión está instalada, ejecute el comando `Get-Command -Module PowerShellGet`.
-    - Referencia: [Instalación de PowerShellGet](https://docs.microsoft.com/powershell/gallery/installing-psget).
+    - Referencia: [Instalación de PowerShellGet](/powershell/scripting/gallery/installing-psget).
     - Comando: `Install-Module -Name PowerShellGet`.
     - Parámetros opcionales:
         - `-Proxy`. Especifica un servidor proxy para la solicitud.
@@ -162,7 +162,7 @@ Si por algún motivo no puede conectarse al módulo de PowerShell, puede descarg
 
 ### <a name="option-1-install-into-a-powershell-modules-directory"></a>Opción 1: Instalación en un directorio de módulos de PowerShell
 Instale el módulo de PowerShell que ha descargado manualmente en un directorio de PowerShell para que las sesiones de PowerShell lo puedan detectar.
-Para obtener más información, consulte [Instalación de un módulo de PowerShell](https://docs.microsoft.com/powershell/developer/module/installing-a-powershell-module).
+Para obtener más información, consulte [Instalación de un módulo de PowerShell](/powershell/scripting/developer/module/installing-a-powershell-module).
 
 
 #### <a name="unzip-nupkg-as-a-zip-file-by-using-expand-archive-v1010"></a>Descompresión de nupkg como un archivo ZIP mediante Expand-Archive (v1.0.1.0)
@@ -193,7 +193,7 @@ Para obtener más información, consulte [Instalación de un módulo de PowerShe
 
 ### <a name="option-2-unzip-and-import-nupkg-manually"></a>Opción 2: Descompresión e importación manual de nupkg
 Instale el módulo de PowerShell que ha descargado manualmente en un directorio de PowerShell para que las sesiones de PowerShell lo puedan detectar.
-Para obtener más información, consulte [Instalación de un módulo de PowerShell](https://docs.microsoft.com/powershell/developer/module/installing-a-powershell-module).
+Para obtener más información, consulte [Instalación de un módulo de PowerShell](/powershell/scripting/developer/module/installing-a-powershell-module).
 
 Si va a instalar el módulo en cualquier otro directorio, importe manualmente el módulo mediante [Import-Module](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/import-module?view=powershell-6).
 

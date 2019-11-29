@@ -2,13 +2,13 @@
 title: Implementación de Azure Policy en suscripciones delegadas a escala
 description: Obtenga información sobre cómo la administración de recursos delegados de Azure permite implementar una definición de directivas y una asignación de directivas en varios inquilinos.
 ms.date: 11/8/2019
-ms.topic: overview
-ms.openlocfilehash: fd335e77feb26241d573db48c2e96c725f70d031
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.topic: conceptual
+ms.openlocfilehash: 3853e8fc163dfc662adc675dd3df1d15958d329a
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74131276"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463856"
 ---
 # <a name="deploy-azure-policy-to-delegated-subscriptions-at-scale"></a>Implementación de Azure Policy en suscripciones delegadas a escala
 

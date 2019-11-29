@@ -1,18 +1,18 @@
 ---
 title: Información general de las etiquetas del servicio Azure Firewall
-description: Este artículo es una introducción a las etiquetas del servicio Azure Firewall.
+description: Una etiqueta de servicio representa un grupo de prefijos de direcciones IP que ayudan a reducir la complejidad de la creación de reglas de seguridad.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 6/27/2019
+ms.date: 11/19/2019
 ms.author: victorh
-ms.openlocfilehash: d0ac36e415c056dffc9c75d00968ff74c2156e63
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: ec9fb3c9b27d21ac65888379f59d51ecc8042eb0
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67450162"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74168692"
 ---
 # <a name="azure-firewall-service-tags"></a>Etiquetas de servicio de Azure Firewall
 

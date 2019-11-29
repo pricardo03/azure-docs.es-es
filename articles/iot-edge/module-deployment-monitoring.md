@@ -8,13 +8,12 @@ ms.date: 09/27/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.custom: seodec18
-ms.openlocfilehash: 376ee74732daf526b31129fa8c93cbaa32350eae
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: eb45f2b929c08ce77c83af450726a00dd6af458e
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60318213"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74456732"
 ---
 # <a name="understand-iot-edge-automatic-deployments-for-single-devices-or-at-scale"></a>Descripción de las implementaciones automáticas de IoT Edge en un único dispositivo o a escala
 
@@ -52,7 +51,7 @@ Un manifiesto de implementación es un documento JSON que describe los módulos 
 Los metadatos de configuración de cada módulo incluyen: 
 
 * Versión 
-* Type 
+* type 
 * Estado (por ejemplo, en ejecución o detenido) 
 * Directiva de reinicio 
 * Registro de contenedor e imagen
@@ -83,7 +82,7 @@ Estas son algunas limitaciones a la hora de construir una condición de destino:
 * Las comillas simples representan los valores de la condición de destino. Por lo tanto, deberá agregar una comilla simple a otra comilla simple si esta ya forma parte del nombre del dispositivo. Por ejemplo, para dirigirse a un dispositivo llamado `operator'sDevice`, escriba `deviceId='operator''sDevice'`.
 * Se permiten números, letras y los siguientes caracteres en los valores de la condición de destino: `-:.+%_#*?!(),=@;$`.
 
-### <a name="priority"></a>Prioridad
+### <a name="priority"></a>Priority
 
 Una prioridad define si se debe aplicar una implementación a un dispositivo de destino en relación con otras implementaciones. Una prioridad de implementación es un entero positivo, con un número más grande que indica la prioridad más alta. Si un dispositivo IoT Edge se destina a más de una implementación, se aplica aquella con una prioridad más alta.  Las implementaciones con prioridades inferiores no se aplican, ni se combinan.  Si un dispositivo se destina a dos o más implementaciones con la misma prioridad, se aplica la implementación creada más recientemente (determinada por la marca de tiempo de creación).
 

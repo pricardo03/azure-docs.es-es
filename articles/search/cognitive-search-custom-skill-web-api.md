@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: defe6711049e191ada1a2f6e46d6643debdca86e
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 29928d78c2cfc2f21def363341f8383c4efa89d2
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113798"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74484118"
 ---
 # <a name="custom-web-api-skill-in-an-azure-cognitive-search-enrichment-pipeline"></a>Aptitud API web personalizada en una canalización de enriquecimiento de Azure Cognitive Search
 
@@ -205,4 +205,4 @@ En los casos en que la API web no está disponible o devuelve un error HTTP, se 
 
 + [Definición de un conjunto de aptitudes](cognitive-search-defining-skillset.md)
 + [Incorporación de una aptitud personalizada a una canalización de enriquecimiento con IA](cognitive-search-custom-skill-interface.md)
-+ [Ejemplo: Creación de una aptitud personalizada para enriquecimiento con IA(cognitive-search-create-custom-skill-example.md)
++ [Ejemplo: Creación de una aptitud personalizada para el enriquecimiento con inteligencia artificial](cognitive-search-create-custom-skill-example.md)

@@ -1,5 +1,5 @@
 ---
-title: Autenticación y autorización en Azure Spatial Anchors | Microsoft Docs
+title: Autenticación y autorización
 description: Obtenga información sobre las distintas formas en que puede autenticar una aplicación o servicio para Azure Spatial Anchors y los niveles de control para los que tiene que obtener acceso para Azure Spatial Anchors.
 author: julianparismorgan
 manager: vriveras
@@ -8,31 +8,31 @@ ms.author: pmorgan
 ms.date: 05/28/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 850748462f0273f2dfb1522d900ce9f1b2156d2a
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 823ce8d523a231875705d7c4d3f46cfd8fd24994
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68517066"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74270580"
 ---
 # <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Autenticación y autorización en Azure Spatial Anchors
 
-En esta sección, trataremos las diversas maneras en las que puede autenticarse en Azure Spatial Anchors desde la aplicación o servicio web y las formas en que puede usar el Control de acceso basado en roles de Azure Directory (Azure AD) para controlar el acceso a las cuentas de Spatial Anchors.  
+En esta sección, trataremos las diversas maneras en las que puede autenticarse en Azure Spatial Anchors desde la aplicación o servicio web y las formas en que puede usar el Control de acceso basado en roles de Azure Directory (Azure AD) para controlar el acceso a las cuentas de Spatial Anchors.
 
 ## <a name="overview"></a>Información general
 
 ![Introducción a la autenticación y autorización en Azure Spatial Anchors](./media/spatial-anchors-authentication-overview.png)
 
-Para obtener acceso a una determinada cuenta de Azure Spatial Anchors, los clientes deben obtener primero un token de acceso del servicio de token de seguridad (STS) de Azure Mixed Reality. Los tokens obtenidos de STS se publican durante 24 horas e incluyen información de los servicios de Spatial Anchors para tomar decisiones de autorización acerca de la cuenta y asegurarse de que solo entidades de seguridad autorizadas pueden tener acceso a esta. 
+Para obtener acceso a una determinada cuenta de Azure Spatial Anchors, los clientes deben obtener primero un token de acceso del servicio de token de seguridad (STS) de Azure Mixed Reality. Los tokens obtenidos de STS se publican durante 24 horas e incluyen información de los servicios de Spatial Anchors para tomar decisiones de autorización acerca de la cuenta y asegurarse de que solo entidades de seguridad autorizadas pueden tener acceso a esta.
 
-Los tokens de acceso pueden obtenerse a cambio de claves de cuenta o desde los tokens emitidos por Azure AD. 
+Los tokens de acceso pueden obtenerse a cambio de claves de cuenta o desde los tokens emitidos por Azure AD.
 
-Las claves de cuenta le permiten comenzar rápidamente a usar el servicio de Azure Spatial Anchors; sin embargo, antes de implementar la aplicación en producción, se recomienda que la actualice para usar la autenticación basada en Azure AD. 
+Las claves de cuenta le permiten comenzar rápidamente a usar el servicio de Azure Spatial Anchors; sin embargo, antes de implementar la aplicación en producción, se recomienda que la actualice para usar la autenticación basada en Azure AD.
 
 Los tokens de autenticación de Azure AD pueden obtenerse de dos maneras:
 
-- Si está creando una aplicación empresarial y la empresa usa Azure AD como sistema de identidad, puede usar la autenticación de Azure AD basada en el usuario en la aplicación y conceder acceso a las cuentas de Spatial Anchors mediante los grupos de seguridad existentes de Azure AD o directamente a los usuarios de la organización. 
-- En caso contrario, se recomienda que obtenga los tokens de Azure AD desde un servicio web compatible con la aplicación. El uso de un servicio web compatible es el método de autenticación recomendado para las aplicaciones de producción, ya que evita la incrustación de las credenciales para tener acceso a Azure Spatial Anchors en la aplicación cliente. 
+- Si está creando una aplicación empresarial y la empresa usa Azure AD como sistema de identidad, puede usar la autenticación de Azure AD basada en el usuario en la aplicación y conceder acceso a las cuentas de Spatial Anchors mediante los grupos de seguridad existentes de Azure AD o directamente a los usuarios de la organización.
+- En caso contrario, se recomienda que obtenga los tokens de Azure AD desde un servicio web compatible con la aplicación. El uso de un servicio web compatible es el método de autenticación recomendado para las aplicaciones de producción, ya que evita la incrustación de las credenciales para tener acceso a Azure Spatial Anchors en la aplicación cliente.
 
 ## <a name="account-keys"></a>Claves de cuenta
 
@@ -41,9 +41,9 @@ El uso de claves de cuenta para tener acceso a la cuenta de Azure Spatial Anchor
 ![Introducción a la autenticación y autorización en Azure Spatial Anchors](../../../includes/media/spatial-anchors-get-started-create-resource/view-account-key.png)
 
 
-Se ponen a disposición dos claves, ambas válidas simultáneamente para tener acceso a la cuenta de Spatial Anchors. Se recomienda que actualice periódicamente la clave que usa para tener acceso a la cuenta, que tenga dos claves válidas independientes como actualizaciones sin tiempo de inactividad y que solo deba actualizar la clave principal y la clave secundaria de manera alternativa. 
+Se ponen a disposición dos claves, ambas válidas simultáneamente para tener acceso a la cuenta de Spatial Anchors. Se recomienda que actualice periódicamente la clave que usa para tener acceso a la cuenta, que tenga dos claves válidas independientes como actualizaciones sin tiempo de inactividad y que solo deba actualizar la clave principal y la clave secundaria de manera alternativa.
 
-El SDK tiene compatibilidad integrada para la autenticación con claves de cuenta; basta con establecer la propiedad AccountKey en el objeto cloudSession. 
+El SDK tiene compatibilidad integrada para la autenticación con claves de cuenta; basta con establecer la propiedad AccountKey en el objeto cloudSession.
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -85,9 +85,9 @@ configuration.AccountKey(LR"(MyAccountKey)");
 
 ---
 
-Una vez hecho esto, el SDK controlará el intercambio de la clave de cuenta para un token de acceso, así como el almacenamiento en caché necesaria de tokens para la aplicación. 
+Una vez hecho esto, el SDK controlará el intercambio de la clave de cuenta para un token de acceso, así como el almacenamiento en caché necesaria de tokens para la aplicación.
 
-> [!WARNING] 
+> [!WARNING]
 > Se recomienda el uso de claves de cuenta para una incorporación rápida, pero solo durante el desarrollo y la creación de prototipos. Se recomienda encarecidamente no enviar la aplicación a producción mediante una clave de cuenta incrustada en ella; en su lugar, use los enfoques de autenticación de Azure AD basada en el usuario o en el servicio que se incluyen a continuación.
 
 ## <a name="azure-ad-user-authentication"></a>Autenticación de usuario de Azure AD
@@ -95,13 +95,13 @@ Una vez hecho esto, el SDK controlará el intercambio de la clave de cuenta para
 Para las aplicaciones destinadas a usuarios de Azure Active Directory, el enfoque recomendado consiste en usar un token de Azure AD para el usuario, que puede obtenerse mediante la biblioteca ADAL como se describe en la siguiente documentación: [https://docs.microsoft.com/azure/active-directory/develop/v1-overview](../../active-directory/develop/v1-overview.md); se deben seguir los pasos indicados en "Inicios rápidos", que incluyen:
 
 1. Configuración en Azure Portal
-    1.  Registre la aplicación en Azure AD como **Aplicación nativa**. Como parte del registro, deberá determinar si la aplicación debe ser multiempresa, así como proporcionar las direcciones URL de redireccionamiento permitidas para la aplicación.  
-    2.  Conceda acceso a la aplicación o a los usuarios para el recurso: 
+    1.  Registre la aplicación en Azure AD como **Aplicación nativa**. Como parte del registro, deberá determinar si la aplicación debe ser multiempresa, así como proporcionar las direcciones URL de redireccionamiento permitidas para la aplicación.
+    2.  Conceda acceso a la aplicación o a los usuarios para el recurso:
         1.  Vaya al recurso de Spatial Anchors en Azure Portal.
         2.  Cambie a la pestaña **Control de acceso (IAM)** .
         3.  Presione **Agregar asignación de roles**.
             1.  [Seleccionar un rol](#role-based-access-control).
-            2.  En el campo **Seleccionar**, escriba el nombre de los usuarios, grupos o aplicaciones a los que quiere asignar acceso. 
+            2.  En el campo **Seleccionar**, escriba el nombre de los usuarios, grupos o aplicaciones a los que quiere asignar acceso.
             3.  Presione **Guardar**.
 2. En el código:
     1.  Asegúrese de usar el **Id. de aplicación** y el **URI de redirección** de la propia aplicación de Azure AD como parámetros de **Id. de cliente** y **RedirectUri** de ADAL.
@@ -109,9 +109,9 @@ Para las aplicaciones destinadas a usuarios de Azure Active Directory, el enfoqu
         1.  Si la aplicación admite **Solo mi organización**, reemplace este valor por el **identificador de inquilino** o el **nombre de inquilino** (por ejemplo, contoso.microsoft.com).
         2.  Si la aplicación admite **Cuentas en cualquier directorio organizativo**, reemplace este valor por **Organizaciones**.
         3.  Si la aplicación admite **Todos los usuarios de cuentas Microsoft**, reemplace este valor por**Común**.
-    3.  En la solicitud de token, establezca el **recurso** en "https://sts.mixedreality.azure.com". Este "recurso" indicará a Azure AD que la aplicación solicita un token para el servicio de Azure Spatial Anchors.  
+    3.  En la solicitud de token, establezca el **recurso** en "https://sts.mixedreality.azure.com". Este "recurso" indicará a Azure AD que la aplicación solicita un token para el servicio de Azure Spatial Anchors.
 
-Con esto, la aplicación debe poder obtener de ADAL un token de Azure AD; puede establecer ese token de Azure AD como **authenticationToken** en el objeto de configuración de la sesión en la nube. 
+Con esto, la aplicación debe poder obtener de ADAL un token de Azure AD; puede establecer ese token de Azure AD como **authenticationToken** en el objeto de configuración de la sesión en la nube.
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -174,12 +174,12 @@ El token de acceso de Azure AD se recupera mediante la biblioteca ADAL como se d
         2.  Cambie a la pestaña **Control de acceso (IAM)** .
         3.  Presione **Agregar asignación de roles**.
         1.  [Seleccionar un rol](#role-based-access-control).
-        2.  En el campo **Seleccionar**, escriba el nombre de las aplicaciones que ha creado y a las que quiere asignar acceso. Si quiere que los usuarios de la aplicación tengan distintos roles en la cuenta de Spatial Anchors, debe registrar varias aplicaciones en Azure AD y asignar a cada una un rol independiente. A continuación, implemente la lógica de autorización para usar el rol correcto para los usuarios.  
+        2.  En el campo **Seleccionar**, escriba el nombre de las aplicaciones que ha creado y a las que quiere asignar acceso. Si quiere que los usuarios de la aplicación tengan distintos roles en la cuenta de Spatial Anchors, debe registrar varias aplicaciones en Azure AD y asignar a cada una un rol independiente. A continuación, implemente la lógica de autorización para usar el rol correcto para los usuarios.
     3.  Presione **Guardar**.
 2.  En el código (nota: puede usar el servicio de ejemplo incluido en GitHub):
     1.  Asegúrese de usar el Id. de aplicación, el secreto de aplicación y el URI de redirección de la propia aplicación de Azure AD como parámetros de Id. de cliente, secreto y RedirectUri de ADAL.
     2.  Establezca el id. de inquilino en su propio id. de inquilino de Azure AD en el parámetro de autoridad de ADAL.
-    3.  En la solicitud de token, establezca el **recurso** en "https://sts.mixedreality.azure.com". 
+    3.  En la solicitud de token, establezca el **recurso** en "https://sts.mixedreality.azure.com".
 
 Con esto, el servicio back-end puede recuperar un token de Azure AD. A continuación, puede cambiarlo por un token de MR que va a devolver al cliente. El uso de un token de Azure AD para recuperar un token de MR se realiza a través de una llamada de REST. A continuación, se muestra una llamada de ejemplo:
 
@@ -201,7 +201,7 @@ MS-CV: 05JLqWeKFkWpbdY944yl7A.0
 El encabezado de autorización tiene el formato siguiente: `Bearer <accoundId>:<accountKey>`
 
 Y la respuesta contiene el token de MR en texto sin formato.
- 
+
 Ese token de MR se devuelve después al cliente. La aplicación cliente, a continuación, puede establecerlo como su token de acceso en la configuración de la sesión en la nube.
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
@@ -248,8 +248,8 @@ configuration.AccessToken(LR"(MyAccessToken)");
 
 Para ayudar a controlar el nivel de acceso concedido a las aplicaciones, los servicios o los usuarios de Azure AD de su servicio, se crearon los siguientes roles de asignación según fue necesario en las cuentas de Azure Spatial Anchors:
 
-- **Propietario de cuenta de Spatial Anchors**: las aplicaciones o los usuarios que tienen este rol pueden crear anclajes espaciales, realizar consultas y eliminarlos. Al autenticarse en la cuenta mediante claves de cuenta, el rol **Propietario de cuenta de Spatial Anchors** se asigna a la entidad de seguridad autenticada. 
-- **Colaborador de cuenta de Spatial Anchors**: las aplicaciones o los usuarios que tienen este rol pueden crear anclajes espaciales y realizar consultas, pero no pueden eliminarlos. 
+- **Propietario de cuenta de Spatial Anchors**: las aplicaciones o los usuarios que tienen este rol pueden crear anclajes espaciales, realizar consultas y eliminarlos. Al autenticarse en la cuenta mediante claves de cuenta, el rol **Propietario de cuenta de Spatial Anchors** se asigna a la entidad de seguridad autenticada.
+- **Colaborador de cuenta de Spatial Anchors**: las aplicaciones o los usuarios que tienen este rol pueden crear anclajes espaciales y realizar consultas, pero no pueden eliminarlos.
 - **Lector de cuenta de Spatial Anchors**: las aplicaciones o los usuarios que tienen este rol solo pueden realizar consultas para los anclajes espaciales, pero no pueden crear otros nuevos, eliminar los existentes ni actualizar los metadatos de dichos anclajes espaciales. Esto se utiliza normalmente para las aplicaciones en las que algunos usuarios ajustan el entorno, mientras que otros solo pueden recuperar los anclajes colocados anteriormente en ese entorno.
 
 ## <a name="next-steps"></a>Pasos siguientes
