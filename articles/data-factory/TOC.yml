@@ -412,6 +412,8 @@
           href: transform-data-databricks-notebook.md
         - name: Actividad de Python en Databricks
           href: transform-data-databricks-python.md
+        - name: Actividad de comando de Data Explorer
+          href: /azure/data-explorer/data-factory-command-activity?toc=/azure/data-factory/toc.json
         - name: Actividad de U-SQL de Data Lake
           href: transform-data-using-data-lake-analytics.md
         - name: Actividad de Hive de HDInsight

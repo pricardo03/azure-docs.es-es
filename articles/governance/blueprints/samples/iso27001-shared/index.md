@@ -1,14 +1,14 @@
 ---
-title: Ejemplo de plano técnico de la norma ISO 27001 sobre servicios compartidos (introducción)
+title: Ejemplo de plano técnico de la norma ISO 27001 sobre servicios compartidos, introducción
 description: Introducción y arquitectura del ejemplo de plano técnico de la norma ISO 27001 sobre servicios compartidos. Este ejemplo de plano técnico de ejemplo ayuda a los clientes a evaluar determinados controles concretos de la norma ISO 27001.
 ms.date: 11/18/2019
 ms.topic: sample
-ms.openlocfilehash: d4fe392cad669179c474c0a6ab12b29eef1f083d
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 9723b77f2ba8f9a7030e891130853deb906c456e
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184377"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546684"
 ---
 # <a name="overview-of-the-iso-27001-shared-services-blueprint-sample"></a>Introducción al ejemplo de plano técnico de la norma ISO 27001 sobre servicios compartidos
 
