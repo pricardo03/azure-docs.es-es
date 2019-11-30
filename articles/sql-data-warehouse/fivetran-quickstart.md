@@ -11,12 +11,12 @@ ms.date: 10/12/2018
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 250df3e106ae65cafc84a412c155e3a27c535c79
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 715f891484458f3bf3febc6807c3490b88062d50
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686122"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74229086"
 ---
 # <a name="get-started-quickly-with-fivetran-and-sql-data-warehouse"></a>Empiece a trabajar rápidamente con Fivetran y SQL Data Warehouse
 
@@ -71,7 +71,7 @@ En esta guía de inicio rápido se describe cómo configurar un nuevo usuario de
     EXEC sp_addrolemember '<resource_class_name>', 'fivetran';
     ```
 
-    Para obtener más información, lea sobre [límites de memoria y simultaneidad](memory-concurrency-limits.md) y [clases de recursos](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md#ways-to-allocate-more-memory).
+    Para más información, lea sobre los [límites de memoria y simultaneidad](memory-concurrency-limits.md) y las [clases de recursos](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md#ways-to-allocate-more-memory).
 
 
 ## <a name="sign-in-to-fivetran"></a>Inicio de sesión en Fivetran

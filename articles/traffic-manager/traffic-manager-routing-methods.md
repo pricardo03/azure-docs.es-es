@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: allensu
-ms.openlocfilehash: 06ce7fb5d18920be6f71821b034dc13061c60032
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 824fabf6e694b7148486d6593cf17f741d9e5c9e
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051464"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483790"
 ---
 # <a name="traffic-manager-routing-methods"></a>Métodos de enrutamiento del Administrador de tráfico
 
@@ -23,7 +23,7 @@ Azure Traffic Manager admite seis métodos de enrutamiento de tráfico para dete
 
 En Traffic Manager, los métodos de enrutamiento de tráfico disponibles son los siguientes:
 
-* **[Prioridad](#priority):** seleccione **Prioridad** cuando quiera usar un punto de conexión de servicio primario para todo el tráfico y proporcione reservas en caso de que los puntos de conexión primarios o de reserva no se encuentren disponibles.
+* **[Prioridad](#priority-traffic-routing-method):** seleccione **Prioridad** cuando quiera usar un punto de conexión de servicio primario para todo el tráfico y proporcione reservas en caso de que los puntos de conexión primarios o de reserva no se encuentren disponibles.
 * **[Ponderado](#weighted):** seleccione **Ponderado** cuando quiera distribuir el tráfico entre un conjunto de puntos de conexión, o bien de manera uniforme o según los pesos definidos.
 * **[Rendimiento](#performance):** seleccione **Rendimiento** cuando tenga puntos de conexión en diferentes ubicaciones geográficas y quiera que los usuarios finales utilicen el punto de conexión "más cercano" según la latencia de red más baja.
 * **[Geográfico](#geographic):** seleccione **Geográfico** para dirigir a los usuarios a puntos de conexión concretos (Azure, Externo o Anidado) en función de la ubicación geográfica de la que parta su consulta de DNS. Esto permite a los clientes de Traffic Manager habilitar escenarios en los que es importante conocer la región geográfica de un usuario y enrutarlo en función de dicha región. Algunos ejemplos incluyen cumplir los mandatos de soberanía de datos, la localización del contenido y de la experiencia del usuario, y la medición del tráfico de otras regiones.
@@ -33,7 +33,7 @@ En Traffic Manager, los métodos de enrutamiento de tráfico disponibles son los
 
 Todos los perfiles de Traffic Manager incluyen supervisión del estado y conmutación por error automática del punto de conexión. Para más información, consulte [Acerca de la supervisión de Traffic Manager](traffic-manager-monitoring.md). Con un único perfil de Administrador de tráfico solo se puede usar un método de enrutamiento de tráfico. El método de enrutamiento de tráfico para el perfil se puede cambiar en cualquier momento. Los cambios se aplican en un minuto, sin tiempo de inactividad. Los métodos de enrutamiento de tráfico se pueden combinar mediante perfiles anidados del Administrador de tráfico. La anidación hace posible la creación de configuraciones de enrutamiento de tráfico sofisticadas y flexibles que satisfacen las necesidades de aplicaciones más grandes y complejas. Para más información, consulte [Nested Traffic Manager profiles](traffic-manager-nested-profiles.md)(Perfiles anidados de Administrador de tráfico).
 
-## <a name = "priority"></a>Método de enrutamiento de tráfico Prioridad
+## <a name="priority-traffic-routing-method"></a>Método de enrutamiento del tráfico prioritario
 
 Habitualmente, las organizaciones desean ofrecer confiabilidad en sus servicios y, para ello, implementan uno o varios servicios de reserva en caso de que su servicio principal se vuelva inactivo. El método de enrutamiento de tráfico de "Prioridad" permite que los clientes de Azure implementen fácilmente este patrón de conmutación por error.
 

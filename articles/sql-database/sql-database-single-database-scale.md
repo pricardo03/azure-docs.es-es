@@ -11,20 +11,16 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/26/2019
-ms.openlocfilehash: 2a16735e65201314328d2315479ccc467b9d555e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 8d4917bb8956185e0cb557368fbb0c64343c0ac6
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820996"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74422545"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Escalar recursos de base de datos única en Azure SQL Database
 
 En este artículo se describe cómo escalar los recursos de proceso y almacenamiento disponibles para una instancia de Azure SQL Database en el nivel de proceso aprovisionado. Como alternativa, el [nivel de proceso sin servidor](sql-database-serverless.md) proporciona escalado automático de proceso y factura por segundo el proceso que se usa.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-> [!IMPORTANT]
-> El módulo de Azure Resource Manager para PowerShell todavía es compatible con Azure SQL Database, pero todo el desarrollo futuro se realizará para el módulo Az.Sql. Para estos cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Los argumentos para los comandos del módulo Az y los módulos AzureRm son esencialmente idénticos.
 
 ## <a name="change-compute-size-vcores-or-dtus"></a>Cambio del tamaño de proceso (núcleos virtuales o DTU)
 
@@ -33,7 +29,6 @@ Después de elegir inicialmente el número de núcleos virtuales o DTU, puede es
 El vídeo siguiente muestra cómo cambiar de manera dinámica el nivel de servicio y el tamaño de proceso para aumentar las DTU disponibles para una base de datos única.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player]
->
 
 > [!IMPORTANT]
 > En algunas circunstancias, puede que deba reducir una base de datos para reclamar el espacio no utilizado. Para obtener más información, consulte [Administración del espacio de archivo en Azure SQL Database](sql-database-file-space-management.md).
@@ -82,19 +77,17 @@ A continuación, haga clic en el botón **Cancelar esta operación**.
 
 #### <a name="powershell"></a>PowerShell
 
-Desde un símbolo del sistema de PowerShell, defina los valores `$ResourceGroupName`, `$ServerName` y `$DatabaseName` y, después, ejecute el comando siguiente:
+Desde un símbolo del sistema de PowerShell, defina los valores `$resourceGroupName`, `$serverName` y `$databaseName` y, después, ejecute el comando siguiente:
 
-```PowerShell
-$OperationName = (az sql db op list --resource-group $ResourceGroupName --server $ServerName --database $DatabaseName --query "[?state=='InProgress'].name" --out tsv)
-if(-not [string]::IsNullOrEmpty($OperationName))
-    {
-        (az sql db op cancel --resource-group $ResourceGroupName --server $ServerName --database $DatabaseName --name $OperationName)
-        "Operation " + $OperationName + " has been canceled"
-    }
-    else
-    {
-        "No service tier change or compute rescaling operation found"
-    }
+```powershell
+$operationName = (az sql db op list --resource-group $resourceGroupName --server $serverName --database $databaseName --query "[?state=='InProgress'].name" --out tsv)
+if (-not [string]::IsNullOrEmpty($operationName)) {
+    (az sql db op cancel --resource-group $resourceGroupName --server $serverName --database $databaseName --name $operationName)
+        "Operation " + $operationName + " has been canceled"
+}
+else {
+    "No service tier change or compute rescaling operation found"
+}
 ```
 
 ### <a name="additional-considerations-when-changing-service-tier-or-rescaling-compute-size"></a>Consideraciones adicionales cuando se cambia el nivel de servicio o la escala de tamaño de proceso

@@ -1,20 +1,15 @@
 ---
 title: 'Control de eventos externos con Durable Functions: Azure'
 description: Aprenda a controlar eventos externos en la extensión Durable Functions para Azure Functions.
-services: functions
-author: ggailey777
-manager: jeconnoc
-keywords: ''
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 1c2a2f08c31c427241bbd5e482906118a90ee178
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 7d7fcc725d78b24a93b09cb9c76cf7dc0231cac2
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73614844"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232896"
 ---
 # <a name="handling-external-events-in-durable-functions-azure-functions"></a>Control de eventos externos con Durable Functions (Azure Functions)
 
@@ -142,7 +137,7 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> El código anterior corresponde a Durable Functions 2.x. En el caso de Durable Functions 1.x, debe usar `DurableOrchestrationContext` en lugar de `IDurableOrchestrationContext`. Para obtener más información sobre las diferencias entre versiones, vea el artículo [Versiones de Durable Functions](durable-functions-versions.md).
+> El código anterior corresponde a Durable Functions 2.x. En el caso de Durable Functions 1.x, debe usar `DurableOrchestrationContext` en lugar de `IDurableOrchestrationContext`. Para obtener más información sobre las diferencias entre versiones, vea el artículo [Versiones de Durable Functions](durable-functions-versions.md).
 
 #### <a name="javascript-functions-20-only"></a>JavaScript (solo Functions 2.0)
 

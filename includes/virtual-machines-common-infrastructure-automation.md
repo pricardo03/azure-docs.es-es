@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 04/11/2019
 ms.author: cynthn
-ms.openlocfilehash: 1a18812c6447266d34f2c8aa1ccff8984f68570a
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: f7dcf342a1b9b2107138044dfc207d6dbcb42e9e
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74008823"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74260874"
 ---
 Para crear y administrar máquinas virtuales (VM) de Azure de manera coherente a escala, suele ser deseable alguna forma de automatización. Existen muchas herramientas y soluciones que le permiten automatizar la implementación de toda la infraestructura de Azure y el ciclo de vida de administración. En este artículo se detallan algunas de las herramientas de automatización de la infraestructura que puede usar en Azure. Estas herramientas se adaptan normalmente a alguno de los siguientes enfoques:
 
@@ -69,7 +69,7 @@ Las configuraciones de DSC definen lo que se debe instalar en una máquina y có
 
 Obtenga información sobre cómo:
 
-- [Crear una configuración básica de DSC](https://msdn.microsoft.com/powershell/dsc/quickstarts/website-quickstart).
+- [Crear una configuración básica de DSC](/powershell/scripting/dsc/quickstarts/website-quickstart).
 - [Configurar un servidor de extracción de DSC](/powershell/scripting/dsc/pull-server/pullserver).
 - [Usar DSC para Linux](/powershell/scripting/dsc/getting-started/lnxgettingstarted).
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: mimart
 ms.reviewer: japere
-ms.openlocfilehash: 06b8edcb0f912bfd35137e197253b20b9459448f
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 575891d99c077299f5e7abf008c1ebb2b158373f
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71057745"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74382067"
 ---
 # <a name="debug-application-proxy-application-issues"></a>Depuración de problemas con las aplicaciones de Application Proxy 
 
@@ -48,7 +48,7 @@ Este diagrama de flujo lo guía a través de los pasos para depurar algunos de l
 |5 | Si siguen los problemas, vaya a la depuración de conectores | Es posible que haya un problema de conectividad entre el proxy y el conector o entre el conector y el back-end. Vaya al artículo de solución de problemas [Depuración de los conectores de Application Proxy](application-proxy-debug-connectors.md). |
 |6 | Publique todos los recursos, revise todas las herramientas para desarrolladores del explorador y corrija los vínculos | Asegúrese de que la ruta de publicación incluye todas las imágenes, los scripts y las hojas de estilo necesarias para la aplicación. Consulte [Adición de una aplicación local a Azure AD](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad) para información detallada. <br></br>Use las herramientas para desarrolladores del explorador (herramientas F12 en Internet Explorer o Microsoft Edge) y revise si hay problemas en la publicación, tal como se describe en [La página de aplicación no se muestra correctamente](application-proxy-page-appearance-broken-problem.md). <br></br>Revise las opciones para resolver vínculos rotos en [Los vínculos de la página no funcionan](application-proxy-page-links-broken-problem.md). |
 |7 | Compruebe la latencia de la red | Si la página se carga lentamente, conozca algunas formas de minimizar la latencia de red en [Consideraciones para reducir la latencia](application-proxy-network-topology.md#considerations-for-reducing-latency). | 
-|8 | Consulte más ayuda para solucionar problemas | Si los problemas continúan encuentre otros artículos para la solución de problemas en la [documentación para solucionar problemas de Application Proxy](application-proxy-page-appearance-broken-problem.md). |
+|8 | Consulte más ayuda para solucionar problemas | Si los problemas continúan encuentre otros artículos para la solución de problemas en la [documentación para solucionar problemas de Application Proxy](application-proxy-troubleshoot.md). |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

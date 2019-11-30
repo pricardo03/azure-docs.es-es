@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: robinsh
-ms.openlocfilehash: eb5085db10c5763a4173f460eabde6afcccd5aff
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 514f4b26a708a6fec30a1f54cfe6da6d1b58b79d
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71000442"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555516"
 ---
 # <a name="get-started-with-device-management-python"></a>Introducción a la administración de dispositivos (Python)
 
@@ -62,10 +62,6 @@ En esta sección:
     ```cmd/sh
     pip install azure-iot-device
     ```
-
-   > [!NOTE]
-   > Los paquetes PIP para azure-iothub-service-client solo están disponibles para el sistema operativo Windows. Para Linux o Mac OS, consulte las secciones específicas de Mac OS y Linux en la publicación [Preparar el entorno de desarrollo para Python](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md).
-   >
 
 2. Con un editor de texto, cree un archivo denominado **dmpatterns_getstarted_service.py** en el directorio de trabajo.
 
@@ -161,7 +157,7 @@ En esta sección, creará una aplicación de consola de Python que inicia un rei
     ```
 
    > [!NOTE]
-   > Los paquetes PIP para azure-iothub-service-client y azure-iothub-device-client actualmente solo están disponibles para el sistema operativo Windows. Para Linux o Mac OS, consulte las secciones específicas de Mac OS y Linux en la publicación [Preparar el entorno de desarrollo para Python](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md).
+   > El paquete PIP para azure-iothub-service-client actualmente solo está disponibles para el sistema operativo Windows. Para Linux o Mac OS, consulte las secciones específicas de Mac OS y Linux en la publicación [Preparar el entorno de desarrollo para Python](https://github.com/Azure/azure-iot-sdk-python/blob/v1-deprecated/doc/python-devbox-setup.md).
    >
 
 2. Con un editor de texto, cree un archivo denominado **dmpatterns_getstarted_service.py** en el directorio de trabajo.

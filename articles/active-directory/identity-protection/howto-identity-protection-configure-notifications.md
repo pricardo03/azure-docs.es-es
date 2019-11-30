@@ -1,5 +1,5 @@
 ---
-title: Notificaciones de Azure Active Directory Identity Protection | Microsoft Docs
+title: Notificaciones de Azure Active Directory Identity Protection
 description: Obtenga información sobre cómo contribuyen las notificaciones a sus actividades de investigación.
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81452f4d1f77c07222bbff05093a7e8d5d0a1bee
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 0c83aa6e476bbd898999fb6efe490c7847a809ff
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72886883"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74382151"
 ---
 # <a name="azure-active-directory-identity-protection-notifications"></a>Notificaciones de Azure Active Directory Identity Protection
 

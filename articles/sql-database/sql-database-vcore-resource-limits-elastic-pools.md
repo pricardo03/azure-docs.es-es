@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: carlrab, sstein
-ms.date: 11/04/2019
-ms.openlocfilehash: f356b9d248ac9c5f0bcfaaeeb37b43d958eaa528
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/25/2019
+ms.openlocfilehash: 74cc13386befa5cd97900b6b36d07d3144d9b727
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822371"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74534199"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-purchasing-model"></a>Límites de recursos para grupos elásticos que usan el modelo de compra de núcleo virtual
 
@@ -31,7 +31,6 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 
 > [!IMPORTANT]
 > Para obtener información sobre la guía y otras consideraciones del escalado, consulte [Escalar un grupo elástico](sql-database-elastic-pool-scale.md).
-
 
 ## <a name="general-purpose---provisioned-compute---gen4"></a>Uso general: proceso aprovisionado: Gen4
 
@@ -48,8 +47,8 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Máximo número de bases de datos por grupo|100|200|500|500|500|500|
 |Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|Sí|
 |Almacenamiento OLTP en memoria (GB)|N/D|N/D|N/D|N/D|N/D|N/D|
-|Tamaño máximo de datos (GB)|512|756|756|1536|1536|1536|
-|Tamaño máximo de registro|154|227|227|461|461|461|
+|Tamaño máximo de datos (GB)|512|756|1536|1536|1536|2048|
+|Tamaño máximo de registro|154|227|461|461|461|614|
 |Tamaño de TempDB (GB)|32|64|96|128|160|192|
 |Tipo de almacenamiento|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|
 |Latencia de E/S (aproximada)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|
@@ -66,7 +65,6 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 
 \* Para conocer el número máximo de trabajos (solicitudes) simultáneos para una base de datos individual, consulte [Límites del modelo de compra basado en núcleos virtuales de Azure SQL Database para una base de datos única](sql-database-vcore-resource-limits-single-databases.md). Por ejemplo, si el grupo elástico usa Gen5 y su núcleo virtual máximo por base de datos es 2, el número máximo de trabajos simultáneos es 200.  Si el núcleo virtual máximo por base de datos es 0,5, el número máximo de trabajos simultáneos es 50, puesto que, en Gen5, hay un máximo de 100 trabajos simultáneos por núcleo virtual.  Para otras configuraciones de memoria con núcleo virtual máximo por base de datos que sean un núcleo virtual o menos, la cantidad máxima de trabajos simultáneos se escala de forma similar.
 
-
 ### <a name="general-purpose-service-tier-generation-4-compute-platform-part-2"></a>Nivel de servicio de uso general: Plataforma de procesos de generación 4 (parte 2)
 
 |Tamaño de proceso|GP_Gen4_7|GP_Gen4_8|GP_Gen4_9|GP_Gen4_10|GP_Gen4_16|GP_Gen4_24|
@@ -77,8 +75,8 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Máximo número de bases de datos por grupo|500|500|500|500|500|500|
 |Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|Sí|
 |Almacenamiento OLTP en memoria (GB)|N/D|N/D|N/D|N/D|N/D|N/D|
-|Tamaño máximo de datos (GB)|1536|2048|2048|2048|3584|4096|
-|Tamaño máximo de registro (GB)|461|614|614|614|1075|1229|
+|Tamaño máximo de datos (GB)|2048|2048|2048|2048|3584|4096|
+|Tamaño máximo de registro (GB)|614|614|614|614|1075|1229|
 |Tamaño de TempDB (GB)|224|256|288|320|384|384|
 |Tipo de almacenamiento|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|
 |Latencia de E/S (aproximada)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|
@@ -95,7 +93,6 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 
 \* Para conocer el número máximo de trabajos (solicitudes) simultáneos para una base de datos individual, consulte [Límites del modelo de compra basado en núcleos virtuales de Azure SQL Database para una base de datos única](sql-database-vcore-resource-limits-single-databases.md). Por ejemplo, si el grupo elástico usa Gen5 y su núcleo virtual máximo por base de datos es 2, el número máximo de trabajos simultáneos es 200.  Si el núcleo virtual máximo por base de datos es 0,5, el número máximo de trabajos simultáneos es 50, puesto que, en Gen5, hay un máximo de 100 trabajos simultáneos por núcleo virtual.  Para otras configuraciones de memoria con núcleo virtual máximo por base de datos que sean un núcleo virtual o menos, la cantidad máxima de trabajos simultáneos se escala de forma similar.
 
-
 ## <a name="general-purpose---provisioned-compute---gen5"></a>Uso general: proceso aprovisionado: Gen5
 
 ### <a name="general-purpose-service-tier-generation-5-compute-platform-part-1"></a>Nivel de servicio de uso general: Plataforma de procesos de generación 5 (parte 1)
@@ -108,8 +105,8 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Máximo número de bases de datos por grupo|100|200|500|500|500|500|500|
 |Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|Sí|Sí|
 |Almacenamiento OLTP en memoria (GB)|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
-|Tamaño máximo de datos (GB)|512|756|756|1536|1536|1536|
-|Tamaño máximo de registro (GB)|154|227|227|461|461|461|461|
+|Tamaño máximo de datos (GB)|512|756|1536|1536|1536|2048|2048|
+|Tamaño máximo de registro (GB)|154|227|461|461|461|614|614|
 |Tamaño de TempDB (GB)|64|128|192|256|320|384|384|
 |Tipo de almacenamiento|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|
 |Latencia de E/S (aproximada)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|
@@ -136,8 +133,8 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Máximo número de bases de datos por grupo|500|500|500|500|500|500|500|
 |Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|Sí|Sí|
 |Almacenamiento OLTP en memoria (GB)|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
-|Tamaño máximo de datos (GB)|2048|2048|3072|3072|4096|4096|4096|
-|Tamaño máximo de registro (GB)|614|614|922|922|1229|1229|1229|
+|Tamaño máximo de datos (GB)|2048|3072|3072|3072|4096|4096|4096|
+|Tamaño máximo de registro (GB)|614|922|922|922|1229|1229|1229|
 |Tamaño de TempDB (GB)|384|384|384|384|384|384|384|
 |Tipo de almacenamiento|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|
 |Latencia de E/S (aproximada)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|
@@ -178,11 +175,7 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Escalado horizontal de lectura|N/D|
 |Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|
 
-
-
-
 \* Para conocer el número máximo de trabajos (solicitudes) simultáneos para una base de datos individual, consulte [Límites del modelo de compra basado en núcleos virtuales de Azure SQL Database para una base de datos única](sql-database-vcore-resource-limits-single-databases.md). Por ejemplo, si el grupo elástico usa Gen5 y su núcleo virtual máximo por base de datos es 2, el número máximo de trabajos simultáneos es 200.  Si el núcleo virtual máximo por base de datos es 0,5, el número máximo de trabajos simultáneos es 50, puesto que, en Gen5, hay un máximo de 100 trabajos simultáneos por núcleo virtual.  Para otras configuraciones de memoria con núcleo virtual máximo por base de datos que sean un núcleo virtual o menos, la cantidad máxima de trabajos simultáneos se escala de forma similar.
-
 
 ## <a name="business-critical---provisioned-compute---gen4"></a>Crítico para la empresa: proceso aprovisionado: Gen4
 
@@ -191,29 +184,29 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 
 ### <a name="business-critical-service-tier-generation-4-compute-platform-part-1"></a>Nivel de servicio crítico para la empresa: Plataforma de procesos de generación 4 (parte 1)
 
-|Tamaño de proceso|BC_Gen4_1|BC_Gen4_2|BC_Gen4_3|BC_Gen4_4|BC_Gen4_5|BC_Gen4_6|
+|Tamaño de proceso|BC_Gen4_2|BC_Gen4_3|BC_Gen4_4|BC_Gen4_5|BC_Gen4_6|
 |:--- | --: |--: |--: |--: |--: |--: |
-|Generación de procesos|Gen4|Gen4|Gen4|Gen4|Gen4|Gen4|
-|Núcleos virtuales|1|2|3|4|5|6|
-|Memoria (GB)|7|14|21|28|35|42|
-|Máximo número de bases de datos por grupo|Solo se admiten las bases de datos únicas con este tamaño de proceso|50|100|100|100|100|
-|Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|Sí|
-|Almacenamiento OLTP en memoria (GB)|1|2|3|4|5|6|
-|Tipo de almacenamiento|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
-|Tamaño máximo de datos (GB)|650|650|650|650|650|650|
-|Tamaño máximo de registro (GB)|195|195|195|195|195|195|
-|Tamaño de TempDB (GB)|32|64|96|128|160|192|
-|Latencia de E/S (aproximada)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|
-|IOPS de destino (64 KB)|5000|10000|15000|20000|25000|30000|
-|Límites de velocidad de los registros (MBps)|10|20|30|40|50|60|
-|Cantidad máxima de trabajos simultáneos por grupo (solicitudes)*|210|420|630|840|1050|1260|
-|Cantidad máxima de inicios de sesión simultáneos por grupo (solicitudes) *|210|420|630|840|1050|1260|
-|Sesiones máximas permitidas|30000|30000|30000|30000|30000|30000|
-|Opciones de núcleo virtual mín./máx. de grupos elásticos por base de datos|N/D|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1...3|0, 0.25, 0.5, 1...4|0, 0.25, 0.5, 1...5|0, 0.25, 0.5, 1...6|
-|Número de réplicas|4|4|4|4|4|4|
-|AZ múltiple|Sí|Sí|Sí|Sí|Sí|Sí|
-|Escalado horizontal de lectura|Sí|Sí|Sí|Sí|Sí|Sí|
-|Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
+|Generación de procesos|Gen4|Gen4|Gen4|Gen4|Gen4|
+|Núcleos virtuales|2|3|4|5|6|
+|Memoria (GB)|14|21|28|35|42|
+|Máximo número de bases de datos por grupo|100|100|100|100|100|
+|Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|
+|Almacenamiento OLTP en memoria (GB)|2|3|4|5|6|
+|Tipo de almacenamiento|SSD local|SSD local|SSD local|SSD local|SSD local|
+|Tamaño máximo de datos (GB)|1024|1024|1024|1024|1024|
+|Tamaño máximo de registro (GB)|307|307|307|307|307|
+|Tamaño de TempDB (GB)|64|96|128|160|192|
+|Latencia de E/S (aproximada)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|
+|IOPS de destino (64 KB)|10000|15000|20000|25000|30000|
+|Límites de velocidad de los registros (MBps)|20|30|40|50|60|
+|Cantidad máxima de trabajos simultáneos por grupo (solicitudes)*|420|630|840|1050|1260|
+|Cantidad máxima de inicios de sesión simultáneos por grupo (solicitudes) *|420|630|840|1050|1260|
+|Sesiones máximas permitidas|30000|30000|30000|30000|30000|
+|Opciones de núcleo virtual mín./máx. de grupos elásticos por base de datos|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1...3|0, 0.25, 0.5, 1...4|0, 0.25, 0.5, 1...5|0, 0.25, 0.5, 1...6|
+|Número de réplicas|4|4|4|4|4|
+|AZ múltiple|Sí|Sí|Sí|Sí|Sí|
+|Escalado horizontal de lectura|Sí|Sí|Sí|Sí|Sí|
+|Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
 
 \* Para conocer el número máximo de trabajos (solicitudes) simultáneos para una base de datos individual, consulte [Límites del modelo de compra basado en núcleos virtuales de Azure SQL Database para una base de datos única](sql-database-vcore-resource-limits-single-databases.md). Por ejemplo, si el grupo elástico usa Gen5 y su núcleo virtual máximo por base de datos es 2, el número máximo de trabajos simultáneos es 200.  Si el núcleo virtual máximo por base de datos es 0,5, el número máximo de trabajos simultáneos es 50, puesto que, en Gen5, hay un máximo de 100 trabajos simultáneos por núcleo virtual.  Para otras configuraciones de memoria con núcleo virtual máximo por base de datos que sean un núcleo virtual o menos, la cantidad máxima de trabajos simultáneos se escala de forma similar.
 
@@ -228,8 +221,8 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Compatible con almacén de columnas|N/D|N/D|N/D|N/D|N/D|N/D|
 |Almacenamiento OLTP en memoria (GB)|7|8|9.5|11|20|36|
 |Tipo de almacenamiento|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
-|Tamaño máximo de datos (GB)|650|650|650|650|1024|1024|
-|Tamaño máximo de registro (GB)|195|195|195|195|307|307|
+|Tamaño máximo de datos (GB)|1024|1024|1024|1024|1024|1024|
+|Tamaño máximo de registro (GB)|307|307|307|307|307|307|
 |Tamaño de TempDB (GB)|224|256|288|320|384|384|
 |Latencia de E/S (aproximada)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|
 |IOPS de destino (64 KB)|35000|40000|45000|50000|80000|120000|
@@ -249,29 +242,29 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 
 ### <a name="business-critical-service-tier-generation-5-compute-platform-part-1"></a>Nivel de servicio crítico para la empresa: Plataforma de procesos de generación 5 (parte 1)
 
-|Tamaño de proceso|BC_Gen5_2|BC_Gen5_4|BC_Gen5_6|BC_Gen5_8|BC_Gen5_10|BC_Gen5_12|BC_Gen5_14|
+|Tamaño de proceso|BC_Gen5_4|BC_Gen5_6|BC_Gen5_8|BC_Gen5_10|BC_Gen5_12|BC_Gen5_14|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
-|Generación de procesos|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
-|Núcleos virtuales|2|4|6|8|10|12|14|
-|Memoria (GB)|10.2|20.4|30.6|40.8|51|61.2|71.4|
-|Máximo número de bases de datos por grupo|Solo se admiten las bases de datos únicas con este tamaño de proceso|50|100|100|100|100|100|
-|Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|Sí|Sí|
-|Almacenamiento OLTP en memoria (GB)|1571|3142|4.713|6284|8.655|11.026|13.397|
-|Tamaño máximo de datos (GB)|1024|1024|1536|1536|1536|3072|3072|
-|Tamaño máximo de registro (GB)|307|307|307|461|461|922|922|
-|Tamaño de TempDB (GB)|64|128|192|256|320|384|384|
-|Tipo de almacenamiento|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
-|Latencia de E/S (aproximada)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|
-|IOPS de destino (64 KB)|5000|10000|15000|20000|25000|30000|35000|
-|Límites de velocidad de los registros (MBps)|15|30|45|60|75|90|105|
-|Cantidad máxima de trabajos simultáneos por grupo (solicitudes)*|210|420|630|840|1050|1260|1470|
-|Cantidad máxima de inicios de sesión simultáneos por grupo (solicitudes) *|210|420|630|840|1050|1260|1470|
-|Sesiones máximas permitidas|30000|30000|30000|30000|30000|30000|30000|
-|Opciones de núcleo virtual mín./máx. de grupos elásticos por base de datos|N/D|0, 0.25, 0.5, 1...4|0, 0.25, 0.5, 1...6|0, 0.25, 0.5, 1...8|0, 0.25, 0.5, 1...10|0, 0.25, 0.5, 1...12|0, 0.25, 0.5, 1...14|
-|Número de réplicas|4|4|4|4|4|4|4|
+|Generación de procesos|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
+|Núcleos virtuales|4|6|8|10|12|14|
+|Memoria (GB)|20.4|30.6|40.8|51|61.2|71.4|
+|Máximo número de bases de datos por grupo|100|100|100|100|100|100|
+|Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|Sí|
+|Almacenamiento OLTP en memoria (GB)|3142|4.713|6284|8.655|11.026|13.397|
+|Tamaño máximo de datos (GB)|1024|1536|1536|1536|3072|3072|
+|Tamaño máximo de registro (GB)|307|307|461|461|922|922|
+|Tamaño de TempDB (GB)|128|192|256|320|384|384|
+|Tipo de almacenamiento|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
+|Latencia de E/S (aproximada)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|
+|IOPS de destino (64 KB)|10000|15000|20000|25000|30000|35000|
+|Límites de velocidad de los registros (MBps)|30|45|60|75|90|105|
+|Cantidad máxima de trabajos simultáneos por grupo (solicitudes)*|420|630|840|1050|1260|1470|
+|Cantidad máxima de inicios de sesión simultáneos por grupo (solicitudes) *|420|630|840|1050|1260|1470|
+|Sesiones máximas permitidas|30000|30000|30000|30000|30000|30000|
+|Opciones de núcleo virtual mín./máx. de grupos elásticos por base de datos|0, 0.25, 0.5, 1...4|0, 0.25, 0.5, 1...6|0, 0.25, 0.5, 1...8|0, 0.25, 0.5, 1...10|0, 0.25, 0.5, 1...12|0, 0.25, 0.5, 1...14|
+|Número de réplicas|4|4|4|4|4|4|
 |AZ múltiple|Sí|Sí|Sí|Sí|Sí|Sí|
-|Escalado horizontal de lectura|Sí|Sí|Sí|Sí|Sí|Sí|Sí|
-|Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
+|Escalado horizontal de lectura|Sí|Sí|Sí|Sí|Sí|Sí|
+|Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
 
 \* Para conocer el número máximo de trabajos (solicitudes) simultáneos para una base de datos individual, consulte [Límites del modelo de compra basado en núcleos virtuales de Azure SQL Database para una base de datos única](sql-database-vcore-resource-limits-single-databases.md). Por ejemplo, si el grupo elástico usa Gen5 y su núcleo virtual máximo por base de datos es 2, el número máximo de trabajos simultáneos es 200.  Si el núcleo virtual máximo por base de datos es 0,5, el número máximo de trabajos simultáneos es 50, puesto que, en Gen5, hay un máximo de 100 trabajos simultáneos por núcleo virtual.  Para otras configuraciones de memoria con núcleo virtual máximo por base de datos que sean un núcleo virtual o menos, la cantidad máxima de trabajos simultáneos se escala de forma similar.
 

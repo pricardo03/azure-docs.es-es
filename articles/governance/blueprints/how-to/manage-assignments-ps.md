@@ -3,12 +3,12 @@ title: Administración de asignaciones con PowerShell
 description: Obtenga información sobre cómo administrar las asignaciones de planos técnicos con el módulo oficial de PowerShell de Azure Blueprints, Az.Blueprint.
 ms.date: 09/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: 98c2173568f65d029b00ca6c8b25d2195094a5e3
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 00824ceed2e86683a86b172e529ba88704dbb050
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961621"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74210312"
 ---
 # <a name="how-to-manage-assignments-with-powershell"></a>Administración de asignaciones con PowerShell
 
@@ -23,7 +23,7 @@ A fin de habilitar Azure PowerShell para administrar asignaciones de planos té
 El módulo de Azure Blueprints requiere el software siguiente:
 
 - Azure PowerShell 1.5.0 o posterior. Si todavía no está instalado, siga [estas instrucciones](/powershell/azure/install-az-ps).
-- PowerShellGet 2.0.1 o una versión posterior. Si no está instalado o actualizado, siga [estas instrucciones](/powershell/gallery/installing-psget).
+- PowerShellGet 2.0.1 o una versión posterior. Si no está instalado o actualizado, siga [estas instrucciones](/powershell/scripting/gallery/installing-psget).
 
 ### <a name="install-the-module"></a>Instalación del módulo
 

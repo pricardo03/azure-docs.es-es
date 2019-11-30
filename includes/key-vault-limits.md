@@ -1,15 +1,15 @@
 ---
 author: rothja
-ms.service: billing
+ms.service: cost-management-billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: 0b9d87fd7929607da8407ae5bbfb2f6dd6d69dab
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 2d16febd4676ca7ba763eb7bc6dcecda4608ebb5
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "67186720"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74224578"
 ---
 #### <a name="key-transactions-maximum-transactions-allowed-in-10-seconds-per-vault-per-regionsup1sup"></a>Transacciones clave (n.º máximo de transacciones permitidas en 10 segundos, por almacén y región<sup>1</sup>):
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 225fcd475d488cedb8bd210fe2fa9371849314ac
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: fe2a6cb7943875732e6ce2fad630b2af69e6197b
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615515"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74559140"
 ---
 # <a name="transfer-data-with-azcopy-and-file-storage"></a>Transferencia de datos con AzCopy y File Storage 
 
@@ -52,7 +52,7 @@ En esta sección se incluyen los ejemplos siguientes:
 Para obtener documentos de referencia detallados, consulte [azcopy copy](storage-ref-azcopy-copy.md).
 
 > [!TIP]
-> Los ejemplos de esta sección delimitan los argumentos de ruta de acceso con comillas simples (''). Use comillas simples en todos los shells de comandos excepto en el shell de comandos de Windows (cmd.exe). Si utiliza un shell de comandos de Windows (cmd.exe), incluya los argumentos de la ruta de acceso entre comillas dobles ("") en lugar de comillas simples ('').
+> Los ejemplos de esta sección delimitan los argumentos de ruta de acceso con comillas simples (''). Use comillas simples en todos los shells de comandos excepto en el shell de comandos de Windows (cmd.exe). Si usa un shell de comandos de Windows (cmd.exe), incluya los argumentos de la ruta de acceso entre comillas dobles ("") en lugar de comillas simples ('').
 
 ### <a name="upload-a-file"></a>Cargar un archivo
 
@@ -140,22 +140,21 @@ En esta sección se incluyen los ejemplos siguientes:
 Para obtener documentos de referencia detallados, consulte [azcopy copy](storage-ref-azcopy-copy.md).
 
 > [!TIP]
-> Los ejemplos de esta sección delimitan los argumentos de ruta de acceso con comillas simples (''). Use comillas simples en todos los shells de comandos excepto en el shell de comandos de Windows (cmd.exe). Si utiliza un shell de comandos de Windows (cmd.exe), incluya los argumentos de la ruta de acceso entre comillas dobles ("") en lugar de comillas simples ('').
+> Los ejemplos de esta sección delimitan los argumentos de ruta de acceso con comillas simples (''). Use comillas simples en todos los shells de comandos excepto en el shell de comandos de Windows (cmd.exe). Si usa un shell de comandos de Windows (cmd.exe), incluya los argumentos de la ruta de acceso entre comillas dobles ("") en lugar de comillas simples ('').
 
 ### <a name="download-a-file"></a>Descarga de un archivo
 
 |    |     |
 |--------|-----------|
-| **Sintaxis** | `azcopy copy 'https://<storage-account-name>.file.core.windows.net/<file-share-name>/<file-path>?<SAS-token>?<SAS-token>' '<local-file-path>'` |
+| **Sintaxis** | `azcopy copy 'https://<storage-account-name>.file.core.windows.net/<file-share-name>/<file-path>?<SAS-token>' '<local-file-path>'` |
 | **Ejemplo** | `azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/myTextFile.txt?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D' 'C:\myDirectory\myTextFile.txt'` |
 
 ### <a name="download-a-directory"></a>Descargar un directorio
 
 |    |     |
 |--------|-----------|
-| **Sintaxis** | `azcopy copy "https://<storage-account-name>.file.core.windows.net/<file-share-name>/<directory-path>?<SAS-token>" 
-"<local-directory-path>" --recursive` |
-| **Ejemplo** | `azcopy copy "https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D" "C:\myDirectory"  --recursive` |
+| **Sintaxis** | `azcopy copy 'https://<storage-account-name>.file.core.windows.net/<file-share-name>/<directory-path>?<SAS-token>' '<local-directory-path>' --recursive` |
+| **Ejemplo** | `azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D' 'C:\myDirectory'  --recursive` |
 
 En este ejemplo se crea un directorio denominado `C:\myDirectory\myFileShareDirectory` que contiene todos los archivos descargados.
 
@@ -218,7 +217,7 @@ En esta sección se incluyen los ejemplos siguientes:
 Para obtener documentos de referencia detallados, consulte [azcopy copy](storage-ref-azcopy-copy.md).
 
 > [!TIP]
-> Los ejemplos de esta sección delimitan los argumentos de ruta de acceso con comillas simples (''). Use comillas simples en todos los shells de comandos excepto en el shell de comandos de Windows (cmd.exe). Si utiliza un shell de comandos de Windows (cmd.exe), incluya los argumentos de la ruta de acceso entre comillas dobles ("") en lugar de comillas simples ('').
+> En los ejemplos de esta sección se delimitan los argumentos de ruta de acceso con comillas simples (''). Use comillas simples en todos los shells de comandos excepto en el shell de comandos de Windows (cmd.exe). Si utiliza un shell de comandos de Windows (cmd.exe), incluya los argumentos de la ruta de acceso entre comillas dobles ("") en lugar de comillas simples ('').
 
 ### <a name="copy-a-file-to-another-storage-account"></a>Copia de un archivo a otra cuenta de almacenamiento
 
@@ -262,7 +261,7 @@ Si establece la marca `--delete-destination` en `true`, AzCopy elimina los archi
 Para obtener documentos de referencia detallados, consulte [azcopy sync](storage-ref-azcopy-sync.md).
 
 > [!TIP]
-> Los ejemplos de esta sección delimitan los argumentos de ruta de acceso con comillas simples (''). Use comillas simples en todos los shells de comandos excepto en el shell de comandos de Windows (cmd.exe). Si utiliza un shell de comandos de Windows (cmd.exe), incluya los argumentos de la ruta de acceso entre comillas dobles ("") en lugar de comillas simples ('').
+> En los ejemplos de esta sección se delimitan los argumentos de ruta de acceso con comillas simples (''). Use comillas simples en todos los shells de comandos excepto en el shell de comandos de Windows (cmd.exe). Si utiliza un shell de comandos de Windows (cmd.exe), incluya los argumentos de la ruta de acceso entre comillas dobles ("") en lugar de comillas simples ('').
 
 ### <a name="update-a-file-share-with-changes-to-another-file-share"></a>Actualización de un recurso compartido de archivos con los cambios realizados en otro recurso compartido de archivos
 

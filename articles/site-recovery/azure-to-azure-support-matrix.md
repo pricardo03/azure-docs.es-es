@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: raynew
-ms.openlocfilehash: 267177dcdec25b8561b219ae79e40ce61af994df
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 9146430f512b065553d4c5362af8655eb01c1206
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74123847"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74530951"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matriz de soporte para la recuperación ante desastres de máquinas virtuales de Azure entre regiones de Azure
 
@@ -210,7 +210,7 @@ Espacios de almacenamiento | Compatible |
 Cifrado en reposo (SSE) | Compatible | SSE es la configuración predeterminada en las cuentas de almacenamiento.   
 Cifrado en reposo (CMK) | No compatible |   
 Azure Disk Encryption (ADE) para sistemas operativos Windows | Compatible con máquinas virtuales con discos administrados. No se admiten las máquinas virtuales que usan discos no administrados |
-Azure Disk Encryption (ADE) para sistemas operativos Linux | No compatible |
+Azure Disk Encryption (ADE) para sistemas operativos Linux | Compatible |
 Adición en caliente | Compatible | La replicación de un disco de datos que se agrega a una máquina virtual de Azure replicada se puede habilitar en máquinas virtuales que usan discos administrados.
 Eliminación de disco en caliente | No compatible | Si quita un disco de datos en la máquina virtual, deberá deshabilitar la replicación y habilitarla de nuevo en la máquina virtual.
 Excluir el disco | Compatible. Debe usar [PowerShell](azure-to-azure-exclude-disks.md) para configurarlo. |  Los discos temporales se excluyen de forma predeterminada.

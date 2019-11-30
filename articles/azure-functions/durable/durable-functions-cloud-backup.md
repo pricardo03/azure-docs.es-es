@@ -1,20 +1,15 @@
 ---
 title: 'Escenarios de distribución ramificada de entrada/salida en Durable Functions: Azure'
 description: Aprenda a implementar un escenario de distribución ramificada de entrada y salida en la extensión Durable Functions para Azure Functions.
-services: functions
-author: ggailey777
-manager: jeconnoc
-keywords: ''
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: e2f1042fe1210fe51ae79b1152e51191e7fb066a
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: a87a4edd544c2f7d8ff9c6415df2f2dda125f2bf
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615026"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232991"
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>Escenario de distribución ramificada de entrada/salida en Durable Functions: ejemplo de copia de seguridad en la nube
 

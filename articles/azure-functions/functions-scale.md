@@ -1,21 +1,16 @@
 ---
-title: Escalado y hospedaje de Azure Functions | Microsoft Docs
+title: Escalado y hospedaje de Azure Functions
 description: Aprenda a elegir entre el plan de consumo de Azure Functions y el plan Prémium.
-author: ggailey777
-manager: gwallace
-keywords: azure functions, functions, plan de consumo, plan prémium, procesamiento de eventos, webhooks, proceso dinámico, arquitectura sin servidor
 ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 03/27/2019
-ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bf713029f26ac7ec0b6c043fb887fa5190083888
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: ebb2fcf0f626a82bcb5e6439183ba98c39c58588
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73576054"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74322884"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Escalado y hospedaje de Azure Functions
 
@@ -32,9 +27,6 @@ Los planes de consumo y Prémium agregan automáticamente la capacidad de proces
 El plan Prémium proporciona características adicionales, como instancias de proceso prémium, la capacidad de conservar las instancias semiactivas indefinidamente y la conectividad de red virtual.
 
 El plan de App Service le permite aprovechar la infraestructura dedicada que administra. Su aplicación de funciones no se escala en función de los eventos, lo que significa que nunca se reduce verticalmente a cero. (Requiere que la configuración [Always On](#always-on) está habilitada).
-
-> [!NOTE]
-> Para cambiar entre los planes de consumo y Prémium, modifique la propiedad del plan del recurso de la aplicación de funciones.
 
 ## <a name="hosting-plan-support"></a>SKU del plan de hospedaje
 

@@ -1,20 +1,14 @@
 ---
-title: Implementación para insertar un archivo ZIP en Azure Functions | Microsoft Docs
+title: Implementación para insertar archivos ZIP en Azure Functions
 description: Use las funciones de implementación de archivos ZIP del servicio de implementación de Kudu para publicar sus instancias de Azure Functions.
-services: functions
-documentationcenter: na
-author: ggailey777
-manager: jeconnoc
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 08/12/2018
-ms.author: glenga
-ms.openlocfilehash: c411ff6b3a7152adaaf29045f4c3b3a3deb22d09
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 88455e85607c608757067cea9d54b60e30cacb50
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70087586"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233059"
 ---
 # <a name="zip-deployment-for-azure-functions"></a>Implementación de archivos ZIP en Azure Functions
 

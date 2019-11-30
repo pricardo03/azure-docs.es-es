@@ -2,18 +2,15 @@
 title: 'Características de HTTP en Durable Functions: Azure Functions'
 description: Aprenda a implementar las características de HTTP integradas en la extensión Durable Functions para Azure Functions.
 author: cgillum
-manager: gwallace
-keywords: ''
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: azfuncdf
-ms.openlocfilehash: e9b2967905bc927432d1ca4606bc2b2ba2ac4108
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 3fcb777969f7d29b0e8698156dbdd0724f16f0b5
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177360"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232866"
 ---
 # <a name="http-features"></a>Características de HTTP
 

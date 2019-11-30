@@ -9,13 +9,12 @@ ms.date: 06/17/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.custom: seodec18
-ms.openlocfilehash: 83e2490821f59adeb37958c6c31403121a40274e
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: 286bab7b7fdbe42190c32dabb42c59d6fc094b2a
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67540897"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74457369"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-portal"></a>Implementación y supervisión de módulos de IoT Edge a escala mediante Azure Portal
 
@@ -192,7 +191,7 @@ Para modificar una implementación, siga estos pasos:
    * Condición de destino
    * Métricas: puede modificar o eliminar las métricas que haya definido, o agregar otras nuevas.
    * Etiquetas
-   * Prioridad
+   * Priority
 1. Seleccione **Guardar**.
 1. Siga los pasos de [Supervisión de una implementación](#monitor-a-deployment) para observar la implementación de los cambios. 
 

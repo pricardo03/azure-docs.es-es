@@ -1,19 +1,14 @@
 ---
-title: 'Azure Container Registry Tasks: introducción'
+title: Introducción a ACR Tasks
 description: Una introducción a ACR Tasks, un conjunto de características de Azure Container Registry que proporciona compilaciones de imágenes de contenedor, administración y aplicación de revisiones automatizadas y seguras en la nube.
-services: container-registry
-author: dlepow
-manager: gwallace
-ms.service: container-registry
 ms.topic: article
 ms.date: 09/05/2019
-ms.author: danlep
-ms.openlocfilehash: 45fdd68273ed2cd5cfccf37765935ce9f7bfdc13
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: b4710591dfd78f0633d5071c78d80e300349f498
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931488"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74456160"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatización de compilaciones y mantenimiento de imágenes de contenedor con ACR Tasks
 

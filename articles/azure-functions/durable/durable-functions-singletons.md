@@ -1,20 +1,16 @@
 ---
 title: 'Singletons en Durable Functions: Azure'
 description: Aprenda a utilizar singletons en la extensión Durable Functions para Azure Functions.
-services: functions
 author: cgillum
-manager: jeconnoc
-keywords: ''
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: ec7eb1eba2bc029d592560b39cde20e93e5afcd6
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 8c12e0ab854bb2b5764dd326e3f1649202f6f16b
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73614660"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232804"
 ---
 # <a name="singleton-orchestrators-in-durable-functions-azure-functions"></a>Orquestadores singleton con Durable Functions (Azure Functions)
 

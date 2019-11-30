@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 58824b13cfac264c051de6bea45d2dab3aae8fae
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: dd2ae2159c43da6a049d67cae739f111eba682c9
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74068121"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74534466"
 ---
 # <a name="time-sync-for-windows-vms-in-azure"></a>Sincronizar la hora en las máquinas virtuales de Windows en Azure
 
@@ -38,7 +38,7 @@ La precisión del reloj de un equipo se mide en función de lo cerca que esté e
 
 Los hosts de Azure se sincronizan con los servidores horarios internos de Microsoft que ajustan su hora a partir de los dispositivos Stratum 1 que pertenecen a Microsoft, y que cuentan con antenas GPS. Las máquinas virtuales en Azure pueden depender de su host para proporcionar la hora exacta (*hora del host*) a la máquina virtual, o la máquina virtual puede obtener directamente la hora de un servidor horario, o de una combinación de ambas opciones. 
 
-Las interacciones de la máquina virtual con el host también pueden afectar al reloj. Durante [el mantenimiento de conservación de la memoria](maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot) las máquinas virtuales se detienen hasta 30 segundos. Por ejemplo, antes de que comience el proceso de mantenimiento que dura 28 segundos, el reloj de la máquina virtual muestra las 10:00:00 A.M. Cuando se reanuda la máquina virtual, el reloj de la misma todavía muestra las 10:00:00 A.M., por lo que tendría 28 segundos de retraso. Para corregir esto, el servicio VMICTimeSync supervisa lo que sucede en el host y solicita que se realicen cambios en las máquinas virtuales para compensar este retraso.
+Las interacciones de la máquina virtual con el host también pueden afectar al reloj. Durante [el mantenimiento de conservación de la memoria](../maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot) las máquinas virtuales se detienen hasta 30 segundos. Por ejemplo, antes de que comience el proceso de mantenimiento que dura 28 segundos, el reloj de la máquina virtual muestra las 10:00:00 A.M. Cuando se reanuda la máquina virtual, el reloj de la misma todavía muestra las 10:00:00 A.M., por lo que tendría 28 segundos de retraso. Para corregir esto, el servicio VMICTimeSync supervisa lo que sucede en el host y solicita que se realicen cambios en las máquinas virtuales para compensar este retraso.
 
 El servicio VMICTimeSync funciona en modo de ejemplo o sincronización y solamente influirá en el reloj desde ese momento en adelante. En el modo de ejemplo, que requiere que W32time esté en ejecución, el servicio VMICTimeSync sondea el host cada 5 segundos y proporciona ejemplos de tiempo a W32time. Aproximadamente cada 30 segundos, el servicio W32time toma la última muestra de tiempo y la utiliza para influir en el reloj del invitado. El modo de sincronización se activa si un invitado se ha reanudado o si el reloj de un invitado alcanza un retraso de más de cinco segundos respecto del reloj del host. Cuando el servicio W32time se ejecuta correctamente, este último caso no debe producirse nunca.
 

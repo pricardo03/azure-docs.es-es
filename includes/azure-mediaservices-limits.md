@@ -1,15 +1,15 @@
 ---
 author: rothja
-ms.service: billing
+ms.service: cost-management-billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: e61b804c20063e87c19df4484291f81fdbb03a7b
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 49150daa783280f47cb9401434ebfab8f6204090
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72601121"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74224394"
 ---
 >[!NOTE]
 >En relación con los recursos que no están fijados, abra una incidencia de soporte técnico para solicitar un aumento en las cuotas. No cree cuentas adicionales de Azure Media Services para obtener límites mayores.

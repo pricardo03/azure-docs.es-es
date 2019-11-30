@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/08/2018
 ms.author: kumud
-ms.openlocfilehash: a560cc526e73f3ce7e851f2a545f9b16fa53b423
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6eab1803bf5adab42be87b5f8567682c6d75947e
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65501692"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483540"
 ---
 # <a name="disaster-recovery-using-azure-dns-and-traffic-manager"></a>Recuperación ante desastres mediante Azure DNS y Traffic Manager
 
@@ -61,7 +61,7 @@ Es importante entender algunos conceptos sobre DNS que se utilizan ampliamente p
 - **Registro A de DNS**: los registros A son punteros que apuntan un dominio a una dirección IPv4. 
 - **CNAME o nombre canónico**: este tipo de registro se utiliza para apuntar a otro registro DNS. CNAME no responde con una dirección IP, sino con el puntero al registro que contiene la dirección IP. 
 - **Enrutamiento ponderado**: se puede elegir asociar un peso a los puntos de conexión de servicio y, a continuación, distribuir el tráfico en función de los pesos asignados. Este método de enrutamiento es uno de los cuatro mecanismos de enrutamiento de tráfico disponibles en Traffic Manager. Para más información, consulte [Método de enrutamiento ponderado](../traffic-manager/traffic-manager-routing-methods.md#weighted).
-- **Enrutamiento por prioridad**: el enrutamiento por prioridad se basa en las comprobaciones de mantenimiento de los puntos de conexión. De forma predeterminada, Azure Traffic Manager envía todo el tráfico al punto de conexión de prioridad más alta y, tras un error o un desastre, Traffic Manager enruta el tráfico al punto de conexión secundario. Para más información, consulte [Método de enrutamiento por prioridad](../traffic-manager/traffic-manager-routing-methods.md#priority).
+- **Enrutamiento por prioridad**: el enrutamiento por prioridad se basa en las comprobaciones de mantenimiento de los puntos de conexión. De forma predeterminada, Azure Traffic Manager envía todo el tráfico al punto de conexión de prioridad más alta y, tras un error o un desastre, Traffic Manager enruta el tráfico al punto de conexión secundario. Para más información, consulte [Método de enrutamiento por prioridad](../traffic-manager/traffic-manager-routing-methods.md#priority-traffic-routing-method).
 
 ## <a name="manual-failover-using-azure-dns"></a>Conmutación por error manual con Azure DNS
 La solución de conmutación por error manual de Azure DNS para la recuperación ante desastres utiliza el mecanismo de DNS estándar para realizar la conmutación por error al sitio de copia de seguridad. La opción manual mediante Azure DNS funciona mejor cuando se utiliza junto con el enfoque de espera pasiva o de luz piloto. 

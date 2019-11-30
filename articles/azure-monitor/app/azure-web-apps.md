@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 10/04/2019
-ms.openlocfilehash: 1937cce03412db55dafc2025c6a59b037deee3d1
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: e4fc00d3889d10dddb9ec147a19f06a7211f53be
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677654"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230294"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Supervisar el rendimiento de Azure App Service
 
@@ -323,9 +323,6 @@ A continuación, se muestra nuestra guía paso a paso de solución de problemas 
 
 > [!NOTE]
 > Las aplicaciones de Java y Node.js solo se admiten en Azure App Services a través de la instrumentación manual basada en SDK y, por tanto, los pasos siguientes no se aplican a estos escenarios.
-
-> [!NOTE]
-> No se admiten las aplicaciones ASP.NET Core 3.0. Para estas aplicaciones, siga la [instrumentación manual](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) mediante código.
 
 1. Compruebe que la aplicación se supervisa a través de `ApplicationInsightsAgent`.
     * Compruebe que la configuración de la aplicación `ApplicationInsightsAgent_EXTENSION_VERSION` se establece en un valor de "~2".

@@ -11,12 +11,12 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 ms.date: 05/14/2019
-ms.openlocfilehash: d952229ab327440771db6cc5ac64db2256491179
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: b318d4b5076ff24612d5b5ce0ba619f0b38ac280
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823251"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483836"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Información general sobre las funcionalidades de seguridad de Azure SQL Database
 
@@ -149,10 +149,6 @@ Para más información, consulte [Clasificación y detección de datos de Azure 
 ### <a name="compliance"></a>Cumplimiento normativo
 
 Además de las anteriores características y funcionalidades que pueden ayudar a la aplicación a cumplir distintos requisitos de seguridad, Azure SQL Database también participa en las auditorías regulares y ha obtenido la certificación de una serie de normas de cumplimiento. Para obtener más información, vea el [Centro de confianza de Microsoft Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942), donde encontrará la lista más reciente de certificaciones de cumplimiento de SQL Database.
-
-### <a name="feature-restrictions"></a>Restricciones de características
-
-Las restricciones de características ayudan a impedir que algunas formas de inyección de código SQL filtren información sobre la base de datos, incluso cuando la inyección de código SQL es correcta. Para obtener más información, vea [Restricciones de características de base de datos de SQL Azure](sql-database-feature-restrictions.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

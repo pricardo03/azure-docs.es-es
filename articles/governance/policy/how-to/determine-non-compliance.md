@@ -3,12 +3,12 @@ title: Determinación de las causas de incumplimiento
 description: Cuando un recurso no es compatible, hay muchos motivos posibles para ello. Descubra qué es lo que provoca que no sea compatible.
 ms.date: 04/26/2019
 ms.topic: conceptual
-ms.openlocfilehash: 6f113080ab84fe7d159766e6543ff61b28f4ead2
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 839e6c61c4a44ba7c7581290408bb997b53b8f96
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73959612"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279411"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Determinación de las causas de incumplimiento
 
@@ -216,6 +216,6 @@ Las _diferencias visuales_ ayudan a identificar los cambios de un recurso. Los c
 - Revise la [estructura de definición de Azure Policy](../concepts/definition-structure.md).
 - Vea la [Descripción de los efectos de directivas](../concepts/effects.md).
 - Obtenga información acerca de cómo se pueden [crear directivas mediante programación](programmatically-create.md).
-- Obtenga información sobre cómo [obtener datos de cumplimiento](getting-compliance-data.md).
+- Obtenga información sobre cómo [obtener datos de cumplimiento](get-compliance-data.md).
 - Obtenga información sobre cómo [corregir recursos no compatibles](remediate-resources.md).
 - En [Organización de los recursos con grupos de administración de Azure](../../management-groups/overview.md), obtendrá información sobre lo que es un grupo de administración.

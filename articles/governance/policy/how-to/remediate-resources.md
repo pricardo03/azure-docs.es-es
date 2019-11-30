@@ -3,12 +3,12 @@ title: Corrección de recursos no compatibles
 description: En esta guía se explica la corrección de los recursos que no son conformes con las directivas de Azure Policy.
 ms.date: 09/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: 53ca21e4b8a1f3e7973706acd10601593efc3448
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 8f1d263286a7504e7a8234ebd944bbbee69c5303
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73959498"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74267359"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Corregir los recursos no conformes con Azure Policy
 
@@ -187,5 +187,5 @@ Para obtener otros cmdlets de corrección y ejemplos, consulte el módulo [Az.Po
 - Revise la [estructura de definición de Azure Policy](../concepts/definition-structure.md).
 - Vea la [Descripción de los efectos de directivas](../concepts/effects.md).
 - Obtenga información acerca de cómo se pueden [crear directivas mediante programación](programmatically-create.md).
-- Obtenga información sobre cómo [obtener datos de cumplimiento](getting-compliance-data.md).
+- Obtenga información sobre cómo [obtener datos de cumplimiento](get-compliance-data.md).
 - En [Organización de los recursos con grupos de administración de Azure](../../management-groups/overview.md), obtendrá información sobre lo que es un grupo de administración.

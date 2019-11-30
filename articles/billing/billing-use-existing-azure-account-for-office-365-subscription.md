@@ -8,19 +8,19 @@ manager: adpick
 editor: ''
 tags: billing,top-support-issue
 ms.assetid: ''
-ms.service: billing
+ms.service: cost-management-billing
 ms.workload: na
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: banders
-ms.openlocfilehash: b67f3c590be290515329af390b4d3d79a9746112
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 998aedc8cb799d0064a2704dc819d483ced9e99e
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "60369882"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74225666"
 ---
 # <a name="sign-up-for-an-office-365-subscription-with-your-azure-account"></a>Suscripción a Office 365 con la cuenta de Azure
 Si es suscriptor de Azure, puede usar su cuenta de Azure para suscribirse a Office 365. Si forma parte de una organización que tiene una suscripción de Azure, puede crear una suscripción de Office 365 para los usuarios de su cuenta actual de Azure Active Directory (Azure AD). Regístrese en Office 365 con una cuenta que tenga permisos de administrador global o de administrador de facturación en el inquilino de Azure Active Directory. Para más información, consulte [Comprobación de permisos de cuenta en Azure AD](#RoleInAzureAD) y [Asignación de roles de administrador en Azure Active Directory (Azure AD)](../active-directory/users-groups-roles/directory-assign-admin-roles.md).

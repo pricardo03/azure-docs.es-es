@@ -11,22 +11,19 @@ author: dphansen
 ms.author: davidph
 ms.reviewer: carlrab
 manager: cgronlun
-ms.date: 03/01/2019
-ms.openlocfilehash: 1397f5d81ddf63740d733111b965a0517a2b917f
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/20/2019
+ms.openlocfilehash: 533e2b9e50a92cce1419da521d8cebc4955e4df6
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827463"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74462113"
 ---
 # <a name="key-differences-between-machine-learning-services-in-azure-sql-database-preview-and-sql-server"></a>Principales diferencias entre Machine Learning Services de Azure SQL Database (versión preliminar) y SQL Server
 
 La funcionalidad de Azure SQL Database Machine Learning Services (con R) en (versión preliminar) es similar a [SQL Server Machine Learning Services](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning). A continuación se muestran algunas diferencias clave.
 
-> [!IMPORTANT]
-> Machine Learning Services de Azure SQL Database se encuentra actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
-> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+[!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
 ## <a name="language-support"></a>Compatibilidad con idiomas
 

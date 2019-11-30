@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 09/24/2019
+ms.date: 11/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4b87bf9bdb70f2bcef27927dbaa0d79716c81368
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 9fb2dcf2c05b709340f8e9ae549bab5756e6abf2
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74006333"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74420315"
 ---
 # <a name="plan-your-azure-time-series-insights-preview-environment"></a>Planeamiento del entorno de versión preliminar de Azure Time Series Insights
 

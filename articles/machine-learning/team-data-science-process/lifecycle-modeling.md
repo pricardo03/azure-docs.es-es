@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: c22c75b4fe900ecb96d016251c09e9ad6ec31f7c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d72d39a2a59e06954c36473083af2d2b4689a7b6
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60306231"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74538224"
 ---
 # <a name="modeling-stage-of-the-team-data-science-process-lifecycle"></a>Fase de modelado del ciclo de vida del proceso de ciencia de datos en equipos
 
@@ -72,7 +72,7 @@ Ofrecemos una [herramienta de modelado e informes automatizados](https://github.
 ## <a name="artifacts"></a>Artefactos
 Los artefactos que se producen en esta fase incluyen, entre otros:
 
-   * [Conjuntos de características](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/DataReport/Data%20Defintion.md#feature-sets): las características desarrolladas para el modelado se describen en la sección de **conjuntos de características** del informe **Definición de datos**. Contiene punteros al código para generar las características y la descripción de cómo se ha generado cada una de ellas.
+   * [Conjuntos de características](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/Data%20Defintion.md): las características desarrolladas para el modelado se describen en la sección de **conjuntos de características** del informe **Definición de datos**. Contiene punteros al código para generar las características y la descripción de cómo se ha generado cada una de ellas.
    * [Informe del modelo](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Model/Model%201/Model%20Report.md): para cada modelo que se prueba, se genera un informe estándar basado en una plantilla que proporciona información detallada sobre cada experimento.
    * **Decisión de punto de control**: evalúe si el modelo funciona lo bastante bien como para implementarlo en un sistema de producción. Algunas preguntas clave son:
      * ¿El modelo responde a la pregunta con la confianza suficiente considerando los datos de prueba? 

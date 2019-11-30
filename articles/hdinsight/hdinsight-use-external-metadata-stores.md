@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/29/2019
-ms.openlocfilehash: 18e03b6828922b3444d9461bef394b5c6682c238
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 14b36a391778649e96694f1cb1d3a1b4e7ee89ba
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73930311"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327360"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Uso de repositorios de metadatos externos en Azure HDInsight
 
@@ -74,10 +74,6 @@ Para habilitar esta opción en Azure Portal, haga clic en **Establecer el firewa
 Puede apuntar el clúster a una base de datos de Azure SQL aprovisionada durante la creación del clúster, o puede configurar la base de datos SQL una vez creado el clúster. Esta opción se especifica en **Almacenamiento > Tienda de metadatos** al crear un nuevo clúster de Hadoop, Spark o Hive interactivo desde Azure Portal.
 
 ![Repositorio de metadatos de Hive en HDInsight: Azure Portal](./media/hdinsight-use-external-metadata-stores/azure-portal-cluster-storage-metastore.png)
-
-También puede agregar más clústeres a una tienda de metadatos personalizada desde Azure Portal o desde la configuración de Ambari (Hive > Advanced [Opciones avanzadas]).
-
-![Repositorio de metadatos de Hive en HDInsight: Ambari](./media/hdinsight-use-external-metadata-stores/metadata-store-ambari.png)
 
 ## <a name="hive-metastore-best-practices"></a>Procedimientos recomendados de Hive Metastore
 
