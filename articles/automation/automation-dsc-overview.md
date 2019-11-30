@@ -10,12 +10,12 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b0b5e02009ddbb72bb062d341e7d233acfb0ceb3
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 5ed18f8a8bbd8bd323dec54ca3f700c7ce168dde
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72429406"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231625"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Introducción a Azure Automation State Configuration
 
@@ -66,7 +66,7 @@ La extensión DSC de Linux admite todas las distribuciones de Linux que se inclu
 
 ### <a name="dsc-requirements"></a>Requisitos de DSC
 
-Para todos los nodos de Windows que se ejecutan en Azure, [WMF 5.1](https://docs.microsoft.com/powershell/wmf/setup/install-configure) se instalará durante la incorporación.  Para nodos que ejecutan Windows Server 2012 y Windows 7, [se habilitará WinRM](https://docs.microsoft.com/powershell/dsc/troubleshooting/troubleshooting#winrm-dependency).
+Para todos los nodos de Windows que se ejecutan en Azure, [WMF 5.1](https://docs.microsoft.com/powershell/scripting/wmf/setup/install-configure) se instalará durante la incorporación.  Para nodos que ejecutan Windows Server 2012 y Windows 7, [se habilitará WinRM](https://docs.microsoft.com/powershell/scripting/dsc/troubleshooting/troubleshooting#winrm-dependency).
 
 Para todos los nodos de Linux que se ejecutan en Azure, [PowerShell DSC para Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux) se instalará durante la incorporación.
 
@@ -80,7 +80,7 @@ Si los nodos se encuentran en una red privada, los siguientes puertos y direccio
 * Servicio de agente: https://\<workspaceId\>.agentsvc.azure-automation.net
 
 Esto proporciona conectividad de red para que el nodo administrado se comunique con Azure Automation.
-Si usa recursos de DSC que se comunican entre nodos, como los [recursos WaitFor*](https://docs.microsoft.com/powershell/dsc/reference/resources/windows/waitForAllResource), también deberá permitir el tráfico entre nodos.
+Si usa recursos de DSC que se comunican entre nodos, como los [recursos WaitFor*](https://docs.microsoft.com/powershell/scripting/dsc/reference/resources/windows/waitForAllResource), también deberá permitir el tráfico entre nodos.
 Consulte la documentación de cada recurso de DSC para comprender los requisitos de red.
 
 #### <a name="proxy-support"></a>Compatibilidad con proxy

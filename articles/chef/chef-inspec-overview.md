@@ -2,18 +2,14 @@
 title: Uso de InSpec para automatizar el cumplimiento de normativas en una infraestructura de Azure
 description: Información acerca de cómo usar InSpec para detectar problemas en las implementaciones de Azure
 keywords: azure, chef, devops, máquinas virtuales, información general, automatizar, inspec
-ms.service: virtual-machines-linux
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 03/19/2019
 ms.topic: article
-ms.openlocfilehash: bdfa30b48c79a8910d503bb9e54a42c30e5adba6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2531277eb1aa6048c93240031652e09582409e56
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60629805"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158227"
 ---
 # <a name="use-inspec-for-compliance-automation-of-your-azure-infrastructure"></a>Uso de InSpec para automatizar el cumplimiento de normativas en una infraestructura de Azure
 

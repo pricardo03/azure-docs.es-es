@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 11/12/2019
 ms.author: juliako
-ms.openlocfilehash: 8d7db428d7f71383abf5425d7cc1ddbbab3b7a52
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 7e3d0f4ba178ef2cf44b9c5c3dd5b8c212f1c133
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74037867"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186168"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Streaming en vivo con Azure Media Services v3
 
@@ -63,7 +63,7 @@ Cuando se utiliza el **objeto LiveEvent** de paso a través, se confía en el co
 
 Si utiliza la codificación en la nube con Media Services, deberá configurar el codificador en directo local para que envíe un vídeo con una única velocidad de bits como fuente de contribución (agregado de 32 Mbps como máximo) al objeto LiveEvent (mediante el protocolo de entrada RTMP o MP4 fragmentado). El objeto LiveEvent transcodifica la secuencia de velocidad de bits única entrante en [varias secuencias de vídeo de velocidad de bits](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) a resoluciones diferentes para mejorar la entrega, y las pone a disposición para su entrega a dispositivos de reproducción a través de protocolos estándar del sector como MPEG-DASH, Apple HTTP Live Streaming (HLS) y Microsoft Smooth Streaming. 
 
-### <a name="live-transcription"></a>Transcripción en directo
+### <a name="live-transcription-preview"></a>Transcripción en directo (versión preliminar)
 
 La transcripción en directo es una característica que puede usar con eventos en directo que son de paso a través o de codificación en directo. Para más información, consulte [transcripción en directo](live-transcription.md). Cuando esta característica está habilitada, el servicio usa la característica [Voz a texto](../../cognitive-services/speech-service/speech-to-text.md) de Cognitive Services para transcribir el texto oral del audio entrante en texto escrito. A continuación, se pone a disposición este texto para su entrega junto con el vídeo y el audio en los protocolos MPEG-DASH y HLS.
 

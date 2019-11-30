@@ -9,12 +9,12 @@ ms.author: robreed
 manager: carmonm
 ms.topic: conceptual
 ms.date: 08/08/2018
-ms.openlocfilehash: b44bcf7edeaad07fbe0b3093ba3c7100cb0c24c4
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 72e5018dc1212e57dc190c05cc54158d37ca7fe1
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72432066"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231493"
 ---
 # <a name="configure-servers-to-a-desired-state-and-manage-drift"></a>Configuración de servidores en un estado deseado y administración de desviaciones
 
@@ -136,14 +136,14 @@ Para obtener información sobre cómo cambiar el intervalo de comprobación de c
 
 ## <a name="working-with-partial-configurations"></a>Uso de configuraciones parciales
 
-State Configuration de Azure Automation admite el uso de [configuraciones parciales](/powershell/dsc/pull-server/partialconfigs).
+State Configuration de Azure Automation admite el uso de [configuraciones parciales](/powershell/scripting/dsc/pull-server/partialconfigs).
 En este escenario, DSC está configurado para administrar varias configuraciones de forma independiente, y cada configuración se recupera de Azure Automation.
 Sin embargo, solo se puede asignar una configuración a un nodo por cuenta de Automation.
 Esto significa que si usa dos configuraciones para un nodo, requerirá dos cuentas de Automation.
 
-Para más información sobre cómo registrar una configuración parcial del servicio de extracción, consulte la documentación sobre [configuraciones parciales](https://docs.microsoft.com/powershell/dsc/pull-server/partialconfigs#partial-configurations-in-pull-mode).
+Para más información sobre cómo registrar una configuración parcial del servicio de extracción, consulte la documentación sobre [configuraciones parciales](https://docs.microsoft.com/powershell/scripting/dsc/pull-server/partialconfigs#partial-configurations-in-pull-mode).
 
-Para obtener más información acerca de cómo los equipos pueden trabajar juntos para administrar de forma colaborativa los servidores con la configuración como código, consulte [Descripción del rol de DSC en una canalización de CI/CD](/powershell/dsc/overview/authoringadvanced).
+Para obtener más información acerca de cómo los equipos pueden trabajar juntos para administrar de forma colaborativa los servidores con la configuración como código, consulte [Descripción del rol de DSC en una canalización de CI/CD](/powershell/scripting/dsc/overview/authoringadvanced).
 
 ## <a name="check-the-compliance-status-of-a-managed-node"></a>Comprobación del estado de cumplimiento de un nodo administrado
 

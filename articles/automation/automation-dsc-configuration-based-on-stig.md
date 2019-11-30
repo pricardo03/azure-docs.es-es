@@ -10,12 +10,12 @@ ms.author: migreene
 ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 685b6bda09026e64154590afd66bdfbec43b8b1e
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 224744bd49add514be165f4955739651fcbf6b61
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243529"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231672"
 ---
 # <a name="configuration-based-on-stig"></a>Configuración basada en STIG
 
@@ -43,6 +43,6 @@ Para probar PowerSTIG, visite la [Galería de PowerShell](http://www.powershellg
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Windows PowerShell Desired State Configuration Overview (Información general de la configuración de estado deseado de Windows Powershell)](/powershell/dsc/overview/overview)
-- [Recursos de DSC](/powershell/dsc/resources/resources)
-- [Configuración del administrador de configuración local](/powershell/dsc/managing-nodes/metaconfig)
+- [Windows PowerShell Desired State Configuration Overview (Información general de la configuración de estado deseado de Windows Powershell)](/powershell/scripting/dsc/overview/overview)
+- [Recursos de DSC](/powershell/scripting/dsc/resources/resources)
+- [Configuración del administrador de configuración local](/powershell/scripting/dsc/managing-nodes/metaconfig)

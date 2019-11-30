@@ -1,19 +1,19 @@
 ---
-title: Registro y diagnóstico en Azure Spatial Anchors | Microsoft Docs
+title: Registro y diagnóstico
 description: Explicación detallada sobre cómo generar y recuperar registros y diagnósticos en Azure Spatial Anchors.
 author: ramonarguelles
-manager: vicenterivera
+manager: vriveras
 services: azure-spatial-anchors
 ms.author: rgarcia
 ms.date: 02/22/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: b66dc7d6ec9d11fe645587fe791824009231b7c2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f4359db1deda2295a66bcb97cf374d0fe9bc3ef7
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65964741"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74270124"
 ---
 # <a name="logging-and-diagnostics-in-azure-spatial-anchors"></a>Registro y diagnóstico en Azure Spatial Anchors
 
@@ -50,7 +50,7 @@ Estas devoluciones de llamada de eventos se proporcionan para procesar los regis
 
 Además del modo estándar de operación para el registro, Spatial Anchors también tiene un modo de diagnóstico. El modo de diagnóstico captura imágenes del entorno y las registra en el disco. Puede usar este modo para depurar ciertos tipos de problemas, como errores al ubicar un delimitador de manera predecible. Habilite el registro de diagnóstico solo para reproducir un problema específico. Luego, deshabilítelo. No habilite el diagnóstico si está ejecutando las aplicaciones con normalidad.
 
-Durante una interacción de soporte técnico con Microsoft, un representante de Microsoft podría preguntarle si está dispuesto a enviar un conjunto de diagnósticos para realizar una investigación más detallada. En este caso, puede decidir habilitar el diagnóstico y reproducir el error para poder enviar el conjunto de diagnósticos. 
+Durante una interacción de soporte técnico con Microsoft, un representante de Microsoft podría preguntarle si está dispuesto a enviar un conjunto de diagnósticos para realizar una investigación más detallada. En este caso, puede decidir habilitar el diagnóstico y reproducir el error para poder enviar el conjunto de diagnósticos.
 
 Si envía un registro de diagnóstico a Microsoft sin el conocimiento previo de un representante de Microsoft, el envío no recibirá respuesta.
 
@@ -88,7 +88,7 @@ private void ConfigureSession()
 
 ### <a name="submit-the-diagnostics-bundle"></a>Envío del conjunto de diagnósticos
 
-En el fragmento de código siguiente se muestra cómo enviar un conjunto de diagnósticos a Microsoft. Este conjunto incluirá las imágenes del entorno que capturó la sesión después de que habilitó los diagnósticos. 
+En el fragmento de código siguiente se muestra cómo enviar un conjunto de diagnósticos a Microsoft. Este conjunto incluirá las imágenes del entorno que capturó la sesión después de que habilitó los diagnósticos.
 
 ```csharp
 // method to handle the diagnostics bundle submission

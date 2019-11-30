@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: helohr
-ms.openlocfilehash: 4718ee7943b4130bb977d5eefeb82bb385c71835
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 27231dc25604e9031f0456d787530bf2a29616f7
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72332833"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74167436"
 ---
 # <a name="deploy-the-diagnostics-tool"></a>Implementación de la herramienta de diagnósticos
 
@@ -108,7 +108,7 @@ Aquí se muestra cómo configurar manualmente los contadores de rendimiento reco
 3. En la sección **Configuración**, seleccione **Configuración avanzada**.
 4. Después, vaya a **Datos** > **Contadores de rendimiento de Windows** y agregue los siguientes contadores:
 
-    -   Disco lógico (\*)\%Espacio libre
+    -   Disco lógico(\*)\\% espacio disponible
     -   Disco lógico (C:)\\Longitud Longitud de la cola de disco
     -   Memoria(\*)\\Mbytes disponibles
     -   Información del procesador(\*)\\Tiempo de procesador
@@ -142,7 +142,7 @@ Para asegurarse de que el área de trabajo de Log Analytics tiene los contadores
 3. Después, vaya a **Datos** > **Contadores de rendimiento de Windows**.
 4. Asegúrese de que los siguientes contadores están preconfigurados:
 
-   - Disco lógico (\*)\%Espacio libre: muestra el porcentaje de espacio libre que se puede usar del espacio total del disco.
+   - Disco lógico(\*)\\% espacio disponible: muestra el porcentaje de espacio libre que se puede usar del espacio total del disco.
    - Disco lógico (C:)\\Longitud promedio de la cola de disco: duración de la solicitud de transferencia de disco para la unidad C. El valor no debe ser superior a 2 durante más de un breve período.
    - Memoria(\*)\\Mbytes disponibles: memoria disponible para el sistema en megabytes.
    - Información de procesador(\*)\\Tiempo de procesador: porcentaje de tiempo transcurrido que el procesador invierte en ejecutar un subproceso no inactivo.
@@ -234,7 +234,7 @@ También puede interactuar con usuarios en el host de sesión:
 
 ### <a name="windows-performance-counter-thresholds"></a>Umbrales del contador de rendimiento de Windows
 
-- Disco lógico(\*)\|% espacio disponible:
+- Disco lógico(\*)\\% espacio disponible:
 
     - muestra el porcentaje del total de espacio disponible en el disco lógico que es gratis.
     - Umbral: Un valor inferior al 20 % se marca como incorrecto.

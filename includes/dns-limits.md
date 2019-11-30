@@ -1,19 +1,19 @@
 ---
 author: rothja
-ms.service: billing
+ms.service: cost-management-billing
 ms.topic: include
 ms.date: 6/15/2019
 ms.author: victorh
-ms.openlocfilehash: e8e65c0c1302523af5aefab297ffbafe2a90d2b4
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 2e6fa48894339b993410435f982d0948715de4e0
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "68590005"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74210986"
 ---
 **Zonas DNS públicas**
 
-| Recurso | Límite predeterminado |
+| Resource | Límite predeterminado |
 | --- | --- |
 | Zonas DNS públicas por suscripción |250 <sup>1</sup> |
 | Conjuntos de registros por zona DNS pública |10 000 <sup>1</sup> |

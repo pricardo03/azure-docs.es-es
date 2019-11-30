@@ -1,22 +1,22 @@
 ---
 author: ggailey777
-ms.service: billing
+ms.service: cost-management-billing
 ms.topic: include
 ms.date: 05/09/2019
 ms.author: glenga
-ms.openlocfilehash: ad87964216db72cfef447a18d4cd05b8a976491b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: eb61bf5734d0aea1534735b23a2b95b52000f5ad
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73476964"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74322899"
 ---
 | Resource | [Plan de consumo](../articles/azure-functions/functions-scale.md#consumption-plan) | [Plan Premium](../articles/azure-functions/functions-scale.md#premium-plan) | [Plan de App Service](../articles/azure-functions/functions-scale.md#app-service-plan)<sup>1</sup> |
 | --- | --- | --- | --- |
 | Escalado horizontal | Basado en eventos | Basado en eventos | [Manual o escalabilidad automática](../articles/app-service/manage-scale-up.md) | 
-| Instancias máximas | 200 | 20 | 10-20 |
+| Instancias máximas | 200 | 100 | 10-20 |
 |[Duración de tiempo de espera](../articles/azure-functions/functions-scale.md#timeout) predeterminada (min) |5 | 30 |30<sup>2</sup> |
-|[Duración de tiempo de espera ](../articles/azure-functions/functions-scale.md#timeout) máxima (min) |10 | sin enlazar | sin enlazar<sup>3</sup> |
+|[Duración de tiempo de espera ](../articles/azure-functions/functions-scale.md#timeout) máxima (min) |10 | 60 | sin enlazar<sup>3</sup> |
 | Número máximo de conexiones salientes (por instancia) | 600 activas (1200 en total) | sin enlazar | sin enlazar |
 | Tamaño máximo de la solicitud (MB)<sup>4</sup> | 100 | 100 | 100 |
 | Longitud máxima de la cadena de consulta<sup>4</sup> | 4096 | 4096 | 4096 |

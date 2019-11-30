@@ -4,19 +4,19 @@ description: Aprenda a leer y comprender el uso y los cargos detallados
 author: bandersmsft
 manager: micflan
 tags: billing
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/24/2019
 ms.author: banders
-ms.openlocfilehash: 1842d32a838470d9b2af3a778c44c37464d32294
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 824c6b5de16889d43a952eacd5a0ce21388787d7
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "68954338"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74222961"
 ---
 # <a name="understand-the-terms-in-your-azure-usage-and-charges-file"></a>Comprenda los términos en el archivo de uso y cargos de Azure
 
@@ -44,67 +44,67 @@ Término | Tipo de cuenta | DESCRIPCIÓN
 --- | --- | ---
 AccountName | EA, pago por uso | Nombre para mostrar de la cuenta de inscripción de EA o de la cuenta de facturación de pago por uso.
 AccountOwnerId<sup>1</sup> | EA, pago por uso | Identificador único de la cuenta de inscripción de EA o de la cuenta de facturación de pago por uso.
-AdditionalInfo | Todo | Metadatos específicos del servicio. Por ejemplo, un tipo de imagen de una máquina virtual.
-BillingAccountId<sup>1</sup> | Todo | Identificador único de la cuenta de facturación raíz.
-BillingAccountName | Todo | Nombre de la cuenta de facturación.
-BillingCurrency | Todo | Moneda asociada con la cuenta de facturación.
+AdditionalInfo | All | Metadatos específicos del servicio. Por ejemplo, un tipo de imagen de una máquina virtual.
+BillingAccountId<sup>1</sup> | All | Identificador único de la cuenta de facturación raíz.
+BillingAccountName | All | Nombre de la cuenta de facturación.
+BillingCurrency | All | Moneda asociada con la cuenta de facturación.
 BillingPeriod | EA, pago por uso | El período de facturación del cargo.
-BillingPeriodEndDate | Todo | La fecha de finalización del período de facturación.
-BillingPeriodStartDate | Todo | La fecha de finalización del período de facturación.
-BillingProfileId<sup>1</sup> | Todo | Identificador único de la inscripción de EA, suscripción de pago por uso, perfil de facturación de MCA o cuenta consolidada de AWS.
-BillingProfileName | Todo | Nombre de la inscripción de EA, suscripción de pago por uso, perfil de facturación de MCA o cuenta consolidada de AWS.
-ChargeType | Todo | Indica si el cargo representa la utilización (**uso**), una compra (**Compra**) o un reembolso (**Reembolso**).
-ConsumedService | Todo | Nombre del servicio al que está asociado el cargo.
+BillingPeriodEndDate | All | La fecha de finalización del período de facturación.
+BillingPeriodStartDate | All | La fecha de finalización del período de facturación.
+BillingProfileId<sup>1</sup> | All | Identificador único de la inscripción de EA, suscripción de pago por uso, perfil de facturación de MCA o cuenta consolidada de AWS.
+BillingProfileName | All | Nombre de la inscripción de EA, suscripción de pago por uso, perfil de facturación de MCA o cuenta consolidada de AWS.
+ChargeType | All | Indica si el cargo representa la utilización (**uso**), una compra (**Compra**) o un reembolso (**Reembolso**).
+ConsumedService | All | Nombre del servicio al que está asociado el cargo.
 CostCenter<sup>1</sup> | EA, MCA | Centro de coste definido en la suscripción para el seguimiento de los costes (disponible solo en períodos de facturación abiertos para cuentas de MCA).
 Coste | EA, pago por uso | Véase CostInBillingCurrency.
 CostInBillingCurrency | MCA | Coste del cargo en la moneda de facturación antes de créditos o impuestos.
 CostInPricingCurrency | MCA | Coste del cargo en la moneda de precios antes de créditos o impuestos.
 Moneda | EA, pago por uso | Véase BillingCurrency.
-Date<sup>1</sup> | Todo | La fecha de utilización o compra del cargo.
-EffectivePrice | Todo | Precio unitario combinado para el período. Los precios combinados promedian las fluctuaciones del precio unitario, como los niveles graduados, lo que reduce el precio a medida que la cantidad aumenta con el tiempo.
+Date<sup>1</sup> | All | La fecha de utilización o compra del cargo.
+EffectivePrice | All | Precio unitario combinado para el período. Los precios combinados promedian las fluctuaciones del precio unitario, como los niveles graduados, lo que reduce el precio a medida que la cantidad aumenta con el tiempo.
 ExchangeRateDate | MCA | Fecha en la que se estableció el tipo de cambio.
 ExchangeRatePricingToBilling | MCA | Tipo de cambio que se usa para convertir el coste en la moneda de precios a la moneda de facturación.
-Frecuencia | Todo | Indica si se espera que un cargo se repita. Los cargos pueden producirse una vez (**Una vez**), repetirse mensual o anualmente (**Periódico**) o basado en la utilización (**Basado en uso**).
+Frecuencia | All | Indica si se espera que un cargo se repita. Los cargos pueden producirse una vez (**Una vez**), repetirse mensual o anualmente (**Periódico**) o basado en la utilización (**Basado en uso**).
 InvoiceId | Pago por uso, MCA | Identificador único del id. de documento que se muestra en el archivo PDF de la factura.
 InvoiceSection | MCA | Véase InvoiceSectionName.
 InvoiceSectionId<sup>1</sup> | EA, MCA | Identificador único para el departamento de EA o la sección de la factura de MCA.
 InvoiceSectionName | EA, MCA | Nombre del departamento de EA o la sección de la factura de MCA.
-IsAzureCreditEligible | Todo | Indica si el pago del cargo es elegible por usar créditos de Azure (valores: True, False).
+IsAzureCreditEligible | All | Indica si el pago del cargo es elegible por usar créditos de Azure (valores: True, False).
 Location | MCA | Ubicación del centro de datos donde se ejecuta el recurso.
-MeterCategory | Todo | El nombre de la categoría de clasificación del medidor. Por ejemplo, *Servicios en la nube* o *Redes*.
-MeterId<sup>1</sup> | Todo | Identificador único del medidor.
-MeterName | Todo | Nombre del medidor.
-MeterRegion | Todo | Nombre de la ubicación del centro de datos para los servicios cuyo precio se basa en la ubicación. Véase Ubicación.
-MeterSubCategory | Todo | El nombre de la categoría de subclasificación del medidor.
-OfferId<sup>1</sup> | Todo | Nombre de la oferta comprada.
+MeterCategory | All | El nombre de la categoría de clasificación del medidor. Por ejemplo, *Servicios en la nube* o *Redes*.
+MeterId<sup>1</sup> | All | Identificador único del medidor.
+MeterName | All | Nombre del medidor.
+MeterRegion | All | Nombre de la ubicación del centro de datos para los servicios cuyo precio se basa en la ubicación. Véase Ubicación.
+MeterSubCategory | All | El nombre de la categoría de subclasificación del medidor.
+OfferId<sup>1</sup> | All | Nombre de la oferta comprada.
 PartNumber<sup>1</sup> | EA, pago por uso | Identificador que se usa para obtener los precios específicos de medidor.
 PlanName | EA, pago por uso | Nombre del plan de Marketplace.
 PreviousInvoiceId | MCA | Referencia a una factura original si este elemento de línea es un reembolso.
 PricingCurrency | MCA | Moneda que se usa cuando la clasificación se basa en precios negociados.
-Producto | Todo | Nombre del producto.
+Producto | All | Nombre del producto.
 ProductId<sup>1</sup> | MCA | Identificador único del producto.
-ProductOrderId | Todo | Identificador único del pedido de producto.
-ProductOrderName | Todo | Nombre único para el pedido del producto.
-PublisherName | Todo | Editor de los servicios de Marketplace.
-PublisherType | Todo | Tipo de publicador (valores: **Azure**, **AWS**, **Marketplace**).
-Cantidad | Todo | Número de unidades compradas o consumidas.
+ProductOrderId | All | Identificador único del pedido de producto.
+ProductOrderName | All | Nombre único para el pedido del producto.
+PublisherName | All | Editor de los servicios de Marketplace.
+PublisherType | All | Tipo de publicador (valores: **Azure**, **AWS**, **Marketplace**).
+Cantidad | All | Número de unidades compradas o consumidas.
 ReservationId | EA, MCA | Identificador único de la instancia de la reserva comprada.
 ReservationName | EA, MCA | Nombre de la instancia de la reserva comprada.
-ResourceGroup | Todo | Nombre del [grupo de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) en el que se encuentra el recurso.
-ResourceId<sup>1</sup> | Todo | Identificador único del recurso de [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/resources).
-ResourceLocation | Todo | Ubicación del centro de datos donde se ejecuta el recurso. Véase Ubicación.
+ResourceGroup | All | Nombre del [grupo de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) en el que se encuentra el recurso.
+ResourceId<sup>1</sup> | All | Identificador único del recurso de [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/resources).
+ResourceLocation | All | Ubicación del centro de datos donde se ejecuta el recurso. Véase Ubicación.
 ResourceName | EA, pago por uso | Nombre del recurso.
 ResourceType | MCA | Tipo de instancia del recurso.
 ServiceFamily | MCA | Familia de servicios a la que pertenece el servicio.
-ServiceInfo1 | Todo | Metadatos específicos del servicio.
-ServiceInfo2 | Todo | Campo heredado con metadatos específicos del servicio opcional.
+ServiceInfo1 | All | Metadatos específicos del servicio.
+ServiceInfo2 | All | Campo heredado con metadatos específicos del servicio opcional.
 ServicePeriodEndDate | MCA | Fecha de finalización del período de calificación que ha definido y bloqueado los precios para el servicio consumido o adquirido.
 ServicePeriodStartDate | MCA | Fecha de inicio del período de calificación que ha definido y bloqueado los precios para el servicio consumido o adquirido.
-SubscriptionId<sup>1</sup> | Todo | Identificador único de la suscripción de Azure.
-SubscriptionName | Todo | Nombre de la suscripción de Azure.
-Tags<sup>1</sup> | Todo | Etiquetas asignadas al recurso. No incluye etiquetas de grupo de recursos. Se puede usar para agrupar o distribuir los costes para el contracargo interno. Para más información, consulte [Organize your Azure resources with tags](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/) (Organización de los recursos de Azure con etiquetas).
-Término | Todo | Muestra el plazo de validez de la oferta. Por ejemplo:  En el caso de instancias reservadas, muestra 12 meses como plazo. Para compras puntuales o compras periódicas, el plazo es de 1 mes (SaaS, soporte de Marketplace). Esto no es aplicable para el consumo de Azure.
-UnitOfMeasure | Todo | Unidad de medida para facturar por el servicio Por ejemplo, los servicios de proceso se facturan por hora.
+SubscriptionId<sup>1</sup> | All | Identificador único de la suscripción de Azure.
+SubscriptionName | All | Nombre de la suscripción de Azure.
+Tags<sup>1</sup> | All | Etiquetas asignadas al recurso. No incluye etiquetas de grupo de recursos. Se puede usar para agrupar o distribuir los costes para el contracargo interno. Para más información, consulte [Organize your Azure resources with tags](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/) (Organización de los recursos de Azure con etiquetas).
+Término | All | Muestra el plazo de validez de la oferta. Por ejemplo:  En el caso de instancias reservadas, muestra 12 meses como plazo. Para compras puntuales o compras periódicas, el plazo es de 1 mes (SaaS, soporte de Marketplace). Esto no es aplicable para el consumo de Azure.
+UnitOfMeasure | All | Unidad de medida para facturar por el servicio Por ejemplo, los servicios de proceso se facturan por hora.
 UnitPrice | EA, pago por uso | El precio unitario del cargo.
 
 _<sup>**1**</sup> Campos que se usan para crear un identificador único para un único registro de costo._
