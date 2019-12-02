@@ -1,17 +1,14 @@
 ---
-title: Funciones de la plantilla de Resource Manager | Microsoft Docs
+title: Funciones de plantillas
 description: Describe las funciones que se van a usar en una plantilla del Administrador de recursos de Azure para recuperar valores, trabajar con cadenas y valores numéricos y recuperar información de implementación.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 10/24/2019
-ms.author: tomfitz
-ms.openlocfilehash: 04358f21af79838f894dc50d5d9c165da67a332c
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.date: 11/19/2019
+ms.openlocfilehash: cf263bff72677778433d4ef2f3cee8135fe3ab06
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72894160"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74224181"
 ---
 # <a name="azure-resource-manager-template-functions"></a>Funciones de la plantilla del Administrador de recursos de Azure
 
@@ -81,6 +78,7 @@ Resource Manager proporciona varias funciones para realizar comparaciones en las
 El Administrador de recursos ofrece las siguientes funciones para obtener valores de las secciones de la plantilla y valores relacionados con la implementación:
 
 * [deployment](resource-group-template-functions-deployment.md#deployment)
+* [entorno](resource-group-template-functions-deployment.md#environment)
 * [parameters](resource-group-template-functions-deployment.md#parameters)
 * [variables](resource-group-template-functions-deployment.md#variables)
 
