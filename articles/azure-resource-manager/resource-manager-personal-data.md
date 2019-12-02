@@ -1,17 +1,14 @@
 ---
-title: Datos personales en Azure Resource Manager | Microsoft Docs
+title: Datos personales
 description: Aprenda a administrar los datos personales asociados a operaciones de Azure Resource Manager.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: tomfitz
-ms.openlocfilehash: cc8400a3b6d51bacd55d3c711700a1d07266f528
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 2b1f97fa4f831235fe04c18b1ed33e729ed2326b
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206275"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149505"
 ---
 # <a name="manage-personal-data-associated-with-azure-resource-manager"></a>Administración de datos personales asociados a Azure Resource Manager
 

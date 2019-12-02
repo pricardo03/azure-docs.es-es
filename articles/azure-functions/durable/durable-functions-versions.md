@@ -2,17 +2,15 @@
 title: 'Información general sobre las versiones de Durable Functions: Azure Functions'
 description: Obtenga información sobre las versiones de Durable Functions.
 author: cgillum
-manager: gwallace
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 5d6c8bcf610bfc8900e0f2a5237228208cd633ca
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 93c35eb4f69cc4f9b16f669d96c2df53f50bcf84
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73614545"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231193"
 ---
 # <a name="durable-functions-versions-overview"></a>Información general sobre las versiones de Durable Functions
 

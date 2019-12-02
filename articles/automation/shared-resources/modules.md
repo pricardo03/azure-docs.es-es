@@ -8,12 +8,12 @@ ms.author: robreed
 ms.date: 06/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 82f02f0ac11c80161f709b3b493306bc8aafc8bd
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 492dd182c782b0f6375c2f857cfa4921b065c546
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72435456"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231588"
 ---
 # <a name="manage-modules-in-azure-automation"></a>Administración de módulos en Azure Automation
 
@@ -82,7 +82,7 @@ La siguiente es una lista de cmdlets del módulo `Orchestrator.AssetManagement.C
 
 ## <a name="add-a-connection-type-to-your-module"></a>Adición de un tipo de conexión al módulo
 
-Puede proporcionar un [tipo de conexión](../automation-connections.md) personalizada para usar en la cuenta de Automation mediante la adición de un archivo opcional al módulo. Este archivo es un archivo de metadatos que especifica un tipo de conexión de Azure Automation para su uso con los cmdlets del módulo en la cuenta de Automation. Para lograr esto, primero debe saber cómo crear un módulo de PowerShell. Para obtener más información sobre la creación del módulo, consulte [Cómo escribir un módulo de script de PowerShell](/powershell/developer/module/how-to-write-a-powershell-script-module).
+Puede proporcionar un [tipo de conexión](../automation-connections.md) personalizada para usar en la cuenta de Automation mediante la adición de un archivo opcional al módulo. Este archivo es un archivo de metadatos que especifica un tipo de conexión de Azure Automation para su uso con los cmdlets del módulo en la cuenta de Automation. Para lograr esto, primero debe saber cómo crear un módulo de PowerShell. Para obtener más información sobre la creación del módulo, consulte [Cómo escribir un módulo de script de PowerShell](/powershell/scripting/developer/module/how-to-write-a-powershell-script-module).
 
 ![Uso de una conexión personalizada en Azure Portal](../media/modules/connection-create-new.png)
 

@@ -8,21 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 11/04/2019
+ms.date: 11/19/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-three
-ms.openlocfilehash: ad1806daa1fc00d5b14f9c6a30027f278f53e892
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 751feb2348eb1c64bf52aacd47470db98147c5ce
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826959"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74221972"
 ---
 # <a name="quickstart-setup-development-environment"></a>Inicio rápido: Configuración del entorno de desarrollo
 
 ::: zone pivot="programming-language-csharp"
 **Selección del entorno de destino**
-#### <a name="nettabdotnet"></a>[.Net](#tab/dotnet)
+#### <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 [!INCLUDE [dotnet](../includes/quickstarts/platform/csharp-dotnet-windows.md)]
 #### <a name="net-coretabdotnetcore"></a>[.NET Core](#tab/dotnetcore)
 [!INCLUDE [dotnetcore](../includes/quickstarts/platform/csharp-dotnetcore-windows.md)]

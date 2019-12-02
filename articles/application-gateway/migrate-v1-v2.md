@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: 75d041f8ef0d6593a5ff1c696777b68c5f513bf5
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: 719686cb123355359391c5cb1e517ff9cfd88371
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74047620"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231743"
 ---
 # <a name="migrate-azure-application-gateway-and-web-application-firewall-from-v1-to-v2"></a>Migración de Azure Application Gateway y Firewall de aplicaciones web de v1 a v2
 
@@ -66,7 +66,7 @@ Este comando también instala los módulos de Az necesarios.
 
 ### <a name="install-using-the-script-directly"></a>Instalación directamente con el script
 
-Si tiene instalados algunos módulos de Azure Az y no puede desinstalarlos (o no le interesa hacerlo), puede descargar manualmente el script mediante la pestaña **Descarga manual** en el vínculo de descarga del script. El script se descarga como un archivo nupkg sin procesar. Para instalar el script desde este archivo nupkg, consulte [Descarga manual del paquete](https://docs.microsoft.com/powershell/gallery/how-to/working-with-packages/manual-download).
+Si tiene instalados algunos módulos de Azure Az y no puede desinstalarlos (o no le interesa hacerlo), puede descargar manualmente el script mediante la pestaña **Descarga manual** en el vínculo de descarga del script. El script se descarga como un archivo nupkg sin procesar. Para instalar el script desde este archivo nupkg, consulte [Descarga manual del paquete](/powershell/scripting/gallery/how-to/working-with-packages/manual-download).
 
 Para ejecutar el script:
 
@@ -174,7 +174,7 @@ Sí.
 
 ### <a name="does-the-azure-powershell-script-also-switch-over-the-traffic-from-my-v1-gateway-to-the-newly-created-v2-gateway"></a>¿Puede el script de Azure PowerShell cambiar el tráfico de mi puerta de enlace v1 a la puerta de enlace v2 recién creada?
 
- No. El script de Azure PowerShell solo migra la configuración. Usted es el responsable de realizar y controlar la migración real del tráfico.
+No. El script de Azure PowerShell solo migra la configuración. Usted es el responsable de realizar y controlar la migración real del tráfico.
 
 ### <a name="is-the-new-v2-gateway-created-by-the-azure-powershell-script-sized-appropriately-to-handle-all-of-the-traffic-that-is-currently-served-by-my-v1-gateway"></a>¿Es el tamaño de la nueva puerta de enlace v2 creada por el script de Azure PowerShell adecuado para controlar todo el tráfico que actualmente atiende mi puerta de enlace v1?
 
@@ -182,11 +182,11 @@ El script de Azure PowerShell crea una puerta de enlace v2 con un tamaño adecu
 
 ### <a name="i-configured-my-v1-gateway--to-send-logs-to-azure-storage-does-the-script-replicate-this-configuration-for-v2-as-well"></a>He configurado mi puerta de enlace v1 para que envíe registros a Azure Storage. ¿Replica también el script esta configuración para v2?
 
- No. El script no replica esta configuración para v2. Debe agregar la configuración de registros por separado a la puerta de enlace v2 migrada.
+No. El script no replica esta configuración para v2. Debe agregar la configuración de registros por separado a la puerta de enlace v2 migrada.
 
 ### <a name="does-this-script-support-certificates-uploaded-to-azure-keyvault-"></a>¿Admite este script los certificados cargados en Azure Key Vault?
 
- No. Actualmente, el script no admite los certificados de Key Vault, pero se está valorando la posibilidad de que lo haga en una versión futura.
+No. Actualmente, el script no admite los certificados de Key Vault, pero se está valorando la posibilidad de que lo haga en una versión futura.
 
 ### <a name="i-ran-into-some-issues-with-using-this-script-how-can-i-get-help"></a>Se han producido algunos problemas al usar este script. ¿Cómo puedo obtener ayuda?
   

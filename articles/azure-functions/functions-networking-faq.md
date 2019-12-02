@@ -1,20 +1,17 @@
 ---
 title: Preguntas más frecuentes acerca de las redes en Azure Functions
 description: Respuestas a algunas de las preguntas y escenarios de redes con Azure Functions más comunes.
-services: functions
 author: alexkarcher-msft
-manager: jeconnoc
-ms.service: azure-functions
 ms.topic: troubleshooting
 ms.date: 4/11/2019
 ms.author: alkarche
 ms.reviewer: glenga
-ms.openlocfilehash: 6f363003dc24509bd0b80922d9e34560250cc7ed
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 4534e20a1156f1d3550d247dfd15d9dc538e9d80
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779303"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74226828"
 ---
 # <a name="frequently-asked-questions-about-networking-in-azure-functions"></a>Preguntas más frecuentes acerca de las redes en Azure Functions
 

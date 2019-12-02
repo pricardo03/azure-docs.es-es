@@ -1,20 +1,16 @@
 ---
 title: 'Guía del desarrollador de entidades duraderas en .NET: Azure Functions'
 description: Aprenda a trabajar con entidades duraderas en .NET con la extensión Durable Functions para Azure Functions.
-services: functions
 author: sebastianburckhardt
-manager: gwallace
-keywords: ''
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/06/2019
 ms.author: azfuncdf
-ms.openlocfilehash: d854f41ffc883b40f9159a7dacdde0fb3bb7240f
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 74b013c9953974371957cc4d88439d20770d78a3
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73904057"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231422"
 ---
 # <a name="developers-guide-to-durable-entities-in-net"></a>Guía del desarrollador de entidades duraderas en .NET
 

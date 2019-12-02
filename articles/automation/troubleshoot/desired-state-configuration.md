@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 7be5e814d8092b523fa69fdd84f0e1476736fda2
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: ab9a39cfba082ea4c4d1cc6c29764619011d8cb8
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73887715"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231554"
 ---
 # <a name="troubleshoot-desired-state-configuration-dsc"></a>Solución de problemas de Desired State Configuration (DSC)
 
@@ -32,7 +32,7 @@ Si se producen errores al compilar o implementar configuraciones en Azure State 
    - **Errores de sintaxis**
    - **Errores lógicos**
 
-2. **Vea los registros de DSC en el nodo:** Si la configuración se compila correctamente, pero se produce un error cuando se aplica a un nodo, puede encontrar información detallada en los registros. Para obtener información sobre dónde encontrar los registros de DSC, consulte [¿Dónde se encuentran los registros de eventos de DSC?](/powershell/dsc/troubleshooting/troubleshooting#where-are-dsc-event-logs)
+2. **Vea los registros de DSC en el nodo:** Si la configuración se compila correctamente, pero se produce un error cuando se aplica a un nodo, puede encontrar información detallada en los registros. Para obtener información sobre dónde encontrar los registros de DSC, consulte [¿Dónde se encuentran los registros de eventos de DSC?](/powershell/scripting/dsc/troubleshooting/troubleshooting#where-are-dsc-event-logs)
 
    Además, [xDscDiagnostics](https://github.com/PowerShell/xDscDiagnostics) puede ayudarlo a analizar información detallada de los registros de DSC. Si se pone en contacto con el soporte técnico, necesitarán estos registros para diagnosticar el problema.
 
@@ -40,7 +40,7 @@ Si se producen errores al compilar o implementar configuraciones en Azure State 
 
    Para instalar **xDscDiagnostics** en la máquina de Azure, puede usar [az vm run-command](/cli/azure/vm/run-command) o [Invoke-AzVMRunCommand](/powershell/module/azurerm.compute/invoke-azurermvmruncommand). También puede usar la opción **Ejecutar comando** desde el portal, siguiendo los pasos que se describen en [Ejecución de scripts de PowerShell en la máquina virtual Windows con el comando Ejecutar](../../virtual-machines/windows/run-command.md).
 
-   Para obtener información sobre **xDscDiagnostics**, consulte [Uso de xDscDiagnostics para analizar registros de DSC](/powershell/dsc/troubleshooting/troubleshooting#using-xdscdiagnostics-to-analyze-dsc-logs), así como los [cmdlets de xDscDiagnostics](https://github.com/PowerShell/xDscDiagnostics#cmdlets).
+   Para obtener información sobre **xDscDiagnostics**, consulte [Uso de xDscDiagnostics para analizar registros de DSC](/powershell/scripting/dsc/troubleshooting/troubleshooting#using-xdscdiagnostics-to-analyze-dsc-logs), así como los [cmdlets de xDscDiagnostics](https://github.com/PowerShell/xDscDiagnostics#cmdlets).
 3. **Asegúrese de que los nodos y el área de trabajo de Automation tengan los módulos necesarios:** Desired State Configuration depende de los módulos instalados en el nodo.  Al usar Azure Automation State Configuration, importe los módulos necesarios a la cuenta de Automation mediante los pasos indicados en [Importación de módulos](../shared-resources/modules.md#import-modules). Las configuraciones también pueden tener una dependencia en versiones específicas de los módulos.  Para más información, consulte [Solución de problemas de los módulos](shared-resources.md#modules).
 
 ## <a name="common-errors-when-working-with-desired-state-configuration-dsc"></a>Errores comunes al trabajar con la Configuración de estado deseado (DSC)

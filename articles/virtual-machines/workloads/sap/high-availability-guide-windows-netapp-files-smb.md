@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/29/2019
 ms.author: radeltch
-ms.openlocfilehash: 5de28055a1b573b3326b717614f481b0e1158f1a
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: d7c2bfbe3f277bbaf652191977434ea5fe4dbffd
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74064696"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555292"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-windows-with-azure-netapp-filessmb-for-sap-applications"></a>Alta disponibilidad para SAP NetWeaver en máquinas virtuales de Azure en Windows con Azure NetApp Files (SMB) para aplicaciones SAP
 
@@ -78,8 +78,8 @@ Lea primero las notas y los documentos de SAP siguientes:
 * La nota de SAP [662452](https://launchpad.support.sap.com/#/notes/662452) tiene una recomendación (desactivación de la generación de nombres 8.3) para solucionar errores o el rendimiento del sistema de archivos deficiente durante el acceso a los datos.
 * [Instalación de alta disponibilidad de SAP NetWeaver en un clúster de conmutación por error de Windows y un recurso compartido de archivos para instancias de ASCS/SCS de SAP en Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-installation-wsfc-file-share) 
 * [Escenarios y arquitectura de alta disponibilidad de Azure Virtual Machines para SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-architecture-scenarios)
-* [Agregar puerto de sondeo en la configuración de clúster de ASCS](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-installation-wsfc-file-share#create-a-new-sap-service-and-sap-instance-resources)
-* [Instalación de una instancia de (A) SCS en un clúster de conmutación por error](https:\www.sap.com\documents\2017\07\f453332f-c97c-0010-82c7-eda71af511fa.html) 
+* [Agregar puerto de sondeo en la configuración de clúster de ASCS](sap-high-availability-installation-wsfc-file-share.md)
+* [Instalación de una instancia de (A) SCS en un clúster de conmutación por error](https://www.sap.com/documents/2017/07/f453332f-c97c-0010-82c7-eda71af511fa.html)
 * [Cree un volumen SMB para Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes-smb#requirements-for-active-directory-connections)
 * [Aplicaciones de NetApp SAP en Microsoft Azure que usan Azure NetApp Files][anf-sap-applications-azure]
 

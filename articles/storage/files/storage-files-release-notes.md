@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/8/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 01408e3592af58f05db32e4722e4a85cd2acd0ef
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 8328170d73d75e8e2eb1a84881375ce21c72a61b
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747785"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227830"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Notas de la versión del agente de Azure File Sync
 Azure File Sync le permite centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Las instalaciones de Windows Server se transforman en una memoria caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a los datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -243,7 +243,7 @@ Las notas siguientes corresponden a la versión 6.0.0.0 del agente de Azure File
   - Ambos canales de eventos pueden almacenar de forma predeterminada hasta 1 MB cada uno, aunque la cantidad de archivos mostrada se puede aumentar incrementando el tamaño del canal de eventos.
 - Compatibilidad con el modo FIPS
   - Ahora, Azure File Sync permite habilitar el modo FIPS en servidores que tienen instalado el agente de Azure File Sync.
-    - Antes de habilitar el modo FIPS en el servidor, instale el agente de Azure File Sync y el [módulo PackageManagement](https://www.powershellgallery.com/packages/PackageManagement/1.1.7.2) en el servidor. Si FIPS ya está habilitado en el servidor, [descargue manualmente](https://docs.microsoft.com/powershell/gallery/how-to/working-with-packages/manual-download) el [módulo PackageManagement](https://www.powershellgallery.com/packages/PackageManagement/1.1.7.2) en el servidor.
+    - Antes de habilitar el modo FIPS en el servidor, instale el agente de Azure File Sync y el [módulo PackageManagement](https://www.powershellgallery.com/packages/PackageManagement/1.1.7.2) en el servidor. Si FIPS ya está habilitado en el servidor, [descargue manualmente](/powershell/scripting/gallery/how-to/working-with-packages/manual-download) el [módulo PackageManagement](https://www.powershellgallery.com/packages/PackageManagement/1.1.7.2) en el servidor.
 - Mejoras varias de confiabilidad de la sincronización y la nube por niveles
 
 ### <a name="evaluation-tool"></a>Herramienta de evaluación

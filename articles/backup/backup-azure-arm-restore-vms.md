@@ -1,20 +1,15 @@
 ---
-title: 'Azure Backup: restauración de máquinas virtuales mediante Azure Portal'
+title: restauración de máquinas virtuales mediante Azure Portal
 description: Restauración de una máquina virtual de Azure desde un punto de recuperación con Azure Portal
 ms.reviewer: geg
-author: dcurwin
-manager: carmonm
-keywords: restaurar copias de seguridad; cómo restaurar; punto de recuperación;
-ms.service: backup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.author: dacurwin
-ms.openlocfilehash: 16017f00282729361a0489214c941e824042060e
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: 8b84c7f89c88b54e90a8e1af1236bf205e12cfe6
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73044158"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173469"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Restauración de datos de máquinas virtuales de Azure en Azure Portal
 

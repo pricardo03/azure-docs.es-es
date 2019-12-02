@@ -2,18 +2,16 @@
 title: Personalización de un punto de conexión HTTP en Azure Functions
 description: Obtenga información sobre cómo personalizar un punto de conexión de desencadenador HTTP en Azure Functions.
 author: mattchenderson
-manager: gwallace
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 05/04/2017
 ms.author: mahender
 ms.custom: mvc
-ms.openlocfilehash: f7729f5acb8b7b95004265f6802ba2feb1bc3cd7
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 8bb30da9be5a025f87e5c6d17e0233d0793f3acb
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70096756"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230693"
 ---
 # <a name="customize-an-http-endpoint-in-azure-functions"></a>Personalización de un punto de conexión HTTP en Azure Functions
 

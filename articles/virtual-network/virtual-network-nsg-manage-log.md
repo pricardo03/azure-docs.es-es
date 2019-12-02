@@ -1,11 +1,11 @@
 ---
-title: Registros de diagnóstico de Azure del contador de reglas y de eventos de un grupo de seguridad de red
+title: Registros de diagnóstico de un grupo de seguridad de red
 titlesuffix: Azure Virtual Network
 description: Aprenda a habilitar los registros de diagnóstico del contador de reglas y de eventos de un grupo de seguridad de red de Azure.
 services: virtual-network
 documentationcenter: na
 author: KumudD
-manager: twooley
+manager: mtillman
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: kumud
-ms.openlocfilehash: 047c92f1c50409e6a1716f0ef2f774464bd12a0a
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 55fc18a718d0c69ba90a86ff6aea00d32a8f465b
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71972777"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196728"
 ---
 # <a name="diagnostic-logging-for-a-network-security-group"></a>Registros de diagnóstico de un grupo de seguridad de red
 

@@ -3,12 +3,12 @@ title: Descripción del funcionamiento de los efectos
 description: Las definiciones de Azure Policy tienen diversos efectos que determinan cómo se administra y notifica el cumplimiento.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: c345f96ef5176c4afb3d46aaca2e9903c7911fb1
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 8338f3bf965f121a553a56c551d2095bf60e4880
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73959898"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279509"
 ---
 # <a name="understand-azure-policy-effects"></a>Comprender los efectos de Azure Policy
 
@@ -571,6 +571,6 @@ Cada asignación se evalúa individualmente. Por lo tanto, no hay ninguna oportu
 - Puede consultar ejemplos en [Ejemplos de Azure Policy](../samples/index.md).
 - Revise la [estructura de definición de Azure Policy](definition-structure.md).
 - Obtenga información acerca de cómo se pueden [crear directivas mediante programación](../how-to/programmatically-create.md).
-- Obtenga información sobre cómo [obtener datos de cumplimiento](../how-to/getting-compliance-data.md).
+- Obtenga información sobre cómo [obtener datos de cumplimiento](../how-to/get-compliance-data.md).
 - Obtenga información sobre cómo [corregir recursos no compatibles](../how-to/remediate-resources.md).
 - En [Organización de los recursos con grupos de administración de Azure](../../management-groups/overview.md), obtendrá información sobre lo que es un grupo de administración.

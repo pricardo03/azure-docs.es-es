@@ -46,7 +46,7 @@
           href: create-cluster-database-python.md
         - name: Plantilla del Administrador de recursos de Azure
           href: create-cluster-database-resource-manager.md
-    - name: Introducción de datos
+    - name: Ingerir datos
       items:
         - name: Centro de eventos
           items:
@@ -56,6 +56,8 @@
               href: data-connection-event-hub-python.md
             - name: 'C#'
               href: data-connection-event-hub-csharp.md
+            - name: Plantilla del Administrador de recursos de Azure
+              href: data-connection-event-hub-resource-manager.md
         - name: Event Grid
           items:
             - name: Portal de Azure
@@ -64,6 +66,8 @@
               href: data-connection-event-grid-python.md
             - name: 'C#'
               href: data-connection-event-grid-csharp.md
+            - name: Plantilla del Administrador de recursos de Azure
+              href: data-connection-event-grid-resource-manager.md
         - name: IoT Hub
           items:
             - name: Portal de Azure
@@ -72,6 +76,8 @@
               href: data-connection-iot-hub-python.md
             - name: 'C#'
               href: data-connection-iot-hub-csharp.md
+            - name: Plantilla del Administrador de recursos de Azure
+              href: data-connection-iot-hub-resource-manager.md
         - name: Ingesta con un solo clic
           href: ingest-data-one-click.md
         - name: Ingesta de streaming
@@ -88,7 +94,7 @@
           href: ingest-data-logstash.md
         - name: Copia de datos mediante Azure Data Factory
           href: data-factory-load-data.md
-    - name: Datos de consulta
+    - name: Consultar datos
       items:
         - name: Escritura de consultas
           href: write-queries.md

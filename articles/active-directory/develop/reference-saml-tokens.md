@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af8f1e9150efca4441356a80c263a58fafefcfaf
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: baf4c976a1232d08df1be2549d2861295adf9ee1
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68834841"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74532970"
 ---
 # <a name="azure-ad-saml-token-reference"></a>Referencia de tokens SAML de Azure AD
 
@@ -156,6 +156,7 @@ Este es un ejemplo de token SAML típico.
     </t:RequestSecurityTokenResponse>
 
 ## <a name="related-content"></a>Contenido relacionado
+
 * Para más información acerca de la administración de la directiva de vigencia de token mediante Graph API de Azure AD, consulte las [operaciones de directivas](https://msdn.microsoft.com/library/azure/ad/graph/api/policy-operations) y la [entidad de directiva](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#policy-entity) de Azure AD Graph.
 * Para más información y ejemplos acerca de cómo administrar las directivas a través de los cmdlets de PowerShell, incluidos ejemplos, consulte [Configurable Token Lifetimes in Azure Active Directory](active-directory-configurable-token-lifetimes.md) (Vigencias de tokens configurables en Azure Active Directory). 
 * Agregue [notificaciones opcionales y personalizadas](active-directory-optional-claims.md) a los tokens de la aplicación.

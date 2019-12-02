@@ -8,12 +8,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 10/4/2019
 ms.author: ellacroi
-ms.openlocfilehash: 300f1783c1c514a6cc49d700c2741be85e69c3e8
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 6a7a0d5bdd07221be823f8b94bd581db6d966fa8
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822977"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74306405"
 ---
 # <a name="microsoft-commercial-marketplace-faqs"></a>P+F de Marketplace comercial de Microsoft
 
@@ -165,7 +165,7 @@ Los clientes indirectos con contrato Enterprise (EA) deben ponerse en contacto c
 
 **¿Puedo controlar el acceso de mis empleados a Azure Marketplace y sus derechos de compra?**
 
-Sí, para clientes con contrato Enterprise, el administrador de inscripciones puede desactivar los derechos de compra para todas las cuentas de una inscripción y volverlos a activar el tiempo suficiente para realizar una compra. Además, todos los clientes pueden usar Azure Policy para restringir las opciones de implementación para sus suscripciones de Azure, incluida la administración de recursos de Azure Marketplace.
+Sí, para clientes con contrato Enterprise, el administrador de inscripciones puede desactivar los derechos de compra para todas las cuentas de una inscripción y volverlos a activar el tiempo suficiente para realizar una compra.
 
 **¿Qué métodos de pago se admiten para las compras de Marketplace comercial?**
 

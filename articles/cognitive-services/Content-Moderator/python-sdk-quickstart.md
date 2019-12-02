@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 10/25/2019
 ms.author: pafarley
-ms.openlocfilehash: 3978b4ec302bf4dd2390f2390c967ca6e12e67d5
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: ee3f59bc9e9f8c7950d005b16433cde9267fea9a
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73744398"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74538998"
 ---
 # <a name="quickstart-content-moderator-client-library-for-python"></a>Inicio rápido: Biblioteca cliente de Content Moderator para Python
 
@@ -104,8 +104,8 @@ Cree una instancia de un cliente con la clave y el punto de conexión. Cree un o
 En el código siguiente se usa un cliente de Content Moderator para analizar un cuerpo de texto e imprimir los resultados en la consola. Primero, cree una carpeta **text_files/** en la raíz del proyecto y agregue un archivo *content_moderator_text_moderation.txt*. Agregue su propio texto a este archivo o use el siguiente texto de ejemplo:
 
 ```
-Is this a grabage email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.
-Crap is the profanity here. Is this information PII? phone 3144444444
+Is this a grabage email abcdef@abcd.com, phone: 4255550111, IP: 255.255.255.255, 1234 Main Boulevard, Panapolis WA 96555.
+Crap is the profanity here. Is this information PII? phone 2065550111
 ```
 
 Agregue una referencia a la nueva carpeta.

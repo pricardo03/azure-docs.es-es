@@ -1,17 +1,17 @@
 ---
 author: rothja
-ms.service: billing
+ms.service: cost-management-billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: a8ee7cc28985d905a0d158745145ce7ffaa5ba6e
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: df237cdbb8944928641f2dbea2117bbef7ba9165
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "67186721"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74224345"
 ---
-| Recurso | Límite predeterminado | Límite máximo |
+| Resource | Límite predeterminado | Límite máximo |
 | --- | --- | --- |
 | El número máximo de intervalos o direcciones IP de confianza</a> por suscripción |0 |50 |
 | Recordar mis dispositivos: número de días |14 |60 |

@@ -2,18 +2,14 @@
 title: Uso de Habitat para implementar una aplicación en Azure
 description: Aprenda a implementar sistemáticamente la aplicación en máquinas virtuales y contenedores de Azure.
 keywords: azure, chef, devops, máquinas virtuales, introducción, automatizar, habitat
-ms.service: virtual-machines-linux
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 05/15/2018
 ms.topic: article
-ms.openlocfilehash: 2bdcd4c504822a2e60156b0ac565465e0cf23a85
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: de444836c04d1d37a19a006ce4eafdcae867ca5a
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60388818"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158060"
 ---
 # <a name="use-habitat-to-deploy-your-application-to-azure"></a>Uso de Habitat para implementar una aplicación en Azure
 [Habitat](https://www.habitat.sh/) es un sistema de entorno en tiempo de ejecución y empaquetado de aplicaciones que empaqueta la aplicación junto con su automatización como unidad de implementación. Esto crea la portabilidad definitiva de la aplicación, que permite su implementación en contenedores, máquinas virtuales, equipos sin sistema operativo o PaaS, sin necesidad de reescritura ni reempaquetado.

@@ -4,27 +4,25 @@ description: Describe cómo crear grupos mediante dependencias de máquina sin a
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 10/23/2019
+ms.date: 11/18/2019
 ms.author: hamusa
-ms.openlocfilehash: e9f9e812d5463f0a503b100780f9b988e43f748d
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: d0e002f0f1e620c108b23790dfc81574bee23795
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720254"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158438"
 ---
 # <a name="set-up-agentless-dependency-visualization-for-assessment"></a>Configuración de la visualización de dependencias sin agente para la evaluación
-
-> [!NOTE]
-> Si aún no ve esta característica en el portal de Azure Migrate, espere. Aparecerá aproximadamente la semana siguiente.
 
 En este artículo se describe cómo configurar la asignación de dependencias sin agente en Azure Migrate: Server Assessment. Esta capacidad está disponible actualmente en versión preliminar para las máquinas de VMware detectadas con un dispositivo con Azure Migrate. 
 
 > [!IMPORTANT]
 > La visualización de dependencias sin agente se encuentra actualmente en versión preliminar para las VM de Azure VMware detectadas mediante un dispositivo con Azure Migrate.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
+> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="about-dependency-mapping"></a>Acerca de la asignación de dependencias 
+## <a name="about-dependency-mapping"></a>Acerca de la asignación de dependencias
 
 La asignación de dependencias le permite visualizar las dependencias en las máquinas que quiere evaluar y migrar. La asignación de dependencias suele usarse cuando se quiere evaluar máquinas con niveles de confianza más altos.
 
@@ -46,7 +44,7 @@ La visualización de dependencias sin agente no requiere la instalación de ning
 ## <a name="current-limitations"></a>Limitaciones actuales
 
 - La visualización de dependencias sin agente está disponible actualmente solo para las VM de VMware.
-- En este momento, no se puede agregar un servidor a un grupo ni quitarlo de este en la vista de análisis de dependencias. 
+- En este momento, no se puede agregar un servidor a un grupo ni quitarlo de este en la vista de análisis de dependencias.
 - Actualmente, no existe ningún mapa de dependencias disponible para un grupo de servidores.
 - Actualmente, los datos de dependencias no se pueden descargar en formato tabular.
 
@@ -60,12 +58,12 @@ La visualización de dependencias sin agente no requiere la instalación de ning
 
 
 ### <a name="supported-operating-systems"></a>Sistemas operativos compatibles
- 
+
 Los sistemas operativos compatibles para la visualización de dependencias sin agente son los siguientes.
 
 **Tipo** | **Sistemas operativos compatibles**
---- | --- 
-**Windows** | Microsoft Windows Server 2016 <br/> Microsoft Windows Server 2012 R2 <br/> Microsoft Windows Server 2012 <br/> Microsoft Windows Server 2008 R2 (64 bits) 
+--- | ---
+**Windows** | Microsoft Windows Server 2016 <br/> Microsoft Windows Server 2012 R2 <br/> Microsoft Windows Server 2012 <br/> Microsoft Windows Server 2008 R2 (64 bits)
 **Linux** | Red Hat Enterprise Linux 7, 6, 5 <br/> Ubuntu Linux 14.04, 16.04 <br/> Debian 7, 8 <br/> Oracle Linux 6, 7 <br/> CentOS 5, 6, 7  
 
 
@@ -84,7 +82,7 @@ Agregue la cuenta como se indica a continuación:
 
 1. Abra la aplicación de administración del dispositivo. Navegue hasta el panel **Provide vCenter details** (Proporcionar detalles de vCenter).
 2. En **Discover applications and dependencies on VMs** (Detectar aplicaciones y dependencias en VM) haga clic en **Add credentials** (Agregar credenciales).
-3. Elija la versión de **Sistema operativo**. 
+3. Elija la versión de **Sistema operativo**.
 4. Proporcione un nombre descriptivo para la cuenta.
 5. Rellene los campos **Nombre de usuario** y **Contraseña**.
 6. Haga clic en **Save**(Guardar).
@@ -113,8 +111,8 @@ Podrá visualizar las dependencias 6 horas después de iniciar la detección de 
 2. Busque la máquina de la que quiere ver el mapa de dependencias.
 3. Haga clic en **Ver dependencias** en la columna **Dependencias**.
 4. Cambie el período de tiempo del que quiere ver el mapa mediante el menú desplegable **Duración**.
-5. Expanda el grupo **Cliente** para mostrar las máquinas que tienen una dependencia en la máquina seleccionada. 
-6. Expanda el grupo **Puerto** para mostrar las máquinas que tienen una dependencia de la máquina seleccionada. 
+5. Expanda el grupo **Cliente** para mostrar las máquinas que tienen una dependencia en la máquina seleccionada.
+6. Expanda el grupo **Puerto** para mostrar las máquinas que tienen una dependencia de la máquina seleccionada.
 7. Para navegar a la vista de mapa de cualquiera de las máquinas dependientes, haga clic en el nombre del equipo y, a continuación, haga clic en **Cargar mapa del servidor**.
 
     ![Expansión del grupo de puertos del servidor y carga del mapa del servidor](./media/how-to-create-group-machine-dependencies-agentless/load-server-map.png)

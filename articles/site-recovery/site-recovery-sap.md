@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: asgang
-ms.openlocfilehash: ca3126c983d62cb28c543215b86ab9709a4736d8
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 29b3e4af33702c75e92b5e36c5521d9af12b1013
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083786"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533851"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>Configuración de la recuperación ante desastres para la implementación de una aplicación de SAP NetWeaver de niveles múltiples
 
@@ -110,7 +110,7 @@ Para comenzar a replicar todas las máquinas virtuales de la aplicación SAP en 
 
 * Para obtener instrucciones sobre la protección de Active Directory y DNS, consulte el documento [Protección de Active Directory y DNS con Azure Site Recovery](site-recovery-active-directory.md).
 
-* Para obtener instrucciones sobre la protección de niveles de bases de datos ejecutadas en SQL server, consulte el documento [Protección de Active Directory y DNS con Azure Site Recovery](site-recovery-active-directory.md).
+* Para obtener instrucciones sobre la protección de niveles de bases de datos ejecutadas en SQL server, consulte el documento [Protección de Active Directory y DNS con Azure Site Recovery](site-recovery-sql.md).
 
 ## <a name="networking-configuration"></a>Configuración de redes
 

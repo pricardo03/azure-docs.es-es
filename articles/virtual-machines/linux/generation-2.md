@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: lahugh
-ms.openlocfilehash: 7747d1b5e2b18ddf02403ad21fe875c498e43820
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 02ab7cdcbf0f150157eb44ef5e28e8284621b813
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036046"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173952"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Compatibilidad para máquinas virtuales de generación 2 en Azure
 
@@ -91,7 +91,7 @@ Actualmente Azure no admite algunas de las características que admite Hyper-V e
 | Disco de SO > 2 TB                    | :x:                | :heavy_check_mark: |
 | Disco personalizado/imagen/intercambiar SO         | :heavy_check_mark: | :heavy_check_mark: |
 | Compatibilidad con los conjuntos de escalado de máquinas virtuales | :heavy_check_mark: | :heavy_check_mark: |
-| Azure Site Recovery               | :heavy_check_mark: | :x:                |
+| Azure Site Recovery               | :heavy_check_mark: | :heavy_check_mark: |
 | Copia de seguridad y restauración                    | :heavy_check_mark: | :heavy_check_mark: |
 | Galería de imágenes compartidas              | :heavy_check_mark: | :heavy_check_mark: |
 | Azure Disk Encryption             | :heavy_check_mark: | :x:                |

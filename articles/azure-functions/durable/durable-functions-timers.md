@@ -1,20 +1,15 @@
 ---
 title: 'Temporizadores en Durable Functions: Azure'
 description: Aprenda a implementar temporizadores durables en la extensión Durable Functions para Azure Functions.
-services: functions
-author: ggailey777
-manager: jeconnoc
-keywords: ''
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: a24d6e96df3abf385b0a64ec4bc7e1f1c248998b
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: c477a81801c1345d5be5f5f45419bb4776c875e0
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73614636"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231281"
 ---
 # <a name="timers-in-durable-functions-azure-functions"></a>Temporizadores en Durable Functions (Azure Functions)
 

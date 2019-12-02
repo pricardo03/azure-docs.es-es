@@ -3,12 +3,12 @@ title: Detalles de la estructura de asignaciones de directivas
 description: Describe la definición de asignación de directiva utilizada por Azure Policy para relacionar las definiciones de directiva y los parámetros con los recursos para su evaluación.
 ms.date: 09/23/2019
 ms.topic: conceptual
-ms.openlocfilehash: 500e40b8d3a5943c7f64f5b190223cb1dc7b4c92
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 9301004fe05afa77f3e73c6ec97335a17c237ce9
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960032"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279475"
 ---
 # <a name="azure-policy-assignment-structure"></a>Estructura de asignaciones de Azure Policy
 
@@ -93,6 +93,6 @@ En este ejemplo, los parámetros definidos anteriormente en la definición de di
 
 - Más información sobre la [estructura de la definición de directiva](./definition-structure.md).
 - Obtenga información acerca de cómo se pueden [crear directivas mediante programación](../how-to/programmatically-create.md).
-- Obtenga información sobre cómo [obtener datos de cumplimiento](../how-to/getting-compliance-data.md).
+- Obtenga información sobre cómo [obtener datos de cumplimiento](../how-to/get-compliance-data.md).
 - Obtenga información sobre cómo [corregir recursos no compatibles](../how-to/remediate-resources.md).
 - En [Organización de los recursos con grupos de administración de Azure](../../management-groups/overview.md), obtendrá información sobre lo que es un grupo de administración.

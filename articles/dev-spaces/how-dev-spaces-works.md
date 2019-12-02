@@ -1,20 +1,16 @@
 ---
 title: Funcionamiento y configuración de Azure Dev Spaces
-titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-author: zr-msft
-ms.author: zarhoads
 ms.date: 03/04/2019
 ms.topic: conceptual
 description: En este artículo se describen los procesos que posibilitan Azure Dev Spaces y cómo se configuran en el archivo de configuración azds.yaml.
 keywords: azds.yaml, Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores
-ms.openlocfilehash: 83034dd3c99cc030ed770995bf00a6ad9fb57bdc
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 9efae0e9d6bc53e08dce604fa79aa29e158ecabd
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67670816"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280145"
 ---
 # <a name="how-azure-dev-spaces-works-and-is-configured"></a>Funcionamiento y configuración de Azure Dev Spaces
 
@@ -247,7 +243,7 @@ Para aplicar cambios en archivos como los de código fuente o los de configuraci
 
 La manera en que *devhostagent* ejecuta los pasos anteriores se establece en el archivo de configuración `azds.yaml`. Esta configuración se detalla en una sección posterior.
 
-Las actualizaciones de archivos del proyecto como los archivos Dockerfile, los archivos csproj o cualquier parte del gráfico de Helm requieren que se recompile y se reimplemente el contenedor de la aplicación. Cuando uno de estos archivos se sincroniza con el espacio de desarrollo, el controlador ejecuta el comando [helm upgrade](https://helm.sh/docs/helm/#helm-upgrade) y el contenedor de la aplicación se recompila y reimplementa.
+Las actualizaciones de archivos del proyecto como los archivos Dockerfile, los archivos csproj o cualquier parte del gráfico de Helm requieren que se recompile y se reimplemente el contenedor de la aplicación. Cuando uno de estos archivos se sincroniza con el espacio de desarrollo, el controlador ejecuta el comando [helm upgrade](https://helm.sh/docs/intro/using_helm/#helm-upgrade-and-helm-rollback-upgrading-a-release-and-recovering-on-failure) y el contenedor de la aplicación se recompila y reimplementa.
 
 ### <a name="file-synchronization"></a>Sincronización de archivos
 

@@ -8,12 +8,12 @@ ms.date: 03/12/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: b9b1be699190f6dc6f4771411c22f376d51637ec
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: a2836f40b55a71e080288fce7e48275747962c16
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477447"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231533"
 ---
 # <a name="troubleshoot-errors-with-shared-resources"></a>Solución de problemas relativos a errores con recursos compartidos
 
@@ -29,7 +29,7 @@ Al importar o actualizar los módulos en Azure Automation, encuentra un módulo 
 
 #### <a name="cause"></a>Causa
 
-La importación de módulos de PowerShell es un proceso complejo de varios pasos. En este proceso existe la posibilidad de que un módulo no se importe correctamente. Si esto ocurre, el módulo que se va a importar puede bloquearse en un estado transitorio. Para más información sobre este proceso, vea [Importing a PowerShell Module]( /powershell/developer/module/importing-a-powershell-module#the-importing-process) (Importación de un módulo de PowerShell).
+La importación de módulos de PowerShell es un proceso complejo de varios pasos. En este proceso existe la posibilidad de que un módulo no se importe correctamente. Si esto ocurre, el módulo que se va a importar puede bloquearse en un estado transitorio. Para más información sobre este proceso, vea [Importing a PowerShell Module](/powershell/scripting/developer/module/importing-a-powershell-module#the-importing-process) (Importación de un módulo de PowerShell).
 
 #### <a name="resolution"></a>Resolución
 

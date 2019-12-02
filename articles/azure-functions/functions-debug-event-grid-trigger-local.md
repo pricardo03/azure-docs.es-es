@@ -1,21 +1,16 @@
 ---
 title: Depuración local de funciones de Azure desencadenadas por Event Grid
 description: Obtenga información sobre cómo depurar localmente funciones de Azure desencadenadas por un evento de Event Grid
-services: functions
-documentationcenter: na
 author: craigshoemaker
-manager: gwallace
-keywords: funciones de azure, funciones, arquitectura sin servidor
-ms.service: azure-functions
 ms.topic: reference
 ms.date: 10/18/2018
 ms.author: cshoe
-ms.openlocfilehash: e28abbe8d44094d8599545479f4611a84e9d9bd5
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 97509001aa66c2c1bf0c91b6b2a5ab25f9d6ec88
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70085685"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227069"
 ---
 # <a name="azure-function-event-grid-trigger-local-debugging"></a>Depuración local de funciones de Azure desencadenadas por Event Grid
 

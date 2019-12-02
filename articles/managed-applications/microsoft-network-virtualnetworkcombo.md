@@ -13,17 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: b0437338b403ff19761173d08be3938d07f13f55
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d325230f603be4ccfe4fe42f1b58c6ad892fdb2c
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64708354"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151483"
 ---
 # <a name="microsoftnetworkvirtualnetworkcombo-ui-element"></a>Elemento de la interfaz de usuario Microsoft.Network.VirtualNetworkCombo
+
 Un grupo de controles para seleccionar una red virtual nueva o existente.
 
 ## <a name="ui-sample"></a>Ejemplo de interfaz de usuario
+
 Cuando el usuario selecciona una nueva red virtual, puede personalizar el nombre y el prefijo de dirección de cada subred. La configuración de subredes es opcional.
 
 ![Microsoft.Network.VirtualNetworkCombo nueva](./media/managed-application-elements/microsoft.network.virtualnetworkcombo-new.png)
@@ -32,7 +34,8 @@ Cuando el usuario selecciona una red virtual existente, debe asignar cada subred
 
 ![Microsoft.Network.VirtualNetworkCombo existente](./media/managed-application-elements/microsoft.network.virtualnetworkcombo-existing.png)
 
-## <a name="schema"></a>Esquema
+## <a name="schema"></a>Schema
+
 ```json
 {
   "name": "element1",
@@ -85,16 +88,6 @@ Cuando el usuario selecciona una red virtual existente, debe asignar cada subred
 }
 ```
 
-## <a name="remarks"></a>Comentarios
-- Si se ha especificado, el primer prefijo de dirección que no se superponga del tamaño `defaultValue.addressPrefixSize` se determina automáticamente en función de las redes virtuales existentes en la suscripción del usuario.
-- El valor predeterminado de `defaultValue.name` y `defaultValue.addressPrefixSize` es **null**.
-- `constraints.minAddressPrefixSize` debe especificarse. Las redes virtuales existentes con un espacio de direcciones menor que el valor especificado no se pueden seleccionar.
-- `subnets` debe especificarse y `constraints.minAddressPrefixSize` debe especificarse para cada subred.
-- Al crear una nueva red virtual, el prefijo de dirección de cada subred se calcula automáticamente basándose en el prefijo de dirección de la red virtual y en los respectivos `addressPrefixSize`.
-- Si se usa una red virtual existente, las subredes menores que la `constraints.minAddressPrefixSize` respectiva no están disponibles para la selección. Además, si se especifica, las subredes que no tienen al menos `minAddressCount` direcciones disponibles no se podrán seleccionar. El valor predeterminado es **0**. Para asegurarse de que las direcciones disponibles son contiguas, especifique **true** en `requireContiguousAddresses`. El valor predeterminado es **true**.
-- No se admite la creación de subredes en una red virtual existente.
-- Si el valor de `options.hideExisting` es **true**, el usuario no puede elegir una red virtual existente. El valor predeterminado es **false**.
-
 ## <a name="sample-output"></a>Salida de ejemplo
 
 ```json
@@ -118,6 +111,18 @@ Cuando el usuario selecciona una red virtual existente, debe asignar cada subred
 }
 ```
 
+## <a name="remarks"></a>Comentarios
+
+- Si se ha especificado, el primer prefijo de dirección que no se superponga del tamaño `defaultValue.addressPrefixSize` se determina automáticamente en función de las redes virtuales existentes en la suscripción del usuario.
+- El valor predeterminado de `defaultValue.name` y `defaultValue.addressPrefixSize` es **null**.
+- `constraints.minAddressPrefixSize` debe especificarse. Las redes virtuales existentes con un espacio de direcciones menor que el valor especificado no se pueden seleccionar.
+- `subnets` debe especificarse y `constraints.minAddressPrefixSize` debe especificarse para cada subred.
+- Al crear una nueva red virtual, el prefijo de dirección de cada subred se calcula automáticamente basándose en el prefijo de dirección de la red virtual y en los respectivos `addressPrefixSize`.
+- Si se usa una red virtual existente, las subredes menores que la `constraints.minAddressPrefixSize` respectiva no están disponibles para la selección. Además, si se especifica, las subredes que no tienen al menos `minAddressCount` direcciones disponibles no se podrán seleccionar. El valor predeterminado es **0**. Para asegurarse de que las direcciones disponibles son contiguas, especifique **true** en `requireContiguousAddresses`. El valor predeterminado es **true**.
+- No se admite la creación de subredes en una red virtual existente.
+- Si el valor de `options.hideExisting` es **true**, el usuario no puede elegir una red virtual existente. El valor predeterminado es **false**.
+
 ## <a name="next-steps"></a>Pasos siguientes
+
 * Para ver una introducción sobre la creación de definiciones de interfaz de usuario, consulte [Introducción a CreateUiDefinition](create-uidefinition-overview.md).
 * Para ver una descripción de las propiedades comunes de los elementos de interfaz de usuario, consulte [Elementos CreateUiDefinition](create-uidefinition-elements.md).

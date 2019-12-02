@@ -1,17 +1,14 @@
 ---
-title: 'Autenticación entre inquilinos: Azure Resource Manager'
+title: Autenticación entre inquilinos
 description: Se describe cómo Azure Resource Manager gestiona las solicitudes de autenticación entre inquilinos.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 10/11/2019
-ms.author: tomfitz
-ms.openlocfilehash: b85ed32ac333402caeca4901e4d91bbe4d1d112c
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 1dccfc522179cd88e69bc5a58307b343aaef8f9e
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300352"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149978"
 ---
 # <a name="authenticate-requests-across-tenants"></a>Autenticación de solicitudes entre inquilinos
 

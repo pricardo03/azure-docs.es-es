@@ -3,17 +3,13 @@ title: Matriz de módulo y versión de Ansible para Azure | Microsoft Docs
 description: Matriz de módulo y versión de Ansible para Azure
 keywords: ansible, roles, matriz, versión, azure, devops
 ms.topic: reference
-ms.service: ansible
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 10/14/2019
-ms.openlocfilehash: 275dca40ab20c222da2b9115f9a5dc141228c766
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 54e27c7570ba1cdbce7355740181d68a2f3efbac
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72385466"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74155992"
 ---
 # <a name="ansible-module-and-version-matrix"></a>Matriz de módulo y versión de Ansible
 

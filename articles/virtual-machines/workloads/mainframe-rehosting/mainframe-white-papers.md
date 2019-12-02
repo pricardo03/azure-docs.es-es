@@ -8,12 +8,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: 29665639e90f729f5506a0a12241bb04fd88e69c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dd91b4331a6093d1cf208893d5d88746707b473b
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60859331"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74224740"
 ---
 # <a name="azure-white-papers-about-mainframe-topics"></a>Notas del producto de Azure sobre los temas de sistemas centrales
 
@@ -43,10 +43,10 @@ Modernice su infraestructura a escala de nube. TmaxSoft OpenFrame facilita el ca
 
 En estas notas del producto se reflejan los más de 25 años de experiencia de Astadia en la modernización de la plataforma de sistema central. Se explican las ventajas y desafíos de las labores de modernización. Esta guía proporciona información general de los sistemas centrales de IBM y una arquitectura de referencia de sistema central de IBM a Azure. También se proporciona un vistazo a la metodología de éxito Astadia.
 
-### <a name="deploying-mainframe-applications-to-microsoft-azurehttpswwwmicrofocuscommediawhite-paperdeployingmainframeapplicationstomicrosoftazurewppdf"></a>[Deploying mainframe applications to Microsoft Azure](https://www.microfocus.com/media/white-paper/deploying_mainframe_applications_to_microsoft_azure_wp.pdf) (Implementación de aplicaciones de sistema central en Microsoft Azure)
+### <a name="deploying-mainframe-applications-to-microsoft-azurehttpswwwmicrofocuscommediawhite-paperdeploying_mainframe_applications_to_microsoft_azure_wppdf"></a>[Deploying mainframe applications to Microsoft Azure](https://www.microfocus.com/media/white-paper/deploying_mainframe_applications_to_microsoft_azure_wp.pdf) (Implementación de aplicaciones de sistema central en Microsoft Azure)
 
 Las soluciones de Micro Focus le liberan de las restricciones del hardware y el software de sistema central propietario. En esta guía, Micro Focus explica cómo implementar sus aplicaciones de COBOL y PL/I que se ejecutan en sistemas centrales de IBM en la nube.
 
-### <a name="breathe-new-life-into-mainframeshttpswwwinfosyscommodernizationpagesbreathe-new-life-mainframesaspx"></a>[Breathe new life into mainframes](https://www.infosys.com/modernization/Pages/breathe-new-life-mainframes.aspx) (Revitalización de los sistemas centrales)
+### <a name="breathe-new-life-into-mainframeshttpswwwinfosyscomservicesmodernizationbreathe-new-life-mainframeshtml"></a>[Breathe new life into mainframes](https://www.infosys.com/services/modernization/breathe-new-life-mainframes.html) (Revitalización de los sistemas centrales)
 
  Los sistemas centrales son cada vez más difíciles de mantener para las empresas. En estas notas del producto, cuyos autores son Infosys y Microsoft, se resalta la estrategia ganadora para una migración correcta de los sistemas centrales. Se ilustran las opciones con casos de uso y ejemplos.
