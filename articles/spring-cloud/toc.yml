@@ -26,6 +26,8 @@
       href: spring-cloud-tutorial-scale-manual.md
     - name: Supervisión de una aplicación mediante el uso del seguimiento distribuido y de App Insights
       href: spring-cloud-tutorial-distributed-tracing.md
+    - name: Supervisión de recursos de Spring Cloud mediante alertas y grupos de acciones
+      href: spring-cloud-tutorial-alerts-action-groups.md
     - name: "Enlace de una aplicación a Azure\_CosmosDB"
       href: spring-cloud-tutorial-bind-cosmos.md
     - name: Enlace de una aplicación con Azure Cache for Redis
