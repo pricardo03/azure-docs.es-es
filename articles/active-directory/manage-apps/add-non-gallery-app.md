@@ -36,7 +36,7 @@ En este artículo se describe cómo agregar una aplicación que no esté en la g
 
 2. Seleccione **Aplicaciones empresariales** > **Nueva aplicación**.
 
-3. (Opcional pero recomendado) En el cuadro de búsqueda **	Examinar la Galería de Azure AD**, especifique el nombre para mostrar de la aplicación. 
+3. (Opcional pero recomendado) En el cuadro de búsqueda **Examinar la Galería de Azure AD**, especifique el nombre para mostrar de la aplicación. 
 
 4. Seleccione **Cree su propia aplicación**. Se abre la página **Cree su propia aplicación**.
 
