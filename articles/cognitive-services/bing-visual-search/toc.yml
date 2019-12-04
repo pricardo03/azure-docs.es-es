@@ -1,5 +1,5 @@
 - name: Documentación de Bing Video Search
-  href: index.yml
+  href: ../Bing-Web-Search/index.yml
 - name: Información general
   items:
     - name: ¿Qué es Bing Visual Search API?

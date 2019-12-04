@@ -1,5 +1,5 @@
 - name: Documentación de Bing News Search
-  href: index.yml
+  href: ../Bing-Web-Search/index.yml
 - name: Información general
   expanded: true
   items:
