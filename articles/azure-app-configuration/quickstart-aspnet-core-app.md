@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 10/11/2019
 ms.author: yegu
-ms.openlocfilehash: 4e08192788329e7a835ddb0b6b3f1aa01b2c73e1
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 91712b3f730317e65cda7b48c8f5636b2fb9ab2c
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299942"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185085"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Inicio rápido: Creación de una aplicación ASP.NET Core con Azure App Configuration
 
@@ -30,7 +30,7 @@ En este inicio rápido incorporará Azure App Configuration a una aplicación de
 - Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
 - [SDK de .NET Core](https://dotnet.microsoft.com/download)
 
-## <a name="create-an-app-configuration-store"></a>Creación de un almacén de configuración de aplicaciones
+## <a name="create-an-app-configuration-store"></a>Creación de un almacén de App Configuration
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
@@ -81,7 +81,7 @@ Para usar Secret Manager, agregue un elemento `UserSecretsId` al archivo *.cspro
 
 La herramienta Secret Manager almacena información confidencial para el trabajo de desarrollo fuera de su árbol de proyecto. Este enfoque ayuda a evitar el uso compartido accidental de secretos de la aplicación en el código fuente. Para más información sobre Secret Manager, consulte [Almacenamiento seguro de secretos de aplicación en el desarrollo en ASP.NET Core](https://docs.microsoft.com/aspnet/core/security/app-secrets)
 
-## <a name="connect-to-an-app-configuration-store"></a>Conexión a un almacén de configuración de aplicaciones
+## <a name="connect-to-an-app-configuration-store"></a>Conexión a un almacén de App Configuration
 
 1. Para agregar una referencia al paquete NuGet `Microsoft.Azure.AppConfiguration.AspNetCore`, ejecute el comando siguiente:
 
@@ -95,7 +95,7 @@ La herramienta Secret Manager almacena información confidencial para el trabajo
     ```
 3. Agregue un secreto llamado *ConnectionStrings:AppConfig* a Secret Manager.
 
-    Este secreto contiene la cadena de conexión necesaria para acceder a su almacén de configuración de aplicaciones. Sustituya el valor en el comando siguiente por la cadena de conexión de su almacén de configuración de aplicaciones.
+    Este secreto contiene la cadena de conexión necesaria para acceder a su almacén de App Configuration. Sustituya el valor en el comando siguiente por la cadena de conexión de su almacén de App Configuration.
 
     Este comando debe ejecutarse en el mismo directorio que el archivo *.csproj*.
 
@@ -216,7 +216,7 @@ La herramienta Secret Manager almacena información confidencial para el trabajo
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este inicio rápido, ha creado un almacén de configuración de aplicaciones y lo ha usado con una aplicación web de ASP.NET Core a través del [proveedor de App Configuration](https://go.microsoft.com/fwlink/?linkid=2074664). Para más información sobre cómo usar App Configuration, vaya al siguiente tutorial, en el que se muestra cómo configurar la aplicación web para actualizar dinámicamente la configuración.
+En este inicio rápido, ha creado un almacén de App Configuration y lo ha usado con una aplicación web de ASP.NET Core a través del [proveedor de App Configuration](https://go.microsoft.com/fwlink/?linkid=2074664). Para aprender a configurar una aplicación de ASP.NET Core para actualizar dinámicamente la configuración, vaya al siguiente tutorial.
 
 > [!div class="nextstepaction"]
-> [Uso de la configuración dinámica en una aplicación de ASP.NET Core](./enable-dynamic-configuration-aspnet-core.md)
+> [Habilitación de la configuración dinámica](./enable-dynamic-configuration-aspnet-core.md)

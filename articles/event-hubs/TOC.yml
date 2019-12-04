@@ -164,7 +164,7 @@
           href: event-hubs-service-endpoints.md
         - name: Habilitar la integración y los firewalls de Virtual Network en el espacio de nombres de Event Hubs
           href: event-hubs-tutorial-virtual-networks-firewalls.md
-        - name: Configuración de claves administradas por el cliente para el cifrado de datos en reposo
+        - name: Configuración de claves administradas por el cliente para el cifrado de datos en reposo (versión preliminar)
           href: configure-customer-managed-key.md
     - name: Solución de problemas
       items:

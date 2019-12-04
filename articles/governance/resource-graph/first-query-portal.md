@@ -1,20 +1,22 @@
 ---
-title: Ejecución de la primera consulta con Azure Resource Graph Explorer
-description: Este artículo le guía por los pasos para ejecutar la primera consulta desde Azure Portal mediante Azure Resource Graph Explorer.
-ms.date: 10/21/2019
+title: 'Inicio rápido: La primera consulta en el portal'
+description: En este inicio rápido dará los pasos necesarios para ejecutar la primera consulta desde Azure Portal mediante Azure Resource Graph Explorer.
+ms.date: 11/21/2019
 ms.topic: quickstart
-ms.openlocfilehash: 9cb8fdfcc68e2ef8e19a8fce2545d2939ac13e06
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 5cf355e78ad51e06d7ba27d48dd352f35b4c0740
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73958823"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406792"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>Inicio rápido: Ejecución de la primera consulta de Resource Graph mediante Azure Resource Graph Explorer
 
 El poder de Azure Resource Graph está disponible directamente en Azure Portal mediante Azure Resource Graph Explorer. Resource Graph Explorer proporciona información de exploración sobre los tipos de recursos Azure Resource Manager y las propiedades que puede consultar. Resource Graph Explorer también proporciona una interfaz limpia para trabajar con varias consultas, evaluar los resultados e incluso convertir los de algunas consultas en un gráfico que se puede anclar a un panel de Azure.
 
 Al final de este inicio rápido, habrá usado Azure Portal y Resource Graph Explorer para ejecutar la primera consulta de Resource Graph y anclar los resultados a un panel.
+
+## <a name="prerequisites"></a>Requisitos previos
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
@@ -117,9 +119,7 @@ Si quiere quitar los paneles de ejemplo de Resource Graph del entorno de Azure P
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga más información sobre el [lenguaje de consulta](./concepts/query-language.md).
-- Obtenga más información sobre cómo [explorar recursos](./concepts/explore-resources.md).
-- Ejecute la primera consulta con la [CLI de Azure](first-query-azurecli.md).
-- Consulte ejemplos de [consultas de inicio](./samples/starter.md).
-- Consulte ejemplos de [consultas avanzadas](./samples/advanced.md).
-- Proporcione comentarios en [UserVoice](https://feedback.azure.com/forums/915958-azure-governance).
+En esta guía de inicio rápido, ha usado Azure Resource Graph Explorer para ejecutar la primera consulta y ha examinado los ejemplos de paneles con tecnología de Resource Graph. Para más información sobre el lenguaje de Resource Graph, vaya a la página de detalles del lenguaje de consulta.
+
+> [!div class="nextstepaction"]
+> [Obtener más información sobre el lenguaje de consulta](./concepts/query-language.md)

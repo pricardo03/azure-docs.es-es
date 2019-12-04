@@ -1,14 +1,14 @@
 ---
-title: Asignación de controles del ejemplo de plano técnico ISO 27001
+title: Controles del ejemplo de plano técnico de la norma ISO 27001
 description: Asignación de controles del ejemplo de plano técnico ISO 27001. Cada control se asigna a una o varias directivas de Azure que ayudan en la evaluación.
 ms.date: 07/22/2019
 ms.topic: sample
-ms.openlocfilehash: 6d77573a37c27aba96bace1f6d228ac892b0ecd9
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: effc68f3b7daa576b855fb61b39c1e47929a614e
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74038349"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546675"
 ---
 # <a name="control-mapping-of-the-iso-27001-blueprint-sample"></a>Asignación de control del ejemplo de plano técnico según la norma ISO 27001
 

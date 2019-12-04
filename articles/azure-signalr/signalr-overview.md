@@ -1,17 +1,17 @@
 ---
 title: ¿Qué es Azure SignalR Service?
-description: Introducción a Azure SignalR Service
+description: Conozca mejor qué escenarios de casos de uso habituales utilizan Azure Signalr y las principales ventajas de Azure SignalR.
 author: sffamily
 ms.service: signalr
 ms.topic: overview
-ms.date: 06/20/2019
+ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: e7bdc62f7fa46bbacce7f264d8f331ea64b05430
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: 31cb4570dd0952f60fbff2fa1131b3af36c278cb
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71273690"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74157575"
 ---
 # <a name="what-is-azure-signalr-service"></a>¿Qué es Azure SignalR Service?
 

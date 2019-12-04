@@ -1,14 +1,14 @@
 ---
-title: Asignación de recomendaciones del ejemplo de plano técnico CIS Microsoft Azure Foundations Benchmark
+title: Ejemplo de plano técnico de CIS Microsoft Azure Foundations Benchmark, controles
 description: Asignación de recomendaciones del ejemplo de plano técnico de CIS Microsoft Azure Foundations Benchmark para Azure Policy.
 ms.date: 10/01/2019
 ms.topic: sample
-ms.openlocfilehash: 7974a5f9e5ccca41cdaa838cf05e3861dbae1b8d
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 55abac9f7479f0ee7d1adddea64cb81a1c7cf2b5
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74038424"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74544546"
 ---
 # <a name="recommendation-mapping-of-the-cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>Asignación de recomendaciones del ejemplo de plano técnico de CIS Microsoft Azure Foundations Benchmark
 

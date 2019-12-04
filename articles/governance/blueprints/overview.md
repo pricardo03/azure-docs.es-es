@@ -1,16 +1,16 @@
 ---
 title: Introducción a Azure Blueprint
 description: Conozca el modo en que el servicio Azure Blueprints permite crear, definir e implementar artefactos en el entorno de Azure.
-ms.date: 08/26/2019
+ms.date: 11/21/2019
 ms.topic: overview
-ms.openlocfilehash: dadb7568a720d23f58d23896e84b3155ed2f12f4
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: 07d84d658d88e977cd73176861e5c5e080c02857
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048283"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74321774"
 ---
-# <a name="overview-of-the-azure-blueprints-service"></a>Introducción al servicio Azure Blueprints
+# <a name="what-is-azure-blueprints"></a>¿Qué es Azure Blueprint?
 
 Del mismo modo que un plano técnico permite a un ingeniero o a un arquitecto bosquejar los parámetros de diseño de un proyecto, Azure Blueprint permite a los grupos de arquitectos de la nube y de TI central definir un conjunto repetible de recursos de Azure que implementa y cumple los estándares de la organización, sus requisitos y sus patrones. Azure Blueprint permite a los equipos de desarrollo aprovisionar y crear rápidamente nuevos entornos sabiendo que se crean cumpliendo los estándares organizativos y que contienen un conjunto de componentes integrados, como las redes, para acelerar el desarrollo y la entrega.
 
@@ -62,7 +62,8 @@ Al crear una definición de plano técnico, definirá dónde se guarda. Los plan
 ### <a name="blueprint-parameters"></a>Parámetros de plano técnico
 
 Los planos técnicos pueden pasar parámetros a una iniciativa o directiva, o a una plantilla de Azure Resource Manager.
-Cuando algún _artefacto_ se agrega a un plano técnico, el autor es capaz de decidir si proporcionar un valor definido para cada asignación de plano técnico o permitir que cada asignación del plano técnico proporcione un valor en el momento de la asignación. Esta flexibilidad permite definir un valor predeterminado para todos los usos del plano técnico o que esa decisión se tome en el momento de la asignación.
+Cuando algún _artefacto_ se agrega a un plano técnico, el autor es capaz de decidir si proporcionar un valor definido para cada asignación de plano técnico o permitir que cada asignación del plano técnico proporcione un valor en el momento de la asignación.
+Esta flexibilidad permite definir un valor predeterminado para todos los usos del plano técnico o que esa decisión se tome en el momento de la asignación.
 
 > [!NOTE]
 > Un plano técnico puede tener sus propios parámetros, pero actualmente solo se pueden crear si el plano técnico se genera desde la API REST en lugar de mediante el Portal.
@@ -71,7 +72,8 @@ Para más información, consulte el artículo sobre los [parámetros de un plano
 
 ### <a name="blueprint-publishing"></a>Publicación de planos técnicos
 
-Cuando se crea por primera vez un plano técnico, se considera que está en modo **borrador**. Cuando está preparado para asignarse, se debe **publicar**. La publicación requiere la definición de una cadena de **versión** (letras, números y guiones con una longitud máxima de 20 caracteres) junto con **notas de cambio** opcionales. La **versión** la diferencia de los cambios futuros del mismo plano técnico y permite la asignación de cada versión. Esto también significa que a la misma suscripción se le pueden asignar **versiones** diferentes del mismo plano técnico. Cuando se realizan cambios adicionales en el plano técnico, la **versión** **publicada** sigue existiendo, al igual que los **cambios sin publicar**. Una vez completados los cambios, el plano técnico actualizado se **publica** con una **versión** nueva y única, y ahora también se puede asignar.
+Cuando se crea por primera vez un plano técnico, se considera que está en modo **borrador**. Cuando está preparado para asignarse, se debe **publicar**. La publicación requiere la definición de una cadena de **versión** (letras, números y guiones con una longitud máxima de 20 caracteres) junto con **notas de cambio** opcionales. La **versión** la diferencia de los cambios futuros del mismo plano técnico y permite la asignación de cada versión. Esto también significa que a la misma suscripción se le pueden asignar **versiones** diferentes del mismo plano técnico. Cuando se realizan cambios adicionales en el plano técnico, la **versión**
+**publicada** sigue existiendo, al igual que los **cambios sin publicar**. Una vez completados los cambios, el plano técnico actualizado se **publica** con una **versión** nueva y única, y ahora también se puede asignar.
 
 ## <a name="blueprint-assignment"></a>Asignación de plano técnico
 
@@ -135,5 +137,6 @@ La siguiente introducción sobre Azure Blueprints es de Azure Fridays. Para desc
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Creación de un plano técnico: portal](create-blueprint-portal.md)
-- [Creación de un plano técnico: API REST](create-blueprint-rest-api.md)
+- [Creación de un plano técnico: portal](./create-blueprint-portal.md).
+- [Creación de un plano técnico: PowerShell](./create-blueprint-powershell.md).
+- [Creación de un plano técnico: API REST](./create-blueprint-rest-api.md).

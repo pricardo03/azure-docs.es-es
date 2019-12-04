@@ -1,14 +1,14 @@
 ---
-title: Ejecución de la primera consulta mediante PowerShell
-description: Este artículo le guiará por los pasos para habilitar el módulo de Resource Graph de Azure PowerShell y ejecutar la primera consulta.
-ms.date: 10/18/2019
+title: 'Inicio rápido: La primera consulta en PowerShell'
+description: En este inicio rápido, dará los pasos necesarios para habilitar el módulo Resource Graph de Azure PowerShell y ejecutar la primera consulta.
+ms.date: 11/21/2019
 ms.topic: quickstart
-ms.openlocfilehash: 6aaddcfc6cae16501ba6544f9789aa3ac1d13136
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: dd96324671f46f98d5b6c8bae1839a5b02d38b23
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73958779"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74304144"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-powershell"></a>Inicio rápido: Ejecutar la primera consulta de Resource Graph con Azure PowerShell
 
@@ -16,7 +16,11 @@ El primer paso para usar Azure Resource Graph es comprobar que el módulo de Azu
 
 Al final de este proceso, habrá agregado el módulo a la instalación de Azure PowerShell que haya elegido y habrá ejecutado la primera consulta de Resource Graph.
 
+## <a name="prerequisites"></a>Requisitos previos
+
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="add-the-resource-graph-module"></a>Agregar el módulo de Resource Graph
 
@@ -28,7 +32,7 @@ El módulo de Azure Resource Graph requiere el software siguiente:
 
 - Azure PowerShell 1.0.0 o posterior. Si todavía no está instalado, siga [estas instrucciones](/powershell/azure/install-az-ps).
 
-- PowerShellGet 2.0.1 o una versión posterior. Si no está instalado o actualizado, siga [estas instrucciones](/powershell/gallery/installing-psget).
+- PowerShellGet 2.0.1 o una versión posterior. Si no está instalado o actualizado, siga [estas instrucciones](/powershell/scripting/gallery/installing-psget).
 
 ### <a name="install-the-module"></a>Instalación del módulo
 
@@ -103,10 +107,7 @@ Uninstall-Module -Name 'Az.ResourceGraph'
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga más información sobre el [lenguaje de consulta](./concepts/query-language.md).
-- Obtenga más información sobre cómo [explorar recursos](./concepts/explore-resources.md).
-- Ejecute la primera consulta mediante [Azure Portal](first-query-portal.md).
-- Ejecute la primera consulta con la [CLI de Azure](first-query-azurecli.md).
-- Consulte ejemplos de [consultas de inicio](./samples/starter.md).
-- Consulte ejemplos de [consultas avanzadas](./samples/advanced.md).
-- Proporcione comentarios en [UserVoice](https://feedback.azure.com/forums/915958-azure-governance).
+En este inicio rápido, ha agregado el módulo Resource Graph a su entorno de Azure PowerShell y ha ejecutado la primera consulta. Para más información sobre el lenguaje de Resource Graph, vaya a la página de detalles del lenguaje de consulta.
+
+> [!div class="nextstepaction"]
+> [Obtener más información sobre el lenguaje de consulta](./concepts/query-language.md)

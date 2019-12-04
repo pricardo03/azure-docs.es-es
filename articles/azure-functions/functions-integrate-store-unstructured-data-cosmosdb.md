@@ -1,24 +1,15 @@
 ---
-title: Almacenamiento de datos no estructurados mediante Azure Cosmos DB y Functions | Microsoft Docs
+title: Almacenamiento de datos no estructurados mediante Azure Cosmos DB y Functions
 description: Almacenamiento de datos no estructurados mediante Azure Functions y Cosmos DB
-services: functions
-documentationcenter: functions
-author: ggailey777
-manager: jeconnoc
-keywords: azure functions, functions, procesamiento de eventos, Cosmos DB, proceso dinámico, arquitectura sin servidor
-ms.assetid: ''
-ms.service: azure-functions
-ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 10/01/2018
-ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: cdae0a04d09b7985935bee0ae636d7f88fbff541
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: bae5e82bfe9091c2b2003b4f1735f51e3d37222d
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54903662"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230559"
 ---
 # <a name="store-unstructured-data-using-azure-functions-and-azure-cosmos-db"></a>Almacenamiento de datos no estructurados mediante Azure Functions y Cosmos DB
 

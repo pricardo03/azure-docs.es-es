@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Creación de un rol personalizado para los recursos de Azure con la CLI de Azure | Microsoft Docs'
+title: 'Tutorial: Creación de un rol personalizado para recursos de Azure con la CLI de Azure'
 description: Introducción a la creación de un rol personalizado para los recursos de Azure con la CLI de Azure.
 services: active-directory
 documentationCenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/20/2019
 ms.author: rolyon
-ms.openlocfilehash: de1805d91f48b5718ecf293c2b8672ba40fb81a9
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 29b0bea851466b5173711441a5a7927c796c9926
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56588167"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74419601"
 ---
 # <a name="tutorial-create-a-custom-role-for-azure-resources-using-azure-cli"></a>Tutorial: Creación de un rol personalizado para los recursos de Azure con la CLI de Azure
 

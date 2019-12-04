@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: b26fa822e17ad7e9444b75d4db516ea2ccf5340b
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 01644054868ffc08738e67654ba181c76e7aed39
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74129689"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185079"
 ---
 # <a name="what-is-azure-app-configuration"></a>¿Qué es Azure App Configuration?
 
@@ -58,12 +58,12 @@ App Configuration complementa [Azure Key Vault](https://azure.microsoft.com/serv
 
 ## <a name="use-app-configuration"></a>Uso de App Configuration
 
-La manera más fácil de agregar un almacén de App Configuration a la aplicación es mediante una biblioteca cliente que proporciona Microsoft. Según el lenguaje y la plataforma de programación, los siguientes son los mejores métodos disponibles.
+La forma más fácil de agregar un almacén de App Configuration a una aplicación es mediante una biblioteca de cliente que Microsoft proporciona. Según el lenguaje y la plataforma de programación, los siguientes son los mejores métodos disponibles.
 
 | Lenguaje y plataforma de programación | Conexión |
 |---|---|
 | .NET Core y ASP.NET Core | Proveedor de App Configuration para .NET Core |
-| .NET y ASP.NET | Generador de App Configuration para .NET |
+| .NET Framework y ASP.NET | Generador de App Configuration para .NET |
 | Java Spring | Cliente de App Configuration para Spring Cloud |
 | Otros | API REST de App Configuration |
 
@@ -72,7 +72,7 @@ La manera más fácil de agregar un almacén de App Configuration a la aplicaci�
 * [Inicio rápido de ASP.NET Core](./quickstart-aspnet-core-app.md)
 * [Inicio rápido de .NET Core](./quickstart-dotnet-core-app.md)
 * [Inicio rápido de .NET Framework](./quickstart-dotnet-app.md)
-* [Inicio rápido de Azure Functions](./quickstart-azure-function-csharp.md)
+* [Inicio rápido de Azure Functions](./quickstart-azure-functions-csharp.md)
 * [Inicio rápido de Java Spring](./quickstart-java-spring-app.md)
 * [Inicio rápido sobre las marcas de características de ASP.NET Core](./quickstart-feature-flag-aspnet-core.md)
 * [Inicio rápido de la de marca de características de Spring Boot](./quickstart-feature-flag-spring-boot.md)

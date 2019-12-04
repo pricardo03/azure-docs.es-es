@@ -12,15 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 08/28/2019
+ms.date: 11/15/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 6826c1340de16891933b290eb29bd4fb8d120974
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 64b906c8a6b52d9c9655f3fe2b13d504d8eed4cb
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70127919"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278087"
 ---
 # <a name="compare-azure-cdn-product-features"></a>Comparación de las características de los productos de Azure CDN
 
@@ -41,11 +41,11 @@ En la tabla siguiente se comparan las características disponibles con cada prod
 | [Equilibrio de carga del servidor global (GSLB)](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-load-balancing-azure)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Purga rápida](cdn-purge-endpoint.md)  | **&#x2713;** |**&#x2713;** Purgar todo y la purga con carácter comodín no se admiten actualmente en Azure CDN desde Akamai. |**&#x2713;** |**&#x2713;** |
 | [Carga previa de activos](cdn-preload-endpoint.md)  |  | |**&#x2713;** |**&#x2713;** |
-| Configuración de la memoria caché o del encabezado (mediante [reglas de almacenamiento en caché](cdn-caching-rules.md))  |  |**&#x2713;** |**&#x2713;** | |
-| Motor de entrega de contenido personalizable, basado en reglas (mediante el [motor de reglas](cdn-rules-engine.md))  |  | | |**&#x2713;** |
-| Configuración de la memoria caché o del encabezado (mediante un [motor de reglas](cdn-rules-engine.md))  |  | | |**&#x2713;** |
-| Redirección/reescritura de dirección URL (mediante un [motor de reglas](cdn-rules-engine.md))  |  | | |**&#x2713;** |
-| Reglas de dispositivos móviles (mediante un [motor de reglas](cdn-rules-engine.md))  |  | | |**&#x2713;** |
+| Configuración de la memoria caché o del encabezado (mediante [reglas de almacenamiento en caché](cdn-caching-rules.md))  |**&#x2713;** mediante un [motor de reglas estándar](cdn-standard-rules-engine.md)  |**&#x2713;** |**&#x2713;** | |
+| Motor de entrega de contenido personalizable basado en reglas |**&#x2713;** mediante un [motor de reglas estándar](cdn-standard-rules-engine.md)  | | |**&#x2713;** mediante un [motor de reglas](cdn-rules-engine.md) |
+| Configuración de caché/encabezado  |**&#x2713;** mediante un [motor de reglas estándar](cdn-standard-rules-engine.md) | | |**&#x2713;** mediante un [motor de reglas Prémium](cdn-rules-engine.md) |
+| Redireccionamiento/reescritura de URL |**&#x2713;** mediante un [motor de reglas estándar](cdn-standard-rules-engine.md)  | | |**&#x2713;** mediante un [motor de reglas Prémium](cdn-rules-engine.md) |
+| Reglas de dispositivo móvil  |**&#x2713;** mediante un [motor de reglas estándar](cdn-standard-rules-engine.md) | | |**&#x2713;** mediante un [motor de reglas Prémium](cdn-rules-engine.md) |
 | [Almacenamiento en caché de cadena de consulta](cdn-query-string.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | Pila dual IPv4/IPv6 | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Compatibilidad con HTTP/2](cdn-http2.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |

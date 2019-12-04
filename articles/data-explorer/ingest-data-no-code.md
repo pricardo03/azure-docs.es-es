@@ -1,20 +1,20 @@
 ---
-title: 'Tutorial: Ingesta de datos de diagnóstico y de registro de actividad en Azure Data Explorer sin una línea de código'
-description: En este tutorial, obtendrá información sobre cómo introducir datos en Azure Data Explorer sin una línea de código y consultar datos.
+title: 'Tutorial: Ingesta de datos de supervisión en Azure Data Explorer sin una línea de código'
+description: En este tutorial, obtendrá información sobre cómo ingerir datos de supervisión en Azure Data Explorer sin una línea de código y cómo consultar datos.
 author: orspod
 ms.author: orspodek
-ms.reviewer: jasonh
+ms.reviewer: kerend
 ms.service: data-explorer
 ms.topic: tutorial
-ms.date: 04/29/2019
-ms.openlocfilehash: 187aa4b02e389c485b24ad7de256422d1880182b
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.date: 11/17/2019
+ms.openlocfilehash: 97faa445a286574aa5fc05d084d21c0740bc8a8b
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64872600"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173856"
 ---
-# <a name="tutorial-ingest-data-in-azure-data-explorer-without-one-line-of-code"></a>Tutorial: Ingesta de datos en Azure Data Explorer sin una línea de código
+# <a name="tutorial-ingest-and-query-monitoring-data-in-azure-data-explorer"></a>Tutorial: Ingesta y consulta de datos de supervisión en Azure Data Explorer 
 
 En este tutorial se muestra cómo ingerir datos de registros de actividad y diagnóstico para un clúster de Azure Data Explorer sin escribir código. Con este sencillo método de ingesta, puede empezar a consultar datos de Azure Data Explorer rápidamente para el análisis de datos.
 
@@ -24,24 +24,29 @@ En este tutorial, aprenderá a:
 > * Cree la asignación de la ingesta y las tablas en una base de datos de Azure Data Explorer.
 > * Aplicar formato a los datos ingeridos mediante una directiva de actualización
 > * Crear un [centro de eventos](/azure/event-hubs/event-hubs-about) y conectarlo a Azure Data Explorer
-> * Transmitir datos a un centro de eventos desde los [registros de diagnóstico de Azure Monitor](/azure/azure-monitor/platform/diagnostic-logs-overview) y los [registros de actividad de Azure Monitor](/azure/azure-monitor/platform/activity-logs-overview)
+> * Hacer streaming de datos a un centro de eventos a partir de los [registros y métricas de diagnóstico](/azure/azure-monitor/platform/diagnostic-settings) y los [registros de actividad](/azure/azure-monitor/platform/activity-logs-overview) de Azure Monitor.
 > * Consultar los datos ingeridos mediante Azure Data Explorer
 
 > [!NOTE]
-> Crear todos los recursos en la misma ubicación o región de Azure Esto es un requisito para los registros de diagnóstico de Azure Monitor.
+> Crear todos los recursos en la misma ubicación o región de Azure 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar.
 * [Un clúster y la base de datos de Azure Data Explorer](create-cluster-database-portal.md). En este tutorial, el nombre de la base de datos es *TestDatabase*.
 
-## <a name="azure-monitor-data-provider-diagnostic-and-activity-logs"></a>Proveedor de datos de Azure Monitor: registros de actividad y diagnóstico
+## <a name="azure-monitor-data-provider-diagnostic-metrics-and-logs-and-activity-logs"></a>Proveedor de datos de Azure Monitor: registros y métricas de diagnóstico y registros de actividad
 
-Vea y comprenda los datos proporcionados por los registros de actividad y diagnóstico de Azure Monitor a continuación. Se creará una canalización de ingesta en función de estos esquemas de datos. Tenga en cuenta que cada evento de un registro tiene una matriz de registros. Esta matriz de registros se dividirá más adelante en el tutorial.
+Vea y comprenda los datos que proporcionan los siguientes registros y métricas de diagnóstico y registros de actividad de Azure Monitor. Va a crear una canalización de ingesta en función de estos esquemas de datos. Tenga en cuenta que cada evento de un registro tiene una matriz de registros. Esta matriz de registros se dividirá más adelante en el tutorial.
 
-### <a name="diagnostic-logs-example"></a>Ejemplo de los registros de diagnóstico
+### <a name="examples-of-diagnostic-metrics-and-logs-and-activity-logs"></a>Ejemplos de registros y métricas de diagnóstico y registros de actividad
 
-Los registros de diagnóstico de Azure son emitidos por un servicio de Azure que proporciona datos sobre el funcionamiento de dicho servicio. Los datos se agregan con un intervalo de agregación de 1 minuto. Este es un ejemplo de un esquema de eventos de métricas de Azure Data Explorer, según la duración de la consulta:
+Los registros y métricas de diagnóstico y los registros de actividad de Azure son emitidos por un servicio de Azure que proporciona datos sobre el funcionamiento de ese servicio. 
+
+# <a name="diagnostic-metricstabdiagnostic-metrics"></a>[Métricas de diagnóstico](#tab/diagnostic-metrics)
+#### <a name="example"></a>Ejemplo
+
+Las métricas de diagnóstico se agregan con un intervalo de agregación de 1 minuto. El siguiente es un ejemplo de un esquema de eventos y métricas de Azure Data Explorer sobre la duración de una consulta:
 
 ```json
 {
@@ -52,7 +57,7 @@ Los registros de diagnóstico de Azure son emitidos por un servicio de Azure que
         "minimum": 0,
         "maximum": 0,
         "average": 0,
-        "resourceId": "/SUBSCRIPTIONS/F3101802-8C4F-4E6E-819C-A3B5794D33DD/RESOURCEGROUPS/KEDAMARI/PROVIDERS/MICROSOFT.KUSTO/CLUSTERS/KEREN",
+        "resourceId": "/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/<resource-group>/PROVIDERS/MICROSOFT.KUSTO/CLUSTERS/<cluster-name>",
         "time": "2018-12-20T17:00:00.0000000Z",
         "metricName": "QueryDuration",
         "timeGrain": "PT1M"
@@ -63,7 +68,7 @@ Los registros de diagnóstico de Azure son emitidos por un servicio de Azure que
         "minimum": 0,
         "maximum": 0,
         "average": 0,
-        "resourceId": "/SUBSCRIPTIONS/F3101802-8C4F-4E6E-819C-A3B5794D33DD/RESOURCEGROUPS/KEDAMARI/PROVIDERS/MICROSOFT.KUSTO/CLUSTERS/KEREN",
+        "resourceId": "/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/<resource-group>/PROVIDERS/MICROSOFT.KUSTO/CLUSTERS/<cluster-name>",
         "time": "2018-12-21T17:00:00.0000000Z",
         "metricName": "QueryDuration",
         "timeGrain": "PT1M"
@@ -72,16 +77,73 @@ Los registros de diagnóstico de Azure son emitidos por un servicio de Azure que
 }
 ```
 
-### <a name="activity-logs-example"></a>Registros de actividad de ejemplo
+# <a name="diagnostic-logstabdiagnostic-logs"></a>[Registros de diagnóstico](#tab/diagnostic-logs)
+#### <a name="example"></a>Ejemplo
 
-Los registros de actividad de Azure son registros de nivel de suscripción que proporcionan información sobre las operaciones realizadas en los recursos de la suscripción. Este es un ejemplo de un evento del registro de actividad para la comprobación del acceso:
+El siguiente es un ejemplo de un [registro de ingesta de diagnósticos](using-diagnostic-logs.md#diagnostic-logs-schema) de Azure Data Explorer:
+
+```json
+{
+    "time": "2019-08-26T13:22:36.8804326Z",
+    "resourceId": "/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/<resource-group>/PROVIDERS/MICROSOFT.KUSTO/CLUSTERS/<cluster-name>",
+    "operationName": "MICROSOFT.KUSTO/CLUSTERS/INGEST/ACTION",
+    "operationVersion": "1.0",
+    "category": "FailedIngestion",
+    "resultType": "Failed",
+    "correlationId": "d59882f1-ad64-4fc4-b2ef-d663b6cc1cc5",
+    "properties": {
+        "OperationId": "00000000-0000-0000-0000-000000000000",
+        "Database": "Kusto",
+        "Table": "Table_13_20_prod",
+        "FailedOn": "2019-08-26T13:22:36.8804326Z",
+        "IngestionSourceId": "d59882f1-ad64-4fc4-b2ef-d663b6cc1cc5",
+        "Details":
+        {
+            "error": 
+            {
+                "code": "BadRequest_DatabaseNotExist",
+                "message": "Request is invalid and cannot be executed.",
+                "@type": "Kusto.Data.Exceptions.DatabaseNotFoundException",
+                "@message": "Database 'Kusto' was not found.",
+                "@context": 
+                {
+                    "timestamp": "2019-08-26T13:22:36.7179157Z",
+                    "serviceAlias": "<cluster-name>",
+                    "machineName": "KEngine000001",
+                    "processName": "Kusto.WinSvc.Svc",
+                    "processId": 5336,
+                    "threadId": 6528,
+                    "appDomainName": "Kusto.WinSvc.Svc.exe",
+                    "clientRequestd": "DM.IngestionExecutor;a70ddfdc-b471-4fc7-beac-bb0f6e569fe8",
+                    "activityId": "f13e7718-1153-4e65-bf82-8583d712976f",
+                    "subActivityId": "2cdad9d0-737b-4c69-ac9a-22cf9af0c41b",
+                    "activityType": "DN.AdminCommand.DataIngestPullCommand",
+                    "parentActivityId": "2f65e533-a364-44dd-8d45-d97460fb5795",
+                    "activityStack": "(Activity stack: CRID=DM.IngestionExecutor;a70ddfdc-b471-4fc7-beac-bb0f6e569fe8 ARID=f13e7718-1153-4e65-bf82-8583d712976f > DN.Admin.Client.ExecuteControlCommand/5b764b32-6017-44a2-89e7-860eda515d40 > P.WCF.Service.ExecuteControlCommandInternal..IAdminClientServiceCommunicationContract/c2ef9344-069d-44c4-88b1-a3570697ec77 > DN.FE.ExecuteControlCommand/2f65e533-a364-44dd-8d45-d97460fb5795 > DN.AdminCommand.DataIngestPullCommand/2cdad9d0-737b-4c69-ac9a-22cf9af0c41b)"
+                },
+                "@permanent": true
+            }
+        },
+        "ErrorCode": "BadRequest_DatabaseNotExist",
+        "FailureStatus": "Permanent",
+        "RootActivityId": "00000000-0000-0000-0000-000000000000",
+        "OriginatesFromUpdatePolicy": false,
+        "ShouldRetry": false,
+        "IngestionSourcePath": "https://c0skstrldkereneus01.blob.core.windows.net/aam-20190826-temp-e5c334ee145d4b43a3a2d3a96fbac1df/3216_test_3_columns_invalid_8f57f0d161ed4a8c903c6d1073005732_59951f9ca5d143b6bdefe52fa381a8ca.zip"
+    }
+}
+```
+# <a name="activity-logstabactivity-logs"></a>[Registros de actividad](#tab/activity-logs)
+#### <a name="example"></a>Ejemplo
+
+Los registros de actividad de Azure son registros de nivel de suscripción que proporcionan información sobre las operaciones realizadas en los recursos de la suscripción. Este es un ejemplo de un evento del registro de actividad para la comprobación de acceso:
 
 ```json
 {
     "records": [
     {
         "time": "2018-12-26T16:23:06.1090193Z",
-        "resourceId": "/SUBSCRIPTIONS/F80EB51C-C534-4F0B-80AB-AEBC290C1C19/RESOURCEGROUPS/CLEANUPSERVICE/PROVIDERS/MICROSOFT.WEB/SITES/CLNB5F73B70-DCA2-47C2-BB24-77B1A2CAAB4D/PROVIDERS/MICROSOFT.AUTHORIZATION",
+        "resourceId": "/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/<resource-group>/PROVIDERS/MICROSOFT.WEB/SITES/CLNB5F73B70-DCA2-47C2-BB24-77B1A2CAAB4D/PROVIDERS/MICROSOFT.AUTHORIZATION",
         "operationName": "MICROSOFT.AUTHORIZATION/CHECKACCESS/ACTION",
         "category": "Action",
         "resultType": "Start",
@@ -105,7 +167,7 @@ Los registros de actividad de Azure son registros de nivel de suscripción que p
     },
     {
         "time": "2018-12-26T16:23:06.3040244Z",
-        "resourceId": "/SUBSCRIPTIONS/F80EB51C-C534-4F0B-80AB-AEBC290C1C19/RESOURCEGROUPS/CLEANUPSERVICE/PROVIDERS/MICROSOFT.WEB/SITES/CLNB5F73B70-DCA2-47C2-BB24-77B1A2CAAB4D/PROVIDERS/MICROSOFT.AUTHORIZATION",
+        "resourceId": "/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/<resource-group>/PROVIDERS/MICROSOFT.WEB/SITES/CLNB5F73B70-DCA2-47C2-BB24-77B1A2CAAB4D/PROVIDERS/MICROSOFT.AUTHORIZATION",
         "operationName": "MICROSOFT.AUTHORIZATION/CHECKACCESS/ACTION",
         "category": "Action",
         "resultType": "Success",
@@ -130,6 +192,7 @@ Los registros de actividad de Azure son registros de nivel de suscripción que p
     }]
 }
 ```
+---
 
 ## <a name="set-up-an-ingestion-pipeline-in-azure-data-explorer"></a>Configuración de una canalización de ingesta en Azure Data Explorer
 
@@ -143,34 +206,65 @@ En la base de datos *TestDatabase* de Azure Data Explorer, seleccione **Query** 
 
 ### <a name="create-the-target-tables"></a>Creación de las tablas de destino
 
-La estructura de los registros de Azure Monitor no es tabular. Podrá manipular los datos y expandir cada evento a uno o más registros. Los datos sin procesar se ingieren en una tabla intermedia denominada *ActivityLogsRawRecords* (registros de actividad) y *DiagnosticLogsRawRecords* (registros de diagnóstico). En ese momento, los datos se manipularán y se expandirán. Con una directiva de actualización, los datos expandidos se introducen en la tabla *ActivityLogsRecords* (registros de actividad) y *DiagnosticLogsRecords* (registros de diagnóstico). Esto significa que deberá crear dos tablas independientes para la ingesta de los registros de actividad y dos tablas independientes para la ingesta de registros de diagnóstico.
+La estructura de los registros de Azure Monitor no es tabular. Podrá manipular los datos y expandir cada evento a uno o más registros. Los datos sin procesar se ingieren en una tabla intermedia denominada *ActivityLogsRawRecords* para registros de actividad y *DiagnosticRawRecords* para registros y métricas de diagnóstico. En ese momento, los datos se manipularán y se expandirán. Mediante una directiva de actualización, los datos expandidos se ingieren en la tabla *ActivityLogs* para los registros de actividad, *DiagnosticMetrics* para las métricas de diagnóstico y *DiagnosticLogs* para los registros de diagnóstico. Esto significa que deberá crear dos tablas independientes para la ingesta de los registros de actividad y dos tablas independientes para la ingesta de los registros y métricas de diagnóstico.
 
 Use la interfaz de usuario web de Azure Data Explorer para crear las tablas de destino en la base de datos de Azure Data Explorer.
 
-#### <a name="the-diagnostic-logs-table"></a>Tabla de registros de diagnóstico
+# <a name="diagnostic-metricstabdiagnostic-metrics"></a>[Métricas de diagnóstico](#tab/diagnostic-metrics)
+#### <a name="create-tables-for-the-diagnostic-metrics"></a>Creación de tablas para las métricas de diagnóstico
 
-1. En la base de datos *TestDatabase*, cree una tabla llamada *DiagnosticLogsRecords* para almacenar los registros de diagnóstico. Use el siguiente comando de control `.create table`:
+1. En la base de datos *TestDatabase*, cree una tabla llamada *DiagnosticMetrics* para almacenar los registros de métricas de diagnóstico. Use el siguiente comando de control `.create table`:
 
     ```kusto
-    .create table DiagnosticLogsRecords (Timestamp:datetime, ResourceId:string, MetricName:string, Count:int, Total:double, Minimum:double, Maximum:double, Average:double, TimeGrain:string)
+    .create table DiagnosticMetrics (Timestamp:datetime, ResourceId:string, MetricName:string, Count:int, Total:double, Minimum:double, Maximum:double, Average:double, TimeGrain:string)
     ```
 
 1. Seleccione **Ejecutar** para crear la tabla.
 
     ![Ejecutar consulta](media/ingest-data-no-code/run-query.png)
 
-1. Cree la tabla de datos intermedia llamada *DiagnosticLogsRawRecords* en la base de datos *TestDatabase* para la manipulación de los datos mediante la siguiente consulta. Seleccione **Ejecutar** para crear la tabla.
+1. Cree la tabla de datos intermedia llamada *DiagnosticRawRecords* en la base de datos *TestDatabase* para la manipulación de los datos mediante la siguiente consulta. Seleccione **Ejecutar** para crear la tabla.
 
     ```kusto
-    .create table DiagnosticLogsRawRecords (Records:dynamic)
+    .create table DiagnosticRawRecords (Records:dynamic)
     ```
 
-#### <a name="the-activity-logs-tables"></a>Tablas de registros de actividad
-
-1. Cree una tabla llamada *ActivityLogsRecords* en la base de datos *TestDatabase* para recibir registros de actividad. Para crear la tabla, ejecute la siguiente consulta de Azure Data Explorer:
+1. Establezca una [directiva de retención](/azure/kusto/management/retention-policy) cero para la tabla intermedia:
 
     ```kusto
-    .create table ActivityLogsRecords (Timestamp:datetime, ResourceId:string, OperationName:string, Category:string, ResultType:string, ResultSignature:string, DurationMs:int, IdentityAuthorization:dynamic, IdentityClaims:dynamic, Location:string, Level:string)
+    .alter-merge table DiagnosticRawRecords policy retention softdelete = 0d
+    ```
+
+# <a name="diagnostic-logstabdiagnostic-logs"></a>[Registros de diagnóstico](#tab/diagnostic-logs)
+#### <a name="create-tables-for-the-diagnostic-logs"></a>Creación de tablas para los registros de diagnóstico 
+
+1. En la base de datos *TestDatabase*, cree una tabla llamada *DiagnosticLogs* para almacenar los registros de diagnóstico. Use el siguiente comando de control `.create table`:
+
+    ```kusto
+    .create table DiagnosticLogs (Timestamp:datetime, ResourceId:string, OperationName:string, Result:string, OperationId:string, Database:string, Table:string, IngestionSourceId:string, IngestionSourcePath:string, RootActivityId:string, ErrorCode:string, FailureStatus:string, Details:string)
+    ```
+
+1. Seleccione **Ejecutar** para crear la tabla.
+
+1. Cree la tabla de datos intermedia llamada *DiagnosticRawRecords* en la base de datos *TestDatabase* para la manipulación de los datos mediante la siguiente consulta. Seleccione **Ejecutar** para crear la tabla.
+
+    ```kusto
+    .create table DiagnosticRawRecords (Records:dynamic)
+    ```
+
+1. Establezca una [directiva de retención](/azure/kusto/management/retention-policy) cero para la tabla intermedia:
+
+    ```kusto
+    .alter-merge table DiagnosticRawRecords policy retention softdelete = 0d
+    ```
+
+# <a name="activity-logstabactivity-logs"></a>[Registros de actividad](#tab/activity-logs)
+#### <a name="create-tables-for-the-activity-logs"></a>Creación de tablas para los registros de actividad 
+
+1. Cree una tabla llamada *ActivityLogs* en la base de datos *TestDatabase* para recibir registros de actividad. Para crear la tabla, ejecute la siguiente consulta de Azure Data Explorer:
+
+    ```kusto
+    .create table ActivityLogs (Timestamp:datetime, ResourceId:string, OperationName:string, Category:string, ResultType:string, ResultSignature:string, DurationMs:int, IdentityAuthorization:dynamic, IdentityClaims:dynamic, Location:string, Level:string)
     ```
 
 1. Cree la tabla de datos intermedia llamada *ActivityLogsRawRecords* en la base de datos *TestDatabase* para la manipulación de los datos:
@@ -179,35 +273,101 @@ Use la interfaz de usuario web de Azure Data Explorer para crear las tablas de d
     .create table ActivityLogsRawRecords (Records:dynamic)
     ```
 
-<!--
-     ```kusto
-     .alter-merge table ActivityLogsRawRecords policy retention softdelete = 0d
-    <[Retention](/azure/kusto/management/retention-policy) for an intermediate data table is set at zero retention policy.
--->
+1. Establezca una [directiva de retención](/azure/kusto/management/retention-policy) cero para la tabla intermedia:
+
+    ```kusto
+    .alter-merge table ActivityLogsRawRecords policy retention softdelete = 0d
+    ```
+---
 
 ### <a name="create-table-mappings"></a>Creación de asignaciones de tablas
 
  Como el formato de datos es `json`, se requiere la asignación de datos. La asignación `json` asigna cada ruta de acceso JSON a un nombre de columna de tabla.
 
-#### <a name="table-mapping-for-diagnostic-logs"></a>Asignación de tablas para registros de diagnóstico
+# <a name="diagnostic-metrics--diagnostic-logstabdiagnostic-metricsdiagnostic-logs"></a>[Métricas de diagnóstico y registros de diagnóstico](#tab/diagnostic-metrics+diagnostic-logs) 
+#### <a name="map-diagnostic-metrics-and-logs-to-the-table"></a>Asignación de métricas y registros de diagnóstico a la tabla
 
-Para asignar los datos de los registros de diagnóstico a la tabla, use la siguiente consulta:
+Para asignar las métricas de diagnóstico y los datos del registro a la tabla, use la siguiente consulta:
 
 ```kusto
-.create table DiagnosticLogsRawRecords ingestion json mapping 'DiagnosticLogsRawRecordsMapping' '[{"column":"Records","path":"$.records"}]'
+.create table DiagnosticRawRecords ingestion json mapping 'DiagnosticRawRecordsMapping' '[{"column":"Records","path":"$.records"}]'
 ```
 
-#### <a name="table-mapping-for-activity-logs"></a>Asignación de tablas para registros de actividad
+# <a name="activity-logstabactivity-logs"></a>[Registros de actividad](#tab/activity-logs)
+#### <a name="map-activity-logs-to-the-table"></a>Asignación de registros de actividad a la tabla
 
 Para asignar los datos de los registros de actividad a la tabla, use la siguiente consulta:
 
 ```kusto
 .create table ActivityLogsRawRecords ingestion json mapping 'ActivityLogsRawRecordsMapping' '[{"column":"Records","path":"$.records"}]'
 ```
+---
 
-### <a name="create-the-update-policy-for-log-data"></a>Creación de la directiva de actualización para los datos de registro
+### <a name="create-the-update-policy-for-metric-and-log-data"></a>Creación de la directiva de actualización para los datos de métricas y registros
 
-#### <a name="activity-log-data-update-policy"></a>Directiva de actualización de los datos de registro de actividad
+# <a name="diagnostic-metricstabdiagnostic-metrics"></a>[Métricas de diagnóstico](#tab/diagnostic-metrics)
+#### <a name="create-data-update-policy-for-diagnostics-metrics"></a>Creación de una directiva de actualización de datos para métricas de diagnóstico
+
+1. Cree una [función](/azure/kusto/management/functions) que expanda la colección de registros de métricas de diagnóstico para que cada valor de la colección reciba una fila independiente. Use el operador [`mv-expand`](/azure/kusto/query/mvexpandoperator):
+     ```kusto
+    .create function DiagnosticMetricsExpand() {
+        DiagnosticRawRecords
+        | mv-expand events = Records
+        | where isnotempty(events.metricName)
+        | project
+            Timestamp = todatetime(events.time),
+            ResourceId = tostring(events.resourceId),
+            MetricName = tostring(events.metricName),
+            Count = toint(events.count),
+            Total = todouble(events.total),
+            Minimum = todouble(events.minimum),
+            Maximum = todouble(events.maximum),
+            Average = todouble(events.average),
+            TimeGrain = tostring(events.timeGrain)
+    }
+    ```
+
+2. Agregue la [directiva de actualización](/azure/kusto/concepts/updatepolicy) a la tabla de destino. Esta directiva ejecuta automáticamente la consulta en cualquier dato recién ingerido en la tabla de datos intermedia *DiagnosticRawRecords* e ingiere sus resultados en la tabla *DiagnosticMetrics*:
+
+    ```kusto
+    .alter table DiagnosticMetrics policy update @'[{"Source": "DiagnosticRawRecords", "Query": "DiagnosticMetricsExpand()", "IsEnabled": "True"}]'
+    ```
+
+# <a name="diagnostic-logstabdiagnostic-logs"></a>[Registros de diagnóstico](#tab/diagnostic-logs)
+#### <a name="create-data-update-policy-for-diagnostics-logs"></a>Creación de una directiva de actualización de datos para registros de diagnóstico
+
+1. Cree una [función](/azure/kusto/management/functions) que expanda la colección de registros de diagnóstico para que cada valor de la colección reciba una fila independiente. Va a habilitar los registros de ingesta en un clúster de Azure Data Explorer y usará un [esquema de registros de ingesta](/azure/data-explorer/using-diagnostic-logs#diagnostic-logs-schema). Creará una tabla para ingestas correctas y erróneas, aunque algunos de los campos estarán vacíos en el caso de las correctas (ErrorCode, por ejemplo). Use el operador [`mv-expand`](/azure/kusto/query/mvexpandoperator):
+
+    ```kusto
+    .create function DiagnosticLogsExpand() {
+        DiagnosticRawRecords
+        | mv-expand events = Records
+        | where isnotempty(events.operationName)
+        | project
+            Timestamp = todatetime(events.time),
+            ResourceId = tostring(events.resourceId),
+            OperationName = tostring(events.operationName),
+            Result = tostring(events.resultType),
+            OperationId = tostring(events.properties.OperationId),
+            Database = tostring(events.properties.Database),
+            Table = tostring(events.properties.Table),
+            IngestionSourceId = tostring(events.properties.IngestionSourceId),
+            IngestionSourcePath = tostring(events.properties.IngestionSourcePath),
+            RootActivityId = tostring(events.properties.RootActivityId),
+            ErrorCode = tostring(events.properties.ErrorCode),
+            FailureStatus = tostring(events.properties.FailureStatus),
+            Details = tostring(events.properties.Details)
+    }
+    ```
+
+2. Agregue la [directiva de actualización](/azure/kusto/concepts/updatepolicy) a la tabla de destino. Esta directiva ejecuta automáticamente la consulta en cualquier dato recién ingerido en la tabla de datos intermedia *DiagnosticRawRecords* e ingiere sus resultados en la tabla *DiagnosticLogs*:
+
+    ```kusto
+    .alter table DiagnosticLogs policy update @'[{"Source": "DiagnosticRawRecords", "Query": "DiagnosticLogsExpand()", "IsEnabled": "True"}]'
+    ```
+
+# <a name="activity-logstabactivity-logs"></a>[Registros de actividad](#tab/activity-logs)
+#### <a name="create-data-update-policy-for-activity-logs"></a>Creación de una directiva de actualización de datos de los registros de actividad
 
 1. Cree una [función](/azure/kusto/management/functions) que expanda la colección de registros de actividad para que cada valor de la colección reciba una fila independiente. Use el operador [`mv-expand`](/azure/kusto/query/mvexpandoperator):
 
@@ -216,55 +376,30 @@ Para asignar los datos de los registros de actividad a la tabla, use la siguient
         ActivityLogsRawRecords
         | mv-expand events = Records
         | project
-            Timestamp = todatetime(events["time"]),
-            ResourceId = tostring(events["resourceId"]),
-            OperationName = tostring(events["operationName"]),
-            Category = tostring(events["category"]),
-            ResultType = tostring(events["resultType"]),
-            ResultSignature = tostring(events["resultSignature"]),
-            DurationMs = toint(events["durationMs"]),
+            Timestamp = todatetime(events.time),
+            ResourceId = tostring(events.resourceId),
+            OperationName = tostring(events.operationName),
+            Category = tostring(events.category),
+            ResultType = tostring(events.resultType),
+            ResultSignature = tostring(events.resultSignature),
+            DurationMs = toint(events.durationMs),
             IdentityAuthorization = events.identity.authorization,
             IdentityClaims = events.identity.claims,
-            Location = tostring(events["location"]),
-            Level = tostring(events["level"])
+            Location = tostring(events.location),
+            Level = tostring(events.level)
     }
     ```
 
-2. Agregue la [directiva de actualización](/azure/kusto/concepts/updatepolicy) a la tabla de destino. Esta directiva ejecuta automáticamente la consulta en cualquier dato recién ingerido en la tabla de datos intermedia *ActivityLogsRawRecords* e ingiere sus resultados en la tabla *ActivityLogsRecords*:
+2. Agregue la [directiva de actualización](/azure/kusto/concepts/updatepolicy) a la tabla de destino. Esta directiva ejecuta automáticamente la consulta en cualquier dato recién ingerido en la tabla de datos intermedia *ActivityLogsRawRecords* e ingiere sus resultados en la tabla *ActivityLogs*:
 
     ```kusto
-    .alter table ActivityLogsRecords policy update @'[{"Source": "ActivityLogsRawRecords", "Query": "ActivityLogRecordsExpand()", "IsEnabled": "True"}]'
+    .alter table ActivityLogs policy update @'[{"Source": "ActivityLogsRawRecords", "Query": "ActivityLogRecordsExpand()", "IsEnabled": "True"}]'
     ```
-
-#### <a name="diagnostic-log-data-update-policy"></a>Directiva de actualización de los datos de registro de diagnóstico
-
-1. Cree una [función](/azure/kusto/management/functions) que expanda la colección de registros de diagnóstico para que cada valor de la colección reciba una fila independiente. Use el operador [`mv-expand`](/azure/kusto/query/mvexpandoperator):
-     ```kusto
-    .create function DiagnosticLogRecordsExpand() {
-        DiagnosticLogsRawRecords
-        | mv-expand events = Records
-        | project
-            Timestamp = todatetime(events["time"]),
-            ResourceId = tostring(events["resourceId"]),
-            MetricName = tostring(events["metricName"]),
-            Count = toint(events["count"]),
-            Total = todouble(events["total"]),
-            Minimum = todouble(events["minimum"]),
-            Maximum = todouble(events["maximum"]),
-            Average = todouble(events["average"]),
-            TimeGrain = tostring(events["timeGrain"])
-    }
-    ```
-
-2. Agregue la [directiva de actualización](/azure/kusto/concepts/updatepolicy) a la tabla de destino. Esta directiva ejecuta automáticamente la consulta en cualquier dato recién ingerido en la tabla de datos intermedia *DiagnosticLogsRawRecords* e ingiere sus resultados en la tabla *DiagnosticLogsRecords*:
-
-    ```kusto
-    .alter table DiagnosticLogsRecords policy update @'[{"Source": "DiagnosticLogsRawRecords", "Query": "DiagnosticLogRecordsExpand()", "IsEnabled": "True"}]'
-    ```
+---
 
 ## <a name="create-an-azure-event-hubs-namespace"></a>Creación de un espacio de nombres de Azure Event Hubs
 
-Los registros de diagnóstico de Azure permiten exportar métricas a una cuenta de almacenamiento o a un centro de eventos. En este tutorial, enrutará las métricas mediante un centro de eventos. En los pasos siguientes creará un espacio de nombres de Event Hubs y un centro de eventos para los registros de diagnóstico. Azure Monitor creará el centro de eventos *insights-operational-logs* para los registros de actividad.
+La configuración de diagnóstico de Azure permite exportar métricas y registros a una cuenta de almacenamiento o a un centro de eventos. En este tutorial, enrutará las métricas y registros mediante un centro de eventos. En los pasos siguientes creará un espacio de nombres de Event Hubs y un centro de eventos para las métricas y registros de diagnóstico. Azure Monitor creará el centro de eventos *insights-operational-logs* para los registros de actividad.
 
 1. Cree un centro de eventos mediante una plantilla de Azure Resource Manager en Azure Portal. Para seguir el resto de los pasos de este artículo, haga clic con el botón derecho en el botón **Implementar en Azure** y, luego, seleccione **Abrir en una nueva ventana**. El botón **Deploy to Azure** (Implementar en Azure) le lleva a Azure Portal.
 
@@ -282,17 +417,18 @@ Los registros de diagnóstico de Azure permiten exportar métricas a una cuenta 
     | **Grupos de recursos** | *test-resource-group* | Cree un nuevo grupo de recursos. |
     | **Ubicación** | Seleccione la región que mejor se adapte a sus necesidades. | Cree el espacio de nombres de Event Hubs en la misma ubicación que otros recursos.
     | **Nombre del espacio de nombres** | *AzureMonitoringData* | Elija un nombre único que identifique el espacio de nombres.
-    | **Nombre del centro de eventos** | *DiagnosticLogsData* | El centro de eventos se encuentra bajo el espacio de nombres, que proporciona un contenedor de ámbito único. |
+    | **Nombre del centro de eventos** | *DiagnosticData* | El centro de eventos se encuentra bajo el espacio de nombres, que proporciona un contenedor de ámbito único. |
     | **Nombre del grupo de consumidores** | *adxpipeline* | Cree un nombre para el grupo de consumidores. Los grupos de consumidores permiten consumir varias aplicaciones y que cada una tenga una vista independiente del flujo de eventos. |
     | | |
 
-## <a name="connect-azure-monitor-logs-to-your-event-hub"></a>Conexión de registros de Azure Monitor al centro de eventos
+## <a name="connect-azure-monitor-metrics-and-logs-to-your-event-hub"></a>Conexión de métricas y registros de Azure Monitor al centro de eventos
 
-Ahora debe conectar los registros de diagnóstico y los registros de actividad al centro de eventos.
+Ahora debe conectar los registros y métricas de diagnóstico y los registros de actividad al centro de eventos.
 
-### <a name="connect-diagnostic-logs-to-your-event-hub"></a>Conexión de los registros de diagnóstico al centro de eventos
+# <a name="diagnostic-metrics--diagnostic-logstabdiagnostic-metricsdiagnostic-logs"></a>[Métricas de diagnóstico y registros de diagnóstico](#tab/diagnostic-metrics+diagnostic-logs) 
+### <a name="connect-diagnostic-metrics-and-logs-to-your-event-hub"></a>Conexión de métricas y registros de diagnóstico al centro de eventos
 
-Seleccione un recurso desde el que se va a exportar las métricas. Hay varios tipos de recursos que admiten la exportación de registros de diagnóstico, incluido el espacio de nombres de Event Hubs, Azure Key Vault, Azure IoT Hub y los clústeres de Azure Data Explorer. En este tutorial, se usará el clúster de Azure Data Explorer como recurso.
+Seleccione un recurso desde el que se va a exportar las métricas. Hay varios tipos de recursos que admiten la exportación de datos de diagnóstico, incluido el espacio de nombres de Event Hubs, Azure Key Vault, Azure IoT Hub y los clústeres de Azure Data Explorer. En este tutorial, se utilizará un clúster de Azure Data Explorer como nuestro recurso, se revisarán las métricas de rendimiento de las consultas y los registros de resultados de la ingesta.
 
 1. Seleccione el clúster de Kusto en Azure Portal.
 1. Seleccione **Configuración de diagnóstico** y, luego, el vínculo **Activar diagnóstico**. 
@@ -301,7 +437,8 @@ Seleccione un recurso desde el que se va a exportar las métricas. Hay varios ti
 
 1. Se abre el panel **Configuración de diagnóstico**. Siga estos pasos.
    1. Asigne a los datos del registro de diagnóstico el nombre *ADXExportedData*.
-   1. En **MÉTRICA**, active la casilla **AllMetrics** (Todas las métricas) (opcional).
+   1. En **REGISTRO**, active las casillas **SucceededIngestion** y **FailedIngestion**.
+   1. En **MÉTRICA**, seleccione la casilla **Query performance**.
    1. Active la casilla **Transmitir a un centro de eventos**.
    1. Seleccione **Configurar**.
 
@@ -309,12 +446,13 @@ Seleccione un recurso desde el que se va a exportar las métricas. Hay varios ti
 
 1. En el panel **Seleccionar centro de eventos**, configure cómo exportar datos desde los registros de diagnóstico hasta el centro de eventos que ha creado:
     1. En la lista **Seleccionar el espacio de nombres del Centro de eventos**, seleccione *AzureMonitoringData*.
-    1. En la lista **Seleccionar nombre de centro de eventos**, seleccione *diagnosticlogsdata*.
+    1. En la lista **Seleccionar nombre de centro de eventos**, seleccione *DiagnosticData*.
     1. En la lista **Seleccionar el nombre de directiva del Centro de eventos**, seleccione **RootManagerSharedAccessKey**.
     1. Seleccione **Aceptar**.
 
 1. Seleccione **Guardar**.
 
+# <a name="activity-logstabactivity-logs"></a>[Registros de actividad](#tab/activity-logs)
 ### <a name="connect-activity-logs-to-your-event-hub"></a>Conexión de los registros de actividad al centro de eventos
 
 1. En el menú izquierdo de Azure Portal, seleccione **Registro de actividad**.
@@ -337,6 +475,7 @@ Seleccione un recurso desde el que se va a exportar las métricas. Hay varios ti
       1. Seleccione **Aceptar**.
       1. En la esquina superior izquierda de la ventana, seleccione **Guardar**.
    Se creará un centro de eventos con el nombre *insights-operational-logs*.
+---
 
 ### <a name="see-data-flowing-to-your-event-hubs"></a>Visualización del flujo de datos a los centros de eventos
 
@@ -350,9 +489,9 @@ Seleccione un recurso desde el que se va a exportar las métricas. Hay varios ti
 
 ## <a name="connect-an-event-hub-to-azure-data-explorer"></a>Conexión de un centro de eventos a Azure Data Explorer
 
-Ahora debe crear las conexiones de datos para sus registros de diagnóstico y registros de actividad.
+Ahora debe crear las conexiones de datos para sus métricas y registros de diagnóstico y registros de actividad.
 
-### <a name="create-the-data-connection-for-diagnostic-logs"></a>Creación de la conexión de datos para los registros de diagnóstico
+### <a name="create-the-data-connection-for-diagnostic-metrics-and-logs-and-activity-logs"></a>Creación de conexiones de datos para sus métricas y registros de diagnóstico y registros de actividad
 
 1. En el clúster de Azure Data Explorer llamado *kustodocs*, seleccione **Bases de datos** en el menú izquierdo.
 1. En la ventana **Bases de datos**, seleccione la base de datos *TestDatabase*.
@@ -362,13 +501,17 @@ Ahora debe crear las conexiones de datos para sus registros de diagnóstico y re
 
     ![Conexión de datos del centro de eventos](media/ingest-data-no-code/event-hub-data-connection.png)
 
+# <a name="diagnostic-metrics--diagnostic-logstabdiagnostic-metricsdiagnostic-logs"></a>[Métricas de diagnóstico y registros de diagnóstico](#tab/diagnostic-metrics+diagnostic-logs) 
+
+1. Use la configuración siguiente en la ventana **Conexión de datos**:
+
     Origen de datos:
 
     **Configuración** | **Valor sugerido** | **Descripción del campo**
     |---|---|---|
     | **Nombre de la conexión de datos** | *DiagnosticsLogsConnection* | Nombre de la conexión que desea crear en el Explorador de datos de Azure.|
     | **Espacio de nombres del centro de eventos** | *AzureMonitoringData* | Nombre elegido anteriormente que identifica el espacio de nombres. |
-    | **Centro de eventos** | *diagnosticlogsdata* | El centro de eventos que creó. |
+    | **Centro de eventos** | *DiagnosticData* | El centro de eventos que creó. |
     | **Grupo de consumidores** | *adxpipeline* | Grupo de consumidores de eventos definido en el centro de eventos que creó. |
     | | |
 
@@ -378,16 +521,14 @@ Ahora debe crear las conexiones de datos para sus registros de diagnóstico y re
 
      **Configuración** | **Valor sugerido** | **Descripción del campo**
     |---|---|---|
-    | **Table** | *DiagnosticLogsRawRecords* | La tabla que creó en la base de datos *TestDatabase*. |
+    | **Table** | *DiagnosticRawRecords* | La tabla que creó en la base de datos *TestDatabase*. |
     | **Formato de datos** | *JSON* | El formato usado en la tabla. |
-    | **Asignación de columnas** | *DiagnosticLogsRecordsMapping* | La asignación que creó en la base de datos *TestDatabase*, que asigna los datos JSON entrantes a los nombres de columna y los tipos de datos de la tabla *DiagnosticLogsRawRecords*.|
+    | **Asignación de columnas** | *DiagnosticRawRecordsMapping* | La asignación que creó en la base de datos *TestDatabase*, que asigna los datos JSON entrantes a los nombres de columna y los tipos de datos de la tabla *DiagnosticRawRecords*.|
     | | |
 
 1. Seleccione **Crear**.  
 
-### <a name="create-the-data-connection-for-activity-logs"></a>Creación de la conexión de datos para los registros de actividad
-
-Repita los pasos de la sección Creación de la conexión de datos para los registros de diagnóstico para crear la conexión de datos para los registros de actividad.
+# <a name="activity-logstabactivity-logs"></a>[Registros de actividad](#tab/activity-logs)
 
 1. Use la configuración siguiente en la ventana **Conexión de datos**:
 
@@ -413,17 +554,19 @@ Repita los pasos de la sección Creación de la conexión de datos para los regi
     | | |
 
 1. Seleccione **Crear**.  
+---
 
 ## <a name="query-the-new-tables"></a>Consulta de las nuevas tablas
 
 Ahora tiene una canalización con el flujo de datos. La ingesta a través del clúster tarda cinco minutos de forma predeterminada, por lo que los datos fluyen durante unos minutos antes de empezar la consulta.
 
-### <a name="an-example-of-querying-the-diagnostic-logs-table"></a>Ejemplo de consulta en la tabla de registros de diagnóstico
+# <a name="diagnostic-metricstabdiagnostic-metrics"></a>[Métricas de diagnóstico](#tab/diagnostic-metrics)
+### <a name="query-the-diagnostic-metrics-table"></a>Consulta de la tabla de métricas de diagnóstico
 
-La siguiente consulta analiza los datos de duración de la consulta del registro de diagnóstico de Azure Data Explorer:
+La siguiente consulta analiza los datos de duración de las consultas a partir de los registros de métricas de diagnóstico de Azure Data Explorer:
 
 ```kusto
-DiagnosticLogsRecords
+DiagnosticMetrics
 | where Timestamp > ago(15m) and MetricName == 'QueryDuration'
 | summarize avg(Average)
 ```
@@ -436,12 +579,33 @@ Resultados de la consulta:
 |   | 00:06.156 |
 | | |
 
-### <a name="an-example-of-querying-the-activity-logs-table"></a>Ejemplo de consulta de la tabla de registros de actividad
+# <a name="diagnostic-logstabdiagnostic-logs"></a>[Registros de diagnóstico](#tab/diagnostic-logs)
+### <a name="query-the-diagnostic-logs-table"></a>Consulta de la tabla de registros de diagnóstico
+
+Esta canalización produce ingestas a través de un centro de eventos. Revisará los resultados de estas ingesta.
+La siguiente consulta analiza el número de ingestas acumuladas en un minuto, incluido un ejemplo de `Database`, `Table` y `IngestionSourcePath` para cada intervalo:
+
+```kusto
+DiagnosticLogs
+| where Timestamp > ago(15m) and OperationName has 'INGEST'
+| summarize count(), any(Database, Table, IngestionSourcePath) by bin(Timestamp, 1m)
+```
+
+Resultados de la consulta:
+
+|   |   |
+| --- | --- |
+|   |  count_ | any_Database | any_Table | any_IngestionSourcePath
+|   | 00:06.156 | TestDatabase | DiagnosticRawRecords | https://rtmkstrldkereneus00.blob.core.windows.net/20190827-readyforaggregation/1133_TestDatabase_DiagnosticRawRecords_6cf02098c0c74410bd8017c2d458b45d.json.zip
+| | |
+
+# <a name="activity-logstabactivity-logs"></a>[Registros de actividad](#tab/activity-logs)
+### <a name="query-the-activity-logs-table"></a>Consulta de la tabla de registros de actividad
 
 La siguiente consulta analiza los datos del registro de actividad de Azure Data Explorer:
 
 ```kusto
-ActivityLogsRecords
+ActivityLogs
 | where OperationName == 'MICROSOFT.EVENTHUB/NAMESPACES/AUTHORIZATIONRULES/LISTKEYS/ACTION'
 | where ResultType == 'Success'
 | summarize avg(DurationMs)
@@ -455,9 +619,10 @@ Resultados de la consulta:
 |   | 768,333 |
 | | |
 
+---
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-Aprenda a escribir muchas más consultas de los datos que extrajo de Azure Data Explorer en el artículo siguiente:
-
-> [!div class="nextstepaction"]
-> [Write queries for Azure Data Explorer](write-queries.md) (Escritura de consultas del Explorador de datos de Azure)
+* Aprenda a escribir muchas más consultas sobre los datos que extrajo de Azure Data Explorer mediante el artículo [Escritura de consultas para Azure Data Explorer](write-queries.md).
+* [Supervisión de las operaciones de ingesta de Azure Data Explorer mediante registros de diagnóstico](using-diagnostic-logs.md)
+* [Uso de métricas para supervisar el estado del clúster](using-metrics.md)

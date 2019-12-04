@@ -1,14 +1,14 @@
 ---
-title: Pasos de implementación del ejemplo de plano técnico NIST SP 800-53 R4
+title: Implementación del ejemplo del plano técnico de NIST SP 800-53 R4
 description: Pasos de implementación para el ejemplo de plano técnico NIST SP 800-53 R4, incluidos los detalles de los parámetros del artefacto de plano técnico.
-ms.date: 06/24/2019
+ms.date: 11/18/2019
 ms.topic: sample
-ms.openlocfilehash: 9923e2923c57224cadfa471753d8c90b98855607
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: db8c2302a6c2311e096be2cdc78935bdab2ef9c7
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74037314"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546600"
 ---
 # <a name="deploy-the-nist-sp-800-53-r4-blueprint-sample"></a>Implementación del ejemplo del plano técnico de NIST SP 800-53 R4
 

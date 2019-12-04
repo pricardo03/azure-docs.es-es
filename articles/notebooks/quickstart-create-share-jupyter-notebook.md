@@ -1,23 +1,14 @@
 ---
 title: Creación y uso compartido de un cuaderno de Jupyter Notebook en Azure
 description: Obtenga información sobre cómo crear y ejecutar un cuaderno de Jupyter Notebook en Azure Notebooks y, luego, compartir ese cuaderno con otros usuarios.
-services: app-service
-documentationcenter: ''
-author: kraigb
-manager: barbkess
-ms.assetid: 5add60ad-0b4b-4fd5-adf5-eb50ce072d00
-ms.service: azure-notebooks
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 12/04/2018
-ms.author: kraigb
-ms.openlocfilehash: 19e8217bf88427c353fdd4c90c9f421445b7c81a
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 71220fa5aa0367d1cb1694582b4f96459a3016e7
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71970174"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277498"
 ---
 # <a name="quickstart-create-and-share-a-notebook"></a>Inicio rápido: Creación y uso compartido de un cuaderno
 
@@ -42,7 +33,7 @@ ms.locfileid: "71970174"
 
 1. Después de unos instantes, Azure Notebooks lo lleva al proyecto nuevo. Para agregar un cuaderno al proyecto, seleccione el menú desplegable **+ Nuevo** (que puede aparecer simplemente como **+** ) y seleccione **Cuaderno**:
 
-    [![](media/quickstarts/empty-project-new-notebook-button.png "Un proyecto nuevo vacío y el comando para agregar cuaderno")](media/quickstarts/empty-project-new-notebook-button.png#lightbox)
+    [![](media/quickstarts/empty-project-new-notebook-button.png "A new, empty project and add notebook command")](media/quickstarts/empty-project-new-notebook-button.png#lightbox)
 
 1. En la ventaja emergente **Create New Notebook** (Crear nuevo cuaderno) que aparece, escriba un nombre de archivo para el cuaderno, como *HelloWorldInPython.ipynb* ( *.ipynb* se refiere a IronPython (Jupyter) Notebook) y seleccione **Python 3.6** en el lenguaje (que también se denomina como el *kernel*):
 

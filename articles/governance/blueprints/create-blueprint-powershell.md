@@ -1,32 +1,26 @@
 ---
-title: Creación de un plano técnico con PowerShell
-description: Utilice los planos técnicos de Azure Blueprints para crear, definir e implementar artefactos mediante PowerShell.
-ms.date: 08/21/2019
+title: 'Inicio rápido: Creación de un plano técnico con PowerShell'
+description: En este inicio rápido se usa Azure Blueprints para crear, definir e implementar artefactos mediante PowerShell.
+ms.date: 11/21/2019
 ms.topic: quickstart
-ms.openlocfilehash: 4cc181a7e0b07448d6dd538cfb1621d1efa43a80
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: ed337fa040804159dae3194de1befc43ff2b698f
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960423"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327461"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-powershell"></a>Inicio rápido: Definición y asignación de un plano técnico de Azure Blueprint con PowerShell
 
 Entender cómo crear y asignar planos técnicos permite la definición de patrones comunes para desarrollar configuraciones reutilizables y de implementación rápida basadas en plantillas de Resource Manager, directivas, seguridad y mucho más. En este tutorial, aprenderá a usar planos técnicos de Azure Blueprint para realizar algunas de las tareas más comunes relacionadas con la creación, asignación y administración de directivas en toda la organización, como, por ejemplo:
 
-> [!div class="checklist"]
-> - Creación de un nuevo plano técnico y adición de varios artefactos compatibles
-> - Realización de cambios en un plano técnico existente que sigue en **borrador**
-> - Marcado de un plano técnico como listo para asignación con el estado **Publicado**
-> - Asignación de un plano técnico a una suscripción existente
-> - Comprobación del estado y progreso de un plano técnico asignado
-> - Eliminación de un plano técnico que se ha asignado a una suscripción
+## <a name="prerequisites"></a>Requisitos previos
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
-
 Si aún no se ha instalado, siga las instrucciones en [Adición del módulo Az.Blueprint](./how-to/manage-assignments-ps.md#add-the-azblueprint-module) para instalar y validar el módulo **Az.Blueprint** desde la Galería de PowerShell.
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-a-blueprint"></a>Creación de un plano técnico
 
@@ -397,9 +391,7 @@ Remove-AzBlueprintAssignment -Name 'assignMyBlueprint'
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Información acerca del [ciclo de vida del plano técnico](./concepts/lifecycle.md).
-- Descubra cómo utilizar [parámetros estáticos y dinámicos](./concepts/parameters.md).
-- Aprenda a personalizar el [orden de secuenciación de planos técnicos](./concepts/sequencing-order.md).
-- Averigüe cómo usar el [bloqueo de recursos de planos técnicos](./concepts/resource-locking.md).
-- Aprenda a [actualizar las asignaciones existentes](./how-to/update-existing-assignments.md).
-- Puede consultar la información de [solución de problemas generales](./troubleshoot/general.md) para resolver los problemas durante la asignación de un plano técnico.
+En este inicio rápido, ha creado, asignado y eliminado un plano técnico con PowerShell. Para más información sobre Azure Blueprints, vaya el artículo sobre el ciclo de vida de los planos técnicos.
+
+> [!div class="nextstepaction"]
+> [Más información acerca del ciclo de vida del plano técnico](./concepts/lifecycle.md)

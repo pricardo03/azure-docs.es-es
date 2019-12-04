@@ -1,10 +1,10 @@
 ---
-title: 'Restricción del acceso de la red a los recursos de PaaS (tutorial): Azure Portal | Microsoft Docs'
+title: 'Restricción del acceso a los recursos de PaaS (tutorial): Azure Portal'
 description: En este tutorial aprenderá a limitar y restringir el acceso de la red a los recursos de Azure, como Azure Storage y Azure SQL Database, con puntos de conexión de servicio de red virtual mediante Azure Portal.
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
-manager: twooley
+manager: mtillman
 editor: ''
 tags: azure-resource-manager
 Customer intent: I want only resources in a virtual network subnet to access an Azure PaaS resource, such as an Azure Storage account.
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 08/23/2018
 ms.author: kumud
-ms.openlocfilehash: 34cb2b6c5a770aa9ec38ce02a97d976fe28251ac
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 85fc5687b82947ed16bde0c30ca2b947514ba958
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69638754"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186367"
 ---
 # <a name="tutorial-restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-portal"></a>Tutorial: Restrinja el acceso de la red a los recursos de PaaS mediante puntos de conexión de servicio de red virtual utilizando Azure Portal.
 
@@ -108,7 +108,7 @@ De forma predeterminada, todas las máquinas virtuales de una subred pueden comu
     |----|----|
     |Source| Seleccione **VirtualNetwork** |
     |Source port ranges| * |
-    |Destino | Seleccione **Service Tag** (Etiqueta de servicio)|
+    |Destination | Seleccione **Service Tag** (Etiqueta de servicio)|
     |Etiqueta de servicio de destino | Seleccione **Storage** (Almacenamiento)|
     |Intervalos de puertos de destino| * |
     |Protocolo|Any|
@@ -122,7 +122,7 @@ De forma predeterminada, todas las máquinas virtuales de una subred pueden comu
     |----|----|
     |Source| Seleccione **VirtualNetwork** |
     |Source port ranges| * |
-    |Destino | Seleccione **Service Tag** (Etiqueta de servicio)|
+    |Destination | Seleccione **Service Tag** (Etiqueta de servicio)|
     |Etiqueta de servicio de destino| Seleccione **Internet**|
     |Intervalos de puertos de destino| * |
     |Protocolo|Any|
@@ -138,7 +138,7 @@ De forma predeterminada, todas las máquinas virtuales de una subred pueden comu
     |----|----|
     |Source| Any |
     |Source port ranges| * |
-    |Destino | Seleccione **VirtualNetwork**|
+    |Destination | Seleccione **VirtualNetwork**|
     |Intervalos de puertos de destino| 3389 |
     |Protocolo|Any|
     |Action|Allow|

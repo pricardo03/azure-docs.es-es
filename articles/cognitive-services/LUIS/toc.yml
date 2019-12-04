@@ -46,10 +46,10 @@
         - name: 2. Extracción de datos de usuario
           href: tutorial-machine-learned-entity.md
           displayName: 'n-depth, constraint, descriptor, phrase list, entity'
+        - name: 3. Obtención de opiniones a partir de expresiones del usuario
+          href: tutorial-publish-settings.md
     - name: Compilación de una aplicación
       items:
-        - name: Obtención de opiniones a partir de expresiones del usuario
-          href: luis-quickstart-intent-and-sentiment-analysis.md
         - name: Obtención de datos con el formato correcto mediante expresiones regulares
           href: luis-quickstart-intents-regex-entity.md
         - name: Obtención de coincidencias exactas de texto con listas

@@ -1,14 +1,14 @@
 ---
-title: Ejemplo de plano técnico de Canada Federal PBMM (Pasos de implementación)
+title: Implementación de un ejemplo de plano técnico de Canada Federal PBMM
 description: Pasos de implementación para el ejemplo de plano técnico Canada Federal PBMM, incluidos los detalles de los parámetros del artefacto de plano técnico.
 ms.date: 09/05/2019
-ms.topic: conceptual
-ms.openlocfilehash: 788c52ee9a2bf9a0a2c506c2a34d221ff08bd0af
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.topic: sample
+ms.openlocfilehash: 087112df7ab18cd71bde80f22b13c9c7800c05e9
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74038412"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74544596"
 ---
 # <a name="deploy-the-canada-federal-pbmm-blueprint-samples"></a>Implementación de los ejemplos de plano técnico Canada Federal PBMM
 

@@ -1,21 +1,15 @@
 ---
 title: Conexión de MetaMask a una red de Azure Blockchain Service
 description: Conéctese a una red de Azure Blockchain Service mediante MetaMask e implemente un contrato inteligente.
-services: azure-blockchain
-keywords: ''
-author: PatAltimore
-ms.author: patricka
 ms.date: 09/12/2019
 ms.topic: quickstart
-ms.service: azure-blockchain
-ms.reviewer: jackyhsu
-manager: femila
-ms.openlocfilehash: b89e75d406a738fb685bb3294dca8d79a2b9170c
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.reviewer: janders
+ms.openlocfilehash: 21e45b80a9a08dd6bdeefb0ab01fadabaa08cbce
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70966528"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74456022"
 ---
 # <a name="quickstart-use-metamask-to-connect-and-deploy-a-smart-contract"></a>Inicio rápido: Uso de MetaMask para conectarse a un contrato inteligente e implementarlo
 
@@ -144,4 +138,4 @@ Remix es un entorno de desarrollo de Solidity basado en explorador. Cuando se us
 En este tutorial, usó la extensión del explorador MetaMask para conectarse a un nodo de transacción de Azure Blockchain Service, implementar un contrato inteligente y enviar una transacción a la cadena de bloques. Pruebe el siguiente tutorial para usar el kit de desarrollo de Azure Blockchain para Ethereum y Truffle a fin de crear, compilar, implementar y ejecutar una función de contrato inteligente mediante una transacción.
 
 > [!div class="nextstepaction"]
-> [Uso de Visual Studio Code para crear, compilar e implementar contratos inteligentes](send-transaction.md)
+> [Creación, compilación e implementación de contratos inteligentes en Azure Blockchain Service](send-transaction.md)

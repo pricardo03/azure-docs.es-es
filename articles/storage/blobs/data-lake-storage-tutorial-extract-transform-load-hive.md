@@ -1,21 +1,21 @@
 ---
-title: 'Tutorial: Extracción, transformación y carga de datos (ETL) mediante Apache Hive en Azure HDInsight'
+title: 'Tutorial: Extracción, transformación y carga de datos mediante Azure HDInsight'
 description: En este tutorial, va a aprender a extraer datos de un conjunto de datos CSV sin procesar, a transformarlos mediante Apache Hive en Azure HDInsight y a cargar los datos transformados en Azure SQL Database mediante Sqoop.
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: tutorial
-ms.date: 02/21/2019
+ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: f58785b17a1e6236636744c32dac07a6c9ed138d
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: c9ed675dc970b093f6407d15b3db2ac2668c626b
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69992246"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327572"
 ---
-# <a name="tutorial-extract-transform-and-load-data-by-using-apache-hive-on-azure-hdinsight"></a>Tutorial: Extracción, transformación y carga de datos mediante Apache Hive en Azure HDInsight
+# <a name="tutorial-extract-transform-and-load-data-by-using-azure-hdinsight"></a>Tutorial: Extracción, transformación y carga de datos mediante Azure HDInsight
 
 En este tutorial, realizará una operación de ETL: extracción, transformación y carga de datos. Se toma un archivo de datos CSV sin formato, se importa a un clúster de Azure HDInsight, se transforma con Apache Hive y se carga en una base de datos de Azure SQL con Apache Sqoop.
 
@@ -234,7 +234,7 @@ Necesita el nombre del servidor de la base de datos SQL para esta operación. Co
 
 4. Filtre por el nombre de la base de datos que desea usar. El nombre del servidor aparece en la columna **Nombre de servidor**.
 
-    ![Obtener detalles del servidor de Azure SQL Server](./media/data-lake-storage-tutorial-extract-transform-load-hive/get-azure-sql-server-details.png "Get Azure SQL server details")
+    ![Obtener detalles de Azure SQL Server](./media/data-lake-storage-tutorial-extract-transform-load-hive/get-azure-sql-server-details.png "Obtener detalles de Azure SQL Server")
 
     Hay muchas maneras de conectarse a SQL Database y crear una tabla. En los siguientes pasos se utiliza [FreeTDS](https://www.freetds.org/) desde el clúster de HDInsight.
 

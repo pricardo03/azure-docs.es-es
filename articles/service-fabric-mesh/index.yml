@@ -1,48 +1,82 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Documentación sobre Azure Service Fabric Mesh
+summary: Azure Service Fabric Mesh es un servicio totalmente administrado que permite a los desarrolladores implementar aplicaciones en contenedores sin la administración de máquinas virtuales, almacenamiento o recursos de redes.
 metadata:
-  title: 'Documentación sobre Azure Service Fabric Mesh: tutoriales y referencia de API | Microsoft Docs'
-  meta.description: 'Azure Service Fabric Mesh is a fully managed service enabling developers to deploy containerized applications without managing virtual machines, storage, or networking resources. Learn how to use Service Fabric Mesh with our quickstarts and tutorials.'
-  services: service-fabric-mesh
-  author: dkkapur
-  manager: timlt
   ms.service: service-fabric-mesh
   ms.topic: landing-page
-  ms.date: 07/26/2018
-  ms.author: dekapur
-abstract:
-  description: 'Azure Service Fabric Mesh es un servicio totalmente administrado que permite a los desarrolladores compilar e implementar aplicaciones críticas sin tener que administrar ninguna infraestructura.  Use Service Fabric Mesh para compilar y ejecutar aplicaciones de microservicios seguras y distribuidas que se escalen a petición. Aprenda a usar Service Fabric Mesh con nuestras guías de inicio rápido y tutoriales.  Para más información, consulte <a href="/azure/service-fabric-mesh/service-fabric-mesh-overview">Introducción a Service Fabric Mesh</a> y las <a href="/azure/service-fabric-mesh/service-fabric-mesh-faq">preguntas más frecuentes</a>.'
-sections:
-  - title: Inicio rápido en 5 minutos
-    items:
-      - type: paragraph
-        text: Aprenda a implementar aplicaciones y contenedores de Service Fabric en Service Fabric Mesh
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_cligeneric.svg'
-            text: Implementación de un programa "Hola mundo" en Service Fabric Mesh
-            href: /azure/service-fabric-mesh/service-fabric-mesh-quickstart-deploy-container
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_netcore.svg'
-            text: Creación e implementación de una aplicación web en Service Fabric Mesh
-            href: /azure/service-fabric-mesh/service-fabric-mesh-quickstart-dotnet-core
-  - title: Tutoriales detallados
-    items:
-      - type: paragraph
-        text: Aprenda a crear e implementar una aplicación de Mesh con Visual Studio o la CLI de Azure.
-      - type: list
-        style: unordered
-        items:
-          - html: '<a href="/azure/service-fabric-mesh/service-fabric-mesh-tutorial-create-dotnetcore">Creación, depuración, implementación y actualización de una aplicación multiservicio en Service Fabric Mesh mediante Visual Studio.</a>'
-          - html: '<a href="/azure/service-fabric-mesh/service-fabric-mesh-tutorial-template-deploy-app">Implementación, escalado y actualización de una aplicación de Service Fabric Mesh mediante una plantilla.</a>'
-  - title: Referencia
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: REST
-            html: '<p><a href="/rest/api/servicefabric/sfmeshrp-index">API del proveedor de recursos de Service Fabric Mesh</a></p><p><a href="/rest/api/servicefabric/sfclient-index#service-fabric-resource-model">API del recurso de cliente de Service Fabric</a></p>'
+  author: erikadoyle
+  ms.author: edoyle
+  ms.date: 12/02/2019
+  ms.openlocfilehash: eb24b0b0b4a143e82c2b93f158db0a3d0647ed7c
+  ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 12/03/2019
+  ms.locfileid: "74790159"
+landingContent:
+- title: Más información sobre Service Fabric Mesh
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: ¿Qué es Service Fabric Mesh?
+      url: service-fabric-mesh-overview.md
+    - text: Introducción al modelo de recursos de Service Fabric
+      url: service-fabric-mesh-service-fabric-resources.md
+  - linkListType: concept
+    links:
+    - text: Terminología
+      url: service-fabric-mesh-terminology.md
+    - text: Redes y puertas de enlace
+      url: service-fabric-mesh-networks-and-gateways.md
+    - text: Almacenamiento del estado
+      url: service-fabric-mesh-storing-state.md
+    - text: Secretos
+      url: service-fabric-mesh-secrets-overview.md
+  - linkListType: whats-new
+    links:
+    - text: Preguntas más frecuentes
+      url: service-fabric-mesh-faq.md
+- title: Creación de aplicaciones de Service Fabric Mesh
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Creación de una aplicación web con Visual Studio
+      url: service-fabric-mesh-quickstart-dotnet-core.md
+  - linkListType: tutorial
+    links:
+    - text: Creación e implementación de una aplicación de Mesh con Visual Studio
+      url: service-fabric-mesh-tutorial-create-dotnetcore.md
+  - linkListType: how-to-guide
+    links:
+    - text: Configurado su entorno de desarrollo
+      url: service-fabric-mesh-howto-setup-developer-environment-sdk.md
+    - text: Optimización de Visual Studio para Service Fabric Mesh
+      url: service-fabric-mesh-howto-optimize-vs.md
+    - text: Configuración de la CLI de Service Fabric Mesh
+      url: service-fabric-mesh-howto-setup-cli.md
+  - linkListType: download
+    links:
+    - text: Búsqueda de ejemplos de Service Fabric Mesh
+      url: service-fabric-mesh-howto-find-samples.md
+- title: Implementación y administración de aplicaciones existentes
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Implementación de Hola mundo
+      url: service-fabric-mesh-quickstart-deploy-container.md
+  - linkListType: tutorial
+    links:
+    - text: Implementación, escalado y actualización de una aplicación de Service Fabric Mesh
+      url: service-fabric-mesh-tutorial-template-deploy-app.md
+  - linkListType: how-to-guide
+    links:
+    - text: Inclusión de una aplicación .NET existente en un contenedor para Service Fabric Mesh
+      url: service-fabric-mesh-howto-containerize-vs.md
+    - text: Creación de directivas de escalabilidad automática
+      url: service-fabric-mesh-howto-auto-scale-services.md
+  - linkListType: concept
+    links:
+    - text: Escalabilidad del servicio
+      url: service-fabric-mesh-scalability.md
+    - text: Supervisión y diagnóstico
+      url: service-fabric-mesh-monitoring-diagnostics.md

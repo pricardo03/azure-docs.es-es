@@ -1,19 +1,19 @@
 ---
 title: Creación de un índice de búsqueda en Azure Portal
 titleSuffix: Azure Cognitive Search
-description: Utilice el Asistente para importar datos para crear, cargar y consultar el primer índice de búsqueda de Azure Cognitive Search.
+description: En este inicio rápido del portal, aprenda a usar el Asistente para importar datos para crear, cargar y consultar el primer índice de búsqueda de Azure Cognitive Search.
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.openlocfilehash: ee4e9bd5487382ebb6f57996aac5d3de1ff6162a
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: be2425d97573e7990ea7f0dfd4c2d999e85fe922
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890025"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406993"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>Inicio rápido: Creación de un índice de Azure Cognitive Search en Azure Portal
 > [!div class="op_single_selector"]
@@ -25,14 +25,7 @@ ms.locfileid: "73890025"
 > * [Postman](search-get-started-postman.md)
 > * [Python](search-get-started-python.md)
 
-Use el portal para ponerse al día rápidamente con los conceptos y escribir consultas interesantes en un índice en cuestión de minutos.
-
-> [!div class="checklist"]
-> * Empiece con un conjunto de datos de ejemplo público y gratuito hospedado en Azure.
-> * Ejecute el **Asistente para la importación de datos** en Azure Cognitive Search para cargar datos y generar un índice
-> * Supervise el progreso de la indexación en el portal.
-> * Vea un índice existente y las opciones para modificarlo.
-> * Explore la búsqueda de texto completo, los filtros, las facetas, la búsqueda aproximada y la búsqueda geográfica con el **Explorador de búsqueda**.
+Use el Asistente para **importar datos** del portal y las herramientas del **Explorador de búsqueda** para ponerse al día rápidamente con los conceptos y escribir consultas interesantes en un índice en cuestión de minutos.
 
 Si las herramientas son demasiado restrictivas, puede plantearse la posibilidad de utilizar una [introducción basada en código a la programación de Azure Cognitive Search en .NET](search-howto-dotnet-sdk.md) o utilizar [Postman para realizar llamadas a la API REST](search-get-started-postman.md). 
 
@@ -265,7 +258,7 @@ Usando el **Explorador de búsqueda** de Azure Portal, ha aprendido la sintaxis 
 
 También ha aprendido a encontrar índices, indexadores y orígenes de datos en el portal. Dado cualquier nuevo origen de datos en el futuro, puede usar el portal para comprobar rápidamente sus definiciones o colecciones de campos con un mínimo esfuerzo.
 
-## <a name="clean-up"></a>Limpieza
+## <a name="clean-up-resources"></a>Limpieza de recursos
 
 Cuando trabaje con su propia suscripción, es una buena idea al final de un proyecto identificar si todavía se necesitan los recursos que ha creado. Los recursos que se dejan en ejecución pueden costarle mucho dinero. Puede eliminar los recursos de forma individual o eliminar el grupo de recursos para eliminar todo el conjunto de recursos.
 
@@ -275,8 +268,7 @@ Si está usando un servicio gratuito, recuerde que está limitado a tres índice
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para explorar más sobre Azure Cognitive Search, use las herramientas de programación:
+Aunque el portal es útil para la exploración inicial y para tareas pequeñas, la revisión temprana de las API le ayudará a comprender los conceptos y el flujo de trabajo a un nivel más profundo:
 
-* [Creación de un índice con el SDK de .NET](https://docs.microsoft.com/azure/search/search-create-index-dotnet)
-* [Creación de un índice con las API REST](https://docs.microsoft.com/azure/search/search-create-index-rest-api)
-* [Creación de un índice mediante Postman o Fiddler y las API REST de Azure Cognitive Search](search-get-started-postman.md)
+> [!div class="nextstepaction"]
+> [Creación de un índice con el SDK de .NET](https://docs.microsoft.com/azure/search/search-create-index-dotnet)

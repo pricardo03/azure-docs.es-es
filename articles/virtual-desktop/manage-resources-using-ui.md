@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 11/09/2019
 ms.author: helohr
-ms.openlocfilehash: c7ef648dd2610c337bc9146e7a52c04d91907c8e
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: ad0c67cea6a5a9b487cd47aa7c10d10da1438050
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73904906"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74384278"
 ---
 # <a name="tutorial-deploy-a-management-tool"></a>Tutorial: Implementación de una herramienta de administración
 
@@ -63,10 +63,9 @@ Siga las instrucciones para implementar la plantilla de Azure Resource Manager:
 ### <a name="guidance-for-template-parameters"></a>Guía sobre los parámetros de la plantilla
 Aquí le mostramos cómo especificar parámetros de configuración para la herramienta:
 
-- Esta es la dirección URL del Agente de Escritorio remoto: https:\//rdbroker.wvd.microsoft.com/
-- Esta es la dirección URL de los recursos: https:\//mrs-prod.ame.gbl/mrs-RDInfra-prod
-- Use sus credenciales de AAD con la opción de MFA deshabilitada para iniciar sesión en Azure. Consulte [Qué se necesita para ejecutar la plantilla de Azure Resource Manager](#what-you-need-to-run-the-azure-resource-manager-template).
-- Use un nombre único para la aplicación que se registrará en Azure Active Directory para la herramienta de administración. Por ejemplo, Apr3UX.
+- Para el parámetro **isServicePrincipal** seleccione **false**.
+- Para las credenciales, escriba sus credenciales de Azure Active Directory con la autenticación multifactor deshabilitada. Estas credenciales serán las que use para iniciar sesión en Azure y crear tanto la aplicación de Azure AD como los recursos de la aplicación web de Azure. Para más información, consulte el apartado [¿Qué se necesita para ejecutar la plantilla de Azure Resource Manager?](#what-you-need-to-run-the-azure-resource-manager-template).
+- En el caso de **applicationName**, use para la aplicación un nombre único que se registrará en Azure Active Directory. Este nombre también se usará para la dirección URL de la aplicación web. Por ejemplo, puede usar un nombre como "Apr3UX".
 
 ## <a name="provide-consent-for-the-management-tool"></a>Consentimiento para la herramienta de administración
 

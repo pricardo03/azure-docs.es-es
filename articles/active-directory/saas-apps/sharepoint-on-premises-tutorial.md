@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 9c956f89d890f93a887d2412c74c906095acf4db
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 7feb62bb3e38452a441c505107569457d7c90a3f
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164352"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233444"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sharepoint-on-premises"></a>Tutorial: Integración de Azure Active Directory con SharePoint local
 
@@ -223,7 +223,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
     ![Creación de un grupo de seguridad de Azure AD](./media/sharepoint-on-premises-tutorial/addingmembers.png)
 
     > [!NOTE]
-    > Para asignar grupos de seguridad de Azure Active Directory a SharePoint local, será necesario instalar y configurar [AzureCP](https://yvand.github.io/AzureCP/) en la granja de SharePoint local O desarrollar y configurar un proveedor de notificaciones personalizado alternativo para SharePoint.  Consulte la sección Más información al final del documento para crear su propio proveedor de notificaciones personalizado, si no usa AzureCP.
+    > Para asignar grupos de seguridad de Azure Active Directory a SharePoint local, será necesario instalar y configurar [AzureCP](https://yvand.github.io/AzureCP/) en la granja de SharePoint local O desarrollar y configurar un proveedor de notificaciones personalizado alternativo para SharePoint.  Consulte la sección Más información al final del documento para crear su propio proveedor de notificaciones personalizado, si no usa AzureCP.
 
 ### <a name="grant-access-to-sharepoint-on-premises-security-group"></a>Concesión de acceso al grupo de seguridad local de SharePoint
 

@@ -1,17 +1,17 @@
 ---
-title: 'Tutorial: autenticación de Azure SignalR Service con Azure Functions'
+title: 'Tutorial: Autenticación con Azure Functions: Azure Signalr'
 description: En este tutorial, aprenderá cómo autenticar los clientes de Azure SignalR Service para el enlace con Azure Functions
 author: sffamily
 ms.service: signalr
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: zhshang
-ms.openlocfilehash: 28fb3295ef02d508ef04299398a61ea59828df35
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: dfa17720b34962611d240aa7c35ba8092bf99082
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59278843"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158148"
 ---
 # <a name="tutorial-azure-signalr-service-authentication-with-azure-functions"></a>Tutorial: autenticación de Azure SignalR Service con Azure Functions
 
@@ -45,7 +45,7 @@ Vaya a [Azure Portal](https://portal.azure.com/) e inicie sesión con sus creden
 
 Va a compilar y probar la aplicación de Azure Functions localmente. La aplicación accederá a la instancia de Azure SignalR Service que se debe crear con antelación.
 
-1. Haga clic en el botón **Crear un recurso** (**+**) para crear un nuevo recurso de Azure.
+1. Haga clic en el botón **Crear un recurso** ( **+** ) para crear un nuevo recurso de Azure.
 
 1. Busque **SignalR Service** y selecciónelo. Haga clic en **Create**(Crear).
 
@@ -56,8 +56,8 @@ Va a compilar y probar la aplicación de Azure Functions localmente. La aplicaci
     | NOMBRE | Valor |
     |---|---|
     | Nombre del recurso | Un nombre único para la instancia del servicio SignalR |
-    | Grupos de recursos | Cree un grupo de recursos y asígnele con un nombre único |
-    | Ubicación | Selección de una ubicación cercana a usted |
+    | Resource group | Cree un grupo de recursos y asígnele con un nombre único |
+    | Location | Selección de una ubicación cercana a usted |
     | Nivel de precios | Gratuito |
 
 1. Haga clic en **Create**(Crear).
@@ -283,7 +283,7 @@ La interfaz de usuario de la aplicación de chat es una aplicación de página �
 
 1. En la carpeta **content**, cree un nuevo archivo denominado **index.html**.
 
-1. Copie y peque el contenido de **[index.html](https://github.com/Azure-Samples/signalr-service-quickstart-serverless-chat/blob/2720a9a565e925db09ef972505e1c5a7a3765be4/docs/demo/chat-with-auth/index.html)**.
+1. Copie y peque el contenido de **[index.html](https://github.com/Azure-Samples/signalr-service-quickstart-serverless-chat/blob/2720a9a565e925db09ef972505e1c5a7a3765be4/docs/demo/chat-with-auth/index.html)** .
 
 1. Guarde el archivo.
 
@@ -309,7 +309,7 @@ Hasta ahora, ha ejecutado la aplicación de función y la de chat de forma local
 
 Para una aplicación de función que se ejecute en Azure, se necesita una cuenta de Azure Storage. También va a hospedar la página web para el servicio de chat de la interfaz de usuario mediante la característica de los sitios web estáticos de Azure Storage.
 
-1. En Azure Portal, haga clic en el botón **Crear un recurso** (**+**) para crear un recurso de Azure.
+1. En Azure Portal, haga clic en el botón **Crear un recurso** ( **+** ) para crear un recurso de Azure.
 
 1. Seleccione la categoría **Almacenamiento** y **Cuenta de almacenamiento**.
 
@@ -318,9 +318,9 @@ Para una aplicación de función que se ejecute en Azure, se necesita una cuenta
     | NOMBRE | Valor |
     |---|---|
     | Subscription | Seleccione la suscripción que contenga la instancia de SignalR Service |
-    | Grupos de recursos | Seleccione el mismo grupo de recursos |
+    | Resource group | Seleccione el mismo grupo de recursos |
     | Nombre del recurso | Nombre único de la cuenta de almacenamiento |
-    | Ubicación | Seleccione la ubicación de los demás recursos |
+    | Location | Seleccione la ubicación de los demás recursos |
     | Rendimiento | Estándar |
     | Tipo de cuenta | StorageV2 (uso general v2) |
     | Replicación | Almacenamiento con redundancia local (LRS) |
@@ -377,7 +377,7 @@ Cuando se envía un mensaje, la aplicación puede decidir enviarlo a todos los c
     | Subscription | Seleccione su suscripción. |
     | Aplicación de función | Seleccione **Create New Function App** (Crear aplicación de función). |
     | Nombre de la aplicación de función | Escriba un nombre único. |
-    | Grupos de recursos | Seleccione el mismo grupo de recursos que la instancia de SignalR Service. |
+    | Resource group | Seleccione el mismo grupo de recursos que la instancia de SignalR Service. |
     | Cuenta de almacenamiento | Seleccione la cuenta de almacenamiento que creó anteriormente |
 
     Se crea una nueva aplicación de función en Azure y comienza la implementación. Espere a que la implementación se complete.

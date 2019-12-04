@@ -1,14 +1,14 @@
 ---
 title: 'Ejemplo: Aplicar el patrón de coincidencia de etiqueta'
-description: Esta definición de directiva de ejemplo requiere que los recursos cumplan el patrón de coincidencia para el valor de etiqueta.
+description: Esta definición de directiva de ejemplo requiere que los recursos cumplan el patrón de coincidencia para el valor de etiqueta de un formato de fecha específico.
 ms.date: 01/23/2019
 ms.topic: sample
-ms.openlocfilehash: e56d5d401f525f94bce4567204a7f18074fb1a90
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: a2d5f85f02a2197e9e213b7e9fd7dfec7adc7813
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076290"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463345"
 ---
 # <a name="sample---enforce-tag-match-pattern-for-tag-values"></a>Ejemplo: aplicación de un patrón de coincidencia de etiqueta para los valores de etiqueta
 

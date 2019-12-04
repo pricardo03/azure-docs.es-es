@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Spring
 ms.workload: tbd
 ms.date: 01/08/2019
 ms.author: yidon
-ms.openlocfilehash: f4ebbd4f37422c5aa2fea07a243eb624ec9e2961
-ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
+ms.openlocfilehash: e8f6f9ca610c515deca6ed1bdbee54f40cacf427
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71687017"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184933"
 ---
 # <a name="quickstart-create-a-java-spring-app-with-azure-app-configuration"></a>Inicio rápido: Creación de una aplicación de Java Spring con Azure App Configuration
 
@@ -31,7 +31,7 @@ En este inicio rápido incorporará Azure App Configuration a una aplicación de
 - Un [kit de desarrollo de Java (JDK)](https://docs.microsoft.com/java/azure/jdk) admitido, versión 8.
 - [Apache Maven](https://maven.apache.org/download.cgi), versión 3.0 o posterior.
 
-## <a name="create-an-app-configuration-store"></a>Creación de un almacén de configuración de aplicaciones
+## <a name="create-an-app-configuration-store"></a>Creación de un almacén de App Configuration
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
@@ -58,7 +58,7 @@ Para crear un proyecto de Spring Boot, se usa [Spring Initializr](https://start.
 
 3. Después de especificar las opciones anteriores, seleccione **Generar proyecto**. Cuando se le solicite, descargue el proyecto en una ruta de acceso del equipo local.
 
-## <a name="connect-to-an-app-configuration-store"></a>Conexión a un almacén de configuración de aplicaciones
+## <a name="connect-to-an-app-configuration-store"></a>Conexión a un almacén de App Configuration
 
 1. Después de extraer los archivos en el sistema local, la aplicación sencilla de Spring Boot estará lista para editarla. Busque el archivo *pom.xml* en el directorio raíz de la aplicación.
 
@@ -68,7 +68,7 @@ Para crear un proyecto de Spring Boot, se usa [Spring Initializr](https://start.
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>spring-cloud-starter-azure-appconfiguration-config</artifactId>
-        <version>1.1.0.M4</version>
+        <version>1.1.0.M5</version>
     </dependency>
     ```
 
@@ -119,7 +119,7 @@ Para crear un proyecto de Spring Boot, se usa [Spring Initializr](https://start.
     }
     ```
 
-6. Cree un nuevo archivo denominado `bootstrap.properties` bajo el directorio de recursos de la aplicación y agréguele las siguientes líneas. Reemplace los valores de muestra con las propiedades adecuadas para su almacén de configuración de la aplicación.
+6. Cree un nuevo archivo denominado `bootstrap.properties` bajo el directorio de recursos de la aplicación y agréguele las siguientes líneas. Reemplace los valores de ejemplo por las propiedades adecuadas para su almacén de App Configuration.
 
     ```properties
     spring.cloud.azure.appconfiguration.stores[0].connection-string=[your-connection-string]
@@ -138,7 +138,7 @@ Para crear un proyecto de Spring Boot, se usa [Spring Initializr](https://start.
       ```shell
       curl -X GET http://localhost:8080/
       ```
-    Verá el mensaje que escribió en el almacén de configuración de aplicaciones.
+    Verá el mensaje que escribió en el almacén de App Configuration.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
@@ -146,9 +146,7 @@ Para crear un proyecto de Spring Boot, se usa [Spring Initializr](https://start.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este inicio rápido, ha creado un almacén de configuración de aplicaciones y lo ha usado con una aplicación de Java Spring. Para más información, consulte [Spring en Azure](https://docs.microsoft.com/java/azure/spring-framework/).
-
-Para más información acerca del uso de App Configuration, continúe con el siguiente tutorial, ya que en él se muestra cómo realizar la autenticación.
+En este inicio rápido, ha creado un almacén de App Configuration y lo ha usado con una aplicación de Java Spring. Para más información, consulte [Spring en Azure](https://docs.microsoft.com/java/azure/spring-framework/). Para aprender a usar una identidad administrada de Azure para simplificar el acceso a App Configuration, vaya al siguiente tutorial.
 
 > [!div class="nextstepaction"]
 > [Integración de identidades administradas](./howto-integrate-azure-managed-service-identity.md)

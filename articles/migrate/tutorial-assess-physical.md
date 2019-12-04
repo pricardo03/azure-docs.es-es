@@ -5,20 +5,16 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 10/23/2019
+ms.date: 11/18/2019
 ms.author: raynew
-ms.openlocfilehash: 9339a03fcb3f67402c0aab030cb69a45e1b42b45
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 56b7cc6e95cb85b5508199287cc77aedeebc8b81
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74123496"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280545"
 ---
 # <a name="assess-physical-servers-with-azure-migrate-server-assessment"></a>Evaluación de los servidores físicos con Azure Migrate: Server Assessment
-
-> [!NOTE]
-> Si aún no ve esta característica en el portal de Azure Migrate, espere. Aparecerá aproximadamente la semana siguiente.
- 
 
 En este artículo se muestra cómo evaluar servidores físicos en el entorno local mediante Azure Migrate: Server Assessment.
 
@@ -108,11 +104,12 @@ Compruebe que el archivo comprimido es seguro, antes de implementarlo.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Ejemplo de uso: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller\AzureMigrateInstaller.ps1 SHA256```
 
-3.  El código hash generado debe coincidir con esta configuración para la versión 1.19.05.10 del dispositivo.
+3.  El código hash generado debe coincidir con esta configuración para la versión más reciente del dispositivo.
 
   **Algoritmo** | **Valor del código hash**
   --- | ---
-  SHA256 | 598d2e286f9c972bb7f7382885e79e768eddedfe8a3d3460d6b8a775af7d7f79
+  MD5 | 96fd99581072c400aa605ab036a0a7c0
+  SHA256 | f5454beef510c0aa38ac1c6be6346207c351d5361afa0c9cea4772d566fcdc36
 
 ### <a name="run-the-azure-migrate-installer-script"></a>Ejecución del script del instalador de Azure Migrate
 
@@ -135,7 +132,7 @@ Ejecute el script como se indica a continuación:
     ```
     PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1
     ```
-El script iniciará la aplicación web del dispositivo cuando finalice correctamente. 
+El script iniciará la aplicación web del dispositivo cuando finalice correctamente.
 
 En caso de que surja algún problema, puede acceder a los registros de script en C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log para solucionarlos.
 
@@ -166,7 +163,7 @@ Configure el dispositivo por primera vez.
 ### <a name="register-the-appliance-with-azure-migrate"></a>Registro del dispositivo en Azure Migrate
 
 1. Haga clic en **Iniciar sesión**. Si no aparece, asegúrese de que ha deshabilitado el bloqueador de elementos emergentes en el explorador.
-2. En la pestaña nueva, inicie sesión con sus credenciales de Azure. 
+2. En la pestaña nueva, inicie sesión con sus credenciales de Azure.
     - Inicie sesión con su nombre de usuario y contraseña.
     - No se admite el inicio de sesión con un PIN.
 3. Después de iniciar sesión correctamente, vuelva a la aplicación web.
@@ -188,7 +185,7 @@ Puede agregar un conjunto de credenciales para los servidores Windows y Linux.
     - Para quitar un servidor, seleccione > **Eliminar**.
 4. Después de la validación, haga clic en **Guardar e iniciar la detección** para iniciar el proceso de detección.
 
-De esta forma comienza la detección. Los metadatos de los servidores detectados tardan alrededor de 1.5 minutos por servidor en aparecer en Azure Portal. 
+De esta forma comienza la detección. Los metadatos de los servidores detectados tardan alrededor de 1.5 minutos por servidor en aparecer en Azure Portal.
 
 ### <a name="verify-servers-in-the-portal"></a>Comprobación de los servidores en el portal
 

@@ -1,14 +1,14 @@
 ---
-title: Pasos de implementación del ejemplo de plano técnico de la zona de aterrizaje de migración de CAF
+title: Implementación del ejemplo de plano técnico de la zona de aterrizaje de la migración de CAF
 description: Pasos de implementación del ejemplo de plano técnico de la zona de aterrizaje de migración de CAF, incluidos los detalles de los parámetros del artefacto de plano técnico.
 ms.date: 08/20/2019
 ms.topic: sample
-ms.openlocfilehash: 67dabde6afe2dbc17a5ca2bd32534108b8008a8a
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: da17083e8e1b27739288a9d9ac087d071ff4861c
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74038442"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74545458"
 ---
 # <a name="deploy-the-microsoft-cloud-adoption-framework-for-azure-migrate-landing-zone-blueprint-sample"></a>Implementación del ejemplo de plano técnico de la zona de aterrizaje de migración de Microsoft Cloud Adoption Framework para Azure
 

@@ -1,19 +1,16 @@
 ---
-title: 'Tutorial: Uso de las plantillas de inicio rápido de Azure | Microsoft Docs'
+title: 'Tutorial: Uso de plantillas de inicio rápido'
 description: Aprenda a usar las plantillas de inicio rápido de Azure para completar el desarrollo de plantillas.
-services: azure-resource-manager
 author: mumian
-manager: carmonmills
-ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: a29d86d105579dda7c12b885e2977406f7b598a4
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: 1ddae445fb912b4bb60f257f667784b17b0d6ea5
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001483"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74405943"
 ---
 # <a name="tutorial-use-azure-quickstart-templates"></a>Tutorial: Uso de las plantillas de inicio rápido de Azure
 
@@ -25,7 +22,7 @@ Aunque no es obligatorio, se recomienda realizar el [tutorial sobre plantillas e
 
 Debe tener Visual Studio Code con la extensión Herramientas de Resource Manager y Azure PowerShell o la CLI de Azure. Para más información, consulte las [herramientas de plantilla](template-tutorial-create-first-template.md#get-tools).
 
-## <a name="review-your-template"></a>Revisión de la plantilla
+## <a name="review-template"></a>Revisión de la plantilla
 
 Al final del tutorial anterior, la plantilla tenía el siguiente código JSON:
 
@@ -33,7 +30,7 @@ Al final del tutorial anterior, la plantilla tenía el siguiente código JSON:
 
 Esta plantilla funciona para implementar cuentas de almacenamiento y planes de App Service, pero puede que desee agregarle un sitio web. Puede usar plantillas predefinidas para averiguar rápidamente el código JSON necesario para implementar un recurso.
 
-## <a name="find-a-template"></a>Búsqueda de una plantilla
+## <a name="find-template"></a>Búsqueda de la plantilla
 
 1. Abra [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/).
 1. En **Buscar**, escriba **deploy linux web app** (implementar aplicación web Linux).
@@ -44,7 +41,7 @@ Esta plantilla funciona para implementar cuentas de almacenamiento y planes de A
 
     ![Sitio web de inicio rápido de la plantilla de Resource Manager](./media/template-tutorial-quickstart-template/resource-manager-template-quickstart-template-web-site.png)
 
-## <a name="revise-the-existing-template"></a>Revisión de la plantilla existente
+## <a name="revise-existing-template"></a>Revisión de la plantilla existente
 
 Combine la plantilla de inicio rápido con la plantilla existente:
 
@@ -60,7 +57,7 @@ Observará que tiene un elemento llamado **dependsOn** que se establece en el pl
 
 La propiedad **serverFarmId** usa la función [resourceId](resource-group-template-functions-resource.md#resourceid). Esta función obtiene el identificador único de un recurso. En este caso, obtiene el identificador único del plan de App Service. La aplicación web está asociada a un plan de App Service específico.
 
-## <a name="deploy-the-template"></a>Implementación de la plantilla
+## <a name="deploy-template"></a>Implementar plantilla
 
 Use la CLI de Azure o Azure PowerShell para implementar una plantilla.
 

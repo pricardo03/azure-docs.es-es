@@ -127,8 +127,12 @@
           href: security-center-monitoring.md
         - name: Protección de máquinas y aplicaciones
           href: security-center-virtual-machine-protection.md
+        - name: Referencia sobre recomendaciones de máquinas y aplicaciones
+          href: recommendations-compute-and-apps.md
         - name: Protección de recursos de red
           href: security-center-network-recommendations.md
+        - name: Referencia sobre recomendaciones de red
+          href: recommendations-network.md
         - name: Protección de datos y servicios de almacenamiento
           href: security-center-sql-service-recommendations.md
         - name: Protección de identidades y accesos

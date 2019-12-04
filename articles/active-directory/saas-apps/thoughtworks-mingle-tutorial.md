@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 4ea2a88c92dcd52e99bb98563cf76d2c5501ef6d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a12d4dca61734275ef0e56dfe2a800c64dc52540
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67088749"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233304"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thoughtworks-mingle"></a>Tutorial: Integración de Azure Active Directory con Thoughtworks Mingle
 
@@ -130,7 +130,7 @@ Para configurar el inicio de sesión único de Azure AD con Thoughtworks Mingle,
 
 2. Haga clic en la pestaña **Admin** (Administrador) y, luego, en **SSO Config** (Configuración de SSO).
    
-    ![Pestaña de administrador](./media/thoughtworks-mingle-tutorial/ic785157.png "Configuración de SSO")
+    ![Pestaña Administrador](./media/thoughtworks-mingle-tutorial/ic785157.png "Configuración de SSO")
 
 3. En la sección **Configuración de SSO** , lleve a cabo estos pasos:
    
@@ -208,7 +208,7 @@ Para que los usuarios de Azure AD puedan iniciar sesión, deben aprovisionarse e
 
 4. Haga clic en **Nuevo usuario**.
    
-    ![Nuevo usuario](./media/thoughtworks-mingle-tutorial/ic785162.png "nuevo usuario")
+    ![New User](./media/thoughtworks-mingle-tutorial/ic785162.png "Nuevo usuario") (Usuario nuevo)
 
 5. En la página del cuadro de diálogo **Nuevo usuario** , realice los pasos siguientes:
    
@@ -221,7 +221,7 @@ Para que los usuarios de Azure AD puedan iniciar sesión, deben aprovisionarse e
     c. Haga clic en **Crear este perfil**.
 
 >[!NOTE]
->Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Thoughtworks Mingle ofrecida por Thoughtworks Mingle para aprovisionar cuentas de usuario de AAD.
+>Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Thoughtworks Mingle ofrecida por Thoughtworks Mingle para aprovisionar cuentas de usuario de Azure AD.
 > 
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único 

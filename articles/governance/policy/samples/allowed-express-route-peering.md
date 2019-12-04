@@ -1,14 +1,14 @@
 ---
 title: 'Ejemplo: Ubicaciones permitidas de emparejamiento de ExpressRoute'
-description: Esta definición de directiva de ejemplo requiere que ExpressRoute use ubicaciones de emparejamiento especificadas.
+description: Esta definición de directiva de ejemplo requiere que ExpressRoute use ubicaciones de emparejamiento especificadas definidas en un parámetro.
 ms.date: 01/23/2019
 ms.topic: sample
-ms.openlocfilehash: 8b991c5b83f5d4ca23963aef089795acd5b96bd6
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 915cdc95dc5117e329c2a6af8108a1b157730d7e
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076453"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463459"
 ---
 # <a name="sample---allowed-peering-location-for-expressroute"></a>Ejemplo: ubicación de emparejamiento permitida para ExpressRoute
 

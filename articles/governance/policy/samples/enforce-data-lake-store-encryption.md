@@ -1,14 +1,14 @@
 ---
 title: 'Ejemplo: Requerir el cifrado de Data Lake Store'
-description: Esta definición de directiva de ejemplo requiere que el cifrado de Data Lake Store esté habilitado.
+description: Este ejemplo de definición de directiva requiere que se habilite el estado de cifrado en las cuentas de Data Lake Store.
 ms.date: 01/23/2019
 ms.topic: sample
-ms.openlocfilehash: a8ed66e9b07e1fc15c8a1a3c8c33f0e218eb62b3
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 5b29caa7fa8b9169b8c2164975f9cdb2663c5cef
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74070670"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463648"
 ---
 # <a name="sample---require-data-lake-store-encryption"></a>Ejemplo: requerir cifrado de Data Lake Store
 

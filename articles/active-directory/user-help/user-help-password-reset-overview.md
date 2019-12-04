@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 05/15/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57d14ac3cbce6880604ad44b6aa71998ed061c10
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 6d517c5f0e45edd16778b1300ba9ff41a1483d84
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74028502"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74266947"
 ---
 # <a name="reset-your-own-work-or-school-password-overview"></a>Introducción al restablecimiento de las contraseñas profesionales o educativas propias
 
@@ -34,5 +34,5 @@ Para obtener información detallada e instrucciones acerca de cómo registrar un
 
 |Artículo |DESCRIPCIÓN |
 |------|------------|
-| [Registro para el autoservicio de restablecimiento de contraseñas](active-directory-passwords-reset-register.md) | Instrucciones para comprobar los métodos de autenticación y cómo registrarse en el autoservicio de restablecimiento de contraseña para que pueda restablecer la contraseña. |
+| [Registro para el autoservicio de restablecimiento de contraseñas](active-directory-passwords-reset-register.md) | Instrucciones sobre cómo comprobar los métodos de comprobación y registrarse para el autoservicio de restablecimiento de contraseña, con el fin de poder restablecer la contraseña propia. |
 | [Restablecimiento de la contraseña](active-directory-passwords-update-your-own-password.md) | Instrucciones para restablecer o desbloquear la contraseña de una cuenta profesional o educativa. |

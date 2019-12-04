@@ -1,19 +1,19 @@
 ---
-title: 'Tutorial: Uso compartido de Azure Spatial Anchors entre sesiones y dispositivos con un back-end de Azure Cosmos DB | Microsoft Docs'
+title: 'Tutorial: Uso compartido de delimitadores con Azure Cosmos DB'
 description: En este tutorial, aprenderá a compartir identificadores de Azure Spatial Anchors entre los dispositivos Android o iOS de Unity con un servicio de back-end y Azure Cosmos DB.
 author: ramonarguelles
-manager: vicenterivera
+manager: vriveras
 services: azure-spatial-anchors
 ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 7ddbff563f79992f21aef5182177f4fb60c61dab
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 57bf9c9752cf2203ffcac08c213373fd71a79148
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72882158"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276874"
 ---
 # <a name="tutorial-sharing-azure-spatial-anchors-across-sessions-and-devices-with-an-azure-cosmos-db-back-end"></a>Tutorial: Uso compartido de Azure Spatial Anchors entre sesiones y dispositivos con un back-end de Azure Cosmos DB
 
@@ -25,7 +25,7 @@ Es importante destacar que, aunque en este tutorial se van a usar Unity y Azure 
 
 ## <a name="create-a-database-account"></a>Creación de una cuenta de base de datos
 
-Agregue una base de datos de Azure Cosmos al grupo de recursos que creó anteriormente. 
+Agregue una base de datos de Azure Cosmos al grupo de recursos que creó anteriormente.
 
 [!INCLUDE [cosmos-db-create-dbaccount-table](../../../includes/cosmos-db-create-dbaccount-table.md)]
 

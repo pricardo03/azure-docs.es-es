@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Cómo inscribir dispositivos X.509 en el servicio Azure Device Provisioning mediante Java'
+title: Inscripción de dispositivos X.509 en Azure Device Provisioning Service mediante Java
 description: En esta guía de inicio rápido se utilizan inscripciones individuales y de grupo. En esta guía de inicio rápido va a inscribir dispositivos X.509 en el servicio Azure IoT Hub Device Provisioning Service con Java.
 author: wesmc7777
 ms.author: wesmc
@@ -7,15 +7,14 @@ ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 8a1accf232b022bc3028f91d2151c00b98969f1f
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 983e410c6f6298c6b251fdc2a4aff5c677d26906
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73904777"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74423049"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-java"></a>Inicio rápido: Inscripción de dispositivos X.509 en el servicio Device Provisioning mediante Java
 
@@ -203,14 +202,14 @@ Para inscribir un único dispositivo X.509, modifique el código de ejemplo de l
 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
-Si tiene previsto explorar el ejemplo del servicio de Java, no elimine los recursos que se crearon con esta guía de inicio rápido. Si no va a continuar, use el siguiente comando para eliminar todos los recursos creados.
+Si planea explorar el ejemplo del servicio de Java, no elimine los recursos que se han creado en este inicio rápido. Si no va a continuar, use el siguiente comando para eliminar todos los recursos que se hayan creado en este inicio rápido.
 
 1. Cierre la ventana de salida de ejemplo de Java en su máquina.
 1. Cierre la ventana de la herramienta para _generar certificados X.509_ en su máquina.
-1. Navegue a su servicio Device Provisioning en Azure Portal, haga clic en **Administrar inscripciones** y, a continuación, seleccione la pestaña **Grupos de inscripción**. Seleccione el *NOMBRE DE GRUPO* para los dispositivos X.509 que inscribió mediante esta guía de inicio rápido y haga clic en el botón **Eliminar** situado en la parte superior de la hoja.  
+1. Vaya a Device Provisioning Service en Azure Portal, seleccione **Administrar inscripciones** y, a continuación, seleccione la pestaña **Grupos de inscripción**. Seleccione la casilla que se encuentra junto a *NOMBRE DE GRUPO* para ver los dispositivos X.509 que inscribió mediante este inicio rápido y presione el botón **Eliminar** situado en la parte superior del panel.  
 
 ## <a name="next-steps"></a>Pasos siguientes
-En esta guía de inicio rápido, inscribió un grupo de dispositivos X.509 simulados al servicio de Device Provisioning. Para más información acerca del aprovisionamiento de dispositivos, continúe con el tutorial para instalar el servicio Device Provisioning en Azure Portal. 
+En este inicio rápido, ha inscrito un grupo de dispositivos X.509 simulados en Device Provisioning Service. Para más información acerca del aprovisionamiento de dispositivos, continúe con el tutorial para instalar el servicio Device Provisioning en Azure Portal. 
 
 > [!div class="nextstepaction"]
 > [Tutoriales del servicio Azure IoT Hub Device Provisioning](./tutorial-set-up-cloud.md)

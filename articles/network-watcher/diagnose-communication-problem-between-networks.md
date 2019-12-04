@@ -1,6 +1,7 @@
 ---
-title: 'Diagnosticar un problema de comunicación entre redes (tutorial): Azure Portal | Microsoft Docs'
-description: Aprenda a diagnosticar los problemas de comunicación entre una red virtual de Azure conectada a una red local o a otra red virtual, a través de una puerta de enlace de red virtual de Azure, mediante la capacidad de diagnóstico de VPN de Network Watcher.
+title: 'Tutorial: Diagnóstico de un problema de comunicación entre redes mediante Azure Portal'
+titleSuffix: Azure Network Watcher
+description: En este tutorial, aprenderá a diagnosticar los problemas de comunicación entre una red virtual de Azure conectada a una red local o a otra red virtual, a través de una puerta de enlace de red virtual de Azure, mediante la capacidad de diagnóstico de VPN de Network Watcher.
 services: network-watcher
 documentationcenter: na
 author: KumudD
@@ -15,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 04/27/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: e4dc66a5ca6e18b12586b5b03742fba3d6c3d6c4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e2ec59cf609fcde79d289e321331ca5018401a5e
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64704215"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74419736"
 ---
 # <a name="tutorial-diagnose-a-communication-problem-between-networks-using-the-azure-portal"></a>Tutorial: Diagnóstico de problemas de comunicación entre redes mediante Azure Portal
 
@@ -53,7 +54,7 @@ Inicie sesión en el [Azure Portal](https://portal.azure.com).
 Si ya dispone de un monitor de red habilitado en la región Este de EE. UU., vaya al paso [Diagnosticar una puerta de enlace](#diagnose-a-gateway).
 
 1. En el portal, seleccione **Todos los servicios**. En el **cuadro Filtrar**, escriba *Network Watcher*. Cuando aparezca la opción **Network Watcher** en los resultados, selecciónela.
-2. Seleccione **Regiones** para expandirla y, a continuación, seleccione **...**  a la derecha de la opción **Este de EE. UU.**, tal y como se muestra en la siguiente imagen:
+2. Seleccione **Regiones** para expandirla y, a continuación, seleccione **...**  a la derecha de la opción **Este de EE. UU.** , tal y como se muestra en la siguiente imagen:
 
     ![Habilitación de Network Watcher](./media/diagnose-communication-problem-between-networks/enable-network-watcher.png)
 

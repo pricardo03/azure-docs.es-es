@@ -1,25 +1,19 @@
 ---
-title: 'Uso del kit de desarrollo de Azure Blockchain para Ethereum: Azure Blockchain Service'
+title: Uso de Visual Studio Code para conectarse a Azure Blockchain Service
 description: Conexión a una red de consorcio de Azure Blockchain Service mediante el kit de desarrollo de Azure Blockchain para la extensión Ethereum en Visual Studio Code
-services: azure-blockchain
-keywords: ''
-author: PatAltimore
-ms.author: patricka
-ms.date: 10/14/2019
+ms.date: 11/19/2019
 ms.topic: quickstart
-ms.service: azure-blockchain
 ms.reviewer: chrisseg
-manager: femila
-ms.openlocfilehash: 6364e887c699219d80974d592a8ff7c77cca2621
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 4d4625df1cb07818dcadb88e2c98bf9ae1da1b1f
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329311"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74455989"
 ---
 # <a name="quickstart-use-visual-studio-code-to-connect-to-an-azure-blockchain-service-consortium-network"></a>Inicio rápido: Uso de Visual Studio Code para conectarse a una red del consorcio de Azure Blockchain Service
 
-En este inicio rápido, debe instalar y usar el kit de desarrollo de Azure Blockchain para la extensión de Visual Studio Code para Ethereum a fin de asociar a un consorcio en Azure Blockchain Service. El kit de desarrollo de Azure Blockchain simplifica la creación, conexión, compilación e implementación de contratos inteligentes en libros de contabilidad de Ethereum. 
+En este inicio rápido, se instala y usa la extensión de Visual Studio Code (VS Code) kit de desarrollo de Azure Blockchain para Ethereum para realizar la asociación a un consorcio en Azure Blockchain Service. El kit de desarrollo de Azure Blockchain simplifica la creación, conexión, compilación e implementación de contratos inteligentes en libros de contabilidad de una cadena de bloques de Ethereum.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -28,11 +22,19 @@ En este inicio rápido, debe instalar y usar el kit de desarrollo de Azure Block
 * Realizar el tutorial [Quickstart: Creación de un miembro de cadena de bloques mediante Azure Portal](create-member.md) o [Inicio rápido: Creación de un miembro de cadena de bloques de Azure Blockchain Service mediante la CLI de Azure](create-member-cli.md)
 * [Visual Studio Code](https://code.visualstudio.com/Download)
 * [Kit de desarrollo de Azure Blockchain para la extensión de Ethereum](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain)
-* [Node.js](https://nodejs.org)
-* [Git](https://git-scm.com)
-* [Python](https://www.python.org/downloads/release/python-2715/) Agregue python.exe a la ruta de acceso. Se necesita Python en la ruta de acceso para el kit de desarrollo de Azure Blockchain.
-* [Truffle](https://www.trufflesuite.com/docs/truffle/getting-started/installation)
-* [CLI de Ganache](https://github.com/trufflesuite/ganache-cli)
+* [Node.js 10.15.x o superior](https://nodejs.org/download)
+* [Git 2.10.x o superior](https://git-scm.com)
+* [Python 2.7.15](https://www.python.org/downloads/release/python-2715/) Agregue python.exe a la ruta de acceso. Se necesita la versión 2.7.15 de Python en la ruta de acceso de Azure Blockchain Development Kit.
+* [Truffle 5.0.0](https://www.trufflesuite.com/docs/truffle/getting-started/installation)
+* [CLI de Ganache 6.0.0](https://github.com/trufflesuite/ganache-cli)
+
+En Windows, se requiere un compilador de C++ instalado para el módulo node-gyp. Puede usar las herramientas de MSBuild:
+
+* Si está instalado Visual Studio 2017, configure npm para que use las herramientas de MSBuild con el comando `npm config set msvs_version 2017 -g`
+* Si está instalado Visual Studio 2019, establezca la ruta de acceso de las herramientas de MSBuild para npm. Por ejemplo: `npm config set msbuild_path "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\MSBuild.exe"`
+* En caso contrario, instale las herramientas independientes de VS Build mediante `npm install --global windows-build-tools` en un shell de comandos *Ejecutar como administrador* con privilegios elevados.
+
+Para más información sobre node-gyp, consulte el [repositorio de node-gyp en GitHub](https://github.com/node-gyp).
 
 ### <a name="verify-azure-blockchain-development-kit-environment"></a>Comprobación del entorno del kit de desarrollo de Azure Blockchain
 
@@ -42,9 +44,9 @@ En la paleta de comandos de VS Code, elija **Azure Blockchain: mostrar página d
 
 El kit de desarrollo de Azure Blockchain ejecuta un script de validación que tarda aproximadamente un minuto en completarse. Para ver la salida, seleccione **Terminal > Nuevo terminal**. En la barra de menús de terminal, seleccione la pestaña **Salida** y **Azure Blockchain** en la lista desplegable. Una validación correcta tiene un aspecto similar al de la siguiente imagen:
 
-![Entorno de desarrollo válido](./media/connect-vscode/valid-environment.png)
+![Un entorno de desarrollo válido](./media/connect-vscode/valid-environment.png)
 
- Si falta una herramienta necesaria, en una nueva pestaña denominada **Kit de desarrollo de Azure Blockchain (versión preliminar)** se muestran las aplicaciones necesarias para la instalación y los vínculos para descargar las herramientas.
+ Si falta una herramienta necesaria, en una nueva pestaña denominada **Azure Blockchain Development Kit (versión preliminar)** se muestran las herramientas necesarias con vínculos para descargarlas.
 
 ![Aplicaciones obligatorias del kit de desarrollo](./media/connect-vscode/required-apps.png)
 
@@ -56,7 +58,7 @@ Puede conectarse a los miembros de un consorcio mediante la extensión para VS C
 
 Si no tiene acceso a un miembro del consorcio de Azure Blockchain Service, complete el requisito previo [Inicio rápido: Creación de un miembro de cadena de bloques mediante Azure Portal](create-member.md) o [Inicio rápido: Creación de un miembro de cadena de bloques de Azure Blockchain Service mediante la CLI de Azure](create-member-cli.md).
 
-1. En el panel Explorador de Visual Studio Code (VS Code), expanda la extensión **Azure Blockchain**.
+1. En el panel Explorador de VS Code, expanda la extensión **Azure Blockchain**.
 1. Seleccione **Connect to Consortium** (Conectar a un consorcio).
 
    ![Conexión a un consorcio](./media/connect-vscode/connect-consortium.png)
@@ -66,13 +68,13 @@ Si no tiene acceso a un miembro del consorcio de Azure Blockchain Service, compl
 1. Elija la suscripción y el grupo de recursos asociados a su miembro del consorcio de Azure Blockchain Service.
 1. Elija su consorcio de la lista.
 
-Los miembros de la cadena de bloques y del consorcio se enumeran en la barra lateral del explorador de Visual Studio.
+Los miembros de la cadena de bloques y del consorcio se enumeran en la barra lateral del explorador de VS Code.
 
 ![Consorcio mostrado en el explorador](./media/connect-vscode/consortium-node.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este inicio rápido, se usa el kit de desarrollo de Azure Blockchain para la extensión de Visual Studio Code para Ethereum a fin de asociar a un consorcio en Azure Blockchain Service. Pruebe el siguiente tutorial para usar el kit de desarrollo de Azure Blockchain para Ethereum y Truffle a fin de crear, compilar, implementar y ejecutar una función de contrato inteligente mediante una transacción.
+En este inicio rápido, se usa la extensión de VS Code Azure Blockchain Development Kit for Ethereum para establecer la asociación con un consorcio en Azure Blockchain Service. Pruebe el siguiente tutorial para usar Azure Blockchain Development Kit for Ethereum para crear, compilar, implementar y ejecutar una función de contrato inteligente mediante una transacción.
 
 > [!div class="nextstepaction"]
-> [Uso de Visual Studio Code para crear, compilar e implementar contratos inteligentes](send-transaction.md)
+> [Creación, compilación e implementación de contratos inteligentes en Azure Blockchain Service](send-transaction.md)

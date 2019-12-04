@@ -1,19 +1,15 @@
 ---
-title: Uso de Blockchain Data Manager para actualizar Azure Cosmos DB
-description: Uso de Blockchain Data Manager para enviar datos de cadena de bloques a Azure Cosmos DB
-services: azure-blockchain
-author: PatAltimore
-ms.author: patricka
+title: 'Uso de Blockchain Data Manager para actualizar Azure Cosmos DB: Azure Blockchain Service'
+description: Uso de Blockchain Data Manager para Azure Blockchain Service para enviar datos de la cadena de bloques a Azure Cosmos DB
 ms.date: 11/04/2019
 ms.topic: tutorial
-ms.service: azure-blockchain
 ms.reviewer: chroyal
-ms.openlocfilehash: 3f2d0df2c094d8455aa29e79ad3c6acc0aa52dd4
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 497652f91d46592212a17a0a22832c02a696df62
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73585711"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326256"
 ---
 # <a name="tutorial-use-blockchain-data-manager-to-send-data-to-azure-cosmos-db"></a>Tutorial: Uso de Blockchain Data Manager para enviar datos a Azure Cosmos DB
 

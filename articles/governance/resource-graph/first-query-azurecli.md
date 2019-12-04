@@ -1,14 +1,14 @@
 ---
-title: Ejecución de la primera consulta con la CLI de Azure
-description: Este artículo le guiará por los pasos para habilitar la extensión Resource Graph para la CLI de Azure y ejecutar la primera consulta.
-ms.date: 10/18/2019
+title: 'Inicio rápido: La primera en la CLI de Azure'
+description: En esta guía de inicio rápido, dará los pasos necesarios para habilitar la extensión de Resource Graph en la CLI de Azure y ejecutar la primera consulta.
+ms.date: 11/21/2019
 ms.topic: quickstart
-ms.openlocfilehash: b74e4314a7755bb067831f955ca02d62485abe4f
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: e75152c720d94f084b43f855452e5e8ce4dc6bc8
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73958964"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74304126"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-cli"></a>Inicio rápido: Ejecución de la primera consulta de Resource Graph con la CLI de Azure
 
@@ -16,13 +16,17 @@ El primer paso para usar Azure Resource Graph es comprobar que está instalada l
 
 Al final de este proceso, habrá agregado la extensión a la instalación de la CLI de Azure que haya elegido y habrá ejecutado la primera consulta de Resource Graph.
 
+## <a name="prerequisites"></a>Requisitos previos
+
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="add-the-resource-graph-extension"></a>Incorporación de la extensión de Resource Graph
 
 Para habilitar la CLI de Azure para consultar Azure Resource Graph, se debe agregar la extensión. Esta extensión funciona siempre que se puede usar la CLI de Azure, incluidos [Bash en Windows 10](/windows/wsl/install-win10), [Cloud Shell](https://shell.azure.com) (independiente y dentro del portal), la [imagen de Docker de la CLI de Azure](https://hub.docker.com/r/microsoft/azure-cli/) o instalado localmente.
 
-1. Compruebe que está instalada la versión más reciente de la CLI de Azure (al menos la **2.0.45**). Si todavía no está instalado, siga [estas instrucciones](/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
+1. Compruebe que está instalada la versión más reciente de la CLI de Azure (al menos la **2.0.76**). Si todavía no está instalado, siga [estas instrucciones](/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
 
 1. En el entorno que prefiera de la CLI de Azure, impórtela con el siguiente comando:
 
@@ -87,10 +91,7 @@ az extension remove -n resource-graph
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga más información sobre el [lenguaje de consulta](./concepts/query-language.md).
-- Obtenga más información sobre cómo [explorar recursos](./concepts/explore-resources.md).
-- Ejecute la primera consulta mediante [Azure Portal](first-query-portal.md).
-- Ejecute la primera consulta con [Azure PowerShell](first-query-powershell.md).
-- Consulte ejemplos de [consultas de inicio](./samples/starter.md).
-- Consulte ejemplos de [consultas avanzadas](./samples/advanced.md).
-- Proporcione comentarios en [UserVoice](https://feedback.azure.com/forums/915958-azure-governance).
+En este inicio rápido, ha agregado la extensión Resource Graph a su entorno de la CLI de Azure y ha ejecutado la primera consulta. Para más información sobre el lenguaje de Resource Graph, vaya a la página de detalles del lenguaje de consulta.
+
+> [!div class="nextstepaction"]
+> [Obtener más información sobre el lenguaje de consulta](./concepts/query-language.md)

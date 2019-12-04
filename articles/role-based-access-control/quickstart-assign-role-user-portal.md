@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Concesión de acceso de usuario a los recursos de Azure mediante RBAC y Azure Portal | Microsoft Docs'
-description: Aprenda a conceder acceso de usuario a los recursos de Azure con el control de acceso basado en rol (RBAC) en Azure Portal.
+title: 'Tutorial: Concesión de acceso de usuario a los recursos de Azure mediante RBAC y Azure Portal'
+description: En este tutorial, aprenderá a conceder acceso de usuario a los recursos de Azure con el control de acceso basado en rol (RBAC) en Azure Portal.
 services: role-based-access-control
 documentationCenter: ''
 author: rolyon
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/22/2019
 ms.author: rolyon
-ms.openlocfilehash: 5786f7b48477fa705b43e3a953ac15b2c768bd71
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f4dd3995df2a068824c4aa6bccca5606d250a165
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57854266"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74419652"
 ---
 # <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-the-azure-portal"></a>Tutorial: Concesión de acceso de usuario a los recursos de Azure mediante RBAC y Azure Portal
 
@@ -62,7 +62,7 @@ En RBAC, para conceder acceso es preciso crear una asignación de roles.
 
 1. En la lista de **Grupos de recursos**, haga clic en el nuevo grupo de recursos **rbac-resource-group**.
 
-1. Haga clic en **Control de acceso (IAM)**.
+1. Haga clic en **Control de acceso (IAM)** .
 
 1. Haga clic en la pestaña **Asignaciones de roles** para ver la lista actual de asignaciones de roles.
 
@@ -108,7 +108,7 @@ En RBAC, para quitar el acceso hay que quitar una asignación de roles.
 
    ![Eliminación de un grupo de recursos](./media/quickstart-assign-role-user-portal/delete-resource-group.png)
 
-1. En la hoja **¿Está seguro de que desea eliminar?**, escriba el nombre del grupo de recursos: **rbac-resource-group**.
+1. En la hoja **¿Está seguro de que desea eliminar?** , escriba el nombre del grupo de recursos: **rbac-resource-group**.
 
 1. Haga clic en **Eliminar** para eliminar el grupo de recursos.
 
@@ -116,4 +116,3 @@ En RBAC, para quitar el acceso hay que quitar una asignación de roles.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Concesión de acceso de usuario a los recursos de Azure mediante RBAC y Azure PowerShell](tutorial-role-assignments-user-powershell.md)
-

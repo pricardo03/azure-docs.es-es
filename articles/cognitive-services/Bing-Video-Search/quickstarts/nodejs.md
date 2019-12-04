@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Búsqueda de vídeos con Bing Video Search API y Node.js'
+title: 'Inicio rápido: Búsqueda de vídeos con la API REST y Node.js: Bing Video Search'
 titleSuffix: Azure Cognitive Services
 description: Use este artículo de inicio rápido para enviar solicitudes de búsqueda de vídeo a Bing Video Search API mediante JavaScript.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 06/26/2019
 ms.author: aahi
-ms.openlocfilehash: 786302b882fbd59932af17ccc6a390fa41b30ac9
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: e9d7aeabceb77597d826d6c76dbdddc625ad45cc
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932952"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383812"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-nodejs"></a>Inicio rápido: Búsqueda de vídeos con Bing Video Search API y Node.js
 

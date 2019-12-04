@@ -1,6 +1,7 @@
 ---
-title: 'Registrar el flujo del tráfico de red desde y hacia una VM (tutorial): Azure Portal | Microsoft Docs'
-description: Obtenga información acerca de cómo registrar el flujo de tráfico de red desde y hacia una VM mediante la funcionalidad de registro de flujos de NSG de Network Watcher.
+title: 'Tutorial: Registro del flujo de tráfico de red hacia una máquina virtual y desde esta mediante Azure Portal'
+titleSuffix: Azure Network Watcher
+description: En este tutorial aprenderá a registrar el flujo de tráfico de red hacia una máquina virtual y desde esta mediante la funcionalidad de registro de flujos de grupos de seguridad de red de Network Watcher.
 services: network-watcher
 documentationcenter: na
 author: KumudD
@@ -17,12 +18,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 3e5490a4d74f10532764029f7a83788e3e39b592
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: a5d600e761ce3c3cebbe155c6be7e0f5a377eb32
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69636212"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74419637"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Tutorial: Registro del tráfico de red de entrada y salida de una máquina virtual mediante Azure Portal
 
@@ -116,7 +117,7 @@ Para iniciar sesión en el flujo de NSG, es necesario recurrir al proveedor **Mi
 1. En la esquina superior izquierda del portal, seleccione **Todos los servicios**. En el cuadro **Filtrar**, escriba *Network Watcher*. Cuando aparezca la opción **Network Watcher** en los resultados de búsqueda, selecciónela.
 10. Establezca el valor de **Retención (días)** en 5 y, a continuación, seleccione **Guardar**.
     > [!IMPORTANT]
-    > Actualmente, hay un problema por el que los [registros de flujo del grupo de seguridad de red (NSG)](network-watcher-nsg-flow-logging-overview.md) para Network Watcher no se eliminan automáticamente del almacenamiento de blobs en función de la configuración de la directiva de retención. Si tiene una directiva de retención distinta de cero, recomendamos que elimine periódicamente los blobs de almacenamiento que superan el período de retención para evitar incurrir en cargos. Para más información sobre cómo eliminar los blobs de almacenamiento de registros de flujo de NSG, consulte [Eliminación de blobs de almacenamiento de registros de flujo de NSG](network-watcher-delete-nsg-flow-log-blobs.md).
+    > Actualmente, hay un problema por el que los [registros de flujo del grupo de seguridad de red (NSG)](network-watcher-nsg-flow-logging-overview.md) para Network Watcher no se eliminan automáticamente del almacenamiento de blobs en función de la configuración de la directiva de retención. Si tiene una directiva de retención distinta de cero, recomendamos que elimine periódicamente los blobs de almacenamiento que superen el período de retención para evitar recargos. Para más información sobre cómo eliminar los blobs de almacenamiento de registros de flujo de NSG, consulte [Eliminación de blobs de almacenamiento de registros de flujo de NSG](network-watcher-delete-nsg-flow-log-blobs.md).
 
 ## <a name="download-flow-log"></a>Descargar el registro de flujos
 

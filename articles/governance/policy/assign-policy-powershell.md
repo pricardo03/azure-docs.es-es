@@ -1,27 +1,28 @@
 ---
-title: Creación de una directiva para auditar recursos con PowerShell
-description: Use Azure PowerShell para crear una asignación de Azure Policy para identificar recursos no compatibles.
-ms.date: 03/11/2019
+title: 'Inicio rápido: Asignación de directivas nuevas con PowerShell'
+description: En este inicio rápido, se usa Azure PowerShell para crear una asignación de Azure Policy para identificar recursos no compatibles.
+ms.date: 11/25/2019
 ms.topic: quickstart
-ms.openlocfilehash: 796606e1e34e753e49a9083fca5a441cacf6d03c
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 3ce823a7abfe16e4433128dcdfe073dfcfaeba50
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960126"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74482389"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-azure-powershell"></a>Inicio rápido: Creación de una asignación de directiva para identificar recursos no compatibles mediante Azure PowerShell
 
-El primer paso para entender el cumplimiento en Azure es identificar el estado de sus recursos. En esta guía de inicio rápido, se crea una asignación de directiva para identificar máquinas virtuales que no usan discos administrados. Cuando haya finalizado, podrá identificar máquinas virtuales que *no estén conformes*.
+El primer paso para entender el cumplimiento en Azure es identificar el estado de sus recursos. En esta guía de inicio rápido, se crea una asignación de directiva para identificar máquinas virtuales que no usan discos administrados. Cuando haya finalizado, podrá identificar máquinas virtuales que _no estén conformes_.
 
 El módulo Azure PowerShell se usa para administrar recursos de Azure desde la línea de comandos o en scripts.
 En esta guía se explica cómo usar el módulo Az para crear una asignación de directiva.
 
-Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
-
 ## <a name="prerequisites"></a>Requisitos previos
 
+- Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
+
 - Antes de comenzar, asegúrese de tener instalada la versión más reciente de Azure PowerShell. Consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-az-ps) para más información.
+
 - Registre el proveedor de recursos de Azure Policy Insights mediante Azure PowerShell. El registro del proveedor de recursos garantiza que la suscripción funcionará con él. Para registrar un proveedor de recursos, debe tener permiso para registrar la operación del proveedor de recursos. Esta operación está incluida en los roles Colaborador y Propietario. Para registrar el proveedor de recursos, ejecute el siguiente comando:
 
   ```azurepowershell-interactive
@@ -29,11 +30,13 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
   Register-AzResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
   ```
 
-  Para más información acerca del registro y la visualización de los proveedores de recursos, consulte [Tipos y proveedores de recursos](../../azure-resource-manager/resource-manager-supported-services.md)
+  Para más información sobre el registro y la visualización de los proveedores de recursos, consulte [Tipos y proveedores de recursos](../../azure-resource-manager/resource-manager-supported-services.md).
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-a-policy-assignment"></a>Creación de una asignación de directiva
 
-En esta guía de inicio rápido, se crea una asignación de directiva para la definición de *Auditoría de máquinas virtuales sin discos administrados*. Esta definición de directiva identifica las máquinas virtuales que no utilizan discos administrados.
+En esta guía de inicio rápido, se crea una asignación de directiva para la definición de _Auditoría de máquinas virtuales sin discos administrados_. Esta definición de directiva identifica las máquinas virtuales que no utilizan discos administrados.
 
 Ejecute los comandos siguientes para crear una nueva asignación de directiva:
 
@@ -50,9 +53,9 @@ New-AzPolicyAssignment -Name 'audit-vm-manageddisks' -DisplayName 'Audit VMs wit
 
 Los comandos anteriores usan la siguiente información:
 
-- **Nombre**: el nombre real de la asignación. En este ejemplo se usa *audit-vm-manageddisks*.
-- **DisplayName**: nombre para mostrar de la asignación de directiva. En este caso, usará *Auditoría de máquinas virtuales sin discos administrados*.
-- **Definition**: definición de la directiva, según la opción utilizada para crear la asignación. En este caso, es el identificador de la definición de directiva *Auditoría de máquinas virtuales que no usan discos administrados*.
+- **Nombre**: el nombre real de la asignación. En este ejemplo se usa _audit-vm-manageddisks_.
+- **DisplayName**: nombre para mostrar de la asignación de directiva. En este caso, usará _Auditoría de máquinas virtuales sin discos administrados_.
+- **Definition**: definición de la directiva, según la opción utilizada para crear la asignación. En este caso, es el identificador de la definición de directiva _Auditoría de máquinas virtuales que no usan discos administrados_.
 - **Scope**: un ámbito determina en qué recursos o agrupación de recursos se aplica la asignación de directiva. Puede abarcar desde una suscripción hasta grupos de recursos. Asegúrese de sustituir &lt;scope&gt; por el nombre del grupo de recursos.
 
 Ahora ya está listo para identificar los recursos no compatibles a fin de conocer el estado de cumplimiento de su entorno.

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Migración de datos locales a Azure Storage mediante AzCopy | Microsoft Docs'
+title: 'Tutorial: Migración de datos locales a Azure Storage con AzCopy | Microsoft Docs'
 description: En este tutorial, va a utilizar AzCopy para migrar datos al contenido de archivos, blobs y tablas o copiarlos. Realice la migración de los datos fácilmente desde el almacenamiento local a Azure Storage.
 author: normesta
 ms.service: storage
@@ -8,14 +8,14 @@ ms.date: 05/14/2019
 ms.author: normesta
 ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: 5f09ae7dc625ad579e31fd49d70331f30e6a708a
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: f7155053072b3533503765dc6f4fbf185d21f0d4
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68844892"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327514"
 ---
-#  <a name="tutorial-migrate-on-premises-data-to-cloud-storage-by-using-azcopy"></a>Tutorial: Migración de datos locales al almacenamiento en la nube mediante AzCopy
+#  <a name="tutorial-migrate-on-premises-data-to-cloud-storage-with-azcopy"></a>Tutorial: Migración de datos locales a un almacenamiento en la nube con AzCopy
 
 AzCopy es una herramienta de línea de comandos para copiar datos de Azure Blob Storage, Azure Files y Azure Table Storage (o en ellos) mediante comandos simples. Los comandos están diseñados para optimizar el rendimiento. Con AzCopy, puede copiar datos entre un sistema de archivos y una cuenta de almacenamiento o entre cuentas de almacenamiento. AzCopy se puede usar para copiar datos desde los datos locales a una cuenta de almacenamiento.
 

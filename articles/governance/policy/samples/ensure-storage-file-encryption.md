@@ -1,14 +1,14 @@
 ---
 title: 'Ejemplo: Proteger el cifrado de archivos de almacenamiento'
-description: Esta definición de directiva de ejemplo requiere que el cifrado de archivos esté habilitado para las cuentas de almacenamiento.
+description: Esta definición de directiva de ejemplo requiere que el cifrado de archivos esté habilitado para todas las cuentas de Azure Storage.
 ms.date: 01/23/2019
 ms.topic: sample
-ms.openlocfilehash: 0c0bb16d05b733ca7eabd665eab2ffea77de2b99
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: e10c9a83b0a523848a7c50bc7e2161e92afbca07
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74070046"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463439"
 ---
 # <a name="sample---ensure-storage-file-encryption"></a>Ejemplo: Proteger el cifrado de archivos de almacenamiento
 

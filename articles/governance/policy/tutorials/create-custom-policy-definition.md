@@ -1,14 +1,14 @@
 ---
-title: Creación de una definición de directiva personalizada
-description: Cree una definición de directiva personalizada para Azure Policy para aplicar reglas de negocio personalizadas a los recursos de Azure.
-ms.date: 04/23/2019
+title: 'Tutorial: Creación de una definición de directiva personalizada'
+description: En este tutorial, creará una definición de directiva personalizada para Azure Policy para aplicar reglas de negocio personalizadas a los recursos de Azure.
+ms.date: 11/25/2019
 ms.topic: tutorial
-ms.openlocfilehash: 97a85eb28cd0dbb2586623fda442d87a5790db2a
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: e30d47ed6e01c4fd8ff061398b1045f9446e466a
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74128787"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483981"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>Tutorial: Creación de una definición de directiva personalizada
 
@@ -31,6 +31,8 @@ El enfoque para crear una directiva personalizada sigue estos pasos:
 > - Determinar qué efecto usar
 > - Elaborar la definición de directiva
 
+## <a name="prerequisites"></a>Requisitos previos
+
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="identify-requirements"></a>Identificación de los requisitos
@@ -50,12 +52,17 @@ En función de las necesidades de la organización, el recurso de Azure que se v
 
 Hay muchas maneras de determinar las propiedades de un recurso de Azure. Se analizará cada una de ellas en este tutorial:
 
+- Extensión de Azure Policy para VS Code
 - Plantillas de Resource Manager
   - Exportar un recurso existente
   - Experiencia de creación
   - Plantillas de inicio rápido (GitHub)
   - Documentos de referencia de plantilla
 - Explorador de recursos de Azure
+
+### <a name="view-resources-in-vs-code-extension"></a>Visualización de recursos en la extensión de VS Code
+
+La [extensión de VS Code](../how-to/extension-for-vscode.md#search-for-and-view-resources) se puede usar para examinar los recursos de su entorno y ver las propiedades de Resource Manager en cada recurso.
 
 ### <a name="resource-manager-templates"></a>Plantillas de Resource Manager
 
@@ -156,9 +163,14 @@ Se ha identificado la propiedad de recurso, pero es necesario asignarle un [alia
 
 Hay varias maneras de determinar los alias de un recurso de Azure. Se analizará cada una de ellas en este tutorial:
 
+- Extensión de Azure Policy para VS Code
 - CLI de Azure
 - Azure PowerShell
 - Azure Resource Graph
+
+### <a name="get-aliases-in-vs-code-extension"></a>Obtención de alias en la extensión de VS Code
+
+La extensión de Azure Policy para la extensión de VS Code facilita el examen de los recursos y la [detección de alias](../how-to/extension-for-vscode.md#discover-aliases-for-resource-properties).
 
 ### <a name="azure-cli"></a>CLI de Azure
 
@@ -188,7 +200,7 @@ Al igual que con la CLI de Azure, los resultados muestran un alias compatible co
 
 ### <a name="azure-resource-graph"></a>Azure Resource Graph
 
-[Azure Resource Graph](../../resource-graph/overview.md) es un nuevo servicio en versión preliminar. Este servicio proporciona otro método para buscar propiedades de recursos de Azure. A continuación se describe una consulta sencilla para buscar una única cuenta de almacenamiento con Resource Graph:
+[Azure Resource Graph](../../resource-graph/overview.md) es un nuevo servicio. Este servicio proporciona otro método para buscar propiedades de recursos de Azure. A continuación se describe una consulta sencilla para buscar una única cuenta de almacenamiento con Resource Graph:
 
 ```kusto
 where type=~'microsoft.storage/storageaccounts'
@@ -301,12 +313,11 @@ Esta es una salida de ejemplo de una cuenta de almacenamiento de alias:
 }
 ```
 
-Azure Resource Graph (versión preliminar) se usa mediante [Cloud Shell](https://shell.azure.com), lo que hace que sea una manera rápida y fácil de explorar las propiedades de los recursos.
+Azure Resource Graph se usa mediante [Cloud Shell](https://shell.azure.com), lo que hace que sea una manera rápida y fácil de explorar las propiedades de los recursos.
 
 ## <a name="determine-the-effect-to-use"></a>Determinación del efecto para usar
 
-Decidir qué hacer con los recursos no compatibles es casi tan importante como decidir qué se debe evaluar en primer lugar. Cada posible respuesta a un recurso no compatible se conoce como [efecto](../concepts/effects.md).
-Los efectos controlan si se registra o bloquea el recurso no compatible, si tiene datos anexados o si tiene una implementación asociada para devolver el recurso a un estado de compatibilidad.
+Decidir qué hacer con los recursos no compatibles es casi tan importante como decidir qué se debe evaluar en primer lugar. Cada posible respuesta a un recurso no compatible se conoce como [efecto](../concepts/effects.md). Los efectos controlan si se registra o bloquea el recurso no compatible, si tiene datos anexados o si tiene una implementación asociada para devolver el recurso a un estado de compatibilidad.
 
 En nuestro ejemplo, Denegar es el efecto que se desea ya que no queremos tener recursos no compatibles creados en el entorno de Azure. Auditar es una buena primera opción de efecto de directiva para determinar de qué modo afecta una directiva antes de establecerla en Denegar. Una manera de facilitar el cambio del efecto por asignación es parametriza el efecto. Consulte a continuación los [parámetros](#parameters) para saber cómo hacerlo.
 
@@ -439,6 +450,16 @@ Con las tres partes de la directiva definidas, esta es la definición completada
 ```
 
 La definición completada se puede usar para crear otra directiva. El portal y cada SDK (la CLI de Azure, Azure PowerShell y API REST) aceptan la definición de diferentes formas, así que revise los comandos de cada una para validar el uso correcto. A continuación, asígnela, con el efecto parametrizado, a los recursos adecuados para administrar la seguridad de sus cuentas de almacenamiento.
+
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+Si terminó de trabajar con los recursos de este tutorial, use los pasos siguientes para eliminar todas las asignaciones y definiciones creadas anteriormente:
+
+1. Seleccione **Definiciones** (o **Asignaciones** si trata de eliminar una asignación) en **Creación** en el lado izquierdo de la página de Azure Policy.
+
+1. Busque la nueva definición de iniciativa o directiva (o asignación) que quiere quitar.
+
+1. Haga clic con el botón derecho en la fila o seleccione los puntos suspensivos al final de la definición (o asignación) y elija **Eliminar definición** (o **Eliminar asignación** ).
 
 ## <a name="review"></a>Revisión
 

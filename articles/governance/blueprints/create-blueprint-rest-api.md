@@ -1,28 +1,24 @@
 ---
-title: Creación de un plano técnico con la API de REST
-description: Utilice los planos técnicos de Azure Blueprints para crear, definir e implementar artefactos mediante la API REST.
-ms.date: 02/04/2019
+title: 'Inicio rápido: Creación de un plano técnico con la API de REST'
+description: En este inicio rápido se usa Azure Blueprints para crear, definir e implementar artefactos mediante la API REST.
+ms.date: 11/21/2019
 ms.topic: quickstart
-ms.openlocfilehash: 9b711a6359ed9ecb45f25c460ece095af46ad8c3
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 0338afb3dbcb7b2c6d7d204d4387873ac7607182
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960408"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74322153"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-rest-api"></a>Inicio rápido: Definición y asignación de un plano técnico de Azure Blueprint con API REST
 
 Entender cómo crear y asignar planos técnicos permite la definición de patrones comunes para desarrollar configuraciones reutilizables y de implementación rápida basadas en plantillas de Resource Manager, directivas, seguridad y mucho más. En este tutorial, aprenderá a usar planos técnicos de Azure Blueprint para realizar algunas de las tareas más comunes relacionadas con la creación, asignación y administración de directivas en toda la organización, como, por ejemplo:
 
-> [!div class="checklist"]
-> - Creación de un nuevo plano técnico y adición de varios artefactos compatibles
-> - Realización de cambios en un plano técnico existente que sigue en **borrador**
-> - Marcado de un plano técnico como listo para asignación con el estado **Publicado**
-> - Asignación de un plano técnico a una suscripción existente
-> - Comprobación del estado y progreso de un plano técnico asignado
-> - Eliminación de un plano técnico que se ha asignado a una suscripción
+## <a name="prerequisites"></a>Requisitos previos
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free) antes de empezar.
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="getting-started-with-rest-api"></a>Introducción a la API REST
 
@@ -393,7 +389,8 @@ En cada identificador URI de la API REST, hay variables usadas que se deben reem
 
    - Identidad administrada asignada por el usuario
 
-     Una asignación de plano técnico también puede usar una [identidad administrada asignada por el usuario](../../active-directory/managed-identities-azure-resources/overview.md). En este caso, la parte de **identidad** del cuerpo de la solicitud cambia del modo siguiente.  Reemplace `{yourRG}` y `{userIdentity}` por el nombre del grupo de recursos y el nombre de su identidad administrada asignada por el usuario, respectivamente.
+     Una asignación de plano técnico también puede usar una [identidad administrada asignada por el usuario](../../active-directory/managed-identities-azure-resources/overview.md).
+     En este caso, la parte de **identidad** del cuerpo de la solicitud cambia del modo siguiente. Reemplace `{yourRG}` y `{userIdentity}` por el nombre del grupo de recursos y el nombre de su identidad administrada asignada por el usuario, respectivamente.
 
      ```json
      "identity": {
@@ -432,9 +429,7 @@ Para quitar el mismo plano técnico, utilice la siguiente operación de la API R
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Información acerca del [ciclo de vida del plano técnico](./concepts/lifecycle.md).
-- Descubra cómo utilizar [parámetros estáticos y dinámicos](./concepts/parameters.md).
-- Aprenda a personalizar el [orden de secuenciación de planos técnicos](./concepts/sequencing-order.md).
-- Averigüe cómo usar el [bloqueo de recursos de planos técnicos](./concepts/resource-locking.md).
-- Aprenda a [actualizar las asignaciones existentes](./how-to/update-existing-assignments.md).
-- Puede consultar la información de [solución de problemas generales](./troubleshoot/general.md) para resolver los problemas durante la asignación de un plano técnico.
+En este inicio rápido, ha creado, asignado y eliminado un plano técnico con la API REST. Para más información sobre Azure Blueprints, vaya el artículo sobre el ciclo de vida de los planos técnicos.
+
+> [!div class="nextstepaction"]
+> [Más información acerca del ciclo de vida del plano técnico](./concepts/lifecycle.md)

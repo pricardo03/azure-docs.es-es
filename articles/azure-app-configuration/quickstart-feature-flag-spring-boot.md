@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Spring Boot
 ms.workload: tbd
 ms.date: 09/26/2019
 ms.author: mametcal
-ms.openlocfilehash: fe943913f9d33923438efb91630c5a85c4d1b748
-ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
+ms.openlocfilehash: cae1e7b205869fd41850c1adfaeae97658dd02f0
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71687225"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184962"
 ---
 # <a name="quickstart-add-feature-flags-to-a-spring-boot-app"></a>Inicio rápido: Incorporación de marcas de características a una aplicación de Spring Boot
 
@@ -62,7 +62,7 @@ Para crear un proyecto de Spring Boot, se usa [Spring Initializr](https://start.
 
 1. Después de extraer los archivos en el sistema local, la aplicación sencilla de Spring Boot estará lista para editarla. Busque el archivo *pom.xml* en el directorio raíz de la aplicación.
 
-2. Abra el archivo <bpt id="p1">*</bpt>pom.xml<ept id="p1">*</ept> en un editor de texto y agregue el iniciador de Spring Cloud Azure y la administración de características a la lista de <ph id="ph1">`&lt;dependencias&gt;`</ph>:
+2. Abra el archivo *pom.xml* en un editor de texto y agregue el iniciador de Spring Cloud Azure Config y Administración de características a la lista de `<dependencies>`:
 
     ```xml
     <dependency>
@@ -86,7 +86,7 @@ Para crear un proyecto de Spring Boot, se usa [Spring Initializr](https://start.
 
 ## <a name="connect-to-an-app-configuration-store"></a>Conexión a un almacén de App Configuration
 
-1. Abra `bootstrap.properties`, que está en el directorio de recursos de la aplicación y agréguele las siguientes líneas. Agregue la información de configuración de la aplicación.
+1. Abra `bootstrap.properties`, que está en el directorio de recursos de la aplicación y agréguele las siguientes líneas. Agregue la información de App Configuration.
 
     ```properties
     spring.cloud.azure.appconfiguration.stores[0].name= ${APP_CONFIGURATION_CONNECTION_STRING}

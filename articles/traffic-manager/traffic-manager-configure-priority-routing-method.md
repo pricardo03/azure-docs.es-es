@@ -1,25 +1,25 @@
 ---
-title: 'Configuración del enrutamiento de tráfico por prioridad: Azure Traffic Manager'
-description: En este artículo se explica cómo configurar el método de enrutamiento de tráfico por prioridad en Traffic Manager
+title: 'Tutorial: Configuración del enrutamiento del tráfico prioritario con Azure Traffic Manager'
+description: En este tutorial se explica cómo configurar el método de enrutamiento de tráfico prioritario en Traffic Manager
 services: traffic-manager
 documentationcenter: ''
 author: asudbring
 manager: kumudD
 ms.service: traffic-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: allensu
-ms.openlocfilehash: f9954c7733c30efaea4a74e04949556a3a8617fd
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: d5d58ec39841274b78ababf9f73f00a262cc37be
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74040348"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74420287"
 ---
-# <a name="configure-priority-traffic-routing-method-in-traffic-manager"></a>Configuración del método de enrutamiento de tráfico por prioridad en Traffic Manager
+# <a name="tutorial-configure-priority-traffic-routing-method-in-traffic-manager"></a>Tutorial: Configuración del método de enrutamiento de tráfico por prioridad en Traffic Manager
 
 Con independencia del modo del sitio web, Azure Websites ya proporciona la funcionalidad de conmutación por error para sitios web en un centro de datos (también conocido como región). Traffic Manager proporciona conmutación por error para sitios web en distintos centros de datos.
 

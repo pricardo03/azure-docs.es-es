@@ -1,14 +1,14 @@
 ---
 title: 'Ejemplo: Ancho de banda permitido de ExpressRoute'
-description: Esta definición de directiva de ejemplo requiere que ExpressRoute use un conjunto de anchos de banda especificados.
+description: Esta definición de directiva de ejemplo requiere que ExpressRoute use un conjunto de anchos de banda especificados definidos en un parámetro.
 ms.date: 01/23/2019
 ms.topic: sample
-ms.openlocfilehash: 20841b5476c50fb98d6b2d4a59f351525e1ecc9e
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: b7c60879b62020a0864eb2da3a29e1bfe57215c0
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072091"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463743"
 ---
 # <a name="sample---allowed-expressroute-bandwidth"></a>Ejemplo: Ancho de banda permitido de ExpressRoute
 

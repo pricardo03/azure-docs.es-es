@@ -1,7 +1,7 @@
 ---
 title: 'Inicio rápido: Creación de un índice de búsqueda en Postman mediante las API REST'
 titleSuffix: Azure Cognitive Search
-description: Aprenda a llamar a las API REST de Azure Cognitive Search mediante Postman y obtenga definiciones y datos de ejemplo.
+description: En este inicio rápido de API REST, aprenderá a llamar a las API REST de Azure Cognitive Search mediante Postman y obtendrá definiciones y datos de ejemplo.
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
 ms.date: 11/04/2019
-ms.openlocfilehash: 00d1122a8b56237eeb20892ad05cdbbcbe247510
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 9014a83596a3eee71f43d12a73188c1c43b832af
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792280"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406955"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-postman-using-rest-apis"></a>Inicio rápido: Creación de un índice de Azure Cognitive Search en Postman mediante las API REST
 > [!div class="op_single_selector"]
@@ -288,7 +288,7 @@ Agregar `/stats` a la dirección URL devuelve información de índice. En Postma
 
 Observe que la sintaxis de api-version es distinta. En esta solicitud, utilice `?` para anexar api-version. `?` separa la ruta de acceso de la dirección URL de la cadena de consulta, mientras que & separa cada par " nombre = valor " par en la cadena de consulta. En esta consulta, api-version es el primer y único elemento de la cadena de consulta.
 
-## <a name="clean-up"></a>Limpieza
+## <a name="clean-up-resources"></a>Limpieza de recursos
 
 Cuando trabaje con su propia suscripción, es una buena idea al final de un proyecto identificar si todavía se necesitan los recursos que ha creado. Los recursos que se dejan en ejecución pueden costarle mucho dinero. Puede eliminar los recursos de forma individual o eliminar el grupo de recursos para eliminar todo el conjunto de recursos.
 

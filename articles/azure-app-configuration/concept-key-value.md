@@ -12,12 +12,12 @@ ms.topic: overview
 ms.workload: tbd
 ms.date: 04/19/2019
 ms.author: yegu
-ms.openlocfilehash: c7a7e7994ef5e16640f59efdc672f6793bc4f18d
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 054de294c9edb0fe5b75da4ac7fd54ce987123de
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706471"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185230"
 ---
 # <a name="keys-and-values"></a>Claves y valores
 
@@ -73,7 +73,7 @@ Puede usar cualquier carácter Unicode en las etiquetas, excepto para `*`, `,` y
 
 ### <a name="query-key-values"></a>Valores de clave de consulta
 
-Cada valor de clave se identifica por su clave más una etiqueta que puede ser `null`. Si desea consultar los valores de clave en un almacén de configuración de la aplicación, especifique un modelo. El almacén de configuración de la aplicación devuelve todos los valores de clave que coincidan con el modelo y sus valores y atributos correspondientes. Use los siguientes modelos de claves en las llamadas a la API REST para App Configuration:
+Cada valor de clave se identifica por su clave más una etiqueta que puede ser `null`. Si desea consultar los valores de las claves en un almacén de App Configuration, especifique un modelo. El almacén de App Configuration devuelve todos los valores de claves que coincidan con el modelo, así como sus valores y atributos correspondientes. Use los siguientes modelos de claves en las llamadas a la API REST para App Configuration:
 
 | Clave | |
 |---|---|
@@ -100,7 +100,7 @@ También puede incluir los siguientes patrones de etiqueta:
 
 Los valores asignados a las claves también son cadenas unicode. Puede usar todos los caracteres unicode para los valores. Hay un tipo de contenido opcional definido por el usuario que se asocia a cada valor. Utilice este atributo para almacenar información, por ejemplo, un esquema de codificación, sobre un valor que ayuda a la aplicación a procesarlo correctamente.
 
-Los datos de configuración almacenados en un almacén de configuración de la aplicación, que incluye todas las claves y valores, se cifran en reposo y en tránsito. App Configuration no es una solución de reemplazo para Azure Key Vault. No almacene secretos de aplicación en ella.
+Los datos de configuración que se encuentran en un almacén de App Configuration, entre los que se incluyen todas las claves y los valores, se cifran tanto en reposo como en tránsito. App Configuration no es una solución de reemplazo para Azure Key Vault. No almacene secretos de aplicación en ella.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

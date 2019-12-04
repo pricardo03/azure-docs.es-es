@@ -8,12 +8,12 @@ ms.service: web-application-firewall
 ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: overview
-ms.openlocfilehash: 4ba2772ffb89809c2262880385207a12c74882cc
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 1a210ff7da57147762dcf13e1dda7fee26dbe5f0
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74067139"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74384110"
 ---
 # <a name="azure-web-application-firewall-on-azure-application-gateway"></a>Firewall de aplicaciones web de Azure en Azure Application Gateway
 
@@ -89,7 +89,12 @@ Para más información, consulte [Reglas y grupos de reglas de CRS de firewall d
 
 Application Gateway también admite reglas personalizadas. Con las reglas personalizadas, puede crear reglas propias que se evalúan en cada solicitud que pasa por el WAF. Estas reglas tienen una prioridad mayor que el resto de las reglas de los conjuntos de reglas administrados. Si se cumple un conjunto de condiciones, se realiza una acción para permitir o bloquear. 
 
-Para más información, consulte [Reglas personalizadas para Application Gateway](custom-waf-rules-overview.md).
+El operador geomatch está ahora disponible en versión preliminar pública para reglas personalizadas. Para más información, consulte [Reglas personalizadas de geomatch](custom-waf-rules-overview.md#geomatch-custom-rules-preview).
+
+> [!NOTE]
+> El operador geomatch para reglas personalizadas se encuentra actualmente en versión preliminar pública y se proporciona con un Acuerdo de nivel de servicio de versión preliminar. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Para más información sobre las reglas personalizadas, consulte [Reglas personalizadas para Application Gateway](custom-waf-rules-overview.md).
 
 ### <a name="bot-mitigation-preview"></a>Mitigación de bots (versión preliminar)
 

@@ -5,14 +5,14 @@ services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: overview
-ms.date: 09/28/2019
+ms.date: 11/23/2019
 ms.author: victorh
-ms.openlocfilehash: ce70260c6033d22b20675d6f3872c2ffa6368252
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b646035f6a952f679059abab86d94179f447f9ff
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495612"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406194"
 ---
 # <a name="azure-web-application-firewall-on-azure-front-door"></a>Firewall de aplicaciones web en Azure en Azure Front Door
 
@@ -92,16 +92,16 @@ El conjunto de reglas predeterminado está habilitado de forma predeterminada en
 Las reglas personalizadas se aplican siempre antes de que se evalúen las reglas del conjunto de reglas predeterminado. Si una solicitud coincide con una regla personalizada, se aplica la acción de regla correspondiente y la solicitud se bloquea o pasa por el servidor back-end, sin invocar ninguna otra regla personalizada ni las reglas del conjunto de reglas predeterminado. Además, tiene la opción de quitar el conjunto de reglas predeterminado de las directivas de WAF.
 
 
-### <a name="bot-protection-rule-preview"></a>Regla de protección contra bots (versión preliminar)
+### <a name="bot-protection-rule-set-preview"></a>Conjunto de reglas de protección contra bots (versión preliminar)
 
-Se puede habilitar un conjunto de reglas de protección contra bots administrado para que WAF realice acciones personalizadas en las solicitudes de direcciones IP malintencionadas conocidas. Las direcciones IP proceden de la fuente Inteligencia sobre amenazas de Microsoft. [Intelligent Security Graph](https://www.microsoft.com/security/operations/intelligence) impulsa la inteligencia sobre amenazas de Microsoft y lo usan numerosos servicios, incluido Azure Security Center.
+Se puede habilitar un conjunto administrado de reglas de protección contra bots para que WAF realice acciones personalizadas en las solicitudes de categorías de bots conocidas. Se admiten tres categorías de bot: bots defectuosos, bots correctos y bots desconocidos. La plataforma WAF administra y actualiza dinámicamente las firmas de bots. Las direcciones IP malintencionadas de los bots defectuosos proceden de la fuente Inteligencia sobre amenazas de Microsoft. [Intelligent Security Graph](https://www.microsoft.com/security/operations/intelligence) impulsa la Inteligencia sobre amenazas de Microsoft y lo utilizan numerosos servicios, incluido Azure Security Center. Los bots correctos incluyen motores de búsqueda validados. Las categorías desconocidas incluyen grupos de bots adicionales. Puede establecer acciones personalizadas para bloquear, permitir, registrar o redirigir los distintos tipos de bots.
 
 ![Conjunto de reglas de protección contra bots](../media/afds-overview/botprotect2.png)
 
 > [!IMPORTANT]
-> Actualmente, el conjunto de reglas de protección contra bots se encuentra en versión preliminar pública y se proporciona con un contrato de nivel de servicio de versión preliminar. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.  Para más información, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> El conjunto de reglas de protección contra bots se encuentra en versión preliminar pública y se proporciona con un Acuerdo de nivel de servicio de versión preliminar. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.  Para más información, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Si la protección contra bots está habilitada, las solicitudes entrantes que coincidan con las IP de cliente de bots malintencionados se registran en el registro FrontdoorWebApplicationFirewallLog. Puede acceder a los registros de WAF desde la cuenta de almacenamiento, el centro de eventos o el análisis de registros. 
+Si la protección contra bots está habilitada, las solicitudes entrantes que coincidan con las reglas de bots se registran en el registro FrontdoorWebApplicationFirewallLog. Puede acceder a los registros de WAF desde una cuenta de almacenamiento, centro de eventos o análisis de registros.
 
 ## <a name="configuration"></a>Configuración
 

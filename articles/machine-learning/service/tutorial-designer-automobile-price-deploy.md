@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Implementación de un modelo de Machine Learning con el diseñador'
 titleSuffix: Azure Machine Learning
-description: Aprenda a compilar una solución de análisis predictivo en el diseñador de Azure Machine Learning (versión preliminar). Entrene, puntúe e implemente un modelo de Machine Learning mediante módulos de arrastrar y colocar.
+description: En este tutorial se indica cómo crear una solución de análisis predictivo en el diseñador de Azure Machine Learning (versión preliminar). Entrene, puntúe e implemente un modelo de Machine Learning mediante módulos de arrastrar y colocar.
 author: peterclu
 ms.author: peterlu
 services: machine-learning
@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 724a38cb516e5689f817e9ddeaa867b17274971b
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 31b06f3ad102f39d1a9f95dee2bd98b5d0a3b310
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73932040"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483318"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer-preview"></a>Tutorial: Implementación de un modelo de Machine Learning con el diseñador (versión preliminar)
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
@@ -41,7 +41,7 @@ Para implementar la canalización, antes debe convertir la canalización de entr
 
     La canalización debería tener este aspecto: 
 
-   ![Captura de pantalla que muestra la configuración esperada de la canalización después de prepararla para la implementación](./media/ui-tutorial-automobile-price-deploy/real-time-inference-pipeline.png)
+   ![Captura de pantalla que muestra la configuración esperada de la canalización después de prepararla para la implementación](./media/tutorial-designer-automobile-price-deploy/real-time-inference-pipeline.png)
 
     Al seleccionar **Create inference pipeline** (Crear canalización de inferencia), suceden varias cosas:
     
@@ -70,7 +70,7 @@ En el cuadro de diálogo que aparece, puede seleccionar entre los clústeres de 
 
 1. En la cinta de opciones de navegación, seleccione **Inference Clusters** (Clústeres de inferencia) >  **+ Nuevo**.
 
-    ![Captura de pantalla que muestra cómo ir al panel del nuevo clúster de inferencia](./media/ui-tutorial-automobile-price-deploy/new-inference-cluster.png)
+    ![Captura de pantalla que muestra cómo ir al panel del nuevo clúster de inferencia](./media/tutorial-designer-automobile-price-deploy/new-inference-cluster.png)
 
 1. En el panel del clúster de inferencia, configure un nuevo servicio de Kubernetes.
 
@@ -96,7 +96,7 @@ Después de que el servicio AKS haya terminado de aprovisionarse, vuelva a la ca
 
 1. Seleccione **Implementar**.
 
-    ![Captura de pantalla que muestra cómo configurar un nuevo punto de conexión en tiempo real](./media/ui-tutorial-automobile-price-deploy/setup-endpoint.png)
+    ![Captura de pantalla que muestra cómo configurar un nuevo punto de conexión en tiempo real](./media/tutorial-designer-automobile-price-deploy/setup-endpoint.png)
 
     Aparece una notificación de finalización correcta en la parte superior del lienzo una vez que termina la implementación. Esto puede llevar unos minutos.
 
@@ -106,7 +106,7 @@ Una vez finalizada la implementación, puede probar el punto de conexión en tie
 
 1. En la página **Puntos de conexión**, seleccione el punto de conexión que implementó.
 
-    ![Captura de pantalla que muestra la pestaña de puntos de conexión en tiempo real con el punto de conexión creado recientemente resaltado](./media/ui-tutorial-automobile-price-deploy/endpoints.png)
+    ![Captura de pantalla que muestra la pestaña de puntos de conexión en tiempo real con el punto de conexión creado recientemente resaltado](./media/tutorial-designer-automobile-price-deploy/endpoints.png)
 
 1. Seleccione **Probar**.
 
@@ -114,7 +114,7 @@ Una vez finalizada la implementación, puede probar el punto de conexión en tie
 
     El portal envía una solicitud de prueba al punto de conexión y muestra los resultados. Aunque se genera un valor de precio para los datos de entrada, este no se usa para generar el valor de predicción.
 
-    ![Captura de pantalla que muestra cómo probar el punto de conexión en tiempo real con la etiqueta puntuada del precio resaltada](./media/ui-tutorial-automobile-price-deploy/test-endpoint.png)
+    ![Captura de pantalla que muestra cómo probar el punto de conexión en tiempo real con la etiqueta puntuada del precio resaltada](./media/tutorial-designer-automobile-price-deploy/test-endpoint.png)
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

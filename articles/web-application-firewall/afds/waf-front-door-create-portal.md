@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Creación de una directiva de firewall de aplicaciones web para Azure Front Door mediante Azure Portal'
+title: 'Tutorial: Creación de una directiva de firewall de aplicaciones web para Azure Front Door: Azure Portal'
 description: En este tutorial aprenderá a crear una directiva de firewall de aplicaciones web (WAF) mediante Azure Portal.
 author: vhorne
 ms.service: web-application-firewall
@@ -7,12 +7,12 @@ services: web-application-firewall
 ms.topic: tutorial
 ms.date: 09/07/2019
 ms.author: victorh
-ms.openlocfilehash: 602a8620ef35ea247c5865d97495ea43a7d7d93c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 991111e01713afe48355aac44a151b98fa828c5f
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73508909"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186723"
 ---
 # <a name="tutorial-create-a-web-application-firewall-policy-on-azure-front-door-using-the-azure-portal"></a>Tutorial: Creación de una directiva de firewall de aplicaciones web en Azure Front Door mediante Azure Portal
 

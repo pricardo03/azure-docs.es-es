@@ -1,16 +1,16 @@
 ---
 title: Información general de Azure Resource Graph
-description: Sepa en modo en que el servicio Azure Resource Graph permite realizar consultas complejas de recursos a escala.
+description: Conozca la forma en que el servicio Azure Resource Graph permite realizar consultas complejas de recursos a escala en suscripciones e inquilinos.
 ms.date: 10/21/2019
 ms.topic: overview
-ms.openlocfilehash: f75a2b65b59a9f0367a6c52c2a1cf058df5b59c3
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 7a96faa8502fca6fc501985cd677ac28454f1ba1
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73958744"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406699"
 ---
-# <a name="overview-of-the-azure-resource-graph-service"></a>Introducción al servicio Azure Resource Graph
+# <a name="what-is-azure-resource-graph"></a>¿Qué es Azure Resource Graph?
 
 Azure Resource Graph es un servicio de Azure diseñado para extender Azure Resource Management; para ello, proporciona una exploración de recursos eficaz y de alto rendimiento con la capacidad de consultar a escala a través de un conjunto especificado de suscripciones para que pueda controlar eficazmente el entorno. Estas consultas proporcionan las siguientes características:
 
@@ -92,6 +92,3 @@ Resource Graph admite la CLI de Azure, Azure PowerShell, y el SDK para .NET de A
 - Ejecute la primera consulta mediante [Azure Portal](first-query-portal.md).
 - Ejecute la primera consulta con la [CLI de Azure](first-query-azurecli.md).
 - Ejecute la primera consulta con [Azure PowerShell](first-query-powershell.md).
-- Obtenga más información sobre el [lenguaje de consulta](./concepts/query-language.md).
-- Comience con [consultas de inicio](./samples/starter.md).
-- Mejore sus conocimientos con [consultas avanzadas](./samples/advanced.md).

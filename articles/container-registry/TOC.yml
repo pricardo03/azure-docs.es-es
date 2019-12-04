@@ -190,6 +190,8 @@
       href: /javascript/api/overview/azure/container-registry
     - name: Plantilla de Resource Manager
       href: /azure/templates/microsoft.containerregistry/registries
+    - name: YAML de Tasks
+      href: container-registry-tasks-reference-yaml.md
     - name: Esquema de Webhook
       href: container-registry-webhook-reference.md
     - name: Esquema de Event Grid

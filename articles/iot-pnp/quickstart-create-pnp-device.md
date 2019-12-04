@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 4ee9bf218765ea4c3966e7f0a8b20a8108de7655
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 72927dd89a81d2440bf78ba24402f5ce283006da
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931905"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74405814"
 ---
 # <a name="quickstart-use-a-device-capability-model-to-create-an-iot-plug-and-play-preview-device-windows"></a>Inicio rápido: Uso de un modelo de funcionalidad de dispositivo para crear un dispositivo de versión preliminar de IoT Plug and Play (Windows)
 
@@ -46,46 +46,15 @@ Puede encontrar la _cadena de conexión para el repositorio de modelos de su emp
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prepare-an-iot-hub"></a>Preparación de un centro de IoT
-
-También necesitará un centro de IoT de Azure en la suscripción de Azure para completar este inicio rápido. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar. Si no tiene una instancia de IoT Hub, siga [estas instrucciones para crear una](../iot-hub/iot-hub-create-using-cli.md).
-
-> [!IMPORTANT]
-> Durante la versión preliminar pública, las características de IoT Plug and Play solo están disponibles en los centros de IoT creados en las regiones **Centro de EE. UU.** , **Norte de Europa** y **Este de Japón**.
-
-Ejecute el siguiente comando para agregar la Extensión de IoT de Microsoft Azure para CLI de Azure a la instancia de Cloud Shell:
-
-```azurecli-interactive
-az extension add --name azure-cli-iot-ext
-```
-
-Ejecute el siguiente comando la nueva identidad del dispositivo en su centro de IoT. Reemplace los marcadores de posición **YourIoTHubName** y **YourDevice** por los nombres reales.
-
-```azurecli-interactive
-az iot hub device-identity create --hub-name <YourIoTHubName> --device-id <YourDevice>
-```
-
-Ejecute el siguiente comando para obtener la _cadena de conexión del dispositivo_ que acaba de registrar:
-
-```azurecli-interactive
-az iot hub device-identity show-connection-string --hub-name <YourIoTHubName> --device-id <YourDevice> --output table
-```
-
-Ejecute el siguiente comando para obtener la _cadena de conexión de IoT hub_ para el centro:
-
-```azurecli-interactive
-az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
-```
+[!INCLUDE [iot-pnp-prepare-iot-hub-windows.md](../../includes/iot-pnp-prepare-iot-hub-windows.md)]
 
 ## <a name="prepare-the-development-environment"></a>Preparación del entorno de desarrollo
 
-### <a name="get-azure-iot-device-sdk-for-c"></a>Obtención del SDK de dispositivo IoT de Azure para C
-
-En este inicio rápido se prepara un entorno de desarrollo instalando el SDK de dispositivo IoT de Azure para C a través de [Vcpkg](https://github.com/microsoft/vcpkg).
+En este inicio rápido, utilizará el administrador de bibliotecas [Vcpkg](https://github.com/microsoft/vcpkg) para instalar el SDK para dispositivos C de Azure IoT en el entorno de desarrollo.
 
 1. Abra el símbolo del sistema. Ejecute el comando siguiente para instalar Vcpkg:
 
-    ```cmd/sh
+    ```cmd
     git clone https://github.com/Microsoft/vcpkg.git
     cd vcpkg
 
@@ -94,13 +63,13 @@ En este inicio rápido se prepara un entorno de desarrollo instalando el SDK de 
 
     A continuación, a fin de enlazar la [integración](https://github.com/microsoft/vcpkg/blob/master/docs/users/integration.md) de los usuarios, ejecute lo siguiente (nota: requiere un administrador durante el primer uso):
 
-    ```cmd/sh
+    ```cmd
     .\vcpkg.exe integrate install
     ```
 
 1. Instale Vcpkg del SDK de dispositivo IoT de Azure para C:
 
-    ```cmd/sh
+    ```cmd
     .\vcpkg.exe install azure-iot-sdk-c[public-preview,use_prov_client]
     ```
 
@@ -151,14 +120,14 @@ El código fuente del SDK del dispositivo se usa para compilar el código auxili
 
 1. Cree un subdirectorio `cmake` en la carpeta `sample_device` y vaya a esa carpeta:
 
-    ```cmd\sh
+    ```cmd
     mkdir cmake
     cd cmake
     ```
 
 1. Ejecute los siguientes comandos para crear el código auxiliar de código generado (reemplazando el marcador de posición por el directorio de su repositorio Vcpkg):
 
-    ```cmd\sh
+    ```cmd
     cmake .. -G "Visual Studio 16 2019" -A Win32 -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON -DCMAKE_TOOLCHAIN_FILE="<directory of your Vcpkg repo>\scripts\buildsystems\vcpkg.cmake"
 
     cmake --build .
@@ -166,7 +135,7 @@ El código fuente del SDK del dispositivo se usa para compilar el código auxili
     
     > [!NOTE]
     > Si usa Visual Studio 2017 o 2015, deberá especificar el generador de CMake en función de las herramientas de compilación que esté utilizando:
-    >```cmd\sh
+    >```cmd
     ># Either
     >cmake .. -G "Visual Studio 15 2017" -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON -DCMAKE_TOOLCHAIN_FILE="{directory of your Vcpkg repo}\scripts\buildsystems\vcpkg.cmake"
     ># or
@@ -178,7 +147,7 @@ El código fuente del SDK del dispositivo se usa para compilar el código auxili
 
 1. Una vez que la compilación se complete correctamente, ejecute la aplicación y use la cadena de conexión del dispositivo al centro de IoT como parámetro.
 
-    ```cmd\sh
+    ```cmd
     .\Debug\sample_device.exe "<device connection string>"
     ```
 
@@ -212,11 +181,11 @@ Para validar el código del con dispositivo con **Azure IoT Explorer**, es preci
 
 1. Escriba la _cadena de conexión de IoT Hub_ y seleccione **Conectar**.
 
-1. Después de conectarse, verá la página de información general del dispositivo.
+1. Después de conectarse, verá la página de información general **Dispositivos**.
 
 1. Para agregar el repositorio de la empresa, seleccione **Configuración**, después, **+ Nuevo** y, después, **Repositorio de la empresa**. Agregue la cadena de conexión del repositorio de modelos de su empresa y seleccione **Guardar y conectar**.
 
-1. En la página de información general del dispositivo, busque la identidad del dispositivo que creó anteriormente y selecciónela para ver más detalles.
+1. En la página de información general **Dispositivos**, busque la identidad del dispositivo que creó anteriormente y selecciónela para ver más detalles. Con la aplicación de dispositivo todavía en ejecución en el símbolo del sistema, compruebe que el **estado de conexión** del dispositivo en Azure IoT Explorer se muestra como _Conectado_ (de lo contrario, presione **Actualizar** hasta que lo sea). Seleccione el dispositivo para ver más detalles.
 
 1. Expanda la interfaz con el identificador **urn:<YOUR_INTERFACE_NAME>:EnvironmentalSensor:1** para ver las primitivas de IoT Plug and Play (propiedades, comandos y telemetría). El nombre de la interfaz que aparecerá es el nombre que pone al crear su modelo.
 
@@ -226,7 +195,7 @@ Para validar el código del con dispositivo con **Azure IoT Explorer**, es preci
 
 1. Seleccione la página **Propiedades (de escritura)** para ver las propiedades de escritura que puede actualizar.
 
-1. Expanda el **nombre** de la propiedad, actualícelo con un nuevo nombre y seleccione **Actualizar propiedad editable**.
+1. Expanda el **nombre** de la propiedad, actualícelo con un nuevo nombre y seleccione **Actualizar propiedad editable**. 
 
 1. Para ver el nuevo nombre que se muestra en la columna de **Propiedades indicadas**, seleccione el botón **Actualizar** en la parte superior de la página.
 
@@ -235,6 +204,8 @@ Para validar el código del con dispositivo con **Azure IoT Explorer**, es preci
 1. Expanda el comando **blink** y establezca un nuevo intervalo de tiempo de intermitencia. Seleccione **Enviar comando** para llamar al comando en el dispositivo.
 
 1. Vaya al símbolo del sistema del dispositivo simulado y lea los mensajes de confirmación impresos para comprobar que los comandos se han ejecutado según lo previsto.
+
+[!INCLUDE [iot-pnp-clean-resources.md](../../includes/iot-pnp-clean-resources.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

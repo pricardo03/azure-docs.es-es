@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Creación de un rol personalizado para los recursos de Azure con Azure PowerShell | Microsoft Docs'
+title: 'Tutorial: Creación de un rol personalizado para recursos de Azure con Azure PowerShell.'
 description: Introducción a la creación de un rol personalizado para los recursos de Azure con Azure PowerShell.
 services: active-directory
 documentationCenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/20/2019
 ms.author: rolyon
-ms.openlocfilehash: 269bd74aca85ddbc2bafda30542c48f8ab391b32
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 176e465163d92156308eda64c4187467cc10ee15
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66158862"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74419750"
 ---
 # <a name="tutorial-create-a-custom-role-for-azure-resources-using-azure-powershell"></a>Tutorial: Creación de un rol personalizado para los recursos de Azure con Azure PowerShell
 

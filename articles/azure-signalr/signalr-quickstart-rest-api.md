@@ -1,19 +1,19 @@
 ---
 title: 'Guía de inicio rápido: API de REST del servicio Azure SignalR'
-description: Una guía de inicio rápido para usar la API de REST del servicio Azure SignalR.
+description: Aprenda a usar la API REST con los siguientes ejemplos de Azure SignalR Service. Busque detalles de la especificación de la API REST.
 author: sffamily
 ms.service: signalr
 ms.topic: quickstart
-ms.date: 03/01/2019
+ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: 999d44e394d47e350187f9175389e04e68567d5e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 17371e3bd426ea81b5e7e07610aac0073ea972c9
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64724652"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74157685"
 ---
-# <a name="quickstart-broadcast-real-time-messages-from-console-app"></a>Guía de inicio rápido: Difusión de mensajes en tiempo real desde la aplicación de consola
+# <a name="quickstart-broadcast-real-time-messages-from-console-app"></a>Inicio rápido: Difusión de mensajes en tiempo real desde la aplicación de consola
 
 El servicio Azure SignalR proporciona la [API de REST](https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md) para admitir el servidor para escenarios de comunicación del cliente, como la difusión. Puede elegir cualquier lenguaje de programación que puede llamar a la API de REST. Puede publicar mensajes en todos los clientes conectados, en un cliente específico por el nombre o en un grupo de clientes.
 

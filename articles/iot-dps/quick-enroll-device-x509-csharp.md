@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Inscripción del dispositivo X.509 en el servicio Azure Device Provisioning mediante C#'
+title: Inscripción de un dispositivo X.509 al Servicio Azure Device Provisioning mediante C#
 description: Esta guía de inicio rápido usa inscripciones de grupos. En este inicio rápido, inscribirá dispositivos X.509 en Azure IoT Hub Device Provisioning Service con C#.
 author: wesmc7777
 ms.author: wesmc
@@ -7,15 +7,14 @@ ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-manager: philmea
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: e43448337f787115c479f2f53ca57b7a20120108
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 3df9afa35b3ae9f7360a5d4b890d3fce209a4b12
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903435"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74423325"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-c"></a>Inicio rápido: Inscripción de dispositivos X.509 en el servicio Device Provisioning con C#
 
@@ -80,13 +79,13 @@ En esta sección se muestra cómo crear una aplicación de consola de .NET Core 
 
 1. Abra Visual Studio y seleccione **Crear un proyecto**. En **Crear un proyecto**, elija la plantilla de proyecto **Aplicación de consola (.NET Core)** para C# y seleccione **Siguiente**.
 
-1. Asigne al proyecto el nombre *CreateEnrollmentGroup* y seleccione **Crear**.
+1. Asigne al proyecto el nombre *CreateEnrollmentGroup* y presione **Crear**.
 
     ![Configuración de un proyecto de escritorio clásico de Windows de Visual C#](media//quick-enroll-device-x509-csharp/configure-app-vs2019.png)
 
-1. En el **Explorador de soluciones**, haga clic con el botón derecho en el proyecto **CreateEnrollmentGroup** y, a continuación, seleccione **Administrar paquetes NuGet**.
+1. Cuando se abre la solución en Visual Studio, en el panel **Explorador de soluciones**, haga clic con el botón derecho en el proyecto **CreateEnrollmentGroup** y, a continuación, seleccione **Administrar paquetes NuGet**.
 
-1. En el **Administrador de paquetes NuGet**, seleccione **Examinar**, busque y elija **Microsoft.Azure.Devices.Provisioning.Service** y luego seleccione **Instalar**.
+1. En **Administrador de paquetes NuGet**, seleccione **Examinar**, busque y elija **Microsoft.Azure.Devices.Provisioning.Service** y luego presione **Instalar**.
 
     ![Ventana del Administrador de paquetes NuGet](media//quick-enroll-device-x509-csharp/add-nuget.png)
 
@@ -103,12 +102,12 @@ En esta sección se muestra cómo crear una aplicación de consola de .NET Core 
 1. Agregue los siguientes campos a la clase `Program` y realice los cambios de la lista.  
 
    ```csharp
-   private static string ProvisioningConnectionString = "{Your provisioning service connection string}";
+   private static string ProvisioningConnectionString = "{ProvisioningServiceConnectionString}";
    private static string EnrollmentGroupId = "enrollmentgrouptest";
    private static string X509RootCertPath = @"{Path to a .cer or .pem file for a verified root CA or intermediate CA X.509 certificate}";
    ```
 
-   * Reemplace el valor del marcador de posición `ProvisioningConnectionString` por la cadena de conexión del servicio de aprovisionamiento para el que quiere crear la inscripción.
+   * Reemplace el valor del marcador de posición `ProvisioningServiceConnectionString` por la cadena de conexión del servicio de aprovisionamiento para el que quiere crear la inscripción.
 
    * Reemplace el valor del marcador de posición `X509RootCertPath` por la ruta de acceso a un archivo .pem o .cer. Este archivo representa la parte pública de un certificado X.509 de entidad de certificación raíz o intermedio que se haya cargado y comprobado previamente en el servicio de aprovisionamiento.
 
@@ -168,7 +167,7 @@ En esta sección se muestra cómo crear una aplicación de consola de .NET Core 
 
 ## <a name="run-the-enrollment-group-sample"></a>Ejecutar el ejemplo del grupo de inscripción
   
-Ejecute el ejemplo en Visual Studio para crear el grupo de inscripción. Tras una creación correcta, la ventana del símbolo del sistema muestra las propiedades del grupo de inscripción nuevo.
+Ejecute el ejemplo en Visual Studio para crear el grupo de inscripción. Aparecerá una ventana del símbolo del sistema y comenzará a mostrar los mensajes de confirmación. Tras una creación correcta, la ventana del símbolo del sistema muestra las propiedades del grupo de inscripción nuevo.
 
 Puede comprobar que se ha creado el grupo de inscripción. En el resumen de Device Provisioning Service, seleccione **Administrar inscripciones** y, después, **Grupos de inscripción**. Verá una nueva entrada de inscripción que corresponde al identificador de registro usado en el ejemplo.
 
@@ -182,9 +181,9 @@ Si tiene previsto explorar el ejemplo del servicio de C#, no elimine los recurso
 
 1. Cierre la ventana de salida de ejemplo de C# en el equipo.
 
-1. Vaya a Device Provisioning Service en Azure Portal, seleccione **Administrar inscripciones** y, a continuación, seleccione **Grupos de inscripción**. Seleccione el *identificador de registro* de la entrada de inscripción que creó en este inicio rápido y seleccione **Eliminar**.
+1. Vaya a Device Provisioning Service en Azure Portal, seleccione **Administrar inscripciones** y, a continuación, seleccione **Grupos de inscripción**. Seleccione el *identificador de registro* de la entrada de inscripción que creó en este inicio rápido y presione **Eliminar**.
 
-1. Desde el servicio Device Provisioning en Azure Portal, seleccione **Certificados**, elija el certificado que cargó para este inicio rápido y seleccione **Eliminar** en la parte superior de **Detalles del certificado**.  
+1. Desde el servicio Device Provisioning en Azure Portal, seleccione **Certificados**, elija el certificado que cargó para este inicio rápido y presione **Eliminar** en la parte superior de **Detalles del certificado**.  
 
 ## <a name="next-steps"></a>Pasos siguientes
 

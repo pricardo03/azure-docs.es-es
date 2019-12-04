@@ -1,5 +1,5 @@
 ---
-title: 'Guía de inicio rápido de Azure: Creación de un perfil de Front Door para la alta disponibilidad de aplicaciones mediante Azure Portal'
+title: 'Inicio rápido: Creación de un perfil de Front Door para que las aplicaciones tengan alta disponibilidad'
 description: Este artículo de la guía de inicio rápido describe cómo crear una instancia de Front Door para una aplicación web global de alta disponibilidad y alto rendimiento.
 services: front-door
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/31/2018
 ms.author: sharadag
-ms.openlocfilehash: 6bcd5bcc2463ec1ab9dcc97644d5046c31bfc78b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 67a4f9eb3290ba09a2c19325464cf7ad224856e7
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61461993"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184510"
 ---
 # <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application"></a>Inicio rápido: Cree una instancia de Front Door para una aplicación web global de alta disponibilidad.
 
@@ -40,9 +40,9 @@ Esta guía de inicio rápido requiere que haya implementado dos instancias de un
      | Configuración         | Valor     |
      | ---              | ---  |
      | NOMBRE           | Escriba un nombre único para la aplicación web  |
-     | Grupos de recursos          | Seleccione **Nuevo** y, después, escriba *myResourceGroupFD1* |
+     | Resource group          | Seleccione **Nuevo** y, después, escriba *myResourceGroupFD1* |
      | Plan de App Service/Ubicación         | Seleccione **Nuevo**.  En el plan de App Service, escriba *myAppServicePlanEastUS* y, a continuación, seleccione **Aceptar**. 
-     |      Ubicación  |   Este de EE. UU        |
+     |      Location  |   East US        |
     |||
 
 3. Seleccione **Crear**.
@@ -52,9 +52,9 @@ Esta guía de inicio rápido requiere que haya implementado dos instancias de un
      | Configuración         | Valor     |
      | ---              | ---  |
      | NOMBRE           | Escriba un nombre único para la aplicación web  |
-     | Grupos de recursos          | Seleccione **Nuevo** y, después, escriba *myResourceGroupFD2* |
+     | Resource group          | Seleccione **Nuevo** y, después, escriba *myResourceGroupFD2* |
      | Plan de App Service/Ubicación         | Seleccione **Nuevo**.  En el plan de App Service, escriba *myAppServicePlanWestEurope* y, a continuación, seleccione **Aceptar**. 
-     |      Ubicación  |   Europa occidental      |
+     |      Location  |   Europa occidental      |
     |||
 
 

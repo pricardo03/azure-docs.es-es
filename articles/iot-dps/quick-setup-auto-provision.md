@@ -1,20 +1,19 @@
 ---
-title: 'Inicio rápido: Configurar el Aprovisionamiento de dispositivos en el Azure Portal'
-description: 'Guía de inicio rápido de Azure: configuración del servicio Azure IoT Hub Device Provisioning en Azure Portal'
+title: Configuración de IoT Hub Device Provisioning Service en Azure Portal
+description: 'Inicio rápido: configuración de IoT Hub Device Provisioning Service en Azure Portal'
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 504e027095d839efcbfb535c0e1ecc8c6cfbad26
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: b983a9591743b1fda79e23aedc1aca88add2a3e2
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903442"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74228540"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-the-azure-portal"></a>Inicio rápido: Configuración de Azure IoT Hub Device Provisioning Service con Azure Portal
 
@@ -30,53 +29,52 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="create-a-new-instance-for-the-iot-hub-device-provisioning-service"></a>Creación de una nueva instancia para el servicio Azure IoT Hub Device Provisioning
 
-1. Haga clic en el botón **Crear un recurso** de la esquina superior izquierda de Azure Portal.
+1. Vuelva a seleccionar el botón **+ Crear un recurso**.
 
-2. *Busque en Marketplace* el **servicio Device Provisioning**. Seleccione **Servicio IoT Hub Device Provisioning** y haga clic en el botón **Crear**. 
+2. En *Buscar en Marketplace*, escriba **Device Provisioning Service**. Seleccione **IoT Hub Device Provisioning Service** y pulse el botón **Crear**. 
 
-3. Proporcione la siguiente información para la nueva instancia del servicio Device Provisioning y haga clic en **Crear**.
+3. Especifique la siguiente información para la nueva instancia de Device Provisioning Service y pulse **Crear**.
 
-    * **Nombre:** proporcione un nombre único para la nueva instancia del servicio Device Provisioning. Si el nombre que escribe está disponible, aparece una marca de verificación verde.
-    * **Suscripción:** elija la suscripción que quiere usar para crear esta instancia del servicio Device Provisioning.
+    * **Nombre:** escriba un nombre único para la nueva instancia de Device Provisioning Service. Si el nombre que escribe está disponible, aparece una marca de verificación verde.
+    * **Subscription** (Suscripción): elija la suscripción que desea usar para crear esta instancia de Device Provisioning Service.
     * **Grupo de recursos:** este campo le permite crear un nuevo grupo de recursos o elegir uno existente para que contenga la nueva instancia. Elija el mismo grupo de recursos que contenga el centro de Iot que creó anteriormente, por ejemplo, **TestResources**. Al colocar juntos todos los recursos relacionados en un grupo, puede administrarlos juntos también. Por ejemplo, si elimina el grupo de recursos también se eliminarán todos los recursos que contiene. Para más información, consulte [Administración de grupos de recursos de Azure Resource Manager](../azure-resource-manager/manage-resource-groups-portal.md).
     * **Ubicación:** seleccione la ubicación más cercana a sus dispositivos.
 
-      ![Especificación de la información básica de la instancia del servicio Device Provisioning en la hoja del portal](./media/quick-setup-auto-provision/create-iot-dps-portal.png)  
+      ![Especificar la información básica de la instancia de Device Provisioning Service en la hoja del portal](./media/quick-setup-auto-provision/create-iot-dps-portal.png)  
 
-4. Haga clic en el botón de notificación para supervisar la creación de la instancia del recurso. Una vez implementado el servicio correctamente, haga clic en **Anclar al panel** y en **Ir al recurso**.
+4. Seleccione en el botón de notificación para supervisar la creación de la instancia del recurso. Una vez que el servicio se implemente correctamente, seleccione **Anclar al panel** y, después, **Ir al recurso**.
 
     ![Supervisión de la notificación de implementación](./media/quick-setup-auto-provision/pin-to-dashboard.png)
 
-## <a name="link-the-iot-hub-and-your-device-provisioning-service"></a>Vínculo del centro de IoT y el servicio Device Provisioning
+## <a name="link-the-iot-hub-and-your-device-provisioning-service"></a>Vínculo al centro de IoT y a Device Provisioning Service
 
-En esta sección, agregará una configuración para la instancia del servicio Device Provisioning. Esta configuración establece el centro de IoT para el que los dispositivos se aprovisionarán.
+En esta sección, agregará una configuración a la instancia de Device Provisioning Service. Esta configuración establece el centro de IoT para el que los dispositivos se aprovisionarán.
 
-1. Haga clic en el botón **Todos los recursos** en el menú izquierdo de Azure Portal. Seleccione la instancia del servicio Device Provisioning que creó en la sección anterior.  
+1. Seleccione el botón **Todos los recursos** en el menú de la izquierda de Azure Portal. Seleccione la instancia del servicio Device Provisioning que creó en la sección anterior.  
 
-2. En la hoja de resumen del servicio Device Provisioning, seleccione **Linked IoT hubs** (Centros de IoT vinculados). Haga clic en el botón **+ Agregar** que aparece en la parte superior. 
+2. En el menú de Device Provisioning Service, seleccione **Instancias de IoT Hub vinculadas**. Pulse el botón **+ Agregar** que aparece en la parte superior. 
 
-3. En la página **Agregar un vínculo a IoT Hub**, proporcione la siguiente información para vincular la nueva instancia del servicio Device Provisioning al centro de IoT. A continuación, haga clic en **Guardar**. 
+3. En la página **Add link to IoT hub** (Agregar vínculo al centro de IoT), proporcione la siguiente información para vincular la nueva instancia del servicio Device Provisioning al centro de IoT. Luego, presione **Guardar**. 
 
-    * **Suscripción:** seleccione la suscripción que contenga el centro de IoT que desee vincular a la nueva instancia del servicio Device Provisioning.
-    * **IoT Hub:** seleccione el centro de IoT para vincular con la nueva instancia del servicio Device Provisioning.
+    * **Subscription** (Suscripción): seleccione la suscripción que contenga el centro de IoT que desee vincular a la nueva instancia de Device Provisioning Service.
+    * **IoT Hub:** seleccione el centro de IoT que va a vincular con la nueva instancia de Device Provisioning Service.
     * **Directiva de acceso:** seleccione **iothubowner** como las credenciales para establecer el vínculo con el centro de IoT.  
 
-      ![Vínculo del nombre del centro al servicio Device Provisioning en la hoja del portal](./media/quick-setup-auto-provision/link-iot-hub-to-dps-portal.png)  
+      ![Vínculo del nombre del centro a la instancia de Device Provisioning Service en la hoja del portal](./media/quick-setup-auto-provision/link-iot-hub-to-dps-portal.png)  
 
-3. Ahora debería ver el centro seleccionado en la hoja **Linked IoT hubs** (Centros de IoT vinculados). Puede que deba hacer clic en **Actualizar** para mostrar **Instancias de IoT Hub vinculadas**.
-
+3. Ahora debería ver el centro seleccionado en la hoja **Linked IoT hubs** (Centros de IoT vinculados). Es posible que tenga que pulsar **Actualizar** para que aparezca.
 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
 Otras guías de inicio rápido de esta colección se basan en los valores de esta. Si tiene previsto seguir trabajando con las siguientes guías de inicio rápido o tutoriales, no elimine los recursos creados en esta guía de inicio rápido. Si no tiene previsto continuar, siga estos pasos para eliminar todos los recursos creados en esta guía de inicio rápido en Azure Portal.
 
-1. Desde el menú de la izquierda en Azure Portal, haga clic en **Todos los recursos** y seleccione el servicio Device Provisioning. En la parte superior de la hoja **Todos los recursos**, haga clic en **Eliminar**.  
-2. Desde el menú de la izquierda en Azure Portal, haga clic en **Todos los recursos** y seleccione su centro de IoT. En la parte superior de la hoja **Todos los recursos**, haga clic en **Eliminar**.  
+1. En el menú de la izquierda de Azure Portal, seleccione **Todos los recursos** y seleccione Device Provisioning Service. En la parte superior del panel de detalles del dispositivo, seleccione **Eliminar**.  
+2. En el menú de la izquierda de Azure Portal, seleccione **Todos los recursos** y después su centro de IoT. En la parte superior del panel de detalles del centro, seleccione **Eliminar**.  
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En esta guía de inicio rápido, ha implementado un centro de IoT y una instancia del servicio Device Provisioning, y ha vinculado los dos recursos. Para aprender a usar esta configuración para aprovisionar un dispositivo simulado, siga la guía de inicio rápido que permite crear un dispositivo simulado.
+En este inicio rápido, ha implementado un centro de IoT y una instancia de Device Provisioning Service, y ha vinculado los dos recursos. Para aprender a usar esta configuración para aprovisionar un dispositivo simulado, vaya al inicio rápido en que se explica cómo crear un dispositivo simulado.
 
 > [!div class="nextstepaction"]
-> [Guía de inicio rápido para crear el dispositivo simulado](./quick-create-simulated-device.md)
+> [Inicio rápido para crear un dispositivo simulado](./quick-create-simulated-device.md)

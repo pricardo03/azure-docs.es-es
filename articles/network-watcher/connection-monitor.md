@@ -1,6 +1,6 @@
 ---
-title: 'Supervisar la comunicación de red (tutorial): Azure Portal | Microsoft Docs'
-description: Aprenda a supervisar la comunicación de red entre dos máquinas virtuales con la funcionalidad de supervisión de conexiones de Azure Network Watcher.
+title: 'Tutorial: Supervisión de la comunicación de red mediante Azure Portal'
+description: En este tutorial aprenderá a supervisar la comunicación de red entre dos máquinas virtuales con la funcionalidad de supervisión de conexiones de Azure Network Watcher.
 services: network-watcher
 documentationcenter: na
 author: KumudD
@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 5cac4a46fb35ef955903018028abbe7588c94dc7
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 9d01060a966d55d26d7fc308ee352fb79cc73363
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66233883"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74419696"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Tutorial: Supervisión de la comunicación de red entre dos máquinas virtuales mediante Azure Portal
 
@@ -56,7 +56,7 @@ Cree dos VM.
     |Password| Escriba una contraseña de su elección. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Subscription| Seleccione su suscripción.|
     |Grupos de recursos| Haga clic en **Crear nuevo** y escriba **myResourceGroup**.|
-    |Ubicación| Seleccione **Este de EE. UU**.|
+    |Location| Seleccione **Este de EE. UU**.|
 
 4. Seleccione un tamaño para la máquina virtual y luego **Seleccionar**.
 5. En **Configuración**, seleccione **Extensiones**. Seleccione **Agregar extensión** y **Network Watcher Agent for Windows** (Agente de Network Watcher para Windows), tal y como se muestra en la siguiente imagen:
@@ -76,7 +76,7 @@ Complete los pasos de [Creación de la primera máquina virtual](#create-the-fir
 | 1 | Seleccione una versión de **Ubuntu Server**. |                                                                         |
 | 3 | NOMBRE                                  | myVm2                                                                   |
 | 3 | Tipo de autenticación                   | Pegue la clave pública SSH o seleccione **Contraseña** y escriba una contraseña. |
-| 3 | Grupos de recursos                        | Seleccione **Usar existente** y, a continuación, **myResourceGroup**.                 |
+| 3 | Resource group                        | Seleccione **Usar existente** y, a continuación, **myResourceGroup**.                 |
 | 6 | Extensiones                            | **Agente de Network Watcher para Linux**                                             |
 
 La maquina virtual tarda unos minutos en implementarse. Espere a que la VM finalice la implementación antes de continuar con los pasos restantes.
@@ -94,9 +94,9 @@ Cree un monitor de conexión para supervisar la comunicación a través del puer
     | Configuración                  | Valor               |
     | ---------                | ---------           |
     | NOMBRE                     | myVm1-myVm2(22)     |
-    | Origen                   |                     |
+    | Source                   |                     |
     | Máquina virtual          | myVm1               |
-    | Destino              |                     |
+    | Destination              |                     |
     | Seleccionar una máquina virtual |                     |
     | Máquina virtual          | myVm2               |
     | Port                     | 22                  |
@@ -151,7 +151,7 @@ De forma predeterminada, Azure permite la comunicación de todos los puertos ent
     | ---                     | ---            |
     | Intervalos de puertos de destino | 22             |
     | .                  | Denegar           |
-    | Prioridad                | 100            |
+    | Priority                | 100            |
     | NOMBRE                    | DenySshInbound |
 
 5. Puesto que el monitor de conexión realiza sondeos a intervalos de 60 segundos, espere unos minutos y, a continuación, en el lado izquierdo del portal, seleccione **Network Watcher**; a continuación, seleccione **Monitor de conexión** y el monitor **myVm1-myVm2(22)** de nuevo. Ahora, los resultados son diferentes, tal como se muestra en la siguiente imagen:

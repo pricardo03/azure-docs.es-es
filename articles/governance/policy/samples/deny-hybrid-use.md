@@ -1,14 +1,14 @@
 ---
 title: 'Ejemplo: Denegar la ventaja de uso híbrido'
-description: Esta definición de directiva de ejemplo prohíbe el uso de la Ventaja para uso híbrido de Azure (AHUB).
+description: Este ejemplo de definición de directiva prohíbe el uso de la ventaja de uso híbrido de Azure (AHUB) para máquinas virtuales y conjuntos de escalado de máquinas virtuales.
 ms.date: 01/23/2019
 ms.topic: sample
-ms.openlocfilehash: 441f3bc75dc066684f201deabe34b2dfd962e0ca
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 98518e33f27f0e46bf224301f3a02bb57141c4e1
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74070905"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463657"
 ---
 # <a name="sample---deny-hybrid-use-benefit"></a>Ejemplo: Denegar la ventaja de uso híbrido
 

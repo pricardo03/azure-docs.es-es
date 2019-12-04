@@ -1,21 +1,20 @@
 ---
-title: 'Inicio rápido: Inscripción de un dispositivo de TPM al servicio Azure Device Provisioning mediante Java'
-description: 'Guía de inicio rápido de Azure: Inscripción de un dispositivo de TPM a Azure IoT Hub Device Provisioning Service mediante el SDK del servicio de Java En esta guía de inicio rápido se utilizan inscripciones individuales.'
+title: Inscripción de un dispositivo de TPM al servicio Azure Device Provisioning mediante Java
+description: 'Inicio rápido: Inscripción de un dispositivo de TPM en Azure IoT Hub Device Provisioning Service mediante el SDK del servicio de Java. En esta guía de inicio rápido se utilizan inscripciones individuales.'
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 88ce16a658e760f69cdf17c9bb4de78fceca927a
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 4e6e5eb876bbf93c8228c2440a90aad608a24af9
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903466"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74422932"
 ---
 # <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-java-service-sdk"></a>Inicio rápido: Inscripción de un dispositivo de TPM al servicio IoT Hub Device Provisioning mediante el SDK del servicio de Java
 
@@ -136,19 +135,19 @@ En esta sección se muestra cómo agregar los detalles de aprovisionamiento del 
 
 4. Observe la ventana de salida para comprobar si la inscripción se realizó correctamente. 
 
-5. Vaya al servicio de aprovisionamiento en Azure Portal. Haga clic en **Administrar inscripciones** y seleccione la pestaña **Inscripciones individuales**. Tenga en cuenta que ahora aparece en la lista el *id. de registro* del TPM simulado. 
+5. Vaya al servicio de aprovisionamiento en Azure Portal. Seleccione **Administrar inscripciones** y, después, la pestaña **Inscripciones individuales**. Tenga en cuenta que ahora aparece en la lista el *id. de registro* del TPM simulado. 
 
     ![Comprobación de si la inscripción de TPM se realizó correctamente en el portal](./media/quick-enroll-device-tpm-java/verify-tpm-enrollment.png)  
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
-Si tiene previsto explorar el ejemplo del servicio de Java, no elimine los recursos que se crearon con esta guía de inicio rápido. Si no va a continuar, use el siguiente comando para eliminar todos los recursos creados.
+Si planea explorar el ejemplo del servicio de Java, no elimine los recursos que se han creado en este inicio rápido. Si no va a continuar, use el siguiente comando para eliminar todos los recursos que se hayan creado en este inicio rápido.
 
 1. Cierre la ventana de salida de ejemplo de Java en su máquina.
 1. Cierre la ventana del simulador de TPM que haya creado para simular el dispositivo de TPM.
-1. Vaya a su servicio de Device Provisioning en Azure Portal, haga clic en **Administrar inscripciones** y, a continuación, seleccione la pestaña **Inscripciones individuales**. Seleccione el *id. de registro* del dispositivo que inscribió en esta guía de inicio rápido y haga clic en el botón **Eliminar** situado en la parte superior de la hoja. 
+1. Vaya a Device Provisioning Service en Azure Portal, seleccione **Administrar inscripciones** y, a continuación, seleccione la pestaña **Inscripciones individuales**. Seleccione la casilla que se encuentra junto al *identificador de registro* de la entrada de inscripción que creó en este inicio rápido y presione el botón **Eliminar** de la parte superior de la hoja.
 
 ## <a name="next-steps"></a>Pasos siguientes
-En esta guía de inicio rápido, inscribió un dispositivo de TPM simulado al servicio de Device Provisioning. Para más información acerca del aprovisionamiento de dispositivos, continúe con el tutorial para instalar el servicio Device Provisioning en Azure Portal. 
+En esta guía de inicio rápido, ha inscrito un dispositivo de TPM simulado en Device Provisioning Service. Para más información acerca del aprovisionamiento de dispositivos, continúe con el tutorial para instalar el servicio Device Provisioning en Azure Portal. 
 
 > [!div class="nextstepaction"]
 > [Tutoriales del servicio Azure IoT Hub Device Provisioning](./tutorial-set-up-cloud.md)

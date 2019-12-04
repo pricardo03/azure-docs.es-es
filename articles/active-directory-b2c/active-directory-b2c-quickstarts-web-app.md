@@ -1,6 +1,6 @@
 ---
 title: 'Inicio rápido: Configuración del inicio de sesión en una aplicación ASP.NET con Azure Active Directory B2C'
-description: Ejecute una aplicación web ASP.NET de ejemplo que usa Azure Active Directory B2C para proporcionar el inicio de sesión de la cuenta.
+description: En este inicio rápido, se ejecuta una aplicación web de ASP.NET de ejemplo que usa Azure Active Directory B2C para proporcionar el inicio de sesión de las cuentas.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.date: 09/12/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 446f891538f926342e1a4e3e5f5bca0cc791b27e
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 114e82147b03fb500197a2129b7960101f85a455
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71065819"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74420198"
 ---
 # <a name="quickstart-set-up-sign-in-for-an-aspnet-application-using-azure-active-directory-b2c"></a>Inicio rápido: Configuración del inicio de sesión en una aplicación ASP.NET con Azure Active Directory B2C
 

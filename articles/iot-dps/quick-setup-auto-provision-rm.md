@@ -1,30 +1,29 @@
 ---
-title: 'Inicio rápido: Configuración del aprovisionamiento de dispositivos con una plantilla de Azure Resource Manager'
-description: 'Guía de inicio rápido de Azure: configuración del servicio Azure IoT Hub Device Provisioning con una plantilla'
+title: Configuración de Azure IoT Hub Device Provisioning mediante una plantilla de Azure Resource Manager
+description: 'Inicio rápido de Azure: configuración de Azure IoT Hub Device Provisioning Service mediante una plantilla'
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: fdc75424c5c99e80c13ac086229da93411e3ce83
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: b40e126ca23190fbe50a717016b18719be6950e2
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903384"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276377"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>Inicio rápido: Configuración del servicio IoT Hub Device Provisioning con una plantilla de Azure Resource Manager
 
-Puede utilizar [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) para configurar mediante programación los recursos de nube de Azure necesarios para aprovisionar los dispositivos. Estos pasos muestran cómo crear una instancia de IoT Hub, una nueva instancia del servicio IoT Hub Device Provisioning y vincular los dos servicios mediante una plantilla de Azure Resource Manager. Esta guía de inicio rápido usa la [CLI de Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli) para realizar los pasos de programación necesarios para crear un grupo de recursos e implementar la plantilla, pero puede usar fácilmente [Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy), .NET, ruby u otros lenguajes de programación para realizar estos pasos e implementar la plantilla. 
+Puede utilizar [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) para configurar mediante programación los recursos de nube de Azure necesarios para aprovisionar los dispositivos. En estos pasos se muestra no solo cómo crear un centro de IoT y una nueva instancia de IoT Hub Device Provisioning Service, sino también cómo vincular los dos servicios mediante una plantilla de Azure Resource Manager. Este inicio rápido usa la [CLI de Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli) para realizar los pasos de programación necesarios para crear un grupo de recursos e implementar la plantilla, pero se pueden usar fácilmente [Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy), .NET, Ruby u otros lenguajes de programación para realizar estos pasos e implementar la plantilla. 
 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
-- Esta guía de inicio rápido requiere que se ejecute localmente la CLI de Azure. Debe tener instalada la CLI de Azure versión 2.0 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalar o actualizar la CLI, consulte [Instalar la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+- Para realizar este inicio rápido, es necesario ejecutar localmente la CLI de Azure. Debe tener instalada la CLI de Azure versión 2.0 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalar o actualizar la CLI, consulte [Instalar la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 
 ## <a name="sign-in-to-azure-and-create-a-resource-group"></a>Inicio de sesión en Azure y creación de un grupo de recursos
@@ -78,7 +77,7 @@ Utilice una plantilla JSON para crear un servicio de aprovisionamiento y un cent
    }
    ```
 
-2. Reemplace la sección **parameters** por el contenido siguiente:. La sección parameters especifica los parámetros que se pueden pasar desde otro archivo. En esta sección se especifica el nombre del centro de IoT y del servicio de aprovisionamiento que se van a crear. También especifica la ubicación tanto para el centro de IoT como para el servicio de aprovisionamiento. Los valores están restringidos a las regiones de Azure que admiten centros de IoT y servicios de aprovisionamiento. Para obtener una lista de ubicaciones compatibles para el servicio Device Provisioning, puede ejecutar el siguiente comando `az provider show --namespace Microsoft.Devices --query "resourceTypes[?resourceType=='ProvisioningServices'].locations | [0]" --out table` o visitar la página [Estado de Azure](https://azure.microsoft.com/status/) y busque "Servicio Device Provisioning".
+2. Reemplace la sección **parameters** por el contenido siguiente:. En la sección parameters se definen aquellos parámetros cuyos valores se pueden pasar desde otro archivo. En esta sección se definen el nombre del centro de IoT y del servicio de aprovisionamiento que se crean. También se define la ubicación tanto del centro de IoT como del servicio de aprovisionamiento. Los valores estarán restringidos a las regiones de Azure que admitan centros de IoT y servicios de aprovisionamiento. Para obtener una lista de ubicaciones compatibles para el servicio Device Provisioning, puede ejecutar el siguiente comando `az provider show --namespace Microsoft.Devices --query "resourceTypes[?resourceType=='ProvisioningServices'].locations | [0]" --out table` o visitar la página [Estado de Azure](https://azure.microsoft.com/status/) y busque "Servicio Device Provisioning".
 
    ```json
     "parameters": {
@@ -114,7 +113,7 @@ Utilice una plantilla JSON para crear un servicio de aprovisionamiento y un cent
 
    ```
 
-4. Para crear un centro de IoT, agregue las líneas siguientes a la colección **resources**. El JSON especifica las propiedades mínimas necesarias para crear un centro de IoT. Las propiedades **name** y **location** se pasan como parámetros. Para más información sobre las propiedades que se pueden especificar para un centro de IoT en una plantilla, consulte [Microsoft.Devices/IotHubs template reference](https://docs.microsoft.com/azure/templates/microsoft.devices/iothubs) (Referencia de la plantilla Microsoft.Devices/IotHubs).
+4. Para crear un centro de IoT, agregue las líneas siguientes a la colección **resources**. JSON especifica las propiedades mínimas necesarias para crear un centro de IoT. Los valores **name** y **location** se pasarán como parámetros de otro archivo. Para más información sobre las propiedades que se pueden especificar para un centro de IoT en una plantilla, consulte la [referencia de la plantilla Microsoft.Devices/IotHubs](https://docs.microsoft.com/azure/templates/microsoft.devices/iothubs).
 
    ```json
         {
@@ -134,9 +133,9 @@ Utilice una plantilla JSON para crear un servicio de aprovisionamiento y un cent
 
    ``` 
 
-5. Para crear el servicio de aprovisionamiento, agregue las siguientes líneas después de la especificación del centro de IoT en la colección **Resources**. Las propiedades **name** y **location** del servicio de aprovisionamiento se pasan en los parámetros. Especifique los centros de IoT que se van a vincular al servicio de aprovisionamiento en la colección **iotHubs**. Como mínimo, debe especificar las propiedades **connectionString** y **location** para cada centro de IoT vinculado. También puede establecer propiedades como **allocationWeight** y **applyAllocationPolicy** en cada centro de IoT, así como propiedades, como **allocationPolicy** y **authorizationPolicies** en el mismo servicio de aprovisionamiento. Para más información, consulte [Microsoft.Devices/provisioningServices template reference](https://docs.microsoft.com/azure/templates/microsoft.devices/provisioningservices) (Referencia de plantilla Microsoft.Devices/provisioningServices).
+5. Para crear el servicio de aprovisionamiento, agregue las siguientes líneas después de la especificación del centro de IoT en la colección **Resources**. Las propiedades **name** y **location** del servicio de aprovisionamiento se pasarán como parámetros. La colección **iotHubs** especifica los centros de IoT que se van a vincular al servicio de aprovisionamiento. Como mínimo, debe especificar las propiedades **connectionString** y **location** para cada centro de IoT vinculado. También puede establecer propiedades como **allocationWeight** y **applyAllocationPolicy** en cada centro de IoT, así como propiedades, como **allocationPolicy** y **authorizationPolicies** en el mismo servicio de aprovisionamiento. Para más información, consulte [Microsoft.Devices/provisioningServices template reference](https://docs.microsoft.com/azure/templates/microsoft.devices/provisioningservices) (Referencia de plantilla Microsoft.Devices/provisioningServices).
 
-   La propiedad **dependsOn** se utiliza para asegurarse de que Resource Manager crea el centro de IoT antes de crear el servicio de aprovisionamiento. La plantilla requiere la cadena de conexión del centro de IoT para especificar su vinculación con el servicio de aprovisionamiento, por lo que primero debe crearse el centro y sus claves. La plantilla utiliza funciones como **concat** y **listKeys** para crear la cadena de conexión. Para más información, consulte [Funciones de la plantilla de Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions).
+   La propiedad **dependsOn** se utiliza para asegurarse de que Resource Manager crea el centro de IoT antes de crear el servicio de aprovisionamiento. La plantilla requiere la cadena de conexión del centro de IoT para especificar su vinculación con el servicio de aprovisionamiento, por lo que primero debe crearse el centro y sus claves. La plantilla utiliza funciones como **concat** y **listKeys** para crear la cadena de conexión a partir de variables parametrizadas. Para más información, consulte [Funciones de la plantilla de Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions).
 
    ```json
         {
@@ -235,7 +234,7 @@ Utilice una plantilla JSON para crear un servicio de aprovisionamiento y un cent
 
 ## <a name="create-a-resource-manager-parameter-file"></a>Creación de un archivo de parámetros de Resource Manager
 
-La plantilla que ha definido en el último paso utiliza parámetros para especificar el nombre del centro de IoT, el nombre del servicio de aprovisionamiento y la ubicación (región de Azure) para crearlos. Estos parámetros se pasan en un archivo independiente. De este modo, puede volver a usar la misma plantilla para varias implementaciones. Para crear el archivo de parámetros, siga estos pasos:
+La plantilla que ha definido en el último paso utiliza parámetros para especificar el nombre del centro de IoT, el nombre del servicio de aprovisionamiento y la ubicación (región de Azure) para crearlos. Estos parámetros se pasan en la plantilla de un archivo independiente. De este modo, puede volver a usar la misma plantilla para varias implementaciones. Para crear el archivo de parámetros, siga estos pasos:
 
 1. Use un editor de texto para crear un archivo de parámetros de Azure Resource Manager llama **parameters.json** con el siguiente contenido de esquema: 
 
@@ -248,7 +247,7 @@ La plantilla que ha definido en el último paso utiliza parámetros para especif
    }
    ```
 
-2. Agregue el valor **iotHubName** a la sección de parámetro. Si cambia el nombre, asegúrese de que sigue las convenciones de nomenclatura adecuadas para un centro de IoT. Debe tener una longitud de entre 3 y 50 caracteres, y puede contener solo caracteres alfanuméricos en mayúscula y minúscula y guiones ('-'). 
+2. Agregue el valor **iotHubName** a la sección de parámetro.  El nombre del centro de IoT debe ser único globalmente en Azure, por lo que es posible que desee agregar un prefijo o sufijo único al nombre del ejemplo, o bien elegir un nombre completamente nuevo. Asegúrese de que el nombre sigue las convenciones de nomenclatura de un centro de IoT: debe tener entre 3 y 50 caracteres, y solo puede contener caracteres alfanuméricos en mayúsculas y minúsculas o guiones ('-'). 
 
    ```json
     "parameters": {
@@ -259,7 +258,7 @@ La plantilla que ha definido en el último paso utiliza parámetros para especif
    
    ```
 
-3. Agregue el valor **provisioningServiceName** a la sección de parámetro. Si cambia el nombre, asegúrese de que sigue las convenciones de nomenclatura adecuadas para un servicio IoT Hub Device Provisioning. Debe tener una longitud de entre 3 y 64 caracteres, y puede contener solo caracteres alfanuméricos en mayúscula y minúscula y guiones ('-').
+3. Agregue el valor **provisioningServiceName** a la sección de parámetro. También tendrá que elegir un nombre único global para el servicio de aprovisionamiento. Asegúrese de que sigue las convenciones de nomenclatura de IoT Hub Device Provisioning Service: debe tener entre 3 y 64 caracteres, y solo puede contener caracteres alfanuméricos en mayúsculas y minúsculas o guiones ('-').
 
    ```json
     "parameters": {
@@ -273,7 +272,7 @@ La plantilla que ha definido en el último paso utiliza parámetros para especif
 
    ```
 
-4. Agregue el valor **hubLocation** a la sección de parámetro. Este valor especifica la ubicación del centro de IoT y del servicio de aprovisionamiento. El valor debe corresponder a una de las ubicaciones especificadas en la colección **allowedValues** de la definición del parámetro en el archivo de plantilla. Esta colección restringe los valores a las ubicaciones de Azure que admiten los centros de IoT y los servicios de aprovisionamiento. Para obtener una lista de ubicaciones compatibles para el servicio Device Provisioning, puede ejecutar el siguiente comando `az provider show --namespace Microsoft.Devices --query "resourceTypes[?resourceType=='ProvisioningServices'].locations | [0]" --out table` o visitar la página [Estado de Azure](https://azure.microsoft.com/status/) y busque "Servicio Device Provisioning".
+4. Agregue el valor **hubLocation** a la sección de parámetro. Este valor especifica la ubicación del centro de IoT y del servicio de aprovisionamiento. El valor debe corresponder a una de las ubicaciones especificadas en la colección **allowedValues** de la definición del parámetro en el archivo de plantilla. Esta colección restringe los valores a las ubicaciones de Azure que admiten los centros de IoT y los servicios de aprovisionamiento. Para obtener una lista de las ubicaciones compatibles con Device Provisioning Service, ejecute el siguiente comando `az provider show --namespace Microsoft.Devices --query "resourceTypes[?resourceType=='ProvisioningServices'].locations | [0]" --out table` o visite la página [Estado de Azure](https://azure.microsoft.com/status/) y busque "Device Provisioning Service".
 
    ```json
     "parameters": {
@@ -301,13 +300,13 @@ La plantilla que ha definido en el último paso utiliza parámetros para especif
 
 Utilice los siguientes comandos de la CLI de Azure para implementar las plantillas y comprobar la implementación.
 
-1. Para implementar la plantilla, ejecute el siguiente [comando para iniciar una implementación](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create):
+1. Para implementar la plantilla, vaya a la carpeta que contiene la plantilla y los archivos de parámetros, y ejecute el siguiente [comando para iniciar una implementación](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create):
     
     ```azurecli
      az group deployment create -g {your resource group name} --template-file template.json --parameters @parameters.json
     ```
 
-   Busque la propiedad **provisioningState** establecida en "Correcto" en la salida. 
+   Esta operación puede tardar varios minutos en completarse. Una vez que haya terminado, busque la propiedad **provisioningState** y observe si en la salida se muestra el mensaje "Succeeded" (Correcto). 
 
    ![Aprovisionamiento de salida](./media/quick-setup-auto-provision-rm/output.png) 
 
@@ -321,7 +320,7 @@ Utilice los siguientes comandos de la CLI de Azure para implementar las plantill
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Otras guías de inicio rápido de esta colección se basan en los valores de esta. Si tiene previsto seguir trabajando con las siguientes guías de inicio rápido o tutoriales, no elimine los recursos creados en esta guía de inicio rápido. Si no tiene previsto continuar, puede usar la CLI de Azure para [eliminar un recurso individual][lnk-az-resource-command], como un centro de IoT o un servicio de aprovisionamiento, o para eliminar un grupo de recursos y todos sus recursos.
+Otras guías de inicio rápido de esta colección se basan en los valores de esta. Si tiene previsto seguir trabajando con las siguientes guías de inicio rápido o tutoriales, no elimine los recursos creados en esta guía de inicio rápido. Si no planea continuar, puede usar la CLI de Azure para [eliminar un recurso individual][lnk-az-resource-command], como un centro de IoT o un servicio de aprovisionamiento, o bien para eliminar un grupo de recursos y todos sus recursos.
 
 Para eliminar el servicio de aprovisionamiento, ejecute el siguiente comando:
 
@@ -340,14 +339,14 @@ Ejecute el comando siguiente para eliminar un grupo de recursos y todos sus recu
 az group delete --name {your resource group name}
 ```
 
-También puede eliminar grupos de recursos y recursos individuales mediante Azure Portal, PowerShell, las API REST o con los SDK admitidos por la plataforma publicados para Azure Resource Manager o el servicio IoT Hub Device Provisioning.
+También puede eliminar grupos de recursos y recursos individuales desde Azure Portal, PowerShell o las API REST, así como con los SDK de las plataformas compatibles publicados para Azure Resource Manager o IoT Hub Device Provisioning Service.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En esta guía de inicio rápido, ha implementado un centro de IoT y una instancia del servicio Device Provisioning, y ha vinculado los dos recursos. Para aprender a usar esta configuración para aprovisionar un dispositivo simulado, siga la guía de inicio rápido que permite crear un dispositivo simulado.
+En este inicio rápido, ha implementado un centro de IoT y una instancia de Device Provisioning Service, y ha vinculado los dos recursos. Para aprender a usar esta configuración para aprovisionar un dispositivo simulado, vaya al inicio rápido en el que se explica cómo crear un dispositivo simulado.
 
 > [!div class="nextstepaction"]
-> [Guía de inicio rápido para crear el dispositivo simulado](./quick-create-simulated-device.md)
+> [Inicio rápido para crear un dispositivo simulado](./quick-create-simulated-device.md)
 
 
 <!-- Links -->

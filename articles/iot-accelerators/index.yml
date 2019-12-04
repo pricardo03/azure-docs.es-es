@@ -1,0 +1,88 @@
+### YamlMime:Landing
+title: Documentación sobre los aceleradores de soluciones de Azure IoT
+summary: Los aceleradores de soluciones de Azure IoT son soluciones IoT completas y listas para implementar escenarios comunes de IoT, como la supervisión remota.
+metadata:
+  title: Documentación sobre los aceleradores de soluciones de Azure IoT
+  description: Los aceleradores de soluciones IoT son soluciones IoT completas y listas para implementar escenarios comunes de IoT. Los escenarios incluyen supervisión remota, fábrica conectada, mantenimiento predictivo y simulación de dispositivo. Al implementar un acelerador de soluciones, la implementación incluye todos los servicios basados en la nube necesarios, junto con el código de aplicación requerido.
+  services: iot-accelerators
+  ms.service: iot-accelerators
+  ms.topic: landing-page
+  author: dominicbetts
+  ms.author: dobett
+  manager: philmea
+  ms.date: 09/16/2019
+  ms.openlocfilehash: cdad55cb8972e54f613319e890f052c26d94f0ef
+  ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 12/03/2019
+  ms.locfileid: "74781633"
+landingContent:
+- title: Acerca de los aceleradores de soluciones de IoT
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: ¿Qué son los aceleradores de soluciones de Azure IoT?
+      url: about-iot-accelerators.md
+    - text: El sitio web AzureIoTSolutions.com
+      url: iot-accelerators-permissions.md
+- title: Introducción a la supervisión remota
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Información general sobre el acelerador de la solución de supervisión remota
+      url: iot-accelerators-remote-monitoring-sample-walkthrough.md
+  - linkListType: quickstart
+    links:
+    - text: Prueba de una solución de supervisión remota basada en la nube
+      url: quickstart-remote-monitoring-deploy.md
+  - linkListType: tutorial
+    links:
+    - text: Supervisión de los dispositivos
+      url: iot-accelerators-remote-monitoring-monitor.md
+    - text: Detección de problemas con dispositivos
+      url: iot-accelerators-remote-monitoring-automate.md
+- title: Introducción a IoT industrial
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Introducción a IoT industrial
+      url: overview-iot-industrial.md
+    - text: Introducción a OPC Twin
+      url: overview-opc-twin.md
+    - text: Introducción a OPC Vault
+      url: overview-opc-vault.md
+    - text: Introducción a OPC Publisher
+      url: overview-opc-publisher.md
+    - text: Qué es IoT industrial
+      url: iot-accelerators-connected-factory-features.md
+  - linkListType: quickstart
+    links:
+    - text: Prueba de una solución de factoría conectada basada en la nube
+      url: quickstart-connected-factory-deploy.md
+- title: Introducción a la simulación de dispositivo
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Introducción al acelerador de soluciones de simulación de dispositivos
+      url: iot-accelerators-device-simulation-overview.md
+  - linkListType: quickstart
+    links:
+    - text: Prueba de una solución de simulación de dispositivo
+      url: quickstart-device-simulation-deploy.md
+  - linkListType: tutorial
+    links:
+    - text: Creación y ejecución de una simulación de dispositivo IoT
+      url: iot-accelerators-device-simulation-create-simulation.md
+    - text: Creación de dispositivo simulado personalizado
+      url: iot-accelerators-device-simulation-create-custom-device.md
+- title: Introducción al mantenimiento predictivo
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Introducción al acelerador de soluciones de mantenimiento predictivo
+      url: iot-accelerators-predictive-walkthrough.md
+  - linkListType: quickstart
+    links:
+    - text: Prueba de una solución de mantenimiento predictivo
+      url: quickstart-predictive-maintenance-deploy.md

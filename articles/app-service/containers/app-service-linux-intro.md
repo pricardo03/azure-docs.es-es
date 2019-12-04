@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 1/11/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 1bbcd5e4f8c6a429def84ad77d7dd93fa11b7324
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 966eb6068ff545dde284463866bfeee3d5074069
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819688"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74559025"
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Introducción a Azure App Service en Linux
 
@@ -65,9 +65,14 @@ App Service en Linux solo se admite con los planes de App Service [Gratis, Bási
 
 Debido a una limitación actual, para el mismo grupo de recursos no puede mezclar aplicaciones de Windows y Linux en la misma región.
 
-## <a name="troubleshooting"></a>Solución de problemas
+## <a name="troubleshooting"></a>solución de problemas
 
-Si la aplicación no se inicia o desea comprobar el registro desde la aplicación, compruebe los registros de Docker en el directorio LogFiles. A este directorio se accede a través del sitio SCM o a través de FTP. Para registrar `stdout` y `stderr` desde el contenedor, debe habilitar **Registro de contenedor de Docker** en **Registros de App Service**. Esta configuración surte efecto inmediatamente. App Service detecta el cambio y reinicia automáticamente el contenedor.
+> [!NOTE]
+> Hay una nueva funcionalidad de registro integrada con la [supervisión de Azure (versión preliminar)](https://docs.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs#send-logs-to-azure-monitor-preview). 
+>
+>
+
+Si la aplicación no se inicia o desea comprobar el registro desde la aplicación, compruebe los registros de Docker en el directorio LogFiles. A este directorio se accede a través del sitio SCM o a través de FTP. Para registrar `stdout` y `stderr` desde un contenedor, es preciso habilitar **Registro de la aplicación** en **Registros de App Service**. Esta configuración surte efecto inmediatamente. App Service detecta el cambio y reinicia automáticamente el contenedor.
 
 Puede acceder al sitio SCM desde **Herramientas avanzadas** en el menú **Herramientas de desarrollo**.
 

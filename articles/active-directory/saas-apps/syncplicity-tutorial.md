@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/10/2019
 ms.author: jeedes
-ms.openlocfilehash: e6a8a25e88d4193562c818f30efd5eb017c372fd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 663958ae367162eaeb336c819d1d219dc74a2cbe
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67089304"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233280"
 ---
 # <a name="tutorial-integrate-syncplicity-with-azure-active-directory"></a>Tutorial: Integración de Syncplicity con Azure Active Directory
 
@@ -152,7 +152,7 @@ En esta sección, va a permitir que B.Simon acceda a Syncplicity utilizando el i
 
 ### <a name="create-syncplicity-test-user"></a>Creación de un usuario de prueba de Syncplicity
 
-Para que los usuarios de AAD puedan iniciar sesión, deben aprovisionarse a Syncplicity. En esta sección se describe cómo crear cuentas de usuario de AAD en Syncplicity.
+Para que los usuarios de Azure AD puedan iniciar sesión, estos deben aprovisionarse en la aplicación Syncplicity. En esta sección se describe cómo crear cuentas de usuario de Azure AD en Syncplicity.
 
 **Para aprovisionar cuentas de usuario en Syncplicity, realice los siguientes pasos:**
 
@@ -160,14 +160,14 @@ Para que los usuarios de AAD puedan iniciar sesión, deben aprovisionarse a Sync
 
 1. Haga clic en **admin** y seleccione **cuentas de usuario** y, a continuación, haga clic en **ADD A USER** (AGREGAR UN USUARIO).
 
-    ![Administración de usuarios](./media/syncplicity-tutorial/ic769764.png "Administración de usuarios")
+    ![Administración de usuarios](./media/syncplicity-tutorial/ic769764.png "Administrar usuarios")
 
 1. Escriba las **Email Addresses** (Direcciones de correo electrónico) de una cuenta de Azure AD que quiera aprovisionar, seleccione **User** (Usuario) como **Role** (Rol) y haga clic en **NEXT** (SIGUIENTE).
 
-    ![Información de la cuenta](./media/syncplicity-tutorial/ic769765.png "Información de la cuenta")
+    ![Información de cuenta](./media/syncplicity-tutorial/ic769765.png "Información de cuenta")
 
     > [!NOTE]
-    > El titular de la cuenta de AAD recibirá un mensaje de correo electrónico junto con un vínculo para confirmar y activar la cuenta.
+    > El titular de la cuenta de Azure AD recibirá un mensaje de correo electrónico junto con un vínculo para confirmar y activar la cuenta.
 
 1. Seleccione un grupo de la compañía de la que debe convertirse en miembro su nuevo usuario y haga clic en **NEXT**(SIGUIENTE).
 
@@ -181,7 +181,7 @@ Para que los usuarios de AAD puedan iniciar sesión, deben aprovisionarse a Sync
     ![Carpetas de Syncplicity](./media/syncplicity-tutorial/ic769773.png "Carpetas de Syncplicity")
 
 > [!NOTE]
-> Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Syncplicity ofrecida por Syncplicity para aprovisionar cuentas de usuario de AAD.
+> Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Syncplicity ofrecida por Syncplicity para aprovisionar cuentas de usuario de Azure AD.
 
 ### <a name="test-sso"></a>Prueba de SSO
 

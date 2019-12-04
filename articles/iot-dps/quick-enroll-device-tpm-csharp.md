@@ -1,21 +1,20 @@
 ---
-title: 'Inicio rápido: Inscripción de un dispositivo de TPM al Servicio Azure Device Provisioning mediante C#'
-description: 'Inicio rápido de Azure: Inscripción de un dispositivo de TPM en Azure IoT Hub Device Provisioning Service mediante el SDK del servicio de C#. En esta guía de inicio rápido se utilizan inscripciones individuales.'
+title: Inscripción de un dispositivo de TPM al Servicio Azure Device Provisioning mediante C#
+description: 'Inicio rápido: Inscripción de un dispositivo de TPM en Azure IoT Hub Device Provisioning Service mediante el SDK del servicio de C#. En esta guía de inicio rápido se utilizan inscripciones individuales.'
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 70f9c9d2ec488854a1b386b872f10e4f54c45a1c
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: a95a50e5931f42e442e11fe593a151dd273449e8
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73904748"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74423008"
 ---
 # <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-c-service-sdk"></a>Inicio rápido: Inscripción de un dispositivo de TPM al servicio Azure IoT Hub Device Provisioning mediante el SDK del servicio de C#
 
@@ -52,13 +51,13 @@ En esta sección se muestra cómo crear una aplicación de consola de .NET Core 
 
 1. Abra Visual Studio y seleccione **Crear un proyecto**. En **Crear un proyecto**, elija la plantilla de proyecto **Aplicación de consola (.NET Core)** para C# y seleccione **Siguiente**.
 
-1. Asigne al proyecto el nombre *CreateTpmEnrollment* y seleccione **Crear**.
+1. Asigne al proyecto el nombre *CreateTpmEnrollment* y presione **Crear**.
 
     ![Configuración de un proyecto de escritorio clásico de Windows de Visual C#](media/quick-enroll-device-tpm-csharp/configure-tpm-app-vs2019.png)
 
-1. En el **Explorador de soluciones**, haga clic con el botón derecho en el proyecto **CreateTpmEnrollment** y, a continuación, seleccione **Administrar paquetes NuGet**.
+1. Cuando se abre la solución en Visual Studio, en el panel **Explorador de soluciones**, haga clic con el botón derecho en el proyecto **CreateTpmEnrollment**. Seleccione **Administrar paquetes NuGet**.
 
-1. En el **Administrador de paquetes NuGet**, seleccione **Examinar**, busque y elija **Microsoft.Azure.Devices.Provisioning.Service** y luego seleccione **Instalar**.
+1. En **Administrador de paquetes NuGet**, seleccione **Examinar**, busque y elija **Microsoft.Azure.Devices.Provisioning.Service** y presione **Instalar**.
 
    ![Ventana del Administrador de paquetes NuGet](media//quick-enroll-device-tpm-csharp/add-nuget.png)
 
@@ -71,10 +70,10 @@ En esta sección se muestra cómo crear una aplicación de consola de .NET Core 
    using Microsoft.Azure.Devices.Provisioning.Service;
    ```
 
-1. Agregue los siguientes campos a la clase `Program` y realice los cambios de la lista.
+1. Agregue los siguientes campos a la clase `Program` y realice los cambios que aparecen en la lista siguiente.
 
    ```csharp
-   private static string ProvisioningConnectionString = "{Your provisioning service connection string}";
+   private static string ProvisioningConnectionString = "{ProvisioningServiceConnectionString}";
    private const string RegistrationId = "sample-registrationid-csharp";
    private const string TpmEndorsementKey =
        "AToAAQALAAMAsgAgg3GXZ0SEs/gakMyNRqXXJP1S124GUgtk8qHaGzMUaaoABgCAAEMAEAgAAAAAAAEAxsj2gUS" +
@@ -88,7 +87,7 @@ En esta sección se muestra cómo crear una aplicación de consola de .NET Core 
    private const ProvisioningStatus OptionalProvisioningStatus = ProvisioningStatus.Enabled;
    ```
 
-   * Reemplace el valor del marcador de posición `ProvisioningConnectionString` por la cadena de conexión del servicio de aprovisionamiento para el que quiere crear la inscripción.
+   * Reemplace el valor del marcador de posición `ProvisioningServiceConnectionString` por la cadena de conexión del servicio de aprovisionamiento para el que quiere crear la inscripción.
 
    * También puede cambiar el identificador de registro, la clave de aprobación, el identificador del dispositivo y el estado de aprovisionamiento.
 
@@ -143,7 +142,7 @@ En esta sección se muestra cómo crear una aplicación de consola de .NET Core 
   
 Ejecute el ejemplo en Visual Studio para crear la inscripción individual para el dispositivo de TPM.
 
-Tras una creación correcta, la ventana del símbolo del sistema muestra las propiedades de la inscripción individual nueva.
+Aparecerá una ventana del símbolo del sistema que comenzará a mostrar los mensajes de confirmación. Tras una creación correcta, la ventana del símbolo del sistema muestra las propiedades de la inscripción individual nueva.
 
 Puede comprobar que se ha creado la inscripción individual. En el resumen de Device Provisioning Service, seleccione **Administrar inscripciones** y, después, **Inscripciones individuales**. Verá una nueva entrada de inscripción que corresponde al identificador de registro usado en el ejemplo.
 
@@ -159,13 +158,13 @@ Si tiene previsto explorar el ejemplo del servicio de C#, no elimine los recurso
 
 1. Cierre la ventana de salida de ejemplo de C# en el equipo.
 
-1. Vaya a Device Provisioning Service en Azure Portal, seleccione **Administrar inscripciones** y, a continuación, seleccione la pestaña **Inscripciones individuales**. Seleccione el *identificador de registro* de la entrada de inscripción que creó en este inicio rápido y seleccione **Eliminar**.
+1. Vaya a Device Provisioning Service en Azure Portal, seleccione **Administrar inscripciones** y, a continuación, seleccione la pestaña **Inscripciones individuales**. Seleccione la casilla que se encuentra junto al *identificador de registro* de la entrada de inscripción que creó en este inicio rápido y presione el botón **Eliminar** de la parte superior de la hoja.
 
 1. Si ha seguido los pasos del inicio rápido [Creación y aprovisionamiento de un dispositivo de TPM simulado mediante el SDK de dispositivos C#](quick-create-simulated-device-tpm-csharp.md) para crear un dispositivo de TPM simulado, haga lo siguiente:
 
     1. Cierre la ventana del simulador de TPM y la ventana de salida de ejemplo para el dispositivo simulado.
 
-    1. En Azure Portal, vaya a la instancia de IoT Hub donde se aprovisionó el dispositivo. En el menú **Exploradores**, seleccione **Dispositivos IoT**, seleccione la casilla situada junto al dispositivo y, por último, seleccione **Eliminar**.
+    1. En Azure Portal, vaya a la instancia de IoT Hub donde se aprovisionó el dispositivo. En el menú de **Exploradores**, seleccione **Dispositivos IoT**, active la casilla que hay junto al *identificador de dispositivo* del dispositivo que registró en este inicio rápido y, luego, presione el botón **Eliminar** de la parte superior del panel.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

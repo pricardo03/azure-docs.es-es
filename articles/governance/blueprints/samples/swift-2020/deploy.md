@@ -1,14 +1,14 @@
 ---
-title: 'Ejemplo: plano técnico de la norma SWIFT CSP-CSCF v2020 (pasos de la implementación)'
+title: Implementación del ejemplo de plano técnico de la norma SWIFT CSP-CSCF v2020
 description: Implemente los pasos para el ejemplo de plano técnico de la norma SWIFT CSP-CSCF v2020, incluidos los detalles de los parámetros del artefacto de plano técnico.
 ms.date: 09/24/2019
 ms.topic: sample
-ms.openlocfilehash: d25a35c51d4e93e96edb844fbb2224f13ad4c23e
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 63a3880d0092f1ed6fabb2b024d05eebb79fe58b
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74037798"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546491"
 ---
 # <a name="deploy-the-swift-csp-cscf-v2020-blueprint-sample"></a>Implementación del ejemplo de plano técnico de la norma SWIFT CSP-CSCF v2020
 

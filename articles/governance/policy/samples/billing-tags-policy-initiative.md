@@ -1,14 +1,14 @@
 ---
 title: 'Ejemplo: Iniciativa de directiva de etiquetas de facturación'
-description: Este conjunto de definiciones de directivas de ejemplo requiere valores de etiqueta especificados para el nombre de producto y el centro de costos.
+description: Este ejemplo de iniciativa de directiva (conjunto de directivas) requiere valores de etiqueta específicos definidos en parámetros para el centro de costo y el nombre del producto.
 ms.date: 01/23/2019
 ms.topic: sample
-ms.openlocfilehash: e2fc9a7251fbe548b22f24356e555f92a3a6e22f
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 449909b160c2b811c62cd8c6592e74dd0f714e41
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076349"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463392"
 ---
 # <a name="sample---billing-tags-policy-initiative"></a>Ejemplo: Iniciativa de directiva de etiquetas de facturación
 

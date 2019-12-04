@@ -1,21 +1,21 @@
 ---
-title: 'Tutorial: Acceso a los datos de Azure Data Lake Storage Gen2 con Azure Databricks mediante Spark | Microsoft Docs'
+title: 'Tutorial: Azure Data Lake Storage Gen2, Azure Databricks y Spark | Microsoft Docs'
 description: Este tutorial muestra cómo ejecutar consultas de Spark en un clúster de Azure Databricks para acceder a los datos de una cuenta de almacenamiento de Azure Data Lake Storage Gen2.
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: tutorial
-ms.date: 03/11/2019
+ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: 0607c2b848a486e24654081bd7937cb734394e58
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: bbe936fd572a8e23fb6e7c5da4a4bffef1c8bf7e
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331839"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327535"
 ---
-# <a name="tutorial-access-data-lake-storage-gen2-data-with-azure-databricks-using-spark"></a>Tutorial: Acceso a los datos de Azure Data Lake Storage Gen2 con Azure Databricks mediante Spark
+# <a name="tutorial-azure-data-lake-storage-gen2-azure-databricks--spark"></a>Tutorial: Azure Data Lake Storage Gen2, Azure Databricks y Spark
 
 Este tutorial muestra cómo conectarse con un clúster de Azure Databricks para consultar los datos almacenados en una cuenta de almacenamiento de Azure que tiene Azure Data Lake Storage Gen2 habilitado. Esta conexión le permite ejecutar forma nativa las consultas y los análisis del clúster en los datos.
 
@@ -67,7 +67,7 @@ En esta sección, va a crear un servicio de Azure Databricks con Azure Portal.
 
 1. En Azure Portal, seleccione **Crear un recurso** > **Análisis** > **Azure Databricks**.
 
-    ![Databricks en Azure Portal](./media/data-lake-storage-use-databricks-spark/azure-databricks-on-portal.png "Databricks en Azure Portal")
+    ![Databricks en Azure Portal](./media/data-lake-storage-use-databricks-spark/azure-databricks-on-portal.png "Databricks de Azure Portal")
 
 2. En **Servicio de Azure Databricks**, proporcione los valores siguientes para crear un servicio de Databricks:
 
@@ -79,7 +79,7 @@ En esta sección, va a crear un servicio de Azure Databricks con Azure Portal.
     |**Ubicación**     | Seleccione **Oeste de EE. UU. 2**. Para otras regiones disponibles, consulte [Productos disponibles por región](https://azure.microsoft.com/regions/services/).       |
     |**Plan de tarifa**     |  Seleccione **Estándar**.     |
 
-    ![Creación de un área de trabajo de Azure Databricks](./media/data-lake-storage-use-databricks-spark/create-databricks-workspace.png "Create an Azure Databricks service")
+    ![Creación de un área de trabajo de Azure Databricks](./media/data-lake-storage-use-databricks-spark/create-databricks-workspace.png "Creación de un servicio de Azure Databricks")
 
 3. La cuenta tarda unos minutos en crearse. Para supervisar el estado de la operación, consulte la barra de progreso en la parte superior.
 
@@ -95,7 +95,7 @@ En esta sección, va a crear un servicio de Azure Databricks con Azure Portal.
 
 3. En la página **Nuevo clúster**, proporcione los valores para crear un clúster.
 
-    ![Creación de un clúster de Databricks Spark en Azure](./media/data-lake-storage-use-databricks-spark/create-databricks-spark-cluster.png "Creación de un clúster de Databricks Spark en Azure")
+    ![Creación de clústeres de Spark para Databricks en Azure](./media/data-lake-storage-use-databricks-spark/create-databricks-spark-cluster.png "Creación de clústeres de Spark para Databricks en Azure")
 
     Rellene los valores para los campos siguientes y acepte los valores predeterminados para el resto de campos:
 
@@ -105,7 +105,7 @@ En esta sección, va a crear un servicio de Azure Databricks con Azure Portal.
 
 4. Seleccione **Create cluster** (Crear clúster). Después de ejecutar el clúster, puede asociarle cuadernos y ejecutar trabajos de Spark.
 
-## <a name="ingest-data"></a>Introducción de datos
+## <a name="ingest-data"></a>Ingerir datos
 
 ### <a name="copy-source-data-into-the-storage-account"></a>Copia de los datos de origen en la cuenta de almacenamiento
 
@@ -139,7 +139,7 @@ En esta sección, va a crear un contenedor y una carpeta en la cuenta de almacen
 
 2. A la izquierda, seleccione **Workspace** (Área de trabajo). En la lista desplegable **Workspace** (Área de trabajo), seleccione **Create** > **Notebook** (Crear > Cuaderno).
 
-    ![Creación de un cuaderno en Databricks](./media/data-lake-storage-use-databricks-spark/databricks-create-notebook.png "Create notebook in Databricks")
+    ![Creación de un cuaderno en Databricks](./media/data-lake-storage-use-databricks-spark/databricks-create-notebook.png "Creación de un cuaderno en Databricks")
 
 3. En el cuadro de diálogo **Create Notebook** (Crear cuaderno), escriba un nombre para el cuaderno. Seleccione **Python** como lenguaje y, a continuación, seleccione el clúster de Spark que creó anteriormente.
 

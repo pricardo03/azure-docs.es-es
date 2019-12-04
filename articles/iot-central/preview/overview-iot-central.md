@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: timlt
-ms.openlocfilehash: 5e84b8777fc7671a19b6d8974f1309eb5af35bd3
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: 8cfcbddfc8d50855860af655847f997fb2a01711
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048026"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74479700"
 ---
 # <a name="what-is-azure-iot-central-preview-features"></a>¿Qué es Azure IoT Central (características en versión preliminar)?
 
@@ -51,7 +51,7 @@ Para IoT Central, en este artículo se describe lo siguiente:
 - No se admiten los tipos de esquema de matriz.
 - No se admite la exportación de plantillas de aplicación y la copia de aplicaciones.
 - Solo se admiten el SDK de dispositivos de C y los SDK de dispositivos y servicios de Node.js.
-- Solo está disponible en las regiones de Europa del norte y Centro de EE. UU.
+- Solo disponible en ubicaciones de Estados Unidos y Europa.
 - Los modelos de funcionalidad del dispositivo deben tener todas las interfaces definidas insertadas en el mismo archivo.
 
 ## <a name="personas"></a>Personas
@@ -140,6 +140,10 @@ Como operador, se usa la aplicación IoT Central para administrar los dispositiv
 Como generador de soluciones, puede definir reglas y acciones personalizadas que funcionan a través de la transmisión de datos desde dispositivos conectados. Un operador puede habilitar o deshabilitar estas reglas en el nivel de dispositivo para controlar y automatizar las tareas dentro de la aplicación.
 
 Los administradores administran el acceso a la aplicación con [permisos y roles de usuario](howto-administer.md).
+
+## <a name="quotas"></a>Cuotas
+
+Cada suscripción de Azure tiene cuotas predeterminadas que pueden afectar al ámbito de la solución de IoT. Actualmente, IoT Central limita el número de aplicaciones que se pueden implementar en una suscripción a 10. Si quiere aumentar este límite, póngase en contacto con el [soporte técnico de Microsoft](https://azure.microsoft.com/support/options/).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

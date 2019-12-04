@@ -1,21 +1,16 @@
 ---
-title: 'Inicio rápido de Azure: copia de seguridad de una VM con la CLI de Azure'
+title: 'Inicio rápido: Copia de seguridad de una máquina virtual con la CLI de Azure'
 description: En esta guía de inicio rápido, aprenda a crear un almacén de Recovery Services, a habilitar la protección en una VM y a crear el punto de recuperación inicial con la CLI de Azure.
-author: dcurwin
-manager: carmonm
-tags: azure-resource-manager, virtual-machine-backup
-ms.service: backup
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 01/31/2019
-ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: 0d16237e0d5dc0e2176a2a9f600ca0be96328717
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: a359e47a70f6a1a9e0957b4e1c3965c8db12339a
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747133"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74171987"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-the-cli"></a>Copia de seguridad de una máquina virtual en Azure con la CLI
 

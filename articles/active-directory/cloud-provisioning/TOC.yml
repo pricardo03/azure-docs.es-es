@@ -1,0 +1,66 @@
+- name: Aprovisionamiento en la nube
+  href: index.yml
+- name: Información general
+  items:
+    - name: Qué es el aprovisionamiento de identidades
+      href: what-is-provisioning.md
+    - name: "Qué es el aprovisionamiento en la nube de Azure\_AD Connect"
+      href: what-is-cloud-provisioning.md
+      maintainContext: true
+- name: Tutoriales
+  expanded: true
+  items:
+    - name: "Integración de un único bosque de AD con un único inquilino de Azure\_AD"
+      href: tutorial-single-forest.md
+    - name: "Integración de un bosque existente y un nuevo bosque con un único inquilino de Azure\_AD"
+      href: tutorial-existing-forest.md
+    - name: Aprovisionamiento piloto en la nube para un bosque de AD sincronizado existente
+      href: tutorial-pilot-aadc-aadccp.md
+- name: Conceptos
+  items:
+    - name: ¿Qué es la sincronización de hash de contraseña?
+      href: /azure/active-directory/hybrid/whatis-phs?context=azure/active-directory/cloud-provisioning/context/cloud-provisioning-context
+    - name: "Descripción del esquema, atributos y expresiones de Azure\_AD"
+      href: concept-attributes.md
+    - name: Escritura de expresiones para la asignación de atributos en Azure Active Directory
+      href: reference-expressions.md
+- name: Guías de procedimientos
+  items:
+    - name: Instalación y actualización
+      items:
+        - name: Requisitos previos de instalación
+          href: how-to-prerequisites.md
+        - name: "Instalación del agente de aprovisionamiento en la nube de Azure\_AD Connect"
+          href: how-to-install.md
+        - name: Configuración del aprovisionamiento en la nube
+          href: how-to-configure.md
+    - name: Planeamiento y diseño
+      items:
+        - name: "Topologías y escenarios para el aprovisionamiento en la nube de Azure\_AD Connect"
+          href: plan-cloud-provisioning-topologies.md
+    - name: administración
+      items:
+        - name: Actualización automática del agente
+          href: how-to-automatic-upgrade.md
+    - name: Desarrollo
+      items:
+        - name: Transformaciones
+          href: how-to-transformation.md
+        - name: "API de sincronización de Azure\_AD"
+          href: 'https://docs.microsoft.com/graph/api/resources/synchronization-overview'
+    - name: Solución de problemas
+      items:
+        - name: Solución de problemas de aprovisionamiento en la nube
+          href: how-to-troubleshoot.md
+        - name: Atributos duplicados
+          href: 'https://docs.microsoft.com/office365/troubleshoot/administration/duplicate-attributes-prevent-dirsync'
+- name: Referencia
+  items:
+    - name: "Historial de versiones del agente de aprovisionamiento en la nube de Azure\_AD Connect"
+      href: /azure/active-directory/manage-apps/provisioning-agent-release-version-history?context=azure/active-directory/cloud-provisioning/context/cp-context
+    - name: "Preguntas frecuentes del aprovisionamiento en la nube de Azure\_AD Connect"
+      href: reference-cloud-provisioning-faq.md
+    - name: Atributos que se han sincronizado
+      href: /azure/active-directory/hybrid/reference-connect-sync-attributes-synchronized?context=azure/active-directory/cloud-provisioning/context/cp-context
+    - name: "Active\_Directory básica y entorno de Azure\_AD"
+      href: tutorial-basic-ad-azure.md

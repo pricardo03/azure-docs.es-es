@@ -1,14 +1,14 @@
 ---
 title: 'Ejemplo: Aplicar una etiqueta y su valor predeterminado'
-description: Esta definición de directiva de ejemplo asocia un nombre de etiqueta especificado y un valor si no se proporciona la etiqueta.
+description: Este ejemplo de definición de directiva asocia un nombre de etiqueta especificado y un valor si no se proporciona la etiqueta.
 ms.date: 01/26/2019
 ms.topic: sample
-ms.openlocfilehash: 0e5bb38b65f4c302fc5a2c4a0a0d3c2da0082a30
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 33d0580d2f6c231c4cd7e73abdaab6cb14c363d9
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74071485"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463677"
 ---
 # <a name="sample---apply-tag-and-its-default-value"></a>Ejemplo: Aplicar una etiqueta y su valor predeterminado
 

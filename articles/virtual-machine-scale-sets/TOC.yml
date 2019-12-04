@@ -231,8 +231,8 @@
           href: virtual-machine-scale-sets-placement-groups.md
         - name: Conversión de una plantilla de conjunto de escalado para que use un disco administrado
           href: virtual-machine-scale-sets-convert-template-to-md.md
-        - name: Uso de la prioridad baja
-          href: virtual-machine-scale-sets-use-low-priority.md
+        - name: Uso de instancia de Spot
+          href: use-spot.md
     - name: administración
       items:
         - name: Tareas comunes de administración

@@ -1,20 +1,20 @@
 ---
-title: Administración de puntos de conexión privados en Azure
-description: Obtenga información sobre cómo crear un punto de conexión privado mediante Azure Portal.
+title: 'Inicio rápido: Administración de puntos de conexión privados en Azure'
+description: Obtenga información sobre cómo crear un punto de conexión privado mediante Azure Portal en este inicio rápido.
 services: private-link
-author: KumudD
+author: asudbring
 ms.service: private-link
 ms.topic: quickstart
 ms.date: 09/16/2019
-ms.author: kumud
-ms.openlocfilehash: d8d7c0232110d3d5b040debc3a24941988d4ee29
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.author: allensu
+ms.openlocfilehash: 2cb3c1d798e48017604d72d8a438d6a1071199ea
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72372237"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74419767"
 ---
-# <a name="create-a-private-endpoint-using-azure-portal"></a>Creación de un punto de conexión privado mediante Azure Portal
+# <a name="quickstart-create-a-private-endpoint-using-azure-portal"></a>Inicio rápido: Creación de un punto de conexión privado mediante Azure Portal
 
 Un punto de conexión privado es el bloque de creación fundamental para el vínculo privado en Azure. Permite que los recursos de Azure, como las máquinas virtuales, se comuniquen de manera privada con recursos de vínculos privados. En este inicio rápido, aprenderá a crear una máquina virtual en una instancia de Azure Virtual Network, un servidor de SQL Database con un punto de conexión privado de Azure mediante Azure Portal. Después, puede acceder de forma segura al servidor de SQL Database desde la máquina virtual.
 
@@ -241,4 +241,3 @@ Cuando haya terminado mediante el punto de conexión privado, el servidor SQL y 
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este inicio rápido, ha creado una máquina virtual en una red virtual, un servidor de SQL Database y un punto de conexión privado para el acceso privado. Se ha conectado a una máquina virtual desde Internet y se ha comunicado de forma segura al servidor de SQL Database mediante el vínculo privado. Para más información sobre los puntos de conexión privados, consulte [¿Qué es un punto de conexión privado de Azure? ](private-endpoint-overview.md).
-

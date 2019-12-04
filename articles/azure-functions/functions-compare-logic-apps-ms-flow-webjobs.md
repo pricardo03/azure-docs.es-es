@@ -1,27 +1,19 @@
 ---
 title: ¿Qué son Microsoft Flow, Logic Apps, Functions y WebJobs? - Azure
 description: 'Comparativa de los servicios en la nube de Microsoft optimizados para las tareas de integración: Microsoft Flow, Logic Apps, Functions y WebJobs.'
-services: functions, logic-apps
-documentationcenter: na
-author: ggailey777
-manager: jeconnoc
-keywords: microsoft flow, flow, logic apps, azure functions, functions, azure webjobs, webjobs, procesamiento de eventos, proceso dinámico, arquitectura sin servidor
-ms.service: azure-functions
 ms.topic: overview
 ms.date: 04/09/2018
-ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: e599ff280481549f68822d96f97b85f2516b1593
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: a20729e7c47e6bf2ad77e47fa228495d8b482aab
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082747"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278625"
 ---
 # <a name="what-are-microsoft-flow-logic-apps-functions-and-webjobs"></a>¿Qué son Microsoft Flow, Logic Apps, Functions y WebJobs?
 
-En este artículo se comparan los siguientes servicios en la nube de Microsoft:
-
+En este artículo se comparan los siguientes servicios en la nube de Microsoft 
 * [Microsoft Flow](https://flow.microsoft.com/)
 * [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)
 * [Azure Functions](https://azure.microsoft.com/services/functions/)
@@ -56,8 +48,8 @@ Functions y Logic Apps son servicios de Azure que posibilitan las cargas de trab
 
 En Azure Functions, las orquestaciones se desarrollan mediante la escritura de código y el uso de la [extensión Durable Functions](durable/durable-functions-overview.md). En Logic Apps, las orquestaciones se crean mediante una GUI o editando archivos de configuración.
 
-Puede mezclar y combinar servicios cuando crea una orquestación, puede llamar a las funciones desde las aplicaciones lógicas y llamar a las aplicaciones lógicas desde las funciones. Elija cómo crear cada orquestación según las funcionalidades de los servicios o sus preferencias personales. En la tabla siguiente se enumeran algunas de las diferencias principales entre estos servicios:
- 
+Puede mezclar y combinar servicios cuando crea una orquestación, puede llamar a las funciones desde las aplicaciones lógicas y llamar a las aplicaciones lógicas desde las funciones. Elija cómo crear cada orquestación según las funcionalidades de los servicios o sus preferencias personales. En la tabla siguiente se enumeran algunas de las principales diferencias entre:
+
 |  | Funciones duraderas | Logic Apps |
 | --- | --- | --- |
 | Desarrollo | Orientado a código (imperativo) | Orientado al diseñador (declarativo) |
