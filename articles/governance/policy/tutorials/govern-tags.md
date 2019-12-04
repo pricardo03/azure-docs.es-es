@@ -1,14 +1,14 @@
 ---
-title: Administración de gobernanza de etiquetas
-description: Use el efecto Modify de Azure Policy para crear y aplicar un modelo de gobernanza de etiquetas en los recursos nuevos y existentes.
-ms.date: 11/04/2019
+title: 'Tutorial: Administración de gobernanza de etiquetas'
+description: En este tutorial, usará el efecto Modify de Azure Policy para crear y aplicar un modelo de gobernanza de etiquetas en los recursos nuevos y existentes.
+ms.date: 11/25/2019
 ms.topic: tutorial
-ms.openlocfilehash: edb74bce5758ae040a6170a8e73be75fc228b001
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: e3d6e279b293ea8063c690f9fb69a6f183b2838d
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74069658"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74482264"
 ---
 # <a name="tutorial-manage-tag-governance-with-azure-policy"></a>Tutorial: Administración de la gobernanza de etiquetas con Azure Policy
 
@@ -21,7 +21,16 @@ El efecto [Modify](../concepts/effects.md#modify) de Azure Policy está diseñad
 - Ya tiene miles de recursos sin gobernanza de etiquetas.
 - Ya tiene una taxonomía existente que necesita cambiar.
 
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
+En este tutorial, va a completar las siguientes tareas:
+
+> [!div class="checklist"]
+> - Identificar los requisitos empresariales
+> - Asignar cada requisito a una definición de directiva
+> - Agrupar las directivas de etiqueta en una iniciativa
+
+## <a name="prerequisites"></a>Requisitos previos
+
+Para completar este tutorial, necesitará una suscripción de Azure. Si no tiene una, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="identify-requirements"></a>Identificación de los requisitos
 
@@ -184,6 +193,16 @@ Esta regla de directiva busca cualquier recurso que no tenga el valor de su grup
 Una vez creadas las directivas de etiqueta anteriores, se unen en una única iniciativa para la gobernanza de las etiquetas y se asignan a un grupo de administración o una suscripción. Después, la iniciativa y las directivas incluidas evalúan el cumplimiento de los recursos existentes y modifican las solicitudes de los recursos nuevos o actualizados que coinciden con la propiedad **if** de la regla de la directiva. Sin embargo, la directiva no actualiza automáticamente los recursos no conformes existentes con los cambios de etiqueta definidos.
 
 Al igual que las directivas [deployIfNotExists](../concepts/effects.md#deployifnotexists), la directiva **Modify** utiliza tareas de corrección para modificar los recursos no conformes existentes. Siga las instrucciones que se indican en [Corrección de los recursos](../how-to/remediate-resources.md) para identificar los recursos de **Modify** no conformes y corregir las etiquetas a la taxonomía definida.
+
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+Si terminó de trabajar con los recursos de este tutorial, use los pasos siguientes para eliminar todas las asignaciones y definiciones creadas anteriormente:
+
+1. Seleccione **Definiciones** (o **Asignaciones** si trata de eliminar una asignación) en **Creación** en el lado izquierdo de la página de Azure Policy.
+
+1. Busque la nueva definición de iniciativa o directiva (o asignación) que quiere quitar.
+
+1. Haga clic con el botón derecho en la fila o seleccione los puntos suspensivos al final de la definición (o asignación) y elija **Eliminar definición** (o **Eliminar asignación** ).
 
 ## <a name="review"></a>Revisión
 

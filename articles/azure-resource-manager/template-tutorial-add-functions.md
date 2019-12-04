@@ -1,19 +1,16 @@
 ---
-title: 'Tutorial: Adición de funciones de plantilla a una plantilla de Azure Resource Manager'
+title: 'Tutorial: Adición de funciones de plantilla'
 description: Agregue funciones de plantilla a una plantilla de Azure Resource Manager para construir valores.
-services: azure-resource-manager
 author: mumian
-manager: carmonmills
-ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: ca6e7f326ba67eac33e4dee5fa844d7676ab864b
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: 03a38178ec66c1c1a10934975d20778369d80dbe
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71963662"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74405956"
 ---
 # <a name="tutorial-add-template-functions-to-your-resource-manager-template"></a>Tutorial: Adición de funciones de plantilla a una plantilla de Resource Manager
 
@@ -25,7 +22,7 @@ Aunque no es obligatorio, se recomienda realizar el [tutorial sobre parámetros]
 
 Debe tener Visual Studio Code con la extensión Herramientas de Resource Manager y Azure PowerShell o la CLI de Azure. Para más información, consulte las [herramientas de plantilla](template-tutorial-create-first-template.md#get-tools).
 
-## <a name="review-your-template"></a>Revisión de la plantilla
+## <a name="review-template"></a>Revisión de la plantilla
 
 Al final del tutorial anterior, la plantilla tenía el siguiente código JSON:
 
@@ -73,7 +70,7 @@ az group deployment create \
 
 ---
 
-## <a name="verify-the-deployment"></a>Comprobar la implementación
+## <a name="verify-deployment"></a>Comprobación de la implementación
 
 Para comprobar la implementación, explore el grupo de recursos desde Azure Portal.
 

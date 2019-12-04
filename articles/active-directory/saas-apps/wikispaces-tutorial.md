@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: d2c03143eca9f335c440dfcaee766e205b5c0730
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7a683923ba48b1f354f90ac94d746cb92f359e7a
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67087161"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233317"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wikispaces"></a>Tutorial: Integración de Azure Active Directory con Wikispaces
 
@@ -190,17 +190,17 @@ Para permitir que los usuarios de Azure AD inicien sesión en Wikispaces, deben 
 
 2. Vaya a **Miembros**.
    
-    ![Miembros](./media/wikispaces-tutorial/ic787193.png "Miembros")
+    ![Miembros](./media/wikispaces-tutorial/ic787193.png "Members")
 
 3. Haga clic en **Invitar asistentes**.
    
-    ![Invitar a personas](./media/wikispaces-tutorial/ic787194.png "Invitar a personas")
+    ![Invite People (Invitar a personas)](./media/wikispaces-tutorial/ic787194.png "Invitar a contactos")
 
 4. En la sección **Invitar asistentes** , siga estos pasos:
    
-    ![Invitar a personas](./media/wikispaces-tutorial/ic787208.png "Invitar a personas")
+    ![Invite People (Invitar a personas)](./media/wikispaces-tutorial/ic787208.png "Invitar a contactos")
    
-    a. Escriba los **nombres de usuario o dirección de correo electrónico** de una cuenta válida de AAD que quiera aprovisionar en los cuadros de texto relacionados.
+    a. Escriba los **nombres de usuario o la dirección de correo electrónico** de una cuenta válida de Azure AD que quiera aprovisionar en los cuadros de texto relacionados.
    
     b. Haga clic en **Enviar**.  
       
@@ -208,7 +208,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Wikispaces, deben 
     > El titular de la cuenta de Azure Active Directory recibe un mensaje de correo electrónico con un vínculo para confirmar la cuenta antes de que se active.
     
 > [!NOTE]
-> Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Wikispaces ofrecida por Wikispaces para aprovisionar cuentas de usuario de AAD.
+> Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Wikispaces ofrecida por Wikispaces para aprovisionar cuentas de usuario de Azure AD.
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único 
 

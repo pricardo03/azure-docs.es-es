@@ -8,28 +8,57 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: overview
-ms.date: 11/04/2019
+ms.date: 11/22/2019
 ms.author: diberry
-ms.openlocfilehash: 8ee22a2a8a12eb85439e191bc21e6cf391bea3f8
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 99f312521727658788e96a57b619a7c0e3d4751b
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73612846"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74456555"
 ---
 # <a name="what-is-language-understanding-luis"></a>¿Qué es Language Understanding (LUIS)?
 
-Language Understanding (LUIS) es un servicio de API basado en la nube que aplica inteligencia de aprendizaje automático personalizado a una conversación o un texto de lenguaje natural de un usuario para predecir el significado global y extraer información pertinente y detallada. 
+Language Understanding (LUIS) es un servicio de API basado en la nube que aplica inteligencia de aprendizaje automático personalizado a un texto de lenguaje natural para predecir el significado global y extraer información pertinente y detallada. 
 
-Una aplicación cliente para LUIS es cualquier aplicación conversacional que se comunique con un usuario en lenguaje natural para completar una tarea. Entre estas aplicaciones cliente se encuentran, por ejemplo, aplicaciones de redes sociales, bots de chat y aplicaciones de escritorio habilitadas para voz.  
+Por ejemplo, cuando una aplicación cliente envía el texto “`find me a wireless keyboard for $30`” LUIS responde con el siguiente objeto JSON. 
+
+```JSON
+{
+    "query": "find me a wireless keyboard for $30",
+    "prediction": {
+        "topIntent": "Finditem",
+        "intents": {
+            "Finditem": {
+                "score": 0.934672
+            }
+        },
+        "entities": {
+            "item": [
+                "wireless keyboard"
+            ],
+            "money": [
+        {
+            "number": 30,
+            "units": "Dollar"
+        }
+           ]
+        }
+        
+    }
+}
+```
+En el ejemplo anterior, la _**intención**_ o el significado general de la frase es que el usuario está intentando encontrar un elemento. Los fragmentos de información detallados que LUIS extrae se denominan _**entidades**_ . En este caso, las entidades son el nombre del elemento que está buscando el usuario y la cantidad de dinero que desea gastar.
+
+Las aplicaciones cliente usan el JSON devuelto de LUIS, la _intención_ (categoría) y las _entidades_ (información detallada extraída), para impulsar acciones en la aplicación cliente. Una aplicación cliente para LUIS suele ser una aplicación conversacional que se comunica con un usuario en lenguaje natural para completar una tarea. Entre estas aplicaciones cliente se encuentran, por ejemplo, aplicaciones de redes sociales, bots de chat y aplicaciones de escritorio habilitadas para voz. 
 
 ![Imagen conceptual de tres aplicaciones cliente que funcionan con Language Understanding (LUIS) de Cognitive Services](./media/luis-overview/luis-entry-point.png "Imagen conceptual de tres aplicaciones cliente que funcionan con Language Understanding (LUIS) de Cognitive Services")
 
-## <a name="use-luis-in-a-chat-bot"></a>Uso de LUIS en un bot de chat
+## <a name="example-use-luis-in-a-chat-bot"></a>Ejemplo de uso de LUIS en un bot de chat
 
 <a name="Accessing-LUIS"></a>
 
-Una vez que la aplicación de LUIS está publicada, la aplicación cliente envía expresiones (texto) a la [API][endpoint-apis] del punto de conexión de procesamiento de lenguaje natural de LUIS y recibe los resultados como respuestas en formato JSON. Una aplicación cliente común para LUIS es un bot de chat.
+Una aplicación cliente envía expresiones (texto) a la [API][endpoint-apis] del punto de conexión de procesamiento de lenguaje natural de LUIS publicado y recibe los resultados como respuestas en formato JSON. Una aplicación cliente común para LUIS es un bot de chat.
 
 
 ![Imagen conceptual del funcionamiento de LUIS con el bot de chat para predecir el texto del usuario con la comprensión del lenguaje natural (NLP)](./media/luis-overview/LUIS-chat-bot-request-response.svg "Imagen conceptual del funcionamiento de LUIS con el bot de chat para predecir el texto del usuario con la comprensión del lenguaje natural (NLP)")
@@ -37,8 +66,8 @@ Una vez que la aplicación de LUIS está publicada, la aplicación cliente enví
 |Paso|Acción|
 |:--|:--|
 |1|La aplicación cliente envía la _expresión_ del usuario (el texto en sus propias palabras), "I want to call my HR rep" ("Quiero llamar a mi representante de recursos humanos") al punto de conexión de LUIS como una solicitud HTTP.|
-|2|LUIS le permite diseñar modelos de lenguaje personalizados para agregar inteligencia a su aplicación. Los modelos de lenguaje de aprendizaje automático toman el texto de entrada no estructurado del usuario y devuelven una respuesta con formato JSON, con una intención alta, `HRContact`. La respuesta en formato JSON del punto de conexión contiene como mínimo la expresión de consulta y la intención con mayor puntuación. También puede extraer datos, como la entidad _Tipo de contacto_.|
-|3|La aplicación cliente usa la respuesta JSON para tomar decisiones acerca de cómo responder a las solicitudes del usuario. Estas decisiones pueden incluir árboles de decisión en el código de Bot Framework y llamadas a otros servicios. |
+|2|LUIS aplica modelos de lenguaje de aprendizaje automático en el texto de entrada no estructurado del usuario y devuelve una respuesta con formato JSON, con una intención alta, `HRContact`. La respuesta en formato JSON del punto de conexión contiene como mínimo la expresión de consulta y la intención con mayor puntuación. También puede extraer datos, como la entidad _Tipo de contacto_.|
+|3|La aplicación cliente usa la respuesta JSON para tomar decisiones acerca de cómo responder a las solicitudes del usuario. Estas decisiones pueden incluir un árbol de decisión en el bot y llamadas a otros servicios. |
 
 La aplicación de LUIS proporciona inteligencia para que la aplicación cliente pueda tomar decisiones inteligentes. LUIS no proporciona estas opciones. 
 
@@ -47,16 +76,16 @@ La aplicación de LUIS proporciona inteligencia para que la aplicación cliente 
 
 ## <a name="natural-language-processing"></a>Procesamiento de lenguaje natural
 
-La aplicación de LUIS contiene un modelo de lenguaje natural específico de un dominio. Puede iniciar la aplicación de LUIS con un modelo de dominio creado previamente, crear el suyo propio o combinar partes de un dominio creado previamente con su propia información personalizada.
+La aplicación de LUIS contiene modelos de lenguaje natural específico de un dominio que funcionan conjuntamente. Puede iniciar la aplicación de LUIS con uno o varios modelos precompilados, crear el suyo propio o combinar modelos precompilados con su propia información personalizada.
 
-* **Modelo creado previamente** LUIS tiene muchos modelos de dominio creados previamente, entre los que se incluyen intenciones, expresiones y entidades creadas previamente. Puede usar las entidades creadas previamente sin tener que utilizar las intenciones y expresiones del modelo precompilado. Los [modelos de dominio creados previamente](luis-how-to-use-prebuilt-domains.md) incluyen todo el diseño y suponen una excelente manera de empezar a usar rápidamente LUIS.
+* **Modelo precompilado**: LUIS tiene gran cantidad de dominios precompilados que incluyen modelos de intención y entidad que funcionan conjuntamente para completar escenarios de uso frecuentes. Estos dominios incluyen expresiones etiquetadas que se pueden inspeccionar y editar, con lo que es posible personalizarlas. Los [modelos de dominio creados previamente](luis-how-to-use-prebuilt-domains.md) incluyen todo el diseño y suponen una excelente manera de empezar a usar rápidamente LUIS. Además, hay entidades precompiladas, como la moneda y el número, que puede usar independientemente de los dominios precompilados.
 
-* **Modelo personalizado**: LUIS le ofrece varias maneras de identificar sus propios modelos personalizados, incluidas las intenciones y las entidades. Las entidades incluyen entidades de aprendizaje automático, específicas o literales y una combinación de entidades de aprendizaje automático y literales.
+* **Modelo personalizado**: LUIS le ofrece varias maneras de compilar sus propios modelos personalizados, incluidas las intenciones y las entidades. Las entidades incluyen entidades de aprendizaje automático, entidades de coincidencia de patrones y una combinación de entidades de aprendizaje automático y de coincidencia de patrones.
 
-## <a name="build-the-luis-model"></a>Creación del modelo de LUIS
-Cree el modelo con las API de [creación](https://go.microsoft.com/fwlink/?linkid=2092087) o con el [portal de LUIS](https://www.luis.ai).
+## <a name="build-the-luis-app"></a>Compilación de la aplicación de LUIS
+Compile la aplicación con las API de [creación](https://go.microsoft.com/fwlink/?linkid=2092087) o con el [portal de LUIS](https://www.luis.ai).
 
-El modelo de LUIS comienza con categorías de intenciones del usuario llamadas **[intenciones](luis-concept-intent.md)** . Cada intención necesita ejemplos de **[expresiones](luis-concept-utterance.md)** del usuario. Cada expresión puede proporcionar datos que es necesario extraer. 
+La aplicación de LUIS comienza con categorías de texto de entrada llamadas **[intenciones](luis-concept-intent.md)** . Cada intención necesita ejemplos de **[expresiones](luis-concept-utterance.md)** del usuario. Cada expresión puede proporcionar datos que es necesario extraer. 
 
 |Expresión de usuario de ejemplo|Intención|Datos extraídos|
 |-----------|-----------|-----------|
@@ -100,8 +129,8 @@ Después de publicar la aplicación de LUIS y recibir expresiones de usuario rea
 
 <a name="using-luis"></a>
 
-## <a name="development-lifecycle"></a>Ciclo de vida del desarrollo
-LUIS proporciona herramientas, control de versiones y colaboración con otros autores de LUIS para integrarse en el [ciclo de vida de desarrollo completo](luis-concept-app-iteration.md). 
+## <a name="iterative-development-lifecycle"></a>Ciclo de vida de desarrollo iterativo
+LUIS proporciona herramientas, control de versiones y colaboración con otros autores de LUIS para integrarse en el [ciclo de vida de desarrollo iterativo](luis-concept-app-iteration.md) completo. 
 
 ## <a name="implementing-luis"></a>Implementación de LUIS
 Language Understanding (LUIS), como API REST, se puede usar con cualquier producto, servicio o marco con una solicitud HTTP. La lista siguiente contiene los principales productos y servicios de Microsoft que se utilizan con LUIS.
@@ -128,7 +157,7 @@ Ejemplos de uso de LUIS:
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Novedades](whats-new.md)
-* Cree una nueva aplicación de LUIS con un dominio [creado previamente](luis-get-started-create-app.md) o [personalizado](luis-quickstart-intents-only.md).
+* Cree una nueva aplicación de LUIS con un dominio [precompilado](luis-get-started-create-app.md) o [personalizado](luis-quickstart-intents-only.md).
 * [Consulte el punto de conexión de predicción](luis-get-started-get-intent-from-browser.md) de una aplicación de IoT pública. 
 * [Recursos para el desarrollador](developer-reference-resource.md) de LUIS 
 

@@ -13,12 +13,12 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 10/21/2019
 ms.author: lcozzens
-ms.openlocfilehash: 7e28cdacce8eac4774683013ae1c30ca34ebfaad
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 7cb76d5836055ce352373fa13449e27d81e84022
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72821632"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185247"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-net-framework-app"></a>Tutorial: Uso de la configuración dinámica en una aplicación de .NET Framework
 
@@ -31,16 +31,15 @@ Este tutorial le muestra cómo puede implementar las actualizaciones de configur
 En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
-> * Configure la aplicación para actualizar su configuración con un almacén de configuración de aplicaciones a petición.
-> * Insertar la configuración más reciente en los controladores de la aplicación
-
+> * Configurar la aplicación de .NET Framework para actualizar su configuración en respuesta a los cambios en un almacén de App Configuration.
+> * Insertar la configuración más reciente en la aplicación.
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs)
 - [.NET Framework 4.7.1 o posterior](https://dotnet.microsoft.com/download)
 
-## <a name="create-an-app-configuration-store"></a>Creación de un almacén de configuración de aplicaciones
+## <a name="create-an-app-configuration-store"></a>Creación de un almacén de App Configuration
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
@@ -52,7 +51,7 @@ En este tutorial, aprenderá a:
 
     Deje **Etiqueta** y **Tipo de contenido** en blanco, por ahora.
 
-## <a name="create-a-net-console-app"></a>Creación de una aplicación de consola de .NET
+## <a name="create-a-net-framework-console-app"></a>Creación de una aplicación de consola de .NET Framework
 
 1. Inicie Visual Studio y seleccione **Archivo** > **Nuevo** > **Proyecto**.
 
@@ -99,7 +98,7 @@ En este tutorial, aprenderá a:
         PrintMessage().Wait();
     }
     ```
-    El método `ConfigureRefresh` se utiliza para especificar la configuración usada para actualizar los datos de configuración con el almacén de configuración de la aplicación cuando se desencadena una operación de actualización. Se puede recuperar una instancia de `IConfigurationRefresher` mediante una llamada al método `GetRefresher` en las opciones proporcionadas para el método `AddAzureAppConfiguration`; además, el método `Refresh` de esta instancia puede usarse para desencadenar una operación de actualización en cualquier lugar del código.
+    El método `ConfigureRefresh` se utiliza para especificar la configuración usada para actualizar los datos de configuración con el almacén de App Configuration cuando se desencadena una operación de actualización. Se puede recuperar una instancia de `IConfigurationRefresher` mediante una llamada al método `GetRefresher` en las opciones proporcionadas para el método `AddAzureAppConfiguration`; además, el método `Refresh` de esta instancia puede usarse para desencadenar una operación de actualización en cualquier lugar del código.
 
     > [!NOTE]
     > La hora de expiración de la caché predeterminada para un valor de configuración es de 30 segundos, pero puede reemplazarse por una llamada al método `SetCacheExpiration` en el inicializador de opciones que se pasa como argumento al método `ConfigureRefresh`.
@@ -121,7 +120,7 @@ En este tutorial, aprenderá a:
 
 ## <a name="build-and-run-the-app-locally"></a>Compilación y ejecución de la aplicación en un entorno local
 
-1. Establezca una variable de entorno llamada **ConnectionString** y defínala como la clave de acceso a su almacén de configuración de aplicaciones. Si usa el símbolo del sistema de Windows, ejecute el siguiente comando y reinícielo para que se aplique el cambio:
+1. Establezca una variable de entorno llamada **ConnectionString** y defínala como la clave de acceso a su almacén de App Configuration. Si usa el símbolo del sistema de Windows, ejecute el siguiente comando y reinícielo para que se aplique el cambio:
 
         setx ConnectionString "connection-string-of-your-app-configuration-store"
 
@@ -135,7 +134,7 @@ En este tutorial, aprenderá a:
 
     ![Inicio local de la aplicación](./media/dotnet-app-run.png)
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com). Seleccione **Todos los recursos**y seleccione la instancia de almacén de App Configuration que creó en el inicio rápido.
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com). Seleccione **Todos los recursos** y seleccione la instancia de almacén de App Configuration que creó en el inicio rápido.
 
 1. Seleccione **Explorador de configuración** y actualice los valores de las claves siguientes:
 
@@ -156,7 +155,7 @@ En este tutorial, aprenderá a:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha agregado una identidad de servicio administrada de Azure para optimizar el acceso a App Configuration y mejorar la administración de credenciales de su aplicación. Para aprender a agregar una identidad de servicio administrada por Azure que optimice el acceso a App Configuration, continúe con el siguiente tutorial.
+En este tutorial, ha habilitado la aplicación de .NET Framework para actualizar dinámicamente la configuración a partir de App Configuration. Para obtener información sobre cómo usar una identidad administrada de Azure para simplificar el acceso a App Configuration, vaya al siguiente tutorial.
 
 > [!div class="nextstepaction"]
 > [Integración de identidades administradas](./howto-integrate-azure-managed-service-identity.md)

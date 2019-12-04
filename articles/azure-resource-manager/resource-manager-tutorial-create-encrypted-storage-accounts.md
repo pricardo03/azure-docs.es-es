@@ -1,25 +1,17 @@
 ---
-title: Uso de la referencia de plantilla de Azure Resource Manager | Microsoft Docs
+title: Utilización de la referencia de la plantilla
 description: Use la referencia de plantilla de Azure Resource Manager para crear una plantilla para implementar una cuenta de almacenamiento cifrada.
-services: azure-resource-manager
-documentationcenter: ''
 author: mumian
-manager: dougeby
-editor: tysonn
-ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 81c02c5e39e23b49291561821b0732227feb5c05
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 99ec64529b90c7a80aea62090f80c55cf4e23510
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62103655"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326480"
 ---
 # <a name="tutorial-utilize-the-azure-resource-manager-template-reference"></a>Tutorial: Uso de la referencia de plantilla de Azure Resource Manager
 
@@ -44,7 +36,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 Para completar este artículo, necesitará lo siguiente:
 
-* [Visual Studio Code](https://code.visualstudio.com/) con la [extensión Resource Manager Tools](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
+* Visual Studio Code con la extensión Resource Manager Tools. Consulte [Uso de Visual Studio Code para crear plantillas de Azure Resource Manager](./resource-manager-tools-vs-code.md).
 
 ## <a name="open-a-quickstart-template"></a>Abra una plantilla de inicio rápido.
 
@@ -86,7 +78,7 @@ Para completar este artículo, necesitará lo siguiente:
 
     Si no sabe qué versión elegir, use la versión más reciente.
 
-4. Búsqueda de la información de definición relacionada con el cifrado.  
+4. Búsqueda de la información de definición relacionada con el cifrado.
 
     ```json
     "encryption": {

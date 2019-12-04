@@ -1,14 +1,14 @@
 ---
-title: Asignación de controles del ejemplo de plano técnico IRS 1075
+title: Controles del ejemplo de plano técnico de IRS 1075
 description: Asignación de controles del ejemplo de plano técnico IRS 1075. Cada control se asigna a una o varias directivas de Azure que ayudan a realizar la evaluación.
-ms.date: 08/07/2019
+ms.date: 11/20/2019
 ms.topic: sample
-ms.openlocfilehash: b56e1a2c8a71e3bb7927dc487e0c2f1e7709d413
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 86570012000e660b53b2c3c7291b9ca98576a004
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74032204"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546825"
 ---
 # <a name="control-mapping-of-the-irs-1075-blueprint-sample"></a>Asignación de controles del ejemplo de plano técnico según la norma IRS 1075
 
@@ -324,7 +324,8 @@ Advanced Threat Protection para Azure Storage detecta los intentos poco habitual
 Ahora que ha revisado la asignación de controles del plano técnico de IRS 1075, consulte los siguientes artículos para obtener información sobre el plano técnico y cómo implementar este ejemplo:
 
 > [!div class="nextstepaction"]
-> [Plano técnico de IRS 1075: Introducción](./index.md)
+> [Plano técnico de IRS 1075: introducción](./index.md)
+> [Plano técnico de IRS 1075: pasos de implementación](./deploy.md)
 
 Artículos adicionales sobre planos técnicos y cómo utilizarlos:
 

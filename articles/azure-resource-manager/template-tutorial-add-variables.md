@@ -1,19 +1,16 @@
 ---
-title: 'Tutorial: Adición de variables a una plantilla de Azure Resource Manager'
+title: 'Tutorial: Adición de una variable a una plantilla'
 description: Agregue variables a la plantilla de Azure Resource Manager para simplificar la sintaxis.
-services: azure-resource-manager
 author: mumian
-manager: carmonmills
-ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: fb577c0c0f00da3735da98fc2e94f3610c9bd80d
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: 0598da3c060b8a8055ffb045fe4aae60b3806060
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001466"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406050"
 ---
 # <a name="tutorial-add-variables-to-your-resource-manager-template"></a>Tutorial: Adición de variables a la plantilla de Resource Manager
 
@@ -25,7 +22,7 @@ Aunque no es obligatorio, se recomienda realizar el [tutorial sobre las funcione
 
 Debe tener Visual Studio Code con la extensión Herramientas de Resource Manager y Azure PowerShell o la CLI de Azure. Para más información, consulte las [herramientas de plantilla](template-tutorial-create-first-template.md#get-tools).
 
-## <a name="review-your-template"></a>Revisión de la plantilla
+## <a name="review-template"></a>Revisión de la plantilla
 
 Al final del tutorial anterior, la plantilla tenía el siguiente código JSON:
 
@@ -53,7 +50,7 @@ El parámetro **storagePrefix** le permite pasar un prefijo que le ayuda a ident
 
 Por último, observe que el nombre de almacenamiento ahora está establecido en la variable en vez de en un parámetro.
 
-## <a name="deploy-the-template"></a>Implementación de la plantilla
+## <a name="deploy-template"></a>Implementar plantilla
 
 Vamos a implementar la plantilla. Implementar esta plantilla es más fácil que las anteriores porque solo se proporciona el prefijo del nombre de almacenamiento.
 
@@ -82,7 +79,7 @@ az group deployment create \
 
 ---
 
-## <a name="verify-the-deployment"></a>Comprobar la implementación
+## <a name="verify-deployment"></a>Comprobación de la implementación
 
 Para comprobar la implementación, explore el grupo de recursos desde Azure Portal.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Realizar una búsqueda de noticias con el SDK de Bing News Search para Java'
+title: 'Inicio rápido: Realizar una búsqueda de noticias con el SDK de Java: Bing News Search'
 titleSuffix: Azure Cognitive Services
 description: Use esta guía de inicio rápido para buscar noticias mediante el SDK de Bing News Search para Java y procesar la respuesta.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 06/18/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: d84b47feb91a9165a4bc03b20b0b7d079aa8f6ae
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: def964dd932f8a41a877a3d9568a8ec4825874b8
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67203362"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383928"
 ---
 # <a name="quickstart-search-for-news-with-the-bing-news-search-sdk-for-java"></a>Inicio rápido: Búsqueda de noticias con el SDK de Bing News Search para Java
 

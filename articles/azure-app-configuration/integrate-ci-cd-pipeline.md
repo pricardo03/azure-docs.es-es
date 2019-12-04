@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: e2f682a2782eb1a61dd44e02d665175e31c441f8
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: e9b81baed14b18c6db736bd94a2aba43a4e671ad
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68357018"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185100"
 ---
 # <a name="integrate-with-a-cicd-pipeline"></a>Integración con una canalización de CI/CD
 
@@ -29,7 +29,7 @@ Si tiene una canalización de Azure DevOps, puede capturar valores de clave de 
 
 ## <a name="deploy-app-configuration-data-with-your-application"></a>Implementación de datos de App Configuration con la aplicación
 
-La aplicación puede no ejecutarse si depende de Azure App Configuration y no puede acceder a él. Puede mejorar la resistencia de la aplicación para tratar con este tipo de evento, aunque es poco probable que ocurra. Para ello, empaquete los datos de configuración actuales en un archivo que se implemente con la aplicación y se cargue localmente durante su inicio. Este enfoque garantiza que la aplicación tenga al menos los valores de configuración predeterminados. Estos valores se sobrescriben con los cambios más recientes en un almacén de configuración de aplicaciones cuando está disponible.
+La aplicación puede no ejecutarse si depende de Azure App Configuration y no puede acceder a él. Puede mejorar la resistencia de la aplicación para tratar con este tipo de evento, aunque es poco probable que ocurra. Para ello, empaquete los datos de configuración actuales en un archivo que se implemente con la aplicación y se cargue localmente durante su inicio. Este enfoque garantiza que la aplicación tenga al menos los valores de configuración predeterminados. Estos valores se sobrescriben con los cambios más recientes en un almacén de App Configuration cuando está disponible.
 
 Mediante la función [Exportar](./howto-import-export-data.md#export-data) de Azure App Configuration, puede automatizar el proceso de recuperar los datos de configuración actuales como un único archivo. A continuación, inserte este archivo en un paso de compilación o implementación en la canalización de implementación continua e integración continua (CI/CD).
 
@@ -43,7 +43,7 @@ Si compila localmente, descargue e instale la [CLI de Azure](https://docs.micros
 
 Para realizar una compilación en la nube, por ejemplo, con Azure DevOps, asegúrese de que la [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) está instalada en el sistema de compilación.
 
-### <a name="export-an-app-configuration-store"></a>Exportación de un almacén de configuración de aplicaciones
+### <a name="export-an-app-configuration-store"></a>Exportación de un almacén de App Configuration
 
 1. Abra su archivo *.csproj* y agregue el siguiente script:
 
@@ -54,7 +54,7 @@ Para realizar una compilación en la nube, por ejemplo, con Azure DevOps, aseg�
     </Target>
     ```
 
-    Agregue el valor de *ConnectionString* asociado al almacén de configuración de aplicaciones como una variable de entorno.
+    Agregue el valor de *ConnectionString* asociado al almacén de App Configuration como una variable de entorno.
 
 2. Abra *Program.cs* y actualice el método `CreateWebHostBuilder` para que use el archivo JSON exportado, para lo que es preciso llamar al método `config.AddJsonFile()`.
 
@@ -74,7 +74,7 @@ Para realizar una compilación en la nube, por ejemplo, con Azure DevOps, aseg�
 
 ### <a name="build-and-run-the-app-locally"></a>Compilación y ejecución de la aplicación en un entorno local
 
-1. Establezca una variable de entorno llamada **ConnectionString** y defínala como la clave de acceso a su almacén de configuración de aplicaciones. Si usa el símbolo del sistema de Windows, ejecute el siguiente comando y reinícielo para que se aplique el cambio:
+1. Establezca una variable de entorno llamada **ConnectionString** y defínala como la clave de acceso a su almacén de App Configuration. Si usa el símbolo del sistema de Windows, ejecute el siguiente comando y reinícielo para que se aplique el cambio:
 
         setx ConnectionString "connection-string-of-your-app-configuration-store"
 

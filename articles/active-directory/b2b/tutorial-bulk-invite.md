@@ -1,5 +1,5 @@
 ---
-title: Tutorial para la invitación en masa a usuarios de colaboración B2B - Azure Active Directory | Microsoft Docs
+title: 'Tutorial: Invitación en bloque a usuarios de colaboración B2B: Azure AD'
 description: En este tutorial, obtendrá información sobre cómo usar PowerShell y un archivo CSV para enviar invitaciones de forma masiva a usuarios externos de colaboración de Azure AD B2B.
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec1a6ea8f363f2ddd4a9568700d5bff3330443c0
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 1ffcdad43195ce49ef3cd8b695f9ad5009af82fb
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71128725"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74272351"
 ---
 # <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users-preview"></a>Tutorial: Invitación en bloque a usuarios de colaboración B2B de Azure AD (versión preliminar)
 
@@ -29,7 +29,7 @@ ms.locfileid: "71128725"
 Si usas la colaboración de Azure Active Directory (Azure AD) B2B para trabajar con asociados externos, puede invitar a varios usuarios a su organización al mismo tiempo. En este tutorial aprenderá a usar Azure Portal para enviar invitaciones de forma masiva a usuarios externos. En particular, haga lo siguiente:
 
 > [!div class="checklist"]
-> * Use Invitar usuarios en bloque (versión preliminar) para preparar un archivo de valores separados por comas (.csv) con la información de usuario y las preferencias de invitación.
+> * Use **Invitar usuarios en bloque (versión preliminar)** para preparar un archivo de valores separados por comas (. csv) con la información de usuario y las preferencias de invitación.
 > * Cargue el archivo .csv en Azure AD.
 > * Verifique si los usuarios se agregaron al directorio.
 
@@ -63,7 +63,7 @@ Necesita dos o más cuentas de correo electrónico de prueba a las que poder env
 7. En la página **Invitar usuarios en bloque (versión preliminar)** , en **Cargue el archivo csv**, vaya al archivo. Al seleccionarlo, comienza su validación. 
 8. Cuando finalice la validación del contenido del archivo, aparecerá el mensaje **Archivo cargado correctamente**. Si hay errores, debe corregirlos para poder enviar el trabajo.
 9. Cuando el archivo supere la validación, seleccione **Enviar** para iniciar la operación masiva de Azure que agrega las invitaciones. 
-10. Para ver el estado del trabajo, seleccione **Haga clic aquí para ver el estado de cada operación**. O bien, puede seleccionar **Resultados de la operación masiva (versión preliminar)** en la sección **Actividad**. Para más información sobre cada elemento de línea dentro de la operación masiva, seleccione los valores de las columnas Número de elementos correctos, Número de errores o Total de solicitudes. Si se produjeron errores, se mostrarán sus motivos.
+10. Para ver el estado del trabajo, seleccione **Haga clic aquí para ver el estado de cada operación**. O bien, puede seleccionar **Resultados de la operación masiva (versión preliminar)** en la sección **Actividad**. Para más información sobre cada elemento de línea dentro de la operación en bloque, seleccione los valores de las columnas **Número de elementos correctos**, **Número de errores** o **Total de solicitudes**. Si se produjeron errores, se mostrarán sus motivos.
 
     ![Ejemplo de resultados de la operación masiva](media/tutorial-bulk-invite/bulk-operation-results.png)
 

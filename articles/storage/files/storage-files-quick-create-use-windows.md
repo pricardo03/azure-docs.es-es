@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 95a5df4ca14f4be8553c83dfe8b4d09d00341102
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 22c2f3b91b650bcdbf8eb7368023e068a397323f
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260395"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74305819"
 ---
 # <a name="quickstart-create-and-manage-azure-files-share-with-windows-virtual-machines"></a>Inicio rápido: Creación y administración de un recurso compartido de Azure Files con Windows Virtual Machines
 
@@ -173,7 +173,7 @@ Al igual que con las instantáneas VSS en el entorno local, puede ver las instan
 
 1. Seleccione **Restaurar**. Esta acción copia el contenido de todo un directorio de forma recursiva en la ubicación original en el momento de la creación de la instantánea del recurso compartido.
 
-   ![Botón Restaurar en mensaje de advertencia](./media/storage-files-quick-create-use-windows/snapshot-windows-restore.png)
+   ![Botón Restaurar en mensaje de advertencia](./media/storage-files-quick-create-use-windows/snapshot-windows-restore.png) Nota: Si el archivo no ha cambiado, no verá una versión anterior de ese archivo, ya que este tiene la misma versión que la instantánea. Esto es coherente con el modo en que funciona en un servidor de archivos de Windows.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

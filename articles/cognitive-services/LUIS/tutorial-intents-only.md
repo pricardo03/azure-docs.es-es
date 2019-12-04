@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 11/05/2019
+ms.date: 11/20/2019
 ms.author: diberry
-ms.openlocfilehash: 1e39126324de486d118f808b37672c9fd08af711
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 4d096ee829a425af3763c212daf5049acccf9f19
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822761"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325917"
 ---
-# <a name="tutorial-build-luis-app-to-determine-user-intentions"></a>Tutorial: Compilación de una aplicación LUIS para determinar las intenciones del usuario
+# <a name="tutorial-build-a-luis-app-to-determine-user-intentions"></a>Tutorial: Compilación de una aplicación de LUIS para determinar las intenciones del usuario
 
 En este tutorial creará una aplicación personalizada que predice la intención de un usuario en función de la expresión (texto). 
 
@@ -58,7 +58,7 @@ Estas intenciones se categorizan en **Intenciones**.
 
 ## <a name="create-a-new-intent"></a>Creación de una nueva intención 
 
-1. En el [portal de LUIS en versión preliminar](https://preview.luis.ai), dentro de la sección **Compilación** de la aplicación, seleccione **+ Crear**. Escriba el nuevo nombre de intención que aparece a continuación y seleccione **Listo**.
+1. En el portal, dentro de la sección **Compilación** de la aplicación, seleccione **+ Crear**. Escriba el nombre de la nueva intención, `OrderPizza`, y después seleccione **Listo**.
 
     La intención `OrderPizza` se predice cuando: un usuario desea pedir una pizza. 
 
@@ -122,7 +122,7 @@ Estas intenciones se categorizan en **Intenciones**.
 
     Esto no es exactamente lo mismo que una expresión de ejemplo, por lo que es una buena prueba para ver si LUIS puede aprender lo que debe predecirse con esta intención.
 
-    El último parámetro de la cadena de consulta es `q`, la expresión **query**. Esta expresión no es la misma que cualquiera de las expresiones de ejemplo. Es una buena prueba y debe devolver la intención `OrderPizza` como la intención con la puntuación más alta. 
+    El último parámetro de la cadena de consulta es `query`, la expresión **query**. Esta expresión no es la misma que cualquiera de las expresiones de ejemplo. Es una buena prueba y debe devolver la intención `OrderPizza` como la intención con la puntuación más alta. 
 
     ```JSON
     {
@@ -148,7 +148,7 @@ Estas intenciones se categorizan en **Intenciones**.
     }
     ```
 
-    La matriz de entidades está vacía porque esta aplicación no tiene actualmente ninguna entidad. 
+    La matriz de entidades está vacía porque esta aplicación no tiene actualmente ninguna entidad (unidad de datos dentro de la expresión que se va a extraer). 
 
     El resultado de JSON identifica la intención que tiene la puntuación más alta como propiedad **`prediction.topIntent`** . Todas las puntuaciones están comprendidas entre 1 y 0, y la mejor está más próxima a 1. 
 
@@ -205,4 +205,4 @@ Después de que LUIS devuelva la respuesta JSON, LUIS termina con esta solicitud
 En este tutorial se creó una aplicación de LUIS, se crearon intenciones, se agregaron expresiones de ejemplo a cada intención, se agregaron expresiones de ejemplo a la intención None, se entrenó, se publicó y se probó en el punto de conexión. Estos son los pasos básicos de la creación de un modelo de LUIS. 
 
 > [!div class="nextstepaction"]
-> [Add prebuilt intents and entities to this app](tutorial-machine-learned-entity.md) (Incorporación de entidades e intenciones creadas previamente a esta aplicación)
+> [Adición de una entidad que se puede descomponer a esta aplicación](tutorial-machine-learned-entity.md)

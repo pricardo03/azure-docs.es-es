@@ -1,19 +1,16 @@
 ---
-title: 'Tutorial: Adición de salidas a una plantilla de Azure Resource Manager'
+title: 'Tutorial: Adición de salidas a una plantilla'
 description: Agregue salidas a la plantilla de Azure Resource Manager para simplificar la sintaxis.
-services: azure-resource-manager
 author: mumian
-manager: carmonmills
-ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 458833372d5bd03a04e4df7d6e915cddb4bb05c7
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: 654d3f7cbf6362d982549c86e6f54fea1e890cfc
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001536"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74405995"
 ---
 # <a name="tutorial-add-outputs-to-your-resource-manager-template"></a>Tutorial: Adición de salidas a una plantilla de Resource Manager
 
@@ -25,7 +22,7 @@ Aunque no es obligatorio, se recomienda realizar el [tutorial sobre variables](t
 
 Debe tener Visual Studio Code con la extensión Herramientas de Resource Manager y Azure PowerShell o la CLI de Azure. Para más información, consulte las [herramientas de plantilla](template-tutorial-create-first-template.md#get-tools).
 
-## <a name="review-your-template"></a>Revisión de la plantilla
+## <a name="review-template"></a>Revisión de la plantilla
 
 Al final del tutorial anterior, la plantilla tenía el siguiente código JSON:
 
@@ -49,7 +46,7 @@ Utiliza la función [reference](resource-group-template-functions-resource.md#re
 
 Por último, devuelve la propiedad **primaryEndpoints** de la cuenta de almacenamiento.
 
-## <a name="deploy-the-template"></a>Implementación de la plantilla
+## <a name="deploy-template"></a>Implementar plantilla
 
 Ya está listo para implementar la plantilla y examinar el valor devuelto.
 

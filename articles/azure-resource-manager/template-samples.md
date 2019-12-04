@@ -1,20 +1,14 @@
 ---
-title: Ejemplos de plantillas de Azure Resource Manager
+title: Ejemplos de plantillas
 description: Ejemplos de plantillas de Azure Resource Manager para implementar características de administración, como roles y bloqueos.
-services: azure-resource-manager
-author: tfitzmac
-ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: sample
-ms.tgt_pltfrm: na
 ms.date: 11/16/2018
-ms.author: tomfitz
-ms.openlocfilehash: e342507b584a405637fc6728dfcd6e49199a154f
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 61d46d4b032a4eaf326acd21e85b332bdb407f40
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390172"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74148248"
 ---
 # <a name="azure-resource-manager-templates-for-management-features"></a>Plantillas de Azure Resource Manager para las características de administración
 

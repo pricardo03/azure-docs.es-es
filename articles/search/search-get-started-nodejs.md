@@ -1,7 +1,7 @@
 ---
 title: 'Inicio rápido: Creación de un índice de búsqueda en Node.js mediante las API REST'
 titleSuffix: Azure Cognitive Search
-description: Ejemplo de Node.js para Azure Cognitive Search en el que se muestra cómo crear, cargar datos y realizar consultas desde JavaScript.
+description: En este inicio rápido de Node.js, se explica cómo crear un índice, cargar datos y ejecutar consultas en Azure Cognitive Search mediante JavaScript y las API REST.
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
@@ -9,12 +9,12 @@ ms.devlang: nodejs
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.openlocfilehash: 8b7308b5289ba747dba90716b495ca1ba6afb209
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: fd8a053eb4ff0805b95dc11db4206e1dd2edb184
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73719994"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406930"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-nodejs-using-rest-apis"></a>Inicio rápido: Creación de un índice de Azure Cognitive Search en Node.js mediante las API REST
 > [!div class="op_single_selector"]
@@ -684,11 +684,12 @@ La clase **AzureSearchClient** encapsula la configuración, las direcciones URL 
 
 El comportamiento general de la función `run` es eliminar el índice de Azure Cognitive Search (si existe), crear el índice, agregar datos y realizar consultas.  
 
-## <a name="clean-up"></a>Limpieza 
+## <a name="clean-up-resources"></a>Limpieza de recursos
 
 Cuando trabaje con su propia suscripción, es una buena idea al final de un proyecto identificar si todavía se necesitan los recursos que ha creado. Los recursos que se dejan en ejecución pueden costarle mucho dinero. Puede eliminar los recursos de forma individual o eliminar el grupo de recursos para eliminar todo el conjunto de recursos.
 
 Puede encontrar y administrar recursos en el portal, mediante el vínculo **Todos los recursos** o **Grupos de recursos** en el panel de navegación izquierdo.
+
 Si está usando un servicio gratuito, recuerde que está limitado a tres índices, indexadores y orígenes de datos. Puede eliminar elementos individuales en el portal para mantenerse por debajo del límite. 
 
 ## <a name="next-steps"></a>Pasos siguientes

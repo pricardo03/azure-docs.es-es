@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c3ba2f59799629873553fe261abebf59529ad94d
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 0e08ef72dca09f873ad1cfcc91e132063b88406b
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "73570610"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227529"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-freshservice"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Freshservice
 
@@ -95,7 +95,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. Freshservice requiere una huella digital SHA-256 para que el inicio de sesión único funcione. Para obtener una huella digital SHA-256, realice los pasos siguientes:
 
-    ![Huella digital](./media/freshservice-tutorial/ic790821.png "FingerPrint")
+    ![FingerPrint](./media/freshservice-tutorial/ic790821.png "FingerPrint")
 
     1. Abra el [vínculo](https://www.samltool.com/fingerprint.php) en un explorador web diferente.
 
@@ -155,7 +155,7 @@ En esta sección, permitirá que B.Simon acceda a Freshservice para que use el i
 
 4. En el menú de la parte superior, haga clic en **Administrador**.
 
-    ![Administración](./media/freshservice-tutorial/ic790814.png "Administración")
+    ![Administrador](./media/freshservice-tutorial/ic790814.png "Administración")
 
 5. En el **Portal del cliente**, haga clic en **Seguridad**.
 
@@ -187,7 +187,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en FreshService, debe
 
 2. En el menú de la parte superior, haga clic en **Administrador**.
 
-    ![Administración](./media/freshservice-tutorial/ic790814.png "Administración")
+    ![Administrador](./media/freshservice-tutorial/ic790814.png "Administración")
 
 3. En la sección **User Management** (Administración de usuarios), haga clic en **Requesters** (Solicitantes).
 
@@ -210,7 +210,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en FreshService, debe
     >  
 
 > [!NOTE]
-> Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de FreshService que proporcione FreshService para aprovisionar cuentas de usuario de AAD.
+> Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de FreshService que proporcione FreshService para aprovisionar cuentas de usuario de Azure AD.
 
 ## <a name="test-sso"></a>Prueba de SSO
 

@@ -1,19 +1,19 @@
 ---
-title: Preparación de las máquinas locales para la migración a Azure con Azure Migrate
-description: En este artículo se describe cómo preparar las máquinas virtuales para la migración a Azure con Azure Migrate.
+title: Preparación de máquinas para la migración con Azure Migrate
+description: Aprenda a preparar máquinas locales para la migración con Azure Migrate.
 author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 10/03/2019
+ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 61b4f41a0b36945413e45a357a5ca73ac75ceb98
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2c13bc79fccc74da431ba1a6399870b261b24c57
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73480113"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196434"
 ---
 # <a name="prepare-on-premises-machines-for-migration-to-azure"></a>Preparación de las máquinas locales para la migración a Azure
 
@@ -46,8 +46,7 @@ En este artículo:
 
 - Azure Migrate Server Migration admite la [migración con agente y sin agente](server-migrate-overview.md) para las máquinas virtuales de VMware. Compruebe los requisitos y el soporte técnico necesarios para la migración [sin agente](migrate-support-matrix-vmware.md#migration---limitations) y [con agente](migrate-support-matrix-vmware.md#agent-based-migration-vmware-vm-requirements) de las máquinas virtuales de VMware.
 - Compruebe los [requisitos y el soporte técnico necesarios para la migración](migrate-support-matrix-hyper-v.md#migration-hyper-v-vm-requirements) de las máquinas virtuales de Hyper-V.
-- Compruebe los [requisitos y el soporte técnico necesarios para la migración](migrate-support-matrix-vmware.md#agent-based-migration-vmware-vm-requirements) de máquinas físicas locales u otros servidores virtualizados. Estos requisitos son similares a los de las máquinas virtuales de VMware.
-
+- Compruebe los [requisitos y el soporte técnico necesarios para la migración](migrate-support-matrix-physical.md) de máquinas físicas locales u otros servidores virtualizados. 
 
 
 

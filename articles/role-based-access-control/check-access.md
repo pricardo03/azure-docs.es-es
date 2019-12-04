@@ -1,6 +1,6 @@
 ---
-title: 'Inicio rápido: Visualización del acceso de un usuario a los recursos de Azure | Microsoft Docs'
-description: Aprenda a ver el acceso de un usuario u otra entidad de seguridad a los recursos de Azure mediante el control de acceso basado en rol (RBAC) y Azure Portal.
+title: 'Inicio rápido: Visualización del acceso de un usuario a los recursos de Azure'
+description: En este inicio rápido, aprenderá a ver el acceso de un usuario u otra entidad de seguridad a los recursos de Azure mediante el control de acceso basado en rol (RBAC) y Azure Portal.
 services: role-based-access-control
 documentationCenter: ''
 author: rolyon
@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: f388215b2829066906ee7faf41abb17307bf3fff
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: b23c10fc2a551b8044b208911dbc048968b06564
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56337952"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74419605"
 ---
 # <a name="quickstart-view-the-access-a-user-has-to-azure-resources"></a>Inicio rápido: Visualización del acceso de un usuario a los recursos de Azure
 
@@ -33,7 +33,7 @@ Puede usar la hoja de **control de acceso (IAM)** en el [control de acceso basad
 
 1. Haga clic en la suscripción.
 
-1. Haga clic en **Control de acceso (IAM)**.
+1. Haga clic en **Control de acceso (IAM)** .
 
 1. Haga clic en la pestaña **Comprobar acceso**.
 

@@ -5,23 +5,23 @@ author: amberbhargava
 manager: amberb
 editor: banders
 tags: billing
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2019
 ms.author: banders
-ms.openlocfilehash: 312808517c80041cb45e2e8ac46566c1f59884e1
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: d68d95619b6aa6e8098c282977866c4bc21a357c
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72376797"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561052"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-to-your-mpa-account"></a>Obtención de la propiedad de la facturación de las suscripciones a Azure para la cuenta de MPA
 
-Para proporcionar una única factura consolidada para los servicios administrados y el consumo de Azure, el proveedor de soluciones en la nube (CSP) puede asumir la propiedad de la facturación de las suscripciones a Azure de sus clientes con el Contrato Enterprise (EA).
+Para proporcionar una única factura consolidada para los servicios administrados y el consumo de Azure, el proveedor de soluciones en la nube (CSP) puede asumir la propiedad de la facturación de las suscripciones a Azure de sus clientes con el Contrato Enterprise (EA) directo.
 
 Esta característica solo está disponible para los asociados de factura directa de CSP certificados como [MSP expertos de Azure](https://partner.microsoft.com/membership/azure-expert-msp). Está sujeto a las directivas y a la gobernanza de Microsoft, y puede requerir revisión y aprobación para determinados clientes.
 

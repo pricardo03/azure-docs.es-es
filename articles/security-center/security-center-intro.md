@@ -1,6 +1,6 @@
 ---
 title: ¿Qué es Azure Security Center? | Microsoft Docs
-description: Obtenga información sobre el Centro de seguridad de Azure, sus capacidades clave y cómo funciona.
+description: 'En esta página se describen las ventajas principales de Security Center: detectar el estado de seguridad y mejorarlo con cobertura de recursos en la nube y locales.'
 services: security-center
 documentationcenter: na
 author: memildin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2019
 ms.author: memildin
-ms.openlocfilehash: e02fd0de00b8feed15fcd51b657afcc015d816f2
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 378ad4fde94e8bccfbdad9765545675822d202ff
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202112"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74558631"
 ---
 # <a name="what-is-azure-security-center"></a>¿Qué es el Centro de seguridad de Azure?
 

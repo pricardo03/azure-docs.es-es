@@ -6,20 +6,20 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 10/18/2019
+ms.date: 11/20/2019
 ms.author: diberry
-ms.openlocfilehash: 10216b52ded61328a73e5401549a59e6abc4667a
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: b158f3738e5d5e33c831e7312c167e5185d19e95
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74125611"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74414522"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Lenguaje de programación [Node.js](https://nodejs.org/) 
 * [Visual Studio Code](https://code.visualstudio.com/)
-* Identificador de la aplicación pública: df67dcdb-c37d-46af-88e1-8b97951ca1c2
+* Identificador de la aplicación pública: `df67dcdb-c37d-46af-88e1-8b97951ca1c2`
 
 ## <a name="get-luis-key"></a>Obtención de la clave de LUIS
 
@@ -27,7 +27,7 @@ ms.locfileid: "74125611"
 
 ## <a name="get-intent-programmatically"></a>Obtención de la intención mediante programación
 
-Use Node.js para consultar la [API](https://aka.ms/luis-apim-v3-prediction) GET del punto de conexión de predicción y obtener el resultado de la predicción.
+Use Node.js para consultar el [punto de conexión de predicción](https://aka.ms/luis-apim-v3-prediction) y obtener un resultado de predicción.
 
 1. Copie el siguiente fragmento de código en un archivo llamado `predict.js`:
 
@@ -76,24 +76,24 @@ Use Node.js para consultar la [API](https://aka.ms/luis-apim-v3-prediction) GET 
     getPrediction().then(()=>console.log("done")).catch((err)=>console.log(err));
     ```
 
-1. Establezca los valores siguientes:
+1. Reemplace los valores siguientes:
 
     * `YOUR-KEY` en la clave de inicio.
-    * `YOUR-ENDPOINT` en la dirección URL del punto de conexión.
+    * `YOUR-ENDPOINT` en la dirección URL del punto de conexión. Por ejemplo, `westus2.api.cognitive.microsoft.com`.
 
-1. Instale las dependencias ejecutando el siguiente comando en la línea de comandos: 
+1. Instale las dependencias `request`, `request-promise` y `querystring` con este comando: 
 
     ```console
     npm install request request-promise querystring
     ```
 
-1. Ejecute el código con el siguiente comando:
+1. Ejecute la aplicación con este comando:
 
     ```console
     node predict.js
     ```
 
- 1. Revise la respuesta de predicción en formato JSON:   
+ 1. Revise la respuesta de la predicción, que se devuelve como JSON:   
     
     ```console
     {"query":"turn on all lights","prediction":{"topIntent":"HomeAutomation.TurnOn","intents":{"HomeAutomation.TurnOn":{"score":0.5375382},"None":{"score":0.08687421},"HomeAutomation.TurnOff":{"score":0.0207554}},"entities":{"HomeAutomation.Operation":["on"],"$instance":{"HomeAutomation.Operation":[{"type":"HomeAutomation.Operation","text":"on","startIndex":5,"length":2,"score":0.724984169,"modelTypeId":-1,"modelType":"Unknown","recognitionSources":["model"]}]}}}}

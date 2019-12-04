@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Revisión ortográfica con la API REST de Bing Spell Check y PHP'
+title: 'Inicio rápido: Revisión ortográfica con la API REST y PHP: Bing Spell Check'
 titleSuffix: Azure Cognitive Services
 description: Esta sencilla aplicación de PHP envía una solicitud a la API Bing Spell Check y devuelve una lista de correcciones sugeridas.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: 4437297c99e346209cf1f7a8973ea0f6f81894af
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 8c95f0960c098ad56affc641996f1b52681d473e
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74110792"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383863"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-php"></a>Inicio rápido: Revisión ortográfica con la API REST de Bing Spell Check y PHP
 

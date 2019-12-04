@@ -1,20 +1,20 @@
 ---
 title: Administración de actualizaciones y revisiones para las máquinas virtuales de Azure
-description: En este artículo se proporciona una introducción al uso de Azure Automation y Update Management para administrar las actualizaciones y revisiones de las máquinas virtuales Windows de Azure.
+description: En este artículo se proporciona una introducción al uso de Azure Automation y Update Management para administrar las actualizaciones y revisiones de las máquinas virtuales de Azure y las que no son de Azure.
 services: automation
-author: zjalexander
+author: mgoedtel
 ms.service: automation
 ms.subservice: update-management
 ms.topic: tutorial
-ms.date: 12/04/2018
-ms.author: zachal
+ms.date: 11/20/2019
+ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 65bbf58d8514f9fea082b839f57e9aaf3417dc14
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 65ce4234da3f44de11522a626d2c0d10524e4673
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73469734"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278777"
 ---
 # <a name="manage-updates-and-patches-for-your-azure-vms"></a>Administración de actualizaciones y revisiones para las máquinas virtuales de Azure
 
@@ -51,15 +51,15 @@ En primer lugar, habilite Update Management en la máquina virtual de este tutor
 1. Seleccione la máquina virtual para la que desea habilitar Update Management.
 1. En la página de la máquina virtual, en **Operaciones**, seleccione **Update Management**. Se abre el panel **Habilitar Update Management**.
 
-Se realiza la validación para determinar si Update Management está habilitado para esta máquina virtual. Esta validación incluye comprobaciones de un área de trabajo de Azure Log Analytics y la cuenta de Automation vinculada, y si la solución Update Management está en el área de trabajo.
+Se realiza la validación para determinar si Update Management está habilitado para esta máquina virtual. Esta validación incluye comprobaciones de un área de trabajo de Log Analytics y la cuenta de Automation vinculada y si la solución Update Management está habilitada en el área de trabajo.
 
-Las áreas de trabajo de [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) se usan para recopilar datos que se generan mediante características y servicios como Update Management. El área de trabajo proporciona una única ubicación para revisar y analizar datos desde varios orígenes.
+Las áreas de trabajo de [Log Analytics](../azure-monitor/platform/data-platform-logs.md) se usan para recopilar datos que se generan mediante características y servicios como Update Management. El área de trabajo proporciona una única ubicación para revisar y analizar datos desde varios orígenes.
 
-El proceso de validación también comprueba si la máquina virtual se aprovisiona con Microsoft Monitoring Agent (MMA) y Hybrid Runbook Worker de Azure Automation. Este agente se usa para comunicarse con Azure Automation y para obtener información sobre el estado de la actualización. El agente requiere que se abra el puerto 443 para comunicarse con el servicio Azure Automation y para descargar actualizaciones.
+El proceso de validación también comprueba si la máquina virtual se aprovisiona con un agente de Log Analytics e Hybrid Runbook Worker de Automation. Este agente se usa para comunicarse con Azure Automation y para obtener información sobre el estado de la actualización. El agente requiere que se abra el puerto 443 para comunicarse con el servicio Azure Automation y para descargar actualizaciones.
 
 Si se detecta que falta alguno de los siguientes requisitos previos durante la incorporación, estos se agregarán automáticamente:
 
-* Área de trabajo de [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json)
+* Área de trabajo de [Log Analytics](../azure-monitor/platform/data-platform-logs.md)
 * Una [cuenta de Automation](./automation-offering-get-started.md)
 * [Hybrid Runbook Worker](./automation-hybrid-runbook-worker.md) (habilitado en la máquina virtual)
 
@@ -71,9 +71,9 @@ La habilitación de la solución puede tardar unos minutos. Durante este tiempo,
 
 ## <a name="view-update-assessment"></a>Ver evaluación de la actualización
 
-Una vez habilitado Update Management, se abre el panel **Update Management**. Si falta alguna actualización, verá una lista de las actualizaciones que faltan en la pestaña **Actualizaciones que faltan**.
+Una vez habilitado Update Management, se abre el panel **Update Management**. Si alguna actualización se identifica como que falta, verá una lista de las actualizaciones que faltan en la pestaña **Actualizaciones que faltan**.
 
-En **Vínculo de información**, seleccione el vínculo de información de la actualización para abrir el artículo de soporte técnico sobre la actualización en una ventana nueva. Encontrará información importante acerca de la actualización en esta ventana.
+En **Vínculo de información**, seleccione el vínculo de la actualización para abrir el artículo de soporte técnico sobre la actualización. Encontrará información importante acerca de la actualización.
 
 ![Ver el estado de la actualización](./media/automation-tutorial-update-management/manageupdates-view-status-win.png)
 

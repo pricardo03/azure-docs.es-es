@@ -1,14 +1,14 @@
 ---
-title: Protección de los nuevos recursos con bloqueos de plano técnico
-description: En este tutorial aprenderá a usar las opciones Solo lectura y No eliminar de los bloqueos de recursos de Azure Blueprints para proteger los recursos recién implementados.
-ms.date: 03/28/2019
+title: 'Tutorial: Protección de nuevos recursos con bloqueos'
+description: En este tutorial, usará las opciones Solo lectura y No eliminar de los bloqueos de recursos de Azure Blueprints para proteger los recursos recién implementados.
+ms.date: 11/21/2019
 ms.topic: tutorial
-ms.openlocfilehash: e2adbb1e47222055753d4b3690646daa83b32bf1
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: ee57ff0c08f4fb8aa710dd2fa4dcef664484973d
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960248"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327440"
 ---
 # <a name="tutorial-protect-new-resources-with-azure-blueprints-resource-locks"></a>Tutorial: Protección de los nuevos recursos con bloqueos de recursos de Azure Blueprints
 
@@ -25,7 +25,7 @@ En este tutorial va a completar estos pasos:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para completar este tutorial, necesitará una suscripción de Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free) antes de empezar.
 
 ## <a name="create-a-blueprint-definition"></a>Creación de una definición de plano técnico
 
@@ -53,9 +53,10 @@ En primer lugar, cree la definición del plano técnico.
    1. Seleccione **Agregar** para agregar el artefacto al plano técnico.
 
 1. Agregue una plantilla en el grupo de recursos:
-   1. Seleccione la fila **Agregar artefacto** en la entrada **RGtoLock**. 
-   1. Seleccione **Plantilla de Azure Resource Manager** en **Tipo de artefacto** y en **Nombre para mostrar del artefacto** seleccione **StorageAccount** y deje **Descripción** en blanco. 
-   1. En la pestaña **Plantilla**, pegue la siguiente plantilla de Resource Manager en el cuadro del editor. Tras pegar la plantilla, seleccione **Agregar** para agregar el artefacto al plano técnico.
+   1. Seleccione la fila **Agregar artefacto** en la entrada **RGtoLock**.
+   1. Seleccione **Plantilla de Azure Resource Manager** en **Tipo de artefacto** y en **Nombre para mostrar del artefacto** seleccione **StorageAccount** y deje **Descripción** en blanco.
+   1. En la pestaña **Plantilla**, pegue la siguiente plantilla de Resource Manager en el cuadro del editor.
+      Tras pegar la plantilla, seleccione **Agregar** para agregar el artefacto al plano técnico.
 
    ```json
    {
@@ -224,9 +225,7 @@ Cuando finalice el tutorial, elimine estos recursos:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Información acerca del [ciclo de vida del plano técnico](../concepts/lifecycle.md).
-- Descubra cómo utilizar [parámetros estáticos y dinámicos](../concepts/parameters.md).
-- Averigüe cómo usar el [bloqueo de recursos de planos técnicos](../concepts/resource-locking.md).
-- Aprenda a personalizar el [orden de secuenciación de planos técnicos](../concepts/sequencing-order.md).
-- Aprenda a [actualizar las asignaciones existentes](../how-to/update-existing-assignments.md).
-- [Solución de problemas](../troubleshoot/general.md) durante la asignación de un plano técnico.
+En este tutorial, ha aprendido a proteger los nuevos recursos implementados con Azure Blueprints. Para más información sobre Azure Blueprints, continúe con el artículo sobre el ciclo de vida de los planos técnicos.
+
+> [!div class="nextstepaction"]
+> [Más información acerca del ciclo de vida del plano técnico](../concepts/lifecycle.md)

@@ -1,6 +1,6 @@
 ---
 title: Definición de un nuevo tipo de dispositivo de Azure IoT Edge en Azure IoT Central | Microsoft Docs
-description: Este tutorial le muestra, como desarrollador, cómo crear un dispositivo de Azure IoT Edge en la aplicación de Azure IoT Central. Se definen la telemetría, el estado, las propiedades y los comandos del tipo.
+description: Este tutorial le muestra, como desarrollador, cómo crear un dispositivo de Azure IoT Edge en la aplicación de Azure IoT Central. Se definen la telemetría, el estado, las propiedades y los comandos del tipo.
 author: rangv
 ms.author: rangv
 ms.date: 10/22/2019
@@ -9,103 +9,103 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: c205b4dd4871ed53e32dce72f12cc2dcfb3baf41
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 0a293d74c9e37a6771c5bb246b74bda38db3b7c3
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73892031"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406478"
 ---
-# <a name="tutorial-define-a-new-azure-iot-edge-device-type-in-your-azure-iot-central-application-preview-features"></a>Tutorial: Definición de un nuevo tipo de dispositivo de Azure IoT Edge en la aplicación de Azure IoT Central (característica en versión preliminar)
+# <a name="tutorial-define-a-new-azure-iot-edge-device-type-in-your-azure-iot-central-application-preview-features"></a>Tutorial: Definición de un nuevo tipo de dispositivo de Azure IoT Edge en la aplicación de Azure IoT Central (característica en versión preliminar)
 
 [!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
-Este tutorial le muestra, como desarrollador, cómo usar una plantilla de dispositivo para definir un nuevo tipo de dispositivo de Azure IoT Edge en la aplicación de Azure IoT Central. 
+Este tutorial le muestra, como desarrollador, cómo usar una plantilla de dispositivo para definir un nuevo tipo de dispositivo de Azure IoT Edge en la aplicación de Azure IoT Central. 
 
-Para información general de Azure IoT Edge, [consulte este artículo](overview-iot-central.md). 
+Para ver una introducción, consulte [¿Qué es Azure IoT Central (características en versión preliminar)?](overview-iot-central.md). 
 
-Azure IoT Edge está formado por tres componentes:
-* Los **módulos de IoT Edge** son contenedores que ejecutan servicios de Azure, de terceros o código propio del usuario. Se implementan en los dispositivos de IoT Edge y se ejecutan en ellos.
+IoT Edge está formado por tres componentes:
+* Los **módulos de IoT Edge** son contenedores que ejecutan servicios de Azure, de asociados o código propio del usuario. Los módulos se implementan en los dispositivos de IoT Edge y se ejecutan de forma local en ellos.
 * El **entorno en tiempo de ejecución de IoT Edge** se ejecuta en todos los dispositivos de IoT Edge y administra los módulos que se implementan en cada dispositivo.
-* Una **interfaz basada en la nube** permite supervisar y administrar los dispositivos de IoT Edge de forma remota. IoT Central será la interfaz de nube.
+* Una **interfaz basada en la nube** permite supervisar y administrar los dispositivos de IoT Edge de forma remota. IoT Central es la interfaz de la nube.
 
-Un dispositivo **Azure IoT Edge** puede ser un dispositivo de puerta de enlace con dispositivos de nivel inferior que se conectan al dispositivo Azure IoT Edge. En este tutorial se tratarán los patrones de conectividad de dispositivos de nivel inferior.
+Un dispositivo **Azure IoT Edge** puede ser un dispositivo de puerta de enlace con dispositivos de nivel inferior que se conectan al dispositivo de IoT Edge. En este tutorial se comparte más información sobre los patrones de conectividad de los dispositivos de nivel inferior.
 
-Una **plantilla de dispositivo** define las funcionalidades del dispositivo y de los módulos de IoT Edge. Entre estas se incluyen la telemetría que envía el módulo, las propiedades del módulo y los comandos a los que responde un módulo.
+Una **plantilla de dispositivo** define las funcionalidades del dispositivo y de los módulos de IoT Edge. Entre estas se incluyen la telemetría que envía el módulo, las propiedades del módulo y los comandos a los que un módulo responde.
 
-En este tutorial, se crea una plantilla de dispositivo **Environment Sensor**. Un dispositivo sensor de entorno:
-
-* Envía datos de telemetría, como la temperatura.
-* Responde a las propiedades que se escriben cuando se actualiza en la nube, como el intervalo de envío de telemetría.
-* Responde a comandos como el restablecimiento de la temperatura.
-
-También en este tutorial, se va a crear una plantilla de dispositivo **Environment Gateway**. Un dispositivo de puerta de enlace de entorno:
+En este tutorial, se crea una plantilla de dispositivo Environment Sensor. Un dispositivo sensor de entorno:
 
 * Envía datos de telemetría, como la temperatura.
 * Responde a las propiedades que se escriben cuando se actualiza en la nube, como el intervalo de envío de telemetría.
 * Responde a comandos como el restablecimiento de la temperatura.
-* Permite relaciones con otros modelos de funcionalidad del dispositivo
+
+También en este tutorial, se va a crear una plantilla de dispositivo Environment Gateway. Un dispositivo de puerta de enlace de entorno:
+
+* Envía datos de telemetría, como la temperatura.
+* Responde a las propiedades que se escriben cuando se actualiza en la nube, como el intervalo de envío de telemetría.
+* Responde a comandos como el restablecimiento de la temperatura.
+* Permite relaciones con otros modelos de funcionalidad del dispositivo.
 
 
 En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
-> * Crear una plantilla de dispositivo de Azure IoT Edge
-> * Cargar un manifiesto de implementación
-> * Crear funcionalidades, como telemetría, propiedades y comandos para cada módulo
-> * Definir una visualización para la telemetría del módulo
-> * Agregar relaciones a las plantillas de dispositivo de nivel inferior
+> * Crear una plantilla de dispositivo de Azure IoT Edge.
+> * Cargar un manifiesto de implementación.
+> * Crear funcionalidades, como la telemetría, las propiedades y los comandos de cada módulo.
+> * Definir una visualización para la telemetría del módulo.
+> * Agregar relaciones a las plantillas de dispositivo de nivel inferior.
 > * Publicar la plantilla de dispositivo
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para completar este tutorial, necesitará una aplicación de Azure IoT Central. Siga este inicio rápido para [crear una aplicación de Azure IoT Central](quick-deploy-iot-central.md).
+Para completar este tutorial, necesitará [crear una aplicación de Azure IoT Central](quick-deploy-iot-central.md).
 
 
-## <a name="downstream-device-relationships-with-gateway--modules"></a>Relaciones de dispositivo de nivel inferior con módulos y puertas de enlace
+## <a name="downstream-device-relationships-with-a-gateway-and-modules"></a>Relaciones de dispositivo de nivel inferior con una puerta de enlace y módulos
 
-Los dispositivos de nivel inferior pueden conectarse a un dispositivo de puerta de enlace de Azure IoT Edge mediante el módulo $edgeHub. Este dispositivo de Azure IoT Edge se convierte en una puerta de enlace transparente en este escenario.
+Los dispositivos de nivel inferior pueden conectarse a un dispositivo de puerta de enlace IoT Edge mediante el módulo `$edgeHub`. Este dispositivo de IoT Edge se convierte en una puerta de enlace transparente en este escenario.
 
-![Página Central Application (Aplicación central)](./media/tutorial-define-edge-device-type/gateway-transparent.png)
+![Diagrama de una puerta de enlace transparente](./media/tutorial-define-edge-device-type/gateway-transparent.png)
 
-Los dispositivos de nivel inferior pueden conectarse a un dispositivo de puerta de enlace de Azure IoT Edge mediante un módulo personalizado. En el escenario siguiente, los dispositivos de nivel inferior se conectan a través de un módulo personalizado de Modbus; no se pueden conectar al dispositivo de puerta de enlace de Azure IoT Edge mediante el módulo $edgeHub.
+Los dispositivos de nivel inferior también pueden conectarse a un dispositivo de puerta de enlace IoT Edge mediante un módulo personalizado. En el escenario siguiente, los dispositivos de nivel inferior se conectan mediante un módulo personalizado de Modbus.
 
-![Página Central Application (Aplicación central)](./media/tutorial-define-edge-device-type/gateway-module.png)
+![Diagrama de conexión de módulo personalizado](./media/tutorial-define-edge-device-type/gateway-module.png)
 
-Los dispositivos de nivel inferior pueden conectarse a un dispositivo de puerta de enlace de Azure IoT Edge mediante un módulo personalizado. En el escenario siguiente, los dispositivos de nivel inferior se conectan mediante un módulo personalizado de Modbus. 
+En el diagrama siguiente se muestra la conexión a un dispositivo de puerta de enlace IoT Edge mediante ambos tipos de módulos (personalizado y `$edgeHub`).  
 
-![Página Central Application (Aplicación central)](./media/tutorial-define-edge-device-type/gateway-module-transparent.png)
+![Diagrama de conexión mediante ambos módulos de conexión](./media/tutorial-define-edge-device-type/gateway-module-transparent.png)
 
-Los dispositivos de nivel inferior pueden conectarse a un dispositivo de puerta de enlace de Azure IoT Edge mediante varios módulos personalizados. En el escenario siguiente, los dispositivos de nivel inferior se conectan mediante un módulo personalizado de Modbus y un módulo personalizado de BLE, y se pueden conectar al dispositivo de puerta de enlace de Azure IoT Edge mediante el módulo $edgeHub. 
+Finalmente, los dispositivos de nivel inferior se pueden conectar a un dispositivo de puerta de enlace IoT Edge mediante varios módulos personalizados. En el diagrama siguiente se muestran los dispositivos de nivel inferior que se conectan mediante un módulo personalizado de Modbus, un módulo personalizado de BLE y el módulo `$edgeHub`. 
 
-![Página Central Application (Aplicación central)](./media/tutorial-define-edge-device-type/gateway-module2-transparent.png)
+![Diagrama de conexión mediante varios módulos personalizados](./media/tutorial-define-edge-device-type/gateway-module2-transparent.png)
 
 
 ## <a name="create-a-template"></a>Creación de una plantilla
 
-Como desarrollador, puede crear y editar plantillas de dispositivo de Azure IoT Edge en la aplicación. Después de publicar una plantilla de dispositivo, puede conectar dispositivos reales que implementan la plantilla de dispositivo.
+Como desarrollador, puede crear y editar plantillas de dispositivo de IoT Edge en la aplicación. Después de publicar una plantilla de dispositivo, puede conectar dispositivos reales que implementan la plantilla de dispositivo.
 
 ### <a name="select-device-template-type"></a>Selección del tipo de plantilla de dispositivo 
 
-Para agregar una nueva plantilla de dispositivo a la aplicación, debe ir a la página **Device Templates** (Plantillas de dispositivo). Para ello, seleccione la pestaña **Device Templates** (Plantillas de dispositivo) en el panel izquierdo.
+Para agregar una nueva plantilla de dispositivo a la aplicación, seleccione **Plantillas de dispositivo** en el panel izquierdo.
 
-![Página Central Application (Aplicación central)](./media/tutorial-define-edge-device-type/edgedevicetemplate.png)
+![Captura de pantalla de la aplicación de vista previa, con las plantillas de dispositivo resaltadas](./media/tutorial-define-edge-device-type/edgedevicetemplate.png)
 
-Haga clic en **+ New** (+ Nueva) para empezar a crear una plantilla de dispositivo.
+Seleccione **+ Nuevo** para empezar a crear una plantilla de dispositivo.
 
-![Plantillas de dispositivo: nueva](./media/tutorial-define-edge-device-type/edgedevicetemplatenew.png)
+![Captura de pantalla de la página Plantillas de dispositivo con la opción Nuevo resaltada](./media/tutorial-define-edge-device-type/edgedevicetemplatenew.png)
 
-Llegará a la página de selección del tipo de plantilla de dispositivo. Seleccione el icono **Azure IoT Edge** y haga clic en **Next: Customize** (Siguiente: Personalizar) en la parte inferior.
+En la página **Seleccionar tipo de plantilla**, seleccione **Azure IoT Edge** y, después, seleccione **Siguiente: Customize** (Personalizar)
 
-![Selección de plantillas de dispositivo: Azure IoT Edge](./media/tutorial-define-edge-device-type/selectiotedge.png)
+![Captura de pantalla de la página Seleccionar tipo de plantilla](./media/tutorial-define-edge-device-type/selectiotedge.png)
 
 ### <a name="customize-device-template"></a>Personalización de la plantilla de dispositivo
 
-Azure IoT Edge le permite implementar y administrar la lógica de negocios en forma de módulos. Los **módulos de Azure IoT Edge** son la unidad más pequeña de cálculo que administra IoT Edge y pueden contener servicios de Azure (por ejemplo, Azure Stream Analytics) o su propio código específico de la solución. Para entender cómo se desarrollan, implementan y mantienen los módulos, lea [Módulos de IoT Edge](../../iot-edge/iot-edge-modules.md).
+En IoT Edge, puede implementar y administrar la lógica de negocios en forma de módulos. Los módulos de IoT Edge son la unidad más pequeña de cálculo que administra IoT Edge y pueden contener servicios de Azure (por ejemplo, Azure Stream Analytics) o su propio código específico de la solución. Para entender cómo se desarrollan, implementan y mantienen los módulos, consulte [Módulos de IoT Edge](../../iot-edge/iot-edge-modules.md).
 
-A nivel general, un manifiesto de implementación es una lista de módulos gemelos que se configuran con sus propiedades deseadas. Un manifiesto de implementación indica a un dispositivo IoT Edge (o a un grupo de dispositivos) qué módulos debe instalar y cómo configurarlos. Los manifiestos de implementación incluyen las propiedades deseadas de cada módulo gemelo. Los dispositivos IoT Edge informan sobre las propiedades notificadas de cada módulo.
+A nivel general, un manifiesto de implementación es una lista de módulos gemelos que se configuran con sus propiedades deseadas. Un manifiesto de implementación indica a un dispositivo IoT Edge (o a un grupo de dispositivos) qué módulos debe instalar y cómo configurarlos. Los manifiestos de implementación incluyen las propiedades deseadas de cada módulo gemelo. Los dispositivos IoT Edge informan sobre las propiedades notificadas de cada módulo.
 
-Use Visual Studio Code para crear un manifiesto de implementación. Siga la documentación sobre cómo crear un [manifiesto de implementación](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge).
+Use Visual Studio Code para crear un manifiesto de implementación. Para más información, consulte [Azure IoT Edge para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge).
 
 Este es un manifiesto de implementación básico con un módulo que se usará como ejemplo en este tutorial. Copie el siguiente código JSON y guárdelo como un archivo JSON. 
 
@@ -176,58 +176,53 @@ Este es un manifiesto de implementación básico con un módulo que se usará co
    }
    ```
 
-**Carga de un manifiesto de implementación de Azure IoT Edge**
+#### <a name="upload-an-iot-edge-deployment-manifest"></a>Carga de un manifiesto de implementación de IoT Edge
 
-Haga clic en el botón **Browse** (Examinar). 
+En la página **Personalizar dispositivo**, en **Upload an Azure IoT Edge deployment manifest** (Cargar un manifiesto de implementación de Azure IoT Edge), seleccione **Examinar**. 
 
-![Plantilla de dispositivo: Azure IoT Edge](./media/tutorial-define-edge-device-type/edgedevicetemplateuploadmanifest.png)
+![Captura de pantalla de la página Personalizar dispositivo, con la opción Examinar resaltada](./media/tutorial-define-edge-device-type/edgedevicetemplateuploadmanifest.png)
 
-Si tiene previsto crear una plantilla de dispositivo de puerta de enlace de Azure IoT Edge, asegúrese de activar la casilla **Gateway device with downstream devices** (Dispositivo de puerta de enlace con dispositivos de bajada).
+Si tiene previsto crear una plantilla de dispositivo de puerta de enlace de IoT Edge, asegúrese de seleccionar la casilla **Gateway device with downstream devices** (Dispositivo de puerta de enlace con dispositivos de bajada).
 
-![Plantilla de dispositivo: Azure IoT Edge](./media/tutorial-define-edge-device-type/gateway-upload.png)
+![Captura de pantalla de la página Personalizar dispositivo, con un dispositivo de puerta de enlace con dispositivos de nivel inferior resaltados](./media/tutorial-define-edge-device-type/gateway-upload.png)
 
-Aparecerá un cuadro de diálogo de selección de archivos. Seleccione el archivo de manifiesto de implementación y haga clic en el botón **Open** (Abrir).
+En el cuadro de diálogo de selección de archivos, seleccione el archivo del manifiesto de implementación y seleccione **Abrir**.
 
-El archivo de manifiesto de implementación se validará con un esquema. Tras una validación correcta, haga clic en el botón **Review** (Revisar).
+IoT Edge valida el archivo de manifiesto de implementación con un esquema. Si la validación es correcta, seleccione **Revisar**.
 
-![Plantilla de dispositivo: Azure IoT Edge](./media/tutorial-define-edge-device-type/deploymentmanifestvalidate.png)
+![Captura de pantalla de la página Personalizar dispositivo con las opciones Manifiesto de implementación y Revisar resaltadas](./media/tutorial-define-edge-device-type/deploymentmanifestvalidate.png)
 
-A continuación se muestra el flujo del ciclo de vida de un manifiesto de implementación en IoT Central.
+El siguiente diagrama de flujo muestra el ciclo de vida de un manifiesto de implementación en IoT Central.
 
-![Plantilla de dispositivo: Azure IoT Edge](./media/tutorial-define-edge-device-type/dmflow.png)
+![Diagrama de flujo del ciclo de vida de un manifiesto de implementación](./media/tutorial-define-edge-device-type/dmflow.png)
 
-La página de revisión se muestra con detalles del manifiesto de implementación. La lista de módulos del manifiesto de implementación se mostrará en la página de revisión. En este tutorial, verá que aparece el módulo SimulatedTemperatureSensor. Haga clic en el botón **Crear**.
+A continuación, se muestra la página de revisión con detalles del manifiesto de implementación. Esta página muestra una lista de módulos del manifiesto de implementación. En este tutorial, observe que se muestra el módulo `SimulatedTemperatureSensor`. Seleccione **Crear**.
 
-![Plantilla de dispositivo: Azure IoT Edge](./media/tutorial-define-edge-device-type/edgedevicetemplatereview.png)
+![Captura de pantalla de la página Revisar, con las opciones Módulo y Crear resaltadas](./media/tutorial-define-edge-device-type/edgedevicetemplatereview.png)
 
-Si ha seleccionado un dispositivo de puerta de enlace, verá esta página de revisión.
+Si había seleccionado un dispositivo de puerta de enlace, verá la siguiente página de revisión.
 
-![Plantilla de dispositivo: Azure IoT Edge](./media/tutorial-define-edge-device-type/gateway-review.png)
+![Captura de pantalla de la página Revisar, con la puerta de enlace de Azure IoT Edge resaltada](./media/tutorial-define-edge-device-type/gateway-review.png)
 
 
-Se mostrará el indicador giratorio de que se está creando una plantilla de dispositivo en IoT Central.
+Puede crear una plantilla de dispositivo con modelos de funcionalidad de módulo. En este tutorial, puede crear una plantilla de dispositivo con el modelo de funcionalidad del módulo `SimulatedTemperatureSensor`. 
 
-La plantilla de dispositivo se crea con modelos de funcionalidad de módulo. En este tutorial, verá la creación con el modelo de funcionalidad del módulo SimulatedTemperatureSensor. 
+Cambie el título de la plantilla de dispositivo por **Environment Sensor Device Template**.
 
-Cambie el título de la plantilla de dispositivo por Environment Sensor Device.
+![Captura de pantalla de la plantilla de dispositivo, con el título actualizado resaltado](./media/tutorial-define-edge-device-type/edgedevicetemplatelanding.png)
 
-![Plantilla de dispositivo: Azure IoT Edge](./media/tutorial-define-edge-device-type/edgedevicetemplatelanding.png)
+En el dispositivo IoT Edge, modele IoT Plug and Play de la siguiente manera:
+* Cada plantilla de dispositivo de IoT Edge tiene un modelo de funcionalidad del dispositivo.
+* Para cada módulo personalizado incluido en el manifiesto de implementación, se genera un modelo de funcionalidad del módulo.
+* Se establece una relación entre cada modelo de funcionalidad del módulo y un modelo de funcionalidad del dispositivo.
+* Un modelo de funcionalidad del módulo implementa interfaces de módulo.
+* Cada interfaz del módulo contiene datos de telemetría, propiedades y comandos.
 
-El modelado Plug and Play de dispositivos Azure IoT Edge se realiza de la siguiente manera:
-* Cada plantilla de dispositivo de Azure IoT Edge tendrá un **modelo de funcionalidad del dispositivo**.
-* Para cada módulo personalizado incluido en el manifiesto de implementación, se generará un **modelo de funcionalidad del módulo**.
-* Se establecerá una **relación** entre cada modelo de funcionalidad del módulo y un modelo de funcionalidad del dispositivo.
-* El modelo de funcionalidad del módulo implementa **interfaces de módulo**.
-* Cada interfaz de módulo contiene:
-   - Telemetría
-   - properties (Propiedades)
-   - Comandos:
+![Diagrama de modelado de IoT Edge](./media/tutorial-define-edge-device-type/edgemodelling.png)
 
-![Plantilla de dispositivo: Azure IoT Edge](./media/tutorial-define-edge-device-type/edgemodelling.png)
+#### <a name="add-capabilities-to-a-module-capability-model"></a>Adición de funcionalidades a un modelo de funcionalidad del módulo
 
-**Adición de funcionalidades al modelo de funcionalidad del módulo**
-
-Esta es una salida de ejemplo del módulo SimulatedTemperatureSensor.
+Esta es una salida de ejemplo del módulo `SimulatedTemperatureSensor`:
 ```json
 {
 
@@ -244,79 +239,81 @@ Esta es una salida de ejemplo del módulo SimulatedTemperatureSensor.
 }
 ```
 
-Agregue funcionalidades al módulo SimulatedTemperatureSensor, que reflejará el código JSON anterior. 
+Puede agregar funcionalidades al módulo `SimulatedTemperatureSensor` que reflejarán la salida anterior. 
 
-* Haga clic en **Manage** (Administrar) para administrar una interfaz del modelo de funcionalidad del módulo SimulatedTemperatureSensor. Haga clic en **Add Capability** (Agregar funcionalidad). 
+1. Para administrar una interfaz del modelo de funcionalidad del módulo `SimulatedTemperatureSensor`, seleccione **Administrar** > **Agregar funcionalidad**. 
 
-    ![Plantilla de dispositivo: Azure IoT Edge](./media/tutorial-define-edge-device-type/edgetemplateaddcapability.png)
+    ![Captura de pantalla de Environment Sensor Template, con la opción Agregar funcionalidad resaltada](./media/tutorial-define-edge-device-type/edgetemplateaddcapability.png)
   
-* Agregue "machine" como tipo de objeto, dado que es un tipo complejo.
+1. Agregue una máquina como un tipo de objeto.
   
-    ![Plantilla de dispositivo: Azure IoT Edge](./media/tutorial-define-edge-device-type/edgetemplatemachineobject.png)
+    ![Captura de pantalla de la página de funcionalidades de Environment Sensor Template con el esquema resaltado](./media/tutorial-define-edge-device-type/edgetemplatemachineobject.png)
 
-    Haga clic en **Define** (Definir). En el modelo emergente, cambie el nombre del objeto por "machine" y cree propiedades de temperatura y presión. Luego, haga clic en **Apply** (Aplicar).
+1. Seleccione **Definir**. En el cuadro de diálogo que aparece, cambie el nombre del objeto a **machine** (máquina). Cree las propiedades de temperatura y presión, y seleccione **Aplicar**.
   
-    ![Plantilla de dispositivo: Azure IoT Edge](./media/tutorial-define-edge-device-type/edgetemplatemachineattributes.png)
+    ![Captura de pantalla del cuadro de diálogo de atributos con varias opciones resaltadas](./media/tutorial-define-edge-device-type/edgetemplatemachineattributes.png)
   
-* Agregue "ambient" como tipo de objeto, dado que es un tipo complejo
+1. Agregue **ambient** (ambiente) como tipo de objeto.
 
-    Haga clic en **Define** (Definir). En el modelo emergente, cambie el nombre del objeto por "ambient" y cree propiedades de temperatura y humedad. Luego, haga clic en **Apply** (Aplicar).
+1. Seleccione **Definir**. En el cuadro de diálogo que aparece, cambie el nombre del objeto a **ambient** (ambiente). Cree las propiedades de temperatura y humedad, y seleccione **Aplicar**.
   
-    ![Plantilla de dispositivo: Azure IoT Edge](./media/tutorial-define-edge-device-type/edgetemplateambientattributes.png)
+    ![Captura de pantalla del cuadro de diálogo de atributos con varias opciones resaltadas](./media/tutorial-define-edge-device-type/edgetemplateambientattributes.png)
 
   
-* Agregue timeCreated como tipo de DateTime y haga clic en **Save** (Guardar).
+1. Agregue `timeCreated` como un tipo `DateTime` y seleccione **Guardar**.
   
-    ![Plantilla de dispositivo: Azure IoT Edge](./media/tutorial-define-edge-device-type/edgetemplateallattributes.png)
+    ![Captura de pantalla de Environment Sensor Template, con la opción Guardar resaltada](./media/tutorial-define-edge-device-type/edgetemplateallattributes.png)
 
 
-### <a name="add-relationships"></a>Agregar relaciones
+### <a name="add-relationships"></a>Adición de relaciones
 
-Si seleccionó el dispositivo Azure IoT Edge como dispositivo de puerta de enlace, puede agregar relaciones de nivel inferior a los modelos de funcionalidad de los dispositivos que se conectarán a él.
+Si seleccionó un dispositivo de IoT Edge como dispositivo de puerta de enlace, puede agregar relaciones de nivel inferior a los modelos de funcionalidad de los dispositivos que desea conectar a él.
   
-  ![Plantilla de dispositivo: Azure IoT Edge](./media/tutorial-define-edge-device-type/gateway-add-relationship.png)
+  ![Captura de pantalla de Environment Gateway Template con la opción Agregar relación resaltada](./media/tutorial-define-edge-device-type/gateway-add-relationship.png)
 
-La relación se puede agregar en un dispositivo o en un módulo.
+Puede agregar una relación en un dispositivo o en un módulo.
   
-  ![Plantilla de dispositivo: Azure IoT Edge](./media/tutorial-define-edge-device-type/gateway-relationship-types.png)
+  ![Captura de pantalla de Environment Gateway Template con las relaciones en el nivel de dispositivo y de módulo resaltadas](./media/tutorial-define-edge-device-type/gateway-relationship-types.png)
 
 
-Puede seleccionar un modelo de funcionalidad del dispositivo de nivel inferior o seleccionar un asterisco. 
+Puede seleccionar un modelo de funcionalidad del dispositivo de nivel inferior o seleccionar el símbolo del asterisco. 
   
-  ![Plantilla de dispositivo: Azure IoT Edge](./media/tutorial-define-edge-device-type/gateway-downstream-rel.png)
+  ![Captura de pantalla de Environment Gateway Template con la opción Destino resaltada](./media/tutorial-define-edge-device-type/gateway-downstream-rel.png)
 
-  En este tutorial, se seleccionará el asterisco, lo que significa que se permitirán relaciones de nivel inferior. Haga clic en **Guardar**
+  En este tutorial, seleccione el asterisco. Esta opción permite todas las relaciones de nivel inferior. Después, seleccione **Guardar**.
 
-  ![Plantilla de dispositivo: Azure IoT Edge](./media/tutorial-define-edge-device-type/gateway-add-relationship-asterix.png)
+  ![Captura de pantalla de Environment Gateway Template con la opción Destino resaltada](./media/tutorial-define-edge-device-type/gateway-add-relationship-asterix.png)
 
 
 ### <a name="add-cloud-properties"></a>Adición de propiedades de nube
 
 Una plantilla de dispositivo puede incluir propiedades de la nube. Las propiedades de la nube solo existen en la aplicación IoT Central y nunca se envían a un dispositivo ni se reciben de él.
 
-1. Seleccione **Cloud Properties** (Propiedades de nube) y, luego, **+ Add Cloud Property** (+ Agregar propiedad de la nube). Use la información de la tabla siguiente para agregar una propiedad de la nube a la plantilla de dispositivo.
+1. Seleccione **Propiedades de nube** >  **+ Agregar propiedad de la nube**. Use la información de la tabla siguiente para agregar una propiedad de la nube a la plantilla de dispositivo.
 
-    | Display Name (Nombre para mostrar)      | Tipo semántico | Schema |
+    | Nombre para mostrar      | Tipo semántico | Schema |
     | ----------------- | ------------- | ------ |
     | Fecha de la última revisión | None          | Date   |
     | Nombre del cliente     | None          | Cadena |
 
-2. Seleccione **Save** (Guardar) para guardar los cambios.
+2. Seleccione **Guardar**.
 
   
-    ![Propiedades de la nube: Azure IoT Edge](./media/tutorial-define-edge-device-type/edgetemplatecloudproperties.png)
+    ![Captura de pantalla de Environment Sensor Template, con la opción Guardar resaltada](./media/tutorial-define-edge-device-type/edgetemplatecloudproperties.png)
 
 ### <a name="add-customizations"></a>Adición de personalizaciones
 
-Use personalizaciones cuando necesite modificar una interfaz o agregar características específicas de IoT Central a una funcionalidad que no requiera controlar la versión del modelo de funcionalidad del dispositivo. Se pueden personalizar los campos cuando el modelo de funcionalidad esté en estado borrador o publicado. Y solo se pueden personalizar aquellos que no interrumpan la compatibilidad de la interfaz. Por ejemplo, puede:
+Use personalizaciones para modificar una interfaz o agregar características específicas de IoT Central a una funcionalidad que no requiera controlar la versión del modelo de funcionalidad del dispositivo. Se pueden personalizar los campos cuando el modelo de funcionalidad esté en estado borrador o publicado. Y solo se pueden personalizar aquellos que no interrumpan la compatibilidad de la interfaz. Por ejemplo, puede:
 
 - Personalizar el nombre para mostrar y las unidades de una funcionalidad.
 - Agregar un color predeterminado para usarlo cuando el valor aparezca en un gráfico.
 - Especificar los valores inicial, mínimo y máximo de una propiedad.
 
-No se puede personalizar el tipo o el nombre de la funcionalidad. Haga clic en **Guardar**
+No se puede personalizar el tipo o el nombre de la funcionalidad.
+
+Cuando haya terminado la personalización, seleccione **Guardar**.
   
-![Personalizaciones: Azure IoT Edge](./media/tutorial-define-edge-device-type/edgetemplatecustomize.png)
+![Captura de pantalla de la página de personalización de Environment Sensor Template](./media/tutorial-define-edge-device-type/edgetemplatecustomize.png)
 
 
 ### <a name="create-views"></a>Creación de vistas
@@ -328,27 +325,27 @@ Como desarrollador, puede personalizar la aplicación para mostrar información 
 
 ### <a name="configure-a-view-to-visualize-devices"></a>Configuración de una vista para visualizar los dispositivos
 
-Un panel de dispositivos permite a un operador visualizar un dispositivo mediante gráficos y métricas. Como generador, puede definir qué información se muestra en el panel del dispositivo. Puede definir varios paneles para los dispositivos. Para crear un panel y visualizar la telemetría del sensor ambiental, seleccione **Views** (Vistas) y, luego, **Visualizing the Device** (Visualización del dispositivo):
+Un panel de dispositivos permite a un operador visualizar un dispositivo mediante gráficos y métricas. Como desarrollador, puede definir qué información aparece en el panel del dispositivo. Puede definir varios paneles para los dispositivos. Para crear un panel y visualizar la telemetría del sensor ambiental, seleccione **Vistas** > **Visualización del dispositivo**:
 
   
-![Vistas: Azure IoT Edge](./media/tutorial-define-edge-device-type/visualizingthedevice.png)
+![Captura de pantalla de la página de vistas de Environment Sensor Template con la opción Visualización del dispositivo resaltada](./media/tutorial-define-edge-device-type/visualizingthedevice.png)
 
 
-Ambient Telemetry y Machine Telemetry son objetos complejos. Para crear gráficos, haga lo siguiente:
+Ambient Telemetry (Telemetría ambiental) y Machine Telemetry (Telemetría de máquina) son objetos complejos. Para crear gráficos:
 
-Arrastre Ambient Telemetry y seleccione el gráfico de líneas. 
+1. Arrastre **Ambient Telemetry** (Telemetría ambiental) y seleccione **Gráfico de líneas**. 
   
-![Vistas: Azure IoT Edge](./media/tutorial-define-edge-device-type/sensorambientchart.png)
+   ![Captura de pantalla de Environment Sensor Template con Ambient Telemetry (Telemetría ambiental) y Gráfico de líneas resaltados](./media/tutorial-define-edge-device-type/sensorambientchart.png)
 
-Haga clic en el icono de configuración, seleccione la temperatura y la humedad para visualizar los datos y haga clic en el botón **Update configuration** (Actualizar configuración). 
+1. Seleccione el icono de configuración. Seleccione **Temperature** (Temperatura) y **Humidity** (Humedad) para visualizar los datos y seleccione **Actualizar configuración**. 
   
-![Vistas: Azure IoT Edge](./media/tutorial-define-edge-device-type/sensorambienttelemetrychart.png)
+   ![Captura de pantalla de Environment Sensor Template con varias opciones resaltadas](./media/tutorial-define-edge-device-type/sensorambienttelemetrychart.png)
 
-Seleccione **Save** (Guardar) para guardar la vista:
+1. Seleccione **Guardar**.
 
 Puede agregar más iconos que muestren otras propiedades o valores de telemetría. También puede agregar texto estático, vínculos e imágenes. Para mover o cambiar el tamaño de un icono en el panel, mueva el puntero del mouse sobre el icono y arrastre el icono a una nueva ubicación o cambie su tamaño.
   
-![Vistas: Azure IoT Edge](./media/tutorial-define-edge-device-type/viewsdashboard.png)
+![Captura de pantalla de la vista Panel de Environment Sensor Template](./media/tutorial-define-edge-device-type/viewsdashboard.png)
 
 ### <a name="add-a-device-form"></a>Adición de un formulario de dispositivo
 
@@ -356,23 +353,19 @@ Un formulario de dispositivo permite que un operador edite las propiedades del d
 
 Para crear un formulario y ver y editar las propiedades del sensor ambiental, siga estos pasos:
 
-Vaya a **Views** (Vistas) en la plantilla **Environmental Sensor** (Sensor del entorno). Seleccione el icono **Editing Device and Cloud data** (Editar datos del dispositivo y de la nube) para agregar una vista nueva.
+1. En **Environmental Sensor Template**, vaya a **Vistas**. Seleccione el icono **Editing Device and Cloud data** (Editar datos del dispositivo y de la nube) para agregar una vista nueva.
   
-![Vistas: Azure IoT Edge](./media/tutorial-define-edge-device-type/editingdeviceandclouddata.png)
+   ![Captura de pantalla de la página de vistas de Environmental Sensor Template con la opción Editar datos del dispositivo y la nube resaltada](./media/tutorial-define-edge-device-type/editingdeviceandclouddata.png)
 
-Escriba el nombre del formulario **Propiedades del sensor ambiental**.
+1. Escriba el nombre del formulario **Propiedades del sensor ambiental**.
 
-Arrastre las propiedades de la nube **Customer name** (Nombre del cliente) y **Last service date** (Última fecha del servicio) a la sección existente del formulario.
+1. Arrastre las propiedades de la nube **Customer name** (Nombre del cliente) y **Last service date** (Última fecha del servicio) a la sección existente del formulario.
   
-![Vistas: Azure IoT Edge](./media/tutorial-define-edge-device-type/views-properties.png)
+   ![Captura de pantalla de la página de vistas de Environmental Sensor Template con varias opciones resaltadas](./media/tutorial-define-edge-device-type/views-properties.png)
 
-Seleccione **Save** (Guardar) para guardar la vista.
+1. Seleccione **Guardar**.
 
-### <a name="generate-default-views"></a>Generación de vistas predeterminadas
-
-No se admite la funcionalidad de generación de vistas predeterminadas para plantillas de Azure IoT Edge. 
-
-## <a name="publish-device-template"></a>Publicación de la plantilla de dispositivo
+## <a name="publish-a-device-template"></a>Publicación de una plantilla de dispositivo
 
 Antes de poder crear un sensor ambiental simulado o de conectar un sensor ambiental real, debe publicar la plantilla de dispositivo.
 
@@ -382,29 +375,29 @@ Para publicar una plantilla de dispositivo, siga estos pasos:
 
 2. Seleccione **Publicar**.
   
-    ![Vistas: Publicar](./media/tutorial-define-edge-device-type/edgetemplatepublish.png)
+    ![Captura de pantalla de Environmental Sensor Template con la opción Publicar resaltada](./media/tutorial-define-edge-device-type/edgetemplatepublish.png)
 
-1. En el cuadro de diálogo **Publish a Device Template** (Publicar una plantilla de dispositivo), elija **Publish** (Publicar):
+1. En el cuadro de diálogo **Publish a Device Template** (Publicar una plantilla de dispositivo), elija **Publicar**.
   
-    ![Vistas: Publicar](./media/tutorial-define-edge-device-type/edgepublishtemplate.png)
+    ![Captura de pantalla del cuadro de diálogo Publish a Device Template (Publicar una plantilla de dispositivo) con la opción Publicar resaltada](./media/tutorial-define-edge-device-type/edgepublishtemplate.png)
 
-Una vez publicada una plantilla de dispositivo, es visible en la página **Devices** (Dispositivos) y para el operador. En una plantilla de dispositivo publicada, no se puede editar un modelo de funcionalidad del dispositivo sin crear una versión. Sin embargo, puede hacer actualizaciones en las propiedades de la nube, las personalizaciones y las vistas en una plantilla de dispositivo publicada sin control de versiones. Después de realizar los cambios, seleccione **Publish** (Publicar) para enviar esos cambios al operador.
+Una vez publicada una plantilla de dispositivo, es visible en la página **Devices** (Dispositivos) y para el operador. En una plantilla de dispositivo publicada, no se puede editar un modelo de funcionalidad del dispositivo sin crear una versión. Sin embargo, puede hacer actualizaciones en las propiedades de la nube, las personalizaciones y las vistas en una plantilla de dispositivo publicada. Estas actualizaciones no hacen que se cree una nueva versión. Después de realizar los cambios, seleccione **Publicar** para enviar esos cambios al operador.
   
-![Vistas: Publicar](./media/tutorial-define-edge-device-type/publishedtemplate.png)
+![Captura de pantalla de la lista Plantillas de dispositivo de plantillas publicadas](./media/tutorial-define-edge-device-type/publishedtemplate.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial aprendió lo siguiente:
 
-* Creación de un dispositivo perimetral como plantilla de dispositivo hoja
-* Generación de módulos a partir de un manifiesto de implementación cargado
-* Adición de telemetría de tipo complejo y propiedades
+* Crear un dispositivo perimetral como plantilla de dispositivo hoja.
+* Generar módulos a partir de un manifiesto de implementación cargado.
+* Agregar telemetría de tipo complejo y propiedades
 * Crear propiedades de la nube
 * Crear personalizaciones
 * Definir una visualización para la telemetría del dispositivo
-* Publicación de la plantilla del dispositivo perimetral
+* Publique la plantilla del dispositivo perimetral.
 
-Ahora que ha creado una plantilla de dispositivo en la aplicación de Azure IoT Central, este es el siguiente paso sugerido:
+Ahora que ha creado una plantilla de dispositivo en una aplicación de Azure IoT Central puede hacer esto a continuación:
 
 > [!div class="nextstepaction"]
 > [Conexión de dispositivos](./tutorial-connect-pnp-device.md)

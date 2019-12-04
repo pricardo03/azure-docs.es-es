@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.date: 11/05/2019
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: 7546d5c6089a7867b1f8b5bf45d23c81bddd0da9
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 660235331c2c2d800b52f6e29d0011b9616a748c
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647906"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158484"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-net-sdk-v3"></a>Inicio rápido: Biblioteca cliente de Azure Key Vault para .NET (SDK v3)
 
@@ -46,9 +46,7 @@ En este inicio rápido se supone que está ejecutando `dotnet`, la [CLI de Azure
 
 ### <a name="create-new-net-console-app"></a>Creación de una aplicación de consola de .NET
 
-Cree una nueva aplicación de consola de .NET Core en el IDE o editor que prefiera.
-
-En una ventana de consola, utilice el comando `dotnet new` para crear una nueva aplicación de consola con el nombre `akv-dotnet`.
+En una ventana de consola, utilice el comando `dotnet new` para crear una nueva aplicación de consola de .NET con el nombre `akv-dotnet`.
 
 
 ```console
@@ -169,7 +167,7 @@ Asigne estas variables de entorno a las cadenas del código y, a continuación, 
 
 ### <a name="save-a-secret"></a>Almacenamiento de un secreto
 
-Ahora que la aplicación se ha autenticado, puede colocar un secreto en el almacén de claves mediante el [método SetSecretAsync](/dotnet/api/microsoft.azure.keyvault.keyvaultclientextensions.setsecretasync). Esto requiere la dirección URL del almacén de claves, que tiene el formato `https://<your-unique-keyvault-name>.vault.azure.net/secrets/`. También requiere un nombre para el secreto: usamos "mySecret".  Puede que desee asignar estas cadenas a las variables para su reutilización.
+Ahora que la aplicación se ha autenticado, puede colocar un secreto en el almacén de claves mediante el [método SetSecretAsync](/dotnet/api/microsoft.azure.keyvault.keyvaultclientextensions.setsecretasync). Esto requiere la dirección URL del almacén de claves, que tiene el formato `https://<your-unique-keyvault-name>.vault.azure.net/secrets/`. También requiere un nombre para el secreto: usamos "mySecret". 
 
 [!code-csharp[Set secret](~/samples-key-vault-dotnet-quickstart/akvdotnet/Program.cs?name=setsecret)]
 

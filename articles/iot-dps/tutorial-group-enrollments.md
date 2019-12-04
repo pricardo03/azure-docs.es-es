@@ -1,21 +1,20 @@
 ---
-title: 'Tutorial: Aprovisionamiento de un dispositivo X.509 simulado para Azure IoT Hub mediante Java y los grupos de inscripción'
-description: 'Tutorial de Azure: creación y aprovisionamiento de un dispositivo X.509 simulado mediante el SDK de dispositivos y servicios Java para el servicio Azure IoT Hub Device Provisioning'
+title: Aprovisionamiento de un dispositivo X.509 simulado para Azure IoT Hub mediante Java y los grupos de inscripción
+description: 'Tutorial: Creación y aprovisionamiento de un dispositivo X.509 simulado mediante el SDK de dispositivos y servicios Java para el servicio Azure IoT Hub Device Provisioning'
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: b3cb506b241adab44df490e2fe7f363d35f0f747
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: a903997c6548aad3638ba5785d23ee7642d403fc
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112435"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74228329"
 ---
 # <a name="tutorial-create-and-provision-a-simulated-x509-device-using-java-device-and-service-sdk-and-group-enrollments-for-iot-hub-device-provisioning-service"></a>Tutorial: Creación y aprovisionamiento de un dispositivo X.509 simulado mediante el SDK de dispositivos y servicios Java y las inscripciones de grupos para el servicio Azure IoT Hub Device Provisioning
 

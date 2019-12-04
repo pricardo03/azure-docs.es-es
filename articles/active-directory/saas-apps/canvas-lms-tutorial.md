@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/02/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab998b6d9aec663123f0bd2428e4c6f1767f1846
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: c3ce5cff0de2939c25400d1d63138b23bc6c9822
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73158740"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232049"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-canvas"></a>Tutorial: Integración de Azure Active Directory con Canvas
 
@@ -249,7 +249,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Canvas, tienen que
    e. Haga clic en **Agregar usuario**.
 
 > [!NOTE]
-> Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Canvas ofrecida por Canvas para aprovisionar cuentas de usuario de AAD.
+> Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Canvas ofrecida por Canvas para aprovisionar cuentas de usuario de Azure AD.
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 

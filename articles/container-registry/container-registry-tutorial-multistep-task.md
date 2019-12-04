@@ -1,20 +1,15 @@
 ---
-title: 'Tutorial: Flujo de trabajo de tareas de varios pasos: Azure Container Registry Tasks'
+title: 'Tutorial: Tarea de ACR de varios pasos'
 description: En este tutorial, aprenderá a configurar una tarea de Azure Container Registry que desencadena automáticamente un flujo de trabajo de varios pasos para compilar, ejecutar e insertar imágenes de contenedor en la nube cuando confirma el código fuente en un repositorio de Git.
-services: container-registry
-author: dlepow
-manager: gwallace
-ms.service: container-registry
 ms.topic: tutorial
 ms.date: 05/09/2019
-ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: dd7dd6f78087a40de93a5ab47936806076fc562a
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: f5342e51af870b1e5f8651ea2d28894233ed8e62
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931445"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74456075"
 ---
 # <a name="tutorial-run-a-multi-step-container-workflow-in-the-cloud-when-you-commit-source-code"></a>Tutorial: Ejecución de un flujo de trabajo de contenedor de varios pasos en la nube al confirmar el código fuente
 

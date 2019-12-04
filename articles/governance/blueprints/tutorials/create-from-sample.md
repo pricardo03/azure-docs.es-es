@@ -1,14 +1,14 @@
 ---
-title: Creación de un entorno a partir de un ejemplo de plano técnico
-description: Use un ejemplo de plano técnico para crear una definición de plano técnico que configura dos grupos de recursos y configura una asignación de roles para cada uno.
-ms.date: 03/05/2019
+title: 'Tutorial: Ejemplo de plano técnico para un nuevo entorno'
+description: En este tutorial, usará un ejemplo de plano técnico para crear una definición de plano técnico que configura dos grupos de recursos y configura una asignación de roles para cada uno.
+ms.date: 11/21/2019
 ms.topic: tutorial
-ms.openlocfilehash: d23e9b7242c58e4da5fcfe5ef4d29d9f9df6f754
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: f9cc892ab8feadacbdfd00e55fab9f40d7cb2397
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960271"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74321730"
 ---
 # <a name="tutorial-create-an-environment-from-a-blueprint-sample"></a>Tutorial: Creación de un entorno a partir de un ejemplo de plano técnico
 
@@ -183,9 +183,7 @@ Cuando termine con este tutorial, elimine los siguientes recursos:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Información acerca del [ciclo de vida del plano técnico](../concepts/lifecycle.md)
-- Descubra cómo utilizar [parámetros estáticos y dinámicos](../concepts/parameters.md).
-- Averigüe cómo usar el [bloqueo de recursos de planos técnicos](../concepts/resource-locking.md).
-- Aprenda a personalizar el [orden de secuenciación de planos técnicos](../concepts/sequencing-order.md).
-- Más información sobre la [actualización de las asignaciones existentes](../how-to/update-existing-assignments.md).
-- Puede consultar la información de [solución de problemas generales](../troubleshoot/general.md) para resolver los problemas durante la asignación de un plano técnico.
+En este tutorial, ha aprendido a crear un nuevo plano técnico a partir de una definición de ejemplo. Para más información sobre Azure Blueprints, continúe con el artículo sobre el ciclo de vida de los planos técnicos.
+
+> [!div class="nextstepaction"]
+> [Más información acerca del ciclo de vida del plano técnico](../concepts/lifecycle.md)

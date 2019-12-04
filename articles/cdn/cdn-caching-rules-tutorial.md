@@ -14,17 +14,17 @@ ms.topic: tutorial
 ms.date: 04/20/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: c6da3270de94fd0d5525f28cdd31039f5bd85dbd
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 5330c99f4d42f591944ddc5c58ac98bea6387da5
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67594074"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278158"
 ---
 # <a name="tutorial-set-azure-cdn-caching-rules"></a>Tutorial: Establecimiento de las reglas de almacenamiento en caché de Azure CDN
 
 > [!NOTE] 
-> Las reglas de almacenamiento en caché solo están disponibles para **Azure CDN estándar de Verizon** y **Azure CDN estándar de Akamai**. En el caso de **Azure CDN premium de Verizon**, puede usar el [motor de reglas de Azure CDN](cdn-rules-engine.md) en el portal **Administrar** para disfrutar de una funcionalidad similar.
+> Las reglas de almacenamiento en caché solo están disponibles para los perfiles **Azure CDN estándar de Verizon** y **Azure CDN estándar de Akamai**. Para los perfiles de **Azure CDN de Microsoft**, debe usar el [motor de reglas estándar](cdn-standard-rules-engine-reference.md). Para los perfiles de **Azure CDN Premium de Verizon**, debe usar el [motor de reglas de Verizon Premium](cdn-rules-engine.md) en el portal **Administrar** para obtener una funcionalidad similar.
  
 
 En este tutorial se describe cómo puede usar reglas de almacenamiento en caché de Azure Content Delivery Network (CDN) para establecer o modificar el comportamiento de expiración de caché predeterminado, tanto globalmente como con condiciones personalizadas, como una ruta de dirección URL y extensión de archivo. Azure CDN proporciona dos tipos de reglas de almacenamiento en caché:

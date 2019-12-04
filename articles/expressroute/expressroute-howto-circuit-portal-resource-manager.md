@@ -1,20 +1,20 @@
 ---
-title: 'ExpressRoute: Creación y modificación de un circuito: Portal de Azure'
-description: Cree, aprovisione, compruebe, actualice, elimine y desaprovisione un circuito ExpressRoute.
+title: 'Tutorial: Creación y modificación de un circuito con ExpressRoute'
+description: En este tutorial aprenderá a crear, aprovisionar, comprobar, actualizar, eliminar y desaprovisionar un circuito ExpressRoute.
 services: expressroute
 author: cherylmc
 ms.service: expressroute
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/20/2018
 ms.author: cherylmc
-ms.openlocfilehash: 42fe0a91261453251d56f1c556083e93f5c76bec
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 7327031a7cd05674e9823f21601aab34c859f540
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083564"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74423568"
 ---
-# <a name="create-and-modify-an-expressroute-circuit"></a>Creación y modificación de un circuito ExpressRoute
+# <a name="tutorial-create-and-modify-an-expressroute-circuit"></a>Tutorial: Creación y modificación de un circuito ExpressRoute
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)

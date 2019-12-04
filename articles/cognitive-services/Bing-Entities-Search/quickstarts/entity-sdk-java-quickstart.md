@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Búsqueda de entidades con el SDK de Bing Entity Search para Java'
+title: 'Inicio rápido: Búsqueda de entidades con el SDK de Java: Bing Entity Search'
 titleSuffix: Azure Cognitive Services
 description: Use este inicio rápido para buscar entidades con el SDK de Bing Entity Search para Java
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 07/24/2019
 ms.author: aahi
-ms.openlocfilehash: 63312dcbad515f364bd4b66c5541f1db90af85b6
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: f39355613382bd5d02b7ef6918598f38737e850f
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479039"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327155"
 ---
 # <a name="quickstart-send-a-search-request-with-the-bing-entity-search-sdk-for-java"></a>Inicio rápido: Envío de una solicitud de búsqueda el SDK de Bing Entity Search para Java
 

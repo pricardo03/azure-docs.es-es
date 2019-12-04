@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: d41ce06279536e3479b96d8d7afedf81624dbc9b
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 32a3131c8ff6a01a35fbe42750384dd303a23140
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326595"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185175"
 ---
 # <a name="quickstart-route-azure-app-configuration-events-to-a-web-endpoint-with-azure-cli"></a>Inicio rápido: Enrutamiento de eventos de Azure App Configuration a un punto de conexión web con la CLI de Azure
 
@@ -126,7 +126,7 @@ Ha desencadenado el evento y Event Grid ha enviado el mensaje al punto de conexi
 ```
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
-Si planea seguir trabajando con esta instancia de App Configuration y suscripción de eventos, no elimine los recursos creados en este artículo. Si no va a continuar, use el siguiente comando para eliminar los recursos creados en este artículo.
+Si planea seguir trabajando con esta instancia de App Configuration y la suscripción de eventos, no elimine los recursos creados en este artículo. Si no va a continuar, use el siguiente comando para eliminar los recursos creados en este artículo.
 
 Sustituya `<resource_group_name>` por el nombre del grupo de recursos que ha creado.
 

@@ -7,12 +7,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 10/24/2019
-ms.openlocfilehash: d0e19c8483321189cb38a4eebdbf7b2cb89785ef
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 0503ebc7a585210f95eb58b0f11ae1dd0a835264
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933039"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278606"
 ---
 # <a name="get-started-with-log-queries-in-azure-monitor"></a>Introducción a las consultas de registro en Azure Monitor
 
@@ -239,4 +239,7 @@ Para que la salida sea más clara, elija mostrarla como gráfico de tiempo, que 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Información acerca de la [escritura de consultas de búsqueda](search-queries.md)
+- Puede encontrar más información sobre el uso de datos de cadena en una consulta de registro en [Trabajo con cadenas en las consultas de registro de Azure Monitor](string-operations.md).
+- Puede encontrar más información sobre la agregación de datos en una consulta de registro en [Agregaciones avanzadas en las consultas de registro de Azure Monitor](advanced-aggregations.md).
+- Obtenga información sobre cómo combinar datos de varias tablas en [Combinaciones en consultas de registros de Azure Monitor](joins.md).
+- Obtenga la documentación completa sobre el lenguaje de consulta de Kusto en [Referencia del lenguaje KQL](/azure/kusto/query/).

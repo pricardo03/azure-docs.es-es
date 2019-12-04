@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 09/23/2019
+ms.date: 11/21/2019
 ms.author: aahi
-ms.openlocfilehash: f7a62d1d2b695726421ba990d0f118eb3ae199da
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 33c9c708adcc196bc7d9b2e8a066d18e4dd20608
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74031459"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326615"
 ---
 # <a name="example-detect-sentiment-with-text-analytics"></a>Ejemplo: Detección de sentimiento con Text Analytics
 
@@ -36,7 +36,7 @@ El análisis de las opiniones se realiza en todo el documento, en lugar de extra
 
 ## <a name="sentiment-analysis-v3-public-preview"></a>Versión preliminar pública de la versión 3 de Análisis de sentimiento
 
-La [siguiente versión de Análisis de sentimiento](https://cognitiveusw2ppe.portal.azure-api.net/docs/services/TextAnalytics-v3-0-Preview-1/operations/Sentiment) ahora está disponible en versión preliminar pública. Dicha versión incluye importantes mejoras significativas en la precisión y el detalle de la categorización del texto y la puntuación de la API.
+La siguiente versión de Análisis de sentimiento ahora está disponible en versión preliminar pública. Dicha versión incluye importantes mejoras significativas en la precisión y el detalle de la categorización del texto y la puntuación de la API. Pruebe a usar la [consola de prueba de API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/Sentiment).
 
 > [!NOTE]
 > * El formato de las solicitudes de la versión 3 de Análisis de sentimiento y los [límites de datos](../overview.md#data-limits) son los mismos que en la versión anterior.

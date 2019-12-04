@@ -1,14 +1,14 @@
 ---
 title: 'Ejemplo: Aplicar una etiqueta y su valor'
-description: Esta definición de directiva de ejemplo requiere un nombre de etiqueta y un valor, cada uno como un parámetro.
+description: Esta ejemplo de definición de directiva requiere un nombre y un valor de etiqueta que se define en un parámetro en cada recurso de Azure.
 ms.date: 01/23/2019
 ms.topic: sample
-ms.openlocfilehash: b48bd1e38264bc98a2ec7b4c5b1a6a929babffaf
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: d405b5cbe2bdb7b96c74d665171714d1890ef624
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076262"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463340"
 ---
 # <a name="sample---enforce-tag-and-its-value"></a>Ejemplo: Aplicar una etiqueta y su valor
 

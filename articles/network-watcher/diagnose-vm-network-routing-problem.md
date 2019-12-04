@@ -1,5 +1,6 @@
 ---
-title: 'Tutorial para diagnosticar un problema de enrutamiento de red de máquina virtual: Azure Portal | Microsoft Docs'
+title: 'Tutorial: Diagnosticar problemas de enrutamiento en una red de VM: Azure Portal'
+titleSuffix: Azure Network Watcher
 description: En este tutorial, aprenderá a diagnosticar un problema de enrutamiento de red de máquina virtual mediante la funcionalidad de próximo salto de Azure Network Watcher.
 services: network-watcher
 documentationcenter: network-watcher
@@ -17,12 +18,12 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 3ad9cd8b620b55aaa17e84343a82ac361081de44
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f9c7139dc9c27ed5b4f97f38e98b4663e9676288
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64684514"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276041"
 ---
 # <a name="tutorial-diagnose-a-virtual-machine-network-routing-problem-using-the-azure-portal"></a>Tutorial: Diagnosticar un problema de enrutamiento de red de máquina virtual con Azure Portal
 
@@ -55,7 +56,7 @@ Inicie sesión en Azure Portal en https://portal.azure.com.
     |Password| Escriba una contraseña de su elección. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Subscription| Seleccione su suscripción.|
     |Grupos de recursos| Haga clic en **Crear nuevo** y escriba **myResourceGroup**.|
-    |Ubicación| Seleccione **Este de EE. UU**.|
+    |Location| Seleccione **Este de EE. UU**.|
 
 4. Seleccione un tamaño para la máquina virtual y luego **Seleccionar**.
 5. En **Configuración**, acepte todos los valores predeterminados y seleccione **Aceptar**.
@@ -85,7 +86,7 @@ Azure crea rutas automáticamente a los destinos predeterminados. Es posible cre
 
     |Configuración                  |Valor                                                   |
     |---------                |---------                                               |
-    | Grupos de recursos          | Seleccione myResourceGroup                                 |
+    | Resource group          | Seleccione myResourceGroup                                 |
     | Máquina virtual         | Seleccione myVm                                            |
     | interfaz de red       | myvm: el nombre de la interfaz de red puede ser diferente.   |
     | Dirección IP de origen       | 10.0.0.4                                               |

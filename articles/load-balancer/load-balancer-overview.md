@@ -1,6 +1,6 @@
 ---
 title: ¿Qué es Azure Load Balancer?
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: Información general sobre las características, la arquitectura y la implementación del Equilibrador de carga de Azure Aprenda cómo funciona el equilibrador de carga y aproveche sus ventajas en la nube.
 services: load-balancer
 documentationcenter: na
@@ -12,14 +12,14 @@ ms.topic: overview
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/08/2019
+ms.date: 11/21/2019
 ms.author: allensu
-ms.openlocfilehash: be293a925e507468d96be4c9f6b47f30eea5f025
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 335549f4ccae01fa36921e0e4668fa15e8b33835
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73888671"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74423908"
 ---
 # <a name="what-is-azure-load-balancer"></a>¿Qué es Azure Load Balancer?
 
@@ -41,7 +41,9 @@ Azure Load Balancer sirve para:
 * Proporcionar [conectividad de salida](load-balancer-outbound-connections.md) para máquinas virtuales dentro de la red virtual mediante un equilibrador de carga público.
 
 >[!NOTE]
-> Azure ofrece un conjunto de soluciones de equilibrio de carga completamente administradas para sus escenarios. Si busca la finalización del protocolo de Seguridad de la Capa de Transporte (TLS) o la solicitud por HTTP/HTTPS, el procesamiento de la capa de aplicación, consulte [Qué es Azure Application Gateway](../application-gateway/application-gateway-introduction.md). Si busca el equilibrio de carga de DNS global, consulte [Qué es Traffic Manager](../traffic-manager/traffic-manager-overview.md). Los escenarios de un extremo a otro pueden beneficiarse de la combinación de estas soluciones.
+> Azure ofrece un conjunto de soluciones de equilibrio de carga completamente administradas para sus escenarios. Si busca la finalización del protocolo de Seguridad de la Capa de Transporte (TLS) o la solicitud por HTTP/HTTPS, el procesamiento de la capa de aplicación, consulte [¿Qué es Azure Application Gateway?](../application-gateway/overview.md). Si busca el equilibrio de carga de DNS global, consulte [¿Qué es Traffic Manager?](../traffic-manager/traffic-manager-overview.md). Los escenarios de un extremo a otro pueden beneficiarse de la combinación de estas soluciones.
+>
+> Para obtener una comparación de las opciones de equilibrio de carga de Azure, consulte [Información general sobre las opciones de equilibrio de carga en Azure](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview).
 
 ## <a name="what-are-load-balancer-resources"></a>¿Qué son los recursos de Load Balancer?
 

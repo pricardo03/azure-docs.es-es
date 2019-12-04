@@ -1,19 +1,19 @@
 ---
-title: Creación y localización de anclajes mediante Azure Spatial Anchors en Swift | Microsoft Docs
+title: Creación y localización de delimitadores en Swift
 description: Explicación detallada de cómo crear y localizar anclajes mediante Azure Spatial Anchors en Swift.
 author: ramonarguelles
-manager: vicenterivera
+manager: vriveras
 services: azure-spatial-anchors
 ms.author: rgarcia
 ms.date: 02/24/2019
-ms.topic: how-to
+ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 5fe3ee8a98b24c26af8b08959d271226bde36cee
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f72e648d8f7cba0af01e7f87827d38368dba698d
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66244369"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277316"
 ---
 # <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-swift"></a>Creación y localización de anclajes mediante Azure Spatial Anchors en Swift
 
@@ -29,12 +29,12 @@ Azure Spatial Anchors permite compartir delimitadores entre diferentes dispositi
 
 - Configurar y administrar correctamente una sesión de Azure Spatial Anchors.
 - Crear y establecer propiedades en los anclajes locales.
-- Cargarlas en la nube.
+- Cargarlos en la nube.
 - Localizar y eliminar los anclajes espaciales en la nube.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para completar esta guía, asegúrese de disponer de los siguientes elementos:
+Para completar esta guía, asegúrese de que cumple los siguientes requisitos previos:
 
 - Ha leído completamente [Introducción a Azure Spatial Anchors](../overview.md).
 - Ha completado uno de los [inicios rápidos en 5 minutos](../index.yml).

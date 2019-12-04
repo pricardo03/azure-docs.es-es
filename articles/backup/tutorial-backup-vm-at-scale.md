@@ -1,20 +1,15 @@
 ---
-title: Copia de seguridad de máquinas virtuales de Azure a escala
+title: 'Tutorial: Copia de seguridad de máquinas virtuales de Azure a escala'
 description: En este tutorial, aprenderá a crear un almacén de Recovery Services, a definir una directiva de copia de seguridad y a realizar copias de seguridad simultáneas de varias máquinas virtuales.
-keywords: copia de seguridad de máquinas virtuales; copia de seguridad de máquina virtual; copia de seguridad de VM; copia de seguridad de VM de Azure; copia de seguridad y recuperación ante desastres
-author: dcurwin
-manager: carmonm
-ms.author: dacurwin
 ms.date: 01/31/2019
 ms.topic: tutorial
-ms.service: backup
 ms.custom: mvc
-ms.openlocfilehash: 99a842704325e38cbf1ab9203a56a25bc2273827
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 6034202649e6d9bce75f0069316b79b55e533490
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747021"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74171848"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Uso de Azure Portal para realizar la copia de seguridad de varias máquinas virtuales
 
@@ -37,7 +32,7 @@ El almacén de Recovery Services contiene los datos de la copia de seguridad y l
 
 1. En el menú izquierdo, seleccione **Todos los servicios** y, en la lista de servicios, escriba *Recovery Services*. A medida que escribe, se filtra la lista de recursos. Cuando vea la opción Almacenes de Recovery Services en la lista, selecciónela para abrir el menú Almacenes de Recovery Services.
 
-    ![Abrir el menú Almacén de Recovery Services](./media/tutorial-backup-vm-at-scale/full-browser-open-rs-vault.png) <br/>
+    ![Abrir el menú Almacén de Recovery Services](./media/tutorial-backup-vm-at-scale/full-browser-open-rs-vault.png)
 
 2. En el menú **Almacenes de Recovery Services**, haga clic en **Agregar** para abrir el menú Almacén de Recovery Services.
 

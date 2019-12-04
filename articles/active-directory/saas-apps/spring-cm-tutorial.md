@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/08/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e1d1973dd51068e6f3e0746ee988a51f375899f
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 9bd9ea5565ea64415c00a458236456bed04b6c38
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67588020"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233382"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-springcm"></a>Tutorial: Integración de Azure Active Directory con SpringCM
 
@@ -131,7 +131,7 @@ Para configurar el inicio de sesión único de Azure AD con SpringCM, siga estos
 
 1. En el menú de la parte superior, haga clic en**IR A**, haga clic en **Preferencias** y, luego, en la sección **Preferencias de cuenta**, haga clic en**SSO de SAML**.
    
-    ![SSO DE SAML](./media/spring-cm-tutorial/ic797051.png "SSO DE SAML")
+    ![SSO de SAML](./media/spring-cm-tutorial/ic797051.png "SSO de SAML")
 
 1. En la sección de configuración del proveedor de identidades, realice los pasos siguientes:
    
@@ -210,7 +210,7 @@ Para permitir que los usuarios de Azure Active Directory inicien sesión en Spri
 
 1. Haga clic en **GOTO** y, luego, en **ADDRESS BOOK** (LIBRETA DE DIRECCIONES).
    
-    ![Creación de usuarios](./media/spring-cm-tutorial/ic797054.png "Creación de usuarios")
+    ![Crear usuario](./media/spring-cm-tutorial/ic797054.png "Crear usuario")
 
 1. Haga clic en **Create User**(Crear usuario).
 
@@ -225,7 +225,7 @@ Para permitir que los usuarios de Azure Active Directory inicien sesión en Spri
 1. Haga clic en **Save**(Guardar).
 
    > [!NOTE]
-   > Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de SpringCM ofrecida por SpringCM para aprovisionar cuentas de usuario de AAD.
+   > Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de SpringCM ofrecida por SpringCM para aprovisionar cuentas de usuario de Azure AD.
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único 
 

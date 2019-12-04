@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 76b7c9436b8d1d466a69df7e5427991df0a9c63e
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 277548c859370a700973d9f60556fe38e94548b0
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74125607"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280410"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -25,7 +25,7 @@ Antes de comenzar, compruebe lo siguiente:
 > [!div class="checklist"]
 >
 > * [Ha creado un recurso de Voz de Azure](../../../../get-started.md)
-> * [Ha creado una aplicación de LUIS y ha obtenido una clave de punto de conexión](../../../../quickstarts/create-luis.md)
+> * [Ha creado una aplicación de Language Understanding LUIS y ha obtenido una clave de punto de conexión](../../../../quickstarts/create-luis.md)
 > * [Ha configurado el entorno de desarrollo](../../../../quickstarts/setup-platform.md?tabs=windows)
 > * [Ha creado un proyecto de ejemplo vacío](../../../../quickstarts/create-project.md?tabs=windows)
 

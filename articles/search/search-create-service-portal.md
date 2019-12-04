@@ -1,19 +1,19 @@
 ---
 title: 'Inicio rápido: Creación de un servicio de búsqueda en el portal'
 titleSuffix: Azure Cognitive Search
-description: Aprovisione un recurso de Azure Cognitive Search en Azure Portal. Elija grupos de recursos, regiones, SKU o planes de tarifa.
+description: En este inicio rápido del portal, aprenderá a configurar un recurso de Azure Cognitive Search en Azure Portal. Elija grupos de recursos, regiones, SKU o planes de tarifa.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.openlocfilehash: 75a7cce55627a981d0d0b0f23a119fac6de920ef
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: ec794f66866f9773f8b7c0fc57b644d8a13d697a
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112117"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74534558"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Inicio rápido: Creación de un servicio Azure Cognitive Search en el portal
 
@@ -41,7 +41,7 @@ Como alternativa, [active las ventajas de suscriptor de MSDN](https://azure.micr
 
 ## <a name="choose-a-subscription"></a>Elija una suscripción
 
-El primer paso es establecer el identificador de suscripción y el grupo de recursos. Si tiene más de una suscripción, elija una que también tenga servicios de almacenamiento de datos o archivos. Azure Cognitive Search puede detectar automáticamente Azure Table y Blob Storage, SQL Database y Azure Cosmos DB para indexarlos mediante [*indexadores*](search-indexer-overview.md), pero solo para servicios de la misma suscripción.
+Si tiene más de una suscripción, elija una para el servicio de búsqueda.
 
 ## <a name="set-a-resource-group"></a>Configuración de un grupo de recursos
 

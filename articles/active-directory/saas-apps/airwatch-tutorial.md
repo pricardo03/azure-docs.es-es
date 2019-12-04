@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 07/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f0a684c6a38ba3a95438941f668b36b23d278df
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 772b37816b83c275bae927d825434dc3ca76a35c
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227743"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231987"
 ---
 # <a name="tutorial-integrate-airwatch-with-azure-active-directory"></a>Tutorial: Integración de AirWatch con Azure Active Directory
 
@@ -130,15 +130,15 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. Haga clic en la pestaña **Usuario**; en el cuadro de texto **DN base**, escriba el nombre de dominio y haga clic en **Guardar**.
 
-   ![Usuario](./media/airwatch-tutorial/ic791922.png "Usuario")
+   ![User](./media/airwatch-tutorial/ic791922.png "Usuario")
 
 1. Haga clic en la pestaña **Server** (Servidor).
 
-   ![Servidor](./media/airwatch-tutorial/ic791923.png "Servidor")
+   ![Servidor](./media/airwatch-tutorial/ic791923.png "Server")
 
 1. En la sección **LDAP**, realice los pasos siguientes:
 
-    ![Carga de](./media/airwatch-tutorial/ic791924.png "LDAP")   
+    ![Cargar](./media/airwatch-tutorial/ic791924.png "LDAP")   
 
     a. En **Directory Type** (Tipo de directorio), seleccione **None** (Ninguno).
 
@@ -164,7 +164,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. Haga clic de nuevo en la pestaña **User** (Usuario).
 
-    ![Usuario](./media/airwatch-tutorial/ic791926.png "Usuario")
+    ![User](./media/airwatch-tutorial/ic791926.png "Usuario")
 
 1. En la sección **Attribute** (Atributo), realice estos pasos:
 
@@ -239,7 +239,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en AirWatch, tienen 
    b. Haga clic en **Save**(Guardar).
 
 > [!NOTE]
-> Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de AirWatch ofrecida por AirWatch para aprovisionar cuentas de usuario de AAD.
+> Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de AirWatch ofrecida por AirWatch para aprovisionar cuentas de usuario de Azure AD.
 
 ### <a name="test-sso"></a>Prueba de SSO
 

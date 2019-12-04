@@ -1,14 +1,14 @@
 ---
 title: 'Ejemplo: Uso de una subred aprobada para las NIC de las máquinas virtuales'
-description: Esta definición de directiva de ejemplo requiere que las interfaces de red usen una subred aprobada.
+description: Esta definición de directiva de ejemplo requiere que las interfaces de red usen una subred aprobada definida en un parámetro.
 ms.date: 01/23/2019
 ms.topic: sample
-ms.openlocfilehash: 912dbae5fe22e68604502055fe3c5b369e26e5c3
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: c78b14b49efe663d5693c64d8fd9ac38b6aa2a62
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74069755"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463131"
 ---
 # <a name="sample---use-approved-subnet-for-vm-network-interfaces"></a>Ejemplo: Usar una subred aprobada para las interfaces de red de máquinas virtuales
 

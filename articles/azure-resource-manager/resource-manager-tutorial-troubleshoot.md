@@ -1,24 +1,16 @@
 ---
-title: Solución de problemas en las implementaciones de Resource Manager | Microsoft Docs
+title: Solución de problemas de implementaciones
 description: Aprenda a supervisar y solucionar los problemas que puedan aparecer al implementar plantillas de Azure Resource Manager. Muestra registros de actividad y el historial de implementación.
-services: azure-resource-manager
-documentationcenter: ''
 author: mumian
-manager: dougeby
-editor: tysonn
-ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 01/15/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 4ad32ed83d731a26b6bb72fca230d00d5465c45a
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 32f3f55df2b87b35672d811c63a21b956a8a4b52
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390204"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325359"
 ---
 # <a name="tutorial-troubleshoot-resource-manager-template-deployments"></a>Tutorial: Solución de problemas en las implementaciones de plantillas de Resource Manager
 
@@ -26,7 +18,7 @@ Aprenda a solucionar errores en las implementaciones de plantillas de Resource M
 
 Hay dos tipos de errores relacionados con la implementación de plantillas:
 
-- Los **errores de validación** que provienen de escenarios que se pueden determinar antes de la implementación. incluyen los errores de sintaxis en la plantilla o tratar de implementar los recursos que superarían las cuotas de suscripción. 
+- Los **errores de validación** que provienen de escenarios que se pueden determinar antes de la implementación. incluyen los errores de sintaxis en la plantilla o tratar de implementar los recursos que superarían las cuotas de suscripción.
 - Los **errores de implementación** que provienen de condiciones que se producen durante el proceso de implementación. Incluyen intentar acceder a un recurso que se está implementando en paralelo.
 
 Los dos tipos de errores devuelven un código de error que utiliza para solucionar problemas de implementación. Ambos aparecen en el registro de actividad. Sin embargo, los errores de validación no aparecen en el historial de implementación porque la implementación nunca se inicia.
@@ -47,7 +39,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 Para completar este artículo, necesitará lo siguiente:
 
-- [Visual Studio Code](https://code.visualstudio.com/) con la [extensión Resource Manager Tools](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
+* Visual Studio Code con la extensión Resource Manager Tools. Consulte [Uso de Visual Studio Code para crear plantillas de Azure Resource Manager](./resource-manager-tools-vs-code.md).
 
 ## <a name="create-a-problematic-template"></a>Creación de una plantilla problemática
 

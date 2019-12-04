@@ -1,23 +1,14 @@
 ---
 title: Clonación de un cuaderno de Jupyter Notebook desde GitHub con Azure Notebooks
 description: Clone rápidamente un cuaderno de Jupyter Notebook desde un repositorio de GitHub y ejecútelo en su cuenta de Azure Notebooks.
-services: app-service
-documentationcenter: ''
-author: kraigb
-manager: barbkess
-ms.assetid: d7122b78-6daa-4bea-883b-ff832cfecef3
-ms.service: azure-notebooks
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 12/04/2018
-ms.author: kraigb
-ms.openlocfilehash: ed239c470a49fc045bd436668f83dff32eac3a66
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 500bd3f85409bb2f5e7b73be0478694695cc9c00
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71970135"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277519"
 ---
 # <a name="quickstart-clone-a-notebook"></a>Inicio rápido: Clonación de un cuaderno
 
@@ -51,7 +42,7 @@ La clonación crea una copia de un cuaderno de GitHub en la cuenta de Azure Note
 
 1. Una vez finalizada la clonación, Azure Notebooks le lleva al nuevo proyecto, donde podrá ver las copias de todos los archivos.
 
-    [![](media/quickstarts/completed-clone.png "Vista de un clon completado")](media/quickstarts/completed-clone.png#lightbox)
+    [![](media/quickstarts/completed-clone.png "View of a completed clone")](media/quickstarts/completed-clone.png#lightbox)
 
 ## <a name="share-a-notebook"></a>Uso compartido de un cuaderno
 

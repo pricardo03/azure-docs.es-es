@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 4f8663d59c263b6fa24e23e286f8eb4e75b888da
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 96966e4b9db5af40eee233d746d5790bbb769455
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73159434"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227492"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mcm"></a>Tutorial: Integración de Azure Active Directory con MCM
 
@@ -186,7 +186,7 @@ En esta sección se habilita a Britta Simon para que use el inicio de sesión ú
 En esta sección, creará un usuario llamado Britta Simon en MCM. Colabore con el  [equipo de soporte técnico de MCM](https://mcmtechnology.com/support/) para agregar los usuarios en esta plataforma. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 >[!NOTE]
->Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de MCM que ofrezca esta plataforma para aprovisionar cuentas de usuario de AAD.
+>Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de MCM que proporcione MCM para aprovisionar cuentas de usuario de Azure AD.
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único 
 

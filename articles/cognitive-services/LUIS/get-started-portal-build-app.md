@@ -10,18 +10,18 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 11/04/2019
 ms.author: diberry
-ms.openlocfilehash: 087b3a61902c533648b5d6e1b4b763f88ee5d794
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: cbfb0ddb0ee901545443fc127f80a1837c7bde9b
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73669680"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278580"
 ---
 # <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>Inicio rápido: Creación de una aplicación en el portal de LUIS
 
 [!INCLUDE [Uses preview portal](./includes/uses-portal-preview.md)]
 
-En este inicio rápido, compilará una aplicación en el [portal de LUIS](https://www.luis.ai). En primer lugar, cree las partes básicas de una aplicación, las **intenciones** y **entidades**. Después, pruebe la aplicación proporcionando una expresión de usuario de ejemplo en el panel de prueba interactiva para obtener la intención de predicción.
+En este inicio rápido, compilará una nueva aplicación en el portal de LUIS. En primer lugar, cree las partes básicas de una aplicación, las **intenciones** y **entidades**. Después, pruebe la aplicación proporcionando una expresión de usuario de ejemplo en el panel de prueba interactiva para obtener la intención de predicción.
 
 La creación de una aplicación es gratuita y no requiere una suscripción de Azure. Cuando esté listo para implementar la aplicación, consulte el [inicio rápido para implementar una aplicación](get-started-portal-deploy-app.md). Se muestra cómo crear un recurso de Azure Cognitive Services y cómo asignarlo a la aplicación.
 
@@ -35,9 +35,9 @@ La creación de una aplicación es gratuita y no requiere una suscripción de Az
 
 1. En la ventana emergente, configure la aplicación con los siguientes valores y, a continuación, seleccione **Listo**.
 
-   |Nombre del valor| Valor | Propósito|
+   |Nombre del valor| Value | Propósito|
    |--|--|--|
-   |NOMBRE|`myEnglishApp`|Nombre único de la aplicación de LUIS<br>requerido|
+   |Nombre|`myEnglishApp`|Nombre único de la aplicación de LUIS<br>requerido|
    |Referencia cultural|**Inglés**|Idioma de las expresiones de los usuarios, **en-us**<br>requerido|
    |Description (Descripción) (opcional)|`App made with LUIS Portal`|Descripción de la aplicación<br>opcional|
    |Prediction resource (Recurso de predicción) (opcional) |-  |No seleccione ninguno. LUIS proporciona una clave de inicio que puede usar de forma gratuita para la creación y que incluye 1000 solicitudes al punto de conexión de predicción. |

@@ -1,20 +1,15 @@
 ---
-title: 'Tutorial: Implementación de una aplicación de contenedor en Azure Container Instances'
+title: 'Tutorial: Implementación de una aplicación de contenedor en una instancia de contenedor'
 description: 'Tutorial de Azure Container Instances, parte 3 de 3: implementación de una aplicación de contenedor en Azure Container Instances'
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: tutorial
 ms.date: 03/21/2018
-ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: f2890948dd15fa972104e4ef11001e83a2abd4f8
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.openlocfilehash: d3cbf16feea299e320cf7e24092d00e93cb7cf5b
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73846596"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533361"
 ---
 # <a name="tutorial-deploy-a-container-application-to-azure-container-instances"></a>Tutorial: Implementación de una aplicación de contenedor en Azure Container Instances
 

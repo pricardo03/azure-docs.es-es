@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Análisis de eventos de la configuración de Azure Digital Twins'
+title: 'Tutorial: Análisis de eventos de Time Series Insights con Azure Digital Twins | Microsoft Docs'
 description: Siga los pasos de este tutorial para aprender a visualizar y analizar eventos de los espacios de Azure Digital Twins con Azure Time Series Insights.
 services: digital-twins
 ms.author: alinast
@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 11/12/2019
-ms.openlocfilehash: 3df0fa448e320cba6dd3aaba1bb1be09c1a8b49b
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: c52bf372f21d9c2ef3d1a148aadd899435ad4181
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74107685"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383055"
 ---
 # <a name="tutorial-visualize-and-analyze-events-from-azure-digital-twins-by-using-time-series-insights"></a>Tutorial: Visualización y análisis de eventos de Azure Digital Twins mediante Time Series Insights
 
@@ -54,6 +54,8 @@ Puede usar el servicio [Event Hubs](../event-hubs/event-hubs-about.md) para crea
 
 1. Busque **Event Hubs** y selecciónelo. Seleccione **Crear**.
 
+    [![Creación de un espacio de nombres de Event Hubs](./media/tutorial-facilities-analyze/create-event-hubs.png)](./media/tutorial-facilities-analyze/create-event-hubs.png#lightbox)
+
 1. Escriba un **nombre** para el espacio de nombres de Event Hubs. Elija **Estándar** en **Plan de tarifa**, la **suscripción**, el **grupo de recursos** que usó para la instancia de Digital Twins y la **ubicación**. Seleccione **Crear**.
 
 1. En la implementación del espacio de nombres de Event Hubs, seleccione el panel **Introducción** y después seleccione **Ir al recurso**.
@@ -77,7 +79,10 @@ Puede usar el servicio [Event Hubs](../event-hubs/event-hubs-about.md) para crea
 
     [![Cadenas de conexión de un centro de eventos](./media/tutorial-facilities-analyze/event-hub-connection-strings.png)](./media/tutorial-facilities-analyze/event-hub-connection-strings.png#lightbox)
 
-1. Abra la directiva ManageSend que ha creado y copie los valores de **Cadena de conexión: clave principal** y **Cadena de conexión: clave secundaria** en un archivo temporal. Necesitará estos valores para crear un punto de conexión para el centro de eventos en la sección siguiente.
+    > [!TIP]
+    > Compruebe que va a crear una directiva de SAS para la instancia de Event Hub en lugar de su espacio de nombres.
+
+1. Abra la directiva **ManageSend** que ha creado y copie los valores de **Cadena de conexión: clave principal** y **Cadena de conexión: clave secundaria** en un archivo temporal. Necesitará estos valores para crear un punto de conexión para el centro de eventos en la sección siguiente.
 
 ### <a name="create-an-endpoint-for-the-event-hub"></a>Creación de un punto de conexión para el centro de eventos
 
@@ -105,13 +110,13 @@ Puede usar el servicio [Event Hubs](../event-hubs/event-hubs-about.md) para crea
 
 1. Reemplace los marcadores de posición `Primary_connection_string_for_your_event_hub` por el valor de **Cadena de conexión: clave principal** del centro de eventos. Asegúrese de que el formato de esta cadena de conexión sea como este:
 
-   ```plaintext
+   ```ConnectionString
    Endpoint=sb://nameOfYourEventHubNamespace.servicebus.windows.net/;SharedAccessKeyName=ManageSend;SharedAccessKey=yourShareAccessKey1GUID;EntityPath=nameOfYourEventHub
    ```
 
 1. Reemplace los marcadores de posición `Secondary_connection_string_for_your_event_hub` por el valor de **Cadena de conexión: clave secundaria** del centro de eventos. Asegúrese de que el formato de esta cadena de conexión sea como este: 
 
-   ```plaintext
+   ```ConnectionString
    Endpoint=sb://nameOfYourEventHubNamespace.servicebus.windows.net/;SharedAccessKeyName=ManageSend;SharedAccessKey=yourShareAccessKey2GUID;EntityPath=nameOfYourEventHub
    ```
 

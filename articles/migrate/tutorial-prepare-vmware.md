@@ -1,24 +1,24 @@
 ---
-title: Preparación de máquinas virtuales de VMware para su evaluación y migración a Azure con Azure Migrate | Microsoft Docs
-description: Describe cómo prepararse para la evaluación y migración de máquinas virtuales de VMware locales a Azure mediante Azure Migrate.
+title: Preparación de máquinas virtuales de VMware para la evaluación y migración con Azure Migrate
+description: Aprenda a prepararse para la evaluación y migración de máquinas virtuales de VMware con Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 10/23/2019
+ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 4cc04e9ab0acdc9d0cdff77ed1de7bea1c1362d4
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: cc1eb4c4fce1398365145b2f3d63db984635d667
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498483"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196230"
 ---
 # <a name="prepare-vmware-vms-for-assessment-and-migration-to-azure"></a>Preparación de máquinas virtuales de VMware para la evaluación y migración a Azure
 
 Este artículo ayuda a preparar la valoración y migración de máquinas virtuales de VMware locales a Azure mediante [Azure Migrate](migrate-services-overview.md).
 
-[Azure Migrate](migrate-overview.md) proporciona un centro de herramientas que le ayuda a detecta las aplicaciones, la infraestructura y las cargas de trabajo, a evaluarlas y a migrarlas a Microsoft Azure. Dicho centro incluye herramientas de Azure Migrate y ofertas de fabricantes de software independientes (ISV) de terceros. 
+[Azure Migrate](migrate-overview.md) proporciona un centro de herramientas que le ayuda a detecta las aplicaciones, la infraestructura y las cargas de trabajo, a evaluarlas y a migrarlas a Microsoft Azure. Dicho centro incluye herramientas de Azure Migrate y ofertas de fabricantes de software independientes (ISV) de terceros.
 
 
 Este tutorial es el primero de una serie que muestra cómo evaluar y migrar máquinas virtuales de VMware. En este tutorial, aprenderá a:
@@ -38,9 +38,9 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 Necesita estos permisos.
 
-**Task** | **Permisos** 
---- | --- | ---
-**Crear un proyecto de Azure Migrate** | La cuenta de Azure necesita permisos para crear un proyecto. 
+**Task** | **Permisos**
+--- | ---
+**Crear un proyecto de Azure Migrate** | La cuenta de Azure necesita permisos para crear un proyecto.
 **Registrar el dispositivo de Azure Migrate** | Azure Migrate usa un dispositivo de Azure Migrate ligero para evaluar las máquinas virtuales de VMware con Azure Migrate Server Assessment y para ejecutar [migración sin agente](server-migrate-overview.md) de máquinas virtuales de VMware con la migración de Azure Migrate Server. Este dispositivo realiza la detección de máquinas virtuales y envía sus metadatos y sus datos de rendimiento a Azure Migrate.<br/><br/>Durante el registro, Azure Migrate crea dos aplicaciones de Azure Active Directory (Azure AD) que identifican de forma única al dispositivo y necesita permisos para crearlas.<br/> - La primera aplicación se comunica con los puntos de conexión de servicio de Azure Migrate.<br/> - La segunda aplicación accede a un almacén de Azure Key Vault creado durante el registro para almacenar la información de la aplicación de Azure AD y los valores de configuración del dispositivo.
 **Crear un almacén de claves** | Cuando se migran máquinas virtuales de VMware con Azure Migrate Server Migration, Azure Migrate crea un almacén de claves para administrar las claves de acceso a la cuenta de almacenamiento de replicación de la suscripción. Para crear el almacén, necesita permisos de asignación de roles en el grupo de recursos en el que reside el proyecto de Azure Migrate.
 
@@ -62,7 +62,7 @@ Para registrar el dispositivo, asigne los permisos para Azure Migrate de modo qu
 
 > [!NOTE]
 > - Las aplicaciones no tienen otros permisos de acceso en la suscripción distintos de los descritos anteriormente.
-> - Solo necesita estos permisos al registrar un nuevo dispositivo. Puede quitar los permisos una vez configurado el dispositivo. 
+> - Solo necesita estos permisos al registrar un nuevo dispositivo. Puede quitar los permisos una vez configurado el dispositivo.
 
 
 #### <a name="grant-account-permissions"></a>Concesión de permisos de cuenta
@@ -76,7 +76,7 @@ El administrador de inquilinos o administrador global puede conceder permisos co
 
 
 
-#### <a name="assign-application-developer-role"></a>Asignación del rol de desarrollador de aplicaciones 
+#### <a name="assign-application-developer-role"></a>Asignación del rol de desarrollador de aplicaciones
 
 El administrador de inquilinos o administrador global puede asignar el rol de desarrollador de aplicaciones a una cuenta. [Más información](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
 
@@ -90,7 +90,7 @@ Para habilitar Azure Migrate para crear un almacén de claves, asigne los permis
     - Para ejecutar Server Assessment, son suficientes los permisos de **colaborador**.
     - Para ejecutar la migración de un servidor sin agente, debe disponer de permisos de **propietario** (o **colaborador** y **administrador de acceso de usuario**).
 
-3. Si no tiene los permisos necesarios, pídaselos al propietario del grupo de recursos. 
+3. Si no tiene los permisos necesarios, pídaselos al propietario del grupo de recursos.
 
 
 
@@ -99,7 +99,7 @@ Para habilitar Azure Migrate para crear un almacén de claves, asigne los permis
 Para preparar la valoración de máquinas virtuales de VMware, tiene que:
 
 - **Comprobar la configuración de VMware**. Asegúrese de que las máquinas virtuales y vCenter Server que desea migrar cumplan los requisitos.
-- **Configurar una cuenta de valoración**. Azure Migrate tiene que acceder a vCenter Server para detectar máquinas virtuales para la valoración. Necesita una cuenta de solo lectura para el acceso de Azure Migrate.
+- **Configurar una cuenta de valoración**. Azure Migrate tiene que acceder a vCenter Server para detectar máquinas virtuales para la valoración.
 - **Comprobar los requisitos de los dispositivos**. Compruebe los requisitos de implementación para el dispositivo de Azure Migrate utilizado para la valoración.
 
 ### <a name="verify-vmware-settings"></a>Comprobación de la configuración de VMware
@@ -110,7 +110,13 @@ Para preparar la valoración de máquinas virtuales de VMware, tiene que:
 
 ### <a name="set-up-an-account-for-assessment"></a>Configuración de una cuenta para la evaluación
 
-Azure Migrate necesita acceder a vCenter Server para detectar máquinas virtuales para su evaluación y migración sin agente. Con fines solo de valoración, configure una cuenta de solo lectura para vCenter Server.
+Azure Migrate necesita acceder a vCenter Server para detectar máquinas virtuales para su evaluación y migración sin agente.
+
+- Si tiene previsto detectar aplicaciones o visualizar dependencias sin agente, cree una cuenta de vCenter Server con acceso de solo lectura junto con los privilegios habilitados para **Virtual machines** > **Guest Operations** (Máquinas virtuales > Operaciones de invitado).
+
+  ![Privilegios de cuenta de vCenter Server](./media/tutorial-prepare-vmware/vcenter-server-permissions.png)
+
+- Si no tiene previsto realizar la detección de aplicaciones y la visualización de dependencias sin agente, configure una cuenta de solo lectura para vCenter Server.
 
 ### <a name="verify-appliance-settings-for-assessment"></a>Comprobación de la configuración del dispositivo para su evaluación
 
@@ -120,7 +126,7 @@ Compruebe los requisitos del dispositivo antes de implementarlo.
 2. Si usa un proxy de firewall basado en URL, [revise](migrate-support-matrix-vmware.md#assessment-url-access-requirements) las direcciones URL de Azure a las que el dispositivo necesitará tener acceso. Asegúrese de que el proxy resuelve todos los registros CNAME recibidos al buscar las direcciones URL.
 3. Revise los [datos de rendimiento](migrate-appliance.md#collected-performance-data-vmware) y los [metadatos](migrate-appliance.md#collected-metadata-vmware) que el dispositivo recopila durante la detección y la valoración.
 4. [Tenga en cuenta](migrate-support-matrix-vmware.md#assessment-port-requirements) los puertos a los que accede el dispositivo.
-5. En vCenter Server, asegúrese de que la cuenta tiene permisos para crear una máquina virtual mediante un archivo OVA. Puede implementar el dispositivo de Azure Migrate como una máquina virtual de VMware mediante un archivo OVA. 
+5. En vCenter Server, asegúrese de que la cuenta tiene permisos para crear una máquina virtual mediante un archivo OVA. Puede implementar el dispositivo de Azure Migrate como una máquina virtual de VMware mediante un archivo OVA.
 
 Si va a usar un proxy de firewall basado en direcciones URL, permita el acceso a las [URL de Azure](migrate-support-matrix-vmware.md#assessment-url-access-requirements) necesarias.
 
@@ -142,7 +148,7 @@ Revise los requisitos para la migración sin agente de máquinas virtuales de VM
 
 Revise los requisitos para la [migración basada en agente](server-migrate-overview.md) de máquinas virtuales de VMware.
 
-1. [Revisar](migrate-support-matrix-vmware.md#agent-based-migration-vmware-server-requirements) los requisitos del servidor de VMware. 
+1. [Revisar](migrate-support-matrix-vmware.md#agent-based-migration-vmware-server-requirements) los requisitos del servidor de VMware.
 2. Configure una cuenta con los [permisos necesarios](migrate-support-matrix-vmware.md#agent-based-migration-vcenter-server-permissions). Así, Azure Migrate puede acceder a vCenter Server para la migración sin agente mediante Azure Migrate Server Migration.
 3. [Revise](migrate-support-matrix-vmware.md#agent-based-migration-vmware-vm-requirements) los requisitos de las máquinas virtuales de VMware que desea migrar a Azure mediante la migración basada en agente, incluida la instalación de Mobility Service en cada máquina virtual que desee migrar.
 4. Tenga en cuenta el [acceso a direcciones URL](migrate-support-matrix-vmware.md#agent-based-migration-url-access-requirements).
@@ -151,14 +157,13 @@ Revise los requisitos para la [migración basada en agente](server-migrate-overv
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial, hizo lo siguiente:
- 
-> [!div class="checklist"] 
+
+> [!div class="checklist"]
 > * Configuró permisos de Azure.
 > * Preparó VMware para la migración y evaluación.
 
 
 Continúe con el segundo tutorial para configurar un proyecto de Azure Migrate y evaluar las máquinas virtuales de VMware para la migración a Azure.
 
-> [!div class="nextstepaction"] 
-> [Evaluación de máquinas virtuales de VMware](./tutorial-assess-vmware.md) 
-
+> [!div class="nextstepaction"]
+> [Evaluación de máquinas virtuales de VMware](./tutorial-assess-vmware.md)

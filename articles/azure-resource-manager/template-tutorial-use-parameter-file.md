@@ -1,19 +1,16 @@
 ---
-title: 'Tutorial: Uso de un archivo de parámetros para ayudar a implementar una plantilla de Azure Resource Manager'
+title: 'Tutorial: Uso de un archivo de parámetros para implementar la plantilla'
 description: Use archivos de parámetros que contengan los valores que se usarán para implementar la plantilla de Azure Resource Manager.
-services: azure-resource-manager
 author: mumian
-manager: carmonmills
-ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: fa29ea3d2f6edbbb016ce5c0c74415a5e765e85a
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 1b01e9ece2d194d76c7184a676f17d626c41a011
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177548"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74405984"
 ---
 # <a name="tutorial-use-parameter-files-to-deploy-your-resource-manager-template"></a>Tutorial: Uso de archivos de parámetros para implementar la plantilla de Resource Manager
 
@@ -25,7 +22,7 @@ Aunque no es obligatorio, se recomienda realizar el [tutorial sobre etiquetas](t
 
 Debe tener Visual Studio Code con la extensión Herramientas de Resource Manager y Azure PowerShell o la CLI de Azure. Para más información, consulte las [herramientas de plantilla](template-tutorial-create-first-template.md#get-tools).
 
-## <a name="review-your-template"></a>Revisión de la plantilla
+## <a name="review-template"></a>Revisión de la plantilla
 
 La plantilla tiene muchos parámetros que puede proporcionar durante la implementación. Al final del tutorial anterior, la plantilla tenía el siguiente aspecto:
 
@@ -49,7 +46,7 @@ De nuevo, cree un nuevo archivo con el siguiente contenido. Guarde el archivo co
 
 Este archivo es el archivo de parámetros para el entorno de producción. Observe que usa Standard_GRS para la cuenta de almacenamiento, asigna un nombre a los recursos con el prefijo **contoso** y establece la etiqueta **Environment** en **Production**. En un entorno de producción real, también deseará usar una instancia de App Service con una SKU que no sea gratuita, pero seguiremos con esa SKU para este tutorial.
 
-## <a name="deploy-the-template"></a>Implementación de la plantilla
+## <a name="deploy-template"></a>Implementar plantilla
 
 Use la CLI de Azure o Azure PowerShell para implementar la plantilla.
 
@@ -119,7 +116,7 @@ az group deployment create \
 
 ---
 
-## <a name="verify-the-deployment"></a>Comprobar la implementación
+## <a name="verify-deployment"></a>Comprobación de la implementación
 
 Para comprobar la implementación, explore el grupo de recursos desde Azure Portal.
 

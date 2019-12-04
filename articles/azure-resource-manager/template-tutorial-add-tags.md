@@ -1,19 +1,16 @@
 ---
-title: 'Tutorial: Adición de etiquetas a recursos en una plantilla de Azure Resource Manager'
+title: 'Tutorial: Adición de etiquetas a los recursos de la plantilla'
 description: Agregue etiquetas a los recursos que implemente en la plantilla de Azure Resource Manager. Las etiquetas permiten organizar los recursos de manera lógica.
-services: azure-resource-manager
 author: mumian
-manager: carmonmills
-ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 8b6ff50f7254a51bcdf37ecb0afd8f0041a2c5da
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 078d85b3120baf5b8bea9c305fb1f97763f8df59
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177566"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406065"
 ---
 # <a name="tutorial-add-tags-in-your-resource-manager-template"></a>Tutorial: Adición de etiquetas a la plantilla de Resource Manager
 
@@ -25,7 +22,7 @@ Aunque no es obligatorio, se recomienda realizar el [tutorial sobre las plantill
 
 Debe tener Visual Studio Code con la extensión Herramientas de Resource Manager y Azure PowerShell o la CLI de Azure. Para más información, consulte las [herramientas de plantilla](template-tutorial-create-first-template.md#get-tools).
 
-## <a name="review-your-template"></a>Revisión de la plantilla
+## <a name="review-template"></a>Revisión de la plantilla
 
 La plantilla anterior implementó una cuenta de almacenamiento, un plan de App Service y una aplicación web.
 
@@ -41,7 +38,7 @@ En el ejemplo siguiente se resaltan los cambios en la plantilla. Copie el archiv
 
 [!code-json[](~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.json?range=1-118&highlight=46-52,64,78,100)]
 
-## <a name="deploy-the-template"></a>Implementación de la plantilla
+## <a name="deploy-template"></a>Implementar plantilla
 
 Es momento de implementar la plantilla y examinar los resultados.
 
@@ -71,7 +68,7 @@ az group deployment create \
 
 ---
 
-## <a name="verify-the-deployment"></a>Comprobar la implementación
+## <a name="verify-deployment"></a>Comprobación de la implementación
 
 Para comprobar la implementación, explore el grupo de recursos desde Azure Portal.
 

@@ -1,19 +1,19 @@
 ---
-title: Migración de máquinas virtuales de Hyper-V locales a Azure con Azure Migrate Server Migration | Microsoft Docs
-description: En este artículo se describe cómo migrar máquinas virtuales de Hyper-V a Azure con Azure Migrate Server Migration
+title: Migración de máquinas virtuales de Hyper-V a Azure con la migración de servidores de Azure Migrate
+description: Aprenda a migrar máquinas virtuales de Hyper-V locales a Azure con la migración de servidores de Azure Migrate Server
 author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 09/04/2019
+ms.date: 11/18/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 755bb6d019418cf9dae22ebf7ee6a3c94af3c750
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: be5d519269739f09b4a4264292f578b1d7051d26
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309443"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196306"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>Migración de máquinas virtuales de Hyper-V a Azure 
 
@@ -27,7 +27,7 @@ Este tutorial es el tercero de una serie en la que se muestra cómo evaluar y mi
 > [!div class="checklist"]
 > * Preparar Azure y el entorno de Hyper-V local
 > * Configurar el entorno de origen e implementar un dispositivo de replicación.
-> * Configurar el entorno de destino.
+> * Configure el entorno de destino.
 > * Habilite la replicación.
 > * Ejecutar una migración de prueba para asegurarse de que todo funciona de la forma esperada.
 > * Ejecutar una migración completa a Azure.
@@ -39,7 +39,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 Antes de comenzar este tutorial, debe:
 
-1. [Revisar](migrate-architecture.md)la arquitectura de migración de Hyper-V.
+1. [Revisar](hyper-v-migration-architecture.md)la arquitectura de migración de Hyper-V.
 2. [Complete el primer tutorial](tutorial-prepare-hyper-v.md) de esta serie para configurar Azure e Hyper-V para la migración. En el primer tutorial:
     - [Preparará Azure](tutorial-prepare-hyper-v.md#prepare-azure) para la migración.
     - [Preparará el entorno local](tutorial-prepare-hyper-v.md#prepare-for-hyper-v-migration) para la migración.

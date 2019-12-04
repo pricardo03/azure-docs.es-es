@@ -1,18 +1,18 @@
 ---
-title: Creación de una consulta en Azure Portal y uso compartido de la misma
-description: En este tutorial, aprenderá a crear una consulta de Resource Graph y a compartirla con otras personas en Azure Portal.
-ms.date: 10/23/2019
+title: 'Tutorial: Administración de consultas en Azure Portal'
+description: En este tutorial, creará una consulta de Resource Graph y la compartirá con otras personas en Azure Portal.
+ms.date: 11/21/2019
 ms.topic: tutorial
-ms.openlocfilehash: 65b96da3bd9064f34d75d5e87f1fcf55336d9893
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 00cb3f95112804c81beb6bce6fc35891e6197e60
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73958571"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74303956"
 ---
 # <a name="tutorial-create-and-share-an-azure-resource-graph-query-in-the-azure-portal"></a>Tutorial: Creación y uso compartido de una consulta de Azure Resource Graph en Azure Portal
 
-Azure Resource Graph Explorer le permite guardar consultas de Resource Graph directamente en Azure Portal. Existen dos tipos de consultas: _Privadas_ y _compartidas_. Una consulta privada se guarda en la configuración de Azure Portal. Mientras que una consulta compartida es un recurso de Resource Manager que se puede administrar con controles de acceso basado en roles (RBAC) y se pueden proteger con bloqueos de recursos.
+Azure Resource Graph Explorer le permite guardar consultas de Resource Graph directamente en Azure Portal. Existen dos tipos de consultas: _Privadas_ y _compartidas_. Una consulta privada se guarda en la configuración de Azure Portal. Mientras que una consulta compartida es un recurso de Resource Manager que se puede administrar con controles de acceso basado en roles (RBAC) y se pueden proteger con bloqueos de recursos. Ambos tipos de consultas se cifran en reposo.
 
 Al guardar las consultas en Azure Portal, ahorrará el tiempo que, de otro modo, habría pasado buscando sus consultas favoritas o usadas con frecuencia. Al compartir consultas, ayudará al equipo a lograr los objetivos de coherencia y eficacia a través de la repetición.
 
@@ -54,7 +54,7 @@ Puede visualizar y tener acceso a las consultas privadas solo desde la cuenta qu
 1. Seleccione **Abrir una consulta**. Asegúrese de que el tipo es **Consulta privada**. El nombre guardado **Count VMs by OS** aparece ahora en la lista de **Nombre de consulta**. Al seleccionar el vínculo de título de la consulta guardada, se carga una nueva pestaña con el nombre de esa consulta.
 
    > [!NOTE] 
-   >Cuando una consulta guardada está abierta y la pestaña muestra su nombre, puede seleccionar el botón **Guardar** para actualizarla con los cambios que se hayan realizado. Para crear una nueva consulta guardada a partir de esta consulta abierta, seleccione **Guardar como** y continúe como si estuviera guardando una consulta totalmente nueva.
+   > Cuando una consulta guardada está abierta y la pestaña muestra su nombre, puede seleccionar el botón **Guardar** para actualizarla con los cambios que se hayan realizado. Para crear una nueva consulta guardada a partir de esta consulta abierta, seleccione **Guardar como** y continúe como si estuviera guardando una consulta totalmente nueva.
 
 1. Para eliminar la consulta guardada, seleccione nuevamente **Abrir una consulta** y compruebe que el campo **Tipo** está establecido en **Consulta privada**. En la fila de la consulta de `Count VMs by OS` guardada, seleccione **Eliminar** (icono de papelera de reciclaje). En el cuadro de diálogo de confirmación, seleccione **Sí** para terminar de eliminar la consulta.
    A continuación, cierre el panel **Abrir una consulta**.
@@ -153,9 +153,7 @@ Cuando haya terminado este tutorial, elimine las consultas privadas y compartida
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Ejecute la primera consulta mediante [Azure Portal](../first-query-portal.md).
-- Obtenga más información sobre el [lenguaje de consulta](../concepts/query-language.md).
-- Obtenga más información sobre cómo [explorar recursos](../concepts/explore-resources.md).
-- Consulte ejemplos de [consultas de inicio](../samples/starter.md).
-- Consulte ejemplos de [consultas avanzadas](../samples/advanced.md).
-- Proporcione comentarios en [UserVoice](https://feedback.azure.com/forums/915958-azure-governance).
+En este tutorial, ha creado consultas privadas y compartidas. Para más información sobre el lenguaje de Resource Graph, vaya a la página de detalles del lenguaje de consulta.
+
+> [!div class="nextstepaction"]
+> [Obtenga más información sobre el lenguaje de consulta](../concepts/query-language.md)

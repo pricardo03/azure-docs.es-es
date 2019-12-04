@@ -1,27 +1,23 @@
 ---
-title: Preparación de la evaluación de servidores físicos con Azure Migrate Server Assessment
-description: Describe cómo prepararse para la evaluación y la migración de servidores virtuales a Azure mediante Azure Migrate Server Assessment.
+title: Preparación de servidores físicos para la evaluación y migración con Azure Migrate
+description: Aprenda a prepararse para la evaluación y migración de servidores físicos con Azure Migrate.
 author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 11/07/2019
+ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 176dfdabeee6299bba0eb17085be25ced3e97993
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 363549662a17a87513c8426347909142ee405cae
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091914"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196398"
 ---
 # <a name="prepare-for-assessment-and-migration-of-physical-servers-to-azure"></a>Preparación de la evaluación y migración de servidores físicos a Azure
 
 En este artículo se indica cómo prepararse para la evaluación de servidores físicos en el entorno local con [Azure Migrate](migrate-services-overview.md).
-
-
-> [!NOTE]
-> Si aún no ve algunas de estas características en el portal de Azure Migrate, espere. Aparecerán aproximadamente la semana siguiente.
 
 [Azure Migrate](migrate-overview.md) proporciona un centro de herramientas que le ayuda a detecta las aplicaciones, la infraestructura y las cargas de trabajo, a evaluarlas y a migrarlas a Microsoft Azure. Este centro incluye herramientas de Azure Migrate y ofertas de fabricantes de software independientes (ISV) de terceros. 
 
@@ -45,7 +41,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 Necesita configurar permisos para la implementación de Azure Migrate.
 
-- Permisos para crear un proyecto de Azure Migrate en la cuenta de Azure. 
+- Permisos para crear un proyecto de Azure Migrate en la cuenta de Azure.
 - Permisos en la cuenta de Azure para registrar el dispositivo de Azure Migrate. El dispositivo se usa para la detección y la migración de Hyper-V. Durante el registro del dispositivo, Azure Migrate crea dos aplicaciones Azure Active Directory (Azure AD) que identifican de forma única al dispositivo:
     - La primera aplicación se comunica con los puntos de conexión de servicio de Azure Migrate.
     - La segunda aplicación accede a un almacén de Azure Key Vault creado durante el registro para almacenar la información de la aplicación de Azure AD y los valores de configuración del dispositivo.
@@ -73,7 +69,7 @@ Puede asignar permisos para Azure Migrate para crear estas aplicaciones de Azure
 Merece la pena mencionar que:
 
 - Las aplicaciones no tienen otros permisos de acceso en la suscripción distintos de los descritos anteriormente.
-- Solo necesita estos permisos al registrar un nuevo dispositivo. Puede quitar los permisos una vez configurado el dispositivo. 
+- Solo necesita estos permisos al registrar un nuevo dispositivo. Puede quitar los permisos una vez configurado el dispositivo.
 
 
 #### <a name="grant-account-permissions"></a>Concesión de permisos de cuenta
@@ -88,7 +84,7 @@ El administrador de inquilinos o global puede conceder permisos como se indica:
 > [!NOTE]
 > Se trata de una configuración predeterminada que no es confidencial. [Más información](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-applications-are-added#who-has-permission-to-add-applications-to-my-azure-ad-instance).
 
-#### <a name="assign-application-developer-role"></a>Asignación del rol de desarrollador de aplicaciones 
+#### <a name="assign-application-developer-role"></a>Asignación del rol de desarrollador de aplicaciones
 
 El administrador de inquilinos o administrador global puede asignar el rol de desarrollador de aplicaciones a una cuenta. [Más información](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
 
@@ -124,12 +120,12 @@ Azure Migrate necesita permisos para detectar los servidores en el entorno local
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial, hizo lo siguiente:
- 
-> [!div class="checklist"] 
+
+> [!div class="checklist"]
 > * Configurar los permisos de la cuenta de Azure.
 > * Preparar los servidores físicos para la evaluación.
 
 Continúe con el siguiente tutorial para crear un proyecto de Azure Migrate y evaluar los servidores físicos para la migración a Azure
 
-> [!div class="nextstepaction"] 
-> [Evaluación de servidores físicos](./tutorial-assess-physical.md) 
+> [!div class="nextstepaction"]
+> [Evaluación de servidores físicos](./tutorial-assess-physical.md)

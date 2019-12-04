@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 07874988c97044ede59c18b8f85a425483679431
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7548d7d7b808472b3f5446fadfe800584f61b1df
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67089530"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233350"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sumologic"></a>Tutorial: Integración de Azure Active Directory con SumoLogic
 
@@ -140,19 +140,19 @@ Para configurar el inicio de sesión único de Azure AD con SumoLogic, siga esto
 
 1. Vaya a **Administrar \> Seguridad**.
 
-    ![Administración](./media/sumologic-tutorial/ic778556.png "Administración")
+    ![Administración](./media/sumologic-tutorial/ic778556.png "administración")
 
 1. Haga clic en **SAML**.
 
-    ![Configuración de seguridad global](./media/sumologic-tutorial/ic778557.png "configuración de seguridad global")
+    ![Configuración de seguridad global](./media/sumologic-tutorial/ic778557.png "Configuración de seguridad global")
 
 1. En la lista **Seleccionar una configuración o crear una nueva**, seleccione **Azure AD** y, después, haga clic en **Configurar**.
 
-    ![Configuración de SAML 2.0](./media/sumologic-tutorial/ic778558.png "Configuración de SAML 2.0")
+    ![Configurar SAML 2.0](./media/sumologic-tutorial/ic778558.png "Configurar SAML 2.0")
 
 1. En el cuadro de diálogo **Configurar SAML 2.0** , realice los pasos siguientes:
 
-    ![Configuración de SAML 2.0](./media/sumologic-tutorial/ic778559.png "Configuración de SAML 2.0")
+    ![Configurar SAML 2.0](./media/sumologic-tutorial/ic778559.png "Configurar SAML 2.0")
 
     a. En el cuadro de texto **Nombre de configuración**, escriba **Azure AD**.
 
@@ -239,7 +239,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en SumoLogic, deben a
 
 1. En el cuadro de diálogo **Nuevo usuario** , realice los pasos siguientes:
 
-    ![Nuevo usuario](./media/sumologic-tutorial/ic778563.png "nuevo usuario") 
+    ![New User](./media/sumologic-tutorial/ic778563.png "Nuevo usuario") (Usuario nuevo) 
 
     a. Escriba la información relacionada de la cuenta de Azure AD que quiere aprovisionar en los cuadros de texto **First Name** (Nombre), **Last Name** (Apellidos) y **Email** (Correo electrónico).
   
@@ -250,7 +250,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en SumoLogic, deben a
     d. Haga clic en **Save**(Guardar).
 
 > [!NOTE]
-> Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de SumoLogic ofrecida por SumoLogic para aprovisionar cuentas de usuario de AAD.
+> Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de SumoLogic ofrecida por SumoLogic para aprovisionar cuentas de usuario de Azure AD.
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 

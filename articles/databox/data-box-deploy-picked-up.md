@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/20/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 28666aaac4ec221acca00d937d54a753a4e6a055
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 1c375370ec6bae2775ad758688825b92cbbbca50
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71172679"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74407039"
 ---
 ::: zone target="docs"
 
@@ -123,28 +123,7 @@ Los centros de datos de Azure en Australia tienen una notificación de seguridad
 2. Asegúrese de que la copia de datos se ha completado en el dispositivo y que la ejecución **Preparación para el envío** se ha realizado correctamente.
 3. Apague el dispositivo y quite los cables.
 4. Enrolle y coloque de forma segura el cable de alimentación que se suministró junto con el dispositivo en la parte posterior del mismo.
-5. Envíe un correo electrónico a Quantium Solutions para solicitar una recogida. Consulte el número de referencia de servicio especificado en Azure Portal. Use el siguiente asunto en el correo electrónico: *Request for reverse shipping label with TAU code* (Solicitud de etiqueta de envío inverso con código TAU). Asegúrese de incluir los siguientes detalles en el mensaje de correo electrónico: 
-
-    ```
-    To: Azure@quantiumsolutions.com
-    Subject: Pickup request for Azure｜Reference number：XXX XXX XXX
-    Body: 
-    - Company name：
-    - Address:
-    - Contact name:
-    - Contact number:
-    - Requested pickup date: mm/dd
-    ```
-6. Quantium Solutions Australia le enviará por correo electrónico una etiqueta de devolución.
-7. Imprima la etiqueta de devolución y péguela en la caja de envío.
-8. Entregue el paquete al mensajero.
-
-Si es necesario, puede escribir al soporte técnico de Quantium Solutions a Azure@quantiumsolutions.com o puede ponerse en contacto por teléfono.
-
-Para consultas telefónicas relacionadas con su pedido:
-
-- Primero, envíe un correo electrónico para la recogida.
-- Proporcione el nombre del pedido por teléfono.
+5. Utilice el vínculo [DHL Link](https://mydhl.express.dhl/au/en/schedule-pickup.html#/schedule-pickup#label-reference) para reservar en línea una recogida.
 
 ::: zone target="chromeless"
 

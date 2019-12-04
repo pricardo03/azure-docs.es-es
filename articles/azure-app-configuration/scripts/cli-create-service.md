@@ -14,12 +14,12 @@ ms.workload: azure-app-configuration
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 8a58b73f3f3acb8d7c6ced9e0086687b54fff734
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: cd150368898b3f02b4366debbe775ece76b23043
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029793"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184903"
 ---
 # <a name="create-an-azure-app-configuration-store"></a>Creación de un almacén de Azure App Configuration
 
@@ -76,11 +76,11 @@ Este script usa los siguientes comandos para crear un grupo de recursos y un alm
 | Get-Help | Notas |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
-| [az appconfig create](/cli/azure/ext/appconfig/appconfig) | Crea un recurso del almacén de App Configuration. |
-| [az appconfig key list](/cli/azure/ext/appconfig/appconfig/kv) | Enumera las claves almacenadas en un almacén de App Configuration. |
+| [az appconfig create](/cli/azure/ext/appconfig/appconfig#ext-appconfig-az-appconfig-create) | Crea un recurso del almacén de App Configuration. |
+| [az appconfig kv list](/cli/azure/ext/appconfig/appconfig/kv#ext-appconfig-az-appconfig-kv-list) | Enumera las claves almacenadas en un almacén de App Configuration. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para más información sobre la CLI de Azure, consulte la [documentación de la CLI de Azure](/cli/azure).
 
-Puede encontrar ejemplos de script adicionales de la CLI de App Configuration en la [documentación de Azure App Configuration](../cli-samples.md).
+Puede encontrar ejemplos de script adicionales de la CLI y App Configuration en [Azure App Configuration: ejemplos de la CLI](../cli-samples.md).

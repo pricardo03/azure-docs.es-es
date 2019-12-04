@@ -1,22 +1,22 @@
 ---
-title: Migración de una directiva clásica que requiere autenticación multifactor en Azure Portal
+title: 'Migración de directivas de acceso condicional: Azure Active Directory'
 description: En este artículo se muestra cómo migrar una directiva clásica que requiere autenticación multifactor en Azure Portal.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: tutorial
-ms.date: 06/13/2018
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4819c283a136057ad7c3ffd755fd9e157d99a1bf
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: ca00ae62ba114aecef48117fd8a54b7f2e962dfd
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509455"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74380321"
 ---
 # <a name="migrate-a-classic-policy-that-requires-multi-factor-authentication-in-the-azure-portal"></a>Migración de una directiva clásica que requiere autenticación multifactor en Azure Portal
 
@@ -116,4 +116,4 @@ Para deshabilitar la directiva clásica, haga clic en **Deshabilitar** en la vis
 
 - Para obtener más información sobre la migración de directivas clásicas, consulte [Migración de directivas clásicas en Azure Portal](policy-migration.md).
 - Si quiere saber cómo configurar una directiva de acceso condicional, consulte [Requerir MFA para aplicaciones específicas con acceso condicional a Azure Active Directory](app-based-mfa.md).
-- Si está listo para configurar directivas de acceso condicional para su entorno, consulte [Procedimientos recomendados para el acceso condicional en Azure Active Directory](best-practices.md).
+- Si está listo para configurar directivas de acceso condicional para su entorno, vea [Procedimientos recomendados para el acceso condicional en Azure Active Directory](best-practices.md).

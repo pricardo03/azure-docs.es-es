@@ -14,12 +14,12 @@ ms.workload: azure-app-configuration
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: a8a60f23511f71128bea4cc560ad8401b238732d
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 9b9d4c6447b8030c2ae5f7dc22857f77b57f91ea
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58223655"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185307"
 ---
 # <a name="azure-cli-samples"></a>Ejemplos de la CLI de Azure
 
@@ -34,5 +34,5 @@ En la tabla siguiente se incluyen vínculos a scripts de Bash para Azure App Con
 | [Importar valores de clave](./scripts/cli-import.md) | Permite importar valores de clave de otros orígenes. |
 | [Exportar valores de clave](./scripts/cli-export.md) | Permite exportar valores de clave a otros destinos. |
 |**Eliminar**||
-| [Eliminación de un almacén de App Configuration](./scripts/cli-delete-service.md) | Elimina una instancia del almacén de App Configuration.  |
+| [Eliminación de un almacén de App Configuration](./scripts/cli-delete-service.md) | Elimina una instancia de almacén de App Configuration.  |
 | | |

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 09/04/2019
-ms.openlocfilehash: b2705f209b2acf1198ea555a5de2f79987a4d0e3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b417823d0ec7ed838186d53c1bb25400a148e0e9
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494235"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533912"
 ---
 # <a name="tutorial-use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-hdinsight-cluster"></a>Tutorial: Uso de Azure Toolkit for IntelliJ para crear aplicaciones de Apache Spark para un clúster de HDInsight
 
@@ -336,8 +336,6 @@ Asegúrese de haber cumplido el requisito previo WINUTILS.EXE.
 
 ### <a name="spark-livy-interactive-session-consolescala"></a>Spark Livy Interactive Session Console(Scala)
 
-Solo se admite en IntelliJ 2018.2 y 2018.3.
-
 1. En la barra de menús, vaya a **Ejecutar** > **Editar configuraciones...** .
 
 2. En la ventana **Ejecutar/depurar configuraciones**, en el panel izquierdo, vaya a **Apache Spark en HDInsight** >  **[Spark en HDInsight] myApp**.
@@ -366,6 +364,25 @@ Solo se admite en IntelliJ 2018.2 y 2018.3.
 Resulta cómodo predecir el resultado del script mediante el envío de código a la consola local o a Livy Interactive Session Console(Scala). Puede resaltar código en el archivo de Scala y luego hacer clic con el botón derecho en **Enviar selección a la consola de Spark**. El código seleccionado se enviará a la consola y se realizará. El resultado se mostrará después del código en la consola. La consola comprobará los errores, si los hay.  
 
    ![Envío de la selección a la consola de Spark](./media/apache-spark-intellij-tool-plugin/send-selection-to-console.png)
+
+## <a name="integrate-with-hdinsight-identity-broker-hib"></a>Integración con HDInsight Identity Broker (HIB) 
+
+### <a name="connect-to-your-hdinsight-esp-cluster-with-id-broker-hib"></a>Conexión al clúster de HDInsight ESP con el agente de HDInsight Identity Broker (HIB)
+Puede seguir los pasos normales para iniciar sesión en la suscripción de Azure para conectarse a su clúster de HDInsight ESP con el agente de HDInsight Identity Broker (HIB). Después de iniciar sesión, verá la lista de clústeres en Azure Explorer. Para conocer más instrucciones, consulte [Conexión al clúster de HDInsight](#connect-to-your-hdinsight-cluster).
+
+### <a name="run-a-spark-scala-application-on-an-hdinsight-esp-cluster-with-id-broker-hib"></a>Ejecución de una aplicación Spark en Scala en un clúster de HDInsight Spark con HDInsight Identity Broker (HIB)
+Puede seguir los pasos normales para enviar el trabajo a un clúster de HDInsight ESP con HDInsight Identity Broker (HIB). Consulte [Ejecución de una aplicación Spark en Scala en un clúster de HDInsight Spark](#run-a-spark-scala-application-on-an-hdinsight-spark-cluster) para más instrucciones.
+
+Cargaremos los archivos necesarios en una carpeta denominada con su cuenta de inicio de sesión y podrá ver la ruta de acceso de carga en el archivo de configuración.
+
+   ![Ruta de acceso de carga en la configuración](./media/apache-spark-intellij-tool-plugin/upload-path-in-the-configuration.png)
+
+### <a name="spark-console-on-an-hdinsight-esp-cluster-with-id-broker-hib"></a>Consola de Spark en un clúster de HDInsight ESP con el agente de HDInsight Identity Broker (HIB)
+Puede ejecutar Spark Local Console(Scala) o ejecutar Spark Livy Interactive Session Console(Scala) en un clúster de HDInsight ESP con HDInsight Identity Broker (HIB). Consulte [Consola de Spark](#spark-console) para obtener más instrucciones.
+
+   > [!NOTE]  
+   > En el caso del clúster de HDInsight ESP con HDInsight Identity Broker (HIB), las opciones para [vincular un clúster](#link-a-cluster) y [depurar las aplicaciones de Apache Spark de forma remota](#debug-apache-spark-applications-locally-or-remotely-on-an-hdinsight-cluster) no se admiten actualmente.
+
 
 ## <a name="reader-only-role"></a>Rol de solo lectura
 

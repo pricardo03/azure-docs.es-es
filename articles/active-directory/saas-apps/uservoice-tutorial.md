@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
-ms.openlocfilehash: c0c259d3d05232aa70016771e2a2bce7622730a0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7a3302f1ca615fe5005be9ed1f09995ebf432eb7
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67087639"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232000"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-uservoice"></a>Tutorial: Integración de Azure Active Directory con UserVoice
 
@@ -136,15 +136,15 @@ Para configurar el inicio de sesión único de Azure AD con UserVoice, siga esto
 
 2. En la barra de herramientas de la parte superior, haga clic en **Configuración** y luego seleccione **Portal web** en el menú.
    
-    ![Sección Configuración en la aplicación](./media/uservoice-tutorial/ic777519.png "Settings")
+    ![Sección Configuración en la aplicación](./media/uservoice-tutorial/ic777519.png "Configuración")
 
 3. En la pestaña **Portal web** de la sección **Autenticación del usuario**, haga clic en **Editar** para abrir la página de diálogo **Editar autenticación de usuario**.
    
-    ![Pestaña Portal web](./media/uservoice-tutorial/ic777520.png "Web portal")
+    ![Pestaña del portal web](./media/uservoice-tutorial/ic777520.png "Portal web")
 
 4. En la página de diálogo **Editar autenticación del usuario** , realice los pasos siguientes:
    
-    ![Editar autenticación de usuario](./media/uservoice-tutorial/ic777521.png "Editar autenticación de usuario")
+    ![Editar autenticación del usuario](./media/uservoice-tutorial/ic777521.png "Editar autenticación del usuario")
    
     a. Haga clic en **Inicio de sesión único (SSO)** .
  
@@ -237,7 +237,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en UserVoice, deben a
     b. Haga clic en **Invitar**.
 
 > [!NOTE]
-> Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de UserVoice ofrecida por UserVoice para aprovisionar cuentas de usuario de AAD.
+> Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de UserVoice ofrecida por UserVoice para aprovisionar cuentas de usuario de Azure AD.
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único 
 

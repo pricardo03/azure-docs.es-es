@@ -1,5 +1,6 @@
 ---
-title: 'Guía de inicio rápido: diagnóstico de problemas al filtrar el tráfico de las máquinas virtuales con Azure Portal | Microsoft Docs'
+title: 'Inicio rápido: Diagnóstico de problemas de filtrado del tráfico de red de una máquina virtual: Azure Portal'
+titleSuffix: Azure Network Watcher
 description: En esta guía de inicio rápido, aprenderá a diagnosticar los problemas que surgen al filtrar el tráfico de las máquinas virtuales utilizando la funcionalidad Comprobación del flujo de IP de Azure Network Watcher.
 services: network-watcher
 documentationcenter: network-watcher
@@ -17,12 +18,12 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 6478c82a93cd35eead3972bb4dccf402219d9b7d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d436fab100dc05cde8a434af564c67477b33d8d3
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64702885"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276007"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem-using-the-azure-portal"></a>Inicio rápido: Diagnóstico de problemas al filtrar el tráfico de red de las máquinas virtuales con Azure Portal
 
@@ -47,7 +48,7 @@ Inicie sesión en Azure Portal en https://portal.azure.com.
     |Password| Escriba una contraseña de su elección. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Subscription| Seleccione su suscripción.|
     |Grupos de recursos| Haga clic en **Crear nuevo** y escriba **myResourceGroup**.|
-    |Ubicación| Seleccione **Este de EE. UU**.|
+    |Location| Seleccione **Este de EE. UU**.|
 
 4. Seleccione un tamaño para la máquina virtual y luego **Seleccionar**.
 5. En **Configuración**, acepte todos los valores predeterminados y seleccione **Aceptar**.
@@ -62,7 +63,7 @@ Para probar la comunicación de red con Network Watcher, primero se habilita un 
 Si ya dispone de un monitor de red habilitado en al menos una región, vaya a la sección [Uso de la funcionalidad Comprobación del flujo de IP](#use-ip-flow-verify).
 
 1. En el portal, seleccione **Todos los servicios**. En el **cuadro Filtrar**, escriba *Network Watcher*. Cuando aparezca la opción **Network Watcher** en los resultados, selecciónela.
-2. Habilite un monitor de red en la región Este de EE. UU., porque esa es la región de la máquina virtual que se implementó en un paso anterior. Seleccione **Regiones** para expandirla y, a continuación, seleccione **...**  a la derecha de la opción **Este de EE. UU.**, tal y como se muestra en la siguiente imagen:
+2. Habilite un monitor de red en la región Este de EE. UU., porque esa es la región de la máquina virtual que se implementó en un paso anterior. Seleccione **Regiones** para expandirla y, a continuación, seleccione **...**  a la derecha de la opción **Este de EE. UU.** , tal y como se muestra en la siguiente imagen:
 
     ![Habilitación de Network Watcher](./media/diagnose-vm-network-traffic-filtering-problem/enable-network-watcher.png)
 
@@ -78,7 +79,7 @@ Cuando se crea una máquina virtual, Azure permite y deniega el tráfico de entr
 
     |Configuración            |Valor                                                                                              |
     |---------          |---------                                                                                          |
-    | Grupos de recursos    | Seleccione myResourceGroup                                                                            |
+    | Resource group    | Seleccione myResourceGroup                                                                            |
     | Máquina virtual   | Seleccione myVm                                                                                       |
     | interfaz de red | myVm: el nombre de la interfaz de red del portal que se creó al crear la máquina virtual es diferente. |
     | Protocolo          | TCP                                                                                               |

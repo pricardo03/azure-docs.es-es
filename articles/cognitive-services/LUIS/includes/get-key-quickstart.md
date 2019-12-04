@@ -6,20 +6,20 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 10/17/2019
+ms.date: 11/20/2019
 ms.author: diberry
-ms.openlocfilehash: b74d28aa840079d85c9d798e54107d2ed2d32d6e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 6938220cd4f0dc21f188089c8764ab6e18982c17
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499585"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74414494"
 ---
-El acceso a las claves y los puntos de conexión se proporciona en el portal de LUIS, en la sección Manage (Administrar) de la página Azure Resources (Recursos de Azure). 
+Las claves y los puntos de conexión se proporcionan en el portal de LUIS, en la **sección Manage** (Administrar) de la página **Azure Resources** (Recursos de Azure). 
  
-1. Inicie sesión en el portal de LUIS. 
-1. Seleccione la aplicación de la lista.
+1. Inicie sesión en el [portal de LUIS](https://preview.luis.ai/). 
+1. Cree una nueva aplicación o seleccione una aplicación existente en la lista de aplicaciones.
 1. Seleccione **Manage** (Administrar) y, luego, **Azure Resources** (Recursos de Azure). 
-1. Copie los valores de la clave y el punto de conexión del recurso de inicio.
-
-    La clave de **inicio** permite solicitudes gratuitas a la API de creación y hasta 1000 consultas a la API del punto de conexión de predicción al mes para todas las aplicaciones. 
+1. Copie los valores de la clave y el punto de conexión del recurso de inicio. Los necesitará para ejecutar el ejemplo siguiente.
+   > [!NOTE]
+   > La clave de **inicio** permite solicitudes gratuitas a la API de creación y hasta 1000 consultas a la API del punto de conexión de predicción al mes para todas las aplicaciones. 

@@ -1,14 +1,14 @@
 ---
 title: 'Ejemplo: Uso de la red virtual enumerada para las interfaces de red de las máquinas virtuales'
-description: Esta definición de directiva de ejemplo requiere que las interfaces de red usen una red virtual aprobada.
+description: Esta definición de directiva de ejemplo requiere que las interfaces de red usen una red virtual aprobada definida en un parámetro.
 ms.date: 01/23/2019
 ms.topic: sample
-ms.openlocfilehash: 64414f3c52da0c1368898abb5d032b3a728b2bda
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 367edbe2f127c363a19e345f7d55ba125006c999
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076136"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463099"
 ---
 # <a name="sample---use-approved-vnet-for-vm-network-interfaces"></a>Ejemplo: Usar red virtual aprobada para las interfaces de red de máquinas virtuales
 

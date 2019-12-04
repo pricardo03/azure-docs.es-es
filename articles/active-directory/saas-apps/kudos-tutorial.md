@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 50f6762c8046850da1e4541f2ccb7688542f7d54
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1fb1a1bc7bfd8b3cc9d7758bf8e80d8759f9357e
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67098472"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227478"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kudos"></a>Tutorial: Integración de Azure Active Directory con Kudos
 
@@ -213,18 +213,18 @@ Para permitir que los usuarios de Azure AD inicien sesión en Kudos, deben aprov
 
 1. Haga clic en la pestaña **Users** (Usuarios) y, a continuación, haga clic en **Add user** (Agregar un usuario).
 
-   ![Administración de usuarios](./media/kudos-tutorial/ic787809.png "Administración de usuarios")
+   ![Administrador de usuarios](./media/kudos-tutorial/ic787809.png "Administrador de usuarios")
 
 1. En la sección **Agregar un usuario** , realice estos pasos:
 
-    ![Agregar un usuario](./media/kudos-tutorial/ic787810.png "Agregar un usuario")
+    ![Adición de un usuario](./media/kudos-tutorial/ic787810.png "Agregar un usuario")
 
     a. Escriba en los cuadros de texto correspondientes el **nombre**, los **apellidos**, el **correo electrónico** y otros detalles de la cuenta de Azure Active Directory válida que desee aprovisionar.
 
     b. Haga clic en **Create User**(Crear usuario).
 
 > [!NOTE]
-> Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Kudos ofrecida por Kudos para aprovisionar cuentas de usuario de AAD.
+> Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Kudos ofrecida por Kudos para aprovisionar cuentas de usuario de Azure AD.
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 

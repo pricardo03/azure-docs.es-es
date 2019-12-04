@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f605398896c93d15b7475c05c79361fdcefcfcab
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: ea9c88f8eb8ac7b72f11ff286d2294df8cb70860
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442767"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232059"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bonusly"></a>Tutorial: Integración de Azure Active Directory con Bonusly
 
@@ -140,7 +140,7 @@ Para configurar el inicio de sesión único de Azure AD con Bonusly, realice lo
 
 1. En la página de diálogo **SAML** , realice los pasos siguientes:
 
-    ![Página de diálogo Saml Bonusly](./media/bonus-tutorial/ic773687.png "Bonusly")
+    ![Página del cuadro de diálogo de SAML de Bonusly](./media/bonus-tutorial/ic773687.png "Bonusly")
 
     a. En el cuadro de texto **IdP SSO Target URL** (Dirección URL de destino de SSO de IdP), pegue el valor de **Dirección URL de inicio de sesión** que ha copiado de Azure Portal.
 
@@ -207,7 +207,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 Para permitir que los usuarios de Azure AD inicien sesión en Bonusly, tienen que aprovisionarse en Bonusly. En el caso de Bonusly, el aprovisionamiento es una tarea manual.
 
 > [!NOTE]
-> Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Bonusly que proporcione Bonusly para aprovisionar cuentas de usuario de Azure Active Directory. 
+> Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Bonusly que proporcione Bonusly para aprovisionar cuentas de usuario de Azure AD. 
 
 **Siga estos pasos para configurar el aprovisionamiento de usuario:**
 
@@ -223,7 +223,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Bonusly, tienen q
 
 1. Haga clic en **Administrar usuarios**.
 
-    ![Administración de usuarios](./media/bonus-tutorial/ic781043.png "Administración de usuarios")
+    ![Administración de usuarios](./media/bonus-tutorial/ic781043.png "Administrar usuarios")
 
 1. Haga clic en **Agregar usuario**.
 
@@ -256,4 +256,4 @@ Al hacer clic en el icono de Bonusly en el panel de acceso debería iniciar sesi
 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

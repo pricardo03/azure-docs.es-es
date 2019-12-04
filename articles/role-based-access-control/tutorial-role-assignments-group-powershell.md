@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Concesión de acceso de grupo a recursos de Azure mediante RBAC y Azure PowerShell | Microsoft Docs'
-description: Aprenda a conceder acceso de grupo a recursos de Azure con el control de acceso basado en rol (RBAC) y Azure PowerShell.
+title: 'Tutorial: Concesión de acceso de grupo a recursos de Azure mediante RBAC y Azure PowerShell'
+description: En este tutorial aprenderá a conceder acceso de grupo a recursos de Azure con el control de acceso basado en rol (RBAC) y Azure PowerShell.
 services: active-directory
 documentationCenter: ''
 author: rolyon
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
-ms.openlocfilehash: 7f080682baf42c5852e167a20bfbad7f00fe8bd3
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: fb26e603ebb867bda47a93162ffef9bf716d3db6
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343696"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74418593"
 ---
 # <a name="tutorial-grant-a-group-access-to-azure-resources-using-rbac-and-azure-powershell"></a>Tutorial: Concesión de acceso de grupo a recursos de Azure mediante RBAC y Azure PowerShell
 
@@ -49,7 +49,7 @@ En RBAC, para conceder acceso es preciso crear una asignación de roles. Una asi
 | Entidad de seguridad | Definición de roles | Ámbito |
 | --- | --- | --- |
 | Grupo<br>(Grupo de tutorial de RBAC) | [Lector](built-in-roles.md#reader) | Subscription |
-| Grupo<br>(Grupo de tutorial de RBAC)| [Colaborador](built-in-roles.md#contributor) | Grupos de recursos<br>(rbac-tutorial-resource-group) |
+| Grupo<br>(Grupo de tutorial de RBAC)| [Colaborador](built-in-roles.md#contributor) | Resource group<br>(rbac-tutorial-resource-group) |
 
    ![Asignaciones de roles de un grupo](./media/tutorial-role-assignments-group-powershell/rbac-role-assignments.png)
 

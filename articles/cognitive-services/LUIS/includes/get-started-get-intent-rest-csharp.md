@@ -6,20 +6,20 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 10/17/2019
+ms.date: 11/20/2019
 ms.author: diberry
-ms.openlocfilehash: 9ab477ffd7001f0f492f63355baaee26827db845
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 2d3a000040ff1b4f6e0ae548b578e8be014dc06a
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74125613"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74414617"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 
 * [.NET Core V2.2+](https://dotnet.microsoft.com/download)
 * [Visual Studio Code](https://code.visualstudio.com/)
-* Identificador de la aplicación pública: df67dcdb-c37d-46af-88e1-8b97951ca1c2
+* Identificador de la aplicación pública: `df67dcdb-c37d-46af-88e1-8b97951ca1c2`
 
 ## <a name="get-luis-key"></a>Obtención de la clave de LUIS
 
@@ -27,7 +27,7 @@ ms.locfileid: "74125613"
 
 ## <a name="get-intent-programmatically"></a>Obtención de la intención mediante programación
 
-Use C# para consultar la [API](https://aka.ms/luis-apim-v3-prediction) GET del punto de conexión de predicción y obtener el resultado de la predicción. 
+Use C# (.NET Core) para consultar el [punto de conexión de predicción](https://aka.ms/luis-apim-v3-prediction) y obtener un resultado de predicción.
 
 1. Cree una aplicación de consola con C# como lenguaje de destino, con `predict-with-rest` como nombre del proyecto y de la carpeta. 
 
@@ -35,12 +35,14 @@ Use C# para consultar la [API](https://aka.ms/luis-apim-v3-prediction) GET del p
     dotnet new console -lang C# -n predict-with-rest
     ```
 
-1. Instale las dependencias necesarias con los siguientes comandos de la CLI de dotnet.
+1. Cambie al directorio `predict-with-rest` que acaba de crear e instale las dependencias requeridas con estos comandos:  
 
     ```console
+    cd predict-with-rest
     dotnet add package System.Net.Http
     ```
-1. Sobrescriba Program.cs con el código siguiente:
+
+1. Abra `Program.cs` en el IDE o editor que prefiera. A continuación, sobrescriba `Program.cs` con el código siguiente:
     
    ```csharp
     using System;
@@ -103,9 +105,9 @@ Use C# para consultar la [API](https://aka.ms/luis-apim-v3-prediction) GET del p
 1. Reemplace los valores siguientes:
 
     * `YOUR-KEY` por la clave de inicio.
-    * `YOUR-ENDPOINT` por el punto de conexión, por ejemplo, `westus2.api.cognitive.microsoft.com`.
+    * `YOUR-ENDPOINT` por el punto de conexión. Por ejemplo, `westus2.api.cognitive.microsoft.com`.
 
-1. Compile la aplicación de la consola. 
+1. Compile la aplicación de la consola con este comando: 
 
     ```console
     dotnet build
@@ -117,7 +119,7 @@ Use C# para consultar la [API](https://aka.ms/luis-apim-v3-prediction) GET del p
     dotnet run
     ```
 
-1. Revise la respuesta de predicción en formato JSON:
+1. Revise la respuesta de la predicción, que se devuelve como JSON:
 
     ```console
     Hit ENTER to exit...

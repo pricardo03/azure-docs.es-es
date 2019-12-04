@@ -1,24 +1,16 @@
 ---
-title: Integración continua con Azure Pipelines | Microsoft Docs
+title: Integración continua con Azure Pipelines
 description: Aprende a compilar, probar e implementar plantillas de Azure Resource Manager de manera continua.
-services: azure-resource-manager
-documentationcenter: ''
 author: mumian
-manager: carmonm
-editor: ''
-ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 10/29/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: daf1e85835401f618d2804285cdb9579360aef15
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: 457d2a8868283eed2e211ff26ce77156eee68e01
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73052198"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326407"
 ---
 # <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>Tutorial: Integración continua de plantillas de Azure Resource Manager en Azure Pipelines
 
@@ -50,7 +42,7 @@ Para completar este artículo, necesitará lo siguiente:
 * **Una cuenta de GitHub**, que usarás para crear un repositorio para las plantillas. Si no tiene una, puedes [crear una gratis](https://github.com). Para más información sobre el uso de los repositorios de GitHub, consulta [Build GitHub repositories](/azure/devops/pipelines/repos/github) (Compilar repositorios de GitHub).
 * **Instale Git**. En las instrucciones de este tutorial se usa *Git Bash* o *Git Shell*. Para instrucciones, consulta [Install Git]( https://www.atlassian.com/git/tutorials/install-git) (Instalar Git).
 * **Una organización de Azure DevOps**. Si no tienes una, puedes crear una gratis. Consulte [Create an organization or project collection]( https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization?view=azure-devops) (Crear una organización o colección de proyectos).
-* **[Visual Studio Code](https://code.visualstudio.com/) con la extensión Resource Manager Tools**. Consulte [Instalación de la extensión ](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
+* Visual Studio Code con la extensión Resource Manager Tools. Consulte [Uso de Visual Studio Code para crear plantillas de Azure Resource Manager](./resource-manager-tools-vs-code.md).
 
 ## <a name="prepare-a-github-repository"></a>Preparación de un repositorio de GitHub
 

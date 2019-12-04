@@ -1,22 +1,17 @@
 ---
-title: 'Ejemplos de la CLI de Azure: Azure Functions | Microsoft Docs'
+title: 'Ejemplos de la CLI de Azure: Azure Functions'
 description: 'Ejemplos de la CLI de Azure: Azure Functions'
-services: functions
-documentationcenter: functions
 author: syntaxc4
-manager: jeconnoc
 ms.assetid: 577d2f13-de4d-40d2-9dfc-86ecc79f3ab0
-ms.service: azure-functions
 ms.topic: sample
 ms.date: 01/09/2018
-ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: a5cfa6e7a054003750536fbb5c8206ebabafe966
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 8de245dc6307890c872bfc4b8b66371775e1ad12
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66514450"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74532887"
 ---
 # <a name="azure-cli-samples"></a>Ejemplos de la CLI de Azure
 
@@ -27,7 +22,9 @@ En la tabla siguiente se incluyen vínculos a scripts de bash para los casos en 
 | Creación de una aplicación | DESCRIPCIÓN |
 |---|---|
 | [Creación de una aplicación de función para la ejecución sin servidor](scripts/functions-cli-create-serverless.md) | Crea una aplicación de función en un plan de consumo.  |
-| [Creación de una aplicación de función en un plan de App Service](scripts/functions-cli-create-app-service-plan.md) | Crea una aplicación de función en un plan de App Service dedicado. |
+| [Creación de una aplicación de funciones de Python sin servidor](scripts/functions-cli-create-serverless-python.md) | Crea una aplicación de función en un plan de App Service dedicado. |
+| [Creación de una aplicación de funciones en un plan Premium escalable](scripts/functions-cli-create-premium-plan.md) | Crea una aplicación de función en un plan de App Service dedicado. |
+| [Creación de una aplicación de funciones en un plan dedicado (App Service)](scripts/functions-cli-create-app-service-plan.md) | Crea una aplicación de función en un plan de App Service dedicado. |
 
 | Integrate | DESCRIPCIÓN|
 |---|---|
@@ -38,15 +35,3 @@ En la tabla siguiente se incluyen vínculos a scripts de bash para los casos en 
 |---|---|
 | [Implementación desde GitHub](scripts/functions-cli-create-function-app-github-continuous.md) | Cree una aplicación de función que se pueda implementar desde un repositorio de GitHub.  |
 | [Implementación desde Azure DevOps](scripts/functions-cli-create-function-app-vsts-continuous.md) | Cree una aplicación de función que se pueda implementar desde un repositorio de Azure DevOps.  |
-
-| Configuración de la aplicación | DESCRIPCIÓN |
-|---|---|
-| [Asignación de un dominio personalizado a una aplicación de función](scripts/functions-cli-configure-custom-domain.md) | Define un dominio personalizado para sus funciones.  |
-| [Enlace de un certificado SSL personalizado a una aplicación de función](scripts/functions-cli-configure-ssl-certificate.md)  |  Carga certificados SSL para funciones en un dominio personalizado. |
-
-<!---
-
-|**Scale app**||
-
-|**Connect app to resources**||
--->

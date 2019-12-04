@@ -7,12 +7,12 @@ ms.service: internet-analyzer
 ms.topic: tutorial
 ms.date: 10/16/2019
 ms.author: mebeatty
-ms.openlocfilehash: 2952f7f24e92b952daafa682eee9d4605537a37b
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: d474442086e2a114f26df279ab2682cd7628a5f5
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839519"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184282"
 ---
 # <a name="create-an-internet-analyzer-test-using-cli-preview"></a>Creación de una prueba de Internet Analyzer mediante la CLI (versión preliminar)
 
@@ -132,5 +132,6 @@ La CLI de Internet Analyzer expone los siguientes tipos de recursos:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Consulte [Preguntas frecuentes sobre Internet Analyzer](internet-analyzer-faq.md).
+* Examine la [Referencia de la CLI de Internet Analyzer](https://docs.microsoft.com/cli/azure/ext/internet-analyzer/internet-analyzer?view=azure-cli-latest) para ver la lista completa de comandos y ejemplos de uso admitidos.
+* Consulte las [preguntas frecuentes sobre Internet Analyzer](internet-analyzer-faq.md).
 * Más información sobre la inserción del [cliente de Internet Analyzer](internet-analyzer-embed-client.md) y la creación de un [punto de conexión personalizado](internet-analyzer-custom-endpoint.md). 

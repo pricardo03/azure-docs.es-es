@@ -1,19 +1,19 @@
 ---
-title: Filtro del tráfico entrante con la DNAT de Azure Firewall mediante Azure Portal
+title: Filtrado del tráfico de entrada con la DNAT de Azure Firewall mediante el portal
 description: En este tutorial, aprenderá a implementar y configurar la DNAT de Azure Firewall mediante Azure Portal.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 08/29/2019
+ms.date: 11/19/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: f0a58382b9825a7b32aee69c00b9801d1c77251a
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: 2f390f3ad540a2a25055dfcc97cc3af1f22c2b73
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114628"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74195732"
 ---
 # <a name="tutorial-filter-inbound-traffic-with-azure-firewall-dnat-using-the-azure-portal"></a>Tutorial: Filtro del tráfico entrante con la DNAT de Azure Firewall mediante Azure Portal
 
@@ -106,7 +106,7 @@ Ahora empareje las dos redes virtuales.
 6. Haga clic en **Permitir tráfico reenviado**.
 7. Haga clic en **OK**.
 
-## <a name="create-a-virtual-machine"></a>de una máquina virtual
+## <a name="create-a-virtual-machine"></a>Creación de una máquina virtual
 
 Crear una máquina virtual de cargas de trabajo y colóquela en la subred **SN-Workload**.
 

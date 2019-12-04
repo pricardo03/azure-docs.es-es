@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 11/04/2019
 ms.author: diberry
-ms.openlocfilehash: 279ec4e8a6d9a9d473cc511b4ec690391cdbd634
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 65af2caa2272549b5ad562ff3c38b90e3ea43fd5
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73669419"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278543"
 ---
 # <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Inicio rápido: Implementación de una aplicación en el portal de LUIS
 
@@ -29,6 +29,7 @@ En esta guía de inicio rápido, aprenderá a implementar una aplicación. Cree 
 
 * Obtener una [suscripción de Azure](https://azure.microsoft.com/free).
 * Completar el [inicio rápido del portal anterior](get-started-portal-build-app.md) o [descargar e importar la aplicación](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/in-portal/build-portal-app.json).
+* Si tiene aplicaciones anteriores a la autenticación de recursos de Azure, [migrar a un recurso de Azure](luis-migration-authoring.md). Algunas páginas del portal tienen un aspecto diferente cuando la autenticación de correo electrónico está en vigor.
 
 ## <a name="create-the-endpoint-resource"></a>Creación del recurso del punto de conexión
 
@@ -60,7 +61,7 @@ Cree el recurso del punto de conexión de predicción en Azure Portal. Dicho rec
 
 Cada vez que crea un recurso para LUIS, será preciso que lo asigne a la aplicación de LUIS. Una vez que lo asigne, no tendrá que volver a realizar este paso, a menos que cree otro recurso. Puede crear un recurso para expandir las regiones de la aplicación o para admitir un mayor número de consultas de predicción.
 
-1. Inicie sesión en el [portal de LUIS](https://www.luis.ai) y elija la aplicación **myEnglishApp** en la lista de aplicaciones.
+1. Inicie sesión en el [portal de LUIS](https://preview.luis.ai) y elija la aplicación **myEnglishApp** en la lista de aplicaciones.
 
 1. Seleccione **Manage** (Administrar) en el menú superior derecho y, después, seleccione **Azure Resources** (Recursos de Azure).
 
@@ -86,7 +87,7 @@ Cada vez que crea un recurso para LUIS, será preciso que lo asigne a la aplicac
 
 ## <a name="prediction-endpoint-request"></a>Solicitud de punto de conexión de predicción
 
-Es en el elemento `query=`, al final de la dirección URL, donde la expresión del usuario se anexa a la solicitud GET. Después de `query=`, escriba la misma expresión del usuario que se utilizó al final del inicio rápido anterior:
+En el portal de vista previa, `query=`, al final de la dirección URL, donde la expresión del usuario se anexa a la solicitud GET. Después de `query=`, escriba la misma expresión del usuario que se utilizó al final del inicio rápido anterior:
 
 ```Is there a form named hrf-234098```
 

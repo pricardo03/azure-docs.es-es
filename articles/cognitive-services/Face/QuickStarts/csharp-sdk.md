@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 08/20/2019
 ms.author: pafarley
-ms.openlocfilehash: 1848f7230ed189f139a223020f08db150295132d
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 2b095f76eb2c2c9ca420e0049ced3e7af1e742c4
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647483"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74405920"
 ---
 # <a name="quickstart-face-client-library-for-net"></a>Inicio rápido: Biblioteca cliente de Face para .NET
 
@@ -53,13 +53,13 @@ Cree una nueva aplicación de consola de .NET Core en el IDE o editor que prefie
 
 En una ventana de consola (por ejemplo, cmd, PowerShell o Bash), use el comando `dotnet new` para crear una nueva aplicación de consola con el nombre `face-quickstart`. Este comando crea un sencillo proyecto "Hola mundo" de C# con un solo archivo de origen: *Program.cs*. 
 
-```console
+```dotnetcli
 dotnet new console -n face-quickstart
 ```
 
 Cambie el directorio a la carpeta de aplicaciones recién creada. Para compilar la aplicación:
 
-```console
+```dotnetcli
 dotnet build
 ```
 
@@ -85,7 +85,7 @@ En el método `Main` de la aplicación, cree variables para el punto de conexió
 
 Dentro del directorio de aplicaciones, instale la biblioteca cliente de Face para .NET con el siguiente comando:
 
-```console
+```dotnetcli
 dotnet add package Microsoft.Azure.CognitiveServices.Vision.Face --version 2.5.0-preview.1
 ```
 
@@ -174,7 +174,7 @@ El método siguiente detecta caras en un conjunto de imágenes de destino y en u
 
 ### <a name="print-matches"></a>Impresión de las coincidencias
 
-El siguiente código imprime los detalles coincidentes en la consola.
+El siguiente código imprime los detalles coincidentes en la consola:
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_find_similar_print)]
 
@@ -287,7 +287,7 @@ En este momento, el nuevo objeto **PersonGroup** debe tener los mismos datos que
 
 Ejecute la aplicación desde el directorio de la aplicación con el comando `dotnet run`.
 
-```dotnet
+```dotnetcli
 dotnet run
 ```
 

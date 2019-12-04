@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Obtención de conclusiones de imágenes mediante la API de REST Bing Visual Search y Ruby'
+title: 'Inicio rápido: Obtención de conclusiones de imágenes mediante la API REST y Ruby: Bing Visual Search'
 titleSuffix: Azure Cognitive Services
 description: Aprenda a cargar una imagen en Bing Visual Search API y obtener conclusiones sobre ella.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: quickstart
 ms.date: 4/02/2019
 ms.author: rosh
-ms.openlocfilehash: 563c0d39eb5c057aef9b9c7cdcba798dc6ee4cbb
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 55bf189195cc2d9eca0700fd703840da38c71592
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65796511"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383131"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-ruby"></a>Inicio rápido: Obtención de conclusiones de imágenes mediante la API de REST Bing Visual Search y Ruby
 

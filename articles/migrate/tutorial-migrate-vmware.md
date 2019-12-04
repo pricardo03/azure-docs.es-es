@@ -1,18 +1,18 @@
 ---
-title: Migración de máquinas virtuales de VMware locales a Azure con Azure Migrate Server Migration sin agente | Microsoft Docs
-description: Describe cómo realizar una migración de máquinas virtuales de VMware locales a Azure sin usar un agente mediante Azure Migrate.
+title: Migración de máquinas virtuales de VMware sin agente mediante la migración de servidores de Azure Migrate
+description: Aprenda a ejecutar una migración de máquinas virtuales de VMware sin agentes con Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 09/04/2019
+ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: ec7d10a1d9fec43c149c068fb408211db76d19eb
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 2b4aad83abc92170df5a7e7cfa7f7751b49b3424
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309375"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196416"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless"></a>Migración de máquinas virtuales de VMware a Azure (sin agente)
 
@@ -48,12 +48,11 @@ Para decidir si desea utilizar la migración sin agente o basada en agente, cons
 
 Antes de comenzar este tutorial, debe:
 
-1. [Comprenda](migrate-architecture.md) la arquitectura de migración de VMware.
-2. [Complete el primer tutorial](tutorial-prepare-vmware.md) de esta serie para configurar Azure y VMware para la migración. En este tutorial:
+1. [Complete el primer tutorial](tutorial-prepare-vmware.md) de esta serie para configurar Azure y VMware para la migración. En este tutorial:
     - [Preparará Azure](tutorial-prepare-vmware.md#prepare-azure) para la migración.
     - [Preparará el entorno local](tutorial-prepare-vmware.md#prepare-for-agentless-vmware-migration) para la migración.
     
-3. Se recomienda intentar evaluar las máquinas virtuales de VMware con Azure Migrate Server Assessment antes de migrarlas a Azure. Para ello, [complete el segundo tutorial](tutorial-assess-vmware.md) de esta serie. Si no desea evaluar las máquinas virtuales, puede omitir este tutorial. Aunque se recomienda realizar la evaluación, no es necesaria para migrar las máquinas virtuales.
+2. Se recomienda intentar evaluar las máquinas virtuales de VMware con Azure Migrate Server Assessment antes de migrarlas a Azure. Para ello, [complete el segundo tutorial](tutorial-assess-vmware.md) de esta serie. Si no desea evaluar las máquinas virtuales, puede omitir este tutorial. Aunque se recomienda realizar la evaluación, no es necesaria para migrar las máquinas virtuales.
 
 
 

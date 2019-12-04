@@ -10,12 +10,12 @@ ms.subservice: luis
 ms.topic: include
 ms.date: 11/05/2019
 ms.author: diberry
-ms.openlocfilehash: b65bf177d98d5b0bcbaf9e9eaf06707b43ed7032
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 47913f86edcf83825254775705e38310f3c2c6b4
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647449"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325923"
 ---
 Para recibir una predicción de LUIS en un bot de chat u otra aplicación cliente, tiene que publicar la aplicación en el punto de conexión. 
 
@@ -27,7 +27,7 @@ Para recibir una predicción de LUIS en un bot de chat u otra aplicación client
 
     ![Publicación en el punto de conexión de LUIS](../media/howto-publish/publish-app-popup.png)
 
-3. La publicación se completa cuando ve la barra de estado verde en la parte superior del sitio web que confirma que se ha realizado correctamente.
+3. La publicación se completa cuando ve la barra de estado en la parte superior de la página que confirma que se ha realizado correctamente.
 
     ![Publicación en el punto de conexión de LUIS](../media/howto-publish/publish-endpoint-success.png)
 

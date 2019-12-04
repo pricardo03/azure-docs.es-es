@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Obtención de conclusiones de imágenes mediante Bing Visual Search API y Node.js'
+title: 'Inicio rápido: Obtención de conclusiones de imágenes mediante la API REST y Node.js: Bing Visual Search'
 titleSuffix: Azure Cognitive Services
 description: Aprenda a cargar una imagen en Bing Visual Search API y obtener conclusiones sobre ella.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: quickstart
 ms.date: 4/02/2019
 ms.author: scottwhi
-ms.openlocfilehash: 9414bac220d928618b403aa2f7df7748772e0e9a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ecfe341fa050e693f919f35c29c8120c687c88f8
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59047575"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383187"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-nodejs"></a>Inicio rápido: Obtención de conclusiones de imágenes mediante Bing Visual Search API y Node.js
 

@@ -1,18 +1,16 @@
 ---
-title: 'Tutorial: Creación e implementación de una plantilla de Azure Resource Manager'
+title: 'Tutorial: Creación e implementación de una plantilla'
 description: Creación de la primera plantilla de Azure Resource Manager En este tutorial, aprenderá sobre la sintaxis del archivo de plantilla y cómo implementar una cuenta de almacenamiento.
 author: mumian
-manager: carmonmills
-ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 463f9a54648a9e6950f839bd856ccf42bc66dca0
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 9650b8c67e3fd5c786b066c53e78b106935e11e1
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074365"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406033"
 ---
 # <a name="tutorial-create-and-deploy-your-first-azure-resource-manager-template"></a>Tutorial: Creación e implementación de la primera plantilla de Azure Resource Manager
 
@@ -96,7 +94,7 @@ az login
 ---
 ## <a name="create-resource-group"></a>Creación de un grupo de recursos
 
-Al implementar una plantilla, se especifica un grupo de recursos que contendrá los recursos. Antes de ejecutar el comando de implementación, cree el grupo de recursos con la CLI de Azure o Azure PowerShell. Seleccione las pestañas en la siguiente sección de código para elegir entre Azure PowerShell y la CLI de Azure.
+Al implementar una plantilla, se especifica un grupo de recursos que contendrá los recursos. Antes de ejecutar el comando de implementación, cree el grupo de recursos con la CLI de Azure o Azure PowerShell. Seleccione las pestañas en la siguiente sección de código para elegir entre Azure PowerShell y la CLI de Azure. Los ejemplos de la CLI de este artículo están escritos para el shell de Bash.
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -133,7 +131,7 @@ New-AzResourceGroupDeployment `
 # <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
 ```azurecli
-$templateFile="{provide-the-path-to-the-template-file}"
+templateFile="{provide-the-path-to-the-template-file}"
 az group deployment create \
   --name blanktemplate \
   --resource-group myResourceGroup \

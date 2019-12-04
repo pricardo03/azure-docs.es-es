@@ -14,12 +14,12 @@ ms.workload: azure-app-configuration
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 480e21994846f5b2adb85bcf846df2a7cdda4bda
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 7969300e9865c943c0f3759277bd26529c0c5464
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444479"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184881"
 ---
 # <a name="export-from-an-azure-app-configuration-store"></a>Exportación desde un almacén de Azure App Configuration
 
@@ -52,10 +52,10 @@ Este script usa los siguientes comandos para exportar desde un almacén de App C
 
 | Get-Help | Notas |
 |---|---|
-| [az appconfig export](/cli/azure/ext/appconfig/appconfig) | Exporta desde un recurso del almacén de App Configuration. |
+| [az appconfig kv export](/cli/azure/ext/appconfig/appconfig/kv#ext-appconfig-az-appconfig-kv-export) | Exporta desde un recurso del almacén de App Configuration. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para más información sobre la CLI de Azure, consulte la [documentación de la CLI de Azure](/cli/azure).
 
-Puede encontrar ejemplos de script adicionales de la CLI de App Configuration en la [documentación de Azure App Configuration](../cli-samples.md).
+Puede encontrar ejemplos de script adicionales de la CLI y App Configuration en los [ejemplos de la CLI y Azure App Configuration](../cli-samples.md).

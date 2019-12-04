@@ -1,19 +1,19 @@
 ---
 title: 'Inicio rápido: Creación de un conjunto de aptitudes en Azure Portal'
 titleSuffix: Azure Cognitive Search
-description: Use el Asistente para la importación de datos para agregar aptitudes cognitivas a una canalización de indexación. Las aptitudes cognitivas incluyen el reconocimiento óptico de caracteres (OCR) y el procesamiento de lenguaje natural.
+description: En este inicio rápido del portal, aprenda a usar el Asistente para importar datos para agregar aptitudes cognitivas a una canalización de indexación en Azure Cognitive Search. Las aptitudes incluyen el reconocimiento óptico de caracteres (OCR) y el procesamiento de lenguaje natural.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.openlocfilehash: 2280b718fe949384bb67b1b606ab143ddca8e077
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 5e891627b337a0a3a15d0ebfa2b9cc95f27feca4
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113356"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533115"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-cognitive-skillset-in-the-azure-portal"></a>Inicio rápido: Creación de un conjunto de aptitudes cognitivas de Azure Cognitive Search en Azure Portal
 
@@ -31,7 +31,7 @@ Dado que la carga de trabajo es tan pequeña, Cognitive Services se aprovecha en
 
 1. [Descargue los datos de ejemplo](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) que están formados por un pequeño conjunto de archivos de diferentes tipos. Descomprima los archivos.
 
-1. [Cree una cuenta de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) o [busque una cuenta ya existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) en su suscripción actual. 
+1. [Cree una cuenta de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) o [busque una cuenta existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/). 
 
    Elija la misma región de Azure Cognitive Search. Elija el tipo de cuenta StorageV2 (de uso general V2) si desea probar la característica almacén de conocimiento más adelante, en otro tutorial. De lo contrario, elija cualquier tipo.
 
@@ -41,7 +41,7 @@ Dado que la carga de trabajo es tan pequeña, Cognitive Services se aprovecha en
 
    ![Archivos de origen en Azure Blob Storage](./media/cognitive-search-quickstart-blob/sample-data.png)
 
-1. [Cree una instancia de Azure Cognitive Search](search-create-service-portal.md) o [busque un servicio existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) en la misma suscripción. Puede usar un servicio gratuito para este inicio rápido.
+1. [Cree un servicio de Azure Cognitive Search](search-create-service-portal.md) o [busque un servicio existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). Puede usar un servicio gratuito para este inicio rápido.
 
 <!-- 1. You are almost done with this resource, but before you leave these pages, use a link on the left navigation pane to open the **Access Keys** page. In many tutorials, especially those that use the REST API, you will need a connection string to retrieve data from Blob storage. A connection string looks similar to the following example: `DefaultEndpointsProtocol=https;AccountName=<YOUR-ACCOUNT-NAME>;AccountKey=<YOUR-ACCOUNT-KEY>;EndpointSuffix=core.windows.net` -->
 
@@ -152,7 +152,7 @@ La salida se dirige a un índice de búsqueda y hay una asignación entre los pa
 
 Por último, aprendió que se puede comprobar el contenido consultando el índice. Al final, lo que proporciona Azure Cognitive Search es un índice de búsqueda que puede consultar mediante la [sintaxis de consulta simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) o [totalmente extendida](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search). Un índice que contenga campos enriquecidos es como cualquier otro. Si desea incorporar [analizadores personalizados](search-analyzers.md) o estándar, [perfiles de puntuación](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [sinónimos](search-synonyms.md), [filtros con facetas](search-filters-facets.md), búsquedas geográficas o cualquier otra característica de Azure Cognitive Search, puede hacerlo cuando quiera.
 
-## <a name="clean-up"></a>Limpieza
+## <a name="clean-up-resources"></a>Limpieza de recursos
 
 Cuando trabaje con su propia suscripción, es una buena idea al final de un proyecto identificar si todavía se necesitan los recursos que ha creado. Los recursos que se dejan en ejecución pueden costarle mucho dinero. Puede eliminar los recursos de forma individual o eliminar el grupo de recursos para eliminar todo el conjunto de recursos.
 
@@ -160,12 +160,12 @@ Puede encontrar y administrar recursos en el portal, mediante el vínculo **Todo
 
 Si está usando un servicio gratuito, recuerde que está limitado a tres índices, indexadores y orígenes de datos. Puede eliminar elementos individuales en el portal para mantenerse por debajo del límite. 
 
+> [!Tip]
+> Si desea repetir este ejercicio o probar otro tutorial de enriquecimiento con inteligencia artificial, elimine el indexador del portal. La eliminación del indexador restablece el contador de transacciones diarias gratis a cero para el procesamiento de Cognitive Services.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para crear estos conjuntos de aptitudes, puede usar el portal, el SDK de .NET o la API REST. Para ampliar sus conocimientos, pruebe la API REST con Postman y más datos de ejemplo.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Adición de una estructura a "contenido no estructurado" con enriquecimiento de inteligencia artificial](cognitive-search-tutorial-blob.md)
-
-> [!Tip]
-> Si desea repetir este ejercicio o probar otro tutorial de enriquecimiento con inteligencia artificial, elimine el indexador del portal. La eliminación del indexador restablece el contador de transacciones diarias gratis a cero para el procesamiento de Cognitive Services.

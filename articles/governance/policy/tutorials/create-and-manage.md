@@ -1,14 +1,14 @@
 ---
-title: Creación y administración de directivas para aplicar el cumplimiento
-description: Use Azure Policy para aplicar estándares, satisfacer los requisitos de cumplimiento normativo y auditar requisitos, controlar los costos, mantener la seguridad y consistencia en el rendimiento e imponer principios de diseño para toda la empresa.
-ms.date: 02/04/2019
+title: 'Tutorial: Creación de directivas para aplicar el cumplimiento'
+description: En este tutorial, utilizará directivas para aplicar estándares, controlar los costos, mantener la seguridad e imponer principios de diseño para toda la empresa.
+ms.date: 11/25/2019
 ms.topic: tutorial
-ms.openlocfilehash: abbe4334767a48cf6444ce5aa7822cc8a79f9f69
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 75a1d892a88f2b5bbdbec2a1b8d525245bb1e86f
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73959543"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74482324"
 ---
 # <a name="tutorial-create-and-manage-policies-to-enforce-compliance"></a>Tutorial: Creación y administración de directivas para aplicar el cumplimiento
 
@@ -20,7 +20,11 @@ Comprender cómo se crean y administran las directivas en Azure es importante pa
 > - Resolver un recurso que no cumpla o que sea denegado
 > - Implementar una nueva directiva en toda la organización
 
-Si desea asignar una directiva para identificar el estado de cumplimiento actual de los recursos existentes, en los artículos de inicio rápido se examina cómo hacerlo. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
+Si desea asignar una directiva para identificar el estado de cumplimiento actual de los recursos existentes, en los artículos de inicio rápido se examina cómo hacerlo.
+
+## <a name="prerequisites"></a>Requisitos previos
+
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="assign-a-policy"></a>Asignación de una directiva
 
@@ -443,7 +447,7 @@ Si terminó de trabajar con los recursos de este tutorial, use los pasos siguien
 
 1. Haga clic con el botón derecho en la fila o seleccione los puntos suspensivos al final de la definición (o asignación) y elija **Eliminar definición** (o **Eliminar asignación** ).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="review"></a>Revisión
 
 En este tutorial, ha realizado correctamente las tareas siguientes:
 
@@ -452,6 +456,8 @@ En este tutorial, ha realizado correctamente las tareas siguientes:
 > - Ha creado y asignado una definición de iniciativa para realizar un seguimiento del cumplimiento para varios recursos
 > - Ha resuelto un recurso que no cumplía o que se había denegado
 > - Ha implementado una nueva directiva en toda la organización
+
+## <a name="next-steps"></a>Pasos siguientes
 
 Para más información sobre las estructuras de las definiciones de directiva, consulte este artículo:
 

@@ -1,20 +1,20 @@
 ---
-title: Creación de un punto de conexión privado de Azure mediante la CLI de Azure | Microsoft Docs
-description: Obtenga información sobre el punto de conexión privado de Azure.
+title: 'Inicio rápido: Creación de un punto de conexión privado de Azure mediante la CLI de Azure'
+description: Obtenga información sobre el punto de conexión privado de Azure en este inicio rápido.
 services: private-link
-author: KumudD
+author: asudbring
 ms.service: private-link
-ms.topic: article
+ms.topic: quickstart
 ms.date: 09/16/2019
-ms.author: kumud
-ms.openlocfilehash: 477f7d4824d3165357228d200dca9e556a072744
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.author: allensu
+ms.openlocfilehash: 67513c2155e956e005b143c3049abe70a2f126f2
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053520"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74419815"
 ---
-# <a name="create-a-private-endpoint-using-azure-cli"></a>Creación de un punto de conexión privado mediante la CLI de Azure
+# <a name="quickstart-create-a-private-endpoint-using-azure-cli"></a>Inicio rápido: Creación de un punto de conexión privado mediante la CLI de Azure
 Un punto de conexión privado es el bloque de creación fundamental para Private Link en Azure. Permite que los recursos de Azure, como las máquinas virtuales, se comuniquen de manera privada con recursos de Private Link. En este inicio rápido, obtendrá información sobre cómo crear una máquina virtual en una red virtual, un servidor de SQL Database con un punto de conexión privado mediante la CLI de Azure. A continuación, puede acceder a la máquina virtual y acceder de forma segura al recurso de vínculo privado (un servidor de Azure SQL Database privado en este ejemplo). 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -179,4 +179,3 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Más información sobre [Azure Private Link](private-link-overview.md).
- 

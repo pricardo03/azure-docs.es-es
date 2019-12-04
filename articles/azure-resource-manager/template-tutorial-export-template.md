@@ -1,19 +1,16 @@
 ---
-title: 'Tutorial: Exportación de la plantilla de Azure Resource Manager desde Azure Portal'
+title: 'Tutorial: Exportación de una plantilla desde Azure Portal'
 description: Aprenda a usar una plantilla exportada para realizar el desarrollo mediante plantillas.
-services: azure-resource-manager
 author: mumian
-manager: carmonmills
-ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 6e4f246cac0ecc1ab5942e522595f59c3625db8f
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 6c22a8e2b479ed7d3a225bc649d89f5302d0f536
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243206"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406009"
 ---
 # <a name="tutorial-use-exported-template-from-the-azure-portal"></a>Tutorial: Uso de una plantilla desde Azure Portal
 
@@ -25,7 +22,7 @@ Aunque no es obligatorio, se recomienda realizar el [tutorial sobre las salidas]
 
 Debe tener Visual Studio Code con la extensión Herramientas de Resource Manager y Azure PowerShell o la CLI de Azure. Para más información, consulte las [herramientas de plantilla](template-tutorial-create-first-template.md#get-tools).
 
-## <a name="review-your-template"></a>Revisión de la plantilla
+## <a name="review-template"></a>Revisión de la plantilla
 
 Al final del tutorial anterior, la plantilla tenía el siguiente código JSON:
 
@@ -52,7 +49,7 @@ Esta plantilla es adecuada para implementar cuentas de almacenamiento, pero pued
 1. Seleccione **Revisar y crear**.
 1. Seleccione **Crear**. La creación del recurso tarda algunos minutos.
 
-## <a name="export-the-template"></a>Exportación de la plantilla
+## <a name="export-template"></a>Exportación de la plantilla
 
 1. Haga clic en **Go to resource** (Ir al recurso).
 
@@ -71,7 +68,7 @@ Esta plantilla es adecuada para implementar cuentas de almacenamiento, pero pued
 > [!IMPORTANT]
 > Normalmente, la plantilla exportada es más detallada que cuando se crea una plantilla. Por ejemplo, el objeto SKU de la plantilla exportada tiene cinco propiedades. Esta plantilla funciona, pero podría usar simplemente la propiedad **name**. Puede comenzar con la plantilla exportada y, luego, modificarla para adaptarla a sus necesidades.
 
-## <a name="revise-the-existing-template"></a>Revisión de la plantilla existente
+## <a name="revise-existing-template"></a>Revisión de la plantilla existente
 
 La plantilla exportada le proporciona la mayor parte del código JSON que necesita, pero debe personalizarlo para su plantilla. Preste especial atención a las diferencias de parámetros y variables que existen entre la plantilla y la plantilla exportada. Obviamente, el proceso de exportación no conoce los parámetros y las variables que ya ha definido en la plantilla.
 
@@ -81,7 +78,7 @@ Copie el archivo completo y reemplace la plantilla por su contenido.
 
 [!code-json[](~/resourcemanager-templates/get-started-with-templates/export-template/azuredeploy.json?range=1-77&highlight=28-31,50-69)]
 
-## <a name="deploy-the-template"></a>Implementación de la plantilla
+## <a name="deploy-template"></a>Implementar plantilla
 
 Use la CLI de Azure o Azure PowerShell para implementar una plantilla.
 

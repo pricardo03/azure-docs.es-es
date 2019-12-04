@@ -1,19 +1,16 @@
 ---
-title: Uso de Azure Deployment Manager con plantillas de Resource Manager | Microsoft Docs
+title: Uso de Azure Deployment Manager con plantillas
 description: Use plantillas de Resource Manager con Azure Deployment Manager para implementar recursos de Azure.
-services: azure-resource-manager
-documentationcenter: ''
 author: mumian
-ms.service: azure-resource-manager
 ms.date: 10/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: b381c4be5d0c56e14ccd01657542ef3bff2f8894
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: 0ce37a744cdf22beddcef433fca1a64252e1673d
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72285672"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149899"
 ---
 # <a name="tutorial-use-health-check-in-azure-deployment-manager-public-preview"></a>Tutorial: Uso de la comprobación de estado en Azure Deployment Manager (versión preliminar pública)
 

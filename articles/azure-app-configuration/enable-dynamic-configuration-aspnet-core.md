@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: 7fc7bd6fa0067857bde64d43be5799bd50712490
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f49161531753c217e31d0681bcd19043cb47de75
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73469680"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185260"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>Tutorial: Uso de la configuración dinámica en una aplicación de ASP.NET Core
 
@@ -36,7 +36,7 @@ Para realizar los pasos de este tutorial, puede usar cualquier editor de código
 En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
-> * Configurar la aplicación para actualizar su configuración en respuesta a los cambios en un almacén de App Configuration
+> * Configurar la aplicación para actualizar su configuración en respuesta a los cambios en un almacén de App Configuration.
 > * Insertar la configuración más reciente en los controladores de la aplicación
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -78,7 +78,7 @@ Antes de continuar, finalice primero el tutorial [Creación de una aplicación A
             .UseStartup<Startup>();
     ```
 
-    El método `ConfigureRefresh` se utiliza para especificar la configuración usada para actualizar los datos de configuración con el almacén de configuración de la aplicación cuando se desencadena una operación de actualización. Para desencadenar realmente una operación de actualización, es necesario configurar un middleware de actualización para que la aplicación actualice los datos de configuración cuando se produzca cualquier cambio.
+    El método `ConfigureRefresh` se utiliza para especificar la configuración usada para actualizar los datos de configuración con el almacén de App Configuration cuando se desencadena una operación de actualización. Para desencadenar realmente una operación de actualización, es necesario configurar un middleware de actualización para que la aplicación actualice los datos de configuración cuando se produzca cualquier cambio.
 
 2. Agregue un archivo *Settings.cs* que defina e implemente una nueva clase `Settings`.
 
@@ -122,7 +122,7 @@ Antes de continuar, finalice primero el tutorial [Creación de una aplicación A
     }
     ```
     
-    El middleware utiliza la configuración de actualización especificada en el método `AddAzureAppConfiguration` de `Program.cs` para desencadenar una actualización para cada solicitud recibida por la aplicación web de ASP.NET Core. Para cada solicitud, se desencadena una operación de actualización y la biblioteca cliente comprueba si el valor en caché de los ajustes de configuración registrados ha expirado. Para los valores en caché que han expirado, los valores de la configuración se actualizan con el almacén de configuración de aplicaciones, y los valores restantes permanecen sin cambios.
+    El middleware utiliza la configuración de actualización especificada en el método `AddAzureAppConfiguration` de `Program.cs` para desencadenar una actualización para cada solicitud recibida por la aplicación web de ASP.NET Core. Para cada solicitud, se desencadena una operación de actualización y la biblioteca cliente comprueba si el valor en caché de los ajustes de configuración registrados ha expirado. Para los valores almacenados en memoria caché que han expirado, los valores de la configuración se actualizan con el almacén de App Configuration y los valores restantes permanecen sin cambios.
     
     > [!NOTE]
     > La hora de expiración de la caché predeterminada para un valor de configuración es de 30 segundos, pero puede reemplazarse por una llamada al método `SetCacheExpiration` en el inicializador de opciones que se pasa como argumento al método `ConfigureRefresh`.
@@ -195,7 +195,7 @@ Antes de continuar, finalice primero el tutorial [Creación de una aplicación A
 
     ![Inicio de la aplicación del artículo de inicio rápido en un entorno local](./media/quickstarts/aspnet-core-app-launch-local-before.png)
 
-4. Inicie sesión en el [Azure Portal](https://portal.azure.com). Seleccione **Todos los recursos**y seleccione la instancia de almacén de App Configuration que creó en el inicio rápido.
+4. Inicie sesión en el [Azure Portal](https://portal.azure.com). Seleccione **Todos los recursos** y seleccione la instancia de almacén de App Configuration que creó en el inicio rápido.
 
 5. Seleccione **Explorador de configuración** y actualice los valores de las claves siguientes:
 
@@ -210,7 +210,7 @@ Antes de continuar, finalice primero el tutorial [Creación de una aplicación A
     ![Inicio rápido de actualización de la aplicación en el entorno local](./media/quickstarts/aspnet-core-app-launch-local-after.png)
     
     > [!NOTE]
-    > Como los valores de configuración se almacenan en caché con un tiempo de expiración predeterminado de 30 segundos, los cambios realizados en la configuración en el almacén de configuración de la aplicación solo se reflejarán en la aplicación web cuando la caché haya expirado.
+    > Como los valores de configuración se almacenan en memoria caché con un tiempo de expiración predeterminado de 30 segundos, los cambios realizados en la configuración en el almacén de App Configuration solo se reflejarán en la aplicación web cuando la memoria caché haya expirado.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
@@ -218,7 +218,7 @@ Antes de continuar, finalice primero el tutorial [Creación de una aplicación A
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha agregado una identidad de servicio administrada de Azure para optimizar el acceso a App Configuration y mejorar la administración de credenciales de su aplicación. Para más información sobre App Configuration, continúe con los ejemplos de la CLI de Azure.
+En este tutorial, ha habilitado la aplicación web de ASP.NET Core para actualizar dinámicamente la configuración a partir de App Configuration. Para obtener información sobre cómo usar una identidad administrada de Azure para simplificar el acceso a App Configuration, vaya al siguiente tutorial.
 
 > [!div class="nextstepaction"]
-> [Ejemplos de CLI](./cli-samples.md)
+> [Integración de identidades administradas](./howto-integrate-azure-managed-service-identity.md)

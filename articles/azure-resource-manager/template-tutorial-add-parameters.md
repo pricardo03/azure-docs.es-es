@@ -1,19 +1,16 @@
 ---
-title: 'Tutorial: Adición de parámetros a una plantilla de Azure Resource Manager'
+title: 'Tutorial: Adición de parámetros a la plantilla'
 description: Agregue parámetros a su plantilla de Azure Resource Manager para poder volver a utilizarla.
-services: azure-resource-manager
 author: mumian
-manager: carmonmills
-ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: f5e631994223d6362512ed0ddc89d1d3c884fbd4
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: 28c171dfa067ec9b3eff2e0d7e5d5dd0a0c274c0
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001505"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406087"
 ---
 # <a name="tutorial-add-parameters-to-your-resource-manager-template"></a>Tutorial: Adición de parámetros a una plantilla de Azure Resource Manager
 
@@ -25,7 +22,7 @@ Aunque no es obligatorio, se recomienda realizar el [tutorial sobre recursos](te
 
 Debe tener Visual Studio Code con la extensión Herramientas de Resource Manager y Azure PowerShell o la CLI de Azure. Para más información, consulte las [herramientas de plantilla](template-tutorial-create-first-template.md#get-tools).
 
-## <a name="review-your-template"></a>Revisión de la plantilla
+## <a name="review-template"></a>Revisión de la plantilla
 
 Al final del tutorial anterior, la plantilla tenía el siguiente código JSON:
 
@@ -33,7 +30,7 @@ Al final del tutorial anterior, la plantilla tenía el siguiente código JSON:
 
 Es posible que haya observado que existe un problema con esta plantilla. El nombre de la cuenta de almacenamiento está codificado de forma rígida. Esta plantilla solo se puede usar para implementar la misma cuenta de almacenamiento cada vez. Para implementar una cuenta de almacenamiento con un nombre diferente, tendría que crear una nueva plantilla, lo que obviamente no es una forma práctica de automatizar las implementaciones.
 
-## <a name="make-your-template-reusable"></a>Convertir la plantilla en reutilizable
+## <a name="make-template-reusable"></a>Convertir la plantilla en reutilizable
 
 Para que la plantilla se pueda volver a usar, vamos a agregar un parámetro que puede usar para pasar un nombre de cuenta de almacenamiento. El código JSON resaltado en el ejemplo siguiente muestra lo que ha cambiado en la plantilla. El parámetro **storageName** se identifica como una cadena. La longitud máxima se establece en 24 caracteres para evitar que los nombres sean demasiado largos.
 
@@ -41,7 +38,7 @@ Copie el archivo completo y reemplace la plantilla por su contenido.
 
 [!code-json[](~/resourcemanager-templates/get-started-with-templates/add-name/azuredeploy.json?range=1-26&highlight=4-10,15)]
 
-## <a name="deploy-the-template"></a>Implementación de la plantilla
+## <a name="deploy-template"></a>Implementar plantilla
 
 Vamos a implementar la plantilla. En el ejemplo siguiente se implementa la plantilla con la CLI de Azure o PowerShell. Observe que se proporciona el nombre de la cuenta de almacenamiento como uno de los valores en el comando de implementación. Para el nombre de la cuenta de almacenamiento, proporcione el mismo nombre que usó en el tutorial anterior.
 
@@ -87,7 +84,7 @@ La plantilla anterior siempre implementaba una cuenta de almacenamiento Standard
 
 El parámetro **storageSKU** tiene un valor predeterminado. Este valor se usa cuando no se especifica ningún valor durante la implementación. También tiene una lista de valores permitidos. Estos valores coinciden con los valores necesarios para crear una cuenta de almacenamiento. Deseará evitar que los usuarios de su plantilla pasen SKU que no funcionan.
 
-## <a name="redeploy-the-template"></a>Volver a implementar la plantilla
+## <a name="redeploy-template"></a>Volver a implementar la plantilla
 
 Está listo para volver a implementar. Dado que la SKU predeterminada está establecida en **Standard_LRS**, no es necesario proporcionar un valor para ese parámetro.
 
