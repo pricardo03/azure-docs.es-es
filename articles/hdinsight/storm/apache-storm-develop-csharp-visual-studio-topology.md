@@ -131,7 +131,7 @@ Para crear un proyecto de topología C# en Visual Studio:
 
 1. En la ventana **Crear un nuevo proyecto**, desplácese a la opción **Aplicación Storm** y selecciónela, y luego seleccione **Siguiente**.
 
-1. En la ventana **Configure su nuevo proyecto**, en el campo **Nombre de proyecto**, escriba el nombre *WordCount*, vaya a o cree una ruta de acceso al directorio en **Ubicación ** y luego seleccione **Crear**.
+1. En la ventana **Configure su nuevo proyecto**, en el campo **Nombre de proyecto**, escriba el nombre *WordCount*, vaya a o cree una ruta de acceso al directorio en **Ubicación** y luego seleccione **Crear**.
 
     ![Aplicación Storm, cuadro de diálogo Configure su nuevo proyecto, Visual Studio](./media/apache-storm-develop-csharp-visual-studio-topology/apache-storm-new-project.png)
 
@@ -457,7 +457,7 @@ También puede usar Herramientas de Data Lake para Visual Studio para crear topo
 
 Para ver un ejemplo de una topología híbrida, cree un proyecto y seleccione **Muestra híbrida de Storm**. Este tipo de ejemplo ilustra los conceptos siguientes:
 
-* **Spout de Java** y **bolt de C#**: Definido en la clase `HybridTopology_javaSpout_csharpBolt`.
+* **Spout de Java** y **bolt de C#** : Definido en la clase `HybridTopology_javaSpout_csharpBolt`.
 
   Una versión transaccional se define en la clase `HybridTopologyTx_javaSpout_csharpBolt`.
 
