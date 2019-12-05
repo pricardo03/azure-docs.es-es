@@ -13,19 +13,19 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/04/2019
+ms.date: 11/26/2019
 ms.author: cabailey
-ms.openlocfilehash: d1d048507946850192c1c6f8ca9024c6f9ddf8ca
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e72b9012b41f50b36ba7d92582d0c697e6db0683
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73510989"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546860"
 ---
 # <a name="use-hunting-livestream-in-azure-sentinel-to-detect-threats"></a>Use el streaming en vivo de búsqueda de Azure Sentinel para detectar amenaza
 
 > [!IMPORTANT]
-> El streaming de búsqueda de Azure Sentinel se encuentra actualmente en versión preliminar pública.
+> El streaming en vivo de búsqueda de Azure Sentinel se encuentra actualmente en versión preliminar pública y se implementa gradualmente en los inquilinos.
 > Esta característica se ofrece sin contrato de nivel de servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
@@ -63,7 +63,7 @@ Puede crear una sesión de streaming en vivo a partir de una consulta de búsque
     1. Seleccione la pestaña **Streaming en vivo**
     2. Seleccione **Ir a streaming en vivo**.
     
-4. En la hoja de **Streaming en vivo**:
+4. En el panel de **Streaming en vivo**:
     
     - Si inició streaming en vivo desde una consulta, revise la consulta y realice los cambios que desee realizar.
     - Si inició streaming en vivo desde cero, cree la consulta. 
@@ -96,7 +96,7 @@ Dado que las notificaciones de streaming en vivo para los nuevos eventos usan no
 
 ![Notificación de Azure Portal para el streaming en vivo](./media/livestream/notification.png)
 
-Seleccione la notificación para abrir la hoja de **Streaming en vivo**.
+Seleccione la notificación para abrir el panel de **Streaming en vivo**.
  
 ## <a name="elevate-a-livestream-session-to-an-alert"></a>Elevar una sesión de streaming en vivo a una alerta
 

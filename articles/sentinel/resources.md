@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/23/2019
+ms.date: 11/26/2019
 ms.author: rkarlin
-ms.openlocfilehash: 6634920b1efa3cd24267aca8bcf53587754caa66
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 04c4192293cbfa96eefcc1c84083dd54042ebe8f
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71239978"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74484076"
 ---
 # <a name="useful-resources-for-working-with-azure-sentinel"></a>Recursos útiles al trabajar con Azure Sentinel
 
@@ -33,6 +33,39 @@ Conectores de Azure Logic Apps: <https://docs.microsoft.com/connectors/>
 
 ## <a name="auditing-and-reporting"></a>Informes y auditoría
 Los registros de auditoría de Azure Sentinel se mantienen en los [registros de actividades de Azure](../azure-monitor/platform/activity-logs-overview.md).
+
+Se pueden auditar las siguientes operaciones admitidas.
+
+|Nombre de la operación|    Tipo de recurso|
+|----|----|
+|Crear o actualizar libro  |Microsoft.Insights/workbooks|
+|Eliminar libro    |Microsoft.Insights/workbooks|
+|Establecer flujo de trabajo   |Microsoft.Logic/workflows|
+|Eliminar flujo de trabajo    |Microsoft.Logic/workflows|
+|Crear búsqueda guardada    |Microsoft.OperationalInsights/workspaces/savedSearches|
+|Eliminar búsqueda guardada    |Microsoft.OperationalInsights/workspaces/savedSearches|
+|Establecer panel  |Microsoft.Portal/dashboards|
+|Eliminar panel   |Microsoft.Portal/dashboards|
+|Actualizar reglas de alerta |Microsoft.SecurityInsights/alertRules|
+|Eliminar reglas de alerta |Microsoft.SecurityInsights/alertRules|
+|Actualizar acciones de respuesta de la regla de alerta |Microsoft.SecurityInsights/alertRules|
+|Eliminar acciones de respuesta de la regla de alerta |Microsoft.SecurityInsights/alertRules|
+|Actualizar marcadores   |Microsoft.SecurityInsights/bookmarks|
+|Eliminar marcadores   |Microsoft.SecurityInsights/bookmarks|
+|Actualizar casos   |Microsoft.SecurityInsights/Cases|
+|Actualizar la investigación de casos  |Microsoft.SecurityInsights/Cases|
+|Crear comentarios de los casos   |Microsoft.SecurityInsights/Cases|
+|Actualizar los conectores de datos |Microsoft.SecurityInsights/dataConnectors|
+|Eliminar los conectores de datos |Microsoft.SecurityInsights/dataConnectors|
+|Actualizar la configuración    |Microsoft.SecurityInsights/settings|
+
+### <a name="view-audit-and-reporting-data-in-azure-sentinel"></a>Ver los datos de auditoría e informes en Azure Sentinel
+
+Puede ver estos datos transmitiéndolos desde el registro de actividades de Azure a Azure Sentinel, donde podrá realizar investigaciones con ellos y analizarlos.
+
+1. Conecte el origen de datos de las [actividades de Azure](connect-azure-activity.md). Después de hacerlo, los eventos de auditoría se transmiten a una nueva tabla en la pantalla de **registros** denominada AzureActivity.
+2. A continuación, consulte los datos mediante KQL, tal como lo haría con cualquier otra tabla.
+
 
 
 ## <a name="vendor-documentation"></a>Documentación del proveedor

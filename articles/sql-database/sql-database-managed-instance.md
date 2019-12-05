@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
-ms.date: 11/04/2019
-ms.openlocfilehash: 6c5b913835b2080f30ff3dd73e6a59c1043ecf5d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/27/2019
+ms.openlocfilehash: db5ac9465e6b897690c54484de25fde462741fb3
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823293"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74548389"
 ---
 # <a name="what-is-azure-sql-database-managed-instance"></a>¿Qué es Instancia administrada de Azure SQL Database?
 
@@ -77,7 +77,7 @@ El [modelo de compra basado en núcleo virtual](sql-database-service-tiers-vcore
 En el modelo de núcleos virtuales, puede elegir entre distintas generaciones de hardware.
 
 - Las CPU lógicas **Gen4** se basan en procesadores Intel E5-2673 v3 (Haswell) de 2,4 GHz, SSD conectado, núcleos físicos, 7 GB de RAM por núcleo y tamaños de proceso de entre 8 y 24 núcleos virtuales.
-- Las CPU lógicas **Gen5** se basan en procesadores Intel E5-2673 v4 (Broadwell) de 2,3 GHz, SSD NVMe rápido, núcleo lógico con Hyper-Threading y tamaños de proceso de entre 4 y 80 núcleos.
+- Las CPU lógicas **Gen5** se basan en procesadores Intel E5-2673 v4 (Broadwell) de 2,3 GHz e Intel SP-8160 (Skylake), SSD NVMe rápido, núcleo lógico con Hyper-Threading y tamaños de proceso de entre 4 y 80 núcleos.
 
 Encuentre más información sobre la diferencia entre las generaciones de hardware en el artículo sobre [límites de recursos de instancia administrada](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics).
 

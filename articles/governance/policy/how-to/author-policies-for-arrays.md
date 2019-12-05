@@ -1,14 +1,14 @@
 ---
 title: Creación de directivas para propiedades de matriz en recursos
-description: Aprenda a crear parámetros de matriz, crear reglas para expresiones de lenguaje de matriz, evaluar el alias [*] y anexar elementos a una matriz existente con las reglas de definición de Azure Policy.
-ms.date: 03/06/2019
+description: Aprenda a trabajar con parámetros de matriz y expresiones de lenguaje de matriz, evaluar el alias [*] y anexar elementos con las reglas de definición de Azure Policy.
+ms.date: 11/26/2019
 ms.topic: conceptual
-ms.openlocfilehash: f28cffcf928f9c4da6b2dae2a0811200397c1f0d
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 035f300d01efe80cc44687d3779d7a5fb6be2fc3
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73959706"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555162"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Creación de directivas para propiedades de matriz en recursos de Azure
 
@@ -16,7 +16,9 @@ Las propiedades de Azure Resource Manager se suelen definir como cadenas y valor
 
 - Tipo de un [parámetro de definición](../concepts/definition-structure.md#parameters), para proporcionar varias opciones
 - Parte de una [regla de directiva](../concepts/definition-structure.md#policy-rule) con las condiciones **in** o **notIn**
-- Parte de una regla de directiva que evalúa el [alias \[\*\]](../concepts/definition-structure.md#understanding-the--alias) para evaluar escenarios específicos, tales como **Ninguno**, **Cualquiera** o **Todo**
+- Parte de una regla de directiva que evalúa el [alias \[\*\]](../concepts/definition-structure.md#understanding-the--alias) para evaluar:
+  - Escenarios como **Ninguno**, **Cualquiera** o **Todo**
+  - Escenarios complejos con **count**
 - En el [efecto append](../concepts/effects.md#append), para reemplazar o agregar a una matriz existente
 
 En este artículo se explica cada uso por parte de Azure Policy y proporciona varias definiciones de ejemplo.
@@ -138,10 +140,10 @@ El elemento **type** esperado de la condición `equals` es _string_. Puesto que 
 
 ### <a name="evaluating-the--alias"></a>Evaluación del alias [*]
 
-Los alias que tienen **[\*]** adjuntado a sus nombres indican que **type** es una _array_. En lugar de evaluar el valor de toda la matriz, **[\*]** hace que sea posible evaluar cada elemento de la matriz. Hay tres escenarios en que la evaluación por elemento es útil: Ninguno, Cualquiera y Todo.
+Los alias que tienen **\[\*\]** adjuntado a sus nombres indican que **type** es una _matriz_. En lugar de evaluar el valor de toda la matriz, **\[\*\]** hace que sea posible evaluar cada elemento de la matriz. Hay tres escenarios estándar en que la evaluación por elemento es útil: Ninguno, Cualquiera y Todo. Para escenarios complejos, use [count](../concepts/definition-structure.md#count).
 
 El motor de directiva desencadena **effect** en **then** solo cuando la regla **if** se evalúa como true.
-Este hecho es importante comprender en contexto la manera en que **[\*]** evalúa cada elemento individual de la matriz.
+Este hecho es importante para comprender en contexto la manera en que **\[\*\]** evalúa cada elemento individual de la matriz.
 
 La regla de directiva siguiente es un ejemplo para la tabla de escenario:
 
@@ -194,10 +196,10 @@ Los siguientes resultados se derivan de la combinación de la condición y la re
 
 ## <a name="the-append-effect-and-arrays"></a>El efecto de anexar y matrices
 
-El [efecto append](../concepts/effects.md#append) se comporta de manera diferente en función de si **details.field** es un alias **[\*]** o no.
+El [efecto append](../concepts/effects.md#append) se comporta de manera diferente en función de si **details.field** es un alias **\[\*\]** o no.
 
-- Cuando no es un alias **[\*]** , append reemplaza toda la matriz por la propiedad **value**.
-- Cuando un alias **[\*]** , append agrega la propiedad **value** a la matriz existente o crea una nueva matriz.
+- Cuando no es un alias **\[\*\]** , append reemplaza toda la matriz por la propiedad **value**.
+- Cuando se trata de un alias **\[\*\]** , append agrega la propiedad **value** a la matriz existente o crea una nueva matriz.
 
 Para obtener más información, consulte [Ejemplos de append](../concepts/effects.md#append-examples).
 

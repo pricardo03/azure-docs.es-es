@@ -6,14 +6,14 @@ ms.subservice: application-insights
 ms.topic: conceptual
 author: DaleKoetke
 ms.author: dalek
-ms.date: 10/28/2019
+ms.date: 11/27/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 1749fb4c27a1bfa3048ec0e35c8a09556b0e995b
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: c08de444b691e7bdc1a378e307637fed15b390c3
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74007734"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74559084"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Administración del uso y los costos de Application Insights
 
@@ -69,7 +69,7 @@ Los cargos de Application Insights se agregarán a la factura de Azure. Puede ve
 ### <a name="using-data-volume-metrics"></a>Uso de métricas de volumen de datos
 <a id="understanding-ingested-data-volume"></a>
 
-Para obtener más información sobre los volúmenes de datos, seleccione **Métricas** para el recurso de Application Insights y agregue un nuevo gráfico. En la métrica del gráfico, en **Métricas basadas en registros**, seleccione **Volumen de puntos de datos**. Haga clic en **Aplicar separación** y seleccione el grupo mediante el **tipo de elemento de telemetría**.
+Para obtener más información sobre los volúmenes de datos, seleccione **Métricas** para el recurso de Application Insights y agregue un nuevo gráfico. En la métrica del gráfico, en **Métricas basadas en registros**, seleccione **Volumen de puntos de datos**. Haga clic en **Aplicar separación** y seleccione el grupo mediante el **tipo `Telemetryitem`** .
 
 ![Uso de métricas para examinar el volumen de datos](./media/pricing/10-billing.png)
 
@@ -203,7 +203,7 @@ Para cambiar la retención, en el recurso de Application Insights, vaya a la pá
 
 ![Ajuste del límite de volumen de telemetría diario](./media/pricing/pricing-005.png)
 
-La retención también se puede [establecer mediante programación con PowerShell](powershell.md#set-the-data-retention) mediante el parámetro `retentionInDays`. Además, si configura la retención de datos en 30 días, puede desencadenar una purga inmediata de los datos más antiguos mediante el parámetro `immediatePurgeDataOn30Days`, que puede serle útil en los escenarios relacionados con el cumplimiento. Esta funcionalidad de purga solo se expone con Azure Resource Manager y debe utilizarse con extrema precaución. 
+La retención también se puede [establecer mediante programación con PowerShell](powershell.md#set-the-data-retention) mediante el parámetro `retentionInDays`. Además, si configura la retención de datos en 30 días, puede desencadenar una purga inmediata de los datos más antiguos mediante el parámetro `immediatePurgeDataOn30Days`, que puede serle útil en los escenarios relacionados con el cumplimiento. Esta funcionalidad de purga solo se expone con Azure Resource Manager y debe utilizarse con extrema precaución. El tiempo de restablecimiento diario del extremo de volumen de datos se puede configurar mediante Azure Resource Manager para establecer el parámetro `dailyQuotaResetTime`. 
 
 ## <a name="data-transfer-charges-using-application-insights"></a>Cargos por transferencia de datos al usar Application Insights
 

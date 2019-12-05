@@ -1,19 +1,14 @@
 ---
-title: Referencia de YAML de Azure Container Instances
+title: Referencia de YAML para el grupo de contenedores
 description: Referencia del archivo YAML compatible con Azure Container Instances para configurar un grupo de contenedores
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: article
 ms.date: 08/12/2019
-ms.author: danlep
-ms.openlocfilehash: 2e6be18371cf3ff96d1ce91d4dde26ff1f14021b
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 5603f2e0f63c4f83a6d3761feb540abb8b8b7d5c
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71179995"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533486"
 ---
 # <a name="yaml-reference-azure-container-instances"></a>Referencia de YAML: Azure Container Instances
 
@@ -24,7 +19,7 @@ Un archivo YAML es una manera cómoda de configurar un grupo de contenedores par
 > [!NOTE]
 > Esta referencia se aplica a los archivos YAML para la versión de la API REST de Azure Container Instances`2018-10-01`.
 
-## <a name="schema"></a>Esquema 
+## <a name="schema"></a>Schema 
 
 A continuación se muestra el esquema para el archivo YAML, con comentarios para resaltar las principales propiedades. Para obtener una descripción de las propiedades de este esquema, vea la sección [Valores de propiedad](#property-values).
 
@@ -145,7 +140,7 @@ Las tablas siguientes describen los valores que debe establecer en el esquema.
 |  NOMBRE | type | Obligatorio | Valor |
 |  ---- | ---- | ---- | ---- |
 |  Nombre | string | Sí | Nombre del grupo de contenedores. |
-|  apiVersion | enum | Sí | 01 de octubre de 2018 |
+|  apiVersion | enum | Sí | 2018-10-01 |
 |  location | string | Sin | Ubicación del recurso. |
 |  etiquetas | object | Sin | Etiquetas del recurso. |
 |  identity | object | Sin | Identidad del grupo de contenedores, si está configurada. - [Objeto ContainerGroupIdentity](#ContainerGroupIdentity) |

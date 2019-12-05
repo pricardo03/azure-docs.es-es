@@ -4,15 +4,15 @@ description: En este artículo aprenderá a habilitar y crear recursos compartid
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/16/2019
+ms.date: 11/20/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 00db5905c008644bc21704179363849756fa7dcc
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 34b8af56a8f2f108b96ca07fa73f90bb9eb5bf13
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72518164"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74422730"
 ---
 # <a name="how-to-enable-and-create-large-file-shares"></a>Habilitación y creación de recursos compartidos de archivos grandes
 
@@ -22,13 +22,17 @@ Para escalar verticalmente hasta 100 TiB mediante recursos compartidos de archi
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
+- Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
+- Si piensa usar la CLI de Azure, asegúrese de [instalar la versión más reciente](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+- Si piensa usar Azure PowerShell, asegúrese de [instalar la versión más reciente](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.0.0).
 
 ## <a name="restrictions"></a>Restricciones
 
 Las cuentas habilitadas para recursos compartidos de archivos grandes admiten LRS o ZRS. Por el momento, estas cuentas no admiten GZRS, GRS ni RA-GRS. La habilitación de recursos compartidos de archivos grandes en una cuenta es un proceso irreversible; una vez efectuada, la cuenta no se puede convertir a GZRS, GRS ni RA-GRS.
 
 ## <a name="create-a-new-storage-account"></a>Creación de una cuenta de almacenamiento nueva
+
+### <a name="portal"></a>Portal
 
 Inicie sesión en el [Azure Portal](https://portal.azure.com).
 
@@ -58,7 +62,32 @@ Inicie sesión en el [Azure Portal](https://portal.azure.com).
 
 1. Seleccione **Crear**.
 
+
+### <a name="cli"></a>CLI
+
+En primer lugar, asegúrese de [instalar la versión más reciente](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), para poder habilitar esta característica.
+
+Para crear una cuenta de almacenamiento con recursos compartidos de archivos grandes habilitados, reemplace `<yourStorageAccountName>`, `<yourResourceGroup>` y `<yourDesiredRegion>` por sus valores y, a continuación, use el siguiente comando:
+
+```azurecli-interactive
+## This command creates a large file share enabled account, it will not support GZRS, GRS, or RA-GRS
+az storage account create –name <yourStorageAccountName> -g <yourResourceGroup> -l <yourDesiredRegion> –sku Standard_LRS --kind StorageV2 –enable-large-file-share
+```
+
+### <a name="powershell"></a>PowerShell
+
+En primer lugar, asegúrese de [instalar la versión más reciente](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.0.0), para poder habilitar esta característica.
+
+Para crear una cuenta de almacenamiento con recursos compartidos de archivos grandes habilitados, reemplace `<yourStorageAccountName>`, `<yourResourceGroup>` y `<yourDesiredRegion>` por sus valores y, a continuación, use el siguiente comando:
+
+```PowerShell
+## This command creates a large file share enabled account, it will not support GZRS, GRS, or RA-GRS
+New-AzStorageAccount -ResourceGroupName <yourResourceGroup> -Name <yourStorageAccountName> -Location <yourDesiredRegion> -SkuName Standard_LRS -EnableLargeFileShare;
+```
+
 ## <a name="enable-on-existing-account"></a>Habilitación en una cuenta existente
+
+### <a name="portal"></a>Portal
 
 También puede habilitar los recursos compartidos de archivos grandes en cuentas existentes. Si lo hace así, la cuenta ya no podrá convertir a GZRS, GRS ni RA-GRS. Esta opción es irreversible en esta cuenta.
 
@@ -73,7 +102,29 @@ Ahora ha habilitado los recursos compartidos de archivos grandes en la cuenta de
 
 Si aparece el siguiente mensaje de error: "Aún no hay recursos compartidos de archivos grandes para la cuenta". Puede esperar un tiempo, ya que es probable que su región esté en pleno proceso de implementación o, si necesita esta opción con urgencia, puede ponerse en contacto con el servicio de soporte técnico.
 
+### <a name="cli"></a>CLI
+
+Puede habilitar los recursos compartidos de archivos grandes en las cuentas existentes. Si lo hace así, la cuenta ya no podrá convertir a GZRS, GRS ni RA-GRS. Esta opción es irreversible en esta cuenta.
+
+Reemplace `<yourStorageAccountName>` y `<yourResourceGroup>` en el siguiente comando y, a continuación, úselo para habilitar los recursos compartidos de archivos grandes en la cuenta existente:
+
+```azurecli-interactive
+az storage account update –name <yourStorageAccountName> -g <yourResourceGroup> –enable-large-file-share
+```
+
+### <a name="powershell"></a>PowerShell
+
+Puede habilitar los recursos compartidos de archivos grandes en las cuentas existentes. Si lo hace así, la cuenta ya no podrá convertir a GZRS, GRS ni RA-GRS. Esta opción es irreversible en esta cuenta.
+
+Reemplace `<yourStorageAccountName>` y `<yourResourceGroup>` en el siguiente comando y, a continuación, úselo para habilitar los recursos compartidos de archivos grandes en la cuenta existente:
+
+```PowerShell
+Set-AzStorageAccount -ResourceGroupName <yourResourceGroup> -Name <yourStorageAccountName> -EnableLargeFileShare
+```
+
 ## <a name="create-a-large-file-share"></a>Creación de un recurso compartido de archivos grandes
+
+### <a name="portal"></a>Portal
 
 La creación de un recurso compartido de archivos grandes es casi idéntica a la creación de un recurso compartido de archivos estándar. La principal diferencia es que puede establecer una cuota de hasta 100 TiB.
 
@@ -83,7 +134,30 @@ La creación de un recurso compartido de archivos grandes es casi idéntica a la
 
 ![large-file-shares-create-share.png](media/storage-files-how-to-create-large-file-share/large-file-shares-create-share.png)
 
+### <a name="cli"></a>CLI
+
+Después de habilitar los recursos compartidos de archivos grandes en la cuenta de almacenamiento, puede crear recursos compartidos en esa cuenta con cuotas más altas. Reemplace `<yourStorageAccountName>`, `<yourStorageAccountKey>` y `<yourFileShareName>` por sus valores en el siguiente comando y, a continuación, puede usarlo para crear un recurso compartido de archivos grandes:
+
+```azurecli-interactive
+az storage share create --account-name <yourStorageAccountName> --account-key <yourStorageAccountKey> --name <yourFileShareName>
+```
+
+### <a name="powershell"></a>PowerShell
+
+Después de habilitar los recursos compartidos de archivos grandes en la cuenta de almacenamiento, puede crear recursos compartidos en esa cuenta con cuotas más altas. Reemplace `<YourStorageAccountName>`, `<YourStorageAccountKey>` y `<YourStorageAccountFileShareName>` por sus valores en el siguiente comando y, a continuación, puede usarlo para crear un recurso compartido de archivos grandes:
+
+```PowerShell
+##Config
+$storageAccountName = "<YourStorageAccountName>"
+$storageAccountKey = "<YourStorageAccountKey>"
+$shareName="<YourStorageAccountFileShareName>"
+$ctx = New-AzStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
+New-AzStorageShare -Name $shareName -Context $ctx
+```
+
 ## <a name="expand-existing-file-shares"></a>Expansión de recursos compartidos de archivos existentes
+
+### <a name="portal"></a>Portal
 
 Después de habilitar los recursos compartidos de archivos grandes en la cuenta de almacenamiento, puede expandir los recursos compartidos existentes a la cuota más alta.
 
@@ -92,6 +166,28 @@ Después de habilitar los recursos compartidos de archivos grandes en la cuenta 
 1. Escriba el nuevo tamaño que desee y, a continuación, seleccione **Aceptar**.
 
 ![update-large-file-share-quota.png](media/storage-files-how-to-create-large-file-share/update-large-file-share-quota.png)
+
+### <a name="cli"></a>CLI
+
+Después de habilitar los recursos compartidos de archivos grandes en la cuenta de almacenamiento, puede expandir los recursos compartidos existentes en la cuenta a las cuotas más altas. Reemplace `<yourStorageAccountName>`, `<yourStorageAccountKey>` y `<yourFileShareName>` por sus valores en el siguiente comando y, a continuación, puede usarlo para establecer la cuota en el tamaño máximo:
+
+```azurecli-interactive
+az storage share update --account-name <yourStorageAccountName> --account-key <yourStorageAccountKey> --name <yourFileShareName> --quota 102400
+```
+
+### <a name="powershell"></a>PowerShell
+
+Después de habilitar los recursos compartidos de archivos grandes en la cuenta de almacenamiento, puede expandir los recursos compartidos existentes en la cuenta a las cuotas más altas. Reemplace `<YourStorageAccountName>`, `<YourStorageAccountKey>` y `<YourStorageAccountFileShareName>` por sus valores en el siguiente comando y, a continuación, puede usarlo para establecer la cuota en el tamaño máximo:
+
+```PowerShell
+##Config
+$storageAccountName = "<YourStorageAccountName>"
+$storageAccountKey = "<YourStorageAccountKey>"
+$shareName="<YourStorageAccountFileShareName>"
+$ctx = New-AzStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
+# update quota
+Set-AzStorageShareQuota -ShareName $shareName -Context $ctx -Quota 102400
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

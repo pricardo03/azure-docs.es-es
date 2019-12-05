@@ -6,14 +6,14 @@ keywords: ''
 author: shizn
 ms.author: xshi
 ms.date: 08/07/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: e5bfd2fc127774b9630e87ab4f51241e82ed7c87
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 09371cc66b54d822db5ad24679d28f40323eb871
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70999064"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561012"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Uso de Visual Studio Code para desarrollar y depurar módulos para Azure IoT Edge
 
@@ -61,12 +61,14 @@ Para compilar e implementar la imagen del módulo, necesita Docker para compilar
     > [!TIP]
     > Puede usar un registro de Docker local con fines de prototipo y prueba en lugar de un registro en la nube.
 
-A menos que esté desarrollando el módulo en C, también necesitará la [herramienta de desarrollo de Azure IoT EdgeHub](https://pypi.org/project/iotedgehubdev/) basada en Python con el fin de configurar el entorno de desarrollo local para depurar, ejecutar y probar la solución de IoT Edge. Si aún no lo ha hecho, instale [Python (2.7 o 3.6+) y Pip](https://www.python.org/) e **iotedgehubdev** mediante la ejecución de este comando en el terminal.
+A menos que esté desarrollando el módulo en C, también necesitará la [herramienta de desarrollo de Azure IoT EdgeHub](https://pypi.org/project/iotedgehubdev/) basada en Python con el fin de configurar el entorno de desarrollo local para depurar, ejecutar y probar la solución de IoT Edge. Si aún no lo ha hecho, instale [Python (2.7/3.6/3.7) y Pip](https://www.python.org/) y después **iotedgehubdev** mediante la ejecución de este comando en el terminal.
 
    ```cmd
    pip install --upgrade iotedgehubdev
    ```
 > [!NOTE]
+> Actualmente, iotedgehubdev usa una biblioteca docker-py que no es compatible con Python 3.8.
+>
 > Si tiene varias versiones de Python, incluida la versión Python 2.7 preinstalada (por ejemplo, en Ubuntu o macOS), asegúrese de que usa los valores `pip` o `pip3` correctos para instalar **iotedgehubdev**.
 
 Para probar el módulo en un dispositivo, necesitará una instancia de IoT Hub con al menos un dispositivo IoT Edge. Para usar el equipo como un dispositivo IoT Edge, siga los pasos descritos en el inicio rápido para [Linux](quickstart-linux.md) o [Windows](quickstart.md). Si ejecuta el demonio de IoT Edge en el equipo de desarrollo, es posible que deba detener EdgeHub y EdgeAgent antes de ir al paso siguiente.
@@ -107,6 +109,8 @@ Hay cuatro elementos dentro de la solución:
   > Solo se crea el archivo de entorno si proporciona un repositorio de imágenes para el módulo. Si aceptó los valores predeterminados de localhost para probar y depurar localmente, no es necesario declarar las variables de entorno.
 
 - Un archivo **deployment.template.json** muestra el nuevo módulo junto con un módulo **SimulatedTemperatureSensor** de ejemplo que simula los datos que puede usar para las pruebas. Para más información sobre cómo funcionan los manifiestos de implementación, consulte [cómo usar los manifiestos de implementación para implementar módulos y establecer rutas](module-composition.md).
+
+Para ver cómo funciona el módulo de temperatura simulada, vea el [código fuente de SimulatedTemperatureSensor.csproj](https://github.com/Azure/iotedge/tree/master/edge-modules/SimulatedTemperatureSensor).
 
 ## <a name="add-additional-modules"></a>Agregar módulos adicionales
 

@@ -1,22 +1,22 @@
 ---
-title: Bloqueo de la autenticación heredada en Azure Active Directory (Azure AD) con acceso condicional | Microsoft Docs
+title: 'Bloqueo de la autenticación heredada: Azure Active Directory'
 description: Aprenda a mejorar su seguridad mediante el bloqueo de la autenticación heredada con el acceso condicional de Azure AD.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 06/17/2019
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f4e4dc33d670c5f6c5ebefa21ccf1a1ff941e913
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 2a65145fe9752a90e3328c308ce603c8626d8708
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72024588"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74380859"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Procedimientos para: Bloqueo de la autenticación heredada en Azure AD con acceso condicional   
 

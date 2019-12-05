@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/20/2019
-ms.openlocfilehash: 3fb021c06369d1f37dad83b3f9b27e039ddf8b5e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 75611dd36196c722254d694e9753deb982e2570d
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73811280"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74539337"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-purchasing-model"></a>Límites de recursos para bases de datos únicas que usan el modelo de compra de DTU
 
@@ -43,6 +43,12 @@ Las siguientes tablas muestran los recursos disponibles para una base de datos �
 | N.º máximo de sesiones simultáneas | 300 |
 |||
 
+> [!IMPORTANT]
+> El nivel de servicio Básico proporciona menos de una núcleo virtual (CPU).  En el caso de las cargas de trabajo con un uso intensivo de CPU, se recomienda un nivel de servicio S3 o superior. 
+>
+>En lo que respecta al almacenamiento de datos, el nivel de servicio Básico se coloca en blobs en páginas estándar. Los blobs en páginas estándar usan medios de almacenamiento basados en discos duros (HDD) y son más adecuados para el desarrollo, las pruebas y otras cargas de trabajo de acceso poco frecuente que no dan tanta importancia a la variabilidad del rendimiento.
+>
+
 ### <a name="standard-service-tier"></a>Nivel de servicio Estándar
 
 | **Tamaño de proceso** | **S0** | **S1** | **S2** | **S3** |
@@ -54,6 +60,12 @@ Las siguientes tablas muestran los recursos disponibles para una base de datos �
 | Cantidad máxima de trabajos (solicitudes) simultáneos| 60 | 90 | 120 | 200 |
 | N.º máximo de sesiones simultáneas |600 | 900 | 1200 | 2400 |
 ||||||
+
+> [!IMPORTANT]
+> Los niveles de servicio Estándar S0, S1 y S2 proporcionan menos de una núcleo virtual (CPU).  En el caso de las cargas de trabajo con un uso intensivo de CPU, se recomienda un nivel de servicio S3 o superior. 
+>
+>En lo que respecta al almacenamiento de datos, los niveles de servicio Estándar S0 y S1 se colocan en blobs en páginas estándar. Los blobs en páginas estándar usan medios de almacenamiento basados en discos duros (HDD) y son más adecuados para el desarrollo, las pruebas y otras cargas de trabajo de acceso poco frecuente que no dan tanta importancia a la variabilidad del rendimiento.
+>
 
 ### <a name="standard-service-tier-continued"></a>Nivel de servicio Estándar (continuación)
 

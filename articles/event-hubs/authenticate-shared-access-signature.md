@@ -6,14 +6,14 @@ ms.service: event-hubs
 documentationcenter: ''
 author: spelluru
 ms.topic: conceptual
-ms.date: 08/22/2019
+ms.date: 11/26/2019
 ms.author: spelluru
-ms.openlocfilehash: cb5c53f3f473c10a3c9a12bb1aac20b109c06422
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: d17026dba26b3c1cb846d60967180c29563c425d
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69992368"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74545588"
 ---
 # <a name="authenticate-access-to-event-hubs-resources-using-shared-access-signatures-sas"></a>Autenticación del acceso a recursos de Event Hubs mediante firmas de acceso compartido (SAS)
 La firma de acceso compartido (SAS) le ofrece un control pormenorizado sobre el tipo de acceso que se concede a los clientes que la tienen. Estos son algunos de los controles que puede establecer en una SAS: 
@@ -183,7 +183,7 @@ Un publicador de eventos define un punto de conexión virtual para un centro de 
 
 Normalmente, un centro de eventos emplea a un publicador por cliente. Todos los mensajes que se envíen a cualquiera de los publicadores de un centro de eventos se ponen en cola dentro de ese centro de eventos. Los publicadores permiten control de acceso pormenorizado.
 
-A cada cliente de Event Hubs se le asigna un token único, que se carga en el cliente. Los tokens se generan de forma que cada token único concede acceso a un publicador único diferente. Un cliente que posea un token solo puede enviar a un publicador y a ningún otro. Si varios clientes comparten el mismo token, cada uno de estos clientes comparte un publicador.
+A cada cliente de Event Hubs se le asigna un token único, que se carga en el cliente. Los tokens se generan de forma que cada token único concede acceso a un publicador único diferente. Un cliente que posea un token solo puede enviar a un publicador y a ningún otro. Si varios clientes comparten el mismo token, cada uno de estos clientes comparte el publicador.
 
 Todos los tokens se asignan con claves SAS. Normalmente, todos los tokens se firman con la misma clave. Los clientes no conocen la clave, lo que evita que los clientes produzcan tokens. Los clientes operan en los mismos tokens hasta que expiran.
 
@@ -191,14 +191,25 @@ Por ejemplo, para definir reglas de autorización cuyo ámbito sea solo enviar o
 
 1. Cree una clave SAS en la entidad que quiera publicar para asignarle el ámbito de **envío**. Para más información, consulte [Directivas de autorización de acceso compartido](authorize-access-shared-access-signature.md#shared-access-authorization-policies).
 2. Genere un token de SAS con una hora de expiración para un publicador específico mediante la clave generada en paso 1.
-3. Proporcione el token al cliente del publicador, que solo puede enviar a la entidad a la que el token concede acceso.
-4. Una vez que el token expira, el cliente pierde su acceso para enviar o publicar en la entidad. 
+
+    ```csharp
+    var sasToken = SharedAccessSignatureTokenProvider.GetPublisherSharedAccessSignature(
+                new Uri("Service-Bus-URI"),
+                "eventub-name",
+                "publisher-name",
+                "sas-key-name",
+                "sas-key",
+                TimeSpan.FromMinutes(30));
+    ```
+3. Proporcione el token al cliente del publicador, que solo puede enviar a la entidad y al publicador a los que el token concede acceso.
+
+    Una vez que el token expira, el cliente pierde su acceso para enviar o publicar en la entidad. 
 
 
 > [!NOTE]
-> Aunque no se recomienda, es posible equipar a los dispositivos con tokens que concedan acceso directo a un centro de eventos. Cualquier dispositivo que contenga un token de ese tipo puede enviar mensajes directamente a ese centro de eventos. Además, el dispositivo no puede estar en la lista negra que impide el envío a ese centro de eventos.
+> Aunque no se recomienda, es posible equipar a los dispositivos con tokens que concedan acceso directo a un centro de eventos o espacio de nombres. Cualquier dispositivo que contenga un token de ese tipo puede enviar mensajes directamente a ese centro de eventos. Además, el dispositivo no puede estar en la lista negra que impide el envío a ese centro de eventos.
 > 
-> Se puede observar el comportamiento anterior cuando el mismo token se distribuye a varios dispositivos, lo que proporciona acceso en el nivel de espacio de nombres. En ese caso, un dispositivo o publicador autorizados no se pueden aislar ni revocar. Siempre se recomienda proporcionar ámbitos específicos y pormenorizados.
+> Siempre se recomienda proporcionar ámbitos específicos y pormenorizados.
 
 > [!IMPORTANT]
 > Cuando se han creado los tokens, cada cliente se aprovisiona con su propio token único.
@@ -220,7 +231,7 @@ Consulte los artículos siguientes:
 
 Consulte también los siguientes artículos relacionados:
 
-- [Autenticación de solicitudes en Azure Event Hubs desde una aplicación mediante Azure Active Directory](authenticate-application.md)
+- [Autenticación de solicitudes a Azure Event Hubs desde una aplicación mediante Azure Active Directory](authenticate-application.md)
 - [Autenticación de una identidad administrada con Azure Active Directory para acceder a recursos de Event Hubs](authenticate-managed-identity.md)
 - [Autorización del acceso a recursos de Event Hubs mediante Azure Active Directory](authorize-access-azure-active-directory.md)
 - [Autorización del acceso a recursos de Event Hubs mediante firmas de acceso compartido](authorize-access-shared-access-signature.md)

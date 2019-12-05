@@ -11,27 +11,28 @@ ms.date: 06/18/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 594d4b941f3ed67daa4e1cfd57c2f5539e0cb9ee
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 4662e5047e981c74d2422830bc5b152dae738337
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73677180"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74559311"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Creación y configuración de un entorno de ejecución de integración autohospedado
+
 El entorno de ejecución de integración (IR) es la infraestructura de proceso que Azure Data Factory usa para proporcionar funcionalidades de integración de datos en distintos entornos de red. Para más información acerca del entorno de ejecución de integración, consulte [Introducción al entorno de ejecución de integración](concepts-integration-runtime.md).
 
-Un entorno de ejecución de integración autohospedado puede ejecutar actividades de copia entre un almacén de datos en la nube y un almacén de datos de una red privada, y puede distribuir actividades de transformación a los recursos de proceso de una red local o una red virtual de Azure. La instalación de un entorno de ejecución de integración autohospedado debe realizarse en un equipo local o en una máquina virtual (VM) dentro de una red privada.  
+Un entorno de ejecución de integración autohospedado puede ejecutar actividades de copia entre un almacén de datos en la nube y un almacén de datos en una red privada. También puede distribuir las siguientes actividades de transformación frente a los recursos de proceso en una red local o en Azure Virtual Network. La instalación de un entorno de ejecución de integración autohospedado debe realizarse en una máquina local o en una máquina virtual dentro de una red privada.  
 
-En este documento se describe cómo crear y configurar un IR autohospedado.
+En este artículo se describe cómo crear y configurar un IR autohospedado.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="setting-up-a-self-hosted-integration-runtime"></a>Configuración de un entorno de ejecución de integración autohospedado
 
-Para crear y configurar un entorno de ejecución de integración autohospedado, puede usar los métodos siguientes:
+Para crear y configurar un entorno de ejecución de integración autohospedado, use los procedimientos siguientes.
 
-### <a name="create-a-self-hosted-ir-via-azure-powershell"></a>Creación de un IR autohospedado mediante Azure PowerShell 
+### <a name="create-a-self-hosted-ir-via-azure-powershell"></a>Creación de un IR autohospedado mediante Azure PowerShell
 
 1. Puede usar Azure PowerShell para esta tarea. Este es un ejemplo:
 
@@ -51,222 +52,248 @@ Para crear y configurar un entorno de ejecución de integración autohospedado, 
 
 ### <a name="create-a-self-hosted-ir-via-azure-data-factory-ui"></a>Creación de un IR autohospedado mediante la interfaz de usuario de Azure Data Factory
 
-Puede seguir los pasos que se indican a continuación para crear un IR autohospedado mediante la interfaz de usuario de Azure Data Factory. 
+Use los pasos siguientes para crear un IR autohospedado mediante la interfaz de usuario de Azure Data Factory.
 
-1. En la página **Let's get started page** (Introducción) de la interfaz de usuario de Azure Data Factory, seleccione la pestaña **Author** (Crear) en el panel izquierdo.
+1. En la página **Let's get started** (Introducción) de la interfaz de usuario de Azure Data Factory, seleccione la pestaña **Author** (Crear) en el panel izquierdo.
 
-   ![Botón Author (Crear) de la página principal](media/doc-common-process/get-started-page-author-button.png)
-2. Haga clic en **Connections** (Conexiones) en la parte inferior del panel izquierdo y cambie a **Integration runtimes** (Entornos de ejecución de integración) en la ventana Connections (Conexiones). Seleccione **+New** (+Nuevo).
+   ![Botón Crear de la página principal](media/doc-common-process/get-started-page-author-button.png)
 
-   ![Tiempo de ejecución de integración](media/create-self-hosted-integration-runtime/new-integration-runtime.png)
-3. En la ventana **Integration runtime setup** (Configuración de Integration Runtime), seleccione la opción *Perform data movement and dispatch activities to external computes* (Realizar actividades de movimiento y envío de datos en equipos externos) y haga clic en **Continue** (Continuar).
-4. Escriba un nombre para el entorno de ejecución de integración y seleccione **Create** (Crear).
-5. Puede usar el método de **Option 1** (Opción 1) para iniciar la configuración rápida en el equipo. Como alternativa, use el método de **Option 2** (Opción 2) para realizar una configuración manual. Las siguientes instrucciones se basan en el método de **Manual setup** (Configuración manual):
+1. Haga clic en **Conexiones** en la parte inferior del panel izquierdo y cambie a **Integration runtimes** (Entornos de ejecución de integración) en la ventana **Conexiones**. Seleccione **+New** (+Nuevo).
+
+   ![Creación de una instancia de Integration Runtime](media/create-self-hosted-integration-runtime/new-integration-runtime.png)
+
+1. En la ventana **Integration runtime setup** (Configuración de Integration Runtime), seleccione la opción **Perform data movement and dispatch activities to external computes** (Realizar actividades de movimiento y envío de datos en equipos externos) y seleccione **Continuar**.
+
+1. Escriba un nombre para el entorno de ejecución de integración y seleccione **Create** (Crear).
+
+1. Seleccione el vínculo en **Opción 1** para abrir la configuración rápida en el equipo. O siga los pasos descritos en **Opción 2** para realizar la configuración manualmente. Las siguientes instrucciones se basan en el método de configuración manual:
 
    ![Configuración de Integration Runtime](media/create-self-hosted-integration-runtime/integration-runtime-setting-up.png)
 
     1. Copie y pegue la clave de autenticación. Seleccione **Download and install integration runtime** (Descargar e instalar Integration Runtime).
-        
-    1. Descargue el entorno de ejecución de integración autohospedado en una máquina Windows local. Ejecución de la instalación.
-        
-    1. En la página **Registro de Integration Runtime (autohospedado)** , pegue la clave guardada en la sección anterior y seleccione en **Registrar**.
+
+    1. Descargue el entorno de ejecución de integración autohospedado en una máquina Windows local. Ejecute al programa de instalación.
+
+    1. En la página **Registro de Integration Runtime (autohospedado)** , pegue la clave guardada anteriormente y seleccione **Registrar**.
     
        ![Registro de Integration Runtime](media/create-self-hosted-integration-runtime/register-integration-runtime.png)
 
-    1. En la página **Nuevo nodo de Integration Runtime (autohospedado)** , seleccione **Finalizar**. 
+    1. En la página **Nuevo nodo de Integration Runtime (autohospedado)** , seleccione **Finalizar**.
 
-6. Verá el siguiente mensaje cuando la instancia de Integration Runtime autohospedado se haya registrado correctamente:
+1. Verá la siguiente ventana cuando el entorno de ejecución de integración autohospedado se haya registrado correctamente:
 
-    ![Se registró correctamente](media/create-self-hosted-integration-runtime/registered-successfully.png)
+    ![El registro se completó correctamente.](media/create-self-hosted-integration-runtime/registered-successfully.png)
 
-### <a name="set-up-a-self-hosted-ir-on-azure-vm-via-azure-resource-manager-template"></a>Configuración de un IR autohospedado en una máquina virtual de Azure mediante una plantilla de Azure Resource Manager 
-Puede automatizar la configuración del IR autohospedado en una máquina virtual de Azure mediante [esta plantilla de Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vms-with-selfhost-integration-runtime). Esta plantilla proporciona una manera sencilla de tener un IR autohospedado completamente funcional en una virtual de Azure con las características de escalabilidad y alta disponibilidad (siempre que establezca el número de nodos en 2, o más).
+### <a name="set-up-a-self-hosted-ir-on-an-azure-vm-via-an-azure-resource-manager-template"></a>Configuración de un IR autohospedado en una VM de Azure mediante una plantilla de Azure Resource Manager
+
+Puede automatizar la configuración del IR autohospedado en una máquina virtual de Azure mediante la [plantilla Crear IR autohospedado](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vms-with-selfhost-integration-runtime). La plantilla proporciona una forma fácil de tener un IR autohospedado totalmente funcional dentro de Azure Virtual Network. El IR tiene características de escalabilidad y alta disponibilidad siempre que configure el número de nodos en dos o más.
 
 ### <a name="set-up-an-existing-self-hosted-ir-via-local-powershell"></a>Configuración de un IR autohospedado existente mediante PowerShell local
 
-Puede usar la línea de comandos para configurar o administrar un entorno de ejecución de integración autohospedado existente. Esta opción se puede usar especialmente para automatizar la instalación y el registro de nodos del entorno de ejecución de integración autohospedado. 
+Puede usar la línea de comandos para configurar o administrar un IR autohospedado. Este uso puede resultar especialmente útil para automatizar la instalación y el registro de nodos de IR autohospedado.
 
-**Dmgcmd.exe** se incluye en la instalación autohospedada, que generalmente se encuentra en: C:\Program Files\Microsoft Integration Runtime\3.0\Shared\ carpeta. Esto admite varios parámetros y puede invocarse a través del símbolo del sistema mediante scripts por lotes para la automatización. 
+Dmgcmd.exe se incluye en la instalación autohospedada. Normalmente se ubica en la carpeta C:\Program Files\Microsoft Integration Runtime\3.0\Shared\. Esta aplicación admite varios parámetros y puede invocarse a través de una línea de comandos mediante scripts por lotes para la automatización.
 
-*Uso:* 
+Use la aplicación de la manera siguiente:
 
 ```powershell
-dmgcmd [ -RegisterNewNode "<AuthenticationKey>" -EnableRemoteAccess "<port>" ["<thumbprint>"] -EnableRemoteAccessInContainer "<port>" ["<thumbprint>"] -DisableRemoteAccess -Key "<AuthenticationKey>" -GenerateBackupFile "<filePath>" "<password>" -ImportBackupFile "<filePath>" "<password>" -Restart -Start -Stop -StartUpgradeService -StopUpgradeService -TurnOnAutoUpdate -TurnOffAutoUpdate -SwitchServiceAccount "<domain\user>" ["password"] -Loglevel <logLevel> ] 
+dmgcmd [ -RegisterNewNode "<AuthenticationKey>" -EnableRemoteAccess "<port>" ["<thumbprint>"] -EnableRemoteAccessInContainer "<port>" ["<thumbprint>"] -DisableRemoteAccess -Key "<AuthenticationKey>" -GenerateBackupFile "<filePath>" "<password>" -ImportBackupFile "<filePath>" "<password>" -Restart -Start -Stop -StartUpgradeService -StopUpgradeService -TurnOnAutoUpdate -TurnOffAutoUpdate -SwitchServiceAccount "<domain\user>" ["<password>"] -Loglevel <logLevel> ]
 ```
 
- *Detalles (parámetros/propiedad):* 
+A continuación se incluyen algunos detalles de las propiedades y los parámetros de la aplicación: 
 
 | Propiedad                                                    | DESCRIPCIÓN                                                  | Obligatorio |
 | ----------------------------------------------------------- | ------------------------------------------------------------ | -------- |
-| RegisterNewNode "`<AuthenticationKey>`"                     | Permite registrar el nodo de Integration Runtime (autohospedado) con la clave de autenticación especificada. | Sin       |
-| EnableRemoteAccess "`<port>`" ["`<thumbprint>`"]            | Permite habilitar el acceso remoto en el nodo actual para configurar un clúster de alta disponibilidad o habilitar la configuración de credenciales directamente en el entorno de ejecución de integración autohospedado (sin tener que pasar por el servicio ADF) mediante el cmdlet **New-AzDataFactoryV2LinkedServiceEncryptedCredential** y desde una máquina remota de la misma red. | Sin       |
-| EnableRemoteAccessInContainer "`<port>`" ["`<thumbprint>`"] | Permite habilitar el acceso remoto al nodo actual cuando el nodo se esté ejecutando en el contenedor. | Sin       |
-| DisableRemoteAccess                                         | Permite deshabilitar el acceso remoto al nodo actual. Es necesario obtener acceso remoto para realizar la configuración de varios nodos. El cmdlet de PowerShell New-**AzDataFactoryV2LinkedServiceEncryptedCredential** funcionará incluso cuando el acceso remoto esté deshabilitado, siempre y cuando se ejecute en la misma máquina que el nodo del entorno de ejecución de integración autohospedado. | Sin       |
-| Clave "`<AuthenticationKey>`"                                 | Permite sobrescribir o actualizar la clave de autenticación anterior. Tenga cuidado, ya que esto puede ocasionar que su nodo del entorno de ejecución de integración autohospedado anterior se desconecte si la clave es un nuevo entorno de ejecución de integración. | Sin       |
-| GenerateBackupFile "`<filePath>`" "`<password>`"            | Permite generar un archivo de copia de seguridad del nodo actual; el archivo de copia de seguridad incluye la clave del nodo y las credenciales del almacén de datos. | Sin       |
-| ImportBackupFile "`<filePath>`" "`<password>`"              | Permite restaurar el nodo desde un archivo de copia de seguridad.                          | Sin       |
-| Reinicio                                                     | Permite reiniciar el servicio de host de Integration Runtime (autohospedado).   | Sin       |
-| Start                                                       | Permite iniciar el servicio de host de Integration Runtime (autohospedado).     | Sin       |
-| Stop                                                        | Permite detener el servicio de actualización de Integration Runtime (autohospedado).        | Sin       |
-| StartUpgradeService                                         | Permite iniciar el servicio de actualización de Integration Runtime (autohospedado).       | Sin       |
-| StopUpgradeService                                          | Permite detener el servicio de actualización de Integration Runtime (autohospedado).        | Sin       |
-| TurnOnAutoUpdate                                            | Permite activar la actualización automática de Integration Runtime (autohospedado).        | Sin       |
-| TurnOffAutoUpdate                                           | Permite desactivar la actualización automática de Integration Runtime (autohospedado).       | Sin       |
-| SwitchServiceAccount "<domain\user>" ["password"]           | Permite configurar DIAHostService para que se ejecute como una cuenta nueva. Use una contraseña vacía ("") para la cuenta del sistema o una cuenta virtual. | Sin       |
-| Loglevel `<logLevel>`                                       | Permite establecer el nivel de registro ETW (Desactivado, Error, Detallado o todo). Lo usa generalmente el soporte técnico de Microsoft durante la depuración. | Sin       |
-
+| **RegisterNewNode** "`<AuthenticationKey>`"                     | Permite registrar un nodo de entorno de ejecución de integración autohospedado con la clave de autenticación especificada. | Sin       |
+| **EnableRemoteAccess** "`<port>`" ["`<thumbprint>`"]            | Permite habilitar el acceso remoto al nodo actual para configurar un clúster de alta disponibilidad. También permite la configuración de credenciales directamente en el IR autohospedado sin necesidad de acceder a través de Azure Data Factory. Para ello, use el cmdlet **New-AzDataFactoryV2LinkedServiceEncryptedCredential** desde una máquina remota en la misma red. | Sin       |
+| **EnableRemoteAccessInContainer** "`<port>`" ["`<thumbprint>`"] | Permite habilitar el acceso remoto al nodo actual cuando el nodo se ejecuta en un contenedor. | Sin       |
+| **DisableRemoteAccess**                                         | Permite deshabilitar el acceso remoto al nodo actual. Es necesario obtener acceso remoto para realizar la configuración de varios nodos. El cmdlet de PowerShell **New-AzDataFactoryV2LinkedServiceEncryptedCredential** funcionará incluso cuando el acceso remoto esté deshabilitado. Este comportamiento se produce siempre y cuando el cmdlet se ejecute en la misma máquina que el nodo de IR autohospedado. | Sin       |
+| **Clave** "`<AuthenticationKey>`"                                 | Permite sobrescribir o actualizar la clave de autenticación anterior. Debe tener cuidado con esta acción. El nodo de IR autohospedado anterior puede desconectarse si la clave es un nuevo entorno de ejecución de integración. | Sin       |
+| **GenerateBackupFile** "`<filePath>`" "`<password>`"            | Permite generar un archivo de copia de seguridad del nodo actual. El archivo de copia de seguridad incluye la clave del nodo y las credenciales del almacén de datos. | Sin       |
+| **ImportBackupFile** "`<filePath>`" "`<password>`"              | Permite restaurar el nodo desde un archivo de copia de seguridad.                          | Sin       |
+| **Restart** (Reiniciar)                                                     | Permite reiniciar el servicio de host del entorno de ejecución de integración autohospedado.   | Sin       |
+| **Iniciar**                                                       | Permite iniciar el servicio de host del entorno de ejecución de integración autohospedado.     | Sin       |
+| **Detención**                                                        | Permite detener el servicio de host del entorno de ejecución de integración autohospedado.        | Sin       |
+| **StartUpgradeService**                                         | Permite iniciar el servicio de actualización del entorno de ejecución de integración autohospedado.       | Sin       |
+| **StopUpgradeService**                                          | Permite detener el servicio de actualización del entorno de ejecución de integración autohospedado.        | Sin       |
+| **TurnOnAutoUpdate**                                            | Permite activar la actualización automática del entorno de ejecución de integración autohospedado.        | Sin       |
+| **TurnOffAutoUpdate**                                           | Permite desactivar la actualización automática del entorno de ejecución de integración autohospedado.       | Sin       |
+| **SwitchServiceAccount** "`<domain\user>`" ["`<password>`"]           | Permite configurar DIAHostService para que se ejecute como una cuenta nueva. Use la contraseña vacía "" para cuentas del sistema o cuentas virtuales. | Sin       |
+| **Loglevel** `<logLevel>`                                       | Permite configurar el nivel de registro del Seguimiento de eventos para Windows (ETW) en **Desactivado**, **Error**, **Detallado** o **Todo**. Esta propiedad la usan principalmente los ingenieros del Soporte técnico de Microsoft al depurar la instalación. | Sin       |
 
 ## <a name="command-flow-and-data-flow"></a>Flujo de comandos y flujo de datos
-Cuando mueve datos entre un entorno local y la nube, la actividad utiliza un entorno de ejecución de integración autohospedado para transferir los datos desde un origen de datos local a la nube, y viceversa.
 
-A continuación se muestra un flujo de datos de alto nivel y el resumen de los pasos para copiar con un IR autohospedado:
+Cuando mueve datos entre un entorno local y la nube, la actividad utiliza un entorno de ejecución de integración autohospedado para transferir los datos entre un origen de datos local y la nube.
 
-![Información general de alto nivel](media/create-self-hosted-integration-runtime/high-level-overview.png)
+A continuación se muestra un resumen de alto nivel de los pasos del flujo de datos para copiar con un IR autohospedado:
 
-1. El desarrollador de datos crea un entorno de ejecución de integración autohospedado en una instancia de Azure Data Factory mediante un cmdlet de PowerShell. Actualmente, Azure Portal no admite esta característica.
-2. El desarrollador de datos crea un servicio vinculado para un almacén de datos local mediante la especificación de la instancia del entorno de ejecución de integración autohospedado que debe usar para conectarse a los almacenes de datos.
-3. El nodo del entorno de ejecución de integración autohospedado cifra las credenciales mediante la interfaz de programación de aplicaciones de protección de datos de Windows (DPAPI) y las guarda localmente. Si se establecen varios nodos para la alta disponibilidad, las credenciales se sincronizan de nuevo en otros nodos. Cada nodo cifra las credenciales mediante DPAPI y las almacena localmente. La sincronización de credenciales es transparente para el desarrollador de datos y la controla el IR autohospedado.    
-4. El servicio Data Factory se comunica con el entorno de ejecución de integración autohospedado para la programación y administración de trabajos a través de un *canal de control* que usa una [retransmisión de Azure Service Bus compartida](https://docs.microsoft.com/azure/service-bus-relay/relay-what-is-it#wcf-relay). Cuando es necesario ejecutar un trabajo de actividad, Data Factory pone en cola la solicitud junto con cualquier información de credenciales (en caso de que las credenciales no estén ya almacenadas en el entorno Integration Runtime autohospedado). El entorno de ejecución de integración autohospedado inicia el trabajo después de sondear la cola.
-5. El entorno de ejecución de integración autohospedado copia datos de un almacén local a un almacenamiento en la nube, o viceversa, en función de cómo esté configurada la actividad de copia en la canalización de datos. En este paso, el entorno de ejecución de integración autohospedado se comunica directamente con servicios de almacenamiento basados en la nube, como Azure Blob Storage, a través de un canal seguro (HTTPS).
+![Información general de alto nivel del flujo de datos](media/create-self-hosted-integration-runtime/high-level-overview.png)
+
+1. Un desarrollador de datos crea un entorno de ejecución de integración autohospedado en una instancia de Azure Data Factory mediante un cmdlet de PowerShell. Actualmente, Azure Portal no admite esta característica.
+1. El desarrollador de datos crea un servicio vinculado para un almacén de datos local. Para ello, especifica la instancia de entorno de ejecución de integración autohospedado que el servicio debe usar para conectarse al almacén de datos.
+1. El nodo del entorno de ejecución de integración autohospedado cifra las credenciales mediante la interfaz de programación de aplicaciones de protección de datos de Windows (DPAPI) y las guarda localmente. Si se establecen varios nodos para la alta disponibilidad, las credenciales se sincronizan de nuevo en otros nodos. Cada nodo cifra las credenciales mediante DPAPI y las almacena localmente. La sincronización de credenciales es transparente para el desarrollador de datos y la controla el IR autohospedado.
+1. Azure Data Factory se comunica con el entorno de ejecución de integración autohospedado para programar y administrar trabajos. La comunicación se realiza a través de un canal de control que usa una conexión compartida de [Azure Service Bus Relay](https://docs.microsoft.com/azure/service-bus-relay/relay-what-is-it#wcf-relay). Cuando es necesario ejecutar un trabajo de actividad, Data Factory pone en cola la solicitud junto con la información de credenciales. Sucede esto en caso de que las credenciales aún no estén almacenadas en el entorno de ejecución de integración autohospedado. El entorno de ejecución de integración autohospedado inicia el trabajo después de sondear la cola.
+1. El entorno de ejecución de integración autohospedado copia datos entre un almacenamiento local y un almacenamiento en la nube. La dirección de la copia depende de la configuración de la actividad de copia en la canalización de los datos. En este paso, el entorno de ejecución de integración autohospedado se comunica directamente con servicios de almacenamiento basados en la nube, como Azure Blob Storage, a través de un canal HTTPS seguro.
 
 ## <a name="considerations-for-using-a-self-hosted-ir"></a>Consideraciones a la hora de usar un IR autohospedado
 
-- Es posible utilizar un solo entorno de Integration Runtime autohospedado para varios orígenes de datos locales. Un entorno de ejecución de integración autohospedado individual puede compartirse con otra factoría de datos del mismo inquilino de Azure Active Directory. Para más información, consulte [Uso compartido de un entorno de ejecución de integración autohospedado](#create-a-shared-self-hosted-integration-runtime-in-azure-data-factory).
-- En cada equipo no puede haber más de una instancia del entorno de ejecución de integración autohospedado instalada. Si tiene dos factorías de datos que necesitan obtener acceso a las fuentes de datos locales, use la [característica de uso compartido del entorno de ejecución de integración autohospedado](#create-a-shared-self-hosted-integration-runtime-in-azure-data-factory) para compartir el tiempo de ejecución de la integración autohospedada, o instale el tiempo de ejecución de la integración hospedada en dos equipos locales, uno para cada fábrica de datos.  
-- No es preciso que el entorno de ejecución de integración autohospedado se encuentre en la misma máquina que el origen de datos. Sin embargo, cuanto más cerca estén ambos, menos tiempo necesitará el primero para conectarse al segundo. Le recomendamos que instale el entorno Integration Runtime autohospedado en una máquina diferente de la que hospeda el origen de datos local. Si el entorno de ejecución de integración autohospedado y el origen de datos están en equipos diferentes, el primero no compite por recursos con el segundo.
-- Puede tener varios entornos de ejecución de integración autohospedados en diferentes equipos que se conecten al mismo origen de datos local. Por ejemplo, puede tener dos entornos de ejecución de integración autohospedados que sirvan a dos factorías de datos, pero el mismo origen de datos local puede estar registrado en ambas factorías de datos.
-- Si ya tiene una puerta de enlace instalada en el equipo que sirve a un escenario de Power BI, instale un entorno de ejecución de integración autohospedado independiente para Azure Data Factory en otro equipo.
-- El entorno de ejecución de integración autohospedado debe usarse para admitir la integración de datos en una red virtual de Azure.
-- Considere el origen de datos como un origen de datos local, que está detrás de un firewall, incluso cuando use Azure ExpressRoute. Use el entorno de ejecución de integración autohospedado para establecer la conectividad entre el servicio y el origen de datos.
-- El entorno de ejecución de integración autohospedado se debe usar aunque el almacén de datos esté en la nube en una máquina virtual IaaS de Azure.
-- Las tareas pueden generar error en un entorno de ejecución de integración autohospedado que esté instalado en un equipo con Windows Server en el que está habilitado el cifrado compatible con FIPS. Para solucionar este problema, deshabilite el cifrado compatible con FIPS en el servidor. Para deshabilitar el cifrado compatible con FIPS, cambie el valor del Registro siguiente de 1 (habilitado) a 0 (deshabilitado): `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled`.
+- Puede utilizar un solo entorno de ejecución de integración autohospedado para varios orígenes de datos locales. También puede compartirlo con otra factoría de datos con el mismo inquilino de Azure Active Directory (Azure AD). Para más información, consulte [Uso compartido de un entorno de ejecución de integración autohospedado](#create-a-shared-self-hosted-integration-runtime-in-azure-data-factory).
+- En cada máquina solo puede instalar una instancia del entorno de ejecución de integración autohospedado. Si tiene dos factorías de datos que necesitan obtener acceso a los orígenes de datos locales, use la [característica de uso compartido del IR autohospedado](#create-a-shared-self-hosted-integration-runtime-in-azure-data-factory) para compartir el IR autohospedada, o instale el IR autohospedado en dos equipos locales, uno para cada fábrica de datos.  
+- No es preciso que el entorno de ejecución de integración autohospedado se encuentre en la misma máquina que el origen de datos. Sin embargo, cuanto más cerca estén ambos, menos tiempo necesitará el primero para conectarse al segundo. Le recomendamos que instale el entorno de ejecución de integración autohospedado en una máquina diferente de la que hospeda el origen de datos local. Si el entorno de ejecución de integración autohospedado y el origen de datos están en máquinas diferentes, el primero no compite con el segundo por recursos.
+- Puede tener varios entornos de ejecución de integración autohospedados en diferentes equipos que se conecten al mismo origen de datos local. Por ejemplo, si tiene dos entornos de ejecución de integración autohospedados que sirven a dos factorías de datos el mismo origen de datos local puede estar registrado en ambas factorías de datos.
+- Si ya tiene una puerta de enlace instalada en el equipo que sirve a un escenario de Power BI, instale un entorno de ejecución de integración autohospedado independiente para Data Factory en otra máquina.
+- Use un entorno de ejecución de integración autohospedado para admitir la integración de datos en Azure Virtual Network.
+- Considere el origen de datos como un origen de datos local, que está detrás de un firewall, incluso cuando use Azure ExpressRoute. Use el entorno de ejecución de integración autohospedado para conectarse al origen de datos.
+- Use el entorno de ejecución de integración autohospedado aunque el almacén de datos esté en la nube en una máquina virtual de infraestructura como servicio (IaaS) de Azure.
+- Las tareas pueden generar error en un entorno de ejecución de integración autohospedado que esté instalado en un equipo con Windows Server para el que está habilitado el cifrado compatible con FIPS. Para solucionar este problema, deshabilite el cifrado compatible con FIPS en el servidor. Para deshabilitar el cifrado compatible con FIPS, cambie el valor de la subclave del registro siguiente de 1 (habilitado) a 0 (deshabilitado): `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled`.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Las versiones de sistema operativo compatibles son Windows 7 Service Pack 1, Windows 8.1, Windows 10, Windows Server 2008 R2 SP1, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016 y Windows Server 2019. No se admite la instalación del entorno de ejecución de integración autohospedado en un controlador de dominio.
+- Las versiones compatibles de Windows son:
+  + Windows 7 Service Pack 1
+  + Windows 8.1
+  + Windows 10
+  + Windows Server 2008 R2 SP1
+  + Windows Server 2012
+  + Windows Server 2012 R2
+  + Windows Server 2016
+  + Windows Server 2019
+   
+   No se admite la instalación del entorno de ejecución de integración autohospedado en un controlador de dominio.
 - Se requiere .NET Framework 4.6.1, o cualquier versión posterior. Si va a instalar el entorno de ejecución de integración autohospedado en un equipo con Windows 7, instale .NET Framework 4.6.1, o cualquier versión posterior. Consulte [Requisitos de sistema de .NET Framework](/dotnet/framework/get-started/system-requirements) para más información.
-- La configuración recomendada del equipo del entorno de ejecución de integración autohospedado es de, al menos, 2 GHz, 4 núcleos, 8 GB de RAM y un disco de 80 GB.
-- Si la máquina host está en hibernación, el entorno de ejecución de integración autohospedado no responde a las solicitudes de datos. Configure un plan de energía adecuado en el equipo antes de instalar el entorno de ejecución de integración autohospedado. Si la máquina está configurada para hibernar, se mostrará un mensaje durante la instalación del entorno Integration Runtime autohospedado.
-- Debe ser administrador del equipo para instalar y configurar correctamente el entorno de ejecución de integración autohospedado.
-- Las ejecuciones de la actividad de copia se producen con una frecuencia concreta. El uso de los recursos (CPU, memoria) en el equipo sigue el mismo patrón en los momentos de máxima actividad y en los de inactividad. El uso de recursos también depende en gran medida de la cantidad de datos que se mueven. Cuando hay varios trabajos de copia en curso, puede ver que el uso de los recursos aumenta durante las horas pico.
-- Las tareas pueden generar errores si se extraen datos en los formatos Parquet, ORC o Avro. La creación de archivos se ejecuta en la máquina de integración autohospedada y requiere los siguientes requisitos previos para funcionar según lo esperado (consulte [Formato Parquet en Azure Data Factory](https://docs.microsoft.com/azure/data-factory/format-parquet#using-self-hosted-integration-runtime)).
+- La configuración mínima recomendada para la máquina del entorno de ejecución de integración autohospedado es un procesador de 2 GHz con cuatro núcleos, 8 GB de RAM y 80 GB de espacio disponible en disco duro.
+- Si el equipo host está en hibernación, el entorno de ejecución de integración autohospedado no responde a las solicitudes de datos. Configure un plan de energía adecuado en el equipo antes de instalar el entorno de ejecución de integración autohospedado. Si la máquina está configurada para hibernar, se mostrará un mensaje en el instalador del entorno de ejecución de integración autohospedado.
+- Debe ser administrador de la máquina para instalar y configurar correctamente el entorno de ejecución de integración autohospedado.
+- Las ejecuciones de la actividad de copia se producen con una frecuencia concreta. El uso del procesador y la RAM en la máquina sigue el mismo patrón en los momentos de máxima actividad y en los de inactividad. El uso de recursos también depende en gran medida de la cantidad de datos que se mueven. Cuando hay varios trabajos de copia en curso, puede ver que el uso de los recursos aumenta durante las horas pico.
+- Puede que las tareas produzcan errores durante la extracción de datos en formatos Parquet, ORC o Avro. Para obtener más información sobre Parquet, consulte [Formato Parquet en Azure Data Factory](https://docs.microsoft.com/azure/data-factory/format-parquet#using-self-hosted-integration-runtime). La creación del archivo se ejecuta en la máquina de integración autohospedada. Para que funcione según lo esperado, la creación del archivo requiere los siguientes requisitos previos:
     - Paquete [redistribuible de Visual C++ 2010](https://download.microsoft.com/download/3/2/2/3224B87F-CFA0-4E70-BDA3-3DE650EFEBA5/vcredist_x64.exe) (x64)
-    - Java Runtime (JRE) versión 8 de un proveedor de JRE, como [Adopt OpenJDK](https://adoptopenjdk.net/), para garantizar que la variable de entorno `JAVA_HOME` esté definida.
+    - Versión 8 de Java Runtime (JRE) de un proveedor de JRE, como [AdoptOpenJDK](https://adoptopenjdk.net/). Asegúrese de que la variable de entorno `JAVA_HOME` esté establecida.
 
 ## <a name="installation-best-practices"></a>Procedimientos recomendados de instalación
-Para instalar el entorno de ejecución de integración autohospedado, descargue un paquete de instalación MSI del [Centro de descarga de Microsoft](https://www.microsoft.com/download/details.aspx?id=39717). Consulte el artículo [Movimiento de datos entre orígenes locales y la nube con Data Management Gateway](tutorial-hybrid-copy-powershell.md) para obtener instrucciones detalladas.
 
-- Configure un plan de energía en el equipo host para el entorno de ejecución de integración autohospedado, con el fin de que el equipo no hiberne. Si el equipo host hiberna, el entorno de ejecución de integración autohospedado se pone en modo sin conexión.
-- Realice regularmente una copia de las credenciales asociadas con el entorno Integration Runtime autohospedado.
-- Para automatizar las operaciones de configuración de IR autohospedado, consulte **Configuración de un IR autohospedado existente mediante PowerShell** en [esta sección](#setting-up-a-self-hosted-integration-runtime).  
+Para instalar el entorno de ejecución de integración autohospedado, descargue un paquete de instalación MSI del [Centro de descarga de Microsoft](https://www.microsoft.com/download/details.aspx?id=39717). Consulte el artículo [Movimiento de datos entre orígenes locales y la nube](tutorial-hybrid-copy-powershell.md) para obtener instrucciones detalladas.
 
-## <a name="install-and-register-self-hosted-ir-from-the-download-center"></a>Instalación y registro de IR autohospedado desde el Centro de descarga
+- Configure un plan de energía en el equipo host para el entorno de ejecución de integración autohospedado con el fin de que el equipo no hiberne. Si el equipo host hiberna, el entorno de ejecución de integración autohospedado se pone en modo sin conexión.
+- Realice regularmente una copia de las credenciales asociadas con el entorno de ejecución de integración autohospedado.
+- Para automatizar las operaciones de configuración de IR autohospedado, consulte [Configuración de un IR autohospedado existente mediante PowerShell](#setting-up-a-self-hosted-integration-runtime).  
+
+## <a name="install-and-register-a-self-hosted-ir-from-microsoft-download-center"></a>Instalación y registro de un IR autohospedado desde el Centro de descarga de Microsoft
 
 1. Vaya a la [página de descarga del entorno de ejecución de integración Microsoft](https://www.microsoft.com/download/details.aspx?id=39717).
-2. Seleccione **Descargar**, haga clic en la versión de 64 bits (no se admite la de 32 bits) y, finalmente, seleccione **Siguiente**.
-3. Ejecute el archivo MSI directamente o guárdelo en el disco duro para ejecutarlo más adelante.
-4. En la página **principal**, seleccione un idioma y, después, seleccione **Siguiente**.
-5. Acepte los términos de licencia del software de Microsoft y seleccione **Siguiente**.
-6. Seleccione la **carpeta** en la que se va a instalar el entorno de ejecución de integración autohospedado y seleccione **Siguiente**.
-7. En la página **Preparado para instalar**, seleccione **Instalar**.
-8. Haga clic en **Finalizar** para completar la instalación.
-9. Para obtener la clave de autenticación use Azure PowerShell. Este es un ejemplo de PowerShell para recuperar la clave de autenticación:
+1. Seleccione **Descargar**, haga clic en la versión de 64 bits y seleccione **Siguiente**. La versión de 32 bits no se admite.
+1. Ejecute el archivo MSI directamente o guárdelo en el disco duro para ejecutarlo más adelante.
+1. En la ventana **principal**, seleccione un idioma y, después, seleccione **Siguiente**.
+1. Acepte los términos de licencia del software de Microsoft y seleccione **Siguiente**.
+1. Seleccione la **carpeta** en la que se va a instalar el entorno de ejecución de integración autohospedado y seleccione **Siguiente**.
+1. En la página **Preparado para instalar**, seleccione **Instalar**.
+1. Seleccione **Finalizar** para completar la instalación.
+1. Para obtener la clave de autenticación, use PowerShell. Este es un ejemplo de PowerShell para recuperar la clave de autenticación:
 
     ```powershell
     Get-AzDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime
     ```
-11. En la página **Registro de Integration Runtime (autohospedado)** de Microsoft Integration Runtime Configuration Manager que se ejecuta en el equipo, siga estos pasos:
 
-    a. Pegue la clave de autenticación en el área de texto.
+1. En la ventana **Registro de Integration Runtime (autohospedado)** de Microsoft Integration Runtime Configuration Manager que se ejecuta en la máquina, siga estos pasos:
 
-    b. Si lo desea, seleccione **Show authentication key** (Mostrar clave de autenticación) para ver el texto de la clave.
+    1. Pegue la clave de autenticación en el área de texto.
 
-    c. Seleccione **Registrar**.
+    1. Si lo desea, seleccione **Show authentication key** (Mostrar clave de autenticación) para ver el texto de la clave.
 
+    1. Seleccione **Registrar**.
 
 ## <a name="high-availability-and-scalability"></a>Alta disponibilidad y escalabilidad
-Un entorno de ejecución de integración autohospedado puede asociarse con varios equipos locales o máquinas virtuales en Azure. Estas máquinas se llaman nodos. Puede tener hasta cuatro nodos asociados con un entorno de ejecución de integración autohospedado. Las ventajas de tener varios nodos (equipos locales con una puerta de enlace instalada) para una puerta de enlace lógica son:
-* Mayor disponibilidad del entorno de ejecución de integración autohospedado para que deje de ser el único punto de error de la solución de Big Data o la integración de datos en la nube con Azure Data Factory, lo que garantiza la continuidad con un máximo de cuatro nodos.
+
+Puede asociar un entorno de ejecución de integración autohospedado con varias máquinas locales o máquinas virtuales en Azure. Estas máquinas se llaman nodos. Puede tener hasta cuatro nodos asociados con un entorno de ejecución de integración autohospedado. Las ventajas de tener varios nodos en máquinas locales que tienen una puerta de enlace instalada para una puerta de enlace lógica son:
+
+* Mayor disponibilidad del entorno de ejecución de integración autohospedado para que deje de ser el único punto de error de la solución de macrodatos o la integración de datos en la nube con Data Factory. Esta disponibilidad garantiza la continuidad al usar un máximo de cuatro nodos.
 * Rendimiento mejorado durante el movimiento de datos entre almacenes de datos locales y en la nube. Obtenga más información sobre las [comparaciones de rendimiento](copy-activity-performance.md).
 
 Puede asociar varios nodos mediante la instalación del software del entorno de ejecución de integración autohospedado desde el [Centro de descarga](https://www.microsoft.com/download/details.aspx?id=39717). A continuación, regístrelo mediante cualquiera de las claves de autenticación obtenidas del cmdlet **New-AzDataFactoryV2IntegrationRuntimeKey**, tal como se describe en el [tutorial](tutorial-hybrid-copy-powershell.md).
 
 > [!NOTE]
-> No es preciso crear un nuevo entorno de ejecución de integración autohospedado para asociar cada nodo. Puede instalar el entorno de ejecución de integración autohospedado en otro equipo y registrarlo con la misma clave de autenticación. 
+> No es preciso crear un nuevo entorno de ejecución de integración autohospedado para asociar cada nodo. Puede instalar el entorno de ejecución de integración autohospedado en otro equipo y registrarlo con la misma clave de autenticación.
 
 > [!NOTE]
-> Antes de agregar otro nodo para aumentar la disponibilidad y escalabilidad, asegúrese de que la opción **Remote access to intranet** (Acceso remoto a la intranet) está habilitada en el primer nodo [**Microsoft Integration Runtime Configuration Manager** > **Configuración** > **Remote access to intranet** (Acceso remoto a la intranet)]. 
+> Antes de agregar otro nodo para aumentar la disponibilidad y escalabilidad, asegúrese de que la opción **Remote access to intranet** (Acceso remoto a la intranet) está habilitada en el primer nodo. Para ello, seleccione **Microsoft Integration Runtime Configuration Manager** > **Configuración** > **Remote access to intranet** (Acceso remoto a la intranet).
 
 ### <a name="scale-considerations"></a>Consideraciones de escala
 
 #### <a name="scale-out"></a>Escalado horizontal
 
-Cuando queda poca memoria disponible en el IR autohospedado y el uso de la CPU es alto, la incorporación de un nuevo nodo ayuda a escalar horizontalmente la carga en las máquinas. Si se producen errores en las actividades porque se agota su tiempo de espera o porque el nodo del IR autohospedado está sin conexión, será útil agregar un nodo a la puerta de enlace.
+Cuando el uso del procesador sea alto y quede poca memoria disponible en el IR autohospedado, agregue un nuevo nodo para ayudar a escalar horizontalmente la carga en las máquinas. Si se producen errores en las actividades porque se agota su tiempo de espera o el nodo del IR autohospedado está sin conexión, será útil agregar un nodo a la puerta de enlace.
 
 #### <a name="scale-up"></a>Escalado vertical
 
-Cuando la memoria disponible y la CPU no se utilizan correctamente, pero la ejecución de trabajos simultáneos está alcanzando el límite, debe realizar un escalado vertical aumentando el número de trabajos simultáneos que se pueden ejecutar en un nodo. También puede realizar el escalado verticalmente cuando se agota el tiempo de espera de las actividades porque el IR autohospedado está sobrecargado. Como se muestra en la siguiente imagen, puede aumentar la capacidad máxima de los nodos:  
+Cuando el procesador y la memoria RAM disponible no se usan correctamente, pero la ejecución de trabajos simultáneos alcanza los límites de un nodo, aumente el número de trabajos simultáneos que puede ejecutar un nodo para escalar verticalmente. También puede realizar el escalado verticalmente cuando se agota el tiempo de espera de las actividades porque el IR autohospedado está sobrecargado. Como se muestra en la siguiente imagen, puede aumentar la capacidad máxima de los nodos:  
 
 ![Aumento del número de trabajos simultáneos que se pueden ejecutar en un nodo](media/create-self-hosted-integration-runtime/scale-up-self-hosted-IR.png)
 
 ### <a name="tlsssl-certificate-requirements"></a>Requisitos del certificado TLS/SSL
 
-Estos son los requisitos para el certificado TLS/SSL que se usa para proteger las comunicaciones entre los nodos del entorno de ejecución de integración:
+Estos son los requisitos para el certificado TLS/SSL que se usa para proteger la comunicación entre los nodos del entorno de ejecución de integración:
 
-- El certificado debe ser un certificado de confianza pública X509 v3. Se recomienda utilizar los certificados que emita alguna entidad de certificación (asociado) pública (CA).
+- El certificado debe ser un certificado de confianza pública X509 v3. Se recomienda utilizar los certificados que emita alguna entidad de certificación (CA) de asociado pública.
 - Todos los nodos del entorno de ejecución de integración deben confiar en este certificado.
-- No se recomienda usar certificados del nombre alternativo del firmante, ya que solo se utilizará el último elemento de SAN, mientras que los restantes se ignorarán debido a las limitaciones actuales. Por ejemplo, si tiene un certificado de SAN cuyos nombres alternativos del firmante son **node1.domain.contoso.com** y **node2.domain.contoso.com**, puede usarlo en el equipo cuyo FQDN es **node2.domain.contoso.com**.
-- El certificado admite cualquier tamaño de clave compatible con Windows Server 2012 R2 para los certificados SSL.
+- No se recomiendan los certificados de nombre alternativo del firmante (SAN) porque solo se usa el último elemento de SAN. Todos los demás elementos de SAN se omiten. Por ejemplo, si tiene un certificado de SAN cuyos nombres alternativos del firmante son **node1.domain.contoso.com** y **node2.domain.contoso.com**, solo puede usarlo en una máquina cuyo nombre de dominio completo (FQDN) es **node2.domain.contoso.com**.
+- El certificado puede usar cualquier tamaño de clave compatible con Windows Server 2012 R2 para los certificados SSL.
 - No se admiten certificados que utilicen claves CNG.  
 
 > [!NOTE]
-> Este certificado se usa para cifrar los puertos del nodo de IR autohospedado, en la **comunicación entre nodos** (para la sincronización de estados, incluyendo la sincronización de las credenciales de los servicios vinculados entre nodos) y cuando **se usa el cmdlet de PowerShell para configurar las credenciales del servicio vinculado** desde una red local. Es conveniente usar este certificado si el entorno de la red privada no es seguro o si desea proteger la comunicación entre nodos también en la red privada. El movimiento de los datos en tránsito desde el IR autohospedado y otros almacenes de datos siempre tiene lugar en un canal privado, con independencia de si este certificado está configurado o no. 
+> Usos del certificado:
+>
+> - Para cifrar puertos en un nodo de IR autohospedado.
+> - Para la comunicación de nodo a nodo para la sincronización de estado, que incluye la sincronización de credenciales de servicios vinculados entre nodos.
+> - Cuando se usa un cmdlet de PowerShell para la configuración de credenciales del servicio vinculado desde una red local.
+>
+> Es conveniente usar este certificado si el entorno de la red privada no es seguro o si quiere proteger la comunicación entre nodos en la red privada.
+>
+> El movimiento de datos en tránsito desde un IR autohospedado y otros almacenes de datos siempre tiene lugar en un canal cifrado, independientemente de si este certificado está configurado o no.
 
 ## <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory"></a>Creación de un entorno de ejecución de integración autohospedado compartido en Azure Data Factory
 
-Puede volver a usar una infraestructura de entorno de ejecución de integración autohospedado existente que ya ha configurado en una factoría de datos. Esto le permite crear un *entorno de ejecución de integración autohospedado vinculado* en una factoría de datos diferente haciendo referencia a otro entorno de ejecución de IR autohospedado existente (compartido).
+Puede volver a usar una infraestructura de entorno de ejecución de integración autohospedado existente que ya ha configurado en una factoría de datos. Esto le permite crear un entorno de ejecución de integración autohospedado vinculado en una factoría de datos diferente haciendo referencia a otro IR autohospedado compartido existente.
 
-Si desea ver una demostración y una introducción de doce minutos de esta característica, vea el siguiente vídeo:
+Para ver una demostración y una introducción de esta característica, vea el siguiente vídeo de 12 minutos de duración:
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Hybrid-data-movement-across-multiple-Azure-Data-Factories/player]
 
 ### <a name="terminology"></a>Terminología
 
-- **Entorno de ejecución de integración compartido**: el IR autohospedado original que se ejecuta en una infraestructura física.  
-- **Entorno de ejecución de integración vinculado**: el entorno de ejecución de integración que hace referencia a otro entorno compartido. Este es un entorno de ejecución de integración lógico que usa la infraestructura de otro entorno de ejecución de integración autohospedado (compartido).
+- **Entorno de ejecución de integración compartido**: un IR autohospedado original que se ejecuta en una infraestructura física.  
+- **Entorno de ejecución de integración vinculado**: un IR que hace referencia a otro IR compartido. El IR vinculado es un IR lógico que usa la infraestructura de otro IR autohospedado compartido.
 
 ### <a name="methods-to-share-a-self-hosted-integration-runtime"></a>Métodos para compartir un entorno de ejecución de integración autohospedado
 
-Consulte [esta instrucción](create-shared-self-hosted-integration-runtime-powershell.md) para obtener detalles sobre cómo compartir un entorno de ejecución de integración autohospedado con varias factorías de datos.
+Para compartir un entorno de ejecución de integración autohospedado con varias factorías de datos, consulte [Creación de un entorno de ejecución de integración autohospedado compartido](create-shared-self-hosted-integration-runtime-powershell.md) para obtener más información.
 
 ### <a name="monitoring"></a>Supervisión
 
-- **IR compartido**
+#### <a name="shared-ir"></a>IR compartido
 
-  ![Opciones para buscar un entorno de ejecución de integración compartido](media/create-self-hosted-integration-runtime/Contoso-shared-IR.png)
+![Opciones para buscar un entorno de ejecución de integración compartido](media/create-self-hosted-integration-runtime/Contoso-shared-IR.png)
 
-  ![Pestaña para la supervisión](media/create-self-hosted-integration-runtime/contoso-shared-ir-monitoring.png)
+![Supervisión de un entorno de ejecución de integración compartido](media/create-self-hosted-integration-runtime/contoso-shared-ir-monitoring.png)
 
-- **IR vinculado**
+#### <a name="linked-ir"></a>IR vinculado
 
-  ![Opciones para buscar un entorno de ejecución de integración vinculado](media/create-self-hosted-integration-runtime/Contoso-linked-ir.png)
+![Opciones para buscar un entorno de ejecución de integración vinculado](media/create-self-hosted-integration-runtime/Contoso-linked-ir.png)
 
-  ![Pestaña para la supervisión](media/create-self-hosted-integration-runtime/Contoso-linked-ir-monitoring.png)
+![Supervisión de un entorno de ejecución de integración vinculado](media/create-self-hosted-integration-runtime/Contoso-linked-ir-monitoring.png)
 
 ### <a name="known-limitations-of-self-hosted-ir-sharing"></a>Limitaciones conocidas del uso compartido de un entorno de ejecución de integración autohospedado
 
-* La factoría de datos en la que se creará un entorno de ejecución de integración vinculado debe tener una instancia de [MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview). De forma predeterminada, las factorías de datos que se crean en Azure Portal o mediante los cmdlets de PowerShell incluyen una instancia de MSI creada implícitamente. Pero cuando se crea una factoría de datos mediante una plantilla de Azure Resource Manager o un SDK, la propiedad **Identity** se debe establecer explícitamente para asegurarse de que Azure Resource Manager crea una factoría de datos que contiene una instancia de MSI. 
+* La factoría de datos en la que se creará un IR vinculado debe tener una instancia de [MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview). De manera predeterminada, las factorías de datos que se crean en Azure Portal o mediante los cmdlets de PowerShell incluyen una instancia de MSI creada implícitamente. Sin embargo, cuando una factoría de datos se crea a través de un SDK o una plantilla de Azure Resource Manager, debe configurar la propiedad **Identity** explícitamente. Con esta configuración se garantiza que Resource Manager cree una factoría de datos que incluya un MSI.
 
-* El SDK de .NET de Azure Data Factory que admite esta característica es la versión 1.1.0 o posterior.
+* El SDK de .NET de Data Factory que admite esta característica debe ser la versión 1.1.0 o posterior.
 
-* Para conceder permiso, el usuario necesitará el rol propietario o el rol propietario heredado en la factoría de datos en la que exista el entorno de ejecución de integración compartido.
+* Para conceder permiso, necesitará el rol propietario o el rol propietario heredado en la factoría de datos en la que exista el IR compartido.
 
-* La característica de uso compartido solo funciona para las instancias de Data Factory dentro del mismo inquilino de Azure Active Directory.
+* La característica de uso compartido solo funciona para las factorías de datos dentro del mismo inquilino de Azure AD.
 
-* Para los [usuarios invitados](https://docs.microsoft.com/azure/active-directory/governance/manage-guest-access-with-access-reviews) de Active Directory, la funcionalidad de búsqueda (lista de todas las factorías de datos mediante el uso de una palabra clave de búsqueda) en la interfaz de usuario [no funciona](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#SearchLimits). Pero siempre y cuando el usuario invitado sea el propietario de la factoría de datos, puede compartir el entorno de ejecución de integración sin la funcionalidad de búsqueda. Para ello, debe escribir directamente la instancia de MSI de la factoría de datos con el que el entorno de ejecución de integración debe compartirse en el cuadro de texto**Asignar permiso** y seleccionar **Agregar** en la interfaz de usuario de Azure Data Factory. 
+* Para los [usuarios invitados](https://docs.microsoft.com/azure/active-directory/governance/manage-guest-access-with-access-reviews) de Azure AD, la funcionalidad de búsqueda en la interfaz de usuario, que enumera todas las factorías de datos mediante el uso de una palabra clave de búsqueda, [no funciona](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#SearchLimits). Sin embargo, siempre que el usuario invitado sea el propietario de la factoría de datos, puede compartir el IR sin la funcionalidad de búsqueda. En el caso del MSI de la factoría de datos que necesita compartir el IR, introduzca dicho MSI en el cuadro **Assign Permission** (Asignar permisos) y seleccione **Agregar** en la interfaz de usuario de Data Factory.
 
   > [!NOTE]
-  > Esta característica solo está disponible en la versión 2 de Azure Data Factory. 
+  > Esta característica solo está disponible en la versión 2 de Data Factory.
 
 ## <a name="notification-area-icons-and-notifications"></a>Iconos y notificaciones del área de notificación
 
@@ -274,74 +301,78 @@ Si mueve el cursor sobre el icono o el mensaje en el área de notificación, pod
 
 ![Notificaciones en el área de notificación](media/create-self-hosted-integration-runtime/system-tray-notifications.png)
 
-## <a name="ports-and-firewall"></a>Puertos y firewall
+## <a name="ports-and-firewalls"></a>Puertos y firewalls
 
-Hay dos firewalls que deben tenerse en cuenta: el *firewall corporativo*, que se ejecuta en el enrutador central de la organización, y el *firewall de Windows*, que se configura como un demonio en el equipo local en la que está instalado el entorno de ejecución de integración autohospedado.
+Estos son dos firewalls a considerar:
 
-![Firewall](media/create-self-hosted-integration-runtime/firewall.png)
+- El *firewall corporativo* que se ejecuta en el enrutador central de la organización.
+- El *firewall de Windows* que está configurado como demonio en la máquina local en la que está instalado el entorno de ejecución de integración autohospedado.
 
-A nivel de *firewall corporativo*, es preciso configurar los siguientes dominios y puertos de salida:
+![Firewalls](media/create-self-hosted-integration-runtime/firewall.png)
+
+A nivel de firewall corporativo, es preciso configurar los siguientes dominios y puertos de salida:
 
 [!INCLUDE [domain-and-outbound-port-requirements](../../includes/domain-and-outbound-port-requirements.md)]
 
-
-En el nivel del *firewall de Windows* (nivel de máquina), normalmente estos puertos de salida están habilitados. Si no lo están, puede configurar los puertos y los dominios según corresponda en el equipo del entorno de ejecución de integración autohospedado.
+En el nivel del firewall de Windows o nivel de máquina, normalmente estos puertos de salida están habilitados. Si no lo están, puede configurar los puertos y los dominios en la máquina del entorno de ejecución de integración autohospedado.
 
 > [!NOTE]
 > En función del origen y de los receptores, es posible que tenga que permitir más dominios y puertos de salida al firewall corporativo o al firewall de Windows.
 >
-> En algunas bases de datos en la nube (por ejemplo, Azure SQL Database y Azure Data Lake), es posible que necesite permitir las direcciones IP de las máquinas del entorno de ejecución de integración autohospedado en la configuración de su firewall.
+> En algunas bases de datos en la nube, como Azure SQL Database y Azure Data Lake, es posible que tenga que permitir las direcciones IP de las máquinas del entorno de ejecución de integración autohospedado en la configuración de su firewall.
 
 ### <a name="copy-data-from-a-source-to-a-sink"></a>Copia de datos desde un origen a un receptor
 
-Asegúrese de que las reglas del firewall se han habilitado correctamente en el firewall corporativo, en el firewall de Windows de la equipo del entorno de ejecución de integración autohospedado y en el propio almacén de datos. De este modo, el entorno de ejecución de integración autohospedado podrá conectarse al origen y al receptor correctamente. Habilite las reglas de cada almacén de datos que participe en la operación de copia.
+Asegúrese de habilitar correctamente las reglas del firewall en el firewall corporativo, en el firewall de Windows de la máquina del entorno de ejecución de integración autohospedado y en el propio almacén de datos. De este modo, el entorno de ejecución de integración autohospedado podrá conectarse al origen y al receptor. Habilite las reglas de cada almacén de datos que participe en la operación de copia.
 
-Por ejemplo, para copiar información desde un almacén de datos local a un receptor de Azure SQL Database o de Azure SQL Data Warehouse, siga estos pasos:
+Por ejemplo, para copiar información desde un almacén de datos local a un receptor de SQL Database o de Azure SQL Data Warehouse, siga estos pasos:
 
 1. Permita la comunicación TCP saliente en el puerto 1433 tanto para el firewall corporativo como para el firewall de Windows.
-2. Configure los valores del firewall de Azure SQL Database para agregar la dirección IP del equipo del entorno de ejecución de integración autohospedado a la lista de direcciones IP permitidas.
+1. Configure los valores del firewall de SQL Database para agregar la dirección IP de la máquina del entorno de ejecución de integración autohospedado a la lista de direcciones IP permitidas.
 
 > [!NOTE]
-> Si el firewall no permite el puerto de salida 1433, el entorno de ejecución de integración autohospedado no podrá acceder directamente a Azure SQL Database. En este caso, puede usar una [copia de almacenamiento temporal](copy-activity-performance.md) en Azure SQL Database y Azure SQL Data Warehouse. En este escenario, requeriría solo HTTPS (puerto 443) para el movimiento de datos.
+> Si el firewall no permite el puerto de salida 1433, el entorno de ejecución de integración autohospedado no podrá acceder directamente a SQL Database. En este caso, puede usar una [copia de almacenamiento temporal](copy-activity-performance.md) en SQL Database y SQL Data Warehouse. En este escenario, se requiere solo HTTPS (puerto 443) para el movimiento de datos.
 
 ## <a name="proxy-server-considerations"></a>Consideraciones acerca del servidor proxy
 
 Si en su entorno de red corporativo se usa un servidor proxy para acceder a Internet, configure el entorno de ejecución de integración autohospedado para utilizar la configuración del proxy adecuada. Puede establecer el proxy durante la fase de registro inicial.
 
-![Especificación del servidor proxy](media/create-self-hosted-integration-runtime/specify-proxy.png)
+![Especificación del proxy](media/create-self-hosted-integration-runtime/specify-proxy.png)
 
-Cuando se configura, el entorno de ejecución de integración autohospedado usa el servidor proxy para conectarse al servicio en la nube, origen/destino (aquellos que usan el protocolo HTTP/HTTPS). Seleccione **Cambiar vínculo** durante la configuración inicial. Verá el cuadro de diálogo de configuración del proxy.
+Cuando se configura, el entorno de ejecución de integración autohospedado usa el servidor proxy para conectarse al origen y destino del servicio en la nube (que usan el protocolo HTTP o HTTPS). Por este motivo, debe seleccionar **Cambiar vínculo** durante la configuración inicial.
 
-![Establecimiento de proxy](media/create-self-hosted-integration-runtime/set-http-proxy.png)
+![Configuración del proxy](media/create-self-hosted-integration-runtime/set-http-proxy.png)
 
 Hay tres opciones de configuración:
 
 - **No utilizar proxy**: el entorno de ejecución de integración autohospedado no usa expresamente ningún proxy para conectarse a servicios en la nube.
-- **Usar proxy del sistema**: el entorno Integration Runtime autohospedado utiliza la configuración de proxy de diahost.exe.config y diawp.exe.config. Si no hay ningún proxy configurado en diahost.exe.config y diawp.exe.config, el entorno de ejecución de integración autohospedado se conecta al servicio en la nube directamente sin pasar por ningún proxy.
+- **Usar proxy del sistema**: el entorno Integration Runtime autohospedado utiliza la configuración de proxy de diahost.exe.config y diawp.exe.config. Si estos archivos no especifican ninguna configuración de proxy, el entorno de ejecución de integración autohospedado se conecta al servicio en la nube directamente sin pasar por ningún proxy.
 - **Usar proxy personalizado**: establezca la configuración del proxy HTTP que se utilizará para el entorno de ejecución de integración autohospedado, en lugar de usar las configuraciones de diahost.exe.config y diawp.exe.config. Se requieren los valores de **Dirección** y **Puerto**. Los valores de **Nombre de usuario** y **Contraseña** son opcionales, dependen de la configuración de la autenticación del proxy. Todas las configuraciones se cifran con DPAPI de Windows en el entorno de ejecución de integración autohospedado y se almacenan localmente en el equipo.
 
-El servicio host de Integration Runtime se reinicia automáticamente después de guardar la configuración de proxy actualizada.
+El servicio host del entorno de ejecución de integración se reinicia automáticamente después de guardar la configuración de proxy actualizada.
 
-Cuando el entorno de ejecución de integración autohospedado se haya registrado correctamente, si desea ver o actualizar la configuración de proxy, utilice Integration Runtime Configuration Manager.
+Tras registrar correctamente el entorno de ejecución de integración autohospedado, si quiere ver o actualizar la configuración de proxy, utilice Microsoft Integration Runtime Configuration Manager.
 
 1. Inicie el **Administrador de configuración de Microsoft Integration Runtime**.
-2. Cambie a la pestaña **Configuración** .
-3. Seleccione el vínculo **Cambiar** en la sección **Proxy HTTP** para abrir el cuadro de diálogo **Establecer proxy HTTP**.
-4. Seleccione **Next** (Siguiente). En ese momento ve una advertencia en la que se le pide permiso la configuración del proxy y reinicie el servicio de host del entorno de ejecución de integración.
+1. Seleccione la pestaña **Configuración**.
+1. En **Proxy HTTP**, seleccione el vínculo **Cambiar** para abrir el cuadro de diálogo **Establecer proxy HTTP**.
+1. Seleccione **Next** (Siguiente). En ese momento ve una advertencia en la que se le pide permiso para guardar la configuración del proxy y reiniciar el servicio de host del entorno de ejecución de integración.
 
-Puede ver y actualizar el proxy HTTP mediante la herramienta Configuration Manager.
+Puede usar la herramienta Configuration Manager para ver y actualizar el proxy HTTP.
 
-![Visualización de proxy](media/create-self-hosted-integration-runtime/view-proxy.png)
+![Visualización y actualización del proxy](media/create-self-hosted-integration-runtime/view-proxy.png)
 
 > [!NOTE]
-> Si configura un servidor proxy con la autenticación NTLM, el servicio de host del entorno de ejecución de integración se ejecutará en la cuenta del dominio. Si más adelante cambia la contraseña de dicha cuenta, no olvide actualizar la configuración del servicio y reiniciarlo en consecuencia. Debido a este requisito, se recomienda usar una cuenta de dominio dedicada para acceder al servidor proxy, una cuenta que no requiera que se actualice la contraseña con frecuencia.
+> Si configura un servidor proxy con la autenticación NTLM, el servicio de host del entorno de ejecución de integración se ejecutará en la cuenta del dominio. Si más adelante cambia la contraseña de dicha cuenta, no olvide actualizar la configuración del servicio y reiniciarlo. Debido a este requisito, se recomienda acceder al servidor proxy con una cuenta de dominio dedicada que no requiera que se actualice la contraseña con frecuencia.
 
 ### <a name="configure-proxy-server-settings"></a>Configuración de un servidor proxy
 
-Si selecciona el valor **Use system proxy** (Usar proxy del sistema) para el proxy HTTP, el entorno de ejecución de integración autohospedado utilizará la configuración de proxy de diahost.exe.config y diawp.exe.config. Si no hay ningún proxy especificado en diahost.exe.config y diawp.exe.config, el entorno de ejecución de integración autohospedado se conectará al servicio en la nube directamente, sin pasar por el proxy. En el procedimiento siguiente se proporcionan instrucciones para actualizar el archivo diahost.exe.config:
+Si selecciona la opción **Usar proxy del sistema** para el proxy HTTP, el entorno de ejecución de integración autohospedado utilizará la configuración de proxy de diahost.exe.config y diawp.exe.config. Cuando estos archivos no especifican ningún proxy, el entorno de ejecución de integración autohospedado se conecta al servicio en la nube directamente sin pasar por ningún proxy. En el procedimiento siguiente se proporcionan instrucciones para actualizar el archivo diahost.exe.config:
 
-1. En el Explorador de archivos, cree una copia segura de C:\Archivos de programa\Microsoft Integration Runtime\3.0\Shared\diahost.exe.config para realizar una copia de seguridad del archivo original.
-2. Abra Notepad.exe como administrador y abra el archivo de texto C:\Archivos de programa\Microsoft Integration Runtime\3.0\Shared\diahost.exe.config. Encuentre la etiqueta predeterminada de system.net como se muestra en el siguiente código:
+1. En el Explorador de archivos, cree una copia segura de C:\Archivos de programa\Microsoft Integration Runtime\3.0\Shared\diahost.exe.config como copia de seguridad del archivo original.
+1. Abra el Bloc de notas ejecutándolo como administrador.
+1. En el Bloc de notas, abra el archivo de texto C:\Archivos de programa\Microsoft Integration Runtime\3.0\Shared\diahost.exe.config.
+1. Encuentre la etiqueta predeterminada de **system.net** como se muestra en el siguiente código:
 
     ```xml
     <system.net>
@@ -358,43 +389,43 @@ Si selecciona el valor **Use system proxy** (Usar proxy del sistema) para el pro
     </system.net>
     ```
 
-    Se permiten más propiedades en la etiqueta de proxy para especificar la configuración requerida, como `scriptLocation`. Consulte [proxy (Elemento, Configuración de red)](https://msdn.microsoft.com/library/sa91de1e.aspx) para ver la sintaxis.
+    La etiqueta de proxy permite propiedades adicionales para especificar la configuración requerida, como `scriptLocation`. Consulte [\<proxy\> Elemento (Configuración de red)](https://msdn.microsoft.com/library/sa91de1e.aspx) para ver la sintaxis.
 
     ```xml
     <proxy autoDetect="true|false|unspecified" bypassonlocal="true|false|unspecified" proxyaddress="uriString" scriptLocation="uriString" usesystemdefault="true|false|unspecified "/>
     ```
-3. Guarde el archivo de configuración en la ubicación original. Luego reinicie el servicio de host del entorno de ejecución de integración autohospedado, lo que aplica los cambios. 
+1. Guarde el archivo de configuración en su ubicación original. Luego reinicie el servicio de host del entorno de ejecución de integración autohospedado, lo que aplica los cambios.
 
-   Para reiniciar el servicio, use el applet de servicios del panel de control. O bien en Integration Runtime Configuration Manager, seleccione el botón **Detener servicio** y, después, seleccione **Iniciar servicio**. 
-   
+   Para reiniciar el servicio, use el applet de servicios del panel de control. O bien en Integration Runtime Configuration Manager, seleccione el botón **Detener servicio** y, después, seleccione **Iniciar servicio**.
+
    Si el servicio no se inicia, es probable que se deba a que se ha agregado una sintaxis de etiqueta XML incorrecta en el archivo de configuración de la aplicación que se ha editado.
 
 > [!IMPORTANT]
 > No olvide actualizar tanto diahost.exe.config como diawp.exe.config.
 
-También tiene que asegurarse de que Microsoft Azure se encuentra en la lista de permitidos de su empresa. La lista de direcciones IP válidas de Microsoft Azure se puede descargar del [Centro de descarga de Microsoft](https://www.microsoft.com/download/details.aspx?id=41653).
+También tiene que asegurarse de que Microsoft Azure se encuentra en la lista de permitidos de su empresa. La lista de direcciones IP válidas de Azure se puede descargar del [Centro de descarga de Microsoft](https://www.microsoft.com/download/details.aspx?id=41653).
 
-### <a name="possible-symptoms-for-firewall-and-proxy-server-related-issues"></a>Posibles síntomas de problemas relacionados con el firewall y el servidor proxy
+### <a name="possible-symptoms-for-issues-related-to-the-firewall-and-proxy-server"></a>Posibles síntomas de problemas relacionados con el firewall y el servidor proxy
 
-Si se producen errores como los siguientes, es probable que se deban a una configuración incorrecta del servidor proxy o del firewall, lo que impide que el entorno de ejecución de integración autohospedado se conecte a Data Factory para autenticarse. Para asegurarse de que tanto el firewall como el servidor proxy están configurados correctamente, consulte la sección anterior.
+Si ve mensajes de error como los siguientes, lo más probable es que se deba a una configuración incorrecta del firewall o el servidor proxy. Dicha configuración impide que el entorno de ejecución de integración autohospedado se conecte a Data Factory para autenticarse. Para asegurarse de que tanto el firewall como el servidor proxy están configurados correctamente, consulte la sección anterior.
 
-* Al intentar registrar el entorno de ejecución de integración autohospedado, recibe el siguiente error: "No se pudo registrar este nodo de Integration Runtime. Confirme que la clave de autenticación es válida y que el servicio host del servicio de integración se ejecuta en este equipo.
-* Al abrir Integration Runtime Configuration Manager, se ve uno de estos dos estados, **Desconectado** o **Conectando**. Cuando se ven los registros de eventos de Windows, en **Visor de eventos** > **Registros de aplicaciones y servicios** > **Microsoft Integration Runtime** aparecen mensajes de error como este:
+* Al intentar registrar el entorno de ejecución de integración autohospedado, recibe el siguiente mensaje de error: "No se pudo registrar este nodo de Integration Runtime. Confirme que la clave de autenticación es válida y que el servicio host del servicio de integración se ejecuta en este equipo".
+* Al abrir Integration Runtime Configuration Manager, se ve uno de estos dos estados, **Desconectado** o **Conectando**. Al ver los registros de eventos de Windows, en **Visor de eventos** > **Registros de aplicaciones y servicios** > **Microsoft Integration Runtime** aparecen mensajes de error como este:
 
     ```
     Unable to connect to the remote server
     A component of Integration Runtime has become unresponsive and restarts automatically. Component name: Integration Runtime (Self-hosted).
     ```
 
-### <a name="enabling-remote-access-from-an-intranet"></a>Habilitación del acceso remoto desde una intranet 
+### <a name="enable-remote-access-from-an-intranet"></a>Activación del acceso remoto desde una intranet
 
-Si usa PowerShell para cifrar credenciales desde una máquina de la red que no sea la que tiene instalado el entorno de ejecución de integración autohospedado, puede habilitar la opción **Acceso remoto desde la intranet**. Si usa PowerShell para cifrar credenciales en la misma máquina en la que esté instalado el entorno de ejecución de integración autohospedado, no podrá habilitar el **Acceso remoto desde la intranet**.
+Si usa PowerShell para cifrar credenciales desde una máquina de la red que no sea la que tiene instalado el entorno de ejecución de integración autohospedado, puede habilitar la opción **Acceso remoto desde la intranet**. Si usa PowerShell para cifrar credenciales en la máquina en la que esté instalado el entorno de ejecución de integración autohospedado, no podrá habilitar el **Acceso remoto desde la intranet**.
 
-Debe habilitar **Acceso remoto desde la intranet** para agregar otro nodo para que tanto la disponibilidad como la escalabilidad sean altas.  
+Habilite el **Acceso remoto desde la intranet** para agregar otro nodo para que tanto la disponibilidad como la escalabilidad sean altas.  
 
-Durante la instalación del entorno de ejecución de integración autohospedado (versión 3.3.xxxx.x o posterior), de forma predeterminada, el entorno de ejecución de integración autohospedado deshabilita la opción **Acceso remoto desde la intranet** en el equipo de dicho entorno.
+Al ejecutar el entorno de ejecución de integración autohospedado versión 3.3 o posterior, el instalador del entorno de ejecución de integración autohospedado deshabilita de manera predeterminada la opción **Acceso remoto desde la intranet** en la máquina de dicho entorno.
 
-Si usa un firewall de terceros, puede abrir manualmente el puerto 8060 (o el puerto configurado por el usuario). Si se presenta un problema de firewall durante la configuración del entorno de ejecución de integración autohospedado, pruebe a usar el comando siguiente para instalarlo sin configurar el firewall:
+Al usar un firewall de un asociado comercial u otros, puede abrir manualmente el puerto 8060 o el puerto configurado por el usuario. Si se presenta un problema de firewall durante la configuración del entorno de ejecución de integración autohospedado, use el comando siguiente para instalarlo sin configurar el firewall:
 
 ```
 msiexec /q /i IntegrationRuntime.msi NOFIREWALL=1
@@ -402,6 +433,6 @@ msiexec /q /i IntegrationRuntime.msi NOFIREWALL=1
 
 Si elige no abrir el puerto 8060 en la máquina del entorno de ejecución de integración autohospedado, use mecanismos que no sean la aplicación de Establecer credenciales para configurar las credenciales del almacén de datos. Por ejemplo, puede usar el cmdlet de PowerShell **New-AzDataFactoryV2LinkedServiceEncryptCredential**.
 
-
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte el siguiente tutorial para obtener instrucciones detalladas: [Tutorial: Copia de datos locales en la nube](tutorial-hybrid-copy-powershell.md).
+
+Para obtener instrucciones paso a paso, consulte [Tutorial: Copia de datos locales en la nube](tutorial-hybrid-copy-powershell.md).

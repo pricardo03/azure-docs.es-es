@@ -1,5 +1,5 @@
 ---
-title: Administración del grupo de administradores locales en dispositivos unidos a Azure AD | Microsoft Docs
+title: Administración de los administradores locales en dispositivos unidos a Azure AD
 description: Aprenda a asignar roles de Azure al grupo de administradores locales de un dispositivo Windows.
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5372bf853092ea55952b45a1300d0f979f1b086c
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: fd8087e9eaa11ced5da9b445af9d33377b4391c0
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73062270"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74379661"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Administración del grupo de administradores locales en dispositivos unidos a Azure AD
 
@@ -48,7 +48,7 @@ Para ver y actualizar la pertenencia al rol de administrador global, consulte:
 En Azure Portal, puede administrar el rol de administrador de dispositivos en la página **Dispositivos**. Para abrir la página **Dispositivos**:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador global o administrador de dispositivos.
-1. En la barra de navegación izquierda, haga clic en **Azure Active Directory**. 
+1. Busque y seleccione *Azure Active Directory*.
 1. En la sección **Administrar**, haga clic en **Dispositivos**.
 1. En la página **Dispositivos**, haga clic en **Configuración del dispositivo**.
 

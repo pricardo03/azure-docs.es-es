@@ -1,23 +1,18 @@
 ---
 title: Desencadenador de temporizador para Azure Functions
 description: Descubra cómo utilizar desencadenadores de temporizador en Azure Functions.
-services: functions
-documentationcenter: na
 author: craigshoemaker
-manager: gwallace
-keywords: azure functions, funciones, procesamiento de eventos, proceso dinámico, arquitectura sin servidor
 ms.assetid: d2f013d1-f458-42ae-baf8-1810138118ac
-ms.service: azure-functions
 ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: ''
-ms.openlocfilehash: 439e5ab4bf943293ff4ed20ed477bc98bb683836
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 143a05944799ff04f9c21384f85a4b00cc65b750
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299332"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74545726"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Desencadenador de temporizador para Azure Functions 
 
@@ -39,16 +34,7 @@ El desencadenador del temporizador se proporciona en el paquete NuGet [Microsoft
 
 ## <a name="example"></a>Ejemplo
 
-Vea el ejemplo específico del lenguaje:
-
-* [C#](#c-example)
-* [Script de C# (.csx)](#c-script-example)
-* [F#](#f-example)
-* [Java](#java-example)
-* [JavaScript](#javascript-example)
-* [Python](#python-example)
-
-### <a name="c-example"></a>Ejemplo de C#
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 En el ejemplo siguiente se muestra una [función de C#](functions-dotnet-class-library.md) que se ejecuta cada vez que los minutos tienen un valor divisible entre cinco (por ejemplo, si la función se inicia a las 18:57:00, la próxima ejecución será a las 19:00:00): El objeto [`TimerInfo`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) se pasa a la función.
 
@@ -64,7 +50,7 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
 }
 ```
 
-### <a name="c-script-example"></a>Ejemplo de script de C#
+# <a name="c-scripttabcsharp-script"></a>[Script de C#](#tab/csharp-script)
 
 En el ejemplo siguiente se muestra un enlace de desencadenador de temporizador en un archivo *function.json* y una [función de script de C#](functions-reference-csharp.md) que usa el enlace. La función escribe un registro que indica si esta invocación de función se debe a una repetición de la programación no ejecutada. El objeto [`TimerInfo`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) se pasa a la función.
 
@@ -92,47 +78,7 @@ public static void Run(TimerInfo myTimer, ILogger log)
 }
 ```
 
-### <a name="f-example"></a>Ejemplo de F#
-
-En el ejemplo siguiente se muestra un enlace de desencadenador de temporizador en un archivo *function.json* y una [función de script de F#](functions-reference-fsharp.md) que usa el enlace. La función escribe un registro que indica si esta invocación de función se debe a una repetición de la programación no ejecutada. El objeto [`TimerInfo`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) se pasa a la función.
-
-Estos son los datos de enlace del archivo *function.json*:
-
-```json
-{
-    "schedule": "0 */5 * * * *",
-    "name": "myTimer",
-    "type": "timerTrigger",
-    "direction": "in"
-}
-```
-
-Este es el código del script de F#:
-
-```fsharp
-let Run(myTimer: TimerInfo, log: ILogger ) =
-    if (myTimer.IsPastDue) then
-        log.LogInformation("F# function is running late.")
-    let now = DateTime.Now.ToLongTimeString()
-    log.LogInformation(sprintf "F# function executed at %s!" now)
-```
-
-### <a name="java-example"></a>Ejemplo de Java
-
-El la función de ejemplo siguiente se desencadena y se ejecuta cada cinco minutos. La anotación `@TimerTrigger` en la función define la programación con el mismo formato de cadena que las [expresiones CRON](https://en.wikipedia.org/wiki/Cron#CRON_expression).
-
-```java
-@FunctionName("keepAlive")
-public void keepAlive(
-  @TimerTrigger(name = "keepAliveTrigger", schedule = "0 */5 * * * *") String timerInfo,
-      ExecutionContext context
- ) {
-     // timeInfo is a JSON string, you can deserialize it to an object using your favorite JSON library
-     context.getLogger().info("Timer is triggered: " + timerInfo);
-}
-```
-
-### <a name="javascript-example"></a>Ejemplo de JavaScript
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 En el ejemplo siguiente se muestra un enlace de desencadenador de temporizador en un archivo *function.json* y una [función de JavaScript](functions-reference-node.md) que usa el enlace. La función escribe un registro que indica si esta invocación de función se debe a una repetición de la programación no ejecutada. Un [objeto de temporizador](#usage) se pasa a la función.
 
@@ -163,7 +109,7 @@ module.exports = function (context, myTimer) {
 };
 ```
 
-### <a name="python-example"></a>Ejemplo de Python
+# <a name="pythontabpython"></a>[Python](#tab/python)
 
 En el ejemplo siguiente se usa un enlace de desencadenador de temporizador cuya configuración se describe en el archivo *function.json*. La [función de Python](functions-reference-python.md) real que usa el enlace se describe en el archivo *__init__.py*. El objeto pasado a la función es de tipo [azure.functions.TimerRequest](/python/api/azure-functions/azure.functions.timerrequest). La lógica de la función escribe en los registros para indicar si la invocación actual se debe a una repetición de la programación no ejecutada. 
 
@@ -197,7 +143,26 @@ def main(mytimer: func.TimerRequest) -> None:
     logging.info('Python timer trigger function ran at %s', utc_timestamp)
 ```
 
-## <a name="attributes"></a>Atributos
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+El la función de ejemplo siguiente se desencadena y se ejecuta cada cinco minutos. La anotación `@TimerTrigger` en la función define la programación con el mismo formato de cadena que las [expresiones CRON](https://en.wikipedia.org/wiki/Cron#CRON_expression).
+
+```java
+@FunctionName("keepAlive")
+public void keepAlive(
+  @TimerTrigger(name = "keepAliveTrigger", schedule = "0 */5 * * * *") String timerInfo,
+      ExecutionContext context
+ ) {
+     // timeInfo is a JSON string, you can deserialize it to an object using your favorite JSON library
+     context.getLogger().info("Timer is triggered: " + timerInfo);
+}
+```
+
+---
+
+## <a name="attributes-and-annotations"></a>Atributos y anotaciones
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 En las [bibliotecas de clases de C#](functions-dotnet-class-library.md), use el atributo [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs).
 
@@ -214,6 +179,35 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
     log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
 }
 ```
+
+# <a name="c-scripttabcsharp-script"></a>[Script de C#](#tab/csharp-script)
+
+El script de C# no admite atributos.
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+JavaScript no admite atributos.
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+Python no admite atributos.
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+La anotación `@TimerTrigger` en la función define la programación con el mismo formato de cadena que las [expresiones CRON](https://en.wikipedia.org/wiki/Cron#CRON_expression).
+
+```java
+@FunctionName("keepAlive")
+public void keepAlive(
+  @TimerTrigger(name = "keepAliveTrigger", schedule = "0 */5 * * * *") String timerInfo,
+      ExecutionContext context
+ ) {
+     // timeInfo is a JSON string, you can deserialize it to an object using your favorite JSON library
+     context.getLogger().info("Timer is triggered: " + timerInfo);
+}
+```
+
+---
 
 ## <a name="configuration"></a>Configuración
 
@@ -254,7 +248,7 @@ La propiedad `IsPastDue` es `true` cuando la invocación de función actual es p
 
 ## <a name="ncrontab-expressions"></a>Expresiones NCRONTAB 
 
-Azure Functions usa la biblioteca [NCronTab](https://github.com/atifaziz/NCrontab) para interpretar las expresiones NCRONTAB. Una expresión NCRONTAB es similar a una expresión CRON excepto en que incluye un sexto campo adicional al comienzo para usarlo con una precisión de segundos:
+Azure Functions usa la biblioteca [NCronTab](https://github.com/atifaziz/NCrontab) para interpretar las expresiones NCRONTAB. Una expresión NCRONTAB es similar a una expresión CRON, excepto en que incluye un sexto campo adicional al comienzo para usarlo con una precisión de segundos:
 
 `{second} {minute} {hour} {day} {month} {day-of-week}`
 
@@ -289,7 +283,10 @@ Estos son algunos ejemplos de expresiones NCRONTAB que puede usar para el desenc
 
 Los números de una expresión CRON hacen referencia a una hora y fecha, no un intervalo de tiempo. Por ejemplo, un 5 en el campo `hour` hace referencia a las 5:00 a. m., no a cada 5 horas.
 
-La zona horaria predeterminada que se usa con las expresiones CRON es la Hora universal coordinada (UTC). Para que la expresión CRON se base en otra zona horaria, cree una configuración de aplicación para la aplicación de función denominada `WEBSITE_TIME_ZONE`. Establezca el valor en el nombre de la zona horaria deseada como se muestra en [Microsoft Time Zone Index](https://technet.microsoft.com/library/cc749073) (Índice de zona horaria de Microsoft). 
+La zona horaria predeterminada que se usa con las expresiones CRON es la Hora universal coordinada (UTC). Para que la expresión CRON se base en otra zona horaria, cree una configuración de aplicación para la aplicación de función denominada `WEBSITE_TIME_ZONE`. Establezca el valor en el nombre de la zona horaria deseada como se muestra en [Microsoft Time Zone Index](https://technet.microsoft.com/library/cc749073) (Índice de zona horaria de Microsoft).
+
+  > [!NOTE]
+  > El plan de Consumo para Linux actualmente no admite `WEBSITE_TIME_ZONE`.
 
 Por ejemplo, la *Hora estándar del Este* (EST) es UTC-05:00. Para que el desencadenador de temporizador se dispare a las 10:00 a.m. (Hora estándar), use la siguiente expresión NCRONTAB que representa la zona horaria UTC:
 

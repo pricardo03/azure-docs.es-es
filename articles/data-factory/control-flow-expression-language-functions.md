@@ -5,27 +5,28 @@ services: data-factory
 documentationcenter: ''
 author: djpmsft
 ms.author: daperlov
-manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 01/10/2018
-ms.openlocfilehash: 75441a398e654893601cb7375ad3674d2b8aff29
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.date: 11/25/2019
+ms.openlocfilehash: 9ef4b569fd8413d2825374c963fb272dd450cf0e
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73679912"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533134"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Expresiones y funciones de Azure Data Factory
+
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
 > * [Versión 1](v1/data-factory-functions-variables.md)
 > * [Versión actual](control-flow-expression-language-functions.md)
 
 En este artículo se proporciona información detallada sobre las expresiones y las funciones compatibles con Azure Data Factory. 
 
-## <a name="introduction"></a>Introducción
+## <a name="expressions"></a>Expresiones
+
 Los valores JSON de la definición pueden ser literales o expresiones que se evalúan en tiempo de ejecución. Por ejemplo:  
   
 ```json
@@ -38,7 +39,6 @@ Los valores JSON de la definición pueden ser literales o expresiones que se eva
 "name": "@pipeline().parameters.password"
 ```
 
-## <a name="expressions"></a>Expresiones  
 Las expresiones pueden aparecer en cualquier lugar de un valor de cadena JSON y devolver siempre otro valor JSON. Si un valor JSON es una expresión, se extrae el cuerpo de la expresión quitando el signo arroba (\@). Si se necesita una cadena literal que empiece por \@, debe convertirse con \@\@. Los ejemplos siguientes muestran cómo se evalúan las expresiones.  
   
 |Valor JSON|Resultado|  
@@ -62,9 +62,9 @@ Las expresiones pueden aparecer en cualquier lugar de un valor de cadena JSON y 
 |"\@concat('Answer is: ', string(pipeline().parameters.myNumber))"| Devuelve la cadena `Answer is: 42`.|  
 |"Answer is: \@\@{pipeline().parameters.myNumber}"| Devuelve la cadena `Answer is: @{pipeline().parameters.myNumber}`.|  
   
-### <a name="examples"></a>Ejemplos
+## <a name="examples"></a>Ejemplos
 
-#### <a name="a-dataset-with-a-parameter"></a>Un conjunto de datos con un parámetro
+### <a name="a-dataset-with-a-parameter"></a>Un conjunto de datos con un parámetro
 En el ejemplo siguiente, BlobDataset toma un parámetro llamado **path**. Su valor se usa para establecer un valor para la propiedad **folderPath** mediante la expresión: `dataset().path`. 
 
 ```json
@@ -88,7 +88,7 @@ En el ejemplo siguiente, BlobDataset toma un parámetro llamado **path**. Su val
 }
 ```
 
-#### <a name="a-pipeline-with-a-parameter"></a>Una canalización con un parámetro
+### <a name="a-pipeline-with-a-parameter"></a>Una canalización con un parámetro
 En el ejemplo siguiente, la canalización toma los parámetros **inputPath** y **outputPath**. El valor de **path** para el conjunto de datos del blob con parámetros se establece mediante el uso de los valores de estos parámetros. La sintaxis utilizada aquí es: `pipeline().parameters.parametername`. 
 
 ```json
@@ -138,128 +138,3183 @@ En el ejemplo siguiente, la canalización toma los parámetros **inputPath** y *
     }
 }
 ```
-#### <a name="tutorial"></a>Tutorial
+### <a name="tutorial"></a>Tutorial
 En este [tutorial](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-data-factory-passing-parameters/Azure%20data%20Factory-Whitepaper-PassingParameters.pdf) se le guiará a lo largo del proceso de pasar parámetros entre una canalización y una actividad, así como entre actividades.
 
   
-## <a name="functions"></a>Functions  
- Puede llamar a funciones dentro de expresiones. En las siguientes secciones se proporciona información sobre las funciones que se pueden usar en una expresión.  
+## <a name="functions"></a>Functions
+
+Puede llamar a funciones dentro de expresiones. En las siguientes secciones se proporciona información sobre las funciones que se pueden usar en una expresión.  
 
 ## <a name="string-functions"></a>Funciones de cadena  
- Las siguientes funciones solo se aplican a las cadenas. También puede usar una serie de funciones de colección en las cadenas.  
-  
-|Nombre de función|DESCRIPCIÓN|  
-|-------------------|-----------------|  
-|concat|Combina cualquier número de cadenas. Por ejemplo, si parameter1 es `foo,`, la siguiente expresión devolvería `somevalue-foo-somevalue`: `concat('somevalue-',pipeline().parameters.parameter1,'-somevalue')`<br /><br /> **Número del parámetro**: 1 ... *n*<br /><br /> **Nombre**: cadena *n*<br /><br /> **Descripción**: Necesario. Las cadenas para combinar en una sola cadena.|  
-|substring|Devuelve un subconjunto de caracteres de una cadena. Por ejemplo, la siguiente expresión:<br /><br /> `substring('somevalue-foo-somevalue',10,3)`<br /><br /> devuelve:<br /><br /> `foo`<br /><br /> **Número del parámetro**: 1<br /><br /> **Nombre**: Cadena<br /><br /> **Descripción**: Necesario. La cadena desde la que se toma la subcadena.<br /><br /> **Número del parámetro**: 2<br /><br /> **Nombre**: índice de inicio<br /><br /> **Descripción**: Necesario. El índice de donde comienza la subcadena en el parámetro 1. El índice de inicio es de base cero. <br /><br /> **Número del parámetro**: 3<br /><br /> **Nombre**: Length<br /><br /> **Descripción**: Necesario. Longitud de la subcadena.|  
-|replace|Reemplaza una cadena con una cadena determinada. Por ejemplo, la expresión:<br /><br /> `replace('the old string', 'old', 'new')`<br /><br /> devuelve:<br /><br /> `the new string`<br /><br /> **Número del parámetro**: 1<br /><br /> **Nombre**: cadena<br /><br /> **Descripción**: Necesario.  Si el parámetro 2 se encuentra en el parámetro 1, la cadena que se busca en el parámetro 2 y se actualiza con el parámetro 3.<br /><br /> **Número del parámetro**: 2<br /><br /> **Nombre**: cadena antigua<br /><br /> **Descripción**: Necesario. La cadena que se reemplazará por el parámetro 3 cuando se encuentra una coincidencia en el parámetro 1.<br /><br /> **Número del parámetro**: 3<br /><br /> **Nombre**: cadena nueva<br /><br /> **Descripción**: Necesario. La cadena que se usa para reemplazar la cadena en el parámetro 2, cuando se encuentra una coincidencia en el parámetro 1.|  
-|GUID| Genera una cadena única global (también conocida como GUID). Por ejemplo, se podría generar la siguiente salida `c2ecc88d-88c8-4096-912c-d6f2e2b138ce`:<br /><br /> `guid()`<br /><br /> **Número del parámetro**: 1<br /><br /> **Nombre**: Formato<br /><br /> **Descripción**: Opcional. Un especificador de formato único que indica [cómo dar formato al valor de este GUID](https://msdn.microsoft.com/library/97af8hh4%28v=vs.110%29.aspx). El parámetro de formato puede ser "N", "D", "B", "P" o "X". Si no se proporciona el formato, se utiliza "D".|  
-|toLower|Convierte una cadena a minúsculas. Por ejemplo, la siguiente expresión devuelve `two by two is four`: `toLower('Two by Two is Four')`<br /><br /> **Número del parámetro**: 1<br /><br /> **Nombre**: Cadena<br /><br /> **Descripción**: Necesario. La cadena que se va a convertir a minúsculas. Si un carácter de la cadena no tiene un equivalente en minúsculas, se incluye sin cambios en la cadena devuelta.|  
-|toUpper|Convierte una cadena a mayúsculas. Por ejemplo, la siguiente expresión devuelve `TWO BY TWO IS FOUR`: `toUpper('Two by Two is Four')`<br /><br /> **Número del parámetro**: 1<br /><br /> **Nombre**: Cadena<br /><br /> **Descripción**: Necesario. La cadena que se va a convertir a mayúsculas. Si un carácter de la cadena no tiene un equivalente en mayúsculas, se incluye sin cambios en la cadena devuelta.|  
-|indexof|Busca el índice de un valor dentro de una cadena, con independencia de mayúsculas o minúsculas. El índice es de base cero. Por ejemplo, la siguiente expresión devuelve `7`: `indexof('hello, world.', 'world')`<br /><br /> **Número del parámetro**: 1<br /><br /> **Nombre**: Cadena<br /><br /> **Descripción**: Necesario. La cadena que puede contener el valor.<br /><br /> **Número del parámetro**: 2<br /><br /> **Nombre**: Cadena<br /><br /> **Descripción**: Necesario. El valor para buscar el índice.|  
-|lastindexof|Busca el último índice de un valor dentro de una cadena, con independencia de mayúsculas o minúsculas. El índice es de base cero. Por ejemplo, la siguiente expresión devuelve `3`: `lastindexof('foofoo', 'foo')`<br /><br /> **Número del parámetro**: 1<br /><br /> **Nombre**: Cadena<br /><br /> **Descripción**: Necesario. La cadena que puede contener el valor.<br /><br /> **Número del parámetro**: 2<br /><br /> **Nombre**: Cadena<br /><br /> **Descripción**: Necesario. El valor para buscar el índice.|  
-|startswith|Comprueba si la cadena comienza con valor, con independencia de mayúsculas o minúsculas. Por ejemplo, la siguiente expresión devuelve `true`: `startswith('hello, world', 'hello')`<br /><br /> **Número del parámetro**: 1<br /><br /> **Nombre**: Cadena<br /><br /> **Descripción**: Necesario. La cadena que puede contener el valor.<br /><br /> **Número del parámetro**: 2<br /><br /> **Nombre**: Cadena<br /><br /> **Descripción**: Necesario. El valor con el que comienza cadena.|  
-|endswith|Comprueba si la cadena finaliza con un valor, con independencia de mayúsculas o minúsculas. Por ejemplo, la siguiente expresión devuelve `true`: `endswith('hello, world', 'world')`<br /><br /> **Número del parámetro**: 1<br /><br /> **Nombre**: Cadena<br /><br /> **Descripción**: Necesario. La cadena que puede contener el valor.<br /><br /> **Número del parámetro**: 2<br /><br /> **Nombre**: Cadena<br /><br /> **Descripción**: Necesario. El valor con el que puede finalizar la cadena.|  
-|split|Divide la cadena con un separador. Por ejemplo, la siguiente expresión devuelve `["a", "b", "c"]`: `split('a;b;c',';')`<br /><br /> **Número del parámetro**: 1<br /><br /> **Nombre**: Cadena<br /><br /> **Descripción**: Necesario. La cadena que se divide.<br /><br /> **Número del parámetro**: 2<br /><br /> **Nombre**: Cadena<br /><br /> **Descripción**: Necesario. El separador.|  
-  
-  
-## <a name="collection-functions"></a>Funciones de colección  
- Estas funciones operan sobre colecciones como matrices, cadenas y, a veces, diccionarios.  
-  
-|Nombre de función|DESCRIPCIÓN|  
-|-------------------|-----------------|  
-|contains|Devuelve true si el diccionario contiene una clave, la lista contiene un valor o la cadena contiene una subcadena. Por ejemplo, la siguiente expresión devuelve `true:``contains('abacaba','aca')`<br /><br /> **Número del parámetro**: 1<br /><br /> **Nombre**: dentro de la colección<br /><br /> **Descripción**: Necesario. La colección en donde buscar.<br /><br /> **Número del parámetro**: 2<br /><br /> **Nombre**: objeto de búsqueda<br /><br /> **Descripción**: Necesario. El objeto que se va a buscar **dentro de la colección**.|  
-|length|Devuelve el número de elementos de una matriz o cadena. Por ejemplo, la siguiente expresión devuelve `3`: `length('abc')`<br /><br /> **Número del parámetro**: 1<br /><br /> **Nombre**: Colección<br /><br /> **Descripción**: Necesario. Colección de la que se obtendrá la longitud.|  
-|empty|Devuelve true si el objeto, matriz o cadena están vacíos. Por ejemplo, la siguiente expresión devuelve `true`:<br /><br /> `empty('')`<br /><br /> **Número del parámetro**: 1<br /><br /> **Nombre**: Colección<br /><br /> **Descripción**: Necesario. La colección para comprobar si está vacía.|  
-|intersección|Devuelve una única matriz u objeto con los elementos comunes entre las matrices o los objetos en los que se pasan. Por ejemplo, esta función devuelve `[1, 2]`:<br /><br /> `intersection([1, 2, 3], [101, 2, 1, 10],[6, 8, 1, 2])`<br /><br /> Los parámetros de la función pueden ser un conjunto de objetos o un conjunto de matrices (no una combinación de los mismos). Si hay dos objetos con el mismo nombre, el último objeto con ese nombre aparece en el objeto final.<br /><br /> **Número del parámetro**: 1 ... *n*<br /><br /> **Nombre**: colección *n*<br /><br /> **Descripción**: Necesario. Las colecciones para evaluar. El objeto debe encontrarse en todas las colecciones en las que se ha pasado para que aparezca en el resultado.|  
-|union|Devuelve una única matriz o un objeto con todos los elementos que se encuentran en la matriz u objeto pasados. Por ejemplo, esta función devuelve `[1, 2, 3, 10, 101]:`<br /><br /> : `union([1, 2, 3], [101, 2, 1, 10])`<br /><br /> Los parámetros de la función pueden ser un conjunto de objetos o un conjunto de matrices (no una combinación de los mismos). Si hay dos objetos con el mismo nombre en la salida final, el último objeto con ese nombre aparece en el objeto final.<br /><br /> **Número del parámetro**: 1 ... *n*<br /><br /> **Nombre**: colección *n*<br /><br /> **Descripción**: Necesario. Las colecciones para evaluar. En el resultado aparece un objeto que aparece en cualquiera de las colecciones.|  
-|first|Devuelve el primer elemento de la matriz o de la cadena en la que ha pasado. Por ejemplo, esta función devuelve `0`:<br /><br /> `first([0,2,3])`<br /><br /> **Número del parámetro**: 1<br /><br /> **Nombre**: Colección<br /><br /> **Descripción**: Necesario. La colección de donde tomar el primer objeto.|  
-|last|Devuelve el último elemento de la matriz o de la cadena en la que ha pasado. Por ejemplo, esta función devuelve `3`:<br /><br /> `last('0123')`<br /><br /> **Número del parámetro**: 1<br /><br /> **Nombre**: Colección<br /><br /> **Descripción**: Necesario. La colección de donde tomar el último objeto.|  
-|take|Devuelve los primeros elementos **Count** de la matriz o de la cadena que se ha pasado. Por ejemplo, esta función devuelve `[1, 2]`: `take([1, 2, 3, 4], 2)`<br /><br /> **Número del parámetro**: 1<br /><br /> **Nombre**: Colección<br /><br /> **Descripción**: Necesario. Colección de la que se tomarán los primeros objetos **Count**.<br /><br /> **Número del parámetro**: 2<br /><br /> **Nombre**: Count<br /><br /> **Descripción**: Necesario. El número de objetos que se toman de la **colección**. Debe ser un entero positivo.|  
-|skip|Devuelve los elementos en la matriz que comienzan en el índice **Count**. Por ejemplo, esta función devuelve `[3, 4]`:<br /><br /> `skip([1, 2 ,3 ,4], 2)`<br /><br /> **Número del parámetro**: 1<br /><br /> **Nombre**: Colección<br /><br /> **Descripción**: Necesario. La colección desde donde omitir los primeros objetos **Count**.<br /><br /> **Número del parámetro**: 2<br /><br /> **Nombre**: Count<br /><br /> **Descripción**: Necesario. El número de objetos que se van a quitar de la parte delantera de la **colección**. Debe ser un entero positivo.|  
-  
+
+Para trabajar con cadenas, puede usar estas funciones de cadena y también algunas [funciones de colección](#collection-functions).
+Las funciones de cadena solo funcionan en cadenas.
+
+| Función de cadena | Tarea |
+| --------------- | ---- |
+| [concat](control-flow-expression-language-functions.md#concat) | Combina dos o más cadenas y devuelve la cadena combinada. |
+| [endsWith](control-flow-expression-language-functions.md#endswith) | Comprueba si una cadena termina con la subcadena especificada. |
+| [guid](control-flow-expression-language-functions.md#guid) | Genera un identificador único global (GUID) como una cadena. |
+| [indexOf](control-flow-expression-language-functions.md#indexof) | Devuelve la posición inicial de una subcadena. |
+| [lastIndexOf](control-flow-expression-language-functions.md#lastindexof) | Devuelve la posición inicial de la última repetición de una subcadena. |
+| [replace](control-flow-expression-language-functions.md#replace) | Reemplaza una subcadena por la cadena especificada y devuelve la cadena actualizada. |
+| [split](control-flow-expression-language-functions.md#split) | Devuelve una matriz que contiene subcadenas, separadas por comas, de una cadena mayor en función de un carácter delimitador especificado en la cadena original. |
+| [startsWith](control-flow-expression-language-functions.md#startswith) | Comprueba si una cadena comienza con una subcadena especificada. |
+| [substring](control-flow-expression-language-functions.md#substring) | Devuelve caracteres de una cadena, a partir de la posición especificada. |
+| [toLower](control-flow-expression-language-functions.md#toLower) | Devuelve una cadena en formato de minúsculas. |
+| [toUpper](control-flow-expression-language-functions.md#toUpper) | Devuelve una cadena en formato de mayúsculas. |
+| [trim](control-flow-expression-language-functions.md#trim) | Quita el espacio en blanco inicial y final de una cadena y devuelve la cadena actualizada. |
+
+## <a name="collection-functions"></a>Funciones de colección
+
+Para trabajar con colecciones, por lo general matrices, cadenas y, en ocasiones, diccionarios, puede usar estas funciones de colección.
+
+| Función de colección | Tarea |
+| ------------------- | ---- |
+| [contains](control-flow-expression-language-functions.md#contains) | Comprueba si una colección contiene un elemento específico. |
+| [empty](control-flow-expression-language-functions.md#empty) | Comprueba si una colección está vacía. |
+| [first](control-flow-expression-language-functions.md#first) | Devuelve el primer elemento de una colección. |
+| [intersection](control-flow-expression-language-functions.md#intersection) | Devuelve una colección que tiene *solo* los elementos comunes en las colecciones especificadas. |
+| [join](control-flow-expression-language-functions.md#join) | Devuelve una cadena que tiene *todos* los elementos de una matriz, separados por el carácter especificado. |
+| [last](control-flow-expression-language-functions.md#last) | Devuelve el último elemento de una colección. |
+| [length](control-flow-expression-language-functions.md#length) | Devuelve el número de elementos de una cadena o una matriz. |
+| [skip](control-flow-expression-language-functions.md#skip) | Quita elementos del principio de una colección y devuelve *todos los demás* elementos. |
+| [take](control-flow-expression-language-functions.md#take) | Devuelve elementos del principio de una colección. |
+| [union](control-flow-expression-language-functions.md#union) | Devuelve una colección que tiene *todos* los elementos de las colecciones especificadas. | 
+
 ## <a name="logical-functions"></a>Funciones lógicas  
- Estas funciones son útiles en las condiciones y se pueden usar para evaluar cualquier tipo de lógica.  
+
+Estas funciones son útiles en las condiciones y se pueden usar para evaluar cualquier tipo de lógica.  
   
-|Nombre de función|DESCRIPCIÓN|  
-|-------------------|-----------------|  
-|equals|Devuelve true si dos valores son iguales. Por ejemplo, si parameter1 es foo, la siguiente expresión devolvería `true`: `equals(pipeline().parameters.parameter1), 'foo')`<br /><br /> **Número del parámetro**: 1<br /><br /> **Nombre**: objeto 1<br /><br /> **Descripción**: Necesario. El objeto que se va a comparar con el **objeto 2**.<br /><br /> **Número del parámetro**: 2<br /><br /> **Nombre**: objeto 2<br /><br /> **Descripción**: Necesario. El objeto que se va a comparar con el **objeto 1**.|  
-|less|Devuelve true si el primer argumento es inferior al segundo. Tenga en cuenta que solo pueden ser valores de tipo integer, float o string. Por ejemplo, la siguiente expresión devuelve `true`: `less(10,100)`<br /><br /> **Número del parámetro**: 1<br /><br /> **Nombre**: objeto 1<br /><br /> **Descripción**: Necesario. El objeto que se va a comprobar si es inferior al **objeto 2**.<br /><br /> **Número del parámetro**: 2<br /><br /> **Nombre**: objeto 2<br /><br /> **Descripción**: Necesario. El objeto que se va a comprobar si es superior al **objeto 1**.|  
-|lessOrEquals|Devuelve true si el primer argumento es inferior o igual al segundo. Tenga en cuenta que solo pueden ser valores de tipo integer, float o string. Por ejemplo, la siguiente expresión devuelve `true`: `lessOrEquals(10,10)`<br /><br /> **Número del parámetro**: 1<br /><br /> **Nombre**: objeto 1<br /><br /> **Descripción**: Necesario. El objeto que se va a comprobar si es inferior o igual al **objeto 2**.<br /><br /> **Número del parámetro**: 2<br /><br /> **Nombre**: objeto 2<br /><br /> **Descripción**: Necesario. El objeto que se va a comprobar si es superior o igual al **objeto 1**.|  
-|greater|Devuelve true si el primer argumento es superior al segundo. Tenga en cuenta que solo pueden ser valores de tipo integer, float o string. Por ejemplo, la siguiente expresión devuelve `false`: `greater(10,10)`<br /><br /> **Número del parámetro**: 1<br /><br /> **Nombre**: objeto 1<br /><br /> **Descripción**: Necesario. El objeto que se va a comprobar si es superior al **objeto 2**.<br /><br /> **Número del parámetro**: 2<br /><br /> **Nombre**: objeto 2<br /><br /> **Descripción**: Necesario. El objeto que se va a comprobar si es inferior al **objeto 1**.|  
-|greaterOrEquals|Devuelve true si el primer argumento es superior o igual al segundo. Tenga en cuenta que solo pueden ser valores de tipo integer, float o string. Por ejemplo, la siguiente expresión devuelve `false`: `greaterOrEquals(10,100)`<br /><br /> **Número del parámetro**: 1<br /><br /> **Nombre**: objeto 1<br /><br /> **Descripción**: Necesario. El objeto que se va a comprobar si es superior o igual al **objeto 2**.<br /><br /> **Número del parámetro**: 2<br /><br /> **Nombre**: objeto 2<br /><br /> **Descripción**: Necesario. El objeto que se va a comprobar si es inferior o igual al **objeto 1**.|  
-|y|Devuelve true si ambos parámetros son true. Ambos argumentos deben ser valores booleanos. Lo siguiente devuelve `false`: `and(greater(1,10),equals(0,0))`<br /><br /> **Número del parámetro**: 1<br /><br /> **Nombre**: booleano 1<br /><br /> **Descripción**: Necesario. El primer argumento debe ser `true`.<br /><br /> **Número del parámetro**: 2<br /><br /> **Nombre**: booleano 2<br /><br /> **Descripción**: Necesario. El segundo argumento debe ser `true`.|  
-|o|Devuelve true si cualquiera de los parámetros es true. Ambos argumentos deben ser valores booleanos. Lo siguiente devuelve `true`: `or(greater(1,10),equals(0,0))`<br /><br /> **Número del parámetro**: 1<br /><br /> **Nombre**: booleano 1<br /><br /> **Descripción**: Necesario. El primer argumento debe ser `true`.<br /><br /> **Número del parámetro**: 2<br /><br /> **Nombre**: booleano 2<br /><br /> **Descripción**: Necesario. El segundo argumento debe ser `true`.|  
-|not|Devuelve true si el parámetro es `false`. Ambos argumentos deben ser valores booleanos. Lo siguiente devuelve `true`: `not(contains('200 Success','Fail'))`<br /><br /> **Número del parámetro**: 1<br /><br /> **Nombre**: Boolean<br /><br /> **Descripción**: Devuelve true si el parámetro es `false`. Ambos argumentos deben ser valores booleanos. Lo siguiente devuelve `true`: `not(contains('200 Success','Fail'))`|  
-|if|Devuelve un valor especificado en función de si la expresión ha proporcionado resultados en `true` o `false`.  Por ejemplo, la siguiente expresión devuelve `"yes"`: `if(equals(1, 1), 'yes', 'no')`<br /><br /> **Número del parámetro**: 1<br /><br /> **Nombre**: Expression<br /><br /> **Descripción**: Necesario. Un valor booleano que determina qué valor devuelve la expresión.<br /><br /> **Número del parámetro**: 2<br /><br /> **Nombre**: True<br /><br /> **Descripción**: Necesario. Valor que se devuelve si la expresión es `true`.<br /><br /> **Número del parámetro**: 3<br /><br /> **Nombre**: False<br /><br /> **Descripción**: Necesario. Valor que se devuelve si la expresión es `false`.|  
+| Función de comparación lógica | Tarea |
+| --------------------------- | ---- |
+| [and](control-flow-expression-language-functions.md#and) | Comprueba si todas las expresiones son true. |
+| [equals](control-flow-expression-language-functions.md#equals) | Comprueba si ambos valores son equivalentes. |
+| [greater](control-flow-expression-language-functions.md#greater) | Comprueba si el primer valor es mayor que el segundo. |
+| [greaterOrEquals](control-flow-expression-language-functions.md#greaterOrEquals) | Comprueba si el primer valor es mayor o igual que el segundo. |
+| [if](control-flow-expression-language-functions.md#if) | Comprueba si una expresión es true o false. En función del resultado, devuelve un valor especificado. |
+| [less](control-flow-expression-language-functions.md#less) | Comprueba si el primer valor es menor que el segundo. |
+| [lessOrEquals](control-flow-expression-language-functions.md#lessOrEquals) | Comprueba si el primer valor es menor o igual que el segundo. |
+| [not](control-flow-expression-language-functions.md#not) | Comprueba si una expresión es false. |
+| [or](control-flow-expression-language-functions.md#or) | Comprueba si al menos una expresión es true. |
   
 ## <a name="conversion-functions"></a>Funciones de conversión  
+
  Estas funciones se utilizan para convertir en cada uno de los tipos nativos del idioma:  
-  
--   string  
-  
--   integer  
-  
--   float  
-  
--   boolean  
-  
--   arrays  
-  
--   dictionaries  
-  
-|Nombre de función|DESCRIPCIÓN|  
-|-------------------|-----------------|  
-|int|Convierte el parámetro en un entero. Por ejemplo, la siguiente expresión devuelve 100 como un número, en lugar de una cadena: `int('100')`<br /><br /> **Número del parámetro**: 1<br /><br /> **Nombre**: Valor<br /><br /> **Descripción**: Necesario. El valor que se convierte en un entero.|  
-|string|Convierte el parámetro en una cadena. Por ejemplo, la siguiente expresión devuelve `'10'`:  `string(10)` También puede convertir un objeto en una cadena. Por ejemplo, si el parámetro **foo** es un objeto con una propiedad `bar : baz`, se devolvería `{"bar" : "baz"}` `string(pipeline().parameters.foo)`.<br /><br /> **Número del parámetro**: 1<br /><br /> **Nombre**: Valor<br /><br /> **Descripción**: Necesario. El valor que se convierte en una cadena.|  
-|json|Convierte el parámetro en un valor de tipo JSON. Es lo contrario de string(). Por ejemplo, la siguiente expresión devuelve `[1,2,3]` como una matriz, en lugar de una cadena:<br /><br /> `json('[1,2,3]')`<br /><br /> Del mismo modo, puede convertir una cadena en un objeto. Por ejemplo, `json('{"bar" : "baz"}')` devuelve:<br /><br /> `{ "bar" : "baz" }`<br /><br /> **Número del parámetro**: 1<br /><br /> **Nombre**: Cadena<br /><br /> **Descripción**: Necesario. La cadena que se convierte en un valor de tipo nativo.<br /><br /> La función json también es compatible con la entrada XML. Por ejemplo, el valor del parámetro de:<br /><br /> `<?xml version="1.0"?> <root>   <person id='1'>     <name>Alan</name>     <occupation>Engineer</occupation>   </person> </root>`<br /><br /> se convierte en el siguiente JSON:<br /><br /> `{ "?xml": { "@version": "1.0" },   "root": {     "person": [     {       "@id": "1",       "name": "Alan",       "occupation": "Engineer"     }   ]   } }`|  
-|float|Convierte el argumento del parámetro en un número de punto flotante. Por ejemplo, la siguiente expresión devuelve `10.333`: `float('10.333')`<br /><br /> **Número del parámetro**: 1<br /><br /> **Nombre**: Valor<br /><br /> **Descripción**: Necesario. El valor que se convierte en un número de punto flotante.|  
-|bool|Convierte el parámetro en un booleano. Por ejemplo, la siguiente expresión devuelve `false`: `bool(0)`<br /><br /> **Número del parámetro**: 1<br /><br /> **Nombre**: Valor<br /><br /> **Descripción**: Necesario. El valor que se convierte en un booleano.|  
-|coalesce|Devuelve el primer objeto no null en los argumentos pasados. Nota: Una cadena vacía no es null. Por ejemplo, si no se definen los parámetros 1 y 2, se devolverá `fallback`: `coalesce(pipeline().parameters.parameter1', pipeline().parameters.parameter2 ,'fallback')`<br /><br /> **Número del parámetro**: 1 ... *n*<br /><br /> **Nombre**: objeto *n*<br /><br /> **Descripción**: Necesario. Los objetos que deben comprobar si hay valores `null`.|  
-|base64|Devuelve la representación de base64 de la cadena de entrada. Por ejemplo, la siguiente expresión devuelve `c29tZSBzdHJpbmc=`: `base64('some string')`<br /><br /> **Número del parámetro**: 1<br /><br /> **Nombre**: cadena 1<br /><br /> **Descripción**: Necesario. Cadena que se va a codificar en representación base64.|  
-|base64ToBinary|Devuelve una representación binaria de una cadena codificada en base64. Por ejemplo, la siguiente expresión devuelve la representación binaria de alguna cadena: `base64ToBinary('c29tZSBzdHJpbmc=')`.<br /><br /> **Número del parámetro**: 1<br /><br /> **Nombre**: Cadena<br /><br /> **Descripción**: Necesario. Cadena codificada en base64|  
-|base64ToString|Devuelve una representación de cadena de una cadena codificada en base64. Por ejemplo, la siguiente expresión devuelve alguna cadena: `base64ToString('c29tZSBzdHJpbmc=')`.<br /><br /> **Número del parámetro**: 1<br /><br /> **Nombre**: Cadena<br /><br /> **Descripción**: Necesario. Cadena codificada en base64|  
-|Binary|Devuelve una representación binaria de un valor.  Por ejemplo, la siguiente expresión devuelve una representación binaria de alguna cadena: `binary(‘some string’).`<br /><br /> **Número del parámetro**: 1<br /><br /> **Nombre**: Valor<br /><br /> **Descripción**: Necesario. El valor que se convierte en binario.|  
-|dataUriToBinary|Devuelve una representación binaria de un identificador URI de datos. Por ejemplo, la siguiente expresión devuelve la representación binaria de alguna cadena: `dataUriToBinary('data:;base64,c29tZSBzdHJpbmc=')`<br /><br /> **Número del parámetro**: 1<br /><br /> **Nombre**: Cadena<br /><br /> **Descripción**: Necesario. El identificador URI para convertir en representación binaria.|  
-|dataUriToString|Devuelve una representación de cadena de un identificador URI de datos. Por ejemplo, la siguiente expresión devuelve alguna cadena: `dataUriToString('data:;base64,c29tZSBzdHJpbmc=')`<br /><br /> **Número del parámetro**: 1<br /><br /> **Nombre**: Cadena<br /><br />**Descripción**: Necesario. El identificador URI de datos para convertir en representación de cadena.|  
-|dataUri|Devuelve un identificador URI de datos de un valor. Por ejemplo, la siguiente expresión devuelve datos: `text/plain;charset=utf8;base64,c29tZSBzdHJpbmc=: dataUri('some string')`<br /><br /> **Número del parámetro**: 1<br /><br />**Nombre**: Valor<br /><br />**Descripción**: Necesario. El valor que se convierte en un identificador URI de datos.|  
-|decodeBase64|Devuelve una representación de cadena de una cadena en base64 de entrada. Por ejemplo, la siguiente expresión devuelve `some string`: `decodeBase64('c29tZSBzdHJpbmc=')`<br /><br /> **Número del parámetro**: 1<br /><br /> **Nombre**: Cadena<br /><br /> **Descripción**: Devuelve una representación de cadena de una cadena en base64 de entrada.|  
-|encodeUriComponent|Cadena de escape de la cadena de dirección URL que se pasa. Por ejemplo, la siguiente expresión devuelve `You+Are%3ACool%2FAwesome`: `encodeUriComponent('You Are:Cool/Awesome')`<br /><br /> **Número del parámetro**: 1<br /><br /> **Nombre**: Cadena<br /><br /> **Descripción**: Necesario. La cadena de escape de los caracteres no seguros de la dirección URL.|  
-|decodeUriComponent|Anulación de la cadena de escape de la cadena de dirección URL que se pasa. Por ejemplo, la siguiente expresión devuelve `You Are:Cool/Awesome`: `encodeUriComponent('You+Are%3ACool%2FAwesome')`<br /><br /> **Número del parámetro**: 1<br /><br /> **Nombre**: Cadena<br /><br /> **Descripción**: Necesario. La cadena para decodificar los caracteres no seguros de la dirección URL.|  
-|decodeDataUri|Devuelve una representación binaria de una cadena de identificador URI de datos de entrada. Por ejemplo, la siguiente expresión devuelve la representación binaria de `some string`: `decodeDataUri('data:;base64,c29tZSBzdHJpbmc=')`<br /><br /> **Número del parámetro**: 1<br /><br /> **Nombre**: Cadena<br /><br /> **Descripción**: Necesario. El dataURI para descodificar en una representación binaria.|  
-|uriComponent|Devuelve una representación codificada de un identificador URI de un valor. Por ejemplo, la siguiente expresión devuelve `You+Are%3ACool%2FAwesome: uriComponent('You Are:Cool/Awesome ')`<br /><br /> Detalles de los parámetros: Número: 1, Nombre: cadena, Descripción: Necesario. La cadena que se va a codificar como URI.|  
-|uriComponentToBinary|Devuelve una representación binaria de una cadena codificada como URI. Por ejemplo, la siguiente expresión devuelve una representación binaria de `You Are:Cool/Awesome`: `uriComponentToBinary('You+Are%3ACool%2FAwesome')`<br /><br /> **Número del parámetro**: 1<br /><br /> **Nombre**: Cadena<br /><br />**Descripción**: Necesario. Cadena codificada en URI.|  
-|uriComponentToString|Devuelve una representación de cadena de una cadena codificada como URI. Por ejemplo, la siguiente expresión devuelve `You Are:Cool/Awesome`: `uriComponentToString('You+Are%3ACool%2FAwesome')`<br /><br /> **Número del parámetro**: 1<br /><br />**Nombre**: Cadena<br /><br />**Descripción**: Necesario. Cadena codificada en URI.|  
-|Xml|Devuelve una representación XML del valor. Por ejemplo, la siguiente expresión devuelve un contenido xml representado por `'\<name>Alan\</name>'`: `xml('\<name>Alan\</name>')`. La función xml también es compatible con la entrada de objeto JSON. Por ejemplo, el parámetro `{ "abc": "xyz" }` se convierte en contenido XML: `\<abc>xyz\</abc>`.<br /><br /> **Número del parámetro**: 1<br /><br />**Nombre**: Valor<br /><br />**Descripción**: Necesario. El valor que se va a convertir en XML.|  
-|xpath|Devuelve una matriz de nodos XML que coinciden con la expresión xpath de un valor que se evalúa como la expresión xpath.<br /><br />  **Ejemplo 1**<br /><br /> Supone que el valor del parámetro "p1" es una representación de cadena del siguiente XML:<br /><br /> `<?xml version="1.0"?> <lab>   <robot>     <parts>5</parts>     <name>R1</name>   </robot>   <robot>     <parts>8</parts>     <name>R2</name>   </robot> </lab>`<br /><br /> 1. Este código: `xpath(xml(pipeline().parameters.p1), '/lab/robot/name')`<br /><br /> devolvería<br /><br /> `[ <name>R1</name>, <name>R2</name> ]`<br /><br /> mientras que<br /><br /> 2. Este código: `xpath(xml(pipeline().parameters.p1, ' sum(/lab/robot/parts)')`<br /><br /> devolvería<br /><br /> `13`<br /><br /> <br /><br /> **Ejemplo 2**<br /><br /> Dato el contenido XML siguiente:<br /><br /> `<?xml version="1.0"?> <File xmlns="http://foo.com">   <Location>bar</Location> </File>`<br /><br /> 1.  Este código: `@xpath(xml(body('Http')), '/*[name()=\"File\"]/*[name()=\"Location\"]')`<br /><br /> o<br /><br /> 2. Este código: `@xpath(xml(body('Http')), '/*[local-name()=\"File\" and namespace-uri()=\"http://foo.com\"]/*[local-name()=\"Location\" and namespace-uri()=\"\"]')`<br /><br /> devuelve<br /><br /> `<Location xmlns="http://foo.com">bar</Location>`<br /><br /> y<br /><br /> 3. Este código: `@xpath(xml(body('Http')), 'string(/*[name()=\"File\"]/*[name()=\"Location\"])')`<br /><br /> devuelve<br /><br /> ``bar``<br /><br /> **Número del parámetro**: 1<br /><br />**Nombre**: Xml<br /><br />**Descripción**: Necesario. El código XML en el que se va a evaluar la expresión XPath.<br /><br /> **Número del parámetro**: 2<br /><br />**Nombre**: XPath<br /><br />**Descripción**: Necesario. La expresión XPath que se va a evaluar.|  
-|array|Convierte el parámetro en una matriz.  Por ejemplo, la siguiente expresión devuelve `["abc"]`: `array('abc')`<br /><br /> **Número del parámetro**: 1<br /><br /> **Nombre**: Valor<br /><br /> **Descripción**: Necesario. El valor que se convierte en una matriz.|
-|createArray|Crea una matriz a partir de los parámetros.  Por ejemplo, la siguiente expresión devuelve `["a", "c"]`: `createArray('a', 'c')`<br /><br /> **Número del parámetro**: 1 ... n<br /><br /> **Nombre**: cualquier n<br /><br /> **Descripción**: Necesario. Los valores que se van a combinar en una matriz.|
+-   string
+-   integer
+-   float
+-   boolean
+-   arrays
+-   dictionaries
+
+| Función de conversión | Tarea |
+| ------------------- | ---- |
+| [array](control-flow-expression-language-functions.md#array) | Devuelve una matriz a partir de una única entrada especificada. Para varias entradas, consulte [createArray](control-flow-expression-language-functions.md#createArray). |
+| [base64](control-flow-expression-language-functions.md#base64) | Devuelve la versión de una cadena codificada en base64. |
+| [base64ToBinary](control-flow-expression-language-functions.md#base64ToBinary) | Devuelve la versión binaria de una cadena codificada en base64. |
+| [base64ToString](control-flow-expression-language-functions.md#base64ToString) | Devuelve la versión de cadena de una cadena codificada en base64. |
+| [binary](control-flow-expression-language-functions.md#binary) | Devuelve la versión binaria de un valor de entrada. |
+| [bool](control-flow-expression-language-functions.md#bool) | Devuelve la versión booleana de un valor de entrada. |
+| [coalesce](control-flow-expression-language-functions.md#coalesce) | Devuelve el primer valor distinto de null de uno o más parámetros. |
+| [createArray](control-flow-expression-language-functions.md#createArray) | Devuelve una matriz a partir de varias entradas. |
+| [dataUri](control-flow-expression-language-functions.md#dataUri) | Devuelve el URI de datos de un valor de entrada. |
+| [dataUriToBinary](control-flow-expression-language-functions.md#dataUriToBinary) | Devuelve la versión binaria de un URI de datos. |
+| [dataUriToString](control-flow-expression-language-functions.md#dataUriToString) | Devuelve la versión de cadena de un URI de datos. |
+| [decodeBase64](control-flow-expression-language-functions.md#decodeBase64) | Devuelve la versión de cadena de una cadena codificada en base64. |
+| [decodeDataUri](control-flow-expression-language-functions.md#decodeDataUri) | Devuelve la versión binaria de un URI de datos. |
+| [decodeUriComponent](control-flow-expression-language-functions.md#decodeUriComponent) | Devuelve una cadena que reemplaza los caracteres de escape por versiones descodificadas. |
+| [encodeUriComponent](control-flow-expression-language-functions.md#encodeUriComponent) | Devuelve una cadena que reemplaza los caracteres no seguros de la dirección URL por caracteres de escape. |
+| [float](control-flow-expression-language-functions.md#float) | Devuelve un número de punto flotante de un valor de entrada. |
+| [int](control-flow-expression-language-functions.md#int) | Devuelve la versión como número entero de una cadena. |
+| [json](control-flow-expression-language-functions.md#json) | Devuelve el valor o el objeto de tipo Notación de objetos JavaScript (JSON) de una cadena o XML. |
+| [string](control-flow-expression-language-functions.md#string) | Devuelve la versión de cadena de un valor de entrada. |
+| [uriComponent](control-flow-expression-language-functions.md#uriComponent) | Devuelve la versión codificada con el URI de un valor de entrada mediante la sustitución de los caracteres no seguros de la dirección URL por caracteres de escape. |
+| [uriComponentToBinary](control-flow-expression-language-functions.md#uriComponentToBinary) | Devuelve la versión binaria de una cadena codificada con el URI. |
+| [uriComponentToString](control-flow-expression-language-functions.md#uriComponentToString) | Devuelve la versión de cadena de una cadena codificada con el URI. |
+| [xml](control-flow-expression-language-functions.md#xml) | Devuelve la versión XML de una cadena. |
+| [xpath](control-flow-expression-language-functions.md#xpath) | Comprueba el código XML de los nodos o valores que coinciden con una expresión XPath (XML Path Language) y devuelve los nodos o valores coincidentes. |
 
 ## <a name="math-functions"></a>Funciones matemáticas  
  Estas funciones pueden utilizarse para ambos tipos de números: **enteros** y **flotantes**.  
-  
-|Nombre de función|DESCRIPCIÓN|  
-|-------------------|-----------------|  
-|add|Devuelve el resultado de la suma de los dos números. Por ejemplo, esta función devuelve `20.333`: `add(10,10.333)`<br /><br /> **Número del parámetro**: 1<br /><br /> **Nombre**: sumando 1<br /><br /> **Descripción**: Necesario. El número para agregar a **sumando 2**.<br /><br /> **Número del parámetro**: 2<br /><br /> **Nombre**: sumando 2<br /><br /> **Descripción**: Necesario. El número para agregar a **sumando 1**.|  
-|sub|Devuelve el resultado de la resta de los dos números. Por ejemplo, esta función devuelve `-0.333`:<br /><br /> `sub(10,10.333)`<br /><br /> **Número del parámetro**: 1<br /><br /> **Nombre**: minuendo<br /><br /> **Descripción**: Necesario. El número que se resta del **sustraendo**.<br /><br /> **Número del parámetro**: 2<br /><br /> **Nombre**: sustraendo<br /><br /> **Descripción**: Necesario. El número que se va a quitar del **minuendo**.|  
-|mul|Devuelve el resultado de la multiplicación de los dos números. Por ejemplo, la siguiente expresión devuelve `103.33`:<br /><br /> `mul(10,10.333)`<br /><br /> **Número del parámetro**: 1<br /><br /> **Nombre**: multiplicando 1<br /><br /> **Descripción**: Necesario. El número que se va a multiplicar con el **multiplicando 2**.<br /><br /> **Número del parámetro**: 2<br /><br /> **Nombre**: multiplicando 2<br /><br /> **Descripción**: Necesario. El número que se va a multiplicar con el **multiplicando 1**.|  
-|div|Devuelve el resultado de la división de los dos números. Por ejemplo, la siguiente expresión devuelve `1.0333`:<br /><br /> `div(10.333,10)`<br /><br /> **Número del parámetro**: 1<br /><br /> **Nombre**: dividendo<br /><br /> **Descripción**: Necesario. El número que se va a dividir por el **divisor**.<br /><br /> **Número del parámetro**: 2<br /><br /> **Nombre**: divisor<br /><br /> **Descripción**: Necesario. El número por el que se divide el **dividendo**.|  
-|mod|Devuelve el resultado del resto después de hacer la división de los dos números (módulo). Por ejemplo, la siguiente expresión devuelve `2`:<br /><br /> `mod(10,4)`<br /><br /> **Número del parámetro**: 1<br /><br /> **Nombre**: dividendo<br /><br /> **Descripción**: Necesario. El número que se va a dividir por el **divisor**.<br /><br /> **Número del parámetro**: 2<br /><br /> **Nombre**: divisor<br /><br /> **Descripción**: Necesario. El número por el que se divide el **dividendo**. Después de la división, se toma el resto.|  
-|Min|Hay dos patrones diferentes para llamar a esta función: `min([0,1,2])` Aquí min toma una matriz. Esta expresión devuelve `0`. Como alternativa, esta función puede tomar una lista de valores separada por comas:  `min(0,1,2)` Esta función también devuelve 0. Nota: Todos los valores deben ser números, por lo que si el parámetro es una matriz, solo debe contener números.<br /><br /> **Número del parámetro**: 1<br /><br /> **Nombre**: colección o valor<br /><br /> **Descripción**: Necesario. Puede ser una matriz de valores para buscar el valor mínimo o el primer valor de un conjunto.<br /><br /> **Número del parámetro**: 2 ... *n*<br /><br /> **Nombre**: valor *n*<br /><br /> **Descripción**: Opcional. Si el primer parámetro es un valor, se pueden pasar valores adicionales y se devuelve el mínimo de todos los valores pasados.|  
-|max|Hay dos patrones diferentes para llamar a esta función: `max([0,1,2])`<br /><br /> Aquí max toma una matriz. Esta expresión devuelve `2`. Como alternativa, esta función puede tomar una lista de valores separada por comas:  `max(0,1,2)` Esta función devuelve 2. Nota: Todos los valores deben ser números, por lo que si el parámetro es una matriz, solo debe contener números.<br /><br /> **Número del parámetro**: 1<br /><br /> **Nombre**: colección o valor<br /><br /> **Descripción**: Necesario. Puede ser una matriz de valores para buscar el valor máximo o el primer valor de un conjunto.<br /><br /> **Número del parámetro**: 2 ... *n*<br /><br /> **Nombre**: valor *n*<br /><br /> **Descripción**: Opcional. Si el primer parámetro es un valor, se pueden pasar valores adicionales y se devuelve el máximo de todos los valores pasados.|  
-|range| Genera una matriz de enteros a partir de un número determinado y se define la longitud de la matriz devuelta. Por ejemplo, esta función devuelve `[3,4,5,6]`:<br /><br /> `range(3,4)`<br /><br /> **Número del parámetro**: 1<br /><br /> **Nombre**: índice de inicio<br /><br /> **Descripción**: Necesario. Es el primer entero de la matriz.<br /><br /> **Número del parámetro**: 2<br /><br /> **Nombre**: Count<br /><br /> **Descripción**: Necesario. Número de enteros que hay en la matriz.|  
-|rand| Genera un entero aleatorio dentro del intervalo especificado (ambos extremos incluidos). Por ejemplo, esto podría devolver `42`:<br /><br /> `rand(-1000,1000)`<br /><br /> **Número del parámetro**: 1<br /><br /> **Nombre**: Mínima<br /><br /> **Descripción**: Necesario. El entero más bajo que se podría devolver.<br /><br /> **Número del parámetro**: 2<br /><br /> **Nombre**: Máxima<br /><br /> **Descripción**: Necesario. El entero más alto que se podría devolver.|  
+
+| Función matemática | Tarea |
+| ------------- | ---- |
+| [add](control-flow-expression-language-functions.md#add) | Devuelve el resultado de sumar dos números. |
+| [div](control-flow-expression-language-functions.md#div) | Devuelve el resultado de dividir dos números. |
+| [max](control-flow-expression-language-functions.md#max) | Devuelve el valor más alto de un conjunto de números o una matriz. |
+| [min](control-flow-expression-language-functions.md#min) | Devuelve el valor más bajo de un conjunto de números o una matriz. |
+| [mod](control-flow-expression-language-functions.md#mod) | Devuelve el resto de dividir dos números. |
+| [mul](control-flow-expression-language-functions.md#mul) | Devuelve el producto de multiplicar dos números. |
+| [rand](control-flow-expression-language-functions.md#rand) | Devuelve un entero aleatorio desde un intervalo especificado. |
+| [range](control-flow-expression-language-functions.md#range) | Devuelve una matriz de enteros que comienza en un entero especificado. |
+| [sub](control-flow-expression-language-functions.md#sub) | Devuelve el resultado de restar el segundo número del primero. |
   
 ## <a name="date-functions"></a>Funciones de fecha  
-  
-|Nombre de función|DESCRIPCIÓN|  
-|-------------------|-----------------|  
-|utcnow|Devuelve la marca de tiempo actual como una cadena. Por ejemplo: `2015-03-15T13:27:36Z`:<br /><br /> `utcnow()`<br /><br /> **Número del parámetro**: 1<br /><br /> **Nombre**: Formato<br /><br /> **Descripción**: Opcional. Ya sea un [único carácter especificador de formato](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) o un [patrón de formato personalizado](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx) que indica cómo dar formato al valor de esta marca de tiempo. Si no se proporciona el formato, se utiliza el formato ISO 8601 ("o").|  
-|addseconds|Agrega un número entero de segundos a una marca de tiempo de cadena que se pasa. El número de segundos puede ser positivo o negativo. De forma predeterminada, el resultado es una cadena en formato ISO 8601 ("o"), a menos que se proporcione un especificador de formato. Por ejemplo: `2015-03-15T13:27:00Z`:<br /><br /> `addseconds('2015-03-15T13:27:36Z', -36)`<br /><br /> **Número del parámetro**: 1<br /><br /> **Nombre**: Timestamp<br /><br /> **Descripción**: Necesario. Una cadena que contiene la hora.<br /><br /> **Número del parámetro**: 2<br /><br /> **Nombre**: Segundos<br /><br /> **Descripción**: Necesario. El número de segundos que se agregan. Podría ser negativo para restar los segundos.<br /><br /> **Número del parámetro**: 3<br /><br /> **Nombre**: Formato<br /><br /> **Descripción**: Opcional. Ya sea un [único carácter especificador de formato](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) o un [patrón de formato personalizado](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx) que indica cómo dar formato al valor de esta marca de tiempo. Si no se proporciona el formato, se utiliza el formato ISO 8601 ("o").|  
-|addminutes|Agrega un número entero de minutos a una marca de tiempo de cadena que se pasa. El número de minutos puede ser positivo o negativo. De forma predeterminada, el resultado es una cadena en formato ISO 8601 ("o"), a menos que se proporcione un especificador de formato. Por ejemplo, `2015-03-15T14:00:36Z`:<br /><br /> `addminutes('2015-03-15T13:27:36Z', 33)`<br /><br /> **Número del parámetro**: 1<br /><br /> **Nombre**: Timestamp<br /><br /> **Descripción**: Necesario. Una cadena que contiene la hora.<br /><br /> **Número del parámetro**: 2<br /><br /> **Nombre**: Minutos<br /><br /> **Descripción**: Necesario. El número de minutos que se van a agregar. Podría ser negativo para restar los minutos.<br /><br /> **Número del parámetro**: 3<br /><br /> **Nombre**: Formato<br /><br /> **Descripción**: Opcional. Ya sea un [único carácter especificador de formato](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) o un [patrón de formato personalizado](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx) que indica cómo dar formato al valor de esta marca de tiempo. Si no se proporciona el formato, se utiliza el formato ISO 8601 ("o").|  
-|addhours|Agrega un número entero de horas a una marca de tiempo de cadena que se pasa. El número de horas puede ser positivo o negativo. De forma predeterminada, el resultado es una cadena en formato ISO 8601 ("o"), a menos que se proporcione un especificador de formato. Por ejemplo: `2015-03-16T01:27:36Z`:<br /><br /> `addhours('2015-03-15T13:27:36Z', 12)`<br /><br /> **Número del parámetro**: 1<br /><br /> **Nombre**: Timestamp<br /><br /> **Descripción**: Necesario. Una cadena que contiene la hora.<br /><br /> **Número del parámetro**: 2<br /><br /> **Nombre**: Horas<br /><br /> **Descripción**: Necesario. El número de horas que se van a agregar. Podría ser negativo para restar las horas.<br /><br /> **Número del parámetro**: 3<br /><br /> **Nombre**: Formato<br /><br /> **Descripción**: Opcional. Ya sea un [único carácter especificador de formato](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) o un [patrón de formato personalizado](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx) que indica cómo dar formato al valor de esta marca de tiempo. Si no se proporciona el formato, se utiliza el formato ISO 8601 ("o").|  
-|adddays|Agrega un número entero de días a una marca de tiempo de cadena que se pasa. El número de días puede ser positivo o negativo. De forma predeterminada, el resultado es una cadena en formato ISO 8601 ("o"), a menos que se proporcione un especificador de formato. Por ejemplo: `2015-02-23T13:27:36Z`:<br /><br /> `adddays('2015-03-15T13:27:36Z', -20)`<br /><br /> **Número del parámetro**: 1<br /><br /> **Nombre**: Timestamp<br /><br /> **Descripción**: Necesario. Una cadena que contiene la hora.<br /><br /> **Número del parámetro**: 2<br /><br /> **Nombre**: Days (Días)<br /><br /> **Descripción**: Necesario. El número de días que se van a agregar. Podría ser negativo para restar los días.<br /><br /> **Número del parámetro**: 3<br /><br /> **Nombre**: Formato<br /><br /> **Descripción**: Opcional. Ya sea un [único carácter especificador de formato](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) o un [patrón de formato personalizado](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx) que indica cómo dar formato al valor de esta marca de tiempo. Si no se proporciona el formato, se utiliza el formato ISO 8601 ("o").|  
-|formatDateTime|Devuelve una cadena en formato de fecha. De forma predeterminada, el resultado es una cadena en formato ISO 8601 ("o"), a menos que se proporcione un especificador de formato. Por ejemplo: `2015-02-23T13:27:36Z`:<br /><br /> `formatDateTime('2015-03-15T13:27:36Z', 'o')`<br /><br />Para dar formato a una fecha en "AAAA/MM/DD", use formatDateTime(utcnow(),'yyyy/MM/dd').</br>Para anexar un nombre a la fecha, use @concat('foo-','/',formatDateTime(utcnow(),'yyyy/MM/dd')).<br><br> **Número del parámetro**: 1<br /><br /> **Nombre**: Date<br /><br /> **Descripción**: Necesario. Una cadena que contiene la fecha.<br /><br /> **Número del parámetro**: 2<br /><br /> **Nombre**: Formato<br /><br /> **Descripción**: Opcional. Ya sea un [único carácter especificador de formato](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) o un [patrón de formato personalizado](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx) que indica cómo dar formato al valor de esta marca de tiempo. Si no se proporciona el formato, se utiliza el formato ISO 8601 ("o"). |  
+
+| Función de fecha u hora | Tarea |
+| --------------------- | ---- |
+| [addDays](control-flow-expression-language-functions.md#addDays) | Agrega un número de días a una marca de tiempo. |
+| [addHours](control-flow-expression-language-functions.md#addHours) | Agrega un número de horas a una marca de tiempo. |
+| [addMinutes](control-flow-expression-language-functions.md#addMinutes) | Agrega un número de minutos a una marca de tiempo. |
+| [addSeconds](control-flow-expression-language-functions.md#addSeconds) | Agrega un número de segundos a una marca de tiempo. |
+| [addToTime](control-flow-expression-language-functions.md#addToTime) | Agrega un número de unidades de tiempo a una marca de tiempo. Consulte también [getFutureTime](control-flow-expression-language-functions.md#getFutureTime). |
+| [convertFromUtc](control-flow-expression-language-functions.md#convertFromUtc) | Convierte una marca de tiempo del formato Hora Universal Coordinada (UTC) a la zona horaria de destino. |
+| [convertTimeZone](control-flow-expression-language-functions.md#convertTimeZone) | Convierte una marca de tiempo de la zona horaria de origen a la zona horaria de destino. |
+| [convertToUtc](control-flow-expression-language-functions.md#convertToUtc) | Convierte una marca de tiempo de la zona horaria de origen al formato Hora Universal Coordinada (UTC). |
+| [dayOfMonth](control-flow-expression-language-functions.md#dayOfMonth) | Devuelve el día del componente de mes de una marca de tiempo. |
+| [dayOfWeek](control-flow-expression-language-functions.md#dayOfWeek) | Devuelve el día del componente de semana de una marca de tiempo. |
+| [dayOfYear](control-flow-expression-language-functions.md#dayOfYear) | Devuelve el día del componente de año de una marca de tiempo. |
+| [formatDateTime](control-flow-expression-language-functions.md#formatDateTime) | Devuelve la fecha de una marca de tiempo. |
+| [getFutureTime](control-flow-expression-language-functions.md#getFutureTime) | Devuelve la marca de tiempo actual más las unidades de tiempo especificadas. Consulte también [addToTime](control-flow-expression-language-functions.md#addToTime). |
+| [getPastTime](control-flow-expression-language-functions.md#getPastTime) | Devuelve la marca de tiempo actual menos las unidades de tiempo especificadas. Consulte también [subtractFromTime](control-flow-expression-language-functions.md#subtractFromTime). |
+| [startOfDay](control-flow-expression-language-functions.md#startOfDay) | Devuelve el inicio del día de una marca de tiempo. |
+| [startOfHour](control-flow-expression-language-functions.md#startOfHour) | Devuelve el inicio de la hora de una marca de tiempo. |
+| [startOfMonth](control-flow-expression-language-functions.md#startOfMonth) | Devuelve el inicio del mes de una marca de tiempo. |
+| [subtractFromTime](control-flow-expression-language-functions.md#subtractFromTime) | Resta un número de unidades de tiempo de una marca de tiempo. Consulte también [getPastTime](control-flow-expression-language-functions.md#getPastTime). |
+| [ticks](control-flow-expression-language-functions.md#ticks) | Devuelve el valor de la propiedad `ticks` de una marca de tiempo especificada. |
+| [utcNow](control-flow-expression-language-functions.md#utcNow) | Devuelve la marca de tiempo actual como una cadena. |
+
+## <a name="function-reference"></a>Referencia de funciones
+
+En esta sección se enumeran todas las funciones disponibles en orden alfabético.
+
+<a name="add"></a>
+
+### <a name="add"></a>add
+
+Devuelve el resultado de sumar dos números.
+
+```
+add(<summand_1>, <summand_2>)
+```
+
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| --------- | -------- | ---- | ----------- |
+| <*sumando_1*>, <*sumando_2*> | Sí | Integer, Float o mixto | Números que se van a sumar |
+|||||
+
+| Valor devuelto | type | DESCRIPCIÓN |
+| ------------ | -----| ----------- |
+| <*resultado-de-la-suma*> | Integer o Float | Resultado de sumar los números especificados |
+||||
+
+*Ejemplo*
+
+Este ejemplo suma los números especificados:
+
+```
+add(1, 1.5)
+```
+
+Y devuelve este resultado: `2.5`
+
+<a name="addDays"></a>
+
+### <a name="adddays"></a>addDays
+
+Agrega un número de días a una marca de tiempo.
+
+```
+addDays('<timestamp>', <days>, '<format>'?)
+```
+
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| --------- | -------- | ---- | ----------- |
+| <*marca_de_tiempo*> | Sí | String | Cadena que contiene la marca de tiempo |
+| <*días*> | Sí | Integer | Número positivo o negativo de días que desea agregar |
+| <*formato*> | Sin | String | Puede ser un [especificador de formato sencillo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
+|||||
+
+| Valor devuelto | type | DESCRIPCIÓN |
+| ------------ | ---- | ----------- |
+| <*marca-de-tiempo-actualizada*> | String | Marca de tiempo más el número de días especificado  |
+||||
+
+*Ejemplo 1*
+
+Este ejemplo agrega 10 días a la marca de tiempo especificada:
+
+```
+addDays('2018-03-15T13:00:00Z', 10)
+```
+
+Y devuelve este resultado: `"2018-03-25T00:00:0000000Z"`
+
+*Ejemplo 2*
+
+Este ejemplo resta cinco días a la marca de tiempo especificada:
+
+```
+addDays('2018-03-15T00:00:00Z', -5)
+```
+
+Y devuelve este resultado: `"2018-03-10T00:00:0000000Z"`
+
+<a name="addHours"></a>
+
+### <a name="addhours"></a>addHours
+
+Agrega un número de horas a una marca de tiempo.
+
+```
+addHours('<timestamp>', <hours>, '<format>'?)
+```
+
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| --------- | -------- | ---- | ----------- |
+| <*marca_de_tiempo*> | Sí | String | Cadena que contiene la marca de tiempo |
+| <*horas*> | Sí | Integer | Número positivo o negativo de horas que desea agregar |
+| <*formato*> | Sin | String | Puede ser un [especificador de formato sencillo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
+|||||
+
+| Valor devuelto | type | DESCRIPCIÓN |
+| ------------ | ---- | ----------- |
+| <*marca-de-tiempo-actualizada*> | String | Marca de tiempo más el número de horas especificado  |
+||||
+
+*Ejemplo 1*
+
+Este ejemplo agrega 10 horas a la marca de tiempo especificada:
+
+```
+addHours('2018-03-15T00:00:00Z', 10)
+```
+
+Y devuelve este resultado: `"2018-03-15T10:00:0000000Z"`
+
+*Ejemplo 2*
+
+Este ejemplo resta cinco horas a la marca de tiempo especificada:
+
+```
+addHours('2018-03-15T15:00:00Z', -5)
+```
+
+Y devuelve este resultado: `"2018-03-15T10:00:0000000Z"`
+
+<a name="addMinutes"></a>
+
+### <a name="addminutes"></a>addMinutes
+
+Agrega un número de minutos a una marca de tiempo.
+
+```
+addMinutes('<timestamp>', <minutes>, '<format>'?)
+```
+
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| --------- | -------- | ---- | ----------- |
+| <*marca_de_tiempo*> | Sí | String | Cadena que contiene la marca de tiempo |
+| <*minutos*> | Sí | Integer | Número positivo o negativo de minutos que desea agregar |
+| <*formato*> | Sin | String | Puede ser un [especificador de formato sencillo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
+|||||
+
+| Valor devuelto | type | DESCRIPCIÓN |
+| ------------ | ---- | ----------- |
+| <*marca-de-tiempo-actualizada*> | String | Marca de tiempo más el número de minutos especificado |
+||||
+
+*Ejemplo 1*
+
+Este ejemplo agrega 10 minutos a la marca de tiempo especificada:
+
+```
+addMinutes('2018-03-15T00:10:00Z', 10)
+```
+
+Y devuelve este resultado: `"2018-03-15T00:20:00.0000000Z"`
+
+*Ejemplo 2*
+
+Este ejemplo resta cinco minutos a la marca de tiempo especificada:
+
+```
+addMinutes('2018-03-15T00:20:00Z', -5)
+```
+
+Y devuelve este resultado: `"2018-03-15T00:15:00.0000000Z"`
+
+<a name="addSeconds"></a>
+
+### <a name="addseconds"></a>addSeconds
+
+Agrega un número de segundos a una marca de tiempo.
+
+```
+addSeconds('<timestamp>', <seconds>, '<format>'?)
+```
+
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| --------- | -------- | ---- | ----------- |
+| <*marca_de_tiempo*> | Sí | String | Cadena que contiene la marca de tiempo |
+| <*segundos*> | Sí | Integer | Número positivo o negativo de segundos que desea agregar |
+| <*formato*> | Sin | String | Puede ser un [especificador de formato sencillo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
+|||||
+
+| Valor devuelto | type | DESCRIPCIÓN |
+| ------------ | ---- | ----------- |
+| <*marca-de-tiempo-actualizada*> | String | Marca de tiempo más el número de segundos especificado  |
+||||
+
+*Ejemplo 1*
+
+Este ejemplo agrega 10 segundos a la marca de tiempo especificada:
+
+```
+addSeconds('2018-03-15T00:00:00Z', 10)
+```
+
+Y devuelve este resultado: `"2018-03-15T00:00:10.0000000Z"`
+
+*Ejemplo 2*
+
+Este ejemplo resta cinco segundos a la marca de tiempo especificada:
+
+```
+addSeconds('2018-03-15T00:00:30Z', -5)
+```
+
+Y devuelve este resultado: `"2018-03-15T00:00:25.0000000Z"`
+
+<a name="addToTime"></a>
+
+### <a name="addtotime"></a>addToTime
+
+Agrega un número de unidades de tiempo a una marca de tiempo.
+Consulte también [getFutureTime()](#getFutureTime).
+
+```
+addToTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
+```
+
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| --------- | -------- | ---- | ----------- |
+| <*marca_de_tiempo*> | Sí | String | Cadena que contiene la marca de tiempo |
+| <*intervalo*> | Sí | Integer | Número de unidades de tiempo especificadas que se va a agregar |
+| <*unidad_de_tiempo*> | Sí | String | La unidad de tiempo que se usará con *intervalo*: "Segundo", "Minuto", "Hora", "Día", "Semana", "Mes", "Año" |
+| <*formato*> | Sin | String | Puede ser un [especificador de formato sencillo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
+|||||
+
+| Valor devuelto | type | DESCRIPCIÓN |
+| ------------ | ---- | ----------- |
+| <*marca-de-tiempo-actualizada*> | String | Marca de tiempo más el número de unidades de tiempo especificado  |
+||||
+
+*Ejemplo 1*
+
+Este ejemplo agrega un día a la marca de tiempo especificada:
+
+```
+addToTime('2018-01-01T00:00:00Z', 1, 'Day')
+```
+
+Y devuelve este resultado: `"2018-01-02T00:00:00.0000000Z"`
+
+*Ejemplo 2*
+
+Este ejemplo agrega un día a la marca de tiempo especificada:
+
+```
+addToTime('2018-01-01T00:00:00Z', 1, 'Day', 'D')
+```
+
+Y devuelve el resultado con el formato "D" opcional: `"Tuesday, January 2, 2018"`
+
+<a name="and"></a>
+
+### <a name="and"></a>y
+
+Comprueba si todas las expresiones son true.
+Devuelve true cuando todas las expresiones son verdaderas o devuelve false cuando al menos una expresión es falsa.
+
+```
+and(<expression1>, <expression2>, ...)
+```
+
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| --------- | -------- | ---- | ----------- |
+| <*expresión1*>, <*expresión2*>, ... | Sí | Boolean | Expresiones que se van a comprobar |
+|||||
+
+| Valor devuelto | type | DESCRIPCIÓN |
+| ------------ | -----| ----------- |
+| true o false | Boolean | Devuelve true si todas las expresiones son verdaderas. Devuelve false cuando al menos una expresión es falsa. |
+||||
+
+*Ejemplo 1*
+
+Estos ejemplos comprueban si los valores booleanos especificados son todos verdaderos:
+
+```
+and(true, true)
+and(false, true)
+and(false, false)
+```
+
+Y devuelve estos resultados:
+
+* Primer ejemplo: ambas expresiones son verdaderas, por lo que devuelve `true`.
+* Segundo ejemplo: una expresión es falsa, por lo que devuelve `false`.
+* Tercer ejemplo: ambas expresiones son falsas, por lo que devuelve `false`.
+
+*Ejemplo 2*
+
+Estos ejemplos comprueban si las expresiones especificadas son todas verdaderas:
+
+```
+and(equals(1, 1), equals(2, 2))
+and(equals(1, 1), equals(1, 2))
+and(equals(1, 2), equals(1, 3))
+```
+
+Y devuelve estos resultados:
+
+* Primer ejemplo: ambas expresiones son verdaderas, por lo que devuelve `true`.
+* Segundo ejemplo: una expresión es falsa, por lo que devuelve `false`.
+* Tercer ejemplo: ambas expresiones son falsas, por lo que devuelve `false`.
+
+<a name="array"></a>
+
+### <a name="array"></a>array
+
+Devuelve una matriz a partir de una única entrada especificada.
+Para varias entradas, consulte [createArray()](#createArray).
+
+```
+array('<value>')
+```
+
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| --------- | -------- | ---- | ----------- |
+| <*valor*> | Sí | String | Cadena para la creación de una matriz |
+|||||
+
+| Valor devuelto | type | DESCRIPCIÓN |
+| ------------ | ---- | ----------- |
+| [<*valor*>] | Array | Matriz que contiene la única entrada especificada |
+||||
+
+*Ejemplo*
+
+Este ejemplo crea una matriz a partir de la cadena "hello":
+
+```
+array('hello')
+```
+
+Y devuelve este resultado: `["hello"]`
+
+<a name="base64"></a>
+
+### <a name="base64"></a>base64
+
+Devuelve la versión de una cadena codificada en base64.
+
+```
+base64('<value>')
+```
+
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| --------- | -------- | ---- | ----------- |
+| <*valor*> | Sí | String | Cadena de entrada |
+|||||
+
+| Valor devuelto | type | DESCRIPCIÓN |
+| ------------ | ---- | ----------- |
+| <*cadena-en-base64*> | String | Versión codificada en base64 de la cadena de entrada |
+||||
+
+*Ejemplo*
+
+Este ejemplo convierte la cadena "hello" en una cadena codificada en base64:
+
+```
+base64('hello')
+```
+
+Y devuelve este resultado: `"aGVsbG8="`
+
+<a name="base64ToBinary"></a>
+
+### <a name="base64tobinary"></a>base64ToBinary
+
+Devuelve la versión binaria de una cadena codificada en base64.
+
+```
+base64ToBinary('<value>')
+```
+
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| --------- | -------- | ---- | ----------- |
+| <*valor*> | Sí | String | Cadena con codificación base64 que se va a convertir |
+|||||
+
+| Valor devuelto | type | DESCRIPCIÓN |
+| ------------ | ---- | ----------- |
+| <*binario-de-cadena-en-base64*> | String | Versión binaria de la cadena con codificación base64 |
+||||
+
+*Ejemplo*
+
+Este ejemplo convierte la cadena "aGVsbG8 =" codificada en base64 en una cadena binaria:
+
+```
+base64ToBinary('aGVsbG8=')
+```
+
+Y devuelve este resultado:
+
+`"0110000101000111010101100111001101100010010001110011100000111101"`
+
+<a name="base64ToString"></a>
+
+### <a name="base64tostring"></a>base64ToString
+
+Devuelve la versión de cadena de una cadena codificada en base64, decodificando dicha cadena en base64.
+Use esta función en lugar de [decodeBase64()](#decodeBase64).
+Aunque ambas funciones funcionan del mismo modo, `base64ToString()` es preferible.
+
+```
+base64ToString('<value>')
+```
+
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| --------- | -------- | ---- | ----------- |
+| <*valor*> | Sí | String | Cadena con codificación base64 que se va a decodificar |
+|||||
+
+| Valor devuelto | type | DESCRIPCIÓN |
+| ------------ | ---- | ----------- |
+| <*cadena-base64-decodificada*> | String | Versión de cadena de una cadena codificada en base64 |
+||||
+
+*Ejemplo*
+
+Este ejemplo convierte la cadena "aGVsbG8 =" codificada en base64 en una cadena:
+
+```
+base64ToString('aGVsbG8=')
+```
+
+Y devuelve este resultado: `"hello"`
+
+<a name="binary"></a>
+
+### <a name="binary"></a>binary
+
+Devuelve la versión binaria de una cadena.
+
+```
+binary('<value>')
+```
+
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| --------- | -------- | ---- | ----------- |
+| <*valor*> | Sí | String | Cadena que se va a convertir |
+|||||
+
+| Valor devuelto | type | DESCRIPCIÓN |
+| ------------ | ---- | ----------- |
+| <*binario-del-valor-de-entrada*> | String | Versión binaria de la cadena especificada |
+||||
+
+*Ejemplo*
+
+Este ejemplo convierte la cadena "hello" en una cadena en binario:
+
+```
+binary('hello')
+```
+
+Y devuelve este resultado:
+
+`"0110100001100101011011000110110001101111"`
+
+<a name="bool"></a>
+
+### <a name="bool"></a>bool
+
+Devuelve la versión booleana de un valor.
+
+```
+bool(<value>)
+```
+
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| --------- | -------- | ---- | ----------- |
+| <*valor*> | Sí | Any | Valor que se va a convertir |
+|||||
+
+| Valor devuelto | type | DESCRIPCIÓN |
+| ------------ | ---- | ----------- |
+| true o false | Boolean | Versión booleana del valor especificado |
+||||
+
+*Ejemplo*
+
+Estos ejemplos convierten los valores especificados en valores booleanos:
+
+```
+bool(1)
+bool(0)
+```
+
+Y devuelve estos resultados:
+
+* Primer ejemplo: `true`
+* Segundo ejemplo: `false`
+
+<a name="coalesce"></a>
+
+### <a name="coalesce"></a>coalesce
+
+Devuelve el primer valor distinto de null de uno o más parámetros.
+Las cadenas vacías, las matrices vacías y los objetos vacíos no son nulos.
+
+```
+coalesce(<object_1>, <object_2>, ...)
+```
+
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| --------- | -------- | ---- | ----------- |
+| <*objeto_1*>, <*objeto_2*>, ... | Sí | Cualquiera, se pueden mezclar tipos | Uno o más elementos para comprobar si hay valores NULL |
+|||||
+
+| Valor devuelto | type | DESCRIPCIÓN |
+| ------------ | ---- | ----------- |
+| <*primer-elemento-no-NULL*> | Any | Primer elemento o valor que no sea NULL. Si todos los parámetros son NULL, esta función devuelve NULL. |
+||||
+
+*Ejemplo*
+
+Estos ejemplos devuelven el primer valor distinto de NULL de los valores especificados o NULL cuando todos los valores son NULL:
+
+```
+coalesce(null, true, false)
+coalesce(null, 'hello', 'world')
+coalesce(null, null, null)
+```
+
+Y devuelve estos resultados:
+
+* Primer ejemplo: `true`
+* Segundo ejemplo: `"hello"`
+* Tercer ejemplo: `null`
+
+<a name="concat"></a>
+
+### <a name="concat"></a>concat
+
+Combina dos o más cadenas y devuelve la cadena combinada.
+
+```
+concat('<text1>', '<text2>', ...)
+```
+
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| --------- | -------- | ---- | ----------- |
+| <*texto1*>, <*texto2*>, ... | Sí | String | Al menos dos cadenas para combinar |
+|||||
+
+| Valor devuelto | type | DESCRIPCIÓN |
+| ------------ | ---- | ----------- |
+| <*texto1texto2...* > | String | Cadena que se crea a partir de las cadenas de entrada combinadas |
+||||
+
+*Ejemplo*
+
+Este ejemplo combina las cadenas "Hello" y "World":
+
+```
+concat('Hello', 'World')
+```
+
+Y devuelve este resultado: `"HelloWorld"`
+
+<a name="contains"></a>
+
+### <a name="contains"></a>contains
+
+Comprueba si una colección contiene un elemento específico.
+Devuelve true cuando se encuentra el elemento o devuelve false cuando no se encuentra.
+Esta función distingue mayúsculas de minúsculas.
+
+```
+contains('<collection>', '<value>')
+contains([<collection>], '<value>')
+```
+
+En concreto, esta función funciona en estos tipos de colección:
+
+* Una *cadena* para buscar una *subcadena*
+* Una *matriz* para buscar un *valor*
+* Un *diccionario* para buscar una *clave*
+
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| --------- | -------- | ---- | ----------- |
+| <*colección*> | Sí | Cadena, matriz o diccionario | Colección que se va a comprobar |
+| <*valor*> | Sí | Cadena, matriz o diccionario, respectivamente | Elemento que se va a buscar |
+|||||
+
+| Valor devuelto | type | DESCRIPCIÓN |
+| ------------ | ---- | ----------- |
+| true o false | Boolean | Devuelve true cuando se encuentra el elemento. Devuelve false si no se encuentra. |
+||||
+
+*Ejemplo 1*
+
+Este ejemplo comprueba la cadena "hello world" para buscar la subcadena "world" y devuelve true:
+
+```
+contains('hello world', 'world')
+```
+
+*Ejemplo 2*
+
+Este ejemplo comprueba la cadena "hello world" para buscar la subcadena "universe" y devuelve false:
+
+```
+contains('hello world', 'universe')
+```
+
+<a name="convertFromUtc"></a>
+
+### <a name="convertfromutc"></a>convertFromUtc
+
+Convierte una marca de tiempo del formato Hora Universal Coordinada (UTC) a la zona horaria de destino.
+
+```
+convertFromUtc('<timestamp>', '<destinationTimeZone>', '<format>'?)
+```
+
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| --------- | -------- | ---- | ----------- |
+| <*marca_de_tiempo*> | Sí | String | Cadena que contiene la marca de tiempo |
+| <*zona_horaria_de_destino*> | Sí | String | Nombre de la zona horaria de destino. Para los nombres de zonas horarias, consulte [Valores de índice de zona horaria de Microsoft](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values), pero es posible que tenga que quitar los signos de puntuación del nombre de zona horaria. |
+| <*formato*> | Sin | String | Puede ser un [especificador de formato sencillo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
+|||||
+
+| Valor devuelto | type | DESCRIPCIÓN |
+| ------------ | ---- | ----------- |
+| <*marca-de-tiempo-convertida*> | String | Marca de tiempo convertida a la zona horaria de destino |
+||||
+
+*Ejemplo 1*
+
+Este ejemplo convierte una marca de tiempo a la zona horaria especificada:
+
+```
+convertFromUtc('2018-01-01T08:00:00.0000000Z', 'Pacific Standard Time')
+```
+
+Y devuelve este resultado: `"2018-01-01T00:00:00.0000000"`
+
+*Ejemplo 2*
+
+Este ejemplo convierte una marca de tiempo a la zona horaria y el formato especificados:
+
+```
+convertFromUtc('2018-01-01T08:00:00.0000000Z', 'Pacific Standard Time', 'D')
+```
+
+Y devuelve este resultado: `"Monday, January 1, 2018"`
+
+<a name="convertTimeZone"></a>
+
+### <a name="converttimezone"></a>convertTimeZone
+
+Convierte una marca de tiempo de la zona horaria de origen a la zona horaria de destino.
+
+```
+convertTimeZone('<timestamp>', '<sourceTimeZone>', '<destinationTimeZone>', '<format>'?)
+```
+
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| --------- | -------- | ---- | ----------- |
+| <*marca_de_tiempo*> | Sí | String | Cadena que contiene la marca de tiempo |
+| <*zona_horaria_de_origen*> | Sí | String | Nombre de la zona horaria de origen. Para los nombres de zonas horarias, consulte [Valores de índice de zona horaria de Microsoft](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values), pero es posible que tenga que quitar los signos de puntuación del nombre de zona horaria. |
+| <*zona_horaria_de_destino*> | Sí | String | Nombre de la zona horaria de destino. Para los nombres de zonas horarias, consulte [Valores de índice de zona horaria de Microsoft](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values), pero es posible que tenga que quitar los signos de puntuación del nombre de zona horaria. |
+| <*formato*> | Sin | String | Puede ser un [especificador de formato sencillo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
+|||||
+
+| Valor devuelto | type | DESCRIPCIÓN |
+| ------------ | ---- | ----------- |
+| <*marca-de-tiempo-convertida*> | String | Marca de tiempo convertida a la zona horaria de destino |
+||||
+
+*Ejemplo 1*
+
+Este ejemplo convierte la zona horaria de origen a la zona horaria de destino:
+
+```
+convertTimeZone('2018-01-01T08:00:00.0000000Z', 'UTC', 'Pacific Standard Time')
+```
+
+Y devuelve este resultado: `"2018-01-01T00:00:00.0000000"`
+
+*Ejemplo 2*
+
+Este ejemplo convierte una zona horaria a la zona horaria y el formato especificados:
+
+```
+convertTimeZone('2018-01-01T80:00:00.0000000Z', 'UTC', 'Pacific Standard Time', 'D')
+```
+
+Y devuelve este resultado: `"Monday, January 1, 2018"`
+
+<a name="convertToUtc"></a>
+
+### <a name="converttoutc"></a>convertToUtc
+
+Convierte una marca de tiempo de la zona horaria de origen al formato Hora Universal Coordinada (UTC).
+
+```
+convertToUtc('<timestamp>', '<sourceTimeZone>', '<format>'?)
+```
+
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| --------- | -------- | ---- | ----------- |
+| <*marca_de_tiempo*> | Sí | String | Cadena que contiene la marca de tiempo |
+| <*zona_horaria_de_origen*> | Sí | String | Nombre de la zona horaria de origen. Para los nombres de zonas horarias, consulte [Valores de índice de zona horaria de Microsoft](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values), pero es posible que tenga que quitar los signos de puntuación del nombre de zona horaria. |
+| <*formato*> | Sin | String | Puede ser un [especificador de formato sencillo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
+|||||
+
+| Valor devuelto | type | DESCRIPCIÓN |
+| ------------ | ---- | ----------- |
+| <*marca-de-tiempo-convertida*> | String | Marca de tiempo convertida a formato UTC |
+||||
+
+*Ejemplo 1*
+
+Este ejemplo convierte una marca de tiempo a formato UTC:
+
+```
+convertToUtc('01/01/2018 00:00:00', 'Pacific Standard Time')
+```
+
+Y devuelve este resultado: `"2018-01-01T08:00:00.0000000Z"`
+
+*Ejemplo 2*
+
+Este ejemplo convierte una marca de tiempo a formato UTC:
+
+```
+convertToUtc('01/01/2018 00:00:00', 'Pacific Standard Time', 'D')
+```
+
+Y devuelve este resultado: `"Monday, January 1, 2018"`
+
+<a name="createArray"></a>
+
+### <a name="createarray"></a>createArray
+
+Devuelve una matriz a partir de varias entradas.
+Para matrices de una sola entrada, consulte [array()](#array).
+
+```
+createArray('<object1>', '<object2>', ...)
+```
+
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| --------- | -------- | ---- | ----------- |
+| <*objeto1*>, <*objeto2*>,... | Sí | Cualquiera, pero no mixtos | Al menos dos elementos para crear la matriz |
+|||||
+
+| Valor devuelto | type | DESCRIPCIÓN |
+| ------------ | ---- | ----------- |
+| [<*objeto1*>, <*objeto2*>, ...] | Array | Matriz creada a partir de todos los elementos de entrada |
+||||
+
+*Ejemplo*
+
+Este ejemplo crea una matriz a partir de estas entradas:
+
+```
+createArray('h', 'e', 'l', 'l', 'o')
+```
+
+Y devuelve este resultado: `["h", "e", "l", "l", "o"]`
+
+<a name="dataUri"></a>
+
+### <a name="datauri"></a>dataUri
+
+Devuelve un identificador uniforme de recursos (URI) de datos de una cadena.
+
+```
+dataUri('<value>')
+```
+
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| --------- | -------- | ---- | ----------- |
+| <*valor*> | Sí | String | Cadena que se va a convertir |
+|||||
+
+| Valor devuelto | type | DESCRIPCIÓN |
+| ------------ | ---- | ----------- |
+| <*uri-de-datos*> | String | Identificador URI de datos de la cadena de entrada |
+||||
+
+*Ejemplo*
+
+Este ejemplo crea un identificador URI de datos a partir de la cadena "hello":
+
+```
+dataUri('hello')
+```
+
+Y devuelve este resultado: `"data:text/plain;charset=utf-8;base64,aGVsbG8="`
+
+<a name="dataUriToBinary"></a>
+
+### <a name="datauritobinary"></a>dataUriToBinary
+
+Devuelve la versión binaria de un identificador uniforme de recursos (URI) de datos.
+Use esta función en lugar de [decodeDataUri()](#decodeDataUri).
+Aunque ambas funciones funcionan del mismo modo, `dataUriBinary()` es preferible.
+
+```
+dataUriToBinary('<value>')
+```
+
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| --------- | -------- | ---- | ----------- |
+| <*valor*> | Sí | String | Identificador URI de datos que se va a convertir |
+|||||
+
+| Valor devuelto | type | DESCRIPCIÓN |
+| ------------ | ---- | ----------- |
+| <*binario-de-uri-de-datos*> | String | Versión binaria del identificador URI de datos |
+||||
+
+*Ejemplo*
+
+Este ejemplo crea una versión binaria de este identificador URI de datos:
+
+```
+dataUriToBinary('data:text/plain;charset=utf-8;base64,aGVsbG8=')
+```
+
+Y devuelve este resultado:
+
+`"01100100011000010111010001100001001110100111010001100101011110000111010000101111011100000
+1101100011000010110100101101110001110110110001101101000011000010111001001110011011001010111
+0100001111010111010101110100011001100010110100111000001110110110001001100001011100110110010
+10011011000110100001011000110000101000111010101100111001101100010010001110011100000111101"`
+
+<a name="dataUriToString"></a>
+
+### <a name="datauritostring"></a>dataUriToString
+
+Devuelve la versión de cadena de un identificador uniforme de recursos (URI) de datos.
+
+```
+dataUriToString('<value>')
+```
+
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| --------- | -------- | ---- | ----------- |
+| <*valor*> | Sí | String | Identificador URI de datos que se va a convertir |
+|||||
+
+| Valor devuelto | type | DESCRIPCIÓN |
+| ------------ | ---- | ----------- |
+| <*cadena-de-uri-de-datos*> | String | Versión de cadena del identificador URI de datos |
+||||
+
+*Ejemplo*
+
+Este ejemplo crea una cadena a partir de este identificador URI de datos:
+
+```
+dataUriToString('data:text/plain;charset=utf-8;base64,aGVsbG8=')
+```
+
+Y devuelve este resultado: `"hello"`
+
+<a name="dayOfMonth"></a>
+
+### <a name="dayofmonth"></a>dayOfMonth
+
+Devuelve el día del mes de una marca de tiempo.
+
+```
+dayOfMonth('<timestamp>')
+```
+
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| --------- | -------- | ---- | ----------- |
+| <*marca_de_tiempo*> | Sí | String | Cadena que contiene la marca de tiempo |
+|||||
+
+| Valor devuelto | type | DESCRIPCIÓN |
+| ------------ | ---- | ----------- |
+| <*día-del-mes*> | Integer | Día del mes de la marca de tiempo especificada |
+||||
+
+*Ejemplo*
+
+Este ejemplo devuelve el número del día del mes de esta marca de tiempo:
+
+```
+dayOfMonth('2018-03-15T13:27:36Z')
+```
+
+Y devuelve este resultado: `15`
+
+<a name="dayOfWeek"></a>
+
+### <a name="dayofweek"></a>dayOfWeek
+
+Devuelve el día de la semana de una marca de tiempo.
+
+```
+dayOfWeek('<timestamp>')
+```
+
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| --------- | -------- | ---- | ----------- |
+| <*marca_de_tiempo*> | Sí | String | Cadena que contiene la marca de tiempo |
+|||||
+
+| Valor devuelto | type | DESCRIPCIÓN |
+| ------------ | ---- | ----------- |
+| <*día-de-la-semana*> | Integer | Día de la semana de la marca de tiempo especificada, donde el domingo es 0, el lunes es 1, etc. |
+||||
+
+*Ejemplo*
+
+Este ejemplo devuelve el número del día de la semana de esta marca de tiempo:
+
+```
+dayOfWeek('2018-03-15T13:27:36Z')
+```
+
+Y devuelve este resultado: `3`
+
+<a name="dayOfYear"></a>
+
+### <a name="dayofyear"></a>dayOfYear
+
+Devuelve el día del año de una marca de tiempo.
+
+```
+dayOfYear('<timestamp>')
+```
+
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| --------- | -------- | ---- | ----------- |
+| <*marca_de_tiempo*> | Sí | String | Cadena que contiene la marca de tiempo |
+|||||
+
+| Valor devuelto | type | DESCRIPCIÓN |
+| ------------ | ---- | ----------- |
+| <*día-del-año*> | Integer | Día del año de la marca de tiempo especificada |
+||||
+
+*Ejemplo*
+
+Este ejemplo devuelve el número del día del año de esta marca de tiempo:
+
+```
+dayOfYear('2018-03-15T13:27:36Z')
+```
+
+Y devuelve este resultado: `74`
+
+<a name="decodeBase64"></a>
+
+### <a name="decodebase64"></a>decodeBase64
+
+Devuelve la versión de cadena de una cadena codificada en base64, decodificando dicha cadena en base64.
+Considere el uso de [base64ToString()](#base64ToString) en lugar de `decodeBase64()`.
+Aunque ambas funciones funcionan del mismo modo, `base64ToString()` es preferible.
+
+```
+decodeBase64('<value>')
+```
+
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| --------- | -------- | ---- | ----------- |
+| <*valor*> | Sí | String | Cadena con codificación base64 que se va a decodificar |
+|||||
+
+| Valor devuelto | type | DESCRIPCIÓN |
+| ------------ | ---- | ----------- |
+| <*cadena-base64-decodificada*> | String | Versión de cadena de una cadena codificada en base64 |
+||||
+
+*Ejemplo*
+
+Este ejemplo crea una cadena a partir de una cadena codificada en base64:
+
+```
+decodeBase64('aGVsbG8=')
+```
+
+Y devuelve este resultado: `"hello"`
+
+<a name="decodeDataUri"></a>
+
+### <a name="decodedatauri"></a>decodeDataUri
+
+Devuelve la versión binaria de un identificador uniforme de recursos (URI) de datos.
+Considere el uso de [dataUriToBinary()](#dataUriToBinary) en lugar de `decodeDataUri()`.
+Aunque ambas funciones funcionan del mismo modo, `dataUriToBinary()` es preferible.
+
+```
+decodeDataUri('<value>')
+```
+
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| --------- | -------- | ---- | ----------- |
+| <*valor*> | Sí | String | Cadena URI de datos que se va a decodificar |
+|||||
+
+| Valor devuelto | type | DESCRIPCIÓN |
+| ------------ | ---- | ----------- |
+| <*binario-de-uri-de-datos*> | String | Versión binaria de una cadena URI de datos |
+||||
+
+*Ejemplo*
+
+Este ejemplo devuelve la versión binaria de este identificador URI de datos:
+
+```
+decodeDataUri('data:text/plain;charset=utf-8;base64,aGVsbG8=')
+```
+
+Y devuelve este resultado:
+
+`"01100100011000010111010001100001001110100111010001100101011110000111010000101111011100000
+1101100011000010110100101101110001110110110001101101000011000010111001001110011011001010111
+0100001111010111010101110100011001100010110100111000001110110110001001100001011100110110010
+10011011000110100001011000110000101000111010101100111001101100010010001110011100000111101"`
+
+<a name="decodeUriComponent"></a>
+
+### <a name="decodeuricomponent"></a>decodeUriComponent
+
+Devuelve una cadena que reemplaza los caracteres de escape por versiones descodificadas.
+
+```
+decodeUriComponent('<value>')
+```
+
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| --------- | -------- | ---- | ----------- |
+| <*valor*> | Sí | String | Cadena con caracteres de escape que se va a decodificar |
+|||||
+
+| Valor devuelto | type | DESCRIPCIÓN |
+| ------------ | ---- | ----------- |
+| <*uri-decodificado*> | String | Cadena actualizada con los caracteres de escape decodificados |
+||||
+
+*Ejemplo*
+
+Este ejemplo reemplaza los caracteres de escape de esta cadena por versiones decodificadas:
+
+```
+decodeUriComponent('http%3A%2F%2Fcontoso.com')
+```
+
+Y devuelve este resultado: `"https://contoso.com"`
+
+<a name="div"></a>
+
+### <a name="div"></a>div
+
+Devuelve el resultado entero de dividir dos números.
+Para obtener el resultado del resto, consulte [mod()](#mod).
+
+```
+div(<dividend>, <divisor>)
+```
+
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| --------- | -------- | ---- | ----------- |
+| <*dividendo*> | Sí | Integer o Float | Número que se va a dividir entre el *divisor*. |
+| <*divisor*> | Sí | Integer o Float | Número que divide el *dividendo*, pero no puede ser 0 |
+|||||
+
+| Valor devuelto | type | DESCRIPCIÓN |
+| ------------ | ---- | ----------- |
+| <*resultado-cociente*> | Integer | Resultado entero de dividir el primer número entre el segundo número |
+||||
+
+*Ejemplo*
+
+Ambos ejemplos dividen el primer número entre el segundo número:
+
+```
+div(10, 5)
+div(11, 5)
+```
+
+Y devuelven este resultado: `2`
+
+<a name="encodeUriComponent"></a>
+
+### <a name="encodeuricomponent"></a>encodeUriComponent
+
+Devuelve una versión codificada de un identificador uniforme de recursos (URI) de una cadena reemplazando los caracteres no seguros de la dirección URL por caracteres de escape.
+Considere el uso de [uriComponent()](#uriComponent) en lugar de `encodeUriComponent()`.
+Aunque ambas funciones funcionan del mismo modo, `uriComponent()` es preferible.
+
+```
+encodeUriComponent('<value>')
+```
+
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| --------- | -------- | ---- | ----------- |
+| <*valor*> | Sí | String | Cadena que se va a convertir en formato codificado de URI |
+|||||
+
+| Valor devuelto | type | DESCRIPCIÓN |
+| ------------ | ---- | ----------- |
+| <*uri-codificado*> | String | Cadena codificada en formato URI con caracteres de escape |
+||||
+
+*Ejemplo*
+
+Este ejemplo crea una versión codificada en formato URI de esta cadena:
+
+```
+encodeUriComponent('https://contoso.com')
+```
+
+Y devuelve este resultado: `"http%3A%2F%2Fcontoso.com"`
+
+<a name="empty"></a>
+
+### <a name="empty"></a>empty
+
+Comprueba si una colección está vacía.
+Devuelve true cuando la colección está vacía o devuelve false cuando no está vacía.
+
+```
+empty('<collection>')
+empty([<collection>])
+```
+
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| --------- | -------- | ---- | ----------- |
+| <*colección*> | Sí | Cadena, matriz u objeto | Colección que se va a comprobar |
+|||||
+
+| Valor devuelto | type | DESCRIPCIÓN |
+| ------------ | ---- | ----------- |
+| true o false | Boolean | Devuelve true cuando la colección está vacía. Devuelve false si no está vacía. |
+||||
+
+*Ejemplo*
+
+Estos ejemplos comprueban si las colecciones especificadas están vacías:
+
+```
+empty('')
+empty('abc')
+```
+
+Y devuelve estos resultados:
+
+* Primer ejemplo: pasa una cadena vacía, por lo que la función devuelve `true`.
+* Segundo ejemplo: pasa la cadena "abc", por lo que la función devuelve `false`.
+
+<a name="endswith"></a>
+
+### <a name="endswith"></a>endsWith
+
+Comprueba si una cadena termina con una subcadena especificada.
+Devuelve true cuando se encuentra la subcadena o devuelve false cuando no se encuentra.
+Esta función no distingue mayúsculas de minúsculas.
+
+```
+endsWith('<text>', '<searchText>')
+```
+
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| --------- | -------- | ---- | ----------- |
+| <*texto*> | Sí | String | Cadena que se va a comprobar |
+| <*texto_a_buscar*> | Sí | String | Subcadena final que se va a buscar |
+|||||
+
+| Valor devuelto | type | DESCRIPCIÓN |
+| ------------ | ---- | ----------- |
+| true o false  | Boolean | Devuelve true cuando se encuentra la subcadena final. Devuelve false si no se encuentra. |
+||||
+
+*Ejemplo 1*
+
+Este ejemplo comprueba si la cadena "hello world" termina con la cadena "world":
+
+```
+endsWith('hello world', 'world')
+```
+
+Y devuelve este resultado: `true`
+
+*Ejemplo 2*
+
+Este ejemplo comprueba si la cadena "hello world" termina con la cadena "universe":
+
+```
+endsWith('hello world', 'universe')
+```
+
+Y devuelve este resultado: `false`
+
+<a name="equals"></a>
+
+### <a name="equals"></a>equals
+
+Comprueba si los valores, expresiones u objetos son equivalentes.
+Devuelve true cuando ambos son equivalentes o devuelve false cuando no son equivalentes.
+
+```
+equals('<object1>', '<object2>')
+```
+
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| --------- | -------- | ---- | ----------- |
+| <*objeto1*>, <*objeto2*> | Sí | Varios | Valores, expresiones u objetos que se van a comparar |
+|||||
+
+| Valor devuelto | type | DESCRIPCIÓN |
+| ------------ | ---- | ----------- |
+| true o false | Boolean | Devuelve true cuando ambos son equivalentes. Devuelve false cuando no son equivalentes. |
+||||
+
+*Ejemplo*
+
+Estos ejemplos comprueban si las entradas especificadas son equivalentes.
+
+```
+equals(true, 1)
+equals('abc', 'abcd')
+```
+
+Y devuelve estos resultados:
+
+* Primer ejemplo: ambos valores son equivalentes, por lo que la función devuelve `true`.
+* Segundo ejemplo: ambos valores no son equivalentes, por lo que la función devuelve `false`.
+
+<a name="first"></a>
+
+### <a name="first"></a>first
+
+Devuelve el primer elemento de una cadena o una matriz.
+
+```
+first('<collection>')
+first([<collection>])
+```
+
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| --------- | -------- | ---- | ----------- |
+| <*colección*> | Sí | Cadena o matriz | Colección en la que buscar el primer elemento |
+|||||
+
+| Valor devuelto | type | DESCRIPCIÓN |
+| ------------ | ---- | ----------- |
+| <*primer-elemento-de-la-colección*> | Any | Primer elemento de la colección |
+||||
+
+*Ejemplo*
+
+Estos ejemplos buscan el primer elemento de estas colecciones:
+
+```
+first('hello')
+first(createArray(0, 1, 2))
+```
+
+Y devuelven estos resultados:
+
+* Primer ejemplo: `"h"`
+* Segundo ejemplo: `0`
+
+<a name="float"></a>
+
+### <a name="float"></a>float
+
+Convierte una versión de cadena de un número de punto flotante a un número de punto flotante real.
+
+```
+float('<value>')
+```
+
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| --------- | -------- | ---- | ----------- |
+| <*valor*> | Sí | String | Cadena que contiene un número de punto flotante válido que se va a convertir |
+|||||
+
+| Valor devuelto | type | DESCRIPCIÓN |
+| ------------ | ---- | ----------- |
+| <*valor-de-tipo-float*> | Float | Número de punto flotante a partir de la cadena especificada |
+||||
+
+*Ejemplo*
+
+Este ejemplo crea una versión de cadena para este número de punto flotante:
+
+```
+float('10.333')
+```
+
+Y devuelve este resultado: `10.333`
+
+<a name="formatDateTime"></a>
+
+### <a name="formatdatetime"></a>formatDateTime
+
+Devuelve una marca de tiempo en el formato especificado.
+
+```
+formatDateTime('<timestamp>', '<format>'?)
+```
+
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| --------- | -------- | ---- | ----------- |
+| <*marca_de_tiempo*> | Sí | String | Cadena que contiene la marca de tiempo |
+| <*formato*> | Sin | String | Puede ser un [especificador de formato sencillo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
+|||||
+
+| Valor devuelto | type | DESCRIPCIÓN |
+| ------------ | ---- | ----------- |
+| <*marca-de-tiempo-con-nuevo-formato*> | String | Marca de tiempo actualizada en el formato especificado |
+||||
+
+*Ejemplo*
+
+Este ejemplo convierte una marca de tiempo al formato especificado:
+
+```
+formatDateTime('03/15/2018 12:00:00', 'yyyy-MM-ddTHH:mm:ss')
+```
+
+Y devuelve este resultado: `"2018-03-15T12:00:00"`
+
+<a name="getFutureTime"></a>
+
+### <a name="getfuturetime"></a>getFutureTime
+
+Devuelve la marca de tiempo actual más las unidades de tiempo especificadas.
+
+```
+getFutureTime(<interval>, <timeUnit>, <format>?)
+```
+
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| --------- | -------- | ---- | ----------- |
+| <*intervalo*> | Sí | Integer | Número de unidades de tiempo especificadas que se va a agregar |
+| <*unidad_de_tiempo*> | Sí | String | La unidad de tiempo que se usará con *intervalo*: "Segundo", "Minuto", "Hora", "Día", "Semana", "Mes", "Año" |
+| <*formato*> | Sin | String | Puede ser un [especificador de formato sencillo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
+|||||
+
+| Valor devuelto | type | DESCRIPCIÓN |
+| ------------ | ---- | ----------- |
+| <*marca-de-tiempo-actualizada*> | String | Marca de tiempo actual más el número de unidades de tiempo especificado |
+||||
+
+*Ejemplo 1*
+
+Imagine que la marca de tiempo actual es "2018-03-01T00:00:00.0000000Z".
+Este ejemplo agrega cinco días a esa marca de tiempo:
+
+```
+getFutureTime(5, 'Day')
+```
+
+Y devuelve este resultado: `"2018-03-06T00:00:00.0000000Z"`
+
+*Ejemplo 2*
+
+Imagine que la marca de tiempo actual es "2018-03-01T00:00:00.0000000Z".
+Este ejemplo agrega cinco días y convierte el resultado al formato "D":
+
+```
+getFutureTime(5, 'Day', 'D')
+```
+
+Y devuelve este resultado: `"Tuesday, March 6, 2018"`
+
+<a name="getPastTime"></a>
+
+### <a name="getpasttime"></a>getPastTime
+
+Devuelve la marca de tiempo actual menos las unidades de tiempo especificadas.
+
+```
+getPastTime(<interval>, <timeUnit>, <format>?)
+```
+
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| --------- | -------- | ---- | ----------- |
+| <*intervalo*> | Sí | Integer | Número de unidades de tiempo especificadas que se va a sustraer |
+| <*unidad_de_tiempo*> | Sí | String | La unidad de tiempo que se usará con *intervalo*: "Segundo", "Minuto", "Hora", "Día", "Semana", "Mes", "Año" |
+| <*formato*> | Sin | String | Puede ser un [especificador de formato sencillo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
+|||||
+
+| Valor devuelto | type | DESCRIPCIÓN |
+| ------------ | ---- | ----------- |
+| <*marca-de-tiempo-actualizada*> | String | Marca de tiempo actual menos el número de unidades de tiempo especificado |
+||||
+
+*Ejemplo 1*
+
+Imagine que la marca de tiempo actual es "2018-02-01T00:00:00.0000000Z".
+Este ejemplo resta cinco días a esa marca de tiempo:
+
+```
+getPastTime(5, 'Day')
+```
+
+Y devuelve este resultado: `"2018-01-27T00:00:00.0000000Z"`
+
+*Ejemplo 2*
+
+Imagine que la marca de tiempo actual es "2018-02-01T00:00:00.0000000Z".
+Este ejemplo resta cinco días y convierte el resultado al formato "D":
+
+```
+getPastTime(5, 'Day', 'D')
+```
+
+Y devuelve este resultado: `"Saturday, January 27, 2018"`
+
+<a name="greater"></a>
+
+### <a name="greater"></a>greater
+
+Comprueba si el primer valor es mayor que el segundo.
+Devuelve true cuando el primer valor es mayor o devuelve false cuando es menor.
+
+```
+greater(<value>, <compareTo>)
+greater('<value>', '<compareTo>')
+```
+
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| --------- | -------- | ---- | ----------- |
+| <*valor*> | Sí | Integer, Float o String | Primer valor para comprobar si es mayor que el segundo valor |
+| <*comparar_con*> | Sí | Integer, Float o String, respectivamente | Valor de comparación |
+|||||
+
+| Valor devuelto | type | DESCRIPCIÓN |
+| ------------ | ---- | ----------- |
+| true o false | Boolean | Devuelve true si el primer valor es mayor que el segundo. Devuelve false si el primer valor es igual o menor que el segundo. |
+||||
+
+*Ejemplo*
+
+Estos ejemplos comprueban si el primer valor es mayor que el segundo:
+
+```
+greater(10, 5)
+greater('apple', 'banana')
+```
+
+Y devuelven estos resultados:
+
+* Primer ejemplo: `true`
+* Segundo ejemplo: `false`
+
+<a name="greaterOrEquals"></a>
+
+### <a name="greaterorequals"></a>greaterOrEquals
+
+Comprueba si el primer valor es mayor o igual que el segundo.
+Devuelve true cuando el primer valor es mayor o igual o devuelve false cuando el primer valor es menor.
+
+```
+greaterOrEquals(<value>, <compareTo>)
+greaterOrEquals('<value>', '<compareTo>')
+```
+
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| --------- | -------- | ---- | ----------- |
+| <*valor*> | Sí | Integer, Float o String | Primer valor para comprobar si es mayor o igual que el segundo valor |
+| <*comparar_con*> | Sí | Integer, Float o String, respectivamente | Valor de comparación |
+|||||
+
+| Valor devuelto | type | DESCRIPCIÓN |
+| ------------ | ---- | ----------- |
+| true o false | Boolean | Devuelve true si el primer valor es mayor o igual que el segundo. Devuelve false si el primer valor es menor que el segundo. |
+||||
+
+*Ejemplo*
+
+Estos ejemplos comprueban si el primer valor es mayor o igual que el segundo:
+
+```
+greaterOrEquals(5, 5)
+greaterOrEquals('apple', 'banana')
+```
+
+Y devuelven estos resultados:
+
+* Primer ejemplo: `true`
+* Segundo ejemplo: `false`
+
+<a name="guid"></a>
+
+### <a name="guid"></a>GUID
+
+Genera un identificador único global (GUID) como una cadena, por ejemplo, "c2ecc88d-88c8-4096-912c-d6f2e2b138ce":
+
+```
+guid()
+```
+
+Además, es posible especificar un formato diferente del GUID que no sea el formato predeterminado, "D", que es 32 dígitos separados por guiones.
+
+```
+guid('<format>')
+```
+
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| --------- | -------- | ---- | ----------- |
+| <*formato*> | Sin | String | Un único [especificador de formato](https://msdn.microsoft.com/library/97af8hh4) para el GUID devuelto. De forma predeterminada, el formato es "D", pero puede usar "N", "D", "B", "P" o "X". |
+|||||
+
+| Valor devuelto | type | DESCRIPCIÓN |
+| ------------ | ---- | ----------- |
+| <*valor-de-GUID*> | String | GUID generado aleatoriamente |
+||||
+
+*Ejemplo*
+
+Este ejemplo genera el mismo GUID, pero como 32 dígitos separados por guiones y entre paréntesis:
+
+```
+guid('P')
+```
+
+Y devuelve este resultado: `"(c2ecc88d-88c8-4096-912c-d6f2e2b138ce)"`
+
+<a name="if"></a>
+
+### <a name="if"></a>if
+
+Comprueba si una expresión es true o false.
+En función del resultado, devuelve un valor especificado.
+
+```
+if(<expression>, <valueIfTrue>, <valueIfFalse>)
+```
+
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| --------- | -------- | ---- | ----------- |
+| <*expresión*> | Sí | Boolean | Expresión que se va a evaluar |
+| <*valor_si_es_true*> | Sí | Any | Valor que se devuelve cuando la expresión es verdadera |
+| <*valor_si_es_false*> | Sí | Any | Valor que se devuelve cuando la expresión es falsa |
+|||||
+
+| Valor devuelto | type | DESCRIPCIÓN |
+| ------------ | ---- | ----------- |
+| <*valor-a-devolver-especificado*> | Any | Valor especificado que se devuelve en función de si la expresión es true o false |
+||||
+
+*Ejemplo*
+
+Este ejemplo devuelve `"yes"` porque la expresión especificada devuelve true.
+En caso contrario, el ejemplo devuelve `"no"`:
+
+```
+if(equals(1, 1), 'yes', 'no')
+```
+
+<a name="indexof"></a>
+
+### <a name="indexof"></a>indexOf
+
+Devuelve la posición de inicio o valor de índice de una subcadena.
+Esta función no distingue entre mayúsculas y minúsculas y los índices comienzan por el número 0.
+
+```
+indexOf('<text>', '<searchText>')
+```
+
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| --------- | -------- | ---- | ----------- |
+| <*texto*> | Sí | String | Cadena que contiene la subcadena que se va a buscar |
+| <*texto_a_buscar*> | Sí | String | Subcadena que se va a buscar |
+|||||
+
+| Valor devuelto | type | DESCRIPCIÓN |
+| ------------ | ---- | ----------- |
+| <*valor-de-índice*>| Integer | Posición de inicio o valor de índice de la subcadena especificada. <p>Si no se encuentra la cadena, devuelve el número -1. |
+||||
+
+*Ejemplo*
+
+Este ejemplo busca el valor de índice inicial de la subcadena "world" en la cadena "hello world":
+
+```
+indexOf('hello world', 'world')
+```
+
+Y devuelve este resultado: `6`
+
+<a name="int"></a>
+
+### <a name="int"></a>int
+
+Devuelve la versión como número entero de una cadena.
+
+```
+int('<value>')
+```
+
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| --------- | -------- | ---- | ----------- |
+| <*valor*> | Sí | String | Cadena que se va a convertir |
+|||||
+
+| Valor devuelto | type | DESCRIPCIÓN |
+| ------------ | ---- | ----------- |
+| <*resultado-de-número-entero*> | Integer | Versión como número entero de la cadena especificada. |
+||||
+
+*Ejemplo*
+
+Este ejemplo crea una versión como número entero de la cadena "10":
+
+```
+int('10')
+```
+
+Y devuelve este resultado: `10`
+
+<a name="json"></a>
+
+### <a name="json"></a>json
+
+Devuelve el valor o el objeto de tipo Notación de objetos JavaScript (JSON) de una cadena o XML.
+
+```
+json('<value>')
+```
+
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| --------- | -------- | ---- | ----------- |
+| <*valor*> | Sí | String o XML | Cadena o XML que se va a convertir |
+|||||
+
+| Valor devuelto | type | DESCRIPCIÓN |
+| ------------ | ---- | ----------- |
+| <*resultado-JSON*> | Objeto o tipo nativo de JSON | Objeto o valor de tipo nativo de JSON de la cadena o XML especificados. Si la cadena es NULL, la función devuelve un objeto vacío. |
+||||
+
+*Ejemplo 1*
+
+Este ejemplo convierte esta cadena en el valor JSON:
+
+```
+json('[1, 2, 3]')
+```
+
+Y devuelve este resultado: `[1, 2, 3]`
+
+*Ejemplo 2*
+
+Este ejemplo convierte esta cadena a JSON:
+
+```
+json('{"fullName": "Sophia Owen"}')
+```
+
+Y devuelve este resultado:
+
+```
+{
+  "fullName": "Sophia Owen"
+}
+```
+
+*Ejemplo 3*
+
+Este ejemplo convierte este XML a JSON:
+
+```
+json(xml('<?xml version="1.0"?> <root> <person id='1'> <name>Sophia Owen</name> <occupation>Engineer</occupation> </person> </root>'))
+```
+
+Y devuelve este resultado:
+
+```json
+{
+   "?xml": { "@version": "1.0" },
+   "root": {
+      "person": [ {
+         "@id": "1",
+         "name": "Sophia Owen",
+         "occupation": "Engineer"
+      } ]
+   }
+}
+```
+
+<a name="intersection"></a>
+
+### <a name="intersection"></a>intersección
+
+Devuelve una colección que tiene *solo* los elementos comunes en las colecciones especificadas.
+Para que aparezca en el resultado, un elemento debe aparecer en todas las colecciones que se pasan a esta función.
+Si uno o más elementos tienen el mismo nombre, el último elemento con ese nombre aparece en el resultado.
+
+```
+intersection([<collection1>], [<collection2>], ...)
+intersection('<collection1>', '<collection2>', ...)
+```
+
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| --------- | -------- | ---- | ----------- |
+| <*colección1*>, <*colección2*>, ... | Sí | Matriz u objeto, pero no ambos | Colecciones de las que desea *solo* los elementos comunes |
+|||||
+
+| Valor devuelto | type | DESCRIPCIÓN |
+| ------------ | ---- | ----------- |
+| <*elementos-comunes*> | Matriz u objeto, respectivamente | Colección que tiene solo los elementos comunes en las colecciones especificadas |
+||||
+
+*Ejemplo*
+
+Este ejemplo busca los elementos comunes en estas matrices:
+
+```
+intersection(createArray(1, 2, 3), createArray(101, 2, 1, 10), createArray(6, 8, 1, 2))
+```
+
+Y devuelve una matriz con *solo* estos elementos: `[1, 2]`
+
+<a name="join"></a>
+
+### <a name="join"></a>join
+
+Devuelve una cadena que tiene todos los elementos de una matriz y tiene cada carácter separado por un *delimitador*.
+
+```
+join([<collection>], '<delimiter>')
+```
+
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| --------- | -------- | ---- | ----------- |
+| <*colección*> | Sí | Array | Matriz que tiene los elementos que se van a unir |
+| <*delimitador*> | Sí | String | Separador que aparece entre cada carácter de la cadena resultante |
+|||||
+
+| Valor devuelto | type | DESCRIPCIÓN |
+| ------------ | ---- | ----------- |
+| <*carácter1*><*delimitador*><*carácter2*><*delimitador*>... | String | Cadena resultante creada a partir de todos los elementos de la matriz especificada |
+||||
+
+*Ejemplo*
+
+Este ejemplo crea una cadena a partir de todos los elementos de esta matriz con el carácter especificado como delimitador:
+
+```
+join(createArray('a', 'b', 'c'), '.')
+```
+
+Y devuelve este resultado: `"a.b.c"`
+
+<a name="last"></a>
+
+### <a name="last"></a>last
+
+Devuelve el último elemento de una colección.
+
+```
+last('<collection>')
+last([<collection>])
+```
+
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| --------- | -------- | ---- | ----------- |
+| <*colección*> | Sí | Cadena o matriz | Colección en la que buscar el último elemento |
+|||||
+
+| Valor devuelto | type | DESCRIPCIÓN |
+| ------------ | ---- | ----------- |
+| <*último-elemento-de-la-colección*> | Cadena o matriz, respectivamente | Último elemento de la colección |
+||||
+
+*Ejemplo*
+
+Estos ejemplos buscan el último elemento de estas colecciones:
+
+```
+last('abcd')
+last(createArray(0, 1, 2, 3))
+```
+
+Y devuelve estos resultados:
+
+* Primer ejemplo: `"d"`
+* Segundo ejemplo: `3`
+
+<a name="lastindexof"></a>
+
+### <a name="lastindexof"></a>lastIndexOf
+
+Devuelve la posición inicial o el valor de índice de la última repetición de una subcadena.
+Esta función no distingue entre mayúsculas y minúsculas y los índices comienzan por el número 0.
+
+```
+lastIndexOf('<text>', '<searchText>')
+```
+
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| --------- | -------- | ---- | ----------- |
+| <*texto*> | Sí | String | Cadena que contiene la subcadena que se va a buscar |
+| <*texto_a_buscar*> | Sí | String | Subcadena que se va a buscar |
+|||||
+
+| Valor devuelto | type | DESCRIPCIÓN |
+| ------------ | ---- | ----------- |
+| <*valor-de-índice-final*> | Integer | Posición inicial o valor de índice de la última repetición de la subcadena especificada. <p>Si no se encuentra la cadena, devuelve el número -1. |
+||||
+
+*Ejemplo*
+
+Este ejemplo busca el valor de índice inicial de la última repetición de la subcadena "world" en la cadena "hello world":
+
+```
+lastIndexOf('hello world', 'world')
+```
+
+Y devuelve este resultado: `6`
+
+<a name="length"></a>
+
+### <a name="length"></a>length
+
+Devuelve el número de elementos de una colección.
+
+```
+length('<collection>')
+length([<collection>])
+```
+
+| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| --------- | -------- | ---- | ----------- |
+| <*colección*> | Sí | Cadena o matriz | Colección con los elementos que se van a contar |
+|||||
+
+| Valor devuelto | type | DESCRIPCIÓN |
+| ------------ | ---- | ----------- |
+| <*length-or-count*> | Entero | Número de elementos de la colección |
+||||
+
+*Ejemplo*
+
+Estos ejemplos cuentan el número de elementos de estas colecciones:
+
+```
+length('abcd')
+length(createArray(0, 1, 2, 3))
+```
+
+Y devuelven este resultado: `4`
+
+<a name="less"></a>
+
+### <a name="less"></a>less
+
+Comprueba si el primer valor es menor que el segundo.
+Devuelve true cuando el primer valor es menor o devuelve false cuando el primer valor es mayor.
+
+```
+less(<value>, <compareTo>)
+less('<value>', '<compareTo>')
+```
+
+| Parámetro | Obligatorio | Tipo | Descripción |
+| --------- | -------- | ---- | ----------- |
+| <*value*> | Sí | Integer, Float o String | Primer valor para comprobar si es menor que el segundo valor |
+| <*compareTo*> | Sí | Integer, Float o String, respectivamente | Elemento de comparación |
+|||||
+
+| Valor devuelto | Tipo | Descripción |
+| ------------ | ---- | ----------- |
+| true o false | Boolean | Devuelve true si el primer valor es menor que el segundo valor. Devuelve false si el primer valor es igual o mayor que el segundo. |
+||||
+
+*Ejemplo*
+
+En estos ejemplos se comprueba si el primer valor es menor que el segundo valor.
+
+```
+less(5, 10)
+less('banana', 'apple')
+```
+
+Asimismo, devuelven estos resultados:
+
+* Primer ejemplo: `true`
+* Segundo ejemplo: `false`
+
+<a name="lessOrEquals"></a>
+
+### <a name="lessorequals"></a>lessOrEquals
+
+Compruebe si el primer valor es menor o igual que el segundo valor.
+Devuelve "true" cuando el primer valor es menor o igual, o bien devuelve "false" si el primer valor es mayor.
+
+```
+lessOrEquals(<value>, <compareTo>)
+lessOrEquals('<value>', '<compareTo>')
+```
+
+| Parámetro | Obligatorio | Tipo | Descripción |
+| --------- | -------- | ---- | ----------- |
+| <*value*> | Sí | Integer, Float o String | Primer valor que se va a comprobar si es menor o igual que el segundo valor. |
+| <*compareTo*> | Sí | Integer, Float o String, respectivamente | Elemento de comparación |
+|||||
+
+| Valor devuelto | Tipo | Descripción |
+| ------------ | ---- | ----------- |
+| true o false  | Boolean | Devuelve true si el primer valor es menor o igual que el segundo. Devuelve false si el primer valor es mayor que el segundo. |
+||||
+
+*Ejemplo*
+
+Estos ejemplos comprueban si el primer valor es menor o igual que el segundo.
+
+```
+lessOrEquals(10, 10)
+lessOrEquals('apply', 'apple')
+```
+
+Asimismo, devuelven estos resultados:
+
+* Primer ejemplo: `true`
+* Segundo ejemplo: `false`
+
+<a name="max"></a>
+
+### <a name="max"></a>max
+
+Devuelve el valor más alto de una lista o matriz con números, incluyendo ambos extremos.
+
+```
+max(<number1>, <number2>, ...)
+max([<number1>, <number2>, ...])
+```
+
+| Parámetro | Obligatorio | Tipo | Descripción |
+| --------- | -------- | ---- | ----------- |
+| <*number1*>, <*number2*>, ... | Sí | Integer, Float o ambos | Conjunto de números del que se desea obtener el valor más alto |
+| [<*número1*>, <*número2*>,...] | Sí | Matriz: Integer, Float o ambos | Matriz de números de la cual quiere obtener el valor más alto |
+|||||
+
+| Valor devuelto | Tipo | Descripción |
+| ------------ | ---- | ----------- |
+| <*max-value*> | Integer o Float | Valor más alto en la matriz o conjunto de números especificados |
+||||
+
+*Ejemplo*
+
+Estos ejemplos obtienen el valor más alto del conjunto de números y la matriz:
+
+```
+max(1, 2, 3)
+max(createArray(1, 2, 3))
+```
+
+Y devuelven este resultado: `3`
+
+<a name="min"></a>
+
+### <a name="min"></a>Min
+
+Devuelve el valor más bajo de un conjunto de números o una matriz.
+
+```
+min(<number1>, <number2>, ...)
+min([<number1>, <number2>, ...])
+```
+
+| Parámetro | Obligatorio | Tipo | Descripción |
+| --------- | -------- | ---- | ----------- |
+| <*number1*>, <*number2*>, ... | Sí | Integer, Float o ambos | Conjunto de números del que se desea obtener el valor más bajo |
+| [<*número1*>, <*número2*>,...] | Sí | Matriz: Integer, Float o ambos | Matriz de números de la que se desea obtener el valor más bajo |
+|||||
+
+| Valor devuelto | Tipo | Descripción |
+| ------------ | ---- | ----------- |
+| <*min-value*> | Integer o Float | Valor más bajo de la matriz o conjunto de números especificados |
+||||
+
+*Ejemplo*
+
+Estos ejemplos obtienen el valor más bajo del conjunto de números y la matriz:
+
+```
+min(1, 2, 3)
+min(createArray(1, 2, 3))
+```
+
+Y devuelven este resultado: `1`
+
+<a name="mod"></a>
+
+### <a name="mod"></a>mod
+
+Devuelve el resto de dividir dos números.
+Para obtener el resultado de número entero, consulte [div()](#div).
+
+```
+mod(<dividend>, <divisor>)
+```
+
+| Parámetro | Obligatorio | Tipo | Descripción |
+| --------- | -------- | ---- | ----------- |
+| <*dividend*> | Sí | Integer o Float | Número que se va a dividir entre el *divisor*. |
+| <*divisor*> | Sí | Integer o Float | Número que divide el *dividendo*, pero no puede ser 0. |
+|||||
+
+| Valor devuelto | Tipo | Descripción |
+| ------------ | ---- | ----------- |
+| <*modulo-result*> | Integer o Float | Resto de dividir el primer número entre el segundo número |
+||||
+
+*Ejemplo*
+
+En este ejemplo se divide el primer número por el segundo número:
+
+```
+mod(3, 2)
+```
+
+Y devuelven este resultado: `1`
+
+<a name="mul"></a>
+
+### <a name="mul"></a>mul
+
+Devuelve el producto de multiplicar dos números.
+
+```
+mul(<multiplicand1>, <multiplicand2>)
+```
+
+| Parámetro | Obligatorio | Tipo | Descripción |
+| --------- | -------- | ---- | ----------- |
+| <*multiplicand1*> | Sí | Integer o Float | Número que se va a multiplicar por el *multiplicando2* |
+| <*multiplicand2*> | Sí | Integer o Float | Número que multiplica al *multiplicando1* |
+|||||
+
+| Valor devuelto | Tipo | Descripción |
+| ------------ | ---- | ----------- |
+| <*product-result*> | Integer o Float | Producto de multiplicar el primer número por el segundo número |
+||||
+
+*Ejemplo*
+
+Estos ejemplos multiplican el primer número por el segundo número:
+
+```
+mul(1, 2)
+mul(1.5, 2)
+```
+
+Asimismo, devuelven estos resultados:
+
+* Primer ejemplo: `2`
+* Segundo ejemplo: `3`
+
+<a name="not"></a>
+
+### <a name="not"></a>not
+
+Comprueba si una expresión es false.
+Devuelve verdadero cuando la expresión es falsa o devuelve false cuando es verdadera.
+
+```json
+not(<expression>)
+```
+
+| Parámetro | Obligatorio | Tipo | Descripción |
+| --------- | -------- | ---- | ----------- |
+| <*expression*> | Sí | Boolean | Expresión que se va a evaluar |
+|||||
+
+| Valor devuelto | Tipo | Descripción |
+| ------------ | ---- | ----------- |
+| true o false | Boolean | Devuelve true cuando la expresión es falsa. Devuelve false cuando la expresión es verdadera. |
+||||
+
+*Ejemplo 1*
+
+Estos ejemplos comprueban si las expresiones especificadas son falsas:
+
+```json
+not(false)
+not(true)
+```
+
+Asimismo, devuelven estos resultados:
+
+* Primer ejemplo: la expresión es falsa, por lo que la función devuelve `true`.
+* Segundo ejemplo: la expresión es verdadera, por lo que la función devuelve `false`.
+
+*Ejemplo 2*
+
+Estos ejemplos comprueban si las expresiones especificadas son falsas:
+
+```json
+not(equals(1, 2))
+not(equals(1, 1))
+```
+
+Asimismo, devuelven estos resultados:
+
+* Primer ejemplo: la expresión es falsa, por lo que la función devuelve `true`.
+* Segundo ejemplo: la expresión es verdadera, por lo que la función devuelve `false`.
+
+<a name="or"></a>
+
+### <a name="or"></a>or
+
+Comprueba si al menos una expresión es true.
+Devuelve true cuando al menos una expresión es verdadera o devuelve false cuanto todas son falsas.
+
+```
+or(<expression1>, <expression2>, ...)
+```
+
+| Parámetro | Obligatorio | Tipo | Descripción |
+| --------- | -------- | ---- | ----------- |
+| <*expression1*>, <*expression2*>, ... | Sí | Boolean | Expresiones que se van a comprobar |
+|||||
+
+| Valor devuelto | Tipo | Descripción |
+| ------------ | ---- | ----------- |
+| true o false | Boolean | Devuelve true cuando al menos una expresión es verdadera. Devuelve false si todas las expresiones son falsas. |
+||||
+
+*Ejemplo 1*
+
+Estos ejemplos comprueban si al menos una expresión es verdadera:
+
+```json
+or(true, false)
+or(false, false)
+```
+
+Asimismo, devuelven estos resultados:
+
+* Primer ejemplo: al menos una expresión es verdadera, por lo que la función devuelve `true`.
+* Segundo ejemplo: ambas expresiones son falsas, por lo que la función devuelve `false`.
+
+*Ejemplo 2*
+
+Estos ejemplos comprueban si al menos una expresión es verdadera:
+
+```json
+or(equals(1, 1), equals(1, 2))
+or(equals(1, 2), equals(1, 3))
+```
+
+Asimismo, devuelven estos resultados:
+
+* Primer ejemplo: al menos una expresión es verdadera, por lo que la función devuelve `true`.
+* Segundo ejemplo: ambas expresiones son falsas, por lo que la función devuelve `false`.
+
+<a name="rand"></a>
+
+### <a name="rand"></a>rand
+
+Devuelve un entero aleatorio de un intervalo especificado, que incluye solo el extremo inicial.
+
+```
+rand(<minValue>, <maxValue>)
+```
+
+| Parámetro | Obligatorio | Tipo | Descripción |
+| --------- | -------- | ---- | ----------- |
+| <*valor_mínimo*> | Sí | Entero | Entero más bajo del intervalo |
+| <*valor_maximo*> | Sí | Entero | Entero que sigue al entero más alto del intervalo que puede devolver la función |
+|||||
+
+| Valor devuelto | Tipo | Descripción |
+| ------------ | ---- | ----------- |
+| <*random-result*> | Entero | Entero aleatorio devuelto del intervalo especificado |
+||||
+
+*Ejemplo*
+
+Este ejemplo obtiene un entero aleatorio del intervalo especificado, sin incluir el valor máximo:
+
+```
+rand(1, 5)
+```
+
+Y devuelve uno de estos números como resultado: `1`, `2`, `3` o `4`
+
+<a name="range"></a>
+
+### <a name="range"></a>range
+
+Devuelve una matriz de enteros que comienza en un entero especificado.
+
+```
+range(<startIndex>, <count>)
+```
+
+| Parámetro | Obligatorio | Tipo | Descripción |
+| --------- | -------- | ---- | ----------- |
+| <*startIndex*> | Sí | Entero | Valor entero que inicia la matriz como el primer elemento |
+| <*recuento*> | Sí | Entero | Número de enteros de la matriz |
+|||||
+
+| Valor devuelto | Tipo | Descripción |
+| ------------ | ---- | ----------- |
+| [<*intervalo-resultado*>] | Array | Matriz de enteros comenzando a partir del índice especificado |
+||||
+
+*Ejemplo*
+
+Este ejemplo crea una matriz de enteros que comienza en el índice especificado y tiene el número especificado de enteros:
+
+```
+range(1, 4)
+```
+
+Y devuelve este resultado: `[1, 2, 3, 4]`
+
+<a name="replace"></a>
+
+### <a name="replace"></a>replace
+
+Reemplaza una subcadena por la cadena especificada y devuelve la cadena resultante. Esta función distingue mayúsculas de minúsculas.
+
+```
+replace('<text>', '<oldText>', '<newText>')
+```
+
+| Parámetro | Obligatorio | Tipo | Descripción |
+| --------- | -------- | ---- | ----------- |
+| <*texto*> | Sí | String | Cadena que contiene la subcadena que se va a reemplazar |
+| <*oldText*> | Sí | String | Subcadena que se va a reemplazar. |
+| <*newText*> | Sí | String | Cadena que se va a reemplazar |
+|||||
+
+| Valor devuelto | Tipo | Descripción |
+| ------------ | ---- | ----------- |
+| <*updated-text*> | String | Cadena actualizada después de reemplazar la subcadena <p>Si no se encuentra la subcadena, devuelve la cadena original. |
+||||
+
+*Ejemplo*
+
+Este ejemplo busca la subcadena "old" en "the old string" y reemplaza "old" por "new":
+
+```
+replace('the old string', 'old', 'new')
+```
+
+Y devuelve este resultado: `"the new string"`
+
+<a name="skip"></a>
+
+### <a name="skip"></a>skip
+
+Quita elementos del principio de una colección y devuelve *todos los demás* elementos.
+
+```
+skip([<collection>], <count>)
+```
+
+| Parámetro | Obligatorio | Tipo | Descripción |
+| --------- | -------- | ---- | ----------- |
+| <*colección*> | Sí | Array | Colección cuyos elementos desea eliminar |
+| <*recuento*> | Sí | Entero | Entero positivo para el número de elementos a eliminar al principio |
+|||||
+
+| Valor devuelto | Tipo | Descripción |
+| ------------ | ---- | ----------- |
+| [<*colección-actualizada*>] | Array | Colección actualizada después de eliminar los elementos especificados |
+||||
+
+*Ejemplo*
+
+Este ejemplo elimina un elemento, el número 0, del principio de la matriz especificada:
+
+```
+skip(createArray(0, 1, 2, 3), 1)
+```
+
+Y devuelve esta matriz con los elementos restantes: `[1,2,3]`
+
+<a name="split"></a>
+
+### <a name="split"></a>split
+
+Devuelve una matriz que contiene subcadenas, separadas por comas, en función de un carácter delimitador especificado en la cadena original.
+
+```
+split('<text>', '<delimiter>')
+```
+
+| Parámetro | Obligatorio | Tipo | Descripción |
+| --------- | -------- | ---- | ----------- |
+| <*texto*> | Sí | String | La cadena para separar en subcadenas según el delimitador especificado en la cadena original |
+| <*delimitador*> | Sí | String | El carácter de la cadena original que se usará como delimitador |
+|||||
+
+| Valor devuelto | Tipo | Descripción |
+| ------------ | ---- | ----------- |
+| [<*subcadena1*>, <*subcadena2*>,...] | Array | Una matriz que contiene subcadenas de la cadena original, separadas por comas |
+||||
+
+*Ejemplo*
+
+En este ejemplo se crea una matriz con las subcadenas de la cadena especificada según el carácter especificado como delimitador:
+
+```
+split('a_b_c', '_')
+```
+
+Y devuelve esta matriz como resultado: `["a","b","c"]`
+
+<a name="startOfDay"></a>
+
+### <a name="startofday"></a>startOfDay
+
+Devuelve el inicio del día de una marca de tiempo.
+
+```
+startOfDay('<timestamp>', '<format>'?)
+```
+
+| Parámetro | Obligatorio | Tipo | Descripción |
+| --------- | -------- | ---- | ----------- |
+| <*marca_de_tiempo*> | Sí | String | Cadena que contiene la marca de tiempo |
+| <*formato*> | No | String | Puede ser un [especificador de formato sencillo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
+|||||
+
+| Valor devuelto | Tipo | Descripción |
+| ------------ | ---- | ----------- |
+| <*marca-de-tiempo-actualizada*> | String | Marca de tiempo especificada, pero a partir de la marca de hora cero del día |
+||||
+
+*Ejemplo*
+
+Este ejemplo busca el inicio del día de esta marca de tiempo:
+
+```
+startOfDay('2018-03-15T13:30:30Z')
+```
+
+Y devuelve este resultado: `"2018-03-15T00:00:00.0000000Z"`
+
+<a name="startOfHour"></a>
+
+### <a name="startofhour"></a>startOfHour
+
+Devuelve el inicio de la hora de una marca de tiempo.
+
+```
+startOfHour('<timestamp>', '<format>'?)
+```
+
+| Parámetro | Obligatorio | Tipo | Descripción |
+| --------- | -------- | ---- | ----------- |
+| <*marca_de_tiempo*> | Sí | String | Cadena que contiene la marca de tiempo |
+| <*formato*> | No | String | Puede ser un [especificador de formato sencillo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
+|||||
+
+| Valor devuelto | Tipo | Descripción |
+| ------------ | ---- | ----------- |
+| <*marca-de-tiempo-actualizada*> | String | Marca de tiempo especificada, pero a partir de la marca de minuto cero de la hora |
+||||
+
+*Ejemplo*
+
+Este ejemplo busca el inicio de la hora de esta marca de tiempo:
+
+```
+startOfHour('2018-03-15T13:30:30Z')
+```
+
+Y devuelve este resultado: `"2018-03-15T13:00:00.0000000Z"`
+
+<a name="startOfMonth"></a>
+
+### <a name="startofmonth"></a>startOfMonth
+
+Devuelve el inicio del mes de una marca de tiempo.
+
+```
+startOfMonth('<timestamp>', '<format>'?)
+```
+
+| Parámetro | Obligatorio | Tipo | Descripción |
+| --------- | -------- | ---- | ----------- |
+| <*marca_de_tiempo*> | Sí | String | Cadena que contiene la marca de tiempo |
+| <*formato*> | No | String | Puede ser un [especificador de formato sencillo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
+|||||
+
+| Valor devuelto | Tipo | Descripción |
+| ------------ | ---- | ----------- |
+| <*marca-de-tiempo-actualizada*> | String | Marca de tiempo especificada, pero a partir del primer día del mes en la marca de hora cero |
+||||
+
+*Ejemplo*
+
+Este ejemplo devuelve el inicio del mes de esta marca de tiempo:
+
+```
+startOfMonth('2018-03-15T13:30:30Z')
+```
+
+Y devuelve este resultado: `"2018-03-01T00:00:00.0000000Z"`
+
+<a name="startswith"></a>
+
+### <a name="startswith"></a>startsWith
+
+Comprueba si una cadena comienza con una subcadena especificada.
+Devuelve true cuando se encuentra la subcadena o devuelve false cuando no se encuentra.
+Esta función no distingue mayúsculas de minúsculas.
+
+```
+startsWith('<text>', '<searchText>')
+```
+
+| Parámetro | Obligatorio | Tipo | Descripción |
+| --------- | -------- | ---- | ----------- |
+| <*texto*> | Sí | String | Cadena que se va a comprobar |
+| <*texto_a_buscar*> | Sí | String | Cadena inicial que se va a buscar |
+|||||
+
+| Valor devuelto | Tipo | Descripción |
+| ------------ | ---- | ----------- |
+| true o false  | Boolean | Devuelve true cuando se encuentra la subcadena inicial. Devuelve false si no se encuentra. |
+||||
+
+*Ejemplo 1*
+
+Este ejemplo comprueba si la cadena "hello world" comienza con la subcadena "hello":
+
+```
+startsWith('hello world', 'hello')
+```
+
+Y devuelve este resultado: `true`
+
+*Ejemplo 2*
+
+Este ejemplo comprueba si la cadena "hello world" comienza con la subcadena "greetings":
+
+```
+startsWith('hello world', 'greetings')
+```
+
+Y devuelve este resultado: `false`
+
+<a name="string"></a>
+
+### <a name="string"></a>string
+
+Devuelve la versión de cadena de un valor.
+
+```
+string(<value>)
+```
+
+| Parámetro | Obligatorio | Tipo | Descripción |
+| --------- | -------- | ---- | ----------- |
+| <*value*> | Sí | Any | Valor que se va a convertir |
+|||||
+
+| Valor devuelto | Tipo | Descripción |
+| ------------ | ---- | ----------- |
+| <*valor-de-cadena*> | String | Versión de cadena del valor especificado |
+||||
+
+*Ejemplo 1*
+
+Este ejemplo crea la versión de cadena de este número:
+
+```
+string(10)
+```
+
+Y devuelve este resultado: `"10"`
+
+*Ejemplo 2*
+
+Este ejemplo crea una cadena a partir del objeto JSON especificado y usa el carácter de barra diagonal inversa (\\) como carácter de escape para la marca de comillas dobles (").
+
+```
+string( { "name": "Sophie Owen" } )
+```
+
+Y devuelve este resultado: `"{ \\"name\\": \\"Sophie Owen\\" }"`
+
+<a name="sub"></a>
+
+### <a name="sub"></a>sub
+
+Devuelve el resultado de restar el segundo número del primero.
+
+```
+sub(<minuend>, <subtrahend>)
+```
+
+| Parámetro | Obligatorio | Tipo | Descripción |
+| --------- | -------- | ---- | ----------- |
+| <*minuendo*> | Sí | Integer o Float | Número del que se resta el *sustraendo* |
+| <*sustraendo*> | Sí | Integer o Float | Número que se resta del *minuendo* |
+|||||
+
+| Valor devuelto | Tipo | Descripción |
+| ------------ | ---- | ----------- |
+| <*resultado*> | Integer o Float | Resultado de restar el segundo número del primero |
+||||
+
+*Ejemplo*
+
+Este ejemplo resta el segundo número del primer número:
+
+```
+sub(10.3, .3)
+```
+
+Y devuelve este resultado: `10`
+
+<a name="substring"></a>
+
+### <a name="substring"></a>substring
+
+Devuelve caracteres de una cadena a partir de la posición especificada o índice.
+Los valores de índice comienzan desde el número 0.
+
+```
+substring('<text>', <startIndex>, <length>)
+```
+
+| Parámetro | Obligatorio | Tipo | Descripción |
+| --------- | -------- | ---- | ----------- |
+| <*texto*> | Sí | String | Cadena cuyos caracteres se toman |
+| <*startIndex*> | Sí | Entero | Un número positivo igual o mayor que 0 que desea utilizar como el valor de índice o la posición inicial |
+| <*longitud*> | Sí | Entero | Número positivo de caracteres que desea incluir en la subcadena |
+|||||
+
+| Valor devuelto | Tipo | Descripción |
+| ------------ | ---- | ----------- |
+| <*subcadena-resultante*> | String | Subcadena con el número especificado de caracteres, empezando en la posición de índice especificada de la cadena de origen |
+||||
+
+*Ejemplo*
+
+Este ejemplo crea una subcadena de cinco caracteres a partir de la cadena especificada, empezando en el valor de índice 6:
+
+```
+substring('hello world', 6, 5)
+```
+
+Y devuelve este resultado: `"world"`
+
+<a name="subtractFromTime"></a>
+
+### <a name="subtractfromtime"></a>subtractFromTime
+
+Resta un número de unidades de tiempo de una marca de tiempo.
+Consulte también [getPastTime](#getPastTime).
+
+```
+subtractFromTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
+```
+
+| Parámetro | Obligatorio | Tipo | Descripción |
+| --------- | -------- | ---- | ----------- |
+| <*marca_de_tiempo*> | Sí | String | Cadena que contiene la marca de tiempo |
+| <*intervalo*> | Sí | Entero | Número de unidades de tiempo especificadas que se va a sustraer |
+| <*unidad_de_tiempo*> | Sí | String | La unidad de tiempo que se usará con *intervalo*: "Segundo", "Minuto", "Hora", "Día", "Semana", "Mes", "Año" |
+| <*formato*> | No | String | Puede ser un [especificador de formato sencillo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
+|||||
+
+| Valor devuelto | Tipo | Descripción |
+| ------------ | ---- | ----------- |
+| <*marca-de-tiempo-actualizada*> | String | Marca de tiempo menos el número de unidades de tiempo especificado |
+||||
+
+*Ejemplo 1*
+
+Este ejemplo resta un día de esta marca de tiempo:
+
+```
+subtractFromTime('2018-01-02T00:00:00Z', 1, 'Day')
+```
+
+Y devuelve este resultado: `"2018-01-01T00:00:00:0000000Z"`
+
+*Ejemplo 2*
+
+Este ejemplo resta un día de esta marca de tiempo:
+
+```
+subtractFromTime('2018-01-02T00:00:00Z', 1, 'Day', 'D')
+```
+
+Y devuelve el resultado con el formato "D" opcional: `"Monday, January, 1, 2018"`
+
+<a name="take"></a>
+
+### <a name="take"></a>take
+
+Devuelve elementos del principio de una colección.
+
+```
+take('<collection>', <count>)
+take([<collection>], <count>)
+```
+
+| Parámetro | Obligatorio | Tipo | Descripción |
+| --------- | -------- | ---- | ----------- |
+| <*colección*> | Sí | Cadena o matriz | Colección cuyos elementos desea tomar |
+| <*recuento*> | Sí | Entero | Entero positivo para el número de elementos a tomar desde el principio |
+|||||
+
+| Valor devuelto | Tipo | Descripción |
+| ------------ | ---- | ----------- |
+| <*subconjunto*> o [<*subconjunto*>] | Cadena o matriz, respectivamente | Cadena o matriz que tiene el número especificado de elementos tomados desde el principio de la colección original |
+||||
+
+*Ejemplo*
+
+Estos ejemplos obtienen el número especificado de elementos desde el principio de estas colecciones:
+
+```
+take('abcde', 3)
+take(createArray(0, 1, 2, 3, 4), 3)
+```
+
+Asimismo, devuelven estos resultados:
+
+* Primer ejemplo: `"abc"`
+* Segundo ejemplo: `[0, 1, 2]`
+
+<a name="ticks"></a>
+
+### <a name="ticks"></a>ticks
+
+Devuelve el valor de la propiedad `ticks` de una marca de tiempo especificada.
+Un *tick* es un intervalo de 100 nanosegundos.
+
+```
+ticks('<timestamp>')
+```
+
+| Parámetro | Obligatorio | Tipo | Descripción |
+| --------- | -------- | ---- | ----------- |
+| <*marca_de_tiempo*> | Sí | String | Cadena de una marca de tiempo |
+|||||
+
+| Valor devuelto | Tipo | Descripción |
+| ------------ | ---- | ----------- |
+| <*número-de-ticks*> | Entero | Número de ticks desde la marca de tiempo especificada |
+||||
+
+<a name="toLower"></a>
+
+### <a name="tolower"></a>toLower
+
+Devuelve una cadena en formato de minúsculas. Si un carácter de la cadena no tiene un equivalente en minúsculas, se incluye sin cambios en la cadena devuelta.
+
+```
+toLower('<text>')
+```
+
+| Parámetro | Obligatorio | Tipo | Descripción |
+| --------- | -------- | ---- | ----------- |
+| <*texto*> | Sí | String | Cadena que se devuelve en formato de minúsculas |
+|||||
+
+| Valor devuelto | Tipo | Descripción |
+| ------------ | ---- | ----------- |
+| <*texto-en-minúsculas*> | String | Cadena original en minúsculas |
+||||
+
+*Ejemplo*
+
+Este ejemplo convierte esta cadena a minúsculas:
+
+```
+toLower('Hello World')
+```
+
+Y devuelve este resultado: `"hello world"`
+
+<a name="toUpper"></a>
+
+### <a name="toupper"></a>toUpper
+
+Devuelve una cadena en formato de mayúsculas. Si un carácter de la cadena no tiene un equivalente en mayúsculas, se incluye sin cambios en la cadena devuelta.
+
+```
+toUpper('<text>')
+```
+
+| Parámetro | Obligatorio | Tipo | Descripción |
+| --------- | -------- | ---- | ----------- |
+| <*texto*> | Sí | String | Cadena que se devuelve en formato de mayúsculas |
+|||||
+
+| Valor devuelto | Tipo | Descripción |
+| ------------ | ---- | ----------- |
+| <*texto-en-mayúsculas*> | String | Cadena original en mayúsculas |
+||||
+
+*Ejemplo*
+
+Este ejemplo convierte esta cadena a mayúsculas:
+
+```
+toUpper('Hello World')
+```
+
+Y devuelve este resultado: `"HELLO WORLD"`
+
+<a name="trim"></a>
+
+### <a name="trim"></a>trim
+
+Quita el espacio en blanco inicial y final de una cadena y devuelve la cadena actualizada.
+
+```
+trim('<text>')
+```
+
+| Parámetro | Obligatorio | Tipo | Descripción |
+| --------- | -------- | ---- | ----------- |
+| <*texto*> | Sí | String | Cadena que contiene los espacios en blanco iniciales y finales que se van a eliminar |
+|||||
+
+| Valor devuelto | Tipo | Descripción |
+| ------------ | ---- | ----------- |
+| <*texto_actualizado*> | String | Versión actualizada de la cadena original sin espacios en blanco iniciales o finales |
+||||
+
+*Ejemplo*
+
+Este ejemplo quita el espacio en blanco inicial y final de la cadena " Hello World ":
+
+```
+trim(' Hello World  ')
+```
+
+Y devuelve este resultado: `"Hello World"`
+
+<a name="union"></a>
+
+### <a name="union"></a>union
+
+Devuelve una colección que tiene *todos* los elementos de las colecciones especificadas.
+Para que aparezca en el resultado, un elemento debe aparecer en alguna de las colecciones que se pasan a esta función. Si uno o más elementos tienen el mismo nombre, el último elemento con ese nombre aparece en el resultado.
+
+```
+union('<collection1>', '<collection2>', ...)
+union([<collection1>], [<collection2>], ...)
+```
+
+| Parámetro | Obligatorio | Tipo | Descripción |
+| --------- | -------- | ---- | ----------- |
+| <*colección1*>, <*colección2*>, ...  | Sí | Matriz u objeto, pero no ambos | Colecciones de las que desean *todos* los elementos |
+|||||
+
+| Valor devuelto | Tipo | Descripción |
+| ------------ | ---- | ----------- |
+| <*colección_actualizada*> | Matriz u objeto, respectivamente | Colección con todos los elementos de las colecciones especificadas, sin duplicados. |
+||||
+
+*Ejemplo*
+
+Este ejemplo obtiene *todos* los elementos de estas colecciones:
+
+```
+union(createArray(1, 2, 3), createArray(1, 2, 10, 101))
+```
+
+Y devuelve este resultado: `[1, 2, 3, 10, 101]`
+
+<a name="uriComponent"></a>
+
+### <a name="uricomponent"></a>uriComponent
+
+Devuelve una versión codificada de un identificador uniforme de recursos (URI) de una cadena reemplazando los caracteres no seguros de la dirección URL por caracteres de escape.
+Use esta función en lugar de [encodeUriComponent()](#encodeUriComponent).
+Aunque ambas funciones funcionan del mismo modo, `uriComponent()` es preferible.
+
+```
+uriComponent('<value>')
+```
+
+| Parámetro | Obligatorio | Tipo | Descripción |
+| --------- | -------- | ---- | ----------- |
+| <*value*> | Sí | String | Cadena que se va a convertir en formato codificado de URI |
+|||||
+
+| Valor devuelto | Tipo | Descripción |
+| ------------ | ---- | ----------- |
+| <*uri-codificado*> | String | Cadena codificada en formato URI con caracteres de escape |
+||||
+
+*Ejemplo*
+
+Este ejemplo crea una versión codificada en formato URI de esta cadena:
+
+```
+uriComponent('https://contoso.com')
+```
+
+Y devuelve este resultado: `"http%3A%2F%2Fcontoso.com"`
+
+<a name="uriComponentToBinary"></a>
+
+### <a name="uricomponenttobinary"></a>uriComponentToBinary
+
+Devuelve la versión binaria de un componente de un identificador uniforme de recursos (URI).
+
+```
+uriComponentToBinary('<value>')
+```
+
+| Parámetro | Obligatorio | Tipo | Descripción |
+| --------- | -------- | ---- | ----------- |
+| <*value*> | Sí | String | Cadena con codificación URI que se va a convertir |
+|||||
+
+| Valor devuelto | Tipo | Descripción |
+| ------------ | ---- | ----------- |
+| <*binario-de-codificado-uri*> | String | Versión binaria de la cadena con codificación URI. El contenido binario está codificado en base64 y representado por `$content`. |
+||||
+
+*Ejemplo*
+
+Este ejemplo crea la versión binaria de esta cadena con codificación URI:
+
+```
+uriComponentToBinary('http%3A%2F%2Fcontoso.com')
+```
+
+Y devuelve este resultado:
+
+`"001000100110100001110100011101000111000000100101001100
+11010000010010010100110010010001100010010100110010010001
+10011000110110111101101110011101000110111101110011011011
+110010111001100011011011110110110100100010"`
+
+<a name="uriComponentToString"></a>
+
+### <a name="uricomponenttostring"></a>uriComponentToString
+
+Devuelve la versión de cadena de una cadena codificada en formato de identificador uniforme de recursos (URI), decodificando dicha cadena.
+
+```
+uriComponentToString('<value>')
+```
+
+| Parámetro | Obligatorio | Tipo | Descripción |
+| --------- | -------- | ---- | ----------- |
+| <*value*> | Sí | String | Cadena con codificación URI que se va a decodificar |
+|||||
+
+| Valor devuelto | Tipo | Descripción |
+| ------------ | ---- | ----------- |
+| <*uri-decodificado*> | String | Versión decodificada de la cadena con codificación URI |
+||||
+
+*Ejemplo*
+
+Este ejemplo crea la versión de cadena decodificada de esta cadena con codificación URI:
+
+```
+uriComponentToString('http%3A%2F%2Fcontoso.com')
+```
+
+Y devuelve este resultado: `"https://contoso.com"`
+
+<a name="utcNow"></a>
+
+### <a name="utcnow"></a>utcNow
+
+Devuelve la marca de tiempo actual.
+
+```
+utcNow('<format>')
+```
+
+Si lo desea, puede especificar un formato diferente con el parámetro <*format*>.
+
+| Parámetro | Obligatorio | Tipo | Descripción |
+| --------- | -------- | ---- | ----------- |
+| <*formato*> | No | String | Puede ser un [especificador de formato sencillo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
+|||||
+
+| Valor devuelto | Tipo | Descripción |
+| ------------ | ---- | ----------- |
+| <*marca-de-tiempo-actual*> | String | Fecha y hora actuales |
+||||
+
+*Ejemplo 1*
+
+Imagine que hoy es 15 de abril de 2018 a las 1:00:00 P.M.
+Este ejemplo obtiene la marca de tiempo actual:
+
+```
+utcNow()
+```
+
+Y devuelve este resultado: `"2018-04-15T13:00:00.0000000Z"`
+
+*Ejemplo 2*
+
+Imagine que hoy es 15 de abril de 2018 a las 1:00:00 P.M.
+Este ejemplo obtiene la marca de tiempo actual con el formato "D" opcional:
+
+```
+utcNow('D')
+```
+
+Y devuelve este resultado: `"Sunday, April 15, 2018"`
+
+<a name="xml"></a>
+
+### <a name="xml"></a>Xml
+
+Devuelve la versión XML de una cadena que contiene un objeto JSON.
+
+```
+xml('<value>')
+```
+
+| Parámetro | Obligatorio | Tipo | Descripción |
+| --------- | -------- | ---- | ----------- |
+| <*value*> | Sí | String | Cadena con el objeto JSON que se va a convertir <p>El objeto JSON debe tener solo una propiedad raíz, que no puede ser una matriz. <br>Use el carácter de barra diagonal inversa (\\) como carácter de escape para la marca de comillas dobles ("). |
+|||||
+
+| Valor devuelto | Tipo | Descripción |
+| ------------ | ---- | ----------- |
+| <*versión-xml*> | Object | XML codificado de la cadena u objeto JSON especificados |
+||||
+
+*Ejemplo 1*
+
+Este ejemplo crea la versión XML de esta cadena, que contiene un objeto JSON:
+
+`xml(json('{ \"name\": \"Sophia Owen\" }'))`
+
+Y devuelve este código XML resultante:
+
+```xml
+<name>Sophia Owen</name>
+```
+
+*Ejemplo 2*
+
+Suponga que tiene este objeto JSON:
+
+```json
+{
+  "person": {
+    "name": "Sophia Owen",
+    "city": "Seattle"
+  }
+}
+```
+
+Este ejemplo crea código XML de una cadena que contiene este objeto JSON:
+
+`xml(json('{\"person\": {\"name\": \"Sophia Owen\", \"city\": \"Seattle\"}}'))`
+
+Y devuelve este código XML resultante:
+
+```xml
+<person>
+  <name>Sophia Owen</name>
+  <city>Seattle</city>
+<person>
+```
+
+<a name="xpath"></a>
+
+### <a name="xpath"></a>xpath
+
+Comprueba el código XML de los nodos o valores que coinciden con una expresión XPath (XML Path Language) y devuelve los nodos o valores coincidentes. Una expresión XPath o simplemente "XPath", le ayuda a recorrer una estructura de documento XML para que pueda seleccionar nodos o valores de proceso del contenido XML.
+
+```
+xpath('<xml>', '<xpath>')
+```
+
+| Parámetro | Obligatorio | Tipo | Descripción |
+| --------- | -------- | ---- | ----------- |
+| <*xml*> | Sí | Any | Cadena XML en la que buscar nodos o valores que coincidan con un valor de la expresión XPath |
+| <*xpath*> | Sí | Any | Expresión XPath utilizada para buscar nodos XML o valores coincidentes |
+|||||
+
+| Valor devuelto | Tipo | Descripción |
+| ------------ | ---- | ----------- |
+| <*nodo-xml*> | XML | Nodo XML si solo un nodo coincide con la expresión XPath especificada |
+| <*value*> | Any | Valor de un nodo XML si solo un valor coincide con la expresión XPath especificada |
+| [<*xml-nodo1*>, <*xml-nodo2*>, ...] </br>O bien </br>[<*valor1*>, <*valor2*>, ...] | Array | Matriz con los nodos XML o valores que coinciden con la expresión XPath especificada |
+||||
+
+*Ejemplo 1*
+
+Siguiendo el ejemplo 1, este ejemplo busca nodos que coincidan con el nodo `<count></count>` y agrega los valores de nodo con la función `sum()`:
+
+`xpath(xml(parameters('items')), 'sum(/produce/item/count)')`
+
+Y devuelve este resultado: `30`
+
+*Ejemplo 2*
+
+En este ejemplo, ambas expresiones buscan nodos que coincidan con el nodo `<location></location>` de los argumentos especificados, que incluye código XML con un espacio de nombres. Las expresiones utilizan el carácter de barra diagonal inversa (\\) como carácter de escape para la marca de comillas dobles (").
+
+* *Expresión 1*
+
+  `xpath(xml(body('Http')), '/*[name()=\"file\"]/*[name()=\"location\"]')`
+
+* *Expresión 2*
+
+  `xpath(xml(body('Http')), '/*[local-name()=\"file\" and namespace-uri()=\"http://contoso.com\"]/*[local-name()=\"location\"]')`
+
+Estos son los argumentos:
+
+* Este código XML, que incluye el espacio de nombres del documento XML, `xmlns="http://contoso.com"`:
+
+  ```xml
+  <?xml version="1.0"?> <file xmlns="http://contoso.com"> <location>Paris</location> </file>
+  ```
+
+* Cualquier expresión XPath:
+
+  * `/*[name()=\"file\"]/*[name()=\"location\"]`
+
+  * `/*[local-name()=\"file\" and namespace-uri()=\"http://contoso.com\"]/*[local-name()=\"location\"]`
+
+Este es el nodo de resultados que coincide con el nodo `<location></location>`:
+
+```xml
+<location xmlns="https://contoso.com">Paris</location>
+```
+
+*Ejemplo 3*
+
+Siguiendo el ejemplo 3, este ejemplo busca el valor en el nodo `<location></location>`:
+
+`xpath(xml(body('Http')), 'string(/*[name()=\"file\"]/*[name()=\"location\"])')`
+
+Y devuelve este resultado: `"Paris"`
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener una lista de las variables del sistema que se pueden usar en las expresiones, vea [Variables del sistema](control-flow-system-variables.md).

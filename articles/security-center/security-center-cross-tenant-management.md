@@ -1,6 +1,6 @@
 ---
 title: Administración entre inquilinos en Azure Security Center | Microsoft Docs
-description: " Aprenda a habilitar la recolección de datos en Azure Security Center. "
+description: La administración entre inquilinos le permite ver y administrar la posición de seguridad de varios inquilinos en Security Center con Administración de recursos delegados de Azure.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2019
 ms.author: memildin
-ms.openlocfilehash: f7aa75601639bc0c5652010fb44b01dec0d2622b
-ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
+ms.openlocfilehash: 5c654610df8c00e1e80382687bd30dca0c02b69f
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71996948"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74558947"
 ---
 # <a name="cross-tenant-management-in-security-center"></a>Administración entre inquilinos en Security Center
 

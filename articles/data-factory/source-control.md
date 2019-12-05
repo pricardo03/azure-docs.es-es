@@ -12,12 +12,12 @@ author: djpmsft
 ms.author: daperlov
 ms.reviewer: ''
 manager: craigg
-ms.openlocfilehash: 5f497bd06868d586f8378cb81e870a750b8a1670
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 264c60c719ffdd94664ae3a85fc67894d14f394d
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122882"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74484450"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Control de código fuente en Azure Data Factory
 
@@ -232,7 +232,7 @@ Lo normal es que no quiera que todos los miembros del equipo tengan permisos par
 *   Todos los miembros del equipo deberían tener permisos de lectura en la factoría de datos.
 *   Solo se debe permitir que un conjunto seleccionado de personas publique en la factoría. Para ello, deben tener el rol **colaborador de Data Factory** en la factoría. Para más información sobre los permisos, consulte [Roles y permisos para Azure Data Factory](concepts-roles-permissions.md).
    
-Se recomienda no permitir inserciones directas en el repositorio en la rama de colaboración. Esta restricción puede ayudar a evitar errores, ya que cada inserción en el repositorio pasará por un proceso de solicitud de incorporación de cambios.
+Se recomienda no permitir inserciones directas en el repositorio en la rama de colaboración. Esta restricción puede ayudarle a evitar errores, ya que cada inserción en el repositorio pasará por un proceso de solicitud de incorporación de cambios, tal como se describe en [Crear una rama de características](source-control.md#creating-feature-branches).
 
 ### <a name="using-passwords-from-azure-key-vault"></a>Uso de contraseñas de Azure Key Vault
 

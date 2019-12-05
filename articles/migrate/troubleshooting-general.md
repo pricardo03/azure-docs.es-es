@@ -5,14 +5,14 @@ author: musa-57
 ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 11/21/2019
 ms.author: hamusa
-ms.openlocfilehash: 468c87e176cc61c48ba4caabd1c5a26f94d5fb5b
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 96c5190988d79885f3a1335b6fd431e028bba8fc
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71970654"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74384059"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Solución de problemas de Azure Migrate
 
@@ -229,6 +229,33 @@ Se produce el error 50004: No se puede conectar a un host o un clúster porque n
     4. Guarde el archivo de hosts y ciérrelo.
     5. Compruebe si el dispositivo puede conectarse a los hosts mediante la aplicación de administración del dispositivo. Después de 30 minutos, debería ver la información más reciente sobre estos hosts en Azure Portal.
 
+## <a name="application-discovery-issues"></a>Problemas de detección de aplicaciones
+
+La detección de aplicaciones solo se admite actualmente para máquinas virtuales de VMware. La compatibilidad con los servidores físicos y máquinas virtuales de Hyper-V se habilitará en el futuro.
+
+La detección de aplicaciones requiere que proporcione las credenciales de máquina virtual en el dispositivo, si no lo ha hecho, la detección de aplicaciones no funcionará. [Más información](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#assessment-vcenter-server-permissions) sobre los privilegios de acceso necesarios para vCenter Server y para las máquinas virtuales de VMware. Si ha proporcionado las credenciales de máquina virtual en el dispositivo y la detección de aplicaciones no se realiza correctamente, revise la siguiente tabla para identificar la causa del error y la acción de corrección:
+
+**Código de error** | **Mensaje** | **Causa posible** | **Acción recomendada**
+--- | --- | --- | ---
+10000 | No se pueden detectar las aplicaciones instaladas en el servidor. | Esto puede ocurrir si el sistema operativo que se ejecuta en el servidor no es Windows ni Linux. | La detección de aplicaciones instaladas solo se admite para servidores Windows y Linux.
+10001 | No se pueden recuperar las aplicaciones instaladas en el servidor. | Esto se debe a un error interno porque faltan archivos en el dispositivo. | Póngase en contacto con el soporte técnico de Microsoft.
+10002 | No se pueden recuperar las aplicaciones instaladas en el servidor. | Esto puede ocurrir si el agente de detección del dispositivo de Azure Migrate no funciona correctamente. | El problema debería resolverse automáticamente en 24 horas. Si el problema persiste, póngase en contacto con el soporte técnico de Microsoft.
+10003 | No se pueden recuperar las aplicaciones instaladas en el servidor. | Esto puede ocurrir si el agente de detección no funciona correctamente. | El problema debería resolverse automáticamente en 24 horas. Si el problema persiste, póngase en contacto con el soporte técnico de Microsoft.
+10004 | No se pueden detectar las aplicaciones instaladas para máquinas <Windows o Linux>. |  No se proporcionaron las credenciales para acceder a las máquinas <Windows o Linux> en el dispositivo de Azure Migrate. | Agregue una credencial en el dispositivo de Azure Migrate que tenga acceso a las máquinas <Windows o Linux>.
+10005 | No se puede obtener acceso al servidor local. | Esto puede ocurrir si las credenciales proporcionadas para que la máquina acceda al servidor no son correctas. | Actualice las credenciales proporcionadas en el dispositivo y asegúrese de que el servidor sea accesible con la credencial.
+10006 | No se puede obtener acceso al servidor local. | Esto puede ocurrir si el sistema operativo que se ejecuta en el servidor no es Windows ni Linux. | La detección de aplicaciones instaladas solo se admite para servidores Windows y Linux.
+9000 | No se pueden detectar las aplicaciones instaladas en la máquina virtual. | Es posible que las herramientas de VMware no estén instaladas o estén dañadas. | Instale o reinstale las herramientas de VMware en la máquina virtual y compruebe si se están ejecutando.
+9001 | No se pueden detectar las aplicaciones instaladas en la máquina virtual. | Es posible que las herramientas de VMware no estén instaladas o estén dañadas. | Instale o reinstale las herramientas de VMware en la máquina virtual y compruebe si se están ejecutando.
+9002 | No se pueden detectar las aplicaciones instaladas en la máquina virtual. | Es posible que las herramientas de VMware no estén en ejecución. | Instale o reinstale las herramientas de VMware en la máquina virtual y compruebe si se están ejecutando.
+9003 | No se pueden detectar las aplicaciones instaladas en el servidor. | Esto puede ocurrir si el sistema operativo que se ejecuta en el servidor no es Windows ni Linux. | La detección de aplicaciones instaladas solo se admite para servidores Windows y Linux.
+9004 | No se pueden detectar las aplicaciones instaladas en el servidor. | Esto puede ocurrir si la máquina virtual está apagada. | Para detectar las aplicaciones instaladas en el servidor, asegúrese de que la máquina virtual esté encendida.
+9005 | No se pueden detectar las aplicaciones instaladas en la máquina virtual. | Esto puede ocurrir si el sistema operativo que se ejecuta en la máquina virtual no es Windows ni Linux. | La detección de aplicaciones instaladas solo se admite para servidores Windows y Linux.
+9006 | No se pueden recuperar las aplicaciones instaladas en el servidor. | Esto puede ocurrir si el agente de detección no funciona correctamente. | El problema debería resolverse automáticamente en 24 horas. Si el problema persiste, póngase en contacto con el soporte técnico de Microsoft.
+9007 | No se pueden recuperar las aplicaciones instaladas en el servidor. | Esto puede ocurrir si el agente de detección no funciona correctamente. | El problema debería resolverse automáticamente en 24 horas. Si el problema persiste, póngase en contacto con el soporte técnico de Microsoft.
+9008 | No se pueden recuperar las aplicaciones instaladas en el servidor. | El problema puede producirse debido a un error interno.  | El problema debería resolverse automáticamente en 24 horas. Si el problema persiste, póngase en contacto con el soporte técnico de Microsoft.
+9009 | No se pueden recuperar las aplicaciones instaladas en el servidor. | El problema puede producirse si la configuración del Control de cuentas de usuario (UAC) de Windows en el servidor es restrictiva e impide la detección de las aplicaciones instaladas. | Busque la configuración "Control de cuentas de usuario" en el servidor y configure la opción de UAC en el servidor para que esté en uno de los dos niveles inferiores.
+9010 | No se pueden recuperar las aplicaciones instaladas en el servidor. | El problema puede producirse debido a un error interno.  | El problema debería resolverse automáticamente en 24 horas. Si el problema persiste, póngase en contacto con el soporte técnico de Microsoft.
+8084 | No se pueden detectar las aplicaciones debido a un error de VMware: <Exception from VMware> | El dispositivo de Azure Migrate usa las API de VMware para detectar aplicaciones. Este problema puede producirse debido a una excepción emitida por vCenter Server al intentar detectar las aplicaciones. El mensaje de error de VMware se muestra en el mensaje de error que aparece en el portal. | Revise la [documentación de VMware](https://pubs.vmware.com/vsphere-51/topic/com.vmware.wssdk.apiref.doc/index-faults.html), busque el mensaje de error y siga los pasos de solución de problemas del artículo de VMware para corregir el problema. Si sigue sin poder solucionar el problema, póngase en contacto con el soporte técnico de Microsoft.
 
 
 ## <a name="fix-assessment-readiness"></a>Revisión de la preparación de la evaluación
@@ -321,13 +348,11 @@ Server Assessment recopila continuamente datos de rendimiento de las máquinas e
 - Si quiere elegir el uso máximo para el período y no desea omitir ningún valor atípico, debe seleccionar el percentil 99 como percentil de uso.
 
 
-
 ## <a name="i-cant-find-dependency-visualization-for-azure-government"></a>No puedo encontrar la visualización de dependencias en Azure Government.
 
 Azure Migrate depende de Service Map para la funcionalidad de visualización de dependencias. Como Service Map actualmente no está disponible en Azure Government, esta funcionalidad no está disponible en Azure Government.
 
 ## <a name="dependencies-dont-show-after-installing-agents"></a>Las dependencias no se muestran después de instalar los agentes
-
 
 Después de instalar los agentes de visualización de dependencias en las máquinas virtuales locales, Azure Migrate suele tardar entre 15 y 30 minutos en mostrar las dependencias en el portal. Si ha esperado durante más de 30 minutos, asegúrese de que Microsoft Monitoring Agent (MMA) puede conectarse al área de trabajo de Log Analytics.
 

@@ -1,6 +1,6 @@
 ---
-title: Deshabilitar Azure Active Directory Domain Services | Microsoft Docs
-description: Obtenga información para deshabilitar Azure Active Directory Domain Services mediante Azure Portal
+title: Eliminar Azure Active Directory Domain Services | Microsoft Docs
+description: Obtenga información para deshabilitar o eliminar Azure Active Directory Domain Services mediante Azure Portal
 services: active-directory-ds
 author: iainfoulds
 manager: daveba
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 11/26/2019
 ms.author: iainfou
-ms.openlocfilehash: 05c4e73c56b79c6e313ea15124bd0f3d17b2fc70
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 9f0b8a438a7c236c5e016673a59bfb691e9c2152
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70842615"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546291"
 ---
-# <a name="disable-azure-active-directory-domain-services-using-the-azure-portal"></a>Deshabilitación de Azure Active Directory Domain Services mediante Azure Portal
+# <a name="delete-an-azure-active-directory-domain-services-managed-domain-using-the-azure-portal"></a>Obtenga información para deshabilitar o eliminar Azure Active Directory Domain Services mediante Azure Portal
 
 Si ya no necesita un dominio administrado, puede eliminar una instancia de Azure Active Directory Domain Services (Azure AD DS). No hay ninguna opción para desactivar o deshabilitar temporalmente un dominio administrado de Azure AD DS. Al eliminar el dominio administrado de Azure AD DS, no se elimina el inquilino de Azure AD y este no se ve afectado en modo alguno. En este artículo se muestra cómo usar Azure Portal para eliminar un dominio administrado de Azure AD DS.
 

@@ -11,12 +11,12 @@ ms.date: 03/27/2019
 ms.author: mabasile
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 2d0f92f7bf5b015a30e431354edb0c29f5e103f6
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: c6951ad129a564193a33a4c21fb97e9000ac8dc2
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74046431"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555430"
 ---
 # <a name="sql-data-warehouse-data-integration-partners"></a>Socios de integración de datos de SQL Data Warehouse
 Para crear la solución de almacenamiento de datos, elija entre una amplia variedad de herramientas líderes del sector. En este artículo se destacan las empresas asociadas de Microsoft con soluciones de integración de datos oficiales compatibles con Azure SQL Data Warehouse.
@@ -36,9 +36,10 @@ Para crear la solución de almacenamiento de datos, elija entre una amplia varie
 | ![Skyvia][11] |**Skyvia (integración de datos)**<br>La integración de datos de Skyvia proporciona un asistente que automatiza las importaciones de datos. Este asistente le permite migrar datos entre diferentes tipos de orígenes: CRMs, base de datos de la aplicación, archivos CSV y más. |[Página de producto][segment_website]<br> |
 | ![SnapLogic][6] |**SnapLogic**<br>La plataforma SnapLogic permite a los clientes transferir rápidamente datos desde y hacia Microsoft Azure SQL Data Warehouse. Ofrece la capacidad de integrar cientos de aplicaciones, servicios y escenarios de IoT en una única solución.|[Página de producto][snaplogic_website]<br>[Azure Marketplace][snaplogic_marketplace]<br> |
 | ![StreamSets][15] |**StreamSets**<br>StreamSets proporciona una plataforma de integración de datos para DataOps. Pone en marcha todo el ciclo de vida de diseño, implementación y operación de la integración de datos en Azure SQL Data Warehouse. No solo puede ingerir e integrar rápidamente datos en y desde el almacén, a través de los métodos de entrega de datos de captura de datos modificados, por lotes o streaming, sino que también garantiza operaciones continuas con canalizaciones de datos inteligentes que proporcionan resistencia y visibilidad del flujo de datos de un extremo a otro.|[Página de producto][streamsets_website]|
-| ![Talend][12] |**Talend Cloud**<br>Talend Cloud es una plataforma de integración de datos empresariales para conectar, acceder y transformar cualquier información en la nube o en las instalaciones. Se trata de una oferta de plataforma como servicio (iPaaS) que proporciona una amplia conectividad, calidad de datos integrada y soporte nativo para las tecnologías de nube más recientes y macrodatos |[Página de producto][talend_website]<br> [Azure Marketplace][talend_marketplace] |
-| ![Trifacta][13] |**Trifacta Wrangler**<br> Trifacta permite que los usuarios y las organizaciones a exploren y combinen datos diversos para el análisis. Trifacta Wrangler está diseñado para manejar cargas de trabajo de manipulación de datos que necesitan soportar datos a gran escala y un gran número de usuarios finales.|[Página de producto][trifacta_website]<br> [Azure Marketplace][trifacta_marketplace] |
-| ![WhereScape][14] |**Wherescape RED**<br> WhereScape RED es un entorno de desarrollo integrado que proporciona a los equipos herramientas de automatización para agilizar los flujos de trabajo de extracción, transformación y carga de datos. El entorno de desarrollo integrado proporciona procedimientos recomendados y código nativo optimizado para destinos de datos populares. Use WhereScape RED para reducir el tiempo para desarrollar, implementar y usar su infraestructura de datos.|[Página de producto][wherescape_website]<br> [Azure Marketplace][wherescape_marketplace] |
+| ![Talend][12] |**Talend Cloud**<br>Talend Cloud es una plataforma de integración de datos empresariales para conectar, acceder y transformar cualquier información en la nube o en las instalaciones. Se trata de una oferta de plataforma como servicio (iPaaS) que proporciona una amplia conectividad, calidad de datos integrada y soporte nativo para las tecnologías de nube más recientes y macrodatos. |[Página de producto][talend_website]<br> [Azure Marketplace][talend_marketplace] |
+| ![TimeXtender][13] |**TimeXtender**<br>El Centro de detección de TimeXtender ayuda a las empresas a crear un control de datos moderno mediante la provisión de una plataforma de administración de datos integrada que acelera hasta 10 veces el tiempo para obtener información de datos. Va más allá de la extracción, transformación y carga de datos (ETL) o la extracción, carga y transformación (ELT) diarias al proporcionar automatización y capacidades para el acceso a datos, el modelado de datos y el cumplimiento en una única plataforma. El Centro de detección proporciona un tejido de datos coherente para el análisis de escala en la nube, lo que permite conectar e integrar varios silos de datos, catalogar, modelar, trasladar y documentar datos para análisis e inteligencia artificial. | [Página de producto][timextender_website] |
+| ![Trifacta][14] |**Trifacta Wrangler**<br> Trifacta permite que los usuarios y las organizaciones a exploren y combinen datos diversos para el análisis. Trifacta Wrangler está diseñado para manejar cargas de trabajo de manipulación de datos que necesitan soportar datos a gran escala y un gran número de usuarios finales.|[Página de producto][trifacta_website]<br> [Azure Marketplace][trifacta_marketplace] |
+| ![WhereScape][15] |**Wherescape RED**<br> WhereScape RED es un entorno de desarrollo integrado que proporciona a los equipos herramientas de automatización para agilizar los flujos de trabajo de extracción, transformación y carga de datos. El entorno de desarrollo integrado proporciona procedimientos recomendados y código nativo optimizado para destinos de datos populares. Use WhereScape RED para reducir el tiempo para desarrollar, implementar y usar su infraestructura de datos.|[Página de producto][wherescape_website]<br> [Azure Marketplace][wherescape_marketplace] |
 
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -64,9 +65,10 @@ Para más información sobre otros asociados, consulte [Asociados de inteligenci
 [10]: ./media/sql-data-warehouse-partner-data-integration/segment_logo.png
 [11]: ./media/sql-data-warehouse-partner-data-integration/skyvia_logo.png
 [12]: ./media/sql-data-warehouse-partner-data-integration/talend_logo.png
-[13]: ./media/sql-data-warehouse-partner-data-integration/trifacta_logo.png
-[14]: ./media/sql-data-warehouse-partner-data-integration/wherescape_logo.png
-[15]: ./media/sql-data-warehouse-partner-data-integration/streamsets_logo.png
+[13]: ./media/sql-data-warehouse-partner-data-integration/timextender-logo.png
+[14]: ./media/sql-data-warehouse-partner-data-integration/trifacta_logo.png
+[15]: ./media/sql-data-warehouse-partner-data-integration/wherescape_logo.png
+[16]: ./media/sql-data-warehouse-partner-data-integration/streamsets_logo.png
 
 
 
@@ -86,6 +88,7 @@ Para más información sobre otros asociados, consulte [Asociados de inteligenci
 [segment_website]:https://segment.com/
 [skyvia_website]:https://skyvia.com/
 [talend_website]:https://www.talend.com/
+[timextender_website]:https://www.timextender.com/
 [trifacta_website]:https://www.trifacta.com/
 [wherescape_website]:https://www.wherescape.com/
 [streamsets_website]:https://streamsets.com/partners/microsoft

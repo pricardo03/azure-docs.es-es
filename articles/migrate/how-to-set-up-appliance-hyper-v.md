@@ -1,17 +1,17 @@
 ---
-title: Configuración de un dispositivo para Azure Migrate Server Assessment/Migration para VM de Hyper-V | Microsoft Docs
-description: Describe cómo configurar un dispositivo para la detección, evaluación y migración sin agente de VM de Hyper-V mediante Azure Migrate Server Assessment/Migration.
+title: Configurar un dispositivo de Azure Migrate para Hyper-V
+description: Obtenga información sobre cómo configurar un dispositivo de Azure Migrate para evaluar y migrar VM de Hyper-V.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 07/08/2019
+ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: c531fe49ebff6c021547c2d1c2f382bcd6c9caef
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: a94d11d48728b03dd978af85db4b6c2af4887938
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67810211"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74534501"
 ---
 # <a name="set-up-an-appliance-for-hyper-v-vms"></a>Configuración de un dispositivo para VM de Hyper-V
 
@@ -29,7 +29,7 @@ El dispositivo de VM de Hyper-V es un dispositivo ligero que Azure Migrate Serve
 
 Para configurar el dispositivo:
 - Descargue un disco duro virtual de Hyper-V comprimido desde Azure Portal.
-- Cree el dispositivo y compruebe que se puede conectar a Azure Migrate Server Assessment. 
+- Cree el dispositivo y compruebe que se puede conectar a Azure Migrate Server Assessment.
 - Configure el dispositivo por primera vez y regístrelo en el proyecto de Azure Migrate.
 
 ## <a name="download-the-vhd"></a>Descarga del disco duro virtual
@@ -50,16 +50,17 @@ Compruebe que el archivo comprimido es seguro, antes de implementarlo.
 1. En la máquina en la que descargó el archivo, abra una ventana de comandos de administrador.
 2. Ejecute el siguiente comando para generar el código hash del disco duro virtual.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Ejemplo de uso: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3.  El código hash generado debe coincidir con esta configuración para la versión 1.19.05.10 del dispositivo.
+    - Ejemplo de uso: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.vhd SHA256```
+3.  El código hash generado debe coincidir con esta configuración para la versión 2.19.11.12 del dispositivo.
 
   **Algoritmo** | **Valor del código hash**
   --- | ---
-  SHA256 | 598d2e286f9c972bb7f7382885e79e768eddedfe8a3d3460d6b8a775af7d7f79
+  MD5 | 29a7531f32bcf69f32d964fa5ae950bc
+  SHA256 | 37b3f27bc44f475872e355f04fcb8f38606c84534c117d1609f2d12444569b31
 
 
-  
-## <a name="create-the-appliance-vm"></a>Creación de la VM del dispositivo
+
+## <a name="create-the-appliance-vm"></a>Creación de la máquina virtual del dispositivo
 
 Importe el archivo descargado y cree la VM.
 
@@ -81,7 +82,7 @@ Importe el archivo descargado y cree la VM.
 
 ### <a name="verify-appliance-access-to-azure"></a>Verificación de que el dispositivo puede acceder a Azure
 
-Asegúrese de que la VM del dispositivo se puede conectar a las [direcciones URL de Azure](migrate-support-matrix-hyper-v.md#assessment-appliance-url-access).
+Asegúrese de que la máquina virtual del dispositivo se puede conectar a las [direcciones URL de Azure](migrate-support-matrix-hyper-v.md#assessment-appliance-url-access).
 
 ## <a name="configure-the-appliance"></a>Configuración del dispositivo
 
@@ -89,12 +90,12 @@ Configure el dispositivo por primera vez.
 
 1. En Administrador de Hyper-V > **Máquinas virtuales**, haga clic con el botón derecho en la VM > **Conectar**.
 2. Especifique el idioma, la zona horaria y la contraseña del dispositivo.
-3. Abra un explorador en cualquier equipo que pueda conectarse a la VM y abra la dirección URL de la aplicación web del dispositivo: **https://*nombre o dirección IP del dispositivo*: 44368**.
+3. Abra un explorador en cualquier equipo que pueda conectarse a la máquina virtual y abra la dirección URL de la aplicación web del dispositivo: **https://*nombre o dirección IP del dispositivo*: 44368**.
 
    Como alternativa, puede abrir la aplicación desde el escritorio del dispositivo, para lo que debe hacer clic en el acceso directo de la aplicación.
 1. En la aplicación web > **Set up prerequisites** (Configurar los requisitos previos ), realice las siguientes operaciones:
     - **License** (Licencia): Acepte los términos de licencia y lea la información de terceros.
-    - **Connectivity** (Conectividad): La aplicación comprueba que la VM tiene acceso a Internet. Si la VM usa un proxy:
+    - **Connectivity** (Conectividad): la aplicación comprueba que la máquina virtual tiene acceso a Internet. Si la máquina virtual usa un proxy:
         - Haga clic en **Configuración de proxy** y especifique el puerto de escucha y la dirección del proxy con los formatos http://ProxyIPAddress o http://ProxyFQDN.
         - Especifique las credenciales si el proxy requiere autenticación.
         - Solo se admite un proxy HTTP.
@@ -104,7 +105,7 @@ Configure el dispositivo por primera vez.
 ### <a name="register-the-appliance-with-azure-migrate"></a>Registro del dispositivo en Azure Migrate
 
 1. Haga clic en **Iniciar sesión**. Si no aparece, asegúrese de que ha deshabilitado el bloqueador de elementos emergentes en el explorador.
-2. En la pestaña nueva, inicie sesión con sus credenciales de Azure. 
+2. En la pestaña nueva, inicie sesión con sus credenciales de Azure.
     - Inicie sesión con su nombre de usuario y contraseña.
     - No se admite el inicio de sesión con un PIN.
 3. Después de iniciar sesión correctamente, vuelva a la aplicación web.
@@ -142,14 +143,14 @@ Conéctese desde el dispositivo a los hosts o clústeres de Hyper-V e inicie la 
     - Puede agregar un clúster, incluso si hay problemas con hosts específicos del clúster.
 4. Después de la validación, haga clic en **Guardar e iniciar la detección** para iniciar el proceso de detección.
 
-De esta forma comienza la detección. Los metadatos de las VM detectadas tardan unos 15 minutos en aparecer en Azure Portal. 
+De esta forma comienza la detección. Los metadatos de las VM detectadas tardan unos 15 minutos en aparecer en Azure Portal.
 
 ## <a name="verify-vms-in-the-portal"></a>Comprobación de VM en el portal
 
 Una vez finalizada la detección, puede verificar que las VM aparezcan en el portal.
 
 1. Abra el panel de Azure Migrate.
-2. En la página **Azure Migrate - Servidores** > **Azure Migrate: Server Assessment**, haga clic en el icono que muestra el número de **servidores detectados**. 
+2. En la página **Azure Migrate - Servidores** > **Azure Migrate: Server Assessment**, haga clic en el icono que muestra el número de **servidores detectados**.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

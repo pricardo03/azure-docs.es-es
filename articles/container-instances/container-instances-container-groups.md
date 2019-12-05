@@ -1,26 +1,21 @@
 ---
-title: Grupos de contenedores de Azure Container Instances
-description: Descripción del funcionamiento de los grupos de varios contenedores en Azure Container Instances
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
+title: Introducción a los grupos de contenedores
+description: Obtenga información sobre los grupos de contenedores de Azure Container Instances, una colección de instancias que comparten un ciclo de vida y recursos, como el almacenamiento y la red.
 ms.topic: article
 ms.date: 11/01/2019
-ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: a785ecbfa09c54d3affa97c220d4808f9fe8d90b
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 9fbf9fea7da0896ee6c0e248d18e18d52798fbd7
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73904445"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74482110"
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Grupos de contenedores en Azure Container Instances
 
 El recurso de nivel superior de Azure Container Instances es el *grupo de contenedores*. Este artículo describe qué son los grupos de contenedores y qué tipos de escenarios permiten.
 
-## <a name="how-a-container-group-works"></a>Cómo funciona un grupo de contenedores
+## <a name="what-is-a-container-group"></a>¿Qué es un grupo de contenedores?
 
 Un grupo de contenedores es una colección de contenedores que se programan en la misma máquina host. Los contenedores de un grupo comparten un ciclo de vida, los recursos, la red local y los volúmenes de almacenamiento. Es similar al concepto de *pod* en [Kubernetes][kubernetes-pod].
 

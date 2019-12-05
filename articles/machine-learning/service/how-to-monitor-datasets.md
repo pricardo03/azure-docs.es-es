@@ -10,12 +10,12 @@ ms.reviewer: nibaccam
 ms.author: copeters
 author: lostmygithubaccount
 ms.date: 11/04/2019
-ms.openlocfilehash: 24b9b120240ffc6f7dd2252d12c9f8af2bcfafbc
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: 10532ba2b43e40c4ffa2990e924947046d03b576
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74049169"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74539202"
 ---
 # <a name="detect-data-drift-preview-on-datasets"></a>Detección del desfase de datos (versión preliminar) en los conjuntos de datos
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -65,11 +65,11 @@ Escenario | DESCRIPCIÓN
 ---|---
 Supervisión de datos de servicio de un modelo para el desfase de los datos de entrenamiento del modelo | Los resultados de este escenario se pueden interpretar como la supervisión de un proxy para la precisión del modelo, dado que la precisión del modelo se degrada si los datos de servicio se desfasan de los datos de entrenamiento.
 Supervisión de un conjunto de datos de una serie temporal para el desfase desde un período de tiempo anterior. | Este escenario es más general y se puede usar para supervisar los conjuntos de datos implicados en el flujo ascendente o descendente de la creación del modelo.  El conjunto de elementos de destino debe tener una columna de marca de tiempo, mientras que el conjunto de datos de referencia puede ser cualquier conjunto de datos tabular que tenga características en común con el conjunto de datos de destino.
-Análisis de datos pasados. | Se puede utilizar para comprender los datos históricos e informar de las decisiones en la configuración de los monitores de conjunto de datos.
+Análisis de datos pasados. | Este escenario se puede utilizar para comprender los datos históricos e informar de las decisiones en la configuración de los monitores de conjunto de datos.
 
 ## <a name="how-dataset-can-monitor-data"></a>Supervisión de datos por parte del conjunto de datos
 
-Al usar Azure Machine Learning, el desfase de datos se supervisa a través de conjuntos de datos. Para supervisar el desfase de datos, se especifica un conjunto de datos de base de referencia, normalmente el conjunto de datos de entrenamiento para un modelo. Un conjunto de datos de destino (normalmente datos de entrada del modelo) con el tiempo se compara con el conjunto de datos de referencia. Esto significa que el conjunto de datos de destino debe tener especificada una columna de marca de tiempo.
+Al usar Azure Machine Learning, el desfase de datos se supervisa a través de conjuntos de datos. Para supervisar el desfase de datos, se especifica un conjunto de datos de base de referencia, normalmente el conjunto de datos de entrenamiento para un modelo. Un conjunto de datos de destino (normalmente datos de entrada del modelo) con el tiempo se compara con el conjunto de datos de referencia. Esta comparación significa que el conjunto de datos de destino debe tener especificada una columna de marca de tiempo.
 
 ### <a name="set-the-timeseries-trait-in-the-target-dataset"></a>Establecimiento del rasgo `timeseries` en el conjunto de datos de destino
 
@@ -133,9 +133,9 @@ Esta tabla contiene la configuración básica usada para el monitor de conjunto 
 | ------- | ----------- | ---- | ------- | 
 | NOMBRE | Nombre del monitor del conjunto de datos. | | Sin |
 | Conjunto de datos de referencia | Conjunto de datos tabular que se usará como referencia para la comparación del conjunto de datos de destino a lo largo del tiempo. | El conjunto de datos de referencia debe compartir características con el conjunto de datos de destino. Por lo general, la referencia debe establecerse en el conjunto de datos de entrenamiento del modelo o en un segmento del conjunto de datos de destino. | Sin |
-| Conjunto de datos de destino | Conjunto de datos de destino con columna de marca de tiempo especificada, que se analizará para el desfase de datos | El conjunto de datos de destino debe compartir características con el de referencia y debe ser un conjunto de datos de `timeseries` al que se anexan los nuevos datos. Los datos históricos del conjunto de datos de destino se pueden analizar o se pueden supervisar nuevos datos. | Sin | 
-| Frecuencia | Esta es la frecuencia que se usará para programar el trabajo de canalización y analizar los datos históricos si se ejecuta una reposición. Puede ser diario, semanal o mensual. | Ajuste esta opción para incluir un tamaño comparable de los datos en la referencia. | Sin | 
-| Características | Lista de características que se analizarán para el desfase de datos a lo largo del tiempo | Establézcalas en las características de salida de un modelo para medir el desfase del concepto. No incluya características que se desfasan de forma natural a lo largo del tiempo (mes, año, índice, etc.). Puede reposicionar el monitor de desfase de datos existente después de ajustar la lista de características. | Sí | 
+| Conjunto de datos de destino | Conjunto de datos tabular con columna de marca de tiempo especificada, que se analizará para el desfase de datos. | El conjunto de datos de destino debe compartir características con el de referencia y debe ser un conjunto de datos de `timeseries` al que se anexan los nuevos datos. Los datos históricos del conjunto de datos de destino se pueden analizar o se pueden supervisar nuevos datos. | Sin | 
+| Frecuencia | Frecuencia que se usará para programar el trabajo de canalización y analizar los datos históricos si se ejecuta una reposición. Puede ser diario, semanal o mensual. | Ajuste esta opción para incluir un tamaño comparable de los datos en la referencia. | Sin | 
+| Características | Lista de características que se analizarán para el desfase de datos a lo largo del tiempo. | Establézcalas en las características de salida de un modelo para medir el desfase del concepto. No incluya características que se desfasan de forma natural a lo largo del tiempo (mes, año, índice, etc.). Puede reposicionar el monitor de desfase de datos existente después de ajustar la lista de características. | Sí | 
 | Destino de proceso | Destino de proceso de Azure Machine Learning para ejecutar los trabajos del monitor de conjunto de datos. | | Sí | 
 
 ### <a name="monitor-settings"></a>Configuración del monitor
@@ -144,8 +144,8 @@ Esta configuración es para la canalización del monitor de conjunto de datos pr
 
 | Configuración | DESCRIPCIÓN | Sugerencias | Mutable | 
 | ------- | ----------- | ---- | ------- |
-| Habilitar | Habilitar o deshabilitar la programación en la canalización del monitor de conjunto de datos | Deshabilite esta opción para analizar los datos históricos con la configuración de reposición. Se puede habilitar una vez creado el monitor de conjunto de datos. | Sí | 
-| Latencia | Tiempo, en horas, para que lleguen los datos en el conjunto de datos. Por ejemplo, si los datos tardan tres días en llegar a la base de datos SQL, mi conjunto de datos se encapsula, establezca la latencia en 72. | No se puede cambiar una vez creado el monitor de conjunto de datos | Sin | 
+| Habilitar | Habilitar o deshabilitar la programación en la canalización del monitor de conjunto de datos | Deshabilite esta programación para analizar los datos históricos con la configuración de reposición. Se puede habilitar una vez creado el monitor de conjunto de datos. | Sí | 
+| Latencia | Tiempo, en horas, para que lleguen los datos en el conjunto de datos. Por ejemplo, si los datos tardan tres días en llegar a la instancia de SQL DB en la que se encapsula el conjunto de datos, establezca la latencia en 72. | No se puede cambiar una vez creado el monitor de conjunto de datos | Sin | 
 | Direcciones de correo | Direcciones de correo para alertas en función de la brecha del umbral de porcentaje del desfase de datos. | Los correos se envían a través de Azure Monitor. | Sí | 
 | Umbral | Umbral de porcentaje de desfase de datos para alertas de correo. | Se pueden establecer más alertas y eventos en muchas otras métricas del recurso de Application Insights asociado del área de trabajo. | Sí | 
 
@@ -156,7 +156,7 @@ Estos valores son para ejecutar una reposición en los datos pasados de las mét
 | Configuración | DESCRIPCIÓN | Sugerencias |
 | ------- | ----------- | ---- |
 | Fecha de inicio | Fecha de inicio del trabajo de reposición. | | 
-| Fecha de finalización | Fecha de finalización del trabajo de reposición. | No puede ser superior a 31 * unidades de tiempo de frecuencia desde la fecha de inicio. En un monitor de conjunto de datos existente, las métricas se pueden reposicionar para analizar datos históricos o reemplazar métricas con la configuración actualizada. |
+| Fecha de finalización | Fecha de finalización del trabajo de reposición. | La fecha de finalización no puede ser superior a 31 * unidades de tiempo de frecuencia desde la fecha de inicio. En un monitor de conjunto de datos existente, las métricas se pueden reposicionar para analizar datos históricos o reemplazar métricas con la configuración actualizada. |
 
 ## <a name="create-dataset-monitors"></a>Creación de monitores de conjunto de datos 
 
@@ -181,7 +181,7 @@ El monitor de conjunto de datos aparecerá en la lista. Selecciónelo para ir a 
 
 Consulte la [Documentación de referencia de Python SDK sobre el desfase de datos](/python/api/azureml-datadrift/azureml.datadrift) para obtener información completa. 
 
-El siguiente es un ejemplo de creación de un monitor de conjunto de datos mediante el SDK de Python
+En el siguiente ejemplo se muestra cómo crear un monitor de conjunto de datos mediante el SDK de Python
 
 ```python
 from azureml.core import Workspace, Dataset
@@ -252,7 +252,7 @@ La imagen siguiente es un ejemplo de gráficos que se muestran en los resultados
 
 La sección **Detalles de las características** contiene información a nivel de características sobre el cambio en la distribución de la característica seleccionada, así como otras estadísticas, a lo largo del tiempo. 
 
-El conjunto de datos de destino también se perfila a lo largo del tiempo. La distancia estadística entre la distribución de la línea base de cada característica se compara con el del conjunto de datos de destino a lo largo del tiempo, que es conceptualmente similar a la magnitud del desfase de datos, con la excepción de que se trata de una característica individual. También están disponibles Mín, Máx y Media. 
+El conjunto de datos de destino también se perfila a lo largo del tiempo. La distancia estadística entre la distribución de la línea base de cada característica se compara con la del conjunto de datos de destino a lo largo del tiempo, que es conceptualmente similar a la magnitud del desfase de datos, con la excepción de que se trata de una característica individual. También están disponibles Mín, Máx y Media. 
 
 En el Azure Machine Learning Studio, si hace clic en un punto de datos del gráfico, la distribución de la característica que se muestra se ajustará en consecuencia. De forma predeterminada, muestra la distribución del conjunto de datos de referencia y la distribución de la ejecución más reciente de la misma característica. 
 
@@ -295,7 +295,7 @@ Seleccione Registros (Analytics) en Supervisión, en el panel izquierdo:
 
 ![Información general de Application Insights](media/how-to-monitor-datasets/ai-overview.png)
 
-Las métricas del monitor de conjuntos de datos se almacenan como `customMetrics`. Para verlas, puede escribir y ejecutar una consulta sencilla después de configurar un monitor de conjuntos de datos:
+Las métricas del monitor de conjuntos de datos se almacenan como `customMetrics`. Para verlas, puede escribir y ejecutar una consulta después de configurar un monitor de conjuntos de datos:
 
 [![Consulta de Log Analytics](media/how-to-monitor-datasets/simple-query.png)](media/how-to-monitor-datasets/simple-query-expanded.png)
 
@@ -321,7 +321,7 @@ Las columnas, o características, del conjunto de datos se clasifican como categ
 | Tipo de característica | Tipo de datos | Condición | Limitaciones | 
 | ------------ | --------- | --------- | ----------- |
 | Categorías | string, bool, int, float | El número de valores únicos de la característica es menor que 100 y menor que el 5 % del número de filas. | NULL se trata como su propia categoría. | 
-| Numérico | int, float | De un tipo de datos numéricos y no cumple las condiciones de una característica de categoría. | Característica quitada si más del 15 % de los valores son NULL. | 
+| Numérico | int, float | Los valores de la característica son de un tipo de datos numérico y no cumplen la condición de una característica de categoría. | Característica quitada si más del 15 % de los valores son NULL. | 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

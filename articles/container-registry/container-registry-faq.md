@@ -1,19 +1,16 @@
 ---
-title: 'Azure Container Registry: preguntas más frecuentes'
+title: Preguntas más frecuentes
 description: Respuestas a las preguntas más frecuentes relacionadas con el servicio Azure Container Registry
-services: container-registry
 author: sajayantony
-manager: gwallace
-ms.service: container-registry
 ms.topic: article
 ms.date: 07/02/2019
 ms.author: sajaya
-ms.openlocfilehash: 88c4b2065576bd5bdcb29a266bd564c60b0e537c
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 1f2c79b47df4cf44b6fa3981bac4a5a3bf61c4df
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73622702"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74456389"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Preguntas más frecuentes sobre Azure Container Registry
 
@@ -256,11 +253,13 @@ La cuarentena de imágenes actualmente es una característica de versión prelim
 - [Comprobación de mantenimiento con `az acr check-health`](#check-health-with-az-acr-check-health)
 - [Se produce este error en el comando docker pull: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers) [net/http: la solicitud se canceló mientras se esperaba la conexión (Client.Timeout excedido mientras se esperan los encabezados)]](#docker-pull-fails-with-error-nethttp-request-canceled-while-waiting-for-connection-clienttimeout-exceeded-while-awaiting-headers)
 - [El comando docker push se ha ejecutado correctamente pero docker pull ha producido el siguiente error: unauthorized: authentication required (no autorizado: se necesita autorización)](#docker-push-succeeds-but-docker-pull-fails-with-error-unauthorized-authentication-required)
+- [`az acr login` se ha ejecutado correctamente, pero los comandos docker han producido el siguiente error: unauthorized: authentication required (no autorizado: se necesita autorización)](#az-acr-login-succeeds-but-docker-fails-with-error-unauthorized-authentication-required)
 - [Habilitación y obtención de los registros de depuración del demonio de Docker](#enable-and-get-the-debug-logs-of-the-docker-daemon) 
 - [Los nuevos permisos de usuario pueden no ser efectivos inmediatamente después de la actualización.](#new-user-permissions-may-not-be-effective-immediately-after-updating)
 - [La información de autenticación no se proporciona en el formato correcto en las llamadas a la API REST directas.](#authentication-information-is-not-given-in-the-correct-format-on-direct-rest-api-calls)
 - [¿Por qué Azure Portal no muestra todos los repositorios o etiquetas?](#why-does-the-azure-portal-not-list-all-my-repositories-or-tags)
 - [¿Por qué Azure Portal no captura repositorios ni etiquetas?](#why-does-the-azure-portal-fail-to-fetch-repositories-or-tags)
+- [¿Por qué se produce un error de operación no permitida en la solicitud de extracción o de inserción?](#why-does-my-pull-or-push-request-fail-with-disallowed-operation)
 - [¿Cómo se pueden recopilar los seguimientos http en Windows?](#how-do-i-collect-http-traces-on-windows)
 
 ### <a name="check-health-with-az-acr-check-health"></a>Comprobación de mantenimiento con `az acr check-health`
@@ -318,6 +317,10 @@ Para resolver el error:
   ```
 
 Para encontrar los detalles de `--signature-verification`, ejecute `man dockerd`.
+
+### <a name="az-acr-login-succeeds-but-docker-fails-with-error-unauthorized-authentication-required"></a>az acr login se ha ejecutado correctamente, pero docker ha producido el error: no autorizado: se necesita autorización
+
+Asegúrese de usar una dirección URL de servidor en minúsculas, por ejemplo, `docker push myregistry.azurecr.io/myimage:latest`, incluso si el nombre de recurso del registro está en mayúsculas o en mayúsculas y minúsculas, como `myRegistry`.
 
 ### <a name="enable-and-get-the-debug-logs-of-the-docker-daemon"></a>Habilitación y obtención de los registros de depuración del demonio de Docker  
 
@@ -421,6 +424,13 @@ Es posible que el explorador no pueda enviar la solicitud para capturar reposito
 * Errores de DNS
 
 Póngase en contacto con el administrador de red o compruebe la configuración y la conectividad de la red. Intente ejecutar `az acr check-health -n yourRegistry` mediante la CLI de Azure para comprobar si el entorno puede conectarse a Azure Container Registry. Además, también puede probar una sesión de incógnito o privada en el explorador para evitar cookies o memoria caché del explorador obsoletas.
+
+### <a name="why-does-my-pull-or-push-request-fail-with-disallowed-operation"></a>¿Por qué se produce un error de operación no permitida en la solicitud de extracción o de inserción?
+
+Estos son algunos escenarios en los que es posible que no se permitan operaciones:
+* Ya no se admiten los registros clásicos. Actualice a una [SKU](https://aka.ms/acr/skus) compatible mediante [az acr update](https://docs.microsoft.com/cli/azure/acr?view=azure-cli-latest#az-acr-update) o Azure Portal.
+* Es posible que la imagen o el repositorio estén bloqueados para que no se puedan eliminar ni actualizar. Puede usar el comando [az acr show repository](https://docs.microsoft.com/azure/container-registry/container-registry-image-lock) para ver los atributos actuales.
+* Algunas operaciones no se permiten si la imagen está en cuarentena. Más información sobre la [cuarentena](https://github.com/Azure/acr/tree/master/docs/preview/quarantine).
 
 ### <a name="how-do-i-collect-http-traces-on-windows"></a>¿Cómo se pueden recopilar los seguimientos http en Windows?
 

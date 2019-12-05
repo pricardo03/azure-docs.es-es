@@ -1,19 +1,14 @@
 ---
-title: Uso de una línea de comandos de inicio en Azure Container Instances
-description: Invalidación del punto de entrada configurado en una imagen de contenedor cuando se implementa una instancia de contenedor de Azure
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
+title: Reemplazar el punto de entrada en la instancia de contenedor
+description: Establecer una línea de comandos para reemplazar el punto de entrada de una imagen de contenedor cuando se implementa una instancia de contenedor de Azure
 ms.topic: article
 ms.date: 04/15/2019
-ms.author: danlep
-ms.openlocfilehash: 40d946db48a65452d2da529098c07d0d0c60d472
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: d9554603f78a07fa44af51d8f39a91e1b3c39f70
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619668"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533401"
 ---
 # <a name="set-the-command-line-in-a-container-instance-to-override-the-default-command-line-operation"></a>Establecimiento de la línea de comandos en una instancia de contenedor para invalidar la operación de línea de comandos predeterminada
 

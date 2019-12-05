@@ -1,19 +1,14 @@
 ---
-title: 'Plantillas de ejemplo de Azure Resource Manager: Azure Container Instances'
-description: Plantillas de ejemplo de Azure Resource Manager para Azure Container Instances
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
+title: Ejemplos de plantillas de Azure Resource Manager
+description: Busque ejemplos de plantillas de Azure Resource Manager para implementar Azure Container Instances en distintas configuraciones.
 ms.topic: article
 ms.date: 03/07/2019
-ms.author: danlep
-ms.openlocfilehash: 2089f024e1de2e92f6e401549c5876e26db17ebb
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: ddea823525002662363d61a795f34d6094c897d0
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325690"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533437"
 ---
 # <a name="azure-resource-manager-templates-for-azure-container-instances"></a>Plantillas de Azure Resource Manager para Azure Container Instances
 

@@ -1,6 +1,6 @@
 ---
 title: Guía de solución de problemas de Azure Security Center | Microsoft Docs
-description: Este documento ayuda a solucionar problemas en Azure Security Center.
+description: Esta guía está destina a profesionales de TI, analistas de seguridad y administradores de la nube para solucionar problemas relacionados con Azure Security Center.
 services: security-center
 author: v-miegge
 manager: dcscontentpm
@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 073e500028634e3c35a482d8efc5f9ae169145e3
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: b9650c3c30d95c85f505b640564ff416931676ea
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71257696"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74559205"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Guía de solución de problemas de Azure Security Center
 
@@ -62,7 +62,7 @@ Security Center usa Microsoft Monitoring Agent, que es el mismo agente que usa e
 
 Si abre la consola de administración de servicios (services.msc), también verá el servicio Microsoft Monitoring Agent que se ejecuta como se muestra a continuación:
 
-![Services](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig5.png)
+![Servicios](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig5.png)
 
 Para ver qué versión del agente tiene, abra **Administrador de tareas**, en la pestaña **Procesos** busque el servicio **Microsoft Monitoring Agent**, haga clic en él con el botón derecho y haga clic en **Propiedades**. En la pestaña **Detalles**, examine la versión del archivo tal y como se muestra a continuación:
 
@@ -74,7 +74,7 @@ Existen dos escenarios de instalación que pueden producir resultados diferentes
 
 * **Agente instalado automáticamente por Security Center**: en este escenario podrá ver las alertas en ambas ubicaciones: Security Center y la búsqueda de registros. Recibirá notificaciones por correo electrónico a la dirección que configuró en la directiva de seguridad para la suscripción a la que pertenece el recurso.
 
-* **Agente instalado manualmente en una máquina virtual ubicada en Azure**: en este escenario, si está usando los agentes descargados e instalados antes de febrero de 2017, puede ver las alertas en el portal de Security Center solo si filtra por la suscripción a la que pertenece el área de trabajo. Si filtra por la suscripción a la que pertenece el recurso, no podrá ver ninguna alerta. Recibirá notificaciones por correo electrónico a la dirección que configuró en la directiva de seguridad para la suscripción a la que pertenece el área de trabajo.
+* **Agente instalado manualmente en una VM ubicada en Azure**: en este escenario, si está usando los agentes descargados e instalados antes de febrero de 2017, puede ver las alertas en el portal de Security Center solo si filtra por la suscripción a la que pertenece el área de trabajo. Si filtra por la suscripción a la que pertenece el recurso, no podrá ver ninguna alerta. Recibirá notificaciones por correo electrónico a la dirección que configuró en la directiva de seguridad para la suscripción a la que pertenece el área de trabajo.
 
 > [!NOTE]
 > Para evitar el comportamiento explicado en el segundo caso, asegúrese de descargar la versión más reciente del agente.
@@ -83,11 +83,11 @@ Existen dos escenarios de instalación que pueden producir resultados diferentes
 
 **Estado de supervisión** define el motivo por el que Security Center no puede supervisar correctamente las máquinas virtuales y los equipos inicializados para el aprovisionamiento automático. La tabla siguiente muestra los valores, las descripciones y los pasos de resolución de **Estado de supervisión**.
 
-| Estado de supervisión | DESCRIPCIÓN | Pasos de la solución |
+| Estado de supervisión | Descripción | Pasos de resolución |
 |---|---|---|
 | Instalación del agente pendiente | La instalación de Microsoft Monitoring Agent aún está en ejecución.  La instalación puede tardar unas horas. | Espere hasta que finalice la instalación automática. |
-| Estado de energía: desactivado | La máquina virtual está detenida.  Microsoft Monitoring Agent solo puede instalarse en una máquina virtual que está en ejecución. | Reinicie la máquina virtual. |
-| Falta el agente de máquinas virtuales de Azure o este no es válido | Microsoft Monitoring Agent no está instalado aún.  Es necesario un agente de máquina virtual de Azure válido para que Security Center instale la extensión. | Instale, reinstale o actualice el agente de máquinas virtuales de Azure en la máquina virtual. |
+| Estado de energía: desactivado | La VM está detenida.  Microsoft Monitoring Agent solo puede instalarse en una máquina virtual que está en ejecución. | Reinicie la VM. |
+| Falta el agente de VM de Azure o no es válido | Microsoft Monitoring Agent no está instalado aún.  Es necesario un agente de VM de Azure válido para que Security Center instale la extensión. | Instale, reinstale o actualice el agente de VM de Azure en la VM. |
 | Estado de máquina virtual no preparada para la instalación  | Microsoft Monitoring Agent no está instalado todavía porque la máquina virtual no está lista para la instalación. La máquina virtual no está lista para la instalación debido a un problema con el agente de la máquina virtual o con el aprovisionamiento de máquinas virtuales. | Compruebe el estado de la máquina virtual. Vuelva a **Máquinas virtuales** en el portal y seleccione la máquina virtual para obtener información del estado. |
 |Error de instalación: error general | Microsoft Monitoring Agent se instaló pero se ha producido a un error. | [Instale manualmente la extensión](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension) o desinstale la extensión para que Security Center intente instalarla de nuevo. |
 | Error de instalación: agente local ya instalado | No se pudo instalar Microsoft Monitoring Agent. Security Center ha identificado que un agente local (Log Analytics o System Center Operations Manager) ya está instalado en la máquina virtual. Para evitar la configuración del hospedaje múltiple, en la que la máquina virtual informa a dos áreas de trabajo independientes, se detiene la instalación de Microsoft Monitoring Agent. | Hay dos maneras de resolverlo: [instalar manualmente la extensión](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension) y conectarla al área de trabajo deseada. O bien, establecer el área de trabajo deseada como el área de trabajo predeterminada y habilitar el aprovisionamiento automático del agente.  Consulte [Habilitación del aprovisionamiento automático](security-center-enable-data-collection.md). |
@@ -107,9 +107,9 @@ En la siguiente tabla se muestran los recursos necesarios para la comunicación.
 
 | Recurso del agente | Puertos | Omitir inspección de HTTPS |
 |---|---|---|
-| \* .ods.opinsights.azure.com | 443 | Sí |
+| *.ods.opinsights.azure.com | 443 | Sí |
 | *.oms.opinsights.azure.com | 443 | Sí |
-| \* .blob.core.windows.net | 443 | Sí |
+| *.blob.core.windows.net | 443 | Sí |
 | *.azure-automation.net | 443 | Sí |
 
 Si experimenta problemas con la incorporación del agente, asegúrese de leer el artículo [Solución de problemas de incorporación en Operations Management Suite](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues).
@@ -138,13 +138,13 @@ Algunos problemas pueden identificarse mediante las instrucciones proporcionadas
 
 ![Soporte técnico de Microsoft](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig2.png)
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
-En este documento ha aprendido a configurar directivas de seguridad en el Centro de seguridad de Azure. Para obtener más información sobre el Centro de seguridad de Azure, consulte los siguientes recursos:
+En este documento ha aprendido a configurar directivas de seguridad en Azure Security Center. Para obtener más información sobre Azure Security Center, consulte los siguientes recursos:
 
-* [Guía de planeamiento y operaciones de Azure Security Center](security-center-planning-and-operations-guide.md) : aprenda a planear y conozca las consideraciones de diseño necesarias para usar Azure Security Center.
-* [Supervisión del estado de seguridad en Azure Security Center](security-center-monitoring.md) : obtenga información sobre cómo supervisar el estado de los recursos de Azure.
-* [Administración y respuesta a las alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md) : obtenga información sobre cómo administrar y responder a alertas de seguridad.
+* [Guía de planeamiento y operaciones de Azure Security Center](security-center-planning-and-operations-guide.md): aprenda a planear y conozca las consideraciones de diseño necesarias para usar Azure Security Center.
+* [Supervisión del estado de seguridad en Azure Security Center](security-center-monitoring.md): obtenga información sobre cómo supervisar el estado de los recursos de Azure.
+* [Administración y respuesta a las alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md): obtenga información sobre cómo administrar y responder a alertas de seguridad.
 * [Descripción de las alertas de seguridad en Azure Security Center](security-center-alerts-type.md)
 * [Tutorial: Respuesta a incidentes de seguridad](tutorial-security-incident.md)
 * [Validación de alertas en Azure Security Center](security-center-alert-validation.md)
@@ -153,6 +153,6 @@ En este documento ha aprendido a configurar directivas de seguridad en el Centro
 * [Puntuación de confianza de la alerta](security-center-secure-score.md)
 * [Investigación de incidentes y alertas en Azure Security Center](security-center-investigation.md)
 * [Funcionalidades de detección de Azure Security Center](security-center-detection-capabilities.md)
-* [Supervisión de las soluciones de asociados con Azure Security Center](security-center-partner-solutions.md) : aprenda a supervisar el estado de mantenimiento de las soluciones de asociados.
-* [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md) : encuentre las preguntas más frecuentes sobre el uso del servicio.
-* [Blog de seguridad de Azure](https://blogs.msdn.com/b/azuresecurity/) : encuentre entradas de blog sobre el cumplimiento y la seguridad de Azure.
+* [Supervisión de las soluciones de asociados con Azure Security Center](security-center-partner-solutions.md): aprenda a supervisar el estado de mantenimiento de las soluciones de asociados.
+* [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md): encuentre las preguntas más frecuentes sobre el uso del servicio.
+* [Blog de seguridad de Azure](https://blogs.msdn.com/b/azuresecurity/): encuentre entradas de blog sobre el cumplimiento y la seguridad de Azure.

@@ -8,14 +8,14 @@ ms.author: dpalled
 manager: cshankar
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 10/10/2019
+ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: aa905d1686939346827d07419a62fd6f299387ec
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 954e61aec5b622d44435a8a5b196fdbfed33c564
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012607"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561201"
 ---
 # <a name="configuring-retention-in-time-series-insights"></a>Configuración de la retención en Time Series Insights
 
@@ -38,7 +38,7 @@ Para obtener información detallada para comprender mejor estas opciones de conf
 
 1. Busque su entorno de Time Series Insights existente. Seleccione **Todos los recursos** en el menú izquierdo de Azure Portal. Seleccione el entorno de Time Series Insights.
 
-1. En el encabezado **Configuración**, haga clic en **Configurar**.
+1. En el encabezado **Configuración**, seleccione **Configuración de almacenamiento**.
 
     [![Selección de Configuración y, luego, Configurar](media/data-retention/1-configure-data-retention.png)](media/data-retention/1-configure-data-retention.png#lightbox)
 
@@ -50,7 +50,7 @@ Para obtener información detallada para comprender mejor estas opciones de conf
 
     [![Retención de datos: aceptar y guardar.](media/data-retention/2-accept-and-save.png)](media/data-retention/2-accept-and-save.png#lightbox)
 
-1. Acepte la casilla que indica que ha revisado la documentación y que comprende los posibles riesgos de pérdida de datos. Seleccione **Guardar** para configurar los cambios.
+1. Revise la documentación para conocer los posibles riesgos de pérdida de datos. Seleccione **Guardar** para configurar los cambios.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

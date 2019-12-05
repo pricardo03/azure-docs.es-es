@@ -1,6 +1,6 @@
 ---
 title: Protección de red adaptable en Azure Security Center | Microsoft Docs
-description: " Obtenga información sobre cómo habilitar la protección de red adaptable en Azure Security Center. "
+description: Obtenga información sobre cómo proteger, en función de los patrones de tráfico reales, las reglas de los grupos de seguridad de red (NSG) y mejorar aún más la posición de seguridad.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/24/2019
 ms.author: memildin
-ms.openlocfilehash: 060a5a6a356574e04a3492cdeadd93ddf9a38535
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: fb1e381f9b956a0c6414a82505aced2cbdb2d680
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255251"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74559273"
 ---
 # <a name="adaptive-network-hardening-in-azure-security-center"></a>Protección de red adaptable en Azure Security Center
 Obtenga información sobre cómo configurar la protección de red adaptable en Azure Security Center.
@@ -83,7 +83,7 @@ Instrucciones importantes a la hora de modificar una regla de protección de red
 * No puede cambiar reglas tipo "permitir" para convertirlas en reglas tipo "denegar". 
 
   > [!NOTE]
-  > La creación y modificación de las reglas tipo "denegar" se realiza directamente en el NSG. Para más información, consulte [Crear, modificar o eliminar un grupo de seguridad de red](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group).
+  > La creación y modificación de reglas de "denegación" se realiza directamente en el NSG. Para más información, consulte [Creación, modificación o eliminación de un grupo de seguridad de red ](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group).
 
 * Una regla tipo **Denegar todo el tráfico** es el único tipo de regla "denegar" que figuraría aquí, y no se puede modificar. Sin embargo, puede eliminar la regla (consulte [Eliminación de una regla](#delete-rule)).
   > [!NOTE]
@@ -111,7 +111,7 @@ Instrucciones importantes a la hora de modificar una regla de protección de red
 Puede agregar una regla tipo "permitir" que no sea recomienda por Security Center.
 
 > [!NOTE]
-> Aquí solo se pueden agregar reglas de tipo "permitir". Si quiere agregar reglas tipo "denegar", puede hacerlo directamente en el NSG. Para más información, consulte [Crear, modificar o eliminar un grupo de seguridad de red ](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group).
+> Aquí solo se pueden agregar reglas de tipo "permitir". Si quiere agregar reglas tipo "denegar", puede hacerlo directamente en el NSG. Para más información, consulte [Creación, modificación o eliminación de un grupo de seguridad de red ](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group).
 
 *Para agregar una regla de protección de red adaptable:*
 

@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/17/2019
-ms.openlocfilehash: 102cfa81c6093ff1aeefdd8d1937143a25cf76f5
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 1750267b5780dcfbb227ffcd6bb98e2f77ff1511
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72028497"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74539284"
 ---
 # <a name="ingest-data-from-event-hub-into-azure-data-explorer"></a>Ingesta de datos del centro de eventos a Azure Data Explorer
 
@@ -137,6 +137,8 @@ Ahora puede conectarse al centro de eventos desde Azure Data Explorer. Cuando se
     > [!NOTE]
     > * Seleccione **My data includes routing info** (Mis datos incluyen información de enrutamiento) para usar el enrutamiento dinámico, donde los datos incluyen la información de enrutamiento necesaria, tal como se muestra en los comentarios de la [aplicación de ejemplo](https://github.com/Azure-Samples/event-hubs-dotnet-ingest). Si se establecen propiedades estáticas y dinámicas, las propiedades dinámicas reemplazan a las estáticas. 
     > * Solamente se ingieren los eventos en cola después de crear la conexión de datos.
+    > * Abra una [solicitud de soporte técnico en Azure Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) para habilitar la compresión GZip para el enrutamiento estático. Habilite la compresión GZip para el enrutamiento dinámico tal como se muestra en la [aplicación de ejemplo](https://github.com/Azure-Samples/event-hubs-dotnet-ingest). 
+    > * Las propiedades del sistema de eventos y el formato Avro no se admiten en la carga de compresión.
 
 ## <a name="copy-the-connection-string"></a>Copiar la cadena de conexión
 

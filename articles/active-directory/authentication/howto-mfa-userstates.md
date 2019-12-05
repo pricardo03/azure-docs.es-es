@@ -1,22 +1,22 @@
 ---
-title: 'Estados de usuario de Azure Multi-Factor Authentication: Azure Active Directory'
-description: Obtenga información sobre los estados de usuario en Azure Multi-Factor Authentication.
+title: 'Multi-Factor Authentication por usuario: Azure Active Directory'
+description: Habilite MFA mediante el cambio de estados de usuarios en Azure Multi-Factor Authentication.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a2d22c4a7a8b95f5a200518a3c46fc33f55c66a
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 258675a343387eb6930cd3511bf885bf510050c6
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73569864"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74404206"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user"></a>Exigencia de verificación en dos pasos para un usuario
 
@@ -56,7 +56,7 @@ Todos los usuarios comienzan con el estado *Deshabilitado*. Cuando inscribe usua
 Para acceder a la página donde puede ver y administrar los estados de usuario, siga estos pasos:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador.
-2. Vaya a **Azure Active Directory** > **Usuarios y grupos** > **Todos los usuarios**.
+2. Busque y seleccione *Azure Active Directory*. Seleccione **Usuarios** > **Todos los usuarios**.
 3. Seleccione **Multi-Factor Authentication**.
    Seleccione ![Multi-Factor Authentication](./media/howto-mfa-userstates/selectmfa.png)
 4. Se abre una nueva página que muestra los estados de usuario.

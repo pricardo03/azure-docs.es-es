@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: bbfeb428d38c23955df4497242184499349aecf9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8cc653b8e5d2c239243bf6a09955b10011c7408b
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60256697"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74538962"
 ---
-# <a name="metric-chart-samples"></a>Ejemplos de gráficos de métricas
+# <a name="metric-chart-examples"></a>Ejemplos de gráficos de métricas 
 
 La plataforma Azure ofrece [más de mil métricas](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported), muchas de ellas con dimensiones. Mediante el uso de [filtros de dimensión](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts), la aplicación de [divisiones](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts), el control del tipo de gráfico y el ajuste de la configuración del gráfico puede crear paneles y vistas de diagnóstico eficaces que proporcionan información detallada sobre el estado de la infraestructura y las aplicaciones. En este artículo se muestran algunos ejemplos de los gráficos que se pueden compilar mediante el [Explorador de métricas](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts) y se explican los pasos necesarios para configurar cada uno de estos gráficos.
 

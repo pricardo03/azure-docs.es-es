@@ -18,12 +18,12 @@ ms.author: kkrishna
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c838c6fe256e2960842c5b40f58f8a5d5b1fdf3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 84275be5c85570a44d968dca8887b448fce09979
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73473772"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546841"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Procedimientos para: Agregar roles de aplicación en la aplicación y recibirlos en el token
 
@@ -43,12 +43,8 @@ Estos roles de aplicación se definen en [Azure Portal](https://portal.azure.com
 1. En la barra superior, seleccione la cuenta y, a continuación, seleccione **Cambiar directorio**.
 1. Una vez que se abre el panel **Directorio y suscripción**, elija el inquilino de Active Directory en el que desea registrar la aplicación desde la lista **Favoritos** o **Todos los directorios**.
 1. Seleccione **Todos los servicios** en el panel de navegación izquierdo y elija **Azure Active Directory**.
-1. En el panel **Azure Active Directory**, seleccione **Registros de aplicaciones (característica heredada)** para ver una lista de todas las aplicaciones.
-
-     Si no ve la aplicación que desea, utilice los distintos filtros de la parte superior de la lista **Registros de aplicaciones (característica heredada)** para restringir la lista o desplácese hacia abajo en la lista para buscar la aplicación.
-
-1. Seleccione la aplicación para la que desea definir roles de aplicación.
-1. En la hoja de la aplicación, seleccione **Manifiesto**.
+1. En el panel **Azure Active Directory**, seleccione **Registros de aplicaciones** para ver una lista de todas las aplicaciones.
+1. Seleccione la aplicación para la que desea definir roles de aplicación. A continuación, seleccione **Manifiesto**.
 1. Localice la opción de configuración `appRoles` para editar el manifiesto de la aplicación y agregar los roles de aplicación.
 
      > [!NOTE]

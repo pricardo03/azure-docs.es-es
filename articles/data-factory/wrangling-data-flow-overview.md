@@ -7,12 +7,12 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: 7b46b1108246f0b83fcfce69844d19d01b1994c4
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 56c2d96e6e4a5900770aaefcabb424eddb1cbde6
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73665645"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74531392"
 ---
 # <a name="what-are-wrangling-data-flows"></a>¿Qué son los flujos de datos de limpieza y transformación?
 
@@ -37,6 +37,30 @@ Los integradores de datos de los ciudadanos invierten más del 60 % de su tiemp
 ### <a name="data-validation"></a>Validación de datos
 
 Analice visualmente los datos sin código para quitar los valores atípicos y las anomalías, y hacer que cumplan con una forma para el análisis rápido.
+
+## <a name="supported-sources"></a>Orígenes compatibles
+
+| Conector | Formato de datos | Tipo de autenticación |
+| -- | -- | --|
+| [Azure Blob Storage](connector-azure-blob-storage.md) | CSV | Clave de cuenta |
+| [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | CSV | Entidad de servicio |
+| [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | CSV | Clave de cuenta, Entidad de servicio |
+| [Azure SQL Database](connector-azure-sql-database.md) | - | Autenticación de SQL |
+| [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md) | - | Autenticación de SQL |
+
+## <a name="the-mashup-editor"></a>Editor de mashup
+
+Cuando se crea un flujo de datos de limpieza y transformación, todos los conjuntos de datos de origen se convierten en consultas de conjuntos de datos y se colocan en la carpeta **ADFResource**. De forma predeterminada, UserQuery apuntará a la primera consulta del conjunto de datos. Todas las transformaciones deben realizarse en UserQuery, ya que no se admiten ni se conservan los cambios en las consultas del conjunto de datos. Actualmente no se admiten las opciones para cambiar el nombre o agregar y eliminar consultas.
+
+![Limpieza y transformación](media/wrangling-data-flow/editor.png)
+
+Actualmente no se admiten todas las funciones de Power Query M para la limpieza y transformación de datos, a pesar de estar disponibles durante la creación. Al compilar los flujos de datos de limpieza y transformación, aparecerá el siguiente mensaje de error si no se admite una función:
+
+`The wrangling data flow is invalid. Expression.Error: The transformation logic isn't supported. Please try a simpler expression`
+
+Para obtener más información sobre las transformaciones admitidas, consulte [Funciones del flujo de datos de limpieza y transformación](wrangling-data-flow-functions.md).
+
+Actualmente, el flujo de datos de limpieza y transformación solo admite la escritura en un receptor.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

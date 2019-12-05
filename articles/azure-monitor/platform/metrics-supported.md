@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 05/20/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 58c0db1f8200a757c95d7f66f9d821968e7e1839
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 30e2b880f32f896098778942deb67d7ced9f5c2d
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74121126"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74484222"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métricas compatibles con Azure Monitor
 
@@ -1450,7 +1450,7 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |cpu_limit|Límite de CPU|Count|Media|Límite de CPU. Se aplica a las bases de datos basadas en núcleo virtual.|Sin dimensiones|
 |cpu_used|CPU utilizada|Count|Media|CPU utilizada. Se aplica a las bases de datos basadas en núcleo virtual.|Sin dimensiones|
 |deadlock|Interbloqueos|Count|Total|Interbloqueos. No es aplicable a los almacenes de datos.|Sin dimensiones|
-|diff_backup_size_bytes|Tamaño de almacenamiento de copia de seguridad diferencial|Bytes|Máxima|Tamaño de almacenamiento de copia de seguridad diferencial acumulativo. Se aplica a las bases de datos basadas en núcleo virtual. No aplicable a bases de datos de hiperescala.|Sin dimensiones|
+|diff_backup_size_bytes|Tamaño de almacenamiento de copia de seguridad diferencial|Bytes|Máxima|Tamaño de almacenamiento de copia de seguridad diferencial acumulativo. Se aplica a las bases de datos de uso general y crítico para la empresa. Actualmente no se aplica a la administración de bases de datos de instancias.|Sin dimensiones|
 |dtu_limit|Límite de DTU|Count|Media|Límite de DTU. Se aplica a las bases de datos basadas en DTU.|Sin dimensiones|
 |dtu_consumption_percent|Porcentaje de DTU|Percent|Media|Porcentaje de DTU. Se aplica a las bases de datos basadas en DTU.|Sin dimensiones|
 |dtu_used|DTU utilizada|Count|Media|DTU utilizada. Se aplica a las bases de datos basadas en DTU.|Sin dimensiones|
@@ -1459,9 +1459,9 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |dwu_consumption_percent|Porcentaje de DWU|Percent|Máxima|Porcentaje de DWU. Solo se aplica a los almacenes de datos.|Sin dimensiones|
 |dwu_limit|Límite de DWU|Count|Máxima|Límite de DWU. Solo se aplica a los almacenes de datos.|Sin dimensiones|
 |dwu_used|DWU utilizada|Count|Máxima|DWU utilizada. Solo se aplica a los almacenes de datos.|Sin dimensiones|
-|full_backup_size_bytes|Tamaño de almacenamiento de copia de seguridad completa|Bytes|Máxima|Tamaño de almacenamiento de copia de seguridad completa acumulativa. Se aplica a las bases de datos basadas en núcleo virtual. No aplicable a bases de datos de hiperescala.|Sin dimensiones|
+|full_backup_size_bytes|Tamaño de almacenamiento de copia de seguridad completa|Bytes|Máxima|Tamaño de almacenamiento de copia de seguridad completa acumulativa. Se aplica a las bases de datos de uso general y crítico para la empresa. Actualmente no se aplica a la administración de bases de datos de instancias.|Sin dimensiones|
 |local_tempdb_usage_percent|Porcentaje de tempdb local|Percent|Media|Porcentaje de tempdb local. Solo se aplica a los almacenes de datos.|Sin dimensiones|
-|log_backup_size_bytes|Tamaño de almacenamiento de copia de seguridad de registros|Bytes|Máxima|Tamaño de almacenamiento de copia de seguridad de registros acumulativa. Se aplica a las bases de datos basadas en núcleo virtual. No aplicable a bases de datos de hiperescala.|Sin dimensiones|
+|log_backup_size_bytes|Tamaño de almacenamiento de copia de seguridad de registros|Bytes|Máxima|Tamaño de almacenamiento de copia de seguridad de registros acumulativa. Se aplica a las bases de datos de uso general y crítico para la empresa. Actualmente no se aplica a la administración de bases de datos de instancias.|Sin dimensiones|
 |log_write_percent|Porcentaje de E/S de registro|Percent|Media|Porcentaje de E/S de registro. No es aplicable a los almacenes de datos.|Sin dimensiones|
 |physical_data_read_percent|Porcentaje de E/S de datos|Percent|Media|Porcentaje de E/S de datos|Sin dimensiones|
 |sessions_percent|Porcentaje de sesiones|Percent|Media|Porcentaje de sesiones. No es aplicable a los almacenes de datos.|Sin dimensiones|

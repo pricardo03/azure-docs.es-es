@@ -1,14 +1,14 @@
 ---
 title: Detalles de la estructura de definición de directivas
 description: Describe cómo se usan las definiciones de directiva para establecer convenciones para los recursos de Azure de su organización.
-ms.date: 11/04/2019
+ms.date: 11/26/2019
 ms.topic: conceptual
-ms.openlocfilehash: 6288a7d013256c39e83ee433e867d15f67c81e57
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 93b03622f03c095a61291f4a6d25284e5052c35a
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132821"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555173"
 ---
 # <a name="azure-policy-definition-structure"></a>Estructura de definición de Azure Policy
 
@@ -394,6 +394,146 @@ En su lugar, use la función [if()](../../../azure-resource-manager/resource-gro
 
 Con la regla de directivas revisada, `if()` comprueba la longitud del **nombre** antes de intentar obtener un elemento `substring()` de un valor con menos de tres caracteres. Si el **nombre** es demasiado corto, se devuelve en su lugar el valor "no comienza por abc" en lugar de compararlo con **abc**. Un recurso con un nombre corto que no comienza por **abc** sigue produciendo un error en la regla de directivas, pero ya no se produce un error durante la evaluación.
 
+### <a name="count"></a>Count
+
+Las condiciones que cuentan el número de miembros de una matriz en la carga de recursos que satisfacen una expresión de condición se pueden formar mediante la expresión **count**. Algunos escenarios comunes consisten en comprobar si "al menos uno de", "exactamente uno de", "todos" o "ninguno de" los miembros de la matriz satisfacen la condición. **count** evalúa cada miembro de la matriz para una expresión de condición y suma los resultados de _true_, que se comparan con el operador de la expresión.
+
+La estructura de la expresión **count** es:
+
+```json
+{
+    "count": {
+        "field": "<[*] alias>",
+        "where": {
+            /* condition expression */
+        }
+    },
+    "<condition>": "<compare the count of true condition expression array members to this value>"
+}
+```
+
+Las siguientes propiedades se utilizan con **count**:
+
+- **count.field** (requerido): Contiene la ruta de acceso a la matriz y debe ser un alias de matriz. Si falta la matriz, la expresión se evalúa como _false_ sin considerar la expresión de condición.
+- **count.where** (opcional): Expresión de condición para evaluar individualmente cada miembro de la matriz del [alias \[\*\]](#understanding-the--alias) de **count.field**. Si no se proporciona esta propiedad, todos los miembros de la matriz con la ruta de acceso "field" se evalúan como _true_. En esta propiedad se puede usar cualquier [condición](../concepts/definition-structure.md#conditions).
+  Los [operadores lógicos](#logical-operators) pueden usarse dentro de esta propiedad para crear requisitos de evaluación complejos.
+- **\<condition\>** (requerido): El valor se compara con el número de elementos que cumplieron la expresión de condición **count.where**. Se debe usar una condición [numérica](../concepts/definition-structure.md#conditions).
+
+#### <a name="count-examples"></a>Ejemplos de recuento
+
+Ejemplo 1: Comprobar si una matriz está vacía
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Network/networkSecurityGroups/securityRules[*]"
+    },
+    "equals": 0
+}
+```
+
+Ejemplo 2: Comprobar si solo un miembro de la matriz cumple la expresión de condición
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Network/networkSecurityGroups/securityRules[*]",
+        "where": {
+            "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].description",
+            "equals": "My unique description"
+        }
+    },
+    "equals": 1
+}
+```
+
+Ejemplo 3: Comprobar si por lo menos un miembro de la matriz cumple la expresión de condición
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Network/networkSecurityGroups/securityRules[*]",
+        "where": {
+            "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].description",
+            "equals": "My common description"
+        }
+    },
+    "greaterOrEquals": 1
+}
+```
+
+Ejemplo 4: Comprobar si todos los miembros de la matriz del objeto cumplen la expresión de condición
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Network/networkSecurityGroups/securityRules[*]",
+        "where": {
+            "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].description",
+            "equals": "description"
+        }
+    },
+    "equals": "[length(field(Microsoft.Network/networkSecurityGroups/securityRules[*]))]"
+}
+```
+
+Ejemplo 5: Comprobar si todos los miembros de la matriz de la cadena cumplen la expresión de condición
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]",
+        "where": {
+            "field": "Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]",
+            "like": "*@contoso.com"
+        }
+    },
+    "equals": "[length(field('Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]'))]"
+}
+```
+
+Ejemplo 6: Usar **field** dentro de **value** para comprobar que todos los miembros de la matriz cumplen la expresión de condición
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]",
+        "where": {
+            "value": "[last(split(first(field('Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]')), '@'))]",
+            "equals": "contoso.com"
+        }
+    },
+    "equals": "[length(field('Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]'))]"
+}
+```
+
+Ejemplo 7: Comprobar si al menos un miembro de la matriz coincide con varias propiedades de la expresión de condición
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Network/networkSecurityGroups/securityRules[*]",
+        "where": {
+            "allOf": [
+                {
+                    "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].direction",
+                    "equals": "Inbound"
+                },
+                {
+                    "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].access",
+                    "equals": "Allow"
+                },
+                {
+                    "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].destinationPortRange",
+                    "equals": "3389"
+                }
+            ]
+        }
+    },
+    "greater": 0
+}
+```
+
 ### <a name="effect"></a>Efecto
 
 Azure Policy admite los siguientes tipos de efecto:
@@ -490,14 +630,15 @@ La lista de alias siempre está en aumento. Para descubrir qué alias son compat
 
 ### <a name="understanding-the--alias"></a>Descripción del alias [*]
 
-Algunos de los alias disponibles tienen una versión que aparece como un nombre "normal" y otra que tiene agregado **[\*]** . Por ejemplo:
+Algunos de los alias disponibles tienen una versión que aparece como un nombre "normal" y otra que tiene agregado **\[\*\]** . Por ejemplo:
 
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`
 
 El alias "normal" representa el campo como un valor único. Este campo se utiliza en escenarios de comparación de coincidencia exacta, cuando todo el conjunto de valores debe ser exactamente como se define, nada más y nada menos.
 
-El alias **[\*]** hace posible comparar con el valor de cada elemento de la matriz y las propiedades específicas de cada elemento. Este enfoque permite comparar propiedades de elementos para escenarios del tipo "si ninguno de", "si alguno de" o "si todos los de". Con **ipRules[\*]** , un ejemplo sería validar que cada _acción_ es _Denegar_, pero no preocuparse por cuántas reglas existen o cuál es el _valor_ de la dirección IP. Esta regla de ejemplo busca las coincidencias de **ipRules[\*].value** con **10.0.4.1** y aplica el tipo de efecto **effectType** solo si no encuentra al menos una coincidencia:
+El alias **\[\*\]** hace posible la comparación con el valor de cada elemento de la matriz y las propiedades específicas de cada elemento. Este enfoque permite comparar propiedades de elementos para escenarios del tipo "si ninguno de", "si alguno de" o "si todos los de". Para escenarios más complejos, use la expresión de condición [count](#count). Con **ipRules\[\*\]** , un ejemplo sería validar que cada _acción_ sea _Denegar_, pero no preocuparse por cuántas reglas existen o cuál es el _valor_ de la dirección IP.
+Esta regla de ejemplo busca las coincidencias de **ipRules\[\*\].value** con **10.0.4.1** y aplica el tipo de efecto **effectType** solo si no encuentra al menos una coincidencia:
 
 ```json
 "policyRule": {
@@ -518,6 +659,8 @@ El alias **[\*]** hace posible comparar con el valor de cada elemento de la matr
     }
 }
 ```
+
+
 
 Para más información, consulte [Evaluación del alias [\*]](../how-to/author-policies-for-arrays.md#evaluating-the--alias).
 
@@ -604,6 +747,6 @@ En el ejemplo siguiente se muestra cómo crear una iniciativa para controlar dos
 - Puede consultar ejemplos en [Ejemplos de Azure Policy](../samples/index.md).
 - Vea la [Descripción de los efectos de directivas](effects.md).
 - Obtenga información acerca de cómo se pueden [crear directivas mediante programación](../how-to/programmatically-create.md).
-- Obtenga información sobre cómo [obtener datos de cumplimiento](../how-to/getting-compliance-data.md).
+- Obtenga información sobre cómo [obtener datos de cumplimiento](../how-to/get-compliance-data.md).
 - Obtenga información sobre cómo [corregir recursos no compatibles](../how-to/remediate-resources.md).
 - En [Organización de los recursos con grupos de administración de Azure](../../management-groups/overview.md), obtendrá información sobre lo que es un grupo de administración.

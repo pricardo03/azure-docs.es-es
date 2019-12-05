@@ -9,14 +9,14 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 10/10/2019
+ms.date: 11/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: b17cdb2ec27676d5d20d6f12bad309368fe32aa3
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: bc6c33762fa572e971fff9dee8988a100e50b07c
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74006801"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561145"
 ---
 # <a name="how-to-scale-your-time-series-insights-environment"></a>Escalado de su entorno de Time Series Insights
 
@@ -34,13 +34,13 @@ Sin embargo, el plan de tarifa de la SKU no se puede cambiar. Por ejemplo, un en
 
 1. En Azure Portal, localice y seleccione el entorno de Time Series Insights.
 
-1. En el menú de su entorno de Time Series Insights, seleccione **Configurar**.
+1. En el menú de su entorno de Time Series Insights, seleccione **Configuración de almacenamiento**.
 
-   [![configure.png](media/scale-your-environment/configure.png)](media/scale-your-environment/configure.png#lightbox)
+   [![Configuración de la capacidad de Time Series Insights](media/scale-your-environment/scale-your-environment-configure.png)](media/scale-your-environment/scale-your-environment-configure.png#lightbox)
 
 1. Utilice el control deslizante **Capacidad** para seleccionar la que cumpla los requisitos para la velocidad de entrada y la capacidad de almacenamiento. Tenga en cuenta la **velocidad de entrada**, **la capacidad de almacenamiento** y las actualizaciones de la **estimación de costos** dinámicamente para mostrar el efecto del cambio.
 
-   [![Control deslizante](media/scale-your-environment/slider.png)](media/scale-your-environment/slider.png#lightbox)
+   [![Configuración del entorno con el control deslizante de capacidad](media/scale-your-environment/scale-your-environment-slider.png)](media/scale-your-environment/scale-your-environment-slider.png#lightbox)
 
    También puede escribir número del multiplicador de capacidad en el cuadro de texto de la derecha del control deslizante.
 

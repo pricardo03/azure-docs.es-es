@@ -10,14 +10,14 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 10/10/2019
+ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7ea98baa9cb202e2584c18998c5ab96d1c1f9e5a
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: f29bd4ab679d734c3acce967a5d60784b9884ba6
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012649"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561377"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Supervisión y reducción de la limitación para reducir la latencia en Azure Time Series Insights
 
@@ -42,13 +42,13 @@ Es más probable que experimente latencia y limitación si:
 
 Las alertas pueden ayudarle a diagnosticar y mitigar los problemas de latencia causados por su entorno.
 
-1. En Azure Portal, seleccione **Alertas**.
+1. En Azure Portal, seleccione el entorno de Time Series Insights. A continuación, seleccione **Alertas**.
 
-   [![Alertas](media/environment-mitigate-latency/add-alerts.png)](media/environment-mitigate-latency/add-alerts.png#lightbox)
+   [![Incorporación de una alerta al entorno de Time Series Insights](media/environment-mitigate-latency/mitigate-latency-add-alert.png)](media/environment-mitigate-latency/mitigate-latency-add-alert.png#lightbox)
 
 1. Aparecerá el panel **Crear regla**. Seleccione **Agregar** en **CONDICIÓN**.
 
-   [![Adición de una alerta](media/environment-mitigate-latency/alert-pane.png)](media/environment-mitigate-latency/alert-pane.png#lightbox)
+   [![Panel Agregar alerta](media/environment-mitigate-latency/mitigate-latency-add-pane.png)](media/environment-mitigate-latency/mitigate-latency-add-pane.png#lightbox)
 
 1. A continuación, configure las condiciones exactas para la lógica de la señal.
 
@@ -70,7 +70,7 @@ Las alertas pueden ayudarle a diagnosticar y mitigar los problemas de latencia c
 
 1. Después de configurar la lógica de señal deseada, revise visualmente la regla de alerta elegida.
 
-   [![Entrada](media/environment-mitigate-latency/ingress.png)](media/environment-mitigate-latency/ingress.png#lightbox)
+   [![Vista de latencia y gráficos](media/environment-mitigate-latency/mitigate-latency-view-and-charting.png)](media/environment-mitigate-latency/mitigate-latency-view-and-charting.png#lightbox)
 
 ## <a name="throttling-and-ingress-management"></a>Limitación y administración de entrada
 

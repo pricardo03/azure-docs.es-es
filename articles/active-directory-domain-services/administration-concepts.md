@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/08/2019
 ms.author: iainfou
-ms.openlocfilehash: b82927efa9054e71379d01993d1669527bc71402
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: f239bab48e732755361fe734fdc24b37d3823c63
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72249414"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74481010"
 ---
 # <a name="management-concepts-for-user-accounts-passwords-and-administration-in-azure-active-directory-domain-services"></a>Conceptos de administración para cuentas de usuario, contraseñas y administración en Azure Active Directory Domain Services
 
@@ -59,6 +59,21 @@ Para los usuarios sincronizados desde un entorno de AD DS local mediante Azure A
 
 Una vez configurados correctamente, los hash de las contraseñas que se pueden usar se almacenan en el dominio administrado de Azure AD DS. Si elimina el dominio administrado de Azure AD DS, también se eliminarán los hash de las contraseñas que haya almacenados en ese momento. La información de credenciales sincronizada en Azure AD no se puede volver a usar si posteriormente crea un dominio administrado de Azure AD DS: debe volver a configurar la sincronización de los hash de contraseña para almacenarlos de nuevo. Los usuarios o las máquinas virtuales anteriormente unidos a un dominio no podrán autenticarse de inmediato, ya que Azure AD debe generar y almacenar los hash de contraseña en el nuevo dominio administrado de Azure AD DS. Para más información, consulte [Proceso de sincronización de hash de contraseña para Azure AD DS y Azure AD Connect][azure-ad-password-sync].
 
+> [!IMPORTANT]
+> Azure AD Connect solo se debe instalar y configurar para la sincronización con entornos de AD DS locales. No se admite la instalación de Azure AD Connect en un dominio administrado de Azure AD DS para volver a sincronizar los objetos con Azure AD.
+
+## <a name="forests-and-trusts"></a>Bosques y confianzas
+
+Un *bosque* es una construcción lógica que Active Directory Domain Services usa para agrupar uno o más *dominios*. Los dominios almacenan los objetos para los usuarios o grupos, y proporcionan servicios de autenticación.
+
+En Azure AD DS, el bosque solo contiene un dominio. Los bosques locales de AD DS suelen contener muchos dominios. En organizaciones de gran tamaño, especialmente después de fusiones y adquisiciones, es posible que acabe con varios bosques locales y que cada uno contenga varios dominios.
+
+De forma predeterminada, un dominio administrado de Azure AD DS se crea como un bosque de *usuario*. Este tipo de bosque sincroniza todos los objetos de Azure AD, incluidas las cuentas de usuario creadas en un entorno de AD DS local. Las cuentas de usuario se pueden autenticar directamente en el dominio administrado de Azure AD DS, por ejemplo, para iniciar sesión en una máquina virtual unida a un dominio. Un bosque de usuario funciona cuando se pueden sincronizar los hash de contraseña y los usuarios no usan métodos de inicio de sesión exclusivos como la autenticación de tarjeta inteligente.
+
+En un bosque de *recursos* de Azure AD DS, los usuarios se autentican a través de una *confianza* de bosque unidireccional de su AD DS local. Con este enfoque, los objetos de usuario y los valores hash de contraseña no se sincronizan con Azure AD DS. Los objetos de usuario y las credenciales solo existen en la instancia de AD DS local. Este enfoque permite que las empresas hospeden en Azure recursos y plataformas de aplicaciones que dependen de la autenticación clásica, como LDAPS, Kerberos o NTLM, pero se eliminan todos los problemas o las preocupaciones de autenticación. Los bosques de recursos de Azure AD DS están actualmente en versión preliminar.
+
+Para obtener más información sobre los tipos de bosque de Azure AD DS, consulte [¿Qué son los bosques de recursos?][concepts-forest] y [¿Cómo funcionan las confianzas de bosque en Azure AD DS?][concepts-trust]
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para empezar, [cree un dominio administrado de Azure AD DS][create-instance].
@@ -69,3 +84,6 @@ Para empezar, [cree un dominio administrado de Azure AD DS][create-instance].
 [secure-domain]: secure-your-domain.md
 [azure-ad-password-sync]: ../active-directory/hybrid/how-to-connect-password-hash-synchronization.md#password-hash-sync-process-for-azure-ad-domain-services
 [create-instance]: tutorial-create-instance.md
+[tutorial-create-instance-advanced]: tutorial-create-instance-advanced.md
+[concepts-forest]: concepts-resource-forest.md
+[concepts-trust]: concepts-forest-trust.md

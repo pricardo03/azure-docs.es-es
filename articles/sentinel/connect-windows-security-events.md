@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 34762d561edfa5b37b1841c55f3fff6a4b8337a3
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: c74cc5cc65f16eb38ead7c09b5e662cd2463af35
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240517"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555286"
 ---
 # <a name="connect-windows-security-events"></a>Conexión de eventos de seguridad de Windows 
 
@@ -59,7 +59,7 @@ En la lista siguiente se muestra un desglose completo de los identificadores de 
 
 Para integrar totalmente los eventos de seguridad de Windows con Azure Sentinel:
 
-1. En el portal de Azure Sentinel, seleccione **Data connectors** (Conectores de datos) y, después, haga clic en el icono de **eventos de seguridad de Windows**. 
+1. En el portal de Azure Sentinel, seleccione **Data connectors** (Conectores de datos) y, después, haga clic en el icono de **eventos de seguridad**. 
 1. Seleccione los tipos de datos que quiera transmitir.
 1. Haga clic en **Update**(Actualizar).
 6. Para usar el esquema correspondiente en Log Analytics para encontrar eventos de seguridad de Windows, busque **SecurityEvent**.
