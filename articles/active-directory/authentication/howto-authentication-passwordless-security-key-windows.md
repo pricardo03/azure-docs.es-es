@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 12/02/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5343387da7b2027e1071b19be826e329494cdd3e
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 05230e39175e71f4eec2c99cd6cbd2f44f05df30
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74452935"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74766368"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-preview"></a>Habilitación del inicio de sesión con clave de seguridad sin contraseña en dispositivos Windows 10 (versión preliminar)
 
@@ -56,7 +56,7 @@ Los dispositivos unidos a Azure AD que va a probar en uso piloto deben ejecutar 
 Las organizaciones pueden optar por usar uno o varios de los métodos siguientes para habilitar el uso de claves de seguridad para el inicio de sesión de Windows en función de sus requisitos.
 
 - [Habilitación con Intune](#enable-with-intune)
-   - [Implementación de Intune dirigida](#targeted-intune-deployment)
+- [Implementación de Intune dirigida](#targeted-intune-deployment)
 - [Habilitación con un paquete de aprovisionamiento](#enable-with-a-provisioning-package)
 
 ### <a name="enable-with-intune"></a>Habilitación con Intune
@@ -67,7 +67,7 @@ Las organizaciones pueden optar por usar uno o varios de los métodos siguientes
 
 La configuración de claves de seguridad para el inicio de sesión no depende de la configuración de Windows Hello para empresas.
 
-#### <a name="targeted-intune-deployment"></a>Implementación de Intune dirigida
+### <a name="targeted-intune-deployment"></a>Implementación de Intune dirigida
 
 Para dirigirse a grupos de dispositivos específicos a fin de habilitar el proveedor de credenciales, use la siguiente configuración personalizada a través de Intune.
 
@@ -81,7 +81,7 @@ Para dirigirse a grupos de dispositivos específicos a fin de habilitar el prove
    1. Configuración OMA-URI personalizada:
       1. Nombre: Habilitar claves de seguridad FIDO para inicio de sesión de Windows
       1. OMA-URI: ./Device/Vendor/MSFT/PassportForWork/SecurityKey/UseSecurityKeyForSignin
-      1. Tipo de datos: Integer
+      1. Tipo de datos: Entero
       1. Valor: 1
 1. Esta directiva se puede asignar a usuarios, dispositivos o grupos específicos. Se puede encontrar más información en el artículo [Asignación de perfiles de dispositivo en Microsoft Intune](https://docs.microsoft.com/intune/device-profile-assign).
 

@@ -2,18 +2,18 @@
 title: Uso de una función definida por el usuario (UDF) de Java con Apache Hive Azure HDInsight
 description: Aprenda cómo crear una función basada en Java y definida por el usuario (UDF) que funcione con Apache Hive. Esta función de ejemplo definida por el usuario convierte una tabla de cadenas de texto en minúsculas.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 03/21/2019
-ms.author: hrasheed
-ms.openlocfilehash: 5690f2cc5bc85d7bcdbf1d05930a05bcc2e764c0
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.custom: hdinsightactive,hdiseo17may2017
+ms.date: 11/20/2019
+ms.openlocfilehash: 73a2a612a4eeb4a59f12abf0660fffb092f0547f
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73044776"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327207"
 ---
 # <a name="use-a-java-udf-with-apache-hive-in-hdinsight"></a>Utilización de una función definida por el usuario de Java con Apache Hive en HDInsight
 
@@ -32,6 +32,7 @@ Aprenda cómo crear una función basada en Java y definida por el usuario (UDF) 
     > Si crea los archivos de Python en un cliente Windows, debe usar un editor que emplee LF como final de línea. Si no está seguro de si el editor usa LF o CRLF, vea la sección [Solución de problemas](#troubleshooting) para conocer los pasos a seguir para quitar el carácter CR.
 
 ## <a name="test-environment"></a>Entorno de prueba
+
 El entorno usado en este artículo fue un equipo donde se ejecuta Windows 10.  Los comandos se ejecutaron en un símbolo del sistema, y los distintos archivos se editaron con el Bloc de notas. Realice las modificaciones según corresponda en su entorno.
 
 Desde un símbolo del sistema, escriba los siguientes comandos para crear un entorno de trabajo:

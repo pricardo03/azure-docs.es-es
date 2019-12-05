@@ -2,13 +2,13 @@
 title: Visualización y administración de proveedores de servicios
 description: Los clientes pueden usar la página proveedores de servicios en Azure Portal para ver información acerca de los proveedores de servicios, ofertas de proveedores de servicios y recursos delegados.
 ms.date: 11/15/2019
-ms.topic: overview
-ms.openlocfilehash: baa5a77b481779ab511ff473aacda5d40e0d771c
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.topic: conceptual
+ms.openlocfilehash: 453f5d3ba4ed5c49b5e71c7530298bc0a03c73ee
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132183"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463816"
 ---
 # <a name="view-and-manage-service-providers"></a>Visualización y administración de proveedores de servicios
 
@@ -49,7 +49,9 @@ Si el cliente quiere quitar una oferta del proveedor de servicios, puede selecci
 
 ## <a name="update-service-provider-offers"></a>Actualización de las ofertas de proveedores de servicios
 
-Una vez que un cliente ha agregado una oferta, un proveedor de servicios puede publicar una versión actualizada de la misma oferta en Azure Marketplace. Por ejemplo, puede querer agregar una nueva definición de roles. Si se ha publicado una nueva versión de la oferta, la página **Provider offers** (Ofertas del proveedor) mostrará un icono de "actualización" en la fila de esa oferta. El cliente puede seleccionar este icono para ver las diferencias entre la versión actual de la oferta y la nueva. 
+Una vez que un cliente ha agregado una oferta, un proveedor de servicios puede publicar una versión actualizada de la misma oferta en Azure Marketplace. Por ejemplo, puede querer agregar una nueva definición de roles. Si se ha publicado una nueva versión de la oferta, la página **Provider offers** (Ofertas del proveedor) mostrará un icono de "actualización" en la fila de esa oferta. El cliente puede seleccionar este icono para ver las diferencias entre la versión actual de la oferta y la nueva.
+
+ ![Icono de actualización de la oferta](../media/update-offer.jpg)
 
 Después de revisar los cambios, el cliente puede optar por actualizar a la nueva versión. Una vez que lo haga, las autorizaciones y otras opciones especificadas en la nueva versión se aplicarán a todas las suscripciones o grupos de recursos que se hayan delegado para esa oferta.
 

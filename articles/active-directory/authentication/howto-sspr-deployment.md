@@ -1,22 +1,22 @@
 ---
-title: 'Plan de implementación de autoservicio de restablecimiento de contraseña: Azure Active Directory'
+title: 'Implementación de autoservicio de restablecimiento de contraseña: Azure Active Directory'
 description: Estrategia para la implementación correcta del autoservicio de restablecimiento de contraseña de Azure AD
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/24/2019
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b648d6f914b5e3004ea3b62019bbec33e5a4871d
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: b9f340ad12fbf26190a17bc4df97bfc95473093c
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74081533"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74381284"
 ---
 # <a name="deploy-azure-ad-self-service-password-reset"></a>Implementar el autoservicio de restablecimiento de contraseña de Azure AD
 
@@ -136,7 +136,7 @@ Para asegurarse de que la implementación funcione según lo previsto, debe plan
 | El usuario inicia sesión cuando se impone el registro de restablecimiento de contraseña | Se solicita al usuario que registre información de seguridad |
 | El usuario inicia sesión cuando se ha completado el registro de restablecimiento de contraseña | No se solicita al usuario que registre información de seguridad |
 | Se puede acceder al portal de SSPR cuando el usuario no tiene una licencia | Es accesible |
-| Restablecer la contraseña de usuario desde la pantalla de bloqueo de un dispositivo Windows 10 AADJ o H+AADJ después de que el usuario se ha registrado | El usuario puede restablecer la contraseña |
+| Restablecer la contraseña de usuario desde la pantalla de bloqueo de un dispositivo Windows 10 unido a Azure AD o Azure AD híbrido después de que el usuario se haya registrado | El usuario puede restablecer la contraseña |
 | Los datos de uso y de registro de SSPR están disponibles para los administradores casi en tiempo real | Están disponibles a través de los registros de auditoría |
 
 ### <a name="support-plan"></a>Plan de soporte técnico

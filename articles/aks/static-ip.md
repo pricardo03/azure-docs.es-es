@@ -5,14 +5,14 @@ services: container-service
 author: mlearned
 ms.service: container-service
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 11/06/2019
 ms.author: mlearned
-ms.openlocfilehash: 9e32715766734bcbb150d70aeed2dc5b06a4bcbb
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 8457f1c0c5b6107c4b44f6f00236a33f7c67452a
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67614462"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325435"
 ---
 # <a name="use-a-static-public-ip-address-with-the-azure-kubernetes-service-aks-load-balancer"></a>Usar una dirección IP pública estática con el equilibrador de carga de Azure Kubernetes Service (AKS)
 
@@ -24,42 +24,33 @@ En este artículo se muestra cómo crear una dirección IP pública estática y 
 
 En este artículo se supone que ya tiene un clúster de AKS. Si necesita un clúster de AKS, consulte el inicio rápido de AKS [mediante la CLI de Azure][aks-quickstart-cli] o [mediante Azure Portal][aks-quickstart-portal].
 
-También es preciso que esté instalada y configurada la versión 2.0.59 de la CLI de Azure u otra versión posterior. Ejecute  `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea  [Instalación de la CLI de Azure][install-azure-cli].
+También es preciso que esté instalada y configurada la versión 2.0.59 de la CLI de Azure u otra versión posterior. Ejecute  `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte  [Install Azure CLI][install-azure-cli] (Instalación de la CLI de Azure).
 
-Actualmente, solo se admite la *SKU de IP básica*. Se está trabajando para admitir la SKU *IP estándar* de recurso. Para más información, consulte [Tipos de direcciones IP y métodos de asignación en Azure][ip-sku].
+En este artículo se describe el uso de una dirección IP de SKU *Estándar* con un equilibrador de carga de SKU *Estándar*. Para más información, consulte [Tipos de direcciones IP y métodos de asignación en Azure][ip-sku].
 
 ## <a name="create-a-static-ip-address"></a>Crear una dirección IP estática
 
-Cuando se crea una dirección IP pública estática para usarla con AKS, el recurso de dirección IP debe crearse en el grupo de recursos del **nodo**. Si desea separar los recursos, consulte la sección [Uso de una dirección IP estática fuera del grupo de recursos del nodo](#use-a-static-ip-address-outside-of-the-node-resource-group).
-
-Primero, obtenga el nombre del grupo de recursos del nodo con el comando [az aks show][az-aks-show] y agregue el parámetro de consulta `--query nodeResourceGroup`. En este ejemplo se obtiene el grupo de recursos del nodo para el nombre de clúster de AKS *myAKSCluster* en el grupo de recursos denominado *myResourceGroup*:
-
-```azurecli-interactive
-$ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
-
-MC_myResourceGroup_myAKSCluster_eastus
-```
-
-Cree una dirección IP pública estática con el comando [az network public ip create][az-network-public-ip-create]. Especifique el nombre del grupo de recursos del nodo que obtuvo en el comando anterior y, después, un nombre para el recurso de dirección IP, como *myAKSPublicIP*:
+Cree una dirección IP pública estática con el comando [az network public ip create][az-network-public-ip-create]. A continuación se crea un recurso de IP estática denominado *myAKSPublicIP* en el grupo de recursos *myResourceGroup*:
 
 ```azurecli-interactive
 az network public-ip create \
-    --resource-group MC_myResourceGroup_myAKSCluster_eastus \
+    --resource-group myResourceGroup \
     --name myAKSPublicIP \
+    --sku Standard \
     --allocation-method static
 ```
+
+> [!NOTE]
+> Si usa un equilibrador de carga de SKU *Básico* en el clúster de AKS, use *Basic* para el parámetro *SKU* al definir una dirección IP pública. Solo las direcciones IP de SKU *Básicas* funcionan con el equilibrador de carga de SKU *Básico* y solo las IP de SKU *Estándar* funcionan con los equilibradores de carga de SKU *Estándar*. 
 
 Se muestra la dirección IP, como se indica en esta salida de ejemplo reducido:
 
 ```json
 {
   "publicIp": {
-    "dnsSettings": null,
-    "etag": "W/\"6b6fb15c-5281-4f64-b332-8f68f46e1358\"",
-    "id": "/subscriptions/<SubscriptionID>/resourceGroups/MC_myResourceGroup_myAKSCluster_eastus/providers/Microsoft.Network/publicIPAddresses/myAKSPublicIP",
-    "idleTimeoutInMinutes": 4,
+    ...
     "ipAddress": "40.121.183.52",
-    [...]
+    ...
   }
 }
 ```
@@ -67,47 +58,23 @@ Se muestra la dirección IP, como se indica en esta salida de ejemplo reducido:
 Después puede obtener la dirección IP pública mediante el comando [az network public-ip list][az-network-public-ip-list]. Especifique el nombre del grupo de recursos del nodo y la dirección IP pública creados y envíe una consulta para *ipAddress*, como se muestra en este ejemplo:
 
 ```azurecli-interactive
-$ az network public-ip show --resource-group MC_myResourceGroup_myAKSCluster_eastus --name myAKSPublicIP --query ipAddress --output tsv
+$ az network public-ip show --resource-group myResourceGroup --name myAKSPublicIP --query ipAddress --output tsv
 
 40.121.183.52
 ```
 
 ## <a name="create-a-service-using-the-static-ip-address"></a>Crear un servicio mediante la dirección IP estática
 
-Para crear un servicio con la dirección IP pública estática, agregue la propiedad `loadBalancerIP` y el valor de la dirección IP pública estática al manifiesto de YAML. Cree un archivo denominado `load-balancer-service.yaml` y cópielo en el siguiente código YAML. Indique su propia dirección IP pública que creó en el paso anterior.
-
-```yaml
-apiVersion: v1
-kind: Service
-metadata:
-  name: azure-load-balancer
-spec:
-  loadBalancerIP: 40.121.183.52
-  type: LoadBalancer
-  ports:
-  - port: 80
-  selector:
-    app: azure-load-balancer
-```
-
-Cree el servicio y la implementación con el comando `kubectl apply`.
-
-```console
-kubectl apply -f load-balancer-service.yaml
-```
-
-## <a name="use-a-static-ip-address-outside-of-the-node-resource-group"></a>Uso de una dirección IP estática fuera del grupo de recursos del nodo
-
-Con Kubernetes 1.10 o versiones posteriores, puede usar una dirección IP estática que se haya creado fuera del grupo de recursos del nodo. La entidad de servicio utilizada por el clúster de AKS debe tener permisos delegados al otro grupo de recursos, como se muestra en el siguiente ejemplo:
+Antes de crear un servicio, compruebe que la entidad de servicio utilizada por el clúster de AKS tenga permisos delegados para el otro grupo de recursos. Por ejemplo:
 
 ```azurecli-interactive
-az role assignment create\
+az role assignment create \
     --assignee <SP Client ID> \
-    --role "Network Contributor" \
+    --role "Contributor" \
     --scope /subscriptions/<subscription id>/resourceGroups/<resource group name>
 ```
 
-Para utilizar una dirección IP fuera del grupo de recursos del nodo, agregue una anotación a la definición de servicio. En el ejemplo siguiente se establece el grupo de recursos denominado *myResourceGroup*. Indique su propio nombre del grupo de recursos:
+Para crear un servicio *LoadBalancer* con la dirección IP pública estática, agregue la propiedad `loadBalancerIP` y el valor de la dirección IP pública estática al manifiesto YAML. Cree un archivo denominado `load-balancer-service.yaml` y cópielo en el siguiente código YAML. Indique su propia dirección IP pública que creó en el paso anterior. En el ejemplo siguiente también se establece el grupo de recursos denominado *myResourceGroup*. Indique su propio nombre del grupo de recursos.
 
 ```yaml
 apiVersion: v1
@@ -123,6 +90,12 @@ spec:
   - port: 80
   selector:
     app: azure-load-balancer
+```
+
+Cree el servicio y la implementación con el comando `kubectl apply`.
+
+```console
+kubectl apply -f load-balancer-service.yaml
 ```
 
 ## <a name="troubleshoot"></a>Solución de problemas

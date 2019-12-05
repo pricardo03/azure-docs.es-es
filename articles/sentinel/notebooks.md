@@ -14,14 +14,14 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/04/2019
+ms.date: 11/25/2019
 ms.author: rkarlin
-ms.openlocfilehash: ba22cc3db0ca50a292ddef4d0d646f8578c15cd4
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 1b78f6f0773e114a4dda536213e2684d8fbd706d
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489136"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483263"
 ---
 # <a name="use-jupyter-notebooks-to-hunt-for-security-threats"></a>Uso de cuadernos de Jupyter para buscar amenazas de seguridad
 
@@ -62,18 +62,18 @@ Para usar los cuadernos, debe tener una cuenta de Azure Notebooks. Para más inf
 > [!div class="mx-imgBorder"]
 >![Opción Registrarse en Azure Notebooks](./media/notebooks/sentinel-azure-sign-up-azure-notebooks.png)
 
-## <a name="view-available-notebooks-from-azure-sentinel"></a>Visualización de cuadernos disponibles de Azure Sentinel
+Puede ejecutar un cuaderno directamente desde Azure Sentinel o clonar todos los cuadernos de Azure Sentinel en un nuevo proyecto de Azure Notebooks.
+
+## <a name="run-a-notebook-from-azure-sentinel"></a>Ejecución de un cuaderno desde Azure Sentinel
  
 1. En Azure Portal, vaya a **Azure Sentinel** > **Threat management (Administración de amenazas)**  > **Notebooks** (Cuadernos), donde puede ver los cuadernos que proporciona Azure Sentinel. 
 
 2. Seleccione cuadernos individuales para leer sus descripciones, los tipos de datos necesarios y los orígenes de datos. Por ejemplo:
     
     > [!div class="mx-imgBorder"]
-    > ![iniciar cuaderno](./media/notebooks/sentinel-azure-notebooks-nolaunch.png)
+    > ![iniciar cuaderno](./media/notebooks/sentinel-azure-notebooks-launch.png)
 
-3. Seleccione **Launch Notebook** (Iniciar cuaderno) para examinar los cuadernos en el [repositorio de GitHub de la comunidad de Azure Sentinel](https://github.com/Azure/Azure-Sentinel).
-
-Actualmente, no se puede iniciar un cuaderno directamente desde Azure Sentinel. En su lugar, use el procedimiento siguiente que le guiará a través de la clonación de los cuadernos en GitHub en un proyecto de Azure Notebooks.
+3. Seleccione el cuaderno que quiera usar y, después, seleccione **Iniciar Notebook (versión preliminar)** para clonar y configurar el cuaderno en un nuevo proyecto de Azure Notebooks que se conecta al área de trabajo de Azure Sentinel. Una vez completado el proceso, el cuaderno se abre en Azure Notebooks para que pueda ejecutarlo.
 
 ## <a name="clone-azure-sentinel-notebooks-to-a-new-azure-notebooks-project"></a>Clonación de cuadernos de Azure Sentinel en un nuevo proyecto de Azure Notebooks
 

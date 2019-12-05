@@ -1,21 +1,19 @@
 ---
-title: 'Descodificación de mensajes X12: Azure Logic Apps | Microsoft Docs'
+title: Descodificación de mensajes X12
 description: Valide EDI y genere confirmaciones con el descodificador de mensajes X12 en Azure Logic Apps con Enterprise Integration Pack
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: jonfan, divswa, LADocs
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.assetid: 4fd48d2d-2008-4080-b6a1-8ae183b48131
 ms.date: 01/27/2017
-ms.openlocfilehash: 4a19462f4f849602fd14fe1204f1c7e3c01e6ec4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 918516a5629f8570d54c641ffc29f2367937266f
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64701443"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792375"
 ---
 # <a name="decode-x12-messages-in-azure-logic-apps-with-enterprise-integration-pack"></a>Decodificación de mensajes X12 en Azure Logic Apps con Enterprise Integration Pack
 
@@ -89,13 +87,13 @@ El conector de descodificación X12 lleva a cabo estas tareas:
   * Comprueba el número de control del grupo en relación con otros números de control de grupo en el intercambio.
   * Comprueba el número de control del conjunto de transacciones con otros números de control del conjunto de transacciones de dicho grupo.
 * Divide el intercambio en conjuntos de transacciones o conserva todo el intercambio:
-  * Dividir intercambio como conjuntos de transacciones: suspender conjuntos de transacciones en caso de error: divide el intercambio en conjuntos de transacciones y analiza cada conjunto de transacciones. 
+  * Dividir intercambio como conjuntos de transacciones: suspender conjuntos de transacciones en caso de error. Divide el intercambio en conjuntos de transacciones y analiza cada conjunto de transacciones. 
   La acción de descodificación X12 solo genera esos conjuntos de transacciones que no superan la validación para `badMessages` y los resultados de las transacciones restantes se establecen en `goodMessages`.
-  * Dividir intercambio como conjuntos de transacciones: suspender intercambio en caso de error: divide el intercambio en conjuntos de transacciones y analiza cada conjunto de transacciones. 
+  * Dividir intercambio como conjuntos de transacciones: suspender intercambio en caso de error. Divide el intercambio en conjuntos de transacciones y analiza cada conjunto de transacciones. 
   Si uno o varios conjuntos de transacciones del intercambio no superan la validación, la acción de descodificación de X12 establece todos los conjuntos de transacciones del intercambio en `badMessages`.
-  * Conservar intercambio: suspender conjuntos de transacciones en caso de error: conserva el intercambio y procesa todo el intercambio por lotes. 
+  * Conservar intercambio: suspender conjuntos de transacciones en caso de error. Conserva el intercambio y procesa todo el intercambio por lotes. 
   La acción de descodificación X12 solo genera esos conjuntos de transacciones que no superan la validación para `badMessages` y los resultados de las transacciones restantes se establecen en `goodMessages`.
-  * Conservar intercambio: suspender intercambio en caso de error: conserva el intercambio y procesa todo el intercambio por lotes. 
+  * Conservar intercambio: suspender intercambio en caso de error. Conserva el intercambio y procesa todo el intercambio por lotes. 
   Si uno o varios conjuntos de transacciones del intercambio no superan la validación, la acción de descodificación de X12 establece todos los conjuntos de transacciones del intercambio en `badMessages`. 
 * Genera una confirmación técnica o funcional (si esta opción está configurada).
   * Se genera una confirmación técnica como resultado de la validación del encabezado. La confirmación técnica informa del estado del procesamiento de un encabezado y finalizador de intercambio por parte del receptor de la dirección.
@@ -105,5 +103,5 @@ El conector de descodificación X12 lleva a cabo estas tareas:
 Vea los [detalles de Swagger](/connectors/x12/). 
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Más información sobre Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Información sobre Enterprise Integration Pack") 
+[Más información acerca de Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Información sobre Enterprise Integration Pack") 
 

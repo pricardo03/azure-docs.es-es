@@ -1,14 +1,14 @@
 ---
 title: Ciclo de vida de un plano técnico
-description: Conozca el ciclo de vida que recorre un plano técnico y detalles sobre cada fase.
+description: Aprenda sobre el ciclo de vida de la definición de un plano técnico y detalles sobre cada fase, incluida la actualización y eliminación de asignaciones de planos técnicos.
 ms.date: 07/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: d071a2af985d294bc87a5363d9e7566762e0fd8a
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 4dd5cb7d085744377cf12998f14c994fb1dcd2d7
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960486"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74404592"
 ---
 # <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Ciclo de vida de una instancia de Azure Blueprint
 
@@ -35,8 +35,7 @@ Cree y edite un plano técnico con [Azure Portal](../create-blueprint-portal.md#
 
 ## <a name="publishing-a-blueprint"></a>Publicación de un plano técnico
 
-Una vez realizados todos los cambios deseados en un plano técnico en modo **borrador**, este se puede **publicar** y pasar a estar disponible para la asignación. La versión del plano técnico con el estado **Publicado** no se puede modificar.
-Una vez **publicado**, el plano técnico aparece con un icono que es diferente al de los planos técnicos con el estado **Borrador** y muestra el número de versión que se proporcionó en la columna **Versión más reciente**.
+Una vez realizados todos los cambios deseados en un plano técnico en modo **borrador**, este se puede **publicar** y pasar a estar disponible para la asignación. La versión del plano técnico con el estado **Publicado** no se puede modificar. Una vez **publicado**, el plano técnico aparece con un icono que es diferente al de los planos técnicos con el estado **Borrador** y muestra el número de versión que se proporcionó en la columna **Versión más reciente**.
 
 Publique un plano técnico con [Azure Portal](../create-blueprint-portal.md#publish-a-blueprint) o la [API REST](../create-blueprint-rest-api.md#publish-a-blueprint).
 
@@ -64,9 +63,9 @@ Cada versión de un plano técnico es un objeto único que se puede **publicar**
 
 1. Seleccione **Todos los servicios** en el panel izquierdo. Busque y seleccione **Planos técnicos**.
 
-1. Seleccione **Definiciones del plano técnico** de la página de la izquierda y use las opciones de filtro para buscar el plano técnico del que desea eliminar una versión. Haga clic en él para abrir la página de edición.
+1. Seleccione **Definiciones del plano técnico** de la página de la izquierda y use las opciones de filtro para buscar el plano técnico del que desea eliminar una versión. Selecciónelo para abrir la página de edición.
 
-1. Haga clic en la pestaña **Versiones publicadas** y busque la versión que desea eliminar.
+1. Seleccione la pestaña **Versiones publicadas** y busque la versión que quiere eliminar.
 
 1. Haga clic con el botón derecho en la versión que quiere eliminar y seleccione **Eliminar esta versión**.
 

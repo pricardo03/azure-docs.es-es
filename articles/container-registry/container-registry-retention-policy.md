@@ -1,19 +1,14 @@
 ---
-title: Directiva para conservar los manifiestos sin etiqueta en Azure Container Registry
+title: Directiva para conservar los manifiestos sin etiquetar
 description: Aprenda a habilitar una política de retención en Azure Container Registry para la eliminación automática de manifiestos sin etiqueta después de un período definido.
-services: container-registry
-author: dlepow
-manager: gwallace
-ms.service: container-registry
 ms.topic: article
 ms.date: 10/02/2019
-ms.author: danlep
-ms.openlocfilehash: 79b3e48373114bfcee6dca2e6142f23bed1699e6
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 912616b6ab95cdff91e70477c7d6de476ccfdfa7
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71972649"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74454818"
 ---
 # <a name="set-a-retention-policy-for-untagged-manifests"></a>Establecimiento de una directiva de retención para manifiestos sin etiqueta
 

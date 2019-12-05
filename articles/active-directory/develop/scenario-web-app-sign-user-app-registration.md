@@ -15,12 +15,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 50e4778693e448b9a989d70d3ca8cf91c76ce380
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 0d840cbaba2cc8325c619248bb7f4421d3b2f83c
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74482052"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74766079"
 ---
 # <a name="web-app-that-signs-in-users-app-registration"></a>Aplicación web que inicia sesión de usuarios: Registro de aplicación
 
@@ -68,27 +68,27 @@ Puede usar estos vínculos para el arranque de la creación de la aplicación we
    1. En la sección **Nombre**, escriba un nombre con sentido para la aplicación, que se mostrará a los usuarios de la aplicación. Por ejemplo, escriba **MailApp-openidconnect-v2**.
    1. En la sección **URI de redirección (opcional)** , seleccione **Web** en el cuadro combinado y escriba los siguientes URI de redirección: **https://localhost:44326/** .
 1. Seleccione **Registrar** para crear la aplicación.
-1. Seleccione el menú **Autenticación**. 
+1. Seleccione el menú **Autenticación**.
 1. En la sección **Configuración avanzada** | **Concesión implícita**, seleccione **Tokens de id.** Para este ejemplo, se requiere que habilite el [flujo de concesión implícita](v2-oauth2-implicit-grant-flow.md).
 1. Seleccione **Guardar**.
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-1. Cuando aparezca la página **Registrar una aplicación**, escriba un nombre para mostrar de la aplicación. Por ejemplo, escriba **java-webapp**. 
+1. Cuando aparezca la página **Registrar una aplicación**, escriba un nombre para mostrar de la aplicación. Por ejemplo, escriba **java-webapp**.
 1. Seleccione **Cuentas en cualquier directorio organizativo y cuentas Microsoft personales (por ejemplo, Skype, Xbox, Outlook.com)** y luego seleccione **Aplicación web o API** para **Tipo de aplicación**.
 1. Seleccione **Registrar** para registrar la aplicación.
-1. En el menú izquierdo, seleccione **Autenticación**. En **URI de redirección**, seleccione **Web**. 
+1. En el menú izquierdo, seleccione **Autenticación**. En **URI de redirección**, seleccione **Web**.
 
 1. Escriba dos URI de redirección: uno para la página de inicio de sesión y otro para la página de gráfico. En ambos casos, use el mismo host y número de puerto, seguido de **/msal4jsample/secure/aad** para la página de inicio de sesión y de **msal4jsample/graph/me** para la página de información de usuario.
- 
+
    De forma predeterminada, en el ejemplo se usa:
 
    - **http://localhost:8080/msal4jsample/secure/aad**
    - **http://localhost:8080/msal4jsample/graph/me**
 
-1. En la sección **Configuración avanzada**, establezca **Dirección URL de cierre de sesión** en **http://localhost:8080/msal4jsample/sign_out** . Después, seleccione **Guardar**.
+  Después, seleccione **Guardar**.
 
-1. Seleccione **Certificados y secretos** en el menú. 
+1. Seleccione **Certificados y secretos** en el menú.
 1. En la sección **Secretos de cliente**, seleccione **Nuevo secreto de cliente** y, a continuación, haga lo siguiente:
 
    1. Escriba una descripción de la clave.
@@ -104,7 +104,6 @@ Puede usar estos vínculos para el arranque de la creación de la aplicación we
    1. En la sección **URI de redirección (opcional)** , seleccione **Web** en el cuadro combinado y escriba los siguientes URI de redirección: **http://localhost:5000/getAToken** .
 1. Seleccione **Registrar** para crear la aplicación.
 1. En la página **Información general** de la aplicación, busque el valor de **Id. de aplicación (cliente)** y regístrelo para usarlo más tarde. Lo necesitará para configurar el archivo de configuración de Visual Studio para este proyecto.
-1. Seleccione la sección **Autenticación**. En **Configuración avanzada**, establezca **Dirección URL de cierre de sesión** en **http://localhost:5000/logout** . Después, seleccione **Guardar**.
 1. En el menú izquierdo, seleccione **Certificados y secretos**.
 1. En la sección **Secretos de cliente**, seleccione **Nuevo secreto de cliente** y, a continuación, haga lo siguiente:
 

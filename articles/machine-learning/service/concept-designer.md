@@ -6,59 +6,69 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: sgilley
-author: sdgilley
-ms.date: 11/04/2019
-ms.openlocfilehash: ee97322e58fe7ab3a1474f55c6294822b8ce90da
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.author: peterlu
+author: peterclu
+ms.date: 11/12/2019
+ms.openlocfilehash: 73facea2b99ee038b16053fd818d93d35da4cbdd
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73511833"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196176"
 ---
 # <a name="what-is-azure-machine-learning-designer-preview"></a>¿Qué es el diseñador de Azure Machine Learning (versión preliminar)? 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
-El diseñador de Azure Machine Learning permite preparar los datos, formar, probar, implementar, administrar y realizar un seguimiento de los modelos de aprendizaje automático sin necesidad de escribir código.
+El diseñador de Azure Machine Learning le permite conectar visualmente [conjuntos de datos](#datasets) y [módulos](#module) en un lienzo interactivo para crear modelos de aprendizaje automático. Para más información sobre cómo empezar a trabajar con el diseñador, consulte [Tutorial: Predicción del precio de un automóvil con el diseñador](tutorial-designer-automobile-price-train-score.md)
 
-No se requiere ningún tipo de programación, conecte visualmente [conjuntos de datos](#datasets) y [módulos](#module) para construir el modelo.
+![Ejemplo del diseñador de Azure Machine Learning](./media/concept-ml-pipelines/designer-drag-and-drop.gif)
 
-El diseñador utiliza el [área de trabajo](concept-workspace.md) de Azure Machine Learning para:
+El diseñador usa el [área de trabajo](concept-workspace.md) de Azure Machine Learning para organizar recursos compartidos, por ejemplo:
 
-+ Cree, edite y ejecute [canalizaciones](#pipeline) en el área de trabajo.
-+ Acceder a [conjuntos de datos](#datasets).
-+ Use los [recursos de proceso](#compute) en el área de trabajo para ejecutar la canalización. 
-+ Registrar [modelos](concept-azure-machine-learning-architecture.md#models).
-+ [Publique](#publish) canalizaciones como puntos de conexión REST.
-+ [Implemente](#deployment) modelos como puntos de conexión de canalización (para la inferencia por lotes) o puntos de conexión en tiempo real en recursos de proceso en el área de trabajo.
++ [Procesos](#pipeline)
++ [Conjuntos de datos](#datasets)
++ [Recursos de proceso](#compute)
++ [Modelos registrados](concept-azure-machine-learning-architecture.md#models)
++ [Canalizaciones publicadas](#publish)
++ [Puntos de conexión en tiempo real](#deploy)
 
-![Información general sobre el diseñador](media/ui-concept-visual-interface/overview.png)
+## <a name="model-training-and-deployment"></a>Entrenamiento e implementación de modelos
 
-## <a name="workflow"></a>Flujo de trabajo
+El diseñador proporciona un lienzo visual para compilar, probar e implementar modelos de aprendizaje automático. Con el diseñador puede:
 
-El diseñador proporciona un lienzo visual interactivo para compilar, probar e iterar rápidamente en un modelo. 
++ Arrastrar [conjuntos de datos](#datasets) y [módulos](#module) y colocarlos en el lienzo.
++ Conectar los módulos para crear un [borrador de canalización](#pipeline-draft).
++ Enviar una [ejecución de canalización](#pipeline-run) mediante los recursos de proceso del área de trabajo de Azure Machine Learning.
++ Convertir las **canalizaciones de entrenamiento** en **canalizaciones de inferencia**.
++ [Publicar](#publish) las canalizaciones en un **punto de conexión de canalización** de REST para enviar nuevas ejecuciones de canalización con distintos parámetros y conjuntos de datos.
+    + Publique una **canalización de entrenamiento** para reutilizar una sola canalización para el entrenamiento de varios modelos y, al mismo tiempo, cambiar los parámetros y conjuntos de datos.
+    + Publique una **canalización de inferencia por lotes** para hacer predicciones sobre nuevos datos mediante un modelo entrenado previamente.
++ [Implementar](#deploy) una **canalización de inferencia en tiempo real** en un punto de conexión en tiempo real para realizar predicciones sobre nuevos datos en tiempo real.
 
-+ Arrastre y coloque los [conjuntos de datos](#datasets) y [módulos](#module) en el lienzo.
-+ Conecte los módulos juntos para formar una [canalización](#pipeline).
-+ Ejecute la canalización mediante el recurso de proceso del área de trabajo de Machine Learning Service.
-+ Itere en el diseño del modelo editando la canalización y ejecutándola de nuevo.
-+ Cuando esté listo, convierta la **canalización de entrenamiento** en una **canalización de inferencia**.
-+ [Publique](#publish) la canalización como un punto de conexión REST si desea volver a enviarla sin el código de Python que la construyó.
-+ [Implemente](#deployment) la canalización de inferencia como punto de conexión de canalización o como punto de conexión en tiempo real para que otros usuarios puedan acceder al modelo.
+![Diagrama de flujo de trabajo para entrenamiento, inferencia por lotes e inferencia en tiempo real en el diseñador](media/ui-concept-visual-interface/designer-workflow-diagram.png)
 
 ## <a name="pipeline"></a>Canalización
 
-Cree una [canalización](concept-azure-machine-learning-architecture.md#ml-pipelines) de Machine Learning desde cero o use una canalización de ejemplo existente como plantilla. Cada vez que ejecuta una canalización, los artefactos se almacenan en su área de trabajo. Las ejecuciones de canalización se agrupan en [experimentos](concept-azure-machine-learning-architecture.md#experiments).
+Una [canalización](concept-azure-machine-learning-architecture.md#ml-pipelines) consta de conjuntos de datos y módulos analíticos, que se conectan. Las canalizaciones tienen muchos usos: puede crear una canalización que entrene a un modelo único o una que entrene a varios modelos. Puede crear una canalización que realice predicciones en tiempo real o por lotes, o crear una canalización que solo limpie los datos. Las canalizaciones le permiten reutilizar el trabajo y organizar los proyectos.
 
-Una canalización consta de conjuntos de datos y módulos analíticos, que se conectan entre ellos para construir un modelo. En concreto, una canalización válida tiene estas características:
+### <a name="pipeline-draft"></a>Borrador de canalización
 
-* Los conjuntos de datos pueden estar solo se pueden conectar a módulos.
-* Los módulos pueden conectarse a conjuntos de datos o a otros módulos.
+A medida que edita una canalización en el diseñador, el progreso se guarda como un **borrador de canalización **. Puede editar un borrador de canalización en cualquier momento y agregar o quitar módulos, configurar destinos de proceso, crea parámetros, etc.
+
+Una canalización válida tiene estas características:
+
+* Los conjuntos de datos solo pueden conectarse a módulos.
+* Los módulos solo se pueden conectar a conjuntos de datos o a otros módulos.
 * Todos los puertos de entrada de los módulos deben tener alguna conexión al flujo de datos.
 * Deben establecerse todos los parámetros necesarios para cada módulo.
 
+Cuando esté listo para ejecutar el borrador de la canalización, envíe una ejecución de canalización.
 
-Para más información sobre cómo empezar a trabajar con el diseñador, consulte [Tutorial: Predecir el precio del automóvil con el diseñador](tutorial-designer-automobile-price-train-score.md).
+### <a name="pipeline-run"></a>Ejecución de la canalización
+
+Cada vez que se ejecuta una canalización, la configuración de esta y sus resultados se almacenan en el área de trabajo como una **ejecución de canalización**. Puede regresar a cualquier ejecución de canalización para inspeccionarla con fines de solución de problemas o auditoría. **Clone** una ejecución de canalización para crear un borrador de canalización y editarlo.
+
+Las ejecuciones de canalización se agrupan en [experimentos](concept-azure-machine-learning-architecture.md#experiments) para organizar el historial de ejecuciones. Puede establecer el experimento de cada ejecución de canalización. 
 
 ## <a name="datasets"></a>Conjuntos de datos
 
@@ -68,7 +78,7 @@ Un conjuntos de datos de aprendizaje automático permite acceder a los datos y t
 
 Un módulo es un algoritmo que puede aplicar sobre sus datos. El diseñador tiene una serie de módulos que van desde las funciones de entrada de datos hasta los procesos de entrenamiento, puntuación y validación.
 
-Un módulo puede tener un conjunto de parámetros que puede utilizar para configurar los algoritmos internos del módulo. Al seleccionar un módulo en el lienzo, los parámetros del módulo se muestran en el panel Propiedades a la derecha del lienzo. Puede modificar los parámetros en ese panel para ajustar su modelo.
+Un módulo puede tener un conjunto de parámetros que puede utilizar para configurar los algoritmos internos del módulo. Al seleccionar un módulo en el lienzo, los parámetros del módulo se muestran en el panel Propiedades a la derecha del lienzo. Puede modificar los parámetros en ese panel para ajustar su modelo. Puede establecer los recursos de proceso para módulos individuales del diseñador. 
 
 ![Propiedades del módulo](media/ui-concept-visual-interface/properties.png)
 
@@ -85,21 +95,24 @@ Use recursos de proceso del área de trabajo para ejecutar la canalización y ho
 
 Los destinos de proceso están conectados a su [área de trabajo](concept-workspace.md) de Machine Learning. Los destinos de proceso se administran en el área de trabajo de [Azure Machine Learning Studio](https://ml.azure.com).
 
-## <a name="publish"></a>Publicar
+## <a name="deploy"></a>Implementación
 
-Una vez que tenga una canalización lista, puede publicarla como punto de conexión REST. Se puede enviar la canalización [PublishedPipeline](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.publishedpipeline?view=azure-ml-py) sin el código Python que la construyó.
+Para realizar la inferencia en tiempo real, debe implementar una canalización como un **punto de conexión en tiempo real**. El punto de conexión en tiempo real crea una interfaz entre una aplicación externa y el modelo de puntuación. Una llamada a un punto de conexión en tiempo real devuelve resultados de predicción a la aplicación externa en tiempo real. Para realizar una llamada a un punto de conexión en tiempo real, es necesario pasar la clave de API que se creó al implementar el punto de conexión. El punto de conexión se basa en REST, una arquitectura muy usada para proyectos de programación web.
 
-Además, la canalización PublishedPipeline se puede usar para volver a enviar una canalización con valores y entradas de PipelineParameter diferentes.
-
-## <a name="deployment"></a>Implementación
-
-Una vez que el modelo predictivo esté listo, impleméntelo como punto de conexión de la canalización o punto de conexión en tiempo real desde el diseñador.
-
-El punto de conexión de canalización es un PublishedPipeline, que puede enviar una ejecución de canalización con distintos valores de PipelineParameter y entradas para la inferencia de lotes.
-
-El punto de conexión en tiempo real proporciona una interfaz entre una aplicación y el modelo de puntuación. Una aplicación externa puede comunicarse con un modelo de puntuación en tiempo real. Una llamada a un punto de conexión en tiempo real devuelve los resultados de la predicción a una aplicación externa. Para realizar una llamada a un punto de conexión en tiempo real, es necesario pasar una clave de API que se creó al implementar el punto de conexión. El punto de conexión se basa en REST, una arquitectura muy usada para proyectos de programación web.
+Los puntos de conexión en tiempo real se deben implementar en un clúster de Azure Kubernetes Service.
 
 Para aprender a implementar el modelo, consulte [Tutorial: Implemente un modelo de aprendizaje automático con el diseñador](tutorial-designer-automobile-price-deploy.md).
+
+## <a name="publish"></a>Publicar
+
+También puede publicar una canalización en un **punto de conexión de canalización**. Igual que un punto de conexión en tiempo real, un punto de conexión de canalización permite enviar nuevas ejecuciones de canalización desde aplicaciones externas mediante llamadas REST. Sin embargo, no se pueden enviar ni recibir datos en tiempo real.
+
+Las canalizaciones publicadas son flexibles; se pueden usar para entrenar o volver a entrenar modelos, realizar la inferencia por lotes, procesar nuevos datos y mucho más. Puede publicar varias canalizaciones en un único punto de conexión de canalización y especificar la versión de canalización que se va a ejecutar.
+
+Una canalización publicada se ejecuta en los recursos de proceso que se definen en el borrador de canalización de cada módulo.
+
+El diseñador crea el mismo objeto [PublishedPipeline](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.publishedpipeline?view=azure-ml-py) como SDK.
+
 
 ## <a name="moving-from-the-visual-interface-to-the-designer"></a>Pasar de la interfaz visual al diseñador
 

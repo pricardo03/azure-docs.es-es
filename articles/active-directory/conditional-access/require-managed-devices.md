@@ -1,22 +1,22 @@
 ---
-title: 'Procedimiento: Uso obligatorio de dispositivos administrados para el acceso a las aplicaciones en la nube mediante el acceso condicional de Azure Active Directory | Microsoft Docs'
+title: 'El acceso condicional requiere un dispositivo administrado: Azure Active Directory'
 description: Aprenda a configurar directivas de acceso condicional basadas en dispositivos de Azure Active Directory (Azure AD) que exigen dispositivos administrados para acceder a las aplicaciones en la nube.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
-ms.date: 06/14/2018
+ms.date: 11/22/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9c99b8390cd43c3f0767123684fe06e0ae74f86
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 0caf8e8d5e18efc0a7332f97acccc394051ed360
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509364"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74452399"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Instrucciones: Uso obligatorio de dispositivos administrados para el acceso a aplicaciones en la nube mediante el acceso condicional
 
@@ -79,7 +79,7 @@ La opción de *requerir que un dispositivo esté marcado como compatibles* es la
 
 Esta opción exige registrar un dispositivo en Azure AD y, también, que se marque como compatible por:
          
-- Intune.
+- Intune
 - Un sistema administrado de dispositivos móviles (MDM) de terceros que administra los dispositivos de Windows 10 a través de la integración de Azure AD. No se pueden utilizar sistemas MDM de terceros con otros sistemas operativos que no sean Windows 10.
  
 ![Condiciones basadas en el dispositivo](./media/require-managed-devices/46.png)
@@ -90,6 +90,9 @@ Para un dispositivo que está marcado como compatible, puede suponer que:
 - Las aplicaciones móviles que los trabajadores usan son administradas.
 - La información empresarial está protegida al ayudar a controlar la manera en que los trabajadores acceden a ella y la comparten.
 - El dispositivo y sus aplicaciones son compatibles con los requisitos de seguridad de la empresa.
+
+> [!NOTE]
+> Si configura una directiva para que requiera dispositivos compatibles, es posible que se solicite a los usuarios de Mac, iOS y Android que seleccionen un certificado de dispositivo durante la evaluación de la directiva. Este es un comportamiento conocido.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

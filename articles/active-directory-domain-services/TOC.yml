@@ -87,7 +87,7 @@
           href: deploy-kcd.md
         - name: Configuración de las directivas de bloqueo de cuenta y contraseña
           href: password-policy.md
-        - name: Habilitar eventos de auditoría de seguridad (versión preliminar)
+        - name: Habilitar eventos de auditoría de seguridad
           href: security-audit-events.md
     - name: Unión a dominio de máquinas virtuales
       items:

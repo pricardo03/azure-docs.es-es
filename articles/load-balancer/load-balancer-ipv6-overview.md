@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/24/2018
 ms.author: allensu
-ms.openlocfilehash: 07dd3ee507f31099e32f18143d2beedf76e83c36
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 4f4baea1c293a1707d87780044a21ff675cb7f98
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74077019"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74666212"
 ---
 # <a name="overview-of-ipv6-for-azure-load-balancer"></a>Información general de IPv6 para Azure Load Balancer
 
@@ -78,7 +78,6 @@ Limitaciones
 * El cambio del parámetro loadDistributionMethod de IPv6 **no se admite actualmente**.
 * Las direcciones IP de reserva de IPv6 (donde IPAllocationMethod = static) **no se admiten actualmente**.
 * NAT64 (traducción de IPv6 a IPv4) no se admite.
-* Los equilibradores de carga de la SKU estándar no admiten actualmente direcciones IPv6.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -1,21 +1,15 @@
 ---
-title: Referencia sobre la configuración de Azure Blockchain Workbench
-description: Introducción a la configuración de aplicaciones de la versión preliminar de Azure Blockchain Workbench.
-services: azure-blockchain
-keywords: ''
-author: PatAltimore
-ms.author: patricka
+title: Referencia de metadatos sobre la configuración de Azure Blockchain Workbench
+description: Introducción a los metadatos de configuración de aplicaciones de la versión preliminar de Azure Blockchain Workbench.
 ms.date: 09/05/2019
 ms.topic: article
-ms.service: azure-blockchain
 ms.reviewer: brendal
-manager: femila
-ms.openlocfilehash: 1c737106b47b95fcc6d1abdadc81398a3bc9256d
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 2ee1d1da1a9a5d8e890a6578eaec42cc6bf9f3ed
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845102"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326063"
 ---
 # <a name="azure-blockchain-workbench-configuration-reference"></a>Referencia sobre la configuración de Azure Blockchain Workbench
 
@@ -75,7 +69,7 @@ Tipos de datos admitidos.
 |-------|-------------|
 | address  | Tipo de dirección de Blockchain, como *contratos* o *usuarios*. |
 | array    | Matriz de nivel único de tipo integer, booleano, money o time. Las matrices pueden ser estáticas o dinámicas. Use **ElementType** para especificar el tipo de datos de los elementos dentro de la matriz. Consulte la [configuración de ejemplo](#example-configuration-of-type-array). |
-| booleano     | Tipo de datos booleano. |
+| bool     | Tipo de datos booleano. |
 | contrato | Dirección de tipo contrato. |
 | enum     | Conjunto enumerado de valores con nombre. Cuando se usa el tipo de enumeración, también especifica una lista de EnumValues. El valor está limitado a 255 caracteres. Los caracteres de valor válidos incluyen letras mayúsculas y minúsculas (A-z, a-z) y números (0-9). Consulte [configuración de ejemplo y uso en Solidity](#example-configuration-of-type-enum). |
 | int      | Tipo de datos Integer. |

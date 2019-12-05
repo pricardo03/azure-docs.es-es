@@ -1,28 +1,21 @@
 ---
-title: Consorcio de prueba de autoridad de Ethereum - Azure
-description: Usar la solución del consorcio de prueba de autoridad de Ethereum para implementar y configurar una red con varios miembros del consorcio Ethereum
-services: azure-blockchain
-keywords: ''
-author: CodyBorn
-ms.author: coborn
+title: Implementación de la solución Consorcio de prueba de autoridad de Ethereum en Azure
+description: Usar la solución Consorcio de prueba de autoridad de Ethereum para implementar y configurar una red con varios miembros del consorcio Ethereum en Azure
 ms.date: 04/08/2019
 ms.topic: article
-ms.service: azure-blockchain
-ms.reviewer: brendal
-manager: vamelech
-ms.openlocfilehash: 01b9f7f74077737ea95a56bbe81f440db425bf0c
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.reviewer: coborn
+ms.openlocfilehash: c3e449c1d6ebaf7c6cb2c35dc9f91d55f569447a
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698451"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326170"
 ---
-# <a name="ethereum-proof-of-authority-consortium"></a>Consorcio de prueba de autoridad de Ethereum
+# <a name="deploy-ethereum-proof-of-authority-consortium-solution-template-on-azure"></a>Implementación de la solución Consorcio de prueba de autoridad de Ethereum en Azure
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="overview"></a>Información general
-[Esta solución](https://portal.azure.com/?pub_source=email&pub_status=success#create/microsoft-azure-blockchain.azure-blockchain-ethereumethereum-poa-consortium) está diseñada para que sea más fácil implementar, configurar y gobernar una red con varios miembros del consorcio de prueba de autoridad de Ethereum con un conocimiento mínimo de Azure y Ethereum.
+[La plantilla de solución Consorcio de prueba de autoridad de Ethereum en Azure](https://portal.azure.com/?pub_source=email&pub_status=success#create/microsoft-azure-blockchain.azure-blockchain-ethereumethereum-poa-consortium) está diseñada para que sea más fácil implementar, configurar y gobernar una red con varios miembros del consorcio de prueba de autoridad de Ethereum con un conocimiento mínimo de Azure y Ethereum.
 
 Con un conjunto de entradas de usuario y una implementación con un solo clic a través de Azure Portal, cada miembro puede aprovisionar un consumo de red mediante el uso de los servicios de proceso, redes y almacenamiento de Microsoft Azure en todo el mundo. El consumo de red de cada miembro se compone de un conjunto de nodos de validador de carga equilibrada con el que una aplicación o un usuario puede interactuar para enviar las transacciones de Ethereum.
 

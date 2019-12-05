@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/29/2019
 ms.author: mlearned
-ms.openlocfilehash: cfef8ff79f62eca9946dcbb49cafc253f36ab7bb
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 208ffaa4c78e00031e41b6e2b8c01edb667b54a6
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73472735"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74481168"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Control del tráfico de salida de los nodos de clúster en Azure Kubernetes Service (AKS)
 
@@ -132,6 +132,17 @@ Los clústeres de AKS que tienen habilitado Azure Monitor para contenedores nece
 | \* .oms.opinsights.azure.com | HTTPS:443 | Esta dirección la usa omsagent, que se usa para autenticar el servicio de análisis de registros. |
 |*.microsoftonline.com | HTTPS:443 | Se usa para autenticar y enviar métricas a Azure Monitor. |
 |*.monitoring.azure.com | HTTPS:443 | Se usa para enviar datos de métricas a Azure Monitor. |
+
+## <a name="required-addresses-and-ports-with-azure-dev-spaces-enabled"></a>Direcciones y puertos necesarios que tienen habilitado Azure Dev Spaces
+
+Los clústeres de AKS que tienen habilitado Azure Dev Spaces necesitan las reglas de aplicación/FQDN siguientes:
+
+| FQDN                                    | Port      | Uso      |
+|-----------------------------------------|-----------|----------|
+| cloudflare.docker.com | HTTPS:443 | Esta dirección se usa para extraer Linux Alpine y otras imágenes de Azure Dev Spaces |
+| gcr.io | HTTP:443 | Esta dirección se usa para extraer imágenes de Helm/Tiller |
+| storage.googleapis.com | HTTP:443 | Esta dirección se usa para extraer imágenes de Helm/Tiller |
+| azds-<guid>.<location>.azds.io | HTTPS:443 | Comunicarse con los servicios de back-end de Azure Dev Spaces para el controlador. El FQDN exacto se puede encontrar en "dataplaneFqdn" en %USERPROFILE%\.azds\settings.json |
 
 ## <a name="required-addresses-and-ports-for-aks-clusters-with-azure-policy-in-public-preview-enabled"></a>Direcciones y puertos necesarios para los clústeres de AKS que tienen habilitado Azure Policy (en versión preliminar pública)
 

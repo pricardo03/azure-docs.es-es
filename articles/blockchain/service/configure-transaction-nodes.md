@@ -1,31 +1,17 @@
 ---
 title: Configurar los nodos de transacción de Azure Blockchain Service
 description: Cómo configurar los nodos de transacción de Azure Blockchain Service
-services: azure-blockchain
-keywords: ''
-author: PatAltimore
-ms.author: patricka
-ms.date: 05/02/2019
+ms.date: 11/20/2019
 ms.topic: article
-ms.service: azure-blockchain
-ms.reviewer: seal
-manager: femila
-ms.openlocfilehash: dffeb81ae1eb244c38639a1241c0581e6fcdf94a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.reviewer: janders
+ms.openlocfilehash: 4a9a4f660dd171e65b600ec4cd66714ca476b091
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65027966"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326300"
 ---
 # <a name="configure-azure-blockchain-service-transaction-nodes"></a>Configurar los nodos de transacción de Azure Blockchain Service
-
-Para interactuar con Azure Blockchain Service, conéctese a uno o varios nodos de transacción en el miembro de la cadena de bloques.  Para interactuar con los nodos de transacción, deberá configurar los nodos para su acceso.
-
-## <a name="prerequisites"></a>Requisitos previos
-
-* [Crear un miembro de Azure Blockchain](create-member.md)
-
-## <a name="transaction-node-overview"></a>Introducción al nodo de transacción
 
 Los nodos de transacciones se usan para enviar transacciones de cadenas de bloques a Azure Blockchain Service a través de un punto de conexión público. El nodo de transacciones predeterminado contiene la clave privada de la cuenta de Ethereum registrada en la cadena de bloques y, por lo tanto, no se puede eliminar.
 
@@ -40,7 +26,7 @@ Para ver los detalles del nodo de transacción predeterminado:
 
 ## <a name="create-transaction-node"></a>Creación del nodo de transacción
 
-Puede agregar hasta nueve nodos adicionales de transacción al miembro de la cadena de bloques, para un total de diez nodos de transacción. Al agregar nodos de transacción, puede aumentar la escalabilidad o distribuir la carga. Por ejemplo, podría tener un punto de conexión del nodo de transacción para diferentes aplicaciones cliente.
+Puede agregar hasta nueve nodos adicionales de transacción al miembro de la cadena de bloques, para un total de 10 nodos de transacción. Al agregar nodos de transacción, puede aumentar la escalabilidad o distribuir la carga. Por ejemplo, podría tener un punto de conexión del nodo de transacción para diferentes aplicaciones cliente.
 
 Para agregar un nodo de transacción:
 
@@ -83,7 +69,7 @@ Para conceder control de acceso de Azure AD al punto de conexión:
 
     | Configuración | . |
     |---------|-------------|
-    | Rol | Seleccione **Propietario**, **Colaborador** o **Lector**.
+    | Role | Seleccione **Propietario**, **Colaborador** o **Lector**.
     | Asignar acceso a | Seleccione **Usuario, grupo o entidad de servicio de Azure AD**.
     | Seleccionar | Busque el usuario, grupo o entidad de servicio que quiere agregar.
 
@@ -141,7 +127,7 @@ El código de ejemplo se proporciona para habilitar rápidamente la conexión al
 
 Puede ver el código de conexión de ejemplo de un nodo de transacción y copiarlo para su uso con herramientas de desarrollo populares. Vaya a uno de los nodos de transacción del miembro de Azure Blockchain Service y seleccione **Código de ejemplo** en la configuración.
 
-Elija la pestaña Web3 o Nethereum para ver el código de ejemplo que quiere usar.
+Elija la pestaña Web3, Nethereum, Truffle o Web3j para ver el código de ejemplo que quiere usar.
 
 ![Código de ejemplo](./media/configure-transaction-nodes/sample-code.png)
 

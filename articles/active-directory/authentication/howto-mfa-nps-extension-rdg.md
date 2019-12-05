@@ -1,22 +1,22 @@
 ---
-title: 'Integración de la puerta de enlace de Escritorio remoto con la extensión NPS de Azure MFA: Azure Active Directory'
+title: 'Integrar RDG con la extensión NPS de Azure MFA: Azure Active Directory'
 description: Integre la infraestructura de Puerta de enlace de Escritorio remoto con Azure MFA mediante la extensión Servidor de directivas de redes para Microsoft Azure.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 12/03/2018
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf9188502dd2b17bcd898e2655138b06cfe5cebf
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 6ec402cf2c741d88d230e5734485bf9eb0dd1b03
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70898550"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74381815"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Integración de la infraestructura de la puerta de enlace de Escritorio remoto utilizando la extensión Servidor de directivas de redes (NPS) y Azure AD
 

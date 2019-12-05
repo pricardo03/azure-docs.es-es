@@ -1,23 +1,16 @@
 ---
-title: 'Habilitar el registro de diagnósticos para las aplicaciones: Azure App Service'
+title: Habilitación del registro de diagnósticos
 description: Obtenga información acerca de cómo habilitar el registro de diagnóstico y agregar la instrumentación a su aplicación, así como la manera de acceder a la información registrada por Azure.
-services: app-service
-author: cephalin
-manager: gwallace
 ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/17/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: bf25967133901aca911c0ad3a69d43c75bb816a0
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.openlocfilehash: 54435dd21fccdd43f17d13674b324b989a00f7a1
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74558564"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74684250"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Habilitar el registro de diagnósticos para las aplicaciones de Azure App Service
 ## <a name="overview"></a>Información general
@@ -30,7 +23,7 @@ En este artículo se usa [Azure Portal](https://portal.azure.com) y la CLI de Az
 >
 >
 
-|type|Plataforma|Location|DESCRIPCIÓN|
+|Tipo|Plataforma|Location|DESCRIPCIÓN|
 |-|-|-|-|
 | Registro de aplicaciones | Windows, Linux | Sistema de archivos de App Service o blobs de Azure Storage | Registra los mensajes generados por el código de aplicación. Los mensajes se pueden generar en el marco web que elija o directamente desde el código de aplicación mediante el patrón de registro estándar del lenguaje. A cada mensaje se le asigna una de las siguientes categorías: **Crítico**, **Error**, **Advertencia**, **Información**, **Depuración** y **Seguimiento**. Puede seleccionar el grado de detalle que quiere que tenga el registro; para ello, establezca el nivel de gravedad al habilitar el registro de la aplicación.|
 | Registro del servidor web| Windows | Sistema de archivos de App Service o blobs de Azure Storage| Datos de solicitud HTTP sin procesar en el [formato de archivo de registro extendido W3C](/windows/desktop/Http/w3c-logging). Cada mensaje de registro incluye datos como el método HTTP, el URI del recurso, la dirección IP del cliente, el puerto del cliente, el agente de usuario, el código de respuesta, etc. |

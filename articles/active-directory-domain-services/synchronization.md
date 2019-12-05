@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: iainfou
-ms.openlocfilehash: 7d4546a6d2de01575825154ab30a909b76b3fc89
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a0c9a654d0ee49dc2bdb6efb7370a3ad2b199e10
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73474474"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74481312"
 ---
 # <a name="how-objects-and-credentials-are-synchronized-in-an-azure-ad-domain-services-managed-domain"></a>Procedimiento para sincronizar objetos y credenciales en un dominio administrado de Azure AD Domain Services
 
@@ -98,6 +98,9 @@ En la tabla siguiente se muestra cómo determinados atributos de objetos de grup
 ## <a name="synchronization-from-on-premises-ad-ds-to-azure-ad-and-azure-ad-ds"></a>Sincronización de un entorno AD DS local a Azure AD y Azure AD DS
 
 Azure AD Connect se utiliza para sincronizar cuentas de usuario, pertenencias a grupos y hash de credenciales de un entorno de AD DS local a Azure AD. Los atributos de cuentas de usuario, como el UPN y el identificador de seguridad local (SID), se sincronizan. Para iniciar sesión con Azure AD Domain Services, los hash heredados necesarios para la autenticación NTLM y Kerberos también se sincronizan con Azure AD.
+
+> [!IMPORTANT]
+> Azure AD Connect solo debe instalarse y configurarse para la sincronización con entornos de AD DS locales. No se admite la instalación de Azure AD Connect en un dominio administrado de Azure AD DS para volver a sincronizar los objetos con Azure AD.
 
 Si configura la reescritura, los cambios de Azure AD se vuelven a sincronizar con el entorno de AD DS local. Por ejemplo, si un usuario cambia la contraseña mediante la administración de autoservicio de contraseña de Azure AD, la contraseña se volverá a actualizar en el entorno de AD DS local.
 

@@ -1,20 +1,16 @@
 ---
 title: Uso del valor devuelto de una función de Azure
 description: Aprenda a administrar valores devueltos de Azure Functions.
-services: functions
-documentationcenter: na
 author: craigshoemaker
-manager: gwallace
-ms.service: azure-functions
 ms.topic: reference
 ms.date: 01/14/2019
 ms.author: cshoe
-ms.openlocfilehash: 8dd5a4d9d869c879ed402c5450690f0a691e1d2c
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 7ba104e288204dfbf3d24f5783bf69682a286553
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074394"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74480584"
 ---
 # <a name="using-the-azure-function-return-value"></a>Uso del valor devuelto de una función de Azure
 
@@ -23,6 +19,7 @@ En este artículo se explica cómo funcionan los valores devueltos dentro de una
 En los lenguajes que tienen un valor devuelto, puede enlazar el [enlace de salida](./functions-triggers-bindings.md#binding-direction) de una función al valor devuelto:
 
 * En una biblioteca de clases C#, aplique el atributo de enlace de salida para el valor devuelto del método.
+* En Java, aplique la anotación de enlace de salida al método de función.
 * En otros lenguajes, establezca la propiedad `name` de *function.json* en `$return`.
 
 Si hay varios enlaces de salida, use el valor devuelto para solo uno de ellos.
@@ -154,6 +151,24 @@ def main(input: azure.functions.InputStream) -> str:
         'length': input.length,
         'content': input.read().decode('utf-8')
     })
+```
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+Este es el código de Java que usa el valor devuelto para un enlace de salida:
+
+```java
+@FunctionName("QueueTrigger")
+@StorageAccount("AzureWebJobsStorage")
+@BlobOutput(name = "output", path = "output-container/{id}")
+public static String run(
+  @QueueTrigger(name = "input", queueName = "inputqueue") WorkItem input,
+  final ExecutionContext context
+) {
+  String json = String.format("{ \"id\": \"%s\" }", input.id);
+  context.getLogger().info("Java processed queue message. Item=" + json);
+  return json;
+}
 ```
 
 ---

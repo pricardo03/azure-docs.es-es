@@ -10,12 +10,12 @@ ms.subservice: design
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: f7b4f926bb9611d87c67276f754a6b596850b59d
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 9e64d184ef0fd120d1bc64ce274ee882b7938df0
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73645603"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74708646"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-frequently-asked-questions"></a>Preguntas frecuentes sobre Azure Synapse Analytics (anteriormente SQL DW)
 
@@ -83,10 +83,6 @@ A. Se admiten muchas características, y las que no se admiten están documentad
 
 ## <a name="tooling-and-administration"></a>Administración y herramientas
 
-P: ¿Se admiten proyectos de bases de datos en Visual Studio?
-
-A. En estos momentos, no admitimos proyectos de bases de datos en Visual Studio. Si desea enviar un voto para habilitar esta característica, visite nuestra página de [Solicitud de características de proyectos de bases de datos] de User Voice.
-
 P: ¿Admite SQL Analytics las API de REST?
 
 A. Sí. La mayoría de las funciones de REST que se pueden utilizar con SQL Database también están disponibles en SQL Analytics. Puede encontrar información sobre las API en las páginas de documentación de REST o [MSDN].
@@ -130,6 +126,6 @@ Para obtener más información sobre Azure Synapse, vea nuestra página [Informa
 [Características de tablas no compatibles]: ./sql-data-warehouse-tables-overview.md#unsupported-table-features
 [Azure Data Lake Store]: ./sql-data-warehouse-load-from-azure-data-lake-store.md
 [Blobs de Azure Storage]: ./sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
-[Solicitud de características de proyectos de bases de datos]: https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/13313247-database-project-from-visual-studio-to-support-azu
+[Database projects feature request]: https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/13313247-database-project-from-visual-studio-to-support-azu
 [MSDN]: https://msdn.microsoft.com/library/azure/mt163685.aspx
 [Información general]: ./sql-data-warehouse-overview-faq.md

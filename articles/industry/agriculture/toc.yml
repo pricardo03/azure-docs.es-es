@@ -21,7 +21,9 @@
   items:
     - name: Implementación de FarmBeats
       href: prepare-for-deployment.md
-    - name: Administración de granjas de servidores
+    - name: Administrar usuarios
+      href: manage-users.md
+    - name: Administración de granjas
       href: manage-farms.md
     - name: Obtención de datos del sensor
       href: get-sensor-data-from-sensor-partner.md

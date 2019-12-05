@@ -1,20 +1,17 @@
 ---
-title: Inserción de artefactos de OCI en el registro de contenedor privado de Azure
+title: Inserción y extracción de un artefacto de OCI
 description: Inserción y extracción de artefactos de Open Container Initiative (OCI) mediante un registro de contenedor privado en Azure
-services: container-registry
 author: SteveLasker
 manager: gwallace
-ms.service: container-registry
 ms.topic: article
 ms.date: 08/30/2019
 ms.author: stevelas
-ms.custom: ''
-ms.openlocfilehash: 69423f85aecdc3f8049a7e784888e1f71d0bc702
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: cb58a7ed51ae15d33ffdbb616c9b32ef03bcbfb7
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70182710"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74456259"
 ---
 # <a name="push-and-pull-an-oci-artifact-using-an-azure-container-registry"></a>Inserción y extracción de un artefacto de OCI con un registro de contenedor de Azure
 

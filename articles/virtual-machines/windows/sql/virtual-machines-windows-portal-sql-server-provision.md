@@ -11,16 +11,16 @@ ms.service: virtual-machines-sql
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 05/04/2018
+ms.date: 11/07/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 68fda45038da48660da0c29787b3a86e00d9b129
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 28f00db3b604534be5ff9cee79c0aacc41f066b5
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033582"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74464152"
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Aprovisionamiento de una máquina virtual Windows con SQL Server en Azure Portal
 
@@ -140,7 +140,7 @@ En la pestaña **Configuración de SQL Server**, configure las optimizaciones y 
 | [Configuración de almacenamiento](#storage-configuration) |
 | [Aplicación de revisiones automatizada](#automated-patching) |
 | [Automated Backup](#automated-backup) |
-| [R Services (análisis avanzado)](#r-services-advanced-analytics) |
+| [Machine Learning Services](#machine-learning-services) |
 
 
 ### <a name="connectivity"></a>Conectividad
@@ -242,9 +242,9 @@ Para cifrar la copia de seguridad, haga clic en **Habilitar**. Después, especif
 Para obtener más información, vea [Automated Backup para SQL Server en Azure Virtual Machines](virtual-machines-windows-sql-automated-backup.md).
 
 
-### <a name="r-services-advanced-analytics"></a>R Services (análisis avanzado)
+### <a name="machine-learning-services"></a>Machine Learning Services
 
-Tiene la opción para habilitar [SQL Server R Services (análisis avanzado)](/sql/advanced-analytics/r/sql-server-r-services/). Esta opción le permite usar el análisis avanzado con SQL Server 2017. Seleccione **Habilitar** en la ventana **Configuración de SQL Server**.
+Tiene la opción de habilitar [Machine Learning Services](/sql/advanced-analytics/). Esta opción le permite usar el aprendizaje automático con Python y R en SQL Server 2017. Seleccione **Habilitar** en la ventana **Configuración de SQL Server**.
 
 
 ## <a name="4-review--create"></a>4. Revisar y crear

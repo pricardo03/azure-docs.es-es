@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: sample
-ms.date: 04/15/2019
-ms.openlocfilehash: 4a9bfe83c9fc1ccbc496ec97822305720dc52c10
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.date: 11/29/2019
+ms.openlocfilehash: e277814bda41a70f9ac8ff02b6e8018fba4b6f52
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076834"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74775370"
 ---
 # <a name="azure-hdinsight-java-samples"></a>Azure HDInsight: Ejemplos de Java
 
@@ -27,11 +27,11 @@ Este artículo ofrece:
 * Vínculos a ejemplos de tareas de creación de clústeres.
 * Vínculos a contenido de referencia de otras tareas de administración.
 
-## <a name="prerequisites"></a>Requisitos previos
-
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-- [SDK de Azure HDInsight para Java](https://docs.microsoft.com/java/api/overview/azure/hdinsight#sdk-installation)
+## <a name="prerequisites"></a>Requisitos previos
+
+[SDK de Azure HDInsight para Java](https://docs.microsoft.com/java/api/overview/azure/hdinsight#sdk-installation)
 
 ## <a name="cluster-management---creation"></a>Administración de clústeres: creación
 

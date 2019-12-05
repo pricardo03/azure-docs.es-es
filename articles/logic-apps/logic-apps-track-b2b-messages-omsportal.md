@@ -1,20 +1,19 @@
 ---
-title: 'Seguimiento de mensajes B2B con los registros de Azure Monitor: Azure Logic Apps | Microsoft Docs'
+title: Seguimiento de mensajes B2B con los registros de Azure Monitor
 description: Seguimiento de la comunicación B2B de las cuentas de integración y Azure Logic Apps con Azure Log Analytics
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 10/19/2018
-ms.openlocfilehash: 33c4efb2b783b5071513f069beac9cdf73c373a8
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 3726b0c8c22614d2acc797295543e69f9358d69c
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69997857"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792933"
 ---
 # <a name="track-b2b-messages-with-azure-monitor-logs"></a>Seguimiento de mensajes B2B con los registros de Azure Monitor
 

@@ -1,20 +1,17 @@
 ---
-title: Compatibilidad de etiquetas de Azure Resource Manager para los recursos
+title: Compatibilidad de etiquetas de los recursos
 description: Muestra los tipos de recursos de Azure que admiten etiquetas. Proporciona detalles de todos los servicios de Azure.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 10/27/2019
-ms.author: tomfitz
-ms.openlocfilehash: 6b64eb955476a8ab5307b7d508484c290fd7660a
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.date: 11/22/2019
+ms.openlocfilehash: 5b3e26d914887496eedde609404eaf0b380dbcc0
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162178"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74422145"
 ---
 # <a name="tag-support-for-azure-resources"></a>Compatibilidad de etiquetas de los recursos de Azure
-En este artículo se describe si un tipo de recurso admite [etiquetas](resource-group-using-tags.md). La columna con la etiqueta **Admite etiquetas** indica si el tipo de recurso tiene una propiedad para la etiqueta. La columna con la etiqueta **Etiqueta en el informe de costos** indica si ese tipo de recurso pasa la etiqueta al informe de costos.
+En este artículo se describe si un tipo de recurso admite [etiquetas](resource-group-using-tags.md). La columna con la etiqueta **Admite etiquetas** indica si el tipo de recurso tiene una propiedad para la etiqueta. La columna con la etiqueta **Etiqueta en el informe de costos** indica si ese tipo de recurso pasa la etiqueta al informe de costos. Puede ver los costos por etiquetas en el [análisis de costos de Cost Management](../cost-management/quick-acm-cost-analysis.md#understanding-grouping-and-filtering-options) y los [datos de uso diario y de facturación de Azure](../billing/billing-download-azure-invoice-daily-usage-date.md).
 
 Para obtener los mismos datos como un archivo de valores separados por comas, descargue [tag-support.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/tag-support.csv).
 
@@ -175,7 +172,6 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | ------------- | ----------- | ----------- |
 > | DomainServices | Sí | Sí |
 > | DomainServices/oucontainer | Sin | Sin |
-> | DomainServices/ReplicaSets | Sí | Sí |
 
 ## <a name="microsoftaddons"></a>Microsoft.Addons
 
@@ -341,6 +337,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | registrations | Sí | Sí |
 > | registrations/customerSubscriptions | Sin | Sin |
 > | registrations/products | Sin | Sin |
+> | verificationKeys | Sin | Sin |
 
 ## <a name="microsoftbatch"></a>Microsoft.Batch
 
@@ -388,6 +385,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | billingAccounts/billingRoleAssignments | Sin | Sin |
 > | billingAccounts/billingRoleDefinitions | Sin | Sin |
 > | billingAccounts/billingSubscriptions | Sin | Sin |
+> | billingAccounts/billingSubscriptions/invoices | Sin | Sin |
 > | billingAccounts/createBillingRoleAssignment | Sin | Sin |
 > | billingAccounts/createInvoiceSectionOperations | Sin | Sin |
 > | billingAccounts/customers | Sin | Sin |
@@ -640,8 +638,6 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | proximityPlacementGroups | Sí | Sí |
 > | restorePointCollections | Sí | Sí |
 > | restorePointCollections/restorePoints | Sin | Sin |
-> | sharedVMExtensions | Sí | Sí |
-> | sharedVMExtensions/versions | Sin | Sin |
 > | sharedVMImages | Sí | Sí |
 > | sharedVMImages/versions | Sin | Sin |
 > | snapshots | Sí | Sí |
@@ -713,6 +709,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | registries/runs/cancel | Sin | Sin |
 > | registries/scheduleRun | Sin | Sin |
 > | registries/scopeMaps | Sin | Sin |
+> | registries/taskRuns | Sí | Sí |
 > | registries/tasks | Sí | Sí |
 > | registries/tokens | Sin | Sin |
 > | registries/updatePolicies | Sin | Sin |
@@ -839,7 +836,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | accounts/dataLakeStoreAccounts | Sin | Sin |
 > | accounts/storageAccounts | Sin | Sin |
 > | accounts/storageAccounts/containers | Sin | Sin |
-> | accounts/transferAnalyticsUnits | Sin | No |
+> | accounts/transferAnalyticsUnits | Sin | Sin |
 
 ## <a name="microsoftdatalakestore"></a>Microsoft.DataLakeStore
 
@@ -884,11 +881,11 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | servers/privateEndpointConnectionProxies | Sin | Sin |
 > | servers/privateEndpointConnections | Sin | Sin |
 > | servers/privateLinkResources | Sin | Sin |
-> | servers/queryTexts | Sin | Sin |
+> | servidores/queryTexts | Sin | Sin |
 > | servers/recoverableServers | Sin | Sin |
-> | servers/topQueryStatistics | Sin | Sin |
+> | servidores/topQueryStatistics | Sin | Sin |
 > | servers/virtualNetworkRules | Sin | Sin |
-> | servers/waitStatistics | Sin | Sin |
+> | servidores/waitStatistics | Sin | Sin |
 
 ## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
 
@@ -900,11 +897,11 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | servers/privateEndpointConnectionProxies | Sin | Sin |
 > | servers/privateEndpointConnections | Sin | Sin |
 > | servers/privateLinkResources | Sin | Sin |
-> | servers/queryTexts | Sin | Sin |
+> | servidores/queryTexts | Sin | Sin |
 > | servers/recoverableServers | Sin | Sin |
-> | servers/topQueryStatistics | Sin | Sin |
+> | servidores/topQueryStatistics | Sin | Sin |
 > | servers/virtualNetworkRules | Sin | Sin |
-> | servers/waitStatistics | Sin | Sin |
+> | servidores/waitStatistics | Sin | Sin |
 
 ## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
 
@@ -918,11 +915,11 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | servers/privateEndpointConnectionProxies | Sin | Sin |
 > | servers/privateEndpointConnections | Sin | Sin |
 > | servers/privateLinkResources | Sin | Sin |
-> | servers/queryTexts | Sin | Sin |
+> | servidores/queryTexts | Sin | Sin |
 > | servers/recoverableServers | Sin | Sin |
-> | servers/topQueryStatistics | Sin | Sin |
+> | servidores/topQueryStatistics | Sin | Sin |
 > | servers/virtualNetworkRules | Sin | Sin |
-> | servers/waitStatistics | Sin | Sin |
+> | servidores/waitStatistics | Sin | Sin |
 > | serversv2 | Sí | Sí |
 
 ## <a name="microsoftdeploymentmanager"></a>Microsoft.DeploymentManager
@@ -1089,7 +1086,6 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 > | ------------- | ----------- | ----------- |
-> | autoManagedVmConfigurationProfiles | Sí | Sí |
 > | configurationProfileAssignments | Sin | Sin |
 > | guestConfigurationAssignments | Sin | Sin |
 > | software | Sin | Sin |
@@ -1367,14 +1363,12 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 > | ------------- | ----------- | ----------- |
-> | netAppAccounts | Sí | Sí |
-> | netAppAccounts/backupPolicies | Sí | Sí |
-> | netAppAccounts/capacityPools | Sí | Sí |
-> | netAppAccounts/capacityPools/volumes | Sí | Sí |
-> | netAppAccounts/capacityPools/volumes/backups | Sin | Sin |
-> | netAppAccounts/capacityPools/volumes/mountTargets | Sí | Sí |
-> | netAppAccounts/capacityPools/volumes/snapshots | Sí | Sí |
-> | netAppAccounts/vaults | Sin | Sin |
+> | netAppAccounts | Sí | Sin |
+> | netAppAccounts/capacityPools | Sí | Sin |
+> | netAppAccounts/capacityPools/volumes | Sí | Sin |
+> | netAppAccounts/capacityPools/volumes/mountTargets | Sí | Sin |
+> | netAppAccounts/capacityPools/volumes/snapshots | Sí | Sin |
+
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 
 > [!div class="mx-tableFixed"]
@@ -1628,14 +1622,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | notifyResourceJobs | Sin | Sin |
 > | providers | Sin | Sin |
 > | resourceGroups | Sí | Sin |
-> | resources | Sin | Sin |
 > | subscriptions | Sin | Sin |
-> | subscriptions/providers | Sin | Sin |
-> | subscriptions/resourceGroups | Sin | Sin |
-> | subscriptions/resourcegroups/resources | Sin | Sin |
-> | subscriptions/resources | Sin | Sin |
-> | subscriptions/tagnames | Sin | Sin |
-> | subscriptions/tagNames/tagValues | Sin | Sin |
 > | tenants | Sin | Sin |
 
 ## <a name="microsoftsaas"></a>Microsoft.SaaS
@@ -1673,6 +1660,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | applicationWhitelistings | Sin | Sin |
 > | assessmentMetadata | Sin | Sin |
 > | assessments | Sin | Sin |
+> | autoDismissAlertsRules | Sin | Sin |
 > | automations | Sí | Sí |
 > | AutoProvisioningSettings | Sin | Sin |
 > | Compliances | Sin | Sin |
@@ -1687,7 +1675,6 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | iotSecuritySolutions/analyticsModels/aggregatedRecommendations | Sin | Sin |
 > | jitNetworkAccessPolicies | Sin | Sin |
 > | networkData | Sin | Sin |
-> | playbookConfigurations | Sí | Sí |
 > | directivas | Sin | Sin |
 > | pricings | Sin | Sin |
 > | regulatoryComplianceStandards | Sin | Sin |
@@ -1817,13 +1804,14 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | applications | Sí | Sí |
 > | jitRequests | Sí | Sí |
 
+
 ## <a name="microsoftsql"></a>Microsoft.SQL
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 > | ------------- | ----------- | ----------- |
 > | managedInstances | Sí | Sí |
-> | managedInstances/databases | Yes (see [note below](#sqlnote)) | Sí |
+> | managedInstances/databases | Sin | Sin |
 > | managedInstances/databases/backupShortTermRetentionPolicies | Sin | Sin |
 > | managedInstances/databases/schemas/tables/columns/sensitivityLabels | Sin | Sin |
 > | managedInstances/databases/vulnerabilityAssessments | Sin | Sin |
@@ -1840,7 +1828,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | servers/firewallRules | Sin | Sin |
 > | servers/keys | Sin | Sin |
 > | servers/restorableDroppedDatabases | Sin | Sin |
-> | servers/serviceobjectives | Sin | Sin |
+> | servers / serviceobjectives | Sin | Sin |
 > | servers/tdeCertificates | Sin | Sin |
 > | virtualClusters | Sin | Sin |
 
@@ -1855,7 +1843,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 > | ------------- | ----------- | ----------- |
 > | SqlVirtualMachineGroups | Sí | Sí |
-> | SqlVirtualMachineGroups/AvailabilityGroupListeners | Sin | Sin |
+> | SqlVirtualMachineGroups / AvailabilityGroupListeners | Sin | Sin |
 > | SqlVirtualMachines | Sí | Sí |
 
 ## <a name="microsoftstorage"></a>Microsoft.Storage

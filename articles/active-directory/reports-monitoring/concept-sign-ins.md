@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 10/28/2019
+ms.date: 12/03/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e7b0c379783af2f9131d487f45c0f4e2009e258
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 706cc38c997c91efc890b213444ff779eb86d5c1
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232141"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74805265"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Informes de actividad de inicio de sesión en el portal de Azure Active Directory
 
@@ -81,7 +81,7 @@ Puede personalizar la vista de lista, haga clic en **Columnas** en la barra de h
 
 Muestra los campos adicionales o quita los campos que ya se están mostrando.
 
-![Actividad de inicio de sesión](./media/concept-sign-ins/02.png "Actividad de inicio de sesión")
+![Actividad de inicio de sesión](./media/concept-sign-ins/columns.png "Actividad de inicio de sesión")
 
 Seleccione un elemento de la vista de lista para obtener información más detallada.
 

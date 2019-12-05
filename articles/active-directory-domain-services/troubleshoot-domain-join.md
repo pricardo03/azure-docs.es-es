@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 10/02/2019
 ms.author: iainfou
-ms.openlocfilehash: 1016fbc1478ec713d50a2f04bcc80d08288b03f3
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 73a76c4442bb8af70168e54a294f2cb100ff653c
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827238"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74703652"
 ---
 # <a name="troubleshoot-domain-join-problems-with-an-azure-ad-domain-services-managed-domain"></a>Solución de problemas de unión a un dominio administrado de Azure AD Domain Services
 
@@ -32,7 +32,7 @@ Si la máquina virtual no puede encontrar el dominio administrado de Azure AD 
 
 1. Asegúrese de que la máquina virtual está conectada a la misma red virtual, o a una del mismo nivel, que la subred que está habilitada para Azure AD DS. De lo contrario, la máquina virtual no podrá encontrar el dominio al que debe unirse ni establecer conexión con él.
     * Si la máquina virtual no está conectada a la misma red virtual, asegúrese de que el emparejamiento de red virtual o la conexión VPN esté *activa* o *conectada* para que el tráfico pueda fluir correctamente.
-1. Intente hacer ping al dominio utilizando el nombre del dominio administrado de Azure AD DS (por ejemplo, `ping contoso.com`).
+1. Intente hacer ping al dominio utilizando el nombre del dominio administrado de Azure AD DS (por ejemplo, `ping aadds.contoso.com`).
     * Si hay algún error en la respuesta de ping, intente hacer ping a las direcciones IP del dominio que aparecen en la página de información general del portal del dominio administrado de Azure AD DS; por ejemplo, `ping 10.0.0.4`.
     * Si puede hacer ping correctamente a la dirección IP pero no al dominio, es posible que DNS no esté configurado correctamente. Asegúrese de que ha configurado los servidores DNS del dominio administrado de Azure AD DS de la red virtual.
 1. Intente vaciar la memoria caché de resolución DNS de la máquina virtual; por ejemplo, `ipconfig /flushdns`.

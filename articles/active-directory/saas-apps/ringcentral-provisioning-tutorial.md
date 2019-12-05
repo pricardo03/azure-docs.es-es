@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2019
 ms.author: Zhchia
-ms.openlocfilehash: 8aa6a8bfb690b00ee21980f4aa64d950abec2f3c
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: d30195cb9aceac0e785f01ce8c2ce78d7a9d4da7
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74152261"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74805780"
 ---
 # <a name="tutorial-configure-ringcentral-for-automatic-user-provisioning"></a>Tutorial: Configuración de RingCentral para el aprovisionamiento automático de usuarios
 
@@ -94,7 +94,7 @@ Antes de configurar RingCentral para el aprovisionamiento automático de usuario
 Esta sección le guía por los pasos necesarios para configurar el servicio de aprovisionamiento de Azure AD para crear, actualizar y deshabilitar usuarios o grupos en RingCentral en función de las asignaciones de grupos o usuarios de Azure AD.
 
 > [!TIP]
-> También puede optar por habilitar el inicio de sesión único basado en SAML para RingCentral siguiendo las instrucciones del [tutorial de inicio de sesión único de RingCentral](https://docs.microsoft.comazure/active-directory/saas-apps/ringcentral-tutorial). El inicio de sesión único puede configurarse independientemente del aprovisionamiento automático de usuarios, aunque estas dos características se complementan entre sí.
+> También puede optar por habilitar el inicio de sesión único basado en SAML para RingCentral siguiendo las instrucciones del [tutorial de inicio de sesión único de RingCentral](ringcentral-tutorial.md). El inicio de sesión único puede configurarse independientemente del aprovisionamiento automático de usuarios, aunque estas dos características se complementan entre sí.
 
 > [!NOTE]
 > Para más información sobre el punto de conexión SCIM de RingCentral, consulte [Referencia de la API de RingCentral](https://developers.ringcentral.com/api-reference).

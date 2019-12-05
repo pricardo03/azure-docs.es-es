@@ -1,21 +1,21 @@
 ---
-title: Guía para la optimización del rendimiento en Azure Data Lake Storage Gen2 | Microsoft Docs
+title: Optimizar Azure Data Lake Storage Gen2 para el rendimiento | Microsoft Docs
 description: Guía para la optimización del rendimiento en Azure Data Lake Storage Gen2
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: b134842303bebdf10efdf388057c8ad7b3be61be
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: f1a16228b72d7e0f45048669ade94a0c78d9ac52
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855572"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327938"
 ---
-# <a name="tuning-azure-data-lake-storage-gen2-for-performance"></a>Optimización del rendimiento de Azure Data Lake Storage Gen2
+# <a name="optimize-azure-data-lake-storage-gen2-for-performance"></a>Optimizar Azure Data Lake Storage Gen2 para el rendimiento
 
 Azure Data Lake Storage Gen2 permite un alto rendimiento en el movimiento de datos y el análisis de consumo de la entrada y salida.  En Data Lake Storage Gen2, usar toda la capacidad de proceso disponible (la cantidad de datos que se pueden leer o escribir por segundo) es importante para obtener el mejor rendimiento.  Se consigue realizando tantas lecturas y escrituras en paralelo como sea posible.
 

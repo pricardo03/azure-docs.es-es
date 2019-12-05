@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 6c43ccaee473eca701d15a5a83f84814d65c6b7c
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: fadaaf7c64b11a6d6d94c68234f8288d1b3f8d07
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976161"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74480482"
 ---
 # <a name="add-an-image-layer-to-a-map"></a>Adición de una capa de imagen a un mapa
 
@@ -28,6 +28,13 @@ En este artículo se explica cómo puede superponer una imagen a un conjunto fij
 
 > [!TIP]
 > Un elemento [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) es una manera rápida y sencilla de superponer una imagen en un mapa. Sin embargo, si la imagen es grande, el explorador puede tener dificultades para cargarla. En este caso, considere la posibilidad de dividir la imagen en mosaicos y cargarlos en el mapa como un elemento [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest).
+
+La capa de imagen admite los siguientes formatos de imagen:
+
+- JPEG
+- PNG
+- BMP
+- GIF (sin animaciones)
 
 ## <a name="add-an-image-layer"></a>Adición de una capa de imagen
 

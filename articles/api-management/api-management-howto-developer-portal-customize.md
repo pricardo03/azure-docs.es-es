@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/04/2019
+ms.date: 11/22/2019
 ms.author: apimpm
-ms.openlocfilehash: c8aa3fb124420c933e17b0e9f7e52b7f114a7f61
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 8629d07830622770c3b30dacdd1fabc8417d7f52
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012904"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74454425"
 ---
 # <a name="access-and-customize-developer-portal"></a>Acceso al portal para desarrolladores y su personalización
 
@@ -35,10 +35,6 @@ En este tutorial, aprenderá a:
 Puede encontrar más detalles del portal para desarrolladores en [Introducción al portal para desarrolladores de Azure API Management](api-management-howto-developer-portal.md).
 
 ![Modo de administrador del portal para desarrolladores de API Management](media/api-management-howto-developer-portal-customize/cover.png)
-
-> [!WARNING]
-> El portal para desarrolladores se está implementando actualmente en los servicios de API Management.
-> Si el servicio se ha creado recientemente o es uno de nivel de desarrollador, ya debería tener la versión más reciente. De lo contrario, podría experimentar problemas (por ejemplo, con la funcionalidad de publicación). Se espera que el lanzamiento de la característica esté completo el viernes 22 de noviembre de 2019. 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -115,13 +111,16 @@ En el siguiente vídeo se muestra cómo editar el contenido del portal, personal
 
 > [!VIDEO https://www.youtube.com/embed/5mMtUSmfUlw]
 
-## <a name="publish-the-portal"></a>Publicación del portal
+## <a name="publish"> </a>Publicación del portal
 
 Para que el portal y los últimos cambios estén disponibles para los visitantes, debe publicarlos.
 
 1. Asegúrese de guardar los cambios haciendo clic en el icono de **Guardar**.
 1. Haga clic en **Publicar sitio web**, en la sección **Operaciones** del menú. Esta operación puede tardar algunos minutos.  
     ![Publicación del portal](media/api-management-howto-developer-portal-customize/publish-portal.png)
+
+> [!NOTE]
+> El portal debe volver a publicarse cuando cambie la configuración del servicio de API Management; por ejemplo, al asignar un dominio personalizado, actualizar los proveedores de identidades, configurar la delegación, especificar las condiciones de inicio de sesión y del producto, etc.
 
 ## <a name="visit-the-published-portal"></a>Visita del portal publicado
 

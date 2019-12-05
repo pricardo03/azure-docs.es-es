@@ -3,12 +3,12 @@ title: Compatibilidad con la operación de traslado por tipo de recurso
 description: Enumera los tipos de recursos de Azure que se pueden trasladar a un nuevo grupo de recursos o suscripción.
 ms.topic: reference
 ms.date: 10/24/2019
-ms.openlocfilehash: 182e5fdd081126500c04f44776c9e9b8fad61843
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: b4a6f448807dd82b2c81cc207070d30a823151c7
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74149772"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707012"
 ---
 # <a name="move-operation-support-for-resources"></a>Compatibilidad con la operación de traslado para recursos
 En este artículo se indica si un tipo de recurso de Azure es compatible con la operación de traslado. También proporciona información sobre las condiciones especiales que se deben tener en cuenta a la hora de mover un recurso.
@@ -1268,9 +1268,9 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | account | SÍ | Sí |
-> | account/extension | Sí | Sí |
-> | account/project | Sí | Sí |
+> | account | Sin | Sin |
+> | account/extension | Sin | Sin |
+> | account/project | Sin | Sin |
 
 > [!IMPORTANT]
 > Para cambiar la suscripción de Azure DevOps, vea [Cambiar la suscripción de Azure usada para la facturación](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json).

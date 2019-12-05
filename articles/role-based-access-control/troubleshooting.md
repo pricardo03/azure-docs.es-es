@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/22/2019
+ms.date: 11/22/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: e8a5b8b5794687f9e3b1707fda4cbe381e277317
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 2351e6a63723156cce646a6a1cdda837b18a8f91
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819772"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74456840"
 ---
 # <a name="troubleshoot-rbac-for-azure-resources"></a>Solución de problemas del control de acceso basado en rol para recursos de Azure
 
@@ -56,7 +56,11 @@ En este artículo se responden preguntas comunes acerca del control de acceso ba
 
 ## <a name="role-assignments-with-unknown-security-principal"></a>Asignaciones de roles con entidad de seguridad desconocida
 
-Al enumerar las asignaciones de roles con Azure PowerShell, puede que vea asignaciones con un valor de `DisplayName` vacío y un valor de `ObjectType` desconocido. Por ejemplo, [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) devuelve una asignación de roles que es similar a la siguiente:
+Si asigna un rol a una entidad de seguridad (usuario, grupo, entidad de servicio o identidad administrada) y, posteriormente, elimina esa entidad de seguridad sin quitar la asignación de roles, el tipo de entidad de seguridad para la asignación de roles se mostrará como **Desconocido**. En la captura de pantalla siguiente, se muestra un ejemplo en Azure Portal. El nombre de la entidad de seguridad se muestra como **Identidad eliminada** y **La identidad ya no existe**. 
+
+![Grupo de recursos de aplicación web](./media/troubleshooting/unknown-security-principal.png)
+
+Si enumera esta asignación de roles mediante Azure PowerShell, verá un elemento `DisplayName` vacío y un elemento `ObjectType` definido como Unknown. Por ejemplo, [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) devuelve una asignación de roles que es similar a la siguiente:
 
 ```azurepowershell
 RoleAssignmentId   : /subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleAssignments/22222222-2222-2222-2222-222222222222
@@ -70,7 +74,7 @@ ObjectType         : Unknown
 CanDelegate        : False
 ```
 
-Igualmente, al enumerar las asignaciones de roles mediante la CLI de Azure, puede que vea asignaciones con un valor de `principalName` vacío. Por ejemplo, [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list) devuelve una asignación de roles que es similar a la siguiente:
+Del mismo modo, si enumera esta asignación de roles con la CLI de Azure, verá un elemento `principalName` vacío. Por ejemplo, [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list) devuelve una asignación de roles que es similar a la siguiente:
 
 ```azurecli
 {
@@ -86,9 +90,7 @@ Igualmente, al enumerar las asignaciones de roles mediante la CLI de Azure, pued
 }
 ```
 
-Estas asignaciones de roles se producen cuando se asigna un rol a una entidad de seguridad (usuario, grupo, entidad de servicio o identidad administrada) y posteriormente se elimina esa entidad de seguridad. Estas asignaciones de roles no se muestran en Azure Portal y no es un problema dejarlas. Sin embargo, si lo desea, puede quitarlas.
-
-Para quitar estas asignaciones de roles, use los comandos [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment) o [az role assignment delete](/cli/azure/role/assignment#az-role-assignment-delete).
+No es un problema dejar estas asignaciones de roles, pero puede quitarlas mediante pasos similares a otras. Para obtener información sobre cómo quitar las asignaciones de roles, vea [Azure Portal](role-assignments-portal.md#remove-role-assignments), [Azure PowerShell](role-assignments-powershell.md#remove-access) o la [CLI de Azure](role-assignments-cli.md#remove-access).
 
 En PowerShell, si intenta quitar las asignaciones de roles mediante el identificador de objeto y el nombre de la definición de roles, y más de una asignación de roles coincide con los parámetros, obtendrá el mensaje de error: "The provided information does not map to a role assignment" (La información proporcionada no se asigna a una asignación de roles). A continuación se muestra un ejemplo del mensaje de error:
 

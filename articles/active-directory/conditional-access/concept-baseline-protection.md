@@ -1,22 +1,22 @@
 ---
-title: 'Directivas de la protección de base de referencia de acceso condicional: Azure Active Directory'
+title: 'Directivas de base de referencia de acceso condicional: Azure Active Directory'
 description: Directivas de acceso condicional de base de referencia para proteger las organizaciones frente a ataques comunes
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ecd46b8cb734355a8394b7480c6def341cf9700d
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: a9bb384045c8b2e0a5743fdc301a829792639b7e
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72430336"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74420557"
 ---
 # <a name="what-are-baseline-policies"></a>¿Qué son las directivas de base de referencia?
 
@@ -26,7 +26,7 @@ Para administrar las directivas personalizadas de acceso condicional, se necesit
 
 ## <a name="baseline-policies"></a>Directivas de base de referencia
 
-![Directivas de base de referencia de acceso condicional en Azure Portal](./media/concept-baseline-protection/conditional-access-baseline-policies.png)
+![Directivas de base de referencia de acceso condicional en Azure Portal](./media/concept-baseline-protection/conditional-access-policies.png)
 
 Hay cuatro directivas de base de referencia:
 

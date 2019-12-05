@@ -1,7 +1,7 @@
 ---
-title: 'Diseñador: predicción del riesgo crediticio (sensible a los costos)'
+title: 'Diseñador: Ejemplo de predicción del riesgo crediticio'
 titleSuffix: Azure Machine Learning
-description: Este artículo muestra cómo compilar una canalización compleja de aprendizaje automático con el diseñador (versión preliminar). Aprenderá a implementar scripts de Python personalizados y a comparar varios modelos para elegir la mejor opción.
+description: Compile un clasificador y use scripts de Python personalizados para predecir el riesgo crediticio con el diseñador de Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,14 +10,17 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 11/04/2019
-ms.openlocfilehash: 7af0ee31c7d7e5dae4a38db7f6c74ff3e5f964bb
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: f174ed995b043ef99d22a0a292e9b5be394029a5
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647990"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74214259"
 ---
-# <a name="sample-4---classification-with-custom-python-script-predict-credit-risk"></a>Ejemplo 4: clasificación con un script de Python personalizado: Predicción del riesgo de crédito
+# <a name="build-a-classifier--use-python-scripts-to-predict-credit-risk-using-azure-machine-learning-designer"></a>Compilación de un clasificador y uso scripts de Python para predecir el riesgo crediticio con el diseñador de Azure Machine Learning
+
+**Ejemplo 4 del diseñador (versión preliminar)**
+
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
 Este artículo muestra cómo compilar una canalización compleja de aprendizaje automático con el diseñador (versión preliminar). Aprenderá a implementar lógica personalizada mediante scripts de Python y a comparar varios modelos para elegir la mejor opción.
@@ -26,7 +29,7 @@ En este ejemplo se entrena un clasificador para que predecir el riesgo creditici
 
 Este es el gráfico completo de la canalización:
 
-[![Gráfico de la canalización](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
+[![Gráfico de la canalización](media/how-to-designer-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/how-to-designer-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -51,7 +54,7 @@ El coste derivado de clasificar incorrectamente como alto un ejemplo de riesgo b
 
 Este es el gráfico de la canalización:
 
-[![Gráfico de la canalización](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
+[![Gráfico de la canalización](media/how-to-designer-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/how-to-designer-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
 ## <a name="data-processing"></a>Procesamiento de datos
 
@@ -107,7 +110,7 @@ En este ejemplo se usa el flujo de trabajo de ciencia de datos estándar para cr
 
 En el siguiente diagrama se muestra una parte de esta canalización, en que se usan los conjuntos de datos de entrenamiento originales y replicados para entrenar dos modelos SVM diferentes. **Train Model** (Entrenar modelo) está conectado al conjunto de entrenamiento y **Score Model** (Puntuar modelo), al conjunto de prueba.
 
-![Gráfico de la canalización](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/score-part.png)
+![Gráfico de la canalización](media/how-to-designer-sample-classification-predict-credit-risk-cost-sensitive/score-part.png)
 
 En la fase de evaluación de la canalización se calcula la precisión de cada uno de los cuatro modelos. En esta canalización, use **Evaluate Model** (Evaluar modelo) para comparar los ejemplos que tienen la misma clasificación incorrecta de costo.
 
@@ -141,7 +144,7 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
 
 Para ver los resultados de la canalización, haga clic con el botón derecho en la salida de Visualize (Visualizar) del último módulo **Select Columns in Dataset** (Seleccionar columnas del conjunto de datos).
 
-![Visualización de la salida](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/result.png)
+![Visualización de la salida](media/how-to-designer-sample-classification-predict-credit-risk-cost-sensitive/result.png)
 
 La primera columna muestra el algoritmo de aprendizaje automático usado para generar el modelo.
 

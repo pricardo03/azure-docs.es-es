@@ -1,22 +1,22 @@
 ---
-title: 'Prevención de ataques por fuerza bruta mediante el bloqueo inteligente de Azure AD: Azure Active Directory'
+title: 'Prevención de ataques mediante el bloqueo inteligente: Azure Active Directory'
 description: El bloqueo inteligente de Azure Active Directory ayuda a proteger las organizaciones frente a los ataques por fuerza bruta que intentan adivinar contraseñas.
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/25/2019
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a762009a7aaf1a965333ac573efe55d792c3f04b
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 066c4cb598d9a8c14ab5d6ee893376266e104d15
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70125017"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74381526"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Bloqueo inteligente de Azure Active Directory
 
@@ -67,7 +67,8 @@ En función de los requisitos de su organización, puede ser necesario personali
 
 Para comprobar o modificar los valores de bloqueo inteligente para su organización, siga estos pasos:
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) y vaya a **Azure Active Directory** > **Métodos de autenticación** > **Protección con contraseña**.
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Busque y seleccione *Azure Active Directory*. Seleccione **Métodos de autenticación** > **Protección con contraseña**.
 1. Establezca la opción **Umbral de bloqueo** en función del número de inicios de sesión con error permitidos en una cuenta antes de su primer bloqueo. El valor predeterminado es 10.
 1. En **Lockout duration in seconds** (Duración de bloqueo en segundos), establezca la longitud en segundos de cada bloqueo. El valor predeterminado es 60 segundos (un minuto).
 

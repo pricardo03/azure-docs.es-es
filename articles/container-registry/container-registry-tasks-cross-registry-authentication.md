@@ -1,18 +1,14 @@
 ---
-title: Autenticación entre registros de una tarea de Azure Container Registry
+title: Autenticación entre registros desde la tarea de ACR
 description: Configure una tarea de Azure Container Registry (Tarea de ACR) para acceder a otro registro de contenedor de Azure privado mediante una identidad administrada para Azure Resources
-services: container-registry
-author: dlepow
-ms.service: container-registry
 ms.topic: article
 ms.date: 07/12/2019
-ms.author: danlep
-ms.openlocfilehash: f2ffb42ce109f5e6f7186461f931b7f8da57ff32
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 3dc4792f196ab7553f3167983ce34850669fa5bc
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931511"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74456182"
 ---
 # <a name="cross-registry-authentication-in-an-acr-task-using-an-azure-managed-identity"></a>Autenticación entre registros en una tarea de ACR mediante una identidad administrada por Azure 
 

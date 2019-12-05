@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84290ee3c242b5ccb91bdca8a6b82fc0bf963751
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: c387e2d78adcaebc430073a2a45818c4a0928b9f
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194587"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74422358"
 ---
 # <a name="update-a-dynamic-group-to-manage-membership-in-azure-active-directory"></a>Actualización de un grupo dinámico para administrar la pertenencia en Azure Active Directory
 
@@ -33,7 +33,7 @@ Azure AD proporciona un generador de reglas para crear y actualizar las reglas i
 Estos son algunos ejemplos de reglas o sintaxis avanzadas para las que se recomienda construir mediante el cuadro de texto:
 
 - Regla con más de cinco expresiones
-- Regla de subordinados directos
+- La regla de subordinados directos
 - Configuración de la [precedencia de operadores](groups-dynamic-membership.md#operator-precedence)
 - [Reglas con expresiones complejas](groups-dynamic-membership.md#rules-with-complex-expressions); por ejemplo, `(user.proxyAddresses -any (_ -contains "contoso"))`
 
@@ -46,7 +46,7 @@ Para ver ejemplos de sintaxis, propiedades admitidas, operadores y valores de un
 
 ## <a name="to-update-a-group-membership-rule"></a>Para actualizar una regla de pertenencia a grupo
 
-1. Inicie sesión en el [Centro de administración de Azure AD](https://aad.portal.azure.com) con una cuenta de administrador global, administrador de Intune o administrador de usuarios en el inquilino.
+1. Inicie sesión en el [Centro de administración de Azure AD](https://aad.portal.azure.com) con una cuenta con el rol de administrador de empresa, administrador de grupo, administrador del servicio Intune o administrador de usuarios en el inquilino.
 1. Seleccione **Grupos** > **Todos los grupos**.
 1. Seleccione un grupo para abrir su perfil.
 1. En la página de perfil del grupo, seleccione **Reglas de pertenencia dinámica**. El generador de reglas admite hasta cinco expresiones. Para agregar más de cinco expresiones, debe usar el cuadro de texto.

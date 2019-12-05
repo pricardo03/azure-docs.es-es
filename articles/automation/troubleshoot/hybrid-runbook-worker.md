@@ -4,17 +4,17 @@ description: En este artículo se proporciona información de solución de probl
 services: automation
 ms.service: automation
 ms.subservice: ''
-author: bobbytreed
-ms.author: robreed
-ms.date: 02/12/2019
+author: mgoedtel
+ms.author: magoedte
+ms.date: 11/25/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 39cf6126f6212b6e83f1974dae7aaab0038e69c6
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 31d81c6946fc256f5c22b93674469d7b87500173
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240981"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74480705"
 ---
 # <a name="troubleshoot-hybrid-runbook-workers"></a>Solución de problemas de Hybrid Runbook Worker
 
@@ -22,7 +22,7 @@ En este artículo se proporciona información sobre cómo solucionar problemas c
 
 ## <a name="general"></a>General
 
-Hybrid Runbook Worker depende de un agente para comunicarse con su cuenta de Automation para registrar el trabajo, recibir trabajos de runbook e informar del estado. En el caso de Windows, este agente es Microsoft Monitoring Agent. En el caso de Linux, es el Agente de OMS para Linux.
+Hybrid Runbook Worker depende de un agente para comunicarse con su cuenta de Automation para registrar el trabajo, recibir trabajos de runbook e informar del estado. Para Windows, este agente es el agente de Log Analytics para Windows (también denominado Microsoft Monitoring Agent (MMA)). Para Linux, es el agente de Log Analytics para Linux.
 
 ### <a name="runbook-execution-fails"></a>Escenario: Error en la ejecución de un runbook
 
@@ -83,17 +83,17 @@ Si Hybrid Runbook Worker es una VM de Azure, puede usar [Identidades administrad
 
 ## <a name="linux"></a>Linux
 
-Hybrid Runbook Worker de Linux depende del agente de OMS para Linux a fin de comunicarse con su cuenta de Automation para registrar el trabajo, recibir trabajos de runbook e informar del estado. Si se produce un error de registro del trabajo, estas son algunas de las causas posibles:
+Hybrid Runbook Worker de Linux depende del [agente de Log Analytics para Linux](../../azure-monitor/platform/log-analytics-agent.md) a fin de comunicarse con su cuenta de Automation para registrar el trabajo, recibir trabajos de runbook e informar del estado. Si se produce un error de registro del trabajo, estas son algunas de las causas posibles:
 
-### <a name="oms-agent-not-running"></a>Escenario: El agente de OMS para Linux no se está ejecutando
+### <a name="oms-agent-not-running"></a>Escenario: El agente de Log Analytics para Linux no se está ejecutando
 
 #### <a name="issue"></a>Problema
 
-El agente de OMS para Linux no se está ejecutando
+El agente de Log Analytics para Linux no se está ejecutando
 
 #### <a name="cause"></a>Causa
 
-Si el Agente de OMS para Linux no se está ejecutando, se impide que Hybrid Runbook Worker de Linux se comunique con Azure Automation. Son varios los motivos por los que el agente podría no estar ejecutándose.
+Si el agente no se está ejecutando, se impide que Hybrid Runbook Worker de Linux se comunique con Azure Automation. Son varios los motivos por los que el agente podría no estar ejecutándose.
 
 #### <a name="resolution"></a>Resolución
 
@@ -114,11 +114,11 @@ En la siguiente lista, se muestran los procesos que se inician para un Hybrid Ru
 
 * **diy/worker.conf**: este es el proceso de DIY Hybrid Worker. El proceso de DIY Hybrid Worker se usa para ejecutar runbooks de usuario en Hybrid Runbook Worker. Difiere del proceso de Auto Registered Hybrid Worker solo en el detalle clave de que usa otra configuración. Este proceso no está presente si la solución Azure Automation está deshabilitada y el Hybrid Worker de Linux personal (DIY, Hágalo usted mismo) no está registrado.
 
-Si el agente de OMS para Linux no se está ejecutando, ejecute el siguiente comando para iniciar el servicio: `sudo /opt/microsoft/omsagent/bin/service_control restart`.
+Si el agente no se está ejecutando, ejecute el siguiente comando para iniciar el servicio: `sudo /opt/microsoft/omsagent/bin/service_control restart`.
 
 ### <a name="class-does-not-exist"></a>Escenario: La clase especificada no existe
 
-Si ve el error: **La clase especificada no existe...** en `/var/opt/microsoft/omsconfig/omsconfig.log`, el agente de OMS para Linux debe actualizarse. Ejecute el siguiente comando para volver a instalar el agente de OMS:
+Si ve el error: **La clase especificada no existe...** en `/var/opt/microsoft/omsconfig/omsconfig.log`, el agente de Log Analytics para Linux debe actualizarse. Ejecute el siguiente comando para volver a instalar el agente:
 
 ```bash
 wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <WorkspaceID> -s <WorkspaceKey>
@@ -126,7 +126,7 @@ wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/inst
 
 ## <a name="windows"></a>Windows
 
-Hybrid Runbook Worker depende de Microsoft Monitoring Agent para comunicarse con su cuenta de Automation para registrar el trabajo, recibir trabajos de runbook e informar del estado. Si se produce un error de registro del trabajo, estas son algunas de las causas posibles:
+Hybrid Runbook Worker de Windows depende del [agente de Log Analytics para Windows ](../../azure-monitor/platform/log-analytics-agent.md) a fin de comunicarse con su cuenta de Automation para registrar el trabajo, recibir trabajos de runbook e informar del estado. Si se produce un error de registro del trabajo, estas son algunas de las causas posibles:
 
 ### <a name="mma-not-running"></a>Escenario: Microsoft Monitoring Agent no está en ejecución.
 
@@ -146,15 +146,15 @@ Compruebe el agente se está ejecutando escribiendo el comando siguiente en Powe
 
 #### <a name="issue"></a>Problema
 
-En el registro de eventos **Aplicaciones y servicios\Operations Manager**, vea el evento 4502 y el EventMessage que contiene **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent** con la descripción siguiente: *El certificado presentado por el servicio \<wsid\>.oms.opinsights.azure.com no fue emitido por una entidad de certificación usada para los servicios de Microsoft. Póngase en contacto con el administrador de red para comprobar si están ejecutando un proxy que intercepta la comunicación TLS/SSL. El artículo KB3126513 incluye información adicional para la solución de problemas de conectividad.*
+En el registro de eventos **Aplicaciones y servicios\Operations Manager**, vea el evento 4502 y el elemento EventMessage que contiene **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent** con la descripción siguiente: *El certificado presentado por el servicio \<wsid\>.oms.opinsights.azure.com no fue emitido por una entidad de certificación usada para los servicios de Microsoft. Póngase en contacto con el administrador de red para comprobar si está ejecutando un proxy que intercepta la comunicación TLS/SSL.*
 
 #### <a name="cause"></a>Causa
 
-Este problema se puede deber a que el firewall de red o de proxy está bloqueando la comunicación con Microsoft Azure. Compruebe que el equipo tenga acceso saliente a *.azure-automation.net en los puertos 443.
+Este problema se puede deber a que el firewall de red o de proxy está bloqueando la comunicación con Microsoft Azure. Compruebe que el equipo tenga acceso saliente a *.azure-automation.net en los puertos 443. 
 
 #### <a name="resolution"></a>Resolución
 
-Los registros se almacenan localmente en cada Hybrid Worker en C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes. Puede comprobar si hay algún evento de error o advertencia en el registro de eventos **Registros de aplicaciones y servicios\Microsoft-SMA\Operations** y **Registros de aplicaciones y servicios\Operations Manager** que podría indicar un problema de conectividad o de otro tipo que afecta a la incorporación del rol a Azure Automation o un problema bajo las operaciones normales.
+Los registros se almacenan localmente en cada Hybrid Worker en C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes. Puede comprobar si hay algún evento de error o advertencia en el registro de eventos **Registros de aplicaciones y servicios\Microsoft-SMA\Operations** y **Registros de aplicaciones y servicios\Operations Manager** que podría indicar un problema de conectividad o de otro tipo que afecta a la incorporación del rol a Azure Automation o un problema bajo las operaciones normales. Para obtener ayuda adicional para solucionar problemas relacionados con el agente de Log Analytics, consulte [Procedimientos para solucionar problemas relacionados con el agente de Log Analytics para Windows](../../azure-monitor/platform/agent-windows-troubleshoot.md).
 
 [La salida y los mensajes de runbooks](../automation-runbook-output-and-messages.md) se envían a Azure Automation desde los trabajos híbridos igual que los trabajos de runbook que se ejecutan en la nube. También puede habilitar los flujos Detallado y Progreso de la misma manera que haría para otros runbooks.
 

@@ -1,14 +1,14 @@
 ---
 title: Actualización de una asignación existente desde el portal
-description: Obtenga información acerca del mecanismo para actualizar una asignación existente desde el portal en Azure Blueprints.
-ms.date: 10/25/2018
+description: Obtenga información acerca del mecanismo para actualizar una asignación de plano técnico existente desde el portal en Azure Blueprints.
+ms.date: 11/21/2019
 ms.topic: conceptual
-ms.openlocfilehash: f48f8cfb33a05e2bf8dcbe097d3a9eb3a5ebb9db
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: b4cf03d88103b85bc00dbd815816ead2740f2093
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960353"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406396"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>Procedimiento para actualizar una asignación de plano técnico
 
@@ -28,7 +28,8 @@ Cuando se asigna un plano técnico, se puede actualizar la asignación. Hay vari
 
    ![Actualización de una asignación de plano técnico existente](../media/update-existing-assignments/update-assignment.png)
 
-1. La página **Asignar plano técnico** se cargará con todos los valores rellenados de la asignación original. Puede cambiar la **versión de la definición de plano técnico**, el estado de **Asignación de bloqueo** y cualquiera de los parámetros dinámicos que existan en la definición del plano técnico. Haga clic en **Asignar** cuando haya terminado de realizar los cambios.
+1. La página **Asignar plano técnico** se cargará con todos los valores rellenados de la asignación original.
+   Puede cambiar la **versión de la definición de plano técnico**, el estado de **Asignación de bloqueo** y cualquiera de los parámetros dinámicos que existan en la definición del plano técnico. Haga clic en **Asignar** cuando haya terminado de realizar los cambios.
 
 1. En la página de detalles de la asignación actualizada, consulte el nuevo estado. En este ejemplo, hemos agregado el **bloqueo** a la asignación.
 
@@ -46,7 +47,8 @@ La implementación de las asignaciones actualizadas sigue unas reglas importante
   - Si cambia el rol o el encargado de rol (usuario, grupo o aplicación), se crea una nueva asignación de roles. Las asignaciones de roles implementadas previamente se dejan en su lugar.
 - Asignaciones de directiva
   - Si cambian los parámetros de la asignación de directiva, se actualiza la asignación existente.
-  - Si la definición de la asignación de directiva se cambia, se crea una asignación de directiva nueva. Las asignaciones de directivas implementadas previamente se dejan en su lugar.
+  - Si la definición de la asignación de directiva se cambia, se crea una asignación de directiva nueva.
+    Las asignaciones de directivas implementadas previamente se dejan en su lugar.
   - Si se quita el artefacto de asignación de directiva del plano técnico, las asignaciones de directivas implementadas anteriormente se dejan en su lugar.
 - Plantillas del Administrador de recursos de Azure
   - La plantilla se procesa mediante Resource Manager como **PUT**. Como cada tipo de recurso trata esta acción de forma distinta, revise la documentación de cada recurso incluido para determinar el efecto de esta acción cuando la ejecuta Blueprints.

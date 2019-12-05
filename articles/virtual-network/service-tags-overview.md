@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/22/2019
 ms.author: jispar
 ms.reviewer: kumud
-ms.openlocfilehash: 0eb15d1b9b56522b9caa1bb10890eb2b485714e8
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 33ee7351e547ee5ef57ef07f67ba6f5f4410b57f
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73586853"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74384141"
 ---
 # <a name="virtual-network-service-tags"></a>Etiquetas de servicio de red virtual 
 <a name="network-service-tags"></a>
@@ -51,6 +51,7 @@ De forma predeterminada, las etiquetas de servicio reflejan los intervalos de to
 | **AzureContainerRegistry** | Servicio Azure Container Registry. | Salida | Sí | Sí |
 | **AzureCosmosDB** | Servicio Azure Cosmos Database. | Salida | Sí | Sí |
 | **AzureDataLake** | Servicio de Azure Data Lake. | Salida | Sin | Sí |
+| **AzureIoTHub** | Servicio de Azure IoT Hub. | Salida | Sin | Sin |
 | **AzureKeyVault** | Servicio de Azure Key Vault.<br/><br/>*Nota:* Esta etiqueta tiene dependencia en la etiqueta **AzureActiveDirectory**. | Salida | Sí | Sí |
 | **AzureLoadBalancer** | Equilibrador de carga de la infraestructura de Azure. La etiqueta se traduce en la [dirección IP virtual del host](security-overview.md#azure-platform-considerations) (168.63.129.16) donde se originan los sondeos de mantenimiento de Azure. Si no usa el equilibrador de carga de Azure, puede reemplazar esta regla. | Ambos | Sin | Sin |
 | **AzureMachineLearning** | Azure Machine Learning Service. | Salida | Sin | Sí |

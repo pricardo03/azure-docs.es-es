@@ -1,6 +1,6 @@
 ---
 title: Carga de un disco duro virtual en Azure mediante Azure PowerShell
-description: Aprenda a cargar un disco duro virtual en un disco administrado de Azure y copiar un disco administrado entre regiones mediante Azure PowerShell.
+description: Aprenda a cargar un disco duro virtual en un disco administrado de Azure y a copiar un disco administrado entre regiones mediante Azure PowerShell a través de la carga directa.
 author: roygara
 ms.author: rogarana
 ms.date: 05/06/2019
@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: d193dcd0c0539c2daa7220d915fdc3e02c8ea798
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: dcd2f5f00c00ce0f74c07bfb7ba8e81316d9a53e
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72512431"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74456671"
 ---
 # <a name="upload-a-vhd-to-azure-using-azure-powershell"></a>Carga de un disco duro virtual en Azure mediante Azure PowerShell
 

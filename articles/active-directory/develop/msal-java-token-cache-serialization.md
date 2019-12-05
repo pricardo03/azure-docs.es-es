@@ -18,16 +18,16 @@ ms.author: sagonzal
 ms.reviewer: navyasri.canumalla
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0bd8cb07d30aa5223cf3d78d636f0d593fefbecf
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 7323a47095c58958503cecf16189ed875fac3b4d
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73905165"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74452605"
 ---
-# <a name="custom-token-cache-serialization-in-msal-for-java-msal4j"></a>Serialización de la memoria caché de tokens personalizada en MSAL para Java (MSAL4J)
+# <a name="custom-token-cache-serialization-in-msal-for-java"></a>Serialización de la memoria caché de tokens personalizada en MSAL para Java
 
-Para que haya una aplicación de la memoria caché de tokens de forma constante, es preciso personalizar la serialización. Las clases e interfaces de Java implicadas en la serialización de la memoria caché de tokens son las siguientes:
+Para persistir la memoria caché del token entre las instancias de la aplicación, es necesario personalizar la serialización. Las clases e interfaces de Java implicadas en la serialización de la memoria caché de tokens son las siguientes:
 
 - [ITokenCache](https://static.javadoc.io/com.microsoft.azure/msal4j/0.5.0-preview/com/microsoft/aad/msal4j/ITokenCache.html):  interfaz que representa la memoria caché de tokens de seguridad.
 - [ITokenCacheAccessAspect](https://static.javadoc.io/com.microsoft.azure/msal4j/0.5.0-preview/com/microsoft/aad/msal4j/ITokenCacheAccessAspect.html): interfaz que representa la operación de ejecutar código antes y después del acceso. Se debe reemplazar con @Override *beforeCacheAccess* y *afterCacheAccess* con la lógica responsable de serializar y deserializar la memoria caché.

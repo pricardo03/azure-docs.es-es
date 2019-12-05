@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: shants
-ms.openlocfilehash: ee7a03f27ab03feadedb7ac8441675a90468655c
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: ab8ef516e5434ac5a9cde9324798d8dd1706a04e
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74534924"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74807415"
 ---
 # <a name="handling-planned-maintenance-notifications"></a>Control de las notificaciones de mantenimiento planeado
 
@@ -80,7 +80,7 @@ Se recomienda usar el mantenimiento de autoservicio en los siguientes casos:
 
 **R:** Las máquinas virtuales implementadas en un conjunto de disponibilidad o en conjuntos de escalado de máquinas virtuales tienen la noción de dominios de actualización (UD). Al realizar mantenimiento, Azure respeta la restricción de UD, por lo que no reiniciará máquinas virtuales de diferentes UD (del mismo conjunto de disponibilidad).  Azure también espera al menos 30 minutos antes de pasar al siguiente grupo de máquinas virtuales. 
 
-Para más información sobre la alta disponibilidad, consulte [Availability for virtual machines in Azure](/linux/availability.md) (Disponibilidad para máquinas virtuales en Azure).
+Para más información sobre la alta disponibilidad, consulte [Availability for virtual machines in Azure](./linux/availability.md) (Disponibilidad para máquinas virtuales en Azure).
 
 **P: ¿Cómo recibo notificaciones acerca del mantenimiento planeado?**
 
@@ -92,7 +92,7 @@ Para más información sobre la alta disponibilidad, consulte [Availability for 
 
 **P: ¿Existe alguna una manera de saber exactamente cuándo se verá afectada mi máquina virtual?**
 
-**R:** Al establecer la programación, definimos una ventana de tiempo de varios días. Sin embargo, se desconoce la secuencia exacta de los servidores (y las máquinas virtuales) en esta ventana. Los clientes que deseen conocer el tiempo exacto para sus máquinas virtuales pueden usar [eventos programados](/linux/scheduled-events.md) y realizar consultas desde la propia máquina virtual y recibir una notificación 15 minutos antes de que una máquina virtual se reinicie.
+**R:** Al establecer la programación, definimos una ventana de tiempo de varios días. Sin embargo, se desconoce la secuencia exacta de los servidores (y las máquinas virtuales) en esta ventana. Los clientes que deseen conocer el tiempo exacto para sus máquinas virtuales pueden usar [eventos programados](./linux/scheduled-events.md) y realizar consultas desde la propia máquina virtual y recibir una notificación 15 minutos antes de que una máquina virtual se reinicie.
 
 **P: ¿Cuánto tiempo tardará en reiniciar mi máquina virtual?**
 

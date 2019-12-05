@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen
-ms.openlocfilehash: 507af54b8b4c2e7c67538a1a25a040c7ee5fdfd5
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 6cd69ba8abe243daadf5d517ab7c5a224953cc99
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976317"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74480647"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>Expresiones de estilo basadas en datos (SDK web)
 
@@ -83,7 +83,7 @@ Las expresiones de datos proporcionan acceso a los datos de propiedad de una car
 
 | Expression | Tipo de valor devuelto | DESCRIPCIÓN |
 |------------|-------------|-------------|
-| `['at', number, array]` | objeto | Recupera un elemento de una matriz. |
+| `['at', number, array]` | object | Recupera un elemento de una matriz. |
 | `['geometry-type']` | string | Obtiene el tipo de geometría de la característica: Point, MultiPoint, LineString, MultiLineString, Polygon, MultiPolygon. |
 | `['get', string]` | value | Obtiene el valor de propiedad de las propiedades de la característica actual. Devuelve null si no se encuentra la propiedad solicitada. |
 | `['get', string, object]` | value | Obtiene el valor de propiedad de las propiedades del objeto proporcionado. Devuelve null si no se encuentra la propiedad solicitada. |
@@ -375,6 +375,24 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
 });
 ```
 
+En el ejemplo siguiente se usa una expresión `coalesce` para recuperar el primer icono de imagen disponible en el objeto del sprite del mapa de una lista de nombres de imagen especificados.
+
+```javascript
+var layer = new atlas.layer.SymbolLayer(datasource, null, {
+    iconOptions: {
+        image: [
+            'coalesce',
+
+            //Try getting the image with id 'missing-image'.
+            ['image', 'missing-image'],
+
+            //Specify an image id to fallback to. 
+            'marker-blue'
+        ]
+    }
+});
+``` 
+
 ## <a name="type-expressions"></a>Expresiones de tipo
 
 Las expresiones de tipo proporcionan herramientas para probar y convertir distintos tipos de datos, como cadenas, números y valores booleanos.
@@ -382,6 +400,7 @@ Las expresiones de tipo proporcionan herramientas para probar y convertir distin
 | Expression | Tipo de valor devuelto | DESCRIPCIÓN |
 |------------|-------------|-------------|
 | `['literal', array]`<br/><br/>`['literal', object]` | matriz \| objeto | Devuelve una matriz literal o un valor de objeto. Use esta expresión para impedir que una matriz o un objeto se evalúen como una expresión. Esto es necesario cuando una matriz o un objeto se deben devolver mediante una expresión. |
+| `['image', string]` | string | Comprueba si un identificador de imagen especificado se carga en el sprite de imagen de los mapas. Si es así, se devuelve el identificador. De lo contrario, se devuelve NULL. |
 | `['to-boolean', value]` | boolean | Convierte el valor de entrada en un valor booleano. El resultado es `false` cuando la entrada es una cadena vacía, `0`, `false` `null` o `NaN`; de lo contrario, es `true`. |
 | `['to-color', value]`<br/><br/>`['to-color', value1, value2…]` | color | Convierte el valor de entrada en un color. Si se proporcionan varios valores, cada uno de ellos se evalúa en orden hasta que se obtiene la primera conversión correcta. Si ninguna de las entradas se puede convertir, la expresión es un error. |
 | `['to-number', value]`<br/><br/>`['to-number', value1, value2, …]` | número | Convierte el valor de entrada en un número, si es posible. Si la entrada es `null` o `false`, el resultado es 0. Si la entrada es `true`, el resultado es 1. Si la entrada es una cadena, se convierte en un número mediante la función de cadena [ToNumber](https://tc39.github.io/ecma262/#sec-tonumber-applied-to-the-string-type) de la especificación del lenguaje ECMAScript. Si se proporcionan varios valores, cada uno de ellos se evalúa en orden hasta que se obtiene la primera conversión correcta. Si ninguna de las entradas se puede convertir, la expresión es un error. |
@@ -400,7 +419,7 @@ Las expresiones de tipo proporcionan herramientas para probar y convertir distin
 >             //Get the entityType value.
 >             ['get', 'entityType'],
 >
->             //If there is no title, try getting the subtitle. 
+>             //If the entity type is 'restaurant', return a different pixel offset. 
 >             'restaurant', ['literal', [0, -10]],
 >
 >             //Default to value.
@@ -665,6 +684,7 @@ La expresión de formato de campo de texto puede usarse con la opción `textFiel
 
  * `'font-scale'`: especifica el factor de escala del tamaño de fuente. Si se especifica, este valor invalidará la propiedad `size` de `textOptions` para la cadena individual.
  * `'text-font'`: especifica una o varias familias de fuentes que se deben usar para esta cadena. Si se especifica, este valor invalidará la propiedad `font` de `textOptions` para la cadena individual.
+ * `'text-color'`: especifica el color que se va a aplicar a un texto al representarlo. 
 
 El siguiente pseudocódigo define la estructura de la expresión de formato de campo de texto. 
 
@@ -674,12 +694,14 @@ El siguiente pseudocódigo define la estructura de la expresión de formato de c
     input1: string, 
     options1: { 
         'font-scale': number, 
-        'text-font': string[] 
+        'text-font': string[],
+        'text-color': color
     },
     input2: string, 
     options2: { 
         'font-scale': number, 
-        'text-font': string[] 
+        'text-font': string[] ,
+        'text-color': color
     },
     …
 ]
@@ -687,7 +709,7 @@ El siguiente pseudocódigo define la estructura de la expresión de formato de c
 
 **Ejemplo**
 
-En el ejemplo siguiente se aplica formato al campo de texto, para lo cual se agrega una fuente negrita y se amplía el tamaño de fuente de la propiedad `title` de la característica. En este ejemplo también se agrega la propiedad `subtitle` de la característica en una nueva línea, con un tamaño de fuente reducido.
+En el ejemplo siguiente se aplica formato al campo de texto, para lo cual se agrega una fuente negrita y se amplía el tamaño de fuente de la propiedad `title` de la característica. En este ejemplo también se agrega la propiedad `subtitle` de la característica en una nueva línea, con un tamaño de fuente reducido y el color rojo.
 
 ```javascript
 var layer = new atlas.layer.SymbolLayer(datasource, null, {
@@ -706,7 +728,10 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
 
             //Scale the font size down of the subtitle property. 
             ['get', 'subtitle'],
-            { 'font-scale': 0.75 }
+            { 
+                'font-scale': 0.75, 
+                'text-color': 'red' 
+            }
         ]
     }
 });

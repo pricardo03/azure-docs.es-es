@@ -5,18 +5,18 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 08/26/2019
+ms.date: 11/25/2019
 ms.author: helohr
-ms.openlocfilehash: 1f5d1050815961f51c2bb1cfce256b1ea37d3ac1
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 1e26d61e0b1ec50e7a3831970af1fd8fad7fed99
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73605776"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483657"
 ---
 # <a name="create-an-fslogix-profile-container-for-a-host-pool-using-azure-netapp-files"></a>Creación de un contenedor de perfiles de FSLogix para un grupo host mediante Azure NetApp Files
 
-Se recomienda usar los contenedores de perfiles de FSLogix como solución para los perfiles de usuario para el [servicio de versión preliminar de Windows Virtual Desktop](overview.md). Los contenedores de perfiles de FSLogix almacenan un perfil de usuario completo en un único contenedor y están diseñados para usar un perfil itinerante en entornos informáticos remotos no persistentes, como Windows Virtual Desktop. Cuando inicia sesión, el contenedor se adjunta dinámicamente al entorno informático mediante un disco duro virtual (VHD) compatible de forma local y un disco duro virtual de Hyper-V (VHDX). Estas tecnologías avanzadas de controlador de filtro permiten que el perfil de usuario esté disponible inmediatamente y aparezca en el sistema exactamente igual que un perfil de usuario local. Para obtener más información sobre los contenedores de perfiles de FSLogix, consulte [Contenedores de perfiles de FSLogix y archivos de Azure](fslogix-containers-azure-files.md).
+Se recomienda usar los contenedores de perfiles de FSLogix como solución para los perfiles de usuario para el [servicio Windows Virtual Desktop](overview.md). Los contenedores de perfiles de FSLogix almacenan un perfil de usuario completo en un único contenedor y están diseñados para usar un perfil itinerante en entornos informáticos remotos no persistentes, como Windows Virtual Desktop. Cuando inicia sesión, el contenedor se adjunta dinámicamente al entorno informático mediante un disco duro virtual (VHD) compatible de forma local y un disco duro virtual de Hyper-V (VHDX). Estas tecnologías avanzadas de controlador de filtro permiten que el perfil de usuario esté disponible inmediatamente y aparezca en el sistema exactamente igual que un perfil de usuario local. Para obtener más información sobre los contenedores de perfiles de FSLogix, consulte [Contenedores de perfiles de FSLogix y archivos de Azure](fslogix-containers-azure-files.md).
 
 Puede crear contenedores de perfiles de FSLogix mediante [Azure NetApp Files](https://azure.microsoft.com/services/netapp/), un servicio de plataforma nativa de Azure fácil de usar que ayuda a los clientes a aprovisionar de forma rápida y confiable volúmenes SMB de nivel empresarial para sus entornos de Windows Virtual Desktop. Para obtener más información acerca de Azure NetApp Files, consulte [¿Qué es Azure NetApp Files?](../azure-netapp-files/azure-netapp-files-introduction.md)
 
@@ -179,6 +179,11 @@ Esta sección está basada en [Creación de un contenedor de perfiles para un gr
 11.  Cree un valor denominado **Enabled** con un tipo **REG_DWORD** establecido en **1**.
 
 12. Cree un valor denominado **VHDLocations** con tipo **Cadena múltiple** y establezca su valor como el URI del recurso compartido de Azure NetApp Files.
+
+13. Cree un valor denominado **DeleteLocalProfileWhenVHDShouldApply** con un valor DWORD de 1 para evitar problemas con los perfiles locales existentes antes de iniciar sesión.
+
+     >[!WARNING]
+     >Tenga cuidado al crear el valor de DeleteLocalProfileWhenVHDShouldApply. Cuando el sistema de perfiles de FSLogix determina que un usuario debe tener un perfil de FSLogix, pero ya existe un perfil local, el contenedor de perfiles eliminará permanentemente el perfil local. A continuación, el usuario iniciará sesión con el nuevo perfil FSLogix.
 
 ## <a name="assign-users-to-session-host"></a>Asignación de usuarios al host de sesión
 

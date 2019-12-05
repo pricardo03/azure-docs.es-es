@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/20/2019
+ms.date: 11/25/2019
 ms.topic: conceptual
-ms.service: cost-management
+ms.service: cost-management-billing
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: ee4b2196240ceff1351b7ea310d9660ed613d075
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 20d83c48fb4ad60b091dc87b224a053690251a48
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73152066"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74481711"
 ---
 # <a name="migrate-from-enterprise-agreement-to-microsoft-customer-agreement-apis"></a>Migración desde la API de Contrato Enterprise a la API de contrato de cliente de Microsoft
 
@@ -532,18 +532,7 @@ Con Azure Cost Management, puede:
 
 ## <a name="power-bi-integration"></a>Integración con Power BI
 
-Si usa Power BI para generar informes de los costos, debe realizar una transición a:
-
-- La aplicación Power BI de Microsoft Azure Consumption Insights.
-- El conector de escritorio para Azure Consumption Insights.
-
-
-Se recomienda el conector para las organizaciones que quieren tener el máximo de flexibilidad. Sin embargo, la aplicación Power BI también está disponible para una configuración rápida.
-
-- Instale la [aplicación Power BI de Microsoft Azure Consumption Insights](https://appsource.microsoft.com/product/power-bi/pbi_azureconsumptioninsights.pbi-azure-consumptioninsights?tab=overview).
-- [Conéctese con el conector de Azure Consumption Insights](/power-bi/desktop-connect-azure-consumption-insights).
-
-El anterior paquete de contenido de Consumption Insights y conector funcionaban en un nivel de inscripción. Se requería al menos acceso de lectura. La nueva aplicación Power BI de Consumption Insights y el nuevo conector de Azure Consumption Insights están disponibles para los usuarios de los perfiles de facturación. Los equipos que necesitan otras opciones para revisar costos o para ver los costos en distintos perfiles de facturación deben usar Azure Portal en [Análisis de costos](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/Menu/costanalysis).
+También puede usar Power BI para la generación de informes de costos. El [conector de Azure Cost Management](/power-bi/desktop-connect-azure-cost-management) para Power BI Desktop se puede usar para crear informes eficaces y personalizados que ayuden a comprender mejor su gasto con Azure. En la actualidad, el conector de Azure Cost Management admite clientes con un Contrato de cliente de Microsoft o un Contrato Enterprise (EA).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

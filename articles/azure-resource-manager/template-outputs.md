@@ -3,12 +3,12 @@ title: Salidas en plantillas
 description: Se describe cómo definir valores de salida en una plantilla de Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 09/05/2019
-ms.openlocfilehash: b4c652d71436202b9b6e551f9c582e5c98508259
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 61120b9941a6a20812ea046265ecbe13014d769e
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74149184"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74689136"
 ---
 # <a name="outputs-in-azure-resource-manager-template"></a>Salidas en una plantilla de Azure Resource Manager
 
@@ -101,4 +101,3 @@ En los siguientes ejemplos se muestran escenarios para usar salidas.
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para más información sobre las propiedades disponibles para salidas, consulte [Información sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](resource-group-authoring-templates.md).
-* Para obtener recomendaciones sobre cómo crear salidas, consulte [Procedimientos recomendados: salidas](template-best-practices.md#outputs).

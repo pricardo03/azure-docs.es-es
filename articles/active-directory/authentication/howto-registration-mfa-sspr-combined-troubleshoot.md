@@ -1,22 +1,22 @@
 ---
-title: Solución de problemas de registro combinado para Azure AD SSPR y Multi-Factor Authentication (versión preliminar) - Azure Active Directory
+title: 'Solución de problemas de registro combinado: Azure Active Directory'
 description: Solución de problemas de Azure AD Multi-Factor Authentication y registro combinado del autoservicio de restablecimiento de contraseña (vista preliminar)
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
-ms.date: 02/20/2019
+ms.topic: troubleshooting
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40918493071fe0dd694c43e2b087a2bf7eb197d8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f3f2a60367a8b76464611878e850fff0c4ba8803
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60414635"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74381396"
 ---
 # <a name="troubleshooting-combined-security-information-registration-preview"></a>Solución de problemas de registro de información de seguridad combinado (vista preliminar)
 

@@ -2,20 +2,17 @@
 title: Conexión con puntos de conexión REST desde Azure Logic Apps
 description: Supervisión de los puntos de conexión REST en tareas, procesos y flujos de trabajo automatizados mediante Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 11/01/2019
 tags: connectors
-ms.openlocfilehash: 030401623a61e7fcff40187f522309255482647f
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: b34fdc36bd0b1ce294a92b2ae8fa5da01568e5a9
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824817"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74787376"
 ---
 # <a name="call-rest-endpoints-by-using-azure-logic-apps"></a>Llamada a puntos de conexión REST mediante Azure Logic Apps
 

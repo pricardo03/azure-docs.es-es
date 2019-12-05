@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: 668744121c41a6e4797bc335b2736c8b31d87a41
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: ed13b5028341637d71dee95f38cc44cc91aa2376
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73807939"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74481447"
 ---
 # <a name="azure-sql-database-and-azure-sql-data-warehouse-ip-firewall-rules"></a>Reglas de firewall de IP para Azure SQL Database y Azure SQL Data Warehouse
 
@@ -191,8 +191,10 @@ En el ejemplo siguiente se usa PowerShell para establecer una regla de firewall 
 ```powershell
 New-AzSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
     -ServerName $servername `
-    -FirewallRuleName "AllowSome" -StartIpAddress "0.0.0.0" -EndIpAddress "0.0.0.0"
+    -FirewallRuleName "ContosoIPRange" -StartIpAddress "192.168.1.0" -EndIpAddress "192.168.1.255"
 ```
+> [!TIP]
+> Para $servername, especifique el nombre del servidor y no el nombre DNS completo; por ejemplo, especifique **mysqldbserver** en lugar de **mysqldbserver.database.windows.net**.
 
 > [!TIP]
 > Para consultar ejemplos de PowerShell en el contexto de un inicio rápido, consulte [Creación de una base de datos con PowerShell](sql-database-powershell-samples.md) y [Creación de una base de datos única y configuración de una regla de firewall de IP de nivel de servidor de SQL Database mediante PowerShell](scripts/sql-database-create-and-configure-database-powershell.md).
@@ -211,8 +213,10 @@ En el ejemplo siguiente se usa la CLI para establecer una regla de firewall de I
 
 ```azurecli-interactive
 az sql server firewall-rule create --resource-group myResourceGroup --server $servername \
--n AllowYourIp --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
+-n ContosoIPRange --start-ip-address 192.168.1.0 --end-ip-address 192.168.1.255
 ```
+> [!TIP]
+> Para $servername, especifique el nombre del servidor y no el nombre DNS completo; por ejemplo, especifique **mysqldbserver** en lugar de **mysqldbserver.database.windows.net**.
 
 > [!TIP]
 > Para consultar un ejemplo de la CLI en el contexto de un inicio rápido, consulte [Creación de una base de datos con la CLI de Azure](sql-database-cli-samples.md) y [Creación de una base de datos única y configuración de una regla de firewall de IP de SQL Database con la CLI de Azure](scripts/sql-database-create-and-configure-database-cli.md).

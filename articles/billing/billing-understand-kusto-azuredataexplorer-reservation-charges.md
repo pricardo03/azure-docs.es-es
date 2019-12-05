@@ -2,18 +2,18 @@
 title: Aplicación del descuento por reserva a Azure Data Explorer
 description: Aprenda a aplicar el descuento por reserva al medidor de incremento de Azure Data Explorer.
 services: data-explorer
-author: avnera
+author: avneraa
 ms.author: avnera
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/03/2019
-ms.openlocfilehash: eba8a9b2a2774ba721a8442ca03035bd3801dc53
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 658ef17632a30877867c887360d127792370bde2
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73585522"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770023"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-data-explorer"></a>Aplicación del descuento por reserva a Azure Data Explorer
 

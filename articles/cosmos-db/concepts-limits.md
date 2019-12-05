@@ -6,12 +6,12 @@ ms.author: arramac
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: 45cf7b7d9383de467f72769465a3ad382fe9d589
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: 7ce15a0fe55c32ad7e381ba70e4dffee11c76bee
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73064046"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383406"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Cuotas de servicio de Azure Cosmos DB
 
@@ -30,7 +30,8 @@ Después de crear una cuenta de Azure Cosmos DB en su suscripción a Azure, pued
 | Número máximo de claves de partición (lógicas) distintas | Ilimitado |
 | Almacenamiento máximo por contenedor | Ilimitado |
 | Almacenamiento máximo por base de datos | Ilimitado |
-| Tamaño máximo de datos adjuntos por cuenta (la característica de datos adjuntos está en desuso) | 2 GB | 
+| Tamaño máximo de datos adjuntos por cuenta (la característica de datos adjuntos está en desuso) | 2 GB |
+| Mínimo de RU requeridas por 1 GB | 10 RU/s |
 
 > [!NOTE]
 > Para obtener información sobre el procedimiento recomendado para administrar las cargas de trabajo que tienen claves de partición que requieren límites más altos para el almacenamiento o el rendimiento, consulte [Crear una clave de partición sintética ](synthetic-partition-keys.md).
@@ -134,6 +135,10 @@ Cosmos DB utiliza HMAC para la autorización. Puede usar una clave maestra o [to
 | Distorsión máxima del reloj para la autorización del token| 15 minutos |
 
 Cosmos DB admite la ejecución de desencadenadores durante las escrituras. El servicio admite un máximo de un desencadenador previo y un desencadenador posterior por operación de escritura. 
+
+## <a name="autopilot-mode-limits"></a>Límites del modo Autopilot
+
+Consulte el artículo [Autopilot](provision-throughput-autopilot.md#autopilot-limits) para obtener información sobre los límites de almacenamiento y rendimiento en el modo Autopilot.
 
 ## <a name="sql-query-limits"></a>Límites de la consulta SQL
 

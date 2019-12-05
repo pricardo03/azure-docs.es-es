@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: antchu
-ms.openlocfilehash: 68ada90699fe9a9db6faeb32a04e8eb02c176944
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: f86a63315798d982f7e78fd1ff293061daf50132
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74157656"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74786782"
 ---
 # <a name="azure-functions-development-and-configuration-with-azure-signalr-service"></a>Desarrollo y configuración de Azure Functions con Azure SignalR Service
 
@@ -40,7 +40,7 @@ Una aplicación cliente requiere un token de acceso válido para conectarse a Az
 
 Use una función de Azure desencadenada por HTTP y el enlace de entrada *SignalRConnectionInfo* para generar el objeto de información de conexión. La función debe tener una ruta HTTP que termina en `/negotiate`.
 
-Para más información sobre cómo crear la función de negociación, consulte la [*SignalRConnectionInfo*de referencia del enlace de entrada](../azure-functions/functions-bindings-signalr-service.md#signalr-connection-info-input-binding)
+Para más información sobre cómo crear la función de negociación, consulte la [*SignalRConnectionInfo*de referencia del enlace de entrada](../azure-functions/functions-bindings-signalr-service.md#input)
 
 Para aprender a crear un token autenticado, consulte [Uso de la autenticación de App Service](#using-app-service-authentication).
 
@@ -50,7 +50,7 @@ Use el enlace de salida *SignalR* para enviar mensajes a los clientes conectados
 
 Se pueden agregar usuarios a uno o más grupos. También puede usar el enlace de salida de *SignalR* para agregar o quitar usuarios en los grupos.
 
-Para más información, consulte la [*SignalR* de referencia del enlace de salida](../azure-functions/functions-bindings-signalr-service.md#signalr-output-binding).
+Para más información, consulte la [*SignalR* de referencia del enlace de salida](../azure-functions/functions-bindings-signalr-service.md#output).
 
 ### <a name="signalr-hubs"></a>Concentradores de SignalR
 

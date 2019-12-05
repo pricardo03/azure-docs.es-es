@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 81e24712de186e2d5ec03e33ecabe485cc0d9f31
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 0edc1a7e470b7f0f3773b69635bbc26ab4d283b3
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73894148"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74480361"
 ---
-# <a name="export-your-application-preview-features"></a>Exportar la aplicación (Características en vista previa (GB))
+# <a name="export-your-application-preview-features"></a>Exportación de la aplicación (características en versión preliminar)
 
 [!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
@@ -26,11 +26,14 @@ Tiene dos opciones:
 - Puede crear una copia de la aplicación si solo necesita crear una copia duplicada de ella.
 - Puede crear una plantilla de aplicación a partir la aplicación si tiene previsto crear varias copias.
 
-## <a name="copy-your-application"></a>Copiar la aplicación
+## <a name="copy-your-application"></a>Copia de la aplicación
 
 Puede crear una copia de cualquier aplicación, menos las instancias de dispositivo, el historial de datos del dispositivo y los datos de usuario. La copia es una aplicación de pago por uso por la que se le cobrará. No puede crear una aplicación de prueba al copiar una aplicación.
 
-Seleccione **Copiar**. En el cuadro de diálogo, escriba los detalles de la nueva aplicación de pago por uso. Después, seleccione **Copiar** para confirmar que quiere continuar. Para obtener más información sobre los campos del formulario, consulte [Crear una aplicación](quick-deploy-iot-central.md).
+Seleccione **Copiar**. En el cuadro de diálogo, escriba los detalles de la nueva aplicación de pago por uso. Después, seleccione **Copiar** para confirmar que quiere continuar. Para obtener más información sobre los campos del formulario, consulte antes el inicio rápido [Crear una aplicación](quick-deploy-iot-central.md).
+
+> [!NOTE]
+> Puede **Copiar la aplicación** solo a ubicaciones de **Europa** y los **EE. UU**.
 
 ![Página Configuración de la aplicación](media/howto-use-app-templates/appcopy2.png)
 
@@ -38,7 +41,7 @@ Una vez que la operación de copia de la aplicación se realiza correctamente, p
 
 ![Página Configuración de la aplicación](media/howto-use-app-templates/appcopy3a.png)
 
-Al copiar una aplicación, también se copia la definición de las reglas y la acción de correo electrónico. Algunas acciones, como Flow y Logic Apps, están asociadas a reglas específicas a través del identificador de regla. Cuando una regla se copia en otra aplicación, obtiene su propio identificador de regla. En este caso, los usuarios tendrán que crear una nueva acción y, a continuación, asociar la nueva regla a ella. En general, es una buena idea comprobar las reglas y las acciones para garantizar que están actualizadas en la nueva aplicación.
+Al copiar una aplicación, también se copia la definición de las reglas y la acción de correo electrónico. Algunas acciones, como Flow y Logic Apps, están asociadas a reglas específicas a través del identificador de regla. Cuando una regla se copia en otra aplicación, obtiene su propio identificador de regla. En este caso, los usuarios tendrán que crear una nueva acción y, a continuación, asociar la nueva regla a ella. En general, es recomendable comprobar las reglas y las acciones para garantizar que están actualizadas en la nueva aplicación.
 
 > [!WARNING]
 > Si un panel incluye iconos que muestran información acerca de dispositivos específicos, estos iconos muestran el mensaje **No se encontró el recurso solicitado** en la nueva aplicación. Debe volver a configurar estos iconos para mostrar información acerca de los dispositivos en la nueva aplicación.
@@ -77,11 +80,14 @@ Para crear una plantilla de aplicación a partir de una aplicación existente de
 
 ### <a name="use-an-application-template"></a>Uso de una plantilla de aplicación
 
-Para usar una plantilla de aplicación para crear una nueva aplicación de IoT Central, necesita un **vínculo que se puede compartir** que haya creado anteriormente. Pegue el **vínculo que se puede compartir** en la barra de direcciones de su explorador. La página **Crear una aplicación ** se muestra con su plantilla de aplicación personalizada seleccionada:
+Para usar una plantilla de aplicación para crear una nueva aplicación de IoT Central, necesita un **vínculo que se puede compartir** que haya creado anteriormente. Pegue el **vínculo que se puede compartir** en la barra de direcciones de su explorador. La página **Crear una aplicación**  se muestra con su plantilla de aplicación personalizada seleccionada:
 
 ![Crear una aplicación a partir de una plantilla](media/howto-use-app-templates/create-app.png)
 
 Seleccione el plan de pago y rellene los demás campos del formulario. A continuación, seleccione **Crear** para crear una nueva aplicación de IoT Central a partir de la plantilla de aplicación.
+
+> [!NOTE]
+> Cuando se crea una aplicación mediante un **Vínculo compartible**, las ubicaciones disponibles son **Europa** y **EE. UU.** .
 
 ### <a name="manage-application-templates"></a>Administración de las plantillas de aplicaciones
 

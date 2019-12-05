@@ -1,14 +1,14 @@
 ---
 title: Evaluación del impacto de una nueva directiva de Azure
-description: Comprenda el proceso que debe seguir al introducir una nueva directiva en el entorno de Azure.
+description: Comprenda el proceso que debe seguir al introducir una nueva definición de directiva en el entorno de Azure.
 ms.date: 09/23/2019
 ms.topic: conceptual
-ms.openlocfilehash: 6c1a3ea764aedec7de5eab1f564176eaafead70b
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 562fa2378356ddc1eac48b6ea5c160ebf655d525
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73959827"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463527"
 ---
 # <a name="evaluate-the-impact-of-a-new-azure-policy"></a>Evaluación del impacto de una nueva directiva de Azure
 
@@ -71,6 +71,6 @@ La implementación y asignación de la definición de directiva no es el paso fi
 - Más información sobre la [estructura de la definición de directiva](./definition-structure.md).
 - Más información sobre la [estructura de asignaciones de directivas](./assignment-structure.md)
 - Obtenga información acerca de cómo se pueden [crear directivas mediante programación](../how-to/programmatically-create.md).
-- Obtenga información sobre cómo [obtener datos de cumplimiento](../how-to/getting-compliance-data.md).
+- Obtenga información sobre cómo [obtener datos de cumplimiento](../how-to/get-compliance-data.md).
 - Obtenga información sobre cómo [corregir recursos no compatibles](../how-to/remediate-resources.md).
 - En [Organización de los recursos con grupos de administración de Azure](../../management-groups/overview.md), obtendrá información sobre lo que es un grupo de administración.

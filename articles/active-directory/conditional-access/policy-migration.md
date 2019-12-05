@@ -1,22 +1,22 @@
 ---
-title: ¿Qué es una migración de directivas en Acceso condicional de Azure Active Directory? | Microsoft Docs
+title: 'Migración de directivas de acceso condicional: Azure Active Directory'
 description: Aprenda todo lo necesario sobre cómo migrar las directivas clásicas en Azure Portal.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
-ms.date: 07/24/2018
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7464546a78e1b54cdea3bd6dd66656f5b189bc02
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 75d664f6e61dbbaaf0b8ab74c392596a206ff644
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67506805"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74380558"
 ---
 # <a name="what-is-a-policy-migration-in-azure-active-directory-conditional-access"></a>¿Qué es una migración de directivas en Acceso condicional de Azure Active Directory? 
 
@@ -132,5 +132,5 @@ En una directiva nueva, debe seleccionar las [plataformas de dispositivo](techni
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Si quiere saber cómo configurar una directiva de acceso condicional, consulte [Exigir MFA para aplicaciones específicas con acceso condicional de Azure Active Directory](app-based-mfa.md).
-- Si está listo para configurar directivas de acceso condicional para su entorno, consulte [Procedimientos recomendados para el acceso condicional en Azure Active Directory](best-practices.md). 
+- Si quiere saber cómo configurar una directiva de acceso condicional, vea [Requerir MFA para aplicaciones específicas con acceso condicional a Azure Active Directory](app-based-mfa.md).
+- Si está listo para configurar directivas de acceso condicional para su entorno, vea [Procedimientos recomendados para el acceso condicional en Azure Active Directory](best-practices.md). 

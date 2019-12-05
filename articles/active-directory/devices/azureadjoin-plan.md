@@ -1,22 +1,22 @@
 ---
-title: Planeamiento de la implementación de unión a Azure Active Directory (Azure AD) | Microsoft Docs
+title: Planeación de la implementación de dispositivos unidos a Azure Active Directory
 description: Explica los pasos necesarios para implementar dispositivos unidos a Azure AD en su entorno.
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: conceptual
-ms.date: 06/28/2019
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c8219dd9ec971303fb62cf828da91ee877f4ca9
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 7d70e87a9a0c7fb9b28f2a025db15ce4ba666255
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73882919"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74379609"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Procedimientos para: Planeación de la implementación de la unión a Azure AD
 

@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: 6e5d95a47261445e3031f55368f4e2cd8e2830a7
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: a0058bf309e0ff4fbe687731d676e907d1c3fd82
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72754861"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383107"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unidades de solicitud en Azure Cosmos DB
 
@@ -21,7 +21,7 @@ Azure Cosmos DB admite varias API, como SQL, MongoDB, Cassandra, Gremlin y Table
 
 Azure Cosmos DB se encarga de normalizar el costo de todas las operaciones de base de datos y se expresa en términos de *unidades de solicitud* (RU en su forma abreviada). RU/segundo se puede considerar como la moneda del rendimiento. RU/s es una moneda basada en la velocidad, que abstrae los recursos del sistema, como CPU, IOPS y memoria, necesarios para realizar las operaciones de base de datos compatibles con Azure Cosmos DB. 
 
-El costo de leer un elemento de 1 KB es una unidad de solicitud (o 1 RU). A todas las demás operaciones de base de datos se les asigna de forma similar un costo en términos de unidades de solicitud. Con independencia de qué API utilice para interactuar con el contenedor de Azure Cosmos, los costos siempre se miden por RU. Si la operación de base de datos es una escritura, lectura o consulta, los costos siempre se miden en RU.
+El costo de leer un elemento de 1 KB es una unidad de solicitud (o 1 RU). Se requiere un mínimo de 10 RU/s para almacenar cada GB de datos. A todas las demás operaciones de base de datos se les asigna de forma similar un costo en términos de unidades de solicitud. Con independencia de qué API utilice para interactuar con el contenedor de Azure Cosmos, los costos siempre se miden por RU. Si la operación de base de datos es una escritura, lectura o consulta, los costos siempre se miden en RU.
 
 En la siguiente imagen se muestra el concepto de unidades de solicitud a grandes rasgos:
 

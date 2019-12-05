@@ -1,22 +1,22 @@
 ---
-title: 'Operaciones de la protección con contraseña de Azure AD e informes: Azure Active Directory'
+title: 'Operaciones e informes de la protección con contraseña de Azure AD: Azure Active Directory'
 description: Operaciones de versión preliminar de la protección con contraseña posterior a la implementación de Azure AD e informes
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: article
-ms.date: 02/01/2019
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b5ff7f0bbf1bf474a611ae033165bca6dfaac676
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 98668fc836aa21bdd14831c4a801557cdab5a202
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71097627"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74381661"
 ---
 # <a name="azure-ad-password-protection-operational-procedures"></a>Procedimientos operativos de protección con contraseña de Azure AD
 

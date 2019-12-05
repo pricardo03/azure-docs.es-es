@@ -5,14 +5,14 @@ services: expressroute
 author: charwen
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 08/15/2018
 ms.author: charwen
-ms.openlocfilehash: 2810dfc4cb41dcf11eb59ce3c87e6f7d6b2d5f65
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: b14b8a9a2bc43c33095bf07e7fb7ebcc2d6c1ffa
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083495"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74769530"
 ---
 # <a name="reset-expressroute-circuit-peerings"></a>Restablecimiento de emparejamientos de circuitos ExpressRoute
 
@@ -20,7 +20,7 @@ En este artículo se describe cómo deshabilitar y habilitar los emparejamientos
 
 Hay un par de escenarios en los que puede resultarle útil restablecer los emparejamientos de ExpressRoute.
 * Pruebe la implementación y el diseño de recuperación ante desastres. Por ejemplo, tiene dos circuitos de ExpressRoute. Puede deshabilitar los emparejamientos de un circuido y forzar la conmutar por error del tráfico de red a otro circuito.
-* Habilite la detección de reenvío bidireccional (BFD) en el emparejamiento privado de Azure o el emparejamiento de Microsoft de su circuito de ExpressRoute. BFD está habilitado de forma predeterminada en el emparejamiento privado de Azure si se ha creado el circuito de ExpressRoute después del 1 de agosto de 2018, y en el emparejamiento de Microsoft si se ha creado el circuito de ExpressRoute después del 1 de octubre de 2019. Si el circuito se creó antes de esa fecha, BFD no estará habilitado. Para habilitar BFD, debe deshabilitar el emparejamiento y volverlo a habilitar. 
+* Habilite la detección de reenvío bidireccional (BFD) en el emparejamiento privado de Azure de su circuito de ExpressRoute. BFD está habilitado de forma predeterminada si el circuito de ExpressRoute se creó después del 1 de agosto de 2018. Si el circuito se creó antes de esa fecha, BFD no estará habilitado. Para habilitar BFD, debe deshabilitar el emparejamiento y volverlo a habilitar. Hay que tener en cuenta que BFD solo es compatible con el emparejamiento privado de Azure.
 
 ### <a name="working-with-azure-powershell"></a>Trabajo con Azure PowerShell
 

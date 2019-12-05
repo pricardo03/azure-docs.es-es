@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: cherylmc
-ms.openlocfilehash: 356f8d17dd194c79915600f63683e124cc481b33
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7838e1930a8ccd190c95740a6a8e3dadc68149f0
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498362"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74422119"
 ---
 # <a name="create-an-azure-bastion-host"></a>Creación de un host de Azure Bastion
 
@@ -33,7 +33,7 @@ Bastion está disponible en las regiones públicas de Azure siguientes:
 
 Esta sección le ayuda a crear un recurso de Azure Bastion desde Azure Portal.
 
-1. En la página principal de [Azure Portal](https://portal.azure.com) haga clic en **+ Crear un recurso**.
+1. En el menú [Azure Portal](https://portal.azure.com) o en la página **Inicio**, seleccione **Crear un recurso**.
 
 1. En la página **Nuevo**, en el campo *Buscar en Marketplace*, escriba **Bastion** y haga clic en **Entrar** para ir a los resultados de la búsqueda.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: 30398b5f81ac1893129ba222c5f1a2d762ad1e7f
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 5fae340ae933b8165a2ea9bb9f6337189fd576d6
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595056"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74457041"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Preguntas más frecuentes (P+F) acerca de Azure Virtual Network
 
@@ -76,7 +76,7 @@ Sí. Azure reserva 5 direcciones IP dentro de cada subred. Son x.x.x.0-x.x.x.3 y
 - x.x.x.255: Dirección de difusión de red
 
 ### <a name="how-small-and-how-large-can-vnets-and-subnets-be"></a>¿Qué tamaños mínimo y máximo pueden tener las redes virtuales y las subredes?
-La subred más pequeña admitida es /29 y la más grande /8 (mediante definiciones de subred CIDR).
+La subred IPv4 más pequeña admitida es /29 y la más grande /8 (mediante definiciones de subred CIDR).  Las subredes IPv6 deben tener un tamaño exactamente de /64.  
 
 ### <a name="can-i-bring-my-vlans-to-azure-using-vnets"></a>¿Puedo llevar mis VLAN a Azure mediante redes virtuales?
 No. Las redes virtuales son superposiciones de nivel 3. Azure no admite ninguna semántica de nivel 2.
@@ -109,7 +109,7 @@ Sí. Puede agregar, quitar y modificar los bloques CIDR usados por una red virtu
 Sí. Todos los servicios implementados dentro de una red virtual pueden establecer una conexión a Internet saliente. Para más información sobre las conexiones a Internet salientes en Azure, consulte [Conexiones salientes en Azure](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Si quiere establecer una conexión entrante a un recurso implementado mediante Resource Manager, el recurso debe tener asignada una dirección IP pública. Para más información sobre las direcciones IP públicas, consulte [Direcciones IP publicas](virtual-network-public-ip-address.md). Cada servicio en la nube de Azure implementado en Azure tiene asignada una dirección IP virtual direccionable de forma pública. Para permitir que estos servicios acepten conexiones de Internet, se definen puntos de conexión de entrada para roles y puntos de conexión de PaaS en las máquinas virtuales.
 
 ### <a name="do-vnets-support-ipv6"></a>¿Las redes virtuales admiten IPv6?
-No. No se admite IPv6 con redes virtuales en este momento. Sin embargo, puede asignar direcciones IPv6 a equilibradores de carga de Azure para equilibrar la carga en las máquinas virtuales. Para más información, consulte [Información general de IPv6 para Azure Load Balancer](../load-balancer/load-balancer-ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Sí, las redes virtuales pueden ser solo IPv4 o de pila dual (IPv4 + IPv6).  Para obtener más información, consulte [Información general de IPv6 para Azure Virtual Networks](./ipv6-overview.md).
 
 ### <a name="can-a-vnet-span-regions"></a>¿Puede una red virtual abarcar varias regiones?
 No. Una red virtual está limitada a una única región. Una red virtual, sin embargo, abarca zonas de disponibilidad. Para más información sobre las zonas de disponibilidad, consulte [Introducción a las zonas de disponibilidad](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Puede conectar redes virtuales de diferentes regiones con el emparejamiento de redes virtuales. Para más información, consulte [Emparejamiento de redes virtuales](virtual-network-peering-overview.md).
@@ -241,8 +241,8 @@ El emparejamiento de VNet (o emparejamiento de redes virtuales) permite conectar
 Sí. El emparejamiento de VNET global permite emparejar redes virtuales en diferentes regiones. Emparejamiento de VNET global está disponible en todas las regiones públicas de Azure, en las regiones de nube de China y en regiones de nube gubernamentales. No se puede emparejar globalmente desde las regiones públicas de Azure a las regiones de nube nacionales.
 
 ### <a name="what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers"></a>¿Cuáles son las restricciones relacionadas con Emparejamiento de VNET Global y los equilibradores de carga?
-Si las dos redes virtuales están en regiones distintas (Emparejamiento de VNET global), no podrá conectarse a los recursos que usan un equilibrador de carga básico. Sí podrá conectarse a los recursos que usan un equilibrador de carga estándar.
-Los siguientes recursos usan equilibradores de carga básicos, lo que significa que no se puede comunicar con ellos a través de Emparejamiento de VNET global:
+Si las dos redes virtuales en dos regiones diferentes están emparejadas a través del emparejamiento de VNet global, no se puede conectar a los recursos que están detrás de una instancia básica de Load Balancer a través de la dirección IP de front-end de Load Balancer. Esta restricción no existe para una instancia de Load Balancer estándar.
+Los siguientes recursos pueden usar instancias básicas de Load Balancer, lo que significa que no puede acceder a ellos desde la dirección IP de front-end de Load Balancer a través del emparejamiento de red virtual global. Sin embargo, puede usar el emparejamiento de red virtual global para llegar a los recursos directamente desde sus direcciones IP de red virtual privada, si se permite. 
 - Máquinas virtuales detrás de equilibradores de carga básicos
 - Conjuntos de escalado de máquinas virtuales con equilibradores de carga básicos 
 - Redis Cache 

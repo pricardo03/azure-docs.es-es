@@ -1,18 +1,14 @@
 ---
-title: Arquitectura de Azure Backup
+title: Introducción a la arquitectura
 description: Proporciona información general sobre la arquitectura, los componentes y los procesos usados por el servicio Azure Backup.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.author: dacurwin
-ms.openlocfilehash: d914c2988b5f28940021de24dcfe1183c68b15cc
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: ae7b0c2b81bd3d393b7e749e077a6f5fa0379562
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074345"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173513"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Arquitectura y componentes de Azure Backup
 
@@ -96,7 +92,7 @@ El consumo de almacenamiento, el objetivo de tiempo de recuperación (RTO) y el 
 
 En la tabla siguiente se resumen las características compatibles de los distintos tipos de copia de seguridad:
 
-**Característica** | **Máquinas Windows Server locales (directa)** | **Máquinas virtuales de Azure** | **Máquinas o aplicaciones con DPM o MABS**
+**Característica** | **Copia de seguridad directa de archivos y carpetas (mediante el agente de MARS)** | **Copia de seguridad de máquina virtual de Azure** | **Máquinas o aplicaciones con DPM o MABS**
 --- | --- | --- | ---
 Copia de seguridad en almacén | ![Sí][green] | ![Sí][green] | ![Sí][green]
 Copia de seguridad en disco DPM o MABS y, luego, en Azure | | | ![Sí][green]
@@ -106,7 +102,7 @@ Copia de seguridad de discos desduplicados | | | ![Parcialmente][yellow]<br/><br
 
 ![Clave de tabla](./media/backup-architecture/table-key.png)
 
-## <a name="architecture-direct-backup-of-azure-vms"></a>Arquitectura: copia de seguridad directa de máquinas virtuales de Azure
+## <a name="architecture-built-in-azure-vm-backup"></a>Arquitectura: Copia de seguridad integrada de máquina virtual de Azure
 
 1. Cuando se habilita la copia de seguridad de una máquina virtual de Azure, se ejecuta una copia de seguridad con la programación que especifique.
 1. Durante la primera copia de seguridad, se instala una extensión de copia de seguridad en la máquina virtual si se está ejecutando.
