@@ -13,12 +13,12 @@ ms.workload: big-compute
 ms.date: 11/14/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d03fd754e5a8e2872063b8a10bd1293b94d8f3b6
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: d81f89d5e4c3fb797cfc935764bb80853660ee2c
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70094425"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707543"
 ---
 # <a name="persist-job-and-task-output"></a>Trabajo persistente y resultado de la tarea
 
@@ -50,17 +50,17 @@ Para más información sobre el almacenamiento de salidas de tareas con la API d
 
 ### <a name="use-the-batch-file-conventions-library-for-net"></a>Usar la biblioteca Batch File Conventions para .NET
 
-Batch define un conjunto opcional de convenciones para nombrar los archivos de salida de tareas en Azure Storage. El [estándar Batch File Conventions](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions) describe estas convenciones. El estándar de convenciones de archivos determina los nombres del contenedor de destino y la ruta de acceso del blob en Azure Storage para un archivo de salida dado según los nombres del trabajo y de la tarea.
+Batch define un conjunto opcional de convenciones para nombrar los archivos de salida de tareas en Azure Storage. El [estándar Batch File Conventions](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/batch/Microsoft.Azure.Batch.Conventions.Files#conventions) describe estas convenciones. El estándar de convenciones de archivos determina los nombres del contenedor de destino y la ruta de acceso del blob en Azure Storage para un archivo de salida dado según los nombres del trabajo y de la tarea.
 
 Es cosa suya si decide usar el estándar de convenciones de archivos para nombrar los archivos de datos de salida. Si lo desea, puede nombrar también el contenedor de destino y el blob. Si usa el estándar de convenciones de archivos para la denominación de archivos de salida, estos se podrán ver en [Azure Portal][portal].
 
-Los desarrolladores que compilan soluciones de Batch con C# y .NET pueden usar la [biblioteca File Conventions para .NET][nuget_package] para almacenar los datos de tareas en una cuenta de Azure Storage, de acuerdo con el [estándar Batch File Conventions](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). La biblioteca File Conventions administra el movimiento de archivos de salida a Azure Storage y nombra los contenedores y blobs de destino de una manera conocida.
+Los desarrolladores que compilan soluciones de Batch con C# y .NET pueden usar la [biblioteca File Conventions para .NET][nuget_package] para almacenar los datos de tareas en una cuenta de Azure Storage, de acuerdo con el [estándar Batch File Conventions](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/batch/Microsoft.Azure.Batch.Conventions.Files#conventions). La biblioteca File Conventions administra el movimiento de archivos de salida a Azure Storage y nombra los contenedores y blobs de destino de una manera conocida.
 
 Para más información sobre el almacenamiento de salidas de tareas con la biblioteca File Conventions para .NET, consulte [Persist job and task data to Azure Storage with the Batch File Conventions library for .NET](batch-task-output-file-conventions.md) (Almacenamiento de datos de trabajos y tareas en Azure Storage con la biblioteca de convenciones de archivo de Batch para .NET).
 
 ### <a name="implement-the-batch-file-conventions-standard"></a>Implementar el estándar Batch File Conventions
 
-Si va a usar un lenguaje distinto de .NET, puede implementar el [estándar Batch File Conventions](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions) en su propia aplicación.
+Si va a usar un lenguaje distinto de .NET, puede implementar el [estándar Batch File Conventions](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/batch/Microsoft.Azure.Batch.Conventions.Files#conventions) en su propia aplicación.
 
 Quizás quiera implementar el estándar de nomenclatura File Conventions por su cuenta cuando desee un esquema de nomenclatura probado o cuando quiera ver la salida de tarea en Azure Portal.
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/06/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 7ceff623c6559ef5e929d6d5bff9e07cca9039d2
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 05e4dc5bc96ef654006a98f27ff4a12e924250b4
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796280"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74828753"
 ---
 ## <a name="benefits-of-managed-disks"></a>Ventajas de los discos administrados
 
@@ -37,7 +37,7 @@ Los discos administrados admiten [Availability Zones](../articles/availability-z
 
 ### <a name="azure-backup-support"></a>Soporte técnico de Azure Backup
 
-Para protegerse frente a desastres regionales, se puede usar [Azure Backup](../articles/backup/backup-overview.md) para crear un trabajo de copia de seguridad con copias de seguridad basadas en el tiempo y directivas de retención de copia de seguridad. Esto le permite realizar restauraciones sencillas de máquinas virtuales a voluntad. Actualmente, Azure Backup admite tamaños de disco de hasta cuatro tebibytes (TiB).  Azure Backup admite la copia de seguridad y la restauración de discos administrados. [Más información](../articles/backup/backup-support-matrix-iaas.md) sobre la compatibilidad con la copia de seguridad de máquinas virtuales de Azure.
+Para protegerse frente a desastres regionales, se puede usar [Azure Backup](../articles/backup/backup-overview.md) para crear un trabajo de copia de seguridad con copias de seguridad basadas en el tiempo y directivas de retención de copia de seguridad. Esto le permite realizar restauraciones sencillas de máquinas virtuales a voluntad. Azure Backup admite la copia de seguridad y la restauración de discos administrados. [Más información](../articles/backup/backup-support-matrix-iaas.md) sobre la compatibilidad con la copia de seguridad de máquinas virtuales de Azure.
 
 ### <a name="granular-access-control"></a>Control de acceso pormenorizado
 

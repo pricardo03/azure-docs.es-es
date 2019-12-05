@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/25/2019
 ms.author: mjbrown
-ms.openlocfilehash: 3a13f8928ba243195c30200dae0525e72c1c161b
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 1afca920a8146ce5501900bcc9e36bdebcccca09
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71844400"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706069"
 ---
 # <a name="migrate-non-partitioned-containers-to-partitioned-containers"></a>Migrar contenedores sin particiones a contenedores con particiones
 
@@ -91,7 +91,7 @@ ItemResponse<DeviceInformationItem> readResponse =
 
 ```
 
-Para obtener un ejemplo completo, vea el repositorio de GitHub de [ejemplos de .Net](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/CodeSamples).
+Para obtener un ejemplo completo, vea el repositorio de GitHub de [ejemplos de .Net][1].
                       
 ## <a name="migrate-the-documents"></a>Migración de los documentos
 
@@ -110,7 +110,7 @@ await migratedContainer.Items.ReadItemAsync<DeviceInformationItem>(
 
 ```
 
-Para obtener el ejemplo completo sobre cómo volver a particionar los documentos, vea el repositorio de GitHub de [ejemplos de .Net](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/CodeSamples). 
+Para obtener el ejemplo completo sobre cómo volver a particionar los documentos, vea el repositorio de GitHub de [ejemplos de .Net][1]. 
 
 ## <a name="compatibility-with-sdks"></a>Compatibilidad con SDK
 
@@ -124,3 +124,5 @@ Si un contenedor migrado es consumido por la versión más reciente/V3 de SDK y 
 * [Unidades de solicitud en Azure Cosmos DB](request-units.md)
 * [Aprovisionar rendimiento en contenedores y bases de datos](set-throughput.md)
 * [Uso de la cuenta de Azure Cosmos](account-overview.md)
+
+[1]: https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/NonPartitionContainerMigration

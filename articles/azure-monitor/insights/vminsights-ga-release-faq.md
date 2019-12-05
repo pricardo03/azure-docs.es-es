@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 10/07/2019
-ms.openlocfilehash: 523fb2d3a3b148afc9219e666c2fbe7fa40d58ad
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 88634777897341f4bd4d8c12b5f9d3b6d9982758
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553800"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671529"
 ---
 # <a name="azure-monitor-for-vms-generally-available-ga-frequently-asked-questions"></a>Preguntas frecuentes sobre Azure Monitor para VM disponible de forma general (GA): preguntas más frecuentes
 
@@ -40,8 +40,9 @@ El método actual de habilitación de Azure Monitor para VM usa contadores de re
 
 Una vez que actualicemos la interfaz de usuario para que use los datos de InsightsMetrics, actualizaremos nuestra documentación y comunicaremos este anuncio a través de varios canales, lo que incluye un banner en Azure Portal. En ese momento, puede deshabilitar estos [contadores de rendimiento](vminsights-enable-overview.md#performance-counters-enabled) en el área de trabajo si ya no desea usarlos. 
 
-[!NOTE]
+>[!NOTE]
 >Si tiene reglas de alerta que hagan referencia a estos contadores en la tabla Perf, deberá actualizarlas para que hagan referencia a los nuevos datos de la tabla `InsightsMetrics`.  Consulte nuestra documentación para obtener ejemplos de consultas de registro que puede usar y que hacen referencia a esta tabla.
+>
 
 Si decide mantener los contadores de rendimiento habilitados, se le facturarán los datos ingeridos y conservados en la tabla Perf según los [precios de Log Analytics[(https://azure.microsoft.com/pricing/details/monitor/).
 

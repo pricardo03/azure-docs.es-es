@@ -3,16 +3,16 @@ title: Previsión y detección de anomalías de serie temporal en Azure Data Exp
 description: Obtenga información sobre cómo analizar datos de series temporales para la previsión y detección de anomalías mediante Azure Data Explorer.
 author: orspod
 ms.author: orspodek
-ms.reviewer: jasonh
+ms.reviewer: adieldar
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.openlocfilehash: f40350129a12c7865051bcae80b74b6f9c069179
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0e06569a3a6948836201b333501bf2de0416d4ca
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65233525"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74766045"
 ---
 # <a name="anomaly-detection-and-forecasting-in-azure-data-explorer"></a>Previsión y detección de anomalías en Azure Data Explorer
 
@@ -30,6 +30,8 @@ La implementación nativa de Azure Data Explorer para la predicción y detecció
 Para crear un modelo de descomposición, use la función [`series_decompose()`](/azure/kusto/query/series-decomposefunction). La función `series_decompose()` toma un conjunto de series temporales y descompone automáticamente cada serie temporal en sus componentes estacional, de tendencia, residual y de línea de base. 
 
 Por ejemplo, puede descomponer el tráfico de un servicio web interno utilizando la consulta siguiente:
+
+**\[** [**Haga clic para ejecutar la consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA3WQ3WrDMAyF7/sUukvCnDXJGIOVPEULuwxqoixm/gm2+jf28JObFjbYrmyho3M+yRCD1a5jaGFAJtaW8qaqX8qqLqvnYrMySYHnvxRNWT1B07xW1U03JFEzbVYDWd9Z/KAuUtAUm9UXpLJcSnAH2+LxPZe3AO9gJ6ZbRjvDGLy9EbG/BUemOXnvLxD1AOJ1mijQtWhbyHbbOgOA9RogkqGeAaXn3g1BooVb6OiDNHpD6CjAUccDGv2JrL0TSzozuQHyPYqHdqRkDKN3aBRwkJaCQJIoQ4VsuXh2A/Xezj5SWkVBWSvI0vSoOSsWpLtEpyDwY4KTW8nnJ5ws+2+eAhSyOxjkd+HDVVcIfHplp2TYTxgYTpqnnDUbarM32gPO86PY4jjqfmGw3vGkftNlCi5xNprbWW5kYvENQQnqDh8CAAA=) **\]**
 
 ```kusto
 let min_t = datetime(2017-01-05);
@@ -56,6 +58,8 @@ La función [`series_decompose_anomalies()`](/azure/kusto/query/series-decompose
 
 La siguiente consulta le permite detectar anomalías en el tráfico de un servicio web interno:
 
+**\[** [**Haga clic para ejecutar la consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA3WR3W7CMAyF73mKI25KpRbaTmjSUJ8CpF1WoXVptPxUifmb9vBLoGO7GFeR7ePv2I4ihpamYdToBBNLTYuqKF/zosyLdbqZqagQl/8UVV68oKreimLSdVFUDZtZR9o2WnxQ48lJ8tXsCzHM7yHMUdfidFiEN4U12AXoloUe0Turp4nYTsaeaYzs/RVedgis80CObkFdI9ltywTAagV4UtQyRKiZgyLEaTGZ9taFQqtIGHI4SX8USn4KltYEJF2YTIeFMFaHPPkMvrWOMuxFoEpDaVjujmo6aq0erafmIY+7ZCiX6wx5mSGJHb3kJA1sF8jB8q69toNwjLPkYfGTseqoja//eLNkRXXyTnuIcVyCneh72cL2YQdtDQ8ZHvIkDcsfPWH+3AvPvObx0FMXD/RLhfDYW9VhtNKwj/8U69M1b2S//AbRUQMWQQIAAA==) **\]**
+
 ```kusto
 let min_t = datetime(2017-01-05);
 let max_t = datetime(2017-02-03 22:00);
@@ -79,6 +83,8 @@ La función [`series_decompose_forecast()`](/azure/kusto/query/series-decompose-
 
 La consulta siguiente le permite predecir el tráfico del servicio web de la próxima semana:
 
+**\[** [**Haga clic para ejecutar la consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA22QzW6DMBCE73mKuQFqKISqitSIW98gkXpEDl5iK9hG9uanUR++dqE99YRGO8x845EYRtuO0UIKJtaG8qbebMt6U9avxW41Joe4/+doyvoFTfNW14tPJlOjZqGc1w9n263crSQZ1xlxpi6Q1xSa1ReSLGcJezGtuJ7y+C3gLA6xZM/CTBi8MwshuxnkaUlGYJpS5/ETQUvEzJsiTz+ibZEd9psMQFUBgUbqGSLe7GkkpBVYygfn46EfSVjyuOpwEaN+CNbOxki6M1mZTNSLkAbOv3WSemcmF6j7vSX8dcTUlvOFsZJcFDHFx4wYnmp7JTzjplnlrHmkNvugI8Q0PYO9GAbdww0RyDjLav1XHLnBimAjEG5E5zQ7vRP284x36hOOTtxZ8Q3The8P2QEAAA==) **\]**
+
 ```kusto
 let min_t = datetime(2017-01-05);
 let max_t = datetime(2017-02-03 22:00);
@@ -88,7 +94,7 @@ demo_make_series2
 | make-series num=avg(num) on TimeStamp from min_t to max_t+horizon step dt by sid 
 | where sid == 'TS1'   //  select a single time series for a cleaner visualization
 | extend forecast = series_decompose_forecast(num, toint(horizon/dt))
-| render timechart with(title='Web app. traffic of a month, forecasting the next week by Time Series Decmposition')
+| render timechart with(title='Web app. traffic of a month, forecasting the next week by Time Series Decomposition')
 ```
 
 ![Previsión de series temporales](media/anomaly-detection/series-forecasting.png)
@@ -101,6 +107,8 @@ demo_make_series2
 La sintaxis del lenguaje de consulta de Azure Data Explorer permite que una única llamada procese varias series temporales. Su implementación optimizada única permite un rendimiento rápido, lo que es vital para una previsión y detección de anomalías eficaz si se supervisan miles de contadores en escenarios casi en tiempo real.
 
 La consulta siguiente muestra el procesamiento simultáneo de tres series temporales:
+
+**\[** [**Haga clic para ejecutar la consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA21Qy26DMBC85yvmFlChcUirSI34ikTqETl4KVawjfDmqX587UCaHuqLtePxPLYjhtG2YpRQkom1oaQQy3Uulrl4TzezLjLk5T9GkYsViuJDiImnIqlox6F1g745W67VZqbIuMrIA1WeBk2+mH0jjvk4wh5NKU9fSbhTOItdMNmyND2awZkpIbsxyMukDM/UR8/9FV6rIEkXJqvgmsYTl7X0lISHspzvtqt5hjdxPxkeYBHA4gGKFMBiAUilIAfWja617CY1NG4ASX/FSfuj7PRNsg4ZXANz7Fj3HSGuBmOjZ5hYbcSqIBwbZpNk+iQFcQpx4/omrqLamd55qh5v41d22nIybWChOI0qQ9Cg4e5ftyE6zprbhDV3VM4/aQ/Z96/gQTahU4wsYZzlNvs11vYL3BJsCIQz0eHed/W30jz9AUEBI0ktAgAA) **\]**
 
 ```kusto
 let min_t = datetime(2017-01-05);

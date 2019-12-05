@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2019
-ms.openlocfilehash: 8a5ea692bfdec7f676a80cc670f686af66152e6f
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 17312840b0081056ad04723f2b2c241c47902021
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606599"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74667304"
 ---
 # <a name="create-database-and-table-policies-for-azure-data-explorer-by-using-c"></a>Creación de directivas de bases de datos y tablas para Azure Data Explorer con C#
 
@@ -26,19 +26,14 @@ El Explorador de datos de Azure es un servicio de exploración de datos altament
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Visual Studio 2019. Si no tiene Visual Studio 2019, puede descargar y usar la versión *gratis* de [Visual Studio Community 2019](https://www.visualstudio.com/downloads/). Asegúrese de que habilita **Desarrollo de Azure** durante la instalación de Visual Studio.
-
 * Una suscripción de Azure. Si es necesario, puede crear una [cuenta de Azure gratuita](https://azure.microsoft.com/free/) antes de empezar.
-
 * [Una base de datos y un clúster de prueba](create-cluster-database-csharp.md).
-
 * [Una tabla de prueba](net-standard-ingest-data.md#create-a-table-on-your-test-cluster).
 
 ## <a name="install-c-nuget"></a>Instalación de NuGet C#
 
 * Instale el [paquete NuGet de Azure Data Explorer (Kusto)](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/).
-
 * Instale el [paquete NuGet Microsoft.Azure.Kusto.Data.NETStandard](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Data.NETStandard/). (Opcional, para cambiar las directivas de la tabla).
-
 * Instale el [paquete NuGet Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) para la autenticación.
 
 ## <a name="authentication"></a>Authentication

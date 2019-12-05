@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.subservice: common
-ms.openlocfilehash: 250cdedaa5155f1487cb842be492acd82c0f26b3
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 1e2c899e0ef98266b5afd2f1bf21443a2debd281
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71090813"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74666433"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Preguntas más frecuentes sobre la migración en Azure Storage
 
@@ -237,7 +237,7 @@ Si tiene máquinas virtuales, hay que realizar varios pasos más antes de migrar
 
 **¿Cómo puedo pasar de una cuenta de almacenamiento clásica a una de almacenamiento de Azure Resource Manager?**
 
-Puede usar el cmdlet **Move-AzStorageAccount**. Este cmdlet tiene varios pasos (validación, preparación y confirmación). Puede validar el cambio antes de efectuarlo.
+Puede usar el cmdlet **Move-AzureStorageAccount**. Este cmdlet tiene varios pasos (validación, preparación y confirmación). Puede validar el cambio antes de efectuarlo.
 
 Si tiene máquinas virtuales, hay que realizar varios pasos más antes de migrar los datos de la cuenta de almacenamiento. Para obtener más información, consulte [Migración de recursos de IaaS de la implementación clásica a la de Resource Manager con Azure PowerShell](../..//virtual-machines/windows/migration-classic-resource-manager-ps.md).
 

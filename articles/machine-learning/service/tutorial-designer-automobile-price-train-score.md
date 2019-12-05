@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: ee08ba61aec23078227c40b92771d1728040c4cf
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 3d0efbaec6905d0d24d9dc1c310d472958011960
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228345"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74702066"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Tutorial: Predicción del precio de un automóvil con el diseñador (versión preliminar)
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
@@ -55,7 +55,7 @@ Si tiene un área de trabajo de Azure Machine Learning con una edición Enterpri
 
 1. Seleccione **Diseñador**.
 
-    ![Captura de pantalla del área de trabajo visual que muestra cómo acceder al diseñador](./media/tutorial-designer-automobile-price-train-score/launch-visual-interface.png)
+    ![Captura de pantalla del área de trabajo visual que muestra cómo acceder al diseñador](./media/tutorial-designer-automobile-price-train-score/launch-designer.png)
 
 1. Seleccione **Easy-to-use prebuilt modules** (Módulos precompilados fáciles de usar).
 

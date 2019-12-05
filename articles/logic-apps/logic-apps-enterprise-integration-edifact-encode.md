@@ -1,21 +1,19 @@
 ---
-title: 'Codificación de mensajes EDIFACT: Azure Logic Apps | Microsoft Docs'
+title: Codificación de mensajes EDIFACT
 description: Valide EDI y genere XML con el codificador de mensajes EDIFACT para Azure Logic Apps con Enterprise Integration Pack
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: jonfan, divswa, LADocs
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, divswa, logicappspm
 ms.topic: article
-ms.assetid: 974ac339-d97a-4715-bc92-62d02281e900
 ms.date: 01/27/2017
-ms.openlocfilehash: 7396aee56acdf2476ed1bb3cc5a9909349662dc7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 257cbd0b1a68ddd2b16235e6f8dec5d5b0eb10e2
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64705546"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790645"
 ---
 # <a name="encode-edifact-messages-for-azure-logic-apps-with-enterprise-integration-pack"></a>Codificación de mensajes EDIFACT para Azure Logic Apps con Enterprise Integration Pack
 
@@ -94,5 +92,5 @@ El conector de codificación EDIFACT lleva a cabo estas tareas:
 Para ver los detalles de Swagger para el conector EDIFACT, consulte [EDIFACT](/connectors/edifact/).
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Más información sobre Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Información sobre Enterprise Integration Pack") 
+[Más información acerca de Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Información sobre Enterprise Integration Pack") 
 

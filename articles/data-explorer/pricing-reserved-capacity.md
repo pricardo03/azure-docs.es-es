@@ -1,18 +1,18 @@
 ---
 title: Pago por adelantado del incremento de Azure Data Explorer para ahorrar dinero
 description: Obtenga información sobre cómo comprar la capacidad reservada de Azure Data Explorer para ahorrar en los costos de Azure Data Explorer.
-author: avnera
+author: avneraa
 ms.author: avnera
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/03/2019
-ms.openlocfilehash: 66c5644df7d796669105693d08788548334ae93a
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: c728f3b9a4c10d52d7361ca76e9b40198a6a0dba
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681620"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74769105"
 ---
 # <a name="prepay-for-azure-data-explorer-markup-units-with-azure-data-explorer-reserved-capacity"></a>Pago por adelantado de las unidades de incremento de Azure Data Explorer con la capacidad reservada de Azure Data Explorer
 

@@ -3,19 +3,19 @@ title: Directrices de diseño de divulgación de información
 titleSuffix: Azure Cognitive Services
 description: Introducción a las directrices de diseño de divulgación y evaluación del nivel de divulgación.
 services: cognitive-services
-author: angle
+author: sharonlo101
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 12/03/2019
 ms.author: angle
-ms.openlocfilehash: 7dffa3d9f6e96adc6146a1059e7360c77926ece3
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: fe38c6b7cfb1abbaf3f1079dd8bff66b51b98091
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837379"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74776392"
 ---
 # <a name="disclosure-design-guidelines"></a>Directrices de diseño de divulgación de información
 Aprenda a generar y mantener la confianza con los clientes al ser transparentes sobre la naturaleza sintética de su experiencia de voz.

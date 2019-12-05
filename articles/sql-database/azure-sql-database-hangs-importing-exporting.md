@@ -9,12 +9,12 @@ author: v-miegge
 ms.author: ramakoni
 ms.reviewer: ''
 ms.date: 09/27/2019
-ms.openlocfilehash: 29edd7da42a5eb4586cd52cc0f913a56e199a5ba
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: e1638c9779ca50507a1ce30dd3bbc9c18248964a
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73808275"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74807075"
 ---
 # <a name="azure-sql-database-importexport-service-takes-a-long-time-to-import-or-export-a-database"></a>El servicio Import/Export de Azure SQL Database tarda mucho tiempo en importar o exportar una base de datos
 
@@ -22,7 +22,7 @@ Cuando se usa el servicio Import/Export de Azure SQL Database, el proceso puede 
 
 ## <a name="azure-sql-database-importexport-service"></a>Servicio Import/Export de Azure SQL Database
 
-El servicio Import/Export de Azure SQL Database es un servicio web basado en REST que se ejecuta en cada centro de datos de Azure. Este es el servicio al que se llama cuando se usan las opciones [Importar base de datos](https://docs.microsoft.com/azure/sql-database/sql-database-import#import-from-a-bacpac-file-in-the-azure-portal) o [Exportar](https://docs.microsoft.com/azure/sql-database/sql-database-export#export-to-a-bacpac-file-using-the-azure-portal) para trasladar la base de datos SQL en Azure Portal. El servicio proporciona servicios de proceso y puesta en cola de solicitudes gratuitos para realizar importaciones y exportaciones entre una base de datos de Azure SQL y Azure Blob Storage.
+El servicio Import/Export de Azure SQL Database es un servicio web basado en REST que se ejecuta en cada centro de datos de Azure. Este es el servicio al que se llama cuando se usan las opciones [Importar base de datos](sql-database-import.md#using-azure-portal) o [Exportar](https://docs.microsoft.com/azure/sql-database/sql-database-export#export-to-a-bacpac-file-using-the-azure-portal) para trasladar la base de datos SQL en Azure Portal. El servicio proporciona servicios de proceso y puesta en cola de solicitudes gratuitos para realizar importaciones y exportaciones entre una base de datos de Azure SQL y Azure Blob Storage.
 
 Las operaciones de importación y exportación no representan una copia de seguridad de base de datos física tradicional, sino una copia de seguridad lógica de la base de datos que usa un formato de BACPAC especial. Este formato de BACPAC le permite evitar tener que usar un formato físico que puede variar entre las versiones de Microsoft SQL Server y Azure SQL Database. Por lo tanto, puede utilizarlo para restaurar de forma segura la base de datos en una base de datos de SQL Server y en una base de datos SQL.
 

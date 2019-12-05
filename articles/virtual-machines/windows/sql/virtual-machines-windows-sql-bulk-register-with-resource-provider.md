@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/21/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 97541484501a3ecdd1bd5998314c1ee9e7a4e3a5
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4ee9d651e1ec7807d191bc3393c0c280ce1e52f9
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489065"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790551"
 ---
 # <a name="bulk-register-sql-virtual-machines-in-azure-with-the-sql-vm-resource-provider"></a>Registro masivo de máquinas virtuales con SQL en Azure con el proveedor de recursos de VM de SQL
 
@@ -222,7 +222,7 @@ Los errores se registran en el archivo de registro denominado `VMsNotRegisteredD
 
 Al registrar máquinas virtuales con SQL Server con el proveedor de recursos mediante el script proporcionado, tenga en cuenta lo siguiente:
 
-- El registro con el proveedor de recursos requiere un agente invitado que se ejecute en la máquina virtual con SQL Server. Las imágenes de Windows Server 2008 no tienen un agente invitado, por lo que se producirá un error en estas máquinas virtuales y se deben registrar manualmente mediante el [modo de administración NoAgent](virtual-machines-windows-sql-register-with-resource-provider.md#register-sql-server-2008-or-2008-r2-on-windows-server-2008-vms).
+- El registro con el proveedor de recursos requiere un agente invitado que se ejecute en la máquina virtual con SQL Server. Las imágenes de Windows Server 2008 no tienen un agente invitado, por lo que se producirá un error en estas máquinas virtuales y se deben registrar manualmente mediante el [modo de administración NoAgent](virtual-machines-windows-sql-register-with-resource-provider.md#management-modes).
 - Hay una lógica de reintento integrada para solucionar errores transparentes. Si la máquina virtual se ha registrado correctamente, es una operación rápida. Sin embargo, si se produce un error en el registro, se reintentará cada máquina virtual.  Como tal, debe permitir un tiempo considerable para completar el proceso de registro (aunque el requisito de tiempo real depende del tipo y número de errores). 
 
 ## <a name="full-script"></a>Script completo

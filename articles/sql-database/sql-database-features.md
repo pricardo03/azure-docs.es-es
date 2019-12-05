@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, sstein
 ms.date: 05/10/2019
-ms.openlocfilehash: 294fd39bfa78219df4bb0134aa744dd7515ff0f2
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 8f078bdfa1c6c106bb12116f30dc69abce42baa0
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74092144"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790468"
 ---
 # <a name="azure-sql-database-features"></a>Características de Azure SQL Database
 
@@ -35,7 +35,7 @@ En las tablas siguientes se enumeran las características principales de SQL Ser
 | **Característica de SQL** | **Bases de datos únicas y grupos elásticos** | **Instancias administradas y grupos de instancias** |
 | --- | --- | --- |
 | [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) | Sí; consulte los artículos sobre el [almacén de certificados](sql-database-always-encrypted.md) y el [almacén de claves](sql-database-always-encrypted-azure-key-vault.md). | Sí; consulte los artículos sobre el [almacén de certificados](sql-database-always-encrypted.md) y el [almacén de claves](sql-database-always-encrypted-azure-key-vault.md). |
-| [Grupos de disponibilidad AlwaysOn (SQL Server)](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | Se garantiza una [disponibilidad del 99,99-99,995 %](sql-database-high-availability.md) para cada base de datos. La recuperación ante desastres se explica en [Información general sobre continuidad empresarial con Azure SQL Database](sql-database-business-continuity.md) | Se garantiza una [disponibilidad del 99,99 %](sql-database-high-availability.md) para cada base de datos y el [usuario no la puede administrar](sql-database-managed-instance-transact-sql-information.md#always-on-availability). La recuperación ante desastres se explica en [Información general sobre continuidad empresarial con Azure SQL Database](sql-database-business-continuity.md). Use [grupos de conmutación por error automática](sql-database-auto-failover-group.md) para configurar la instancia administrada secundaria Always On en otra región. No se pueden usar otras instancias de SQL Server y bases de datos únicas como secundarias para Instancia administrada. |
+| [Grupos de disponibilidad AlwaysOn (SQL Server)](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | Se garantiza una [disponibilidad del 99,99-99,995 %](sql-database-high-availability.md) para cada base de datos. La recuperación ante desastres se explica en [Información general sobre continuidad empresarial con Azure SQL Database](sql-database-business-continuity.md) | Se garantiza una [disponibilidad del 99,99 %](sql-database-high-availability.md) para cada base de datos y el [usuario no la puede administrar](sql-database-managed-instance-transact-sql-information.md#availability). La recuperación ante desastres se explica en [Información general sobre continuidad empresarial con Azure SQL Database](sql-database-business-continuity.md). Use [grupos de conmutación por error automática](sql-database-auto-failover-group.md) para configurar la instancia administrada secundaria Always On en otra región. No se pueden usar otras instancias de SQL Server y bases de datos únicas como secundarias para Instancia administrada. |
 | [Conectar una base de datos](https://docs.microsoft.com/sql/relational-databases/databases/attach-a-database) | Sin | Sin |
 | [Auditoría](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | [Sí](sql-database-auditing.md)| [Sí](sql-database-managed-instance-auditing.md), con algunas [diferencias](sql-database-managed-instance-transact-sql-information.md#auditing). |
 | [Autenticación de Azure Active Directory (AAD)](sql-database-aad-authentication.md) | Sí. Solo usuarios de AAD. | Sí. Inicios de sesión de AAD en el nivel de servidor incluidos. |

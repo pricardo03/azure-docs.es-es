@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: cherylmc
-ms.openlocfilehash: 24279ff81daf0a350aa5234e78f27a99b7e4a03e
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 4b64c420290bec687388690f1c901c2ae789a3c8
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72527999"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707563"
 ---
 # <a name="working-with-nsg-access-and-azure-bastion"></a>Trabajo con acceso a grupos de seguridad de red y Azure Bastion
 
@@ -58,7 +58,7 @@ Si crea y aplica un grupo de seguridad de red a ***AzureBastionSubnet***, asegú
 * **Registro de diagnóstico y otros:** saliente en 443 a AzureCloud. Todavía no se admiten etiquetas regionales dentro de esta etiqueta de servicio.
 * **Máquina virtual de destino:** saliente de 3389 y 22 a VirtualNetwork
 
-Hay un ejemplo de regla de grupo de seguridad de red disponible como referencia en esta [plantilla de inicio rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azure-bastion).
+Hay un ejemplo de regla de grupo de seguridad de red disponible como referencia en esta [plantilla de inicio rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azure-bastion-nsg).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
