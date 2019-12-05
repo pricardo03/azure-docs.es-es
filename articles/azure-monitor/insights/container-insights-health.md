@@ -10,24 +10,34 @@ ms.assetid: ''
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 11/14/2019
+ms.date: 11/18/2019
 ms.author: magoedte
-ms.openlocfilehash: e369067a3ff61ffefe1758f6fa8b4acdce4bb2e2
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 08f7cf5a26108608aa3719085d69ec9543f4aa51
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74134228"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279651"
 ---
 # <a name="understand-kubernetes-cluster-health-with-azure-monitor-for-containers"></a>Descripción del estado del clúster de Kubernetes con Azure Monitor para contenedores
 
-Con Azure Monitor para contenedores, supervisa y notifica el estado de mantenimiento de los componentes de infraestructura administrados y todos los nodos que se ejecutan en cualquier clúster de Kubernetes compatible con Azure Monitor para contenedores. Esta experiencia se extiende más allá del estado de mantenimiento del clúster calculado e incluido en la [vista de varios clústeres](container-insights-analyze.md#multi-cluster-view-from-azure-monitor), donde ahora se puede saber si uno o más nodos del clúster tienen restricciones de recursos, o si un nodo o pod no está disponible, lo que podría afectar a una aplicación en ejecución en el clúster basada en las métricas seleccionadas. 
+Con Azure Monitor para contenedores, supervisa y notifica el estado de mantenimiento de los componentes de infraestructura administrados y todos los nodos que se ejecutan en cualquier clúster de Kubernetes compatible con Azure Monitor para contenedores. Esta experiencia se extiende más allá del estado de mantenimiento del clúster calculado e incluido en la [vista de varios clústeres](container-insights-analyze.md#multi-cluster-view-from-azure-monitor), donde ahora se puede saber si uno o más nodos del clúster tienen restricciones de recursos, o si un nodo o pod no está disponible, lo que podría afectar a una aplicación en ejecución en el clúster basada en las métricas seleccionadas.
+
+>[!NOTE]
+>La característica Estado está en versión preliminar pública en este momento.
+>
 
 Para obtener información acerca de cómo habilitar Azure Monitor para contenedores, consulte el artículo sobre [incorporación de Azure Monitor para contenedores](container-insights-onboard.md).
 
+>[!NOTE]
+>Para admitir clústeres de AKS Engine, compruebe que cumplen con lo siguiente:
+>- Está usando la versión más reciente del [cliente de HELM](https://helm.sh/docs/using_helm/).
+>- La versión de agente en contenedor es *microsoft/oms:ciprod11012019*. Para actualizar el agente, consulte [Actualización del agente en un clúster de Kubernetes](container-insights-manage-agent.md#upgrading-agent-on-monitored-kubernetes-cluster).
+>
+
 ## <a name="overview"></a>Información general
 
-En Azure Monitor para contenedores, la característica Estado proporciona una supervisión de estado proactiva de su clúster de Kubernetes para ayudarle a identificar y diagnosticar problemas. Le ofrece la posibilidad de ver los problemas importantes detectados. Los monitores que evalúan el estado del clúster se ejecutan en el agente en contenedor del clúster, mientras que los datos de estado se escriben en la tabla de **KubeHealth** en el área de trabajo de Log Analytics. 
+En Azure Monitor para contenedores, la característica Estado (versión preliminar) proporciona una supervisión de estado proactiva de su clúster de Kubernetes para ayudarle a identificar y diagnosticar problemas. Le ofrece la posibilidad de ver los problemas importantes detectados. Los monitores que evalúan el estado del clúster se ejecutan en el agente en contenedor del clúster, mientras que los datos de estado se escriben en la tabla de **KubeHealth** en el área de trabajo de Log Analytics. 
 
 El estado del clúster de Kubernetes se basa en una serie de escenarios de supervisión organizados por los siguientes objetos y abstracciones de Kubernetes:
 
@@ -66,7 +76,7 @@ Inicie sesión en el [Azure Portal](https://portal.azure.com).
 
 ## <a name="view-health-of-an-aks-or-non-aks-cluster"></a>Ver el estado de un clúster AKS o no AKS
 
-El acceso a la característica Estado de Azure Monitor para contenedores está disponible directamente desde un clúster de AKS seleccionando la opción **Insights** (Conclusiones) del panel izquierdo del Azure Portal. En la sección **Insights**  (Conclusiones), seleccione **Contenedores**. 
+El acceso a la característica Estado (versión preliminar) de Azure Monitor para contenedores está disponible directamente desde un clúster de AKS al seleccionar la opción **Conclusiones** del panel izquierdo de Azure Portal. En la sección **Insights**  (Conclusiones), seleccione **Contenedores**. 
 
 Para ver el estado de un clúster que no es de AKS, que es un clúster de motor de AKS hospedado de forma local o en Azure Stack, seleccione **Azure Monitor** en el panel izquierdo de la Azure Portal. En la sección **Insights**  (Conclusiones), seleccione **Contenedores**.  En la página de varios clústeres, seleccione de la lista el clúster que no sea de AKS.
 

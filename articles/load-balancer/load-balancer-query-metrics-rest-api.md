@@ -1,26 +1,25 @@
 ---
 title: Recuperación de métricas con la API de REST
-titlesuffix: Azure Load Balancer
-description: Use las API REST de Azure para recopilar métricas de mantenimiento y de utilización de Load Balancer para un intervalo de tiempo y fechas determinados.
+titleSuffix: Azure Load Balancer
+description: En este artículo, empezará a usar las API de REST de Azure para recopilar métricas de mantenimiento y uso de Azure Load Balancer.
 services: sql-database
 author: asudbring
-ms.reviewer: routlaw
-manager: jeconnoc
+manager: KumudD
 ms.service: load-balancer
 ms.custom: REST, seodec18
 ms.topic: article
-ms.date: 06/06/2017
+ms.date: 11/19/2019
 ms.author: allensu
-ms.openlocfilehash: 0d12dc04aff58dd6273d8d29d422bdbd9e7c886b
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 760ec8a945ab88b63dde2de75f5354818facf4f2
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68274539"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74225257"
 ---
-# <a name="get-load-balancer-utilization-metrics-using-the-rest-api"></a>Obtención de métricas de utilización de Load Balancer con la API REST
+# <a name="get-load-balancer-usage-metrics-using-the-rest-api"></a>Obtención de métricas de utilización de Load Balancer con la API de REST
 
-Este procedimiento muestra cómo recopilar el número de bytes procesados por un servicio [Standard Load Balancer](/azure/load-balancer/load-balancer-standard-overview) para un intervalo de tiempo mediante la [API REST de Azure](/rest/api/azure/).
+Recopile el número de bytes procesados por una instancia de [Standard Load Balancer](/azure/load-balancer/load-balancer-standard-overview) durante un intervalo de tiempo mediante la [API de REST de Azure](/rest/api/azure/).
 
 La documentación de referencia completa y ejemplos adicionales para la API de REST están disponibles en [Azure Monitor REST reference](/rest/api/monitor) (Referencia de REST de Azure Monitor). 
 
@@ -48,7 +47,7 @@ Los siguientes encabezados son obligatorios:
 | subscriptionId | El id. de suscripción que identifica una suscripción de Azure. Si tiene varias suscripciones, consulte [Trabajo con varias suscripciones](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). |
 | resourceGroupName | Nombre del grupo de recursos que contiene el recurso. Puede obtener este valor en la API de Azure Resource Manager, la CLI o en Azure Portal. |
 | loadBalancerName | El nombre de Azure Load Balancer. |
-| metricnames | Lista separada por comas de [métricas válidas de Load Balancer](/azure/load-balancer/load-balancer-standard-diagnostics). |
+| metric names | Lista separada por comas de [métricas válidas de Load Balancer](/azure/load-balancer/load-balancer-standard-diagnostics). |
 | api-version | La versión de API que se usará para la solicitud.<br /><br /> En este documento se describe la versión `2018-01-01` de la API que se incluye en la dirección URL anterior.  |
 | timespan | El intervalo de tiempo de la consulta. Es una cadena con el siguiente formato `startDateTime_ISO/endDateTime_ISO`. Este parámetro opcional se establece para devolver los datos recopilados durante un día en el ejemplo. |
 | &nbsp; | &nbsp; |

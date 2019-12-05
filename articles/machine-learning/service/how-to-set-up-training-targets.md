@@ -1,5 +1,5 @@
 ---
-title: Creación y uso de destinos de proceso para el entrenamiento del modelo
+title: Uso de los destinos de proceso para el entrenamiento de modelos
 titleSuffix: Azure Machine Learning
 description: Configurar los entornos de entrenamiento (destinos de proceso) del entrenamiento del modelo de Machine Learning. Es fácil cambiar entre entornos de entrenamiento. Inicie el entrenamiento de forma local. Si necesita escalar horizontalmente, cambie a un destino de proceso basado en la nube.
 services: machine-learning
@@ -9,14 +9,14 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3237272c7bdab5a798e84117147254a3471f5c6d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d628bbe889617464fe97695a17687d5f02cc61bc
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489578"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74305315"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Configuración y uso de destinos de proceso para el entrenamiento del modelo 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -32,7 +32,7 @@ En este artículo, aprenderá a usar diversos destinos de proceso para el entren
 
 
 >[!NOTE]
-> El código de este artículo se ha probado con el SDK de Azure Machine Learning, versión 1.0.39.
+> El código de este artículo se probó con la versión 1.0.74 del SDK de Azure Machine Learning.
 
 ## <a name="compute-targets-for-training"></a>Destinos de proceso para entrenamiento
 
@@ -105,9 +105,6 @@ Puede crear un entorno de Proceso de Azure Machine Learning a petición al progr
 #### <a name="run-based-creation"></a>Creación basada en ejecución
 
 Puede crear una instancia de Proceso de Azure Machine Learning como un destino de proceso en tiempo de ejecución. El proceso se crea automáticamente para la ejecución. El proceso se elimina automáticamente una vez completada la ejecución. 
-
-> [!NOTE]
-> Para especificar el número máximo de nodos que se usará, normalmente establecería `node_count` en el número de nodos. Actualmente (04/04/2019), hay un error que impide que esto funcione. Como alternativa, use la propiedad `amlcompute._cluster_max_node_count` de la configuración de ejecución. Por ejemplo, `run_config.amlcompute._cluster_max_node_count = 5`.
 
 > [!IMPORTANT]
 > La creación basada en ejecución de una instancia de Proceso de Azure Machine Learning está actualmente en versión preliminar. No use la creación basada en la ejecución si usa el ajuste de hiperparámetros o el aprendizaje automático automatizado. Para utilizar la optimización de hiperparámetros o el aprendizaje automático automatizado, cree en su lugar un [destino de proceso persistente](#persistent).

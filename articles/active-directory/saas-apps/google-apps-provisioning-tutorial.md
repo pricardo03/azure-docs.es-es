@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d4c08802b9a19398e7968901974cad86d9d946a
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: beaa8561028a9e21d0623c0eb8e19592f3cad055
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74120320"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74167861"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Tutorial: Configuración de G Suite para el aprovisionamiento automático de usuarios
 
@@ -32,7 +32,7 @@ El objetivo de este tutorial es mostrar los pasos que se realizan en G Suite y 
 > [!NOTE]
 > El conector de G Suite se actualizó recientemente, en octubre de 2019. Entre los cambios realizados en el conector de G Suite se incluyen los siguientes:
 - Se ha agregado compatibilidad con atributos adicionales de usuario y grupo de G Suite. 
-- Se han actualizado los nombres de atributo de destino de G Suite para que coincidan con lo que se define [aquí](/azure/active-directory/manage-apps/customize-application-attributes).
+- Se han actualizado los nombres de atributo de destino de G Suite para que coincidan con lo que se define [aquí](https://developers.google.com/admin-sdk/directory).
 - Se han actualizado las asignaciones de atributos predeterminadas.
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -129,6 +129,9 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 > [!TIP]
 > También puede optar por habilitar el inicio de sesión único basado en SAML para G Suite siguiendo las instrucciones del [tutorial de inicio de sesión único de G Suite](https://docs.microsoft.com/azure/active-directory/saas-apps/google-apps-tutorial). El inicio de sesión único puede configurarse independientemente del aprovisionamiento automático de usuarios, aunque estas dos características se complementan entre sí.
 
+> [!NOTE]
+> Para más información sobre el punto de conexión de la API de directorio de G Suite, consulte [Directory API](https://developers.google.com/admin-sdk/directory).
+
 ### <a name="to-configure-automatic-user-provisioning-for-g-suite-in-azure-ad"></a>Para configurar el aprovisionamiento automático de usuarios para G Suite en Azure AD:
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com). Seleccione **Aplicaciones empresariales** y luego **Todas las aplicaciones**.
@@ -196,15 +199,6 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 Esta operación inicia la sincronización inicial de todos los usuarios o grupos definidos en **Ámbito** en la sección **Configuración**. La sincronización inicial tarda más tiempo en realizarse que las posteriores, que se producen aproximadamente cada 40 minutos si el servicio de aprovisionamiento de Azure AD está ejecutándose. Puede usar la sección **Detalles de sincronización** para supervisar el progreso y seguir los vínculos al informe de actividad de aprovisionamiento, donde se describen todas las acciones que ha llevado a cabo el servicio de aprovisionamiento de Azure AD en G Suite.
 
 Para más información sobre cómo leer los registros de aprovisionamiento de Azure AD, consulte el tutorial de [Creación de informes sobre el aprovisionamiento automático de cuentas de usuario](../manage-apps/check-status-user-account-provisioning.md).
-
-> [!NOTE]
-> Otra opción viable para automatizar el aprovisionamiento de usuarios en G Suite consiste en usar [Google Cloud Directory Sync](https://support.google.com/a/answer/106368?hl=en). Esta opción aprovisiona las identidades de Active Directory locales en G Suite.
-
-## <a name="common-issues"></a>Problemas comunes
-* G Suite requiere que todos los usuarios aprovisionados provengan de dominios comprobados. Asegúrese de que cualquier usuario que desee aprovisionar tiene un UPN de un dominio comprobado en G Suite. Si un usuario de un dominio no comprobado está en el ámbito del aprovisionamiento, verá un error en los [registros de aprovisionamiento](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) como "GoogleAppsInvalidDomain". Puede evitar estos errores y asegurarse de que los usuarios de dominios no comprobados están fuera del ámbito mediante el uso de un [filtro de ámbito](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
-    * Atributo de destino: userPrincipalName
-    * Operador: REGEX MATCH o NOT REGEX MATCH
-    * Valor: .*@domain.com
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

@@ -1,19 +1,19 @@
 ---
 title: Visualización de datos de supervisión remota con Power BI (Azure) | Microsoft Docs
 description: En este tutorial se usa Power BI Desktop y Cosmos DB para integrar datos de una solución de supervisión remota en una visualización personalizada. De esta forma, los usuarios pueden compilar sus propios paneles personalizados y compartirlos con los usuarios, pero no en la solución.
-author: asdonald
+author: dominicbetts
 manager: hegate
-ms.author: asdonald
+ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 05/01/2018
 ms.topic: conceptual
-ms.openlocfilehash: 3398c6d318e0e3c51d3f6cfe8af651a6e3f55c9c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8b0f395936c8628ff7b8dab601168538f97ccdb7
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61448160"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184237"
 ---
 # <a name="visualize-remote-monitoring-data-using-power-bi"></a>Visualización de datos de supervisión remota con Power BI
 

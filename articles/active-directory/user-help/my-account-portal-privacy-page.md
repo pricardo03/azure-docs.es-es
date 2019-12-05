@@ -1,6 +1,6 @@
 ---
-title: 'Visualización de información relacionada con la privacidad en el portal Mi cuenta: Azure AD'
-description: Procedimientos para ver la información de privacidad en la página Privacidad del portal Mi cuenta.
+title: 'Visualización de información relacionada con la privacidad del portal Mi cuenta: Azure AD'
+description: Obtenga información sobre la forma en que su organización usa la información relacionada con la privacidad desde la página Privacidad del portal Mi cuenta.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dfb05bdb3aa2cf89328051b196475338eb5a3b3b
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: ff1a030a17ce4f63427eb6bfebbf84be74f6500d
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820367"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231822"
 ---
-# <a name="view-your-privacy-related-info-from-the-my-account-portal"></a>Visualización de la información relacionada con la privacidad desde el portal Mi cuenta
+# <a name="view-how-your-organization-uses-your-privacy-related-data"></a>Visualizar cómo se usan los datos relacionados con la privacidad en la organización
 
 Puede ver cómo la organización usa los datos desde la página **Privacidad** del portal **Mi cuenta**.
 

@@ -1,18 +1,14 @@
 ---
 title: Referencia de host.json para Azure Functions 2.x
 description: Documentación de referencia para el archivo host.json de Azure Functions con el entorno en tiempo de ejecución de la versión 2.
-author: ggailey777
-manager: gwallace
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/08/2018
-ms.author: glenga
-ms.openlocfilehash: 222ca8781ae9532f10ed7d113b93eac78c6a3bba
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: bb10f15db1d152ff1d8fd8d38ba22e312a2031b7
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74129076"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74323076"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>Referencia de host.json para Azure Functions 2.x  
 
@@ -158,7 +154,10 @@ Lista de las funciones que el host de trabajo ejecuta. Una matriz vacía signifi
 ## <a name="functiontimeout"></a>functionTimeout
 
 Indica la duración del tiempo de espera para todas las funciones. Sigue el formato de cadena TimeSpan. En un plan de consumo sin servidor, el intervalo válido es de 1 segundo a 10 minutos, y el valor predeterminado es 5 minutos.  
-En un plan de App Service dedicado, no hay ningún límite general y el valor predeterminado es 30 minutos. Un valor de `-1` indica una ejecución sin enlazar.
+
+En el plan Premium, el intervalo válido es de entre 1 segundo y 60 minutos, y el valor predeterminado es 30 minutos.
+
+En un plan de App Service dedicado, no hay ningún límite general y el valor predeterminado es 30 minutos. Un valor de `-1` indica una ejecución no vinculada, pero se recomienda mantener un límite superior fijo.
 
 ```json
 {

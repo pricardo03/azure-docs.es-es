@@ -4,28 +4,25 @@ description: Describe cómo detectar aplicaciones, roles y características en s
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 10/16/2019
+ms.date: 11/20/2019
 ms.author: snehaa
-ms.openlocfilehash: 40cb73848bab97ef9030cb0c4f3f17c984a1e0ec
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 279e326ace308b354d7bcb8366d3286980e7b8c6
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73715789"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278472"
 ---
-# <a name="discover-machine-apps-roles-and-features"></a>Detección de aplicaciones, roles y características de la máquina 
-
-> [!NOTE]
-> Si aún no ve esta característica en el portal de Azure Migrate, espere. Aparecerá aproximadamente la semana siguiente.
+# <a name="discover-machine-apps-roles-and-features"></a>Detección de aplicaciones, roles y características de la máquina
 
 En este artículo se describe cómo detectar aplicaciones, roles y características en servidores locales mediante Azure Migrate: Server Assessment.
 
-La detección del inventario de aplicaciones y roles o características que se ejecutan en las máquinas locales le ayuda a identificar y planear una ruta de migración a Azure que está adaptada a sus cargas de trabajo. 
-
-Detección de aplicaciones mediante Azure Migrate: Server Assessment es una herramienta sin agente. No es necesario instalar nada en las máquinas ni las VM. Server Assessment usa el dispositivo de Azure Migrate para realizar la detección junto con las credenciales de invitado de la máquina. El dispositivo accede de forma remota a las máquinas mediante llamadas WMI y SSH. 
+La detección del inventario de aplicaciones y roles o características que se ejecutan en las máquinas locales le ayuda a identificar y planear una ruta de migración a Azure que está adaptada a sus cargas de trabajo.
 
 > [!NOTE]
 > La detección de aplicaciones solo se admite actualmente para las VM de VMware y solo se limita a la detección. Todavía no se ofrece la evaluación basada en aplicaciones.  Actualmente, la herramienta Server Assessment evalúa VM de VMware locales, VM de Hyper-V y servidores físicos en el nivel de la máquina, para migraciones mediante lift-and-shift.
+
+Detección de aplicaciones mediante Azure Migrate: Server Assessment es una herramienta sin agente. No es necesario instalar nada en las máquinas ni las VM. Server Assessment usa el dispositivo de Azure Migrate para realizar la detección junto con las credenciales de invitado de la máquina. El dispositivo accede de forma remota a las máquinas de VMware mediante las API de VMware.
 
 
 ## <a name="before-you-start"></a>Antes de comenzar
@@ -50,7 +47,7 @@ Después de implementar el dispositivo y proporcionar las credenciales, el dispo
 
 ## <a name="review-and-export-the-inventory"></a>Revisión y exportación del inventario
 
-Una vez finalizada la detección, si ha proporcionado las credenciales para la detección de aplicaciones, puede revisar y exportar el inventario de la aplicación en Azure Portal. 
+Una vez finalizada la detección, si ha proporcionado las credenciales para la detección de aplicaciones, puede revisar y exportar el inventario de la aplicación en Azure Portal.
 
 1. En la página **Azure Migrate - Servidores** > **Azure Migrate: Server Assessment**, haga clic en el recuento que se muestra para abrir la página **Servidores detectados**.
 

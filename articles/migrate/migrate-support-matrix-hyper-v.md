@@ -1,18 +1,18 @@
 ---
-title: Matriz de compatibilidad de Azure Migrate para la evaluación y migración de Hyper-V
-description: Resume la configuración y las limitaciones para la evaluación y migración de Hyper-V mediante el servicio Azure Migrate.
+title: Compatibilidad para evaluación y migración de Hyper-V en Azure Migrate
+description: Obtenga información sobre la compatibilidad para la evaluación y migración de Hyper-V en Azure Migrate.
 author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: dd100e2390cdd2731df498379e376bde4cf2b87d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 6562d3f15d080a3bbc54a9985c12eae5908a9980
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498691"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186653"
 ---
 # <a name="support-matrix-for-hyper-v-assessment-and-migration"></a>Matriz de compatibilidad para la evaluación y migración de Hyper-V
 

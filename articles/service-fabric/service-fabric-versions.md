@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: troubleshooting
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/03/2019
+ms.date: 11/18/2019
 ms.author: atsenthi
-ms.openlocfilehash: 6b29eb31f5d425fc063c8c42e7911272e63167c8
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: c2453167bbdabbb201f2463e1eec8206be6d4223
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331099"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186490"
 ---
 # <a name="supported-service-fabric-versions"></a>Versiones admitidas de Service Fabric
 
@@ -47,8 +47,8 @@ En la tabla siguiente se indican las versiones de Service Fabric y sus fechas de
 | 6.2.* | 6.0.232.* |Versión 3.1 o anterior |26 de octubre de 2018   |
 | 6.3.* | 6.1.480.* |Versión 3.2 o anterior |31 de marzo de 2019  |
 | 6.4.* | 6.2.301.* |Versión 3.3 o anterior |15 de septiembre de 2019 |
-| 6.5.* | 6.4.617.* |Versión 3.4 o anterior |Versión actual; por lo tanto, sin fecha de finalización |
-
+| 6.5.* | 6.4.617.* |Versión 3.4 o anterior |1 de mayo de 2020 |
+| 7.0.* | 6.4.664.# |Versión 4.0 o anterior |Versión actual; por lo tanto, sin fecha de finalización |
 ## <a name="supported-operating-systems"></a>Sistemas operativos compatibles
 
 En la tabla siguiente se indican los sistemas operativos compatibles para las versiones de Service Fabric admitidas.
@@ -110,3 +110,4 @@ En la tabla siguiente se indican los nombres de versión de Service Fabric y sus
 | 6.5 CU2 | 6.5.658.9590 | 6.5.460.1 |
 | 6.5 CU3 | 6.5.664.9590 | 6.5.466.1 |
 | 6.5 CU5 | 6.5.676.9590 | 6.5.467.1 |
+| 7.0 RTO | 7.0.457.9590 | 7.0.457.1 |

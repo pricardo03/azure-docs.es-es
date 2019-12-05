@@ -1,6 +1,6 @@
 ---
-title: 'Incorporación de una cuenta ajena a Microsoft a una aplicación autenticadora: Azure AD'
-description: Cómo agregar sus cuentas que no sean de Microsoft, como las de Google, Facebook o GitHub, a la aplicación Microsoft Authenticator para la verificación en dos fases.
+title: 'Incorporación de cuentas que no son de Microsoft a la aplicación Microsoft Authenticator: Azure AD'
+description: Agregue cuentas que no son de Microsoft, como Google o Facebook, a la aplicación Microsoft Authenticator para comprobar su identidad mientras usa la verificación en dos fases.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,14 +12,14 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62d866e9bf543577887ee99173a52202fcfec632
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: c01377280c4e4c97b729e27c22496c388652924f
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73803677"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278876"
 ---
-# <a name="add-your-non-microsoft-accounts"></a>Adición de cuentas que no sean de Microsoft
+# <a name="add-non-microsoft-accounts-to-the-microsoft-authenticator-app"></a>Incorporación de cuentas que no son de Microsoft a la aplicación Microsoft Authenticator
 
 Agregue sus cuentas que no sean de Microsoft, como las de Google, Facebook o GitHub, a la aplicación Microsoft Authenticator para la verificación en dos fases. La aplicación Microsoft Authenticator funciona con cualquier aplicación que utilice la verificación de dos fases y con cualquier cuenta que admita los estándares de contraseña de un solo uso y duración definida (TOTP).
 

@@ -7,12 +7,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2019
-ms.openlocfilehash: 1ed1b105f64d109284de441af1bcaee5f0827d75
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: daeb09acd11d727b11ad8a7b98d97ff90fddc6d8
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331358"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74228263"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referencia: Cuotas y limitación de IoT Hub
 
@@ -106,7 +106,7 @@ IoT Hub exige otros límites operativos:
 | Método directo<sup>1</sup> | El tamaño de carga máximo del método directo es de 128 KB. |
 | Configuraciones automáticas de dispositivos<sup>1</sup> | 100 configuraciones por centro de SKU de pago. 20 configuraciones por centro de SKU gratis. |
 | Implementaciones automáticas de IoT Edge<sup>1</sup> | 20 módulos por implementación. 100 implementaciones por centro de SKU de pago. 10 implementaciones por centro de SKU gratis. |
-| Gemelos<sup>1</sup> | El tamaño máximo por sección de gemelos (etiquetas, propiedades deseadas y propiedades notificadas) es de 8 KB. |
+| Gemelos<sup>1</sup> | Tamaño máximo de las secciones de propiedades deseadas y propiedades notificadas son de 32 KB cada una. El tamaño máximo de la sección de etiquetas es de 8 KB. |
 
 <sup>1</sup>Esta característica no está disponible en el nivel básico de IoT Hub. Para más información, consulte [Elección de la instancia de IoT Hub correcta](iot-hub-scaling.md).
 

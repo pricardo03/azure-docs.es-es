@@ -1,5 +1,5 @@
 ---
-title: 'Inicio de sesión con la verificación en dos pasos: Azure AD'
+title: 'Inicio de sesión mediante la autenticación con una cuenta profesional o educativa: Azure AD'
 description: Obtenga información sobre cómo iniciar sesión en su cuenta profesional o educativa con los distintos métodos de verificación en dos pasos.
 services: active-directory
 author: eross-msft
@@ -14,14 +14,14 @@ ms.author: lizross
 ms.reviewer: librown
 ms.custom: end-user, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de080a613c69dd6f48f548c4ba89b2728e8c5e1d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 86c7be7f786a4fcecc39ea9af552a0dc03f2fcac
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820422"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233230"
 ---
-# <a name="sign-in-to-your-work-or-school-account-using-two-factor-verification"></a>Inicio de sesión en su cuenta profesional o educativa mediante la verificación en dos pasos
+# <a name="sign-in-to-your-work-or-school-account-using-your-two-factor-verification-method"></a>Inicio de sesión en su cuenta profesional o educativa mediante el método de verificación en dos fases
 
 > [!NOTE]
 > El propósito de este artículo es recorrer una experiencia de inicio de sesión típica. Para obtener ayuda sobre el inicio de sesión o resolver problemas, consulte [Problemas con Azure Multi-Factor Authentication](multi-factor-authentication-end-user-troubleshoot.md).

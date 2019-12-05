@@ -1,5 +1,5 @@
 ---
-title: Servicios de Azure que admiten identidades administradas para recursos de Azure
+title: 'Servicios de Azure que admiten identidades administradas: Azure AD'
 description: Lista de servicios que admiten identidades administradas para recursos de Azure y autenticación de Azure AD
 services: active-directory
 author: MarkusVi
@@ -10,12 +10,12 @@ ms.service: active-directory
 ms.subservice: msi
 manager: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0731510977c01b08d9aa557246dce3bd92b2f826
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8ead9b53f530a309d6bdb3bd384c29650bf5c8e6
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73473221"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74224307"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Servicios que admiten identidades administradas para recursos de Azure
 

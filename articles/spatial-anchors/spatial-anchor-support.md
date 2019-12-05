@@ -1,19 +1,19 @@
 ---
-title: Información sobre las opciones de soporte técnico de Azure Spatial Anchor | Microsoft Docs
-description: Información de Azure Spatial Anchors sobre cómo abrir una solicitud con el equipo de soporte técnico.
+title: Opciones de soporte técnico
+description: Información sobre cómo abrir una solicitud con el equipo de soporte técnico de Azure Spatial Anchors.
 author: ramonarguelles
-manager: vicenterivera
+manager: vriveras
 services: azure-spatial-anchors
 ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: troubleshooting
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 1930d5fc9dafe7d480302ded9b4e5a86f55a7669
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 371cb9ade54da42af1ed75c3e9857b6d1a7a0f4f
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65964529"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276985"
 ---
 # <a name="azure-spatial-anchors-support-options"></a>Opciones de soporte técnico de Azure Spatial Anchors
 
@@ -21,7 +21,7 @@ ms.locfileid: "65964529"
 
 Para abrir una incidencia de soporte técnico dentro de Azure Portal para Azure Spatial Anchors:
 
-1. Con [Azure Portal](https://azure.microsoft.com/account/) abierto, seleccione el icono de ayuda en la barra de menús superior y, luego, seleccione **Ayuda y soporte técnico**. 
+1. Con [Azure Portal](https://azure.microsoft.com/account/) abierto, seleccione el icono de ayuda en la barra de menús superior y, luego, seleccione **Ayuda y soporte técnico**.
 
 ![Ayuda de Azure Portal y soporte técnico](./media/spatial-anchor-support.png)
 
@@ -29,7 +29,7 @@ Para abrir una incidencia de soporte técnico dentro de Azure Portal para Azure 
 
 ![Nueva solicitud de soporte técnico de Azure Portal](./media/spatial-anchor-support2.png)
 
-1. Al completar los campos de la incidencia de soporte técnico: 
+1. Al completar los campos de la incidencia de soporte técnico:
 
 - Tipo de problema: Requisitos previos técnicos
 - Servicio: Spatial Anchors
@@ -38,11 +38,11 @@ Para abrir una incidencia de soporte técnico dentro de Azure Portal para Azure 
 
 ## <a name="community-support"></a>Soporte técnico de la comunidad
 
-Para soporte técnico de la comunidad de usuarios, consulte [Azure Spatial Anchors en Stack Overflow](https://stackoverflow.com/questions/tagged/azure-spatial-anchors). 
+Para soporte técnico de la comunidad de usuarios, consulte [Azure Spatial Anchors en Stack Overflow](https://stackoverflow.com/questions/tagged/azure-spatial-anchors).
 
 ## <a name="provide-content-feedback"></a>Proporcionar comentarios sobre el contenido
 
-En la parte inferior de cada artículo de contenido, puede abrir una incidencia de GitHub y proporcionar comentarios sobre el contenido de la documentación de Azure Spatial Anchor. 
+En la parte inferior de cada artículo de contenido, puede abrir una incidencia de GitHub y proporcionar comentarios sobre el contenido de la documentación de Azure Spatial Anchor.
 
 ## <a name="provide-product-feedback"></a>Proporcionar comentarios sobre el producto
 

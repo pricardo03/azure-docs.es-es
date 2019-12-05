@@ -1,18 +1,15 @@
 ---
-title: Límites de solicitudes de Azure Resource Manager
+title: Límites y limitación de solicitudes
 description: En este artículo se describe cómo usar la limitación con las solicitudes de Azure Resource Manager cuando se han alcanzado los límites de suscripción.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 10/26/2019
-ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 7d53e5749385499113d0dc5261398561d82347a0
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: b47943d69d209f5a0406c293b5a24c6ac0ad0c10
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965564"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150473"
 ---
 # <a name="throttling-resource-manager-requests"></a>Limitación de solicitudes de Resource Manager
 

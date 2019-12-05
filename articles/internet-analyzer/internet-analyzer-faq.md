@@ -7,12 +7,12 @@ ms.service: internet-analyzer
 ms.topic: guide
 ms.date: 10/16/2019
 ms.author: mebeatty
-ms.openlocfilehash: 61cb6003549530f381b9cbbed74c1cb62c91431c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a4a5b058666fab3e9048a7d92726dccd1360ff37
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73510305"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184253"
 ---
 # <a name="azure-internet-analyzer-faq-preview"></a>Preguntas frecuentes sobre Azure Internet Analyzer (versión preliminar)
 
@@ -43,18 +43,18 @@ No, el uso de la versión preliminar de Azure Internet Analyzer es gratuito. Dur
 
 Internet Analyzer está diseñado para proporcionar información sobre el rendimiento de la red en función de la población de usuarios. Para ayudar a tomar las mejores decisiones de rendimiento para los usuarios, Internet Analyzer compara el rendimiento de dos puntos de conexión de Internet con su propia población de usuarios. Aunque Internet Analyzer puede responder a una multitud de preguntas, algunas de las más comunes son:
 
-* ¿Cuál es el impacto en el rendimiento de la migración a la nube? 
-    * *Prueba sugerida: Personalizado (la infraestructura local actual) frente a Azure (cualquier punto de conexión preconfigurado)*
-* ¿Cuál es el valor de poner mis datos en el perímetro en vez de en un centro de datos? 
-    *  *Prueba sugerida: Azure frente a Azure Front Door, Azure frente a Azure CDN de Microsoft*
-* ¿Cuál es la ventaja de rendimiento de Azure Front Door?
-    *  *Prueba sugerida: Personalizado/Azure/CDN frente a Azure Front Door*
-* ¿Cuál es la ventaja de rendimiento de Azure CDN de Microsoft? 
-    *  *Prueba sugerida: Personalizado/Azure/AFD frente a Azure CDN de Microsoft*
-* ¿Cómo funciona Azure CDN de Microsoft? 
-    *  *Prueba sugerida: Personalizado (otro punto de conexión de CDN) frente a Azure CDN de Microsoft*
+* ¿Cuál es el impacto, en cuanto a rendimiento, de la migración a la nube? 
+    * *Prueba sugerida: personalizado (la infraestructura local actual) frente a Azure (cualquier punto de conexión preconfigurado)*
+* ¿Qué valor aporta poner los datos en el borde, en lugar de hacerlo en un centro de datos? 
+    *  *Prueba sugerida: Azure frente a Azure Front Door, Azure frente a Azure CDN de Microsoft*
+* ¿Cuál es el beneficio, en cuanto a rendimiento, de usar Azure Front Door?
+    *  *Prueba sugerida: personalizado/Azure/CDN frente a Azure Front Door*
+* ¿Cuál es el beneficio, en cuanto a rendimiento, de usar Azure CDN de Microsoft? 
+    *  *Prueba sugerida: personalizado/Azure/AFD frente a Azure CDN de Microsoft*
+* ¿Cómo funciona Azure CDN de Microsoft? 
+    *  *Prueba sugerida: personalizado (otro punto de conexión de CDN) frente a Azure CDN de Microsoft*
 * ¿Cuál es la mejor nube para su población de usuarios finales en cada región? 
-    *  *Prueba sugerida: Personalizado (otro servicio en la nube) frente a Azure (cualquier punto de conexión preconfigurado)*
+    *  *Prueba sugerida: personalizado (otro servicio en la nube) frente a Azure (cualquier punto de conexión preconfigurado)*
 
 ## <a name="which-tests-can-i-run-in-preview"></a>¿Qué pruebas se pueden ejecutar en la versión preliminar?
 
@@ -80,24 +80,28 @@ Los siguientes puntos de conexión preconfigurados están disponibles durante la
     * Oeste de EE. UU.
     * Oeste de EE. UU. 2
 * **Varias combinaciones de regiones de Azure**
-    * Este de EE. UU., Sur de Brasil
-    * Este de EE. UU., Asia Oriental
+    * Este de EE. UU., Sur de Brasil
+    * Este de EE. UU., Asia Oriental
     * Oeste de Europa, Sur de Brasil
     * Oeste de Europa, Sudeste Asiático
-    * Oeste de Europa, Norte de Emiratos Árabes Unidos
-    * Oeste de EE. UU., Este de EE. UU.
-    * Oeste de EE. UU., Oeste de Europa
-    * Oeste de EE. UU., Norte de Emiratos Árabes Unidos
-    * Oeste de Europa, Norte de Emiratos Árabes Unidos, Sudeste Asiático
+    * Oeste de Europa, Norte de Emiratos Árabes
+    * Oeste de EE. UU., Este de EE. UU.
+    * Oeste de EE. UU., Oeste de Europa
+    * Oeste de EE. UU., Norte de Emiratos Árabes
+    * Oeste de Europa, Norte de Emiratos Árabes, Sudeste Asiático
     * Oeste de EE. UU., Oeste de Europa, Asia Oriental
-    * Oeste de EE. UU., Norte de Europa, Sudeste Asiático, Norte de Emiratos Árabes Unidos, Norte de Sudáfrica 
-* **Azure + Azure Front Door**: implementado en una o varias de las combinaciones de regiones de Azure mencionadas anteriormente
-* **Azure + Azure CDN de Microsoft**: implementado en una o varias de las combinaciones de regiones de Azure mencionadas anteriormente
+    * Oeste de EE. UU., Norte de Europa, Sudeste Asiático, Norte de Emiratos Árabes, Norte de Sudáfrica 
+* **Azure + Azure Front Door**: implementados en una o varias de las combinaciones de regiones de Azure de la lista anterior.
+* **Azure + Azure CDN de Microsoft**: implementados en una o varias de las combinaciones de regiones de Azure de la lista anterior.
 * **Azure + Azure Traffic Manager**: implementado en cualquier combinación de varias de las regiones de Azure mencionadas anteriormente
 
 ## <a name="how-is-internet-analyzer-different-from-other-monitoring-services-provided-by-azure"></a>¿En qué se diferencia Internet Analyzer de otros servicios de supervisión proporcionados por Azure?
 
 Internet Analyzer le ayuda a comprender el rendimiento de los usuarios finales y a tomar decisiones para mejorar su rendimiento. Aunque otras herramientas de supervisión de Azure proporcionan información detallada sobre los servicios de Azure, Internet Analyzer se centra en medir el rendimiento de Internet de un extremo a otro para los usuarios.
+
+## <a name="how-is-measurement-data-handled-by-internet-analyzer"></a>¿Cómo se administran los datos de medición mediante Internet Analyzer?
+
+Azure tiene [procesos de seguridad exhaustivos y satisface un amplio intervalo de estándares de cumplimiento](https://azure.microsoft.com/support/trust-center/). Solo usted y el equipo que designe tienen acceso a sus datos. El personal de Microsoft puede acceder a ellos de forma restringida solo en circunstancias concretas y siempre con su conocimiento. Los datos se cifran en tránsito y en reposo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

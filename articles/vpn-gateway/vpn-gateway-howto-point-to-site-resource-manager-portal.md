@@ -1,5 +1,6 @@
 ---
-title: 'Conexión a una red virtual de Azure desde un equipo mediante una VPN de punto a sitio y la autenticación nativa de los certificados de Azure: Azure Portal| Microsoft Docs'
+title: 'Conexión a una red virtual mediante una VPN P2S y autenticación de certificados: portal'
+titleSuffix: Azure VPN Gateway
 description: Conecte de forma segura los clientes de Windows, Mac OS X y Linux a una red virtual de Azure mediante P2S y certificados autofirmados o emitidos por una entidad de certificación. En este artículo se usa Azure Portal.
 services: vpn-gateway
 author: cherylmc
@@ -7,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: cherylmc
-ms.openlocfilehash: 7d6941c347f1121654084c8d71ba7c0a293bf558
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: c1435a2295804a0ad43f640d7317a6e1d3f56aea
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72333254"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150100"
 ---
 # <a name="configure-a-point-to-site-vpn-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Configure una conexión VPN de punto a sitio a una red virtual mediante la autenticación nativa de los certificados de Azure: Portal de Azure
 

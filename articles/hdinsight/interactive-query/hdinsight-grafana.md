@@ -7,18 +7,18 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.openlocfilehash: cea0e9709afb65caa23d28be093c28498f2b82d0
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: dae9c47f535d87214c9e1583562b4c0419cd44cf
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122993"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74305441"
 ---
 # <a name="access-grafana-in-azure-hdinsight"></a>Acceso a Grafana en Azure HDInsight
 
 [Grafana](https://grafana.com/) es un software popular y de código abierto para crear gráficos y paneles. Grafana está lleno de características; no solo permite a los usuarios crear paneles que pueden personalizar y compartir, sino que también ofrece paneles con plantillas o scripts, integración de LDAP, varios orígenes de datos y mucho más.
 
-Actualmente, en Azure HDInsight, Grafana es compatible con los tipos de clúster de HBase e Interactive Query.
+Actualmente, en Azure HDInsight, Grafana es compatible con los tipos de clúster de HBase, Kafka e Interactive Query. No es compatible con clústeres que tengan habilitado Enterprise Security Pack.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
@@ -37,7 +37,7 @@ En esta sección, se crea un clúster de Consulta interactiva en HDInsight media
     > 
     >
     
-    ![Introducción de HDInsight Linux a la plantilla de Resource Manager en el portal](./media/hdinsight-grafana/hdinsight-linux-get-started-arm-template-on-portal.png "Implementación de un clúster de Hadoop en HDInsight mediante Azure Portal y una plantilla de Resource Manager")
+    ![Plantilla de Resource Manager de introducción a HDInsight Linux en el portal](./media/hdinsight-grafana/hdinsight-linux-get-started-arm-template-on-portal.png "Implementación de un clúster de Hadoop en HDInsight con Azure Portal y una plantilla del administrador de grupos de recursos")
 
     Escriba o seleccione los siguientes valores:
     
@@ -55,11 +55,11 @@ En esta sección, se crea un clúster de Consulta interactiva en HDInsight media
 
 3. Seleccione **Acepto los términos y condiciones indicadas anteriormente** y **Anclar al panel**, y seleccione **Comprar**. Verá un icono nuevo llamado **Enviando implementación** en el panel del portal. Se tarda aproximadamente 20 minutos en crear un clúster.
 
-    ![Progreso de la implementación de plantillas de Azure](./media/hdinsight-grafana/deployment-progress-tile.png "Azure Template deployment progress")
+    ![Progreso de la implementación de la plantilla de Azure](./media/hdinsight-grafana/deployment-progress-tile.png "Progreso de la implementación de la plantilla de Azure")
 
 4. Una vez creado el clúster, se cambia el título del icono por el nombre del grupo de recursos que ha especificado. El icono también muestra el clúster de HDInsight que se crea en el grupo de recursos.
 
-    ![Introducción a HDInsight Linux: grupo de recursos](./media/hdinsight-grafana/hdinsight-linux-get-started-resource-group.png "Grupo de recursos de clúster de Azure HDInsight")
+    ![Grupo de recursos de introducción a HDInsight Linux](./media/hdinsight-grafana/hdinsight-linux-get-started-resource-group.png "Grupo de recursos de clúster de Azure HDInsight")
 
 5. El icono también muestra el almacenamiento predeterminado asociado con el clúster. Cada clúster depende de una [cuenta de Azure Storage](../hdinsight-hadoop-use-blob-storage.md) o de una [cuenta de Azure Data Lake](../hdinsight-hadoop-use-data-lake-store.md). Se conoce como cuenta de almacenamiento predeterminada. El clúster de HDInsight y su cuenta de almacenamiento predeterminada deben estar en la misma región de Azure. Al eliminar los clústeres no se elimina la cuenta de almacenamiento.
     
@@ -75,7 +75,7 @@ En esta sección, se crea un clúster de Consulta interactiva en HDInsight media
 
 3. En **Vínculos rápidos**, haga clic en **Panel de clúster**.
 
-    ![Portal del panel de clúster de HDInsight](./media/hdinsight-grafana/hdinsight-portal-cluster-dashboard.png "Panel de clúster de HDInsight en el portal")
+    ![Panel del clúster de HDInsight en el portal](./media/hdinsight-grafana/hdinsight-portal-cluster-dashboard.png "Panel del clúster de HDInsight en el portal")
 
 4. En el panel, haga clic en el icono **Grafana**. Como alternativa, vaya a la ruta de acceso `/grafana/` de la dirección URL del clúster. Por ejemplo, `https://<clustername>.azurehdinsight.net/grafana/`.
 
@@ -83,7 +83,7 @@ En esta sección, se crea un clúster de Consulta interactiva en HDInsight media
 
 6. El panel de Grafana aparece y tiene un aspecto similar a este ejemplo:
 
-    ![Panel web de Grafana en HDInsight](./media/hdinsight-grafana/hdinsight-grafana-dashboard.png "Panel de Grafana en HDInsight")
+    ![Panel web de HDInsight Grafana](./media/hdinsight-grafana/hdinsight-grafana-dashboard.png "Panel de HDInsight Grafana")
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 Después de completar el artículo, puede eliminar el clúster. Con HDInsight, los datos se almacenan en Azure Storage, por lo que puede eliminar un clúster de forma segura cuando no se esté usando. También se le cobrará por un clúster de HDInsight aunque no se esté usando. Como en muchas ocasiones los cargos por el clúster son mucho más elevados que los cargos por el almacenamiento, desde el punto de vista económico tiene sentido eliminar clústeres cuando no se estén usando. 
@@ -95,7 +95,7 @@ Después de completar el artículo, puede eliminar el clúster. Con HDInsight, l
 
 1. Vuelva a la pestaña de explorador en la que tenga Azure Portal. Estará en la página de información general del clúster. Si solo quiere eliminar el clúster, pero desea seguir conservando la cuenta de almacenamiento predeterminada, seleccione **Eliminar**.
 
-    ![Icono de eliminación del clúster de Azure Portal](./media/hdinsight-grafana/hdinsight-delete-cluster.png "Eliminar clúster de HDInsight")
+    ![Icono de eliminación de clúster en Azure Portal](./media/hdinsight-grafana/hdinsight-delete-cluster.png "Eliminación de un clúster de HDInsight")
 
 2. Si quiere eliminar el clúster y la cuenta de almacenamiento predeterminada, seleccione el nombre del grupo de recursos (resaltado en la captura de pantalla anterior) para abrir la página del grupo de recursos.
 

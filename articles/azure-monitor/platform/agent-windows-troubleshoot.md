@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: MGoedtel
 ms.author: magoedte
-ms.date: 06/12/2019
-ms.openlocfilehash: 7bf0c8429eaecd6cba83872cbea5876cc0c31221
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.date: 11/21/2019
+ms.openlocfilehash: d31351a6ab679fdc3ff3f9af9644b1761716c64b
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73199017"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74305356"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-windows"></a>Procedimientos para solucionar problemas relacionados con el agente de Log Analytics para Windows 
 
@@ -39,9 +39,8 @@ Compruebe que el firewall o proxy está configurado para permitir los puertos y 
 |\* .ods.opinsights.azure.com |Puerto 443 |Salida|Sí |  
 |\* .oms.opinsights.azure.com |Puerto 443 |Salida|Sí |  
 |\* .blob.core.windows.net |Puerto 443 |Salida|Sí |  
-|\* .azure-automation.net |Puerto 443 |Salida|Sí |  
 
-Para obtener información sobre el firewall necesaria para Azure Government, vea [Administración de Azure Government](../../azure-government/documentation-government-services-monitoringandmanagement.md#azure-monitor-logs). 
+Para obtener información sobre el firewall necesaria para Azure Government, vea [Administración de Azure Government](../../azure-government/documentation-government-services-monitoringandmanagement.md#azure-monitor-logs). Si tiene previsto usar Hybrid Runbook Worker de Azure Automation para conectarse al servicio Automation y registrarse en él para usar runbooks o soluciones de administración en el entorno, debe tener acceso al número de puerto y las direcciones URL descritos en [Configuración de la red para Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md#network-planning). 
 
 Hay varias formas de comprobar si el agente se comunica de forma correcta con Azure Monitor.
 

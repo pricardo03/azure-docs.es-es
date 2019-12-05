@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2019
 ms.author: memildin
-ms.openlocfilehash: d91ac6d50faaadf560ae7ff9e9cce5f7bc4b180a
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 47e66bfc4550372b571b7263ef5b7f2f149712dc
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803916"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74307311"
 ---
 # <a name="supported-platforms"></a>Plataformas compatibles 
 
@@ -113,6 +113,8 @@ Los siguientes recursos de PaaS de Azure son compatibles con Azure Security Cent
 * Almacén de claves
 
 Para obtener más información sobre las características admitidas para la lista anterior de recursos de PaaS, vea [Características compatibles con los servicios de PaaS](security-center-services.md#paas-services).
+
+También se admite la protección para las máquinas virtuales que residan en Azure Stack. Para obtener más información acerca de la integración de Security Center con Azure Stack, consulte [Incorporación de máquinas virtuales de Azure Stack a Security Center](https://docs.microsoft.com/azure/security-center/quick-onboard-azure-stack).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

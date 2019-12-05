@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: abnarain
-ms.openlocfilehash: 2b90d95d41bb30226d870a74a47327d6492bbd1e
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 0b137edbfb5ca439d4ba15614225ec0973511763
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122948"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74218809"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Integration Runtime en Azure Data Factory
 Integration Runtime (IR) es la infraestructura de proceso que usa Azure Data Factory para proporcionar las siguientes capacidades de integración de datos en distintos entornos de red:
@@ -74,7 +74,7 @@ Para obtener información sobre cómo crear y configurar una instancia de Integr
 Una instancia de Integration Runtime autohospedado es capaz de:
 
 - Ejecutar la actividad de copia entre los almacenes de datos en la nube y un almacén de datos en la red privada.
-- Distribuir las siguientes actividades de transformación frente a los recursos de proceso en la red local o Azure Virtual Network: actividad Hive de HDInsight (BYOC, traiga su propio clúster), actividad Pig de HDInsight (BYOC), actividad MapReduce de HDInsight (BYOC), actividad Spark de HDInsight (BYOC), actividad Streaming de HDInsight (BYOC), actividad de ejecución de lotes de Machine Learning, actividades de recurso de actualización de Machine Learning, actividad de procedimiento almacenado, actividad de U-SQL de Data Lake Analytics, actividad personalizada (se ejecuta en Azure Batch), actividad de Búsqueda y actividad de Obtener metadatos.
+- Distribuir las siguientes actividades de transformación frente a los recursos de proceso en el entorno local o Azure Virtual Network: actividad Hive de HDInsight (BYOC, traiga su propio clúster), actividad Pig de HDInsight (BYOC), actividad MapReduce de HDInsight (BYOC), actividad Spark de HDInsight (BYOC), actividad Streaming de HDInsight (BYOC), actividad de ejecución de lotes de Machine Learning, actividades de recurso de actualización de Machine Learning, actividad de procedimiento almacenado, actividad de U-SQL de Data Lake Analytics, actividad personalizada (se ejecuta en Azure Batch), actividad de Búsqueda y actividad de Obtener metadatos.
 
 > [!NOTE] 
 > Use Integration Runtime autohospedado para admitir almacenes de datos que requieran bring-your-own driver (BYOD), como SAP Hana, MySQL, etc.  Para obtener más información, consulte los [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats).

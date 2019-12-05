@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/23/2019
+ms.date: 11/17/2019
 ms.author: rkarlin
-ms.openlocfilehash: 3f5e01a0ceebac092084e339994161763a11c49b
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: c5f4bd079fa215e3fbd4241f603aa29d19f7aad7
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71241224"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158856"
 ---
 # <a name="tutorial-monitor-your-data"></a>Tutorial: Supervisión de los datos
 
@@ -81,10 +81,7 @@ Este tutorial le ayudará a supervisar los datos en Azure Sentinel.
 
 Puede eliminar libros que se crearon a partir de una plantilla de Azure Sentinel. 
 
-Para eliminar un libro personalizado:
-1.  Seleccione **Mostrar panel**.
-2.  Seleccione **Abrir** en la parte superior.
-3.  En la tabla en la que se muestran los libros, en la línea del libro que desea eliminar, seleccione los tres puntos al final de la línea (...) para abrir el menú y, a continuación, seleccione **Eliminar**. Esto eliminará el libro guardado.
+Para eliminar un libro personalizado, en la página Libros, seleccione el libro guardado que quiera eliminar y seleccione **Eliminar**. Esto eliminará el libro guardado.
 
 > [!NOTE]
 > Esto elimina el recurso y los cambios realizados en la plantilla. La plantilla original seguirá estando disponible.

@@ -6,13 +6,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: MGoedtel
 ms.author: magoedte
-ms.date: 10/07/2019
-ms.openlocfilehash: 8070abad675acc69f5b1da232b60179078adbc57
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.date: 11/21/2019
+ms.openlocfilehash: 33ba07ac8d89546856666cc7ab94fae650020001
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932237"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74306533"
 ---
 # <a name="collect-log-data-with-the-log-analytics-agent"></a>Recopilación de datos de registro con el agente de Log Analytics
 
@@ -109,11 +109,10 @@ A continuación se muestra la información de configuración de proxy y firewall
 |\* .ods.opinsights.azure.com |Puerto 443 |Salida|Sí |  
 |\* .oms.opinsights.azure.com |Puerto 443 |Salida|Sí |  
 |\* .blob.core.windows.net |Puerto 443 |Salida|Sí |  
-|\* .azure-automation.net |Puerto 443 |Salida|Sí |  
 
-Para obtener información sobre el firewall necesaria para Azure Government, vea [Azure Government management](../../azure-government/documentation-government-services-monitoringandmanagement.md#azure-monitor-logs) (Administración de Azure Government). 
+Para obtener información sobre el firewall necesaria para Azure Government, vea [Administración de Azure Government](../../azure-government/documentation-government-services-monitoringandmanagement.md#azure-monitor-logs). 
 
-Si tiene previsto usar Hybrid Runbook Worker de Azure Automation para conectarse al servicio Automation y registrarse en él para usar runbooks en el entorno, debe tener acceso al número de puerto y las direcciones URL descritos en [Configuración de la red para Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md#network-planning). 
+Si tiene previsto usar Hybrid Runbook Worker de Azure Automation para conectarse al servicio Automation y registrarse en él para usar runbooks o soluciones de administración en el entorno, debe tener acceso al número de puerto y las direcciones URL descritos en [Configuración de la red para Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md#network-planning). 
 
 El agente de Linux y Windows admite la comunicación a través de un servidor proxy o la puerta de enlace de Log Analytics con Azure Monitor mediante el protocolo HTTPS.  Se admite la autenticación anónima y básica (nombre de usuario/contraseña).  Si el agente de Windows está conectado directamente al servicio, la configuración de proxy se especifica durante la instalación o [después de la implementación](agent-manage.md#update-proxy-settings) desde el Panel de control o con PowerShell.  
 

@@ -1,11 +1,11 @@
 ---
-title: 'Implementación de una aplicación de pila doble IPv6 en Azure Virtual Network: CLI'
+title: 'Implementación de una aplicación de pila doble IPv6 con Standard Load Balancer: CLI'
 titlesuffix: Azure Virtual Network
 description: En este artículo, se explica cómo se implementa una aplicación de pila doble IPv6 en Azure Virtual Network mediante la CLI de Azure.
 services: virtual-network
 documentationcenter: na
 author: KumudD
-manager: twooley
+manager: mtillman
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/15/2019
 ms.author: kumud
-ms.openlocfilehash: d0968ddedb36ab7fb4ee515ef1d20a177d4d59fe
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: c2f6c331e1f769f3d24fde9ab2adbd820b704d3b
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820992"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186328"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-in-azure-virtual-network---cli-preview"></a>Implementación de una aplicación de pila doble IPv6 en Azure Virtual Network: CLI (versión preliminar)
 

@@ -1,6 +1,6 @@
 ---
-title: 'Administración de las organizaciones en el portal Mi cuenta: Azure AD'
-description: Procedimientos para ver y dejar las organizaciones desde la página Organizaciones del portal Mi cuenta.
+title: 'Administración de las organizaciones desde el portal Mi cuenta: Azure AD'
+description: Procedimientos para ver y dejar las organizaciones conectadas a su cuenta profesional o educativa desde la página Organizaciones del portal Mi cuenta.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b81ec4996ae91714b442dd2e62a0bc45c6bfd39
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: d0b8a5a8ac4132c998567f956f3171db06a9ca53
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820409"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231858"
 ---
-# <a name="manage-your-organizations-from-the-my-account-portal"></a>Administración de las organizaciones desde el portal Mi cuenta
+# <a name="manage-organizations-connected-to-your-work-or-school-account-from-the-organizations-page"></a>Administración de organizaciones conectadas a su cuenta profesional o educativa desde la página Organizaciones
 
 Puede administrar las organizaciones desde la página **Organizaciones** del portal **Mi cuenta**.
 

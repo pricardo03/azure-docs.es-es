@@ -1,19 +1,14 @@
 ---
-title: Copia de seguridad y restauración de máquinas virtuales de Azure cifradas con Azure Backup
+title: Copia de seguridad y restauración de VM de Azure cifradas
 description: Se describe cómo realizar una copia de seguridad de máquinas virtuales de Azure cifradas, y cómo restaurarlas, con el servicio Azure Backup.
-ms.reviewer: geg
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.author: dacurwin
-ms.openlocfilehash: 004f15a1af11e3ed27f792e245888671b94fbb1a
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: c4bc413e70d8e19f8006580c0631641651dcaf92
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074925"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172535"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>Copia de seguridad y restauración de máquinas virtuales de Azure cifradas
 
@@ -21,7 +16,7 @@ En este artículo se describe cómo realizar una copia de seguridad de máquinas
 
 Si quiere saber más sobre cómo Azure Backup interactúa con las máquinas virtuales de Azure antes de comenzar, examine estos recursos:
 
-- [Revise](backup-architecture.md#architecture-direct-backup-of-azure-vms) la arquitectura de copia de seguridad de máquinas virtuales de Azure.
+- [Revise](backup-architecture.md#architecture-built-in-azure-vm-backup) la arquitectura de copia de seguridad de máquinas virtuales de Azure.
 - [Aprenda sobre](backup-azure-vms-introduction.md) la copia de seguridad de máquinas virtuales de Azure y la extensión Azure Backup.
 
 ## <a name="encryption-support"></a>Compatibilidad con el cifrado

@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: f6fc5112f7106c6cc8f8736237ce803da43cd882
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: d26eb0160316737c9ad31d98c8cf23bdcad42d32
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69879384"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74206496"
 ---
 # <a name="choose-a-load-balancing-solution-for-cloudsimple-private-clouds"></a>Elección de una solución de equilibrio de carga para nubes privadas de CloudSimple
 
@@ -43,4 +43,4 @@ Para más información, consulte la documentación de [equilibrador de carga int
 
 Si busca un equilibrador de carga basado en DNS, puede usar soluciones de terceros disponibles en Azure Marketplace o ir a la solución nativa de Azure.
 
-Azure Traffic Manager es un equilibrador de carga de tráfico basado en DNS que le permite distribuir el tráfico de forma óptima a servicios de regiones de Azure globales y locales, al tiempo que proporciona una alta disponibilidad y capacidad de respuesta. Para más información, consulte la documentación de [Traffic Manager](../traffic-manager/traffic-manager-configure-geographic-routing-method.md) de Azure.
+Azure Traffic Manager es un equilibrador de carga de tráfico basado en DNS que le permite distribuir el tráfico de forma óptima a servicios de regiones de Azure globales y en el entorno local, al tiempo que proporciona una alta disponibilidad y capacidad de respuesta. Para más información, consulte la documentación de [Traffic Manager](../traffic-manager/traffic-manager-configure-geographic-routing-method.md) de Azure.

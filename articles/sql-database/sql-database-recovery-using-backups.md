@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 ms.date: 09/26/2019
-ms.openlocfilehash: 1c8717614ec59ef210c7340f70ddedd7f7f86f88
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 3b0b5b02fa8f369bdfa03726bd5649b70b7bbd48
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091973"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74228048"
 ---
 # <a name="recover-an-azure-sql-database-by-using-automated-database-backups"></a>Recuperación de una base de datos de Azure SQL mediante copias de seguridad de base de datos
 
@@ -106,7 +106,7 @@ La restauración de bases de datos eliminadas de Azure Portal se realiza desde e
 
 #### <a name="single-azure-sql-database"></a>Base de datos única de Azure SQL
 
-Para recuperar una base de datos única o agrupada que se haya eliminado con Azure Portal, abra la página de información general del servidor y seleccione **Bases de datos eliminadas**. Seleccione la base de datos eliminada que desea restaurar y escriba el nombre de la nueva base de datos que se creará con los datos restaurados desde la copia de seguridad.
+Para recuperar una base de datos eliminada, única o agrupada, al momento de eliminación con Azure Portal, abra la página de información general del servidor y seleccione **Bases de datos eliminadas**. Seleccione la base de datos eliminada que desea restaurar y escriba el nombre de la nueva base de datos que se creará con los datos restaurados desde la copia de seguridad.
 
   ![Captura de pantalla de restaurar base de datos de Azure SQL eliminada](./media/sql-database-recovery-using-backups/restore-deleted-sql-database-annotated.png)
 

@@ -1,6 +1,6 @@
 ---
 title: 'Descarga e instalación de la aplicación Microsoft Authenticator: Azure AD'
-description: Descarga, instalación y uso de la aplicación Microsoft Authenticator para la comprobación en dos pasos.
+description: Descargue e instale la aplicación Microsoft Authenticator para comprobar su identidad al usar la verificación en dos fases.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -13,12 +13,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ebe80d44d52ffa348413e51cd5e82e8468537479
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 86bbe9560a4c3520bce5aa006c18f794c8298a54
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820221"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74266925"
 ---
 # <a name="download-and-install-the-microsoft-authenticator-app"></a>Descarga e instalación de la aplicación Microsoft Authenticator
 

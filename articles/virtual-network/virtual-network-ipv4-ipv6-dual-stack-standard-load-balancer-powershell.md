@@ -1,11 +1,11 @@
 ---
-title: Implementación de una aplicación de pila doble IPv6 en Azure Virtual Network - PowerShell
+title: 'Implementación de una aplicación de pila doble IPv6: Standard Load Balancer: PowerShell'
 titlesuffix: Azure Virtual Network
 description: En este artículo, se muestra cómo implementar una aplicación de pila doble IPv6 en Azure Virtual Network con Standard Load Balancer.
 services: virtual-network
 documentationcenter: na
 author: KumudD
-manager: twooley
+manager: mtillman
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/08/2019
 ms.author: kumud
-ms.openlocfilehash: c924e59a50994827eb2e9be40caa7021c7e4ac3c
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: b1506c40d83e1483980c368db1659c9470b9a46a
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72174475"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185469"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-in-azure---powershell-preview"></a>Implementación de una aplicación de pila doble IPv6 en Azure - PowerShell (versión preliminar)
 

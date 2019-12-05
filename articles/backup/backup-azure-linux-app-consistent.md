@@ -1,20 +1,15 @@
 ---
-title: 'Azure Backup: Copias de seguridad coherentes con la aplicación de las máquinas virtuales Linux'
+title: Copias de seguridad coherentes con la aplicación de VM Linux
 description: Cree copias de seguridad coherentes con la aplicación de sus máquinas virtuales Linux en Azure. En este artículo se explica la configuración del marco de trabajo del script para la copia de seguridad de máquinas virtuales de Linux implementadas en Azure. Este artículo también incluye información sobre la solución de problemas.
 ms.reviewer: anuragm
-author: dcurwin
-manager: carmonm
-keywords: copias de seguridad coherentes con la aplicación; copias de seguridad coherentes con la aplicación de máquinas virtuales de Azure; copia de seguridad de máquinas virtuales Linux; Azure Backup
-ms.service: backup
 ms.topic: conceptual
 ms.date: 01/12/2018
-ms.author: dacurwin
-ms.openlocfilehash: 1835c6968bfdfcc3f3ce4d8a624e8f6bd62e224c
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 36eeb9f63c67a01bf37412101e23be035596de94
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72375942"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173003"
 ---
 # <a name="application-consistent-backup-of-azure-linux-vms"></a>Copias de seguridad coherentes con la aplicación de las máquinas virtuales Linux de Azure
 

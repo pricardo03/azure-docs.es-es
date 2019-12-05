@@ -1,5 +1,5 @@
 ---
-title: Averiguar cuándo un usuario específico podrá acceder a una aplicación | Microsoft Docs
+title: Averiguar cuándo un usuario específico podrá acceder a una aplicación
 description: Cómo averiguar cuándo un usuario sumamente importante puede acceder a una aplicación que se ha configurado para el aprovisionamiento de usuarios con Azure AD
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 09/03/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d3b334df8cd24a1d8ca88c8ac2e3117bdd24d8b
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 25ac9ad5877c6a1408d4045df4d4e1fd8f64ea94
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71057762"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275734"
 ---
 # <a name="check-the-status-of-user-provisioning"></a>Comprobación del estado de aprovisionamiento de usuarios
 

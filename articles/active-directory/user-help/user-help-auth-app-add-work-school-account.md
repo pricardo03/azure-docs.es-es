@@ -1,6 +1,6 @@
 ---
-title: 'Incorporación de una cuenta profesional o educativa a una aplicación autenticadora: Azure AD'
-description: Cómo agregar su cuenta profesional o educativa a la aplicación Microsoft Authenticator para la comprobación en dos fases.
+title: 'Incorporación de una cuenta profesional o educativa a la aplicación Microsoft Authenticator: Azure AD'
+description: Agregue su cuenta profesional o educativa a la aplicación Microsoft Authenticator para comprobar su identidad al usar la verificación en dos fases.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,14 +12,14 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c7c9fa41a1278f0e1e54a06c3930e3bbc3d3d3ae
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: bcd69fab269e39a8c78a56c08854262ca839d60f
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73803733"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74267136"
 ---
-# <a name="add-your-work-or-school-account"></a>Adición de una cuenta profesional o educativa
+# <a name="add-your-work-or-school-account-to-the-microsoft-authenticator-app"></a>Agregue la cuenta profesional o educativa a la aplicación Microsoft Authenticator
 
 Si su organización usa la verificación en dos pasos, puede configurar su cuenta profesional o educativa para usar la aplicación Microsoft Authenticator como uno de los métodos de verificación.
 

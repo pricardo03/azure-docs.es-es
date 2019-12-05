@@ -1,5 +1,6 @@
 ---
-title: 'Solución de problemas de conexiones con Azure Network Watcher: PowerShell | Microsoft Docs'
+title: 'Solución de problemas de conexiones: Azure PowerShell'
+titleSuffix: Azure Network Watcher
 description: Obtenga información sobre cómo usar la funcionalidad de solución de problemas de conexiones de Azure Network Watcher con PowerShell.
 services: network-watcher
 documentationcenter: na
@@ -13,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: kumud
-ms.openlocfilehash: 82bd92de8b2cbb0da4d6d37911a6a3f71186b592
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 824799254b2706c64a17921034dbde3e4f60e132
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802039"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275992"
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-powershell"></a>Solución de problemas de conexiones con Azure Network Watcher mediante PowerShell
 

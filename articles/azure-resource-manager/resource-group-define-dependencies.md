@@ -1,19 +1,17 @@
 ---
-title: Establecimiento del orden de implementación de recursos de Azure | Microsoft Docs
+title: Establecimiento del orden de implementación para recursos
 description: Describe cómo establecer un recurso como dependiente de otro recurso durante la implementación para garantizar el orden de implementación correcto de los recursos.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.author: tomfitz
-ms.openlocfilehash: 32b2b41e47fe089da70d82e6049d0139795df88a
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 6b608111f2fe24a0b426e5697ceb07349f2d4693
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204230"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149732"
 ---
 # <a name="define-the-order-for-deploying-resources-in-azure-resource-manager-templates"></a>Definición del orden de implementación de recursos en plantillas de Azure Resource Manager
+
 Antes de proceder a la implementación de un recurso determinado, es posible que deban existir otros recursos. Por ejemplo, debe existir un servidor SQL para intentar implementar una base de datos SQL. Esta relación se define al marcar un recurso como dependiente del otro. Una dependencia se define con el elemento **dependsOn** o mediante la función **reference**. 
 
 Administrador de recursos evalúa las dependencias entre recursos y los implementa en su orden dependiente. Cuando no hay recursos dependientes entre sí, Resource Manager los implementa en paralelo. Solo tiene que definir las dependencias de recursos que se implementan en la misma plantilla. 
@@ -21,6 +19,7 @@ Administrador de recursos evalúa las dependencias entre recursos y los implemen
 Para obtener un tutorial, consulte [Tutorial: Creación de plantillas de Azure Resource Manager con recursos dependientes](./resource-manager-tutorial-create-templates-with-dependent-resources.md).
 
 ## <a name="dependson"></a>dependsOn
+
 Dentro de la plantilla, el elemento dependsOn permite definir un recurso como dependiente de uno o varios recursos. Su valor puede ser una lista de nombres de recursos separados por coma. 
 
 En el ejemplo siguiente se muestra un conjunto de escalado de máquinas virtuales que depende de un equilibrador de carga, una red virtual y un bucle que crea varias cuentas de almacenamiento. Esos otros recursos no se muestran en el ejemplo siguiente, pero tendrían que existir en alguna otra parte de la plantilla.

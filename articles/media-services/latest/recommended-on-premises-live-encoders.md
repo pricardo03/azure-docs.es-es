@@ -6,15 +6,15 @@ keywords: encoding;encoders;media
 author: johndeu
 manager: johndeu
 ms.author: johndeu
-ms.date: 10/10/2019
+ms.date: 11/18/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: aa5eae3e40b8578f826b1b275995bbb3d346e586
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 32ff975aa200e51e6a555f892a53b0ab9c73a84e
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300949"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186036"
 ---
 # <a name="recommended-live-streaming-encoders"></a>Codificadores de streaming en vivo recomendados
 
@@ -49,6 +49,9 @@ Media Services recomienda usar uno de los siguientes codificadores en directo qu
 - Tricaster Mini HD-4
 - VMIX
 - xStream
+- [Ffmpeg](https://www.ffmpeg.org)
+- [GoPro](https://gopro.com/help/articles/block/getting-started-with-live-streaming) Hero 7 y Hero 8
+- [Restream.io](https://restream.io/)
 
 ## <a name="live-encoders-that-output-fragmented-mp4"></a>Codificadores en directo que generan una salida de MP4 fragmentado
 
@@ -60,9 +63,11 @@ Media Services recomienda usar uno de los codificadores en directo siguientes qu
 - Envivio 4Caster C4 Gen III
 - Imagine Communications Selenio MCP3
 - Media Excel Hero Live y Hero 4K (UHD/HEVC)
+- [Ffmpeg](https://www.ffmpeg.org)
 
 > [!TIP]
 >  Si está transmitiendo eventos en directo en varios idiomas (por ejemplo, una pista de audio en inglés y una en español), puede hacerlo con el codificador en directo de elementos multimedia de Excel configurado para enviar la fuente en directo a un evento en directo de paso a través.
+
 
 ## <a name="configuring-on-premises-live-encoder-settings"></a>Configuración de los valores del codificador en directo local
 

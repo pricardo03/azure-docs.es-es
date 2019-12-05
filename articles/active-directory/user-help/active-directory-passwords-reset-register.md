@@ -1,6 +1,6 @@
 ---
-title: 'Registro para llevar a cabo el restablecimiento de la contraseña: Azure AD'
-description: Registre sus datos de autenticación para el autoservicio de restablecimiento de contraseña de Azure AD, para que pueda restablecer su propia contraseña sin la ayuda del administrador.
+title: 'Registro de la información de autenticación para llevar a cabo el restablecimiento de la contraseña: Azure AD'
+description: Registre la información sobre su método de verificación para el autoservicio de restablecimiento de contraseña de Azure AD. De este modo, podrá restablecer su propia contraseña sin la ayuda del administrador.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -13,19 +13,19 @@ ms.topic: conceptual
 ms.date: 01/11/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 796702b2189dcfb001f72913e4a01c0ae01462ad
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: b9748c0d04f958648f7919b7ac29dc58d5a137ac
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820447"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279045"
 ---
-# <a name="register-to-reset-your-own-password"></a>Registro para llevar a cabo el restablecimiento de la contraseña
+# <a name="register-your-verification-method-info-to-reset-your-own-password"></a>Registre la información del método de comprobación para restablecer su propia contraseña
 
 > [!IMPORTANT]
 > ¿Está aquí porque no puede iniciar sesión? Si es así, consulte [Restablecimiento de la contraseña profesional o educativa](active-directory-passwords-update-your-own-password.md).
 
-Como usuario final, puede restablecer su contraseña o desbloquear su cuenta con el autoservicio de restablecimiento de contraseñas (SSPR) de Azure Active Directory (Azure AD). Para poder usar esta funcionalidad, debe registrar los métodos de autenticación o confirmar los predefinidos que haya rellenado el administrador.
+Como usuario final, puede restablecer su contraseña o desbloquear su cuenta con el autoservicio de restablecimiento de contraseñas (SSPR) de Azure Active Directory (Azure AD). Para poder usar esta funcionalidad, debe registrar los métodos de comprobación o confirmar los predefinidos que haya rellenado el administrador.
 
 ## <a name="register-or-confirm-authentication-data-with-sspr"></a>Registro o confirmación de los datos de autenticación con SSPR
 
@@ -38,13 +38,13 @@ Como usuario final, puede restablecer su contraseña o desbloquear su cuenta con
     * **Preguntas de seguridad**: El administrador ha aprobado esta lista de preguntas para que las responda. No puede usar la misma pregunta o respuesta más de una vez.
 4. Proporcione la información requerida por el administrador y compruébela. Si hay más de una opción, se recomienda registrar varios métodos. Así se proporciona flexibilidad cuando uno de los métodos no esté disponible. Un ejemplo es cuando viaja y no puede tener acceso a su teléfono del trabajo.
 
-    ![Registre los métodos de autenticación y seleccione Finalizar][Register]
+    ![Registre los métodos de verificación y seleccione Finalizar][Register]
 
 5. Seleccione **Finalizar**. Ahora puede usar SSPR cuando lo necesite.
 
 Los datos que escriba en el **número de teléfono** o en el **correo electrónico de autenticación** no serán visibles en el directorio global. Las únicas personas que pueden ver estos datos son el propio usuario y los administradores. Solo el propio usuario puede ver las respuestas a las preguntas de seguridad.
 
-Los administradores pueden requerir que confirme los métodos de autenticación después de un período de tiempo para asegurarse de que todavía tiene los métodos adecuados registrados.
+Los administradores pueden requerir que confirme los métodos de verificación después de un período de tiempo para asegurarse de que todavía tiene los métodos adecuados registrados.
 
 ## <a name="common-problems-and-their-solutions"></a>problemas comunes y sus soluciones
 

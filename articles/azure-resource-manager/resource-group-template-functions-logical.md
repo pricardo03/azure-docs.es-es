@@ -1,17 +1,14 @@
 ---
-title: Funciones lógicas de la plantilla de Azure Resource Manager | Microsoft Docs
+title: 'Funciones de plantillas: lógicas'
 description: Describe las funciones que se pueden usar en una plantilla de Azure Resource Manager para determinar valores lógicos.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.author: tomfitz
-ms.openlocfilehash: ea91798a1c0ca0aad729128ce4694a85165f3c3b
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: df8433d167a166fe94d965f81e42cd0b3e8f0e54
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194792"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150696"
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>Funciones lógicas para las plantillas de Azure Resource Manager
 
@@ -75,7 +72,7 @@ El resultado del ejemplo anterior es:
 | orExampleOutput | Bool | True |
 | notExampleOutput | Bool | False |
 
-## <a name="bool"></a>booleano
+## <a name="bool"></a>bool
 
 `bool(arg1)`
 

@@ -1,7 +1,7 @@
 ---
 title: Creación de conjuntos de registros y zonas DNS con el SDK de .NET
 titleSuffix: Azure DNS
-description: Creación de conjuntos de registros y zonas DNS en DNS de Azure con el SDK de .NET.
+description: En esta ruta de aprendizaje, comience a crear conjuntos de registros y zonas DNS en Azure DNS mediante el SDK de .NET.
 services: dns
 documentationcenter: na
 author: asudbring
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2016
 ms.author: allensu
-ms.openlocfilehash: b51dd4ea3b36a9d0420a60883ebc29276a7d6b8a
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 0dd57bb30a993baadac41552669a629aaaaff6df
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076720"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74210953"
 ---
 # <a name="create-dns-zones-and-record-sets-using-the-net-sdk"></a>Creación de conjuntos de registros y zonas DNS con el SDK de .NET
 

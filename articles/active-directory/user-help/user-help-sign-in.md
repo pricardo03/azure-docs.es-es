@@ -13,21 +13,21 @@ ms.date: 07/18/2019
 ms.author: lizross
 ms.custom: user-help
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1c79e82680ae81137ee4164e88e62235f934565a
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: f595013d5404f0cbcb17a0d24d6395a84fa5b607
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74028525"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74266984"
 ---
 # <a name="sign-in-using-two-step-verification-or-security-info"></a>Inicio de sesión con la información de seguridad o la verificación en dos pasos
 
-Una vez configurada la verificación en dos pasos o la información de seguridad, podrá iniciar sesión en la cuenta con el método de autenticación que especifique.
+Una vez configurada la verificación en dos pasos o la información de seguridad, podrá iniciar sesión en la cuenta con el método de verificación que especifique.
 
 > [!Note]
-> Si sigue usando la experiencia de verificación en dos pasos, deberá configurar los métodos de autenticación siguiendo las instrucciones del artículo [Configuración de mi cuenta para la verificación en dos pasos](multi-factor-authentication-end-user-first-time.md).
+> Si sigue usando la experiencia de verificación en dos pasos, deberá configurar los métodos de verificación siguiendo las instrucciones del artículo [Configuración de mi cuenta para la verificación en dos pasos](multi-factor-authentication-end-user-first-time.md).
 >
-> Si el administrador ha activado la experiencia de información de seguridad, deberá establecer los métodos de autenticación con estos artículos detallados:<ul><li>[Configuración de la información de seguridad para usar una aplicación autenticadora](security-info-setup-auth-app.md)</li><li>[Configuración de la información de seguridad para usar la mensajería de texto](security-info-setup-text-msg.md)</li><li>[Configuración de la información de seguridad para usar las llamadas de teléfono](security-info-setup-phone-number.md)</li><li>[Configuración de la información de seguridad para usar una clave de seguridad](security-info-setup-security-key.md)</li></ul>
+> Si el administrador ha activado la experiencia de información de seguridad, deberá establecer los métodos de verificación con estos artículos detallados:<ul><li>[Configuración de la información de seguridad para usar una aplicación autenticadora](security-info-setup-auth-app.md)</li><li>[Configuración de la información de seguridad para usar la mensajería de texto](security-info-setup-text-msg.md)</li><li>[Configuración de la información de seguridad para usar las llamadas de teléfono](security-info-setup-phone-number.md)</li><li>[Configuración de la información de seguridad para usar una clave de seguridad](security-info-setup-security-key.md)</li></ul>
 
 ## <a name="sign-in-using-an-authenticator-app-notification-on-your-mobile-device"></a>Inicio de sesión con una notificación de la aplicación Authenticator en el dispositivo móvil
 

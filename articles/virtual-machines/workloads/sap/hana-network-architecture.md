@@ -13,18 +13,18 @@ ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0872d3c798bd5bd94e425869822602e8123517b4
-ms.sourcegitcommit: 9858ab651a520c26f0ed18215e650efbf1fc5de9
+ms.openlocfilehash: 3777180a4d62f8b253ac4cd096bff15613f33565
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72303613"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74206619"
 ---
 # <a name="sap-hana-large-instances-network-architecture"></a>Arquitectura de red de SAP HANA (instancias grandes)
 
 La arquitectura del servicio de red de Azure es un componente clave para implementar las aplicaciones de SAP de forma correcta en HANA (instancias grandes). Por lo general, las implementaciones de SAP HANA en Azure (Instancias grandes) tienen un entorno de SAP más amplio con varias soluciones SAP distintas y diversos tamaños de base de datos, consumo de recursos de CPU y utilización de memoria. Es probable que no todos los sistemas de TI ya se encuentren en Azure. Con frecuencia, el entorno de SAP es híbrido también desde el punto de vista de DBMS y de la aplicación SAP cuando se usa una combinación de NetWeaver, S/4HANA y SAP HANA y otros DBMS. Azure ofrece distintos servicios que permiten ejecutar los diferentes sistemas DBMS, NetWeaver y S/4HANA en Azure. Azure también ofrece tecnología de red, de forma que se asemeja a un centro de datos virtual para las implementaciones de software locales.
 
-A no ser que los sistemas de TI completos se hospeden en Azure. La funcionalidad de red de Azure se usa para conectar el mundo local con los recursos de Azure para que Azure se parezca a un centro de datos virtual de los suyos. La funcionalidad de red de Azure que se usa es la siguiente: 
+A no ser que los sistemas de TI completos se hospeden en Azure. La funcionalidad de red de Azure se usa para conectar el mundo local con los recursos de Azure para que Azure se parezca a uno de sus centros de datos virtuales. La funcionalidad de red de Azure que se usa es la siguiente: 
 
 - Las redes virtuales de Azure se conectan al circuito [ExpressRoute](https://azure.microsoft.com/services/expressroute/) que conecta con los recursos de red locales.
 - Un circuito ExpressRoute que conecta el entorno local a Azure debería tener un ancho de banda mínimo de [1 Gbps o más](https://azure.microsoft.com/pricing/details/expressroute/). Este ancho de banda mínimo permite suficiente ancho de banda para la transferencia de datos entre los sistemas locales y los sistemas que se ejecutan en máquinas virtuales. También permite un ancho de banda adecuado para la conexión de los usuarios locales a los sistemas de Azure.
@@ -102,7 +102,7 @@ La infraestructura local mostrada anteriormente se conecta a través de ExpressR
 > [!NOTE] 
 > Para ejecutar infraestructuras de SAP en Azure, conéctese al enrutador perimetral de empresa más cercano a la región de Azure en la infraestructura de SAP. Las demarcaciones de HANA (Instancias grandes) están conectadas a través de dispositivos enrutadores perimetrales de empresa dedicados para minimizar la latencia de red entre las máquinas virtuales de IaaS de Azure y las demarcaciones HANA (Instancias grandes).
 
-La puerta de enlace de ExpressRoute de las máquinas virtuales que hospedan instancias de aplicaciones SAP está conectada a un circuito ExpressRoute que se conecta al entorno local. La misma red virtual está conectada a un enrutador perimetral de empresa independiente dedicado para la conexión con las demarcaciones de instancias grandes. Con ExpressRoute Fast Path, el flujo de datos desde HANA (instancias grandes) hasta las máquinas virtuales del nivel de aplicación de SAP ya no se enruta a través de la puerta de enlace de ExpressRoute y, de este modo, se reduce la latencia del recorrido de ida y vuelta de red.
+La puerta de enlace de ExpressRoute de las VM que hospedan instancias de aplicaciones SAP está conectada a un circuito ExpressRoute que se conecta al entorno local. La misma red virtual está conectada a un enrutador perimetral de empresa independiente dedicado para la conexión con las demarcaciones de instancias grandes. Con ExpressRoute Fast Path, el flujo de datos desde HANA (instancias grandes) hasta las máquinas virtuales del nivel de aplicación de SAP ya no se enruta a través de la puerta de enlace de ExpressRoute y, de este modo, se reduce la latencia del recorrido de ida y vuelta de red.
 
 Este sistema es un ejemplo sencillo de un único sistema SAP. El nivel de aplicación de SAP se hospeda en Azure. La base de datos de SAP HANA se ejecuta en SAP HANA en Azure (instancias grandes). Se supone que el ancho de banda de la puerta de enlace de ExpressRoute de 2 Gbps o 10 Gbps de rendimiento no representa un cuello de botella.
 
@@ -148,10 +148,10 @@ De forma predeterminada, el enrutamiento transitivo no funciona en estos escenar
 Hay tres maneras de habilitar el enrutamiento transitivo en esos escenarios:
 
 - Un servidor proxy inverso para enrutar los datos, desde y hacia. Por ejemplo, F5 BIG-IP y NGINX con Traffic Manager implementado en una red virtual de Azure que se conecta a HANA (Instancias grandes) y al entorno local como una solución de enrutamiento virtual para el firewall y el tráfico.
-- Usar [reglas de IPTables](http://www.linuxhomenetworking.com/wiki/index.php/Quick_HOWTO_%3a_Ch14_%3a_Linux_Firewalls_Using_iptables#.Wkv6tI3rtaQ) en una máquina virtual Linux para habilitar el enrutamiento entre las ubicaciones locales y las unidades de HANA (instancias grandes) o entre unidades de HANA (instancias grandes) en regiones diferentes. La máquina virtual que ejecuta IPTables debe implementarse en la red virtual de Azure que se conecta a HANA (Instancias grandes) y al entorno local. Se debe ajustar el tamaño de la máquina virtual según corresponda, de forma que el rendimiento de red de la máquina virtual sea suficiente para el tráfico de red esperado. Para más información sobre el ancho de banda de red de VM, consulte el artículo [Tamaños de las máquinas virtuales Linux en Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Usar [reglas de IPTables](http://www.linuxhomenetworking.com/wiki/index.php/Quick_HOWTO_%3a_Ch14_%3a_Linux_Firewalls_Using_iptables#.Wkv6tI3rtaQ) en una máquina virtual Linux para habilitar el enrutamiento entre las ubicaciones locales y las unidades de HANA (instancias grandes) o entre unidades de HANA (instancias grandes) en regiones diferentes. La VM que ejecuta IPTables debe implementarse en la red virtual de Azure que se conecta a HANA (Instancias grandes) y al entorno local. Se debe ajustar el tamaño de la máquina virtual según corresponda, de forma que el rendimiento de red de la máquina virtual sea suficiente para el tráfico de red esperado. Para más información sobre el ancho de banda de red de VM, consulte el artículo [Tamaños de las máquinas virtuales Linux en Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - Otra solución para permitir el tráfico directo entre el entorno local y las unidades de HANA (Instancias grandes) sería [Azure Firewall](https://azure.microsoft.com/services/azure-firewall/). 
 
-Todo el tráfico de estas soluciones se enrutaría a través de una red virtual de Azure y, como tal, los dispositivos de software o los grupos de seguridad de red de Azure podrían restringirlo adicionalmente, de forma que determinadas direcciones IP o intervalos de direcciones IP del entorno local podrían tener el acceso a HANA (Instancias grandes) bloqueado o permitido expresamente. 
+Todo el tráfico de estas soluciones se enrutaría a través de una red virtual de Azure y, como tal, los dispositivos de software o los grupos de seguridad de red de Azure podrían restringirlo adicionalmente, de forma que se podría bloquear o permitir expresamente el acceso a HANA (Instancias grandes) para determinadas direcciones IP o intervalos de direcciones IP del entorno local. 
 
 > [!NOTE]  
 > Tenga en cuenta que Microsoft no proporciona la implementación y soporte técnico para las soluciones personalizadas que tienen dispositivos de red de terceros o IPTables. El proveedor del componente utilizado o el integrador es el que debe proporcionar el soporte técnico. 
@@ -163,7 +163,7 @@ Microsoft presentó una nueva funcionalidad llamada [ExpressRoute Global Reach](
 - Permitir la comunicación directa entre las unidades de HANA (Instancias grandes) implementadas en distintas regiones
 
 
-##### <a name="direct-access-from-on-premise"></a>Acceso directo desde el entorno local
+##### <a name="direct-access-from-on-premises"></a>Acceso directo desde el entorno local
 En las regiones de Azure donde se ofrece Global Reach, puede solicitar que se habilite para el circuito de ExpressRoute que conecta la red local a la red virtual de Azure que se conecta también a las unidades de HANA (Instancias grandes). Hay algunos costos relacionados con el entorno local del circuito ExpressRoute. Para información sobre los precios, consulte el [complemento Global Reach](https://azure.microsoft.com/pricing/details/expressroute/). No hay ningún costo adicional relacionado con el circuito que conecta las unidades de HANA (Instancias grandes) a Azure. 
 
 > [!IMPORTANT]  

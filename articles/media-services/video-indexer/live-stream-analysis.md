@@ -10,16 +10,16 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 11/13/2019
 ms.author: juliako
-ms.openlocfilehash: 0f34aad4a8590c71f926d12d201f9a614afaa127
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 89d0254fc758834c437f347e6ecb7bcafc1fe467
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74114703"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185992"
 ---
 # <a name="live-stream-analysis-with-video-indexer"></a>Análisis de streaming en vivo con Video Indexer
 
-Video Indexer de Azure Media Services es un servicio de Azure diseñado para extraer información detallada de archivos de vídeo y audio sin conexión. Se trata de analizar un archivo multimedia determinado que se ha creado de antemano. Sin embargo, en algunos casos de uso es importante obtener información multimedia a partir de una fuente dinámica lo más rápido posible para desbloquear casos de uso operativos y otros con presión de tiempo. Por ejemplo, los productores de contenido podrían usar estos metadatos enriquecidos de un streaming en vivo para automatizar la producción de TV. En el caso de [Endemol Shine Group](https://customers.microsoft.com/story/esg-media-telecommunications-azure), los periodistas de una redacción buscaron las fuentes en directo para crear servicios de notificaciones basados en el contenido.
+Video Indexer de Azure Media Services es un servicio de Azure diseñado para extraer información detallada de archivos de vídeo y audio sin conexión. Se trata de analizar un archivo multimedia determinado que se ha creado de antemano. Sin embargo, en algunos casos de uso es importante obtener información multimedia a partir de una fuente dinámica lo más rápido posible para desbloquear casos de uso operativos y otros con presión de tiempo. Por ejemplo, los productores de contenido podrían usar estos metadatos enriquecidos de un streaming en vivo para automatizar la producción de TV.
 
 Una solución que se describe en este artículo permite a los clientes usar Video Indexer en soluciones casi en tiempo real en fuentes en directo. El retraso en la indexación puede ser de tan solo cuatro minutos mediante esta solución, según los fragmentos de datos que se van a indexar, la resolución de entrada, el tipo de contenido y el proceso que se usa para este proceso.
 
@@ -27,7 +27,7 @@ Una solución que se describe en este artículo permite a los clientes usar Vide
 
 *Figura 1: reproductor de ejemplo que muestra los metadatos de Video Indexer en el streaming en vivo*
 
-La [solución de análisis de streaming](https://github.com/Azure-Samples/media-services-dotnet-functions-integration/blob/master/media-functions-for-logic-app/LiveStreamAnalysis.md) disponible, usa Azure Functions y dos aplicaciones lógicas para procesar un programa en vivo de un canal en directo de Azure Media Services con Video Indexer y muestra el streaming resultante casi en tiempo real con Azure Media Player.
+La [solución de análisis de streaming](https://aka.ms/livestreamanalysis) disponible, usa Azure Functions y dos aplicaciones lógicas para procesar un programa en vivo de un canal en directo de Azure Media Services con Video Indexer y muestra el streaming resultante casi en tiempo real con Azure Media Player.
 
 A nivel general, se compone de dos pasos principales. El primer paso se ejecuta cada 60 segundos y toma un subclip de los últimos 60 segundos reproducidos, crea un recurso a partir de él y lo indexa mediante Video Indexer. Después, se llama al segundo paso una vez completada la indexación. La información capturada se procesa, se envía a Azure Cosmos DB y se elimina el subclip indexado.
 

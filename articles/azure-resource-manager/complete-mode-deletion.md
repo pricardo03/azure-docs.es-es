@@ -1,17 +1,14 @@
 ---
-title: Eliminación en modo completo de Azure Resource Manager
+title: Eliminación del modo completo
 description: Muestra cómo los tipos de recursos controlan la eliminación en modo completo en las plantillas de Azure Resource Manager.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 10/27/2019
-ms.author: tomfitz
-ms.openlocfilehash: 34e6ee348a6e15e1178f5e7cb65edfb946c1280c
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.date: 11/19/2019
+ms.openlocfilehash: 075dd5071d6c59c6cc73fff8d51a495b012665dd
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73953265"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232681"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>Eliminación de recursos de Azure en implementaciones en modo completo
 
@@ -180,7 +177,6 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | ------------- | ----------- |
 > | DomainServices | Sí |
 > | DomainServices/oucontainer | Sin |
-> | DomainServices/ReplicaSets | Sí |
 
 ## <a name="microsoftaddons"></a>Microsoft.Addons
 
@@ -346,6 +342,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | registrations | Sí |
 > | registrations/customerSubscriptions | Sin |
 > | registrations/products | Sin |
+> | verificationKeys | Sin |
 
 ## <a name="microsoftbatch"></a>Microsoft.Batch
 
@@ -393,6 +390,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | billingAccounts/billingRoleAssignments | Sin |
 > | billingAccounts/billingRoleDefinitions | Sin |
 > | billingAccounts/billingSubscriptions | Sin |
+> | billingAccounts/billingSubscriptions/invoices | Sin |
 > | billingAccounts/createBillingRoleAssignment | Sin |
 > | billingAccounts/createInvoiceSectionOperations | Sin |
 > | billingAccounts/customers | Sin |
@@ -645,8 +643,6 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | proximityPlacementGroups | Sí |
 > | restorePointCollections | Sí |
 > | restorePointCollections/restorePoints | Sin |
-> | sharedVMExtensions | Sí |
-> | sharedVMExtensions/versions | Sin |
 > | sharedVMImages | Sí |
 > | sharedVMImages/versions | Sin |
 > | snapshots | Sí |
@@ -718,6 +714,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | registries/runs/cancel | Sin |
 > | registries/scheduleRun | Sin |
 > | registries/scopeMaps | Sin |
+> | registries/taskRuns | Sí |
 > | registries/tasks | Sí |
 > | registries/tokens | Sin |
 > | registries/updatePolicies | Sin |
@@ -1094,7 +1091,6 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Eliminación del modo completo |
 > | ------------- | ----------- |
-> | autoManagedVmConfigurationProfiles | Sí |
 > | configurationProfileAssignments | Sin |
 > | guestConfigurationAssignments | Sin |
 > | software | Sin |
@@ -1244,7 +1240,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | ------------- | ----------- |
 > | workspaces | Sí |
 > | workspaces/computes | Sin |
-> | namespaces/eventgridfilters | Sin |
+> | workspaces/eventGridFilters | Sin |
 
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
 
@@ -1373,13 +1369,10 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | Tipo de recurso | Eliminación del modo completo |
 > | ------------- | ----------- |
 > | netAppAccounts | Sí |
-> | netAppAccounts/backupPolicies | Sí |
 > | netAppAccounts/capacityPools | Sí |
 > | netAppAccounts/capacityPools/volumes | Sí |
-> | netAppAccounts/capacityPools/volumes/backups | Sin |
 > | netAppAccounts/capacityPools/volumes/mountTargets | Sí |
 > | netAppAccounts/capacityPools/volumes/snapshots | Sí |
-> | netAppAccounts/vaults | Sin |
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 
 > [!div class="mx-tableFixed"]
@@ -1630,8 +1623,6 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | resources | Sin |
 > | subscriptions | Sin |
 > | subscriptions/providers | Sin |
-> | subscriptions/resourceGroups | Sin |
-> | subscriptions/resourcegroups/resources | Sin |
 > | subscriptions/resources | Sin |
 > | subscriptions/tagnames | Sin |
 > | subscriptions/tagNames/tagValues | Sin |
@@ -1672,6 +1663,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | applicationWhitelistings | Sin |
 > | assessmentMetadata | Sin |
 > | assessments | Sin |
+> | autoDismissAlertsRules | Sin |
 > | automations | Sí |
 > | AutoProvisioningSettings | Sin |
 > | Compliances | Sin |
@@ -1686,7 +1678,6 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | iotSecuritySolutions/analyticsModels/aggregatedRecommendations | Sin |
 > | jitNetworkAccessPolicies | Sin |
 > | networkData | Sin |
-> | playbookConfigurations | Sí |
 > | directivas | Sin |
 > | pricings | Sin |
 > | regulatoryComplianceStandards | Sin |

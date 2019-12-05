@@ -17,12 +17,12 @@ ms.date: 10/28/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 778353621491f912d3237900785e6dee17bf975e
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 6e7b0c379783af2f9131d487f45c0f4e2009e258
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014488"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232141"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Informes de actividad de inicio de sesión en el portal de Azure Active Directory
 
@@ -41,7 +41,7 @@ En este artículo se ofrece una visión general del reporte de inicios de sesió
 
 ### <a name="who-can-access-the-data"></a>¿Quién puede acceder a los datos?
 
-* Usuarios de los roles Administrador de seguridad, Lector de seguridad o Lector de informes
+* Usuarios de los roles Administrador de seguridad, Lector de seguridad, Lector global y Lector de informes
 * Administradores globales
 * Cualquier usuario (no administradores) puede acceder a sus propios inicios de sesión 
 

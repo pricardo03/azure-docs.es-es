@@ -15,12 +15,12 @@ ms.date: 10/28/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: dff222788480eea882614ad29478df1dce359199
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: f3ee958484fdb8cacad0a3bfa0c3385374ac7487
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73101289"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185740"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Roles integrados en los recursos de Azure
 
@@ -33,134 +33,135 @@ En este artículo se enumeran los roles integrados para los recursos de Azure, q
 En la tabla siguiente se proporciona una breve descripción de cada rol integrado. Haga clic en el nombre del rol para ver la lista de `Actions`, `NotActions`, `DataActions` y `NotDataActions` para cada rol. Para obtener información sobre lo que significan estas acciones y cómo se aplican a la administración y a los planos de datos, consulte [Descripción de definiciones de roles para los recursos de Azure](role-definitions.md).
 
 
-| Rol integrado | DESCRIPCIÓN |
-| --- | --- |
-| [Propietario](#owner) | Permite administrarlo todo, incluso el acceso a los recursos. |
-| [Colaborador](#contributor) | Permite administrarlo todo excepto la concesión de acceso a los recursos. |
-| [Lector](#reader) | Permite ver todo el contenido, pero no realizar cambios. |
-| [AcrDelete](#acrdelete) | Eliminar artefacto |
-| [AcrImageSigner](#acrimagesigner) | Firmante de imagen de ACR |
-| [AcrPull](#acrpull) | extracción de ACR |
-| [AcrPush](#acrpush) | inserción de ACR |
-| [AcrQuarantineReader](#acrquarantinereader) | Lector de datos de cuarentena de ACR |
-| [AcrQuarantineWriter](#acrquarantinewriter) | Escritura de datos de cuarentena de ACR |
-| [Colaborador de servicio de administración de API](#api-management-service-contributor) | Puede administrar servicios y las API. |
-| [Rol del operador del servicio API Management](#api-management-service-operator-role) | Puede administrar el servicio, pero no las API. |
-| [Rol de lector del servicio API Management](#api-management-service-reader-role) | Acceso de solo lectura al servicio y las API. |
-| [Colaborador de componentes de Application Insights](#application-insights-component-contributor) | Puede administrar los componentes de Application Insights |
-| [Depurador de instantáneas de Application Insights](#application-insights-snapshot-debugger) | Concede permiso al usuario para ver y descargar las instantáneas de depuración que se recopilan con Snapshot Debugger de Application Insights. Tenga en cuenta que estos permisos no se incluyen en los roles [Propietario](#owner) ni [Colaborador](#contributor). |
-| [Operador de trabajos de Automation](#automation-job-operator) | Permite crear y administrar trabajos con los runbooks de Automation. |
-| [Operador de Automation](#automation-operator) | Los operadores de automatización pueden iniciar, detener, suspender y reanudar trabajos. |
-| [Operador de runbooks de Automation](#automation-runbook-operator) | Permite leer las propiedades de runbook para poder crear trabajos del runbook. |
-| [Colaborador de Avere](#avere-contributor) | Puede crear y administrar un clúster de Avere vFXT. |
-| [Operador de Avere](#avere-operator) | Lo usa el clúster de Avere vFXT para su administración. |
-| [Propietario de los datos de Azure Event Hubs](#azure-event-hubs-data-owner) | Concede acceso total a los recursos de Azure Event Hubs. |
-| [Receptor de datos de Azure Event Hubs](#azure-event-hubs-data-receiver) | Concede acceso de recepción a los recursos de Azure Event Hubs. |
-| [Emisor de datos de Azure Event Hubs](#azure-event-hubs-data-sender) | Concede acceso de emisión a los recursos de Azure Event Hubs. |
-| [Rol de administrador de clúster de Azure Kubernetes Service](#azure-kubernetes-service-cluster-admin-role) | Enumerar la acción de credenciales administrativas del clúster. |
-| [Rol de usuario de clúster de Azure Kubernetes Service](#azure-kubernetes-service-cluster-user-role) | Enumerar la acción de credenciales de usuario del clúster. |
-| [Lector de datos de Azure Maps (versión preliminar)](#azure-maps-data-reader-preview) | Concede acceso de lectura a los datos de los mapas de una cuenta de Azure Maps. |
-| [Colaborador de Azure Sentinel](#azure-sentinel-contributor) | Colaborador de Azure Sentinel |
-| [Lector de Azure Sentinel](#azure-sentinel-reader) | Lector de Azure Sentinel |
-| [Respondedor de Azure Sentinel](#azure-sentinel-responder) | Respondedor de Azure Sentinel |
-| [Propietario de los datos de Azure Service Bus](#azure-service-bus-data-owner) | Concede acceso total a los recursos de Azure Service Bus. |
-| [Receptor de datos de Azure Service Bus](#azure-service-bus-data-receiver) | Concede acceso de recepción a los recursos de Azure Service Bus. |
-| [Emisor de datos de Azure Service Bus](#azure-service-bus-data-sender) | Concede acceso de emisión a los recursos de Azure Service Bus. |
-| [Propietario del registro de Azure Stack](#azure-stack-registration-owner) | Permite administrar los registros de Azure Stack. |
-| [Colaborador de copias de seguridad](#backup-contributor) | Permite administrar el servicio de copias de seguridad, pero no puede crear almacenes ni conceder acceso a otros usuarios |
-| [Operador de copias de seguridad](#backup-operator) | Permite administrar los servicios de copias de seguridad, excepto la eliminación de copias de seguridad, la creación de almacenes y la concesión de acceso a otros usuarios |
-| [Lector de copias de seguridad](#backup-reader) | Puede ver servicios de copia de seguridad, pero no puede realizar cambios. |
-| [Lector de facturación](#billing-reader) | Permite acceso de lectura a los datos de facturación. |
-| [Colaborador de BizTalk](#biztalk-contributor) | Permite administrar los servicios de BizTalk, pero no acceder a ellos. |
-| [Acceso al nodo de miembro de la cadena de bloques (versión preliminar)](#blockchain-member-node-access-preview) | Permite acceder a los nodos de miembro de la cadena de bloques. |
-| [Colaborador de plano técnico](#blueprint-contributor) | Puede administrar las definiciones del plano técnico, pero no asignarlas. |
-| [Operador del plano técnico](#blueprint-operator) | Puede asignar los planos técnicos publicados existentes, pero no puede crear nuevos. Nota: Esto solo funciona si la asignación se realiza con una identidad administrada asignada por el usuario. |
-| [Colaborador de punto de conexión de CDN](#cdn-endpoint-contributor) | Puede administrar puntos de conexión de CDN, pero no conceder acceso a otros usuarios. |
-| [Lector de punto de conexión de CDN](#cdn-endpoint-reader) | Puede ver puntos de conexión de CDN, pero no hacer cambios. |
-| [Colaborador de perfil de CDN](#cdn-profile-contributor) | Puede administrar perfiles de CDN y sus puntos de conexión, pero no conceder acceso a otros usuarios. |
-| [Lector de perfil de CDN](#cdn-profile-reader) | Puede ver perfiles de CDN y sus puntos de conexión, pero no hacer cambios. |
-| [Colaborador de la red clásica](#classic-network-contributor) | Permite administrar las redes clásicas, pero no acceder a ellas. |
-| [Colaborador de cuentas de almacenamiento clásico](#classic-storage-account-contributor) | Permite administrar cuentas de almacenamiento clásicas, pero no acceder a ellas. |
-| [Rol de servicio de operador de claves de cuentas de almacenamiento clásicas](#classic-storage-account-key-operator-service-role) | Los operadores de claves de cuentas de almacenamiento clásicas pueden enumerar y regenerar claves en cuentas de almacenamiento clásicas |
-| [Colaborador de la máquina virtual clásica](#classic-virtual-machine-contributor) | Permite administrar máquinas virtuales clásicas, pero no acceder a ellas, ni tampoco a la red virtual ni a la cuenta de almacenamiento a las que están conectadas. |
-| [Colaborador de Cognitive Services](#cognitive-services-contributor) | Le permite crear, leer, actualizar, eliminar y administrar las claves de Cognitive Services. |
-| [Lector de datos de Cognitive Services (versión preliminar)](#cognitive-services-data-reader-preview) | Permite leer los datos de Cognitive Services. |
-| [Usuario de Cognitive Services](#cognitive-services-user) | Le permite leer y mostrar las claves de Cognitive Services. |
-| [Rol de lector de cuentas de Cosmos DB](#cosmos-db-account-reader-role) | Puede leer los datos de cuentas de Azure Cosmos DB. Vea [Colaborador de cuenta de DocumentDB](#documentdb-account-contributor) para administrar cuentas de Azure Cosmos DB. |
-| [Operador de Cosmos DB](#cosmos-db-operator) | Permite administrar las cuentas de Azure Cosmos DB, pero no acceder a los datos que contienen. Evita el acceso a las claves de cuenta y a las cadenas de conexión. |
-| [CosmosBackupOperator](#cosmosbackupoperator) | Puede enviar una solicitud de restauración para una base de datos de Cosmos DB o un contenedor de una cuenta |
-| [Colaborador de Cost Management](#cost-management-contributor) | Puede ver los costos y administrar la configuración de estos (por ejemplo, presupuestos, exportaciones) |
-| [Lector de Cost Management](#cost-management-reader) | Puede ver los datos de costo y la configuración (por ejemplo, presupuestos, exportaciones) |
-| [Colaborador de Data Box](#data-box-contributor) | Permite administrarlo todo en el servicio Data Box, excepto dar acceso a otros usuarios. |
-| [Lector de Data Box](#data-box-reader) | Permite administrar el servicio Data Box excepto la creación o edición de detalles de pedido y dar acceso a otros usuarios. |
-| [Colaborador de Factoría de datos](#data-factory-contributor) | Crea y administra factorías de datos, así como recursos secundarios dentro de ellas. |
-| [Desarrollador de Data Lake Analytics](#data-lake-analytics-developer) | Le permite enviar, supervisar y administrar sus propios trabajos, pero no crear ni eliminar cuentas de Data Lake Analytics. |
-| [Purgador de datos](#data-purger) | Puede purgar datos de análisis. |
-| [Usuario de DevTest Labs](#devtest-labs-user) | Permite conectarse a sus máquinas virtuales, así como iniciarlas, reiniciarlas y apagarlas, en su instancia de Azure DevTest Labs. |
-| [Colaborador de zona DNS](#dns-zone-contributor) | Permite administrar zonas y conjuntos de registros DNS en Azure DNS, pero no controlar los usuarios que tienen acceso. |
-| [Colaborador de cuenta de DocumentDB](#documentdb-account-contributor) | Puede administrar cuentas de Azure Cosmos DB. Azure Cosmos DB se llamaba anteriormente DocumentDB. |
-| [Colaborador de EventGrid EventSubscription](#eventgrid-eventsubscription-contributor) | Permite administrar las operaciones de suscripción de eventos de EventGrid. |
-| [Lector de EventGrid EventSubscription](#eventgrid-eventsubscription-reader) | Permite leer las suscripciones de eventos de EventGrid. |
-| [Operador de clústeres de HDInsight](#hdinsight-cluster-operator) | Permite leer y modificar las configuraciones de clúster de HDInsight. |
-| [Colaborador de Domain Services para HDInsight](#hdinsight-domain-services-contributor) | Puede leer, crear, modificar y eliminar operaciones relacionadas con Domain Services para HDInsight Enterprise Security Package |
-| [Colaborador de la cuenta de Sistemas inteligentes](#intelligent-systems-account-contributor) | Permite administrar las cuentas de Intelligent Systems, pero no acceder a ellas. |
-| [Colaborador de almacén de claves](#key-vault-contributor) | Le permite administrar almacenes de claves, pero no acceder a ellos. |
-| [Creador de laboratorio](#lab-creator) | Le permite crear, administrar y eliminar los laboratorios administrados en sus cuentas de Azure Lab. |
-| [Colaborador de Log Analytics](#log-analytics-contributor) | Un colaborador de Log Analytics puede leer todos los datos de supervisión y editar la configuración de supervisión. La edición de la configuración de supervisión incluye la posibilidad de añadir la extensión de máquina virtual a las máquinas virtuales, leer las claves de las cuentas de almacenamiento para poder configurar la recopilación de registros de Azure Storage, crear y configurar cuentas de Automation, añadir soluciones y configurar Azure Diagnostics en todos los recursos de Azure. |
-| [Lector de Log Analytics](#log-analytics-reader) | Un lector de Log Analytics puede ver y buscar todos los datos de supervisión, así como consultar la configuración de supervisión, incluida la de Azure Diagnostics en todos los recursos de Azure. |
-| [Colaborador de aplicación lógica](#logic-app-contributor) | Le permite administrar aplicaciones lógicas, pero no cambiar el acceso a ellas. |
-| [Operador de aplicación lógica](#logic-app-operator) | Le permite leer, habilitar y deshabilitar aplicaciones lógicas, pero no permite editarlas ni actualizarlas. |
-| [Rol de operador de aplicación administrada](#managed-application-operator-role) | Permite leer y realizar acciones en los recursos de aplicación administrada. |
-| [Lector de aplicaciones administradas](#managed-applications-reader) | Le permite leer los recursos de una aplicación administrada y solicitar acceso JIT. |
-| [Colaborador de identidad administrada](#managed-identity-contributor) | Le permite crear, leer, actualizar y eliminar identidades asignadas por el usuario. |
-| [Operador de identidad administrada](#managed-identity-operator) | Le permite leer y asignar identidades asignadas por el usuario. |
-| [Rol para eliminar la asignación de registros de servicios administrados](#managed-services-registration-assignment-delete-role) | El rol para eliminar la asignación de registros de servicios administrados permite que los usuarios que administran el inquilino eliminen la asignación de registros asignada a su inquilino. |
-| [Colaborador de grupo de administración](#management-group-contributor) | Rol de colaborador de grupo de administración |
-| [Lector de grupo de administración](#management-group-reader) | Rol de lector de grupo de administración |
-| [Colaborador de supervisión](#monitoring-contributor) | Puede leer todos los datos de supervisión y editar la configuración de supervisión. Consulte también [Introducción a roles, permisos y seguridad con Azure Monitor](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). |
-| [Supervisión del publicador de métricas](#monitoring-metrics-publisher) | Permite publicar las métricas de los recursos de Azure. |
-| [Lector de supervisión](#monitoring-reader) | Puede leer todos los datos de supervisión (métricas, registros, etc.). Consulte también [Introducción a roles, permisos y seguridad con Azure Monitor](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). |
-| [Colaborador de la red](#network-contributor) | Permite administrar redes, pero no acceder a ellas. |
-| [Colaborador de la cuenta de NewRelic APM](#new-relic-apm-account-contributor) | Le permite administrar las aplicaciones y cuentas de Application Performance Management de New Relic, pero no acceder a ellas. |
-| [Lector y acceso a los datos](#reader-and-data-access) | Permite ver todo el contenido, pero no eliminar ni crear una cuenta de almacenamiento ni un recurso incluido. También permitirá el acceso de lectura o escritura para todos los datos incluidos en una cuenta de almacenamiento a través del acceso a las claves de la cuenta de almacenamiento. |
-| [Colaborador de la memoria caché de Redis](#redis-cache-contributor) | Permite administrar cachés de Redis, pero no acceder a ellas. |
-| [Colaborador de la directiva de recursos (versión preliminar)](#resource-policy-contributor-preview) | (Versión preliminar) Los usuarios repuestos de EA, con derechos para crear o modificar la directiva de recursos, crean incidencias de soporte técnico y leen los recursos o la jerarquía. |
-| [Colaborador de colecciones de trabajos de Scheduler](#scheduler-job-collections-contributor) | Permite administrar colecciones de trabajos de Scheduler, pero no acceder a ellas. |
-| [Colaborador del servicio Search](#search-service-contributor) | Permite administrar los servicios de Búsqueda, pero no acceder a ellos. |
-| [Administrador de seguridad](#security-admin) | Solo en Security Center: puede ver las directivas de seguridad, los estados de seguridad, editar las directivas de seguridad, ver alertas y recomendaciones, y descartar alertas y recomendaciones. |
-| [Administrador de seguridad (heredado)](#security-manager-legacy) | Se trata de un rol heredado. En su lugar, use el Administrador de seguridad. |
-| [Lector de seguridad](#security-reader) | Solo en Security Center: puede ver las recomendaciones y alertas, ver las directivas de seguridad y ver los estados de seguridad, pero no puede realizar cambios |
-| [Colaborador de Site Recovery](#site-recovery-contributor) | Permite administrar el servicio Site Recovery, excepto la creación de almacenes y la asignación de roles. |
-| [Operador de Site Recovery](#site-recovery-operator) | Permite realizar una conmutación por error o una conmutación por recuperación, pero no otras operaciones de administración de Site Recovery. |
-| [Lector de Site Recovery](#site-recovery-reader) | Permite visualizar el estado de Site Recovery, pero no realizar otras operaciones de administración. |
-| [Colaborador de la cuenta de Spatial Anchors](#spatial-anchors-account-contributor) | Permite administrar los anclajes espaciales en su cuenta, pero no eliminarlos. |
-| [Propietario de la cuenta de Spatial Anchors](#spatial-anchors-account-owner) | Permite administrar los anclajes espaciales en su cuenta y eliminarlos. |
-| [Lector de la cuenta de Spatial Anchors](#spatial-anchors-account-reader) | Permite encontrar y leer propiedades de los anclajes espaciales en la cuenta. |
-| [Colaborador de Base de datos de SQL](#sql-db-contributor) | Permite administrar las bases de datos de SQL, pero no acceder a ellas. Además, no puede administrar sus directivas relacionadas con la seguridad ni los servidores SQL primarios. |
-| [Colaborador de Instancia administrada de SQL](#sql-managed-instance-contributor) | Permite administrar las instancias administradas de SQL y requiere configuración de red, pero no puede conceder acceso a otros usuarios. |
-| [Administrador de seguridad SQL](#sql-security-manager) | Permite administrar las directivas relacionadas con seguridad de bases de datos y servidores SQL, pero no acceder a ellas. |
-| [Colaborador de SQL Server](#sql-server-contributor) | Permite administrar bases de datos y servidores SQL, pero no acceder a ellos, ni a sus directivas relacionadas con la seguridad. |
-| [Colaborador de la cuenta de almacenamiento](#storage-account-contributor) | Permite la administración de cuentas de almacenamiento. Proporciona acceso a la clave de cuenta, que puede usarse para tener acceso a datos a través de la autorización de clave compartida. |
-| [Rol de servicio de operador de claves de cuentas de almacenamiento](#storage-account-key-operator-service-role) | Permite enumerar y regenerar claves de acceso de la cuenta de almacenamiento. |
-| [Colaborador de datos de blobs de almacenamiento](#storage-blob-data-contributor) | Lee, escribe y elimina blobs y contenedores de Azure Storage. Para aprender qué acciones son necesarias para una operación de datos determinada, consulte [Permissions for calling blob and queue data operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations) (Permisos para llamar a operaciones de datos de blob y de cola). |
-| [Propietario de datos de blobs de almacenamiento](#storage-blob-data-owner) | Proporciona acceso total a los contenedores de blobs y los datos de Azure Storage, incluida la asignación de control de acceso POSIX. Para aprender qué acciones son necesarias para una operación de datos determinada, consulte [Permissions for calling blob and queue data operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations) (Permisos para llamar a operaciones de datos de blob y de cola). |
-| [Lector de datos de blobs de almacenamiento](#storage-blob-data-reader) | Lee y enumera blobs y contenedores de Azure Storage. Para aprender qué acciones son necesarias para una operación de datos determinada, consulte [Permissions for calling blob and queue data operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations) (Permisos para llamar a operaciones de datos de blob y de cola). |
-| [Delegador de Blob Storage](#storage-blob-delegator) | Obtiene una clave de delegación de usuarios, que se puede usar a continuación para crear una firma de acceso compartido para un contenedor o un blob firmado con credenciales de Azure AD. Para más información, vea [Creación de SAS de delegación de usuarios](https://docs.microsoft.com/rest/api/storageservices/create-user-delegation-sas). |
-| [Colaborador de recursos compartidos de SMB de datos de archivos de Storage](#storage-file-data-smb-share-contributor) | Permite el acceso de lectura, escritura y eliminación a los recursos compartidos de archivos de Azure Storage mediante SMB. |
-| [Colaborador elevado de recursos compartidos de SMB de datos de archivos de Storage](#storage-file-data-smb-share-elevated-contributor) | Permite el acceso de lectura, escritura, eliminación y modificación de permisos NTFS a los recursos compartidos de archivos de Azure Storage mediante SMB. |
-| [Lector de recursos compartidos de SMB de datos de archivos de Storage](#storage-file-data-smb-share-reader) | Permite el acceso de lectura a los recursos compartidos de archivos de Azure mediante SMB. |
-| [Colaborador de datos de la cola de Storage](#storage-queue-data-contributor) | Lee, escribe y elimina los mensajes de la cola y a la cola de Azure Storage. Para aprender qué acciones son necesarias para una operación de datos determinada, consulte [Permissions for calling blob and queue data operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations) (Permisos para llamar a operaciones de datos de blob y de cola). |
-| [Procesador de mensajes de datos de la cola de Storage](#storage-queue-data-message-processor) | Consulta, recupera y elimina un mensaje de una cola de Azure Storage. Para aprender qué acciones son necesarias para una operación de datos determinada, consulte [Permissions for calling blob and queue data operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations) (Permisos para llamar a operaciones de datos de blob y de cola). |
-| [Emisor de mensajes de datos de la cola de Storage](#storage-queue-data-message-sender) | Agrega mensaje a una cola de Azure Storage. Para aprender qué acciones son necesarias para una operación de datos determinada, consulte [Permissions for calling blob and queue data operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations) (Permisos para llamar a operaciones de datos de blob y de cola). |
-| [Lector de datos de la cola de Storage](#storage-queue-data-reader) | Lee y enumera los mensajes de la cola y las colas de Azure Storage. Para aprender qué acciones son necesarias para una operación de datos determinada, consulte [Permissions for calling blob and queue data operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations) (Permisos para llamar a operaciones de datos de blob y de cola). |
-| [Colaborador de la solicitud de soporte técnico](#support-request-contributor) | Permite crear y administrar solicitudes de soporte técnico. |
-| [Colaborador de Traffic Manager](#traffic-manager-contributor) | Le permite administrar perfiles de Traffic Manager, pero no controlar los usuarios que tienen acceso a ellos. |
-| [Administrador de acceso de usuario](#user-access-administrator) | Permite administrar el acceso de usuario a los recursos de Azure. |
-| [Inicio de sesión de administrador de Virtual Machine](#virtual-machine-administrator-login) | Visualización de máquinas virtuales en el portal e inicio de sesión como administrador |
-| [Colaborador de la máquina virtual](#virtual-machine-contributor) | Permite administrar máquinas virtuales, pero no acceder a ellas, ni tampoco a la red virtual ni la cuenta de almacenamiento a las que están conectadas. |
-| [Inicio de sesión de usuario de Virtual Machine](#virtual-machine-user-login) | Visualización de máquinas virtuales en el portal e inicio de sesión como usuario normal. |
-| [Colaborador de plan web](#web-plan-contributor) | Permite administrar los planes web para sitios web, pero no acceder a ellos. |
-| [Colaborador de sitio web](#website-contributor) | Permite administrar los sitios web (no planes web), pero no acceder a ellos. |
+> [!div class="mx-tableFixed"]
+> | Rol integrado | DESCRIPCIÓN | Id |
+> | --- | --- | --- |
+> | [Propietario](#owner) | Permite administrarlo todo, incluso el acceso a los recursos. | 8e3af657-a8ff-443c-a75c-2fe8c4bcb635 |
+> | [Colaborador](#contributor) | Permite administrarlo todo excepto la concesión de acceso a los recursos. | b24988ac-6180-42a0-ab88-20f7382dd24c |
+> | [Lector](#reader) | Permite ver todo el contenido, pero no realizar cambios. | acdd72a7-3385-48ef-bd42-f606fba81ae7 |
+> | [AcrDelete](#acrdelete) | Eliminar artefacto | c2f4ef07-c644-48eb-af81-4b1b4947fb11 |
+> | [AcrImageSigner](#acrimagesigner) | Firmante de imagen de ACR | 6cef56e8-d556-48e5-a04f-b8e64114680f |
+> | [AcrPull](#acrpull) | extracción de ACR | 7f951dda-4ed3-4680-a7ca-43fe172d538d |
+> | [AcrPush](#acrpush) | inserción de ACR | 8311e382-0749-4cb8-b61a-304f252e45ec |
+> | [AcrQuarantineReader](#acrquarantinereader) | Lector de datos de cuarentena de ACR | cdda3590-29a3-44f6-95f2-9f980659eb04 |
+> | [AcrQuarantineWriter](#acrquarantinewriter) | Escritura de datos de cuarentena de ACR | c8d4ff99-41c3-41a8-9f60-21dfdad59608 |
+> | [Colaborador de servicio de administración de API](#api-management-service-contributor) | Puede administrar servicios y las API. | 312a565d-c81f-4fd8-895a-4e21e48d571c |
+> | [Rol del operador del servicio API Management](#api-management-service-operator-role) | Puede administrar el servicio, pero no las API. | e022efe7-f5ba-4159-bbe4-b44f577e9b61 |
+> | [Rol de lector del servicio API Management](#api-management-service-reader-role) | Acceso de solo lectura al servicio y las API. | 71522526-b88f-4d52-b57f-d31fc3546d0d |
+> | [Colaborador de componentes de Application Insights](#application-insights-component-contributor) | Puede administrar los componentes de Application Insights | ae349356-3a1b-4a5e-921d-050484c6347e |
+> | [Depurador de instantáneas de Application Insights](#application-insights-snapshot-debugger) | Concede permiso al usuario para ver y descargar las instantáneas de depuración que se recopilan con Snapshot Debugger de Application Insights. Tenga en cuenta que estos permisos no se incluyen en los roles [Propietario](#owner) ni [Colaborador](#contributor). | 08954f03-6346-4c2e-81c0-ec3a5cfae23b |
+> | [Operador de trabajos de Automation](#automation-job-operator) | Permite crear y administrar trabajos con los runbooks de Automation. | 4fe576fe-1146-4730-92eb-48519fa6bf9f |
+> | [Operador de Automation](#automation-operator) | Los operadores de automatización pueden iniciar, detener, suspender y reanudar trabajos. | d3881f73-407a-4167-8283-e981cbba0404 |
+> | [Operador de runbooks de Automation](#automation-runbook-operator) | Permite leer las propiedades de runbook para poder crear trabajos del runbook. | 5fb5aef8-1081-4b8e-bb16-9d5d0385bab5 |
+> | [Colaborador de Avere](#avere-contributor) | Puede crear y administrar un clúster de Avere vFXT. | 4f8fab4f-1852-4a58-a46a-8eaf358af14a |
+> | [Operador de Avere](#avere-operator) | Lo usa el clúster de Avere vFXT para su administración. | c025889f-8102-4ebf-b32c-fc0c6f0c6bd9 |
+> | [Propietario de los datos de Azure Event Hubs](#azure-event-hubs-data-owner) | Concede acceso total a los recursos de Azure Event Hubs. | f526a384-b230-433a-b45c-95f59c4a2dec |
+> | [Receptor de datos de Azure Event Hubs](#azure-event-hubs-data-receiver) | Concede acceso de recepción a los recursos de Azure Event Hubs. | a638d3c7-ab3a-418d-83e6-5f17a39d4fde |
+> | [Emisor de datos de Azure Event Hubs](#azure-event-hubs-data-sender) | Concede acceso de emisión a los recursos de Azure Event Hubs. | 2b629674-e913-4c01-ae53-ef4638d8f975 |
+> | [Rol de administrador de clúster de Azure Kubernetes Service](#azure-kubernetes-service-cluster-admin-role) | Enumerar la acción de credenciales administrativas del clúster. | 0ab0b1a8-8aac-4efd-b8c2-3ee1fb270be8 |
+> | [Rol de usuario de clúster de Azure Kubernetes Service](#azure-kubernetes-service-cluster-user-role) | Enumerar la acción de credenciales de usuario del clúster. | 4abbcc35-e782-43D8-92c5-2d3f1bd2253f |
+> | [Lector de datos de Azure Maps (versión preliminar)](#azure-maps-data-reader-preview) | Concede acceso de lectura a los datos de los mapas de una cuenta de Azure Maps. | 423170ca-a8f6-4b0f-8487-9e4eb8f49bfa |
+> | [Colaborador de Azure Sentinel](#azure-sentinel-contributor) | Colaborador de Azure Sentinel | ab8e14d6-4a74-4a29-9ba8-549422addade |
+> | [Lector de Azure Sentinel](#azure-sentinel-reader) | Lector de Azure Sentinel | 8d289c81-5878-46d4-8554-54e1e3d8b5cb |
+> | [Respondedor de Azure Sentinel](#azure-sentinel-responder) | Respondedor de Azure Sentinel | 3e150937-b8fe-4cfb-8069-0eaf05ecd056 |
+> | [Propietario de los datos de Azure Service Bus](#azure-service-bus-data-owner) | Concede acceso total a los recursos de Azure Service Bus. | 090c5cfd-751d-490a-894a-3ce6f1109419 |
+> | [Receptor de datos de Azure Service Bus](#azure-service-bus-data-receiver) | Concede acceso de recepción a los recursos de Azure Service Bus. | 4f6d3b9b-027b-4f4c-9142-0e5a2a2247e0 |
+> | [Emisor de datos de Azure Service Bus](#azure-service-bus-data-sender) | Concede acceso de emisión a los recursos de Azure Service Bus. | 69a216fc-b8fb-44d8-bc22-1f3c2cd27a39 |
+> | [Propietario del registro de Azure Stack](#azure-stack-registration-owner) | Permite administrar los registros de Azure Stack. | 6f12a6df-dd06-4f3e-bcb1-ce8be600526a |
+> | [Colaborador de copias de seguridad](#backup-contributor) | Permite administrar el servicio de copias de seguridad, pero no puede crear almacenes ni conceder acceso a otros usuarios | 5e467623-bb1f-42f4-a55d-6e525e11384b |
+> | [Operador de copias de seguridad](#backup-operator) | Permite administrar los servicios de copias de seguridad, excepto la eliminación de copias de seguridad, la creación de almacenes y la concesión de acceso a otros usuarios | 00c29273-979b-4161-815c-10b084fb9324 |
+> | [Lector de copias de seguridad](#backup-reader) | Puede ver servicios de copia de seguridad, pero no puede realizar cambios. | a795c7a0-d4a2-40c1-ae25-d81f01202912 |
+> | [Lector de facturación](#billing-reader) | Permite acceso de lectura a los datos de facturación. | fa23ad8b-c56e-40d8-ac0c-ce449e1d2c64 |
+> | [Colaborador de BizTalk](#biztalk-contributor) | Permite administrar los servicios de BizTalk, pero no acceder a ellos. | 5e3c6656-6cfa-4708-81fe-0de47ac73342 |
+> | [Acceso al nodo de miembro de la cadena de bloques (versión preliminar)](#blockchain-member-node-access-preview) | Permite acceder a los nodos de miembro de la cadena de bloques. | 31a002a1-acaf-453e-8a5b-297c9ca1ea24 |
+> | [Colaborador de plano técnico](#blueprint-contributor) | Puede administrar las definiciones del plano técnico, pero no asignarlas. | 41077137-e803-4205-871c-5a86e6a753b4 |
+> | [Operador del plano técnico](#blueprint-operator) | Puede asignar los planos técnicos publicados existentes, pero no puede crear nuevos. Nota: Esto solo funciona si la asignación se realiza con una identidad administrada asignada por el usuario. | 437d2ced-4a38-4302-8479-ed2bcb43d090 |
+> | [Colaborador de punto de conexión de CDN](#cdn-endpoint-contributor) | Puede administrar puntos de conexión de CDN, pero no conceder acceso a otros usuarios. | 426e0c7f-0c7e-4658-b36f-ff54d6c29b45 |
+> | [Lector de punto de conexión de CDN](#cdn-endpoint-reader) | Puede ver puntos de conexión de CDN, pero no hacer cambios. | 871e35f6-b5c1-49cc-a043-bde969a0f2cd |
+> | [Colaborador de perfil de CDN](#cdn-profile-contributor) | Puede administrar perfiles de CDN y sus puntos de conexión, pero no conceder acceso a otros usuarios. | ec156ff8-a8d1-4d15-830c-5b80698ca432 |
+> | [Lector de perfil de CDN](#cdn-profile-reader) | Puede ver perfiles de CDN y sus puntos de conexión, pero no hacer cambios. | 8f96442b-4075-438f-813d-ad51ab4019af |
+> | [Colaborador de la red clásica](#classic-network-contributor) | Permite administrar las redes clásicas, pero no acceder a ellas. | b34d265f-36f7-4a0d-a4d4-e158ca92e90f |
+> | [Colaborador de cuentas de almacenamiento clásico](#classic-storage-account-contributor) | Permite administrar cuentas de almacenamiento clásicas, pero no acceder a ellas. | 86e8f5dc-a6e9-4c67-9d15-de283e8eac25 |
+> | [Rol de servicio de operador de claves de cuentas de almacenamiento clásicas](#classic-storage-account-key-operator-service-role) | Los operadores de claves de cuentas de almacenamiento clásicas pueden enumerar y regenerar claves en cuentas de almacenamiento clásicas | 985d6b00-f706-48f5-a6fe-d0ca12fb668d |
+> | [Colaborador de la máquina virtual clásica](#classic-virtual-machine-contributor) | Permite administrar máquinas virtuales clásicas, pero no acceder a ellas, ni tampoco a la red virtual ni a la cuenta de almacenamiento a las que están conectadas. | d73bb868-a0df-4d4d-bd69-98a00b01fccb |
+> | [Colaborador de Cognitive Services](#cognitive-services-contributor) | Le permite crear, leer, actualizar, eliminar y administrar las claves de Cognitive Services. | 25fbc0a9-bd7c-42a3-aa1a-3b75d497ee68 |
+> | [Lector de datos de Cognitive Services (versión preliminar)](#cognitive-services-data-reader-preview) | Permite leer los datos de Cognitive Services. | b59867f0-fa02-499b-be73-45a86b5b3e1c |
+> | [Usuario de Cognitive Services](#cognitive-services-user) | Le permite leer y mostrar las claves de Cognitive Services. | a97b65f3-24c7-4388-baec-2e87135dc908 |
+> | [Rol de lector de cuentas de Cosmos DB](#cosmos-db-account-reader-role) | Puede leer los datos de cuentas de Azure Cosmos DB. Vea [Colaborador de cuenta de DocumentDB](#documentdb-account-contributor) para administrar cuentas de Azure Cosmos DB. | fbdf93bf-df7d-467e-a4d2-9458aa1360c8 |
+> | [Operador de Cosmos DB](#cosmos-db-operator) | Permite administrar las cuentas de Azure Cosmos DB, pero no acceder a los datos que contienen. Evita el acceso a las claves de cuenta y a las cadenas de conexión. | 230815da-be43-4aae-9cb4-875f7bd000aa |
+> | [CosmosBackupOperator](#cosmosbackupoperator) | Puede enviar una solicitud de restauración para una base de datos de Cosmos DB o un contenedor de una cuenta | db7b14f2-5adf-42da-9f96-f2ee17bab5cb |
+> | [Colaborador de Cost Management](#cost-management-contributor) | Puede ver los costos y administrar la configuración de estos (por ejemplo, presupuestos, exportaciones) | 434105ed-43f6-45c7-a02f-909b2ba83430 |
+> | [Lector de Cost Management](#cost-management-reader) | Puede ver los datos de costo y la configuración (por ejemplo, presupuestos, exportaciones) | 72fafb9e-0641-4937-9268-a91bfd8191a3 |
+> | [Colaborador de Data Box](#data-box-contributor) | Permite administrarlo todo en el servicio Data Box, excepto dar acceso a otros usuarios. | add466c9-e687-43fc-8d98-dfcf8d720be5 |
+> | [Lector de Data Box](#data-box-reader) | Permite administrar el servicio Data Box excepto la creación o edición de detalles de pedido y dar acceso a otros usuarios. | 028f4ed7-e2a9-465e-a8f4-9c0ffdfdc027 |
+> | [Colaborador de Factoría de datos](#data-factory-contributor) | Crea y administra factorías de datos, así como recursos secundarios dentro de ellas. | 673868aa-7521-48a0-acc6-0f60742d39f5 |
+> | [Desarrollador de Data Lake Analytics](#data-lake-analytics-developer) | Le permite enviar, supervisar y administrar sus propios trabajos, pero no crear ni eliminar cuentas de Data Lake Analytics. | 47b7735b-770e-4598-a7da-8b91488b4c88 |
+> | [Purgador de datos](#data-purger) | Puede purgar datos de análisis. | 150f5e0c-0603-4f03-8c7f-cf70034c4e90 |
+> | [Usuario de DevTest Labs](#devtest-labs-user) | Permite conectarse a sus máquinas virtuales, así como iniciarlas, reiniciarlas y apagarlas, en su instancia de Azure DevTest Labs. | 76283e04-6283-4c54-8f91-bcf1374a3c64 |
+> | [Colaborador de zona DNS](#dns-zone-contributor) | Permite administrar zonas y conjuntos de registros DNS en Azure DNS, pero no controlar los usuarios que tienen acceso. | befefa01-2a29-4197-83a8-272ff33ce314 |
+> | [Colaborador de cuenta de DocumentDB](#documentdb-account-contributor) | Puede administrar cuentas de Azure Cosmos DB. Azure Cosmos DB se llamaba anteriormente DocumentDB. | 5bd9cd88-fe45-4216-938b-f97437e15450 |
+> | [Colaborador de EventGrid EventSubscription](#eventgrid-eventsubscription-contributor) | Permite administrar las operaciones de suscripción de eventos de EventGrid. | 428e0ff0-5e57-4d9c-a221-2c70d0e0a443 |
+> | [Lector de EventGrid EventSubscription](#eventgrid-eventsubscription-reader) | Permite leer las suscripciones de eventos de EventGrid. | 2414bbcf-6497-4faf-8c65-045460748405 |
+> | [Operador de clústeres de HDInsight](#hdinsight-cluster-operator) | Permite leer y modificar las configuraciones de clúster de HDInsight. | 61ed4efc-Fab3-44fd-b111-e24485cc132a |
+> | [Colaborador de Domain Services para HDInsight](#hdinsight-domain-services-contributor) | Puede leer, crear, modificar y eliminar operaciones relacionadas con Domain Services para HDInsight Enterprise Security Package | 8d8d5a11-05d3-4bda-a417-a08778121c7c |
+> | [Colaborador de la cuenta de Sistemas inteligentes](#intelligent-systems-account-contributor) | Permite administrar las cuentas de Intelligent Systems, pero no acceder a ellas. | 03a6d094-3444-4b3d-88af-7477090a9e5e |
+> | [Colaborador de almacén de claves](#key-vault-contributor) | Le permite administrar almacenes de claves, pero no acceder a ellos. | f25e0fa2-a7c8-4377-a976-54943a77a395 |
+> | [Creador de laboratorio](#lab-creator) | Le permite crear, administrar y eliminar los laboratorios administrados en sus cuentas de Azure Lab. | b97fb8bc-a8b2-4522-a38b-dd33c7e65ead |
+> | [Colaborador de Log Analytics](#log-analytics-contributor) | Un colaborador de Log Analytics puede leer todos los datos de supervisión y editar la configuración de supervisión. La edición de la configuración de supervisión incluye la posibilidad de añadir la extensión de máquina virtual a las máquinas virtuales, leer las claves de las cuentas de almacenamiento para poder configurar la recopilación de registros de Azure Storage, crear y configurar cuentas de Automation, añadir soluciones y configurar Azure Diagnostics en todos los recursos de Azure. | 92aaf0da-9dab-42b6-94a3-d43ce8d16293 |
+> | [Lector de Log Analytics](#log-analytics-reader) | Un lector de Log Analytics puede ver y buscar todos los datos de supervisión, así como consultar la configuración de supervisión, incluida la de Azure Diagnostics en todos los recursos de Azure. | 73c42c96-874c-492b-b04d-ab87d138a893 |
+> | [Colaborador de aplicación lógica](#logic-app-contributor) | Le permite administrar aplicaciones lógicas, pero no cambiar el acceso a ellas. | 87a39d53-fc1b-424a-814c-f7e04687dc9e |
+> | [Operador de aplicación lógica](#logic-app-operator) | Le permite leer, habilitar y deshabilitar aplicaciones lógicas, pero no permite editarlas ni actualizarlas. | 515c2055-d9d4-4321-b1b9-bd0c9a0f79fe |
+> | [Rol de operador de aplicación administrada](#managed-application-operator-role) | Permite leer y realizar acciones en los recursos de aplicación administrada. | c7393b34-138c-406f-901b-d8cf2b17e6ae |
+> | [Lector de aplicaciones administradas](#managed-applications-reader) | Le permite leer los recursos de una aplicación administrada y solicitar acceso JIT. | b9331d33-8a36-4f8c-b097-4f54124fdb44 |
+> | [Colaborador de identidad administrada](#managed-identity-contributor) | Le permite crear, leer, actualizar y eliminar identidades asignadas por el usuario. | e40ec5ca-96e0-45a2-b4ff-59039f2c2b59 |
+> | [Operador de identidad administrada](#managed-identity-operator) | Le permite leer y asignar identidades asignadas por el usuario. | f1a07417-d97a-45cb-824c-7a7467783830 |
+> | [Rol para eliminar la asignación de registros de servicios administrados](#managed-services-registration-assignment-delete-role) | El rol para eliminar la asignación de registros de servicios administrados permite que los usuarios que administran el inquilino eliminen la asignación de registros asignada a su inquilino. | 91c1777a-f3dc-4fae-b103-61d183457e46 |
+> | [Colaborador de grupo de administración](#management-group-contributor) | Rol de colaborador de grupo de administración | 5d58bcaf-24a5-4b20-bdb6-eed9f69fbe4c |
+> | [Lector de grupo de administración](#management-group-reader) | Rol de lector de grupo de administración | ac63b705-f282-497d-ac71-919bf39d939d |
+> | [Colaborador de supervisión](#monitoring-contributor) | Puede leer todos los datos de supervisión y editar la configuración de supervisión. Consulte también [Introducción a roles, permisos y seguridad con Azure Monitor](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). | 749f88d5-cbae-40b8-bcfc-e573ddc772fa |
+> | [Supervisión del publicador de métricas](#monitoring-metrics-publisher) | Permite publicar las métricas de los recursos de Azure. | 3913510d-42f4-4e42-8a64-420c390055eb |
+> | [Lector de supervisión](#monitoring-reader) | Puede leer todos los datos de supervisión (métricas, registros, etc.). Consulte también [Introducción a roles, permisos y seguridad con Azure Monitor](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). | 43d0d8ad-25c7-4714-9337-8ba259a9fe05 |
+> | [Colaborador de la red](#network-contributor) | Permite administrar redes, pero no acceder a ellas. | 4d97b98b-1d4f-4787-a291-c67834d212e7 |
+> | [Colaborador de la cuenta de NewRelic APM](#new-relic-apm-account-contributor) | Le permite administrar las aplicaciones y cuentas de Application Performance Management de New Relic, pero no acceder a ellas. | 5d28c62d-5b37-4476-8438-e587778df237 |
+> | [Lector y acceso a los datos](#reader-and-data-access) | Permite ver todo el contenido, pero no eliminar ni crear una cuenta de almacenamiento ni un recurso incluido. También permitirá el acceso de lectura o escritura para todos los datos incluidos en una cuenta de almacenamiento a través del acceso a las claves de la cuenta de almacenamiento. | c12c1c16-33a1-487b-954d-41c89c60f349 |
+> | [Colaborador de la memoria caché de Redis](#redis-cache-contributor) | Permite administrar cachés de Redis, pero no acceder a ellas. | e0f68234-74aa-48ed-b826-c38b57376e17 |
+> | [Colaborador de la directiva de recursos (versión preliminar)](#resource-policy-contributor-preview) | (Versión preliminar) Los usuarios repuestos de EA, con derechos para crear o modificar la directiva de recursos, crean incidencias de soporte técnico y leen los recursos o la jerarquía. | 36243c78-bf99-498c-9df9-86d9f8d28608 |
+> | [Colaborador de colecciones de trabajos de Scheduler](#scheduler-job-collections-contributor) | Permite administrar colecciones de trabajos de Scheduler, pero no acceder a ellas. | 188a0f2f-5c9e-469b-ae67-2aa5ce574b94 |
+> | [Colaborador del servicio Search](#search-service-contributor) | Permite administrar los servicios de Búsqueda, pero no acceder a ellos. | 7ca78c08-252a-4471-8644-bb5ff32d4ba0 |
+> | [Administrador de seguridad](#security-admin) | Solo en Security Center: puede ver las directivas de seguridad, los estados de seguridad, editar las directivas de seguridad, ver alertas y recomendaciones, y descartar alertas y recomendaciones. | fb1c8493-542b-48eb-b624-b4c8fea62acd |
+> | [Administrador de seguridad (heredado)](#security-manager-legacy) | Se trata de un rol heredado. En su lugar, use el Administrador de seguridad. | e3d13bf0-dd5a-482e-ba6b-9b8433878d10 |
+> | [Lector de seguridad](#security-reader) | Solo en Security Center: puede ver las recomendaciones y alertas, ver las directivas de seguridad y ver los estados de seguridad, pero no puede realizar cambios | 39bc4728-0917-49c7-9d2c-d95423bc2eb4 |
+> | [Colaborador de Site Recovery](#site-recovery-contributor) | Permite administrar el servicio Site Recovery, excepto la creación de almacenes y la asignación de roles. | 6670b86e-a3f7-4917-ac9b-5d6ab1be4567 |
+> | [Operador de Site Recovery](#site-recovery-operator) | Permite realizar una conmutación por error o una conmutación por recuperación, pero no otras operaciones de administración de Site Recovery. | 494ae006-db33-4328-bf46-533a6560a3ca |
+> | [Lector de Site Recovery](#site-recovery-reader) | Permite visualizar el estado de Site Recovery, pero no realizar otras operaciones de administración. | dbaa88c4-0c30-4179-9fb3-46319faa6149 |
+> | [Colaborador de la cuenta de Spatial Anchors](#spatial-anchors-account-contributor) | Permite administrar los anclajes espaciales en su cuenta, pero no eliminarlos. | 8bbe83f1-e2a6-4df7-8cb4-4e04d4e5c827 |
+> | [Propietario de la cuenta de Spatial Anchors](#spatial-anchors-account-owner) | Permite administrar los anclajes espaciales en su cuenta y eliminarlos. | 70bbe301-9835-447d-afdd-19eb3167307c |
+> | [Lector de la cuenta de Spatial Anchors](#spatial-anchors-account-reader) | Permite encontrar y leer propiedades de los anclajes espaciales en la cuenta. | 5d51204f-eb77-4b1c-b86a-2ec626c49413 |
+> | [Colaborador de Base de datos de SQL](#sql-db-contributor) | Permite administrar las bases de datos de SQL, pero no acceder a ellas. Además, no puede administrar sus directivas relacionadas con la seguridad ni los servidores SQL primarios. | 9b7fa17d-e63e-47b0-bb0a-15c516ac86ec |
+> | [Colaborador de Instancia administrada de SQL](#sql-managed-instance-contributor) | Permite administrar las instancias administradas de SQL y requiere configuración de red, pero no puede conceder acceso a otros usuarios. | 4939a1f6-9ae0-4e48-a1e0-f2cbe897382d |
+> | [Administrador de seguridad SQL](#sql-security-manager) | Permite administrar las directivas relacionadas con seguridad de bases de datos y servidores SQL, pero no acceder a ellas. | 056cd41c-7e88-42e1-933e-88ba6a50c9c3 |
+> | [Colaborador de SQL Server](#sql-server-contributor) | Permite administrar bases de datos y servidores SQL, pero no acceder a ellos, ni a sus directivas relacionadas con la seguridad. | 6d8ee4ec-f05a-4a1d-8b00-a9b17e38b437 |
+> | [Colaborador de la cuenta de almacenamiento](#storage-account-contributor) | Permite la administración de cuentas de almacenamiento. Proporciona acceso a la clave de cuenta, que puede usarse para tener acceso a datos a través de la autorización de clave compartida. | 17d1049b-9a84-46fb-8f53-869881c3d3ab |
+> | [Rol de servicio de operador de claves de cuentas de almacenamiento](#storage-account-key-operator-service-role) | Permite enumerar y regenerar claves de acceso de la cuenta de almacenamiento. | 81a9662b-bebf-436f-a333-f67b29880f12 |
+> | [Colaborador de datos de blobs de almacenamiento](#storage-blob-data-contributor) | Lee, escribe y elimina blobs y contenedores de Azure Storage. Para aprender qué acciones son necesarias para una operación de datos determinada, consulte [Permissions for calling blob and queue data operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations) (Permisos para llamar a operaciones de datos de blob y de cola). | ba92f5b4-2d11-453d-a403-e96b0029c9fe |
+> | [Propietario de datos de blobs de almacenamiento](#storage-blob-data-owner) | Proporciona acceso total a los contenedores de blobs y los datos de Azure Storage, incluida la asignación de control de acceso POSIX. Para aprender qué acciones son necesarias para una operación de datos determinada, consulte [Permissions for calling blob and queue data operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations) (Permisos para llamar a operaciones de datos de blob y de cola). | b7e6dc6d-f1e8-4753-8033-0f276bb0955b |
+> | [Lector de datos de blobs de almacenamiento](#storage-blob-data-reader) | Lee y enumera blobs y contenedores de Azure Storage. Para aprender qué acciones son necesarias para una operación de datos determinada, consulte [Permissions for calling blob and queue data operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations) (Permisos para llamar a operaciones de datos de blob y de cola). | 2a2b9908-6ea1-4ae2-8e65-a410df84e7d1 |
+> | [Delegador de Blob Storage](#storage-blob-delegator) | Obtiene una clave de delegación de usuarios, que se puede usar a continuación para crear una firma de acceso compartido para un contenedor o un blob firmado con credenciales de Azure AD. Para más información, vea [Creación de SAS de delegación de usuarios](https://docs.microsoft.com/rest/api/storageservices/create-user-delegation-sas). | db58b8e5-c6ad-4a2a-8342-4190687cbf4a |
+> | [Colaborador de recursos compartidos de SMB de datos de archivos de Storage](#storage-file-data-smb-share-contributor) | Permite el acceso de lectura, escritura y eliminación a los recursos compartidos de archivos de Azure Storage mediante SMB. | 0c867c2a-1d8c-454a-a3db-ab2ea1bdc8bb |
+> | [Colaborador elevado de recursos compartidos de SMB de datos de archivos de Storage](#storage-file-data-smb-share-elevated-contributor) | Permite el acceso de lectura, escritura, eliminación y modificación de permisos NTFS a los recursos compartidos de archivos de Azure Storage mediante SMB. | a7264617-510b-434b-a828-9731dc254ea7 |
+> | [Lector de recursos compartidos de SMB de datos de archivos de Storage](#storage-file-data-smb-share-reader) | Permite el acceso de lectura a los recursos compartidos de archivos de Azure mediante SMB. | aba4ae5f-2193-4029-9191-0cb91df5e314 |
+> | [Colaborador de datos de la cola de Storage](#storage-queue-data-contributor) | Lee, escribe y elimina los mensajes de la cola y a la cola de Azure Storage. Para aprender qué acciones son necesarias para una operación de datos determinada, consulte [Permissions for calling blob and queue data operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations) (Permisos para llamar a operaciones de datos de blob y de cola). | 974c5e8b-45b9-4653-ba55-5f855dd0fb88 |
+> | [Procesador de mensajes de datos de la cola de Storage](#storage-queue-data-message-processor) | Consulta, recupera y elimina un mensaje de una cola de Azure Storage. Para aprender qué acciones son necesarias para una operación de datos determinada, consulte [Permissions for calling blob and queue data operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations) (Permisos para llamar a operaciones de datos de blob y de cola). | 8a0f0c08-91a1-4084-bc3d-661d67233fed |
+> | [Emisor de mensajes de datos de la cola de Storage](#storage-queue-data-message-sender) | Agrega mensaje a una cola de Azure Storage. Para aprender qué acciones son necesarias para una operación de datos determinada, consulte [Permissions for calling blob and queue data operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations) (Permisos para llamar a operaciones de datos de blob y de cola). | c6a89b2d-59bc-44d0-9896-0f6e12d7b80a |
+> | [Lector de datos de la cola de Storage](#storage-queue-data-reader) | Lee y enumera los mensajes de la cola y las colas de Azure Storage. Para aprender qué acciones son necesarias para una operación de datos determinada, consulte [Permissions for calling blob and queue data operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations) (Permisos para llamar a operaciones de datos de blob y de cola). | 19e7f393-937e-4f77-808e-94535e297925 |
+> | [Colaborador de la solicitud de soporte técnico](#support-request-contributor) | Permite crear y administrar solicitudes de soporte técnico. | cfd33db0-3dd1-45e3-aa9d-cdbdf3b6f24e |
+> | [Colaborador de Traffic Manager](#traffic-manager-contributor) | Le permite administrar perfiles de Traffic Manager, pero no controlar los usuarios que tienen acceso a ellos. | a4b10055-b0c7-44c2-b00f-c7b5b3550cf7 |
+> | [Administrador de acceso de usuario](#user-access-administrator) | Permite administrar el acceso de usuario a los recursos de Azure. | 18d7d88d-d35e-4fb5-a5c3-7773c20a72d9 |
+> | [Inicio de sesión de administrador de Virtual Machine](#virtual-machine-administrator-login) | Visualización de máquinas virtuales en el portal e inicio de sesión como administrador | 1c0163c0-47e6-4577-8991-ea5c82e286e4 |
+> | [Colaborador de la máquina virtual](#virtual-machine-contributor) | Permite administrar máquinas virtuales, pero no acceder a ellas, ni tampoco a la red virtual ni la cuenta de almacenamiento a las que están conectadas. | 9980e02c-c2be-4d73-94e8-173b1dc7cf3c |
+> | [Inicio de sesión de usuario de Virtual Machine](#virtual-machine-user-login) | Visualización de máquinas virtuales en el portal e inicio de sesión como usuario normal. | fb879df8-f326-4884-b1cf-06f3ad86be52 |
+> | [Colaborador de plan web](#web-plan-contributor) | Permite administrar los planes web para sitios web, pero no acceder a ellos. | 2cc479cb-7b4d-49a8-b449-8c00fd0f0a4b |
+> | [Colaborador de sitio web](#website-contributor) | Permite administrar los sitios web (no planes web), pero no acceder a ellos. | de139f84-1756-47ae-9be6-808fbbe84772 |
 
 
 ## <a name="owner"></a>Propietario
@@ -3127,6 +3128,6 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+- [Coincidencia del proveedor de recursos con el servicio](../azure-resource-manager/azure-services-resource-providers.md)
 - [Roles personalizados en los recursos de Azure](custom-roles.md)
-- [Administración del acceso a los recursos de Azure mediante RBAC y Azure Portal](role-assignments-portal.md)
 - [Permisos en Azure Security Center](../security-center/security-center-permissions.md)

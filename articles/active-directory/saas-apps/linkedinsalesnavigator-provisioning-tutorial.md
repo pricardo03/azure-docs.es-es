@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configuración de LinkedIn Sales Navigator para el aprovisionamiento automático de usuarios con Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: aprovisionamiento de usuarios: LinkedIn Sales Navigator, Azure AD'
 description: Aprenda a configurar Azure Active Directory para aprovisionar y cancelar el aprovisionamiento de cuentas de usuario de LinkedIn Sales Navigator automáticamente.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8977e6bb8b665705af7183ff0cdcfae22a19c759
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dbf8923d62b49ed5341776aef03bc1bc2dabeaa9
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65965950"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276817"
 ---
 # <a name="tutorial-configure-linkedin-sales-navigator-for-automatic-user-provisioning"></a>Tutorial: Configuración de LinkedIn Sales Navigator para el aprovisionamiento automático de usuarios
 

@@ -1,18 +1,18 @@
 ---
 title: 'Azure Monitor para VM (versión preliminar): preguntas más frecuentes | Microsoft Docs'
-description: Azure Monitor para máquinas virtuales es una solución de Azure que combina la supervisión de rendimiento y de mantenimiento del sistema operativo de la VM de Azure, así como la detección automática de las dependencias y los componentes de aplicación con otros recursos, y asigna la comunicación entre ellos. En este artículo se responden preguntas comunes.
+description: Respuestas a preguntas habituales sobre Azure Monitor para VM, que se encarga de supervisar el estado y el rendimiento de las máquinas virtuales de Azure, además de detectar y asignar automáticamente los componentes de la aplicación y sus dependencias.
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 01/09/2018
-ms.openlocfilehash: 675277a33a5613507297f1c77ee9cef3215b22a2
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 579538996e934c7068c397a284d819f5ddb92f08
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555218"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74305458"
 ---
 # <a name="azure-monitor-for-vms-preview-frequently-asked-questions"></a>Azure Monitor para VM (versión preliminar): preguntas más frecuentes
 En este artículo de preguntas frecuentes de Microsoft, se presenta una lista con las preguntas frecuentes sobre Azure Monitor para VM. Si tiene alguna otra pregunta sobre esta solución, vaya al [foro de discusión](https://feedback.azure.com/forums/34192--general-feedback) y publíquela. Si una pregunta es frecuente, se agrega a este artículo para que se pueda encontrar de forma rápida y sencilla.

@@ -14,12 +14,12 @@ ms.date: 08/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d371ba2a09dda933bf14208a00535b757afea85
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: f4c637a01825616334cda8faa594efd08f29de8d
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70014223"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74213085"
 ---
 # <a name="azure-ad-connect---msexchuserholdpolicies-and-cloudmsexchuserholdpolicies"></a>Azure AD Connect: msExchUserHoldPolicies y cloudMsExchUserHoldPolicies
 En el documento de referencia siguiente se describen estos atributos usados por Exchange y la manera adecuada de editar las reglas de sincronización predeterminadas.
@@ -68,7 +68,7 @@ msExchangeUserHoldPolicies es un atributo de autoridad única.  Se puede estable
 
 Para permitir que los usuarios establezcan una directiva de conservación en un objeto de usuario en la nube, se usa el atributo cloudMSExchangeUserHoldPolicies. Este atributo se usa porque Azure AD no puede establecer msExchangeUserHoldPolicies directamente en función de las reglas descritas anteriormente.  Este atributo se sincronizará de nuevo con el directorio local si, msExchangeUserHoldPolicies no es NULL y reemplaza al valor actual de msExchangeUserHoldPolicies.
 
-En determinadas circunstancias, por ejemplo, si ambos se cambiaron de forma local y en Azure al mismo tiempo, esto podría causar algunos problemas.  
+En determinadas circunstancias, por ejemplo, si ambos se cambiaron en el entorno local y en Azure al mismo tiempo, esto podría causar algunos problemas.  
 
 ## <a name="next-steps"></a>Pasos siguientes
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](whatis-hybrid-identity.md).

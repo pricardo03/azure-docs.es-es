@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 08/25/2019
 ms.author: memildin
-ms.openlocfilehash: b82eab9d20966ddd0678c9213bf25a14b5313f58
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 7db9f50b4fb1a9309737f05db13a914f414372ed
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686457"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186498"
 ---
 # <a name="threat-detection-for-the-azure-service-layer-in-azure-security-center"></a>Detección de amenazas para la capa de servicios de Azure en Azure Security Center
 
@@ -23,6 +23,7 @@ En este tema se presentan las alertas de Azure Security Center disponibles al su
 
 * [Capa de red de Azure](#network-layer)
 * [Capa de administración de Azure (Azure Resource Manager) (versión preliminar)](#management-layer)
+* [Azure Key Vault](#azure-keyvault)
 
 >[!NOTE]
 >Los análisis siguientes se aplican a todos los tipos de recursos. Usan los datos de telemetría que Security Center proporciona al pulsar las fuentes internas de Azure.
@@ -35,15 +36,15 @@ El análisis de la capa de red de Security Center se basa en [datos IPFIX](https
 
 |Alerta|DESCRIPCIÓN|
 |---|---|
-|**Actividad de red RDP saliente sospechosa**|El análisis de las muestras de tráfico ha detectado una comunicación saliente anómala del Protocolo de escritorio remoto (RDP) con origen en un recurso de su implementación. Esta actividad se considera anómala para este entorno. Podría indicar que el recurso está en peligro y ahora se usa para realizar un ataque por fuerza bruta en un punto de conexión RDP externo. Tenga en cuenta que este tipo de actividad puede dar lugar a que entidades externas marquen su dirección IP como malintencionada.|
-|**Actividad de red RDP saliente sospechosa hacia varios destinos**|El análisis de las muestras de tráfico ha detectado una comunicación de RDP saliente anómala con origen en un recurso de su implementación con varios destinos. Esta actividad se considera anómala para este entorno. Podría indicar que el recurso está en peligro y ahora se usa para realizar un ataques por fuerza bruta en puntos de conexión RDP externos. Tenga en cuenta que este tipo de actividad puede dar lugar a que entidades externas marquen su dirección IP como malintencionada.|
-|**Actividad de red de SSH saliente sospechosa**|El análisis de las muestras de tráfico ha detectado una comunicación saliente anómala de Secure Shell (SSH) con origen en un recurso de su implementación. Esta actividad se considera anómala para este entorno. Podría indicar que el recurso está en peligro y ahora se usa para realizar un ataque por fuerza bruta en un punto de conexión SSH externo. Tenga en cuenta que este tipo de actividad puede dar lugar a que entidades externas marquen su dirección IP como malintencionada.|
-|**Actividad de red de SSH saliente sospechosa hacia varios destinos**|El análisis de las muestras de tráfico ha detectado una comunicación de SSH saliente anómala con origen en un recurso de su implementación con varios destinos. Esta actividad se considera anómala para este entorno. Podría indicar que el recurso está en peligro y ahora se usa para realizar ataques por fuerza bruta en puntos de conexión SSH externos. Tenga en cuenta que este tipo de actividad puede dar lugar a que entidades externas marquen su dirección IP como malintencionada.|
+|**Actividad de red RDP saliente sospechosa**|El análisis de las muestras de tráfico ha detectado una comunicación saliente anómala del Protocolo de escritorio remoto (RDP) con origen en un recurso de su implementación. Esta actividad se considera anómala para este entorno. Podría indicar que el recurso está en peligro y ahora se usa para realizar un ataque por fuerza bruta en un punto de conexión RDP externo. Este tipo de actividad puede dar lugar a que entidades externas marquen su dirección IP como malintencionada.|
+|**Actividad de red RDP saliente sospechosa hacia varios destinos**|El análisis de las muestras de tráfico ha detectado una comunicación de RDP saliente anómala con origen en un recurso de su implementación con varios destinos. Esta actividad se considera anómala para este entorno. Podría indicar que el recurso está en peligro y ahora se usa para realizar un ataques por fuerza bruta en puntos de conexión RDP externos. Este tipo de actividad puede dar lugar a que entidades externas marquen su dirección IP como malintencionada.|
+|**Actividad de red de SSH saliente sospechosa**|El análisis de las muestras de tráfico ha detectado una comunicación saliente anómala de Secure Shell (SSH) con origen en un recurso de su implementación. Esta actividad se considera anómala para este entorno. Podría indicar que el recurso está en peligro y ahora se usa para realizar un ataque por fuerza bruta en un punto de conexión SSH externo. Este tipo de actividad puede dar lugar a que entidades externas marquen su dirección IP como malintencionada.|
+|**Actividad de red de SSH saliente sospechosa hacia varios destinos**|El análisis de las muestras de tráfico ha detectado una comunicación de SSH saliente anómala con origen en un recurso de su implementación con varios destinos. Esta actividad se considera anómala para este entorno. Podría indicar que el recurso está en peligro y ahora se usa para realizar ataques por fuerza bruta en puntos de conexión SSH externos. Este tipo de actividad puede dar lugar a que entidades externas marquen su dirección IP como malintencionada.|
 |**Actividad de red SSH entrante sospechosa procedente de varios orígenes**|El análisis de las muestras de tráfico ha detectado comunicaciones de SSH entrante anómala desde varios orígenes con destino en un recurso de su implementación. Varias direcciones IP únicas conectadas al recurso se consideran anómalas para este entorno. Esta actividad podría indicar un intento de ataque por fuerza bruta a la interfaz de SSH desde varios hosts (Botnet).|
 |**Actividad de red SSH entrante sospechosa**|El análisis de las muestras de tráfico ha detectado una comunicación de SSH entrante anómala con destino en un recurso de su implementación. Para este entorno, se considera anómalo un número relativamente elevado de conexiones entrantes al recurso. Esta actividad podría indicar un intento de ataque por fuerza bruta a su interfaz de SSH.
 |**Actividad de red RDP entrante sospechosa procedente de varios orígenes**|El análisis de las muestras de tráfico ha detectado comunicaciones de RDP entrante anómala desde varios orígenes con destino en un recurso de su implementación. Varias direcciones IP únicas conectadas al recurso se consideran anómalas para este entorno. Esta actividad podría indicar un intento de ataque por fuerza bruta a la interfaz de RDP desde varios hosts (Botnet).|
 |**Actividad de red RDP entrante sospechosa**|El análisis de las muestras de tráfico ha detectado una comunicación de RDP entrante anómala con destino en un recurso de su implementación. Para este entorno, se considera anómalo un número relativamente elevado de conexiones entrantes al recurso. Esta actividad podría indicar un intento de ataque por fuerza bruta a su interfaz de SSH.|
-|**Detectada comunicación de red con una dirección malintencionada**|El análisis de las muestras de tráfico de red ha detectado una comunicación desde un recurso de su implementación con un posible servidor de comando y control (C&C). Tenga en cuenta que este tipo de actividad puede dar lugar a que entidades externas marquen su dirección IP como malintencionada.|
+|**Detectada comunicación de red con una dirección malintencionada**|El análisis de las muestras de tráfico de red ha detectado una comunicación desde un recurso de su implementación con un posible servidor de comando y control (C&C). Este tipo de actividad puede dar lugar a que entidades externas marquen su dirección IP como malintencionada.|
 
 Para comprender cómo Security Center puede usar señales relacionadas con la red para aplicar protección contra amenazas, consulte [Detecciones de DNS heurísticas en Azure Security Center](https://azure.microsoft.com/blog/heuristic-dns-detections-in-azure-security-center/).
 
@@ -79,3 +80,28 @@ Security Center ofrece una capa adicional de protección al usar eventos de Azur
 
 >[!NOTE]
 >Security Center almacena datos de clientes relacionados con la seguridad en la misma zona geográfica que su recurso. Si Microsoft aún no ha implementado Security Center en la zona geográfica del recurso, almacenará los datos en Estados Unidos. Cuando Cloud App Security esté habilitado, esta información se almacenará con arreglo a las reglas de ubicación geográfica de Cloud App Security. Para obtener más información, consulte [Almacenamiento de datos para servicios no regionales](https://azuredatacentermap.azurewebsites.net/).
+
+## Azure Key Vault <a name="azure-keyvault"></a>
+
+Azure Key Vault es un servicio en la nube que protege las claves de cifrado y los secretos, como certificados, cadenas de conexión y contraseñas. 
+
+En Azure Security Center se incluye protección frente a amenazas avanzada, nativa de Azure, para Azure Key Vault que proporciona una capa adicional de inteligencia de seguridad. Security Center detecta intentos inusuales y potencialmente perjudiciales de acceder o explotar las cuentas de Key Vault. Esta capa de protección le permite afrontar las amenazas sin ser un experto en seguridad y sin la necesidad de administrar sistemas de supervisión de la seguridad de terceros.  
+
+Cuando se producen actividades anómalas, Security Center muestra alertas y, opcionalmente, las envía por correo electrónico a los administradores de suscripciones. Dichas alertas incluyen detalles acerca de cualquier actividad sospechosa y recomendaciones acerca de cómo investigar amenazas y mitigarlas. 
+
+> [!NOTE]
+> Este servicio no está disponible actualmente en Azure Government ni en las regiones de nubes soberanas.
+
+> [!div class="mx-tableFixed"]
+
+|Alerta|DESCRIPCIÓN|
+|---|---|
+|**Acceso desde un nodo de salida de TOR a una instancia de Key Vault**|Alguien ha accedido a Key Vault mediante el sistema de anonimización de IP de TOR para ocultar su ubicación. A menudo, los actores malintencionados intentan ocultar su ubicación para obtener acceso no autorizado a los recursos conectados a Internet.|
+|**Cambio sospechoso de directiva y consulta de secretos en Key Vault**|Se ha realizado un cambio de directiva de Key Vault y, a continuación, se han llevado a cabo operaciones para enumerar u obtener secretos. Además, el usuario no suele realizar este patrón de operaciones en este almacén. Esto es muy indicativo de que la instancia de Key Vault está en peligro y que un actor malintencionado ha robado los secretos que contiene.|
+|**Lista y consulta de secretos sospechosas en una instancia de Key Vault**|Se ha realizado una operación para listar secretos seguida de muchas operaciones para obtener secretos. Además, el usuario no suele realizar este patrón de operaciones en este almacén. Esto indica que alguien podría estar volcando los secretos almacenados en Key Vault con fines potencialmente malintencionados.|
+|**Acceso de un par inusual de usuario y aplicación a una instancia de Key Vault**|Un par de usuario y aplicación ha accedido a Key Vault y normalmente no suele hacerlo. Puede tratarse de un intento de acceso legítimo (por ejemplo, después de una actualización de la infraestructura o del código). Pero también puede ser una indicación de que la infraestructura está en peligro y que un actor malintencionado está intentando acceder a Key Vault.|
+|**Acceso de una aplicación inusual a una instancia de Key Vault**|Una aplicación que normalmente no accede a Key Vault, lo ha hecho. Puede tratarse de un intento de acceso legítimo (por ejemplo, después de una actualización de la infraestructura o del código). Pero también puede ser una indicación de que la infraestructura está en peligro y que un actor malintencionado está intentando acceder a Key Vault.|
+|**Acceso de un usuario inusual a una instancia de Key Vault**|Un usuario que normalmente no accede a Key Vault, lo ha hecho. Puede tratarse de un intento de acceso legítimo (por ejemplo, se ha unido a la organización un nuevo usuario que necesita acceso). Pero también puede ser una indicación de que la infraestructura está en peligro y que un actor malintencionado está intentando acceder a Key Vault.|
+|**Patrón de operación inusual en una instancia de Key Vault**|Se ha realizado un conjunto de operaciones de Key Vault inusuales en comparación con los datos históricos. La actividad de Key Vault es normalmente la misma a lo largo del tiempo. Puede ser un cambio legítimo de la actividad. Pero, también, la infraestructura puede estar en riesgo y es necesario realizar más investigaciones.|
+|**Gran volumen de operaciones en una instancia de Key Vault**|Se ha realizado un volumen mayor de operaciones de Key Vault en comparación con los datos históricos. La actividad de Key Vault es normalmente la misma a lo largo del tiempo. Puede ser un cambio legítimo de la actividad. Pero, también, la infraestructura puede estar en riesgo y es necesario realizar más investigaciones.|
+|**Acceso de un usuario a un gran volumen de instancias de Key Vault**|El número de almacenes a los que accede un usuario o una aplicación ha cambiado en comparación con los datos históricos. La actividad de Key Vault es normalmente la misma a lo largo del tiempo. Puede ser un cambio legítimo de la actividad. Pero, también, la infraestructura puede estar en riesgo y es necesario realizar más investigaciones.|

@@ -1,5 +1,6 @@
 ---
-title: Uso de capturas de paquetes para realizar la supervisión proactiva de la red con alertas y Azure Functions
+title: 'Uso de capturas de paquetes para realizar la supervisión proactiva de la red con alertas: Azure Functions'
+titleSuffix: Azure Network Watcher
 description: En este artículo se describe cómo crear una captura de paquetes desencadenada mediante alertas con Azure Network Watcher.
 services: network-watcher
 documentationcenter: na
@@ -14,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: d894fabf3cfd4c6949aba94d558751bf007356d9
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 26599776abdf7ecbb6c86c332a40e0c2b7d6e67e
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70165156"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276130"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Uso de capturas de paquetes para realizar la supervisión proactiva de la red con alertas y Azure Functions
 

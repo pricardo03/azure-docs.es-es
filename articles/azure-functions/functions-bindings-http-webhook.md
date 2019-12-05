@@ -1,21 +1,16 @@
 ---
 title: Enlaces y desencadenadores HTTP de Azure Functions
 description: Aprenda a usar desencadenadores y enlaces HTTP en Azure Functions.
-services: functions
-documentationcenter: na
 author: craigshoemaker
-manager: gwallace
-keywords: azure functions, funciones, procesamiento de eventos, webhooks, proceso dinámico, arquitectura sin servidor, HTTP, API, REST
-ms.service: azure-functions
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 9203f54989d010b8f1f10a7f90f00cc82fa41238
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 598074a6d5093c4febd4d62266a1c852200e3f69
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73574615"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231167"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Enlaces y desencadenadores HTTP de Azure Functions
 
@@ -908,7 +903,7 @@ En esta sección se describen las opciones de configuración globales disponible
 |---------|---------|---------| 
 | customHeaders|None|Permite establecer encabezados personalizados en la respuesta HTTP. En el ejemplo anterior se agrega el encabezado `X-Content-Type-Options` a la respuesta para evitar el examen de tipos de contenido. |
 |dynamicThrottlesEnabled|true<sup>\*</sup>|Cuando se habilita, esta configuración hace que la canalización de procesamiento de la solicitud compruebe periódicamente contadores de rendimiento del sistema como conexiones, subprocesos, procesos, memoria o cpu y, si cualquiera de esos contadores superan un umbral alto integrado (80 %), las solicitudes se rechazarán con una respuesta 429 "Ocupado" hasta que los contadores vuelvan a niveles normales.<br/><sup>\*</sup>El valor predeterminado en un plan de consumo es `true`. El valor predeterminado en un plan dedicado es `false`.|
-|hsts|no habilitado|Cuando `isEnabled` se establece en `true`, se aplica [el comportamiento de la Seguridad de transporte estricta de HTTP (HSTS) de .NET Core](/aspnet/core/security/enforcing-ssl?view=aspnetcore-3.0&tabs=visual-studio#hsts), tal como se define en la [ clase `HstsOptions`](/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions?view=aspnetcore-3.0). En el ejemplo anterior también se establece la propiedad [`maxAge`](/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions.maxage?view=aspnetcore-3.0#Microsoft_AspNetCore_HttpsPolicy_HstsOptions_MaxAge) en 10 días. |
+|hsts|no habilitado|Cuando `isEnabled` se establece en `true`, se aplica [el comportamiento de la Seguridad de transporte estricta de HTTP (HSTS) de .NET Core](/aspnet/core/security/enforcing-ssl?view=aspnetcore-3.0&tabs=visual-studio#hsts), tal como se define en la [ clase `HstsOptions`](/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions?view=aspnetcore-3.0). En el ejemplo anterior también se establece la propiedad [`maxAge`](/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions.maxage?view=aspnetcore-3.0#Microsoft_AspNetCore_HttpsPolicy_HstsOptions_MaxAge) en 10 días. Las propiedades de `hsts` que se admiten son: <table><tr><th>Propiedad</th><th>DESCRIPCIÓN</th></tr><tr><td>excludedHosts</td><td>Matriz de cadenas de nombres de host para los que no se agrega el encabezado HSTS.</td></tr><tr><td>includeSubDomains</td><td>Valor booleano que indica si está habilitado el parámetro includeSubDomain del encabezado Strict-Transport-Security.</td></tr><tr><td>maxAge</td><td>Cadena que define el parámetro max-age del encabezado Strict-Transport-Security.</td></tr><tr><td>preload</td><td>Valor booleano que indica si está habilitado el parámetro preload del encabezado Strict-Transport-Security.</td></tr></table>|
 |maxConcurrentRequests|100<sup>\*</sup>|El número máximo de funciones HTTP que se ejecutan en paralelo. Esto permite controlar la simultaneidad, que a su vez puede ayudar a administrar el uso de recursos. Por ejemplo, podría tener una función HTTP que utiliza una gran cantidad de recursos del sistema (memoria/cpu/sockets) y causa problemas cuando la simultaneidad es demasiado alta. O bien podría tener una función que realiza solicitudes de salida a un servicio de terceros y puede que haya que limitar la velocidad de dichas llamadas. En estos casos puede ayudar aplicar una limitación. <br/><sup>*</sup>El valor predeterminado para un plan de consumo es 100. El valor predeterminado para un plan dedicado es ilimitado (`-1`).|
 |maxOutstandingRequests|200<sup>\*</sup>|Número máximo de solicitudes pendientes que se mantienen en un momento dado. Este límite incluye las solicitudes que están en cola pero no han empezado a ejecutarse, así como todas las ejecuciones en curso. Se rechazan todas las solicitudes entrantes que superen este límite con una respuesta 429 "Too Busy" (demasiado ocupado). Esto permite que los llamadores empleen estrategias de reintento basadas en tiempo y también le ayuda a controlar las latencias de solicitud máximas. Únicamente se controlan los movimientos de la cola que se producen dentro de la ruta de ejecución del host del script. Otras colas, como la cola de solicitudes de ASP.NET, siguen en efecto y no se ven alteradas por esta opción de configuración. <br/><sup>\*</sup>El valor predeterminado para un plan de consumo es 200. El valor predeterminado para un plan dedicado es ilimitado (`-1`).|
 |routePrefix|api|Prefijo de ruta que se aplica a todas las rutas. Use una cadena vacía para quitar el prefijo predeterminado. |

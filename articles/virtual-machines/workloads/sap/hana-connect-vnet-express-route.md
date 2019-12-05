@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 05/25/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 547640ab1a6dd948cf5d17279d784e1b4a37b35e
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 5fbcc6ace4923d8aa2d938cd9fffe7a16c4fc1ff
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101248"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74206740"
 ---
 # <a name="connect-a-virtual-network-to-hana-large-instances"></a>Conexión de una red virtual a instancias grandes de HANA
 
@@ -147,7 +147,7 @@ Los datos necesarios y las palabras clave que se deben usar para que Microsoft p
 - Tipo de problema: Instalación y configuración
 - Subtipo de problema: Mi problema no aparece aquí
 - Asunto "Modificar mi red: agregar Global Reach"
-- Detalles: "Agregar Global Reach a instancia grande de HANA/inquilino de instancia grande de HANA o "Agregar Global Reach a entorno local/inquilino de instancia grande de HANA.
+- Detalles: "Agregar Global Reach a instancia grande de HANA/inquilino de instancia grande de HANA" o "Agregar Global Reach a entorno local/inquilino de instancia grande de HANA".
 - Detalles adicionales para el caso de instancia grande de HANA al inquilino de instancia grande de HANA: Debe definir las **dos regiones de Azure** donde se encuentran los dos inquilinos a los que quiere conectarse **Y** debe enviar el **intervalo de direcciones IP /29**.
 - Detalles adicionales del caso de entorno local a inquilino de instancia grande de HANA: Debe definir la **región de Azure** donde se implementa el inquilino de instancia grande de HANA al que quiere conectarse directamente. Además, debe proporcionar el **AuthGUID** y el **identificador del mismo nivel de circuito** que recibió al establecer el circuito ExpressRoute entre el entorno local y Azure. Además, debe nombrar el **ASN**. La última entrega es un **intervalo de direcciones IP /29** para ExpressRoute Global Reach.
 

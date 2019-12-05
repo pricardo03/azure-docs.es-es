@@ -1,5 +1,5 @@
 ---
-title: 'Uso de restricciones de inquilino para administrar el acceso a aplicaciones en la nube SaaS: Azure | Microsoft Docs'
+title: 'Uso de restricciones de inquilino para administrar el acceso a las aplicaciones SaaS: Azure AD'
 description: Cómo usar restricciones de inquilino para administrar los usuarios que pueden tener acceso a las aplicaciones según su inquilino de Azure AD.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.date: 03/28/2019
 ms.author: mimart
 ms.reviewer: richagi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a340663a1ec4ddf748c6dc2bc3a4e2ce0c4228e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 64f73dd8dbef3f08cd4ea5841e4ec21bac2f55bf
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65824378"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276504"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Uso de restricciones de inquilino para administrar el acceso a aplicaciones en la nube SaaS
 

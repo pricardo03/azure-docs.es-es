@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: d0dd2ca35453859dcc16ef78ef4845a4198aad95
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 7d11dc70a78fcec62032c2a6af168bd306c9d416
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74066339"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227866"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planeamiento de una implementación de Azure Files
 
@@ -132,7 +132,7 @@ En la tabla siguiente se ilustran algunos ejemplos de estas fórmulas para los t
 |102 400     | 100 000 | Hasta 100 000 | 6204 | 4136   |
 
 > [!NOTE]
-> El rendimiento de los recursos compartidos de archivos está sujeto a los límites de red de la máquina, el ancho de banda de red disponible, los tamaños de E/S y el paralelismo, entre muchos otros factores. Para lograr una escala de rendimiento máxima, distribuya la carga entre varias VM. Consulte en la [guía de solución de problemas](storage-troubleshooting-files-performance.md) algunos problemas de rendimiento comunes y soluciones alternativas.
+> El rendimiento de los recursos compartidos de archivos está sujeto a los límites de red de la máquina, el ancho de banda de red disponible, los tamaños de E/S y el paralelismo, entre muchos otros factores. Por ejemplo, en función de las pruebas internas con tamaños de e/s de lectura/escritura de 8 KiB, una sola máquina virtual de Windows (*Standard F16s_v2*) conectada al recurso compartido de archivos Premium a través de SMB podría alcanzar un valor de hasta 20 000 IOPS de lectura y 15 000 IOPS de escritura. Con tamaños de e/s de lectura/escritura de 512 MiB, la misma máquina virtual puede alcanzar un rendimiento de salida de 1,1 GiB/s y 370 MiB/s de entrada. Para lograr una escala de rendimiento máxima, distribuya la carga entre varias VM. Consulte en la [guía de solución de problemas](storage-troubleshooting-files-performance.md) algunos problemas de rendimiento comunes y soluciones alternativas.
 
 #### <a name="bursting"></a>Creación de ráfagas
 

@@ -1,5 +1,5 @@
 ---
-title: Enumeración de recursos de Azure Storage con la biblioteca del cliente de Storage para C++ | Microsoft Docs
+title: Enumeración de los recursos de Azure Storage con la biblioteca cliente de C++
 description: Obtenga información acerca de cómo usar las API de enumeración en la biblioteca de cliente de Microsoft Azure Storage para C++ para enumerar los contenedores, blobs, colas, tablas y entidades.
 author: mhopkins-msft
 ms.author: mhopkins
@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: dineshm
-ms.openlocfilehash: 3a87e39c9435ba02357b4b655e95e96666242b71
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 0f9e80aff20c1b2663491f6d6ceb99aaec58230f
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68721916"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74269445"
 ---
 # <a name="list-azure-storage-resources-in-c"></a>Enumeración de los recursos de Azure Storage en C++
 

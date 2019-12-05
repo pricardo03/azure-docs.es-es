@@ -1,25 +1,20 @@
 ---
-title: Copia de seguridad y restauración de archivos de Azure Files con Azure Backup y PowerShell
+title: Copia de seguridad y restauración de archivos de Azure Files con PowerShell
 description: En este artículo se aprende a realizar copias de seguridad y a restaurar archivos de Azure Files mediante el servicio Azure Backup y PowerShell.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.author: dacurwin
-ms.reviewer: pullabhk
-ms.openlocfilehash: 4642549dcdd455c97ea3e8fd8a8b5440779b923c
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 78000bc669eb7a61f8698ad8c39ef49f65b245a2
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903626"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74224169"
 ---
 # <a name="back-up-and-restore-azure-files-with-powershell"></a>Copia de seguridad y restauración de archivos de Azure Files con PowerShell
 
 En este artículo se describe cómo usar Azure PowerShell para realizar una copia de seguridad de un recurso compartido de archivos de Azure Files y recuperarlo mediante el almacén de Recovery Services de [Azure Backup](backup-overview.md).
 
-Este tutorial explica cómo realizar lo siguiente:
+En este artículo se explica cómo:
 
 > [!div class="checklist"]
 >
@@ -278,7 +273,7 @@ Las instantáneas de recursos compartidos de archivos de Azure se usan al realiz
 
 Las copias de seguridad a petición se pueden usar para conservar las instantáneas durante 10 años. Los programadores pueden usarse para ejecutar scripts de PowerShell a petición con la retención seleccionada. De este modo, se toman instantáneas a intervalos regulares cada semana, mes o año. Al tomar instantáneas periódicas, haga referencia a las [limitaciones de las copias de seguridad a petición](https://docs.microsoft.com/azure/backup/backup-azure-files-faq#how-many-on-demand-backups-can-i-take-per-file-share) mediante Azure Backup.
 
-Si busca scripts de ejemplo, puede ver el script de ejemplo en GitHub (<https://github.com/Azure-Samples/Use-PowerShell-for-long-term-retention-of-Azure-Files-Backup)> con el runbook de Azure Automation que le permite programar las copias de seguridad de forma periódica y conservarlas hasta 10 años).
+Si busca scripts de ejemplo, puede ver el script de ejemplo en GitHub (<https://github.com/Azure-Samples/Use-PowerShell-for-long-term-retention-of-Azure-Files-Backup>) con el runbook de Azure Automation que le permite programar las copias de seguridad de forma periódica y conservarlas hasta 10 años.
 
 ### <a name="modify-the-protection-policy"></a>Modificación de la directiva de protección
 

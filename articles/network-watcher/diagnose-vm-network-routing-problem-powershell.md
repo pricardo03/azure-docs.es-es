@@ -1,5 +1,6 @@
 ---
-title: 'Diagnosticar un problema de enrutamiento en una red de máquinas virtuales: Azure PowerShell | Microsoft Docs'
+title: 'Diagnosticar problemas de enrutamiento en una red de VM: Azure PowerShell'
+titleSuffix: Azure Network Watcher
 description: En este artículo, aprenderá a diagnosticar un problema de enrutamiento en una red de máquinas virtuales mediante la funcionalidad de Próximo salto de Azure Network Watcher.
 services: network-watcher
 documentationcenter: network-watcher
@@ -17,12 +18,12 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 08d273ce6e6ecb1b10d3c39a0954d430a3cb674a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 81e2af329661d485b2d189e9a1f70b50bd6d4b7d
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66730744"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276109"
 ---
 # <a name="diagnose-a-virtual-machine-network-routing-problem---azure-powershell"></a>Diagnosticar problemas de enrutamiento en una red de máquinas virtuales: Azure PowerShell
 

@@ -6,28 +6,21 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 11/05/2019
-ms.openlocfilehash: e344035f05e192de1779a60fc99a7e0144566654
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.date: 11/19/2019
+ms.openlocfilehash: a8654f6c9c6c6d020872d2c89e0dd141db4e0451
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682181"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74215628"
 ---
-# <a name="script-action-to-install-external-python-packages-for-jupyter-notebooks-in-apache-spark-on-hdinsight"></a>Acción de script para instalar paquetes externos de Python para cuadernos de Jupyter en Apache Spark en HDInsight
+# <a name="safely-manage-python-environment-on-azure-hdinsight-using-script-action"></a>Administración segura del entorno de Python en Azure HDInsight mediante la acción de scripts
 
 > [!div class="op_single_selector"]
 > * [Uso de magic cell](apache-spark-jupyter-notebook-use-external-packages.md)
 > * [Uso de acciones de script](apache-spark-python-package-installation.md)
 
-Aprenda a usar acciones de script para configurar un clúster de [Apache Spark](https://spark.apache.org/) en HDInsight para el uso de paquetes de **Python** externos aportados por la comunidad que no están incluidos de serie en el clúster.
-
-> [!NOTE]  
-> También puede configurar un cuaderno de Jupyter mediante `%%configure` para usar paquetes externos. Para obtener instrucciones, consulte [Uso de paquetes externos con cuadernos de Jupyter en clústeres de Apache Spark en HDInsight Linux](apache-spark-jupyter-notebook-use-external-packages.md).
-
-Puede buscar en el [índice de paquetes](https://pypi.python.org/pypi) la lista completa de paquetes que están disponibles. También puede obtener una lista de paquetes disponibles de otras fuentes. Por ejemplo, puede instalar paquetes que están disponibles a través de [conda-forge](https://conda-forge.org/feedstocks/).
-
-En este artículo, aprenderá a instalar el paquete [TensorFlow](https://www.tensorflow.org/) mediante una acción de script en su clúster y a usarlo mediante Jupyter Notebook como un ejemplo.
+HDInsight tiene dos instalaciones de Python integradas en el clúster de Spark: Anaconda Python 2.7 y Python 3.5. En algunos casos, los clientes tienen que personalizar el entorno de Python, como la instalación de paquetes de Python externos u otra versión de Python. En este artículo, se muestra el procedimiento recomendado de administración segura de entornos de Python para un clúster de [Apache Spark](https://spark.apache.org/) en HDInsight.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -52,53 +45,86 @@ Hay dos tipos de componentes de código abierto que están disponibles en el ser
 >
 > Los componentes personalizados reciben soporte técnico comercialmente razonable para ayudarle a solucionar el problema. El soporte técnico de Microsoft podría resolver el problema O pedirle que aborde los canales disponibles para las tecnologías de código abierto donde se encuentra la más amplia experiencia para esa tecnología. Por ejemplo, hay diversos sitios de la comunidad que se pueden usar, como el [foro de MSDN para HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight), [https://stackoverflow.com](https://stackoverflow.com). Los proyectos de Apache también tienen sitios de proyecto en [https://apache.org](https://apache.org), por ejemplo: [Hadoop](https://hadoop.apache.org/).
 
-## <a name="use-external-packages-with-jupyter-notebooks"></a>Uso de paquetes externos con cuadernos de Jupyter Notebook
+## <a name="understand-default-python-installation"></a>Descripción de la instalación predeterminada de Python
 
-1. Desde [Azure Portal](https://portal.azure.com/), vaya al clúster.  
+El clúster de HDInsight Spark se crea con la instalación de Anaconda. Hay dos instalaciones de Python en el clúster: Anaconda Python 2.7 y Python 3.5 En la tabla siguiente se muestra la configuración predeterminada de Python para Spark, Livy y Jupyter.
 
-2. Con el clúster seleccionado, en el panel izquierdo, en **Configuración**, seleccione **Acciones de script**.
+| |Python 2.7|Python 3.5|
+|----|----|----|
+|Path|/usr/bin/anaconda/bin|/usr/bin/anaconda/envs/py35/bin|
+|Spark|Valor predeterminado establecido en 2.7|N/D|
+|Livy|Valor predeterminado establecido en 2.7|N/D|
+|Jupyter|Kernel de PySpark|Kernel de PySpark3|
 
-3. Seleccione **+ Enviar nuevo**.
+## <a name="safely-install-external-python-packages"></a>Instalación segura de paquetes externos de Python
 
-4. Escriba los valores siguientes en la ventana **Enviar acción de script**:  
+El clúster de HDInsight depende del entorno integrado de Python, tanto Python 2.7 como Python 3.5. La instalación directa de paquetes personalizados en esos entornos integrados predeterminados puede producir cambios inesperados en la versión de la biblioteca e interrumpir el clúster. Para instalar de forma segura paquetes externos personalizados de Python para las aplicaciones de Spark, siga los pasos que se indican a continuación.
 
-    |Parámetro | Valor |
-    |---|---|
-    |Tipo de script | Seleccione **- Personalizado** en la lista desplegable.|
-    |NOMBRE |Escriba `tensorflow` en el cuadro de texto.|
-    |URI de script de Bash |Escriba `https://hdiconfigactions.blob.core.windows.net/linuxtensorflow/tensorflowinstall.sh` en el cuadro de texto. |
-    |Tipos de nodo | Seleccione las casillas **Encabezado** y **Trabajo**. |
+1. Cree un entorno virtual de Python mediante Conda. Un entorno virtual proporciona un espacio aislado para sus proyectos sin interrumpir otros. Al crear el entorno virtual de Python, puede especificar la versión de Python que quiere usar. Tenga en cuenta que aún tiene que crear el entorno virtual aunque quiera usar Python 2.7 y 3.5. Esto se hace para asegurarse de que no se interrumpa el entorno predeterminado del clúster. Ejecute las acciones de script en el clúster para todos los nodos con el siguiente script para crear un entorno virtual de Python. 
 
-    `tensorflowinstall.sh` contiene los comandos siguientes:
+    -   `--prefix` especifica una ruta de acceso donde reside un entorno virtual de Conda. Hay varias configuraciones que deben seguirse cambiando en función de la ruta de acceso especificada aquí. En este ejemplo, usamos py35new, ya que el clúster tiene un entorno virtual existente denominado py35.
+    -   `python=` especifica la versión de Python para el entorno virtual. En este ejemplo, usamos la versión 3.5, la misma versión que el clúster creado anteriormente. También puede usar otras versiones de Python para crear el entorno virtual.
+    -   `anaconda` especifica el package_spec como anaconda para instalar paquetes de Anaconda en el entorno virtual.
+    
+    ```bash
+    sudo /usr/bin/anaconda/bin/conda create --prefix /usr/bin/anaconda/envs/py35new python=3.5 anaconda --yes 
+    ```
+
+2. Instale los paquetes externos de Python en el entorno virtual creado si es necesario. Ejecute las acciones de script en el clúster para todos los nodos con el siguiente script para instalar los paquetes externos de Python. Debe tener el privilegio sudo aquí para poder escribir archivos en la carpeta del entorno virtual.
+
+    Puede buscar en el [índice de paquetes](https://pypi.python.org/pypi) la lista completa de paquetes que están disponibles. También puede obtener una lista de paquetes disponibles de otras fuentes. Por ejemplo, puede instalar paquetes que están disponibles a través de [conda-forge](https://conda-forge.org/feedstocks/).
+
+    -   `seaborn` es el nombre del paquete que desea instalar.
+    -   `-n py35new` especifica el nombre del entorno virtual que acaba de crearse. Asegúrese de cambiar el nombre correspondiente en función de la creación del entorno virtual.
 
     ```bash
-    #!/usr/bin/env bash
-    /usr/bin/anaconda/bin/conda install -c conda-forge tensorflow
+    sudo /usr/bin/anaconda/bin/conda install seaborn -n py35new --yes
     ```
 
-5. Seleccione **Crear**.  Consulte la documentación sobre [cómo usar acciones de script personalizadas](../hdinsight-hadoop-customize-cluster-linux.md).
+    Si no conoce el nombre del entorno virtual, puede utilizar SSH en el nodo de encabezado del clúster y ejecutar `/usr/bin/anaconda/bin/conda info -e` para mostrar todos los entornos virtuales.
 
-6. Espere a que se complete el script.  El panel **Acciones de script** indicará **Cuando finalice la operación de clúster, podrán enviarse acciones de script nuevas** mientras se ejecuta el script.  Se puede ver una barra de progreso en la ventana **Operaciones en segundo plano** de la interfaz de usuario de Ambari.
+3. Cambie las configuraciones de Spark y Livy, y apunte al entorno virtual creado.
 
-7. Abra un cuaderno de Jupyter de PySpark.  Consulte [Creación de un cuaderno de Jupyter Notebook en clústeres Spark de HDInsight](./apache-spark-jupyter-notebook-kernels.md#create-a-jupyter-notebook-on-spark-hdinsight).
-
-    ![Crear un nuevo cuaderno de Jupyter](./media/apache-spark-python-package-installation/hdinsight-spark-create-notebook.png "Crear un nuevo cuaderno de Jupyter")
-
-8. Ahora realizará la acción `import tensorflow` y ejecutará un ejemplo de saludo (Hola mundo). Escriba el siguiente código:
-
-    ```
-    import tensorflow as tf
-    hello = tf.constant('Hello, TensorFlow!')
-    sess = tf.Session()
-    print(sess.run(hello))
-    ```
-
-    El resultado se parecerá al siguiente:
+    1. Abra la UI de Ambari, vaya a la página Spark2, pestaña Configs.
     
-    ![Ejecución de código de TensorFlow](./media/apache-spark-python-package-installation/tensorflow-execution.png "Ejecutar código de TensorFlow")
+        ![Cambiar la configuración de Spark y Livy a través de Ambari](./media/apache-spark-python-package-installation/ambari-spark-and-livy-config.png)
+ 
+    2. Expanda Advanced livy2-env y agregue las siguientes instrucciones al final. Si instaló el entorno virtual con otro prefijo, cambie la ruta de acceso correspondiente.
 
-> [!NOTE]  
-> Hay dos instalaciones de Python en el clúster. Spark usará la instalación de Python de Anaconda ubicada en `/usr/bin/anaconda/bin` y usará como predeterminado el entorno de Python 2.7. Para usar Python 3.x e instalar paquetes en el kernel de PySpark3, use la ruta de acceso al ejecutable `conda` para ese entorno y use el parámetro `-n` para especificar el entorno. Por ejemplo, el comando `/usr/bin/anaconda/envs/py35/bin/conda install -c conda-forge ggplot -n py35`, instala el paquete `ggplot` en el entorno de Python 3.5 mediante el canal `conda-forge`.
+        ```
+        export PYSPARK_PYTHON=/usr/bin/anaconda/envs/py35new/bin/python
+        export PYSPARK_DRIVER_PYTHON=/usr/bin/anaconda/envs/py35new/bin/python
+        ```
+
+        ![Cambiar la configuración de Livy a través de Ambari](./media/apache-spark-python-package-installation/ambari-livy-config.png)
+
+    3. Expanda Advanced spark2-env y reemplace la instrucción de exportación PYSPARK_PYTHON existente al final. Si instaló el entorno virtual con otro prefijo, cambie la ruta de acceso correspondiente.
+
+        ```
+        export PYSPARK_PYTHON=${PYSPARK_PYTHON:-/usr/bin/anaconda/envs/py35new/bin/python}
+        ```
+
+        ![Cambiar la configuración de Spark a través de Ambari](./media/apache-spark-python-package-installation/ambari-spark-config.png)
+
+    4. Guarde los cambios y reinicie los servicios afectados. Estos cambios necesitan el reinicio del servicio Spark2. La UI de Ambari le mostrará un aviso de reinicio obligatorio, haga clic en Restart para reiniciar todos los servicios afectados.
+
+        ![Cambiar la configuración de Spark a través de Ambari](./media/apache-spark-python-package-installation/ambari-restart-services.png)
+ 
+4.  Si desea usar el nuevo entorno virtual creado en Jupyter, debe cambiar las configuraciones de Jupyter y reiniciar Jupyter. Ejecute las acciones de script en todos los nodos de encabezado con la siguiente instrucción para apuntar Jupyter al nuevo entorno virtual creado. Asegúrese de modificar la ruta de acceso al prefijo que especificó para el entorno virtual. Después de ejecutar esta acción de script, reinicie el servicio de Jupyter a través de la UI de Ambari para que este cambio esté disponible.
+
+    ```
+    sudo sed -i '/python3_executable_path/c\ \"python3_executable_path\" : \"/usr/bin/anaconda/envs/py35new/bin/python3\"' /home/spark/.sparkmagic/config.json
+    ```
+
+    Puede volver a confirmar el entorno de Python en Jupyter Notebook ejecutando el código siguiente:
+
+    ![Comprobar la versión de Python en Jupyter Notebook](./media/apache-spark-python-package-installation/check-python-version-in-jupyter.png)
+
+## <a name="known-issue"></a>Problema conocido
+
+Hay un error conocido para Anaconda versión 4.7.11 y 4.7.12. Si ve que las acciones de script se bloquean en `"Collecting package metadata (repodata.json): ...working..."` y muestran el error `"Python script has been killed due to timeout after waiting 3600 secs"`. Puede descargar [este script](https://gregorysfixes.blob.core.windows.net/public/fix-conda.sh) y ejecutarlo como acciones de script en todos los nodos para corregir el problema.
+
+Para comprobar la versión de Anaconda, puede aplicar SSH en el nodo de encabezado del clúster y ejecutar `/usr/bin/anaconda/bin/conda --v`.
 
 ## <a name="seealso"></a>Consulte también
 
@@ -125,7 +151,7 @@ Hay dos tipos de componentes de código abierto que están disponibles en el ser
 * [Kernels disponible para Jupyter Notebook en clústeres Apache Spark para HDInsight](apache-spark-jupyter-notebook-kernels.md)
 * [Instalación de un cuaderno de Jupyter Notebook en el equipo y conexión al clúster de Apache Spark en HDInsight de Azure](apache-spark-jupyter-notebook-install-locally.md)
 
-### <a name="manage-resources"></a>Administración de recursos
+### <a name="manage-resources"></a>Administrar recursos
 
 * [Administración de recursos para el clúster Apache Spark en HDInsight de Azure](apache-spark-resource-manager.md)
 * [Track and debug jobs running on an Apache Spark cluster in HDInsight (Seguimiento y depuración de trabajos que se ejecutan en un clúster de Apache Spark en HDInsight)](apache-spark-job-debugging.md)

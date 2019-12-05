@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: babanisa
-ms.openlocfilehash: 8fe85685a41e05b5132157453a6dcbc81c2399af
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: dfa53acaf392e225873a40b05b8517de2f9780dc
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825766"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74169569"
 ---
 # <a name="event-grid-security-and-authentication"></a>Seguridad y autenticación de Event Grid 
 
@@ -102,6 +102,11 @@ Durante la creación de la suscripción a eventos, si ve un mensaje de error, pa
 
 ### <a name="event-delivery-security"></a>Seguridad de entrega de eventos
 
+#### <a name="azure-ad"></a>Azure AD
+
+Puede proteger el punto de conexión de webhook mediante Azure Active Directory para autenticar y autorizar a Event Grid a que publique eventos en los puntos de conexión. Tendrá que crear una aplicación de Azure Active Directory, crear un rol y una entidad de servicio en la aplicación que autorice a Event Grid, y configurar la suscripción de eventos para usar la aplicación de Azure AD. [Obtenga información sobre cómo configurar AAD con Event Grid](secure-webhook-delivery.md).
+
+#### <a name="query-parameters"></a>Parámetros de consulta
 Puede proteger el punto de conexión del webhook mediante la incorporación de parámetros de consulta a la URL del webhook al crear una suscripción a eventos. Establezca uno de estos parámetros de consulta para que sea un secreto, como un [token de acceso](https://en.wikipedia.org/wiki/Access_token). El webhook puede usar el secreto para reconocer que el evento procede de Event Grid con permisos válidos. Event Grid incluye estos parámetros de consulta en cada entrega de eventos al webhook.
 
 Al editar la suscripción al evento, los parámetros de consulta no se muestran ni se devuelven, a menos que el parámetro [--include-full-endpoint-url](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-show) se utilice en la [CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) de Azure.

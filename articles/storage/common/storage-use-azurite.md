@@ -1,5 +1,5 @@
 ---
-title: Uso del emulador de código abierto Azurite para desarrollo y pruebas de Azure Storage (versión preliminar)
+title: Uso del emulador de Azurite para el desarrollo local de Azure Storage
 description: El emulador de código abierto Azurite (versión preliminar) proporciona un entorno local gratuito para probar las aplicaciones de Azure Storage.
 author: mhopkins-msft
 ms.author: mhopkins
@@ -7,14 +7,14 @@ ms.date: 08/31/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.openlocfilehash: e611afd6f10154636eb2e0dd08437b4f7468d6b3
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 0421f49b31eba688542adc0a5b62e1cf75028836
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309526"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74269469"
 ---
-# <a name="use-the-azurite-open-source-emulator-for-azure-storage-development-and-testing-preview"></a>Uso del emulador de código abierto Azurite para desarrollo y pruebas de Azure Storage (versión preliminar)
+# <a name="use-the-azurite-emulator-for-local-azure-storage-development-and-testing-preview"></a>Uso del emulador de Azurite para desarrollo y pruebas locales de Azure Storage (versión preliminar)
 
 El emulador de código abierto Azurite versión 3.2 (versión preliminar) proporciona un entorno local gratuito para probar las aplicaciones de almacenamiento de colas y blobs de Azure. Cuando esté satisfecho con el funcionamiento de la aplicación a nivel local, puede empezar a usarla en una cuenta de almacenamiento de Azure Storage en la nube. El emulador proporciona compatibilidad multiplataforma en Windows, Linux y MacOS. Azurite v3 admite las API implementadas por Azure Blob service.
 

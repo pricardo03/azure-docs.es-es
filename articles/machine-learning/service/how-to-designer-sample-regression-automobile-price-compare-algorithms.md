@@ -1,7 +1,7 @@
 ---
-title: 'Diseñador: Predicción de precios de vehículos (regresión)'
+title: 'Diseñador: ejemplo de predicción de precios de automóviles (avanzado)'
 titleSuffix: Azure Machine Learning
-description: En este artículo se muestra cómo compilar una canalización compleja de aprendizaje automático sin escribir una sola línea de código con el diseñador (versión preliminar). Aprenda a entrenar y comparar varios modelos de regresión para predecir el precio de un automóvil en función de sus características técnicas
+description: Cree y compare varios modelos de regresión de Machine Learning para predecir el precio de un automóvil en función de las características técnicas con el diseñador de Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,14 +10,17 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 11/04/2019
-ms.openlocfilehash: d73f6d67afff13696de78d026ff65228fd68fb28
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 60baf2229b6c704f951e6cc54949109d5e403bc0
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647949"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74225054"
 ---
-# <a name="sample-2---regression-predict-price-and-compare-algorithms"></a>Ejemplo 2 - Regresión: predicción del precio y comparación de algoritmos
+# <a name="train--compare-multiple-regression-models-to-predict-car-prices-with-azure-machine-learning-designer"></a>Entrenamiento y comparación de varios modelos de regresión para predecir los precios de automóviles con el diseñador de Azure Machine Learning
+
+**Ejemplo 2 del diseñador (versión preliminar)**
+
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
 Obtenga más información sobre compilar una canalización compleja de aprendizaje automático sin tener que escribir una sola línea de código con el diseñador (versión preliminar). En este ejemplo se entrenan y se comparan varios modelos de regresión para predecir el precio de un automóvil en función de sus características técnicas. Le mostraremos la justificación de las opciones elegidas en esta canalización de manera que pueda superar los problemas de aprendizaje automático que se le presenten.
@@ -26,7 +29,7 @@ Si acaba de empezar a trabajar con el aprendizaje automático, eche un vistazo a
 
 Este es el gráfico completo de la canalización:
 
-[![Gráfico de la canalización](media/how-to-ui-sample-regression-predict-automobile-price-compare-algorithms/graph.png)](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
+[![Gráfico de la canalización](media/how-to-designer-sample-regression-predict-automobile-price-compare-algorithms/graph.png)](media/how-to-designer-sample-regression-predict-automobile-price-compare-algorithms/graph.png#lightbox)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -53,7 +56,7 @@ Las tareas de preparación principales incluyen la limpieza, la integración, la
 
 Use el módulo **Select Columns in Dataset** (Seleccionar columnas del conjunto de datos) para excluir las pérdidas normalizadas donde falten muchos valores. A continuación, utilizamos **Clean Missing Data** (Eliminar datos que faltan) para quitar las filas donde falten valores. Esto ayuda a crear un conjunto de datos de entrenamiento limpio.
 
-![Procesamiento previo de los datos](media/how-to-ui-sample-regression-predict-automobile-price-compare-algorithms/data-processing.png)
+![Procesamiento previo de los datos](media/how-to-designer-sample-regression-predict-automobile-price-compare-algorithms/data-processing.png)
 
 ## <a name="train-the-model"></a>Entrenamiento del modelo
 
@@ -75,7 +78,7 @@ Después de entrenar el modelo, se usan los módulos **Score Model** (Puntuar mo
 
 Estos son los resultados:
 
-![Comparación de los resultados](media/how-to-ui-sample-regression-predict-automobile-price-compare-algorithms/result.png)
+![Comparación de los resultados](media/how-to-designer-sample-regression-predict-automobile-price-compare-algorithms/result.png)
 
 Estos resultados muestran que el modelo compilado con **Boosted Decision Tree Regression** (Regresión de árbol de decisión incrementado) tiene la raíz del error cuadrático medio menor que el modelo compilado con **Decision Forest Regression** (Regresión de bosque de decisión).
 

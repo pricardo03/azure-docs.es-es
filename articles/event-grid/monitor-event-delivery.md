@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: spelluru
-ms.openlocfilehash: fdd18b833794c25cb90188ba8bc418d4785492ba
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b1035046cc3c3b6cd7bde895e2e779d1c966abe0
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60824159"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74169999"
 ---
 # <a name="monitor-event-grid-message-delivery"></a>Supervisar la entrega de mensajes de Event Grid 
 
@@ -75,6 +75,12 @@ Si ha publicado un tema personalizado, puede consultar sus métricas. Seleccione
 Consulte las métricas para el tema de eventos personalizado.
 
 ![Ver métricas de eventos](./media/monitor-event-delivery/custom-topic-metrics.png)
+
+## <a name="set-alerts"></a>Establecer alertas
+
+Puede establecer alertas en las métricas de nivel de tema y de dominio para temas personalizados y dominios de eventos. En la hoja de información general, seleccione **Alertas** en el menú de recursos de la izquierda para ver, administrar y crear reglas de alertas. [Obtener más información sobre alertas de Azure Monitor](../azure-monitor/platform/alerts-overview.md)
+
+![Ver métricas de eventos](./media/monitor-event-delivery/select-alerts.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

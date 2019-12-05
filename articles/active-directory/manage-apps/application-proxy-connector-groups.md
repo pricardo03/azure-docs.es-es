@@ -1,5 +1,5 @@
 ---
-title: Publicación de aplicaciones en redes independientes con los grupos de conectores de proxy de una aplicación de Azure AD | Microsoft Docs
+title: 'Publicación de aplicaciones en redes independientes a través de grupos de conectores: Azure AD'
 description: Explica cómo crear y administrar grupos de conectores en el Proxy de aplicación de Azure AD.
 services: active-directory
 author: msmimart
@@ -14,12 +14,12 @@ ms.date: 11/08/2018
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dae4eea3e08818d43482c995595cc9fbc3f91910
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 22fa1de0a0e3bb91480212381e07b17875bf0bf4
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68381485"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275560"
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>Publicación de aplicaciones en redes independientes y ubicaciones mediante grupos de conectores
 

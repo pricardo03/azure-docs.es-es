@@ -4,14 +4,14 @@ description: Administración y actualización de Azure HPC Cache mediante Azure 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 11/18/2019
 ms.author: rohogue
-ms.openlocfilehash: 62b54bfe120acdde1fd22c4a0d04165ea7243b50
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 9cd5ad151c977838fea30f52c7d4a93b4663c8ff
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582199"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74166718"
 ---
 # <a name="manage-your-cache-from-the-azure-portal"></a>Administración de la memoria caché desde Azure Portal
 
@@ -19,7 +19,7 @@ En la página de información general de caché de Azure Portal se muestran los 
 
 Para abrir la página de información general, seleccione el recurso de caché en Azure Portal. Por ejemplo, cargue la página **Todos los recursos** y haga clic en el nombre de la memoria caché.
 
-![Captura de pantalla de la página Información general de una instancia de Azure HPC Cache](media/hpc-cache-overview.png) <!-- placeholder is identical to hpc-cache-new-overview.png; replace with better image (showing graphs, full sidebar) when available -->
+![Captura de pantalla de la página Información general de una instancia de Azure HPC Cache](media/hpc-cache-overview.png)
 
 Los botones que se encuentran en la parte superior de la página pueden ayudarlo a administrar la memoria caché:
 
@@ -37,9 +37,11 @@ El botón **Vaciar** de la página de información general indica a la memoria c
 > [!NOTE]
 > Durante el proceso de vaciado, la memoria caché no puede atender las solicitudes del cliente. El acceso a la memoria caché se suspende y se reanuda una vez finalizada la operación.
 
+![Captura de pantalla de los botones superiores con el botón Vaciar resaltado, un mensaje emergente que describe la acción de vaciado y pregunta si desea continuar, y los botones Sí (valor predeterminado) y No.](media/hpc-cache-flush.png)
+
 Cuando se inicia la operación de vaciado de la memoria caché, esta deja de aceptar solicitudes de cliente y su estado de en la página de información general cambia a **Vaciado**.
 
-Los datos de la memoria caché se guardan en los destinos de almacenamiento adecuados. El proceso puede tardar unos minutos, una hora o más en función de la cantidad de datos que se hayan escrito en la memoria caché recientemente.
+Los datos de la memoria caché se guardan en los destinos de almacenamiento adecuados. En función de la cantidad de datos que se deban vaciar, el proceso puede tardar unos minutos o más de una hora.
 
 Una vez que todos los datos se guardan en destinos de almacenamiento, la memoria caché empieza de nuevo a tomar las solicitudes de cliente. El estado de la memoria caché vuelve a **Correcto**.
 
@@ -53,7 +55,7 @@ El acceso de cliente no se interrumpe durante una actualización de software, pe
 
 La actualización de software puede tardar varias horas. Las memorias caché configuradas con un mayor rendimiento tardan más tiempo en actualizarse que las que tienen valores de rendimiento de pico más pequeños.
 
-Cuando haya una actualización de software disponible, tendrá varios días para aplicarla manualmente. La fecha de finalización aparece en el mensaje de actualización. Si no actualiza durante ese tiempo, Azure aplica automáticamente la actualización a la memoria caché. El momento de la actualización automática no es configurable. Si le preocupa el impacto en el rendimiento de la memoria caché, debe actualizar el software usted mismo antes de que expire el período de tiempo.
+Cuando haya una actualización de software disponible, tendrá una semana aproximadamente para aplicarla manualmente. La fecha de finalización aparece en el mensaje de actualización. Si no actualiza durante ese tiempo, Azure aplica automáticamente la actualización a la memoria caché. El momento de la actualización automática no es configurable. Si le preocupa el impacto en el rendimiento de la memoria caché, debe actualizar el software usted mismo antes de que expire el período de tiempo.
 
 Haga clic en el botón **Actualizar** para comenzar la actualización de software. El estado de la memoria caché cambia a **Actualizando** hasta que se complete la operación.
 

@@ -7,12 +7,12 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: 3274641f7b118e13b3ed727f609ce7471fd66b54
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: e2517ec4a02a5d61fb3ce1d9ca9ffa2b5f4e8bf8
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682287"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74287027"
 ---
 # <a name="transformation-functions-in-wrangling-data-flow"></a>Funciones de transformación en flujos de datos de limpieza y transformación
 
@@ -81,12 +81,21 @@ Use [Table.Sort](https://docs.microsoft.com/powerquery-m/table-sort) para ordena
 
 Mantener y quitar la parte superior, mantener el rango (funciones M correspondientes, solo se admiten recuentos, no condiciones: [Table.FirstN](https://docs.microsoft.com/powerquery-m/table-firstn), [Table.Skip](https://docs.microsoft.com/powerquery-m/table-skip), [Table.RemoveFirstN](https://docs.microsoft.com/powerquery-m/table-removefirstn), [Table.Range](https://docs.microsoft.com/powerquery-m/table-range), [Table.MinN](https://docs.microsoft.com/powerquery-m/table-minn), [Table.MaxN](https://docs.microsoft.com/powerquery-m/table-maxn))
 
-## <a name="known-unsupported-functionality"></a>Funcionalidad conocida no admitida
+## <a name="known-unsupported-functions"></a>Funciones conocidas no admitidas
 
-A continuación se muestran las funciones que no se admiten. Esta lista no es exhaustiva y está sujeta a cambios.
-* Combinar columnas (se puede lograr con AddColumn)
-* Dividir columna
-* Anexar consultas
-* "Usar primera fila como encabezado" y "Usar encabezados como primera fila"
+| Función | Status |
+| -- | -- |
+| Table.PromoteHeaders | No compatible. Se puede lograr el mismo resultado si se establece "Primera fila como encabezado" en el conjunto de resultados. |
+| Table.CombineColumns | Se trata de un escenario habitual que no se admite directamente, pero se puede realizar si se agrega una nueva columna que concatene dos columnas concretas.  Por ejemplo, Table.AddColumn(RemoveEmailColumn, “Name”, each [FirstName] & ” ” & [LastName]) |
+| Table.TransformColumnTypes | Esto se admite en la mayoría de los casos. No se admiten los siguientes escenarios: transformar una cadena al tipo de moneda, transformar una cadena al tipo de hora, transformar una cadena al tipo de porcentaje. |
+| Table.NestedJoin | Si realiza una combinación, se producirá un error de validación. Las columnas deben expandirse para que funcione. |
+| Table.Distinct | No se admite la eliminación de filas duplicadas. |
+| Table.RemoveLastN | No se admite la eliminación de las filas inferiores. |
+| Table.RowCount | No se admite, pero se puede realizar si agrega una columna con todas las celdas vacías (se puede usar la columna condición) y, a continuación, usa Agrupar por en esa columna. Se admite Table.Group. | 
+| Control de errores de nivel de fila | El control de errores de nivel de fila no se admite actualmente. Por ejemplo, para filtrar los valores no numéricos de una columna, una opción sería transformar la columna de texto en números. Cada celda que no se pueda transformar tendrá un estado de error y debe filtrarse. Este escenario no es posible en el flujo de datos de limpieza y transformación. |
+| Table.Transpose | No compatible |
+| Table.Pivot | No compatible |
 
 ## <a name="next-steps"></a>Pasos siguientes
+
+Obtenga información sobre cómo [crear un flujo de datos de limpieza y transformación](wrangling-data-flow-tutorial.md).

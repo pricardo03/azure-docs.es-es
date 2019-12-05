@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: f1a96302d180f3b4b179f42013232f3b48d4e2b0
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.openlocfilehash: a2f4bdb96b8d1ecb23ddcec844726439ec46fff2
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69016364"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186453"
 ---
 # <a name="prepare-source-machine-for-push-installation-of-mobility-agent"></a>Preparación de una máquina de origen para la instalación de inserción del agente de Mobility
 
@@ -32,7 +32,7 @@ En cada máquina Windows que quiera proteger, realice lo siguiente:
    ![Configuración de firewall](./media/vmware-azure-install-mobility-service/mobility1.png)
 
 4. Agregue la cuenta que creó en CSPSConfigtool. Para ello, inicie sesión en el servidor de configuración.
-5. Abra **cspsconfigtool.exe**. Esta herramienta está disponible como acceso directo en el escritorio y se encuentra en la carpeta %ProgramData%\home\svsystems\bin.
+5. Abra **cspsconfigtool.exe**. Esta herramienta está disponible como acceso directo en el escritorio y se encuentra en la carpeta %ProgramData%\ASR\home\svsystems\bin.
 6. En la pestaña **Administrar cuentas**, seleccione en **Agregar cuenta**.
 7. Agregue la cuenta que creó.
 8. Especifique las credenciales que utiliza al habilitar la replicación en un equipo.

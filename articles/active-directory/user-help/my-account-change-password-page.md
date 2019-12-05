@@ -1,6 +1,6 @@
 ---
-title: 'Cambio de la contraseña desde el portal Mi cuenta: Azure Active Directory | Microsoft Docs'
-description: Procedimientos para cambiar la contraseña de la cuenta profesional o educativa desde la página Cambiar contraseña del portal Mi cuenta.
+title: 'Cambiar la contraseña de la cuenta profesional o educativa: Azure AD'
+description: Aprenda a cambiar la contraseña de la cuenta profesional o educativa desde la página Cambiar contraseña del portal Mi cuenta.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4716ef932debe50bfe0aee6519b53e3a19e8d51
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 510f1ca441ef9645cff7f577bbad39991cebc285
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73586957"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231867"
 ---
 # <a name="change-your-work-or-school-account-password-from-the-my-account-portal"></a>Cambio de la contraseña de la cuenta profesional o educativa desde el portal Mi cuenta
 

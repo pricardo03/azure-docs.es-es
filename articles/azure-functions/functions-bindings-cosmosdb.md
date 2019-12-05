@@ -1,21 +1,17 @@
 ---
 title: Enlaces de Azure Cosmos DB para Functions 1.x
 description: Descubra cómo utilizar desencadenadores y enlaces de almacenamiento de Azure Cosmos DB en Azure Functions.
-services: functions
 author: craigshoemaker
 ms.author: cshoe
-manager: gwallace
-keywords: azure functions, funciones, procesamiento de eventos, proceso dinámico, arquitectura sin servidor
-ms.service: azure-functions
 ms.topic: reference
 ms.date: 11/21/2017
 ms.custom: seodec18
-ms.openlocfilehash: 0e6782c48543723438ee332313de268117dee3e9
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 18bbfd1b54947bb88ba8f06c65a17b90430b38a3
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67480717"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74305234"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>Enlaces de Azure Cosmos DB para Azure Functions 1.x
 
@@ -47,15 +43,7 @@ El desencadenador de Azure Cosmos DB utiliza la [fuente de cambios de Azure Cosm
 
 ## <a name="trigger---example"></a>Desencadenador: ejemplo
 
-Vea el ejemplo específico del lenguaje:
-
-* [C#](#trigger---c-example)
-* [Script de C# (.csx)](#trigger---c-script-example)
-* [JavaScript](#trigger---javascript-example)
-
-[Ejemplos de omisión de desencadenador](#trigger---attributes)
-
-### <a name="trigger---c-example"></a>Desencadenador: ejemplo de C#
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 En el ejemplo siguiente se muestra un [función de C#](functions-dotnet-class-library.md) que se invoca cuando hay inserciones y actualizaciones en la base de datos y colección especificadas.
 
@@ -88,9 +76,7 @@ namespace CosmosDBSamplesV1
 }
 ```
 
-[Ejemplos de omisión de desencadenador](#trigger---attributes)
-
-### <a name="trigger---c-script-example"></a>Desencadenador: ejemplo de script de C#
+# <a name="c-scripttabcsharp-script"></a>[Script de C#](#tab/csharp-script)
 
 En el ejemplo siguiente se muestra un enlace de desencadenador de Cosmos DB en un archivo *function.json* y una [función de script de C#](functions-reference-csharp.md) que usa el enlace. La función escribe mensajes de registro cuando se modifican los registros de Cosmos DB.
 
@@ -126,9 +112,7 @@ Este es el código de script de C#:
     }
 ```
 
-[Ejemplos de omisión de desencadenador](#trigger---attributes)
-
-### <a name="trigger---javascript-example"></a>Desencadenador: ejemplo de JavaScript
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 En el ejemplo siguiente se muestra un enlace de desencadenador de Cosmos DB en un archivo *function.json* y una [función de JavaScript](functions-reference-node.md) que usa el enlace. La función escribe mensajes de registro cuando se modifican los registros de Cosmos DB.
 
@@ -157,7 +141,11 @@ Este es el código de JavaScript:
     }
 ```
 
+---
+
 ## <a name="trigger---attributes"></a>Desencadenador: atributos
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 En las [bibliotecas de clases de C#](functions-dotnet-class-library.md), use el atributo [CosmosDBTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/Trigger/CosmosDBTriggerAttribute.cs).
 
@@ -174,7 +162,17 @@ El constructor del atributo toma el nombre de la base de datos y el nombre de la
     }
 ```
 
-Para un ejemplo completo, consulte [Desencadenador: ejemplo de C#](#trigger---c-example).
+Para un ejemplo completo, consulte [Desencadenador: ejemplo de C#](#trigger).
+
+# <a name="c-scripttabcsharp-script"></a>[Script de C#](#tab/csharp-script)
+
+El script de C# no admite atributos.
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+JavaScript no admite atributos.
+
+---
 
 ## <a name="trigger---configuration"></a>Desencadenador: configuración
 
@@ -217,18 +215,7 @@ El desencadenador no indica si un documento se actualizó o se insertó; solo pr
 
 El enlace de entrada de Azure Cosmos DB usa SQL API para recuperar uno o varios documentos de Azure Cosmos DB y los pasa al parámetro de entrada de la función. Se puede determinar el identificador de documento o los parámetros de consulta según el desencadenador que invoca la función.
 
-## <a name="input---examples"></a>Entrada: ejemplos
-
-Vea los ejemplos específicos del lenguaje que leen un solo documento mediante la especificación de un valor del identificador:
-
-* [C#](#input---c-examples)
-* [Script de C# (.csx)](#input---c-script-examples)
-* [JavaScript](#input---javascript-examples)
-* [F#](#input---f-examples)
-
-[Omisión de los ejemplos de entrada](#input---attributes)
-
-### <a name="input---c-examples"></a>Entrada: ejemplos en C#
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 En esta sección se incluyen los ejemplos siguientes:
 
@@ -252,9 +239,9 @@ namespace CosmosDBSamplesV1
 }
 ```
 
-[Omisión de los ejemplos de entrada](#input---attributes)
+<a id="queue-trigger-look-up-id-from-json-c"></a>
 
-#### <a name="queue-trigger-look-up-id-from-json-c"></a>Desencadenador de cola, buscar identificador de JSON (C#)
+### <a name="queue-trigger-look-up-id-from-json"></a>Desencadenador de cola, buscar identificador a partir de un JSON
 
 En el ejemplo siguiente se muestra una [función de C#](functions-dotnet-class-library.md) que recupera un documento individual. La función la desencadena un mensaje de la cola que contiene un objeto JSON. El desencadenador de la cola analiza el JSON en un objeto denominado `ToDoItemLookup`, que contiene el identificador que se va a buscar. Dicho identificador se usa para recuperar un documento de `ToDoItem` de la base de datos y colección especificadas.
 
@@ -301,9 +288,9 @@ namespace CosmosDBSamplesV1
 }
 ```
 
-[Omisión de los ejemplos de entrada](#input---attributes)
+<a id="http-trigger-look-up-id-from-query-string-c"></a>
 
-#### <a name="http-trigger-look-up-id-from-query-string-c"></a>Desencadenador de HTTP, buscar identificador de cadena de consulta (C#)
+### <a name="http-trigger-look-up-id-from-query-string"></a>Desencadenador de HTTP, buscar identificador a partir de una cadena de consulta
 
 En el ejemplo siguiente se muestra una [función de C#](functions-dotnet-class-library.md) que recupera un documento individual. La función la desencadena una solicitud HTTP que utiliza una cadena de consulta para especificar el identificador que se va a buscar. Dicho identificador se usa para recuperar un documento de `ToDoItem` de la base de datos y colección especificadas.
 
@@ -343,9 +330,9 @@ namespace CosmosDBSamplesV1
 }
 ```
 
-[Omisión de los ejemplos de entrada](#input---attributes)
+<a id="http-trigger-look-up-id-from-route-data-c"></a>
 
-#### <a name="http-trigger-look-up-id-from-route-data-c"></a>Desencadenador de HTTP, buscar identificador de datos de ruta (C#)
+### <a name="http-trigger-look-up-id-from-route-data"></a>Desencadenador de HTTP, buscar identificador a partir de datos de ruta
 
 En el ejemplo siguiente se muestra una [función de C#](functions-dotnet-class-library.md) que recupera un documento individual. La función la desencadena una solicitud HTTP que utiliza los datos de la ruta para especificar el identificador que se va a buscar. Dicho identificador se usa para recuperar un documento de `ToDoItem` de la base de datos y colección especificadas.
 
@@ -390,7 +377,9 @@ namespace CosmosDBSamplesV1
 
 [Omisión de los ejemplos de entrada](#input---attributes)
 
-#### <a name="http-trigger-look-up-id-from-route-data-using-sqlquery-c"></a>Desencadenador de HTTP, buscar identificador de datos de ruta, mediante SqlQuery (C#)
+<a id="http-trigger-look-up-id-from-route-data-using-sqlquery-c"></a>
+
+### <a name="http-trigger-look-up-id-from-route-data-using-sqlquery"></a>Desencadenador de HTTP, buscar identificador a partir de datos de ruta mediante SqlQuery
 
 En el ejemplo siguiente se muestra una [función de C#](functions-dotnet-class-library.md) que recupera un documento individual. La función la desencadena una solicitud HTTP que utiliza los datos de la ruta para especificar el identificador que se va a buscar. Dicho identificador se usa para recuperar un documento de `ToDoItem` de la base de datos y colección especificadas.
 
@@ -430,7 +419,9 @@ namespace CosmosDBSamplesV1
 
 [Omisión de los ejemplos de entrada](#input---attributes)
 
-#### <a name="http-trigger-get-multiple-docs-using-sqlquery-c"></a>Desencadenador de HTTP, obtener varios documentos, mediante SqlQuery (C#)
+<a id="http-trigger-get-multiple-docs-using-sqlquery-c"></a>
+
+### <a name="http-trigger-get-multiple-docs-using-sqlquery"></a>Desencadenador de HTTP, obtener varios documentos mediante SqlQuery
 
 En el ejemplo siguiente se muestra una [función de C#](functions-dotnet-class-library.md) que recupera una lista de documentos. La función la desencadena una solicitud HTTP. La consulta se especifica en la propiedad del atributo `SqlQuery`.
 
@@ -471,7 +462,9 @@ namespace CosmosDBSamplesV1
 
 [Omisión de los ejemplos de entrada](#input---attributes)
 
-#### <a name="http-trigger-get-multiple-docs-using-documentclient-c"></a>Desencadenador de HTTP, obtener varios documentos, mediante DocumentClient (C#)
+<a id="http-trigger-get-multiple-docs-using-documentclient-c"></a>
+
+### <a name="http-trigger-get-multiple-docs-using-documentclient-c"></a>Desencadenador de HTTP, obtener varios documentos, mediante DocumentClient (C#)
 
 En el ejemplo siguiente se muestra una [función de C#](functions-dotnet-class-library.md) que recupera una lista de documentos. La función la desencadena una solicitud HTTP. El código usa una instancia de `DocumentClient` que proporciona el enlace de Azure Cosmos DB para leer una lista de documentos. La instancia de `DocumentClient` también se puede usar para las operaciones de escritura.
 
@@ -530,9 +523,7 @@ namespace CosmosDBSamplesV1
 }
 ```
 
-[Omisión de los ejemplos de entrada](#input---attributes)
-
-### <a name="input---c-script-examples"></a>Entrada: ejemplos de script de C#
+# <a name="c-scripttabcsharp-script"></a>[Script de C#](#tab/csharp-script)
 
 En esta sección se incluyen los ejemplos siguientes:
 
@@ -556,9 +547,9 @@ namespace CosmosDBSamplesV1
 }
 ```
 
-[Omisión de los ejemplos de entrada](#input---attributes)
+<a id="queue-trigger-look-up-id-from-string-c-script"></a>
 
-#### <a name="queue-trigger-look-up-id-from-string-c-script"></a>Desencadenador de cola, buscar identificador de una cadena (script de C#)
+### <a name="queue-trigger-look-up-id-from-string"></a>Desencadenador de cola, buscar identificador a partir de una cadena
 
 En el ejemplo siguiente se muestra un enlace de entrada de Cosmos DB en un archivo *function.json* y una [función de script de C#](functions-reference-csharp.md) que usa el enlace. La función lee un solo documento y actualiza el valor de texto del documento.
 
@@ -576,6 +567,7 @@ Estos son los datos de enlace del archivo *function.json*:
     "direction": "in"
 }
 ```
+
 En la sección de [configuración](#input---configuration) se explican estas propiedades.
 
 Este es el código de script de C#:
@@ -590,9 +582,9 @@ Este es el código de script de C#:
     }
 ```
 
-[Omisión de los ejemplos de entrada](#input---attributes)
+<a id="queue-trigger-get-multiple-docs-using-sqlquery-c-script"></a>
 
-#### <a name="queue-trigger-get-multiple-docs-using-sqlquery-c-script"></a>Desencadenador de colas, obtener varios documentos, mediante SqlQuery (script de C#)
+### <a name="queue-trigger-get-multiple-docs-using-sqlquery"></a>Desencadenador de colas, obtener varios documentos mediante SqlQuery
 
 En el ejemplo siguiente se muestra un enlace de entrada de Azure Cosmos DB en un archivo *function.json* y una [función de script de C#](functions-reference-csharp.md) que usa el enlace. La función recupera varios documentos especificados por una consulta SQL con un desencadenador de cola para personalizar los parámetros de la consulta.
 
@@ -631,9 +623,9 @@ Este es el código de script de C#:
     }
 ```
 
-[Omisión de los ejemplos de entrada](#input---attributes)
+<a id="http-trigger-look-up-id-from-query-string-c-script"></a>
 
-#### <a name="http-trigger-look-up-id-from-query-string-c-script"></a>Desencadenador de HTTP, buscar identificador de cadena de consulta (script de C#)
+### <a name="http-trigger-look-up-id-from-query-string"></a>Desencadenador de HTTP, buscar identificador a partir de una cadena de consulta
 
 En el ejemplo siguiente se muestra una [función de script de C#](functions-reference-csharp.md) que recupera un documento individual. La función la desencadena una solicitud HTTP que utiliza una cadena de consulta para especificar el identificador que se va a buscar. Dicho identificador se usa para recuperar un documento de `ToDoItem` de la base de datos y colección especificadas.
 
@@ -692,9 +684,9 @@ public static HttpResponseMessage Run(HttpRequestMessage req, ToDoItem toDoItem,
 }
 ```
 
-[Omisión de los ejemplos de entrada](#input---attributes)
+<a id="http-trigger-look-up-id-from-route-data-c-script"></a>
 
-#### <a name="http-trigger-look-up-id-from-route-data-c-script"></a>Desencadenador de HTTP, buscar identificador de datos de ruta (script de C#)
+### <a name="http-trigger-look-up-id-from-route-data"></a>Desencadenador de HTTP, buscar identificador a partir de datos de ruta
 
 En el ejemplo siguiente se muestra una [función de script de C#](functions-reference-csharp.md) que recupera un documento individual. La función la desencadena una solicitud HTTP que utiliza los datos de la ruta para especificar el identificador que se va a buscar. Dicho identificador se usa para recuperar un documento de `ToDoItem` de la base de datos y colección especificadas.
 
@@ -754,9 +746,9 @@ public static HttpResponseMessage Run(HttpRequestMessage req, ToDoItem toDoItem,
 }
 ```
 
-[Omisión de los ejemplos de entrada](#input---attributes)
+<a id="http-trigger-get-multiple-docs-using-sqlquery-c-script"></a>
 
-#### <a name="http-trigger-get-multiple-docs-using-sqlquery-c-script"></a>Desencadenador de HTTP, obtener varios documentos, mediante SqlQuery (script de C#)
+### <a name="http-trigger-get-multiple-docs-using-sqlquery"></a>Desencadenador de HTTP, obtener varios documentos mediante SqlQuery
 
 En el ejemplo siguiente se muestra una [función de script de C#](functions-reference-csharp.md) que recupera una lista de documentos. La función la desencadena una solicitud HTTP. La consulta se especifica en la propiedad del atributo `SqlQuery`.
 
@@ -811,9 +803,9 @@ public static HttpResponseMessage Run(HttpRequestMessage req, IEnumerable<ToDoIt
 }
 ```
 
-[Omisión de los ejemplos de entrada](#input---attributes)
+<a id="http-trigger-get-multiple-docs-using-documentclient-c-script"></a>
 
-#### <a name="http-trigger-get-multiple-docs-using-documentclient-c-script"></a>Desencadenador de HTTP, obtener varios documentos, mediante DocumentClient (script de C#)
+### <a name="http-trigger-get-multiple-docs-using-documentclient"></a>Desencadenador de HTTP, obtener varios documentos mediante DocumentClient
 
 En el ejemplo siguiente se muestra una [función de script de C#](functions-reference-csharp.md) que recupera una lista de documentos. La función la desencadena una solicitud HTTP. El código usa una instancia de `DocumentClient` que proporciona el enlace de Azure Cosmos DB para leer una lista de documentos. La instancia de `DocumentClient` también se puede usar para las operaciones de escritura.
 
@@ -889,9 +881,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, Docume
 }
 ```
 
-[Omisión de los ejemplos de entrada](#input---attributes)
-
-### <a name="input---javascript-examples"></a>Entrada: ejemplos en JavaScript
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 En esta sección se incluyen los ejemplos siguientes:
 
@@ -900,9 +890,10 @@ En esta sección se incluyen los ejemplos siguientes:
 * [Desencadenador de HTTP, buscar identificador de datos de ruta](#http-trigger-look-up-id-from-route-data-javascript)
 * [Desencadenador de colas, obtener varios documentos, mediante SqlQuery](#queue-trigger-get-multiple-docs-using-sqlquery-javascript)
 
-[Omisión de los ejemplos de entrada](#input---attributes)
 
-#### <a name="queue-trigger-look-up-id-from-json-javascript"></a>Desencadenador de cola, buscar identificador de JSON (JavaScript)
+<a id="queue-trigger-look-up-id-from-json-javascript"></a>
+
+### <a name="queue-trigger-look-up-id-from-json"></a>Desencadenador de cola, buscar identificador a partir de un JSON
 
 En el ejemplo siguiente se muestra un enlace de entrada de Cosmos DB en un archivo *function.json* y una [función de JavaScript](functions-reference-node.md) que usa el enlace. La función lee un solo documento y actualiza el valor de texto del documento.
 
@@ -930,6 +921,7 @@ Estos son los datos de enlace del archivo *function.json*:
     "direction": "out"
 }
 ```
+
 En la sección de [configuración](#input---configuration) se explican estas propiedades.
 
 Este es el código de JavaScript:
@@ -943,9 +935,9 @@ Este es el código de JavaScript:
     };
 ```
 
-[Omisión de los ejemplos de entrada](#input---attributes)
+<a id="http-trigger-look-up-id-from-query-string-javascript"></a>
 
-#### <a name="http-trigger-look-up-id-from-query-string-javascript"></a>Desencadenador de HTTP, buscar identificador de cadena de consulta (JavaScript)
+### <a name="http-trigger-look-up-id-from-query-string"></a>Desencadenador de HTTP, buscar identificador a partir de una cadena de consulta
 
 En el ejemplo siguiente se muestra una [función de JavaScript](functions-reference-node.md) que recupera un documento individual. La función la desencadena una solicitud HTTP que utiliza una cadena de consulta para especificar el identificador que se va a buscar. Dicho identificador se usa para recuperar un documento de `ToDoItem` de la base de datos y colección especificadas.
 
@@ -1001,9 +993,9 @@ module.exports = function (context, req, toDoItem) {
 };
 ```
 
-[Omisión de los ejemplos de entrada](#input---attributes)
+<a id="http-trigger-look-up-id-from-route-data-javascript"></a>
 
-#### <a name="http-trigger-look-up-id-from-route-data-javascript"></a>Desencadenador de HTTP, buscar identificador de datos de ruta (JavaScript)
+### <a name="http-trigger-look-up-id-from-route-data"></a>Desencadenador de HTTP, buscar identificador a partir de datos de ruta
 
 En el ejemplo siguiente se muestra una [función de JavaScript](functions-reference-node.md) que recupera un documento individual. La función la desencadena una solicitud HTTP que utiliza una cadena de consulta para especificar el identificador que se va a buscar. Dicho identificador se usa para recuperar un documento de `ToDoItem` de la base de datos y colección especificadas.
 
@@ -1060,11 +1052,9 @@ module.exports = function (context, req, toDoItem) {
 };
 ```
 
-[Omisión de los ejemplos de entrada](#input---attributes)
+<a id="queue-trigger-get-multiple-docs-using-sqlquery-javascript"></a>
 
-
-
-#### <a name="queue-trigger-get-multiple-docs-using-sqlquery-javascript"></a>Desencadenador de colas, obtener varios documentos, mediante SqlQuery (JavaScript)
+### <a name="queue-trigger-get-multiple-docs-using-sqlquery"></a>Desencadenador de colas, obtener varios documentos mediante SqlQuery
 
 En el ejemplo siguiente se muestra un enlace de entrada de Azure Cosmos DB en un archivo *function.json* y una [función de JavaScript](functions-reference-node.md) que usa el enlace. La función recupera varios documentos especificados por una consulta SQL con un desencadenador de cola para personalizar los parámetros de la consulta.
 
@@ -1099,61 +1089,25 @@ Este es el código de JavaScript:
     };
 ```
 
-[Omisión de los ejemplos de entrada](#input---attributes)
-
-<a name="infsharp"></a>
-
-### <a name="input---f-examples"></a>Entrada: ejemplos de F#
-
-En el ejemplo siguiente se muestra un enlace de entrada de Cosmos DB en un archivo *function.json* y una [función de C#](functions-reference-fsharp.md) que usa el enlace. La función lee un solo documento y actualiza el valor de texto del documento.
-
-Estos son los datos de enlace del archivo *function.json*:
-
-```json
-{
-    "name": "inputDocument",
-    "type": "documentDB",
-    "databaseName": "MyDatabase",
-    "collectionName": "MyCollection",
-    "id" : "{queueTrigger}",
-    "connection": "MyAccount_COSMOSDB",
-    "direction": "in"
-}
-```
-
-En la sección de [configuración](#input---configuration) se explican estas propiedades.
-
-Este es el código de F#:
-
-```fsharp
-    (* Change input document contents using Azure Cosmos DB input binding *)
-    open FSharp.Interop.Dynamic
-    let Run(myQueueItem: string, inputDocument: obj) =
-    inputDocument?text <- "This has changed."
-```
-
-Este ejemplo necesita un archivo `project.json` que especifique las dependencias `FSharp.Interop.Dynamic` y `Dynamitey` de NuGet:
-
-```json
-{
-    "frameworks": {
-        "net46": {
-            "dependencies": {
-                "Dynamitey": "1.0.2",
-                "FSharp.Interop.Dynamic": "3.0.0"
-            }
-        }
-    }
-}
-```
-
-Para agregar un archivo `project.json`, consulte la [administración de paquetes de F #](functions-reference-fsharp.md#package).
+---
 
 ## <a name="input---attributes"></a>Entrada: atributos
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 En las [bibliotecas de clases de C#](functions-dotnet-class-library.md), use el atributo [DocumentDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs).
 
 El constructor del atributo toma el nombre de la base de datos y el nombre de la colección. Para información sobre esos valores y otras propiedades que puede configurar, consulte [la sección de configuración siguiente](#input---configuration).
+
+# <a name="c-scripttabcsharp-script"></a>[Script de C#](#tab/csharp-script)
+
+El script de C# no admite atributos.
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+JavaScript no admite atributos.
+
+---
 
 ## <a name="input---configuration"></a>Entrada: configuración
 
@@ -1175,33 +1129,30 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 
 ## <a name="input---usage"></a>Uso de entradas
 
-En las funciones de C# y F#, cuando se sale de la función correctamente, los cambios realizados en el documento de entrada mediante parámetros de entrada con nombre se guardan automáticamente.
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
-En las funciones de JavaScript, las actualizaciones no se realizan automáticamente al cerrar la función. Por el contrario, use `context.bindings.<documentName>In` y `context.bindings.<documentName>Out` para realizar las actualizaciones. Consulte el [ejemplo de JavaScript](#input---javascript-examples).
+Cuando se sale de la función correctamente, los cambios realizados en el documento de entrada mediante parámetros de entrada con nombre se guardan automáticamente.
+
+# <a name="c-scripttabcsharp-script"></a>[Script de C#](#tab/csharp-script)
+
+Cuando se sale de la función correctamente, los cambios realizados en el documento de entrada mediante parámetros de entrada con nombre se guardan automáticamente.
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+Las actualizaciones no se realizan automáticamente al cerrar la función. Por el contrario, use `context.bindings.<documentName>In` y `context.bindings.<documentName>Out` para realizar las actualizaciones. Consulte el [ejemplo de entrada](#input).
+
+---
 
 ## <a name="output"></a>Output
 
 El enlace de salida de Azure Cosmos DB permite escribir un nuevo documento en una base de datos de Azure Cosmos DB mediante SQL API.
 
-## <a name="output---examples"></a>Salida: ejemplos
-
-Vea el ejemplo específico del lenguaje:
-
-* [C#](#output---c-examples)
-* [Script de C# (.csx)](#output---c-script-examples)
-* [JavaScript](#output---javascript-examples)
-* [F#](#output---f-examples)
-
-Vea también el [ejemplo de entrada](#input---c-examples) que utiliza `DocumentClient`.
-
-[Omisión de ejemplos de salida](#output---attributes)
-
-### <a name="output---c-examples"></a>Salida: ejemplos de C#
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 En esta sección se incluyen los ejemplos siguientes:
 
 * Desencadenador de cola, escribir un documento
-* Desencadenador de cola, escribir documentos mediante IAsyncCollector
+* Desencadenador de cola, escribir documentos mediante `IAsyncCollector`
 
 Los ejemplos hacen referencia a un tipo de `ToDoItem` simple:
 
@@ -1216,9 +1167,7 @@ namespace CosmosDBSamplesV1
 }
 ```
 
-[Omisión de ejemplos de salida](#output---attributes)
-
-#### <a name="queue-trigger-write-one-doc-c"></a>Desencadenador de cola, escribir un documento (C#)
+### <a name="queue-trigger-write-one-doc"></a>Desencadenador de cola, escribir un documento
 
 En el ejemplo siguiente se muestra una [función de C#](functions-dotnet-class-library.md) que agrega un documento a una base de datos mediante los datos que se proporcionan en el mensaje desde Queue Storage.
 
@@ -1249,9 +1198,7 @@ namespace CosmosDBSamplesV1
 }
 ```
 
-[Omisión de ejemplos de salida](#output---attributes)
-
-#### <a name="queue-trigger-write-docs-using-iasynccollector-c"></a>Desencadenador de cola, escribir documentos mediante IAsyncCollector (C#)
+### <a name="queue-trigger-write-docs-using-iasynccollector"></a>Desencadenador de cola, escribir documentos mediante IAsyncCollector
 
 En el ejemplo siguiente se muestra una [función de C#](functions-dotnet-class-library.md) que agrega una colección de documentos a una base de datos mediante los datos que se proporcionan en un mensaje de cola JSON.
 
@@ -1286,18 +1233,14 @@ namespace CosmosDBSamplesV1
 }
 ```
 
-[Omisión de ejemplos de salida](#output---attributes)
-
-### <a name="output---c-script-examples"></a>Salida: ejemplos de script de C#
+# <a name="c-scripttabcsharp-script"></a>[Script de C#](#tab/csharp-script)
 
 En esta sección se incluyen los ejemplos siguientes:
 
 * Desencadenador de cola, escribir un documento
-* Desencadenador de cola, escribir documentos mediante IAsyncCollector
+* Desencadenador de cola, escribir documentos mediante `IAsyncCollector`
 
-[Omisión de ejemplos de salida](#output---attributes)
-
-#### <a name="queue-trigger-write-one-doc-c-script"></a>Desencadenador de cola, escribir un documento (script de C#)
+### <a name="queue-trigger-write-one-doc"></a>Desencadenador de cola, escribir un documento
 
 En el ejemplo siguiente se muestra un enlace de salida de Azure Cosmos DB en un archivo *function.json* y una [función de script de C#](functions-reference-csharp.md) que usa el enlace. La función usa un enlace de entrada de cola para una cola que recibe JSON en el formato siguiente:
 
@@ -1359,7 +1302,7 @@ Este es el código de script de C#:
     }
 ```
 
-#### <a name="queue-trigger-write-docs-using-iasynccollector"></a>Desencadenador de cola, escribir documentos mediante IAsyncCollector
+### <a name="queue-trigger-write-docs-using-iasynccollector"></a>Desencadenador de cola, escribir documentos mediante IAsyncCollector
 
 Para crear varios documentos, puede enlazar a `ICollector<T>` o `IAsyncCollector<T>`, donde `T` es uno de los tipos admitidos.
 
@@ -1418,9 +1361,7 @@ public static async Task Run(ToDoItem[] toDoItemsIn, IAsyncCollector<ToDoItem> t
 }
 ```
 
-[Omisión de ejemplos de salida](#output---attributes)
-
-### <a name="output---javascript-examples"></a>Salida: ejemplos de JavaScript
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 En el ejemplo siguiente se muestra un enlace de salida de Azure Cosmos DB en un archivo *function.json* y una [función de JavaScript](functions-reference-node.md) que usa el enlace. La función usa un enlace de entrada de cola para una cola que recibe JSON en el formato siguiente:
 
@@ -1475,87 +1416,11 @@ Este es el código de JavaScript:
     };
 ```
 
-[Omisión de ejemplos de salida](#output---attributes)
-
-### <a name="output---f-examples"></a>Salida: ejemplos de F#
-
-En el ejemplo siguiente se muestra un enlace de salida de Azure Cosmos DB en un archivo *function.json* y una [función de F#](functions-reference-fsharp.md) que usa el enlace. La función usa un enlace de entrada de cola para una cola que recibe JSON en el formato siguiente:
-
-```json
-{
-    "name": "John Henry",
-    "employeeId": "123456",
-    "address": "A town nearby"
-}
-```
-
-La función crea documentos de Azure Cosmos DB en el formato siguiente para cada registro:
-
-```json
-{
-    "id": "John Henry-123456",
-    "name": "John Henry",
-    "employeeId": "123456",
-    "address": "A town nearby"
-}
-```
-
-Estos son los datos de enlace del archivo *function.json*:
-
-```json
-{
-    "name": "employeeDocument",
-    "type": "documentDB",
-    "databaseName": "MyDatabase",
-    "collectionName": "MyCollection",
-    "createIfNotExists": true,
-    "connection": "MyAccount_COSMOSDB",
-    "direction": "out"
-}
-```
-En la sección de [configuración](#output---configuration) se explican estas propiedades.
-
-Este es el código de F#:
-
-```fsharp
-    open FSharp.Interop.Dynamic
-    open Newtonsoft.Json
-
-    type Employee = {
-      id: string
-      name: string
-      employeeId: string
-      address: string
-    }
-
-    let Run(myQueueItem: string, employeeDocument: byref<obj>, log: TraceWriter) =
-      log.Info(sprintf "F# Queue trigger function processed: %s" myQueueItem)
-      let employee = JObject.Parse(myQueueItem)
-      employeeDocument <-
-        { id = sprintf "%s-%s" employee?name employee?employeeId
-          name = employee?name
-          employeeId = employee?employeeId
-          address = employee?address }
-```
-
-Este ejemplo necesita un archivo `project.json` que especifique las dependencias `FSharp.Interop.Dynamic` y `Dynamitey` de NuGet:
-
-```json
-{
-    "frameworks": {
-        "net46": {
-          "dependencies": {
-            "Dynamitey": "1.0.2",
-            "FSharp.Interop.Dynamic": "3.0.0"
-           }
-        }
-    }
-}
-```
-
-Para agregar un archivo `project.json`, consulte la [administración de paquetes de F #](functions-reference-fsharp.md#package).
+---
 
 ## <a name="output---attributes"></a>Salida: atributos
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 En las [bibliotecas de clases de C#](functions-dotnet-class-library.md), use el atributo [DocumentDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs).
 
@@ -1571,7 +1436,17 @@ El constructor del atributo toma el nombre de la base de datos y el nombre de la
     }
 ```
 
-Para obtener un ejemplo completo, consulte [Salida: ejemplo de C#](#output---c-examples).
+Para obtener un ejemplo completo, consulte la [salida](#output).
+
+# <a name="c-scripttabcsharp-script"></a>[Script de C#](#tab/csharp-script)
+
+El script de C# no admite atributos.
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+JavaScript no admite atributos.
+
+---
 
 ## <a name="output---configuration"></a>Salida: configuración
 

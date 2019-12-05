@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/24/2019
+ms.date: 11/20/2019
 ms.author: jingwang
-ms.openlocfilehash: 125841697a8ad7d34441dfca3a4c079ef59e5f96
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 214809df692bc7e43203fe4a736d6cc53908e0bf
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73680836"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278518"
 ---
 # <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory"></a>Copia de datos desde un punto de conexión HTTP mediante Azure Data Factory
 
@@ -178,7 +178,7 @@ Las propiedades siguientes se admiten para HTTP en la configuración `location` 
 | Propiedad    | DESCRIPCIÓN                                                  | Obligatorio |
 | ----------- | ------------------------------------------------------------ | -------- |
 | type        | La propiedad type de `location` en el conjunto de datos se debe establecer en **HttpServerLocation**. | Sí      |
-| relativeUrl | Dirección URL relativa al recurso que contiene los datos.       | Sin       |
+| relativeUrl | Dirección URL relativa al recurso que contiene los datos. El conector de HTTP copia datos de la dirección URL combinada: `[URL specified in linked service]/[relative URL specified in dataset]`.   | Sin       |
 
 > [!NOTE]
 > El tamaño de carga de la solicitud HTTP admitido es aproximadamente 500 KB. Si el que desea pasar al punto de conexión web supera los 500 KB, considere la posibilidad de agrupar la carga en fragmentos menores.
@@ -284,7 +284,7 @@ Las propiedades siguientes se admiten para HTTP en la configuración `storeSetti
 | requestMethod            | Método HTTP. <br>Los valores permitidos son **Get** (valor predeterminado) y **Post**. | Sin       |
 | addtionalHeaders         | Encabezados de solicitud HTTP adicionales.                             | Sin       |
 | requestBody              | Cuerpo de la solicitud HTTP.                               | Sin       |
-| requestTimeout           | El tiempo de espera (el valor **TimeSpan**) para que la solicitud HTTP obtenga una respuesta. Este valor es el tiempo de espera para obtener una respuesta, no para leer los datos de la respuesta. El valor predeterminado es **00:01:40**. | Sin       |
+| httpRequestTimeout           | El tiempo de espera (el valor **TimeSpan**) para que la solicitud HTTP obtenga una respuesta. Este valor es el tiempo de espera para obtener una respuesta, no para leer los datos de la respuesta. El valor predeterminado es **00:01:40**. | Sin       |
 | maxConcurrentConnections | Número de conexiones para conectarse al almacén de almacenamiento de forma simultánea. Solo se especifica cuando se quiere limitar la conexión simultánea al almacén de datos. | Sin       |
 
 **Ejemplo:**

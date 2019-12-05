@@ -1,23 +1,17 @@
 ---
-title: Volver a usar plantillas en la nube con Azure Resource Manager
+title: Reutilización de plantillas entre nubes
 description: Desarrollar plantillas de Azure Resource Manager que funcionen de forma coherente para distintos entornos en la nube. Cree o actualice plantillas existentes de Azure Stack.
-services: azure-resource-manager
-documentationcenter: na
 author: marcvaneijk
-ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
-ms.openlocfilehash: 38da6d39d095ce27cdd26719d9b8b752d2921bc0
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 2964bb4365a2c153e7bc82c3292545ad4de985eb
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164765"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74143776"
 ---
 # <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>Desarrollo de plantillas de Azure Resource Manager para mantener la coherencia en la nube
 

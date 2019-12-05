@@ -1,17 +1,17 @@
 ---
-title: Configuración de un dispositivo para Azure Migrate Server Assessment/Migration para máquinas virtuales de VMware | Microsoft Docs
-description: Describe cómo configurar un dispositivo para la detección, la valoración y la migración sin agente de máquinas virtuales de VMware mediante Azure Migrate Server Assessment/Migration.
+title: Configurar un dispositivo de Azure Migrate para VMware
+description: Obtenga información sobre cómo configurar un dispositivo de Azure Migrate para evaluar y migrar VM de VMware.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 10/10/2019
+ms.date: 11/18/2019
 ms.author: raynew
-ms.openlocfilehash: 77bf9a0f73519aa979da49614475daf70f582a9e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 1489d29f854b02cf493493fe022c73dc050e2615
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467124"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185853"
 ---
 # <a name="set-up-an-appliance-for-vmware-vms"></a>Configuración de un dispositivo para máquinas virtuales de VMware
 
@@ -48,11 +48,12 @@ Compruebe que el archivo OVA es seguro, antes de implementarlo.
 2. Ejecute el siguiente comando para generar el código hash para el archivo OVA:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Ejemplo de uso: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3. El código hash generado debe coincidir con esta configuración para la versión 1.0.0.5 del dispositivo.
+3. El código hash generado debe coincidir con esta configuración para la versión más reciente del dispositivo.
 
   **Algoritmo** | **Valor del código hash**
   --- | ---
-  MD5 | ddfdf21c64af02a222ed517ce300c977
+  MD5 | c06ac2a2c0f870d3b274a0b7a73b78b1
+  SHA256 | 4ce4faa3a78189a09a26bfa5b817c7afcf5b555eb46999c2fad9d2ebc808540c
 
 
 ## <a name="create-the-appliance-vm"></a>Creación de la máquina virtual del dispositivo
@@ -122,7 +123,7 @@ Para la detección de aplicaciones, roles y características y la visualización
 > [!NOTE]
 > Esta entrada es opcional y es necesaria para habilitar la detección de aplicaciones y la visualización de dependencias sin agente.
 
-1. En **Discover applications and dependencies on VMs** (Detectar aplicaciones y dependencias en máquinas virtuales) haga clic en **Add credentials** (Agregar credenciales).
+1. En **Discover applications and dependencies on VMs** (Detectar aplicaciones y dependencias en máquinas virtuales) haga clic en **Agregar credenciales**.
 2. En **Operating System** (Sistema operativo) seleccione el sistema operativo.
 3. Proporcione un nombre descriptivo para la credencial.
 4. En **Username** (Nombre de usuario) y **Password** (Contraseña), especifique una cuenta que tenga al menos acceso de invitado en las máquinas virtuales.

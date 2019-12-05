@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c0a73f5257bf763633052aab89f92ea0e5d5c000
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 317efa17b294e859ef8a092451aca70b5b836fe7
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73927113"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74167805"
 ---
 # <a name="authentication-basics"></a>Conceptos básicos sobre autenticación
 
@@ -148,7 +148,7 @@ Este atributo hace que ASP.NET compruebe la presencia de una cookie de sesión q
 ### <a name="how-a-web-app-delegates-sign-in-to-azure-ad-and-obtains-a-token"></a>Cómo delega una aplicación web el inicio de sesión en Azure AD y obtiene un token
 
 La autenticación del usuario se realiza mediante el explorador. El protocolo OpenID usa mensajes con el protocolo HTTP estándar.
-- La aplicación web envía un mensaje HTTP 202 (redireccionamiento) al explorador para que utilice Azure AD.
+- La aplicación web envía un mensaje HTTP 302 (redireccionamiento) al explorador para que utilice Azure AD.
 - Cuando se autentica el usuario, Azure AD envía el token a la aplicación web utilizando un redireccionamiento mediante el explorador.
 - La aplicación web proporciona el redireccionamiento en forma de un URI de redirección. Este URI de redirección se registra con el objeto de aplicación de Azure AD. Puede haber varios URI de redireccionamiento, ya que la aplicación puede estar implementada en varias direcciones URL. Por lo tanto, la aplicación web también tendrá que especificar el URI de redirección que va a utilizar.
 - Azure AD verifica que el URI de redirección enviado por la aplicación web es uno de los URI de redirección registrados para la aplicación.
@@ -159,7 +159,7 @@ El flujo descrito anteriormente se aplica, con ligeras diferencias, tanto a las 
 
 Las aplicaciones móviles y de escritorio pueden utilizar un control web integrado o un explorador del sistema para la autenticación. En el diagrama siguiente, se muestra cómo una aplicación móvil o de escritorio usa la biblioteca de autenticación de Microsoft (MSAL) para adquirir tokens de acceso y llamar a las API web.
 
-![Aspecto que debería tener una aplicación de escritorio](media/authentication-scenarios/web-app-how-it-appears-to-be.png)
+![Aspecto que debería tener una aplicación de escritorio](media/authentication-scenarios/desktop-app-how-it-appears-to-be.png)
 
 MSAL usa un explorador para obtener los tokens y, al igual que ocurre con las aplicaciones web, delega la autenticación en Azure AD.
 

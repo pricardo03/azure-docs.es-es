@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 06/10/2018
 ms.author: raynew
 ms.custom: include file
-ms.openlocfilehash: d77269c1e965d5bca1e32b756ef26e2c694e5c81
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 7baa2dbd1583ebbccbf9b21df3531404bd839e10
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747856"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74260878"
 ---
 **Requisitos del servidor de procesos y configuración**
 
@@ -38,8 +38,9 @@ Sistema operativo | Windows Server 2012 R2 <br> Windows Server 2016
 Configuración regional del sistema operativo | Español (es-es)
 Roles de Windows Server | No habilite estos roles: <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V 
 Directivas de grupo | No habilite estas directivas de grupo: <br> - Impedir el acceso al símbolo del sistema. <br> - Impedir el acceso a herramientas de edición del Registro. <br> - Confiar en la lógica de datos adjuntos de archivos. <br> - Activar la ejecución de scripts. <br> [Más información](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)
-IIS | - Ningún sitio web predeterminado debe existir previamente. <br> - Ningún sitio web o aplicación que escuche en el puerto 443 deben existir previamente. <br>- Habilitar la [autenticación anónima](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx). <br> - Habilitar la configuración de [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx).
-| 
+IIS | - Ningún sitio web predeterminado debe existir previamente <br> - Ningún sitio web o aplicación que escuche en el puerto 443 deben existir previamente <br>- Habilitar la [autenticación anónima](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> - Habilitar la configuración de [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) 
+FIPS (Estándar federal de procesamiento de información) | No habilitar el modo FIPS
+|
 
 ## <a name="network-requirements"></a>Requisitos de red
 
@@ -67,7 +68,8 @@ https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.
 **Componente** | **Requisito** 
 --- | ---
 VMware vSphere PowerCLI | Se debe instalar [PowerCLI versión 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1) si el servidor de configuración se ejecuta en una máquina virtual de VMware.
-MySQL | Se debe instalar MySQL. Lo puede instalar manualmente o Azure Site Recovery puede instalarlo. Para obtener más información, consulte [Definición de la configuración de la API](../articles/site-recovery/vmware-azure-deploy-configuration-server.md#configure-settings).
+MYSQL | Se debe instalar MySQL. Lo puede instalar manualmente o Site Recovery puede instalarlo. (Para más información, vaya a la [definición de configuración](../articles/site-recovery/vmware-azure-deploy-configuration-server.md#configure-settings))
+|
 
 ## <a name="sizing-and-capacity-requirements"></a>Requisitos de capacidad y tamaño
 
@@ -76,7 +78,8 @@ En la tabla siguiente se resumen los requisitos de capacidad del servidor de con
 
 **CPU** | **Memoria** | **Disco de caché** | **Frecuencia de cambio de datos** | **Máquinas replicadas**
 --- | --- | --- | --- | ---
-8 vCPU<br/><br/> 2 sockets * 4 núcleos \@ 2,5 GHz | 16 GB | < 300 GB | 500 GB o menos | <100 máquinas
-12 vCPU<br/><br/> 2 socks * 6 núcleos \@ 2,5 GHz | 18 GB | 600 GB | 500 GB a 1 TB | De 100 a 150 máquinas
-16 vCPU<br/><br/> 2 socks * 8 núcleos \@ 2,5 GHz | 32 GB | 1 TB | De 1 a 2 TB | De 150 a 200 máquinas
+8 vCPU<br/><br/> 2 sockets * 4 núcleos \@ 2,5 GHz | 16 GB | < 300 GB | 500 GB o menos | < 100 máquinas
+12 vCPU<br/><br/> 2 socks * 6 núcleos \@ 2,5 GHz | 18 GB | 600 GB | 500 GB - 1 TB | De 100 a 150 máquinas
+16 vCPU<br/><br/> 2 socks * 8 núcleos \@ 2,5 GHz | 32 GB | 1 TB | 1 - 2 TB | De 150 a 200 máquinas
+|
 

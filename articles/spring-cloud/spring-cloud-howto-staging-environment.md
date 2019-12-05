@@ -6,32 +6,31 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 24ce4dee04e4daf3eaee4144f8dc56de5867bbca
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: cd1573a3d896f3d2d5cb53130d8fac86be43beb6
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607218"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74152093"
 ---
-# <a name="how-to-set-up-a-staging-environment"></a>Configuración de un entorno de ensayo
+# <a name="set-up-a-staging-environment-in-azure-spring-cloud"></a>Configuración de un entorno de ensayo en Azure Spring Cloud
 
-En este artículo se muestra cómo aprovechar una implementación de ensayo con el patrón de implementación blue-green en Azure Spring Cloud. También le mostrará cómo comenzar la producción de la implementación de ensayo sin cambiar la implementación de producción.
+En este artículo se aborda cómo configurar una implementación de ensayo con el patrón de implementación azul-verde en Azure Spring Cloud. También le muestra cómo llevar la implementación de ensayo a producción sin cambiar directamente la implementación de producción.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-En este artículo se da por hecho que ya ha implementado la aplicación PiggyMetrics, para lo que ha usado el [tutorial en el que se explica cómo iniciar una aplicación](spring-cloud-quickstart-launch-app-portal.md). PiggyMetrics consta de tres aplicaciones: "gateway", "account-service" y "auth-service".  
+En este artículo se da por hecho que ya ha implementado la aplicación PiggyMetrics, para lo que ha usado el [tutorial en el que se explica cómo iniciar una aplicación en Azure Spring Cloud](spring-cloud-quickstart-launch-app-portal.md). PiggyMetrics consta de tres aplicaciones: "gateway", "account-service" y "auth-service".  
 
 Si desea usar otra aplicación en este ejemplo, deberá realizar un sencillo cambio en una parte pública de la aplicación.  Con este cambio se diferencia la implementación de ensayo de la producción.
 
 >[!TIP]
-> Azure Cloud Shell es un shell interactivo gratuito que puede usar para ejecutar los pasos de este artículo.  Incluye herramientas comunes de Azure preinstaladas, entre las que se incluyen las versiones más recientes de Git, JDK, Maven y la CLI de Azure. Si ha iniciado sesión en su suscripción de Azure, inicie [Azure Cloud Shell](https://shell.azure.com) desde shell.azure.com.  Para más información acerca de Azure Cloud Shell, [lea la documentación](../cloud-shell/overview.md).
+> Azure Cloud Shell es un shell interactivo gratuito que puede usar para ejecutar las instrucciones de este artículo.  Incluye herramientas comunes de Azure preinstaladas, entre las que se incluyen las versiones más recientes de Git, JDK, Maven y la CLI de Azure. Si ha iniciado sesión en su suscripción a Azure, inicie [Azure Cloud Shell](https://shell.azure.com).  Para obtener más información, consulte [Información general de Azure Cloud Shell](../cloud-shell/overview.md).
 
-Para completar este artículo:
-
+Para configurar un entorno de ensayo en Azure Spring Cloud, siga las instrucciones de las secciones siguientes.
 
 ## <a name="install-the-azure-cli-extension"></a>Instalación de la extensión de la CLI de Azure
 
-Instale la extensión de Azure Spring Cloud para la CLI de Azure, para lo cual debe usar el siguiente comando
+Para instalar la extensión de Azure Spring Cloud para la CLI de Azure, use el siguiente comando:
 
 ```azurecli
 az extension add --name spring-cloud
@@ -39,51 +38,52 @@ az extension add --name spring-cloud
     
 ## <a name="view-all-deployments"></a>Visualización de todas las implementaciones
 
-Vaya a la instancia de servicio en Azure Portal y seleccione **Administración de implementación** para ver todas las implementaciones. Para ver más detalles, puede seleccionar cada una de las implementaciones.
+Vaya a la instancia de servicio en Azure Portal y seleccione **Administración de implementación** para ver todas las implementaciones. Para ver más detalles, puede seleccionar cada implementación.
 
 ## <a name="create-a-staging-deployment"></a>Creación de una implementación de ensayo
 
-1. En el entorno de desarrollo local, realice una pequeña modificación en la aplicación de puerta de enlace de Piggy Metric. Por ejemplo, cambie el color en `gateway/src/main/resources/static/css/launch.css`. Esto le permitirá diferenciar fácilmente las dos implementaciones. Ejecute el siguiente comando para compilar el paquete jar: 
+1. En el entorno de desarrollo local, realice una pequeña modificación en la aplicación de puerta de enlace de PiggyMetrics. Por ejemplo, cambie el color en el archivo *gateway/src/main/resources/static/css/launch.css*. Hacerlo le permitirá diferenciar fácilmente las dos implementaciones. Para compilar el paquete jar, ejecute el siguiente comando: 
 
     ```azurecli
     mvn clean package
     ```
 
-1. Cree una implementación con la CLI de Azure y asígnele el nombre de la implementación de ensayo "green".
+1. En la CLI de Azure, cree una implementación y asígnele el nombre de la implementación de ensayo "green".
 
     ```azurecli
     az spring-cloud app deployment create -g <resource-group-name> -s <service-instance-name> --app gateway -n green --jar-path gateway/target/gateway.jar
     ```
 
-1. Una vez que la implementación se complete correctamente, acceda a la página de la puerta de enlace desde el **panel de la aplicación** y vea todas las instancias en la pestaña **App Instances** (Instancias de la aplicación) de la izquierda.
+1. Después de que la implementación se complete correctamente, acceda a la página de la puerta de enlace desde el **Panel de la aplicación** y vea todas las instancias en la pestaña **App Instances** (Instancias de la aplicación) de la izquierda.
   
 > [!NOTE]
-> El estado de la detección es "OUT_OF_SERVICE" (FUERA DE SERVICIO), por lo que el tráfico no se enrutará a esta implementación antes de que se complete la comprobación.
+> El estado de la detección es *OUT_OF_SERVICE*, por lo que el tráfico no se enrutará a esta implementación antes de que se complete la verificación.
 
 ## <a name="verify-the-staging-deployment"></a>Comprobación de la implementación de ensayo
 
-1. Vuelva a la página **Administración de implementación** y seleccione la nueva implementación. El estado de la implementación que debería aparecer es **En ejecución**. El botón "Assign/Unassign domain" (Asignar o cancelar asignación de dominio) se deshabilitará, ya que es un entorno de ensayo.
+1. Vuelva a la página **Administración de implementación** y seleccione la nueva implementación. El estado de la implementación que debería aparecer es *En ejecución*. El botón **Asignar/Desasignar dominio** debe aparecer atenuado, ya que el entorno es un entorno de ensayo.
 
-1. En la página **Información general**, debería ver un **punto de conexión de prueba**. Cópielo y péguelo en una nueva página del explorador y debería ver la nueva página de Piggy Metrics.
+1. En el panel **Información general**, debería ver un **Punto de conexión de prueba**. Cópielo y péguelo en una nueva ventana del explorador, debería mostrarse la nueva página de PiggyMetrics.
 
 >[!TIP]
-> * Confirme que el punto de conexión de prueba termina en "/", con el fin de asegurarse de que las CSS se cargan correctamente.  
-> * Si el explorador requiere que escriba las credenciales de inicio de sesión para ver la página, use [Descodificar como dirección URL ](https://www.urldecoder.org/) para descodificar el punto de conexión de prueba. Esta operación devuelve una dirección URL con el formato "https://\<nombreDeUsuario>:\<contraseña>@\<nombreDeClúster >.test.azureapps.io/gateway/green".  Use esta dirección para acceder al punto de conexión.
+> * Confirme que el punto de conexión de prueba termina con una barra diagonal (/), con el fin de asegurarse de que el archivo CSS se ha cargado correctamente.  
+> * Si el explorador requiere que escriba las credenciales de inicio de sesión para ver la página, use [Descodificar como dirección URL ](https://www.urldecoder.org/) para descodificar el punto de conexión de prueba. Esta operación devuelve una dirección URL con el formato "https://\<nombreDeUsuario>:\<contraseña>@\<nombreDeClúster >.test.azureapps.io/gateway/green".  Use este formulario para acceder al punto de conexión.
 
 >[!NOTE]    
-> Los valores de Config Server se aplican tanto al entorno de ensayo como al de producción. Por ejemplo, si establece la ruta de acceso del contexto (`server.servlet.context-path`) para la puerta de enlace de aplicaciones en Config Server como *unaRuta*, la ruta de acceso a implementación green cambia: "https://\<nombreDeUsuario>:\<contraseña>@\<nombreDeClúster>.test.azureapps.io/gateway/green/unaRuta/..."
+> Los valores del servidor de configuración se aplican tanto al entorno de ensayo como al de producción. Por ejemplo, si establece la ruta de acceso del contexto (`server.servlet.context-path`) para la puerta de enlace de aplicaciones en el servidor de configuración como *unaRuta*, la ruta de acceso a implementación green cambia a "https://\<nombreDeUsuario>:\<contraseña>@\<nombreDeClúster>.test.azureapps.io/gateway/green/unaRuta/…".
  
  Si va a la puerta de enlace de aplicaciones pública en este momento, debería ver la página anterior sin el nuevo cambio.
     
-## <a name="set-the-green-as-production-deployment"></a>Establecimiento de green como implementación de producción
+## <a name="set-the-green-deployment-as-the-production-environment"></a>Establecimiento de la implementación green como entorno de producción
 
-1. Una vez que haya comprobado el cambio en el entorno de ensayo, puede enviarlo a producción. Vuelva a **Administración de implementación** y active la casilla antes de la aplicación de la "puerta de enlace".
-2. Seleccione "Set deployment" (Establecer implementación).
-3. Seleccione "Green" en el menú "IMPLEMENTACIÓN DE PRODUCCIÓN" y seleccione **Aplicar**
-4. Vaya a la página **Información general** de la aplicación de la puerta de enlace. Si ya ha asignado un dominio a la aplicación de puerta de enlace, la dirección URL aparecerá en la página **Información general**. Visite la dirección URL y verá la página de Piggy Metrics modificada.
+1. Una vez que haya verificado el cambio en el entorno de ensayo, puede enviarlo a producción. Vuelva a **Administración de implementación** y active la casilla de la aplicación de la **puerta de enlace**.
+
+2. Seleccione **Set deployment** (Establecer implementación).
+3. En la lista **Implementación de producción**, seleccione **Green** y, a continuación, **Aplicar**.
+4. Vaya a la página **Información general** de la aplicación de la puerta de enlace. Si ya ha asignado un dominio a la aplicación de puerta de enlace, la dirección URL aparecerá en el panel **Información general**. Para ver la página de PiggyMetrics modificada, seleccione la dirección URL y vaya al sitio.
 
 >[!NOTE]
-> Una vez que la implementación green está establecida en entorno de producción, la implementación anterior se convierte en la implementación de ensayo.
+> Después de haber establecido la implementación green como entorno de producción, la implementación anterior se convierte en la implementación de ensayo.
 
 ## <a name="modify-the-staging-deployment"></a>Modificación de la implementación de ensayo
 
@@ -93,11 +93,11 @@ Si no está satisfecho con el cambio, puede modificar el código de la aplicaci�
 az spring-cloud app deploy  -g <resource-group-name> -s <service-instance-name> -n gateway -d green --jar-path gateway.jar
 ```
 
-## <a name="delete-a-staging-deployment"></a>Eliminación de una implementación de ensayo
+## <a name="delete-the-staging-deployment"></a>Eliminación de la implementación de ensayo
 
 Para eliminar una implementación de ensayo desde Azure Portal, vaya a la página de la implementación de ensayo y seleccione el botón **Eliminar**.
 
-También puede eliminarla desde la CLI de Azure con el siguiente comando:
+Como alternativa, también puede eliminarla desde la CLI de Azure con el siguiente comando:
 
 ```azurecli
 az spring-cloud app deployment delete -n <staging-deployment-name> -g <resource-group-name> -s <service-instance-name> --app gateway

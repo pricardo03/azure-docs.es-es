@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1aa696ccaecc24df700315962c1f01f3a298c56c
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: a218e956c72f8005e533db7b8800e98ee72ce223
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74026705"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233109"
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Cmdlets de la versión 2 de Azure Active Directory para la administración de grupos
 
@@ -324,7 +324,7 @@ Cuando se crea un grupo, algunos de los puntos de conexión permiten al usuario 
 
 ## <a name="group-writeback-to-on-premises-preview"></a>Escritura diferida de grupos en entornos locales (versión preliminar)
 
-Hoy en día, se siguen administrando muchos grupos en Active Directory local. Para responder a las solicitudes para sincronizar grupos en la nube de nuevo a entornos locales, la característica de escritura diferida de grupos de Office 365 para Azure AD está ahora disponible en versión preliminar.
+Hoy en día, se siguen administrando muchos grupos en Active Directory local. Para responder a las solicitudes para sincronizar grupos en la nube de nuevo con entornos locales, la característica de escritura diferida de grupos de Office 365 para Azure AD está ahora disponible en versión preliminar.
 
 Los grupos de Office 365 se crean y administran en la nube. La capacidad de escritura diferida le permite volver a escribir los grupos de Office 365 como grupos de distribución en un bosque de Active Directory con Exchange instalado. Después, los usuarios con buzones de Exchange locales pueden enviar y recibir correos electrónicos de estos grupos. La característica de reescritura de grupos no admite grupos de distribución ni grupos de seguridad de Azure AD.
 

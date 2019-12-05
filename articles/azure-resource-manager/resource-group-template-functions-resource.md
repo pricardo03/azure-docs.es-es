@@ -1,17 +1,14 @@
 ---
-title: 'Funciones de la plantilla de Azure Resource Manager: recursos | Microsoft Docs'
+title: 'Funciones de plantillas: recursos'
 description: Describe las funciones para usar en una plantilla de Azure Resource Manager para recuperar valores sobre recursos.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 10/26/2019
-ms.author: tomfitz
-ms.openlocfilehash: dc39c727526f55039a5e18a8fd2aeeb4f25234a6
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: 6457bafeeb0b241171311dc3dcea30b7b6993791
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965630"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150670"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Funciones de recursos para las plantillas de Azure Resource Manager
 

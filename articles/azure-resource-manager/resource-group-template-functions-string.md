@@ -1,17 +1,14 @@
 ---
-title: 'Funciones de la plantilla de Azure Resource Manager: cadena | Microsoft Docs'
+title: 'Funciones de plantillas: cadena'
 description: Describe las funciones para usar en una plantilla de Azure Resource Manager para trabajar con cadenas.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.author: tomfitz
-ms.openlocfilehash: d5c95e964740978af0db8db233c65adb7eb074f0
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: af972bac39890402cf75e83d10806e9a830c1d4a
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73834335"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149612"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Funciones de cadena para las plantillas de Azure Resource Manager
 

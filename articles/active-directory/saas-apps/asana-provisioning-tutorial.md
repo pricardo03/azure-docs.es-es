@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configuración de Asana para el aprovisionamiento automático de usuarios con Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Aprovisionamiento de usuarios para Asana: Azure AD'
 description: Aprenda a configurar Azure Active Directory para aprovisionar y desaprovisionar automáticamente las cuentas de usuario para Asana.
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 03/27/2019
 ms.author: arvinh
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10d5ceedfd1f0fad0c6f03feba2150968aecf02b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 60a237e4295f17ce37f622022d318e9f2aff24d7
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65964225"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276582"
 ---
 # <a name="tutorial-configure-asana-for-automatic-user-provisioning"></a>Tutorial: Configuración de Asana para el aprovisionamiento automático de usuarios
 

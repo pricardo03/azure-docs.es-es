@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: a4d8cd9f8198002b0b9ade8fe5058de1fcacc68f
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: cbd434f2f9e1217a3a481a28988f4e1d855ba08b
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937349"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74209652"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---single-server"></a>Copia de seguridad y restauración en Azure Database for PostgreSQL con un único servidor
 
@@ -19,11 +19,11 @@ Azure Database for PostgreSQL crea automáticamente copias de seguridad del serv
 
 ## <a name="backups"></a>Copias de seguridad
 
-Azure Database for PostgreSQL realiza copias de seguridad completas, diferenciales y del registro de transacciones. Estas copias de seguridad permiten restaurar un servidor a un momento dado dentro del período de retención de copias de seguridad configurado. El período de retención predeterminado es siete días. Opcionalmente, puede configurarlo hasta 35 días. Todas las copias de seguridad se cifran mediante cifrado AES de 256 bits.
+Azure Database for PostgreSQL realiza copias de seguridad de los archivos de datos y del registro de transacciones. En función del tamaño de almacenamiento máximo admitido, se realizan copias de seguridad completas y diferenciales (servidores de almacenamiento de 4 TB como máximo) o copias de seguridad de instantánea (servidores de almacenamiento de 16 TB como máximo). Estas copias de seguridad permiten restaurar un servidor a un momento dado dentro del período de retención de copias de seguridad configurado. El período de retención predeterminado es siete días. Opcionalmente, puede configurarlo hasta 35 días. Todas las copias de seguridad se cifran mediante cifrado AES de 256 bits.
 
 ### <a name="backup-frequency"></a>Frecuencia de copia de seguridad
 
-Por lo general, las copias de seguridad completas se realizan semanalmente, las copias de seguridad diferenciales se realizan los dos veces al día, y las copias de seguridad del registro de transacciones se realizan cada cinco minutos. La primera copia de seguridad completa se programa inmediatamente después de la creación del servidor. La copia de seguridad inicial puede tardar más en un gran servidor restaurado. El primer punto del tiempo al que se puede restaurar un servidor nuevo es la hora en que se completó la copia de seguridad completa inicial.
+Por lo general, las copias de seguridad completas se realizan semanalmente, y las copias de seguridad diferenciales se realizan dos veces al día para los servidores con un almacenamiento máximo admitido de 4 TB. Las copias de seguridad de instantáneas se realizan al menos una vez al día para los servidores que admiten hasta 16 TB de almacenamiento. Las copias de seguridad del registro de transacciones tienen lugar cada cinco minutos. La primera instantánea de una copia de seguridad completa se programa inmediatamente después de la creación del servidor. La copia de seguridad completa inicial puede tardar más en un gran servidor restaurado. El primer punto del tiempo al que se puede restaurar un servidor nuevo es la hora en que se completó la copia de seguridad completa inicial. Dado que las instantáneas son, justamente, instantáneas, los servidores que admiten hasta 16 TB de almacenamiento se pueden restaurar hasta la hora de creación.
 
 ### <a name="backup-redundancy-options"></a>Opciones de redundancia de copia de seguridad
 
@@ -62,7 +62,9 @@ Quizás deba esperar a que se realice la siguiente copia de seguridad del regist
 
 ### <a name="geo-restore"></a>Restauración geográfica
 
-Puede restaurar un servidor en otra región de Azure donde el servicio esté disponible, si ha configurado el servidor para copias de seguridad con redundancia geográfica. Si un incidente a gran escala en una región provoca la falta de disponibilidad de una aplicación de base de datos, puede restaurar un servidor a partir de las copias de seguridad con redundancia geográfica en un servidor de cualquier otra región. Hay un retraso entre momento en que se realiza una copia de seguridad y el momento en que se replica en una región diferente. Este retraso puede ser de hasta una hora; por lo tanto, si se produce un desastre, puede haber una pérdida de datos de hasta una hora.
+Puede restaurar un servidor en otra región de Azure donde el servicio esté disponible, si ha configurado el servidor para copias de seguridad con redundancia geográfica. Los servidores que admiten hasta 4 TB de almacenamiento se pueden restaurar en la región emparejada geográficamente o en cualquier región que admita hasta 16 TB de almacenamiento. En el caso de los servidores que admiten hasta 16 TB de almacenamiento, las copias de seguridad geográficas se pueden restaurar en cualquier región que admita también servidores de 16 TB. Revise los [planes de tarifa de Azure Database for PostgeSQL](concepts-pricing-tiers.md) para ver la lista de regiones admitidas.
+
+La restauración geográfica es la opción de recuperación predeterminada cuando el servidor no está disponible debido a una incidencia en la región en la que se hospeda el servidor. Si un incidente a gran escala en una región provoca la falta de disponibilidad de una aplicación de base de datos, puede restaurar un servidor a partir de las copias de seguridad con redundancia geográfica en un servidor de cualquier otra región. Hay un retraso entre momento en que se realiza una copia de seguridad y el momento en que se replica en una región diferente. Este retraso puede ser de hasta una hora; por lo tanto, si se produce un desastre, puede haber una pérdida de datos de hasta una hora.
 
 Durante la restauración geográfica, las configuraciones de servidor que se pueden cambiar incluyen la generación de procesos, núcleos virtuales, período de retención de copia de seguridad y opciones de redundancia de copia de seguridad. No se permite cambiar el plan de tarifa (Básico, Uso general o Memoria optimizada) ni el tamaño de almacenamiento.
 

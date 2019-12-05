@@ -1,59 +1,54 @@
 ---
 title: Contrato estándar | Azure
-description: Contrato estándar en Azure Marketplace y AppSource
+description: Contrato estándar para Azure Marketplace y AppSource
 services: Azure, Marketplace, Compute, Storage, Networking
-author: qianw211
+author: ChJenk
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 07/05/2019
-ms.author: ellacroi
-ms.openlocfilehash: 17c1bf9d20b6f2e3ec450ff7bfb54fe61494ff09
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/19/2019
+ms.author: v-chjen
+ms.openlocfilehash: dc8edf2b6e4a1204e7edd515da9323896049eb13
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819496"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74228207"
 ---
-# <a name="standard-contract"></a>Contrato estándar
+# <a name="standard-contract-for-the-microsoft-commercial-marketplace"></a>Contrato estándar para el Marketplace comercial de Microsoft
 
-Para simplificar el proceso de adquisición para los clientes y reducir la complejidad legal para los proveedores de software, Microsoft ofrece una plantilla de Contrato estándar con el fin de ayudar a facilitar una transacción en Marketplace. En lugar de crear términos y condiciones personalizados, los editores de Azure Marketplace pueden ofrecer su software en virtud del Contrato estándar, que los clientes solo tienen que revisar y aceptar una vez. El Contrato estándar puede encontrarse aquí: [https://go.microsoft.com/fwlink/?linkid=2041178](https://go.microsoft.com/fwlink/?linkid=2041178). 
+Para simplificar el proceso de adquisición para los clientes y reducir la complejidad legal para los proveedores de software, Microsoft ofrece un Contrato estándar para el Marketplace comercial de Microsoft con el fin de ayudar a facilitar una transacción en Marketplace. En lugar de crear términos y condiciones personalizados, los anunciantes del Marketplace comercial pueden ofrecer su software en virtud del Contrato estándar, que los clientes solo tienen que revisar y aceptar una vez. El Contrato estándar puede encontrarse aquí: [https://go.microsoft.com/fwlink/?linkid=2041178](https://go.microsoft.com/fwlink/?linkid=2041178).
 
-Los términos y condiciones de una oferta que se definen en la pestaña de Marketplace al crear una oferta en Cloud Partner Portal. Para habilitar la opción Contrato estándar, cambie la configuración a Sí.
+Los términos y condiciones de una oferta se definen al crearla en el Centro de partners o en Cloud Partner Portal. Puede optar por usar el Contrato estándar para el Marketplace comercial de Microsoft en lugar de proporcionar sus propios términos y condiciones personalizados.
 
-![Habilitar la opción Contrato estándar](media/marketplace-publishers-guide/standard-contract.png)
-
->[!Note] 
->Si decide usar el Contrato estándar, siguen siendo necesarios términos y condiciones independientes para el canal del [Proveedor de soluciones en la nube](./cloud-solution-providers.md).
+>[!Note]
+>Después de publicar una oferta con el Contrato estándar para el Marketplace comercial de Microsoft, no puede usar sus propios términos y condiciones personalizados. Solo puede elegir una de las dos opciones. Puede ofrecer su solución con el Contrato estándar *o* con sus propios términos y condiciones. Si quiere modificar los términos del Contrato estándar, puede hacerlo a través de las modificaciones del Contrato estándar.
 
 ## <a name="standard-contract-amendments"></a>Modificaciones del Contrato estándar
 
-Las modificaciones del Contrato estándar permiten a los anunciantes seleccionar el contrato estándar por motivos de simplicidad y personalizar los términos para su producto o empresa.  Los clientes solo necesitan revisar las modificaciones del contrato, si ya han revisado y aceptado el Contrato estándar de Microsoft.
+Las modificaciones del Contrato estándar permiten a los anunciantes seleccionar el Contrato estándar por motivos de simplicidad y personalizar los términos para su producto o empresa. Los clientes solo necesitan revisar las modificaciones del contrato, si ya han revisado y aceptado el Contrato estándar de Microsoft.
 
-Hay dos tipos de modificaciones para los anunciantes de Azure Marketplace:
+Hay dos tipos de modificaciones para los anunciantes de Marketplace comercial:
 
-* Modificaciones universales: Estas modificaciones se aplican universalmente al Contrato estándar para todos los clientes. Las modificaciones universales se muestran a cada cliente del producto en el flujo de compra.
+* Modificaciones universales: Estas modificaciones se aplican universalmente al Contrato estándar para todos los clientes. Las modificaciones universales se muestran a cada cliente de la oferta en el flujo de compra. Los clientes deben aceptar los términos del Contrato estándar y la modificación antes de que puedan usar su oferta.
 
-![Modificaciones universales](media/marketplace-publishers-guide/universal-amendaments.png)
-
-* Modificaciones personalizadas: Azure Marketplace también tiene una disposición para enmiendas personalizadas dirigidas a los inquilinos. Son modificaciones especiales al Contrato estándar que están dirigidas únicamente a ciertos clientes. Los anunciantes pueden elegir al inquilino al que desean dirigirse. Los clientes de ese inquilino podrían comprar el producto de acuerdo con el Contrato estándar y las modificaciones específicas.
-
-![Modificaciones personalizadas](media/marketplace-publishers-guide/custom-amendaments.png)
-
->[!Note] 
->Los clientes específicos con modificaciones personalizadas también obtendrán la modificación universal a los términos estándar durante la compra.
+* Modificaciones personalizadas: Estas son modificaciones especiales al Contrato estándar que están dirigidas a cliente únicamente a clientes específicos a través de los Id. de inquilino de Azure. Los anunciantes pueden elegir al inquilino al que desean dirigirse. Solo los clientes del inquilino recibirán los términos con modificaciones personalizadas en el flujo de compra de la oferta.  Los clientes deben aceptar los términos del Contrato estándar y las modificaciones antes de que puedan usar su oferta.
 
 >[!Note]
->Los siguientes tipos de oferta admiten las modificaciones de Contrato estándar: Las aplicaciones de Azure (plantillas de solución y aplicaciones administradas), máquinas virtuales, contenedores, aplicaciones de contenedor.
+>Estos dos tipos de modificaciones se superponen entre sí. Los clientes específicos con modificaciones personalizadas también obtendrán la modificación universal al Contrato estándar durante la compra.
 
-### <a name="customer-experience"></a>Experiencia de los clientes
+Puede aprovechar el Contrato estándar del Marketplace comercial de Microsoft para los siguientes tipos de ofertas:  Las aplicaciones de Azure (plantillas de solución y aplicaciones administradas), máquinas virtuales, contenedores, aplicaciones de contenedor, módulos de IoT Edge y SaaS.
 
-Durante el proceso de compra en Azure Portal, los clientes podrán ver las condiciones asociadas con el producto como el Contrato estándar de Microsoft y las modificaciones.
+## <a name="customer-experience"></a>Experiencia del cliente
 
-![Experiencia de cliente de Azure Portal.](media/marketplace-publishers-guide/ibiza-customer-experience.png)
+Durante la experiencia de búsqueda en Azure Marketplace o AppSource, los clientes podrán ver los términos asociados con la oferta en la forma de un Contrato estándar para el Marketplace comercial de Microsoft y todas las modificaciones universales.
 
-### <a name="api"></a>API
+![Experiencia de búsqueda del cliente de Azure Portal.](media/marketplace-publishers-guide/azure-discovery-process.png)
 
-Los clientes pueden usar `Get-AzureRmMarketplaceTerms` para recuperar las condiciones de una oferta y aceptarla. El Contrato estándar y las modificaciones asociadas se devolverán en la salida del cmdlet.
+Durante el proceso de compra en Azure Portal, los clientes podrán ver los términos asociados con la oferta en la forma de un Contrato estándar para el Marketplace comercial de Microsoft y todas las modificaciones universales o específicas de un inquilino.
 
----
+![Experiencia de compra para el cliente de Azure Portal.](media/marketplace-publishers-guide/azure-purchase-process.png)
+
+## <a name="api"></a>API
+
+Los clientes pueden usar Get-AzureRmMarketplaceTerms para recuperar los términos de una oferta y aceptarlos. El Contrato estándar y las modificaciones asociadas se devolverán en la salida del cmdlet.

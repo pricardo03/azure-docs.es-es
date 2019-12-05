@@ -6,17 +6,24 @@ ms.subservice: ''
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 10/15/2019
-ms.openlocfilehash: 906ae92b0018430bdda02639642dd66ae2231dce
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 11/18/2019
+ms.openlocfilehash: 12860d70cad2dbcfa3d06bf4df6939dd27ab3ab3
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73477058"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279625"
 ---
 # <a name="azure-monitor-for-containers-overview"></a>Introducción a Azure Monitor para contenedores
 
-Azure Monitor para contenedores es una característica diseñada para supervisar el rendimiento de las cargas de trabajo de contenedor implementadas en Azure Container Instances, clústeres de Kubernetes administrado hospedados en Azure Kubernetes Service (AKS) o clústeres de Kubernetes autoadministrados hospedados en Azure Stack. La supervisión de los contenedores es fundamental, sobre todo cuando se ejecuta un clúster de producción, a escala, con varias aplicaciones.
+Azure Monitor para contenedores es una característica diseñada para supervisar el rendimiento de las cargas de trabajo de contenedor implementadas en:
+
+- Clústeres de Kubernetes administrados que se hospedan en Azure Kubernetes Service (AKS).
+- Azure Container Instances
+- Clústeres de Kubernetes autoadministrados que se hospedan en Azure Stack o en el entorno local.
+- Red Hat OpenShift en Azure
+
+La supervisión de los contenedores es fundamental, sobre todo cuando se ejecuta un clúster de producción, a escala, con varias aplicaciones.
 
 Azure Monitor para contenedores le brinda la posibilidad de visibilizar el rendimiento mediante la recopilación de métricas del procesador y de la memoria de los controladores, nodos y contenedores disponibles en Kubernetes mediante la API de métricas. También se recopilan registros del contenedor.  Una vez habilitada la supervisión de clústeres de Kubernetes, se recopilan métricas y registros automáticamente mediante una versión en contenedor del agente de Log Analytics para Linux. Las métricas se escriben en el almacén de métricas y los datos de registro se incluyen en el almacén de registros asociado a su área de trabajo de [Log Analytics](../log-query/log-query-overview.md). 
 
@@ -31,7 +38,7 @@ Azure Monitor para contenedores ofrece una experiencia de supervisión integral 
 * Identificar dónde se encuentra el contenedor en un controlador o un pod. Este conocimiento puede ayudarle a ver el rendimiento general del controlador o del pod. 
 * Revisar el uso de recursos de las cargas de trabajo que se ejecutan en el host que no estén relacionadas con los procesos estándar que admite el pod.
 * Conocer el comportamiento del clúster tanto con cargas medias como con las más pesadas. Este conocimiento puede ayudarle a identificar los requisitos de capacidad y determinar la carga máxima que el clúster puede admitir. 
-* Configure alertas para que le notifiquen de manera proactiva o registren el hecho de que el uso de la CPU y la memoria en nodos o contenedores supera los umbrales, o cuando se produzca un cambio de estado de mantenimiento en el clúster en la infraestructura, los nodos o la acumulación de estado de la carga de trabajo.
+* Configure alertas para que le notifiquen de manera proactiva o registren el hecho de que el uso de la CPU y la memoria en nodos o contenedores supera los umbrales, o cuando se produzca un cambio del estado de mantenimiento en el clúster en la infraestructura o la acumulación de estado de los nodos.
 * Integrarse con [Prometheus](https://prometheus.io/docs/introduction/overview/) para ver las métricas de la aplicación y de la carga de trabajo que recopila de los nodos y Kubernetes mediante [consultas](container-insights-log-search.md) para crear alertas personalizadas y paneles y realizar un análisis detallado.
 
     >[!NOTE]
@@ -39,6 +46,11 @@ Azure Monitor para contenedores ofrece una experiencia de supervisión integral 
     >
 
 * Supervise las cargas de trabajo de contenedor [implementadas en AKS Engine](https://github.com/microsoft/OMS-docker/tree/aks-engine) de manera local y [AKS Engine en Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908).
+* Supervise las cargas de trabajo de contenedor [implementadas en Red Hat OpenShift en Azure](../../openshift/intro-openshift.md).
+
+    >[!NOTE]
+    >La compatibilidad con Red Hat OpenShift es una característica que se encuentra en versión preliminar pública en este momento.
+    >
 
 Consulte el siguiente vídeo, que proporciona un análisis detallado de nivel intermedio para ayudarle a obtener información sobre cómo supervisar el clúster de AKS con Azure Monitor para contenedores.
 
@@ -54,6 +66,4 @@ Si le interesan la supervisión y la administración de hosts de contenedor de D
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para comenzar a supervisar el clúster de AKS, revise [Cómo habilitar Azure Monitor para contenedores](container-insights-onboard.md), a fin de conocer los requisitos y los métodos disponibles para habilitar la supervisión. 
-
-- Para empezar a supervisar AKS Engine en Azure Stack o Kubernetes implementado de forma local, consulte [Configuración de clústeres de Kubernetes híbridos con Azure Monitor para contenedores](container-insights-hybrid-setup.md).  
+Para comenzar a supervisar el clúster de Kubernetes, revise [Cómo habilitar Azure Monitor para contenedores](container-insights-onboard.md), a fin de conocer los requisitos y los métodos disponibles para habilitar la supervisión. 

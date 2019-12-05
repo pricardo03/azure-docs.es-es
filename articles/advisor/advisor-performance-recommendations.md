@@ -3,17 +3,17 @@ title: Mejora del rendimiento de aplicaciones de Azure con Azure Advisor | Micro
 description: Utilice Advisor para optimizar el rendimiento de las implementaciones de Azure.
 services: advisor
 documentationcenter: NA
-author: kasparks
+author: saket-ms
 ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
-ms.author: kasparks
-ms.openlocfilehash: 1fec8a10a6699dc1360494cc7ac66e13f5d37ff0
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.author: sagupt
+ms.openlocfilehash: 82c77568a2c62a0e02bf00c164f4600e221376da
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73885746"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74183115"
 ---
 # <a name="improve-performance-of-azure-applications-with-azure-advisor"></a>Mejora del rendimiento de las aplicaciones de Azure con Azure Advisor
 
@@ -122,6 +122,7 @@ Para aprender más sobre las recomendaciones de Advisor, consulte:
 
 * [Introducción a Advisor](advisor-overview.md)
 * [Introducción a Advisor](advisor-get-started.md)
-* [Recomendaciones sobre el costo de Advisor](advisor-performance-recommendations.md)
+* [Recomendaciones sobre el costo de Advisor](advisor-cost-recommendations.md)
 * [Recomendaciones sobre alta disponibilidad de Advisor](advisor-high-availability-recommendations.md)
 * [Recomendaciones sobre seguridad de Advisor](advisor-security-recommendations.md)
+* [Recomendaciones de excelencia operativa de Advisor](advisor-operational-excellence-recommendations.md)

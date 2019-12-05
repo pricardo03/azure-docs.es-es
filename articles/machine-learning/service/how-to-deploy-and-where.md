@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 09/13/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 9d7dc724130286298af6e1d4b0babc551f3f2658
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 63d2aa5c9e4ec751d9b95ba0d884e6dc17e207bb
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74123624"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276787"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Implementación de modelos con Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -578,6 +578,10 @@ Para más información, consulte estos documentos:
 ## <a name="deploy-to-target"></a>Implementación en el destino
 
 La implementación usa la configuración de implementación de la configuración de inferencia para implementar los modelos. El proceso de implementación es similar, independientemente del destino de proceso. La implementación en AKS es ligeramente diferente, ya que debe proporcionar una referencia al clúster de AKS.
+
+### <a name="securing-deployments-with-ssl"></a>Protección de implementaciones con SSL
+
+Para obtener más información sobre cómo proteger una implementación de servicio web, vea [Uso de SSL para proteger un servicio web](how-to-secure-web-service.md#enable).
 
 ### <a id="local"></a> Implementación local
 

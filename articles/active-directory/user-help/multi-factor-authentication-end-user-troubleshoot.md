@@ -1,6 +1,6 @@
 ---
-title: Solución de problemas comunes de verificación en dos fases - Azure AD
-description: Más información sobre las posibles soluciones a algunos de los problemas más comunes de verificación en dos fases.
+title: 'Problemas habituales y soluciones con la autenticación de cuenta: Azure AD'
+description: Obtenga información sobre posibles problemas y soluciones para algunos de los problemas más habituales de la verificación en dos factores y su cuenta profesional o educativa.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -13,14 +13,14 @@ ms.date: 10/28/2019
 ms.author: lizross
 ms.reviewer: kexia
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f8d226d61f4b67541a6991fef3a435b4cfff500f
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 9d998fafbf6b3ba0547991de6c3a8e71b66d91f7
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73805304"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231895"
 ---
-# <a name="troubleshoot-common-two-factor-verification-problems"></a>Solución de problemas comunes de verificación en dos fases
+# <a name="common-problems-and-solutions-with-two-factor-verification-and-your-work-or-school-account"></a>Problemas habituales y soluciones de la verificación en dos fases y la cuenta profesional o educativa
 
 La organización ha activado la verificación en dos fases, lo cual significa que el inicio de sesión de la cuenta profesional o educativa requiere ahora una combinación del nombre de usuario, la contraseña y un dispositivo móvil o un teléfono. La organización ha activado esta verificación adicional porque es más segura que solo una contraseña, porque se basa en dos formas de autenticación: algo que usted sabe y algo que usted tiene. La verificación en dos fases ayuda a impedir que hackers malintencionados finjan ser usted, ya que, incluso si conocen su contraseña, lo más probable es que no tengan también su dispositivo.
 

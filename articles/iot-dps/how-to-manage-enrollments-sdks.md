@@ -1,5 +1,5 @@
 ---
-title: Administración de las inscripciones de dispositivos con los SDK del servicio Azure Device Provisioning | Microsoft Docs
+title: Administración de inscripciones de dispositivos con los SDK de Azure DPS
 description: Administración de las inscripciones de dispositivos en el servicio IoT Hub Device Provisioning con los SDK de servicio
 author: robinsh
 ms.author: robinsh
@@ -7,12 +7,12 @@ ms.date: 04/04/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 438cb579180458fcdeb75516a7c98b3ab2886366
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 75a24fd6b8cafe03ae8090e6f8bf71a27459c7eb
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883379"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74228798"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-device-provisioning-service-sdks"></a>Cómo administrar inscripciones de dispositivos con los SDK del servicio Azure Device Provisioning
 La *inscripción de un dispositivo* crea un registro de un único dispositivo o de grupo de ellos que, en algún momento, pueden registrarse en el servicio Device Provisioning. El registro de inscripción contiene la configuración inicial preferida para los dispositivos como parte de la inscripción, incluida la instancia de IoT. En este artículo se muestra cómo administrar inscripciones de dispositivos para el servicio de aprovisionamiento mediante programación con los SDK del servicio de aprovisionamiento de Azure IoT.  Los SDK están disponibles en GitHub en el mismo repositorio que los SDK de Azure IoT.

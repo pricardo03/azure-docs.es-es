@@ -1,5 +1,5 @@
 ---
-title: Directrices para experiencias de anclaje eficaz que usan Azure Spatial Anchors | Microsoft Docs
+title: Directrices para crear experiencias de anclaje eficaces
 description: Directrices y consideraciones para crear y ubicar anclajes de forma eficaz mediante Azure Spatial Anchors.
 author: mattwojo
 manager: jken
@@ -8,12 +8,12 @@ ms.author: mattwoj
 ms.date: 02/24/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 9e77dcd96ffa0fbd57aa0ed1b4f857279ca768a7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9a24da8d76f401f534eccf33312fbf0c2bee9f5d
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60566048"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74270521"
 ---
 # <a name="create-an-effective-anchor-experience-by-using-azure-spatial-anchors"></a>Creación una experiencia de anclaje efectiva mediante Azure Spatial Anchors
 
@@ -40,7 +40,7 @@ Para las ubicaciones dinámicas, debería pensar en cómo formar u orientar a lo
 
 ## <a name="stable-visual-features"></a>Características visuales estables
 
-Los sistemas de seguimiento visual usados en dispositivos de realidad aumentada y combinada dependen de las características visuales del entorno. Para obtener la experiencia más confiable, realice las siguientes tareas:  
+Los sistemas de seguimiento visual usados en dispositivos de realidad aumentada y combinada dependen de las características visuales del entorno. Para obtener la experiencia más confiable, realice las siguientes tareas:
 
 - *Cree* anclajes en ubicaciones que tengan características visuales estables (es decir, que las características no cambien con frecuencia).
 
@@ -62,9 +62,9 @@ En general, cuando cree un anclaje, examínelo desde las perspectivas de las per
 
 ## <a name="multiple-anchors"></a>Varios anclajes
 
-La iluminación puede marcar la diferencia en las características visuales que detecta una aplicación. Los anclajes creados con una luz fuerte y natural podrían ser difíciles de encontrar en la luz artificial y viceversa.  
+La iluminación puede marcar la diferencia en las características visuales que detecta una aplicación. Los anclajes creados con una luz fuerte y natural podrían ser difíciles de encontrar en la luz artificial y viceversa.
 
-Si tiene este problema, puede resultar útil crear dos anclajes. Cree un anclaje para la luz natural y otro para la luz artificial en el mismo punto. Su aplicación podrá consultar ambos anclajes. Cuando se encuentre el anclaje, la aplicación tomará una decisión sobre él. 
+Si tiene este problema, puede resultar útil crear dos anclajes. Cree un anclaje para la luz natural y otro para la luz artificial en el mismo punto. Su aplicación podrá consultar ambos anclajes. Cuando se encuentre el anclaje, la aplicación tomará una decisión sobre él.
 
 De forma similar, puede resultar útil usar varios anclajes en entornos donde las características visuales cambian porque la mayoría de los objetos se mueven. Cuando un anclaje es demasiado difícil de encontrar debido a cambios significativos en el entorno, puede reemplazarlo por uno nuevo. Puede hacer esto, por ejemplo, en una tienda donde el diseño se actualiza cada pocos meses.
 
@@ -74,7 +74,7 @@ En muchos casos, un anclaje es un punto de entrada a la experiencia de la aplica
 
 ### <a name="targets"></a>Destinos
 
-En el escenario de destino, se conoce bien la ubicación del anclaje. Por ejemplo, en una aplicación de dibujo ficticia de realidad mixta, un usuario coloca un lienzo virtual en la pared. Esa persona solicita a los demás usuarios de la sala que sus dispositivos apunten al mismo lugar de la pared para buscar el anclaje y que comience la experiencia.  
+En el escenario de destino, se conoce bien la ubicación del anclaje. Por ejemplo, en una aplicación de dibujo ficticia de realidad mixta, un usuario coloca un lienzo virtual en la pared. Esa persona solicita a los demás usuarios de la sala que sus dispositivos apunten al mismo lugar de la pared para buscar el anclaje y que comience la experiencia.
 
 Otro ejemplo de un escenario de destino podría ser un inicio de sesión en una cafetería que diga: "Buscar ofertas". La cafetería ha colocado un anclaje aquí. Cuando los usuarios analizan la señal, buscan el anclaje y entran en la experiencia de realidad aumentada para buscar ofertas de café.
 
@@ -104,7 +104,7 @@ En primer lugar, si el usuario no encuentra el anclaje en pocos segundos, la apl
 
 Para escenarios de destino, solicite al usuario que se desplace por el destino para verlo desde distintas perspectivas. Es decir, pida al usuario que capture el destino desde nuevas perspectivas hasta que encuentre el anclaje.
 
-Para escenarios de sala, solicite al usuario examinar lentamente la sala. Por ejemplo, solicite al usuario que se gire para capturar 180 grados o incluso de 360 grados de la sala. También puede pedir al usuario que vea la sala desde una nueva perspectiva. 
+Para escenarios de sala, solicite al usuario examinar lentamente la sala. Por ejemplo, solicite al usuario que se gire para capturar 180 grados o incluso de 360 grados de la sala. También puede pedir al usuario que vea la sala desde una nueva perspectiva.
 
 El método más significativo es buscar en toda la habitación. Una búsqueda en toda la sala permite capturar más características visuales del entorno que una búsqueda de una pared cercana, por ejemplo. Una búsqueda en una pared cercana no permitirá capturar tantas características útiles de visuales del entorno.
 

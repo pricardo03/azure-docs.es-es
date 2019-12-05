@@ -1,5 +1,5 @@
 ---
-title: Experiencia de canje de invitación de colaboración B2B de Azure Active Directory | Microsoft Docs
+title: 'Canje de invitación en colaboración B2B: Azure AD'
 description: Describe la experiencia de canje de invitación de colaboración B2B de Azure AD para los usuarios finales, incluido el acuerdo con los términos de privacidad.
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d32818f9e96e931f9e8c3c13554752327c5c456
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 3e85b0ae298589c0e0e051a24e5db89eae81db62
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69622625"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74272131"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Experiencia de invitación de colaboración B2B de Azure Active Directory
 

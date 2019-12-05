@@ -1,18 +1,14 @@
 ---
-title: Copia de seguridad y recuperación de máquinas virtuales de Azure mediante Azure Backup con PowerShell
+title: Copia de seguridad y recuperación de máquinas virtuales con PowerShell
 description: Describe cómo realizar una copia de seguridad y llevar a cabo la recuperación de máquinas virtuales de Azure mediante Azure Backup con PowerShell.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.author: dacurwin
-ms.openlocfilehash: 91e71e2ab4c028e44f667133237cefb2263ae49a
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 7afa791c4a98ca5e40c0ee3983ba8650268c00ee
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72969056"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172542"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Copia de seguridad y restauración de máquinas virtuales de con PowerShell
 
@@ -21,6 +17,7 @@ En este artículo se explica cómo realizar la copia de seguridad y la restaurac
 En este artículo, aprenderá a:
 
 > [!div class="checklist"]
+>
 > * Crear un almacén de Recovery Services y a establecer el contexto de este.
 > * Definición de una directiva de copia de seguridad
 > * Aplicación de la directiva de copia de seguridad para proteger varias máquinas virtuales
@@ -29,7 +26,7 @@ En este artículo, aprenderá a:
 ## <a name="before-you-start"></a>Antes de comenzar
 
 * [Más información](backup-azure-recovery-services-vault-overview.md) sobre los almacenes de Recovery Services.
-* [Revise](backup-architecture.md#architecture-direct-backup-of-azure-vms) la arquitectura de copia de seguridad de la máquina virtual de Azure, [conozca](backup-azure-vms-introduction.md) el proceso de copia de seguridad y [revise](backup-support-matrix-iaas.md) la compatibilidad, las limitaciones y los requisitos previos.
+* [Revise](backup-architecture.md#architecture-built-in-azure-vm-backup) la arquitectura de copia de seguridad de la máquina virtual de Azure, [conozca](backup-azure-vms-introduction.md) el proceso de copia de seguridad y [revise](backup-support-matrix-iaas.md) la compatibilidad, las limitaciones y los requisitos previos.
 * Revise la jerarquía de objetos de PowerShell para Recovery Services.
 
 ## <a name="recovery-services-object-hierarchy"></a>Jerarquía de objetos de Recovery Services

@@ -1,7 +1,7 @@
 ---
-title: 'Diseñador: Clasificación y predicción de retrasos en los vuelos'
+title: 'Diseñador: Ejemplo de predicción de retrasos en los vuelos'
 titleSuffix: Azure Machine Learning
-description: Este artículo le muestra cómo compilar un modelo de aprendizaje automático para predecir los retrasos en vuelos con el diseñador de arrastrar y colocar y el código R personalizado.
+description: Cree un clasificador y use código de R personalizado para predecir retrasos en los vuelos con el diseñador de Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,21 +10,24 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 11/04/2019
-ms.openlocfilehash: 10b3b78b4878eeddf2f786fda90ab9709e4bd2b4
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 23b763a69fc0ea3191150c6255cf358d69bc4b73
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647191"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74213945"
 ---
-# <a name="sample-6---classification-predict-flight-delays-using-r"></a>Ejemplo 6 - Clasificación: Predicción de retrasos en los vuelos mediante R
+# <a name="build-a-classifier--use-r-to-predict-flight-delays-with-azure-machine-learning-designer"></a>Creación de un clasificador y uso de R para predecir retrasos en los vuelos con el diseñador de Azure Machine Learning
+
+**Ejemplo 6 del diseñador (versión preliminar)**
+
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
 Esta canalización utiliza datos históricos relativos a los vuelos y la meteorología para predecir si un vuelo de pasajeros programado se retrasará más de 15 minutos. Este problema se puede abordar como un problema de clasificación, que predice dos clases: retrasado o puntual.
 
 Este es el gráfico de la canalización final de este ejemplo:
 
-[![Gráfico de la canalización](media/how-to-ui-sample-classification-predict-flight-delay/pipeline-graph.png)](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
+[![Gráfico de la canalización](media/how-to-designer-sample-classification-predict-flight-delay/pipeline-graph.png)](media/how-to-designer-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -52,13 +55,13 @@ Para complementar los datos de vuelo, se usa el lote **Weather Dataset** (conjun
 
 Normalmente, un conjunto de datos requiere algún procesamiento previo antes de que se pueda analizar.
 
-![procesamiento de datos](media/how-to-ui-sample-classification-predict-flight-delay/data-process.png)
+![procesamiento de datos](media/how-to-designer-sample-classification-predict-flight-delay/data-process.png)
 
 ### <a name="flight-data"></a>Datos de vuelos
 
 Las columnas **Carrier**, **OriginAirportID** y **DestAirportID** se guardan como enteros. Sin embargo, son atributos de categorías, use el módulo **Edit Metadata** (Editar metadatos) para convertirlas en categorías.
 
-![edición de metadatos](media/how-to-ui-sample-classification-predict-flight-delay/edit-metadata.png)
+![edición de metadatos](media/how-to-designer-sample-classification-predict-flight-delay/edit-metadata.png)
 
 A continuación, utilice **Selección de columnas** en el módulo Dataset (Conjunto de datos) para excluir de este las columnas que son posibles elementos de fuga de destino: **DepDelay**, **DepDel15**, **ArrDelay**, **Canceled**, **Year**. 
 
@@ -78,18 +81,18 @@ Dado que los datos meteorológicos se notifican en la hora local, las diferencia
 
 Los registros de vuelo se combinan con los datos meteorológicos en el origen del vuelo ( **OriginAirportID**) utilizando el módulo **Join Data** (Combinar datos).
 
- ![combinación de vuelo y meteorología por origen](media/how-to-ui-sample-classification-predict-flight-delay/join-origin.png)
+ ![combinación de vuelo y meteorología por origen](media/how-to-designer-sample-classification-predict-flight-delay/join-origin.png)
 
 
 Los registros de vuelo se combinan con los datos meteorológicos utilizando el destino del vuelo (**DestAirportID**).
 
- ![Combinación vuelo y meteorología por destino](media/how-to-ui-sample-classification-predict-flight-delay/join-destination.png)
+ ![Combinación vuelo y meteorología por destino](media/how-to-designer-sample-classification-predict-flight-delay/join-destination.png)
 
 ### <a name="preparing-training-and-test-samples"></a>Preparación de ejemplos de entrenamiento y pruebas
 
 El módulo **Split Data** (Dividir datos) divide los datos en registros de abril a septiembre para entrenamiento, y los registros de octubre para pruebas.
 
- ![División de datos de entrenamiento y prueba](media/how-to-ui-sample-classification-predict-flight-delay/split.png)
+ ![División de datos de entrenamiento y prueba](media/how-to-designer-sample-classification-predict-flight-delay/split.png)
 
 Las columnas Year (Año), Month (Mes) y Timezone (Zona horaria) se eliminan del conjunto de datos de entrenamiento mediante el módulo Seleccionar columnas.
 
@@ -111,7 +114,7 @@ Finalmente, para probar la calidad de los resultados, agregue el módulo**Evalua
 ## <a name="evaluate"></a>Evaluate
 El modelo de regresión logística tiene un área bajo la curva de 0,631 en el conjunto de prueba.
 
- ![evaluate](media/how-to-ui-sample-classification-predict-flight-delay/evaluate.png)
+ ![evaluate](media/how-to-designer-sample-classification-predict-flight-delay/evaluate.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

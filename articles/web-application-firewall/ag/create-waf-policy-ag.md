@@ -5,14 +5,14 @@ services: web-application-firewall
 ms.topic: conceptual
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 10/26/2019
+ms.date: 11/19/2019
 ms.author: victorh
-ms.openlocfilehash: 31a5ad92942b40e42b66e404df2d09cd8158f7a2
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 3f7d213aed82d1cb94bb96b9e212d3b255851afd
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606481"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74171218"
 ---
 # <a name="create-web-application-firewall-policies-for-application-gateway"></a>Cree directivas del Firewall de aplicaciones web para Application Gateway
 
@@ -64,13 +64,13 @@ Cuando se crea una directiva WAF, de forma predeterminada, esta está en modo *D
 
 Las reglas de OWASP administradas por Azure están habilitadas de forma predeterminada. Para deshabilitar una regla individual dentro de un grupo de reglas, expanda las reglas dentro de ese grupo de reglas, active la casilla delante del número de regla y seleccione **Deshabilitar** en la pestaña anterior.
 
-![Reglas administradas](../media/create-waf-policy-ag/managed-rules.png)
+[ ![Reglas administradas](../media/create-waf-policy-ag/managed-rules.png) ](../media/create-waf-policy-ag/managed-rules-lrg.png#lightbox)
 
 ## <a name="custom-rules"></a>Reglas personalizadas
 
 Para crear una regla personalizada, seleccione **Agregar regla personalizada** debajo de la pestaña **Reglas personalizadas**. Se abrirá la página Configuración de reglas personalizadas. En la captura de pantalla siguiente se muestra una regla personalizada de ejemplo configurada para bloquear una solicitud si la cadena de consulta contiene el texto *blockme*.
 
-![Editar regla personalizada](../media/create-waf-policy-ag/edit-custom-rule.png)
+[ ![Editar regla personalizada](../media/create-waf-policy-ag/edit-custom-rule.png) ](../media/create-waf-policy-ag/edit-custom-rule-lrg.png#lightbox)
 
 ## <a name="migrate"></a>Migrar la configuración de WAF a una directiva de WAF
 
@@ -82,7 +82,7 @@ Si tiene un WAF existente, es posible que haya observado algunos cambios en el p
 
 Puede saber en qué estado se encuentra el WAF al verlo el portal. Si los valores de WAF son visibles y se pueden cambiar desde la vista de Application Gateway, el valor de WAF se encuentra en el estado 1.
 
-![Configuración de WAF](../media/create-waf-policy-ag/waf-configure.png)
+[ ![Configuración de WAF](../media/create-waf-policy-ag/waf-configure.png) ](../media/create-waf-policy-ag/waf-configure-lrg.png#lightbox)
 
 Si selecciona **Firewall de aplicaciones web** y muestra una directiva asociada, el WAF se encuentra en el estado 2 o el estado 3. Después de desplazarse a la Directiva, si **solo** muestra reglas personalizadas y las Application Gateways asociadas, se trata de una Directiva solo de Reglas personalizadas.
 
@@ -98,9 +98,9 @@ Si solo tiene una Política WAF de Reglas personalizadas, entonces es posible qu
 
 Las modificaciones en la regla personalizada solo se deshabilitan la Directiva WAF. Para editar cualquier configuración de WAF, como deshabilitar reglas, agregar exclusiones, etc., debe migrar a un nuevo recurso de directiva de Firewall de nivel superior.
 
-Para ello, cree una *directiva de Firewall de aplicación Web* y asócielo a sus Application Gateway(s) y agente(s) de escucha que desee. Esta nueva Directiva **debe** ser exactamente la misma que la configuración actual de WAF, lo que significa que cada regla personalizada, exclusión, regla deshabilitada, etc. debe copiarse en la nueva directiva que está creando. Una vez que tenga una Directiva asociada a su Application Gateway, podrá seguir realizando cambios en las reglas y la configuración de WAF. 
+Para ello, cree una *directiva de Firewall de aplicación Web* y asócielo a sus Application Gateway(s) y agente(s) de escucha que desee. Esta nueva Directiva **debe** ser exactamente la misma que la configuración actual de WAF, lo que significa que cada regla personalizada, exclusión, regla deshabilitada, etc. debe copiarse en la nueva directiva que está creando. Una vez que tenga una Directiva asociada a su Application Gateway, podrá seguir realizando cambios en las reglas y la configuración de WAF. También puede hacer esto en Azure PowerShell. Para más información, consulte [Asociar una directiva de WAF a una Application Gateway existente](associate-waf-policy-existing-gateway.md).
 
-También puede hacer esto en Azure PowerShell. Para más información, consulte [Asociar una directiva de WAF a una Application Gateway existente](associate-waf-policy-existing-gateway.md).
+Opcionalmente, puede usar un script de migración para migrar a una directiva de WAF. Para obtener más información, consulte [Migración de directivas de firewall de aplicaciones web mediante Azure PowerShell](migrate-policy.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

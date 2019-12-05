@@ -9,12 +9,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: sstein
-ms.openlocfilehash: 56830e20b190958c1c411f5daa1d2a7e928f0f3d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: bdea9af04008ef68578ff8c136760f2493a2ae35
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821192"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279230"
 ---
 # <a name="sql-database-release-notes"></a>Notas de la versión de SQL Database
 
@@ -79,6 +79,9 @@ Las características siguientes están habilitadas en el modelo de implementaci�
 ## <a name="fixed-known-issues"></a>Problemas conocidos corregidos
 
 - **Agosto de 2019**: las bases de datos independientes son totalmente compatibles con la instancia administrada.
+- **Octubre de 2019**: la restauración de una base de datos a un momento dado dl nivel de servicio Crítico para la empresa al De uso general no se realizará correctamente si la base de datos de origen contiene objetos OLTP en memoria.
+- **Octubre de 2019**: puede usar la característica **Correo electrónico de base de datos** con servidores de correo externos (que no son de Azure) mediante una conexión segura.
+- **Noviembre de 2019**: se comprueba la coherencia de la base de datos mediante `DBCC CHECKDB` después de restaurar la base de datos de Azure Blob Storage.
 
 ## <a name="updates"></a>Actualizaciones
 

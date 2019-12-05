@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: 4e411d986ffe88c0cf498262688afd2ecc71e51c
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: f62406a341c7e1467cdf17b21662bb5c0993881c
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74038523"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232393"
 ---
 # <a name="azure-instance-metadata-service"></a>Servicio de metadatos de instancia de Azure
 
@@ -597,7 +597,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/tagsList
 
 ### <a name="validating-that-the-vm-is-running-in-azure"></a>Validación de que la máquina virtual se ejecuta en Azure
 
-Los proveedores de Marketplace desean asegurarse de que su software tiene licencia para ejecutarse solo en Azure. Si alguien copia el disco duro virtual en un entorno local, debería disponer de un capacidad para detectarlo. Mediante una llamada al servicio de metadatos de instancia, los proveedores pueden obtener datos firmados que garantizan la respuesta únicamente de Azure.
+Los proveedores de Marketplace desean asegurarse de que su software tiene licencia para ejecutarse solo en Azure. Si alguien copia el disco duro virtual en un entorno local, debería disponer de la capacidad para detectarlo. Mediante una llamada al servicio de metadatos de instancia, los proveedores pueden obtener datos firmados que garantizan la respuesta únicamente de Azure.
 
 > [!NOTE]
 > Requiere jq para instalarse.

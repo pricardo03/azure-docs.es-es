@@ -8,19 +8,19 @@ ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/06/2019
-ms.openlocfilehash: 33e15055958ac99f2aa9eb160f9e5cf3c5b0cd41
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 11/19/2019
+ms.openlocfilehash: 0c1a4f33da7e1f39951d641ed1d563c46fb664ca
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493795"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232645"
 ---
 # <a name="create-python-model"></a>Creación de modelo Python
 
-En este artículo se describe cómo usar el módulo **Create Python Model** para crear un modelo no entrenado desde un script de Python. 
+En este artículo se describe un módulo del diseñador de Azure Machine Learning (versión preliminar).
 
-Puede basar el modelo en cualquier aprendiz que se incluya en un paquete de Python en el entorno del diseñador de Azure Machine Learning. 
+Aprenda a usar el módulo **Creación de modelo Python** para crear un modelo no entrenado a partir de un script de Python. Puede basar el modelo en cualquier aprendiz incluido en un paquete de Python en el entorno del diseñador de Azure Machine Learning. 
 
 Después de crear el modelo, puede usar [Train model](train-model.md) (Entrenar modelo) para entrenar el modelo en un conjunto de datos, al igual que cualquier otro aprendiz en Azure Machine Learning. El modelo entrenado puede pasarse a [Score Model](score-model.md) (Puntuación del modelo) para usar el modelo para hacer predicciones. Luego, se puede guardar el modelo entrenado y se puede publicar el flujo de trabajo de puntuación como servicio web.
 

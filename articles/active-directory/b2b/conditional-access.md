@@ -1,5 +1,5 @@
 ---
-title: Acceso condicional para usuarios de colaboración B2B (Azure Active Directory) | Microsoft Docs
+title: 'Acceso condicional para usuarios de colaboración B2B: Azure AD'
 description: La colaboración B2B de Azure Active Directory admite Multi-Factor Authentication (MFA) para poder acceder de manera selectiva a las aplicaciones corporativas.
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a54e5006a268347148945fbe7fc5f18cfa41036
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: c0b6ceba4c3c9202e2024b5c163c0e98bb6cbf55
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68357120"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74272994"
 ---
 # <a name="conditional-access-for-b2b-collaboration-users"></a>Acceso condicional para usuarios de colaboración B2B
 

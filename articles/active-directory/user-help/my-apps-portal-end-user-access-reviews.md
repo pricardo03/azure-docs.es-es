@@ -1,6 +1,6 @@
 ---
-title: 'Realización de una revisión de acceso desde el portal Mis aplicaciones: Azure AD'
-description: Aprenda a ver y a administrar el acceso de seguridad para las aplicaciones y los grupos de su organización.
+title: 'Administración del acceso de su organización a aplicaciones y grupos: Azure AD'
+description: Obtenga información sobre cómo realizar una revisión de acceso para administrar el acceso de seguridad para las aplicaciones y grupos de su organización desde el portal Aplicaciones.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf803027aac7c62ea500d1af104ae3234fadf8b5
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 232f4b6fde84b7e1cd706b62e0ba9a0998b4171e
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73804041"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231836"
 ---
 # <a name="perform-an-access-review-from-the-my-apps-portal"></a>Realización de una revisión de acceso desde el portal Aplicaciones
 

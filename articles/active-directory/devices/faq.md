@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec7730dc1143586eb4c5c05fd475b8412546b7a6
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: a27c9ae1b75b9517bd3af92486df96434c5b34fb
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809259"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74207385"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Preguntas más frecuentes sobre la administración de dispositivos de Azure Active Directory
 
@@ -62,7 +62,7 @@ Los únicos que aparecen entre los **dispositivos del USUARIO** son los siguient
 - El usuario deshabilita el dispositivo en el portal Mis aplicaciones. 
 - Un administrador (o usuario) elimina o deshabilita el dispositivo en Azure Portal o mediante PowerShell.
 - Solo unido a Azure AD híbrido: Un administrador quita la unidad organizativa de los dispositivos del ámbito de sincronización, lo que da lugar a la eliminación de los dispositivos de Azure AD.
-- Actualización de AAD Connect a la versión 1.4.xx.x. [Descripción de Azure AD Connect 1.4.xx.x y desaparición del dispositivo](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-device-disappearance).
+- Actualización de Azure AD Connect a la versión 1.4.xx.x. [Descripción de Azure AD Connect 1.4.xx.x y desaparición del dispositivo](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-device-disappearance).
 
 
 Vea a continuación cómo se pueden rectificar estas acciones.
@@ -119,7 +119,7 @@ Vea a continuación cómo se pueden rectificar estas acciones.
 
 ### <a name="q-does-windows-10-device-registration-in-azure-ad-support-tpms-in-fips-mode"></a>P: ¿El registro de dispositivos Windows 10 en Azure AD admite TPM en el modo FIPS?
 
-**R:** No, actualmente el registro de dispositivos Windows 10 para todos los estados de dispositivo (unión a Azure AD híbrido, unión a Azure AD y Azure AD registrado) no admite TPM en el modo FIPS. Para unir o registrarse correctamente en Azure AD, el modo FIPS debe estar desactivado para los TPM en dichos dispositivos.
+**R:** El registro de dispositivos Windows 10 solo se admite con TPM 2.0 compatible con FIPS y no se admite en TPM 1.2. Si los dispositivos tienen TPM 1.2 compatible con FIPS, debe deshabilitarlos antes de continuar con la unión a Azure AD o la unión a Azure AD híbrido. Tenga en cuenta que Microsoft no proporciona ninguna herramienta para deshabilitar el modo FIPS para TPM, ya que eso depende del fabricante del TPM. Póngase en contacto con el OEM de hardware para obtener soporte técnico. 
 
 ---
 

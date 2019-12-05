@@ -3,7 +3,7 @@ title: Solución de problemas de Azure Load Balancer
 description: Aprenda a solucionar problemas conocidos de Azure Load Balancer.
 services: load-balancer
 documentationcenter: na
-author: chadmath
+author: asudbring
 manager: dcscontentpm
 ms.custom: seodoc18
 ms.service: load-balancer
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/09/2018
-ms.author: genli
-ms.openlocfilehash: d1c10fa8267131f13d3148ace6c97218a18fd494
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.date: 11/19/2019
+ms.author: allensu
+ms.openlocfilehash: eab86b3643dde2a6e854d73c38b5267c65fb7e3e
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076919"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74214759"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Solución de problemas de Azure Load Balancer
 
@@ -27,6 +27,8 @@ ms.locfileid: "74076919"
 En esta página se proporcionan soluciones de problemas para preguntas frecuentes sobre Azure Load Balancer. Cuando el equilibrador de carga no tenga conectividad, los síntomas más comunes son los siguientes: 
 - Las máquinas virtuales detrás del equilibrador de carga no responden a los sondeos de estado 
 - Las máquinas virtuales detrás del equilibrador de carga no responden al tráfico del puerto configurado
+
+Cuando los clientes externos a las VM de back-end pasan a través del equilibrador de carga, se usará la dirección IP de los clientes para la comunicación. Asegúrese de que la dirección IP de los clientes se agregue a la lista de permitidos de NSG. 
 
 ## <a name="symptom-vms-behind-the-load-balancer-are-not-responding-to-health-probes"></a>Síntoma: Las máquinas virtuales detrás del equilibrador de carga no responden a los sondeos de estado
 Para que los servidores back-end participen en el conjunto del equilibrador de carga, deben pasar la comprobación del sondeo. Para más información sobre los sondeos de estado, consulte [Descripción de los sondeos del equilibrador de carga](load-balancer-custom-probe-overview.md). 
@@ -96,18 +98,20 @@ Si una máquina virtual no responde al tráfico de datos, puede deberse a que el
 1. Inicie sesión en la máquina virtual de back-end. 
 2. Abra un símbolo del sistema y ejecute el siguiente comando para validar que existe una aplicación de escucha en el puerto de datos:  netstat -an 
 3. Si el puerto no aparece con el estado "LISTENING" (ESCUCHANDO), configure el puerto de escucha 
-4. Si el puerto está marcado como Listening (Escuchando), compruebe si hay problemas en la aplicación de destino de ese puerto. 
+4. Si el puerto está marcado como Listening (Escuchando), compruebe si hay problemas en la aplicación de destino de ese puerto.
 
 ### <a name="cause-2-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vm"></a>Causa 2: Que un grupo de seguridad de red esté bloqueando el puerto de la máquina virtual del grupo de back-end del equilibrador de carga  
 
 Si uno o varios grupos de seguridad de red configurados en la subred o en la máquina virtual bloquean la dirección IP de origen o el puerto, la máquina virtual no puede responder.
 
-* Enumere los grupos de seguridad de red configurados en la máquina virtual de back-end. Para más información, consulte el artículo sobre la [administración de los grupos de seguridad de red](../virtual-network/manage-network-security-group.md).
-* En la lista de grupos de seguridad de red, compruebe si:
+En el caso del equilibrador de carga público, la dirección IP de los clientes de Internet se usará para la comunicación entre los clientes y las VM de back-end del equilibrador de carga. Asegúrese de que la dirección IP de los clientes esté permitida en el grupo de seguridad de red de la VM de back-end.
+
+1. Enumere los grupos de seguridad de red configurados en la máquina virtual de back-end. Para más información, consulte [Administración de los grupos de seguridad de red](../virtual-network/manage-network-security-group.md).
+1. En la lista de grupos de seguridad de red, compruebe si:
     - el tráfico entrante o saliente del puerto de datos tiene interferencias. 
-    - hay una regla de grupos de seguridad de red **Deny All** en la NIC de la máquina virtual o la subred que tenga una prioridad mayor que la regla predeterminada que permite los sondeos del equilibrador de carga y de tráfico (los grupos de seguridad de red deben permitir la dirección IP del equilibrador de carga 168.63.129.16, que es el puerto de sondeo) 
-* Si cualquiera de estas reglas bloquea el tráfico, elimine y vuelva a configurar las reglas para permitir el tráfico de datos.  
-* Pruebe si la máquina virtual ahora responde a los sondeos de estado.
+    - hay una regla de grupos de seguridad de red **Deny All** en la NIC de la máquina virtual o la subred que tenga una prioridad mayor que la regla predeterminada que permite los sondeos del equilibrador de carga y de tráfico (los grupos de seguridad de red deben permitir la dirección IP del equilibrador de carga 168.63.129.16, que es el puerto de sondeo)
+1. Si cualquiera de estas reglas bloquea el tráfico, elimine y vuelva a configurar las reglas para permitir el tráfico de datos.  
+1. Pruebe si la máquina virtual ahora responde a los sondeos de estado.
 
 ### <a name="cause-3-accessing-the-load-balancer-from-the-same-vm-and-network-interface"></a>Causa 3: Acceso al equilibrador de carga desde la misma VM e interfaz de red 
 

@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: 64efd1a02b903ec3874066f6c663b86a8080f746
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: ff82986b27d038c536872b07e1308b0d48fadaef
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73932269"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74270218"
 ---
 # <a name="performance-tiers-for-block-blob-storage"></a>Niveles de rendimiento para el almacenamiento de blobs en bloques
 
@@ -54,6 +54,12 @@ El almacenamiento de rendimiento Premium es perfecto para cargas de trabajo que 
 ## <a name="standard-performance"></a>Rendimiento Estándar
 
 El rendimiento Estándar admite distintos [niveles de acceso](storage-blob-storage-tiers.md) para almacenar los datos de la manera más rentable. Está optimizado para una alta capacidad y un alto rendimiento en grandes conjuntos de datos.
+
+- **Conjuntos de datos de copia de seguridad y recuperación ante desastres**. El almacenamiento de rendimiento estándar ofrece niveles de servicio rentables, por lo que es un caso de uso perfecto para los conjuntos de datos de recuperación ante desastres a corto y largo plazo, las copias de seguridad secundarias y el archivado de datos de cumplimiento.
+
+- **Contenido multimedia**. A menudo se accede frecuentemente a imágenes y vídeos cuando se crean y almacenan por primera vez, pero este tipo de contenido se usa con menos frecuencia a medida que se vuelve más antiguo. El almacenamiento de rendimiento estándar ofrece los niveles de servicio adecuados para los requisitos del contenido multimedia. 
+
+- **Procesamiento de datos por lotes**. Estos tipos de cargas de trabajo son adecuados para el almacenamiento estándar porque requieren un almacenamiento rentable de alto rendimiento en lugar de una latencia baja constante. Los conjuntos de datos sin procesar de gran tamaño se almacenan provisionalmente para su procesamiento y, finalmente, se migran a los niveles de servicio de acceso esporádico.
 
 ## <a name="migrate-from-standard-to-premium"></a>Migración de Estándar a Premium
 

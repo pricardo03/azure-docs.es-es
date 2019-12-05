@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: vinigam
-ms.openlocfilehash: bd83d915b51ab44d4287987e3da7113722910262
-ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
+ms.openlocfilehash: a678039b3386c3df290327238d3bf968a803d2c1
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70020236"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74229433"
 ---
 # <a name="schema-and-data-aggregation-in-traffic-analytics"></a>Esquema y agregación de datos en Análisis de tráfico
 

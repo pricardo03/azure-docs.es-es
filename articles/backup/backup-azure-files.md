@@ -1,18 +1,14 @@
 ---
 title: Copia de seguridad y restauración de recursos compartidos de archivos de Azure
 description: En este artículo se explican no solo cómo realizar una copia de seguridad de los recursos compartidos de archivos de Azure y cómo restaurarlos, sino también las tareas de administración.
-author: dcurwin
-ms.author: dacurwin
 ms.date: 07/29/2019
-ms.topic: tutorial
-ms.service: backup
-manager: carmonm
-ms.openlocfilehash: 6f1a793432fa6403639726dbe4340bae6804fb9f
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.topic: conceptual
+ms.openlocfilehash: 59dd46c42cdf94f06709d95f68cfb8d8693b9cce
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091088"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173090"
 ---
 # <a name="back-up-and-restore-azure-file-shares"></a>Copia de seguridad y restauración de recursos compartidos de archivos de Azure
 
@@ -47,7 +43,7 @@ La copia de seguridad de los recursos compartidos de archivos de Azure está en 
 
 ## <a name="configuring-backup-for-an-azure-file-share"></a>Configuración de la copia de seguridad de un recurso compartido de archivos de Azure
 
-En este tutorial se da por supuesto que ya ha establecido un recurso compartido de archivos de Azure. Para realizar una copia de seguridad del recurso compartido de archivos de Azure, siga estos pasos:
+En este artículo se da por supuesto que ya ha establecido un recurso compartido de archivos de Azure. Para realizar una copia de seguridad del recurso compartido de archivos de Azure, siga estos pasos:
 
 1. Cree un almacén de Recovery Services en la misma región que el recurso compartido de archivos. Si ya tiene un almacén, abra la página de información general de su almacén y haga clic en **Backup** (Copia de seguridad).
 

@@ -1,5 +1,5 @@
 ---
-title: Configuración del entorno de ejecución de integración autohospedado como un proxy para SSIS en Azure Data Factory
+title: Configuración del entorno de ejecución de integración autohospedado como proxy para SSIS
 description: Aprenda a configurar el entorno de ejecución de integración autohospedado como un proxy para Azure-SSIS Integration Runtime.
 services: data-factory
 documentationcenter: ''
@@ -7,19 +7,21 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/12/2019
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
-manager: craigg
-ms.openlocfilehash: 55abdab6a427547ee8bd498500deee94b8f67453
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+manager: mflasko
+ms.custom: seo-lt-2019
+ms.date: 11/12/2019
+ms.openlocfilehash: cae15e38f98794a3e97ad0b06329aa2e62c2945e
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954738"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74217644"
 ---
 # <a name="configure-self-hosted-ir-as-a-proxy-for-azure-ssis-ir-in-adf"></a>Configuración del entorno de ejecución de integración autohospedado como un proxy para Azure-SSIS IR en Azure Data Factory
+
 En este artículo se describe cómo ejecutar paquetes de SQL Server Integration Services (SSIS) en Azure-SSIS Integration Runtime (IR) en Azure Data Factory (ADF) con el modo de entorno de ejecución de integración autohospedado configurado como proxy.  Esta característica permite acceder a los datos locales sin necesidad de [unir la instancia de Azure-SSIS IR a una red virtual](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network).  Esto resulta útil cuando la red corporativa tiene una directiva de configuración o restrictiva demasiado compleja para que pueda insertar la instancia de Azure-SSIS IR en ella.
 
 Esta característica dividirá el paquete que contiene una tarea Flujo de datos con un origen de datos local en dos tareas de almacenamiento provisional: la primera, que se ejecuta en el entorno de ejecución de integración autohospedado, moverá primero los datos desde el origen de datos local a un área provisional en Azure Blob Storage, mientras que la segunda, que se ejecuta en Azure-SSIS IR moverá los datos del área de almacenamiento provisional al destino de datos previsto.
@@ -47,7 +49,7 @@ Cree un servicio vinculado de Azure Blob Storage en la misma instancia de ADF do
 ## <a name="configure-azure-ssis-ir-with-self-hosted-ir-as-a-proxy"></a>Configuración de Azure-SSIS IR con el entorno de ejecución de integración autohospedado como un proxy
 Cuando haya preparado el servicio vinculado de Azure Blob Storage y el entorno de ejecución de integración autohospedado para el almacenamiento provisional, puede configurar la instancia nueva o existente de Azure-SSIS IR con el entorno de ejecución de integración autohospedado como proxy en el portal o la aplicación de ADF.  Si la instancia de Azure-SSIS IR existente se está ejecutando, deténgala antes de hacerlo y reiníciela después.
 
-En la página **Configuración avanzada**, active la casilla **Set up Self-Hosted Integration Runtime as a proxy for your Azure-SSIS Integration Runtime** (Configurar el entorno de ejecución de integración autohospedado como proxy para la instancia de Azure-SSIS IR), seleccione el entorno de ejecución de integración autohospedado y el servicio vinculado Azure Blob Storage para el almacenamiento provisional y especifique un nombre de contenedor de blobs para la **ruta de acceso provisional** si lo desea.
+En la página **Configuración avanzada**, active la casilla **Set up Self-Hosted Integration Runtime as a proxy for your Azure-SSIS Integration Runtime** (Configurar el entorno de ejecución de integración autohospedado como proxy para la instancia de Azure-SSIS IR), seleccione el entorno de ejecución de integración autohospedado y el servicio vinculado Azure Blob Storage para el almacenamiento provisional, y especifique un nombre de contenedor de blobs para **Ruta de acceso provisional** si lo desea.
 
 ![Configuración de Azure-SSIS IR con el entorno de ejecución de integración autohospedado como un proxy](media/self-hosted-integration-runtime-proxy-ssis/shir-advanced-settings-ssisir.png)
 
@@ -58,7 +60,7 @@ Al diseñar nuevos paquetes que contienen tareas Flujo de datos con orígenes de
 
 ![Habilitación de la propiedad ConnectByProxy](media/self-hosted-integration-runtime-proxy-ssis/shir-connection-manager-properties.png)
 
-También puede habilitar esta propiedad al ejecutar paquetes existentes sin tener que cambiarlos manualmente uno a uno.  Existen dos opciones:
+También puede habilitar esta propiedad al ejecutar paquetes existentes sin tener que cambiarlos manualmente uno a uno.  Hay dos opciones:
 - Abrir, recompilar y volver a implementar el proyecto que contiene los paquetes con el SSDT más reciente para ejecutarse en Azure-SSIS IR: La propiedad se puede habilitar después mediante el establecimiento en **True** para los administradores de conexiones correspondientes que aparecen en la pestaña **Administradores de conexiones** (Connection Managers) de la ventana emergente Execute Package (Ejecutar paquete) al ejecutar paquetes de SSMS.
 
   ![Habilitación de la propiedad ConnectByProxy 2](media/self-hosted-integration-runtime-proxy-ssis/shir-connection-managers-tab-ssms.png)

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 543e237a4a8390a8ebf74d0eb2a1f4be41dcd911
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b764799d3f40cef24a0412ac950026af650d4ec7
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60193720"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74229030"
 ---
 # <a name="backends-and-backend-pools-in-azure-front-door-service"></a>Back-end y grupos de back-end en Azure Front Door Service
 En este artículo se describen conceptos acerca de cómo asignar la implementación de aplicaciones con Azure Front Door Service. También se explican los distintos términos en la configuración de Front Door sobre back-end de aplicación.
@@ -92,4 +92,4 @@ Para más información, consulte [Enrutamiento del tráfico basado en la latenci
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Crear un perfil de Front Door](quickstart-create-front-door.md)
-- [Cómo funciona Front Door](front-door-routing-architecture.md)
+- Información acerca de cómo [funciona Front Door](front-door-routing-architecture.md)

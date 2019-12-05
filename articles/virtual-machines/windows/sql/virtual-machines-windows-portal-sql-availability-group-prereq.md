@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mikeray
-ms.openlocfilehash: 17b1f58a950f2e0589986e9f1da1295671599341
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 4c89489964410104726b65e1b1fc3577945ce14a
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74037469"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74224764"
 ---
 # <a name="prerequisites-for-creating-always-on-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Requisitos previos para crear Grupos de disponibilidad Always On en SQL Server en máquinas virtuales de Azure
 
@@ -152,7 +152,7 @@ Configure dos conjuntos de disponibilidad según los parámetros de la tabla sig
 Después de crear los conjuntos de disponibilidad, vuelva al grupo de recursos en el Portal de Azure.
 
 ## <a name="create-domain-controllers"></a>Creación de controladores de dominio
-Después de haber creado la red, las subredes, los conjuntos de disponibilidad y un equilibrador de carga accesible desde Internet, está preparado para crear las máquinas virtuales para los controladores de dominio.
+Después de haber creado la red, las subredes y los conjuntos de disponibilidad, está preparado para crear las máquinas virtuales para los controladores de dominio.
 
 ### <a name="create-virtual-machines-for-the-domain-controllers"></a>Creación de máquinas virtuales para controladores de dominio
 Para crear y configurar los controladores de dominio, vuelva al grupo de recursos **SQL-HA-RG** .

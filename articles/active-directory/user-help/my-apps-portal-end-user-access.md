@@ -1,6 +1,6 @@
 ---
-title: Acceso a aplicaciones y uso de estas en el portal Mis aplicaciones - Azure Active Directory| Microsoft Docs
-description: Obtenga información sobre cómo obtener acceso al portal Mis aplicaciones.
+title: 'Búsqueda y uso de las aplicaciones en el portal Aplicaciones: Azure AD'
+description: Obtenga información sobre cómo encontrar el portal Aplicaciones para acceder las aplicaciones basadas en la nube de la organización.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -13,14 +13,14 @@ ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 901067e198616dba390e0e1162ec26a0b11768f1
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: b74fa1caad629e6f7f745f84787b6f415876bbae
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "68383143"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233176"
 ---
-# <a name="access-and-use-apps-on-the-my-apps-portal"></a>Acceso a aplicaciones y uso de estas en el portal Mis aplicaciones
+# <a name="locate-and-use-your-organizations-cloud-based-apps-on-the-my-apps-portal"></a>Búsqueda y uso de las aplicaciones basadas en la nube de su organización en el portal Aplicaciones
 
 Puede usar su cuenta profesional o educativa con el portal **Aplicaciones** basado en web para ver e iniciar muchas de las aplicaciones de su organización basadas en la nube, actualizar información de su perfil y cuenta, ver su información de **Grupos** y realizar **revisiones de acceso** para sus aplicaciones y grupos. Si no tiene acceso al portal **Aplicaciones**, debe ponerse en contacto con su departamento de soporte técnico para obtener permiso.
 

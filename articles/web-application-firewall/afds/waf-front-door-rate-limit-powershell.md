@@ -1,5 +1,5 @@
 ---
-title: Configuración de una regla de límite de velocidad de Firewall de aplicaciones web para el Azure PowerShell de Front Door
+title: Configuración de una regla de límite de velocidad de WAF para el Azure PowerShell de Front Door
 description: Aprenda a configurar una regla de limitación de volumen para un punto de conexión de Front Door existente.
 author: vhorne
 ms.service: web-application-firewall
@@ -7,12 +7,12 @@ ms.topic: article
 services: web-application-firewall
 ms.date: 08/21/2019
 ms.author: victorh
-ms.openlocfilehash: ce9ace445d87479da4047da205b59e79402ece07
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 831d0876c67aa36248a54f3935e5ce7884c736ef
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73511609"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186624"
 ---
 # <a name="configure-a-web-application-firewall-rate-limit-rule-using-azure-powershell"></a>Configuración de una regla de límite de velocidad de Firewall de aplicaciones web con Azure PowerShell
 La regla de limitación de volumen del firewall de aplicaciones web (WAF) de Azure para Azure Front Door controla el número de solicitudes permitidas desde una IP de un solo cliente durante un minuto.

@@ -1,5 +1,5 @@
 ---
-title: 'Habilitación de la configuración de colaboración externa B2B: Azure Active Directory | Microsoft Docs'
+title: 'Habilitación de los valores de colaboración externa B2B: Azure AD'
 description: Obtenga información sobre cómo habilitar la colaboración externa B2B de Active Directory y administrar quién puede invitar a usuarios invitados. Uso del rol de invitador de usuarios invitados para delegar invitaciones.
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11dda7fc3760f468c094fb4cf4484a27895f83b9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7fb10863334392b207c7cfd2172dc9260cf15e2d
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65812670"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74272895"
 ---
 # <a name="enable-b2b-external-collaboration-and-manage-who-can-invite-guests"></a>Habilitación de la colaboración externa B2B y administración de quién puede invitar a otros usuarios
 

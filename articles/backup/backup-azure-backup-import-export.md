@@ -1,19 +1,15 @@
 ---
-title: Inicialización de la copia de seguridad sin conexión mediante el servicio Import/Export de Azure Backup
+title: Inicialización de la copia de seguridad sin conexión mediante el servicio Import/Export
 description: Descubra cómo Azure Backup permite enviar datos fuera de la red mediante el servicio Azure Import/Export. Este artículo explica la propagación sin conexión de los datos de copia de seguridad iniciales mediante el servicio de Azure Import/Export.
 ms.reviewer: saurse
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 05/17/2018
-ms.author: dacurwin
-ms.openlocfilehash: 15a5a67209552134969c01220e8412d0c9dace15
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 331d5528c8f124f4d43142ff7be4daa3169b0381
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968512"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173303"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Flujo de trabajo de copia de seguridad sin conexión en Azure Backup
 
@@ -40,7 +36,7 @@ Las características o cargas de trabajo de Azure Backup siguientes admiten el u
 > * Copia de seguridad de archivos y carpetas con el agente de Microsoft Azure Recovery Services (MARS), también conocido como el agente de Azure Backup.
 > * Copia de seguridad de todas las cargas de trabajo y archivos con System Center Data Protection Manager (SC DPM).
 > * Copia de seguridad de todas las cargas de trabajo y archivos con Microsoft Azure Backup Server.
-
+ 
    > [!NOTE]
    > No se admite la copia de seguridad sin conexión para copias de seguridad de estado del sistema realizadas mediante el agente de Azure Backup.
 
@@ -109,7 +105,7 @@ En esta sección se describe el flujo de trabajo de la copia de seguridad sin co
 
 La utilidad *AzureOfflineBackupDiskPrep* prepara las unidades de disco SATA que se envían al centro de datos de Azure más próximo. Esta utilidad está disponible en el directorio de instalación del agente de Azure Backup (en la ruta de acceso siguiente):
 
-   *\Microsoft Azure Recovery Services Agent\Utils\\*
+    *\Microsoft Azure Recovery Services Agent\Utils\\*
 
 1. Vaya al directorio y copie el directorio **AzureOfflineBackupDiskPrep** en otro equipo donde estén conectadas las unidades de disco SATA. En el equipo con las unidades de disco SATA conectadas, asegúrese de lo siguiente:
 

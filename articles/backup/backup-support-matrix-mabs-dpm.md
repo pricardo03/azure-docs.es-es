@@ -1,18 +1,14 @@
 ---
-title: Matriz de compatibilidad para Microsoft Azure Backup Server y System Center DPM
-description: En este artículo se resume la compatibilidad de Azure Backup al usar Microsoft Azure Backup Server o System Center DPM para realizar copias de seguridad de recursos locales y de máquinas virtuales de Azure.
-author: dcurwin
-ms.service: backup
+title: Matriz de compatibilidad de MABS y System Center DPM
+description: En este artículo se resume la compatibilidad de Azure Backup al usar Microsoft Azure Backup Server (MABS) o System Center DPM para realizar copias de seguridad de recursos locales y de VM de Azure.
 ms.date: 02/17/2019
 ms.topic: conceptual
-ms.author: dacurwin
-manager: carmonm
-ms.openlocfilehash: d9c55773772b4f331de95bd98b1973225357c0cd
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 2bec2818eaabaa2d2d74ab7181db0eabcba092ec
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012785"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172048"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Matriz de compatibilidad para copia de seguridad con Microsoft Azure Backup Server o System Center DPM
 

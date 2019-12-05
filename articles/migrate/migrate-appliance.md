@@ -1,17 +1,17 @@
 ---
-title: Arquitectura del dispositivo de Azure Migrate | Microsoft Docs
-description: Proporciona información general sobre el dispositivo de Azure Migrate
+title: Arquitectura del dispositivo de Azure Migrate
+description: Proporciona información general sobre el dispositivo de Azure Migrate usado en la evaluación y migración del servidor.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/04/2019
+ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: 249cbea173afe1671118446e0714b721b8c7f72b
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 49545ca6c43c272c3fd84f8bee59b8617aae136d
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685100"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232566"
 ---
 # <a name="azure-migrate-appliance"></a>Dispositivo con Azure Migrate
 
@@ -42,7 +42,7 @@ El dispositivo tiene instalados estos agentes.
 
 **Agent** | **Detalles**
 --- | ---
-Agente de detección | Recopila datos de configuración de máquinas virtuales locales.
+Agente de detección | Recopila datos de configuración de las máquinas virtuales locales.
 Agente de evaluación | Genera perfiles del entorno local para recopilar datos de rendimiento de las VM.
 Adaptador de migración | Orquesta la replicación de VM y coordina la comunicación entre las VM y Azure.
 Puerta de enlace de migración | Envía los datos de VM replicadas a Azure.

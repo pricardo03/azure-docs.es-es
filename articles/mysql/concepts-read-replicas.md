@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 09/06/2019
-ms.openlocfilehash: 6ad71cecfd088a92bdd41ae13cb530c286ebea4c
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.date: 11/17/2019
+ms.openlocfilehash: 66864870f29729e54ad06aef1208641f673c0612
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71970396"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158315"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Réplicas de lectura en Azure Database for MySQL
 
@@ -69,7 +69,7 @@ Aprenda a [crear una réplica de lectura en Azure Portal](howto-read-replicas-po
 
 ## <a name="connect-to-a-replica"></a>Conexión a una réplica
 
-Al crear una réplica, no se heredan las reglas de firewall o el punto de conexión de servicio de red virtual del servidor maestro. Estas reglas se deben configurar de forma independiente para la réplica.
+Al crear una réplica, hereda las reglas de firewall o el punto de conexión de servicio de red virtual del servidor maestro. Posteriormente, estas reglas son independientes del servidor maestro.
 
 La réplica hereda su cuenta de administrador del servidor maestro. Todas las cuentas de usuario existentes en el servidor se replican en las réplicas de lectura. Solo se puede conectar a una réplica de lectura utilizando las cuentas de usuario disponibles en el servidor maestro.
 
@@ -121,6 +121,8 @@ Las réplicas se crean con la misma configuración de servidor que el servidor m
 
 > [!IMPORTANT]
 > Antes de actualizar la configuración de un servidor maestro con nuevos valores, actualice la configuración de las réplicas a valores iguales o mayores. Esta acción garantiza que la réplica puede hacer frente a los cambios realizados en el servidor maestro.
+
+La réplica hereda las reglas de firewall, las reglas de red virtual y la configuración de parámetros del servidor maestro cuando se crea. Después, las reglas de la réplica son independientes.
 
 ### <a name="stopped-replicas"></a>Réplicas detenidas
 

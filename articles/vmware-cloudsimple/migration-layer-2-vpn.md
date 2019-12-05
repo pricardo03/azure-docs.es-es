@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 37f337f158c3ca53170d963f1304801a12b732da
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: 2ddfa9611143d5c3f823539e018c8afc885c6a46
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053886"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232376"
 ---
 # <a name="migrate-workloads-using-layer-2-stretched-networks"></a>Migración de cargas de trabajo mediante redes extendidas de Capa 2
 
@@ -175,7 +175,7 @@ Para establecer una instancia de VPN basada en rutas de IPsec entre el enrutador
 
 Use la plantilla siguiente para rellenar todos los detalles de configuración de una VPN basada en rutas en el enrutador de nivel 0 de NSX-T. El UUID de cada llamada POST es necesario en las llamadas POST posteriores. Las direcciones IP de las interfaces de bucle invertido y de túnel para L2VPN deben ser únicas y no superponerse con las redes locales o en la nube privada.
 
-Las direcciones IP elegidas para las interfaces de bucle invertido y de túnel para L2VPN deben ser únicas y no superponerse con las redes locales o en la nube privada. La red de la interfaz de bucle invertido siempre debe ser /32.
+Las direcciones IP elegidas para las interfaces de bucle invertido y de túnel para L2VPN deben ser únicas y no superponerse con las redes locales o de la nube privada. La red de la interfaz de bucle invertido siempre debe ser /32.
 
 ```
 Loopback interface ip : 192.168.254.254/32
@@ -454,7 +454,7 @@ Antes de la implementación, compruebe que las reglas de firewall local permiten
 
     Expanda la interfaz de vínculo superior:
 
-    * **Dirección IP de DNS**. Escriba la dirección IP de DNS local.
+    * **Dirección IP de DNS**. Escriba la dirección IP del DNS local.
     * **Puerta de enlace predeterminada**.  Escriba la puerta de enlace predeterminada de la VLAN que actuará como puerta de enlace predeterminada para este cliente.
     * **Dirección IP**. Escriba la dirección IP de vínculo superior del cliente independiente.
     * **Longitud del prefijo**. Escriba la longitud del prefijo de la VLAN o subred de vínculo superior.

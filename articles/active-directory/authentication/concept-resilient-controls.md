@@ -1,5 +1,5 @@
 ---
-title: 'Creación de una estrategia de administración de control de acceso resistente: Azure Active Directory'
+title: 'Creación de una estrategia de administración de control de acceso resistente: Azure AD'
 description: En este documento se proporcionan instrucciones sobre las estrategias que una organización debe adoptar para proporcionar resistencia para reducir el riesgo de bloqueo durante interrupciones imprevistas
 services: active-directory
 author: martincoetzer
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/19/2018
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 675e970bbdaeb035273eb87394dda610e070aa39
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 478cccb3a8235291a4c4f0566cd130b4b75dbe6b
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70125112"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74208550"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Crear una estrategia de administración de control de acceso resistente con Azure Active Directory
 

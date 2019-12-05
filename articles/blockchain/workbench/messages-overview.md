@@ -1,21 +1,15 @@
 ---
-title: Introducción a la integración de los mensajes de Azure Blockchain Workbench
-description: Introducción al uso de mensajes en Azure Blockchain Workbench, versión preliminar.
-services: azure-blockchain
-keywords: ''
-author: PatAltimore
-ms.author: patricka
+title: Uso de mensajes para la integración con Azure Blockchain Workbench
+description: Introducción al uso de mensajes para integrar la versión preliminar de Azure Blockchain Workbench con otros sistemas.
 ms.date: 09/05/2019
 ms.topic: article
-ms.service: azure-blockchain
 ms.reviewer: brendal
-manager: femila
-ms.openlocfilehash: 99159b15ea663d43d125748d6db1f334b72931ae
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 14bd0f84bc9490d95d3dbe0b9f122882f0d2059d
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73161799"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74324508"
 ---
 # <a name="azure-blockchain-workbench-messaging-integration"></a>Integración de los mensajes de Azure Blockchain Workbench
 

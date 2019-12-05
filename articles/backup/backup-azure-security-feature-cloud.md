@@ -1,18 +1,14 @@
 ---
-title: Características de seguridad para proteger cargas de trabajo en la nube mediante Azure Backup
+title: Características de seguridad para proteger cargas de trabajo en la nube
 description: Aprenda a usar las características de seguridad de Azure Backup para que las copias de seguridad sean más seguras.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.author: dacurwin
-ms.openlocfilehash: f0e4540f3f5ab3fdbb5953cbf100c5fdc2b2542a
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: b6ce2f9400ad46150fbd4ee86f126b137b5f7800
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73622002"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278228"
 ---
 # <a name="security-features-to-help-protect-cloud-workloads-that-use-azure-backup"></a>Características de seguridad para proteger cargas de trabajo en la nube mediante Azure Backup
 
@@ -45,7 +41,7 @@ La eliminación temporal se admite actualmente en Centro-oeste de EE. UU., Asia
    > [!NOTE]
    > Si algún elemento de copia de seguridad eliminado temporalmente está presente en el almacén, no se podrá eliminar el almacén en ese momento. Pruebe a eliminar el almacén después de que se eliminen de forma permanente los elementos de copia de seguridad y no quede ningún elemento en estado de eliminación temporal en el almacén.
 
-4. Para restaurar la máquina virtual eliminada temporalmente, primero se debe recuperar. Para ello, seleccione la máquina virtual eliminada temporalmente y, a continuación, haga clic en la opción **Recuperar**.
+4. Para restaurar la máquina virtual eliminada temporalmente, primero se debe recuperar. Para ello, seleccione la máquina virtual eliminada temporalmente y, a continuación, seleccione la opción **Recuperar**.
 
    ![Captura de pantalla de Azure Portal, recuperación de máquina virtual](./media/backup-azure-security-feature-cloud/choose-undelete.png)
 
@@ -64,7 +60,7 @@ La eliminación temporal se admite actualmente en Centro-oeste de EE. UU., Asia
 
    ![Captura de pantalla de Azure Portal, opción Reanudar copia de seguridad](./media/backup-azure-security-feature-cloud/resume-backup.png)
 
-En este diagrama de flujo se explican los diferentes pasos y estados de un elemento de copia de seguridad:
+En este diagrama de flujo se explican los diferentes pasos y estados de un elemento de copia de seguridad cuando se habilita la eliminación temporal:
 
 ![Ciclo de vida del elemento de copia de seguridad eliminado temporalmente](./media/backup-azure-security-feature-cloud/lifecycle.png)
 
@@ -72,26 +68,47 @@ Para más información, consulte la sección [Preguntas frecuentes](backup-azure
 
 ## <a name="disabling-soft-delete"></a>Deshabilitación de la eliminación temporal
 
-La eliminación temporal está habilitada de forma predeterminada en los almacenes recién creados. Si la característica de seguridad eliminación temporal está deshabilitada, los datos de copia de seguridad no se protegerán de eliminaciones accidentales o malintencionadas. Sin la característica de eliminación temporal, todas las eliminaciones de elementos protegidos provocarán la eliminación inmediata, sin la posibilidad de restaurar. Dado que los datos de copia de seguridad en el estado "eliminación temporal" no incurren en ningún costo para el cliente, no se recomienda deshabilitar esta característica. La única circunstancia en la que debe considerar la posibilidad de deshabilitar la eliminación temporal es si está planeando mover los elementos protegidos a un nuevo almacén y no puede esperar los 14 días necesarios para eliminar y volver a proteger (por ejemplo, en un entorno de prueba).
+La eliminación temporal se habilita de forma predeterminada en los almacenes recién creados para proteger los datos de copia de seguridad de eliminaciones accidentales o malintencionadas.  No se recomienda deshabilitar esta característica. La única circunstancia en la que debe considerar la posibilidad de deshabilitar la eliminación temporal es si está planeando mover los elementos protegidos a un nuevo almacén y no puede esperar los 14 días necesarios para eliminar y volver a proteger (por ejemplo, en un entorno de prueba). Solo un administrador de Backup puede deshabilitar esta característica. Si se deshabilita esta característica, todas las eliminaciones de elementos protegidos se convertirán en eliminaciones inmediatas, sin la posibilidad de restaurar. Los datos de copia de seguridad con el estado de eliminación temporal antes de deshabilitar esta característica continuarán en ese estado. Si quiere eliminarlos permanentemente de inmediato, debe recuperarlos y eliminarlos de nuevo para eliminarlos de forma permanente.
 
-### <a name="prerequisites-for-disabling-soft-delete"></a>Requisitos previos para deshabilitar la eliminación temporal
-
-- La habilitación o deshabilitación de la eliminación temporal para almacenes (sin elementos protegidos) solo puede realizarse en Azure Portal. Esto se aplica a:
-  - Almacenes recién creados que no contienen elementos protegidos
-  - Almacenes existentes cuyos elementos protegidos se han eliminado y han expirado (más allá del período de retención fijo de 14 días)
-- Si la característica de eliminación temporal está deshabilitada para el almacén, puede volver a habilitarla, pero no puede revertir la selección y deshabilitarla de nuevo si el almacén contiene elementos protegidos.
-- No se puede deshabilitar la eliminación temporal para almacenes que contienen elementos protegidos o elementos en estado de eliminación temporal. Si tiene que hacerlo, siga estos pasos:
-  - Detenga la protección de los datos eliminados de todos los elementos protegidos.
-  - Espere a que expiren los 14 días de retención de seguridad.
-  - Deshabilite la eliminación temporal.
-
-Para deshabilitar la eliminación temporal, asegúrese de que se cumplen los requisitos previos y luego siga estos pasos:
+Para deshabilitar la eliminación temporal, siga estos pasos:
 
 1. En Azure Portal, vaya a su almacén y luego a **Configuración** -> **Propiedades**.
-2. En el panel Propiedades, seleccione **Configuración de seguridad** -> **Actualizar**.
-3. En el panel Configuración de seguridad, en Eliminación temporal, seleccione **Deshabilitar**.
+2. En el panel Propiedades, seleccione **Configuración de seguridad** -> **Actualizar**.  
+3. En el panel Configuración de seguridad, en **Eliminación temporal**, seleccione **Deshabilitar**.
+
 
 ![Deshabilitación de la eliminación temporal](./media/backup-azure-security-feature-cloud/disable-soft-delete.png)
+
+## <a name="permanently-deleting-soft-deleted-backup-items"></a>Eliminar permanentemente los elementos de copia de seguridad eliminados temporalmente
+
+Los datos de copia de seguridad con el estado de eliminación temporal antes de deshabilitar esta característica continuarán en ese estado. Si quiere eliminarlos de permanentemente de inmediato, restáurelos y vuelva a eliminarlos para eliminarlos de forma permanente. 
+
+Siga estos pasos:
+
+1. Siga los pasos para [deshabilitar la eliminación temporal](#disabling-soft-delete). 
+2. En Azure Portal, vaya al almacén, a **Elementos de copia de seguridad** y elija la máquina virtual eliminada temporalmente. 
+
+![Selección de una máquina virtual eliminada temporalmente](./media/backup-azure-security-feature-cloud/vm-soft-delete.png)
+
+3. Seleccione la opción **Recuperar**.
+
+![Elegir Recuperar](./media/backup-azure-security-feature-cloud/choose-undelete.png)
+
+
+4. Se mostrará una ventana. Seleccione **Recuperar**.
+
+![Seleccionar Recuperar](./media/backup-azure-security-feature-cloud/undelete-vm.png)
+
+5. Elija **Eliminar datos de la copia de seguridad** para eliminar los datos de copia de seguridad de forma permanente.
+
+![Elegir Eliminar datos de la copia de seguridad](https://docs.microsoft.com/azure/backup/media/backup-azure-manage-vms/delete-backup-buttom.png)
+
+6. Escriba el nombre del elemento de copia de seguridad para confirmar que desea eliminar los puntos de recuperación.
+
+![Escritura del nombre del elemento de copia de seguridad](https://docs.microsoft.com/azure/backup/media/backup-azure-manage-vms/delete-backup-data1.png)
+
+7. Para eliminar los datos de copia de seguridad para el elemento, seleccione **Eliminar**. Un mensaje de notificación le confirma que se han eliminado los datos de copia de seguridad.
+
 
 ## <a name="other-security-features"></a>Otras características de seguridad
 
@@ -143,7 +160,7 @@ La recuperación seguida de la operación de reanudación volverá a proteger el
 
 #### <a name="can-i-delete-my-vault-if-there-are-soft-deleted-items-in-the-vault"></a>¿Puedo eliminar mi almacén si contiene elementos eliminados temporalmente?
 
-No es posible eliminar el almacén de Recovery Services si contiene elementos de copia de seguridad en estado de eliminación temporal. Los elementos eliminados temporalmente se eliminan de forma permanente 14 días después de la operación de eliminación. Solo podrá eliminar el almacén después de que se hayan purgado todos los elementos eliminados temporalmente.  
+No es posible eliminar el almacén de Recovery Services si contiene elementos de copia de seguridad en estado de eliminación temporal. Los elementos eliminados temporalmente se eliminan de forma permanente 14 días después de la operación de eliminación. Si no puede esperar 14 días, [deshabilite la eliminación temporal](#disabling-soft-delete), recupere los elementos eliminados temporalmente y elimínelos de nuevo para eliminarlos de forma permanente. Después de asegurarse de que no hay elementos protegidos o eliminados temporalmente en el almacén, puede eliminarlo.  
 
 #### <a name="can-i-delete-the-data-earlier-than-the-14-days-soft-delete-period-after-deletion"></a>¿Puedo eliminar los datos antes del período de eliminación temporal de 14 días posterior a la eliminación?
 

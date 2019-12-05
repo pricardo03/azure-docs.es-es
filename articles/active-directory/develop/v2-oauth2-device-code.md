@@ -12,23 +12,25 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/24/2019
+ms.date: 11/19/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 90922a48f213ecd506f08f616fe8c28ab44776a2
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 9c948c59a90e0db17b4704188221cfc3c3d82310
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72893894"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74207601"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-device-authorization-grant-flow"></a>Flujo de concesión de autorización de dispositivo de OAuth 2.0 y la Plataforma de identidad de Microsoft
 
 [!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
 La Plataforma de identidad de Microsoft admite la [concesión de autorización de dispositivo](https://tools.ietf.org/html/rfc8628), lo que permite que los usuarios inicien sesión en dispositivos con limitaciones de entrada, como un televisor inteligente, un dispositivo IoT o una impresora.  Para habilitar este flujo, el dispositivo pide que el usuario visite una página web en su explorador en otro dispositivo para iniciar sesión.  Una vez que el usuario inicia sesión, el dispositivo es capaz de obtener tokens de acceso y tokens de actualización según sea necesario.  
+
+En este artículo se describe cómo programar directamente con el protocolo de la aplicación.  Cuando sea posible, se recomienda usar las bibliotecas de autenticación de Microsoft (MSAL) admitidas, en lugar de [adquirir tokens y API web protegidas por llamadas](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Además, eche un vistazo a las [aplicaciones de ejemplo que usan MSAL](sample-v2-code.md).
 
 > [!NOTE]
 > No todas las características y escenarios de Azure Active Directory son compatibles con el punto de conexión de la Plataforma de identidad de Microsoft. Para determinar si debe usar el punto de conexión de la Plataforma de identidad de Microsoft, conozca las [limitaciones de esta plataforma](active-directory-v2-limitations.md).

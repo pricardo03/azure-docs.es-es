@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/06/2019
-ms.openlocfilehash: e276340041e69101190645caad9dbf6de57abd95
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.date: 11/17/2019
+ms.openlocfilehash: 5d3d752f549fe336f584fa3534b61cb5a009c3bd
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996512"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158807"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Réplicas de lectura en Azure Database for PostgreSQL: servidor único
 
@@ -160,7 +160,9 @@ Una réplica se crea con la misma configuración de proceso y almacenamiento que
 
 PostgreSQL requiere que el valor del parámetro `max_connections` en la réplica de lectura sea mayor o igual que el valor principal; en caso contrario, no se iniciará la réplica. En Azure Database for PostgreSQL, el valor del parámetro `max_connections` se basa en la SKU. Para obtener más información, consulte el artículo de [límites de Azure Database for PostgreSQL](concepts-limits.md). 
 
-Si trata de actualizar los valores del servidor, pero no cumple los límites, recibirá un error.
+Si trata de actualizar los valores del servidor descritos previamente, pero no cumple los límites, recibirá un error.
+
+La réplica no hereda las reglas de firewall, las reglas de red virtual ni la configuración de parámetros del servidor maestro cuando se crea o con posterioridad.
 
 ### <a name="max_prepared_transactions"></a>max_prepared_transactions
 [PostgreSQL requiere](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-PREPARED-TRANSACTIONS) que el valor del parámetro `max_prepared_transactions` en la réplica de lectura sea mayor o igual que el valor principal; en caso contrario, no se iniciará la réplica. Si quiere cambiar `max_prepared_transactions` en el servidor maestro, primero cámbielo en las réplicas.

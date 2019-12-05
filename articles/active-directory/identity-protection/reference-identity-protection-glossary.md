@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5439b8626d1fa0ea502d33455db8b2564fbd45f0
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 9a3e2df956aaa4f9fd0af83dd2a18e04d731c714
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72886691"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232339"
 ---
 # <a name="azure-active-directory-identity-protection-glossary"></a>Glosario de Azure Active Directory Identity Protection
 
@@ -45,7 +45,7 @@ Estado de detección de riesgo establecido manualmente por un usuario de Identit
 Persona o entidad que se debe comprobar mediante autenticación, basándose en criterios como contraseñas o certificados.
 
 ### <a name="identity-risk-detection"></a>Detección de riesgo de identidad
-Evento de AAD marcado como anómalo por Identity Protection, que puede indicar que una identidad está en peligro.
+Evento de Azure AD marcado como anómalo por Identity Protection, que puede indicar que una identidad está en peligro.
 
 ### <a name="ignored-risk-detection"></a>Ignorada (detección de riesgo)
 Estado de detección de riesgo establecido manualmente por un usuario de Identity Protection, que indica que la detección de riesgo se cierra sin aplicar una acción de corrección.

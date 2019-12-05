@@ -8,12 +8,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/15/2019
-ms.openlocfilehash: 8bf1af096555be8245ff5172905781464dc2d441
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: a01258799efa81c8d3ddba398facaa90c24c2513
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132239"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150032"
 ---
 # <a name="overview-of-the-azure-monitor-agents"></a>Introducción a los agentes de Azure Monitor 
 Los recursos de proceso, tales como las máquinas virtuales, generan datos para supervisar su rendimiento y disponibilidad, al igual que [otros recursos en la nube](../insights/monitor-azure-resource.md). Los recursos de proceso, sin embargo, tienen también un sistema operativo invitado y cargas de trabajo que deben supervisarse. La recopilación de estos datos de supervisión desde dentro del recurso requiere un agente. En este artículo se describen los agentes utilizados por Azure Monitor y se ayuda a determinar qué se necesita para cumplir con los requisitos del entorno concreto.
@@ -42,7 +42,7 @@ En la tabla siguiente se muestra una comparación rápida de los distintos agent
 
 
 ## <a name="azure-diagnostic-extension"></a>Extensión de diagnóstico de Azure
-La [extensión Azure Diagnostics](../../azure-monitor/platform/diagnostics-extension-overview.md) permite recopilar datos de supervisión del sistema operativo invitado y de las cargas de trabajo de los recursos de proceso de Azure. Recopila los datos principalmente en Azure Storage. Puede configurar Azure Monitor para que copie los datos de Storage a un área de trabajo de Log Analytics. También puede recopilar datos de rendimiento del sistema operativo invitado en métricas de Azure Monitor.
+La [extensión Azure Diagnostics](../../azure-monitor/platform/diagnostics-extension-overview.md) recopila datos de supervisión del sistema operativo invitado y de las cargas de trabajo de los recursos de proceso de Azure. Recopila los datos principalmente en Azure Storage. Puede configurar Azure Monitor para que copie los datos de Storage a un área de trabajo de Log Analytics. También puede recopilar datos de rendimiento del sistema operativo invitado en métricas de Azure Monitor.
 
 La extensión Azure Diagnostics se conoce a menudo como la extensión Azure Diagnostics para Windows (WAD) o Azure Diagnostics para Linux (LAD).
 
@@ -61,7 +61,7 @@ Entre los escenarios admitidos por la extensión Azure Diagnostics se incluyen l
 * Copiar datos de las aplicaciones que se ejecutan en la máquina virtual [en Application Insights](diagnostics-extension-to-application-insights.md), para integrarlos con la supervisión de otras aplicaciones.
 
 ## <a name="log-analytics-agent"></a>Agente de Log Analytics
-El [agente de Log Analytics](log-analytics-agent.md) permite recopilar datos de supervisión del sistema operativo invitado y de las cargas de trabajo de los recursos de proceso de Azure. Recopila los datos en un área de trabajo de Log Analytics.
+El [agente de Log Analytics](log-analytics-agent.md) recopila datos de supervisión del sistema operativo invitado y de las cargas de trabajo de las máquinas virtuales de Azure, otros proveedores de nube y el entorno local. Recopila los datos en un área de trabajo de Log Analytics.
 
 El agente de Log Analytics es el mismo agente que se usa en System Center Operations Manager y en los equipos de agente de host múltiple, para comunicarse con el grupo de administración y Azure Monitor simultáneamente. Este agente también es necesario en ciertas soluciones de Azure Monitor.
 

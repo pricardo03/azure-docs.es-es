@@ -11,12 +11,12 @@ ms.date: 02/19/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 1ae3f739d5104ea9a98889f7fbce938b835e84aa
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: d738bfb8bcd11c8da4c39d873c7f298b8c49af98
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72385940"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74167188"
 ---
 # <a name="oauth-20-authorization-code-flow-in-azure-active-directory-b2c"></a>Flujo de código de autorización de OAuth 2.0 en Azure Active Directory B2C
 
@@ -115,6 +115,7 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 |{tenant}| Obligatorio | Nombre de su inquilino de Azure AD B2C.|
 |{policy}| Obligatorio| El flujo de usuario usado para adquirir el código de autorización. No puede usar un flujo de usuario diferente en esta solicitud. |
 | client_id |Obligatorio |Identificador de aplicación asignado a la aplicación en [Azure Portal](https://portal.azure.com).|
+| client_secret | Sí, en Web Apps. | El secreto de la aplicación se generó en [Azure Portal](https://portal.azure.com/). Los secretos de cliente se usan en este flujo para escenarios de aplicaciones web, donde el cliente puede almacenar de forma segura un secreto de cliente. En escenarios de aplicación nativa (cliente público), los secretos de cliente no se pueden almacenar de forma segura y, por lo tanto, no se usan en esta llamada. Si usa un secreto de cliente, cámbielo periódicamente. |
 | grant_type |Obligatorio |Tipo de concesión. Para el flujo de código de autorización, el tipo de concesión debe ser `authorization_code`. |
 | scope |Recomendado |Una lista de ámbitos separada por espacios. Un valor de ámbito único indica a Azure AD los dos permisos que se solicitan. El uso del identificador de cliente como ámbito indica que la aplicación necesita un token de acceso que se puede usar con su propio servicio o API web, representado por el mismo identificador de cliente.  El ámbito `offline_access` indica que la aplicación necesita un token de actualización para un acceso de larga duración a los recursos.  También puede usar el ámbito `openid` para solicitar un token de identificador desde Azure AD B2C. |
 | código |Obligatorio |El código de autorización que adquirió en el primer segmento del flujo. |
@@ -180,7 +181,7 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90
 |{tenant}| Obligatorio | Nombre de su inquilino de Azure AD B2C.|
 |{policy} |Obligatorio |El flujo de usuario usado para adquirir el token de actualización original. No puede usar un flujo de usuario diferente en esta solicitud. |
 | client_id |Obligatorio |Identificador de aplicación asignado a la aplicación en [Azure Portal](https://portal.azure.com). |
-| client_secret |Obligatorio |El client_secret asociado a su client_id en [Azure Portal](https://portal.azure.com). |
+| client_secret | Sí, en Web Apps. | El secreto de la aplicación se generó en [Azure Portal](https://portal.azure.com/). Los secretos de cliente se usan en este flujo para escenarios de aplicaciones web, donde el cliente puede almacenar de forma segura un secreto de cliente. En escenarios de aplicación nativa (cliente público), los secretos de cliente no se pueden almacenar de forma segura y, por lo tanto, no se usan en esta llamada. Si usa un secreto de cliente, cámbielo periódicamente. |
 | grant_type |Obligatorio |Tipo de concesión. Para este segmento del flujo de código de autorización, el tipo de concesión debe ser `refresh_token`. |
 | scope |Recomendado |Una lista de ámbitos separada por espacios. Un valor de ámbito único indica a Azure AD los dos permisos que se solicitan. El uso del identificador de cliente como ámbito indica que la aplicación necesita un token de acceso que se puede usar con su propio servicio o API web, representado por el mismo identificador de cliente.  El ámbito `offline_access` indica que la aplicación necesitará un token de actualización para un acceso de larga duración a los recursos.  También puede usar el ámbito `openid` para solicitar un token de identificador desde Azure AD B2C. |
 | redirect_uri |Opcional |El URI de redirección de la aplicación en la que recibió el código de autorización. |

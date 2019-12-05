@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: f4db353e3c2f625478df6a547d1b67c5d074d18a
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 406f6f7a3db5f63fb50242a93f021c481631adaa
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640618"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74209715"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Dispositivos gemelos en IoT Hub
 
@@ -245,11 +245,11 @@ Los [SDK de dispositivos IoT de Azure](iot-hub-devguide-sdks.md) permiten usar f
 
 Las etiquetas y las propiedades deseadas y notificadas son objetos JSON con las siguientes restricciones:
 
-* Todas las claves en objetos JSON son cadenas UNICODE UTF-8 de 64 caracteres que distinguen entre mayúsculas y minúsculas. Entre los caracteres permitidos no se incluyen los caracteres de control UNICODE (segmentos C0 y C1), ni `.`, `$` y SP.
+* Todas las claves en objetos JSON tienen codificación UTF-8, con distinción de mayúsculas y minúsculas, y una longitud de hasta 1 KB. Entre los caracteres permitidos no se incluyen los caracteres de control UNICODE (segmentos C0 y C1), ni `.`, `$` y SP.
 
 * Todos los valores en un objeto JSON pueden ser de los siguientes tipos JSON: booleano, número, cadena, objeto. No se permiten matrices. El valor máximo de enteros es 4503599627370495 y el valor mínimo de enteros es-4503599627370496.
 
-* Todos los objetos JSON en etiquetas y propiedades deseadas y notificadas pueden tener una profundidad máxima de 5. Por ejemplo, el objeto siguiente es válido:
+* Todos los objetos JSON en etiquetas y propiedades deseadas y notificadas pueden tener una profundidad máxima de 10. Por ejemplo, el objeto siguiente es válido:
 
    ```json
    {
@@ -260,7 +260,17 @@ Las etiquetas y las propiedades deseadas y notificadas son objetos JSON con las 
                    "three": {
                        "four": {
                            "five": {
-                               "property": "value"
+                               "six": {
+                                   "seven": {
+                                       "eight": {
+                                           "nine": {
+                                               "ten": {
+                                                   "property": "value"
+                                               }
+                                           }
+                                       }
+                                   }
+                               }
                            }
                        }
                    }
@@ -271,7 +281,7 @@ Las etiquetas y las propiedades deseadas y notificadas son objetos JSON con las 
    }
    ```
 
-* Todos los valores de cadena pueden tener como máximo una longitud de 512 bytes.
+* Todos los valores de cadena pueden tener una longitud de 4 KB como máximo.
 
 ## <a name="device-twin-size"></a>Tamaño del dispositivo gemelo
 

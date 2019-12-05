@@ -12,12 +12,12 @@ ms.author: mathoma
 ms.reviewer: sashan, carlrab
 manager: jroth
 ms.date: 08/27/2019
-ms.openlocfilehash: 85d2e58d35ef233fda7c724f85152fc74bd11189
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 939606412c55ddad29801776c2385b406dc93a33
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826840"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74286755"
 ---
 # <a name="tutorial-add-a-sql-database-managed-instance-to-a-failover-group"></a>Tutorial: adición de una instancia administrada de SQL Database a un grupo de conmutación por error
 
@@ -814,7 +814,7 @@ En esta parte del tutorial se usan los siguientes cmdlets de PowerShell:
 | [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork) | Actualiza una red virtual.  |
 | [Get-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/get-azvirtualnetworksubnetconfig) | Obtiene una subred en una red virtual. |
 | [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) | Crea una dirección IP pública.  | 
-| [New-AzVirtualNetworkGatewayIpConfig](/powershell/module/az.network/new-azvirtualnetworkgatewayipconfig) | Crea una configuración de IP para una puerta de enlace de red virtual |
+| [New-AzVirtualNetworkGatewayIpConfig](/powershell/module/az.network/new-azvirtualnetworkgatewayipconfig) | Crea una configuración de IP para una puerta de enlace de Virtual Network. |
 | [New-AzVirtualNetworkGateway](/powershell/module/az.network/new-azvirtualnetworkgateway) | Crea una puerta de enlace de red virtual |
 
 
@@ -895,7 +895,7 @@ En esta parte del tutorial se usan los siguientes cmdlets de PowerShell:
 | [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork) | Actualiza una red virtual.  |
 | [Get-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/get-azvirtualnetworksubnetconfig) | Obtiene una subred en una red virtual. |
 | [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) | Crea una dirección IP pública.  | 
-| [New-AzVirtualNetworkGatewayIpConfig](/powershell/module/az.network/new-azvirtualnetworkgatewayipconfig) | Crea una configuración de IP para una puerta de enlace de red virtual |
+| [New-AzVirtualNetworkGatewayIpConfig](/powershell/module/az.network/new-azvirtualnetworkgatewayipconfig) | Crea una configuración de IP para una puerta de enlace de Virtual Network. |
 | [New-AzVirtualNetworkGateway](/powershell/module/az.network/new-azvirtualnetworkgateway) | Crea una puerta de enlace de red virtual |
 
 ---
@@ -1075,7 +1075,7 @@ Para limpiar los recursos, elimine primero la instancia administrada, después e
 
 # <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 1. Vaya a su grupo de recursos en [Azure Portal](https://portal.azure.com). 
-1. Seleccione la instancia administrada y después seleccione **Eliminar**: Escriba `yes` en el cuadro de texto para confirmar que quiere eliminar el recurso y después seleccione **Eliminar**. Este proceso puede tardar algún tiempo en completarse en segundo plano y, hasta que finalice, no podrá eliminar el *Clúster virtual* ni ningún otro recurso dependiente. Supervise la eliminación en la pestaña Actividad para confirmar que la instancia administrada se ha eliminado. 
+1. Seleccione las instancias administradas y después seleccione **Eliminar**. Escriba `yes` en el cuadro de texto para confirmar que quiere eliminar el recurso y después seleccione **Eliminar**. Este proceso puede tardar algún tiempo en completarse en segundo plano y, hasta que finalice, no podrá eliminar el *Clúster virtual* ni ningún otro recurso dependiente. Supervise la eliminación en la pestaña Actividad para confirmar que la instancia administrada se ha eliminado. 
 1. Una vez que se elimine la instancia administrada, puede eliminar el *Clúster virtual* al seleccionarlo en el grupo de recursos y elegir **Eliminar**. Escriba `yes` en el cuadro de texto para confirmar que quiere eliminar el recurso y después seleccione **Eliminar**. 
 1. Elimine todos los recursos restantes. Escriba `yes` en el cuadro de texto para confirmar que quiere eliminar el recurso y después seleccione **Eliminar**. 
 1. Para eliminar el grupo de recursos, seleccione **Eliminar grupo de recursos**, escriba el nombre del grupo de recursos (`myResourceGroup`) y, a continuación, seleccione **Eliminar**. 
@@ -1125,10 +1125,10 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 | [New-AzSqlInstance](/powershell/module/az.sql/new-azsqlinstance) | Crea una instancia administrada de Azure SQL Database.  |
 | [Get-AzSqlInstance](/powershell/module/az.sql/get-azsqlinstance)| Devuelve información sobre la instancia de base de datos administrados de Azure SQL. |
 | [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) | Crea una dirección IP pública.  | 
-| [New-AzVirtualNetworkGatewayIpConfig](/powershell/module/az.network/new-azvirtualnetworkgatewayipconfig) | Crea una configuración de IP para una puerta de enlace de red virtual |
-| [New-AzVirtualNetworkGateway](/powershell/module/az.network/new-azvirtualnetworkgateway) | Crea una puerta de enlace de red virtual |
+| [New-AzVirtualNetworkGatewayIpConfig](/powershell/module/az.network/new-azvirtualnetworkgatewayipconfig) | Crea una configuración de IP para una puerta de enlace de Virtual Network. |
+| [New-AzVirtualNetworkGateway](/powershell/module/az.network/new-azvirtualnetworkgateway) | Crea una puerta de enlace de Virtual Network. |
 | [New-AzVirtualNetworkGatewayConnection](/powershell/module/az.network/new-azvirtualnetworkgatewayconnection) | Crea una conexión entre las dos puertas de enlace de redes virtuales.   |
-| [New-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/new-azsqldatabaseinstancefailovergroup)| Cree un nuevo grupo de conmutación por error de la instancia administrada de Azure SQL Database.  |
+| [New-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/new-azsqldatabaseinstancefailovergroup)| Crea un nuevo grupo de conmutación por error de la instancia administrada de Azure SQL Database.  |
 | [Get-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/get-azsqldatabaseinstancefailovergroup) | Obtiene o enumera los grupos de conmutación por error de la instancia administrada.| 
 | [Switch-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/switch-azsqldatabaseinstancefailovergroup) | Ejecuta una conmutación por error de un grupo de conmutación por error de la instancia administrada. | 
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Elimina un grupo de recursos. | 

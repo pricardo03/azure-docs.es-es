@@ -1,19 +1,14 @@
 ---
-title: Referencia de Azure Functions para desarrolladores de Java | Microsoft Docs
+title: Referencia para desarrolladores de Java para Azure Functions
 description: Aprenda a desarrollar funciones con Java.
-author: ggailey777
-manager: gwallace
-keywords: Azure Functions, funciones, procesamiento de eventos, webhooks, proceso dinámico, arquitectura sin servidor, java
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.author: glenga
-ms.openlocfilehash: 97c721c504c460856796e296fefc33bf01f002f8
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 50fc4dc278e274109725ff60ea8d438310ce464d
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176435"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230401"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guía de Azure Functions para desarrolladores de Java
 

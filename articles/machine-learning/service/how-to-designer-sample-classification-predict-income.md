@@ -1,7 +1,7 @@
 ---
-title: 'Diseñador: Clasificación, predicción de ingresos'
+title: 'Diseñador: Ejemplo de clasificación para predicción de ingresos'
 titleSuffix: Azure Machine Learning
-description: Obtenga información sobre cómo compilar un clasificador de aprendizaje automático sin tener que escribir una sola línea de código con el diseñador (versión preliminar).
+description: Siga este ejemplo para crear un clasificador sin código para predecir los ingresos con el diseñador de Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,14 +10,17 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 11/04/2019
-ms.openlocfilehash: 383cbc11955598505730a4613c50536afac75f95
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: adc7712a4f41daea9ed691e6df52290e98e8d81f
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647976"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74214126"
 ---
-# <a name="sample-3---classification-with-feature-selection-income-prediction"></a>Ejemplo 3: clasificación con selección de características: Predicción de ingresos
+# <a name="build-a-classifier--use-feature-selection-to-predict-income-with-azure-machine-learning-designer"></a>Creación de un clasificador y uso de la selección de características para predecir los ingresos con el diseñador de Azure Machine Learning
+
+**Ejemplo 3 del diseñador (versión preliminar)**
+
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
 Obtenga información sobre cómo compilar un clasificador de aprendizaje automático sin tener que escribir una sola línea de código con el diseñador (versión preliminar). Esta ejemplo entrena un **árbol de decisión de dos clases** para predecir los ingresos del censo de adultos (>=50K o <=50K).
@@ -26,7 +29,7 @@ Porque la pregunta es responder "¿Cuál?" esto se conoce como un problema de cl
 
 Este es el gráfico de la canalización final de este ejemplo:
 
-![Gráfico de la canalización](media/how-to-ui-sample-classification-predict-income/overall-graph.png)
+![Gráfico de la canalización](media/how-to-designer-sample-classification-predict-income/overall-graph.png)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -38,7 +41,7 @@ Este es el gráfico de la canalización final de este ejemplo:
 
 ## <a name="data"></a>Datos
 
-El conjunto de datos contiene 14 características y una columna de etiqueta. Existen varios tipos de características, lo que incluye numéricas y de categorías. En el diagrama siguiente se muestra un extracto del conjunto de datos: ![datos](media/how-to-ui-sample-classification-predict-income/data.png)
+El conjunto de datos contiene 14 características y una columna de etiqueta. Existen varios tipos de características, lo que incluye numéricas y de categorías. En el diagrama siguiente se muestra un extracto del conjunto de datos: ![datos](media/how-to-designer-sample-classification-predict-income/data.png)
 
 
 
@@ -52,7 +55,7 @@ Para crear la canalización, siga estos pasos:
 1. Agregue un módulo **Árbol de decisión ampliado de dos clases** para inicializar un clasificador de árbol de decisión ampliado.
 1. Agregue un módulo **Entrenar modelo**. Conecte el clasificador del paso anterior con el puerto de entrada de la izquierda de **Entrenar modelo**. Conecte el conjunto de datos filtrado del módulo Selección de características basada en filtros como conjunto de datos de entrenamiento.  El módulo **Entrenar modelo** entrenará el clasificador.
 1. Agregue el módulo Selección de transformación de columnas y Aplicar transformación para aplicar la misma transformación (selección de características basada en filtros) al conjunto de datos de prueba.
-![aplicar-transformación](media/how-to-ui-sample-classification-predict-income/transformation.png)
+![aplicar-transformación](media/how-to-designer-sample-classification-predict-income/transformation.png)
 1. Agregue el módulo de **Puntuación modelo** y conecte al mismo el módulo **Entrenar modelo**. Después, agregue el conjunto de pruebas (la salida del módulo Aplicar transformación, que también aplica la selección de características para el conjunto de pruebas) a **Puntuación modelo**. El módulo **Puntuar modelo** hará las predicciones. Puede seleccionar su puerto de salida para ver las predicciones y las probabilidades de clase positiva.
 
 
@@ -62,7 +65,7 @@ Para crear la canalización, siga estos pasos:
 
 ## <a name="results"></a>Results
 
-![Evaluar los resultados](media/how-to-ui-sample-classification-predict-income/evaluate-result.png)
+![Evaluar los resultados](media/how-to-designer-sample-classification-predict-income/evaluate-result.png)
 
 En los resultados de la evaluación, se puede ver que las curvas como ROC, la precisión de recuperación y las métricas de confusión. 
 

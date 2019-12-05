@@ -12,12 +12,12 @@ author: wenjiefu
 ms.author: wenjiefu
 ms.reviewer: sawinark
 manager: craigg
-ms.openlocfilehash: de90614d9d24b3f57cb170e9a590de859f689331
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 9692c754e59eba02d3d483d44430150107d703a4
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683988"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74217536"
 ---
 # <a name="troubleshoot-package-execution-in-the-ssis-integration-runtime"></a>Solución de problemas de ejecución de paquetes en SSIS Integration Runtime
 
@@ -154,7 +154,7 @@ Una posible causa es que el entorno de ejecución de integración autohospedado 
 * Causa posible y acción recomendada:
   * Si se muestra también un mensaje de advertencia que indica que el componente no admite el uso del administrador de conexiones con el valor de ConnectByProxy establecido en true en el registro de ejecución, significa que se usa un administrador de conexiones en un componente que todavía no ha admitido "ConnectByProxy". Los componentes admitidos se pueden encontrar en [Configuración del entorno de ejecución de integración autohospedado como un proxy para Azure-SSIS IR en Azure Data Factory](self-hosted-integration-runtime-proxy-ssis.md#enable-ssis-packages-to-connect-by-proxy).
   * El registro de ejecución se puede encontrar en el [informe de SSMS](https://docs.microsoft.com/sql/integration-services/performance/monitor-running-packages-and-other-operations?view=sql-server-2017#reports) o en la carpeta de registro especificada en la actividad de ejecución de paquetes SSIS.
-  * La red virtual también se puede usar para acceder a los datos locales como alternativa. Se puede encontrar más información en [Unión de Azure-SSIS Integration Runtime a una red virtual](join-azure-ssis-integration-runtime-virtual-network.md).
+  * Como alternativa, la red virtual también se puede usar para acceder a los datos locales. Se puede encontrar más información en [Unión de Azure-SSIS Integration Runtime a una red virtual](join-azure-ssis-integration-runtime-virtual-network.md).
 
 ### <a name="error-message-staging-task-status-failed-staging-task-error-errorcode-2906-errormessage-package-execution-failed-output-operationerrormessages-ssis-executor-exit-code--1n-loglocation-ssistelemetryexecutionlog-effectiveintegrationruntime--executionduration--durationinqueue--integrationruntimequeue--"></a>Mensaje de error: "Staging task status: Failed. Staging task error: Código de error: 2906, ErrorMessage: Package execution failed., Output: {"OperationErrorMessages": "SSIS Executor exit code: -1.\n", "LogLocation": "...\\SSISTelemetry\\ExecutionLog\\...", "effectiveIntegrationRuntime": "...", "executionDuration": ..., "durationInQueue": { "integrationRuntimeQueue": ... }}" (Estado de la tarea provisional: Con error. Error de la tarea provisional: Código de error: 2906, Mensaje de error: Error de ejecución del paquete, Salida: {"OperationErrorMessages": "Código de salida del ejecutor SSIS: -1.\n", "LogLocation": "...SSISTelemetry ExecutionLog...", "effectiveIntegrationRuntime": "...", "executionDuration": ..., "durationInQueue": { "integrationRuntimeQueue": ... }})
 

@@ -1,6 +1,7 @@
 ---
-title: 'Diagnosticar un problema de enrutamiento en una red de máquinas virtuales: CLI de Azure | Microsoft Docs'
-description: En este artículo, aprenderá a diagnosticar un problema de enrutamiento en una red de máquinas virtuales mediante la funcionalidad de próximo salto de Azure Network Watcher.
+title: 'Diagnosticar problemas de enrutamiento en una red de VM: CLI de Azure'
+titleSuffix: Azure Network Watcher
+description: En este artículo, aprenderá a diagnosticar un problema de enrutamiento en una red de máquinas virtuales mediante la funcionalidad de Próximo salto de Azure Network Watcher.
 services: network-watcher
 documentationcenter: network-watcher
 author: KumudD
@@ -17,12 +18,12 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 968b7dd703ba40f46a068deb1d8b7d2b32e0de2b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 23ffc16948c250a6999c33b8812769ba889f4900
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64688215"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276090"
 ---
 # <a name="diagnose-a-virtual-machine-network-routing-problem---azure-cli"></a>Diagnosticar problemas de enrutamiento en una red de máquinas virtuales: CLI de Azure
 

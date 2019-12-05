@@ -1,17 +1,14 @@
 ---
-title: Recursos de Azure sin límite de recuento de 800
+title: Recursos sin límite de recuento de 800
 description: Aquí se enumeran los tipos de recursos de Azure que pueden tener más de 800 instancias en un grupo de recursos.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 11/07/2019
-ms.author: tomfitz
-ms.openlocfilehash: c08b80a841199ed2737f6fe8d7f2b76943c5b269
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: ad0a3d83738a5bd51d9c2833a71d09038bd97116
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73795669"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150348"
 ---
 # <a name="resources-not-limited-to-800-instances-per-resource-group"></a>Recursos no limitados a 800 instancias por grupo de recursos
 

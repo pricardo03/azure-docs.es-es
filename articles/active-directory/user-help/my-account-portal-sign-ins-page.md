@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9d134e522575f30fd1f1be8176e0e1589faa7ac
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: a45caeed8b601a845b0eb0fbcd25f1ec097a77a1
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73586885"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279039"
 ---
 # <a name="view-and-search-your-recent-sign-in-activity-from-the-my-sign-ins-preview-page"></a>Visualización y búsqueda de la actividad de inicio de sesión reciente desde la página Mis inicios de sesión (versión preliminar)
 
@@ -49,7 +49,7 @@ Antes de determinar si algo es incorrecto, asegúrese de que no está viendo un 
 
 ### <a name="if-you-see-an-unsuccessful-sign-in"></a>Si ve un inicio de sesión incorrecto
 
-Un inicio de sesión incorrecto, sin actividad de sesión, significa que se produjo un error en el método de autenticación principal (nombre de usuario/contraseña). Esto podría significar que ha escrito mal el nombre de usuario o la contraseña, pero también podría significar que un atacante estaba intentando adivinar la contraseña. Si cree que fue un atacante que intentó adivinar su contraseña sin éxito, no tiene que cambiarla, pero le recomendamos encarecidamente que se registre en Azure Multi-Factor Authentication (MFA). Con MFA, incluso si el hacker finalmente adivina su contraseña, no será suficiente para acceder a su cuenta.
+Un inicio de sesión incorrecto, sin actividad de sesión, significa que se produjo un error en el método de verificación principal (nombre de usuario/contraseña). Esto podría significar que ha escrito mal el nombre de usuario o la contraseña, pero también podría significar que un atacante estaba intentando adivinar la contraseña. Si cree que fue un atacante que intentó adivinar su contraseña sin éxito, no tiene que cambiarla, pero le recomendamos encarecidamente que se registre en Azure Multi-Factor Authentication (MFA). Con MFA, incluso si el hacker finalmente adivina su contraseña, no será suficiente para acceder a su cuenta.
 
 Si ve un inicio de sesión incorrecto, con una nota en la actividad de la sesión que indica, **Error de comprobación adicional, código no válido**, significa que la autenticación principal (nombre de usuario y contraseña) se realizó correctamente, pero hubo un error en MFA. Si era un atacante, adivinó correctamente la contraseña, pero todavía no pudo superar el desafío de MFA. En este caso, le recomendamos que cambie su contraseña, ya que el atacante acertó esa parte, y luego vaya a la página [Información de seguridad ](https://mysignins.microsoft.com/security-info) para actualizar la configuración de seguridad.
 

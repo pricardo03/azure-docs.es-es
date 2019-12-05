@@ -1,5 +1,5 @@
 ---
-title: 'Configuración de la federación directa un proveedor de identidades para B2B: Azure Active Directory | Microsoft Docs'
+title: 'Federación directa con un proveedor de identidades para B2B: Azure AD'
 description: Federe directamente con un proveedor de identidades SAML o WS-Fed para que los invitados puedan iniciar sesión en sus aplicaciones de Azure AD.
 services: active-directory
 ms.service: active-directory
@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3aea108ed87debac56b18b5959d492f2bcb291d
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: f5b6e99c803fb703f18b61200c28cbdac3282750
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68853600"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74272752"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Federación directa con AD FS y proveedores de terceros para usuarios invitados (versión preliminar)
 |     |

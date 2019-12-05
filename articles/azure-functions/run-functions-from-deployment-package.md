@@ -1,18 +1,14 @@
 ---
-title: Ejecución de la instancia de Azure Functions desde un paquete | Microsoft Docs
+title: Ejecución de la instancia de Azure Functions desde un paquete
 description: Para que el sistema en tiempo de ejecución de Azure Functions ejecute sus funciones, monte un archivo del paquete de implementación que contenga los archivos de proyecto de la aplicación de función.
-author: ggailey777
-manager: gwallace
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 07/15/2019
-ms.author: glenga
-ms.openlocfilehash: dc7f2b6c6e00477b6326e3277cb195aa0de6868c
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: f5d3465e0899f7e5eab213bdb6234313128b7ec8
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176426"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230353"
 ---
 # <a name="run-your-azure-functions-from-a-package-file"></a>Ejecución de la instancia de Azure Functions desde un archivo de paquete
 

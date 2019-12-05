@@ -11,14 +11,14 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
-ms.date: 11/01/2018
+ms.date: 11/19/2019
 ms.author: genli
-ms.openlocfilehash: ad359a19cb42bf115189aca7905d1908d0dc5284
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 4565eb86727e768ba894d701cbc5e0073c07ee01
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71087059"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185521"
 ---
 # <a name="troubleshoot-a-problem-azure-vm-by-using-nested-virtualization-in-azure"></a>Solución de problemas de una máquina virtual de Azure mediante la virtualización anidada en Azure
 
@@ -72,70 +72,55 @@ Para montar la máquina virtual con problemas, la máquina virtual de rescate de
 
 ## <a name="step-2-create-the-problem-vm-on-the-rescue-vms-hyper-v-server"></a>Paso 2: Creación de la máquina virtual con problemas en el servidor de Hyper-V de la máquina virtual de rescate
 
-1.  Registre el nombre del disco en la máquina virtual con problemas y, a continuación, elimínela. Asegúrese de conservar todos los discos conectados. 
+1.  [Cree un disco de instantánea](troubleshoot-recovery-disks-portal-windows.md#take-a-snapshot-of-the-os-disk) para el disco del sistema operativo de la VM que tiene el problema y, a continuación, conecte el disco de instantánea a la VM de rescate.
 
-2.  Conecte el disco del sistema operativo de la máquina virtual con problemas como disco de datos de la máquina virtual de rescate.
+2.  Escritorio remoto a la VM de rescate.
 
-    1.  Una vez eliminada la máquina virtual con problemas, vaya a la máquina virtual de rescate.
+3.  Abra Administración de discos (diskmgmt.msc). Asegúrese de que el disco de la máquina virtual con problemas esté establecido en **Sin conexión**.
 
-    2.  Seleccione **Discos** y, a continuación, **Agregar disco de datos**.
+4.  Abra el administrador de Hyper-V: En **Administrador del servidor**, seleccione el **rol Hyper-V**. Haga clic con el botón derecho en el servidor y, a continuación, seleccione **Administrador de Hyper-V**.
 
-    3.  Seleccione el disco de la máquina virtual con problemas y, a continuación, **Guardar**.
+5.  En Administrador de Hyper-V, haga clic con el botón derecho en la máquina virtual de rescate y seleccione **Nuevo** > **Máquina virtual** > **Siguiente**.
 
-3.  Después de haber conectado correctamente el disco, establezca una conexión de escritorio remoto con la máquina virtual de rescate.
+6.  Escriba un nombre para la máquina virtual y, a continuación, seleccione **Siguiente**.
 
-4.  Abra Administración de discos (diskmgmt.msc). Asegúrese de que el disco de la máquina virtual con problemas esté establecido en **Sin conexión**.
+7.  Seleccione **Generación 1**.
 
-5.  Abra el administrador de Hyper-V: En **Administrador del servidor**, seleccione el **rol Hyper-V**. Haga clic con el botón derecho en el servidor y, a continuación, seleccione **Administrador de Hyper-V**.
+8.  Establezca la memoria de inicio en 1024 MB o más.
 
-6.  En Administrador de Hyper-V, haga clic con el botón derecho en la máquina virtual de rescate y seleccione **Nuevo** > **Máquina virtual** > **Siguiente**.
+9. Si procede, seleccione el conmutador de red de Hyper-V que se ha creado. De lo contrario, vaya a la página siguiente.
 
-7.  Escriba un nombre para la máquina virtual y, a continuación, seleccione **Siguiente**.
-
-8.  Seleccione **Generación 1**.
-
-9.  Establezca la memoria de inicio en 1024 MB o más.
-
-10. Si procede, seleccione el conmutador de red de Hyper-V que se ha creado. De lo contrario, vaya a la página siguiente.
-
-11. Seleccione **Conectar un disco duro virtual más adelante**.
+10. Seleccione **Conectar un disco duro virtual más adelante**.
 
     ![Imagen de la opción Conectar un disco duro virtual más adelante](media/troubleshoot-vm-by-use-nested-virtualization/attach-disk-later.png)
 
-12. Seleccione **Finalizar** cuando se haya creado la máquina virtual.
+11. Seleccione **Finalizar** cuando se haya creado la máquina virtual.
 
-13. Haga clic con el botón derecho en la máquina virtual que ha creado y, a continuación, seleccione **Configuración**.
+12. Haga clic con el botón derecho en la máquina virtual que ha creado y, a continuación, seleccione **Configuración**.
 
-14. Seleccione **Controlador IDE 0** y **Unidad de disco duro** y, a continuación, haga clic en **Agregar**.
+13. Seleccione **Controlador IDE 0** y **Unidad de disco duro** y, a continuación, haga clic en **Agregar**.
 
     ![Imagen sobre cómo agregar una nueva unidad de disco duro](media/troubleshoot-vm-by-use-nested-virtualization/create-new-drive.png)    
 
-15. En **Disco duro físico**, seleccione el disco de la máquina virtual con problemas que ha conectado a la máquina virtual de Azure. Si no ve ningún disco en la lista, compruebe si el disco se ha establecido como sin conexión mediante Administración de discos.
+14. En **Disco duro físico**, seleccione el disco de la máquina virtual con problemas que ha conectado a la máquina virtual de Azure. Si no ve ningún disco en la lista, compruebe si el disco se ha establecido como sin conexión mediante Administración de discos.
 
     ![Imagen sobre al montaje del disco](media/troubleshoot-vm-by-use-nested-virtualization/mount-disk.png)  
 
 
-17. Seleccione **Aplicar** y luego **Aceptar**.
+15. Seleccione **Aplicar** y luego **Aceptar**.
 
-18. Haga doble clic en la máquina virtual y, a continuación, iníciela.
+16. Haga doble clic en la máquina virtual y, a continuación, iníciela.
 
-19. Ahora puede trabajar con la máquina virtual como máquina virtual local. Puede seguir los pasos para solucionar problemas que sean necesarios.
+17. Ahora puede trabajar con la máquina virtual como máquina virtual local. Puede seguir los pasos para solucionar problemas que sean necesarios.
 
-## <a name="step-3-re-create-your-azure-vm-in-azure"></a>Paso 3: Nueva creación de la máquina virtual de Azure en Azure
+## <a name="step-3-replace-the-os-disk-used-by-the-problem-vm"></a>Paso 3: Reemplazo del disco del sistema operativo que usa la VM con problemas
 
 1.  Cuando la máquina virtual vuelva a estar en línea, apáguela en el administrador de Hyper-V.
 
-2.  Vaya a [Azure Portal](https://portal.azure.com), seleccione la máquina virtual de rescate > Discos y copie el nombre del disco. Utilizará el nombre en el paso siguiente. Desconecte el disco fijo de la máquina virtual de rescate.
-
-3.  Vaya a **Todos los recursos**, busque el nombre del disco y, a continuación, seleccione el disco.
-
-     ![Imagen sobre la búsqueda del disco](media/troubleshoot-vm-by-use-nested-virtualization/search-disk.png)     
-
-4. Haga clic en **Crear máquina virtual**.
-
-     ![Imagen sobre la creación de la máquina virtual desde el disco](media/troubleshoot-vm-by-use-nested-virtualization/create-vm-from-vhd.png) 
-
-También puede utilizar Azure PowerShell para crear la máquina virtual desde el disco. Para obtener más información, consulte cómo [crear la nueva máquina virtual desde un disco existente mediante PowerShell](../windows/create-vm-specialized.md#create-the-new-vm). 
+2.  [Desmonte y desconecte el disco del sistema operativo reparado](troubleshoot-recovery-disks-portal-windows.md#unmount-and-detach-original-virtual-hard-disk
+).
+3.  [Reemplace el disco del sistema operativo que usa la VM con el disco del SO reparado](troubleshoot-recovery-disks-portal-windows.md#swap-the-os-disk-for-the-vm
+).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

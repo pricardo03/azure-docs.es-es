@@ -1,5 +1,5 @@
 ---
-title: Uso de las herramientas proporcionadas en los SDK de Azure IoT Hub Device Provisioning para simplificar el desarrollo
+title: Uso de las herramientas del SDK de Azure IoT Hub Device Provisioning Service
 description: En este documento se analizan las herramientas de desarrollo proporcionadas en el SDK de Azure IoT Hub Device Provisioning Service
 author: robinsh
 ms.author: robinsh
@@ -7,12 +7,12 @@ ms.date: 04/09/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 4fd4913776a7d21405f62a28d452bd50cd22f046
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: f5bdf81dedfcf803b8c53a5b0a29cfb823989873
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883002"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74229674"
 ---
 # <a name="how-to-use-tools-provided-in-the-sdks-to-simplify-development-for-provisioning"></a>Uso de las herramientas proporcionadas en los SDK para simplificar el desarrollo del aprovisionamiento
 El servicio IoT Hub Device Provisioning simplifica el proceso de aprovisionamiento con un [aprovisionamiento automático](concepts-auto-provisioning.md) Just-In-Time sin intervención del usuario de una manera segura y escalable.  Se requiere una atestación de seguridad mediante el certificado X.509 o el Módulo de plataforma segura (TPM).  Microsoft también está asociado con [otros asociados de hardware de seguridad](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) para mejorar la confiabilidad en la protección de la implementación de IoT. A los desarrolladores les puede resultar bastante complicado conocer el requisito de seguridad de hardware. Se proporciona un conjunto de SDK de Azure IoT Provisioning Service para que los desarrolladores puedan usar un nivel de comodidad para los clientes de escritura que se comunican con el servicio de aprovisionamiento. Los SDK también proporcionan ejemplos para escenarios comunes, así como un conjunto de herramientas para simplificar la atestación de seguridad en el desarrollo.

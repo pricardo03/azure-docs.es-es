@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 11/04/2019
+ms.date: 11/18/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: c847b110cb821ebe3ca7e706fcaec592dcc58fa8
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: df488c2a3033015175943f7d092beaaa41e34046
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73600976"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74260875"
 ---
 Por ahora, los discos Ultra tienen limitaciones adicionales, como se indica a continuación:
 
@@ -38,3 +38,4 @@ Por ahora, los discos Ultra tienen limitaciones adicionales, como se indica a co
 - Todavía no admiten instantáneas de disco, imágenes de máquinas virtuales, conjuntos de disponibilidad ni Azure Disk Encryption.
 - Todavía no admiten la integración con Azure Backup o Azure Site Recovery.
 - El límite máximo actual de IOPS en máquinas virtuales de disponibilidad general es 80 000.
+- Si desea participar en una versión preliminar limitada de una máquina virtual que puede alcanzar 160 000 IOPS con discos ultra, envíe un correo electrónico a UltraDiskFeedback@microsoft.com.

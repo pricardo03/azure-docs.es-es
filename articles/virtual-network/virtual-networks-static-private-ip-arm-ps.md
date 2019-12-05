@@ -1,5 +1,5 @@
 ---
-title: 'Creación de una VM con una dirección IP privada estática: Azure PowerShell | Microsoft Docs'
+title: 'Creación de una VM con una dirección IP privada estática: Azure PowerShell'
 description: Obtenga información sobre la creación de una máquina virtual con una dirección IP privada mediante PowerShell.
 services: virtual-network
 documentationcenter: na
@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 02/07/2019
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 9115386b0543e1ac840aec29fc7f57e7c98c03bb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1745ca176fac18b4903686cb556670531ee40a1a
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64685345"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196596"
 ---
 # <a name="create-a-virtual-machine-with-a-static-private-ip-address-using-powershell"></a>Creación de una máquina virtual con una dirección IP privada estática mediante PowerShell
 
@@ -29,7 +29,7 @@ ms.locfileid: "64685345"
 
 Puede crear una máquina virtual (VM) con una dirección IP privada estática. Asigne una dirección IP privada estática en lugar de una dirección dinámica si quiere seleccionar la dirección de una subred que se asignará a una VM. Obtenga más información sobre las [direcciones IP privadas estáticas](virtual-network-ip-addresses-overview-arm.md#allocation-method). Para cambiar una dirección IP privada asignada a una VM existente de dinámica a estática, o para trabajar con direcciones IP públicas, consulte [Incorporación, cambio o eliminación de direcciones IP](virtual-network-network-interface-addresses.md).
 
-## <a name="create-a-virtual-machine"></a>de una máquina virtual
+## <a name="create-a-virtual-machine"></a>Creación de una máquina virtual
 
 Puede realizar los pasos siguientes desde el equipo local o mediante Azure Cloud Shell. Para usar el equipo local, asegúrese de que tiene [instalado Azure PowerShell](/powershell/azure/install-az-ps?toc=%2fazure%2fvirtual-network%2ftoc.json). Para usar Azure Cloud Shell, seleccione **Probar** en la esquina superior derecha de cualquier cuadro de comando que sigue. Cloud Shell inicia su sesión en Azure.
 

@@ -1,19 +1,15 @@
 ---
-title: Restauración de datos de Azure en Windows Server - Azure Backup
+title: Restauración de datos de Azure en Windows Server
 description: En este artículo, aprenderá a restaurar datos almacenados en Azure en un equipo Windows Server o Windows con el agente de Microsoft Azure Recovery Services (MARS).
 ms.reviewer: saurse
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 09/07/2018
-ms.author: dacurwin
-ms.openlocfilehash: 4d9ab47d83caadda9046481c15dfb6af18aee146
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 4d663739f25762723fc3a8f566c4b5ef3f957338
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012191"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172782"
 ---
 # <a name="restore-files-to-windows-by-using-the-azure-resource-manager-deployment-model"></a>Restauración de archivos en Windows con el modelo de implementación de Azure Resource Manager
 

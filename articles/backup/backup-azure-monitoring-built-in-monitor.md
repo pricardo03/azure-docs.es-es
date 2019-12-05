@@ -1,21 +1,15 @@
 ---
-title: 'Azure Backup: Supervisión de cargas de trabajo protegidas de Azure Backup'
+title: Supervisión de cargas de trabajo protegidas de Azure Backup
 description: En este artículo se obtiene información sobre las funcionalidades de supervisión y notificación de las cargas de trabajo de Azure Backup mediante Azure Portal.
-ms.reviewer: pullabhk
-author: dcurwin
-manager: carmonm
-keywords: Azure Backup; Alertas;
-ms.service: backup
 ms.topic: conceptual
 ms.date: 03/05/2019
-ms.author: dacurwin
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: cd9e4e14771744b6275bb1dfe0a96bbef475a123
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: ea5102a95a9bef17f25219e00dec4654bf7f06d6
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74090953"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172876"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Supervisión de cargas de trabajo de Azure Backup
 
@@ -63,7 +57,7 @@ Hay algunas excepciones en las que no se genera una alerta en caso de error. Son
 
 Estas excepciones están diseñadas bajo el supuesto de que el resultado de estas operaciones (desencadenadas principalmente por el usuario) se muestra inmediatamente en los clientes de Portal/PowerShell/CLI. Por lo tanto, el usuario es consciente de ello de inmediato y no necesita que se le notifique.
 
-### <a name="alerts-from-the-following-azure-backup-solutions-are-shown-here"></a>Aquí se muestran las alertas de las siguientes soluciones de Azure Backup:
+### <a name="alerts-from-the-following-azure-backup-solutions-are-shown-here"></a>Aquí se muestran las alertas de las siguientes soluciones de Azure Backup
 
 - Copias de seguridad de máquinas virtuales de Azure
 - Copias de seguridad de archivos de Azure

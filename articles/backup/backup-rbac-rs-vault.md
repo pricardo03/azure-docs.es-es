@@ -1,19 +1,15 @@
 ---
-title: Administración de copias de seguridad con el control de acceso basado en roles de Azure
+title: Administración de copias de seguridad con el control de acceso basado en rol
 description: Utilice el control de acceso basado en roles para administrar el acceso a las operaciones de administración de copia de seguridad en el almacén de Recovery Services.
 ms.reviewer: utraghuv
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 06/24/2019
-ms.author: dacurwin
-ms.openlocfilehash: 8ba28829d3ee18b441227e537cb0a7ca97fb7638
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: afb8067f2547e3a26a505bb5ec8063dd340e8500
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074051"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172204"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Uso del control de acceso basado en roles para administrar puntos de recuperación de Azure Backup
 

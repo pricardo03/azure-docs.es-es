@@ -1,5 +1,5 @@
 ---
-title: Control de enrutamiento en Azure Virtual Network - PowerShell - Clásico | Microsoft Docs
+title: 'Control del enrutamiento en una red virtual de Azure: PowerShell: Classic'
 description: Aprenda a controlar el enrutamiento en redes virtuales mediante PowerShell | Clásico
 services: virtual-network
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: genli
-ms.openlocfilehash: f2f2c17740bd94629209c2bffb82689ecc931fc8
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 4170418b4f53277a8f4306fe2835286c8ac99dee
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058767"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186355"
 ---
 # <a name="control-routing-and-use-virtual-appliances-classic-using-powershell"></a>Control del enrutamiento y uso de aplicaciones virtuales (clásico) mediante PowerShell
 

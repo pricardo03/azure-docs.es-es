@@ -1,5 +1,5 @@
 ---
-title: Envío de métricas de SO invitado al almacén de datos de Azure Monitor para una máquina virtual Windows (clásica)
+title: Envío de métricas de máquina virtual de Windows clásica a la base de datos de métricas de Azure Monitor
 description: Envío de métricas de SO invitado al almacén de datos de Azure Monitor para una máquina virtual Windows (clásica)
 author: anirudhcavale
 services: azure-monitor
@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: ''
-ms.openlocfilehash: cc0c7c4928fb03cb60bb51f74d74fdc1ab914348
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: af99bd8ea619d17bdc40ea025f0bfcb1c095db52
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844928"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74286143"
 ---
-# <a name="send-guest-os-metrics-to-the-azure-monitor-data-store-for-a-windows-virtual-machine-classic"></a>Envío de métricas de SO invitado al almacén de datos de Azure Monitor para una máquina virtual Windows (clásica)
+# <a name="send-guest-os-metrics-to-the-azure-monitor-metrics-database-for-a-windows-virtual-machine-classic"></a>Envío de métricas de SO invitado a la base de datos de métricas de Azure Monitor para una máquina virtual Windows (clásica)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 La [extensión Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) de Azure Monitor (conocida como "WAD" o "Diagnostics") le permite recopilar métricas y registros del sistema operativo invitado (SO invitado) que se ejecuta como parte de un clúster de Service Fabric, un servicio en la nube o una máquina virtual. La extensión puede enviar datos de telemetría a [muchas ubicaciones diferentes](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json).
 
-En este artículo se describe el proceso de envío de métricas de rendimiento del SO invitado para una máquina virtual Windows (clásica) al almacén de métricas de Azure Monitor. A partir de Diagnostics versión 1.11, puede escribir las métricas directamente en el almacén de métricas de Azure Monitor, donde ya se recopilan métricas de la plataforma estándar. 
+En este artículo se describe el proceso de envío de métricas de rendimiento del SO invitado para una máquina virtual Windows (clásica) a la base de datos de métricas de Azure Monitor. A partir de Diagnostics versión 1.11, puede escribir las métricas directamente en el almacén de métricas de Azure Monitor, donde ya se recopilan métricas de la plataforma estándar. 
 
 Almacenarlas en esta ubicación permite acceder a las mismas acciones disponibles para las métricas de la plataforma. Las acciones incluyen la generación de alertas casi en tiempo real, la creación de gráficos, el enrutamiento, el acceso desde una API REST y mucho más. Anteriormente, la extensión Diagnostics se escribía en Azure Storage, pero no en el almacén de datos de Azure Monitor. 
 

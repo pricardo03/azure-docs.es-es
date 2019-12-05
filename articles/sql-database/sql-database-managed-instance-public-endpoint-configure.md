@@ -10,12 +10,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto, carlrab
 ms.date: 05/07/2019
-ms.openlocfilehash: a35176770a3100a288ad3da52cd89870e0110f63
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 1acd7d6a3b203997e3acd8d7959b1572e09845f3
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73828025"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227994"
 ---
 # <a name="configure-public-endpoint-in-azure-sql-database-managed-instance"></a>Configurar un punto de conexión público en una instancia administrada de Azure SQL Database
 

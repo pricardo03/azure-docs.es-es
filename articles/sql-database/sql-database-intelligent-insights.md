@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: bd42117b384b9e384d59f9f4298c937135cafd34
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: f17c588d28d0904041970eee8e9aa2201f905836
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73810182"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151418"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance"></a>Intelligent Insights con inteligencia artificial para supervisar y solucionar problemas de rendimiento de base de datos
 
@@ -65,6 +65,17 @@ Para obtener información general práctica acerca del uso de Intelligent Insigh
 >
 
 Intelligent Insights destaca a la hora de detectar y solucionar problemas de rendimiento de SQL Database. Para usar Intelligent Insights para solucionar problemas de rendimiento de bases de datos de instancia administrada y SQL Database, vea [Solucionar problemas de rendimiento de Azure SQL Database con Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md).
+
+## <a name="intelligent-insights-options"></a>Opciones de Intelligent Insights
+
+Las opciones de Intelligent Insights disponibles en Azure SQL Database son:
+
+| Opción de Intelligent Insights | Compatibilidad con bases de datos únicas y bases de datos agrupadas | Compatibilidad de base de datos de instancia |
+| :----------------------------- | ----- | ----- |
+| **Configure Intelligent Insights** (Configurar Intelligent Insights): Configure el análisis de Intelligent Insights para las bases de datos. | Sí | Sí | 
+| **Stream insights to Azure SQL Analytics** (Transmitir conclusiones a Azure SQL Analytics): Transmita conclusiones a la solución de supervisión de Azure SQL Analytics para Azure SQL Database. | Sí | Sí | 
+| **Stream insights to Event Hub** (Transmitir conclusiones a Event Hubs): Transmita conclusiones a Event Hubs para futuras integraciones personalizadas. | Sí | Sí | 
+| **Stream insights to Azure Storage** (Transmitir conclusiones a Azure Storage): Transmita conclusiones a Azure Storage para su análisis adicional y archivado a largo plazo. | Sí | Sí |
 
 ## <a name="configure-intelligent-insights"></a>Configuración de Intelligent Insights
 

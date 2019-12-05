@@ -7,13 +7,13 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 09/30/2019
-ms.openlocfilehash: 9f3f98863f9a7cd0e6328ddc75b1154ee933fe0b
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.date: 11/19/2019
+ms.openlocfilehash: f5c0f6d9f6f7f35722f3df5f35dc1da945f21b9a
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74009252"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74229050"
 ---
 # <a name="azure-digital-twins-security-best-practices"></a>Procedimientos recomendados de seguridad de Azure Digital Twins
 
@@ -38,8 +38,8 @@ Algunos de los procedimientos principales para proteger los dispositivos IoT de 
 > * Limite el rol de cada dispositivo, sensor y persona dentro del espacio de IoT. Si se pone en riesgo, el efecto será menor.
 > * Considere la posibilidad de usar el filtrado de direcciones IP de dispositivo y la restricción de puertos.
 > * Limite el ancho de banda de E/S y dispositivo para mejorar el rendimiento. La limitación de velocidad puede mejorar la seguridad al impedir ataques por denegación de servicio.
-> * Mantenga actualizado el firmware del dispositivo.
-> * Audite y revise periódicamente los procedimientos recomendados de seguridad de dispositivos, redes y puertas de enlace, ya que siguen mejorando y evolucionando.
+> * Mantenga actualizado el firmware del dispositivo, el sistema operativo y el software.
+> * Audite y revise periódicamente los procedimientos recomendados de seguridad de dispositivos, software, redes y puertas de enlace, ya que siguen mejorando y evolucionando.
 
 Algunos de los procedimientos más importantes para proteger de forma segura un espacio de IoT son:
 
@@ -48,16 +48,19 @@ Algunos de los procedimientos más importantes para proteger de forma segura un 
 > * Exija el cambio o la actualización de claves y contraseñas de forma periódica.
 > * Restrinja cuidadosamente el acceso y los permisos por rol. Consulte la sección [Procedimientos recomendados del control de acceso basado en rol](#role-based-access-control-best-practices).
 > * Considere una topología de red dividida para que los dispositivos de cada red estén aislados de los demás.
-> * Use cifrado seguro. Exija contraseñas largas y use protocolos seguros y autenticación en dos fases.
+> * Use cifrado seguro. Exija contraseñas largas, use protocolos seguros y la [autenticación multifactor](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks).
 
 [Supervise](./how-to-configure-monitoring.md) los recursos de IoT para inspeccionar los valores atípicos, las amenazas o los parámetros de recursos que se encuentran fuera del intervalo de funcionamiento habitual. Use Azure Analytics para administrar la supervisión.
+
+> [!IMPORTANT]
+> Lea el artículo [Procedimientos recomendados para la seguridad de IoT](../iot-fundamentals/iot-security-best-practices.md) de Azure para comenzar una estrategia completa de seguridad de IoT.
 
 > [!NOTE]
 > Para más información sobre el procesamiento y la supervisión de eventos, consulte [Enrutamiento de eventos y mensajes con Azure Digital Twins](./concepts-events-routing.md).
 
 ## <a name="azure-active-directory-best-practices"></a>Procedimientos recomendados de Azure Active Directory
 
-Azure Digital Twins usa Azure Active Directory para autenticar a los usuarios y proteger las aplicaciones. Azure Active Directory admite la autenticación de diversas arquitecturas modernas. Todas se basan en protocolos estándar del sector como OAuth 2.0 u OpenID Connect. Algunos de los principales procedimientos recomendados para proteger su espacio de IoT en Azure Active Directory son:
+Azure Digital Twins usa [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/) para autenticar a los usuarios y proteger las aplicaciones. Azure Active Directory admite la autenticación de diversas arquitecturas modernas. Todas se basan en protocolos estándar del sector como OAuth 2.0 u OpenID Connect. Algunos de los principales procedimientos recomendados para proteger su espacio de IoT en Azure Active Directory son:
 
 > [!div class="checklist"]
 > * Almacene secretos y claves de aplicación de Azure Active Directory en una ubicación segura, como [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).

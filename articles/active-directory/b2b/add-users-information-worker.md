@@ -1,5 +1,5 @@
 ---
-title: Incorporación de usuarios de colaboración B2B como trabajadores de la información a Azure Active Directory | Microsoft Docs
+title: 'Incorporación de usuarios de colaboración B2B como trabajadores de la información: Azure AD'
 description: La colaboración B2B permite a los trabajadores de la información y a los propietarios de aplicaciones agregar usuarios invitados a Azure AD para el acceso | Microsoft Docs
 services: active-directory
 ms.service: active-directory
@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e8606a0d4e203e1a910a5cd15ca83a622f5286bd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 37dc4a618f01022f4963a14aba921edcce9f4b60
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65812537"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74268846"
 ---
 # <a name="how-users-in-your-organization-can-invite-guest-users-to-an-app"></a>¿Cómo pueden los usuarios de la organización invitar a usuarios invitados a una aplicación?
 

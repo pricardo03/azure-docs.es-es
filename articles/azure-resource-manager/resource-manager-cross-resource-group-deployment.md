@@ -1,17 +1,14 @@
 ---
-title: Implementación de recursos de Azure entre suscripciones y grupo de recursos
+title: Implementación de recursos entre suscripciones y grupo de recursos
 description: Muestra cómo tener como destino más de un grupo de recursos y una suscripción de Azure durante la implementación.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 06/02/2018
-ms.author: tomfitz
-ms.openlocfilehash: c90096043f54eb8db5834fbe83ed1d6ae710d371
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 99c534e1c51dcdf32c2b3a3b779c01d71b8d0c24
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72528333"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149555"
 ---
 # <a name="deploy-azure-resources-to-more-than-one-subscription-or-resource-group"></a>Implementación de recursos de Azure en más de un grupo de recursos o una suscripción
 

@@ -1,19 +1,19 @@
 ---
 title: 'Procesamiento de eventos del tipo "exactamente una vez" y Spark Streaming: Azure HDInsight'
 description: Cómo configurar Apache Spark Streaming para procesar un evento una sola vez.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/06/2018
-ms.openlocfilehash: 34cb3f4cdcc5bfc11bba300ff1aa04422e0fcc57
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.date: 11/15/2018
+ms.openlocfilehash: ee4f9b84e822cb370e5fe3d55fcceb9c8a9f2ab9
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73241135"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74228967"
 ---
 # <a name="create-apache-spark-streaming-jobs-with-exactly-once-event-processing"></a>Creación de trabajos de Apache Spark Streaming con el procesamiento de eventos de tipo "exactamente una vez"
 
@@ -57,7 +57,7 @@ En el caso de los roles de trabajo que ejecutan tareas basadas en los datos de e
 
 Los controladores de trabajo deben ser reiniciables. Si se bloquea el controlador que ejecuta la aplicación de Spark Streaming, también se bloquean todos los receptores en ejecución, las tareas y RDD donde se almacenan los datos del evento. En este caso, debe tener la posibilidad de guardar el progreso del trabajo para poder reanudarlo más tarde. Esto se consigue mediante la creación de puntos de control del grafo acíclico dirigido (DAG) del flujo DStream periódicamente en el almacenamiento tolerante a errores. Los metadatos de DAG incluyen la configuración utilizada para crear la aplicación de Streaming, las operaciones que definen la aplicación y los lotes que se ponen en cola pero que aún no han finalizado. Estos metadatos permiten reiniciar un controlador con errores a partir de la información del punto de control. Cuando se reinicie el controlador, este lanzará nuevos receptores que se encargan de recuperar por sí mismos los datos del evento en RDD a partir del registro de escritura previa.
 
-Los puntos de control se habilitan en Spark Streaming en dos pasos. 
+Los puntos de control se habilitan en Spark Streaming en dos pasos.
 
 1. En el objeto StreamingContext, configure la ruta de acceso de almacenamiento para los puntos de control:
 
@@ -81,7 +81,7 @@ Los puntos de control se habilitan en Spark Streaming en dos pasos.
 
 El receptor de destino en el que el trabajo escribe resultados debe ser capaz de controlar la situación donde se proporciona el mismo resultado más de una vez. El receptor debe ser capaz de detectar estos resultados duplicados e ignorarlos. Se puede llamar varias veces a un receptor *idempotente* con los mismos datos sin cambios de estado.
 
-Puede crear receptores idempotentes con la implementación de una lógica que primero comprueba si existen los resultados de entrada en el almacén de datos. Si el resultado ya existe, la operación de escritura debe aparecer como correcta desde la perspectiva del trabajo de Spark, pero en realidad su almacén de datos ignoró los datos duplicados. Si el resultado no existe, el receptor debe insertar este resultado nuevo en su almacenamiento. 
+Puede crear receptores idempotentes con la implementación de una lógica que primero comprueba si existen los resultados de entrada en el almacén de datos. Si el resultado ya existe, la operación de escritura debe aparecer como correcta desde la perspectiva del trabajo de Spark, pero en realidad su almacén de datos ignoró los datos duplicados. Si el resultado no existe, el receptor debe insertar este resultado nuevo en su almacenamiento.
 
 Por ejemplo, podría utilizar un procedimiento almacenado con Azure SQL Database que inserte eventos en una tabla. Este procedimiento almacenado primero busca el evento por los campos clave y, solo cuando no se encuentra ningún evento coincidente, el registro se inserta en la tabla.
 

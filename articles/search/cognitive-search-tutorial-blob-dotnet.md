@@ -8,12 +8,12 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 84b98b637236213cdd5b87c6b0a38d87c110c21b
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: beea911c9bb938458d8bd12e091e6c908ebb1566
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111733"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185689"
 ---
 # <a name="tutorial-create-an-ai-enrichment-pipeline-using-c-and-the-net-sdk"></a>Tutorial: Creación de una canalización de enriquecimiento de inteligencia artificial mediante C# y el SDK de .NET
 
@@ -103,7 +103,7 @@ Para instalar el paquete NuGet `Microsoft.Extensions.Configuration.Json` en Visu
 
 Para poder conectarse al servicio Azure Cognitive Search, deberá agregar la información del servicio de búsqueda a su proyecto. Haga clic con el botón derecho en el proyecto en el Explorador de soluciones y seleccione **Agregar** > **Nuevo elemento...** Asigne el nombre `appsettings.json` al archivo y seleccione **Agregar**. 
 
-Este archivo deberá incluirse en el directorio de salida. Para ello, haga clic con el botón derecho en `appsettings.json` y seleccione **Propiedades**. Cambie el valor de **Copiar en el directorio de salida** a **Copy of newer** (Copia de más reciente).
+Este archivo deberá incluirse en el directorio de salida. Para ello, haga clic con el botón derecho en `appsettings.json` y seleccione **Propiedades**. Cambie el valor de **Copiar en el directorio de salida** a **Copiar si es posterior**.
 
 Copie el siguiente código JSON en el nuevo archivo JSON.
 
