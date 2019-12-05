@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 04/19/2019
-ms.openlocfilehash: 15d08b14e38f097e8e9c3e0db893efb1d6efe44d
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.custom: hdinsightactive
+ms.date: 11/21/2019
+ms.openlocfilehash: baef54fc5c8fd03ea190da2023dcba2e96abb982
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71098664"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406277"
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>Personalización de los clústeres de HDInsight con Bootstrap
 
@@ -48,7 +48,7 @@ Para obtener información sobre cómo instalar componentes adicionales en el cl�
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Si usa PowerShell, necesitará el [módulo Az](https://docs.microsoft.com/powershell/azure/overview).
+* Si usa PowerShell, necesitará el [módulo AZ](https://docs.microsoft.com/powershell/azure/overview).
 
 ## <a name="use-azure-powershell"></a>Uso de Azure PowerShell
 
@@ -59,7 +59,7 @@ El siguiente código de PowerShell personaliza una configuración de [Apache Hiv
 
 ```powershell
 # hive-site.xml configuration
-$hiveConfigValues = @{ "hive.metastore.client.socket.timeout"="90" }
+$hiveConfigValues = @{ "hive.metastore.client.socket.timeout"="90s" }
 
 $config = New-AzHDInsightClusterConfig `
     | Set-AzHDInsightDefaultStorage `
@@ -85,17 +85,10 @@ En el [Anexo](#appendix-powershell-sample) se incluye un script de PowerShell co
 
 **Para comprobar el cambio:**
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-2. Haga clic en **Clústeres de HDInsight** en el menú de la izquierda. Si no lo ve, haga clic primero en **Todos los servicios**.
-3. Haga clic en el clúster que acaba de crear mediante el script de PowerShell.
-4. Haga clic en el **Panel** desde la parte superior de la hoja para abrir la IU de Ambari.
-5. Haga clic en **Hive** en el menú izquierdo.
-6. Haga clic en **HiveServer2** en **Summary** (Resumen).
-7. Seleccione la pestaña **Configs** (Configuraciones).
-8. Haga clic en **Hive** en el menú izquierdo.
-9. Haga clic en la pestaña **Advanced** (Opciones avanzadas).
-10. Desplácese hacia abajo y expanda **Advanced hive-site**(Sitio de Hive avanzado).
-11. Busque **hive.metastore.client.socket.timeout** en la sección.
+1. Vaya a `https://CLUSTERNAME.azurehdinsight.net/`, donde `CLUSTERNAME` es el nombre del clúster.
+1. En el menú de la izquierda, vaya a **Hive** > **Configs (Configuraciones)**  > **Advanced (Avanzado)** .
+1. Expanda **Advanced hive-site** (Sitio de Hive avanzado).
+1. Busque **hive.metastore.client.socket.timeout** y confirme que el valor es **90s**.
 
 Otros ejemplos de cómo personalizar otros archivos de configuración:
 
@@ -114,9 +107,11 @@ $OozieConfigValues = @{ "oozie.service.coord.normal.default.timeout"="150" }  # 
 ```
 
 ## <a name="use-net-sdk"></a>Uso del SDK de .NET
+
 Consulte [Crear clústeres basados en Linux en HDInsight con el SDK de .NET](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md#use-bootstrap).
 
 ## <a name="use-resource-manager-template"></a>Uso de plantillas de Resource Manager
+
 Puede usar Bootstrap en la plantilla de Resource Manager:
 
 ```json
@@ -133,38 +128,29 @@ Puede usar Bootstrap en la plantilla de Resource Manager:
 
 ## <a name="see-also"></a>Otras referencias
 
-* En [Creación de clústeres de Apache Hadoop en HDInsight][hdinsight-provision-cluster] se proporcionan instrucciones sobre cómo crear un clúster de HDInsight con otras opciones personalizadas.
-* [Desarrollo de la acción de script con HDInsight][hdinsight-write-script]
-* [Instalación y uso de Apache Spark en clústeres de HDInsight][hdinsight-install-spark]
+* En [Creación de clústeres de Apache Hadoop en HDInsight](hdinsight-hadoop-provision-linux-clusters.md) se proporcionan instrucciones sobre cómo crear un clúster de HDInsight con otras opciones personalizadas.
+* [Desarrollo de la acción de script con HDInsight](hdinsight-hadoop-script-actions-linux.md)
+* [Instalación y uso de Apache Spark en clústeres de HDInsight](spark/apache-spark-jupyter-spark-sql-use-portal.md)
 * [Instalación y uso de Apache Giraph en clústeres de HDInsight](hdinsight-hadoop-giraph-install.md).
-
-[hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
-[hdinsight-write-script]: hdinsight-hadoop-script-actions-linux.md
-[hdinsight-provision-cluster]: hdinsight-hadoop-provision-linux-clusters.md
-[powershell-install-configure]: /powershell/azureps-cmdlets-docs
-[img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "Fases durante la creación del clúster"
 
 ## <a name="appendix-powershell-sample"></a>Apéndice: Ejemplo de PowerShell
 
 Este script de PowerShell crea un clúster de HDInsight y personaliza una configuración de Hive. Asegúrese de especificar valores para `$nameToken`, `$httpPassword` y `$sshPassword`.
-
-> [!WARNING]  
-> El tipo de cuenta de almacenamiento `BlobStorage` no se puede usar para los clústeres de HDInsight.
 
 ```powershell
 ####################################
 # Set these variables
 ####################################
 #region - used for creating Azure service names
-$nameToken = "<ENTER AN ALIAS>" 
+$nameToken = "<ENTER AN ALIAS>"
 #endregion
 
 #region - cluster user accounts
 $httpUserName = "admin"  #HDInsight cluster username
-$httpPassword = '<ENTER A PASSWORD>' 
+$httpPassword = '<ENTER A PASSWORD>'
 
 $sshUserName = "sshuser" #HDInsight ssh user name
-$sshPassword = '<ENTER A PASSWORD>' 
+$sshPassword = '<ENTER A PASSWORD>'
 #endregion
 
 ####################################
@@ -216,6 +202,8 @@ New-AzStorageAccount `
     -Kind StorageV2 `
     -EnableHttpsTrafficOnly 1
 
+# Note: Storage account kind BlobStorage cannot be used as primary storage.
+
 $defaultStorageAccountKey = (Get-AzStorageAccountKey `
                                 -ResourceGroupName $resourceGroupName `
                                 -Name $defaultStorageAccountName)[0].Value
@@ -231,7 +219,7 @@ New-AzStorageContainer `
 ####################################
 # Create a configuration object
 ####################################
-$hiveConfigValues = @{"hive.metastore.client.socket.timeout"="90"}
+$hiveConfigValues = @{"hive.metastore.client.socket.timeout"="90s"}
 
 $config = New-AzHDInsightClusterConfig `
     | Set-AzHDInsightDefaultStorage `

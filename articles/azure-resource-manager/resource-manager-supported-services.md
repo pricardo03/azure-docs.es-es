@@ -1,23 +1,14 @@
 ---
-title: Tipos de recursos y proveedores de recursos de Azure | Microsoft Docs
+title: Proveedores de recursos y tipos de recursos
 description: Describe los proveedores de recursos que admiten el Administrador de recursos, sus esquemas y las versiones disponibles de API y las regiones que pueden hospedar los recursos.
-services: azure-resource-manager
-documentationcenter: na
-author: tfitzmac
-ms.assetid: 3c7a6fe4-371a-40da-9ebe-b574f583305b
-ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 08/29/2019
-ms.author: tomfitz
-ms.openlocfilehash: 2cbc8843d41b760c52b9ca5ccfb6d940bd454136
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 73cc053ab2ca19f42e3c45b8350d1e2baedfcc7a
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164813"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74422215"
 ---
 # <a name="azure-resource-providers-and-types"></a>Tipos y proveedores de recursos de Azure
 
@@ -43,9 +34,10 @@ Para obtener una lista que asigna proveedores de recursos con servicios de Azure
 Para ver todos los proveedores de recursos y el estado de registro de su suscripción:
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
-2. Seleccione **Todos los servicios**.
+2. En el menú de Azure Portal, seleccione **Todos los servicios**.
 
-    ![selección de suscripciones](./media/resource-manager-supported-services/select-subscriptions.png)
+    ![selección de suscripciones](./media/resource-manager-supported-services/select-all-services.png)
+
 3. En el cuadro **Todos los servicios**, escriba **suscripción** y, a continuación, seleccione **Suscripciones**.
 4. Seleccione la suscripción en la lista de suscripción para verla.
 5. Seleccione **Proveedores de recursos** y consulte la lista de proveedores de recursos disponibles.
@@ -59,11 +51,11 @@ Para ver todos los proveedores de recursos y el estado de registro de su suscrip
 Para ver información de un proveedor de recursos concreto:
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
-2. Seleccione **Todos los servicios**.
-
-    ![seleccione Todos los servicios](./media/resource-manager-supported-services/more-services.png)
-
+2. En el menú de Azure Portal, seleccione **Todos los servicios**.
 3. En el cuadro **Todos los servicios**, escriba **Explorador de recursos** y, a continuación, seleccione **Explorador de recursos**.
+
+    ![seleccione Todos los servicios](./media/resource-manager-supported-services/select-resource-explorer.png)
+
 4. Expanda **Proveedores**; para ello, seleccione la flecha derecha.
 
     ![Selección de proveedores](./media/resource-manager-supported-services/select-providers.png)

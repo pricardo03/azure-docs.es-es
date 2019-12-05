@@ -7,27 +7,33 @@ ms.date: 06/07/2019
 ms.topic: article
 ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: e99bdd92d4a1aab833a95943b22aaabe7f0daa1d
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: ccd0c88c95ae9a752ef8ea2387bbde4f8559bc68
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72248677"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74531673"
 ---
-# <a name="vm-series-vcpu-limit-increase"></a>Aumento del límite de máquinas virtuales de la serie vCPU
+# <a name="standard-quota-per-vm-series-vcpu-limit-increase"></a>Cuota estándar: aumento del límite de vCPU por serie de VM
 
-Las cuotas de vCPU de Resource Manager para máquinas virtuales y conjuntos de escalado de máquinas virtuales se aplican en dos niveles para cada suscripción en cada región. 
+Resource Manager admite dos tipos de cuotas de vCPU para las máquinas virtuales. Las **máquinas virtuales de pago por uso y las instancias reservadas de máquina virtual** usan la cuota estándar. Las **máquinas virtuales de prioridad baja** usan la cuota de prioridad baja. La cuota de vCPU estándar para las instancias reservadas de máquina virtual y de pago por uso se aplica en dos niveles para cada suscripción de cada región.
 
-El primer nivel es el **límite de vCPU regionales totales** (en todas las series de máquinas virtuales) y el segundo es el **límite de vCPU por serie de máquinas virtuales** (como las vCPU de la serie D). Cada vez que se va a implementar una nueva máquina virtual, la suma del uso de las vCPU nuevas y existentes de esa serie de máquinas virtuales no debe superar la cuota de vCPU aprobada para la serie. Además, el número total de las vCPU nuevas y existentes implementadas en todas las series de máquinas virtuales no debería superar la cuota de las vCPU regionales totales aprobada para la suscripción. Si se supera cualquiera de esas dos cuotas, no se permitirá la implementación de la máquina virtual.
+El primer nivel es el **límite de vCPU regionales totales** (en todas las series de máquinas virtuales) y el segundo es el **límite de vCPU por serie de máquinas virtuales** (como las vCPU de la serie Dv3). Cada vez que se va a implementar una nueva máquina virtual, la suma del uso de las vCPU nuevas y existentes de esa serie de máquinas virtuales no debe superar la cuota de vCPU aprobada para la serie. Además, el número total de las vCPU nuevas y existentes implementadas en todas las series de máquinas virtuales no debería superar la cuota de las vCPU regionales totales aprobada para la suscripción. Si se supera cualquiera de esas dos cuotas, no se permitirá la implementación de la máquina virtual.
 Puede solicitar un aumento del límite de la cuota de vCPU para la serie de máquinas virtuales en Azure Portal. Al aumentar la cuota de la serie de máquinas virtuales, se aumenta automáticamente el límite de vCPU regionales totales en la misma cantidad. 
 
-Para más información acerca de las cuotas, consulte las páginas [Cuotas de vCPU de máquinas virtuales](https://docs.microsoft.com/azure/virtual-machines/windows/quotas) y [Límites de suscripción y servicios de Azure](https://aka.ms/quotalimits). 
+Para obtener más información acerca de las cuotas de vCPU estándar, consulte la [página sobre las cuotas de vCPU de máquinas virtuales](https://docs.microsoft.com/azure/virtual-machines/windows/quotas) y los [límites de suscripción y servicios de Azure](https://docs.microsoft.com/azure/azure-supportability/classic-deployment-model-quota-increase-requests). 
 
-Ahora puede solicitar un aumento a través de las hojas **Ayuda y soporte técnico** y **Usages + Quota** (Usos y cuota) en el portal. 
+Obtenga más información sobre cómo aumentar el límite de vCPU regional para la cuota estándar [aquí](https://docs.microsoft.com/azure/azure-supportability/regional-quota-requests). 
 
-## <a name="request-per-vm-series-vcpu-quota-increase-at-subscription-level-using-the-help--support-blade"></a>Solicitud de un aumento de cuota de vCPU por serie de máquinas virtuales en el nivel de suscripción a través de la hoja **Ayuda y soporte técnico**
+Obtenga más información sobre cómo **aumentar los límites de vCPU de máquina virtual de prioridad baja** [aquí](https://docs.microsoft.com/azure/azure-supportability/low-priority-quota).
+
+Puede solicitar un aumento en los **límites de cuota de vCPU por serie de VM** través de la hoja **Ayuda y soporte técnico** o la hoja **Usos y cuota** en el portal.
+
+## <a name="request-standard-vcpu-quota-increase-per-vm-series-at-subscription-level-using-the-help--support-blade"></a>Solicitud de un aumento de cuota de vCPU por serie de máquinas virtuales en el nivel de suscripción a través de la hoja Ayuda y soporte técnico
 
 Siga las instrucciones siguientes para crear una solicitud de soporte técnico mediante la hoja Ayuda y soporte técnico de Azure disponible en Azure Portal. 
+
+También puede solicitar una cuota para varias regiones a través de un único caso de soporte técnico. Consulte el paso 11 a continuación para obtener más información.
 
 1. En https://portal.azure.com, seleccione **Ayuda y soporte técnico**.
 
@@ -45,7 +51,7 @@ Siga las instrucciones siguientes para crear una solicitud de soporte técnico m
 
    ![Selección de la suscripción en la nueva solicitud de soporte técnico](./media/resource-manager-core-quotas-request/select-subscription-sr.png)
    
-5. Seleccione **Compute-VM (cores-vCPUs) subscription limit increases** (El límite de la suscripción a proceso/máquina virtual (núcleos/vCPU) aumenta) en el menú desplegable **Tipo de cuota**. 
+5. Seleccione **El límite de la suscripción a Proceso/VM (núcleos/vCPU) aumenta** en el menú desplegable **Tipo de cuota**. 
 
    ![Selección del tipo de cuota](./media/resource-manager-core-quotas-request/select-quota-type.png)
 
@@ -53,22 +59,33 @@ Siga las instrucciones siguientes para crear una solicitud de soporte técnico m
 
    ![Proporcionar detalles](./media/resource-manager-core-quotas-request/provide-details.png)
 
-7. En el panel **Detalles de la cuota**, seleccione el modelo de implementación y una ubicación.
+7. En el panel **Detalles de la cuota**, seleccione el **Modelo de implementación** y una **ubicación**.
 
-   ![Modelo de implementación en Detalles de la cuota](./media/resource-manager-core-quotas-request/quota-details.png)
+   ![Modelo de implementación en Detalles de la cuota](./media/resource-manager-core-quotas-request/1-7.png)
 
-8. Seleccione las **familias de SKU** que requieren un aumento. 
+8. En la ubicación seleccionada, seleccione el valor **Tipo** como **"Estándar"** . Puede solicitar los tipos de cuota de prioridad estándar y baja desde un único caso de soporte técnico a través de la selección múltiple en el campo **Tipo**. Obtenga más información acerca de cómo **Aumentar los límites de cuota de prioridad baja** en la **página <>** .
 
-   ![Familia de SKU](./media/resource-manager-core-quotas-request/sku-family.png)
+   ![Familia de SKU](./media/resource-manager-core-quotas-request/1-8.png)
 
-9. Escriba los nuevos límites que quiere en la suscripción. Para quitar una línea, desactive la SKU de la lista desplegable de familias de SKU o haga clic en el icono de descartar "x". Después de escribir la cuota deseada para cada familia de SKU, haga clic en **Guardar y continuar** en el panel Detalles de la cuota para continuar con la creación de la solicitud de soporte técnico.
+9. Seleccione las **familias de SKU** que requieren un aumento.
 
-   ![Nuevos límites](./media/resource-manager-core-quotas-request/new-limits.png)
+   ![Familia de SKU](./media/resource-manager-core-quotas-request/1-9.png)
 
+10. Escriba los nuevos límites que quiere en la suscripción. Para quitar una línea, desactive la SKU de la lista desplegable de familias de SKU o haga clic en el icono de descartar "x". 
 
-## <a name="request-per-vm-series-vcpu-quota-increase-at-subscription-level-using-usages--quota-blade"></a>Solicitud de un aumento de cuota de vCPU por serie de máquinas virtuales en el nivel de suscripción a través de la hoja **Usages + Quota** (Usos y cuota)
+   ![Nuevos límites](./media/resource-manager-core-quotas-request/1-10.png)
 
-Siga las instrucciones siguientes para crear una solicitud de soporte técnico mediante la hoja de uso y cuota de Azure disponible en Azure Portal. 
+11. Para solicitar la cuota para más de una ubicación, se puede activar otra **ubicación** en la lista desplegable y seleccionar el tipo de máquina virtual adecuado. En este paso se cargan previamente las familias de SKU seleccionadas para la **ubicación** anterior en la ubicación nueva y luego puede simplemente especificar los nuevos límites que le gustaría aplicar.
+
+   ![Varias ubicaciones](./media/resource-manager-core-quotas-request/1-11.png)
+   
+12. Después de escribir la cuota deseada para cada familia de SKU, haga clic en **Guardar y continuar** en el panel Detalles de la cuota para continuar con la creación de la solicitud de soporte técnico.
+
+## <a name="request-standard-vcpu-quota-increase-per-vm-series-at-subscription-level-using-usages--quota-blade"></a>Solicitud de un aumento de cuota de vCPU por serie de máquinas virtuales en el nivel de suscripción a través de la hoja Usos y cuota
+
+Siga las instrucciones siguientes para crear una solicitud de soporte técnico mediante la hoja "Usos y cuota" de Azure disponible en Azure Portal.
+
+También puede **solicitar una cuota para varias regiones** a través de un único caso de soporte técnico. Consulte el paso 10 a continuación para obtener más información.
 
 1. En https://portal.azure.com, seleccione **Suscripciones**.
 
@@ -92,13 +109,23 @@ Siga las instrucciones siguientes para crear una solicitud de soporte técnico m
    
 6. En el panel **Detalles de la cuota**, seleccione el modelo de implementación y una ubicación.
 
-   ![Hoja de problema de Cuota](./media/resource-manager-core-quotas-request/quota-details.png)
+   ![Hoja de problema de Cuota](./media/resource-manager-core-quotas-request/1-1-6.png)
 
-7. Seleccione las **familias de SKU** que requieren un aumento.
+7. En la ubicación seleccionada, seleccione el valor **Tipo** como **"Estándar"** . Puede solicitar los tipos de cuota de prioridad estándar y baja desde un único caso de soporte técnico a través de la selección múltiple en el campo **Tipo**. Obtenga más información acerca de cómo **Aumentar los límites de vCPU de prioridad baja** en esta [página](https://docs.microsoft.com/azure/azure-supportability/low-priority-quota).
 
-   ![Series de SKU seleccionadas](./media/resource-manager-core-quotas-request/sku-family.png)
+   ![Series de SKU seleccionadas](./media/resource-manager-core-quotas-request/1-1-7.png)
+   
+   
+8. Seleccione las **familias de SKU** que requieren un aumento.
 
-8. Escriba los nuevos límites que quiere en la suscripción. Para quitar una línea, desactive la SKU de la lista desplegable de familias de SKU o haga clic en el icono de descartar "x". Después de escribir la cuota deseada para cada familia de SKU, haga clic en **Guardar y continuar** en la página de pasos del problema para continuar con la creación de la solicitud de soporte técnico.
+   ![Series de SKU seleccionadas](./media/resource-manager-core-quotas-request/1-1-8.png)
 
-   ![Nueva solicitud de cuota de SKU](./media/resource-manager-core-quotas-request/new-limits.png)
+9. Escriba los nuevos límites que quiere en la suscripción. Para quitar una línea, desactive la SKU de la lista desplegable de familias de SKU o haga clic en el icono de descartar "x". 
+
+   ![Nueva solicitud de cuota de SKU](./media/resource-manager-core-quotas-request/1-1-9.png)
+   
+
+10. Para solicitar la cuota para más de una ubicación, se puede activar otra **ubicación** en la lista desplegable y seleccionar el tipo de máquina virtual adecuado. En este paso se cargan previamente las familias de SKU seleccionadas para la **ubicación** anterior en la ubicación nueva y luego puede simplemente especificar los nuevos límites que le gustaría aplicar.
+   
+    ![Nueva solicitud de cuota de SKU](./media/resource-manager-core-quotas-request/1-1-10.png)
  

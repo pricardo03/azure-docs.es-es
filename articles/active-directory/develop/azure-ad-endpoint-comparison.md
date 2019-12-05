@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 11/26/2019
 ms.author: ryanwi
 ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, negoe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 975c7f18da9797305b0af3f81b00acca1ba14a1a
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: e5a000d08afb3afba06d82aae4414e87b61e502f
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200318"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533057"
 ---
 # <a name="why-update-to-microsoft-identity-platform-v20"></a>Motivos para actualizar a la Plataforma de identidad de Microsoft (v2.0)
 
@@ -62,9 +62,9 @@ El consentimiento del administrador que se realiza en nombre de una organizació
 
 ## <a name="scopes-not-resources"></a>Ámbitos, no recursos
 
-Las aplicaciones que usan el punto de conexión v1.0 pueden comportarse como un **recurso** o como un destinatario de tokens. Un recurso puede definir varios **ámbitos** o **oAuth2Permissions** que comprende, lo que permite a las aplicaciones cliente solicitar tokens para ese recurso para un conjunto determinado de ámbitos. Piense en Graph API de Azure AD como ejemplo de un recurso:
+Las aplicaciones que usan el punto de conexión v1.0 pueden comportarse como un **recurso** o como un destinatario de tokens. Un recurso puede definir varios **ámbitos** o **oAuth2Permissions** que comprende, lo que permite a las aplicaciones cliente solicitar tokens para ese recurso para un conjunto determinado de ámbitos. Piense en Microsoft Graph API como ejemplo de un recurso:
 
-* Identificador de recursos o `AppID URI`: `https://graph.windows.net/`
+* Identificador de recursos o `AppID URI`: `https://graph.microsoft.com/`
 * Los ámbitos, o `oAuth2Permissions`: `Directory.Read`, `Directory.Write`, etc.
 
 Esto es válido para el punto de conexión de la Plataforma de identidad de Microsoft. Una aplicación todavía se puede comportar como recurso, definir ámbitos y ser identificada por un URI. Las aplicaciones cliente todavía pueden solicitar acceso a esos ámbitos. Sin embargo, ha cambiado la manera en que un cliente solicita esos permisos.

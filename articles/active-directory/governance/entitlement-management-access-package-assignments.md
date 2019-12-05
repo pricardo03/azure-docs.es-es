@@ -16,12 +16,12 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f06da43e758c24da65664b34dd83f876a00e3a0
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 0501da153567f3b95804d8a8a6576d8cf199762c
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73174900"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74553994"
 ---
 # <a name="view-add-and-remove-assignments-for-an-access-package-in-azure-ad-entitlement-management"></a>Consulta, incorporación y eliminación de asignaciones para un paquete de acceso en la administración de derechos de Azure AD
 
@@ -76,6 +76,24 @@ En algunos casos, es posible que quiera asignar directamente usuarios específic
 1. Haga clic en **Agregar** para asignar directamente los usuarios seleccionados al paquete acceso.
 
     Transcurridos unos instantes, haga clic en **Actualizar** para ver los usuarios en la lista Asignaciones.
+
+## <a name="remove-an-assignment"></a>Eliminación de una asignación
+
+**Rol necesario:** Administrador global, administrador de usuarios, propietario del catálogo o administrador de paquetes de acceso.
+
+1. En Azure Portal, haga clic en **Azure Active Directory** y, luego, en **Gobernanza de identidades**.
+
+1. En el menú de la izquierda, haga clic en **Paquetes de acceso** y luego abra el paquete de acceso.
+
+1. En el menú de la izquierda, haga clic en **Asignaciones**.
+ 
+1. Haga clic en la casilla que hay al lado del usuario cuya asignación desea quitar del paquete de acceso. 
+
+1. Haga clic en el botón **Quitar** situado cerca de la parte superior del panel izquierdo. 
+ 
+    ![Asignaciones: quitar usuario del paquete de acceso](./media/entitlement-management-access-package-assignments/remove-assignment-select-remove-assignment.png)
+
+    Aparecerá una notificación que le informará de que se ha quitado la asignación. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

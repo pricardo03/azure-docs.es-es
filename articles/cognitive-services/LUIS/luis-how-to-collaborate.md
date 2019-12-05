@@ -9,20 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 11/19/2019
 ms.author: diberry
-ms.openlocfilehash: 15c7c6664b0c17d02f1f4e9120c9509fda21e0f4
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 96aa7517a3418ab30b0b6a1736eea950ecf4a731
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467532"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533800"
 ---
 # <a name="add-contributors-to-your-app"></a>Adición de colaboradores a su aplicación
 
 Un propietario de la aplicación puede agregar colaboradores a las aplicaciones. Estos colaboradores pueden modificar el modelo, entrenar y publicar la aplicación. 
-
-[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 [!INCLUDE [Manage collaborators and contributors based on migrated or not-migrated apps](./includes/manage-contributor-collaborator-migration.md)]
 
@@ -56,8 +54,6 @@ Una aplicación tiene un único creador, el propietario, pero puede tener muchos
 1. Seleccione **Administrar** en el menú superior derecho y, a continuación, seleccione **Colaboradores** en el menú izquierdo.
 
 1. Seleccione **Agregar colaborador** en la barra de herramientas.
-
-    [![Agregar un colaborador](./media/luis-how-to-collaborate/add-collaborator.png "Agregar un colaborador")](./media/luis-how-to-collaborate/add-collaborator.png#lightbox)
 
 1. Escriba la dirección de correo electrónico que usa el colaborador para iniciar sesión en el portal de LUIS.
 
@@ -93,7 +89,7 @@ El administrador de inquilinos debe trabajar directamente con el usuario que req
 
 Si el administrador de inquilinos desea solo que determinados usuarios puedan usar LUIS, hay un par de soluciones posibles:
 * dar el "consentimiento del administrador" (dar el consentimiento a todos los usuarios de Azure AD), pero, luego, establecer "Asignación de usuarios necesaria" en "Sí", en Propiedades de la aplicación de empresa y, por último, asignar o agregar solo los usuarios deseados a la aplicación. Con este método, el administrador aún está proporcionando "consentimiento del administrador" a la aplicación; sin embargo, es posible controlar los usuarios que pueden acceder a ella.
-* Una segunda solución es usar la [API de Azure AD Graph](https://docs.microsoft.com/graph/azuread-identity-access-management-concept-overview) para proporcionar consentimiento a cada usuario específico. 
+* Una segunda solución consiste en usar la [API de administración de identidades y acceso de Azure AD en Microsoft Graph](https://docs.microsoft.com/graph/azuread-identity-access-management-concept-overview) para dar consentimiento a cada usuario específico. 
 
 Más información sobre el consentimiento y los usuarios de Azure Active Directory: 
 * [Restricción de la aplicación](../../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md) a un conjunto de usuarios

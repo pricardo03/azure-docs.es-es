@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 09/24/2019
+ms.date: 11/21/2019
 ms.author: dapine
-ms.openlocfilehash: b3c064ae2dbc37858ca6fe89742161e0dda1784f
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 574f6bead9cac384c72d2d0cd35353eb571a9490
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73743275"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327035"
 ---
-# <a name="install-and-run-face-containers"></a>Instalación y uso de contenedores de Face
+# <a name="install-and-run-face-containers-preview"></a>Instalación y ejecución de contenedores de Face (versión preliminar)
 
 Azure Cognitive Services Face proporciona un contenedor de Linux estandarizado para Docker que detecta rostros humanos en imágenes. También identifica atributos, incluidos faciales (como narices y ojos), sexo, edad y otras características faciales previstas por la máquina. Además de la detección, Face puede comprobar si dos rostros en la misma o en imágenes diferentes coinciden mediante una puntuación de confianza. Face también puede comparar rostros en una base de datos para ver si ya existe algún otro rostro similar o idéntico. También puede organizar rostros similares en grupos mediante rasgos visuales compartidos.
 

@@ -7,12 +7,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: 712273ddfb8b6f781627e2cc7915a1f538f57b4d
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 4f9804ed0e7d6c83a4f6fc732f836fcecce1c2e7
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71090630"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74548332"
 ---
 # <a name="streaming-ingestion-preview"></a>Ingesta de streaming (versión preliminar)
 
@@ -73,8 +73,7 @@ Hay dos tipos de ingesta de streaming admitidos:
 
 ## <a name="limitations"></a>Limitaciones
 
-* El rendimiento y la capacidad de la ingesta de streaming se escalan cuando aumentan los tamaños de las máquinas virtuales y los clústeres. Para un nodo D14, la carga recomendada es de hasta 150 solicitudes por segundo.
-* Actualmente, solo existe compatibilidad con las SKU de 8 y 16 núcleos (D13, D14, L8 y L16).
+* El rendimiento y la capacidad de la ingesta de streaming se escalan cuando aumentan los tamaños de las máquinas virtuales y los clústeres. Las ingestas simultáneas se limitan a 6 ingestas por núcleo. Por ejemplo, en el caso de las SKU de 16 núcleos, como las D14 y L16, la carga máxima admitida es de 96 ingestas simultáneas. Para las SKU de 2 núcleos, como la D11, la carga máxima admitida es de 12 ingestas simultáneas.
 * El límite de tamaño de datos por solicitud de ingesta es de 4 MB.
 * Las actualizaciones de esquema, como la creación y modificación de tablas y asignaciones de ingesta, pueden tardar hasta cinco minutos en el servicio de ingesta de streaming.
 * Cuando se habilita la ingesta de streaming en un clúster, incluso cuando los datos no se ingieren a través de streaming, se usa parte del disco SSD local de las máquinas del clúster para los datos de ingesta de streaming y se reduce el almacenamiento disponible para la caché activa.

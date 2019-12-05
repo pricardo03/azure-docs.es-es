@@ -1,5 +1,5 @@
 ---
-title: Administración de aprovisionamiento de usuarios para aplicaciones empresariales en Azure Active Directory | Microsoft Docs
+title: Administración de aprovisionamiento de usuarios para aplicaciones empresariales en Azure AD
 description: Aprenda a administrar el aprovisionamiento de cuentas de usuario para aplicaciones empresariales con Azure Active Directory.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.date: 04/01/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26b00670ad93cceab8f570d3a5f56bd095fa80b5
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: 67b92c32d511300a0645b707f2a263b463937d1b
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71315266"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74558574"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Administración del aprovisionamiento de cuentas de usuario para aplicaciones empresariales en el portal de Azure
 
@@ -85,9 +85,4 @@ Si el aprovisionamiento se habilita por primera vez para una aplicación, active
 
 Cambie **Estado de aprovisionamiento** a **Desactivado** para pausar el servicio de aprovisionamiento. En este estado, Azure no crea, actualiza ni quita ningún objeto de grupo o usuario en la aplicación. Cambie el estado de nuevo a **Activado** y el servicio vuelve adonde lo dejó.
 
-Seleccione la casilla **Borrar el estado actual y reiniciar la sincronización** y seleccione **Guardar** para:
-
-* Detener el servicio de aprovisionamiento
-* Reiniciar los servicios y ejecutar de nuevo el ciclo inicial
-
-Esta opción permite a los administradores iniciar el proceso de implementación de aprovisionamiento de nuevo.
+**Borrar el estado actual y reiniciar la sincronización** desencadena un ciclo inicial. Después, el servicio evaluará de nuevo todos los usuarios del sistema de origen y determinará si están en el ámbito del aprovisionamiento. Esto puede ser útil si la aplicación está en cuarentena actualmente o si necesita realizar un cambio en las asignaciones de atributos. Tenga en cuenta que el ciclo inicial tarda más tiempo en completarse que el ciclo incremental típico debido al número de objetos que deben evaluarse. Se puede obtener más información sobre el rendimiento de los ciclos inicial e incremental [aquí](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user). 

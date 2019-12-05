@@ -1,22 +1,22 @@
 ---
-title: Configuración de la administración de sesiones de autenticación con el acceso condicional de Azure Active Directory
+title: 'Configuración de la administración de sesiones de autenticación: Azure Active Directory'
 description: Personalice la configuración de la sesión de autenticación de Azure AD incluida la frecuencia de inicio de sesión de usuario y la persistencia de la sesión del explorador.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 04/26/2019
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-ms.reviewer: calebb
+ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70de9da44d52bd6e93377776a2dbfc1b802dd412
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: 797475bfe0f1ec077ad39c6fce1f0facdf679802
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73241697"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483466"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Configuración de la administración de las sesiones de autenticación con el acceso condicional
 
@@ -39,7 +39,17 @@ La configuración predeterminada de Azure Active Directory (Azure AD) para la f
 
 Puede parecer alarmante no pedir a un usuario que vuelva a iniciar sesión; en realidad, cualquier infracción de las directivas de TI revocará la sesión. Algunos ejemplos incluyen, pero sin limitarse, un cambio de contraseña, un dispositivo que no cumple con las normas o la deshabilitación de la cuenta. También puede explícitamente [revocar sesiones de usuarios mediante PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0). La configuración predeterminada de Azure AD se reduce a "no pedir a los usuarios que proporcionen sus credenciales si la posición de seguridad de sus sesiones no ha cambiado".
 
-La configuración de la frecuencia de inicio de sesión funciona con aplicaciones que han implementado los protocolos OAUTH2 o OIDC de acuerdo con los estándares. La mayoría de las aplicaciones nativas de Microsoft para Windows, Mac y dispositivos móviles cumplen con la configuración.
+La configuración de la frecuencia de inicio de sesión funciona con aplicaciones que han implementado los protocolos OAUTH2 o OIDC de acuerdo con los estándares. La mayoría de aplicaciones nativas de Microsoft para Windows, Mac y dispositivos móviles que incluyen las aplicaciones web siguientes cumplen con la configuración.
+
+- Word, Excel y PowerPoint Online
+- OneNote Online
+- Office.com
+- Portal de administración de O365
+- Exchange Online
+- SharePoint y OneDrive
+- Cliente web de Teams
+- Dynamics CRM Online
+- Portal de Azure
 
 ## <a name="persistence-of-browsing-sessions"></a>Persistencia de las sesiones de exploración
 

@@ -1,5 +1,6 @@
 ---
-title: 'Guía de migración de ADAL a MSAL para Java: Plataforma de identidad de Microsoft | Azure'
+title: Guía de migración de ADAL a MSAL para Java | Azure
+titleSuffix: Microsoft identity platform
 description: Obtenga información sobre cómo migrar la aplicación de Java de la Biblioteca de autenticación de Azure Active Directory (ADAL) a la Biblioteca de autenticación de Microsoft (MSAL).
 services: active-directory
 author: sangonzal
@@ -16,12 +17,12 @@ ms.author: sagonzal
 ms.reviewer: navyari.canumalla
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8bddf787ce2c654da99b16387ae347f51600c8dd
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: fedfbae5c333991e8cfd014cce6882e61bb1a9dc
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73905173"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74452207"
 ---
 # <a name="adal-to-msal-migration-guide-for-java"></a>Guía de migración de ADAL a MSAL para Java
 
@@ -35,7 +36,7 @@ MSAL ofrece las siguientes ventajas:
 - Los usuarios obtendrán la mejor experiencia de inicio de sesión único.
 - La aplicación puede habilitar el consentimiento incremental y es más fácil admitir el acceso condicional.
 
-MSAL para Java (MSAL4J) es la biblioteca de autenticación que se recomienda usar con la Plataforma de identidad de Microsoft. No se implementarán nuevas características en ADAL4J. Todos los trabajos se centran en mejorar MSAL.
+MSAL para Java es la biblioteca de autenticación que se recomienda usar con la Plataforma de identidad de Microsoft. No se implementarán nuevas características en ADAL4J. Todos los trabajos se centran en mejorar MSAL.
 
 ## <a name="differences"></a>Diferencias
 
@@ -43,13 +44,13 @@ Si ya ha trabajado con el punto de conexión de Azure AD para desarrolladores (
 
 ## <a name="scopes-not-resources"></a>Ámbitos, no recursos
 
-ADAL4J adquiere tokens para los recursos, en tanto que MSAL4J adquiere tokens para los ámbitos. Muchas clases de MSAL4J requieren un parámetro de ámbito. Este parámetro es una lista de cadenas que declaran los permisos y recursos deseados que se solicitan. Consulte [Ámbitos de Microsoft Graph](https://docs.microsoft.com/graph/permissions-reference) para ver ámbitos de ejemplo.
+ADAL4J adquiere tokens para los recursos, en tanto que MSAL para Java adquiere tokens para los ámbitos. Muchas clases de MSAL para Java requieren un parámetro de ámbito. Este parámetro es una lista de cadenas que declaran los permisos y recursos deseados que se solicitan. Consulte [Ámbitos de Microsoft Graph](https://docs.microsoft.com/graph/permissions-reference) para ver ámbitos de ejemplo.
 
 ## <a name="core-classes"></a>Clases principales
 
-En ADAL4J, la clase `AuthenticationContext` representa la conexión con el servicio de token de seguridad (STS) o el servidor de autorización, mediante una autoridad. Sin embargo, MSAL4J está diseñado en torno a las aplicaciones cliente. Proporciona dos clases independientes: `PublicClientApplication` y `ConfidentialClientApplication`, para representar las aplicaciones cliente.  La última, `ConfidentialClientApplication`, representa una aplicación que está diseñada para mantener de forma segura un secreto, como un identificador de aplicación para una aplicación tipo demonio.
+En ADAL4J, la clase `AuthenticationContext` representa la conexión con el servicio de token de seguridad (STS) o el servidor de autorización, mediante una autoridad. Aunque MSAL para Java está diseñado en torno a las aplicaciones cliente. Proporciona dos clases independientes: `PublicClientApplication` y `ConfidentialClientApplication`, para representar las aplicaciones cliente.  La última, `ConfidentialClientApplication`, representa una aplicación que está diseñada para mantener de forma segura un secreto, como un identificador de aplicación para una aplicación tipo demonio.
 
-En la tabla siguiente se muestra cómo se asignan las funciones de ADAL4J a las nuevas funciones de MSAL4J:
+En la tabla siguiente se muestra cómo se asignan las funciones de ADAL4J a las nuevas funciones de MSAL para Java:
 
 | Método de ADAL4J| Método de MSAL4J|
 |------|-------|
@@ -67,18 +68,18 @@ En la tabla siguiente se muestra cómo se asignan las funciones de ADAL4J a las 
 
 Usuarios manipulados de ADAL4J. Aunque un usuario representa un solo agente humano o software, puede tener una o más cuentas en el sistema de identidades de Microsoft. Por ejemplo, un usuario puede tener varias cuentas de Azure AD, de Azure AD B2C o personales de Microsoft.
 
-MSAL4J define el concepto de cuenta mediante la interfaz `IAccount`. Se trata de un cambio importante con respecto a ADAL4J, pero es una buena idea porque captura el hecho de que el mismo usuario puede tener varias cuentas y quizás incluso en directorios de Azure AD diferentes. MSAL4J proporciona mejor información en escenarios de invitado, ya que se proporciona información de la cuenta de inicio.
+MSAL para Java define el concepto de cuenta mediante la interfaz `IAccount`. Se trata de un cambio importante con respecto a ADAL4J, pero es una buena idea porque captura el hecho de que el mismo usuario puede tener varias cuentas y quizás incluso en diferentes directorios de Azure AD. MSAL para Java proporciona mejor información en escenarios de invitado, ya que se ofrece información de la cuenta de inicio.
 
 ## <a name="cache-persistence"></a>Persistencia en la caché
 
 ADAL4J no admitía la memoria caché de tokens.
-MSAL4J agrega una [memoria caché de tokens](msal-acquire-cache-tokens.md) para simplificar la administración de la duración de los tokens mediante la actualización automática de los tokens expirados cuando sea posible y la prevención de solicitudes innecesarias para que el usuario proporcione credenciales cuando sea posible.
+MSAL para Java agrega una [memoria caché de tokens](msal-acquire-cache-tokens.md) para simplificar la administración de la duración de los tokens mediante la actualización automática de los tokens expirados cuando sea posible y la prevención de solicitudes innecesarias para que el usuario proporcione credenciales cuando sea posible.
 
 ## <a name="common-authority"></a>Autoridad común
 
 En la versión 1.0, si usa la autoridad `https://login.microsoftonline.com/common`, los usuarios pueden iniciar sesión con cualquier cuenta de Azure Active Directory (AAD) (para cualquier organización).
 
-Si usa la autoridad `https://login.microsoftonline.com/common` en la versión 2.0, los usuarios pueden iniciar sesión con cualquier organización de AAD o incluso con una cuenta personal de Microsoft (MSA). En MSAL4J, si quiere restringir el inicio de sesión a cualquier cuenta de AAD, debe usar la autoridad `https://login.microsoftonline.com/organizations` (que tiene el mismo comportamiento que con ADAL4J). Para especificar una autoridad, establezca el parámetro `authority` en el método [PublicClientApplication.Builder](https://javadoc.io/doc/com.microsoft.azure/msal4j/1.0.0/com/microsoft/aad/msal4j/PublicClientApplication.Builder.html) al crear la clase de `PublicClientApplication`.
+Si usa la autoridad `https://login.microsoftonline.com/common` en la versión 2.0, los usuarios pueden iniciar sesión con cualquier organización de AAD o incluso con una cuenta personal de Microsoft (MSA). En MSAL para Java, si quiere restringir el inicio de sesión a cualquier cuenta de AAD, ha de usar la autoridad `https://login.microsoftonline.com/organizations` (que tiene el mismo comportamiento que con ADAL4J). Para especificar una autoridad, establezca el parámetro `authority` en el método [PublicClientApplication.Builder](https://javadoc.io/doc/com.microsoft.azure/msal4j/1.0.0/com/microsoft/aad/msal4j/PublicClientApplication.Builder.html) al crear la clase de `PublicClientApplication`.
 
 ## <a name="v10-and-v20-tokens"></a>Tokens de las versiones 1.0 y 2.0
 
@@ -92,9 +93,9 @@ Para más información acerca de los tokens de las versiones 1.0 y 2.0, consulte
 
 En ADAL4J, se exponían los tokens de actualización, lo que permitía a los desarrolladores almacenarlos en memoria caché. A continuación, usarán `AcquireTokenByRefreshToken()` para habilitar soluciones como la implementación de servicios de ejecución prolongada que actualizan los paneles en nombre del usuario cuando el usuario ya no está conectado.
 
-MSAL4J no expone los tokens de actualización por motivos de seguridad. En su lugar, MSAL controla la actualización de tokens automáticamente.
+Por motivos de seguridad, MSAL para Java no expone tokens de actualización. En su lugar, MSAL controla la actualización de tokens automáticamente.
 
-MSAL4J tiene una API que le permite migrar los tokens de actualización adquiridos con ADAL4J a la aplicación cliente: [acquireToken(RefreshTokenParameters)](https://javadoc.io/static/com.microsoft.azure/msal4j/1.0.0/com/microsoft/aad/msal4j/PublicClientApplication.html#acquireToken-com.microsoft.aad.msal4j.RefreshTokenParameters-). Con este método puede proporcionar el token de actualización que ha usado anteriormente junto con todos los ámbitos (recursos) que desee. El token de actualización se intercambiará por otro nuevo y se almacenará en memoria caché para su uso por parte de la aplicación.
+MSAL para Java tiene una API que le permite migrar los tokens de actualización adquiridos con ADAL4J a la aplicación cliente: [acquireToken(RefreshTokenParameters)](https://javadoc.io/static/com.microsoft.azure/msal4j/1.0.0/com/microsoft/aad/msal4j/PublicClientApplication.html#acquireToken-com.microsoft.aad.msal4j.RefreshTokenParameters-). Con este método puede proporcionar el token de actualización que ha usado anteriormente junto con todos los ámbitos (recursos) que desee. El token de actualización se intercambiará por otro nuevo y se almacenará en memoria caché para su uso por parte de la aplicación.
 
 En el fragmento de código siguiente se muestra código de migración en una aplicación cliente confidencial.
 

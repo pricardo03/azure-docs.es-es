@@ -17,12 +17,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e71e9ef72e7b6caaa3894bb30c6e7e9cf762232a
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: f2ae0d79076a0137b3756721675267d89990bf5a
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802718"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74554038"
 ---
 # <a name="use-microsoft-authenticator-or-microsoft-intune-company-portal-on-xamarin-applications"></a>Uso de Microsoft Authenticator o el Portal de empresa de Microsoft Intune en aplicaciones de Xamarin
 
@@ -180,7 +180,9 @@ El portal cuenta con una nueva experiencia de registro de aplicaciones para ayud
 
 ## <a name="brokered-authentication-for-android"></a>Autenticación asincrónica para Android
 
-La compatibilidad con el agente no está disponible en Android.
+MSAL.NET solo admite la plataforma Xamarin.iOS en este momento. Todavía no es compatible con los agentes de la plataforma Xamarin.Android.
+
+La biblioteca nativa de Android MSAL ya es compatible. Para más información, consulte [Autenticación con intermediación en Android](brokered-auth.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

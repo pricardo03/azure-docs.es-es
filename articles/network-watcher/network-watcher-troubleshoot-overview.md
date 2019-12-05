@@ -1,5 +1,6 @@
 ---
-title: Introducción a la solución de problemas de recursos en Azure Network Watcher | Microsoft Docs
+title: Introducción a la solución de problemas de recursos
+titleSuffix: Azure Network Watcher
 description: En esta página se proporciona una introducción a las funcionalidades de solución de problemas de recursos en Network Watcher.
 services: network-watcher
 documentationcenter: na
@@ -14,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: kumud
-ms.openlocfilehash: 65ce9e7d298131486ae4e5f3584c7975ca81e1ab
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 736bbd16456dd0abda3292b9b9e73ea5b941e7ed
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64684238"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277771"
 ---
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Introducción a la solución de problemas de recursos en Azure Network Watcher
 
@@ -49,7 +50,7 @@ En las siguientes tablas se muestran los diferentes tipos de error (id bajo resu
 
 ### <a name="gateway"></a>Puerta de enlace
 
-| Tipo de error | Motivo | Registro|
+| Tipo de error | Motivo | Log|
 |---|---|---|
 | NoFault | Cuando no se detecta ningún error. |Sí|
 | GatewayNotFound | No se encuentra la puerta de enlace o no está aprovisionada. |Sin|
@@ -64,7 +65,7 @@ En las siguientes tablas se muestran los diferentes tipos de error (id bajo resu
 
 ### <a name="connection"></a>Conexión
 
-| Tipo de error | Motivo | Registro|
+| Tipo de error | Motivo | Log|
 |---|---|---|
 | NoFault | Cuando no se detecta ningún error. |Sí|
 | GatewayNotFound | No se encuentra la puerta de enlace o no está aprovisionada. |Sin|

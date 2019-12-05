@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: panosper
-ms.openlocfilehash: 101cfacf071292d00556656b0df9c6bf9c15f414
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 158a99b1691e59fa58207f3c9291ca9d37a6679c
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515887"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74538128"
 ---
 # <a name="why-use-batch-transcription"></a>¿Por qué usar la transcripción de lotes?
 
@@ -65,7 +65,7 @@ Los parámetros de configuración se proporcionan como JSON:
 {
   "recordingsUrl": "<URL to the Azure blob to transcribe>",
   "models": [{"Id":"<optional acoustic model ID>"},{"Id":"<optional language model ID>"}],
-  "locale": "<locale to us, for example en-US>",
+  "locale": "<locale to use, for example en-US>",
   "name": "<user defined name of the transcription batch>",
   "description": "<optional description of the transcription>",
   "properties": {
@@ -96,12 +96,6 @@ Utilice estas propiedades opcionales para configurar la transcripción:
 
 La transcripción de lotes admite [Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) para leer el audio y escribir las transcripciones en el almacenamiento.
 
-## <a name="webhooks"></a>webhooks
-
-El sondeo del estado de transcripción puede no ser el de mayor rendimiento o proporcionar la mejor experiencia de usuario. Para sondear el estado, puede registrar devoluciones de llamada, que notificarán al cliente cuando se hayan completado las tareas de transcripción de larga ejecución.
-
-Para más información, consulte [Webhooks](webhooks.md).
-
 ## <a name="speaker-separation-diarization"></a>Separación de altavoces (diarización)
 
 La diarización es el proceso de separación de los altavoces en una parte del audio. Nuestra canalización de Batch admite la diarización y es capaz de reconocer dos altavoces en las grabaciones de un canal mono.
@@ -122,7 +116,7 @@ Para pedir que la solicitud de transcripción de audio se procese para la diariz
 }
 ```
 
-Las marcas de tiempo de nivel de palabra también tendría que estar "activadas" como indican los parámetros de la solicitud anterior.
+Las marcas de tiempo de nivel de palabra también tendría que estar "activadas" como indican los parámetros de la solicitud anterior. 
 
 El audio correspondiente contendrá los altavoces identificados por un número (actualmente se admiten solo dos voces, por lo que los altavoces se identificarán como "Altavoz 1" y "Altavoz 2") seguidos de la salida de la transcripción.
 

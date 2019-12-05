@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: fdb5e2b78d9e5817c5a5d139cdf0b34744ed011f
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: e6858359549f6a54513eda7bc692adcbc7d7e71b
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170866"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74484331"
 ---
 # <a name="add-an-extrusion-polygon-layer-to-the-map"></a>Incorporación de una capa de polígono de extrusión al mapa
 
@@ -70,6 +70,14 @@ El SDK web de Azure Maps convierte estas características `Point` en caracterís
 Consulte el Pen <a href='https://codepen.io/azuremaps/pen/zYYYrxo'>Polígono de espacio aéreo de dron</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
+## <a name="customize-a-polygon-extrusion-layer"></a>Personalización de una capa de extrusión de polígono
+
+La capa de extrusión de polígono ofrece varias opciones de estilo. Esta es una herramienta para probarlas.
+
+<br/>
+
+<iframe height='700' scrolling='no' title='PoogBRJ' src='//codepen.io/azuremaps/embed/PoogBRJ/?height=700&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte el Pen <a href='https://codepen.io/azuremaps/pen/PoogBRJ/'>PoogBRJ</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
+</iframe>
 
 ## <a name="next-steps"></a>Pasos siguientes
 

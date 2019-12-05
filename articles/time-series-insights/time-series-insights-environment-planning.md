@@ -9,14 +9,14 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 10/10/2019
+ms.date: 11/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2dd3b79e931464e83264433a923e9078b2f62525
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: f75c84aeb1893008832635cf93cd634d96653dd3
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74006956"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561553"
 ---
 # <a name="plan-your-azure-time-series-insights-ga-environment"></a>Planificación del entorno de Azure Time Series Insights de disponibilidad general
 
@@ -64,11 +64,11 @@ Puede ajustar la retención y alternar entre ambos modos en la página de config
 
 1. En [Azure Portal](https://portal.azure.com), seleccione el entorno de Time Series Insights.
 
-1. En el panel **Entorno de Time Series Insights**, bajo **Configuración**, seleccione **Configurar**.
+1. En el panel **Entorno de Time Series Insights**, en **Configuración**, seleccione **Configuración de Storage**.
 
 1. En el cuadro **Tiempo de retención de datos (en días)** , escriba un valor entre 1 y 400.
 
-   [![Configuración de la retención](media/environment-mitigate-latency/configure-retention.png)](media/environment-mitigate-latency/configure-retention.png#lightbox)
+   [![Configuración de la retención](media/data-retention/1-configure-data-retention.png)](media/data-retention/1-configure-data-retention.png#lightbox)
 
 > [!TIP]
 > Para obtener más información sobre cómo implementar una directiva de retención de datos adecuada, vea [Cómo configurar la retención](./time-series-insights-how-to-configure-retention.md).

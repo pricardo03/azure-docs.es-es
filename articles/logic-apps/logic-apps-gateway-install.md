@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 11/06/2019
-ms.openlocfilehash: ef46fce8609119777ef73cbe189d7a8ace662c91
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: e1e56d18b0874a724849e28092ed46892a1b5519
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076936"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326373"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Instalación de una puerta de enlace de datos local para Azure Logic Apps
 
@@ -66,7 +66,7 @@ En este artículo se muestra cómo descargar, instalar y configurar la puerta de
 
 * **Consideraciones relacionadas**
 
-  * Solo puede instalar la puerta de enlace de datos local en un equipo local, no en un controlador de dominio. Aunque no tiene que instalar la puerta de enlace en el mismo equipo que el origen de datos. Solo necesita una puerta de enlace para todos los orígenes de datos, por lo que no es necesario instalar la puerta de enlace para cada uno de ellos.
+  * Instale la puerta de enlace de datos local únicamente en un equipo local, no en un controlador de dominio. No tiene que instalar la puerta de enlace en el mismo equipo que el origen de datos. Solo necesita una puerta de enlace para todos los orígenes de datos, por lo que no es necesario instalar la puerta de enlace para cada uno de ellos.
 
     > [!TIP]
     > Para minimizar la latencia, puede instalar la puerta de enlace lo más cerca posible del origen de datos o en el mismo equipo, suponiendo que tiene los permisos necesarios.
@@ -76,6 +76,8 @@ En este artículo se muestra cómo descargar, instalar y configurar la puerta de
   * Si tiene previsto usar la autenticación de Windows, asegúrese de instalar la puerta de enlace en un equipo que sea miembro del mismo entorno de Active Directory que los orígenes de datos.
 
   * La región que seleccione para la instalación de la puerta de enlace es la misma ubicación que debe seleccionar cuando cree posteriormente el recurso de puerta de enlace de Azure para la aplicación lógica. De forma predeterminada, esta región es la misma ubicación de su inquilino de Azure AD que administra su cuenta de Azure. Sin embargo, puede cambiar la ubicación durante la instalación de la puerta de enlace.
+
+  * Si actualiza la instalación de la puerta de enlace a la última versión, desinstale antes la puerta de enlace actual para que la experiencia sea más ordenada.
 
   * La puerta de enlace tiene dos modos: modo estándar y modo personal, que solo se aplica a Power BI. No se puede ejecutar más de una puerta de enlace en el mismo modo en el mismo equipo.
 

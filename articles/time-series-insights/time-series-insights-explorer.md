@@ -10,14 +10,14 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 10/03/2019
+ms.date: 11/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: df895f99b64d30506bc9457fb5bdc54a2182b5fe
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: f6fafb2d4d363ee0d01d5bd9f18a1294ae8110b7
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012629"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327684"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Explorador de Azure Time Series Insights
 
@@ -57,44 +57,44 @@ Minutos después de conectar el origen del evento al entorno de Times Series Ins
 
 1. El icono de la nube de Azure lo dirige a su entorno en Azure Portal.
 
-   [![Entorno de Time Series Insights](media/time-series-insights-explorer/explorer1.png)](media/time-series-insights-explorer/explorer1.png#lightbox)
+   [![Selección del entorno de Time Series Insights](media/time-series-insights-explorer/tsi-ga-explorer-environments.png)](media/time-series-insights-explorer/tsi-ga-explorer-environments.png#lightbox)
 
 1. A continuación, verá un gráfico que muestra un recuento de todos los eventos durante el intervalo de tiempo seleccionado. A continuación tiene varios controles:
 
     - **Panel Editor de términos**: el espacio para los términos es donde consulta al entorno. Se encuentra en el lado izquierdo de la pantalla:
-      - **Medida**: este menú desplegable muestra todas las columnas numéricas (**Doubles**).
-      - **Split by**: este menú desplegable muestra las columnas de categoría (**Strings**).
-      - Puede habilitar la interpolación escalonada, mostrar el valor mínimo y el valor máximo, y ajustar el eje Y desde el panel de control que está junto a **Medida**. También puede ajustar si los datos que se muestran son un recuento, un promedio o la suma de los datos.
-      - Puede agregar hasta cinco términos para verlos en el mismo eje X. Use el botón **Copy-down** (Copiar) para agregar un término adicional o seleccione **Add** (Agregar) para agregar un término nuevo.
+      - **MEDIDA**: este menú desplegable muestra todas las columnas numéricas (**Doubles**).
+      - **DIVIDIR POR**: este menú desplegable muestra las columnas de categoría (**Strings**).
+      - Puede habilitar la interpolación escalonada, mostrar el valor mínimo y el valor máximo, y ajustar el eje Y desde el panel de control que está junto a **MEDIDA**. También puede ajustar si los datos que se muestran son un recuento, un promedio o la suma de los datos.
+      - Puede agregar hasta cinco términos para verlos en el mismo eje X. Seleccione **Agregar** para agregar un término nuevo o use el botón **Clonar este término** para agregar una copia de un término existente.
 
-        [![Panel Editor de términos](media/time-series-insights-explorer/explorer2.png)](media/time-series-insights-explorer/explorer2.png#lightbox)
+        [![Selección de términos, filtrado y panel de consulta](media/time-series-insights-explorer/tsi-ga-explorer-add-or-clone.png)](media/time-series-insights-explorer/tsi-ga-explorer-add-or-clone.png#lightbox)
 
       - **Predicado**: use el predicado para filtrar rápidamente los eventos mediante el conjunto de operandos que se enumeran en la siguiente tabla. Si realiza una búsqueda mediante selección o clic, el predicado se actualizará automáticamente según esa búsqueda. Los tipos de operando compatibles incluyen:
 
          |Operación  |Tipos admitidos  |Notas  |
          |---------|---------|---------|
-         |`<`, `>`, `<=`, `>=`     |  Double, DateTime, TimeSpan       |         |
-         |`=`, `!=`, `<>`     | String, Bool, Double, DateTime, TimeSpan, NULL        |         |
-         |IN     | String, Bool, Double, DateTime, TimeSpan, NULL        |  Todos los operandos deben ser del mismo tipo o deben ser una constante NULL.        |
-         |HAS     | Cadena        |  Solo los literales de cadena constantes se permiten en el lado derecho. No se permiten cadenas vacías ni NULL.       |
+         |**<** , **>** , **<=** , **>=**    |  **Double**, **DateTime**, **TimeSpan**       |         |
+         |**=** , **!=** , **<>**     | **String**, **Bool**, **Double**, **DateTime**, **TimeSpan**, **NULL**        |         |
+         |**IN**     | **String**, **Bool**, **Double**, **DateTime**, **TimeSpan**, **NULL**        |  Todos los operandos deben ser del mismo tipo o deben ser una constante **NULL**.        |
+         |**HAS**     | **String**        |  Solo los literales de cadena constantes se permiten en el lado derecho. No se permiten cadenas vacías ni con valores **NULL**.       |
 
-      - **Ejemplos de consultas**
+      - **Consultas de ejemplo**
 
-         [![Consultas de ejemplo](media/time-series-insights-explorer/explorer9.png)](media/time-series-insights-explorer/explorer9.png#lightbox)
+         [![Consultas de disponibilidad general de ejemplo](media/time-series-insights-explorer/tsi-ga-example-queries.png)](media/time-series-insights-explorer/tsi-ga-example-queries.png#lightbox)
 
 1. Puede usar la herramienta de control deslizante **Interval Size** (Tamaño del intervalo) para acercar y alejar los intervalos del mismo intervalo de tiempo. El control deslizante proporciona un control más preciso del movimiento entre intervalos de tiempo de gran tamaño que muestran tendencias uniformes hasta en intervalos tan pequeños como un milisegundo, lo que permite ver cortes de los datos granulares y de alta resolución. El punto inicial predeterminado del control deslizante está establecido como la vista óptima de los datos de la selección para equilibrar la resolución, la velocidad de la consulta y la granularidad.
 
 1. La herramienta **Time brush** (Pincel de tiempo) facilita el paso de un intervalo de tiempo a otro.
 
-1. Use el comando **Save** (Guardar) para guardar la consulta actual y compartirla con otros usuarios del entorno. Al usar **Open** (Abrir), puede ver todas las consultas guardadas y cualquier consulta compartida de otros usuarios en los entornos a los que tiene acceso.
+1. Seleccione el icono **Guardar** para guardar la consulta actual y compartirla con otros usuarios del entorno. Al seleccionar el icono **Abrir**, se pueden ver todas las consultas guardadas y cualquier consulta compartida de otros usuarios en los entornos a los que tiene acceso.
 
-   [![Consultas](media/time-series-insights-explorer/explorer3.png)](media/time-series-insights-explorer/explorer3.png#lightbox)
+   [![Consultas](media/time-series-insights-explorer/tsi-ga-explorer-saved-queries.png)](media/time-series-insights-explorer/tsi-ga-explorer-saved-queries.png#lightbox)
 
 ## <a name="visualize-data"></a>Visualización de datos
 
 1. Use la herramienta **Perspective View** (Vista de perspectiva) para obtener una vista simultánea de hasta cuatro consultas únicas. El botón **Perspective View** (Vista de perspectiva) está en la esquina superior derecha del gráfico.
 
-   [![Vista de perspectiva](media/time-series-insights-explorer/explorer4.png)](media/time-series-insights-explorer/explorer4.png#lightbox)
+   [![Selección de las consultas que se van a agregar al panel perspectiva](media/time-series-insights-explorer/tsi-ga-explorer-perspective-panes.png)](media/time-series-insights-explorer/tsi-ga-explorer-perspective-panes.png#lightbox)
 
 1. Para ver un gráfico para explorar los datos visualmente y usar las herramientas **Chart** (Gráfico):
 
@@ -104,22 +104,22 @@ Minutos después de conectar el origen del evento al entorno de Times Series Ins
     - En el área de filtro que se encuentra a la izquierda del gráfico, puede ver todas las series de datos que aparecen y reordenar por nombre o valor. También puede ver todas las series de datos o las series ancladas o desancladas. Puede seleccionar una serie de datos única y dividirla por otra columna, agregar la serie como un término nuevo, mostrar solo la serie seleccionada, excluirla, anclar esa serie o explorar los eventos de la serie seleccionada.
     - Cuando vea varios términos de manera simultánea, puede apilarlos, desapilarlos, ver datos adicionales sobre una serie de datos y usar el mismo eje Y en todos los términos. Use los botones de la esquina superior derecha del gráfico.
 
-    [![Herramienta de gráfico](media/time-series-insights-explorer/explorer5.png)](media/time-series-insights-explorer/explorer5.png#lightbox)
+    [![Configuración de la opción de esquina superior derecha de la herramienta de gráficos](media/time-series-insights-explorer/tsi-ga-example-chart-options.png)](media/time-series-insights-explorer/tsi-ga-example-chart-options.png#lightbox)
 
 1. Use el **mapa térmico** para detectar rápidamente una serie de datos única o anómala en una consulta determinada. Solo un término de búsqueda se puede visualizar como un mapa térmico.
 
-    [![Mapa térmico](media/time-series-insights-explorer/explorer6.png)](media/time-series-insights-explorer/explorer6.png#lightbox)
+    [![Gráficos de mapa térmico del explorador de disponibilidad general](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png)](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png#lightbox)
 
-1. Cuando explora eventos seleccionándolos o haciendo clic en ellos con el botón derecho, aparece disponible el panel **Events** (Eventos). En el panel puede ver todos los eventos sin procesar y exportar los eventos como archivos JSON o CSV. Time Series Insights almacena todos los datos sin procesar.
+1. Cuando se exploran eventos seleccionándolos o haciendo clic en ellos con el botón derecho, aparece disponible el panel **EVENTOS**. En el panel puede ver todos los eventos sin procesar y exportar los eventos como archivos JSON o CSV. Time Series Insights almacena todos los datos sin procesar.
 
-    [![Eventos](media/time-series-insights-explorer/explorer7.png)](media/time-series-insights-explorer/explorer7.png#lightbox)
+    [![Eventos](media/time-series-insights-explorer/tsi-ga-explorer-events-panel.png)](media/time-series-insights-explorer/tsi-ga-explorer-events-panel.png#lightbox)
 
 1. Seleccione la pestaña **STATS** (Estadísticas) después de explorar los eventos para exponer los patrones y las estadísticas de columna.
 
     - **Patrones**: esta característica muestra de manera proactiva los patrones con mayor importancia estadística de una región de datos seleccionada. No es necesario buscar en miles de eventos para comprender cuáles son los patrones que requieren más tiempo y energía. Con Time Series Insights, puede ir directamente a estos patrones con importancia estadística para seguir realizando el análisis. Esta característica también resulta útil para las investigaciones de análisis final de datos históricos.
     - **Estadísticas de columna**: las estadísticas de columna proporcionan gráficos y tablas que desglosan los datos de cada columna de la serie de datos seleccionada durante el intervalo de tiempo seleccionado.
 
-      [![STATS](media/time-series-insights-explorer/explorer8.png)](media/time-series-insights-explorer/explorer8.png#lightbox)
+      [![Opciones y gráficos de columnas de ESTADÍSTICAS](media/time-series-insights-explorer/tsi-ga-explorer-stat-column.png)](media/time-series-insights-explorer/tsi-ga-explorer-stat-column.png#lightbox)
 
 Ahora ya ha visto las distintas características y opciones que están disponibles dentro de la aplicación web del explorador de Time Series Insights.
 

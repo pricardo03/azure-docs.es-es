@@ -1,19 +1,15 @@
 ---
-title: Configuración de cadena de bloques Data Manager con Azure Portal
-description: Cómo crear y administrar la cadena de bloques Data Manager con Azure Portal.
-services: azure-blockchain
-author: PatAltimore
-ms.author: patricka
+title: 'Configuración de Blockchain Data Manager con Azure Portal: Azure Blockchain Service'
+description: Cree y administre una instancia de Blockchain Data Manager para Azure Blockchain Service mediante Azure Portal.
 ms.date: 11/04/2019
 ms.topic: article
-ms.service: azure-blockchain
 ms.reviewer: chroyal
-ms.openlocfilehash: 484322fb0486eeb4ab67366d32350c69a18da743
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 9c682f449fbab823134d626870c7dcfe8a8f2847
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73605921"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74455814"
 ---
 # <a name="configure-blockchain-data-manager-using-the-azure-portal"></a>Configuración de cadena de bloques Data Manager con Azure Portal
 
@@ -40,7 +36,7 @@ Una conexión saliente envía datos de la cadena de bloques a Azure Event Grid. 
 1. Vaya al miembro de la cadena de bloques de Azure Blockchain Service que quiere conectar con la cadena de bloques Data Manager. Seleccione  **la cadena de bloques Data Manager**.
 1. Seleccione **Agregar**.
 
-    ![Agregar la cadena de bloques Data Manager](./media/data-manager-portal/add-instance.png)
+    ![Agregar Blockchain Data Manager](./media/data-manager-portal/add-instance.png)
 
     Escriba la siguiente información:
 
@@ -53,7 +49,7 @@ Una conexión saliente envía datos de la cadena de bloques a Azure Event Grid. 
 
 1. Seleccione **Aceptar**.
 
-    Toma menos de un minuto crear una instancia de la cadena de bloques Data Manager. Una vez implementada la instancia, se inicia automáticamente. Una instancia de la cadena de bloques Data Manager en ejecución captura los eventos de la cadena de bloques desde el nodo de transacción y envía los datos a las conexiones salientes.
+    Se tarda menos de un minuto crear una instancia de Blockchain Data Manager. Una vez implementada la instancia, se inicia automáticamente. Una instancia de la cadena de bloques Data Manager en ejecución captura los eventos de la cadena de bloques desde el nodo de transacción y envía los datos a las conexiones salientes.
 
     La nueva instancia aparece en la lista de instancias de la cadena de bloques Data Manager para el miembro de Azure Blockchain Service.
 
@@ -80,7 +76,7 @@ La ABI del contrato define las interfaces del contrato inteligente. Describe có
 
     La ABI del contrato se copia en el portapapeles.
 
-1. Guarde la matriz **Abi** como archivo JSON. Por ejemplo, *abi.json*. Usará este archivo en un paso posterior.
+1. Guarde la matriz **abi** como archivo JSON. Por ejemplo, *abi.json*. Usará este archivo en un paso posterior.
 
 Blockchain Data Manager requiere el código de bytes implementado para el contrato inteligente. El código de bytes implementado es diferente del código de bytes del contrato inteligente. Puede obtener el código de bytes implementado del archivo de metadatos del contrato compilado.
 
@@ -90,15 +86,15 @@ Blockchain Data Manager requiere el código de bytes implementado para el contra
 
     ![Panel de Visual Studio Code con código de bytes en los metadatos](./media/data-manager-portal/bytecode-metadata.png)
 
-1. Guarde el valor del **código de bytes** como archivo JSON. Por ejemplo, *bytecode.json*. Usará este archivo en un paso posterior.
+1. Guarde el valor del **código de bytes** como archivo JSON. Por ejemplo, *bytecode.json*. Lo usará en un paso posterior.
 
 El ejemplo siguiente muestra archivos *abi.json* y *bytecode.json* abiertos en el editor de VS Code. Sus archivos deben ser similares.
 
 ![Ejemplo de archivos abi.json y bytecode.json](./media/data-manager-portal/contract-files.png)
 
-### <a name="create-contract-abi-and-bytecode-url"></a>Obtener la ABI del contrato y una dirección URL del código de bytes
+### <a name="create-contract-abi-and-bytecode-url"></a>Obtener la ABI del contrato y la dirección URL del código de bytes
 
-La cadena de bloques Data Manager requiere que una dirección URL pueda acceder a la ABI del contrato y a los archivos del código de bytes al agregar una aplicación. Puede usar una cuenta de Azure Storage para proporcionar una dirección URL de acceso privado.
+Blockchain Data Manager requiere que una dirección URL pueda acceder a la ABI del contrato y a los archivos del código de bytes al agregar una aplicación. Puede usar una cuenta de Azure Storage para proporcionar una dirección URL de acceso privado.
 
 #### <a name="create-storage-account"></a>Crear cuenta de almacenamiento
 
@@ -106,7 +102,7 @@ La cadena de bloques Data Manager requiere que una dirección URL pueda acceder 
 
 #### <a name="upload-contract-files"></a>Cargar archivos de contrato
 
-1. Cree una nueva cuenta de almacenamiento y un contenedor. Seleccione **Contenedores > Contenedor**.
+1. Cree un nuevo contenedor para la cuenta de almacenamiento. Seleccione **Contenedores > Contenedor**.
 
     ![Cree un contenedor de una cuenta de almacenamiento](./media/data-manager-portal/create-container.png)
 
@@ -116,7 +112,7 @@ La cadena de bloques Data Manager requiere que una dirección URL pueda acceder 
     | Nivel de acceso público | Elija *Privado (sin acceso anónimo)* |
 
 1. Seleccione **Aceptar** para crear el contenedor.
-1. Seleccione el contenedor luego seleccione **Cargar**.
+1. Seleccione el contenedor y, a continuación, seleccione **Cargar**.
 1. Elija los dos archivos JSON creados en la sección [Obtener la ABI del contrato y el código de bytes](#get-contract-abi-and-bytecode).
 
     ![Carga de blob](./media/data-manager-portal/upload-blobs.png)
@@ -125,40 +121,40 @@ La cadena de bloques Data Manager requiere que una dirección URL pueda acceder 
 
 #### <a name="generate-url"></a>Generar dirección URL
 
-Para cada Blob, genere una firma de acceso compartido.
+Para cada blob, genere una firma de acceso compartido.
 
-1. Seleccione el Blob JSON de ABI.
+1. Seleccione el blob JSON de ABI.
 1. Seleccione **Generar SAS**
-1. Establezca la expiración de la firma de acceso deseada y seleccione **Generar el token de SAS de Blob y la dirección URL**.
+1. Establezca la expiración de la firma de acceso deseada y seleccione **Generar el token de SAS de blob y la dirección URL**.
 
     ![Generación de un token de SAS](./media/data-manager-portal/generate-sas.png)
 
-1. Copie la **dirección URL de SAS de Blob** y guárdela en la siguiente sección.
+1. Copie la **dirección URL de SAS de blob** y guárdela en la siguiente sección.
 1. Repita los pasos para [generar una dirección URL](#generate-url) para el de código de bytes JSON blob.
 
 ### <a name="add-application-to-instance"></a>Agregar aplicación a instancia
 
 1. Seleccione la instancia de la cadena de bloques Data Manager en la lista de instancias.
-1. Seleccione **aplicaciones Blockchain**.
+1. Seleccione **Blockchain applications** (aplicaciones de cadena de bloques).
 1. Seleccione **Agregar**.
 
-    ![Agregue una aplicación Blockchain](./media/data-manager-portal/add-application.png)
+    ![Agregar una aplicación de cadena de bloques](./media/data-manager-portal/add-application.png)
 
-    Escriba el nombre de la aplicación Blockchain y las direcciones URL de la ABI del contrato inteligente y los códigos bytes.
+    Escriba el nombre de la aplicación de cadena de bloques y las direcciones URL de la ABI del contrato inteligente y los códigos de bytes.
 
     Configuración | DESCRIPCIÓN
     --------|------------
-    NOMBRE | Escriba un nombre único para la aplicación Blockchain de la que se va a realizar el seguimiento.
+    NOMBRE | Escriba un nombre único para la aplicación de cadena de bloques de la que se va a realizar el seguimiento.
     ABI del contrato | Ruta de acceso URL al archivo ABI del contrato. Para más información, consulte [Crear una dirección URL de la ABI del contrato y el código de bytes](#create-contract-abi-and-bytecode-url).
-    Contrato del código de bytes | Ruta de acceso URL al archivo de código de bytes. Para más información, consulte [Crear una dirección URL de la ABI del contrato y el código de bytes](#create-contract-abi-and-bytecode-url).
+    Código de bytes del contrato | Ruta de acceso URL al archivo de código de bytes. Para más información, consulte [Crear una dirección URL de la ABI del contrato y el código de bytes](#create-contract-abi-and-bytecode-url).
 
 1. Seleccione **Aceptar**.
 
-    Una vez creada la aplicación, la aplicación aparece en la lista de aplicaciones de Blockchain.
+    Una vez creada la aplicación, esta aparece en la lista de aplicaciones de cadena de bloques.
 
-    ![Lista de aplicaciones de Blockchain](./media/data-manager-portal/artifact-list.png)
+    ![Lista de aplicaciones de cadena de bloques](./media/data-manager-portal/artifact-list.png)
 
-Puede eliminar la cuenta de Azure Storage o utilizarla para configurar más aplicaciones de Blockchain. Si quiere eliminar la cuenta de Azure Storage, puede eliminar el grupo de recursos. Al eliminar el grupo de recursos, también se elimina la cuenta de almacenamiento asociada y cualquier otro recurso que esté asociado a dicho grupo.
+Puede eliminar la cuenta de Azure Storage o usarla para configurar más aplicaciones de cadena de bloques. Si quiere eliminar la cuenta de Azure Storage, puede eliminar el grupo de recursos. Al eliminar el grupo de recursos, también se elimina la cuenta de almacenamiento asociada y cualquier otro recurso que esté asociado a dicho grupo.
 
 ## <a name="stop-instance"></a>Detener instancia
 
@@ -170,7 +166,7 @@ Detenga la instancia de Blockchain Manager cuando quiera dejar de capturar event
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Intente crear un explorador de mensajes de transacción de cadena de bloques con Blockchain Data Manager y Azure Cosmos DB.
+Intente crear con el siguiente tutorial un explorador de mensajes de transacción de cadena de bloques con Blockchain Data Manager y Azure Cosmos DB.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Uso de Blockchain Data Manager para enviar datos a Azure Cosmos DB](data-manager-cosmosdb.md)
+> [Uso de Blockchain Data Manager para enviar datos a Azure Cosmos DB](data-manager-cosmosdb.md)

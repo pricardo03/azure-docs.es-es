@@ -1,14 +1,14 @@
 ---
-title: Importación y exportación de definiciones de planos técnicos con PowerShell
+title: Importación y exportación de planos técnicos con PowerShell
 description: Obtenga información sobre cómo trabajar con sus definiciones de planos técnicos como código. Compártalas, controle su código fuente y adminístrelas mediante los comandos de exportación e importación.
 ms.date: 09/03/2019
 ms.topic: conceptual
-ms.openlocfilehash: ca756ed093d5d423f6f83e5ca3953a8ecfce7d5a
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 2822fd1aea1911ba264113d43595346a612ebc50
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960382"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406347"
 ---
 # <a name="import-and-export-blueprint-definitions-with-powershell"></a>Importación y exportación de definiciones de planos técnicos con PowerShell
 

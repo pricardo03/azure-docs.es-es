@@ -1,22 +1,18 @@
 ---
 title: solución de problemas
-titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-author: zr-msft
-ms.author: zarhoads
 ms.date: 09/25/2019
 ms.topic: conceptual
 description: Desarrollo rápido de Kubernetes con contenedores y microservicios en Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores, Helm, service mesh, enrutamiento de service mesh, kubectl, k8s '
-ms.openlocfilehash: 5d327dd1041172bc546b2e0cb5ec3a140f401d84
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 64b9cda61e5af3e8b9ea52477b5bf4fa879f48e6
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072188"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483857"
 ---
-# <a name="troubleshooting-guide"></a>Guía de solución de problemas
+# <a name="azure-dev-spaces-troubleshooting"></a>Solución de problemas de Azure Dev Spaces
 
 Esta guía contiene información sobre problemas habituales que pueden surgir al usar Azure Dev Spaces.
 
@@ -258,6 +254,21 @@ Service cannot be started.
 
 Este error se debe a que los nodos de AKS ejecutan una versión anterior de Docker que no es compatible con las compilaciones de varias fases. Para evitar compilaciones de varias fases, vuelva a escribir el Dockerfile.
 
+### <a name="network-traffic-is-not-forwarded-to-your-aks-cluster-when-connecting-your-development-machine"></a>El tráfico no se reenvía al clúster de AKS cuando se conecta la máquina de desarrollo.
+
+Al usar [Azure Dev Spaces para conectar el clúster de AKS a la máquina de desarrollo](how-to/connect.md), es posible que se produzca una incidencia que provoque que no se reenvíe el tráfico entre la máquina de desarrollo y el clúster de AKS.
+
+Al conectar el equipo de desarrollo al clúster de AKS, Azure Dev Spaces reenvía el tráfico de red entre el clúster de AKS y el equipo de desarrollo modificando el archivo `hosts` de la máquina de desarrollo. Azure Dev Spaces crea una entrada en `hosts` con la dirección del servicio Kubernetes que se va a reemplazar como nombre de host. Esta entrada se usa con el reenvío de puertos para dirigir el tráfico entre la máquina de desarrollo y el clúster de AKS. Si un servicio de la máquina de desarrollo entra en conflicto con el puerto del servicio Kubernetes que se está reemplazando, Azure Dev Spaces no puede reenviar el tráfico para el servicio Kubernetes. Por ejemplo, el servicio *Windows BranchCache*  normalmente se enlaza a *0.0.0.0:80*, lo que provocará un conflicto en el puerto 80 de todas las direcciones IP locales.
+
+Para corregir esta incidencia, debe detener los servicios o procesos que entren en conflicto con el puerto del servicio Kubernetes que se intenta reemplazar. Puede usar herramientas, como *netstat*, para inspeccionar los servicios o procesos de la máquina de desarrollo que están en conflicto.
+
+Por ejemplo, para detener y deshabilitar el servicio *Windows BranchCache*, haga lo siguiente:
+* Ejecute `services.msc` desde el símbolo del sistema.
+* Haga clic con el botón derecho en *BranchCache* y seleccione *Propiedades*.
+* Haga clic en *Detener*.
+* De forma opcional, puede deshabilitarlo estableciendo la opción *Tipo de inicio* en *Deshabilitado*.
+* Haga clic en *OK*.
+
 ## <a name="common-issues-using-visual-studio-and-visual-studio-code-with-azure-dev-spaces"></a>Problemas comunes al usar Visual Studio y Visual Studio Code con Azure Dev Spaces
 
 ### <a name="error-required-tools-and-configurations-are-missing"></a>Error "Required tools and configurations are missing" (Faltan herramientas y configuraciones necesarias)
@@ -453,3 +464,14 @@ kubectl -n my-namespace delete pod --all
 ```
 
 Una vez que se han reiniciado los pods, puede empezar a usar el espacio de nombres existente con Azure Dev Spaces.
+
+### <a name="enable-azure-dev-spaces-on-aks-cluster-with-restricted-egress-traffic-for-cluster-nodes"></a>Habilitación de Azure Dev Spaces en el clúster de AKS con tráfico de salida restringido para los nodos de clúster
+
+Para habilitar Azure Dev Spaces en un clúster de AKS con el fin de que el tráfico de salida de los nodos de clúster esté restringido, tendrá que permitir los FQDN siguientes:
+
+| FQDN                                    | Port      | Uso      |
+|-----------------------------------------|-----------|----------|
+| cloudflare.docker.com | HTTPS:443 | Extraer Linux Alpine y otras imágenes de Azure Dev Spaces |
+| gcr.io | HTTP: 443 | Extraer las imágenes de Helm o Tiller|
+| storage.googleapis.com | HTTP: 443 | Extraer las imágenes de Helm o Tiller|
+| azds-<guid>.<location>.azds.io | HTTPS:443 | Comunicarse con los servicios de back-end de Azure Dev Spaces para el controlador. El FQDN exacto se puede encontrar en "dataplaneFqdn" en %USERPROFILE%\.azds\settings.json|

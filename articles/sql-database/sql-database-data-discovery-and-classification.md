@@ -12,12 +12,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: b5f839cc6216eb12bfd0a86009ec49e987279d6e
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 7a8fe0f21ea8b31fb26727e2220f7395e2d71c2c
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889834"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555366"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-data-discovery--classification"></a>Clasificación y detección de datos de Azure SQL Database y Azure SQL Data Warehouse
 
@@ -128,8 +128,17 @@ Un aspecto importante del paradigma de protección de la información es la capa
 
 ![Registro de auditoría](./media/sql-data-discovery-and-classification/11_data_classification_audit_log.png)
 
-## <a id="subheading-4"></a>Administrar la clasificación de datos mediante T-SQL
+## <a id="subheading-4"></a>Permisos
 
+Los siguientes roles integrados pueden leer la clasificación de datos de la base de datos de Azure SQL: `Owner`, `Reader`, `Contributor`, `SQL Security Manager` y `User Access Administrator`.
+
+Los siguientes roles integrados pueden modificar la clasificación de datos de la base de datos de Azure SQL: `Owner`, `Contributor`, `SQL Security Manager`.
+
+Obtenga más información acerca de los [recursos de Azure para RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview).
+
+## <a id="subheading-5"></a>Administración de clasificaciones
+
+# <a name="t-sqltabazure-t-sql"></a>[T-SQL](#tab/azure-t-sql)
 Puede utilizar T-SQL para agregar o quitar las clasificaciones de columna, así como recuperar todas las clasificaciones para toda la base de datos.
 
 > [!NOTE]
@@ -139,8 +148,7 @@ Puede utilizar T-SQL para agregar o quitar las clasificaciones de columna, así 
 - Quite la clasificación de una o varias columnas: [DROP SENSITIVITY CLASSIFICATION](https://docs.microsoft.com/sql/t-sql/statements/drop-sensitivity-classification-transact-sql) (Eliminar clasificación de la confidencialidad)
 - Vea todas las clasificaciones de la base de datos: [sys.sensitivity_classifications](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
 
-### <a name="manage-classifications-using-rest-apis"></a>Administración de clasificaciones mediante las API REST
-
+# <a name="rest-apistabazure-rest-api"></a>[API Rest](#tab/azure-rest-api)
 También puede usar las API de REST para administrar las clasificaciones mediante programación. Las API de REST publicadas se admiten las siguientes operaciones:
 
 - [Crear o actualizar](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate): crea o actualiza la etiqueta de confidencialidad de una columna determinada
@@ -152,12 +160,10 @@ También puede usar las API de REST para administrar las clasificaciones mediant
 
 - [List Recommended By Database](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase) (Enumerar recomendadas por base de datos): enumera las etiquetas de confidencialidad recomendadas de una base de datos determinada
 
-## <a name="manage-data-discovery-and-classification-using-azure-powershell"></a>Administrar la detección y clasificación de datos con Azure PowerShell
+# <a name="powershell-cmdlettabazure-powelshell"></a>[Cmdlet de PowerShell](#tab/azure-powelshell)
+Se puede usar PowerShell para obtener todas las columnas recomendadas en una base de datos Azure SQL y en una instancia administrada.
 
-Puede usar PowerShell para obtener todas las columnas recomendadas en una base de datos Azure SQL y una instancia administrada.
-
-### <a name="powershell-cmdlets-for-azure-sql-database"></a>Cmdlets de PowerShell para la base de datos de Azure SQL
-
+### <a name="powershell-cmdlet-for-azure-sql-database"></a>Cmdlet de PowerShell para la base de datos de Azure SQL
 - [Get-AzSqlDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasesensitivityclassification)
 - [Set-AzSqlDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasesensitivityclassification)
 - [Remove-AzSqlDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabasesensitivityclassification)
@@ -165,8 +171,7 @@ Puede usar PowerShell para obtener todas las columnas recomendadas en una base d
 - [Enable-AzSqlDatabaSesensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/enable-azsqldatabasesensitivityrecommendation)
 - [Disable-AzSqlDatabaseSensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/disable-azsqldatabasesensitivityrecommendation)
 
-### <a name="powershell-cmdlets-for-managed-instance"></a>Cmdlets de PowerShell para la instancia administrada
-
+### <a name="powershell-cmdlets-for-managed-instance"></a>Cmdlets de PowerShell para la Instancia administrada
 - [Get-AzSqlInstanceDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstancedatabasesensitivityclassification)
 - [Set-AzSqlInstanceDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasesensitivityclassification)
 - [Remove-AzSqlInstanceDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstancedatabasesensitivityclassification)
@@ -174,22 +179,17 @@ Puede usar PowerShell para obtener todas las columnas recomendadas en una base d
 - [Enable-AzSqlInstanceDatabaseSensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/enable-azsqlinstancedatabasesensitivityrecommendation)
 - [Disable-AzSqlInstanceDatabaseSensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/disable-azsqlinstancedatabasesensitivityrecommendation)
 
-## <a name="permissions"></a>Permisos
+---
 
-Los siguientes roles integrados pueden leer la clasificación de datos de la base de datos de Azure SQL: `Owner`, `Reader`, `Contributor`, `SQL Security Manager` y `User Access Administrator`.
-
-Los siguientes roles integrados pueden modificar la clasificación de datos de la base de datos de Azure SQL: `Owner`, `Contributor`, `SQL Security Manager`.
-
-Obtenga más información acerca de los [recursos de Azure para RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview).
-
-## <a id="subheading-5"></a>Pasos siguientes
+## <a id="subheading-6"></a>Pasos siguientes
 
 - Más información sobre [Advanced Data Security](sql-database-advanced-data-security.md).
 - Considere la posibilidad de configurar la [auditoría de Azure SQL Database](sql-database-auditing.md) para supervisar y auditar el acceso a los datos confidenciales clasificados.
 
 <!--Anchors-->
-[SQL data discovery & classification overview]: #subheading-1
+[What is data discovery & classification]: #subheading-1
 [Discovering, classifying & labeling sensitive columns]: #subheading-2
 [Auditing access to sensitive data]: #subheading-3
-[Automated/Programmatic classification]: #subheading-4
-[Next Steps]: #subheading-5
+[Permissions]: #subheading-4
+[Manage classifications]: #subheading-5
+[Next Steps]: #subheading-6

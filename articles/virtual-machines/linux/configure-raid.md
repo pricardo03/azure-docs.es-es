@@ -15,18 +15,21 @@ ms.topic: article
 ms.date: 02/02/2017
 ms.author: rclaus
 ms.subservice: disks
-ms.openlocfilehash: bc53ed3e3a7fd988464b9100df654920d5589596
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: f59e4b9ee85803ab5635e72b3607e82e958d9696
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036659"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74534194"
 ---
 # <a name="configure-software-raid-on-linux"></a>Configuración del software RAID en Linux
 Es un escenario habitual usar el software RAID en máquinas virtuales con Linux en Azure para presentar varios discos de datos conectados como un único dispositivo RAID. Se puede utilizar normalmente para aumentar el rendimiento y permitir una capacidad de proceso mejorada en comparación con el uso de un solo disco.
 
 ## <a name="attaching-data-disks"></a>Conexión de discos de datos
 Se necesitan dos o más discos de datos vacíos para configurar un dispositivo RAID.  La razón principal para crear un dispositivo RAID es mejorar el rendimiento de la E/S de disco.  Según sus requisitos de E/S, puede decidir asociar discos que estén almacenados en Standard Storage con hasta 500 E/S por segundo por disco o Premium Storage con hasta 5000 E/S por segundo por disco. En este artículo no entramaremos en detalles sobre cómo asociar discos de datos a una máquina virtual Linux.  Consulte el artículo de Microsoft Azure sobre la [conexión de un disco](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para obtener instrucciones detalladas sobre cómo conectar un disco de datos vacío a una máquina virtual Linux en Azure.
+
+> [!IMPORTANT]
+>No mezcle discos de distintos tamaños, porque en ese caso el rendimiento del raidset se limitaría al del disco más lento. 
 
 ## <a name="install-the-mdadm-utility"></a>Instalación de la utilidad mdadm
 * **Ubuntu**

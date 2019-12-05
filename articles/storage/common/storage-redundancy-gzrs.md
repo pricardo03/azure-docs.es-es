@@ -8,12 +8,12 @@ ms.date: 08/13/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: e040533acdd8979b7b43358c74d1b729dafa2c66
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: e749dc48b1834aedbfea048c49c1f9090e5b5bb8
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111843"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74534308"
 ---
 # <a name="build-highly-available-azure-storage-applications-with-geo-zone-redundant-storage-gzrs-preview"></a>Creación de aplicaciones de Azure Storage de alta disponibilidad en almacenamiento con redundancia de zona geográfica (GZRS) (versión preliminar)
 
@@ -29,6 +29,7 @@ Solo las cuentas de almacenamiento de uso general v2 son compatibles con GZRS y 
 
 GZRS y RA-GZRS están disponibles actualmente en las versiones preliminares de las siguientes regiones:
 
+- Sudeste de Asia
 - Norte de Europa
 - Oeste de Europa
 - Sur de Reino Unido 2
@@ -84,6 +85,11 @@ El objetivo de tiempo de recuperación (RTO) es una medida que indica cuánto ti
 ## <a name="migrate-a-storage-account-to-gzrs-or-ra-gzrs"></a>Migración de una cuenta de almacenamiento a GZRS o RA-GZRS
 
 Puede migrar cualquier cuenta de almacenamiento existente a GZRS o RA-GZRS. La migración de una cuenta ZRS existente a GZRS o RA-GZRS es sencilla, mientras que la migración desde una cuenta LRS, GRS o RA-GRS es más complicada. En las secciones siguientes se describe la migración en cada caso.
+
+**Limitaciones conocidas**
+
+- El nivel de archivo no se admite actualmente en las cuentas de (RA-)GZRS. Consulte [Azure Blob Storage: niveles de acceso frecuente, esporádico y de archivo](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers) para más información.
+- Los discos administrados no admiten (RA-)GZRS. Puede almacenar instantáneas e imágenes de discos administrados SSD estándar en almacenamiento HDD estándar y [elegir entre las opciones LRS y ZRS](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 ### <a name="migrating-from-a-zrs-account"></a>Migración desde una cuenta ZRS
 

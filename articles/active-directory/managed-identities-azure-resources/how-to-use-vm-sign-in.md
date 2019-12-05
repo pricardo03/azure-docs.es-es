@@ -1,5 +1,5 @@
 ---
-title: Cómo usar las identidades administradas para recursos de Azure en una VM de Azure para el inicio de sesión
+title: 'Uso de las identidades administradas en una máquina virtual de Azure para el inicio de sesión: Azure AD'
 description: Instrucciones paso a paso y ejemplos de uso de entidades administradas de VM de una entidad de servicio de recursos de Azure para el acceso a los recursos y el inicio de sesión de cliente mediante script.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/01/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43aa0859fa67cc6b2f5c5974f072e7b6d4b29527
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 34f4dc749c0254b5aa4e9ff018d2a869832de3f0
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66112961"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74547385"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-for-sign-in"></a>Cómo usar las identidades administradas para recursos de Azure en una VM de Azure para el inicio de sesión 
 
@@ -41,14 +41,14 @@ Si tiene previsto usar los ejemplos de Azure PowerShell o de la CLI de Azure en 
 
 ## <a name="overview"></a>Información general
 
-Las identidades administradas para recursos de Azure proporcionan un [objeto de entidad de servicio](../develop/developer-glossary.md#service-principal-object), que se [crea al habilitar las identidades administradas para recursos de Azure](overview.md#how-does-it-work) en la VM. Se le puede dar a la entidad de servicio acceso a los recursos de Azure, y los clientes de script o de línea de comandos pueden usar esta entidad como identidad para iniciar sesión y acceder a los recursos. Tradicionalmente, para acceder a los recursos protegidos con su propia identidad, un cliente de script debía hacer lo siguiente:  
+Las identidades administradas para recursos de Azure proporcionan un [objeto de entidad de servicio](../develop/developer-glossary.md#service-principal-object), que se [crea al habilitar las identidades administradas para recursos de Azure](overview.md#how-does-the-managed-identities-for-azure-resources-work) en la VM. Se le puede dar a la entidad de servicio acceso a los recursos de Azure, y los clientes de script o de línea de comandos pueden usar esta entidad como identidad para iniciar sesión y acceder a los recursos. Tradicionalmente, para acceder a los recursos protegidos con su propia identidad, un cliente de script debía hacer lo siguiente:  
 
    - Registrarse y ser aceptado en Azure AD como una aplicación cliente confidencial/web
    - Iniciar sesión con su entidad de servicio mediante las credenciales de la aplicación (que probablemente estaban insertadas en el script)
 
 Con las identidades administradas para los recursos de Azure, el cliente de script ya no tiene que seguir ninguno de estos pasos, ya que puede iniciar sesión bajo las identidades administradas para la entidad de servicio de recursos de Azure. 
 
-## <a name="azure-cli"></a>Azure CLI
+## <a name="azure-cli"></a>CLI de Azure
 
 El script siguiente muestra cómo:
 

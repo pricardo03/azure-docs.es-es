@@ -1,5 +1,5 @@
 ---
-title: Cómo usar identidades administradas de recursos de Azure en una máquina virtual para adquirir un token de acceso
+title: 'Uso de usar identidades administradas en una máquina virtual para adquirir un token de acceso: Azure AD'
 description: Paso a paso las instrucciones y ejemplos de uso de administran identidades para los recursos de Azure en una máquina virtual para adquirir un token de acceso de OAuth.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/01/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: abdeb7ce5327db57b8a6ae48fdd8d8c0c81879a7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 443f1eb1576f2d6eb28d0de16f37e37912b707b9
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60290805"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74547350"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Cómo usar identidades administradas de recursos de Azure en una máquina virtual de Azure para adquirir un token de acceso 
 
@@ -45,7 +45,7 @@ Si tiene previsto usar los ejemplos de Azure PowerShell de este artículo, no se
 
 ## <a name="overview"></a>Información general
 
-Una aplicación cliente puede solicitar un [token de acceso de solo aplicación](../develop/developer-glossary.md#access-token) de identidades administradas de recursos de Azure para acceder a un recurso determinado. El token [se basa en la entidad de servicio de identidades administradas de recursos de Azure](overview.md#how-does-it-work). Por lo tanto, no es necesario que el cliente se registre automáticamente para obtener un token de acceso en su propia entidad de servicio. El token es adecuado para utilizarse como un token de portador en [llamadas de servicio a servicio que requieren credenciales de cliente](../develop/v1-oauth2-client-creds-grant-flow.md).
+Una aplicación cliente puede solicitar un [token de acceso de solo aplicación](../develop/developer-glossary.md#access-token) de identidades administradas de recursos de Azure para acceder a un recurso determinado. El token [se basa en la entidad de servicio de identidades administradas de recursos de Azure](overview.md#how-does-the-managed-identities-for-azure-resources-work). Por lo tanto, no es necesario que el cliente se registre automáticamente para obtener un token de acceso en su propia entidad de servicio. El token es adecuado para utilizarse como un token de portador en [llamadas de servicio a servicio que requieren credenciales de cliente](../develop/v1-oauth2-client-creds-grant-flow.md).
 
 |  |  |
 | -------------- | -------------------- |
@@ -371,7 +371,7 @@ Si se produce un error, el cuerpo de respuesta HTTP correspondiente contiene los
 
 En esta sección se documentan las posibles respuestas de error. Un estado de "200 OK" es una respuesta correcta y el token de acceso se encuentra en el cuerpo de respuesta JSON; en el elemento access_token.
 
-| Código de estado | Error | Descripción del error | Solución |
+| status code | Error | Descripción del error | Solución |
 | ----------- | ----- | ----------------- | -------- |
 | 400 - Solicitud incorrecta | invalid_resource | AADSTS50001: la aplicación denominada *\<URI\>* no se encontró en el inquilino llamado *\<TENANT-ID\>* . Esto puede pasar si el administrador del inquilino no es el que ha instalado el administrador del inquilino o no ha recibido el consentimiento de ningún usuario del inquilino. Es posible que haya enviado la solicitud de autenticación al inquilino incorrecto. | (Solo Linux). |
 | 400 - Solicitud incorrecta | bad_request_102 | Encabezado de metadatos necesario no especificado. | El campo `Metadata` del encabezado de la solicitud no está en la solicitud o tiene un formato incorrecto. El valor debe especificarse como `true`, todo en minúsculas. Consulte "Solicitud de ejemplo" en la sección REST anterior para obtener un ejemplo.|

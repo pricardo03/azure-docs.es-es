@@ -1,19 +1,14 @@
 ---
-title: Disponibilidad de regiones y cuotas en Azure Container Instances
+title: Cuotas de servicio y disponibilidad de región
 description: Cuotas, límites y disponibilidad de regiones del servicio Azure Container Instances.
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: article
 ms.date: 03/01/2019
-ms.author: danlep
-ms.openlocfilehash: c266a67685197ba40d2868fefca08098cb41598c
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 91681130e32cf8a76829b8bfc3e2a1e97a59ff6b
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172373"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533505"
 ---
 # <a name="quotas-and-limits-for-azure-container-instances"></a>Cuotas y límites de Azure Container Instances
 

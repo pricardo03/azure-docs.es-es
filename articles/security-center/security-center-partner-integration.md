@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/20/2019
 ms.author: memildin
-ms.openlocfilehash: 0a3bc6bcae2f06173cbc334ffe80e2dfa001e407
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 0479918ad2afa99dcd9f18d3ba81f94a3e262e9e
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309260"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74479381"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integración de soluciones de seguridad en Azure Security Center
 Este documento le ayuda a administrar las soluciones de seguridad que ya está conectadas a Azure Security Center y a agregar otras nuevas.
@@ -95,8 +95,6 @@ Security Center detecta automáticamente las soluciones de seguridad que se ejec
 
 Seleccione **Conectar** en una solución para integrarla con Security Center y recibir alertas de seguridad.
 
-![Soluciones detectadas](./media/security-center-partner-integration/security-center-partner-integration-fig5.png)
-
 ### <a name="add-data-sources"></a>Agregar orígenes de datos
 
 La sección **Agregar orígenes de datos** incluye otros orígenes de datos disponibles que se pueden conectar. Para obtener instrucciones acerca de cómo agregar datos desde cualquiera de estos orígenes, haga clic en **ADD**.
@@ -104,6 +102,10 @@ La sección **Agregar orígenes de datos** incluye otros orígenes de datos disp
 ![Orígenes de datos](./media/security-center-partner-integration/security-center-partner-integration-fig7.png)
 
 ## <a name="exporting-data-to-a-siem"></a>Exportación de datos a un SIEM
+
+> [!NOTE]
+> A fin de obtener más información sobre un método más sencillo (actualmente en versión preliminar) para la exportación de datos a un SIEM, vea [Exportación de alertas y recomendaciones de seguridad (versión preliminar)](continuous-export.md). El método nuevo no usa el registro de actividad como intermediario y permite la exportación directa desde Security Center a Event Hubs (y luego al SIEM). También admite la exportación de recomendaciones de seguridad.
+
 
 Puede configurar SIEM u otras herramientas de supervisión para recibir eventos de Azure Security Center.
 

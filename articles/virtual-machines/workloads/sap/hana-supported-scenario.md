@@ -10,15 +10,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/06/2018
+ms.date: 11/26/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f17e447f26ae4f7573941fc0c578a918ff45a145
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 7ed63f5caa6b1f1c0072a92f6a60ad43c5431af0
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101232"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74538373"
 ---
 # <a name="supported-scenarios-for-hana-large-instances"></a>Escenarios admitidos para instancias grandes de HANA
 En este documento se describen los escenarios admitidos junto con sus detalles de arquitectura para instancias grandes de HANA (HLI).
@@ -37,7 +37,7 @@ Vamos a describir los términos y definiciones usados en el documento.
 - Recuperación ante desastres multipropósito: un sistema en el sitio de recuperación ante desastres configurado para usar un entorno que no es de producción junto con una instancia de producción configurada para usarse con el evento de recuperación ante desastres. 
 - SID único:  un sistema con una instancia instalada.
 - Varios SID: un sistema con varias instancias configuradas. También se conoce como entorno MCOS.
-
+- HSR: Replicación del sistema de SAP HANA.
 
 ## <a name="overview"></a>Información general
 Las instancias grandes de HANA admiten una diversidad de arquitecturas para cumplir los requisitos empresariales. En la lista siguiente se tratan los escenarios y sus detalles de configuración. 
@@ -107,7 +107,7 @@ El almacenamiento está preconfigurado en función de la topología solicitada. 
 
 En los diagramas de arquitectura, se usan las siguientes notaciones para los gráficos:
 
-![Legends.PNG](media/hana-supported-scenario/Legends.PNG)
+[ ![Legends.PNG](media/hana-supported-scenario/Legends.png)](media/hana-supported-scenario/Legends.png#lightbox)
 
 La siguiente lista muestra los escenarios admitidos:
 
@@ -199,7 +199,7 @@ Los puntos de montaje siguientes están preconfigurados:
 - /usr/sap/SID es un vínculo simbólico a /hana/shared/SID.
 - La distribución de tamaño de volumen se basa en el tamaño de la base de datos en memoria. Consulte la sección [Introducción y arquitectura](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) para saber qué tamaños de base de datos en memoria se admiten con entornos de varios SID.
 
-## <a name="3-single-node-with-dr-normal"></a>3. Nodo único con recuperación ante desastres (normal)
+## <a name="3-single-node-with-dr-using-storage-replication"></a>3. Nodo único con recuperación ante desastres mediante replicación de almacenamiento
  
 Esta topología admite un nodo en una configuración de escalabilidad horizontal con uno o varios SID con la replicación basada en almacenamiento en el sitio de recuperación ante desastres para un SID principal. En el diagrama, solo se representa un SID en el sitio principal, pero también se admiten varios SID (MCOS).
 
@@ -240,7 +240,7 @@ Los puntos de montaje siguientes están preconfigurados:
 - El volumen de arranque de **clase SKU tipo I** se replica en el nodo de recuperación ante desastres.
 
 
-## <a name="4-single-node-with-dr-multipurpose"></a>4. Nodo único con recuperación ante desastres (multipropósito)
+## <a name="4-single-node-with-dr-multipurpose-using-storage-replication"></a>4. Nodo único con recuperación ante desastres (multipropósito) mediante replicación de almacenamiento
  
 Esta topología admite un nodo en una configuración de escalabilidad horizontal con uno o varios SID con la replicación basada en almacenamiento en el sitio de recuperación ante desastres para un SID principal. En el diagrama, solo se representa un SID en el sitio principal, pero también se admiten varios SID (MCOS). En el sitio de recuperación ante desastres, la unidad HLI se usa para la instancia de QA mientras las operaciones de producción se ejecutan desde el sitio principal. En el momento de la conmutación por error de recuperación ante desastres (o prueba de conmutación por error), se retira la instancia de QA en el sitio de recuperación ante desastres.
 
@@ -289,7 +289,7 @@ Los puntos de montaje siguientes están preconfigurados:
 - En la recuperación ante desastres: los datos, las copias de seguridad de registros, los registros y los volúmenes compartidos para QA (marcados como "instalación de instancia de QA") se configuran para la instalación de la instancia de QA.
 - El volumen de arranque de **clase SKU tipo I** se replica en el nodo de recuperación ante desastres.
 
-## <a name="5-hsr-with-stonith"></a>5. HSR con STONITH
+## <a name="5-hsr-with-stonith-for-high-availability"></a>5. HSR con STONITH para alta disponibilidad
  
 Esta topología admite dos nodos para la configuración de replicación de sistema de HANA (HSR). Esta configuración solo se admite para instancias únicas de HANA en un nodo. Esto quiere decir que los escenarios MCOS NO son compatibles.
 
@@ -338,7 +338,7 @@ Los puntos de montaje siguientes están preconfigurados:
 - STONITH: se configura un SBD para la configuración de STONITH. Sin embargo, un uso de STONITH es opcional.
 
 
-## <a name="6-hsr-with-dr"></a>6. HSR con recuperación ante desastres
+## <a name="6-high-availability-with-hsr-and-dr-with-storage-replication"></a>6. Alta disponibilidad con HSR y recuperación ante desastres con replicación de almacenamiento
  
 Esta topología admite dos nodos para la configuración de replicación de sistema de HANA (HSR). Se admite tanto la recuperación ante desastres normal como multipropósito. Estas configuraciones solo se admite para instancias únicas de HANA en un nodo. Esto quiere decir que los escenarios MCOS NO son compatibles con estas configuraciones.
 
@@ -515,7 +515,7 @@ Los puntos de montaje siguientes están preconfigurados:
 ### <a name="key-considerations"></a>Consideraciones clave
 - /usr/sap/SID es un vínculo simbólico a /hana/shared/SID.
 
-## <a name="10-scale-out-with-dr"></a>10. Escalabilidad horizontal con recuperación ante desastres
+## <a name="10-scale-out-with-dr-using-storage-replication"></a>10. Escalabilidad horizontal con recuperación ante desastres mediante replicación de almacenamiento
  
 Esta topología es compatible con varios nodos en una configuración de escalabilidad horizontal con recuperación ante desastres. Se admite tanto la recuperación ante desastres normal como multipropósito. En el diagrama solo se representa la recuperación ante desastres de un propósito. Puede solicitar esta topología con o sin el nodo de espera.
 
@@ -560,6 +560,239 @@ Los puntos de montaje siguientes están preconfigurados:
 -  En la recuperación ante desastres: los volúmenes y los puntos de montaje están configurados (marcados como "obligatorios para la instalación de HANA") para la instalación de instancias de HANA de producción en la unidad HLI de recuperación ante desastres. 
 - En la recuperación ante desastres: los datos, las copias de seguridad de registros y los volúmenes compartidos (marcados como "replicación de almacenamiento") se replican mediante una instantánea desde el sitio de producción. Estos volúmenes se montan solo durante el tiempo de conmutación por error. Para una información más detallada, lea el documento [Procedimiento de conmutación por error de recuperación ante desastres](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery). 
 - El volumen de arranque de **clase SKU tipo I** se replica en el nodo de recuperación ante desastres.
+
+
+## <a name="11-single-node-with-dr-using-hsr"></a>11. Nodo único con recuperación ante desastres mediante HSR
+ 
+Esta topología admite un nodo en una configuración de escalabilidad vertical con un SID con la replicación del sistema HANA en el sitio de recuperación ante desastres para un SID principal. En el diagrama, solo se representa un SID en el sitio principal, pero también se admiten varios SID (MCOS).
+
+### <a name="architecture-diagram"></a>Diagrama de la arquitectura  
+
+![single-node-hsr-dr-111.png](media/hana-supported-scenario/single-node-hsr-dr-111.png)
+
+### <a name="ethernet"></a>Ethernet
+Las siguientes interfaces de red están preconfiguradas:
+
+| INTERFACES LÓGICAS DE NIC | TIPO DE SKU | Nombre con sistema operativo SUSE | Nombre con sistema operativo RHEL | Caso de uso|
+| --- | --- | --- | --- | --- |
+| Una | TIPO I | eth0.tenant | eno1.tenant | Cliente a HLI/HSR |
+| b | TIPO I | eth2.tenant | eno3.tenant | Configurado pero no en uso |
+| C | TIPO I | eth1.tenant | eno2.tenant | Nodo a almacenamiento |
+| D | TIPO I | eth4.tenant | eno4.tenant | Configurado pero no en uso |
+| Una | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente a HLI/HSR |
+| b | TIPO II | vlan\<tenantNo+2> | team0.tenant+2 | Configurado pero no en uso |
+| C | TIPO II | vlan\<tenantNo+1> | team0.tenant+1 | Nodo a almacenamiento |
+| D | TIPO II | vlan\<tenantNo+3> | team0.tenant+3 | Configurado pero no en uso |
+
+### <a name="storage"></a>Storage
+Los puntos de montaje siguientes están preconfigurados en las unidades HLI (principal y recuperación ante desastres):
+
+| Punto de montaje | Caso de uso | 
+| --- | --- |
+|/hana/shared/SID | Instalación de HANA para SID | 
+|/hana/data/SID/mnt00001 | Instalación de archivos de datos para SID | 
+|/hana/log/SID/mnt00001 | Instalación de archivos de registro para SID | 
+|/hana/logbackups/SID | Registros de rehacer para SID |
+
+
+### <a name="key-considerations"></a>Consideraciones clave
+- /usr/sap/SID es un vínculo simbólico a /hana/shared/SID.
+- En MCOS: La distribución de tamaño de volumen se basa en el tamaño de la base de datos en memoria. Consulte la sección [Introducción y arquitectura](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) para saber qué tamaños de base de datos en memoria se admiten con entornos de varios SID.
+- El nodo principal se sincroniza con el nodo de recuperación ante desastres mediante la replicación del sistema HANA. 
+- [Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) se usa para vincular los circuitos de ExpressRoute con el fin de crear una red privada entre la red de regiones.
+
+
+
+## <a name="12-single-node-hsr-to-dr-cost-optimized"></a>12. HSR de nodo único a recuperación ante desastres (optimizado para costo) 
+ 
+ Esta topología admite un nodo en una configuración de escalabilidad vertical con un SID con la replicación del sistema HANA en el sitio de recuperación ante desastres para un SID principal. En el diagrama, solo se representa un SID en el sitio principal, pero también se admiten varios SID (MCOS). En el sitio de recuperación ante desastres, la unidad HLI se usa para la instancia de QA mientras las operaciones de producción se ejecutan desde el sitio principal. En el momento de la conmutación por error de recuperación ante desastres (o prueba de conmutación por error), se retira la instancia de QA en el sitio de recuperación ante desastres.
+
+### <a name="architecture-diagram"></a>Diagrama de la arquitectura  
+
+![single-node-hsr-dr-cost-optimized-121.png](media/hana-supported-scenario/single-node-hsr-dr-cost-optimized-121.png)
+
+### <a name="ethernet"></a>Ethernet
+Las siguientes interfaces de red están preconfiguradas:
+
+| INTERFACES LÓGICAS DE NIC | TIPO DE SKU | Nombre con sistema operativo SUSE | Nombre con sistema operativo RHEL | Caso de uso|
+| --- | --- | --- | --- | --- |
+| Una | TIPO I | eth0.tenant | eno1.tenant | Cliente a HLI/HSR |
+| b | TIPO I | eth2.tenant | eno3.tenant | Configurado pero no en uso |
+| C | TIPO I | eth1.tenant | eno2.tenant | Nodo a almacenamiento |
+| D | TIPO I | eth4.tenant | eno4.tenant | Configurado pero no en uso |
+| Una | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente a HLI/HSR |
+| b | TIPO II | vlan\<tenantNo+2> | team0.tenant+2 | Configurado pero no en uso |
+| C | TIPO II | vlan\<tenantNo+1> | team0.tenant+1 | Nodo a almacenamiento |
+| D | TIPO II | vlan\<tenantNo+3> | team0.tenant+3 | Configurado pero no en uso |
+
+### <a name="storage"></a>Storage
+Los puntos de montaje siguientes están preconfigurados:
+
+| Punto de montaje | Caso de uso | 
+| --- | --- |
+|**En el sitio principal**|
+|/hana/shared/SID | Instalación de HANA para el SID de producción | 
+|/hana/data/SID/mnt00001 | Instalación de archivos de datos para el SID de producción | 
+|/hana/log/SID/mnt00001 | Instalación de archivos de registro para el SID de producción | 
+|/hana/logbackups/SID | Registros de rehacer para el SID de producción |
+|**En el sitio de recuperación ante desastres**|
+|/hana/shared/SID | Instalación de HANA para el SID de producción | 
+|/hana/data/SID/mnt00001 | Instalación de archivos de registro para el SID de producción | 
+|/hana/log/SID/mnt00001 | Instalación de archivos de registro para el SID de producción | 
+|/hana/logbackups/SID | Registros de rehacer para el SID de producción |
+|/hana/shared/QA-SID | Instalación de HANA para el SID de QA | 
+|/hana/data/QA-SID/mnt00001 | Instalación de archivos de datos para el SID de QA | 
+|/hana/log/QA-SID/mnt00001 | Instalación de archivos de registro para el SID de QA |
+|/hana/logbackups/QA-SID | Registros de rehacer para el SID de QA |
+
+### <a name="key-considerations"></a>Consideraciones clave
+- /usr/sap/SID es un vínculo simbólico a /hana/shared/SID.
+- En MCOS: La distribución de tamaño de volumen se basa en el tamaño de la base de datos en memoria. Consulte la sección [Introducción y arquitectura](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) para saber qué tamaños de base de datos en memoria se admiten con entornos de varios SID.
+- En la recuperación ante desastres: los volúmenes y los puntos de montaje están configurados (marcados como "Instancia de PROD en el sitio de recuperación ante desastres") para la instalación de instancias de HANA de producción en la unidad HLI de recuperación ante desastres. 
+- En la recuperación ante desastres: los datos, las copias de seguridad de registros, los registros y los volúmenes compartidos para QA (marcados como "instalación de instancia de QA") se configuran para la instalación de la instancia de QA.
+- El nodo principal se sincroniza con el nodo de recuperación ante desastres mediante la replicación del sistema HANA. 
+- [Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) se usa para vincular los circuitos de ExpressRoute con el fin de crear una red privada entre la red de regiones.
+
+## <a name="13-high-availability-and-disaster-recovery-with-hsr"></a>13. Alta disponibilidad y recuperación ante desastres con HSR 
+ 
+ Esta topología admite dos nodos para la configuración de replicación del sistema HANA (HSR) en las regiones locales de alta disponibilidad. En el caso de la recuperación ante desastres, el tercer nodo de la región de recuperación ante desastres se sincroniza desde el sitio principal mediante HSR (modo asincrónico). 
+
+### <a name="architecture-diagram"></a>Diagrama de la arquitectura  
+
+![hana-system-replication-dr-131.png](media/hana-supported-scenario/hana-system-replication-dr-131.png)
+
+### <a name="ethernet"></a>Ethernet
+Las siguientes interfaces de red están preconfiguradas:
+
+| INTERFACES LÓGICAS DE NIC | TIPO DE SKU | Nombre con sistema operativo SUSE | Nombre con sistema operativo RHEL | Caso de uso|
+| --- | --- | --- | --- | --- |
+| Una | TIPO I | eth0.tenant | eno1.tenant | Cliente a HLI/HSR |
+| b | TIPO I | eth2.tenant | eno3.tenant | Configurado pero no en uso |
+| C | TIPO I | eth1.tenant | eno2.tenant | Nodo a almacenamiento |
+| D | TIPO I | eth4.tenant | eno4.tenant | Configurado pero no en uso |
+| Una | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente a HLI/HSR |
+| b | TIPO II | vlan\<tenantNo+2> | team0.tenant+2 | Configurado pero no en uso |
+| C | TIPO II | vlan\<tenantNo+1> | team0.tenant+1 | Nodo a almacenamiento |
+| D | TIPO II | vlan\<tenantNo+3> | team0.tenant+3 | Configurado pero no en uso |
+
+### <a name="storage"></a>Storage
+Los puntos de montaje siguientes están preconfigurados:
+
+| Punto de montaje | Caso de uso | 
+| --- | --- |
+|**En el sitio principal**|
+|/hana/shared/SID | Instalación de HANA para el SID de producción | 
+|/hana/data/SID/mnt00001 | Instalación de archivos de datos para el SID de producción | 
+|/hana/log/SID/mnt00001 | Instalación de archivos de registro para el SID de producción | 
+|/hana/logbackups/SID | Registros de rehacer para el SID de producción |
+|**En el sitio de recuperación ante desastres**|
+|/hana/shared/SID | Instalación de HANA para el SID de producción | 
+|/hana/data/SID/mnt00001 | Instalación de archivos de registro para el SID de producción | 
+|/hana/log/SID/mnt00001 | Instalación de archivos de registro para el SID de producción | 
+|/hana/logbackups/SID | Registros de rehacer para el SID de producción |
+
+
+### <a name="key-considerations"></a>Consideraciones clave
+- /usr/sap/SID es un vínculo simbólico a /hana/shared/SID.
+- En la recuperación ante desastres: los volúmenes y los puntos de montaje están configurados (marcados como "Instancia de PROD de recuperación ante desastres") para la instalación de instancias de HANA de producción en la unidad HLI de recuperación ante desastres. 
+- El nodo de sitio principal se sincroniza con el nodo de recuperación ante desastres mediante la replicación del sistema HANA. 
+- [Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) se usa para vincular los circuitos de ExpressRoute con el fin de crear una red privada entre la red de regiones.
+
+## <a name="14-high-availability-and-disaster-recovery-with-hsr-cost-optimized"></a>14. Alta disponibilidad y recuperación ante desastres con HSR (optimizado para costo)
+ 
+ Esta topología admite dos nodos para la configuración de replicación del sistema HANA (HSR) en las regiones locales de alta disponibilidad. En el caso de la recuperación ante desastres, el tercer nodo de la región de recuperación ante desastres se sincroniza desde el sitio principal mediante HSR (modo asincrónico), mientras que otra instancia (por ejemplo, QA) ya se está ejecutando desde el nodo de recuperación ante desastres. 
+
+### <a name="architecture-diagram"></a>Diagrama de la arquitectura  
+
+![hana-system-replication-dr-cost-optimized-141.png](media/hana-supported-scenario/hana-system-replication-dr-cost-optimized-141.png)
+
+### <a name="ethernet"></a>Ethernet
+Las siguientes interfaces de red están preconfiguradas:
+
+| INTERFACES LÓGICAS DE NIC | TIPO DE SKU | Nombre con sistema operativo SUSE | Nombre con sistema operativo RHEL | Caso de uso|
+| --- | --- | --- | --- | --- |
+| Una | TIPO I | eth0.tenant | eno1.tenant | Cliente a HLI/HSR |
+| b | TIPO I | eth2.tenant | eno3.tenant | Configurado pero no en uso |
+| C | TIPO I | eth1.tenant | eno2.tenant | Nodo a almacenamiento |
+| D | TIPO I | eth4.tenant | eno4.tenant | Configurado pero no en uso |
+| Una | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente a HLI/HSR |
+| b | TIPO II | vlan\<tenantNo+2> | team0.tenant+2 | Configurado pero no en uso |
+| C | TIPO II | vlan\<tenantNo+1> | team0.tenant+1 | Nodo a almacenamiento |
+| D | TIPO II | vlan\<tenantNo+3> | team0.tenant+3 | Configurado pero no en uso |
+
+### <a name="storage"></a>Storage
+Los puntos de montaje siguientes están preconfigurados:
+
+| Punto de montaje | Caso de uso | 
+| --- | --- |
+|**En el sitio principal**|
+|/hana/shared/SID | Instalación de HANA para el SID de producción | 
+|/hana/data/SID/mnt00001 | Instalación de archivos de datos para el SID de producción | 
+|/hana/log/SID/mnt00001 | Instalación de archivos de registro para el SID de producción | 
+|/hana/logbackups/SID | Registros de rehacer para el SID de producción |
+|**En el sitio de recuperación ante desastres**|
+|/hana/shared/SID | Instalación de HANA para el SID de producción | 
+|/hana/data/SID/mnt00001 | Instalación de archivos de registro para el SID de producción | 
+|/hana/log/SID/mnt00001 | Instalación de archivos de registro para el SID de producción | 
+|/hana/logbackups/SID | Registros de rehacer para el SID de producción |
+|/hana/shared/QA-SID | Instalación de HANA para el SID de QA | 
+|/hana/data/QA-SID/mnt00001 | Instalación de archivos de datos para el SID de QA | 
+|/hana/log/QA-SID/mnt00001 | Instalación de archivos de registro para el SID de QA |
+|/hana/logbackups/QA-SID | Registros de rehacer para el SID de QA |
+
+### <a name="key-considerations"></a>Consideraciones clave
+- /usr/sap/SID es un vínculo simbólico a /hana/shared/SID.
+- En la recuperación ante desastres: los volúmenes y los puntos de montaje están configurados (marcados como "Instancia de PROD de recuperación ante desastres") para la instalación de instancias de HANA de producción en la unidad HLI de recuperación ante desastres. 
+- En la recuperación ante desastres: los datos, las copias de seguridad de registros, los registros y los volúmenes compartidos para QA (marcados como "instalación de instancia de QA") se configuran para la instalación de la instancia de QA.
+- El nodo de sitio principal se sincroniza con el nodo de recuperación ante desastres mediante la replicación del sistema HANA. 
+- [Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) se usa para vincular los circuitos de ExpressRoute con el fin de crear una red privada entre la red de regiones.
+
+## <a name="15-scale-out-with-dr-using-hsr"></a>15. Escalabilidad horizontal con recuperación ante desastres mediante HSR
+ 
+Esta topología es compatible con varios nodos en una configuración de escalabilidad horizontal con recuperación ante desastres. Puede solicitar esta topología con o sin el nodo de espera. Los nodos de sitio principales se sincronizan con los nodos del sitio de recuperación ante desastres con la replicación del sistema HANA (modo asincrónico).
+
+
+### <a name="architecture-diagram"></a>Diagrama de la arquitectura  
+
+[ ![scale-out-dr-hsr-151.png](media/hana-supported-scenario/scale-out-dr-hsr-151.png)](media/hana-supported-scenario/scale-out-dr-hsr-151.png#lightbox)
+
+
+### <a name="ethernet"></a>Ethernet
+Las siguientes interfaces de red están preconfiguradas:
+
+| INTERFACES LÓGICAS DE NIC | TIPO DE SKU | Nombre con sistema operativo SUSE | Nombre con sistema operativo RHEL | Caso de uso|
+| --- | --- | --- | --- | --- |
+| Una | TIPO I | eth0.tenant | eno1.tenant | Cliente a HLI/HSR |
+| b | TIPO I | eth2.tenant | eno3.tenant | Comunicación nodo a nodo |
+| C | TIPO I | eth1.tenant | eno2.tenant | Nodo a almacenamiento |
+| D | TIPO I | eth4.tenant | eno4.tenant | Configurado pero no en uso |
+| Una | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente a HLI/HSR |
+| b | TIPO II | vlan\<tenantNo+2> | team0.tenant+2 | Comunicación nodo a nodo |
+| C | TIPO II | vlan\<tenantNo+1> | team0.tenant+1 | Nodo a almacenamiento |
+| D | TIPO II | vlan\<tenantNo+3> | team0.tenant+3 | Configurado pero no en uso |
+
+### <a name="storage"></a>Storage
+Los puntos de montaje siguientes están preconfigurados:
+
+| Punto de montaje | Caso de uso | 
+| --- | --- |
+|**En el nodo principal**|
+|/hana/shared | Instalación de HANA para el SID de producción | 
+|/hana/data/SID/mnt00001 | Instalación de archivos de datos para el SID de producción | 
+|/hana/log/SID/mnt00001 | Instalación de archivos de registro para el SID de producción | 
+|/hana/logbackups/SID | Registros de rehacer para el SID de producción |
+|**En el nodo de recuperación ante desastres**|
+|/hana/shared | Instalación de HANA para el SID de producción | 
+|/hana/data/SID/mnt00001 | Instalación de archivos de datos para el SID de producción | 
+|/hana/log/SID/mnt00001 | Instalación de archivos de registro para el SID de producción | 
+|/hana/logbackups/SID | Registros de rehacer para el SID de producción |
+
+
+### <a name="key-considerations"></a>Consideraciones clave
+- /usr/sap/SID es un vínculo simbólico a /hana/shared/SID.
+- En la recuperación ante desastres: los volúmenes y los puntos de montaje están configurados para la instalación de instancias de HANA de producción en la unidad HLI de recuperación ante desastres. 
+- El nodo de sitio principal se sincroniza con los nodos de recuperación ante desastres mediante la replicación del sistema HANA. 
+- [Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) se usa para vincular los circuitos de ExpressRoute con el fin de crear una red privada entre la red de regiones.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/01/2019
+ms.date: 11/26/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 9c5e87d8d6fe49302bee2b2248f84ba98a650533
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 340717242d642475217bbe87fd96be66ec9b2e2d
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802309"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74554224"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Administradores de la suscripción clásica de Azure
 
@@ -32,7 +32,7 @@ En este artículo se describe cómo agregar o cambiar los roles de coadministrad
 > [!TIP]
 > Solo es necesario agregar un coadministrador si el usuario necesita administrar implementaciones clásicas de Azure mediante el [módulo de PowerShell de Azure Service Management](https://docs.microsoft.com/powershell/module/servicemanagement/azure). Si el usuario solamente usa Azure Portal para administrar los recursos clásicos, no tendrá que agregar el administrador clásico para el usuario.
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador de servicios.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador de servicios o coadministrador.
 
 1. Abra [Suscripciones](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) y seleccione una suscripción.
 
@@ -52,9 +52,17 @@ En este artículo se describe cómo agregar o cambiar los roles de coadministrad
 
     ![Captura de pantalla donde se agrega el coadministrador](./media/classic-administrators/add-coadmin.png)
 
-### <a name="adding-a-guest-user-as-a-co-administrator"></a>Adición de un usuario invitado como coadministrador
+## <a name="add-a-guest-user-as-a-co-administrator"></a>Adición de un usuario invitado como coadministrador
 
-Es posible que los [usuarios invitados](../active-directory/b2b/b2b-quickstart-add-guest-users-portal.md) a los que se haya asignado el rol de coadministrador observen algunas diferencias con respecto a los usuarios miembros con el rol de coadministrador. Considere el siguiente escenario:
+Para agregar un usuario invitado como coadministrador, siga los mismos pasos que en la sección [Adición de un coadministrador](#add-a-co-administrator). El usuario invitado debe cumplir los siguientes criterios:
+
+- Debe tener una presencia en el directorio. Esto significa que se ha invitado al usuario al directorio y ha aceptado la invitación.
+
+Para más información sobre cómo agregar usuarios invitados a su directorio, consulte [Incorporación de usuarios de colaboración B2B de Azure Active Directory en Azure Portal](../active-directory/b2b/add-users-administrator.md).
+
+### <a name="differences-for-guest-users"></a>Diferencias para los usuarios invitados
+
+Es posible que los usuarios invitados a los que se haya asignado el rol de coadministrador observen algunas diferencias con respecto a los usuarios miembros con este mismo rol. Considere el siguiente escenario:
 
 - El usuario A, con una cuenta de Azure AD (profesional o educativa), es un administrador de servicios en una suscripción de Azure.
 - El usuario B tiene una cuenta de Microsoft.
@@ -63,13 +71,15 @@ Es posible que los [usuarios invitados](../active-directory/b2b/b2b-quickstart-a
 
 Sería de esperar que el usuario B pudiera administrarlo todo. Esta diferencia se debe a que la cuenta de Microsoft se agrega a la suscripción como usuario invitado y no como usuario miembro. En comparación con los usuarios miembros, los usuarios invitados tienen distintos permisos predeterminados en Azure AD. Por ejemplo, los usuarios miembros pueden leer otros usuarios en Azure AD y los usuarios invitados no. Los usuarios miembros pueden registrar a nuevas entidades de servicio en Azure AD y los usuarios invitados no.
 
-Si un usuario invitado debe ser capaz de realizar estas tareas, una posible solución consiste en asignarle los roles de administrador de Azure AD que el usuario invitado necesita. Por ejemplo, en el escenario anterior, podría asignarle el rol [Lectores de directorios](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) para que pueda leer otros usuarios y asignarle el rol [Desarrollador de aplicaciones](../active-directory/users-groups-roles/directory-assign-admin-roles.md#application-developer) para que pueda crear entidades de servicio. Para más información sobre los usuarios miembros e invitados y sus permisos, vea [¿Cuales son los permisos de usuario predeterminados en Azure Active Directory?](../active-directory/fundamentals/users-default-permissions.md)
+Si un usuario invitado debe ser capaz de realizar estas tareas, una posible solución consiste en asignarle los roles de administrador de Azure AD que el usuario invitado necesita. Por ejemplo, en el escenario anterior, podría asignarle el rol [Lectores de directorios](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) para que pueda leer otros usuarios y asignarle el rol [Desarrollador de aplicaciones](../active-directory/users-groups-roles/directory-assign-admin-roles.md#application-developer) para que pueda crear entidades de servicio. Para más información sobre los usuarios miembros e invitados y sus permisos, vea [¿Cuales son los permisos de usuario predeterminados en Azure Active Directory?](../active-directory/fundamentals/users-default-permissions.md) Para más información sobre cómo conceder acceso a los usuarios invitados, consulte [Administración del acceso a los recursos de Azure de usuarios invitados externos mediante RBAC](role-assignments-external-users.md).
 
 Tenga en cuenta que los [roles integrados en los recursos de Azure](../role-based-access-control/built-in-roles.md) son diferentes de los [roles de administrador de Azure AD](../active-directory/users-groups-roles/directory-assign-admin-roles.md). Los roles integrados no conceden acceso a Azure AD. Para más información, vea [Descripción de los distintos roles](../role-based-access-control/rbac-and-directory-admin-roles.md).
 
+Para información donde se comparan los usuarios miembros y los usuarios invitados, consulte [¿Cuáles son los permisos de usuario predeterminados en Azure Active Directory?](../active-directory/fundamentals/users-default-permissions.md)
+
 ## <a name="remove-a-co-administrator"></a>Eliminación de un coadministrador
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador de servicios.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador de servicios o coadministrador.
 
 1. Abra [Suscripciones](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) y seleccione una suscripción.
 

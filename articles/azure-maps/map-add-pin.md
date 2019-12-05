@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 10f6a7ef92bfd6558ed93e7fb40df9e48e1b92f5
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: fff73801d20333a6df5e7952d02ed664c17fe40b
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976172"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74480606"
 ---
 # <a name="add-a-symbol-layer-to-a-map"></a>Adición de una capa de símbolo a un mapa
 
@@ -22,6 +22,14 @@ Un símbolo puede estar conectado a un origen de datos y usarse para representar
 
 > [!TIP]
 > De forma predeterminada, las capas de símbolo representarán las coordenadas de todos los objetos geométricos en un origen de datos. Para limitar la capa de forma que solo represente las características de geometría de puntos, configure la propiedad `filter` de la capa en `['==', ['geometry-type'], 'Point']` o `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` si desea incluir también las características de MultiPoint.
+
+El administrador de sprites de imágenes de mapas, que se usa para cargar imágenes personalizadas que utiliza la capa de símbolos, admite los formatos de imagen siguientes:
+
+- JPEG
+- PNG
+- SVG
+- BMP
+- GIF (sin animaciones)
 
 ## <a name="add-a-symbol-layer"></a>Adición de una capa de símbolo
 

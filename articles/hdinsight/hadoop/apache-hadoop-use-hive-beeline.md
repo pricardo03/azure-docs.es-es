@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 10/03/2019
-ms.openlocfilehash: d97470494af0d64cc20d78d69957d84a8acebc16
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 11/21/2019
+ms.openlocfilehash: 26a166e61086af8cf10f761b608fcf66eb8734fd
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494903"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406246"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Usar el cliente de Apache Beeline con Apache Hive
 
@@ -71,7 +71,7 @@ o para el punto de conexión privado:
 beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n <username> -p password
 ```
 
-Reemplace `clustername` por el nombre del clúster de HDInsight. Reemplace `<username>` por la cuenta de inicio de sesión del clúster. Nota: Para los clústeres de ESP, use el UPN completo (por ejemplo, user@domain.com). Reemplace `password` por la contraseña de la cuenta de inicio de sesión del clúster.
+Reemplace `clustername` por el nombre del clúster de HDInsight. Reemplace `<username>` por la cuenta de inicio de sesión del clúster. Para los clústeres de ESP, use el UPN completo (por ejemplo, user@domain.com). Reemplace `password` por la contraseña de la cuenta de inicio de sesión del clúster.
 
 Los puntos de conexión privados apuntan a un equilibrador de carga básico al que solo se puede acceder desde las redes virtuales emparejadas en la misma región. Consulte cuáles son las [restricciones relacionadas con Emparejamiento de VNet global y los equilibradores de carga](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) para más información. Puede usar el comando `curl` con la opción `-v` para solucionar cualquier problema de conectividad con puntos de conexión públicos o privados antes de usar Beeline.
 
@@ -85,17 +85,17 @@ Apache Spark proporciona su propia implementación de HiveServer2 que, en alguna
 
 La cadena de conexión usada es ligeramente distinta. En lugar de contener `httpPath=/hive2`, es `httpPath/sparkhive2`:
 
-```bash 
+```bash
 beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/sparkhive2' -n <username> -p password
 ```
 
 o para el punto de conexión privado:
 
-```bash 
+```bash
 beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/sparkhive2' -n <username> -p password
 ```
 
-Reemplace `clustername` por el nombre del clúster de HDInsight. Reemplace `<username>` por la cuenta de inicio de sesión del clúster. Nota: Para los clústeres de ESP, use el UPN completo (por ejemplo, user@domain.com). Reemplace `password` por la contraseña de la cuenta de inicio de sesión del clúster.
+Reemplace `clustername` por el nombre del clúster de HDInsight. Reemplace `<username>` por la cuenta de inicio de sesión del clúster. Para los clústeres de ESP, use el UPN completo (por ejemplo, user@domain.com). Reemplace `password` por la contraseña de la cuenta de inicio de sesión del clúster.
 
 Los puntos de conexión privados apuntan a un equilibrador de carga básico al que solo se puede acceder desde las redes virtuales emparejadas en la misma región. Consulte cuáles son las [restricciones relacionadas con Emparejamiento de VNet global y los equilibradores de carga](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) para más información. Puede usar el comando `curl` con la opción `-v` para solucionar cualquier problema de conectividad con puntos de conexión públicos o privados antes de usar Beeline.
 
@@ -264,7 +264,7 @@ Esta es una continuación del ejemplo anterior. Use los pasos siguientes para cr
     > [!NOTE]  
     > A diferencia de las tablas externas , la eliminación de una tabla interna también elimina los datos subyacentes.
 
-3. Para guardar el archivo, use **Ctrl**+ **_X**, escriba **Y** y, finalmente, presione **Entrar**.
+3. Para guardar el archivo, use **Ctrl**+**X**, escriba **Y** y, finalmente, presione **Entrar**.
 
 4. Use el siguiente código para ejecutar el archivo mediante Beeline:
 
@@ -290,15 +290,10 @@ Esta es una continuación del ejemplo anterior. Use los pasos siguientes para cr
         | 2012-02-03    | 18:55:54      | SampleClass1  | [ERROR]       | incorrect     | id            |               |
         | 2012-02-03    | 19:25:27      | SampleClass4  | [ERROR]       | incorrect     | id            |               |
         +---------------+---------------+---------------+---------------+---------------+---------------+---------------+--+
-        3 rows selected (1.538 seconds)
+        3 rows selected (0.813 seconds)
 
 ## <a id="summary"></a><a id="nextsteps"></a>Pasos siguientes
 
-Para más información general sobre el uso de Hive en HDInsight, consulte los documentos siguientes:
+* Para obtener más información general sobre Hive en HDInsight, consulte [Uso de Apache Hive con Apache Hadoop en HDInsight](hdinsight-use-hive.md).
 
-* [Uso de Apache Hive con Apache Hadoop en HDInsight](hdinsight-use-hive.md)
-
-Para más información sobre otras maneras de trabajar con Hadoop en HDInsight, consulte los documentos siguientes:
-
-* [Uso de Apache Pig con Apache Hadoop en HDInsight](hdinsight-use-pig.md)
-* [Uso de MapReduce con Apache Hadoop en HDInsight](hdinsight-use-mapreduce.md)
+* Si quiere más información sobre otras formas en que puede trabajar con Hadoop en HDInsight, consulte [Uso de MapReduce con Apache Hadoop en HDInsight](hdinsight-use-mapreduce.md).

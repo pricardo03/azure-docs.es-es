@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 52bbb52b13a3606e3ddc8deca2da8505233c9352
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: aa4ac011a7b6258958ac1ac176fd63b18a4ef856
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70062019"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74560177"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Salida de Azure Stream Analytics a Azure Cosmos DB  
 Stream Analytics puede tener como destino [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) para la salida de JSON, habilitando el archivado de datos y las consultas de latencia baja en datos de JSON no estructurados. En este documento tratan algunas prácticas recomendadas para implementar esta configuración.
@@ -98,6 +98,16 @@ La creación de Cosmos DB como una salida en Stream Analytics genera una solicit
 |Base de datos        | El nombre de la base de datos de Azure Cosmos DB.|
 |Nombre del contenedor | El nombre del contenedor que va a usarse. `MyContainer` es una entrada válida de ejemplo; debe existir un contenedor denominado `MyContainer`.  |
 |Id. de documento     | Opcional. El nombre de la columna en los eventos de salida que se usa como clave única en la que deben basarse las operaciones de inserción o actualización. Si se deja vacío, se insertarán todos los eventos, sin opción de actualización.|
+
+Una vez configurada la salida de Cosmos DB, se puede usar en la consulta como destino de una [instrucción INTO](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics). Cuando se usa una salida de Cosmos DB como tal, [se debe establecer una clave de partición explícitamente](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#partitions-in-sources-and-sinks). El registro de salida debe contener una columna con distinción de mayúsculas y minúsculas con un nombre asignado después de la clave de partición de Cosmos DB. Para lograr una mayor paralelización, la instrucción puede requerir que una [cláusula PARTITION BY](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#embarrassingly-parallel-jobs) utilice la misma columna.
+
+**Consulta de ejemplo**:
+
+```SQL
+    SELECT TollBoothId, PartitionId
+    INTO CosmosDBOutput
+    FROM Input1 PARTITION BY PartitionId
+``` 
 
 ## <a name="error-handling-and-retries"></a>Control de errores y reintentos
 

@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
 ms.date: 11/04/2019
-ms.openlocfilehash: bf82714011754ba516fa38444b1019b9cc1aa732
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: acf1df6bb71f4ea8878d8f50f3f42f4ddd831fb5
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111883"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74539239"
 ---
 # <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>Detección del desfase de datos (versión preliminar) en modelos implementados en Azure Kubernetes Service (AKS)
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
@@ -31,7 +31,7 @@ En el contexto de aprendizaje automático, el desfase de datos es el cambio en l
 Con Azure Machine Learning, puede supervisar las entradas en un modelo implementado en AKS y comparar estos datos con el conjunto de datos de entrenamiento del modelo. A intervalos regulares, se realiza una [instantánea y un perfil](how-to-explore-prepare-data.md) de los datos de inferencia y, después, estos se calculan con respecto al conjunto de datos de línea base para generar un análisis del desfase de datos con el objeto de: 
 
 + Medir la magnitud del desfase de datos, denominada "coeficiente de desfase".
-+ Medir la contribución al desfase de datos por característica, lo que informa sobre las características que provocan el desfase de datos.
++ Medir la contribución al desfase de datos por característica, lo que indica las características que provocan el desfase de datos.
 + Medir las métricas de distancia. Actualmente, las métricas que se calculan son Wasserstein y Distancia energética.
 + Medir las distribuciones de las características. Actualmente, se miden la estimación de la densidad del kernel y los histogramas.
 + Enviar alertas del desfase de datos por correo electrónico.
@@ -80,7 +80,7 @@ Al usar Azure Machine Learning, el desfase de datos se supervisa a través de co
 ## <a name="configure-data-drift"></a>Configuración del desfase de datos
 Para configurar el desfase de datos para el experimento, importe las dependencias como se muestra en el siguiente ejemplo de Python. 
 
-En este ejemplo se muestra cómo se configura el objeto [`DataDriftDetector`](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/azureml.contrib.datadrift.datadriftdetector.datadriftdetector?view=azure-ml-py):
+En este ejemplo se muestra cómo se configura el objeto [`DataDriftDetector`](/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector.datadriftdetector):
 
 ```python
 # Import Azure ML packages
@@ -90,7 +90,7 @@ from azureml.datadrift import DataDriftDetector, AlertConfiguration
 # if email address is specified, setup AlertConfiguration
 alert_config = AlertConfiguration('your_email@contoso.com')
 
-# create a new DatadriftDetector object
+# create a new DataDriftDetector object
 datadrift = DataDriftDetector.create(ws, model.name, model.version, services, frequency="Day", alert_config=alert_config)
     
 print('Details of Datadrift Object:\n{}'.format(datadrift))
@@ -112,7 +112,7 @@ run = datadrift.run(target_date, services, feature_list=feature_list, compute_ta
 
 # show details of the data drift run
 exp = Experiment(ws, datadrift._id)
-dd_run = Run(experiment=exp, run_id=run)
+dd_run = Run(experiment=exp, run_id=run.id)
 RunDetails(dd_run).show()
 ```
 
@@ -142,7 +142,7 @@ En el siguiente ejemplo de Python se muestra cómo trazar métricas pertinentes 
 # start and end are datetime objects 
 drift_metrics = datadrift.get_output(start_time=start, end_time=end)
 
-# Show all data drift result figures, one per serivice.
+# Show all data drift result figures, one per service.
 # If setting with_details is False (by default), only the data drift magnitude will be shown; if it's True, all details will be shown.
 drift_figures = datadrift.show(with_details=True)
 ```

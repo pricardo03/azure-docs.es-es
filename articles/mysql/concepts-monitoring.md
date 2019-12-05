@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 920d632dfa15c25905dc4077465e6f8654b5f57d
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: df03f8ba0e522aacd305b6337e506f53e309660a
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73603160"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74384040"
 ---
 # <a name="monitoring-in-azure-database-for-mysql"></a>Supervisión en Azure Database for MySQL
 La supervisión de los datos sobre los servidores le permite solucionar problemas y optimizar la carga de trabajo. Azure Database for MySQL proporciona diversas métricas que proporcionan información sobre el comportamiento del servidor.
@@ -51,6 +51,14 @@ Puede habilitar el registro de consultas lentas y el registro de auditoría en e
 
 ## <a name="performance-recommendations"></a>Recomendaciones de rendimiento
 La característica [Recomendaciones de rendimiento](concepts-performance-recommendations.md) identifica oportunidades para mejorar el rendimiento de la carga de trabajo. Proporciona recomendaciones para crear índices que tienen el potencial de mejorar el rendimiento de las cargas de trabajo. Para generar recomendaciones de índices, la característica tiene en cuenta diversas funcionalidades de la base de datos, como su esquema y la carga de trabajo devueltos por el Almacén de consultas. Después de implementar cualquier recomendación de rendimiento, los clientes deben probar el rendimiento para evaluar el efecto de estos cambios.
+
+## <a name="service-health"></a>Estado del servicio
+[Azure Service Health](../service-health/overview.md) proporciona una vista de todas las notificaciones de estado del servicio de la suscripción. Puede configurar alertas de Service Health para que se le notifique por su canal de comunicación preferido los problemas o cambios que podrían afectar a los servicios y las regiones de Azure que usa.
+
+Puede ver los eventos de mantenimiento programado para Azure Database for MySQL mediante el tipo de evento **mantenimiento planeado**. Para aprender a crear **alertas de estado del servicio**, visite el artículo [Creación de alertas del registro de actividad en notificaciones del servicio](../service-health/alerts-activity-log-service-notifications.md).
+
+> [!IMPORTANT]
+> Las notificaciones de mantenimiento planeado están disponibles en versión preliminar únicamente en las regiones Este de EE. UU. y Sur de Reino Unido.
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Consulte [How to set up alerts](howto-alert-on-metric.md) (Configuración de alertas) para obtener instrucciones sobre cómo crear una alerta en una métrica.

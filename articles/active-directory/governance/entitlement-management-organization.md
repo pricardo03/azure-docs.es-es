@@ -16,12 +16,12 @@ ms.date: 10/24/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9a8e5dc43170af8f33ad266edfa02ac5b41ca67a
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 2dec950f5475a8a64cfecfac1fb25246d6a7aa29
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73174146"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561916"
 ---
 # <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Agregar una organización conectada en la administración de derechos de Azure AD
 
@@ -42,6 +42,10 @@ La forma en que los usuarios del directorio Azure AD o el dominio se autenticar�
 - Azure AD
 - [Federación directa](../b2b/direct-federation.md)
 - [Código de acceso de un solo uso](../b2b/one-time-passcode.md) (dominio)
+
+Para ver una demostración de cómo agregar una organización conectada, vea el vídeo siguiente:
+
+>[!VIDEO https://www.microsoft.com/videoplayer/embed/RE4dskS]
 
 ## <a name="add-a-connected-organization"></a>Adición de una organización conectada
 

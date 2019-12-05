@@ -1,19 +1,14 @@
 ---
-title: 'Tarea de varios pasos para compilar, probar y revisar imágenes: Azure Container Registry'
+title: Tarea de varios pasos para compilar, probar y revisar imágenes
 description: Introducción a tareas de varios pasos, una característica de ACR Tasks de Azure Container Registry que proporciona flujos de trabajos basados en tareas para compilar, probar y revisar imágenes de contenedor en la nube.
-services: container-registry
-author: dlepow
-manager: gwallace
-ms.service: container-registry
 ms.topic: article
 ms.date: 03/28/2019
-ms.author: danlep
-ms.openlocfilehash: 27321dbcdeae3a830b6ddf5ea70cbaa098d7e4e3
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 3ed071fa2027e91ee5bc6c07738dc66763454847
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931491"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74456174"
 ---
 # <a name="run-multi-step-build-test-and-patch-tasks-in-acr-tasks"></a>Ejecución de tareas de varios pasos de compilación, prueba y aplicación de revisiones en ACR Tasks
 
@@ -84,7 +79,7 @@ steps:
   - cmd: {{.Run.Registry}}/functions/helm upgrade helloworld ./helm/helloworld/ --reuse-values --set helloworld.image={{.Run.Registry}}/helloworld:{{.Run.ID}}
 ```
 
-Consulte [ejemplos de tareas][task-examples] para completar archivos YAML y Dockerfiles de tareas de varios pasos para varios escenarios.
+Consulte [ejemplos de tareas](container-registry-tasks-samples.md) para archivos YAML y Dockerfiles de tareas de varios pasos para varios escenarios.
 
 ## <a name="run-a-sample-task"></a>Ejecución de una tarea de ejemplo
 
@@ -155,7 +150,7 @@ Para más información sobre las compilaciones automatizadas tras la confirmaci�
 Puede encontrar referencias y ejemplos de las tareas de varios pasos aquí:
 
 * [Referencia de tareas](container-registry-tasks-reference-yaml.md): tipos de pasos de tareas, sus propiedades y uso.
-* [Ejemplos de tareas][task-examples]: archivos `task.yaml` de ejemplo para varios escenarios, de sencillos a complejos.
+* [Ejemplos de tareas](container-registry-tasks-samples.md): archivos `task.yaml` y de Docker de ejemplo para varios escenarios, de sencillos a complejos.
 * [Repositorio de cmd](https://github.com/AzureCR/cmd): una colección de contenedores que se usan como comandos para tareas de ACR.
 
 <!-- IMAGES -->

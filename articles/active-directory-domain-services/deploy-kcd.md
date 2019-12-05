@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 11/26/2019
 ms.author: iainfou
-ms.openlocfilehash: 89bc690e5a8c8d24d7732dd4e12f70a9f1f368af
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: b6941a159c8be9f7d1921dd281f7366b078b30a7
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70842655"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546285"
 ---
 # <a name="configure-kerberos-constrained-delegation-kcd-in-azure-active-directory-domain-services"></a>Configuración de la delegación restringida de Kerberos (KCD) en Azure Active Directory Domain Services
 
@@ -42,7 +42,9 @@ Para completar este artículo, necesita los siguientes recursos:
 
 La delegación de Kerberos permite que una cuenta suplante a otra cuenta para acceder a los recursos. Por ejemplo, una aplicación web que accede a un componente web de back-end puede suplantarse con una cuenta de usuario diferente cuando realiza la conexión back-end. La delegación de Kerberos no es segura ya que no limita los recursos a los que puede acceder la cuenta de suplantación.
 
-La delegación restringida de Kerberos (KCD) restringe los servicios o recursos a los que puede conectarse un servidor o una aplicación especificados al suplantar otra identidad. La KCD tradicional requiere privilegios de administrador de dominio para configurar una cuenta de dominio de un servicio y restringe la cuenta a la ejecución en un solo dominio. Además, presenta algunos problemas. Por ejemplo, en versiones anteriores del sistema operativo, el administrador de servicios no tenía ninguna manera útil de saber qué servicios de front-end se delegaban en los servicios de recurso que poseía. Cualquier servicio de front-end que podía delegarse en un servicio de recursos representaba un punto de ataque en potencia. Si un servidor que hospedaba un servicio de front-end configurado para delegarse en servicios de recursos se ponía en peligro, dichos servicios de recursos también se podían poner en peligro.
+La delegación restringida de Kerberos (KCD) restringe los servicios o recursos a los que puede conectarse un servidor o una aplicación especificados al suplantar otra identidad. La KCD tradicional requiere privilegios de administrador de dominio para configurar una cuenta de dominio de un servicio y restringe la cuenta a la ejecución en un solo dominio.
+
+Además, presenta algunos problemas. Por ejemplo, en versiones anteriores del sistema operativo, el administrador de servicios no tenía ninguna manera útil de saber qué servicios de front-end se delegaban en los servicios de recurso que poseía. Cualquier servicio de front-end que podía delegarse en un servicio de recursos representaba un punto de ataque en potencia. Si un servidor que hospedaba un servicio de front-end configurado para delegarse en servicios de recursos se ponía en peligro, dichos servicios de recursos también se podían poner en peligro.
 
 En un dominio administrado de Azure AD DS, no tiene privilegios de administrador de dominio. Como consecuencia, la KCD tradicional basada en la cuenta no se puede configurar en un dominio administrado de Azure AD DS. En su lugar, se puede usar la KCD basada en recursos, que también es más segura.
 

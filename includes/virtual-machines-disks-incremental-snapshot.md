@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/23/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: a7e9e36f75d0b0638fadbf92e713a924e816807d
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: a0325a7fd3aca3d27b24c193a9f131546a70d80b
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012395"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74566352"
 ---
 Las instantáneas incrementales (versión preliminar) son copias de seguridad en un momento dado de los discos administrados que, cuando se realizan, solo constan de todos los cambios desde la última instantánea. Al intentar descargar o usar una instantánea incremental, se utiliza el VHD completo. Esta nueva funcionalidad para las instantáneas de discos administrados puede permitir que sean más rentables, ya que no es necesario almacenar todo el disco con cada instantánea individual a menos que decida hacerlo expresamente. Al igual que las instantáneas normales, las instantáneas incrementales se pueden usar para crear un disco administrado completo o para realizar una instantánea normal.
 
@@ -25,7 +25,7 @@ Si aún no se ha suscrito a la versión preliminar y le gustaría empezar a usar
 
 ## <a name="restrictions"></a>Restricciones
 
-- Las instantáneas incrementales solo están disponibles actualmente en las regiones Centro-oeste de EE. UU. y Norte de Europa.
+- Actualmente, las instantáneas incrementales solo están disponibles en las regiones Este de EE. UU., Centro de EE. UU., Centro de Canadá, Centro-oeste de EE. UU. y Norte de Europa.
 - Actualmente, las instantáneas incrementales no se pueden crear después de cambiar el tamaño de un disco.
 - Las instantáneas incrementales no se pueden mover entre suscripciones.
 - En este momento, solo se pueden generar URI de SAS de hasta cinco instantáneas de una determinada familia de instantáneas en un momento dado.
@@ -78,11 +78,13 @@ $incrementalSnapshots
 
 ## <a name="cli"></a>CLI
 
-Puede crear una instantánea incremental con la CLI de Azure, para lo que necesitará la versión más reciente. El siguiente comando la instalará o actualizará la instalación existente a la más reciente:
+Puede crear una instantánea incremental con la CLI de Azure, para lo que necesitará la versión más reciente. 
 
+En Windows, el comando siguiente la instalará o actualizará la instalación existente a la más reciente:
 ```PowerShell
 Invoke-WebRequest -Uri https://aka.ms/installazurecliwindows -OutFile .\AzureCLI.msi; Start-Process msiexec.exe -Wait -ArgumentList '/I AzureCLI.msi /quiet'
 ```
+En Linux, la instalación de la CLI variará en función de la versión del sistema operativo.  Consulte [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) correspondiente a la versión específica de Linux.
 
 Para crear una instantánea incremental, use [az snapshot create](https://docs.microsoft.com/cli/azure/snapshot?view=azure-cli-latest#az-snapshot-create) con el parámetro `--incremental`.
 
@@ -154,4 +156,8 @@ También puede usar plantillas de Azure Resource Manager para crear una instant�
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si aún no se ha suscrito a la versión preliminar y le gustaría empezar a usar instantáneas incrementales, envíenos un correo electrónico a AzureDisks@microsoft.com para acceder a la versión preliminar pública.
+1. Si aún no se ha suscrito a la versión preliminar y le gustaría empezar a usar instantáneas incrementales, envíenos un correo electrónico a AzureDisks@microsoft.com para acceder a la versión preliminar pública. 
+
+2. Explore los ejemplos siguientes para la copia de instantáneas incrementales entre regiones mediante la funcionalidad diferencial.   
+
+    - [Uso de los SDK de .NET para Azure](https://github.com/Azure-Samples/managed-disks-dotnet-backup-with-incremental-snapshots)

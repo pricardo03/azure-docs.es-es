@@ -1,19 +1,19 @@
 ---
 title: Spark Streaming en Azure HDInsight
 description: Uso de aplicaciones de Apache Spark Streaming en clústeres de HDInsight Spark.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.custom: hdinsightactive
+ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 03/11/2019
-ms.openlocfilehash: f990e5eb2761f1743c2731f499ecc341990edf53
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.custom: hdinsightactive
+ms.date: 11/20/2019
+ms.openlocfilehash: 521d72642a27995d096402a4ca0e4af632b0788c
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813998"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406293"
 ---
 # <a name="overview-of-apache-spark-streaming"></a>Introducción a Apache Spark Streaming
 
@@ -27,7 +27,7 @@ Las aplicaciones de Spark Streaming deben esperar una fracción de segundo para 
 
 Spark Streaming representa un flujo continuo de datos entrantes que utilizan un *flujo discretizado* llamado "DStream". Un flujo DStream se puede crear a partir de orígenes de entrada, como Event Hubs o Kafka, o bien aplicando transformaciones a otro flujo DStream.
 
-Un flujo DStream proporciona una capa de abstracción basada en los datos del evento sin procesar. 
+Un flujo DStream proporciona una capa de abstracción basada en los datos del evento sin procesar.
 
 Comience con un solo evento, por ejemplo, una lectura de temperatura en un termostato conectado. Cuando este evento llega a la aplicación de Spark Streaming, se almacena de forma confiable, donde se replica en varios nodos. Esta tolerancia a errores garantiza que un error de un solo nodo no provocará la pérdida del evento. El núcleo de Spark usa una estructura de datos que distribuye los datos en varios nodos del clúster, donde cada nodo suele mantener sus propios datos en memoria para garantizar un rendimiento óptimo. Esta estructura de datos se denomina *conjunto de datos distribuido resistente* (RDD).
 
@@ -139,7 +139,7 @@ stream.foreachRDD { rdd =>
     val _sqlContext = org.apache.spark.sql.SQLContext.getOrCreate(rdd.sparkContext)
     _sqlContext.createDataFrame(rdd).toDF("value", "time")
         .registerTempTable("demo_numbers")
-} 
+}
 
 // Start the stream processing
 ssc.start()
@@ -214,7 +214,7 @@ stream.window(org.apache.spark.streaming.Minutes(1)).foreachRDD { rdd =>
     val _sqlContext = org.apache.spark.sql.SQLContext.getOrCreate(rdd.sparkContext)
     _sqlContext.createDataFrame(rdd).toDF("value", "time")
     .registerTempTable("demo_numbers")
-} 
+}
 
 // Start the stream processing
 ssc.start()

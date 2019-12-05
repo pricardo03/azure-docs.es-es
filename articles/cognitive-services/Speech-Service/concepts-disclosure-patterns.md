@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: angle
-ms.openlocfilehash: dfa05ff114ea0976cb8d57f711eaacc016ea53cc
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: e0cb73f224f53441ad4f23298a035f95d59b9f7c
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73836989"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74559001"
 ---
 # <a name="disclosure-design-patterns"></a>Modelos de diseño de divulgación
 Tras determinar el [nivel de divulgación](concepts-disclosure-guidelines.md#disclosure-assessment) adecuado para su experiencia de voz sintética, es un buen momento para explorar posibles modelos de diseño.
@@ -167,7 +167,7 @@ La coherencia es la clave para lograr la divulgación implícitamente a lo largo
 
 ![Coherencia de las indicaciones implícitas](media/responsible-ai/disclosure-patterns/consistency.png)
 
-### <a name="implicit-cues-amp-feedback"></a>Indicaciones implícitas y retroalimentación&amp;
+### <a name="implicit-cues--feedback"></a>Indicaciones implícitas y comentarios
 
 El antropomorfismo puede manifestarse de maneras diferentes, desde la representación visual real del agente hasta la voz, los sonidos, los patrones de luz, el rebote de formas o incluso la vibración de un dispositivo. Al definir el rol, aproveche las indicaciones implícitas y los patrones de retroalimentación, en lugar de tener como objetivo un avatar de apariencia muy humana. Se trata de una manera de minimizar la necesidad de una divulgación más explícita.
 

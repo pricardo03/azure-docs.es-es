@@ -15,36 +15,36 @@ ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68d47d4233aec62ec5f1955e52025b0d55221af8
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 316ab055a077b251e88421ab26997f8556a6e31f
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596712"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74482480"
 ---
 # <a name="scenario-web-app-that-signs-in-users"></a>Escenario: Aplicación web que permite iniciar sesión a los usuarios
 
-Aprenda todo lo que necesita para compilar una aplicación web que permita iniciar sesión a los usuarios con la Plataforma de identidad de Microsoft.
+Aprenda todo lo que necesita para crear una aplicación web que use la Plataforma de identidad de Microsoft para que los usuarios inicien sesión.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-[!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
+[!INCLUDE [Prerequisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
 ## <a name="getting-started"></a>Introducción
 
 # <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Si quiere crear sus primeras aplicaciones web portátiles (ASP.NET Core) que permitan iniciar sesión a los usuarios, siga este inicio rápido:
+Si quiere crear sus primera aplicación web portátil (ASP.NET Core) que permita iniciar sesión a los usuarios, siga este inicio rápido:
 
 > [!div class="nextstepaction"]
-> [Inicio rápido: aplicación web ASP.NET Core que permite iniciar sesión a los usuarios](quickstart-v2-aspnet-core-webapp.md)
+> [Inicio rápido: Aplicación web ASP.NET Core que permite iniciar sesión a los usuarios](quickstart-v2-aspnet-core-webapp.md)
 
 # <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
 
-Si desea saber cómo agregar el inicio de sesión a una aplicación web de ASP.NET heredada, pruebe el siguiente tutorial:
+Si desea saber cómo agregar el inicio de sesión a una aplicación web ASP.NET existente, pruebe el siguiente inicio rápido:
 
 > [!div class="nextstepaction"]
-> [Inicio rápido: aplicación web ASP.NET que permite iniciar sesión a los usuarios](quickstart-v2-aspnet-webapp.md)
+> [Inicio rápido: Aplicación web ASP.NET que inicia la sesión de los usuarios](quickstart-v2-aspnet-webapp.md)
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
@@ -55,7 +55,7 @@ Si es un desarrollador de Java, pruebe el siguiente inicio rápido:
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-Si desarrolla con Python, pruebe lo siguiente:
+Si desarrolla con Python, pruebe el siguiente inicio rápido:
 
 > [!div class="nextstepaction"]
 > [Inicio rápido: Adición del inicio de sesión con Microsoft a una aplicación web de Python](quickstart-v2-python-webapp.md)
@@ -64,27 +64,29 @@ Si desarrolla con Python, pruebe lo siguiente:
 
 ## <a name="overview"></a>Información general
 
-Agregue autenticación a la aplicación web para que permita iniciar sesión a los usuarios. La adición de autenticación permite a la aplicación web tener acceso a información de perfil limitada y, por ejemplo, personalizar la experiencia que ofrece a sus usuarios. Las aplicaciones web autentican un usuario en un explorador web. En este escenario, la aplicación web dirige el explorador del usuario para que inicie sesión en Azure AD. Azure AD devuelve una respuesta de inicio de sesión a través el explorador del usuario, que contiene notificaciones sobre el usuario en un token de seguridad. El inicio de sesión de los usuarios aprovecha el protocolo estándar [Open ID Connect](./v2-protocols-oidc.md) simplificado mediante el uso de [bibliotecas](scenario-web-app-sign-user-app-configuration.md#libraries-used-to-protect-web-apps) de middleware.
+Agregue autenticación a la aplicación web para que permita iniciar sesión a los usuarios. La adición de autenticación permite a la aplicación web tener acceso a información de perfil limitada para personalizar la experiencia para los usuarios. 
 
-![Aplicación web que permite iniciar sesión a los usuarios](./media/scenario-webapp/scenario-webapp-signs-in-users.svg)
+Las aplicaciones web autentican un usuario en un explorador web. En este escenario, la aplicación web dirige el explorador del usuario para que inicie sesión en Azure Active Directory (Azure AD). Azure AD devuelve una respuesta de inicio de sesión a través el explorador del usuario, que contiene notificaciones sobre el usuario en un token de seguridad. El inicio de sesión de los usuarios aprovecha el protocolo estándar [Open ID Connect](./v2-protocols-oidc.md) simplificado mediante el uso de [bibliotecas](scenario-web-app-sign-user-app-configuration.md#libraries-for-protecting-web-apps) de middleware.
 
-En una segunda fase, también puede habilitar la aplicación para llamar a las API web en nombre del usuario con sesión iniciada. Esta fase siguiente es un escenario diferente, que encontrará en [Aplicación web que llama a las API web](scenario-web-app-call-api-overview.md).
+![Aplicación web que inicia sesión de usuarios](./media/scenario-webapp/scenario-webapp-signs-in-users.svg)
+
+En una segunda fase, puede habilitar la aplicación para llamar a las API web en nombre del usuario con sesión iniciada. Esta fase siguiente es un escenario diferente, que encontrará en [Aplicación web que llama a las API web](scenario-web-app-call-api-overview.md).
 
 > [!NOTE]
-> Agregar inicio de sesión a una aplicación web consiste en proteger la aplicación web y validar un token de usuario, que es lo que hacen las bibliotecas de **middleware**. En el caso de .NET, este escenario aún no requiere las bibliotecas de autenticación de Microsoft (MSAL), que se refieren a la adquisición de un token para llamar a las API protegidas. Las bibliotecas de autenticación solo se incluirán en el escenario de seguimiento cuando la aplicación web necesite llamar a las API web.
+> Agregar inicio de sesión a una aplicación web consiste en proteger la aplicación web y validar un token de usuario, que es lo que hacen las bibliotecas de **middleware**. En el caso de .NET, este escenario aún no requiere la biblioteca de autenticación de Microsoft (MSAL), que se refiere a la adquisición de un token para llamar a las API protegidas. Las bibliotecas de autenticación se incluirán en el escenario de seguimiento cuando la aplicación web necesite llamar a las API web.
 
 ## <a name="specifics"></a>Características específicas
 
-- Durante el registro de la aplicación, deberá proporcionar uno o varios (si implementa la aplicación en varias ubicaciones) URI de respuesta. En algunos casos (ASP.NET/ASP.NET Core), deberá habilitar el token del identificador. Por último, deberá configurar un URI de cierre de sesión para que la aplicación reaccione ante los usuarios que cierran sesión.
-- En el código de la aplicación, deberá proporcionar la autoridad a la que la aplicación web delegada el inicio de sesión. Es posible que quiera personalizar la validación del token (en concreto, en escenarios de ISV).
-- Las aplicaciones web admiten cualquier tipo de cuenta. Para obtener más información, consulte [Tipos de cuenta admitidos](v2-supported-account-types.md).
+- Durante el registro de la aplicación, deberá proporcionar uno o varios (si implementa la aplicación en varias ubicaciones) URI de respuesta. En algunos casos (ASP.NET y ASP.NET Core), deberá habilitar el token del identificador. Por último, deberá configurar un URI de cierre de sesión para que la aplicación reaccione ante los usuarios que cierran sesión.
+- En el código de la aplicación, deberá proporcionar la autoridad a la que la aplicación web delega el inicio de sesión. Es posible que quiera personalizar la validación del token (en concreto, en escenarios de asociado).
+- Las aplicaciones web admiten cualquier tipo de cuenta. Para más información, consulte [Tipos de cuenta admitidos](v2-supported-account-types.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 # <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
 
 > [!div class="nextstepaction"]
-> [Registro de aplicaciones](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-app-registration?tabs=aspnetcore?tabs=aspnetcore)
+> [Registro de aplicaciones](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-app-registration?tabs=aspnetcore)
 
 # <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
 

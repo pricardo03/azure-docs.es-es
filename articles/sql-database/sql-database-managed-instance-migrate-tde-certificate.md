@@ -11,12 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: carlrab, jovanpop
 ms.date: 04/25/2019
-ms.openlocfilehash: 202267d4fffc7c6f0d99cd2a6ef3bbee82947a81
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 0f6e379287323d9353acd887cf30d5c9c0065959
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132399"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555380"
 ---
 # <a name="migrate-certificate-of-tde-protected-database-to-azure-sql-database-managed-instance"></a>Migración del certificado de una base de datos protegida por TDE a Instancia administrada de Azure SQL Database
 
@@ -34,22 +34,35 @@ Para ver una opción alternativa que emplea el servicio totalmente administrado 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-> [!IMPORTANT]
-> El módulo de Azure Resource Manager para PowerShell todavía es compatible con Azure SQL Database, pero todo el desarrollo futuro se realizará para el módulo Az.Sql. Para estos cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Los argumentos para los comandos del módulo Az y los módulos AzureRm son esencialmente idénticos.
-
 Para completar los pasos de este artículo, necesitará lo siguiente:
 
 - Tener instalada la herramienta de la línea de comandos [Pvk2Pfx](https://docs.microsoft.com/windows-hardware/drivers/devtest/pvk2pfx) en el servidor local o en otro equipo con acceso al certificado exportado como un archivo. La herramienta Pvk2Pfx forma parte del [kit de controladores de Windows para empresa](https://docs.microsoft.com/windows-hardware/drivers/download-the-wdk), un entorno de línea de comandos autocontenido independiente.
-- Tener instalado [Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell), versión 5.0 o superior.
+- Tener instalado [Windows PowerShell](/powershell/scripting/install/installing-windows-powershell), versión 5.0 o superior.
+
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+
+Asegúrese de que dispone de lo siguiente:
+
 - Tener [instalado y actualizado](https://docs.microsoft.com/powershell/azure/install-az-ps) el módulo de Azure PowerShell.
 - [Módulo Az.Sql](https://www.powershellgallery.com/packages/Az.Sql).
-  Ejecute los siguientes comandos de PowerShell para instalar o actualizar el módulo de PowerShell:
 
-   ```powershell
-   Install-Module -Name Az.Sql
-   Update-Module -Name Az.Sql
-   ```
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+> [!IMPORTANT]
+> El módulo de Azure Resource Manager para PowerShell todavía es compatible con Azure SQL Database, pero todo el desarrollo futuro se realizará para el módulo Az.Sql. Para estos cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Los argumentos para los comandos del módulo Az y los módulos AzureRm son esencialmente idénticos.
+
+Ejecute los comandos siguientes de PowerShell para instalar o actualizar el módulo:
+
+```azurepowershell
+Install-Module -Name Az.Sql
+Update-Module -Name Az.Sql
+```
+
+# <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
+
+* * *
 
 ## <a name="export-tde-certificate-to-a-personal-information-exchange-pfx-file"></a>Exportación del certificado TDE a un archivo de intercambio de información personal (.pfx)
 
@@ -60,7 +73,8 @@ El certificado se puede exportar directamente desde la instancia de SQL Server d
 Siga estos pasos para exportar el certificado con SQL Server Management Studio y convertirlo a formato pfx. En los pasos se usan los nombres genéricos *TDE_Cert* y *full_path* para los nombres de certificados y archivos y las rutas de acceso. Estos se deben reemplazar por los nombres reales.
 
 1. En SSMS, abra una nueva ventana de consulta y conéctese a la instancia de SQL Server de origen.
-2. Use el siguiente script para enumerar las bases de datos protegidas por TDE y obtener el nombre del certificado que protege el cifrado de la base de datos que se va a migrar:
+
+1. Use el siguiente script para enumerar las bases de datos protegidas por TDE y obtener el nombre del certificado que protege el cifrado de la base de datos que se va a migrar:
 
    ```sql
    USE master
@@ -76,7 +90,7 @@ Siga estos pasos para exportar el certificado con SQL Server Management Studio y
 
    ![Lista de certificados TDE](./media/sql-database-managed-instance-migrate-tde-certificate/onprem-certificate-list.png)
 
-3. Ejecute el script siguiente para exportar el certificado a un par de archivos (.cer y .pvk), y mantener así la información de clave pública y privada:
+1. Ejecute el script siguiente para exportar el certificado a un par de archivos (.cer y .pvk), y mantener así la información de clave pública y privada:
 
    ```sql
    USE master
@@ -91,9 +105,9 @@ Siga estos pasos para exportar el certificado con SQL Server Management Studio y
 
    ![Copia de seguridad del certificado TDE](./media/sql-database-managed-instance-migrate-tde-certificate/backup-onprem-certificate.png)
 
-4. Use la consola de PowerShell para copiar la información del certificado de un par de archivos recién creados en un archivo de intercambio de información personal (.pfx), mediante la herramienta Pvk2Pfx:
+1. Use la consola de PowerShell para copiar la información del certificado de un par de archivos recién creados en un archivo de intercambio de información personal (.pfx), mediante la herramienta Pvk2Pfx:
 
-   ```powershell
+   ```cmd
    .\pvk2pfx -pvk c:/full_path/TDE_Cert.pvk  -pi "<SomeStrongPassword>" -spc c:/full_path/TDE_Cert.cer -pfx c:/full_path/TDE_Cert.pfx
    ```
 
@@ -103,7 +117,7 @@ Si el certificado se guarda en el almacén de certificados de la máquina local 
 
 1. Abra la consola de PowerShell y ejecute el siguiente comando para abrir el complemento Certificados de Microsoft Management Console:
 
-   ```powershell
+   ```cmd
    certlm
    ```
 
@@ -115,29 +129,58 @@ Si el certificado se guarda en el almacén de certificados de la máquina local 
 
 ## <a name="upload-certificate-to-azure-sql-database-managed-instance-using-azure-powershell-cmdlet"></a>Carga del certificado en Instancia administrada de Azure SQL Database mediante el cmdlet de Azure PowerShell
 
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+
 1. Comience con los pasos de preparación de PowerShell:
 
-   ```powershell
-   # Import the module into the PowerShell session
+   ```azurepowershell
+   # import the module into the PowerShell session
    Import-Module Az
-   # Connect to Azure with an interactive dialog for sign-in
+   # connect to Azure with an interactive dialog for sign-in
    Connect-AzAccount
-   # List subscriptions available and copy id of the subscription target Managed Instance belongs to
+   # list subscriptions available and copy id of the subscription target Managed Instance belongs to
    Get-AzSubscription
-   # Set subscription for the session (replace Guid_Subscription_Id with actual subscription id)
-   Select-AzSubscription Guid_Subscription_Id
+   # set subscription for the session
+   Select-AzSubscription <subscriptionId>
    ```
 
 2. Una vez realizados todos los pasos de preparación, ejecute los siguientes comandos para cargar el certificado codificado en base 64 en la instancia administrada de destino:
 
-   ```powershell
+   ```azurepowershell
    $fileContentBytes = Get-Content 'C:/full_path/TDE_Cert.pfx' -Encoding Byte
    $base64EncodedCert = [System.Convert]::ToBase64String($fileContentBytes)
    $securePrivateBlob = $base64EncodedCert  | ConvertTo-SecureString -AsPlainText -Force
-   $password = "SomeStrongPassword"
+   $password = "<password>"
    $securePassword = $password | ConvertTo-SecureString -AsPlainText -Force
-   Add-AzSqlManagedInstanceTransparentDataEncryptionCertificate -ResourceGroupName "<ResourceGroupName>" -ManagedInstanceName "<ManagedInstanceName>" -PrivateBlob $securePrivateBlob -Password $securePassword
+   Add-AzSqlManagedInstanceTransparentDataEncryptionCertificate -ResourceGroupName "<resourceGroupName>" `
+       -ManagedInstanceName "<managedInstanceName>" -PrivateBlob $securePrivateBlob -Password $securePassword
    ```
+
+# <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+Primero debe [configurar un almacén de Azure Key Vault](/azure/key-vault/key-vault-manage-with-cli2) con el archivo *.pfx*.
+
+1. Comience con los pasos de preparación de PowerShell:
+
+   ```azurecli
+   # connect to Azure with an interactive dialog for sign-in
+   az login
+
+   # list subscriptions available and copy id of the subscription target Managed Instance belongs to
+   az account list
+
+   # set subscription for the session
+   az account set --subscription <subscriptionId>
+   ```
+
+1. Una vez realizados todos los pasos de preparación, ejecute los siguientes comandos para cargar el certificado codificado en base 64 en la instancia administrada de destino:
+
+   ```azurecli
+   az sql mi tde-key set --server-key-type AzureKeyVault --kid "<keyVaultId>" `
+       --managed-instance "<managedInstanceName>" --resource-group "<resourceGroupName>"
+   ```
+
+* * *
 
 El certificado ya está disponible para la instancia administrada especificada y la copia de seguridad de la base de datos protegida por TDE correspondiente se puede restaurar correctamente.
 

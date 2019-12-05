@@ -5,15 +5,15 @@ services: active-directory
 author: msaburnley
 ms.service: active-directory
 ms.topic: include
-ms.date: 10/15/2019
+ms.date: 11/11/2019
 ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: 6f2b5eb96eeb1c4b7d07219d5fe54a8a0ca9e28a
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: 4a09389cfd9a5e61c1d73440545c76df7c9eadb2
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73413011"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74566359"
 ---
 ## <a name="for-users-in-your-directory"></a>para los usuarios del directorio
 
@@ -33,7 +33,7 @@ Siga estos pasos si quiere que los usuarios que están en el directorio puedan s
     | **Todos los miembros (excepto invitados)** | Elija esta opción si desea que todos los usuarios miembros del directorio puedan solicitar este paquete de acceso. Esta opción no incluye ningún usuario invitado al que pueda haber invitado en su directorio. |
     | **Todos los usuarios (incluidos invitados)** | Elija esta opción si desea que todos los usuarios miembros y los usuarios invitados del directorio puedan solicitar este paquete de acceso. |
 
-    Los usuarios invitados hacen referencia a usuarios externos que han sido invitados al directorio con [Azure AD B2B](../articles/active-directory/b2b/what-is-b2b.md). Para más información sobre las diferencias entre los usuarios miembros y los usuarios invitados, consulte [¿Cuales son los permisos de usuario predeterminados en Azure Active Directory?](../articles/active-directory/fundamentals/users-default-permissions.md).
+    Los usuarios invitados hacen referencia a usuarios externos que han sido invitados al directorio con [Azure AD B2B](../articles/active-directory/b2b/what-is-b2b.md). Para más información sobre las diferencias entre los usuarios miembros y los usuarios invitados, consulte [¿Cuáles son los permisos de usuario predeterminados en Azure Active Directory?](../articles/active-directory/fundamentals/users-default-permissions.md)
 
 1. Si seleccionó **Usuarios y grupos específicos**, haga clic en **Agregar usuarios y grupos**.
 
@@ -47,10 +47,12 @@ Siga estos pasos si quiere que los usuarios que están en el directorio puedan s
 
 ## <a name="for-users-not-in-your-directory"></a>para los usuarios que no están en el directorio
 
-Siga estos pasos si quiere que los usuarios que no están en el directorio puedan solicitar este paquete de acceso. Los **usuarios que no están en el directorio** hacen referencia a los usuarios que se encuentran en otro directorio de Azure AD y que posiblemente aún no han sido invitados al directorio. Los directorios de Azure AD deben configurarse para permitir invitaciones en **Restricciones de colaboración**. Para más información, consulte [Habilitación de la colaboración externa B2B y administración de quién puede invitar a otros usuarios](../articles/active-directory/b2b/delegate-invitations.md).
+ Los **Usuarios que no están en el directorio** se refieren a los usuarios que están en otro dominio o directorio de Azure AD. Es posible que estos usuarios no hayan sido invitados todavía al directorio. Los directorios de Azure AD deben configurarse para permitir invitaciones en **Restricciones de colaboración**. Para más información, consulte [Habilitación de la colaboración externa B2B y administración de quién puede invitar a otros usuarios](../articles/active-directory/b2b/delegate-invitations.md).
 
 > [!NOTE]
 > Se creará una cuenta de usuario invitado para un usuario que aún no esté en el directorio cuya solicitud se haya aprobado o aprobado automáticamente. Se invitará al invitado, pero no recibirá un correo electrónico de invitación. En su lugar, recibirá un correo electrónico cuando se entregue su asignación de paquete de acceso. De forma predeterminada, más adelante cuando ese usuario invitado ya no tenga ninguna asignación de paquete de acceso porque su última asignación ha expirado o se ha cancelado, se bloqueará el inicio de sesión de esa cuenta de usuario invitado y se eliminará posteriormente. Si quiere que los usuarios invitados permanezcan en el directorio de manera indefinida, incluso si no tienen ninguna asignación de paquete de acceso, puede cambiar la configuración de la administración de derechos. Para más información acerca del objeto de usuario de invitado, consulte [Propiedades de un usuario de colaboración B2B de Azure Active Directory](../articles/active-directory/b2b/user-properties.md).
+
+Siga estos pasos si quiere que los usuarios que no están en el directorio soliciten este paquete de acceso:
 
 1. En la sección **Usuarios que pueden solicitar acceso**, haga clic en **Para los usuarios que no están en el directorio**.
 
@@ -62,8 +64,8 @@ Siga estos pasos si quiere que los usuarios que no están en el directorio pueda
 
     |  |  |
     | --- | --- |
-    | **Organizaciones conectadas específicas** | Elija esta opción si desea seleccionar de una lista de organizaciones que el administrador haya agregado anteriormente. Todos los usuarios de las organizaciones seleccionadas podrán solicitar este paquete de acceso. |
-    | **Todas las organizaciones conectadas** | Elija esta opción si desea que todos los usuarios de las organizaciones conectadas puedan solicitar este paquete de acceso. |
+    | **Organizaciones conectadas específicas** | Elija esta opción si desea seleccionar de una lista de organizaciones que el administrador haya agregado anteriormente. Todos los usuarios de las organizaciones seleccionadas pueden solicitar este paquete de acceso. |
+    | **Todas las organizaciones conectadas** | Elija esta opción si todos los usuarios de las organizaciones conectadas pueden solicitar este paquete de acceso. |
 
     Una organización conectada es un dominio o directorio externo de Azure AD con el que tiene relación.
 
@@ -98,49 +100,88 @@ Siga estos pasos si quiere omitir las solicitudes de acceso y permitir a los adm
 
 En la sección Aprobación, especifique si se requiere una aprobación cuando los usuarios soliciten este paquete de acceso. La configuración de aprobación funciona de la siguiente manera:
 
-- Una solicitud solo debe aprobarla uno de los aprobadores seleccionados o un aprobador de reserva. No se requiere la aprobación de todos los aprobadores.
+- Una solicitud para una aprobación de una sola fase solo debe aprobarla uno de los aprobadores seleccionados o un aprobador de reserva. 
+- Una solicitud para una aprobación de dos fases solo debe aprobarla uno de los aprobadores seleccionados de cada fase.
+- El aprobador puede ser un administrador, un patrocinador interno o un patrocinador externo, dependiendo de quién rige el acceso a la directiva.
+- Para una aprobación de una sola fase o de dos fases no se necesita la aprobación de cada uno de los aprobadores seleccionados.
 - La decisión de aprobación se basa en el aprobador que revise primero la solicitud.
 
-Siga estos pasos para especificar la configuración de aprobación de los usuarios que seleccionó anteriormente.
+Para ver una demostración de cómo agregar aprobadores a una directiva de solicitud, vea el vídeo siguiente:
 
-1. Para requerir la aprobación de las solicitudes de los usuarios seleccionados, establezca el botón de alternancia **Requerir aprobación** en **Sí**. Para que las solicitudes se aprueban automáticamente, establezca el botón de alternancia en **No**.
+>[!VIDEO https://www.microsoft.com/videoplayer/embed/RE4cZfg]
+
+Para ver una demostración de cómo agregar una aprobación de varias fases a una directiva de solicitud, vea el vídeo siguiente:
+
+>[!VIDEO https://www.microsoft.com/videoplayer/embed/RE4d1Jw]
+
+Siga estos pasos para especificar la configuración de aprobación de las solicitudes para el paquete de acceso:
+
+1. Para requerir la aprobación de las solicitudes de los usuarios seleccionados, establezca el botón de alternancia **Requerir aprobación** en **Sí**. O bien, para que las solicitudes se aprueban automáticamente, establezca el botón de alternancia en **No**.
 
 1. Para requerir que los usuarios proporcionen una justificación para solicitar el paquete de acceso, establezca la opción **R** en **Sí**.
+    
+1. Ahora determine si las solicitudes requerirán la aprobación de una sola fase o de dos fases. Establezca el botón de alternancia **Número de fases** en **1** para una aprobación de una sola fase o en **2**, para la aprobación de dos fases.
 
     ![Acceder a paquete - Solicitudes - Configuración de aprobación](./media/active-directory-entitlement-management-request-policy/approval.png)
 
+Siga los pasos que se indican a continuación para agregar aprobadores después de seleccionar el número de fases que requiere: 
+
 ### <a name="single-stage-approval"></a>Aprobación de una sola fase
 
-1. En el caso de los aprobadores, seleccione **Administrador como aprobador** o **Elegir aprobadores específicos**.
+1. Agregue el **Primer aprobador**:
+    
+    Si la directiva está configurada para regir el acceso de los usuarios en el directorio, puede seleccionar **Administrador como aprobador**. O bien agregue un usuario específico con un clic en **Agregar aprobadores** después de seleccionar Elegir aprobadores específicos en el menú desplegable.
+    
+    ![Paquete de acceso - Solicitudes - Para usuarios en el directorio - Primer aprobador](./media/active-directory-entitlement-management-request-policy/approval-single-stage-first-approver-manager.png)
 
-    ![Paquete de acceso - Solicitudes - Configuración de una sola fase](./media/active-directory-entitlement-management-request-policy/approval-single-stage.png)
+    Si esta directiva está configurada para regir el acceso de usuarios que no están en el directorio, puede seleccionar **Patrocinador externo** o **Patrocinador interno**. O bien agregue un usuario específico con un clic en **Agregar aprobadores** o grupos en Elegir aprobadores específicos.
+    
+    ![Paquete de acceso - Solicitudes - Para usuarios fuera del directorio - Primer aprobador](./media/active-directory-entitlement-management-request-policy/out-directory-first-approver.png)
+    
+1. Si seleccionó **Administrador** como el primer aprobador, haga clic en **Agregar reserva** para seleccionar uno o más usuarios o grupos del directorio como aprobador de reserva. Los aprobadores de reserva reciben la solicitud si la administración de derechos no encuentra al administrador del usuario que solicita el acceso.
 
-1. Si seleccionó Administrador como aprobador, haga clic en **Agregar reserva** para seleccionar uno o varios usuarios o grupos del directorio para que sean un aprobador de reserva en caso de que la administración de derechos no pueda encontrar el administrador.
+    La administración de derechos encuentra al administrador mediante el atributo **Manager**. El atributo está en el perfil del usuario en Azure AD. Para más información, consulte [Incorporación o actualización de la información de perfil de un usuario mediante Azure Active Directory](../articles/active-directory/fundamentals/active-directory-users-profile-azure-portal.md).
 
-    El administrador viene determinado por el atributo **Administrador** en el perfil del usuario de Azure AD. Para más información, consulte [Incorporación o actualización de la información de perfil de un usuario mediante Azure Active Directory](../articles/active-directory/fundamentals/active-directory-users-profile-azure-portal.md).
+1. Si seleccionó **Elegir aprobadores específicos**, haga clic en **Agregar aprobadores** para seleccionar uno o varios usuarios o grupos del directorio para que sean aprobadores.
 
-1. Si seleccionó Elegir aprobadores específicos, haga clic en **Agregar aprobadores** para seleccionar uno o varios usuarios o grupos del directorio para que sean aprobadores.
-
-1. En **¿Dentro de cuántos días es necesario tomar una decisión?** , especifique el número de días que un aprobador tiene que revisar una solicitud para este paquete de acceso.
+1. En el cuadro bajo **¿Dentro de cuántos días es necesario tomar una decisión?** , especifique el número de días que un aprobador tiene que revisar una solicitud para este paquete de acceso.
 
     Si no se aprueba una solicitud durante este período de tiempo, se rechazará automáticamente. El usuario tendrá que enviar otra solicitud para el paquete de acceso.
 
-1. Para requerir que los usuarios proporcionen una justificación para solicitar el paquete de acceso, establezca **Requerir justificación del aprobador** en **Sí**.
+1. Para requerir que los aprobadores justifiquen su decisión, establezca la opción Requerir justificación del aprobador en **Sí**.
 
-    Una justificación es visible para otros aprobadores y el solicitante.
+    La justificación es visible para otros aprobadores y el solicitante.
+
+### <a name="2-stage-approval-preview"></a>Aprobación de dos fases (versión preliminar)
+
+Si seleccionó una aprobación de dos fases, deberá agregar otro aprobador.
+
+1. Agregue el **Segundo aprobador**: 
+    
+    Si los usuarios están en el directorio, agregue un usuario específico como el segundo aprobador mediante un clic en **Agregar aprobadores** en Elegir aprobadores específicos.
+
+    ![Paquete de acceso - Solicitudes - Para usuarios en el directorio - Segundo aprobador](./media/active-directory-entitlement-management-request-policy/in-directory-second-approver.png)
+
+    Si los usuarios no están en el directorio, seleccione **Patrocinador interno** o **Patrocinador externo** como el segundo aprobador. Después de seleccionar el aprobador, agregue los aprobadores de reserva.
+
+    ![Paquete de acceso - Solicitudes - Para usuarios fuera del directorio - Segundo aprobador](./media/active-directory-entitlement-management-request-policy/out-directory-second-approver.png) 
+
+1. Especifique el número de días que tiene el segundo aprobador para aprobar la solicitud en el cuadro bajo **¿Dentro de cuántos días es necesario tomar una decisión?** 
+
+1. Establezca el botón de alternancia Requerir justificación del aprobador en **Sí** o en **No**.
 
 ### <a name="alternate-approvers"></a>Aprobadores alternativos
 
-Además de especificar los aprobadores principales que pueden aprobar las solicitudes, puede especificar aprobadores alternativos. Esto lo ayudará a asegurarse de que las solicitudes se aprueban o deniegan antes de que expiren (tiempo de expiración).
+Puede especificar aprobadores alternativos de manera similar a cómo se especifican el primer y el segundo aprobador que pueden aprobar solicitudes. Tener aprobadores alternativos lo ayudará a asegurarse de que las solicitudes se aprueban o deniegan antes de que expiren (tiempo de expiración). Puede enumerar como aprobadores alternativos el primer aprobador y el segundo aprobador para la aprobación de dos fases. 
 
-Al especificar aprobadores alternativos, en caso de que los aprobadores principales no hayan podido aprobar o denegar la solicitud, la solicitud pendiente se reenvía a los aprobadores alternativos según la programación de reenvío que haya especificado durante la configuración de la directiva. Reciben un correo electrónico para aprobar o denegar la solicitud pendiente.
+Al especificar aprobadores alternativos, en caso de que el primer o el segundo aprobador no pueda aprobar ni rechazar la solicitud, la solicitud pendiente se reenvía a los aprobadores alternativos según la programación de reenvío que haya especificado durante la configuración de la directiva. Reciben un correo electrónico para aprobar o denegar la solicitud pendiente.
 
-Después de reenviar la solicitud a los aprobadores alternativos, los aprobadores principales pueden seguir aprobando o denegando la solicitud. Los aprobadores alternativos usan el mismo sitio Mi acceso que los aprobadores principales para aprobar o denegar la solicitud pendiente.
+Después de reenviar la solicitud a los aprobadores alternativos, el primer o el segundo aprobador puede seguir aprobando o denegando la solicitud. Los aprobadores alternativos usan el mismo sitio Mi acceso para aprobar o denegar la solicitud pendiente.
 
-Podemos enumerar personas o grupos de personas como aprobadores principales y aprobadores alternativos. Asegúrese de que se muestran distintos conjuntos de personas como aprobadores principales y aprobadores alternativos.
-Por ejemplo, si especificó que Alice y Bob sean los aprobadores principales, indique que Carol y Dave serán los aprobadores alternativos. Siga estos pasos para agregar aprobadores alternativos a un paquete de acceso:
+Podemos enumerar personas o grupos de personas como aprobadores y aprobadores alternativos. Asegúrese de que se muestran distintos conjuntos de personas como el primer aprobador, el segundo aprobador y los aprobadores alternativos.
+Por ejemplo, si especificó que Alice y Bob sean los primeros aprobadores, indique que Carol y Dave serán los aprobadores alternativos. Siga estos pasos para agregar aprobadores alternativos a un paquete de acceso:
 
-1. Haga clic en **Mostrar configuración de solicitud avanzada**.
+1. En el Primer aprobador, el Segundo aprobador o en ambos, haga clic en **Mostrar configuración de solicitud avanzada**.
 
     ![Paquete de acceso - Directiva - Mostrar configuración de solicitud avanzada](./media/active-directory-entitlement-management-request-policy/alternate-approvers-click-advanced-request.png)
 
@@ -152,7 +193,7 @@ Por ejemplo, si especificó que Alice y Bob sean los aprobadores principales, in
 
 1. En el cuadro **¿Dentro de cuántos días quiere realizar el reenvío a los aprobadores alternativos?** , escriba el número de días durante los cuales los aprobadores pueden aprobar o denegar una solicitud. Si ningún aprobador ha aprobado o denegado la solicitud en ese período, la solicitud expirará (tiempo de expiración) y el usuario deberá enviar otra solicitud para el paquete de acceso. 
 
-    Las solicitudes solo se pueden reenviar a los aprobadores alternativos un día después de la mitad de la duración de la solicitud. En este ejemplo, la duración de la solicitud es de 14 días. Esto significa que la mitad de la duración de la solicitud es el día 7. Por lo tanto, la solicitud se puede reenviar no antes del día 8. Además, las solicitudes no se pueden reenviar al aprobador alternativo el último día de la duración de la solicitud. Por lo tanto, en el ejemplo, la solicitud se puede reenviar a más tardar el día 13.
+    Las solicitudes solo se pueden reenviar a los aprobadores alternativos un día después de la mitad de la duración de la solicitud. En este ejemplo, la duración de la solicitud es de 14 días. De este modo, la mitad de la duración de la solicitud es el día 7. Por lo tanto, la solicitud no se puede reenviar antes del día 8. Además, las solicitudes no se pueden reenviar el último día de la duración de la solicitud. Por lo tanto, en el ejemplo, la solicitud se puede reenviar a más tardar el día 13.
 
 ## <a name="enable-requests"></a>Habilitación de solicitudes
 
@@ -160,7 +201,7 @@ Por ejemplo, si especificó que Alice y Bob sean los aprobadores principales, in
 
     Podrá habilitarla en todo momento cuando haya terminado de crear el paquete de acceso.
 
-    Si seleccionó **None (solo asignaciones directas de administrador)**  y establece la habilitación en **No** , los administradores no podrán asignar directamente este paquete de acceso.
+    Si seleccionó **Ninguno (solo para las asignaciones directas del administrador)** y establece la habilitación en **No**, los administradores no podrán asignar directamente este paquete de acceso.
 
     ![Paquete de acceso: directiva; configuración de habilitación de la directiva](./media/active-directory-entitlement-management-request-policy/enable-requests.png)
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a2e92ca85c485f8c93fc9202b9084ec37d7506e1
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 6b135b14fb18904901ad78a1f5d9dc66c8a2bc67
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175052"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74538798"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>Instrucciones: Administración de dispositivos obsoletos en Azure AD
 
@@ -30,7 +30,7 @@ En este artículo, aprenderá a administrar eficazmente los dispositivos obsolet
 Un dispositivo obsoleto es un dispositivo que ha sido registrado con Azure AD pero que no se ha utilizado para acceder a ninguna aplicación de nube durante un periodo específico. Los dispositivos obsoletos tienen un impacto en su capacidad para administrar y admitir dispositivos y usuarios en el inquilino porque: 
 
 - Los dispositivos duplicados pueden dificultar que el personal del departamento de soporte técnico pueda identificar qué dispositivo está activo actualmente.
-- Un mayor número de dispositivos crea escrituras diferidas de dispositivos innecesarias, lo que aumenta el tiempo de sincronización de AAD Connect.
+- Un mayor número de dispositivos hace que se creen escrituras diferidas de dispositivos innecesarias, lo que aumenta el tiempo de sincronización de Azure AD Connect.
 - Como norma recomendada general y para cumplir con los requisitos, es posible que desee tener un estado limpio de los dispositivos. 
 
 Los dispositivos obsoletos en Azure AD pueden interferir con las directivas generales del ciclo de vida de los dispositivos de la organización.
@@ -89,7 +89,7 @@ Si su dispositivo está bajo control de Intune o de cualquier otra solución MDM
 
 ### <a name="system-managed-devices"></a>Dispositivos administrados por el sistema
 
-No elimine los dispositivos administrados por el sistema. Por lo general, se trata de dispositivos como el piloto automático. Una vez eliminados, estos dispositivos no se pueden volver a aprovisionar. De forma predeterminada, el nuevo cmdlet `get-msoldevice` excluye los dispositivos administrados por el sistema. 
+No elimine los dispositivos administrados por el sistema. Por lo general, se trata de dispositivos como Autopilot. Una vez eliminados, estos dispositivos no se pueden volver a aprovisionar. De forma predeterminada, el nuevo cmdlet `get-msoldevice` excluye los dispositivos administrados por el sistema. 
 
 ### <a name="hybrid-azure-ad-joined-devices"></a>Dispositivos híbridos unidos a Azure AD
 
@@ -125,7 +125,7 @@ Deshabilite o elimine los dispositivos registrados de Azure AD en Azure AD.
 
 ## <a name="clean-up-stale-devices-in-the-azure-portal"></a>Limpieza de dispositivos obsoletos en Azure Portal  
 
-Aunque puede limpiar los dispositivos obsoletos en Azure Portal, es más eficiente tratar este proceso mediante un script de PowerShell. Utilice el último módulo PowerShell V1 para usar el filtro de marca de tiempo y para filtrar los dispositivos administrados por el sistema, como el piloto automático. En este momento, no se recomienda el uso de PowerShell V2.
+Aunque puede limpiar los dispositivos obsoletos en Azure Portal, es más eficiente tratar este proceso mediante un script de PowerShell. Utilice el módulo PowerShell V1 más reciente para usar el filtro de marca de tiempo y para filtrar los dispositivos administrados por el sistema, como Autopilot. En este momento, no se recomienda el uso de PowerShell V2.
 
 Una rutina típica consta de los pasos siguientes:
 
