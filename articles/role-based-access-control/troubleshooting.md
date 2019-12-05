@@ -15,12 +15,12 @@ ms.date: 11/22/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 2351e6a63723156cce646a6a1cdda837b18a8f91
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 5429ebb611f852f7672d89de190ddd68dbcb01cf
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456840"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707776"
 ---
 # <a name="troubleshoot-rbac-for-azure-resources"></a>Solución de problemas del control de acceso basado en rol para recursos de Azure
 
@@ -90,7 +90,7 @@ Del mismo modo, si enumera esta asignación de roles con la CLI de Azure, verá 
 }
 ```
 
-No es un problema dejar estas asignaciones de roles, pero puede quitarlas mediante pasos similares a otras. Para obtener información sobre cómo quitar las asignaciones de roles, vea [Azure Portal](role-assignments-portal.md#remove-role-assignments), [Azure PowerShell](role-assignments-powershell.md#remove-access) o la [CLI de Azure](role-assignments-cli.md#remove-access).
+No es un problema dejar estas asignaciones de roles, pero puede quitarlas mediante pasos similares a otras. Para obtener información sobre cómo quitar las asignaciones de roles, vea [Azure Portal](role-assignments-portal.md#remove-a-role-assignment), [Azure PowerShell](role-assignments-powershell.md#remove-a-role-assignment) o la [CLI de Azure](role-assignments-cli.md#remove-a-role-assignment).
 
 En PowerShell, si intenta quitar las asignaciones de roles mediante el identificador de objeto y el nombre de la definición de roles, y más de una asignación de roles coincide con los parámetros, obtendrá el mensaje de error: "The provided information does not map to a role assignment" (La información proporcionada no se asigna a una asignación de roles). A continuación se muestra un ejemplo del mensaje de error:
 

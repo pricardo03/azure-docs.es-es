@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9d0c6841e29323ceab0758f4c4d6881abd24532d
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 803b1e397efd4a6f9ddaa3bae1d101c8f204e728
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099973"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74328292"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Implementación de DBMS de Azure Virtual Machines de SQL Server para la carga de trabajo de SAP NetWeaver
 
@@ -341,7 +341,7 @@ Según la descripción general, los archivos ejecutables de SQL Server se deben 
 Estas configuraciones permiten que tempdb consuma más espacio que el que la unidad del sistema puede proporcionar. La unidad D:\ no persistente también ofrece un mejor rendimiento y latencia de E/S (a excepción de las máquinas virtuales de la serie A). Para determinar el tamaño correcto de tempdb, puede comprobar los tamaños de tempdb en los sistemas existentes. 
 
 >[!NOTE]
-> En el caso de que coloque los archivos de datos de tempdb y el archivo de registro en una carpeta de la unidad D:\ que haya creado, deberá asegurarse de que la carpeta existe después de reiniciar la máquina virtual. Dado que la unidad D:\ se acaba de inicializar después de reiniciar la máquina virtual, se borrarán todas las estructuras de archivos y directorios. En [este artículo](https://www.sqlserver.co.uk/index.php/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/) se documenta una posibilidad de volver a crear estructuras de directorios finales en la unidad D:\ antes de iniciar el servicio SQL Server.
+> En el caso de que coloque los archivos de datos de tempdb y el archivo de registro en una carpeta de la unidad D:\ que haya creado, deberá asegurarse de que la carpeta existe después de reiniciar la máquina virtual. Dado que la unidad D:\ se acaba de inicializar después de reiniciar la máquina virtual, se borrarán todas las estructuras de archivos y directorios. En [este artículo](https://cloudblogs.microsoft.com/sqlserver/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/) se documenta una posibilidad de volver a crear estructuras de directorios finales en la unidad D:\ antes de iniciar el servicio SQL Server.
 
 Una configuración de máquina virtual que ejecuta SQL Server con una base de datos de SAP donde el archivo de registro de tempdb y el de datos se colocan en la unidad D:\ tendría el siguiente aspecto:
 
@@ -476,7 +476,7 @@ La funcionalidad de trasvase de registros de SQL Server apenas se usó en Azure 
 
 - Escenarios de recuperación ante desastres de una región de Azure a otra
 - Configuración de la recuperación ante desastres de una ubicación local a una región de Azure
-- Escenarios de migración de una ubicación local a Azure. En esos casos, el trasvase de registros se usa para sincronizar la nueva implementación de DBMS en Azure con el sistema de producción local actual. En el momento de la migración, el sistema de producción se apaga y se garantiza que las copias de seguridad del registro de transacciones más recientes se hayan transferido a la implementación de DBMS de Azure. Después, la implementación de DBMS de Azure se abre para producción.  
+- Escenarios de migración de una ubicación local a Azure. En esos casos, se usa el trasvase de registros para sincronizar la nueva implementación de DBMS en Azure con el sistema de producción actual a nivel local. En el momento de la migración, el sistema de producción se apaga y se garantiza que las copias de seguridad del registro de transacciones más recientes se hayan transferido a la implementación de DBMS de Azure. Después, la implementación de DBMS de Azure se abre para producción.  
 
 
 
@@ -521,7 +521,7 @@ Unos pocos clientes están aprovechando la funcionalidad de SQL Server AlwaysOn 
 Hay una serie de clientes que usan el [Cifrado de datos transparente (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-2017) de SQL Server al implementar sus bases de datos de SQL Server de SAP en Azure. La funcionalidad de TDE de SQL Server es totalmente compatible con SAP (consulte la nota de SAP [1380493 #](https://launchpad.support.sap.com/#/notes/1380493)). 
 
 ### <a name="applying-sql-server-tde"></a>Aplicar el TDE de SQL Server
-En casos en los que se efectúa una migración heterogénea desde otro DBMS, que se ejecuta de forma local, a Windows o SQL Server ejecutado en Azure, se debería crear con anticipación la base de datos de destino vacía en SQL Server. El siguiente paso sería aplicaría la funcionalidad de TDE de SQL Server mientras se sigue ejecutando el sistema de producción de forma local. El motivo de seguir esta secuencia es que el proceso de cifrado de la base de datos vacía puede tardar bastante. Luego, los procesos de importación SAP importarían los datos a la base de datos cifrada durante la fase de tiempo de inactividad. La sobrecarga de la importación a una base de datos cifrada tiene un impacto temporal mucho menor de manera que el cifrado de la base de datos después de la fase de exportación en la fase de tiempo de inactividad. Se han dado experiencias negativas al intentar aplicar TDE con la carga de trabajo de SAP ejecutada en la base de datos. Por lo tanto, se recomienda tratar la implementación de TDE como una actividad que debe llevarse a cabo sin ninguna carga de trabajo de SAP en la base de datos concreta.
+En los casos en que se efectúe una migración heterogénea desde otro DBMS, que se ejecuta en un entorno local, a Windows o SQL Server, que se ejecuta en Azure, se debería crear de antemano una base de datos de destino vacía en SQL Server. El siguiente paso sería aplicaría la funcionalidad de TDE de SQL Server mientras se sigue ejecutando el sistema de producción de forma local. El motivo de seguir esta secuencia es que el proceso de cifrado de la base de datos vacía puede tardar bastante. Luego, los procesos de importación SAP importarían los datos a la base de datos cifrada durante la fase de tiempo de inactividad. La sobrecarga de la importación a una base de datos cifrada tiene un impacto temporal mucho menor de manera que el cifrado de la base de datos después de la fase de exportación en la fase de tiempo de inactividad. Se han dado experiencias negativas al intentar aplicar TDE con la carga de trabajo de SAP ejecutada en la base de datos. Por lo tanto, se recomienda tratar la implementación de TDE como una actividad que debe llevarse a cabo sin ninguna carga de trabajo de SAP en la base de datos concreta.
 
 En casos en los que se mueven bases de datos de SQL Server de SAP desde una ubicación local hasta Azure, se recomienda probar en qué infraestructura se puede aplicar con mayor rapidez el cifrado. Respecto a esto, debe tener en cuenta estos factores:
 

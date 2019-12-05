@@ -1,6 +1,6 @@
 ---
 title: Transmisión de los registros de recurso de Azure a un centro de eventos
-description: Aprenda a transmitir los registros de recurso de Azure a un centro de eventos.
+description: Aprenda a transmitir los registros de recurso de Azure a un centro de eventos para enviar datos a sistemas externos, como SIEM de terceros y otras soluciones de análisis de registros.
 author: bwren
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 1d7a533658b6c72caae9649d7e5a9c4fad117245
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 680570c5102f656b2b2d2e05f9e08f51fe892f44
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262995"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74304953"
 ---
 # <a name="stream-azure-resource-logs-to-azure-event-hubs"></a>Transmisión de los registros de recurso de Azure a Azure Event Hubs
 Los [registros de recurso](resource-logs-overview.md) en Azure proporcionan datos exhaustivos y frecuentes acerca del funcionamiento interno de un recurso de Azure. En este artículo se describe la transmisión de los registros de recurso a Event Hubs para enviar datos a sistemas externos, como SIEM de terceros y otras soluciones de análisis de registros.

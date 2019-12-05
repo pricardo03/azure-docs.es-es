@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: pepogors
-ms.openlocfilehash: 28a0418fd94c03f1fe308c7cd6f17b6d9a331fb0
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: dd514bb7c600c99518983855dae1d3b7fb8a1efb
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529357"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74481643"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Preguntas frecuentes sobre Service Fabric
 
@@ -146,7 +146,8 @@ Las colecciones confiables están generalmente [particionadas](service-fabric-co
 
 - Crear un servicio que realiza consultas en todas las particiones de otro servicio para extraer los datos necesarios.
 - Crear un servicio que puede recibir datos de todas las particiones de otro servicio.
-- Insertar datos periódicamente desde cada servicio a un almacén externo. Este método es adecuado solamente si las consultas que va a realizar no forman parte de su lógica de negocios troncal.
+- Insertar datos periódicamente desde cada servicio a un almacén externo. Este método es adecuado solamente si las consultas que va a realizar no forman parte de su lógica de negocios troncal, ya que los datos del almacén externo estarán obsoletos.
+- También puede almacenar datos que deben admitir la consulta en todos los registros directamente en un almacén de datos, en lugar de en una colección de confianza. Esto elimina el problema con los datos obsoletos, pero no permite aprovechar las ventajas de las colecciones de confianza.
 
 
 ### <a name="whats-the-best-way-to-query-data-across-my-actors"></a>¿Cuál es la mejor forma de consultar los datos a través de mis actores?

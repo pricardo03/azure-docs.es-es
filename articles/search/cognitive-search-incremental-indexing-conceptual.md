@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 76ab8784f04f3c67e4ea8062505931783048dea1
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: c44228d7e1456bce870765935beb011cb24626d5
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113590"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790934"
 ---
 # <a name="what-is-incremental-indexing-in-azure-cognitive-search"></a>¿Qué es la indexación incremental en Azure Cognitive Search?
 
@@ -47,7 +47,7 @@ Para empezar a beneficiarse de la indexación incremental, será preciso que est
     },
     "fieldMappings" : [],
     "outputFieldMappings": [],
-    "parameters":{}
+    "parameters": {}
 }
 ```
 
@@ -130,7 +130,7 @@ Las opciones [Crear indexador](https://docs.microsoft.com/rest/api/searchservice
 
 * `CacheId`: `cacheId` es el identificador del contenedor de la cuenta de almacenamiento `annotationCache` que se usará como caché para este indexador. Esta caché será única para este indexador y, si el indexador se elimina y se vuelve a crear con el mismo nombre, se volverá a generar `cacheId`. `cacheId` no se puede establecer, siempre lo genera el servicio.
 
-* `EnableReprocessing`: Establecido en `true` de forma predeterminada, si se establece en `false`, los documentos se seguirán escribiendo en la memoria caché, pero no se volverá a procesar ningún documento existente en función de los datos de la caché.
+* `EnableReprocessing`: Establecido en  de forma predeterminada, si se establece en `false`, los documentos se seguirán escribiendo en la memoria caché, pero no se volverá a procesar ningún documento existente en función de los datos de la caché.
 
 Algunos indexadores (a través de [orígenes de datos](https://docs.microsoft.com/rest/api/searchservice/create-data-source)) recuperan datos mediante consultas. En cuanto a las consultas que recuperan los datos, los indexadores también admitirán un nuevo parámetro de cadena de consulta: `ignoreResetRequirement` se tiene que establecer en `true` si la acción de actualización no debe invalidar la caché.
 

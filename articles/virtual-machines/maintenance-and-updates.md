@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: shants
-ms.openlocfilehash: 8e522b49c53dd40a4438755520481383984c1e01
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 45dba8de8ef735bdb9df102ac367e6a1653bf481
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74534948"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74807092"
 ---
 # <a name="maintenance-for-virtual-machines-in-azure"></a>Mantenimiento de máquinas virtuales en Azure
 
@@ -29,7 +29,7 @@ Las actualizaciones raramente afectan a las máquinas virtuales hospedadas. Cuan
 
 En esta página se describe cómo Azure realiza ambos tipos de mantenimiento. Para obtener más información sobre eventos no planeados (interrupciones), vea  [Administración de la disponibilidad de las máquinas virtuales para Windows](./windows/manage-availability.md) o el artículo correspondiente para [Linux](./linux/manage-availability.md).
 
-Dentro de una máquina virtual, puede obtener una notificación sobre el próximo mantenimiento si [usa Scheduled Events para Windows](/windows/scheduled-events.md) o para [Linux](/linux/scheduled-events.md).
+Dentro de una máquina virtual, puede obtener una notificación sobre el próximo mantenimiento si [usa Scheduled Events para Windows](./windows/scheduled-events.md) o para [Linux](./linux/scheduled-events.md).
 
 
 
@@ -43,7 +43,7 @@ El mantenimiento de conservación de memoria funciona para más del 90 por cient
 
 Estas operaciones de mantenimiento que no requieren un reinicio se aplican por dominio de error cada vez. También se detienen si reciben señales de estado de advertencia. 
 
-Estos tipos de actualizaciones pueden afectar a algunas aplicaciones. Cuando la máquina virtual se migra en vivo a otro host, es posible que algunas cargas de trabajo sensibles sufran una pequeña degradación del rendimiento en los pocos minutos anteriores a la pausa de la máquina virtual. Para preparar el mantenimiento de la máquina virtual y reducir el impacto durante el mantenimiento de Azure, intente [usar Scheduled Events para Windows](/windows/scheduled-events.md) o [Linux](/linux/scheduled-events.md) para estas aplicaciones. 
+Estos tipos de actualizaciones pueden afectar a algunas aplicaciones. Cuando la máquina virtual se migra en vivo a otro host, es posible que algunas cargas de trabajo sensibles sufran una pequeña degradación del rendimiento en los pocos minutos anteriores a la pausa de la máquina virtual. Para preparar el mantenimiento de la máquina virtual y reducir el impacto durante el mantenimiento de Azure, intente [usar Scheduled Events para Windows](./windows/scheduled-events.md) o [Linux](./linux/scheduled-events.md) para estas aplicaciones. 
 
 También hay una característica en la versión preliminar pública, control de mantenimiento, que puede ayudar a administrar el mantenimiento que no requiere un reinicio. Debe usar instancias de [Azure Dedicated Host](./linux/dedicated-hosts.md) o una [máquina virtual aislada](../security/fundamentals/isolation-choices.md). El control de mantenimiento ofrece la opción de omitir las actualizaciones de la plataforma y aplicarlas a la hora que elija durante un período sucesivo de 35 días. Para obtener más información, consulte [Control de las actualizaciones con el control de mantenimiento y la CLI de Azure](maintenance-control-cli.md).
 

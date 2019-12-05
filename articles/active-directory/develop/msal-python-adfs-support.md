@@ -18,16 +18,16 @@ ms.author: abpati
 ms.reviewer: navyasri.canumalla
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 148b9a4a890b22db63f03c673f5d779547a589e1
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 0aada339ab68eeb7f29eeb815611a8e434e6a998
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74484785"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74803655"
 ---
 # <a name="active-directory-federation-services-support-in-msal-for-python"></a>Compatibilidad para los Servicios de federación de Active Directory (AD FS) en MSAL para Python
 
-Los Servicios de federación de Active Directory (AD FS) en Windows Server le permiten agregar autenticación y autorización basadas en OpenID Connect y OAuth 2.0 a las aplicaciones mediante la biblioteca de autenticación de Microsoft (MSAL) para Python. Gracias a la biblioteca MSAL para Python, la aplicación puede autenticar a los usuarios directamente en AD FS. Para obtener más información sobre los escenarios, consulte [Escenarios de AD FS para desarrolladores](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-scenarios-for-developers).
+Los Servicios de federación de Active Directory (AD FS) en Windows Server le permiten agregar autenticación y autorización basadas en OpenID Connect y OAuth 2.0 a las aplicaciones mediante la biblioteca de autenticación de Microsoft (MSAL) para Python. Gracias a la biblioteca MSAL para Python, la aplicación puede autenticar a los usuarios directamente en AD FS. Para obtener más información sobre los escenarios, consulte [Escenarios de AD FS para desarrolladores](/windows-server/identity/ad-fs/ad-fs-development).
 
 Normalmente hay dos maneras de autenticarse en AD FS:
 
@@ -45,10 +45,10 @@ Cuando se llama a `acquire_token_by_authorization_code` o`acquire_token_by_devic
 1. El usuario especifica sus identificador de cuenta.
 2. Azure AD muestra brevemente el mensaje "Taking you to your organization's page" (Le estamos dirigiendo a la página de su organización) y se redirige al usuario a la página de inicio de sesión del proveedor de identidades. Normalmente, la página de inicio de sesión se personaliza con el logotipo de la organización.
 
-Las versiones de AD FS admitidas en este escenario federado son:
-- Servicios de federación de Active Directory (AD FS) FS V2
-- Servicios de federación de Active Directory (AD FS) V3 (Windows Server 2012 R2)
-- Servicios de federación de Active Directory (AD FS) V4 (AD FS 2016)
+Las versiones de AD FS admitidas en este escenario federado son:
+- Servicios de federación de Active Directory (AD FS) FS V2
+- Servicios de federación de Active Directory (AD FS) V3 (Windows Server 2012 R2)
+- Servicios de federación de Active Directory (AD FS) V4 (AD FS 2016)
 
 ### <a name="acquire-a-token-via-username-and-password"></a>Adquisición de un token mediante el nombre de usuario y la contraseña
 
