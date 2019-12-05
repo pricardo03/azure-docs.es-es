@@ -8,12 +8,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.custom: Understand-apache-spark-code-concepts
 ms.date: 10/15/2019
-ms.openlocfilehash: 4ed23beae6edb13efabf034c1e87b9cb76048f82
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: bdb38e36a9f1344a3adde15d349a2ec176c0fe95
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73648177"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74424009"
 ---
 # <a name="understand-apache-spark-code-for-u-sql-developers"></a>Descripción del código de Apache Spark para los desarrolladores de U-SQL
 
@@ -143,7 +143,7 @@ En Spark, NULL indica que el valor es desconocido. Un valor NULL de Spark es dif
 
 Este comportamiento es diferente de U-SQL, que sigue la semántica de C#, donde `null` es diferente de cualquier valor, pero es igual a sí mismo.  
 
-Por tanto, una instrucción `SELECT` de SparkSQL que usa `WHERE column_name = NULL` devuelve cero filas aunque haya valores NULL en `column_name`, mientras que en U-SQL, devolvería las filas en las que el elemento `column_name` está establecido en `null`. De igual forma, una instrucción `SELECT` de Spark que usa `WHERE column_name != NULL` devuelve cero filas aunque haya valores que no sean NULL en `column_name`, mientras que en U-SQL, devolvería las filas cuyo valor no sea NULL. Por tanto, si quiere la semántica de comprobación de valores NULL de U-SQL, debe usar [isnull](https://spark.apache.org/docs/2.3.0/api/sql/index.html#isnull) y [isnotnull](https://spark.apache.org/docs/2.3.0/api/sql/index.html#isnotnull) respectivamente (o su equivalente de DSL).
+Por tanto, una instrucción `SELECT` de SparkSQL que usa `WHERE column_name = NULL` devuelve cero filas aunque haya valores NULL en `column_name`, mientras que en U-SQL, devolvería las filas en las que el elemento `column_name` está establecido en `null`. De igual forma, una instrucción `SELECT` de Spark que usa `WHERE column_name != NULL` devuelve cero filas aunque haya valores que no sean NULL en `column_name`, mientras que en U-SQL, devolvería las filas cuyo valor no sea NULL. Por tanto, si quiere la semántica de comprobación de valores NULL de U-SQL, debe usar [isnull](https://spark.apache.org/docs/2.3.0/api/sql/index.html#isnull) e [isnotnull](https://spark.apache.org/docs/2.3.0/api/sql/index.html#isnotnull) respectivamente (o su equivalente de DSL).
 
 ## <a name="transform-u-sql-catalog-objects"></a>Transformación de objetos de catálogo de U-SQL
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77309a73f3c5641aa8a7667015ed02808e376348
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 27530b143e46acad4152e8333836cbe9c79fab17
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70032877"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74168096"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Elimine las contraseñas incorrectas de su organización
 
@@ -164,7 +164,7 @@ Después de la normalización, esta contraseña se convierte en "contosoblankf9!
 | Usuarios sincronizados desde un entorno local de Windows Server Active Directory | Azure AD Premium (P1 o P2) | Azure AD Premium (P1 o P2) |
 
 > [!NOTE]
-> Los usuarios de Windows Server Active Directory local que no se sincronizaron con Azure Active Directory también aprovechan las ventajas de la protección con contraseña de Azure AD según la licencia existente para los usuarios sincronizados.
+> Los usuarios de Windows Server Active Directory local que no se sincronizaron con Azure Active Directory también se aprovechan de la protección con contraseña de Azure AD según la licencia existente para los usuarios sincronizados.
 
 Puede encontrar información adicional sobre licencias, incluidos los costos, en la [página de precios de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 

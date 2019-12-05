@@ -1,19 +1,14 @@
 ---
-title: Configuración de sondeos de preparación en Azure Container Instances
+title: Configuración del sondeo de preparación en la instancia de contenedor
 description: Aprenda a configurar un sondeo para asegurarse de que los contenedores de Azure Container Instances reciben solicitudes solo cuando están listos.
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: article
 ms.date: 10/17/2019
-ms.author: danlep
-ms.openlocfilehash: 9cdc8362c377be28a3ed1300b599dc8ebef9e903
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 5ebbcdeee231e3e67abd6758485a12984137997e
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73905189"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533563"
 ---
 # <a name="configure-readiness-probes"></a>Configuración de sondeos de preparación
 

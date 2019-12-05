@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: 83114023eb35221bfa53e3ce4de8a861948c7a3a
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: a623c8d3ff755338ac8b40faa970f2f007115a02
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74005840"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74144866"
 ---
 # <a name="message-enrichments-for-device-to-cloud-iot-hub-messages"></a>Enriquecimientos de mensajes para mensajes de IoT Hub del dispositivo a la nube
 
@@ -54,11 +54,21 @@ Los mensajes pueden proceder de cualquier origen de datos admitido por el [enrut
 
 Puede agregar enriquecimientos a los mensajes que van al punto de conexión incorporado de una instancia de IoT Hub, o mensajes que se enrutan a puntos de conexión personalizados, como Azure Blob Storage, una cola de Service Bus o un tema de Service Bus.
 
-También puede agregar enriquecimientos a los mensajes que se publican en Event Grid, como la selección del punto de conexión como Event Grid. Para más información, consulte [Iot Hub y Event Grid](iot-hub-event-grid.md).
+Puede agregar enriquecimientos a los mensajes que se publican en Event Grid seleccionando el punto de conexión como Event Grid. Creamos una ruta predeterminada en IoT Hub para la telemetría del dispositivo, en función de su suscripción de Event Grid. Esta ruta única puede controlar todas las suscripciones de Event Grid. Puede configurar enriquecimientos para el punto de conexión de Event Grid después de crear la suscripción de Event Grid para la telemetría del dispositivo. Para más información, consulte [Iot Hub y Event Grid](iot-hub-event-grid.md).
 
 Se aplican los enriquecimientos de punto de conexión. Si especifica cinco enriquecimientos que se van a marcar para un punto de conexión específico, todos los mensajes que lleguen a ese punto de conexión se marcan con los mismos cinco enriquecimientos.
 
-Para ver cómo probar el enriquecimiento de mensajes, consulte el [tutorial de enriquecimiento de mensajes](tutorial-message-enrichments.md).
+Los enriquecimientos se pueden configurar mediante los métodos siguientes:
+
+| **Método** | **Comando** |
+| ----- | -----| 
+| Portal | [Azure Portal](https://portal.azure.com) | Consulte el [tutorial sobre enriquecimientos de mensajes](tutorial-message-enrichments.md). | 
+| CLI de Azure   | [az iot hub message-enrichment](https://docs.microsoft.com/cli/azure/iot/hub/message-enrichment?view=azure-cli-latest) |
+| Azure PowerShell | [Add-AzIotHubMessageEnrichment](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubmessageenrichment?view=azps-2.8.0) |
+
+La adición de enriquecimientos de mensajes no agrega latencia al enrutamiento de mensajes.
+
+Para probar enriquecimientos de mensajes, consulte el [tutorial sobre enriquecimientos de mensajes](tutorial-message-enrichments.md).
 
 ## <a name="limitations"></a>Limitaciones
 

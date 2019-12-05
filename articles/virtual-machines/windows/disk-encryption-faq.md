@@ -5,14 +5,14 @@ author: msmbaldwin
 ms.service: security
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 06/05/2019
+ms.date: 11/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 98ab9ea67ceb1d965e248c93d27cb801ab8c7483
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: ea2a66a6b012664a9596a02ea32c1a0b677ee3ea
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033334"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74384269"
 ---
 # <a name="azure-disk-encryption-for-windows-vms-faq"></a>Preguntas frecuentes acerca de Azure Disk Encryption para máquinas virtuales Windows
 
@@ -98,7 +98,17 @@ El "volumen Bek" es un volumen de datos locales que almacena de forma segura las
 
 ## <a name="what-encryption-method-does-azure-disk-encryption-use"></a>¿Qué método de cifrado usa Azure Disk Encryption?
 
-Azure Disk Encryption usa el método de cifrado BitLocker AES256 (AES256WithDiffuser en versiones anteriores a Windows Server 2012). 
+Azure Disk Encryption selecciona el método de cifrado de BitLocker en función de la versión de Windows, tal como se indica a continuación:
+
+| Versiones de Windows                 | Versión | Método de cifrado        |
+|----------------------------------|--------|--------------------------|
+| Windows Server 2012, Windows 10 o superior  | >=1511 |XTS-AES de 256 bits           |
+| Windows Server 2012, Windows 8, 8.1 o 10 | < 1511 |AES de 256 bits *              |
+| Windows Server 2008R2            |        |AES de 256 bits con difusor |
+
+\* AES de 256 bits con difusor no se admite en Windows 2012 y versiones posteriores.
+
+Para determinar la versión del sistema operativo Windows, ejecute la herramienta "winver" en la máquina virtual.
 
 ## <a name="if-i-use-encryptformatall-and-specify-all-volume-types-will-it-erase-the-data-on-the-data-drives-that-we-already-encrypted"></a>¿Si uso EncryptFormatAll y especifico todos los tipos de volumen se borrarán los datos en las unidades de datos que ya hemos cifrado?
 No, no se borran datos de las unidades de datos que ya estén cifradas mediante Azure Disk Encryption. Igual que EncryptFormatAll no volvía a cifrar la unidad del SO, no volverá a cifrar la unidad de datos ya cifrada. 

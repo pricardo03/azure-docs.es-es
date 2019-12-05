@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/06/2019
-ms.openlocfilehash: ddc6a35d5959a2d1f85c151a6f229223db9ba566
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 11/19/2019
+ms.openlocfilehash: 192aae4da4d9b07804f473ec6e98615f46e2ee86
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497918"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74214581"
 ---
 # <a name="evaluate-model-module"></a>Módulo Evaluate Model
 
@@ -26,7 +26,6 @@ Use este módulo para medir la precisión de un modelo entrenado. Hay que propor
   
 -   **Modelos de clasificación**    
 -   **Modelos de regresión**    
-
 
 
 > [!TIP]
@@ -107,7 +106,7 @@ Las siguientes métricas se notifican al evaluar los modelos de clasificación. 
 
 ##  <a name="bkmk_regression"></a> Métricas para los modelos de regresión
  
-Las métricas devueltas para los modelos de regresión están diseñadas generalmente para estimar la cantidad de errores.  Se considera que un modelo se ajusta a los datos correctamente si la diferencia entre los valores observados y los previstos es pequeña. Pero el patrón de los valores residuales (la diferencia entre un punto previsto y su valor real correspondiente) puede indicarle mucho sobre el sesgo potencial en el modelo.  
+Las métricas devueltas para los modelos de regresión están diseñadas para estimar la cantidad de errores.  Se considera que un modelo se ajusta a los datos correctamente si la diferencia entre los valores observados y los previstos es pequeña. Pero el patrón de los valores residuales (la diferencia entre un punto previsto y su valor real correspondiente) puede indicarle mucho sobre el sesgo potencial en el modelo.  
   
  Las siguientes métricas se notifican para evaluar los modelos de regresión. Al comparar los modelos, estos se clasifican según la métrica que seleccionó para la evaluación.  
   

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 10/12/2019
+ms.date: 11/22/2019
 ms.author: diberry
-ms.openlocfilehash: 8f00ffeff4eb353fa70aa7df60b14c97d4b8e724
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 0190b94cc6195163de4d428c2cae0de3620bdb01
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554864"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74422703"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>Obtención de una respuesta con GenerateAnswer API y metadatos
 
@@ -257,7 +257,7 @@ Puede buscar en la base de conocimiento publicada, con `isTest=false`, o bien en
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-La página **Publicar** también proporciona información para generar una respuesta con [Postman](../Quickstarts/get-answer-from-kb-using-postman.md) y [cURL](../Quickstarts/get-answer-from-kb-using-curl.md). 
+La página **Publicar** también proporciona información para [generar una respuesta](../Quickstarts/get-answer-from-knowledge-base-using-url-tool.md) con Postman o cURL.
 
 > [!div class="nextstepaction"]
 > [Creación de un bot de base de conocimientos](../tutorials/integrate-qnamaker-luis.md)

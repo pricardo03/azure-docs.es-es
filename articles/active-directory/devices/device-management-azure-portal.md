@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1b44a7df499dc0b6ce4370bf74ece35c99a4493
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: 6c8e94a1b15ad8cd55019f9351c82f58130e472d
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200229"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74420606"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Administración de identidades de dispositivos con Azure Portal
 
@@ -32,9 +32,8 @@ Este artículo:
 El portal de Azure AD conforma una ubicación central desde la que pueden administrarse las identidades de los dispositivos. Para obtener esta ubicación, use un [vínculo directo](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices) o siga los pasos que se detallan en el manual:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador.
-2. En la barra de navegación izquierda, haga clic en **Active Directory**.
 
-   ![Configuración de dispositivo](./media/device-management-azure-portal/01.png)
+2. Busque y seleccione **Azure Active Directory** o selecciónelo en la página **Inicio**.
 
 3. En la sección **Administrar**, haga clic en **Dispositivos**.
 

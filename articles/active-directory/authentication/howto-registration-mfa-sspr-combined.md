@@ -1,22 +1,22 @@
 ---
-title: Introducción al registro combinado para Azure AD SSPR y Multi-Factor Authentication (versión preliminar) (Azure Active Directory)
+title: 'Introducción al registro combinado: Azure Active Directory'
 description: Habilite el registro de autoservicio de restablecimiento de contraseña y Multi-Factor Authentication de Azure AD (versión preliminar) combinados
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 08/29/2019
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b610a62e9ca9b964482638c2c0302461996c0bf2
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: 075f5112a5ff7d2184a6a42ec531d472974199f3
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71145690"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74381314"
 ---
 # <a name="enable-combined-security-information-registration-preview"></a>Habilitar el registro de información de seguridad combinado (vista preliminar)
 

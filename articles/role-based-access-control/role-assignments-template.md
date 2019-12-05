@@ -10,19 +10,59 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/20/2019
+ms.date: 11/21/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 5f57ea658df0569c4e69e476513863abe6940471
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 268913fb7aebd1d6c8b377b95939c3bc1f77daca
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72692905"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383992"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-resource-manager-templates"></a>Administración del acceso a los recursos de Azure mediante RBAC y plantillas de Azure Resource Manager
 
 El [control de acceso basado en rol (RBAC)](overview.md) es la forma en la que se administra el acceso a los recursos de Azure. Además de usar Azure PowerShell o la CLI de Azure, puede administrar el acceso a los recursos de Azure mediante [plantillas de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md). Las plantillas se pueden usar si necesita implementar recursos de manera repetida y uniforme. En este artículo se describe cómo puede administrar el acceso mediante RBAC y plantillas.
+
+## <a name="get-object-ids"></a>Obtener los identificadores de objeto
+
+Para asignar un rol, debe especificar el identificador del usuario, del grupo o de la aplicación a los que quiere asignar el rol. El identificador tiene el formato: `11111111-1111-1111-1111-111111111111`. Puede obtenerlo mediante Azure Portal, Azure PowerShell o la CLI de Azure.
+
+### <a name="user"></a>Usuario
+
+Para obtener el identificador de un usuario, puede usar los comandos [Get-AzADUser](/powershell/module/az.resources/get-azaduser) o [az ad user show](/cli/azure/ad/user#az-ad-user-show).
+
+```azurepowershell
+$objectid = (Get-AzADUser -DisplayName "{name}").id
+```
+
+```azurecli
+objectid=$(az ad user show --id "{email}" --query objectId --output tsv)
+```
+
+### <a name="group"></a>Grupo
+
+Para obtener el identificador de un grupo, puede usar los comandos [Get-AzADGroup](/powershell/module/az.resources/get-azadgroup) o [az ad group show](/cli/azure/ad/group#az-ad-group-show).
+
+```azurepowershell
+$objectid = (Get-AzADGroup -DisplayName "{name}").id
+```
+
+```azurecli
+objectid=$(az ad group show --group "{name}" --query objectId --output tsv)
+```
+
+### <a name="application"></a>Application
+
+Para obtener el identificador de una entidad de servicio (identidad usada por una aplicación), puede usar los comandos [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal) o [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list). En el caso de una entidad de servicio, use el identificador de objeto y **no** el identificador de aplicación.
+
+```azurepowershell
+$objectid = (Get-AzADServicePrincipal -DisplayName "{name}").id
+```
+
+```azurecli
+objectid=$(az ad sp list --display-name "{name}" --query [].objectId --output tsv)
+```
 
 ## <a name="create-a-role-assignment-at-a-resource-group-scope-without-parameters"></a>Creación de una asignación de roles en el ámbito de un grupo de recursos (sin parámetros)
 
@@ -33,7 +73,7 @@ En RBAC, para conceder acceso es preciso crear una asignación de roles. La plan
 Para usar la plantilla, debe hacer lo siguiente:
 
 - Cree un archivo JSON y copie la plantilla.
-- Reemplace `<your-principal-id>` por el identificador único de un usuario, un grupo o una aplicación a los que se va a asignar el rol. El identificador tiene el formato: `11111111-1111-1111-1111-111111111111`
+- Reemplace `<your-principal-id>` por el identificador de un usuario, de un grupo o de una aplicación a los que se va a asignar el rol.
 
 ```json
 {
@@ -76,9 +116,8 @@ La plantilla anterior no es muy flexible. La siguiente plantilla usa parámetros
 
 Para usar la plantilla, debe especificar las siguientes entradas:
 
-- El identificador único de un usuario, grupo o aplicación a los que se les asignará el rol
-- La función para asignar
-- Identificador único que se usará para la asignación de roles o bien puede usar el identificador predeterminado
+- El identificador de un usuario, de un grupo o de una aplicación al que se asignará el rol.
+- Un identificador único que se usará para la asignación de roles (también puede usar el identificador predeterminado).
 
 ```json
 {
@@ -129,38 +168,28 @@ Para usar la plantilla, debe especificar las siguientes entradas:
 }
 ```
 
-Para obtener el identificador único de un usuario al que se va a asignar el rol, puede usar los comandos [Get-AzADUser](/powershell/module/az.resources/get-azaduser) o [az ad user show](/cli/azure/ad/user#az-ad-user-show).
-
-```azurepowershell
-$userid = (Get-AzADUser -DisplayName "{name}").id
-```
-
-```azurecli
-userid=$(az ad user show --upn-or-object-id "{email}" --query objectId --output tsv)
-```
+> [!NOTE]
+> Esta plantilla no es idempotente, a menos que se proporcione el mismo valor `roleNameGuid` como parámetro para cada implementación de la plantilla. Si no se proporciona `roleNameGuid`, de manera predeterminada se generará un nuevo GUID en cada implementación y se producirá un error `Conflict: RoleAssignmentExists` en las implementaciones posteriores.
 
 El ámbito de la asignación de roles se determina a partir del nivel de la implementación. Los comandos [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) y [az group deployment create](/cli/azure/group/deployment#az-group-deployment-create) son ejemplos de cómo iniciar la implementación en el ámbito de un grupo de recursos.
 
 ```azurepowershell
-New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-test.json -principalId $userid -builtInRoleType Reader
+New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-test.json -principalId $objectid -builtInRoleType Reader
 ```
 
 ```azurecli
-az group deployment create --resource-group ExampleGroup --template-file rbac-test.json --parameters principalId=$userid builtInRoleType=Reader
+az group deployment create --resource-group ExampleGroup --template-file rbac-test.json --parameters principalId=$objectid builtInRoleType=Reader
 ```
 
 Los comandos [New-AzDeployment](/powershell/module/az.resources/new-azdeployment) y [az deployment create](/cli/azure/deployment#az-deployment-create) son ejemplos de cómo iniciar la implementación en el ámbito de una suscripción y especificar la ubicación.
 
 ```azurepowershell
-New-AzDeployment -Location centralus -TemplateFile rbac-test.json -principalId $userid -builtInRoleType Reader
+New-AzDeployment -Location centralus -TemplateFile rbac-test.json -principalId $objectid -builtInRoleType Reader
 ```
 
 ```azurecli
-az deployment create --location centralus --template-file rbac-test.json --parameters principalId=$userid builtInRoleType=Reader
+az deployment create --location centralus --template-file rbac-test.json --parameters principalId=$objectid builtInRoleType=Reader
 ```
-
-> [!NOTE]
-> Esta plantilla no es idempotente, a menos que se proporcione el mismo valor `roleNameGuid` como parámetro para cada implementación de la plantilla. Si no se proporciona `roleNameGuid`, de manera predeterminada se generará un nuevo GUID en cada implementación y se producirá un error `Conflict: RoleAssignmentExists` en las implementaciones posteriores.
 
 ## <a name="create-a-role-assignment-at-a-resource-scope"></a>Creación de una asignación de roles en el ámbito de un recurso
 
@@ -181,8 +210,7 @@ La plantilla siguiente muestra:
 
 Para usar la plantilla, debe especificar las siguientes entradas:
 
-- El identificador único de un usuario, grupo o aplicación a los que se les asignará el rol
-- La función para asignar
+- El identificador de un usuario, de un grupo o de una aplicación al que se asignará el rol.
 
 ```json
 {
@@ -248,11 +276,11 @@ Para usar la plantilla, debe especificar las siguientes entradas:
 Para implementar la plantilla anterior, usará los comandos de grupo de recursos. Los comandos [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) y [az group deployment create](/cli/azure/group/deployment#az-group-deployment-create) son ejemplos de cómo iniciar la implementación en el ámbito de un recurso.
 
 ```azurepowershell
-New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-test.json -principalId $userid -builtInRoleType Contributor
+New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-test.json -principalId $objectid -builtInRoleType Contributor
 ```
 
 ```azurecli
-az group deployment create --resource-group ExampleGroup --template-file rbac-test.json --parameters principalId=$userid builtInRoleType=Contributor
+az group deployment create --resource-group ExampleGroup --template-file rbac-test.json --parameters principalId=$objectid builtInRoleType=Contributor
 ```
 
 A continuación se muestra un ejemplo de una asignación de rol de colaborador a un usuario de una cuenta de almacenamiento después de implementar la plantilla.

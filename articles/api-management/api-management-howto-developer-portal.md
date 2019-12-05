@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/04/2019
+ms.date: 11/22/2019
 ms.author: apimpm
-ms.openlocfilehash: 6bf8c8690977ef1036c853d8c1c01a3a366b50df
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 2b69fdd7abefca360433fc9fb090569cba23febe
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74011476"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74454395"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Introducción al portal para desarrolladores de Azure API Management
 
@@ -26,8 +26,6 @@ El portal para desarrolladores es un sitio web totalmente personalizable que se 
 En este artículo se describen las diferencias entre las versiones autohospedadas y administradas del portal para desarrolladores de API Management. También se explica su arquitectura y se proporcionan respuestas a las preguntas más frecuentes.
 
 > [!WARNING]
-> El nuevo portal para desarrolladores se está implementando actualmente en los servicios de API Management.
-> Si el servicio se ha creado recientemente o es uno de nivel de desarrollador, ya debería tener la versión más reciente. De lo contrario, podría experimentar problemas (por ejemplo, con la funcionalidad de publicación). Se espera que el lanzamiento de la característica esté completo el viernes 22 de noviembre de 2019.
 >
 > [Obtenga información sobre cómo migrar desde la versión preliminar a la versión disponible con carácter general](#preview-to-ga) del portal para desarrolladores.
 
@@ -95,6 +93,8 @@ Los portales son incompatibles y debe migrar el contenido manualmente.
 
 El nuevo portal para desarrolladores no es compatible ni con las *aplicaciones* ni con las *incidencias*. Si ha usado *incidencias* en el portal anterior y las necesita en el nuevo, publique un comentario en [una incidencia de GitHub específica](https://github.com/Azure/api-management-developer-portal/issues/122).
 
+Todavía no se admite la autenticación con OAuth en la consola de desarrollador interactiva. Puede realizar un seguimiento del progreso a través [del problema de GitHub](https://github.com/Azure/api-management-developer-portal/issues/208).
+
 ### <a name="has-the-old-portal-been-deprecated"></a>¿El portal antiguo quedó en desuso?
 
 Los antiguos portales para desarrolladores y anunciantes ahora son características *heredadas*: solo recibirán actualizaciones de seguridad. Las nuevas características se implementarán solo en el nuevo portal para desarrolladores.
@@ -111,13 +111,31 @@ La API se documenta en [la sección wiki del repositorio de GitHub][2]. También
 
 No.
 
-### <a name="do-i-need-to-enable-additional-vnet-connectivity-for-the-managed-portal-dependencies"></a>¿Debo habilitar la conectividad VNET adicional para las dependencias del portal administrado?
+### <a name="do-i-need-to-enable-additional-vnet-connectivity-for-the-new-managed-portal-dependencies"></a>¿Debo habilitar la conectividad de red virtual adicional para las nuevas dependencias del portal administrado?
 
-No.
+En la mayoría de los casos, no.
 
-### <a name="im-getting-a-cors-error-when-using-the-interactive-console-what-should-i-do"></a>Obtengo un error de CORS al usar la consola interactiva. ¿Cuál debo hacer?
+Si el servicio API Management se encuentra en una red virtual interna, solo se puede acceder al portal para desarrolladores desde dentro de la red. El nombre de host del punto de conexión de administración debe resolverse en la dirección VIP interna del servicio desde la máquina que se usa para acceder a la interfaz administrativa del portal. Asegúrese de que el punto de conexión de administración está registrado en el DNS. En caso de que haya una configuración incorrecta, verá un error: `Unable to start the portal. See if settings are specified correctly in the configuration (...)`.
 
-La consola interactiva realiza una solicitud de API del lado cliente desde el explorador. Para resolver el problema de CORS, agregue [una directiva de CORS](https://docs.microsoft.com/azure/api-management/api-management-cross-domain-policies#CORS) en las API. Puede especificar todos los parámetros manualmente o usar valores `*` comodín. Por ejemplo:
+### <a name="i-have-assigned-a-custom-api-management-domain-and-the-published-portal-doesnt-work"></a>He asignado un dominio de API Management personalizado y el portal publicado no funciona
+
+Después de actualizar el dominio, debe [volver a publicar el portal](api-management-howto-developer-portal-customize.md#publish) para que los cambios surtan efecto.
+
+### <a name="i-have-added-an-identity-provider-and-i-cant-see-it-in-the-portal"></a>He agregado un proveedor de identidades y no lo veo en el portal
+
+Después de configurar un proveedor de identidades (por ejemplo, AAD, AAD B2C), debe [volver a publicar el portal](api-management-howto-developer-portal-customize.md#publish) para que los cambios surtan efecto.
+
+### <a name="i-have-set-up-delegation-and-the-portal-doesnt-use-it"></a>He configurado la delegación y el portal no la usa
+
+Después de configurar la delegación, debe [volver a publicar el portal](api-management-howto-developer-portal-customize.md#publish) para que los cambios surtan efecto.
+
+### <a name="my-other-api-management-configuration-changes-havent-been-propagated-in-the-developer-portal"></a>Los demás cambios de configuración de API Management no se han propagado en el portal para desarrolladores
+
+La mayoría de los cambios de configuración (por ejemplo, red virtual, inicio de sesión y términos del producto) requieren [volver a publicar el portal](api-management-howto-developer-portal-customize.md#publish).
+
+### <a name="im-getting-a-cors-error-when-using-the-interactive-console"></a>Obtengo un error de CORS al usar la consola interactiva
+
+La consola interactiva realiza una solicitud de API del lado cliente desde el explorador. Para resolver el problema de CORS, agregue [una directiva de CORS](api-management-cross-domain-policies.md#CORS) en las API. Puede especificar todos los parámetros manualmente o usar valores `*` comodín. Por ejemplo:
 
 ```XML
 <cors>
@@ -142,6 +160,54 @@ La consola interactiva realiza una solicitud de API del lado cliente desde el ex
     </expose-headers>
 </cors>
 ```
+
+> [!NOTE]
+> 
+> Si aplica la directiva de CORS en el ámbito del producto, en lugar del ámbito de las API, y la API usa la autenticación de clave de suscripción a través de un encabezado, la consola no funcionará.
+>
+> El explorador emite automáticamente una solicitud HTTP OPTIONS, que no contiene un encabezado con la clave de suscripción. Debido a la clave de suscripción ausente, API Management no puede asociar la llamada de OPTIONS a un producto, por lo que no puede aplicar la directiva de CORS.
+>
+> Como solución alternativa, puede pasar la clave de suscripción en un parámetro de consulta.
+
+### <a name="what-permissions-do-i-need-to-edit-the-developer-portal"></a>¿Qué permisos necesito para editar el portal para desarrolladores?
+
+Si ve el error `Oops. Something went wrong. Please try again later.` al abrir el portal en el modo administrativo, es posible que no tenga los permisos necesarios (RBAC).
+
+Los portales heredados requieren el permiso `Microsoft.ApiManagement/service/getssotoken/action` en el ámbito de servicio (`/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>`) para permitir que el administrador de usuarios tenga acceso a los portales. El nuevo portal requiere el permiso `Microsoft.ApiManagement/service/users/token/action` en el ámbito `/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>/users/1`.
+
+Puede usar el siguiente script de PowerShell para crear un rol con el permiso necesario. Recuerde cambiar el parámetro `<subscription-id>`. 
+
+```PowerShell
+#New Portals Admin Role 
+Import-Module Az 
+Connect-AzAccount 
+$contributorRole = Get-AzRoleDefinition "API Management Service Contributor" 
+$customRole = $contributorRole 
+$customRole.Id = $null
+$customRole.Name = "APIM New Portal Admin" 
+$customRole.Description = "This role gives the user ability to log in to the new Developer portal as administrator" 
+$customRole.Actions = "Microsoft.ApiManagement/service/users/token/action" 
+$customRole.IsCustom = $true 
+$customRole.AssignableScopes.Clear() 
+$customRole.AssignableScopes.Add('/subscriptions/<subscription-id>') 
+New-AzRoleDefinition -Role $customRole 
+```
+ 
+Una vez creado el rol, se puede conceder a cualquier usuario de la sección **Control de acceso (IAM)** de Azure Portal. Al asignar este rol a un usuario, se asignará el permiso en el ámbito del servicio. El usuario podrá generar tokens de SAS en nombre de *cualquier* usuario en el servicio. Como mínimo, este rol debe asignarse al administrador del servicio. El siguiente comando de PowerShell muestra cómo asignar el rol a un usuario `user1` en el ámbito más bajo para evitar la concesión de permisos innecesarios al usuario: 
+
+```PowerShell
+New-AzRoleAssignment -SignInName "user1@contoso.com" -RoleDefinitionName "APIM New Portal Admin" -Scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>/users/1" 
+```
+
+Una vez concedidos los permisos a un usuario, este debe cerrar sesión e iniciar sesión de nuevo en Azure Portal para que los nuevos permisos surtan efecto.
+
+### <a name="im-seeing-the-unable-to-start-the-portal-see-if-settings-are-specified-correctly--error"></a>Veo el error `Unable to start the portal. See if settings are specified correctly (...)`
+
+Este error se muestra cuando se produce un error en una llamada `GET` a `https://<management-endpoint-hostname>/subscriptions/xxx/resourceGroups/xxx/providers/Microsoft.ApiManagement/service/xxx/contentTypes/document/contentItems/configuration?api-version=2018-06-01-preview`. La interfaz administrativa del portal emite la llamada desde el explorador.
+
+Si el servicio API Management se encuentra en una red virtual, consulte la pregunta de conectividad de la red virtual anterior.
+
+El error de llamada también puede deberse a un certificado SSL, que se asigna a un dominio personalizado y no es de confianza para el explorador. Como medida de mitigación, puede quitar el dominio personalizado del punto de conexión de administración (API Management revertirá al punto de conexión predeterminado con un certificado de confianza).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

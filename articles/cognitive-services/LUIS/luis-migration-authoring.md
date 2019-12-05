@@ -9,20 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 11/19/2019
 ms.author: diberry
-ms.openlocfilehash: 86a7575c173b4515eaf0f690bcd00c6fb70ee581
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 44baac5eb4e8887594ba05498901ba664380005f
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492724"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280771"
 ---
 # <a name="migrate-to-an-azure-resource-authoring-key"></a>Migración a una clave de creación de recursos de Azure
 
-La autenticación de creación de Language Understanding (LUIS) cambió de una cuenta de correo electrónico a un recurso de Azure. 
-
-[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+La autenticación de creación de Language Understanding (LUIS) cambió de una cuenta de correo electrónico a un recurso de Azure. Aunque actualmente no es necesario, se aplicará el cambio a un recurso de Azure en el futuro.
 
 ## <a name="why-migrate"></a>¿Por qué migrar?
 
@@ -57,7 +55,7 @@ Se le pedirá que realice la migración si:
 * Tiene aplicaciones en el sistema de autenticación por correo electrónico para la creación.
 * Y usted es el propietario de la aplicación. 
 
-Puede retrasar el proceso de migración si cancela la ventana. Se le pedirá periódicamente que realice la migración hasta que migre o se pase la fecha límite de la migración. Puede iniciar el proceso de migración desde el icono de candado de la barra de navegación superior.
+Puede retrasar el proceso de migración si cancela fuera de la ventana. Se le pedirá periódicamente que realice la migración hasta que migre o se pase la fecha límite de la migración. Puede iniciar el proceso de migración desde el icono de candado de la barra de navegación superior.
 
 ## <a name="migration-for-the-app-owner"></a>Migración para el propietario de la aplicación
 

@@ -1,5 +1,5 @@
 ---
-title: Problemas en la configuración de SSO con contraseña para una aplicación ajena a la galería | Microsoft Docs
+title: Problemas en la configuración de SSO con contraseña para una aplicación ajena a la galería
 description: Problemas comunes que se producen al configurar el inicio de sesión único (SSO) con contraseña para aplicaciones personalizadas que no están en la galería de aplicaciones de Azure AD.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24330dc874173ba1c6f15abb7b4caf9f23e2e00c
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: ed8bafe7f5bc28cf37205107f8ab6dd5cdb4907c
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67440348"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74274145"
 ---
 # <a name="problems-configuring-password-single-sign-on-for-a-non-gallery-application"></a>Problemas en la configuración del inicio de sesión único con contraseña para una aplicación ajena a la galería
 

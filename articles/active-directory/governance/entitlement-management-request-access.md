@@ -16,12 +16,12 @@ ms.date: 10/26/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ddc0a3788075701fb4633895e7b22fff2c15f60b
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 81697293be235c12ca009c76a9fd9d3975e232fc
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73173703"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74554082"
 ---
 # <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management"></a>Solicitud de acceso a un paquete de acceso en la administración de derechos de Azure AD
 
@@ -80,6 +80,30 @@ Una vez que haya encontrado el paquete de acceso en el portal Mi acceso, puede e
 Si va a solicitar acceso a un paquete de acceso que tiene varias directivas aplicables, es posible que se le pida que seleccione una directiva. Por ejemplo, un administrador de paquetes de acceso puede configurar un paquete de acceso con dos directivas para dos grupos de empleados internos. La primera directiva podría permitir el acceso durante 60 días y requerir aprobación. La segunda directiva podría permitir el acceso durante 2 días y no requerir aprobación. Si se encuentra con este escenario, debe seleccionar la directiva que quiere utilizar.
 
 ![Portal Mi acceso: solicitud de acceso (varias directivas)](./media/entitlement-management-request-access/my-access-multiple-policies.png)
+
+## <a name="resubmit-a-request"></a>Nuevo envío de una solicitud
+
+Al solicitar acceso a un paquete de acceso, es posible que se deniegue la solicitud o que esta expire si los aprobadores no responden a tiempo. Si necesita acceso, puede intentarlo de nuevo y volver a enviar la solicitud. En el procedimiento siguiente se explica cómo volver a enviar una solicitud de acceso:
+
+**Rol necesario:** Solicitante
+
+1. Inicie sesión en el portal **Mi acceso**.
+
+1. Haga clic en **Historial de solicitudes** en el menú de navegación de la izquierda.
+
+1. Busque el paquete de acceso para el que va a volver a enviar una solicitud.
+
+1. Haga clic en la marca de verificación para seleccionar el paquete de acceso.
+
+1. Haga clic en el vínculo azul **Ver** a la derecha del paquete de acceso seleccionado.
+    
+    ![Selección del paquete de acceso y visualización del vínculo](./media/entitlement-management-request-access/resubmit-request-select-request-and-view.png)
+
+    Se abrirá un panel a la derecha con el historial de solicitudes para el paquete de acceso.
+    
+    ![Selección del botón Volver a enviar](./media/entitlement-management-request-access/resubmit-request-select-resubmit.png)
+
+1. Haga clic en el botón **Volver a enviar**, situado en la parte inferior del panel.
 
 ## <a name="cancel-a-request"></a>Cancelación de una solicitud
 

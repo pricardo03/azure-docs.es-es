@@ -1,29 +1,24 @@
 ---
 title: Azure Functions en Kubernetes con KEDA
 description: Aprenda a ejecutar Azure Functions en Kubernetes en la nube o en el entorno local mediante KEDA, el escalado automático controlado por eventos basado en Kubernetes.
-services: functions
-documentationcenter: na
 author: jeffhollan
-manager: jeconnoc
-keywords: azure functions, funciones, procesamiento de eventos, proceso dinámico, arquitectura sin servidor, kubernetes
-ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 11/18/2019
 ms.author: jehollan
-ms.openlocfilehash: 8e07032f84ead4bb003176af84cb4c731819ffa4
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: ab851f3156f09a808833c0b31f8c5ce2b7dd5138
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900061"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230493"
 ---
 # <a name="azure-functions-on-kubernetes-with-keda"></a>Azure Functions en Kubernetes con KEDA
 
-El tiempo de ejecución de Azure Functions proporciona flexibilidad de hospedaje dónde y cómo desee.  [KEDA](https://github.com/kedacore/kore) (escalado automático controlado por eventos basado en Kubernetes) se empareja sin problemas con el tiempo de ejecución y las herramientas de Azure Functions para proporcionar la escala controlada por eventos en Kubernetes.
+El tiempo de ejecución de Azure Functions proporciona flexibilidad de hospedaje dónde y cómo desee.  [KEDA](https://keda.sh) (escalado automático controlado por eventos basado en Kubernetes) se empareja sin problemas con el tiempo de ejecución y las herramientas de Azure Functions para proporcionar la escala controlada por eventos en Kubernetes.
 
 ## <a name="how-kubernetes-based-functions-work"></a>Funcionamiento de las funciones basadas en Kubernetes
 
-El servicio de Azure Functions está formado por dos componentes clave: un tiempo de ejecución y un controlador de escala.  El tiempo de ejecución de Functions se ejecuta y ejecuta el código.  El tiempo de ejecución incluye lógica sobre cómo desencadenar, registrar y administrar las ejecuciones de funciones.  El otro componente es un controlador de escala.  El controlador de escala supervisa la tasa de eventos que se dirigen a la función y escala de forma proactiva el número de instancias que ejecutan la aplicación.  Para más información, consulte [Escalado y hospedaje de Azure Functions](functions-scale.md).
+El servicio de Azure Functions está formado por dos componentes clave: un tiempo de ejecución y un controlador de escala.  El tiempo de ejecución de Functions se ejecuta y ejecuta el código.  El tiempo de ejecución incluye lógica sobre cómo desencadenar, registrar y administrar las ejecuciones de funciones.  Azure Functions Runtime puede ejecutarse *en cualquier parte*.  El otro componente es un controlador de escala.  El controlador de escala supervisa la tasa de eventos que se dirigen a la función y escala de forma proactiva el número de instancias que ejecutan la aplicación.  Para más información, consulte [Escalado y hospedaje de Azure Functions](functions-scale.md).
 
 Las funciones basadas en Kubernetes proporcionan el tiempo de ejecución de Functions en un [Contenedor de Docker](functions-create-function-linux-custom-image.md) con escalado controlado por eventos a través de KEDA.  KEDA puede reducir a 0 instancias (cuando no se produce ningún evento) y ampliar hasta *n* instancias. Lo hace mediante la exposición de las métricas personalizadas de Kubernetes Autoscaler (Horizontal Pod Autoscaler).  El uso de contenedores de Functions con KEDA hace posible replicar las capacidades de la función sin servidor en cualquier clúster de Kubernetes.  Estas funciones también se pueden implementar mediante la característica de [nodos virtuales de Azure Kubernetes Service (AKS)](../aks/virtual-nodes-cli.md) para la infraestructura sin servidor.
 
@@ -86,12 +81,17 @@ func kubernetes remove --namespace keda
 
 ## <a name="supported-triggers-in-keda"></a>Desencadenadores admitidos en KEDA
 
-KEDA está actualmente en versión beta con compatibilidad con los siguientes desencadenadores de Azure Functions:
+KEDA es compatible con los siguientes desencadenadores de Azure Functions:
 
 * [Colas de Azure Storage](functions-bindings-storage-queue.md)
 * [Colas de Azure Service Bus](functions-bindings-service-bus.md)
-* [HTTP](functions-bindings-http-webhook.md)
+* [Azure Event / IoT Hubs](functions-bindings-event-hubs.md)
 * [Apache Kafka](https://github.com/azure/azure-functions-kafka-extension)
+* [Cola de RabbitMQ](https://github.com/azure/azure-functions-rabbitmq-extension)
+
+### <a name="http-trigger-support"></a>Compatibilidad con el desencadenador HTTP
+
+Puede usar instancias de Azure Functions que expongan desencadenadores HTTP, pero KEDA no los administra directamente.  Azure Functions Core Tools instalará un proyecto relacionado, Osiris, que permite escalar puntos de conexión HTTP de 0 a 1.  Escalar de 1 a *n* se basaría en las directivas de escalado de Kubernetes tradicionales.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información, consulte los siguientes recursos:

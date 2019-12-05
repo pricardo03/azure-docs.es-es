@@ -1,6 +1,6 @@
 ---
-title: 'Configuración de la información de seguridad (versión preliminar) para una aplicación autenticadora: Azure AD'
-description: Configuración de su información de seguridad para verificar su identidad con la aplicación Microsoft Authenticator
+title: 'Configuración de la aplicación Microsoft Authenticator como método de comprobación: Azure AD'
+description: Cómo configurar su página de información de seguridad (versión preliminar) para comprobar su identidad mediante la aplicación Microsoft Authenticator como su método de comprobación.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 19f44f4df9e3c17c376830c6a404a21e8a5d67b2
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 7e3c237f47e889b6af1b49254af9039dc8789006
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73805081"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279062"
 ---
-# <a name="set-up-security-info-preview-to-use-an-authenticator-app"></a>Configuración de la información de seguridad (versión preliminar) para usar una aplicación autenticadora
+# <a name="set-up-the-microsoft-authenticator-app-as-your-verification-method"></a>Configuración de la aplicación Microsoft Authenticator como método de comprobación
 
 Puede seguir estos pasos para agregar sus métodos de restablecimiento de contraseña y verificación en dos pasos. Una vez que haya configurado esto por primera vez, puede volver a la página **Información de seguridad** para agregar, actualizar o eliminar su información de seguridad.
 

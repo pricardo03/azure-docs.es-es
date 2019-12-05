@@ -9,22 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 11/19/2019
 ms.author: diberry
-ms.openlocfilehash: 0d3a413249cb9058e4098f2836131494670a1727
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 676c6d15c4f439543a3ed74627001725632fecfa
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73491324"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74554840"
 ---
 # <a name="publish-your-active-trained-app-to-a-staging-or-production-endpoint"></a>Publicación de la aplicación activa y entrenada en un punto de conexión de almacenamiento provisional o de producción
 
-Cuando termine de compilar y probar la aplicación de LUIS activa, haga que esté disponible para la aplicación cliente mediante su publicación en el punto de conexión. 
+Cuando termine de compilar, entrenar y probar la aplicación de LUIS activa, haga que esté disponible para la aplicación cliente mediante su publicación en el punto de conexión. 
 
-[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
-
-<a name="publish-your-trained-app-to-an-http-endpoint"></a>
+[!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
 ## <a name="publishing"></a>Publicación
 
@@ -40,16 +38,19 @@ Cuando termine de compilar y probar la aplicación de LUIS activa, haga que est�
 
 Seleccione la ranura correcta cuando se muestre la ventana emergente: 
 
-* Almacenamiento provisional.
-* Producción. 
+* Ensayo
+* Producción 
 
 Si usa las dos ranuras de publicación, puede tener dos versiones distintas de la aplicación en los puntos de conexión publicados, o la misma versión en dos puntos de conexión diferentes. 
 
 ### <a name="publishing-regions"></a>Regiones de publicación
 
-La aplicación se publica en todas las regiones asociadas a los recursos del punto de conexión de predicción de LUIS agregados en el portal de LUIS. 
+La aplicación se publica en todas las regiones asociadas a los recursos del punto de conexión de predicción de LUIS agregados en el portal de LUIS desde la página **Administrar** ->  **[Recursos de Azure](luis-how-to-azure-subscription.md#assign-a-resource-to-an-app)** . 
 
 Por ejemplo, para una aplicación creada en [www.luis.ai](https://www.luis.ai), si crea un recurso de LUIS en dos regiones, **westus** y **eastus**, y agrega los recursos creados a la aplicación como recursos, la aplicación se publicará en ambas regiones. Para obtener más información sobre las regiones de LUIS, consulte [Regiones](luis-reference-regions.md).
+
+> [!TIP]
+> Hay tres regiones de creación. Debe crear en la región en la que desea publicar. Si tiene que publicar en todas las regiones, debe administrar el proceso de creación y el modelo entrenado resultante en las tres regiones de creación. 
 
 
 ## <a name="configuring-publish-settings"></a>Configuración de los ajustes de publicación
@@ -57,16 +58,14 @@ Por ejemplo, para una aplicación creada en [www.luis.ai](https://www.luis.ai), 
 Después de seleccionar la ranura, configure las opciones de publicación para realizar lo siguiente:
 
 * análisis de opiniones
-* Corrección ortográfica
+* Corrección ortográfica: solo punto de conexión de predicción V2
 * Preparación para la voz 
 
 Después de la publicación, esta configuración estará disponible para su revisión en la página de **configuración de publicación** de la sección **Administrar**. La configuración se puede cambiar en cada publicación. Si cancela una publicación, también se cancelarán los cambios realizados durante la misma. 
 
 ### <a name="when-your-app-is-published"></a>Cuando se publique la aplicación
 
-Cuando la aplicación se publica correctamente, aparece un cuadro de notificación verde en la parte superior del navegador. La barra de notificación verde también incluye un vínculo a los puntos de conexión. 
-
-![Publicación de una ventana emergente con vínculo al punto de conexión](./media/luis-how-to-publish-app/publish-success.png)
+Cuando la aplicación se publica correctamente, aparece un cuadro de notificación en la parte superior del explorador. La notificación también incluye un vínculo a los puntos de conexión. 
 
 Si necesita la dirección URL del punto de conexión, seleccione el vínculo. También puede obtener las direcciones URL del punto de conexión seleccionando **Administrar** en el menú superior y, a continuación, **Recursos de Azure** en el menú de la izquierda. 
 
@@ -83,6 +82,8 @@ Los datos de opinión son una puntuación entre 1 y 0 que indica el valor de opi
 Para obtener más información acerca de la respuesta del punto de conexión JSON con análisis de sentimiento, consulte [Análisis de sentimiento](luis-concept-data-extraction.md#sentiment-analysis).
 
 ## <a name="spelling-correction"></a>Corrección ortográfica
+
+[!INCLUDE [Not supported in V3 API prediction endpoint](./includes/v2-support-only.md)]
 
 Las correcciones de ortografía se realizan antes que la predicción de expresiones de usuario de LUIS. Puede ver cualquier cambio en la expresión original (incluida la ortografía) en la respuesta.
 

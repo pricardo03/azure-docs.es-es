@@ -1,21 +1,15 @@
 ---
-title: Usar la API de REST de Azure Blockchain Workbench
+title: Uso de las API REST de Azure Blockchain Workbench
 description: Escenarios de uso de la API REST de Azure Blockchain Workbench, versión preliminar
-services: azure-blockchain
-keywords: ''
-author: PatAltimore
-ms.author: patricka
 ms.date: 10/14/2019
 ms.topic: article
-ms.service: azure-blockchain
-ms.reviewer: zeyadr
-manager: femila
-ms.openlocfilehash: 2f751cc4f0037b8d60034636a0c512989113e441
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.reviewer: brendal
+ms.openlocfilehash: 188bbb9a9f6d289a7950ff74596352dff36e79f2
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72328872"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74324196"
 ---
 # <a name="using-the-azure-blockchain-workbench-preview-rest-api"></a>Uso de la API REST de Azure Blockchain Workbench, versión preliminar
 
@@ -28,6 +22,19 @@ La API REST de Azure Blockchain Workbench, versión preliminar, proporciona a lo
 * Ejecutar una acción para un contrato
 
 Las aplicaciones de cadena de bloques de ejemplo utilizadas en los escenarios pueden [descargarse de GitHub](https://github.com/Azure-Samples/blockchain).
+
+## <a name="blockchain-workbench-api-endpoint"></a>Punto de conexión de API de Blockchain Workbench
+
+Se accede a las API de Blockchain Workbench mediante un punto de conexión de la implementación. Para obtener la dirección URL del punto de conexión de API de la implementación:
+
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. En el panel de navegación de la izquierda, seleccione **Grupos de recursos**.
+1. Elija el nombre del grupo de recursos en el que implementó Blockchain Workbench.
+1. Seleccione el encabezado de columna **TIPO** para ordenar la lista alfabéticamente por tipo.
+1. Hay dos recursos del tipo **App Service**. Seleccione el recurso del tipo **App Service** *con* el sufijo "-api".
+1. En **Información general** de App Service, copie el valor **URL** que representa la dirección URL del punto de conexión de API a la instancia de Blockchain Workbench implementada.
+
+    ![Dirección URL del punto de conexión de API de App Service](media/use-api/app-service-api.png)
 
 ## <a name="list-applications"></a>Enumerar aplicaciones
 

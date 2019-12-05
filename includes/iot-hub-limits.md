@@ -4,12 +4,12 @@ ms.author: robinsh
 ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
-ms.openlocfilehash: 2d9549c88ace63997ff6d17568b6ba5131e8a15f
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: 34de38e91d47457d215c7ebf65d04ed2dbae5324
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73083751"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74224355"
 ---
 En la tabla siguiente se enumeran los límites asociados a los diferentes niveles de servicio (S1, S2, S3 y F1). Para información sobre el costo de cada *unidad* en cada nivel, consulte los [Precios de IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/).
 
@@ -41,9 +41,10 @@ En la tabla siguiente se enumeran los límites que se aplican a los recursos de 
 | Profundidad máxima de la cola de la nube al dispositivo por dispositivo |50 |
 | Número máximo de entregas de mensajes de comentarios <br/> en respuesta a un mensaje de nube a dispositivo |100 |
 | TTL máximo para los mensajes de comentarios en <br/> respuesta a un mensaje de nube a dispositivo |2 días |
-| [Tamaño máximo del dispositivo gemelo](../articles/iot-hub/iot-hub-devguide-device-twins.md#device-twin-size) <br/> (etiquetas, propiedades notificadas y propiedades deseadas) | 8 KB |
-| Tamaño máximo del valor de cadena del dispositivo gemelo | 4 KB |
-| [Profundidad máxima del objeto en el dispositivo gemelo](../articles/iot-hub/iot-hub-devguide-device-twins.md#tags-and-properties-format) | 5 |
+| [Tamaño máximo del dispositivo gemelo](../articles/iot-hub/iot-hub-devguide-device-twins.md#device-twin-size) | 8 KB para la sección etiquetas y 32 KB para las secciones de propiedades deseadas y notificadas |
+| Longitud máxima de la clave de cadena del dispositivo gemelo | 1 KB |
+| Longitud máxima del valor de cadena del dispositivo gemelo | 4 KB |
+| [Profundidad máxima del objeto en el dispositivo gemelo](../articles/iot-hub/iot-hub-devguide-device-twins.md#tags-and-properties-format) | 10 |
 | Tamaño máximo de carga del método directo | 128 KB |
 | Retención máxima del historial de trabajos | 30 días |
 | Número máximo de trabajos simultáneos | 10 (para S3), 5 para (S2), 1 (para S1) |

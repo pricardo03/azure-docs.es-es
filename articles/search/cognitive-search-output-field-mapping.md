@@ -8,17 +8,18 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: d2d5e717154d16cc5579c1495aff9c1eebf54b17
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: f0537af684632a08a39e3e681900d62238365073
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132379"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280982"
 ---
 # <a name="how-to-map-ai-enriched-fields-to-a-searchable-index"></a>Cómo asignar campos enriquecidos con IA a un índice de búsqueda
 
-En este artículo, aprenderá a asignar campos de entrada enriquecidos a campos de salida en un índice de búsqueda. Una vez que haya [definido un conjunto de aptitudes](cognitive-search-defining-skillset.md), debe asignar los campos de salida de cualquier aptitud que aporte directamente valores a un campo dado del índice de búsqueda. Las asignaciones de campo son necesarias para mover contenido de documentos enriquecidos al índice.
+En este artículo, aprenderá a asignar campos de entrada enriquecidos a campos de salida en un índice de búsqueda. Una vez que haya [definido un conjunto de aptitudes](cognitive-search-defining-skillset.md), debe asignar los campos de salida de cualquier aptitud que aporte directamente valores a un campo dado del índice de búsqueda. 
 
+Las asignaciones de campos de salida son necesarias para mover contenido de documentos enriquecidos al índice.  El documento enriquecido es en realidad un árbol de información y, aunque hay compatibilidad con tipos complejos en el índice, a veces puede interesarle transformar la información del árbol enriquecido en un tipo más simple (por ejemplo, una matriz de cadenas). Las asignaciones de campos de salida permiten realizar transformaciones en la forma de los datos mediante la reducción de información.
 
 ## <a name="use-outputfieldmappings"></a>Usar outputFieldMappings
 Para asignar los campos, agregue `outputFieldMappings` a la definición del indexador tal como se muestra a continuación:
@@ -62,13 +63,71 @@ El cuerpo de la solicitud está estructurado de la siguiente manera:
     ]
 }
 ```
-En cada asignación de campo de salida, establezca el nombre del campo enriquecido (sourceFieldName) y el nombre del campo, tal como se indica en el índice (targetFieldName).
 
-La ruta de acceso en un campo sourceFieldName puede representar un elemento o varios elementos. En el ejemplo anterior, ```/document/content/sentiment``` representa un único valor numérico, mientras que ```/document/content/organizations/*/description``` representa varias descripciones de la organización. En casos donde hay varios elementos, estos son "reducidos" en una matriz que contiene cada uno de los elementos. Más concretamente, en el ejemplo ```/document/content/organizations/*/description```, los datos del campo *Descripciones* tienen el aspecto de una matriz plana de descripciones antes de que se indexe:
+En cada asignación de campo de salida, establezca la ubicación de los datos del árbol de documentos enriquecidos (sourceFieldName) y el nombre del campo al que se hace referencia en el índice (targetFieldName).
+
+## <a name="flattening-information-from-complex-types"></a>Reducción de la información de tipos complejos 
+
+La ruta de acceso en un campo sourceFieldName puede representar un elemento o varios elementos. En el ejemplo anterior, ```/document/content/sentiment``` representa un único valor numérico, mientras que ```/document/content/organizations/*/description``` representa varias descripciones de la organización. 
+
+En casos donde hay varios elementos, estos son "reducidos" en una matriz que contiene cada uno de los elementos. 
+
+Más concretamente, en el ejemplo ```/document/content/organizations/*/description```, los datos del campo *Descripciones* tienen el aspecto de una matriz plana de descripciones antes de que se indexe:
 
 ```
  ["Microsoft is a company in Seattle","LinkedIn's office is in San Francisco"]
 ```
+
+Este es un principio importante, así que se proporcionará otro ejemplo. Imagine que tiene una matriz de tipos complejos como parte del árbol de enriquecimiento. Supongamos que hay un miembro denominado customEntities que tiene una matriz de tipos complejos como la que se describe a continuación.
+
+```json
+"document/customEntities": 
+[
+    {
+        "name": "heart failure",
+        "matches": [
+            {
+                "text": "heart failure",
+                "offset": 10,
+                "length": 12,
+                "matchDistance": 0.0
+            }
+        ]
+    },
+    {
+        "name": "morquio",
+        "matches": [
+            {
+                "text": "morquio",
+                "offset": 25,
+                "length": 7,
+                "matchDistance": 0.0
+            }
+        ]
+    }
+    //...
+]
+```
+
+Supongamos que el índice tiene un campo denominado "diseases" de tipo Collection(Edm.String), donde quiere almacenar cada uno de los nombres de las entidades. 
+
+Esto se puede hacer fácilmente mediante el símbolo "\*", como se indica a continuación:
+
+```json
+    "outputFieldMappings": [
+        {
+            "sourceFieldName": "/document/customEntities/*/name",
+            "targetFieldName": "diseases"
+        }
+    ]
+```
+
+Esta operación simplemente "reduce" cada uno de los nombres de los elementos customEntities a una sola matriz de cadenas como esta:
+
+```json
+  "diseases" : ["heart failure","morquio"]
+```
+
 ## <a name="next-steps"></a>Pasos siguientes
 Una vez haya asignado los campos enriquecidos a los campos de búsqueda, puede establecer los atributos de campo de cada uno de los campos de búsqueda [como parte de la definición del índice](search-what-is-an-index.md).
 

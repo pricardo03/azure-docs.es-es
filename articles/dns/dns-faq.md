@@ -1,18 +1,18 @@
 ---
-title: Preguntas más frecuentes sobre DNS de Azure
-description: Preguntas más frecuentes sobre Azure DNS
+title: 'Preguntas frecuentes: Azure DNS'
+description: En este artículo se tratan las preguntas frecuentes sobre Azure DNS.
 services: dns
-author: vhorne
+author: asudbring
 ms.service: dns
 ms.topic: article
 ms.date: 6/15/2019
-ms.author: victorh
-ms.openlocfilehash: bb5c4d508344f391d610aeaa7e0be54a93c997dc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: allensu
+ms.openlocfilehash: c194d47842c927d3f8049a424dc08a34424a8a31
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67080017"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74212027"
 ---
 # <a name="azure-dns-faq"></a>Preguntas más frecuentes sobre DNS de Azure
 

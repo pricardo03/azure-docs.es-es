@@ -1,18 +1,18 @@
 ---
 title: Incorporación de herramientas de migración en Azure Migrate
-description: En este artículo se describe cómo agregar herramientas de migración en el centro de Azure Migrate.
+description: Aprenda a agregar herramientas de migración en Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.manager: carmonm
 ms.topic: article
-ms.date: 07/09/2019
+ms.date: 11/18/2019
 ms.author: raynew
-ms.openlocfilehash: b3c77f052ed92db235b363e63859b9beb9e4f5a2
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 6bcb65912627356215769ccc8380ee1a7404f6f7
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67810243"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185956"
 ---
 # <a name="add-migration-tools"></a>Incorporación de herramientas de migración
 

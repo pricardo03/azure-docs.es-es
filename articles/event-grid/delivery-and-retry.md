@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: spelluru
-ms.openlocfilehash: 0945b06f78ac34500f0b16a4a419cff12d1a4734
-ms.sourcegitcommit: af31deded9b5836057e29b688b994b6c2890aa79
+ms.openlocfilehash: 483b8251bf17eaa5fe7aa7cbd86299575535725d
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67812920"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74170043"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Entrega y reintento de entrega de mensajes de Event Grid
 
@@ -20,7 +20,18 @@ En este artículo se describe cómo Azure Event Grid administra los eventos cuan
 
 Event Grid ofrece entrega duradera. Entrega cada mensaje por lo menos una vez en cada suscripción. Los eventos se envían inmediatamente al punto de conexión registrado de cada suscripción. Si un punto de conexión no acusa recibo de un evento, Event Grid reintenta la entrega del evento.
 
-Actualmente, Event Grid envía cada evento individualmente a los suscriptores. El suscriptor recibe una matriz con un solo evento.
+## <a name="batched-event-delivery"></a>Entrega de eventos por lotes
+
+De forma predeterminada, Event Grid envía cada evento individualmente a los suscriptores. El suscriptor recibe una matriz con un solo evento. Puede configurar Event Grid para procesar por lotes los eventos para su entrega con el fin de mejorar el rendimiento HTTP en escenarios de alto rendimiento.
+
+La entrega por lotes tiene dos opciones:
+
+* **Número máximo de eventos por lote** es el número máximo de eventos que Event Grid entregará por lote. No se superará nunca este número; sin embargo, se pueden entregar menos eventos si no hay otros eventos disponibles en el momento de la publicación. Event Grid no retrasa los eventos para crear un lote si hay menos eventos disponibles. Debe estar entre 1 y 5 000.
+* **Tamaño de lote preferido en kilobytes** es el límite superior de destino para el tamaño de lote en kilobytes. Al igual que el número máximo de eventos, el tamaño del lote puede ser menor si no hay más eventos disponibles en el momento de la publicación. Es posible que un lote sea mayor que el tamaño de lote preferido *si* un solo evento es mayor que el tamaño preferido. Por ejemplo, si el tamaño preferido es 4 KB y se inserta un evento de 10 KB en Event Grid, el evento de 10 KB se seguirá entregando en su propio lote en lugar de ser eliminado.
+
+La entrega por lotes se configura en función de una suscripción por evento mediante el portal, la CLI, PowerShell o los SDK.
+
+![Configuración de la entrega por lotes](./media/delivery-and-retry/batch-settings.png)
 
 ## <a name="retry-schedule-and-duration"></a>Programación y duración de los reintentos
 
@@ -45,7 +56,7 @@ De forma predeterminada, Event Grid expira todos los eventos que no se entregan 
 
 ## <a name="delayed-delivery"></a>Entrega retrasada
 
-Cuando un punto de conexión experimenta errores de entrega, Event Grid comienza a retrasar la entrega y a reintentar los eventos a ese punto de conexión. Por ejemplo, si se produce un error en los diez primeros eventos publicados en un punto de conexión, Event Grid asumirá que el punto de conexión está experimentando problemas y retrasará todos los reintentos posteriores y las *nuevas entregas* durante algún tiempo; en algunos casos, hasta varias horas.
+Cuando un punto de conexión experimenta errores de entrega, Event Grid comienza a retrasar la entrega y a reintentar los eventos a ese punto de conexión. Por ejemplo, si se produce un error en los 10 primeros eventos publicados en un punto de conexión, Event Grid asumirá que el punto de conexión está experimentando problemas y retrasará todos los reintentos posteriores y las *nuevas entregas* durante algún tiempo; en algunos casos, hasta varias horas.
 
 El propósito funcional de la entrega retrasada es proteger los puntos de conexión incorrectos, así como el sistema Event Grid. Sin los mecanismos de retroceso y el retraso de la entrega a puntos de conexión incorrectos, la directiva de reintentos de Event Grid y las funcionalidades del volumen pueden sobrecargar fácilmente un sistema.
 

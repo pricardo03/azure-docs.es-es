@@ -1,23 +1,17 @@
 ---
-title: Configuración del acceso a Azure Active Directory
+title: 'Configuración del acceso a Azure Active Directory: Azure Blockchain Service'
 description: Configuración de Azure Blockchain Service con acceso a Azure Active Directory
-services: azure-blockchain
-keywords: ''
-author: PatAltimore
-ms.author: seal
-ms.date: 05/02/2019
+ms.date: 11/22/2019
 ms.topic: article
-ms.service: azure-blockchain
-ms.reviewer: seal
-manager: femila
-ms.openlocfilehash: 616e342f1d52179c40c225c5dafc9de13ce85e06
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.reviewer: janders
+ms.openlocfilehash: 682ab282036fcd592e66942d08a84cdce46d8915
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65028221"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74455847"
 ---
-# <a name="how-to-configure-azure-active-directory-access"></a>Configuración del acceso a Azure Active Directory
+# <a name="how-to-configure-azure-active-directory-access-for-azure-blockchain-service"></a>Configuración del acceso a Azure Active Directory para Azure Blockchain Service
 
 En este artículo, aprenderá a conceder acceso y conectarse a los nodos de Azure Blockchain Service mediante los id. de aplicación, grupo o usuario de Azure Active Directory (Azure AD).
 
@@ -41,7 +35,7 @@ Para conceder permiso de acceso en el nivel de miembro:
 
     | Objeto de Azure AD | Ejemplo |
     |-----------------|---------|
-    | Usuario de Azure AD   | `frank@contoso.onmicrosoft.com` |
+    | Usuario de Azure AD   | `kim@contoso.onmicrosoft.com` |
     | Grupo de Azure AD  | `sales@contoso.onmicrosoft.com` |
     | Identificador de aplicación  | `13925ab1-4161-4534-8d18-812f5ca1ab1e` |
 
@@ -51,8 +45,11 @@ Para conceder permiso de acceso en el nivel de miembro:
 
 ### <a name="grant-node-level-access"></a>Conceder acceso de nivel de nodo
 
-1. Para conceder acceso en el nivel de nodo, navegue hasta la seguridad de nodo y haga clic en el nombre de nodo al que desea conceder acceso.
-1. Seleccione el rol Acceso a nodos de miembros de Blockchain (versión preliminar) y agregue el objeto de id. de Azure AD al que desea conceder acceso. 
+Para conceder acceso en el nivel de nodo, navegue hasta la seguridad de nodo y haga clic en el nombre de nodo al que desea conceder acceso.
+
+Seleccione el rol Acceso a nodos de miembros de Blockchain (versión preliminar) y agregue el objeto de id. de Azure AD al que desea conceder acceso.
+
+Para más información, consulte [Configurar los nodos de transacción de Azure Blockchain Service](configure-transaction-nodes.md#azure-active-directory-access-control).
 
 ## <a name="connect-using-azure-blockchain-connector"></a>Conectar mediante el conector de Azure Blockchain
 
@@ -110,7 +107,4 @@ connector.exe -remote <myBlockchainEndpoint>  -method aaddevice -tenant-id <myAA
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información sobre la seguridad de datos en Azure Blockchain Service, consulte:
-
-> [!div class="nextstepaction"]
-> [Seguridad de Azure Blockchain Service](data-security.md)
+Para más información sobre la seguridad de datos en Azure Blockchain Service, consulte [Seguridad de Azure Blockchain Service](data-security.md).

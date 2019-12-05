@@ -3,19 +3,19 @@ title: Introducción a Azure Advisor | Microsoft Docs
 description: Utilice Azure Advisor para optimizar las implementaciones de Azure.
 services: advisor
 documentationcenter: NA
-author: kasparks
+author: sagupt
 ms.service: advisor
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/01/2019
-ms.author: kasparks
-ms.openlocfilehash: 2ccac3bf9a882dc021c6c969946ad9d439a7cf5d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: sagupt
+ms.openlocfilehash: 1a1ed13697d838041d1ac98b966695e24c06edbe
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67069685"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74145381"
 ---
 # <a name="introduction-to-azure-advisor"></a>Introducción a Azure Advisor
 
@@ -37,6 +37,7 @@ El panel de Advisor muestra recomendaciones personalizadas para todas las suscri
 * **Seguridad**: ayuda a detectar amenazas y vulnerabilidades que podrían dar lugar a infracciones de seguridad. Para obtener más información, consulte las [recomendaciones sobre seguridad de Advisor](advisor-security-recommendations.md).
 * **Rendimiento**: ayuda a mejorar la velocidad de las aplicaciones. Para obtener más información, consulte las [recomendaciones sobre rendimiento de Advisor](advisor-performance-recommendations.md).
 * **Costo**: ayuda a optimizar y reducir el gasto general de Azure. Para obtener más información, consulte las [recomendaciones sobre el costo de Advisor](advisor-cost-recommendations.md).
+* **Excelencia operativa**: ayuda a conseguir procedimientos recomendados de eficiencia en procesos y flujos de trabajo, manejabilidad de los recursos e implementación. . Para más información, consulte [Recomendaciones de excelencia operativa de Advisor](advisor-operational-excellence-recommendations.md).
 
   ![Tipos de recomendaciones de Advisor](./media/advisor-overview/advisor-dashboard.png)
 

@@ -6,14 +6,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 11/14/2019
+ms.date: 11/22/2019
 ms.author: victorh
-ms.openlocfilehash: 448e5bf798f5b1c3006888f846722e54fec46ef8
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: bfae540af1c501c09ec026b97ac11e8a14b177a9
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075296"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326549"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Mantenimiento del back-end y registros de diagnóstico para Application Gateway
 
@@ -303,7 +303,7 @@ El registro de firewall solo se genera si lo habilitó para cada instancia de Ap
 |ruleSetVersion     | Versión utilizada del conjunto de reglas. Los valores disponibles son 2.2.9 y 3.0.     |
 |ruleId     | Identificador de regla del evento desencadenador.        |
 |message     | Mensaje descriptivo para el evento desencadenador. En la sección de detalles se proporciona más información.        |
-|action     |  Acción realizada en la solicitud. Los valores disponibles son Blocked y Allowed.      |
+|action     |  Acción realizada en la solicitud. Los valores disponibles Coincidente y Bloqueado.      |
 |site     | Sitio para el que se generó el registro. Actualmente, solo se incluye Global porque las reglas son globales.|
 |details     | Detalles del evento desencadenador.        |
 |details.message     | Descripción de la regla.        |

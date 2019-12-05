@@ -1,7 +1,7 @@
 ---
-title: 'Diseñador: Clasificación, predicción de renovación'
+title: 'Diseñador: Ejemplo de predicción de la renovación'
 titleSuffix: Azure Machine Learning
-description: Este diseñador (versión preliminar) muestra un ejemplo de canalización que presenta la predicción de deserción con un clasificador binario, una tarea común para la administración de relaciones con los clientes (CRM).
+description: Siga este ejemplo de clasificación para predecir la renovación con el diseñador de Azure Machine Learning y árboles de decisión ampliados.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,14 +10,17 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 11/04/2019
-ms.openlocfilehash: a09060e16b877df4412b785edbb60930cb4122bc
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 1fe3598fd15424ab2593e3d236146c7566493743
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647171"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74225096"
 ---
-# <a name="sample-5---classification-predict-churn"></a>Ejemplo 5 - Clasificación: Predicción de la renovación
+# <a name="use-boosted-decision-tree-to-predict-churn-with-azure-machine-learning-designer"></a>Uso de un árbol de decisión ampliado para predecir la renovación con el diseñador de Azure Machine Learning
+
+**Ejemplo 5 del diseñador (versión preliminar)**
+
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
 Obtenga información sobre cómo compilar una canalización compleja de aprendizaje automático sin tener que escribir una sola línea de código con el diseñador (versión preliminar).
@@ -28,7 +31,7 @@ Puesto que está intentando responder a la pregunta "¿Cuál?", esto se denomina
 
 Este es el gráfico completo de la canalización:
 
-![Gráfico de la canalización](./media/how-to-ui-sample-classification-predict-churn/pipeline-graph.png)
+![Gráfico de la canalización](./media/how-to-designer-sample-classification-predict-churn/pipeline-graph.png)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -48,11 +51,11 @@ En primer lugar, realice un procesamiento de datos simple.
 
 - Al conjunto de valores sin formato le faltan muchos valores. Use el módulo **Limpiar datos que faltan** para reemplazar los valores que faltan por 0.
 
-    ![Limpieza del conjunto de datos](./media/how-to-ui-sample-classification-predict-churn/cleaned-dataset.png)
+    ![Limpieza del conjunto de datos](./media/how-to-designer-sample-classification-predict-churn/cleaned-dataset.png)
 
 - Las características y la deserción correspondiente se encuentran en diferentes conjuntos de datos. Use el módulo **Agregar columnas** para anexar las columnas de etiqueta a las columnas de característica. La primera columna, **Col1**, es la columna de etiqueta. En el resultado de la visualización, podemos ver que el conjunto de resultados está desequilibrado. Hay más ejemplos negativos (-1) que ejemplos positivos (+ 1). Usaremos el módulo **SMOTE** para aumentar los casos subrepresentados más adelante.
 
-    ![Adición del conjunto de datos de columna](./media/how-to-ui-sample-classification-predict-churn/added-column1.png)
+    ![Adición del conjunto de datos de columna](./media/how-to-designer-sample-classification-predict-churn/added-column1.png)
 
 
 
@@ -66,7 +69,7 @@ En primer lugar, realice un procesamiento de datos simple.
 
 Visualice el resultado del módulo **Evaluar modelo** para ver el rendimiento del modelo en el conjunto de prueba. 
 
-![Evaluar los resultados](./media/how-to-ui-sample-classification-predict-churn/evaluate-result.png)
+![Evaluar los resultados](./media/how-to-designer-sample-classification-predict-churn/evaluate-result.png)
 
  Puede mover el control deslizante **Umbral** y ver cómo cambian las métricas para la tarea de clasificación binaria. 
 

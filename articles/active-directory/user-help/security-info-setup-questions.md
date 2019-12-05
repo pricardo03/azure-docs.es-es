@@ -1,6 +1,6 @@
 ---
-title: 'Configuración de la información de seguridad (versión preliminar) para preguntas de seguridad: Azure AD'
-description: Configuración de su información de seguridad para comprobar su identidad mediante preguntas de seguridad predefinidas.
+title: 'Configuración de preguntas de seguridad como método de comprobación: Azure AD'
+description: Cómo configurar su página de información de seguridad (versión preliminar) para comprobar su identidad mediante preguntas de seguridad predefinidas como método de comprobación.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2513b52c347db428b5ac0236a2561e5d4f1cdd2
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 6c32e2e2a7b609f999c7b804494188e2c6820171
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820305"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279003"
 ---
-# <a name="set-up-security-info-preview-to-use-security-questions"></a>Configuración de la información de seguridad (versión preliminar) para usar preguntas de seguridad
+# <a name="set-up-security-questions-as-your-verification-method"></a>Configuración de preguntas de seguridad como método de comprobación
 
 Puede seguir estos pasos para agregar su método de restablecimiento de la contraseña. Tras configurarlo por primera vez, puede volver a la página **Información de seguridad** para agregar, actualizar o eliminar información de seguridad.
 

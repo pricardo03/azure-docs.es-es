@@ -1,23 +1,17 @@
 ---
-title: Administración de los miembros de Azure Blockchain Service mediante Azure PowerShell
+title: 'Administración de los miembros del consorcio de Azure Blockchain Service: PowerShell'
 description: Aprenda a administrar los miembros de un consorcio de Azure Blockchain Service mediante Azure PowerShell.
-services: azure-blockchain
-keywords: ''
-author: PatAltimore
-ms.author: patricka
 ms.date: 10/14/2019
 ms.topic: article
-ms.service: azure-blockchain
 ms.reviewer: zeyadr
-manager: femila
-ms.openlocfilehash: c35a3bd99518825805c2f29cfdc586e1ccf5b0bb
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 4eb35838394d3324f460b5e83cfbcb47b8114221
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329178"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74455546"
 ---
-# <a name="manage-consortium-members-in-azure-blockchain-service-by-using-powershell"></a>Administración de los miembros del consorcio en Azure Blockchain Service mediante PowerShell
+# <a name="manage-consortium-members-in-azure-blockchain-service-using-powershell"></a>Administración de los miembros del consorcio en Azure Blockchain Service mediante PowerShell
 
 Puede usar PowerShell para administrar los miembros del consorcio de una cadena de bloques para Azure Blockchain Service. Los miembros que tienen privilegios de administrador pueden invitar, agregar, quitar y cambiar los roles para todos los participantes en el consorcio de la cadena de bloques. Los miembros que tienen privilegios de usuario pueden ver a todos los participantes en el consorcio de la cadena de bloques y cambiar su nombre para mostrar miembros.
 
@@ -325,7 +319,4 @@ $ContractConnection | Set-BlockchainMemberInvitation -SubscriptionId <Azure subs
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información acerca de los consorcios, los miembros y los nodos, consulte:
-
-> [!div class="nextstepaction"]
-> [Consorcio de Azure Blockchain Service](consortium.md)
+Para más información sobre los consorcios, los miembros y los nodos, consulte [Consorcio de Azure Blockchain Service](consortium.md).

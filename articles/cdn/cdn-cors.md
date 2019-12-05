@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 204183fa25203a094eecd8df85a8bfd5dcf271cc
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 169de21b6dbdafaaeff64e315daa104f3b6faadd
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67593970"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278099"
 ---
 # <a name="using-azure-cdn-with-cors"></a>Uso de Azure CDN con CORS
 ## <a name="what-is-cors"></a>¿Qué es CORS?
@@ -63,12 +63,21 @@ Si ya se han enviado solicitudes a la red CDN antes de establecer CORS en el ori
 ## <a name="multiple-origin-scenarios"></a>Escenarios de varios orígenes
 Si necesita permitir una lista específica de orígenes admitidos para CORS, el proceso puede resultar un poco más complicado. Encontramos el primer problema cuando la red CDN copia en caché el encabezado **Access-Control-Allow-Origin** el primer origen de CORS.  Cuando un origen de CORS distinto realiza una solicitud posteriormente, la red CDN enviará el encabezado **Access-Control-Allow-Origin** copiado en la caché, que no coincidirá.  Existen diversas formas de corregir este problema.
 
+### <a name="azure-cdn-standard-profiles"></a>Perfiles estándar de Azure CDN
+En la red CDN estándar de Azure de Microsoft, puede crear una regla en el [motor de reglas estándar](cdn-standard-rules-engine-reference.md) para comprobar el encabezado **Origin** de la solicitud. Si se trata de un origen válido, la regla establecerá el encabezado **Access-Control-Allow-Origin** con el valor deseado. En este caso, el encabezado **Access-Control-Allow-Origin** del servidor de origen del archivo se pasa por alto; el motor de reglas de la red CDN administra totalmente los orígenes de CORS admitidos.
+
+![Ejemplo de reglas con el motor de reglas estándar](./media/cdn-cors/cdn-standard-cors.png)
+
+> [!TIP]
+> Puede agregar acciones adicionales a su rol para modificar encabezados de respuesta adicionales, como **Access-Control-Allow-Methods**.
+> 
+
+En la **red CDN estándar de Azure de Akamai**, el único mecanismo para permitir varios orígenes sin usar el origen del comodín es utilizar el [almacenamiento en caché de la cadena de consulta](cdn-query-string.md). Habilite la configuración de la cadena de consulta para el punto de conexión de CDN y, después, use una cadena de consulta única para las solicitudes de cada dominio permitido. De este modo, la red CDN almacenará en caché un objeto independiente para cada cadena de consulta única. Sin embargo, este enfoque no es ideal, ya que conllevará varias copias del mismo archivo en caché en la red CDN.  
+
 ### <a name="azure-cdn-premium-from-verizon"></a>Azure CDN premium de Verizon
-La mejor forma de habilitarlo es usar **Azure CDN premium de Verizon**, que expone una serie de funciones avanzadas. 
+Con el motor de reglas de Verizon Premium, tendrá que [crear una regla](cdn-rules-engine.md) para comprobar el encabezado **Origin** de la solicitud.  Si se trata de un origen válido, la regla establecerá el encabezado **Access-Control-Allow-Origin** con el origen proporcionado en la solicitud.  Si el origen especificado en el encabezado **Origin** no se permite, la regla tendrá que omitir el encabezado **Access-Control-Allow-Origin**, lo que ocasionará que el explorador rechace la solicitud. 
 
-Tendrá que [crear una regla](cdn-rules-engine.md) para comprobar encabezado **Origin** de la solicitud.  Si se trata de un origen válido, la regla establecerá el encabezado **Access-Control-Allow-Origin** con el origen proporcionado en la solicitud.  Si el origen especificado en el encabezado **Origin** no se permite, la regla tendrá que omitir el encabezado **Access-Control-Allow-Origin**, lo que ocasionará que el explorador rechace la solicitud. 
-
-Hay dos formas de hacerlo con el motor de reglas. En ambos casos, el encabezado **Access-Control-Allow-Origin** del servidor de origen del archivo se pasa por alto; el motor de reglas de la red CDN administra totalmente los orígenes de CORS admitidos.
+Hay dos formas de hacerlo con el motor de reglas Premium. En ambos casos, el encabezado **Access-Control-Allow-Origin** del servidor de origen del archivo se pasa por alto; el motor de reglas de la red CDN administra totalmente los orígenes de CORS admitidos.
 
 #### <a name="one-regular-expression-with-all-valid-origins"></a>Una expresión regular con todos los orígenes válidos
 En este caso, creará una expresión regular en la que incluirá todos los orígenes que desea permitir: 
@@ -94,6 +103,5 @@ En lugar de usar expresiones regulares, puede crear una regla aparte para cada o
 > 
 > 
 
-### <a name="azure-cdn-standard-profiles"></a>Perfiles estándar de Azure CDN
-En los perfiles estándar de Azure CDN (**Azure CDN Estándar de Microsoft**, **Azure CDN Estándar de Akamai** y **Azure CDN Estándar de Verizon**), el único mecanismo que permite varios orígenes sin el uso del origen comodín es utilizar el [almacenamiento en caché de cadenas de consulta](cdn-query-string.md). Habilite la configuración de la cadena de consulta para el punto de conexión de CDN y, después, use una cadena de consulta única para las solicitudes de cada dominio permitido. De este modo, la red CDN almacenará en caché un objeto independiente para cada cadena de consulta única. Sin embargo, este enfoque no es ideal, ya que conllevará varias copias del mismo archivo en caché en la red CDN.  
+
 

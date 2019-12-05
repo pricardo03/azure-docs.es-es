@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/17/2018
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: ab55441650085f6ca89f05613fe74dd4ae3cba54
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: b1252c455c2dfad2963f914ee746bcb932e59aa9
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67186701"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74451534"
 ---
 1. Para ver las etiquetas de un recurso o un grupo de recursos, busque las etiquetas existentes en la introducción. Si no ha aplicado etiquetas anteriormente, la lista está vacía.
    
@@ -52,9 +52,9 @@ Para asignar etiquetas a varios recursos de forma masiva:
 
 Para ver todos los recursos con una etiqueta:
 
-1. Seleccione **Todos los servicios** y **Etiquetas**.
+1. En el menú de Azure Portal, seleccione **Todos los servicios**. Seleccione **General** y, a continuación, **Etiquetas**.
 
-     ![Buscar por etiqueta](./media/resource-manager-tag-resources/find-tags.png)
+     ![Buscar por etiqueta](./media/resource-manager-tag-resources/find-tags-general.png)
 
 1. Seleccione la etiqueta para ver los recursos.
 
@@ -70,4 +70,4 @@ Para ver todos los recursos con una etiqueta:
 
 1. La vista está disponible desde el panel.
 
-     ![panel](./media/resource-manager-tag-resources/dashboard.png)
+     ![panel](./media/resource-manager-tag-resources/dashboard-with-view.png)

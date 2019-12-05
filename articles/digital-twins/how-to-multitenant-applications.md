@@ -7,13 +7,13 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/02/2019
-ms.openlocfilehash: 6394d519b93b55358ef9d528f89978d5a3cf3007
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.date: 11/21/2019
+ms.openlocfilehash: 65e1fa3fe371766566eeeaaa2d33479ea0243d61
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74005914"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383364"
 ---
 # <a name="enable-multitenant-applications-with-azure-digital-twins"></a>Habilitar aplicaciones multiinquilino con Azure Digital Twins
 
@@ -54,7 +54,7 @@ Para resolver el problema del escenario anterior, debe realizar las siguientes a
 
 - En [Azure Portal](https://portal.azure.com), el inquilino de Azure Active Directory del **CLIENTE** realiza los siguientes pasos:
 
-  1. Abra la página de **Suscripciones**.
+  1. Busque **Suscripciones** en el campo principal de búsqueda de Azure. Seleccione **Suscripciones**.
   1. Seleccione la suscripción correspondiente al inquilino de Azure Active Directory que se usará en la aplicación del **DESARROLLADOR**.
 
      [![Suscripciones de Azure Active Directory](media/multitenant/ad-subscriptions.png)](media/multitenant/ad-subscriptions.png#lightbox)

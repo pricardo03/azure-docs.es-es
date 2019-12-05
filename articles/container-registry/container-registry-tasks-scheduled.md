@@ -1,23 +1,24 @@
 ---
-title: Programación de Azure Container Registry Tasks
-description: Aprenda a ejecutar una tarea de Azure Container Registry según una programación definida mediante la configuración de uno o más desencadenadores de temporizador
-services: container-registry
-author: dlepow
-manager: gwallace
-ms.service: container-registry
+title: 'Tutorial: Programación de una tarea de ACR'
+description: En este tutorial, aprenderá a ejecutar una tarea de Azure Container Registry según una programación definida mediante la configuración de uno o más desencadenadores de temporizador.
 ms.topic: article
 ms.date: 06/27/2019
-ms.author: danlep
-ms.openlocfilehash: 6272b5467aff10171814152eb4188554a22c7a51
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 37247289ef11873ac37dc78ad56548994220f894
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931462"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74454678"
 ---
 # <a name="run-an-acr-task-on-a-defined-schedule"></a>Ejecución de una tarea de ACR según una programación definida
 
-En este artículo se muestra cómo ejecutar una [tarea de ACR](container-registry-tasks-overview.md) según una programación. Para programar una tarea, configure uno o varios *desencadenadores de temporizador*.
+En este tutorial se muestra cómo ejecutar una [Tarea de ACR](container-registry-tasks-overview.md) según una programación. Para programar una tarea, configure uno o varios *desencadenadores de temporizador*. Los desencadenadores de temporizador se pueden usar solos o en combinación con otros desencadenadores de tareas.
+
+En este tutorial, obtendrá información sobre la programación de tareas y:
+
+> [!div class="checklist"]
+> * Creación de una tarea con un desencadenador de temporizador
+> * Administración de desencadenadores de temporizador
 
 La programación de tareas es útil para escenarios como los siguientes:
 
@@ -199,9 +200,11 @@ Cada campo puede tener uno de los siguientes tipos de valores:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+En este tutorial, ha aprendido a crear tareas de Azure Container Registry que se desencadenan automáticamente con un temporizador. 
+
 Para ver un ejemplo del uso de una tarea programada para limpiar los repositorios de un registro, consulte[Purga automática de imágenes a partir de una instancia de Azure Container Registry](container-registry-auto-purge.md).
 
-Para ver ejemplos de tareas desencadenadas por confirmaciones de código fuente o actualizaciones de la imagen de base, consulte la [serie de tutoriales de ACR Tasks](container-registry-tutorial-quick-task.md).
+Para ver ejemplos de tareas desencadenadas por confirmaciones de código fuente o actualizaciones de imágenes base, consulte otros artículos de la [serie de tutoriales de ACR Tasks](container-registry-tutorial-quick-task.md).
 
 
 

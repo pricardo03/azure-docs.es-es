@@ -6,15 +6,14 @@ author: shizn
 manager: philmea
 ms.author: xshi
 ms.date: 07/22/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-edge
-ms.custom: seodec18
-ms.openlocfilehash: ed668f744716b062fd70d2f63d89152f6fc8a902
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 9cec4c436c6e8ea08e37ec0ddd8a9a01e493447c
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70999139"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561697"
 ---
 # <a name="use-visual-studio-2019-to-develop-and-debug-modules-for-azure-iot-edge"></a>Uso de Visual Studio 2019 para desarrollar y depurar módulos para Azure IoT Edge
 
@@ -106,6 +105,8 @@ La plantilla de proyecto de Azure IoT Edge en Visual Studio crea un proyecto que
 1. Seleccione **Aceptar** para crear la solución de Azure IoT Edge con un módulo que use C# o C.
 
 Ahora tiene un proyecto **AzureIoTEdgeApp1.Linux.Amd64** o **AzureIoTEdgeApp1.Windows.Amd64** y también uno **IotEdgeModule1** en la solución. Cada proyecto **AzureIoTEdgeApp1** tiene un archivo `deployment.template.json`, que define los módulos que quiere compilar e implementar para la solución de IoT Edge y, además, define las rutas entre los módulos. La solución predeterminada tiene un módulo **SimulatedTemperatureSensor** y otro **IotEdgeModule1**. El módulo **SimulatedTemperatureSensor** genera datos simulados para el módulo **IotEdgeModule1**, mientras que el código predeterminado del módulo **IotEdgeModule1** canaliza directamente los mensajes recibidos a Azure IoT Hub.
+
+Para ver cómo funciona el sensor de temperatura simulado, vea el [código fuente de SimulatedTemperatureSensor.csproj](https://github.com/Azure/iotedge/tree/master/edge-modules/SimulatedTemperatureSensor).
 
 El proyecto **IotEdgeModule1** es una aplicación de consola de .NET Core 2.1, si se trata de un módulo de C#. Contiene los archivos de Docker que necesita para que el dispositivo de IoT Edge se ejecute con un contenedor de Windows o Linux. El archivo `module.json` describe los metadatos de un módulo. El código del módulo real, que toma el SDK de dispositivo IoT de Azure como dependencia, se encuentra en los archivos `Program.cs` o `main.c`.
 

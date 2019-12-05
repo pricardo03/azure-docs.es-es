@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/23/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 1a9cebe334b266dfcf7f06608fd6a526ded7179b
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 0c0f1f4dfd873c8c9a18d300b249ace0295e450e
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "74001894"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74174014"
 ---
 Azure Storage ofrece varios tipos de cuentas de almacenamiento. Cada tipo admite diferentes características y tiene su propio modelo de precios. Tenga en cuenta estas diferencias antes de crear una cuenta de almacenamiento para determinar el tipo de cuenta más adecuada para sus aplicaciones. Estos son los tipos de cuentas de almacenamiento:
 
@@ -27,10 +27,10 @@ En la siguiente tabla se describen los tipos de cuentas de almacenamiento y sus 
 
 | Tipo de cuenta de almacenamiento | Servicios admitidos                       | Niveles de rendimiento admitidos      | Niveles de acceso admitidos         | Opciones de replicación               | Modelo de implementación<div role="complementary" aria-labelledby="deployment-model"><sup>1</sup></div> | Cifrado<div role="complementary" aria-labelledby="encryption"><sup>2</sup></div> |
 |----------------------|------------------------------------------|-----------------------------|--------------------------------|-----------------------------------|------------------------------|------------------------|
-| Uso general v2   | Blob, archivo, cola, tabla y disco       | Estándar, Premium<div role="complementary" aria-labelledby="premium-performance"><sup>5</sup></div> | Frecuente, esporádico, archivo<div role="complementary" aria-labelledby="archive"><sup>3</sup></div> | LRS, GRS, RA-GRS, ZRS, GZRS (versión preliminar), RA-GZRS (versión preliminar)<div role="complementary" aria-labelledby="zone-redundant-storage"><sup>4</sup></div> | Resource Manager             | Cifrados              |
+| Uso general v2   | Blob, archivo, cola, tabla, disco y Data Lake Gen2<div role="complementary" aria-labelledby="data-lake-gen2"><sup>6</sup></div>      | Estándar, Premium<div role="complementary" aria-labelledby="premium-performance"><sup>5</sup></div> | Frecuente, esporádico, archivo<div role="complementary" aria-labelledby="archive"><sup>3</sup></div> | LRS, GRS, RA-GRS, ZRS, GZRS (versión preliminar), RA-GZRS (versión preliminar)<div role="complementary" aria-labelledby="zone-redundant-storage"><sup>4</sup></div> | Resource Manager             | Cifrados              |
 | Uso general v1   | Blob, archivo, cola, tabla y disco       | Estándar, Premium<div role="complementary" aria-labelledby="premium-performance"><sup>5</sup></div> | N/D                            | LRS, GRS, RA-GRS                  | Resource Manager, clásico    | Cifrados              |
 | BlockBlobStorage   | Blob (solo blobs en bloques y blobs en anexos) | Premium                       | N/D                            | LRS, ZRS<div role="complementary" aria-labelledby="zone-redundant-storage"><sup>4</sup></div>                               | Resource Manager             | Cifrados              |
-| FileStorage   | Solo archivos | Premium                       | N/D                            | LRS, ZRS<div role="complementary" aria-labelledby="zone-redundant-storage"><sup>4</sup></div>                               | Resource Manager             | Cifrados              |
+| FileStorage   | Solo archivo | Premium                       | N/D                            | LRS, ZRS<div role="complementary" aria-labelledby="zone-redundant-storage"><sup>4</sup></div>                               | Resource Manager             | Cifrados              |
 | BlobStorage         | Blob (solo blobs en bloques y blobs en anexos) | Estándar                      | Frecuente, esporádico, archivo<div role="complementary" aria-labelledby="archive"><sup>3</sup></div> | LRS, GRS, RA-GRS                  | Resource Manager             | Cifrados              |
 
 <div id="deployment-model"><sup>1</sup>Se recomienda usar el modelo de implementación de Azure Resource Manager. Las cuentas de almacenamiento que usan el modelo de implementación clásico aún se pueden crear en algunas ubicaciones; asimismo, se seguirán admitiendo las cuentas clásicas ya existentes. Para obtener más información, consulte <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model">Implementación de Azure Resource Manager frente a la implementación clásica: Conozca los modelos de implementación y el estado de los recursos</a>.</div>
@@ -41,4 +41,6 @@ En la siguiente tabla se describen los tipos de cuentas de almacenamiento y sus 
 
 <div id="zone-redundant-storage"><sup>4</sup>El almacenamiento con redundancia de zona (ZRS) y el almacenamiento con redundancia de zona geográfica (GZRS/RA-GZRS) (versión preliminar) solo están disponibles para las cuentas estándar de uso general V2, BlockBlobStorage y FileStorage en determinadas regiones. Para obtener más información sobre ZRS, consulte <a href="https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs">Almacenamiento con redundancia de zona (ZRS): aplicaciones de Azure Storage de alta disponibilidad</a>. Para obtener más información sobre GZRS/RA-GZRS, consulte <a href="https://docs.microsoft.com/azure/storage/common/storage-redundancy-gzrs">Almacenamiento con redundancia de zona geográfica para obtener alta disponibilidad y durabilidad máxima (versión preliminar)</a>. Para obtener más información acerca de otras opciones de replicación, consulte <a href="https://docs.microsoft.com/azure/storage/common/storage-redundancy">Replicación de Azure Storage</a>.</div>
 
-<div id="premium-performance"><sup>5</sup>El rendimiento prémium para las cuentas v2 y v1 de uso general está disponible solo para blobs en páginas y en disco.</div>
+<div id="premium-performance"><sup>5</sup>El rendimiento prémium para las cuentas v2 y v1 de uso general está disponible solo para blobs en páginas y en disco. El rendimiento Premium para blobs en bloque o en anexos solo está disponible en las cuentas de BlockBlobStorage. El rendimiento Premium para archivos solo está disponible en las cuentas de FileStorage.</div>
+
+<div id="data-lake-gen2"><sup>6</sup>Azure Data Lake Storage Gen2 es un conjunto de funcionalidades dedicadas al análisis de macrodatos basado en Azure Blob Storage. Data Lake Storage Gen2 solo se admite en las cuentas de almacenamiento de uso general V2 con un espacio de nombres jerárquico habilitado. Para más información sobre Data Lake Storage Gen2, consulte <a href="https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction">Introducción a Azure Data Lake Storage Gen2</a>.</div>

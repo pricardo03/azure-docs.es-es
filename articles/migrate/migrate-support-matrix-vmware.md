@@ -1,19 +1,18 @@
 ---
-title: Matriz de compatibilidad de Azure Migrate para la evaluación y migración de VMware
-description: Resume la configuración de compatibilidad y las limitaciones para evaluar y migrar máquinas virtuales de VMware a Azure mediante el servicio Azure Migrate.
-services: backup
+title: Compatibilidad con la evaluación y la migración de VMware en Azure Migrate
+description: Aprenda sobre la compatibilidad con la evaluación y la migración de máquinas virtuales de VMware en Azure Migrate.
 author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: 4b07252aed2205917f6b43e3e09a2877663e5bab
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 135680a9b0b6c8b5520958c884d99a83f1f87c88
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838912"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196268"
 ---
 # <a name="support-matrix-for-vmware-assessment-and-migration"></a>Matriz de compatibilidad para la evaluación y migración de VMware
 
@@ -79,7 +78,13 @@ En esta tabla se resume la compatibilidad con la evaluación y las limitaciones 
 
 ## <a name="assessment-vcenter-server-permissions"></a>Evaluación: permisos de vCenter Server
 
-Para la evaluación necesita una cuenta de solo lectura para vCenter Server.
+Azure Migrate necesita acceder a vCenter Server para detectar máquinas virtuales para su evaluación y migración sin agente.
+
+- Si tiene previsto detectar aplicaciones o visualizar dependencias sin agente, cree una cuenta de vCenter Server con acceso de solo lectura junto con los privilegios habilitados para **Virtual machines** > **Guest Operations** (Máquinas virtuales > Operaciones de invitado).
+
+  ![Privilegios de cuenta de vCenter Server](./media/tutorial-prepare-vmware/vcenter-server-permissions.png)
+
+- Si no tiene previsto realizar la detección de aplicaciones y la visualización de dependencias sin agente, configure una cuenta de solo lectura para vCenter Server.
 
 ## <a name="assessment-appliance-requirements"></a>Evaluación: requisitos del dispositivo
 
@@ -324,7 +329,7 @@ Descargar e instalar en Azure Migrate | Cuando instale el dispositivo y se le so
 **Discos independientes** | Se admite.
 **Discos de acceso directo** | Se admite.
 **NFS** | Los volúmenes NFS montados como volúmenes en las máquinas virtuales no se replicarán.
-Destinos iSCSI | Las máquinas virtuales con destinos iSCSI no se admiten para la migración sin agente.
+**Destinos iSCSI** | Las máquinas virtuales con destinos iSCSI no se admiten para la migración sin agente.
 **E/S de varias rutas** | No compatible.
 **Storage vMotion** | Compatible
 **NIC en equipo** | No compatible.

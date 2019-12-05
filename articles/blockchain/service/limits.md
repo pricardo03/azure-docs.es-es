@@ -1,21 +1,15 @@
 ---
-title: Límites de Azure Blockchain
+title: Límites de Azure Blockchain Service
 description: Información general sobre los límites funcionales y de servicio en Azure Blockchain Service
-services: azure-blockchain
-keywords: ''
-author: PatAltimore
-ms.author: patricka
-ms.date: 05/02/2019
+ms.date: 11/22/2019
 ms.topic: conceptual
-ms.service: azure-blockchain
 ms.reviewer: janders
-manager: femila
-ms.openlocfilehash: 20c26db9453220270d17801b74d904384c74cb36
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: f4001ee520f3f3136d1bac5ca047c80526fc92e6
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73577216"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74455645"
 ---
 # <a name="limits-in-azure-blockchain-service"></a>Límites en Azure Blockchain Service
 
@@ -64,4 +58,4 @@ El tamaño de almacenamiento del libro de contabilidad y del registro no se pued
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Aplicación de revisiones, actualizaciones y versiones](ledger-versions.md)
+Más información sobre las directivas relacionadas con la revisión y las actualizaciones de sistemas: [Revisiones, actualizaciones y versiones](ledger-versions.md).

@@ -1,5 +1,5 @@
 ---
-title: Uso de Azure Data Factory para copiar archivos nuevos de forma incremental solo por el nombre de archivo con particiones de tiempo
+title: Copia incremental de nuevos archivos por el nombre de archivo con particiones de tiempo
 description: Cree una instancia de Azure Data Factory y, luego, use la herramienta Copiar datos para cargar incrementalmente archivos nuevos solo por el nombre de archivo con particiones de tiempo.
 services: data-factory
 documentationcenter: ''
@@ -12,13 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 1/24/2019
-ms.openlocfilehash: 273aaaa2ac51f75edfad6da03d6720f58b7c3c47
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 746b5cbcc58f6c722623446227417e6c94dd0a80
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683447"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74217444"
 ---
 # <a name="incrementally-copy-new-files-based-on-time-partitioned-file-name-by-using-the-copy-data-tool"></a>Copia incremental de nuevos archivos por el nombre de archivo con particiones de tiempo mediante la herramienta Copiar datos
 

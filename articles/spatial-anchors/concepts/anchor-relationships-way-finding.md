@@ -1,19 +1,19 @@
 ---
-title: Relaciones de anclaje y búsqueda de caminos en Azure Spatial Anchors | Microsoft Docs
+title: Relaciones de delimitadores y búsqueda de caminos
 description: Obtenga información sobre el modelo conceptual que sustenta las relaciones de anclaje. Aprenda a conectar anclajes dentro de un espacio y a usar Nearby API para satisfacer un escenario de búsqueda de caminos.
 author: ramonarguelles
-manager: vicenterivera
+manager: vriveras
 services: azure-spatial-anchors
 ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 008269a5883750dc8899d896c101c6a05bf7e814
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f2fd8f4b7d03be8822c3ec12e2be589054942ce3
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65969284"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74270597"
 ---
 # <a name="anchor-relationships-and-way-finding-in-azure-spatial-anchors"></a>Relaciones de anclaje y búsqueda de caminos en Azure Spatial Anchors
 
@@ -60,11 +60,11 @@ Para conectar los anclajes:
 
 ### <a name="connect-anchors-in-multiple-sessions"></a>Conexión de los anclajes en varias sesiones
 
-Puede conectar anclajes espaciales en varias sesiones. Con este método, puede crear y conectar algunos anclajes en un momento del tiempo y más adelante crear y conectar más anclajes. 
+Puede conectar anclajes espaciales en varias sesiones. Con este método, puede crear y conectar algunos anclajes en un momento del tiempo y más adelante crear y conectar más anclajes.
 
 Para conectar anclajes en varias sesiones:
 
-1. La aplicación crea algunos anclajes en un elemento CloudSpatialAnchorSession. 
+1. La aplicación crea algunos anclajes en un elemento CloudSpatialAnchorSession.
 2. En otro momento, la aplicación busca uno de estos anclajes (por ejemplo, el anclaje A) mediante el uso de un nuevo elemento CloudSpatialAnchorSession.
 3. Camine a una nueva ubicación. La plataforma subyacente de realidad mixta o realidad aumentada realiza un seguimiento del movimiento.
 4. Cree el anclaje C mediante el uso del mismo elemento CloudSpatialAnchorSession. Los anclajes A, B y C ahora están conectados. El servicio Spatial Anchors mantiene esta relación.
@@ -73,7 +73,7 @@ Puede seguir este procedimiento para más anclajes y más sesiones a lo largo de
 
 ### <a name="verify-anchor-connections"></a>Comprobación de las conexiones de los anclajes
 
-La aplicación puede comprobar que dos anclajes están conectados mediante la emisión de una consulta de anclajes cercanos. Cuando los resultados de la consulta contienen el anclaje de destino, se comprueba la conexión del anclaje. Si los anclajes no están conectados, la aplicación puede intentar conectarlos de nuevo. 
+La aplicación puede comprobar que dos anclajes están conectados mediante la emisión de una consulta de anclajes cercanos. Cuando los resultados de la consulta contienen el anclaje de destino, se comprueba la conexión del anclaje. Si los anclajes no están conectados, la aplicación puede intentar conectarlos de nuevo.
 
 Estos son algunos de los motivos por los que los anclajes podrían no conectarse:
 

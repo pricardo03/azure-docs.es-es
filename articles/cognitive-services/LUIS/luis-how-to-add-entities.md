@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: diberry
-ms.openlocfilehash: 7de1a1e24c2863b90fe5f1f3ff19124318912cff
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 1f2b293acdc77e25e6b932c47d466cc28a04a2b6
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132694"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383675"
 ---
 # <a name="add-entities-to-extract-data"></a>Agregar entidades para extraer datos 
 
@@ -66,7 +66,7 @@ El uso de entidades con coincidencia de texto proporciona varias maneras de extr
 |--|--|
 |[Entidad de lista](#add-list-entities-for-exact-matches)|Lista de nombres canónicos junto con sinónimos como formas alternativas|
 |Entidad de expresión regular|Coincidencia de texto mediante una entidad de expresiones regulares|
-|[Entidad precompilada](tutorial-machine-learned-entity.md#add-prebuilt-number-to-app-to-help-extract-data)|Coincidencia de tipos de datos comunes, como el número, el correo electrónico o la fecha|
+|[Entidad precompilada](tutorial-machine-learned-entity.md#add-prebuilt-number-to-help-extract-data)|Coincidencia de tipos de datos comunes, como el número, el correo electrónico o la fecha|
 |Entidad de dominio precompilada|Coincidencia de dominios de asunto seleccionados|
 |[Pattern.any](#add-a-patternany-entity)| Coincidencia de entidades que pueden confundirse fácilmente con el texto circundante|  
 
@@ -179,14 +179,18 @@ LUIS no permite cambiar el tipo de la entidad porque no sabe qué agregar o quit
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Más información sobre los patrones:
+> [!div class="nextstepaction"] 
+> [Uso de modelos pregenerados](howto-add-prebuilt-models.md) 
 
-* [Conceptos de patrones](luis-concept-patterns.md)
-* [Sintaxis de patrones](reference-pattern-syntax.md)
+Más información sobre:
+* Procedimientos para [entrenar](luis-how-to-train.md)
+* Procedimientos para [probar](luis-interactive-test.md)
+* Procedimientos para [publicar](luis-how-to-publish-app.md)
+* Patrones:
+    * [Conceptos](luis-concept-patterns.md)
+    * [Sintaxis](reference-pattern-syntax.md)
+* [Repositorio de GitHub de entidades pregeneradas](https://github.com/Microsoft/Recognizers-Text)
+* [Conceptos de extracción de datos](luis-concept-data-extraction.md)
 
-Para más información sobre las entidades preconfiguradas, consulte el proyecto [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text). 
 
-Para información sobre cómo la entidad aparece en la respuesta de la consulta de punto JSON, [Extracción de datos](luis-concept-data-extraction.md)
-
-Ahora que agregó las intenciones, las expresiones y las entidades, tendrá una aplicación de LUIS básica. Obtenga información sobre cómo [entrenar](luis-how-to-train.md), [probar](luis-interactive-test.md) y [publicar](luis-how-to-publish-app.md) la aplicación.
  

@@ -1,5 +1,6 @@
 ---
-title: Diagnóstico de la conectividad local a través de VPN Gateway con Azure Network Watcher | Microsoft Docs
+title: Diagnóstico de la conectividad local a través de VPN Gateway
+titleSuffix: Azure Network Watcher
 description: En este artículo se describe cómo diagnosticar la conectividad local a través de VPN Gateway con la solución de problemas de recursos de Azure Network Watcher.
 services: network-watcher
 documentationcenter: na
@@ -14,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 05335cb6949928244e10641ebe82008275830e67
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c3300338ab37d502646c55411d658ad30581019f
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66754064"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74531825"
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>Diagnóstico de la conectividad local a través de puertas de enlace de VPN
 
@@ -41,7 +42,7 @@ Quiere configurar una conexión de sitio a sitio entre Azure y la red local con 
 
 Encontrará instrucciones paso a paso para definir una configuración de sitio a sitio si visita: [Creación de una red virtual con una conexión de sitio a sitio mediante Azure Portal](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
 
-Uno de los pasos de configuración más importantes es la configuración de los parámetros de comunicación de IPsec, ya que una configuración incorrecta conlleva una pérdida de conectividad entre la red local y Azure. Actualmente, las instancias de Azure VPN Gateway están configuradas para admitir los siguientes parámetros de IPsec durante la fase 1. Tenga en cuenta que, como ya se mencionó anteriormente, esta configuración no se puede modificar.  Como puede ver en la tabla siguiente, los algoritmos de cifrado admitidos por Azure VPN Gateway son AES256 y AES128 y 3DES.
+Uno de los pasos de configuración más importantes es la configuración de los parámetros de comunicación de IPsec, ya que una configuración incorrecta conlleva una pérdida de conectividad entre la red local y Azure. Actualmente, las instancias de Azure VPN Gateway están configuradas para admitir los siguientes parámetros de IPsec durante la fase 1. Como puede ver en la tabla siguiente, los algoritmos de cifrado admitidos por Azure VPN Gateway son AES256 y AES128 y 3DES.
 
 ### <a name="ike-phase-1-setup"></a>Configuración de la fase 1 de IKE
 
@@ -52,7 +53,7 @@ Uno de los pasos de configuración más importantes es la configuración de los 
 | Método de autenticación |Clave previamente compartida |Clave previamente compartida |
 | Algoritmos de cifrado |AES256 AES128 3DES |AES256 3DES |
 | Algoritmo hash |SHA1(SHA128) |SHA1(SHA128), SHA2(SHA256) |
-| Vida útil (tiempo) de la asociación de seguridad (SA) de la fase 1 |28\.800 segundos |10\.800 segundos |
+| Vida útil (tiempo) de la asociación de seguridad (SA) de la fase 1 |28.800 segundos |28.800 segundos |
 
 Como usuario, se le pedirá que configure FortiGate. Puede encontrar un ejemplo de configuración en [GitHub](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Fortinet/Current/fortigate_show%20full-configuration.txt). Sin saberlo, ya configuró FortiGate para que use SHA-512 como algoritmo hash. Como este algoritmo no es un algoritmo compatible con las conexiones basadas en directivas, la conexión VPN funciona.
 
@@ -81,7 +82,7 @@ La característica de solución de problemas de Azure Network Watcher le permite
 
 ### <a name="gateway"></a>Puerta de enlace
 
-| Tipo de error | Motivo | Registro|
+| Tipo de error | Motivo | Log|
 |---|---|---|
 | NoFault | Cuando no se detecta ningún error. |Sí|
 | GatewayNotFound | No se encuentra la puerta de enlace o no está aprovisionada. |Sin|
@@ -96,7 +97,7 @@ La característica de solución de problemas de Azure Network Watcher le permite
 
 ### <a name="connection"></a>Conexión
 
-| Tipo de error | Motivo | Registro|
+| Tipo de error | Motivo | Log|
 |---|---|---|
 | NoFault | Cuando no se detecta ningún error. |Sí|
 | GatewayNotFound | No se encuentra la puerta de enlace o no está aprovisionada. |Sin|

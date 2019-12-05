@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 33fd2221d3f3a0562abf83f014a7b84df972eebc
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: b985dfc1f16372c3fad1b0a5c0894931b4c15dcc
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74128847"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406484"
 ---
 # <a name="get-sensor-data-from-sensor-partners"></a>Obtención de datos de sensor de los asociados de sensor
 
@@ -63,7 +63,7 @@ También puede generar las credenciales mediante la ejecución de este script de
     ./generateCredentials.ps1   
 
     ```
-7. Siga las instrucciones en pantalla para capturar los valores. (punto de conexión de API, identificador de inquilino, identificador de cliente, secreto de cliente y cadena de conexión de EventHub).
+7. Siga las instrucciones en pantalla para capturar los valores. (punto de conexión de API, identificador de inquilino, identificador de cliente, secreto de cliente y cadena de conexión de EventHub). La cadena de conexión de EventHub estará disponible como parte de la respuesta de la API en Swagger.
 
 **Integración de los datos de los dispositivos con las credenciales generadas**
 

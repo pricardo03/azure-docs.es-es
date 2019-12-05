@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 09/05/2019
+ms.date: 11/19/2019
 ms.author: juliako
-ms.openlocfilehash: 584d3fa787fbd44ad47d21c51ea67f301c04436d
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 8cc097bc7083729a0e99c93376fe46b170760cf4
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300318"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327479"
 ---
 # <a name="animated-character-detection-preview"></a>Detección de personajes animados (versión preliminar)
 
@@ -49,11 +49,47 @@ En función de cada tipo de cuenta de Video Indexer, habrá disponibles diferent
 
 ## <a name="use-the-animated-character-detection-with-portal"></a>Uso de la detección de personajes animados con el portal 
 
-En esta sección se describen los pasos que debe seguir para empezar a usar el modelo de detección de personajes animados.
+En esta sección se describen los pasos que debe seguir para empezar a usar el modelo de detección de personajes animados. 
+
+Como en las cuentas de evaluación la integración de Custom Vision se administra mediante Video Indexer, puede empezar a crear y usar el modelo de caracteres animados y saltarse la siguiente sección ("Conexión de la cuenta de Custom Vision").
 
 ### <a name="connect-your-custom-vision-account-paid-accounts-only"></a>Conexión de la cuenta de Custom Vision (solo cuentas de pago)
 
-Si es propietario de una cuenta de pago de Video Indexer, primero debe conectar una cuenta de Custom Vision. Si aún no tiene una cuenta de Custom Vision, cree una. Para obtener más información, consulte [Custom Vision](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/home).
+Si es propietario de una cuenta de pago de Video Indexer, primero debe conectar una cuenta de Custom Vision. Si aún no tiene una cuenta de Custom Vision, cree una. Para obtener más información, consulte [Custom Vision](../../cognitive-services/custom-vision-service/home.md).
+
+> [!NOTE]
+> Las dos cuentas deben estar en la misma región. La integración de Custom Vision no se admite actualmente en la región de Japón.
+
+#### <a name="connect-a-custom-vision-account-with-api"></a>Conexión de una cuenta de Custom Vision con la API 
+
+Siga estos pasos para conectar su cuenta de Custom Vision a Video Indexer, o bien para cambiar la cuenta de Custom Vision que está conectada actualmente a Video Indexer:
+
+1. Vaya a [www.customvision.ai](https://www.customvision.ai) e inicie sesión.
+1. Copie las siguientes claves: 
+
+    * Clave de entrenamiento (para el recurso de entrenamiento)
+    * Clave de predicción (para el recurso de predicción)
+    * Punto de conexión 
+    * Identificador del recurso de predicción
+    
+    > [!NOTE]
+    > Para proporcionar todas las claves, debe tener dos recursos independientes en Custom Vision, uno para el entrenamiento y otro para la predicción.
+1. Inicie sesión en [Video Indexer](https://vi.microsoft.com/).
+1. Haga clic en el signo de interrogación de la esquina superior derecha de la página y elija **API Reference** (Referencia de la API).
+1. Asegúrese de que está suscrito a API Management haciendo clic en la pestaña **Products** (Productos). Si tiene una API conectada, puede continuar con el paso siguiente; de lo contrario, suscríbase. 
+1. En el portal para desarrolladores, haga clic en **Complete API Reference** (Completar referencia de la API) y vaya a **Operations** (Operaciones).  
+1. Seleccione **Connect Custom Vision Account (PREVIEW)** [Conectar cuenta de Custom Vision (VERSIÓN PRELIMINAR)] y haga clic en **Try it** (Probar).
+1. Rellene los campos obligatorios, así como el token de acceso y haga clic en **Send** (Enviar). 
+
+    Para obtener más información sobre cómo obtener el token de Video Indexer, vaya al [portal para desarrolladores](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) y consulte la [documentación pertinente](video-indexer-use-apis.md#obtain-access-token-using-the-authorization-api).  
+1. Cuando la llamada devuelva la respuesta 200 OK, significa que la cuenta está conectada.
+1. Para comprobar la conexión, vaya al portal de [Video Indexer](https://vi.microsoft.com/):
+1. Haga clic en el botón **Content model customization** Personalización del modelo de contenido() en la esquina superior derecha de la página.
+1. Vaya a la pestaña **Animated characters** (Personajes animados).
+1. Una vez que haga clic en Administrar modelos en Custom Vision**, se le transferirá a la cuenta de Custom Vision que acaba de conectar.
+
+> [!NOTE]
+> Actualmente, solo se admiten los modelos creados a través de Video Indexer. Los modelos que se crean a través de Custom Vision no estarán disponibles. Además, el procedimiento recomendado es editar los modelos creados a través de Video Indexer solo con la plataforma de Video Indexer, ya que los cambios realizados a través de Custom Vision pueden provocar resultados no deseados.
 
 ### <a name="create-an-animated-characters-model"></a>Creación de un modelo de personajes animados
 

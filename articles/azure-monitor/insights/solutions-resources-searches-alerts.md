@@ -1,6 +1,6 @@
 ---
 title: Búsquedas guardadas en soluciones de administración | Microsoft Docs
-description: Las soluciones de administración incluyen normalmente búsquedas guardadas en Log Analytics para analizar los datos recopilados por la solución. Pueden definir asimismo alertas para notificar al usuario o realizar automáticamente una acción en respuesta a un problema crítico. En este artículo se describe cómo definir las búsquedas guardadas de Log Analytics en una plantilla de Resource Manager para que puedan incluirse en soluciones de administración.
+description: Las soluciones de administración incluyen por lo general consultas de registro guardadas para analizar los datos recopilados por la solución. En este artículo se describe cómo definir búsquedas guardadas de Log Analytics en una plantilla de Resource Manager.
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
@@ -8,12 +8,12 @@ author: bwren
 ms.author: bwren
 ms.date: 07/29/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ce4f3dcbc28668f786c706e7029061e541a76ce9
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 1f4f0ac5d592a01b284a12e899b0aa5a9a62d122
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553913"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74304932"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Adición de búsquedas y alertas guardadas de Log Analytics en la solución de administración (versión preliminar)
 

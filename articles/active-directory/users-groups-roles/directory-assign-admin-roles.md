@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a53f2a0e5927a75c4d22ada5837da26bd8deeda
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 3b85c5c6c5642d10c8d917ed9785d0fcf48a5e68
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74028279"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74554129"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permisos de roles de administrador en Azure Active Directory
 
@@ -51,9 +51,14 @@ Los roles de administrador disponibles son los siguientes:
 
 los usuarios con este rol pueden crear y administrar todos los aspectos de las aplicaciones empresariales, los registros de aplicaciones y la configuración del proxy de aplicación. Tenga en cuenta que los usuarios asignados a este rol no se agregan como propietarios al crear nuevos registros de aplicaciones o aplicaciones empresariales.
 
-> [!IMPORTANT]
-> Este rol concede la capacidad de administrar credenciales de la aplicación. Los usuarios asignados a este rol pueden agregar credenciales a una aplicación y usarlas para suplantar la identidad de la aplicación. Si a la identidad de la aplicación se le ha concedido acceso a Azure Active Directory, como la capacidad para crear o actualizar usuarios u otros objetos, un usuario asignado a este rol puede realizar esas acciones mientras suplanta la identidad de la aplicación. Esta capacidad de suplantar la identidad de la aplicación puede ser una elevación de privilegios sobre qué puede hacer el usuario mediante sus asignaciones de roles en Azure AD. Es importante saber que, al asignar a un usuario el rol de Administrador de aplicaciones, se le concede la capacidad de suplantar la identidad de la aplicación.
+Los administradores de aplicaciones pueden administrar las credenciales de aplicación que les permite suplantar la aplicación. Por lo tanto, los usuarios asignados a este rol pueden administrar las credenciales de aplicación únicamente de las aplicaciones que no están asignadas a ningún rol de Azure AD ni a los asignados a los roles de administrador siguientes:
+* Administrador de aplicaciones
+* Desarrollador de aplicaciones
+* Administrador de aplicaciones en la nube
+* Lectores de directorios
 
+Si se asigna una aplicación a cualquier otro rol que no se menciona anteriormente, el administrador de la aplicación no puede administrar las credenciales de esa aplicación. 
+ 
 Este rol proporciona igualmente la capacidad de _dar el consentimiento_ para permisos delegados y permisos de aplicaciones, con la excepción de los permisos relacionados con Microsoft Graph y Azure AD Graph.
 
 > [!IMPORTANT]
@@ -122,8 +127,12 @@ hace compras, administra suscripciones, administra incidencias de soporte técni
 
 los usuarios con este rol tienen los mismos permisos que el rol de administrador de la aplicación, excluida la capacidad de administrar el proxy de aplicación. Este rol concede la capacidad de crear y administrar todos los aspectos de las aplicaciones empresariales y los registros de aplicaciones. Este rol proporciona igualmente la capacidad de dar el consentimiento para permisos delegados y permisos de aplicaciones, excepto Microsoft Graph y Azure AD Graph. Los usuarios asignados a este rol no se agregan como propietarios al crear nuevos registros de aplicaciones o aplicaciones empresariales.
 
-> [!IMPORTANT]
-> Este rol concede la capacidad de administrar credenciales de la aplicación. Los usuarios asignados a este rol pueden agregar credenciales a una aplicación y usarlas para suplantar la identidad de la aplicación. Si a la identidad de la aplicación se le ha concedido acceso a Azure Active Directory, como la capacidad para crear o actualizar usuarios u otros objetos, un usuario asignado a este rol puede realizar esas acciones mientras suplanta la identidad de la aplicación. Esta capacidad de suplantar la identidad de la aplicación puede ser una elevación de privilegios sobre qué puede hacer el usuario mediante sus asignaciones de roles en Azure AD. Es importante saber que, al asignar a un usuario el rol de Administrador de aplicaciones en la nube, se le concede la capacidad de suplantar la identidad de la aplicación.
+Los administradores de aplicaciones en la nube pueden administrar las credenciales de aplicación que les permite suplantar la aplicación. Por lo tanto, los usuarios asignados a este rol pueden administrar las credenciales de aplicación únicamente de las aplicaciones que no están asignadas a ningún rol de Azure AD ni a los asignados a los roles de administrador siguientes:
+* Desarrollador de aplicaciones
+* Administrador de aplicaciones en la nube
+* Lectores de directorios
+
+Si se asigna una aplicación a cualquier otro rol que no se menciona anteriormente, el administrador de la aplicación en la nube no puede administrar las credenciales de esa aplicación.
 
 ### <a name="cloud-device-administratorcloud-device-administrator-permissions"></a>[Administrador de dispositivos en la nube](#cloud-device-administrator-permissions)
 
@@ -229,6 +238,7 @@ Los usuarios de este rol pueden leer la configuración y la información adminis
 >- [Portal de Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/): el lector global no puede leer el modo de aprovisionamiento de una aplicación empresarial.
 >- [Centro de administración de M365](https://admin.microsoft.com/Adminportal/Home#/homepage): el lector global no puede leer las solicitudes de la Caja de seguridad del cliente. En el panel izquierdo del Centro de administración de M365 no aparecerá la pestaña **Solicitudes de la Caja de seguridad del cliente** bajo **Soporte**.
 >- [Centro de seguridad de M365](https://security.microsoft.com/homepage): el lector global no puede leer las etiquetas de confidencialidad y retención. No encontrará las pestañas **Etiquetas de confidencialidad**, **Etiquetas de retención** ni **Análisis de etiquetas** en el panel izquierdo del Centro de seguridad de M365.
+>- [Centro de seguridad y cumplimiento de Office](https://sip.protection.office.com/homepage): el lector global no puede leer los registros de auditoría de SCC ni realizar búsqueda de contenido.
 >- [Centro de administración de Teams](https://admin.teams.microsoft.com): el lector global no puede leer **Ciclo de vida de Teams**, **Análisis e informes**, **Administración de dispositivos de teléfono IP** ni **Catálogo de aplicaciones**.
 >- [Privileged Access Management (PAM)](https://docs.microsoft.com/office365/securitycompliance/privileged-access-management-overview) no admite el rol de lector global.
 >- [Azure Information Protection](https://docs.microsoft.com/azure/information-protection/what-is-information-protection): el lector global solo se admite para la [generación de informes centrales](https://docs.microsoft.com/azure/information-protection/reports-aip) y cuando la organización de Azure AD no forma parte de la [plataforma unificada de etiquetado](https://docs.microsoft.com/azure/information-protection/faqs#how-can-i-determine-if-my-tenant-is-on-the-unified-labeling-platform).
@@ -316,6 +326,10 @@ los usuarios con este rol tienen permisos globales en Microsoft Power BI, cuando
 
 > [!NOTE]
 > En Microsoft Graph API, Azure AD Graph API y Azure AD PowerShell, este rol se identifica como "Administrador de servicios de Power BI". En [Azure Portal](https://portal.azure.com) es "Administrador de Power BI".
+
+### <a name="power-platform-administratorpower-platform-administrator-permissions"></a>[Administrador de Power Platform](#power-platform-administrator-permissions)
+
+Los usuarios de este rol pueden crear y administrar todos los aspectos de las directivas de entornos, PowerApps, flujos y prevención de pérdida de datos. Además, los usuarios con este rol tienen la capacidad de administrar incidencias de soporte técnico y supervisar el estado del servicio.
 
 ### <a name="privileged-authentication-administratorprivileged-authentication-administrator-permissions"></a>[Administrador de autenticación con privilegios](#privileged-authentication-administrator-permissions)
 
@@ -1335,12 +1349,31 @@ Puede administrar todos los aspectos del producto Power BI.
 > Este rol tiene permisos adicionales fuera de Azure Active Directory. Para más información, vea la descripción del rol anterior.
 >
 >
-
 | **Acciones** | **Descripción** |
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Leer y configurar Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Crea y administra incidencias de soporte técnico de Azure. |
 | microsoft.powerApps.powerBI/allEntities/allTasks | Administra todos los aspectos de Power BI. |
+| microsoft.office365.webPortal/allEntities/basic/read | Lee las propiedades básicas de todos los recursos en microsoft.office365.webPortal. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Lee y configura el estado de mantenimiento del servicio Office 365. |
+| microsoft.office365.supportTickets/allEntities/allTasks | Crea y administra incidencias de soporte técnico de Office 365. |
+
+
+### <a name="power-platform-administrator-permissions"></a>Permisos de administrador de Power Platform
+
+Puede crear y administrar todos los aspectos de Microsoft Dynamics 365, PowerApps y Microsoft Flow. 
+
+> [!NOTE]
+> Este rol tiene permisos adicionales fuera de Azure Active Directory. Para más información, vea la descripción del rol anterior.
+>
+>
+| **Acciones** | **Descripción** |
+| --- | --- |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Leer y configurar Azure Service Health. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Crea y administra incidencias de soporte técnico de Azure. |
+| microsoft.dynamics365/allEntities/allTasks | Administra todos los aspectos de Dynamics 365. |
+| microsoft.flow/allEntities/allTasks | Administra todos los aspectos de Microsoft Flow. |
+| microsoft.powerApps/allEntities/allTasks | Administra todos los aspectos de PowerApps. |
 | microsoft.office365.webPortal/allEntities/basic/read | Lee las propiedades básicas de todos los recursos en microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Lee y configura el estado de mantenimiento del servicio Office 365. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Crea y administra incidencias de soporte técnico de Office 365. |
@@ -1698,6 +1731,7 @@ Soporte para asociados de nivel 1 | Soporte para asociados de nivel 1 | 4ba39ca4
 Soporte para asociados de nivel 2 | Soporte para asociados de nivel 2 | e00e864a-17c5-4a4b-9c06-f5b95a8d5bd8
 Administrador de contraseñas | Administrador de contraseñas | 966707d0-3269-4727-9be2-8c3a10f19b9d
 Administrador de servicios de Power BI | Administrador de Power BI | a9ea8996-122f-4c74-9520-8edcd192826c
+Administrador de Power Platform | Administrador de Power Platform | 11648597-926c-4cf3-9c36-bcebb0ba8dcc
 Administrador de autenticación con privilegios | Administrador de autenticación con privilegios | 7be44c8a-adaf-4e2a-84d6-ab2649e08a13
 Administrador de roles con privilegios | Administrador de roles con privilegios | e8611ab8-c189-46e8-94e1-60213ab1f814
 Lector de informes | Lector de informes | 4a5d8f65-41da-4de4-8968-e035b65339cf

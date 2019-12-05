@@ -1,17 +1,14 @@
 ---
-title: Traslado de recursos de Azure a una nueva suscripción o grupo de recursos | Microsoft Docs
+title: Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción
 description: Use Azure Resource Manager para trasladar recursos a un nuevo grupo de recursos o a una nueva suscripción.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 11/08/2019
-ms.author: tomfitz
-ms.openlocfilehash: d249ed2a6a2acbb4d1fe1197637f1f65c549db44
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: f106de7fd35bdbe91033af173b1f338dd251f4e8
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132306"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149696"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción
 

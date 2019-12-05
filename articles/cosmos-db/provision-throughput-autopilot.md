@@ -6,12 +6,12 @@ ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 0e9f909aba11d35307e02a98a41ffa04e36e4db2
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 584fedc2ebe93b2a3cfd8a3b538a410d29aebe9d
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73953124"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383085"
 ---
 # <a name="create-azure-cosmos-containers-and-databases-in-autopilot-mode-preview"></a>Creación de contenedores y bases de datos de Azure Cosmos en modo Autopilot (versión preliminar)
 
@@ -68,7 +68,7 @@ Las soluciones a los problemas anteriores no solo requieren una cantidad enorme 
 | **Precios** | RU/s por hora aprovisionadas manualmente. | En el caso de las cuentas de una sola región de escritura, se paga por el rendimiento que se usa cada hora, con la tarifa de RU/s por hora de Autopilot. <br/><br/>En el caso de las cuentas con varias regiones de escritura, no se aplica ningún cargo adicional por Autopilot. Paga por el rendimiento que se usa por hora con la misma tarifa de RU/s por hora de la arquitectura multimaestro. |
 | **Adecuado para los tipos de carga de trabajo** |  Cargas de trabajo predecibles y estables|   Cargas de trabajo impredecibles y variables  |
 
-## <a name="a-idenable-autopilot-enable-autopilot-from-azure-portal"></a><a id="enable-autopilot"> Habilitación de Autopilot desde Azure Portal
+## <a id="enable-autopilot"></a> Habilitación de Autopilot desde Azure Portal
 
 Puede probar el modo Autopilot en las cuentas de Azure Cosmos si lo habilita desde Azure Portal. Siga estos pasos para habilitar la opción Autopilot:
 
@@ -93,6 +93,17 @@ Puede configurar Autopilot para bases de datos o contenedores mientras los crea.
 1. Seleccione **Aceptar**.
 
 Con pasos similares, también puede crear una base de datos con capacidad de proceso aprovisionada en modo Autopilot.
+
+## <a id="autopilot-limits"></a> Límites de rendimiento y almacenamiento para AutoPilot
+
+En la tabla siguiente se muestran los límites de rendimiento y almacenamiento máximos para distintas opciones en el modo AutoPilot:
+
+|Límite de rendimiento máximo  |Límite de almacenamiento máximo  |
+|---------|---------|
+|4000 RU/s  |   50 GB    |
+|20 000 RU/s  |  200 GB  |
+|100 000 RU/s    |  1 TB   |
+|500 000 RU/s    |  5 TB  |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

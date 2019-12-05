@@ -1,6 +1,6 @@
 ---
 title: 'Preguntas y respuestas sobre la aplicación Microsoft Authenticator: Azure AD'
-description: Proporciona una lista de las preguntas y respuestas más frecuentes relacionadas con la aplicación Microsoft Authenticator y la autenticación.
+description: Preguntas y respuestas frecuentes (P+F) relacionadas con la aplicación Microsoft Authentication y la comprobación en dos pasos.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -13,14 +13,14 @@ ms.date: 01/31/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dcd8140acaff693f5b73fe9654968a5ae7cd4c4a
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 5ba475ecae09dadf31441827a2db846286b74ad2
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74029805"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74266958"
 ---
-# <a name="frequently-asked-questions-about-the-microsoft-authenticator-app"></a>Preguntas más frecuentes sobre la aplicación Microsoft Authenticator
+# <a name="frequently-asked-questions-faqs-about-the-microsoft-authenticator-app"></a>Preguntas frecuentes (P+F) sobre la aplicación Microsoft Authenticator
 
 En este artículo se proporcionan respuestas a preguntas habituales sobre la aplicación Microsoft Authenticator. Si no ve una respuesta a su pregunta, vaya al [foro de la aplicación Microsoft Authenticator](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp).
 

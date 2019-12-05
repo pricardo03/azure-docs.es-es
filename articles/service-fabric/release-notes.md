@@ -2,19 +2,19 @@
 title: Versiones de Azure Service Fabric
 description: Notas de la versión de las características y mejoras más recientes de Service Fabric.
 author: athinanthny
-manager: chackdan
+manager: gamonroy
 ms.author: atsenthi
-ms.date: 6/10/2019
+ms.date: 06/10/2019
 ms.topic: conceptual
 ms.service: service-fabric
 hide_comments: true
 hideEdit: true
-ms.openlocfilehash: 4a681b3a09def3a7b27b603cf5201aebdbf2e4bf
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 496a5babe58be4354ffb10a331d35abc8a51b04d
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72386207"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186516"
 ---
 # <a name="service-fabric-releases"></a>Versiones de Service Fabric
 
@@ -28,9 +28,41 @@ En este artículo se proporciona más información sobre las versiones y actuali
 
 ## <a name="whats-new-in-service-fabric"></a>Novedades de Service Fabric
 
+### <a name="service-fabric-70"></a>Service Fabric 7.0
+
+Azure Service Fabric 7.0 ya está disponible. Podrá actualizar a la versión 7.0 mediante Azure Portal o una implementación de Azure Resource Manager. Debido a los comentarios de los clientes sobre las versiones en torno al período de vacaciones, los clústeres establecidos para recibir actualizaciones automáticas no se comenzarán a actualizar automáticamente hasta enero.
+En enero, se reanudará el procedimiento de implementación estándar y los clústeres con actualizaciones automáticas habilitadas comenzarán a recibir la actualización 7.0 automáticamente. Antes de que comience la implementación, se proporcionará otro anuncio.
+También se actualizarán las fechas de lanzamiento planeadas para indicar que esta directiva se debe tener en cuenta. Mire aquí para encontrar actualizaciones en nuestras futuras [programaciones de versiones](https://github.com/Microsoft/service-fabric/#service-fabric-release-schedule).
+ 
+Esta es la versión más reciente de Service Fabric y está cargada con características y mejoras importantes.
+
+### <a name="key-announcements"></a>Anuncios clave
+ - [**Compatibilidad de KeyVaultReference con los secretos de aplicación (versión preliminar)** ](https://docs.microsoft.com/azure/service-fabric/service-fabric-keyvault-references): las aplicaciones de Service Fabric que han habilitado [identidades administradas](https://docs.microsoft.com/azure/service-fabric/concepts-managed-identity) ahora pueden hacer referencia directamente a una dirección URL de secreto de Key Vault como una variable de entorno, un parámetro de aplicación o una credencial del repositorio de contenedores. Service Fabric resolverá automáticamente el secreto mediante la identidad administrada de la aplicación. 
+     
+- **Mejora de la seguridad de actualización en los servicios sin estado**: para garantizar la disponibilidad durante una actualización de la aplicación, se han introducido nuevas configuraciones para definir el [número mínimo de instancias de servicios sin estado](https://docs.microsoft.com/dotnet/api/system.fabric.description.statelessservicedescription?view=azure-dotnet) que se considerarán disponibles. Anteriormente, este valor era 1 para todos los servicios y no se podía modificar. Con esta nueva comprobación de seguridad por servicio, puede estar seguro de que los servicios conservan un número mínimo de instancias durante las actualizaciones de la aplicación, las actualizaciones del clúster y otro mantenimiento que dependa de las comprobaciones de estado y seguridad de Service Fabric.
+  
+- [**Límites de recursos para los servicios de usuario**](https://docs.microsoft.com/azure/service-fabric/service-fabric-resource-governance#enforcing-the-resource-limits-for-user-services): los usuarios pueden configurar límites de recursos para los servicios de usuario de un nodo a fin de evitar escenarios como el agotamiento de recursos de los servicios del sistema de Service Fabric. 
+  
+- [**Costo muy alto de la migración de servicios**](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-movement-cost) para un tipo de réplica. Las réplicas con un costo de migración muy alto solo se migrarán si hay una infracción de restricción en el clúster que no se pueda corregir de otra manera. Para información adicional sobre cuándo el uso de un costo de migración "muy alto" es razonable y para conocer otros aspectos adicionales, consulte los documentos.
+  
+-  **Comprobaciones adicionales de seguridad del clúster**: en esta versión, se ha introducido una comprobación de seguridad del cuórum de nodo raíz que se puede configurar. Esto le permite personalizar cuántos nodos raíz deben estar disponibles durante el ciclo de vida del clúster y los escenarios de administración. Las operaciones que aceptan el clúster por debajo del valor configurado están bloqueadas. Actualmente, el valor predeterminado es siempre un cuórum de los nodos raíz; por ejemplo, si tiene 7 nodos raíz, la operación que le lleve por debajo de 5 nodos raíz se bloquearán. Con este cambio, puede hacer que el valor seguro mínimo sea 6, lo que permitiría que solo un nodo raíz estuviera inactivo cada vez.
+   
+- Se ha agregado compatibilidad con la [**administración del servicio de copia de seguridad y restauración de Service Fabric Explorer**](https://docs.microsoft.com/azure/service-fabric/service-fabric-backuprestoreservice-quickstart-azurecluster). Como resultado, las siguientes actividades son posibles directamente desde SFX: detectar el servicio de copia de seguridad y restauración, crear directivas de copia de seguridad, habilitar copias de seguridad automáticas, realizar copias de seguridad ad hoc, desencadenar operaciones de restauración y examinar copias de seguridad existentes.
+
+- Anuncio de disponibilidad de [**ReliableCollectionsMissingTypesTool**](https://github.com/hiadusum/ReliableCollectionsMissingTypesTool): esta herramienta ayuda a validar que los tipos que se usan en colecciones confiables son compatibles con versiones anteriores y posteriores durante una actualización gradual de la aplicación. Esto ayuda a evitar errores de actualización o pérdida de datos, así como daños en los datos debido a tipos que faltan o que no son compatibles.
+
+- [**Habilitación de lecturas estables en las réplicas secundarias**](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-configuration#configuration-names-1): las lecturas estables restringen las réplicas secundarias a devolver valores que se han confirmado en el cuórum.
+
+Además, esta versión contiene otras características nuevas, correcciones de errores y mejoras de compatibilidad, confiabilidad y rendimiento. Para ver la lista completa de todos los cambios, consulte las [notas de la versión](https://github.com/Azure/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_70.md).
+
+| Fecha de lanzamiento | Release | Más información |
+|---|---|---|
+| 18 de noviembre de 2019 | [Azure Service Fabric 7.0](https://techcommunity.microsoft.com/t5/Azure-Service-Fabric/Service-Fabric-7-0-Release/ba-p/1015482)  | [Notas de la versión](https://github.com/Azure/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_70.md)|
+
+
 ### <a name="service-fabric-65"></a>Service Fabric 6.5
 
-La versión más reciente de Service Fabric incluye mejoras de compatibilidad, confiabilidad y rendimiento, características nuevas, correcciones de errores y mejoras para facilitar la administración del ciclo de vida de los clústeres y las aplicaciones.
+Esta versión incluye mejoras de compatibilidad, confiabilidad y rendimiento, características nuevas, correcciones de errores y optimizaciones para facilitar la administración del ciclo de vida de los clústeres y las aplicaciones.
 
 > [!IMPORTANT]
 > Service Fabric 6.5 es la última versión con compatibilidad con las herramientas de Service Fabric en Visual Studio 2015. Se recomienda a los clientes cambiar a [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) a partir de ahora.

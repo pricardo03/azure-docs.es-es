@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 09/16/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d9b9476d8cc62585be7e7003d837607b502c8566
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 1b791ac58ada84ac0c2087f266d29bff4bd9c6fe
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71067862"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74224705"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Implementación y planeamiento de Azure Virtual Machines para SAP NetWeaver
 
@@ -417,7 +417,7 @@ Tenga en cuenta que los límites mencionados en el vínculo anterior son los sup
 
 La plataforma Microsoft Azure es una plataforma multiempresa. Esto significa que el almacenamiento, la red y otros recursos se comparten entre los inquilinos. Se usa la limitación inteligente y la lógica de cuotas para impedir que un inquilino perjudique el rendimiento de otro (vecino ruidoso) significativamente. Concretamente para certificar la plataforma Azure para SAP HANA, Microsoft debe demostrar el aislamiento de recursos para los casos donde se pueden ejecutar varias máquinas virtuales en el mismo host de forma periódica para SAP. Aunque la lógica de Azure intenta que las variaciones de ancho de banda sean pequeñas, las plataformas con más uso compartido suelen generar mayores variaciones en la disponibilidad de recursos y ancho de banda que las que puedan experimentar los clientes en sus implementaciones locales. Debe tenerse en cuenta que un sistema SAP en Azure podría sufrir mayores variaciones que un entorno local.
 
-Un último paso es evaluar los requisitos de disponibilidad. Puede ocurrir que la infraestructura subyacente de Azure necesite actualizarse y que los hosts que ejecuten las máquinas virtuales tengan que reiniciarse. Microsoft documenta los diferentes casos en [Mantenimiento de máquinas virtuales en Azure](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates). Para mitigar los casos poco frecuentes en que las máquinas virtuales se ven obligadas a reiniciar, pero incluso más importante, para aquellos casos en que se deben aplicar revisiones de los componentes del sistema operativo o del DBMS, debe desarrollar conceptos de alta disponibilidad válidos para los sistemas SAP de producción. Este requisito no es distinto de los requisitos que tendrá que cumplir en la implementación local. Microsoft está promoviendo constantemente la plataforma Azure para reducir el tiempo de inactividad causado por cambios de plataforma. 
+Un último paso es evaluar los requisitos de disponibilidad. Puede ocurrir que la infraestructura subyacente de Azure necesite actualizarse y que los hosts que ejecuten las máquinas virtuales tengan que reiniciarse. Microsoft documenta los diferentes casos en [Mantenimiento de máquinas virtuales en Azure](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates). Para mitigar los casos poco frecuentes en que las máquinas virtuales se ven obligadas a reiniciar, pero incluso más importante, para aquellos casos en que se deben aplicar revisiones de los componentes del sistema operativo o del DBMS, debe desarrollar conceptos de alta disponibilidad válidos para los sistemas SAP de producción. Este requisito es similar a los requisitos que tendrá que cumplir en la implementación local. Microsoft está promoviendo constantemente la plataforma Azure para reducir el tiempo de inactividad causado por cambios de plataforma. 
 
 Para implementar correctamente un sistema SAP en Azure, el sistema operativo, la base de datos y las aplicaciones SAP del entorno SAP local deben aparecer en la matriz de soporte de SAP de Azure. Además, deben ser adecuados a los recursos que la infraestructura de Azure puede proporcionar y deben funcionar con los contratos de nivel de servicio que ofrece Microsoft Azure en lo que respecta a la disponibilidad. Cuando identifique esos sistemas, debe decidirse por uno de los dos siguientes escenarios de implementación.
 

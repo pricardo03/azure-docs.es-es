@@ -7,15 +7,18 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 07/19/2019
-ms.openlocfilehash: 3f0b31cd3d37c3040ff99a89c1a5201b413fd3fc
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.date: 10/22/2019
+ms.openlocfilehash: 9caf0a41096a22e94aeb80ccfd0e6e6f70954a3d
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076631"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185650"
 ---
 # <a name="hdinsight-management-ip-addresses"></a>Direcciones IP de administración de HDInsight
+
+> [!Important]
+> Use la característica [etiqueta de servicio](hdinsight-service-tags.md) para los grupos de seguridad de red. Solo se agregarán nuevas regiones para las etiquetas de servicio y las direcciones IP estáticas quedarán en desuso.
 
 Si usa grupos de seguridad de red (NSG) o rutas definidas por el usuario (UDR) para controlar el tráfico entrante a su clúster de HDInsight, debe asegurarse de que el clúster pueda comunicarse con los servicios críticos de mantenimiento y administración de Azure.  Algunas de las direcciones IP de esos servicios son específicas de la región y algunas de ellas se aplican a todas las regiones de Azure. También es posible que deba permitir el tráfico desde el servicio Azure DNS si no usa DNS personalizado.
 
@@ -29,7 +32,7 @@ Si usa el servicio DNS proporcionado por Azure, debe permitir el acceso desde __
 
 Permita el tráfico desde las siguientes direcciones IP de los servicios de mantenimiento y administración de Azure HDInsight que se aplican a todas las regiones de Azure:
 
-| Dirección IP de origen | Destino  | Dirección |
+| Dirección IP de origen | Destination  | Dirección |
 | ---- | ----- | ----- |
 | 168.61.49.99 | \*:443 | Entrada |
 | 23.99.5.239 | \*:443 | Entrada |
@@ -41,7 +44,7 @@ Permita el tráfico desde las siguientes direcciones IP de los servicios de mant
 Permita el tráfico desde las direcciones IP enumeradas en los servicios de mantenimiento y administración de Azure HDInsight en la región específica en la que se encuentran los recursos:
 
 > [!IMPORTANT]  
-> Si la región de Azure que está usando no aparece, use únicamente las cuatro direcciones IP de la sección anterior.
+> Si la región de Azure que usa no aparece en la lista, use la característica [etiqueta de servicio](hdinsight-service-tags.md) para los grupos de seguridad de red.
 
 | Country | Region | Direcciones IP de origen permitidas | Destino permitido | Dirección |
 | ---- | ---- | ---- | ---- | ----- |

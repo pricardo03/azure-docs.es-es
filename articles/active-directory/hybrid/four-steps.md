@@ -1,5 +1,5 @@
 ---
-title: Cuatro pasos para establecer las bases de una identidad segura con Azure Active Directory
+title: 'Cuatro pasos para una base de identidad sólida: Azure AD'
 description: En este tema se describen cuatro pasos que pueden seguir los clientes de identidad híbrida para establecer las bases de una identidad segura.
 services: active-directory
 author: martincoetzer
@@ -13,12 +13,12 @@ ms.date: 06/20/2019
 ms.subservice: hybrid
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2cd080602ec879affb3ece978f14d5afc33ef9d
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: d3eb98f543e17981be0d5b9ab08fa4e146659b47
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73173090"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74206778"
 ---
 # <a name="four-steps-to-a-strong-identity-foundation-with-azure-active-directory"></a>Cuatro pasos para establecer las bases de una identidad segura con Azure Active Directory
 

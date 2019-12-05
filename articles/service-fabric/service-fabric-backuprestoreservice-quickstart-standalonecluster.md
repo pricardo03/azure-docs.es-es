@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/24/2019
 ms.author: hrushib
-ms.openlocfilehash: 559f6cce7044d57c0a17fc3fe17f1c61f710913a
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: feec830a81b9afe572e05bb6be21ad39edd7af04
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74013330"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232490"
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric"></a>Restauración y copia de seguridad periódicas de Azure Service Fabric
 > [!div class="op_single_selector"]
@@ -172,6 +172,16 @@ $url = "http://localhost:19080/BackupRestore/BackupPolicies/$/Create?api-version
 Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/json'
 ```
 
+#### <a name="using-service-fabric-explorer"></a>Uso de Service Fabric Explorer
+
+1. En Service Fabric Explorer, vaya a la pestaña Backups (Copias de seguridad) y seleccione Actions > Create Backup Policy (Acciones > Crear directiva de copia de seguridad).
+
+    ![Crear directiva de copia de seguridad][6]
+
+2. Rellene la información. En el caso de clústeres independientes, se debe seleccionar FileShare.
+
+    ![Crear directiva de copia de seguridad: FileShare][7]
+
 ### <a name="enable-periodic-backup"></a>Habilitación de la copia de seguridad periódica
 Después de definir la directiva para satisfacer los requisitos de protección de datos de la aplicación, la directiva de copia de seguridad debe asociarse a la aplicación. En función de los requisitos, la directiva de copia de seguridad puede asociarse a una aplicación, un servicio o una partición.
 
@@ -293,3 +303,5 @@ Para ver las copias de seguridad en Service Fabric Explorer, vaya a una partici�
 [3]: ./media/service-fabric-backuprestoreservice/enable-app-backup.png
 [4]: ./media/service-fabric-backuprestoreservice/enable-application-backup.png
 [5]: ./media/service-fabric-backuprestoreservice/backup-enumeration.png
+[6]: ./media/service-fabric-backuprestoreservice/create-bp.png
+[7]: ./media/service-fabric-backuprestoreservice/create-bp-fileshare.png

@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/19/2019
-ms.openlocfilehash: c69ffb30a37de8e6dc3e15aa1f7dcd6a9311d614
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 799b2b6ee6074472a951e69dec7e9a87056373b4
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67274290"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74384020"
 ---
 # <a name="monitor-and-tune-azure-database-for-postgresql---single-server"></a>Supervisión y ajuste en Azure Database for PostgreSQL: Single Server
 La supervisión de los datos sobre los servidores le permite solucionar problemas y optimizar la carga de trabajo. Azure Database for PostgreSQL proporciona diversas opciones de supervisión para ofrecer información detallada sobre el comportamiento del servidor.
@@ -33,8 +33,8 @@ Estas métricas están disponibles para Azure Database for PostgreSQL:
 |serverlog_storage_percent|Porcentaje de almacenamiento del registro del servidor|Percent|El porcentaje usado del almacenamiento máximo de registro del servidor.|
 |serverlog_storage_usage|Almacenamiento del registro del servidor usado|Bytes|La cantidad de almacenamiento de registro del servidor en uso.|
 |serverlog_storage_limit|Límite de almacenamiento del registro del servidor|Bytes|El almacenamiento máximo de registro de este servidor.|
-|active_connections|Conexiones activas|Recuento|Número de conexiones activas al servidor.|
-|connections_failed|Conexiones con errores|Recuento|Número de conexiones con errores al servidor.|
+|active_connections|Conexiones activas|Count|Número de conexiones activas al servidor.|
+|connections_failed|Conexiones con errores|Count|Número de conexiones con errores al servidor.|
 |network_bytes_egress|Red interna|Bytes|Red externa a través de conexiones activas.|
 |network_bytes_ingress|Red interna|Bytes|Red interna a través de conexiones activas.|
 |backup_storage_used|Almacenamiento de copia de seguridad utilizado|Bytes|Cantidad de almacenamiento de copia de seguridad utilizado.|
@@ -52,6 +52,14 @@ El [Almacén de consultas](concepts-query-store.md) realiza un seguimiento del r
 
 ## <a name="performance-recommendations"></a>Recomendaciones de rendimiento
 La característica [Recomendaciones de rendimiento](concepts-performance-recommendations.md) identifica oportunidades para mejorar el rendimiento de la carga de trabajo. Proporciona recomendaciones para crear índices que tienen el potencial de mejorar el rendimiento de las cargas de trabajo. Para generar recomendaciones de índices, la característica tiene en cuenta diversas funcionalidades de la base de datos, como su esquema y la carga de trabajo devueltos por el Almacén de consultas. Después de implementar cualquier recomendación de rendimiento, los clientes deben probar el rendimiento para evaluar el efecto de estos cambios. 
+
+## <a name="service-health"></a>Estado del servicio
+[Azure Service Health](../service-health/overview.md) proporciona una vista de todas las notificaciones de estado del servicio de la suscripción. Puede configurar alertas de Service Health para que se le notifique por su canal de comunicación preferido los problemas o cambios que podrían afectar a los servicios y las regiones de Azure que usa.
+
+Puede ver los eventos de mantenimiento programado para Azure Database for PostgreSQL (servidor único) mediante el tipo de evento **mantenimiento planeado**. Para aprender a crear **alertas de estado del servicio**, visite el artículo [Creación de alertas del registro de actividad en notificaciones del servicio](../service-health/alerts-activity-log-service-notifications.md).
+
+> [!IMPORTANT]
+> Las notificaciones de mantenimiento planeado están disponibles en versión preliminar únicamente en las regiones Este de EE. UU. y Sur de Reino Unido.
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Consulte [Configuración de alertas](howto-alert-on-metric.md) para obtener instrucciones sobre cómo crear una alerta en una métrica.

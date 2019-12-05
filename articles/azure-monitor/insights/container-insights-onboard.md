@@ -6,22 +6,29 @@ ms.subservice: ''
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 11/11/2019
-ms.openlocfilehash: f2a33f96f77678e02c5b72c36563781e7d7ac334
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.date: 11/18/2019
+ms.openlocfilehash: 43016cfb72b90a74ce1313ad2d2316228d743f5f
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73928277"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74195348"
 ---
 # <a name="how-to-enable-azure-monitor-for-containers"></a>Cómo habilitar Azure Monitor para contenedores
 
-En este artículo se proporciona información general acerca de las opciones disponibles para configurar la solución para contenedores de Azure Monitor para supervisar el rendimiento de las cargas de trabajo que se implementan en entornos de Kubernetes y se hospedan en [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/), AKS Engine en [Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908) o Kubernetes implementado de forma local.
+En este artículo se proporciona información general acerca de las opciones disponibles para configurar la solución para contenedores de Azure Monitor para supervisar el rendimiento de las cargas de trabajo que se implementan en entornos de Kubernetes y se hospedan en:
 
-Azure Monitor para contenedores puede habilitarse para implementaciones de AKS nuevas, o en una o más existentes, mediante los siguientes métodos compatibles:
+- [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/)
 
-* Desde Azure Portal, Azure PowerShell o con la CLI de Azure
-* Usando [Terraform y AKS](../../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md)
+- Motor de AKS en [Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908) o Kubernetes implementado de forma local.
+
+- [Red Hat OpenShift en Azure](../../openshift/intro-openshift.md)
+
+Azure Monitor para contenedores puede habilitarse para implementaciones de Kubernetes nuevas, o en una o más existentes, mediante los siguientes métodos compatibles:
+
+- Desde Azure Portal, Azure PowerShell o con la CLI de Azure
+
+- Usando [Terraform y AKS](../../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -29,25 +36,25 @@ Azure Monitor para contenedores puede habilitarse para implementaciones de AKS n
 
 Antes de empezar, asegúrese de que dispone de lo siguiente:
 
-* **Un área de trabajo de Log Analytics.**
+- **Un área de trabajo de Log Analytics.**
 
     Azure Monitor para contenedores admite un área de trabajo de Log Analytics en las regiones enumeradas en los [productos por región](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor) de Azure.
 
     Puede crear un área de trabajo al habilitar la supervisión de su nuevo clúster de AKS o dejar que la experiencia de incorporación cree un área de trabajo predeterminada en el grupo de recursos predeterminado de la suscripción del clúster de AKS. Si opta por crear el área de trabajo usted mismo, puede usar [Azure Resource Manager](../platform/template-workspace-configuration.md), mediante [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json) o [Azure Portal](../learn/quick-create-workspace.md). Para obtener una lista de los pares de asignación compatibles utilizados para el área de trabajo predeterminado, consulte [Region mapping for Azure Monitor for containers](container-insights-region-mapping.md) (Asignación de regiones para Azure Monitor para contenedores).
 
-* Es miembro del **rol de colaborador de Log Analytics** para habilitar la supervisión de contenedores. Para más información acerca de cómo controlar el acceso a un área de trabajo de Log Analytics, consulte [Administración de áreas de trabajo](../platform/manage-access.md).
+- Es miembro del **rol de colaborador de Log Analytics** para habilitar la supervisión de contenedores. Para más información acerca de cómo controlar el acceso a un área de trabajo de Log Analytics, consulte [Administración de áreas de trabajo](../platform/manage-access.md).
 
-* Es miembro del rol de **[propietario](../../role-based-access-control/built-in-roles.md#owner)** en el recurso de clúster de AKS.
+- Es miembro del rol de **[propietario](../../role-based-access-control/built-in-roles.md#owner)** en el recurso de clúster de AKS.
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
-* Las métricas de Prometheus no se recopilan de forma predeterminada. Antes de [configurar el agente](container-insights-prometheus-integration.md) para recopilarlas, es importante revisar la [documentación](https://prometheus.io/) de Prometheus para comprender lo que se puede definir.
+* Las métricas de Prometheus no se recopilan de forma predeterminada. Antes de [configurar el agente](container-insights-prometheus-integration.md) para recopilarlas, es importante revisar la [documentación](https://prometheus.io/) de Prometheus para comprender lo que se puede recopilar y los métodos admitidos.
 
 ## <a name="supported-configurations"></a>Configuraciones admitidas
 
 Lo siguiente se admite oficialmente con Azure Monitor para contenedores.
 
-- Entornos: Kubernetes local, motor de AKS en Azure y Azure Stack. Para más información, vea [Motor de AKS en Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908).
+- Entornos: Red Hat OpenShift en Azure, Kubernetes local y motor de AKS en Azure y Azure Stack. Para más información, vea [Motor de AKS en Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908).
 - Las versiones de Kubernetes y de la directiva de soporte son las mismas que las versiones de [AKS compatibles](../../aks/supported-kubernetes-versions.md). 
 
 ## <a name="network-firewall-requirements"></a>Requisitos de firewall de red
@@ -102,15 +109,18 @@ Para habilitar Azure Monitor para contenedores, puede usar uno de los métodos 
 
 | Estado de la implementación | Método | DESCRIPCIÓN |
 |------------------|--------|-------------|
-| Nuevo clúster de AKS | [Creación de un clúster con la CLI de Azure](../../aks/kubernetes-walkthrough.md#create-aks-cluster)| Puede habilitar la supervisión de un nuevo clúster de AKS que cree con la CLI de Azure. |
-| | [Creación de un clúster con Terraform](container-insights-enable-new-cluster.md#enable-using-terraform)| Puede habilitar la supervisión de un nuevo clúster de AKS que cree mediante la herramienta de código abierto Terraform. |
-| Clúster de AKS existente | [Habilitación con la CLI de Azure](container-insights-enable-existing-clusters.md#enable-using-azure-cli) | Puede habilitar la supervisión de un clúster de AKS ya implementado mediante la CLI de Azure. |
-| |[Habilitación con Terraform](container-insights-enable-existing-clusters.md#enable-using-terraform) | Puede habilitar la supervisión de un clúster de AKS ya implementado mediante la herramienta de código abierto Terraform. |
-| | [Habilitación desde Azure Monitor](container-insights-enable-existing-clusters.md#enable-from-azure-monitor-in-the-portal)| Puede habilitar la supervisión de uno o varios clústeres de AKS ya implementados desde la página de varios clústeres de AKS en Azure Monitor. |
+| Nuevo clúster de Kubernetes | [Creación de un clúster de AKS con la CLI de Azure](../../aks/kubernetes-walkthrough.md#create-aks-cluster)| Puede habilitar la supervisión de un nuevo clúster de AKS que cree con la CLI de Azure. |
+| | [Creación de un clúster de AKS con Terraform](container-insights-enable-new-cluster.md#enable-using-terraform)| Puede habilitar la supervisión de un nuevo clúster de AKS que cree mediante la herramienta de código abierto Terraform. |
+| | [Creación de un clúster de OpenShift mediante una plantilla de Azure Resource Manager](container-insights-azure-redhat-setup.md#enable-for-a-new-cluster-using-an-azure-resource-manager-template) | Puede habilitar la supervisión de un clúster de OpenShift que haya creado con una plantilla preconfigurada de Azure Resource Manager. |
+| Clúster de Kubernetes existente | [Habilitar un clúster de AKS con la CLI de Azure](container-insights-enable-existing-clusters.md#enable-using-azure-cli) | Puede habilitar la supervisión de un clúster de AKS ya implementado mediante la CLI de Azure. |
+| |[Habilitar un clúster de AKS con Terraform](container-insights-enable-existing-clusters.md#enable-using-terraform) | Puede habilitar la supervisión de un clúster de AKS ya implementado mediante la herramienta de código abierto Terraform. |
+| | [Habilitar un clúster de AKS desde Azure Monitor](container-insights-enable-existing-clusters.md#enable-from-azure-monitor-in-the-portal)| Puede habilitar la supervisión de uno o varios clústeres de AKS ya implementados desde la página de varios clústeres en Azure Monitor. |
 | | [Habilitación desde el clúster de AKS](container-insights-enable-existing-clusters.md#enable-directly-from-aks-cluster-in-the-portal)| Puede habilitar la supervisión directamente desde un clúster de AKS en Azure Portal. |
-| | [Habilitación mediante una plantilla de Azure Resource Manager](container-insights-enable-existing-clusters.md#enable-using-an-azure-resource-manager-template)| Puede habilitar la supervisión de un clúster de AKS con una plantilla preconfigurada de Azure Resource Manager. |
+| | [Habilitar para un clúster de AKS mediante una plantilla de Azure Resource Manager](container-insights-enable-existing-clusters.md#enable-using-an-azure-resource-manager-template)| Puede habilitar la supervisión de un clúster de AKS con una plantilla preconfigurada de Azure Resource Manager. |
 | | [Habilitación para un clúster de Kubernetes híbrido](container-insights-hybrid-setup.md) | Puede habilitar la supervisión de una instancia de AKS Engine hospedada en Azure Stack o para Kubernetes hospedado de forma local. |
+| | [Habilitar para un clúster de OpenShift mediante una plantilla de Azure Resource Manager](container-insights-azure-redhat-setup.md#enable-using-an-azure-resource-manager-template) | Puede habilitar la supervisión de un clúster de OpenShift existente con una plantilla preconfigurada de Azure Resource Manager. |
+| | [Habilitar para un clúster de OpenShift desde Azure Monitor](container-insights-azure-redhat-setup.md#from-the-azure-portal) | Puede habilitar la supervisión de uno o varios clústeres de OpenShift ya implementados desde la página de varios clústeres en Azure Monitor. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Con la supervisión habilitada para capturar métricas de estado para los pods y nodos del clúster de AKS, estas métricas de estado están disponibles en Azure Portal. Para obtener información sobre cómo usar Azure Monitor para contenedores, consulte el artículo sobre cómo [ver el estado de Azure Kubernetes Service](container-insights-analyze.md).
+- Con la supervisión habilitada, puede empezar a analizar el rendimiento de los clústeres de Kubernetes hospedados en Azure Kubernetes Service (AKS), Azure Stack u otro entorno. Para aprender a usar Azure Monitor para contenedores, consulte [Visualización del rendimiento del clúster de Kubernetes](container-insights-analyze.md).

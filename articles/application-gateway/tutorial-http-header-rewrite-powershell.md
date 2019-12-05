@@ -1,18 +1,18 @@
 ---
-title: Reescribir encabezados HTTP en Azure Application Gateway
+title: Creación de una instancia de Azure Application Gateway y reescritura de los encabezados HTTP
 description: En este artículo, se proporciona información sobre cómo crear una instancia de Azure Application Gateway y reescribir encabezados HTTP con Azure PowerShell
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 4/30/2019
+ms.date: 11/19/2019
 ms.author: absha
-ms.openlocfilehash: ba74bb8970949a15425a66f7cd4475749fd183df
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2663c049245a7025b5948a64fc5008bb9e7dee90
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64947089"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173712"
 ---
 # <a name="create-an-application-gateway-and-rewrite-http-headers"></a>Crear una instancia de Application Gateway y reescribir los encabezados HTTP
 

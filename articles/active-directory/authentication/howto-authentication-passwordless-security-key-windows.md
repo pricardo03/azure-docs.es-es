@@ -1,22 +1,22 @@
 ---
-title: Habilitar el inicio de sesión con clave de seguridad sin contraseña para Azure AD (versión preliminar) - Azure Active Directory
-description: Habilitación del inicio de sesión con clave de seguridad sin contraseña para Azure AD mediante claves de seguridad FIDO2 (versión preliminar)
+title: 'Inicio de sesión con clave de seguridad sin contraseña en Windows: Azure Active Directory'
+description: Habilitar el inicio de sesión con clave de seguridad sin contraseña para Azure AD mediante llaves de seguridad FIDO2 (versión preliminar)
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b3aa2add128cfc11a638fe6c7e03cfb25189afc
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 5343387da7b2027e1071b19be826e329494cdd3e
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74081557"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74452935"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-preview"></a>Habilitación del inicio de sesión con clave de seguridad sin contraseña en dispositivos Windows 10 (versión preliminar)
 
@@ -45,6 +45,7 @@ Este documento se centra en la habilitación de la autenticación sin contraseñ
 - "Ejecutar como" **no se admite** con la clave de seguridad.
 - El inicio de sesión en un servidor con la clave de seguridad **no se admite**.
 - Si no ha usado la clave de seguridad para iniciar sesión en el dispositivo mientras está conectado, no podrá usarla para iniciar sesión o desbloquearlo sin conexión.
+- Inicie sesión o desbloquee un dispositivo de Windows 10 con una clave de seguridad que contenga varias cuentas de Azure AD. En este escenario se utilizará la última cuenta agregada a la clave de seguridad. WebAuthN permitirá a los usuarios elegir la cuenta que desean usar.
 
 ## <a name="prepare-devices-for-preview"></a>Preparar dispositivos para la versión preliminar
 

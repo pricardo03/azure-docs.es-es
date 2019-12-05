@@ -1,6 +1,6 @@
 ---
-title: 'Configuración de la información de seguridad (versión preliminar) de una clave de seguridad: Azure AD'
-description: Configuración de su información de seguridad para comprobar su identidad con una clave de seguridad Fast Identity Online (FIDO2).
+title: 'Configuración de una clave de seguridad como su método de comprobación: Azure AD'
+description: Cómo configurar su página de información de seguridad (versión preliminar) para comprobar su identidad para usar una clave de seguridad Fast Identity Online (FIDO2) como su método de comprobación.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9d86d594f0918e6a9ffed49142a81a0f7834e86
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 7d02ca3a8b5b617edb8ee00ae7d15ea7e94cae80
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73803789"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278946"
 ---
-# <a name="set-up-security-info-preview-for-a-security-key"></a>Configuración de la información de seguridad (versión preliminar) de una clave de seguridad
+# <a name="set-up-a-security-key-as-your-verification-method"></a>Configuración de una clave de seguridad como su método de comprobación
 
 Puede usar las claves de seguridad como un método de inicio de sesión sin contraseña dentro de su organización. Una clave de seguridad es un dispositivo físico que se usa con un PIN único para iniciar sesión en su cuenta profesional o educativa. Dado que las claves de seguridad requieren el dispositivo físico y algo que solo usted sepa, se considera un método de autenticación más seguro que un nombre de usuario y una contraseña.
 
@@ -35,7 +35,7 @@ Actualmente, se admiten varios diseños y proveedores de claves de seguridad con
 Su administrador u organización le proporcionará una clave de seguridad si lo requiere para su cuenta profesional o educativa. Hay diferentes tipos de claves de seguridad que puede usar; por ejemplo, una llave USB que conecta al dispositivo o una llave NFC que puede acercar a un lector NFC. Puede obtener más información acerca de la clave de seguridad, incluido el tipo, en la documentación del fabricante.
 
 > [!Note]
-> Si no puede usar una clave de seguridad FIDO2, hay otros métodos de autenticación sin contraseña que puede usar, como la aplicación Microsoft Authenticator o Windows Hello. Para obtener más información sobre la aplicación Microsoft Authenticator, consulte [Introducción a la aplicación Microsoft Authenticator](user-help-auth-app-overview.md). Para obtener más información acerca de Windows Hello, consulte [Introducción a Windows Hello](https://www.microsoft.com/windows/windows-hello).
+> Si no puede usar una clave de seguridad FIDO2, hay otros métodos de comprobación sin contraseña que puede usar, como la aplicación Microsoft Authenticator o Windows Hello. Para obtener más información sobre la aplicación Microsoft Authenticator, consulte [Introducción a la aplicación Microsoft Authenticator](user-help-auth-app-overview.md). Para obtener más información acerca de Windows Hello, consulte [Introducción a Windows Hello](https://www.microsoft.com/windows/windows-hello).
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -150,7 +150,7 @@ Para registrar una clave de seguridad, debe tener al menos un método de comprob
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para obtener más información sobre los métodos de autenticación sin contraseña, lea la entrada del blog [Azure AD de Microsoft inicia la versión preliminar pública de claves de seguridad FIDO2, lo que permite los inicios de sesión sin contraseña](https://www.onmsft.com/news/microsofts-azure-ad-begins-public-preview-of-fido2-security-keys-enabling-passwordless-logins), o consulte los artículos [Introducción a la aplicación Microsoft Authenticator](user-help-auth-app-overview.md) e [Introducción a Windows Hello](https://www.microsoft.com/windows/windows-hello).
+- Para obtener más información sobre los métodos de autenticación sin contraseña, lea la entrada del blog [Azure AD de Microsoft inicia la versión preliminar pública de claves de seguridad FIDO2, lo que permite los inicios de sesión sin contraseña](https://www.onmsft.com/news/microsofts-azure-ad-begins-public-preview-of-fido2-security-keys-enabling-passwordless-logins), o consulte los artículos [¿Qué es la aplicación Microsoft Authenticator?](user-help-auth-app-overview.md) e [Introducción a Windows Hello](https://www.microsoft.com/windows/windows-hello).
 
 - Para obtener información más detallada sobre las [claves de seguridad compatibles con Microsoft](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/microsoft-compatible-security-key).
 

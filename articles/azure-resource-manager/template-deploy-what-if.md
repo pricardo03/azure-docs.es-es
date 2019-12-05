@@ -2,23 +2,22 @@
 title: Despliegue de plantillas hipotéticas (Vista previa)
 description: Determine los cambios que se producirán en los recursos antes de implementar una plantilla de Azure Resource Manager.
 author: mumian
-ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 11/12/2019
+ms.date: 11/20/2019
 ms.author: jgao
-ms.openlocfilehash: 84540543f2b809520ab56df5b3e098018fa0d76e
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 19cb674ca7a2dfefc11c7646b23427c722f6e671
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74018623"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278313"
 ---
 # <a name="resource-manager-template-deployment-what-if-operation-preview"></a>Operación hipotética de la implementación de plantilla al Administrador de recursos (vista previa)
 
 Antes de implementar una plantilla, es posible que desee obtener una vista previa de los cambios que se producirán. Azure Resource Manager proporciona la operación hipotética que le permite ver cómo cambiarán los recursos si implementa la plantilla. La operación hipotética no realiza ningún cambio en los recursos existentes. En su lugar, predice los cambios si se implementa la plantilla especificada.
 
 > [!NOTE]
-> La operación hipotética se encuentra actualmente en versión preliminar. Para usarlo, debe [registrarse en la versión preliminar](https://aka.ms/armtemplatepreviews). Como versión preliminar, los resultados a veces pueden mostrar que un recurso cambiará cuando realmente no se produzca ningún cambio. Trabajamos para reducir estos problemas, pero necesitamos su ayuda. Informe de estos problemas en [https://aka.ms/armwhatifissues](https://aka.ms/armwhatifissues).
+> La operación hipotética se encuentra actualmente en versión preliminar. Para usarlo, debe [registrarse en la versión preliminar](https://aka.ms/armtemplatepreviews). Como versión preliminar, los resultados a veces pueden mostrar que un recurso cambiará cuando realmente no se produzca ningún cambio. Trabajamos para reducir estos problemas, pero necesitamos su ayuda. Informe de estos problemas en [https://aka.ms/whatifissues](https://aka.ms/whatifissues).
 
 Puede usar la operación hipotética con la operación REST `New-AzDeploymentWhatIf`Comando PowerShell o las [implementaciones hipotéticas](/rest/api/resources/deployments/whatif).
 
@@ -97,6 +96,8 @@ Observe en la parte superior de la salida que los colores están definidos para 
 
 En la parte inferior de la salida, se muestra el nombre de la SKU (tipo de cuenta de almacenamiento) que se va a cambiar de **Standard_LRS** a **Standard_GRS**.
 
+Algunas de las propiedades que se enumeran como eliminadas no cambiarán realmente. En la imagen anterior, estas propiedades son accessTier, encryption.keySource y otras de esa sección. Las propiedades se pueden notificar incorrectamente como eliminadas cuando no están en la plantilla, pero se establecen de forma automática durante la implementación como valores predeterminados. Este resultado se considera "ruido" en la respuesta what-if. El recurso implementado final tendrá los valores establecidos para las propiedades. A medida que la operación what-if evolucione, estas propiedades se excluirán del resultado.
+
 ### <a name="test-deletion"></a>Eliminación de prueba
 
 La operación hipotética admite el uso del [modo de implementación](deployment-modes.md). Cuando se establece en el modo completo, se eliminan los recursos que no están en la plantilla. En el ejemplo siguiente se implementa una plantilla [que no tiene recursos definidos](https://github.com/Azure/azure-docs-json-samples/blob/master/empty-template/azuredeploy.json) en el modo completo.
@@ -117,7 +118,7 @@ Es importante recordar qué sucede si no realiza ningún cambio real. La cuenta 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Si observa resultados incorrectos de la versión preliminar de what-if, informe de los problemas en [https://aka.ms/armwhatifissues](https://aka.ms/armwhatifissues).
+- Si observa resultados incorrectos de la versión preliminar de what-if, informe de los problemas en [https://aka.ms/whatifissues](https://aka.ms/whatifissues).
 - Para implementar plantillas con Azure PowerShell, consulte [Implementar recursos con plantillas del Administrador de recursos y Azure PowerShell](resource-group-template-deploy.md).
 - Para implementar plantillas con REST, consulte [Implementación de recursos con plantillas del Administrador de recursos y Administrador de recursos API de REST](resource-group-template-deploy-rest.md).
 - Para revertir a una implementación correcta cuando se produce un error, consulte [Revertir en caso de error a una implementación correcta](rollback-on-error.md).

@@ -1,18 +1,16 @@
 ---
-title: Etiquetado y versiones de imágenes en Azure Container Registry
+title: Prácticas recomendadas de etiquetas de imagen
 description: Procedimientos recomendados para el etiquetado y el control de versiones de imágenes del contenedor de Docker al insertar imágenes en Azure Container Registry y extraer imágenes de este
-services: container-registry
 author: stevelasker
-ms.service: container-registry
 ms.topic: article
 ms.date: 07/10/2019
 ms.author: stevelas
-ms.openlocfilehash: 41013fb5831d09d7a4334e94d2b8b39e0cafe4d2
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 2d407f041456ea3856fbeedf98147356eaeb61d6
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931562"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74455000"
 ---
 # <a name="recommendations-for-tagging-and-versioning-container-images"></a>Recomendaciones para el etiquetado y el control de versiones de las imágenes de contenedor
 

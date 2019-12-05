@@ -1,6 +1,7 @@
 ---
-title: 'Filtrado, ordenación y paginación de entidades de Media Services: Azure | Microsoft Docs'
-description: En este artículo se describe el filtrado, la ordenación y la paginación de entidades de Azure Media Services.
+title: Filtrado, ordenación y paginación de entidades de Media Services
+titleSuffix: Azure Media Services
+description: Aprenda sobre el filtrado, la ordenación y la paginación de entidades de Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,12 +13,12 @@ ms.topic: article
 ms.date: 10/11/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: d13ff3944e53f103c03a92e03d217b0066bc97df
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 22b8c4e2454d6130ebcaf85346b767c843fbc1f0
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693308"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186246"
 ---
 # <a name="filtering-ordering-and-paging-of-media-services-entities"></a>Filtrado, ordenación y paginación de entidades de Media Services
 
@@ -41,10 +42,10 @@ Operadores de rango:
 
 - `gt`: se comprueba si un campo es *mayor que* un valor constante.
 - `lt`: se comprueba si un campo es *menor que* un valor constante.
-- `ge`: se comprueba si un campo es *mayor o igual que* un valor constante. value
+- `ge`: se comprueba si un campo es *mayor o igual que* un valor constante.
 - `le`: se comprueba si un campo es *menor o igual que* un valor constante.
 
-## <a name="filter"></a>Filtrar
+## <a name="filter"></a>Filter
 
 Use `$filter` para suministrar un parámetro de filtro de OData que busque únicamente los objetos que le interesen.
 
@@ -59,11 +60,11 @@ En el siguiente ejemplo en C# se filtra por la fecha de creación del recurso:
 ```csharp
 var odataQuery = new ODataQuery<Asset>("properties/created lt 2018-05-11T17:39:08.387Z");
 var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGroup, CustomerAccountName, odataQuery);
-```    
+```
 
 ## <a name="order-by"></a>Ordenar por
 
-Use `$orderby` para ordenar los objetos devueltos por el parámetro especificado. Por ejemplo:    
+Use `$orderby` para ordenar los objetos devueltos por el parámetro especificado. Por ejemplo:  
 
 ```
 GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01$orderby=properties/created%20gt%202018-05-11T17:39:08.387Z
@@ -77,7 +78,7 @@ Si la respuesta a una consulta contiene muchos elementos, el servicio devuelve u
 
 En Media Services v3, no se puede configurar el tamaño de página. El tamaño de página varía según el tipo de entidad. Lea las secciones individuales siguientes para obtener más información.
 
-Si se crean o eliminan entidades al desplazarse por la colección, los cambios se reflejan en los resultados devueltos (si esos cambios se encuentran en la parte de la colección que no se ha descargado). 
+Si se crean o eliminan entidades al desplazarse por la colección, los cambios se reflejan en los resultados devueltos (si esos cambios se encuentran en la parte de la colección que no se ha descargado).
 
 > [!TIP]
 > Se debe usar siempre `nextLink` para enumerar la colección y no tener que depender de un tamaño de página determinado.
@@ -155,7 +156,7 @@ client.Jobs.List(config.ResourceGroup, config.AccountName, VideoAnalyzerTransfor
 
 En la tabla siguiente se muestra cómo pueden aplicarse las opciones de filtrado y ordenación a diferentes entidades:
 
-|Nombre de entidad|Nombre de propiedad|Filtrar|Orden|
+|Nombre de entidad|Nombre de propiedad|Filter|Orden|
 |---|---|---|---|
 |[Recursos](https://docs.microsoft.com/rest/api/media/assets/)|Nombre|`eq`, `gt`, `lt`, `ge`, `le`|`asc` y `desc`|
 ||properties.alternateId |`eq`||

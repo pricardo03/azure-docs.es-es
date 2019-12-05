@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 03/20/2019
-ms.openlocfilehash: daaf5763bde560250ddf70e70466fc9f4ed3e1c2
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.date: 11/14/2019
+ms.openlocfilehash: 1fd59bd18947d2c7aaba787ff7ce286e76f4f890
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73834106"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150041"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Información sobre el uso de HDInsight en Linux
 
@@ -88,14 +88,14 @@ Para más información, consulte el documento [Puertos utilizados por los servic
 
 Puede encontrar los archivos relacionados con Hadoop en los nodos de clúster en `/usr/hdp`. Este directorio raíz contiene los siguientes subdirectorios:
 
-* **2.6.5.3006-29**: El nombre del directorio es la versión de la plataforma Hadoop utilizada por HDInsight. El número del clúster puede ser diferente al que aparece aquí.
-* **current**: este directorio contiene vínculos a los subdirectorios del directorio **2.6.5.3006-29**. Este directorio existe para que no tenga que recordar el número de versión.
+* **2.6.5.3009-43**: El nombre del directorio es la versión de la plataforma Hadoop utilizada por HDInsight. El número del clúster puede ser diferente al que aparece aquí.
+* **current**: este directorio contiene vínculos a los subdirectorios del directorio **2.6.5.3009-43**. Este directorio existe para que no tenga que recordar el número de versión.
 
 Se pueden encontrar datos de ejemplo y archivos JAR en el sistema de archivos distribuido de Hadoop en `/example` y `/HdiSamples`.
 
 ## <a name="hdfs-azure-storage-and-data-lake-storage"></a>HDFS, Azure Storage y Data Lake Storage
 
-En la mayoría de las distribuciones de Hadoop, los datos se almacenan en HDFS, del que se crean copias de seguridad en el almacenamiento local de las máquinas del clúster. El uso de almacenamiento local puede ser costoso para una solución basada en la nube en la que se le cobra por hora o por minuto por los recursos de proceso.
+En la mayoría de las distribuciones de Hadoop, los datos se almacenan en HDFS, del que se crean copias de seguridad en el almacenamiento local de las máquinas del clúster. El uso del almacenamiento local puede ser costoso para una solución basada en la nube en la que se le cobra por hora o por minuto por los recursos de proceso.
 
 Al usar HDInsight, los archivos de datos se almacenan de una forma escalable y resistente en la nube mediante Azure Blob Storage y, opcionalmente, Azure Data Lake Storage. Estos servicios ofrecen las siguientes ventajas:
 
@@ -284,5 +284,4 @@ Para usar otra versión de un componente, cargue la versión que necesita y úse
 
 * [Administración de clústeres de HDInsight mediante la API REST de Apache Ambari](./hdinsight-hadoop-manage-ambari-rest-api.md)
 * [Uso de Apache Hive con HDInsight](hadoop/hdinsight-use-hive.md)
-* [Uso de Apache Pig con HDInsight](hadoop/hdinsight-use-pig.md)
 * [Uso de trabajos de MapReduce con HDInsight](hadoop/hdinsight-use-mapreduce.md)

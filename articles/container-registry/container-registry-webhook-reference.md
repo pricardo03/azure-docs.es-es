@@ -1,19 +1,14 @@
 ---
-title: Referencia de esquema de webhook de Azure Container Registry
-description: Referencia de carga de solicitud JSON de webhook para Azure Container Registry.
-services: container-registry
-author: dlepow
-manager: gwallace
-ms.service: container-registry
+title: Registro de la referencia del esquema de webhook
+description: Referencia de la carga de JSON para las solicitudes de webhook en un registro de contenedor de Azure, que se generan cuando se habilitan webhooks para eventos de inserción o eliminación de artefactos.
 ms.topic: article
 ms.date: 03/05/2019
-ms.author: danlep
-ms.openlocfilehash: fcdee2be92f2a3052e2ebbfaab3a2f9cb96e0125
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 8354ef9db24d5825238155ac567d5d829f9b0d7f
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68311594"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74455964"
 ---
 # <a name="azure-container-registry-webhook-reference"></a>Referencia de webhook de Azure Container Registry
 

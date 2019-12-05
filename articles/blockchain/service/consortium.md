@@ -1,21 +1,15 @@
 ---
 title: Consorcio de Azure Blockchain Service
-description: Uso de un consorcio privado por parte de Azure Blockchain Service
-services: azure-blockchain
-keywords: ''
-author: PatAltimore
-ms.author: patricka
-ms.date: 10/14/2019
+description: Información general sobre cómo Azure Blockchain Service implementa las redes de cadena de bloques del consorcio.
+ms.date: 11/21/2019
 ms.topic: conceptual
-ms.service: azure-blockchain
 ms.reviewer: zeyadr
-manager: femila
-ms.openlocfilehash: ddb3f02662c0c71ebc90e1a740b4068d6fbcded4
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 7b8885ba08d35db20d1eb7e75141cb173913b386
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73577508"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74455735"
 ---
 # <a name="azure-blockchain-service-consortium"></a>Consorcio de Azure Blockchain Service
 
@@ -85,4 +79,4 @@ Para restablecer la cuenta de Ethereum, haga clic en la cuenta de miembro y escr
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Cómo administrar miembros en Azure Blockchain Service mediante PowerShell](manage-consortium-powershell.md)
+Se puede acceder a las acciones de administración del consorcio a través de PowerShell. Para más información, consulte [Administración de los miembros del consorcio en Azure Blockchain Service mediante PowerShell](manage-consortium-powershell.md).

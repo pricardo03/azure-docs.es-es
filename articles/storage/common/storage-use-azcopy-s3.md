@@ -1,5 +1,5 @@
 ---
-title: Transferencia de datos a Azure Storage desde cubos de Amazon S3 mediante AzCopy v10 | Microsoft Docs
+title: Copia de datos desde Amazon S3 a Azure Storage con AzCopy | Microsoft Docs
 description: Transferencia de datos con AzCopy y cubos de Amazon S3
 services: storage
 author: normesta
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: b984d194c75924451a52250490b1a5590b996974
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 21f11b9175566fc020ad21e1983a9bef64ebbae3
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72821382"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327850"
 ---
-# <a name="copy-data-from-amazon-s3-buckets-by-using-azcopy"></a>Copia de datos desde cubos de Amazon S3 mediante AzCopy
+# <a name="copy-data-from-amazon-s3-to-azure-storage-by-using-azcopy"></a>Copia de datos desde Amazon S3 a Azure Storage con AzCopy
 
-AzCopy es una utilidad de línea de comandos que puede usar para copiar blobs o archivos a o desde una cuenta de almacenamiento. Este artículo le ayuda a copiar objetos, directorios y cubos desde Amazon Web Services (AWS) S3 a Azure Blob Storage mediante AzCopy.
+AzCopy es una utilidad de línea de comandos que puede usar para copiar blobs o archivos a una cuenta de almacenamiento o desde una cuenta de almacenamiento. Este artículo le ayuda a copiar objetos, directorios y cubos desde Amazon Web Services (AWS) S3 a Azure Blob Storage mediante AzCopy.
 
 ## <a name="choose-how-youll-provide-authorization-credentials"></a>Elección del modo de proporcionar las credenciales de autorización
 

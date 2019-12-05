@@ -1,5 +1,5 @@
 ---
-title: Planeamiento de la implementación de la supervisión y los informes de Azure Active Directory
+title: 'Planeamiento de informes y supervisión de la implementación: Azure AD'
 description: Describe cómo planear y ejecutar la implementación de la supervisión y los informes.
 services: active-directory
 author: BarbaraSelden
@@ -12,12 +12,12 @@ ms.date: 11/13/2018
 ms.author: baselden
 ms.reviewer: plenzke
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d24a4ab74f7957c068fc664fc4e8898c525afcb
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 5ad84b8910e8d4f8af9845c33c22d128e317dedc
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70162540"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232102"
 ---
 # <a name="plan-an-azure-active-directory-reporting-and-monitoring-deployment"></a>Planeamiento de la implementación de la supervisión y los informes de Azure Active Directory
 

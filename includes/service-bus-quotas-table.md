@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/13/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: b0c6d80bfa7a7ae27e5dc6565b0d15b94eb7cdd3
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: ab17d86251be6a0ef2452b258acf8d055b4605db
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71310606"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561515"
 ---
 En la siguiente tabla se muestra la información de cuotas específica de la mensajería de Azure Service Bus. Para obtener información sobre los precios y otras cuotas de Service Bus, vea [Precios de Service Bus](https://azure.microsoft.com/pricing/details/service-bus/).
 
@@ -38,5 +38,6 @@ En la siguiente tabla se muestra la información de cuotas específica de la men
 | Tamaño de filtros o acciones SQL |Espacio de nombres |Se rechazan las posteriores solicitudes de creación de filtros adicionales y el código que realiza la llamada recibe una excepción. |Longitud máxima de la cadena de condición de filtro: 1024 (1 K).<br /><br />Longitud máxima de la cadena de acción de regla: 1024 (1 K).<br /><br />Número máximo de expresiones por acción de regla: 32. |
 | Número de reglas [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) por espacio de nombres, cola o tema |Entidad, espacio de nombres |Se rechazan las posteriores solicitudes de creación de reglas adicionales en el tema y el código que llama recibe una excepción. |Número máximo de reglas: 12. <br /><br /> Las reglas que se configuran en un espacio de nombres de Service Bus se aplican a todas las colas y temas de dicho espacio de nombres. |
 | Número de mensajes por transacción | Transacción | Los mensajes entrantes adicionales se rechazan y el código que llama recibe una excepción que indica "Cannot send more than 100 messages in a single transaction" (No se pueden enviar más de 100 mensajes en una sola transacción). | 100 <br /><br /> Para ambas operaciones **Send()** y **SendAsync()** . |
+| Número de reglas de filtro de dirección IP y red virtual | Espacio de nombres | &nbsp; | 128 | 
 
 [Azure portal]: https://portal.azure.com

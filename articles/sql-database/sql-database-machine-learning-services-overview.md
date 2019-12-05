@@ -11,28 +11,24 @@ author: dphansen
 ms.author: davidph
 ms.reviewer: carlrab
 manager: cgronlun
-ms.date: 03/01/2019
-ms.openlocfilehash: a2af1fdd1ee461e3b3db613ff4a575649da2dfdc
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/20/2019
+ms.openlocfilehash: ca223de2bc0b26e4968d400ea418761a399dacae
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827429"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74462357"
 ---
 # <a name="azure-sql-database-machine-learning-services-with-r-preview"></a>Machine Learning Services con R de Azure SQL Database (versión preliminar)
 
 Machine Learning Services es una característica de Azure SQL Database que se usa para ejecutar scripts de R en bases de datos. Incluye paquetes de R de Microsoft para el análisis predictivos de alto rendimiento y el aprendizaje automático. Los datos relacionales pueden usarse en scripts de R mediante procedimientos almacenados, scripts de T-SQL que contienen instrucciones en R o código R que contiene T-SQL.
 
-> [!IMPORTANT]
-> Machine Learning Services (con R) de Azure SQL Database se encuentra actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
-> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
-> La versión preliminar pública está disponible para bases de datos únicas y grupos elásticos mediante el modelo de compra basado en núcleos virtuales en los niveles de servicio **de uso general** y **crítico para la empresa**. En esta versión preliminar pública inicial, no se admiten ni el nivel de servicio **hiperescala** ni la opción de implementación de **instancia administrada**. Actualmente, R es el único lenguaje que se admite. En este momento no hay ninguna compatibilidad con Python.
+[!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
+
+> [!NOTE]
+> La versión preliminar está disponible para bases de datos únicas y grupos elásticos mediante el modelo de compra basado en núcleo virtual en los niveles de servicio **de uso general** y **crítico para la empresa**. En esta versión preliminar inicial, no se admiten ni el nivel de servicio **hiperescala** ni la opción de implementación de **instancia administrada**. Actualmente, R es el único lenguaje que se admite. En este momento no hay ninguna compatibilidad con Python.
 >
 > La versión preliminar está disponible actualmente en las siguientes regiones: Oeste de Europa, Norte de Europa, Oeste de EE. UU. 2, Este de EE. UU., Centro-sur de EE. UU., Centro-norte de EE. UU., Centro de Canadá, Sudeste Asiático, Sur de India y Sudeste de Australia.
->
-> [Suscríbase a la versión preliminar](#signup) a continuación.
 
 ## <a name="what-you-can-do-with-r"></a>Qué puede hacer con R
 
@@ -56,15 +52,10 @@ Además de los paquetes preinstalados, puede [instalar paquetes adicionales](sql
 
 ## <a name="sign-up-for-the-preview"></a>Suscríbase a la vista previa
 
-Siga los pasos a continuación para registrarse para participar en la versión preliminar pública:
+> [!IMPORTANT]
+> El registro a Azure SQL Database Machine Learning Services (versión preliminar) actualmente se encuentra cerrado.
 
-1. Si no tiene una suscripción a Azure, [cree una cuenta](https://azure.microsoft.com/free/) antes de empezar.
-
-2. Envíe un correo electrónico a Microsoft en [sqldbml@microsoft.com](mailto:sqldbml@microsoft.com) para registrarse en la versión preliminar pública. De forma predeterminada, la versión preliminar pública de Machine Learning Services (con R) en SQL Database no está habilitada.
-
-Cuando ya esté inscrito en el programa, Microsoft lo incorporará a la versión preliminar pública y habilitará R para su base de datos existente o para una nueva.
-
-No se recomienda el uso de Machine Learning Services con R para cargas de trabajo de producción durante la versión preliminar pública.
+No se recomienda el uso de Machine Learning Services con R para cargas de trabajo de producción durante la versión preliminar.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

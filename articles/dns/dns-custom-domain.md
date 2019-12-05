@@ -1,18 +1,18 @@
 ---
-title: Integración de Azure DNS con los recursos de Azure
-description: Aprenda a usar Azure DNS para proporcionar DNS a los recursos de Azure.
+title: 'Integración de Azure DNS con los recursos de Azure: Azure DNS'
+description: En este artículo, aprenderá a usar Azure DNS para proporcionar servicios de DNS para los recursos de Azure.
 services: dns
-author: vhorne
+author: asudbring
 ms.service: dns
 ms.topic: article
 ms.date: 7/13/2019
-ms.author: victorh
-ms.openlocfilehash: 051aabed758f80208549cf64bf5d74b1fecfbe75
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.author: allensu
+ms.openlocfilehash: b005cb9e0611d18c24e2b77abf493292d47f44b4
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67854153"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74212416"
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>Usar Azure DNS para proporcionar la configuración de un dominio personalizado para un servicio de Azure
 

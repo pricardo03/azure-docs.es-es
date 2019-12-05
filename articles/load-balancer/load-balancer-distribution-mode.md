@@ -1,7 +1,7 @@
 ---
 title: Configuración del modo de distribución de Azure Load Balancer
-titlesuffix: Azure Load Balancer
-description: Cómo configurar el modo de distribución de Azure Load Balancer para admitir la afinidad de IP de origen.
+titleSuffix: Azure Load Balancer
+description: En este artículo, empezará a configurar el modo de distribución de Azure Load Balancer para admitir la afinidad de IP de origen.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -11,14 +11,14 @@ ms.topic: article
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 11/19/2019
 ms.author: allensu
-ms.openlocfilehash: 0d3ddf2e005338a19972cfcdef025579764f7f23
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: ddccd02e7157792d942309ae4f74933322f246f9
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114713"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74225370"
 ---
 # <a name="configure-the-distribution-mode-for-azure-load-balancer"></a>Configuración del modo de distribución de Azure Load Balancer
 
@@ -26,17 +26,26 @@ ms.locfileid: "70114713"
 
 ## <a name="hash-based-distribution-mode"></a>Distribución basada en hash
 
-El modo de distribución predeterminado de Azure Load Balancer es un hash con una tupla de 5 elementos. La tupla se compone de la IP de origen, el puerto de origen, la IP de destino, el puerto de destino y el tipo de protocolo. El hash se utiliza para asignar el tráfico a los servidores disponibles y el algoritmo proporciona adherencia solo dentro de una sesión de transporte. Los paquetes que se encuentran en la misma sesión se dirigen a la misma instancia de IP del centro de datos (DIP) tras el punto de conexión con equilibrio de carga. Cuando el cliente inicia una nueva sesión desde la misma IP de origen, el puerto de origen cambia y provoca que el tráfico vaya hacia otro punto de conexión DIP.
+El modo de distribución predeterminado para Azure Load Balancer es un hash de tupla de cinco elementos. 
 
-![Distribución basada en un hash con una tupla de 5 elementos](./media/load-balancer-distribution-mode/load-balancer-distribution.png)
+La tupla consta de:
+* **IP de origen**
+* **Puerto de origen**
+* **IP de destino**
+* **Puerto de destino**
+* **Tipo de protocolo**
+
+El hash se utiliza para asignar el tráfico a los servidores disponibles. El algoritmo solo proporciona adherencia dentro de una sesión de transporte. Los paquetes que se encuentran en la misma sesión se dirigen a la misma dirección IP del centro de datos tras el punto de conexión con equilibrio de carga. Cuando el cliente inicia una nueva sesión desde la misma IP de origen, el puerto de origen cambia y provoca que el tráfico vaya hacia otro punto de conexión del centro de datos.
+
+![Modo de distribución basada en un hash de tupla de cinco elementos](./media/load-balancer-distribution-mode/load-balancer-distribution.png)
 
 ## <a name="source-ip-affinity-mode"></a>Modo de afinidad de IP de origen
 
-Load Balancer también se puede configurar mediante el modo de distribución de afinidad de IP de origen. Este modo de distribución también se conoce como afinidad de la sesión o afinidad de IP del cliente. El modo utiliza un hash con una tupla de 2 elementos (IP de origen e IP de destino) o de 3 elementos (IP de origen, IP de destino y tipo de protocolo) para asignar el tráfico a los servidores disponibles. Mediante el uso de la afinidad de la IP de origen, las conexiones que se han iniciado desde el mismo equipo cliente van al mismo punto de conexión de DIP.
+El equilibrador de carga también se puede configurar mediante el modo de distribución de afinidad de IP de origen. Este modo de distribución también se conoce como afinidad de la sesión o afinidad de IP del cliente. El modo utiliza un hash de tupla de dos elementos (IP de origen e IP de destino) o de tres elementos (IP de origen, IP de destino y tipo de protocolo) para asignar el tráfico a los servidores disponibles. Mediante el uso de la afinidad de la IP de origen, las conexiones que se han iniciado desde el mismo equipo cliente van al mismo punto de conexión del centro de datos.
 
-En la figura siguiente, se ilustra la configuración de una tupla de 2 elementos. Observe cómo la tupla de 2 elementos se ejecuta a través del equilibrador de carga en la máquina virtual 1 (VM1). A continuación, VM2 y VM3 realizan una copia de seguridad de VM1.
+En la figura siguiente, se ilustra la configuración de tupla de dos elementos. Observe cómo la tupla de dos elementos se ejecuta a través del equilibrador de carga en la máquina virtual 1 (VM1). A continuación, VM2 y VM3 realizan una copia de seguridad de VM1.
 
-![Modo de distribución de afinidad de la sesión de una tupla de 2 elementos](./media/load-balancer-distribution-mode/load-balancer-session-affinity.png)
+![Modo de distribución de afinidad de la sesión de una tupla de dos elementos](./media/load-balancer-distribution-mode/load-balancer-session-affinity.png)
 
 El modo de afinidad de IP de origen resuelve una incompatibilidad entre Azure Load Balancer y la Puerta de enlace de Escritorio remoto (RD Gateway). Al utilizar este modo, puede crear una granja de servidores de Puerta de enlace de Escritorio remoto en un solo servicio en la nube.
 
@@ -55,8 +64,8 @@ Otro escenario de caso de uso es la carga de elementos multimedia. La carga de d
 Para cambiar la configuración del modo de distribución, modifique la regla de equilibrio de carga en el portal.
 
 1. Inicie sesión en Azure Portal y busque el grupo de recursos que contiene el equilibrador de carga que desea cambiar. Para ello, debe hacer clic en **Grupos de recursos**.
-2. En la hoja de información general del equilibrador de carga, haga clic en **Reglas de equilibrio de carga**  en **Configuración**.
-3. En la hoja reglas de equilibrio de carga, haga clic en la regla de que desee cambiar el modo de distribución.
+2. En la pantalla de información general del equilibrador de carga, haga clic en **Reglas de equilibrio de carga**  en **Configuración**.
+3. En la pantalla de reglas de equilibrio de carga, haga clic en la regla de equilibrio de carga para la que desee cambiar el modo de distribución.
 4. En la regla, para cambiar el modo de distribución hay que cambiar el cuadro desplegable **Persistencia de la sesión**.  Están disponibles las siguientes opciones:
     
     * **Ninguno (basado en hash)** : especifica que cualquier máquina virtual puede controlar las solicitudes sucesivas del mismo cliente.
@@ -81,7 +90,7 @@ En máquinas virtuales clásicas, use Azure PowerShell para cambiar la configura
 Get-AzureVM -ServiceName mySvc -Name MyVM1 | Add-AzureEndpoint -Name HttpIn -Protocol TCP -PublicPort 80 -LocalPort 8080 –LoadBalancerDistribution sourceIP | Update-AzureVM
 ```
 
-Establezca el valor del elemento `LoadBalancerDistribution` para la cantidad deseada de equilibrio de carga. Especifique sourceIP para el equilibrio de carga con tupla de 2 elementos (IP de origen e IP de destino). Especifique sourceIPProtocol para el equilibrio de carga con tupla de 3 elementos (IP de origen, IP de destino y tipo de protocolo). Especifique none para el comportamiento predeterminado de equilibrio de carga con tupla de 5 elementos.
+Establezca el valor del elemento `LoadBalancerDistribution` para la cantidad necesaria de equilibrio de carga. Especifique sourceIP para el equilibrio de carga con tupla de dos elementos (IP de origen e IP de destino). Especifique sourceIPProtocol para el equilibrio de carga con tupla de tres elementos (IP de origen, IP de destino y tipo de protocolo). Especifique none para el comportamiento predeterminado de equilibrio de carga con tupla de cinco elementos.
 
 Recupere una configuración de modo de distribución del equilibrador de carga de punto de extremo mediante estos valores:
 
@@ -105,7 +114,7 @@ Recupere una configuración de modo de distribución del equilibrador de carga d
     IdleTimeoutInMinutes : 15
     LoadBalancerDistribution : sourceIP
 
-Cuando el elemento `LoadBalancerDistribution` no está presente, Azure Load Balancer usa el algoritmo de cinco tuplas predeterminado.
+Cuando el elemento `LoadBalancerDistribution` no está presente, Azure Load Balancer usa el algoritmo de tupla de cinco elementos predeterminado.
 
 ### <a name="configure-distribution-mode-on-load-balanced-endpoint-set"></a>Configuración del modo de distribución en un conjunto de puntos de conexión de carga equilibrada
 
@@ -170,7 +179,7 @@ Utilice el modelo de implementación clásica de Azure para cambiar una configur
       </InputEndpoint>
     </LoadBalancedEndpointList>
 
-Como se ha descrito anteriormente, establezca el elemento `LoadBalancerDistribution` en sourceIP para la afinidad con tupla de 2 elementos, sourceIPProtocol para la afinidad con tupla de 3 elementos o none para los casos sin afinidad (afinidad con tupla de 5 elementos).
+Como se ha descrito anteriormente, establezca el elemento `LoadBalancerDistribution` en sourceIP para la afinidad con tupla de dos elementos, sourceIPProtocol para la afinidad con tupla de tres elementos o none para los casos sin afinidad (afinidad con tupla de cinco elementos).
 
 #### <a name="response"></a>Response
 

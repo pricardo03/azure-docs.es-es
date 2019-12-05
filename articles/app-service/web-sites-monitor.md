@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 01/11/2019
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 1cfab9b065fd4e28a9ce11ac85682a298011200b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7edff127bb981db985bebb41740744f325306bc8
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470121"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546194"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Supervisión de aplicaciones en Azure App Service
 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) proporciona una funcionalidad de supervisión integrada para aplicaciones web, back ends móviles y aplicaciones de API en [Azure Portal](https://portal.azure.com).
 
-En Azure Portal, puede revisar *cuotas* y *métricas* para una aplicación, revisar el plan de App Service y configurar automáticamente *alertas* y  *escalados* que se basan en las métricas.
+En Azure Portal, puede revisar *cuotas* y *métricas*, para una aplicación, y el plan de App Service, así como configurar *alertas* y el *escalado automático*, que se basan en las métricas.
 
 ## <a name="understand-quotas"></a>Información sobre las cuotas
 
@@ -64,6 +64,10 @@ Se pueden incrementar o quitar de la aplicación mediante la actualización del 
 
 ## <a name="understand-metrics"></a>Información sobre las métricas
 
+> [!NOTE]
+> **El uso del sistema de archivos** es una nueva métrica que se está implementando globalmente; no se espera ningún dato a menos que se haya incluido en la lista blanca de la versión preliminar privada.
+> 
+
 Las métricas proporcionan información acerca de la aplicación o el comportamiento del plan de App Service.
 
 Para una aplicación, estas son las métricas disponibles:
@@ -77,6 +81,7 @@ Para una aplicación, estas son las métricas disponibles:
 | **Ensamblados actuales** | Número actual de los ensamblados cargados en todos los dominios de aplicación de esta aplicación. |
 | **Entrada de datos** | Cantidad de ancho de banda entrante consumido por la aplicación, en MiB. |
 | **Salida de datos** | Cantidad de ancho de banda saliente consumido por la aplicación, en MiB. |
+| **Uso del sistema de archivos** | Porcentaje de la cuota de sistema de archivos que ha consumido la aplicación. |
 | **Recolección de elementos no utilizados de gen. 0** | Número de veces que los objetos de generación 0 son elementos no utilizados recopilados desde el inicio del proceso de la aplicación. Los elementos no utilizados de última generación incluyen los de generaciones anteriores.|
 | **Recolección de elementos no utilizados de gen. 1** | Número de veces que los objetos de generación 1 son elementos no utilizados recopilados desde el inicio del proceso de la aplicación. Los elementos no utilizados de última generación incluyen los de generaciones anteriores.|
 | **Recolección de elementos no utilizados de gen. 2** | Número de veces que los objetos de generación 2 son elementos no utilizados recopilados desde el inicio del proceso de la aplicación.|

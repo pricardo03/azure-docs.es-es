@@ -9,14 +9,14 @@ ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
 ms.custom: seodec18
-ms.date: 03/12/2019
+ms.date: 11/26/2019
 ms.author: shvija
-ms.openlocfilehash: 5a1b293d4d7f652c0cdd95226113ec3ce8f8222c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 9b8b3600acc33e177e65002ba69dcf98a20c2253
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466143"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555340"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Usar puntos de conexión de servicio de red virtual con Azure Event Hubs
 
@@ -33,7 +33,7 @@ El resultado es una relación privada y aislada entre las cargas de trabajo enla
 > Los servicios de confianza de Microsoft no se admiten cuando se implementan instancias de Virtual Network.
 >
 > Estos son los escenarios comunes de Azure que no funcionan con instancias de Virtual Network (tenga en cuenta que la lista **NO** está completa).
-> - Azure Monitor
+> - Integración con Azure Monitor. No se pueden transmitir registros de diagnóstico desde **otros** servicios de Azure a Event Hubs. Sin embargo, se pueden habilitar los registros de diagnóstico de Azure en el propio centro de eventos. Es el mismo caso que cuando está habilitado el firewall (filtrado de IP).
 > - Azure Stream Analytics
 > - Integración con Azure Event Grid
 > - Enrutamientos de Azure IoT Hub

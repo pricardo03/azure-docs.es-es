@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/07/2019
 ms.author: diberry
-ms.openlocfilehash: 62ce0ac36223098d013cc75b7f62fc2c68e358ed
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: e03c7489268f3ad7076481de4498c5e202f654b6
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73953382"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280293"
 ---
 # <a name="whats-new-in-language-understanding"></a>Novedades de Language Understanding
 
@@ -33,8 +33,8 @@ Conozca las novedades del servicio. Estos elementos incluyen notas de la versió
     * [Árabe e hindi](luis-language-support.md) en versión preliminar pública.
 * Modelos creados previamente
     * Los [dominios precompilados](luis-reference-prebuilt-domains.md) ya están disponibles con carácter general (GA)
-    * [Entidades precompiladas](luis-reference-prebuilt-entities.md#japanese-entity-support) en japonés: edad, moneda, número y porcentaje no se admiten en la versión V3.
-    * [Entidades precompiladas](luis-reference-prebuilt-entities.md#italian-entity-support) en italiano: edad, moneda, dimensión, número y resolución porcentual se cambiaron desde la versión V2.
+    * [Entidades pregeneradas](luis-reference-prebuilt-entities.md#japanese-entity-support) en japonés: edad, moneda, número y porcentaje no se admiten en la versión V3.
+    * [Entidades pregeneradas](luis-reference-prebuilt-entities.md#italian-entity-support) en italiano: edad, moneda, dimensión, número y resolución porcentual se cambiaron desde la versión V2.
 * Mejore la experiencia del usuario en el [portal de preview.luis.ai](https://preview.luis.ai): una experiencia de etiquetado renovada para habilitar la compilación y depuración de modelos complejos. Pruebe los tutoriales del portal de versión preliminar:
     * [Solo intenciones](tutorial-intents-only.md)
     * [Entidad de aprendizaje automático que se puede descomponer](tutorial-machine-learned-entity.md) 

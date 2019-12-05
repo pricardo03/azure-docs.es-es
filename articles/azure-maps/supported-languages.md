@@ -3,17 +3,17 @@ title: Soporte de localización en Azure Maps | Microsoft Docs
 description: Conozca los idiomas admitidos en los servicios de Azure Maps
 author: walsehgal
 ms.author: v-musehg
-ms.date: 06/26/2019
+ms.date: 11/20/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: b3382cffdc41685f8329a640aaf6c6c526375a83
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 64197cc85822997926a8011af8cb3b981fa9064d
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299843"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74286416"
 ---
 # <a name="localization-support-in-azure-maps"></a>Soporte de localización en Azure Maps
 
@@ -25,62 +25,77 @@ Azure Maps admite varios idiomas y vistas según el país o región. En este art
 Los servicios de Azure Maps se han localizado en diversos idiomas. En la tabla siguiente se proporcionan los códigos de idioma admitidos para cada servicio.  
   
 
-| id         | NOMBRE                   |  Mapas | Search | Enrutamiento | Incidentes de tráfico | Control de mapa JS | Zona horaria |
-|------------|------------------------|:-----:|:------:|:-------:|:-----------------:|:--------------:|:---------:|
-| af-ZA      | Afrikáans              |       |    ✓   |    ✓    |                   |                |     ✓     |
-| ar-SA      | Árabe                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| eu-ES      | Vasco                 |       |    ✓   |         |                   |                |     ✓     |
-| bg-BG      | Búlgaro              |   ✓   |    ✓   |    ✓    |                   |        ✓       |     ✓     |
-| ca-ES      | Catalán                |       |    ✓   |         |                   |                |     ✓     |
-| zh-HanS    | Chino (simplificado)   |       |  zh-CN |         |                   |                |     ✓     |
-| zh-HanT    | Chino (tradicional)  | zh-TW |  zh-TW |  zh-TW  |                   |      Zh-TW     |     ✓     |
-| hr-HR      | Croata               |       |    ✓   |         |                   |                |     ✓     |
-| cs-CZ      | Checo                  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| da-DK      | Danés                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| nl-NL      | Neerlandés                  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| nl-BE      | Neerlandés (belga)        |       |    ✓   |         |                   |                |     ✓     |
-| en-AU      | Inglés (Australia)    |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| en-NZ      | Inglés (Nueva Zelanda)  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| en-GB      | Inglés (Gran Bretaña) |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| en-US      | Inglés (EE. UU.)          |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| et-EE      | Estonio               |       |    ✓   |         |         ✓         |                |     ✓     |
-| fi-FI      | Finés                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| fr-FR      | Francés                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| fr-CA      | Francés (canadiense)      |       |    ✓   |         |                   |                |     ✓     |
-| gl-ES      | Gallego               |       |    ✓   |         |                   |                |     ✓     |
-| de-DE      | Alemán                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| el-GR      | Griego                  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| he-IL      | Hebreo                 |       |    ✓   |         |         ✓         |                |     ✓     |
-| hi-IN      | Hindi                  |       |        |         |                   |                |     ✓     |
-| hu-HU      | Húngaro              |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| id-ID      | Indonesio             |   ✓   |    ✓    |    ✓    |         ✓         |        ✓       |     ✓     |
-| it-IT      | Italiano                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| ja-JP      | Japonés               |       |        |         |                   |                |     ✓     |
-| kk-KZ      | Kazajo                 |       |    ✓   |         |                   |                |     ✓     |
-| ko-KR      | Coreano                 |   ✓   |        |    ✓    |                   |        ✓       |     ✓     |
-| es-419     | Español (América latina) |       |    ✓   |         |                   |                |     ✓     |
-| lv-LV      | Letón                |       |    ✓   |         |         ✓         |                |     ✓     |
-| lt-LT      | Lituano             |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| ms-MY      | Malayo (latino)          |   ✓   |    ✓   |    ✓    |                   |        ✓       |     ✓     |
-| nb-NO      | Noruego bokmal       |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| NGT        | Neutral Ground Truth, idiomas oficiales para todas las regiones en alfabetos locales si están disponibles |   ✓     |        |         |                   |      ✓          |         |
-| NGT-Latn   | Neutral Ground Truth, exónimos latinos. Si está disponible, se usará el alfabeto latino |   ✓     |        |         |                   |        ✓         |          |
-| pl-PL      | Polaco                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| pt-BR      | Portugués (Brasil)    |   ✓   |    ✓   |    ✓    |                   |        ✓       |     ✓     |
-| pt-PT      | Portugués (Portugal)  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| ro-RO      | Rumano               |       |    ✓    |         |         ✓         |                |     ✓     |
-| ru-RU      | Ruso                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| sr-Cyrl-RS | Serbio (cirílico)     |       |    Serbio (cirílico) (sr-RS)   |         |                   |                |     ✓     |
-| sr-Latn-RS | Serbio (latino)        |       |        |         |                   |                |     ✓     |
-| sk-SK      | Eslovaco              |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| sl-SL      | Esloveno              |   ✓   |    ✓   |    ✓    |                   |        ✓       |     ✓     |
-| es-ES      | Español                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| es-MX      | Español (México)       |   ✓   |        |    ✓    |                   |        ✓       |     ✓     |
-| sv -SE     | Sueco                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| th-TH      | Tailandés                   |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| tr-TR      | Turco                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| uk-UA      | Ucraniano               |       |    ✓   |         |                   |                |     ✓     |
-| vi-VN      | Vietnamita             |       |    ✓   |         |                   |                |     ✓     |
+| id         | NOMBRE                   |  Mapas | Search | Enrutamiento | Tiempo | Incidentes de tráfico | Control de mapa JS |
+|------------|------------------------|:-----:|:------:|:-------:|:--------:|:-----------------:|:--------------:|
+| af-ZA      | Afrikáans              |       |    ✓   |    ✓    |         |                   |                |
+| ar-SA      | Árabe                 |   ✓   |    ✓   |    ✓    |    ✓      |         ✓         |        ✓       |
+| bn-BD      | Bengalí (Bangladesh)    |       |       |         |     ✓    |                   |                |
+| bn-IN      | Bengalí (India)         |       |       |         |     ✓    |                   |                |
+| bs-BA      | Bosnio                 |       |       |         |     ✓    |                   |                |
+| eu-ES      | Vasco                 |       |    ✓   |         |         |                   |                |
+| bg-BG      | Búlgaro              |   ✓   |    ✓   |    ✓    |     ✓     |                   |        ✓       |
+| ca-ES      | Catalán                |       |    ✓   |         |    ✓      |                   |                |
+| zh-HanS    | Chino (simplificado)   |       |  zh-CN |         |     zh-CN   |                   |                |
+| zh-HanT    | Chino (RAE de Hong Kong)  |  |   |    |    zh-HK   |                   |           |
+| zh-HanT    | Chino (Taiwán)  | zh-TW |  zh-TW |  zh-TW  |    zh-TW   |                   |      zh-TW     |
+| hr-HR      | Croata               |       |    ✓   |         |    ✓      |                   |                |
+| cs-CZ      | Checo                  |   ✓   |    ✓   |    ✓    |    ✓      |         ✓         |        ✓       |
+| da-DK      | Danés                 |   ✓   |    ✓   |    ✓    |     ✓     |         ✓         |        ✓       |
+| nl-BE      | Neerlandés (Bélgica)        |       |    ✓   |         |      ✓    |                   |                |
+| nl-NL      | Neerlandés (Países Bajos)    |   ✓   |    ✓   |    ✓    |     ✓     |         ✓         |        ✓       |
+| en-AU      | Inglés (Australia)    |   ✓   |    ✓   |    ✓    |     ✓     |         ✓         |        ✓       |
+| en-NZ      | Inglés (Nueva Zelanda)  |   ✓   |    ✓   |    ✓    |     ✓     |         ✓         |        ✓       |
+| en-GB      | Inglés (Gran Bretaña) |   ✓   |    ✓   |    ✓    |     ✓     |         ✓         |        ✓       |
+| en-US      | Inglés (EE. UU.)          |   ✓   |    ✓   |    ✓    |      ✓    |         ✓         |        ✓       |
+| et-EE      | Estonio               |       |    ✓   |         |      ✓    |         ✓         |                |
+| fil-PH     | Filipino               |       |       |         |     ✓    |                   |                |
+| fi-FI      | Finés                |   ✓   |    ✓   |    ✓    |      ✓    |         ✓         |        ✓       |
+| fr-FR      | Francés                 |   ✓   |    ✓   |    ✓    |      ✓    |         ✓         |        ✓       |
+| fr-CA      | Francés (Canadá)      |       |    ✓   |         |     ✓     |                   |                |
+| gl-ES      | Gallego               |       |    ✓   |         |         |                   |                |
+| de-DE      | Alemán                 |   ✓   |    ✓   |    ✓    |   ✓      |         ✓         |        ✓       |
+| el-GR      | Griego                  |   ✓   |    ✓   |    ✓    |    ✓     |         ✓         |        ✓       |
+| gu-IN      | Gujarati                |       |       |         |     ✓    |                   |                |
+| he-IL      | Hebreo                 |       |    ✓   |         |     ✓    |         ✓         |                |
+| hi-IN      | Hindi                  |       |        |         |     ✓    |                   |                |
+| hu-HU      | Húngaro              |   ✓   |    ✓   |    ✓    |     ✓    |         ✓         |        ✓       |
+| is-IS      | Islandés              |       |       |         |     ✓    |                   |                |
+| id-ID      | Indonesio             |   ✓   |    ✓    |    ✓    |     ✓    |         ✓         |        ✓       |
+| it-IT      | Italiano                |   ✓   |    ✓   |    ✓    |      ✓   |         ✓         |        ✓       |
+| ja-JP      | Japonés               |       |        |         |     ✓    |                   |                |
+| kn-IN      | Canarés                |       |       |         |     ✓    |                   |                |
+| kk-KZ      | Kazajo                 |       |    ✓   |         |     ✓    |                   |                |
+| ko-KR      | Coreano                 |   ✓   |        |    ✓    |     ✓    |                   |        ✓       |
+| es-419     | Español (América latina) |       |    ✓   |         |         |                   |                |
+| lv-LV      | Letón                |       |    ✓   |         |     ✓    |         ✓         |                |
+| lt-LT      | Lituano             |   ✓   |    ✓   |    ✓    |     ✓    |         ✓         |        ✓       |
+| mk-MK      | Macedonio             |       |       |         |     ✓    |                   |                |
+| ms-MY      | Malayo (latino)          |   ✓   |    ✓   |    ✓    |    ✓   |                   |        ✓       |
+| mr-IN      | Maratí                 |       |       |         |     ✓    |                   |                |
+| nb-NO      | Noruego bokmal       |   ✓   |    ✓   |    ✓    |      ✓   |         ✓         |        ✓       |
+| NGT        | Neutral Ground Truth, idiomas oficiales para todas las regiones en alfabetos locales si están disponibles |   ✓     |        |         |       |        |      ✓          |
+| NGT-Latn   | Neutral Ground Truth, exónimos latinos. Si está disponible, se usará el alfabeto latino |   ✓     |        |         |         |                |        ✓         |
+| pl-PL      | Polaco                 |   ✓   |    ✓   |    ✓    |     ✓    |         ✓         |        ✓       |
+| pt-BR      | Portugués (Brasil)    |   ✓   |    ✓   |    ✓    |      ✓   |                   |        ✓       |
+| pt-PT      | Portugués (Portugal)  |   ✓   |    ✓   |    ✓    |      ✓   |         ✓         |        ✓       |
+| pa-IN      | Punjabi                 |       |       |         |     ✓    |                   |                |
+| ro-RO      | Rumano               |       |    ✓    |         |     ✓    |         ✓         |                |
+| ru-RU      | Ruso                |   ✓   |    ✓   |    ✓    |      ✓   |         ✓         |        ✓       |
+| sr-Cyrl-RS | Serbio (cirílico)     |       |   sr-RS  |         |    sr-RS     |                   |                |
+| sr-Latn-RS | Serbio (latino)        |       |       |         |     sr-latn    |                   |                |
+| sk-SK      | Eslovaco             |   ✓   |    ✓   |    ✓    |     ✓    |         ✓         |        ✓       |
+| sl-SL      | Esloveno              |   ✓   |    ✓   |    ✓    |     ✓    |                   |        ✓       |
+| es-ES      | Español                |   ✓   |    ✓   |    ✓    |     ✓    |         ✓         |        ✓       |
+| es-MX      | Español (México)       |   ✓   |        |    ✓    |     ✓    |                   |        ✓       |
+| sv-SE      | Sueco                |   ✓   |    ✓   |    ✓    |     ✓    |         ✓         |        ✓       |
+| ta-IN      | Tamil (India)                 |       |       |         |     ✓    |                   |                |
+| te-IN      | Telugu (India)                 |       |       |         |     ✓    |                   |                |
+| th-TH      | Tailandés                   |   ✓   |    ✓   |    ✓    |     ✓    |         ✓         |        ✓       |
+| tr-TR      | Turco                |   ✓   |    ✓   |    ✓    |     ✓    |         ✓         |        ✓       |
+| uk-UA      | Ucraniano               |       |    ✓   |         |     ✓    |                   |                |
+| ur-PK      | Urdu                 |       |       |         |     ✓    |                   |                |
+| uz-Latn-UZ | Uzbeko                 |       |       |         |     ✓    |                   |                |
+| vi-VN      | Vietnamita             |       |    ✓   |         |      ✓    |                  |                |
 
 
 ## <a name="azure-maps-supported-views"></a>Vistas admitidas en Azure Maps

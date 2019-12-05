@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to create a route table using the portal.
-ms.openlocfilehash: 8f24b94226daffb769993c9f6659909fdff039b6
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 6b78b97004498fdacccdf9408d59158424ff6c07
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014984"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74534132"
 ---
 # <a name="create-a-virtual-wan-hub-route-table-for-nvas-azure-portal"></a>Cree una tabla de rutas de concentrador de Virtual WAN para dispositivos virtuales de red: Portal de Azure
 
-En este artículo se muestra cómo dirigir el tráfico de un concentrador a un dispositivo virtual de red (NVA).
+En este artículo se muestra cómo dirigir el tráfico desde una rama (sitio local) conectada al centro de conectividad Virtual WAN hacia una red virtual de radio a través de una Aplicación virtual de red (NVA).
 
 ![Diagrama de Virtual WAN](./media/virtual-wan-route-table/vwanroute.png)
 
@@ -31,7 +31,7 @@ Compruebe que se cumplen los criterios siguientes:
 
     * El NVA no se implementa en el concentrador virtual. Se debe implementar en una red virtual independiente.
 
-    *  La red virtual NVA puede tener una o varias redes virtuales conectadas a ella. En este artículo, nos referimos a la red virtual de NVA como "red virtual de radio indirecta". Estas redes virtuales pueden conectarse a la red virtual de NVA mediante emparejamiento de redes virtuales.
+    *  La red virtual NVA puede tener una o varias redes virtuales conectadas a ella. En este artículo, nos referimos a la red virtual de NVA como "red virtual de radio indirecta". Estas redes virtuales pueden conectarse a la red virtual de NVA mediante emparejamiento de redes virtuales. Los vínculos de emparejamiento de VNet se representan mediante las flechas negras de la ilustración anterior entre la red virtual 1, la red virtual 2 y la red virtual NVA.
 *  Ha creado dos redes virtuales. Se usarán como redes virtuales de radio.
 
     * En este ejercicio, los espacios de direcciones de red virtual de radio son: VNet1: 10.0.2.0/24 y VNet2: 10.0.3.0/24. Si necesita más información sobre cómo crear una red virtual, consulte [Creación de una red virtual](../virtual-network/quick-create-portal.md).
@@ -79,7 +79,7 @@ Actualice el concentrador con una tabla de rutas de concentrador. A efectos de e
 
 ## <a name="connections"></a>5. Creación de las conexiones de red virtual
 
-Cree una conexión desde cada red virtual de radio indirecta (VNet1 y VNet2) al concentrador. Después, cree una conexión de la red virtual de NVA al concentrador.
+Cree una conexión de red virtual desde cada red virtual de radio indirecta (VNet1 y VNet2) al centro de conectividad. Estas conexiones de red virtual se representan mediante las flechas azules de la ilustración anterior. Después, cree una conexión de red virtual desde la red virtual NVA al centro de conectividad (flecha negra de la ilustración). 
 
  En este paso se pueden usar los siguientes valores:
 

@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 06/11/2019
 ms.author: tvoellm
 ms.reviewer: sngun
-ms.openlocfilehash: 594367db838266a6d11f4fbf3b763b024f8e14d4
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 5ce8bfb593b1973e76b90223de9261134ec71dd4
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70882849"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483244"
 ---
 # <a name="certificate-based-authentication-for-an-azure-ad-identity-to-access-keys-from-an-azure-cosmos-db-account"></a>Autenticación basada en certificados para una identidad de Azure AD para las claves de acceso desde una cuenta de Azure Cosmos DB
 
-La autenticación basada en certificados permite que una aplicación cliente se autentique mediante Azure Active Directory (Azure AD) con un certificado de cliente. La autenticación basada en certificados se puede realizar en cualquier equipo en que se necesite una identidad, como un equipo local o una máquina virtual de Azure. A partir de ese momento, la aplicación puede leer las claves de Azure Cosmos DB sin tenerlas directamente en la aplicación. En este artículo se describe cómo crear una aplicación de Azure AD de ejemplo, configurarla para la autenticación basada en certificados, iniciar sesión en Azure mediante la nueva identidad de aplicación y, posteriormente, recuperar las claves de una cuenta de Azure Cosmos. En este artículo se usa Azure PowerShell para configurar las identidades y se proporciona una aplicación en C# de ejemplo que autentica las claves y accede a ellas desde su cuenta de Azure Cosmos.  
+La autenticación basada en certificados permite que una aplicación cliente se autentique mediante Azure Active Directory (Azure AD) con un certificado de cliente. Puede realizar la autenticación basada en certificados en un equipo en el que necesite una identidad, como un equipo local o una máquina virtual en Azure. A partir de ese momento, la aplicación puede leer las claves de Azure Cosmos DB sin tenerlas directamente en la aplicación. En este artículo se describe cómo crear una aplicación de Azure AD de ejemplo, configurarla para la autenticación basada en certificados, iniciar sesión en Azure mediante la nueva identidad de aplicación y, posteriormente, recuperar las claves de una cuenta de Azure Cosmos. En este artículo se usa Azure PowerShell para configurar las identidades y se proporciona una aplicación en C# de ejemplo que autentica las claves y accede a ellas desde su cuenta de Azure Cosmos.  
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -30,7 +30,7 @@ En este paso, va a registrar una aplicación web de ejemplo en su cuenta de Azur
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
 
-1. Abra el panel Azure **Active Directory**, vaya al panel Registros de aplicaciones y seleccione **Nuevo registro**. 
+1. Abra el panel **Azure Active Directory**, vaya al panel **Registros de aplicaciones** y seleccione **Nuevo registro**. 
 
    ![Nuevo registro de aplicación en Active Directory](./media/certificate-based-authentication/new-app-registration.png)
 
@@ -114,6 +114,19 @@ El comando anterior da como resultado una salida similar a la de la captura de p
 
 1. Seleccione **Guardar** después de rellenar el formulario
 
+## <a name="register-your-certificate-with-azure-ad"></a>Registro del certificado con Azure AD
+
+Puede asociar la credencial basada en certificado a la aplicación cliente en Azure AD desde Azure Portal. Para asociar la credencial, debe cargar el archivo de certificado con los pasos siguientes:
+
+En el registro de aplicación de Azure para la aplicación cliente:
+
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
+
+1. Abra el panel **Azure Active Directory**, vaya al panel **Registros de aplicaciones** y abra la aplicación de ejemplo que creó en el paso anterior. 
+
+1. Seleccione **Certificados y secretos** y, a continuación, seleccione **Cargar certificado**. Busque el archivo de certificado que creó en el paso anterior para cargarlo.
+
+1. Seleccione **Agregar**. Una vez cargado el certificado, se muestran los valores de huella digital, fecha de inicio y expiración.
 
 ## <a name="access-the-keys-from-powershell"></a>Acceso a las claves desde PowerShell
 

@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 11/20/2019
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8f95dfd6410ae22a4596ac7d5d72add57e8029d
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 49081ba72559b021d2e4846e7d9feffd61ae7b36
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72373894"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74284911"
 ---
 # <a name="service-to-service-apps"></a>Aplicaciones de se servicio a servicio
 
@@ -40,7 +40,7 @@ Las aplicaciones de servicio a servicio pueden ser una aplicación de demonio o 
 
 ![Diagrama de aplicación de servidor o de demonio en API web](./media/authentication-scenarios/daemon_server_app_to_web_api.png)
 
-## <a name="dprotocol-flow"></a>Flujo DProtocol
+## <a name="protocol-flow"></a>Flujo de protocolos
 
 ### <a name="application-identity-with-oauth-20-client-credentials-grant"></a>Identidad de aplicación con concesión de credenciales de cliente OAuth 2.0
 
@@ -59,11 +59,11 @@ En el flujo descrito a continuación se asume que un usuario se ha autenticado e
 
 ## <a name="code-samples"></a>Ejemplos de código
 
-Vea los ejemplos de código para escenarios de aplicación de servidor o de demonio en API web. Agregamos nuevos ejemplos continuamente, así que no olvide consultarlos con frecuencia. [Aplicación de servidor o de demonio en API web](sample-v1-code.md#daemon-applications-accessing-web-apis-with-the-applications-identity)
+Vea los ejemplos de código para escenarios de aplicación de servidor o de demonio en API web: [Aplicación de servidor o de demonio en API web](sample-v1-code.md#daemon-applications-accessing-web-apis-with-the-applications-identity)
 
 ## <a name="app-registration"></a>Registro de aplicación
 
-* Un solo inquilino: tanto en el caso de la identidad de aplicación como en el de la identidad de usuario delegado, la aplicación de demonio o de servidor debe estar registrada en el mismo directorio de Azure AD. La API web puede configurarse para exponer un conjunto de permisos, que se usan para limitar el acceso de la aplicación de demonio o de servidor a sus recursos. Si se usa un tipo de identidad de usuario delegado, es necesario que la aplicación de servidor seleccione los permisos deseados en el menú desplegable "Permisos para otras aplicaciones" de Azure Portal. Este paso no es necesario si se usa el tipo de identidad de aplicación.
+* Un solo inquilino: tanto en el caso de la identidad de aplicación como en el de la identidad de usuario delegado, la aplicación de demonio o de servidor debe estar registrada en el mismo directorio de Azure AD. La API web puede configurarse para exponer un conjunto de permisos, que se usan para limitar el acceso de la aplicación de demonio o de servidor a sus recursos. Si se usa un tipo de identidad de usuario delegada, la aplicación de servidor debe seleccionar los permisos deseados. En la página **Permiso de API** para el registro de la aplicación, después de haber seleccionado **Agregar un permiso** y elegido la familia de API, elija **Permisos delegados** y, luego, seleccione los permisos. Este paso no es necesario si se usa el tipo de identidad de aplicación.
 * Multiempresa (varios inquilinos): en primer lugar, la aplicación de demonio o de servidor se configura para indicar los permisos que requiere para ser funcional. La lista de permisos necesarios se muestra en un cuadro de diálogo cuando un usuario o administrador del directorio de destino da su consentimiento a la aplicación, lo que la pone a disposición de la organización. Algunas aplicaciones solo requieren permisos de nivel de usuario, para los que cualquier usuario de la organización puede dar el consentimiento. Otras aplicaciones requieren permisos de nivel de administrador, para los que un usuario de la organización no puede dar su consentimiento. Solo un administrador de directorio puede dar su consentimiento a las aplicaciones que requieran este nivel de permisos. Cuando el usuario o el administrador dan su consentimiento, las dos API web se registran en el directorio.
 
 ## <a name="token-expiration"></a>Expiración del token

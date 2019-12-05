@@ -1,22 +1,22 @@
 ---
-title: Uso obligatorio de la autenticación multifactor (MFA) para el acceso desde redes que no son de confianza con el acceso condicional de Azure Active Directory (Azure AD) | Microsoft Docs
+title: 'Requerir MFA desde redes que no son de confianza: Azure Active Directory'
 description: Aprenda a configurar una directiva de acceso condicional en Azure Active Directory (Azure AD) para los intentos de acceso desde redes que no son de confianza.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
-ms.date: 12/10/2018
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39ec09c1ecb94a5ae189317d89cce4bc8f279b48
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 4cedec7f0bd51460796d8138f8d481d2982098f4
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175689"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74380002"
 ---
 # <a name="how-to-require-mfa-for-access-from-untrusted-networks-with-conditional-access"></a>Procedimientos para: Uso obligatorio de MFA para el acceso desde redes que no son de confianza con el acceso condicional   
 

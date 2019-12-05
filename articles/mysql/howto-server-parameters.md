@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/06/2018
-ms.openlocfilehash: 103e09a0e2b9dd409fa2ddaff1c5311ef9936d22
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 11/19/2019
+ms.openlocfilehash: d589800f62f96510a09d23cb6e8794177121c6dd
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61422170"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74419718"
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mysql-by-using-the-azure-portal"></a>Cómo configurar parámetros del servidor en Azure Database for MySQL mediante Azure Portal
 
@@ -35,30 +35,23 @@ La lista de parámetros del servidor admitidos crece constantemente. Use la pest
 
 ## <a name="non-configurable-server-parameters"></a>Parámetros no configurables del servidor
 
-El grupo de búferes de InnoDB y el número máximo de conexiones no son configurables y están vinculados a su [plan de tarifa](concepts-service-tiers.md).
+El grupo de búferes de InnoDB no es configurable y está vinculado a su [plan de tarifa](concepts-service-tiers.md).
 
-|**Plan de tarifa**| **Generación de procesos**|**Núcleos virtuales**|**Grupo de búferes InnoDB (MB)**| **Conexiones máximas**|
-|---|---|---|---|--|
-|Básica| Gen 4| 1| 960| 50|
-|Básica| Gen 4| 2| 2560| 100|
-|Básica| Gen 5| 1| 960| 50|
-|Básica| Gen 5| 2| 2560| 100|
-|Uso general| Gen 4| 2| 3584| 300|
-|Uso general| Gen 4| 4| 7680| 625|
-|Uso general| Gen 4| 8| 15360| 1250|
-|Uso general| Gen 4| 16| 31232| 2\.500|
-|Uso general| Gen 4| 32| 62976| 5000|
-|Uso general| Gen 5| 2| 3584| 300|
-|Uso general| Gen 5| 4| 7680| 625|
-|Uso general| Gen 5| 8| 15360| 1250|
-|Uso general| Gen 5| 16| 31232| 2\.500|
-|Uso general| Gen 5| 32| 62976| 5000|
-|Uso general| Gen 5| 64| 125952| 10000|
-|Memoria optimizada| Gen 5| 2| 7168| 600|
-|Memoria optimizada| Gen 5| 4| 15360| 1250|
-|Memoria optimizada| Gen 5| 8| 30720| 2\.500|
-|Memoria optimizada| Gen 5| 16| 62464| 5000|
-|Memoria optimizada| Gen 5| 32| 125952| 10000|
+|**Plan de tarifa**|**Núcleos virtuales**|**Tamaño del grupo de búferes de InnoDB en MB <br>(servidores que admiten un almacenamiento de hasta 4 TB)**| **Tamaño del grupo de búferes de InnoDB en MB <br>(servidores que admiten un almacenamiento de hasta 16 TB)**|
+|:---|---:|---:|---:|
+|Básica| 1| 832| |
+|Básica| 2| 2560| |
+|Uso general| 2| 3584| 7168|
+|Uso general| 4| 7680| 15360|
+|Uso general| 8| 15360| 30720|
+|Uso general| 16| 31232| 62464|
+|Uso general| 32| 62976| 125952|
+|Uso general| 64| 125952| 251 904|
+|Memoria optimizada| 2| 7168| 14336|
+|Memoria optimizada| 4| 15360| 30720|
+|Memoria optimizada| 8| 30720| 61 440|
+|Memoria optimizada| 16| 62464| 124 928|
+|Memoria optimizada| 32| 125952| 251 904|
 
 Estos parámetros adicionales del servidor no son configurables en el sistema:
 

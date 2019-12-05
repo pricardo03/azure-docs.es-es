@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: diberry
-ms.openlocfilehash: 6234a13d07ac024849d1c890d82ef03e19c11af4
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 32b9b42ee0962353405616e501de95b19e40ea1a
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012011"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280852"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Los patrones mejoran la precisión de las predicciones
 Los patrones están diseñados para mejorar la precisión cuando varias expresiones son muy parecidas.  Un patrón permite lograr más precisión en una intención sin proporcionar muchas más expresiones. 
@@ -45,9 +45,9 @@ Los patrones emplean una combinación de tecnologías de predicción. Establecer
 
 ## <a name="patterns-do-not-improve-machine-learned-entity-detection"></a>Los patrones no mejoran la detección de entidades de aprendizaje automático.
 
-La única finalidad de un patrón es ayudar a la predicción de intenciones y roles. La entidad pattern.any se usa para extraer entidades de forma libre. Si bien los patrones usan entidades, un patrón no ayuda a detectar una entidad de aprendizaje automático.  
+La única finalidad de un patrón es ayudar a la predicción de intenciones y roles. La entidad _pattern.any_ se usa para extraer entidades de forma libre. Si bien los patrones usan entidades, un patrón no ayuda a detectar una entidad de aprendizaje automático.  
 
-No espere ver una predicción de entidad mejorada si contrae varias expresiones en un patrón único. Para que las entidades simples se activen, tendrá que agregar expresiones o usar entidades de la lista, de lo contrario no se activará el patrón.
+No espere ver una predicción de entidad mejorada si contrae varias expresiones en un patrón único. Para que las entidades simples se activen, tendrá que agregar expresiones o usar entidades de la lista; de lo contrario, no se activará el patrón.
 
 ## <a name="patterns-use-entity-roles"></a>Los patrones usan roles de entidad
 Si dos o más entidades de un patrón están relacionadas por el contexto, los patrones usan los [roles](luis-concept-roles.md) de entidad para extraer información contextual sobre las entidades.  

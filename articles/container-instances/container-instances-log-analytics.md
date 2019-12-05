@@ -1,21 +1,17 @@
 ---
-title: Registro de instancias de contenedor con registros de Azure Monitor
-description: Aprenda a enviar registros desde instancias de contenedores de Azure a registros de Azure Monitor.
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
-ms.topic: overview
+title: Registros de recursos para grupos de contenedores
+description: Obtenga información sobre cómo enviar registros de recursos y datos de eventos de grupos de contenedores en Azure Container Instances a los registros de Azure Monitor.
+ms.topic: article
 ms.date: 09/02/2019
 ms.author: danlep
-ms.openlocfilehash: 1c4846414036e86d460d9abe0bd93e785e710395
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 02f950917f43b514f83bd7e10078c79634c6c751
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258464"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533727"
 ---
-# <a name="container-instance-logging-with-azure-monitor-logs"></a>Registro de instancias de contenedor con registros de Azure Monitor
+# <a name="container-group-and-instance-logging-with-azure-monitor-logs"></a>Registro de instancias y grupos de contenedores con registros de Azure Monitor
 
 Las áreas de trabajo de Log Analytics proporcionan una ubicación centralizada para almacenar y consultar datos de registro no solo de los recursos de Azure, sino también de los recursos locales y de los recursos de otras nubes. Azure Container Instances incluye compatibilidad integrada para el envío de registros y datos de evento a los registros de Azure Monitor.
 

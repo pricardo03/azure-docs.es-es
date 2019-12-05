@@ -1,22 +1,22 @@
 ---
-title: Habilitar el inicio de sesión con clave de seguridad sin contraseña para Azure AD (versión preliminar) - Azure Active Directory
+title: 'Inicio de sesión con clave de seguridad sin contraseña (versión preliminar): Azure Active Directory'
 description: Habilitar el inicio de sesión con clave de seguridad sin contraseña para Azure AD mediante llaves de seguridad FIDO2 (versión preliminar)
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 50af82e79e7ba8b979ab28a1b3f608ec7e41bfb2
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 9f87f1b2561b65590dfe29d7d2c8d1318e3d35e1
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73603448"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74381850"
 ---
 # <a name="enable-passwordless-security-key-sign-in-preview"></a>Habilitar el inicio de sesión con clave de seguridad sin contraseña (versión preliminar)
 
@@ -81,8 +81,8 @@ En el ejemplo siguiente, un usuario ya ha aprovisionado su clave de seguridad FI
 
 Si quiere compartir comentarios o detectar problemas mientras usa la versión preliminar de esta característica, compártalos mediante la aplicación Centro de opiniones sobre Windows.
 
-1. Inicie el **Centro de opiniones** y asegúrese de que ha iniciado sesión.
-1. Envíe los comentarios bajo la siguiente categorización:
+1. Abra el **Centro de opiniones** y asegúrese de que ha iniciado sesión.
+1. Envíe los comentarios bajo la categorización siguiente:
    1. Categoría: Seguridad y privacidad
    1. Subcategoría: FIDO
 1. Para capturar registros, use la opción: **Volver a crear mi problema**
@@ -105,4 +105,4 @@ Si cambia el UPN de un usuario, ya no puede modificar las llaves de seguridad FI
 
 [Más información sobre el registro de dispositivos](../devices/overview.md)
 
-[Más información acerca de Azure Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)
+[Más información sobre Azure Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)

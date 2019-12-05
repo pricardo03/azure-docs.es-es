@@ -1,19 +1,14 @@
 ---
-title: Repositorios de Azure Container Registry en Azure Portal
+title: Visualización de repositorios en Portal
 description: Use Azure Portal para ver los repositorios de Azure Container Registry, que hospedan imágenes de contenedor de Docker y otros artefactos compatibles.
-services: container-registry
-author: cristy
-manager: gwallace
-ms.service: container-registry
 ms.topic: article
 ms.date: 01/05/2018
-ms.author: jeconnoc
-ms.openlocfilehash: 793d8e82ca78c6055a6e956d4f41b7991d5fd700
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 1da72706d2554610a685f71199ab14af5e30ce1a
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931527"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74456299"
 ---
 # <a name="view-container-registry-repositories-in-the-azure-portal"></a>Visualización de los repositorios de registros de contenedor en Azure Portal
 

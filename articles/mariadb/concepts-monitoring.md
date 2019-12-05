@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 2f4346dfdb095e849adc65baf0fd31d25d03c4a7
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: e3c25798be8af26c1f5e5c1178395cd1688bb132
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73604065"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74382060"
 ---
 # <a name="monitoring-in-azure-database-for-mariadb"></a>Supervisión en Azure Database for MariaDB
 La supervisión de los datos sobre los servidores le permite solucionar problemas y optimizar la carga de trabajo. Azure Database for MariaDB proporciona diversas métricas que proporcionan información sobre el comportamiento del servidor.
@@ -55,6 +55,14 @@ El [Almacén de consultas](concepts-query-store.md) realiza un seguimiento del r
 ## <a name="performance-recommendations"></a>Recomendaciones de rendimiento
 
 La característica [Recomendaciones de rendimiento](concepts-performance-recommendations.md) identifica oportunidades para mejorar el rendimiento de la carga de trabajo. Proporciona recomendaciones para crear índices que tienen el potencial de mejorar el rendimiento de las cargas de trabajo. Para generar recomendaciones de índices, la característica tiene en cuenta diversas funcionalidades de la base de datos, como su esquema y la carga de trabajo devueltos por el Almacén de consultas. Después de implementar cualquier recomendación de rendimiento, los clientes deben probar el rendimiento para evaluar el efecto de estos cambios.
+
+## <a name="service-health"></a>Estado del servicio
+[Azure Service Health](../service-health/overview.md) proporciona una vista de todas las notificaciones de estado del servicio de la suscripción. Puede configurar alertas de Service Health para que se le notifique por su canal de comunicación preferido los problemas o cambios que podrían afectar a los servicios y las regiones de Azure que usa.
+
+Puede ver los eventos de mantenimiento programado para Azure Database for MariaDB mediante el tipo de evento **mantenimiento planeado**. Para aprender a crear **alertas de estado del servicio**, visite el artículo [Creación de alertas del registro de actividad en notificaciones del servicio](../service-health/alerts-activity-log-service-notifications.md).
+
+> [!IMPORTANT]
+> Las notificaciones de mantenimiento planeado están disponibles en versión preliminar únicamente en las regiones Este de EE. UU. y Sur de Reino Unido.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

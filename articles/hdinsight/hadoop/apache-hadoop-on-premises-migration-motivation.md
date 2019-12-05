@@ -2,18 +2,18 @@
 title: 'Ventajas: Migración de Apache Hadoop local a Azure HDInsight'
 description: Obtenga información acerca de la motivación y ventajas de almacenamiento para migrar clústeres locales de Apache Hadoop a Azure HDInsight.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: ashishth
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/25/2018
-ms.author: hrasheed
-ms.openlocfilehash: 7f67b85b66748ae98cbb520bf4ebc11a2eef9efb
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 11/15/2019
+ms.openlocfilehash: 2440b93629416ea73fcf211cbe7bf5a3b72ab2e7
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494940"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74267318"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>Motivación y ventajas de migrar clústeres locales de Apache Hadoop a Azure HDInsight
 
@@ -103,7 +103,7 @@ En este sección se proporcionan plantillas de cuestionarios para ayudar a reuni
 |Configuración de los nodos perimetrales|m/y, CPU, disco, etc.|
 |¿Cifrado HDFS?|Sí|
 |Alta disponibilidad|Alta disponibilidad de HDFS HA, alta disponibilidad de Metastore|
-|Recuperación ante desastres/copias de seguridad|¿Copia de seguridad del clúster?|  
+|Recuperación ante desastres / Copia de seguridad|¿Copia de seguridad del clúster?|  
 |Sistemas que dependen de clúster|SQL Server, Teradata, Power BI, MongoDB|
 |Integración con productos de terceros|Tableau GridGain, Qubole, Informatica, Splunk|
 |**Tema**: **seguridad**|||

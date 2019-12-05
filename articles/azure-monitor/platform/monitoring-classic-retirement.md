@@ -1,6 +1,6 @@
 ---
-title: Alertas y supervisión unificadas de Azure Monitor reemplaza a alertas y supervisión clásicas
-description: Información general acerca de la retirada de la funcionalidad y los servicios de supervisión clásicos, que antes se mostraban en Azure Portal en Alertas (clásico). Alertas y supervisión clásicas incluye alertas de métricas clásicas de recursos de Azure, alertas de métricas clásicas de Application Insights, alertas de WebTest clásicas de Application Insights, alertas clásicas basadas en métricas personalizadas de Application Insights y alertas clásicas alertas de Application Insights SmartDetection v1
+title: Actualización de alertas y supervisión clásicas en Azure Monitor
+description: Descripción de la retirada de la funcionalidad y los servicios de supervisión clásicos, que antes se mostraban en Azure Portal en Alertas (clásico).
 author: yanivlavi
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 2/7/2019
 ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: ea50a4f10aa1d794f875cb1eb9601774bec146cd
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: f4639d46a796924b4fe1dcbb46735abea128388f
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676895"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74307099"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>Alertas y supervisión unificadas de Azure Monitor reemplaza a alertas y supervisión clásicas
 

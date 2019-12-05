@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 06/04/2019
+ms.date: 11/25/2019
 ms.author: swmachan
-ms.openlocfilehash: 79cf87cef4e58cf4e5a2039f30289d55038c8b92
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 3694c8cb34b2a050c9e18265c8cc0a0198456076
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71671961"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533717"
 ---
 # <a name="request-limits-for-translator-text"></a>Límites de solicitudes de Translator Text
 
@@ -58,7 +58,7 @@ Estos límites están restringidos a modelos de traducción estándar de Microso
 
 ## <a name="latency"></a>Latencia
 
-Translator Text API tiene una latencia máxima de 15 segundos con los modelos estándar. La traducción con modelos personalizados tiene una latencia máxima de 25 segundos. Llegados a este punto, habrá recibido un resultado o una respuesta de tiempo de espera agotado. Normalmente, las respuestas tardan entre 150 milisegundos y 300 milisegundos en devolverse. Los tiempos de respuesta variarán según el tamaño de la solicitud y el par de idiomas. Si no recibe una traducción o una [respuesta de error](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors) en ese período de tiempo, debe comprobar su conexión de red y volver a intentarlo.
+La API Translator Text tiene una latencia máxima de 15 segundos con los modelos estándar y 120 segundos al usar modelos personalizados. Normalmente, las respuestas para el *texto de 100 caracteres* tardan entre 150 milisegundos y 300 milisegundos en devolverse. Los modelos de traductor personalizados tienen características de latencia similares en la velocidad de solicitudes sostenidas y pueden tener una latencia mayor cuando la tasa de solicitudes es intermitente. Los tiempos de respuesta variarán según el tamaño de la solicitud y el par de idiomas. Si no recibe una traducción o una [respuesta de error](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors) en ese período de tiempo, compruebe el código, la conexión de red y vuelva a intentarlo. 
 
 ## <a name="sentence-length-limits"></a>Límites de longitud de oraciones
 

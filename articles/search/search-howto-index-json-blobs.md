@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 18f3ed9cb2ef0f700e33e8b643b5e7d167d656a5
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 37fc78971124240077a59d4ad99aa06cc408dbae
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112728"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533970"
 ---
 # <a name="how-to-index-json-blobs-using-a-blob-indexer-in-azure-cognitive-search"></a>Indexación de blobs JSON con el indexador de blobs de Azure Cognitive Search
 
@@ -33,7 +33,7 @@ Los blobs JSON de Azure Blob Storage suelen ser un documento JSON único (el mod
 
 El método más sencillo para la indexación de documentos JSON es usar un asistente en [Azure Portal](https://portal.azure.com/). Mediante el análisis de metadatos en el contenedor de blobs de Azure, el asistente [**Importar datos**](search-import-data-portal.md) puede crear un índice predeterminado, asignar campos de origen a campos de índice de destino y cargar el índice en una sola operación. Según el tamaño y la complejidad del origen de datos, puede tener un índice de búsqueda de texto completo y operativo en cuestión de minutos.
 
-Se recomienda usar la misma suscripción de Azure para Azure Cognitive Search y Azure Storage, preferiblemente en la misma región.
+Se recomienda usar la misma región o ubicación para Azure Cognitive Search y Azure Storage a fin de conseguir una menor latencia y evitar cargos por ancho de banda.
 
 ### <a name="1---prepare-source-data"></a>1: Preparación de los datos de origen
 

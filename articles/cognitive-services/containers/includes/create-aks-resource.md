@@ -7,14 +7,14 @@ author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 7/3/2019
+ms.date: 11/21/2019
 ms.author: dapine
-ms.openlocfilehash: 5e442f38a8e81170eeeac2f31f00a7d0eeb08d2b
-ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
+ms.openlocfilehash: 4e3102912e88ef904fed3e680f8cdd23242b1f17
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68377382"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383482"
 ---
 ## <a name="create-an-azure-kubernetes-service-cluster-resource"></a>Creación de un recurso de clúster de Azure Kubernetes Service
 
@@ -28,13 +28,13 @@ ms.locfileid: "68377382"
     |Resource group|Seleccione un grupo de recursos disponible.|
     |Nombre del clúster de Kubernetes|Escriba un nombre (en minúsculas).|
     |Region|Seleccione una ubicación cercana.|
-    |Versión de Kubernetes|1.12.8 (predeterminado).|
+    |Versión de Kubernetes|Cualquier valor se marca como **(valor predeterminado)** .|
     |Prefijo del nombre DNS|Se crea automáticamente, pero puede invalidarlo.|
     |Tamaño del nodo|Estándar DS2 v2:<br>`2 vCPUs`, `7 GB`|
     |Número de nodos|Deje el control deslizante en el valor predeterminado.|
 
-1. En la pestaña **Escala**, deje **Nodos virtuales** y **Conjuntos de escalado de máquinas virtuales (versión preliminar)** establecidos en sus valores predeterminados.
-1. En la pestaña **Autenticación**, deje las opciones **Entidad de servicio** y **Habilitar RBAC** establecidas en sus valores predeterminados.
+1. En la pestaña **Scale** (Escala), deje los campos **Virtual nodes** (Nodos virtuales) y **VM scale sets** (Conjuntos de escalado de máquinas virtuales) con sus valores predeterminados.
+1. En la pestaña **Authentication** (Autenticación), deje las opciones **Service principal** (Entidad de servicio) y **Enable RBAC** (Habilitar RBAC) establecidas en sus valores predeterminados.
 1. En la pestaña **Networking** (Redes), escriba las siguientes selecciones:
 
     |Configuración|Valor|

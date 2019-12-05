@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 manager: craigg
 ms.date: 09/26/2019
-ms.openlocfilehash: 114a5bbfd71fc0847c2b1bc65a8ba0bfa0df1add
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 77442eda6c8b2aae71c5d647127ead9f851ec485
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821940"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74421424"
 ---
 # <a name="automated-backups"></a>Copias de seguridad automatizadas
 
@@ -33,10 +33,10 @@ Puede utilizar estas copias de seguridad para realizar lo siguiente:
 
 - **Restaurar una base de datos existente a un momento en el tiempo pasado** dentro del período de retención mediante Azure Portal, Azure PowerShell, la CLI de Azure o una API REST. En bases de datos singleton y grupos elásticos, esta operación creará una base de datos en el mismo servidor que la base de datos original. En instancias administradas, esta operación puede crear una copia de la base de datos o una instancia administrada igual o diferente en la misma suscripción.
   - **[Cambiar el período de retención de la copia de seguridad](#how-to-change-the-pitr-backup-retention-period)** entre 7 y 35 días para configurar la directiva de copia de seguridad.
-  - **Cambiar la directiva de retención a largo plazo a 10 años** en bases de datos singleton y grupos elásticos mediante [Azure Portal](sql-database-long-term-backup-retention-configure.md#configure-long-term-retention-policies) o [Azure PowerShell](sql-database-long-term-backup-retention-configure.md#use-powershell-to-manage-long-term-backups).
+  - **Cambiar la directiva de retención a largo plazo a 10 años** en bases de datos singleton y grupos elásticos mediante [Azure Portal](sql-database-long-term-backup-retention-configure.md#configure-long-term-retention-policies) o [Azure PowerShell](sql-database-long-term-backup-retention-configure.md#using-powershell).
 - **Restaurar una base de datos eliminada al momento en que se eliminó** o a cualquier otro punto dentro del periodo de retención. La base de datos eliminada solo se puede restaurar en el mismo servidor local o instancia administrada donde se creó la base de datos original.
 - **Restaurar una base de datos en otra región geográfica**. La restauración geográfica le permite recuperarse de un desastre en una región geográfica cuando no puede acceder a su servidor y base de datos. Crea una nueva base de datos en cualquier servidor existente del mundo.
-- **Restaurar una base de datos desde una copia de seguridad a largo plazo específica** en bases de datos singleton y grupos elásticos si la base de datos se ha configurado con una directiva de retención a largo plazo (LTR). LTR permite restaurar una versión antigua de la base de datos con [Azure Portal](sql-database-long-term-backup-retention-configure.md#view-backups-and-restore-from-a-backup-using-azure-portal) o [Azure PowerShell](sql-database-long-term-backup-retention-configure.md#use-powershell-to-manage-long-term-backups) para respetar una solicitud de cumplimiento o ejecutar una versión antigua de la aplicación. Para más información, consulte [retención a largo plazo](sql-database-long-term-retention.md).
+- **Restaurar una base de datos desde una copia de seguridad a largo plazo específica** en bases de datos singleton y grupos elásticos si la base de datos se ha configurado con una directiva de retención a largo plazo (LTR). LTR permite restaurar una versión antigua de la base de datos con [Azure Portal](sql-database-long-term-backup-retention-configure.md#using-azure-portal) o [Azure PowerShell](sql-database-long-term-backup-retention-configure.md#using-powershell) para respetar una solicitud de cumplimiento o ejecutar una versión antigua de la aplicación. Para más información, consulte [retención a largo plazo](sql-database-long-term-retention.md).
 - Para llevar a cabo una restauración, consulte el artículo sobre la [restauración de bases de datos a partir de copias de seguridad](sql-database-recovery-using-backups.md).
 
 > [!NOTE]
@@ -46,8 +46,8 @@ Puede probar algunas de estas operaciones con los ejemplos siguientes:
 
 | | El Portal de Azure | Azure PowerShell |
 |---|---|---|
-| Cambio del período de retención de copia de seguridad | [Base de datos única](sql-database-automated-backups.md#change-pitr-backup-retention-period-using-azure-portal) <br/> [Instancia administrada](sql-database-automated-backups.md#managed-instance-database) | [Base de datos única](sql-database-automated-backups.md#change-pitr-backup-retention-period-using-powershell) <br/>[Instancia administrada](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
-| Cambio del período de retención de copia de seguridad a largo plazo | [Base de datos única](sql-database-long-term-backup-retention-configure.md#configure-long-term-retention-policies)<br/>Instancia administrada: N/D  | [Base de datos única](sql-database-long-term-backup-retention-configure.md#use-powershell-to-manage-long-term-backups)<br/>Instancia administrada: N/D  |
+| Cambio del período de retención de copia de seguridad | [Base de datos única](sql-database-automated-backups.md?tabs=managed-instance#change-pitr-backup-retention-period-using-azure-portal) <br/> [Instancia administrada](sql-database-automated-backups.md?tabs=managed-instance#change-pitr-backup-retention-period-using-azure-portal) | [Base de datos única](sql-database-automated-backups.md#change-pitr-backup-retention-period-using-powershell) <br/>[Instancia administrada](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
+| Cambio del período de retención de copia de seguridad a largo plazo | [Base de datos única](sql-database-long-term-backup-retention-configure.md#configure-long-term-retention-policies)<br/>Instancia administrada: N/D  | [Base de datos única](sql-database-long-term-backup-retention-configure.md)<br/>Instancia administrada: N/D  |
 | Restauración de la base de datos a partir de un momento en el tiempo | [Base de datos única](sql-database-recovery-using-backups.md#point-in-time-restore) | [Base de datos única](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) <br/> [Instancia administrada](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase) |
 | Restaurar la base de datos eliminada | [Base de datos única](sql-database-recovery-using-backups.md) | [Base de datos única](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeleteddatabasebackup) <br/> [Instancia administrada](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeletedinstancedatabasebackup)|
 | Restauración de la base de datos desde Azure Blob Storage | Base de datos única: N/D <br/>Instancia administrada: N/D  | Base de datos única: N/D <br/>[Instancia administrada](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started-restore) |
@@ -84,6 +84,15 @@ Para obtener más información, vea [Retención de copias de seguridad a largo p
 ## <a name="storage-costs"></a>Costos de almacenamiento
 Para bases de datos únicas e instancias administradas, se ofrece una cantidad de almacenamiento de copia de seguridad mínimo igual al 100 % del tamaño de la base de datos sin costo adicional. En el caso de los grupos elásticos, se proporciona una cantidad mínima de almacenamiento de copia de seguridad igual al 100 % del almacenamiento de datos asignado para el grupo sin costo adicional. El consumo adicional de almacenamiento de copia de seguridad se cobrará en GB/mes. Este consumo adicional dependerá de la carga de trabajo y el tamaño de las bases de datos individuales.
 
+Se puede usar el análisis de costos de suscripción de Azure para determinar el gasto actual en el almacenamiento de copia de seguridad.
+
+![Análisis de costos del almacenamiento de copia de seguridad](./media/sql-database-automated-backup/check-backup-storage-cost-sql-mi.png)
+
+Si se va a la suscripción y abre la hoja Análisis de costos, se puede seleccionar la subcategoría de medidor **almacenamiento de copia de seguridad de recuperación a un momento dado de la instancia administrada** para ver el costo actual de la copia de seguridad y la previsión de cargos. También se pueden incluir otras subcategorías de medidor, como **instancia administrada de uso general: almacenamiento** o **instancia administrada de uso general: proceso gen5** para comparar el costo del almacenamiento de copia de seguridad con otras categorías de costos.
+
+> [!Note]
+> Se puede [cambiar el período de retención a 7 días](#change-pitr-backup-retention-period-using-azure-portal) para reducir el costo de almacenamiento de copia de seguridad.
+
 Para más información sobre los precios de almacenamiento, consulte la página de [precios](https://azure.microsoft.com/pricing/details/sql-database/single/). 
 
 ## <a name="are-backups-encrypted"></a>Cifrado de las copias de seguridad
@@ -118,17 +127,19 @@ Puede cambiar el período de retención predeterminado de copia de seguridad de 
 
 Para cambiar el periodo de retención de copia de seguridad de PITR mediante Azure Portal, vaya al objeto de servidor cuyo período de retención desea cambiar dentro del portal y, luego, seleccione la opción apropiada según el objeto de servidor que va a modificar.
 
-#### <a name="single-azure-sql-database"></a>Base de datos única de Azure SQL Database
+#### <a name="single-database--elastic-poolstabsingle-database"></a>[Grupos elásticos y base de datos única](#tab/single-database)
 
 El cambio de la retención de copia de seguridad de PITR para las bases de datos únicas de Azure SQL Database solo se realiza en el nivel de servidor. Los cambios realizados en el nivel de servidor se aplican a las bases de datos de ese servidor. Para cambiar la recuperación a un momento dado para el servidor de Azure SQL Database en Azure Portal, vaya a la hoja de información general del servidor, haga clic en Administrar copias de seguridad en el menú de navegación y, a continuación, haga clic en Configurar retención en la barra de navegación.
 
 ![Cambio de PITR en Azure Portal](./media/sql-database-automated-backup/configure-backup-retention-sqldb.png)
 
-#### <a name="managed-instance-database"></a>Base de datos de Instancia administrada
+#### <a name="managed-instancetabmanaged-instance"></a>[Instancia administrada](#tab/managed-instance)
 
 El cambio de la retención de copia de seguridad de recuperación a un momento dado para Instancia administrada de SQL Database se realiza en un nivel de base de datos individual. Para cambiar la retención de copia de seguridad de recuperación a un momento dado de una base de datos de instancia en Azure Portal, vaya a la hoja de información general de la base de datos individual y haga clic en Configurar retención de copias de seguridad en la barra de navegación.
 
 ![Cambio de PITR en Azure Portal](./media/sql-database-automated-backup/configure-backup-retention-sqlmi.png)
+
+---
 
 ### <a name="change-pitr-backup-retention-period-using-powershell"></a>Cambiar el período de retención de copia de seguridad PITR mediante PowerShell
 

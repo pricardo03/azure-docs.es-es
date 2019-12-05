@@ -6,33 +6,24 @@ ms.author: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 07/29/2019
-ms.openlocfilehash: 7af40404550fb78af891563d8256f23620781b24
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.date: 11/21/2019
+ms.openlocfilehash: 5c77fb30ef60c1ad82d0a87442bc8af186c54321
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71841529"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383913"
 ---
-# <a name="understanding-the-ip-address-of-your-iot-hub"></a>Uso de la dirección IP de IoT Hub
+# <a name="iot-hub-ip-addresses"></a>Direcciones IP de IoT Hub
 
-La dirección IP de su centro de IoT es un punto de conexión público con equilibrio de carga para el centro y NO una dirección IP dedicada. La dirección viene determinada por el intervalo de direcciones de red de la región de Azure donde se implementa. Esta dirección IP está sujeta a cambios sin previo aviso. Las actualizaciones de red del centro de datos, la recuperación ante desastres del centro de datos o la conmutación por error regional de un centro de IoT pueden cambiar la dirección IP de IoT Hub. Consulte [Alta disponibilidad y recuperación ante desastres de IoT Hub](iot-hub-ha-dr.md) para más información sobre la conmutación por error regional y la disponibilidad de Azure IoT Hub.
+Los prefijos de dirección IP de IoT Hub se publican periódicamente con la [etiqueta de servicio](../virtual-network/service-tags-overview.md) *AzureIoTHub*. Para garantizar un funcionamiento correcto, los dispositivos IoT deben tener conectividad de salida a los prefijos de dirección enumerados en la etiqueta de servicio *AzureIoTHub*. Los servicios de aplicaciones IoT deben tener además conectividad de salida a los prefijos de dirección enumerados en la etiqueta de servicio *EventHub*.
 
-La dirección IP de su centro de IoT cambia después de una conmutación por error a otra región. Para probar esta funcionalidad, puede seguir el tutorial [Realización de una conmutación por error manual de un centro de IoT](tutorial-manual-failover.md).
 
-## <a name="discover-your-iot-hub-ip-address"></a>Detección de la dirección IP de IoT Hub
+## <a name="best-practices"></a>Procedimientos recomendados
 
-La dirección IP de IoT Hub se puede detectar mediante una búsqueda inversa de DNS en el CNAME ([*iot-hub-name*].azure-devices.net). Puede usar **nslookup** para comprobar la dirección IP de una instancia de IoT Hub:
+* Los prefijos de dirección IP de IoT Hub están sujetos a cambios. Estos cambios se publican periódicamente mediante etiquetas de servicio antes de entrar en vigor. Por lo tanto, es importante que desarrolle procesos para recuperar y usar con regularidad las etiquetas de servicio más recientes. Este proceso se puede automatizar mediante la [API de detección de etiquetas de servicio](../virtual-network/service-tags-overview.md#service-tags-in-on-premises).
+* Use la etiqueta *AzureIoTHub.[nombre de la región]* para identificar prefijos de dirección IP que usan los puntos de conexión de IoT Hub en una región determinada. Para tener en cuenta la recuperación ante desastres de un centro de datos o la [conmutación por error regional](iot-hub-ha-dr.md), asegúrese de que también esté habilitada la conectividad a los prefijos de dirección IP de la región del par de replicación geográfica de su instancia de IoT Hub.
 
-```cmd/sh
-nslookup {YourIoTHubName}.azure-devices.net
-```
-
-Esta dirección IP puede cambiar sin previo aviso. En un escenario de conmutación por error o de recuperación ante desastres, tendrá que sondear la dirección IP de IoT Hub en la región secundaria.
-
-## <a name="outbound-firewall-rules-for-iot-hub"></a>Reglas de firewall de salida para IoT Hub
-
-Pruebe a crear reglas de firewall y filtre por el dominio o el nombre de host de IoT Hub. Si solo puede permitir el tráfico saliente a direcciones específicas, sondee la dirección IP de IoT Hub periódicamente y actualice las reglas de firewall.
 
 ## <a name="support-for-ipv6"></a>Compatibilidad con IPv6 
 

@@ -1,18 +1,18 @@
 ---
-title: Implementación de Azure Firewall con zonas de disponibilidad mediante Azure PowerShell
+title: Implementación de Azure Firewall con zonas de disponibilidad mediante PowerShell
 description: En este artículo, aprenderá a implementar una instancia de Azure Firewall con zonas de disponibilidad mediante Azure PowerShell.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 7/10/2019
+ms.date: 11/19/2019
 ms.author: victorh
-ms.openlocfilehash: 56958eedceeb4602589d65d5e0eb7b10e8a9ff2d
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 33dcebf14f4d534962783a30ec94f7ff6529ae0d
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67703994"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74195926"
 ---
 # <a name="deploy-an-azure-firewall-with-availability-zones-using-azure-powershell"></a>Implementación de Azure Firewall con zonas de disponibilidad mediante Azure PowerShell
 

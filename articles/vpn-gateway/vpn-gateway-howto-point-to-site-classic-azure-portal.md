@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/11/2018
 ms.author: cherylmc
-ms.openlocfilehash: 74940f3b89237233acd575aa5df441163e00d178
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d28893133c27fe4945918071c60b889e997b775b
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60845596"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74424160"
 ---
 # <a name="configure-a-point-to-site-connection-by-using-certificate-authentication-classic"></a>Configuración de una conexión de punto a sitio mediante la autenticación de certificado (clásica)
 
@@ -89,7 +89,7 @@ Antes de empezar, compruebe que tiene una suscripción a Azure. Si todavía no l
 
 Si no tiene una red virtual, créela. Las capturas de pantalla se proporcionan a modo de ejemplo. Asegúrese de reemplazar los valores por los suyos. Para crear una red virtual mediante Azure Portal, siga estos pasos:
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) y después seleccione **Crear un recurso**. Se abre la página **Nuevos**. 
+1. En el menú de [Azure Portal](https://portal.azure.com) o en la **página principal**, seleccione **Crear un recurso**. Se abre la página **Nuevos**.
 
 2. En el campo **Buscar en Marketplace**, escriba *red virtual* y seleccione **Red virtual** en la lista de resultados. Se abre la página **Red virtual**.
 
@@ -117,7 +117,7 @@ Si no tiene una red virtual, créela. Las capturas de pantalla se proporcionan a
 
 En este paso se crea una subred de puerta de enlace y una puerta de enlace de enrutamiento dinámico. En Azure Portal para el modelo de implementación clásica, cree la subred de puerta de enlace y la puerta de enlace en las mismas páginas de configuración. Use la subred de puerta de enlace únicamente para los servicios de puerta de enlace. No implemente nunca nada directamente en la subred de puerta de enlace (por ejemplo, máquinas virtuales u otros servicios).
 
-1. En Azure Portal, navegue a la red virtual para la que desea crear una puerta de enlace.
+1. En Azure Portal, navegue a la red virtual para la que desea crear una puerta de enlace.
 
 2. En la página de la red virtual, seleccione **Introducción** y, en la sección de **Conexiones VPN**, haga clic en **Puerta de enlace**.
 
@@ -210,7 +210,7 @@ Para crear una conexión P2S desde un equipo cliente distinto del que usó para 
 >
 >
 
-1. Para conectarse a su red virtual, en el equipo cliente, vaya a **Conexiones VPN** en Azure Portal y busque la conexión VPN que creó. La conexión VPN tiene el mismo nombre que su red virtual. Seleccione **Conectar**. Si aparece un mensaje emergente sobre el certificado, seleccione **Continuar** para usar privilegios elevados.
+1. Para conectarse a su red virtual, en el equipo cliente, vaya a **Conexiones VPN** en Azure Portal y busque la conexión VPN que creó. La conexión VPN tiene el mismo nombre que su red virtual. Seleccione **Conectar**. Si aparece un mensaje emergente sobre el certificado, seleccione **Continuar** para usar privilegios elevados.
 
 2. En la página de estado **Conexión**, seleccione **Conectar** para iniciar la conexión. Si aparece la pantalla **Seleccionar certificado**, verifique que el certificado de cliente mostrado es el correcto. Si no lo es, seleccione el correcto en la lista desplegable y, después, **Aceptar**.
 

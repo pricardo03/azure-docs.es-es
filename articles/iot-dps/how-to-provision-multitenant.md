@@ -1,5 +1,5 @@
 ---
-title: Cómo aprovisionar dispositivos para el multiinquilinato en Azure IoT Hub Device Provisioning Service | Microsoft Docs
+title: Cómo aprovisionar dispositivos para el multiinquilinato en Azure IoT Hub Device Provisioning Service
 description: Cómo aprovisionar dispositivos para el multiinquilinato con su instancia de Device Provisioning Service
 author: wesmc7777
 ms.author: wesmc
@@ -7,13 +7,12 @@ ms.date: 04/10/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: philmea
-ms.openlocfilehash: 84e1f57175d772ad281c18b67fa1be484c0cac69
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6d9755c076763a72d54abb66cfdf01b0ac7ffb9d
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66116070"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74228783"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Cómo aprovisionar para el multiinquilinato 
 
@@ -420,8 +419,8 @@ Para eliminar el grupo de recursos por nombre:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para más información sobre el reaprovisionamiento, consulte [Conceptos sobre el reaprovisionamiento de dispositivos de IoT Hub](concepts-device-reprovision.md). 
-- Para más información sobre el desaprovisionamiento, consulte [Desaprovisionamiento de dispositivos aprovisionados automáticamente](how-to-unprovision-devices.md). 
+- Para obtener más información sobre el reaprovisionamiento, consulte [Conceptos sobre el reaprovisionamiento de dispositivos de IoT Hub](concepts-device-reprovision.md). 
+- Para obtener más información sobre el desaprovisionamiento, consulte [Desaprovisionamiento de dispositivos aprovisionados automáticamente](how-to-unprovision-devices.md). 
 
 
 

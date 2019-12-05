@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 5a48a75d70234b06942f5141402070c89c543f18
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: a3eed033ba6a1a6f9237116a53ec7751ae906fe4
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69901768"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74206541"
 ---
 # <a name="ensure-application-high-availability-when-running-in-vmware-on-azure"></a>Asegurar la alta disponibilidad de una aplicación al ejecutarse en VMware en Azure
 
@@ -30,7 +30,7 @@ La solución CloudSimple proporciona alta disponibilidad para las aplicaciones q
 | Error del puerto de conmutador de hoja | SÍ | NIC redundante |  |  |
 | Error del conmutador de hoja | SÍ | Conmutadores de hoja redundantes |  |  |
 | Error de bastidor | SÍ | Grupos de selección de ubicación |  |  |
-| Conectividad de la red a DC local | SÍ  | Servicios de red redundantes |  | Circuitos de ER redundantes |
+| Conectividad de red en un CD local | SÍ  | Servicios de red redundantes |  | Circuitos de ER redundantes |
 | Conectividad de la red a Azure | SÍ | |  | Circuitos de ER redundantes |
 | Error del centro de datos | SÍ |  |  | Zonas de disponibilidad |
 | Error regional | SÍ  |  |  | Regiones de Azure |

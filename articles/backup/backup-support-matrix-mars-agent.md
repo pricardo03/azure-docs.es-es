@@ -1,18 +1,14 @@
 ---
-title: Matriz de compatibilidad para el agente de Microsoft Azure Recovery Services
+title: Matriz de compatibilidad para el agente de MARS
 description: En este artículo se resume la compatibilidad con Azure Backup al realizar copias de seguridad de máquinas que ejecutan el agente de Microsoft Azure Recovery Services (MARS).
-author: dcurwin
-ms.service: backup
 ms.date: 08/30/2019
 ms.topic: conceptual
-ms.author: dacurwin
-manager: carmonm
-ms.openlocfilehash: a4372a66caaa8af807980a2f58f344cbf8fb1be9
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 43f11bb73578187bd851f58cb6311c95b8648d08
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74090547"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74195003"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Matriz de compatibilidad para la copia de seguridad con el agente de Microsoft Azure Recovery Services (MARS)
 
@@ -54,7 +50,7 @@ Cambios de ubicación | Puede cambiar la ubicación de la caché al detener el m
 
 ## <a name="networking-and-access-support"></a>Compatibilidad con redes y acceso
 
-### <a name="url-access"></a>Acceso a direcciones URL
+### <a name="url-and-ip-access"></a>Acceso a direcciones URL e IP
 
 El agente de MARS necesita acceder a estas direcciones URL:
 
@@ -63,6 +59,13 @@ El agente de MARS necesita acceder a estas direcciones URL:
 - *.WindowsAzure.com
 - *.MicrosoftOnline.com
 - *.Windows.net
+
+Y a estas direcciones IP:
+
+- 20.190.128.0/18
+- 40.126.0.0/18
+
+El acceso a todas las direcciones URL y direcciones IP enumeradas anteriormente usa el protocolo HTTPS en el puerto 443.
 
 ### <a name="throttling-support"></a>Limitaciones de compatibilidad
 
@@ -76,7 +79,12 @@ Limitación de la red | No está disponible para las máquinas de copia de segur
 >[!NOTE]
 > El agente de MARS no es compatible con las SKU de Windows Server Core.
 
-Puede utilizar al agente de MARS para realizar copias de seguridad directamente en Azure desde algunos sistemas operativos que se ejecutan en máquinas locales y máquinas virtuales de Azure. Los sistemas operativos deben ser de 64 bits y ejecutar los Service Pack y actualizaciones más recientes. En la tabla siguiente se resumen estos sistemas operativos:
+Puede usar el agente de MARS para realizar copias de seguridad directamente en Azure en los sistemas operativos que se enumeran a continuación y que se ejecutan en:
+
+1. Servidores Windows locales
+2. Máquinas virtuales de Azure que ejecutan Windows
+
+Los sistemas operativos deben ser de 64 bits y ejecutar los Service Pack y actualizaciones más recientes. En la tabla siguiente se resumen estos sistemas operativos:
 
 **Sistema operativo** | **Archivos/carpetas** | **Estado del sistema** | **Requisitos de software o módulo**
 --- | --- | --- | ---
@@ -128,7 +136,7 @@ OneDrive (los archivos sincronizados son flujos dispersos).| No compatible.
 Volúmenes de solo lectura| No compatible | El Servicio de instantánea de copia de volumen (VSS) solo funciona si el volumen es grabable.
 Volúmenes sin conexión| No compatible |VSS solo funciona si el volumen está en línea.
 Recurso compartido de red| No compatible |El volumen debe ser local en el servidor.
-Volúmenes protegidos por BitLocker| No compatible |El volumen debe desbloquearse antes de que se pueda iniciar la copia de seguridad.
+Volúmenes bloqueados por BitLocker| No compatible |El volumen debe desbloquearse antes de que se pueda iniciar la copia de seguridad.
 Identificación del sistema de archivos| No compatible |Solo se admite NTFS.
 Medios extraíbles| No compatible |Todos los orígenes de elementos de copia de seguridad deben tener el estado *corregido*.
 Unidades desduplicadas | Compatible | Azure Backup convierte los datos desduplicados en datos normales. Optimiza, cifra, almacena y envía los datos al almacén.

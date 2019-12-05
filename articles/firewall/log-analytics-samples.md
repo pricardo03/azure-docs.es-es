@@ -1,18 +1,18 @@
 ---
 title: Ejemplos de análisis de registros en Azure Firewall
-description: Ejemplos de análisis de registros en Azure Firewall
+description: Los registros de Azure Monitor se pueden usar para analizar Azure Firewall. Se crea un archivo de ejemplo en el Diseñador de vistas en Azure Monitor.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 09/17/2019
+ms.date: 11/19/2019
 ms.author: victorh
-ms.openlocfilehash: a4ab1263abac67714357594e5bd87a4b910953b1
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 714054b8e538b2fb1bfb3fb4f2293636802f3bc4
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71033978"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74168892"
 ---
 # <a name="azure-firewall-log-analytics-samples"></a>Ejemplos de análisis de registros en Azure Firewall
 
@@ -26,7 +26,7 @@ Aquí se indica cómo puede configurar una visualización de registros de Azure 
 
 Ejecute los siguientes pasos para agregar la vista al área de trabajo de Log Analytics:
 
-1. Abra el área de trabajo de Log Analytics en Azure Portal.
+1. Abra el área de trabajo de Log Analytics en Azure Portal.
 2. Abra **Diseñador de vistas** que está debajo de **General**.
 3. Haga clic en **Import**.
 4. Busque y seleccione el archivo **AzureFirewall.omsview** que descargó antes.

@@ -1,7 +1,7 @@
 ---
-title: 'Diseñador: Predicción de precio (regresión)'
+title: 'Diseñador: Ejemplo de predicción de precios de automóviles (básico)'
 titleSuffix: Azure Machine Learning
-description: Aprenda a compilar un modelo de Machine Learning para predecir el precio de un automóvil sin necesidad de escribir una sola línea de código.
+description: Cree un modelo de regresión de aprendizaje automático para predecir el precio de un automóvil sin escribir una sola línea de código con el diseñador de Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,14 +10,17 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 11/04/2019
-ms.openlocfilehash: 0cdf2d0b632368a5a5bc24e092783c979f7c26bc
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 4dfcc76c31452d93d30cd9f2e4c649924b68c203
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647167"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74213892"
 ---
-# <a name="sample-1---regression-predict-price"></a>Ejemplo 1 - Regresión: Predicción del precio
+# <a name="use-regression-to-predict-car-prices-with-azure-machine-learning-designer"></a>Uso de la regresión para predecir los precios de los automóviles con el diseñador de Azure Machine Learning
+
+**Ejemplo 1 del diseñador (versión preliminar)**
+
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
 Obtenga información sobre cómo compilar un modelo de regresión de aprendizaje automático sin tener que escribir una sola línea de código con el diseñador (versión preliminar).
@@ -33,7 +36,7 @@ Los pasos fundamentales de un modelo de Machine Learning son:
 
 Este es el gráfico final completo de la canalización. Le presentaremos el razonamiento de todos los módulos para que pueda tomar sus propias decisiones.
 
-![Gráfico de la canalización](media/how-to-ui-sample-regression-predict-automobile-price-basic/overall-graph.png)
+![Gráfico de la canalización](media/how-to-designer-sample-regression-predict-automobile-price-basic/overall-graph.png)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -52,7 +55,7 @@ Las tareas de preparación principales incluyen la limpieza, la integración, la
 
 Use el módulo **Select Columns in Dataset** (Seleccionar columnas del conjunto de datos) para excluir las pérdidas normalizadas donde falten muchos valores. A continuación, use **Clean Missing Data** (Eliminar datos que faltan) para quitar las filas donde falten valores. Esto ayuda a crear un conjunto de datos de entrenamiento limpio.
 
-![Procesamiento previo de los datos](./media/how-to-ui-sample-regression-predict-automobile-price-basic/data-processing.png)
+![Procesamiento previo de los datos](./media/how-to-designer-sample-regression-predict-automobile-price-basic/data-processing.png)
 
 ## <a name="train-the-model"></a>Entrenamiento del modelo
 
@@ -70,11 +73,11 @@ Después de haber entrenado el modelo, puede usar los módulos **Score Model** (
 
 **Score Model** (Puntuar modelo) genera predicciones del conjunto de datos de prueba mediante el modelo entrenado. Para comprobar el resultado, seleccione el puerto de salida de **Score Model** (Puntuar modelo) y **Visualize** (Visualizar).
 
-![Resultado de la puntuación](./media/how-to-ui-sample-regression-predict-automobile-price-basic/score-result.png)
+![Resultado de la puntuación](./media/how-to-designer-sample-regression-predict-automobile-price-basic/score-result.png)
 
 Pase las puntuaciones al módulo **Evaluate Model** (Evaluar modelo) para generar métricas de evaluación. Para comprobar el resultado, seleccione el puerto de salida de **Evaluate Model** (Evaluar modelo) y **Visualize** (Visualizar).
 
-![Evaluación del resultado](./media/how-to-ui-sample-regression-predict-automobile-price-basic/evaluate-result.png)
+![Evaluación del resultado](./media/how-to-designer-sample-regression-predict-automobile-price-basic/evaluate-result.png)
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

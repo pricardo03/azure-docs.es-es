@@ -1,21 +1,21 @@
 ---
-title: Actualización de las soluciones de análisis de macrodatos de Azure Data Lake Storage Gen1 a Azure Data Lake Storage Gen2
-description: Actualización de una solución para usar Azure Data Lake Storage Gen2
+title: Actualización de Azure Data Lake Storage de Gen1 a Gen2
+description: Actualice Azure Data Lake Storage de Gen1 a Gen2.
 author: normesta
 ms.topic: conceptual
 ms.author: normesta
-ms.date: 11/01/2019
+ms.date: 11/19/2019
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: rugopala
-ms.openlocfilehash: d86e2cca31487a73e089124e9552b574bcc9166f
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 41074561b4805fef1889bd889b625e1a59d57d91
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73584389"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327880"
 ---
-# <a name="upgrade-your-big-data-analytics-solutions-from-azure-data-lake-storage-gen1-to-azure-data-lake-storage-gen2"></a>Actualización de las soluciones de análisis de macrodatos de Azure Data Lake Storage Gen1 a Azure Data Lake Storage Gen2
+# <a name="upgrade-azure-data-lake-storage-from-gen1-to-gen2"></a>Actualización de Azure Data Lake Storage de Gen1 a Gen2
 
 Si usa Azure Data Lake Storage Gen1 en sus soluciones de análisis de macrodatos, esta guía lo ayudará a actualizar dichas soluciones para usar Azure Data Lake Storage Gen2. Puede usar este documento para evaluar las dependencias que la solución tiene de Data Lake Storage Gen1. En esta guía también se muestra cómo planear y llevar a cabo la actualización.
 

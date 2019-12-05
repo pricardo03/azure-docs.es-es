@@ -1,5 +1,6 @@
 ---
-title: 'Solución de problemas de las conexiones y la puerta de enlace de Virtual Network mediante Azure Network Watcher: REST | Microsoft Docs'
+title: 'Solución de problemas de conexiones y puerta de enlace de red virtual: API REST de Azure'
+titleSuffix: Azure Network Watcher
 description: Esta página explica cómo solucionar problemas de las conexiones y las puertas de enlace de Virtual Network con Azure Network Watcher usando REST
 services: network-watcher
 documentationcenter: na
@@ -14,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: kumud
-ms.openlocfilehash: 0f10b9b45f63485417685a0826c047725a264772
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9b3898a7c4cd09b59da0fc167b758199119793eb
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64686117"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277794"
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher"></a>Solución de problemas de las conexiones y la puerta de enlace de Virtual Network mediante Azure Network Watcher
 

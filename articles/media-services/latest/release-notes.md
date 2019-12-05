@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 10/07/2019
 ms.author: juliako
-ms.openlocfilehash: 34d68974366eb17704b4ea1291bd1d29a0eea95a
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 50c28f86a1ba36ac44a25e047800d14fe314f9bf
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72168630"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74420041"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de la versión de Azure Media Services v3
 
@@ -46,7 +46,7 @@ Media Services V3 anuncia la versión preliminar de la codificación lineal de e
 
 #### <a name="deprecation-of-media-processors"></a>Desuso de los procesadores de multimedia
 
-Estamos anunciando el desuso de *Azure Media Indexer* y *Azure Media Indexer 2 Preview*. El procesador de multimedia de [Azure Media Indexer](../previous/media-services-index-content.md) se retirará el 1 de octubre de 2020. Los procesadores multimedia de [Azure Media Indexer v2 Preview](../previous/media-services-process-content-with-indexer2.md) se retirarán el 1 de enero de 2020. [Video Indexer de Azure Media Services ](https://docs.microsoft.com/azure/media-services/video-indexer/) reemplaza a estos procesadores multimedia heredados.
+Estamos anunciando el desuso de *Azure Media Indexer* y *Azure Media Indexer 2 Preview*. El procesador multimedia [Azure Media Indexer](../previous/media-services-index-content.md) se retirará el 1 de octubre de 2020. Los procesadores multimedia [Azure Media Indexer v2 Preview](../previous/media-services-process-content-with-indexer2.md) se retirarán el 1 de enero de 2020. [Video Indexer de Azure Media Services ](https://docs.microsoft.com/azure/media-services/video-indexer/) reemplaza a estos procesadores multimedia heredados.
 
 Para más información, consulte [Migración de Azure Media Indexer y Azure Media Indexer 2 a Video Indexer de Azure Media Services](../previous/migrate-indexer-v1-v2.md).
 
@@ -64,7 +64,7 @@ Si desea obtener más información, vea [Nubes y regiones donde existe Azure Med
 
 #### <a name="deprecation-of-media-processors"></a>Desuso de los procesadores de multimedia
 
-Anunciamos el desuso de los procesadores de multimedia *Windows Azure Media Encoder* (WAME) y *Azure Media Encoder* (AME), que se van a retirar el 30 de noviembre de 2019.
+Anunciamos el desuso de los procesadores de multimedia *Windows Azure Media Encoder* (WAME) y *Azure Media Encoder* (AME), que se van a retirar el 31 de marzo de 2020.
 
 Para más información, consulte [Migración de WAME a Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101334) y [Migración de AME a Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101335).
  

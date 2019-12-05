@@ -1,19 +1,14 @@
 ---
-title: Webhooks de Azure Container Registry
-description: Aprenda a usar webhooks para desencadenar eventos cuando determinadas acciones tengan lugar en uno de los repositorios del registro.
-services: container-registry
-author: dlepow
-manager: gwallace
-ms.service: container-registry
+title: Webhooks para responder a las acciones del registro
+description: Aprenda a usar webhooks para desencadenar eventos cuando tengan lugar acciones de inserción o extracción en uno de los repositorios del registro.
 ms.topic: article
 ms.date: 05/24/2019
-ms.author: danlep
-ms.openlocfilehash: 59e8d4979e7be02d6097e1c3eccc44e64da87e95
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 5e6fd2d9f4c7727365a8e2fe3893aafebfeb7bd4
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68311582"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74454364"
 ---
 # <a name="using-azure-container-registry-webhooks"></a>Webhooks de Azure Container Registry
 

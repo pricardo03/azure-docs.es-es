@@ -3,7 +3,7 @@ title: Refuerzo de la seguridad de los recursos con Azure Advisor | Microsoft Do
 description: Utilice Azure Advisor para mejorar la seguridad de las implementaciones de Azure.
 services: advisor
 documentationcenter: NA
-author: kasparks
+author: saket-ms
 manager: ''
 ms.assetid: ''
 ms.service: advisor
@@ -11,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/29/2019
-ms.author: kasparks
-ms.openlocfilehash: 1e9c3556d904dd961a2b8f99f84983c35ccf5c6a
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.author: sagupt
+ms.openlocfilehash: 8392e3b74677a8977684300d33ceb663c4e2fe81
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772281"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74145320"
 ---
 # <a name="make-resources-more-secure-with-azure-advisor"></a>Refuerzo de la seguridad de los recursos con Azure Advisor
 
@@ -41,6 +41,6 @@ Para aprender más sobre las recomendaciones de Advisor, consulte:
 * [Recomendaciones sobre el costo de Advisor](advisor-cost-recommendations.md)
 * [Recomendaciones sobre rendimiento de Advisor](advisor-performance-recommendations.md)
 * [Recomendaciones sobre alta disponibilidad de Advisor](advisor-high-availability-recommendations.md)
-
+* [Recomendaciones de excelencia operativa de Advisor](advisor-operational-excellence-recommendations.md)
 
  

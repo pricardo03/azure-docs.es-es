@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: 22e8fa8fb6999828076ea5f8f34b1f601b920013
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4f78b4c50f4cd65f3dc32c48cea81b705dc44de1
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499566"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325946"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Glosario de Language Understanding de conceptos y vocabulario común
 En el glosario de Language Understanding (LUIS) se explican los términos que pueden aparecer cuando se trabaja con el servicio de API de LUIS.
@@ -30,17 +30,16 @@ La creación es la capacidad de crear, administrar e implementar una [aplicació
 
 ## <a name="authoring-key"></a>Clave de creación
 
-Antes se denominaba clave "de programación". Se usa para crear la aplicación. No se usa para enviar consultas de punto de conexión de nivel de producción. Para obtener más información, vea [Key limits](luis-boundaries.md#key-limits) (Límites de la clave).   
+Antes se denominaba clave "de programación". Se usa para crear la aplicación. No se usa para enviar consultas de punto de conexión de nivel de producción. Para obtener más información, vea [Key limits](luis-boundaries.md#key-limits) (Límites de la clave).
 
-## <a name="batch-test-json-file"></a>Archivo JSON de texto por lotes
+## <a name="batch-test-json-file"></a>Archivo JSON de la prueba en lote
 
 Las pruebas por lotes son la capacidad de validar el modelo de la aplicación de LUIS actual con un conjunto de pruebas coherente y conocido de expresiones del usuario. La prueba por lotes se define en un [archivo con formato JSON](luis-concept-batch-test.md#batch-file-format).
 
-Consulte también: 
+Consulte también:
 * [Conceptos](luis-concept-batch-test.md)
 * [Procedimiento](luis-how-to-batch-test.md)
 * [Tutorial](luis-tutorial-batch-testing.md)
-
 
 ## <a name="collaborator"></a>Colaborador
 

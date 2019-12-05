@@ -4,14 +4,14 @@ description: Definición de los destinos de almacenamiento para que Azure HPC Ca
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 11/18/2019
 ms.author: rohogue
-ms.openlocfilehash: b10692e352007ee2b0fd18543d8ae2ad8f9819dc
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 396ed84856604c297551c4593e0d7b82b92ac924
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73621460"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74166627"
 ---
 # <a name="add-storage-targets"></a>Incorporación de destinos de almacenamiento
 
@@ -41,7 +41,7 @@ Para definir un contenedor de blobs de Azure, escriba esta información.
 
 * **Storage target name** (Nombre de destino de almacenamiento): establezca un nombre que identifique este destino de almacenamiento en Azure HPC Cache.
 * **Target type** (Tipo de destino): elija **Blob**.
-* **Storage account** (Cuenta de almacenamiento): seleccione la cuenta con el contenedor al que se va a hacer referencia.
+* **Storage account** (Cuenta de almacenamiento): seleccione la cuenta con el contenedor que desea usar.
 
   Tendrá que autorizar a la instancia de caché para acceder a la cuenta de almacenamiento, tal como se describe en [Incorporación de los roles de acceso](#add-the-access-control-roles-to-your-account).
 
@@ -53,13 +53,16 @@ Para definir un contenedor de blobs de Azure, escriba esta información.
 
 Cuando termine, haga clic en **Aceptar** para agregar el destino de almacenamiento.
 
+> [!NOTE]
+> Si el firewall de la cuenta de almacenamiento está configurado para restringir el acceso solo a "redes seleccionadas", use la solución alternativa documentada en [Solución alternativa para la configuración del firewall de la cuenta de Blob Storage](hpc-cache-blob-firewall-fix.md).
+
 ### <a name="add-the-access-control-roles-to-your-account"></a>Incorporación de los roles de control de acceso a la cuenta
 
-Azure HPC Cache usa el [control de acceso basado en rol (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/index) para autorizar el acceso de la aplicación de caché a la cuenta de almacenamiento de los destinos de Azure Blob Storage.
+Azure HPC Cache usa el [control de acceso basado en rol (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/index) para autorizar el acceso del servicio de caché a la cuenta de almacenamiento de los destinos de Azure Blob Storage.
 
 El propietario de la cuenta de almacenamiento debe agregar explícitamente los roles [Colaborador de la cuenta de almacenamiento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor) y [Colaborador de datos de Storage Blob](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) para el usuario "HPC Cache Resource Provider" (Proveedor de recursos de HPC Cache).
 
-Puede realizar esta tarea con anterioridad, o bien hacer clic en un vínculo de la página donde se agrega un destino de almacenamiento de Azure Blob Storage.
+Puede realizar esta tarea con anterioridad, o bien hacer clic en un vínculo de la página donde se agrega un destino de almacenamiento de Azure Blob Storage. Tenga en cuenta que la configuración de roles puede tardar hasta cinco minutos en propagarse a través del entorno de Azure, por lo que debe esperar unos minutos después de agregar los roles antes de crear un destino de almacenamiento.
 
 Pasos para agregar los roles de RBAC:
 
@@ -76,7 +79,7 @@ Pasos para agregar los roles de RBAC:
    > [!NOTE]
    > Si una búsqueda de "hpc" no funciona, pruebe a usar la cadena "storagecache" en su lugar. Es posible que los usuarios que se han unido a las versiones preliminares (antes de la disponibilidad general) necesiten usar el nombre anterior de la entidad de servicio.
 
-1. Haga clic en el botón **Guardar** para agregar la asignación de roles a la cuenta de almacenamiento.
+1. Haga clic en el botón **Guardar** en la parte inferior.
 
 1. Repita este proceso para asignar el rol "Colaborador de datos de Storage Blob".  
 
@@ -84,7 +87,7 @@ Pasos para agregar los roles de RBAC:
 
 ## <a name="add-a-new-nfs-storage-target"></a>Incorporación de un nuevo destino de almacenamiento NFS
 
-Los destinos de almacenamiento NFS tienen algunos campos adicionales para especificar cómo se llega a la exportación del almacenamiento y cómo se almacenan en caché sus datos de forma eficaz. También puede crear varias rutas de acceso de espacio de nombres desde un único host NFS si dispone de más de una exportación.
+Un destino de almacenamiento NFS tiene más campos que el destino de almacenamiento de blobs. Estos campos especifican cómo se llega a la exportación del almacenamiento y cómo se almacenan en caché sus datos de forma eficaz. Asimismo, un destino de almacenamiento NFS le permite crear varias rutas de acceso de espacio de nombres si el host NFS dispone de más de una exportación.
 
 ![Captura de pantalla de la página para agregar destino de almacenamiento con destino NFS definido](media/hpc-cache-add-nfs-target.png)
 
@@ -103,7 +106,8 @@ Proporcione esta información para un destino de almacenamiento respaldado por N
 Un destino de almacenamiento NFS puede tener varias rutas de acceso virtuales, siempre y cuando cada ruta represente una exportación o un subdirectorio diferente sen el mismo sistema de almacenamiento.
 
 Cree todas las rutas de acceso de un destino de almacenamiento.
-<!-- You can create multiple namespace paths to represent different exports on the same NFS storage system, but you must create them all from one storage target. -->
+
+Puede [agregar y editar rutas de acceso de espacio de nombres](hpc-cache-edit-storage.md) en un destino de almacenamiento en cualquier momento.
 
 Rellene estos valores para cada ruta de acceso del espacio de nombres:
 
@@ -122,11 +126,29 @@ Cuando termine, haga clic en **Aceptar** para agregar el destino de almacenamien
 
 Cuando cree un destino de almacenamiento que apunte a un sistema de almacenamiento NFS, deberá elegir el *modelo de uso* de ese destino. Este modelo determina cómo se almacenan los datos en caché.
 
-* Read heavy (Lectura intensiva): elija esta opción si usa la caché principalmente para acelerar el acceso de lectura de datos.
+Hay tres opciones:
 
-* Read/write (Lectura y escritura): elija esta opción si los clientes usan la memoria caché para leer y escribir.
+* **Lectura de textos densos y poco frecuentes**: utilice esta opción si desea acelerar el acceso de lectura a archivos que son estáticos o que no se suelen modificar.
 
-* Clients bypass the cache (Los clientes omiten la caché): elija esta opción si los clientes escriben los datos directamente en el sistema de almacenamiento, sin escribir primero en la memoria caché.
+  Esta opción almacena en caché los archivos que los clientes leen, pero pasa las escrituras por el almacenamiento de back-end inmediatamente. Los archivos almacenados en la memoria caché nunca se comparan con los archivos del volumen de almacenamiento NFS.
+
+  No use esta opción si existe el riesgo de que un archivo se pueda modificar directamente en el sistema de almacenamiento sin escribirlo primero en la memoria caché. Si esto ocurre, la versión almacenada en caché del archivo nunca se actualizará con los cambios del back-end y el conjunto de datos puede volverse incoherente.
+
+* **Mayor que el 15 % de textos**: esta opción acelera el rendimiento de lectura y escritura. Al usar esta opción, todos los clientes deben acceder a los archivos mediante Azure HPC Cache en lugar de montar el almacenamiento de back-end directamente. Los archivos almacenados en caché tendrán cambios recientes que no se almacenan en el back-end.
+
+  En este modelo de uso, los archivos de la memoria caché no se comparan con los archivos del almacenamiento de back-end. Se supone que la versión en caché del archivo es más actual. Un archivo modificado en la memoria caché solo se escribe en el sistema de almacenamiento de back-end después de que esté en la memoria caché durante una hora sin cambios adicionales.
+
+* **Los clientes escriben en el destino NFS omitiendo la caché**: elija esta opción si algún cliente del flujo de trabajo escribe datos directamente en el sistema de almacenamiento sin escribir primero en la memoria caché. Los archivos que solicitan los clientes se almacenan en caché, pero los cambios que se realicen en esos archivos desde el cliente se devuelven al sistema de almacenamiento de back-end inmediatamente.
+
+  Con este modelo de uso, los archivos de la memoria caché se comparan con frecuencia con las versiones de back-end para determinar si hay actualizaciones. Esta comprobación permite cambiar los archivos fuera de la memoria caché al tiempo que se preserva la coherencia de los datos.
+
+En esta tabla se resumen las diferencias de los modelos de uso:
+
+| Modelo de uso | Modo de almacenamiento en caché | Comprobación de back-end | Retraso máximo de reescritura |
+| ---- | ---- | ---- | ---- |
+| Lectura de textos densos y poco frecuentes | Lectura | Nunca | None |
+| Mayor que el 15 % de textos | Lectura/escritura | Nunca | 1 hora |
+| Los clientes omiten la memoria caché | Lectura | 30 segundos | None |
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -135,4 +157,4 @@ Después de crear destinos de almacenamiento, considere la posibilidad de realiz
 * [Montaje de la instancia de Azure HPC Cache](hpc-cache-mount.md)
 * [Traslado de datos a Azure Blob Storage](hpc-cache-ingest.md)
 
-Si necesita cambiar un destino de almacenamiento, lea [Edición de los destinos de almacenamiento](hpc-cache-edit-storage.md) para obtener información sobre cómo hacerlo.
+Si necesita actualizar cualquier configuración, puede [editar un destino de almacenamiento](hpc-cache-edit-storage.md).

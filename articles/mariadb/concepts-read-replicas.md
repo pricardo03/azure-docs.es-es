@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/06/2019
-ms.openlocfilehash: 29725c302887448689f4aafd86f1f834d81c23ed
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.date: 11/17/2019
+ms.openlocfilehash: f761cb1c4e895cd0960a0a07033e609acf9ef601
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973589"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158415"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>Réplicas de lectura en Azure Database for MariaDB
 
@@ -74,7 +74,7 @@ Aprenda a [crear una réplica de lectura en Azure Portal](howto-read-replicas-po
 
 ## <a name="connect-to-a-replica"></a>Conexión a una réplica
 
-Al crear una réplica, no se heredan las reglas de firewall o el punto de conexión de servicio de red virtual del servidor maestro. Estas reglas se deben configurar de forma independiente para la réplica.
+Durante la creación, una réplica hereda las reglas de firewall o el punto de conexión de servicio de red virtual del servidor maestro. Posteriormente, estas reglas son independientes de las del servidor maestro.
 
 La réplica hereda su cuenta de administrador del servidor maestro. Todas las cuentas de usuario existentes en el servidor se replican en las réplicas de lectura. Solo se puede conectar a una réplica de lectura utilizando las cuentas de usuario disponibles en el servidor maestro.
 
@@ -126,6 +126,8 @@ Las réplicas se crean con la misma configuración de servidor que el servidor m
 
 > [!IMPORTANT]
 > Antes de actualizar la configuración de un servidor maestro con nuevos valores, actualice la configuración de las réplicas a valores iguales o mayores. Esta acción garantiza que la réplica puede hacer frente a los cambios realizados en el servidor maestro.
+
+Las reglas de firewall, las reglas de red virtual y la configuración de parámetros se heredan del servidor maestro a la réplica cuando se crea la réplica. Después, las reglas de la réplica son independientes.
 
 ### <a name="stopped-replicas"></a>Réplicas detenidas
 

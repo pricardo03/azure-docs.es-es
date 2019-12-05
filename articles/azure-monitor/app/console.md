@@ -6,14 +6,14 @@ ms.subservice: application-insights
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 01/30/2019
+ms.date: 11/19/2019
 ms.reviewer: lmolkova
-ms.openlocfilehash: 1cafa78fb4fba28fbd0691e256efe482fc9664ef
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: ee8dabcc957364bade36608067aad568662c24ae
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72678202"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232715"
 ---
 # <a name="application-insights-for-net-console-applications"></a>Application Insights para aplicaciones de consola .NET
 
@@ -22,8 +22,7 @@ ms.locfileid: "72678202"
 Necesita una suscripción a [Microsoft Azure](https://azure.com). Inicie sesión con una cuenta Microsoft, que podría tener para Windows, Xbox Live u otros servicios en la nube de Microsoft. Si su equipo tiene una suscripción organizativa a Azure, el propietario puede agregarle a esta con la cuenta de Microsoft.
 
 > [!NOTE]
-> Hay un nuevo SDK de Application Insights en versión beta llamado [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) que se puede usar para habilitar Application Insights en cualquier aplicación de consola. Se recomienda usar este paquete y las instrucciones asociadas que se indican [aquí](../../azure-monitor/app/worker-service.md). Este paquete va dirigido a [`NetStandard2.0`](https://docs.microsoft.com/dotnet/standard/net-standard) y, por lo tanto, se puede usar en .NET Core 2.0 o una versión posterior, y .NET Framework 4.7.2 o una versión posterior.
-Este documento quedará en desuso una vez que se lance una versión estable de este nuevo paquete.
+> Hay un nuevo SDK de Application Insights llamado [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) que se puede usar para habilitar Application Insights en cualquier aplicación de consola. Se recomienda usar este paquete y las instrucciones asociadas que se indican [aquí](../../azure-monitor/app/worker-service.md). Este paquete va dirigido a [`NetStandard2.0`](https://docs.microsoft.com/dotnet/standard/net-standard) y, por lo tanto, se puede usar en .NET Core 2.0 o una versión posterior, y .NET Framework 4.7.2 o una versión posterior.
 
 ## <a name="getting-started"></a>Introducción
 

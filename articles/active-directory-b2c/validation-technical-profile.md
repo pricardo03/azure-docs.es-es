@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 3f20c3c6d6821b5a8bbdb74101095431f6f7f18f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ad15342e6d35a5c6101beb1ddc09d4ce1f2089d5
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66511905"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74167559"
 ---
 # <a name="define-a-validation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico de validación en una directiva personalizada en Azure Active Directory B2C
 
@@ -38,6 +38,9 @@ Los perfiles técnicos de validación se ejecutan en la secuencia en que aparece
 Un perfil técnico de validación se puede ejecutar condicionalmente en función de las condiciones previas definidas en el elemento **ValidationTechnicalProfile**. Por ejemplo, puede comprobar si existe una notificación específica o si una notificación es igual o no al valor especificado.
 
 Un perfil técnico autoafirmado puede definir un perfil técnico de validación que se use para validar algunas o todas las notificaciones de salida. Todas las notificaciones de entrada del perfil técnico referido tienen que aparecer en las notificaciones de salida del perfil técnico de validación de referencia.
+
+> [!NOTE]
+> Solo los perfiles técnicos autoafirmados pueden usar perfiles técnicos de validación. Si tiene que validar las notificaciones de salida de perfiles técnicos no autoafirmados, considere la posibilidad de usar un paso de orquestación adicional en el recorrido del usuario para dar cabida al perfil técnico a cargo de la validación.    
 
 ## <a name="validationtechnicalprofiles"></a>ValidationTechnicalProfiles
 

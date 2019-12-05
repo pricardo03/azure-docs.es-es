@@ -1,5 +1,6 @@
 ---
-title: Administración y análisis de registros de flujo de grupo de seguridad de red con Network Watcher y Elastic Stack | Microsoft Docs
+title: Visualización de registros de flujo de grupo de seguridad de red - Elastic Stack
+titleSuffix: Azure Network Watcher
 description: Administre y analice registros de flujo de grupo de seguridad de red en Azure con Network Watcher y Elastic Stack.
 services: network-watcher
 documentationcenter: na
@@ -14,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: mareat
-ms.openlocfilehash: 7361eff0f76271564fd5a0e9b8a18221ec4138e3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 53cbfe08d310f7244134e1ae31b18644a83c63d3
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60860147"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277746"
 ---
 # <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>Visualización de registros de flujo de grupo de seguridad de red de Azure Network Watcher con herramientas de código abierto
 

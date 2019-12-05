@@ -10,12 +10,12 @@ ms.author: jmartens
 author: j-martens
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: cf9a57b58740d1a759e00f10f6f327d605e91148
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: d2be8f7f2e8859301285e4b87cfb5da88e3317e3
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74123647"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483368"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de la versión de Azure Machine Learning
 
@@ -23,6 +23,53 @@ En este artículo conocerá las versiones de Azure Machine Learning.  Para obten
 
 Para obtener información acerca de errores conocidos y soluciones alternativas, consulte [la lista de problemas conocidos](resource-known-issues.md).
 
+## <a name="2019-11-25"></a>2019-11-25
+
+### <a name="azure-machine-learning-sdk-for-python-v1076"></a>SDK de Azure Machine Learning para Python v1.0.76
+
++ **Cambios importantes**
+  + Problemas de actualización de Azureml-Train-AutoML
+    + La actualización a azureml-train-automl>=1.0.76 desde azureml-train-automl<1.0.76 puede generar instalaciones parciales, lo que provocaría el error de algunas importaciones de automl. Para solucionar este problema, puede ejecutar el script de configuración que se encuentra en https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/automl_setup.cmd. O bien, si usa PIP directamente, puede usar lo siguiente:
+      + "pip install --upgrade azureml-train-automl"
+      + "pip install --ignore-installed azureml-train-automl-client"
+    + También puede desinstalar la versión anterior antes de actualizar:
+      + "pip uninstall azureml-train-automl"
+      + "pip install azureml-train-automl"
+
++ **Mejoras y correcciones de errores**
+  + **azureml-automl-runtime**
+    + AutoML ahora tendrá en cuenta las clases true y false al calcular las métricas escalares medias para tareas de clasificación binaria.
+    + Se ha trasladado el código de entrenamiento y el aprendizaje automático en AzureML-AutoML-Core a un nuevo paquete, AzureML-AutoML-Runtime.
+  + **azureml-contrib-dataset**
+    + Cuando llama a `to_pandas_dataframe` en un conjunto de datos con etiqueta con la opción de descarga, ahora ya puede especificar si desea sobrescribir los archivos existentes o no.
+    + Cuando se llama a `keep_columns` o `drop_columns` y esto da lugar a la eliminación de una columna de series temporales, etiquetas o imágenes, también se eliminarán las funcionalidades correspondientes del conjunto de datos.
+    + Se ha corregido un problema con el cargador de PyTorch para la tarea de detección de objetos.
+  + **azureml-contrib-interpret**
+    + Se ha quitado el widget de panel de explicación de azureml-contrib-interpretate; se ha cambiado el paquete para hacer referencia al nuevo en interpret_community.
+    + Se ha actualizado la versión de interpret-community a 0.2.0.
+  + **azureml-core**
+    + Mejora del rendimiento de `workspace.datasets`.
+    + Se ha agregado la capacidad de registrar el almacén de datos de Azure SQL Database mediante la autenticación de nombre de usuario y contraseña.
+    + Corrección para cargar RunConfigurations desde rutas de acceso relativas.
+    + Cuando se llama a `keep_columns` o `drop_columns` y esto da lugar a la eliminación de una columna de series temporales, también se eliminarán las funcionalidades correspondientes del conjunto de datos.
+  + **azureml-interpret**
+    + Se ha actualizado la versión de interpret-community a 0.2.0
+  + **azureml-pipeline-steps**
+    + Se han documentado valores admitidos para `runconfig_pipeline_params` para pasos de canalización de Azure Machine Learning.
+  + **azureml-pipeline-core**
+    + Se ha agregado la opción de CLI para descargar la salida en formato JSON para comandos de canalización.
+  + **azureml-train-automl**
+    + Se ha dividido AzureML-Train-AutoML en dos paquetes, un paquete de cliente AzureML-Train-AutoML-Client y un paquete de entrenamiento de aprendizaje automático AzureML-Train-AutoML-Runtime.
+  + **azureml-train-automl-client**
+    + Se ha agregado un cliente ligero para enviar experimentos de AutoML sin necesidad de instalar localmente dependencias de aprendizaje automático.
+    + Se ha corregido el registro de retardos detectados automáticamente, tamaños de ventanas con desplazamiento y horizontes máximos en ejecuciones remotas.
+  + **azureml-train-automl-runtime**
+    + Se ha agregado un nuevo paquete AutoML para aislar los componentes de aprendizaje automático y tiempo de ejecución del cliente.
+  + **azureml-contrib-train-rl**
+    + Se ha agregado compatibilidad con aprendizaje de refuerzo en SDK.
+    + Se ha agregado compatibilidad con AmlWindowsCompute en el SDK de RL. 
+
+ 
 ## <a name="2019-11-11"></a>2019-11-11
 
 ### <a name="azure-machine-learning-sdk-for-python-v1074"></a>SDK de Azure Machine Learning para Python v1.0.74

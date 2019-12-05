@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: MGoedtel
 ms.author: magoedte
 ms.date: 10/28/2019
-ms.openlocfilehash: 709d63b2c764049a698bc538d9ec451b4e75feaa
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: b8fdefb5e8555e90b5c9065672f4593e5bf98e06
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73044237"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326511"
 ---
 # <a name="delete-and-restore-azure-log-analytics-workspace"></a>Eliminación y restauración de un área de trabajo de Azure Log Analytics
 
@@ -20,7 +20,7 @@ En este artículo se explica el concepto de eliminación temporal de áreas de t
 
 ## <a name="considerations-when-deleting-a-workspace"></a>Consideraciones al eliminar áreas de trabajo
 
-Al eliminar un área de trabajo de Log Analytics, se realiza una operación de eliminación temporal para que se pueda recuperar el área de trabajo, incluidos los datos y los agentes conectados en un plazo de 14 días, tanto si la eliminación fue accidental como intencionada. Después del período de eliminación temporal, el área de trabajo y sus datos no podrán recuperarse y se pondrán en cola para su eliminación permanente en un plazo de 30 días.
+Al eliminar un área de trabajo de Log Analytics, se realiza una operación de eliminación temporal para que se pueda recuperar el área de trabajo, incluidos los datos y los agentes conectados en un plazo de 14 días, tanto si la eliminación fue accidental como intencionada. Después del período de eliminación temporal, el área de trabajo y sus datos no son recuperables: los datos se ponen en cola para su eliminación permanente en un plazo de 30 días, y el nombre del área de trabajo está disponible y se puede usar para crear una nueva área de trabajo.
 
 Debe tener cuidado al eliminar un área de trabajo porque puede haber datos importantes y una configuración que puede afectar negativamente a las operaciones de servicio. Revise qué agentes, soluciones y otros servicios y orígenes de Azure almacenan sus datos en Log Analytics. Por ejemplo:
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 10/12/2018
-ms.openlocfilehash: ce0b917f34cab31227e721e119c72cd5d1f99bff
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 7ee593a8db020134e13ea853f17f097d716f7814
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73832015"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74538182"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Preguntas más frecuentes sobre la solución Network Performance Monitor.
 
@@ -183,6 +183,8 @@ Es posible que un salto no responda a un comando traceroute en uno o varios de l
 * Los enrutadores se han configurado para no revelar su identidad.
 * Los dispositivos de red no permiten el tráfico ICMP_TTL_EXCEEDED.
 * Un firewall bloquea la respuesta ICMP_TTL_EXCEEDED del dispositivo de red.
+
+Cuando cualquiera de los puntos de conexión se encuentra en Azure, traceroute muestra saltos no identificados, ya que la infraestructura de Azure no revela la identidad a traceroute. 
 
 ### <a name="i-get-alerts-for-unhealthy-tests-but-i-do-not-see-the-high-values-in-npms-loss-and-latency-graph-how-do-i-check-what-is-unhealthy"></a>Recibo alertas para las pruebas con un estado incorrecto, pero no veo los valores altos en el gráfico de pérdida y latencia de NPM. ¿Cómo compruebo qué elementos tienen un estado incorrecto?
 NPM genera una alerta si la latencia de extremo a extremo entre el origen y el destino cruza el umbral en cualquiera de las rutas de acceso entre ellos. Algunas redes tienen varias rutas de acceso que conectan el mismo origen y destino. NPM genera una alerta si el estado de alguna de las rutas de acceso es incorrecto. La pérdida y latencia que se muestran en los gráficos es el valor medio de todas las rutas de acceso, por lo que puede que no muestre el valor exacto de una única ruta de acceso. Para saber dónde se ha superado el umbral, busque la columna "SubType" en la alerta. Si el problema se debe a una ruta de acceso, el valor de SubType será NetworkPath (para las pruebas del Monitor de rendimiento), EndpointPath (para las pruebas del Monitor de conectividad de servicio) y ExpressRoutePath (para las pruebas del Monitor de ExpressRotue). 

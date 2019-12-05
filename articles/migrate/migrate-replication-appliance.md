@@ -1,17 +1,17 @@
 ---
-title: Arquitectura del dispositivo de replicación de Azure Migrate | Microsoft Docs
-description: Proporciona información general sobre el dispositivo de replicación de Azure Migrate.
+title: Arquitectura del dispositivo de replicación de Azure Migrate
+description: Proporciona información general sobre el dispositivo de replicación de Azure Migrate para la migración basada en agente.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/04/2019
+ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: 4f4dc307bee4190a0e94ace493053e0cfd01150e
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: ba14767bde5d6cdca3a82dbe4e8a115ec25cc911
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67810111"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186552"
 ---
 # <a name="replication-appliance"></a>Dispositivo de replicación
 

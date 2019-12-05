@@ -1,7 +1,7 @@
 ---
-title: 'Procedimientos recomendados: LUIS'
+title: Prácticas recomendadas para la creación de una aplicación de LUIS
 titleSuffix: Azure Cognitive Services
-description: Obtenga información sobre los procedimientos recomendados de LUIS para conseguir los mejores resultados del modelo de la aplicación de LUIS.
+description: Obtenga información sobre los procedimientos recomendados para conseguir los mejores resultados del modelo de la aplicación de LUIS.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,14 +11,14 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: 64d67edaf5affbc908fba7b6c261096589bc84d0
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b4be79338db71ad83204fae971da0b77885a8070
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73487620"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280923"
 ---
-# <a name="best-practices-for-building-a-language-understanding-app-with-cognitive-services"></a>Procedimientos recomendados para compilar una aplicación de reconocimiento de lenguaje con Cognitive Services
+# <a name="best-practices-for-building-a-language-understanding-luis-app"></a>Procedimientos recomendados para crear aplicaciones de Language Understanding (LUIS)
 Use el proceso de creación de aplicaciones para compilar la aplicación de LUIS: 
 
 * Creación de modelos de idioma (intenciones y entidades)

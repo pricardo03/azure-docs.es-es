@@ -11,20 +11,20 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 08/27/2019
+ms.date: 11/19/2019
 ms.author: juliako
-ms.openlocfilehash: 98084b9bb6f19d22c7995d3044bb32ceaa947dc5
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: a85f9f8b9d98f77cf673778f031d8f47f132fbe1
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74040387"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327344"
 ---
 # <a name="live-transcription-preview"></a>Transcripción en directo (versión preliminar)
 
 Azure Media Services ofrece vídeo, audio y ahora también texto en diferentes protocolos. Cuando publica el streaming en vivo mediante MPEG-DASH o HLS/CMAF, el servicio proporcionará junto con el vídeo y el audio, el texto transcrito en formato IMSC1.1 compatible con TTML y empaquetado en fragmentos de MPEG-4 Part 30 (ISO/IEC 14496-30). Si la entrega se realiza mediante HLS/TS, el texto se proporcionará como VTT fragmentado. 
 
-En este artículo se describe cómo habilitar la transcripción en directo al hacer streaming de un evento en directo con Azure Media Services v3. Antes de continuar, asegúrese de que está familiarizado con el uso de las API REST de Media Services v3 (consulte [este tutorial](stream-files-tutorial-with-rest.md) para obtener más detalles). También debe estar familiarizado con el concepto de [streaming en vivo](live-streaming-overview.md). Se recomienda completar el tutorial [Streaming en vivo con Media Services v3](stream-live-tutorial-with-api.md)). 
+En este artículo se describe cómo habilitar la transcripción en directo al hacer streaming de un evento en directo con Azure Media Services v3. Antes de continuar, asegúrese de que está familiarizado con el uso de las API REST de Media Services v3 (consulte [este tutorial](stream-files-tutorial-with-rest.md) para obtener más detalles). También debe estar familiarizado con el concepto de [streaming en vivo](live-streaming-overview.md). Se recomienda completar el tutorial [Streaming en vivo con Media Services](stream-live-tutorial-with-api.md). 
 
 > [!NOTE]
 > Actualmente, la transcripción en directo solo está disponible como una característica en vista previa en la región Oeste de EE. UU. 2. Admite la transcripción de texto oral en inglés a texto. La referencia de la API para esta característica se encuentra en este documento: puesto que está en versión preliminar, los detalles no están disponibles en nuestros documentos de REST. 

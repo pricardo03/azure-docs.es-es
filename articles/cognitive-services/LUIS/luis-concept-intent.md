@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: diberry
-ms.openlocfilehash: 3d2895fa8d45ad594963d3f26cbe04fd968f5fcc
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 309a2592dbac2918aeb532fbe91e33d296f4e5a5
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73487534"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280881"
 ---
 # <a name="intents-in-your-luis-app"></a>Intenciones en la aplicación de LUIS
 
@@ -47,7 +47,7 @@ Si quiere puntuaciones para todas las intenciones de la expresión, puede propor
 |V3|`show-all-intents=true`|
 
 ## <a name="intent-compared-to-entity"></a>Comparación de intención con entidad
-La intención representa la acción que el bot debe realizar para el usuario y se basa en la expresión completa. Una expresión solo puede tener una intención de puntuación superior, pero puede tener muchas entidades. 
+La intención representa la acción que la aplicación debe realizar para el usuario y se basa en la expresión completa. Una expresión solo puede tener una intención de puntuación superior, pero puede tener muchas entidades. 
 
 <a name="how-do-intents-relate-to-entities"></a>
 

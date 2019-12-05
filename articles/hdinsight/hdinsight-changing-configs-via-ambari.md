@@ -2,18 +2,18 @@
 title: 'Apache Ambari para optimizar las configuraciones de clúster: Azure HDInsight'
 description: Use la interfaz de usuario web de Apache Ambari para configurar y optimizar clústeres de Azure HDInsight.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 03/26/2019
-ms.author: hrasheed
-ms.openlocfilehash: e0d94a41febdba1bea6818309e05d287bef6d3a1
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 11/15/2019
+ms.openlocfilehash: 15a2c75a7619a815655be0fd9fd3044d86acd057
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492508"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150123"
 ---
 # <a name="use-apache-ambari-to-optimize-hdinsight-cluster-configurations"></a>Uso de Apache Ambari para optimizar configuraciones de clúster de HDInsight
 
@@ -143,7 +143,7 @@ Hive procesa los datos fila por fila. La vectorización dirige Hive para que pro
 
 De forma predeterminada, Hive sigue un conjunto de reglas para buscar un plan de ejecución de consultas óptimo. La optimización basada en costos (CBO) evalúa varios planes para ejecutar una consulta y asigna un costo a cada plan; a continuación, determina el plan más económico para ejecutar una consulta.
 
-Para habilitar CBO, navegue hasta la pestaña **Configs** (Configuraciones) de Hive y busque `parameter hive.cbo.enable`; a continuación, cambie el botón de alternancia a **Activado**.
+Para habilitar CBO, vaya a **Hive** > **Configs** > **Settings** (Hive > Configuraciones > Configuración) y busque **Enable Cost Based Optimizer** (Habilitar optimizador basado en el costo) y, a continuación, cambie el botón de alternancia a **On** (Activado).
 
 ![Optimizador basado en costos de HDInsight](./media/hdinsight-changing-configs-via-ambari/hdinsight-cbo-config.png)
 
@@ -195,15 +195,13 @@ Como norma general, es importante tener un método de compresión divisible, ya 
 
 1. Para agregar un valor personalizado:
 
-    a. Navegue hasta la pestaña **Configs** (Configuraciones) de Hive y seleccione la pestaña **Avanzadas**.
+    a. Vaya a **Hive** > **Configs** > **Advanced** > **Custom hive-site** (Hive > Configuraciones > Avanzadas > Sitio de Hive personalizado).
 
-    b. En la pestaña **Avanzadas**, busque y expanda el panel **Custom hive-site** (Sitio de Hive personalizado).
+    b. Seleccione **Add Property...** (Agregar propiedad) en la parte inferior del panel Custom hive-site (Sitio de Hive personalizado).
 
-    c. Haga clic en el vínculo **Agregar propiedad** en la parte inferior del panel Custom hive-site (Sitio de Hive personalizado).
+    c. En la ventana Agregar propiedad, escriba `mapred.map.output.compression.codec` como la clave y `org.apache.hadoop.io.compress.SnappyCodec` como el valor.
 
-    d. En la ventana Agregar propiedad, escriba `mapred.map.output.compression.codec` como la clave y `org.apache.hadoop.io.compress.SnappyCodec` como el valor.
-
-    e. Haga clic en **Agregar**.
+    d. Seleccione **Agregar**.
 
     ![Apache Hive: agregar propiedad personalizada](./media/hdinsight-changing-configs-via-ambari/hive-custom-property.png)
 
@@ -281,7 +279,7 @@ Recomendaciones adicionales para optimizar el motor de ejecución de Hive:
 | Configuración | Recomendado | Valor predeterminado de HDInsight |
 | -- | -- | -- |
 | `hive.mapjoin.hybridgrace.hashtable` | True = más seguro y más lento; false = más rápido | false |
-| `tez.am.resource.memory.mb` | Límite superior de 4 GB para la mayor parte | Ajustado automáticamente |
+| `tez.am.resource.memory.mb` | Límite superior de 4 GB para la mayor parte | Ajustado automáticamente |
 | `tez.session.am.dag.submit.timeout.secs` | 300+ | 300 |
 | `tez.am.container.idle.release-timeout-min.millis` | 20000+ | 10000 |
 | `tez.am.container.idle.release-timeout-max.millis` | 40000+ | 20000 |
@@ -416,7 +414,7 @@ Cuanto mayor sea el tamaño del archivo de región, menor será el número de di
 
 * La propiedad `hbase.hregion.memstore.flush.size` define el tamaño en el que se va a vaciar Memstore en el disco. El tamaño predeterminado es de 128 MB.
 
-* El multiplicador de bloques de región de Hbase se define mediante `hbase.hregion.memstore.block.multiplier`. El valor predeterminado es 4. El máximo permitido es 8 GB.
+* El multiplicador de bloques de región de HBase se define mediante `hbase.hregion.memstore.block.multiplier`. El valor predeterminado es 4. El máximo permitido es 8 GB.
 
 * HBase bloquea las actualizaciones si Memstore es (`hbase.hregion.memstore.flush.size` * `hbase.hregion.memstore.block.multiplier`) bytes.
 

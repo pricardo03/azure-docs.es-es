@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 436b7899b1a9d4f9cab1ca2581ff9b5b162de8ac
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2756d39a93751271c8c7bf2a51108b9fe5b09b1e
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60357969"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74208428"
 ---
 # <a name="security-guidance-for-using-azure-multi-factor-authentication-with-azure-ad-accounts"></a>Guía de seguridad para el uso de Azure Multi-Factor Authentication con cuentas de Azure AD
 
@@ -52,7 +52,7 @@ Al crear el proveedor de autenticación, debe seleccionar un directorio y tener 
 * No es necesario un directorio de Azure AD para crear un proveedor de autenticación multifactor, pero obtendrá una mayor funcionalidad con uno. Cuando asocia el proveedor de autenticación con un directorio de Azure AD, están habilitadas las siguientes características:
   * Ampliar la verificación en dos pasos a todos los usuarios
   * Ofrezca a los administradores globales otras características tales como el portal de administración, saludos personalizados e informes.
-* Se necesita DirSync o Sincronización de AAD si va sincroniza el entorno de Active Directory local con un directorio de Azure AD. Si utiliza un directorio de Azure AD que no está sincronizado con una instancia local de Active Directory, no necesita DirSync ni Sincronización de AAD.
+* Si sincroniza el entorno de Active Directory local con un directorio de Azure AD, se necesita DirSync o Sincronización de Azure AD. Si utiliza un directorio de Azure AD que no está sincronizado con una instancia local de Active Directory, no necesita DirSync ni Sincronización de Azure AD.
 * Elija el modelo de consumo que mejor se adapte a su negocio. Una vez seleccionado el modelo de uso, no podrá cambiarlo. Los dos modelos son:
   * Por autenticación: se le cobra por cada comprobación. Use este modelo si quiere verificación en dos pasos para cualquier persona que acceda a una aplicación determinada, pero no para usuarios específicos.
   * Por usuario habilitado: le cobra por cada usuario que se habilita para Azure MFA. Use este modelo si tiene algunos usuarios con licencias de Enterprise Mobility Suite o Azure AD Premium y otros sin ellas.

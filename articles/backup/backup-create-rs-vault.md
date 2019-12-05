@@ -1,20 +1,15 @@
 ---
-title: 'Azure Backup: Creación de almacenes de Recovery Services'
+title: Creación de almacenes de Recovery Services
 description: En este artículo, aprenderá a crear almacenes de Recovery Services que almacenan las copias de seguridad y los puntos de recuperación.
 ms.reviewer: sogup
-author: dcurwin
-manager: carmonm
-keywords: Almacén de Recovery Services; copia de seguridad de máquina virtual de Azure; restauración de máquina virtual de Azure;
-ms.service: backup
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.author: dacurwin
-ms.openlocfilehash: 30e2f8812b14f27b57ef22e30aea89f19fa56e58
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 144d8cdb870e12474dfc47784749b5f0e466f8bf
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074875"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74273391"
 ---
 # <a name="create-a-recovery-services-vault"></a>Creación de un almacén de Recovery Services
 
@@ -77,6 +72,13 @@ Azure Backup administra automáticamente el almacenamiento para el almacén. Deb
 
 > [!NOTE]
 > El cambio del **tipo de replicación de almacenamiento** (con redundancia local o con redundancia geográfica) para un almacén de Recovery Services debe realizarse antes de configurar las copias de seguridad en el almacén. Una vez configure la copia de seguridad, la opción para modificar está deshabilitada y no puede cambiar el **tipo de replicación del almacenamiento**.
+
+## <a name="modifying-default-settings"></a>Modificación de la configuración predeterminada
+
+Le recomendamos encarecidamente que revise la configuración predeterminada para el **tipo de replicación de almacenamiento** y la **configuración de seguridad** antes de configurar copias de seguridad en el almacén. 
+* El **tipo de replicación de almacenamiento** se establece de forma predeterminada en **Redundante geográficamente**. Una vez que configure la copia de seguridad, se deshabilitará la opción para modificar. Siga estos [pasos](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy) para revisar y modificar la configuración. 
+* La **eliminación temporal** está **habilitada** de forma predeterminada en los almacenes recién creados para proteger los datos de copia de seguridad de eliminaciones accidentales o malintencionadas. Siga estos [pasos](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#disabling-soft-delete) para revisar y modificar la configuración.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

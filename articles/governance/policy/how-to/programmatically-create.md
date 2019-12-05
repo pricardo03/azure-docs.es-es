@@ -1,20 +1,20 @@
 ---
 title: Creación de directivas mediante programación
-description: Este artículo le guiará a través de la creación y administración de directivas para Azure Policy mediante programación.
+description: Este artículo le guiará a través de la creación y administración de directivas para Azure Policy mediante programación con la CLI de Azure, Azure PowerShell y API REST.
 ms.date: 01/31/2019
 ms.topic: conceptual
-ms.openlocfilehash: 581f7e5cc2fa20f1ff284e32351e495349fdfad2
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 98af714e5aaf8e103b81e77c9960589fa0ee6b77
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73959415"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463543"
 ---
 # <a name="programmatically-create-policies"></a>Creación de directivas mediante programación
 
 Este artículo le guiará a través de la creación y administración de directivas mediante programación. Las definiciones de Azure Policy aplican reglas y efectos diferentes sobre los recursos. Su aplicación garantiza que los recursos cumplan los estándares corporativos y los acuerdos de nivel de servicio.
 
-Para información sobre el cumplimiento, consulte cómo [obtener datos de cumplimiento](getting-compliance-data.md).
+Para información sobre el cumplimiento, consulte cómo [obtener datos de cumplimiento](get-compliance-data.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 

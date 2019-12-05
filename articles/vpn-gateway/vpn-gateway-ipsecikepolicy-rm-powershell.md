@@ -1,5 +1,6 @@
 ---
-title: 'Configuración de una directiva de IPsec o IKE para conexiones VPN S2S o conexiones entre redes virtuales: Azure Resource Manager: PowerShell | Microsoft Docs'
+title: Directiva IPsec o IKE para conexiones de VPN de sitio a sitio o entre redes virtuales
+titleSuffix: Azure VPN Gateway
 description: Configurar una directiva de IPsec o IKE para conexiones de sitio a sitio o de red virtual a red virtual con instancias de Azure VPN Gateway mediante Azure Resource Manager y PowerShell.
 services: vpn-gateway
 documentationcenter: na
@@ -15,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: yushwang
-ms.openlocfilehash: a4a0431a8d40f7905805e0a7d902988b7eb26208
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: b0dabf0ee3370abab3d0f9d6f1bf26dd622862cf
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035046"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151784"
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>Configurar una directiva de IPsec o IKE para conexiones VPN de sitio a sitio o de red virtual a red virtual
 

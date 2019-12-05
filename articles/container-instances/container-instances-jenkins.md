@@ -1,19 +1,14 @@
 ---
-title: Uso de Azure Container Instances como agente de compilación de Jenkins
-description: Aprenda a usar Azure Container Instances como agente de compilación de Jenkins.
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
+title: Compilación de Jenkins en una instancia de contenedor
+description: Obtenga información sobre cómo configurar un servidor de Jenkins para ejecutar trabajos de compilación a petición en Azure Container Instances
 ms.topic: article
 ms.date: 08/31/2018
-ms.author: danlep
-ms.openlocfilehash: ed000779940d9af7b1384873bf9fddd1cde79c71
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: e63ade82d4efeed40a9fba6f11d16131e8c728e7
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326013"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74484064"
 ---
 # <a name="use-azure-container-instances-as-a-jenkins-build-agent"></a>Uso de Azure Container Instances como agente de compilación de Jenkins
 
@@ -70,7 +65,7 @@ Para más información sobre Azure Container Instances, consulte el artículo [a
 
 4. Una vez que se haya conectado la sesión, ejecute el siguiente comando para recuperar la contraseña de administrador inicial:
 
-   ```
+   ```bash
    sudo cat /var/lib/jenkins/secrets/initialAdminPassword
    ```
 

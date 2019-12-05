@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 11/08/2019
-ms.openlocfilehash: 17bc9f1ea93b0afa4f53443a53d294acb9e94b2e
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 2ffc3ced360e1fdf00f69ea5826e6c6af7806f71
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73901400"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74215991"
 ---
 # <a name="authentication-issues-in-azure-hdinsight"></a>Problemas de autenticación en Azure HDInsight
 
@@ -98,7 +98,7 @@ La contraseña ha expirado.
 
 ### <a name="resolution"></a>Resolución
 
-Cambie la contraseña en Azure Portal (en el sistema local) y espere treinta minutos a que la sincronización se ponga al día.
+Cambie la contraseña en Azure Portal (en el sistema local) y espere treinta minutos para que la sincronización se ponga al día.
 
 ---
 

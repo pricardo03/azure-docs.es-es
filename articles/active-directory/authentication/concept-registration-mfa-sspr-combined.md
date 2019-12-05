@@ -1,22 +1,22 @@
 ---
-title: Registro combinado para Azure AD SSPR y Multi-Factor Authentication (versión preliminar) - Azure Active Directory
+title: 'Registro combinado de SSPR y MFA: Azure Active Directory'
 description: Registro de autoservicio de restablecimiento de contraseña y Multi-Factor Authentication de Azure AD (versión preliminar)
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 08/29/2019
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a312c39352f0d13b4354e7b0dfcd897bf4cc0992
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: 3221e6424b449066510667f8067e3bc6d8aec12a
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72808471"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74381958"
 ---
 # <a name="combined-security-information-registration-preview"></a>Registro de información de seguridad combinado (vista preliminar)
 

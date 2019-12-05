@@ -1,5 +1,5 @@
 ---
-title: Azure Security Center y Azure Container Registry | Microsoft Docs
+title: Azure Security Center y Azure Container Registry
 description: Obtenga más información sobre la integración de Azure Security Center con Azure Container Registry
 services: security-center
 documentationcenter: na
@@ -10,22 +10,27 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/04/2019
+ms.date: 11/19/2019
 ms.author: memildin
-ms.openlocfilehash: f0de56f968488f0e5d551ad705cc6f8ca6e7bc47
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+ms.openlocfilehash: 0ca7bfb276f49da720264305a92d31e81857cfd5
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73521454"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74229314"
 ---
 # <a name="azure-container-registry-integration-with-security-center-preview"></a>Integración de Azure Container Registry con Security Center (versión preliminar)
 
 Azure Container Registry (ACR) es un servicio de registro de Docker privado y administrado que almacena y administra las imágenes de contenedor de las implementaciones de Azure en un registro central. Se basa en el registro 2.0 de Docker de código abierto.
 
-Al usar ACR junto con el nivel estándar de Azure Security Center (consulte [precios](security-center-pricing.md)), obtendrá una mayor visibilidad de las vulnerabilidades del registro y de las imágenes.
+Para obtener una mayor visibilidad sobre el registro y las vulnerabilidades de las imágenes, los usuarios del nivel estándar de Azure Security Center pueden habilitar la agrupación opcional de registros de contenedor. Para más información, consulte los [precios](security-center-pricing.md). Con la agrupación habilitada, Security Center examina automáticamente las imágenes del registro cada vez que se inserta en él una imagen.
 
-[![Recomendaciones de Azure Container Registry (ACR) en Azure Security Center](media/azure-container-registry-integration/container-security-acr-page.png)](media/azure-container-registry-integration/container-security-acr-page.png#lightbox)
+> [!NOTE]
+> El primer análisis de Security Center de un registro solo se producirá una vez que se habilite la agrupación de registros de contenedor y se inserte una imagen en el registro.
+
+Cuando finaliza el examen (al cabo de 10 minutos aproximadamente), los resultados están disponibles en recomendaciones de Security Center como esta:
+
+[![Ejemplo de recomendación Azure Security Center sobre puntos vulnerables detectados en una imagen hospedada de Azure Container Registry (ACR)](media/azure-container-registry-integration/container-security-acr-page.png)](media/azure-container-registry-integration/container-security-acr-page.png#lightbox)
 
 ## <a name="benefits-of-integration"></a>Ventajas de la integración
 

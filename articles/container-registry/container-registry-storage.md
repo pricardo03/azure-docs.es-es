@@ -1,19 +1,14 @@
 ---
-title: Almacenamiento de imágenes en Azure Container Registry
+title: Almacenamiento de imágenes de contenedor
 description: Información detallada acerca de cómo se almacenan las imágenes del contenedor de Docker en Azure Container Registry, incluida la seguridad, la redundancia y la capacidad.
-services: container-registry
-author: dlepow
-manager: gwallace
-ms.service: container-registry
 ms.topic: article
 ms.date: 03/21/2018
-ms.author: danlep
-ms.openlocfilehash: 4517cc21ca0087358e750cd480288d4ec3718791
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: f66c3dd95edfe5035c46857cb6f9aa59d8a6a0e1
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68310538"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74456211"
 ---
 # <a name="container-image-storage-in-azure-container-registry"></a>Almacenamiento de imágenes en Azure Container Registry
 
@@ -35,7 +30,7 @@ Para escenarios que requieren una garantía de alta disponibilidad aún mayor, c
 
 En la tabla siguiente se describen los límites de almacenamiento y la imagen de contenedor que se usa de Azure Container Registry.
 
-| Recurso | Límite |
+| Resource | Límite |
 | -------- | :---- |
 | Repositorios | Sin límite |
 | Imágenes | Sin límite |

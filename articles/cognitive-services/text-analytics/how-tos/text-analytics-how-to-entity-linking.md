@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 11/12/2019
+ms.date: 11/21/2019
 ms.author: aahi
-ms.openlocfilehash: 5933c7ec56ded971e4daf96ea6d4302c04921f2f
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: ae5222dcd05740ecb9747037b315c4e920b3eabd
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74031424"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326639"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Uso del reconocimiento de entidades con nombre en Text Analytics
 
@@ -33,7 +33,7 @@ El reconocimiento de entidades con nombre (NER) es la capacidad de identificar d
 
 ## <a name="named-entity-recognition-v3-public-preview"></a>Versión preliminar pública de reconocimiento de entidades con nombre v3
 
-La [siguiente versión del reconocimiento de entidades con nombre]( https://cognitiveusw2ppe.portal.azure-api.net/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionGeneral) ahora está disponible en versión preliminar pública. Proporciona actualizaciones para la vinculación de entidad y el reconocimiento de entidades con nombre. 
+La siguiente versión del reconocimiento de entidades con nombre ahora está disponible en versión preliminar pública. Proporciona actualizaciones para la vinculación de entidad y el reconocimiento de entidades con nombre. Pruebe a usar la [consola de prueba de API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionGeneral).
 
 :::row:::
     :::column span="":::
@@ -120,6 +120,8 @@ Vinculación de entidad
 | DateTime      | Set           | "Todos los martes"     |
 | URL           | N/D\*         | "https:\//www.bing.com"    |
 | Email         | N/D\*         | "support@contoso.com" |
+| Número de teléfono en EE. UU.  | N/D\*         | (Solo números de teléfono de EE. UU.) "(312) 555-0176" |
+| Dirección IP    | N/D\*         | "10.0.0.100" |
 
 \* En función de las entidades de entrada y extraídas, algunas entidades pueden omitir el valor `SubType`.  Todos los tipos de entidad admitidos enumerados solo están disponibles para los idiomas inglés, chino simplificado, francés, alemán y español.
 

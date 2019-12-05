@@ -11,16 +11,16 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: diberry
-ms.openlocfilehash: 0cab6eb38459a632f1e7bd1a21e6a7251d33f683
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: b151043babd6c67a17f704bb671a415fcc3ba7b2
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647420"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280911"
 ---
 # <a name="machine-learned-features"></a>Características con aprendizaje automático 
 
-En el aprendizaje automático, una *característica* es un rasgo distintivo o un atributo de datos que el sistema observa y aprende. En Language Understanding (LUIS), una característica describe y explica lo que es importante sobre las intenciones y entidades.
+En el aprendizaje automático, una _característica_ es un rasgo distintivo o un atributo de datos que el sistema observa y aprende. En Language Understanding (LUIS), una característica describe y explica lo que es importante sobre las intenciones y entidades.
 
 En el [portal en versión preliminar de LUIS](https://preview.luis.ai), las características son _descriptores_ porque se usan para _describir_ la intención o la entidad.  
 
@@ -82,7 +82,7 @@ Por ejemplo, si la intención es reservar un vuelo y la entidad es la informaci�
 
 ### <a name="entity-as-a-feature-to-another-entity"></a>Entidad como característica de otra entidad
 
-Una entidad (A) debe agregarse como una característica a otra entidad (B), cuando la detección de esa entidad (A) es importante para (B).
+Una entidad (A) debe agregarse como una característica a otra entidad (B), cuando la detección de esa entidad (A) es importante para la predicción de la entidad (B).
 
 Por ejemplo, si se detecta la entidad de dirección postal (A), la búsqueda de la dirección postal (A) agrega el peso a la predicción para la entidad de dirección de envío (B). 
 

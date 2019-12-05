@@ -8,22 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
-ms.date: 09/24/2019
+ms.date: 11/21/2019
 ms.author: dapine
-ms.openlocfilehash: 11f041ed06117a7e3d495fb43d3a4904f6001520
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: 45abd904ea95cf8e68583ba5630a485af59479ec
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71316395"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327249"
 ---
-# <a name="install-and-run-anomaly-detector-containers"></a>Instalación y ejecución de contenedores de Anomaly Detector
+# <a name="install-and-run-anomaly-detector-containers-preview"></a>Instalación y ejecución de contenedores de Anomaly Detector (versión preliminar)
 
-Anomaly Detector tiene el siguiente contenedor: 
+Anomaly Detector tiene la siguiente funcionalidad de la característica de contenedor:
 
-|Función|Características|
-|-|-|
-|Anomaly Detector| <li> Detecta las anomalías que se producen en tiempo real. <li> Detecta las anomalías en todo el conjunto de datos como un lote. <li> Deduce el intervalo normal esperado de los datos. <li> Permite el ajuste de la sensibilidad de la detección de anomalías para adaptarse mejor a los datos. |
+| Función | Características |
+|--|--|
+| Anomaly Detector | <li> Detecta las anomalías que se producen en tiempo real. <li> Detecta las anomalías en todo el conjunto de datos como un lote. <li> Deduce el intervalo normal esperado de los datos. <li> Permite el ajuste de la sensibilidad de la detección de anomalías para adaptarse mejor a los datos. |
 
 Para más información sobre las API, consulte:
 * [Más información sobre el servicio de API Anomaly Detector](https://go.microsoft.com/fwlink/?linkid=2080698&clcid=0x409)
@@ -92,8 +92,8 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-anomaly-det
 
 Una vez que el contenedor esté en el [equipo host](#the-host-computer), utilice el siguiente proceso para trabajar con el contenedor.
 
-1. [Ejecute el contenedor](#run-the-container-with-docker-run) con la configuración de facturación requerida. Hay más [ejemplos](anomaly-detector-container-configuration.md#example-docker-run-commands) del comando `docker run` disponibles. 
-1. [Consulta del punto de conexión de predicción del contenedor](#query-the-containers-prediction-endpoint). 
+1. [Ejecute el contenedor](#run-the-container-with-docker-run) con la configuración de facturación requerida. Hay más [ejemplos](anomaly-detector-container-configuration.md#example-docker-run-commands) del comando `docker run` disponibles.
+1. [Consulta del punto de conexión de predicción del contenedor](#query-the-containers-prediction-endpoint).
 
 ## <a name="run-the-container-with-docker-run"></a>Ejecute el contenedor con `docker run`.
 

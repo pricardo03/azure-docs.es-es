@@ -9,26 +9,25 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 11/19/2019
 ms.author: diberry
-ms.openlocfilehash: aa1cbd08bdf8d92653a8f30ae67ecd813e563999
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 138b84a9b7f54782fd6254304a3fdcf4dba83182
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467518"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74221934"
 ---
 # <a name="use-versions-to-edit-and-test-without-impacting-staging-or-production-apps"></a>Uso de versiones para realizar ediciones y pruebas sin afectar a las aplicaciones de almacenamiento provisional o producción
 
 Las versiones permiten compilar y publicar modelos diferentes. Una buena práctica consiste en clonar el modelo activo actual a una [versión](luis-concept-version.md) diferente de la aplicación antes de realizar cambios en el modelo. 
 
-[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
-
 Para trabajar con versiones, abra la aplicación, seleccione su nombre en la página **Mis aplicaciones** y, a continuación, seleccione **Administrar**, en la barra superior, y **Versiones**, en el panel de navegación de la izquierda. 
 
 La lista de versiones muestra las versiones que se publican, dónde se publican y qué versión está activa actualmente. 
 
-[![Sección Administrar, página de versiones](./media/luis-how-to-manage-versions/versions-import.png "Sección Administrar, página de versiones")](./media/luis-how-to-manage-versions/versions-import.png#lightbox)
+> [!div class="mx-imgBorder"]
+> [![Sección Administrar, página de versiones](./media/luis-how-to-manage-versions/versions-import.png "Sección Administrar, página de versiones")](./media/luis-how-to-manage-versions/versions-import.png#lightbox)
 
 ## <a name="clone-a-version"></a>Clonar una versión
 
@@ -47,13 +46,16 @@ La lista de versiones muestra las versiones que se publican, dónde se publican 
 
 Seleccione una versión de la lista y, a continuación, seleccione **Activar** en la barra de herramientas. 
 
-[![Sección Administrar, página de versiones, creación de una acción de versión](./media/luis-how-to-manage-versions/versions-other.png "Sección Administrar, página de versiones, creación de una acción de versión")](./media/luis-how-to-manage-versions/versions-other.png#lightbox)
+> [!div class="mx-imgBorder"]
+> [![Sección Administrar, página de versiones, creación de una acción de versión](./media/luis-how-to-manage-versions/versions-other.png "Sección Administrar, página de versiones, creación de una acción de versión")](./media/luis-how-to-manage-versions/versions-other.png#lightbox)
 
 ## <a name="import-version"></a>Importar versión
 
-1. Seleccione **Importar versión** en la barra de herramientas. 
+Puede importar una versión `.json` o `.lu` de la aplicación.
 
-2. En la ventana emergente **Importar nueva versión**, escriba el nuevo nombre de la versión, de diez caracteres. Basta con establecer una id. de versión si la versión en el archivo JSON ya existe en la aplicación.
+1. Seleccione **Importar** en la barra de herramientas y seleccione el formato. 
+
+2. En la ventana emergente **Importar nueva versión**, escriba el nuevo nombre de la versión, de diez caracteres. Basta con establecer un identificador de versión si la versión en el archivo ya existe en la aplicación.
 
     ![Sección Administrar, página de versiones, importar nueva versión](./media/luis-how-to-manage-versions/versions-import-pop-up.png)
 

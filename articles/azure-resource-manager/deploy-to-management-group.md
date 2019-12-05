@@ -1,17 +1,14 @@
 ---
-title: Creación de recursos en un grupo de administración - Plantilla de Azure Resource Manager
+title: Implementación de recursos en el grupo de administración
 description: Se describe cómo implementar recursos en el ámbito de un grupo de administración en una plantilla de Azure Resource Manager.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 11/07/2019
-ms.author: tomfitz
-ms.openlocfilehash: 82990ab7baa8ea9f2dfc3c2d2b346e348e6bd490
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: c8ed8ae20192599ff7cda691429230d8c2a104fc
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73840017"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149908"
 ---
 # <a name="create-resources-at-the-management-group-level"></a>Creación de recursos a nivel de grupo de administración
 

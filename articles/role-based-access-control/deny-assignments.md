@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/13/2019
+ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: f15d6fd81337aa4a859539e86f37a516848c9370
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 2c663b587d2e9ee278fc774c2841899b060ccbcf
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165981"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74479369"
 ---
 # <a name="understand-deny-assignments-for-azure-resources"></a>Descripción de las asignaciones de denegación para recursos de Azure
 
@@ -30,7 +30,10 @@ En este artículo se describe cómo se definen las asignaciones de denegación.
 
 ## <a name="how-deny-assignments-are-created"></a>Cómo se crean las asignaciones de denegación
 
-Azure crea y administra las asignaciones de denegación para proteger los recursos. Por ejemplo, Azure Blueprints y las aplicaciones administradas de Azure usan las asignaciones de denegación para proteger los recursos administrados por el sistema. Para más información, consulte [Protect new resources with Azure Blueprints resource locks](../governance/blueprints/tutorials/protect-new-resources.md) (Protección de los nuevos recursos con bloqueos de recursos de Azure Blueprints).
+Azure crea y administra las asignaciones de denegación para proteger los recursos. Azure Blueprints y las aplicaciones administradas de Azure usan las asignaciones de denegación para proteger los recursos administrados por el sistema. Azure Blueprints y las aplicaciones administradas de Azure son la única manera de crear las asignaciones de denegación. No se pueden crear directamente asignaciones de denegación propias.  Para más información, consulte [Protect new resources with Azure Blueprints resource locks](../governance/blueprints/tutorials/protect-new-resources.md) (Protección de los nuevos recursos con bloqueos de recursos de Azure Blueprints).
+
+> [!NOTE]
+> No se pueden crear directamente asignaciones de denegación propias.
 
 ## <a name="compare-role-assignments-and-deny-assignments"></a>Asignaciones de roles de comparación y asignaciones de denegación
 
@@ -51,7 +54,7 @@ Las asignaciones de denegación siguen un patrón similar que las asignaciones d
  Una asignación de denegación tiene las siguientes propiedades:
 
 > [!div class="mx-tableFixed"]
-> | Propiedad | Obligatorio | Type | DESCRIPCIÓN |
+> | Propiedad | Obligatorio | type | DESCRIPCIÓN |
 > | --- | --- | --- | --- |
 > | `DenyAssignmentName` | Sí | Cadena | El nombre para mostrar de la asignación de denegación. Los nombres deben ser únicos para un ámbito determinado. |
 > | `Description` | Sin | Cadena | La descripción de la asignación de denegación. |

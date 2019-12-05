@@ -14,26 +14,29 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/04/2019
+ms.date: 11/26/2019
 ms.author: ryanwi
 ms.custom: aaddev
-ms.reviewer: elisol, lenalepa
+ms.reviewer: lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ebf6b9a07e775c76188dcebece011b01e90fbcf5
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 6d2efdcf03b829b43f797ddb7ca32bb6d120609e
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803440"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533000"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Cómo y por qué se agregan aplicaciones a Azure AD
 
-En Azure AD existen dos conceptos de aplicación: 
+En Azure AD existen dos conceptos de aplicación:
+
 * [Objetos de aplicación](app-objects-and-service-principals.md#application-object): aunque hay [excepciones](#notes-and-exceptions), los objetos de aplicación pueden considerarse como la definición de una aplicación.
 * [Entidades de servicio](app-objects-and-service-principals.md#service-principal-object): pueden considerarse como una instancia de una aplicación. Las entidades de servicio suelen hacer referencia a un objeto de aplicación. Asimismo, varias entidades de servicio de diversos directorios pueden hacer referencia a un mismo objeto de aplicación.
 
 ## <a name="what-are-application-objects-and-where-do-they-come-from"></a>¿Qué son los objetos de aplicación y de dónde provienen?
+
 Puede administrar los [objetos de aplicación](app-objects-and-service-principals.md#application-object) en Azure Portal a través de la experiencia de [Registros de aplicaciones](https://aka.ms/appregistrations). Los objetos de aplicación describen la aplicación para Azure AD y pueden considerarse como su definición, que permite al servicio saber cómo emitir tokens para la aplicación en función de su configuración. El objeto de aplicación solo está presente en su directorio principal, incluso si se trata de una aplicación multiinquilino que admite entidades de servicio en otros directorios. El objeto de aplicación puede incluir cualquiera de los siguientes datos (así como información adicional que no se indica aquí):
+
 * Nombre, logotipo y editor
 * URI de redirección
 * Secretos (claves simétricas o asimétricas utilizadas para autenticar la aplicación)
@@ -45,13 +48,15 @@ Puede administrar los [objetos de aplicación](app-objects-and-service-principal
 * Configuración y metadatos proxy
 
 Los objetos de aplicación se pueden crear de varias maneras, incluidas las siguientes:
+
 * Registros de aplicación en Azure Portal.
 * Crear una nueva aplicación con Visual Studio y configurarla para que use la autenticación de Azure AD.
 * Cuando un administrador añade una aplicación desde la galería de aplicaciones (esto también creará una entidad de servicio).
-* Usar Microsoft Graph API, Graph API de Azure AD o PowerShell para crear una nueva aplicación.
+* Uso de Microsoft Graph API o PowerShell para crear una nueva aplicación
 * Muchas más, incluidas varias experiencias de desarrollador en Azure y experiencias del explorador de API en centros de desarrollador.
 
 ## <a name="what-are-service-principals-and-where-do-they-come-from"></a>¿Qué son las entidades de servicio y de dónde provienen?
+
 Puede administrar las [entidades de servicio](app-objects-and-service-principals.md#service-principal-object) en Azure Portal a través de la experiencia de [Aplicaciones empresariales](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/). Las entidades de servicio son las que realmente rigen una aplicación que se conecta a Azure AD y pueden considerarse la instancia de la aplicación en el directorio. Cualquier aplicación determinada puede tener como máximo un objeto de aplicación (registrado en un directorio principal) y uno o varios objetos de entidad de servicio que representan instancias de la aplicación en cada directorio en donde actúa. 
 
 La entidad de servicio puede incluir:

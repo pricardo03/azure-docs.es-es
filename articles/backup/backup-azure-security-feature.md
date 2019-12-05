@@ -1,19 +1,15 @@
 ---
-title: Características de seguridad que protegen las copias de seguridad híbridas mediante Azure Backup
+title: Características de seguridad que protegen las copias de seguridad híbridas
 description: Aprenda a usar las características de seguridad de Azure Backup para que las copias de seguridad sean más seguras
 ms.reviewer: utraghuv
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 06/08/2017
-ms.author: dacurwin
-ms.openlocfilehash: a72e43d068f9fc6cf06a4786d511bbc6c25e85d4
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: c3c62f8ea7813c14fa6e19d825a5253de18f6639
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968437"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172680"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Características de seguridad para proteger copias de seguridad híbridas mediante Azure Backup
 

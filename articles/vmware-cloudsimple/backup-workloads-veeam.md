@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 3414cc54e5023bdeebb2d5536c1408f981e68f19
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 3262841efb9109b1de24fe501ea0a7bea0dd612d
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73891397"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232362"
 ---
 # <a name="back-up-workload-vms-on-cloudsimple-private-cloud-using-veeam-br"></a>Copia de seguridad de máquinas virtuales de carga de trabajo en la nube privada de CloudSimple con Veeam B&R
 
@@ -121,7 +121,7 @@ Configure los servicios de infraestructura en la nube privada para facilitar la 
 
 * Puede agregar un proveedor de identidades externo tal y como se describe en [Configuración de orígenes de identidades de vCenter para usar Active Directory](set-vcenter-identity.md) en cualquiera de los siguientes casos:
 
-  * Quiere identificar a los usuarios de su instancia local de Active Directory (AD) en la nube privada.
+  * Quiere identificar a los usuarios de su instancia local de Active Directory (AD) en su nube privada.
   * Quiere configurar una instancia de AD en la nube privada para todos los usuarios.
   * Quiere utilizar Azure AD.
 * Para proporcionar servicios de resolución de nombres, administración de direcciones IP y búsqueda de direcciones IP para las cargas de trabajo de la nube privada, configure un servidor DHCP y DNS tal y como se describe en el artículo [Configuración de aplicaciones y cargas de trabajo de DNS y DHCP en la nube privada de CloudSimple](dns-dhcp-setup.md).

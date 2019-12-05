@@ -1,6 +1,6 @@
 ---
 title: Administrar problemas de Endpoint Protection con Azure Security Center | Microsoft Docs
-description: Aprenda a administrar los problemas de Endpoint Protection en Azure Security Center.
+description: Obtenga información sobre la supervisión de Security Center de la protección de puntos de conexión y cómo corregir las incidencias que surjan.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/28/2019
 ms.author: memildin
-ms.openlocfilehash: b1bcce1e94a64253986ad9b1fd77874ba0a39839
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 70b7f511c32013a5dbc9369a2dfba2b8cd5f9145
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202072"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74558607"
 ---
 # <a name="manage-endpoint-protection-issues-with-azure-security-center"></a>Administrar problemas de Endpoint Protection con Azure Security Center
-Azure Security Center supervisa el estado de la protección antimalware y lo notifica en la hoja de problemas de Endpoint Protection. Security Center resalta problemas, como las amenazas detectadas y si hay una protección insuficiente, que pueden hacer vulnerables sus equipos y máquinas virtuales frente a amenazas antimalware. Si aplica la información descrita en **Problemas de Endpoint Protection**, puede identificar un plan para solucionar cualquier problema detectado.
+Azure Security Center supervisa el estado de la protección antimalware y lo notifica en la página de incidencias de Endpoint Protection. Security Center resalta problemas, como las amenazas detectadas y si hay una protección insuficiente, que pueden hacer vulnerables sus equipos y máquinas virtuales frente a amenazas antimalware. Si aplica la información descrita en **Problemas de Endpoint Protection**, puede identificar un plan para solucionar cualquier problema detectado.
 
 Security Center notifica los siguientes problemas de Endpoint Protection:
 
@@ -30,7 +30,7 @@ Security Center notifica los siguientes problemas de Endpoint Protection:
 - Estado de Endpoint Protection:
 
   - Firma sin actualizar: Hay una solución antimalware instalada en estos equipos y máquinas virtuales, pero no cuenta con las firmas de antimalware más recientes.
-  - Sin protección en tiempo real: Hay una solución antimalware instalada en estos equipos y máquinas virtuales, pero no está configurada para la protección en tiempo real.   El servicio podría deshabilitarse o es posible que Security Center no pueda obtener el estado, ya que la solución no es compatible. Vea [Integración de soluciones de asociados](security-center-services.md#endpoint-supported) para ver una lista de las soluciones compatibles.
+  - Sin protección en tiempo real: Hay una solución antimalware instalada en estos equipos y máquinas virtuales, pero no está configurada para la protección en tiempo real. El servicio podría deshabilitarse o es posible que Security Center no pueda obtener el estado, ya que la solución no es compatible. Vea [Integración de soluciones de asociados](security-center-services.md#endpoint-supported) para ver una lista de las soluciones compatibles.
   - Sin generación de informes: Hay una solución antimalware instalada, pero no notifica datos.
   - Desconocido: Hay una solución antimalware instalada, pero su estado es desconocido o informa de un error desconocido.
 
@@ -40,7 +40,7 @@ Security Center notifica los siguientes problemas de Endpoint Protection:
     >
 
 ## <a name="implement-the-recommendation"></a>Implementación de la recomendación
-Los problemas de Endpoint Protection se presentan como una recomendación en Security Center.  Si su entorno es vulnerable a las amenazas antimalware, esta recomendación se mostrará en **Recomendaciones** y en **Proceso**. Para ver el panel de **problemas de Endpoint Protection**, debe seguir el flujo de trabajo de Proceso.
+Los problemas de Endpoint Protection se presentan como una recomendación en Security Center. Si su entorno es vulnerable a las amenazas antimalware, esta recomendación se mostrará en **Recomendaciones** y en **Proceso**. Para ver el panel de **problemas de Endpoint Protection**, debe seguir el flujo de trabajo de Proceso.
 
 En este ejemplo usaremos **Proceso**.  Veremos cómo instalar un antimalware en máquinas virtuales de Azure y en equipos que no son de Azure.
 

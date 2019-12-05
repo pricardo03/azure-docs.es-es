@@ -1,5 +1,5 @@
 ---
-title: Cómo hacer que una alerta de métrica clásica notifique a un sistema que no es de Azure mediante un webhook
+title: Llamada a un webhook con una alerta de métrica clásica en Azure Monitor
 description: Obtenga información sobre cómo redirigir las alertas de métrica de Azure a otros sistemas que no son de Azure.
 author: snehithm
 services: azure-monitor
@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 04/03/2017
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: 264f3eb042a3c29523ed93df93dfa6d45c00ae87
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 88de4464e5b95b49e76e5d9c4f7dc0d6732076e1
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60345793"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74286157"
 ---
-# <a name="have-a-classic-metric-alert-notify-a-non-azure-system-using-a-webhook"></a>Cómo hacer que una alerta de métrica clásica notifique a un sistema que no es de Azure mediante un webhook
+# <a name="call-a-webhook-with-a-classic-metric-alert-in-azure-monitor"></a>Llamada a un webhook con una alerta de métrica clásica en Azure Monitor
 Puede usar los webhooks para redirigir una notificación de alerta de Azure a otros sistemas para su procesamiento posterior o acciones personalizadas. Puede usar un webhook en una alerta para redirigirla a servicios que envían SMS, registran errores, notifican a un equipo mediante servicios de chat y mensajería o llevan a cabo otras acciones. 
 
 En este artículo se describe cómo establecer un webhook en una alerta de métrica de Azure. También muestra el aspecto de la carga útil para HTTP POST a un webhook. Para obtener información sobre la configuración y el esquema de una alerta de registro de actividad de Azure (alerta de eventos), consulte [Llamada a un webhook cuando se activan alertas del registro de actividades de Azure](alerts-log-webhook.md).
@@ -69,7 +69,7 @@ La operación POST contiene el siguiente esquema y carga útil de JSON para toda
 ```
 
 
-| Campo | Obligatorio | Conjunto fijo de valores | Notas |
+| Campo | Mandatory | Conjunto fijo de valores | Notas |
 |:--- |:--- |:--- |:--- |
 | status |Y |Activado, Resuelto |Estado de la alerta en función de las condiciones que haya establecido. |
 | context |Y | |Contexto de la alerta |

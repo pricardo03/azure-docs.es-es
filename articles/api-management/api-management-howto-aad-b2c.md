@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 55a9cbcfdb9766c6adc6d10f975fa4d074ec3aaf
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: d6e7c04cbd5a7f1ed509b27cf87ac3f692c28d9f
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74011669"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74454475"
 ---
 # <a name="how-to-authorize-developer-accounts-by-using-azure-active-directory-b2c-in-azure-api-management"></a>Procedimiento para autorizar a las cuentas de desarrollador para que usen Azure Active Directory B2C en Azure API Management
 
@@ -92,6 +92,9 @@ En el portal para desarrolladores, el inicio de sesión con AAD B2C es posible 
 ![Widget de botones de AAD](./media/api-management-howto-aad/portal-oauth-widget.png)
 
 Aunque se creará automáticamente una nueva cuenta cada vez que un nuevo usuario inicie sesión con AAD B2C, puede considerar la idea de agregar el mismo widget a la página de registro.
+
+> [!IMPORTANT]
+> Debe [volver a publicar el portal](api-management-howto-developer-portal-customize.md#publish) para que los cambios de AAD surtan efecto.
 
 ## <a name="legacy-developer-portal---how-to-sign-up-with-azure-ad-b2c"></a>Portal para desarrolladores heredado: registro con Azure AD B2C
 

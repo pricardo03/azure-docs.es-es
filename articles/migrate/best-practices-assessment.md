@@ -1,17 +1,17 @@
 ---
-title: Procedimientos recomendados para crear una evaluación con Azure Migrate Server Assessment
-description: Proporciona sugerencias para crear evaluaciones con Azure Migrate Server Assessment.
+title: Procedimientos recomendados de evaluación en Azure Migrate Server Assessment
+description: Sugerencias para crear evaluaciones con Azure Migrate Server Assessment.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/16/2019
+ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: e235116ab77159a0e2e9c66ad09cdb86ce6da1e9
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: de6953b6648613595bc9975b17941b3a453a6d60
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466934"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185981"
 ---
 # <a name="best-practices-for-creating-assessments"></a>Procedimientos recomendados para crear evaluaciones
 

@@ -7,14 +7,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/07/2019
+ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4db6f0052c92d4532917a996eda82a27d97d3063
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 824fe611867216233e223e505f5321b23b7406fb
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74009563"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383309"
 ---
 # <a name="how-to-create-user-defined-functions-in-azure-digital-twins"></a>Creación de funciones definidas por el usuario en Azure Digital Twins
 
@@ -46,7 +46,7 @@ Los buscadores de coincidencias son objetos gráficos que determinan qué funcio
 
 El buscador de coincidencias del ejemplo siguiente evalúa como true a cualquier evento de telemetría de sensores con `"Temperature"` como su valor de tipo de datos. Para crear varios buscadores de coincidencias en una función definida por el usuario, realice una solicitud HTTP POST autenticada a:
 
-```plaintext
+```URL
 YOUR_MANAGEMENT_API_URL/matchers
 ```
 
@@ -81,7 +81,7 @@ La creación de una función definida por el usuario implica la realización de 
 
 Tras la creación de los buscadores de coincidencias, cargue el fragmento de código de la función con la siguiente solicitud autenticada HTTP POST de varias partes a:
 
-```plaintext
+```URL
 YOUR_MANAGEMENT_API_URL/userdefinedfunctions
 ```
 
@@ -201,7 +201,7 @@ Cree una asignación de roles para que se ejecute la función definida por el us
 
 1. [Consulte la API del sistema](./security-create-manage-role-assignments.md#retrieve-all-roles) para que todos los roles obtengan el identificador de rol que desea asignar a la función definida por el usuario. Para ello, realice una solicitud HTTP GET autenticada a:
 
-    ```plaintext
+    ```URL
     YOUR_MANAGEMENT_API_URL/system/roles
     ```
    Mantenga el identificador de rol que desee. Se pasará como el atributo de cuerpo JSON **roleId** (`YOUR_DESIRED_ROLE_IDENTIFIER`) a continuación.
@@ -210,7 +210,7 @@ Cree una asignación de roles para que se ejecute la función definida por el us
 1. Busque el valor de **path** (`YOUR_ACCESS_CONTROL_PATH`) mediante la realización de una consulta de los espacios con `fullpath`.
 1. Copie el valor de `spacePaths` devuelto, ya que lo utilizará a continuación. Realice una solicitud HTTP GET autenticada a:
 
-    ```plaintext
+    ```URL
     YOUR_MANAGEMENT_API_URL/spaces?name=YOUR_SPACE_NAME&includes=fullpath
     ```
 
@@ -220,7 +220,7 @@ Cree una asignación de roles para que se ejecute la función definida por el us
 
 1. Pegue el valor `spacePaths` devuelto en **path** para crear una asignación de roles de función definida por el usuario mediante una solicitud HTTP POST autenticada a:
 
-    ```plaintext
+    ```URL
     YOUR_MANAGEMENT_API_URL/roleassignments
     ```
     Con el cuerpo JSON:
@@ -238,7 +238,7 @@ Cree una asignación de roles para que se ejecute la función definida por el us
     | --- | --- |
     | YOUR_DESIRED_ROLE_IDENTIFIER | El identificador para el rol deseado |
     | YOUR_USER_DEFINED_FUNCTION_ID | El identificador de la función definida por el usuario que desea usar |
-    | YOUR_USER_DEFINED_FUNCTION_TYPE_ID | El identificador que especifica el tipo de función definida por el usuario |
+    | YOUR_USER_DEFINED_FUNCTION_TYPE_ID | El identificador que especifica el tipo de función definida por el usuario (`UserDefinedFunctionId`). |
     | YOUR_ACCESS_CONTROL_PATH | La ruta del control de acceso |
 
 >[!TIP]

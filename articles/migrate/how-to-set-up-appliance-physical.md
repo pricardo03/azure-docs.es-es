@@ -1,17 +1,17 @@
 ---
-title: Configuración de un dispositivo para la evaluación de servidores físicos con Azure Migrate Server Assessment
-description: Describe cómo configurar un dispositivo para la evaluación de servidores físicos con Azure Migrate Server Assessment.
+title: Configuración de un dispositivo de Azure Migrate para servidores físicos
+description: Aprenda a configurar un dispositivo de Azure Migrate para la evaluación del servidor físico.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 11/11/2019
+ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: a3212e4dac6856a5fd032c731d877453965584ae
-ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
+ms.openlocfilehash: db67defc72dcc7d913f897c6fb61548c5c33cf52
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2019
-ms.locfileid: "73907164"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278328"
 ---
 # <a name="set-up-an-appliance-for-physical-servers"></a>Configuración de un dispositivo para servidores físicos
 
@@ -55,14 +55,15 @@ Compruebe que el archivo comprimido es seguro, antes de implementarlo.
 2. Ejecute el siguiente comando para generar el código hash del disco duro virtual.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Ejemplo de uso: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3.  El código hash generado debe coincidir con esta configuración para la versión 1.19.05.10 del dispositivo.
+3.  El código hash generado debe coincidir con esta configuración para la versión más reciente del dispositivo.
 
   **Algoritmo** | **Valor del código hash**
   --- | ---
-  SHA256 | 598d2e286f9c972bb7f7382885e79e768eddedfe8a3d3460d6b8a775af7d7f79
+  MD5 | 96fd99581072c400aa605ab036a0a7c0
+  SHA256 | f5454beef510c0aa38ac1c6be6346207c351d5361afa0c9cea4772d566fcdc36
 
 
-  
+
 ## <a name="run-the-azure-migrate-installer-script"></a>Ejecución del script del instalador de Azure Migrate
 El script del instalador hace lo siguiente:
 
@@ -110,7 +111,7 @@ Configure el dispositivo por primera vez.
 ### <a name="register-the-appliance-with-azure-migrate"></a>Registro del dispositivo en Azure Migrate
 
 1. Haga clic en **Iniciar sesión**. Si no aparece, asegúrese de que ha deshabilitado el bloqueador de elementos emergentes en el explorador.
-2. En la pestaña nueva, inicie sesión con sus credenciales de Azure. 
+2. En la pestaña nueva, inicie sesión con sus credenciales de Azure.
     - Inicie sesión con su nombre de usuario y contraseña.
     - No se admite el inicio de sesión con un PIN.
 3. Después de iniciar sesión correctamente, vuelva a la aplicación web.
@@ -132,14 +133,14 @@ Puede agregar un conjunto de credenciales para los servidores Windows y Linux.
     - Para quitar un servidor, seleccione > **Eliminar**.
 4. Después de la validación, haga clic en **Guardar e iniciar la detección** para iniciar el proceso de detección.
 
-De esta forma comienza la detección. Los metadatos de las VM detectadas tardan unos 15 minutos en aparecer en Azure Portal. 
+De esta forma comienza la detección. Los metadatos de las VM detectadas tardan unos 15 minutos en aparecer en Azure Portal.
 
 ## <a name="verify-servers-in-the-portal"></a>Comprobación de los servidores en el portal
 
 Una vez finalizada la detección, puede verificar que los servidores aparezcan en el portal.
 
 1. Abra el panel de Azure Migrate.
-2. En la página **Azure Migrate - Servidores** > **Azure Migrate: Server Assessment**, haga clic en el icono que muestra el número de **servidores detectados**. 
+2. En la página **Azure Migrate - Servidores** > **Azure Migrate: Server Assessment**, haga clic en el icono que muestra el número de **servidores detectados**.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

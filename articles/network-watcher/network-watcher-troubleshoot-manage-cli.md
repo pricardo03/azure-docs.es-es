@@ -1,5 +1,6 @@
 ---
-title: Solución de problemas de puerta de enlace y conexiones de Azure Virtual Network con la CLI de Azure | Microsoft Docs
+title: 'Solución de problemas de conexiones y puerta de enlace de red virtual de Azure: CLI de Azure'
+titleSuffix: Azure Network Watcher
 description: En esta página se explica cómo usar Azure Network Watcher para solucionar problemas con CLI de Azure
 services: network-watcher
 documentationcenter: na
@@ -14,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: kumud
-ms.openlocfilehash: 0974c242533ff122d75979acc5eb158ec36c179d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ca61486ce58ccd3385518c2d22e0690c1fb34d16
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64699589"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277807"
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-azure-cli"></a>Solución de problemas de puerta de enlace y conexiones de red virtual mediante la CLI de Azure de Azure Network Watcher
 

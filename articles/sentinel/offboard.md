@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2019
 ms.author: rkarlin
-ms.openlocfilehash: d3b9284282a7ee14cde2461598c81e6dfdfd9f72
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: a45f273078a622de5e256457fc45b6cb6cae512f
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71316739"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74464126"
 ---
 # <a name="remove-azure-sentinel-from-your-tenant"></a>Quitar Azure Sentinel del inquilino
 
@@ -38,7 +38,7 @@ Cuando instala Azure Sentinel, se instala **SecurityInsights** en segundo plano 
 3.  En la parte superior de la página, seleccione **Eliminar**.
 
     > [!IMPORTANT]
-    > Si elimina el área de trabajo, se quitará esta y Azure Sentinel del inquilino de Azure Monitor.
+    > Si quita el área de trabajo, puede que otras soluciones y orígenes de datos que la usan, como Azure Monitor, se vean afectadas. Para comprobar qué soluciones usan este área de trabajo, consulte [Lista de soluciones de supervisión instaladas](../azure-monitor/insights/solutions.md#list-installed-monitoring-solutions). Para comprobar qué datos de las soluciones se ingieren en el área de trabajo, consulte [Descripción del volumen de datos ingeridos](../azure-monitor/platform/manage-cost-storage.md#understanding-ingested-data-volume).
 
     ![Eliminar la solución SecurityInsights](media/offboard/delete-solution.png)
 

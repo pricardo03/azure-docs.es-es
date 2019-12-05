@@ -1,7 +1,7 @@
 ---
-title: Diseñador&#58 clasificación de reseñas de libros
+title: 'Diseñador: ejemplo de clasificación de las reseñas de libros'
 titleSuffix: Azure Machine Learning
-description: Crear un modelo de aprendizaje automático que clasifique las reseñas de libros en distintas categorías.
+description: Compile un clasificador de regresión logística multiclase para predecir la categoría de la empresa con el conjunto de datos SP 500 de Wikipedia mediante el diseñador de Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,20 +10,24 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 11/04/2019
-ms.openlocfilehash: 949ddc847a6011d460f2a3685008d12e64868767
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 16253abce2940690a80f84aa5b68521c09212bb9
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647122"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74213759"
 ---
-# <a name="sample-7---text-classification-predict-company-category"></a>Ejemplo 7 - Clasificación de texto: Predicción de la categoría de empresa 
+# <a name="build-a-classifier-to-predict-company-category-using-azure-machine-learning-designer"></a>Compile un clasificador para predecir la categoría de la empresa con el diseñador de Azure Machine Learning.
+
+**Ejemplo 7 del diseñador (versión preliminar)**
+
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
 En este ejemplo se muestra cómo usar los módulos de análisis de texto para compilar una canalización de clasificación de texto en el diseñador de Azure Machine Learning (versión preliminar).
 
 El objetivo de la clasificación de texto es asignar parte de un texto a una o varias clases o categorías predefinidas. El fragmento de texto puede ser un documento, un artículo de noticias, una consulta de búsqueda, un correo electrónico, un tweet, vales de soporte técnico, comentarios de cliente, reseñas de productos de usuario, etc. Entre las aplicaciones de clasificación de texto se incluye la categorización de artículos de periódicos y el contenido de las noticias en temas, la organización de páginas web en categorías jerárquicas, el filtrado de correo electrónico no deseado, el análisis de opiniones, la predicción de la intención del usuario a partir de las consultas de búsqueda, enrutamiento de las incidencias de soporte técnico y análisis de los comentarios de los clientes. 
 
-Esta canalización entrena un **clasificador de regresión logística multiclase** para predecir la categoría de la empresa con el conjunto de datos SP 500 de wikipedia que procede de la Wikipedia.  
+Esta canalización entrena un **clasificador de regresión logística multiclase** para predecir la categoría de la empresa con el **conjunto de datos SP 500 de wikipedia que procede de la Wikipedia**.  
 
 Los pasos fundamentales de un modelo de aprendizaje automático son:
 
@@ -43,7 +47,7 @@ Los pasos fundamentales de un modelo de aprendizaje automático son:
 
 Aquí se encuentra el último y completo gráfico de la canalización en la que trabajaremos. Le presentaremos el razonamiento de todos los módulos para que pueda tomar sus propias decisiones.
 
-[![Gráfico de la canalización](./media/how-to-ui-sample-text-classification/nlp-modules-overall.png)](./media/how-to-ui-sample-text-classification/nlp-modules-overall.png#lightbox)
+[![Gráfico de la canalización](./media/how-to-designer-sample-text-classification/nlp-modules-overall.png)](./media/how-to-designer-sample-text-classification/nlp-modules-overall.png#lightbox)
 
 ## <a name="data"></a>Datos
 
@@ -92,7 +96,7 @@ Después de haber entrenado el modelo, usamos los módulos **Score Model** (Punt
 Para el módulo **Feature Hashing** (Hash de características), es fácil realizar un diseño de las características en el flujo de puntuación como flujo de aprendizaje. Use el módulo **Feature Hashing** (Hash de características) directamente para procesar los datos de texto de entrada.
 
 En el caso del módulo **Extract N-Gram Feature from Text** (Extracción de características de n-gramas del texto), se conectará a la **salida del vocabulario resultante** desde el flujo de datos de entrenamiento al **vocabulario de entrada** en el flujo de datos de puntuación y se establecerá el parámetro **Vocabulary mode** (Modo de vocabulario) en **ReadOnly**.
-[![Gráfico de puntuación de n-grama](./media/how-to-ui-sample-text-classification/n-gram.png)](./media/how-to-ui-sample-text-classification/n-gram.png)
+[![Gráfico de puntuación de n-grama](./media/how-to-designer-sample-text-classification/n-gram.png)](./media/how-to-designer-sample-text-classification/n-gram.png)
 
 Después de finalizar el paso de ingeniería, **Score Model** (Puntuar modelo) podría usarse para generar predicciones para el conjunto de datos de prueba mediante el modelo entrenado. Para comprobar el resultado, seleccione el puerto de salida de **Score Model** (Puntuar modelo) y **Visualize** (Visualizar).
 

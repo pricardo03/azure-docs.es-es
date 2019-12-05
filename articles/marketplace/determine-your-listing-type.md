@@ -2,19 +2,19 @@
 title: Determinar la opción de publicación en Azure Marketplace | Azure
 description: En este artículo se describen los criterios de idoneidad y los requisitos de publicación de los asociados que intentan comprender cómo publicar aplicaciones en Azure Marketplace.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-author: jm-aditi-ms
+author: ellacroi
 manager: pabutler
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: ellacroi
-ms.openlocfilehash: 967d33cb7a9eb3ec922f9d85cfc2581b85bce537
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: ed25b92dc759f687e35a8424558453a830369a57
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825903"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74548352"
 ---
 # <a name="determine-your-publishing-option"></a>Determinar la opción de publicación
 La opción de publicación que elige para su oferta está relacionada directamente con los requisitos de idoneidad y las ventajas de GTM de Marketplace. Y, aún más importante, la selección de la opción de publicación y el tipo de oferta definen cómo interactúan los usuarios con su oferta de Marketplace.
@@ -41,7 +41,7 @@ Las aplicaciones de **AppSource** son soluciones de línea de negocio que se pue
 
 ## <a name="understand-storefront-selection"></a>Comprender la selección de escaparate
 
-El escaparate donde se presentará la oferta, Azure Marketplace o AppSource, se determinará automáticamente en función de los detalles de la oferta y del público de destino, así como las categorías y sectores que seleccione al crear la oferta. 
+Cada escaparate atiende los requisitos únicos de cada cliente. El escaparate en el que se publicará su oferta se determinará por tipo de oferta, ofrecerá capacidades de tramitación y de categoría y selección del sector para dirigirse a un público específico. 
 
 >[!Note]
 >Listados cruzados (para aplicaciones de SaaS): si una oferta de compra o versión de evaluación cumple los criterios para un público de usuarios técnicos y empresariales, se publicará en ambos escaparates. A continuación se incluye más información sobre las opciones de publicación.

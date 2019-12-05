@@ -3,17 +3,17 @@ title: Reducción de los costos de servicio con Azure Advisor | Microsoft Docs
 description: Utilice Azure Advisor para optimizar el costo de las implementaciones de Azure.
 services: advisor
 documentationcenter: NA
-author: kasparks
+author: saket-ms
 ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
-ms.author: kasparks
-ms.openlocfilehash: 78429001b855e3347e72fbb0f0d4d3171731a8e2
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.author: sagupt
+ms.openlocfilehash: 9f074c8077f41392fa9d45022a6a7a537964afa9
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703032"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74180580"
 ---
 # <a name="reduce-service-costs-using-azure-advisor"></a>Reducción de los costos de servicio con Azure Advisor
 
@@ -63,6 +63,7 @@ Para ahorrar el 60 % del costo, se recomienda almacenar las instantáneas en Sta
 Para aprender más sobre las recomendaciones de Advisor, consulte:
 * [Introducción a Advisor](advisor-overview.md)
 * [Primeros pasos](advisor-get-started.md)
-* [Recomendaciones sobre rendimiento de Advisor](advisor-cost-recommendations.md)
-* [Recomendaciones sobre alta disponibilidad de Advisor](advisor-cost-recommendations.md)
-* [Recomendaciones sobre seguridad de Advisor](advisor-cost-recommendations.md)
+* [Recomendaciones sobre rendimiento de Advisor](advisor-performance-recommendations.md)
+* [Recomendaciones sobre alta disponibilidad de Advisor](advisor-high-availability-recommendations.md)
+* [Recomendaciones sobre seguridad de Advisor](advisor-security-recommendations.md)
+* [Recomendaciones de excelencia operativa de Advisor](advisor-operational-excellence-recommendations.md)

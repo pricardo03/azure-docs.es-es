@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
-ms.date: 07/26/2019
-ms.openlocfilehash: 883778360bd2315e1424f9f207cbfd994ec1a373
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.date: 11/27/2019
+ms.openlocfilehash: d38874e7cb3fc61e32bd4ecd1fee528c4e5053e8
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73901193"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74547165"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Conectarse a redes virtuales de Azure desde Azure Logic Apps mediante un entorno del servicio de integración (ISE)
 
@@ -31,10 +31,8 @@ Un ISE ha aumentado los límites de duración de ejecución, retención de almac
 
 En este artículo se muestra cómo completar estas tareas:
 
-* Asegúrese de que todos los puertos necesarios de la red virtual estén abiertos para que el tráfico pueda moverse a través del entorno del servicio de integración (ISE) mediante las subredes de esa red virtual.
-
+* Habilite el acceso para el ISE.
 * Cree el ISE.
-
 * Agregue capacidad adicional al ISE.
 
 > [!IMPORTANT]
@@ -44,7 +42,7 @@ En este artículo se muestra cómo completar estas tareas:
 
 * Una suscripción de Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
 
-* Una instancia de [Azure Virtual Network](../virtual-network/virtual-networks-overview.md). Si no tiene una red virtual, aprenda a [crear una](../virtual-network/quick-create-portal.md). 
+* Una instancia de [Azure Virtual Network](../virtual-network/virtual-networks-overview.md). Si no tiene una red virtual, aprenda a [crear una](../virtual-network/quick-create-portal.md).
 
   * La red virtual tiene que tener cuatro subredes *vacías* para crear e implementar recursos en el ISE. Puede crear estas subredes por adelantado o esperar a que se cree el ISE en el que pueda crear las subredes al mismo tiempo. Obtenga más información sobre los [requisitos de subredes](#create-subnet).
 
@@ -52,7 +50,7 @@ En este artículo se muestra cómo completar estas tareas:
   
   * Si desea implementar el entorno de servicio de integración con una plantilla de Azure Resource Manager, primero asegúrese de que delega una subred vacía a Microsoft.Logic/integrationServiceEnvironment. No es necesario realizar esta delegación al realizar la implementación mediante Azure Portal.
 
-  * Además, debe asegurarse de que la red virtual [habilita esos puertos](#ports) y de que el ISE funciona correctamente y permanece accesible.
+  * Asegúrese de que la red virtual [habilita el acceso para el ISE](#enable-access) para que su ISE funcione correctamente y permanezca accesible.
 
   * Si usa [ExpressRoute](../expressroute/expressroute-introduction.md), que proporciona una conexión privada a los servicios en la nube de Microsoft, tiene que [crear una tabla de rutas](../virtual-network/manage-route-table.md) que tenga la siguiente ruta y vincular esa tabla con cada subred que utilice el ISE:
 
@@ -65,23 +63,31 @@ En este artículo se muestra cómo completar estas tareas:
   > [!IMPORTANT]
   > Si cambia la configuración del servidor DNS después de crear un ISE, asegúrese de reiniciar el ISE. Para más información acerca de la administración de la configuración del servidor DNS, consulte [Crear, cambiar o eliminar una red virtual](../virtual-network/manage-virtual-network.md#change-dns-servers).
 
-<a name="ports"></a>
+<a name="enable-access"></a>
 
-## <a name="check-network-ports"></a>Comprobación de los puertos de red
+## <a name="enable-access-for-ise"></a>Habilitar el acceso para el ISE
 
-Cuando se usa un ISE con una red virtual de Azure, un problema de configuración habitual es tener uno o varios puertos bloqueados. Los conectores que usa para crear conexiones entre su ISE y el sistema de destino también pueden tener sus propios requisitos de puerto. Por ejemplo, si se comunica con un sistema FTP mediante el conector FTP, asegúrese de que el puerto que usa en el sistema FTP está disponible, por ejemplo, el puerto 21 para enviar comandos. Para asegurarse de que el ISE permanece accesible y puede funcionar correctamente, abra los puertos especificados en la tabla siguiente. De lo contrario, si alguno de los puertos necesarios no está disponible, el ISE dejará de funcionar.
+Cuando se usa un ISE con una red virtual de Azure, un problema de configuración habitual es tener uno o varios puertos bloqueados. Los conectores que usa para crear conexiones entre su ISE y los sistemas de destino también pueden tener sus propios requisitos de puerto. Por ejemplo, si se comunica con un sistema FTP mediante el conector FTP, el puerto que usa en el sistema FTP debe estar disponible, por ejemplo, el puerto 21 para enviar comandos.
+
+Para asegurarse de que el ISE sea accesible y de que las aplicaciones lógicas del ISE pueden comunicarse a través de las subredes de la red virtual, [abra los puertos de esta tabla](#network-ports-for-ise). Si alguno de los puertos necesarios no está disponible, el ISE no funcionará correctamente.
+
+* Si tiene varios ISE y la red virtual usa [Azure Firewall](../firewall/overview.md) o una [aplicación virtual de red](../virtual-network/virtual-networks-overview.md#filter-network-traffic), puede [configurar una única dirección IP de salida, pública y predecible](connect-virtual-network-vnet-set-up-single-ip-address.md) para comunicarse con los sistemas de destino. De ese modo, no es necesario configurar aperturas adicionales del firewall en el destino para cada ISE.
+
+* Si ha creado una nueva red virtual de Azure y subredes sin ninguna restricción, no es necesario configurar [grupos de seguridad de red (NSG)](../virtual-network/security-overview.md#network-security-groups) en la red virtual para controlar el tráfico entre las subredes.
+
+* En una red virtual existente, puede *opcionalmente* configurar grupos de seguridad de red [filtrando el tráfico de red a través de subredes](../virtual-network/tutorial-filter-network-traffic.md). Si elige esta ruta, en la red virtual en la que desea configurar los grupos de seguridad de red, asegúrese de que [abre los puertos de esta tabla](#network-ports-for-ise). Si usa las [reglas de seguridad de NSG](../virtual-network/security-overview.md#security-rules), necesita los protocolos TCP y UDP.
+
+* Si ya tenía grupos de seguridad de red, asegúrese de [abrir los puertos de esta tabla](#network-ports-for-ise). Si usa las [reglas de seguridad de NSG](../virtual-network/security-overview.md#security-rules), necesita los protocolos TCP y UDP.
+
+<a name="network-ports-for-ise"></a>
+
+### <a name="network-ports-used-by-your-ise"></a>Puertos de red usados por el ISE
+
+En esta tabla se describen los puertos de la red virtual de Azure que usa el ISE y dónde se usan. La [etiqueta de servicio de Resource Manager](../virtual-network/security-overview.md#service-tags) representa un grupo de prefijos de direcciones IP que ayudan a reducir la complejidad a la hora de crear reglas de seguridad.
 
 > [!IMPORTANT]
 > Los puertos de origen son efímeros, asegúrese pues de establecerlos en `*` para todas las reglas.
 > En cuanto a la comunicación interna dentro de las subredes, el ISE requiere que se abran todos los puertos dentro de esas subredes.
-
-* Si ha creado una nueva red virtual y subredes sin ninguna restricción, no es necesario configurar [grupos de seguridad de red (NSG)](../virtual-network/security-overview.md#network-security-groups) en la red virtual para controlar el tráfico entre las subredes.
-
-* En una red virtual existente, puede *opcionalmente* configurar grupos de seguridad de red [filtrando el tráfico de red a través de subredes](../virtual-network/tutorial-filter-network-traffic.md). Si elige esta ruta, en la red virtual en la que desea configurar los grupos de seguridad de red, asegúrese de que abre los puertos especificados en la tabla siguiente. Si usa las [reglas de seguridad de NSG](../virtual-network/security-overview.md#security-rules), necesita los protocolos TCP y UDP.
-
-* Si ya tiene grupos de seguridad de red o firewalls en la red virtual, asegúrese de abrir los puertos especificados en la tabla siguiente. Si usa las [reglas de seguridad de NSG](../virtual-network/security-overview.md#security-rules), necesita los protocolos TCP y UDP.
-
-Aquí está tabla que describe los puertos de la red virtual que usa el ISE y dónde se usan. La [etiqueta de servicio de Resource Manager](../virtual-network/security-overview.md#service-tags) representa un grupo de prefijos de direcciones IP que ayudan a reducir la complejidad a la hora de crear reglas de seguridad.
 
 | Propósito | Dirección | Puertos de destino | Etiqueta de servicio de origen | Etiqueta de servicio de destino | Notas |
 |---------|-----------|-------------------|--------------------|-------------------------|-------|
@@ -89,8 +95,8 @@ Aquí está tabla que describe los puertos de la red virtual que usa el ISE y d�
 | Azure Active Directory | Salida | 80, 443 | VirtualNetwork | AzureActiveDirectory | |
 | Dependencia de Azure Storage | Salida | 80, 443 | VirtualNetwork | Storage | |
 | Comunicación entre subredes | Entrada y salida | 80, 443 | VirtualNetwork | VirtualNetwork | Para la comunicación entre subredes |
-| Comunicación con Azure Logic Apps | Entrada | 443 | Puntos de conexión de acceso interno: <br>VirtualNetwork <p><p>Puntos de conexión de acceso externo: <br>Internet <p><p>**Nota**: Estos puntos de conexión hacen referencia a la configuración del punto de conexión que se [seleccionó en la creación del ISE](#create-environment). Para más información, consulte [Acceso al punto de conexión](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). | VirtualNetwork | La dirección IP del equipo o el servicio que llama a cualquier desencadenador de solicitud o webhook que existe en su aplicación lógica. El cierre o bloqueo de este puerto evita las llamadas HTTP a aplicaciones lógicas con desencadenadores de solicitud. |
-| Historial de ejecución de la aplicación lógica | Entrada | 443 | Puntos de conexión de acceso interno: <br>VirtualNetwork <p><p>Puntos de conexión de acceso externo: <br>Internet <p><p>**Nota**: Estos puntos de conexión hacen referencia a la configuración del punto de conexión que se [seleccionó en la creación del ISE](#create-environment). Para más información, consulte [Acceso al punto de conexión](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). | VirtualNetwork | La dirección IP del equipo desde la que ve el historial de ejecución de las aplicaciones lógicas. Aunque cerrar o bloquear este puerto no le impide ver el historial de ejecución, no podrá ver las entradas y salidas de cada paso en ese historial de ejecución. |
+| Comunicación con Azure Logic Apps | Entrada | 443 | Puntos de conexión de acceso interno: <br>VirtualNetwork <p><p>Puntos de conexión de acceso externo: <br>Internet <p><p>**Nota**: Estos puntos de conexión hacen referencia a la configuración del punto de conexión que se [seleccionó en la creación del ISE](connect-virtual-network-vnet-isolated-environment.md#create-environment). Para más información, consulte [Acceso al punto de conexión](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). | VirtualNetwork | La dirección IP del equipo o el servicio que llama a cualquier desencadenador de solicitud o webhook que existe en su aplicación lógica. El cierre o bloqueo de este puerto evita las llamadas HTTP a aplicaciones lógicas con desencadenadores de solicitud. |
+| Historial de ejecución de la aplicación lógica | Entrada | 443 | Puntos de conexión de acceso interno: <br>VirtualNetwork <p><p>Puntos de conexión de acceso externo: <br>Internet <p><p>**Nota**: Estos puntos de conexión hacen referencia a la configuración del punto de conexión que se [seleccionó en la creación del ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#create-environment). Para más información, consulte [Acceso al punto de conexión](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). | VirtualNetwork | La dirección IP del equipo desde la que ve el historial de ejecución de las aplicaciones lógicas. Aunque cerrar o bloquear este puerto no le impide ver el historial de ejecución, no podrá ver las entradas y salidas de cada paso en ese historial de ejecución. |
 | Administración de conexiones | Salida | 443 | VirtualNetwork  | AppService | |
 | Publicación de las métricas y registros de diagnóstico | Salida | 443 | VirtualNetwork  | AzureMonitor | |
 | Comunicación de Azure Traffic Manager | Entrada | 443 | AzureTrafficManager | VirtualNetwork | |
@@ -144,11 +150,11 @@ En el cuadro de búsqueda, escriba "entorno de servicio de integración" como fi
    **Creación de una subred**
 
    Para crear e implementar recursos en su entorno, el ISE necesita cuatro subredes *vacías* que no estén delegadas a ningún servicio. *No se pueden cambiar* estas direcciones de subred una vez creado el entorno.
-   
+
    > [!IMPORTANT]
    > 
    > Los nombres de subred tienen que empezar con un carácter alfabético o un carácter de subrayado (sin números), y en ellos no se pueden usar los siguientes caracteres: `<`, `>`, `%`, `&`, `\\`, `?`, `/`.
-   
+
    Además, cada subred tiene que cumplir estos requisitos:
 
    * \- Usa el [formato de Enrutamiento de interdominios sin clases (CIDR)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) y un espacio de direcciones de clase B.

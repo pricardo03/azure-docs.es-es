@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 11/18/2019
 ms.author: erhopf
-ms.openlocfilehash: bf9afb66163532b4095e0d30b1167010320abbf8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 9a5b5de71ee290b39603968cf4309171689e22e4
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490895"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184842"
 ---
 # <a name="create-a-custom-keyword-by-using-the-speech-service"></a>Creación de una palabra clave personalizada mediante el servicio Voz
 
@@ -46,7 +46,7 @@ Tenga en cuenta las siguientes directrices al elegir una palabra clave:
 
 ## <a name="create-your-keyword"></a>Creación de la palabra clave
 
-Antes de poder usar una palabra clave personalizada con el dispositivo, debe crearla mediante el servicio de generación de palabras clave personalizadas de Microsoft. Después de proporcionar una palabra clave, el servicio produce un archivo que se implementa en el kit de desarrollo para habilitar la palabra clave en el dispositivo.
+Antes de poder usar una palabra clave personalizada, deberá crear una palabra clave con la página [Custom Keyword](https://aka.ms/sdsdk-wakewordportal) (Palabra clave personalizada) en [Speech Studio](https://aka.ms/sdsdk-speechportal). Después de proporcionar una palabra clave, se genera un archivo que se implementa en el dispositivo.
 
 1. Vaya a [Speech Studio](https://aka.ms/sdsdk-speechportal) e **inicie sesión** o, si todavía no tiene una suscripción a Voz, elija [**Crear una suscripción**](https://go.microsoft.com/fwlink/?linkid=2086754).
 
@@ -62,7 +62,7 @@ Antes de poder usar una palabra clave personalizada con el dispositivo, debe cre
 
     ![Descarga de la palabra clave](media/speech-devices-sdk/custom-kws-portal-download-keyword.png)
 
-1. Guarde el archivo .zip en el equipo. Necesitará este archivo para implementar la palabra clave personalizada en el kit de desarrollo.
+1. Guarde el archivo .zip en el equipo. Necesitará este archivo para implementar la palabra clave personalizada en el dispositivo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

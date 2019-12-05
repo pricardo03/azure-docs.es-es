@@ -1,20 +1,16 @@
 ---
-title: " Conexión de una máquina de desarrollo a un clúster de AKS"
-titleSuffix: Azure Dev Spaces
+title: Conexión de una máquina de desarrollo a un clúster de AKS
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-author: zr-msft
-ms.author: zarhoads
 ms.date: 11/04/2019
 ms.topic: conceptual
 description: Obtenga información sobre cómo conectar la máquina de desarrollo a un clúster de AKS con Azure Dev Spaces
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores
-ms.openlocfilehash: 15e46fba19d92e08a9c87a63f6f01ec6b0836910
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: c26d159d6f883e1c368b09a82bc53c621c70e281
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73888922"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74482249"
 ---
 # <a name="connect-your-development-machine-to-an-aks-cluster-preview"></a>Conexión de una máquina de desarrollo a un clúster de AKS (versión preliminar)
 
@@ -123,7 +119,6 @@ $ npm install
 > node install
 ...
 ```
-
 
 Haga clic en *Depurar* y, después, en *Abrir configuraciones*. Si se le pide que seleccione un entorno, elija *Node.js*. Esto crea un archivo `.vscode/launch.json`. Reemplace el contenido de ese archivo con lo siguiente:
 
@@ -235,6 +230,18 @@ MYAPP1_SERVICE_HOST=${services.myapp1}
 # in addition to the IP in the MYAPP1_SERVICE_HOST environment variable.
 ```
 
+## <a name="using-logging-and-diagnostics"></a>Uso de registro y diagnóstico
+
+La salida del registro se escribe en la ventana *Dev Spaces Connect* después de conectar el equipo de desarrollo al clúster de AKS.
+
+![Output](../media/how-to-connect/connect-output.png)
+
+Haga clic en la barra de estado de Azure Dev Spaces y elija *Mostrar información de diagnóstico*. Este comando imprime las variables de entorno actuales y las entradas de DNS en la salida del registro.
+
+![Salida con diagnósticos](../media/how-to-connect/connect-output-diagnostics.png)
+
+Además, puede encontrar los registros de diagnóstico en el directorio `Azure Dev Spaces` en el [ directorio *TEMP* del equipo de desarrollo][azds-tmp-dir].
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 Aprenda a usar las acciones de GitHub y Azure Dev Spaces para probar los cambios de una solicitud de incorporación de cambios directamente en AKS antes de que dicha solicitud se combine en la rama principal del repositorio.
@@ -242,11 +249,11 @@ Aprenda a usar las acciones de GitHub y Azure Dev Spaces para probar los cambios
 > [!div class="nextstepaction"]
 > [Acciones de GitHub y Azure Kubernetes Service][gh-actions]
 
+[azds-tmp-dir]: ../troubleshooting.md#before-you-begin
 [azds-vs-code]: https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds
 [azure-cli]: /cli/azure/install-azure-cli?view=azure-cli-latest
 [bike-sharing-github]: https://github.com/Azure/dev-spaces/tree/master/samples/BikeSharingApp
 [gh-actions]: github-actions.md
-[helm-installed]: https://helm.sh/docs/using_helm/#installing-helm
 [supported-regions]: ../about.md#supported-regions-and-configurations
 [team-quickstart]: ../quickstart-team-development.md
 [vs-code]: https://code.visualstudio.com/download

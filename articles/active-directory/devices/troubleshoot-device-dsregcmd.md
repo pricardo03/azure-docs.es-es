@@ -1,22 +1,22 @@
 ---
-title: 'Solución de problemas de dispositivos con el comando dsregcmd: Azure Active Directory'
+title: 'Solución de problemas con el comando dsregcmd: Azure Active Directory'
 description: Uso de la salida de dsregcmd para conocer el estado de los dispositivos en Azure AD
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: troubleshooting
-ms.date: 07/10/2019
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4aa8f9a7c6807a2f9505559ea13fb0b4f410346d
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 8ef3edace53cf7367716027811cf3061b617a9a6
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68987166"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74379197"
 ---
 # <a name="troubleshooting-devices-using-the-dsregcmd-command"></a>Solución de problemas de dispositivos con el comando dsregcmd
 
@@ -84,6 +84,9 @@ Solo se muestra cuando el dispositivo está unido a Azure AD o a Azure AD híb
 ## <a name="tenant-details"></a>Detalles de inquilino
 
 Solo se muestra cuando el dispositivo está unido a Azure AD o a Azure AD híbrido (no registrado en Azure AD). En esta sección se enumeran los detalles comunes del inquilino cuando un dispositivo está unido a Azure AD.
+
+> [!NOTE]
+> Si las direcciones URL de MDM de esta sección están vacías, indica que la MDM no se configuró o que el usuario actual no está en el ámbito de la inscripción de MDM. Compruebe la configuración de movilidad en Azure AD para revisar la configuración de MDM.
 
 > [!NOTE]
 > Aunque vea las direcciones URL MDM, esto no significa que el dispositivo esté administrado por MDM. La información se muestra si el inquilino tiene la configuración de MDM para la inscripción automática incluso si el dispositivo es no administrado. 

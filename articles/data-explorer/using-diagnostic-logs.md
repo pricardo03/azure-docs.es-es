@@ -7,12 +7,12 @@ ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/18/2019
-ms.openlocfilehash: 7d0fec56791c0d3e7ae60d78da83cf286532b9ab
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 13f86f0156299619d8bf8d92eb92bbcf8b4cb76c
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123922"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173810"
 ---
 # <a name="monitor-azure-data-explorer-ingestion-operations-using-diagnostic-logs-preview"></a>Supervisión de las operaciones de ingesta de Azure Data Explorer mediante registros de diagnóstico (versión preliminar)
 
@@ -158,4 +158,6 @@ Las cadenas JSON de registro incluyen elementos enumerados en la tabla siguiente
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Uso de métricas para supervisar el estado del clúster](using-metrics.md)
+* [Tutorial: Ingesta y consulta de datos de supervisión en Azure Data Explorer](ingest-data-no-code.md)
+* [Uso de métricas para supervisar el estado del clúster](using-metrics.md)
+

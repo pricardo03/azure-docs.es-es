@@ -1,5 +1,5 @@
 ---
-title: Envío y uso de consultas y respuestas de Bing Local Business Search API
+title: 'Envío y uso de consultas y respuestas de la API: Bing Local Business Search'
 titleSuffix: Azure Cognitive Services
 description: Use este artículo para obtener información sobre cómo enviar y usar consultas con Bing Local Business Search API.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: bing-local-business
 ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: rosh
-ms.openlocfilehash: 31f81d76ff433d5f2e634b9a8f5fac50f8425f49
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 25bcdb89002fec4f9b67b091996d7bf80bcf21c8
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69906357"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326731"
 ---
 # <a name="sending-and-using-bing-local-business-search-api-queries-and-responses"></a>Envío y uso de consultas y respuestas de Bing Local Business Search API
 

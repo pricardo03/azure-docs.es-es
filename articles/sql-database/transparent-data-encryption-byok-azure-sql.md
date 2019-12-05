@@ -10,19 +10,19 @@ ms.topic: conceptual
 author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
-ms.date: 11/04/2019
-ms.openlocfilehash: 3ae5403c2313bc1d2f271aeba9d4a99d9a0c5db7
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/19/2019
+ms.openlocfilehash: 6676a6f7c694ffd4f2edf3f63a8181863df0016c
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822283"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227975"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Cifrado de datos transparente de Azure SQL con una clave administrada por el cliente
 
 El [Cifrado de datos transparente (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) de Azure SQL con una clave administrada por el cliente habilita el escenario Bring Your Own Key (BYOK) para la protección de datos en reposo y permite a las organizaciones implementar la separación de tareas en la administración de claves y datos. Con el cifrado de datos transparente administrado por el cliente, el cliente es responsable y tiene el control total de la administración del ciclo de vida de una clave (creación, carga, rotación y eliminación), de los permisos de uso de claves y de la auditoría de operaciones con clave.
 
-En este escenario, la clave que se usa para el cifrado de la clave de cifrado de base de datos (DEK), denominada protector de TDE, es una clave asimétrica administrada por el cliente que se almacena en una instancia propiedad del cliente y administrada por él de [Azure Key Vault (AKV)](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault), un sistema de administración de claves externas basado en la nube. Key Vault ofrece un almacenamiento seguro de alta disponibilidad y escalabilidad para claves criptográficas RSA respaldado por módulos de seguridad de hardware (HSM) con certificación FIPS 140-2 nivel 2. No permite el acceso directo a una clave almacenada, sino que proporciona servicios de cifrado y descifrado mediante el uso de la clave en las entidades autorizadas. La clave puede generarse desde el almacén de claves, así como importarse o [transferirse al almacén de claves desde un dispositivo HSM local](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys).
+En este escenario, la clave que se usa para el cifrado de la clave de cifrado de base de datos (DEK), denominada protector de TDE, es una clave asimétrica administrada por el cliente que se almacena en una instancia propiedad del cliente y administrada por él de [Azure Key Vault (AKV)](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault), un sistema de administración de claves externas basado en la nube. Key Vault ofrece un almacenamiento seguro de alta disponibilidad y escalabilidad para claves criptográficas RSA respaldado opcionalmente por módulos de seguridad de hardware (HSM) con certificación FIPS 140-2 nivel 2. No permite el acceso directo a una clave almacenada, sino que proporciona servicios de cifrado y descifrado mediante el uso de la clave en las entidades autorizadas. La clave puede generarse desde el almacén de claves, así como importarse o [transferirse al almacén de claves desde un dispositivo HSM local](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys).
 
 Para Azure SQL Database y Azure SQL Data Warehouse, el protector de TDE se establece en el nivel de servidor lógico y se hereda por todas las bases de datos cifradas asociadas con dicho servidor. En el caso de la Instancia administrada de Azure SQL Database, el protector de TDE se establece en el nivel de instancia y lo heredan todas las bases de datos cifradas que se encuentren en dicha instancia. El término *servidor* hace referencia tanto al servidor lógico de SQL Database como a una instancia administrada a lo largo de este documento, a menos que se indique lo contrario. 
 
@@ -82,9 +82,9 @@ Los auditores pueden usar Azure Monitor para revisar los registros de los objeto
 
 - El protector de TDE solo puede ser una clave asimétrica, RSA 2048 o RSA HSM 2048.
 
-- La clave no puede establecer la fecha de activación o expiración.
+- La fecha de activación de la clave (si se establece) debe ser una fecha y hora del pasado. La fecha de expiración (si se establece) debe ser una fecha y hora del futuro.
 
-- El estado de la clave en el almacén de claves debe ser Habilitada.
+- El estado de la clave debe ser *Habilitada*.
 
 - Si va a importar una clave existente en el almacén de claves, asegúrese de proporcionarla en uno de los formatos de archivo compatibles (.pfx, .byok o .backup).
 

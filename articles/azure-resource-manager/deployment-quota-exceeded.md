@@ -1,17 +1,14 @@
 ---
-title: Cuota de implementaciones de Azure superada
+title: Cuota de implementaciones superada
 description: En este artículo se describe cómo resolver el error de tener más de 800 implementaciones en el historial del grupo de recursos.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: troubleshooting
 ms.date: 10/04/2019
-ms.author: tomfitz
-ms.openlocfilehash: 7f9e1b6b8518ebc03f051e379e4707dd1864e003
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 7f389827513562a3add67f022fec360081754b02
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73578971"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74147210"
 ---
 # <a name="resolve-error-when-deployment-count-exceeds-800"></a>Resolución de error cuando el recuento de implementaciones es superior a 800
 

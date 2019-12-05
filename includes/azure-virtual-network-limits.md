@@ -8,23 +8,24 @@ ms.topic: include
 ms.date: 06/25/2019
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: a37280fddf34221a9d08501ef55c6b069cd877a4
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: ac1687d371630089436640af15cf46491a38ab51
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "70242767"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74485438"
 ---
 <a name="azure-resource-manager-virtual-networking-limits"></a>Límites de redes: Azure Resource Manager Los siguientes límites solo son válidos en los recursos de redes administrados mediante **Azure Resource Manager** por región y por suscripción. Aprenda a [ver el uso de recursos actual comparado con los límites de su suscripción](../articles/networking/check-usage-against-limits.md).
 
 > [!NOTE]
 > Recientemente hemos aumentado todos los límites predeterminados a sus límites máximos. Si no hay ninguna columna de límite máximo, el recurso no tiene límites ajustables. Si el soporte técnico ha aumentado estos límites en el pasado y no ve los límites actualizados en las tablas siguientes, [abra una solicitud de soporte técnico al cliente en línea sin cargo](../articles/azure-resource-manager/resource-manager-quota-errors.md)
 
-| Recurso | Límite predeterminado/máximo | 
+| Resource | Límite predeterminado/máximo | 
 | --- | --- |
 | Redes virtuales |1000 |
 | Subredes por red virtual |3000 |
 | Emparejamientos de redes virtuales por red virtual |500 |
+| [Puertas de enlace de red virtual (VPN Gateway) por red virtual](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku) |30 |
 | Servidores DNS por red virtual |20 |
 | Direcciones IP privadas por red virtual |65 536 |
 | Direcciones IP privadas por interfaz de red |256 |
@@ -47,7 +48,7 @@ ms.locfileid: "70242767"
 | Configuraciones de TAP de la interfaz de red por TAP de red virtual |100 |
 
 #### <a name="publicip-address"></a>Límites de dirección IP pública
-| Recurso | Límite predeterminado | Límite máximo |
+| Resource | Límite predeterminado | Límite máximo |
 | --- | --- | --- |
 | Direcciones IP públicas - dinámicas | 1000 para Basic. |Póngase en contacto con el servicio de soporte técnico. |
 | Direcciones IP públicas - estáticas | 1000 para Basic. |Póngase en contacto con el servicio de soporte técnico. |
@@ -57,7 +58,7 @@ ms.locfileid: "70242767"
 #### <a name="load-balancer"></a>Límites del equilibrador de carga
 Los límites siguientes solo se aplican a los recursos de redes administrados a través de Azure Resource Manager por región y por suscripción. Aprenda a [ver el uso de recursos actual comparado con los límites de su suscripción](../articles/networking/check-usage-against-limits.md).
 
-| Recurso | Límite predeterminado/máximo |
+| Resource | Límite predeterminado/máximo |
 | --- | --- |
 | Equilibradores de carga | 1000 | 
 | Reglas por recurso, básico | 250 |
@@ -75,7 +76,7 @@ Los límites siguientes solo se aplican a los recursos de redes administrados a 
 
 #### <a name="virtual-networking-limits-classic"></a>Los límites siguientes se aplican solo a los recursos de redes administrados a través del modelo de implementación **clásico** por suscripción. Aprenda a [ver el uso de recursos actual comparado con los límites de su suscripción](../articles/networking/check-usage-against-limits.md).
 
-| Recurso | Límite predeterminado | Límite máximo |
+| Resource | Límite predeterminado | Límite máximo |
 | --- | --- | --- |
 | Redes virtuales |100 |100 |
 | Sitios de red local |20 |50 |

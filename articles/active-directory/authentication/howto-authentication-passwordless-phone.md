@@ -1,22 +1,22 @@
 ---
-title: Habilitar el inicio de sesión sin contraseña con la aplicación Microsoft Authenticator (versión preliminar) - Azure Active Directory
+title: 'Inicio de sesión sin contraseña con la aplicación Microsoft Authenticator: Azure Active Directory'
 description: Habilitar el inicio de sesión sin contraseña en Azure AD con la aplicación Microsoft Authenticator (versión preliminar)
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: acdcbef74d95fbbc4cfb49176d1f98621e746ff6
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a76aa0ca7cbda3f2db564c220ba12fec60f60509
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73474352"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74381875"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Habilitar el inicio de sesión sin contraseña en Azure AD con la aplicación Microsoft Authenticator (versión preliminar)
 
@@ -46,7 +46,7 @@ Las características de registro de los métodos de autenticación sin contrase�
 ### <a name="enable-passwordless-phone-sign-in-authentication-methods"></a>Habilitar métodos de autenticación de inicio de sesión en el teléfono sin contraseña
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com)
-1. Vaya a **Seguridad de Azure AD** > **Métodos de autenticación** > **Directiva de métodos de autenticación (versión preliminar)** .
+1. Busque y seleccione *Azure Active Directory*. Seleccione **Seguridad** > **Métodos de autenticación** > **Directiva de métodos de autenticación (versión preliminar)** .
 1. En **Inicio de sesión telefónico sin contraseña**, elija las opciones siguientes:
    1. **Habilitar**: Sí o No
    1. **Destino**: Todos los usuarios o Seleccionar usuarios

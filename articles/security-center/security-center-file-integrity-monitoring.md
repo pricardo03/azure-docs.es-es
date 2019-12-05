@@ -1,6 +1,6 @@
 ---
 title: Supervisar la integridad de los archivos en Azure Security Center | Microsoft Docs
-description: " Aprenda a habilitar la supervisión de la integridad de los archivos en Azure Security Center. "
+description: Aprenda a configurar la supervisión de la integridad de los archivos (FIM) en Azure Security Center mediante este tutorial.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/13/2019
 ms.author: memildin
-ms.openlocfilehash: f7f5c257b23cd273a2cda40f874f5edfc62c0dbd
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: cfa767a42800ceaf78fe007a8468fe9113a2d412
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202187"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74558781"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Supervisar la integridad de los archivos en Azure Security Center
 Aprenda a configurar la supervisión de la integridad de los archivos (FIM) en Azure Security Center mediante este tutorial.
@@ -93,7 +93,7 @@ El panel **Supervisión de la integridad de los archivos** se muestra en las ár
 
 ![Panel de Supervisión de la integridad de los archivos][6]
 
-El panel de FIM de un área de trabajo muestra los siguientes elementos:
+El panel de FIM de un área de trabajo muestra los detalles siguientes:
 
 - Número total de máquinas conectadas al área de trabajo
 - Número total de cambios que se produjeron durante el período de tiempo seleccionado
@@ -199,7 +199,7 @@ Puede deshabilitar FIM. FIM emplea la solución Azure Change Tracking para reali
 4. Seleccione **Quitar** para deshabilitarlo.
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este artículo ha aprendido a usar la Supervisión de la integridad de los archivos (FIM) de Security Center. Para más información sobre el Centro de seguridad, consulte los siguientes recursos:
+En este artículo ha obtenido información sobre cómo usar la Supervisión de la integridad de los archivos (FIM) de Security Center. Para obtener más información sobre Security Center, vea las páginas siguientes:
 
 * [Establecimiento de directivas de seguridad](tutorial-security-policy.md): aprenda a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure.
 * [Administración de recomendaciones de seguridad](security-center-recommendations.md): conozca una serie de recomendaciones que le ayudarán a proteger los recursos de Azure.

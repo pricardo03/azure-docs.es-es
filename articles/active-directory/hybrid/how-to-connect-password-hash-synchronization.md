@@ -15,12 +15,12 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0398ff7eb8931acc400b326ff92deaf75f0aa97e
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 6e77368c7c0c104e777595a16735a7cf1e797a48
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73882840"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74539023"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implementación de la sincronización de hash de contraseñas con la sincronización de Azure AD Connect
 En este artículo se ofrece información que se necesita para sincronizar las contraseñas de usuario desde una instancia de Active Directory local con otra de Azure Active Directory (Azure AD) basado en la nube.
@@ -160,9 +160,11 @@ La sincronización de una contraseña no influye en el usuario de Azure que ha i
 
 ## <a name="password-hash-sync-process-for-azure-ad-domain-services"></a>Proceso de sincronización de hash de contraseña para Azure AD Domain Services
 
-Si usa Azure AD Domain Services para proporcionar autenticación heredada para las aplicaciones y los servicios que necesitan usar Keberos, LDAP o NTLM, algunos procesos adicionales forman parte del flujo de sincronización de hash de contraseña. Azure AD Connect usa el siguiente proceso adicional para sincronizar los hash de contraseña con Azure AD para su uso en Azure AD Domain Services:
+Si usa Azure AD Domain Services para proporcionar autenticación heredada para las aplicaciones y los servicios que necesitan usar Keberos, LDAP o NTLM, algunos procesos adicionales forman parte del flujo de sincronización de hash de contraseña. Azure AD Connect usa el siguiente proceso adicional para sincronizar los hash de contraseña con Azure AD para su uso en Azure AD Domain Services:
 
 > [!IMPORTANT]
+> Azure AD Connect solo se debe instalar y configurar para la sincronización con entornos de AD DS locales. No se admite la instalación de Azure AD Connect en un dominio administrado de Azure AD DS para volver a sincronizar los objetos con Azure AD.
+>
 > Azure AD Connect solo sincroniza los hashes de contraseña heredados al habilitar Azure AD DS para su inquilino de Azure AD. Los siguientes pasos no se usan si solo utiliza Azure AD Connect para sincronizar un entorno de AD DS local con Azure AD.
 >
 > Si las aplicaciones heredadas no utilizan la autenticación NTLM o los enlaces simples LDAP, se recomienda deshabilitar la sincronización de hash de contraseña de NTLM para Azure AD DS. Para más información, consulte [Deshabilitación de la sincronización de hash de credenciales NTLM y de conjuntos de cifrado débil](../../active-directory-domain-services/secure-your-domain.md).

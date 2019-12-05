@@ -1,17 +1,14 @@
 ---
-title: Variables en plantillas de Azure Resource Manager
+title: Variables en plantillas
 description: Se describe cómo definir variables en una plantilla de Azure Resource Manager.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/05/2019
-ms.author: tomfitz
-ms.openlocfilehash: 5ed6bb58f2f45de557f2127fdc8abd5cdf2ef965
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 5bd7acd759c553e629febdb141aefd63cfa4dd4b
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70383991"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149074"
 ---
 # <a name="variables-in-azure-resource-manager-template"></a>Variables en una plantilla de Azure Resource Manager
 

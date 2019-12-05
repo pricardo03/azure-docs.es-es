@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: c201945e94474d54b8a19918f3b55a0b40995a97
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2b3ccf16aca04ebd398e2f97007b817cc0a6ef8d
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60743520"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196495"
 ---
 # <a name="cluster-resource-manager-integration-with-service-fabric-cluster-management"></a>Integración del Administrador de recursos de clúster con la administración de clústeres de Service Fabric
 Cluster Resource Manager de Service Fabric no impulsa las actualizaciones en Service Fabric, pero participa. Cluster Resource Manager contribuye a la administración, en primer lugar, realizando un seguimiento del estado deseado del clúster y los servicios que contiene. Además, envía informes de mantenimiento cuando no puede colocar el clúster en la configuración deseada. Por ejemplo, si no hay capacidad suficiente, Cluster Resource Manager envía advertencias y errores de estado que indican el problema. Otro aspecto de la integración tiene que ver con el funcionamiento de las actualizaciones. Durante ellas, Cluster Resource Manager modifica ligeramente su comportamiento.  
@@ -102,7 +102,7 @@ Vamos a hablar sobre cada una de las diferentes restricciones de estos informes 
 ## <a name="blocklisting-nodes"></a>Lista de bloqueo de nodos
 Otro mensaje de mantenimiento que notifica Cluster Resource Manager es cuando los nodos están en la lista de bloqueo. La lista de bloqueo se puede considerar como una restricción temporal que se le aplica automáticamente. Los nodos entran en la lista de bloqueo cuando experimentan errores repetidos al iniciar instancias de ese tipo de servicio. Los nodos se incluyen en la lista de bloqueo por tipo de servicio. Un nodo puede estar en la lista de bloqueo para un servicio pero no para otro. 
 
-Las listas de bloqueo se usan con frecuencia durante el desarrollo: algunos errores provocan que su host de servicios se bloquee al inicio. Service Fabric intenta crear el host de servicios varias veces, pero el error sigue apareciendo. Después de varios intentos, el nodo pasa a la lista de bloqueo y Cluster Resource Manager intenta crear el servicio en otra parte. Si ese error se sigue produciendo en varios nodos, es posible que todos los nodos válidos del clúster acaben bloqueados. También se puede eliminar la lista de bloqueo para que muchos nodos que no son suficientes pueden iniciar correctamente el servicio para satisfacer la escala deseada. Normalmente verá errores o advertencias adicionales de Cluster Resource Manager que indican que el servicio está por debajo del número deseado de réplicas o instancias, junto con mensajes de mantenimiento que indican cuál es el error que está llevando a la lista de bloqueo como primera medida.
+Las listas de bloqueo se usan con frecuencia durante el desarrollo: algunos errores provocan que su host de servicios se bloquee al inicio. Service Fabric intenta crear el host de servicios varias veces, pero el error sigue apareciendo. Después de varios intentos, el nodo pasa a la lista de bloqueo y Cluster Resource Manager intenta crear el servicio en otra parte. Si ese error se sigue produciendo en varios nodos, es posible que todos los nodos válidos del clúster acaben bloqueados. También se puede eliminar la lista de bloqueo para que muchos nodos que no son suficientes puedan iniciar correctamente el servicio para satisfacer la escala deseada. Normalmente verá errores o advertencias adicionales de Cluster Resource Manager que indican que el servicio está por debajo del número deseado de réplicas o instancias, junto con mensajes de mantenimiento que indican cuál es el error que está llevando a la lista de bloqueo como primera medida.
 
 La lista de bloqueo no es una condición permanente. Al cabo de unos minutos, el nodo se elimina de la lista de bloqueo y Service Fabric puede activar de nuevo los servicios en ese nodo. Si los servicios siguen sin funcionar bien, el nodo pasa de nuevo a la lista de bloqueo de ese tipo de servicio. 
 

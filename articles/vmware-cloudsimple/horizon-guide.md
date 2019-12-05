@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 8e5aeb63c54bd9ad71d5eb179fb93972468af4c0
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 0936de818303117797e1704f3cecb7f877a3935e
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972762"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74206560"
 ---
 # <a name="use-cloudsimple-private-cloud-site-to-host-a-virtual-desktop-infrastructure-using-vmware-horizon"></a>Uso del sitio de la nube privada de CloudSimple para hospedar una infraestructura de escritorio virtual mediante VMware Horizon
 
@@ -54,7 +54,7 @@ En las secciones siguientes se describe cómo implementar una solución de VDI c
 1. Cree una nube privada desde el portal de CloudSimple siguiendo las instrucciones que se proporcionan en el artículo [Configuración del entorno de una nube privada](quickstart-create-private-cloud.md).  CloudSimple crea un usuario predeterminado de vCenter denominado "cloudowner" en cada nube privada recién creada. Para obtener detalles sobre el modelo predeterminado de permisos y usuarios de la nube privada, consulte [Información sobre el modelo de permisos de la nube privada](learn-private-cloud-permissions.md).
 2. Cree una VLAN en la nube privada para el plano de administración de Horizon y asígnele un valor de CIDR de subred. Para obtener instrucciones, consulte el artículo [Creación y administración de subredes y VLAN.](create-vlan-subnet.md) Esta es la red en que se instalarán todos los componentes de las soluciones (Unified Access Gateway, Connection Server, App Volume Server y los servidores de User Environment Manager).
 3. Decida si quiere utilizar un proveedor de identidades externo con la instancia de vCenter de la nube privada. En caso afirmativo, elija una de estas opciones:
-    * Use la instancia local de Active Directory como proveedor de identidades externo. Para obtener instrucciones, consulte [Orígenes de identidades de vCenter](set-vcenter-identity.md).
+    * Use una instancia local de Active Directory como proveedor de identidades externo. Para obtener instrucciones, consulte [Orígenes de identidades de vCenter](set-vcenter-identity.md).
     * Configure un servidor de Active Directory en la nube privada de la VLAN del plano de administración de Horizon para usarlo como proveedor de identidades externo. Para obtener instrucciones, consulte [Orígenes de identidades de vCenter](set-vcenter-identity.md).
     * Configure un servidor DHCP y DNS en la VLAN del plano de administración de Horizon de la nube privada. Para obtener instrucciones, consulte [Configuración de cargas de trabajo y aplicaciones de DNS y DHCP en la nube privada de CloudSimple](dns-dhcp-setup.md).
 4. Configure el reenvío de DNS en el servidor DNS instalado en la nube privada. Para obtener instrucciones, consulte [Creación de reenviador condicional](on-premises-dns-setup.md#create-a-conditional-forwarder).
@@ -87,9 +87,9 @@ Puede aplicar estos procedimientos recomendados mediante la configuración de [r
 
 #### <a name="cloudsimple-portal-configure-firewall-rules-to-secure-horizon-management-plane"></a>Portal de CloudSimple: configurar reglas de firewall para proteger el plano de administración de Horizon
 
-Configure las siguientes reglas en el portal de CloudSimple. Para obtener instrucciones, vea [Configuración de tablas y reglas de firewall](firewall.md).
+Configure las siguientes reglas en el portal de CloudSimple. Para obtener instrucciones, consulte [Configuración de tablas y reglas de firewall](firewall.md).
 
-1. Configure las reglas de firewall en el firewall N-S de CloudSimple para permitir la comunicación entre las subredes locales y la VLAN de administración de Horizon y, de este modo, solo se permitan los puertos de red que se enumeran en la [lista de puertos de Horizon](https://docs.vmware.com/en/VMware-Horizon-7/7.1/com.vmware.horizon-client-agent.security.doc/GUID-52807839-6BB0-4727-A9C7-EA73DE61ADAB.html) del documento de VMware.
+1. Configure las reglas de firewall en el firewall N-S de CloudSimple para permitir la comunicación entre las subredes locales y la VLAN de administración de Horizon, con el fin de que solo se permitan los puertos de red que se enumeran en la [lista de puertos de Horizon](https://docs.vmware.com/en/VMware-Horizon-7/7.1/com.vmware.horizon-client-agent.security.doc/GUID-52807839-6BB0-4727-A9C7-EA73DE61ADAB.html) del documento de VMware.
 
 2. Cree las reglas de firewall E-W entre la VLAN de administración de Horizon y la VLAN del grupo de escritorios de la nube privada.
 

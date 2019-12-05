@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: diberry
-ms.openlocfilehash: d9cb86c1c19649052e4796fd0a8909ce08381d55
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e0b5b95a7524b60a7c3367035a15a7158fa7908a
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73487586"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280831"
 ---
 # <a name="prebuilt-models"></a>Modelos creados previamente
 
@@ -34,7 +34,7 @@ LUIS proporciona tres tipos de modelos precompilados. Cada modelo se puede agreg
 
 ## <a name="prebuilt-domains"></a>Dominios creados previamente
 
-En Language Understanding (LUIS) se proporcionan *dominios creados previamente*, que son modelos entrenados previamente de [intenciones](luis-how-to-add-intents.md) y [entidades](luis-concept-entity-types.md) que funcionan de manera conjunta para los dominios o las categorías comunes de las aplicaciones cliente. 
+En Language Understanding (LUIS) se proporcionan *dominios pregenerados*, que son modelos entrenados previamente de [intenciones](luis-how-to-add-intents.md) y [entidades](luis-concept-entity-types.md) que funcionan de manera conjunta para los dominios o las categorías comunes de las aplicaciones cliente. 
 
 Los dominios creados previamente están capacitados y listos para agregarse a la aplicación LUIS. Las intenciones y entidades de un dominio creado previamente se pueden personalizar completamente una vez las haya agregado a la aplicación. 
 
@@ -44,13 +44,13 @@ Los dominios creados previamente están capacitados y listos para agregarse a la
 
 ### <a name="changing-the-behavior-of-a-prebuilt-domain-intent"></a>Cambiar el comportamiento de una intención de dominio creado previamente
 
-Es posible que descubra que un dominio creado previamente contiene una intención que es similar a otra que quiere incluir en la aplicación de LUIS pero con otro comportamiento. Por ejemplo, el dominio creado previamente **Places** (Lugares) proporciona una intención `MakeReservation` para realizar una reserva en un restaurante, pero quiere que la aplicación use esa intención para realizar reservas de hotel. En ese caso, puede modificar el comportamiento de la intención mediante la adición de las expresiones de ejemplo a la intención de hacer reservas de hotel. A continuación, vuelva a entrenar la aplicación. 
+Es posible que descubra que un dominio creado previamente contiene una intención que es similar a otra que quiere incluir en la aplicación de LUIS pero con otro comportamiento. Por ejemplo, el dominio creado previamente **Places** (Lugares) proporciona una intención `MakeReservation` para realizar una reserva en un restaurante, pero quiere que la aplicación use esa intención para realizar reservas de hotel. En ese caso, puede modificar el comportamiento de la intención mediante la adición de expresiones de ejemplo a la intención de hacer reservas de hotel y, después, volver a entrenar la aplicación. 
 
 En [Prebuilt domains reference](./luis-reference-prebuilt-domains.md) (Referencia de dominios creados previamente) puede encontrar una lista completa de los dominios creados previamente.
 
 ## <a name="prebuilt-intents"></a>Intenciones creadas previamente
 
-LUIS proporciona intenciones creadas previamente y sus expresiones a partir de los dominios creados previamente. Las intenciones pueden agregarse sin tener que agregar todo el dominio. Agregar una intención es el proceso de agregar una intención y sus expresiones a la aplicación. Asimismo, puede modificar tanto el nombre de la intención como la lista de expresiones.  
+LUIS proporciona intenciones pregeneradas y sus expresiones para cada uno de sus dominios pregenerados. Las intenciones pueden agregarse sin tener que agregar todo el dominio. Agregar una intención es el proceso de agregar una intención y sus expresiones a la aplicación. Asimismo, puede modificar tanto el nombre de la intención como la lista de expresiones.  
 
 ## <a name="prebuilt-entities"></a>Entidades precompiladas
 

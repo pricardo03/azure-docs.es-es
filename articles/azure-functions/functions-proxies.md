@@ -1,20 +1,16 @@
 ---
-title: Uso de servidores proxy en Azure Functions | Microsoft Docs
+title: Uso de servidores proxy en Azure Functions
 description: Información general sobre cómo usar Azure Functions Proxies
-services: functions
 author: alexkarcher-msft
-manager: jeconnoc
-ms.assetid: ''
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: 72e359cf5cfef2072d3511990297f67fc4df92bb
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: dffdffdfa80d940c4a50d0a6630c665164f24d5c
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70773055"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230452"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Uso de Azure Functions Proxies
 

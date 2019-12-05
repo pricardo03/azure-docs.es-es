@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: 61b929756cbc4cf13103faa67a667128eaffeec8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d337d026e89d2383e25498288ba11a9c60f77b39
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498174"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74228986"
 ---
 # <a name="plan-a-virtual-network-for-azure-hdinsight"></a>Planificación de una red virtual para Azure HDInsight
 
@@ -221,7 +221,7 @@ Si planifica usar **grupos de seguridad de red** para controlar el tráfico de r
 
 1. Identificar la región de Azure que va a usar para HDInsight.
 
-2. Identificar las direcciones IP requeridas para HDInsight. Para más información, consulte [Direcciones IP de administración de HDInsight](hdinsight-management-ip-addresses.md).
+2. Identifique las etiquetas de servicio que requiere HDInsight para su región. Para más información, consulte [Etiquetas de servicio del grupo de seguridad de red (NSG) para Azure HDInsight](hdinsight-service-tags.md).
 
 3. Cree o modifique los grupos de seguridad de red de la subred en la que tiene previsto instalar HDInsight.
 
@@ -233,7 +233,7 @@ Para más información sobre los grupos de seguridad de red, consulte [Introducc
 
 Para más información sobre cómo controlar el tráfico saliente de los clústeres de HDInsight, consulte [Configuración de la restricción del tráfico de red saliente para clústeres de Azure HDInsight](hdinsight-restrict-outbound-traffic.md).
 
-#### <a name="forced-tunneling-to-on-premise"></a>Tunelización forzada a una ubicación local
+#### <a name="forced-tunneling-to-on-premises"></a>Tunelización forzada a una ubicación local
 
 La tunelización forzada es una configuración de enrutamiento definida por el usuario en la que todo el tráfico de subred se fuerza a una red o ubicación específica, por ejemplo, la red local. HDInsight __no__ admite la tunelización forzada del tráfico a las redes locales. 
 

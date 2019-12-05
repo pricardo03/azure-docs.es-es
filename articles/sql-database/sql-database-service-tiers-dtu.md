@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-ms.date: 09/06/2019
-ms.openlocfilehash: 6d4c9dd08f2d00bc12f041748cc78363c9abecbd
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/26/2019
+ms.openlocfilehash: 6dee7642ac7ac0544db5b88981483bd1ea0f745e
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822518"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74539307"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Niveles de servicio en el modelo de compra basado en DTU
 
@@ -42,6 +42,12 @@ La selección de un nivel de servicio depende sobre todo de los requisitos de co
 |Índice de almacén de columnas |N/D|S3 y versiones posteriores|Compatible|
 |OLTP en memoria (optimización en memoria|N/D|N/D|Compatible|
 |||||
+
+> [!IMPORTANT]
+> Los niveles de servicio Básico, Estándar S0, S1 y S2 proporcionan menos de una núcleo virtual (CPU).  En el caso de las cargas de trabajo con un uso intensivo de CPU, se recomienda un nivel de servicio S3 o superior. 
+>
+>En lo que respecta al almacenamiento de datos, los niveles de servicio Básico, Estándar S0 y S1 se colocan en blobs en páginas estándar. Los blobs en páginas estándar usan medios de almacenamiento basados en discos duros (HDD) y son más adecuados para el desarrollo, las pruebas y otras cargas de trabajo de acceso poco frecuente que no dan tanta importancia a la variabilidad del rendimiento.
+>
 
 > [!NOTE]
 > Puede obtener una base de datos de Azure SQL gratuita en el nivel de servicio Básico junto con una cuenta gratuita de Azure para explorar Azure. Para obtener información, consulte [Cree una base de datos administrada en la nube con su cuenta gratuita de Azure](https://azure.microsoft.com/free/services/sql-database/).

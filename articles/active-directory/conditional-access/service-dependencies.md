@@ -1,22 +1,22 @@
 ---
-title: ¿Cuáles son las dependencias de servicio del acceso condicional de Azure Active Directory? | Microsoft Docs
+title: 'Dependencias de servicio del acceso condicional: Azure Active Directory'
 description: Sepa cómo se usan las condiciones en el acceso condicional de Azure Active Directory para desencadenar una directiva.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c7f2abda282d0219dd8787a9f6a2b6c1cda15df
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: b39238575c05d35a2d87999e08c49c0c77e99bfb
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71257911"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74380013"
 ---
 # <a name="what-are-service-dependencies-in-azure-active-directory-conditional-access"></a>¿Cuáles son las dependencias de servicio del acceso condicional de Azure Active Directory? 
 

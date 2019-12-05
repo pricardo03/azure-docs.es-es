@@ -1,6 +1,6 @@
 ---
-title: 'Configuración de la información de seguridad (versión preliminar) para llamadas telefónicas: Azure AD'
-description: Cómo configurar la información de seguridad para verificar su identidad mediante llamadas de teléfono.
+title: 'Configuración del número de teléfono como método de verificación: Azure AD'
+description: Configuración de su página de información de seguridad (versión preliminar) para comprobar su identidad mediante el número de teléfono y el dispositivo móvil como método de comprobación.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5dc5ec06e60112e69a31d1ce4c69e698576609f
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 6bb7d811b1d622fb14935b4d5ddf0cb60e44daa8
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73803798"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278963"
 ---
-# <a name="set-up-security-info-preview-to-use-phone-calls"></a>Configuración de la información de seguridad (versión preliminar) para usar llamadas de teléfono
+# <a name="set-up-a-phone-number-as-your-verification-method"></a>Configuración de un número de teléfono como método de comprobación
 
-Puede seguir estos pasos para agregar sus métodos de restablecimiento de contraseña y comprobación en dos pasos. Una vez que haya configurado esto por primera vez, puede volver a la página **Información de seguridad** para agregar, actualizar o eliminar su información de seguridad.
+Puede seguir estos pasos para agregar sus métodos de restablecimiento de contraseña y verificación en dos pasos. Una vez que haya configurado esto por primera vez, puede volver a la página **Información de seguridad** para agregar, actualizar o eliminar su información de seguridad.
 
 Si se le pide que configure esto justo después de haber iniciado sesión en su cuenta profesional o educativa, consulte los pasos detallados en el artículo de [configuración de su información de seguridad desde el símbolo del sistema de página de inicio de sesión](security-info-setup-signin.md).
 

@@ -1,18 +1,16 @@
 ---
-title: Creación de suscripciones de Azure mediante programación | Microsoft Docs
+title: Creación de suscripciones de Azure mediante programación
 description: Aprenda a crear suscripciones de Azure adicionales mediante programación.
-services: azure-resource-manager
 author: amberb
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 04/10/2019
 ms.author: banders
-ms.openlocfilehash: 5d977fd6ce74f9cabedd0553c5815fd64d4d09a7
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 757a542c8583f6a2b3f73e8144b6281438d75ef2
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72376007"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74273601"
 ---
 # <a name="programmatically-create-azure-subscriptions-preview"></a>Creación de suscripciones de Azure mediante programación (versión preliminar)
 
@@ -159,7 +157,7 @@ En la respuesta, se recupera un objeto `subscriptionOperation` para la supervisi
 
 ### <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-En primer lugar, instale este módulo de versión preliminar al ejecutar `Install-Module Az.Subscription -AllowPrerelease`. Para asegurarse de que `-AllowPrerelease` funciona, instale una versión reciente de PowerShellGet desde [Obtención del módulo PowerShellGet](/powershell/gallery/installing-psget).
+En primer lugar, instale este módulo de versión preliminar al ejecutar `Install-Module Az.Subscription -AllowPrerelease`. Para asegurarse de que `-AllowPrerelease` funciona, instale una versión reciente de PowerShellGet desde [Obtención del módulo PowerShellGet](/powershell/scripting/gallery/installing-psget).
 
 Ejecute el comando [New-AzSubscription](/powershell/module/az.subscription) siguiente y reemplace `<enrollmentAccountObjectId>` por el elemento `ObjectId` recopilado en el primer paso (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Si quiere especificar propietarios, obtenga información sobre [cómo obtener identificadores de objeto de usuario](grant-access-to-create-subscription.md#userObjectId).
 
@@ -491,7 +489,7 @@ Use la propiedad `description` para identificar al revendedor que se va a asocia
 
 En el ejemplo siguiente, se crea una suscripción denominada *Dev Team subscription* para *Fabrikam toys* y se asocia el revendedor *Wingtip* a la suscripción. T
 
-Realice la siguiente solicitud; para ello, reemplace `<customerId>` por el elemento `id` copiado en el primer paso (```/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Debe pasar el valor *resellerId* copiado en el segundo paso en los parámetros de solicitud de la API. 
+Realice la siguiente solicitud; para ello, reemplace `<customerId>` por el elemento `id` copiado en el segundo paso (```/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Debe pasar el valor *resellerId* copiado en el segundo paso en los parámetros de solicitud de la API. 
 
 ```json
 POST https://management.azure.com<customerId>/providers/Microsoft.Subscription/createSubscription?api-version=2018-11-01-preview

@@ -9,18 +9,18 @@ manager: cshankar
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 10/03/2019
+ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8200c2511d4f85705ff56df43f128034d29b0604
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 2c68c64202efec6d7dab745b6e1bdc029fa3976f
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012698"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561298"
 ---
 # <a name="understand-data-retention-in-azure-time-series-insights"></a>Descripción de la retención de datos en Azure Time Series Insights
 
-En este artículo se describen dos parámetros de configuración que tienen un impacto en la retención de datos en el entorno Azure Time Series Insights.
+En este artículo se describen dos parámetros de configuración principales que tienen un impacto en la retención de datos en el entorno Azure Time Series Insights.
 
 ## <a name="video"></a>Vídeo
 
@@ -88,7 +88,7 @@ Cuando se reanuda la entrada:
 
 En los Event Hubs afectados, considere la posibilidad de ajustar la propiedad **Retención de mensajes** para minimizar la pérdida de datos cuando se pausa la entrada en Time Series Insights.
 
-[![Retención de mensajes de Event Hub.](media/time-series-insights-contepts-retention/event-hub-retention.png)](media/time-series-insights-contepts-retention/event-hub-retention.png#lightbox)
+[![Retención de mensajes de Event Hub.](media/time-series-insights-concepts-retention/event-hub-retention.png)](media/time-series-insights-concepts-retention/event-hub-retention.png#lightbox)
 
 Si no se configuran propiedades en el origen del evento (`timeStampPropertyName`), Time Series Insights se establece de manera predeterminada en la marca de tiempo de llegada al Event Hub como eje X. Si se configura `timeStampPropertyName` en algo diferente, el entorno busca el valor `timeStampPropertyName` configurado en el paquete de datos al analizar eventos.
 

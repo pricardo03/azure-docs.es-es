@@ -1,6 +1,6 @@
 ---
-title: Gobernanza de la infraestructura de Azure DevTest Labs
-description: En este artículo se proporcionan instrucciones para la gobernanza de la infraestructura de Azure DevTest Labs.
+title: Administración del costo y la propiedad en Azure DevTest Labs
+description: En este artículo se proporciona información que ayudará a optimizar el costo y alinear la propiedad en su entorno.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/11/2019
+ms.date: 11/26/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 7832691812d8f10342dc7df20a7cfab7265f2d9d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b82d338f85f1b43712296ac7f27bdad55f8f1919
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60775719"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561660"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---manage-cost-and-ownership"></a>Gobernanza de la infraestructura de Azure DevTest Labs: administrar costo y propiedad
 El costo y la propiedad son las principales preocupaciones cuando considere la posibilidad de crear los entornos de desarrollo y pruebas. En esta sección, encontrará información que le ayudará a optimizar el costo y alinear la propiedad en su entorno.

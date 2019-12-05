@@ -1,27 +1,21 @@
 ---
-title: Copia de seguridad y restauración de bases de datos SQL en máquinas virtuales de Azure mediante PowerShell - Azure Backup
+title: Copia de seguridad y restauración de bases de datos SQL en máquinas virtuales de Azure mediante PowerShell
 description: Copia de seguridad y restauración de bases de datos SQL en Azure VM con Azure Backup y PowerShell.
-ms.reviewer: pullabhk
-author: dcurwin
-manager: carmonm
-keywords: Azure Backup; SQL;
-ms.service: backup
 ms.topic: conceptual
 ms.date: 03/15/2019
-ms.author: dacurwin
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: 2622fc9b7b7bc5caedc560af64a5d6b2971b814f
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 115eef3619f76f83f63c5e69e86393c032e0844e
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74090944"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172636"
 ---
 # <a name="back-up-and-restore-sql-databases-in-azure-vms-with-powershell"></a>Copia de seguridad y restauración de bases de datos SQL en máquinas virtuales de Azure con PowerShell
 
 En este artículo se describe cómo usar Azure PowerShell para realizar copias de seguridad y recuperar una base de datos SQL dentro de una máquina virtual de Azure mediante el almacén de Recovery Services de [Azure Backup](backup-overview.md).
 
-Este tutorial explica cómo realizar lo siguiente:
+En este artículo se explica cómo:
 
 > [!div class="checklist"]
 >

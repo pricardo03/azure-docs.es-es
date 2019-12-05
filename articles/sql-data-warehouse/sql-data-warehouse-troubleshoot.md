@@ -7,16 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 7/29/2019
+ms.date: 11/25/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 2aa7926286be277c7ad0aa7054b4bd6fceb8229f
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: b2a9a7b0b759f5853d83a4b1999887414fd5f430
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685405"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483211"
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>Solución de problemas de Azure SQL Data Warehouse
 En este artículo figuran las preguntas habituales sobre la solución de problemas.
@@ -41,6 +41,7 @@ En este artículo figuran las preguntas habituales sobre la solución de problem
 | Problema                                                        | Resolución                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | Solución de problemas de rendimiento de consultas                            | Si está intentando solucionar los problemas de una consulta determinada, comience por [aprender a supervisar las consultas][Learning how to monitor your queries]. |
+| Problemas de espacio de TempDB | [Supervise el uso del espacio de TempDB](sql-data-warehouse-manage-monitor.md#monitor-tempdb).  Las causas comunes para quedarse sin espacio de TempDB son:<br>- No hay suficientes recursos asignados a la consulta, lo que provoca que los datos se derramen en TempDB.  Consulte [Administración de cargas de trabajos](resource-classes-for-workload-management.md) <br>- Las estadísticas faltan o no están actualizadas, lo que provoca un movimiento de datos excesivo.  Para más información sobre cómo crear estadísticas, vea [Mantenimiento de estadísticas de tablas][Statistics].<br>- El espacio de TempDB se asigna por nivel de servicio.  El [escalado del almacenamiento de datos de SQL][Scaling your SQL Data Warehouse] a una configuración DWU superior asigna más espacio de TempDB.|
 | Un bajo rendimiento de las consultas y unos planes mal diseñados suelen ser el resultado de la falta de estadísticas | La causa más común del rendimiento ineficiente es la falta de estadísticas en las tablas.  Para obtener más información sobre cómo crear estadísticas y por qué son tan importantes para el rendimiento, vea [Mantenimiento de estadísticas de tablas][Statistics]. |
 | Baja simultaneidad o consultas en cola                             | Para comprender el modo de equilibrar la asignación de memoria con la simultaneidad, es importante entender la [administración de la carga de trabajo][Workload management] . |
 | Implementación de procedimientos recomendados                              | El mejor lugar para empezar a aprender formas de mejorar el rendimiento de las consultas es el artículo [Procedimientos recomendados para Azure SQL Data Warehouse][SQL Data Warehouse best practices] . |

@@ -1,5 +1,5 @@
 ---
-title: Configuración de la directiva de registro de autenticación multifactor en Azure Active Directory Identity Protection
+title: 'Configuración de la directiva de registro de MFA: Azure Active Directory Identity Protection'
 description: Aprenda cómo configurar la directiva de registro de autenticación multifactor en Azure AD Identity Protection.
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc98f645c6b24069e090560a049ccb4fcd03dfec
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 2fa6a4cf184b426355f62117ea51642127eee529
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72886891"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74382142"
 ---
 # <a name="how-to-configure-the-azure-multi-factor-authentication-registration-policy"></a>Instrucciones: Configuración de la directiva de registro de Azure Multi-Factor Authentication
 

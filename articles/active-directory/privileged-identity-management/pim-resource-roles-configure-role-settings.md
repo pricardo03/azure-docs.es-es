@@ -15,12 +15,12 @@ ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a302e723aa898a62bc43ecb38343bcf026dc769e
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 8c9acc1487fcbf8398b7a556c63f97963b264451
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74022933"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74182706"
 ---
 # <a name="configure-azure-resource-role-settings-in-privileged-identity-management"></a>Configurar las opciones del rol de recursos de Azure en Privileged Identity Management
 
@@ -48,11 +48,22 @@ Siga estos pasos para abrir la configuración de un rol de recursos de Azure.
 
     ![Página de detalles de configuración de roles que muestra varias opciones de asignación y activación](./media/pim-resource-roles-configure-role-settings/resources-role-setting-details.png)
 
-1. Seleccione **Editar** para abrir el panel Configuración de rol.
+1. Seleccione **Editar** para abrir el panel **Configuración de rol**. La primera pestaña le permite actualizar la configuración de la activación del rol en Privileged Identity Management.
 
-    ![Página de edición de configuración de roles con opciones para actualizar la configuración de asignación y activación](./media/pim-resource-roles-configure-role-settings/resources-role-settings-edit.png)
+    ![Página Editar configuración de rol con la pestaña Activación abierta](./media/pim-resource-roles-configure-role-settings/role-settings-activation-tab.png)
 
-    En el panel Configuración de roles de cada rol, hay varias opciones que puede configurar.
+1. Seleccione la pestaña **Asignación** o el botón **Siguiente: Asignación** en la parte inferior de la página para abrir la pestaña Configuración de asignación. Estas opciones controlan las asignaciones de roles realizadas dentro de la interfaz Privileged Identity Management.
+
+    ![Pestaña Asignación de roles en la página Configuración de rol](./media/pim-resource-roles-configure-role-settings/role-settings-assignment-tab.png)
+
+1. Use la pestaña **Notificación** o el botón **Siguiente: Activación** situado en la parte inferior de la página para ir a la pestaña Configuración de notificaciones de este rol. Estas opciones controlan todas las notificaciones de correo electrónico relacionadas con este rol.
+
+    > [!NOTE]
+    > Esta interfaz de usuario de notificaciones se está llevando a cabo actualmente en todas las regiones y suscripciones de Azure. Si no puede configurar estas notificaciones pormenorizadas, vuelva a consultar en un día o dos.
+
+    ![Pestaña Notificaciones de rol en la página Configuración de rol](./media/pim-resource-roles-configure-role-settings/role-settings-notification-tab.png)
+
+1. Seleccione el botón **Actualizar** en cualquier momento para actualizar la configuración del rol.
 
 ## <a name="assignment-duration"></a>Duración de la asignación
 

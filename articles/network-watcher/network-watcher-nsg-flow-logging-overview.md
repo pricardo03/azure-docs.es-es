@@ -1,5 +1,6 @@
 ---
-title: Introducción a los registros de flujo de grupos de seguridad de red con Azure Network Watcher | Microsoft Docs
+title: Introducción al registro de flujo para NSG
+titleSuffix: Azure Network Watcher
 description: En esta página se explica cómo usar la característica de registros de flujo de los grupos de seguridad de red de Azure Network Watcher.
 services: network-watcher
 documentationcenter: na
@@ -14,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: a77cc22c7a56c29b5b42a032af3d0ea0b2c17d88
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 1da1bc330af9d2b652c44114e44dc6d6c9f0d575
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69563527"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74559180"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introducción al registro de flujo de grupos de seguridad de red
 
@@ -87,12 +88,19 @@ El texto que sigue es un ejemplo de un registro de flujo. Como puede ver, hay va
 
 ## <a name="nsg-flow-logging-considerations"></a>Consideraciones acerca del registro de flujo de NSG
 
+**Consideraciones de la cuenta de almacenamiento**: 
+
+1. Ubicación: la cuenta de almacenamiento usada debe estar en la misma región que NSG.
+2. Sin firewall: los registros de flujos de NSG no se incorporan como un [servicio de confianza de Microsoft para Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-network-security#trusted-microsoft-services). Vea [¿Cómo se deshabilita el firewall en la cuenta de almacenamiento?](https://docs.microsoft.com/azure/network-watcher/frequently-asked-questions#how-do-i-disable-the--firewall-on-my-storage-account) para deshabilitar el firewall. 
+3. Sin puntos de conexión de servicio: debido a una limitación actual, los registros solo se pueden emitir directamente a las cuentas de almacenamiento y no a través de los puntos de conexión de servicio. Vea [¿Cómo se usan los registros de flujos de NSG con puntos de conexión de servicio?](https://docs.microsoft.com/azure/network-watcher/frequently-asked-questions#how-do-i-use-nsg-flow-logs-with-service-endpoints) para obtener ayuda sobre la eliminación de los puntos de conexión de servicio existentes.
+4. Rotación de claves autoadministrable: si se cambian o rotan las claves de acceso a su cuenta de almacenamiento, los registros de flujos de NSG dejarán de funcionar. Para solucionarlo, se deben deshabilitar y volver a habilitar los registros de flujos de NSG.
+
 **Habilitar el registro de flujo de NSG en todos los NSG asociados a un recurso**: En Azure, el registro de flujo en Azure se configura en el recurso de NSG. Un flujo solo se asociará a una regla de NSG. En escenarios en los que se utilizan varios NSG, se recomienda que los registros de flujo de NSG estén habilitados en todos los NSG aplicados a la interfaz de red o subred de un recurso para garantizar que todo el tráfico se registre. Consulte [cómo se evalúa el tráfico](../virtual-network/security-overview.md#how-traffic-is-evaluated) para obtener más información sobre los grupos de seguridad de red. 
 
 **Costos del registro de flujo**: El registro de flujos de NSG se factura según el volumen de registros generados. Un volumen de tráfico elevado puede producir un volumen de registro de flujo elevado, con los costos asociados. Los precios del registro de flujos de NSG no incluyen los costos de almacenamiento subyacentes. Si se usa la característica de directiva de retención con el registro de flujo de NSG, es posible que se presente un gran volumen de operaciones de almacenamiento, con sus respectivos costos. Si no necesita la característica de directiva de retención, se recomienda que establezca este valor en 0. Consulte [precios de Network Watcher](https://azure.microsoft.com/pricing/details/network-watcher/) y [precios de Azure Storage](https://azure.microsoft.com/pricing/details/storage/) para obtener más detalles.
 
 > [!IMPORTANT]
-> Actualmente, hay un problema en el que los [registros de flujo del grupo de seguridad de red (NSG)](network-watcher-nsg-flow-logging-overview.md) para Network Watcher no se eliminan automáticamente del almacenamiento de blobs en función de la configuración de la directiva de retención. Si tiene una directiva de retención distinta de cero, recomendamos que elimine periódicamente los blobs de almacenamiento que superan el período de retención para evitar recargos. Para obtener más información sobre cómo eliminar el blob de almacenamiento de registros de flujo de NSG, consulte [Eliminación de los blobs de almacenamiento de los registros de flujo de NSG](network-watcher-delete-nsg-flow-log-blobs.md).
+> Actualmente, hay un problema en el que los [registros de flujo del grupo de seguridad de red (NSG)](network-watcher-nsg-flow-logging-overview.md) para Network Watcher no se eliminan automáticamente del almacenamiento de blobs en función de la configuración de la directiva de retención. Si tiene una directiva de retención distinta de cero, recomendamos que elimine periódicamente los blobs de almacenamiento que superen el período de retención para evitar recargos. Para obtener más información sobre cómo eliminar el blob de almacenamiento de registros de flujo de NSG, consulte [Eliminación de los blobs de almacenamiento de los registros de flujo de NSG](network-watcher-delete-nsg-flow-log-blobs.md).
 
 **Flujos entrantes registrados desde direcciones IP de Internet a VM sin direcciones IP públicas**: Las VM que no tienen una dirección IP pública asignada a través de una dirección IP pública asociada con la NIC como dirección IP pública de nivel de instancia, o que forman parte de un grupo de back-end de equilibrador de carga básico, usan [SNAT predeterminada](../load-balancer/load-balancer-outbound-connections.md#defaultsnat) y tiene una dirección IP asignada por Azure para facilitar la conectividad de salida. Como consecuencia, es posible que vea las entradas de registro de flujo para los flujos desde las direcciones IP de Internet, si el flujo está destinado a un puerto en el intervalo de puertos asignados para SNAT. Si bien Azure no permitirá estos flujos a la VM, el intento se registra y aparece en el registro de flujos de NSG de Network Watcher por diseño. Se recomienda que el tráfico entrante de Internet no deseado se bloquee explícitamente con NSG.
 

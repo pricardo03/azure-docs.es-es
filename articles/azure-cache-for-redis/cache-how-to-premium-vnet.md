@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: yegu
-ms.openlocfilehash: b2ddac9439183321691104d4eedccb0c971d19c9
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 03cc5bd4e6e7198a6a3a916226c72e9b0f9ff1b2
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74129399"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233133"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>Configuración de la compatibilidad de red virtual con el nivel Premium de Azure Cache for Redis
 Azure Cache for Redis cuenta con diferentes opciones de caché, lo que proporciona flexibilidad en la elección del tamaño y las características de la memoria caché, incluidas algunas características del nivel Premium, como la agrupación en clústeres, la persistencia y la compatibilidad con las redes virtuales. Una red virtual es una red privada en la nube. Cuando una instancia de Azure Cache for Redis se configure con una red virtual, no será posible acceder a ella públicamente, solo se podrá acceder a ella desde máquinas virtuales y aplicaciones de dentro de la red virtual. En este artículo se describe cómo configurar la compatibilidad con redes virtuales de una instancia de Azure Cache for Redis de nivel Premium.
@@ -96,11 +96,7 @@ Cuando Azure Cache for Redis se hospeda en una red virtual, se usan los puertos 
 
 #### <a name="outbound-port-requirements"></a>Requisitos de puerto de salida
 
-Existen nueve requisitos de puerto de salida.
-
-- Se pueden realizar todas las conexiones de salida a Internet a través de un dispositivo de auditoría local de un cliente.
-- Tres de los puertos enrutan el tráfico a los puntos de conexión de Azure que funcionan con Azure Storage y Azure DNS.
-- Los intervalos de puertos restantes y para las comunicaciones internas de la subred de Redis. No es necesaria ninguna regla de NSG para las comunicaciones internas de la subred de Redis.
+Existen nueve requisitos de puerto de salida. Las solicitudes que salen de estos intervalos son de salida a otros servicios necesarios para que la memoria caché funcione o internas a la subred de Redis para la comunicación entre nodos. Para la replicación geográfica, existen requisitos de salida adicionales para la comunicación entre subredes de la caché principal y secundaria.
 
 | Puertos | Dirección | Protocolo de transporte | Propósito | IP local | Dirección IP remota |
 | --- | --- | --- | --- | --- | --- |

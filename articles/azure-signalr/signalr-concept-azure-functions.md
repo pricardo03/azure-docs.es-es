@@ -1,17 +1,17 @@
 ---
-title: Creación de aplicaciones en tiempo real con Azure Functions y Azure SignalR Service
-description: Información general acerca de cómo usar Azure SignalR Service en aplicaciones sin servidor.
+title: 'Creación de aplicaciones en tiempo real: Azure Functions y Azure SignalR Service'
+description: Obtenga información sobre cómo desarrollar una aplicación web sin servidor en tiempo real con Azure SignalR Service con el ejemplo siguiente.
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
-ms.date: 03/01/2019
+ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: 6a71647d452597c84e0df1beb6e9c6c3932d171b
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: cbb1fcf320a78f11045bf9627ffcc438af3e388a
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639931"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74157609"
 ---
 # <a name="build-real-time-apps-with-azure-functions-and-azure-signalr-service"></a>Creación de aplicaciones en tiempo real con Azure Functions y Azure SignalR Service
 

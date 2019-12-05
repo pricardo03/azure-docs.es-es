@@ -1,17 +1,19 @@
 ---
-title: Configuración de una transformación de receptor en la característica de flujo de datos de asignación de Azure Data Factory
+title: Configuración de una transformación de receptor en la característica de flujo de datos de asignación
 description: Aprenda a configurar una transformación de receptor en el flujo de datos de asignación.
 author: kromerm
 ms.author: makromer
+manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 02/03/2019
-ms.openlocfilehash: fa6a2fd853673493c93dbe65f889468c8e0c8617
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 707c0e93b88f34d4663d3dbe20bb2e9e4991a332
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082934"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74217920"
 ---
 # <a name="sink-transformation-for-a-data-flow"></a>Transformación del receptor para un flujo de datos
 

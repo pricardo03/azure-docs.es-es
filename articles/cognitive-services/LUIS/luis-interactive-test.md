@@ -9,20 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 11/19/2019
 ms.author: diberry
-ms.openlocfilehash: ebc86d1cf91cf79ab83b0f49d9898a91d8be8a75
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 628547e8254bb0055cf1f09af50e79b68311a759
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500274"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74221791"
 ---
 # <a name="test-your-luis-app-in-the-luis-portal"></a>Prueba de la aplicación de LUIS en el portal de LUIS
 
 La [prueba](luis-concept-test.md) de una aplicación es un proceso iterativo. Tras entrenar la aplicación de LUIS, pruébela con expresiones de ejemplo para ver si las entidades e intenciones se reconocen correctamente. En caso contrario, realice actualizaciones en la aplicación de LUIS, entrénela y pruébela de nuevo. 
 
-[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+[!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
 <!-- anchors for H2 name changes -->
 <a name="train-your-app"></a>
@@ -30,13 +30,20 @@ La [prueba](luis-concept-test.md) de una aplicación es un proceso iterativo. Tr
 <a name="access-the-test-page"></a>
 <a name="luis-interactive-testing"></a>
 
+## <a name="train-before-testing"></a>Entrenamiento antes de las pruebas
+
+Para probar con la versión más reciente de la aplicación activa, seleccione **Entrenar** en el menú superior, antes de realizar las pruebas. 
+
 ## <a name="test-an-utterance"></a>Entrenar una expresión
+
+La expresión de prueba no debe ser exactamente igual que cualquier expresión de ejemplo de la aplicación. La expresión de prueba debe incluir la elección de la palabra, la longitud de la frase y el uso de la entidad que se espera para un usuario. 
 
 1. Acceda a la aplicación mediante la selección de su nombre en la página **Mis aplicaciones**. 
 
 1. Para acceder al panel deslizante **Prueba**, seleccione **Prueba** en el panel superior de la aplicación.
 
-    ![Página de entrenamiento y prueba de la aplicación](./media/luis-how-to-interactive-test/test.png)
+    > [!div class="mx-imgBorder"]
+    > ![Página de entrenamiento y prueba de la aplicación](./media/luis-how-to-interactive-test/test.png)
 
 1. Escriba una expresión en el cuadro de texto y presione Entrar. Puede escribir tantas expresiones de prueba como quiera en **Prueba**, pero solo una expresión cada vez.
 
@@ -92,28 +99,29 @@ Puede ver el punto de conexión de JSON devuelto para la comparación si selecci
 
 Si tiene varios puntos de conexión de LUIS, use el vínculo **Configuración adicional** del panel Publicado de Prueba para cambiar el punto de conexión usado para realizar pruebas. Si no está seguro de qué punto de conexión usar, seleccione el valor predeterminado **Starter_Key**. 
 
-![Panel Prueba con el vínculo Configuración adicional resaltado](./media/luis-how-to-interactive-test/interactive-with-spell-check-service-key.png)
+> [!div class="mx-imgBorder"]
+> ![Panel de prueba con el vínculo Configuración adicional resaltado](media/luis-how-to-interactive-test/additional-settings-v3-settings.png)
 
+<!--
+###  View Bing Spell Check corrections in test panel
 
-### <a name="view-bing-spell-check-corrections-in-test-panel"></a>Ver las correcciones de Bing Spell Check en el panel Prueba
+Requirements to view the spelling corrections: 
 
-Requisitos para ver las correcciones de ortografía: 
+* Published app
+* Bing Spell Check [service key](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api). The service key is not stored and needs to be reset for each browser session. 
 
-* Aplicación publicada
-* [Clave de servicio](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api) de Bing Spell Check. La clave de servicio no se almacena y debe restablecerse en cada sesión del explorador. 
+Use the following procedure to include the [Bing Spell Check v7](https://azure.microsoft.com/services/cognitive-services/spell-check/) service  in the Test pane results. 
 
-Use el procedimiento siguiente para incluir el servicio [Bing Spell Check v7](https://azure.microsoft.com/services/cognitive-services/spell-check/) en los resultados del panel Prueba. 
+1. In the **Test** pane, enter an utterance. When the utterance is predicted, select **[Inspect](#inspect-score)** underneath the utterance you entered. 
 
-1. En el panel **Prueba**, escriba una expresión. Cuando se haya predicho la expresión, haga clic en **[Inspeccionar](#inspect-score)** debajo de la expresión especificada. 
+1. When the **Inspect** panel opens, select **[Compare with Published](#compare-with-published-version)**. 
 
-1. Cuando se abra el panel **Inspeccionar**, seleccione **[Comparar con el publicado](#compare-with-published-version)** . 
+1. When the **Published** panel opens, select **[Additional Settings](#additional-settings-in-test-panel)**.
 
-1. Cuando se abra el panel **Publicado**, seleccione **[Configuración adicional](#additional-settings-in-test-panel)** .
+1. In the pop-up dialog, check **Enable Bing Spell Check** and enter the key, then select **Done**. 
+    ![Enter Bing Spell Check service key](./media/luis-how-to-interactive-test/interactive-with-spell-check-service-key-text.png)
 
-1. En el cuadro de diálogo emergente, seleccione **Habilitar Bing Spell Check**, escriba la clave y, a continuación, seleccione **Listo**. 
-    ![Escribir la clave de servicio de Bing Spell Check](./media/luis-how-to-interactive-test/interactive-with-spell-check-service-key-text.png)
-
-1. Escriba una consulta con una ortografía incorrecta, como `book flite to seattle` y presione Entrar. La ortografía incorrecta de la palabra `flite` se sustituye en la consulta enviada a LUIS y el JSON resultante muestra la consulta original, como `query`, y la ortografía corregida en la consulta, como `alteredQuery`.
+1. Enter a query with an incorrect spelling such as `book flite to seattle` and select enter. The incorrect spelling of the word `flite` is replaced in the query sent to LUIS and the resulting JSON shows both the original query, as `query`, and the corrected spelling in the query, as `alteredQuery`.
 
 <a name="json-file-with-no-duplicates"></a>
 <a name="import-a-dataset-file-for-batch-testing"></a>
@@ -125,6 +133,7 @@ Use el procedimiento siguiente para incluir el servicio [Bing Spell Check v7](ht
 <a name="view single-point utterance data"></a>
 <a name="relabel-utterances-and-retrain"></a>
 <a name="false-test-results"></a>
+-->
 
 ## <a name="batch-testing"></a>Pruebas por lotes
 Vea los [conceptos](luis-concept-batch-test.md) de las pruebas por lotes y obtenga información sobre [cómo](luis-how-to-batch-test.md) probar un lote de expresiones.

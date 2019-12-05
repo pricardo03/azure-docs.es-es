@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/20/2019
 ms.author: saudas
-ms.openlocfilehash: 27b180d8d95d7dad967b8ac2495a795ed70836b9
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: b6dd91dda559f778eaa8f5a17b46a22020dd8373
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147231"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74484051"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versiones de Kubernetes compatibles en Azure Kubernetes Service (AKS)
 
@@ -41,6 +41,9 @@ Cada número en la versión indica compatibilidad general con la versión anteri
 En general, los usuarios deben procurar ejecutar la última versión de revisión de la versión secundaria que están ejecutando; por ejemplo, si su clúster de producción usa la versión *1.12.14* y *1.12.15* es la última versión de revisión disponible para la serie *1.12*, debe actualizar a *1.12.15* tan pronto como pueda asegurarse de que el clúster esté completamente revisado y sea compatible.
 
 ## <a name="kubernetes-version-support-policy"></a>Directiva de soporte técnico de versión de Kubernetes
+
+> [!NOTE]
+> A partir del 9 de diciembre de 2019, AKS se moverá a la compatibilidad con las versiones más recientes (N)-2 de Kubernetes. Este cambio pretende adaptarse a la ventana de compatibilidad anterior con las versiones de Kubernetes y garantizar que se usen las versiones más recientes y seguras. Para más información, lea el [anuncio aquí](https://azure.microsoft.com/updates/azure-kubernetes-service-will-be-retiring-support-for-kubernetes-versions-1-11-and-1-12/).
 
 AKS es compatible con cuatro versiones secundarias de Kubernetes:
 
@@ -112,7 +115,13 @@ AKS define la "publicación" como disponibilidad general, habilitación en todas
 > [!NOTE]
 > Se notifica a los usuarios las publicaciones y obsolescencias de las versiones de Kubernetes; cuando una versión secundaria queda en desuso o se elimina, se da 60 a los usuarios para que actualicen a una versión admitida. En el caso de las versiones de revisión, los clientes reciben 30 días para actualizar a una versión compatible.
 
-Las notificaciones se envían a través de:
+#### <a name="notification-channels-for-aks-changes"></a>Canales de notificación para los cambios de AKS
+
+AKS publica una actualización de servicio semanal que resume las nuevas versiones de Kubernetes, los cambios de servicio y las actualizaciones de componentes que se han lanzado en el servicio en [GitHub](https://github.com/Azure/AKS/releases).
+
+Estos cambios se aplican a todos los clientes dentro del mantenimiento periódico que se ofrece como parte del servicio administrado; algunos requieren actualizaciones explícitas, mientras que otros no requieren ninguna acción.
+
+También se envían notificaciones a través de:
 
 * [Notas de la versión de AKS](https://aka.ms/aks/releasenotes)
 * Notificaciones de Azure Portal

@@ -13,20 +13,20 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 04/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 63ff91c6b4db351e5ec72973874466cff74432b5
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: a69babdf2fffb4cb9d963f1806f3c85755e50294
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073446"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74454358"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Delegación de registros de usuario y suscripciones a producto
 
-La delegación le permite usar su sitio web actual para controlar el inicio de sesión y la suscripción de los desarrolladores, así como sus suscripciones a productos, en contraposición al uso de la funcionalidad integrada en el portal para desarrolladores. Esto habilita su sitio web como propietario de los datos de usuario para poder realizar la validación de estos pasos de forma personalizada.
+La delegación le permite usar su sitio web actual para controlar el inicio de sesión y la suscripción de los desarrolladores, así como sus suscripciones a productos, en contraposición al uso de la funcionalidad integrada en el portal para desarrolladores. Permite que el sitio web sea propietario de los datos de usuario y realice la validación de estos pasos de forma personalizada.
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="delegate-signin-up"> </a>Delegación de inicios de sesión y suscripciones de desarrolladores
+## <a name="delegate-signin-up"></a>Delegación de inicios de sesión y suscripciones de desarrolladores
 
 Para delegar el inicio de sesión y la suscripción para desarrolladores al sitio web existente, deberá crear un punto de conexión de delegación especial en su sitio. Debe actuar como un punto de entrada para cualquier solicitud de este tipo iniciada desde el portal para desarrolladores de API Management.
 
@@ -105,7 +105,7 @@ A continuación, asegúrese de que el extremo de delegación realiza las siguien
 
 1. Recibir una solicitud de la forma siguiente:
    
-   > *http:\//www.yourwebsite.com/apimdelegation?operation={operación}&productId={producto al que se suscribe}&userId={usuario que realiza la solicitud}&salt={cadena}&amp;amp;amp;amp;sig={cadena}*
+   > *http:\//www.yourwebsite.com/apimdelegation?operation={operación}&productId={producto al que se suscribe}&userId={usuario que realiza la solicitud}&salt={cadena}&amp;amp;sig={cadena}*
    >
    
     Parámetros de consulta en el caso de suscripción a producto:
@@ -173,6 +173,9 @@ var digest = hmac.update(salt + '\n' + returnUrl).digest();
 
 var signature = digest.toString('base64');
 ```
+
+> [!IMPORTANT]
+> Debe [volver a publicar el portal para desarrolladores](api-management-howto-developer-portal-customize.md#publish) para que los cambios en la delegación surtan efecto.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información acerca de la delegación, vea el siguiente vídeo:

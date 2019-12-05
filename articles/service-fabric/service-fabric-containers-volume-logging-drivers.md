@@ -1,6 +1,6 @@
 ---
 title: Controlador de volúmenes de Azure Files en Service Fabric (disponibilidad general) | Microsoft Docs
-description: Service Fabric admite el uso de Azure Files para realizar copias de seguridad de los volúmenes desde su contenedor. Esto se encuentra actualmente en versión preliminar.
+description: Service Fabric admite el uso de Azure Files para realizar copias de seguridad de los volúmenes desde su contenedor.
 services: service-fabric
 author: athinanthny
 manager: chackdan
@@ -9,12 +9,12 @@ ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 6/10/2018
 ms.author: atsenthi
-ms.openlocfilehash: 70784e2c8c91d39c34ba503cc3ebfcf3469939d9
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 1287df567c60b7ad851c94a8ba787270255d0f35
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70013497"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74422787"
 ---
 # <a name="service-fabric-azure-files-volume-driver"></a>Controlador de volumen de Azure Files en Service Fabric
 El complemento de volúmenes de Azure Files es un [complemento de volúmenes de Docker](https://docs.docker.com/engine/extend/plugins_volume/) que proporciona volúmenes basados en [Azure Files](/azure/storage/files/storage-files-introduction) para los contenedores de Docker ahora se encuentra con **disponibilidad general**.
@@ -63,7 +63,7 @@ En la sección fabricSettings de la plantilla Azure Resource Manager (para las i
 ```
 
 
-## <a name="deploy-the-service-fabric-azure-files-application"></a>Implementación de la aplicación de Azure Files en Service Fabric
+## <a name="deploy-a-sample-application-using-service-fabric-azure-files-volume-driver"></a>Implementación de una aplicación de ejemplo mediante el controlador de volúmenes de Azure Files en Service Fabric
 
 ### <a name="using-azure-resource-manager-via-the-provided-powershell-script-recommended"></a>Uso de Azure Resource Manager mediante el script de PowerShell proporcionado (recomendado)
 
@@ -85,7 +85,7 @@ Una vez que haya ejecutado correctamente el script, puede ir directamente a la [
 
 ### <a name="manual-deployment-for-standalone-clusters"></a>Implementación manual de clústeres independientes
 
-La aplicación de Service Fabric que proporciona los volúmenes para los contenedores puede descargarse desde el [sitio de descarga de Service Fabric](https://sfazfilevd.blob.core.windows.net/sfazfilevd/AzureFilesVolumePlugin.6.5.516.9494.zip). La aplicación puede implementarse en el clúster mediante [API de PowerShell](./service-fabric-deploy-remove-applications.md), [CLI](./service-fabric-application-lifecycle-sfctl.md) o [FabricClient](./service-fabric-deploy-remove-applications-fabricclient.md).
+La aplicación de Service Fabric que proporciona los volúmenes para los contenedores puede descargarse desde el [sitio de descarga de Service Fabric](https://sfazfilevd.blob.core.windows.net/sfazfilevd/AzureFilesVolumePlugin.6.5.661.9590.zip). La aplicación puede implementarse en el clúster mediante [API de PowerShell](./service-fabric-deploy-remove-applications.md), [CLI](./service-fabric-application-lifecycle-sfctl.md) o [FabricClient](./service-fabric-deploy-remove-applications-fabricclient.md).
 
 1. Mediante la línea de comandos, cambie el directorio al directorio raíz del paquete de aplicación descargado.
 

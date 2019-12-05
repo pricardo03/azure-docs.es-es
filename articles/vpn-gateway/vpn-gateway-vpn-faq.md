@@ -1,5 +1,5 @@
 ---
-title: Preguntas más frecuentes acerca de Azure VPN Gateway | Microsoft Docs
+title: Preguntas frecuentes sobre VPN Gateway
 description: Preguntas más frecuentes sobre VPN Gateway Preguntas más frecuentes sobre las conexiones entre locales, las conexiones de configuración híbrida y VPN Gateway.
 services: vpn-gateway
 author: yushwang
@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: yushwang
-ms.openlocfilehash: dd012ab94ba47f700230ac761f2dc803988cefd4
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: fa4e403733c418a4ceff417dd0cf7b54f9409a49
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075421"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151663"
 ---
 # <a name="vpn-gateway-faq"></a>Preguntas más frecuentes sobre VPN Gateway
 

@@ -1,20 +1,20 @@
 ---
 title: Cómo crear una directiva de configuración de invitados
-description: Aprenda a crear una directiva de configuración de invitado de Azure Policy para VM de Windows o Linux.
-ms.date: 09/20/2019
+description: Aprenda a crear una directiva de configuración de invitado de Azure Policy para VM de Windows o Linux con Azure PowerShell.
+ms.date: 11/21/2019
 ms.topic: conceptual
-ms.openlocfilehash: 3c7b214a07b89f4b66aa32724259b01129b9b7e9
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 2e653d07e783425afdcd71f9d58e3569692faaf9
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73959472"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74407051"
 ---
 # <a name="how-to-create-guest-configuration-policies"></a>Cómo crear una directiva de configuración de invitados
 
 La configuración de invitados usa un módulo de recursos llamado [Desired State Configuration](/powershell/scripting/dsc/overview/overview) (DSC) para crear la configuración para la auditoría de las máquinas de Azure. La configuración de DSC define la condición en la que debe estar la máquina. Si se produce un error en la evaluación de la configuración, se desencadena el efecto **auditIfNotExists** de la directiva y se considera que la máquina **no es compatible**.
 
-Solo se puede usar la [configuración de invitados de Azure Policy](/azure/governance/policy/concepts/guest-configuration) para auditar la configuración dentro de las máquinas. Todavía no está disponible la opción para corregir la configuración dentro de las máquinas.
+Solo se puede usar la [configuración de invitados de Azure Policy](../concepts/guest-configuration.md) para auditar la configuración dentro de las máquinas. Todavía no está disponible la opción para corregir la configuración dentro de las máquinas.
 
 Use las siguientes acciones para crear su propia configuración para validar el estado de una máquina de Azure.
 
@@ -23,7 +23,7 @@ Use las siguientes acciones para crear su propia configuración para validar el 
 
 ## <a name="add-the-guestconfiguration-resource-module"></a>Agregar el módulo de recursos GuestConfiguration
 
-Para crear una directiva de configuración de invitados, debe agregar el módulo de recursos. Este módulo de recursos se puede usar con la instancia de PowerShell instalada localmente, con [Azure Cloud Shell](https://shell.azure.com) o con la [imagen de Docker de Azure PowerShell](https://hub.docker.com/rsdk-powershell/).
+Para crear una directiva de configuración de invitados, debe agregar el módulo de recursos. Este módulo de recursos se puede usar con la instancia de PowerShell instalada localmente, con [Azure Cloud Shell](https://shell.azure.com) o con la [imagen de Docker principal de Azure PowerShell](https://hub.docker.com/r/azuresdk/azure-powershell-core).
 
 ### <a name="base-requirements"></a>Requisitos básicos
 
@@ -165,7 +165,8 @@ Parámetros del cmdlet `New-GuestConfigurationPackage`:
 - **Ruta de acceso**: ruta de acceso de la carpeta de salida. Este parámetro es opcional. Si no se especifica, el paquete se crea en el directorio actual.
 - **ChefProfilePath**: ruta de acceso completa al perfil de InSpec. Este parámetro solo se admite cuando se crea contenido para auditar Linux.
 
-El paquete completado debe almacenarse en una ubicación a la que puedan obtener acceso las máquinas virtuales administradas. Algunos ejemplos son los repositorios de GitHub, un repositorio de Azure o Azure Storage. Si prefiere no hacer que el paquete sea público, puede incluir un [token de SAS](../../../storage/common/storage-dotnet-shared-access-signature-part-1.md) en la dirección URL. También puede implementar el [punto de conexión de servicio](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) para las máquinas de una red privada, aunque esta configuración solo se aplica para acceder al paquete y no para comunicarse con el servicio.
+El paquete completado debe almacenarse en una ubicación a la que puedan obtener acceso las máquinas virtuales administradas. Algunos ejemplos son los repositorios de GitHub, un repositorio de Azure o Azure Storage. Si prefiere no hacer que el paquete sea público, puede incluir un [token de SAS](../../../storage/common/storage-dotnet-shared-access-signature-part-1.md) en la dirección URL.
+También puede implementar el [punto de conexión de servicio](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) para las máquinas de una red privada, aunque esta configuración solo se aplica para acceder al paquete y no para comunicarse con el servicio.
 
 ### <a name="working-with-secrets-in-guest-configuration-packages"></a>Trabajar con secretos en paquetes de configuración de invitados
 
@@ -412,4 +413,4 @@ Para más información sobre los cmdlets de esta herramienta, use el comando Get
 
 - Obtenga información sobre la auditoría de VM con la [configuración de invitados](../concepts/guest-configuration.md).
 - Obtenga información acerca de cómo se pueden [crear directivas mediante programación](programmatically-create.md).
-- Obtenga información sobre cómo [obtener datos de cumplimiento](getting-compliance-data.md).
+- Obtenga información sobre cómo [obtener datos de cumplimiento](get-compliance-data.md).

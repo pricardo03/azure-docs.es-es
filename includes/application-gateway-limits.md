@@ -4,14 +4,14 @@ ms.service: application-gateway
 ms.topic: include
 ms.date: 6/5/2019
 ms.author: victorh
-ms.openlocfilehash: cd0ec07ebfffc839fedcdc76c9aff8e86556a7de
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 3b692ed697d69deca4c50a0595cc54251bac4990
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "70130118"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74175009"
 ---
-| Recurso | Límite predeterminado/máximo | Nota: |
+| Resource | Límite predeterminado/máximo | Nota: |
 | --- | --- | --- |
 | Azure Application Gateway |1000 por suscripción | |
 | Configuración de direcciones IP de front-end |2 |1 pública y 1 privada |
@@ -33,7 +33,8 @@ ms.locfileid: "70130118"
 | Número máximo de reglas basadas en rutas por mapa de direcciones URL|100||
 | Configuraciones de redirección |100<sup>1</sup>| |
 | Conexiones simultáneas de WebSocket |Puertas de enlace medianas 20k<br> Puertas de enlace grandes 50k| |
-| Longitud máxima de dirección URL|8\.000||
+| Longitud máxima de dirección URL|32 KB| |
+| Tamaño de encabezado máximo para HTTP/2 |4 KB| |
 | Tamaño máximo de carga de archivos (estándar) |2 GB | |
 | Tamaño máximo de carga de archivos WAF |Puertas de enlace WAF medianas (100 MB)<br>Puertas de enlace WAF grandes (500 MB)| |
 | Límite de tamaño de cuerpo de WAF (sin archivos)|128 KB||

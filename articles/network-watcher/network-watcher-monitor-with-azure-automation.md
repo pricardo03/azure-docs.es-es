@@ -1,5 +1,6 @@
 ---
-title: Supervisión de las puertas de enlace de VPN con la solución de problemas de Azure Network Watcher | Documentos de Microsoft
+title: 'Solución de problemas y supervisión de puertas de enlace de VPN: Azure Automation'
+titleSuffix: Azure Network Watcher
 description: En este artículo se describe cómo diagnosticar la conectividad local con Azure Automation y Network Watcher
 services: network-watcher
 documentationcenter: na
@@ -13,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: d3a09ee83d4a1f05781c885eaa708e6e024b7f97
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 07847289c156aaa48b9d15c40d4135ce2cf39c10
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "64719797"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275908"
 ---
 # <a name="monitor-vpn-gateways-with-network-watcher-troubleshooting"></a>Supervisión de las puertas de enlace de VPN con la solución de problemas de Network Watcher
 

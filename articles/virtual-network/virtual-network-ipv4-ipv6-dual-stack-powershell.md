@@ -1,11 +1,11 @@
 ---
-title: 'Implementación de una aplicación de doble pila IPv6 con Load Balancer básico en Azure: PowerShell'
+title: 'Implementación de una aplicación de pila doble IPv6 (Load Balancer básico): PowerShell'
 titlesuffix: Azure Virtual Network
 description: En este artículo, se explica cómo se implementa una aplicación de pila doble IPv6 en Azure Virtual Network utilizando Azure Powershell.
 services: virtual-network
 documentationcenter: na
 author: KumudD
-manager: twooley
+manager: mtillman
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/08/2019
 ms.author: kumud
-ms.openlocfilehash: 0ce051892cde9cb50b43a6d4f66ed3d461e71285
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 0b7f7a9198664693819143c306eeb1a020d22b7c
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70011432"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185485"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-using-basic-load-balancer---powershell-preview"></a>Implementación de una aplicación de doble pila IPv6 con Load Balancer básico: PowerShell (versión preliminar)
 
-En este artículo se explica cómo se implementa mediante Load Balancer básico una aplicación de doble pila (IPv4 + IPv6) con la CLI de Azure que contiene una red virtual de doble pila y una subred, un equilibrador de carga básico con configuraciones de front-end duales (IPv4 + IPv6), máquinas virtuales con NIC que tienen una configuración de IP dual, un grupo de seguridad de red y direcciones IP públicas.
+En este artículo se explica cómo se implementa una aplicación de doble pila (IPv4 + IPv6) con Load Balancer básico mediante Azure PowerShell, que incluye una red virtual de doble pila y una subred, una instancia de Load Balancer básico con configuraciones de front-end duales (IPv4 + IPv6), máquinas virtuales con NIC que tienen una configuración de IP dual, un grupo de seguridad de red y direcciones IP públicas.
 
 Para implementar una aplicación de doble pila (IPv4 + IPv6) con Standard Load Balancer, consulte [Implementación de una aplicación de doble pila IPv6 con Standard Load Balancer con Azure PowerShell](virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md).
 

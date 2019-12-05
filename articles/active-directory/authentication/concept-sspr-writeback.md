@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 07069d22d57540c6a16472bc7278821e14f1f18e
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 758d7122a991309504c5cac18b9aaf1268808887
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561284"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74420660"
 ---
 # <a name="what-is-password-writeback"></a>¿Qué es la escritura diferida de contraseñas?
 
@@ -164,7 +164,7 @@ Las contraseñas *no* se escriben en diferido en ninguna de las situaciones sigu
    * Cualquier restablecimiento de contraseña del usuario final que inicie el administrador desde el [Centro de administración de Microsoft 365](https://admin.microsoft.com).
 
 > [!WARNING]
-> No se admite el uso de la casilla "El usuario debe cambiar la contraseña en el siguiente inicio de sesión" en herramientas administrativas de Active Directory local como Usuarios y equipos de Active Directory o el Centro de administración de Active Directory. Al cambiar una contraseña en local no active esta opción.
+> El uso de la casilla "El usuario debe cambiar la contraseña en el siguiente inicio de sesión" en herramientas administrativas de Active Directory local como Usuarios y equipos de Active Directory o el Centro de administración de Active Directory se admite como característica en versión preliminar de Azure AD Connect. Para obtener más información, consulte el artículo [Implementación de la sincronización de hash de contraseñas con la sincronización de Azure AD Connect](../hybrid/how-to-connect-password-hash-synchronization.md#public-preview-of-synchronizing-temporary-passwords-and-force-password-on-next-logon).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

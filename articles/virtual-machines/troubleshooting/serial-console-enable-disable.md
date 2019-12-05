@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 8/20/2019
 ms.author: alsin
-ms.openlocfilehash: f48fe94504d8012affb77c4fd5d39df2537d72b3
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: fa400d875a8f39d54d10820c603e12e97f0cd854
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300131"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74452221"
 ---
 # <a name="enable-and-disable-the-azure-serial-console"></a>Habilitación y deshabilitación de la consola serie de Azure
 
@@ -31,11 +31,11 @@ También puede deshabilitar la consola serie para una máquina virtual individua
 La consola serie puede deshabilitarse para una máquina virtual o un conjunto de escalado de máquinas virtuales específicos al deshabilitar la configuración de diagnóstico de arranque. Desactive el diagnóstico de arranque desde Azure Portal para deshabilitar la consola serie para la máquina virtual o el conjunto de escalado de máquinas virtuales. Si utiliza la consola serie en un conjunto de escalado de máquinas virtuales, asegúrese de actualizar las instancias al modelo más reciente.
 
 
-## <a name="subscription-level-disable"></a>Deshabilitación a nivel de supervisión
+## <a name="subscription-level-enabledisable"></a>Habilitación y deshabilitación de nivel de suscripción
 
 ### <a name="azure-cli"></a>CLI de Azure
 
-La consola serie se puede deshabilitar y volver a habilitar para toda una suscripción con los siguientes comandos en la CLI de Azure:
+La consola serie se puede deshabilitar y volver a habilitar para toda una suscripción mediante los siguientes comandos en la CLI de Azure (puede usar el botón "Probar" para iniciar una instancia de Azure Cloud Shell en la que puede ejecutar los comandos):
 
 Para deshabilitar la consola serie para una suscripción, use estos comandos:
 ```azurecli-interactive
@@ -57,6 +57,9 @@ subscriptionId=$(az account show --output=json | jq -r .id)
 
 az resource show --ids "/subscriptions/$subscriptionId/providers/Microsoft.SerialConsole/consoleServices/default" --output=json --api-version="2018-05-01" | jq .properties
 ```
+
+> [!NOTE]
+> Asegúrese de que se encuentra en la nube correcta (nube pública de Azure o nube de Azure US Government) antes de ejecutar este comando. Puede consultar `az cloud list` y establecer la nube con `az cloud set -n <Name of cloud>`.
 
 ### <a name="powershell"></a>PowerShell
 

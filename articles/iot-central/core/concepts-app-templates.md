@@ -7,12 +7,12 @@ ms.date: 10/25/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 3389744c44f7eb4f11a1c9a53ea9e370b83dd79b
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: af1870ecc9714eceaf69f2892537e59f068c6a70
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890844"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74480317"
 ---
 # <a name="what-are-application-templates"></a>¿Qué son las plantillas de aplicación?
 
@@ -50,6 +50,9 @@ Actualmente, las plantillas de aplicación que usan características en _versió
 - Government (Administración Pública) > Water consumption monitoring
 - Government (Administración Pública) > Water quality monitoring
 - Healthcare (Atención sanitaria) > Continuous patient monitoring
+
+> [!NOTE]
+> Las plantillas **Aplicación personalizada, Contoso de ejemplo, Sample Devkits** están disponibles actualmente en **Estados Unidos**, **Australia**, **Asia Pacífico** o en **Europa**, mientras que otras plantillas solo están disponibles actualmente en **Europa** y **Estados Unidos**.
 
 ## <a name="industry-focused-templates"></a>Plantillas centradas en el sector
 

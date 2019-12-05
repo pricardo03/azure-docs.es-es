@@ -3,12 +3,12 @@ title: Configuración del entorno para un operador de plano técnico
 description: Aprenda a configurar el entorno de Azure para su uso con el rol de control de acceso basado en rol (RBAC) integrado en el operador del plano técnico.
 ms.date: 08/26/2019
 ms.topic: conceptual
-ms.openlocfilehash: f4b999354e31afed56a3a5f5a35a80887292e83f
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 671ac3aaf42bddb3e775baec6838e4c271c4e855
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960399"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406374"
 ---
 # <a name="configure-your-environment-for-a-blueprint-operator"></a>Configuración del entorno para un operador de plano técnico
 

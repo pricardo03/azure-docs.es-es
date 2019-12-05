@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/15/2019
 ms.author: genli
-ms.openlocfilehash: 0ea8a8ec1a92a7dbc01dddc175f7116825ba00f9
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: e061d503254ba7aa7735a97a060fc63f96b3fb61
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71067772"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196666"
 ---
 # <a name="what-is-ip-address-1686312916"></a>¿Qué es la dirección IP 168.63.129.16?
 
@@ -35,6 +35,7 @@ La dirección IP 168.63.129.16 es una dirección IP pública virtual que se usa 
 ## <a name="scope-of-ip-address-1686312916"></a>Ámbito de la dirección IP 168.63.129.16
 
 La dirección IP pública 168.63.129.16 se utiliza en todas las regiones y en todas las nubes nacionales. Esta dirección IP pública especial es propiedad de Microsoft y no se cambiará. La regla del grupo de seguridad de red predeterminado la admite. Se recomienda que permita esta dirección IP en las directivas de firewall locales tanto en las direcciones de entrada como de salida. La comunicación entre esta dirección IP especial y los recursos es segura porque solo la plataforma interna de Azure puede originar un mensaje desde esta dirección IP. Si esta dirección se bloquea, puede producirse un comportamiento inesperado en una variedad de escenarios.
+Deben abrirse como mínimo los puertos siguientes para permitir la comunicación con WireServer: 80, 443 y 32526.
 
 Los [sondeos de estado de Azure Load Balancer](../load-balancer/load-balancer-custom-probe-overview.md) se originan desde esta dirección IP. Si bloquea esta dirección IP, se producirá un error en los sondeos.
 

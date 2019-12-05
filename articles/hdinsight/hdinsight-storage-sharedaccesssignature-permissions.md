@@ -2,18 +2,18 @@
 title: Restricción del acceso mediante firmas de acceso compartido en Azure HDInsight
 description: Obtener información acerca de cómo usar firmas de acceso compartido para restringir el acceso de HDInsight a datos almacenados en blobs de Almacenamiento de Azure.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 04/29/2019
-ms.author: hrasheed
-ms.openlocfilehash: 031498119eb4f9feb92046d7d7a86cfd77f8f368
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 11/13/2019
+ms.openlocfilehash: 725bdfd4efe3be600c993e568f1a5c7edccc6952
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498125"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74148224"
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Uso de firmas de acceso compartido de Azure Storage para restringir el acceso a datos en HDInsight
 
@@ -33,9 +33,9 @@ HDInsight tiene acceso total a los datos de las cuentas de Azure Storage asociad
 
 * Un [contenedor de almacenamiento](../storage/blobs/storage-quickstart-blobs-portal.md) existente.  
 
-* Si usa PowerShell, necesitará el [módulo Az](https://docs.microsoft.com/powershell/azure/overview).
+* Si usa PowerShell, necesitará el [Módulo Az](https://docs.microsoft.com/powershell/azure/overview).
 
-* Si quiere usar la CLI de Azure y todavía no la ha instalado, vea [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* Si quiere usar la CLI de Azure y todavía no la ha instalado, consulte [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 * Si usa [Python](https://www.python.org/downloads/), versión 2.7 o superior.
 
@@ -69,7 +69,7 @@ La diferencia entre las dos formas es importante para un escenario principal: re
     * Ha transcurrido el intervalo de tiempo.
     * La directiva de acceso almacenada se ha modificado para que la hora de expiración haya pasado. Cambiar la hora de expiración es una manera de revocar la firma de acceso compartido.
 
-3. Se elimina la directiva de acceso almacenada a la que hace referencia la SAS, que es otra forma de revocar la SAS. Si se vuelve a crear la directiva de acceso almacenada con el mismo nombre, todos los tokens de SAS de la directiva anterior son válidos (si la SAS no ha caducado). Si prevé revocar la SAS, asegúrese de usar un nombre distinto si vuelve a crear la directiva de acceso con una hora de expiración futura.
+3. Se elimina la directiva de acceso almacenada a la que hace referencia la SAS, que es otra forma de revocar la SAS. Si se vuelve a crear la directiva de acceso almacenada con el mismo nombre, todos los tokens de SAS de la directiva anterior son válidos (si no se ha superado el tiempo de expiración de la SAS). Si prevé revocar la SAS, asegúrese de usar un nombre distinto si vuelve a crear la directiva de acceso con una hora de expiración futura.
 
 4. Se vuelve a generar la clave de cuenta que se usó para crear la SAS. Regenerar la clave hace que todas las aplicaciones que usan la clave anterior no se puedan autenticar. Actualice todos los componentes con la nueva clave.
 
@@ -234,7 +234,6 @@ Para usar una firma de acceso compartido a fin de limitar el acceso a un contene
 Reemplace `CLUSTERNAME`, `RESOURCEGROUP`, `DEFAULTSTORAGEACCOUNT`, `STORAGECONTAINER`, `STORAGEACCOUNT` y `TOKEN` por los valores adecuados. Escriba los comandos de PowerShell:
 
 ```powershell
-
 $clusterName = 'CLUSTERNAME'
 $resourceGroupName = 'RESOURCEGROUP'
 
@@ -285,11 +284,10 @@ $defaultStorageContext = New-AzStorageContext `
                                 -StorageAccountName $defaultStorageAccountName `
                                 -StorageAccountKey $defaultStorageAccountKey
 
-
 # Create a blob container. This holds the default data store for the cluster.
 New-AzStorageContainer `
     -Name $clusterName `
-    -Context $defaultStorageContext 
+    -Context $defaultStorageContext
 
 # Cluster login is used to secure HTTPS services hosted on the cluster
 $httpCredential = Get-Credential `
@@ -302,9 +300,9 @@ $sshCredential = Get-Credential `
     -UserName "sshuser"
 
 # Create the configuration for the cluster
-$config = New-AzHDInsightClusterConfig 
+$config = New-AzHDInsightClusterConfig
 
-$config = $config | Add-AzHDInsightConfigValues `
+$config = $config | Add-AzHDInsightConfigValue `
     -Spark2Defaults @{} `
     -Core @{"fs.azure.sas.$SASContainerName.$SASStorageAccountName.blob.core.windows.net"=$SASToken}
 
@@ -358,29 +356,29 @@ Si tiene un clúster existente, puede agregar la SAS para la configuración **co
 
 1. Abra la interfaz de usuario web Ambari del clúster. La dirección de esta página es `https://YOURCLUSTERNAME.azurehdinsight.net`. Cuando se le solicite, autentíquese en el clúster con el nombre de administrador (admin) y la contraseña que usó al crear el clúster.
 
-2. En el lado izquierdo de la interfaz de usuario web Ambari, seleccione **HDFS** y, a continuación, seleccione la pestaña **Configs** (Configuraciones) en el centro de la página.
+1. Vaya a **HDFS** > **Configs** > **Advanced** > **Custom core-site** (HDFS > Configuraciones > Avanzado > Sitio principal personalizado).
 
-3. Seleccione la pestaña **Advanced** (Avanzadas) y, a continuación, desplácese hasta encontrar la sección **Custom core-site** (Sitio principal personalizado).
+1. Expanda la sección **Custom core-site** (Sitio principal personalizado), desplácese hasta el final y seleccione **Add property...** (Agregar propiedad...). Utilice los siguientes valores para los campos **Key** (Clave) y **Value** (Valor):
 
-4. Expanda la sección **Custom core-site** (Sitio principal personalizado), desplácese hasta el final y seleccione el vínculo **Add property...** (Agregar propiedad...). Utilice los siguientes valores para los campos **Key** (Clave) y **Value** (Valor):
+    * **Clave**: `fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net`
+    * **Valor**: La SAS devuelta por uno de los métodos que se han ejecutado antes.
 
-   * **Clave**: `fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net`
-   * **Valor**: La SAS devuelta por uno de los métodos que se han ejecutado antes.
+    Reemplace `CONTAINERNAME` por el nombre del contenedor que ha usado con la aplicación de C# o de SAS. Reemplace `STORAGEACCOUNTNAME` por el nombre de la cuenta de almacenamiento que ha usado.
 
-     Reemplace `CONTAINERNAME` por el nombre del contenedor que ha usado con la aplicación de C# o de SAS. Reemplace `STORAGEACCOUNTNAME` por el nombre de la cuenta de almacenamiento que ha usado.
+    Seleccione **Add** (Agregar) para guardar esta clave y valor.
 
-5. Haga clic en el botón **Add** (Agregar) para guardar esta clave y este valor y, a continuación, haga clic en el botón **Save** (Guardar) para guardar los cambios de configuración. Cuando se le solicite, agregue una descripción del cambio ("Agregar acceso de almacenamiento de SAS", por ejemplo) y haga clic en **Save** (Guardar).
+1. Seleccione el botón **Save** (Guardar) para guardar los cambios en la configuración. Cuando se le solicite, agregue una descripción del cambio ("Agregar acceso de almacenamiento de SAS", por ejemplo) y, a continuación, seleccione **Save** (Guardar).
 
-    Haga clic en **OK** (Aceptar) cuando se hayan completado los cambios.
+    Seleccione **OK** (Aceptar) cuando se hayan completado los cambios.
 
    > [!IMPORTANT]  
    > Debe reiniciar varios servicios para que el cambio surta efecto.
 
-6. En la interfaz de usuario web Ambari, seleccione **HDFS** en la lista de la izquierda y, a continuación, seleccione **Restart All Affected** (Reiniciar todas las entradas afectadas) en la lista desplegable **Service Actions** (Acciones del servicio) de la derecha. Cuando se le solicite, seleccione __Confirm Restart All__ (Confirmar reiniciar todo).
+1. Aparecerá una lista desplegable **Restart** (Reiniciar). Seleccione **Restart All Affected** (Reiniciar todos los afectados) en la lista desplegable y, a continuación, seleccione __Confirm Restart All__ (Confirmar reiniciar todos).
 
-    Repita este proceso para MapReduce2 y YARN.
+    Repita este proceso para **MapReduce2** y **YARN**.
 
-7. Una vez reiniciados los servicios, seleccione cada uno de ellos y deshabilite el modo de mantenimiento en la lista desplegable **Service Actions** (Acciones del servicio).
+1. Una vez reiniciados los servicios, seleccione cada uno de ellos y deshabilite el modo de mantenimiento en la lista desplegable **Service Actions** (Acciones del servicio).
 
 ## <a name="test-restricted-access"></a>Prueba de acceso restringido
 
@@ -405,7 +403,7 @@ Siga los pasos siguientes para comprobar que solo puede leer y enumerar elemento
 3. Use el siguiente comando para comprobar que puede leer el contenido del archivo. Reemplace `SASCONTAINER` y `SASACCOUNTNAME` como en el paso anterior. Reemplace `sample.log` por el nombre del archivo que se muestra en el comando anterior:
 
     ```bash
-    hdfs dfs -text wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/sample.log
+    hdfs dfs -text wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/sample.log
     ```
 
     Este comando muestra el contenido del archivo.
@@ -441,6 +439,4 @@ Siga los pasos siguientes para comprobar que solo puede leer y enumerar elemento
 Ahora que ha aprendido a agregar almacenamiento de acceso limitado al clúster de HDInsight, obtenga información acerca de otras maneras de trabajar con datos en el clúster:
 
 * [Uso de Apache Hive con HDInsight](hadoop/hdinsight-use-hive.md)
-* [Uso de Apache Pig con HDInsight](hadoop/hdinsight-use-pig.md)
 * [Uso de MapReduce con HDInsight](hadoop/hdinsight-use-mapreduce.md)
-

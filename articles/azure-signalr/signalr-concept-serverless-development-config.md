@@ -1,17 +1,17 @@
 ---
-title: Desarrollo y configuración de aplicaciones de SignalR Service de Azure Functions
+title: 'Desarrollo y configuración de una aplicación de Azure Functions: Azure Signalr'
 description: Detalles sobre cómo desarrollar y configurar aplicaciones sin servidor en tiempo real con Azure Functions y Azure SignalR Service
 author: anthonychu
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: antchu
-ms.openlocfilehash: be77704f562a1e05485e6f3704dff265635b1dc2
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 68ada90699fe9a9db6faeb32a04e8eb02c176944
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882304"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74157656"
 ---
 # <a name="azure-functions-development-and-configuration-with-azure-signalr-service"></a>Desarrollo y configuración de Azure Functions con Azure SignalR Service
 

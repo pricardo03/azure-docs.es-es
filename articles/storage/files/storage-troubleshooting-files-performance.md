@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 0e11949804e0c3de52db315424f83905516b4da8
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: d4269480887dba994559271de7e68b2ba2b460b6
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996612"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227825"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>Solucionar problemas de rendimiento de Azure Files
 
@@ -57,6 +57,7 @@ Para confirmar si la mayoría de las solicitudes se centran en metadatos, puede 
 ### <a name="workaround"></a>Solución alternativa
 
 - Compruebe si la aplicación se puede modificar para reducir el número de operaciones de metadatos.
+- Agregue un disco duro virtual en el recurso compartido de archivos y móntelo a través de SMB desde el cliente para realizar operaciones de archivos en los datos. Este enfoque funciona para los escenarios de un solo escritor y varios lectores y permite que las operaciones de metadatos sean locales, lo que ofrece un rendimiento similar a un almacenamiento de conexión directa local.
 
 ### <a name="cause-3-single-threaded-application"></a>Causa 3: Aplicación de un único subproceso
 

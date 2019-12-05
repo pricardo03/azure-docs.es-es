@@ -1,5 +1,5 @@
 ---
-title: Alta disponibilidad y equilibrio de carga para Azure AD Application Proxy | Microsoft Docs
+title: 'Alta disponibilidad y equilibrio de carga: Azure AD Application Proxy'
 description: Funcionamiento de la distribución del tráfico con la implementación de Application Proxy. Incluye sugerencias para optimizar el rendimiento de los conectores y usar el equilibrio de carga para los servidores back-end.
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 014fcf37930800858cd70f15c19e3f494d3f3776
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 9add6ac30184d87ef50200c3ab944698a1a660f8
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72169802"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275528"
 ---
 # <a name="high-availability-and-load-balancing-of-your-application-proxy-connectors-and-applications"></a>Alta disponibilidad y equilibrio de carga de los conectores y las aplicaciones de Application Proxy
 

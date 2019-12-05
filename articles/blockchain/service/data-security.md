@@ -1,21 +1,15 @@
 ---
 title: Seguridad de Azure Blockchain Service
 description: Conceptos de acceso a datos y seguridad de Azure Blockchain Service
-services: azure-blockchain
-keywords: ''
-author: PatAltimore
-ms.author: patricka
-ms.date: 05/02/2019
+ms.date: 11/22/2019
 ms.topic: conceptual
-ms.service: azure-blockchain
-ms.reviewer: seal
-manager: femila
-ms.openlocfilehash: 63e61844ddb5bd0f0ed52b67e26ea5bf1857fd2b
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.reviewer: janders
+ms.openlocfilehash: e1a40acfec6b0dc5cdf21fb84b341b6b4987797a
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73579920"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74455715"
 ---
 # <a name="azure-blockchain-service-security"></a>Seguridad de Azure Blockchain Service
 
@@ -65,4 +59,4 @@ Las claves de constelación se usan para identificar de forma única un nodo de 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Configurar los nodos de transacción de Azure Blockchain Service](configure-transaction-nodes.md)
+Consulte [Configuración del acceso a Azure Active Directory](configure-aad.md).

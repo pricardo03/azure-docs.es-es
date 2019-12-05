@@ -7,13 +7,13 @@ ms.author: ashishth
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/14/2017
-ms.openlocfilehash: 71631cd2394efd6743bc0e80a458fed2678d4be0
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.date: 11/22/2019
+ms.openlocfilehash: 025a31c08ac97783ddf1a608c2899eadd9b89725
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076243"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561768"
 ---
 # <a name="use-apache-hive-as-an-extract-transform-and-load-etl-tool"></a>Uso de Apache Hive como una herramienta de extracción, transformación y carga de datos (ETL)
 
@@ -21,11 +21,11 @@ Normalmente, deberá limpiar y transformar los datos entrantes antes de cargarlo
 
 ## <a name="use-case-and-model-overview"></a>Introducción del modelo y del caso de uso
 
-En la siguiente ilustración se muestra una introducción del caso de uso y el modelo de automatización de ETL. Los datos de entrada se transforman para generar el resultado adecuado.  Durante la transformación, los datos pueden cambiar de forma, tipo e incluso de lenguaje.  Los procesos ETL pueden convertir las unidades del sistema imperial al métrico, cambiar las zonas horarias y mejorar la precisión a fin de alinearse correctamente con los datos existentes en el destino.  Los procesos ETL también pueden combinar los nuevos datos con los datos existentes para mantener los informes actualizados, o para proporcionar más información sobre los datos existentes.  A continuación, las aplicaciones, como los servicios y las herramientas de informes, pueden consumir estos datos en el formato deseado.
+En la siguiente ilustración se muestra una introducción del caso de uso y el modelo de automatización de ETL. Los datos de entrada se transforman para generar el resultado adecuado.  Durante la transformación, los datos pueden cambiar de forma, tipo e incluso de lenguaje.  Los procesos ETL pueden convertir las unidades del sistema imperial al métrico, cambiar las zonas horarias y mejorar la precisión a fin de alinearse correctamente con los datos existentes en el destino.  Los procesos ETL también pueden combinar los nuevos datos con los datos existentes para mantener los informes actualizados o para proporcionar más información sobre los datos existentes.  A continuación, las aplicaciones, como los servicios y las herramientas de informes, pueden consumir estos datos en el formato deseado.
 
 ![Apache Hive como arquitectura de ETL](./media/apache-hadoop-using-apache-hive-as-an-etl-tool/hdinsight-etl-architecture.png)
 
-Hadoop se utiliza normalmente en los procesos ETL que importan un gran número de archivos de texto (por ejemplo, CSV), un número más pequeño pero a menudo cambiante de archivos de texto, o ambos.  Hive es una herramienta excelente que se usa para preparar los datos antes de cargarlos en su destino.  Permite crear un esquema del archivo CSV y usar un lenguaje similar a SQL para generar programas de MapReduce que interactúan con los datos. 
+Hadoop se utiliza normalmente en los procesos ETL que importan un gran número de archivos de texto (por ejemplo, CSV), un número más pequeño pero a menudo cambiante de archivos de texto, o ambos.  Hive es una herramienta excelente que se usa para preparar los datos antes de cargarlos en su destino.  Permite crear un esquema del archivo CSV y usar un lenguaje similar a SQL para generar programas de MapReduce que interactúan con los datos.
 
 Los pasos típicos para usar Hive para ejecutar ETL son los siguientes:
 
@@ -38,14 +38,14 @@ Los pasos típicos para usar Hive para ejecutar ETL son los siguientes:
     DROP TABLE IF EXISTS hvac;
 
     --create the hvac table on comma-separated sensor data stored in Azure Storage blobs
-    
+
     CREATE EXTERNAL TABLE hvac(`date` STRING, time STRING, targettemp BIGINT,
-        actualtemp BIGINT, 
-        system BIGINT, 
-        systemage BIGINT, 
+        actualtemp BIGINT,
+        system BIGINT,
+        systemage BIGINT,
         buildingid BIGINT)
-    ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' 
-    STORED AS TEXTFILE LOCATION 'wasb://{container}@{storageaccount}.blob.core.windows.net/HdiSamples/SensorSampleData/hvac/';
+    ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+    STORED AS TEXTFILE LOCATION 'wasbs://{container}@{storageaccount}.blob.core.windows.net/HdiSamples/SensorSampleData/hvac/';
     ```
 
 5. Transforme los datos y cárguelos en el destino.  Hay varias maneras de usar Hive durante la transformación y la carga:
@@ -73,7 +73,7 @@ Puede usar Hive para enviar los datos a varios destinos como:
 * Excel.
 * Almacenamiento de tabla y blob de Azure.
 * Aplicaciones o servicios que requieren el procesamiento de los datos en formatos específicos o como archivos que contengan tipos específicos de la estructura de información.
-* Almacén de documentos JSON como <a href="https://azure.microsoft.com/services/cosmos-db/">CosmosDB</a>.
+* Almacén de documentos JSON como [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
 
 ## <a name="considerations"></a>Consideraciones
 

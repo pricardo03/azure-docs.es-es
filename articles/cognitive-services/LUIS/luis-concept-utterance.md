@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: diberry
-ms.openlocfilehash: 8069b3b9c9a226e29a3eae3261948ee92291726d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7412677773b60a1894a6ece7251e797bfddee091
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73486635"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280808"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>Comprender cuáles son las expresiones correctas para la aplicación de LUIS
 
@@ -60,17 +60,17 @@ Considere las siguientes expresiones de ejemplo:
 |Quiero obtener un equipo, ¿cómo lo hago?|
 |¿Cuándo puedo tener un equipo?| 
 
-En este caso, el término principal, "equipo", no varía. Use alternativas como "equipo de escritorio", "portátil", "estación de trabajo" o incluso simplemente "máquina". LUIS deduce de forma inteligente los sinónimos a partir del contexto, pero cuando se crean expresiones para el entrenamiento, también es mejor variarlas.
+En este caso, el término principal, "equipo", no varía. Use alternativas como "equipo de escritorio", "portátil", "estación de trabajo" o incluso simplemente "máquina". LUIS puede deducir de forma inteligente los sinónimos a partir del contexto, pero cuando se crean expresiones para el entrenamiento, siempre es mejor variarlas.
 
 ## <a name="example-utterances-in-each-intent"></a>Expresiones de ejemplo en cada intención
 
-Cada intención debe tener expresiones de ejemplo, al menos 15. Si tiene una intención que no tiene ninguna expresión de ejemplo, no podrá entrenar a LUIS. Si dispone de una intención con una o muy pocas expresiones de ejemplo, LUIS no podrá predecirla con precisión. 
+Cada intención debe tener expresiones de ejemplo, al menos 15. Si tiene una intención que no tiene ninguna expresión de ejemplo, no podrá entrenar a LUIS. Si dispone de una intención con una o muy pocas expresiones de ejemplo, es posible que LUIS no pueda predecirla con precisión. 
 
 ## <a name="add-small-groups-of-15-utterances-for-each-authoring-iteration"></a>Adición de grupos pequeños de 15 expresiones para cada iteración de creación
 
 En cada iteración del modelo, no agregue una gran cantidad de expresiones. Agregue expresiones en grupos de 15. [Entrene](luis-how-to-train.md), [publique](luis-how-to-publish-app.md) y vuelva a [realizar pruebas](luis-interactive-test.md).  
 
-LUIS compila modelos efectivos con expresiones seleccionadas cuidadosamente por su autor de modelos. Agregar demasiadas expresiones no resulta útil porque genera confusión.  
+LUIS compila modelos efectivos con expresiones seleccionadas cuidadosamente por su autor de modelos. Agregar demasiadas expresiones no resulta útil porque genera confusión.
 
 Es mejor empezar con pocas expresiones y, luego, [revisar las expresiones del punto de conexión](luis-how-to-review-endpoint-utterances.md) para que la extracción de la entidad y la predicción de intención se realicen correctamente.
 
@@ -112,7 +112,7 @@ Los signos de puntuación son un token independiente de LUIS. Una expresión que
 
 Si la puntuación no se normaliza, LUIS tiene en cuenta los signos de puntuación de forma predeterminada, ya que es posible que estos signos tengan una mayor importancia en algunas aplicaciones cliente. Asegúrese de que haya expresiones de ejemplo con y sin signos de puntuación ellos para que los dos estilos devuelvan los mismos resultados relativos. 
 
-Asegúrese de que el modelo controla los signos de puntuación, ya sea en las [expresiones de ejemplo](luis-concept-utterance.md) (que los tengan o no) o en los [patrones](luis-concept-patterns.md), donde es más sencillo pasar por alto los signos de puntuación con la sintaxis especial: `I am applying for the {Job} position[.]`
+Asegúrese de que el modelo controla los signos de puntuación, ya sea en las expresiones de ejemplo (que los tengan o no) o en los [patrones](luis-concept-patterns.md), donde es más sencillo pasar por alto los signos de puntuación con la sintaxis especial: `I am applying for the {Job} position[.]`.
 
 Si la puntuación no tiene un significado concreto en la aplicación cliente, podría [omitir la puntuación](#utterance-normalization) mediante la normalización de la puntuación. 
 

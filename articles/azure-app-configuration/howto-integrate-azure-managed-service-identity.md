@@ -13,22 +13,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 3a5517c31cdac0bf6f5ea386a8614d15521d4479
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: b0c6e39aebe7864ab132805b78aa7be2d61c5160
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035539"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185143"
 ---
 # <a name="integrate-with-azure-managed-identities"></a>Integración con identidades administradas de Azure
 
-Las [identidades administradas](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) de Azure Active Directory ayudan a simplificar la administración de secretos de su aplicación de nube. Con una identidad administrada, puede configurar el código para usar la entidad de servicio que se creó para el servicio de proceso de Azure en que se ejecuta. Usar una identidad administrada en lugar de una credencial diferente que se almacenan en Azure Key Vault o una cadena de conexión local. 
+Las [identidades administradas](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) de Azure Active Directory ayudan a simplificar la administración de secretos de su aplicación de nube. Con una identidad administrada, puede configurar el código para usar la entidad de servicio que se creó para el servicio de Azure donde se ejecuta. Usar una identidad administrada en lugar de una credencial diferente que se almacenan en Azure Key Vault o una cadena de conexión local. 
 
-Azure App Configuration y sus bibliotecas cliente .NET Core, .NET y Java Spring incluyen compatibilidad integrada con Managed Service Identity (MSI). Aunque su uso no es necesario, MSI elimina la necesidad de un token de acceso que contenga los secretos. El código puede acceder al almacén de configuración de la aplicación solo mediante el punto de conexión de servicio. Puede insertar esta dirección URL en el código directamente sin preocuparse de exponer ningún secreto.
+Azure App Configuration y sus bibliotecas cliente .NET Core, .NET Framework y Java Spring incluyen compatibilidad integrada con la identidad administrada. Aunque su uso no es necesario, la identidad administrada elimina la necesidad de un token de acceso que contenga los secretos. El código solo puede acceder al almacén de App Configuration mediante el punto de conexión de servicio. Puede insertar esta dirección URL en el código directamente sin preocuparse de exponer ningún secreto.
 
-En este tutorial se muestra cómo puede aprovechar MSI para acceder a App Configuration. Se basa en la aplicación web que se introdujo en los inicios rápidos. Antes de continuar, finalice primero el tutorial [Creación de una aplicación ASP.NET Core con Azure App Configuration](./quickstart-aspnet-core-app.md).
+En este tutorial se muestra cómo puede aprovechar la identidad administrada para acceder a App Configuration. Se basa en la aplicación web que se introdujo en los inicios rápidos. Antes de continuar, finalice primero el tutorial [Creación de una aplicación ASP.NET Core con Azure App Configuration](./quickstart-aspnet-core-app.md).
 
-Además, este tutorial muestra también cómo puede usar MSI junto con las referencias de Key Vault de App Configuration. Esto le permite acceder sin problemas a los secretos almacenados en Key Vault, así como a los valores de configuración de App Configuration. Si desea explorar esta funcionalidad, termine primero [Uso de referencias de Key Vault con ASP.NET Core](./use-key-vault-references-dotnet-core.md).
+Además, este tutorial muestra también cómo puede usar la identidad administrada junto con las referencias a Key Vault de App Configuration. Esto le permite acceder sin problemas a los secretos almacenados en Key Vault, así como a los valores de configuración de App Configuration. Si desea explorar esta funcionalidad, termine primero [Uso de referencias de Key Vault con ASP.NET Core](./use-key-vault-references-dotnet-core.md).
 
 Para realizar los pasos de este tutorial, puede usar cualquier editor de código. [Visual Studio Code](https://code.visualstudio.com/) es una excelente opción disponible en las plataformas Windows, macOS y Linux.
 
@@ -64,7 +64,7 @@ Para configurar una identidad administrada en el portal, primero crea una aplica
 
 ## <a name="grant-access-to-app-configuration"></a>Conceder acceso a App Configuration
 
-1. En [Azure Portal](https://portal.azure.com), seleccione **Todos los recursos** y seleccione la instancia de almacén de App Configuration que creó en el inicio rápido.
+1. En [Azure Portal](https://portal.azure.com), seleccione **Todos los recursos** y elija el almacén de App Configuration que creó en el inicio rápido.
 
 1. Seleccione **Access Control (IAM)** .
 
@@ -82,9 +82,9 @@ Para configurar una identidad administrada en el portal, primero crea una aplica
 
 ## <a name="use-a-managed-identity"></a>Uso de una identidad administrada
 
-1. Busque la dirección URL del almacén de configuración de la aplicación. Para ello, vaya a su pantalla de configuración en Azure Portal y haga clic en la pestaña **Claves de acceso**.
+1. Busque la dirección URL del almacén de App Configuration. Para ello, vaya a su pantalla de configuración en Azure Portal y haga clic en la pestaña **Claves de acceso**.
 
-1. Abra *appsettings.json*y agregue el siguiente script. Reemplace *\<service_endpoint>* , incluidos los corchetes, por la dirección URL del almacén de configuración de aplicaciones. 
+1. Abra *appsettings.json*y agregue el siguiente script. Reemplace *\<service_endpoint>* , incluidos los corchetes, por la dirección URL del almacén de App Configuration. 
 
     ```json
     "AppConfig": {
@@ -203,7 +203,7 @@ http://<app_name>.azurewebsites.net
 
 ## <a name="use-managed-identity-in-other-languages"></a>Usar identidades administradas en otros idiomas
 
-Los proveedores de App Configuration para .NET Framework y Java Spring también incluyen compatibilidad integrada con identidades administradas. En estos casos, al configurar un proveedor, use el punto de conexión de dirección URL del almacén de configuración de aplicaciones en lugar de su cadena de conexión completa. Por ejemplo, para la aplicación de consola de .NET Framework que se creó en el inicio rápido, especifique la siguiente configuración en el archivo *App.config*:
+Los proveedores de App Configuration para .NET Framework y Java Spring también incluyen compatibilidad integrada con identidades administradas. En estos casos, al configurar un proveedor, use el punto de conexión de dirección URL del almacén de App Configuration en lugar de su cadena de conexión completa. Por ejemplo, para la aplicación de consola de .NET Framework que se creó en el inicio rápido, especifique la siguiente configuración en el archivo *App.config*:
 
 ```xml
     <configSections>
@@ -228,6 +228,7 @@ Los proveedores de App Configuration para .NET Framework y Java Spring también 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
+En este tutorial, ha agregado una identidad administrada de Azure para optimizar el acceso a App Configuration y mejorar la administración de credenciales de su aplicación. Para más información sobre App Configuration, continúe con los ejemplos de la CLI de Azure.
 
 > [!div class="nextstepaction"]
 > [Ejemplos de CLI](./cli-samples.md)

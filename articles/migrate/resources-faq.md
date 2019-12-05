@@ -1,17 +1,17 @@
 ---
 title: Preguntas habituales sobre Azure Migrate
-description: Aborda las preguntas más habituales y frecuentes sobre Azure Migrate.
+description: Obtenga respuestas a preguntas comunes sobre el servicio Azure Migrate.
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/22/2019
+ms.date: 11/21/2019
 ms.author: snehaa
-ms.openlocfilehash: 1663e1d418610bcfa2ada28770944bfc8cbf908f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: dc7dff0119ec849b447754ae54a45911038f6c48
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73480067"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74284472"
 ---
 # <a name="azure-migrate-common-questions"></a>Azure Migrate: Preguntas frecuentes
 
@@ -118,16 +118,10 @@ Server Assessment proporciona una valoración para ayudar con la preparación de
 
 ### <a name="whats-the-difference-between-server-assessment-and-the-site-recovery-deployment-planner"></a>¿Cuál es la diferencia entre Server Assessment y Site Recovery Deployment Planner?
 
-Server Assessment es una herramienta de planeamiento de la migración. Site Recovery Deployment Planner es una herramienta de planeamiento de recuperación ante desastres. 
+Server Assessment es una herramienta de planeamiento de la migración. Site Recovery Deployment Planner es una herramienta de planeamiento de recuperación ante desastres.
 
 - **Planeamiento de la migración del entorno local a Azure**: Si planea migrar los servidores locales a Azure, use Server Assessment para planear la migración. Esta solución evalúa las cargas de trabajo locales y proporciona orientación y herramientas que le ayudarán a migrar. Una vez que esté implementado el plan de migración, puede usar herramientas como Azure Migrate Server Migration para migrar las máquinas a Azure.
 - **Planeamiento de recuperación ante desastres en Azure**: Si planea configurar la recuperación ante desastres de una ubicación local a Azure con Site Recovery, use Site Recovery Deployment Planner. Deployment Planner realiza una evaluación profunda y específica de Site Recovery de su entorno local con el fin de la recuperación ante desastres. Proporciona recomendaciones sobre la recuperación ante desastres, como la replicación y la conmutación por error.
-
-### <a name="does-azure-migrate-estimate-costs-for-the-enterprise-agreement-ea-program"></a>¿Azure Migrate calcula los costos del programa del Contrato Enterprise?
-
-Actualmente, Azure Migrate Server Assessment no es compatible con la estimación de costos del [programa del Contrato Enterprise](https://azure.microsoft.com/offers/enterprise-agreement-support/). Lo que puede hacer es, cuando cree una evaluación, especificar **pago por uso** como la **oferta** y agregar manualmente el porcentaje de descuento (aplicable a la suscripción) en el campo **Descuento** de las propiedades de evaluación:
-
-  ![Propiedades de la evaluación](./media/resources-faq/discount.png)
 
 ### <a name="whats-the-difference-between-as-on-premises-and-performance-based-sizing"></a>¿Cuál es la diferencia entre el ajuste de tamaño como local y el ajuste de tamaño basado en el rendimiento?
 

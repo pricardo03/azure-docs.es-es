@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 6b4ae076ba08af5514caa09a2e8027a1cbc909dc
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: df7d0fde05c974ef4cec739236a3ac0aebd63ecc
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793672"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74534553"
 ---
 # <a name="import-data-wizard-for-azure-cognitive-search"></a>Asistente para la importación de datos de Azure Cognitive Search
 
@@ -43,7 +43,7 @@ Las limitaciones conocidas se resumen de la siguiente forma:
 
 + El asistente no admite la iteración ni la reutilización. Cada paso a través del asistente crea una nueva configuración del índice, del conjunto de aptitudes y del indexador. Solo los orígenes de datos se pueden conservar y reutilizar en el asistente. Para editar o restringir otros objetos, tiene que usar las API REST o el SDK de .NET para recuperar y modificar las estructuras.
 
-+ El contenido de origen debe residir en un origen de datos de Azure admitido, en un servicio de la misma suscripción.
++ El contenido de origen debe residir en un origen de datos de Azure compatible.
 
 + El muestreo se realiza sobre un subconjunto de los datos de origen. En el caso de orígenes de datos de gran tamaño, es posible que el asistente omita algunos campos. Es posible que tenga que ampliar el esquema o corregir los tipos de datos inferidos si el muestreo es insuficiente.
 

@@ -1,5 +1,5 @@
 ---
-title: Uso de claves simétricas para aprovisionar dispositivos antiguos con Azure IoT Hub Device Provisioning Service | Microsoft Docs
+title: Aprovisionamiento de dispositivos antiguos con claves simétricas en Azure IoT Hub Device Provisioning Service
 description: Uso de claves simétricas para aprovisionar dispositivos antiguos con su instancia de servicio de aprovisionamiento de dispositivos
 author: wesmc7777
 ms.author: wesmc
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
-ms.openlocfilehash: 13e22d772ef9b90f415f10b65e4a4290a1f7bd81
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 3e3b54592608f5c39d618f5ceda40747ad4fd0fe
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72434822"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74209910"
 ---
 # <a name="how-to-provision-legacy-devices-using-symmetric-keys"></a>Aprovisionamiento de dispositivos antiguos mediante claves simétricas
 

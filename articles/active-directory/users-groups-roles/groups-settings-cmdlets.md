@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a1b900d4a67390ae867d770c3b984c43fd501b5
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: ef0bfcb8c82d3f3caf90500e8852ca9e02c725aa
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74026757"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74382974"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Cmdlets de Azure Active Directory para configurar las opciones de grupo
 
@@ -116,16 +116,17 @@ Esta es la configuración definida en el objeto SettingsTemplate Group.Unified. 
 |  <ul><li>EnableGroupCreation<li>Escriba:  Boolean<li>Valor predeterminado: True |Marca que indica si se permite la creación de grupos de Office 365 en el directorio por parte de usuarios que no sean administradores. Este valor no requiere una licencia Azure Active Directory Premium P1.|
 |  <ul><li>GroupCreationAllowedGroupId<li>Escriba:  Cadena<li>Valor predeterminado: “” |El GUID del grupo de seguridad para el que se permite a los miembros crear grupos de Office 365 incluso cuando EnableGroupCreation == false. |
 |  <ul><li>UsageGuidelinesUrl<li>Escriba:  Cadena<li>Valor predeterminado: “” |Un vínculo a las instrucciones de uso de grupos. |
-|  <ul><li>ClassificationDescriptions<li>Escriba:  Cadena<li>Valor predeterminado: “” | Una lista delimitada por comas de las descripciones de clasificación. El valor de ClassificationDescriptions solo es válido en este formato:<br>$setting[“ClassificationDescriptions”] ="Classification:Description,Classification:Description"<br>donde Classification coincide con las cadenas de ClassificationList.|
-|  <ul><li>DefaultClassification<li>Escriba:  Cadena<li>Valor predeterminado: “” | La clasificación que se va a utilizar como la clasificación predeterminada para un grupo si no se ha especificado ninguno.|
+|  <ul><li>ClassificationDescriptions<li>Escriba:  Cadena<li>Valor predeterminado: “” | Una lista delimitada por comas de las descripciones de clasificación. El valor de ClassificationDescriptions solo es válido en este formato:<br>$setting[“ClassificationDescriptions”] ="Classification:Description,Classification:Description"<br>donde Classification coincide con las cadenas de ClassificationList.<br>Esta configuración no se aplica cuando EnableMIPLabels = = True.|
+|  <ul><li>DefaultClassification<li>Escriba:  Cadena<li>Valor predeterminado: “” | La clasificación que se va a utilizar como la clasificación predeterminada para un grupo si no se ha especificado ninguno.<br>Esta configuración no se aplica cuando EnableMIPLabels = = True.|
 |  <ul><li>PrefixSuffixNamingRequirement<li>Escriba:  Cadena<li>Valor predeterminado: “” | Cadena de una longitud máxima de 64 caracteres que define la convención de nomenclatura configurada para los grupos de Office 365. Para más información, consulte [Aplicación de una directiva de nomenclatura para grupos de Office 365](groups-naming-policy.md). |
 | <ul><li>CustomBlockedWordsList<li>Escriba:  Cadena<li>Valor predeterminado: “” | Cadena de frases separadas por comas que los usuarios no tendrán permiso para usar en los nombres de grupos o alias. Para más información, consulte [Aplicación de una directiva de nomenclatura para grupos de Office 365](groups-naming-policy.md). |
 | <ul><li>EnableMSStandardBlockedWords<li>Escriba:  Boolean<li>Valor predeterminado: “False” | No usar
 |  <ul><li>AllowGuestsToBeGroupOwner<li>Escriba:  Boolean<li>Valor predeterminado: False | Valor booleano que indica si un usuario invitado puede ser o no un propietario de grupos. |
 |  <ul><li>AllowGuestsToAccessGroups<li>Escriba:  Boolean<li>Valor predeterminado: True | Valor booleano que indica si un usuario invitado puede tener o no acceso al contenido de grupos de Office 365.  Este valor no requiere una licencia Azure Active Directory Premium P1.|
 |  <ul><li>GuestUsageGuidelinesUrl<li>Escriba:  Cadena<li>Valor predeterminado: “” | La dirección URL de un vínculo a las instrucciones de uso del invitado. |
-|  <ul><li>AllowAddGuests<li>Escriba:  Boolean<li>Valor predeterminado: True | Un valor booleano que indica si está permitido o no agregar invitados a este directorio.|
-|  <ul><li>ClassificationList<li>Escriba:  Cadena<li>Valor predeterminado: “” |Lista de valores de clasificación delimitados por coma que se puede aplicar a grupos de Office 365. |
+|  <ul><li>AllowToAddGuests<li>Escriba:  Boolean<li>Valor predeterminado: True | Un valor booleano que indica si está permitido o no agregar invitados a este directorio. <br>Esta configuración puede invalidarse y convertirse en solo lectura si *EnableMIPLabels* está establecida en *True* y una directiva de invitado está asociada a la etiqueta de confidencialidad asignada al grupo. |
+|  <ul><li>ClassificationList<li>Escriba:  Cadena<li>Valor predeterminado: “” |Lista de valores de clasificación delimitados por coma que se puede aplicar a grupos de Office 365. <br>Esta configuración no se aplica cuando EnableMIPLabels = = True.|
+|  <ul><li>EnableMIPLabels<li>Escriba:  Boolean<li>Valor predeterminado: “False” |Marca que indica si las etiquetas de confidencialidad publicadas en el Centro de cumplimiento de Microsoft 365 se pueden aplicar a los grupos de Office 365. Para más información, vea [Asignación de etiquetas de confidencialidad para los grupos de Office 365](groups-assign-sensitivity-labels.md). |
 
 ## <a name="example-configure-guest-policy-for-groups-at-the-directory-level"></a>Ejemplo: Configuración de la directiva de invitado para grupos en el nivel de directorio
 1. Obtenga todas las plantillas de configuración:

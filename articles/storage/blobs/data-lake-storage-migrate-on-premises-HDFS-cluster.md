@@ -1,21 +1,21 @@
 ---
-title: Uso de Azure Data Box para migrar datos de un almacén HDFS local a Azure Storage
+title: Migración de un almacén HDFS local a Azure Storage con Azure Data Box
 description: Migración de datos de un almacén HDFS local a Azure Storage
 author: normesta
 ms.service: storage
-ms.date: 06/11/2019
+ms.date: 11/19/2019
 ms.author: normesta
 ms.topic: conceptual
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: jamesbak
-ms.openlocfilehash: 508c67f73bc0e11330b5772b1c1ba3f9bee5e231
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 3360209e9de54d6011a2a430cd2c1fb54a315c43
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255669"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327597"
 ---
-# <a name="use-azure-data-box-to-migrate-data-from-an-on-premises-hdfs-store-to-azure-storage"></a>Uso de Azure Data Box para migrar datos de un almacén HDFS local a Azure Storage
+# <a name="migrate-from-on-prem-hdfs-store-to-azure-storage-with-azure-data-box"></a>Migración de un almacén HDFS local a Azure Storage con Azure Data Box
 
 Puede migrar datos de un almacén HDFS local de su clúster de Hadoop a Azure Storage (Blob Storage o Data Lake Storage Gen2) mediante un dispositivo Data Box. Dispone de dos opciones: Data Box de 80 TB de datos o Data Box Heavy de 770 TB.
 

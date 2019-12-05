@@ -12,21 +12,24 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/11/2019
+ms.date: 11/19/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2fb475a5d88547cc5f39cb269cc1cbf72fcd25b3
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: e4504a1ae60aaac790ca15c120433159c2ff78fa
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72295399"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74207780"
 ---
-# <a name="microsoft-identity-platform-and-the-oauth-20-resource-owner-password-credential"></a>La Plataforma de identidad de Microsoft y la credencial de contraseña de propietario de recursos OAuth 2.0
+# <a name="microsoft-identity-platform-and-the-oauth-20-resource-owner-password-credentials"></a>Plataforma de identidad de Microsoft y las credenciales de contraseña de propietario de recursos de OAuth 2.0
 
-La Plataforma de identidad de Microsoft admite la [concesión de credenciales de contraseña de propietario de recursos (ROPC)](https://tools.ietf.org/html/rfc6749#section-4.3), que permite que una aplicación inicie la sesión del usuario al controlar directamente su contraseña. El flujo de ROPC requiere un alto grado de confianza y exposición del usuario, por lo que solo debería usar este flujo cuando no se puedan usar otros flujos más seguros.
+La Plataforma de identidad de Microsoft admite la [concesión de credenciales de contraseña de propietario de recursos (ROPC) de OAuth 2.0](https://tools.ietf.org/html/rfc6749#section-4.3), que permite que, para que una aplicación inicie la sesión del usuario, se pueda controlar directamente su contraseña.  En este artículo se describe cómo programar directamente con el protocolo en la aplicación.  Cuando sea posible, se recomienda usar las Bibliotecas de autenticación de Microsoft (MSAL) admitidas, en lugar de [adquirir tokens y llamar a API web protegidas](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Además, eche un vistazo a las [aplicaciones de ejemplo que usan MSAL](sample-v2-code.md).
+
+> [!WARNING]
+> Microsoft recomienda que _no_ use el flujo de ROPC. En la mayoría de los escenarios, hay alternativas más seguras y recomendables. Este flujo requiere un alto grado de confianza en la aplicación y conlleva riesgos que no están presentes en otros flujos. Solo debe usar este flujo cuando no se puedan usar otros más seguros.
 
 > [!IMPORTANT]
 >
@@ -34,7 +37,7 @@ La Plataforma de identidad de Microsoft admite la [concesión de credenciales de
 > * Las cuentas personales que se invitan a un inquilino de Azure AD no pueden usar ROPC.
 > * Las cuentas sin contraseña no pueden iniciar sesión a través de ROPC. En este escenario, se recomienda usar en su lugar un flujo distinto para la aplicación.
 > * Si los usuarios deben usar la autenticación multifactor (MFA) para iniciar sesión en la aplicación, se les bloqueará.
-> * ROPC no se admite en escenarios de [federación de identidades híbridas](/azure/active-directory/hybrid/whatis-fed) (por ejemplo, Azure AD y ADFS usados para autenticar cuentas locales). Si los usuarios se redirigen a página completa a proveedores de identidades locales, Azure AD no puede probar el nombre de usuario y la contraseña en el proveedor de identidades. Sin embargo, la [autenticación de paso a través](/azure/active-directory/hybrid/how-to-connect-pta) se admite con ROPC.
+> * ROPC no se admite en escenarios de [federación de identidades híbridas](/azure/active-directory/hybrid/whatis-fed) (por ejemplo, Azure AD y ADFS que se usan para autenticar cuentas locales). Si los usuarios se redirigen a página completa a proveedores de identidades locales, Azure AD no puede probar el nombre de usuario y la contraseña en el proveedor de identidades. Sin embargo, la [autenticación de paso a través](/azure/active-directory/hybrid/how-to-connect-pta) se admite con ROPC.
 
 ## <a name="protocol-diagram"></a>Diagrama de protocolo
 

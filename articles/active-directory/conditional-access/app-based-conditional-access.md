@@ -1,22 +1,22 @@
 ---
-title: Uso obligatorio de aplicaciones cliente aprobadas para el acceso a aplicaciones en la nube con acceso condicional en Azure Active Directory | Microsoft Docs
+title: 'Aplicaciones cliente aprobadas con acceso condicional: Azure Active Directory'
 description: Aprenda a establecer el uso obligatorio de aplicaciones cliente aprobadas para el acceso a aplicaciones en la nube con acceso condicional en Azure Active Directory.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
-ms.date: 06/13/2018
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45eeef7d96f194e224e5b44421e73eb5ee5d9c0d
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: c173d0e17166911e28fea3d1c5820879d17af4a8
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68515148"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74381120"
 ---
 # <a name="how-to-require-approved-client-apps-for-cloud-app-access-with-conditional-access"></a>Instrucciones: Uso obligatorio de aplicaciones cliente aprobadas para el acceso a aplicaciones en la nube mediante el acceso condicional 
 

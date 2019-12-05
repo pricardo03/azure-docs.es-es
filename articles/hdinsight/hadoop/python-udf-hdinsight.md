@@ -1,19 +1,19 @@
 ---
 title: 'Funciones definidas por el usuario (UDF) de Python con Apache Hive y Apache Pig: Azure HDInsight'
 description: Vea cómo usar funciones definidas por el usuario (UDF) de Python desde Apache Hive y Apache Pig en HDInsight, la pila de tecnología de Apache Hadoop en Azure.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 03/15/2019
+ms.date: 11/15/2019
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: de738461776be7bdfd1abc45dde24dc1202d3a3c
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.openlocfilehash: 201bb40e5024442587f5508886da7e844f35be40
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71180749"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74148391"
 ---
 # <a name="use-python-user-defined-functions-udf-with-apache-hive-and-apache-pig-in-hdinsight"></a>Uso de funciones definidas por el usuario (UDF) de Python con Apache Hive y Apache Pig en HDInsight
 
@@ -23,7 +23,7 @@ Aprenda a usar funciones definidas por el usuario (UDF) de Python con Apache Hiv
 
 Python 2.7 se instala de forma predeterminada en HDInsight 3.0 y posteriores. Apache Hive puede usarse con esta versión de Python para el procesamiento de streaming. El procesamiento de streaming utiliza STDOUT y STDIN para pasar datos entre Hive y UDF.
 
-HDInsight incluye también Jython, que es una implementación de Python escrita en Java. Jython se ejecuta directamente en Máquina virtual Java y no utiliza streaming. Jython es el intérprete de Python recomendado cuando se usa Python con Pig.
+HDInsight incluye también Jython, que es una implementación de Python escrita en Java. Jython se ejecuta directamente en la Máquina virtual Java y no utiliza streaming. Jython es el intérprete de Python recomendado cuando se usa Python con Pig.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -37,7 +37,8 @@ HDInsight incluye también Jython, que es una implementación de Python escrita 
 > La cuenta de almacenamiento utilizada en este artículo ha sido Azure Storage con la [transferencia segura](../../storage/common/storage-require-secure-transfer.md) habilitada y, por tanto, usaremos `wasbs` a lo largo del artículo.
 
 ## <a name="storage-configuration"></a>Configuración de almacenamiento
-No se requiere acción alguna si la cuenta de almacenamiento utilizada es de tipo `Storage (general purpose v1)` o `StorageV2 (general purpose v2)`.  El proceso en este artículo generará una salida al menos en `/tezstaging`.  Una configuración de Hadoop predeterminada contendrá `/tezstaging` en la variable de configuración `fs.azure.page.blob.dir` en `core-site.xml` para el servicio `HDFS`.  Esta configuración hará que la salida al directorio sean blobs en páginas, que no se admiten en el tipo de cuenta de almacenamiento `BlobStorage`.  Para usar `BlobStorage` en este artículo, quite `/tezstaging` de la variable de configuración `fs.azure.page.blob.dir`.  Se puede acceder a la configuración desde la [IU de Ambari](../hdinsight-hadoop-manage-ambari.md).  Si no, recibirá el mensaje de error: `Page blob is not supported for this account type.`
+
+No se requiere acción alguna si la cuenta de almacenamiento utilizada es de tipo `Storage (general purpose v1)` o `StorageV2 (general purpose v2)`.  El proceso en este artículo generará una salida al menos en `/tezstaging`.  Una configuración de Hadoop predeterminada contendrá `/tezstaging` en la variable de configuración `fs.azure.page.blob.dir` en `core-site.xml` para el servicio `HDFS`.  Esta configuración hará que la salida al directorio sean blobs en páginas, que no se admiten en el tipo de cuenta de almacenamiento `BlobStorage`.  Para usar `BlobStorage` en este artículo, quite `/tezstaging` de la variable de configuración `fs.azure.page.blob.dir`.  Se puede acceder a la configuración desde la [IU de Ambari](../hdinsight-hadoop-manage-ambari.md).  De lo contrario, recibirá el mensaje de error: `Page blob is not supported for this account type.`
 
 > [!WARNING]  
 > En los pasos de este documento se realizan las hipótesis siguientes:  
@@ -105,6 +106,7 @@ Este script realiza las acciones siguientes:
 La salida del script es una concatenación de los valores de entrada de `devicemake` y `devicemodel`, y un hash del valor concatenado.
 
 ### <a name="upload-file-shell"></a>Cargar archivo (shell)
+
 En los siguientes comandos, reemplace `sshuser` por el nombre de usuario real, si es distinto.  Reemplace `mycluster` por el nombre de clúster real.  Asegúrese de que el archivo se encuentra en el directorio de trabajo.
 
 1. Use `scp` para copiar los archivos en el clúster de HDInsight. Edite y escriba el siguiente comando:
@@ -173,6 +175,9 @@ if(-not($sub))
     Connect-AzAccount
 }
 
+# If you have multiple subscriptions, set the one to use
+# Select-AzSubscription -SubscriptionId "<SUBSCRIPTIONID>"
+
 # Revise file path as needed
 $pathToStreamingFile = ".\hiveudf.py"
 
@@ -202,9 +207,7 @@ Set-AzStorageBlobContent `
 > [!NOTE]  
 > Para obtener más información sobre la carga de archivos, consulte el documento [Carga de datos para trabajos de Apache Hadoop en HDInsight](../hdinsight-upload-data.md).
 
-
 #### <a name="use-hive-udf"></a>Usar UDF de Hive
-
 
 ```PowerShell
 # Script should stop on failures
@@ -217,6 +220,9 @@ if(-not($sub))
 {
     Connect-AzAccount
 }
+
+# If you have multiple subscriptions, set the one to use
+# Select-AzSubscription -SubscriptionId "<SUBSCRIPTIONID>"
 
 # Get cluster info
 $clusterName = Read-Host -Prompt "Enter the HDInsight cluster name"
@@ -281,7 +287,6 @@ La salida del trabajo de **Hive** debe parecerse al siguiente ejemplo:
     100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
     100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
 
-
 ## <a name="pigpython"></a>UDF de Apache Pig
 
 Un script de Python se puede usar como UDF desde Pig a través de la instrucción `GENERATE`. Puede ejecutar el script mediante Jython o C Python.
@@ -332,7 +337,7 @@ def create_structure(input):
     return date, time, classname, level, detail
 ```
 
-En el ejemplo de Pig Latin, la entrada `LINE` se define como chararray porque no había un esquema coherente para la entrada. El script de Python transforma los datos en un esquema coherente para la salida.
+En el ejemplo de Pig Latin, la entrada `LINE` se define como chararray porque no hay un esquema coherente para la entrada. El script de Python transforma los datos en un esquema coherente para la salida.
 
 1. La instrucción `@outputSchema` define el formato de los datos que se devuelven a Pig. En este caso es un **contenedor de datos**, que es un tipo de datos de Pig. El contenedor contiene los siguientes campos, los cuales son todos chararray (cadenas):
 
@@ -351,8 +356,6 @@ En el ejemplo de Pig Latin, la entrada `LINE` se define como chararray porque no
 5. Finalmente, los valores se devuelven a Pig.
 
 Entonces tendremos un esquema coherente tal y como se define en la instrucción `@outputSchema`.
-
-
 
 ### <a name="upload-file-shell"></a>Cargar archivo (shell)
 
@@ -376,7 +379,6 @@ En los siguientes comandos, reemplace `sshuser` por el nombre de usuario real, s
     hdfs dfs -put pigudf.py /pigudf.py
     ```
 
-
 ### <a name="use-pig-udf-shell"></a>Usar UDF de Pig (shell)
 
 1. Para conectarse a Pig, use el siguiente comando en la sesión SSH abierta:
@@ -389,7 +391,7 @@ En los siguientes comandos, reemplace `sshuser` por el nombre de usuario real, s
 
    ```pig
    Register wasbs:///pigudf.py using jython as myfuncs;
-   LOGS = LOAD 'wasb:///example/data/sample.log' as (LINE:chararray);
+   LOGS = LOAD 'wasbs:///example/data/sample.log' as (LINE:chararray);
    LOG = FILTER LOGS by LINE is not null;
    DETAILS = foreach LOG generate myfuncs.create_structure(LINE);
    DUMP DETAILS;
@@ -429,7 +431,6 @@ En los siguientes comandos, reemplace `sshuser` por el nombre de usuario real, s
 
     Una vez completado este trabajo, verá la misma salida que cuando anteriormente ejecutó el script mediante Jython.
 
-
 ### <a name="upload-file-powershell"></a>Cargar archivo (PowerShell)
 
 PowerShell también puede utilizarse para ejecutar consultas de Hive de forma remota. Asegúrese de que el directorio de trabajo es donde se encuentra `pigudf.py`.  Use el siguiente script de PowerShell para ejecutar una consulta de Hive que use el script `pigudf.py`:
@@ -442,6 +443,9 @@ if(-not($sub))
 {
     Connect-AzAccount
 }
+
+# If you have multiple subscriptions, set the one to use
+# Select-AzSubscription -SubscriptionId "<SUBSCRIPTIONID>"
 
 # Revise file path as needed
 $pathToJythonFile = ".\pigudf.py"
@@ -567,7 +571,7 @@ Puede usar las siguientes instrucciones de PowerShell para quitar los caracteres
 
 ### <a name="powershell-scripts"></a>Scripts de PowerShell
 
-Ambos scripts de ejemplo de PowerShell usados para ejecutar los ejemplos contienen una línea comentada que muestra una salida con error para el trabajo. Si no ve la salida esperada del trabajo, quite los comentarios de la siguiente línea y observe si la información de error indica un problema.
+Ambos scripts de ejemplo de PowerShell usados para ejecutar los ejemplos contienen una línea comentada que muestra una salida con error para el trabajo. Si no ve la salida esperada para el trabajo, quite la marca de comentario de la siguiente línea y compruebe si la información de error indica un problema.
 
 [!code-powershell[main](../../../powershell_scripts/hdinsight/run-python-udf/run-python-udf.ps1?range=135-139)]
 
@@ -585,5 +589,4 @@ Si necesita cargar módulos de Python que no se proporcionan de forma predetermi
 Para conocer otras formas de usar Pig y Hive, y para obtener información sobre el uso de MapReduce, consulte los siguientes documentos:
 
 * [Uso de Apache Hive con HDInsight](hdinsight-use-hive.md)
-* [Uso de Apache Pig con HDInsight](hdinsight-use-pig.md)
 * [Uso de MapReduce con HDInsight](hdinsight-use-mapreduce.md)

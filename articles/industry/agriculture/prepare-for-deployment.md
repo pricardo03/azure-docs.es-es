@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: acc64486ac8bd15a9abab1f2010ea56b752a1e86
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 0fc7eb6c3b582c4fc95d78397c4cb2820ebb4ea8
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73927667"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74534237"
 ---
 # <a name="deploy-farmbeats"></a>Implementación de FarmBeats
 
@@ -62,12 +62,15 @@ Siga estos pasos para crear una oferta de FarmBeats de Azure en Marketplace:
 3. Seleccione Crear y escriba la información siguiente:
     - Nombre de la suscripción.
     - Un nombre de grupo de recursos existente (solo grupo de recursos en blanco) o cree un grupo de recursos nuevo para la implementación FarmBeats de Azure. Tome nota de este grupo de recursos en secciones posteriores.
-4. La región en la que quiere instalar FarmBeats de Azure. Actualmente FarmBeats admite las siguientes regiones: Centro de EE. UU., Oeste de Europa, Este de EE. UU. 2, Norte de Europa, Oeste de EE. UU., Sudeste Asiático, Este de EE. UU., Este de Australia, Oeste de EE. UU. 2.
+4. La región en la que quiere instalar FarmBeats de Azure. Actualmente, Azure FarmBeats se admite en las siguientes regiones: Centro de EE. UU., Oeste de Europa, Este de EE. UU. 2, Norte de Europa, Oeste de EE. UU., Sudeste Asiático, Este de EE. UU., Este de Australia, Oeste de EE. UU. 2.
 5. Seleccione **Aceptar**.
 Aparece la página Términos de uso. Revise las condiciones estándar de Marketplace o seleccione el hipervínculo para revisar las Condiciones de uso.
 6. Seleccione **Cerrar**, luego la casilla "Acepto" y, después, seleccione **Crear**.
 7. Ya ha firmado correctamente el Contrato de licencia para el usuario final (CLUF) de FarmBeats de Azure en Marketplace.  
 7. Para continuar con la implementación, siga los pasos siguientes de esta guía.
+
+> [!NOTE]
+> La realización de la oferta en Azure Marketplace solo completa una parte de la configuración. Siga las instrucciones que se indican a continuación para completar la implementación de Azure FarmBeats en su suscripción de Azure.
 
 ## <a name="prepare"></a>Preparación
 
@@ -154,7 +157,7 @@ Revise los parámetros antes de preparar el archivo.
 |Get-Help | DESCRIPCIÓN|
 |--- | ---|
 |sku  | Proporciona una opción para descargar uno de los componentes de FarmBeats de Azure, o ambos. Especifica los componentes que se van a descargar. Para instalar solo el centro de datos, use "onlydatabhub". Para instalar el centro de datos y el acelerador, use "both".|
-|subscriptionId | Especifica la suscripción para la instalación de FarmBeats.|
+|subscriptionId | Especifica la suscripción para la instalación de Azure FarmBeats.|
 |datahubResourceGroup| Nombre del grupo de recursos para los recursos del centro de datos|
 |location |Ubicación en la que desea crear los recursos|
 |acceleratorWebsiteName |Prefijo único de dirección URL para asignar un nombre al centro de datos.|
@@ -162,7 +165,7 @@ Revise los parámetros antes de preparar el archivo.
 |datahubWebsiteName  | Prefijo único de dirección URL para asignar un nombre al sitio web del centro de datos. |
 |sentinelUsername | Nombre de usuario con el que iniciar sesión: https://scihub.copernicus.eu/dhus/#/self-registration.|
 |notificationEmailAddress  | Dirección de correo electrónico para recibir las notificaciones de las alertas configuradas en el centro de datos.|
-|updateIfExists|(Opcional) Parámetro que se va a incluir en el archivo Input.Json solo si desea actualizar una instancia existente de FarmBeats. Para una actualización, los otros detalles, por ejemplo, los nombres de grupo de recursos, las ubicaciones, etc. deben ser iguales.|
+|updateIfExists|(Opcional) Parámetro que se va a incluir en el archivo Input.Json solo si desea actualizar una instancia existente de Azure FarmBeats. Para una actualización, los otros detalles, por ejemplo, los nombres de grupo de recursos, las ubicaciones, etc. deben ser iguales.|
 |aadAppClientId | [**Opcional**] Parámetro que se va a incluir en input.json solo si la aplicación de Azure AD ya existe.  |
 |aadAppClientSecret  | [**Opcional**] Parámetro que se va a incluir en input.json solo si la aplicación de Azure AD ya existe.|
 
@@ -282,8 +285,8 @@ Siga las instrucciones en pantalla.
 9. El instalador validará y empezará ahora a crear los recursos, lo que puede tardar unos 20 minutos. Mantenga la sesión activa en Cloud Shell durante este tiempo.
 10. Cuando la implementación se haya realizado correctamente, recibirá los siguientes vínculos de salida:
 
- - **URL del centro de datos**: vínculo de Swagger para probar las API de FarmBeats.
- - **URL del acelerador**: Interfaz de usuario para explorar el acelerador de granja inteligente de FarmBeats.
+ - **URL del centro de datos**: vínculo de Swagger para probar las API de FarmBeats de Azure.
+ - **URL del acelerador**: Interfaz de usuario para explorar el acelerador de Azure FarmBeats.
  - **Archivo de registro del implementador**: archivo de registro creado durante la implementación. Se puede usar para solucionar problemas, si fuera necesario.
 
 Si tiene alguna incidencia, revise [Solución de problemas](troubleshoot-project-farmbeats.md).
@@ -293,7 +296,7 @@ Si tiene alguna incidencia, revise [Solución de problemas](troubleshoot-project
 
 ### <a name="data-hub"></a>Centro de datos
 
-Una vez completada la instalación del centro de datos, recibirá la dirección URL para acceder a las API de FarmBeats de Azure a través de la interfaz de Swagger en el formato siguiente: https://\<nombre_del_sitio_web_del_centro_de_datos>.azurewebsites.net.
+Una vez completada la instalación del centro de datos, recibirá la dirección URL para acceder a las API de Azure FarmBeats a través de la interfaz de Swagger en el formato siguiente: https://\<nombre_del_sitio_web_del_centro_de_datos>.azurewebsites.net/swagger.
 
 1. Para iniciar sesión a través de Swagger, copie y pegue la dirección URL en el explorador.
 2. Inicie sesión con las credenciales de Azure Portal.
@@ -305,7 +308,7 @@ Una vez completada la instalación del centro de datos, recibirá la dirección 
 
 ### <a name="accelerator"></a>Acelerador
 
-Una vez completada la instalación del acelerador, recibirá la dirección URL para acceder a la interfaz de usuario de FarmBeats en el formato siguiente: https://\<nombre_del_sitio_web_del_acelerador>.azurewebsites.net
+Una vez completada la instalación del acelerador, recibirá la dirección URL para acceder a la interfaz de usuario de Azure FarmBeats en el formato siguiente: https://\<nombre_del_sitio_web_del_acelerador>.azurewebsites.net
 
 1. Para iniciar sesión a través del acelerador, copie y pegue la dirección URL en el explorador.
 2. Inicie sesión con las credenciales de Azure Portal.
@@ -334,8 +337,8 @@ Siga las instrucciones en pantalla:
 9. Contraseña de Sentinel
 10. El instalador validará y empezará ahora a crear los recursos, lo que puede tardar unos 20 minutos.
 11. Una vez que la implementación se ha realizado correctamente, recibirá los siguientes vínculos de salida:
- - **URL del centro de datos**: vínculo de Swagger para probar las API de FarmBeats.
- - **URL del acelerador**: interfaz de usuario para explorar el acelerador de granja inteligente de FarmBeats.
+ - **URL del centro de datos**: vínculo de Swagger para probar las API de FarmBeats de Azure.
+ - **URL del acelerador**: Interfaz de usuario para explorar el acelerador de Azure FarmBeats.
  - **Archivo de registro del implementador**: guarda los registros durante la implementación. Se puede usar para solucionar problemas.
 
 > [!NOTE]
@@ -344,12 +347,12 @@ Siga las instrucciones en pantalla:
 
 ## <a name="uninstall"></a>Desinstalación
 
-Actualmente no se admite la desinstalación automatizada de FarmBeats mediante el instalador. Para quitar el centro de datos o el acelerador, en Azure Portal, elimine el grupo de recursos en el que están instalados estos componentes o elimine los recursos manualmente.
+Actualmente no se admite la desinstalación automatizada de Azure FarmBeats mediante el instalador. Para quitar el centro de datos o el acelerador, en Azure Portal, elimine el grupo de recursos en el que están instalados estos componentes o elimine los recursos manualmente.
 
 Por ejemplo, si se ha implementado el centro de datos y el acelerador en dos grupos de recursos distintos, elimine los grupos de recursos de la siguiente manera:
 
 1. Inicie sesión en Azure Portal.
-2. Seleccione la cuenta en la esquina superior derecha y cambie al inquilino de Azure AD en el que quiera implementar FarmBeats de Azure.
+2. Seleccione la cuenta en la esquina superior derecha y cambie al inquilino de Azure AD en el que quiera implementar Azure FarmBeats.
 
    > [!NOTE]
    > Para que el acelerador funcione correctamente, es necesario el centro de datos. No se recomienda desinstalar el centro de datos sin desinstalar el acelerador.

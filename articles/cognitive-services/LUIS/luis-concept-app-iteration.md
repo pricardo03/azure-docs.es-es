@@ -9,55 +9,53 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 11/20/2019
 ms.author: diberry
-ms.openlocfilehash: 12a1f2304e4255eb9abd04ab2e2d0726066dd1e6
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c1c1b2df301634a435b610c395a1a58aa5573da3
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73487765"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74422591"
 ---
-# <a name="authoring-cycles-and-versions"></a>Creación de ciclos y versiones
+# <a name="iterative-app-design-for-luis"></a>Diseño iterativo de aplicaciones para LUIS
 
-La aplicación de LUIS aprende mejor en un ciclo iterativo de:
+Una aplicación de Language Understanding (LUIS) aprende y funciona de forma más eficaz con la iteración. Este es un ciclo de iteración típico:
 
-* crear una nueva versión
-* editar el esquema de la aplicación
-    * intenciones con expresiones de ejemplo
-    * entities
-    * features
-* entrenar
-* test
-* Publicar
-    * probar en el punto de conexión de predicción para el aprendizaje activo
-* recopilación de datos de consultas de punto de conexión
+* Creación de una nueva versión
+* Edición del esquema de aplicación de LUIS Esto incluye:
+    * Intenciones con expresiones de ejemplo
+    * Entidades
+    * Características
+* Entrenamiento, prueba y publicación
+    * Prueba en el punto de conexión de predicción para el aprendizaje activo
+* Recopilación de datos de consultas del punto de conexión
 
 ![Ciclo de creación](./media/luis-concept-app-iteration/iteration.png)
 
 ## <a name="building-a-luis-schema"></a>Crear un modelo de LUIS
 
-La finalidad del esquema de la aplicación es definir qué pide el usuario (la intención) y qué partes de la pregunta aportan datos (entidades) que permitan determinar la respuesta. 
+El esquema de la aplicación define qué pide el usuario (la _intención_ _)_ y qué partes de la intención aportan datos (llamados _entidades_) que se usan para ayudar a determinar la respuesta. 
 
-El esquema de la aplicación debe ser específico de los dominios de aplicación para poder determinar palabras y frases que sean relevantes, así como el orden habitual de las palabras. 
+El esquema de la aplicación tiene que ser específico de los dominios de aplicación para poder determinar palabras y frases que sean apropiadas, así como el orden habitual de las palabras. 
 
-Las expresiones de ejemplo representan la entrada del usuario que se espera que la aplicación obtenga en tiempo de ejecución. 
+Los expresiones de ejemplo representan entradas de usuario, como texto o voz reconocidos, que la aplicación espera en tiempo de ejecución. 
 
 El esquema requiere intenciones y _debe tener_ entidades. 
 
 ### <a name="example-schema-of-intents"></a>Esquema de ejemplo de intenciones
 
-El esquema más común es un esquema de intenciones organizado con intenciones. Este tipo de esquema depende de LUIS para determinar la intención de un usuario. 
+El esquema más común es un esquema de intenciones organizado con intenciones. Este tipo de esquema usa LUIS para determinar la intención de un usuario. 
 
-Este tipo de esquema puede tener entidades si ayuda a LUIS a determinar la intención. Por ejemplo, una entidad de envío (como un descriptor a una intención) ayuda a LUIS a determinar una intención de envío. 
+Este tipo de esquema de intención puede tener entidades si ayuda a LUIS a determinar la intención del usuario. Por ejemplo, una entidad de envío (como un descriptor a una intención) ayuda a LUIS a determinar una intención de envío. 
 
 ### <a name="example-schema-of-entities"></a>Esquema de ejemplo de entidades
 
-Un esquema de entidad se centra en las entidades, que son los datos que se extraen de expresiones. 
+Un esquema de entidad se centra en las entidades, que son los datos que se extraen de las expresiones del usuario. Por ejemplo, si un usuario quiere decir "Me gustaría pedir tres pizzas". Hay dos entidades que se pueden extraer: _tres_ y _pizzas_. Se usan para ayudar a satisfacer la intención, que era realizar un pedido. 
 
-La intención de la expresión es menor o no es importante para la aplicación cliente. 
+Para un esquema de entidad, la intención de la expresión es menos importante para la aplicación cliente. 
 
-Un método común para organizar un esquema de entidades es agregar todas las expresiones de ejemplo a la intención None. 
+Un método común para organizar un esquema de entidades es agregar todas las expresiones de ejemplo a la intención **None**. 
 
 ### <a name="example-of-a-mixed-schema"></a>Ejemplo de un esquema mixto
 
@@ -77,15 +75,15 @@ Cada expresión de ejemplo necesita tener todos los **datos necesarios que se de
 |Intención|**Clasifique** las expresiones de usuario en una sola intención o acción. Algunos ejemplos son `BookFlight` y `GetWeather`.|
 |Entidad|**Extraiga** los datos de la expresión necesaria para completar la intención. Entre los ejemplos se incluyen la fecha y la hora de viaje, así como la ubicación.|
 
-Debe diseñar la aplicación de LUIS que omita las expresiones que no sean pertinentes para el dominio de la aplicación. Para ello, debe asignar la expresión a la intención **None**. 
+Se puede diseñar una aplicación de LUIS para que omita las expresiones que no sean pertinentes para el dominio de la aplicación. Para ello, debe asignar la expresión a la intención **None**.
 
 ## <a name="test-and-train-your-app"></a>Prueba y entrenamiento de la aplicación
 
-Una vez que tenga entre quince y treinta expresiones de ejemplo diferentes en cada intención, con las entidades necesarias etiquetadas, tendrá que probar y [entrenar](luis-how-to-train.md). 
+Después de tener entre quince y treinta expresiones de ejemplo diferentes en cada intención, con las entidades necesarias etiquetadas, tendrá que probar y [entrenar](luis-how-to-train.md) la aplicación de LUIS. 
 
 ## <a name="publish-to-a-prediction-endpoint"></a>Publicación en un punto de conexión de la predicción
 
-Asegúrese de publicar la aplicación de manera que esté disponible en las [regiones de punto de conexión de predicción](luis-reference-regions.md) que necesite. 
+La aplicación de LUIS debe publicarse para que esté disponible en la lista de [regiones del punto de conexión de la predicción](luis-reference-regions.md).
 
 ## <a name="test-your-published-app"></a>Prueba de la aplicación publicada
 
@@ -93,7 +91,7 @@ Puede probar la aplicación de LUIS publicada desde el punto de conexión de pre
 
 ## <a name="create-a-new-version-for-each-cycle"></a>Creación de una nueva versión para cada ciclo
 
-Las versiones de LUIS son similares a las versiones de la programación tradicional. Cada versión es una instantánea en el tiempo de la aplicación. Antes de realizar cambios en la aplicación, cree una nueva versión. Es más fácil volver a una versión anterior y, luego, intentar quitar las intenciones y expresiones a un estado anterior.
+Cada versión es una instantánea en el tiempo de la aplicación de LUIS. Antes de realizar cambios en la aplicación, cree una nueva versión. Es más fácil volver a una versión anterior y, luego, intentar quitar las intenciones y expresiones de un estado anterior.
 
 El identificador de la versión está formado por caracteres, dígitos o ".", y no puede tener más de 10 caracteres.
 
@@ -101,50 +99,54 @@ La versión inicial (0.1) es la versión activa predeterminada.
 
 ### <a name="begin-by-cloning-an-existing-version"></a>Comienzo con la clonación de una versión existente
 
-Clone una versión existente para usarla como punto inicial para la nueva versión. Después de clonar una versión, la versión nueva se convertirá en la versión **activa**. 
+Clone una versión existente para usarla como punto inicial de la nueva versión. Después de clonar una versión, la versión nueva se convertirá en la versión **activa**. 
 
 ### <a name="publishing-slots"></a>Ranuras de publicación
-Puede publicar en los espacios de ensayo y de producción. Cada espacio puede tener otra versión o la misma. Esto es útil para comprobar los cambios antes de publicar para producción, que está disponible para bots u otras aplicaciones de llamadas de LUIS. 
 
-Las versiones entrenadas no están disponibles automáticamente en el [punto de conexión](luis-glossary.md#endpoint) de la aplicación. Debe [publicar](luis-how-to-publish-app.md) o volver a publicar una versión para que esté disponible en el punto de conexión de la aplicación. Puede publicar en la fase de **ensayo** o de **producción**, lo que le ofrece dos versiones de la aplicación disponibles en el punto de conexión. Si necesita que haya disponibles más versiones de la aplicación en un punto de conexión, debe exportar la versión y volver a importarla a una aplicación nueva. La nueva aplicación tiene un identificador de aplicación diferente.
+Puede publicar en los espacios de ensayo o de producción. Cada espacio puede tener otra versión o la misma. Esto es útil para comprobar los cambios antes de publicar para producción, que está disponible para bots u otras aplicaciones de llamadas de LUIS. 
+
+Las versiones entrenadas no están disponibles automáticamente en el [punto de conexión](luis-glossary.md#endpoint) de la aplicación de LUIS. Debe [publicar](luis-how-to-publish-app.md) o volver a publicar una versión para que esté disponible en el punto de conexión de la aplicación de LUIS. Puede publicar en la fase de **ensayo** o de **producción**, lo que le ofrece dos versiones de la aplicación disponibles en el punto de conexión. Si tienen que estar disponibles más versiones de la aplicación en un punto de conexión, debe exportar la versión y volver a importarla a una aplicación nueva. La nueva aplicación tiene un identificador de aplicación diferente.
 
 ### <a name="import-and-export-a-version"></a>Importar y exportar una versión
-Puede importar una versión en el nivel de la aplicación. Esa versión se convertirá en la versión activa y usará el identificador de versión en la propiedad `versionId` del archivo de la aplicación. También puede importar en una aplicación existente, en el nivel de versión. La versión nueva se convertirá en la versión activa. 
 
-Puede exportar una versión en el nivel de aplicación o de versión. La única diferencia es que la versión exportada en el nivel de aplicación es la versión activa, mientras que en el nivel de versión puede elegir cualquier versión para exportarla en la página **[Configuración](luis-how-to-manage-versions.md)** . 
+Una versión se puede importar en el nivel de la aplicación. Esa versión se convertirá en la versión activa y usará el identificador de versión en la propiedad `versionId` del archivo de la aplicación. También puede importar en una aplicación existente, en el nivel de versión. La versión nueva se convertirá en la versión activa. 
 
-El archivo exportado no contiene:
+También se puede exportar una versión en el nivel de aplicación o de versión. La única diferencia es que la versión exportada en el nivel de aplicación es la versión activa, mientras que en el nivel de versión puede elegir cualquier versión para exportarla en la página **[Configuración](luis-how-to-manage-versions.md)** . 
 
-* información de aprendizaje automático, puesto que la aplicación se vuelve a entrenar después de importarla
-* información del colaborador
+El archivo exportado **no** contiene:
 
-Para realizar una copia de seguridad del esquema de la aplicación de LUIS, exporte una versión desde el portal de LUIS.
+* Información con aprendizaje automático, puesto que la aplicación se vuelve a entrenar después de importarse.
+* Información del colaborador.
 
-## <a name="manage-contributor-changes-with-versions-and-apps"></a>Administración de los cambios del colaborador con versiones y aplicaciones
+Para realizar una copia de seguridad del esquema de la aplicación de LUIS, exporte una versión desde el [portal de LUIS](https://www.luis.ai/applications).
 
-LUIS proporciona el concepto de colaboradores de una aplicación al proporcionar permisos de nivel de recurso de Azure. Combine este concepto con el control de versiones para proporcionar colaboración dirigida. 
+## <a name="manage-contributor-changes-with-versions-and-contributors"></a>Administración de los cambios del colaborador con versiones y colaboradores
+
+LUIS usa el concepto de colaboradores en la aplicación al proporcionar permisos de nivel de recurso de Azure. Combine este concepto con el control de versiones para proporcionar colaboración dirigida. 
 
 Use las técnicas siguientes para administrar los cambios del colaborador en la aplicación.
 
 ### <a name="manage-multiple-versions-inside-the-same-app"></a>Administrar varias versiones dentro de la misma aplicación
-Comience haciendo una [clonación](luis-how-to-manage-versions.md#clone-a-version), desde una versión base, para cada autor. 
 
-Cada autor efectúa cambios en su propia versión de la aplicación. Cuando estén satisfechos con el modelo, deberá exportar las versiones nuevas a archivos JSON.  
+Comience con [clonación](luis-how-to-manage-versions.md#clone-a-version), desde una versión base, para cada autor. 
 
-Se pueden comparar los cambios de las aplicaciones exportadas y los archivos .json o .lu. Combine los archivos para crear un único archivo de la nueva versión. Cambie la propiedad **versionId** para indicar la nueva versión combinada. Importe esa versión en la aplicación original. 
+Cada autor efectúa cambios en su propia versión de la aplicación. Cuando esté satisfecho con el modelo, debe exportar las versiones nuevas a archivos JSON.  
+
+Se pueden comparar los cambios de las aplicaciones exportadas y los archivos .json o .lu. Combine los archivos para crear un único archivo de la nueva versión. Cambie la propiedad `versionId` para indicar la nueva versión combinada. Importe esa versión en la aplicación original. 
 
 Este método permite tener una versión activa, una versión de ensayo y una versión publicada. Puede comparar los resultados de la versión activa con una versión publicada (fase o producción) en el [panel de pruebas interactivas](luis-interactive-test.md).
 
 ### <a name="manage-multiple-versions-as-apps"></a>Administrar varias versiones como aplicaciones
+
 [Exporte](luis-how-to-manage-versions.md#export-version) la versión base. Cada autor importa la versión. La persona que importa la aplicación es el propietario de la versión. Cuando acabe de modificar la aplicación, deberá exportar la versión. 
 
 Las aplicaciones exportadas son archivos con formato JSON, que se pueden comparar con la exportación base para efectuar cambios. Combine los archivos para crear un único archivo JSON de la nueva versión. Cambie la propiedad **versionId** del archivo JSON para indicar la nueva versión combinada. Importe esa versión en la aplicación original.
 
 Obtenga más información sobre la creación de contribuciones de los [colaboradores](luis-how-to-collaborate.md).
 
-## <a name="review-endpoint-utterances-to-begin-the-new-authoring-cycle"></a>Revisión de las expresiones de punto de conexión para comenzar el nuevo ciclo de creación
+## <a name="review-endpoint-utterances-to-begin-the-new-iterative-cycle"></a>Revisión de las expresiones de punto de conexión para comenzar el nuevo ciclo iterativo
 
-Cuando haya terminado un ciclo de creación, puede empezar de nuevo. Empiece [revisando las expresiones del punto de conexión de predicción](luis-how-to-review-endpoint-utterances.md) que LUIS haya marcado con una confianza baja. Compruebe estas expresiones tanto para la intención predicha correcta como para la entidad correcta y completa extraída. Cuando revise y acepte los cambios, la lista de revisión debería estar vacía.  
+Cuando haya terminado con un ciclo de iteración, puede repetir el proceso. Empiece [revisando las expresiones del punto de conexión de predicción](luis-how-to-review-endpoint-utterances.md) que LUIS haya marcado con una confianza baja. Compruebe estas expresiones tanto para la intención predicha correcta como para la entidad correcta y completa extraída. Después de revisar y aceptar los cambios, la lista de revisión debería estar vacía.  
 
 ## <a name="next-steps"></a>Pasos siguientes
 

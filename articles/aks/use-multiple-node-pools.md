@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/9/2019
 ms.author: mlearned
-ms.openlocfilehash: 9c8bae879c5e28914981eec34afb0759dd963004
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: c48bcab0a3d009b186832a6b728597f03788a7cd
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73928976"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74382986"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Creación y administración de varios grupos de nodos para un clúster de Azure Kubernetes Service (AKS)
 
@@ -208,12 +208,12 @@ La actualización de los grupos de nodos individuales requiere el uso de `az aks
 
 ### <a name="validation-rules-for-upgrades"></a>Reglas de validación para actualizaciones
 
-Las actualizaciones válidas para las versiones de Kubernetes del plano de control o de los grupos de nodos de un clúster se validan mediante los siguientes conjuntos de reglas.
+Las actualizaciones válidas de Kubernetes del plano de control o de los grupos de nodos de un clúster se validan mediante los siguientes conjuntos de reglas.
 
-* Reglas para establecer las versiones válidas a las que se puede actualizar:
+* Reglas de versiones válidas para actualizar grupos de nodos:
    * La versión del grupo de nodos debe tener la misma versión *principal* que el plano de control.
-   * La versión del grupo de nodos puede ser dos versiones *secundarias* anterior a la versión del plano de control.
-   * La versión del grupo de nodos puede ser dos versiones de *revisión* anterior a la versión del plano de control.
+   * La versión del grupo de nodos *secundaria* debe estar dentro de dos versiones *secundarias* de la versión del plano de control.
+   * La versión del grupo de nodos no puede ser mayor que la versión `major.minor.patch` de control.
 
 * Reglas para enviar una operación de actualización:
    * No se puede cambiar a la versión anterior de Kubernetes en el plano de control ni en el grupo de nodos.

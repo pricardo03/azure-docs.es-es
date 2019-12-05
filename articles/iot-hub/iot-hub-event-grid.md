@@ -1,19 +1,19 @@
 ---
 title: Azure IoT Hub y Event Grid | Microsoft Docs
 description: Use Azure Event Grid para desencadenar procesos basados en acciones que se producen en IoT Hub.
-author: kgremban
+author: robinsh
 manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 02/20/2019
-ms.author: kgremban
-ms.openlocfilehash: a2bb961989d5bb1cc879b197e45d25b566c56e83
-ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
+ms.author: robinsh
+ms.openlocfilehash: 2969791204474a7d73493ce6397c52255f7eab4a
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2019
-ms.locfileid: "73906783"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151298"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>Reacción a eventos de IoT Hub usando Event Grid para desencadenar acciones
 
@@ -176,13 +176,21 @@ devices/{deviceId}
 
 Event Grid también permite filtrar los atributos de cada evento, incluido el contenido de datos. Esto le permite elegir qué eventos se entregan en función del contenido del mensaje de telemetría. Consulte el [filtrado avanzado](../event-grid/event-filtering.md#advanced-filtering) para ver ejemplos. Para filtrar por el cuerpo del mensaje de telemetría, debe establecer contentType en **application/json** y contentEncoding en **UTF-8** en las [propiedades del sistema](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#system-properties) del mensaje. Ambas propiedades no distinguen mayúsculas de minúsculas.
 
-Para eventos que no son de telemetría como DeviceConnected, DeviceDisconnected, DeviceCreated y DeviceDeleted, se puede usar el filtrado de Event Grid al crear la suscripción. Para eventos de telemetría, además del filtrado en Event Grid, los usuarios también pueden filtrar en dispositivos gemelos, propiedades de mensajes y cuerpo mediante la consulta de enrutamiento de mensajes. Creamos una [ruta](iot-hub-devguide-messages-d2c.md) predeterminada en IoT Hub, en función de su suscripción de Event Grid para la telemetría del dispositivo. Esta ruta única puede controlar todas las suscripciones de Event Grid. Para filtrar los mensajes antes de que ser envíen los datos de telemetría, puede actualizar la [consulta de enrutamiento](iot-hub-devguide-routing-query-syntax.md). Tenga en cuenta que esa consulta de enrutamiento puede aplicarse al cuerpo del mensaje solo si el cuerpo es JSON. También debe establecer contentType en **application/json** y contentEncoding en **UTF-8** en las [propiedades del sistema](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#system-properties) del mensaje.
+Para eventos que no son de telemetría como DeviceConnected, DeviceDisconnected, DeviceCreated y DeviceDeleted, se puede usar el filtrado de Event Grid al crear la suscripción. Para eventos de telemetría, además del filtrado en Event Grid, los usuarios también pueden filtrar en dispositivos gemelos, propiedades de mensajes y cuerpo mediante la consulta de enrutamiento de mensajes. 
+
+Al suscribirse a eventos de telemetría mediante Event Grid, IoT Hub crea una ruta de mensaje predeterminada para enviar los mensajes del dispositivo del tipo de origen de datos a Event Grid. Para más información sobre el enrutamiento de mensajes, consulte [Enrutamiento de mensajes de IoT Hub](iot-hub-devguide-messages-d2c.md). Esta ruta será visible en el portal en IoT Hub > Enrutamiento de mensajes. Solo se crea una ruta a Event Grid independientemente del número de suscripciones de Event Grid creadas para eventos de telemetría. Por lo tanto, si necesita varias suscripciones con filtros diferentes, puede usar el operador OR en estas consultas en la misma ruta. La creación y eliminación de la ruta se controla mediante la suscripción de eventos de telemetría a través de Event Grid. No se puede crear ni eliminar una ruta a Event Grid mediante el enrutamiento de mensajes de IoT Hub.
+
+Para filtrar los mensajes antes de que ser envíen los datos de telemetría, puede actualizar la [consulta de enrutamiento](iot-hub-devguide-routing-query-syntax.md). Tenga en cuenta que esa consulta de enrutamiento puede aplicarse al cuerpo del mensaje solo si el cuerpo es JSON. También debe establecer contentType en **application/json** y contentEncoding en **UTF-8** en las [propiedades del sistema](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#system-properties) del mensaje.
 
 ## <a name="limitations-for-device-connected-and-device-disconnected-events"></a>Limitaciones de los eventos de dispositivo conectado y dispositivo desconectado
 
 Para recibir los eventos de dispositivo conectado y dispositivo desconectado, debe abrir el vínculo D2C o C2D del dispositivo. Si el dispositivo usa el protocolo MQTT, IoT Hub mantendrá el vínculo C2D abierto. Para AMQP puede abrir el vínculo C2D mediante una llamada a [Receive Async API](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet).
 
-Si está enviando telemetría, el vínculo D2C está abierto. Si la conexión del dispositivo es intermitente, lo que significa que el dispositivo se conecta y desconecta con frecuencia, no se le enviarán todos y cada uno de los estados de conexión sino que se publicará el estado de conexión del que se realiza una instantánea cada minuto. En el caso de una interrupción de IoT Hub, publicaremos el estado de conexión del dispositivo tan pronto como termine la interrupción. Si el dispositivo se desconecta durante esa interrupción, el evento de dispositivo desconectado se publicará en 10 minutos.
+Si está enviando telemetría, el vínculo D2C está abierto. 
+
+Si la conexión del dispositivo es intermitente, lo que significa que el dispositivo se conecta y desconecta con frecuencia, no se le enviarán todos y cada uno de los estados de conexión, sino que se publicará el *último* estado de conexión, que es coherente finalmente. Por ejemplo, si el dispositivo tenía el estado conectado inicialmente, la conectividad parpadeará durante unos segundos y, a continuación, volverá al estado conectado. No se publicarán nuevos eventos de estado de conexión del dispositivo desde el estado de conexión inicial. 
+
+En el caso de una interrupción de IoT Hub, publicaremos el estado de conexión del dispositivo tan pronto como termine la interrupción. Si el dispositivo se desconecta durante esa interrupción, el evento de dispositivo desconectado se publicará en 10 minutos.
 
 ## <a name="tips-for-consuming-events"></a>Sugerencias para consumir eventos
 

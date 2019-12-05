@@ -1,14 +1,14 @@
 ---
 title: Bloqueo de recursos
-description: Obtenga más información sobre las opciones de bloqueo para proteger los recursos cuando asigne un plano técnico.
+description: Obtenga más información sobre las opciones de bloqueo de Azure Blueprints para proteger los recursos cuando asigne un plano técnico.
 ms.date: 04/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: 754b9d7f73c6111abf7505e222a1ca5a8712ae45
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 50f506cc57f67ca2ae2b07e342750d6c5099e739
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960482"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406401"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Comprensión del bloqueo de recursos en planos técnicos de Azure Blueprint
 
@@ -61,8 +61,7 @@ Las [propiedades de asignación de denegación](../../../role-based-access-contr
 
 ## <a name="exclude-a-principal-from-a-deny-assignment"></a>Exclusión de una entidad de seguridad en una asignación de denegación
 
-En algunos escenarios de diseño y seguridad, puede que necesite excluir una entidad de seguridad de la [asignación de denegación](../../../role-based-access-control/deny-assignments.md) que creó la asignación del plano técnico. Esto se hace en la API REST mediante la adición de hasta cinco valores en la matriz **excludedPrincipals** de la propiedad **locks** propiedad cuando [se crea la asignación](/rest/api/blueprints/assignments/createorupdate).
-Este es un ejemplo de un cuerpo de la solicitud que incluye **excludedPrincipals**:
+En algunos escenarios de diseño y seguridad, puede que necesite excluir una entidad de seguridad de la [asignación de denegación](../../../role-based-access-control/deny-assignments.md) que creó la asignación del plano técnico. Esto se hace en la API REST mediante la adición de hasta cinco valores en la matriz **excludedPrincipals** de la propiedad **locks** propiedad cuando [se crea la asignación](/rest/api/blueprints/assignments/createorupdate). Este es un ejemplo de un cuerpo de la solicitud que incluye **excludedPrincipals**:
 
 ```json
 {
