@@ -24,8 +24,6 @@
           href: migrate-from-hub-spoke-topology.md
         - name: Arquitectura de red de tránsito global
           href: virtual-wan-global-transit-network-architecture.md
-        - name: Plano de control de Office 365 en la Virtual WAN
-          href: virtual-wan-office365-overview.md
 - name: Guías de procedimientos
   items:
     - name: Conexión de una puerta de enlace de red virtual a Virtual WAN
