@@ -16,12 +16,12 @@ ms.date: 04/24/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e95b230d4f9699f15296ba94946c7063cabd0516
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.openlocfilehash: 6a82766be01476890bbf18b518ce21febe0d07f1
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73847191"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74766096"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Sincronización de Azure AD Connect: Atributos sincronizados con Azure Active Directory
 En este tema se enumeran los atributos que se sincronizan mediante la sincronización de Azure AD Connect.  
@@ -430,7 +430,7 @@ Estos atributos se reescriben desde Azure AD en Active Directory local cuando se
 | msExchSafeRecipientsHash| ms-Exch-SafeRecipientsHash  |X | | |Filtrado: reescribe los datos de remitentes seguros y bloqueados en línea y el filtrado de local de los clientes. |
 | msExchSafeSendersHash| ms-Exch-SafeSendersHash  |X | | |Filtrado: reescribe los datos de remitentes seguros y bloqueados en línea y el filtrado de local de los clientes. |
 | msExchUCVoiceMailSettings| ms-Exch-UCVoiceMailSettings |X | | |Habilitar mensajería unificada (UM) - correo de voz en línea: usado para la integración de Microsoft Lync Server para indicar a Lync Server local que el usuario tiene el correo de voz en los servicios en línea. |
-| msExchUserHoldPolicies| ms-Exc-hUserHoldPolicies |X | | |Retención por juicio: permite que los servicios en la nube determinen qué usuarios están bajo retención por juicio. |
+| msExchUserHoldPolicies| ms-Exch-UserHoldPolicies |X | | |Retención por juicio: permite que los servicios en la nube determinen qué usuarios están bajo retención por juicio. |
 | proxyAddresses| proxyAddresses |X |X |X |Solo se inserta la dirección x500 de Exchange Online. |
 | publicDelegates| ms-Exch-Public-Delegates  |X | | |Permite conceder derechos SendOnBehalfTo a un buzón de Exchange Online para los usuarios con buzones de Exchange locales. Requiere la compilación 1.1.552.0 de Azure AD Connect o versiones posteriores. |
 
