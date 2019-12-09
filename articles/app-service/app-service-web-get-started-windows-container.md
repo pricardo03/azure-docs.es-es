@@ -1,24 +1,15 @@
 ---
-title: 'Ejecución de un contenedor de Windows personalizado (versión preliminar): Azure App Service | Microsoft Docs'
-description: Aprenda a implementar un contenedor de Windows personalizado en Azure App Service.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: jeconnoc
-editor: ''
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
+title: 'Inicio rápido: Contenedor de Windows (versión preliminar)'
+description: Implemente su primer contenedor de Windows personalizado en Azure App Service. Aproveche las ventajas de la inclusión en contenedores, personalice el contenedor de Windows como desee.
 ms.topic: quickstart
 ms.date: 08/30/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 230ff96aaf2c78827c7c4da92abe0f356cc2643e
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 0b618c4f1a24e4089cac2ddf34e61bab156aefdd
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241904"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671345"
 ---
 # <a name="run-a-custom-windows-container-in-azure-preview"></a>Ejecución de un contenedor de Windows personalizado en Azure (versión preliminar)
 

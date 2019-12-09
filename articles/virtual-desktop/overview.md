@@ -103,7 +103,7 @@ Windows Virtual Desktop consta de los escritorios y las aplicaciones de Windows 
 Para obtener un rendimiento óptimo, asegúrese de que la red cumple los requisitos siguientes:
 
 * La latencia de ida y vuelta (RTT) desde la red del cliente hasta la región de Azure donde se han implementado grupos host debe ser inferior a 150 ms.
-* El tráfico de red puede fluir fuera de las fronteras del país o la región si las máquinas virtuales que hospedan los escritorios y aplicaciones se conectan al servicio de administración.
+* El tráfico de red puede fluir fuera de las fronteras del país o la región si las máquinas virtuales que hospedan los escritorios y las aplicaciones se conectan al servicio de administración.
 * Para optimizar el rendimiento de la red, se recomienda que las máquinas virtuales del host de sesión se coloquen en la misma región de Azure que el servicio de administración.
 
 ## <a name="supported-remote-desktop-clients"></a>Clientes compatibles de Escritorio remoto

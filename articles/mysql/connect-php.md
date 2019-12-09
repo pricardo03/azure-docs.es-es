@@ -1,18 +1,18 @@
 ---
-title: Conexión a Azure Database for MySQL desde PHP
+title: 'Conexión mediante PHP: Azure Database for MySQL'
 description: En este tutorial rápido se proporcionan ejemplos de código de PHP que se pueden usar para conectarse a Azure Database for MySQL y consultar datos en este servicio.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 02/28/2018
-ms.openlocfilehash: 76d721ca102ae0affeba23c46d5da9fd44743f5b
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 12/02/2019
+ms.openlocfilehash: b8923000b0bbc75e6d96b1b27a1154ef8ff87f24
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608773"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770720"
 ---
 # <a name="azure-database-for-mysql-use-php-to-connect-and-query-data"></a>Azure Database for MySQL: Uso de PHP para conectarse a los datos y consultarlos
 En este tutorial rápido se muestra cómo conectarse a una instancia de Azure Database for MySQL mediante una aplicación de [PHP](https://secure.php.net/manual/intro-whatis.php). Se indica cómo usar instrucciones SQL para consultar, insertar, actualizar y eliminar datos en la base de datos. En este tema se da por hecho que está familiarizado con el desarrollo mediante PHP y que nunca ha usado Azure Database for MySQL.
@@ -33,7 +33,7 @@ Instale PHP en su propio servidor o cree una [aplicación web](../app-service/ov
 - Descargue la [versión segura 7.1.4 de PHP sin subprocesos (x64)](https://secure.php.net/downloads.php).
 - Instale PHP y consulte el [manual de PHP](https://secure.php.net/manual/install.unix.php) para continuar con la configuración.
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 - Descargue la [versión segura 7.1.4 de PHP sin subprocesos (x64)](https://windows.php.net/download#php-7.1).
 - Instale PHP y consulte el [manual de PHP](https://secure.php.net/manual/install.windows.php) para continuar con la configuración.
 

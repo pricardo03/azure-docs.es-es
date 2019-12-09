@@ -1,5 +1,5 @@
 ---
-title: Conexión a Azure Database for MySQL mediante Go
+title: 'Conexión mediante Go: Azure Database for MySQL'
 description: En este tutorial rápido se proporcionan ejemplos de código Go que se pueden usar para conectarse a Azure Database for MySQL y consultar datos en este servicio.
 author: ajlam
 ms.author: andrela
@@ -7,13 +7,13 @@ ms.service: mysql
 ms.custom: mvc
 ms.devlang: go
 ms.topic: quickstart
-ms.date: 02/28/2018
-ms.openlocfilehash: 3cd25f935a38f5192811d7f7886d3c6654d5d221
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.date: 12/02/2019
+ms.openlocfilehash: b3ee0caa380cacc697a87307c3107b93aa241afb
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351803"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770771"
 ---
 # <a name="azure-database-for-mysql-use-go-language-to-connect-and-query-data"></a>Azure Database for MySQL: Uso de Go para conectarse a los datos y consultarlos
 En este tutorial rápido se muestra cómo conectarse a una instancia de Azure Database for MySQL mediante código escrito en el lenguaje [Go](https://golang.org/) desde las plataformas Windows, Ubuntu Linux y macOS de Apple. Se indica cómo usar instrucciones SQL para consultar, insertar, actualizar y eliminar datos en la base de datos. En este artículo se da por hecho que está familiarizado con el desarrollo mediante Go, pero que nunca ha usado Azure Database for MySQL.
@@ -26,7 +26,7 @@ En este tutorial rápido se usan como punto de partida los recursos creados en u
 ## <a name="install-go-and-mysql-connector"></a>Instalación de Go y el conector de MySQL
 Instale [Go](https://golang.org/doc/install) y [go-sql-driver for MySQL](https://github.com/go-sql-driver/mysql#installation) en su propio equipo. Dependiendo de la plataforma, siga estos pasos de la sección que proceda:
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 1. [Descargue](https://golang.org/dl/) e instale Go para Microsoft Windows de acuerdo con las [instrucciones de instalación](https://golang.org/doc/install).
 2. En el menú Inicio, inicie el símbolo del sistema.
 3. Cree una carpeta para su proyecto, como `mkdir  %USERPROFILE%\go\src\mysqlgo`.

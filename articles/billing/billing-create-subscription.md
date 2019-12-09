@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: banders
-ms.openlocfilehash: 7ca7256cbe42949141bc216ee1cb5c89ceac935c
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: bd561f616c9e120a38f1c6b125e349684f82942e
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226366"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74665617"
 ---
 # <a name="create-an-additional-azure-subscription"></a>Creación de una suscripción de Azure adicional
 
@@ -36,7 +36,7 @@ Necesita los siguientes permisos para crear suscripciones:
 |---------|---------|
 |Contrato Enterprise (EA) |  Rol de propietario de la cuenta en la inscripción del Contrato Enterprise. Para más información, consulte [Roles administrativos del Contrato Enterprise de Azure en Azure](billing-understand-ea-roles.md).    |
 |Contrato de cliente de Microsoft (MCA) |  Rol de propietario o colaborador en la sección factura, perfil de facturación o cuenta de facturación. O rol de creador de suscripciones a Azure en la sección de factura.  Para más información, consulte [Tareas y roles de la facturación de suscripción](billing-understand-mca-roles.md#subscription-billing-roles-and-tasks).    |
-|Microsoft Partner Agreement (MPA) |   Rol de administrador global y agente de administrador en la organización asociada. Para más información, consulte [Centro de partners: Asignar roles y permisos de usuarios](https://docs.microsoft.com/partner-center/permissions-overview)  |
+|Microsoft Partner Agreement (MPA) |   Roles Administrador global y Agente de administrador en la organización de asociado de CSP. Para más información, consulte [Centro de partners: Asignar roles y permisos de usuarios](https://docs.microsoft.com/partner-center/permissions-overview).  El usuario debe iniciar sesión en el inquilino de asociados para crear suscripciones de Azure.   |
 
 ## <a name="create-a-subscription-in-the-azure-portal"></a>Creación de una suscripción en Azure Portal
 

@@ -40,7 +40,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
     > Este proyecto debe ser un proyecto de clasificación de imágenes **compacto**, ya que posteriormente se exportará el modelo a ONNX.
 * También necesitará [crear un recurso de IoT Hub](https://ms.portal.azure.com/#create/Microsoft.IotHub) en Azure.
 * [Visual Studio 2015 o posterior](https://www.visualstudio.com/downloads/)
-* Opcionalmente, un dispositivo IoT que ejecuta Windows 10 IoT Core versión 17763 o posterior. También puede ejecutar la aplicación directamente desde su equipo.
+* Opcionalmente, un dispositivo IoT que ejecute Windows 10 IoT Core versión 17763 o posterior. También puede ejecutar la aplicación directamente desde su equipo.
    * Si tiene Raspberry Pi 2 y 3, puede configurar Windows 10 directamente desde la aplicación del panel de IoT. Si tiene otros dispositivos, como DrangonBoard, deberá instalarla con el [método eMMC](https://docs.microsoft.com/windows/iot-core/tutorials/quickstarter/devicesetup#flashing-with-emmc-for-dragonboard-410c-other-qualcomm-devices). Si necesita ayuda para configurar un nuevo dispositivo, consulte [Configuración del dispositivo](https://docs.microsoft.com/windows/iot-core/tutorials/quickstarter/devicesetup) en la documentación de Windows IoT.
 
 ## <a name="about-the-visual-alerts-app"></a>Sobre la aplicación de alertas visuales
@@ -118,7 +118,7 @@ Cuando la aplicación descargue el modelo entrenado, cambiará al estado **Scori
 
 Cada vez que se capture una imagen, la aplicación mostrará la etiqueta superior en la pantalla. Si no se reconoce el estado visual, se mostrará **No Matches** (No hay resultados). La aplicación también envía estos mensajes a IoT Hub y, si se detecta una clase, el mensaje incluirá la etiqueta, la puntuación de confianza y una propiedad llamada `detectedClassAlert`, que pueden usar los clientes de IoT Hub interesados en realizar un enrutamiento rápido de mensajes basado en las propiedades.
 
-Además, en el ejemplo se usa una [biblioteca de Sense HAT](https://github.com/emmellsoft/RPi.SenseHat) para detectar cuándo se ejecuta la aplicación en un dispositivo Raspberry PI con una unidad de Sense HAT; de este modo, se puede usar como presentación de salida y configurar todas las luces en rojo cada vez que se detecte una clase y en blanco cuando no se detecte nada.
+Además, en el ejemplo se usa una [biblioteca de Sense HAT](https://github.com/emmellsoft/RPi.SenseHat) para detectar cuándo se ejecuta la aplicación en un dispositivo Raspberry PI con una unidad de Sense HAT. De este modo, se puede usar como presentación de salida y configurar todas las luces en rojo cada vez que se detecte una clase y en blanco cuando no se detecte nada.
 
 ## <a name="reuse-the-app"></a>Reutilización de la aplicación
 
@@ -136,7 +136,7 @@ Elimine el proyecto de Custom Vision si ya no quiere mantenerlo. En el [sitio we
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, configurará y ejecutará una aplicación que detecta información de estado visual en un dispositivo IoT y envía los resultados a IoT Hub. Después, explorará más el código fuente o realizará una de las modificaciones sugeridas a continuación.
+En este tutorial, configurará y ejecutará una aplicación que detecta información de estado visual en un dispositivo IoT y envía los resultados a IoT Hub. Después, explore más el código fuente o realice una de las modificaciones sugeridas a continuación.
 
 > [!div class="nextstepaction"]
 > [Ejemplo de IoTVisualAlerts (GitHub)](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates/tree/master/IoTVisualAlerts)

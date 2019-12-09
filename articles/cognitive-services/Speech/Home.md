@@ -29,7 +29,7 @@ Microsoft Bing Speech API es una API basada en la nube que proporciona a los des
 
 ## <a name="speech-to-text-speech-recognition"></a>Conversión de voz a texto (reconocimiento de voz)
 
-Microsoft Speech Recognition API *transcribe* secuencias de audio en texto que la aplicación puede mostrar al usuario o actuar como si fueran entrada de comandos. Proporciona dos maneras de que los desarrolladores agreguen voz a sus aplicaciones: Las API REST **o** bibliotecas cliente basadas en Websocket.
+Microsoft Speech Recognition API *transcribe* secuencias de audio en texto que la aplicación puede mostrar al usuario o con el que puede actuar como si fuera entrada de comandos. Proporciona dos maneras de que los desarrolladores agreguen voz a sus aplicaciones: Las API REST **o** bibliotecas cliente basadas en Websocket.
 
 - [API REST](GetStarted/GetStartedREST.md): los desarrolladores pueden usar llamadas HTTP desde sus aplicaciones hasta el servicio para el reconocimiento de voz.
 - [Bibliotecas cliente](GetStarted/GetStartedClientLibraries.md): si necesitan características avanzadas, los desarrolladores pueden descargar las bibliotecas cliente de Voz de Microsoft y vincularlas en sus aplicaciones.  Las bibliotecas cliente están disponibles en distintas plataformas (Windows, Android, iOS) con distintos lenguajes (C#, Java, JavaScript, ObjectiveC). A diferencia de las API REST, las bibliotecas cliente utilizan un protocolo basado en Websocket.
@@ -52,7 +52,7 @@ Sea cual sea el enfoque que los desarrolladores elijan (las API de REST o las bi
 ### <a name="next-steps"></a>Pasos siguientes
 
 - Empezar a usar Microsoft Speech Recognition Service con [API de REST](GetStarted/GetStartedREST.md) o [bibliotecas cliente](GetStarted/GetStartedClientLibraries.md).
-- Extraer las [aplicaciones de ejemplo](samples.md) en el lenguaje de programación que prefiera.
+- Comprobar las [aplicaciones de ejemplo](samples.md) en el lenguaje de programación que prefiera.
 - Vaya a la sección de referencia para buscar detalles de [Microsoft Speech Protocol](API-Reference-REST/websocketprotocol.md) y referencias de API.
 
 ## <a name="text-to-speech-speech-synthesis"></a>Conversión de texto a voz (síntesis de voz)

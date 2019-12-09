@@ -10,12 +10,12 @@ ms.subservice: integration
 ms.date: 08/28/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: fd03072f4e69fac43874e822ebb06063436ef72c
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: e8d7e7764a01dbd0169efae093bac4d984982108
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73646148"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74708661"
 ---
 # <a name="continuous-integration-and-deployment-for-azure-sql-data-warehouse"></a>Integración e implementación continuas para Azure SQL Data Warehouse
 
@@ -25,12 +25,8 @@ En este sencillo tutorial se describe cómo integrar un proyecto de base de dato
 
 - Realice el [tutorial de integración del control de código fuente](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-source-control-integration).
 
-- Cree un [agente autohospedado](https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=azure-devops#install) que tenga instalados los bits de la versión preliminar de SSDT (16.3 versión preliminar 2 o posterior) para SQL Data Warehouse (versión preliminar).
-
 - Configuración y conexión con Azure DevOps
 
-  > [!NOTE]
-  > SSDT está actualmente en versión preliminar y tendrá que aprovechar un agente autohospedado. Los agentes hospedados por Microsoft se actualizarán en los próximos meses.
 
 ## <a name="continuous-integration-with-visual-studio-build"></a>Integración continua con la compilación de Visual Studio
 
@@ -49,13 +45,13 @@ En este sencillo tutorial se describe cómo integrar un proyecto de base de dato
 En este punto, tiene un entorno simple en el que cualquier inserción en la rama maestra del repositorio de control de código fuente debe desencadenar automáticamente una compilación correcta en Visual Studio del proyecto de base de datos. Realice un cambio en el proyecto de base de datos local e insértelo en la rama maestra para asegurarse de que la automatización funciona de principio a fin.
 
 
-## <a name="continuous-deployment-with-the-azure-sql-database-deployment-task"></a>Implementación continua con la tarea de implementación de Azure SQL Database
+## <a name="continuous-deployment-with-the-azure-sql-data-warehouse-or-database-deployment-task"></a>Implementación continua con la tarea de implementación de Azure SQL Data Warehouse (o Database)
 
-1. Agregue una nueva tarea mediante la [tarea de implementación de Azure SQL Database](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/sql-azure-dacpac-deployment?view=azure-devops) y rellene los campos necesarios para conectarse al almacenamiento de datos de destino. Cuando se ejecuta esta tarea, el paquete de aplicación de capa de datos generado a partir del proceso de compilación anterior se implementa en el almacenamiento de datos de destino.
+1. Agregue una nueva tarea mediante la [tarea de implementación de Azure SQL Database](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/sql-azure-dacpac-deployment?view=azure-devops) y rellene los campos necesarios para conectarse al almacenamiento de datos de destino. Cuando se ejecuta esta tarea, el paquete de aplicación de capa de datos generado a partir del proceso de compilación anterior se implementa en el almacenamiento de datos de destino. También puede usar la [tarea de implementación de Azure SQL Datawarehouse](https://marketplace.visualstudio.com/items?itemName=ms-sql-dw.SQLDWDeployment) 
 
       ![Tarea de implementación](media/sql-data-warehouse-continuous-integration-and-deployment/4-deployment-task.png "Tarea de implementación")
 
-2. Si usa un agente autohospedado, asegúrese de establecer la variable de entorno de modo que use el archivo SqlPackage.exe correcto para SQL Data Warehouse. La ruta de acceso debe tener un aspecto similar al siguiente:
+2. Si usa un agente autohospedado, asegúrese de establecer que su variable de entorno use el archivo SqlPackage.exe correcto para SQL Data Warehouse. La ruta de acceso debe tener un aspecto similar al siguiente:
 
       ![Variable de entorno](media/sql-data-warehouse-continuous-integration-and-deployment/5-environment-variable-preview.png "Variable de entorno")
 

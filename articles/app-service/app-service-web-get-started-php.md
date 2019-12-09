@@ -1,25 +1,16 @@
 ---
-title: 'Creación de aplicación web PHP: Azure App Service | Microsoft Docs'
-description: Implementación de su primera aplicación Hola mundo de PHP en Azure App Service Web Apps en cuestión de minutos.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: jeconnoc
-editor: ''
+title: 'Inicio rápido: Creación de una aplicación web de PHP'
+description: Implementación de su primera aplicación Hola mundo de PHP en Azure App Service en cuestión de minutos. Realice la implementación mediante Git, que es una de las distintas maneras de realizar implementaciones en App Service.
 ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 08/24/2018
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 386229bc272a520ec8093c95bc861704ce9ea7eb
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: fb6451ce5e1e00bffc9195410125eb61b34555e4
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73471396"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672092"
 ---
 # <a name="create-a-php-web-app-in-azure"></a>Creación de una aplicación web de PHP en Azure
 

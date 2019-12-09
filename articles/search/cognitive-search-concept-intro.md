@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
 ms.date: 11/04/2019
-ms.openlocfilehash: 5dc33de19ef71a0714052a6457bef9f32fc159c3
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 92fe564b849c728952dd549757be42b8b5131b25
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720165"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74791034"
 ---
 # <a name="introduction-to-ai-in-azure-cognitive-search"></a>Introducción a la inteligencia artificial en Azure Cognitive Search
 
@@ -116,6 +116,8 @@ Los índices se generan a partir de un esquema de índice que define los campos,
 | Indexer |  Un rastreador (crawler) que extrae datos y metadatos utilizables en búsquedas de un origen de datos externo y rellena un índice basado en las asignaciones de un campo a otro entre el índice y su origen de datos para el descifrado de documentos. En el caso de los enriquecimientos de la inteligencia artificial, el indexador invoca un conjunto de aptitudes y contiene las asignaciones de campos que asocian la salida del enriquecimiento con los campos de destino del índice. La definición del indexador contiene todas las instrucciones y referencias de las operaciones de la canalización y esta se invoca cuando se ejecuta el indexador. Con la configuración adicional, puede volver a usar el procesamiento existente y ejecutar solo los pasos y las aptitudes que se han modificado. | Consulte [Indexadores](search-indexer-overview.md) e [Indexación incremental (versión preliminar)](cognitive-search-incremental-indexing-conceptual.md). |
 | Origen de datos  | Un objeto que un indexador usa para conectarse a un origen de datos externo de tipos compatibles en Azure. | Consulte [Introducción a los indexadores](search-indexer-overview.md) |
 | Índice | Índice de búsqueda persistente en Azure Cognitive Search que se crea a partir de un esquema de índice que define el uso y estructura de los campos. | Consulte [Creación de un índice básico](search-what-is-an-index.md) | 
+| Knowledge Store | Una cuenta de almacenamiento en la que se puede dar forma y proyectar los documentos enriquecidos, además del índice de búsqueda | Consulte [Introducción al almacén de conocimiento](knowledge-store-concept-intro.md) | 
+| Caché de indexador | El indexador almacena en la caché las salidas de las aptitudes de la cuenta de almacenamiento. La caché permite al indexador minimizar el costo de volver a procesar un gran número de documentos cuando se edita una habilidades. | Consulte [Indexación incremental](cognitive-search-incremental-indexing-conceptual.md) | 
 
 <a name="where-do-i-start"></a>
 

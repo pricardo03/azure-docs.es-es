@@ -1,5 +1,5 @@
 ---
-title: Creación de un trabajo de Stream Analytics mediante Azure Portal | Microsoft Docs
+title: 'Inicio rápido: Creación de un trabajo de Stream Analytics mediante Azure Portal'
 description: En esta guía de inicio rápido se muestra cómo empezar a crear un trabajo de Stream Analytics, configurar las entradas y salidas y definir una consulta.
 services: stream-analytics
 author: mamccrea
@@ -8,12 +8,12 @@ ms.date: 06/21/2019
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
-ms.openlocfilehash: e05d293760b88cd02fdffae60e762f040a4d1311
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 65114f2ddb7567b47ac3951fbaf6664654e379f0
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449230"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707370"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>Inicio rápido: Creación de un trabajo de Stream Analytics mediante Azure Portal
 
@@ -38,7 +38,7 @@ Antes de definir el trabajo de Stream Analytics, debe preparar los datos de ent
    |**Configuración**  |**Valor sugerido**  |**Descripción**  |
    |---------|---------|---------|
    |Subscription  | \<Su suscripción\> |  Seleccione la suscripción de Azure que quiera usar. |
-   |Grupos de recursos   |   asaquickstart-resourcegroup  |   Seleccione **Crear nuevo** y escriba un nuevo nombre de grupo de recursos para la cuenta. |
+   |Resource group   |   asaquickstart-resourcegroup  |   Seleccione **Crear nuevo** y escriba un nuevo nombre de grupo de recursos para la cuenta. |
    |Region  |  \<Seleccione la región más cercana a los usuarios\> | Seleccione la ubicación geográfica donde puede hospedar la instancia de IoT Hub. Use la ubicación más cercana a los usuarios. |
    |Nombre de la instancia de IoT Hub  | MyASAIoTHub  |   Seleccione un nombre para la instancia de IoT Hub.   |
 
@@ -90,7 +90,7 @@ Antes de definir el trabajo de Stream Analytics, debe preparar los datos de ent
    |---------|---------|---------|
    |Nombre del trabajo   |  MyASAJob   |   Escriba un nombre para identificar el trabajo de Stream Analytics. Debe tener una longitud de entre 3 y 63 caracteres, y solo puede incluir caracteres alfanuméricos, guiones y guiones bajos. |
    |Subscription  | \<Su suscripción\> |  Seleccione la suscripción de Azure que quiere usar para este trabajo. |
-   |Grupos de recursos   |   asaquickstart-resourcegroup  |   Seleccione el mismo grupo de recursos que el de IoT Hub. |
+   |Resource group   |   asaquickstart-resourcegroup  |   Seleccione el mismo grupo de recursos que el de IoT Hub. |
    |Location  |  \<Seleccione la región más cercana a los usuarios\> | Seleccione la ubicación geográfica donde puede hospedar su trabajo de Stream Analytics. Para obtener un mejor rendimiento y reducir el costo de la transferencia de datos, use la ubicación más cercana a los usuarios. |
    |Unidades de streaming  | 1  |   Las unidades de streaming representan los recursos informáticos que se necesitan para ejecutar un trabajo. De forma predeterminada, este valor se establece en 1. Para información sobre el escalado de unidades de streaming, consulte el artículo [Descripción y ajuste de las unidades de streaming](stream-analytics-streaming-unit-consumption.md).   |
    |Entorno de hospedaje  |  Nube  |   Los trabajos de Stream Analytics se pueden implementar en la nube o en dispositivos perimetrales. Si elige la nube, podrá implementar en la nube de Azure y si elige implementar en un dispositivo perimetral, podrá hacerlo en un dispositivo de IoT Edge. |
@@ -193,4 +193,3 @@ Para aprender a configurar otros orígenes de entrada y realizar la detección e
 
 > [!div class="nextstepaction"]
 > [Detección de fraudes en tiempo real con Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-

@@ -1,23 +1,18 @@
 ---
-title: 'Automatización de tareas con Visual Studio Code: Azure Logic Apps'
+title: Automatización de tareas con Visual Studio Code
 description: Crear o editar definiciones de JSON subyacentes de una aplicación lógica mediante Visual Studio Code (VS Code)
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-ms.workload: azure-vs
-author: ecfan
-ms.author: estfan
-ms.manager: carmonm
-ms.reviewer: klam, deli, LADocs
+ms.reviewer: klam, deli, logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/25/2019
-ms.openlocfilehash: 96551d3c7f0d37bc7ed8696666b130fa83dae41b
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: 819a60887743f39d3c2ffab3c955b2980cee2725
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73063540"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74784840"
 ---
 # <a name="quickstart-create-and-manage-logic-app-workflow-definitions-by-using-visual-studio-code"></a>Inicio rápido: Creación y administración de definiciones de flujo de trabajo de aplicaciones lógicas mediante Visual Studio Code
 

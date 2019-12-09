@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Crear una instancia de Azure Database for PostgreSQL: servidor único con el comando az postgres up de la CLI'
+title: 'Inicio rápido: Creación de servidor: az postgres up: Azure Database for PostgreSQL (servidor único)'
 description: 'Guía de inicio rápido para crear una instancia de Azure Database for PostgreSQL: servidor único con el comando up de la CLI (interfaz de la línea de comandos) de Azure.'
 author: rachel-msft
 ms.author: raagyema
@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 05/06/2019
-ms.openlocfilehash: 49f71c199a2832d763bb3c19d878fade47dfb8e4
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: fe15c02286223ec0829b31664811b7f589cf16aa
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65069074"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74774839"
 ---
 # <a name="quickstart-use-an-azure-cli-command-az-postgres-up-preview-to-create-an-azure-database-for-postgresql---single-server"></a>Inicio rápido: Usar un comando de la CLI de Azure, az postgres up (versión preliminar), para crear una instancia de Azure Database for PostgreSQL: servidor único
 

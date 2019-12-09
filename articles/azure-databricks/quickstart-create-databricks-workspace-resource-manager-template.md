@@ -1,6 +1,6 @@
 ---
-title: Creación de un área de trabajo de Azure Databricks con Azure Resource Manager
-description: La guía de inicio rápido muestra cómo usar la plantilla de Azure Resource Manager para crear un área de trabajo de Azure Databricks, después, crear un clúster de Apache Spark y ejecutar un trabajo de Spark.
+title: 'Inicio rápido: Creación de un área de trabajo de Azure Databricks con Azure Resource Manager'
+description: En este inicio rápido se muestra cómo usar la plantilla de Azure Resource Manager para crear un área de trabajo de Azure Databricks y, después, crear un clúster de Apache Spark y ejecutar un trabajo de Spark.
 services: azure-databricks
 ms.service: azure-databricks
 author: mamccrea
@@ -10,14 +10,14 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 07/12/2019
-ms.openlocfilehash: 83dc18424bc8606eff9a735b76cdaa09e381d588
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 2fbe1e91204df7901b4ac3ccfdcd323304b2ce3c
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74129362"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706185"
 ---
-# <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-resource-manager-template"></a>Guía de inicio rápido: Ejecución de un trabajo de Spark en Azure Databricks con una plantilla de Azure Resource Manager
+# <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-resource-manager-template"></a>Inicio rápido: Ejecución de un trabajo de Spark en Azure Databricks con una plantilla de Azure Resource Manager
 
 En este inicio rápido usará una plantilla de Azure Resource Manager para crear un área de trabajo de Azure Databricks con un clúster de Apache Spark. Ejecutará un trabajo en el clúster y usará gráficos personalizados para generar informes en tiempo real de uso gratuito/pagado basado en datos demográficos.
 

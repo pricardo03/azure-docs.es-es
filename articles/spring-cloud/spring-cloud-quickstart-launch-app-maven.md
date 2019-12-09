@@ -1,17 +1,17 @@
 ---
-title: 'Inicio rápido: Inicio de una aplicación mediante Maven: Azure Spring Cloud'
-description: Inicie una aplicación de ejemplo mediante Maven
+title: 'Inicio rápido: Inicio de una aplicación mediante Maven con Azure Spring Cloud'
+description: En este inicio rápido, iniciará una aplicación de ejemplo mediante Maven
 author: jpconnock
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 11/04/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 1a719b878f3e5fbade3adf453ac7d0604ea85077
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: ea840d1e133c213c907e596e5eb0a651820291c9
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74384075"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74708860"
 ---
 # <a name="quickstart-launch-an-azure-spring-cloud-app-using-the-maven-plug-in"></a>Inicio rápido: Inicio de una aplicación de Azure Spring Cloud mediante el complemento Maven
 

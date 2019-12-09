@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/15/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: b4e479405a9606a8353785828d0c9c94ef8c32ed
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: ada64d6bbce4fe7401bbfc078ba0903a28f06971
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73850484"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74795933"
 ---
 ### <a name="regions"></a>¿En qué regiones está disponible?
 
@@ -55,3 +55,7 @@ Las sesiones deben iniciarse solo en Azure Portal. Inicie sesión en Azure Porta
 
 Actualmente, Azure Bastion admite la distribución de teclado en-US-QWERTY dentro de la máquina virtual.  La compatibilidad con otras configuraciones regionales para la distribución del teclado está en curso.
 
+### <a name="udr"></a>¿Se admite el enrutamiento definido por el usuario (UDR) en las subredes de Azure Bastion?
+
+No. UDR no es compatible con las subredes de Azure Bastion.
+En los escenarios que incluyen Azure Bastion y Azure Firewall/Aplicación virtual de red (NVA) en la misma red virtual, no es preciso forzar el tráfico de una subred de Azure Bastion a Azure Firewall, ya que la comunicación entre Azure Bastion y las máquinas virtuales es privada. Para más información, consulte [Acceso a las máquinas virtuales que están detrás de Azure Firewall con Bastion](https://azure.microsoft.com/blog/accessing-virtual-machines-behind-azure-firewall-with-azure-bastion/).

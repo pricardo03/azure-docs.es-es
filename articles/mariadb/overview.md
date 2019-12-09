@@ -1,18 +1,18 @@
 ---
-title: Introducción al servicio de base de datos relacional Azure Database for MariaDB
+title: 'Introducción: Azure Database for MariaDB'
 description: Obtenga más información acerca de Azure Database for MariaDB, que es un servicio de base de datos relacional de Microsoft Cloud basado en MySQL Community Edition.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: overview
 ms.custom: mvc
-ms.date: 11/25/2019
-ms.openlocfilehash: aed2e090a1e3a6a4c80f70ba25da9a903a6192c1
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.date: 12/02/2019
+ms.openlocfilehash: f2dc6ec2fb99addc6a2c050c072e0221fd2c8e0b
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74484149"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74769088"
 ---
 # <a name="what-is-azure-database-for-mariadb"></a>¿Qué es Azure Database for MariaDB?
 
@@ -53,7 +53,7 @@ El Acuerdo de Nivel de Servicio de Azure, con una disponibilidad líder del sect
 
 ## <a name="secure-your-data"></a>Protección de los datos
 
-Los servicios de base de datos de Azure tienen una tradición de seguridad de datos que Azure Database for MariaDB mantiene. Azure Database for MariaDB ofrece características que limitan el acceso, prtegen los datos en reposo y en movimiento, y le ayudan a supervisar la actividad. Para obtener más información sobre la seguridad de plataforma de Azure, vaya al [Centro de confianza de Azure](https://www.microsoft.com/trustcenter/security). Para más información acerca de las características de seguridad de Azure Database for MySQL, consulte la [información general sobre seguridad](concepts-security.md).
+Los servicios de base de datos de Azure tienen una tradición de seguridad de datos que Azure Database for MariaDB mantiene. Azure Database for MariaDB ofrece características que limitan el acceso, prtegen los datos en reposo y en movimiento, y le ayudan a supervisar la actividad. Para obtener más información sobre la seguridad de plataforma de Azure, vaya al [Centro de confianza de Azure](https://www.microsoft.com/trustcenter/security). Para más información acerca de las características de seguridad de Azure Database for MariaDB, consulte la [introducción a la seguridad](concepts-security.md).
 
 ## <a name="contacts"></a>Contactos
 

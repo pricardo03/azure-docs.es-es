@@ -1,23 +1,18 @@
 ---
-title: 'Automatización de flujos de trabajo de tareas en Visual Studio: Azure Logic Apps'
+title: Automatización de flujos de trabajo de tareas en Visual Studio
 description: Cree, programe y ejecute flujos de trabajo para la integración empresarial mediante Azure Logic Apps y Visual Studio
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-ms.workload: azure-vs
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
-ms.manager: carmonm
+ms.reviewer: klam, logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/08/2019
-ms.openlocfilehash: e7ce31f489ae274eddb02c1bfb7e57eb486f5851
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: f4d10f6b0934e7dea9779f45d0f05d7c28966965
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796899"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74819179"
 ---
 # <a name="quickstart-create-automated-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Inicio rápido: Creación y automatización de tareas, procesos y flujos de trabajo con Azure Logic Apps en Visual Studio
 
@@ -196,11 +191,11 @@ Cuando ya no necesite la aplicación lógica, elimine el grupo de recursos que c
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con la misma cuenta utilizada para crear la aplicación lógica.
 
-1. En el menú principal de Azure, seleccione **Grupos de recursos**. Seleccione el grupo de recursos de la aplicación lógica y elija **Introducción**.
+1. En el menú de Azure Portal, seleccione **Grupos de recursos** o busque y seleccione **Grupos de recursos** en cualquier página. Seleccione el grupo de recursos de la aplicación lógica.
 
 1. En la página **Información general**, elija **Eliminar grupo de recursos**. Escriba el nombre del grupo de recursos como confirmación y seleccione **Eliminar**.
 
-   !["Grupos de recursos" > "Introducción" > "Eliminar grupo de recursos"](./media/quickstart-create-logic-apps-with-visual-studio/delete-resource-group.png)
+   !["Grupos de recursos" > "Introducción" > "Eliminar grupo de recursos"](./media/quickstart-create-logic-apps-with-visual-studio/clean-up-resources.png)
 
 1. Elimine la solución de Visual Studio del equipo local.
 

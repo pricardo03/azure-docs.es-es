@@ -1,19 +1,18 @@
 ---
-title: 'Implementación de una aplicación de Docker en Linux: Azure App Service'
-description: Como implementar una imagen de Docker en Azure App Services para Linux
-author: msangapu
+title: 'Inicio rápido: Ejecución un contenedor Linux personalizado'
+description: Empiece usar los contenedores de Linux en Azure App Service mediante la implementación del primer contenedor personalizado mediante instancias de Azure Container Registry.
+author: msangapu-msft
 ms.author: msangapu
 ms.date: 08/28/2019
 ms.topic: quickstart
-ms.service: app-service
-ms.openlocfilehash: 2a7dc477b4cd0be0c50569d84e10cfe1d666eac9
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 14ea5444d3d8827919405a4d5aa8a176746c2e72
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70392704"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688964"
 ---
-# <a name="deploy-to-azure-using-docker"></a>Implementación en Azure con Docker
+# <a name="deploy-a-custom-linux-container-to-azure-app-service"></a>Implementación de un contenedor Linux personalizado en Azure App Service
 
 App Service en Linux proporciona pilas de aplicaciones predefinidas en Linux con compatibilidad con lenguajes como .NET, PHP o Node.js entre otros. También puede usar una imagen personalizada de Docker para ejecutar la aplicación web en una pila de aplicaciones aún sin definir en Azure. En este inicio rápido se muestra cómo implementar una imagen desde [Azure Container Registry](/azure/container-registry) (ACR) en App Service.
 

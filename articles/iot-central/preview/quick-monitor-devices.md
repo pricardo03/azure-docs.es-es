@@ -1,6 +1,6 @@
 ---
-title: Supervisión de los dispositivos en Azure IoT Central | Microsoft Docs
-description: Como un operador, puede usar la aplicación de Azure IoT Central para supervisar los dispositivos.
+title: 'Inicio rápido: Supervisión de dispositivos en Azure IoT Central'
+description: Los operadores pueden usar la aplicación de Azure IoT Central para supervisar los dispositivos en este inicio rápido.
 author: dominicbetts
 ms.author: dobett
 ms.date: 10/24/2019
@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: de83315f38766bc1e2f37ac82452bb023930f241
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: a6bc4b76dc00330e39526aec8bc5651b9abb590b
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73896233"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706739"
 ---
 # <a name="quickstart-use-azure-iot-central-to-monitor-your-devices-preview-features"></a>Inicio rápido: Uso de Azure IoT Central para supervisar los dispositivos (características en versión preliminar)
 
@@ -22,17 +22,17 @@ ms.locfileid: "73896233"
 
 [!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
-En esta guía de inicio rápido se muestra, como operador, cómo usar la aplicación Microsoft Azure IoT Central para supervisar los dispositivos y cambiar la configuración.
+En esta guía de inicio rápido se muestra cómo puede, como operador, usar la aplicación en Microsoft Azure IoT Central para supervisar los dispositivos y cambiar la configuración.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Antes de comenzar, debe completar los tres inicios rápidos anteriores [Crear una aplicación de Azure IoT Central](./quick-deploy-iot-central.md), [Agregar un dispositivo simulado a la aplicación de IoT Central](./quick-create-pnp-device.md) y [Configurar reglas y acciones para el dispositivo](quick-configure-rules.md).
+Antes de comenzar, debe completar los tres inicios rápidos anteriores: [Crear una aplicación de Azure IoT Central](./quick-deploy-iot-central.md), [Agregar un dispositivo simulado a la aplicación en IoT Central](./quick-create-pnp-device.md) y [Configurar reglas y acciones para el dispositivo](quick-configure-rules.md).
 
 ## <a name="receive-a-notification"></a>Recibir una notificación
 
 Azure IoT Central envía notificaciones acerca de los dispositivos como mensajes de correo electrónico. El desarrollador ha agregado una regla para enviar una notificación cuando la temperatura en un dispositivo sensor ambiental conectado supera un umbral. Compruebe los correos electrónicos enviados a la cuenta que el desarrollador ha elegido para recibir notificaciones.
 
-Abra el mensaje de correo que recibió al final del inicio rápido de [Configurar reglas y acciones para el dispositivo](quick-configure-rules.md). En el correo electrónico, seleccione el vínculo al dispositivo:
+Abra el mensaje de correo electrónico que recibió al final del inicio rápido [Configurar reglas y acciones para el dispositivo](quick-configure-rules.md). En el correo electrónico, seleccione el vínculo al dispositivo:
 
 ![Correo electrónico de notificación de alerta](media/quick-monitor-devices/email.png)
 
@@ -42,7 +42,7 @@ En el explorador se abre la vista del **panel** para el dispositivo simulado del
 
 ## <a name="investigate-an-issue"></a>Investigar un problema
 
-Como operador, puede ver información sobre el dispositivo en las páginas**Información general**, **Propiedades del sensor ambiental**y **Comandos**. El generador personalizó las páginas **Dashboard** (Panel) y **Environmental Sensor properties** (Propiedades del sensor ambiental) para mostrar información importante sobre un dispositivo sensor ambiental conectado.
+Como operador, puede ver información sobre el dispositivo en las páginas**Información general**, **Propiedades del sensor ambiental** y **Comandos**. El generador personalizó las páginas **Dashboard** (Panel) y **Environmental Sensor properties** (Propiedades del sensor ambiental) para mostrar información importante sobre un dispositivo sensor ambiental conectado.
 
 Elija la vista **Información general** para ver información sobre el dispositivo.
 

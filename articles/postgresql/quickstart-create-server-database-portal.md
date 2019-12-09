@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Crear una instancia de Azure Database for PostgreSQL: servidor único con Azure Portal'
+title: 'Inicio rápido: Creación de servidor: Azure Portal: Azure Database for PostgreSQL (servidor único)'
 description: 'Guía de inicio rápido para crear y administrar una instancia de Azure Database for PostgreSQL: servidor único con la interfaz de usuario de Azure Portal.'
 author: rachel-msft
 ms.author: raagyema
@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 06/25/2019
-ms.openlocfilehash: f9a729376baeb03656b7b54fcb8e10a865d1f364
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: fa4b9fb9be6ac4f541448abef1f676875a7ddcfc
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195147"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74774990"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-in-the-azure-portal"></a>Inicio rápido: Creación de un servidor de Azure Database for PostgreSQL en Azure Portal
 

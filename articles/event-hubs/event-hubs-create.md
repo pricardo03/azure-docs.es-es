@@ -4,18 +4,17 @@ description: En esta guía de inicio rápido, aprenderá a crear un centro de ev
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
-manager: timlt
 ms.service: event-hubs
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 11/05/2019
+ms.date: 12/02/2019
 ms.author: shvija
-ms.openlocfilehash: 209bdb919a505e55bdfb8868d556fa1ad08db2fe
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: a94e67af927365eda2b8b98240285e7cd3079a95
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73717951"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688137"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-portal"></a>Inicio rápido: Creación de un centro de eventos mediante Azure Portal
 Azure Event Hubs es una plataforma de streaming de macrodatos y servicio de ingesta de eventos de gran escalabilidad capaz de recibir y procesar millones de eventos por segundo. Event Hubs puede procesar y almacenar eventos, datos o telemetría generados por dispositivos y software distribuido. Los datos enviados a un centro de eventos se pueden transformar y almacenar con cualquier proveedor de análisis en tiempo real o adaptadores de procesamiento por lotes y almacenamiento. Para más información sobre Event Hubs, consulte [Introducción a Event Hubs](event-hubs-about.md) y [Características de Event Hubs](event-hubs-features.md).
@@ -59,9 +58,11 @@ Un espacio de nombres de Event Hubs proporciona un contenedor con un único ámb
 
    ![Botón Agregar](./media/event-hubs-quickstart-portal/event-hubs-add-toolbar.png)
 4. En la página **Crear espacio de nombres**, realice los pasos siguientes:
-    1. Escriba un nombre para el espacio de nombres. El sistema realiza la comprobación automáticamente para ver si el nombre está disponible.
-    2. Elija el plan de tarifa (Básico o Estándar).
-    3. Seleccione la **suscripción** en la que desea crear el espacio de nombres.
+    1. Escriba el **nombre** del espacio de nombres. El sistema realiza la comprobación automáticamente para ver si el nombre está disponible.
+    2. Elija el **plan de tarifa** (Básico o Estándar).
+    3. Observe que la opción **Habilitar Kafka** se habilita automáticamente. Azure Event Hubs proporciona un punto de conexión de Kafka. Este punto de conexión permite que el espacio de nombres de Event Hubs entienda el protocolo de mensajes y las API de [Apache Kafka](https://kafka.apache.org/intro). Con esta funcionalidad, puede comunicarse con las instancias de Event Hubs como lo haría con temas de Kafka sin cambiar los clientes de protocolo ni ejecutar sus propios clústeres. Admite [Apache Kafka versión 1.0.](https://kafka.apache.org/10/documentation.html) y versiones posteriores.
+    4. Seleccione la **suscripción** en la que desea crear el espacio de nombres.
+    5. Seleccione un **grupo de recursos** existente o cree uno nuevo. 
     4. Seleccione una **ubicación** para el espacio de nombres.
     5. Seleccione **Crear**. Puede que tenga que esperar unos minutos hasta que el sistema aprovisione totalmente los recursos.
 

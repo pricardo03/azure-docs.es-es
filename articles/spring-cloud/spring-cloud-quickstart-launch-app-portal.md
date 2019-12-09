@@ -1,17 +1,17 @@
 ---
 title: 'Inicio rápido: Inicio de una aplicación de Azure Spring Cloud desde Azure Portal'
-description: Implemente una aplicación de ejemplo en Azure Spring Cloud desde Azure Portal.
+description: En este inicio rápido implementará una aplicación de ejemplo en Azure Spring Cloud desde Azure Portal.
 author: jpconnock
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 11/4/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 8a34dcd31ba15ed949fa0a50ec904da96a048a7d
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 891952000f633d7d873c6d76c475916acc8ac4ec
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74560056"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74708843"
 ---
 # <a name="quickstart-launch-an-azure-spring-cloud-application-using-the-azure-portal"></a>Inicio rápido: Inicio de una aplicación de Azure Spring Cloud desde Azure Portal
 
@@ -72,7 +72,11 @@ El servicio tarda aproximadamente 5 minutos en implementarse.  Una vez implemen
 
 1. Vaya a la página **Información general** del servicio y seleccione **Config Server**.
 
-1. En la sección **Repositorio predeterminado**, establezca **URI** en "https\://github.com/Azure-Samples/piggymetrics", establezca **Etiqueta** en "config" y seleccione **Aplicar** para guardar los cambios.
+1. En la sección **Repositorio predeterminado**, establezca **URI** en "https\://github.com/Azure-Samples/piggymetrics".
+
+1. En **ETIQUETA**, seleccione "config".
+
+1. Seleccione **Aplicar** para guardar los cambios.
 
     ![Captura de pantalla del portal de ASC](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
 

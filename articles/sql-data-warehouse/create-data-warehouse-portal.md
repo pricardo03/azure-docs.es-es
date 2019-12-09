@@ -11,12 +11,12 @@ ms.date: 05/28/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: a9a68e9d71324ba05e24ba98802863211a569689
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 4ae1d9ce8a4683f8d55962843fb1070ef24b3a87
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839937"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815802"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Inicio rápido: Creación de una instancia de Azure SQL Data Warehouse en Azure Portal, y realización de consultas
 
@@ -51,16 +51,14 @@ Siga estos pasos para crear una instancia de SQL Data Warehouse que contenga lo
 
     | Configuración | Valor sugerido | DESCRIPCIÓN |
     | :------ | :-------------- | :---------- |
-    | **Nombre de la base de datos** | mySampleDataWarehouse | Para conocer los nombres de base de datos válidos, consulte [Database Identifiers](/sql/relational-databases/databases/database-identifiers) (Identificadores de base de datos). Tenga en cuenta que un almacenamiento de datos es un tipo de base de datos.|
     | **Suscripción** | Su suscripción | Para más información acerca de sus suscripciones, consulte [Suscripciones](https://account.windowsazure.com/Subscriptions). |
-    | **Grupos de recursos** | myResourceGroup | Para conocer cuáles son los nombres de grupo de recursos válidos, consulte el artículo [Naming conventions](/azure/architecture/best-practices/resource-naming) (Convenciones de nomenclatura). |
-    | **Seleccionar origen** | Muestra | Especifica que se va a cargar una base de datos de ejemplo. Tenga en cuenta que un almacenamiento de datos es un tipo de base de datos. |
-    | **Seleccionar ejemplo** | AdventureWorksDW | Especifica que se va a cargar la base de datos de ejemplo AdventureWorksDW. |
+    | **Grupos de recursos** | myResourceGroup | Para conocer cuáles son los nombres de grupo de recursos válidos, consulte el artículo [Convenciones de nomenclatura](/azure/architecture/best-practices/resource-naming). |
+    | **Nombre del almacén de datos** | mySampleDataWarehouse | Para conocer los nombres de base de datos válidos, consulte [Database Identifiers](/sql/relational-databases/databases/database-identifiers) (Identificadores de base de datos). Tenga en cuenta que un almacenamiento de datos es un tipo de base de datos.|
     ||||
 
     ![creación del almacenamiento de datos](media/create-data-warehouse-portal/select-sample.png)
 
-4. Haga clic en **Servidor** para crear y configurar un servidor nuevo para la nueva base de datos. Rellene el **formulario de servidor nuevo** con la siguiente información: 
+4. Seleccione un **servidor** existente, o bien haga clic en **Crear nuevo** para crear y configurar un servidor nuevo para la nueva base de datos. Rellene el **formulario de servidor nuevo** con la siguiente información: 
 
     | Configuración | Valor sugerido | DESCRIPCIÓN |
     | :------ | :-------------- | :---------- |
@@ -82,7 +80,7 @@ Siga estos pasos para crear una instancia de SQL Data Warehouse que contenga lo
 
 8. Haga clic en **Aplicar**.
 
-9. Una vez completado el formulario de SQL Data Warehouse, haga clic en **Crear** para aprovisionar la base de datos. El aprovisionamiento tarda unos minutos.
+9. Una vez que haya completado la pestaña Datos básicos del formulario de SQL Data Warehouse, haga clic en **Revisar y crear** para aprovisionar la base de datos. El aprovisionamiento tarda unos minutos.
 
     ![clic en crear](media/load-data-from-azure-blob-storage-using-polybase/click-create.png)
 

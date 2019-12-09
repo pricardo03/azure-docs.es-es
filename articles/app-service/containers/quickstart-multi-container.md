@@ -1,25 +1,18 @@
 ---
-title: 'Creación de una aplicación de varios contenedores con Docker Compose: Azure App Service'
-description: Implemente su primera aplicación de varios contenedores en Azure Web App for Containers en minutos
+title: 'Inicio rápido: Creación de una aplicación de varios contenedores'
+description: Para empezar a trabajar con aplicaciones de varios contenedores en Azure App Service, primero es preciso implementar la primera de estas aplicaciones.
 keywords: servicio de aplicación de azure, aplicación web, linux, docker, compose, multicontenedor, varios contenedores, aplicación web para contenedores, contenedor, wordpress, azure db for mysql, base de datos de producción con contenedores
-services: app-service\web
-documentationcenter: ''
-author: msangapu
-manager: jeconnoc
-editor: ''
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
+author: msangapu-msft
 ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 89cf13fd4405b9ddcbc5b31fad9f0c945aef64aa
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 0fdba3afe7e0977496af105e39fb5d7e657df2f0
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70071116"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687525"
 ---
 # <a name="create-a-multi-container-preview-app-using-a-docker-compose-configuration"></a>Creación de una aplicación de varios contenedores (versión preliminar) mediante una configuración de Docker Compose
 

@@ -17,8 +17,6 @@
   items:
     - name: Directivas de acceso condicional habituales
       href: concept-conditional-access-policy-common.md
-    - name: Valores predeterminados de seguridad
-      href: concept-conditional-access-security-defaults.md
     - name: Componentes de la directiva de acceso condicional
       href: concept-conditional-access-policies.md
     - name: Condiciones
@@ -64,8 +62,6 @@
           href: howto-conditional-access-policy-compliant-device.md
     - name: Bloquear la autenticación heredada
       href: block-legacy-authentication.md
-    - name: Acceso condicional para el registro de MFA
-      href: '../authentication/howto-registration-mfa-sspr-combined.md#conditional-access-policies-for-combined-registration'
     - name: Requerir aplicaciones cliente aprobadas
       href: app-based-conditional-access.md
     - name: Requerir la directiva de protección de aplicaciones

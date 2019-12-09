@@ -1,6 +1,6 @@
 ---
-title: Configuración de reglas y acciones en Azure IoT Central | Microsoft Docs
-description: En esta guía de inicio rápido se muestra, como un generador, cómo configurar las reglas y las acciones basadas en la telemetría en la aplicación de Azure IoT Central.
+title: 'Inicio rápido: Configuración de reglas y acciones en Azure IoT Central'
+description: En esta guía de inicio rápido se muestra cómo puede, como generador, configurar las reglas y las acciones basadas en la telemetría en la aplicación de Azure IoT Central.
 author: dominicbetts
 ms.author: dobett
 ms.date: 10/24/2019
@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 7e2047ee824c3dc8b6387f7879757a1e7be7a4a9
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: f81171d0f545bbf7f903d54bee761817e9451d9d
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73896663"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706715"
 ---
 # <a name="quickstart-configure-rules-and-actions-for-your-device-in-azure-iot-central-preview-features"></a>Inicio rápido: Configuración de reglas y acciones para el dispositivo en Azure IoT Central (características en versión preliminar)
 
@@ -22,11 +22,11 @@ ms.locfileid: "73896663"
 
 [!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
-En esta guía de inicio rápido, creará una regla que enviará un correo cuando la temperatura de un dispositivo de sensor ambiental supere 90&deg; F.
+En esta guía de inicio rápido, creará una regla que enviará un correo cuando la temperatura de un dispositivo de sensor ambiental supere los 90&deg;F.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Antes de comenzar, debe completar los dos inicios rápidos anteriores [Crear una aplicación de Azure IoT Central](./quick-deploy-iot-central.md) y [Agregar un dispositivo simulado a la aplicación de IoT Central](./quick-create-pnp-device.md) para crear la plantilla de dispositivo **Sensor del ambiental** con la que trabajar.
+Antes de comenzar, debe completar los dos inicios rápidos anteriores [Crear una aplicación de Azure IoT Central](./quick-deploy-iot-central.md) y [Agregar un dispositivo simulado a la aplicación de IoT Central](./quick-create-pnp-device.md) para crear la plantilla de dispositivo **Sensor ambiental** con la que trabajar.
 
 ## <a name="create-a-telemetry-based-rule"></a>Crear una regla basada en la telemetría
 
@@ -50,13 +50,13 @@ Antes de comenzar, debe completar los dos inicios rápidos anteriores [Crear una
 
     ![Crear condición de regla](./media/quick-configure-rules/condition.png)
 
-1. Para agregar una acción de correo para que se ejecute cuando se desencadene la regla, seleccione **+Correo**.
+1. Para agregar una acción de correo para que se ejecute cuando se desencadene la regla, seleccione **+ Correo electrónico**.
 
 1. Use la información de la tabla siguiente para definir la acción:
 
     | Configuración   | Valor                                             |
     | --------- | ------------------------------------------------- |
-    | Nombre para mostrar | Adición de una acción de correo                          |
+    | Nombre para mostrar | Adición de una acción de correo electrónico                          |
     | Para        | La dirección de correo electrónico propia                                |
     | Notas     | La temperatura ambiental superó el umbral. |
 

@@ -1,19 +1,19 @@
 ---
-title: 'Inicio rápido: Creación de una instancia de Azure Database for MySQL mediante un sencillo comando de la CLI de Azure: az mysql (versión preliminar)'
+title: 'Inicio rápido: Creación de una instancia de Azure Database for MySQL mediante az mysql up'
 description: Inicio rápido para crear un servidor Azure Database for MySQL mediante el comando up de la CLI (interfaz de la línea de comandos) de Azure.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 3/18/2019
+ms.date: 12/02/2019
 ms.custom: mvc
-ms.openlocfilehash: aa0d2a9e990faa8d99355744824f34e26aeb519e
-ms.sourcegitcommit: f68b0e128f0478444740172f54e92b453df696be
+ms.openlocfilehash: 4bb5c62a7df53548ff59a03c6ccc8fb28f1503d3
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58137919"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74765690"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-using-a-simple-azure-cli-command---az-mysql-up-preview"></a>Inicio rápido: Creación de una instancia de Azure Database for MySQL mediante un sencillo comando de la CLI de Azure: az mysql up (versión preliminar)
 
@@ -60,7 +60,7 @@ El servidor se crea con los siguientes valores predeterminados (a menos que los 
 ---|---|---
 server-name | Generado por el sistema | Un nombre único que identifica al servidor de Azure Database for MySQL.
 resource-group | Generado por el sistema | Un nuevo grupo de recursos de Azure.
-sku-name | GP_Gen5_2 | El nombre de la SKU. Sigue la convención {plan de tarifa}\_{generación de procesos}\_{núcleos virtuales} en forma abreviada. El valor predeterminado es un servidor de uso general Gen5 con 2 núcleos virtuales. Consulte nuestra [página de precios](https://azure.microsoft.com/pricing/details/mysql/) para más información sobre los niveles.
+sku-name | GP_Gen5_2 | El nombre de la SKU. Sigue la convención {plan de tarifa}\_{generación de procesos}\_{núcleos virtuales} en forma abreviada. El valor predeterminado es un servidor de uso general Gen5 con 2 núcleos virtuales. Consulte nuestra [página de precios](https://azure.microsoft.com/pricing/details/mysql/) para más información acerca de los niveles.
 backup-retention | 7 | Cuánto tiempo deben conservarse las copias de seguridad. La unidad es días.
 geo-redundant-backup | Disabled | Si se deben habilitar las copias de seguridad con redundancia geográfica en este servidor o no.
 location | westus2 | La ubicación de Azure para el servidor.
@@ -71,7 +71,7 @@ admin-user | Generado por el sistema | El nombre del usuario del inicio de sesi�
 admin-password | Generado por el sistema | La contraseña del usuario administrador.
 
 > [!NOTE]
-> Para más información sobre el comando `az mysql up` y sus parámetros adicionales, consulte la [documentación de la CLI de Azure](/cli/azure/ext/db-up/mysql#ext-db-up-az-mysql-up).
+> Para más información acerca del comando `az mysql up` y sus parámetros adicionales, consulte la [documentación de la CLI de Azure](/cli/azure/ext/db-up/mysql#ext-db-up-az-mysql-up).
 
 Una vez que se crea el servidor, incluye la siguiente configuración:
 

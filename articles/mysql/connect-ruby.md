@@ -1,5 +1,5 @@
 ---
-title: Conexión a Azure Database for MySQL mediante Ruby
+title: 'Conexión mediante Ruby: Azure Database for MySQL'
 description: En este tutorial rápido se proporcionan ejemplos de código Ruby que se pueden usar para conectarse a Azure Database for MySQL y consultar datos en este servicio.
 author: ajlam
 ms.author: andrela
@@ -7,13 +7,13 @@ ms.service: mysql
 ms.custom: mvc
 ms.devlang: ruby
 ms.topic: quickstart
-ms.date: 02/28/2018
-ms.openlocfilehash: 5dbb2226e33928d9d79358a84192b57c44841de4
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.date: 12/02/2019
+ms.openlocfilehash: dc8c7352856b11cb6cc4c9c404eb567cb72b720d
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351642"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770652"
 ---
 # <a name="azure-database-for-mysql-use-ruby-to-connect-and-query-data"></a>Azure Database for MySQL: Uso de Ruby para conectarse a los datos y consultarlos
 En este tutorial rápido se muestra cómo conectarse a una instancia de Azure Database for MySQL mediante una aplicación de [Ruby](https://www.ruby-lang.org) y la gema [mysql2](https://rubygems.org/gems/mysql2) desde las plataformas Windows, Ubuntu Linux y Mac. Se indica cómo usar instrucciones SQL para consultar, insertar, actualizar y eliminar datos en la base de datos. En este artículo se da por hecho que está familiarizado con el desarrollo mediante Ruby, pero que nunca ha usado Azure Database for MySQL.
@@ -26,7 +26,7 @@ En este tutorial rápido se usan como punto de partida los recursos creados en u
 ## <a name="install-ruby"></a>Instalación de Ruby
 Instale Ruby, Gem y la biblioteca MySQL2 en su propio equipo. 
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 1. Descargue e instale la versión 2.3 de [Ruby](https://rubyinstaller.org/downloads/).
 2. Inicie un nuevo símbolo del sistema (cmd) desde el menú Inicio.
 3. Cambie el directorio al directorio de Ruby para la versión 2.3. `cd c:\Ruby23-x64\bin`

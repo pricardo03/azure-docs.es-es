@@ -1,19 +1,19 @@
 ---
-title: 'Inicio rápido: Inicio de la aplicación Spring Cloud desde el código fuente'
-description: Aprenda a iniciar la aplicación Azure Spring Cloud directamente desde el código fuente
+title: 'Inicio rápido: Inicio de una aplicación Spring Cloud desde el código fuente'
+description: En este inicio rápido, aprenderá a iniciar una aplicación Azure Spring Cloud directamente desde el código fuente
 author: jpconnock
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 10/30/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 7ca80966ccab83991246f0ed7ea35cf2c9524b1d
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 6e18ac6c0fa97125b89ea5760a5d7da6c1545393
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721275"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74708882"
 ---
-# <a name="launch-your-spring-cloud-application-from-source-code"></a>Inicio de la aplicación Spring Cloud desde el código fuente
+# <a name="quickstart-launch-your-spring-cloud-application-from-source-code"></a>Inicio rápido: Inicio de la aplicación Spring Cloud desde el código fuente
 
 Azure Spring Cloud permite ejecutar fácilmente en Azure aplicaciones de microservicios basadas en Spring Cloud.
 

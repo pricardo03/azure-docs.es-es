@@ -1,6 +1,6 @@
 ---
-title: Agregar un dispositivo simulado a Azure IoT Central | Microsoft Docs
-description: Cree una plantilla de dispositivo y agregue un dispositivo simulado a la aplicación IoT Central.
+title: 'Inicio rápido: Adición de un dispositivo simulado a Azure IoT Central'
+description: En este inicio rápido se muestra cómo crear una plantilla de dispositivo y agregar un dispositivo simulado a la aplicación en IoT Central.
 author: dominicbetts
 ms.author: dobett
 ms.date: 10/24/2019
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 8b6720af6328242a1fe297e60c9d413d0b83f3d2
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 46d325fd609363a5425fc16845552e75b575c231
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73896303"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706713"
 ---
 # <a name="quickstart-add-a-simulated-device-to-your-iot-central-application-preview-features"></a>Inicio rápido: Agregar un dispositivo simulado a la aplicación de IoT Central (características de vista previa)
 
@@ -21,9 +21,9 @@ ms.locfileid: "73896303"
 
 [!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
-Una plantilla de dispositivo define las capacidades de un dispositivo que se conecta a la aplicación IoT Central. Entre estas se incluyen la telemetría que envía el dispositivo, las propiedades del dispositivo y los comandos a los que responde un dispositivo. En una plantilla de dispositivo, un generador u operador puede agregar dispositivos reales y simulados a una aplicación. Los dispositivos simulados son útiles para probar el comportamiento de la aplicación IoT Central antes de conectar dispositivos reales.
+Una plantilla de dispositivo define las capacidades de un dispositivo que se conecta a la aplicación en IoT Central. Entre estas se incluyen la telemetría que envía el dispositivo, las propiedades del dispositivo y los comandos a los que responde un dispositivo. En una plantilla de dispositivo, un generador u operador puede agregar dispositivos reales y simulados a una aplicación. Los dispositivos simulados son útiles para probar el comportamiento de la aplicación IoT Central antes de conectar dispositivos reales.
 
-En esta guía de inicio rápido, creará una plantilla de dispositivo **Sensor ambiental** y agregará un dispositivo simulado. Un dispositivo sensor de entorno:
+En esta guía de inicio rápido, creará una plantilla de dispositivo de **Sensor ambiental** y agregará un dispositivo simulado. Un dispositivo sensor de entorno:
 
 * Envía datos de telemetría, como la temperatura.
 * Notifica propiedades específicas del dispositivo, como el nivel de brillo.
@@ -32,7 +32,7 @@ En esta guía de inicio rápido, creará una plantilla de dispositivo **Sensor a
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Complete el inicio rápido de [Creación de una aplicación de Azure IoT Central (características de versión preliminar)](./quick-deploy-iot-central.md) para crear una aplicación de IoT Central mediante la Plantilla de la**Aplicación personalizada > Versión preliminar de la aplicación**.
+Complete el inicio rápido de [Creación de una aplicación de Azure IoT Central (características de versión preliminar)](./quick-deploy-iot-central.md) para crear una aplicación de IoT Central mediante la Plantilla de **Aplicación personalizada > Versión preliminar de la aplicación**.
 
 También necesita una copia local del archivo **EnvironmentalSensorInline.capabilitymodel.json** que contenga el modelo de funcionalidad del dispositivo [IoT Plug and Play](../../iot-pnp/overview-iot-plug-and-play.md). Puede descargarla [aquí](https://raw.githubusercontent.com/Azure/IoTPlugandPlay/master/samples/EnvironmentalSensorInline.capabilitymodel.json). Haga clic con el botón derecho en la página y seleccione **Guardar como**.
 
@@ -54,7 +54,7 @@ En los pasos siguientes se muestra cómo importar el modelo de funcionalidad de 
 
 1. Para agregar una nueva plantilla de dispositivo, seleccione **+** en la página **Plantillas de dispositivo**.
 
-1. Elija **Dispositivo IoT** en la lista de plantillas de dispositivo personalizadas, seleccione **Siguiente: Personalice**y, después, seleccione **Siguiente: Revise**y, luego, seleccione **Crear**.
+1. Elija **Dispositivo IoT** en la lista de plantillas de dispositivo personalizadas, seleccione **Siguiente: Personalice**y, después, seleccione **Siguiente: Revise**. Luego, seleccione **Crear**.
 
 1. Escriba **Environmental Sensor** como nombre de la plantilla de dispositivo.
 
@@ -160,7 +160,7 @@ Después de crear un dispositivo simulado, el generador puede usarlo para mejora
 
 1. Elija **Plantillas de dispositivos** en el panel izquierdo y seleccione la plantilla de **Sensor ambiental**.
 
-1. Seleccione la vista que desea editar o cree una. Haga clic en **Configurar dispositivo de vista previa** y, después, **Seleccione de un dispositivo en ejecución**. Aquí puede elegir entre no tener ningún dispositivo de vista previa, mediante un dispositivo real que se pueda configurar para las pruebas o desde un dispositivo existente agregado en IoT Central.
+1. Seleccione la vista que desea editar o cree una. Haga clic en **Configurar dispositivo de versión preliminar** y, después, **Seleccionar de un dispositivo en ejecución**. Aquí puede elegir entre no tener ningún dispositivo en versión preliminar, usar un dispositivo real que se pueda configurar para las pruebas o un dispositivo existente agregado en IoT Central.
 
 1. Elija el dispositivo simulado en la lista. Después, seleccione **Aplicar**. Ahora puede ver el mismo dispositivo simulado en la experiencia de creación de las vistas de plantilla de dispositivos. Esta vista es útil para gráficos y otras visualizaciones.
 
@@ -168,7 +168,7 @@ Después de crear un dispositivo simulado, el generador puede usarlo para mejora
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En esta guía de inicio rápido, ha aprendido a crear una plantilla de dispositivo **Sensor ambiental** y a agregar un dispositivo simulado a la aplicación.
+En esta guía de inicio rápido, ha aprendido a crear una plantilla de dispositivo de **Sensor ambiental** y a agregar un dispositivo simulado a la aplicación.
 
 Para más información sobre la supervisión de dispositivos conectados a la aplicación, continúe con la guía de inicio rápido:
 

@@ -1,26 +1,16 @@
 ---
-title: 'Configuración de aplicaciones de Python: Azure App Service'
-description: En este tutorial se describen opciones para crear y configurar aplicaciones de Python para Azure App Service en Linux.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
+title: Configuración de aplicaciones de Python para Linux
+description: Aprenda a configurar un contenedor de Python precompilado para la aplicación. En este artículo se muestran las tareas de configuración más comunes.
 ms.topic: quickstart
 ms.date: 03/28/2019
-ms.author: cephalin
 ms.reviewer: astay; kraigb
 ms.custom: seodec18
-ms.openlocfilehash: 8563e0ac060e5cce6853472dfb1c51c6c2c36a4d
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: b8de6df5761baef79310062614f578a92f17b826
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70071084"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74670478"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Configuración de una aplicación de Python en Linux para Azure App Service
 

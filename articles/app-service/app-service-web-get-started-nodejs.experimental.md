@@ -1,25 +1,18 @@
 ---
-title: 'Creación de una aplicación web de Node.js: Azure App Service | Microsoft Docs'
-description: Implementación de su primera aplicación Hola mundo de Node.js en Azure App Service Web Apps en cuestión de minutos.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: jeconnoc
-editor: ''
+title: 'Inicio rápido: Crear una aplicación web de Node.js'
+description: Implementación de su primera aplicación Hola mundo de Node.js en Azure App Service en cuestión de minutos. Realice la implementación mediante un paquete ZIP, que es una de las distintas maneras de realizar implementaciones en App Service.
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 08/23/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 7d81dae25b793144bfe044f8434a6df181dbcd1b
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+experimental: false
+experiment_id: a231f2b4-2625-4d
+ms.openlocfilehash: c02caf7c70dfe88bd3312742fce08137bc360a2e
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70067406"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671418"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Creación de una aplicación web de Node.js en Azure
 
