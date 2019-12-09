@@ -61,7 +61,7 @@ Para usar un modelo de inquilino con el SDK de Voz, necesitará un recurso de Vo
 5. Siga las instrucciones en pantalla para crear el recurso. Asegúrese de que:
    * La **ubicación** se ha establecido en **eastus** o **westus**.
    * El **plan de tarifa** está establecido en **S0**.
-6. Haga clic en **Create**(Crear).
+6. Haga clic en **Crear**.
 7. Después de unos minutos, se crea el recurso. La clave de suscripción está disponible en la sección **Información general** del recurso.
 
 ## <a name="create-a-model"></a>Crear un modelo
@@ -80,7 +80,7 @@ Una vez que el administrador haya habilitado el modelo de inquilino para su orga
    > * [Clave de cliente](https://docs.microsoft.com/microsoft-365/compliance/customer-lockbox-requests)
    > * [Office 365 Administración Pública](https://www.microsoft.com/microsoft-365/government)
 
-4. A continuación, seleccione **Optar por recibir**. Recibirá un correo electrónico con instrucciones cuando el modelo de inquilino esté listo.
+4. A continuación, seleccione **Participar**. Recibirá un correo electrónico con instrucciones cuando el modelo de inquilino esté listo.
 
 ## <a name="deploy-your-model"></a>Implementación del modelo
 
@@ -297,4 +297,4 @@ A continuación, necesitará volver a compilar y ejecutar el proyecto desde la l
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Speech Studio](https://speech.microsoft.com/)
-* [Speech SDK](speech-sdk.md)
+* [Acerca del SDK de Voz](speech-sdk.md)

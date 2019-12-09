@@ -189,7 +189,7 @@ model = Model.register(model_path="models/",
 El script *debe contener* dos funciones:
 - `init()`: utilice esta función para cualquier preparación costosa o común para la inferencia posterior. Por ejemplo, para cargar el modelo en un objeto global.
 -  `run(mini_batch)`: la función se ejecutará para cada instancia de `mini_batch`.
-    -  `mini_batch`: la inferencia por lotes invocará el método run y pasará una trama de datos de Pandas o una lista como argumento al método. Cada entrada de min_batch será una ruta de acceso si la entrada es FileDataset, o una trama de datos de Pandas si es TabularDataset.
+    -  `mini_batch`: la inferencia por lotes invocará el método run y pasará una trama de datos de Pandas o una lista como argumento al método. Cada entrada de min_batch será una ruta de acceso si la entrada es FileDataset o una trama de datos de Pandas si es TabularDataset.
     -  `response`: el método run() debe devolver una trama de datos de Pandas o una matriz. Para append_row output_action, estos elementos devueltos se anexan al archivo de salida común. Para summary_only, se omite el contenido de los elementos. Para todas las acciones de salida, cada elemento de salida devuelto indica una inferencia correcta del elemento de entrada en el minilote de entrada. El usuario debe asegurarse de que se incluyen suficientes datos en el resultado de la inferencia para asignar la entrada a esta. La salida de la inferencia se escribirá en el archivo de salida y no se garantiza que esté en orden, por lo que el usuario debe usar alguna clave en la salida para asignarla a la entrada.
 
 ```python
@@ -241,7 +241,7 @@ def run(mini_batch):
 
 Ahora ya tiene todo lo que necesita para compilar la canalización.
 
-### <a name="prepare-the-run-environment"></a>Preparar el entorno de ejecución
+### <a name="prepare-the-run-environment"></a>Preparación del entorno de ejecución
 
 Primero, especifique las dependencias para el script. Usará este objeto más adelante cuando cree el paso de canalización.
 
@@ -292,7 +292,7 @@ parallel_run_config = ParallelRunConfig(
     node_count=4)
 ```
 
-### <a name="create-the-pipeline-step"></a>Crear el paso de canalización
+### <a name="create-the-pipeline-step"></a>Creación del paso de canalización
 
 Cree el paso de canalización mediante el script, la configuración del entorno y los parámetros. Especifique el destino de proceso que ya adjuntó a su área de trabajo como destino de ejecución del script. Use `ParallelRunStep` para crear el paso de canalización de inferencias por lotes, que toma todos los parámetros siguientes:
 - `name`: nombre del paso, con las siguientes restricciones de nomenclatura: unique, 3-32 caracteres y regex ^\[a-z\]([-a-z0-9]*[a-z0-9])?$.

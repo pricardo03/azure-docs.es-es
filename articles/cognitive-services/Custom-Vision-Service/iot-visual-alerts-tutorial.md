@@ -27,8 +27,8 @@ Un estado visual describe el contenido de una imagen: una sala vacía o con gent
 
 Este tutorial le mostrará cómo:
 > [!div class="checklist"]
-> * Configurar la aplicación de ejemplo para usar sus propios recursos de Custom Vision e IoT Hub
-> * Usar la aplicación para entrenar el proyecto de Custom Vision
+> * Configurar la aplicación de ejemplo para usar sus propios recursos de Custom Vision e IoT Hub.
+> * Usar la aplicación para entrenar el proyecto de Custom Vision.
 > * Usar la aplicación para puntuar nuevas imágenes en tiempo real y enviar los resultados a Azure.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar. 
@@ -69,7 +69,7 @@ Los siguientes archivos administran la funcionalidad principal de la aplicación
 Para que la aplicación de alertas visuales de IoT se ejecute en su equipo o dispositivo IoT, siga estos pasos.
 
 1. Clone o descargue el [ejemplo IoTVisualAlerts](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates/tree/master/IoTVisualAlerts) en GitHub.
-1. Abra la solución _IoTVisualAlerts.sln_ en Visual Studio
+1. Abra la solución _IoTVisualAlerts.sln_ en Visual Studio.
 1. Integre su proyecto de Custom Vision:
     1. En el script _CustomVision\CustomVisionServiceWrapper.cs_, actualice la variable `ApiKey` con la clave de entrenamiento.
     1. Luego, actualice la variable `Endpoint` con la dirección URL del punto de conexión asociada a la clave.
@@ -136,7 +136,7 @@ Elimine el proyecto de Custom Vision si ya no quiere mantenerlo. En el [sitio we
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, configurará y ejecutará una aplicación que detecta información de estado visual en un dispositivo IoT y envía los resultados a IoT Hub. Después, explore más el código fuente o realice una de las modificaciones sugeridas a continuación.
+En este tutorial, ha configurado y ha ejecutado una aplicación que detecta información de estado visual en un dispositivo IoT y envía los resultados a IoT Hub. Después, explore más el código fuente o realice una de las modificaciones sugeridas a continuación.
 
 > [!div class="nextstepaction"]
 > [Ejemplo de IoTVisualAlerts (GitHub)](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates/tree/master/IoTVisualAlerts)
