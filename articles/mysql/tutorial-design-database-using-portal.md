@@ -1,18 +1,18 @@
 ---
-title: 'Tutorial: Diseño de una instancia de Azure Database for MySQL con Azure Portal'
+title: 'Tutorial: Diseño de un servidor de Azure Database for MySQL en Azure Portal'
 description: En este tutorial se explica cómo crear y administrar la base de datos y el servidor de Azure Database for MySQL con Azure Portal.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: tutorial
-ms.date: 03/20/2018
+ms.date: 12/02/2019
 ms.custom: mvc
-ms.openlocfilehash: d9c6a16dd7e6c32a71d496abe8a67e23cc075a6d
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: ee33af4992745aeaeb99551cc173c39e224a298b
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66515820"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74771163"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-database-using-the-azure-portal"></a>Tutorial: Diseño de una base de datos de Azure Database for MySQL con Azure Portal
 Azure Database for MySQL es un servicio administrado que le permite ejecutar, administrar y escalar bases de datos de MySQL de alta disponibilidad en la nube. Con Azure Portal puede administrar fácilmente el servidor y diseñar una base de datos.
@@ -24,7 +24,7 @@ En este tutorial usará Azure Portal para aprender a hacer lo siguiente:
 > * Configuración del firewall del servidor
 > * Usar la herramienta de línea de comandos de mysql para crear una base de datos
 > * Carga de datos de ejemplo
-> * Datos de consulta
+> * Consultar datos
 > * Actualización de datos
 > * Restauración de datos
 
@@ -48,12 +48,12 @@ Se crea un servidor de Azure Database for MySQL con un conjunto definido de [rec
     ---|---|---
     Nombre de servidor | Nombre de servidor único | Elija un nombre único que identifique al servidor de Azure Database for MySQL. Por ejemplo, mydemoserver. El nombre de dominio *mysql.database.azure.com* se anexa al nombre del servidor proporcionado. El nombre del servidor solo puede contener letras minúsculas, números y el carácter de guion (-). Debe contener entre 3 y 63 caracteres.
     Subscription | Su suscripción | Seleccione la suscripción de Azure que quiere usar para el servidor. Si tiene varias suscripciones, elija aquella en la que se factura el recurso.
-    Grupos de recursos | *myresourcegroup* | Proporcione un nombre de grupo de recursos nuevo o existente.
+    Resource group | *myresourcegroup* | Proporcione un nombre de grupo de recursos nuevo o existente.
     Seleccionar origen | *En blanco* | Seleccione *En blanco* para crear un nuevo servidor desde el principio. (Seleccione *Copia de seguridad* si va a crear un servidor a partir de una copia de seguridad con redundancia geográfica de un servidor existente de Azure Database for MySQL).
     Inicio de sesión de administrador de servidor | myadmin | Una cuenta de inicio de sesión para usarla al conectarse al servidor. El nombre de inicio de sesión de administrador no puede ser **azure_superuser**, **admin**, **administrator**, **root**, **guest** ni **public**.
     Contraseña | *Su elección* | Proporcione una nueva contraseña para la cuenta de administrador del servidor. Debe contener entre ocho y 128 caracteres. La contraseña debe contener caracteres de tres de las siguientes categorías: Letras del alfabeto inglés mayúsculas y minúsculas, números (0-9) y caracteres no alfanuméricos (!, $, #, %, etc.).
     Confirmar contraseña | *Su elección*| Confirme la contraseña de la cuenta de administrador.
-    Ubicación | *Región más cercana a los usuarios*| Elija la ubicación más cercana a los usuarios o a sus otras aplicaciones de Azure.
+    Location | *Región más cercana a los usuarios*| Elija la ubicación más cercana a los usuarios o a sus otras aplicaciones de Azure.
     Versión | *La versión más reciente*| La versión más reciente (a menos que tenga requisitos específicos que requieran otra versión).
     Plan de tarifa | **Uso general**, **Gen 5**, **2 núcleos virtuales**, **5 GB**, **7 días**, **Redundancia geográfica** | Configuración de los recursos de proceso, almacenamiento y copia de seguridad para el nuevo servidor. Seleccione **Plan de tarifa**. A continuación, seleccione la pestaña **Uso general**. *Gen 5*, *2 núcleos virtuales*, *5 GB* y *7 días* son los valores predeterminados de **Generación de procesos**, **Núcleos virtuales**, **Almacenamiento** y **Período de retención de copia de seguridad**. Puede dejar los controles deslizantes tal y como están. Para habilitar las copias de seguridad del servidor en el almacenamiento con redundancia geográfica, seleccione **Redundancia geográfica** en **Opciones de redundancia de copia de seguridad**. Para guardar el plan de tarifa elegido, seleccione **Aceptar**. La captura de pantalla siguiente muestra estas opciones seleccionadas.
     
@@ -168,7 +168,7 @@ En este tutorial uso Azure Portal para aprender a hacer lo siguiente:
 > * Configuración del firewall del servidor
 > * Usar la herramienta de línea de comandos de mysql para crear una base de datos
 > * Carga de datos de ejemplo
-> * Datos de consulta
+> * Consultar datos
 > * Actualización de datos
 > * Restauración de datos
 

@@ -6,15 +6,15 @@ author: mgoedtel
 ms.service: automation
 ms.subservice: update-management
 ms.topic: tutorial
-ms.date: 11/20/2019
+ms.date: 12/03/2019
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 65ce4234da3f44de11522a626d2c0d10524e4673
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 44372f32227bbfef46a72afa6f9b0bd88b29905b
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278777"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806565"
 ---
 # <a name="manage-updates-and-patches-for-your-azure-vms"></a>Administración de actualizaciones y revisiones para las máquinas virtuales de Azure
 
@@ -127,6 +127,10 @@ Para personalizar el asunto de las alertas por correo electrónico, en **Crear r
 ## <a name="schedule-an-update-deployment"></a>Programación de una implementación de actualizaciones
 
 A continuación, programe una implementación que se ajuste a la ventana de programación y servicio de su versión para instalar las actualizaciones. Puede elegir los tipos de actualizaciones que quiere incluir en la implementación. Por ejemplo, puede incluir actualizaciones de seguridad o críticas y excluir paquetes acumulativos de actualizaciones.
+
+>[!NOTE]
+>Cuando se programa una implementación de actualizaciones, se crea un recurso de [programación](shared-resources/schedules.md) vinculado al runbook **Patch-MicrosoftOMSComputers** que controla la implementación de actualizaciones en las máquinas de destino. Si elimina el recurso de programación desde Azure Portal o mediante PowerShell después de crear la implementación, se interrumpe la implementación de actualizaciones programada y aparece un error cuando intenta volver a configurarlo desde el portal. Solo se puede eliminar el recurso de programación si se elimina la programación de implementaciones correspondiente.  
+>
 
 Para programar una nueva implementación de actualizaciones para la máquina virtual, vaya a **Update Management** y, a continuación, seleccione **Programar implementación de actualizaciones**.
 

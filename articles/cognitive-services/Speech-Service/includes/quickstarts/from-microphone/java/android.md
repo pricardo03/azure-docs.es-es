@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Reconocimiento de la voz a través de un micrófono en Java (Android): servicio Voz'
+title: 'Inicio rápido: Reconocimiento de la voz a través de un micrófono en Java (Android): servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: Aprenda a reconocer la voz en Java para Android mediante el SDK de Voz
 services: cognitive-services
@@ -10,20 +10,21 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 11/05/2019
 ms.author: wolfma
-ms.openlocfilehash: f0d9a4d2a86b13d5e2d37a900f27d2977f63de14
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e492381c4ab2f7ab41b5363ed70f9c5c6b12ce99
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73505783"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818992"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 
-Antes de comenzar, compruebe lo siguiente:
+Antes de comenzar:
 
 > [!div class="checklist"]
 > * [Ha creado un recurso de Voz de Azure](../../../../get-started.md)
 > * [Ha configurado el entorno de desarrollo](../../../../quickstarts/setup-platform.md?tabs=android)
+> * Asegúrese de que tiene acceso a un micrófono para capturar el audio.
 
 ## <a name="create-a-user-interface"></a>Creación de una interfaz de usuario
 
@@ -71,7 +72,7 @@ El texto y la representación gráfica de la interfaz de usuario ahora deben ten
 
    ![Captura de pantalla de la ventana Select Deployment Target (Seleccionar destino de implementación)](~/articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-12-deploy.png)
 
-Seleccione el botón de la aplicación para empezar una sección de reconocimiento de voz. Los siguientes 15 segundos de la oración en inglés se enviarán al servicio de Voz y se transcribirán. El resultado aparece en la aplicación Android y en la ventana de logcat de Android Studio.
+Seleccione el botón de la aplicación para empezar una sección de reconocimiento de voz. Los siguientes 15 segundos de la oración en inglés se enviarán al servicio de Voz y transcrito. El resultado aparece en la aplicación Android y en la ventana de logcat de Android Studio.
 
 ![Captura de pantalla de la aplicación Android](~/articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-13-gui-on-device.png)
 

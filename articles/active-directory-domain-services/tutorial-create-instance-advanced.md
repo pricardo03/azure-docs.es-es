@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: iainfou
-ms.openlocfilehash: 334a5c3c76f1ebaf4c8c36020110ef9c0bcc8d69
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 46764fdae89d5af4c9dedf4037d07dc48d1cda83
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74208676"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74703674"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance-with-advanced-configuration-options"></a>Tutorial: Creación y configuración de una instancia de Azure Active Directory Domain Services con opciones de configuración avanzada
 
@@ -73,7 +73,7 @@ Cuando se crea una instancia de Azure AD DS, se especifica un nombre DNS. Hay 
 >
 > Puede usar el nombre DNS raíz para el dominio administrado de Azure AD DS, pero puede que tenga que crear algunos registros DNS adicionales para otros servicios de su entorno. Por ejemplo, si ejecuta un servidor web que hospeda un sitio mediante el nombre DNS raíz, puede haber conflictos de nomenclatura que requieran más entradas DNS.
 >
-> En estos tutoriales y artículos de procedimientos, el dominio personalizado *contoso.com* se usa como ejemplo breve. En todos los comandos, especifique su propio nombre de dominio, que puede incluir un prefijo único.
+> En estos tutoriales y artículos de procedimientos, el dominio personalizado *aadds.contoso.com* se usa como ejemplo breve. En todos los comandos, especifique su propio nombre de dominio, que puede incluir un prefijo único.
 >
 > Para más información, consulte [Selección de un prefijo de nomenclatura para el dominio][naming-prefix].
 
@@ -167,7 +167,7 @@ En la página **Resumen** del asistente, revise la configuración del dominio ad
 
     ![Notificación en Azure Portal de la implementación en curso](./media/tutorial-create-instance-advanced/deployment-in-progress.png)
 
-1. Seleccione el grupo de recursos, como *myResourceGroup*, y, a continuación, elija la instancia de Azure AD DS en la lista de recursos de Azure, por ejemplo *contoso.com*. La pestaña **Información general** muestra que el dominio administrado se está *Implementando*. No se puede configurar el dominio administrado hasta que está totalmente aprovisionado.
+1. Seleccione el grupo de recursos, como *myResourceGroup*, y, a continuación, elija la instancia de Azure AD DS en la lista de recursos de Azure, por ejemplo *aadds.contoso.com*. La pestaña **Información general** muestra que el dominio administrado se está *Implementando*. No se puede configurar el dominio administrado hasta que está totalmente aprovisionado.
 
     ![Estado de Domain Services durante el estado de aprovisionamiento](./media/tutorial-create-instance-advanced/provisioning-in-progress.png)
 

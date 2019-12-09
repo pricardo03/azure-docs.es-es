@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Reconocimiento de la voz a través de un micrófono en Objective-C: servicio Voz'
+title: 'Inicio rápido: Reconocimiento de la voz a través de un micrófono en Objective-C: servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: Aprenda a reconocer la voz en Objective-C para iOS mediante el SDK de Voz.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: 0d353b115acbf48bfffa6c2033b507721de501c5
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 652754c31711df7b14c055b31d6d96a6b0217d29
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73505695"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815595"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-ios-by-using-the-speech-sdk"></a>Inicio rápido: Reconocimiento de voz en Objective-C para iOS mediante el SDK de Voz
 
@@ -27,7 +27,7 @@ En este artículo aprenderá a crear una aplicación iOS en Objective-C mediante
 
 Antes de comenzar, necesitará lo siguiente:
 
-* Una [clave de suscripción](~/articles/cognitive-services/Speech-Service/get-started.md) para el servicio Voz.
+* Una [clave de suscripción](~/articles/cognitive-services/Speech-Service/get-started.md) del servicio de voz.
 * Una máquina macOS con [Xcode 9.4.1](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12) o una versión posterior.
 * El destino establecido en la versión de iOS 9.3 o posterior.
 

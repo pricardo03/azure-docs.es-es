@@ -1,23 +1,16 @@
 ---
-title: 'Ruby (Rails) con Postgres en Linux: Azure App Service | Microsoft Docs'
-description: Aprenda a empezar a trabajar con una aplicación Ruby en Azure, con conexión a una base de datos PostgreSQL en Azure. Rails se utiliza en el tutorial.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: jeconnoc
-ms.service: app-service-web
-ms.workload: web
+title: 'Tutorial: Aplicación de Ruby para Linux con Postgres'
+description: Aprenda a poner en funcionamiento una aplicación de Ruby para Linux en Azure App Service, con conexión a una base de datos de PostgreSQL en Azure. Rails se utiliza en el tutorial.
 ms.devlang: ruby
 ms.topic: tutorial
 ms.date: 03/27/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 3ec19b1c564c09406ab1f29c38aef6332d80f8f1
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 6af9da060f7742fe2a9b9656199edd5feb67bec1
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59544695"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687405"
 ---
 # <a name="build-a-ruby-and-postgres-app-in-azure-app-service-on-linux"></a>Compilación de una aplicación Ruby y Postgres en Azure App Service en Linux
 
@@ -155,7 +148,7 @@ Cuando se crea la base de datos de Azure para el servidor de PostgreSQL, la CLI 
 
 ### <a name="configure-server-firewall"></a>Configuración del firewall del servidor
 
-En Cloud Shell, cree una regla de firewall para que el servidor Postgres permita conexiones de cliente con el comando [`az postgres server firewall-rule create`](/cli/azure/postgres/server/firewall-rule?view=azure-cli-latest#az-postgres-server-firewall-rule-create). Cuando tanto la dirección IP de inicio como final están establecidas en 0.0.0.0., el firewall solo se abre para otros recursos de Azure. Sustituya con un nombre de servidor único el marcador de posición *\<postgres-server-name>*.
+En Cloud Shell, cree una regla de firewall para que el servidor Postgres permita conexiones de cliente con el comando [`az postgres server firewall-rule create`](/cli/azure/postgres/server/firewall-rule?view=azure-cli-latest#az-postgres-server-firewall-rule-create). Cuando tanto la dirección IP de inicio como final están establecidas en 0.0.0.0., el firewall solo se abre para otros recursos de Azure. Sustituya con un nombre de servidor único el marcador de posición *\<postgres-server-name>* .
 
 ```azurecli-interactive
 az postgres server firewall-rule create --resource-group myResourceGroup --server <postgres-server-name> --name AllowAllIps --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
@@ -167,13 +160,13 @@ az postgres server firewall-rule create --resource-group myResourceGroup --serve
 
 ### <a name="connect-to-production-postgres-server-locally"></a>Conexión local al servidor Postgres de producción
 
-En Cloud Shell, conéctese al servidor Postgres en Azure. Use el valor que especificó anteriormente para los marcadores de posición _&lt;postgres-server-name>_.
+En Cloud Shell, conéctese al servidor Postgres en Azure. Use el valor que especificó anteriormente para los marcadores de posición _&lt;postgres-server-name>_ .
 
 ```bash
 psql -U adminuser@<postgres-server-name> -h <postgres-server-name>.postgres.database.azure.com postgres
 ```
 
-Cuando se le solicite una contraseña, utilice _My5up3r$tr0ngPa$w0rd!_, que es la que especificó al crear el servidor de bases de datos.
+Cuando se le solicite una contraseña, utilice _My5up3r$tr0ngPa$w0rd!_ , que es la que especificó al crear el servidor de bases de datos.
 
 ### <a name="create-a-production-database"></a>Creación de una base de datos de producción
 
@@ -302,7 +295,7 @@ En este paso se implementará la aplicación Rails conectada a Postgres en Azure
 
 En App Service, las variables de entorno se establecen como _valores de aplicación_ mediante el comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) en Cloud Shell.
 
-El siguiente comando Cloud Shell permite configurar los valores de aplicación `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` y `DB_PASSWORD`. Reemplace los marcadores de posición _&lt;appname>_ y _&lt;postgres-server-name>_.
+El siguiente comando Cloud Shell permite configurar los valores de aplicación `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` y `DB_PASSWORD`. Reemplace los marcadores de posición _&lt;appname>_ y _&lt;postgres-server-name>_ .
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings DB_HOST="<postgres-server-name>.postgres.database.azure.com" DB_DATABASE="sampledb" DB_USERNAME="railsappuser@<postgres-server-name>" DB_PASSWORD="MyPostgresAzure2017"

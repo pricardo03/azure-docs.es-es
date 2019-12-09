@@ -1,26 +1,17 @@
 ---
-title: 'Autenticación y autorización de usuarios de extremo a extremo en Linux: Azure App Service | Microsoft Docs'
-description: Aprenda a usar la autenticación y autorización de App Service para proteger sus aplicaciones de App Service que se ejecutan en Linux, como el acceso a las API remotas.
+title: 'Tutorial: Autenticación de usuarios E2E (Linux)'
+description: Aprenda a usar la autenticación y autorización de App Service para proteger sus aplicaciones de Linux en App Service de un extremo a otro, incluido el acceso a las API remotas.
 keywords: app service, azure app service, authN, authZ, secure, security, multi-tiered, azure active directory, azure ad
-services: app-service\web
-documentationcenter: dotnet
-author: cephalin
-manager: cfowler
-editor: ''
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/14/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: a50a1183cb2e57e8e98f1940f1c14284e89088c3
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 71aec33d5afe1a909f460ddae2d5cb0552857fee
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019247"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688941"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service-on-linux"></a>Tutorial: Autenticación y autorización de usuarios de un extremo a otro extremo en Azure App Service en Linux
 

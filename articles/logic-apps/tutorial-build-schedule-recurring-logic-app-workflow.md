@@ -1,22 +1,18 @@
 ---
-title: 'Creación de flujos de trabajo automatizados basados en programación: Azure Logic Apps'
+title: Creación de flujos de trabajo automatizados basados en una programación
 description: 'Tutorial: Creación de un flujo de trabajo automatizado, periódico y basado en una programación mediante Azure Logic Apps'
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.manager: carmonm
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/12/2019
-ms.openlocfilehash: eae2319e8d1c162969a04f8dafa18eec671ee1d0
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: f9203f77d5b398f53fcb7c9fceb70604b364a4e0
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72034679"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790290"
 ---
 # <a name="tutorial-create-automated-schedule-based-recurring-workflows-by-using-azure-logic-apps"></a>Tutorial: Creación de un flujo de trabajo automatizado, periódico y basado en una programación mediante Azure Logic Apps
 

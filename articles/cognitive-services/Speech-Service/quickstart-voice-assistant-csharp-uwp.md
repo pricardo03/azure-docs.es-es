@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Asistente de voz personalizado en C# (UWP): Servicio Voz'
+title: 'Inicio rápido: Asistente de voz personalizado en C# (UWP): servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: En este artículo, creará una aplicación para Plataforma universal de Windows (UWP) de C# mediante el kit de desarrollo de software (SDK) de Voz de Cognitive Services. Conecta su aplicación cliente a un bot de Bot Framework previamente creado y configurado para usar el canal Direct Line Speech. La aplicación se crea con el paquete NuGet del SDK de voz y Microsoft Visual Studio 2019.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 11/05/2019
 ms.author: travisw
-ms.openlocfilehash: 75ecbe8351e68b77a59b40709a2beb15d09b16df
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 25d74b640f1bf567792c317626da0178ead7e34f
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73506231"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816232"
 ---
 # <a name="quickstart-create-a-voice-assistant-with-the-speech-sdk-uwp"></a>Inicio rápido: Creación de un asistente de voz con el SDK de Voz, UWP
 
@@ -31,7 +31,7 @@ En este artículo, desarrollará una aplicación para Plataforma universal de Wi
 Esta guía de inicio rápido requiere:
 
 * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/).
-* Una clave de suscripción de Azure para los servicios de Voz. [Obtenga una gratis](get-started.md) o créela en [Azure Portal](https://portal.azure.com).
+* Una clave de suscripción de Azure para el servicio Voz. [Obtenga una gratis](get-started.md) o créela en [Azure Portal](https://portal.azure.com).
 * Un bot creado previamente y configurado con el [canal Direct Line Speech](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech).
 
   > [!NOTE]
@@ -292,7 +292,7 @@ Para agregar el código fuente subyacente, siga estos pasos:
 1. Agregue el siguiente fragmento de código al cuerpo del método de `InitializeDialogServiceConnector`. Este código crea el `DialogServiceConnector` con la información de la suscripción.
 
     ```csharp
-    // Create a BotFrameworkConfig by providing a Speech Service subscription key
+    // Create a BotFrameworkConfig by providing a Speech service subscription key
     // the RecoLanguage property is optional (default en-US)
     const string speechSubscriptionKey = "YourSpeechSubscriptionKey"; // Your subscription key
     const string region = "YourServiceRegion"; // Your subscription service region.
@@ -422,7 +422,7 @@ Ahora está listo para compilar y probar la aplicación.
 ## <a name="see-also"></a>Otras referencias
 
 - [Acerca de los asistentes de voz](voice-assistants.md)
-- [Get a Speech Services subscription key for free](get-started.md) (Consiga una clave de suscripción a los servicios de voz gratis)
+- [Obtenga una clave de suscripción gratuita a los servicios de Voz](get-started.md)
 - [Palabras clave personalizadas](speech-devices-sdk-create-kws.md)
 - [Conexión de Direct Line de Voz al bot](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
 - [Exploración de ejemplos de C# en GitHub](https://aka.ms/csspeech/samples)

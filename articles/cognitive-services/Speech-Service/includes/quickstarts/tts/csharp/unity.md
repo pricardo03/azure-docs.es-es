@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Síntesis de voz en C# para Unity (Servicios de voz)'
+title: 'Inicio rápido: Síntesis de voz en C# (Unity): servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: Use esta guía para crear una aplicación de conversión de texto a voz con Unity y el SDK de Voz para Unity. Cuando termine, puede sintetizar la voz a partir de texto en tiempo real en el altavoz del dispositivo.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 9/19/2019
 ms.author: yinhew
-ms.openlocfilehash: 281fbcf3f42160b18adcad3f06f6ef4a7b8de243
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f3b3d68e0154913e3eb6d101965ad33530502954
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73504903"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818101"
 ---
 > [!NOTE]
 > Unity es compatible con Windows Desktop (x86 y x64) o con la Plataforma universal de Windows (x86, x64, ARM o ARM64), Android (x86, ARM32/64) e iOS (simulador de x64, ARM32 y ARM64).
@@ -64,7 +64,7 @@ Cuando haya terminado, la interfaz de usuario se parecerá a esta captura de pan
 
    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp/unity/text-to-speech/Assets/Scripts/HelloWorld.cs#code)]
 
-1. Localice la cadena `YourSubscriptionKey` y reemplácela por su clave de suscripción a los servicios de voz.
+1. Localice la cadena `YourSubscriptionKey` y reemplácela por su clave de suscripción del servicio de voz.
 
 1. Localice la cadena `YourServiceRegion` y reemplácela por la [región](~/articles/cognitive-services/Speech-Service/regions.md) asociada a sus suscripción. Por ejemplo, si usa la evaluación gratuita, la región es `westus`.
 
@@ -83,7 +83,7 @@ Cuando haya terminado, la interfaz de usuario se parecerá a esta captura de pan
 ## <a name="run-the-application-in-the-unity-editor"></a>Ejecución de la aplicación en el editor de Unity
 
 * Seleccione el botón **Play** (Reproducir) en la barra de herramientas del editor de Unity que está debajo de la barra de menús.
-* Después de que se inicie la aplicación, escriba algún texto en el campo de entrada y seleccione el botón. El texto se transmite a los servicios de Voz y se sintetiza en voz, la cual se reproduce en el altavoz.
+* Después de que se inicie la aplicación, escriba algún texto en el campo de entrada y seleccione el botón. El texto se transmite al servicio de voz y se sintetiza en una voz que se reproduce en el altavoz.
 
   [![Captura de pantalla del inicio rápido en ejecución en la ventana de juego de Unity](~/articles/cognitive-services/speech-service/media/sdk/qs-tts-csharp-unity-output-inline.png)](~/articles/cognitive-services/speech-service/media/sdk/qs-tts-csharp-unity-output-expanded.png#lightbox)
 

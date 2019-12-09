@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Reconocimiento de la voz almacenada en Blob Storage en C++: servicio Voz'
+title: 'Inicio rápido: Reconocimiento de la voz almacenada en Blob Storage en C++: servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 2173dbabc83ff0a03c0cfd18e02a6f3183ef90e2
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 313332689b0f2df9698f868297c72be7d8bde5bb
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73506095"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74828885"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -32,7 +32,7 @@ Antes de comenzar, compruebe lo siguiente:
 
 El primer paso es asegurarse de que tiene el proyecto abierto en Visual Studio.
 
-1. Inicie Visual Studio 2019.
+1. Inicie Visual Studio 2019.
 2. Cargue el proyecto y abra `helloworld.cpp`.
 
 ## <a name="add-a-references"></a>Adición de referencias
@@ -71,7 +71,7 @@ Inserte este código en `recognizeSpeech` [!code-cpp[](~/samples-cognitive-servi
 A continuación, se generará la solicitud de transcripción. Agregue este código a `recognizeSpeech` [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/from-blob/helloworld.cpp?range=199-203)]
 
 ## <a name="send-the-request-and-check-its-status"></a>Envío de la solicitud y comprobación de su estado
-Ahora, se va a publicar la solicitud en el servicio Voz y se va a comprobar el código de respuesta inicial. Este código de respuesta indicará simplemente si el servicio ha recibido la solicitud. El servicio devolverá una dirección URL en los encabezados de respuesta, que es la ubicación en la que se almacenará el estado de la transcripción.
+Ahora, se va a publicar la solicitud en el servicio de voz y se va a comprobar el código de respuesta inicial. Este código de respuesta indicará simplemente si el servicio ha recibido la solicitud. El servicio devolverá una dirección URL en los encabezados de respuesta, que es la ubicación en la que se almacenará el estado de la transcripción.
 [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/from-blob/helloworld.cpp?range=204-216)]
 
 ## <a name="wait-for-the-transcription-to-complete"></a>Espere a que finalice la operación.

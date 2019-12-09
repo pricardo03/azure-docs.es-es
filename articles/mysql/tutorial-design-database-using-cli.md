@@ -1,19 +1,19 @@
 ---
-title: 'Tutorial: Diseño de una base de datos de Azure Database for MySQL con la CLI de Azure'
+title: 'Tutorial: Diseño de un servidor de Azure Database for MySQL con la CLI de Azure'
 description: Este tutorial explica cómo crear y administrar servidores y bases de datos de Azure Database for MySQL mediante la CLI de Azure desde la línea de comandos.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 04/29/2019
+ms.date: 12/02/2019
 ms.custom: mvc
-ms.openlocfilehash: 00c2efacab72c08d33b0004650bece2c369c757b
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 00beae5a65e61f814d3498dbb41af02aaf0287fb
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64935994"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74771220"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-using-azure-cli"></a>Tutorial: Diseño de una base de datos de Azure Database for MySQL con la CLI de Azure
 
@@ -24,7 +24,7 @@ Azure Database for MySQL es un servicio de base de datos relacional de Microsoft
 > * Configuración del firewall del servidor
 > * Uso de la [herramienta de línea de comandos mysql](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) para crear una base de datos
 > * Carga de datos de ejemplo
-> * Datos de consulta
+> * Consultar datos
 > * Actualización de datos
 > * Restauración de datos
 
@@ -203,7 +203,7 @@ En este tutorial aprendió lo siguiente:
 > * Configuración del firewall del servidor
 > * Uso de la [herramienta de línea de comandos mysql](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) para crear una base de datos
 > * Carga de datos de ejemplo
-> * Datos de consulta
+> * Consultar datos
 > * Actualización de datos
 > * Restauración de datos
 

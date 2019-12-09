@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Reconocimiento de la voz a través de un micrófono en C# (Xamarin): servicio Voz'
+title: 'Inicio rápido: Reconocimiento de la voz a través de un micrófono en C# (Xamarin): servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: En este artículo se crea una aplicación C# Xamarin multiplataforma para la Plataforma universal de Windows (UWP), Android e iOS mediante el SDK de Voz de Cognitive Services. Transcriba voz a texto en tiempo real desde el micrófono de su dispositivo o simulador. La aplicación se crea con el paquete NuGet del SDK de voz y Microsoft Visual Studio 2019.
 services: cognitive-services
@@ -10,21 +10,22 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: d0d1cfee535a04203d9ff995b94fcad5d432ed3e
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: ecfdc74c72284da97ebf3107140911e666a3a12d
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961183"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818850"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 
-Antes de comenzar, compruebe lo siguiente:
+Antes de comenzar:
 
 > [!div class="checklist"]
 > * [Ha creado un recurso de Voz de Azure](../../../../get-started.md)
 > * [Ha configurado el entorno de desarrollo](../../../../quickstarts/setup-platform.md?tabs=xamarin)
 > * [Ha creado un proyecto de ejemplo vacío](../../../../quickstarts/create-project.md?tabs=xamarin)
+> * Asegúrese de que tiene acceso a un micrófono para capturar el audio.
 
 Si ya lo ha hecho, perfecto. Vamos a continuar.
 
@@ -135,7 +136,7 @@ Ahora, agregue el código C# que define la parte específica de UWP de la aplica
 
    ![Solicitud de permiso de acceso al micrófono](../../../../media/sdk/qs-csharp-xamarin-uwp-access-prompt.png)
 
-1. Seleccione **Iniciar reconocimiento de voz**  y diga una frase en inglés en el micrófono del dispositivo. Lo que diga se transmitirá a los servicios de voz y se transcribirá en texto que aparece en la misma ventana.
+1. Seleccione **Iniciar reconocimiento de voz**  y diga una frase en inglés en el micrófono del dispositivo. Lo que diga se transmitirá al servicio de Voz y se transcribe en texto, que aparece en la misma ventana.
 
    ![Interfaz de usuario del reconocimiento de voz](../../../../media/sdk/qs-csharp-xamarin-uwp-ui-result.png)
 * * *

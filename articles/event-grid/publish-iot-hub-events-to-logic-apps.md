@@ -1,18 +1,18 @@
 ---
 title: 'Tutorial: Uso de eventos de IoT Hub para desencadenar Azure Logic Apps'
-description: Con el servicio de enrutamiento de eventos de Azure Event Grid, cree procesos automatizados para llevar a cabo acciones de Azure Logic Apps basadas en eventos de IoT Hub.
+description: En este tutorial se indica cómo usar el servicio de enrutamiento de eventos de Azure Event Grid para crear procesos automatizados que lleven a cabo acciones de Azure Logic Apps basadas en eventos de IoT Hub.
 services: iot-hub
 author: robinsh
 ms.service: iot-hub
 ms.topic: tutorial
 ms.date: 11/21/2019
 ms.author: robinsh
-ms.openlocfilehash: 70ad74715446a54605a23a049ebc92a81d7ee673
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 334b7b2c59b328e8eff3c7c2b9c3ed46bffc3442
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74423771"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706431"
 ---
 # <a name="tutorial-send-email-notifications-about-azure-iot-hub-events-using-event-grid-and-logic-apps"></a>Tutorial: Envío de notificaciones por correo electrónico sobre eventos de Azure IoT Hub mediante Event Grid y Logic Apps
 

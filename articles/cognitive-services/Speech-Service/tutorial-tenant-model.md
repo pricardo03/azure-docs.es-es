@@ -1,5 +1,5 @@
 ---
-title: 'Creación de un modelo de inquilino (versión preliminar): servicio Voz'
+title: 'Creación de un modelo de inquilino (versión preliminar): servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: Genere automáticamente un modelo de inquilino (Custom Speech con datos de Office 365) que aproveche los datos de Office 365 para ofrecer un reconocimiento de voz óptimo para términos específicos de una organización y que sea seguro y compatible.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 10/26/2019
 ms.author: erhopf
-ms.openlocfilehash: c8a2855ce9cd320be3aea8b3b4a05f3b3eb39976
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 8ca31dcadebf2dc47d5a4b4db715f26fb38e204e
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73578214"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816383"
 ---
 # <a name="create-a-tenant-model-preview"></a>Creación de un modelo de inquilino (versión preliminar)
 
@@ -96,7 +96,7 @@ Cuando el modelo de inquilino esté listo, siga estos pasos para implementarlo:
 
 ## <a name="use-your-model-with-the-speech-sdk"></a>Uso del modelo con el SDK de Voz
 
-Ahora que ha implementado el modelo, puede usarlo con el SDK de Voz. En esta sección, usará el código de ejemplo proporcionado para llamar al servicio de Voz mediante la autenticación de Azure AD.
+Ahora que ha implementado el modelo, puede usarlo con el SDK de Voz. En esta sección, usará el código de ejemplo proporcionado para llamar al servicio de voz mediante la autenticación de Azure AD.
 
 Echemos un vistazo al código que usará para llamar al SDK de Voz en C#. En este ejemplo, realizará el reconocimiento de voz mediante un modelo de inquilino. En esta guía se da por supuesto que la plataforma ya está configurada. Si necesita ayuda con la configuración, consulte [Inicio rápido: Reconocimiento de voz, C# (.NET Core)](quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnetcore).
 

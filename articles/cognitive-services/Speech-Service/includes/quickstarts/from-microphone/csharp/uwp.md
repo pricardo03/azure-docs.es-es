@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Reconocimiento de la voz a través de un micrófono en C# (UWP): servicio Voz'
+title: 'Inicio rápido: Reconocimiento de la voz a través de un micrófono en C# (UWP): servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -10,21 +10,22 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: 0d1da9a9ef32aed1975595bb15909b9531ab2400
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5f83f249228c96021979edc14c092eded03b96e4
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73505623"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818658"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 
-Antes de comenzar, compruebe lo siguiente:
+Antes de comenzar:
 
 > [!div class="checklist"]
 > * [Ha creado un recurso de Voz de Azure](../../../../get-started.md)
 > * [Ha configurado el entorno de desarrollo](../../../../quickstarts/setup-platform.md?tabs=uwp)
 > * [Ha creado un proyecto de ejemplo vacío](../../../../quickstarts/create-project.md?tabs=uwp)
+> * Asegúrese de que tiene acceso a un micrófono para capturar el audio.
 
 Si ya lo ha hecho, perfecto. Vamos a continuar.
 
@@ -86,7 +87,7 @@ Ahora está listo para compilar y probar la aplicación.
 
    ![Solicitud de permiso de acceso al micrófono](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-10-access-prompt.png)
 
-1. Seleccione **Speech recognition with microphone input** (Reconocimiento de voz con entrada de micrófono) y diga una frase en inglés en el micrófono del dispositivo. Lo que diga se transmitirá a los servicios de voz y se transcribirá en texto, que aparece en la misma ventana.
+1. Seleccione **Speech recognition with microphone input** (Reconocimiento de voz con entrada de micrófono) y diga una frase en inglés en el micrófono del dispositivo. Lo que diga se transmitirá al servicio de Voz y se transcribe en texto, que aparece en la misma ventana.
 
    ![Interfaz de usuario del reconocimiento de voz](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-11-ui-result.png)
 

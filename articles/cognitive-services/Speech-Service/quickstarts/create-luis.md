@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: wolfma
-ms.openlocfilehash: 2ee2b25958feac2387779d9e60734a6600b60a2e
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 23f0b459b67088518375fbb4fd0b106da3aaf57c
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682064"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815846"
 ---
 # <a name="quickstart-getting-a-luis-endpoint-key"></a>Inicio rápido: Obtención de una clave de punto de conexión de LUIS.
 
@@ -27,7 +27,7 @@ Asegúrese de disponer de los siguientes elementos antes de empezar este tutoria
 
 ## <a name="luis-and-speech"></a>LUIS y voz
 
-LUIS se integra con los servicios de voz para reconocer las intenciones a partir de contenido de voz. No necesita una suscripción a los servicios de voz, solo LUIS.
+LUIS se integra con el servicio Voz para reconocer las intenciones a partir de contenido de voz. No necesita una suscripción al servicio Voz, solo LUIS.
 
 LUIS usa tres tipos de claves:
 
@@ -39,7 +39,7 @@ LUIS usa tres tipos de claves:
 
 Para este tutorial, necesitará el tipo de clave de punto de conexión. Este tutorial utiliza la aplicación de LUIS Home Automation de ejemplo, que se puede crear siguiendo el inicio rápido [Uso de automatización del hogar compilada previamente](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app). Si ha creado su propia aplicación de LUIS, puede usarla si lo prefiere.
 
-Al crear una aplicación LUIS, el propio LUIS genera automáticamente una clave de inicio para que pueda probarla aplicación mediante consultas de texto. Esta clave no permite la integración de los Servicios de voz y no funcionará con este tutorial. Cree un recurso de LUIS en el panel de Azure y asígnelo a la aplicación de LUIS. Puede usar el nivel de suscripción gratis para este tutorial.
+Al crear una aplicación LUIS, el propio LUIS genera automáticamente una clave de inicio para que pueda probarla aplicación mediante consultas de texto. Esta clave no permite la integración del servicio de voz y no funcionará con este tutorial. Cree un recurso de LUIS en el panel de Azure y asígnelo a la aplicación de LUIS. Puede usar el nivel de suscripción gratis para este tutorial.
 
 Después de crear el recurso de LUIS en el panel de Azure, inicie sesión en el [portal de LUIS](https://www.luis.ai/home), elija la aplicación en la página **My Apps** (Mis aplicaciones) y, después, cambie a la página **Manage** (Administrar) de la aplicación. Por último, seleccione **Keys and Endpoints** (Claves y puntos de conexión) en la barra lateral.
 

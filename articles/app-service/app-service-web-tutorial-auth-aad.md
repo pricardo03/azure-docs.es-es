@@ -1,26 +1,17 @@
 ---
-title: Autenticación y autorización de usuarios de extremo a extremo en Azure App Service | Microsoft Docs
+title: 'Tutorial: Autenticación y autorización de un extremo a otro'
 description: Aprenda a usar la autenticación y autorización de App Service para proteger sus aplicaciones de App Service, como el acceso a las API remotas.
 keywords: app service, azure app service, authN, authZ, secure, security, multi-tiered, azure active directory, azure ad
-services: app-service\web
-documentationcenter: dotnet
-author: cephalin
-manager: cfowler
-editor: ''
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/14/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 55ba5a193e15ac4e8bd83ac046deeac1f12d61d0
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 6c243839e59038d439e177847df4427d253dbe98
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961951"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672064"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>Tutorial: Autenticación y autorización de usuarios de extremo a extremo en Azure App Service
 

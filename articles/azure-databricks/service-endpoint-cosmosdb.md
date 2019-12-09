@@ -1,5 +1,5 @@
 ---
-title: Implementar Azure Databricks con un punto de conexión de Cosmos DB
+title: 'Tutorial: Implementación de Azure Databricks con un punto de conexión de Cosmos DB'
 description: En este tutorial se describe cómo implementar Azure Databricks en una red virtual con un punto de conexión de servicio habilitado para Cosmos DB.
 author: mamccrea
 ms.author: mamccrea
@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: tutorial
 ms.date: 04/17/2019
-ms.openlocfilehash: d1268ea2cfc22e6350edb32230588a497be8bc79
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4ac8c01e986cf1f3158c615a0791ba476e5bf1bb
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67054537"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706162"
 ---
 # <a name="tutorial-implement-azure-databricks-with-a-cosmos-db-endpoint"></a>Tutorial: Implementar Azure Databricks con un punto de conexión de Cosmos DB
 

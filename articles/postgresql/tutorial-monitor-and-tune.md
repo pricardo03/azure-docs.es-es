@@ -1,17 +1,17 @@
 ---
-title: 'Tutorial sobre la supervisión y ajuste en Azure Database for PostgreSQL: Single Server'
+title: 'Tutorial: Supervisión y ajuste de un servidor único de Azure Database for PostgreSQL'
 description: 'Este tutorial trata sobre la supervisión y el ajuste en Azure Database for PostgreSQL: Single Server.'
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: tutorial
 ms.date: 5/6/2019
-ms.openlocfilehash: dcd8363db33809e2a33885f43e570c53807505fd
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: d1958c6ef0f7ed52e939967b5e82886fe1373ed8
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "65073087"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74774744"
 ---
 # <a name="tutorial-monitor-and-tune-azure-database-for-postgresql---single-server"></a>Tutorial: Supervisión y ajuste en Azure Database for PostgreSQL: Single Server
 

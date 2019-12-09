@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial sobre la implementación de una función de Azure en un dispositivo: Azure IoT Edge | Microsoft Docs'
+title: 'Tutorial: Implementación de Azure Functions como módulos en Azure IoT Edge'
 description: En este tutorial, va a desarrollar una función de Azure como módulo IoT Edge que luego implementará en un dispositivo perimetral.
 author: kgremban
 manager: philmea
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 1db64c2cc68dc9c47d4f2cf5f63eb0667907d737
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 8edd6028e73690829129168d912b312247d8b880
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456723"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74664121"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>Tutorial: Implementación de Azure Functions como módulos IoT Edge
 

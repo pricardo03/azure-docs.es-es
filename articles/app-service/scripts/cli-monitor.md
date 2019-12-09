@@ -1,27 +1,20 @@
 ---
-title: 'Ejemplo de script de la CLI de Azure: supervisión de una aplicación con registros de servidor web | Microsoft Docs'
-description: 'Ejemplo de script de la CLI de Azure: supervisión de una aplicación en App Service con registros de servidor web'
-services: appservice
-documentationcenter: appservice
-author: msangapu
-manager: jeconnoc
-editor: ''
+title: 'CLI: Supervisión de una aplicación con registros de servidor web'
+description: Aprenda a usar la CLI de Azure para automatizar la implementación y administración de la aplicación App Service. En este ejemplo se muestra cómo supervisar una aplicación con registros de servidor web.
+author: msangapu-msft
 tags: azure-service-management
 ms.assetid: 0887656f-611c-4627-8247-b5cded7cef60
-ms.service: app-service
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: web
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: c0bdf64e7fd9bf7de3ea46f6c08741b61ef0013f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 436cd16f94aae1668689c7333d5e5a2c9a1bbf46
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66136688"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74685953"
 ---
 # <a name="monitor-an-app-service-appwith-web-server-logs-using-azure-cli"></a>Supervisión de una aplicación de App Service con registros de servidor web mediante la CLI de Azure
 

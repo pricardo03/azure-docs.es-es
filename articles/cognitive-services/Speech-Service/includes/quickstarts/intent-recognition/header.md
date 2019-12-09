@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Reconocimiento de voz, intenciones y entidades: servicio Voz'
+title: 'Inicio rápido: Reconocimiento de voz, intenciones y entidades: servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 10/28/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: df4604560e05899461b11ec0788f72b27241f1b9
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: a87ed9355a5939393fd5e20f395cc96f35e7f150
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74125605"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815927"
 ---
 En este inicio rápido, usará el [SDK de Voz](~/articles/cognitive-services/speech-service/speech-sdk.md) para reconocer interactivamente la voz de los datos de audio capturada a través de un micrófono. Una vez que se cumplen los requisitos previos, para realizar el reconocimiento de voz a través de un micrófono solo son necesarios cuatro pasos:
 > [!div class="checklist"]

@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: alzam
-ms.openlocfilehash: 0319e3aec71d37b49a094861fdcbb3b96b6def67
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 394ca0c244db751645eb56f50e7023fcee229876
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73585429"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74807466"
 ---
 # <a name="tutorial-create-a-user-vpn-connection-using-azure-virtual-wan"></a>Tutorial: Creación de una conexión VPN de usuario mediante Azure Virtual WAN
 
@@ -134,7 +134,7 @@ Use el perfil descargado para configurar los clientes de acceso remoto. El proce
 1. Descargue e instale el cliente OpenVPN desde el sitio web oficial.
 2. Descargue el perfil de VPN para la puerta de enlace. Esto puede hacerse desde la pestaña de configuraciones de VPN de usuario de Azure Portal o mediante New-AzureRmVpnClientConfiguration en PowerShell.
 3. Descomprima el perfil. Abra el archivo de configuración vpnconfig.ovpn desde la carpeta OpenVPN en el Bloc de notas.
-4. Rellene la sección de certificado cliente de P2S con la clave pública del certificado cliente de P2S en Base64. En un certificado con formato PEM, puede abrir el archivo .cer y copiar la clave de base64 entre los encabezados del certificado. Vea aquí cómo exportar un certificado para obtener la clave pública codificada.
+4. Rellene la sección de certificado cliente de P2S con la clave pública del certificado cliente de P2S en Base64. En un certificado con formato PEM, puede abrir el archivo .cer y copiar la clave de base64 entre los encabezados del certificado. Vea aquí [cómo exportar un certificado para obtener la clave pública codificada](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-certificates-point-to-site).
 5. Rellene la sección de la clave privada con la clave privada del certificado cliente de P2S en Base64. Vea aquí cómo extraer la clave privada.
 6. No cambie los demás campos. Use los datos de la configuración de entrada del cliente para conectarse a la VPN.
 7. Copie el archivo vpnconfig.ovpn en la carpeta C:\Program Files\OpenVPN\config.
@@ -145,7 +145,7 @@ Use el perfil descargado para configurar los clientes de acceso remoto. El proce
 1. Seleccione los archivos de configuración de cliente VPN que correspondan a la arquitectura del equipo Windows. Si la arquitectura de procesador es de 64 bits, elija el paquete del instalador "VpnClientSetupAmd64". En caso de que sea de 32 bits, elija el paquete del instalador "VpnClientSetupX86".
 2. Haga doble clic en el paquete para instalarlo. Si ve una ventana emergente de SmartScreen, haga clic en Más información y en Ejecutar de todas formas.
 3. En el equipo cliente, vaya a Configuración de red y haga clic en VPN. La conexión VPN muestra el nombre de la red virtual a la que se conecta.
-4. Antes de intentar conectarse, compruebe que ha instalado un certificado de cliente en el equipo cliente. Es necesario un certificado de cliente para la autenticación al usar el tipo de autenticación de certificados nativo de Azure. Para más información acerca de cómo generar certificados, consulte Generación de certificados. Para información acerca de cómo instalar un certificado de cliente, consulte Instalación de certificados de cliente.
+4. Antes de intentar conectarse, compruebe que ha instalado un certificado de cliente en el equipo cliente. Es necesario un certificado de cliente para la autenticación al usar el tipo de autenticación de certificados nativo de Azure. Para más información acerca de cómo generar certificados, consulte [Generación de certificados](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-certificates-point-to-site). Para información acerca de cómo instalar un certificado de cliente, consulte Instalación de certificados de cliente.
 
 ## <a name="viewwan"></a>Visualización de la instancia de Virtual WAN
 
@@ -164,7 +164,7 @@ Use el perfil descargado para configurar los clientes de acceso remoto. El proce
 Cuando ya no necesite estos recursos, puede usar [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) para quitar el grupo de recursos y todos los recursos que contiene. Reemplace "myResourceGroup" con el nombre del grupo de recursos y ejecute el siguiente comando de PowerShell:
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -1,14 +1,14 @@
 ---
 title: Ejemplo de plano técnico de CIS Microsoft Azure Foundations Benchmark, controles
 description: Asignación de recomendaciones del ejemplo de plano técnico de CIS Microsoft Azure Foundations Benchmark para Azure Policy.
-ms.date: 10/01/2019
+ms.date: 11/04/2019
 ms.topic: sample
-ms.openlocfilehash: 55abac9f7479f0ee7d1adddea64cb81a1c7cf2b5
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 34d38f34dcd4233706f9b4578bc2dc2a644e4c2c
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74544546"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707421"
 ---
 # <a name="recommendation-mapping-of-the-cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>Asignación de recomendaciones del ejemplo de plano técnico de CIS Microsoft Azure Foundations Benchmark
 
@@ -40,6 +40,12 @@ Este plano técnico asigna definiciones de [Azure Policy](../../../policy/overvi
 - Las cuentas externas con permisos de propietario deben quitarse de la suscripción
 - Las cuentas externas con permisos de lectura deben quitarse de la suscripción
 - Las cuentas externas con permisos de escritura deben quitarse de la suscripción
+
+## <a name="123-ensure-that-no-custom-subscription-owner-roles-are-created"></a>1.23 Asegúrese de que no existe ningún rol de propietario de suscripción personalizado
+
+Este plano técnico asigna definiciones de [Azure Policy](../../../policy/overview.md) que contribuirán con la supervisión de los roles de propietario de suscripción personalizados que quizá deban eliminarse.
+
+- No deben existir roles de propietario de suscripción personalizados.
 
 ## <a name="21-ensure-that-standard-pricing-tier-is-selected"></a>2.1 Asegúrese de que el plan de tarifa estándar está seleccionado
 
@@ -243,11 +249,35 @@ Este plano técnico asigna una definición de [Azure Policy](../../../policy/ove
 
 - La aplicación de la conexión SSL debe estar habilitada para los servidores de bases de datos MySQL
 
+## <a name="412-ensure-server-parameter-log_checkpoints-is-set-to-on-for-postgresql-database-server"></a>4.12 Asegúrese de que "log_checkpoints" del parámetro del servidor está establecido en "ACTIVADO" para el servidor de bases de datos PostgreSQL
+
+Este plano técnico asigna una definición de [Azure Policy](../../../policy/overview.md) que contribuye a garantizar que los servidores de bases de datos PostgreSQL registran los puntos de control.
+
+- Los puntos de control del registro se deben habilitar para los servidores de base de datos de PostgreSQL.
+
 ## <a name="413-ensure-enforce-ssl-connection-is-set-to-enabled-for-postgresql-database-server"></a>4.13 Asegúrese de que "Aplicar conexión SSL" esté establecido en "HABILITADO" para el servidor de bases de datos PostgreSQL
 
 Este plano técnico asigna una definición de [Azure Policy](../../../policy/overview.md) que contribuirá a garantizar que los servidores de bases de datos PostgreSQL aplican la conexión SSL.
 
 - La aplicación de la conexión SSL debe estar habilitada para los servidores de bases de datos PostgreSQL
+
+## <a name="414-ensure-server-parameter-log_connections-is-set-to-on-for-postgresql-database-server"></a>4.14 Asegúrese de que "log_connections" del parámetro del servidor está establecido en "ACTIVADO" para el servidor de bases de datos PostgreSQL
+
+Este plano técnico asigna una definición de [Azure Policy](../../../policy/overview.md) que contribuye a garantizar que los servidores de bases de datos PostgreSQL registran las conexiones.
+
+- Las conexiones del registro deben estar habilitadas para los servidores de bases de datos de PostgreSQL.
+
+## <a name="415-ensure-server-parameter-log_disconnections-is-set-to-on-for-postgresql-database-server"></a>4.15 Asegúrese de que "log_disconnections" del parámetro del servidor está establecido en "ACTIVADO" para el servidor de bases de datos PostgreSQL
+
+Este plano técnico asigna una definición de [Azure Policy](../../../policy/overview.md) que contribuye a garantizar que los servidores de bases de datos PostgreSQL registran las desconexiones.
+
+- Las desconexiones se deben registrar para los servidores de base de datos de PostgreSQL.
+
+## <a name="416-ensure-server-parameter-log_duration-is-set-to-on-for-postgresql-database-server"></a>4.16 Asegúrese de que "log_duration" del parámetro del servidor está establecido en "ACTIVADO" para el servidor de bases de datos PostgreSQL
+
+Este plano técnico asigna una definición de [Azure Policy](../../../policy/overview.md) que contribuye a garantizar que los servidores de bases de datos PostgreSQL registran la duración de las instrucciones completadas.
+
+- La duración del registro debe estar habilitada para los servidores de bases de datos de PostgreSQL.
 
 ## <a name="417-ensure-server-parameter-connection_throttling-is-set-to-on-for-postgresql-database-server"></a>4.17 Asegúrese de que "connection_throttling" del parámetro del servidor está establecido en "ACTIVADO" para el servidor de bases de datos PostgreSQL
 
@@ -350,6 +380,71 @@ Este plano técnico asigna una definición de [Azure Policy](../../../policy/ove
 Este plano técnico asigna una definición de [Azure Policy](../../../policy/overview.md) que contribuirá a garantizar que se puede acceder a las aplicaciones web solo mediante conexiones seguras.
 
 - Acceso a la aplicación web solo a través de HTTPS
+
+## <a name="93-ensure-web-app-is-using-the-latest-version-of-tls-encryption"></a>9.3 Asegurarse de que la aplicación web usa la versión más reciente del cifrado TLS
+
+Este plano técnico asigna definiciones de [Azure Policy](../../../policy/overview.md) que le ayudarán a garantizar que las aplicaciones web utilizan la versión más reciente de TLS.
+
+- La versión más reciente de TLS debe usarse en la aplicación de API.
+- La versión más reciente de TLS debe usarse en la aplicación de funciones.
+- La versión más reciente de TLS debe usarse en la aplicación web.
+
+## <a name="94-ensure-the-web-app-has-client-certificates-incoming-client-certificates-set-to-on"></a>9.4 Asegúrese de que la aplicación web tenga la opción "Client Certificates (Incoming client certificates)" activada.
+
+Este plano técnico asigna definiciones de [Azure Policy](../../../policy/overview.md) que le ayudarán a asegurarse de que solo aquellos clientes con certificados válidos pueden acceder a una aplicación web.
+
+- Asegúrese de que la aplicación de API tenga la opción "Client Certificates (Incoming client certificates)" activada.
+- Asegúrese de que la aplicación de funciones tenga la opción "Client Certificates (Incoming client certificates)" activada.
+- Asegúrese de que la aplicación web tenga la opción "Client Certificates (Incoming client certificates)" activada.
+
+## <a name="95-ensure-that-register-with-azure-active-directory-is-enabled-on-app-service"></a>9.5 Asegúrese de que el registro con Azure Active Directory esté habilitado en App Service.
+
+Este plano técnico asigna definiciones de [Azure Policy](../../../policy/overview.md) que le ayudarán a garantizar que las aplicaciones web utilizan una identidad administrada.
+
+- Asegúrese de que el registro con Azure Active Directory esté habilitado en la aplicación de API.
+- Asegúrese de que el registro con Azure Active Directory esté habilitado en la aplicación de funciones.
+- Asegúrese de que el registro con Azure Active Directory esté habilitado en la aplicación web.
+
+## <a name="96-ensure-that-net-framework-version-is-the-latest-if-used-as-a-part-of-the-web-app"></a>9.6 Asegúrese de que la versión de .NET Framework sea la más reciente si se usa como parte de la aplicación web.
+
+Este plano técnico asigna definiciones de [Azure Policy](../../../policy/overview.md) que le ayudarán a garantizar que las aplicaciones web utilizan la versión más reciente de .NET Framework.
+
+- Asegúrese de que la versión de .NET Framework es la más reciente si se usa como parte de la aplicación de API.
+- Asegúrese de que la versión de .NET Framework es la más reciente si se usa como parte de la aplicación de funciones.
+- Asegúrese de que la versión de .NET Framework es la más reciente si se usa como parte de la aplicación web.
+
+## <a name="97-ensure-that-php-version-is-the-latest-if-used-to-run-the-web-app"></a>9.7 Asegúrese de que la versión de PHP es la más reciente si se usa para ejecutar la aplicación web.
+
+Este plano técnico asigna definiciones de [Azure Policy](../../../policy/overview.md) que le ayudarán a garantizar que las aplicaciones web utilizan la versión más reciente de PHP.
+
+- Asegúrese de que la versión de PHP es la más reciente si se usa como parte de la aplicación de API.
+- Asegúrese de que la versión de PHP es la más reciente si se usa como parte de la aplicación de funciones.
+- Asegúrese de que la versión de PHP es la más reciente si se usa como parte de la aplicación web.
+
+## <a name="98-ensure-that-python-version-is-the-latest-if-used-to-run-the-web-app"></a>9.8 Asegúrese de que la versión de Python es la más reciente si se usa para ejecutar la aplicación web.
+
+Este plano técnico asigna definiciones de [Azure Policy](../../../policy/overview.md) que le ayudarán a garantizar que las aplicaciones web utilizan la versión más reciente de Python.
+
+- Asegúrese de que la versión de Python es la más reciente si se usa como parte de la aplicación de API.
+- Asegúrese de que la versión de Python" es la más reciente si se usa como parte de la aplicación de funciones.
+- Asegúrese de que la versión de Python es la más reciente si se usa como parte de la aplicación web.
+
+## <a name="99-ensure-that-java-version-is-the-latest-if-used-to-run-the-web-app"></a>9.9 Asegúrese de que la versión de Java es la más reciente si se usa para ejecutar la aplicación web.
+
+Este plano técnico asigna definiciones de [Azure Policy](../../../policy/overview.md) que le ayudarán a garantizar que las aplicaciones web utilizan la versión más reciente de Java.
+
+- Asegúrese de que la versión de Java es la más reciente si se usa como parte de la aplicación de API.
+- Asegúrese de que la versión de Java es la más reciente si se usa como parte de la aplicación de funciones.
+- Asegúrese de que la versión de Java es la más reciente si se usa como parte de la aplicación web.
+
+## <a name="910-ensure-that-http-version-is-the-latest-if-used-to-run-the-web-app"></a>9.10 Asegúrese de que la versión de HTTP es la más reciente si se usa para ejecutar la aplicación web.
+
+Este plano técnico asigna definiciones de [Azure Policy](../../../policy/overview.md) que le ayudarán a garantizar que las aplicaciones web utilizan la versión más reciente de HTTP.
+
+- Asegúrese de que la versión de HTTP es la más reciente si se usa para ejecutar la aplicación de API.
+- Asegúrese de que la versión de HTTP es la más reciente si se usa para ejecutar la aplicación de funciones.
+- Asegúrese de que la versión de HTTP es la más reciente si se usa para ejecutar la aplicación web.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

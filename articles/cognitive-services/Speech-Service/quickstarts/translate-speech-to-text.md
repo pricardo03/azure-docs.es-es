@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Traducción de voz en texto: servicio Voz'
+title: 'Inicio rápido: Traducción de voz en texto: servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: En este inicio rápido usará el SDK de Voz para traducir interactivamente la voz de un idioma a voz en otro idioma.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 11/04/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 26ae21a5ede095b9224798aca773accbd5afa752
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 619e70e75a3d6af6f087c4c8fb2ad586e32bfe98
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681910"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74817029"
 ---
 # <a name="quickstart-translate-speech-to-text"></a>Inicio rápido: Traducción de voz a texto
 

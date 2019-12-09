@@ -1,17 +1,17 @@
 ---
-title: Enlace de una instancia de Azure Database for MySQL con una aplicación de Azure Spring Cloud | Microsoft Docs
-description: En este artículo se mostrará cómo enlazar una instancia de Azure Database for MySQL a una aplicación de Azure Spring Cloud
+title: 'Tutorial: Cómo enlazar una instancia de Azure Database for MySQL a una aplicación de Azure Spring Cloud'
+description: En este tutorial se muestra cómo enlazar una instancia de Azure Database for MySQL a una aplicación de Azure Spring Cloud.
 author: jpconnock
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 6c5cd4ac384affaedbd813f9395f997f92eb69c4
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: a9911798e42db55d5aaae90c933cfb64945b244c
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74151126"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74708822"
 ---
 # <a name="tutorial-bind-an-azure-database-for-mysql-instance-to-your-azure-spring-cloud-application"></a>Tutorial: Enlace de una instancia de Azure Database for MySQL con una aplicación de Azure Spring Cloud 
 
@@ -65,4 +65,3 @@ En este tutorial ha aprendido a enlazar una aplicación de Azure Spring Cloud a 
 
 > [!div class="nextstepaction"]
 > [Habilitación de la detección y registro de servicios mediante el registro del servicio de Spring Cloud](spring-cloud-service-registration.md)
-

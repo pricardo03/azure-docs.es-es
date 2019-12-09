@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Síntesis de voz, Objective-C (Servicios de voz)'
+title: 'Inicio rápido: Síntesis de voz en Objective-C: servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: Aprenda a sintetizar voz en Objective-C para macOS mediante el SDK de Voz
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 09/20/2019
 ms.author: yulili
-ms.openlocfilehash: 27e471bb1b155ab245e68712031eef4efb4d5b34
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5758361e1c4de6e824f0df33eacd940cad8eca70
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73505511"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74817766"
 ---
 # <a name="quickstart-synthesize-speech-in-objective-c-on-macos-using-the-speech-sdk"></a>Inicio rápido: Síntesis de voz en Objective-C para macOS mediante el SDK de Voz
 
@@ -25,7 +25,7 @@ En este artículo, aprenderá a crear una aplicación macOS en Objective-C media
 
 Antes de comenzar, presentamos una lista de requisitos previos:
 
-* Una [clave de suscripción](~/articles/cognitive-services/Speech-Service/get-started.md) para Speech Service
+* Una [clave de suscripción](~/articles/cognitive-services/Speech-Service/get-started.md) para el servicio de voz.
 * Una máquina macOS con [Xcode 9.4.1](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12) o posterior y macOS 10.13 o posterior
 
 ## <a name="get-the-speech-sdk-for-macos"></a>Obtención del SDK de Voz para macOS

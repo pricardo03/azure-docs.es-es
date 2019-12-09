@@ -1,26 +1,17 @@
 ---
-title: 'Tutorial: Hospedaje de la API de RESTful con CORS: Azure App Service'
-description: Aprenda cómo Azure App Service le ayuda a hospedar API RESTful con compatibilidad CORS.
-services: app-service\api
-documentationcenter: dotnet
-author: cephalin
-manager: cfowler
-editor: ''
+title: 'Tutorial: Hospedaje de API RESTful con CORS'
+description: Aprenda cómo Azure App Service le ayuda a hospedar API RESTful con compatibilidad CORS. App Service puede hospedar aplicaciones web de front-end y API de back-end.
 ms.assetid: a820e400-06af-4852-8627-12b3db4a8e70
-ms.service: app-service
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/21/2018
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: f13b390047ea4d8280b106f3b02a8f18944a6f99
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: e2eca624fabf30eae86c480ede6c4bdffc2226bc
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255118"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671123"
 ---
 # <a name="tutorial-host-a-restful-api-with-cors-in-azure-app-service"></a>Tutorial: Hospedaje de una API RESTful con CORS en Azure App Service
 

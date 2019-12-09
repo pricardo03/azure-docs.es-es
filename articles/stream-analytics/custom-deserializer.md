@@ -1,5 +1,5 @@
 ---
-title: Deserializadores de .NET personalizados para trabajos en la nube de Azure Stream Analytics
+title: 'Tutorial: Deserializadores de .NET personalizados para trabajos en la nube de Azure Stream Analytics'
 description: En este tutorial se muestra cómo crear un deserializador de .NET personalizado para un trabajo en la nube de Azure Stream Analytics mediante Visual Studio.
 services: stream-analytics
 author: mamccrea
@@ -8,12 +8,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 05/06/2019
-ms.openlocfilehash: 56d0927bff928929ca55433a812dfe6c1405a738
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: f5fa0a4398c904113dbce5d80844b42b6e775df0
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72991649"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74702432"
 ---
 # <a name="tutorial-custom-net-deserializers-for-azure-stream-analytics"></a>Tutorial: Deserializadores de .NET personalizados para Azure Stream Analytics
 
@@ -70,9 +70,9 @@ El contenedor que cree se usará para almacenar los recursos relacionados con el
    |-------|---------------|
    |Recurso de configuración de almacenamiento global|Selección del origen de datos desde la cuenta actual|
    |Suscripción de configuración de almacenamiento global| < su suscripción >|
-   |Cuenta de almacenamiento de la configuración de almacenamiento global| < su cuenta de almacenamiento>|
+   |Cuenta de almacenamiento de la configuración de almacenamiento global| < su cuenta de almacenamiento >|
    |Recurso de configuración de almacenamiento de código personalizado|Selección del origen de datos desde la cuenta actual|
-   |Cuenta de almacenamiento de configuración de almacenamiento de código personalizado|< su cuenta de almacenamiento>|
+   |Cuenta de almacenamiento de configuración de almacenamiento de código personalizado|< su cuenta de almacenamiento >|
    |Contenedor de configuración de almacenamiento de código personalizado|< su contenedor de almacenamiento >|
 
 2. En **Entradas**, haga doble clic en **Input.json**. Use las configuraciones predeterminadas, excepto las siguientes:
@@ -137,4 +137,3 @@ En este tutorial, aprendió a implementar un deserializador de .NET personalizad
 
 > [!div class="nextstepaction"]
 > [Creación de deserializadores de .NET personalizados para trabajos de Azure Stream Analytics](custom-deserializer-examples.md)
-

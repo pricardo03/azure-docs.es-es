@@ -1,27 +1,20 @@
 ---
-title: 'Ejemplo de script de la CLI de Azure: conexión de una aplicación a Azure Cache for Redis | Microsoft Docs'
-description: 'Ejemplo de script de la CLI de Azure: conexión de una aplicación a Azure Cache for Redis'
-services: appservice
-documentationcenter: appservice
-author: msangapu
-manager: jeconnoc
-editor: ''
+title: 'CLI: Conexión de una aplicación a Redis'
+description: Aprenda a usar la CLI de Azure para automatizar la implementación y administración de la aplicación App Service. En este ejemplo se indica cómo conectar una aplicación a Azure Cache for Redis.
+author: msangapu-msft
 tags: azure-service-management
 ms.assetid: bc8345b2-8487-40c6-a91f-77414e8688e6
-ms.service: app-service
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: web
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 87e4e56e429039d943d85fe74003edb8cb148cac
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a5654ea8c0333e21421e0f9c55cc00d70a7be567
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66136860"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688432"
 ---
 # <a name="connect-an-app-service-app-to-an-azure-cache-for-redis-using-cli"></a>Conexión de una aplicación de App Service a Azure Cache for Redis mediante la CLI
 

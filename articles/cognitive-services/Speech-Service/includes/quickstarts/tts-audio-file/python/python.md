@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Síntesis de voz en un archivo de audio en Python: servicio Voz'
+title: 'Inicio rápido: Síntesis de voz en un archivo de audio en Python: servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: d6f6519ea5df630a914243046e74c315b4bd7db9
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 314a5302c76157810557036370a18ad6fb605033
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73505399"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818035"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Una clave de suscripción de Azure para los servicios de voz. [Obtenga una gratis](~/articles/cognitive-services/Speech-Service/get-started.md).
+* Una clave de suscripción de Azure para el servicio Voz. [Obtenga una gratis](~/articles/cognitive-services/Speech-Service/get-started.md).
 * [Python 3.5 o versiones posteriores](https://www.python.org/downloads/).
 * El paquete del SDK de Voz de Python está disponible para estos sistemas operativos:
     * Windows: x64 y x86.
@@ -127,7 +127,7 @@ elif result.reason == speechsdk.ResultReason.Canceled:
    ![Creación de un archivo](~/articles/cognitive-services/Speech-Service/media/sdk/qs-python-vscode-python-newfile.png)
 
 1. Copie, pegue y guarde el [código de Python](#sample-code) en el archivo recién creado.
-1. Inserte la información de la suscripción de los servicios de voz.
+1. Inserte la información de la suscripción del servicio Voz.
 1. Si se selecciona, se muestra un intérprete de Python en el lado izquierdo de la barra de estado en la parte inferior de la ventana.
    En caso contrario, aparecerá una lista de los intérpretes de Python disponibles. Abra la paleta de comandos (Ctrl+Mayús+P) y escriba **Python: Select Interpreter** (Seleccionar intérprete). Elija un valor apropiado.
 1. Puede instalar el paquete de Python del SDK de Voz desde dentro de Visual Studio Code. Hágalo si no está instalado aún para el intérprete de Python seleccionado.

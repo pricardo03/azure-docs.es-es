@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Síntesis de voz, C# (UWP): Servicios de voz'
+title: 'Inicio rápido: Síntesis de voz en C# (UWP): servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: En este artículo, creará una aplicación para Plataforma universal de Windows (UWP) de C# mediante el SDK de Voz de Cognitive Services. Puede sintetizar la voz a partir de texto en tiempo real en el altavoz del dispositivo. La aplicación se crea con el paquete NuGet del SDK de voz y Microsoft Visual Studio 2019.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 08/19/2019
 ms.author: yinhew
-ms.openlocfilehash: 3a88f4fc14286a60feb9d72676827b0cce91eb25
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 276de42f2a37a0e48cd323e285760c00e6db9f32
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73505135"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818181"
 ---
 > [!NOTE]
 > La Plataforma universal de Windows permite desarrollar aplicaciones que se ejecutan en cualquier dispositivo que admite Windows 10, incluidos PC, Xbox, Surface Hub y otros dispositivos.
@@ -61,7 +61,7 @@ Ahora está listo para compilar y probar la aplicación.
 
    ![Ejemplo de aplicación de síntesis de voz de UWP en C#: inicio rápido](~/articles/cognitive-services/Speech-Service/media/sdk/qs-text-to-speech-uwp-helloworld-window.png)
 
-1. Escriba algún texto en el cuadro de texto y haga clic en **Hablar**. El texto se transmite a los servicios de Voz y se sintetiza en voz, la cual se reproduce en el altavoz.
+1. Escriba algún texto en el cuadro de texto y haga clic en **Hablar**. El texto se transmite al servicio de voz y se sintetiza en una voz que se reproduce en el altavoz.
 
     ![Interfaz de usuario de síntesis de voz](~/articles/cognitive-services/Speech-Service/media/sdk/qs-tts-csharp-uwp-ui-result.png)
 

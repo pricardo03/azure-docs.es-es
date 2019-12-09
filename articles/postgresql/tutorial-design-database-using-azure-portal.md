@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Diseño de una instancia de Azure Database for PostgreSQL: servidor único con Azure Portal'
+title: 'Tutorial: Diseño de un servidor único de Azure Database for PostgreSQL con Azure Portal'
 description: 'En este tutorial se muestra cómo diseñar la primera instancia de Azure Database for PostgreSQL: servidor único con Azure Portal.'
 author: rachel-msft
 ms.author: raagyema
@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
 ms.date: 06/25/2019
-ms.openlocfilehash: 421d5cde46b466c0c13a52755abdf137e52f2f6b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 11276d532f0f978b127f48924e383b7aeb7f4ad5
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443100"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770108"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Tutorial: Diseño de una instancia de Azure Database for PostgreSQL: servidor único con Azure Portal
 
@@ -24,7 +24,7 @@ En este tutorial usará Azure Portal para aprender a hacer lo siguiente:
 > * Configuración del firewall del servidor
 > * Uso de la utilidad [**psql**](https://www.postgresql.org/docs/9.6/static/app-psql.html) para crear una base de datos
 > * Carga de datos de ejemplo
-> * Datos de consulta
+> * Consultar datos
 > * Actualización de datos
 > * Restauración de datos
 
@@ -51,7 +51,7 @@ Para crear un servidor de Azure Database for PostgreSQL, siga estos pasos:
     Configuración|Valor sugerido|DESCRIPCIÓN
     ---|---|---
     Subscription|Nombre de la suscripción|La suscripción de Azure que desea usar para el servidor. Si tiene varias suscripciones, elija aquella en la que se factura el recurso.
-    Grupos de recursos|*myresourcegroup*| Un nuevo nombre de grupo de recursos o uno existente de la suscripción.
+    Resource group|*myresourcegroup*| Un nuevo nombre de grupo de recursos o uno existente de la suscripción.
     Nombre de servidor |*mydemoserver*|Un nombre único que identifique al servidor de Azure Database for PostgreSQL. El nombre de dominio *postgres.database.azure.com* se anexa al nombre del servidor proporcionado. El servidor solo puede contener letras minúsculas, números y el carácter de guion (-). Debe contener al menos entre tres y 63 caracteres.
     Origen de datos | *None* | Seleccione *None* para crear un servidor desde cero. (Seleccione *Copia de seguridad* si va a crear un servidor a partir de una copia de seguridad con redundancia geográfica de un servidor existente de Azure Database for PostgreSQL).
     Nombre de usuario administrador |*myadmin*| Su propia cuenta de inicio de sesión para usarla al conectarse al servidor. El nombre de inicio de sesión del administrador no puede ser **azure_superuser,** **azure_pg_admin,** **admin,** **administrator,** **root,** **guest,** ni **public**. No puede empezar por **pg_** .
@@ -209,7 +209,7 @@ En este tutorial, aprendió a usar Azure Portal y otras utilidades para hacer lo
 > * Configuración del firewall del servidor
 > * Uso de la utilidad [**psql**](https://www.postgresql.org/docs/9.6/static/app-psql.html) para crear una base de datos
 > * Carga de datos de ejemplo
-> * Datos de consulta
+> * Consultar datos
 > * Actualización de datos
 > * Restauración de datos
 

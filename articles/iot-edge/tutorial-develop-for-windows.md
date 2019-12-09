@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Desarrollo de módulos para dispositivos Windows en Azure IoT Edge'
+title: 'Tutorial: Desarrollo del módulo para dispositivos Windows mediante Azure IoT Edge'
 description: Este tutorial le guía por la configuración de la máquina de desarrollo y de los recursos en la nube para desarrollar módulos IoT Edge mediante contenedores de Windows para dispositivos Windows.
 author: kgremban
 manager: philmea
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 67a80178c5cd800ea08d9f5493efd0f37422fe36
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 4a56a79798acf4948739b26062ab770fcbb47f7b
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113991"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707084"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-windows-devices"></a>Tutorial: Desarrollo de módulos IoT Edge para dispositivos Windows
 

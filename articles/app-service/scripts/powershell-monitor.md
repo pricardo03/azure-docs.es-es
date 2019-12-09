@@ -1,26 +1,17 @@
 ---
-title: 'Ejemplo de script de Azure PowerShell: supervisión de una aplicación web con registros de servidor web | Microsoft Docs'
-description: 'Ejemplo de script de Azure PowerShell: supervisión de una aplicación web con registros de servidor web'
-services: app-service\web
-documentationcenter: ''
-author: syntaxc4
-manager: erikre
-editor: ''
+title: 'PowerShell: Supervisión con los registros del servidor web'
+description: Aprenda a usar Azure PowerShell para automatizar la implementación y administración de App Service. En este ejemplo se muestra cómo supervisar una aplicación con registros de servidor web.
 tags: azure-service-management
 ms.assetid: 5805d7cd-9e56-4eba-bd85-75b013690ff5
-ms.service: app-service
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: web
 ms.date: 03/20/2017
-ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: e9e376de3356a23df648f77738fd2c84cb26d97f
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 79b5ef411abde3a4ef293516a43adaa1e669b6d9
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098312"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74684624"
 ---
 # <a name="monitor-a-web-appwith-web-server-logs"></a>Supervisión de una aplicación web con registros de servidor web
 

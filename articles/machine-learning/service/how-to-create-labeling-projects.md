@@ -7,153 +7,153 @@ ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: ca3486610d6cf71ba315e407b58a2a2551ad6ee1
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: e66a9f8a775a46c906601ea08be52ca9dfbe0171
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837482"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74689290"
 ---
 # <a name="get-labels-for-data"></a>Obtención de etiquetas para los datos
 
-El etiquetado de grandes cantidades de datos a menudo ha resultado un dolor de cabeza en los proyectos de aprendizaje automático. Los proyectos de Machine Learning con un componente de Computer Vision (como la clasificación de imágenes o la detección de objetos) normalmente requieren miles de imágenes y sus etiquetas correspondientes. 
+Etiquetar datos voluminosos en proyectos de Machine Learning suele ser una tarea compleja. Los proyectos que tienen un componente de Computer Vision (como la clasificación de imágenes o la detección de objetos) normalmente requieren etiquetar miles de imágenes.
  
-Azure Machine Learning le proporciona una ubicación central para crear, administrar y supervisar proyectos de etiquetado. Los proyectos de etiquetado ayudan a coordinar los datos, las etiquetas y los miembros del equipo, lo que le permite administrar de forma más eficaz las tareas de etiquetado. Actualmente, las tareas admitidas son la clasificación de imágenes (de varias etiquetas y de varias clases) y la identificación de objetos mediante cuadros de límite.
+[Azure Machine Learning](https://ml.azure.com/) proporciona una ubicación central para crear, administrar y supervisar proyectos de etiquetado. Úselo para coordinar los datos, las etiquetas y los miembros del equipo para administrar de forma eficaz las tareas de etiquetado. Machine Learning permite la clasificación de imágenes (de varias etiquetas y varias clases) y la identificación de objetos mediante rectángulos de selección.
 
-Azure realiza un seguimiento del progreso y mantiene la cola de tareas de etiquetado incompletas. Los etiquetadores no requieren una cuenta de Azure para participar. Una vez que se haya autenticado con su cuenta de Microsoft (MSA) o [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis), pueden realizar todas las tareas de etiquetado para las que tengan tiempo. Pueden asignar y cambiar etiquetas mediante métodos abreviados de teclado. 
+Machine Learning realiza un seguimiento del progreso y el mantenimiento de la cola de tareas de etiquetado incompletas. Los etiquetadores no necesitan una cuenta de Azure para participar. Una vez que se hayan autenticado con su cuenta Microsoft (MSA) o [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis), pueden realizar todo el etiquetado que el tiempo les permita.
 
-Puede iniciar y detener el proyecto, agregar y quitar usuarios y equipos, e incluso supervisar el progreso. Puede exportar los datos etiquetados en formato COCO o como un conjunto de datos de Azure Machine Learning. 
+En Machine Learning, puede iniciar y detener el proyecto, agregar y quitar usuarios y equipos, e incluso supervisar el progreso. Puede exportar los datos etiquetados en formato COCO o como un conjunto de datos de Azure Machine Learning.
 
 En este artículo, aprenderá a:
 
 > [!div class="checklist"]
 > * Crear un proyecto
 > * Especificar los datos y la estructura del proyecto
-> * Administrar los equipos y los usuarios que trabajan en el proyecto
+> * Administrar los equipos y usuarios que trabajan en el proyecto
 > * Ejecutar y supervisar el proyecto
-> * Exportar las etiquetas 
+> * Exportar las etiquetas
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Los datos que quiera etiquetar, ya sea en archivos locales o en el almacenamiento de Azure.
-* El conjunto de etiquetas que quiere aplicar.
-* Instrucciones para etiquetar
-* Una suscripción de Azure. Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
-* Un área de trabajo de Azure Machine Learning. Consulte [Creación de un área de trabajo de Azure Machine Learning](how-to-manage-workspace.md).
+* Los datos que quiere etiquetar, ya sea en archivos locales o en Azure Storage.
+* Conjunto de etiquetas que quiere aplicar.
+* Instrucciones para el etiquetado.
+* Una suscripción de Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://aka.ms/AMLFree) antes de empezar.
+* Un área de trabajo de Machine Learning. Consulte [Creación de un área de trabajo de Azure Machine Learning](how-to-manage-workspace.md).
 
 ## <a name="create-a-labeling-project"></a>Crear un proyecto de etiquetado
 
-Los proyectos de etiquetado se administran desde [Azure Machine Learning](https://ml.azure.com/). La página **Proyectos de etiquetado** permite administrar proyectos, equipos y personas. Un proyecto tiene uno o varios equipos asignados y un equipo tiene una o más personas asignadas a él. 
+Los proyectos de etiquetado se administran desde Azure Machine Learning. Use la página **Proyectos de etiquetado** para administrar sus proyectos y personas. Un proyecto tiene uno o varios equipos asignados y un equipo tiene una o más personas asignadas a él.
 
-Si los datos ya están almacenados en el almacenamiento de blobs de Azure, debe hacer que estén disponibles como un almacén de datos antes de crear el proyecto de etiquetado. Para obtener más información, consulte [Creación y registro de almacenes de datos](https://docs.microsoft.com/azure/machine-learning/service/how-to-access-data#create-and-register-datastores). 
+Si los datos ya están en el almacenamiento de blobs de Azure, debe hacer que estén disponibles como un almacén de datos antes de crear el proyecto de etiquetado. Para más información, consulte [Creación y registro de almacenes de datos](https://docs.microsoft.com/azure/machine-learning/service/how-to-access-data#create-and-register-datastores).
 
-Para crear un proyecto, seleccione **Agregar proyecto**. Asígnele un nombre adecuado y seleccione **Labeling task type** (Tipo de tarea de etiquetado). 
+Para crear un proyecto, seleccione **Agregar proyecto**. Asigne un nombre adecuado al proyecto y seleccione **Tipo de tarea de etiquetado**.
 
 ![Asistente para la creación de proyectos de etiquetado](media/how-to-create-labeling-projects/labeling-creation-wizard.png)
 
-* Seleccione **Image Classification Multi-label** (clasificación de imágenes con varias etiquetas) para los proyectos en los que se aplicarán **una _o más_** etiquetas de un conjunto de clases a una imagen. Por ejemplo, una fotografía de un perro podría etiquetarse con *perro* y *diurno*
-* Seleccione **Image Classification Multi-class** (clasificación de imágenes con varias clases) para los que solo se aplicará **una clase única** de un conjunto de clases a una imagen.
-* Elija **Object Identification (Bounding Box)** (identificación de objetos [cuadro de límite]) para los proyectos en los que la tarea consiste en asignar una clase a un objeto de una imagen y especificar un cuadro de límite alrededor del objeto.
+* Elija un proyecto de tipo **Clasificación de imágenes con varias etiquetas** cuando quiera aplicar *una o varias* etiquetas de un conjunto de clases a una imagen. Por ejemplo, una fotografía de un perro podría etiquetarse como *perro* y *diurno*.
+* Elija un proyecto de tipo **Clasificación de imágenes con varias clases** cuando quiera aplicar una *sola clase* de un conjunto de clases a una imagen.
+* Elija un proyecto de tipo **Identificación del objeto (rectángulo de selección)** cuando quiera asignar una clase y un rectángulo de selección a cada objeto de una imagen.
 
-Elija **Siguiente** cuando esté listo para continuar.
+Seleccione **Siguiente** cuando esté listo para continuar.
 
-## <a name="specify-data-to-be-labeled"></a>Especificación de los datos que se van a etiquetar
+## <a name="specify-the-data-to-label"></a>Especificación de los datos que se van a etiquetar
 
-Si ya ha creado un conjunto de datos que contiene sus datos, puede seleccionarlo en la lista desplegable **Seleccionar un conjunto de datos existente**. O bien puede elegir **Crear un conjunto de datos** para seleccionar un almacén de datos de Azure existente o cargar archivos locales. 
+Si ya ha creado un conjunto de datos que contiene los datos, selecciónelo en la lista desplegable **Seleccione un conjunto de datos existente**. O bien, seleccione **Crear un conjunto de datos** para usar un almacén de información de Azure existente o cargar archivos locales.
 
 ### <a name="create-a-dataset-from-an-azure-datastore"></a>Creación de un conjunto de datos a partir de un almacén de datos de Azure
 
-Aunque elegir la carga directa de archivos locales es suficiente para muchos casos de uso, el [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/) es más sólido y rápido para transferir grandes cantidades de datos. Se recomienda el Explorador de Azure Storage como la manera predeterminada de migrar archivos.
+En muchos casos, basta con cargar archivos locales. Sin embargo, [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/) es una forma más rápida y eficaz de transferir una gran cantidad de datos. Se recomienda usar Explorador de Storage de forma predeterminada para migrar archivos.
 
 Para crear un conjunto de datos a partir de los datos que ya ha almacenado en el almacenamiento de blobs de Azure:
 
-1. Elija **Crear un conjunto de datos** y **Desde el almacén datos**.
-1. Asigne un **nombre** al conjunto de datos.
-1. Debe elegir "Archivo" como **Tipo de conjunto de datos**.  
-1. Seleccione el almacén de datos. 
-1. Si los datos están en una subcarpeta dentro del almacenamiento de blobs, elija **Examinar** para seleccionar la ruta de acceso. 
-    * Además, puede anexar `/**` después de la ruta de acceso para incluir todos los archivos en las subcarpetas de la ruta de acceso seleccionada.
-    * Use `**/*.*` para incluir todos los datos en el contenedor y las subcarpetas actuales.
+1. Seleccione **Crear un conjunto de datos** > **De almacén de datos**.
+1. En **Nombre**, asigne un nombre al conjunto de datos.
+1. Elija **Archivo** como **Tipo de conjunto de datos**.  
+1. Seleccione el almacén de datos.
+1. Si los datos están en una subcarpeta del almacenamiento de blobs, elija **Examinar** para seleccionar la ruta de acceso.
+    * Anexe "/**" a la ruta de acceso para incluir todos los archivos que haya en las subcarpetas de la ruta de acceso seleccionada.
+    * Anexe "* */* .*" para incluir todos los datos que haya en el contenedor actual y sus subcarpetas.
 1. Proporcione una descripción para el conjunto de datos.
-1. Elija **Siguiente**. 
-1. Confirme los detalles. Puede elegir **Atrás** para modificar la configuración o **Crear** para crear el conjunto de datos.
+1. Seleccione **Next** (Siguiente).
+1. Confirme los detalles. Seleccione **Atrás** para modificar la configuración o **Crear** para crear el conjunto de datos.
 
-### <a name="create-a-dataset-by-uploading-data"></a>Creación de un conjunto de datos mediante la carga de datos
+### <a name="create-a-dataset-from-uploaded-data"></a>Creación de un conjunto de datos a partir de los datos cargados
 
-Si quiere cargar los datos directamente:
+Para cargar los datos directamente:
 
-1. Elija **Crear un conjunto de datos** y **Desde archivos locales**.
-1. Asigne un **nombre** al conjunto de datos.
-1. Debe elegir "Archivo" como **Tipo de conjunto de datos**.
-1. Si elige **Configuración avanzada**, puede personalizar el almacén de datos, el contenedor y la ruta de acceso a los datos.
-1. Elija **Examinar** para seleccionar archivos locales y cargarlos.
+1. Seleccione **Crear un conjunto de datos** > **De archivos locales**.
+1. En **Nombre**, asigne un nombre al conjunto de datos.
+1. Elija "Archivo" como **Tipo de conjunto de datos**.
+1. *Opcional:* Seleccione **Configuración avanzada** para personalizar el almacén de datos, el contenedor y la ruta de acceso a los datos.
+1. Seleccione **Examinar** para seleccionar los archivos locales que se van a cargar.
 1. Proporcione una descripción para el conjunto de datos.
-1. Elija **Siguiente**. 
-1. Confirme los detalles. Puede elegir **Atrás** para modificar la configuración o **Crear** para crear el conjunto de datos.
+1. Seleccione **Next** (Siguiente).
+1. Confirme los detalles. Seleccione **Atrás** para modificar la configuración o **Crear** para crear el conjunto de datos.
 
-Los datos se cargan en el almacén de blobs predeterminado (`workspaceblobstore`) del área de trabajo de Azure Machine Learning.
+Los datos se cargan en el almacén de blobs predeterminado ("workspaceblobstore") del área de trabajo de Machine Learning.
 
 ## <a name="specify-label-classes"></a>Especificación de clases de etiquetas
 
-En la página **Clases de etiquetas**, especifique el conjunto de clases que se utilizará para clasificar los datos. Piense detenidamente estas clases, ya que la velocidad y la precisión de su etiquetador se verán afectadas por la facilidad con la que puedan elegir entre ellas correctamente. Por ejemplo, en lugar de deletrear el género y la especie completos para plantas o animales, podría ser mejor usar códigos de campo o abreviar el género. 
+En la página **Clases de etiquetas**, especifique el conjunto de clases para clasificar los datos. Hágalo con cuidado, porque la precisión y la velocidad de los etiquetadores depende de su capacidad para elegir entre las clases. Por ejemplo, en lugar de deletrear el género y la especie completos para plantas o animales, use códigos de campo o abrevie el género.
 
-Escriba una etiqueta por fila, con el botón **+** para agregar una nueva fila. Si tiene más de tres o cuatro etiquetas, pero menos de diez, considere la posibilidad de prefijarlas con "1:", "2:", y así sucesivamente para guiar a los etiquetadores que usan las teclas numéricas a acelerar su trabajo. 
+Escriba una etiqueta por fila. Use el botón **+** para agregar una nueva fila. Si tiene más de 3 o 4 etiquetas pero menos de 10, quizás quiera añadir a los nombres un prefijo de número ("1:", "2:") para que los etiquetadores puedan usar las teclas numéricas para acelerar su trabajo.
 
 ## <a name="describe-the-labeling-task"></a>Descripción de la tarea de etiquetado
 
-Es importante explicar claramente la tarea de etiquetado. La página de **Instrucciones de etiquetado** le permite vincularse a un sitio externo para obtener las instrucciones que se mostrarán a los etiquetadores. Mantenga las instrucciones orientadas a tareas y adecuadas para el público. 
+Es importante explicar claramente la tarea de etiquetado. En la página **Instrucciones de etiquetado**, puede agregar un vínculo a un sitio externo que contenga las instrucciones de etiquetado. Mantenga las instrucciones orientadas a tareas y adecuadas para el público. Tenga en cuenta estas preguntas:
 
-* ¿Cuáles son las etiquetas que verán y cómo podrán elegir entre ellas? ¿Hay un texto de referencia que deben consultar?
-* ¿Qué debe hacer si ninguna etiqueta parece adecuada? 
+* ¿Cuáles son las etiquetas que verán y cómo las elegirán? ¿Hay un texto de referencia que puedan consultar?
+* ¿Qué debe hacer si ninguna etiqueta parece adecuada?
 * ¿Qué debe hacer si varias etiquetas parecen adecuadas?
 * ¿Qué umbral de confianza debe aplicarse a una etiqueta? ¿Quiere que use una conjetura si no está seguro?
 * ¿Qué debe hacer con los objetos de interés ocluidos o superpuestos?
 * ¿Qué debe hacer si un objeto de interés se corta con el borde de la imagen?
-* ¿Qué debe hacer si cree que ha cometido un error con una imagen después de enviarla? 
+* ¿Qué deben hacer después de enviar una etiqueta si creen que han cometido un error?
 
-Con los cuadros de límite, otras preguntas importantes incluyen:
+En el caso de los rectángulos de selección, estas son algunas preguntas importantes:
 
-* ¿Cómo se define el cuadro de límite para esta tarea? ¿Debe estar completamente dentro del objeto, se debe recortar lo más cerca posible de su extensión o es aceptable cierta cantidad de espacio? 
-* ¿Qué nivel de atención y coherencia se espera que el etiquetador aplique al definir los cuadros de límite?
+* ¿Cómo se define el cuadro de límite para esta tarea? ¿Debe estar totalmente en el interior del objeto o en el exterior? ¿Debe recortarse lo más cerca posible o hay algo de margen?
+* ¿Qué nivel de cuidado y coherencia espera que los etiquetadores apliquen para definir los rectángulos de selección?
 
->[!Note]
-> Asegúrese de indicar que el etiquetador podrá elegir entre las nueve primeras etiquetas con las teclas numéricas del 1 al 9. 
+>[!NOTE]
+> Recuerde que los etiquetadores podrán seleccionar las 9 primeras etiquetas usando las claves numéricas de 1 a 9.
 
 ## <a name="initialize-the-labeling-project"></a>Inicialización del proyecto de etiquetado
 
-Una vez inicializado, algunos aspectos del proyecto de etiquetado no pueden cambiarse. Por ejemplo, el tipo de tarea o el conjunto de elementos. Puede modificar las etiquetas y cambiar la dirección URL de la descripción de la tarea. Revise atentamente la configuración antes de crear el proyecto. Una vez que haya enviado el proyecto, volverá a la página principal de **Etiquetado**, que mostrará el proyecto en el estado **Inicializando**. Esta página no se actualiza automáticamente, por lo que, después de un período de tiempo, actualizarla de forma manual mostrará el proyecto como **Creado**. 
+Una vez inicializado el proyecto de etiquetado, algunos aspectos del proyecto son inmutables. No se puede cambiar el tipo de tarea ni el conjunto de datos. Se *pueden* modificar las etiquetas y la dirección URL de la descripción de la tarea. Repase atentamente la configuración antes de crear el proyecto. Después de enviar el proyecto, volverá a la página principal **Etiquetado**, que muestra el proyecto como **Inicializando**. Esta página no se actualiza automáticamente. Espere unos momentos y actualice la página manualmente para ver el estado del proyecto como **Creado**.
 
 ## <a name="manage-teams-and-people"></a>Administración de equipos y personas
 
-Un proyecto de etiquetado obtiene un equipo predeterminado y lo agrega como miembro predeterminado. Cada proyecto de etiquetado obtiene un nuevo equipo predeterminado, pero los equipos se pueden compartir entre proyectos. Los proyectos pueden tener más de un equipo. Para crear un equipo, elija **Agregar equipo** en la página **Equipos**. 
+De forma predeterminada, para cada proyecto de etiquetado se crea un nuevo equipo con usted como miembro. Sin embargo, los equipos pueden compartirse entre los proyectos. Y los proyectos pueden tener más de un equipo. Para crear un equipo, seleccione **Agregar equipo** en la página **Equipos**.
 
-Los usuarios se administran en la página **Contactos**. Puede agregar y quitar personas identificadas por su dirección de correo electrónico. Cada etiquetador tendrá que autenticarse con su cuenta de Microsoft o Azure Active Directory si tiene una.  
+Los usuarios se administran en la página **Personas**. Agregue y quite las personas por dirección de correo electrónico. Cada etiquetador tiene que autenticarse con su cuenta Microsoft o con Azure Active Directory, si lo usa.  
 
-Una vez que haya agregado una persona, puede asignarla a uno o varios equipos. Vaya a la página **Equipos**, seleccione el equipo específico en el que esté interesado y después use **Asignar personas** o **Quitar personas** según corresponda.
+Después de agregar a una persona, puede asignarla a uno o varios equipos: Vaya a la página **Equipos**, seleccione el equipo y, a continuación, seleccione **Asignar personas** o **Quitar personas**.
 
-Si alguna vez quiere enviar un correo electrónico a todos los usuarios del equipo, puede hacerlo. Para ello, elija el equipo para abrir la página **Detalles del equipo**. En esta página, el botón **Enviar correo electrónico al equipo** abrirá el editor de correo electrónico con las direcciones de todos los miembros del equipo.
+Para enviar un correo electrónico al equipo, seleccione el equipo para ver la página **Detalles del equipo**. En esta página, seleccione **Correo electrónico del equipo** para abrir un borrador de correo electrónico con las direcciones de todos los miembros del equipo.
 
 ## <a name="run-and-monitor-the-project"></a>Ejecutar y supervisar el proyecto
 
-Una vez inicializado el proyecto, Azure comenzará a ejecutarlo. Si en la página de **Etiquetado** principal hace clic en el proyecto, se le dirigirá a los **Detalles del proyecto**. En la pestaña **Panel** se mostrará el progreso de la tarea de etiquetado. 
+Después de inicializar el proyecto, Azure comenzará a ejecutarlo. Seleccione el proyecto en la página **Etiquetado** para ir a **Detalles del proyecto**. En la pestaña **Panel** se muestra el progreso de la tarea de etiquetado.
 
-En la pestaña **Datos**, puede consultar el conjunto de datos y revisar los datos etiquetados. Si ve datos etiquetados incorrectamente, puede **Seleccionar** dichos datos y elegir **Rechazar**, lo que quitará las etiquetas y devolverá los datos a la cola sin etiquetar. 
+En la pestaña **Datos**, puede ver el conjunto de datos y revisar los datos etiquetados. Si ve datos etiquetados incorrectamente, selecciónelos y elija **Rechazar**; se quitarán las etiquetas y los datos se volverán a colocar en la cola sin etiquetar.
 
-En la pestaña **Equipo**, puede asignar o cancelar la asignación de equipos a este proyecto. 
+Use la pestaña **Equipo** para asignar o desasignar equipos del proyecto.
 
-Si quiere poner el proyecto en modo sin conexión o en línea, elija el botón **Pausar**/**Iniciar**, que alterna el estado de ejecución del proyecto.
+Para poner en pausa o reiniciar el proyecto, seleccione el botón **Pausar**/**Iniciar**. Solo se pueden etiquetar datos cuando el proyecto se está ejecutando.
 
-Puede etiquetar los datos directamente desde la página **Detalles del proyecto** si selecciona **Label data** (Etiquetar datos). Solo puede etiquetar los datos cuando el proyecto se está ejecutando. 
+Puede etiquetar los datos directamente desde la página **Detalles del proyecto** si selecciona **Label data** (Etiquetar datos).
 
 ## <a name="export-the-labels"></a>Exportar las etiquetas
 
-En cualquier momento, puede exportar los datos de etiquetas para realizar experimentos de aprendizaje automático. Las etiquetas de imagen se pueden exportar en [formato COCO](http://cocodataset.org/#format-data) o como un conjunto de datos de Azure Machine Learning. Encontrará el botón **Exportar** en la página **Detalles del proyecto** del proyecto de etiquetado.
+En cualquier momento, puede exportar los datos de etiquetas para realizar experimentos de Machine Learning. Las etiquetas de imagen se pueden exportar en [formato COCO](http://cocodataset.org/#format-data) o como un conjunto de datos de Azure Machine Learning. Use el botón **Exportar** en la página **Detalles del proyecto** del proyecto de etiquetado.
 
-El archivo COCO se crea en el almacén de blobs predeterminado del área de trabajo de Azure Machine Learning en una carpeta dentro de **export/coco**. Puede acceder al conjunto de datos exportado de Azure Machine Learning en la sección **Conjuntos de datos** de Azure Machine Learning. La página de detalles del conjunto de datos también proporciona código de ejemplo para acceder a las etiquetas desde Python.
+El archivo COCO se crea en el almacén de blobs predeterminado del área de trabajo de Azure Machine Learning, en una carpeta dentro de *export/coco*. Puede acceder al conjunto de datos exportado de Azure Machine Learning en la sección **Conjuntos de datos** de Machine Learning. La página de detalles del conjunto de datos también proporciona código de ejemplo para acceder a las etiquetas desde Python.
 
 ![Conjunto de datos exportado](media/how-to-create-labeling-projects/exported-dataset.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Etiquetado de imágenes para la [clasificación de imágenes o la detección de objetos](how-to-label-images.md)
-* Más información sobre [Azure Machine Learning y Azure Machine Learning Studio](../compare-azure-ml-to-studio-classic.md)
+* Obtenga más información sobre [Azure Machine Learning y Machine Learning Studio (clásico)](../compare-azure-ml-to-studio-classic.md)

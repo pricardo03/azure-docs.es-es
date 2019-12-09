@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Reconocimiento de la voz a través de un archivo de audio en C# (.NET): servicio Voz'
+title: 'Inicio rápido: Reconocimiento de la voz de un archivo de audio en C# (.NET): servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: fdb747212914769b8551d9cd12f1fbc8a01245dc
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7fc7edcb37b31022afb989199bd54e55589e1849
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73506351"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74819411"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -26,11 +26,13 @@ Antes de comenzar, compruebe lo siguiente:
 > * [Ha configurado el entorno de desarrollo](../../../../quickstarts/setup-platform.md?tabs=dotnet)
 > * [Ha creado un proyecto de ejemplo vacío](../../../../quickstarts/create-project.md?tabs=dotnet)
 
+[!INCLUDE [Audio input format](~/articles/cognitive-services/speech-service/includes/audio-input-format-chart.md)]
+
 ## <a name="open-your-project-in-visual-studio"></a>Abra el proyecto en Visual Studio.
 
 El primer paso es asegurarse de que tiene el proyecto abierto en Visual Studio.
 
-1. Inicie Visual Studio 2019.
+1. Inicie Visual Studio 2019.
 2. Cargue el proyecto y abra `Program.cs`.
 
 ## <a name="start-with-some-boilerplate-code"></a>Inicio con código reutilizable
@@ -66,6 +68,7 @@ Antes de inicializar un objeto `SpeechRecognizer`, debe crear una configuración
 
 > [!NOTE]
 > En este ejemplo se usa el método `FromSubscription()` para compilar la clase `SpeechConfig`. Para ver una lista completa de los métodos disponibles, consulte [Clase SpeechConfig](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet).
+> El SDK de Voz se usará de forma predeterminada para reconocer el uso de en-us como idioma. Para más información sobre cómo elegir el idioma de origen, consulte [Especificación del idioma de origen para la conversión de voz a texto](../../../../how-to-specify-source-language.md).
 
 ````C#
 var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");

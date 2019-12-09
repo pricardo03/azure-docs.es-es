@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
 ms.date: 05/20/2019
-ms.openlocfilehash: 677ea48244f8417670a2645ab67fa08c1f869f1a
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 11179d6adc676ae99257442b186a15e69dcc4a03
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142598"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74764480"
 ---
 # <a name="get-started-with-azure-cosmos-db-table-api-and-azure-table-storage-using-the-net-sdk"></a>Introducción a Table API de Azure Cosmos DB y Azure Table Storage mediante el SDK de .NET
 
@@ -23,7 +23,7 @@ ms.locfileid: "70142598"
 
 Table API de Azure Cosmos DB o Azure Table Storage se pueden usar para almacenar datos NoSQL estructurados en la nube y proporcionar un almacén de claves y atributos con un diseño sin esquema. Dado que tanto Table API de Azure Cosmos DB como Table Storage carecen de esquema, es fácil adaptar los datos a medida que evolucionan las necesidades de la aplicación. Tanto Table API de Azure Cosmos DB como Table Storage se pueden usar para almacenar conjuntos de datos flexibles, como datos de usuarios para aplicaciones web, libretas de direcciones, información de dispositivos u otros tipos de metadatos que el servicio requiera. 
 
-Este tutorial describe un ejemplo que muestra cómo usar [Microsoft Azure CosmosDB Table Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) con escenarios de almacenamiento de Table API de Azure Cosmos DB y Azure Table Storage. Debe usar la conexión específica del servicio de Azure. Estos escenarios se describen mediante ejemplos de C# que ilustran cómo crear tablas, insertar y actualizar datos, consultar los datos y eliminar las tablas.
+Este tutorial describe un ejemplo que muestra cómo usar [Microsoft Azure Cosmos DB Table Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) con escenarios de almacenamiento de Table API de Azure Cosmos DB y Azure Table Storage. Debe usar la conexión específica del servicio de Azure. Estos escenarios se describen mediante ejemplos de C# que ilustran cómo crear tablas, insertar y actualizar datos, consultar los datos y eliminar las tablas.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

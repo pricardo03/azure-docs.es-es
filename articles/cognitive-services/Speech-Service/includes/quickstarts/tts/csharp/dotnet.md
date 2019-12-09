@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Síntesis de voz, C# (Windows): Servicios de voz'
+title: 'Inicio rápido: Síntesis de voz en C# (Windows): servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: Use esta guía para crear una aplicación de consola de conversión de texto a voz mediante .NET Framework para Windows y el SDK de Voz. Cuando termine, puede sintetizar la voz a partir de texto y escuchar la voz en su altavoz en tiempo real.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 08/27/2019
 ms.author: yinhew
-ms.openlocfilehash: af101862e824d6527c08c232812913565536bb4a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 38dac73d253245fce86ac419c7a4eb3a106df3f0
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73505159"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818324"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -32,7 +32,7 @@ Antes de comenzar, compruebe lo siguiente:
 
    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/text-to-speech/helloworld/Program.cs#code)]
 
-1. Busque la cadena `YourSubscriptionKey` y reemplácela por su clave de suscripción a Speech Services.
+1. Busque la cadena `YourSubscriptionKey` y reemplácela por su clave de suscripción del servicio de voz.
 
 1. Busque la cadena `YourServiceRegion` y reemplácela por la [ región ](~/articles/cognitive-services/Speech-Service/regions.md) asociada a su suscripción. Por ejemplo, si usa la suscripción de evaluación gratuita, la región es `westus`.
 
@@ -44,7 +44,7 @@ Antes de comenzar, compruebe lo siguiente:
 
 1. Elija **Depurar** > **Iniciar depuración** (o seleccione **F5**) para iniciar la aplicación **helloworld**.
 
-1. Escriba una oración o frase en inglés. La aplicación transmite el texto a Speech Services, que envía la voz sintetizada a la aplicación para que se reproduzca en el altavoz.
+1. Escriba una oración o frase en inglés. La aplicación transmite el texto al servicio de voz, que envía la voz sintetizada a la aplicación para que se reproduzca en el altavoz.
 
    ![Interfaz de usuario de síntesis de voz](~/articles/cognitive-services/Speech-Service/media/sdk/qs-tts-csharp-dotnet-windows-console-output.png)
 

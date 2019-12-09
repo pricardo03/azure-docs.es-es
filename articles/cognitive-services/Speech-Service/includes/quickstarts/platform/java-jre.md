@@ -1,7 +1,7 @@
 ---
-title: 'Inicio rápido: Configuración de la plataforma del SDK de Voz para Java (Windows, Linux, macOS): servicio Voz'
+title: 'Inicio rápido: Configuración de la plataforma para usar Java en Windows, Linux o macOS con el SDK de Voz: servicio de voz'
 titleSuffix: Azure Cognitive Services
-description: Use esta guía para configurar la plataforma para utilizar Java (Windows, Linux, macOS) con el SDK de servicios de voz.
+description: Use esta guía para configurar la plataforma para usar Java en Windows, Linux o macOS con el SDK del servicio de voz.
 services: cognitive-services
 author: markamos
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/11/2019
 ms.author: erhopf
-ms.openlocfilehash: 2814327bdc434dbdae5644bd40b09d0506b21df9
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 195d43739ff27a493b2f2923eac43df03313963b
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73504343"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816306"
 ---
 En esta guía se muestra cómo instalar el [SDK de Voz](~/articles/cognitive-services/speech-service/speech-sdk.md) para Java 8 JRE de 64 bits.
 
@@ -45,7 +45,7 @@ En esta guía se muestra cómo instalar el [SDK de Voz](~/articles/cognitive-ser
         sudo apt-get install build-essential libssl1.0.0 libasound2
         ```
 
-  - En Debian 9, ejecute los siguientes comandos para instalar los paquetes necesarios:
+  - En Debian 9, ejecute los siguientes comandos para instalar los paquetes necesarios:
 
         ```sh
         sudo apt-get update

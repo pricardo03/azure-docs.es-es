@@ -1,19 +1,19 @@
 ---
-title: 'Script de la CLI de Azure: descarga de los registros del servidor de Azure Database for MariaDB'
-description: Este script de la CLI de Azure de ejemplo muestra cómo habilitar y descargar los registros del servidor de Azure Database for MariaDB.
+title: 'Script de la CLI: Descarga de registros de consultas lentas de Azure Database for MariaDB'
+description: En este script de ejemplo de la CLI de Azure se muestra cómo habilitar y descargar los registros de consultas lentas de un servidor de Azure Database for MariaDB.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
-ms.date: 11/28/2018
-ms.openlocfilehash: da2a8ed610873d957866117a9ef7aab424edd452
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 12/02/2019
+ms.openlocfilehash: a6d4ed70418f39b24a68362d5006f3f374693cb6
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66171344"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74777368"
 ---
 # <a name="enable-and-download-server-slow-query-logs-of-an-azure-database-for-mariadb-server-using-azure-cli"></a>Habilitar y descargar registros de consultas lentos de un servidor de Azure Database for MariaDB con la CLI de Azure
 Este script de la CLI de ejemplo habilita y descarga los registros de consultas lentos de un servidor individual de Azure Database for MariaDB.

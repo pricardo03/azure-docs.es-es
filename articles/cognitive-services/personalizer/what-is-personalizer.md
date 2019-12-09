@@ -10,16 +10,16 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: 6b55ce851bb12e37aed37039889aa8e69223a286
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b5d38ffeda3600fd90c4ee84acdd29ed599886ae
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467189"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707948"
 ---
 # <a name="what-is-personalizer"></a>¿Qué es Personalizer?
 
-Azure Personalizer es un servicio de API basado en la nube que permite elegir la mejor experiencia, mostrársela a los usuarios y aprender de su comportamiento colectivo en tiempo real.
+Azure Personalizer es un servicio de API basado en la nube que permite a una aplicación elegir la mejor experiencia, mostrársela a los usuarios y aprender de su comportamiento colectivo en tiempo real.
 
 * Proporcione información acerca de los usuarios y del contenido, y reciba la principal acción que va a mostrar a los usuarios. 
 * Para utilizar Personalizer no es preciso limpiar y etiquetar los datos.
@@ -60,8 +60,8 @@ Personalizer no es un servicio para conservar y administrar la información de l
 
 El servicio Personalizer tiene dos API:
 
-* Envíe información (_características_) acerca de los usuarios y el contenido (_acciones_) para realizar la personalización. Personalizer responde con la acción principal.
-* Envíe a Personalizer sus comentarios sobre el funcionamiento de la clasificación como [puntuación de recompensa](concept-rewards.md). 
+* *Rank*: use la API Rank para determinar qué _acción_ se mostrará, en el _contexto_ actual. Las acciones se envían como una matriz de objetos JSON, con un identificador e información (_características_) sobre cada una de ellas. El contexto se envía como otro objeto JSON. La API devuelve el valor de actionId que la aplicación debe mostrar al usuario.
+* *Recompensa*: Después de que el usuario interactúe con la aplicación, se mide cómo ha funcionado la personalización con un número entre 0 y 1, y se envía como una [puntuación de recompensa](concept-rewards.md). 
 
 ![Secuencia básica de eventos para Personalization](media/what-is-personalizer/personalization-intro.png)
 

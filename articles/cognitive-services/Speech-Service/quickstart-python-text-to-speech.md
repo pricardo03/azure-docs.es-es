@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Conversión de texto a voz en Python (Servicios de voz)'
+title: 'Inicio rápido: Conversión de texto a voz en Python: servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: En este tutorial, obtendrá información sobre cómo convertir texto a voz con Python y la API de REST Texto a voz. El texto de ejemplo incluido en esta guía se estructura como lenguaje de marcado de síntesis de voz (SSML). Esto le permite elegir la voz y el idioma de la respuesta de voz.
 services: cognitive-services
@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: a66835d605b9005b8f94eb79a3c266f735f0a3b6
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 23f3a6b030b477d3dcc06317a545064da95100ff
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467202"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816217"
 ---
 # <a name="quickstart-convert-text-to-speech-using-python"></a>Inicio rápido: Conversión de texto a voz con Python
 
 En este tutorial, obtendrá información sobre cómo convertir texto a voz con Python y la API de REST Texto a voz. El cuerpo de solicitud de esta guía se estructura como [lenguaje de marcado de síntesis de voz (SSML)](speech-synthesis-markup.md), que permite elegir la voz y el idioma de la respuesta.
 
-En este inicio rápido se requiere una [cuenta de Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con un recurso de Servicios de voz. Si no tiene una cuenta, puede usar la [evaluación gratuita](get-started.md) para obtener una clave de suscripción.
+En esta guía de inicio rápido, se requiere una [cuenta de Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con un recurso del servicio de voz. Si no tiene una cuenta, puede usar la [evaluación gratuita](get-started.md) para obtener una clave de suscripción.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -29,7 +29,7 @@ Esta guía de inicio rápido requiere:
 
 * Python 2.7.x o 3.x
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) o su editor favorito de código
-* Una clave de suscripción de Azure para los servicios de voz
+* Una clave de suscripción de Azure para el servicio de voz.
 
 ## <a name="create-a-project-and-import-required-modules"></a>Creación de un proyecto e importación de los módulos necesarios
 
@@ -73,9 +73,9 @@ class TextToSpeech(object):
 
 ## <a name="get-an-access-token"></a>Obtención de un token de acceso
 
-La API REST Texto a voz requiere un token de acceso para la autenticación. Para obtener un token de acceso, es necesario un intercambio. En este ejemplo se intercambia la clave de suscripción de Servicios de voz para obtener un token de acceso usando el punto de conexión `issueToken`.
+La API REST Texto a voz requiere un token de acceso para la autenticación. Para obtener un token de acceso, es necesario un intercambio. En este ejemplo se intercambia la clave de suscripción del servicio de voz para obtener un token de acceso usando el punto de conexión `issueToken`.
 
-En este ejemplo se da por supuesto que su suscripción de Servicios de voz está en la región Oeste de EE. UU. Si usa una región diferente, actualice el valor de `fetch_token_url`. Para obtener una lista completa, consulte [Regiones](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
+En este ejemplo se da por supuesto que su suscripción del servicio de voz está en la región Oeste de EE. UU. Si usa una región diferente, actualice el valor de `fetch_token_url`. Para obtener una lista completa, consulte [Regiones](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
 
 Copie este código en la clase `TextToSpeech`:
 
@@ -94,7 +94,7 @@ def get_token(self):
 
 ## <a name="make-a-request-and-save-the-response"></a>Realización de solicitud y guardado de la respuesta
 
-Aquí va a generar la solicitud y guardar la respuesta de voz. En primer lugar, deberá establecer `base_url` y `path`. En este ejemplo se da por hecho que está utilizando el punto de conexión de Oeste de EE. UU. Si el recurso está registrado en una región diferente, asegúrese de actualizar `base_url`. Para obtener más información, consulte el artículo sobre las [regiones admitidas de Servicios de voz](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
+Aquí va a generar la solicitud y guardar la respuesta de voz. En primer lugar, deberá establecer `base_url` y `path`. En este ejemplo se da por hecho que está utilizando el punto de conexión de Oeste de EE. UU. Si el recurso está registrado en una región diferente, asegúrese de actualizar `base_url`. Para más información, consulte [Regiones del servicio de voz](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
 
 A continuación, deberá agregar los encabezados necesarios para la solicitud. Asegúrese de actualizar `User-Agent` con el nombre del recurso (que se encuentra en Azure Portal) y establezca `X-Microsoft-OutputFormat` en la salida de audio preferida. Para obtener una lista completa de los formatos de salida, vea [Salidas de Audio](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
 

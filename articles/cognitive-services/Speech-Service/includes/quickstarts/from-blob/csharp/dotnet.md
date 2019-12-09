@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Reconocimiento de la voz almacenada en Blob Storage en C#: servicio Voz'
+title: 'Inicio rápido: Reconocimiento de la voz almacenada en Blob Storage en C#: servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 77ab519ae966ab6b3dfc9fd309ce9a5740a5ce0f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 96062057a139e4ab2c91792b5c451e093f7f4c96
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73505895"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74828798"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -32,7 +32,7 @@ Antes de comenzar, compruebe lo siguiente:
 
 El primer paso es asegurarse de que tiene el proyecto abierto en Visual Studio.
 
-1. Inicie Visual Studio 2019.
+1. Inicie Visual Studio 2019.
 2. Cargue el proyecto y abra `Program.cs`.
 
 ## <a name="add-a-reference-to-newtonsoftjson"></a>Adición de una referencia a NewtonSoftJSon
@@ -73,7 +73,7 @@ Inserte este código en `TranscribeAsync` [!code-csharp[](~/samples-cognitive-se
 A continuación, se generará la solicitud de transcripción. Agregue este código a `TranscribeAsync` [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-blob/program.cs?range=52-57)]
 
 ## <a name="send-the-request-and-check-its-status"></a>Envío de la solicitud y comprobación de su estado
-Ahora, se va a publicar la solicitud en el servicio Voz y se va a comprobar el código de respuesta inicial. Este código de respuesta indicará simplemente si el servicio ha recibido la solicitud. El servicio devolverá una dirección URL en los encabezados de respuesta, que es la ubicación en la que se almacenará el estado de la transcripción.
+Ahora, se va a publicar la solicitud en el servicio de voz y se va a comprobar el código de respuesta inicial. Este código de respuesta indicará simplemente si el servicio ha recibido la solicitud. El servicio devolverá una dirección URL en los encabezados de respuesta, que es la ubicación en la que se almacenará el estado de la transcripción.
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-blob/program.cs?range=59-70)]
 
 ## <a name="wait-for-the-transcription-to-complete"></a>Espere a que finalice la operación.

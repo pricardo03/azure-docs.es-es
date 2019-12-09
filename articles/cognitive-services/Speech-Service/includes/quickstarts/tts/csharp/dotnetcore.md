@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Reconocimiento de voz, C# (.NET Core): Servicios de voz'
+title: 'Inicio rápido: Reconocimiento de voz en C# (.NET Core): servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: Aprenda a sintetizar la voz en C# con .NET Core para Windows mediante el SDK de Voz.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 6/24/2019
 ms.author: yinhew
-ms.openlocfilehash: 670d32a93df9e2a0363163079b50c7306f81975e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 6e732237b22bec6e2a66d44f12ac25e5f9adca3f
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73504887"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818288"
 ---
 > [!NOTE]
 > .NET Core es una plataforma de .NET multiplataforma de código abierto que implementa la especificación [.NET Standard](https://docs.microsoft.com/dotnet/standard/net-standard).
@@ -50,7 +50,7 @@ Antes de comenzar, compruebe lo siguiente:
 
     ![Captura de pantalla de la aplicación de Visual Studio, con la opción Iniciar depuración resaltada](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-dotnetcore-windows-06-start-debugging.png "Inicio de la aplicación en depuración")
 
-1. Aparece una ventana de consola que le pide que escriba texto. Escriba algunas palabras o una frase. El texto que escriba se transmite a los servicios de Voz y se sintetiza en voz, la cual se reproduce en el altavoz.
+1. Aparece una ventana de consola que le pide que escriba texto. Escriba algunas palabras o una frase. El texto que escriba se transmite al servicio de voz y se sintetiza en una voz que se reproduce en el altavoz.
 
     ![Captura de pantalla de la salida de consola después de una síntesis correcta](~/articles/cognitive-services/Speech-Service/media/sdk/qs-tts-csharp-dotnet-windows-console-output.png "Salida de la consola después de una síntesis correcta")
 

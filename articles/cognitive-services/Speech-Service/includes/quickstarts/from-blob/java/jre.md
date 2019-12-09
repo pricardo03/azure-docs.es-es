@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Reconocimiento de la voz almacenada en Blob Storage en Java: servicio Voz'
+title: 'Inicio rápido: Reconocimiento de la voz almacenada en Blob Storage en Java: servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: c5fa12621d689287db0d91885fc0a35edb772294
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d4a436540460240ebd97c39d3406b2886586a6df
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73506063"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74828918"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -63,7 +63,7 @@ Inserte este código en `Main` [!code-java[](~/samples-cognitive-services-speech
 A continuación, se generará la solicitud de transcripción. Agregue este código a `Main` [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/src/quickstart/Main.java?range=115-116)]
 
 ## <a name="send-the-request-and-check-its-status"></a>Envío de la solicitud y comprobación de su estado
-Ahora, se va a publicar la solicitud en el servicio Voz y se va a comprobar el código de respuesta inicial. Este código de respuesta indicará simplemente si el servicio ha recibido la solicitud. El servicio devolverá una dirección URL en los encabezados de respuesta, que es la ubicación en la que se almacenará el estado de la transcripción.
+Ahora, se va a publicar la solicitud en el servicio de voz y se va a comprobar el código de respuesta inicial. Este código de respuesta indicará simplemente si el servicio ha recibido la solicitud. El servicio devolverá una dirección URL en los encabezados de respuesta, que es la ubicación en la que se almacenará el estado de la transcripción.
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/src/quickstart/Main.java?range=118-129)]
 
 ## <a name="wait-for-the-transcription-to-complete"></a>Espere a que finalice la operación.

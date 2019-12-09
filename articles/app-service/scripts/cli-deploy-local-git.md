@@ -1,27 +1,20 @@
 ---
-title: 'Ejemplo de script de la CLI de Azure: creación de una aplicación e implementación de código desde el repositorio local de Git | Microsoft Docs'
-description: 'Ejemplo de script de la CLI de Azure: creación de una aplicación de App Service e implementación de código desde un repositorio de Git local'
-services: app-service\web
-documentationcenter: ''
-author: msangapu
-manager: jeconnoc
-editor: ''
+title: 'CLI: Implementación desde el repositorio GIT local'
+description: Aprenda a usar la CLI de Azure para automatizar la implementación y administración de la aplicación App Service. En este ejemplo se indica cómo implementar código desde un repositorio local de Git.
+author: msangapu-msft
 tags: azure-service-management
 ms.assetid: 048f98aa-f708-44cb-9b9e-953f67dc6da8
-ms.service: app-service-web
-ms.workload: web
 ms.devlang: azurecli
-ms.tgt_pltfrm: na
 ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 747d215810710c6810df02dca556d7a685ae4060
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 768b3319b1366f45df1fbcaf1039853c0501a8cf
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66136741"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74686174"
 ---
 # <a name="create-an-app-service-app-and-deploy-code-from-a-local-git-repository-using-azure-cli"></a>Creación de una aplicación de App Service e implementación de código desde un repositorio de Git local mediante la CLI de Azure
 

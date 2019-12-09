@@ -15,6 +15,8 @@
       items:
         - name: Creación de un índice de búsqueda
           href: search-get-started-portal.md
+        - name: Creación de una aplicación (versión preliminar)
+          href: search-create-app-portal.md
         - name: Creación de un conjunto de aptitudes cognitivas
           href: cognitive-search-quickstart-blob.md
         - name: Crear un almacén de conocimientos
@@ -303,6 +305,8 @@
           href: search-manage-powershell.md
         - name: Supervisión de la actividad y el registro
           href: search-monitor-usage.md
+        - name: Búsqueda de análisis de tráfico
+          href: search-traffic-analytics.md
     - name: Solución de problemas
       items:
         - name: Incidencias del indexador

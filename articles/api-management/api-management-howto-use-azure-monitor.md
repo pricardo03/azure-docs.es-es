@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 598168285ee67921ab17ab8c2ce780753c562f81
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 6ecce4dc97272f03a3151708cd9c047212c36e03
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072340"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707197"
 ---
 # <a name="monitor-published-apis"></a>Supervisión de las API publicadas
 
@@ -183,16 +183,16 @@ Actualmente, API Management proporciona registros de diagnóstico (de los que se
 | Propiedad  | Escriba | DESCRIPCIÓN |
 | ------------- | ------------- | ------------- |
 | isRequestSuccess | boolean | True si la solicitud HTTP se completó con el código de estado de respuesta dentro del intervalo 2xx o 3xx |
-| time | date-time | Marca de tiempo de la recepción de la solicitud HTTP por parte de la puerta de enlace |
+| time | date-time | Marca de tiempo del momento en que la puerta de enlace comienza a procesar la solicitud |
 | operationName | string | Valor constante "Microsoft.ApiManagement/GatewayLogs" |
 | category | string | Valor constante "GatewayLogs" |
-| durationMs | integer | Número de milisegundos transcurridos desde el momento en que la puerta de enlace recibió la solicitud hasta que se envió toda la respuesta |
+| durationMs | integer | Número de milisegundos transcurridos desde el momento en que la puerta de enlace recibió la solicitud hasta que se envió toda la respuesta. Incluye clienTime, cacheTime y backendTime. |
 | callerIpAddress | string | Dirección IP del llamador inmediato de la puerta de enlace (puede ser un intermediario) |
 | correlationId | string | Identificador único de la solicitud HTTP asignado por API Management |
 | location | string | Nombre de la región de Azure donde se encontraba la puerta de enlace que procesó la solicitud |
 | httpStatusCodeCategory | string | Categoría del código de estado de respuesta HTTP: Correcto (301 o menos, 304 o 307), No autorizado (401, 403, 429), Erróneo (400, entre 500 y 600), Otro |
 | resourceId | string | Identificador del recurso de API Management /SUBSCRIPTIONS/\<subscription>/RESOURCEGROUPS/\<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/\<name> |
-| properties | objeto | Propiedades de la solicitud actual |
+| properties | object | Propiedades de la solicitud actual |
 | method | string | Método HTTP de la solicitud entrante |
 | url | string | Dirección URL de la solicitud entrante |
 | clientProtocol | string | Versión del protocolo HTTP de la solicitud entrante |
@@ -213,8 +213,8 @@ Actualmente, API Management proporciona registros de diagnóstico (de los que se
 | userId | string | Identificador de la entidad del usuario de la solicitud actual | 
 | apimSubscriptionId | string | Identificador de la entidad de la suscripción de la solicitud actual | 
 | backendId | string | Identificador de la entidad del back-end de la solicitud actual | 
-| lastError | objeto | Último error de procesamiento de la solicitud | 
-| elapsed | integer | Número de milisegundos transcurridos desde que la puerta de enlace recibió una solicitud hasta el momento en que se produjo el error | 
+| lastError | object | Último error de procesamiento de la solicitud | 
+| elapsed | integer | Número de milisegundos transcurridos desde que la puerta de enlace recibió la solicitud hasta el momento en que se produjo el error | 
 | source | string | Nombre del controlador interno del procesamiento o de la directiva que produjo el error | 
 | scope | string | Ámbito del documento de directiva que contiene la directiva que produjo el error | 
 | section | string | Sección del documento de directiva que contiene la directiva que produjo el error | 

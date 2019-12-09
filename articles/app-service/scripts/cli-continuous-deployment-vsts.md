@@ -1,27 +1,20 @@
 ---
-title: 'Ejemplo de script de la CLI de Azure: creación de una aplicación e implementación continua desde Azure Repos | Microsoft Docs'
-description: 'Ejemplo de script de la CLI de Azure: creación de una aplicación con implementación continua desde Azure Repos'
-services: app-service\web
-documentationcenter: ''
+title: Implementación continua desde Azure Repos
+description: Aprenda a usar la CLI de Azure para automatizar la implementación y administración de la aplicación App Service. En este ejemplo se muestra cómo configurar CI/CD desde Azure Repos.
 author: msangapu-msft
-manager: jeconnoc
-editor: ''
 tags: azure-service-management
 ms.assetid: 389d3bd3-cd8e-4715-a3a1-031ec061d385
-ms.service: app-service-web
-ms.workload: web
 ms.devlang: azurecli
-ms.tgt_pltfrm: na
 ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: f7b28e75e8ae722169f3e41f657ef6292e12cc6b
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 1b1d829f2e1e9dcf277f3be5276a1494d5b96c12
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879019"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688391"
 ---
 # <a name="create-an-app-service-app-with-continuous-deployment-using-azure-cli"></a>Creación de una aplicación de App Service con implementación continua mediante la CLI de Azure
 

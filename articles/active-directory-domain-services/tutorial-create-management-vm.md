@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: 2aec10ab07b78aaacf34340b268f9b7dfbe69eb5
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: d8a5f4756f3a6799c7f1b08973e0a84603cb4571
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73172336"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74703646"
 ---
 # <a name="tutorial-create-a-management-vm-to-configure-and-administer-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: Creación de una máquina virtual de administración para configurar y administrar un dominio administrado de Azure Active Directory Domain Services
 
@@ -105,7 +105,7 @@ Para instalar las herramientas de administración de Active Directory en la má
 1. En el *Panel de información* de la ventana **Administrador del servidor**, seleccione **Agregar roles y características**.
 1. En la página **Antes de comenzar** del *Asistente para agregar roles y características*, seleccione **Siguiente**.
 1. En *Tipo de instalación*, deje activada la opción **Instalación basada en características o en roles** y seleccione **Siguiente**.
-1. En la página **Selección de servidor**, elija la máquina virtual actual del grupo de servidores, por ejemplo *mivm.contoso.com*, y seleccione **Siguiente**.
+1. En la página **Selección de servidor**, elija la máquina virtual actual del grupo de servidores, por ejemplo *mivm.aadds.contoso.com*, y seleccione **Siguiente**.
 1. En la página **Roles de servidor**, haga clic en **Siguiente**.
 1. En la página **Características**, expanda el nodo **Herramientas de administración remota del servidor** y el nodo **Herramientas de administración de roles**.
 
@@ -125,7 +125,7 @@ Con las herramientas administrativas instaladas, vamos a ver cómo usarlas para 
     ![Lista de herramientas administrativas instaladas en el servidor](./media/tutorial-create-management-vm/list-admin-tools.png)
 
 1. Seleccione **Centro de administración de Active Directory**.
-1. Para explorar el dominio administrado de Azure AD DS, elija el nombre de dominio en el panel izquierdo, por ejemplo *contoso.com*. En la parte superior de la lista hay dos contenedores denominados *Equipos de AADDC* y *Usuarios de AADDC*.
+1. Para explorar el dominio administrado de Azure AD DS, elija el nombre de dominio en el panel izquierdo, por ejemplo *aadds.contoso.com*. En la parte superior de la lista hay dos contenedores denominados *Equipos de AADDC* y *Usuarios de AADDC*.
 
     ![Lista de parte de los contenedores disponibles del dominio administrado de Azure AD DS](./media/tutorial-create-management-vm/active-directory-administrative-center.png)
 

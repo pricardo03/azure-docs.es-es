@@ -1,18 +1,18 @@
 ---
-title: 'Tutorial: Diseño de una base de datos de Azure Database for MariaDB con Azure Portal'
+title: 'Tutorial: Diseño de un servidor de Azure Database for MariaDB con Azure Portal'
 description: En este tutorial se explica cómo crear y administrar un servidor y una base de datos de Azure Database for MariaDB con Azure Portal.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: tutorial
-ms.date: 04/15/2019
+ms.date: 12/02/2019
 ms.custom: mvc
-ms.openlocfilehash: 1938a84d3e9c0ba8c84cbdbd2eee5b7ca448554d
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 28a20325fac92d0b296c336e2e1186487d1e0272
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66515656"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74776715"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-database-by-using-the-azure-portal"></a>Tutorial: Diseño de una base de datos de Azure Database for MariaDB con Azure Portal
 
@@ -25,7 +25,7 @@ En este tutorial usará Azure Portal para aprender a hacer lo siguiente:
 > * Configuración del firewall del servidor
 > * Uso de la herramienta de línea de comandos mysql para crear una base de datos
 > * Carga de datos de ejemplo
-> * Datos de consulta
+> * Consultar datos
 > * Actualización de datos
 > * Restauración de datos
 
@@ -53,12 +53,12 @@ Se crea un servidor de Azure Database for MariaDB con un conjunto definido de [r
     ---|---|---
     Nombre de servidor | *nombre del servidor único* | Elija un nombre único que identifique el servidor de Azure Database for MariaDB. Por ejemplo, **mydemoserver**. El nombre de dominio *.mariadb.database.azure.com* se anexa al nombre de servidor especificado. El nombre del servidor solo puede contener letras minúsculas, números y el carácter de guion (-). Debe contener entre 3 y 63 caracteres.
     Subscription | *su suscripción* | Seleccione la suscripción de Azure que quiere usar para el servidor. Si tiene varias suscripciones, elija aquella en la que se factura el recurso.
-    Grupos de recursos | **myresourcegroup** | Escriba un nuevo nombre de grupo de recursos o seleccione uno existente.
+    Resource group | **myresourcegroup** | Escriba un nuevo nombre de grupo de recursos o seleccione uno existente.
     Seleccionar origen | **En blanco** | Seleccione **En blanco** para crear un servidor. (Si va a crear un servidor a partir de una copia de seguridad geográfica de un servidor de Azure Database for MariaDB existente, seleccione **Backup**).
     Inicio de sesión de administrador de servidor | **myadmin** | Una cuenta de inicio de sesión para usar al conectarse al servidor. El nombre de inicio de sesión de administrador no puede ser **azure_superuser**, **admin**, **administrator**, **root**, **guest** ni **public**.
     Contraseña | *la que elija* | Escriba una nueva contraseña para la cuenta de administrador del servidor. Debe tener entre 8 y 128 caracteres. La contraseña debe contener caracteres de tres de las siguientes categorías: Letras del alfabeto inglés mayúsculas y minúsculas, números (0-9) y caracteres no alfanuméricos (!, $, #, %, etc.).
     Confirmar contraseña | *la que elija*| Confirme la contraseña de la cuenta de administrador.
-    Ubicación | *la región más cercana a los usuarios*| Elija la ubicación más cercana a los usuarios o a sus otras aplicaciones de Azure.
+    Location | *la región más cercana a los usuarios*| Elija la ubicación más cercana a los usuarios o a sus otras aplicaciones de Azure.
     Versión | *la versión más reciente*| La versión más reciente (a menos que tenga requisitos específicos para el uso de una versión diferente).
     Plan de tarifa | Consulte la descripción. | Configuración de los recursos de proceso, almacenamiento y copia de seguridad para el nuevo servidor. Seleccione **Plan de tarifa** > **Uso general**. Mantenga los valores predeterminados de los siguientes valores de configuración:<br><ul><li>**Generación de procesos** (Gen 5)</li><li>**Núcleo virtual** (4 núcleos virtuales)</li><li>**Almacenamiento** (100 GB)</li><li>**Período de retención de copia de seguridad** (7 días)</li></ul><br>Para habilitar las copias de seguridad del servidor en el almacenamiento con redundancia geográfica, seleccione **Redundancia geográfica** en **Opciones de redundancia de copia de seguridad**. <br><br>Para guardar el plan de tarifa elegido, seleccione **Aceptar**. La captura de pantalla siguiente muestra estas opciones seleccionadas.
     
@@ -189,7 +189,7 @@ En este tutorial uso Azure Portal para aprender a hacer lo siguiente:
 > * Configuración del firewall del servidor
 > * Usar la herramienta de línea de comandos de mysql para crear una base de datos
 > * Carga de datos de ejemplo
-> * Datos de consulta
+> * Consultar datos
 > * Actualización de datos
 > * Restauración de datos
 

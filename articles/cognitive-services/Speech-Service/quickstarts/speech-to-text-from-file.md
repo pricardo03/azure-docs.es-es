@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Reconocimiento de la voz a través de un archivo de audio: servicio Voz'
+title: 'Inicio rápido: Reconocimiento de la voz de un archivo de audio: servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: En este inicio rápido usará el SDK de Voz para reconocer la voz que procede de un archivo de audio.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 11/04/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 9a7e3de3502ba9be4edc46dc60907a20d9cf349e
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 310d0cd94dcdb57254de3764c57b9b2438aa5442
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681991"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74819247"
 ---
 # <a name="quickstart-recognize-speech-from-an-audio-file"></a>Inicio rápido: Reconocimiento de voz de un archivo de audio
 

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: tutorial
 ms.date: 10/20/2018
 ms.author: cherylmc
-ms.openlocfilehash: 7327031a7cd05674e9823f21601aab34c859f540
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 686ac8013879eff8adc4476d56119bbb4a169900
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74423568"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74813160"
 ---
 # <a name="tutorial-create-and-modify-an-expressroute-circuit"></a>Tutorial: Creación y modificación de un circuito ExpressRoute
 
@@ -45,9 +45,12 @@ Desde un explorador, navegue al [Portal de Azure](https://portal.azure.com) e in
 > [!IMPORTANT]
 > El circuito ExpressRoute se factura a partir del momento en que se emite una clave de servicio. Asegúrese de realizar esta operación cuando el proveedor de conectividad esté listo para aprovisionar el circuito.
 
-1. Puede crear un circuito ExpressRoute seleccionando la opción de creación de un recurso. Haga clic en **Crear un recurso** > **Redes** > **ExpressRoute**, tal y como se muestra en la siguiente imagen:
+Puede crear un circuito ExpressRoute seleccionando la opción de creación de un recurso. 
 
-   ![Creación de un circuito ExpressRoute](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit1.png)
+1. En el menú de Azure Portal o en la **página principal**, seleccione **Crear un recurso**. Seleccione **Redes** > **ExpressRoute**, tal y como se muestra en la imagen siguiente:
+
+   ![Creación de un circuito ExpressRoute](./media/expressroute-howto-circuit-portal-resource-manager/create-an-expressroute-circuit.png)
+
 2. Tras hacer clic en **ExpressRoute**, verá la página **Create ExpressRoute circuit** (Crear circuito ExpressRoute). Después de rellenar los valores de esta página, asegúrese de especificar el nivel de SKU adecuado [Standard (Estándar) o Premium (Premium)] y el modelo de facturación de medición de datos [Unlimited (Ilimitado) o Metered (Limitado)].
 
    ![Configuración del nivel SKU y medición de datos](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit.png)
@@ -146,7 +149,7 @@ Puede realizar las siguientes tareas sin experimentar tiempo de inactividad:
 
 Para modificar un circuito ExpressRoute, haga clic en **Configuración**.
 
-![Modificación del circuito](./media/expressroute-howto-circuit-portal-resource-manager/modifycircuit.png)
+![Modificación del circuito](./media/expressroute-howto-circuit-portal-resource-manager/modify-circuit-configuration.png)
 
 ## <a name="delete"></a>Desaprovisionar y eliminar un circuito ExpressRoute
 

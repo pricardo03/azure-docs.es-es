@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Realización de operaciones de ETL mediante Azure Databricks'
-description: Aprenda a extraer datos de Data Lake Storage Gen2 a Azure Databricks, transformarlos y luego cargarlos en Azure SQL Data Warehouse.
+description: En este tutorial aprenderá a extraer datos de Data Lake Storage Gen2 a Azure Databricks, transformarlos y luego cargarlos en Azure SQL Data Warehouse.
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/20/2019
-ms.openlocfilehash: 8ceb9e940584ae4c41484fe31ce5cb1832bb3400
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 11e5aac559370c478b774f2a503bde590dfeedf4
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73605697"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707452"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>Tutorial: Extracción, transformación y carga de datos mediante Azure Databricks
 

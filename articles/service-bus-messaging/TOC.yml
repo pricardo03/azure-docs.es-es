@@ -203,6 +203,10 @@
               href: service-bus-resource-manager-namespace-auth-rule.md
             - name: 'Creación de un espacio de nombres con un tema, una suscripción y una regla'
               href: service-bus-resource-manager-namespace-topic-with-rule.md
+    - name: Seguridad
+      items:
+        - name: Configuración de claves administradas por el cliente para el cifrado en reposo (versión preliminar)
+          href: configure-customer-managed-key.md
     - name: Solución de problemas
       items:
         - name: Guía de solución de problemas

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9efaeb9d3fe0ec8684f10c58897f5490d0f28cb9
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: e1ec0dd844dea8cf98621130d6a19b415bda1cf0
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74182248"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74786493"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con F5
 
@@ -46,7 +46,7 @@ Para empezar, necesita los siguientes elementos:
 
     * Licencia independiente de F5 BIG-IP Access Policy Manager™ (APM).
 
-    * Licencia del complemento F5 BIG-IP Access Policy Manager™ (APM) en una instalación de F5 BIG-IP® Local Traffic Manager™ (LTM).
+    * Licencia del complemento F5 BIG-IP Access Policy Manager™ (APM) en una instalación de F5 BIG-IP® Local Traffic Manager™ (LTM) ya existente.
 
     * Además de la licencia anterior, el sistema F5 también puede tener licencia para:
 
@@ -269,7 +269,7 @@ En esta sección, va a permitir que B.Simon acceda a F5 mediante el inicio de se
  
     ![Configuración de F5 (Kerberos)](./media/kerbf5-tutorial/configure12.png)
 
-1. Una vez realizada la implementación, haga clic en **Finish** (Finalizar).
+1. Una vez configurada la aplicación, haga clic en **Finish** (Finalizar).
 
     ![Configuración de F5 (Kerberos)](./media/kerbf5-tutorial/configure13.png)
 

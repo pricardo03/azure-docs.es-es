@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Diseño de una instancia de Azure Database for PostgreSQL: servidor único con la CLI de Azure'
+title: 'Tutorial: Diseño de un servidor único de Azure Database for PostgreSQL con la CLI de Azure'
 description: 'En este tutorial se muestra cómo crear, configurar y consultar su primera instancia de Azure Database for PostgreSQL: servidor único con la CLI de Azure.'
 author: rachel-msft
 ms.author: raagyema
@@ -8,12 +8,12 @@ ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 06/25/2019
-ms.openlocfilehash: db0ff9facbd8609955c5ef1918b0f8a6aa53ea65
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 0f1f4c07f3dc694bcae9b540c71a11e53a00eb7f
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447223"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74773700"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-azure-cli"></a>Tutorial: Diseño de una instancia de Azure Database for PostgreSQL: servidor único con la CLI de Azure 
 En este tutorial, usa la CLI (interfaz de la línea de comandos) de Azure y otras utilidades para aprender a hacer lo siguiente:
@@ -22,7 +22,7 @@ En este tutorial, usa la CLI (interfaz de la línea de comandos) de Azure y otra
 > * Configuración del firewall del servidor
 > * Uso de la utilidad [**psql**](https://www.postgresql.org/docs/9.6/static/app-psql.html) para crear una base de datos
 > * Carga de datos de ejemplo
-> * Datos de consulta
+> * Consultar datos
 > * Actualización de datos
 > * Restauración de datos
 
@@ -218,7 +218,7 @@ En este tutorial, aprendió a usar la CLI (interfaz de la línea de comandos) de
 > * Configuración del firewall del servidor
 > * Uso de la utilidad [**psql**](https://www.postgresql.org/docs/9.6/static/app-psql.html) para crear una base de datos
 > * Carga de datos de ejemplo
-> * Datos de consulta
+> * Consultar datos
 > * Actualización de datos
 > * Restauración de datos
 

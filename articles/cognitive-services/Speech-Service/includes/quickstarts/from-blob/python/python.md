@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Reconocimiento de la voz almacenada en Blob Storage en C#: servicio Voz'
+title: 'Inicio rápido: Reconocimiento de la voz almacenada en Blob Storage en C#: servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 40b226796b4dfb9aced3c6b00eba1a12bad66894
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 9223fa484d45b927059c73e23e0607526e70fae4
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73506159"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74828970"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -36,7 +36,7 @@ Siga estos pasos para la instalación:
 
 1. Vaya a https://editor.swagger.io.
 1. Haga clic en **File** (Archivo) y, luego, en **Import URL** (URL de importación).
-1. Escriba la dirección URL de Swagger, incluida la región de la suscripción del servicio Voz: `https://<your-region>.cris.ai/docs/v2.0/swagger`.
+1. Escriba la dirección URL de Swagger, incluida la región de la suscripción del servicio de voz: `https://<your-region>.cris.ai/docs/v2.0/swagger`.
 1. Haga clic en **Generate Client** (Generar cliente) y seleccione **Python**.
 1. Guarde la biblioteca cliente.
 1. Extraiga el archivo python-client-generated.zip descargado en alguna parte del sistema de archivos.
@@ -77,13 +77,13 @@ Inserte este código en `transcribe` [!code-python[](~/samples-cognitive-service
 A continuación, se generará la solicitud de transcripción. Agregue este código a `transcribe` [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/from-blob/python-client/main.py?range=52-54)]
 
 ## <a name="send-the-request-and-check-its-status"></a>Envío de la solicitud y comprobación de su estado
-Ahora, se va a publicar la solicitud en el servicio Voz y se va a comprobar el código de respuesta inicial. Este código de respuesta indicará simplemente si el servicio ha recibido la solicitud. El servicio devolverá una dirección URL en los encabezados de respuesta, que es la ubicación en la que se almacenará el estado de la transcripción.
+Ahora, se va a publicar la solicitud en el servicio de voz y se va a comprobar el código de respuesta inicial. Este código de respuesta indicará simplemente si el servicio ha recibido la solicitud. El servicio devolverá una dirección URL en los encabezados de respuesta, que es la ubicación en la que se almacenará el estado de la transcripción.
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/from-blob/python-client/main.py?range=65-73)]
 
 ## <a name="wait-for-the-transcription-to-complete"></a>Espere a que finalice la operación.
 Dado que el servicio procesa la transcripción de forma asincrónica, es necesario sondear su estado cada cierto tiempo. Aquí se va a comprobar cada cinco segundos.
 
-Se enumerarán todas las transcripciones que está procesando este recurso del servicio Voz y se buscará la que se ha creado.
+Se enumerarán todas las transcripciones que está procesando este recurso del servicio de voz y se buscará la que se ha creado.
 
 Este es el código de sondeo con la visualización del estado de todas las tareas, excepto el de una finalización correcta, que se hará a continuación.
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/from-blob/python-client/main.py?range=75-94,99-112)]

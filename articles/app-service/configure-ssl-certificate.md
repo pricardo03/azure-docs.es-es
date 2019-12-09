@@ -1,24 +1,17 @@
 ---
-title: 'Adición y administración de certificados SSL: Azure App Service | Microsoft Docs'
-description: Aprenda a comprar un certificado de App Service y a enlazarlo a esta aplicación
-services: app-service
-author: cephalin
-manager: gwallace
+title: Incorporación y administración de certificados
+description: Cree un certificado gratuito, importe un certificado de App Service, importe un certificado de Key Vault o compre un certificado de App Service en Azure App Service.
 tags: buy-ssl-certificates
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 10/25/2019
-ms.author: cephalin
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 48c8390eff52466d11f781447c448d04ba567f31
-ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
+ms.openlocfilehash: 2cba4e8223e98f95fc8d0f0472c10b2f9b67a658
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2019
-ms.locfileid: "73907127"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74670732"
 ---
 # <a name="add-an-ssl-certificate-in-azure-app-service"></a>Adición de un certificado SSL en Azure App Service
 

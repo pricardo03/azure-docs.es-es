@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Supervisión de los dispositivos en Azure IoT Central'
-description: 'Tutorial: Como un operador, puede usar la aplicación de Azure IoT Central para supervisar los dispositivos.'
+description: Este tutorial le muestra, como operador, cómo usar la aplicación de Azure IoT Central para supervisar los dispositivos.
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/13/2019
@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: a07a822e863c5ff5d695a20c02bd8d295721efda
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: c04793f22e146491efdffc81f28e1719542af054
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74480245"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74705860"
 ---
 # <a name="tutorial-use-azure-iot-central-to-monitor-your-devices"></a>Tutorial: Uso de Azure IoT Central para supervisar los dispositivos
 

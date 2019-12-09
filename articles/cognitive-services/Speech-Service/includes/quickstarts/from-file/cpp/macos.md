@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Reconocimiento de la voz a través de un archivo de audio en C++ (macOS): servicio Voz'
+title: 'Inicio rápido: Reconocimiento de la voz de un archivo de audio en C++ (macOS): servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: Aprenda a reconocer la voz en C++ para macOS mediante el SDK de Voz.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: wolfma
-ms.openlocfilehash: a3a651286fec9328c6d1835f68a4651212b5bd8c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5cd7173d2df6f08b79d544a3a371039c24d5882a
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73506375"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74819262"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -25,6 +25,8 @@ Antes de comenzar, compruebe lo siguiente:
 > * [Ha creado un recurso de Voz de Azure](../../../../get-started.md)
 > * [Ha configurado el entorno de desarrollo](../../../../quickstarts/setup-platform.md?tabs=macos)
 > * [Ha creado un proyecto de ejemplo vacío](../../../../quickstarts/create-project.md?tabs=macos)
+
+[!INCLUDE [Audio input format](~/articles/cognitive-services/speech-service/includes/audio-input-format-chart.md)]
 
 ## <a name="add-sample-code"></a>Incorporación de código de ejemplo
 
@@ -74,12 +76,14 @@ Antes de comenzar, compruebe lo siguiente:
 
    ````
 
-1. En este nuevo archivo, reemplace la cadena `YourSubscriptionKey` por su clave de suscripción de servicios de voz.
+1. En este nuevo archivo, reemplace la cadena `YourSubscriptionKey` por su clave de suscripción del servicio Voz.
 
 1. Reemplace la cadena `YourServiceRegion` por la [región](~/articles/cognitive-services/Speech-Service/regions.md) asociada a sus suscripción (por ejemplo, `westus` para la suscripción de evaluación gratuita).
 
 1. Reemplace la cadena `whatstheweatherlike.wav` por su propio nombre de archivo.
 
+> [!NOTE]
+> El SDK de Voz se usará de forma predeterminada para reconocer el uso de en-us como idioma. Para más información sobre cómo elegir el idioma de origen, consulte [Especificación del idioma de origen para la conversión de voz a texto](../../../../how-to-specify-source-language.md).
 
 ## <a name="build-the-app"></a>Compilación de la aplicación
 
@@ -106,7 +110,7 @@ Antes de comenzar, compruebe lo siguiente:
    ./helloworld
    ```
 
-1. El archivo de audio se transmite a los servicios de voz y la primera expresión del archivo se transcribe a texto, que aparece en la misma ventana.
+1. El archivo de audio se transmite al servicio de voz y la primera expresión del archivo se transcribe a texto, que aparece en la misma ventana.
 
    ```text
    Recognizing first result...

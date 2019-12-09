@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Síntesis de voz en C++ para Linux (Servicios de voz)'
+title: 'Inicio rápido: Síntesis de voz en C++ (Linux): servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: Aprenda a sintetizar la voz en C++ para Linux mediante el SDK de Voz.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 07/05/2019
 ms.author: yinhew
-ms.openlocfilehash: ba0e04d4dadd9d3a4bea41aeb0a66b37f454f030
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: fc5d0e0a7f693df87e754383a123dc1cebfdd94c
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73505279"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818374"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -32,7 +32,7 @@ Antes de comenzar, compruebe lo siguiente:
 
    [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/cpp/linux/text-to-speech/helloworld.cpp#code)]
 
-1. En este nuevo archivo, reemplace la cadena `YourSubscriptionKey` por su clave de suscripción de servicios de voz.
+1. En este nuevo archivo, reemplace la cadena `YourSubscriptionKey` por su clave de suscripción del servicio Voz.
 
 1. Reemplace la cadena `YourServiceRegion` por la [región](~/articles/cognitive-services/Speech-Service/regions.md) asociada a sus suscripción (por ejemplo, `westus` para la suscripción de evaluación gratuita).
 
@@ -87,7 +87,7 @@ Antes de comenzar, compruebe lo siguiente:
    ./helloworld
    ```
 
-1. En la ventana de consola aparece un aviso que le pide que escriba texto. Escriba algunas palabras o una frase. El texto que escriba se transmite a los servicios de Voz y se sintetiza en voz, la cual se reproduce en el altavoz.
+1. En la ventana de consola aparece un aviso que le pide que escriba texto. Escriba algunas palabras o una frase. El texto que escriba se transmite al servicio de voz y se sintetiza en una voz que se reproduce en el altavoz.
 
    ```text
    Type some text that you want to speak...

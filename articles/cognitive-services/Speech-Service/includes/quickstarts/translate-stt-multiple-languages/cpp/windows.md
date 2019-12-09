@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Traducción de voz a varios idiomas en C++ para Windows: Servicio Voz'
+title: 'Inicio rápido: Traducción de voz a varios idiomas en C++ (Windows): servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 08/24/2019
 ms.author: erhopf
-ms.openlocfilehash: 9de9db768fcadaa132195169b50ad48487a4a343
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 78e8d479f9d36924f77744a36de9451a013a6e42
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73504711"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74817139"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -116,7 +116,7 @@ Antes de comenzar, compruebe lo siguiente:
 
 1. Elija **Depurar** > **Iniciar depuración** o presione **F5** para iniciar la aplicación **HelloWorld**.
 
-1. Diga una oración o frase en inglés. La aplicación transmite su voz a Speech Services, que la traduce y la transcribe a texto, en este caso, a francés y alemán. Después, Speech Services envían el texto de nuevo a la aplicación para que se muestren.
+1. Diga una oración o frase en inglés. La aplicación transmite la voz al servicio de voz, que la traduce (a francés y alemán en este caso) y la transcribe en texto. Después, el servicio de voz envía el texto de nuevo a la aplicación para mostrarlo.
 
 ````
 Say something...

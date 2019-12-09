@@ -5,12 +5,12 @@ ms.date: 09/26/2018
 ms.topic: tutorial
 description: Desarrollo rápido de Kubernetes con contenedores y microservicios en Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores, Helm, service mesh, enrutamiento de service mesh, kubectl, k8s
-ms.openlocfilehash: 32ff7554ca599b7d50a4c815083b97eda8b4e57e
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 64d4f7560325429fc2a36be066c6c475d4d60e90
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327315"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74708596"
 ---
 # <a name="create-a-kubernetes-dev-space-visual-studio-code-and-nodejs-with-azure-dev-spaces"></a>Creación de un espacio de desarrollo de Kubernetes: Visual Studio Code y Node.js con Azure Dev Spaces
 
@@ -40,9 +40,10 @@ az login
 Para ver sus suscripciones, ejecute: 
 
 ```cmd
-az account list
+az account list --output table
 ```
-Busque la suscripción que tiene `isDefault: true` en la salida de JSON.
+
+Busque la suscripción que tiene *True* para *IsDefault*.
 Si esta no es la suscripción que desea usar, puede cambiar la suscripción predeterminada:
 
 ```cmd

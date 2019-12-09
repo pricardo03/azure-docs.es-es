@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/17/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 0ba69715998f110d88015bdba2fbf340a6b64089
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b65cf26bcea628f784eb086d1b9c88febade25f6
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73491635"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74828999"
 ---
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpn-gateway"></a>¿Cuál es la diferencia entre una puerta de enlace de Azure Virtual Network (VPN Gateway) y una instancia de VPN Gateway de Azure Virtual WAN?
 
@@ -36,8 +36,6 @@ Para conocer estos pasos, consulte [Automatización de asociados de Virtual WAN]
 No. Puede usar cualquier dispositivo compatible con VPN que cumpla los requisitos de Azure para la compatibilidad con IPsec de IKEv1 o IKEv2.
 
 ### <a name="how-do-virtual-wan-partners-automate-connectivity-with-azure-virtual-wan"></a>¿Cómo automatizan la conectividad con Azure Virtual WAN los asociados de Virtual WAN?
-
-Las soluciones de conectividad definidas por software suelen administrar sus dispositivos de rama con un controlador o un centro de aprovisionamiento de dispositivos. El controlador puede usar las API de Azure para automatizar la conectividad a Azure Virtual WAN. Para más información, consulte Automatización de asociados de Virtual WAN.
 
 Las soluciones de conectividad definidas por software suelen administrar sus dispositivos de rama con un controlador o un centro de aprovisionamiento de dispositivos. El controlador puede usar las API de Azure para automatizar la conectividad a Azure Virtual WAN. La automatización incluye la carga de información de la rama, la descarga de la configuración de Azure, la configuración de túneles IPSec en los centros de conectividad virtuales de Azure y la configuración automática de la conectividad desde el dispositivo de rama a Azure Virtual WAN. Cuando tiene cientos de ramas, la conexión mediante asociados de CPE de Virtual WAN es fácil ya que la experiencia de incorporación elimina la necesidad de configurar y administrar la conectividad de IPsec a gran escala. Para más información, consulte [Automatización de asociados de Virtual WAN](../articles/virtual-wan/virtual-wan-configure-automation-providers.md).
 
@@ -115,7 +113,9 @@ Puede conectar una red virtual en una región distinta a la de Virtual WAN.
 
 ### <a name="can-spoke-vnets-connected-to-a-virtual-hub-communicate-with-each-other"></a>¿Pueden las redes virtuales radiales conectadas a un concentrador virtual comunicarse entre sí?
 
-Sí. Las redes virtuales radiales pueden comunicarse directamente a través del emparejamiento de red virtual. Para más información, consulte [Emparejamiento de redes virtuales](../articles/virtual-network/virtual-network-peering-overview.md). También se admiten redes virtuales que se comunican de forma transitiva mediante el centro.
+Sí. Virtual WAN Estándar admite la conectividad transitiva entre redes virtuales mediante el centro de conectividad de Virtual WAN al que están conectadas las redes virtuales. En la terminología de Virtual WAN, llamamos a estas rutas de acceso "tránsito local de red virtual de Virtual WAN" para las redes virtuales conectadas a un centro de conectividad de Virtual WAN dentro de una única región, y "tránsito global de red virtual de Virtual WAN" en el caso de las redes virtuales conectadas mediante varios centros de conectividad de Virtual WAN en dos o más zonas. El tránsito de red virtual tiene una capacidad de procesamiento máxima de 3 Gbps durante la versión preliminar pública. Esta capacidad aumentará cuando el tránsito global pase a estar disponible de manera general.   
+
+En algunos escenarios, las redes virtuales radiales también se pueden emparejar directamente entre sí mediante el [emparejamiento de red virtual](../articles/virtual-network/virtual-network-peering-overview.md), además del tránsito local o global de red virtual de Virtual WAN. En este caso, el emparejamiento de red virtual tiene prioridad sobre la conexión transitiva del centro de conectividad de Virtual WAN. 
 
 ### <a name="what-is-a-branch-connection-to-azure-virtual-wan"></a>¿Qué es una conexión de rama a Azure Virtual WAN?
 

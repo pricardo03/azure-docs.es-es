@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Traducción de voz a voz en Java para Windows y Linux (Servicios de voz)'
+title: 'Inicio rápido: Traducción de voz a voz en Java (Windows, Linux): servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 6a6ef6c0070642e1c2f762f5cb19f97bd4d1e8cb
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: fa6b49f7e79b72ff1f8de8ede4b34c8d7de1462b
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73505199"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74817535"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -143,7 +143,7 @@ Antes de comenzar, compruebe lo siguiente:
 
 Presione F11, o seleccione **Run (Ejecutar)**  > **Debug (Depurar)** .
 
-1. Diga una oración o frase en inglés. La aplicación transmite su voz a Speech Services, que la traduce y la transcribe a texto, en este caso, en alemán. Después, Speech Services envía el audio sintetizado y el texto de nuevo a la aplicación para que se muestren.
+1. Diga una oración o frase en inglés. La aplicación transmite la voz al servicio de voz, que la traduce (a alemán en este caso) y la transcribe en texto. Después, el servicio de voz envía el audio sintetizado y el texto de nuevo a la aplicación para mostrarlo.
 
 ````
 Say something...

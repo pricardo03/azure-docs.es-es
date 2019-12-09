@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Traducción de voz a voz en Python: Servicios de voz'
+title: 'Inicio rápido: Traducción de voz a voz en Python: servicio de voz'
 description: TBD
 services: cognitive-services
 author: chlandsi
@@ -9,12 +9,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: 679690c495f18a489c6fab11a18182c83ca1577f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4e45777e8af75d568a98dd649159379a5d9c9a6f
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73505087"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816959"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -89,7 +89,7 @@ Antes de comenzar, compruebe lo siguiente:
    python quickstart.py
    ```
 
-2. Diga una oración o frase en inglés. La aplicación transmite su voz a Speech Services, que la traduce y la transcribe a texto, en este caso, en alemán. Después, Speech Services envían el texto de nuevo a la aplicación para que se muestren.
+2. Diga una oración o frase en inglés. La aplicación transmite la voz al servicio de voz, que la traduce (a alemán en este caso) y la transcribe en texto. Después, el servicio de voz envía el texto de nuevo a la aplicación para mostrarlo.
 
    ````
    Say something...

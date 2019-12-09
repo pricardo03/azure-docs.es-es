@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Traducción de voz a varios idiomas, C# (.NET Framework en Windows): Servicios de voz'
+title: 'Inicio rápido: Traducción de voz a varios idiomas en C# (.NET Framework en Windows): servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 08/28/2019
 ms.author: erhopf
-ms.openlocfilehash: af3a070b714a9f86c8120f9bfd81bd41b8295f97
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d2750ba0336830d84f969a333a5aa30e9f10f8e6
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73504823"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74817163"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -117,7 +117,7 @@ Antes de comenzar, compruebe lo siguiente:
 
 1. Elija **Depurar** > **Iniciar depuración** o presione **F5** para iniciar la aplicación **HelloWorld**.
 
-1. Diga una oración o frase en inglés. La aplicación transmite su voz a Speech Services, que la traduce y la transcribe a texto, en este caso, a francés y alemán. Después, Speech Services envían el texto de nuevo a la aplicación para que se muestren.
+1. Diga una oración o frase en inglés. La aplicación transmite la voz al servicio de voz, que la traduce (a francés y alemán en este caso) y la transcribe en texto. Después, el servicio de voz envía el texto de nuevo a la aplicación para mostrarlo.
 
 ````
 Say something...

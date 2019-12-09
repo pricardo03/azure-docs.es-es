@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Síntesis de voz en un archivo de audio en C# (.NET): servicio Voz'
+title: 'Inicio rápido: Síntesis de voz en un archivo de audio en C# (.NET): servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: 24f44d02170866645711cb302453a009d2935fbf
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0b34c65f6b7003cbdd4d99b684fe2b5a3249c410
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73505103"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74817901"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -91,7 +91,7 @@ using (var synthesizer = new SpeechSynthesizer(config, fileOutput))
 
 ## <a name="synthesize-text-using-speaktextasync"></a>Síntesis de texto mediante SpeakTextAsync
 
-En el objeto `SpeechSynthesizer`, va a llamar al método `SpeakTextAsync()`. Este método envía el texto al servicio de voz que lo convierte en audio. El `SpeechSynthesizer` utilizará la voz predeterminada si `config.VoiceName` no se especifica explícitamente.
+En el objeto `SpeechSynthesizer`, va a llamar al método `SpeakTextAsync()`. Este método envía el texto al servicio de voz, que lo convierte en audio. El `SpeechSynthesizer` utilizará la voz predeterminada si `config.VoiceName` no se especifica explícitamente.
 
 Dentro de la instrucción using, agregue este código:
 ````C#

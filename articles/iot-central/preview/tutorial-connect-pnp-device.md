@@ -1,6 +1,6 @@
 ---
-title: Conexión de un dispositivo de IoT Plug and Play (versión preliminar) a Azure IoT Central | Microsoft Docs
-description: Uso de un modelo de funcionalidad de dispositivo para generar código de dispositivo. Después, ejecute el código del dispositivo, vea si el dispositivo se conecta a la aplicación IoT Central y use las vistas generadas automáticamente.
+title: 'Tutorial: Conexión de un dispositivo de IoT Plug and Play (versión preliminar) a Azure IoT Central'
+description: En este tutorial se le indica cómo usar un modelo de funcionalidad del dispositivo para generar código de dispositivo. Después, ejecute el código del dispositivo, vea si el dispositivo se conecta a la aplicación IoT Central y use las vistas generadas automáticamente.
 author: dominicbetts
 ms.author: dobett
 ms.date: 08/08/2019
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: be03684f89382f198c13540bbdfb3de5bf8513a6
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: 59261d6a1cea034df58bd7e8d53439cdf1fbae6b
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74404544"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74702857"
 ---
 # <a name="tutorial-use-a-device-capability-model-to-create-an-iot-plug-and-play-device-and-connect-it-to-your-iot-central-application"></a>Tutorial: Uso de un modelo de funcionalidad de dispositivo para crear un dispositivo IoT Plug and Play y conectarlo a la aplicación IoT Central
 

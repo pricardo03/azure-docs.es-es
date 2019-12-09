@@ -44,9 +44,6 @@
     - name: Visualización y administración de clientes
       displayName: my customers
       href: ./how-to/view-manage-customers.md
-    - name: Visualización y administración de proveedores de servicios
-      displayName: 'customer, update'
-      href: ./how-to/view-manage-service-providers.md
     - name: Integración de Azure Policy
       items:
         - name: Implementación de una directiva a escala
@@ -55,6 +52,14 @@
         - name: Implementación de una directiva que se pueda corregir
           displayName: 'deployIfNotExists, modify, managed identities, managed identity'
           href: ./how-to/deploy-policy-remediation.md
+    - name: Acciones del cliente
+      items:
+        - name: Visualización y administración de proveedores de servicios
+          displayName: 'customer, update'
+          href: ./how-to/view-manage-service-providers.md
+        - name: Visualización de la actividad del proveedor de servicios
+          displayName: 'monitor, log'
+          href: ./how-to/view-service-provider-activity.md
 - name: Referencia
   items:
     - name: CLI de Azure

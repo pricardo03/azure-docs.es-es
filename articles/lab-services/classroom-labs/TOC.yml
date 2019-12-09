@@ -72,6 +72,8 @@
           href: how-to-enable-remote-desktop-linux.md
         - name: Habilitación de la virtualización anidada en una máquina virtual de plantilla
           href: how-to-enable-nested-virtualization-template-vm.md
+        - name: Preparación de una plantilla de máquina virtual de Windows
+          href: how-to-prepare-windows-template.md
     - name: Conexión a máquinas virtuales de laboratorios educativos (alumno)
       items:
         - name: Acceso a laboratorios educativos

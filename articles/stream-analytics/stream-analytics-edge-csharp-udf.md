@@ -1,6 +1,6 @@
 ---
-title: Escritura de funciones definidas por el usuario en C# para trabajos de Azure Stream Analytics en Visual Studio (Versión preliminar)
-description: Aprenda a escribir funciones definidas por el usuario en C# para trabajos de Stream Analytics en Visual Studio.
+title: 'Tutorial: Escritura de funciones de C# definidas por el usuario para trabajos de Azure Stream Analytics en Visual Studio (versión preliminar)'
+description: En este tutorial se muestra cómo escribir funciones de C# definidas por el usuario para trabajos de Stream Analytics en Visual Studio.
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: d6cf420c8baceb243e8c4d70c8bcbc95ec626c3a
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: d600c891f35a0719012707bdc2cb45101e14e090
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990242"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707361"
 ---
 # <a name="tutorial-write-a-c-user-defined-function-for-azure-stream-analytics-job-preview"></a>Tutorial: Escritura de una función de C# definida por el usuario para un trabajo de Azure Stream Analytics (Versión preliminar)
 
@@ -63,9 +63,9 @@ El contenedor que cree se usará para almacenar el paquete compilado C#. Si cre
    |-------|---------------|
    |Recurso de configuración de almacenamiento global|Selección del origen de datos desde la cuenta actual|
    |Suscripción de configuración de almacenamiento global| < su suscripción >|
-   |Cuenta de almacenamiento de la configuración de almacenamiento global| < su cuenta de almacenamiento>|
+   |Cuenta de almacenamiento de la configuración de almacenamiento global| < su cuenta de almacenamiento >|
    |Recurso de configuración de almacenamiento de código personalizado|Selección del origen de datos desde la cuenta actual|
-   |Cuenta de almacenamiento de configuración de almacenamiento de código personalizado|< su cuenta de almacenamiento>|
+   |Cuenta de almacenamiento de configuración de almacenamiento de código personalizado|< su cuenta de almacenamiento >|
    |Contenedor de configuración de almacenamiento de código personalizado|< su contenedor de almacenamiento >|
 
 

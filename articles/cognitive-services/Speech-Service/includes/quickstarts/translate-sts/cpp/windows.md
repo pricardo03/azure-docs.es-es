@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Traducción de voz a voz, C++ (Windows): Servicios de voz'
+title: 'Inicio rápido: Traducción de voz a voz, C++ (Windows): servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 08/24/2019
 ms.author: erhopf
-ms.openlocfilehash: 7a353a54d64365153594bb519eb502b7c2f57b5f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 17135855113f9d38382a27564d48824da4ed64a4
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73504783"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74817429"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -124,7 +124,7 @@ Antes de comenzar, compruebe lo siguiente:
 
 1. Elija **Depurar** > **Iniciar depuración** o presione **F5** para iniciar la aplicación **HelloWorld**.
 
-1. Diga una oración o frase en inglés. La aplicación transmite su voz a Speech Services, que la traduce y la transcribe a texto, en este caso, en alemán. Después, Speech Services envía el audio sintetizado y el texto de nuevo a la aplicación para que se muestren.
+1. Diga una oración o frase en inglés. La aplicación transmite la voz al servicio de voz, que la traduce (a alemán en este caso) y la transcribe en texto. Después, el servicio de voz envía el audio sintetizado y el texto de nuevo a la aplicación para mostrarlo.
 
 ````
 Say something...

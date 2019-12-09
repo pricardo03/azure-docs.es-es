@@ -1,7 +1,7 @@
 ---
-title: 'Inicio rápido: Configuración de la plataforma del SDK de Voz para C# (Xamarin): servicio Voz'
+title: 'Inicio rápido: Configuración de la plataforma para usar C# en Xamarin con el SDK de Voz: servicio de voz'
 titleSuffix: Azure Cognitive Services
-description: Use esta guía para configurar la plataforma para utilizar C# en Xamarin con el SDK de servicios de voz.
+description: Use esta guía para configurar la plataforma para usar C# en Xamarin con el SDK del servicio de voz.
 services: cognitive-services
 author: markamos
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/10/2019
 ms.author: erhopf
-ms.openlocfilehash: 3a86e1ffa581e1a8677e0a5d6db4b47b206e5490
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 498aaa03544acc5a7c8399f1928129b70a7114e9
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73504359"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816512"
 ---
 En esta guía se muestra cómo instalar el [SDK de Voz](~/articles/cognitive-services/speech-service/speech-sdk.md) para [Xamarin](https://docs.microsoft.com/xamarin/get-started/what-is-xamarin), una plataforma de código abierto para compilar aplicaciones modernas y de alto rendimiento para iOS, Android y Windows con .NET. 
 

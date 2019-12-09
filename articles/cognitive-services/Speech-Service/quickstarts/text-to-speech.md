@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Síntesis de voz en un altavoz: servicio Voz'
+title: 'Inicio rápido: Síntesis de voz en un altavoz: servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: En este inicio rápido usará el SDK de Voz para convertir texto en voz sintetizada y reproducir la salida en un altavoz.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 11/04/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 960e87860f004d8f9f2002b8125ecf26ee55237d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 9f91d4b0c390b2014dfd88c94b89374d3ea67324
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826855"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818264"
 ---
 # <a name="quickstart-synthesize-speech-to-a-speaker"></a>Inicio rápido: Síntesis de voz en un altavoz
 
