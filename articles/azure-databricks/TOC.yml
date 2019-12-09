@@ -126,9 +126,6 @@
         - name: Inicialización de nodos de clúster
           href: /azure/databricks/clusters/init-scripts
           maintainContext: true
-        - name: Contenedores personalizados
-          href: /azure/databricks/clusters/custom-containers
-          maintainContext: true
         - name: Clústeres con GPU habilitado
           href: /azure/databricks/clusters/gpu
           maintainContext: true
@@ -226,9 +223,6 @@
       maintainContext: true
     - name: Datos
       items:
-        - name: Sistema de archivos de Databricks (DBFS)
-          href: /azure/databricks/data/databricks-file-system
-          maintainContext: true
         - name: Bases de datos y tablas
           href: /azure/databricks/data/tables
           maintainContext: true
@@ -317,6 +311,9 @@
             - name: Archivos ZIP
               href: /azure/databricks/data/data-sources/zip-files
               maintainContext: true
+        - name: Sistema de archivos de Databricks (DBFS)
+          href: /azure/databricks/data/databricks-file-system
+          maintainContext: true
         - name: FileStore
           href: /azure/databricks/data/filestore
           maintainContext: true
@@ -829,8 +826,8 @@
             - name: Inferencia de modelos mediante TensorFlow
               href: /azure/databricks/applications/deep-learning/inference/resnet-model-inference-tensorflow
               maintainContext: true
-            - name: Ajuste del rendimiento de la inferencia de modelos
-              href: /azure/databricks/applications/deep-learning/inference/model-inference-performance
+            - name: Solución de referencia para la inferencia de modelos de imágenes distribuidas
+              href: /azure/databricks/applications/deep-learning/reference-solutions/images-etl-inference
               maintainContext: true
     - name: MLflow
       items:
@@ -1066,9 +1063,6 @@
             - name: Introducción a la configuración de clúster
               href: /azure/databricks/administration-guide/clusters/index
               maintainContext: true
-            - name: Habilitación de instancias de Azure Container Service
-              href: /azure/databricks/administration-guide/clusters/container-services
-              maintainContext: true
             - name: Habilitación de Databricks Runtime para Genomics
               href: /azure/databricks/administration-guide/clusters/genomics-runtime
               maintainContext: true
@@ -1137,9 +1131,6 @@
               maintainContext: true
             - name: El valor de la configuración sobrescribe los valores predeterminados
               href: /azure/databricks/kb/clusters/conf-overwrites-default-settings
-              maintainContext: true
-            - name: Ejecución de bibliotecas de JNI en ejecutores de un solo núcleo
-              href: /azure/databricks/kb/clusters/multiple-executors-single-worker
               maintainContext: true
             - name: Sobrescritura de configuraciones de log4j
               href: /azure/databricks/kb/clusters/overwrite-log4j-logs
@@ -1544,6 +1535,9 @@
           items:
             - name: Notas de la versión de la plataforma
               href: /azure/databricks/release-notes/product/index
+              maintainContext: true
+            - name: Diciembre de 2019
+              href: /azure/databricks/release-notes/product/2019/december
               maintainContext: true
             - name: Noviembre de 2019
               href: /azure/databricks/release-notes/product/2019/november

@@ -1,22 +1,18 @@
 ---
-title: 'Compilación de la aplicación web de Java Enterprise en Linux: Azure App Service | Microsoft Docs'
-description: Empiece a trabajar con una aplicación de Java Enterprise en Wildfly en Azure App Service en Linux.
+title: 'Tutorial: Aplicación Java Enterprise en Linux'
+description: Aprenda a poner en funcionamiento una aplicación Java Enterprise de Wildfly en Azure App Service en Linux, con conexión a una base de datos de PostgreSQL en Azure.
 author: JasonFreeberg
-manager: routlaw
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: tutorial
 ms.date: 11/13/2018
 ms.author: jafreebe
 ms.custom: seodec18
-ms.openlocfilehash: 2d26d9e145030e5972289c224dc2f76078d67527
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 84f22d52e9a92707a26a4e64f194e82cca87757d
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68498480"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687449"
 ---
 # <a name="tutorial-build-a-java-ee-and-postgres-web-app-in-azure"></a>Tutorial: Compilación de una aplicación web Java EE y Postgres en Azure
 

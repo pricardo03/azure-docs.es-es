@@ -1,26 +1,19 @@
 ---
-title: 'Ejemplo de script de la CLI de Azure: creación de una aplicación e implementación de archivos con FTP | Microsoft Docs'
-description: 'Ejemplo de script de la CLI de Azure: creación de una aplicación de App Service e implementación de archivos con FTP'
-services: app-service\web
-documentationcenter: ''
-author: msangapu
-manager: jeconnoc
-editor: ''
+title: 'CLI: Implementación de archivos de aplicación con FTP'
+description: Aprenda a usar la CLI de Azure para automatizar la implementación y administración de la aplicación App Service. En este ejemplo se indica cómo crear una aplicación e implementar archivos con FTP.
+author: msangapu-msft
 tags: azure-service-management
-ms.service: app-service-web
-ms.workload: web
 ms.devlang: azurecli
-ms.tgt_pltfrm: sample
 ms.topic: sample
 ms.date: 12/12/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 7bca306911dc72a2f8ec31d2ac80f99b4925c9fd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 320f293073ce0a97cf4b73b420f38d91c5206013
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66136805"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688356"
 ---
 # <a name="create-an-app-service-app-and-deploy-files-with-ftp-using-azure-cli"></a>Creación de una aplicación de App Service e implementación de archivos con FTP mediante la CLI de Azure
 

@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Reconocimiento de la voz a través de un micrófono en Objective-C: servicio Voz'
+title: 'Inicio rápido: Reconocimiento de la voz a través de un micrófono en Objective-C: servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: Aprenda a reconocer la voz en Objective-C para macOS mediante el SDK de Voz
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: 0025e6e84a8a76ad3a332056f51f802ca95da23f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: be5f62a75d9a3998d843e9865768b46658b8386c
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73505663"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815017"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-macos-by-using-the-speech-sdk"></a>Inicio rápido: Reconocimiento de voz en Objective-C para macOS mediante el SDK de Voz
 
@@ -27,7 +27,7 @@ En este artículo aprenderá a crear una aplicación macOS en Objective-C median
 
 Antes de comenzar, necesitará lo siguiente:
 
-* Una [clave de suscripción](~/articles/cognitive-services/Speech-Service/get-started.md) para el servicio Voz.
+* Una [clave de suscripción](~/articles/cognitive-services/Speech-Service/get-started.md) del servicio de voz.
 * Una máquina macOS con [Xcode 9.4.1](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12) o una versión posterior y macOS 10.13 o posterior.
 
 ## <a name="get-the-speech-sdk-for-macos"></a>Obtención del SDK de Voz para macOS

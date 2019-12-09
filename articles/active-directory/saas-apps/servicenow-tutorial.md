@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 65526fe501b190f9bf76c58ab1c14b5ec35fe49d
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: 52b3b7ea34d48c37a4e07ab073e611d5a60399a9
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70376017"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706916"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-servicenow"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con ServiceNow
 
@@ -97,7 +97,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     > [!NOTE]
     > Estos valores no son reales. Tiene que actualizar estos valores con la dirección URL de inicio de sesión y el identificador reales, que se explica más adelante en el tutorial. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
-1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **Certificado (Base64)** . Seleccione **Descargar** para descargar el certificado y guárdelo en el equipo.
+1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **Certificado (Base64)** . 
 
    ![Captura de pantalla de la sección Certificado de firma de SAML, con la opción Descargar resaltada](common/certificatebase64.png)
 
@@ -172,7 +172,7 @@ En esta sección, va a permitir que B. Simon acceda a ServiceNow mediante el in
 
 7. En el formulario **Configurar inicio de sesión**, escriba el nombre de la instancia de ServiceNow, el nombre de usuario y la contraseña de administrador. Seleccione **Configurar ahora**. El nombre de usuario administrador proporcionado debe tener asignado el rol **security_admin** en ServiceNow para que esto funcione. De lo contrario, para configurar manualmente ServiceNow de modo que se use Azure AD como proveedor de identidades de SAML, seleccione **Configurar manualmente el inicio de sesión único**. Copie la **dirección URL de cierre de sesión, el identificador de Azure AD y la dirección URL de inicio de sesión** de la sección Referencia rápida.
 
-    ![Captura de pantalla del formulario de configuración de inicio de sesión con Configurar ahora resaltado](./media/servicenow-tutorial/configure.png "URL de configuración de aplicación")
+    ![Captura de pantalla del formulario de configuración de inicio de sesión con Configurar ahora resaltado](./media/servicenow-tutorial/configure.png "Configurar dirección URL de la aplicación")
 
 ## <a name="configure-servicenow"></a>Configuración de ServiceNow
 
@@ -190,7 +190,7 @@ En esta sección, va a permitir que B. Simon acceda a ServiceNow mediante el in
 
     c. Seleccione el complemento. Haga clic con el botón derecho y seleccione **Activate/Upgrade** (Activar o actualizar).
 
-     ![Captura de pantalla del menú contextual del complemento, con Active/Upgrade (Activar/Actualizar) resaltado ](./media/servicenow-tutorial/tutorial_activate.png "Activar complemento")
+     ![Captura de pantalla del menú contextual del complemento, con Active/Upgrade (Activar/Actualizar) resaltado](./media/servicenow-tutorial/tutorial_activate.png "Activar complemento")
 
     d. Seleccione **Activar**.
 
@@ -198,11 +198,11 @@ En esta sección, va a permitir que B. Simon acceda a ServiceNow mediante el in
 
 3. En el panel izquierdo, busque la sección **Multi-Provider SSO** (Inicio de sesión único multiproveedor) en la barra de búsqueda; después, seleccione **Properties** (Propiedades).
 
-    ![Captura de pantalla de la sección Multi-Provider SSO (Inicio de sesión único multiproveedor) y Properties (Propiedades) resaltados](./media/servicenow-tutorial/tutorial_servicenow_06.png "URL de configuración de aplicación")
+    ![Captura de pantalla de la sección Multi-Provider SSO (Inicio de sesión único multiproveedor) y Properties (Propiedades) resaltados](./media/servicenow-tutorial/tutorial_servicenow_06.png "Configurar dirección URL de la aplicación")
 
 4. En el cuadro de diálogo **Multiple Provider SSO Properties** (Propiedades de inicio de sesión único multiproveedor), siga estos pasos:
 
-    ![Captura de pantalla del cuadro de diálogo Multiple Provider SSO Properties (Propiedades de inicio de sesión único multiproveedor)](./media/servicenow-tutorial/ic7694981.png "URL de configuración de aplicación")
+    ![Captura de pantalla del cuadro de diálogo Multiple Provider SSO Properties (Propiedades de inicio de sesión único multiproveedor)](./media/servicenow-tutorial/ic7694981.png "Configurar dirección URL de la aplicación")
 
     * En **Enable multiple provider SSO** (Habilitar inicio de sesión único multiproveedor), seleccione **Yes** (Sí).
   
@@ -224,7 +224,7 @@ En esta sección, va a permitir que B. Simon acceda a ServiceNow mediante el in
 
     1. En el formulario **Configurar inicio de sesión**, escriba el nombre de la instancia de ServiceNow, el nombre de usuario y la contraseña de administrador. Seleccione **Configurar ahora**. El nombre de usuario administrador proporcionado debe tener asignado el rol **security_admin** en ServiceNow para que esto funcione. De lo contrario, para configurar manualmente ServiceNow de modo que se use Azure AD como proveedor de identidades de SAML, seleccione **Configurar manualmente el inicio de sesión único**. Copie la **URL del servicio de inicio de sesión único de SAML, el identificador de entidad de SAML y la dirección URL de cierre de sesión de SAML** de la sección Referencia rápida.
 
-        ![Captura de pantalla del formulario de configuración de inicio de sesión con Configurar ahora resaltado](./media/servicenow-tutorial/configure.png "URL de configuración de aplicación")
+        ![Captura de pantalla del formulario de configuración de inicio de sesión con Configurar ahora resaltado](./media/servicenow-tutorial/configure.png "Configurar dirección URL de la aplicación")
 
     1. Inicie sesión en la aplicación ServiceNow como administrador.
 
@@ -271,7 +271,7 @@ En esta sección, va a permitir que B. Simon acceda a ServiceNow mediante el in
 
           1. Cuando se le pidan sus credenciales, escríbalas. Verá la página siguiente. Se espera el error **SSO Logout Test Results** (Resultados de la prueba del cierre de sesión de SSO). Omita el error y seleccione **Activate** (Activar).
 
-             ![Captura de pantalla de la página Test Results (Resultado de la prueba)](./media/servicenow-tutorial/servicenowactivate.png "Configurar inicio de sesión único")
+             ![Captura de pantalla de la página Resultados de pruebas](./media/servicenow-tutorial/servicenowactivate.png "Configurar inicio de sesión único")
   
 6. Para configurar **ServiceNow** manualmente, siga estos pasos:
 
@@ -287,7 +287,7 @@ En esta sección, va a permitir que B. Simon acceda a ServiceNow mediante el in
 
     1. En el cuadro de diálogo **Identity Providers** (Proveedores de identidades), seleccione **SAML**.
 
-        ![Captura de pantalla del cuadro de diálogo Identity Providers (Proveedores de identidades) con SAML resaltado](./media/servicenow-tutorial/ic7694978.png "Configurar inicio de sesión único")
+        ![Captura de pantalla de Identity Providers (Proveedores de identidades) con SAML resaltado](./media/servicenow-tutorial/ic7694978.png "Configurar inicio de sesión único")
 
     1. En **Import Identity Provider Metadata** (Importar metadatos del proveedor de identidades), realice los siguientes pasos:
 
@@ -299,7 +299,7 @@ En esta sección, va a permitir que B. Simon acceda a ServiceNow mediante el in
 
     1. Se lee la dirección URL de los metadatos de IdP y se rellena toda la información de los campos.
 
-        ![Captura de pantalla del proveedor de identidades](./media/servicenow-tutorial/ic7694982.png "Configurar inicio de sesión único")
+        ![Captura de pantalla de Identity Provider (Proveedor de identidades)](./media/servicenow-tutorial/ic7694982.png "Configurar inicio de sesión único")
 
         * En **Name** (Nombre), escriba el nombre de la configuración, por ejemplo, **Microsoft Azure Federated single sign-on** (Inicio de sesión único federado de Microsoft Azure).
 
@@ -323,7 +323,7 @@ En esta sección, va a permitir que B. Simon acceda a ServiceNow mediante el in
 
         * Cuando se le pidan sus credenciales, escríbalas. Verá la página siguiente. Se espera el error **SSO Logout Test Results** (Resultados de la prueba del cierre de sesión de SSO). Omita el error y seleccione **Activate** (Activar).
 
-          ![Captura de pantalla de la página Test Results (Resultado de la prueba)](./media/servicenow-tutorial/servicenowactivate.png "Configurar inicio de sesión único")
+          ![Captura de pantalla de la página Resultados de pruebas](./media/servicenow-tutorial/servicenowactivate.png "Configurar inicio de sesión único")
 
 ### <a name="create-servicenow-test-user"></a>Creación de un usuario de prueba en ServiceNow
 
@@ -338,11 +338,11 @@ El objetivo de esta sección es crear una usuaria de prueba llamada B. Simon en 
 
 2. En el panel izquierdo, haga clic en **Single Sign-On** (Inicio de sesión único).
 
-    ![Captura de pantalla de la aplicación ServiceNow Express con Single Sign-On (Inicio de sesión único) resaltado](./media/servicenow-tutorial/ic7694980ex.png "URL de configuración de aplicación")
+    ![Captura de pantalla de la aplicación ServiceNow Express con Single Sign-On (Inicio de sesión único) resaltado](./media/servicenow-tutorial/ic7694980ex.png "Configurar dirección URL de la aplicación")
 
 3. En el cuadro de diálogo **Single Sign-On** (Inicio de sesión único), seleccione el icono de configuración en la parte superior derecha y establezca las siguientes propiedades:
 
-    ![Captura de pantalla del cuadro de diálogo Single Sign-On (Inicio de sesión único)](./media/servicenow-tutorial/ic7694981ex.png "URL de configuración de aplicación")
+    ![Captura de pantalla del cuadro de diálogo Inicio de sesión único](./media/servicenow-tutorial/ic7694981ex.png "Configurar dirección URL de la aplicación")
 
     a. Cambie **Enable multiple provider SSO** (Habilitar SSO de varios proveedores), hacia la derecha.
 
@@ -372,7 +372,7 @@ El objetivo de esta sección es crear una usuaria de prueba llamada B. Simon en 
 
 6. En el cuadro de diálogo **Single Sign-On** (Inicio de sesión único), seleccione **Add New IdP** (Agregar nuevo IdP).
 
-    ![Captura de pantalla del cuadro de diálogo Single Sign-On (Inicio de sesión único) con Add New IdP (Agregar nuevo IdP) resaltado](./media/servicenow-tutorial/ic7694976ex.png "Configurar inicio de sesión único")
+    ![Captura de pantalla del cuadro de diálogo Inicio de sesión único con Add New IdP (Agregar nuevo proveedor de identidades) resaltado](./media/servicenow-tutorial/ic7694976ex.png "Configurar inicio de sesión único")
 
 7. En el cuadro de diálogo **Add New Identity Provider** (Agregar nuevo proveedor de identidades), en **Configure Identity Provider** (Configurar proveedor de identidades), siga estos pasos:
 
@@ -402,7 +402,7 @@ El objetivo de esta sección es crear una usuaria de prueba llamada B. Simon en 
 
 9. En **Additional Identity Provider Properties** (Propiedades adicionales del proveedor de identidades), siga estos pasos:
 
-    ![Captura de pantalla del cuadro de diálogo Add New Identity Provider (Agregar nuevo proveedor de identidades), con varias propiedades resaltadas](./media/servicenow-tutorial/ic7694984ex.png "Configurar inicio de sesión único")
+    ![Captura de pantalla de Add New Identity Provider (Agregar nuevo proveedor de identidades) con diversas propiedades resaltadas](./media/servicenow-tutorial/ic7694984ex.png "Configurar inicio de sesión único")
 
     a. En el cuadro de texto **ServiceNow Homepage** (Página principal de ServiceNow), escriba la dirección URL de la página principal de la instancia de ServiceNow.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Implementación de Azure Machine Learning en un dispositivo: Azure IoT Edge'
+title: 'Tutorial: Implementación de Azure Machine Learning en un dispositivo mediante Azure IoT Edge'
 description: En este tutorial se crea un modelo de Azure Machine Learning y se implementa como módulo en un dispositivo perimetral
 author: kgremban
 manager: philmea
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 3f1bd4ce5b701652318679f3277bc7c9109fa529
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 3d46e0695238ed7a09f180fe59063f8e2590f307
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457639"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74701921"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>Tutorial: Implementación de Azure Machine Learning como un módulo de IoT Edge (versión preliminar)
 
@@ -165,4 +165,3 @@ En este tutorial, ha implementado un módulo de IoT Edge con tecnología de Azur
 
 > [!div class="nextstepaction"]
 > [Clasificación de imágenes con Custom Vision Service](tutorial-deploy-custom-vision.md)
-

@@ -12,10 +12,6 @@
       href: require-tou.md
     - name: Bloqueo del acceso si se detecta un riesgo de sesión
       href: app-sign-in-risk.md
-- name: Tutoriales
-  items:
-    - name: Migración de directivas de MFA clásicas
-      href: policy-migration-mfa.md
 - name: Conceptos
   expanded: false
   items:
@@ -37,6 +33,8 @@
       href: service-dependencies.md
     - name: Herramienta What if
       href: what-if-tool.md
+    - name: Migraciones con directiva clásica
+      href: policy-migration.md
     - name: Directivas de protección básicas
       href: concept-baseline-protection.md
 - name: Guías de procedimientos
@@ -83,7 +81,7 @@
     - name: Controles de frecuencia de inicio de sesión y de persistencia del explorador
       href: howto-conditional-access-session-lifetime.md
     - name: Migración de directivas clásicas
-      href: policy-migration.md
+      href: policy-migration-mfa.md
     - name: Adopción del acceso condicional
       href: howto-conditional-access-adoption-kit.md
     - name: solución de problemas

@@ -1,27 +1,18 @@
 ---
-title: 'Ejemplo de script de la CLI de Azure: asignación de un dominio personalizado a una aplicación | Microsoft Docs'
-description: 'Ejemplo de script de la CLI de Azure: asignación de un dominio personalizado a una aplicación'
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: jeconnoc
-editor: ''
+title: 'CLI: Asignación de un dominio personalizado a una aplicación'
+description: Aprenda a usar la CLI de Azure para automatizar la implementación y administración de la aplicación App Service. En este ejemplo se indica cómo asignar un dominio personalizado a una aplicación.
 tags: azure-service-management
 ms.assetid: 5ac4a680-cc73-4578-bcd6-8668c08802c2
-ms.service: app-service-web
-ms.workload: web
 ms.devlang: azurecli
-ms.tgt_pltfrm: na
 ms.topic: sample
 ms.date: 12/11/2017
-ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 58d13498e1b86421ae04f5a3aa60cf0c44242a39
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2f96acf6a57ab254d975d827a3493420dde0662f
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66136954"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74686712"
 ---
 # <a name="map-a-custom-domain-to-an-app-service-app-using-cli"></a>Asignación de un dominio personalizado a una aplicación de App Service con la CLI
 

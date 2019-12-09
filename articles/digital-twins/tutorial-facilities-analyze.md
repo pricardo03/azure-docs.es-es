@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 11/12/2019
-ms.openlocfilehash: c52bf372f21d9c2ef3d1a148aadd899435ad4181
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: cab13fd65e9fdbd7179e6ba759b1aa696ef95fa1
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383055"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790320"
 ---
 # <a name="tutorial-visualize-and-analyze-events-from-azure-digital-twins-by-using-time-series-insights"></a>Tutorial: Visualización y análisis de eventos de Azure Digital Twins mediante Time Series Insights
 
@@ -145,7 +145,7 @@ Puede usar el servicio [Event Hubs](../event-hubs/event-hubs-about.md) para crea
 
     [![Selecciones para crear una instancia de Time Series Insights](./media/tutorial-facilities-analyze/create-tsi.png)](./media/tutorial-facilities-analyze/create-tsi.png#lightbox)
 
-1. En la pestaña **Origen del evento**, escriba un **nombre**, seleccione **Centro de eventos** como **Tipo de origen** y asegúrese de que los demás valores se seleccionan correctamente. Seleccione **ManageSend** en **Nombre de la directiva de acceso del centro de eventos** y, después, seleccione el grupo de consumidores que creó en la sección anterior en **Grupo de consumidores del Centro de eventos**. Seleccione **Revisar + crear**.
+1. En la pestaña **Origen del evento**, escriba un **nombre**, seleccione **Centro de eventos** como **Tipo de origen** y asegúrese de que los demás valores se seleccionan correctamente para hacer referencia al centro de eventos que creó. Seleccione **ManageSend** en **Nombre de la directiva de acceso del centro de eventos** y, después, seleccione el grupo de consumidores que creó en la sección anterior en **Grupo de consumidores del Centro de eventos**. Seleccione **Revisar + crear**.
 
     [![Selecciones para la creación de un origen de eventos](./media/tutorial-facilities-analyze/tsi-event-source.png)](./media/tutorial-facilities-analyze/tsi-event-source.png#lightbox)
 

@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial de almacenamiento de datos con el módulo de SQL: Azure IoT Edge | Microsoft Docs'
-description: Aprenda a almacenar datos localmente en el dispositivo IoT Edge con un módulo de SQL Server
+title: 'Tutorial: Almacenamiento de datos con el módulo de SQL mediante Azure IoT Edge'
+description: En este tutorial se indica cómo almacenar datos localmente en el dispositivo IoT Edge con un módulo de SQL Server
 services: iot-edge
 author: kgremban
 manager: philmea
@@ -9,12 +9,12 @@ ms.date: 03/28/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 5a3133100621cee2e786c4001df02f2316b1e4ec
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: dc8e3e92a9b843291643fe3a43092a6ac9b9c7cb
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457051"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74701909"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Tutorial: Almacenamiento de datos en el perímetro con bases de datos de SQL Server
 

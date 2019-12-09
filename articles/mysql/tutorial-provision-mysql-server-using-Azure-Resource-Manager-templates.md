@@ -1,19 +1,19 @@
 ---
-title: 'Tutorial: Aprovisionamiento de un servidor de Azure Database for MySQL mediante las plantillas de Azure Resource Manager'
+title: 'Tutorial: Creación de un servidor de Azure Database for MySQL con las plantillas de Azure Resource Manager'
 description: En este tutorial se explica cómo aprovisionar y automatizar las implementaciones de servidores de Azure Database for MySQL mediante una plantilla de Azure Resource Manager.
 author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.devlang: json
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 12/02/2019
 ms.custom: mvc
-ms.openlocfilehash: 69025dd70ffe88c1592cf656e956b3e78a97a5e7
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: f4960482c88bf9768be1c1c9dbb3652409a8f1b8
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163908"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74771107"
 ---
 # <a name="tutorial-provision-an-azure-database-for-mysql-server-using-azure-resource-manager-template"></a>Tutorial: Aprovisionamiento de un servidor de Azure Database for MySQL mediante las plantillas de Azure Resource Manager
 
@@ -27,7 +27,7 @@ En este tutorial, usará una plantilla de Azure Resource Manager y otras utilida
 > * Creación de un servidor de Azure Database for MySQL con el punto de conexión de servicio de red virtual mediante la plantilla de Azure Resource Manager
 > * Uso de la [herramienta de línea de comandos mysql](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) para crear una base de datos
 > * Carga de datos de ejemplo
-> * Datos de consulta
+> * Consultar datos
 > * Actualización de datos
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar.
@@ -205,7 +205,7 @@ En este tutorial aprendió lo siguiente:
 > * Creación de un servidor de Azure Database for MySQL con el punto de conexión de servicio de red virtual mediante la plantilla de Azure Resource Manager
 > * Uso de la [herramienta de línea de comandos mysql](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) para crear una base de datos
 > * Carga de datos de ejemplo
-> * Datos de consulta
+> * Consultar datos
 > * Actualización de datos
 > 
 > [Conexión de aplicaciones a Azure Database for MySQL](./howto-connection-string.md)

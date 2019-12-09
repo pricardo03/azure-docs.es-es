@@ -1,6 +1,6 @@
 ---
-title: Creación y administración de reglas en la aplicación de Azure IoT Central | Microsoft Docs
-description: Las reglas de Azure IoT Central le permiten supervisar los dispositivos casi en tiempo real e invocar automáticamente acciones, como el envío de correo electrónico, cuando la regla se desencadena.
+title: 'Tutorial: Creación y administración de reglas en la aplicación de Azure IoT Central'
+description: En este tutorial se muestra cómo las reglas de Azure IoT Central le permiten supervisar los dispositivos casi en tiempo real e invocar automáticamente acciones, como el envío de correo electrónico, cuando la regla se desencadena.
 author: dominicbetts
 ms.author: dobett
 ms.date: 10/24/2019
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 6327ee8a1b0d52c933844670d9b8098c2c3c4f09
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: e2ec01e372ebda79272b585ea6f1708029ea7b13
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73958142"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74702539"
 ---
 # <a name="tutorial-create-a-rule-and-set-up-notifications-in-your-azure-iot-central-application-preview-features"></a>Tutorial: Creación de una regla y configuración de las notificaciones en la aplicación de Azure IoT Central (características en versión preliminar)
 
@@ -23,7 +23,7 @@ ms.locfileid: "73958142"
 
 Puede usar Azure IoT Central para supervisar de forma remota los dispositivos conectados. Las reglas de Azure IoT Central le permiten supervisar los dispositivos casi en tiempo real e invocar acciones automáticamente, como el envío de correo electrónico. Con unos pocos clics, puede definir una condición para supervisar los datos de telemetría de los dispositivos y configurar una acción correspondiente. En este artículo se explica cómo crear reglas para supervisar los datos de telemetría enviados por el dispositivo.
 
-Los dispositivos usan la telemetría para enviar datos numéricos. Cuando los datos de telemetría del dispositivo seleccionado superan un umbral especificado, se dispara una regla.
+Los dispositivos usan la telemetría para enviar datos numéricos. Cuando los datos de telemetría del dispositivo seleccionado superan un umbral especificado, se desencadena una regla.
 
 En este tutorial se crea una regla que envía un mensaje de correo electrónico cuando la temperatura de un dispositivo de sensor ambiental supera los 80 &deg; F.
 
@@ -57,18 +57,18 @@ Para crear una regla de telemetría, la plantilla de dispositivos debe tener def
 
 ### <a name="configure-the-rule-conditions"></a>Configuración de las condiciones de la regla
 
-Las condiciones definen los criterios que la regla supervisa. En este tutorial, configurará la regla para que se active cuando la temperatura supere los 80&deg; F.
+Las condiciones definen los criterios que la regla supervisa. En este tutorial, configurará la regla para que se active cuando la temperatura supere los 80 &deg; F.
 
 1. Seleccione **Temperature** (Temperatura) en la lista desplegable **Telemetry** (Telemetría).
 
-1. A continuación, elija **Is greater than** (Es mayor que) en **Operator** (Operador) y escriba _80_ en **Value** (Valor).
+1. A continuación, elija **Is greater than** (Es mayor que) que **Operator** (Operador) y escriba _80_ en **Value** (Valor).
 
     ![Condición](media/tutorial-create-telemetry-rules/condition-filled-out1.png)
 
 1. Opcionalmente, puede establecer un valor de **Time aggregation** (Agregación de tiempo). Al seleccionar una agregación de tiempo, también debe seleccionar un tipo de agregación, como la media o la suma, en la lista desplegable de agregación.
 
     * Sin la agregación, la regla se desencadena para cada punto de datos de telemetría que cumple la condición. Por ejemplo, si la regla está configurada para desencadenarse cuando la temperatura está por encima de 80, la regla se desencadena casi al instante cuando el dispositivo informe una temperatura >80.
-    * Con la agregación, la regla se desencadena si el valor agregado de los puntos de datos de telemetría de la ventana de tiempo cumple la condición. Por ejemplo, si la regla está configurada para desencadenarse cuando la temperatura sea superior a 80, la agregación de tiempo está establecida en 10 minutos y el tipo de agregación es la media, la regla se desencadena cuando el dispositivo informa de una temperatura media por encima de 80, calculada a lo largo de un intervalo de 10 minutos.
+    * Con la agregación, la regla se desencadena si el valor agregado de los puntos de datos de telemetría de la ventana de tiempo cumple la condición. Por ejemplo, si la regla está configurada para desencadenarse cuando la temperatura sea superior a 80, la agregación de tiempo se establece en 10 minutos y el tipo de agregación es la media, la regla se desencadena cuando el dispositivo informa de una temperatura media por encima de 80, calculada a lo largo de un intervalo de 10 minutos.
 
      ![Condición agregada](media/tutorial-create-telemetry-rules/aggregate-condition-filled-out1.png)
 

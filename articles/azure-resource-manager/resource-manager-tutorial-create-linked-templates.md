@@ -2,15 +2,15 @@
 title: Creación de plantillas vinculadas
 description: Creación de plantillas vinculadas de Azure Resource Manager para crear máquinas virtuales
 author: mumian
-ms.date: 10/04/2019
+ms.date: 12/03/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 9764edb986b2ee847e3fcecda228f53551b462c3
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: e8964335d8c436cc590c36c3ea01fac02ed2280a
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325422"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815286"
 ---
 # <a name="tutorial-create-linked-azure-resource-manager-templates"></a>Tutorial: Creación de plantillas vinculadas de Azure Resource Manager
 
@@ -45,6 +45,7 @@ Para completar este artículo, necesitará lo siguiente:
     ```azurecli-interactive
     openssl rand -base64 32
     ```
+
     Azure Key Vault está diseñado para proteger las claves criptográficas y otros secretos. Para más información, consulte [Tutorial: Integración de Azure Key Vault en Resource Manager Template Deployment](./resource-manager-tutorial-use-key-vault.md). También se recomienda actualizar la contraseña cada tres meses.
 
 ## <a name="open-a-quickstart-template"></a>Abra una plantilla de inicio rápido.
@@ -55,42 +56,46 @@ Las plantillas de inicio rápido de Azure consisten en un repositorio de plantil
 * **La plantilla vinculada**: cree la cuenta de almacenamiento.
 
 1. En Visual Studio Code, seleccione **Archivo**>**Abrir archivo**.
-2. En **Nombre de archivo**, pegue el código URL siguiente:
+1. En **Nombre de archivo**, pegue el código URL siguiente:
 
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
     ```
-3. Seleccione **Abrir** para abrir el archivo.
-4. La plantilla define cinco recursos:
+
+1. Seleccione **Abrir** para abrir el archivo.
+1. La plantilla define seis recursos:
 
    * [`Microsoft.Storage/storageAccounts`](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts)
    * [`Microsoft.Network/publicIPAddresses`](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses)
+   * [`Microsoft.Network/networkSecurityGroups`](https://docs.microsoft.com/azure/templates/microsoft.network/networksecuritygroups)
    * [`Microsoft.Network/virtualNetworks`](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks)
    * [`Microsoft.Network/networkInterfaces`](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces)
    * [`Microsoft.Compute/virtualMachines`](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines)
 
      Resulta útil obtener cierta información básica del esquema de la plantilla antes de personalizar esta.
-5. Seleccione **Archivo**>**Guardar como** para guardar una copia del archivo en la máquina local con el nombre **azuredeploy.json**.
-6. Seleccione **Archivo**>**Guardar como** para crear otra copia del archivo con el nombre **linkedTemplate.json**.
+1. Seleccione **Archivo**>**Guardar como** para guardar una copia del archivo en la máquina local con el nombre **azuredeploy.json**.
+1. Seleccione **Archivo**>**Guardar como** para crear otra copia del archivo con el nombre **linkedTemplate.json**.
 
 ## <a name="create-the-linked-template"></a>Creación de la plantilla vinculada
 
 La plantilla vinculada crea una cuenta de almacenamiento. La plantilla vinculada se puede usar como plantilla independiente para crear una cuenta de almacenamiento. En este tutorial, la plantilla vinculada toma dos parámetros y pasa un valor de vuelta a la plantilla principal. Este valor "devuelto" se define en el elemento `outputs`.
 
 1. Abra el archivo **linkedTemplate.json** en Visual Studio Code si no está abierto.
-2. Se han realizado los siguientes cambios:
+1. Se han realizado los siguientes cambios:
 
     * Quite todos los parámetros excepto **location**.
     * Agregue un parámetro llamado **storageAccountName**.
-        ```json
-        "storageAccountName":{
-          "type": "string",
-          "metadata": {
-              "description": "Azure Storage account name."
-          }
-        },
-        ```
-        El nombre y la ubicación de la cuenta de almacenamiento se pasan como parámetros de la plantilla principal a la plantilla vinculada.
+
+      ```json
+      "storageAccountName":{
+        "type": "string",
+        "metadata": {
+            "description": "Azure Storage account name."
+        }
+      },
+      ```
+
+      El nombre y la ubicación de la cuenta de almacenamiento se pasan como parámetros de la plantilla principal a la plantilla vinculada.
 
     * Quite el elemento **variables** y todas las definiciones de variable.
     * Quite todos los recursos, excepto la cuenta de almacenamiento. Puede quitar un total de cuatro recursos.
@@ -110,6 +115,7 @@ La plantilla vinculada crea una cuenta de almacenamiento. La plantilla vinculada
             }
         }
         ```
+
        La definición del recurso de máquina virtual necesita **storageUri** en la plantilla principal.  El valor se pasa de vuelta a la plantilla principal como un valor de salida.
 
         Cuando termine, la plantilla deberá verse así:
@@ -138,7 +144,7 @@ La plantilla vinculada crea una cuenta de almacenamiento. La plantilla vinculada
               "type": "Microsoft.Storage/storageAccounts",
               "name": "[parameters('storageAccountName')]",
               "location": "[parameters('location')]",
-              "apiVersion": "2018-07-01",
+              "apiVersion": "2018-11-01",
               "sku": {
                 "name": "Standard_LRS"
               },
@@ -154,7 +160,8 @@ La plantilla vinculada crea una cuenta de almacenamiento. La plantilla vinculada
           }
         }
         ```
-3. Guarde los cambios.
+
+1. Guarde los cambios.
 
 ## <a name="upload-the-linked-template"></a>Carga de la plantilla vinculada
 
@@ -208,9 +215,10 @@ $templateURI = New-AzStorageBlobSASToken `
     -ExpiryTime (Get-Date).AddHours(8.0) `
     -FullUri
 
-echo "You need the following values later in the tutorial:"
-echo "Resource Group Name: $resourceGroupName"
-echo "Linked template URI with SAS token: $templateURI"
+Write-Host "You need the following values later in the tutorial:"
+Write-Host "Resource Group Name: $resourceGroupName"
+Write-Host "Linked template URI with SAS token: $templateURI"
+Write-Host "Press [ENTER] to continue ..."
 ```
 
 1. Seleccione el botón verde **Probarlo** para abrir el panel de Azure Cloud Shell.
@@ -226,22 +234,7 @@ En la práctica, se genera un token de SAS cuando se implementa la plantilla pri
 La plantilla principal se llama azuredeploy.json.
 
 1. Abra **azuredeploy.json** en Visual Studio Code en caso de que no esté abierto.
-2. Elimine la definición de recurso de la cuenta de almacenamiento desde la plantilla:
-
-    ```json
-    {
-      "type": "Microsoft.Storage/storageAccounts",
-      "name": "[variables('storageAccountName')]",
-      "location": "[parameters('location')]",
-      "apiVersion": "2018-07-01",
-      "sku": {
-        "name": "Standard_LRS"
-      },
-      "kind": "Storage",
-      "properties": {}
-    },
-    ```
-3. Agregue el siguiente fragmento de código JSON en el lugar donde estaba la definición de la cuenta de almacenamiento:
+1. Reemplace la definición de recursos de la cuenta de almacenamiento por el siguiente fragmento de código JSON:
 
     ```json
     {
@@ -251,7 +244,7 @@ La plantilla principal se llama azuredeploy.json.
       "properties": {
           "mode": "Incremental",
           "templateLink": {
-              "uri":"https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-linked-templates/linkedStorageAccount.json"
+              "uri":""
           },
           "parameters": {
               "storageAccountName":{"value": "[variables('storageAccountName')]"},
@@ -268,8 +261,8 @@ La plantilla principal se llama azuredeploy.json.
     * Solo puede usar el modo de implementación [incremental](./deployment-modes.md) al llamar a las plantillas vinculadas.
     * `templateLink/uri` contiene el URI de la plantilla vinculada. Actualice el valor con el URI que obtiene al cargar la plantilla vinculada (la que tiene un token de SAS).
     * Use `parameters` para pasar valores desde la plantilla principal a la plantilla vinculada.
-4. Asegúrese de que ha actualizado el valor del elemento `uri` con el valor que obtuvo al cargar la plantilla vinculada (la que tiene un token de SAS). En la práctica, se quiere proporcionar un parámetro al URI.
-5. Guarde la plantilla modificada.
+1. Asegúrese de que ha actualizado el valor del elemento `uri` con el valor que obtuvo al cargar la plantilla vinculada (la que tiene un token de SAS). En la práctica, se quiere proporcionar un parámetro al URI.
+1. Guarde la plantilla modificada.
 
 ## <a name="configure-dependency"></a>Configuración de la dependencia
 
@@ -290,6 +283,7 @@ Como la cuenta de almacenamiento ahora se define en la plantilla vinculada, debe
             }
     }
     ```
+
     La plantilla principal requiere este valor.
 
 1. Abra azuredeploy.json en Visual Studio Code en caso de que no esté abierto.

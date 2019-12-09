@@ -152,7 +152,7 @@
     - name: Trabajar con datos
       items:
         - name: Obtención de datos desde un almacén de datos
-          displayName: 'blob, get, fileshare, access storage'
+          displayName: 'blob, get, fileshare, access storage, mount, download'
           href: how-to-access-data.md
         - name: Adición y registro de conjuntos de datos
           displayName: 'data, dataset'
@@ -300,11 +300,14 @@
           displayName: create client consume request response synchronous
           href: how-to-consume-web-service.md
         - name: Ejecutar predicciones por lotes
-          displayName: score scoring asynchronous consume pipeline parallelrunstep inference
+          displayName: score scoring batch consume pipeline parallelrunstep inference
           href: how-to-run-batch-predictions.md
         - name: Predicciones por lotes del diseñador
           displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
           href: how-to-run-batch-predictions-designer.md
+        - name: Depuración y solución de problemas de predicciones por lotes
+          displayName: debug_batch consume pipeline parallelrunstep inference
+          href: how-to-debug-batch-predictions.md
     - name: Supervisión de modelos
       items:
         - name: Recopilación y evaluación de datos del modelo

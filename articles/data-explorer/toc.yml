@@ -178,7 +178,7 @@
               href: dealing-with-duplicates.md
     - name: Implementación
       items:
-        - name: Implementación de un clúster en una red virtual
+        - name: Implementación del clúster en la red virtual
           href: vnet-deployment.md
     - name: Supervisión
       items:

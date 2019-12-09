@@ -48,20 +48,17 @@
           displayName: 'n-depth, constraint, descriptor, phrase list, entity'
         - name: 3. Obtención de opiniones a partir de expresiones del usuario
           href: tutorial-publish-settings.md
-    - name: Compilación de una aplicación
+    - name: Creación y uso de entidades
       items:
-        - name: Obtención de datos con el formato correcto mediante expresiones regulares
-          href: luis-quickstart-intents-regex-entity.md
-        - name: Obtención de coincidencias exactas de texto con listas
-          href: luis-quickstart-intent-and-list-entity.md
-        - name: Obtención de datos relacionados con roles de entidad
+        - name: Entidades de expresión regular
+          href: tutorial-regex-entity.md
+        - name: Entidades de lista
+          href: tutorial-list-entity.md
+        - name: Roles de entidad
           href: tutorial-entity-roles.md
           displayName: 'roles, geographyV2, context'
         - name: Agrupación y extracción de datos relacionados con entidades compuestas
           href: luis-tutorial-composite-entity.md
-          displayName: roles
-        - name: Obtención de nombres con entidades simples
-          href: luis-quickstart-primary-and-secondary-data.md
           displayName: roles
     - name: Mejora de la aplicación
       items:

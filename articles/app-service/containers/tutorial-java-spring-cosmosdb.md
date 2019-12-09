@@ -1,20 +1,18 @@
 ---
-title: 'Compilación de una aplicación web de Java en Linux: Azure App Service'
-description: Compile, implemente y escale aplicaciones web de Java Spring Boot con Azure App Service en Linux y Azure Cosmos DB.
+title: 'Tutorial: Aplicación Java en Linux con MongoDB'
+description: Aprenda a poner en funcionamiento una aplicación Java en Linux controlada por datos en Azure App Service, con conexión a MongoDB que se ejecuta en Azure (Cosmos DB).
 author: rloutlaw
 ms.author: routlaw
-manager: angerobe
-ms.service: app-service-web
 ms.devlang: java
 ms.topic: tutorial
 ms.date: 12/10/2018
 ms.custom: seodec18, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 077c9b22dbb629c8408d431de3e2e621b79c9c48
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: a3e9c05fbe68bf1b03f45d045afd8754753fecd3
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747673"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688827"
 ---
 # <a name="tutorial-build-a-java-spring-boot-web-app-with-azure-app-service-on-linux-and-azure-cosmos-db"></a>Tutorial: Compilación de una aplicación web de Java Spring Boot con Azure App Service en Linux y Azure Cosmos DB
 

@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Reconocimiento de la voz a través de un micrófono en C# (Unity): servicio Voz'
+title: 'Inicio rápido: Reconocimiento de la voz a través de un micrófono en C# (Unity): servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -10,24 +10,27 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: babc6b1c0b6207d404091db3117f95f6d71c53ac
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b0a9eddf147eedfa972e0574e62c9e7c2eace84f
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73505559"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818876"
 ---
 > [!NOTE]
 > El SDK de Voz para Unity es compatible con Windows Desktop (x86 y x64) o con la Plataforma universal de Windows (x86, x64, ARM o ARM64), Android (x86, ARM32/64) e iOS (simulador de x64, ARM32 y ARM64)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Antes de comenzar, compruebe lo siguiente:
+Antes de comenzar:
 
 > [!div class="checklist"]
 > * [Ha creado un recurso de Voz de Azure](../../../../get-started.md)
 > * [Ha configurado el entorno de desarrollo](../../../../quickstarts/setup-platform.md?tabs=unity)
-> * [Ha creado un proyecto de ejemplo vacío](../../../../quickstarts/create-project.md?tabs=unity). Si ya lo ha hecho, perfecto. Vamos a continuar.
+> * [Ha creado un proyecto de ejemplo vacío](../../../../quickstarts/create-project.md?tabs=unity)
+> * Asegúrese de que tiene acceso a un micrófono para capturar el audio.
+
+Si ya lo ha hecho, perfecto. Vamos a continuar.
 
 ## <a name="create-a-unity-project"></a>Creación de un proyecto de Unity
 
@@ -86,7 +89,7 @@ Para agregar el código de script de muestra para el proyecto de Unity, siga est
 
    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp/unity/from-microphone/Assets/Scripts/HelloWorld.cs#code)]
 
-1. Busque la cadena `YourSubscriptionKey` y reemplácela por su clave de suscripción a Speech Services.
+1. Busque la cadena `YourSubscriptionKey` y reemplácela por su clave de suscripción del servicio de voz.
 
 1. Busque la cadena `YourServiceRegion` y reemplácela por la [región](~/articles/cognitive-services/Speech-Service/regions.md) asociada a su suscripción. Por ejemplo, si usa la evaluación gratuita, la región es `westus`.
 
@@ -117,7 +120,7 @@ Ahora está preparado para ejecutar la aplicación en el editor de Unity.
 
 1. Vaya a la vista [**Game** (Juego) ](https://docs.unity3d.com/Manual/GameView.html) y espere a que el objeto **Text** (Texto) muestre **Click button to recognize speech** (Haga clic en el botón para reconocer la voz). [Muestra **New Text** (Nuevo texto) cuando la aplicación no se ha iniciado o no está preparada para responder].
 
-1. Seleccione el botón y pronuncie una expresión o frase en inglés en el micrófono del equipo. Lo que diga se transmitirá a Speech Services y se transcribirá en texto, que aparece en la ventana **Game** (Juego).
+1. Seleccione el botón y pronuncie una expresión o frase en inglés en el micrófono del equipo. Lo que diga se transmitirá a servicio de voz y se transcribirá en texto, que aparecerá en la ventana **Game** (Juego).
 
    [![Vista Game en el editor de Unity](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-unity-03-output-inline.png)](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-unity-03-output-inline.png#lightbox)
 
