@@ -8,9 +8,9 @@
 - name: Guías de inicio rápido
   expanded: true
   items:
-    - name: Conexión de máquinas a Azure mediante Azure Arc para servidores - Portal
+    - name: Conexión de máquinas a Azure mediante Azure Arc para servidores mediante el portal
       href: ./servers/quickstart-onboard-portal.md
-    - name: Conexión de máquinas a Azure mediante Azure Arc para servidores - PowerShell
+    - name: 'Conexión de máquinas a escala mediante Azure Arc para servidores: PowerShell'
       href: ./servers/quickstart-onboard-powershell.md
 - name: Referencia
   items:

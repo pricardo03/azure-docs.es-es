@@ -20,10 +20,10 @@ Windows Virtual Desktop es un servicio de virtualización de escritorio y de ap
 
 A continuación se indica lo que puede hacer al ejecutar Windows Virtual Desktop en Azure:
 
-* Configurar una implementación de Windows 10 de sesión múltiple que ofrece toda la funcionalidad de Windows 10 con escalabilidad
+* Configurar una implementación de Windows 10 de sesión múltiple que ofrezca toda la funcionalidad de Windows 10 con escalabilidad
 * Virtualizar Office 365 ProPlus y optimizarlo para ejecutarse en escenarios virtuales multiusuario
 * Proporcionar escritorios virtuales de Windows 7 con actualizaciones gratuitas de seguridad ampliada
-* Traer sus aplicaciones y escritorios existentes de Servicios de Escritorio remoto (RDS) y Windows Server a cualquier equipo
+* Llevar sus aplicaciones y escritorios existentes de Servicios de Escritorio remoto (RDS) y Windows Server a cualquier equipo
 * Virtualizar escritorios y aplicaciones
 * Administrar escritorios y aplicaciones de Windows 10, Windows Server y Windows 7 con una experiencia de administración unificada
 
@@ -64,7 +64,7 @@ Es necesario cumplir una serie de requisitos para configurar Windows Virtual Des
 
 Está previsto agregar compatibilidad con los siguientes sistemas operativos, así que asegúrese de que dispone de las [licencias adecuadas](https://azure.microsoft.com/pricing/details/virtual-desktop/) para los usuarios según el escritorio y las aplicaciones que tenga pensado implementar:
 
-|OS|Licencia necesaria|
+|SO|Licencia necesaria|
 |---|---|
 |Sesión múltiple de Windows 10 Enterprise o Windows 10 Enterprise|Microsoft 365 E3, E5, A3, A5, F1, Business<br>Windows E3, E5, A3, A5|
 |Windows 7 Enterprise |Microsoft 365 E3, E5, A3, A5, F1, Business<br>Windows E3, E5, A3, A5|
