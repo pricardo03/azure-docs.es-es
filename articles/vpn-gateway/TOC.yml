@@ -124,8 +124,6 @@
               href: point-to-site-how-to-vpn-client-install-azure-cert.md
             - name: Creación e instalación de los archivos de configuración de cliente de VPN
               href: point-to-site-vpn-client-configuration-azure-cert.md
-            - name: Acerca del archivo de descarga del perfil de VPN de cliente
-              href: about-vpn-profile-download.md
         - name: Autenticación RADIUS
           items:
             - name: Configuración de una VPN de punto a sitio
@@ -142,6 +140,8 @@
               href: openvpn-azure-ad-mfa.md
             - name: Configuración de un cliente VPN
               href: openvpn-azure-ad-client.md
+            - name: Acerca del archivo de descarga del perfil de VPN de cliente
+              href: about-vpn-profile-download.md
         - name: OpenVPN
           items:
             - name: Configuración de OpenVPN para conexiones de punto a sitio

@@ -78,8 +78,6 @@
       href: howto-conditional-access-session-lifetime.md
     - name: Migración de directivas clásicas
       href: policy-migration-mfa.md
-    - name: Adopción del acceso condicional
-      href: howto-conditional-access-adoption-kit.md
     - name: solución de problemas
       items:
         - name: Solución de problemas con la herramienta What If
