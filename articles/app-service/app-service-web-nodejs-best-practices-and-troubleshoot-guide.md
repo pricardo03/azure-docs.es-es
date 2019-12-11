@@ -1,26 +1,19 @@
 ---
-title: Procedimientos recomendados y solución de problemas de Azure App Service para Node.js
-description: Aprenda los procedimientos recomendados y los pasos de solución de problemas para aplicaciones Node en Azure App Service.
-services: app-service\web
-documentationcenter: nodejs
+title: Procedimientos recomendados y solución de problemas de Node.js
+description: Aprenda los procedimientos recomendados y los pasos para la solución de problemas de las aplicaciones que se ejecutan en Azure App Service.
 author: ranjithr
-manager: wadeh
-editor: ''
 ms.assetid: 387ea217-7910-4468-8987-9a1022a99bef
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: bwren
 ms.custom: seodec18
-ms.openlocfilehash: 5ef0cf691ae3a199ea82cb8cfa23c386d30551dc
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 75195bd7ad228bb66dfd21d2c65997cc8c02680e
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74024240"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672040"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Guía de procedimientos recomendados y solución de problemas para aplicaciones Node en Azure App Service de Windows
 

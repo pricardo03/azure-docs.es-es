@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/17/2019
 ms.author: iainfou
-ms.openlocfilehash: 9f35c9c3c6c974c79dc849425fc91b532aed4d22
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 3e1a754d39025136866712cb57026e827c986f6a
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755702"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74704996"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain-using-a-resource-manager-template"></a>Una una máquina virtual con Windows Server a un dominio administrado de Azure Active Directory Domain Services mediante una plantilla de Resource Manager
 
@@ -93,7 +93,7 @@ Para crear una máquina virtual con Windows Server y, a continuación, unirla a
     | Nombre de subred existente      | El nombre de la subred de red virtual existente, como *Cargas de trabajo*. |
     | Prefijo de etiqueta DNS          | Escriba un nombre DNS para usarlo para la máquina virtual, por ejemplo, *myvm*. |
     | Tamaño de VM                   | Especifique un tamaño de VM, como *Standard_DS2_v2*. |
-    | Dominio al que unirse            | El nombre DNS de dominio administrado de Azure AD DS como, por ejemplo, *contoso.com*. |
+    | Dominio al que unirse            | El nombre DNS de dominio administrado de Azure AD DS como, por ejemplo, *aadds.contoso.com*. |
     | Nombre de usuario de dominio           | La cuenta de usuario del dominio administrado de Azure AD DS que debe usarse para unir la máquina virtual al dominio administrado. Esta cuenta debe ser miembro del grupo de *administradores de Azure AD DC*. |
     | Contraseña de dominio           | La contraseña de la cuenta de usuario especificada en la configuración anterior. |
     | Ruta de acceso de unidad organizativa opcional          | La unidad organizativa personalizada en la que agregar la máquina virtual. Si no especifica un valor para este parámetro, la máquina virtual se agrega a la unidad organizativa *Equipos de DC de AAD* predeterminada. |

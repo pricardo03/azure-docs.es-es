@@ -1,5 +1,5 @@
 ---
-title: 'Qué es la transcripción de conversaciones (versión preliminar): servicio Voz'
+title: ¿Qué es la transcripción de conversaciones (versión preliminar)? - Servicio de voz
 titleSuffix: Azure Cognitive Services
 description: La transcripción de conversaciones es una solución de conversión de voz a texto que combina el reconocimiento de voz, la identificación del hablante y la atribución de oraciones a cada hablante (lo que también se conoce como diarización) para proporcionar la transcripción asincrónica o en tiempo real de cualquier conversación.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 0c15b053028bd707159a632c98faaea8b9954a9b
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 07e3e498a3bd2693b72079a8a731c3d139414c90
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075843"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806293"
 ---
 # <a name="what-is-conversation-transcription-preview"></a>¿Qué es la transcripción de conversaciones (versión preliminar)?
 
@@ -63,7 +63,7 @@ La transcripción de conversaciones ofrece tres modos de transcripción:
 
 Los datos de audio se procesan en directo para devolver el identificador y la transcripción del hablante. Seleccione este modo si quiere usar la solución de transcripción para proporcionar a los participantes de la conversación una vista de la transcripción en directo de su conversación en curso. Por ejemplo, crear una aplicación para que las reuniones sean más accesibles para los participantes sordos y con dificultades auditivas es un caso de uso idóneo para la transcripción en tiempo real.
 
-### <a name="asynchronous"></a>Asincrónico
+### <a name="asynchronous"></a>Asincrónica
 
 Los datos de audio se procesan por lotes para devolver el identificador y la transcripción del hablante. Seleccione este modo si quiere usar la solución de transcripción para proporcionar una mayor precisión sin la vista de la transcripción en directo. Por ejemplo, si quiere crear una aplicación para permitir que los participantes de la reunión se pongan al día fácilmente con las reuniones a las que han faltado, use el modo de transcripción asincrónica para obtener resultados de transcripción de alta precisión.
 

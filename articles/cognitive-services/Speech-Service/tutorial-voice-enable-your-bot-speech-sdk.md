@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Habilitación del bot con voz mediante el SDK de voz'
+title: 'Tutorial: Habilitación del bot con voz mediante el SDK de voz: servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: En este tutorial, creará un bot de eco con Microsoft Bot-Framework, lo implementará en Azure y lo registrará en el canal Direct Line Speech de Bot-Framework. A continuación, configurará una aplicación cliente de ejemplo para Windows que le permita hablar con el bot y oír su respuesta.
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: dcohen
-ms.openlocfilehash: c95bc7b58f3883fee54aaa8095cb187eaefdb3e0
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: b42314d1c8c1bd734181f02c36ae3f43507e9b79
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73836959"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815211"
 ---
 # <a name="tutorial-voice-enable-your-bot-using-the-speech-sdk"></a>Tutorial: Habilitación del bot con voz mediante el SDK de voz
 
-Ahora puede usar la potencia de los servicios de voz para habilitar fácilmente un bot de chat.
+Ahora puede usar la potencia del servicio de voz para habilitar fácilmente un bot de chat.
 
 En este tutorial, creará un bot de eco con Microsoft Bot-Framework, lo implementará en Azure y lo registrará en el canal Direct Line Speech de Bot-Framework. A continuación, configurará una aplicación cliente de ejemplo para Windows que le permita hablar con el bot y oír su respuesta.
 
@@ -39,7 +39,7 @@ Al final de este ejercicio, habrá configurado un sistema que funcionará de la 
 ![diagram-tag](media/tutorial-voice-enable-your-bot-speech-sdk/diagram.png "El flujo de canales de voz")
 
 > [!NOTE]
-> Los pasos de este tutorial no requieren un servicio de pago. Como nuevo usuario de Azure, podrá usar créditos de su suscripción gratuita de Azure y del nivel gratis de los servicios de voz para completar este tutorial.
+> Los pasos de este tutorial no requieren un servicio de pago. Como nuevo usuario de Azure, podrá usar créditos de su suscripción de prueba de Azure y del nivel gratis del servicio de voz para completar este tutorial.
 
 Este tutorial abarca lo siguiente:
 > [!div class="checklist"]
@@ -63,7 +63,7 @@ Para completar este tutorial, necesitará lo siguiente:
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-La aplicación cliente que creará en este tutorial utiliza una serie de servicios de Azure. Para reducir el tiempo de ida y vuelta de las respuestas del bot, deberá asegurarse de que estos servicios se encuentran en la misma región de Azure. En esta sección, se crea un grupo de recursos en la región **Oeste de EE. UU.** Este grupo de recursos se usará al crear recursos individuales para Bot-Framework, el canal Direct Line Speech y los Servicios de voz.
+La aplicación cliente que creará en este tutorial utiliza una serie de servicios de Azure. Para reducir el tiempo de ida y vuelta de las respuestas del bot, deberá asegurarse de que estos servicios se encuentran en la misma región de Azure. En esta sección, se crea un grupo de recursos en la región **Oeste de EE. UU.** Este grupo de recursos se usará al crear recursos individuales para Bot-Framework, el canal Direct Line Speech y el servicio de voz.
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 1. En el panel de la izquierda, seleccione **Grupos de recursos**. Después, haga clic en **Agregar** para agregar un nuevo grupo de recursos.
@@ -89,7 +89,7 @@ Para más información sobre las regiones, consulte [Ubicaciones de Azure](https
 
 Ahora que tiene un grupo de recursos en la región **Oeste de EE. UU.** , el siguiente paso es crear recursos individuales para cada servicio que usará en este tutorial.
 
-### <a name="create-a-speech-services-resource"></a>Creación de un recurso de Servicios de voz
+### <a name="create-a-speech-service-resource"></a>Creación de recurso del servicio de voz
 
 Para crear un recurso de voz, siga estas instrucciones:
 
@@ -420,13 +420,13 @@ Si no va a seguir usando el bot eco que ha implementado en este tutorial, puede 
 > [!div class="nextstepaction"]
 > [Creación de la propia aplicación cliente con el SDK de voz](quickstart-voice-assistant-csharp-uwp.md)
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 * Implementación en una [región de Azure próxima](https://azure.microsoft.com/global-infrastructure/locations/) para ver la mejora del tiempo de respuesta de bot
 * Implementación en una [región de Azure que admite voces TTS neuronales de alta calidad](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#standard-and-neural-voices)
 * Precios asociados al canal Direct Line Speech:
   * [Precios de Bot Service](https://azure.microsoft.com/pricing/details/bot-service/)
-  * [Servicios de Voz](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)
+  * [Servicio Voz](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)
 * Creación e implementación del propio bot habilitado para voz:
   * Creación de un [bot de Bot-Framework](https://dev.botframework.com/). Registro con el [canal Direct Line Speech](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech?view=azure-bot-service-4.0) y [personalización del bot para voz](https://docs.microsoft.com/azure/bot-service/directline-speech-bot?view=azure-bot-service-4.0)
   * Exploración de las [soluciones de Bot-Framework](https://microsoft.github.io/botframework-solutions/index) existentes: Compilación de un [asistente virtual](https://microsoft.github.io/botframework-solutions/overview/virtual-assistant-solution/) y [su ampliación a Direct Line Speech](https://microsoft.github.io/botframework-solutions/clients-and-channels/tutorials/enable-speech/1-intro/)

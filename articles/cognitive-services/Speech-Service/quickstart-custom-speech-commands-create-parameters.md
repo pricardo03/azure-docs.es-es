@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Creación de un comando personalizado con parámetros (versión preliminar): servicio Voz'
+title: 'Inicio rápido: Creación de un comando personalizado con parámetros (versión preliminar): servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: En este artículo, agregará parámetros a una aplicación de comandos personalizados.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: donkim
-ms.openlocfilehash: caa1959ec64bb3a123c60763750267b107685b82
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: d1c709beb225dff0ae616a23eb67eb57f4643ac9
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111242"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74812770"
 ---
 # <a name="quickstart-create-a-custom-command-with-parameters-preview"></a>Inicio rápido: Creación de un comando personalizado con parámetros (versión preliminar)
 
@@ -40,7 +40,7 @@ En este artículo, extenderemos esta aplicación con parámetros para que pueda 
    | Es global          | Desactivado       | Casilla que indica si el valor de este parámetro se aplica globalmente a todos los comandos del proyecto. |
    | Obligatorio           | Activado         | Casilla que indica si es obligatorio especificar un valor para este parámetro antes de completar el comando.          |
    | Plantilla de respuesta  | On (Encendido) u Off (Apagado)      | Pregunta para solicitar el valor de este parámetro cuando no se conoce.                                       |
-   | type               | Cadena          | Tipo de parámetro, como número, cadena o fecha y hora.                                               |
+   | Tipo               | Cadena          | Tipo de parámetro, como número, cadena o fecha y hora.                                               |
    | Configuración      | Lista de cadenas     | En el caso de las cadenas, una lista de cadenas limita las entradas a un conjunto de valores posibles.                                      |
    | Valores de la lista de cadenas. | on, off         | Para un parámetro de lista de cadenas, el conjunto de valores posibles y sus sinónimos.                                |
 
@@ -52,7 +52,7 @@ En este artículo, extenderemos esta aplicación con parámetros para que pueda 
    | Es global          | Desactivado         | Casilla que indica si el valor de este parámetro se aplica globalmente a todos los comandos del proyecto. |
    | Obligatorio           | Activado           | Casilla que indica si es obligatorio especificar un valor para este parámetro antes de completar el comando.          |
    | Plantilla de respuesta  | ¿Qué dispositivo?     | Pregunta para solicitar el valor de este parámetro cuando no se conoce.                                       |
-   | type               | Cadena            | Tipo de parámetro, como número, cadena o fecha y hora.                                               |
+   | Tipo               | Cadena            | Tipo de parámetro, como número, cadena o fecha y hora.                                               |
    | Configuración      | Lista de cadenas       | En el caso de las cadenas, una lista de cadenas limita las entradas a un conjunto de valores posibles.                                      |
    | Valores de la lista de cadenas. | TV, ventilador           | Para un parámetro de lista de cadenas, el conjunto de valores posibles y sus sinónimos.                                |
    | Sinónimos (TV)      | televisión, tele | Sinónimos opcionales para cada valor posible de un parámetro de lista de cadenas.                                      |

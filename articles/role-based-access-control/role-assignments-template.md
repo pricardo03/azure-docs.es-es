@@ -1,6 +1,6 @@
 ---
-title: Administración del acceso a los recursos de Azure mediante RBAC y plantillas de Azure Resource Manager | Microsoft Docs
-description: Aprenda a administrar el acceso a los recursos de Azure de usuarios, grupos y aplicaciones mediante control de acceso basado en rol (RBAC) y plantillas de Azure Resource Manager.
+title: Adición de asignaciones de roles mediante RBAC de Azure y plantillas de Azure Resource Manager
+description: Aprenda a conceder acceso a recursos de Azure para usuarios, grupos, entidades de servicio e identidades administradas mediante el control de acceso basado en rol (RBAC) y plantillas de Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -10,19 +10,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/21/2019
+ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 268913fb7aebd1d6c8b377b95939c3bc1f77daca
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: a183dc3b318cb9d740fe91bf553dc9f0c7ec99c4
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383992"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707789"
 ---
-# <a name="manage-access-to-azure-resources-using-rbac-and-azure-resource-manager-templates"></a>Administración del acceso a los recursos de Azure mediante RBAC y plantillas de Azure Resource Manager
+# <a name="add-role-assignments-using-azure-rbac-and-azure-resource-manager-templates"></a>Adición de asignaciones de roles mediante RBAC de Azure y plantillas de Azure Resource Manager
 
-El [control de acceso basado en rol (RBAC)](overview.md) es la forma en la que se administra el acceso a los recursos de Azure. Además de usar Azure PowerShell o la CLI de Azure, puede administrar el acceso a los recursos de Azure mediante [plantillas de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md). Las plantillas se pueden usar si necesita implementar recursos de manera repetida y uniforme. En este artículo se describe cómo puede administrar el acceso mediante RBAC y plantillas.
+[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] Además de usar Azure PowerShell o la CLI de Azure, puede asignar roles mediante [plantillas de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md). Las plantillas se pueden usar si necesita implementar recursos de manera repetida y uniforme. En este artículo se describe cómo asignar roles mediante plantillas.
 
 ## <a name="get-object-ids"></a>Obtener los identificadores de objeto
 
@@ -54,7 +54,7 @@ objectid=$(az ad group show --group "{name}" --query objectId --output tsv)
 
 ### <a name="application"></a>Application
 
-Para obtener el identificador de una entidad de servicio (identidad usada por una aplicación), puede usar los comandos [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal) o [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list). En el caso de una entidad de servicio, use el identificador de objeto y **no** el identificador de aplicación.
+Para obtener el identificador de una entidad de servicio (identidad usada por una aplicación), puede usar los comandos [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal) o [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list). Para una entidad de servicio, use el id. de objeto y **no** el de aplicación.
 
 ```azurepowershell
 $objectid = (Get-AzADServicePrincipal -DisplayName "{name}").id
@@ -64,9 +64,13 @@ $objectid = (Get-AzADServicePrincipal -DisplayName "{name}").id
 objectid=$(az ad sp list --display-name "{name}" --query [].objectId --output tsv)
 ```
 
-## <a name="create-a-role-assignment-at-a-resource-group-scope-without-parameters"></a>Creación de una asignación de roles en el ámbito de un grupo de recursos (sin parámetros)
+## <a name="add-a-role-assignment"></a>Adición de una asignación de roles
 
-En RBAC, para conceder acceso es preciso crear una asignación de roles. La plantilla siguiente muestra una manera básica de crear una asignación de roles. Algunos valores se especifican en la plantilla. La plantilla siguiente muestra:
+En RBAC, para conceder acceso es preciso agregar una asignación de roles.
+
+### <a name="resource-group-without-parameters"></a>Grupo de recursos (sin parámetros)
+
+La plantilla siguiente muestra una manera básica de agregar una asignación de roles. Algunos valores se especifican en la plantilla. La plantilla siguiente muestra:
 
 -  Cómo asignar el rol de [lector](built-in-roles.md#reader) a un usuario, un grupo o una aplicación, en el ámbito de un grupo de recursos
 
@@ -107,7 +111,7 @@ A continuación se muestra un ejemplo de la asignación del rol de lector a un u
 
 ![Asignación de roles en el ámbito de un grupo de recursos](./media/role-assignments-template/role-assignment-template.png)
 
-## <a name="create-a-role-assignment-at-a-resource-group-or-subscription-scope"></a>Creación de una asignación de roles en el ámbito de un grupo de recursos o de una suscripción
+### <a name="resource-group-or-subscription"></a>Grupo de recursos o suscripción
 
 La plantilla anterior no es muy flexible. La siguiente plantilla usa parámetros y se puede emplear en distintos ámbitos. La plantilla siguiente muestra:
 
@@ -191,9 +195,9 @@ New-AzDeployment -Location centralus -TemplateFile rbac-test.json -principalId $
 az deployment create --location centralus --template-file rbac-test.json --parameters principalId=$objectid builtInRoleType=Reader
 ```
 
-## <a name="create-a-role-assignment-at-a-resource-scope"></a>Creación de una asignación de roles en el ámbito de un recurso
+### <a name="resource"></a>Resource
 
-Si necesita crear una asignación de roles en el nivel de un recurso, el formato de la asignación de roles es diferente. Proporcione el espacio de nombres del proveedor de recursos y el tipo de recurso del recurso al que se va a asignar el rol. Incluya también el nombre del recurso en el nombre de la asignación de roles.
+Si necesita agregar una asignación de roles en el nivel de un recurso, el formato de la asignación de roles es diferente. Proporcione el espacio de nombres del proveedor de recursos y el tipo de recurso del recurso al que se va a asignar el rol. Incluya también el nombre del recurso en el nombre de la asignación de roles.
 
 Para el tipo y el nombre de la asignación de roles, use el siguiente formato:
 
@@ -287,7 +291,7 @@ A continuación se muestra un ejemplo de una asignación de rol de colaborador a
 
 ![Asignación de roles en el ámbito de un recurso](./media/role-assignments-template/role-assignment-template-resource.png)
 
-## <a name="create-a-role-assignment-for-a-new-service-principal"></a>Creación de una asignación de roles para una nueva entidad de servicio
+### <a name="new-service-principal"></a>Nueva entidad de servicio
 
 Si crea una entidad de servicio e inmediatamente intenta asignarle un rol, esa asignación de roles puede producir un error en algunos casos. Por ejemplo, si crea una identidad administrada y luego intenta asignarle un rol en la misma plantilla de Azure Resource Manager, la asignación de roles podría producir un error. Es probable que el motivo de este error sea un retraso en la replicación. La entidad de servicio se crea en una región; sin embargo, la asignación de roles puede tener lugar en una región distinta que todavía no haya replicado la entidad de servicio. Para abordar este escenario, debe establecer la propiedad `principalType` en `ServicePrincipal` al crear la asignación de roles.
 

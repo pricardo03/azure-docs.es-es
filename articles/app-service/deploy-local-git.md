@@ -1,25 +1,17 @@
 ---
-title: Implementación desde el repositorio de Git local en Azure App Service
-description: Aprenda a habilitar la implementación de Git local en Azure App Service.
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: cfowler
+title: Implementación desde un repositorio GIT local
+description: Aprenda a habilitar la implementación de Git local en Azure App Service. Una de las formas más sencillas de implementar código desde una máquina local.
 ms.assetid: ac50a623-c4b8-4dfd-96b2-a09420770063
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/18/2019
-ms.author: cephalin
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: 9714052de5cdfbdbf0789c7b4711469ee9202bac
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 91d5827a08a600c19c24ac0a96a5f4e3e98e22f2
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070638"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671778"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Implementación de Git local en Azure App Service
 
@@ -53,7 +45,7 @@ La manera más fácil de habilitar la implementación de Git local para la aplic
 
 ### <a name="get-the-deployment-url"></a>Obtener la dirección URL de implementación
 
-Para obtener la URL para habilitar la implementación de Git local de una aplicación existente, ejecute [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-local-git) en Cloud Shell. Reemplace \<app-name> y \<group-name> con los nombres de la aplicación y el grupo de recursos de Azure.
+Para obtener la URL que habilite la implementación de Git local de una aplicación existente, ejecute [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-local-git) en Cloud Shell. Reemplace \<app-name> y \<group-name> con los nombres de la aplicación y el grupo de recursos de Azure.
 
 ```azurecli-interactive
 az webapp deployment source config-local-git --name <app-name> --resource-group <group-name>
@@ -75,7 +67,7 @@ Puede obtener las credenciales de la aplicación ejecutando el siguiente comando
 az webapp deployment list-publishing-credentials --name <app-name> --resource-group <group-name> --query scmUri --output tsv
 ```
 
-Use la dirección URL que vuelve a implementar la aplicación en el siguiente paso.
+Use la dirección URL que se devuelve para implementar la aplicación en el siguiente paso.
 
 ### <a name="deploy-the-web-app"></a>Implementación de la aplicación web
 
@@ -111,7 +103,7 @@ Para habilitar la implementación de Git local para la aplicación con Azure Pip
    
    ![Seleccione Local Git (Git local) y luego seleccione Continue (Continuar)](media/app-service-deploy-local-git/portal-enable.png)
    
-1. En la página **Build provider** (Compilar proveedor), seleccione **Azure Pipelines (Preview)** (Azure Pipelines [versión preliminar]) y **Continue** (Continuar). 
+1. En la página **Build provider** (Proveedor de compilación), seleccione **Azure Pipelines (Preview)** (Azure Pipelines [versión preliminar]) y **Continue** (Continuar). 
    
    ![Seleccione Azure Pipelines (Preview) (Azure Pipelines [versión preliminar]) y luego Continue (Continuar).](media/app-service-deploy-local-git/pipeline-builds.png)
 
@@ -120,7 +112,7 @@ Para habilitar la implementación de Git local para la aplicación con Azure Pip
    > [!NOTE]
    > Si su organización Azure DevOps existente no figura en la lista, es posible que deba vincularla a su suscripción de Azure. Para obtener más información, consulte [Define your CD release pipeline](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps#cd) (Definir la canalización de versión de CD).
    
-1. Dependiendo de su [plan de tarifa](https://azure.microsoft.com/pricing/details/app-service/plans/) de App Service, puede ver una página **Deploy to staging** (Implementar en el almacenamiento provisional). Dcida si quiere [habilitar las ranuras de implementación](deploy-staging-slots.md) y seleccione **Continue** (Continuar).
+1. Dependiendo de su [plan de tarifa](https://azure.microsoft.com/pricing/details/app-service/plans/) de App Service, puede ver una página **Deploy to staging** (Implementar en el almacenamiento provisional). Decida si quiere [habilitar las ranuras de implementación](deploy-staging-slots.md) y seleccione **Continue** (Continuar).
    
 1. En la página **Summary** (Resumen), revise la configuración y seleccione **Finish** (Finalizar).
    
@@ -148,10 +140,10 @@ Para habilitar la implementación de Git local para la aplicación con Azure Pip
 
 Puede ver los siguientes mensajes de error comunes cuando usa Git para publicar en una aplicación de App Service en Azure:
 
-|Message|Causa|Resolución
+|Mensaje|Causa|Resolución
 ---|---|---|
-|`Unable to access '[siteURL]': Failed to connect to [scmAddress]`|La aplicación no está funcionando.|inicie la aplicación en Azure Portal. La implementación de GIT no está disponible cuando la aplicación web está detenida.|
-|`Couldn't resolve host 'hostname'`|La información de dirección del repositorio remoto de "azure" es incorrecta.|use el comando `git remote -v` para obtener un listado de todos los remotos, junto con la dirección URL asociada. Compruebe que la URL para el repositorio correcto "azure" es correcta. Si lo necesita, suprima y vuelva a crear este repositorio remoto utilizando la URL correcta.|
+|`Unable to access '[siteURL]': Failed to connect to [scmAddress]`|La aplicación no está funcionando.|Inicie la aplicación en Azure Portal. La implementación de GIT no está disponible cuando la aplicación web está detenida.|
+|`Couldn't resolve host 'hostname'`|La información de dirección del repositorio remoto de "azure" es incorrecta.|Use el comando `git remote -v` para obtener un listado de todos los remotos, junto con la dirección URL asociada. Compruebe que la URL para el repositorio correcto "azure" es correcta. Si lo necesita, suprima y vuelva a crear este repositorio remoto utilizando la URL correcta.|
 |`No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'master'.`|No especificó una rama durante `git push`, o no ha establecido el valor `push.default` en `.gitconfig`.|Vuelva a ejecutar `git push` y especifique la rama principal `git push azure master`.|
 |`src refspec [branchname] does not match any.`|Intentó agregar una rama que no es maestra en el repositorio remoto "azure".|Vuelva a ejecutar `git push` y especifique la rama principal `git push azure master`.|
 |`RPC failed; result=22, HTTP code = 5xx.`|este error puede producirse si se trata de insertar un repositorio Git de gran tamaño a través de HTTPS.|Cambie la configuración de Git en la máquina local para aumentar el tamaño de `postBuffer`. Por ejemplo: `git config --global http.postBuffer 524288000`.|

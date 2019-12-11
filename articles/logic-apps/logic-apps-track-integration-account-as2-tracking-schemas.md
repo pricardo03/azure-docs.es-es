@@ -1,21 +1,19 @@
 ---
-title: 'Esquemas de seguimiento de AS2 para mensajes B2B: Azure Logic Apps | Microsoft Docs'
+title: Esquemas de seguimiento de AS2 para mensajes B2B
 description: Cree esquemas de seguimiento de AS2 que supervise los mensajes B2B en cuentas de integración para Azure Logic Apps con Enterprise Integration Pack
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.assetid: f169c411-1bd7-4554-80c1-84351247bf94
 ms.date: 01/27/2017
-ms.openlocfilehash: 180d90450497b38f107f3601944385a003f50282
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 515d7cfc985ee9929f70de2c862170ff79ae4d60
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60845790"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792817"
 ---
 # <a name="create-schemas-for-tracking-as2-messages-and-mdns-in-integration-accounts-for-azure-logic-apps"></a>Creación de esquemas para el seguimiento de mensajes AS2 y MDN en cuentas de integración para Azure Logic Apps
 
@@ -63,7 +61,7 @@ Para ayudarle a supervisar éxitos, errores y propiedades de mensaje para transa
 | as2To | String | Nombre del destinatario del mensaje AS2, de los encabezados del mensaje AS2. (Obligatorio) |
 | as2From | String | Nombre del remitente del mensaje AS2, de los encabezados del mensaje AS2. (Obligatorio) |
 | agreementName | String | Nombre del contrato de AS2 en el que se resuelven los mensajes. (Opcional) |
-| dirección | String | Dirección del flujo de mensajes, recibidos o enviados. (Obligatorio) |
+| direction | String | Dirección del flujo de mensajes, recibidos o enviados. (Obligatorio) |
 | messageId | String | Identificador del mensaje AS2, de los encabezados del mensaje AS2 (opcional) |
 | dispositionType |String | Valor del tipo de disposición de notificación de disposición del mensaje (MDN). (Opcional) |
 | fileName | String | Nombre de archivo, del encabezado del mensaje AS2. (Opcional) |
@@ -116,7 +114,7 @@ Para ayudarle a supervisar éxitos, errores y propiedades de mensaje para transa
 | as2To | String | Nombre del asociado que recibe el mensaje AS2. (Obligatorio) |
 | as2From | String | Nombre del asociado que envía el mensaje AS2. (Obligatorio) |
 | agreementName | String | Nombre del contrato de AS2 en el que se resuelven los mensajes. (Opcional) |
-| dirección |String | Dirección del flujo de mensajes, recibidos o enviados. (Obligatorio) |
+| direction |String | Dirección del flujo de mensajes, recibidos o enviados. (Obligatorio) |
 | messageId | String | Identificador del mensaje AS2. (Opcional) |
 | originalMessageId |String | Identificador del mensaje original AS2. (Opcional) |
 | dispositionType | String | Valor de tipo de disposición de MDN. (Opcional) |

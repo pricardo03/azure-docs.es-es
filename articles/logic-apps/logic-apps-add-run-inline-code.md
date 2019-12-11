@@ -1,20 +1,17 @@
 ---
-title: Adición y ejecución de fragmentos de código - Azure Logic Apps
+title: Adición y ejecución de fragmentos de código
 description: Adición y ejecución de fragmentos de código con código en línea en Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: derek1ee, LADocs
+ms.reviewer: deli, logicappspm
 ms.topic: article
 ms.date: 05/14/2019
-ms.openlocfilehash: 3b51215e0cf48df2d3cd9df85a3d4c5641a17215
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: f28a93e47aa028f152d7ca797abb17cb3832aa60
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390802"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792606"
 ---
 # <a name="add-and-run-code-snippets-by-using-inline-code-in-azure-logic-apps"></a>Adición y ejecución de fragmentos de código mediante código en línea en Azure Logic Apps
 
@@ -23,7 +20,7 @@ Si desea ejecutar un fragmento de código dentro de su aplicación lógica, pued
 * Se ejecuta en JavaScript. Próximamente más lenguajes.
 * Termina de ejecutarse en cinco segundos o menos.
 * Administra datos de hasta 50 MB de tamaño.
-* No es necesario trabajar con [acciones de **variables **](../logic-apps/logic-apps-create-variables-store-values.md), ya que aún no están permitidas.
+* No es necesario trabajar con [acciones de **variables**](../logic-apps/logic-apps-create-variables-store-values.md), ya que aún no están permitidas.
 * Usa la versión 8.11.1 de Node.js. Para más información, consulte [Objetos integrados estándar](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects). 
 
   > [!NOTE]

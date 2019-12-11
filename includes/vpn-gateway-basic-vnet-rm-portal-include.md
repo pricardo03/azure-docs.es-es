@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/30/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: a601b0c40f84832101e97a7abf7dd7418a0a5c69
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 5bf93980a8be86c77240ab981eb812a738a96204
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67673522"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74829042"
 ---
 Para crear una red virtual con el modelo de implementación de Resource Manager y Azure Portal, siga los pasos que se indican a continuación. Para más información acerca de redes virtuales, consulte [Introducción a las redes virtuales](../articles/virtual-network/virtual-networks-overview.md).
 
@@ -22,15 +22,17 @@ Para crear una red virtual con el modelo de implementación de Resource Manager 
 >
 >
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) y después seleccione **Crear un recurso**. Se abre la página **Nuevos**.
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).  En el menú de Azure Portal o en la página **Inicio**, seleccione **Crear un recurso**. Se abre la página **Nuevos**.
 
-2. En el campo **Buscar en Marketplace**, escriba *red virtual* y seleccione **Red virtual** en la lista de resultados. Se abre la página **Red virtual**.
+2. En **Buscar en Marketplace**, escriba *virtual network* y seleccione **Virtual Network** en los resultados.
 
-   ![Busque la página de recursos de red virtual](./media/vpn-gateway-basic-vnet-rm-portal-include/newvnetportal700.png "Busque la página de recursos de red virtual")
+   ![Página de recursos Buscar red virtual](./media/vpn-gateway-basic-vnet-rm-portal-include/search-marketplace-for-virtual-network.png "Página de recursos Buscar red virtual")
+
+   Se abre la página **Red virtual**.
 
 3. En la lista **Seleccionar un modelo de implementación** cerca de la parte inferior de la página, seleccione **Resource Manager** y, luego, haga clic en **Crear**. Se abre la página **Crear red virtual**.
 
-   ![Página Crear red virtual](./media/vpn-gateway-basic-vnet-rm-portal-include/vnet.png "Página Crear red virtual")
+   ![Página Crear red virtual](./media/vpn-gateway-basic-vnet-rm-portal-include/vnet.png "Crear la página de la red virtual")
 
 4. En la página **Crear red virtual**, configure los valores de la red virtual. Al rellenar los campos, el signo de exclamación rojo se convierte en una marca de verificación verde cuando los caracteres escritos en el campo sean válidos. Algunos valores se rellenan automáticamente, que puede sustituir por sus propios valores:
 

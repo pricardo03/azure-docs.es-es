@@ -1,17 +1,17 @@
 ---
-title: Creación y administración de reglas de firewall en Azure Database for PostgreSQL con un único servidor
+title: 'Administración de reglas de firewall mediante Azure Portal en Azure Database for PostgreSQL: servidor único'
 description: Creación y administración de reglas de firewall en Azure Database for PostgreSQL con un único servidor mediante Azure Portal
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 7eed2e81c6781ca660cffa909f27962a7c5112cb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: aeef22bf96221061a444f40e16e33343fafe511c
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65069016"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770312"
 ---
 # <a name="create-and-manage-firewall-rules-for-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Creación y administración de reglas de firewall en Azure Database for PostgreSQL con un único servidor mediante Azure Portal
 Las reglas de firewall de nivel de servidor se pueden usar para administrar el acceso a un servidor de Azure Database for PostgreSQL desde una dirección IP especificada o desde un intervalo de direcciones IP.

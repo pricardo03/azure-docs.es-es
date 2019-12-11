@@ -1,25 +1,18 @@
 ---
-title: 'Escalabilidad automática y App Service Environment v1: Azure'
-description: Escalado automático y entorno de App Service
-services: app-service
-documentationcenter: ''
+title: Escalado automático de v1
+description: Escalado automático y App Service Environment v1. Este documento solo se proporciona para los clientes que usan App Service Environment v1 heredado.
 author: btardif
-manager: erikre
-editor: ''
 ms.assetid: c23af2d8-d370-4b1f-9b3e-8782321ddccb
-ms.service: app-service
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: f0c49e1835412b61817ff3571dd3ee1eaa29f21f
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 4f071c0d09fc2fa97eeea45bd82228b7eb8434a2
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070081"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687294"
 ---
 # <a name="autoscaling-and-app-service-environment-v1"></a>Escalado automático y App Service Environment v1
 

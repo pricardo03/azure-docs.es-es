@@ -1,17 +1,17 @@
 ---
-title: Creación y administración de reglas y puntos de conexión de servicio de red virtual en Azure Database for PostgreSQL con un único servidor mediante Azure Portal
+title: 'Uso de las reglas de red virtual mediante Azure Portal en Azure Database for PostgreSQL: servidor único'
 description: Creación y administración de reglas y puntos de conexión de servicio de red virtual en Azure Database for PostgreSQL con un único servidor mediante Azure Portal
 author: bolzmj
 ms.author: mbolz
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 35120f835d4baf3cda8bd1e742071a2fa01ae1cc
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: e3146554cf9fa49e50f6ae24d3c0984bbc081760
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68610353"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770261"
 ---
 # <a name="create-and-manage-vnet-service-endpoints-and-vnet-rules-in-azure-database-for-postgresql---single-server-by-using-the-azure-portal"></a>Creación y administración de reglas y puntos de conexión de servicio de red virtual en Azure Database for PostgreSQL con un único servidor mediante Azure Portal
 Las reglas y los puntos de conexión de servicios de red virtual (VNet) amplían el espacio de direcciones privadas de una red virtual al servidor de Azure Database for PostgreSQL. Para obtener información general sobre los puntos de conexión de servicio de red virtual de Azure Database for PostgreSQL, incluidas las limitaciones, consulte [Azure Database for PostgreSQL Server VNet service endpoints](concepts-data-access-and-security-vnet.md) (Puntos de conexión de servicio de red virtual del servidor de Azure Database for PostgreSQL). Los puntos de conexión de servicio de red virtual están disponibles en todas las regiones admitidas para Azure Database for PostgreSQL.

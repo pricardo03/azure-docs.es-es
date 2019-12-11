@@ -1,6 +1,6 @@
 ---
-title: Administración del acceso a los recursos de Azure de usuarios invitados externos mediante RBAC | Microsoft Docs
-description: Aprenda a administrar el acceso a recursos de Azure de los usuarios externos a una organización mediante el control de acceso basado en rol (RBAC).
+title: Incorporación o eliminación de asignaciones de roles para usuarios invitados externos con RBAC de Azure y Azure Portal
+description: Aprenda a conceder acceso a recursos de Azure para los usuarios externos a una organización mediante el control de acceso basado en rol (RBAC) de Azure.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -12,20 +12,26 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 09/12/2019
+ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: 51945940a0f0fd0346e9437c4ad0631f989e0a92
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: db43a3cce27da5f40986968b6573bfd58a1d3cb7
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555563"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707875"
 ---
-# <a name="manage-access-to-azure-resources-for-external-guest-users-using-rbac"></a>Administración del acceso a los recursos de Azure de usuarios invitados externos mediante RBAC
+# <a name="add-or-remove-role-assignments-for-external-guest-users-using-azure-rbac-and-the-azure-portal"></a>Incorporación o eliminación de asignaciones de roles para usuarios invitados externos con RBAC de Azure y Azure Portal
 
-El control de acceso basado en rol (RBAC) permite una mejor administración de la seguridad para organizaciones grandes y para PYMES que trabajan con colaboradores externos, proveedores o autónomos que necesitan tener acceso a recursos específicos de su entorno, pero no necesariamente a toda la infraestructura ni a los ámbitos relacionados con la facturación. Puede usar las funcionalidades de [Azure Active Directory B2B](../active-directory/b2b/what-is-b2b.md) para colaborar con usuarios invitados externos y puede usar RBAC para conceder solo los permisos que los usuarios invitados necesitan en su entorno.
+El [control de acceso basado en rol (RBAC) de Azure](overview.md) permite una mejor administración de la seguridad para organizaciones grandes y para PYMES que trabajan con colaboradores externos, proveedores o autónomos que necesitan tener acceso a recursos específicos de su entorno, pero no necesariamente a toda la infraestructura ni a los ámbitos relacionados con la facturación. Puede usar las funcionalidades de [Azure Active Directory B2B](../active-directory/b2b/what-is-b2b.md) para colaborar con usuarios invitados externos y puede usar RBAC para conceder solo los permisos que los usuarios invitados necesitan en su entorno.
+
+## <a name="prerequisites"></a>Requisitos previos
+
+Para agregar o quitar asignaciones de roles, debe tener:
+
+- Permisos `Microsoft.Authorization/roleAssignments/write` y `Microsoft.Authorization/roleAssignments/delete`, como [Administrador de acceso de usuarios](built-in-roles.md#user-access-administrator) o [propietario](built-in-roles.md#owner)
 
 ## <a name="when-would-you-invite-guest-users"></a>¿Cuándo invitará a los usuarios invitados?
 
@@ -61,9 +67,9 @@ Para que el usuario invitado pueda acceder a su directorio, debe completar el pr
 
 Para más información sobre el proceso de invitación, consulte [Canje de invitación de colaboración B2B de Azure Active Directory](../active-directory/b2b/redemption-experience.md).
 
-## <a name="grant-access-to-a-guest-user"></a>Concesión de acceso a un usuario invitado
+## <a name="add-a-role-assignment-for-a-guest-user"></a>Adición de una asignación de roles para un usuario invitado
 
-En RBAC, para conceder acceso es preciso asignar un rol. Para conceder acceso a un usuario invitado, siga los [mismos pasos](role-assignments-portal.md#add-a-role-assignment) que para un usuario miembro, un grupo, una entidad de servicio o una identidad administrada. Siga estos pasos para conceder acceso a un usuario invitado en distintos ámbitos.
+En RBAC, para conceder acceso es preciso asignar un rol. Para agregar una asignación de roles para un usuario invitado, siga los [mismos pasos](role-assignments-portal.md#add-a-role-assignment) que para un usuario miembro, un grupo, una entidad de servicio o una identidad administrada. Siga estos pasos para agregar una asignación de roles a un usuario invitado en distintos ámbitos.
 
 1. En Azure Portal, haga clic en **Todos los servicios**.
 
@@ -95,9 +101,9 @@ En RBAC, para conceder acceso es preciso asignar un rol. Para conceder acceso a 
 
     ![Asignación del rol Colaborador de la máquina virtual](./media/role-assignments-external-users/access-control-role-assignments.png)
 
-## <a name="grant-access-to-a-guest-user-not-yet-in-your-directory"></a>Concesión de acceso a un usuario invitado que todavía no está en el directorio
+## <a name="add-a-role-assignment-for-a-guest-user-not-yet-in-your-directory"></a>Adición de una asignación de roles para un usuario invitado que todavía no está en el directorio
 
-En RBAC, para conceder acceso es preciso asignar un rol. Para conceder acceso a un usuario invitado, siga los [mismos pasos](role-assignments-portal.md#add-a-role-assignment) que para un usuario miembro, un grupo, una entidad de servicio o una identidad administrada.
+Para agregar una asignación de roles para un usuario invitado, siga los [mismos pasos](role-assignments-portal.md#add-a-role-assignment) que para un usuario miembro, un grupo, una entidad de servicio o una identidad administrada.
 
 Si el usuario invitado todavía no está en el directorio, puede invitar al usuario directamente desde el panel Agregar asignación de roles.
 
@@ -179,7 +185,7 @@ Si un usuario invitado necesita privilegios adicionales en el directorio, puede 
 
 ### <a name="guest-user-cannot-browse-users-groups-or-service-principals-to-assign-roles"></a>El usuario invitado no puede examinar usuarios, grupos o entidades de servicio para asignar roles
 
-Los usuarios invitados tienen permisos de directorio restringidos. Incluso si un usuario invitado es [Propietario](built-in-roles.md#owner) en un ámbito, si intenta crear una asignación de roles para conceder acceso a otra persona, no podrá examinar la lista de usuarios, grupos o entidades de servicio.
+Los usuarios invitados tienen permisos de directorio restringidos. Incluso si un usuario invitado es [Propietario](built-in-roles.md#owner) en un ámbito, si intenta agregar una asignación de roles para conceder acceso a otra persona, no podrá examinar la lista de usuarios, grupos o entidades de servicio.
 
 ![El usuario invitado no puede examinar las entidades de seguridad para asignar roles](./media/role-assignments-external-users/directory-no-browse.png)
 

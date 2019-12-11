@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/17/2019
-ms.openlocfilehash: 3664a7c311e15ce3aa61fc71f98a46e3f2618143
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 0eb2c2692ed2444a85e7253c6fdd8734385ff881
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184658"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672265"
 ---
 # <a name="mapping-data-flow-expression-builder"></a>Generador de expresiones del flujo de datos de asignación
 
@@ -104,7 +104,13 @@ Si coloca un comentario al comienzo de la expresión, aparecerá en el cuadro de
 
 ```toString(toTimestamp('12/31/2016T00:12:00', 'MM/dd/yyyy\'T\'HH:mm:ss'), 'MM/dd /yyyy\'T\'HH:mm:ss')```
 
-Tenga en cuenta que para incluir literales de cadena en la salida de la marca de tiempo, debe ajustar la conversión dentro de toString()
+Tenga en cuenta que para incluir literales de cadena en la salida de la marca de tiempo, debe ajustar la conversión dentro de ```toString()```.
+
+Aquí se muestra cómo convertir los segundos de la hora a una fecha o marca de tiempo:
+
+```toTimestamp(1574127407*1000l)```
+
+Observe el signo "l" al final de la expresión anterior. Esto significa que la conversión es demasiado larga como sintaxis en línea.
 
 ## <a name="handling-column-names-with-special-characters"></a>Control de nombres de columna con caracteres especiales
 

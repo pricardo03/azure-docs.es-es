@@ -1,26 +1,17 @@
 ---
-title: Implementación de contenido en Azure App Service con FTP/S | Microsoft Docs
-description: Aprenda a implementar la aplicación en Azure App Service mediante FTP o FTPS.
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: erikre
-editor: ''
+title: Implementación de contenido mediante FTP/S
+description: Aprenda a implementar la aplicación en Azure App Service mediante FTP o FTPS. Mejora de la seguridad del sitio web mediante la deshabilitación del FTP sin cifrar.
 ms.assetid: ae78b410-1bc0-4d72-8fc4-ac69801247ae
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/18/2019
-ms.author: cephalin
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: 6e8a6820b3cf3031f11ab04d9baf4a7888491c81
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: bccf4fa0b17f261d41c0a80d9f75fe391f591bfb
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71098053"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671721"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Implementación de la aplicación en Azure App Service mediante FTP/S
 

@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.author: makromer
 ms.date: 10/07/2019
-ms.openlocfilehash: 5623907346ee3882ad53a27695336ba4bc449db8
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 3f05b9ae490ea2b9d8e7b89ce02c7c1eb818bb0a
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73679941"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74769582"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Actividad de Data Flow en Azure Data Factory
 
@@ -98,6 +98,43 @@ La canalización de depuración se ejecuta en el clúster de depuración activo,
 ## <a name="monitoring-the-data-flow-activity"></a>Supervisión de la actividad de Data Flow
 
 La supervisión de la actividad de Data Flow se realiza de forma especial, ya que permite ver información sobre las particiones, el tiempo de cada fase y el linaje de datos. Abra el panel supervisión utilizando el icono con forma de gafas que encontrará en **Acciones**. Para más información, consulte [Supervisión de flujos de datos](concepts-data-flow-monitoring.md).
+
+### <a name="use-data-flow-activity-results-in-a-subsequent-activity"></a>Uso de los resultados de actividad de Data Flow en una actividad posterior
+
+La actividad de flujo de datos genera métricas con respecto al número de filas escritas en cada receptor y las filas leídas de cada origen. Estos resultados se devuelven en la sección `output` del resultado de ejecución de la actividad. Las métricas devueltas están en el formato del siguiente código JSON.
+
+``` json
+{
+    "runStatus": {
+        "metrics": {
+            "<your sink name1>": {
+                "rowsWritten": <number of rows written>,
+                "sinkProcessingTime": <sink processing time in ms>,
+                "sources": {
+                    "<your source name1>": {
+                        "rowsRead": <number of rows read>
+                    },
+                    "<your source name2>": {
+                        "rowsRead": <number of rows read>
+                    },
+                    ...
+                }
+            },
+            "<your sink name2>": {
+                ...
+            },
+            ...
+        }
+    }
+}
+```
+
+Por ejemplo, para obtener el número de filas escritas en un receptor denominado "sink1" en una actividad denominada "dataflowActivity", use `@activity('dataflowActivity').output.runStatus.metrics.sink1.rowsWritten`.
+
+Para obtener el número de filas leídas de un origen denominado "source1" que se usó en ese receptor, use `@activity('dataflowActivity').output.runStatus.metrics.sink1.sources.source1.rowsRead`.
+
+> [!NOTE]
+> Si un receptor tiene cero filas escritas, no se mostrará en las métricas. Se puede comprobar la existencia con la función `contains`. Por ejemplo, `contains(activity('dataflowActivity').output.runStatus.metrics, 'sink1')` comprobará si se escribieron filas en sink1.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

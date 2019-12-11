@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 09defe9648208e2300594169add990d4bcbd7a39
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 92da697c95f2b9ea544bb1f9bfa689c13bd0d2ae
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112576"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806769"
 ---
 # <a name="how-to-set-up-incremental-indexing-of-enriched-documents-in-azure-cognitive-search"></a>Cómo configurar la indexación incremental de documentos enriquecidos en Azure Cognitive Search
 
@@ -41,13 +41,31 @@ api-key: [admin key]
 
 ### <a name="step-2-add-the-cache-property"></a>Paso 2: Adición de la propiedad cache
 
-Edite la respuesta de la solicitud GET para agregar la propiedad `cache` al indizador. El objeto de caché únicamente requiere una sola propiedad, que es la cadena de conexión a la cuenta de Azure Storage.
+Edite la respuesta de la solicitud GET para agregar la propiedad `cache` al indizador. El objeto de caché únicamente requiere una sola propiedad, `storageConnectionString`, que es la cadena de conexión a la cuenta de almacenamiento. 
 
 ```json
-    "cache": {
-        "storageConnectionString": "[your storage connection string]"
+{
+    "name": "myIndexerName",
+    "targetIndexName": "myIndex",
+    "dataSourceName": "myDatasource",
+    "skillsetName": "mySkillset",
+    "cache" : {
+        "storageConnectionString" : "Your storage account connection string",
+        "enableReprocessing": true,
+        "id" : "Auto generated Id you do not need to set"
+    },
+    "fieldMappings" : [],
+    "outputFieldMappings": [],
+    "parameters": {
+        "configuration": {
+            "enableAnnotationCache": true
+        }
     }
+}
 ```
+#### <a name="enable-reporocessing"></a>Habilitar el reprocesamiento
+
+Opcionalmente, puede establecer la propiedad booleana `enableReprocessing` en la memoria caché, que se establece de forma predeterminada en True. La marca `enableReprocessing` permite controlar el comportamiento del indexador. En escenarios en los que desea que el indexador priorice la adición de nuevos documentos al índice, debe establecer la marca en False. Una vez que el indexador se encuentra en los nuevos documentos, si cambia la marca a True se permitiría que el indexador empezara a conducir los documentos existentes a la coherencia posible. Durante el período en el que la marca `enableReprocessing` está establecida en False, el indexador solo escribe en la memoria caché, pero no procesará ningún documento existente en función de los cambios identificados en la canalización de enriquecimiento.
 
 ### <a name="step-3-reset-the-indexer"></a>Paso 3: Restablecimiento del indizador
 

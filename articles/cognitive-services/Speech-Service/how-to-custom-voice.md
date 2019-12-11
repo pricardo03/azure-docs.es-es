@@ -1,5 +1,5 @@
 ---
-title: ¿Qué es la voz personalizada? - Servicio de Voz
+title: ¿Qué es la voz personalizada? - Servicio de voz
 titleSuffix: Azure Cognitive Services
 description: Custom Voice es un conjunto de herramientas en línea que permiten crear una voz única y reconocible para su marca. Todo lo que se necesita para empezar son unos cuantos archivos de audio y las transcripciones asociadas. Siga los vínculos que se incluyen a continuación para empezar a crear una experiencia personalizada de conversión de voz a texto.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: f8b963c456e4d4318c6b28cd33c18ebd615487de
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0e40ca55a9cd198e1b086362a2559ab2fc0ba95e
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73464518"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74805967"
 ---
 # <a name="get-started-with-custom-voice"></a>Introducción a voz personalizada
 
@@ -23,13 +23,13 @@ ms.locfileid: "73464518"
 
 ## <a name="whats-in-custom-voice"></a>¿Qué incluye Custom Voice?
 
-Antes de comenzar con Custom Voice, necesitará una cuenta de Azure y una suscripción de Servicios de voz. Cuando haya creado una cuenta, podrá preparar los datos, entrenar y probar los modelos, evaluar la calidad de la voz y, finalmente, implementar el modelo de voz personalizado.
+Antes de comenzar con Custom Voice, necesitará una cuenta de Azure y una suscripción del servicio de voz. Cuando haya creado una cuenta, podrá preparar los datos, entrenar y probar los modelos, evaluar la calidad de la voz y, finalmente, implementar el modelo de voz personalizado.
 
 En el diagrama siguiente se resaltan los pasos necesarios para crear un modelo de voz personalizado desde el [portal de Custom Voice](https://aka.ms/customvoice). Siga los vínculos para obtener más información.
 
 ![Diagrama de arquitectura de Custom Voice](media/custom-voice/custom-voice-diagram.png)
 
-1.  [Suscríbase y cree un proyecto](#set-up-your-azure-account): cree una cuenta de Azure y una suscripción de Servicios de voz. Esta suscripción unificada proporciona acceso a la conversión de voz a texto, la conversión de texto a voz, la traducción de voz y el portal de Custom Voice. A continuación, mediante la suscripción a Servicios de voz, cree su primer proyecto de Custom Voice.
+1.  [Suscríbase y cree un proyecto](#set-up-your-azure-account): cree una cuenta de Azure y una suscripción del servicio de voz. Esta suscripción unificada proporciona acceso a la conversión de voz a texto, la conversión de texto a voz, la traducción de voz y el portal de Custom Voice. A continuación, mediante la suscripción al servicio de voz, cree su primer proyecto de Voz personalizada.
 
 2.  [Cargar datos](how-to-custom-voice-create-voice.md#upload-your-datasets): carga de datos (audio y texto) mediante el portal de Custom Voice o una API de voz personalizada. Desde el portal, puede investigar y evaluar las puntuaciones de pronunciación y las relaciones de señal a ruido. Para más información, consulte el artículo sobre la [preparación de datos para Custom Voice](how-to-custom-voice-prepare-data.md).
 
@@ -46,11 +46,11 @@ La funcionalidad de personalización de voz neuronal se encuentra actualmente en
 
 ## <a name="set-up-your-azure-account"></a>Configuración de la cuenta de Azure
 
-Para poder usar el portal de Custom Speech y crear un modelo personalizado, se necesita una suscripción de Servicios de voz. Siga estas instrucciones para crear una suscripción a Servicios de voz en Azure. Si no tiene una cuenta de Azure, puede registrarse para obtener una nueva.  
+Para poder usar el portal de Custom Speech y crear un modelo personalizado, se necesita una suscripción al servicio de voz. Siga estas instrucciones para crear una suscripción al servicio de voz en Azure. Si no tiene una cuenta de Azure, puede registrarse para obtener una nueva.  
 
-Después de crear una cuenta de Azure y la suscripción de Servicios de voz, deberá iniciar sesión en el portal de Custom Voice y conectarse a su suscripción.
+Después de crear una cuenta de Azure y la suscripción al servicio de voz, deberá iniciar sesión en el portal de Voz personalizada y conectarse a su suscripción.
 
-1. Obtenga la clave de la suscripción de Servicios de voz en Azure Portal.
+1. Obtenga la clave de la suscripción del servicio de voz en Azure Portal.
 2. Inicie sesión en el [portal de Custom Voice](https://aka.ms/custom-voice).
 3. Seleccione la suscripción y cree un proyecto de voz.
 4. Si desea cambiar a otra suscripción de voz, utilice el icono de engranaje situado en el panel de navegación superior.

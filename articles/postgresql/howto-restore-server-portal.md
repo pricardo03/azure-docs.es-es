@@ -1,17 +1,17 @@
 ---
-title: Restauración de un servidor en Azure Database for PostgreSQL con un único servidor
+title: 'Copia de seguridad y restauración en Azure Database for PostgreSQL: servidor único mediante Azure Portal'
 description: En este artículo se describe cómo restaurar un servidor en Azure Database for PostgreSQL con un único servidor mediante Azure Portal.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/25/2019
-ms.openlocfilehash: 22522a3f577e8d0533f7c8926de12bd464cc2d92
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: fb13e4f062976e39c3cec607001e6982db228873
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965777"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74765637"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Copia de seguridad y restauración de un servidor en Azure Database for PostgreSQL con un único servidor mediante Azure Portal
 

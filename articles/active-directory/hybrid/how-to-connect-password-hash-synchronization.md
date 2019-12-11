@@ -15,12 +15,12 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e77368c7c0c104e777595a16735a7cf1e797a48
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.openlocfilehash: 0c903e3378e06734a8785531c1a16c695d4b6c21
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74539023"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74814941"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implementación de la sincronización de hash de contraseñas con la sincronización de Azure AD Connect
 En este artículo se ofrece información que se necesita para sincronizar las contraseñas de usuario desde una instancia de Active Directory local con otra de Azure Active Directory (Azure AD) basado en la nube.
@@ -123,15 +123,12 @@ Es habitual exigir al usuario a cambiar la contraseña durante el primer inicio 
   
 La funcionalidad de contraseña temporal ayuda a garantizar que la transferencia de propiedad de la credencial se complete al usarse por primera vez, con el fin de minimizar la duración del tiempo en el que más de un usuario tiene conocimiento de esa credencial.
 
-Para admitir contraseñas temporales en Azure AD para usuarios sincronizados, puede habilitar la característica *ForcePasswordResetOnLogonFeature* mediante la ejecución del siguiente comando en el servidor de Azure AD Connect, reemplazando <AAD Connector Name> por el nombre del conector. específico para el entorno:
+Para admitir contraseñas temporales en Azure AD para usuarios sincronizados, puede habilitar la característica *ForcePasswordResetOnLogonFeature* mediante la ejecución del siguiente comando en el servidor de Azure AD Connect:
 
-`Set-ADSyncAADCompanyFeature -ConnectorName "<AAD Connector name>" -ForcePasswordResetOnLogonFeature $true`
+`Set-ADSyncAADCompanyFeature  -ForcePasswordResetOnLogonFeature $true`
 
-Puede usar el siguiente comando para determinar el nombre del conector:
-
-`(Get-ADSyncConnector | where{$_.ListName -eq "Windows Azure Active Directory (Microsoft)"}).Name`
-
-Advertencia:  Forzar a un usuario a cambiar su contraseña en el siguiente inicio de sesión requiere un cambio de contraseña al mismo tiempo.  AD Connect no recogerá la marca de forzar el cambio de contraseña por sí misma, sino que es complementaria al cambio de contraseña detectado que se produce durante la sincronización de hash de contraseñas.
+> [!NOTE]
+> Forzar a un usuario a cambiar su contraseña en el siguiente inicio de sesión requiere un cambio de contraseña al mismo tiempo.  AD Connect no recogerá la marca de forzar el cambio de contraseña por sí misma; es complementaria al cambio de contraseña detectado que se produce durante la sincronización de hash de contraseñas.
 
 > [!CAUTION]
 > Si no habilita el autoservicio de restablecimiento de contraseña (SSPR) en Azure AD, los usuarios tendrán una experiencia confusa cuando restablezcan su contraseña en Azure AD e intenten iniciar sesión en Active Directory con la nueva contraseña, ya que esta contraseña no es válida. Solo debe usar esta característica cuando SSPR y la escritura diferida de contraseñas está habilitada en el inquilino.

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: a1c6f2d869d8d7ad865005ebd319beac56bdbacd
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: aa32f671756b8ba7f17c25592b6a15b66de42b2c
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720084"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790027"
 ---
 # <a name="introduction-to-knowledge-stores-in-azure-cognitive-search"></a>Introducción a los almacenes de conocimiento de Azure Cognitive Search
 
@@ -61,7 +61,9 @@ Un `knowledgeStore` consta de una conexión y de proyecciones.
 
 + La conexión es a una cuenta de almacenamiento de la misma región que Azure Cognitive Search. 
 
-+ Las proyecciones son pares de tablas-objetos. `Tables` define la expresión física de los documentos enriquecidos en Azure Table Storage. `Objects` define los objetos físicos en Azure Blob Storage.
++ Las proyecciones pueden ser tabulares, objetos JSON o archivos. `Tables` define la expresión física de los documentos enriquecidos en Azure Table Storage. `Objects` define los objetos JSON físicos en Azure Blob Storage. `Files` son archivos binarios como imágenes que se han extraído del documento que se conservarán.
+
++ Las proyecciones son una colección de objetos de proyección. Cada objeto de proyección puede contener `tables`, `objects` y `files`. Los enriquecimientos proyectados dentro de una sola proyección están relacionados incluso cuando se proyectan entre tipos (tablas, objetos o archivos). Las proyecciones en los objetos de proyección no están relacionadas y son independientes. La misma forma se puede proyectar entre varios objetos de proyección.
 
 ```json
 {
@@ -109,7 +111,10 @@ Un `knowledgeStore` consta de una conexión y de proyecciones.
             ], 
             "objects": [ 
                
-            ]      
+            ], 
+            "files": [
+
+            ]  
         },
         { 
             "tables": [ 
@@ -121,13 +126,17 @@ Un `knowledgeStore` consta de una conexión y de proyecciones.
                 "source": "/document/Review", 
                 "key": "/document/Review/Id" 
                 } 
-            ]      
+            ],
+            "files": [
+                
+            ]  
         }        
     ]     
     } 
 }
 ```
 
+En este ejemplo no se incluyen imágenes. Para ver un ejemplo de cómo usar las proyecciones de archivos, consulte [Trabajar con proyecciones](knowledge-store-projection-overview.md).
 ### <a name="sources-of-data-for-a-knowledge-store"></a>Orígenes de datos para un almacén de conocimiento
 
 Si un almacén de conocimiento es la salida de una canalización de enriquecimiento con inteligencia artificial, ¿cuáles son las entradas? Los datos originales que desea extraer, enriquecer y guardar en última instancia en un almacén de conocimiento pueden originarse en cualquier origen de datos de Azure compatible con los indexadores de búsqueda: 

@@ -1,17 +1,17 @@
 ---
-title: Arquitectura de la conectividad en Azure Database for MariaDB
+title: 'Arquitectura de la conectividad: Azure Database for MariaDB'
 description: Describe la arquitectura de conectividad para el servidor de Azure Database for MariaDB.
 author: kummanish
 ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 05/23/2019
-ms.openlocfilehash: 5c24a89ca12c36a54a84c61c6343ce960da012c5
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 12/02/2019
+ms.openlocfilehash: 6e2e39381e1500f86bce55726dda0286385d1674
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498069"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74772899"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mariadb"></a>Arquitectura de la conectividad en Azure Database for MariaDB
 En este artículo se explica la arquitectura de la conectividad de Azure Database for MariaDB y cómo se dirige el tráfico a la instancia de Azure Database for MariaDB desde los clientes de dentro y de fuera de Azure.

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/01/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: cd3b7d6cc75afc5d83ff02a15b920d9f8b05f608
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e08860579ca3a18093375652e0243c994c66d75b
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66391389"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74796091"
 ---
 Cuando se crea una máquina virtual (VM) de Azure, es preciso crear una [red virtual](../articles/virtual-network/virtual-networks-overview.md) (VNet) o usar una red virtual existente. También es preciso decidir la forma en que pretende que se acceda a las máquinas virtuales en la red virtual. Es importante [planear antes de crear recursos](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) y asegurarse de que se conocen los [límites de los recursos de red](../articles/azure-subscription-service-limits.md#networking-limits).
 
@@ -31,8 +31,6 @@ Además de estos recursos básicos, también debe considerar estos recursos opci
 
 - Grupos de seguridad de red
 - Equilibradores de carga 
-
-[!INCLUDE [updated-for-az](./updated-for-az.md)]
 
 ## <a name="network-interfaces"></a>Interfaces de red
 
@@ -172,3 +170,4 @@ También hay tutoriales sobre cómo equilibrar la carga de las máquinas virtual
 - Aprenda a configurar [rutas definidas por el usuario y el reenvío IP](../articles/virtual-network/virtual-networks-udr-overview.md). 
 - Aprenda a configurar [conexión de red virtual a red virtual](../articles/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
 - Aprenda a [solucionar problemas de rutas](../articles/virtual-network/diagnose-network-routing-problem.md).
+- Más información sobre [Ancho de banda de la red de máquinas virtuales](../articles/virtual-network/virtual-machine-network-throughput.md).

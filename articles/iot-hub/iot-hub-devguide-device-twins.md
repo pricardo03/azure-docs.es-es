@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: 406f6f7a3db5f63fb50242a93f021c481631adaa
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 4b80004a3d818e66cc2fb61f3d611bbe3e3ded92
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74209715"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74807041"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Dispositivos gemelos en IoT Hub
 
@@ -191,7 +191,7 @@ Para trabajar en el back-end de la solución, el dispositivo gemelo usa las sigu
     deviceId | Id. del dispositivo |
     hubName | Nombre de IoT Hub |
     operationTimestamp | Marca de tiempo [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) de operación |
-    iothub-message-schema | deviceLifecycleNotification |
+    iothub-message-schema | twinChangeNotification |
     opType | "replaceTwin" o "updateTwin" |
 
     Las propiedades del sistema de mensajes tienen como prefijo el símbolo `$`.
@@ -285,7 +285,7 @@ Las etiquetas y las propiedades deseadas y notificadas son objetos JSON con las 
 
 ## <a name="device-twin-size"></a>Tamaño del dispositivo gemelo
 
-IoT Hub impone un límite de tamaño de 8 KB en cada uno de los valores totales respectivos `tags`, `properties/desired` y `properties/reported`, excepto los elementos de solo lectura.
+IoT Hub aplica un límite de tamaño de 8 KB en el valor de `tags` y un límite de tamaño de 32 KB cada uno en el valor de `properties/desired` y `properties/reported`. Estos totales son exclusivos de los elementos de solo lectura.
 
 El tamaño se calcula contando todos los caracteres, excepto los caracteres de control UNICODE (segmentos C0 y C1) y los espacios que se encuentran fuera de las constantes de cadena.
 

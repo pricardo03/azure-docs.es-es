@@ -1,7 +1,7 @@
 ---
 title: Secuencia de audio comprimido con códec mediante el SDK de Voz en Android
 titleSuffix: Azure Cognitive Services
-description: Obtenga información sobre cómo hacer secuencias de audio comprimido a Servicios de Voz de Azure con el SDK de voz en Android.
+description: Obtenga información sobre cómo hacer secuencias de audio comprimido al servicio de voz con el SDK de voz en Android.
 services: cognitive-services
 author: amitkumarshukla
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: amishu
-ms.openlocfilehash: 76a4b010dd54a9cc6224432adf615814520ef4fd
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 01135229167dde3784137ab1b06dfc931766a2e0
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74109905"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74805848"
 ---
 # <a name="how-to-use-codec-compressed-audio-input-with-the-speech-sdk-on-android"></a>Procedimientos para: Uso de entradas de audio comprimido con códec con el SDK de Voz en Android
 
-La API **Compressed Audio Input Stream** del SDK de voz le proporciona una forma de hacer streaming de audio comprimido Speech Services mediante PullStream o PushStream.
+La API **Compressed Audio Input Stream** del SDK de voz le proporciona una forma de hacer streaming de audio comprimido al servicio de voz mediante PullStream o PushStream.
 
 > [!IMPORTANT]
 > Solo se admite la secuencia de entrada de audio comprimido para [C++, C# y Java para Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9)](how-to-use-codec-compressed-audio-input-streams.md). También se admite para Java en Android y [Objective-C en la plataforma iOS](how-to-use-codec-compressed-audio-input-streams-ios.md).
@@ -133,7 +133,7 @@ Una vez que el objeto compartido (libgstreamer_android.so) esté integrado, el p
 
 ## <a name="example-code-using-codec-compressed-audio-input"></a>Ejemplo de código que usa una entrada de audio comprimido con códec
 
-Para hacer streaming de un formato de audio comprimido a Servicios de voz, cree `PullAudioInputStream` o `PushAudioInputStream`. A continuación, cree un objeto `AudioConfig` a partir de una instancia de la clase de secuencia, especificando el formato de compresión de la secuencia.
+Para hacer streaming en un formato de audio comprimido al servicio de voz, cree `PullAudioInputStream` o `PushAudioInputStream`. A continuación, cree un objeto `AudioConfig` a partir de una instancia de la clase de secuencia, especificando el formato de compresión de la secuencia.
 
 Supongamos que tiene una clase de flujo de entrada llamada `myPullStream` y que usa OPUS/OGG. El aspecto del código sería el siguiente:
 

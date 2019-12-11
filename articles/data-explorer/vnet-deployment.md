@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/31/2019
-ms.openlocfilehash: a7a9efbf6fd9c3dbe6b16d12a54f743d5b0820ba
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 28b9c55df8cd7883e05e964b8b67e08c7a3eb8c1
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838210"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74812728"
 ---
 # <a name="deploy-azure-data-explorer-into-your-virtual-network-preview"></a>Implementación de Azure Data Explorer en la red virtual (versión preliminar)
 
@@ -63,6 +63,9 @@ El número total de direcciones IP:
 
 [Los puntos de conexión de servicio de Azure](/azure/virtual-network/virtual-network-service-endpoints-overview) permiten proteger los recursos multiinquilino de Azure en la red virtual.
 La implementación del clúster de Azure Data Explorer en la subred permite configurar conexiones de datos con [Event Hub](/azure/event-hubs/event-hubs-about) o [Event Grid](/azure/event-grid/overview) mientras se restringen los recursos subyacentes de la subred de Azure Data Explorer.
+
+> [!NOTE]
+> Al usar la configuración de EventGrid con [Storage](/azure/storage/common/storage-introduction) y Event Hub, la cuenta de almacenamiento que se usa en la suscripción puede bloquearse con puntos de conexión de servicio a la subred de Azure Data Explorer, a la vez que permite los servicios de la plataforma de Azure de confianza en la [configuración de firewall](/azure/storage/common/storage-network-security). Sin embargo, Event Hub no puede habilitar el punto de conexión de servicio porque no admite [servicios de plataforma de Azure](/azure/event-hubs/event-hubs-service-endpoints) de confianza.
 
 ## <a name="dependencies-for-vnet-deployment"></a>Dependencias para la implementación de redes virtuales
 
@@ -233,7 +236,6 @@ azureprofilerfrontdoor.cloudapp.net:443
 *.core.windows.net:443
 *.servicebus.windows.net:443
 shoebox2.metrics.nsatc.net:443
-production.diagnostics.monitoring.core.windows.net:443
 prod-dsts.dsts.core.windows.net:443
 ocsp.msocsp.com:80
 *.windowsupdate.com:80

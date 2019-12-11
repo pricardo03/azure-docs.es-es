@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 05/20/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 30e2b880f32f896098778942deb67d7ced9f5c2d
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: ba3535679f37916a18aae5fe7dbe4e9114cea695
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74484222"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74664920"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métricas compatibles con Azure Monitor
 
@@ -1130,6 +1130,9 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |---|---|---|---|---|---|
 |ApplicationRuleHit|Recuento de llamadas de las reglas de aplicación|Count|Total|Número de veces que se llamó a las reglas de aplicación|Status, Reason, Protocol|
 |NetworkRuleHit|Número de llamadas de reglas de red|Count|Total|Número de veces que se llamó a las reglas de red|Status, Reason, Protocol|
+|DataProcessed|Datos procesados|Bytes|Total|Cantidad de datos que atraviesan el firewall|Sin dimensiones|
+|FirewallHealthState|Estado de mantenimiento del firewall|Percent|Media|Indica el estado del firewall|Status, Reason|
+|SNATPortUtilization|Uso de puertos SNAT|Percent|Media|El porcentaje de puertos SNAT que ha utilizado el firewall|Sin dimensiones|
 
 ## <a name="microsoftnetworkapplicationgateways"></a>Microsoft.Network/applicationGateways
 

@@ -1,25 +1,18 @@
 ---
-title: Control de mensajes grandes en Azure Logic Apps | Microsoft Docs
+title: Control de mensajes grandes
 description: Aprenda a controlar tamaños de mensaje grandes con la fragmentación de Azure Logic Apps.
 services: logic-apps
-documentationcenter: ''
+ms.suite: integration
 author: shae-hurst
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
-ms.service: logic-apps
-ms.workload: logic-apps
-ms.devlang: ''
-ms.tgt_pltfrm: ''
-ms.topic: article
-ms.date: 4/27/2018
 ms.author: shhurst
-ms.openlocfilehash: ed086c4c36711f92ba654a64856b43a5fdaadf5f
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.topic: article
+ms.date: 12/03/2019
+ms.openlocfilehash: 8c2e857808b0638fbba54cfe9a623ba3fd764119
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989919"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815093"
 ---
 # <a name="handle-large-messages-with-chunking-in-azure-logic-apps"></a>Control de mensajes grandes con la fragmentación de Azure Logic Apps
 
@@ -46,6 +39,9 @@ De lo contrario, al intentar acceder a una salida con contenido de gran tamaño,
 Los servicios que se comunican con Logic Apps pueden tener sus propios límites de tamaño de mensaje. Estos límites suelen ser menores que el límite de Logic Apps. Por ejemplo, suponiendo que admita la fragmentación, un conector podría considerar que un mensaje de 30 MB es grande, mientras que Logic Apps no. Para cumplir con el límite de este conector, Logic Apps divide los mensajes de más de 30 MB en fragmentos más pequeños.
 
 Para los conectores que admiten la fragmentación, el protocolo de fragmentación subyacente es invisible para los usuarios finales. Sin embargo, no todos los conectores admiten la fragmentación, por lo que estos conectores generan errores en tiempo de ejecución cuando los mensajes entrantes superan los límites de tamaño de los conectores.
+
+> [!NOTE]
+> En el caso de las acciones que usan fragmentación, no se puede pasar el cuerpo del desencadenador ni usar expresiones como `@triggerBody()?['Content']` en ellas. En su lugar, para el contenido del archivo JSON o de texto, puede intentar usar la [acción **Redactar**](../logic-apps/logic-apps-perform-data-operations.md#compose-action) o bien [crear una variable](../logic-apps/logic-apps-create-variables-store-values.md) para manipular ese contenido. Si el cuerpo del desencadenador contiene otros tipos de contenido, como archivos multimedia, debe realizar otros pasos para manipular dicho contenido.
 
 <a name="set-up-chunking"></a>
 
@@ -117,18 +113,18 @@ Estos pasos describen el proceso detallado que usa Logic Apps para cargar conten
 
 1. La aplicación lógica envía una solicitud HTTP POST o PUT inicial con un cuerpo de mensaje vacío. El encabezado de solicitud incluye esta información sobre el contenido que la aplicación lógica desea cargar en fragmentos:
 
-   | Campo de encabezado de solicitud de Logic Apps | Valor | type | DESCRIPCIÓN |
+   | Campo de encabezado de solicitud de Logic Apps | Valor | Tipo | DESCRIPCIÓN |
    |---------------------------------|-------|------|-------------|
-   | **x-ms-transfer-mode** | chunked | String | Indica que el contenido se carga en fragmentos |
-   | **x-ms-content-length** | <*content-length*> | Integer | El tamaño del contenido completo en bytes antes de la fragmentación |
+   | **x-ms-transfer-mode** | chunked | Cadena | Indica que el contenido se carga en fragmentos |
+   | **x-ms-content-length** | <*content-length*> | Entero | El tamaño del contenido completo en bytes antes de la fragmentación |
    ||||
 
 2. El punto de conexión responde con el código de estado correcto "200" y esta información opcional:
 
-   | Campo de encabezado de respuesta del punto de conexión | type | Obligatorio | DESCRIPCIÓN |
+   | Campo de encabezado de respuesta del punto de conexión | Tipo | Obligatorio | DESCRIPCIÓN |
    |--------------------------------|------|----------|-------------|
-   | **x-ms-chunk-size** | Integer | Sin | El tamaño de fragmento sugerido en bytes |
-   | **Location** | String | Sí | La ubicación de la dirección URL a la que enviar los mensajes HTTP PATCH |
+   | **x-ms-chunk-size** | Entero | Sin | El tamaño de fragmento sugerido en bytes |
+   | **Ubicación** | Cadena | Sí | La ubicación de la dirección URL a la que enviar los mensajes HTTP PATCH |
    ||||
 
 3. La aplicación lógica crea y envía mensajes HTTP PATCH de seguimiento, cada uno con esta información:
@@ -137,7 +133,7 @@ Estos pasos describen el proceso detallado que usa Logic Apps para cargar conten
 
    * Estos detalles de encabezado sobre el fragmento de contenido enviado en cada mensaje PATCH:
 
-     | Campo de encabezado de solicitud de Logic Apps | Valor | type | DESCRIPCIÓN |
+     | Campo de encabezado de solicitud de Logic Apps | Valor | Tipo | DESCRIPCIÓN |
      |---------------------------------|-------|------|-------------|
      | **Content-Range** | <*range*> | Cadena | El intervalo de bytes del fragmento de contenido actual, que incluye el valor inicial, el valor final y el tamaño total del contenido, por ejemplo: "bytes = 0-1023/10100" |
      | **Content-Type** | <*content-type*> | Cadena | El tipo de contenido fragmentado |
@@ -146,7 +142,7 @@ Estos pasos describen el proceso detallado que usa Logic Apps para cargar conten
 
 4. Después de cada solicitud PATCH, el punto de conexión responde con el código de estado "200" y los siguientes encabezados de respuesta para confirmar la recepción de cada fragmento:
 
-   | Campo de encabezado de respuesta del punto de conexión | type | Obligatorio | DESCRIPCIÓN |
+   | Campo de encabezado de respuesta del punto de conexión | Tipo | Obligatorio | DESCRIPCIÓN |
    |--------------------------------|------|----------|-------------|
    | **Range** | Cadena | Sí | Intervalo de bytes para el contenido recibido por el punto de conexión, por ejemplo: "bytes = 0-1023". |   
    | **x-ms-chunk-size** | Entero | Sin | El tamaño de fragmento sugerido en bytes |

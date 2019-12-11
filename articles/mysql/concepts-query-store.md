@@ -1,17 +1,17 @@
 ---
-title: Almacén de consultas en Azure Database for MySQL
+title: 'Almacén de consultas: Azure Database for MySQL'
 description: Más información sobre la característica Almacén de consultas de Azure Database for MySQL que le ayuda a realizar un seguimiento del rendimiento a lo largo del tiempo.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: c8891fc96e3e511e4127b4e114a45b5a865cf8eb
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.date: 12/02/2019
+ms.openlocfilehash: 4ac6e4c71b028b66ef50ac949c169a1e02a2c0e3
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73603020"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770854"
 ---
 # <a name="monitor-azure-database-for-mysql-performance-with-query-store"></a>Supervisión del rendimiento de Azure Database for MySQL con el Almacén de consultas
 

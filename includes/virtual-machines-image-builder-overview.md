@@ -1,16 +1,16 @@
 ---
 author: cynthn
 ms.author: cynthn
-ms.date: 04/30/2019
+ms.date: 11/25/2019
 ms.topic: include
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: 2bd40db51d82bd2278bd716615636968adf8277b
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 2a763bbd50f009ae469be889e6ebae0b0d90848b
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72391783"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74795778"
 ---
 Las imágenes estandarizadas de máquinas virtuales permiten a las organizaciones migrar a la nube y garantizar la coherencia de las implementaciones. Normalmente, las imágenes incluyen opciones de seguridad y de configuración predefinidas y el software necesario. La configuración de su propia canalización de creación de imágenes requiere tiempo, una infraestructura y el programa de instalación, pero con Image Builder de máquina virtual de Azure, basta con que proporcione una configuración sencilla que describa la imagen y la envíe al servicio para que se cree y se distribuya.
  
@@ -73,7 +73,7 @@ Azure Image Builder es un servicio de Azure totalmente administrado al que se ac
 
 1. Cree la plantilla de imagen como un archivo .json. Este archivo .json contiene información sobre el origen, las personalizaciones y la distribución de la imagen. Hay varios ejemplos en el [repositorio de GitHub de Azure Image Builder](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts).
 1. Al enviarla al servicio, se creará un artefacto de plantilla de imagen en el grupo de recursos que especifique. En segundo plano, Image Builder descargará la imagen de origen o ISO y los scripts, según sea necesario. Estos se almacenan en un grupo de recursos independiente que se crea automáticamente en la suscripción, en el formato siguiente: IT_\<DestinationResourceGroup>_\<TemplateName>. 
-1. Una vez creada la plantilla de imagen, podrá compilar la imagen. En segundo plano, Image Builder utiliza los archivos de origen y la plantilla para crear una máquina virtual (D1v2), una red, una dirección IP pública y un almacenamiento en el grupo de recursos IT_\<GrupoDeRecursosDeDestino>_\<NombreDePlantilla>.
+1. Una vez creada la plantilla de imagen, podrá compilar la imagen. En segundo plano, Image Builder usa la plantilla y los archivos de código fuente para crear una máquina virtual (tamaño predeterminado: Standard_D1_v2), red, dirección IP pública, NSG y almacenamiento en el grupo de recursos IT_\<DestinationResourceGroup>_\<NombreDePlantilla>.
 1. Como parte de la creación de la imagen, Image Builder distribuye la imagen según la plantilla y luego elimina los recursos adicionales en el grupo de recursos IT_\<DestinationResourceGroup > _\<TemplateName > que se ha creado para el proceso.
 
 

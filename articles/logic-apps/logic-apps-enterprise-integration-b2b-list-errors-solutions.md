@@ -1,20 +1,19 @@
 ---
-title: 'Errores y soluciones para escenarios de B2B: Azure Logic Apps | Microsoft Docs'
+title: Errores y soluciones para escenarios B2B
 description: Buscar errores y soluciones para escenarios B2B en Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/02/2017
-ms.openlocfilehash: f0591b47ce7ba6837f300088c856c0098fb66710
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 176bc3642f7c923b50cbf2f7a97096f88dc02817
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60998827"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790703"
 ---
 # <a name="b2b-errors-and-solutions-for-azure-logic-apps"></a>Errores y soluciones de B2B para Azure Logic Apps
 

@@ -2,18 +2,18 @@
 title: 'Uso del SDK de .NET para HBase: Azure HDInsight'
 description: Use el SDK de .NET para HBase para crear y eliminar tablas, así como para leer y escribir datos.
 author: ashishthaps
+ms.author: ashishth
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 12/13/2017
-ms.author: ashishth
-ms.openlocfilehash: d998ff44804a2dcd2b3282679a9cb53f893991e3
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.custom: hdinsightactive
+ms.date: 12/02/2019
+ms.openlocfilehash: eba7d7ad009b2ef0442a916983489489eb5cceb8
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71077164"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806667"
 ---
 # <a name="use-the-net-sdk-for-apache-hbase"></a>Uso del SDK de .NET para Apache HBase
 
@@ -58,7 +58,7 @@ if (!client.ListTablesAsync().Result.name.Contains("RestSDKTable"))
 }
 ```
 
-Esta nueva tabla tiene dos familias de columnas: t1 y t2. Dado que las familias de columnas se almacenan por separado en HFiles diferentes, resulta útil tener una familia de columnas independiente para los datos consultados con más frecuencia. En el siguiente ejemplo para [insertar datos](#insert-data), se agregan columnas a la familia de columnas t1.
+Esta nueva tabla tiene familias de dos columnas, t1 y t2. Dado que las familias de columnas se almacenan por separado en HFiles diferentes, resulta útil tener una familia de columnas independiente para los datos consultados con más frecuencia. En el siguiente ejemplo para [insertar datos](#insert-data), se agregan columnas a la familia de columnas t1.
 
 ## <a name="delete-a-table"></a>Eliminación de una tabla
 

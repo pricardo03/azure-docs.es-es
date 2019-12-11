@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/09/2019
 ms.author: mathoma
-ms.openlocfilehash: 10a3c2bf421c7182dca00dfcbf7c3f559141a745
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 7676077f0122cb731d2d5d2c7acf78acbd8aa1a7
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084073"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792195"
 ---
 # <a name="configure-a-sql-server-failover-cluster-instance-with-premium-file-share-on-azure-virtual-machines"></a>Configuración de una instancia de clúster de conmutación por error de SQL Server con un recurso compartido de archivos Premium en Azure Virtual Machines
 
@@ -45,9 +45,7 @@ También debe tener conocimientos generales de estas tecnologías:
 - [Grupos de recursos de Azure](../../../azure-resource-manager/manage-resource-groups-portal.md)
 
 > [!IMPORTANT]
-> Actualmente, las instancias del clúster de conmutación por error de SQL Server de las máquinas virtuales de Azure solo se admiten con el modo de administración [ligera](virtual-machines-windows-sql-register-with-resource-provider.md#register-with-sql-vm-resource-provider) de la [extensión del agente de IaaS de SQL Server](virtual-machines-windows-sql-server-agent-extension.md). Para cambiar del modo de extensión total a modo ligero, elimine el recurso **Máquina virtual SQL** de las máquinas virtuales correspondientes y regístrelas con el proveedor de recursos de VM con SQL en el modo [ligero](virtual-machines-windows-sql-register-with-resource-provider.md#register-with-sql-vm-resource-provider). Cuando elimine el recurso **Máquina virtual SQL** desde Azure Portal, desactive la casilla de la máquina virtual correcta.
->
-> La extensión completa admite características como la copia de seguridad automatizada, y la aplicación de revisiones y la administración avanzada del portal. Estas características no funcionarán para las VM con SQL Server después de que el agente se vuelva a instalar en modo de administración [ligera](virtual-machines-windows-sql-register-with-resource-provider.md#register-with-sql-vm-resource-provider).
+> Actualmente, las instancias del clúster de conmutación por error de SQL Server de las máquinas virtuales de Azure solo se admiten con el [modo de administración ligera](virtual-machines-windows-sql-register-with-resource-provider.md#management-modes) de la [extensión del agente de IaaS de SQL Server](virtual-machines-windows-sql-server-agent-extension.md). Para cambiar del modo de extensión total a extensión ligera, elimine el recurso **Máquina virtual SQL** de las máquinas virtuales correspondientes y regístrelas con el proveedor de recursos de VM con SQL en el modo ligero. Al eliminar el recurso **Máquina virtual SQL** desde Azure Portal, **desactive la casilla de la máquina virtual correcta**. La extensión completa admite características como la copia de seguridad automatizada, y la aplicación de revisiones y la administración avanzada del portal. Estas características no funcionarán para las máquinas virtuales de SQL si se vuelve a instalar el agente en modo de administración lightweight.
 
 Los recursos compartidos de archivos Premium proporcionan IOPS y capacidades de rendimiento para responder a las necesidades de múltiples cargas de trabajo. Para cargas de trabajo con un uso intensivo de E/S, considere la [instancia de clúster de conmutación por error de SQL Server con Espacios de almacenamiento directo](virtual-machines-windows-portal-sql-create-failover-cluster.md) basada en discos o ultradiscos Premium administrados.  
 

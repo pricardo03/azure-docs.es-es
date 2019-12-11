@@ -1,7 +1,7 @@
 ---
-title: 'Preparación de los datos para la voz personalizada: servicio de Voz'
+title: 'Preparación de los datos para Voz personalizada: servicio de voz'
 titleSuffix: Azure Cognitive Services
-description: Cree una voz personalizada para su marca con el servicio de Voz. Proporcione grabaciones en estudio y los scripts asociados y el servicio generará un modelo de voz único adaptado a la voz grabada. Use esta voz para realizar la síntesis de voz en sus productos, herramientas y aplicaciones.
+description: Cree una voz personalizada para su marca con los servicio de voz. Proporcione grabaciones en estudio y los scripts asociados y el servicio generará un modelo de voz único adaptado a la voz grabada. Use esta voz para realizar la síntesis de voz en sus productos, herramientas y aplicaciones.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: a954118cd0697213674bb9981f0d94100488fb38
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5427e9f996fb77d455aa8064fc7cb1c65e1fcf7e
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73464508"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74805984"
 ---
 # <a name="prepare-data-to-create-a-custom-voice"></a>Preparación de los datos para crear una voz personalizada
 
-Cuando esté listo para crear un modelo personalizado de texto a voz para su aplicación, el primer paso es reunir las grabaciones de audio y los scripts asociados para empezar a entrenar el modelo de voz. El servicio usa estos datos para crear una voz única optimizada para que coincida con la voz de las grabaciones. Cuando haya entrenado la voz, puede comenzar a sintetizarla en sus aplicaciones.
+Cuando esté listo para crear un modelo personalizado de texto a voz para su aplicación, el primer paso es reunir las grabaciones de audio y los scripts asociados para empezar a entrenar el modelo de voz. El servicio de voz usan estos datos para crear una voz única optimizada para que coincida con la de las grabaciones. Cuando haya entrenado la voz, puede comenzar a sintetizarla en sus aplicaciones.
 
 Puede comenzar con una pequeña cantidad de datos para crear una prueba de concepto. Sin embargo, cuantos más datos proporcione, más natural sonará su voz personalizada. Antes de entrenar su propio modelo de texto a voz, necesitará las grabaciones de audio y las transcripciones de texto asociadas. En esta página, revisaremos los tipos de datos, cómo se usan y cómo administrar cada uno.
 

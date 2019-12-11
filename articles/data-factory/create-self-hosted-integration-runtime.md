@@ -11,12 +11,12 @@ ms.date: 06/18/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 4662e5047e981c74d2422830bc5b152dae738337
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.openlocfilehash: f4eb275d8e1303ba68a23ac4ea0135c81c6a452a
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74559311"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672290"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Creación y configuración de un entorno de ejecución de integración autohospedado
 
@@ -105,6 +105,7 @@ A continuación se incluyen algunos detalles de las propiedades y los parámetro
 | Propiedad                                                    | DESCRIPCIÓN                                                  | Obligatorio |
 | ----------------------------------------------------------- | ------------------------------------------------------------ | -------- |
 | **RegisterNewNode** "`<AuthenticationKey>`"                     | Permite registrar un nodo de entorno de ejecución de integración autohospedado con la clave de autenticación especificada. | Sin       |
+| **RegisterNewNode** "`<AuthenticationKey>`" "`<NodeName>`"      | Registre un nodo del entorno de ejecución de integración autohospedado con la clave de autenticación y el nombre de nodo especificados. | Sin       |
 | **EnableRemoteAccess** "`<port>`" ["`<thumbprint>`"]            | Permite habilitar el acceso remoto al nodo actual para configurar un clúster de alta disponibilidad. También permite la configuración de credenciales directamente en el IR autohospedado sin necesidad de acceder a través de Azure Data Factory. Para ello, use el cmdlet **New-AzDataFactoryV2LinkedServiceEncryptedCredential** desde una máquina remota en la misma red. | Sin       |
 | **EnableRemoteAccessInContainer** "`<port>`" ["`<thumbprint>`"] | Permite habilitar el acceso remoto al nodo actual cuando el nodo se ejecuta en un contenedor. | Sin       |
 | **DisableRemoteAccess**                                         | Permite deshabilitar el acceso remoto al nodo actual. Es necesario obtener acceso remoto para realizar la configuración de varios nodos. El cmdlet de PowerShell **New-AzDataFactoryV2LinkedServiceEncryptedCredential** funcionará incluso cuando el acceso remoto esté deshabilitado. Este comportamiento se produce siempre y cuando el cmdlet se ejecute en la misma máquina que el nodo de IR autohospedado. | Sin       |
@@ -119,7 +120,7 @@ A continuación se incluyen algunos detalles de las propiedades y los parámetro
 | **TurnOnAutoUpdate**                                            | Permite activar la actualización automática del entorno de ejecución de integración autohospedado.        | Sin       |
 | **TurnOffAutoUpdate**                                           | Permite desactivar la actualización automática del entorno de ejecución de integración autohospedado.       | Sin       |
 | **SwitchServiceAccount** "`<domain\user>`" ["`<password>`"]           | Permite configurar DIAHostService para que se ejecute como una cuenta nueva. Use la contraseña vacía "" para cuentas del sistema o cuentas virtuales. | Sin       |
-| **Loglevel** `<logLevel>`                                       | Permite configurar el nivel de registro del Seguimiento de eventos para Windows (ETW) en **Desactivado**, **Error**, **Detallado** o **Todo**. Esta propiedad la usan principalmente los ingenieros del Soporte técnico de Microsoft al depurar la instalación. | Sin       |
+
 
 ## <a name="command-flow-and-data-flow"></a>Flujo de comandos y flujo de datos
 

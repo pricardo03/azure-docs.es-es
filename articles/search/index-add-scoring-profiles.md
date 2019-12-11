@@ -7,7 +7,7 @@ author: Brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 11/28/2019
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 60442ab101423d0a91fa35a7a12a0b930417af71
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 516637b812afece1966006ce6d894dd1e32e6293
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113606"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74666314"
 ---
 # <a name="add-scoring-profiles-to-an-azure-cognitive-search-index"></a>Incorporación de perfiles de puntuación a un índice de Azure Cognitive Search
 
@@ -37,7 +37,7 @@ ms.locfileid: "74113606"
  Para darle una idea del aspecto de un perfil de puntuación, el ejemplo siguiente muestra un perfil simple denominado «geográfico». Este perfil impulsa los elementos que tengan el término de búsqueda en el campo **hotelName**. También usa la función `distance` para dar prioridad a elementos que están a menos de diez kilómetros de la ubicación actual. Si alguien busca el término "inn" y este término forma parte del nombre del hotel, los documentos que incluyan hoteles con "inn" en un radio de 10 km de la ubicación actual aparecerán primero en los resultados de búsqueda.  
 
 
-```  
+```json
 "scoringProfiles": [
   {  
     "name":"geo",
@@ -92,7 +92,7 @@ La puntuación de búsqueda se calcula en función de las propiedades estadísti
 
  En este ejemplo se muestra el esquema de un índice con dos perfiles de puntuación (`boostGenre`, `newAndHighlyRated`). Las consultas sobre este índice que incluyen cualquiera de los perfiles como parámetro de consulta usará el perfil para puntuar el conjunto de resultados.  
 
-```  
+```json
 {  
   "name": "musicstoreindex",  
   "fields": [  
@@ -234,14 +234,14 @@ La puntuación de búsqueda se calcula en función de las propiedades estadísti
 
 |Atributo|DESCRIPCIÓN|  
 |---------------|-----------------|  
-|`Name`|Necesario. Este es el nombre del perfil de puntuación. Sigue las mismas convenciones de nomenclatura de un campo. Debe comenzar por una letra, no puede contener puntos, dos puntos o símbolos @ y no puede comenzar con la frase "azureSearch" (distingue mayúsculas de minúsculas).|  
-|`Text`|Contiene la propiedad Weights.|  
-|`Weights`|Opcional. Par de nombre-valor que especifica un nombre de campo y un peso relativo. El peso relativo debe ser un número entero positivo o un número de punto flotante. El valor máximo es int32.MaxValue.<br /><br /> Puede especificar el nombre del campo sin un peso correspondiente. Weights se usa para indicar la importancia de un campo en relación con otro.|  
-|`Functions`|Opcional. Una función de puntuación solo puede aplicarse a campos filtrables.|  
-|`Type`|Obligatorio para las funciones de puntuación. Indica el tipo de función que se usará. Entre los valores válidos se incluyen magnitud, índice de actualización, distancia y etiqueta. Puede incluir más de una función en cada perfil de puntuación. El nombre de la función debe estar en minúsculas.|  
-|`Boost`|Obligatorio para las funciones de puntuación. Número positivo usado como multiplicador para el resultado sin formato. No puede ser igual a 1.|  
-|`Fieldname`|Obligatorio para las funciones de puntuación. Una función de puntuación solo puede aplicarse a los campos que forman parte de la colección de campos del índice y que son filtrables. Además, cada tipo de función introduce restricciones adicionales (índice de actualización se usa con campos de fecha y hora, magnitud con número entero o campos dobles y distancia con campos de ubicación). Solo puede especificar un campo único por cada definición de función. Por ejemplo, para usar magnitud dos veces en el mismo perfil, necesitaría incluir dos magnitudes de definiciones, una para cada campo.|  
-|`Interpolation`|Obligatorio para las funciones de puntuación. Define la pendiente con la que la potenciación de la puntuación aumenta desde el inicio del rango hasta su final. Entre los valores válidos se incluyen Lineal (valor predeterminado), Constante, Cuadrática y Logarítmico. Consulte [Establecer interpolaciones](#bkmk_interpolation) para más información.|  
+|`name`|Necesario. Este es el nombre del perfil de puntuación. Sigue las mismas convenciones de nomenclatura de un campo. Debe comenzar por una letra, no puede contener puntos, dos puntos o símbolos @ y no puede comenzar con "azureSearch" (distingue mayúsculas de minúsculas).|  
+|`text`|Contiene la propiedad weights.|  
+|`weights`|Opcional. Contiene los pares nombre-valor y cada uno de ellos especifica un nombre de campo y una ponderación relativa. El peso relativo debe ser un número entero positivo o un número de punto flotante.<br /><br /> Las ponderaciones se usa para indicar la importancia de un campo en que se pueden realizar búsquedas en relación con otro.|  
+|`functions`|Opcional. Una función de puntuación solo puede aplicarse a campos filtrables.|  
+|`type`|Obligatorio para las funciones de puntuación. Indica el tipo de función que se usará. Entre los valores válidos se incluyen magnitud, índice de actualización, distancia y etiqueta. Puede incluir más de una función en cada perfil de puntuación. El nombre de la función debe estar en minúsculas.|  
+|`boost`|Obligatorio para las funciones de puntuación. Número positivo usado como multiplicador para el resultado sin formato. No puede ser igual a 1.|  
+|`fieldname`|Obligatorio para las funciones de puntuación. Una función de puntuación solo puede aplicarse a los campos que forman parte de la colección de campos del índice y que son filtrables. Además, cada tipo de función introduce restricciones adicionales (índice de actualización se usa con campos de fecha y hora, magnitud con número entero o campos dobles y distancia con campos de ubicación). Solo puede especificar un campo único por cada definición de función. Por ejemplo, para usar magnitud dos veces en el mismo perfil, necesitaría incluir dos magnitudes de definiciones, una para cada campo.|  
+|`interpolation`|Obligatorio para las funciones de puntuación. Define la pendiente con la que la potenciación de la puntuación aumenta desde el inicio del rango hasta su final. Entre los valores válidos se incluyen Lineal (valor predeterminado), Constante, Cuadrática y Logarítmico. Consulte [Establecer interpolaciones](#bkmk_interpolation) para más información.|  
 |`magnitude`|La función de puntuación de la magnitud se usa para modificar las clasificaciones según el intervalo de valores de un campo numérico. Algunos de los ejemplos de uso más habituales sobre esto son:<br /><br /> -   **Clasificación por estrellas:** modifique la puntuación en función del valor del campo "Clasificación por estrellas". Cuando dos elementos son pertinentes, en primer lugar se mostrará el elemento con la clasificación superior.<br />-   **Margen:** cuando dos documentos son pertinentes, es posible que un distribuidor impulse los documentos que tengan mayores márgenes a las primeras posiciones.<br />-   **Recuentos de clics:** en las aplicaciones que hacen un seguimiento de los clics en productos o páginas, puede usar la magnitud para impulsar los elementos que tienden a atraer el máximo de tráfico.<br />-   **Recuentos de descargas:** en las aplicaciones que hacen el seguimiento de las descargas, la función magnitud le permite impulsar los elementos que tienen más descargas.|  
 |`magnitude` &#124; `boostingRangeStart`|Establece el valor inicial del intervalo en el que se puntúa la magnitud. El valor debe ser un número entero o un número de punto flotante. En cuanto a las clasificaciones por estrellas de 1 a 4, esto equivaldría a 1. Para los márgenes superiores al 50%, esto equivaldría a 50.|  
 |`magnitude` &#124; `boostingRangeEnd`|Establece el valor final del intervalo en el que se puntúa la magnitud. El valor debe ser un número entero o un número de punto flotante. En cuanto a las clasificaciones por estrellas de 1 a 4, esto equivaldría a 4.|  
@@ -261,10 +261,10 @@ La puntuación de búsqueda se calcula en función de las propiedades estadísti
 
 |||  
 |-|-|  
-|`Linear`|En los elementos que están dentro del intervalo máximo y mínimo, el impulso aplicado al elemento se realizará en un grado que va decreciendo de manera constante. Lineal es la interpolación predeterminada de un perfil de puntuación.|  
-|`Constant`|En los elementos que se encuentran dentro del intervalo de inicio y finalización, se aplicará un impulso constante a los resultados de la clasificación.|  
-|`Quadratic`|En comparación con una interpolación lineal que tiene un impulso en reducción constante, Cuadrática provoca inicialmente una reducción a un ritmo inferior y, a continuación, a medida que se aproxima el final del intervalo, se reduce a un intervalo muy superior. Esta opción de interpolación no se permite en funciones de puntuación de etiquetas.|  
-|`Logarithmic`|En comparación con una interpolación lineal que tiene un impulso en reducción constante, Logarítmica provoca inicialmente una reducción a un ritmo superior y, a continuación, a medida que se aproxima el final del intervalo, se reduce a un intervalo muy inferior. Esta opción de interpolación no se permite en funciones de puntuación de etiquetas.|  
+|`linear`|En los elementos que están dentro del intervalo máximo y mínimo, el impulso aplicado al elemento se realizará en un grado que va decreciendo de manera constante. Lineal es la interpolación predeterminada de un perfil de puntuación.|  
+|`constant`|En los elementos que se encuentran dentro del intervalo de inicio y finalización, se aplicará un impulso constante a los resultados de la clasificación.|  
+|`quadratic`|En comparación con una interpolación lineal que tiene un impulso en reducción constante, Cuadrática provoca inicialmente una reducción a un ritmo inferior y, a continuación, a medida que se aproxima el final del intervalo, se reduce a un intervalo muy superior. Esta opción de interpolación no se permite en funciones de puntuación de etiquetas.|  
+|`logarithmic`|En comparación con una interpolación lineal que tiene un impulso en reducción constante, Logarítmica provoca inicialmente una reducción a un ritmo superior y, a continuación, a medida que se aproxima el final del intervalo, se reduce a un intervalo muy inferior. Esta opción de interpolación no se permite en funciones de puntuación de etiquetas.|  
 
  ![Líneas de constante, lineal, cuadrática y log10 en el gráfico](media/scoring-profiles/azuresearch_scorefunctioninterpolationgrapht.png "AzureSearch_ScoreFunctionInterpolationGrapht")  
 

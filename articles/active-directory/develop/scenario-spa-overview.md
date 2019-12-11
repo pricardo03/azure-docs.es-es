@@ -1,6 +1,6 @@
 ---
 title: 'Introducción al escenario de aplicación de página única de JavaScript: Plataforma de identidad de Microsoft'
-description: Obtenga información sobre cómo compilar una aplicación de página única (introducción al escenario) que integra la Plataforma de identidad de Microsoft.
+description: Aprenda a compilar una aplicación de página única (información general del escenario) mediante la plataforma de identidad de Microsoft.
 services: active-directory
 documentationcenter: dev-center-name
 author: navyasric
@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c3c4e671473ff6c6fecdc13fe61dbde1d3fb3809
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 77f59e8c628d7ba37aaf258541664e40e1d4a2dc
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68852512"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74764685"
 ---
 # <a name="scenario-single-page-application"></a>Escenario: Aplicación de una sola página
 
@@ -39,19 +39,21 @@ Puede crear su primera aplicación siguiendo la guía de inicio rápido de SPA d
 
 ## <a name="overview"></a>Información general
 
-Muchas aplicaciones web modernas se crean como aplicaciones cliente de una sola página, escritas con JavaScript o un marco de SPA, como Angular, Vue.js y React.js. Estas aplicaciones se ejecutan en un explorador web y tienen características de autenticación diferentes que las aplicaciones web de servidor tradicionales. La Plataforma de identidad de Microsoft permite que las aplicaciones de página única inicien la sesión de los usuarios y obtengan tokens para acceder a los servicios de back-end o a las API web mediante el [flujo implícito de OAuth 2.0](./v2-oauth2-implicit-grant-flow.md). El flujo implícito permite a la aplicación obtener los tokens de identificador para representar al usuario autenticado y también acceder a los tokens que se necesitan para llamar a las API protegidas.
+Muchas aplicaciones web modernas se compilan como aplicaciones de página única del lado cliente. Los desarrolladores las escriben mediante JavaScript o un marco SPA, como Angular, Vue.js y React.js. Estas aplicaciones se ejecutan en un explorador web y tienen características de autenticación diferentes a las de las aplicaciones web del lado servidor tradicionales. 
+
+La plataforma de identidad de Microsoft permite que las aplicaciones de página única inicien la sesión de los usuarios y obtengan tokens para acceder a los servicios de back-end o a las API web mediante el [flujo implícito de OAuth 2.0](./v2-oauth2-implicit-grant-flow.md). El flujo implícito permite a la aplicación obtener los tokens de identificador para representar al usuario autenticado y también acceder a los tokens que se necesitan para llamar a las API protegidas.
 
 ![Aplicación de página única](./media/scenarios/spa-app.svg)
 
-Este flujo de autenticación no incluye escenarios de aplicaciones con marcos de JavaScript de desarrollo multiplataforma, como Electron, React Native, etc., ya que requieren más funcionalidades para la interacción con las plataformas nativas.
+Este flujo de autenticación no incluye escenarios de aplicaciones que usan marcos de JavaScript multiplataforma, como Electron y React Native, ya que requieren más funcionalidades para la interacción con las plataformas nativas.
 
 ## <a name="specifics"></a>Características específicas
 
-Para habilitar este escenario para la aplicación, son necesarios los siguientes aspectos:
+Para habilitar este escenario en la aplicación, necesita lo siguiente:
 
-* El registro de la aplicación en Azure AD implica habilitar el flujo implícito y establecer un URI de redireccionamiento al que se devuelven los tokens.
-* La configuración de la aplicación con las propiedades de la aplicación registrada, como el identificador de aplicación.
-* El uso de la biblioteca MSAL para seguir el flujo de autenticación para iniciar sesión y adquirir tokens.
+* Registro de aplicaciones con Azure Active Directory (Azure AD). Este registro implica habilitar el flujo implícito y establecer un URI de redirección al que se devuelven los tokens.
+* La configuración de la aplicación con las propiedades de aplicación registradas, como el identificador de aplicación.
+* Uso de la biblioteca de autenticación de Microsoft (MSAL) para realizar el flujo de autenticación a fin de iniciar sesión y adquirir tokens.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

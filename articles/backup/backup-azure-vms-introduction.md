@@ -3,12 +3,12 @@ title: Acerca de la copia de seguridad de máquina virtual de Azure
 description: En este artículo, aprenderá cómo el servicio Azure Backup realiza copias de seguridad de las máquinas virtuales de Azure y cómo seguir los procedimientos recomendados.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: f1c89b9ac7aeb51f43ef84267b20f83b408fd56c
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 4bd42acbf682b51e17f60702e5695cfb29db812b
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172484"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806446"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Información general sobre la copia de seguridad de máquinas virtuales de Azure
 
@@ -79,7 +79,7 @@ En la siguiente tabla se explica los diferentes tipos de coherencia de instantá
 --- | --- | --- | ---
 **Coherente con la aplicación** | Las copias de seguridad coherentes con las aplicaciones capturan el contenido de la memoria y las operaciones de E/S pendientes. Las instantáneas coherentes con la aplicación usan el escritor VSS (o scripts anteriores o posteriores para Linux) para garantizar la coherencia de datos de la aplicación antes de que se produzca una copia de seguridad. | Cuando se va a recuperar una VM con una instantánea coherente con la aplicación, la VM se inicia. No se pierden ni se dañan los datos. Las aplicaciones se inician en un estado coherente. | Windows: Todas las instancias de VSS Writer son correctas<br/><br/> Linux: Los scripts anteriores o posteriores están configurados y son correctos
 **Coherencia con el sistema de archivos** | Las copias de seguridad coherentes con el sistema de archivos proporcionan coherencia al hacer una instantánea de todos los archivos al mismo tiempo.<br/><br/> | Cuando se va a recuperar una VM con una instantánea coherente con el sistema de archivos, la VM se inicia. No se pierden ni se dañan los datos. Las aplicaciones deben implementar su propio mecanismo de corrección para asegurarse de que los datos restaurados son coherentes. | Windows: Se produjeron errores en algunas instancias de VSS Writer <br/><br/> Linux: Valor predeterminado (si los scripts anteriores y posteriores no están configurados o tienen errores)
-**Coherente frente a bloqueos** | Las instantáneas coherentes con bloqueos suelen producirse si una VM de Azure se apaga en el momento en que se hace la copia de seguridad. Solamente se capturan y se hace una copia de seguridad de los datos que ya existen en el disco en el momento de la copia de seguridad.<br/><br/> Un punto de recuperación coherente con el bloqueo no garantiza la coherencia de datos para el sistema operativo o la aplicación. | Aunque no hay ninguna garantía, la VM suele arrancar y luego iniciar una comprobación de disco para corregir los errores por daños. Los datos en memoria o las operaciones de escritura que no se han transferido al disco antes del bloqueo se pierden. Las aplicaciones implementan su propia comprobación de los datos. Por ejemplo, una aplicación de base de datos puede usar su registro de transacciones para la comprobación. Si el registro de transacciones tiene entradas que no están presentes en la base de datos, el software de base de datos realiza una reversión de las transacciones hasta que los datos sean coherentes. | La VM está en estado de cierre
+**Coherente frente a bloqueos** | Las instantáneas coherentes con bloqueos suelen producirse si una VM de Azure se apaga en el momento en que se hace la copia de seguridad. Solamente se capturan y se hace una copia de seguridad de los datos que ya existen en el disco en el momento de la copia de seguridad. | Comienza con el proceso de arranque de la máquina virtual seguido de una comprobación de disco para corregir los posibles daños. Los datos en memoria o las operaciones de escritura que no se han transferido al disco antes del bloqueo se pierden. Las aplicaciones implementan su propia comprobación de los datos. Por ejemplo, una aplicación de base de datos puede usar su registro de transacciones para la comprobación. Si el registro de transacciones tiene entradas que no están presentes en la base de datos, el software de base de datos realiza una reversión de las transacciones hasta que los datos sean coherentes. | La máquina virtual se encuentra en un estado apagado (desasignado o detenido).
 
 ## <a name="backup-and-restore-considerations"></a>Consideraciones sobre las operaciones de copia de seguridad y restauración
 
@@ -134,16 +134,6 @@ Disco de datos 1 | 4095 GB | 30 GB
 Disco de datos 2 | 4095 GB | 0 GB
 
 El tamaño real de la máquina virtual en este caso es de 17 GB + 30 GB + 0 GB = 47 GB. Este tamaño de instancias protegidas (47 GB) se convierte en la base de la factura mensual. A medida que crece la cantidad de datos en la VM, el tamaño de instancia protegida usado para la facturación también cambia para que coincida.
-
-<a name="limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb"></a>
-
-## <a name="public-preview-backup-of-vm-with-disk-sizes-up-to-30-tb"></a>Versión preliminar pública: Copia de seguridad de máquinas virtuales con tamaños de disco de hasta 30 TB
-
-Azure Backup admite ya una versión preliminar pública de instancias de [Azure Managed Disks](https://azure.microsoft.com/blog/larger-more-powerful-managed-disks-for-azure-virtual-machines/) más grandes y potentes de hasta 30 TB de tamaño. Esta versión preliminar proporciona compatibilidad en el nivel de producción con las máquinas virtuales administradas.
-
-Las copias de seguridad de las máquinas virtuales con un tamaño de disco de hasta 30 TB y un máximo de 256 TB combinado para todos los discos de una máquina virtual deben funcionar fluidamente sin afectar a las copias de seguridad existentes. No se requiere ninguna acción del usuario para ejecutar las copias de seguridad de los discos de gran tamaño si la máquina virtual ya está configurada con Azure Backup.
-
-Las copias de seguridad de todas las instancias de Máquinas virtuales de Azure con discos grandes que tengan una copia de seguridad configurada se deben realizar correctamente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

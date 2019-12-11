@@ -1,7 +1,7 @@
 ---
-title: Migrar de Translator Speech API al servicio Voz
+title: Migración de Translator Speech API al servicio de voz
 titleSuffix: Azure Cognitive Services
-description: Obtenga información sobre cómo migrar sus aplicaciones de Translator Speech API al servicio Voz.
+description: Obtenga información sobre cómo migrar las aplicaciones de Translator Speech API al servicio de voz.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,61 +10,61 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: aahi
-ms.openlocfilehash: 841fa89f2e893052473bb1e2b7e634f1216ab505
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: ba9484bd5b04e5a79da53a0bb78877153be42a43
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73464599"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74805916"
 ---
-# <a name="migrate-from-the-translator-speech-api-to-the-speech-service"></a>Migrar de Translator Speech API al servicio Voz
+# <a name="migrate-from-the-translator-speech-api-to-the-speech-service"></a>Migración de Translator Speech API al servicio de voz
 
-Use este artículo para obtener información sobre cómo migrar sus aplicaciones de Translator Speech API de Microsoft al [servicio Voz](index.md). Esta guía describe las diferencias entre Translator Speech API y el servicio Voz, y sugiere estrategias para migrar sus aplicaciones.
+Use este artículo para migrar las aplicaciones de Microsoft Translator Speech API al [servicio de voz](index.md). Esta guía describe las diferencias entre Translator Speech API y el servicio de voz, y sugiere estrategias para migrar las aplicaciones.
 
 > [!NOTE]
-> El servicio Voz aceptará su clave de suscripción de Translator Speech API. Deberá crear una suscripción de servicios de Voz.
+> El servicio de voz no aceptará su clave de suscripción de Translator Speech API. Deberá crear una nueva suscripción al servicio de voz.
 
 ## <a name="comparison-of-features"></a>Comparación de características
 
-| Característica                                           | Translator Speech API                                  | Speech Services | Detalles                                                                                                                                                                                                                                                                            |
+| Característica                                           | Translator Speech API                                  | Servicio de voz | Detalles                                                                                                                                                                                                                                                                            |
 |---------------------------------------------------|-----------------------------------------------------------------|------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Traducción a texto                               | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | Traducción a voz                             | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
-| Punto de conexión global                                   | :heavy_check_mark:                                              | :heavy_minus_sign:                 | Los servicios de Voz no ofrecen un punto de conexión global. Un punto de conexión global puede dirigir automáticamente el tráfico al punto de conexión regional más cercano, reduciendo la latencia en la aplicación.                                                    |
+| Punto de conexión global                                   | :heavy_check_mark:                                              | :heavy_minus_sign:                 | El servicio de voz no ofrece un punto de conexión global. Un punto de conexión global puede dirigir automáticamente el tráfico al punto de conexión regional más cercano, reduciendo la latencia en la aplicación.                                                    |
 | Puntos de conexión regionales                                | :heavy_minus_sign:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | Límite de tiempo de conexión                             | 90 minutos                                               | Ilimitado con SDK. 10 minutos con una conexión WebSockets                                                                                                                                                                                                                                                                                   |
 | Clave de autenticación de encabezado                                | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | Varios idiomas que se traducen en una sola solicitud | :heavy_minus_sign:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
-| SDK disponibles                                    | :heavy_minus_sign:                                              | :heavy_check_mark:                 | Para ver los SDK disponibles, consulte la [documentación de servicio de Voz](index.md).                                                                                                                                                    |
-| Conexiones de WebSockets                             | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
-| API Languages                                     | :heavy_check_mark:                                              | :heavy_minus_sign:                 | Los servicios de Voz son compatibles con el mismo conjunto de idiomas que se describe en el artículo de [referencia de idiomas de API Translator](../translator-speech/languages-reference.md). |
+| SDK disponibles                                    | :heavy_minus_sign:                                              | :heavy_check_mark:                 | Vea la [Documentación del servicio de voz](index.md) para obtener información de los SDK disponibles.                                                                                                                                                    |
+| Conexiones de WebSockets                            | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
+| API Languages                                     | :heavy_check_mark:                                              | :heavy_minus_sign:                 | El servicio de voz admite el mismo conjunto de idiomas que se describe en el artículo de [referencia de idiomas de las API Translator](../translator-speech/languages-reference.md). |
 | Marcador y filtro de obscenidad                       | :heavy_minus_sign:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | .WAV/PCM como entrada                                 | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | Otros tipos de archivo como entrada                         | :heavy_minus_sign:                                              | :heavy_minus_sign:                 |                                                                                                                                                                                                                                                                                    |
 | Resultados parciales                                   | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | Información de control de tiempo                                       | :heavy_check_mark:                                              | :heavy_minus_sign:                 |                                                                                                                                                                 |
 | Id. de correlación                                    | :heavy_check_mark:                                              | :heavy_minus_sign:                 |                                                                                                                                                                                                                                                                                    |
-| Modelos de voz personalizados                              | :heavy_minus_sign:                                              | :heavy_check_mark:                 | Los servicios de Voz ofrecen modelos de voz personalizados que le permiten personalizar el reconocimiento de voz con el vocabulario único de su organización.                                                                                                                                           |
+| Modelos de voz personalizados                              | :heavy_minus_sign:                                              | :heavy_check_mark:                 | El servicio de voz ofrece modelos de voz personalizados que le permiten personalizar el reconocimiento de voz con el vocabulario único de su organización.                                                                                                                                           |
 | Modelos de traducción personalizados                         | :heavy_minus_sign:                                              | :heavy_check_mark:                 | Si se suscribe a Microsoft Translator Text API, podrá utilizar [Traductor personalizado](https://www.microsoft.com/translator/business/customization/), lo que le permitirá emplear sus propios datos para conseguir traducciones más precisas.                                                 |
 
 ## <a name="migration-strategies"></a>Estrategias de migración
 
-Si su organización o usted tienen aplicaciones en desarrollo o producción que usan la API Translator Speech, deben actualizarlas para que usen el servicio Voz. Vea la documentación del [servicio Voz](index.md) para obtener información sobre SDK disponibles, ejemplos de código y tutoriales. Tenga en cuenta lo siguiente cuando esté migrando:
+Si su organización o usted tienen aplicaciones en desarrollo o producción que usan la API Translator Speech, deben actualizarlas para que usen el servicio de voz. Vea la documentación del [servicio de voz](index.md) para obtener información sobre SDK disponibles, ejemplos de código y tutoriales. Tenga en cuenta lo siguiente cuando esté migrando:
 
-* Los servicios de Voz no ofrecen un punto de conexión global. Determine si la aplicación funciona eficazmente con un único punto de conexión regional para todo su tráfico. Si no lo hace, use la ubicación geográfica para determinar el punto de conexión más eficaz.
+* El servicio de voz no ofrece un punto de conexión global. Determine si la aplicación funciona eficazmente con un único punto de conexión regional para todo su tráfico. Si no lo hace, use la ubicación geográfica para determinar el punto de conexión más eficaz.
 
 * Si la aplicación usa conexiones de larga duración y no puede usar un SDK disponible, puede usar una conexión de WebSockets. Administre el límite de tiempo de espera de 10 minutos volviendo a conectarse en los momentos adecuados.
 
 * Si la aplicación utiliza las API Translator Text y Translator Speech para habilitar los modelos de traducción personalizada, puede agregar los identificadores "Categoría" directamente mediante el servicio de voz.
 
-* A diferencia de Translator Speech API, los servicios de Voz pueden realizar traducciones en varios idiomas en una sola solicitud.
+* A diferencia de la API Translator Speech, el servicio de voz puede completar las traducciones en varios idiomas en una sola solicitud.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Prueba gratuita de los servicios de voz](get-started.md)
+* [Prueba gratuita del servicio de voz](get-started.md)
 * [Inicio rápido: Reconocimiento de voz en una aplicación de UWP mediante el SDK de Voz](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=uwp)
 
 ## <a name="see-also"></a>Otras referencias
 
 * [¿Qué es el servicio Voz?](overview.md)
-* [Documentación de los servicios de voz y Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-qsg)
+* [Documentación del servicio de voz y del SDK de voz](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-qsg)

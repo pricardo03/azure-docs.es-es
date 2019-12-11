@@ -8,14 +8,14 @@ manager: timlt
 ms.service: event-hubs
 ms.topic: article
 ms.custom: seodec18
-ms.date: 05/15/2019
+ms.date: 12/02/2019
 ms.author: shvija
-ms.openlocfilehash: 66b11ef8e746222074eadab2348f8a2cf9dab39f
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 3b46c574ea47622ec97e70c0d2f2cdc3aa54ec0d
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479147"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706389"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Preguntas frecuentes sobre Event Hubs
 
@@ -56,6 +56,8 @@ Sí, siempre y cuando todos los centros de eventos se encuentren en el mismo esp
 ### <a name="what-is-the-maximum-retention-period-for-events"></a>¿Cuál es el período de retención máximo para eventos?
 
 El nivel Event Hubs estándar admite actualmente un período de retención máximo de siete días. Event Hubs no está concebido como un almacén de datos permanente. Los períodos de retención superiores a 24 horas están pensados para escenarios en los que es útil volver a reproducir un flujo de eventos en los mismos sistemas; por ejemplo, para entrenar o comprobar un nuevo modelo de aprendizaje automático con datos existentes. Si necesita conservar los mensajes más de siete días, habilite [Event Hubs Capture](event-hubs-capture-overview.md) en el centro de eventos para extraer los datos de este a la cuenta de almacenamiento o la cuenta del servicio Azure Data Lake que prefiera. Al habilita Capture se le cobrará un cargo en función de las unidades de procesamiento compradas.
+
+Puede configurar el período de retención de los datos capturados en su cuenta de almacenamiento. La característica de **administración del ciclo de vida** de Azure Storage ofrece una útil directiva basada en reglas para las cuentas de uso general v2 y de Blob Storage. Use la directiva para realizar la transición de los datos a los niveles de acceso adecuados o hacer que expiren al final de su ciclo de vida. Para más información, consulte [Administración del ciclo de vida de Azure Blob Storage](../storage/blobs/storage-lifecycle-management-concepts.md). 
 
 ### <a name="how-do-i-monitor-my-event-hubs"></a>¿Cómo puedo supervisar mi instancia de Event Hubs?
 Event Hubs emite métricas exhaustivas que proporcionan el estado de los recursos a [Azure Monitor](../azure-monitor/overview.md). También permite evaluar el estado general del servicio Event Hubs, no solo en el nivel de espacio de nombres, sino también en el nivel de entidad. Obtenga información sobre la supervisión que se ofrece para [Azure Event Hubs](event-hubs-metrics-azure-monitor.md).
@@ -118,7 +120,7 @@ bootstrap.servers=dummynamespace.servicebus.windows.net:9093 request.timeout.ms=
 Nota: Si sasl.jaas.config no es una configuración compatible con su marco, busque las configuraciones que se usan para establecer el nombre de usuario y contraseña SASL y úselas en su lugar. Establezca el nombre de usuario para $ConnectionString y la contraseña para la cadena de conexión de Event Hubs.
 
 ### <a name="what-is-the-messageevent-size-for-kafka-enabled-event-hubs"></a>¿Cuál es el tamaño de mensaje o evento para Event Hubs habilitado para Kafka?
-El tamaño máximo de mensaje permitido para Event Hubs habilitado para Kafka es 1 MB.
+El tamaño máximo de mensaje permitido para Event Hubs habilitado para Kafka es 1 MB.
 
 ## <a name="throughput-units"></a>Unidades de procesamiento
 
@@ -167,9 +169,9 @@ En la tabla siguiente se muestran los resultados del banco de pruebas que hemos 
 
 | Forma de la carga | Receptores | Ancho de banda de entrada| Mensajes de entrada | Ancho de banda de salida | Mensajes de salida | TU totales | TU por CU |
 | ------------- | --------- | ---------------- | ------------------ | ----------------- | ------------------- | --------- | ---------- |
-| Lotes de 100 x 1 KB | 2 | 400 MB/s | 400 000 mensajes/s | 800 MB/s | 800 000 mensajes/s | 400 TU | 100 TU | 
-| Lotes de 10 x 10 KB | 2 | 666 MB/s | 66 600 mensajes/s | 1,33 GB/s | 133 000 mensajes/s | 666 TU | 166 TU |
-| Lotes de 6 x 32 KB | 1 | 1,05 GB/s | 34 000 mensajes/s | 1,05 GB/s | 34 000 mensajes/s | 1000 TU | 250 TU |
+| Lotes de 100 x 1 KB | 2 | 400 MB/s | 400 000 mensajes/s | 800 MB/s | 800 000 mensajes/s | 400 TU | 100 TU | 
+| Lotes de 10 x 10 KB | 2 | 666 MB/s | 66 600 mensajes/s | 1,33 GB/s | 133 000 mensajes/s | 666 TU | 166 TU |
+| Lotes de 6 x 32 KB | 1 | 1,05 GB/s | 34 000 mensajes/s | 1,05 GB/s | 34 000 mensajes/s | 1000 TU | 250 TU |
 
 En las pruebas, se usaron los siguientes criterios:
 
@@ -180,16 +182,16 @@ En las pruebas, se usaron los siguientes criterios:
 Los resultados ofrecen una idea de lo que puede lograrse con un clúster de Event Hubs dedicado. Además, un clúster dedicado incluye Event Hubs Capture habilitado para los escenarios de retención a largo plazo y de microlotes.
 
 ### <a name="how-do-i-create-an-event-hubs-dedicated-cluster"></a>¿Cómo puedo crear un clúster de Event Hubs dedicado?
-Un clúster de Event Hubs dedicado se crea mediante el envío de una [solicitud de soporte técnico de aumento de cuota](https://portal.azure.com/#create/Microsoft.Support) o poniéndose en contacto con el [equipo de Event Hubs](mailto:askeventhubs@microsoft.com). Normalmente, se necesitan unas dos semanas para que el clúster esté implementado y entregado, y pueda usarlo. Este proceso es temporal hasta que un autoservicio completo esté disponible a través de Azure Portal o de plantillas de Azure Resource Manager, que tardan unas dos horas en implementar el clúster.
+Un clúster de Event Hubs dedicado se crea mediante el envío de una [solicitud de soporte técnico de aumento de cuota](https://portal.azure.com/#create/Microsoft.Support) o poniéndose en contacto con el [equipo de Event Hubs](mailto:askeventhubs@microsoft.com). Normalmente, se necesitan unas dos semanas para que el clúster esté implementado y entregado, y pueda usarlo. Este proceso es temporal hasta que un autoservicio completo esté disponible a través de Azure Portal o de plantillas de Azure Resource Manager, las cuales tardan unas dos horas en implementar el clúster.
 
 ## <a name="best-practices"></a>Procedimientos recomendados
 
 ### <a name="how-many-partitions-do-i-need"></a>¿Cuántas particiones necesito?
-El número de particiones se especifica en el momento de la creación y debe estar comprendido entre 2 y 32. El número de particiones no es modificable, por lo que debería tener en cuenta la escala a largo plazo a la hora de configurar este número. Las particiones son un mecanismo de organización de datos relacionado con el paralelismo de bajada necesario para consumir las aplicaciones. El número de particiones de un centro de eventos está directamente relacionado con el número de lectores simultáneos que espera tener. Para más información sobre las particiones, consulte [Particiones](event-hubs-features.md#partitions).
+El número de particiones se especifica en el momento de la creación y debe estar comprendido entre 2 y 32. El número de particiones no es modificable, por lo que debería tener en cuenta el escalado a largo plazo a la hora de configurar este número. Las particiones son un mecanismo de organización de datos relacionado con el paralelismo de bajada necesario para consumir las aplicaciones. El número de particiones de un centro de eventos está directamente relacionado con el número de lectores simultáneos que espera tener. Para más información sobre las particiones, consulte [Particiones](event-hubs-features.md#partitions).
 
 Es posible que quiera establecer el valor lo más alto posible, que es 32, en el momento de la creación. Recuerde que, si hay más de una partición, los eventos se enviarán a varias particiones sin conservar el orden, a menos que configure los remitentes para que solo realicen el envío a una única partición de las 32, lo que hará que las 31 restantes sean redundantes. En el primer caso, tendrá que leer eventos en las 32 particiones. En el último caso, no hay ningún costo adicional obvio aparte de la configuración adicional que debe realizar en el host del procesador de eventos.
 
-Event Hubs está diseñado para permitir un lector de partición única por grupo de consumidores. En la mayoría de los casos de uso, el valor predeterminado de cuatro particiones es suficiente. Si desea escalar el procesamiento de eventos, tal vez desee agregar particiones adicionales. No hay ningún límite de procesamiento específico en una partición; pero el número total de unidades de procesamiento limita el procesamiento agregado en el espacio de nombres. A medida que aumenta el número de unidades de procesamiento en el espacio de nombres, puede que necesite particiones adicionales para permitir que los lectores simultáneos logren su propio procesamiento máximo.
+Event Hubs está diseñado para permitir un lector de partición única por grupo de consumidores. En la mayoría de los casos de uso, el valor predeterminado de cuatro particiones es suficiente. Si desea escalar el procesamiento de eventos, tal vez desee agregar particiones adicionales. No hay ningún límite de procesamiento específico en una partición, pero el número total de unidades de procesamiento limita el procesamiento agregado en el espacio de nombres. A medida que aumenta el número de unidades de procesamiento en el espacio de nombres, puede que necesite particiones adicionales para permitir que los lectores simultáneos logren su propio procesamiento máximo.
 
 Pero si tiene un modelo en el que su aplicación tiene afinidad con una partición determinada, aumentar el número de particiones puede que no suponga ventaja alguna. Para más información, vea [Disponibilidad y coherencia](event-hubs-availability-and-consistency.md).
 

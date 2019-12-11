@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 481acfdccb54077f18c1f4bf0375c0dc66e66007
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: df5aade7244f69e7264f901364ecc164351eec50
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240662"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815790"
 ---
 # <a name="connect-data-from-office-365-logs"></a>Conectar datos de registros de Office 365
 
@@ -42,12 +42,12 @@ Se pueden transmitir registros de auditoría desde [Office 365](https://docs.mic
 
 1. En Azure Sentinel, seleccione **Data connectors** (Conectores de datos) y, después, haga clic en el icono de **Office 365**.
 
-2. Si aún no ha habilitado la solución de Office 365, en **Connection** (Conexión), use el botón **Enable** (Habilitar) para habilitarla. Si ya está habilitada, se identificará en la pantalla de conexión como ya habilitada.
+2. Si aún no lo ha habilitado, puede ir a la hoja **Conectores de datos** y seleccionar el conector de **Office 365**. Aquí puede hacer clic en **Abrir la página del conector** y, en la sección de configuración con la etiqueta **Habilitar la solución de Office 365 en su área de trabajo**, usar el botón **Instalar solución** para habilitarlo. Si ya está habilitada, se identificará en la pantalla de conexión como ya habilitada.
 1. Office 365 permite transmitir datos de varios inquilinos a Azure Sentinel. Agregue cada inquilino que quiera conectar a **Connect tenants to Azure Sentinel** (Conectar inquilinos a Azure Sentinel). 
 1. Se abre una pantalla de Active Directory. Se le pedirá que se autentique como administrador global en cada inquilino que quiera conectar a Azure Sentinel, y deberá proporcionar permisos a Azure Sentinel para leer los registros. 
-5. En Stream Office 365 activity logs (Transmitir registros de actividad de Office 365), haga clic en **Select** (Seleccionar) para elegir qué tipos de registro se van a transmitir a Azure Sentinel. Actualmente, Azure Sentinel admite Exchange y SharePoint.
+5. En la lista de inquilinos, verá el identificador de directorio de Azure AD (identificador de inquilino) y dos casillas para los registros de Exchange y SharePoint. Puede seleccionar cualquiera de los servicios de la lista que le gustaría ingerir en Sentinel o todos ellos. Actualmente, Azure Sentinel admite registros de Exchange y SharePoint en los servicios existentes de Office 365.
 
-4. Haga clic en **Apply changes** (Aplicar cambios).
+4. Una vez que haya seleccionado los servicios (Exchange, SharePoint, etc.), puede hacer clic en Guardar en el marco de incorporación de inquilino de la página. 
 
 3. Para usar el esquema correspondiente en Log Analytics para encontrar registros de Office 365, busque **OfficeActivity**.
 

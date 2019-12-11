@@ -1,17 +1,17 @@
 ---
-title: Conceptos de servidor en Azure Database for PostgreSQL con un único servidor
+title: 'Servidores en Azure Database for PostgreSQL: servidor único'
 description: En este artículo se incluyen consideraciones e instrucciones para configurar y administrar Azure Database for PostgreSQL con un único servidor.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: bd7c24489e8ac7b26cb703923ddf9cbb741cfd68
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: d86170a53b4bfbe712bbca12db4d6063214aba21
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029967"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74768170"
 ---
 # <a name="azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL: Un solo servidor
 En este artículo se incluyen consideraciones e instrucciones para trabajar con Azure Database for PostgreSQL con un único servidor.

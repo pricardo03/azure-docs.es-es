@@ -1,25 +1,16 @@
 ---
-title: 'Configuración de la autenticación de Facebook: Azure App Service'
-description: Aprenda a configurar la autenticación de Facebook para la aplicación de App Service.
-services: app-service
-documentationcenter: ''
-author: mattchenderson
-manager: syntaxc4
-editor: ''
+title: Configuración de la autenticación de Facebook
+description: Aprenda a configurar la autenticación de Facebook como proveedor de identidades para una aplicación App Service.
 ms.assetid: b6b4f062-fcb4-47b3-b75a-ec4cb51a62fd
-ms.service: app-service-mobile
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/06/2019
-ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: fb8497f3b9b887e2fd06b350bcc25ac8faaa7b43
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: cd9c8a1bab3616b9b4eb1fe97ee3a9b2307ba77b
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177005"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671935"
 ---
 # <a name="configure-your-app-service-app-to-use-facebook-login"></a>Configuración de la aplicación de App Service para usar el inicio de sesión de Facebook
 

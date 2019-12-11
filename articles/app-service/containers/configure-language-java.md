@@ -1,28 +1,25 @@
 ---
-title: 'Configuración de aplicaciones de Java en Linux: Azure App Service | Microsoft Docs'
-description: Aprenda a configurar aplicaciones Java que se ejecutan en Azure App Service en Linux.
+title: Configuración de aplicaciones Java para Linux
+description: Aprenda a configurar un contenedor de Java precompilado para la aplicación. En este artículo se muestran las tareas de configuración más comunes.
 keywords: azure app service, web app, linux, oss, java, java ee, jee, javaee
-services: app-service
 author: bmitchell287
 manager: barbkess
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 06/26/2019
+ms.date: 11/22/2019
 ms.author: brendm
+ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 9625870132d088bf1de6df06f05f0cac41a1e7fa
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 571d4cd395cd0cec0982fedf267a88143fd73872
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74144221"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74805746"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Configuración de una aplicación de Java en Linux para Azure App Service
 
-Azure App Service en Linux permite a los desarrolladores de Java compilar, implementar y escalar rápidamente sus aplicaciones web empaquetadas de Tomcat o Java Standard Edition (SE) en un servicio basado en Linux totalmente administrado. Implemente aplicaciones con complementos de Maven desde la línea de comandos o en editores, como IntelliJ, Eclipse o Visual Studio Code.
+Azure App Service en Linux permite a los desarrolladores de Java compilar, implementar y escalar rápidamente sus aplicaciones web empaquetadas de Tomcat, WildFly o Java Standard Edition (SE) en un servicio basado en Linux totalmente administrado. Implemente aplicaciones con complementos de Maven desde la línea de comandos o en editores, como IntelliJ, Eclipse o Visual Studio Code.
 
 En esta guía se incluyen conceptos clave e instrucciones para los desarrolladores de Java que usan un contenedor Linux integrado en App Service. Si nunca ha usado Azure App Service, siga el [inicio rápido de Java](quickstart-java.md) y el [tutorial de Java con PostgreSQL](tutorial-java-enterprise-postgresql-app.md).
 
@@ -53,7 +50,7 @@ Para más información, consulte [Registros de secuencias en Cloud Shell](../tro
 
 ### <a name="app-logging"></a>Registro de aplicaciones
 
-Habilite el [registro de aplicaciones](../troubleshoot-diagnostic-logs.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#enable-application-logging-windows) a través de Azure Portal o la [CLI de Azure](/cli/azure/webapp/log#az-webapp-log-config) para configurar App Service para que escriba los flujos de salida y de error de la consola estándar en el sistema de archivos local o en Azure Blob Storage. El registro en el sistema de archivos local de App Service se deshabilita 12 horas después de su configuración. Si necesita una retención más prolongada, configure la aplicación para escribir la salida en un contenedor de Blob Storage. Los registros de aplicación de Java y Tomcat pueden encontrarse en el directorio */home/LogFiles/Application/* .
+Habilite el [registro de aplicaciones](../troubleshoot-diagnostic-logs.md?toc=/azure/app-service/containers/toc.json#enable-application-logging-windows) a través de Azure Portal o la [CLI de Azure](/cli/azure/webapp/log#az-webapp-log-config) para configurar App Service para que escriba los flujos de salida y de error de la consola estándar en el sistema de archivos local o en Azure Blob Storage. El registro en el sistema de archivos local de App Service se deshabilita 12 horas después de su configuración. Si necesita una retención más prolongada, configure la aplicación para escribir la salida en un contenedor de Blob Storage. Los registros de aplicación de Java y Tomcat pueden encontrarse en el directorio */home/LogFiles/Application/* .
 
 Si la aplicación usa [Logback](https://logback.qos.ch/) o [Log4j](https://logging.apache.org/log4j) para el seguimiento, puede reenviar estos seguimientos para su revisión en Azure Application Insights mediante las instrucciones de configuración del marco de registro en [Exploración de los registros de seguimiento de Java en Application Insights](/azure/application-insights/app-insights-java-trace-logs).
 
@@ -108,15 +105,15 @@ Use [FTPS](../deploy-ftp.md) para descargar el archivo JFR en el equipo local. P
 
 Azure App Service para Linux admite la optimización y la personalización de serie a través de Azure Portal y de la CLI de Azure. Consulte los artículos siguientes para conocer la configuración de aplicaciones web específicas que no son de Java:
 
-- [Configuración de aplicaciones](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings)
-- [Configuración de un dominio personalizado](../app-service-web-tutorial-custom-domain.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-- [Configuración de enlaces SSL](../configure-ssl-bindings.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-- [Adición de una red CDN](../../cdn/cdn-add-to-web-app.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+- [Configuración de aplicaciones](../configure-common.md?toc=/azure/app-service/containers/toc.json#configure-app-settings)
+- [Configuración de un dominio personalizado](../app-service-web-tutorial-custom-domain.md?toc=/azure/app-service/containers/toc.json)
+- [Configuración de enlaces SSL](../configure-ssl-bindings.md?toc=/azure/app-service/containers/toc.json)
+- [Adición de una red CDN](../../cdn/cdn-add-to-web-app.md?toc=/azure/app-service/containers/toc.json)
 - [Configuración del sitio de Kudu](https://github.com/projectkudu/kudu/wiki/Configurable-settings#linux-on-app-service-settings)
 
 ### <a name="set-java-runtime-options"></a>Definición de las opciones de Java Runtime
 
-Para establecer la memoria asignada u otras opciones de runtime de JVM en entornos de Tomcat y Java SE, cree una [configuración de la aplicación](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) denominada`JAVA_OPTS` con las opciones. App Service Linux pasa esta configuración como una variable de entorno para Java Runtime cuando se inicia.
+Para establecer la memoria asignada u otras opciones de runtime de JVM en entornos de Tomcat y Java SE, cree una [configuración de la aplicación](../configure-common.md?toc=/azure/app-service/containers/toc.json#configure-app-settings) denominada`JAVA_OPTS` con las opciones. App Service Linux pasa esta configuración como una variable de entorno para Java Runtime cuando se inicia.
 
 En Azure Portal, en **Configuración de la aplicación** para la aplicación web, cree un nuevo valor de la aplicación denominado `JAVA_OPTS` que incluya valores de configuración adicionales, como `-Xms512m -Xmx1204m`.
 
@@ -187,11 +184,11 @@ Las aplicaciones de Java que se ejecutan en App Service para Linux presentan el 
 
 ### <a name="authenticate-users-easy-auth"></a>Autenticación de usuarios (autenticación sencilla)
 
-Configure la autenticación de la aplicación en Azure Portal con la opción **Autenticación y autorización**. Desde allí, puede habilitar la autenticación con Azure Active Directory o con inicios de sesión en redes sociales como Facebook, Google o GitHub. La configuración de Azure Portal solo funciona al configurar un proveedor de autenticación único. Para obtener más información, consulte [Configuración de una aplicación de App Service para usar el inicio de sesión de Azure Active Directory](../configure-authentication-provider-aad.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) y los artículos relacionados de otros proveedores de identidades. Si tiene que habilitar varios proveedores de inicio de sesión, siga las instrucciones del artículo sobre la [personalización de la autenticación en App Service](../app-service-authentication-how-to.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
+Configure la autenticación de la aplicación en Azure Portal con la opción **Autenticación y autorización**. Desde allí, puede habilitar la autenticación con Azure Active Directory o con inicios de sesión en redes sociales como Facebook, Google o GitHub. La configuración de Azure Portal solo funciona al configurar un proveedor de autenticación único. Para obtener más información, consulte [Configuración de una aplicación de App Service para usar el inicio de sesión de Azure Active Directory](../configure-authentication-provider-aad.md?toc=/azure/app-service/containers/toc.json) y los artículos relacionados de otros proveedores de identidades. Si tiene que habilitar varios proveedores de inicio de sesión, siga las instrucciones del artículo sobre la [personalización de la autenticación en App Service](../app-service-authentication-how-to.md?toc=/azure/app-service/containers/toc.json).
 
-#### <a name="tomcat-and-wildfly"></a>Tomcat y Wildfly
+#### <a name="tomcat-and-wildfly"></a>Tomcat y WildFly
 
-La aplicación Tomcat o Wildfly puede acceder a las reclamaciones del usuario directamente desde el servlet de mediante la conversión de la entidad de seguridad de objeto a un objeto del mapa. Este último objeto asignará ca tipo de reclamación a una colección de las notificaciones de dicho tipo. En el código siguiente, `request` es una instancia de `HttpServletRequest`.
+Las aplicaciones Tomcat o WildFly pueden acceder a las notificaciones del usuario directamente desde el servlet mediante la conversión del objeto Principal a un objeto Map. Este último objeto asignará ca tipo de reclamación a una colección de las notificaciones de dicho tipo. En el código siguiente, `request` es una instancia de `HttpServletRequest`.
 
 ```java
 Map<String, Collection<String>> map = (Map<String, Collection<String>>) request.getUserPrincipal();
@@ -229,7 +226,7 @@ Los desarrolladores de Spring Boot pueden usar el [iniciador de Spring Boot para
 
 ### <a name="configure-tlsssl"></a>Configuración de TLS/SSL
 
-Siga las instrucciones de [Protección de un nombre DNS personalizado con un enlace SSL en Azure App Service](../configure-ssl-bindings.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) para cargar un certificado SSL y enlazarlo al nombre de dominio de la aplicación. De forma predeterminada, la aplicación seguirá permitiendo que las conexiones HTTP sigan los pasos específicos del tutorial para aplicar SSL y TLS.
+Siga las instrucciones de [Protección de un nombre DNS personalizado con un enlace SSL en Azure App Service](../configure-ssl-bindings.md?toc=/azure/app-service/containers/toc.json) para cargar un certificado SSL y enlazarlo al nombre de dominio de la aplicación. De forma predeterminada, la aplicación seguirá permitiendo que las conexiones HTTP sigan los pasos específicos del tutorial para aplicar SSL y TLS.
 
 ### <a name="use-keyvault-references"></a>Uso de referencias de KeyVault
 
@@ -250,10 +247,13 @@ Puede ser necesaria una configuración adicional para el cifrado de la conexión
 - [PostgreSQL](https://jdbc.postgresql.org/documentation/head/ssl-client.html)
 - [SQL Server](https://docs.microsoft.com/sql/connect/jdbc/connecting-with-ssl-encryption?view=sql-server-ver15)
 - [MySQL](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-reference-using-ssl.html)
+- [MongoDB](https://mongodb.github.io/mongo-java-driver/3.4/driver/tutorials/ssl/)
+- [Cassandra](https://docs.datastax.com/developer/java-driver/4.3/)
+
 
 #### <a name="manually-initialize-and-load-the-key-store"></a>Inicialización y carga manual del almacén de claves
 
-Puede inicializar el almacén de claves y agregar certificados manualmente. Cree una configuración de aplicación, `SKIP_JAVA_KEYSTORE_LOAD`, con un valor de `1` para deshabilitar en App Service la carga automática de los certificados en el almacén de claves. Todos los certificados públicos cargados en App Service a través de Azure Portal se almacenan en `/var/ssl/certs/`. Los certificados privados se almacenan en `/var/ssl/private/`.
+Puede inicializar el almacén de claves y agregar certificados manualmente. Cree una configuración de aplicación, `SKIP_JAVA_KEYSTORE_LOAD`, con un valor de `1` para deshabilitar en App Service la carga automática de los certificados en el almacén de claves. Todos los certificados públicos cargados en App Service a través de Azure Portal se almacenan en `/var/ssl/certs/`. Los certificados privados se almacenan en `/var/ssl/private/`.
 
 Para más información sobre la API KeyStore, consulte [la documentación oficial](https://docs.oracle.com/javase/8/docs/api/java/security/KeyStore.html).
 
@@ -285,7 +285,8 @@ En esta sección se muestra cómo conectar aplicaciones Java implementadas en Az
     - Si usa **Tomcat**, cree una variable de entorno llamada `CATALINA_OPTS` con el valor `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` donde `<app-name>` es el nombre de su instancia de App Service.
     - Si usa **WildFly**, consulte la documentación de AppDynamics [aquí](https://docs.appdynamics.com/display/PRO45/JBoss+and+Wildfly+Startup+Settings) para obtener instrucciones acerca de cómo instalar el agente de Java y la configuración de JBoss.
 
->  Si ya tiene una variable de entorno para `JAVA_OPTS` o `CATALINA_OPTS`, anexe la opción `-javaagent:/...` al final del valor actual.
+> [!NOTE]
+> Si ya tiene una variable de entorno para `JAVA_OPTS` o `CATALINA_OPTS`, anexe la opción `-javaagent:/...` al final del valor actual.
 
 ## <a name="configure-jar-applications"></a>Configuración de aplicaciones JAR
 
@@ -457,7 +458,7 @@ Por último, coloque los archivos JAR del controlador en la classpath de Tomcat 
 
     3. Establezca la conexión al puerto de tunelización local con el cliente SFTP y cargue los archivos en la carpeta */home/tomcat/lib*.
 
-    Como alternativa, puede usar un cliente FTP para cargar el controlador JDBC. Siga estas [instrucciones para obtener las credenciales de FTP](../deploy-configure-credentials.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
+    Como alternativa, puede usar un cliente FTP para cargar el controlador JDBC. Siga estas [instrucciones para obtener las credenciales de FTP](../deploy-configure-credentials.md?toc=/azure/app-service/containers/toc.json).
 
 2. Si ha creado un origen de datos de nivel de servidor, reinicie la aplicación App Service de Linux. Tomcat restablecerá `CATALINA_BASE` a `/home/tomcat` y usará la configuración actualizadas.
 
@@ -490,13 +491,13 @@ Esta sección contiene las siguientes subsecciones:
 - [Personalización de la configuración del servidor de aplicaciones](#customize-application-server-configuration)
 - [Instalación de módulos y dependencias](#install-modules-and-dependencies)
 - [Configuración de orígenes de datos](#configure-data-sources)
-- [Habilitación de proveedores de mensajería](#enable-messaging-providers)
+- [Uso de Service Bus como agente de mensajes](#use-service-bus-as-a-message-broker)
 
 ### <a name="scale-with-app-service"></a>Escalado con App Service
 
 El servidor de aplicaciones WildFly, que se ejecuta en App Service en Linux, se ejecuta en modo independiente, no en una configuración de dominio. Al escalar horizontalmente el plan de App Service, cada instancia de WildFly se configura como un servidor independiente.
 
-Escale la aplicación vertical u horizontalmente con [reglas de escalado](../../monitoring-and-diagnostics/monitoring-autoscale-get-started.md) y [aumentando el número de instancias](../manage-scale-up.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
+Escale la aplicación vertical u horizontalmente con [reglas de escalado](../../monitoring-and-diagnostics/monitoring-autoscale-get-started.md) y [aumentando el número de instancias](../manage-scale-up.md?toc=/azure/app-service/containers/toc.json).
 
 ### <a name="customize-application-server-configuration"></a>Personalización de la configuración del servidor de aplicaciones
 
@@ -519,7 +520,7 @@ Usar FTP para cargar el script de inicio en una ubicación de la instancia de Ap
 
 En el campo **Script de inicio** de Azure Portal seleccione la ubicación del script de shell de inicio, por ejemplo */home/site/deployments/tools/your-startup-script.sh*.
 
-Especifique la [configuración de la aplicación](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) para pasar variables de entorno para su uso en el script. La configuración de la aplicación mantiene las cadenas de conexión y otros secretos necesarios para configurar la aplicación fuera del control de versiones.
+Especifique la [configuración de la aplicación](../configure-common.md?toc=/azure/app-service/containers/toc.json#configure-app-settings) para pasar variables de entorno para su uso en el script. La configuración de la aplicación mantiene las cadenas de conexión y otros secretos necesarios para configurar la aplicación fuera del control de versiones.
 
 ### <a name="install-modules-and-dependencies"></a>Instalación de módulos y dependencias
 
@@ -696,36 +697,323 @@ La instancia de App Service ya está configurada para acceder a la base de datos
 
 Para más información acerca de cómo configurar la conectividad de una base de datos con WildFly, consulte [PostgreSQL](https://developer.jboss.org/blogs/amartin-blog/2012/02/08/how-to-set-up-a-postgresql-jdbc-driver-on-jboss-7), [MySQL](https://docs.jboss.org/jbossas/docs/Installation_And_Getting_Started_Guide/5/html/Using_other_Databases.html#Using_other_Databases-Using_MySQL_as_the_Default_DataSource) o [SQL Server](https://docs.jboss.org/jbossas/docs/Installation_And_Getting_Started_Guide/5/html/Using_other_Databases.html#d0e3898).
 
-### <a name="enable-messaging-providers"></a>Habilitación de proveedores de mensajería
+### <a name="use-service-bus-as-a-message-broker"></a>Uso de Service Bus como agente de mensajes
 
-Para habilitar Beans controlados por mensajes usando Service Bus como mecanismo de mensajería:
+Puede configurar WildFly y sus beans controlados por mensajes para usar [Azure Service Bus](/azure/service-bus-messaging) como agente de mensajes. Después de la configuración, puede enviar y recibir los mensajes mediante [Apache Qpid](https://qpid.apache.org) como cliente de Java Message Service (JMS). La configuración de un adaptador de recursos JMS (JMS RA) que habilite Enterprise Java Beans (EJB) para configurar una factoría y una cola de conexión con JMS remota consta de varios pasos. Este programa de instalación remota apuntará a Azure Service Bus y usará el proveedor JMS de Apache Qpid para el protocolo AMQP.
 
-1. Use la [biblioteca de mensajería de Apache QPId JMS](https://qpid.apache.org/proton/index.html). Incluya esta dependencia en pom.xml (u otro archivo de compilación) de la aplicación.
+En los pasos siguientes se describe la configuración y el código necesarios. En estos pasos se supone que ha creado una instancia de App Service para hospedar el bean, un espacio de nombres de Service Bus, una cola y un tema con una suscripción. Para más información sobre cómo crear estos recursos, consulte:
 
-2. Cree [Recursos de Service Bus](/azure/service-bus-messaging/service-bus-java-how-to-use-jms-api-amqp). Cree un espacio de nombres de Azure Service Bus, una cola dentro de ese espacio de nombres y una directiva de acceso compartido con funcionalidades de envío y recepción.
+- [Inicio rápido: Creación de una aplicación de Java en Azure App Service en Linux](/azure/app-service/containers/quickstart-java)
+- [Inicio rápido: Uso de la CLI de Azure para crear una cola de Service Bus](/azure/service-bus-messaging/service-bus-quickstart-cli)
+- [Inicio rápido: Uso de Azure Portal para crear un tema de Service Bus y suscripciones a dicho tema](/azure/service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal)
 
-3. Pase la clave de la directiva de acceso compartido al código codificando la dirección URL de la clave principal de la directiva o [usando el SDK de Service Bus](/azure/service-bus-messaging/service-bus-java-how-to-use-jms-api-amqp#setup-jndi-context-and-configure-the-connectionfactory).
+1. Abra un terminal de Bash y use los siguientes comandos para guardar la información de los recursos de Azure en variables de entorno. Reemplace los marcadores de posición (incluidos los corchetes angulares) por los valores indicados.
 
-4. Siga los pasos descritos en la sección Módulos y dependencias con su descriptor XML de módulo, las dependencias de .jar, los comandos de la CLI de JBoss y el script de inicio para el proveedor de JMS. Además de los cuatro archivos, también deberá crear un archivo XML que defina el nombre JNDI de la cola de JMS y el tema. Consulte [este repositorio](https://github.com/JasonFreeberg/widlfly-server-configs/tree/master/appconfig) para obtener los archivos de configuración de referencia.
+    | Variable            | Valor                                                                      |
+    |---------------------|----------------------------------------------------------------------------|
+    | RESOURCEGROUP_NAME  | Nombre del grupo de recursos que contiene la instancia de App Service.       |
+    | WEBAPP_NAME         | Nombre de la instancia de App Service.                                     |
+    | REGIÓN              | Nombre de la región donde se hospeda la aplicación.                           |
+    | DEFAULT_SBNAMESPACE | El nombre del espacio de nombres de Service Bus.                                    |
+    | SB_SAS_POLICY       | El nombre de la directiva de firma de acceso compartido (SAS) para el espacio de nombres.   |
+    | SB_SAS_KEY          | La clave principal o secundaria de la directiva de SAS de la cola.                  |
+    | SB_QUEUE            | El nombre de la cola de Service Bus.                                        |
+    | SB_TOPIC            | El nombre del tema de Service Bus.                                        |
+    | SB_SUBSCRIPTION     | El nombre de la suscripción al tema.                                |
+
+    ```bash
+    RESOURCEGROUP_NAME=<resource group>
+    WEBAPP_NAME=<web app>
+    WEBAPP_PLAN_NAME=${WEBAPP_NAME}-appservice-plan
+    REGION=<region>
+    DEFAULT_SBNAMESPACE=<namespace>
+    SB_SAS_POLICY=<SAS policy>
+    SB_SAS_KEY=<SAS key>
+    SB_QUEUE=<queue>
+    SB_TOPIC=<topic>
+    SB_SUBSCRIPTION=<subscription>
+    PROVIDER_URL=amqps://${DEFAULT_SBNAMESPACE}.servicebus.windows.net?amqp.idleTimeout=120000
+    ```
+
+    Encontrará esta información en el Portal de Azure. En cuanto a la directiva y la clave de SAS, asegúrese de usar los valores del espacio de nombres para que la aplicación pueda acceder tanto a la cola como a la suscripción del tema. Para encontrar estos valores en Azure Portal, vaya a su recurso de espacio de nombres, seleccione **Directivas de acceso compartido** y, a continuación, seleccione la directiva **RootManageSharedAccessKey**.
+
+2. Descargue el [proveedor de JMS de Apache Qpid](https://qpid.apache.org/components/jms/index.html). Busque los archivos .jar en los directorios *lib* y *lib/optional*.
+
+3. Cree un archivo denominado *module.xml* y agregue el marcado siguiente. Reemplace cada instancia del marcador de posición `<version>` (incluidos los corchetes angulares) por la versión correcta de cada archivo .jar, de modo que los nombres de archivo coincidan con los archivos que extrajo en el paso 1.
+
+    ```xml
+    <module xmlns="urn:jboss:module:1.1" name="org.jboss.genericjms.provider">
+        <resources>
+            <resource-root path="proton-j-<version>.jar"/>
+            <resource-root path="qpid-jms-client-<version>.jar"/>
+            <resource-root path="slf4j-log4j12-<version>.jar"/>
+            <resource-root path="slf4j-api-<version>.jar"/>
+            <resource-root path="log4j-<version>.jar"/>
+            <resource-root path="netty-buffer-<version>.jar" />
+            <resource-root path="netty-codec-<version>.jar" />
+            <resource-root path="netty-codec-http-<version>.jar" />
+            <resource-root path="netty-common-<version>.jar" />
+            <resource-root path="netty-handler-<version>.jar" />
+            <resource-root path="netty-resolver-<version>.jar" />
+            <resource-root path="netty-transport-<version>.jar" />
+            <resource-root path="netty-transport-native-epoll-<version>-linux-x86_64.jar" />
+            <resource-root path="netty-transport-native-kqueue-<version>-osx-x86_64.jar" />
+            <resource-root path="netty-transport-native-unix-common-<version>.jar" />
+            <resource-root path="qpid-jms-discovery-<version>jar" />
+        </resources>
+        <dependencies>
+            <module name="javax.api"/>
+            <module name="javax.jms.api"/>
+        </dependencies>
+    </module>
+    ```
+
+4. Cree un archivo denominado *startup.sh* y agregue el código siguiente.
+
+    ```bash
+    echo "Generating jndi.properties file in /home/site/deployments/tools directory"
+    echo "connectionfactory.mymdbconnection=amqps://${DEFAULT_SBNAMESPACE}.servicebus.windows.net?amqp.idleTimeout=120000&jms.username=${SB_SAS_POLICY}&jms.password=${SB_SAS_KEY}" > /home/site/deployments/tools/jndi.properties
+    echo "queue.mymdbqueue=${SB_QUEUE}" >> /home/site/deployments/tools/jndi.properties
+    echo "topic.mymdbtopic=${SB_TOPIC}" >> /home/site/deployments/tools/jndi.properties
+    echo "queue.mymdbsubscription=${SB_TOPIC}/Subscriptions/${SB_SUBSCRIPTION}" >> /home/site/deployments/tools/jndi.properties
+    echo "====== contents of /home/site/deployments/tools/jndi.properties ======"
+    cat /home/site/deployments/tools/jndi.properties
+    echo "====== EOF /home/site/deployments/tools/jndi.properties ======"
+    echo "Generating commands.cli file for /home/site/deployments/tools directory"
+    echo "# Start batching commands" > /home/site/deployments/tools/commands.cli
+    echo "batch" >> /home/site/deployments/tools/commands.cli
+    echo "# Configure the ee subsystem to enable MDB annotation property substitution" >> /home/site/deployments/tools/commands.cli
+    echo "/subsystem=ee:write-attribute(name=annotation-property-replacement,value=true)" >> /home/site/deployments/tools/commands.cli
+    echo "# Define system properties to be used in the substititution" >> /home/site/deployments/tools/commands.cli
+    echo "/system-property=property.mymdb.queue:add(value=java:global/remoteJMS/mymdbqueue})" >> /home/site/deployments/tools/commands.cli
+    echo "/system-property=property.mymdb.topic:add(value=java:global/remoteJMS/mymdbsubscription)" >> /home/site/deployments/tools/commands.cli
+    echo "/system-property=property.connection.factory:add(value=java:global/remoteJMS/mymdbconnection)" >> /home/site/deployments/tools/commands.cli
+    echo "/subsystem=ee:list-add(name=global-modules, value={\"name\" => \"org.jboss.genericjms.provider\", \"slot\" =>\"main\"}" >> /home/site/deployments/tools/commands.cli
+    echo "/subsystem=naming/binding=\"java:global/remoteJMS\":add(binding-type=external-context,module=org.jboss.genericjms.provider,class=javax.naming.InitialContext,environment=[java.naming.factory.initial=org.apache.qpid.jms.jndi.JmsInitialContextFactory,org.jboss.as.naming.lookup.by.string=true,java.naming.provider.url=/home/site/deployments/tools/jndi.properties])" >> /home/site/deployments/tools/commands.cli
+    echo "/subsystem=resource-adapters/resource-adapter=generic-ra:add(module=org.jboss.genericjms,transaction-support=XATransaction)" >> /home/site/deployments/tools/commands.cli
+    echo "/subsystem=resource-adapters/resource-adapter=generic-ra/connection-definitions=sbf-cd:add(class-name=org.jboss.resource.adapter.jms.JmsManagedConnectionFactory, jndi-name=java:/jms/mymdbconnection)" >> /home/site/deployments/tools/commands.cli
+    echo "/subsystem=resource-adapters/resource-adapter=generic-ra/connection-definitions=sbf-cd/config-properties=ConnectionFactory:add(value=mymdbconnection)" >> /home/site/deployments/tools/commands.cli
+    echo "/subsystem=resource-adapters/resource-adapter=generic-ra/connection-definitions=sbf-cd/config-properties=JndiParameters:add(value=\"java.naming.factory.initial=org.apache.qpid.jms.jndi.JmsInitialContextFactory;java.naming.provider.url=/home/site/deployments/tools/jndi.properties\")" >> /home/site/deployments/tools/commands.cli
+    echo "/subsystem=resource-adapters/resource-adapter=generic-ra/connection-definitions=sbf-cd:write-attribute(name=security-application,value=true)" >> /home/site/deployments/tools/commands.cli
+    echo "/subsystem=ejb3:write-attribute(name=default-resource-adapter-name, value=generic-ra)" >> /home/site/deployments/tools/commands.cli
+    echo "# Run the batch commands" >> /home/site/deployments/tools/commands.cli
+    echo "run-batch" >> /home/site/deployments/tools/commands.cli
+    echo "reload" >> /home/site/deployments/tools/commands.cli
+    echo "====== contents of /home/site/deployments/tools/commands.cli ======"
+    cat /home/site/deployments/tools/commands.cli
+    echo "======= EOF /home/site/deployments/tools/commands.cli ========"
+    mkdir /opt/jboss/wildfly/modules/system/layers/base/org/jboss/genericjms/provider
+    mkdir /opt/jboss/wildfly/modules/system/layers/base/org/jboss/genericjms/provider/main
+    cp  /home/site/deployments/tools/*.jar /opt/jboss/wildfly/modules/system/layers/base/org/jboss/genericjms/provider/main/
+    cp /home/site/deployments/tools/module.xml /opt/jboss/wildfly/modules/system/layers/base/org/jboss/genericjms/provider/main/
+    cp /home/site/deployments/tools/jndi.properties /opt/jboss/wildfly/standalone/configuration/
+    /opt/jboss/wildfly/bin/jboss-cli.sh -c --file=/home/site/deployments/tools/commands.cli
+    echo "Startup Run done"
+    ```
+
+    La instancia de App Service ejecutará este script cada vez que se inicie lo cual proporcionará una configuración adicional que WildFly necesita. Este script copia las dependencias de la aplicación en las ubicaciones necesarias. También se generan los archivos *jndi.properties* y *commands.cli*, que usan las variables de entorno que se muestran en el paso 1. Estos valores también se pasan a la instancia de App Service en un paso posterior.
+
+    El archivo *commands.cli* es un script de la [CLI de Wildfly](https://docs.jboss.org/author/display/WFLY/Command+Line+Interface) que inicia el script de inicio. Los comandos de este archivo configuran JMS y JNDI mediante el archivo *jndi.properties*. Estos comandos crean una conexión entre la aplicación y la cola o el tema de Service Bus.
+
+5. Use FTP para cargar los archivos .jar y los archivos *module.xml* y *startup.sh* de la instancia de App Service. Coloque el archivo *startup.sh* en el directorio */home* y los demás en */home/site/deployments/tools*. Asegúrese de cargar todos los archivos .jar que se muestran en el archivo *module.xml* para lograr el cierre transitivo de las dependencias. Para más información acerca de FTP, consulte [Implementación de la aplicación en Azure App Service mediante FTP/S](https://docs.microsoft.com/azure/app-service/deploy-ftp).
+
+6. Actualice la implementación de MessageListener para agregar las siguientes instrucciones `import`:
+
+    ```java
+    import javax.ejb.ActivationConfigProperty;
+    import javax.ejb.MessageDriven;
+    import javax.ejb.TransactionAttribute;
+    import javax.ejb.TransactionAttributeType;
+    import javax.ejb.TransactionManagement;
+    import javax.ejb.TransactionManagementType;
+    import javax.jms.JMSException;
+    import javax.jms.Message;
+    import javax.jms.MessageListener;
+    import javax.jms.TextMessage;
+    ```
+
+7. A continuación, actualice las anotaciones de la clase del cliente de escucha para que coincidan con el ejemplo siguiente. Esta clase proporciona una implementación de ejemplo que registra la recepción de mensajes.
+
+    ```java
+    @TransactionManagement(TransactionManagementType.BEAN)
+    @TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
+    @MessageDriven(name = "MyQueueListener", activationConfig = {
+            @ActivationConfigProperty(propertyName = "connectionFactory", propertyValue = "${property.connection.factory}"),
+            @ActivationConfigProperty(propertyName = "destinationLookup", propertyValue = "${property.mymdb.queue}"),
+            @ActivationConfigProperty(propertyName = "destinationType", propertyValue = "javax.jms.Queue"),
+            @ActivationConfigProperty(propertyName = "acknowledgeMode", propertyValue = "Auto-acknowledge") })
+    public class MyQueueListener implements MessageListener {
+
+        private static final Logger LOGGER = Logger.getLogger(TopicListener.class.toString());
+
+        public void onMessage(Message rcvMessage) {
+            TextMessage msg = null;
+            try {
+                if (rcvMessage instanceof TextMessage) {
+                    msg = (TextMessage) rcvMessage;
+                    LOGGER.info("Received Message from topic: " + msg.getText());
+                } else {
+                    LOGGER.warning("Message of wrong type: " + rcvMessage.getClass().getName());
+                }
+            } catch (JMSException e) {
+                LOGGER.warning("Exception on message : " + e.getMessage());
+                throw new RuntimeException(e);
+            }
+        }
+    }
+    ```
+
+    Los valores `connectionFactory` y `destinationLookup` hacen referencia a los valores de propiedad del sistema WildFly configurados por el script *startup.sh*. El valor `destinationType` es `javax.jms.Queue`, lo que indica que se está conectando a una instancia de la cola de Service Bus. Este valor debe ser `javax.jms.Topic` si se conecta a un tema de Service Bus, como se muestra aquí:
+
+    ```java
+    @TransactionManagement(TransactionManagementType.BEAN)
+    @TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
+    @MessageDriven(name = "MyTopicListener", activationConfig = {
+            @ActivationConfigProperty(propertyName = "connectionFactory", propertyValue = "${property.connection.factory}"),
+            @ActivationConfigProperty(propertyName = "destinationLookup", propertyValue = "${property.mymdb.topic}"),
+            @ActivationConfigProperty(propertyName = "destinationType", propertyValue = "javax.jms.Topic"),
+            @ActivationConfigProperty(propertyName = "acknowledgeMode", propertyValue = "Auto-acknowledge") })
+        public class MyTopicListener implements MessageListener {
+        // ...
+    }
+    ```
+
+8. Actualice la sección `dependencies` del archivo *pom.xml* para agregar las siguientes dependencias:
+
+    ```xml
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.qpid</groupId>
+            <artifactId>qpid-jms-client</artifactId>
+            <version>0.40.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.qpid</groupId>
+            <artifactId>proton-j</artifactId>
+            <version>0.31.0</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.enterprise</groupId>
+            <artifactId>cdi-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.spec.javax.ejb</groupId>
+            <artifactId>jboss-ejb-api_3.2_spec</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.spec.javax.jms</groupId>
+            <artifactId>jboss-jms-api_2.0_spec</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.spec.javax.servlet</groupId>
+            <artifactId>jboss-servlet-api_4.0_spec</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.spec.javax.annotation</groupId>
+            <artifactId>jboss-annotations-api_1.3_spec</artifactId>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+    ```
+
+9. Actualice la configuración de `azure-webapp-maven-plugin` en el archivo *pom.xml* para hacer referencia a la información de la cuenta de Service Bus. Si es necesario, cambie `1.7.0` a la versión actual del [Complemento Maven para Azure App Service](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme).
+
+    ```xml
+    <plugin>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>azure-webapp-maven-plugin</artifactId>
+        <version>1.7.0</version>
+        <configuration>
+
+            <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
+            <appServicePlanName>${WEBAPP_PLAN_NAME}</appServicePlanName>
+            <appName>${WEBAPP_NAME}</appName>
+            <region>${REGION}</region>
+
+            <!-- Java Runtime Stack for Web App on Linux-->
+            <linuxRuntime>wildfly 14-jre8</linuxRuntime>
+
+            <appSettings>
+                <property>
+                    <name>DEFAULT_SBNAMESPACE</name>
+                    <value>${DEFAULT_SBNAMESPACE}</value>
+                </property>
+                <property>
+                    <name>SB_SAS_POLICY</name>
+                    <value>${SB_SAS_POLICY}</value>
+                </property>
+                <property>
+                    <name>SB_SAS_KEY</name>
+                    <value>${SB_SAS_KEY}</value>
+                </property>
+                <property>
+                    <name>PROVIDER_URL</name>
+                    <value>${PROVIDER_URL}</value>
+                </property>
+                <property>
+                    <name>SB_QUEUE</name>
+                    <value>${SB_QUEUE}</value>
+                </property>
+                <property>
+                    <name>SB_TOPIC</name>
+                    <value>${SB_TOPIC}</value>
+                </property>
+                <property>
+                    <name>SB_SUBSCRIPTION</name>
+                    <value>${SB_SUBSCRIPTION}</value>
+                </property>
+            </appSettings>
+        </configuration>
+    </plugin>
+    ```
+
+    Estas opciones configuran la instancia de App Service para que tenga las mismas variables de entorno que se establecen localmente. Usa las variables de entorno para mantener la información de la cuenta fuera de los archivos de código fuente.
+
+10. Vuelva a compilar e implementar la aplicación.
+
+    ```bash
+    mvn package -DskipTests azure-webapp:deploy
+    ```
+
+El bean controlado por mensajes ahora está configurado para usar Service Bus como mecanismo de mensajería.
+
+La próxima vez que App Service se reinicie, ejecutará el script de inicio y dará los pasos de configuración necesarios. Para comprobar que esta configuración se realiza correctamente, puede acceder a App Service mediante SSH y, después, ejecutar el script de inicio usted mismo desde el símbolo del sistema de Bash. También puede examinar los registros de App Service. Para más información acerca de estas opciones, consulte [Registro y depuración de aplicaciones](#logging-and-debugging-apps).
+
+Para ver un ejemplo que puede usar para probar estas instrucciones, consulte el repositorio [migrate-java-ee-app-to-azure-2](https://github.com/Azure-Samples/migrate-java-ee-app-to-azure-2) en GitHub y busque el ejemplo `helloworld-mdb-propertysubstitution`.
 
 ## <a name="use-redis-as-a-session-cache-with-tomcat"></a>Uso de Redis como caché de sesión con Tomcat
 
 Puede configurar Tomcat para que use un almacén de sesión externo como [Azure Redis Cache](/azure/azure-cache-for-redis/). Esto permite conservar el estado de sesión de usuario (como los datos del carro de la compra) cuando un usuario se transfiere a otra instancia de la aplicación, por ejemplo, cuando se produce un escalado automático, un reinicio o una conmutación por error.
 
-Para usar Tomcat con Redis, debe configurar la aplicación para que use una implementación de [PersistentManager](http://tomcat.apache.org/tomcat-8.5-doc/config/manager.html). En los pasos siguientes se explica este proceso con [Pivotal Session Manager: redis-store](https://github.com/pivotalsoftware/session-managers/tree/master/redis-store) como ejemplo.
+Para usar Tomcat con Redis, debe configurar la aplicación para que use una implementación de [PersistentManager](https://tomcat.apache.org/tomcat-8.5-doc/config/manager.html). En los pasos siguientes se explica este proceso con [Pivotal Session Manager: redis-store](https://github.com/pivotalsoftware/session-managers/tree/master/redis-store) como ejemplo.
 
-1. Abra un terminal de Bash y use `export <variable>=<value>` para establecer cada una de las siguientes variables de entorno.
+1. Abra un terminal de Bash y use `<variable>=<value>` para establecer cada una de las siguientes variables de entorno.
 
     | Variable                 | Valor                                                                      |
     |--------------------------|----------------------------------------------------------------------------|
     | RESOURCEGROUP_NAME       | Nombre del grupo de recursos que contiene la instancia de App Service.       |
     | WEBAPP_NAME              | Nombre de la instancia de App Service.                                     |
-    | WEBAPP_PLAN_NAME         | Nombre del plan de App Service.                                          |
+    | WEBAPP_PLAN_NAME         | Nombre del plan de App Service.                                         |
     | REGIÓN                   | Nombre de la región donde se hospeda la aplicación.                           |
     | REDIS_CACHE_NAME         | Nombre de la instancia de Azure Redis Cache.                           |
     | REDIS_PORT               | Puerto SSL en el que escucha Redis Cache.                             |
     | REDIS_PASSWORD           | Clave de acceso principal de la instancia.                                  |
     | REDIS_SESSION_KEY_PREFIX | Valor que se especifica para identificar las claves de sesión que proceden de la aplicación. |
+
+    ```bash
+    RESOURCEGROUP_NAME=<resource group>
+    WEBAPP_NAME=<web app>
+    WEBAPP_PLAN_NAME=<App Service plan>
+    REGION=<region>
+    REDIS_CACHE_NAME=<cache>
+    REDIS_PORT=<port>
+    REDIS_PASSWORD=<access key>
+    REDIS_SESSION_KEY_PREFIX=<prefix>
+    ```
 
     Para encontrar la información de nombre, puerto y clave de acceso en Azure Portal, vea las secciones **Propiedades** o **Claves de acceso** de la instancia de servicio.
 
@@ -816,8 +1104,7 @@ Para usar Tomcat con Redis, debe configurar la aplicación para que use una impl
 9. Vuelva a compilar e implementar la aplicación.
 
     ```bash
-    mvn package
-    mvn azure-webapp:deploy
+    mvn package -DskipTests azure-webapp:deploy
     ```
 
 La aplicación ahora usa Redis Cache para la administración de sesiones.

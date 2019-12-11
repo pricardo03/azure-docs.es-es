@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/28/2019
 ms.author: wolfma
-ms.openlocfilehash: 1c61f8c0fe1c2a04d390567cc0bc94f22bc5e897
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 554a7cbd79dbb6e1306686600474f727c99defed
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74110160"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74805899"
 ---
 # <a name="how-to-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Reconocimiento de intenciones a partir de contenido de voz mediante el SDK de Voz para C#
 
@@ -44,7 +44,7 @@ Asegúrese de disponer de los siguientes elementos antes de empezar esta guía:
 
 ## <a name="luis-and-speech"></a>LUIS y voz
 
-LUIS se integra con los servicios de voz para reconocer las intenciones a partir de contenido de voz. No necesita una suscripción a los servicios de voz, solo LUIS.
+LUIS se integra con el servicio Voz para reconocer las intenciones a partir de contenido de voz. No necesita una suscripción al servicio Voz, solo LUIS.
 
 LUIS usa tres tipos de claves:
 
@@ -56,7 +56,7 @@ LUIS usa tres tipos de claves:
 
 Para esta guía, necesitará el tipo de clave de punto de conexión. Esta guía utiliza la aplicación de LUIS Home Automation de ejemplo, que se puede crear siguiendo el inicio rápido [Uso de automatización del hogar compilada previamente](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app). Si ha creado su propia aplicación de LUIS, puede usarla si lo prefiere.
 
-Al crear una aplicación LUIS, el propio LUIS genera automáticamente una clave de inicio para que pueda probarla aplicación mediante consultas de texto. Esta clave no permite la integración de los Servicios de voz y no funcionará con esta guía. Cree un recurso de LUIS en el panel de Azure y asígnelo a la aplicación de LUIS. Puede usar el nivel de suscripción gratis para esta guía.
+Al crear una aplicación LUIS, el propio LUIS genera automáticamente una clave de inicio para que pueda probarla aplicación mediante consultas de texto. Esta clave no permite la integración del servicio de voz y no funcionará con esta guía. Cree un recurso de LUIS en el panel de Azure y asígnelo a la aplicación de LUIS. Puede usar el nivel de suscripción gratis para esta guía.
 
 Después de crear el recurso de LUIS en el panel de Azure, inicie sesión en el [portal de LUIS](https://www.luis.ai/home), elija la aplicación en la página **My Apps** (Mis aplicaciones) y, después, cambie a la página **Manage** (Administrar) de la aplicación. Por último, seleccione **Keys and Endpoints** (Claves y puntos de conexión) en la barra lateral.
 
@@ -128,7 +128,7 @@ Las secciones siguientes incluyen una explicación del código.
 En primer lugar, es preciso crear una configuración de voz desde la región y la clave del punto de conexión de LUIS. Las configuraciones de voz se pueden utilizar para crear reconocedores para las distintas funcionalidades del SDK de Voz. La configuración de voz tiene varias formas de especificar la suscripción que se desea usar; aquí usamos `FromSubscription`, que toma la clave de suscripción y la región.
 
 > [!NOTE]
-> Utilice la clave y la región de su suscripción a LUIS, no de su suscripción a los servicios de voz.
+> Utilice la clave y la región de su suscripción a LUIS, no de su suscripción al servicio de voz.
 
 Después, cree un reconocedor de intenciones mediante `new IntentRecognizer(config)`. Dado que la configuración ya sabe la suscripción que hay que utilizar, no es preciso volver a especificar la clave de suscripción y el punto de conexión al crear el reconocedor.
 

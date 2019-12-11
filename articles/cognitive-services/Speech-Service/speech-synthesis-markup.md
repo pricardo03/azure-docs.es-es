@@ -1,5 +1,5 @@
 ---
-title: 'Lenguaje de marcado de síntesis de voz (SSML): servicio de Voz'
+title: 'Lenguaje de marcado de síntesis de voz (SSML): servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: Uso del lenguaje de marcado de síntesis de voz para controlar la pronunciación y la prosodia en la conversión de texto a voz.
 services: cognitive-services
@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 3791b2d60b84299fc3b646f7e6585002078b607f
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 6ffa17010f874eeb82fe8f4c367f0a0ac429979b
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350168"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815523"
 ---
 # <a name="speech-synthesis-markup-language-ssml"></a>Lenguaje de marcado de síntesis de voz (SSML)
 
 El lenguaje de marcado de síntesis de voz (SSML) es un lenguaje de marcado basado en XML que permite a los desarrolladores especificar cómo se convierte el texto de entrada en una voz sintetizada mediante el servicio de texto a voz. En comparación con el texto sin formato, SSML permite a los desarrolladores ajustar el tono, la pronunciación, la velocidad del habla, el volumen y muchas cosas más en la salida de texto a voz. La puntuación normal, como hacer una pausa después de un punto o usar la entonación correcta cuando una oración termina con un signo de interrogación, se administra automáticamente.
 
-La implementación de los servicios de voz de SSML se basa en la [versión 1.0 del lenguaje de marcado de síntesis de voz](https://www.w3.org/TR/speech-synthesis) del World Wide Web Consortium.
+La implementación del servicios de voz de SSML se basa en la [versión 1.0 del lenguaje de marcado de síntesis de voz](https://www.w3.org/TR/speech-synthesis) del World Wide Web Consortium.
 
 > [!IMPORTANT]
 > Los caracteres en chino, japonés y coreano se cuentan como dos caracteres para la facturación. Para obtener más información, consulte el apartado [Precios](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
@@ -120,7 +120,7 @@ Dentro del elemento `speak`, puede especificar varias voces para la salida de te
 > [!IMPORTANT]
 > Esta característica solo funciona con las voces neuronales.
 
-De forma predeterminada, el servicio de texto a voz sintetiza el texto mediante un estilo de habla neutro tanto para voces estándar como neuronales. Con las voces neuronales, puede ajustar el estilo de habla para expresar alegría, empatía o sentimiento con el elemento `<mstts:express-as>`. Se trata de un elemento opcional único para los servicios de voz de Azure.
+De forma predeterminada, el servicio de texto a voz sintetiza el texto mediante un estilo de habla neutro tanto para voces estándar como neuronales. Con las voces neuronales, puede ajustar el estilo de habla para expresar alegría, empatía o sentimiento con el elemento `<mstts:express-as>`. Se trata de un elemento opcional único para el servicio de voz.
 
 Actualmente, los ajustes de estilo de habla son compatibles con estas voces neuronales:
 * `en-US-JessaNeural`
@@ -142,7 +142,7 @@ Los cambios se aplican en el nivel de la oración y el estilo varía según la v
 
 Utilice esta tabla para determinar qué estilos de habla son compatibles para cada voz neuronal.
 
-| Voz | type | DESCRIPCIÓN |
+| Voz | Tipo | DESCRIPCIÓN |
 |-------|------|-------------|
 | `en-US-JessaNeural` | tipo =`cheerful` | Expresa una emoción que es positiva y feliz. |
 | | tipo =`empathy` | Expresa un sentimiento de cuidado y comprensión. |

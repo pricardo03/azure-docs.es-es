@@ -1,17 +1,17 @@
 ---
-title: Procedimientos almacenados de administración de Azure Database for MariaDB
-description: Obtenga información acerca de qué procedimientos almacenados de Azure Database for MySQL son útiles para ayudarle a configurar la replicación de datos de entrada y a establecer la zona horaria y a terminar consultas.
+title: Procedimientos almacenados de administración en Azure Database for MariaDB
+description: Conozca qué procedimientos almacenados de Azure Database for MariaDB son útiles para ayudarle a configurar la replicación de datos de entrada, establecer la zona horaria y terminar consultas.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/20/2019
-ms.openlocfilehash: 0a33edeac735502964427ddc3b05076fb9fac969
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.date: 12/02/2019
+ms.openlocfilehash: 9378f2cc62172043dbcaf13e88e9df4b6e61df9b
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973469"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74769955"
 ---
 # <a name="azure-database-for-mariadb-management-stored-procedures"></a>Procedimientos almacenados de administración de Azure Database for MariaDB
 

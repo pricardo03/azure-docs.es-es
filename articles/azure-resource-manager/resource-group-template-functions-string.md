@@ -3,12 +3,12 @@ title: 'Funciones de plantillas: cadena'
 description: Describe las funciones para usar en una plantilla de Azure Resource Manager para trabajar con cadenas.
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.openlocfilehash: af972bac39890402cf75e83d10806e9a830c1d4a
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 37bf03f2934980d143edeec327a0c424216fd8a1
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74149612"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74784517"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Funciones de cadena para las plantillas de Azure Resource Manager
 
@@ -56,7 +56,7 @@ Devuelve la representación de base64 de la cadena de entrada.
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | inputString |Sí |string |Valor que se va a devolver como una representación de base64. |
 
@@ -121,7 +121,7 @@ Convierte una representación en base64 a un objeto JSON.
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | base64Value |Sí |string |La representación en base64 para convertir en un objeto JSON. |
 
@@ -186,7 +186,7 @@ Convierte una representación en base64 en una cadena.
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | base64Value |Sí |string |La representación en base64 para convertir en una cadena. |
 
@@ -251,12 +251,15 @@ Combina varios valores de cadena y devuelve la cadena concatenada, o combina var
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sí |cadena o matriz |El primer valor para la concatenación. |
-| argumentos adicionales |Sin |string |Valores adicionales en orden secuencial para la concatenación. |
+| arg1 |Sí |cadena o matriz |La primera cadena o matriz para la concatenación. |
+| argumentos adicionales |Sin |cadena o matriz |Matrices o cadenas adicionales en orden secuencial para la concatenación. |
+
+Esta función puede tomar cualquier número de argumentos y puede aceptar cadenas o matrices para los parámetros. Sin embargo, no puede proporcionar ambas a la vez para los parámetros. Las cadenas solo se concatenan con otras cadenas.
 
 ### <a name="return-value"></a>Valor devuelto
+
 Una cadena o matriz de valores concatenados.
 
 ### <a name="examples"></a>Ejemplos
@@ -338,7 +341,7 @@ Comprueba si una matriz contiene un valor, un objeto contiene una clave o una ca
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | container |Sí |matriz, objeto o cadena |El valor que contiene el valor para buscar. |
 | itemToFind |Sí |cadena o entero |El valor para buscar. |
@@ -419,7 +422,7 @@ Convierte un valor en un identificador URI de datos.
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | stringToConvert |Sí |string |El valor para convertir en un identificador URI de datos. |
 
@@ -474,7 +477,7 @@ Convierte un valor con formato de identificador URI de datos en una cadena.
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | dataUriToConvert |Sí |string |El valor del identificador URI para convertir. |
 
@@ -529,7 +532,7 @@ Determina si una matriz, un objeto o una cadena están vacíos.
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | itemToTest |Sí |matriz, objeto o cadena |El valor para comprobar si está vacío. |
 
@@ -594,7 +597,7 @@ Determina si una cadena termina con un valor. La comparación distingue entre ma
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | stringToSearch |Sí |string |El valor que contiene el elemento para buscar. |
 | stringToFind |Sí |string |El valor para buscar. |
@@ -660,7 +663,7 @@ Devuelve el primer carácter de la cadena o el primer elemento de la matriz.
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |matriz o cadena |El valor para recuperar el primer elemento o carácter. |
 
@@ -712,7 +715,7 @@ Crea una cadena con formato a partir de valores de entrada.
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | formatString | Sí | string | La cadena de formato compuesta. |
 | arg1 | Sí | valor booleano, entero o cadena | El valor que se va a incluir en la cadena con formato. |
@@ -769,7 +772,7 @@ Crea un valor en el formato de un identificador único global en función de los
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | baseString |Sí |string |El valor utilizado en la función hash para crear el GUID. |
 | parámetros adicionales según sea necesario |Sin |string |Puede agregar tantas cadenas como necesite para crear el valor que especifica el nivel de unicidad. |
@@ -840,7 +843,7 @@ Devuelve la primera posición de un valor dentro de una cadena. La comparación 
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | stringToSearch |Sí |string |El valor que contiene el elemento para buscar. |
 | stringToFind |Sí |string |El valor para buscar. |
@@ -901,7 +904,7 @@ Devuelve el último carácter de la cadena, o el último elemento de la matriz.
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |matriz o cadena |El valor para recuperar el último elemento o carácter. |
 
@@ -953,7 +956,7 @@ Devuelve la última posición de un valor dentro de una cadena. La comparación 
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | stringToSearch |Sí |string |El valor que contiene el elemento para buscar. |
 | stringToFind |Sí |string |El valor para buscar. |
@@ -1014,7 +1017,7 @@ Devuelve el número de caracteres en una cadena, elementos en una matriz o propi
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |matriz, cadena u objeto |La matriz que se usará para obtener el número de elementos, la cadena que se usará para obtener el número de caracteres o el objeto que se usará para obtener el número de propiedades del nivel raíz. |
 
@@ -1187,7 +1190,7 @@ Devuelve una cadena alineada a la derecha agregando caracteres a la izquierda ha
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | valueToPad |Sí |cadena o entero |Valor que se va a alinear a la derecha. |
 | totalLength |Sí |int |El número total de caracteres de la cadena devuelta. |
@@ -1237,7 +1240,7 @@ Devuelve una nueva cadena con todas las instancias de una cadena reemplazadas po
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | originalString |Sí |string |Valor que tiene todas las instancias de una cadena reemplazadas por otra cadena. |
 | oldString |Sí |string |Cadena que se va a quitar de la cadena original. |
@@ -1290,7 +1293,7 @@ Devuelve una cadena con todos los caracteres después del número especificado d
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | originalValue |Sí |matriz o cadena |La matriz o cadena que se usará para la omisión. |
 | numberToSkip |Sí |int |El número de elementos o caracteres que se van a omitir. Si este valor es 0 o un valor inferior, se devuelven todos los elementos o caracteres del valor. Si es mayor que la longitud de la matriz o la cadena, se devuelve una matriz o cadena vacía. |
@@ -1358,7 +1361,7 @@ Devuelve una matriz de cadenas que contiene las subcadenas de la cadena de entra
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | inputString |Sí |string |La cadena que se va a dividir. |
 | delimiter |Sí |cadena o matriz de cadenas |Delimitador que se utilizará para dividir la cadena. |
@@ -1417,7 +1420,7 @@ Determina si una cadena empieza con un valor. La comparación distingue entre ma
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | stringToSearch |Sí |string |El valor que contiene el elemento para buscar. |
 | stringToFind |Sí |string |El valor para buscar. |
@@ -1483,7 +1486,7 @@ Convierte el valor especificado en cadena.
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | valueToConvert |Sí | Any |El valor que se convierte en cadena. Se puede convertir cualquier tipo de valor, incluidos objetos y matrices. |
 
@@ -1554,7 +1557,7 @@ Devuelve una subcadena que empieza en la posición de carácter especificada y q
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | stringToParse |Sí |string |La cadena original desde la que se extrae la subcadena. |
 | startIndex |Sin |int |La posición de carácter inicial basado en cero de la subcadena. |
@@ -1615,7 +1618,7 @@ Devuelve una cadena con el número especificado de caracteres desde el inicio de
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | originalValue |Sí |matriz o cadena |La matriz o cadena de la que se van a tomar los elementos. |
 | numberToTake |Sí |int |El número de elementos o caracteres que se van a tomar. Si este valor es 0 o un valor inferior, se devolverá una matriz o cadena vacía. Si es mayor que la longitud de la matriz o cadena especificada, se devuelven todos los elementos de la matriz o cadena. |
@@ -1683,7 +1686,7 @@ Convierte la cadena especificada a minúsculas.
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | stringToChange |Sí |string |Valor que se va a convertir a minúsculas. |
 
@@ -1734,7 +1737,7 @@ Convierte la cadena especificada a mayúsculas.
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | stringToChange |Sí |string |Valor que se va a convertir a mayúsculas. |
 
@@ -1785,7 +1788,7 @@ Quita todos los caracteres de espacio en blanco iniciales y finales de la cadena
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | stringToTrim |Sí |string |Valor que se recortará. |
 
@@ -1831,7 +1834,7 @@ Crea una cadena de hash determinista basada en los valores proporcionados como p
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | baseString |Sí |string |Valor utilizado en la función hash para crear una cadena única. |
 | parámetros adicionales según sea necesario |Sin |string |Puede agregar tantas cadenas como necesite para crear el valor que especifica el nivel de unicidad. |
@@ -1909,7 +1912,7 @@ Crea un URI absoluto mediante la combinación de la cadena de relativeUri y base
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | baseUri |Sí |string |La cadena de uri base. Preste atención para observar el comportamiento relacionado con el control de la barra diagonal final ("/"), tal y como se describe a continuación en esta tabla.  |
 | relativeUri |Sí |string |La cadena de uri relativo que se agregará a la cadena de uri base. |
@@ -1989,7 +1992,7 @@ Codifica un identificador URI.
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | stringToEncode |Sí |string |El valor para codificar. |
 
@@ -2044,7 +2047,7 @@ Devuelve una cadena del valor codificado por el identificador URI.
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | uriEncodedString |Sí |string |El valor codificado por el identificador URI para convertir en una cadena. |
 
@@ -2099,7 +2102,7 @@ Devuelve el valor de fecha y hora (UTC) actual en el formato especificado. Si no
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | format |Sin |string |El valor codificado por el identificador URI para convertir en una cadena. Use [cadenas de formato estándar](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [cadenas de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
 

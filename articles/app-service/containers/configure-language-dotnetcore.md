@@ -1,24 +1,15 @@
 ---
-title: 'Configuración de aplicaciones de ASP.NET Core: Azure App Service | Microsoft Docs'
-description: Obtenga información sobre cómo configurar las aplicaciones de ASP.NET Core para que funcionen en Azure App Service
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: gwallace
-editor: ''
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
+title: Configuración de aplicaciones de ASP.NET Core en Linux
+description: Aprenda a configurar un contenedor de ASP.NET Core precompilado para la aplicación. En este artículo se muestran las tareas de configuración más comunes.
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/13/2019
-ms.author: cephalin
-ms.openlocfilehash: b05120148d3b82829c465effbcdc948da950aaf0
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: d26c490ad37b25785ff1347cccf1e2be21bba277
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990263"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74670461"
 ---
 # <a name="configure-a-linux-aspnet-core-app-for-azure-app-service"></a>Configuración de una aplicación de ASP.NET Core para Azure App Service
 

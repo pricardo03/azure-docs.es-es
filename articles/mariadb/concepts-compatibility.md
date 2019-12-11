@@ -1,17 +1,17 @@
 ---
-title: Compatibilidad de los controladores y las herramientas de administración de Azure Database for MariaDB
+title: 'Compatibilidad de controladores y herramientas: Azure Database for MariaDB'
 description: En este artículo se describen las herramientas de administración y los controladores de MariaDB compatibles con Azure Database for MariaDB.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 03/19/2019
-ms.openlocfilehash: 7a3d9a5f87a565625052fc54e3ecccc99fd928a7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 12/02/2019
+ms.openlocfilehash: daec0aaf04cae26b6467cc4472305e75517cee5d
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61386830"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74772994"
 ---
 # <a name="mariadb-drivers-and-management-tools-compatible-with-azure-database-for-mariadb"></a>Herramientas de administración y controladores de MariaDB compatibles con Azure Database for MariaDB
 

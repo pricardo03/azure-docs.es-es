@@ -1,5 +1,5 @@
 ---
-title: Información acerca de cómo el Administrador de seguridad protege los dispositivos y el software en Azure IoT Edge | Microsoft Docs
+title: 'Administrador de seguridad de Azure IoT Edge: Azure IoT Edge'
 description: Administra la posición de seguridad del dispositivo IoT Edge y la integridad de los servicios de seguridad.
 services: iot-edge
 keywords: seguridad, elemento seguro, enclave, TEE, IoT Edge
@@ -9,12 +9,12 @@ ms.author: eustacea
 ms.date: 08/30/2019
 ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 90cb7cf0a30ea0ebfe00454288de25ddf6e58d52
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 871f2ec029379f37fc02bcd79847fa04091f0507
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457535"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74666076"
 ---
 # <a name="azure-iot-edge-security-manager"></a>Administrador de seguridad de IoT Edge
 

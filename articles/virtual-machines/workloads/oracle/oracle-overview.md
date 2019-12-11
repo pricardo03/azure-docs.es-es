@@ -1,6 +1,6 @@
 ---
 title: Soluciones de Oracle en Microsoft Azure | Microsoft Docs
-description: Más información sobre cómo implementar aplicaciones y soluciones de Oracle en Microsoft Azure, incluido la ejecución completa en la infraestructura de Azure o el uso de la conectividad entre nubes con Oracle Cloud Infrastructure (OCI).
+description: Obtenga información sobre las opciones para implementar aplicaciones y soluciones de Oracle en Microsoft Azure, incluidos la ejecución completa en la infraestructura de Azure o el uso de la conectividad entre nubes con Oracle Cloud Infrastructure (OCI).
 services: virtual-machines-linux
 documentationcenter: ''
 author: romitgirdhar
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/04/2019
 ms.author: rogirdh
-ms.openlocfilehash: 71caa6730e3a00f3aa80329d6b87d2531fdd8049
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 6ab41182d59f8c96edfca4854aad5f9a13f53436
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73891458"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806616"
 ---
 # <a name="overview-of-oracle-applications-and-solutions-on-azure"></a>Introducción a las aplicaciones y soluciones de Oracle en Azure
 
@@ -42,7 +42,7 @@ Ejecute aplicaciones empresariales en Azure en sistemas operativos compatibles c
 
 * Oracle WebLogic Server 12.1.2
 
-* Oracle Linux (UEK) 6.8, 6.9, 6.10, 7.3, 7.4, 7.5 y 7.6
+* Oracle Linux con Unbreakable Enterprise Kernel (UEK) 6.8, 6.9, 6.10, 7.3, 7.4, 7.5 y 7.6 
 
 ## <a name="high-availability-and-disaster-recovery-options"></a>Opciones de alta disponibilidad y recuperación ante desastres
 
@@ -91,3 +91,5 @@ La implementación de aplicaciones de Oracle en Azure se basa en el modelo "trai
 * Más información acerca de la implementación de [imágenes de máquinas virtuales de Oracle](oracle-vm-solutions.md) en la infraestructura de Azure.
 
 * Más información acerca de cómo [interconectar Azure con OCI](oracle-oci-overview.md).
+
+* Consulte la [Sesión de introducción a Oracle en Azure](https://myignite.techcommunity.microsoft.com/sessions/82915) de Ignite 2019. 

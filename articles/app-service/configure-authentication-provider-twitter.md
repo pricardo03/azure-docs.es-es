@@ -1,25 +1,16 @@
 ---
-title: 'Configuración de la autenticación de Twitter: Azure App Service'
-description: Obtenga información acerca de cómo configurar la autenticación mediante Twitter para la aplicación App Service.
-services: app-service
-documentationcenter: ''
-author: mattchenderson
-manager: syntaxc4
-editor: ''
+title: Configuración de la autenticación de Twitter
+description: Aprenda a configurar la autenticación de Twitter como proveedor de identidades para una aplicación App Service.
 ms.assetid: c6dc91d7-30f6-448c-9f2d-8e91104cde73
-ms.service: app-service-mobile
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 04/19/2018
-ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 02008b7dc1609a5f28ac6ba2a582933a96428198
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: b5ec17c18cec8053f0732366c0cc5d0c5003e4de
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72176957"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74670795"
 ---
 # <a name="configure-your-app-service-app-to-use-twitter-login"></a>Configuración de la aplicación de App Service para usar el inicio de sesión de Twitter
 

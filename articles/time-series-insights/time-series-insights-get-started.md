@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 10/10/2019
+ms.date: 12/03/2019
 ms.custom: seodec18
-ms.openlocfilehash: fc3f21c95ad6f4bb033336018dddb9e966e9cc9a
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: cc99b469701b3974a5b8a2f235ee3a9edb798368
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74006896"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790214"
 ---
 # <a name="create-a-new-time-series-insights-environment-in-the-azure-portal"></a>Creación de un nuevo entorno de Time Series Insights en Azure Portal
 
@@ -34,13 +34,13 @@ Siga estos pasos para crear un entorno:
 
 1. Seleccione la categoría **Internet de las cosas** y elija **Time Series Insights**.
 
-   [![Creación del entorno de Time Series Insights](media/time-series-insights-get-started/1-new-tsi.png)](media/time-series-insights-get-started/1-new-tsi.png#lightbox))
+   [![Creación del entorno de Time Series Insights](media/time-series-insights-get-started/tsi-create-new-environment.png)](media/time-series-insights-get-started/tsi-create-new-environment.png#lightbox)
 
 1. En la página **Time Series Insights**, seleccione **Crear**.
 
 1. Rellene todos los campos obligatorios. La siguiente tabla explica cada parámetro:
    
-   [![Creación del grupo de recursos de Time Series Insights](media/time-series-insights-get-started/2-create-tsi.png)](media/time-series-insights-get-started/2-create-tsi.png#lightbox)
+   [![Creación del grupo de recursos de Time Series Insights](media/time-series-insights-get-started/tsi-configure-and-create.png)](media/time-series-insights-get-started/tsi-configure-and-create.png#lightbox)
    
    Configuración|Valor sugerido|DESCRIPCIÓN
    ---|---|---
@@ -55,13 +55,13 @@ Siga estos pasos para crear un entorno:
 
 1. Seleccione el símbolo de **Notificaciones** (icono de campana) para supervisar el proceso de implementación.
 
-   [![Visualización de notificaciones](media/time-series-insights-get-started/3-notifications.png)](media/time-series-insights-get-started/3-notifications.png#lightbox)
+   [![Visualización de notificaciones](media/time-series-insights-get-started/tsi-deploy-notifications.png)](media/time-series-insights-get-started/tsi-deploy-notifications.png#lightbox)
 
-    Cuando la implementación se realiza correctamente, puede seleccionar **Ir al recurso** para configurar otras propiedades, establecer la seguridad con directivas de acceso de datos, agregar orígenes de eventos y otras acciones.
+1. En **Información general** del recurso, compruebe las opciones de configuración de la implementación.
 
-1. En **Información general** del recurso, seleccione el **icono de anclaje** en la esquina superior derecha para acceder fácilmente a su entorno de Time Series Insights en el futuro.
+   [![Anclaje de Time Series Insights al panel](media/time-series-insights-get-started/tsi-verify-deployment.png)](media/time-series-insights-get-started/tsi-verify-deployment.png#lightbox)
 
-   [![Anclaje de Time Series Insights al panel](media/time-series-insights-get-started/4-pin-create.png)](media/time-series-insights-get-started/4-pin-create.png#lightbox)
+1. **(Opcional)** Seleccione el **icono de anclaje** en la esquina superior derecha para acceder fácilmente a su entorno de Time Series Insights en el futuro.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

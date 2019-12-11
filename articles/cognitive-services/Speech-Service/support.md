@@ -1,7 +1,7 @@
 ---
-title: 'Opciones de ayuda y soporte técnico: servicio de Voz'
+title: 'Opciones de ayuda y soporte técnico: servicio de voz'
 titleSuffix: Azure Cognitive Services
-description: Cómo obtener ayuda y soporte técnico para preguntas y problemas relacionados con la creación de aplicaciones que se integran con el servicio Voz
+description: Cómo obtener ayuda y soporte técnico para preguntas y problemas relacionados con la creación de aplicaciones que se integran con el servicio de voz
 services: cognitive-services
 author: jhakulin
 manager: nitinme
@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: jhakulin
-ms.openlocfilehash: 925d21d22806ab2854be29b9648aab78138741ec
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 741217cde5068468a7063a64361df8425346b590
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422614"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815444"
 ---
 # <a name="support-and-help-options"></a>Opciones de ayuda y soporte técnico
 
-¿Está empezando a explorar la funcionalidad de Servicios de voz? ¿Está implementando una nueva característica a la aplicación? Estas son las sugerencias acerca de dónde puede obtener ayuda como desarrollador.
+¿Está empezando a explorar la funcionalidad del servicio Speech? ¿Está implementando una nueva característica a la aplicación? Estas son las sugerencias acerca de dónde puede obtener ayuda como desarrollador.
 
 > [!div class="checklist"]
-> * Manténgase informado sobre los nuevos desarrollos en *Azure Cognitive Services* o busque las últimas noticias relacionadas con el *servicio Voz*.
+> * Manténgase informado sobre los nuevos desarrollos en *Azure Cognitive Services* o busque las últimas noticias relacionadas con el *servicio de voz*.
 > * Las notas de la versión contienen información para todas las versiones.
 > * Realice una búsqueda para ver la comunidad ya ha tratado este problema o si ya existe documentación de la característica que quiere implementar.
 > * Si no encuentra una respuesta satisfactoria, formule una pregunta en *Stack Overflow*.
@@ -31,7 +31,7 @@ ms.locfileid: "74422614"
 
 ## <a name="stay-informed"></a>Manténgase informado
 
-Las noticias sobre Cognitive Services se recopilan en el [blog de Cognitive Services](https://azure.microsoft.com/blog/topics/cognitive-services/). Para obtener la información más reciente sobre el servicio de Voz, siga el [blog de Servicios de voz](https://azure.microsoft.com/blog/tag/speech-service/).
+Las noticias sobre Cognitive Services se recopilan en el [blog de Cognitive Services](https://azure.microsoft.com/blog/topics/cognitive-services/). Para obtener la información más reciente sobre el servicio de voz, siga el [blog del servicio de voz](https://azure.microsoft.com/blog/tag/speech-service/).
 
 ## <a name="release-notes"></a>Notas de la versión
 
@@ -73,7 +73,7 @@ Si no encuentra una respuesta a su problema a través de la búsqueda, envíe un
 
 A menudo se envían ejemplos como código abierto. Para preguntas y problemas, cree un *problema* en el repositorio de GitHub correspondiente. También puede enviar una solicitud de incorporación de cambios. La lista siguiente contiene vínculos a los repositorios de ejemplos:
 
-* [Speech SDK](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues)
+* [Acerca del SDK de Voz](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues)
 * [Speech Devices SDK](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/issues)
 
 Puede crear un informe de errores, solicitar una característica o formular una pregunta general y compartir procedimientos recomendados. Para los informes de errores, siga la plantilla proporcionada:

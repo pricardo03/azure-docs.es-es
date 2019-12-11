@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/01/2019
-ms.openlocfilehash: 2f89b57257088b0b647fd5f0159a58c2ac03bda7
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: c122baa21c5d94b57f29cb0530f0a2655faa87d0
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72897254"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790378"
 ---
 # <a name="documentation-changes-for-sql-server-on-azure-virtual-machines"></a>Cambios en la documentación de SQL Server en Azure Virtual Machines
 
@@ -56,7 +56,7 @@ Azure permite implementar una máquina virtual (VM) con una imagen de SQL Serve
 | --- | --- |
 | **Nuevos modos de instalación de IaaS de SQL** | Ahora es posible instalar la extensión IaaS de SQL Server en [modo ligero](virtual-machines-windows-sql-server-agent-extension.md) para evitar tener que reiniciar el servicio SQL Server.  |
 | **Modificación de la edición de SQL Server** | Ahora puede cambiar la [propiedad edition](virtual-machines-windows-sql-change-edition.md) de la VM con SQL Server. |
-| **Cambios con el proveedor de recursos de máquina virtual con SQL** | Puede [registrar la máquina virtual con SQL Server con el proveedor de recursos de máquina virtual con SQL](virtual-machines-windows-sql-register-with-resource-provider.md) mediante los nuevos modos de IaaS de SQL. Esta funcionalidad incluye [imágenes de Windows 2008](virtual-machines-windows-sql-register-with-resource-provider.md#register-sql-server-2008-or-2008-r2-on-windows-server-2008-vms).|
+| **Cambios con el proveedor de recursos de máquina virtual con SQL** | Puede [registrar la máquina virtual con SQL Server con el proveedor de recursos de máquina virtual con SQL](virtual-machines-windows-sql-register-with-resource-provider.md) mediante los nuevos modos de IaaS de SQL. Esta funcionalidad incluye [imágenes de Windows Server 2008](virtual-machines-windows-sql-register-with-resource-provider.md#management-modes).|
 | **Imágenes del tipo "traiga su propia licencia" mediante la Ventaja híbrida de Azure** | Ahora es posible cambiar al [tipo de licencia de pago por uso](virtual-machines-windows-sql-ahb.md#remarks) las imágenes del tipo "traiga su propia licencia" implementadas desde Azure Marketplace.| 
 | &nbsp; | &nbsp; |
 

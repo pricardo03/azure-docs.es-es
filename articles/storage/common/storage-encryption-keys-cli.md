@@ -1,26 +1,26 @@
 ---
-title: Configurar las claves que administra el cliente para el cifrado de Azure Storage desde la CLI de Azure.
-description: Configurar las claves que administra el cliente para el cifrado de Azure Storage desde la CLI de Azure. Las claves que administra el cliente le ofrecen más flexibilidad para crear, girar, deshabilitar y revocar los controles de acceso.
+title: 'Configuración de claves administradas por el cliente con Azure Key Vault mediante la CLI de Azure: Azure Storage'
+description: Aprenda a usar la CLI de Azure para configurar claves administradas por el cliente con Azure Key Vault para el cifrado de Azure Storage. Las claves administradas por el cliente le permiten crear, rotar, deshabilitar y revocar los controles de acceso.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
-ms.date: 10/15/2019
+ms.topic: how-to
+ms.date: 12/03/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 18209816b5b73f58a8112efca0363b31dd47bd91
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: fd3b7767bad104f4074b2460ecba3fe89d5a23e1
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72374286"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806633"
 ---
-# <a name="configure-customer-managed-keys-for-azure-storage-encryption-from-azure-cli"></a>Configurar las claves que administra el cliente para el cifrado de Azure Storage desde la CLI de Azure.
+# <a name="configure-customer-managed-keys-for-azure-storage-by-using-azure-cli"></a>Configuración de claves administradas por el cliente para Azure Storage mediante la CLI de Azure
 
 [!INCLUDE [storage-encryption-configure-keys-include](../../../includes/storage-encryption-configure-keys-include.md)]
 
-En este artículo se muestra cómo configurar un almacén de claves con claves que administra el cliente mediante la CLI de Azure.
+En este artículo se muestra cómo configurar Azure Key Vault con claves administradas por el cliente mediante la CLI de Azure. Para obtener información sobre cómo crear un almacén de claves mediante la CLI de Azure, consulte [Inicio rápido: Establecimiento y recuperación de un secreto desde Azure Key Vault mediante la CLI de Azure](../../key-vault/quick-create-cli.md).
 
 > [!IMPORTANT]
 > El uso de claves administradas del cliente con el cifrado de Azure Storage requiere el establecimiento de dos propiedades en el almacén de claves, **Eliminación temporal** y **Do Not Purge** (No purgar). Estas propiedades no están habilitadas de forma predeterminada. Para habilitarlas, use PowerShell o la CLI de Azure.
@@ -91,7 +91,7 @@ az keyvault key create
 
 De forma predeterminada, el cifrado de Azure Storage usa claves que administra Microsoft. Configure la cuenta de Azure Storage para las claves que administra el cliente y especifique la clave para asociar a la cuenta de almacenamiento.
 
-Para actualizar la configuración de cifrado de la cuenta de almacenamiento, llame a [az storage account update](/cli/azure/storage/account#az-storage-account-update). En este ejemplo también se consulta el URI del almacén de claves y la versión de la clave; ambos valores que son necesarios para asociar la clave de la cuenta de almacenamiento. No olvide reemplazar los valores del marcador de posición entre corchetes con sus propios valores.
+Para actualizar la configuración de cifrado de la cuenta de almacenamiento, llame a [az storage account update](/cli/azure/storage/account#az-storage-account-update). En este ejemplo también se consulta el identificador URI del almacén de claves y la última versión de la clave; ambos valores son necesarios para asociar la clave con la cuenta de almacenamiento. No olvide reemplazar los valores del marcador de posición entre corchetes con sus propios valores.
 
 ```azurecli-interactive
 key_vault_uri=$(az keyvault show \
@@ -102,7 +102,7 @@ key_vault_uri=$(az keyvault show \
 key_version=$(az keyvault key list-versions \
     --name <key> \
     --vault-name <key-vault> \
-    --query [].kid \
+    --query [-1].kid \
     --output tsv | cut -d '/' -f 6)
 az storage account update 
     --name <storage-account> \

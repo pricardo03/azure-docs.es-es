@@ -3,16 +3,16 @@ title: Capacidad de aprendizaje automático en Azure Data Explorer
 description: Use la agrupación en clústeres de aprendizaje automático para el análisis de causa principal en Azure Data Explorer.
 author: orspod
 ms.author: orspodek
-ms.reviewer: jasonh
+ms.reviewer: adieldar
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/29/2019
-ms.openlocfilehash: bc72cc21ab525ec82d9ce4b24e80ce82d92a5d21
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fe72031ef9ade7473dc4d5de7e090e92ef2a6843
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65233500"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74769938"
 ---
 # <a name="machine-learning-capability-in-azure-data-explorer"></a>Capacidad de aprendizaje automático en Azure Data Explorer
 
@@ -24,7 +24,9 @@ Azure Data Explorer tiene tres complementos de aprendizaje automático: [`autocl
 
 ## <a name="clustering-a-single-record-set"></a>Agrupación en clústeres de un conjunto de registros único
 
-Un escenario habitual es un conjunto de datos seleccionado mediante criterios específicos, como el período de tiempo en que se exhibe el comportamiento anómalo, las lecturas de temperatura alta del dispositivo, los comandos de larga duración y los usuarios que más consumen. Queremos disponer de una manera sencilla y rápida para encontrar patrones comunes (segmentos) en los datos. Los patrones son un subconjunto del conjunto de datos cuyos registros comparten los mismos valores en varias dimensiones (columnas de categorías). A través de la consulta siguiente se genera y se muestra una serie temporal de las excepciones de servicio durante una semana en intervalos de diez minutos:
+Un escenario habitual es un conjunto de datos seleccionado mediante criterios específicos, como el período de tiempo en que se exhibe el comportamiento anómalo, las lecturas de temperatura alta del dispositivo, los comandos de larga duración y los usuarios que más consumen. Queremos disponer de una manera sencilla y rápida de encontrar patrones comunes (segmentos) en los datos. Los patrones son un subconjunto del conjunto de datos cuyos registros comparten los mismos valores en varias dimensiones (columnas de categorías). A través de la consulta siguiente se genera y se muestra una serie temporal de las excepciones de servicio durante una semana en intervalos de diez minutos:
+
+**\[** [**Haga clic para ejecutar la consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA5XPsaoCQQyF4d6nCFa7oHCtZd9B0F6G8ajByWTJZHS5+PDOgpVgYRn485EkOAnno9NAriWGFKw7QfQYUy0O43zZ0JNKFQnG/5jrbmeIXHBgwd6DjH2/JVqk2QrTL1aYvlifa4tni29YlzaiUK4yRK3Zu54006dBZ1N5/+X6PqpRI23+pFGGfIKRtz5egzk92K+dsycMyz3szhGEKWJ01lxI760O9ABuq0bMcvV2hqFoqnOz7F9BdSHlSgEAAA==) **\]**
 
 ```kusto
 let min_t = toscalar(demo_clustering1 | summarize min(PreciseTimeStamp));  
@@ -40,6 +42,8 @@ El recuento de excepciones de servicio se correlaciona con el tráfico del servi
 
 El segundo pico en los datos se produce el martes por la tarde. La consulta siguiente se utiliza para efectuar un diagnóstico exhaustivo de este pico. Utilice la consulta para volver a dibujar el gráfico en torno al pico en una resolución mayor (ocho horas en intervalos de un minuto) para comprobar si se trata de un pico pronunciado y ver sus bordes.
 
+**\[** [**Haga clic para ejecutar la consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAAyXNwQrCMBAE0Hu/YvHUooWkghSl/yDoyUsJyWpCk2xJNnjx403pbeYwbzwyBBdnnoxiZBewHYS89GLshzNIeRWiuzUGA83al8yYXPzI5gdBLdjnWjFDLGHSVCK3HVCEe0LtMj4r9mAVVngnCvsLMO3hOFqo2goyVCxhNJhgu9dWJYavY9uyY4/T4UV1XVm2CEM0kFe34AnkBhXGOs7kCzuKh+4P3/XM5M8AAAA=) **\]**
+
 ```kusto
 let min_t=datetime(2016-08-23 11:00);
 demo_clustering1
@@ -51,6 +55,8 @@ demo_clustering1
 
 Se puede ver un pico de dos minutos estrecho entre las 15:00 y las 15:02. En la consulta siguiente, cuente las excepciones en esta ventana de dos minutos:
 
+**\[** [**Haga clic para ejecutar la consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA8tJLVHIzcyLL0hNzI4vsU1JLEktycxN1TAyMDTTNbDQNTJWMDS1MjDQtObKASlNrCCk1AioNCU1Nz8+Oae0uCS1KDMv3ZCrRqE8I7UoVSGgKDU5szg1BKgvuCQxt0AhKbWkPDU1TwPhBj09hCWaQI3J+aV5JQACnQoRpwAAAA==) **\]**
+
 ```kusto
 let min_peak_t=datetime(2016-08-23 15:00);
 let max_peak_t=datetime(2016-08-23 15:02);
@@ -59,11 +65,13 @@ demo_clustering1
 | count
 ```
 
-|Recuento |
+|Count |
 |---------|
 |972    |
 
 En la consulta siguiente, muestree 20 excepciones de un total de 972:
+
+**\[** [**Haga clic para ejecutar la consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA4XOsQrCMBSF4b1Pccd2aLmJKKL4DoLu4doeNDSJJb1SBx/eOHV0/37OCVCKPrkJMjo9DaJQH1FbNruW963dkNkemJtjFX5U3v+oLXRAfLo+vGZF9uluqg8tD2TQOaP3M66lu6jEiW7QBUj1+qHr1pGmhCojyPIX7QHvzakAAAA=) **\]**
 
 ```kusto
 let min_peak_t=datetime(2016-08-23 15:00);
@@ -100,6 +108,8 @@ demo_clustering1
 
 Aunque hay menos de mil excepciones, aún cuesta encontrar segmentos comunes, ya que hay varios valores en cada columna. Puede usar el complemento [`autocluster()`](/azure/kusto/query/autoclusterplugin) para extraer instantáneamente una pequeña lista de segmentos comunes y buscar los clústeres interesantes en los intervalos de dos minutos del pico, tal como se muestra en la consulta siguiente:
 
+**\[** [**Haga clic para ejecutar la consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA4WOsQrCMBRF937FG5OhJYkoovQfBN1DbC8aTNqSvlgHP94IQkf3c+65AUzRD3aCe1hue8dgHyGM0rta7WuzIb09KCWPVfii7vUPNQXtEUfbhTwzkh9uunrTckcCnRI6P+NSvDO7ONEVvACDWD80zRqRRcTThVxa5DKPv00hP81KL1+4AAAA) **\]**
+
 ```kusto
 let min_peak_t=datetime(2016-08-23 15:00);
 let max_peak_t=datetime(2016-08-23 15:02);
@@ -108,7 +118,7 @@ demo_clustering1
 | evaluate autocluster()
 ```
 
-| SegmentId | Recuento | Percent | Region | ScaleUnit | DeploymentId | ServiceHost |
+| SegmentId | Count | Percent | Region | ScaleUnit | DeploymentId | ServiceHost |
 |-----------|-------|------------------|--------|-----------|----------------------------------|--------------------------------------|
 | 0 | 639 | 65.7407407407407 | eau | su7 | b5d1d4df547d4a04ac15885617edba57 | e7f60c5d-4944-42b3-922a-92e98a8e7dec |
 | 1 | 94 | 9.67078189300411 | scus | su5 | 9dbd1b161d5b4779a73cf19a7836ebd6 |  |
@@ -124,6 +134,8 @@ Un autoclúster utiliza un algoritmo patentado para crear minería de datos de v
 
 También puede usar el complemento [`basket()`](/azure/kusto/query/basketplugin) tal como se muestra en la consulta siguiente:
 
+**\[** [**Haga clic para ejecutar la consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA4WOsQ6CMBgGd57iH9sB0tZojMZ3MNG9KfBFG1og7Y84+PDWidH9LncBTNGPdoYbLF96x2AfIYzSh1oda7MjvT8pJc9V+KHu/Q81Be0RJ9uFJTOSHx+6+tD6RAJdEzqfcS/ejV2cqQWvwCi2h6bZIrKIeLmwlBa1Lg9gIb9KJv2TswAAAA==) **\]**
+
 ```kusto
 let min_peak_t=datetime(2016-08-23 15:00);
 let max_peak_t=datetime(2016-08-23 15:02);
@@ -132,7 +144,7 @@ demo_clustering1
 | evaluate basket()
 ```
 
-| SegmentId | Recuento | Percent | Region | ScaleUnit | DeploymentId | Tracepoint | ServiceHost |
+| SegmentId | Count | Percent | Region | ScaleUnit | DeploymentId | Tracepoint | ServiceHost |
 |-----------|-------|------------------|--------|-----------|----------------------------------|------------|--------------------------------------|
 | 0 | 639 | 65.7407407407407 | eau | su7 | b5d1d4df547d4a04ac15885617edba57 |  | e7f60c5d-4944-42b3-922a-92e98a8e7dec |
 | 1 | 642 | 66.0493827160494 | eau | su7 | b5d1d4df547d4a04ac15885617edba57 |  |  |
@@ -150,13 +162,15 @@ demo_clustering1
 
 Basket implementa el algoritmo Apriori para la minería de conjuntos de elementos y extrae todos los segmentos cuya cobertura del conjunto de registros esté por encima de un umbral (el valor predeterminado es 5 %). Se puede ver que se han extraído más segmentos con coberturas similares (por ejemplo, los segmentos 0,1 o 2,3).
 
-Ambos complementos son eficaces y fáciles de usar, pero su limitación importante se debe al hecho de que agrupan en clústeres un conjunto de registros único de forma no supervisada (sin etiquetas). Por tanto, no está claro si los patrones extraídos caracterizan el conjunto de registros seleccionado (los registros anómalos) o el conjunto de registros global.
+Ambos complementos son eficaces y fáciles de usar, pero su considerable limitación se debe al hecho de que agrupan en clústeres un conjunto de registros único de forma no supervisada (sin etiquetas). Por tanto, no está claro si los patrones extraídos caracterizan el conjunto de registros seleccionado (los registros anómalos) o el conjunto de registros global.
 
 ## <a name="clustering-the-difference-between-two-records-sets"></a>Agrupación en clústeres de la diferencia entre dos conjuntos de registros
 
 Con el complemento [`diffpatterns()`](/azure/kusto/query/diffpatternsplugin) se supera la limitación de `autocluster` y `basket`. `Diffpatterns` toma dos conjuntos de registros y extrae los segmentos principales que son diferentes entre ellos. Por lo general, un conjunto contiene el conjunto de registros anómalo que se está investigando (analizado por `autocluster` y `basket`). El otro conjunto contiene el conjunto de registros de referencia (base de referencia). 
 
 En la consulta siguiente, usamos `diffpatterns` para encontrar clústeres interesantes en los intervalos de dos minutos del pico, que son diferentes de los clústeres de la base de referencia. Definimos el intervalo de la base de referencia como los ocho minutos antes de las 15:00 (cuando se ha iniciado el pico). También debemos ampliar mediante una columna binaria (AB) que especifique si un registro específico pertenece a la base de referencia o al conjunto anómalo. `Diffpatterns` implementa un algoritmo de aprendizaje supervisado, en que la marca anómala, frente a la marca de la base de referencia (AB), ha generado las dos etiquetas de clase.
+
+**\[** [**Haga clic para ejecutar la consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA42QzU+DQBDF7/wVcwOi5UtrmhJM4OzBRO9kWqbtpssuYacfGv94t0CrxFTd02by5jfvPUkMtVBlQ7gtOauQiUVNXhLFD5NoNknuIJ7Oo8hPHXmS4vEvaXKWWuoCDUmh6Jr8fj79Tv6HfOanEIbwRLgnQFhjAwviA5EC3hCcCYCq6gamEVsC1oB7LfoRt6iMYKEVvGtFQXfeNFKc7mXe2MjNVzl+mARR6lRU63Ipd4apFWodOx9w2FBL4D23tBSGXi3mhbG+OPPGVQTB+ITvg24dGN7vlN5JTxhc+dYAHZls4LzIxGr1k/B4iXcLbq50jfLNtd9i8OB2jD3KnW0dKstokG08Zby8uLbyCfX/tG46AgAA) **\]**
 
 ```kusto
 let min_peak_t=datetime(2016-08-23 15:00);
@@ -182,6 +196,8 @@ demo_clustering1
 | 6 | 57 | 204 | 5.86 | 16.56 | 10.69 |  |  |  |  |
 
 El segmento predominante es el mismo segmento que `autocluster` ha extraído; su cobertura en la ventana anómala de dos minutos también es del 65,74 %. Pero su cobertura en la ventana de la base de referencia de ocho minutos solo es del 1,7 %. La diferencia es del 64,04 %. Esta diferencia parece estar relacionada con el pico anómalo. Para comprobar esta suposición, puede dividir el gráfico original en los registros que pertenecen a este segmento problemático frente a los demás segmentos tal como se muestra en la consulta siguiente:
+
+**\[** [**Haga clic para ejecutar la consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA5WRsWrDMBCG9zzF4cmGGuJUjh2Ktw7tUkLTzuEsnRNRnRQkuSQlD185yRTo0EWIO913/J8MRWBttxE6iC5INOhzRey20owhktd2V8EZwsiMXv/Q9Dpfe5I60Idm2kTkQ1E8AczMxMLjf1h4/IN1PzY7Ax0jWQWBdomvhyF/p512FroOMsIxA0zdTdpKn1bHSzmMzbX8TAfjTkw2vqpLp69VpYQaatEogXOBsqrbtl5WDake6yabXWjkv7WkFxeuPGqG5VzWqhQrIUqx6B/L1WKB6aBViy01imT2ANnau94QT9c35xlNVqQAjF9UhpSHAtiRO+lGG/MCUoZ7CTB4x7ePie5mNbk4QDVn6E+ThUT0SQh5iGlM7tHHX4WFgLHOAQAA) **\]**
 
 ```kusto
 let min_t = toscalar(demo_clustering1 | summarize min(PreciseTimeStamp));  

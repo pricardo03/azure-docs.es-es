@@ -1,5 +1,5 @@
 ---
-title: 'Solución de problemas del SDK de Voz: servicio Voz'
+title: 'Solución de problemas del SDK de voz: servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: En este artículo se proporciona información para ayudarle a resolver los problemas que pueden surgir al usar el SDK de Voz.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: jhakulin
-ms.openlocfilehash: 3beda852b3e711ee969b7f80f8f326285cc2cad6
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 421b9adf4ae5d2c641484e646bea096716d46cca
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68558894"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815416"
 ---
 # <a name="troubleshoot-the-speech-sdk"></a>Solución de problemas del SDK de voz
 

@@ -1,29 +1,29 @@
 ---
-title: Configuración de las claves administradas por el cliente para el cifrado de Azure Storage desde PowerShell
-description: Configurar las claves que administra el cliente para el cifrado de Azure Storage desde PowerShell Las claves administradas del cliente le permiten crear, rotar, deshabilitar y revocar los controles de acceso.
+title: 'Configuración de claves administradas por el cliente con Azure Key Vault mediante PowerShell: Azure Storage'
+description: Configurar las claves que administra el cliente para el cifrado de Azure Storage desde PowerShell Las claves administradas por el cliente le permiten crear, rotar, deshabilitar y revocar los controles de acceso.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
-ms.date: 10/09/2019
+ms.topic: how-to
+ms.date: 11/20/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 30fed5a75e368e9d87da54d4c75e6f69759813e7
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: bd723787d9cea2d3b9d81ae9db63c70a21190854
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72249284"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74666229"
 ---
-# <a name="configure-customer-managed-keys-for-azure-storage-encryption-from-powershell"></a>Configuración de las claves administradas por el cliente para el cifrado de Azure Storage desde PowerShell
+# <a name="configure-customer-managed-keys-for-azure-storage-by-using-powershell"></a>Configuración de claves administradas por el cliente para Azure Storage mediante PowerShell
 
 [!INCLUDE [storage-encryption-configure-keys-include](../../../includes/storage-encryption-configure-keys-include.md)]
 
-En este artículo se muestra cómo configurar un almacén de claves con claves que administra el cliente mediante PowerShell.
+En este artículo se muestra cómo configurar Azure Key Vault con claves administradas por el cliente mediante PowerShell. Para aprender a crear un almacén de claves mediante la CLI de Azure, consulte [Inicio rápido: Establecimiento y recuperación de un secreto de Azure Key Vault mediante PowerShell](../../key-vault/quick-create-powershell.md).
 
 > [!IMPORTANT]
-> El uso de claves administradas del cliente con el cifrado de Azure Storage requiere el establecimiento de dos propiedades en el almacén de claves, **Eliminación temporal** y **No purgar**. Estas propiedades no están habilitadas de forma predeterminada. Para habilitar estas propiedades, use PowerShell o la CLI de Azure.
+> El uso de claves administradas del cliente con el cifrado de Azure Storage requiere el establecimiento de dos propiedades en el almacén de claves, **Eliminación temporal** y **Do Not Purge** (No purgar). Estas propiedades no están habilitadas de forma predeterminada. Para habilitarlas, use PowerShell o la CLI de Azure.
 > Solo se admiten claves RSA y el tamaño de clave 2048.
 
 ## <a name="assign-an-identity-to-the-storage-account"></a>Asignación de una identidad a la cuenta de almacenamiento
@@ -96,5 +96,5 @@ Al crear una nueva versión de una clave, tendrá que actualizar la cuenta de al
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Cifrado de Azure Storage para datos en reposo](storage-service-encryption.md) 
+- [Cifrado de Azure Storage para datos en reposo](storage-service-encryption.md)
 - [¿Qué es Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-overview)

@@ -1,6 +1,6 @@
 ---
-title: Creación de roles personalizados para los recursos de Azure con la CLI de Azure | Microsoft Docs
-description: Obtenga información sobre cómo crear roles personalizados con el control de acceso basado en roles (RBAC) para recursos de Azure con la CLI de Azure. Esto incluye cómo enumerar, crear, actualizar y eliminar roles personalizados.
+title: Creación o actualización de roles personalizados para los recursos de Azure con la CLI de Azure | Microsoft Docs
+description: Aprenda a mostrar, crear, actualizar o eliminar roles personalizados con el control de acceso basado en rol (RBAC) para recursos de Azure con la CLI de Azure.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,16 +14,16 @@ ms.workload: identity
 ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: ebced83346a7b130598e4a5f49a72d51ffd18e4f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d2b2ffde66468ae7cb2818010ac374126d2973be
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62118780"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74703135"
 ---
-# <a name="create-custom-roles-for-azure-resources-using-azure-cli"></a>Creación de roles personalizados para los recursos de Azure con la CLI de Azure
+# <a name="create-or-update-custom-roles-for-azure-resources-using-azure-cli"></a>Creación o actualización de roles personalizados para los recursos de Azure con la CLI de Azure
 
-Si los [roles integrados para los recursos de Azure](built-in-roles.md) no cumplen las necesidades específicas de su organización, puede crear sus propios roles personalizados. En este artículo se describe cómo crear y administrar roles personalizados con la CLI de Azure.
+Si los [roles integrados para los recursos de Azure](built-in-roles.md) no cumplen las necesidades específicas de su organización, puede crear sus propios roles personalizados. En este artículo se describe cómo mostrar, crear, actualizar o eliminar roles personalizados con la CLI de Azure.
 
 Para ver un tutorial paso a paso sobre cómo crear un rol personalizado, consulte [Tutorial: creación de un rol personalizado para los recursos de Azure con la CLI de Azure](tutorial-custom-role-cli.md).
 

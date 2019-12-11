@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/24/2019
 ms.author: vilibert
-ms.openlocfilehash: 9c3f054a1bae745e4ee7ce9e3bddca3c9bf31083
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 20d710f717a9dff26f46ac7a201a9b694f3fbe84
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74534984"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74684130"
 ---
 # <a name="troubleshooting-a-linux-vm-when-there-is-no-access-to-the-azure-serial-console-and-the-disk-layout-is-using-lvm-logical-volume-manager"></a>Solución de problemas de una VM de Linux cuando no se tiene acceso a la consola serie de Azure y el diseño de disco usa LVM (Administrador de volúmenes lógicos)
 
@@ -204,12 +204,35 @@ Consulte el **kernel** instalado.
 
 ![Avanzado](./media/chroot-logical-volume-manager/rpm-kernel.png)
 
-Si es necesario, actualice el **kernel**
+Si es necesario, elimine o actualice el **kernel**
 ![Avanzado](./media/chroot-logical-volume-manager/rpm-remove-kernel.png)
 
 
 ### <a name="example-3---enable-serial-console"></a>Ejemplo 3: habilitar la consola serie
 Si no se ha podido obtener acceso a la consola serie de Azure, compruebe los parámetros de configuración de GRUB para la VM de Linux y corríjalos. Puede encontrar información detallada [en este documento](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-grub-proactive-configuration).
+
+### <a name="example-4---kernel-loading-with-problematic-lvm-swap-volume"></a>Ejemplo 4: carga del kernel con un volumen de intercambio LVM problemático
+
+Es posible que una máquina virtual no arranque completamente y caiga en el símbolo del sistema de **Dracut**.
+Puede encontrar más detalles sobre el error en la consola serie de Azure o ir a Azure Portal -> Diagnósticos de arranque -> Registro serie
+
+
+Puede aparecer un error similar al siguiente:
+
+```
+[  188.000765] dracut-initqueue[324]: Warning: /dev/VG/SwapVol does not exist
+         Starting Dracut Emergency Shell...
+Warning: /dev/VG/SwapVol does not exist
+```
+
+El archivo grub.cfg se ha configurado en este ejemplo para cargar una LV con el nombre de **rd.lvm.lv=VG/SwapVol** y la máquina virtual no puede encontrarla. Esta línea muestra cómo se carga el kernel haciendo referencia a LV SwapVol
+
+```
+[    0.000000] Command line: BOOT_IMAGE=/vmlinuz-3.10.0-1062.4.1.el7.x86_64 root=/dev/mapper/VG-OSVol ro console=tty0 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0 biosdevname=0 crashkernel=256M rd.lvm.lv=VG/OSVol rd.lvm.lv=VG/SwapVol nodmraid rhgb quiet
+[    0.000000] e820: BIOS-provided physical RAM map:
+```
+
+ Quite la línea LV infractora de la configuración de /etc/default/grub y recompile grub2.cfg
 
 
 ## <a name="exit-chroot-and-swap-the-os-disk"></a>Salga de chroot e intercambie el disco del sistema operativo.
@@ -247,4 +270,8 @@ Si la VM se está ejecutando, el intercambio de disco se desactivará y se reini
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Obtenga más información sobre la [consola serie de Azure]( https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux).
+Más información acerca de
+
+ [Azure Serial Console]( https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux)
+
+[Modo de usuario único](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-grub-single-user-mode)

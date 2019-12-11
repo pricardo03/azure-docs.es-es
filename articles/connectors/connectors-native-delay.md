@@ -1,21 +1,18 @@
 ---
-title: 'Retraso de la acción siguiente en los flujos de trabajo: Azure Logic Apps'
+title: Retraso de la acción siguiente en flujos de trabajo
 description: Espera para la ejecución de la siguiente acción en flujos de trabajo de aplicaciones lógicas mediante acciones "Retraso" y "Retraso hasta" en Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: deli, klam, LADocs
-tags: connectors
+ms.reviewer: deli, klam, logicappspm
 ms.topic: conceptual
 ms.date: 05/25/2019
-ms.openlocfilehash: 27475fb3f086dbc5166a473e9d657d2dab723938
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+tags: connectors
+ms.openlocfilehash: 5348ade1ba6eec6cbd360849411b4520cb3c2b19
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66297603"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74787343"
 ---
 # <a name="delay-running-the-next-action-in-azure-logic-apps"></a>Retraso de la ejecución de la siguiente acción en Azure Logic Apps
 
@@ -53,9 +50,9 @@ Aquí se muestran algunos ejemplos de uso de estas acciones:
 
    ![Establecer la cantidad de tiempo de retraso](./media/connectors-native-delay/delay-time-intervals.png)
 
-   | Propiedad | Nombre JSON | Obligatorio | Type | DESCRIPCIÓN |
+   | Propiedad | Nombre JSON | Obligatorio | type | DESCRIPCIÓN |
    |----------|-----------|----------|------|-------------|
-   | Recuento | count | Sí | Entero | El número de unidades de tiempo de retraso |
+   | Count | count | Sí | Integer | El número de unidades de tiempo de retraso |
    | Unidad | unit | Sí | Cadena | La unidad de tiempo: `Second`, `Minute`, `Hour`, `Day`, `Week` o `Month`. |
    ||||||
 
@@ -79,7 +76,7 @@ Aquí se muestran algunos ejemplos de uso de estas acciones:
 
    ![Especificar la marca de tiempo de cuándo se debe finalizar el retraso](./media/connectors-native-delay/delay-until-timestamp.png)
 
-   | Propiedad | Nombre JSON | Obligatorio | Type | DESCRIPCIÓN |
+   | Propiedad | Nombre JSON | Obligatorio | type | DESCRIPCIÓN |
    |----------|-----------|----------|------|-------------|
    | Timestamp | timestamp | Sí | Cadena | La fecha y hora de finalización para reanudar el flujo de trabajo con este formato: <p>YYYY-MM-DDThh:mm:ssZ <p>Por ejemplo, si desea el 18 de septiembre de 2017 a las 14:00, especifique "2017-09-18T14:00:00Z". <p>**Nota:** Este formato de hora debe seguir la [especificación de fecha y hora ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) en [formato de hora y fecha UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), pero sin una [diferencia horaria con UTC](https://en.wikipedia.org/wiki/UTC_offset). Si no se selecciona una zona horaria, debe agregar la letra "Z" al final sin espacios. Esta "Z" se refiere al equivalente de [hora náutica](https://en.wikipedia.org/wiki/Nautical_time). |
    ||||||

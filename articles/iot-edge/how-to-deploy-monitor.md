@@ -1,5 +1,5 @@
 ---
-title: 'Creación de implementaciones automáticas desde Azure Portal: Azure IoT Edge | Microsoft Docs'
+title: 'Implementación de módulos a escala mediante Azure Portal: Azure IoT Edge'
 description: Uso de Azure Portal para crear implementaciones automáticas para grupos de dispositivos IoT Edge
 keywords: ''
 author: kgremban
@@ -9,12 +9,12 @@ ms.date: 06/17/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 286bab7b7fdbe42190c32dabb42c59d6fc094b2a
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 068845bf8cda7ce6abf11eefad0ed176688b34c5
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457369"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74665855"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-portal"></a>Implementación y supervisión de módulos de IoT Edge a escala mediante Azure Portal
 

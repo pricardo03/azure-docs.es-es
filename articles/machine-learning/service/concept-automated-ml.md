@@ -1,5 +1,5 @@
 ---
-title: Descripción del aprendizaje automático o AutoML
+title: Qué es el aprendizaje automático automatizado / ML automatizado
 titleSuffix: Azure Machine Learning
 description: Obtenga información sobre cómo Azure Machine Learning puede elegir de forma automática un algoritmo y generar un modelo a partir de él para ahorrar tiempo, mediante los parámetros y criterios que proporcione con el fin de seleccionar el mejor algoritmo para el modelo.
 services: machine-learning
@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 11/04/2019
-ms.openlocfilehash: f8a83fccefe3310fe1a582ef44d72cfbef7e9469
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: d8628bd62df650d76b0666b650af88038dbbda1f
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74133073"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74807126"
 ---
 # <a name="what-is-automated-machine-learning"></a>Descripción del aprendizaje automático
 
@@ -98,10 +98,60 @@ También están disponibles operaciones de preprocesamiento o caracterización a
 
 + Azure Machine Learning Studio: Seleccione **View featurization settings** (Ver configuración de características) en la sección **Configuration Run** (Ejecución de la configuración) [con estos pasos](how-to-create-portal-experiments.md).
 
-+ SDK de Python: Especifique `"feauturization": auto' / 'off' / FeaturizationConfig` para la [clase `AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
++ SDK de Python: Especifique `"feauturization": auto' / 'off' / FeaturizationConfig` para la [clase `AutoMLConfig`](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig).
 
+## <a name="prevent-over-fitting"></a>Prevención del sobreajuste
+
+El sobreajuste en el aprendizaje automático se produce cuando un modelo se ajusta demasiado bien a los datos de entrenamiento y, como resultado, no puede predecir con precisión sobre datos de prueba no vistos. En otras palabras, el modelo ha memorizado simplemente patrones y ruido específicos de los datos de entrenamiento, pero no es lo suficientemente flexible como para realizar predicciones sobre datos reales. En los casos más notorios, un modelo sobreajustado supondrá que las combinaciones de valores de características que se han visto durante el entrenamiento siempre darán exactamente la misma salida para el destino. 
+
+La mejor manera de evitar el sobreajuste es seguir los procedimientos recomendados de ML, entre los que se incluyen:
+
+* Usar más datos de entrenamiento y eliminar el sesgo estadístico
+* Evitar pérdidas de destino
+* Usar menos características
+* **Regularización y optimización de hiperparámetros**
+* **Limitaciones de la complejidad del modelo**
+* **Validación cruzada**
+
+En el contexto del aprendizaje automático automatizado, los tres primeros elementos anteriores son **procedimientos recomendados que usted implementa**. Los tres últimos elementos en negrita son **procedimientos recomendados que el aprendizaje automático automatizado implementa** de forma predeterminada para protegerse frente al sobreajuste. En configuraciones distintas al aprendizaje automático automatizado, es conveniente seguir los seis procedimientos recomendados para evitar modelos con sobreajuste.
+
+### <a name="best-practices-you-implement"></a>Procedimientos recomendados que usted implementa
+
+El uso de **más datos** es la forma más sencilla y óptima de evitar el sobreajuste y, como ventaja adicional, suele aumentar la precisión. Cuando se usan más datos, resulta más difícil para el modelo memorizar patrones exactos y se ve obligado a obtener soluciones que son más flexibles para acomodar más condiciones. También es importante reconocer el **sesgo estadístico**, para asegurarse de que los datos de entrenamiento no incluyen patrones aislados que no existen en los datos de predicción en directo. Este escenario puede ser difícil de resolver, ya que es posible que no haya sobreajuste entre los conjuntos de entrenamiento y pruebas, pero puede haber sobreajuste cuando se comparan con los datos de pruebas en directo.
+
+La pérdida de destino es un problema similar, en el que es posible que no vea sobreajuste entre los conjuntos de entrenamiento y pruebas, sino que aparece en tiempo de predicción. La pérdida de destino se produce cuando el modelo "hace trampa" durante el entrenamiento al tener acceso a datos que normalmente no debería tener en el momento de la predicción. Por ejemplo, si el problema es predecir el lunes cuál será el precio el viernes, pero una de sus características incluye accidentalmente datos del jueves, que serían datos que el modelo no tendrá en el tiempo de predicción, ya que no puede ver el futuro. La pérdida de destino es un error sencillo de evitar, pero a menudo se caracteriza por una precisión anormalmente alta para el problema. Si intenta predecir el precio de las acciones y ha entrenado un modelo con una precisión del 95 %, es muy probable que se produzcan pérdidas de destino en alguna parte de las características.
+
+La eliminación de características también puede ayudar con el sobreajuste, ya que impide que el modelo tenga demasiados campos para memorizar patrones específicos, lo que hace que sea más flexible. Puede ser difícil de medir cuantitativamente, pero si puede eliminar características y conservar la misma precisión, probablemente haya hecho que el modelo sea más flexible y haya reducido el riesgo de sobreajuste.
+
+### <a name="best-practices-automated-ml-implements"></a>Procedimientos recomendados que implementa el aprendizaje automático automatizado
+
+La regularización es el proceso de minimizar una función de costo para penalizar modelos complejos y sobreajustados. Hay diferentes tipos de funciones de regularización, pero en general todas penalizan el tamaño del coeficiente del modelo, la varianza y la complejidad. El aprendizaje automático automatizado usa L1 (Lasso), L2 (Ridge) y ElasticNet (L1 y L2 simultáneamente) en combinaciones diferentes con diferentes configuraciones de hiperparámetros del modelo que controlan el sobreajuste. En términos simples, el aprendizaje automático automatizado variará cuánto se regula un modelo y elegirá el mejor resultado.
+
+El aprendizaje automático automatizado también implementa limitaciones de complejidad del modelo explícitas para evitar el sobreajuste. En la mayoría de los casos, se aplica específicamente a árboles de decisión o algoritmos de bosque, donde la profundidad máxima del árbol individual está limitada y el número total de árboles usados en el bosque o las técnicas conjunto están limitados.
+
+La validación cruzada (CV) es el proceso de tomar muchos subconjuntos de los datos de entrenamiento completos y entrenar un modelo en cada subconjunto. La idea es que un modelo podría tener "suerte" y tener una gran precisión con un subconjunto, pero al usar muchos subconjuntos el modelo no alcanzará esta alta precisión cada vez. Al realizar la CV, se proporciona un conjunto de datos de exclusión de la validación, se especifican los pliegues de la CV (número de subconjuntos) y el aprendizaje automático automatizado entrena el modelo y ajusta los hiperparámetros para minimizar el error en el conjunto de validación. Un plegamiento de la CV podría estar sobreajustado, pero si se usan muchos de ellos, se reduce la probabilidad de que el modelo final esté sobreajustado. La contrapartida es que la CV genera tiempos de entrenamiento más largos y, por lo tanto, un costo mayor, porque en lugar de entrenar un modelo una vez, se entrena una vez por cada *n* subconjuntos de CV.
+
+> [!NOTE]
+> La validación cruzada no está habilitada de forma predeterminada; se debe configurar en la configuración de aprendizaje automático automatizado. Sin embargo, una vez configurada la CV y proporcionado un conjunto de datos de validación, el proceso es automático.
+
+### <a name="identifying-over-fitting"></a>Identificar el sobreajuste
+
+Examine los siguientes modelos entrenados y sus correspondientes precisiones de entrenamiento y prueba.
+
+| Modelo | Precisión del entrenamiento | Precisión de la prueba |
+|-------|----------------|---------------|
+| Una | 99,9 % | 95 % |
+| b | 87 % | 87 % |
+| C | 99,9 % | 45 % |
+
+Si observa el modelo **A**, hay una idea equivocada habitual de que si la precisión de la prueba en los datos no vistos es inferior a la precisión del entrenamiento, el modelo está sobreajustado. Sin embargo, la precisión de la prueba siempre debe ser menor que la precisión del entrenamiento y la distinción entre el sobreajuste y el ajuste adecuado se convierte en *cuánto* menos preciso. 
+
+Al comparar los modelos **A** y **B**, el modelo **A** es un modelo mejor porque tiene mayor precisión en la prueba y, aunque la precisión de la prueba es ligeramente inferior al 95 %, no es una diferencia significativa que sugiera que existe sobreajuste. No elegiría el modelo **B** simplemente porque las precisiones del entrenamiento y de la prueba están más próximas.
+
+El modelo **C** representa un caso claro de sobreajuste; la precisión del entrenamiento es muy alta, pero la precisión de la prueba no es tan alta. Esta distinción es bastante subjetiva, pero proviene del conocimiento del problema y los datos y de las magnitudes de error que son aceptables. 
 
 ## <a name="time-series-forecasting"></a>Previsión de series temporales
+
 La creación de previsiones es una parte integral de cualquier empresa, ya sea a petición de los ingresos, inventarios, ventas o clientes. Puede usar el aprendizaje automático automatizado para combinar las técnicas y enfoques y obtener una previsión recomendada y de alta calidad de series temporales.
 
 Un experimento automatizado de series temporales se trata como un problema de regresión multivariante. Los valores de series temporales anteriores se "dinamizan" para convertirse en dimensiones adicionales para el regresor junto con otros indicadores. Este enfoque, a diferencia de los métodos clásicos de series temporales, tiene la ventaja de incorporar de forma natural varias variables contextuales y su relación entre sí durante el entrenamiento. El aprendizaje automático automatizado aprende un modelo único (a menudo, internamente bifurcado) para todos los elementos en el conjunto de datos y horizontes de predicción. Por tanto, hay más datos disponibles para calcular los parámetros del modelo, y se hace posible la generalización hasta series totalmente nuevas.

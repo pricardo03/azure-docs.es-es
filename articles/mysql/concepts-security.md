@@ -1,19 +1,19 @@
 ---
-title: Seguridad en Azure Database for MySQL con un único servidor
-description: Información general sobre las características de seguridad de Azure Database for MySQL con un único servidor.
+title: Seguridad de Azure Database for MySQL
+description: Información general sobre las características de seguridad de Azure Database for MySQL.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 11/25/2019
-ms.openlocfilehash: 06f895d2e8cd7936141c9f35c5ed0c81fb7e3e15
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.date: 12/02/2019
+ms.openlocfilehash: 421604bcec5277d337b7e7f73a869f40fa73158a
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74484793"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74764974"
 ---
-# <a name="security-in-azure-database-for-mysql---single-server"></a>Seguridad en Azure Database for MySQL con un único servidor
+# <a name="security-in-azure-database-for-mysql"></a>Seguridad en Azure Database for MySQL
 
 Existen varios niveles de seguridad disponibles para proteger los datos en el servidor de Azure Database for MySQL. En este artículo se describen esas opciones de seguridad.
 
@@ -32,7 +32,7 @@ Las conexiones a un servidor de Azure Database for MySQL se enrutan primero a t
 Un servidor de Azure Database for MySQL recién creado tiene un firewall que bloquea todas las conexiones externas. Aunque lleguen a la puerta de enlace, no tienen permiso para conectarse al servidor. 
 
 ### <a name="ip-firewall-rules"></a>Reglas de firewall de IP
-Las reglas de firewall de IP otorgan acceso a los servidores según la dirección IP de origen de cada solicitud. Vea la [información general sobre las reglas de firewall](concepts-firewall-rules.md) para más información.
+Las reglas de firewall de IP otorgan acceso a los servidores según la dirección IP de origen de cada solicitud. Consulte la [información general sobre las reglas de firewall](concepts-firewall-rules.md) para obtener más información.
 
 ### <a name="virtual-network-firewall-rules"></a>Reglas de firewall de red virtual
 Los puntos de conexión de servicio de red virtual amplían la conectividad de la red virtual a través de la red troncal de Azure. Cuando se usan reglas de red virtual, el servidor de Azure Database for MySQL se puede habilitar para permitir conexiones desde subredes seleccionadas en una red virtual. Para más información, vea la [información general sobre los puntos de conexión de servicio de red virtual](concepts-data-access-and-security-vnet.md).
@@ -47,8 +47,8 @@ Al crear el servidor de Azure Database for MySQL, se deben proporcionar las cre
 
 Puede optar por usar [Advanced Threat Protection](concepts-data-access-and-security-threat-protection.md), que detecta actividades anómalas que indican intentos poco habituales y posiblemente dañinos de acceder a sus servidores o de aprovechar sus vulnerabilidades.
 
-Hay un [registro de auditoría](concepts-audit-logs.md) disponible para realizar un seguimiento de la actividad en las bases de datos. 
+Existe un [registro de auditoría](concepts-audit-logs.md) disponible para realizar un seguimiento de las actividades en las bases de datos. 
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Habilite reglas de firewall de [direcciones IP](concepts-firewall-rules.md) o [redes virtuales](concepts-data-access-and-security-vnet.md).
+- Habilite las reglas de firewall de [direcciones IP](concepts-firewall-rules.md) o de [redes virtuales](concepts-data-access-and-security-vnet.md).

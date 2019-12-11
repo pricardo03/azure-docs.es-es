@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/06/2019
-ms.openlocfilehash: 33a63b8a887594747aba03e19c107653e438853f
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 27d9b3061794e5673d5ab24fe30d44f46e217c64
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74217743"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74702051"
 ---
 # <a name="source-transformation-for-mapping-data-flow"></a>Transformación de origen en Mapping Data Flow 
 
@@ -156,7 +156,7 @@ Puede modificar los tipos de datos de columna en una transformación de columna 
 
 ### <a name="import-schema"></a>Importar esquema
 
-Los conjuntos de datos como Avro y CosmosDB que admiten estructuras de datos complejas no requieren que existan definiciones de esquemas en el conjunto de datos. Por lo tanto, podrá hacer clic en el botón "Importar esquema" de la pestaña Proyección para estos tipos de orígenes.
+Los conjuntos de datos como Avro y CosmosDB que admiten estructuras de datos complejas no requieren que existan definiciones de esquemas en el conjunto de datos. Por lo tanto, podrá hacer clic en el botón **Importar esquema** de la pestaña **Proyección** para estos tipos de orígenes.
 
 ## <a name="cosmosdb-specific-settings"></a>Configuración específica de CosmosDB
 

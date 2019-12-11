@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/18/2019
-ms.openlocfilehash: 23e3116a0cc3283191d00079e0926dc206e677f0
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: a1a0a1462c8a4e52a065eafad315aab3ddae5f3b
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819343"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74784602"
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>Exploración de los registros de seguimiento de Java en Application Insights
 Si está usando Logback o Log4J (v1.2 o v2.0) para el seguimiento, los registros de seguimiento se pueden enviar automáticamente a Application Insights, donde puede explorarlos y buscar en ellos.
@@ -22,27 +22,41 @@ Si está usando Logback o Log4J (v1.2 o v2.0) para el seguimiento, los registros
 
 ## <a name="using-the-application-insights-java-agent"></a>Uso del agente de Java de Application Insights
 
-Puede configurar el agente de Java de Application Insights para capturar automáticamente los registros, habilitando la característica en el archivo `AI-Agent.xml`:
+De forma predeterminada, el agente de Java de Application Insights captura automáticamente el registro realizado en el nivel `WARN` y superiores.
+
+Puede cambiar el umbral de registro capturado mediante el archivo `AI-Agent.xml`:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ApplicationInsightsAgent>
    <Instrumentation>
-      <BuiltIn enabled="true">
-         <Logging enabled="true" />
+      <BuiltIn>
+         <Logging threshold="info"/>
       </BuiltIn>
    </Instrumentation>
-   <AgentLogger />
 </ApplicationInsightsAgent>
 ```
 
-Como alternativa, puede seguir las instrucciones a continuación.
+Puede deshabilitar la captura de registro del agente de Java mediante el archivo `AI-Agent.xml`:
 
-## <a name="install-the-java-sdk"></a>Instalación del SDK de Java
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationInsightsAgent>
+   <Instrumentation>
+      <BuiltIn>
+         <Logging enabled="false"/>
+      </BuiltIn>
+   </Instrumentation>
+</ApplicationInsightsAgent>
+```
+
+## <a name="alternatively-as-opposed-to-using-the-java-agent-you-can-follow-the-instructions-below"></a>También puede seguir las instrucciones que se indican a continuación (en lugar de usar el agente de Java)
+
+### <a name="install-the-java-sdk"></a>Instalación del SDK de Java
 
 Siga las instrucciones para instalar el [SDK de Application Insights para Java][java], si aún no lo ha hecho.
 
-## <a name="add-logging-libraries-to-your-project"></a>Incorporación de bibliotecas de registro al proyecto
+### <a name="add-logging-libraries-to-your-project"></a>Incorporación de bibliotecas de registro al proyecto
 *Elija la forma adecuada para su proyecto.*
 
 #### <a name="if-youre-using-maven"></a>Si está usando Maven...
@@ -123,7 +137,7 @@ Siga las instrucciones para instalar manualmente el SDK de Java de Application I
 | Log4J v1.2 |[JAR del appender de Log4J v1.2](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j1_2%22) |applicationinsights-logging-log4j1_2 |
 
 
-## <a name="add-the-appender-to-your-logging-framework"></a>Incorporación del appender el marco de registro
+### <a name="add-the-appender-to-your-logging-framework"></a>Incorporación del appender el marco de registro
 Para empezar a recibir los seguimientos, combine el fragmento de código relevante al archivo de configuración Log4J o Logback: 
 
 *Logback*

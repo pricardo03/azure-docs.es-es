@@ -1,24 +1,15 @@
 ---
-title: 'Configuración de aplicaciones de PHP: Azure App Service | Microsoft Docs'
-description: Obtenga información sobre cómo configurar las aplicaciones de PHP para que funcionen en Azure App Service.
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: jpconnock
-editor: ''
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
+title: Configuración de una aplicación de PHP
+description: Aprenda a configurar un contenedor de PHP precompilado para la aplicación. En este artículo se muestran las tareas de configuración más comunes.
+ms.devlang: php
 ms.topic: article
 ms.date: 03/28/2019
-ms.author: cephalin
-ms.openlocfilehash: 279660d903b3b0e893c3ccddb89da7c6dc42fa09
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: a3de4769193d95a3ef483924c4d65c4fa1cc9f8d
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205074"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671832"
 ---
 # <a name="configure-a-linux-php-app-for-azure-app-service"></a>Configuración de una aplicación de PHP en Linux para Azure App Service
 
@@ -179,7 +170,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 `/usr/local/etc/php/conf.d` es el directorio predeterminado donde se encuentra *php.ini*. `/home/site/ini` es el directorio personalizado en el que agregará un archivo personalizado *.ini*. Separe los valores con un `:`.
 
-Vaya a la sesión SSH web con el contenedor Linux (`https://cephalin-container.scm.azurewebsites.net/webssh/host`).
+Vaya a la sesión SSH web con el contenedor Linux (`https://<app-name>.scm.azurewebsites.net/webssh/host`).
 
 Cree un directorio en `/home/site` llamado `ini`, después cree un archivo *.ini* en el directorio `/home/site/ini` (por ejemplo, *settings.ini)* con las directivas que quiera personalizar. Utilice la misma sintaxis que usaría en un archivo *php.ini*. 
 

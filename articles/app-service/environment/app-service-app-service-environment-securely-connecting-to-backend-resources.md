@@ -1,28 +1,20 @@
 ---
-title: 'Conexión segura a los recursos de back-end desde App Service Environment: Azure'
-description: Obtenga información acerca de cómo conectarse de forma segura a los recursos de back-end desde un entorno de App Service.
-services: app-service
-documentationcenter: ''
+title: Conexión al back-end v1
+description: Obtenga información acerca de cómo conectarse de forma segura a los recursos de back-end desde un entorno de App Service. Este documento solo se proporciona para los clientes que usan App Service Environment v1 heredado.
 author: stefsch
-manager: erikre
-editor: ''
 ms.assetid: f82eb283-a6e7-4923-a00b-4b4ccf7c4b5b
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: adb7c246a9f8c8d202d45b58f4d22eeb8d51a773
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 03f773e286697a12188f238cf2f422a18a20054f
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70069958"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687308"
 ---
 # <a name="connect-securely-to-back-end-resources-from-an-app-service-environment"></a>Conexión segura a los recursos de back-end desde App Service Environment
-## <a name="overview"></a>Información general
 Dado que una instancia de App Service Environment siempre se crea **o bien** en una red virtual de Azure Resource Manager **o** en una [red virtual][virtualnetwork] del modelo de implementación clásica, las conexiones salientes de dicho entorno a otros recursos de back-end solo pueden fluir a través de la red virtual.  Tras el cambio reciente realizado en junio de 2016, los entornos ASE también se pueden implementar en redes virtuales que usen intervalos de direcciones públicas o espacios de direcciones de RFC1918 (es decir, direcciones privadas).  
 
 Por ejemplo, puede haber un servidor SQL Server que se ejecute en un clúster de máquinas virtuales con el puerto 1433 bloqueado.  En el extremo puede incluirse una lista de control de acceso para permitir únicamente el acceso de otros recursos de la misma red virtual.  

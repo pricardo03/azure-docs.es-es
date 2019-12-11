@@ -1,5 +1,5 @@
 ---
-title: 'Transcripción de conversaciones en tiempo real (versión preliminar): Servicio de voz'
+title: 'Transcripción de conversaciones en tiempo real (versión preliminar): servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: Aprenda a usar la transcripción de conversaciones en tiempo real con el SDK de voz. Disponible para C++, C# y Java.
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: weixu
-ms.openlocfilehash: 4ee597f96d28b43b9c69d1515634aadde2f0ab7c
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 93f0117096a5601632ccced6b698e84a0714bbd4
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73608020"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74805814"
 ---
 # <a name="real-time-conversation-transcription-preview"></a>Transcripción de conversaciones en tiempo real (versión preliminar)
 
-La API **ConversationTranscriber** del SDK de voz le permite transcribir reuniones y conversaciones con la posibilidad de agregar, quitar e identificar varios participantes haciendo streaming de audio a Servicios de voz mediante `PullStream` o `PushStream`. Este tema requiere que sepa cómo usar la conversión de voz en texto con el SDK de voz (versión 1.8.0 o posterior). Para obtener más información, consulte el artículo sobre la [definición de Servicios de voz](overview.md).
+La API **ConversationTranscriber** del SDK de voz le permite transcribir reuniones y conversaciones con la posibilidad de agregar, quitar e identificar varios participantes haciendo streaming de audio al servicio de voz mediante `PullStream` o `PushStream`. Este tema requiere que sepa cómo usar la conversión de voz en texto con el SDK de voz (versión 1.8.0 o posterior). Para más información, consulte [Qué es el servicio de voz](overview.md).
 
 ## <a name="limitations"></a>Limitaciones
 
@@ -37,7 +37,7 @@ El SDK de dispositivos de voz proporciona código de ejemplo en Java para la cap
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Una suscripción de Servicios de voz. Puede [obtener una suscripción de prueba a Voz](https://azure.microsoft.com/try/cognitive-services/) si no la tiene.
+Una suscripción al servicio de voz. Puede [obtener una suscripción de prueba a Voz](https://azure.microsoft.com/try/cognitive-services/) si no la tiene.
 
 ## <a name="create-voice-signatures"></a>Creación de firmas de voz
 

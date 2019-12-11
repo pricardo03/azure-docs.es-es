@@ -1,26 +1,19 @@
 ---
-title: 'Compatibilidad con SSH para App Service en Linux: Azure | Microsoft Docs'
-description: Aprenda a usar SSH con Azure App Service en Linux.
+title: Acceso SSH para contenedores Linux
+description: Puede abrir una sesión de SSH en un contenedor Linux en Azure App Service. Los contenedores Linux personalizados se admiten con algunas modificaciones en la imagen personalizada.
 keywords: azure app service, aplicación web, linux, oss
-services: app-service
-documentationcenter: ''
-author: msangapu
-manager: jeconnoc
-editor: ''
+author: msangapu-msft
 ms.assetid: 66f9988f-8ffa-414a-9137-3a9b15a5573c
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/25/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: fef8a17de4539a1427c269cdc512063d07df195c
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 299bbfbc50e9ba779898ab0e0e9dec060bf6541d
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70066881"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687574"
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>Compatibilidad con SSH para Azure App Service en Linux
 

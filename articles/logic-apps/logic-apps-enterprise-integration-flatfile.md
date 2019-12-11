@@ -1,30 +1,28 @@
 ---
-title: 'Codificación o descodificación de archivos planos: Azure Logic Apps | Microsoft Docs'
+title: Codificación o descodificación de archivos planos
 description: Codificación o descodificación de archivos planos para integración empresarial con Azure Logic Apps y Enterprise Integration Pack
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.assetid: 82152dab-c7ad-43df-b721-596559703be8
 ms.date: 07/08/2016
-ms.openlocfilehash: d0ef61b94d7bd604b6c0062341224510f3048c57
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 53d9935f68c21238cb4f90f78e543a7ab343ced2
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61467316"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792523"
 ---
 # <a name="encode-or-decode-flat-files-with-azure-logic-apps-and-enterprise-integration-pack"></a>Codificación o descodificación de archivos planos con Azure Logic Apps y Enterprise Integration Pack
 
-Es posible que quiera codificar el contenido XML antes de enviarlo a un socio comercial en un escenario de negocio a negocio (B2B). Para ello, en las aplicaciones lógicas, puede utilizar el conector de codificación de archivos planos. La aplicación lógica que cree puede obtener el contenido XML desde distintos orígenes; entre ellos, un desencadenador de solicitud HTTP u otra aplicación, o incluso uno de los numerosos [conectores](../connectors/apis-list.md). Para más información sobre Logic Apps, consulte la [documentación de Logic Apps](logic-apps-overview.md "Más información sobre Logic Apps").  
+Es posible que quiera codificar el contenido XML antes de enviarlo a un socio comercial en un escenario de negocio a negocio (B2B). Para ello, en las aplicaciones lógicas, puede utilizar el conector de codificación de archivos planos. La aplicación lógica que cree puede obtener el contenido XML desde distintos orígenes; entre ellos, un desencadenador de solicitud HTTP u otra aplicación, o incluso uno de los numerosos [conectores](../connectors/apis-list.md). Para más información sobre Logic Apps, consulte la [documentación de Logic Apps](logic-apps-overview.md "Más información acerca de Logic Apps.").  
 
 ## <a name="create-the-flat-file-encoding-connector"></a>Creación del conector de codificación de archivos sin formato
 Siga estos pasos para agregar un conector de codificación de archivos planos a la aplicación lógica.
 
-1. Cree una aplicación lógica y [vincúlela a su cuenta de integración](logic-apps-enterprise-integration-accounts.md "Aprenda a vincular una cuenta de integración a una Aplicación lógica"). Esta cuenta contiene el esquema que se va a utilizar para codificar los datos XML.  
+1. Cree una aplicación lógica y [vincúlela a su cuenta de integración](logic-apps-enterprise-integration-accounts.md "Aprenda a vincular una cuenta de integración a una aplicación lógica."). Esta cuenta contiene el esquema que se va a utilizar para codificar los datos XML.  
 1. Agregue un desencadenador **Request - When an HTTP request is received** (Solicitar: cuando se reciba una solicitud HTTP) a la aplicación lógica.  
    ![Captura de pantalla del desencadenador que va a seleccionar](./media/logic-apps-enterprise-integration-b2b/flatfile-1.png)    
 1. Agregue la acción de codificación de archivos planos de la siguiente manera:
@@ -80,5 +78,5 @@ En este momento, ya ha terminado de configurar su conector de descodificación d
 Ahora puede probar el conector realizando una solicitud al punto de conexión HTTP e incluyendo el contenido XML que quiera descodificar en el cuerpo de la solicitud.  
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Más información sobre Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Información sobre Enterprise Integration Pack").  
+* [Obtenga más información acerca de Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Información sobre Enterprise Integration Pack").  
 

@@ -1,17 +1,17 @@
 ---
-title: Selección del tipo de implementación adecuado para Azure Database for MySQL
+title: 'Selección del tipo de implementación adecuado: Azure Database for MySQL'
 description: En este artículo se describen los factores que deben tenerse en cuenta antes de implementar Azure Database for MySQL como infraestructura como servicio (IaaS) o plataforma como servicio (PaaS).
 author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 08/05/2019
-ms.openlocfilehash: 5cdd65d5509d8f46f095d91c509a1fda288517c4
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.date: 12/02/2019
+ms.openlocfilehash: 3cc03ba1670299f1ea43a1fde666c2917eaf6b9d
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132439"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770465"
 ---
 # <a name="choose-the-right-mysql-server-option-in-azure"></a>Selección de la opción adecuada de MySQL Server en Azure
 

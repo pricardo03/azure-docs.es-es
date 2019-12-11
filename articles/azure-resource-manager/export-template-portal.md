@@ -2,13 +2,13 @@
 title: Exportación de plantilla en Azure Portal
 description: Use Azure Portal para exportar una plantilla de Azure Resource Manager desde los recursos de la suscripción.
 ms.topic: conceptual
-ms.date: 11/21/2019
-ms.openlocfilehash: 9e6a4089758809cbebc6a3c0cd586cb418ca42bf
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.date: 12/03/2019
+ms.openlocfilehash: 74812799ce1ccb428128ea0923d9cda556b9d9ee
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74306787"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815073"
 ---
 # <a name="single-and-multi-resource-export-to-a-template-in-azure-portal"></a>Exportación de uno y varios recursos a una plantilla en Azure Portal
 
@@ -33,7 +33,7 @@ Según la opción que elija, las plantillas exportadas tendrán distintas calida
 | La plantilla es una instantánea del estado actual de los recursos. Incluye todos los cambios manuales que se hayan realizado después de la implementación. | En la plantilla solo se muestra el estado de los recursos en el momento de la implementación. No se incluyen los cambios manuales que haya realizado después de la implementación. |
 | Puede seleccionar los recursos de un grupo de recursos que se van a exportar. | Se incluyen todos los recursos para una implementación específica. No se puede seleccionar un subconjunto de esos recursos o agregar recursos que se hayan agregado en otro momento. |
 | En la plantilla se incluyen todas las propiedades de los recursos, incluidas algunas que normalmente no se establecerían durante la implementación. Es posible que quiera quitar o borrar estas propiedades antes de volver a usar la plantilla. | En la plantilla solo se incluyen las propiedades necesarias para la implementación. La plantilla está lista para usarse. |
-| Probablemente en la plantilla no se incluyan todos los parámetros que necesita para su reutilización. La mayoría de los valores de propiedad están codificados de forma rígida en la plantilla. Para volver a implementar la plantilla en otros entornos, tendrá que agregar parámetros que aumenten la capacidad de configurar los recursos.  También tiene la opción de anular la selección de **Incluir parámetros** para que pueda crear sus propios parámetros. | En la plantilla se incluyen parámetros que facilitan la tarea de volver a implementar en otros entornos. |
+| Probablemente en la plantilla no se incluyan todos los parámetros que necesita para su reutilización. La mayoría de los valores de propiedad están codificados de forma rígida en la plantilla. Para volver a implementar la plantilla en otros entornos, tendrá que agregar parámetros que aumenten la capacidad de configurar los recursos.  También puede anular la selección de **Incluir parámetros** y así podrá crear sus propios parámetros. | En la plantilla se incluyen parámetros que facilitan la tarea de volver a implementar en otros entornos. |
 
 Exporte la plantilla desde un grupo de recursos o un recurso cuando:
 
@@ -63,6 +63,8 @@ Para exportar uno o varios recursos de un grupo de recursos:
    ![Mostrar la plantilla](./media/export-template-portal/show-template.png)
 
    **Incluir parámetros** está seleccionado de forma predeterminada.  Cuando se selecciona esta opción, se incluirán todos los parámetros de plantilla cuando se genere la plantilla. Si desea crear sus propios parámetros, desactive esta casilla para no incluirlos.
+
+La plantilla exportada se genera a partir de los [esquemas publicados](https://github.com/Azure/azure-resource-manager-schemas/tree/master/schemas) para cada tipo de recurso. En ocasiones, el esquema no tiene la versión más reciente de un tipo de recurso. Compruebe la plantilla exportada para asegurarse de que incluye las propiedades necesarias. Si es preciso, edite la plantilla exportada para usar la versión de API que necesite.
 
 ## <a name="export-template-from-a-resource"></a>Exportación de la plantilla desde un recurso
 

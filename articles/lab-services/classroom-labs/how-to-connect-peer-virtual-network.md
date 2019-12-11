@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: spelluru
-ms.openlocfilehash: c9b305beae1b385d4714e3a80e6843c7e76a4f60
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d3f6acef7491a07f94eec0b2c3b2f3bcd9c01a33
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65410998"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74701664"
 ---
 # <a name="connect-your-labs-network-with-a-peer-virtual-network-in-azure-lab-services"></a>Conexión de la red del laboratorio con una red virtual del mismo nivel en Azure Lab Services 
 En este artículo encontrará información sobre cómo emparejar su red de laboratorio con otra red. 
@@ -31,7 +31,7 @@ Puede que necesite conectar la red de laboratorio con una red virtual del mismo 
 - Las máquinas virtuales del laboratorio tienen software que se conecta a servidores de licencias locales para adquirir una licencia.
 - Las máquinas virtuales del laboratorio necesitan acceder a conjuntos de datos (o a cualquier otro archivo) en recursos compartidos de red de la universidad. 
 
-Algunas redes locales están conectadas a Azure Virtual Network ya sea a través de [ExpressRoute](../../expressroute/expressroute-introduction.md) o de una [puerta de enlace de red virtual](../../vpn-gateway/vpn-gateway-about-vpngateways.md). Estos servicios se deben configurar fuera de Azure Lab Services. Para obtener más información sobre cómo conectar una red local a Azure mediante ExpressRoute, vea [Información general sobre ExpressRoute])(../expressroute/expressroute-introduction.md). Para lograr la conectividad local mediante una puerta de enlace de red virtual, tanto la puerta de enlace como la red virtual y la cuenta de laboratorio deben estar en la misma región.
+Algunas redes locales están conectadas a Azure Virtual Network ya sea a través de [ExpressRoute](../../expressroute/expressroute-introduction.md) o de una [puerta de enlace de red virtual](../../vpn-gateway/vpn-gateway-about-vpngateways.md). Estos servicios se deben configurar fuera de Azure Lab Services. Para obtener más información sobre cómo conectar una red local a Azure mediante ExpressRoute, consulte [Información general sobre ExpressRoute](../../expressroute/expressroute-introduction.md). Para lograr la conectividad local mediante una puerta de enlace de red virtual, tanto la puerta de enlace como la red virtual y la cuenta de laboratorio deben estar en la misma región.
 
 ## <a name="configure-at-the-time-of-lab-account-creation"></a>Configuración al crear la cuenta de laboratorio
 Durante la creación de la cuenta de laboratorio, puede elegir una red virtual existente de la lista desplegable **Asociar red virtual**. La red virtual seleccionada se conecta (empareja) a laboratorios creados con la cuenta de laboratorio. Todas las máquinas virtuales en los laboratorios que se creen después de hacer este cambio tendrían acceso a los recursos en la red virtual emparejada. 

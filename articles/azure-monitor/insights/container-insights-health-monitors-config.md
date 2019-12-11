@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 11/12/2019
 ms.author: magoedte
-ms.openlocfilehash: 7a774adb33646635832dba5505abf57b2703de5d
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 7d4400b563a1d0b8bf094f946a37d7ff4a17e7cf
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279695"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74664954"
 ---
 # <a name="azure-monitor-for-containers-health-monitor-configuration-guide"></a>Guía de configuración de los monitores de estado de Azure Monitor para contenedores
 
@@ -82,7 +82,7 @@ Azure Monitor para contenedores incluye varios escenarios clave de supervisión 
 |Nodos (primario del grupo de nodos) |Se trata de un monitor agregado de todos los grupos de nodos. Su estado se basa en el peor estado de sus monitores secundarios (es decir, los grupos de nodos presentes en el clúster). |El peor de |
 |Clúster (primario de nodos/<br> infraestructura de Kubernetes) |Este es el monitor principal que coincide con el estado del monitor secundario con el peor estado de mantenimiento, que es los nodos y la infraestructura de kubernetes. |El peor de |
 |Infraestructura de Kubernetes |Este monitor informa del estado de mantenimiento combinado de los componentes de la infraestructura administrada del clúster. Su estado se calcula como 'el peor de' los estados del monitor secundario, es decir, las cargas de trabajo del sistema Kube y el estado del servidor de API. |El peor de|
-|Carga de trabajo del sistema |Este monitor notifica el estado de mantenimiento de una carga de trabajo del sistema Kube. Este monitor coincide con el estado del monitor secundario con el peor estado de mantenimiento (es decir, el monitor de los **Pods en estado listo** y los contenedores de la carga de trabajo). |El peor de |
+|Carga de trabajo del sistema |Este monitor notifica el estado de mantenimiento de una carga de trabajo del sistema Kube. Este monitor empareja el estado del monitor secundario con el peor estado de mantenimiento (es decir, el monitor de los **Pods en estado listo** y los contenedores de la carga de trabajo). |El peor de |
 |Contenedor |Este monitor informa del estado de mantenimiento general de un contenedor en una determinada carga de trabajo. Este monitor coincide con el estado del monitor secundario con el peor estado de mantenimiento, es decir, los monitores de **Uso de la CPU** y **Uso de la memoria**. |El peor de |
 
 ## <a name="next-steps"></a>Pasos siguientes

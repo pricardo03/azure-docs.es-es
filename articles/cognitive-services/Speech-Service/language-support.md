@@ -1,7 +1,7 @@
 ---
-title: 'Compatibilidad con idiomas: Speech Service'
+title: 'Compatibilidad con idiomas: servicio de voz'
 titleSuffix: Azure Cognitive Services
-description: Speech Service admite un gran número de idiomas para la conversión de texto a voz y voz a texto, junto con la traducción por voz. En este artículo se proporciona una lista completa de idiomas compatibles por servicio.
+description: El servicio de voz admite un gran número de idiomas para la conversión de texto a voz y voz a texto, junto con la traducción de voz. En este artículo se proporciona una lista completa de idiomas compatibles por servicio.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 11/21/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 87b065d2ecf9d80c072918c14e7861f72b8d7aba
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: 8db70ccbabfc165dbe3f7b9a61dbe5023a87f708
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74304904"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815387"
 ---
-# <a name="language-and-region-support-for-the-speech-services"></a>Compatibilidad con regiones e idiomas para los servicios de Voz
+# <a name="language-and-region-support-for-the-speech-service"></a>Compatibilidad con idiomas y regiones para el servicio de voz
 
-La compatibilidad con los idiomas varía según la funcionalidad del servicio Voz. En las tablas siguientes se resume la compatibilidad con idiomas para la [conversión de voz a texto](#speech-to-text), [conversión de texto a voz](#text-to-speech) y las ofertas del servicio [Speech Translation](#speech-translation).
+La compatibilidad con los idiomas varía según la funcionalidad del servicio de voz. En las tablas siguientes se resume la compatibilidad con idiomas para la [conversión de voz a texto](#speech-to-text), [conversión de texto a voz](#text-to-speech) y las ofertas del servicio [Speech Translation](#speech-translation).
 
 ## <a name="speech-to-text"></a>Voz a texto
 
@@ -269,5 +269,5 @@ La personalización de la voz está disponible para `de-DE`, `en-GB`, `en-IN`, `
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Obtenga su suscripción de evaluación gratuita de Speech Service](https://azure.microsoft.com/try/cognitive-services/)
+* [Obtener la suscripción de evaluación gratuita del servicio de voz](https://azure.microsoft.com/try/cognitive-services/)
 * [Vea cómo funciona el reconocimiento de voz en C#](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-chsarp)

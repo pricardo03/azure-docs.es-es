@@ -13,15 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2019
 ms.author: memildin
-ms.openlocfilehash: bf33fe29b18b09bf903e1fc331f1c378eacb3e17
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 21feed73d025e0c0a4b2c7bb07d23f450780126e
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71201717"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74766793"
 ---
-# <a name="protect-your-network-resources-in-azure-security-center"></a>Protección de los recursos de red en Azure Security Center
+# <a name="protect-your-network-resources"></a>Protección de los recursos de red
 Azure Security Center analiza continuamente el estado de seguridad de los recursos de Azure para los procedimientos recomendados de seguridad de red. Cuando Security Center identifica posibles vulnerabilidades de seguridad, crea recomendaciones que lo guiarán por el proceso de configuración de los controles necesarios para reforzar y proteger sus recursos.
+
+En este artículo se describe la página **Redes** de la sección de seguridad de recursos de Azure Security Center y algunas de las recomendaciones que verá ahí.
+
+Para ver la lista completa de las recomendaciones para redes, consulte [Recomendaciones de red](recommendations-network.md).
 
 En este artículo se abordan las recomendaciones que se aplican a los recursos de Azure desde una perspectiva de seguridad de red. Las recomendaciones sobre redes se centran en los firewalls de próxima generación, los grupos de seguridad de red, el acceso a la VM JIT a través de reglas de tráfico entrantes permisivas y mucho más. Para obtener una lista de posibles recomendaciones de red y acciones de corrección, consulte [Administración de recomendaciones de seguridad en Azure Security Center.](security-center-recommendations.md)
 
@@ -131,31 +135,8 @@ En esta vista de topología, el primer nivel muestra las redes virtuales. El seg
 
 El tercer nivel muestra máquinas virtuales, que es similar a lo que se ha descrito anteriormente. Puede hacer clic en un recurso para obtener más información o aplicar la configuración o el control de seguridad necesario.
 
-## <a name="network-recommendations"></a>Recomendaciones de red
-
-|Nombre de la recomendación|DESCRIPCIÓN|severity|Puntuación segura|Tipo de recurso|
-|----|----|----|----|----|----|
-|Se deben habilitar los grupos de seguridad de red en el nivel de subred|Habilite los grupos de seguridad de red para controlar el acceso a la red de los recursos implementados en las subredes.|Alta, media|30|Subnet|
-|Las máquinas virtuales deben estar asociadas a un grupo de seguridad de red|Habilite grupos de seguridad de red para controlar el acceso de red de las máquinas virtuales.|Alta, media|30|Máquina virtual|
-|Se debe restringir el acceso a los grupos de seguridad de red permisivos con máquinas virtuales accesibles desde Internet|Proteja los grupos de seguridad de red de las máquinas virtuales accesibles desde Internet mediante la restricción del acceso de las reglas de permiso existentes.|Alto|20|Máquina virtual|
-|Se deben proteger las reglas de las aplicaciones web en los NSG de IaaS|Proteja el grupo de seguridad de red (NSG) de las máquinas virtuales que ejecutan aplicaciones web con reglas de NSG que son demasiado permisivas con respecto a los puertos de la aplicación web.|Alto|20|Máquina virtual|
-|Se debe restringir el acceso a App Services|Cambie la configuración de red para restringir el acceso a App Services y denegar el tráfico entrante desde intervalos demasiado amplios.|Alto|10|App Service|
-|Se deben cerrar los puertos de administración en las máquinas virtuales|Proteja el grupo de seguridad de red de las máquinas virtuales para restringir el acceso a los puertos de administración.|Alto|10|Máquina virtual|
-Se debe habilitar DDoS Protection estándar|Habilite el estándar del servicio de protección contra DDoS para proteger las redes virtuales que contienen aplicaciones con IP públicas. La protección contra DDoS permite mitigar los ataques volumétricos de red y protocolo.|Alto|10|Virtual network|
-|El reenvío de IP en la máquina virtual debe estar deshabilitado|Deshabilite el reenvío de IP. Cuando el reenvío de IP está habilitado en el adaptador de red de una máquina virtual, la máquina puede recibir tráfico dirigido a otros destinos. El reenvío de IP rara vez es necesario (por ejemplo, cuando se usa la máquina virtual como una aplicación virtual de red) y, por lo tanto, el equipo de seguridad de red debe revisarlo.|Mediano|10|Máquina virtual|
-|Acceso a la aplicación web solo a través de HTTPS|Habilite el acceso "Solo HTTPS" para aplicaciones web. El uso de HTTPS garantiza la autenticación del servicio y el servidor, y protege los datos en tránsito frente a ataques de intercepción de nivel de red.|Mediano|20|Aplicación web|
-|El control de acceso de red Just-In-Time se debe aplicar en las máquinas virtuales|Aplique el control de acceso de máquina virtual (VM) Just-In-Time (JIT) para bloquear de forma permanente el acceso a los puertos seleccionados y permitir que los usuarios autorizados los abran mediante JIT y solo durante una periodo de tiempo limitado.|Alto|20|Máquina virtual|
-|Function App solo debería ser accesible a través de HTTPS|Habilite el acceso "Solo HTTPS" para las aplicaciones de funciones. El uso de HTTPS garantiza la autenticación del servicio y el servidor, y protege los datos en tránsito frente a ataques de intercepción de nivel de red.|Mediano|20|Aplicación de función|
-|Se debe habilitar la transferencia segura a las cuentas de almacenamiento|Habilite la transferencia segura para las cuentas de almacenamiento. La transferencia segura es una opción que obliga a la cuenta de almacenamiento a aceptar solamente solicitudes de conexiones seguras (HTTPS). El uso de HTTPS garantiza la autenticación entre el servidor y el servicio, y protege los datos en tránsito de ataques de nivel de red, como "man in-the-middle", interceptación y secuestro de sesión.|Alto|20|Cuenta de almacenamiento|
-
 ## <a name="see-also"></a>Otras referencias
 Para obtener más información sobre las recomendaciones que se aplican a otros tipos de recursos de Azure, consulte los siguientes artículos:
 
 * [Protección de las aplicaciones y las máquinas en Azure Security Center](security-center-virtual-machine-protection.md)
 * [Protección del servicio SQL de Azure en Azure Security Center](security-center-sql-service-recommendations.md)
-
-Para más información sobre el Centro de seguridad, consulte los siguientes recursos:
-
-* [Establecimiento de directivas de seguridad en Azure Security Center](tutorial-security-policy.md): aprenda a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure.
-* [Administración y respuesta a las alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md) : obtenga información sobre cómo administrar y responder a alertas de seguridad.
-* [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md) : encuentre las preguntas más frecuentes sobre el uso del servicio.

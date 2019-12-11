@@ -1,20 +1,17 @@
 ---
-title: 'Acceso a orígenes de datos locales: Azure Logic Apps'
+title: Acceso a orígenes de datos en entornos locales
 description: Conexión a orígenes de datos locales desde Azure Logic Apps mediante la creación de una puerta de enlace de datos local de Azure
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: arthii, LADocs
+ms.reviewer: arthii, logicappspm
 ms.topic: article
 ms.date: 11/06/2019
-ms.openlocfilehash: 20cdcfdd3795a7614c054ed96b82cc99fc2c5894
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 0e2dcec15566749b58c439b68532829b67716754
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74068905"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815184"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Conexión a orígenes de datos locales desde Azure Logic Apps
 
@@ -73,7 +70,7 @@ Después de instalar la puerta de enlace en un equipo local, cree un recurso de 
 
 1. En el cuadro de búsqueda de Azure Portal, escriba "puerta de enlace de datos local" y luego elija **Puertas de enlace de datos locales**.
 
-   ![Busque "Puerta de enlace de datos local".](./media/logic-apps-gateway-connection/find-on-premises-data-gateway.png)
+   ![Busque "Puerta de enlace de datos local".](./media/logic-apps-gateway-connection/search-for-on-premises-data-gateway.png)
 
 1. Busque **Puertas de enlace de datos locales** y seleccione **Agregar**.
 
@@ -92,7 +89,7 @@ Después de instalar la puerta de enlace en un equipo local, cree un recurso de 
 
    En este ejemplo se muestra una instalación de la puerta de enlace que se encuentra en la misma región que el recurso de puerta de enlace y que está vinculada a la misma cuenta de Azure:
 
-   ![Proporcionar detalles para crear el recurso de la puerta de enlace de datos](./media/logic-apps-gateway-connection/add-azure-data-gateway-information.png)
+   ![Proporcionar detalles para crear el recurso de la puerta de enlace de datos](./media/logic-apps-gateway-connection/on-premises-data-gateway-create-connection.png)
 
 <a name="connect-logic-app-gateway"></a>
 
@@ -131,7 +128,7 @@ Para actualizar la configuración de una conexión de puerta de enlace, puede ed
 
 1. Para encontrar todas las conexiones de API únicamente para su aplicación lógica, en el menú de la aplicación lógica, seleccione **Conexiones de API** en **Herramientas de desarrollo**.
 
-   ![En el menú de la aplicación lógica, seleccione "Conexiones de API".](./media/logic-apps-gateway-connection/logic-app-find-api-connections.png)
+   ![En el menú de la aplicación lógica, seleccione "Conexiones de API".](./media/logic-apps-gateway-connection/logic-app-api-connections.png)
 
 1. Seleccione la conexión de puerta de enlace que desee y elija **Editar la conexión de API**.
 
@@ -140,8 +137,8 @@ Para actualizar la configuración de una conexión de puerta de enlace, puede ed
 
 Para encontrar todas las conexiones de API asociadas a su suscripción de Azure:
 
-* En el menú principal de Azure, vaya a **Todos los servicios** > **Web** > **Conexiones de API**.
-* O bien, vaya a **Todos los recursos** en el menú principal de Azure. Establezca el filtro **Tipo** en **Conexión de API**.
+* En el menú de Azure Portal, seleccione **Todos los servicios** > **Web** > **Conexiones de API**.
+* O bien, en el menú de Azure Portal, seleccione **Todos los recursos**. Establezca el filtro **Tipo** en **Conexión de API**.
 
 <a name="change-delete-gateway-resource"></a>
 
@@ -149,13 +146,13 @@ Para encontrar todas las conexiones de API asociadas a su suscripción de Azure:
 
 Para crear un recurso de puerta de enlace diferente, vincular la instalación de la puerta de enlace a un recurso de puerta de enlace diferente o quitar el recurso de puerta de enlace, puede eliminar el recurso de puerta de enlace sin que afecte a la instalación de la puerta de enlace.
 
-1. En el menú principal de Azure, seleccione **Todos los recursos**. Busque y seleccione el recurso de puerta de enlace.
+1. En el menú de Azure Portal, seleccione **Todos los recursos** o busque y seleccione **Todos los recursos** en cualquier página. Busque y seleccione el recurso de puerta de enlace.
 
 1. Si aún no está seleccionada, en el menú de recursos de puerta de enlace, seleccione **Puerta de enlace de datos local**. En la barra de herramientas de recursos de puerta de enlace, seleccione **Eliminar**.
 
    Por ejemplo:
 
-   ![Elimine el recurso de puerta de enlace](./media/logic-apps-gateway-connection/delete-on-premises-data-gateway-resource.png)
+   ![Elimine el recurso de puerta de enlace](./media/logic-apps-gateway-connection/delete-on-premises-data-gateway.png)
 
 <a name="faq"></a>
 

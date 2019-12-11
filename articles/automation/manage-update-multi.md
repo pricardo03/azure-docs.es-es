@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 11/20/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 70f4f4163a143354cd1fe5adf031c4d9cd87a46e
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 16e79043db80b69d2a2ca7d0a90e6d4921c15b22
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278681"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806514"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Administración de actualizaciones para varias máquinas
 
@@ -119,6 +119,10 @@ Puede que transcurran entre 30 minutos y 6 horas antes de que se muestren los da
 ## <a name="schedule-an-update-deployment"></a>Programación de una implementación de actualizaciones
 
 Para instalar actualizaciones, programe una implementación que esté en consonancia con su ventana de programación y servicio de versiones. Puede elegir los tipos de actualizaciones que quiere incluir en la implementación. Por ejemplo, puede incluir actualizaciones de seguridad o críticas y excluir paquetes acumulativos de actualizaciones.
+
+>[!NOTE]
+>Cuando se programa una implementación de actualizaciones, se crea un recurso de [programación](shared-resources/schedules.md) vinculado al runbook **Patch-MicrosoftOMSComputers** que controla la implementación de actualizaciones en las máquinas de destino. Si elimina el recurso de programación desde Azure Portal o mediante PowerShell después de crear la implementación, se interrumpe la implementación de actualizaciones programada y aparece un error cuando intenta volver a configurarlo desde el portal. Solo se puede eliminar el recurso de programación si se elimina la programación de implementaciones correspondiente.
+>
 
 Para programar una nueva implementación de actualizaciones de una o varias máquinas virtuales, en **Update Management**, seleccione **Programar implementación de actualizaciones**.
 

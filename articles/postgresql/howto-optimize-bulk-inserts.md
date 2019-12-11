@@ -1,17 +1,17 @@
 ---
-title: Optimización de inserciones masivas en Azure Database for PostgreSQL con un único servidor
+title: 'Optimización de inserciones masivas en Azure Database for PostgreSQL: servidor único'
 description: En este artículo se describe cómo puede optimizar las operaciones de inserción masiva en Azure Database for PostgreSQL con un único servidor.
 author: dianaputnam
 ms.author: dianas
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: c1ae29f7c498a79af09aaaf6d7aeae29561aa500
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4c4bac16917be0064ebb111328753d378d462a2a
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65067045"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770142"
 ---
 # <a name="optimize-bulk-inserts-and-use-transient-data-on-an-azure-database-for-postgresql---single-server"></a>Optimización de las inserciones masivas y uso de datos transitorios en Azure Database for PostgreSQL con un único servidor 
 En este artículo se describe cómo puede optimizar las operaciones de inserción masiva y usar datos transitorios en un servidor de Azure Database for PostgreSQL.

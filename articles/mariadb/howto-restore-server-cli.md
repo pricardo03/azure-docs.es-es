@@ -1,18 +1,18 @@
 ---
-title: Copia de seguridad y restauración de un servidor en Azure Database for MariaDB
+title: Copia de seguridad y restauración en Azure Database for MariaDB mediante la CLI de Azure
 description: Copia de seguridad y restauración de un servidor en Azure Database for MariaDB mediante la CLI de Azure.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 10/25/2019
-ms.openlocfilehash: ae2e8049c58be312eed380fe2197985e61d28a26
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.date: 12/02/2019
+ms.openlocfilehash: 4564aff5e8fe2119a494af33e71ff927718646db
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965219"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74765859"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mariadb-using-the-azure-cli"></a>Copia de seguridad y restauración de un servidor en Azure Database for MariaDB mediante la CLI de Azure
 
@@ -127,6 +127,6 @@ El servidor creado durante una restauración no tiene las reglas de firewall o l
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Más información sobre las [copias de seguridad](concepts-backup.md) del servicio
-- Más información sobre las [réplicas](concepts-read-replicas.md)
-- Más información sobre las opciones de [continuidad del negocio](concepts-business-continuity.md)
+- Más información sobre las [copias de seguridad](concepts-backup.md) del servicio.
+- Más información sobre las [réplicas](concepts-read-replicas.md).
+- Más información sobre las opciones de [continuidad del negocio](concepts-business-continuity.md).

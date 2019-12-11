@@ -1,5 +1,5 @@
 ---
-title: 'Instalación de contenedores de Voz: Servicio Voz'
+title: 'Instalación de contenedores de voz: servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: Instale y ejecute contenedores de voz. Voz a texto transcribe secuencias de audio a texto en tiempo real que sus aplicaciones, herramientas o dispositivos pueden usar o mostrar. Texto a voz convierte el texto de entrada en voz sintetizada similar a la humana.
 services: cognitive-services
@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 12/04/2019
 ms.author: dapine
-ms.openlocfilehash: 3d9373067c78f1fe0fa0b414886c30f2ed3c1c9f
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: d5ecc104c7845a1881cbcdecfbccb75148f6e070
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325861"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815364"
 ---
-# <a name="install-and-run-speech-service-containers-preview"></a>Instalación y ejecución de contenedores de servicio Voz (versión preliminar)
+# <a name="install-and-run-speech-service-containers-preview"></a>Instalación y ejecución de contenedores del servicio de voz (versión preliminar)
 
-Los contenedores le permiten ejecutar algunas de las API de servicio de Voz en su propio entorno. Los contenedores son excelentes para requisitos específicos de control de datos y seguridad. En este artículo, aprenderá a descargar, instalar y ejecutar un contenedor de Voz.
+Los contenedores le permiten ejecutar algunas de las API del servicio de voz en su propio entorno. Los contenedores son excelentes para requisitos específicos de control de datos y seguridad. En este artículo, aprenderá a descargar, instalar y ejecutar un contenedor de Voz.
 
 Los contenedores de Voz permiten a los clientes compilar una arquitectura de aplicación de voz optimizada para las sólidas funcionalidades de la nube y la localidad del perímetro. Hay cuatro contenedores distintos disponibles. Los dos contenedores estándar son **conversión de voz a texto** y **conversión de texto a voz**. Los dos contenedores personalizados son **conversión de voz a texto personalizada** y **conversión de texto a voz personalizada**.
 
@@ -371,12 +371,10 @@ Este comando:
 
 ## <a name="query-the-containers-prediction-endpoint"></a>Consulta del punto de conexión de predicción del contenedor
 
-| Contenedor | Punto de conexión | Protocolo |
+| Contenedores | Dirección URL del host del SDK | Protocolo |
 |--|--|--|
-| Voz a texto | `ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1` | WS |
-| Conversión de voz a texto personalizada | `ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1` | WS |
-| Texto a voz | `http://localhost:5000/speech/synthesize/cognitiveservices/v1` | HTTP |
-| Conversión de texto a voz personalizada | `http://localhost:5000/speech/synthesize/cognitiveservices/v1` | HTTP |
+| Conversión de voz en texto y conversión de voz en texto personalizada | `ws://localhost:5000` | WS |
+| Conversión de texto a voz y conversión de texto a voz personalizada | `http://localhost:5000` | HTTP |
 
 Para más información sobre cómo usar los protocolos WSS y HTTPS, consulte la [seguridad del contenedor](../cognitive-services-container-support.md#azure-cognitive-services-container-security).
 
@@ -436,5 +434,5 @@ En este artículo, ha aprendido los conceptos y el flujo de trabajo para la desc
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Revise [Configuración de contenedores](speech-container-configuration.md) para ver las opciones de configuración.
-* Obtenga información sobre cómo [usar contenedores de servicio de Voz con Kubernetes y Helm](speech-container-howto-on-premises.md).
+* Aprenda a [usar contenedores del servicio de voz con Kubernetes y Helm](speech-container-howto-on-premises.md).
 * Uso de otros [contenedores de Cognitive Services](../cognitive-services-container-support.md)

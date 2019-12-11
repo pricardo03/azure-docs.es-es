@@ -1,21 +1,21 @@
 ---
-title: Acceso a los registros del servidor en Azure Database for MariaDB mediante la CLI de Azure
-description: En este artículo se describe cómo acceder a los registros del servidor de Azure Database for MariaDB mediante la utilidad de la línea de comandos de la CLI de Azure.
-author: rachel-msft
-ms.author: raagyema
+title: Acceso a registros de consultas lentos de Azure Database for MariaDB mediante la CLI de Azure
+description: En este artículo se describe cómo acceder a los registros lentos de Azure Database for MariaDB mediante la utilidad de la línea de comandos de la CLI de Azure.
+author: ajlam
+ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 06/12/2019
-ms.openlocfilehash: ffc724ef5133ee25643a966d2b6d8448a4c3a920
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 32e73835732538813f90de5cb737429373c3762a
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72023613"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74767388"
 ---
-# <a name="configure-and-access-server-logs-by-using-azure-cli"></a>Configuración y acceso a los registros del servidor con la CLI de Azure
-Puede descargar los registros del servidor de Azure Database for MariaDB mediante la CLI de Azure, la utilidad de la línea de comandos de Azure.
+# <a name="configure-and-access-slow-query-logs-by-using-azure-cli"></a>Configuración y acceso a los registros de consultas lentas con la CLI de Azure
+Puede descargar los registros de consultas lentos de Azure Database for MySQL mediante la CLI de Azure, la utilidad de línea de comandos de Azure.
 
 ## <a name="prerequisites"></a>Requisitos previos
 Para seguir esta guía, necesitará:

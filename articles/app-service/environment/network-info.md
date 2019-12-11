@@ -1,24 +1,18 @@
 ---
-title: 'Consideraciones de red con una instancia de App Service Environment: Azure'
-description: Explica el tráfico de red de ASE y cómo establecer los NSG y las UDR con el ASE
-services: app-service
-documentationcenter: na
+title: Consideraciones sobre redes
+description: Obtenga información sobre el tráfico de red de App Service Environment y cómo establecer grupos de seguridad de red y rutas definidas por el usuario con este.
 author: ccompy
-manager: stefsch
 ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: ee7e3cb200a20b52a307dba31682a534e9f7b455
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e7d181416123c96e2462180a82c6d0b9670ef5fc
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470645"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687121"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Consideraciones de red para una instancia de App Service Environment #
 

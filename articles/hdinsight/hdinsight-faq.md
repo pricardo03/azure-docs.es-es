@@ -8,13 +8,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/20/2019
-ms.openlocfilehash: 044a63274f7f24831b1f791982f36898199616a6
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.date: 11/20/2019
+ms.openlocfilehash: 37b8ad0fc09644d746c3528c174d1bf95d546d0f
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73052510"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706256"
 ---
 # <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight: Preguntas más frecuentes
 
@@ -180,6 +180,11 @@ Sí, puede implementar una máquina virtual adicional en la misma subred que un 
 - Nodos perimetrales: puede agregar otro nodo perimetral al clúster, tal y como se describe en [Uso de nodos perimetrales vacíos en clústeres de Apache Hadoop en HDInsight](hdinsight-apps-use-edge-node.md).
 
 - Nodos independientes:  puede agregar una máquina virtual independiente a la misma subred y acceder al clúster desde esa máquina virtual mediante el punto de conexión privado `https://<CLUSTERNAME>-int.azurehdinsight.net`. Para más información, consulte [Control del tráfico de red](hdinsight-plan-virtual-network-deployment.md#networktraffic).
+
+### <a name="should-i-store-data-on-the-local-disk-of-an-edge-node"></a>¿Se deben almacenar datos en el disco local de un nodo perimetral?
+
+No, no es una buena idea almacenar datos en un disco local. Si se produce un error en el nodo, se perderán todos los datos almacenados localmente. Se recomienda almacenar los datos en Azure Data Lake Storage Gen2 o en Azure Blob Storage, o mediante el montaje de un recurso compartido de Azure Files para almacenar los datos.
+
 
 ### <a name="can-i-add-an-existing-hdinsight-cluster-to-another-virtual-network"></a>¿Puedo agregar un clúster de HDInsight existente a otra red virtual?
 

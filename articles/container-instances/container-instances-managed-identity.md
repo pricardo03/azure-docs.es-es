@@ -3,12 +3,12 @@ title: Habilitación de la identidad administrada en el grupo de contenedores
 description: Aprenda a habilitar una identidad administrada en Azure Container Instances que se pueda autenticar con otros servicios de Azure.
 ms.topic: article
 ms.date: 10/22/2018
-ms.openlocfilehash: b5546e8c4b512b584a57e8e4c2ff46c52ab856a0
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: ccf754fac0d884c8a2af9db01578f97b73d54ac4
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533678"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74776530"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Cómo utilizar una identidad administrada con Azure Container Instances
 
@@ -31,7 +31,7 @@ Adaptación de los ejemplos para habilitar y utilizar las identidades en Azure C
 Utilice una identidad administrada en un contenedor en ejecución para autenticarse en cualquier [servicio que admita la autenticación de Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) sin tener que administrar credenciales en el código. En el caso de los servicios que no son compatibles con la autenticación de Azure AD, puede almacenar secretos en Azure Key Vault y usar la identidad administrada para tener acceso a Key Vault para recuperar las credenciales. Para más información sobre las identidades administradas, vea [¿Qué es Managed Identities for Azure Resources?](../active-directory/managed-identities-azure-resources/overview.md)
 
 > [!IMPORTANT]
-> Esta funcionalidad actualmente está en su versión preliminar. Las versiones preliminares están a su disposición con la condición de que acepte los [términos de uso adicionales](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Es posible que algunos de los aspectos de esta característica cambien antes de ofrecer disponibilidad general. Actualmente, solo se admiten identidades administradas en las instancias de contenedor de Linux.
+> Esta funcionalidad actualmente está en su versión preliminar. Las versiones preliminares están a su disposición con la condición de que acepte los [términos de uso adicionales](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Es posible que algunos de los aspectos de esta característica cambien antes de ofrecer disponibilidad general. Actualmente las identidades administradas en Azure Container Instances solo se admiten con contenedores de Linux, aún no con contenedores de Windows.
 >  
 
 ### <a name="enable-a-managed-identity"></a>Habilitación de una entidad administrada

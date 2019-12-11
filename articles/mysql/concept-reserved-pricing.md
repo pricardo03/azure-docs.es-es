@@ -1,17 +1,17 @@
 ---
-title: Pago por adelantado de recursos de proceso de Azure Database for MySQL con capacidad reservada
+title: Pago por adelantado de recursos de proceso con capacidad reservada para Azure Database for MySQL
 description: Pago por adelantado de recursos de proceso de Azure Database for MySQL con capacidad reservada
 author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 10/17/2019
-ms.openlocfilehash: 595a96d07cc1804d3ee0830618a70557b768a3b5
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.date: 12/02/2019
+ms.openlocfilehash: 44bdd9a58bfe2f1a8d3a0102aa6652bb340ac719
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74067088"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74773838"
 ---
 # <a name="prepay-for-azure-database-for-mysql-compute-resources-with-reserved-capacity"></a>Pago por adelantado de recursos de proceso de Azure Database for MySQL con capacidad reservada
 

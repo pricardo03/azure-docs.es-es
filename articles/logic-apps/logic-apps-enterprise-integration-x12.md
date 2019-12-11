@@ -1,20 +1,19 @@
 ---
-title: 'Mensajes X12 para la integración B2B: Azure Logic Apps'
+title: Mensajes X12 para la integración B2B
 description: Intercambio de mensajes X12 en formato EDI para la integración empresarial B2B en Azure Logic Apps con Enterprise Integration Pack
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/31/2017
-ms.openlocfilehash: 8bc5c458240925af1fdd74ebc9b2d4c3db71fb05
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: 77ec5434b83c4246dc448578dcf2902e19f42e95
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72679993"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792320"
 ---
 # <a name="exchange-x12-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Intercambio de mensajes X12 para la integración empresarial B2B en Azure Logic Apps con Enterprise Integration Pack
 
@@ -124,7 +123,7 @@ Seleccione un esquema para cada tipo de transacción (ST1) y aplicación de remi
 | Versión |Seleccione la versión de X12. |
 | Transaction Type (ST01) (Tipo de transacción (ST01)) |Seleccione el tipo de transacción. |
 | Sender Application (GS02) (Aplicación remitente (GS02)) |Seleccione la aplicación remitente. |
-| Esquema |Seleccione el archivo de esquema que desee usar. Los esquemas se agregan a la cuenta de integración. |
+| Schema |Seleccione el archivo de esquema que desee usar. Los esquemas se agregan a la cuenta de integración. |
 
 > [!NOTE]
 > Configure el [esquema](../logic-apps/logic-apps-enterprise-integration-schemas.md) necesario que se carga en la [cuenta de integración](../logic-apps/logic-apps-enterprise-integration-accounts.md).
@@ -238,7 +237,7 @@ Ahora el contrato está preparado para controlar los mensajes salientes que cump
 | --- | --- |
 | Control version number (ISA12) (Número de versión de control (ISA12)) |Seleccione la versión del estándar X12 |
 | Usage Indicator (ISA15) (Indicador de uso (ISA15)) |Seleccione el contexto de un intercambio.  Los valores son información, datos de producción o datos de prueba |
-| Esquema |Genera los segmentos GS y ST para un intercambio X12 codificado que envía a la canalización de envío. |
+| Schema |Genera los segmentos GS y ST para un intercambio X12 codificado que envía a la canalización de envío. |
 | GS1 |Opcional, seleccione un valor para el código funcional en la lista desplegable. |
 | GS2 |Opcional, remitente de la aplicación |
 | GS3 |Opcional, receptor de la aplicación |
@@ -261,7 +260,7 @@ Además del juego de caracteres, puede especificar un conjunto de delimitadores 
 | Propiedad | DESCRIPCIÓN |
 | --- | --- |
 | Character Set to be used (Juego de caracteres que se va a usar) |Para validar las propiedades, seleccione el juego de caracteres de X12. Las opciones son básico, ampliado y UTF8. |
-| Esquema |Seleccione un esquema en la lista desplegable. Después de completar cada fila, se agrega automáticamente una nueva. Para el esquema seleccionado, elija el conjunto de separadores que desee usar, en función de las siguientes descripciones. |
+| Schema |Seleccione un esquema en la lista desplegable. Después de completar cada fila, se agrega automáticamente una nueva. Para el esquema seleccionado, elija el conjunto de separadores que desee usar, en función de las siguientes descripciones. |
 | Tipo de entrada |Seleccione un tipo de entrada en la lista desplegable. |
 | Separador de componentes |Para separar elementos de datos compuestos, escriba un solo carácter. |
 | Separador de elementos de datos |Para separar elementos de datos simples dentro de elementos de datos compuestos, escriba un solo carácter. |

@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 11/06/2019
-ms.openlocfilehash: 8e4cc65ceb6e2a4f8093a094617cc7bb4f9e0c26
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 70fe64ac0d2c1211c1b6570a78746e080ba132ed
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74482695"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74793411"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Implementación de un modelo en un clúster de Azure Kubernetes Service
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -115,7 +115,7 @@ Para más información, consulte la referencia de [az ml computetarget create as
 
 **Tiempo estimado:** Aproximadamente 5 minutos.
 
-Si ya tiene un clúster de AKS en su suscripción a Azure y es de una versión anterior a la 1.14, puede usarlo para implementar la imagen.
+Si ya tiene un clúster de AKS en su suscripción a Azure y es de una versión anterior a la 1.15, puede usarlo para implementar la imagen.
 
 > [!TIP]
 > El clúster de AKS existente puede estar en una región de Azure diferente que su área de trabajo de Azure Machine Learning.

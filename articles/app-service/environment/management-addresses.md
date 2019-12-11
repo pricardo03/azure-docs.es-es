@@ -1,24 +1,18 @@
 ---
-title: Direcciones de administración de App Service Environment - Azure
-description: Enumera las direcciones de administración utilizadas en App Service Environment
-services: app-service
-documentationcenter: na
+title: Direcciones de administración
+description: Busque las direcciones de administración utilizadas para controlar una instancia de App Service Environment. Configúrelas en una tabla de rutas para evitar problemas de enrutamiento asimétrico.
 author: ccompy
-manager: stefsch
 ms.assetid: a7738a24-89ef-43d3-bff1-77f43d5a3952
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/13/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 80841988b997bd4caa776191bf9b8468e95a977d
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 7d7f97552e8faadee1af928a9ce4e1eea2df476e
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74089496"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687110"
 ---
 # <a name="app-service-environment-management-addresses"></a>Direcciones de administración de App Service Environment
 

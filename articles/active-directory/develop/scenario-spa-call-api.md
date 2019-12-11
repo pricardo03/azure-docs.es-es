@@ -15,14 +15,14 @@ ms.date: 05/06/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77a4ed01ac55a1153a62c672b33056a543b912ed
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4170a6642d35802581b5d1ff28eb802a6eb3482b
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65545608"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74766164"
 ---
-# <a name="single-page-application---call-a-web-api"></a>Aplicación de página única: llamada a una API web
+# <a name="single-page-application-call-a-web-api"></a>Aplicación de página única: Llamada a una API de web
 
 Se recomienda que llame al método `acquireTokenSilent` para adquirir o renovar un token de acceso antes de llamar a una API web. Una vez que disponga de un token, puede llamar a una API web protegida.
 
@@ -30,7 +30,7 @@ Se recomienda que llame al método `acquireTokenSilent` para adquirir o renovar 
 
 ### <a name="javascript"></a>JavaScript
 
-Utilice el token de acceso adquirido como portador en una solicitud HTTP para llamar a cualquier API web, como Microsoft Graph API. Por ejemplo:
+Use el token de acceso adquirido como portador en una solicitud HTTP para llamar a cualquier API web, como Microsoft Graph API. Por ejemplo:
 
 ```javascript
     var headers = new Headers();
@@ -50,7 +50,7 @@ Utilice el token de acceso adquirido como portador en una solicitud HTTP para ll
 
 ### <a name="angular"></a>Angular
 
-Como se ha mencionado en la sección [Adquisición de tokens](scenario-spa-acquire-token.md), el contenedor de MSAL Angular utiliza el interceptor HTTP para adquirir automáticamente los tokens de acceso en silencio y adjuntarlos a las solicitudes HTTP de las API.
+El contenedor MSAL Angular aprovecha las ventajas del interceptor HTTP para adquirir de forma automática y silenciosa tokens de acceso y adjuntarlos a las solicitudes HTTP de las API. Para más información, consulte [Aplicación de página única: adquirir un token para llamar a una API](scenario-spa-acquire-token.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

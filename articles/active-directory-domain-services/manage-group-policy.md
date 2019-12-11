@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: iainfou
-ms.openlocfilehash: 894396686a54ed3a685366fcf3e933fa8f03bee8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 32020341c7ac3bf33082ba365f053a613dcdffc2
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73474527"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74705094"
 ---
 # <a name="administer-group-policy-in-an-azure-ad-domain-services-managed-domain"></a>Administración de directivas de grupo en un dominio administrado con Azure AD Domain Services
 
@@ -53,7 +53,7 @@ Para crear y configurar objetos de directiva de grupo (GPO), debe instalar las h
 1. En el *Panel de información* de la ventana **Administrador del servidor**, seleccione **Agregar roles y características**.
 1. En la página **Antes de comenzar** del *Asistente para agregar roles y características*, seleccione **Siguiente**.
 1. En *Tipo de instalación*, deje activada la opción **Instalación basada en características o en roles** y seleccione **Siguiente**.
-1. En la página **Selección de servidor**, elija la máquina virtual actual del grupo de servidores, por ejemplo *mivm.contoso.com*, y seleccione **Siguiente**.
+1. En la página **Selección de servidor**, elija la máquina virtual actual del grupo de servidores, por ejemplo *mivm.aadds.contoso.com*, y seleccione **Siguiente**.
 1. En la página **Roles de servidor**, haga clic en **Siguiente**.
 1. En la página **Características**, seleccione la **Administración de directivas de grupo**.
 
@@ -76,7 +76,7 @@ En los dominios administrados con Azure AD DS, existen objetos de directiva de
 
 Hay dos objetos de directiva de grupo (GPO) integrados en el dominio administrado con Azure AD DS: uno para el contenedor de *equipos del controlador de dominio de AAD* y otro para los *usuarios del controlador de dominio de AAD*. Puede personalizar estos GPO para configurar la directiva de grupo según sea necesario en el dominio administrado con Azure AD DS.
 
-1. En la consola de **Administración de directivas de grupo**, expanda el nodo **Bosque: contoso.com**. Después, expanda los nodos **Dominios**.
+1. En la consola de **Administración de directivas de grupo**, expanda el nodo **Bosque: aadds.contoso.com**. Después, expanda los nodos **Dominios**.
 
     Existen dos contenedores integrados para los *equipos del controlador de dominio de AAD* y los *usuarios del controlador de dominio de AAD*. Cada uno de estos contenedores tiene aplicado un GPO predeterminado.
 

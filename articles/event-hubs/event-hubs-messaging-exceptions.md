@@ -1,5 +1,5 @@
 ---
-title: 'Excepciones de mensajería para .NET: Azure Event Hubs | Microsoft Docs'
+title: Guía de solución de problemas para Azure Event Hubs | Microsoft Docs
 description: En este artículo se proporciona una lista de las excepciones de mensajería y acciones sugeridas de Azure Event Hubs.
 services: event-hubs
 documentationcenter: na
@@ -11,20 +11,22 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.custom: seodec18
-ms.date: 09/25/2019
+ms.date: 12/03/2019
 ms.author: shvija
-ms.openlocfilehash: b6680902180a1d4a3c75080e232569cf760ba078
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: bea59ff29579c5d009a87c8d1564db4c0baf6e69
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309839"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74793272"
 ---
-# <a name="event-hubs-messaging-exceptions---net"></a>Excepciones de mensajería de Event Hubs: .NET
+# <a name="troubleshooting-guide-for-azure-event-hubs"></a>Guía de solución de problemas para Azure Event Hubs
+En este artículo se proporcionan algunas de las excepciones de .NET que generan las API de .NET Framework de Event Hubs y también otras sugerencias para solucionar problemas. 
 
-En este artículo se enumeran algunas excepciones .NET generadas por la biblioteca de API de .NET de mensajería de Azure Service Bus, que incluye las API de Event Hubs para .NET Framework. Esta referencia está sujeta a cambios, de modo que compruebe las actualizaciones.
+## <a name="event-hubs-messaging-exceptions---net"></a>Excepciones de mensajería de Event Hubs: .NET
+En esta sección se enumeran las excepciones de .NET generadas por API de .NET Framework. 
 
-## <a name="exception-categories"></a>Categorías de excepciones
+### <a name="exception-categories"></a>Categorías de excepciones
 
 Las API de .NET de Event Hubs generan excepciones que pueden dividirse en las siguientes categorías, junto con la acción asociada que puede realizar para intentar corregirlas.
 
@@ -33,14 +35,14 @@ Las API de .NET de Event Hubs generan excepciones que pueden dividirse en las si
 3. Excepciones transitorias: [Microsoft.ServiceBus.Messaging.MessagingException](/dotnet/api/microsoft.servicebus.messaging.messagingexception), [Microsoft.ServiceBus.Messaging.ServerBusyException](#serverbusyexception), [Microsoft.Azure.EventHubs.ServerBusyException](#serverbusyexception), [Microsoft.ServiceBus.Messaging.MessagingCommunicationException](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception). Acción general: intente realizar de nuevo la operación o informe a los usuarios.
 4. Otras excepciones: [System.Transactions.TransactionException](https://msdn.microsoft.com/library/system.transactions.transactionexception.aspx), [System.TimeoutException](#timeoutexception), [Microsoft.ServiceBus.Messaging.MessageLockLostException](/dotnet/api/microsoft.servicebus.messaging.messagelocklostexception), [Microsoft.ServiceBus.Messaging.SessionLockLostException](/dotnet/api/microsoft.servicebus.messaging.sessionlocklostexception). Acción general: específica del tipo de excepción; consulte la tabla de la siguiente sección. 
 
-## <a name="exception-types"></a>Tipos de excepciones
+### <a name="exception-types"></a>Tipos de excepciones
 En la tabla siguiente se describen los tipos de excepción de mensajería, sus causas y las acciones sugeridas que puede realizar.
 
 | Tipo de excepción | Descripción/causa/ejemplos | Acción sugerida | Nota sobre el reintento automático o inmediato |
 | -------------- | -------------------------- | ---------------- | --------------------------------- |
-| [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx) |El servidor no respondió a la operación solicitada en el tiempo especificado que está controlado por [OperationTimeout](/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings). Puede que el servidor haya completado la operación solicitada. Esta excepción se puede producir debido a un retraso de red o a otros retrasos de infraestructura. |Compruebe la coherencia del estado del sistema y vuelva a intentarlo si es necesario.<br /> Consulte [TimeoutException](#timeoutexception). | El reintento podría resultar útil en algunos casos; agregue lógica de reintento al código. |
-| [InvalidOperationException](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx) |La operación del usuario solicitada no está permitida en el servidor o servicio. Consulte el mensaje de excepción para obtener detalles. Por ejemplo, [Complete](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) genera esta excepción si el mensaje se recibió en el modo [ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode) . | Compruebe el código y la documentación. Asegúrese de que la operación solicitada sea válida. | El reintento no le será de ayuda. |
-| [OperationCanceledException](https://msdn.microsoft.com/library/system.operationcanceledexception.aspx) | Se realiza un intento para invocar una operación en un objeto que ya se ha cerrado, anulado o eliminado. En raras ocasiones, la transacción de ambiente ya se ha eliminado. | Compruebe el código y asegúrese de que no invoca operaciones de un objeto desechado. | El reintento no le será de ayuda. |
+| [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx) |El servidor no respondió a la operación solicitada en el tiempo especificado, que está controlado por [OperationTimeout](/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings). Puede que el servidor haya completado la operación solicitada. Esta excepción se puede producir debido a un retraso de red o a otros retrasos de infraestructura. |Compruebe la coherencia del estado del sistema y vuelva a intentarlo si es necesario.<br /> Consulte [TimeoutException](#timeoutexception). | El reintento podría resultar útil en algunos casos; agregue lógica de reintento al código. |
+| [InvalidOperationException](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx) |La operación del usuario solicitada no está permitida en el servidor o servicio. Consulte el mensaje de excepción para obtener detalles. Por ejemplo, [Complete](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) genera esta excepción si el mensaje se recibió en el modo [ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode) . | Compruebe el código y la documentación. Asegúrese de que la operación solicitada sea válida. | Los reintentos no funcionan. |
+| [OperationCanceledException](https://msdn.microsoft.com/library/system.operationcanceledexception.aspx) | Se realiza un intento para invocar una operación en un objeto que ya se ha cerrado, anulado o eliminado. En raras ocasiones, la transacción de ambiente ya se ha eliminado. | Compruebe el código y asegúrese de que no invoca operaciones de un objeto desechado. | Los reintentos no funcionan. |
 | [UnauthorizedAccessException](https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx) | El objeto [TokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider) no pudo adquirir un token, el token no es válido o no contiene las notificaciones necesarias para realizar la operación. | Asegúrese de que el proveedor de tokens se cree con los valores correctos. Compruebe la configuración de Access Control Service. | El reintento podría resultar útil en algunos casos; agregue lógica de reintento al código. |
 | [ArgumentException](https://msdn.microsoft.com/library/system.argumentexception.aspx)<br /> [ArgumentNullException](https://msdn.microsoft.com/library/system.argumentnullexception.aspx)<br />[ArgumentOutOfRangeException](https://msdn.microsoft.com/library/system.argumentoutofrangeexception.aspx) | Uno o varios de los argumentos proporcionados para el método no son válidos. El URI proporcionado a [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) o [Create](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) contiene segmentos de ruta de acceso. El esquema de URI proporcionado a [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) o [Create](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) no es válido. El valor de la propiedad es mayor de 32 KB. | Compruebe el código de llamada y asegúrese de que los argumentos sean correctos. | El reintento no le será de ayuda. |
 | [Microsoft.ServiceBus.Messaging MessagingEntityNotFoundException](/dotnet/api/microsoft.servicebus.messaging.messagingentitynotfoundexception) <br /><br/> [Microsoft.Azure.EventHubs MessagingEntityNotFoundException](/dotnet/api/microsoft.azure.eventhubs.messagingentitynotfoundexception) | La entidad asociada a la operación no existe o se eliminó. | Asegúrese de que la entidad exista. | El reintento no le será de ayuda. |
@@ -52,34 +54,34 @@ En la tabla siguiente se describen los tipos de excepción de mensajería, sus c
 | [MessagingEntityDisabledException](/dotnet/api/microsoft.servicebus.messaging.messagingentitydisabledexception) | Solicitud para realizar una operación en tiempo de ejecución en una entidad deshabilitada. |Active la entidad. | El reintento podría ser útil si la entidad se activa mientras este se lleva a cabo. |
 | [Microsoft.ServiceBus.Messaging MessageSizeExceededException](/dotnet/api/microsoft.servicebus.messaging.messagesizeexceededexception) <br /><br/> [Microsoft.Azure.EventHubs MessageSizeExceededException](/dotnet/api/microsoft.azure.eventhubs.messagesizeexceededexception) | Carga de mensaje que supera el límite de 1 MB. Este límite de 1 MB es para el mensaje total, que puede incluir propiedades del sistema y cualquier sobrecarga .NET. | Reduzca el tamaño de la carga del mensaje y vuelva a intentar la operación. |El reintento no le será de ayuda. |
 
-## <a name="quotaexceededexception"></a>QuotaExceededException
+### <a name="quotaexceededexception"></a>QuotaExceededException
 [QuotaExceededException](/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception) indica que se ha superado una cuota de una entidad específica.
 
 Esta excepción suceder si ya ha abierto el número máximo de destinatarios (cinco) en un nivel de grupo por consumidor.
 
-### <a name="event-hubs"></a>Event Hubs
+#### <a name="event-hubs"></a>Event Hubs
 Event Hubs tiene un límite de 20 grupos de consumidores por Centro de eventos. Cuando intenta crear más, recibe [QuotaExceededException](/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception). 
 
-## <a name="timeoutexception"></a>TimeoutException
+### <a name="timeoutexception"></a>TimeoutException
 [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx) indica que la operación iniciada por el usuario está superando el tiempo de espera. 
 
 Para Event Hubs, el tiempo de espera se especifica como parte de la cadena de conexión o a través de [ServiceBusConnectionStringBuilder](/dotnet/api/microsoft.servicebus.servicebusconnectionstringbuilder). El propio mensaje de error puede variar, pero siempre contiene el valor de tiempo de espera especificado para la operación actual. 
 
-### <a name="common-causes"></a>Causas comunes
+#### <a name="common-causes"></a>Causas comunes
 Hay dos causas comunes de este error: configuración incorrecta o un error de servicio transitorio.
 
-1. **Configuración incorrecta** : es posible que el tiempo de espera de la operación sea demasiado breve para la condición operativa. El valor predeterminado para el tiempo de espera de la operación en el SDK de cliente es 60 segundos. Compruebe si su código tiene el valor establecido en algo demasiado pequeño. Tenga en cuenta que la condición de la red y el uso de CPU pueden afectar al tiempo que tarda en completarse una operación particular, por lo que el tiempo de espera de la misma no debe establecerse en un valor pequeño.
+1. **Configuración incorrecta** : es posible que el tiempo de espera de la operación sea demasiado breve para la condición operativa. El valor predeterminado para el tiempo de espera de la operación en el SDK de cliente es 60 segundos. Compruebe si su código tiene el valor establecido en algo demasiado pequeño. La condición de la red y el uso de CPU pueden afectar al tiempo que tarda en completarse una operación particular, por lo que el tiempo de espera de esta no debe establecerse en un valor pequeño.
 2. **Error de servicio transitorio**: a veces, el servicio Event Hubs puede experimentar retrasos en el procesamiento de solicitudes; por ejemplo, durante períodos de tráfico elevado. En tales casos, puede reintentar su operación después de un retraso hasta que la operación se realice correctamente. Si la misma operación aún experimenta errores después de varios intentos, visite el [sitio de estado del servicio de Azure](https://azure.microsoft.com/status/) para ver si hay interrupciones del servicio conocidas.
 
-## <a name="serverbusyexception"></a>ServerBusyException
+### <a name="serverbusyexception"></a>ServerBusyException
 
 Una excepción [Microsoft.ServiceBus.Messaging.ServerBusyException](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception) o [Microsoft.Azure.EventHubs.ServerBusyException](/dotnet/api/microsoft.azure.eventhubs.serverbusyexception) indica que un servidor está sobrecargado. Hay dos códigos de error relevantes para esta excepción.
 
-### <a name="error-code-50002"></a>Código de error 50002
+#### <a name="error-code-50002"></a>Código de error 50002
 
 Este error puede producirse por uno de estos dos motivos:
 
-1. La carga no se distribuye uniformemente en todas las particiones del centro de eventos y una partición ha alcanzado la limitación de unidades de rendimiento local.
+1. La carga no se distribuye uniformemente entre todas las particiones del centro de eventos y una partición ha alcanzado la limitación de unidades de rendimiento local.
     
     Resolución: revisar la estrategia de distribución de particiones o probar [EventHubClient.Send(eventDataWithOutPartitionKey)](/dotnet/api/microsoft.servicebus.messaging.eventhubclient) puede que le sirva de ayuda.
 
@@ -87,16 +89,39 @@ Este error puede producirse por uno de estos dos motivos:
 
     Resolución: aumentar las unidades de rendimiento en el espacio de nombres puede resultar útil. Puede hacer esta operación en este portal, en la ventana **Escala** de la pantalla de espacio de nombres de Event Hubs. O bien, puede usar el [inflado automático](event-hubs-auto-inflate.md).
 
-### <a name="error-code-50001"></a>Código de error 50001
+#### <a name="error-code-50001"></a>Código de error 50001
 
 Este error se produce raras veces. Se produce cuando el contenedor que ejecuta el código para su espacio de nombres hace un uso bajo de la CPU: no más de unos pocos segundos antes de que comience el equilibrador de carga de Event Hubs.
 
-### <a name="limit-on-calls-to-the-getruntimeinformation-method"></a>Límite a las llamadas al método GetRuntimeInformation
+#### <a name="limit-on-calls-to-the-getruntimeinformation-method"></a>Límite a las llamadas al método GetRuntimeInformation
 Azure Event Hubs admite hasta 50 llamadas por segundo al método GetRuntimeInfo. Una vez que se alcanza el límite, puede recibir una excepción similar a esta:
 
 ```
 ExceptionId: 00000000000-00000-0000-a48a-9c908fbe84f6-ServerBusyException: The request was terminated because the namespace 75248:aaa-default-eventhub-ns-prodb2b is being throttled. Error code : 50001. Please wait 10 seconds and try again.
 ```
+
+## <a name="connectivity-certificate-or-timeout-issues"></a>Problemas de conectividad, certificados o tiempo de espera
+Los pasos siguientes pueden ayudarle a solucionar problemas de conectividad, certificados y tiempo de espera para todos los servicios de *.servicebus.windows.net. 
+
+- Vaya a `https://sbwagn2.servicebus.windows.net/` o use [wget](https://www.gnu.org/software/wget/). Le ayudará a comprobar si tiene problemas de cadena de certificados (lo más común al usar el SDK de Java), filtrado IP o red virtual.
+- Ejecute el siguiente comando para comprobar si hay algún puerto bloqueado en el firewall. En función de la biblioteca que use, también se usan otros puertos. Por ejemplo:  443, 5672, 9354.
+
+    ```powershell
+    tnc sbwagn2.servicebus.windows.net -port 5671
+    ```
+
+    En Linux:
+
+    ```shell
+    telnet sbwagn2.servicebus.windows.net 5671
+    ```
+- Si hay problemas de conectividad intermitentes, ejecute el siguiente comando para comprobar si hay paquetes descartados. Ejecútelo durante aproximadamente 1 minuto para saber si las conexiones están bloqueadas parcialmente. Puede descargar la herramienta `psping` desde [aquí](/sysinternals/downloads/psping).
+
+    ```shell
+    psping.exe -t -q ehedhdev.servicebus.windows.net:9354 -nobanner     
+    ```
+    Puede usar comandos equivalentes si utiliza otras herramientas como `tnc`, `ping`, etc. 
+- Realice un seguimiento de red si los pasos anteriores no ayudan y analícelo, o póngase en contacto con el [soporte técnico de Microsoft](https://support.microsoft.com/). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

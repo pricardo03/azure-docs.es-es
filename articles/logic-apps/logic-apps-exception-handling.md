@@ -1,20 +1,19 @@
 ---
-title: 'Control de errores y excepciones: Azure Logic Apps'
+title: Control de errores y excepciones
 description: Obtenga información acerca de los patrones para el control de errores y excepciones en Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: dereklee
 ms.author: deli
-ms.reviewer: klam, estfan, LADocs
+ms.reviewer: klam, estfan, logicappspm
 ms.date: 01/31/2018
 ms.topic: article
-ms.openlocfilehash: 828bea50a66b90f35843901ae2d7c703ffa58f2d
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: 781abb1ce92a9d96a93ac0c6b04d55075d752db8
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70208181"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792075"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Control de errores y excepciones en Azure Logic Apps
 
@@ -72,8 +71,8 @@ O bien, puede especificar manualmente la directiva de reintentos en la sección 
 
 | Valor | type | DESCRIPCIÓN |
 |-------|------|-------------|
-| <*retry-policy-type*> | String | El tipo de directiva de reintentos que quiere usar: `default`, `none`, `fixed` o `exponential`. | 
-| <*retry-interval*> | String | El intervalo de reintento, donde se debe usar el [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) para el valor. El intervalo mínimo predeterminado es `PT5S` y el intervalo máximo es `PT1D`. Cuando se usa la directiva de intervalo exponencial, puede especificar diferentes valores mínimos y máximos. | 
+| <*retry-policy-type*> | Cadena | El tipo de directiva de reintentos que quiere usar: `default`, `none`, `fixed` o `exponential`. | 
+| <*retry-interval*> | Cadena | El intervalo de reintento, donde se debe usar el [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) para el valor. El intervalo mínimo predeterminado es `PT5S` y el intervalo máximo es `PT1D`. Cuando se usa la directiva de intervalo exponencial, puede especificar diferentes valores mínimos y máximos. | 
 | <*retry-attempts*> | Integer | El número de reintentos, que debe estar comprendido entre 1 y 90 | 
 ||||
 

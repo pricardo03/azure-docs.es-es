@@ -1,5 +1,5 @@
 ---
-title: 'Preparación de los datos de prueba para Custom Speech: Servicio de voz'
+title: 'Preparación de los datos de prueba para Custom Speech: servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: Tanto si prueba la precisión del reconocimiento de voz de Microsoft como si entrena sus propios modelos, necesitará datos (en forma de audio o texto). En esta página, veremos los tipos de datos, cómo se usan y cómo administrar cada uno de ellos.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 577a76b628e40b7651345698a46cba255b16a828
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b2d02ed5a9fb2cb10e4cf18fe7d878da5b032fe0
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73464560"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816406"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Preparación de los datos para Custom Speech
 
@@ -25,7 +25,7 @@ Tanto si prueba la precisión del reconocimiento de voz de Microsoft como si ent
 
 En esta tabla se enumeran los tipos de datos aceptados, cuándo se debe utilizar cada tipo de datos y la cantidad recomendada. No todos los tipos de datos son necesarios para crear un modelo. Los requisitos de datos variarán dependiendo de si crea una prueba o entrena un modelo.
 
-| Tipo de datos | Se utiliza en las pruebas | Cantidad | Se utiliza para el entrenamiento | Cantidad |
+| Tipo de datos | Se utiliza en las pruebas | Cantidad recomendada | Se utiliza para el entrenamiento | Cantidad recomendada |
 |-----------|-----------------|----------|-------------------|----------|
 | [Audio](#audio-data-for-testing) | Sí<br>Se utiliza para la inspección visual | Más de cinco archivos de audio | Sin | N/a |
 | [Transcripciones de audio con etiqueta humana](#audio--human-labeled-transcript-data-for-testingtraining) | Sí<br>Se utiliza para evaluar la precisión | De 0,5 a 5 horas de audio | Sí | De 1 a 1000 horas de audio |

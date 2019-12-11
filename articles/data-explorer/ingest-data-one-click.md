@@ -7,16 +7,16 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/31/2019
-ms.openlocfilehash: 98598a28e14dfd8175cbb019ff1b001c65503580
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: c4ee4ed81cd4cc443a8f412462a5a7f204c91898
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73644593"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688187"
 ---
 # <a name="use-one-click-ingestion-to-ingest-data-into-azure-data-explorer"></a>Uso de ingesta con un solo clic para ingerir datos en Azure Data Explorer
 
-En este artículo se muestra cómo usar la ingesta con un solo clic para la ingesta rápida de una nueva tabla en formato JSON o CSV desde el almacenamiento en Azure Data Explorer. Una vez que se ingieren los datos, puede editar la tabla y ejecutar consultas mediante la interfaz de usuario web.
+En este artículo se muestra cómo usar la ingesta con un solo clic para la ingesta rápida de una nueva tabla en formato JSON o CSV desde el almacenamiento o un archivo local en una tabla ya existente o en otra nueva de Azure Data Explorer. Use el intuitivo asistente y, en unos minutos, se habrán ingerido los datos y se podrá editar la tabla y ejecutar consultas mediante la interfaz de usuario web.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -72,7 +72,7 @@ En este artículo se muestra cómo usar la ingesta con un solo clic para la inge
 
     ![esquema de formato json de ingesta con un solo clic](media/ingest-data-one-click/one-click-json-format.png) 
  
-## <a name="query-data"></a>Datos de consulta
+## <a name="query-data"></a>Consultar datos
 
 1. En la ventana **Data ingestion completed** (Ingesta de datos completada), los tres pasos se marcarán con marcas de verificación verdes si la ingesta de datos se ha completado correctamente. 
  

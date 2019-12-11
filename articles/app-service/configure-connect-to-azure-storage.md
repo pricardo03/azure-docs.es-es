@@ -1,19 +1,16 @@
 ---
-title: Configuración de Storage mediante Azure Files
-description: Configuración y conexión a Azure Files en un contenedor de Windows en App Service.
+title: Adición de almacenamiento personalizado (contenedor de Windows)
+description: Aprenda a conectar un recurso compartido de red personalizado en un contenedor de Windows personalizado en Azure App Service. Comparta archivos entre aplicaciones, administre el contenido estático de forma remota y acceda a él de forma local, etc.
 author: msangapu-msft
-manager: gwallace
-ms.service: app-service
-ms.workload: web
 ms.topic: article
 ms.date: 7/01/2019
 ms.author: msangapu
-ms.openlocfilehash: 2c12bf45c033fea185d976f1e9d644183407b5ac
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: ad70bbe36369c03225079d1194043e6ceb109c6f
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68297225"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671007"
 ---
 # <a name="configure-azure-files-in-a-windows-container-on-app-service"></a>Configuración de Azure Files en un contenedor de Windows en App Service
 

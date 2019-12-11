@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: acf7305a46e9fc3d19f96f88cf2e9ab5eacddd7c
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 340e6d3feaf0265597a70229fd2658f009c01f64
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113650"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790887"
 ---
 # <a name="skillset-concepts-and-composition-in-azure-cognitive-search"></a>Conceptos de conjunto de aptitudes y composición de consultas en Azure Cognitive Search
 
@@ -65,7 +65,7 @@ Cada aptitud requiere un contexto. Un contexto determina:
 
 ### <a name="sourcecontext"></a>SourceContext
 
-`sourceContext` solo se utiliza en [aptitudes de conformador](cognitive-search-skill-shaper.md) y [proyecciones](knowledge-store-projection-overview.md). Se utiliza para construir objetos anidados de varios niveles. `sourceContext` permite construir un objeto de tipo anónimo y jerárquico, que requeriría varias aptitudes si solo usara el contexto. El uso de `sourceContext` se muestra en la siguiente sección.
+`sourceContext` solo se utiliza en [proyecciones](knowledge-store-projection-overview.md) y entradas de aptitudes. Se utiliza para construir objetos anidados de varios niveles. Es posible que tenga que crear un nuevo objeto para pasarlo como una entrada a una aptitud o proyecto en el almacén de conocimiento. Dado que los nodos de enriquecimiento pueden no ser un objeto JSON válido en el árbol de enriquecimiento y que la referencia a un nodo del árbol solo devuelve el estado del nodo cuando se creó, el uso de enriquecimientos como proyecciones o entradas de aptitudes requiere la creación de un objeto JSON bien formado. `sourceContext` permite construir un objeto de tipo anónimo y jerárquico, que requeriría varias aptitudes si solo usara el contexto. El uso de `sourceContext` se muestra en la siguiente sección. Observe la salida de aptitud que generó un enriquecimiento para determinar si es un objeto JSON válido y no un tipo primitivo.
 
 ### <a name="projections"></a>Proyecciones
 

@@ -1,27 +1,20 @@
 ---
-title: Escalado de una aplicación en una instancia App Service Environment - Azure
-description: Escalado de una aplicación en un entorno de App Service
-services: app-service
-documentationcenter: ''
+title: Escalado de una aplicación en ASE v1
+description: Escalado de una aplicación en una instancia de App Service Environment. Este documento solo se proporciona para los clientes que usan App Service Environment v1 heredado.
 author: ccompy
-manager: stefsch
-editor: jimbe
 ms.assetid: 78eb1e49-4fcd-49e7-b3c7-f1906f0f22e3
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/17/2016
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 711dc4d59785418d6637eb144b644948ed495e2c
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 43849ca7084f2237c37ad537c50f4e94ac4ea7c0
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70069729"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688678"
 ---
-# <a name="scaling-apps-in-an-app-service-environment"></a>Escalado de aplicaciones en un entorno de App Service
+# <a name="scaling-apps-in-an-app-service-environment-v1"></a>Escalado de aplicaciones en una instancia de App Service Environment v1
 En Azure App Service hay normalmente tres cosas que puede escalar:
 
 * plan de precios

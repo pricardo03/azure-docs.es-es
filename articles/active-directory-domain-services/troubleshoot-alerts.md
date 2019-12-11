@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/20/2019
 ms.author: iainfou
-ms.openlocfilehash: 3286d3e786fc5b0e7a772f5b0e3caa3acf38671e
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 459aeaefc07e3f55b0829f0ad378992104982941
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71257945"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74703953"
 ---
 # <a name="known-issues-common-alerts-and-resolutions-in-azure-active-directory-domain-services"></a>Problemas conocidos: Alertas comunes y resolución en Azure Active Directory Domain Services
 
@@ -133,7 +133,7 @@ Azure AD DS crea recursos específicos para que funcionen correctamente, como 
 
 Esta alerta se genera cuando se elimina uno de estos recursos necesarios. Si el recurso se eliminó hace menos de 4 horas, existe la posibilidad de que la plataforma de Azure pueda volver a crear automáticamente el recurso eliminado. En los pasos siguientes se describe cómo comprobar el estado de mantenimiento y la marca de tiempo para la eliminación de recursos:
 
-1. En Azure Portal, busque y seleccione **Domain Services**. Elija el dominio administrado de Azure AD DS, por ejemplo, *contoso.com*.
+1. En Azure Portal, busque y seleccione **Domain Services**. Elija el dominio administrado de Azure AD DS, por ejemplo, *aadds.contoso.com*.
 1. En el panel de navegación izquierdo, seleccione **Estado**.
 1. En la página de estado, seleccione la alerta con el identificador *AADDS109*.
 1. La alerta tendrá una marca de tiempo del momento en que se encontró por primera vez. Si esa marca de tiempo es de hace menos de 4 horas, es posible que la plataforma Azure pueda volver a crear automáticamente el recurso y resolver la alerta por sí sola.

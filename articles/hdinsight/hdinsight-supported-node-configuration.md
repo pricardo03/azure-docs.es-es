@@ -9,30 +9,44 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: e482cf9b5367beba00784e69c5bad88142df5225
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 278639b27d821e8d6440248a1add43bcd9de22c6
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70076076"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74775232"
 ---
 # <a name="what-are-the-default-and-recommended-node-configurations-for-azure-hdinsight"></a>¿Cuáles son las configuraciones de nodos predeterminadas y recomendadas para Azure HDInsight?
 
 En este artículo se tratan las configuraciones de nodos predeterminadas y recomendadas para los clústeres de Azure HDInsight.
 
-## <a name="default-and-recommended-node-configuration-and-virtual-machine-sizes-for-clusters"></a>Configuración de nodos predeterminada y recomendada y tamaños de máquina virtual para clústeres
+## <a name="default-and-minimum-recommended-node-configuration-and-virtual-machine-sizes-for-clusters"></a>Configuración predeterminada y mínima recomendada de los nodos y tamaños de máquina virtual para clústeres
 
-En las tablas siguientes se indican los tamaños de máquina virtual predeterminados y recomendados para clústeres de HDInsight.  Esta información es necesaria para entender qué tamaños de VM se deben usar al crear scripts de PowerShell o la CLI de Azure para implementar clústeres de HDInsight. 
+En las tablas siguientes se indican los tamaños de máquina virtual predeterminados y recomendados para clústeres de HDInsight.  Esta información es necesaria para entender qué tamaños de VM se deben usar al crear scripts de PowerShell o la CLI de Azure para implementar clústeres de HDInsight.
 
 Si necesita más de 32 nodos de trabajo en un clúster, seleccione un tamaño de nodo principal con al menos 8 núcleos y 14 GB de RAM. 
 
 Los únicos tipos de clúster que tienen discos de datos son los clústeres Kafka y HBase con la característica Escrituras aceleradas habilitada. HDInsight admite los tamaños de disco P30 y S30 en estos escenarios.
 
-Para obtener más detalles sobre la especificación de cada tipo de máquina virtual, consulte los siguientes documentos:
+En la tabla siguiente se resumen las especificaciones de todos los tipos de máquina virtual mínimos recomendados que se usan en este documento.
 
-* [Tamaños de máquina virtual de uso general: serie Dv2 1-5](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general#dv2-series)
-* [Tamaños de máquina virtual optimizada para memoria: serie Dv2 11-15](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory#dv2-series-11-15)
-* [Tamaños de máquina virtual de uso general: serie Av2 1-8](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general#av2-series)
+| Size              | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Rendimiento máximo de almacenamiento temporal: IOPS / MBps de lectura / MBps de escritura | Discos de datos máx. / rendimiento: E/S | Nº máx. de NIC/ancho de banda de red esperado (Mbps) |
+|-------------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
+| Standard_D3_v2 | 4    | 14          | 200                    | 12000 / 187 / 93                                           | 16             / 16x500           | 4 / 3000                                       |
+| Standard_D4_v2 | 8    | 28          | 400                    | 24000 / 375 / 187                                          | 32            / 32x500           | 8 / 6000                                       |
+| Standard_D5_v2 | 16   | 56          | 800                    | 48000 / 750 / 375                                          | 64             / 64x500           | 8 / 12 000                                    |
+| Standard_D12_v2   | 4         | 28          | 200            | 12000 / 187 / 93                                         | 16 / 16x500                         | 4 / 3000                     |
+| Standard_D13_v2   | 8         | 56          | 400            | 24000 / 375 / 187                                        | 32 / 32x500                       | 8 / 6000                     |
+| Standard_D14_v2   | 16        | 112         | 800            | 48000 / 750 / 375                                        | 64 / 64x500                       | 8 / 12 000          |
+| Standard_A1_v2  | 1         | 2           | 10             | 1000 / 20 / 10                                           | 2 / 2x500               | 2 / 250                 |
+| Standard_A2_v2  | 2         | 4           | 20             | 2000 / 40 / 20                                           | 4 / 4x500               | 2 / 500                 |
+| Standard_A4_v2  | 4         | 8           | 40             | 4000 / 80 / 40                                           | 8 / 8x500               | 4 / 1000                     |
+
+Para más detalles sobre las especificaciones de cada tipo de máquina virtual, consulte los siguientes documentos:
+
+* [Tamaños de máquina virtual de uso general: serie Dv2 1-5](../virtual-machines/linux/sizes-general.md#dv2-series)
+* [Tamaños de máquina virtual optimizada para memoria: serie Dv2 11-15](../virtual-machines/linux/sizes-memory.md#dv2-series-11-15)
+* [Tamaños de máquina virtual de uso general: serie Av2 1-8](../virtual-machines/linux/sizes-general.md#av2-series)
 
 ### <a name="all-supported-regions-except-brazil-south-and-japan-west"></a>Todas las regiones admitidas, excepto Sur de Brasil y Japón Occidental
 
@@ -41,27 +55,29 @@ Para obtener más detalles sobre la especificación de cada tipo de máquina vir
 
 | Tipo de clúster | Hadoop | HBase | Interactive Query | Storm | Spark | ML Server | Kafka |
 |---|---|---|---|---|---|---|---|
-| Principal: tamaño de máquina virtual predeterminado | D12_v2 | D12_v2 | D13_v2 | A4_v2 | D12_v2 | D12_v2 | D3_v2 |
-| Principal: tamaños de máquina virtual recomendados | D13_v2,<br/>D14_v2,<br/>D5_v2 | D3_v2,<br/>D4_v2,<br/>D12_v2 | D13_v2,<br/>D14_v2 | A4_v2,<br/>A8_v2 | D12_v2,<br/>D13_v2,<br/>D14_v2 | D12_v2,<br/>D13_v2,<br/>D14_v2 | D3_v2,<br/>D4_v2,<br/>D12_v2 |
+| Principal: tamaño de máquina virtual predeterminado | D12_v2 | D12_v2 | D13_v2 | A4_v2 | D12_v2, <br/>D13_v2* | D12_v2 | D3_v2 |
+| Principal: tamaños mínimos de máquina virtual recomendados | D5_v2 | D3_v2 | D13_v2 | A4_v2 | D12_v2, <br/>D13_v2* | D12_v2 | D3_v2 |
 | Trabajo: tamaño de máquina virtual predeterminado | D4_v2 | D4_v2 | D14_v2 | D3_v2 | D13_v2 | D4_v2 | 4 D12_v2 con 2 discos S30 por agente |
-| Trabajo: tamaños de máquina virtual recomendados | D5_v2,<br>D12_v2,<br/>D13_v2 | D3_v2,<br/>D4_v2,<br/>D13_v2 | D13_v2,<br/>D14_v2 | D3_v2<br/>D4_v2,<br/>D12_v2 | D12_v2,<br>D13_v2,<br>D14_v2 | D4_v2,<br/>D12_v2,<br>D13_v2,<br>D14_v2 | D3_v2,<br/>D4_v2,<br/>DS3_v2,<br/>DS4_v2 |
+| Trabajo: tamaños mínimos de máquina virtual recomendados | D5_v2 | D3_v2 | D13_v2 | D3_v2 | D12_v2 | D4_v2 | D3_v2 |
 | Zookeeper: tamaño de máquina virtual predeterminado |  | A4_v2 | A4_v2 | A4_v2 |  | A2_v2 | A4_v2 |
-| Zookeeper: tamaños de máquina virtual recomendados |  | A4_v2, <br/>A8_v2, <br/>A2m_v2 | A4_v2,<br/>A8_v2,<br/>A2m_v2 | A4_v2,<br/>A2_v2,<br/>A8_v2 |  | A2_v2 | A4_v2,<br/> A8_v2,<br/>A2m_v2 |
+| ZooKeeper: tamaños mínimos de máquina virtual recomendados |  | A4_v2 | A4_v2 | A2_v2 |  | A2_v2 | A4_v2 |
 | Servicio Machine Learning: tamaño de máquina virtual predeterminado |  |  |  |  |  | D4_v2 |  |
-| Servicio Machine Learning: tamaño de máquina virtual recomendado |  |  |  |  |  | D4_v2,<br/> D12_v2,<br/> D13_v2,<br/>D14_v2 |  |
+| Servicios Machine Learning: tamaño mínimo de máquina virtual recomendado |  |  |  |  |  | D4_v2 |  |
+
+\* = tamaños de máquina virtual para los clústeres de Enterprise Security Package (ESP) de Spark
 
 ### <a name="brazil-south-and-japan-west-only"></a>Solo Sur de Brasil y Japón Occidental
 
 | Tipo de clúster | Hadoop | HBase | Interactive Query | Storm | Spark | Machine Learning Services |
 |---|---|---|---|---|---|---|
 | Principal: tamaño de máquina virtual predeterminado | D12 | D12 | D13 | A4_v2 | D12 | D12 |
-| Principal: tamaños de máquina virtual recomendados | D5_v2,<br/> D13_v2,<br/> D14_v2 | D3_v2,<br/> D4_v2,<br/> D12_v2 | D13_v2,<br/> D14_v2 | A4_v2,<br/> A8_v2 | D12_v2,<br/> D13_v2,<br/> D14_v2 | D12_v2,<br/> D13_v2,<br/> D14_v2 |
+| Principal: tamaños mínimos de máquina virtual recomendados | D5_v2 | D3_v2 | D13_v2 | A4_v2 | D12_v2 | D12_v2 |
 | Trabajo: tamaño de máquina virtual predeterminado | D4 | D4 | D14 | D3 | D13 | D4 |
-| Trabajo: tamaños de máquina virtual recomendados | D5_v2,<br/> D12_v2,<br/> D13_v2 | D3_v2,<br/> D4_v2,<br/> D13_v2 | D13_v2,<br/> D14_v2 | D3_v2,<br/> D4_v2,<br/> D12_v2 | D12_v2,<br/> D13_v2,<br/> D14_v2 | D4_v2,<br/> D12_v2,<br/> D13_v2,<br/> D14_v2 |
+| Trabajo: tamaños mínimos de máquina virtual recomendados | D5_v2 | D3_v2 | D13_v2 | D3_v2 | D12_v2 | D4_v2 |
 | Zookeeper: tamaño de máquina virtual predeterminado |  | A4_v2 | A4_v2 | A4_v2 |  | A2_v2 |
-| Zookeeper: tamaños de máquina virtual recomendados |  | A4_v2,<br/> A8_v2,<br/> A2m_v2 | A4_v2,<br/> A8_v2,<br/> A2m_v2 | A4_v2,<br/> A8_v2 |  | A2_v2 |
+| ZooKeeper: tamaños mínimos de máquina virtual recomendados |  | A4_v2 | A4_v2 | A4_v2 |  | A2_v2 |
 | Servicio Machine Learning: tamaños de máquina virtual predeterminados |  |  |  |  |  | D4 |
-| Servicio Machine Learning: tamaños de máquina virtual recomendados |  |  |  |  |  | D4_v2,<br/> D12_v2,<br/> D13_v2,<br/> D14_v2 |
+| Servicios Machine Learning: tamaños mínimos de máquina virtual recomendados |  |  |  |  |  | D4_v2 |
 
 > [!NOTE]
 > - Nota: Principal se conoce como *Nimbus* para el tipo de clúster de Storm.

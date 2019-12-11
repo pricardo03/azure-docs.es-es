@@ -3,12 +3,12 @@ title: Errores de SKU no disponible
 description: Describe cómo solucionar problemas relacionados con el error de SKU no disponible al implementar recursos con Azure Resource Manager.
 ms.topic: troubleshooting
 ms.date: 10/19/2018
-ms.openlocfilehash: 56afca6b6a59ca08f3fd59c4d9b3ebf12bda415a
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 0b3696d3207a88d87b11e65f4697473963f960d5
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74150498"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74769156"
 ---
 # <a name="resolve-errors-for-sku-not-available"></a>Resolución de los errores de no disponibilidad de la SKU
 
@@ -29,6 +29,8 @@ for subscription '<subscriptionID>'. Please try another tier or deploy to a diff
 ## <a name="cause"></a>Causa
 
 Recibe este error si la SKU del recurso que ha seleccionado (como el tamaño de máquina virtual) no está disponible para la ubicación seleccionada.
+
+Si va a implementar una máquina virtual de Azure Spot o una instancia del conjunto de escalado de Spot, no hay ninguna capacidad para Azure Spot en esta ubicación. Para más información, consulte [Mensajes de error de Spot](../virtual-machines/error-codes-spot.md).
 
 ## <a name="solution-1---powershell"></a>Solución 1: PowerShell
 

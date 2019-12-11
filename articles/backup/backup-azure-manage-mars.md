@@ -4,12 +4,12 @@ description: Aprenda a administrar y supervisar las copias de seguridad del agen
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: edb672f97f467378176bf6cdf04fe8e22cc5e51b
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: f299bdeebab4f42721255d462101f0065a640fab
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173079"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74665600"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Administración de copias de seguridad del agente de Microsoft Azure Recovery Services (MARS) con el servicio Azure Backup
 
@@ -124,7 +124,7 @@ Puede agregar reglas de exclusión para omitir archivos y carpetas que no desea 
 
     ![Selección de los elementos](./media/backup-azure-manage-mars/select-items-exclude.png)
 
-4. De forma predeterminada, se excluirán todas las **subcarpetas** de las carpetas seleccionadas. Puede seleccionar **Sí** o **No** para cambiar esto. Puede editar y especificar los tipos de archivo que excluir como se muestra a continuación:
+4. De forma predeterminada, se excluirán todas las **subcarpetas** de las carpetas seleccionadas. Puede seleccionar **Sí** o **No** para cambiar esto. Puede editar y especificar los tipos de archivo que se van a excluir como se muestra a continuación:
 
     ![Selección de los elementos](./media/backup-azure-manage-mars/subfolders-type.png)
 
@@ -163,8 +163,8 @@ Hay dos formas de detener la protección de una copia de seguridad de archivos y
     ![Modificación o detención de una copia de seguridad programada.](./media/backup-azure-manage-mars/select-policy-item-retain-data.png)
 1. En la página **Modificar o detener una copia de seguridad programada**, seleccione **Detener la programación de copias de seguridad, pero conservar las copias de seguridad almacenadas hasta que se vuelva a activar una programación**. Después, seleccione **Siguiente**.  
     ![Modificación o detención de una copia de seguridad programada.](./media/backup-azure-manage-mars/stop-schedule-backup.png)
-1. En **Pausar copias de seguridad programadas**, revise la información y haga clic en **Finalizar**. ![Modificación o detención de una copia de seguridad programada.](./media/backup-azure-manage-mars/pause-schedule-backup.png)
-1. En **Modify backup process** (Modificar el proceso de copia de seguridad), compruebe si el estado de pausa de la copia de seguridad programada es correcto y haga clic en **Cerrar** para finalizar.
+1. En **Pausar copia de seguridad programada**, revise la información y haga clic en **Finalizar** ![Modificar o detener de una copia de seguridad programada.](./media/backup-azure-manage-mars/pause-schedule-backup.png)
+1. En **Modify backup process** (Modificar proceso de copia de seguridad), compruebe si el estado de pausa de la copia de seguridad programada es correcto y haga clic en **Cerrar** para finalizar.
 
 ### <a name="stop-protection-and-delete-backup-data"></a>Detener la protección y eliminar los datos de copia de seguridad
 
@@ -194,7 +194,7 @@ Después de eliminar los elementos de copia de seguridad locales, siga los pasos
 Si ha detenido la protección y conservado los datos y, después, decide reanudar la protección, puede volver a habilitar la programación de copia de seguridad mediante la modificación de la directiva de copia de seguridad.
 
 1. En **Acciones**, seleccione **Programar copia de seguridad**.
-1. Seleccione **Vuelva a habilitar la programación de copia de seguridad. También puede modificar las horas o los elementos de la copia de seguridad** y haga clic en **Siguiente**.
+1. Seleccione **Vuelva a habilitar la programación de copia de seguridad. También puede modificar las horas o los elementos de las copias de seguridad** y hacer clic en **Siguiente**.
     ![Eliminación de la infraestructura de copia de seguridad.](./media/backup-azure-manage-mars/re-enable-policy-next.png)
 1. En **Seleccionar elementos de los que realizar copia de seguridad**, haga clic en **Siguiente**.
     ![Eliminación de la infraestructura de copia de seguridad.](./media/backup-azure-manage-mars/re-enable-next.png)

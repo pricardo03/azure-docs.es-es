@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/20/2019
-ms.openlocfilehash: 6209d899131a91754c200da831b3739833ade22c
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 6bb61f419f4c6d277a9b1c666db92595642cb0e6
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132228"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706595"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights para páginas web
 
@@ -251,7 +251,7 @@ Mientras el script se descarga de la red CDN, todo el seguimiento de la página 
 
 ![Chrome](https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png) | ![Firefox](https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png) | ![IE](https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png) | ![Opera](https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png) | ![Safari](https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png)
 --- | --- | --- | --- | --- |
-Más reciente ✔ | Más reciente ✔ | 9+ ✔ | Más reciente ✔ | Más reciente ✔ |
+Chrome (última versión) ✔ |  Firefox (última versión) ✔ | Internet Explorer 9 (y posteriores) y Edge ✔ | Opera (última versión) ✔ | Safari (última versión) ✔ |
 
 ## <a name="open-source-sdk"></a>SDK de código abierto
 

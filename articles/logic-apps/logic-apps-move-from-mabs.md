@@ -1,20 +1,19 @@
 ---
-title: Migración de aplicaciones desde BizTalk Services a Azure Logic Apps | Microsoft Docs
+title: Migración de aplicaciones desde BizTalk Services a Azure Logic Apps
 description: Migración de Azure BizTalk Services (MABS) a Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: jonfancey
 ms.author: jonfan
-ms.reviewer: estfan, LADocs
+ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/30/2017
-ms.openlocfilehash: dfc0aa4fa7c70ae91f25f97671b15dacfe991594
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 97b498091451b0bf39741ed4340b8e02517c5447
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68273195"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74791882"
 ---
 # <a name="migrate-from-biztalk-services-to-azure-logic-apps"></a>Migración desde BizTalk Services a Azure Logic Apps
 

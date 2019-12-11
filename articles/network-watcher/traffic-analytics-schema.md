@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: vinigam
-ms.openlocfilehash: a678039b3386c3df290327238d3bf968a803d2c1
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: ccfbb92c27e4508595f19c2ea6900730cde609b9
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229433"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74666382"
 ---
 # <a name="schema-and-data-aggregation-in-traffic-analytics"></a>Esquema y agregación de datos en Análisis de tráfico
 
@@ -143,7 +143,7 @@ A continuación se proporcionan los campos en el esquema y su significado
 | LocalNetworkGateway1_s | \<SubscriptionID>/\<ResourceGroupName>/\<LocalNetworkGatewayName> | Puerta de enlace de red local asociada con la dirección IP de origen en el flujo. |
 | LocalNetworkGateway2_s | \<SubscriptionID>/\<ResourceGroupName>/\<LocalNetworkGatewayName> | Puerta de enlace de red local asociada con la dirección IP de destino en el flujo. |
 | ConnectionType_s | Los valores posibles son VNetPeering, VpnGateway y ExpressRoute. |    Tipo de conexión. |
-| ConnectionName_s | \<SubscriptionID>/\<ResourceGroupName>/\<ConnectionName> | Nombre de la conexión |
+| ConnectionName_s | \<SubscriptionID>/\<ResourceGroupName>/\<ConnectionName> | Nombre de la conexión. En el caso del tipo de flujo de la conexión de punto a sitio, el formato será <gateway name>_<VPN Client IP> |
 | ConnectingVNets_s | Lista separada por espacios de nombres de red virtual. | En el caso de una topología de concentrador y radio, las redes virtuales de centro se rellenarán aquí. |
 | Country_s | Código de país o región de dos letras (ISO 3166-1 alfa-2). | Se rellena para el tipo de flujo ExternalPublic. Todas las direcciones IP en el campo PublicIPs_s compartirán el mismo código de país o región. |
 | AzureRegion_s | Ubicaciones de la región de Azure | Se rellena para el tipo de flujo AzurePublic. Todas las direcciones IP en el campo PublicIPs_s compartirán la región de Azure. |

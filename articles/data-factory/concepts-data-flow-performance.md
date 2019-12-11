@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.date: 10/07/2019
-ms.openlocfilehash: 20a08345d8335b4857ca9777efb55f953ee63e9f
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 9ae6ff5fb5a5bfc6ba9299e06bad9afafc1403f3
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681547"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671592"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guía de optimización y rendimiento de la asignación de instancias de Data Flow
 
@@ -120,6 +120,14 @@ Por ejemplo, si tiene una lista de archivos de datos de julio de 2019 que desea 
 ```DateFiles/*_201907*.txt```
 
 Mediante el uso de caracteres comodín, la canalización solo contendrá una actividad de Data Flow. Esto funcionará mejor que una búsqueda contra el almacén de blobs que luego itera en todos los archivos coincidentes con una operación ForEach que incluya una actividad de ejecución de Data Flow.
+
+### <a name="optimizing-for-cosmosdb"></a>Optimización de CosmosDB
+
+Establecer las propiedades throughput y batch en los receptores de CosmosDB solo surte efecto durante la ejecución de un flujo de datos desde una actividad de flujo de datos de canalización. CosmosDB respetará la configuración de la colección original se después de la ejecución del flujo de datos.
+
+* Tamaño de lote: Calcule el tamaño de fila aproximado de los datos y asegúrese de que el tamaño del lote de rowSize * es inferior a 2 millones. Si lo es, aumente el tamaño del lote para obtener un mejor rendimiento
+* Rendimiento: establezca aquí un valor de rendimiento mayor aquí para que los documentos escriban más rápidamente en CosmosDB. Tenga en cuenta que los costos de RU son mayores ya que el valor de rendimiento es mayor.
+*   Presupuesto de rendimiento de escritura: use un valor que sea menor que el total de RU por minuto. Si tiene un flujo de datos con un número elevado de particiones de Spark y establece un presupuesto de rendimiento, habrá más equilibrio entre las particiones.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

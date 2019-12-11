@@ -1,5 +1,5 @@
 ---
-title: 'Instrucciones para las transcripciones con etiqueta humana: servicio de Voz'
+title: 'Instrucciones para las transcripciones con etiqueta humana: servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: Para mejorar la precisión del reconocimiento de voz, en especial cuando hay eliminaciones o sustituciones incorrectas de palabras, puede usar las transcripciones con etiqueta humana junto con los datos de audio. Las transcripciones con etiqueta humana son transcripciones textuales, palabra por palabra, de un archivo de audio.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 1eeb2e7ccf5c365fedd02a8de4c6b442dd3d5bc8
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 81b4ffc8f77673e52bb78f891e3de618b67e0d1b
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075811"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806069"
 ---
 # <a name="how-to-create-human-labeled-transcriptions"></a>Creación de transcripciones con etiqueta humana
 

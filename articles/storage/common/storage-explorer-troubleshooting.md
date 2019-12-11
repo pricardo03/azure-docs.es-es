@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: 4aa9e93831b902ff9f0a0659c650cd2ca123b1a3
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: d9967b6f1177281759dd66122ffd0183bb2b813d
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74124015"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74775840"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guía de solución de problemas del Explorador de Azure Storage
 
@@ -95,7 +95,7 @@ Si no encuentra ningún certificado autofirmado con estos pasos, póngase en con
 
 Los cuadros de diálogo de inicio de sesión en blanco a menudo aparecen cuando Servicios de federación de Active Directory (AD FS) solicita al Explorador de Storage que realice una redirección, lo que no es compatible con Electron. Para solucionar este problema, puede intentar usar un flujo de código de dispositivo para el inicio de sesión. Para hacerlo, siga estos pasos:
 
-1. En el menú, vaya a **Preview** (Vista previa) > **Use Device Code Sign-In** (Usar inicio de sesión con código de dispositivo).
+1. En la barra de herramientas vertical izquierda, abra **Configuración**. En el panel Configuración, vaya a **Aplicación** > **Iniciar sesión**. Habilite **Use device code flow sign-in** (Usar inicio de sesión de flujo de código del dispositivo).
 2. Abra el cuadro de diálogo **Connect** (Conectar) (mediante el icono de interruptor de la barra vertical izquierda o seleccionando **Add Account** (Agregar cuenta) en el panel de la cuenta).
 3. Elija el entorno en el que desea iniciar sesión.
 4. Seleccione **Iniciar sesión**.

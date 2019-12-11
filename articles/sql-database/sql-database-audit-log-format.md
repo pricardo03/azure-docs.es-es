@@ -11,12 +11,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 01/03/2019
-ms.openlocfilehash: 389404f59b5a0cba1acd7aa097ddd3dd929d8082
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 14465e918fd4ac4e436e64d468c58e1d2ed83bb3
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821991"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688170"
 ---
 # <a name="sql-database-audit-log-format"></a>Formato del registro de auditoría de SQL Database
 
@@ -31,6 +31,8 @@ Los registros de auditoría almacenados en Blob Storage se almacenan en un conte
 Por ejemplo, para la base de datos `Database1` en `Server1`, la siguiente es una posible ruta de acceso válida:
 
     Server1/Database1/SqlDbAuditing_ServerAudit_NoRetention/2019-02-03/12_23_30_794_0.xel
+
+Los registros de auditoría de las réplicas de solo lectura se almacenan en el mismo contenedor. La jerarquía de directorios dentro del contenedor tiene el formato `<ServerName>/<DatabaseName>/<AuditName>/<Date>/RO/`. El nombre de archivo del BLOB comparte el mismo formato.
 
 ### <a name="event-hub"></a>Centro de eventos
 

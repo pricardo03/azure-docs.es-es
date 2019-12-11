@@ -1,7 +1,7 @@
 ---
-title: Traducción de voz con el servicio de Voz
+title: Traducción de voz con el servicio de voz
 titleSuffix: Azure Cognitive Services
-description: El servicio de Voz le permite agregar a sus aplicaciones, herramientas y dispositivos una traducción de voz completa, de varios idiomas y en tiempo real. La misma API puede usarse para la traducción de voz a voz y de voz a texto.
+description: El servicio de voz le permite agregar a sus aplicaciones, herramientas y dispositivos una traducción de voz completa, de varios idiomas y en tiempo real. La misma API puede usarse para la traducción de voz a voz y de voz a texto.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 17ad32cba18915bf7f83163cd876686d42323750
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a05a2bf81a278322bc4e07ed959aedb828c39b73
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73468762"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815462"
 ---
 # <a name="what-is-speech-translation"></a>¿Qué es la traducción de voz?
 
-La traducción de voz de Servicios de voz de Azure permite la traducción voz a voz y voz a texto de secuencias de audio en varios idiomas en tiempo real. Con el SDK de voz, sus aplicaciones, herramientas y los dispositivos tienen acceso a las transcripciones de origen y a las salidas de traducción del audio proporcionadas. Se devuelven resultados provisionales de transcripción y traducción cuando se detecta la voz y los resultados finales se pueden convertir en voz sintetizada.
+La traducción de voz del servicio de voz permite la traducción de voz a voz y voz a texto de secuencias de audio en varios idiomas en tiempo real. Con el SDK de voz, sus aplicaciones, herramientas y los dispositivos tienen acceso a las transcripciones de origen y a las salidas de traducción del audio proporcionadas. Se devuelven resultados provisionales de transcripción y traducción cuando se detecta la voz y los resultados finales se pueden convertir en voz sintetizada.
 
 El motor de traducción de Microsoft usa tecnología de dos enfoques diferentes: traducción automática estadística (SMT) y traducción automática neuronal (NMT). SMT usa análisis estadísticos avanzados para estimar las mejores traducciones posibles dado el contexto de unas pocas palabras. Con NMT, las redes neuronales se utilizan para proporcionar traducciones más precisas y naturales mediante el contexto completo de las oraciones para traducir palabras.
 
@@ -55,13 +55,13 @@ Hay un ejemplo de código para el SDK de voz disponible en GitHub. En estos ejem
 
 ## <a name="migration-guides"></a>Guías de migración
 
-Si sus aplicaciones, herramientas o productos usan [Translator Speech API](https://docs.microsoft.com/azure/cognitive-services/translator-speech/overview), hemos creado guías que le ayudarán a migrar a los servicios de Voz.
+Si sus aplicaciones, herramientas o productos usan [Translator Speech API](https://docs.microsoft.com/azure/cognitive-services/translator-speech/overview), hemos creado guías que le ayudarán a migrar al servicio de voz.
 
-* [Migrar de Translator Speech API a Servicios de voz](how-to-migrate-from-translator-speech-api.md)
+* [Migración de Translator Speech API al servicio de voz](how-to-migrate-from-translator-speech-api.md)
 
 ## <a name="reference-docs"></a>Documentos de referencia
 
-* [Speech SDK](speech-sdk-reference.md)
+* [Acerca del SDK de Voz](speech-sdk-reference.md)
 * [Speech Devices SDK](speech-devices-sdk.md)
 * [API REST: Speech-to-text](rest-speech-to-text.md) (API de REST: Voz a texto)
 * [API REST: Text-to-speech](rest-text-to-speech.md) (API de REST: Texto a voz)
@@ -69,5 +69,5 @@ Si sus aplicaciones, herramientas o productos usan [Translator Speech API](https
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Get a Speech Services subscription key for free](get-started.md) (Consiga una clave de suscripción a los servicios de voz gratis)
+* [Obtenga una clave de suscripción gratuita a los servicios de Voz](get-started.md)
 * [Obtención del SDK de voz](speech-sdk.md)

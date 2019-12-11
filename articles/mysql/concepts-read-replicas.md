@@ -1,17 +1,17 @@
 ---
-title: Réplicas de lectura en Azure Database for MySQL
+title: 'Réplicas de lectura: Azure Database for MySQL'
 description: 'Obtenga información sobre las réplicas de lectura en Azure Database for MySQL: elección de regiones, creación de réplicas, conexión a réplicas, supervisión de la replicación y detención de la replicación.'
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 11/17/2019
-ms.openlocfilehash: 66864870f29729e54ad06aef1208641f673c0612
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.date: 12/03/2019
+ms.openlocfilehash: f3a6da6888b823c637411c508c949686fc378e58
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158315"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790101"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Réplicas de lectura en Azure Database for MySQL
 
@@ -41,7 +41,9 @@ Puede tener un servidor maestro en cualquier [región de Azure Database for MyS
 ### <a name="universal-replica-regions"></a>Regiones de réplica universal
 Puede crear una réplica de lectura en cualquiera de las siguientes regiones, con independencia de dónde se encuentre el servidor maestro. Entre las regiones de réplica universales admitidas se incluyen:
 
-Este de Australia, Sudeste de Australia, Centro de EE. UU., Asia Oriental, Este de EE. UU. 2, Japón Oriental, Japón Occidental, Centro de Corea del Sur, Sur de Corea del Sur, Centro y norte de EE. UU., Norte de Europa, Centro y Sur de EE. UU., Asia Suroriental, Sur de Reino Unido, Oeste de Reino Unido, Oeste de Europa, Oeste de EE. UU., Oeste de EE. UU. 2.
+Este de Australia, Sudeste de Australia, Centro de EE. UU., Asia Oriental, Este de EE. UU. 2, Japón Oriental, Japón Occidental, Centro de Corea del Sur, Sur de Corea del Sur, Centro y norte de EE. UU., Norte de Europa, Centro y Sur de EE. UU., Asia Suroriental, Sur de Reino Unido, Oeste de Reino Unido, Oeste de Europa, Oeste de EE. UU.
+
+*Oeste de EE  UU. 2 no está disponible temporalmente como ubicación de réplica entre regiones.
 
 
 ### <a name="paired-regions"></a>Regiones emparejadas
@@ -69,7 +71,7 @@ Aprenda a [crear una réplica de lectura en Azure Portal](howto-read-replicas-po
 
 ## <a name="connect-to-a-replica"></a>Conexión a una réplica
 
-Al crear una réplica, hereda las reglas de firewall o el punto de conexión de servicio de red virtual del servidor maestro. Posteriormente, estas reglas son independientes del servidor maestro.
+Durante la creación, una réplica hereda las reglas de firewall o el punto de conexión de servicio de red virtual del servidor maestro. Posteriormente, estas reglas son independientes de las del servidor maestro.
 
 La réplica hereda su cuenta de administrador del servidor maestro. Todas las cuentas de usuario existentes en el servidor se replican en las réplicas de lectura. Solo se puede conectar a una réplica de lectura utilizando las cuentas de usuario disponibles en el servidor maestro.
 
@@ -122,7 +124,7 @@ Las réplicas se crean con la misma configuración de servidor que el servidor m
 > [!IMPORTANT]
 > Antes de actualizar la configuración de un servidor maestro con nuevos valores, actualice la configuración de las réplicas a valores iguales o mayores. Esta acción garantiza que la réplica puede hacer frente a los cambios realizados en el servidor maestro.
 
-La réplica hereda las reglas de firewall, las reglas de red virtual y la configuración de parámetros del servidor maestro cuando se crea. Después, las reglas de la réplica son independientes.
+Las reglas de firewall, las reglas de red virtual y la configuración de parámetros se heredan del servidor maestro a la réplica cuando se crea la réplica. Después, las reglas de la réplica son independientes.
 
 ### <a name="stopped-replicas"></a>Réplicas detenidas
 

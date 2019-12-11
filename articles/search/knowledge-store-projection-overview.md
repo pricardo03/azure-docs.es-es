@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: e7ed7eef961e357b8c1e4e59790f9f150c286c61
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 47c63118888bc0eaf7a025cd95e2a4c43d6a6cfb
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74326604"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790007"
 ---
 # <a name="working-with-projections-in-a-knowledge-store-in-azure-cognitive-search"></a>Trabajar con proyecciones en un almacén de conocimiento en Azure Cognitive Search
 
@@ -28,11 +28,11 @@ Las proyecciones pueden ser tabulares, con los datos almacenados en filas y colu
 
 El almacén de conocimiento admite tres tipos de proyecciones:
 
-+ **Tablas**: Para los datos que se representan mejor como filas y columnas, las proyecciones de tabla le permiten definir una forma esquematizada o una proyección en el almacenamiento de tablas.
++ **Tablas**: Para los datos que se representan mejor como filas y columnas, las proyecciones de tabla le permiten definir una forma esquematizada o una proyección en el almacenamiento de tablas. Solo los objetos JSON válidos se pueden proyectar como tablas. El documento enriquecido puede contener nodos que no son objetos JSON denominados y, al proyectar estos objetos, crear un objeto JSON válido con una aptitud de conformador o forma en línea.
 
-+ **Objetos**: Cuando necesita una representación JSON de los datos y enriquecimientos, las proyecciones de objeto se guardan como blobs.
++ **Objetos**: Cuando necesita una representación JSON de los datos y enriquecimientos, las proyecciones de objeto se guardan como blobs. Solo los objetos JSON válidos se pueden proyectar como objetos. El documento enriquecido puede contener nodos que no son objetos JSON denominados y, al proyectar estos objetos, crear un objeto JSON válido con una aptitud de conformador o forma en línea.
 
-+ **Archivos**: Cuando necesita guardar las imágenes extraídas de los documentos, las proyecciones de archivos le permiten guardar las imágenes normalizadas.
++ **Archivos**: Cuando necesita guardar las imágenes extraídas de los documentos, las proyecciones de archivos le permiten guardar las imágenes normalizadas en el almacenamiento de blobs.
 
 Para ver las proyecciones definidas en contexto, consulte [Cómo empezar a trabajar con el almacén de conocimiento](knowledge-store-howto.md).
 
@@ -47,7 +47,7 @@ Esta independencia implica que puede tener los mismos datos repetidos en cada gr
 
 ### <a name="relatedness"></a>Relación
 
-Los grupos de proyecciones ahora permiten proyectar los documentos en todos los tipos de proyección a la vez que se conservan las relaciones entre los tipos de proyección. Todo el contenido proyectado dentro de un mismo grupo de proyecciones mantiene las relaciones entre los datos en los distintos tipos de proyección. Dentro de las tablas, las relaciones se basan en una clave generada y cada nodo secundario mantiene una referencia al nodo primario. En los distintos tipos (tablas, objetos y archivos), las relaciones se conservan cuando un solo nodo se proyecta en varios tipos. Por ejemplo, considere un escenario en el que tiene un documento que contiene imágenes y texto. Podría proyectar el texto en tablas u objetos y las imágenes en archivos donde las tablas u objetos tienen una propiedad que contiene la dirección URL del archivo.
+Los grupos de proyecciones ahora permiten proyectar los documentos en todos los tipos de proyección a la vez que se conservan las relaciones entre los tipos de proyección. Todo el contenido proyectado dentro de un mismo grupo de proyecciones mantiene las relaciones entre los datos en los distintos tipos de proyección. Dentro de las tablas, las relaciones se basan en una clave generada y cada nodo secundario mantiene una referencia al nodo primario. En los distintos tipos (tablas, objetos y archivos), las relaciones se conservan cuando un solo nodo se proyecta en varios tipos. Por ejemplo, considere un escenario en el que tiene un documento que contiene imágenes y texto. Podría proyectar el texto en tablas u objetos y las imágenes en archivos donde las tablas u objetos tienen una columna o propiedad que contiene la dirección URL del archivo.
 
 ## <a name="input-shaping"></a>Dar forma a los datos de entrada
 

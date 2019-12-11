@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8bfe306f089a26258ba9c7a07c54925f4540b44b
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 90dc42ed6ca16947902622cba0e5a81a2bc900e3
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74382020"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74786001"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Introducción a la autenticación basada en certificados de Azure Active Directory
 
@@ -36,13 +36,16 @@ En este tema:
 
 Para configurar la autenticación basada en certificados, deben cumplirse las siguientes instrucciones:
 
-- La autenticación basada en certificados (CBA) solo se admite para entornos federados de aplicaciones del explorador o clientes nativos que usan autenticación moderna (ADAL). La excepción es Exchange Active Sync (EAS) para Exchange Online (EXO), que se puede usar tanto para cuentas federadas como para cuentas administradas.
+- La autenticación basada en certificados (CBA) solo se admite para entornos federados de aplicaciones del explorador, clientes nativos que usen autenticación moderna (ADAL) o bibliotecas MSAL. La excepción es Exchange Active Sync (EAS) para Exchange Online (EXO), que se puede usar tanto para cuentas federadas como para cuentas administradas.
 - La entidad de certificación raíz y las intermedias deben configurarse en Azure Active Directory.
 - Cada entidad de certificación debe tener una lista de revocación de certificados (CRL) a la que puede hacerse referencia a través de una dirección URL con conexión a Internet.
 - Debe tener al menos una entidad de certificación configurada en Azure Active Directory. Puede encontrar pasos relacionados en la sección [Configuración de las entidades de certificación](#step-2-configure-the-certificate-authorities).
 - En Exchange Online, el certificado de cliente debe tener la dirección de correo electrónico enrutable del usuario en el valor de Nombre de la entidad de seguridad o Nombre RFC822 del campo Nombre alternativo del titular (para clientes de Exchange ActiveSync). Azure Active Directory asigna el valor de RFC822 al atributo de dirección de Proxy del directorio.
 - El dispositivo cliente debe tener acceso al menos a una entidad de certificación que emite los certificados de cliente.
 - Se debe haber emitido al cliente un certificado de cliente para la autenticación de cliente.
+
+>[!IMPORTANT]
+>El tamaño máximo de una lista de revocación de certificados que se puede descargar y almacenar en caché mediante Azure Active Directory es de 20 MB y el tiempo necesario de descarga no debe superar los 10 segundos.  Si Azure Active Directory no puede descargar la lista de revocación de certificados, se producirá un error en las autenticaciones basadas en certificados que usen certificados emitidos por la entidad de certificación correspondiente. Los procedimientos recomendados para garantizar que los archivos de las listas de revocación de certificados cumplen las restricciones de tamaño son mantener la vigencia de los certificados dentro de los límites razonables y limpiar los certificados expirados. 
 
 ## <a name="step-1-select-your-device-platform"></a>Paso 1: Selección de la plataforma de dispositivos
 

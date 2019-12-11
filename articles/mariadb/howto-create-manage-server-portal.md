@@ -1,17 +1,17 @@
 ---
-title: 'Administración de Azure Database for MariaDB: Azure Portal'
+title: Administración de servidores de Azure Database for MariaDB mediante Azure Portal
 description: Aprenda a administrar un servidor de Azure Database for MariaDB desde Azure Portal.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 11/25/2019
-ms.openlocfilehash: 7e09db9308f9ecf623ce0ab0d948ed1056dd21b1
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.date: 12/02/2019
+ms.openlocfilehash: b70b4810f32941938b6afe217f94e18a0f2f3523
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74534411"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74767133"
 ---
 # <a name="manage-an-azure-database-for-mariadb-server-using-the-azure-portal"></a>Administración de un servidor de Azure Database for MariaDB con Azure Portal
 En este artículo se muestra cómo administrar los servidores de Azure Database for MariaDB. Entre las tareas de administración se incluyen el escalado de proceso y almacenamiento, el restablecimiento de contraseñas de administración y la visualización de detalles del servidor.
@@ -24,15 +24,15 @@ Vaya al [inicio rápido](quickstart-create-mariadb-server-database-using-azure-p
 
 ## <a name="scale-compute-and-storage"></a>Escalado de proceso y almacenamiento
 
-Después de la creación del servidor, puede escalar entre los niveles De uso general y Optimizada para memoria a medida que cambien sus necesidades. También puede escalar el proceso y la memoria aumentando o reduciendo el número de núcleos virtuales. El almacenamiento se puede escalar (pero no reducir) verticalmente.
+Tras crear el servidor, puede escalar entre los niveles De uso general y Con optimización para memoria a medida que cambien sus necesidades. También puede escalar el proceso y la memoria aumentando o reduciendo núcleos virtuales. El almacenamiento se puede escalar verticalmente (pero no reducir).
 
-### <a name="scale-between-general-purpose-and-memory-optimized-tiers"></a>Escalado entre niveles De uso general y Optimizada para memoria
+### <a name="scale-between-general-purpose-and-memory-optimized-tiers"></a>Escalado entre niveles De uso general y Con optimización de memoria
 
-Puede escalar desde De uso general a Optimizada para memoria y viceversa. No se permite cambiar hasta y desde un plan Básico después de haber creado el servidor. 
+Puede escalar desde De uso general a Optimizada para memoria y viceversa. No se permite el cambio desde un plan Básico después de haber creado el servidor. 
 
 1. Seleccione el servidor en Azure Portal. Seleccione **Plan de tarifa**, que se encuentra en la sección **Configuración**.
 
-2. Seleccione **De uso general** u **Optimizada para memoria**, según lo que esté escalando. 
+2. Seleccione **De uso general** o **Con optimización de memoria**, dependiendo de lo que esté escalando. 
 
     ![change-pricing-tier](./media/howto-create-manage-server-portal/change-pricing-tier.png)
 
@@ -60,7 +60,7 @@ Puede escalar desde De uso general a Optimizada para memoria y viceversa. No se 
 
 1. Seleccione el servidor en Azure Portal. Seleccione **Plan de tarifa**, que se encuentra en la sección **Configuración**.
 
-2. Cambie el valor de **Almacenamiento** moviendo el control deslizante hacia arriba hasta alcanzar el valor deseado.
+2. Cambie el valor de **Almacenamiento** moviendo el control deslizante hacia arriba hasta alcanzar el valor que se quiera.
 
     ![escalar almacenamiento](./media/howto-create-manage-server-portal/scaling-storage.png)
 
@@ -71,7 +71,7 @@ Puede escalar desde De uso general a Optimizada para memoria y viceversa. No se 
 
 
 ## <a name="update-admin-password"></a>Actualización de la contraseña del administrador
-Puede cambiar la contraseña del rol de administrador mediante Azure Portal.
+La contraseña del rol de administrador se puede cambiar en Azure Portal.
 
 1. Seleccione el servidor en Azure Portal. En la ventana **Información general**, seleccione **Restablecer contraseña**.
 
@@ -92,7 +92,7 @@ Puede eliminar el servidor cuando ya no lo necesite.
 
     ![delete](./media/howto-create-manage-server-portal/overview-delete.png)
 
-2. Escriba el nombre del servidor en el cuadro de entrada para confirmar que se trata del servidor que quiere eliminar.
+2. Escriba el nombre del servidor en el cuadro de entrada para confirmar que es el servidor que quiere eliminar.
 
     ![confirmar eliminación](./media/howto-create-manage-server-portal/confirm-delete.png)
 

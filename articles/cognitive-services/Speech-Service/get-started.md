@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
 ms.custom: seodec18, seo-javascript-october2019
-ms.openlocfilehash: 30bdbf9fa0ea346892622c3e7f24f9f31652a650
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 3ddba414ef1801b812d157ad734847099a8a9f25
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280485"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806191"
 ---
 # <a name="try-the-speech-service-for-free"></a>Prueba gratuita del servicio Voz
 
@@ -32,7 +32,7 @@ En este artículo, elegirá una de estas opciones que mejor se adapte a sus nece
 >
 > Si usa el nivel gratis del servicio Voz de bajo volumen, puede conservar esta suscripción gratuita incluso después de que expire la evaluación gratuita o el crédito del servicio.
 >
-> Para más información, consulte [Precios de Cognitive Services: Speech Services](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+> Para más información, consulte [Precios de Cognitive Services: servicio de voz](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
 ## <a name="try-the-speech-service-without-credit-card-info"></a>Prueba del servicio Voz sin la información de la tarjeta de crédito
 

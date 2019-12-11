@@ -1,26 +1,17 @@
 ---
-title: 'Información general de planes de App Service: Azure | Microsoft Docs'
-description: Obtenga información acerca de cómo funcionan los planes de Azure App Service y cómo benefician a su experiencia de administración.
+title: Planes de App Service
+description: Obtenga información sobre cómo funcionan los planes de App Service en Azure App Service, cómo se facturan al cliente y cómo escalarlos según sus necesidades.
 keywords: app service, azure app service, escala, escalable, escalabilidad, plan de app service, costo de app service
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: cfowler
-editor: ''
 ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/09/2017
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 78440185b4a26bccc8ffb0258416a19aa929af6b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c0b28bd7a854d1b4a8b387e40fb045d47160768d
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470243"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672283"
 ---
 # <a name="azure-app-service-plan-overview"></a>Introducción a los planes de Azure App Service
 

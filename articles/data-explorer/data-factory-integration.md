@@ -8,12 +8,12 @@ ms.reviewer: tomersh26
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/14/2019
-ms.openlocfilehash: dd2b3bd584bb39810e0a5c9acde1a961330c273d
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 51683e529f832e06efbe8eb71466f3b27d95fcb1
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74093230"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74819139"
 ---
 # <a name="integrate-azure-data-explorer-with-azure-data-factory"></a>Integración de Azure Data Explorer con Azure Data Factory
 
@@ -99,7 +99,7 @@ En la tabla siguiente se enumeran los permisos necesarios para varios pasos de l
 |   | Importar esquema | *Visor de base de datos* <br>La entidad de servicio debe estar autorizada para leer los metadatos de la base de datos. | Cuando ADX es el origen de un tabular a una copia tabular, ADF importará el esquema automáticamente, incluso si el usuario no ha importado el esquema explícitamente. |
 | **ADX como receptor** | Crear de una asignación de columna por nombre | *Supervisor de base de datos* <br>La entidad de servicio debe estar autorizada para ejecutar los comandos `.show` nivel de base de datos. | <ul><li>Todas las operaciones obligatorias funcionarán con la *ingesta de tablas*.</li><li> Se pueden producir errores en algunas operaciones opcionales.</li></ul> |
 |   | <ul><li>Crear una asignación de CSV en la tabla</li><li>Quitar la asignación</li></ul>| *ingesta de tablas* o *administrador de base de datos* <br>La entidad de servicio debe estar autorizada para realizar cambios en una tabla. | |
-|   | Introducción de datos | *ingesta de tablas* o *administrador de base de datos* <br>La entidad de servicio debe estar autorizada para realizar cambios en una tabla. | | 
+|   | Ingerir datos | *ingesta de tablas* o *administrador de base de datos* <br>La entidad de servicio debe estar autorizada para realizar cambios en una tabla. | | 
 | **ADX como origen** | Ejecutar consulta | *Visor de base de datos* <br>La entidad de servicio debe estar autorizada para leer los metadatos de la base de datos. | |
 | **Comando Kusto** | | Según el nivel de permisos de cada comando. |
 
@@ -118,13 +118,90 @@ En esta sección se aborda el uso de la actividad de copia donde Azure Data Expl
 | **Complejidad del procesamiento de datos** | La latencia varía según el formato del archivo de origen, la asignación de columnas y la compresión.|
 | **La VM que ejecuta su entorno de ejecución de integración** | <ul><li>En el caso de la copia de Azure, las máquinas virtuales de ADF y máquinas de SKU no se pueden cambiar.</li><li> En el caso de la copia local a Azure, determine que la VM que hospeda la instancia de IR autohospedada es suficientemente segura.</li></ul>|
 
-## <a name="monitor-activity-progress"></a>Supervise el progreso de la actividad
+## <a name="tips-and-common-pitfalls"></a>Sugerencias y problemas habituales
+
+### <a name="monitor-activity-progress"></a>Supervise el progreso de la actividad
 
 * Al supervisar el progreso de la actividad, la propiedad *datos escritos* puede ser mucho más grande que la propiedad *lectura de datos* porque *la lectura de datos* se calcula de acuerdo con el tamaño del archivo binario, mientras que *los datos escritos* se calculan de acuerdo con el tamaño en memoria, después de que los datos se deserializan y descomprimen.
 
 * Al supervisar el progreso de la actividad, puede ver que los datos se escriben en el receptor de Azure Data Explorer. Al consultar la tabla de Azure Data Explorer, verá que los datos no han llegado. Esto se debe a que hay dos fases al copiar a Azure Data Explorer. 
     * La primera fase lee los datos de origen, los divide en fragmentos de 900 MB y carga cada fragmento en un BLOB de Azure. La primera fase se ve en la vista progreso de la actividad de ADF. 
     * La segunda fase comienza una vez que todos los datos se cargan en los blobs de Azure. Los nodos del motor de Azure Data Explorer descargan los blobs e ingieren los datos en la tabla del receptor. Los datos se verán en la tabla de Azure Data Explorer.
+
+### <a name="failure-to-ingest-csv-files-due-to-improper-escaping"></a>Error en la ingesta de archivos CSV debido a un escape incorrecto
+
+Azure Data Explorer espera que los archivos CSV cumplan el estándar [RFC 4180](https://www.ietf.org/rfc/rfc4180.txt).
+Espera lo siguiente:
+* Los campos que contienen caracteres que requieren escape (como " y nuevas líneas) deben comenzar y terminar con un carácter **"** , sin espacio en blanco. Todos los caracteres **"** incluidos *dentro* del campo se deben escribir con un carácter **"** doble ( **""** ). Por ejemplo, _"Hola, ""mundo"""_ es un archivo CSV válido con un solo registro que incluye una única columna o campo con el contenido _Hola, "mundo"_ .
+* Todos los registros del archivo deben tener el mismo número de columnas y campos.
+
+Azure Data Factory permite el carácter de barra diagonal inversa (escape). Si genera un archivo CSV con un carácter de barra diagonal inversa mediante Azure Data Factory, se producirá un error en la ingesta del archivo a Azure Data Explorer.
+
+#### <a name="example"></a>Ejemplo
+
+Los siguientes valores de texto: Hola, "mundo"<br/>
+ABC   DEF<br/>
+"ABC\D"EF<br/>
+"ABC DEF<br/>
+
+Deben aparecer en un archivo CSV correcto de la siguiente manera: "Hola, ""mundo"""<br/>
+"ABC   DEF"<br/>
+"""ABC DEF"<br/>
+"""ABC\D""EF"<br/>
+
+Al usar el carácter de escape predeterminado (barra diagonal inversa), el siguiente archivo CSV no funcionará con Azure Data Explorer: "Hola, \"mundo\""<br/>
+"ABC   DEF"<br/>
+"\"ABC DEF"<br/>
+"\"ABC\D\"EF"<br/>
+
+### <a name="nested-json-objects"></a>Objetos JSON anidados
+
+Al copiar un archivo JSON en Azure Data Explorer, tenga en cuenta lo siguiente:
+* No se admiten las matrices.
+* Si la estructura JSON contiene tipos de datos de objeto, Azure Data Factory aplanará los elementos secundarios del objeto e intentará asignar cada elemento secundario a una columna diferente de la tabla de Azure Data Explorer. Si desea que todo el elemento objeto se asigne a una sola columna en Azure Data Explorer:
+    * Ingiera toda la fila JSON en una sola columna dinámica de Azure Data Explorer.
+    * Edite manualmente la definición de la canalización mediante el editor JSON de Azure Data Factory. En **Asignaciones**:
+       * Quite las asignaciones múltiples que se crearon para cada elemento secundario y agregue una única asignación que asigne el tipo de objeto a la columna de la tabla.
+       * Después del corchete de cierre, agregue una coma seguida de:<br/>
+       `"mapComplexValuesToString": true`.
+
+### <a name="specify-additionalproperties-when-copying-to-azure-data-explorer"></a>Especificación de AdditionalProperties al copiar en Azure Data Explorer
+
+> [!NOTE]
+> Esta característica está disponible actualmente mediante la edición manual de la carga de JSON. 
+
+Agregue una sola fila en la sección "sink" de la actividad de copia, como se indica a continuación:
+
+```json
+"sink": {
+    "type": "AzureDataExplorerSink",
+    "additionalProperties": "{\"tags\":\"[\\\"drop-by:account_FiscalYearID_2020\\\"]\"}"
+},
+```
+
+El escape del valor puede resultar complicado. Use el siguiente fragmento de código como referencia:
+
+```csharp
+static void Main(string[] args)
+{
+       Dictionary<string, string> additionalProperties = new Dictionary<string, string>();
+       additionalProperties.Add("ignoreFirstRecord", "false");
+       additionalProperties.Add("csvMappingReference", "Table1_mapping_1");
+       IEnumerable<string> ingestIfNotExists = new List<string> { "Part0001" };
+       additionalProperties.Add("ingestIfNotExists", JsonConvert.SerializeObject(ingestIfNotExists));
+       IEnumerable<string> tags = new List<string> { "ingest-by:Part0001", "ingest-by:IngestedByTest" };
+       additionalProperties.Add("tags", JsonConvert.SerializeObject(tags));
+       var additionalPropertiesForPayload = JsonConvert.SerializeObject(additionalProperties);
+       Console.WriteLine(additionalPropertiesForPayload);
+       Console.ReadLine();
+}
+```
+
+El valor impreso:
+
+```json
+{"ignoreFirstRecord":"false","csvMappingReference":"Table1_mapping_1","ingestIfNotExists":"[\"Part0001\"]","tags":"[\"ingest-by:Part0001\",\"ingest-by:IngestedByTest\"]"}
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

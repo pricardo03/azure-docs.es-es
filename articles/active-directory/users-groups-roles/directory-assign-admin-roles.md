@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b85c5c6c5642d10c8d917ed9785d0fcf48a5e68
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 5d4bdd554fb7c8817ada80a294f3ecb1c6c85b00
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74554129"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707028"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permisos de roles de administrador en Azure Active Directory
 
@@ -246,7 +246,7 @@ Los usuarios de este rol pueden leer la configuración y la información adminis
 > Estas características están actualmente en desarrollo.
 >
 
-### <a name="group-administratorgroup-administrator"></a>[Administrador del grupo](#group-administrator)
+### <a name="group-administratorgroup-administrator-permissions"></a>[Administrador del grupo](#group-administrator-permissions)
 
 Los usuarios de este rol pueden crear y administrar grupos y su configuración como directivas de nomenclatura y expiración. Es importante comprender que la asignación de un usuario a este rol les permite administrar todos los grupos en el inquilino en varias cargas de trabajo, como Teams, SharePoint, Yammer y Outlook. Además, el usuario podrá administrar la configuración de varios grupos en varios portales de administración, como el centro de administración de Microsoft, Azure Portal, así como los específicos de cargas de trabajo, como Teams y los centros de administración de SharePoint.
 
@@ -279,7 +279,9 @@ Este rol se llamaba anteriormente "Administrador de contraseñas" en [Azure Port
 
 ### <a name="intune-administratorintune-service-administrator-permissions"></a>[Administrador de Intune](#intune-service-administrator-permissions)
 
-los usuarios con este rol tienen permisos globales en Microsoft Intune Online, cuando existe el servicio. Además, este rol contiene la capacidad de administrar usuarios y dispositivos para asociar una directiva, así como también para crear y administrar grupos. Para más información, consulte [Control de administración basado en rol (RBAC) con Microsoft Intune](https://docs.microsoft.com/intune/role-based-access-control)
+los usuarios con este rol tienen permisos globales en Microsoft Intune Online, cuando existe el servicio. Además, este rol contiene la capacidad de administrar usuarios y dispositivos para asociar una directiva, así como también para crear y administrar grupos. Para más información, consulte [Control de administración basado en rol (RBAC) con Microsoft Intune](https://docs.microsoft.com/intune/role-based-access-control).
+
+Este rol puede crear y administrar todos los grupos de seguridad. Sin embargo, el administrador de Intune no tiene derechos de administrador sobre grupos de Office. Esto significa que el administrador no puede actualizar propietarios o pertenencias de todos los grupos de Office del inquilino. Sin embargo, puede administrar el grupo de Office que crea y que forma parte de sus privilegios de usuario final. Por lo tanto, cualquier grupo de Office (no un grupo de seguridad) que cree debe contar con su cuota de 250.
 
 > [!NOTE]
 > En Microsoft Graph API, Azure AD Graph API y Azure AD PowerShell, este rol se identifica como "Administrador de servicios de Intune". En [Azure Portal](https://portal.azure.com) es "Administrador de Intune".
@@ -1081,7 +1083,7 @@ Puede leer los mismos elementos que un administrador global, pero no puede edita
 | microsoft.office365.usageReports/allEntities/read | Lee los informes de uso de Office 365. |
 | microsoft.office365.webPortal/allEntities/standard/read   | Lee las propiedades estándar de todos los recursos de microsoft.office365.webPortal. |
 
-### <a name="group-administrator"></a>Administrador del grupo
+### <a name="group-administrator-permissions"></a>Permisos de administrador de grupos
 Puede administrar todos los aspectos de los grupos y las configuraciones de grupos, como las directivas de nomenclatura y expiración.
 
 | **Acciones** | **Descripción** |

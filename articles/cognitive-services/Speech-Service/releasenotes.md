@@ -1,7 +1,7 @@
 ---
-title: 'Notas de la versión: Servicio de Voz'
+title: 'Notas de la versión: servicio de voz'
 titleSuffix: Azure Cognitive Services
-description: Consulte un registro de características, mejoras, correcciones de errores y problemas conocidos para el servicio de Voz de Azure.
+description: Consulte un registro de características, mejoras, correcciones de errores y problemas conocidos para el servicio de voz.
 services: cognitive-services
 author: BrianMouncer
 manager: nitinme
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: brianem
 ms.custom: seodec18
-ms.openlocfilehash: f38e23f0648d802ba7b09391d6f6bbd0c093d989
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 74b34a1d65f6beb097a649658c508da6ff48f1ac
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73888170"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816607"
 ---
 # <a name="release-notes"></a>Notas de la versión
 
@@ -177,7 +177,7 @@ Esta es una versión solo para JavaScript. No se agregó ninguna característica
 
 **Correcciones de errores**
 
-- Mac/iOS: se corrigió un error que daba lugar a una larga espera cuando no se podía establecer una conexión con el servicio de Voz.
+- Mac/iOS: se corrigió un error que daba lugar a una larga espera cuando no se podía establecer una conexión con el servicio de voz.
 - Python: mejora del control de errores en los argumentos de las devoluciones de llamada de Python.
 - JavaScript: se corrigieron los informes de estado erróneos de la voz que finalizaban en RequestSession.
 
@@ -193,7 +193,7 @@ Se trata de una versión de corrección de errores y solo afecta al SDK nativo o
 
 **Nuevas características**
 
-- Speech SDK admite la selección del micrófono de entrada mediante la clase AudioConfig. Esto permite transmitir datos de audio a los servicios de Voz desde un micrófono no predeterminado. Para más información, consulte la documentación en la que se describe cómo [seleccionar un dispositivo de entrada de audio](how-to-select-audio-input-devices.md). Esta característica aún no está disponible en JavaScript.
+- Speech SDK admite la selección del micrófono de entrada mediante la clase AudioConfig. Esto permite transmitir datos de audio al servicio de voz desde un micrófono no predeterminado. Para más información, consulte la documentación en la que se describe cómo [seleccionar un dispositivo de entrada de audio](how-to-select-audio-input-devices.md). Esta característica aún no está disponible en JavaScript.
 - Speech SDK ahora es compatible con Unity en una versión beta. Proporcione sus comentarios en la sección de problemas en el [repositorio de ejemplos de GitHub](https://aka.ms/csspeech/samples). Esta versión es compatible con Unity en Windows x86 y x64 (aplicaciones de escritorio o de la Plataforma universal de Windows) y Android (ARM32/64, x86). Puede encontrar más información en nuestra [guía de inicio rápido sobre Unity](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=unity).
 - El archivo `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` (incluido en versiones anteriores) ya no es necesario. La funcionalidad está ahora integrada en el SDK principal.
 

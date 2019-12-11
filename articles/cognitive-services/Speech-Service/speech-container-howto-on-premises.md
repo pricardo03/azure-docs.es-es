@@ -1,5 +1,5 @@
 ---
-title: Uso del contenedor del servicio de Voz con Kubernetes y Helm
+title: Uso de contenedores del servicio de voz con Kubernetes y Helm
 titleSuffix: Azure Cognitive Services
 description: Mediante el empleo de Kubernetes y Helm para definir las imágenes de contenedor de conversión de voz en texto y de texto en voz, se va a crear un paquete de Kubernetes. Este paquete se va a implementar en un clúster de Kubernetes en el entorno local.
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: dapine
-ms.openlocfilehash: 42585ae09435e67b7cdea0b437681e2ce044ecd3
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: b7f8b98e8241b4502c86cce8c893beb315767d55
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383651"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816495"
 ---
-# <a name="use-speech-service-container-with-kubernetes-and-helm"></a>Uso del contenedor del servicio de Voz con Kubernetes y Helm
+# <a name="use-speech-service-containers-with-kubernetes-and-helm"></a>Uso de contenedores del servicio de voz con Kubernetes y Helm
 
-Una opción para administrar los contenedores de Speech locales es usar Kubernetes y Helm. Mediante el empleo de Kubernetes y Helm para definir las imágenes de contenedor de conversión de voz en texto y de texto en voz, se va a crear un paquete de Kubernetes. Este paquete se va a implementar en un clúster de Kubernetes en el entorno local. Por último, se va a explicar cómo probar los servicios implementados y diversas opciones de configuración. Para obtener más información sobre cómo ejecutar contenedores de Docker sin orquestación de Kubernetes, vea [Instalar y ejecutar contenedores de Speech Service](speech-container-howto.md).
+Una opción para administrar los contenedores de Speech locales es usar Kubernetes y Helm. Mediante el empleo de Kubernetes y Helm para definir las imágenes de contenedor de conversión de voz en texto y de texto en voz, se va a crear un paquete de Kubernetes. Este paquete se va a implementar en un clúster de Kubernetes en el entorno local. Por último, se va a explicar cómo probar los servicios implementados y diversas opciones de configuración. Para más información sobre cómo ejecutar contenedores de Docker sin orquestación de Kubernetes, consulte [Instalación y ejecución de contenedores de servicio de voz](speech-container-howto.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -35,7 +35,7 @@ Requisitos previos para poder usar los contenedores de Voz en el entorno local:
 
 ## <a name="the-recommended-host-computer-configuration"></a>Configuración de equipo host recomendada
 
-Vea los detalles de [Equipo host del contenedor del servicio Voz][speech-container-host-computer] como referencia. En este *gráfico de Helm* se calculan automáticamente los requisitos de CPU y memoria en función de cuántas descodificaciones (solicitudes simultáneas) especifica el usuario. Además, se ajusta en función de si las optimizaciones de entrada de audio o texto están configuradas como `enabled`. Los valores predeterminados del gráfico de Helm son dos solicitudes simultáneas y la deshabilitación de la optimización.
+Vea los detalles del [equipo host del contenedor del servicio de voz][speech-container-host-computer] como referencia. En este *gráfico de Helm* se calculan automáticamente los requisitos de CPU y memoria en función de cuántas descodificaciones (solicitudes simultáneas) especifica el usuario. Además, se ajusta en función de si las optimizaciones de entrada de audio o texto están configuradas como `enabled`. Los valores predeterminados del gráfico de Helm son dos solicitudes simultáneas y la deshabilitación de la optimización.
 
 | Servicio | CPU o contenedor | Memoria o contenedor |
 |--|--|--|
@@ -142,7 +142,7 @@ El *gráfico de Helm* contiene la configuración de las imágenes de Docker que 
 
 > Un [gráfico de Helm][helm-charts] es una colección de archivos que describen un conjunto relacionado de recursos de Kubernetes. Un solo gráfico se podría usar para implementar algo sencillo, como un pod almacenado en memoria, o complejo, como una pila de aplicación web completa con servidores HTTP, bases de datos, memorias caché, etc.
 
-Los *gráficos de Helm* proporcionados extraen las imágenes de Docker del servicio Voz, los servicios de conversión de texto en voz y de voz en texto desde el registro de contenedor `mcr.microsoft.com`.
+Los *gráficos de Helm* proporcionados extraen las imágenes de Docker del servicio de voz, los servicios de conversión de texto en voz y de voz en texto desde el registro de contenedor `mcr.microsoft.com`.
 
 ## <a name="install-the-helm-chart-on-the-kubernetes-cluster"></a>Instalación del gráfico de Helm en el clúster de Kubernetes
 

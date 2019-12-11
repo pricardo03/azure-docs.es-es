@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2019
 ms.author: genli
-ms.openlocfilehash: 4b6fea63cd56ddee7eaeaed50a74a01cc8549f0a
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 6db0f6c5f65967dd42d6ed9a8a1e50364ced094d
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74032937"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672467"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Preparación de un VHD o un VHDX de Windows antes de cargarlo en Azure
 
@@ -356,7 +356,7 @@ Asegúrese de que la máquina virtual tiene un estado correcto, es segura y est�
 12. Desinstale cualquier otro software de terceros o controlador relacionado con componentes físicos, o cualquier otra tecnología de virtualización.
 
 ### <a name="install-windows-updates"></a>Instalación de actualizaciones de Windows
-Lo ideal es mantener la máquina actualizada en el *nivel de revisión* pero, si no es posible, asegúrese de que las siguientes actualizaciones están instaladas:
+Lo ideal es mantener la máquina actualizada en el *nivel de revisión* pero, si no es posible, asegúrese de que las siguientes actualizaciones están instaladas. Para obtener las actualizaciones más recientes, consulte las páginas del historial de actualizaciones de Windows: [Windows 10 y Windows Server 2019](https://support.microsoft.com/help/4000825), [Windows 8.1 y Windows Server 2012 R2](https://support.microsoft.com/help/4009470), y [Windows 7 SP1 y Windows Server 2008 R2 SP1](https://support.microsoft.com/help/4009469).
 
 | Componente               | Binary         | Windows 7 SP1, Windows Server 2008 R2 SP1 | Windows 8, Windows Server 2012               | Windows 8.1, Windows Server 2012 R2 | Windows 10 v1607, Windows Server 2016 v1607 | Windows 10 v1703    | Windows 10 v1709, Windows Server 2016 v1709 | Windows 10 v1803, Windows Server 2016 v1803 |
 |-------------------------|----------------|-------------------------------------------|---------------------------------------------|------------------------------------|---------------------------------------------------------|----------------------------|-------------------------------------------------|-------------------------------------------------|

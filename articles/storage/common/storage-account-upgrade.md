@@ -7,16 +7,16 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: tamram
-ms.openlocfilehash: 3ad82a1312ccce5029685d903a3c5e3caff50f8a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e24b7efb9f4af9f730ce79751e2fc5a9d210edbd
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495971"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806990"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Actualización a una cuenta de almacenamiento de uso general v2
 
-Las cuentas de almacenamiento de uso general v2 son compatibles con las últimas características de Azure Storage e incorporan todas las funcionalidades de las cuentas de Blob Storage y de uso general v1. Las cuentas de uso general v2 se recomiendan para la mayoría de los escenarios de almacenamiento. Las cuentas de uso general v2 ofrecen los precios de capacidad por gigabyte más bajos para Azure Storage, así como los precios de transacción más competitivos del sector.
+Las cuentas de almacenamiento de uso general v2 son compatibles con las últimas características de Azure Storage e incorporan todas las funcionalidades de las cuentas de Blob Storage y de uso general v1. Las cuentas de uso general v2 se recomiendan para la mayoría de los escenarios de almacenamiento. Las cuentas de uso general v2 ofrecen los precios de capacidad por gigabyte más bajos para Azure Storage, así como los precios de transacción más competitivos del sector. Las cuentas de uso general V2 admiten niveles de acceso de cuenta predeterminados de nivel de acceso frecuente o esporádico y de niveles de blobs entre acceso frecuente, esporádico o de archivo.
 
 El proceso de actualizar a una cuenta de almacenamiento de uso general v2 desde la cuenta de uso general v1 o de Blob Storage es sencillo. Puede usar Azure Portal, PowerShell, o la CLI de Azure para realizar la actualización.
 
@@ -40,39 +40,39 @@ El proceso de actualizar a una cuenta de almacenamiento de uso general v2 desde
 
 Para actualizar una cuenta de uso general v1 a una cuenta de uso general v2 mediante PowerShell, primero hay que actualizar PowerShell con el fin de usar la versión más reciente del módulo **Az.Storage**. Para obtener información acerca de cómo instalar PowerShell, consulte [Instalación y configuración de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
 
-Luego, llame al siguiente comando para actualizar la cuenta, pero sustituya el nombre de su grupo de recursos y cuenta de almacenamiento:
+A continuación, llame al siguiente comando para actualizar la cuenta, pero sustituya el nombre del grupo de recursos, nombre de la cuenta de almacenamiento y nivel de acceso deseado de la cuenta.
 
 ```powershell
-Set-AzStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-account> -UpgradeToStorageV2
+Set-AzStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-account> -UpgradeToStorageV2 -AccessTier <Hot/Cool>
 ```
 # <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
 Para actualizar una cuenta de uso general v1 a una cuenta de uso general v2 mediante la CLI de Azure, primero instale la versión más reciente de la CLI de Azure. Para obtener información acerca de cómo instalar la CLI, consulte [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) (Instalación de la CLI de Azure 2.0).
 
-Luego, llame al siguiente comando para actualizar la cuenta, pero sustituya el nombre de su grupo de recursos y cuenta de almacenamiento:
+A continuación, llame al siguiente comando para actualizar la cuenta, pero sustituya el nombre del grupo de recursos, nombre de la cuenta de almacenamiento y nivel de acceso deseado de la cuenta.
 
 ```cli
-az storage account update -g <resource-group> -n <storage-account> --set kind=StorageV2
+az storage account update -g <resource-group> -n <storage-account> --set kind=StorageV2 --access-tier=<Hot/Cool>
 ```
 
 ---
 
 ## <a name="specify-an-access-tier-for-blob-data"></a>Especificación de un nivel de acceso para los datos de blob
 
-Las cuentas de uso general v2 son compatibles con todos los servicios de almacenamiento y objetos de datos de Azure, pero los niveles de acceso están disponibles solo para blobs en Blob Storage. Al actualizar a una cuenta de almacenamiento de uso general v2, puede especificar un nivel de acceso para los datos de blob.
+Las cuentas de uso general v2 son compatibles con todos los servicios y objetos de datos de Azure Storage, pero los niveles de acceso están disponibles solo para blobs en bloques en Blob Storage. Cuando se actualiza a una cuenta de almacenamiento de uso general V2, puede especificar un nivel de acceso de cuenta predeterminado de acceso frecuente o esporádico, que indica el nivel predeterminado en el que se cargarán los datos de blobs como si no se especifica el parámetro del nivel de acceso del blob individual.
 
-Los niveles de acceso le permiten elegir el almacenamiento más rentable en función de los patrones de uso previsto. Los blobs en bloques pueden almacenarse en nivel con un acceso frecuente, esporádico o de archivo. Para más información sobre los niveles de acceso, consulte [Azure Blob Storage: Niveles de almacenamiento de acceso frecuente, de acceso esporádico y de acceso de archivo](../blobs/storage-blob-storage-tiers.md).
+Los niveles de acceso de blobs le permiten elegir el almacenamiento más rentable en función de los patrones de uso previstos. Los blobs en bloques se pueden almacenar en niveles con acceso frecuente, esporádico o de archivo. Para más información sobre los niveles de acceso, consulte [Azure Blob Storage: Niveles de almacenamiento de acceso frecuente, de acceso esporádico y de acceso de archivo](../blobs/storage-blob-storage-tiers.md).
 
-De forma predeterminada, se crea una cuenta de almacenamiento en el nivel de almacenamiento de acceso frecuente y se actualiza una cuenta de almacenamiento de uso general v1 al nivel de acceso frecuente. Si está explorando qué nivel de acceso debe usar para los datos después de la actualización, considere su escenario. Hay dos escenarios típicos del usuario para migrar a una cuenta de uso general v2:
+De forma predeterminada, se crea una nueva cuenta de almacenamiento en el nivel de almacenamiento de acceso frecuente y se puede actualizar una cuenta de almacenamiento de uso general v1 al nivel de acceso frecuente o esporádico. Si no se especifica un nivel de acceso de cuenta en la actualización, se actualizará a frecuente de forma predeterminada. Si está explorando qué nivel de acceso debe usar para la actualización, considere el escenario de uso de datos actual. Hay dos escenarios típicos del usuario para migrar a una cuenta de uso general v2:
 
 * Tiene una cuenta de almacenamiento de uso general v1 y quiere evaluar una actualización a una cuenta de almacenamiento de uso general v2 con el nivel de almacenamiento de acceso correcto para datos de blob.
-* Ha decidido usar una cuenta de almacenamiento de uso general v2 o ya tiene una y quiere evaluar si debe usar el nivel de almacenamiento de acceso frecuente o esporádico para los datos de blob.
+* Ha decidido usar una cuenta de almacenamiento de uso general v2 o ya tiene una y quiere evaluar si debe usar el nivel de almacenamiento de acceso frecuente o esporádico para los datos de blob.
 
 En ambos casos, la prioridad es estimar el coste del almacenamiento, el acceso y el uso de los datos almacenados en una cuenta de almacenamiento de uso general v2 y compararlo con los costes actuales.
 
 ## <a name="pricing-and-billing"></a>Precios y facturación
 
-El proceso de actualización de la cuenta de almacenamiento v1 a una cuenta de uso general v2 es gratuito. Aun así, la modificación del nivel de almacenamiento de acceso puede causar cambios en la factura. 
+El proceso de actualización de la cuenta de almacenamiento v1 a una cuenta de uso general v2 es gratuito. Puede especificar el nivel de cuenta deseado durante el proceso de actualización. Si no se especifica un nivel de cuenta en la actualización, el nivel de cuenta predeterminado de la cuenta actualizada será `Hot`. Sin embargo, si se cambia el nivel de acceso de almacenamiento después de la actualización, es posible que se produzcan cambios en la factura, por lo que se recomienda especificar el nuevo nivel de cuenta durante la actualización.
 
 Todas las cuentas de Blob Storage usan un modelo de precios para el almacenamiento de blobs basado en el nivel de cada blob. Al usar una cuenta de almacenamiento, se aplican las siguientes consideraciones de facturación:
 

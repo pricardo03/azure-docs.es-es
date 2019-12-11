@@ -8,12 +8,12 @@ services: time-series-insights
 ms.service: time-series-insights
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: e218877ee0d29e493a31091ccbce406ed888f8cc
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 8a464a8a635e0531eba2f9cc6fbceeb9edcea8bb
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74114643"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74705971"
 ---
 # <a name="visualize-data-from-time-series-insights-in-power-bi"></a>Visualización de datos de Time Series Insights en Power BI
 
@@ -32,7 +32,10 @@ Asegúrese de que se registra para obtener una [suscripción gratuita a Azure](h
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Descargar e instalar la versión más reciente de [Power BI Desktop](https://powerbi.microsoft.com/downloads/)
-* Tener o crear una [instancia de disponibilidad general de Azure Time Series Insights](time-series-insights-get-started.md) o [Instancia de versión preliminar de Azure Time Series Insights](time-series-insights-update-how-to-manage.md)
+* Disposición o creación de una [instancia de Azure Time Series Insights (versión preliminar)](time-series-insights-update-how-to-manage.md)
+
+> [!IMPORTANT]
+> El conector de Power BI se admite actualmente en los entornos de *pago por uso* de la versión preliminar de Time Series Insights que se han configurado para el **almacenamiento intermedio**.
 
 ## <a name="connect-data-from-time-series-insights-to-power-bi"></a>Conexión de datos de Time Series Insights con Power BI
 
@@ -65,12 +68,12 @@ Primeros pasos:
 
        [![Conectar](media/how-to-connect-power-bi/connect-to-power-bi.png)](media/how-to-connect-power-bi/connect-to-power-bi.png#lightbox)
 
-   1. Si no ha configurado su instancia de Time Series Insights para el almacenamiento intermedio, recibirá una advertencia.
+   1. Si no ha configurado su instancia de Time Series Insights para el **almacenamiento intermedio**, recibirá una advertencia.
 
        [![Conectar](media/how-to-connect-power-bi/connect-to-power-bi-warning.png)](media/how-to-connect-power-bi/connect-to-power-bi-warning.png#lightbox)
 
        > [!TIP]
-       > Puede configurar la instancia existente para el almacenamiento intermedio en Azure Portal.
+       > Puede configurar la instancia existente para el **almacenamiento intermedio** en Azure Portal.
 
 1. Seleccione **Copiar consulta en el Portapapeles**.
 1. Ahora, inicie Power BI Desktop.

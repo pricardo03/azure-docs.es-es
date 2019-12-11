@@ -1,24 +1,15 @@
 ---
-title: 'Uso avanzado de la autenticación y autorización: Azure App Service | Microsoft Docs'
-description: Muestra cómo personalizar la autenticación y autorización en App Service y obtener las notificaciones de usuario y los diferentes tokens.
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: gwallace
-editor: ''
-ms.service: app-service
-ms.workload: mobile
-ms.tgt_pltfrm: na
+title: Uso avanzado de AuthN/AuthO
+description: Aprenda a personalizar la característica de autenticación y autorización en App Service para diferentes escenarios y obtener las notificaciones de usuario y los diferentes tokens.
 ms.topic: article
 ms.date: 10/24/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: f453a0276a3448273964a589112e21ca5665c2d2
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: d57b196bf95ebdf31bc459ad4b9d718fd32ca495
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900135"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672225"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Uso avanzado de la autenticación y autorización en Azure App Service
 

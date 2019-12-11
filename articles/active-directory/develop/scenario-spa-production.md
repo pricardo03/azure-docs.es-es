@@ -15,42 +15,38 @@ ms.date: 05/07/2019
 ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6a04f5d62ec750cfbe44765e833552bd694654d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e2dbb481c75323304d71f85a722fc45a9b634055
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65075016"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74766113"
 ---
-# <a name="single-page-application---move-to-production"></a>Aplicación de página única: paso a producción
+# <a name="single-page-application-move-to-production"></a>Aplicación de página única: Paso a producción
 
-Ahora que sabe cómo adquirir un token para llamar a las API web, obtenga información sobre cómo pasar a producción.
+Ahora que sabe cómo adquirir un token para llamar a las API web, conozca cómo pasarlo a producción.
 
 ## <a name="improve-your-app"></a>Mejorar la aplicación
 
-Siga los pasos necesarios para preparar la aplicación para producción.
-
-- [Habilite el registro](msal-logging.md) en su aplicación.
+[Habilite el registro](msal-logging.md) para tener la aplicación lista para producción.
 
 ## <a name="test-your-integration"></a>Probar la integración
 
-- Pruebe la integración siguiendo la [lista de comprobación de integración de la Plataforma de identidad de Microsoft](identity-platform-integration-checklist.md).
+Pruebe la integración siguiendo la [lista de comprobación de integración de la Plataforma de identidad de Microsoft](identity-platform-integration-checklist.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Aquí tiene algunos otros ejemplos y tutoriales:
+Profundice en el inicio rápido de ejemplo, que explica el código para iniciar la sesión de los usuarios y obtener un token de acceso para llamar a Microsoft Graph API mediante MSAL.js:
 
-- Para profundizar en la guía de inicio rápido de ejemplo que explica el código para iniciar la sesión de los usuarios y obtener un token de acceso para llamar a Microsoft Graph API mediante MSAL.js
+> [!div class="nextstepaction"]
+> [Tutorial de SPA de JavaScript](./tutorial-v2-javascript-spa.md)
 
-    > [!div class="nextstepaction"]
-    > [Tutorial de SPA de JavaScript](./tutorial-v2-javascript-spa.md)
+Ejemplo que demuestra cómo obtener tokens para su propia API web de back-end mediante MSAL.js:
 
-- Ejemplo que demuestra cómo obtener tokens para su propia API web de back-end mediante MSAL.js
+> [!div class="nextstepaction"]
+> [SPA con un back-end de ASP.NET](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2)
 
-     > [!div class="nextstepaction"]
-     > [SPA con back-end ASP.NET](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2)
+Ejemplo que muestra cómo usar MSAL.js para iniciar la sesión de los usuarios en una aplicación registrada en Azure Active Directory B2C (Azure AD B2C):
 
-- Ejemplo para mostrar cómo usar MSAL.js para iniciar la sesión de los usuarios en una aplicación registrada en Azure AD B2C
-
-    > [!div class="nextstepaction"]
-    > [SPA con Azure AD B2C](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)
+> [!div class="nextstepaction"]
+> [SPA con Azure AD B2C](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)

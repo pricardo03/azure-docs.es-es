@@ -1,18 +1,18 @@
 ---
-title: Solución de problemas de conexión a Azure Database for MySQL
+title: 'Solución de problemas de conexión: Azure Database for MySQL'
 description: Obtenga información acerca de cómo solucionar problemas de conexión a Azure Database for MySQL, incluidos los errores transitorios que requieren realizar reintentos o que tienen problemas de Firewall e interrupciones.
 keywords: mysql connection,connection string,connectivity issues,transient error,connection error
 author: jan-eng
 ms.author: janeng
 ms.service: mysql
 ms.topic: troubleshooting
-ms.date: 11/09/2018
-ms.openlocfilehash: a0203ceeb36352a16814345f5ecdff8271691fd0
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.date: 12/02/2019
+ms.openlocfilehash: 8c1c521488270ff0bfe3b306470345bc2cd885ce
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71972843"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74773537"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-mysql"></a>Solución de problemas de conexión a Azure Database for MySQL
 

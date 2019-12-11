@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/27/2019
 ms.author: vashan
-ms.openlocfilehash: 7269c76236b7cbe60995d84e85857da596bec961
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: d3d7f92b3803114321bc7420b5c4ba059aabcb9d
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264685"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74705919"
 ---
 # <a name="terminate-notification-for-azure-virtual-machine-scale-set-instances-preview"></a>Notificación de finalización para instancias de conjunto de escalado de máquinas virtuales de Azure (versión preliminar)
 Las instancias de conjunto de escalado pueden optar por recibir notificaciones de finalización de instancias y establecer un tiempo de espera de retraso predefinido para la operación de finalización. La notificación de finalización se envía mediante Azure Metadata Service – [Scheduled Events](../virtual-machines/windows/scheduled-events.md), que proporciona notificaciones y retrasa las operaciones importantes, como reinicios o reimplementaciones. La versión preliminar de la solución agrega otro evento, Terminate, a la lista de Scheduled Events, y el retraso asociado de este evento dependerá del límite del retraso especificado por los usuarios en su configuración del modelo del conjunto de escalado.
@@ -67,7 +67,7 @@ Después de habilitar *scheduledEventsProfile* en el modelo del conjunto de esca
 >Las notificaciones de finalización de las instancias del conjunto de escalado solo se pueden habilitar con la versión 2019-03-01 o posteriores de la API.
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-Al crear un nuevo conjunto de escalado, puede habilitar las notificaciones de finalización en el conjunto de escalado mediante el cmdlet [New-AzVmssVM](/powershell/module/az.compute/new-azvmss).
+Al crear un nuevo conjunto de escalado, puede habilitar las notificaciones de finalización en el conjunto de escalado mediante el cmdlet [New-AzVmss](/powershell/module/az.compute/new-azvmss).
 
 ```azurepowershell-interactive
 New-AzVmss `
@@ -84,7 +84,7 @@ New-AzVmss `
 
 En el ejemplo anterior se crea un nuevo conjunto de escalado con las notificaciones de finalización habilitadas con un tiempo de espera predeterminado de 5 minutos. Al crear un nuevo conjunto de escalado, el parámetro *TerminateScheduledEvents* no requiere ningún valor. Para cambiar el valor de tiempo de espera, especifique el tiempo de espera deseado mediante el parámetro *TerminateScheduledEventNotBeforeTimeoutInMinutes*.
 
-Use el cmdlet [Update-AzVmssVM](/powershell/module/az.compute/update-azvmss) para habilitar las notificaciones de finalización en un conjunto de escalado existente.
+Use el cmdlet [Update-AzVmss](/powershell/module/az.compute/update-azvmss) para habilitar las notificaciones de finalización en un conjunto de escalado existente.
 
 ```azurepowershell-interactive
 Update-AzVmss `

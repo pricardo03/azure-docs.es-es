@@ -3,18 +3,18 @@ title: Corrección de un error de memoria insuficiente de Hive en Azure HDInsigh
 description: Corrija un error de memoria insuficiente de Hive en HDInsight. El escenario de cliente es una consulta entre numerosas tablas de gran tamaño.
 keywords: error de memoria insuficiente, OOM, configuración de Hive
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
+ms.topic: troubleshooting
 ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 05/14/2018
-ms.author: hrasheed
-ms.openlocfilehash: 2e7328b95aecc8e644d7b9e2ec407a62551fff79
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 11/28/2019
+ms.openlocfilehash: add55c29bb93d8dce9ad69bd9850a1db02ea5afe
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64712788"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687768"
 ---
 # <a name="fix-an-apache-hive-out-of-memory-error-in-azure-hdinsight"></a>Corrección de un error de memoria insuficiente de Apache Hive en Azure HDInsight
 
@@ -24,21 +24,23 @@ Obtenga información acerca de cómo corregir un error de memoria insuficiente d
 
 Un cliente ejecutó una consulta de Hive:
 
-    SELECT
-        COUNT (T1.COLUMN1) as DisplayColumn1,
-        …
-        …
-        ….
-    FROM
-        TABLE1 T1,
-        TABLE2 T2,
-        TABLE3 T3,
-        TABLE5 T4,
-        TABLE6 T5,
-        TABLE7 T6
-    where (T1.KEY1 = T2.KEY1….
-        …
-        …
+```sql
+SELECT
+    COUNT (T1.COLUMN1) as DisplayColumn1,
+    …
+    …
+    ….
+FROM
+    TABLE1 T1,
+    TABLE2 T2,
+    TABLE3 T3,
+    TABLE5 T4,
+    TABLE6 T5,
+    TABLE7 T6
+where (T1.KEY1 = T2.KEY1….
+    …
+    …
+```
 
 Algunos matices de esta consulta:
 
@@ -79,12 +81,11 @@ Mediante el motor de ejecución de Apache Tez. La misma consulta se ejecutó dur
 
 El error se sigue produciendo cuando se usa una máquina virtual más grande (por ejemplo, D12).
 
-
 ## <a name="debug-the-out-of-memory-error"></a>Depuración del error de memoria insuficiente
 
 Nuestros equipos de soporte técnico e ingeniería localizaron uno de los problemas que hicieron que el error de memoria insuficiente fuera un [problema conocido descrito en Apache JIRA](https://issues.apache.org/jira/browse/HIVE-8306):
 
-    When hive.auto.convert.join.noconditionaltask = true we check noconditionaltask.size and if the sum  of tables sizes in the map join is less than noconditionaltask.size the plan would generate a Map join, the issue with this is that the calculation doesn't take into account the overhead introduced by different HashTable implementation as results if the sum of input sizes is smaller than the noconditionaltask size by a small margin queries will hit OOM.
+"Si hive.auto.convert.join.noconditionaltask = true comprobamos noconditionaltask.size y si la suma de los tamaños de las tablas de la combinación de mapas es inferior a noconditionaltask.size el plan generaría una combinación de mapas. El problema con esto es que el cálculo no tiene en cuenta la sobrecarga que introducen las diferentes implementaciones de HashTable como resulta si la suma de los tamaños de entrada es menor que el tamaño de noconditionaltask por consultas con un pequeño margen que alcanzan a OOM."
 
 La propiedad **hive.auto.convert.join.noconditionaltask** del archivo hive-site.xml se estableció en **true**:
 
@@ -100,7 +101,7 @@ La propiedad **hive.auto.convert.join.noconditionaltask** del archivo hive-site.
 </property>
 ```
 
-Es probable que la combinación de la asignación provocara el error de memoria insuficiente de montón de Java. Como se explica en la entrada de blog [Configuración de memoria de Hadoop Yarn en HDInsight](https://blogs.msdn.com/b/shanyu/archive/2014/07/31/hadoop-yarn-memory-settings-in-hdinsigh.aspx), cuando se usa el motor de ejecución de Tez, el espacio de montón utilizado pertenece en realidad al contenedor de Tez. Consulte la siguiente imagen, que describe la memoria del contenedor de Tez.
+Es probable que la combinación de la asignación provocara el error de memoria insuficiente en el montón de Java. Como se explica en la entrada de blog [Configuración de memoria de Hadoop Yarn en HDInsight](https://blogs.msdn.com/b/shanyu/archive/2014/07/31/hadoop-yarn-memory-settings-in-hdinsigh.aspx), cuando se usa el motor de ejecución de Tez, el espacio de montón utilizado pertenece en realidad al contenedor de Tez. Consulte la siguiente imagen, que describe la memoria del contenedor de Tez.
 
 ![Diagrama de memoria del contenedor de Tez: Error de memoria insuficiente de Hive](./media/hdinsight-hadoop-hive-out-of-memory-error-oom/hive-out-of-memory-error-oom-tez-container-memory.png)
 
@@ -108,8 +109,6 @@ Como sugiere la entrada de blog, los dos valores de configuración de memoria si
 
 > [!NOTE]  
 > El valor de **hive.tez.java.opts** siempre debe ser menor que **hive.tez.container.size**.
-> 
-> 
 
 Como una máquina D12 tiene 28 GB de memoria, se optó por usar un tamaño de contenedor de 10 GB (10 240 MB) y asignar el 80 % a java.opts:
 

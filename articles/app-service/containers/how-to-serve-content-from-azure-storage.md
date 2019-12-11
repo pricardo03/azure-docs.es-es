@@ -1,23 +1,20 @@
 ---
-title: Servicio de contenido desde Azure Storage en App Service en Linux
-description: Configuración y servicio de contenido de Azure Storage en Azure App Service en Linux
-author: msangapu
-manager: jeconnoc
-ms.service: app-service
-ms.workload: web
+title: Conexión de un contenedor de Storage personalizado en Linux
+description: Aprenda a conectar un recurso compartido de red personalizado a un contenedor de Linux en Azure App Service. Comparta archivos entre aplicaciones, administre el contenido estático de forma remota y acceda a él de forma local, etc.
+author: msangapu-msft
 ms.topic: article
 ms.date: 2/04/2019
 ms.author: msangapu
-ms.openlocfilehash: 97c03ad294bba1f8a0285fff4595991ca0acc8b5
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: 00c60edeefa5fd8d1304aa5fc301a3b0304f5ca3
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018272"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671784"
 ---
-# <a name="serve-content-from-azure-storage-in-app-service-on-linux"></a>Servicio de contenido desde Azure Storage en App Service en Linux
+# <a name="attach-azure-storage-containers-to-linux-containers"></a>Conexión de contenedores de Azure Storage a contenedores de Linux
 
-En esta guía se muestra cómo servir contenido estático en App Service en Linux mediante [Azure Storage](/azure/storage/common/storage-introduction). Entre las ventajas se incluye protección y portabilidad del contenido, almacenamiento persistente, acceso a varias aplicaciones y varios métodos de transferencia.
+En esta guía se muestra cómo conectar recursos compartidos de red a App Service en Linux mediante [Azure Storage](/azure/storage/common/storage-introduction). Entre las ventajas se incluye protección y portabilidad del contenido, almacenamiento persistente, acceso a varias aplicaciones y varios métodos de transferencia.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

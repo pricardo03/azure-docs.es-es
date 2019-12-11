@@ -9,22 +9,22 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 076f98cb240014bcc88a395902203413e31fe0f1
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 28c463204080296e431edb3c30b4fdd66f07a189
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69641872"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74776599"
 ---
 # <a name="provide-data-feedback-to-azure-maps"></a>Aportar comentarios sobre datos en Azure Maps
 
-Azure Maps lleva disponible en general desde mayo de 2018, y proporciona nuevos datos de mapas, API de REST fáciles de usar y SDK eficaces que ofrecen soporte técnico a nuestros clientes empresariales en una gran variedad de casos de uso empresarial. El mundo real cambia cada segundo, y es fundamental para nosotros ofrecer una representación digital objetiva a nuestros clientes. Los clientes que tienen previsto abrir o cerrar instalaciones deben asegurarse de que nuestros mapas se actualizan rápidamente para que puedan planear de forma eficaz la entrega, el mantenimiento o el servicio al cliente en las instalaciones pertinentes. Hemos creado la herramienta de comentarios de datos de Azure Maps para que nuestros clientes puedan facilitarnos comentarios directos sobre los datos. Los comentarios sobre datos de los clientes van directamente a nuestros proveedores de datos y a sus editores de mapas, que pueden evaluarlos rápidamente e incorporarlos a nuestros productos de mapas.  
+Azure Maps lleva disponible en general desde mayo de 2018, y proporciona nuevos datos de mapas, API de REST fáciles de usar y SDK eficaces que ofrecen soporte técnico a nuestros clientes empresariales en una gran variedad de casos de uso empresarial. El mundo real cambia cada segundo, y es fundamental para nosotros ofrecer una representación digital objetiva a nuestros clientes. Los clientes que tienen previsto abrir o cerrar instalaciones deben asegurarse de que nuestros mapas se actualizan rápidamente para que puedan planear de forma eficaz la entrega, el mantenimiento o el servicio al cliente en las instalaciones pertinentes. Hemos creado el sitio de comentarios sobre los datos de Azure Maps para que nuestros clientes puedan facilitarnos comentarios directamente. Los comentarios sobre datos de los clientes van directamente a nuestros proveedores de datos y a sus editores de mapas, que pueden evaluarlos rápidamente e incorporarlos a nuestros productos de mapas.  
 
-La [herramienta de comentarios de datos de Azure Maps](https://feedback.azuremaps.com) ofrece a nuestros clientes una forma sencilla de proporcionar comentarios relativos a los datos de mapas, principalmente sobre puntos de interés y direcciones residenciales. En este artículo se explica cómo aportar diferentes tipos de comentarios mediante la herramienta de comentarios de Azure Maps.
+El [sitio de comentarios sobre los datos de Azure Maps](https://feedback.azuremaps.com) ofrece a nuestros clientes una forma sencilla de proporcionar comentarios relativos a los datos de mapas, principalmente sobre puntos de interés empresarial y direcciones residenciales. En este artículo se explica cómo aportar diferentes tipos de comentarios mediante el sitio de comentarios de Azure Maps.
 
 ## <a name="add-a-business-place-or-a-residential-address"></a>Adición de un lugar empresarial o una dirección residencial 
 
-Es posible que quiera aportar sus comentarios sobre un punto de interés o una dirección residencial en el mapa. Hay dos maneras de hacerlo. Una es abrir la herramienta de comentarios de datos de Azure Maps, buscar las coordenadas de la ubicación que falta y, luego, hacer clic en "Add a place" (Agregar un lugar).
+Es posible que quiera aportar sus comentarios sobre un punto de interés o una dirección residencial en el mapa. Hay dos maneras de hacerlo. Una es abrir el sitio de comentarios sobre los datos de Azure Maps, buscar las coordenadas de ubicación que faltan y hacer clic en "Add a place" (Agregar un lugar).
 
   ![Búsqueda de una ubicación que falta](./media/how-to-use-feedback-tool/search-poi.png)
 
@@ -38,7 +38,7 @@ Al hacer clic, se le dirigirá a un formulario para que pueda proporcionar los d
 
 ## <a name="fix-a-business-place-or-a-residential-address"></a>Corrección de un lugar empresarial o una dirección residencial 
 
-La herramienta de comentarios también permite buscar y localizar un lugar o una dirección empresarial, así como proporcionar comentarios para corregir la dirección o la ubicación de la chincheta si no son correctas. Para proporcionar comentarios para corregir la dirección, use la barra de búsqueda y busque un lugar empresarial o una dirección residencial. Haga clic en la ubicación que le interese de la lista de resultados y, luego, en "Fix this place" (Corregir este lugar).
+El sitio de comentarios también permite buscar y localizar un centro o una dirección empresariales, así como proporcionar comentarios para corregir la dirección o la ubicación de la chincheta si no son correctas. Para proporcionar comentarios para corregir la dirección, use la barra de búsqueda y busque un lugar empresarial o una dirección residencial. Haga clic en la ubicación que le interese de la lista de resultados y, luego, en "Fix this place" (Corregir este lugar).
 
   ![Búsqueda de un lugar para corregirlo](./media/how-to-use-feedback-tool/fix-place.png)
 

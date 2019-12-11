@@ -1,21 +1,19 @@
 ---
-title: 'Transformación de XML entre formatos: Azure Logic Apps | Microsoft Docs'
+title: Transformación de XML entre formatos
 description: Crear transformaciones o asignaciones para convertir XML de un formato a otro en Azure Logic Apps con Enterprise Integration Pack
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.assetid: add01429-21bc-4bab-8b23-bc76ba7d0bde
 ms.date: 07/08/2016
-ms.openlocfilehash: 4ebd96613378bbd907beb5109343a2427b1300b0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 500769a39ba7658b35c1abb80101f6234170c941
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60427289"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792380"
 ---
 # <a name="create-maps-that-transform-xml-between-formats-in-azure-logic-apps-with-enterprise-integration-pack"></a>Creación de asignaciones para transformar XML de un formato a otro en Azure Logic Apps con Enterprise Integration Pack
 
@@ -38,7 +36,7 @@ Cuando cargue la transformación o la asignación en la cuenta de integración, 
 
 Ahora que ha tenido en cuenta los requisitos previos, tendrá que crear la Aplicación lógica:  
 
-1. Cree una aplicación lógica y [vincúlela a la cuenta de integración](../logic-apps/logic-apps-enterprise-integration-accounts.md "Aprenda a vincular una cuenta de integración a una aplicación lógica") que contenga la asignación.
+1. Cree una aplicación lógica y [vincúlela a su cuenta de integración](../logic-apps/logic-apps-enterprise-integration-accounts.md "Aprenda a vincular una cuenta de integración a una aplicación lógica.") que contiene la asignación.
 2. Agregue un desencadenador de tipo **Solicitud** a su aplicación lógica.  
    ![](./media/logic-apps-enterprise-integration-transforms/transform-1.png)    
 3. Agregue la acción **Transform XML** (Transformar XML), pero seleccione antes **Agregar una acción**   
@@ -136,6 +134,6 @@ De forma predeterminada, la respuesta de la transformación se inicia con la mar
 
 
 ## <a name="learn-more"></a>Más información
-* [Más información sobre Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Información sobre Enterprise Integration Pack")  
-* [Más información sobre las asignaciones](../logic-apps/logic-apps-enterprise-integration-maps.md "Información sobre las asignaciones de Enterprise Integration")  
+* [Más información acerca de Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Información sobre Enterprise Integration Pack")  
+* [Más información sobre las asignaciones](../logic-apps/logic-apps-enterprise-integration-maps.md "Información sobre las asignaciones de integración empresarial")  
 

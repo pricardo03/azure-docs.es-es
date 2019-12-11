@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/05/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: c04875f92ee58c24567fbb4d73d8d01697810f99
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 6a053b94813145f9ccd69158d18edb728d5dad61
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72391779"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74795872"
 ---
 | Resource | Destino | Límite máximo |
 |----------|--------------|------------|
@@ -23,12 +23,11 @@ ms.locfileid: "72391779"
 | Puntos de conexión en la nube por grupo de sincronización | 1 punto de conexión en la nube | Sí |
 | Puntos de conexión del servidor por grupo de sincronización | 50 puntos de conexión del servidor | Sin |
 | Puntos de conexión del servidor por servidor | 30 puntos de conexión de servidor | Sí |
-| Objetos del sistema de archivos (archivos y directorios) por grupo de sincronización | 50 millones de objetos | Sin |
+| Objetos del sistema de archivos (archivos y directorios) por grupo de sincronización | 100 millones de objetos | Sin |
 | Número máximo de objetos del sistema de archivos (archivos y directorios) en un directorio | 5 millones de objetos | Sí |
 | Tamaño máximo del descriptor de seguridad de (archivos y directorios) del objeto | 64 KiB | Sí |
 | Tamaño de archivo | 100 GiB | Sin |
-| Tamaño mínimo de un archivo que se va a organizar en niveles | 64 KiB | Sí |
-| Sesiones sincronizadas simultáneas | Agente de V4 y versiones posteriores: el límite varía en función de los recursos del sistema disponibles. <BR> Agente V3: dos sesiones sincronizadas activas por procesador o un máximo de ocho sesiones sincronizadas activas por servidor. | Sí
+| Tamaño mínimo de un archivo que se va a organizar en niveles | V9: basado en el tamaño del clúster del sistema de archivos (tamaño del clúster del sistema de archivos doble). Por ejemplo, si el tamaño del clúster del sistema de archivos es 4 Kb, el tamaño mínimo del archivo será de 8 Kb.<br> V8 y anteriores: 64 KiB  | Sí |
 
 > [!Note]  
 > Un punto de conexión de Azure File Sync puede escalar verticalmente hasta el tamaño de un recurso compartido de archivos de Azure. Si se alcanza el límite de tamaño de recurso compartido de archivos de Azure, la sincronización no podrá funcionar.

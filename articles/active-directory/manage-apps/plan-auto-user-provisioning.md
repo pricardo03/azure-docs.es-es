@@ -12,12 +12,12 @@ ms.date: 10/17/2019
 ms.author: martinco
 ms.reviewer: arvindha
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25d1aec836f66ae2ebc007e920cf6ef8a4450919
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: cdf4e5dfc48fdeee86526257d6d8c47a464ce113
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73473340"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74786425"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Planeamiento de una implementación del aprovisionamiento automático de usuarios
 
@@ -90,15 +90,15 @@ En este ejemplo, los usuarios y los grupos se crean en una base de datos de recu
 
 1. Los usuarios o grupos se crean en un sistema o aplicación de recursos humanos local, como SAP. 
 
-1. El agente de Azure AD Connect ejecuta sincronizaciones programadas de identidades (usuarios y grupos) desde la instancia de AD local a Azure AD.
+1. El **agente de Azure AD Connect** ejecuta sincronizaciones programadas de identidades (usuarios y grupos) desde la instancia de AD local a Azure AD.
 
-1. El servicio de aprovisionamiento de Azure AD comienza un [ciclo inicial](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) en el sistema de origen y el sistema de destino. 
+1. El **servicio de aprovisionamiento de Azure AD** comienza un [ciclo inicial](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) en el sistema de origen y el sistema de destino. 
 
-1. El servicio de aprovisionamiento de Azure AD consulta el sistema de origen para saber si algún usuario o grupo cambió desde el ciclo inicial y envía los cambios en [ciclos incrementales](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
+1. El **servicio de aprovisionamiento de Azure AD** consulta el sistema de origen para saber si algún usuario o grupo cambió desde el ciclo inicial y envía los cambios en [ciclos incrementales](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
 
 #### <a name="automatic-user-provisioning-for-cloud-only-enterprises"></a>Aprovisionamiento automático de usuarios para empresas solo en la nube
 
-En este ejemplo, la creación de usuarios se produce en Azure AD y el servicio de aprovisionamiento de Azure AD administra el aprovisionamiento automático de usuarios en las aplicaciones de destino (SaaS):
+En este ejemplo, la creación de usuarios se produce en Azure AD y el servicio de aprovisionamiento de Azure AD administra el aprovisionamiento automático de usuarios en las aplicaciones de destino (SaaS).
 
 ![Imagen 2](media/auto-user-provision-dp/cloudprovisioning.png)
 
@@ -106,22 +106,23 @@ En este ejemplo, la creación de usuarios se produce en Azure AD y el servicio 
 
 1. Los usuarios o grupos se crean en Azure AD.
 
-1. El servicio de aprovisionamiento de Azure AD comienza un [ciclo inicial](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) en el sistema de origen y el sistema de destino. 
+1. El **servicio de aprovisionamiento de Azure AD** comienza un [ciclo inicial](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) en el sistema de origen y el sistema de destino. 
 
-1. El servicio de aprovisionamiento de Azure AD consulta el sistema de origen para saber si algún usuario o grupo se actualizó desde el ciclo inicial y realiza cualquier [ciclo incremental](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
+1. El **servicio de aprovisionamiento de Azure AD** consulta el sistema de origen para saber si algún usuario o grupo se actualizó desde el ciclo inicial y realiza cualquier [ciclo incremental](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
 
 #### <a name="automatic-user-provisioning-for-cloud-hr-applications"></a>Aprovisionamiento automático de usuarios para aplicaciones de recursos humanos en la nube 
 
-En este ejemplo, los usuarios o grupos se crean en una aplicación de recursos humanos en la nube, como Workday.
+En este ejemplo, los usuarios o grupos se crean en una aplicación de recursos humanos en la nube, como Workday y SuccessFactors. El servicio de aprovisionamiento de Azure AD y el agente de aprovisionamiento de Azure AD Connect aprovisionan los datos de los usuarios desde el inquilino de la aplicación de recursos humanos en la nube en AD. Una vez que se actualizan las cuentas en AD, se realiza la sincronización con Azure AD a través de Azure AD Connect, y los atributos de dirección de correo electrónico y nombre de usuario se pueden volver a escribir en el inquilino de la aplicación de recursos humanos en la nube.
 
 ![Imagen 2](media/auto-user-provision-dp/workdayprovisioning.png)
 
-1. Cuentas creadas en el sistema de recursos humanos en la nube
-1. Los datos fluyen a una instancia de AD local a través del servicio de aprovisionamiento de Azure AD y el agente de aprovisionamiento.
-1. Azure AD Connect sincroniza los datos con Azure AD
-1. El atributo de correo electrónico y nombre de usuario se puede volver a escribir en la aplicación de recursos humanos en la nube.
-
-Para más información sobre la arquitectura de la solución y la implementación, consulte [Tutorial: Configuración de Workday para el aprovisionamiento automático de usuarios](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-inbound-tutorial).
+1.  El **equipo de recursos humanos** realiza las transacciones en el inquilino de la aplicación de RR. HH. en la nube.
+2.  **Servicio de aprovisionamiento de Azure AD** ejecuta los ciclos programados desde el inquilino de la aplicación de RR. HH. en la nube e identifica los cambios que deben procesarse para la sincronización con AD.
+3.  El **servicio de aprovisionamiento de Azure AD** invoca al agente de aprovisionamiento de Azure AD Connect con una carga de solicitud que contiene las operaciones de creación, actualización, habilitación o deshabilitación de las cuentas de AD.
+4.  El **agente de aprovisionamiento de Azure AD Connect** usa una cuenta de servicio para administrar los datos de la cuenta de AD.
+5.  **Azure AD Connect** ejecuta una sincronización diferencial para extraer las actualizaciones de AD.
+6.  Las actualizaciones de **AD** se sincronizan con Azure AD. 
+7.  El **servicio de aprovisionamiento de Azure AD**  reescribe el atributo de correo electrónico y el nombre de usuario de Azure AD en el inquilino de la aplicación de RR. HH. en la nube.
 
 ## <a name="plan-the-deployment-project"></a>Planeamiento del proyecto de implementación
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/24/2018
-ms.openlocfilehash: b8a5d48e977009cf592f271760232a3b0138c8c5
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: ed8e20509c4a3f941d6f215dfc476c87e9a813a7
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73044958"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687775"
 ---
 # <a name="create-apache-hadoop-cluster-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Creación de un clúster de Apache Hadoop con cuentas de almacenamiento de transferencia segura en Azure HDInsight
 
@@ -24,7 +24,7 @@ La característica [Se requiere transferencia segura](../storage/common/storage-
 Antes de empezar este artículo, debe tener lo siguiente:
 
 * **Suscripción de Azure**: para crear una cuenta de evaluación gratuita durante un mes, vaya a [azure.microsoft.com/es-es/free](https://azure.microsoft.com/free).
-* **Una cuenta de Azure Storage habilitada para transferencia segura**. Para obtener instrucciones, consulte [Crear una cuenta de almacenamiento](../storage/common/storage-quickstart-create-account.md) y [Requerir transferencia segura](../storage/common/storage-require-secure-transfer.md).
+* **Una cuenta de Azure Storage habilitada para transferencia segura**. Para obtener instrucciones, consulte [Crear una cuenta de almacenamiento](../storage/common/storage-quickstart-create-account.md) y [Requerir transferencia segura](../storage/common/storage-require-secure-transfer.md). La habilitación de la transferencia segura de almacenamiento después de crear un clúster requiere pasos adicionales que no se describen en este artículo.
 * **Un contenedor de blobs en la cuenta de almacenamiento**.
 
 ## <a name="create-cluster"></a>Crear clúster

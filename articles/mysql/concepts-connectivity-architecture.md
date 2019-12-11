@@ -1,17 +1,17 @@
 ---
-title: Arquitectura de conectividad en Azure Database for MySQL
+title: Arquitectura de conectividad de Azure Database for MySQL
 description: Se describe la arquitectura de conectividad para el servidor de Azure Database for MySQL.
 author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 11/15/2019
-ms.openlocfilehash: c4fecfadefedf10f7e11534b4efbd197c4d7fdae
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.date: 12/02/2019
+ms.openlocfilehash: 22c77bee95533606156ec6cc337af1d743018005
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74213154"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74765331"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mysql"></a>Arquitectura de conectividad en Azure Database for MySQL
 En este artículo se explica la arquitectura de conectividad de Azure Database for MySQL y cómo se dirige el tráfico a la instancia de Azure Database for MySQL desde clientes internos y externos de Azure.
@@ -66,14 +66,6 @@ En la tabla siguiente se enumeran las direcciones IP principales y secundarias d
 
 > [!NOTE]
 > La zona del *Este de EE. UU. 2* también tiene una dirección IP terciaria de `52.167.104.0`.
-
-## <a name="connection-redirection"></a>Redirección de conexiones
-
-Azure Database for MySQL admite una directiva de conexión adicional, **redireccionamiento**, que ayuda a reducir la latencia de red entre las aplicaciones cliente y los servidores MySQL. Con esta característica, una vez establecida la sesión TCP inicial en el servidor de Azure Database for MySQL, el servidor devuelve al cliente la dirección de back-end del nodo que hospeda al servidor MySQL. En adelante, todos los paquetes posteriores fluyen directamente al servidor y omiten la puerta de enlace. Dado que los paquetes van directamente al servidor, mejoran la latencia y el rendimiento.
-
-Esta característica se admite en servidores de Azure Database for MySQL con las versiones de motor 5.6, 5.7 y 8.0.
-
-La compatibilidad de la versión preliminar con el redireccionamiento está disponible en la extensión [mysqlnd_azure de PHP](https://github.com/microsoft/mysqlnd_azure), desarrollada por Microsoft y que está disponible en [PECL](https://pecl.php.net/package/mysqlnd_azure). Consulte el artículo de [configuración del redireccionamiento](./howto-redirection.md) para obtener más información sobre cómo usar el redireccionamiento en sus aplicaciones. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

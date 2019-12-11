@@ -1,17 +1,17 @@
 ---
-title: Configurar e iniciar sesión con Azure AD para Azure Database for PostgreSQL - Servidor único
-description: Obtenga información sobre cómo configurar Azure Active Directory para la autenticación con Azure Database for PostgreSQL - Servidor único
+title: 'Uso de Azure Active Directory en Azure Database for PostgreSQL: servidor único'
+description: 'Aprenda a configurar Azure Active Directory (AAD) para la autenticación con Azure Database for PostgreSQL: servidor único.'
 author: lfittl
 ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: d5abfe4cc6aa0679d8009343fa24c1059700bb79
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c929ac1c171547a4ff485fc43f0f329440f9c3b5
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73511269"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74763647"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-postgresql"></a>Uso de Azure Active Directory para la autenticación con PostgreSQL
 

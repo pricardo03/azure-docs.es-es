@@ -1,17 +1,17 @@
 ---
-title: Procedimientos almacenados de administración de Azure Database for MySQL
+title: 'Procedimientos almacenados de administración: Azure Database for MySQL'
 description: Obtenga información acerca de qué procedimientos almacenados de Azure Database for MySQL son útiles para ayudarle a configurar la replicación de datos de entrada y a establecer la zona horaria y a terminar consultas.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 09/19/2019
-ms.openlocfilehash: 34598278ac7f432c5976de86eaf5dcf477c7e81a
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.date: 12/02/2019
+ms.openlocfilehash: 7ab77f822ace61ccb023dffe6d79fb1d08278d11
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71970334"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74774947"
 ---
 # <a name="azure-database-for-mysql-management-stored-procedures"></a>Procedimientos almacenados de administración de Azure Database for MySQL
 

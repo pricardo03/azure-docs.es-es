@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 2a40680b45522d8a8e49a3f01a50a748e1c71b53
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 31e45906dfeafcd2af1651347dde9dc6d3c6fb7c
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74274074"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74769224"
 ---
 # <a name="container-security-in-security-center"></a>Seguridad de los contenedores en Security Center
 
@@ -34,7 +34,7 @@ En este artículo se describe cómo mejorar, supervisar y mantener la seguridad 
 ## <a name="vulnerability-management---scanning-container-images-preview"></a>Administración de vulnerabilidades: análisis de imágenes de contenedor (versión preliminar)
 Para supervisar la instancia de Azure Container Registry, asegúrese de que está en el nivel estándar de Security Center (consulte [precios](https://docs.microsoft.com/azure/security-center/security-center-pricing.md)). Luego, habilite el conjunto opcional de registros de contenedor. Cuando se inserta una nueva imagen, Security Center examina la imagen con un escáner del proveedor de detección de vulnerabilidades líder del sector, Qualys.
 
-Si Qualys o Security Center encuentran problemas, recibirá una notificación en el panel de Security Center. Por cada vulnerabilidad, Security Center proporciona recomendaciones útiles, junto con una clasificación de gravedad e información sobre cómo corregir el problema. Para obtener información detallada sobre las recomendaciones de Security Center, consulte la lista de recomendaciones en la [protección de máquinas virtuales](security-center-virtual-machine-protection.md##compute-and-app-recs).
+Si Qualys o Security Center encuentran problemas, recibirá una notificación en el panel de Security Center. Por cada vulnerabilidad, Security Center proporciona recomendaciones útiles, junto con una clasificación de gravedad e información sobre cómo corregir el problema. Para más información sobre las recomendaciones de Security Center, consulte la lista de recomendaciones [aquí](recommendations-compute-and-apps.md).
 
 ## <a name="environment-hardening"></a>Protección del entorno
 

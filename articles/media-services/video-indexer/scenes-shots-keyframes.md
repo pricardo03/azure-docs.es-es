@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 07/05/2019
 ms.author: juliako
-ms.openlocfilehash: b24778434596f583be44572612c856fa4e0cecde
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 3740c42c6b6721af4d885f7b63ee4ca4e58f6fa6
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70860234"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806729"
 ---
 # <a name="scenes-shots-and-keyframes"></a>Escenas, capturas y fotogramas clave
 
@@ -38,9 +38,71 @@ Video Indexer determina cuándo cambia un corte en el vídeo según indicaciones
 
 Selecciona los fotogramas que mejor representan el corte. Los fotogramas clave son los fotogramas representativos seleccionados de todo el vídeo según propiedades estéticas (por ejemplo, el contraste y la estabilidad). Video Indexer recupera una lista de identificadores de fotograma clave como parte de los metadatos del corte, en función de los cuales los clientes pueden extraer la miniatura del fotograma clave. 
 
-Los fotogramas clave están asociados con cortes del archivo JSON de salida. 
+### <a name="extracting-keyframes"></a>Extracción de fotogramas clave
+
+Para extraer fotogramas clave de alta resolución para el vídeo, primero debe cargar e indexar el vídeo.
+
+![Fotogramas clave](./media/scenes-shots-keyframes/extracting-keyframes.png)
+
+#### <a name="with-the-video-indexer-website"></a>Mediante el sitio web de Video Indexer
+
+Para extraer fotogramas clave mediante el sitio web de Video Indexer, cargue e indexe el vídeo. Una vez completado el trabajo de indexación, haga clic en el botón **Descargar** y seleccione **Artefactos (ZIP)** . Se descargará la carpeta de artefactos en el equipo. 
+
+![Fotogramas clave](./media/scenes-shots-keyframes/extracting-keyframes2.png)
+ 
+Descomprima y abra la carpeta. Vaya a la carpeta *_KeyframeThumbnail* y encontrará todos los fotogramas clave que se extrajeron del vídeo. 
+
+#### <a name="with-the-video-indexer-api"></a>Mediante la API de Video Indexer
+
+Para obtener fotogramas clave mediante la API de Video Indexer, cargue e indexe el vídeo con la llamada a [Upload Video](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Upload-Video?) (Cargar vídeo). Una vez completado el trabajo de indexación, llame a [Get Video Index](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Index?) (Obtener índice del vídeo). Esto le proporcionará toda la información que Video Indexer extrae del contenido en un archivo JSON.  
+
+Obtendrá una lista de identificadores de fotogramas clave como parte de los metadatos de cada captura. 
+
+```json
+"shots":[  
+    {  
+      "id":0,
+      "keyFrames":[  
+          {  
+            "id":0,
+            "instances":[  
+                {  
+                  "thumbnailId":"00000000-0000-0000-0000-000000000000",
+                  "start":"0:00:00.209",
+                  "end":"0:00:00.251",
+                  "duration":"0:00:00.042"
+                }
+            ]
+          },
+          {  
+            "id":1,
+            "instances":[  
+                {  
+                  "thumbnailId":"00000000-0000-0000-0000-000000000000",
+                  "start":"0:00:04.755",
+                  "end":"0:00:04.797",
+                  "duration":"0:00:00.042"
+                }
+            ]
+          }
+      ],
+      "instances":[  
+          {  
+            "start":"0:00:00",
+            "end":"0:00:06.34",
+            "duration":"0:00:06.34"
+          }
+      ]
+    },
+
+]
+```
+
+Ahora tendrá que ejecutar cada uno de estos identificadores de fotogramas clave en la llamada a [Get Thumbnails](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Thumbnail?) (Obtener miniaturas). Se descargará cada una de las imágenes de fotogramas clave en el equipo. 
 
 ## <a name="editorial-shot-type-detection"></a>Detección del tipo de toma editorial
+
+Los fotogramas clave están asociados con cortes del archivo JSON de salida. 
 
 El tipo de toma asociado a una toma individual en el JSON de las conclusiones representa su tipo editorial. Las características de estos tipos de toma son útiles al editar vídeos en clips, avances o al buscar un estilo concreto de fotograma clave para fines artísticos. Los diferentes tipos se determinan en función del análisis del primer fotograma clave de cada toma. Las capturas se identifican por la escala, el tamaño y la ubicación de las caras que aparecen en su primer fotograma clave. 
 
@@ -63,6 +125,7 @@ Características adicionales:
 
 * Dos tomas: muestra las caras de dos personas en tamaño medio.
 * Varias caras: más de dos personas.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

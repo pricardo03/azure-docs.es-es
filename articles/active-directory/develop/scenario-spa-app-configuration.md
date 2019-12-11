@@ -1,6 +1,6 @@
 ---
 title: Aplicación de página única (configuración del código de la aplicación) - Plataforma de identidad de Microsoft
-description: Obtenga información sobre cómo crear una aplicación de página única (configuración del código de la aplicación)
+description: Aprenda a crear una aplicación de página única (configuración del código de la aplicación)
 services: active-directory
 documentationcenter: dev-center-name
 author: navyasric
@@ -15,31 +15,29 @@ ms.date: 05/07/2019
 ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a7b4fba03f9edf8a3f4e42b23c6a1b5e06518863
-ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
+ms.openlocfilehash: 5ec98a62aab0b8d87645f3f58dc28219abe4e4fc
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69891532"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74766283"
 ---
-# <a name="single-page-application---code-configuration"></a>Aplicación de página única: configuración del código
+# <a name="single-page-application-code-configuration"></a>Aplicación de página única: Configuración del código
 
 Obtenga información sobre cómo configurar el código de la aplicación de página única (SPA).
 
-## <a name="msal-libraries-supporting-implicit-flow"></a>Bibliotecas MSAL que admiten flujo implícito
+## <a name="msal-libraries-that-support-implicit-flow"></a>Bibliotecas MSAL que admiten flujo implícito
 
-La plataforma de identidad de Microsoft proporciona una biblioteca MSAL.js para admitir el flujo implícito mediante las prácticas seguras recomendadas del sector.  
-
-Las bibliotecas que admiten flujo implícito son las siguientes:
+La plataforma de identidad de Microsoft proporciona las siguientes bibliotecas de autenticación de Microsoft (MSAL) para admitir el flujo implícito mediante prácticas de seguridad recomendadas por el sector:  
 
 | Biblioteca MSAL | DESCRIPCIÓN |
 |--------------|--------------|
-| ![MSAL.js](media/sample-v2-code/logo_js.png) <br/> [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)  | Biblioteca de JavaScript sin formato para usar en cualquier aplicación web cliente compilada con marcos de JavaScript o SPA, como Angular, Vue.js, React.js, etc. |
+| ![MSAL.js](media/sample-v2-code/logo_js.png) <br/> [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)  | Biblioteca de JavaScript sin formato para usar en cualquier aplicación web cliente compilada con marcos de JavaScript o SPA, como Angular, Vue.js y React.js. |
 | ![MSAL Angular](media/sample-v2-code/logo_angular.png) <br/> [MSAL Angular](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/README.md) | Contenedor de la biblioteca básica de MSAL.js para simplificar el uso en aplicaciones de página única creadas con el marco Angular. Esta biblioteca está en versión preliminar y tiene [problemas conocidos](https://github.com/AzureAD/microsoft-authentication-library-for-js/issues?q=is%3Aopen+is%3Aissue+label%3Aangular) con determinadas versiones de Angular y ciertos exploradores. |
 
 ## <a name="application-code-configuration"></a>Configuración del código de la aplicación
 
-En la biblioteca MSAL, la información de registro de aplicación se pasa como configuración durante la inicialización de la biblioteca.
+En una biblioteca MSAL, la información de registro de aplicación se pasa como una configuración durante la inicialización de la biblioteca.
 
 ### <a name="javascript"></a>JavaScript
 
@@ -55,7 +53,7 @@ const config = {
 // create UserAgentApplication instance
 const userAgentApplication = new UserAgentApplication(config);
 ```
-Para obtener más detalles sobre las opciones configurables disponibles, consulte [Inicializar la aplicación con MSAL.js](msal-js-initializing-client-applications.md).
+Para más información sobre las opciones configurables, consulte [Inicialización de aplicaciones con MSAL.js](msal-js-initializing-client-applications.md).
 
 ### <a name="angular"></a>Angular
 

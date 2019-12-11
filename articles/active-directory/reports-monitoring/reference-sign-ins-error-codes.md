@@ -17,12 +17,12 @@ ms.date: 08/08/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84e9d484da1b59c456b30cf0b465ec6de5af77d1
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 1ed91396dd747bb800d88bc3cd083439a5648624
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014294"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74786374"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Códigos de error de los informes de actividad de inicio de sesión. 
 
@@ -181,7 +181,8 @@ También puede acceder mediante programación a los datos de inicio de sesión c
 |90051| Token de delegación no válido. Se especifica un identificador de nube nacional ({cloudId}) no válido.|
 |90072| La cuenta tiene que agregarse primero como un usuario externo en el inquilino. Cierre sesión y vuelva a iniciarla con otra cuenta de Azure AD.|
 |90094| La concesión requiere permisos de administrador. Pida al administrador de inquilino que dé su consentimiento para esta aplicación.|
-|500021|El inquilino está restringido por el proxy de la empresa. Se deniega el acceso del recurso.|
+|500011| No se encontró la entidad de seguridad de recurso denominada <site address> en el inquilino denominado <tenant ID>. Esto puede pasar si el administrador del inquilino no es el que ha instalado el administrador del inquilino o no ha recibido el consentimiento de ningún usuario del inquilino. Es posible que haya enviado la solicitud de autenticación al inquilino incorrecto.|
+|500021| El inquilino está restringido por el proxy de la empresa. Se deniega el acceso del recurso.|
 |500121| Error de autenticación durante la solicitud de autenticación sólida.|
 |500133| La aserción no está dentro de su intervalo de tiempo válido. Asegúrese de que el token de acceso no ha expirado antes de usarlo para la aserción de usuario o solicite un nuevo token.|
 |530021|La aplicación no cumple los requisitos de aplicación aprobada para el acceso condicional.|

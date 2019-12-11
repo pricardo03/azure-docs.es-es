@@ -1,17 +1,17 @@
 ---
-title: 'Advanced Threat Protection: Azure Database for MariaDB | Microsoft Docs'
+title: Advanced Threat Protection en Azure Database for MariaDB mediante Azure Portal
 description: Protección contra amenazas detecta actividades anómalas en la base de datos que indican posibles amenazas de seguridad.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 07/12/2019
-ms.openlocfilehash: f77d9f105d5c2ff10753f2b4b1ecc962c84eee6e
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.date: 12/02/2019
+ms.openlocfilehash: 1d6eafd38d418066ddf5933139bd4caf6e69ddea
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67869367"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74766980"
 ---
 # <a name="advanced-threat-protection-for-azure-database-for-mariadb"></a>Advanced Threat Protection para Azure Database for MariaDB
 

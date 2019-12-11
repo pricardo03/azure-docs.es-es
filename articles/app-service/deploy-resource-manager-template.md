@@ -1,22 +1,17 @@
 ---
-title: Guía para la implementación de aplicaciones con plantillas - Azure App Service | Microsoft Docs
-description: Recomendaciones de creación de plantillas de Azure Resource Manager para implementar aplicaciones web.
-services: app-service
-documentationcenter: app-service
+title: Implementación de aplicaciones con plantillas
+description: Encuentre una guía para crear plantillas de Azure Resource Manager para aprovisionar e implementar aplicaciones de App Service.
 author: tfitzmac
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 2af3ec61537dc28ab652b669ff46500db19ab307
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 082ef9753f84aef3f867a9dee4b4e9fbf73dd379
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74130590"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74670113"
 ---
 # <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>Guía de implementación de aplicaciones web mediante plantillas de Azure Resource Manager
 

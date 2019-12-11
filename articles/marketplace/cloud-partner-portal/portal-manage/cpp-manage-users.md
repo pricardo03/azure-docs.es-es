@@ -1,69 +1,21 @@
 ---
 title: Administración de usuarios en Cloud Partner Portal | Azure Marketplace
-description: Administración de usuarios en Cloud Partner Portal
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+description: Artículo de CPP en desuso, apuntaba al artículo de PC; era "Administración de usuarios en Cloud Partner Portal"
+services: Azure, Marketplace, Cloud Partner Portal, Partner Center
+author: ChJenk
 manager: pbutlerm
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/01/2019
-ms.author: pabutler
-ms.openlocfilehash: 4dc9fdf94ba6311f1b59c61ec686628a728e2510
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/27/2019
+ms.author: v-chjen
+ms.openlocfilehash: 15c173748f6e38d72f6f05d83a93bbf1fd4a243d
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826636"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74666416"
 ---
 # <a name="managing-users-on-the-cloud-partner-portal"></a>Administración de usuarios en Cloud Partner Portal
 
-[Cloud Partner Portal](https://cloudpartner.azure.com) le permite agregar usuarios con acceso basado en roles a las ofertas de máquina virtual. Esto ayuda a administrar el acceso y los permisos mientras varias personas trabajan en las ofertas.
-
-## <a name="add-users-and-assign-roles"></a>Incorporación de usuarios y asignación de roles 
-
-Siga los pasos a continuación para agregar usuarios y asignar roles para la publicación de ofertas.
-
-1. Haga clic en la pestaña **Usuarios** del panel de navegación izquierdo.
-
-    ![Pestaña Usuarios](./media/userstab.png)
-
-
-2. Haga clic en **Agregar usuario**.
-
-    ![Selección de Agregar usuario](./media/adduser.png)
-
-
-3. Escriba la dirección de correo electrónico del usuario y seleccione una asignación de roles.  Puede agregar el nuevo usuario como "propietario" o como "colaborador".
-
-    **Correo electrónico**: agregue las direcciones de correo electrónico de los compañeros del equipo que vayan a trabajar en la publicación de la oferta. Se admiten cuentas de Microsoft (Outlook, Hotmail y Live) e identificadores de organización.
-
-    - Agregue un "grupo de seguridad o alias de correo electrónico de equipo o grupo" para protegerse frente a una persona que abandona la organización.
-    - Asegúrese de que se supervisan los identificadores de correo electrónico indicados en Cloud Partner Portal en caso de que lleguen comunicaciones de Microsoft.
-    
-    ![Asignación de roles](./media/assignrole.png)
-
-    **Rol**: consulte la tabla siguiente para identificar el tipo de rol de usuario correspondiente.
-
-    ![Nivel de roles](./media/roleaccesslevel.png)
-
-    Solo los propietarios pueden acceder a las pestañas Azure Payouts (Pagos de Azure) y Azure Customer (Cliente de Azure) en [Seller Insights](../../cloud-partner-portal-orig/si-getting-started.md).
-
-
-4. Seleccione el nombre del anunciante para el que quiere agregar el nuevo usuario y haga clic en Agregar para completar el proceso.
-
-    > [!NOTE]
-    > Los "nombres de anunciante" para los que el correo electrónico se agrega como propietario o colaborador se mostrarán en la lista desplegable de **Anunciante** para la selección.
-
-
-    ![Asignar rol: seleccionar el anunciante](./media/assignselectpublisher.png)
-
-
-## <a name="delete-an-existing-user"></a>Eliminar un usuario existente
-
-Para quitar un usuario existente, busque el correo electrónico en la pestaña **Usuarios** y, luego, presione el botón **Eliminar** a la derecha.
-
-
-## <a name="next-steps"></a>Pasos siguientes
-
-También puede usar el portal para [administrar los perfiles de anunciante](./cpp-manage-publisher-profile.md).
+Esta funcionalidad se ha movido al [portal del Centro de partners](https://partner.microsoft.com/) de Microsoft. Para más información, consulte [Procedimiento para administrar la cuenta de Marketplace comercial en el Centro de partners](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account).

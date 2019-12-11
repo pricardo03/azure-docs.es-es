@@ -1,17 +1,17 @@
 ---
-title: Limitaciones de Azure Database for MariaDB
+title: 'Limitaciones: Azure Database for MariaDB'
 description: En este artículo se describen las limitaciones de Azure Database for MariaDB como el número de conexiones o las opciones de motor de almacenamiento.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 04/15/2019
-ms.openlocfilehash: b78671cc61a4fe755b908ed9f71052cbd0a70b38
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 12/02/2019
+ms.openlocfilehash: fc89b6233602c81ea622a528c223adf2003f0f68
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65550508"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74772503"
 ---
 # <a name="limitations-in-azure-database-for-mariadb"></a>Limitaciones de Azure Database for MariaDB
 En las siguientes secciones se describen la capacidad, la compatibilidad del motor de almacenamiento, la compatibilidad de los privilegios, la compatibilidad de las instrucciones de manipulación de datos y los límites funcionales del servicio de base de datos.
@@ -84,7 +84,7 @@ Si las conexiones superan el límite, puede que reciba el error siguiente:
 - La compatibilidad con puntos de conexión de servicio de red virtual solo existe para servidores de uso general y optimizados para memoria.
 
 ### <a name="storage-size"></a>Tamaño de almacenamiento
-- Consulte [Planes de tarifa](concepts-pricing-tiers.md) para conocer los límites de tamaño de almacenamiento por plan de tarifa.
+- Consulte [Planes de tarifa](concepts-pricing-tiers.md) para obtener los límites de tamaño de almacenamiento para cada plan de tarifa.
 
 ## <a name="current-known-issues"></a>Problemas conocidos actualmente
 - La instancia del servidor MariaDB muestra una versión de servidor incorrecta después de establecer la conexión. Para obtener la versión del motor de instancias de servidor correcta, use el comando `select version();`.

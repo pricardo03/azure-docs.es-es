@@ -1,17 +1,17 @@
 ---
-title: Registros de auditoría para Azure Database for MySQL
+title: 'Registros de auditoría: Azure Database for MySQL'
 description: Se describen los registros de auditoría disponibles en Azure Database for MySQL y los parámetros disponibles para habilitar los niveles de registro.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 06/26/2019
-ms.openlocfilehash: 42881fcb12f29ec14bbdc0ec4942b2eef17c7312
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.date: 12/02/2019
+ms.openlocfilehash: ea536742b6481cb06fbd3130279ca5d08ba1bc08
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72434404"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74773575"
 ---
 # <a name="audit-logs-in-azure-database-for-mysql"></a>Registros de auditoría en Azure Database for MySQL
 

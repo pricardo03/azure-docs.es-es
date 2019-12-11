@@ -1,17 +1,17 @@
 ---
-title: Registros de auditoría en Azure Database for MariaDB
+title: 'Registros de auditoría: Azure Database for MariaDB'
 description: Se describen los registros de auditoría disponibles en Azure Database for MariaDB y los parámetros disponibles para habilitar los niveles de registro.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 06/26/2019
-ms.openlocfilehash: 13ea60c62283db35ce4bf9fde6c3b36ba7f88013
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.date: 12/02/2019
+ms.openlocfilehash: 64662499b4ee782bbf04e9e706cd659e84c90eec
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67439221"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74773084"
 ---
 # <a name="audit-logs-in-azure-database-for-mariadb"></a>Registros de auditoría en Azure Database for MariaDB
 
@@ -20,14 +20,14 @@ Los usuarios tienen disponible el registro de auditoría en Azure Database for M
 > [!IMPORTANT]
 > La funcionalidad del registro de auditoría se encuentra actualmente en versión preliminar.
 
-## <a name="configure-audit-logging"></a>Configurar el registro de auditoría
+## <a name="configure-audit-logging"></a>Configuración del registro de auditoría
 
 De forma predeterminada, el registro de auditoría está deshabilitado. Para habilitarlo, cambie `audit_log_enabled` a Activado.
 
 Otros parámetros que se pueden ajustar son los siguientes:
 
-- `audit_log_events`: controla los eventos que se registrarán. Consulte la tabla a continuación para los eventos de auditoría específicos.
-- `audit_log_exclude_users`: Los usuarios de MariaDB que se excluirán del registro. Permite a lo sumo cuatro usuarios. La longitud máxima del parámetro es de 256 caracteres.
+- `audit_log_events`: controla los eventos que se registrarán. Consulte la tabla a continuación para ver los eventos de auditoría específicos.
+- `audit_log_exclude_users`: Los usuarios de MariaDB que se excluirán del registro. Permite a lo sumo cuatro usuarios. La longitud máxima del parámetro es de 256 caracteres.
 
 | **Evento** | **Descripción** |
 |---|---|
@@ -95,7 +95,7 @@ El esquema siguiente se aplica a los tipos de evento GENERAL, DML_SELECT, DML_NO
 | `event_class_s` | `general_log` |
 | `event_subclass_s` | `LOG`, `ERROR`, `RESULT` |
 | `event_time` | Segundos del inicio de la consulta en la marca de tiempo de UNIX |
-| `error_code_d` | Código de error si la consulta no ha sido correcta. `0` significa que no hay error |
+| `error_code_d` | Código de error si la consulta no es correcta. `0` significa que no hay error |
 | `thread_id_d` | Id. del subproceso que ejecutó la consulta |
 | `host_s` | En blanco |
 | `ip_s` | Dirección IP del cliente que se conecta a MariaDB |

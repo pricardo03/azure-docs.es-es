@@ -1,7 +1,7 @@
 ---
-title: 'Regiones: Speech Service'
+title: 'Regiones: servicio de voz'
 titleSuffix: Azure Cognitive Services
-description: Una lista de regiones y puntos de conexión disponibles para el servicio Voz, como la conversión de voz a texto, la conversión de texto a voz y traducción de voz.
+description: Una lista de regiones y puntos de conexión disponibles para el servicio de voz, como la conversión de voz a texto, la conversión de texto a voz y la traducción de voz.
 services: cognitive-services
 author: mahilleb-msft
 manager: nitinme
@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 478a62eaddcf3b9b831812a0930ff10c1adce99d
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 409ce8b904997f2ab75f70b2138ec5b1e70a0e69
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072454"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816651"
 ---
-# <a name="speech-service-supported-regions"></a>Regiones admitidas del servicio Voz
+# <a name="speech-service-supported-regions"></a>Regiones admitidas del servicio de voz
 
 El servicio Voz permite que la aplicación convierta audio en texto, lleve a cabo la traducción de voz y convertir texto a voz. Este servicio está disponible en varias regiones con puntos de conexión únicos para SDK de Voz y API REST.
 

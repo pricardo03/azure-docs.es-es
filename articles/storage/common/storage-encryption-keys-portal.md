@@ -1,26 +1,26 @@
 ---
-title: Configuración de las claves administradas del cliente para el cifrado de Azure Storage desde Azure Portal
-description: Obtenga información sobre cómo usar Azure Portal para configurar las claves administradas del cliente para el cifrado de Azure Storage. Las claves administradas del cliente le permiten crear, girar, deshabilitar y revocar los controles de acceso.
+title: 'Configuración de claves administradas por el cliente con Azure Key Vault mediante Azure Portal: Azure Storage'
+description: Aprenda a usar Azure Portal para configurar claves administradas por el cliente con Azure Key Vault para el cifrado de Azure Storage. Las claves administradas por el cliente le permiten crear, rotar, deshabilitar y revocar los controles de acceso.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
-ms.date: 10/15/2019
+ms.topic: how-to
+ms.date: 11/20/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 74ca6f15baeeb9fe8adad4bda80e313a4b4cf03a
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: b72f30a636d0177edb8b3254d14be941b2d4e6bc
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72376238"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74665921"
 ---
-# <a name="configure-customer-managed-keys-for-azure-storage-encryption-from-the-azure-portal"></a>Configuración de las claves administradas del cliente para el cifrado de Azure Storage desde Azure Portal
+# <a name="configure-customer-managed-keys-for-azure-storage-by-using-the-azure-portal"></a>Configuración de claves administradas por el cliente para Azure Storage mediante Azure Portal
 
 [!INCLUDE [storage-encryption-configure-keys-include](../../../includes/storage-encryption-configure-keys-include.md)]
 
-En este artículo se muestra cómo configurar un almacén de claves con claves administradas del cliente mediante [Azure Portal](https://portal.azure.com/). Para obtener información sobre cómo crear un almacén de claves mediante Azure Portal, consulte [Inicio rápido: Establecimiento y recuperación de un secreto de Azure Key Vault mediante Azure Portal](../../key-vault/quick-create-portal.md). 
+En este artículo se muestra cómo configurar Azure Key Vault con claves administradas del cliente mediante [Azure Portal](https://portal.azure.com/). Para obtener información sobre cómo crear un almacén de claves mediante Azure Portal, consulte [Inicio rápido: Establecimiento y recuperación de un secreto de Azure Key Vault mediante Azure Portal](../../key-vault/quick-create-portal.md).
 
 > [!IMPORTANT]
 > El uso de claves administradas del cliente con el cifrado de Azure Storage requiere el establecimiento de dos propiedades en el almacén de claves, **Eliminación temporal** y **Do Not Purge** (No purgar). Estas propiedades no están habilitadas de forma predeterminada. Para habilitarlas, use PowerShell o la CLI de Azure.

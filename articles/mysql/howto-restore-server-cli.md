@@ -1,18 +1,18 @@
 ---
-title: Copia de seguridad y restauración de un servidor en Azure Database for MySQL
+title: Copia de seguridad y restauración mediante la CLI de Azure en Azure Database for MySQL
 description: Copia de seguridad y restauración de un servidor en Azure Database for MySQL mediante la CLI de Azure.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 10/25/2019
-ms.openlocfilehash: b265b77e08dda582153efa51c036f4f7a9de8d41
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.date: 12/02/2019
+ms.openlocfilehash: b2458c42a77ffee6985165252b0ebab836fce457
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965201"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74774208"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-cli"></a>Copia de seguridad y restauración de un servidor en Azure Database for MySQL mediante la CLI de Azure
 
@@ -123,6 +123,6 @@ Una vez finalizada la restauración, busque el servidor nuevo y compruebe que lo
 El servidor creado durante una restauración no tiene las reglas de firewall o los puntos de conexión de servicio VNet que existían en el servidor original. Estas reglas deben configurarse por separado para este nuevo servidor.
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Más información sobre las [copias de seguridad](concepts-backup.md) del servicio
-- Más información sobre las [réplicas](concepts-read-replicas.md)
-- Más información sobre las opciones de [continuidad del negocio](concepts-business-continuity.md)
+- Más información sobre las [copias de seguridad](concepts-backup.md) del servicio.
+- Más información sobre las [réplicas](concepts-read-replicas.md).
+- Más información sobre las opciones de [continuidad del negocio](concepts-business-continuity.md).

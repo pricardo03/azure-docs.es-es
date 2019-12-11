@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: ''
-ms.openlocfilehash: 29014674cee4d6498ca7b56582313265da886122
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: eb44163922e318d17d675143ca2d6a3a1fa4ed75
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083667"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74793324"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking-using-azure-cli"></a>Creación de una máquina virtual Linux con Accelerated Networking con la CLI de Azure
 
@@ -61,6 +61,9 @@ Accelerated Networking se admite con la mayoría de los tamaños de instancia de
 En instancias que admiten hyperthreading, las redes aceleradas se admiten en instancias de máquina virtual con cuatro o más vCPU. Las series admitidas son: D/Dsv3, E/Esv3, Fsv2, Lsv2, Ms/Mms y Ms/Mmsv2.
 
 Para más información sobre las instancias de máquinas virtuales, consulte [Tamaños de las máquinas virtuales Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+
+### <a name="custom-images"></a>Custom Images
+Si usa una imagen personalizada compatible con redes aceleradas, asegúrese de disponer de los controladores necesarios para trabajar con las NIC ConnectX-3 y ConnectX-4 Lx de Mellanox en Azure.
 
 ### <a name="regions"></a>Regions
 Está disponible en todas las regiones públicas de Azure y en las nubes de Azure Government.

@@ -1,5 +1,5 @@
 ---
-title: 'Referencia de Speech to text API (REST): servicio de Voz'
+title: 'Referencia de Speech to Text API (REST): servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: Aprenda a usar speech-to-text API REST. En este artículo, obtendrá más información sobre las opciones de autorización y de consulta y sobre cómo estructurar una solicitud y recibir una respuesta.
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 137ab722df280d17fe5ccc5c07acfd323feb6531
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: f617bed0d2d93d8c8586d5708e0e356934817f4a
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091205"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816639"
 ---
 # <a name="speech-to-text-rest-api"></a>Speech-to-text REST API
 
-Como alternativa al [SDK de Voz](speech-sdk.md), Servicios de voz le permite convertir voz a texto mediante una API REST. Cada punto de conexión accesible se asocia con una región. La aplicación requiere una clave de suscripción para el punto de conexión que se va a usar.
+Como alternativa al [SDK de Voz](speech-sdk.md), el servicio de voz le permite convertir voz a texto mediante una API REST. Cada punto de conexión accesible se asocia con una región. La aplicación requiere una clave de suscripción para el punto de conexión que se va a usar.
 
 Antes de usar speech-to-text API REST debe comprender que:
 
@@ -52,12 +52,12 @@ Esta tabla enumera los encabezados obligatorios y opcionales para las solicitude
 
 |Encabezado| DESCRIPCIÓN | Obligatorio u opcional |
 |------|-------------|---------------------|
-| `Ocp-Apim-Subscription-Key` | Clave de suscripción de Servicios de voz. | Se necesita este encabezado, o bien `Authorization`. |
+| `Ocp-Apim-Subscription-Key` | Clave de suscripción del servicio de voz. | Se necesita este encabezado, o bien `Authorization`. |
 | `Authorization` | Un token de autorización precedido por la palabra `Bearer`. Para más información, consulte [Autenticación](#authentication). | Se necesita este encabezado, o bien `Ocp-Apim-Subscription-Key`. |
 | `Content-type` | Describe el formato y el códec de los datos de audio proporcionados. Los valores aceptados son: `audio/wav; codecs=audio/pcm; samplerate=16000` y `audio/ogg; codecs=opus`. | Obligatorio |
 | `Transfer-Encoding` | Especifica que se están enviando datos de audio fragmentados en lugar de un único archivo. Use este encabezado solo si hay fragmentación de los datos de audio. | Opcional |
-| `Expect` | Si usa la transferencia fragmentada, envíe `Expect: 100-continue`. Los Servicios de voz confirman la solicitud inicial y esperan datos adicionales.| Obligatorio si se envían datos de audio fragmentados. |
-| `Accept` | Si se proporciona, debe ser `application/json`. Los Servicios de voz proporcionan resultados en JSON. Algunos marcos de solicitud proporcionan un valor predeterminado no compatible. Se recomienda incluir siempre `Accept`. | Opcional pero recomendable. |
+| `Expect` | Si usa la transferencia fragmentada, envíe `Expect: 100-continue`. El servicio de voz confirma la solicitud inicial y espera datos adicionales.| Obligatorio si se envían datos de audio fragmentados. |
+| `Accept` | Si se proporciona, debe ser `application/json`. El servicio de voz proporciona resultados en JSON. Algunos marcos de solicitud proporcionan un valor predeterminado no compatible. Se recomienda incluir siempre `Accept`. | Opcional pero recomendable. |
 
 ## <a name="audio-formats"></a>Formatos de audio
 
@@ -69,7 +69,7 @@ El audio se envía en el cuerpo de la solicitud HTTP `POST`. Debe estar en uno d
 | OGG | OPUS | 16 bits | 16 kHz, mono |
 
 >[!NOTE]
->Se admiten los formatos anteriores a través de la API REST y WebSocket en el servicio de Voz. El [SDK de Voz](speech-sdk.md) actualmente solo admite el formato WAV con el códec PCM.
+>Se admiten los formatos anteriores a través de la API REST y WebSocket en el servicio de voz. El [SDK de Voz](speech-sdk.md) actualmente solo admite el formato WAV con el códec PCM.
 
 ## <a name="sample-request"></a>Solicitud de ejemplo
 
@@ -99,7 +99,7 @@ El estado HTTP de cada respuesta indica estados de corrección o error comunes.
 
 ## <a name="chunked-transfer"></a>Transferencia fragmentada
 
-La transferencia fragmentada (`Transfer-Encoding: chunked`) puede ayudar a reducir la latencia de reconocimiento. Permite a los Servicios de voz empezar a procesar el archivo de audio mientras se transmite. La API de REST no proporciona resultados parciales ni provisionales.
+La transferencia fragmentada (`Transfer-Encoding: chunked`) puede ayudar a reducir la latencia de reconocimiento. Permite al servicio de voz empezar a procesar el archivo de audio mientras se transmite. La API de REST no proporciona resultados parciales ni provisionales.
 
 Este ejemplo de código muestra cómo enviar audio en fragmentos. Solo el primer fragmento debe contener el encabezado del archivo de audio. `request` es un objeto HTTPWebRequest conectado al punto de conexión de REST adecuado. `audioFile` es la ruta de acceso a un archivo de audio en disco.
 

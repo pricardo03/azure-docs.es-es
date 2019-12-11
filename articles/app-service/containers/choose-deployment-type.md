@@ -1,26 +1,18 @@
 ---
-title: Implementación de una imagen personalizada, de varios contenedores o de una imagen integrada en Azure App Service | Microsoft Docs
-description: Cómo decidir entre la implementación de contenedores de Docker personalizada, varios contenedores y un marco de trabajo de la aplicación integrado para App Service en Linux
+title: Opciones de implementación para contenedores Linux
+description: Decida entre la implementación de contenedores de Docker personalizada, varios contenedores y una plataforma de aplicaciones integrada para App Service en Linux.
 keywords: azure app service, aplicación web, linux, oss
-services: app-service
-documentationCenter: ''
-author: msangapu
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
+author: msangapu-msft
 ms.topic: article
 ms.date: 05/04/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: ae28b185aa44ca22d59204826036435a10c64e91
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 7c4025e393c196fb98455bac26e94e5f252840b9
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70066785"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687510"
 ---
 # <a name="custom-image-multi-container-or-built-in-platform-image"></a>¿Imagen personalizada, varios contenedores o imagen de plataforma integrada?
 

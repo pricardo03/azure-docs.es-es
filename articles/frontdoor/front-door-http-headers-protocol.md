@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 92e8435e4336c68982e4becc2a95f99b2c776c0e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3579aee46c610e5bb3efc0942944bbfc3fcb801d
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60736654"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790517"
 ---
 # <a name="protocol-support-for-http-headers-in-azure-front-door-service"></a>Admisión de protocolos para encabezados HTTP en Azure Front Door Service
 Este artículo describe el protocolo que admite el servicio Front Door Service con partes de la ruta de acceso de llamada (consulte la imagen). Las secciones siguientes proporcionan más información acerca de los encabezados HTTP admitidos por el servicio Front Door Service.
@@ -43,6 +43,7 @@ Front Door Service incluye encabezados de una solicitud entrante a menos que s
 | X-Forwarded-For | X-Forwarded-For: 127.0.0.1 </br> A menudo, el campo de encabezado X-Forwarded-For (XFF) identifica la dirección IP de origen de un cliente que se conecta a un servidor web a través de un equilibrador de carga o proxy HTTP. Si hay un encabezado XFF existente, Front Door le anexa la dirección IP de socket de cliente o agrega el encabezado XFF con la dirección IP de socket de cliente. |
 | X-Forwarded-Host | X-Forwarded-Host: contoso.azurefd.net </br> El campo de encabezado HTTP X-Forwarded-Host es un método común utilizado para identificar el host original solicitado por el cliente en el encabezado de solicitud HTTP del host. Esto es porque el nombre de host de Front Door puede diferir del servidor back-end que controla la solicitud. |
 | X-Forwarded-Proto | X-Forwarded-Proto: http </br> El campo de encabezado HTTP X-Forwarded-Proto a menudo se usa para identificar el protocolo de origen de una solicitud HTTP porque Front Door, según la configuración, podría comunicarse con el back-end a través de HTTPS. Esto es cierto incluso si la solicitud para el proxy inverso es HTTP. |
+| X-FD-HealthProbe | El campo de encabezado HTTP X-FD-HealthProbe se usa para identificar el sondeo de estado de Front Door. Si este encabezado se establece en 1, la solicitud es el sondeo de estado. Puede usarse cuando desee establecer un acceso estricto desde una instancia determinada de Front Door con el campo de encabezado X-Forwarded-Host. |
 
 ## <a name="front-door-service-to-client"></a>Front Door Service para cliente
 

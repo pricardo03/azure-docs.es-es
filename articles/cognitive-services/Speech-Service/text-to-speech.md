@@ -1,7 +1,7 @@
 ---
-title: 'Texto a voz: servicio Voz'
+title: 'Texto a voz: servicio de voz'
 titleSuffix: Azure Cognitive Services
-description: La característica de texto a voz del servicio Voz permite que sus aplicaciones, herramientas o dispositivos conviertan el texto en una voz sintetizada natural similar a la humana. Elija voces preestablecidas o cree su voz personalizada.
+description: La característica de texto a voz del servicio de voz permite que sus aplicaciones, herramientas o dispositivos conviertan el texto en una voz sintetizada natural similar a la humana. Elija voces preestablecidas o cree su voz personalizada.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: erhopf
-ms.openlocfilehash: 0d233f63879326f05cafb873d2a0243543b00c6b
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 85022d52c9513e53da31cc3c962f3a54dd538371
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075704"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815475"
 ---
 # <a name="what-is-text-to-speech"></a>¿Qué es el texto a voz?
 
-La opción de texto a voz de los servicios de voz de Azure es un servicio que permite que sus aplicaciones, herramientas o dispositivos conviertan el texto en una voz sintetizada natural similar a la humana. Puede elegir entre voces estándar y neuronales, o puede crear su propia voz personalizada única para su producto o marca. Tiene más de 75 voces estándar disponibles en más de 45 idiomas y configuraciones regionales y 5 voces neuronales que están disponibles en 4 idiomas y configuraciones regionales. Para ver una lista completa, consulte los [idiomas admitidos](language-support.md#text-to-speech).
+La característica de texto a voz del servicio de voz permite que sus aplicaciones, herramientas o dispositivos conviertan el texto en una voz sintetizada natural similar a la humana. Puede elegir entre voces estándar y neuronales, o puede crear su propia voz personalizada única para su producto o marca. Tiene más de 75 voces estándar disponibles en más de 45 idiomas y configuraciones regionales y 5 voces neuronales que están disponibles en 4 idiomas y configuraciones regionales. Para ver una lista completa, consulte los [idiomas admitidos](language-support.md#text-to-speech).
 
 La tecnología de texto a voz permite a los creadores de contenido interactuar con sus usuarios de diferentes maneras. La conversión de texto a voz puede mejorar la accesibilidad al ofrecer a los usuarios la opción de interactuar con el contenido de manera audible. Si el usuario tiene dificultades visuales, problemas de aprendizaje o requiere información de navegación mientras conduce, el texto a voz puede mejorar una experiencia ya existente. También, la conversión de texto a voz es un complemento valioso para los bots y los asistentes de voz.
 
@@ -117,7 +117,7 @@ El ejemplo de código para texto a voz está disponible en GitHub. Estos ejemplo
 
 ## <a name="reference-docs"></a>Documentos de referencia
 
-- [Speech SDK](speech-sdk-reference.md)
+- [Acerca del SDK de Voz](speech-sdk-reference.md)
 - [Speech Devices SDK](speech-devices-sdk.md)
 - [API REST: Speech-to-text](rest-speech-to-text.md) (API de REST: Voz a texto)
 - [API REST: Text-to-speech](rest-text-to-speech.md) (API de REST: Texto a voz)
@@ -125,5 +125,5 @@ El ejemplo de código para texto a voz está disponible en GitHub. Estos ejemplo
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Obtención de una suscripción de gratuita a servicios de Voz](get-started.md)
+- [Obtención de una suscripción de gratuita al servicio de voz](get-started.md)
 - [Creación de fuentes de voz personalizadas](how-to-customize-voice-font.md)

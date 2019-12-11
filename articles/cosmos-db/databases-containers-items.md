@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/01/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 4d970e61fc2628843ef847526dcdb4e44bf9796f
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 4b61cbc8a3e870e9fd2123fd3dcbd941c5dde80c
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176934"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74786952"
 ---
 # <a name="work-with-databases-containers-and-items-in-azure-cosmos-db"></a>Trabajar con bases de datos, contenedores y elementos de Azure Cosmos DB
 
@@ -82,7 +82,7 @@ Un contenedor de Azure Cosmos tiene un conjunto de propiedades definidas por el 
 
 | Propiedad definida por el sistema | Generada por el sistema o configurada por el usuario | Propósito | API DE SQL | Cassandra API | Azure Cosmos DB API para MongoDB | API de Gremlin | Table API |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|\_id | Generada por el sistema | Identificador único del contenedor | Sí | No | No | No | Sin |
+|\_rid | Generada por el sistema | Identificador único del contenedor | Sí | No | No | No | Sin |
 |\_etag | Generada por el sistema | Etiqueta de entidad que se usa para el control de simultaneidad optimista | Sí | No | No | No | Sin |
 |\_ts | Generada por el sistema | Última actualización de la marca de tiempo del contenedor | Sí | No | No | No | Sin |
 |\_self | Generada por el sistema | URI direccionable del contenedor | Sí | No | No | No | Sin |

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/17/2019
+ms.date: 12/4/2019
 ms.author: panosper
-ms.openlocfilehash: 277d8e3fe8f54b8e95d8acc93d26100d3ac64db1
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 575dda47b5e6fc0d70ef80dfd7a1baba0f63be2d
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74110706"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74814861"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Preguntas más frecuentes sobre el servicio Speech to Text
 
@@ -65,11 +65,32 @@ El conjunto de datos antiguo y el nuevo se deben combinar en un único archivo Z
 
 Si ha adaptado e implementado un modelo con la línea de base V1.0, esa implementación permanecerá tal cual. Los clientes pueden retirar el modelo implementado, volver a adaptar con la versión más reciente de la línea de base y volver a implementar.
 
+**P: ¿Puedo descargar mi modelo y ejecutarlo localmente?**
+
+**R.** : Los modelos no se pueden descargar ni ejecutar localmente.
+
+**P: ¿Se registran mis solicitudes?**
+
+**R.** : Al crear una implementación, tiene una opción para desactivar el seguimiento. Después, no se registrará ningún sonido ni ninguna transcripción. De lo contrario, las solicitudes se registran normalmente en Azure, en almacenamiento seguro.
+
+**P: ¿Están limitadas mis solicitudes?**
+
+**R.** : La API REST limita las solicitudes a 25 cada 5 segundos. Encontrará los detalles en nuestras páginas de [Speech to Text](speech-to-text.md).
+
+**P: ¿Cómo se cobra el audio de canal doble?**
+
+**R.** : Si envía cada canal por separado (cada canal en su propio archivo), se le cobrará según la duración de cada archivo. Si envía un solo archivo con cada canal multiplexado juntos, se le cobrará por la duración del archivo individual.
+
+> [!IMPORTANT]
+> Si tiene más dudas sobre la privacidad que le impidan usar el servicio Voz personalizado, póngase en contacto con uno de los canales de soporte técnico.
+
+## <a name="increasing-concurrency"></a>Aumento de la simultaneidad
+
 **P: ¿Qué sucede si necesito una mayor simultaneidad para el modelo implementado de la que se ofrece en el portal?**
 
 **R.** : Se puede escalar verticalmente el modelo en incrementos de 20 solicitudes simultáneas.
 
-Póngase en contacto con el [servicio de soporte técnico de Speech](mailto:speechsupport@microsoft.com?subject=Request%20for%20higher%20concurrency%20for%20Speech-to-text) si requiere una escala mayor.
+Con la información necesaria, cree una solicitud de soporte técnico en el [portal de soporte técnico de Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). No publique la información en ninguno de los canales públicos (GitHub, Stackoverflow, etc.) que se mencionan en la [página de soporte técnico](support.md).
 
 Para aumentar la simultaneidad de un ***modelo personalizado***, se necesita la siguiente información:
 
@@ -89,7 +110,7 @@ y bien
 
 - un token de acceso para la suscripción (consulte [aquí](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-speech-to-text#how-to-get-an-access-token)),
 
-o
+or
 
 - el identificador del recurso de la suscripción:
   - Vaya a [Azure Portal](https://portal.azure.com),
@@ -97,25 +118,6 @@ o
   - en los servicios mostrados, seleccione el servicio de voz para el que desea aumentar la simultaneidad,
   - muestre `Properties` de este servicio,
   - copie el `Resource ID`completo.
-
-**P: ¿Puedo descargar mi modelo y ejecutarlo localmente?**
-
-**R.** : Los modelos no se pueden descargar ni ejecutar localmente.
-
-**P: ¿Se registran mis solicitudes?**
-
-**R.** : Al crear una implementación, tiene una opción para desactivar el seguimiento. Después, no se registrará ningún sonido ni ninguna transcripción. De lo contrario, las solicitudes se registran normalmente en Azure, en almacenamiento seguro.
-
-**P: ¿Están limitadas mis solicitudes?**
-
-**R.** : La API REST limita las solicitudes a 25 cada 5 segundos. Encontrará los detalles en nuestras páginas de [Speech to Text](speech-to-text.md).
-
-**P: ¿Cómo se cobra el audio de canal doble?**
-
-**R.** : Si envía cada canal por separado (cada canal en su propio archivo), se le cobrará según la duración de cada archivo. Si envía un solo archivo con cada canal multiplexado juntos, se le cobrará por la duración del archivo individual.
-
-> [!IMPORTANT]
-> Si tiene más dudas sobre la privacidad que le impidan usar el servicio Voz personalizado, póngase en contacto con uno de los canales de soporte técnico.
 
 ## <a name="importing-data"></a>Importación de datos
 
@@ -189,9 +191,9 @@ o
 
 **P: ¿Qué experiencias de voz mejora el modelo de inquilino?**
 
-**R:** Cuando el modelo de inquilino se habilita, se crea y se publica, se usa para mejorar el reconocimiento de las aplicaciones empresariales compiladas con el servicio Voz, que también pasan un token de AAD de usuario que indica la pertenencia a la empresa.
+**R:** Cuando el modelo de inquilino se habilita, se crea y se publica, se usa para mejorar el reconocimiento de las aplicaciones empresariales compiladas con el servicio de voz, que también pasan un token de AAD de usuario que indica la pertenencia a la empresa.
 
-Las experiencias de voz integradas en Office 365, como el Dictado y los subtítulos de PowerPoint, no cambian cuando se crea un modelo de inquilino para las aplicaciones del servicio Voz.
+Las experiencias de voz integradas en Office 365, como el Dictado y los subtítulos de PowerPoint, no cambian cuando se crea un modelo de inquilino para las aplicaciones del servicio de voz.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -1,7 +1,7 @@
 ---
 title: Configuración de contenedores de Voz
 titleSuffix: Azure Cognitive Services
-description: Los servicios de Voz proporcionan a cada contenedor un marco de configuración común, por lo que puede configurar y administrar fácilmente la configuración de almacenamiento, registro, telemetría y seguridad de los contenedores.
+description: El servicio de voz proporciona a cada contenedor un marco de configuración común, por lo que puede configurar y administrar fácilmente los valores de almacenamiento, registro, telemetría y seguridad de los contenedores.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/07/2019
 ms.author: dapine
-ms.openlocfilehash: f68bf989202c209f89ea273fee8d7610a49415ed
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 34b4664ec13f7ba1871433e37d86170b2207a17a
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075751"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816573"
 ---
-# <a name="configure-speech-service-containers"></a>Configuración de contenedores del servicio de Voz
+# <a name="configure-speech-service-containers"></a>Configuración de contenedores del servicio de voz
 
 Los contenedores de Voz permiten a los clientes compilar una arquitectura de aplicación de voz optimizada para aprovechar las sólidas capacidades de la nube y la localidad del perímetro. Los cuatro contenedores de voz compatibles ahora son **conversión de voz a texto**, **conversión de voz a texto personalizada**, **conversión de texto a voz** y **conversión de texto a voz personalizada**.
 

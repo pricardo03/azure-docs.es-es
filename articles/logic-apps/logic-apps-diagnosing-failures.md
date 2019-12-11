@@ -1,21 +1,17 @@
 ---
-title: 'Solución de problemas y diagnóstico de errores: Azure Logic Apps | Microsoft Docs'
+title: Solución de problemas y diagnóstico de errores
 description: Más información sobre cómo solucionar problemas y diagnosticar errores de flujo de trabajo en Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, jehollan, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.assetid: a6727ebd-39bd-4298-9e68-2ae98738576e
 ms.date: 10/15/2017
-ms.openlocfilehash: 62a74364939fffb6e06f51f1c0cabb6cce8c10e1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 93b6d9d2975aa1758afffd19deb1d315b974cc47
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60999807"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790768"
 ---
 # <a name="troubleshoot-and-diagnose-workflow-failures-in-azure-logic-apps"></a>Solución de problemas y diagnóstico de errores de flujo de trabajo en Azure Logic Apps
 

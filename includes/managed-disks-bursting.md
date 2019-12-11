@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 10/24/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: c2ce39c40ad535b4a66349fcbb4529333218555a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7564d40aa9344288c0368818b0b6501dc22a5a27
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73510233"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74705526"
 ---
-Los discos SSD Premium admiten la ampliación en cualquier tamaño de disco <= 512 GiB (P20 o inferior). Estos tamaños de disco admiten la ampliación en la medida de lo posible y usan un sistema de crédito para administrarla. Los créditos se acumulan en un cubo de ráfagas siempre que el tráfico del disco está por debajo del objetivo de rendimiento aprovisionado para el tamaño del disco, y consume créditos cuando el tráfico supera el objetivo. Se realiza un seguimiento del tráfico contra IOPS y el ancho de banda en el objetivo aprovisionado.
+La ráfaga de disco es actualmente una característica en versión preliminar de SSD Premium. La ráfaga se admite en cualquier tamaño de disco SSD Premium <= 512 GiB (P20 o inferior). Estos tamaños de disco admiten la ampliación en la medida de lo posible y usan un sistema de crédito para administrarla. Los créditos se acumulan en un cubo de ráfagas siempre que el tráfico del disco está por debajo del objetivo de rendimiento aprovisionado para el tamaño del disco, y consume créditos cuando el tráfico supera el objetivo. Se realiza un seguimiento del tráfico contra IOPS y el ancho de banda en el objetivo aprovisionado.
 
 La ampliación del disco está habilitada de forma predeterminada en las nuevas implementaciones de los tamaños del disco que la admiten. Los tamaños del disco existentes, si admiten la ampliación del disco, pueden habilitar la seguridad a través de cualquiera de los métodos siguientes:
 

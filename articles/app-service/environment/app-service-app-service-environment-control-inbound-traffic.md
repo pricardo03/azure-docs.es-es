@@ -1,25 +1,18 @@
 ---
-title: 'Control del tráfico de entrada a un entorno de App Service: Azure'
-description: Obtenga información acerca de cómo configurar las reglas de seguridad de red para controlar el tráfico entrante a un entorno de App Service.
-services: app-service
-documentationcenter: ''
+title: Controlar el tráfico de entrada en v1
+description: Aprenda a controlar el tráfico de entrada a una instancia de App Service Environment. Este documento solo se proporciona para los clientes que usan App Service Environment v1 heredado.
 author: ccompy
-manager: erikre
-editor: ''
 ms.assetid: 4cc82439-8791-48a4-9485-de6d8e1d1a08
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/11/2017
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: c887ae5568bfd0f72f8d90daecd95547ed7b8b7d
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: aa43d44a691fa9151959e8817596bdfc9bba65f0
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070399"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687388"
 ---
 # <a name="how-to-control-inbound-traffic-to-an-app-service-environment"></a>Cómo controlar el tráfico de entrada a un entorno de App Service
 ## <a name="overview"></a>Información general

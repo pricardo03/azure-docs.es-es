@@ -1,25 +1,17 @@
 ---
-title: Biblioteca de cliente administrada de App Service Mobile Apps | Microsoft Docs
+title: Trabajo con la biblioteca cliente administrada
 description: Aprenda a usar la biblioteca cliente de .NET para Azure App Service Mobile Apps con aplicaciones de Windows y Xamarin.
-services: app-service\mobile
-documentationcenter: ''
-author: elamalani
-manager: crdun
-editor: ''
 ms.assetid: 0280785c-e027-4e0d-aaf2-6f155e5a6197
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
-ms.author: emalani
-ms.openlocfilehash: 1a56c6eed8b6a78587ea272c44f01d16e8a2b88d
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 741d286126bedb8b92828486927283fa9887658e
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388715"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668479"
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>Uso del cliente administrado para Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -100,7 +92,7 @@ En el código anterior, reemplace `MOBILE_APP_URL` por la dirección URL del bac
 La siguiente sección describe cómo buscar y recuperar registros y modificar los datos de la tabla.  Se tratan los siguientes temas:
 
 * [referencia de tabla](#instantiating)
-* [Datos de consulta](#querying)
+* [Consultar datos](#querying)
 * [Filtro de datos devueltos](#filtering)
 * [Ordenar datos devueltos](#sorting)
 * [Devolver datos en páginas](#paging)

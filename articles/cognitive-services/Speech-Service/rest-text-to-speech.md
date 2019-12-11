@@ -1,5 +1,5 @@
 ---
-title: 'Referencia de la API de conversión de texto a voz (REST): Speech Service'
+title: 'Referencia de la API de conversión de texto a voz (REST): servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: Aprenda a usar la API de REST Text-to-Speech. En este artículo, obtendrá más información sobre las opciones de autorización y de consulta y sobre cómo estructurar una solicitud y recibir una respuesta.
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 9fa0157bd458d2de028cab8ff9c836761e99562f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 779df2794267a1cb62d9918fc718da02e94c48cb
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73481206"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816627"
 ---
 # <a name="text-to-speech-rest-api"></a>Text-to-speech REST API
 
-Los Servicios de voz le permiten [convertir texto en voz sintetizada](#convert-text-to-speech) y [obtener una lista de voces admitidas](#get-a-list-of-voices) para una región con un conjunto de API de REST. Cada punto de conexión disponible se asocia con una región. Se requiere una clave de suscripción para el punto de conexión o región que se va a usar.
+El servicio de voz le permite [convertir texto en voz sintetizada](#convert-text-to-speech) y [obtener una lista de voces admitidas](#get-a-list-of-voices) para una región con un conjunto de API REST. Cada punto de conexión disponible se asocia con una región. Se requiere una clave de suscripción para el punto de conexión o región que se va a usar.
 
 Text to Speech REST API admite voces neuronales y de texto a voz estándar, y cada una de ellas admite un idioma y un dialecto específicos, que se identifican mediante la configuración regional.
 
@@ -167,7 +167,7 @@ En esta tabla se enumeran los encabezados obligatorios y opcionales para las sol
 
 ### <a name="audio-outputs"></a>Salidas de audio
 
-Esta es una lista de formatos de audio admitidos que se envían en cada solicitud como encabezado `X-Microsoft-OutputFormat`. Cada uno de ellos incorpora una velocidad de bits y el tipo de codificación. Los Servicio de voz admiten salidas de audio de 24 kHz, 16 kHz y 8 kHz.
+Esta es una lista de formatos de audio admitidos que se envían en cada solicitud como encabezado `X-Microsoft-OutputFormat`. Cada uno de ellos incorpora una velocidad de bits y el tipo de codificación. El servicio de voz admite salidas de audio de 24 kHz, 16 kHz y 8 kHz.
 
 |||
 |-|-|

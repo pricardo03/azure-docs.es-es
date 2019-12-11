@@ -1,17 +1,17 @@
 ---
-title: Introducción a puntos de conexión de servicios de red virtual en Azure Database for PostgreSQL con un único servidor
-description: Obtenga información sobre cómo funcionan los puntos de conexión de servicios de red virtual en Azure Database for PostgreSQL con un único servidor.
-author: bolzmj
-ms.author: mbolz
+title: 'Reglas de red virtual en Azure Database for PostgreSQL: servidor único'
+description: 'Aprenda a usar los puntos de conexión de servicio de red virtual (vnet) para conectarse a Azure Database for PostgreSQL: servidor único.'
+author: rachel-msft
+ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: b03be62a634d04f41513e7cf27c3cb55f69da438
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 11ffd323c5f775a795899cc35706493cba6d933b
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68609971"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74768663"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql---single-server"></a>Uso de reglas y puntos de conexión de servicio de red virtual para Azure Database for PostgreSQL con un único servidor
 
@@ -102,7 +102,7 @@ Si quiere, puede optar por usar el [control de acceso basado en rol (RBAC)][rbac
 > En algunos casos, Azure Database for PostgreSQL y la subred de red virtual se encuentran en distintas suscripciones. En estos casos debe garantizar las siguientes configuraciones:
 > - Ambas suscripciones deben estar en el mismo inquilino de Azure Active Directory.
 > - El usuario tiene los permisos necesarios para iniciar operaciones como habilitar los puntos de conexión de servicio y agregar una subred de red virtual al servidor especificado.
-> - Asegúrese de que la suscripción tenga el proveedor de recursos **Microsoft.Sql** registrado. Para más información, consulte [resource-manager-registration][resource-manager-portal].
+> - Asegúrese de que ambas suscripciones tengan el proveedor de recursos **Microsoft.Sql** registrado. Para más información, consulte [resource-manager-registration][resource-manager-portal].
 
 ## <a name="limitations"></a>Limitaciones
 

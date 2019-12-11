@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: síntesis asincrónica para audio de formato largo (versión preliminar): servicio de Voz'
+title: 'Inicio rápido: Síntesis asincrónica para audio de formato largo (versión preliminar): servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: Use Long Audio API para convertir texto a voz de forma asincrónica y recuperar la salida de audio de un URI proporcionado por el servicio. Esta API REST es ideal para los proveedores de contenido que necesitan convertir archivos de texto de más de 10 000 caracteres o 50 párrafos en voz sintetizada.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 6cf6cfb005155b85278935af6f266dfebcbb44c6
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 1558b2eb12b1d4745cdfeab41fc2d1bd829b3d9c
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74554958"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816696"
 ---
 # <a name="quickstart-asynchronous-synthesis-for-long-form-audio-in-python-preview"></a>Inicio rápido: síntesis asincrónica para audio de formato largo en Python (versión preliminar)
 

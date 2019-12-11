@@ -1,22 +1,20 @@
 ---
-title: Conectarse a la base de datos de IBM Informix - Azure Logic Apps | Microsoft Docs
+title: Conexión a una base de datos de IBM Informix
 description: Administrar los recursos con las API REST de IBM Informix y Azure Logic Apps
-author: gplarsen
-manager: jeconnoc
-ms.author: plarsen
-ms.date: 09/26/2016
-ms.topic: article
-ms.service: logic-apps
 services: logic-apps
-ms.reviewer: klam, LADocs
 ms.suite: integration
+author: gplarsen
+ms.author: plarsen
+ms.reviewer: klam, logicappspm
+ms.topic: article
+ms.date: 09/26/2016
 tags: connectors
-ms.openlocfilehash: 6004c02f190bbfcf374b3b5d2a5c478f0e52c961
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d6f768bc76d19c0aa21a245c008a4b05588f8f43
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60691008"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789732"
 ---
 # <a name="get-started-with-the-informix-connector"></a>Introducción al conector de Informix
 Microsoft Connector para Informix permite conectar Logic Apps a los recursos almacenados en una base de datos de IBM Informix. Este conector de Informix incluye un cliente de Microsoft para comunicarse con equipos de servidor de Informix remotos a través de una red TCP/IP. Este incluye bases de datos en la nube, como IBM Informix para Windows para Windows que se ejecuta en virtualización en Azure y bases de datos locales con la puerta de enlace de datos locales. Consulte la [lista compatible](connectors-create-api-informix.md#supported-informix-platforms-and-versions) de versiones y plataformas de IBM Informix (en este tema).
@@ -82,11 +80,11 @@ El conector admite conexiones a bases de datos locales y en la nube mediante las
 
 | Propiedad | DESCRIPCIÓN |
 | --- | --- |
-| Servidor |Necesario. Acepta un valor de cadena que representa una dirección TCP/IP o alias en formato IPv4 o IPv6 seguido de un número de puerto TCP/IP (delimitado por dos puntos). |
-| Base de datos |Necesario. Acepta un valor de cadena que representa un nombre de base de datos relacional de DRDA (RDBNAM). Informix acepta una cadena de 128 bytes (la base de datos se conoce como una base de datos IBM Informix (dbname)). |
+| server |Necesario. Acepta un valor de cadena que representa una dirección TCP/IP o alias en formato IPv4 o IPv6 seguido de un número de puerto TCP/IP (delimitado por dos puntos). |
+| database |Necesario. Acepta un valor de cadena que representa un nombre de base de datos relacional de DRDA (RDBNAM). Informix acepta una cadena de 128 bytes (la base de datos se conoce como una base de datos IBM Informix (dbname)). |
 | Autenticación |Opcional. Acepta un valor de elemento de lista que puede ser Basic o Windows (kerberos). |
 | Nombre de usuario |Necesario. Acepta un valor de cadena. |
-| contraseña |Necesario. Acepta un valor de cadena. |
+| password |Necesario. Acepta un valor de cadena. |
 | Puerta de enlace |Necesario. Acepta un valor de elemento de lista que representa la puerta de enlace de datos local definida para Logic Apps en el grupo de almacenamiento. |
 
 ## <a name="create-the-on-premises-gateway-connection"></a>Crear una conexión a una puerta de enlace local

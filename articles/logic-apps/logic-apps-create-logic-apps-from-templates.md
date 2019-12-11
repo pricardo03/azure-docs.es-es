@@ -1,21 +1,19 @@
 ---
-title: Creación de flujos de trabajo a partir de plantillas (Azure Logic Apps) | Microsoft Docs
+title: Creación de flujos de trabajo a partir de plantillas
 description: Compile flujos de trabajo más rápido mediante el uso de plantillas de aplicaciones lógicas en Azure Logic Apps.
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: kevinlam1
 ms.author: klam
-ms.reviewer: estfan, LADocs
+ms.reviewer: estfan, logicappspm
 ms.topic: article
-ms.assetid: 3656acfb-eefd-4e75-b5d2-73da56c424c9
 ms.date: 10/15/2017
-ms.openlocfilehash: 134a8f9625b45a8196ebd47f10286093f6ba0d46
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c7033185ac3a5411568195d788242a674b569183
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61459694"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74793187"
 ---
 # <a name="create-logic-app-workflows-from-prebuilt-templates"></a>Creación de flujos de trabajo de aplicaciones lógicas a partir de plantillas precompiladas
 
@@ -36,7 +34,7 @@ Si no tiene ninguna suscripción a Azure, [cree una cuenta gratuita de Azure](ht
 
 ## <a name="create-logic-apps-from-templates"></a>Creación de aplicaciones lógicas a partir de plantillas
 
-1. Si aún no lo ha hecho, inicie sesión en [Azure Portal](https://portal.azure.com "Azure Portal").
+1. Inicie sesión en [Azure Portal](https://portal.azure.com "Portal de Azure") si aún no lo ha hecho.
 
 2. En el menú principal de Azure Portal, elija **Crear un recurso** > **Enterprise Integration** > **Logic App**.
 
@@ -101,7 +99,7 @@ Si no tiene ninguna suscripción a Azure, [cree una cuenta gratuita de Azure](ht
 
 ## <a name="update-logic-apps-with-templates"></a>Actualizar aplicaciones lógicas con plantillas
 
-1. En [Azure Portal](https://portal.azure.com "Azure Portal"), busque y abra la aplicación lógica en el Diseñador de aplicaciones lógicas.
+1. En [Azure Portal](https://portal.azure.com "Portal de Azure"), busque y abra la aplicación lógica en el Diseñador de aplicaciones lógicas.
 
 2. En la barra de herramientas del diseñador, haga clic en **Plantillas**. Esta acción descarta los cambios no guardados, por lo que aparece un mensaje de advertencia para confirmar que quiere continuar. Para confirmar, elija **Aceptar**. Por ejemplo:
 

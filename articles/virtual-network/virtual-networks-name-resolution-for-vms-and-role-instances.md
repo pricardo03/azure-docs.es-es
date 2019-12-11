@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 3/25/2019
 ms.author: rohink
-ms.openlocfilehash: ebacd386221ed12e1171034eb5d23236bd234849
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 69e9e09b3f2c488f62732e0a74d212126826e8bf
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176041"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707569"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Resolución de nombres de recursos en redes virtuales de Azure
 
@@ -206,7 +206,7 @@ Si se usa el modelo de implementación de Azure Resource Manager, puede especifi
 Cuando se usa el modelo de implementación clásica, puede especificar servidores DNS para la red virtual en Azure Portal o en el [archivo de configuración de red](https://msdn.microsoft.com/library/azure/jj157100). En el caso de los servicios en la nube, puede especificar los servidores DNS mediante el [archivo de configuración del servicio](https://msdn.microsoft.com/library/azure/ee758710) o mediante PowerShell, con [New-AzureVM](/powershell/module/servicemanagement/azure/new-azurevm).
 
 > [!NOTE]
-> Si cambia la configuración de DNS para una red virtual o una máquina virtual que ya estén implementadas, deberá reiniciar cada máquina virtual afectada para que los cambios surtan efecto.
+> Si cambia la configuración de DNS de una máquina o red virtual que ya está implementada, para que la nueva configuración de DNS surta efecto, debe realizar una renovación de la concesión de DHCP en todas las máquinas virtuales afectadas de la red virtual. En el caso de las máquinas virtuales que ejecutan el sistema operativo Windows, puede hacerlo escribiendo `ipconfig /renew` directamente en la máquina virtual. Los pasos varían en función del sistema operativo. Consulte la documentación correspondiente para su tipo de sistema operativo. 
 >
 >
 

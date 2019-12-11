@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 11/04/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 636fd5fd17838c729cdbc9e2a322c1f991d93948
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: e517b6030aa1c9549e33c00425851afae90aac42
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186440"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707639"
 ---
 # <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>Diferencias, limitaciones y problemas conocidos de T-SQL en la instancia administrada
 
@@ -26,7 +26,7 @@ Este artículo resume y explica las diferencias de sintaxis y comportamiento ent
 
 Existen algunas limitaciones de PaaS que se introdujeron en Instancia administrada y algunos cambios de comportamiento en comparación con SQL Server. Las diferencias se dividen en las siguientes categorías: <a name="Differences"></a>
 
-- [Disponibilidad](#availability), incluye las diferencias en [Always-On](#always-on-availability) y [Copias de seguridad](#backup).
+- [Disponibilidad](#availability), incluye las diferencias en [Grupos de disponibilidad AlwaysOn](#always-on-availability-groups) y [Copias de seguridad](#backup).
 - [Seguridad](#security), incluye las diferencias en [Auditoría](#auditing), [Certificados](#certificates), [Credenciales](#credential), [Proveedores de servicios criptográficos](#cryptographic-providers), [Inicios de sesión y usuarios](#logins-and-users), [Clave maestra de servicio y clave de servicio](#service-key-and-service-master-key).
 - [Configuración](#configuration), incluye las diferencias en [Extensión del grupo de búferes](#buffer-pool-extension), [Intercalación](#collation), [Niveles de compatibilidad](#compatibility-levels),[Creación de reflejo de la base de datos ](#database-mirroring), [Opciones de base de datos](#database-options), [Agente SQL Server](#sql-server-agent) y [Opciones de tabla](#tables).
 - [Funcionalidades](#functionalities), incluidas [BULK INSERT/OPENROWSET](#bulk-insert--openrowset), [CLR](#clr), [DBCC](#dbcc), [Transacciones distribuidas](#distributed-transactions), [Eventos extendidos](#extended-events), [Bibliotecas externas](#external-libraries), [Filestream y Filetable](#filestream-and-filetable), [Búsqueda semántica de texto completo](#full-text-semantic-search), [Servidores vinculados](#linked-servers), [PolyBase](#polybase), [Replicación](#replication), [RESTORE](#restore-statement), [Service Broker](#service-broker), [Funciones, procedimientos almacenados y desencadenadores](#stored-procedures-functions-and-triggers).
@@ -38,7 +38,7 @@ En esta página también se explican los [Problemas temporales conocidos](#Issue
 
 ## <a name="availability"></a>Disponibilidad
 
-### <a name="always-on-availability"></a>Always On
+### <a name="always-on-availability-groups"></a>Grupos de disponibilidad AlwaysOn
 
 La [alta disponibilidad](sql-database-high-availability.md) está integrada en la instancia administrada y no la pueden controlar los usuarios. No se admiten las siguientes instrucciones:
 

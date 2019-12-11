@@ -12,12 +12,12 @@ ms.date: 10/29/2019
 ms.author: mimart
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b5d1654556df455accb7f615442d3a97952c5e50
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: b9e1af654f0e82017bab4db5eb529b7d65b44714
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73180076"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74786442"
 ---
 # <a name="configure-the-admin-consent-workflow-preview"></a>Configuración del flujo de trabajo de consentimiento del administrador (versión preliminar)
 
@@ -33,10 +33,10 @@ Para aprobar solicitudes, un revisor debe ser un administrador global, un admini
 
 Para habilitar el flujo de trabajo de consentimiento del administrador y elegir revisores, siga estos pasos:
 
-1. Inicie sesión en  [Azure Portal](https://portal.azure.com)  como administrador global.
-2. Haga clic en  **Todos los servicios**  en la parte superior del menú de navegación izquierdo. Se abre la  **extensión de Azure Active Directory** .
-3. En el cuadro de búsqueda del filtro, escriba **Azure Active Directory** y seleccione el elemento **Azure Active Directory** .
-4. En el menú de navegación, haga clic en  **Aplicaciones empresariales**. 
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador global.
+2. Haga clic en **Todos los servicios** en la parte superior del menú de navegación izquierdo. Se abrirá la **extensión de Azure Active Directory**
+3. En el cuadro de búsqueda del filtro, escriba "**Azure Active Directory**" y seleccione el elemento **Azure Active Directory**.
+4. En el menú de navegación, haga clic en **Aplicaciones empresariales**. 
 5. En **Administrar**, seleccione **Configuración del usuario**.
 6. En **Solicitudes de consentimiento del administrador (versión preliminar)** , establezca **Los usuarios pueden solicitar el consentimiento del administrador para las aplicaciones en las que no puedan proporcionar un consentimiento** en **Sí**.
 
@@ -74,10 +74,10 @@ Una vez habilitado el flujo de trabajo de consentimiento del administrador, los 
 
 Para revisar las solicitudes de consentimiento del administrador y tomar medidas, siga estos pasos:
 
-1. Inicie sesión en  [Azure Portal](https://portal.azure.com)  como uno de los revisores registrados del flujo de trabajo de consentimiento del administrador.
-2. Seleccione **Todos los servicios**  en la parte superior del menú de navegación izquierdo. Se abre la  **extensión de Azure Active Directory** .
-3. En el cuadro de búsqueda del filtro, escriba **Azure Active Directory** y seleccione el elemento  **Azure Active Directory** .
-4. En el menú de navegación, haga clic en  **Aplicaciones empresariales**.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) como uno de los revisores registrados del flujo de trabajo de consentimiento del administrador.
+2. Haga clic en **Todos los servicios** en la parte superior del menú de navegación izquierdo. Se abrirá la **extensión de Azure Active Directory**
+3. En el cuadro de búsqueda del filtro, escriba "**Azure Active Directory**" y seleccione el elemento **Azure Active Directory**.
+4. En el menú de navegación, haga clic en **Aplicaciones empresariales**.
 5. En **Actividad**, seleccione **Solicitudes de consentimiento del administrador (versión preliminar)** .
 
    > [!NOTE]
@@ -120,12 +120,12 @@ En la tabla siguiente se describen los escenarios y los valores de auditoría di
 
 |Escenario  |Servicio de auditoría  |Categoría de auditoría  |Actividad de auditoría  |Actor de auditoría  |Limitaciones del registro de auditoría  |
 |---------|---------|---------|---------|---------|---------|
-|El administrador habilita el flujo de trabajo de solicitud de consentimiento        |Revisiones de acceso           |UserManagement           |Crear plantilla de directiva de gobernanza          |Contexto de la aplicación            |Actualmente no se puede encontrar el contexto de usuario            |
-|Deshabilitar el flujo de trabajo de solicitud de consentimiento       |Revisiones de acceso           |UserManagement           |Eliminar plantilla de directiva de gobernanza          |Contexto de la aplicación            |Actualmente no se puede encontrar el contexto de usuario           |
-|El administrador actualiza las configuraciones de flujo de trabajo de consentimiento        |Revisiones de acceso           |UserManagement           |Actualizar plantilla de directiva de gobernanza          |Contexto de la aplicación            |Actualmente no se puede encontrar el contexto de usuario           |
-|El usuario final crea una solicitud de consentimiento del administrador para una aplicación       |Revisiones de acceso           |Directiva         |Crear solicitud           |Contexto de la aplicación            |Actualmente no se puede encontrar el contexto de usuario           |
-|Los revisores aprueban una solicitud de consentimiento del administrador       |Revisiones de acceso           |UserManagement           |Aprobar todas las solicitudes en el flujo de negocio          |Contexto de la aplicación            |Actualmente, no se puede encontrar el contexto de usuario o el identificador de la aplicación a la que se concedió el consentimiento del administrador.           |
-|Los revisores deniegan una solicitud de consentimiento del administrador       |Revisiones de acceso           |UserManagement           |Aprobar todas las solicitudes en el flujo de negocio          |Contexto de la aplicación            | Actualmente no se puede encontrar el contexto de usuario del actor que denegó una solicitud de consentimiento del administrador          |
+|El administrador habilita el flujo de trabajo de solicitud de consentimiento        |Revisiones de acceso           |UserManagement           |Crear plantilla de directiva de gobernanza          |Contexto de la aplicación            |Actualmente no se puede encontrar el contexto de usuario            |
+|El administrador deshabilita el flujo de trabajo de solicitud de consentimiento       |Revisiones de acceso           |UserManagement           |Eliminar plantilla de directiva de gobernanza          |Contexto de la aplicación            |Actualmente no se puede encontrar el contexto de usuario           |
+|El administrador actualiza las configuraciones de flujo de trabajo de consentimiento        |Revisiones de acceso           |UserManagement           |Actualizar plantilla de directiva de gobernanza          |Contexto de la aplicación            |Actualmente no se puede encontrar el contexto de usuario           |
+|El usuario final crea una solicitud de consentimiento del administrador para una aplicación       |Revisiones de acceso           |Directiva         |Crear solicitud           |Contexto de la aplicación            |Actualmente no se puede encontrar el contexto de usuario           |
+|Los revisores aprueban una solicitud de consentimiento del administrador       |Revisiones de acceso           |UserManagement           |Aprobar todas las solicitudes en el flujo de negocio          |Contexto de la aplicación            |Actualmente no se puede buscar el contexto de usuario ni el identificador de la aplicación a la que se concedió el consentimiento del administrador.           |
+|Los revisores deniegan una solicitud de consentimiento del administrador       |Revisiones de acceso           |UserManagement           |Aprobar todas las solicitudes en el flujo de negocio          |Contexto de la aplicación            | Actualmente no se puede buscar el contexto de usuario del actor que denegó una solicitud de consentimiento del administrador          |
 
 ## <a name="faq"></a>Preguntas más frecuentes 
 

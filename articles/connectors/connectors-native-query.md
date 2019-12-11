@@ -1,27 +1,21 @@
 ---
-title: Adición de la acción de consulta a Logic Apps | Microsoft Docs
-description: En este artículo se muestra información general sobre las acciones de consulta para realizar acciones como Filter array (Filtrar matriz).
-services: ''
-documentationcenter: ''
-author: jeffhollan
-manager: erikre
-editor: ''
-tags: connectors
-ms.assetid: 34e702c7-f9e5-4885-9266-fc7404adecfe
-ms.service: logic-apps
+title: Adición de la acción de consulta a Logic Apps
+description: En este artículo se muestra información general sobre las acciones de consulta para realizar acciones como filtrar la matriz.
+services: logic-apps
+ms.suite: integration
+ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/20/2016
-ms.author: jehollan
-ms.openlocfilehash: 10332b95e0d385d7155003efcc52b4bae3969313
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+tags: connectors
+ms.openlocfilehash: 2e5c9d371a280b776699b2e10d3e8e94b5f41f6f
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973766"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74787139"
 ---
 # <a name="get-started-with-the-query-action"></a>Introducción a la acción de consulta
+
 Mediante la acción de consulta puede utilizar lotes y matrices para realizar flujos de trabajo como los siguientes:
 
 * Crear una tarea para todos los registros de alta prioridad desde una base de datos.
@@ -30,6 +24,7 @@ Mediante la acción de consulta puede utilizar lotes y matrices para realizar fl
 Para empezar a usar la acción de consulta en una aplicación lógica, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="use-the-query-action"></a>Uso de la acción de consulta
+
 Una acción es una operación que se lleva a cabo mediante el flujo de trabajo definido en una aplicación lógica. 
 [Más información acerca de las acciones](../connectors/apis-list.md).  
 

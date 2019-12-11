@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 92aa28c131d81c41d515762ac2a346048c143790
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 8eda3ed7d35c9ff94a00eacb49f2e4f3b3e6f150
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74008564"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74796057"
 ---
 En este artículo se responden algunas de las preguntas más frecuentes acerca de Azure Managed Disks y los discos SSD Premium de Azure.
 
@@ -137,7 +137,9 @@ No se puede cambiar el nombre de los discos administrados. Sin embargo, es posib
 
 **¿Puedo usar la creación de particiones de GPT en un disco de Azure?**
 
-La creación de particiones de GPT solo se puede usar en discos de datos, no en discos de sistemas operativos. Los discos de SO deben usar el estilo de partición de MBR.
+Las imágenes de generación 1 solo pueden usar particiones GPT en discos de datos, no en discos del sistema operativo. Los discos de SO deben usar el estilo de partición de MBR.
+
+[Las imágenes de generación 2](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2) pueden utilizar la creación de particiones GPT en el disco del sistema operativo, así como en los discos de datos.
 
 **¿Qué tipos de discos admiten instantáneas?**
 

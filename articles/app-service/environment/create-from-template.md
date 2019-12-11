@@ -1,24 +1,18 @@
 ---
-title: Creación de un entorno de App Service mediante plantillas de Resource Manager - Azure
-description: Explica cómo crear una instancia externa o con un ILB de Azure App Service Environment mediante una plantilla de Resource Manager
-services: app-service
-documentationcenter: na
+title: Creación de un ASE con ARM
+description: Aprenda a crear una instancia externa o con un ILB de App Service Environment mediante una plantilla de Azure Resource Manager.
 author: ccompy
-manager: stefsch
 ms.assetid: 6eb7d43d-e820-4a47-818c-80ff7d3b6f8e
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 60c9d89bc0ab7c63e779a7cadece863540e827aa
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0dccefa47789b4658a7bca828b5a820db0d448e5
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470603"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688655"
 ---
 # <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>Creación de una instancia de ASE mediante el uso de una plantilla de Azure Resource Manager
 

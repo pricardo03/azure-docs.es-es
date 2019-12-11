@@ -9,12 +9,12 @@ ms.date: 09/25/2019
 ms.author: santoshc
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 06b96bf548be45952e1ff21f0433a1607ab36501
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: fff92057bc9812a5ef1488a46ed469382ad3ace3
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227895"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806888"
 ---
 # <a name="using-private-endpoints-for-azure-storage-preview"></a>Uso de puntos de conexión privados para Azure Storage (versión preliminar)
 
@@ -31,6 +31,8 @@ El uso de puntos de conexión privados en una cuenta de almacenamiento permite:
 Un punto de conexión privado es una interfaz de red especial para un servicio de Azure de una [red virtual](../../virtual-network/virtual-networks-overview.md) (VNet). Cuando se crea un punto de conexión privado para una cuenta de almacenamiento, este proporciona conectividad segura entre los clientes de la red virtual y el almacenamiento. Al punto de conexión privado se le asigna una dirección IP del intervalo de direcciones IP de la red virtual. La conexión entre el punto de conexión privado y el servicio de almacenamiento usa un vínculo privado seguro.
 
 Las aplicaciones de la red virtual se pueden conectar al servicio de almacenamiento a través del punto de conexión privado sin problemas, **ya que se usan las mismas cadenas de conexión y mecanismos de autorización que se usarían en cualquier otro caso**. Los puntos de conexión privados se pueden usar con todos los protocolos que admita la cuenta de almacenamiento, incluidos REST y SMB.
+
+Los puntos de conexión privados se pueden crear en subredes que usan [puntos de conexión de servicio](../../virtual-network/virtual-network-service-endpoints-overview.md). Por lo tanto, los clientes de una subred pueden conectarse a una cuenta de almacenamiento mediante un punto de conexión privado, al mismo tiempo que usan puntos de conexión de servicio para acceder a otras.
 
 Cuando se crea un punto de conexión privado para un servicio de almacenamiento en la red virtual, se envía una solicitud de consentimiento para su aprobación al propietario de la cuenta de almacenamiento. Si el usuario que solicita la creación del punto de conexión privado también es propietario de la cuenta de almacenamiento, esta solicitud de consentimiento se aprueba automáticamente.
 
@@ -70,7 +72,7 @@ De forma predeterminada, se crea una [zona DNS privada](../../dns/private-dns-ov
 
 ## <a name="dns-changes-for-private-endpoints"></a>Cambios de DNS en puntos de conexión privados
 
-El registro del recurso CNAME de DNS de una cuenta de almacenamiento con un punto de conexión privado se actualiza a un alias de un subdominio con el prefijo "*privatelink*". De forma predeterminada, se crea también una [zona DNS privada](../../dns/private-dns-overview.md) conectada a la red virtual que corresponde al subdominio con el prefijo "*privatelink*" y que contiene los registros D de DNS del recurso para los puntos de conexión privados.
+Al crear un punto de conexión privado, el registro del recurso CNAME de DNS de la cuenta de almacenamiento se actualiza a un alias de un subdominio con el prefijo "*privatelink*". De forma predeterminada, también se crea una [zona DNS privada](../../dns/private-dns-overview.md), que se corresponde con el subdominio "*privatelink*, con los registros de recursos A de DNS para los puntos de conexión privados.
 
 Cuando se resuelve la dirección URL del punto de conexión de almacenamiento desde fuera de la red virtual con el punto de conexión privado, se resuelve en el punto de conexión público del servicio de almacenamiento. Cuando se resuelve desde la red virtual que hospeda el punto de conexión privado, la dirección URL del punto de conexión de almacenamiento se resuelve en la dirección IP del punto de conexión privado.
 
@@ -93,7 +95,7 @@ Los registros de recursos DNS de StorageAccountA, cuando los resuelve un cliente
 
 Este enfoque permite el acceso a la cuenta de almacenamiento **mediante la misma cadena de conexión** para los clientes de la red virtual que hospeda los puntos de conexión privados y los clientes que están fuera de esta.
 
-Si va a usar un servidor DNS personalizado en la red, los clientes deben ser capaces de resolver el FQDN del punto de conexión de la cuenta de almacenamiento en la dirección IP del punto de conexión privado. Para ello, debe configurar el servidor DNS para delegar el subdominio del vínculo privado en la zona DNS privada de la red virtual, o configurar los registros D para "*StorageAccountA.privatelink.blob.core.windows.net*" con la dirección IP del punto de conexión privado. 
+Si va a usar un servidor DNS personalizado en la red, los clientes deben ser capaces de resolver el FQDN del punto de conexión de la cuenta de almacenamiento en la dirección IP del punto de conexión privado. Debería configurar el servidor DNS para delegar el subdominio del vínculo privado en la zona DNS privada de la red virtual o configurar los registros A para "*StorageAccountA.privatelink.blob.core.windows.net*" con la dirección IP del punto de conexión privado.
 
 > [!TIP]
 > Cuando use un servidor DNS personalizado o local, debe configurarlo para resolver el nombre de la cuenta de almacenamiento del subdominio "privatelink" en la dirección IP del punto de conexión privado. Para ello, puede delegar el subdominio "privatelink" en la zona DNS privada de la red virtual, o bien configurar la zona DNS en el servidor DNS y agregar los registros D de DNS.
@@ -111,10 +113,10 @@ Los nombres de zona DNS recomendados para los puntos de conexión privados de lo
 
 #### <a name="resources"></a>Recursos
 
-Para obtener instrucciones adicionales sobre cómo configurar su propio servidor DNS para que admita puntos de conexión privados, consulte los siguientes artículos:
+Para más información sobre cómo configurar su propio servidor DNS para que admita puntos de conexión privados, consulte los siguientes artículos:
 
-- [Resolución de nombres de recursos en redes virtuales de Azure](/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
-- [Configuración de DNS para puntos de conexión privados](/private-link/private-endpoint-overview#dns-configuration)
+- [Resolución de nombres de recursos en redes virtuales de Azure](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
+- [Configuración de DNS para puntos de conexión privados](/azure/private-link/private-endpoint-overview#dns-configuration)
 
 ## <a name="pricing"></a>Precios
 
@@ -125,9 +127,6 @@ Para más información sobre los precios, consulte [Precios de Azure Private Lin
 ### <a name="copy-blob-support"></a>Compatibilidad de Copy Blob
 
 Durante la versión preliminar, no se admiten los comandos [Copy Blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob) emitidos para las cuentas de almacenamiento a las que se accede a través de puntos de conexión privados cuando la cuenta de almacenamiento de origen está protegida mediante un firewall.
-
-### <a name="subnets-with-service-endpoints"></a>Subredes con puntos de conexión de servicio
-Actualmente, no se puede crear un punto de conexión privado en una subred que tenga puntos de conexión de servicio. Como solución alternativa, se pueden crear subredes independientes en la misma red virtual para los puntos de conexión de servicio y los puntos de conexión privados.
 
 ### <a name="storage-access-constraints-for-clients-in-vnets-with-private-endpoints"></a>Restricciones de acceso al almacenamiento para los clientes de redes virtuales con puntos de conexión privados
 

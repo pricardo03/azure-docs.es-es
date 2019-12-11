@@ -1,17 +1,17 @@
 ---
-title: Configuración de alertas de métricas en Azure Database for MariaDB en Azure Portal
+title: Configuración de alertas de métricas mediante Azure Portal en Azure Database for MariaDB
 description: En este artículo se describe cómo configurar las alertas de métricas en Azure Database for MariaDB y obtener acceso a ellas en Azure Portal.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 01/07/2019
-ms.openlocfilehash: ce9804a4ecad4cd0f2e797038dc10c71b50de9bf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 12/02/2019
+ms.openlocfilehash: c2367fc58530675783277c2edc4d62efd55a1da8
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61041094"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74771887"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mariadb"></a>Uso de Azure Portal para configurar alertas de métricas en Azure Database for MariaDB
 

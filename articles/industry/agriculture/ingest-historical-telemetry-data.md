@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 5ae64371bd114a898ddca874e23b499bc4a2b8a3
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 27aec53fd2e92e19f1c749e833217fb8b5deae57
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74128784"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672569"
 ---
 # <a name="ingest-historical-telemetry-data"></a>Ingesta de datos de telemetría históricos
 
@@ -21,6 +21,7 @@ Uno de los escenarios comunes de FarmBeats es la ingesta de datos históricos de
 ## <a name="before-you-begin"></a>Antes de empezar
 
 Antes de continuar con este artículo, asegúrese de que ha instalado FarmBeats y ha recopilado datos históricos desde IoT.
+También tendrá que habilitar el acceso de los asociados como se indica en los pasos siguientes.
 
 ## <a name="enable-partner-access"></a>Habilitación del acceso de asociados
 

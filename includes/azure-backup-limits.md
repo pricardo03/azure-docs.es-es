@@ -2,18 +2,18 @@
 title: archivo de inclusión
 description: archivo de inclusión
 services: backup
-author: rayne-wiselman
+author: dcurwin
 ms.service: backup
 ms.topic: include
 ms.date: 12/07/2018
-ms.author: raynew
+ms.author: dacurwin
 ms.custom: include file
-ms.openlocfilehash: 9e9c09c1825f5c8383a708e8bd343146396f878e
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: ca6c57b139b195b94dc7171336cfcc34d18b1872
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "67186715"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74828995"
 ---
 Los límites siguientes corresponden a Azure Backup.
 
@@ -24,4 +24,4 @@ Los límites siguientes corresponden a Azure Backup.
 | Almacenes de copia de seguridad en una suscripción de Azure. |500 almacenes por región. |
 | Programación de copias de seguridad diarias. |Windows Server/cliente Windows: Tres veces al día.<br/> System Center DPM: Dos veces al día. <br/> Máquinas virtuales de IaaS: Una vez al día.  |
 | Discos de datos conectados a una máquina virtual de Azure para copia de seguridad. | 16 |
-| Disco de datos individual conectado a la máquina virtual de Azure para copia de seguridad.| 4095 GB|
+| Disco de datos individual conectado a la máquina virtual de Azure para copia de seguridad.| 32 TB|

@@ -1,19 +1,19 @@
 ---
 title: Compatibilidad con la fuente de cambios en Azure Cosmos DB
 description: Use la compatibilidad con la fuente de cambios de Azure Cosmos DB para controlar los cambios en documentos y realizar el procesamiento basado en eventos tales como desencadenadores y mantener actualizados las cachés y los sistemas de análisis.
-author: markjbrown
-ms.author: mjbrown
+author: TheovanKraay
+ms.author: thvankra
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 11/25/2019
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 8e6bd3dadd636127f212db0ea0c0755a6b52a087
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: eef950c4e8c4a880d331022ed60477bebce65b5d
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72757024"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74689087"
 ---
 # <a name="change-feed-in-azure-cosmos-db---overview"></a>Fuente de cambios en Azure Cosmos DB: introducción
 
@@ -33,12 +33,12 @@ La fuente de cambios en Azure Cosmos DB le permite crear soluciones eficientes y
 
 La característica actualmente es compatible con los siguientes SDK de cliente y API de Cosmos DB.
 
-| **Controladores cliente** | **CLI de Azure** | **SQL API** | **Cassandra API** | **API de Azure Cosmos DB para MongoDB** | **Gremlin API**|**Table API** |
+| **Controladores cliente** | **CLI de Azure** | **SQL API** | **API de Azure Cosmos DB para Cassandra** | **API de Azure Cosmos DB para MongoDB** | **Gremlin API**|**Table API** |
 | --- | --- | --- | --- | --- | --- | --- |
-| .NET | N/D | Sí | No | No | Sí | Sin |
-|Java|N/D|Sí|No|No|Sí|Sin|
-|Python|N/D|Sí|No|No|Sí|Sin|
-|Node/JS|N/D|Sí|No|No|Sí|Sin|
+| .NET | N/D | Sí | Sí | Sí | Sí | Sin |
+|Java|N/D|Sí|Sí|Sí|Sí|Sin|
+|Python|N/D|Sí|Sí|Sí|Sí|Sin|
+|Node/JS|N/D|Sí|Sí|Sí|Sí|Sin|
 
 ## <a name="change-feed-and-different-operations"></a>Fuente de cambios y operaciones diferentes
 
@@ -119,6 +119,12 @@ La fuente de cambios está disponible para cada clave de partición lógica dent
 * Los cambios están disponibles en paralelo para todas las claves de partición lógica de un contenedor de Azure Cosmos. Esta funcionalidad permite que los cambios de contenedores grandes se procesen en paralelo por medio de varios consumidores.
 
 * Las aplicaciones pueden solicitar varias fuentes de cambios en el mismo contenedor de forma simultánea. ChangeFeedOptions.StartTime se puede usar para proporcionar un punto inicial. Por ejemplo, para buscar el token de continuación correspondiente a una hora especificada. ContinuationToken, si se especifica, tiene prioridad sobre los valores StartTime y StartFromBeginning. La precisión de ChangeFeedOptions.StartTime es aproximadamente de 5 segundos. 
+
+## <a name="change-feed-in-apis-for-cassandra-and-mongodb"></a>Fuente de cambios en las API de Cassandra y MongoDB
+
+La funcionalidad de fuente de cambios aparece como flujo de cambios en la API de MongoDB y como consulta con predicado en Cassandra API. Para más información sobre los detalles de implementación de la API de MongoDB, consulte [Flujos de cambios en la API de Azure Cosmos DB para MongoDB](mongodb-change-streams.md).
+
+Apache Cassandra nativo proporciona captura de datos modificados (CDC), un mecanismo para marcar tablas concretas para el archivado, así como para rechazar escrituras en esas tablas una vez que se alcanza un tamaño en disco que se puede configurar para el registro de CDC. La característica de fuente de cambios de la API de Azure Cosmos DB para Cassandra mejora la capacidad de consultar los cambios con el predicado a través de CQL. Para más información sobre los detalles de implementación, consulte [Fuente de cambios de la API de Azure Cosmos DB para Cassandra](cassandra-change-feed.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

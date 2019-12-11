@@ -3,12 +3,12 @@ title: 'Funciones de plantillas: matrices y objetos'
 description: Describe las funciones para usar en una plantilla de Azure Resource Manager para trabajar con matrices y objetos.
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.openlocfilehash: d530027c05195caf8b93a61f4e002ce835d021c5
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 6722736cad5ad76544be336a2cba85c5ad768781
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74149675"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74786222"
 ---
 # <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Funciones de matriz y de objeto para las plantillas de Azure Resource Manager
 
@@ -34,18 +34,15 @@ Resource Manager ofrece varias funciones para trabajar con matrices y objetos.
 
 Para obtener una matriz de valores de cadena delimitada por un valor, consulte [split](resource-group-template-functions-string.md#split).
 
-<a id="array" />
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 ## <a name="array"></a>array
+
 `array(convertToArray)`
 
 Convierte el valor en una matriz.
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | convertToArray |Sí |int, string, array u object |Valor que se convierte en matriz. |
 
@@ -114,16 +111,15 @@ Para implementar esta plantilla de ejemplo con PowerShell, use:
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/array.json
 ```
 
-<a id="coalesce" />
-
 ## <a name="coalesce"></a>coalesce
+
 `coalesce(arg1, arg2, arg3, ...)`
 
 Devuelve el primer valor no nulo de los parámetros. Las cadenas vacías, las matrices vacías y los objetos vacíos no son nulos.
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |int, string, array u object |El primer valor para comprobar si hay valores nulos. |
 | argumentos adicionales |Sin |int, string, array u object |Valores adicionales para probar si hay valores nulos. |
@@ -202,23 +198,23 @@ Para implementar esta plantilla de ejemplo con PowerShell, use:
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/coalesce.json
 ```
 
-<a id="concat" />
-
 ## <a name="concat"></a>concat
+
 `concat(arg1, arg2, arg3, ...)`
 
 Combina varias matrices y devuelve la matriz concatenada, o combina varios valores de cadena y devuelve la cadena concatenada. 
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |matriz o cadena |La primera matriz o cadena para la concatenación. |
 | argumentos adicionales |Sin |matriz o cadena |Matrices o cadenas adicionales en orden secuencial para la concatenación. |
 
-Esta función puede tomar cualquier número de argumentos y puede aceptar cadenas o matrices para los parámetros.
+Esta función puede tomar cualquier número de argumentos y puede aceptar cadenas o matrices para los parámetros. Sin embargo, no puede proporcionar ambas a la vez para los parámetros. Las matrices solo se concatenan con otras matrices.
 
 ### <a name="return-value"></a>Valor devuelto
+
 Una cadena o matriz de valores concatenados.
 
 ### <a name="example"></a>Ejemplo
@@ -316,16 +312,15 @@ Para implementar esta plantilla de ejemplo con PowerShell, use:
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-string.json
 ```
 
-<a id="contains" />
-
 ## <a name="contains"></a>contains
+
 `contains(container, itemToFind)`
 
 Comprueba si una matriz contiene un valor, un objeto contiene una clave o una cadena contiene una subcadena. La comparación de cadena distingue mayúsculas de minúsculas. Pero, cuando se prueba si un objeto contiene una clave, la comparación no distingue mayúsculas de minúsculas.
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | container |Sí |matriz, objeto o cadena |El valor que contiene el valor para buscar. |
 | itemToFind |Sí |cadena o entero |El valor para buscar. |
@@ -410,16 +405,15 @@ Para implementar esta plantilla de ejemplo con PowerShell, use:
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/contains.json
 ```
 
-<a id="createarray" />
-
 ## <a name="createarray"></a>createarray
+
 `createArray (arg1, arg2, arg3, ...)`
 
 Crea una matriz a partir de los parámetros.
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |Cadena, entero, matriz u objeto |El primer valor en la matriz. |
 | argumentos adicionales |Sin |Cadena, entero, matriz u objeto |Valores adicionales en la matriz. |
@@ -490,8 +484,6 @@ Para implementar esta plantilla de ejemplo con PowerShell, use:
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/createarray.json
 ```
 
-<a id="empty" />
-
 ## <a name="empty"></a>empty
 
 `empty(itemToTest)`
@@ -500,7 +492,7 @@ Determina si una matriz, un objeto o una cadena están vacíos.
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | itemToTest |Sí |matriz, objeto o cadena |El valor para comprobar si está vacío. |
 
@@ -569,16 +561,15 @@ Para implementar esta plantilla de ejemplo con PowerShell, use:
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/empty.json
 ```
 
-<a id="first" />
-
 ## <a name="first"></a>first
+
 `first(arg1)`
 
 Devuelve el primer elemento de la matriz o el primer carácter de la cadena.
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |matriz o cadena |El valor para recuperar el primer elemento o carácter. |
 
@@ -634,16 +625,15 @@ Para implementar esta plantilla de ejemplo con PowerShell, use:
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/first.json
 ```
 
-<a id="intersection" />
-
 ## <a name="intersection"></a>intersección
+
 `intersection(arg1, arg2, arg3, ...)`
 
 Devuelve una única matriz u objeto con los elementos comunes de los parámetros.
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |matriz u objeto |El primer valor que se utilizará para buscar elementos comunes. |
 | arg2 |Sí |matriz u objeto |El segundo valor que se utilizará para buscar elementos comunes. |
@@ -714,16 +704,16 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 ```
 
 ## <a name="json"></a>json
+
 `json(arg1)`
 
 Devuelve un objeto JSON.
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |string |Valor que se va a convertir en JSON. |
-
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -786,16 +776,15 @@ Para implementar esta plantilla de ejemplo con PowerShell, use:
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/json.json
 ```
 
-<a id="last" />
-
 ## <a name="last"></a>last
+
 `last (arg1)`
 
 Devuelve el último elemento de la matriz o el último carácter de la cadena.
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |matriz o cadena |El valor para recuperar el último elemento o carácter. |
 
@@ -851,16 +840,15 @@ Para implementar esta plantilla de ejemplo con PowerShell, use:
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/last.json
 ```
 
-<a id="length" />
-
 ## <a name="length"></a>length
+
 `length(arg1)`
 
 Devuelve el número de elementos de una matriz, caracteres de una cadena o propiedades de nivel raíz de un objeto.
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |matriz, cadena u objeto |La matriz que se usará para obtener el número de elementos, la cadena que se usará para obtener el número de caracteres o el objeto que se usará para obtener el número de propiedades del nivel raíz. |
 
@@ -951,16 +939,15 @@ Puede usar esta función con una matriz para especificar el número de iteracion
 
 Para más información sobre cómo usar esta función con una matriz, vea [Creación de varias instancias de recursos en el Administrador de recursos de Azure](resource-group-create-multiple.md).
 
-<a id="max" />
-
 ## <a name="max"></a>max
+
 `max(arg1)`
 
 Devuelve el valor máximo de una matriz de enteros o una lista separada por comas de enteros.
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |matriz de enteros, o lista separada por comas de enteros |La colección para obtener el valor máximo. |
 
@@ -1015,16 +1002,15 @@ Para implementar esta plantilla de ejemplo con PowerShell, use:
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/max.json
 ```
 
-<a id="min" />
-
 ## <a name="min"></a>Min
+
 `min(arg1)`
 
 Devuelve el valor mínimo de una matriz de enteros o una lista separada por comas de enteros.
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |matriz de enteros, o lista separada por comas de enteros |La colección para obtener el valor mínimo. |
 
@@ -1079,16 +1065,15 @@ Para implementar esta plantilla de ejemplo con PowerShell, use:
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/min.json
 ```
 
-<a id="range" />
-
 ## <a name="range"></a>range
+
 `range(startingInteger, numberOfElements)`
 
 Crea una matriz de enteros a partir de un entero de inicio y contiene un número de elementos.
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | startingInteger |Sí |int |El primer entero de la matriz. |
 | numberofElements |Sí |int |El número de enteros en la matriz. |
@@ -1143,16 +1128,15 @@ Para implementar esta plantilla de ejemplo con PowerShell, use:
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/range.json
 ```
 
-<a id="skip" />
-
 ## <a name="skip"></a>skip
+
 `skip(originalValue, numberToSkip)`
 
 Devuelve una matriz con todos los elementos después del número especificado de la matriz, o devuelve una cadena con todos los caracteres después del número especificado en la cadena.
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | originalValue |Sí |matriz o cadena |La matriz o cadena que se usará para la omisión. |
 | numberToSkip |Sí |int |El número de elementos o caracteres que se van a omitir. Si este valor es 0 o un valor inferior, se devuelven todos los elementos o caracteres del valor. Si es mayor que la longitud de la matriz o la cadena, se devuelve una matriz o cadena vacía. |
@@ -1224,16 +1208,15 @@ Para implementar esta plantilla de ejemplo con PowerShell, use:
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/skip.json
 ```
 
-<a id="take" />
-
 ## <a name="take"></a>take
+
 `take(originalValue, numberToTake)`
 
 Devuelve una matriz con el número especificado de elementos desde el inicio de la matriz, o una cadena con el número especificado de caracteres desde el inicio de la cadena.
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | originalValue |Sí |matriz o cadena |La matriz o cadena de la que se van a tomar los elementos. |
 | numberToTake |Sí |int |El número de elementos o caracteres que se van a tomar. Si este valor es 0 o un valor inferior, se devolverá una matriz o cadena vacía. Si es mayor que la longitud de la matriz o cadena especificada, se devuelven todos los elementos de la matriz o cadena. |
@@ -1305,16 +1288,15 @@ Para implementar esta plantilla de ejemplo con PowerShell, use:
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/take.json
 ```
 
-<a id="union" />
-
 ## <a name="union"></a>union
+
 `union(arg1, arg2, arg3, ...)`
 
 Devuelve una única matriz u objeto con todos los elementos de los parámetros. Los valores o las claves duplicados solo se incluyen una vez.
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |matriz u objeto |El primer valor que se utiliza para unir elementos. |
 | arg2 |Sí |matriz u objeto |El segundo valor que se utiliza para unir elementos. |
@@ -1385,6 +1367,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 * Para obtener una descripción de las secciones de una plantilla de Azure Resource Manager, vea [Creación de plantillas de Azure Resource Manager](resource-group-authoring-templates.md).
 * Para combinar varias plantillas, vea [Uso de plantillas vinculadas con Azure Resource Manager](resource-group-linked-templates.md).
 * Para iterar una cantidad de veces específica al crear un tipo de recurso, vea [Creación de varias instancias de recursos en el Administrador de recursos de Azure](resource-group-create-multiple.md).

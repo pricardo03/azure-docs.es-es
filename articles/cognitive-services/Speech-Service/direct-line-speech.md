@@ -1,5 +1,5 @@
 ---
-title: 'Direct Line Speech: servicio de Voz'
+title: 'Direct Line Speech: servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: Introducción a las características, las funcionalidades y las restricciones de los asistentes de voz mediante Direct Line Speech con el kit de desarrollo de software (SDK) de Voz.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: travisw
-ms.openlocfilehash: 72029d1d56c9d561e629cc750244fd7de8ec113a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: cec3131d791d591375fd87d1c080294c9034a815
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73506567"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806225"
 ---
 # <a name="about-direct-line-speech"></a>Acerca de Direct Line Speech
 
@@ -50,7 +50,7 @@ El código de ejemplo para crear un asistente de voz está disponible en GitHub.
 
 ## <a name="customization"></a>Personalización
 
-Los asistentes de voz creados mediante los servicios de voz de Azure pueden usar la amplia variedad de opciones de personalización disponibles para [conversión de voz en texto](speech-to-text.md), [conversión de texto en voz](text-to-speech.md) y [selección de palabra clave personalizada](speech-devices-sdk-create-kws.md).
+Los asistentes de voz creados mediante el servicio de voz pueden usar la amplia variedad de opciones de personalización disponibles para la [conversión de voz en texto](speech-to-text.md), la [conversión de texto en voz](text-to-speech.md) y la [selección de palabras claves personalizadas](speech-devices-sdk-create-kws.md).
 
 > [!NOTE]
 > Las opciones de personalización varían según el idioma o la configuración regional (consulte los [idiomas admitidos](supported-languages.md)).
@@ -64,7 +64,7 @@ Direct Line Speech y su funcionalidad asociada para los asistentes de voz consti
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Get a Speech Services subscription key for free](get-started.md) (Consiga una clave de suscripción a los servicios de voz gratis)
-* [Obtención de Speech SDK](speech-sdk.md)
+* [Obtenga una clave de suscripción gratuita a los servicios de Voz](get-started.md)
+* [Obtención del SDK de voz](speech-sdk.md)
 * [Creación e implementación de un bot básico](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
 * [Obtención de la solución Virtual Assistant y la plantilla empresarial](https://github.com/Microsoft/AI)

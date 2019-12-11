@@ -1,22 +1,17 @@
 ---
-title: 'Introducción a las identidades administradas: Azure App Service | Microsoft Docs'
-description: Guía de configuración y referencia conceptual para identidades administradas en Azure App Service y Azure Functions
-services: app-service
+title: Identidades administradas
+description: Obtenga información sobre cómo funcionan las identidades administradas en Azure App Service y Azure Functions, cómo configurar una identidad administrada y generar un token para un recurso de back-end.
 author: mattchenderson
-manager: cfowler
-editor: ''
-ms.service: app-service
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/30/2019
 ms.author: mahender
 ms.reviewer: yevbronsh
-ms.openlocfilehash: a2f6d7f881e404e9e4dbdb8087cabf25f67d561b
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.openlocfilehash: 6fa8e560dc50859fc0501dde8109ddc7cbd596b8
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73847322"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688630"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Cómo usar identidades administradas para App Service y Azure Functions
 

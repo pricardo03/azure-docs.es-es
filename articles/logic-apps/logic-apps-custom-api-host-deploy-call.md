@@ -1,21 +1,17 @@
 ---
-title: Implementación y llamada de API web y API de REST desde Azure Logic Apps | Microsoft Docs
+title: Implementación y llamada de API web y API REST desde Azure Logic Apps
 description: Implementación y llamada a API web y API REST para flujos de trabajo de integración de sistemas en Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, stepsic, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.assetid: f113005d-0ba6-496b-8230-c1eadbd6dbb9
 ms.date: 05/26/2017
-ms.openlocfilehash: a9049ba1fbd7d3bdce061d277f6a7a02d9b1e4b7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d1305be54a22b1460000a357074cbb1f67123bd6
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60740411"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790754"
 ---
 # <a name="deploy-and-call-custom-apis-from-workflows-in-azure-logic-apps"></a>Implementación y llamada a API personalizadas desde flujos de trabajo de Azure Logic Apps
 

@@ -6,13 +6,13 @@ ms.author: ashish
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 06/10/2019
-ms.openlocfilehash: 4a1d835ebe47ec36bb839da8dcbcd107ffcb9c4c
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.date: 11/22/2019
+ms.openlocfilehash: 15d44f95cccf15fd0f7615655f5bbac1b0c35127
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71161973"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706061"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Escala de clústeres de Azure HDInsight
 
@@ -136,7 +136,7 @@ yarn application -kill "application_1499348398273_0003"
 
 Al reducir verticalmente un clúster, HDInsight utiliza las interfaces de administración de Apache Ambari para retirar antes los nodos de trabajo adicionales, que replican sus bloques DFS en otros nodos de trabajo en línea. Después, HDInsight reduce el nodo verticalmente de forma segura. HDFS entra en modo seguro durante la operación de escalado y se supone que sale una vez que el escalado ha finalizado. Sin embargo, en algunos casos, el HDFS se atasca en modo seguro durante una operación de escalado debido a la infra-replicación del bloque de archivos.
 
-De forma predeterminada, HDFS se configura con el valor 3 en `dfs.replication`3, que controla el número de copias de cada bloque de archivos que hay disponibles. Cada una de las copias de un bloque de archivos se almacena en un nodo diferente del clúster.
+De forma predeterminada, HDFS se configura con el valor 1 en `dfs.replication`, que controla el número de copias de cada bloque de archivos que hay disponibles. Cada una de las copias de un bloque de archivos se almacena en un nodo diferente del clúster.
 
 Cuando HDFS detecta que el número esperado de copias del bloque no están disponible, HDFS entra en modo seguro y Ambari genera alertas. Si HDFS entra en modo seguro para realizar una operación de escalado, pero luego no puede salir del modo seguro porque no se detecta el número necesario de nodos para la replicación, el clúster puede quedarse bloqueado en modo seguro.
 

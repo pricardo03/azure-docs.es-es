@@ -1,23 +1,18 @@
 ---
-title: 'Recepción de llamadas HTTPS y respuesta a ellas: Azure Logic Apps'
+title: Recepción de llamadas HTTPS y respuesta a ellas
 description: Administre las solicitudes y los eventos HTTPS en tiempo real mediante Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewers: klam, LADocs
-manager: carmonm
-ms.assetid: 566924a4-0988-4d86-9ecd-ad22507858c0
+ms.reviewers: klam, logicappspm
 ms.topic: conceptual
 ms.date: 10/11/2019
 tags: connectors
-ms.openlocfilehash: 6062ca1ce09eb243825b1fb9ae4ecb3d5ac95d1a
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: b3723ccc247b8a9451b9a5fdc628bff58da361a0
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264352"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74787002"
 ---
 # <a name="receive-and-respond-to-incoming-https-calls-by-using-azure-logic-apps"></a>Recepción de llamadas HTTPS entrantes y respuesta e ellas mediante Azure Logic Apps
 

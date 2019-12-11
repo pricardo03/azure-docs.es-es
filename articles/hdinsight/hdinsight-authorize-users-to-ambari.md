@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/30/2019
-ms.openlocfilehash: 8fada1d944a3d6bb6c0f85b3fd456581b2b0bdc6
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.custom: hdinsightactive
+ms.date: 11/27/2019
+ms.openlocfilehash: cbdf4a4c9e7f3816a0a5b280c81bfa60b65d9769
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71720025"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687979"
 ---
 # <a name="authorize-users-for-apache-ambari-views"></a>Autorización de usuarios para Apache Ambari Views
 
@@ -28,7 +28,7 @@ Si no lo ha hecho aún, siga [estas instrucciones](./domain-joined/apache-domain
 
 ## <a name="access-the-ambari-management-page"></a>Acceso a la página de administración de Ambari
 
-Para llegar a la **página de administración de Ambari** en la [interfaz de usuario web de Ambari](hdinsight-hadoop-manage-ambari.md), vaya a **`https://<YOUR CLUSTER NAME>.azurehdinsight.net`** . Escriba el nombre de usuario y la contraseña del administrador del clúster que definió cuando creó el clúster. A continuación, en el panel de Ambari, seleccione **Manage Ambari** (Administrar Ambari) en el menú **admin** (Administrador):
+Para llegar a la **página de administración de Ambari** en la [interfaz de usuario web de Ambari](hdinsight-hadoop-manage-ambari.md), vaya a `https://CLUSTERNAME.azurehdinsight.net`. Escriba el nombre de usuario y la contraseña del administrador del clúster que definió cuando creó el clúster. A continuación, en el panel de Ambari, seleccione **Manage Ambari** (Administrar Ambari) en el menú **admin** (Administrador):
 
 ![Administración del panel de Apache Ambari](./media/hdinsight-authorize-users-to-ambari/manage-apache-ambari.png)
 
@@ -230,7 +230,7 @@ Para administrar roles, vaya a la **página de administración de Ambari** y des
 
 Para ver la lista de permisos concedidos a cada rol, haga clic en el signo de interrogación azul junto al encabezado de tabla **Roles** de la página Roles.
 
-![Permisos del vínculo de menú de roles de Apache Ambari](./media/hdinsight-authorize-users-to-ambari/roles-menu-permissions.png "Permisos del vínculo de menú de roles de Apache Ambari")
+![Permisos de los vínculos del menú de roles de Apache Ambari](./media/hdinsight-authorize-users-to-ambari/roles-menu-permissions.png "Permisos de los vínculos del menú de roles de Apache Ambari")
 
 En esta página, hay dos vistas diferentes que puede usar para administrar roles para los usuarios y los grupos: Block (bloque) y List (lista).
 
@@ -248,7 +248,7 @@ La vista List (Lista) proporciona funcionalidades de edición rápidas en dos ca
 
     ![Vista de lista de roles de Apache Ambari: usuarios](./media/hdinsight-authorize-users-to-ambari/roles-list-view-users.png)
 
-*  La categoría Groups (Grupos) de la vista List (Lista) muestra todos los grupos y los roles asignados a cada grupo. En el ejemplo, la lista de grupos se sincroniza desde los grupos de Azure AD especificados en la propiedad **Access user group** (Grupo de usuarios con acceso) de la configuración del dominio del clúster. Consulte [Creación de un clúster de HDInsight con ESP habilitado](./domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-a-hdinsight-cluster-with-esp).
+* La categoría Groups (Grupos) de la vista List (Lista) muestra todos los grupos y los roles asignados a cada grupo. En el ejemplo, la lista de grupos se sincroniza desde los grupos de Azure AD especificados en la propiedad **Access user group** (Grupo de usuarios con acceso) de la configuración del dominio del clúster. Consulte [Creación de un clúster de HDInsight con ESP habilitado](./domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-a-hdinsight-cluster-with-esp).
 
     ![Vista de lista de roles de Apache Ambari: grupos](./media/hdinsight-authorize-users-to-ambari/roles-list-view-groups.png)
 

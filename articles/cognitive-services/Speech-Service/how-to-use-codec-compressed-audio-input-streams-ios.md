@@ -1,7 +1,7 @@
 ---
 title: Secuencia de audio comprimido con códec mediante el SDK de Voz en iOS
 titleSuffix: Azure Cognitive Services
-description: Obtenga información sobre cómo hacer secuencias de audio comprimido a Servicios de Voz de Azure con Speech SDK en iOS.
+description: Obtenga información sobre cómo hacer secuencias de audio comprimido al servicio de voz con el SDK de voz en iOS.
 services: cognitive-services
 author: chlandsi
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: chlandsi
-ms.openlocfilehash: 1d78c690fd07eb974418f0ea17d71d1f394d863d
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 2089f4191ddd57fa8dc19862bd195756c166f2d4
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74109571"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74805865"
 ---
 # <a name="how-to-use-codec-compressed-audio-input-with-the-speech-sdk-on-ios"></a>Procedimientos para: Uso de entradas de audio comprimido con códec con SDK de voz en iOS
 
-La API **Compressed Audio Input Stream** de Speech SDK permite transmitir audio comprimido a Servicios de Voz mediante un flujo de inserción o extracción.
+La API **Compressed Audio Input Stream** del SDK de voz permite transmitir audio comprimido al servicio de voz mediante un flujo de inserción o extracción.
 
 > [!IMPORTANT]
 > Se requiere Speech SDK versión 1.7.0 o posterior para la secuencia de audio comprimido en iOS. También se admite para [C++, C# y Java en Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9) ](how-to-use-codec-compressed-audio-input-streams.md) y [Java en Android.](how-to-use-codec-compressed-audio-input-streams-android.md)
@@ -42,7 +42,7 @@ Abra el proyecto en Xcode y compílelo para el destino **Generic iOS Device** (d
 
 El paso de compilación generará un conjunto dinámico de marcos con una biblioteca dinámica para todas las arquitecturas necesarias con el nombre de `GStreamerWrapper.framework`.
 
-Este marco debe estar incluido en todas las aplicaciones que usan secuencias de audio comprimidas con Speech SDK.
+Esta plataforma debe estar incluida en todas las aplicaciones que usan secuencias de audio comprimidas con el SDK de voz.
 
 Aplique la siguiente configuración en el proyecto de Xcode para lograr esto:
 
@@ -54,7 +54,7 @@ Aplique la siguiente configuración en el proyecto de Xcode para lograr esto:
 
 ## <a name="example-code-using-codec-compressed-audio-input"></a>Ejemplo de código que usa una entrada de audio comprimido con códec
 
-Para transmitir en un formato de audio comprimido a Servicios de Voz, cree `SPXPullAudioInputStream` o `SPXPushAudioInputStream`.
+Para hacer streaming en un formato de audio comprimido al servicio de voz, cree un elemento `SPXPullAudioInputStream` o `SPXPushAudioInputStream`.
 
 En el siguiente fragmento de código se muestra cómo crear un `SPXAudioConfiguration` a partir de una instancia de `SPXPushAudioInputStream`, especificando MP3 como formato de compresión de la secuencia.
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 258675a343387eb6930cd3511bf885bf510050c6
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: 6261de14f80f966718507d2d3506e55db9786df9
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74404206"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74785864"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user"></a>Exigencia de verificación en dos pasos para un usuario
 
@@ -41,11 +41,14 @@ Enabled by Azure AD Identity Protection (Habilitada por Azure AD Identity Protec
 
 Las cuentas de usuario de Azure Multi-Factor Authentication tienen los siguientes tres estados:
 
+> [!IMPORTANT]
+> Al habilitar Azure MFA mediante una directiva de acceso condicional, no se cambiará el estado del usuario. Los usuarios a los que no se deben realizar notificaciones de alarma aparecen deshabilitados. El acceso condicional no cambia el estado. **Las organizaciones no deben habilitar o imponer a los usuarios si usan directivas de acceso condicional.**
+
 | Status | DESCRIPCIÓN | Aplicaciones que no son de explorador afectadas | Aplicaciones que son de explorador afectadas | Autenticación moderna afectada |
-|:---:|:---:|:---:|:--:|:--:|
-| Disabled |Estado predeterminado para un usuario nuevo no inscrito en Azure MFA. |Sin |No |Sin |
-| habilitado |El usuario se ha inscrito en Azure MFA, pero no se ha registrado. La próxima vez que inicie sesión, se le pedirá registrarse. |No.  Continúa funcionando hasta que se complete el proceso de registro. | Sí. Una vez que expire la sesión, se requerirá el registro de Azure MFA.| Sí. Una vez que expire el token de acceso, se requerirá el registro de Azure MFA. |
-| Aplicado |El usuario se ha inscrito y ha completado el proceso de registro de Azure MFA. |Sí. Las aplicaciones requieren contraseñas de aplicación. |Sí. Se requiere Azure MFA en el inicio de sesión. | Sí. Se requiere Azure MFA en el inicio de sesión. |
+|:---:| --- |:---:|:--:|:--:|
+| Disabled | Estado predeterminado para un usuario nuevo no inscrito en Azure MFA. | Sin | No | Sin |
+| habilitado | El usuario se ha inscrito en Azure MFA, pero no se ha registrado. La próxima vez que inicie sesión, se le pedirá registrarse. | No.  Continúa funcionando hasta que se complete el proceso de registro. | Sí. Una vez que expire la sesión, se requerirá el registro de Azure MFA.| Sí. Una vez que expire el token de acceso, se requerirá el registro de Azure MFA. |
+| Aplicado | El usuario se ha inscrito y ha completado el proceso de registro de Azure MFA. | Sí. Las aplicaciones requieren contraseñas de aplicación. | Sí. Se requiere Azure MFA en el inicio de sesión. | Sí. Se requiere Azure MFA en el inicio de sesión. |
 
 El estado de un usuario refleja si un administrador lo ha inscrito en Azure MFA, y si ha completado el proceso de registro.
 

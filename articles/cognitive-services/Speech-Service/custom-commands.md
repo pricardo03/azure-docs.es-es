@@ -1,5 +1,5 @@
 ---
-title: 'Comandos personalizados (versión preliminar): servicio de Voz'
+title: 'Comandos personalizados (versión preliminar): servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: Información general sobre las características, funcionalidades y restricciones de los comandos personalizados (versión preliminar), una solución para crear asistentes de voz.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: travisw
-ms.openlocfilehash: 62210bf480d09ce2a256a44b7554ac53aa06eb0c
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: dd3e27aefe03ee30e721fcbb915d9ad4b3821618
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73579701"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806310"
 ---
 # <a name="custom-commands-preview"></a>Comandos personalizados (versión preliminar)
 
@@ -49,7 +49,7 @@ El código de ejemplo para crear un asistente de voz con los comandos personaliz
 
 ## <a name="customization"></a>Personalización
 
-Los asistentes de voz creados mediante los servicios de voz de Azure pueden usar la amplia variedad de opciones de personalización disponibles para [conversión de voz en texto](speech-to-text.md), [conversión de texto en voz](text-to-speech.md) y [selección de palabra clave personalizada](speech-devices-sdk-create-kws.md).
+Los asistentes de voz creados mediante el servicio de voz pueden usar la amplia variedad de opciones de personalización disponibles para la [conversión de voz en texto](speech-to-text.md), la [conversión de texto en voz](text-to-speech.md) y la [selección de palabras claves personalizadas](speech-devices-sdk-create-kws.md).
 
 > [!NOTE]
 > Las opciones de personalización varían según el idioma o la configuración regional (consulte los [idiomas admitidos](supported-languages.md)).
@@ -60,5 +60,5 @@ Los asistentes de voz creados mediante los servicios de voz de Azure pueden usar
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Get a Speech Services subscription key for free](get-started.md) (Consiga una clave de suscripción a los servicios de voz gratis)
+* [Obtenga una clave de suscripción gratuita a los servicios de Voz](get-started.md)
 * [Obtención del SDK de voz](speech-sdk.md)

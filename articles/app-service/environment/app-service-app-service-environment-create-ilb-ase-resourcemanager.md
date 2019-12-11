@@ -1,25 +1,18 @@
 ---
-title: Crear un ASE de ILB mediante las plantillas de Azure Resource Manager - App Service | Microsoft Docs
-description: Aprenda a crear un ASE de equilibrador de carga interno mediante las plantillas de Azure Resource Manager.
-services: app-service
-documentationcenter: ''
+title: Creación de una instancia de App Service Environment v1 con ILB
+description: Cree un entorno de App Service con un equilibrador de carga interno (ASE con ILB). Este documento solo se proporciona para los clientes que usan App Service Environment v1 heredado.
 author: stefsch
-manager: nirma
-editor: ''
 ms.assetid: 091decb6-b0de-42a1-9f2f-c18d9b2e67df
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: 862887e1e530bfdca4359e914b9a81c9360ac4dd
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 9cbd8b178bfd2edcf99e3bba9b0d967aebcb5cc2
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070427"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688770"
 ---
 # <a name="how-to-create-an-ilb-ase-using-azure-resource-manager-templates"></a>Creación de un ASE de un ILB mediante las plantillas de Azure Resource Manager
 

@@ -1,6 +1,6 @@
 ---
-title: Descripción de Azure Security Center para el archivo de configuración local del agente en C# | Microsoft Docs
-description: Obtenga información sobre Azure Security Center para el archivo de configuración local del agente en C#.
+title: Descripción del archivo de configuración local del agente de seguridad de Azure Security Center para IoT en C# | Microsoft Docs
+description: Obtenga más información sobre el archivo de configuración local del agente de seguridad y del servicio de seguridad Azure Security Center para IoT en C#.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/26/2019
 ms.author: mlottner
-ms.openlocfilehash: cc7b9f0b6e537ca3bdcbb82a357b2f2b9451fab0
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 0172ada68ffa652fb0c301c89238beca4f4ce2f9
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68600339"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74664205"
 ---
 # <a name="understanding-the-local-configuration-file-c-agent"></a>Información sobre el archivo de configuración local (agente de C#)
 
@@ -124,10 +124,10 @@ Para Windows:
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Lea la [introducción](overview.md) del servicio Azure Security Center para IoT.
-- Obtenga más información sobre la [arquitectura](architecture.md) de Azure Security Center para IoT.
+- Lea la [introducción](overview.md) del servicio Azure Security Center para IoT
+- Obtenga más información sobre la [arquitectura](architecture.md) de Azure Security Center para IoT
 - Habilite el [servicio](quickstart-onboard-iot-hub.md) Azure Security Center para IoT
-- Lea las [preguntas frecuentes](resources-frequently-asked-questions.md) del servicio Azure Security Center para IoT.
+- Lea las [preguntas frecuentes](resources-frequently-asked-questions.md) del servicio Azure Security Center para IoT
 - Aprenda a acceder a [datos de seguridad sin procesar](how-to-security-data-access.md)
 - Obtenga información acerca de las [recomendaciones](concept-recommendations.md)
-- Obtenga información sobre las [alertas de seguridad](concept-security-alerts.md).
+- Obtenga información sobre las [alertas de seguridad](concept-security-alerts.md)

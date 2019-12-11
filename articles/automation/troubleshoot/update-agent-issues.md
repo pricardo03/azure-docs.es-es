@@ -1,44 +1,44 @@
 ---
-title: Información sobre los resultados de la comprobación del agente de Windows en Azure Update Management
-description: Obtenga información acerca de la solución de problemas con el agente de Update Management.
+title: Estado de Windows Hybrid Runbook Worker en Azure Update Management
+description: Aprenda a solucionar problemas con la característica Hybrid Runbook Worker en Windows que admite Update Management.
 services: automation
 author: mgoedtel
 ms.author: magoedte
-ms.date: 11/25/2019
+ms.date: 12/03/2019
 ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: 72fdfe912a5560ce0c0e3886dd3c56cf9534dc22
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: bb5b5214c96162147e1bd005e994ec04e0a1ddb7
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74480794"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74763664"
 ---
-# <a name="understand-the-windows-agent-check-results-in-update-management"></a>Información sobre los resultados de la comprobación del agente de Windows en Update Management
+# <a name="understand-the-windows-hybrid-runbook-worker-health-in-update-management"></a>Estado de Windows Hybrid Runbook Worker en Update Management
 
-Puede haber muchas razones por las que el equipo no muestre el estado **Listo** en Update Management. En Update Management, puede comprobar el estado de un agente de Hybrid Worker para determinar el problema subyacente. En este artículo se explica cómo ejecutar el solucionador de problemas para máquinas de Azure desde Azure Portal y máquinas que son de Azure en [escenarios sin conexión](#troubleshoot-offline).
+Puede haber muchas razones por las que el equipo no muestre el estado **Listo** en Update Management. En Update Management, puede comprobar el estado de un agente de Hybrid Runbook Worker para determinar el problema subyacente. En este artículo se explica cómo ejecutar el solucionador de problemas para máquinas de Azure desde Azure Portal y para máquinas que no son de Azure en el [escenario sin conexión](#troubleshoot-offline).
 
 La siguiente lista enumera los tres estados de preparación en los que puede estar una máquina:
 
-* **Listo**: el agente de actualización está implementado y se vio por última vez hace menos de 1 hora.
-* **Desconectado**: el agente de actualización está implementado y se vio por última vez hace más de 1 hora.
-* **No configurado**: el agente de actualización no se encuentra o no ha finalizado la incorporación.
+* **Listo**: Hybrid Runbook Worker está implementado y se vio por última vez hace menos de 1 hora.
+* **Desconectado**: Hybrid Runbook Worker está implementado y se vio por última vez hace más de 1 hora.
+* **No configurado**: Hybrid Runbook Worker no se encuentra o no ha finalizado la incorporación.
 
 > [!NOTE]
 > Puede haber un ligero retraso entre lo que Azure Portal muestra y el estado actual de la máquina.
 
 ## <a name="start-the-troubleshooter"></a>Iniciar el solucionador de problemas
 
-Para las máquinas de Azure, al hacer clic en el vínculo **Solucionar problemas** en la columna **Preparación de actualizaciones del agente** del portal, se abre la página **Solucionar problemas del Agente de actualización**. Para las máquinas que no son de Azure, el vínculo le lleva a este artículo. Vea las [instrucciones sin conexión](#troubleshoot-offline) para solucionar problemas de una máquina que no es de Azure.
+Para las máquinas de Azure, al hacer clic en el vínculo **Solucionar problemas** en la columna **Preparación de actualizaciones del agente** del portal, se abre la página **Solucionar problemas del Agente de actualización**. En el caso de las máquinas que no son de Azure, el vínculo le lleva a este artículo. Consulte las [instrucciones sin conexión](#troubleshoot-offline) para solucionar los problemas de una máquina que no es de Azure.
 
 ![Actualizar la lista de administración de máquinas virtuales](../media/update-agent-issues/vm-list.png)
 
 > [!NOTE]
-> Para comprobar el estado de un agente, la máquina virtual debe estar en ejecución. Si la máquina virtual no se está ejecutando, aparecerá el botón **Start the VM** (Iniciar la máquina virtual).
+> Para comprobar el estado de Hybrid Runbook Worker, la máquina virtual debe estar en ejecución. Si la máquina virtual no se está ejecutando, aparecerá el botón **Start the VM** (Iniciar la máquina virtual).
 
-En la página **Solucionar problemas del Agente de actualización**, haga clic en **Ejecutar comprobaciones** para iniciar el solucionador de problemas. El solucionador de problemas usa el [Comando Run](../../virtual-machines/windows/run-command.md) para ejecutar un script en la máquina a fin de verificar las dependencias que el agente tiene. Una vez completado el proceso del solucionador de problemas, devuelve el resultado de las comprobaciones.
+En la página **Solucionar problemas del Agente de actualización**, haga clic en **Ejecutar comprobaciones** para iniciar el solucionador de problemas. El solucionador de problemas usa [Ejecutar comando](../../virtual-machines/windows/run-command.md) para ejecutar un script en la máquina y verificar las dependencias. Una vez completado el proceso del solucionador de problemas, devuelve el resultado de las comprobaciones.
 
 ![Página de solución de problemas del Agente de actualización](../media/update-agent-issues/troubleshoot-page.png)
 
@@ -50,7 +50,7 @@ Los resultados se muestran en la página cuando haya terminado el proceso. Las s
 
 ### <a name="operating-system"></a>Sistema operativo
 
-La comprobación del sistema operativo comprueba si Hybrid Runbook Worker está ejecutando alguno de los siguientes sistemas operativos:
+La comprobación del sistema operativo determina si Hybrid Runbook Worker está ejecutando alguno de los siguientes sistemas operativos:
 
 |Sistema operativo  |Notas  |
 |---------|---------|
@@ -206,4 +206,3 @@ CheckResultMessageArguments : {}
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para solucionar problemas adicionales con las instancias de Hybrid Runbook Worker, consulte [Solución de problemas de Hybrid Runbook Worker](hybrid-runbook-worker.md).
-

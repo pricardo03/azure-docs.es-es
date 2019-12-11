@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: ad1cb3b08f92923ef45b48d79ad8bbdc3277d370
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 22c304b26eddaee4444f6eb12957e2a6fedf7810
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74131974"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74793285"
 ---
 # <a name="troubleshooting"></a>solución de problemas
 
@@ -34,18 +34,28 @@ Para obtener ayuda adicional, escríbanos a farmbeatssupport@microsoft.com, e in
 
 **Acción correctiva**: visite Azure Portal y siga estos pasos:
 
-1. Vaya al grupo de recursos del centro de datos de FarmBeats.   
-2. Seleccione el **Centro de eventos** (DatafeedEventHubNamespace...) y compruebe el número de mensajes entrantes.   
+1. Vaya al grupo de recursos del centro de datos de FarmBeats.   
+2. Seleccione el **Centro de eventos** (DatafeedEventHubNamespace...) y compruebe el número de mensajes entrantes.   
 3. En caso de que no haya **ningún mensaje entrante**, póngase en contacto con el asociado del dispositivo.  
 4. En caso de que haya **mensajes entrantes**, póngase en contacto en la dirección de correo farmbeatssupport@microsoft.com con el centro de datos, los registros del acelerador y la telemetría capturada.
 
-Vea [Sección de registros](#collect-logs-manually) del documento para saber cómo descargar registros.    
+Vea [Sección de registros](#collect-logs-manually) del documento para saber cómo descargar registros.  
+
+### <a name="dont-have-the-eventhub-connection-string"></a>No tiene la cadena de conexión de EventHub
+
+**Acción correctiva**: vaya al Swagger del centro de datos y siga estos pasos:
+1. Vaya a la API de partner.
+2. Haga clic en GET -> Try it Out -> Execute (OBTENER -> Probar -> Ejecutar).
+3. Tome nota del id. de partner del partner de sensores que le interese.
+4. Vuelva a la API de partner y haga clic en GET/{id}.
+5. Especifique el identificador del paso 3 y haga clic en Execute (Ejecutar).
+6. La respuesta de la API debe tener la cadena de conexión de EventHub.
 
 ### <a name="device-appears-offline"></a>El dispositivo aparece sin conexión
 
 **Síntomas**: se instalan los dispositivos y se ha vinculado FarmBeats con el asociado del dispositivo. Los dispositivos están en línea y envían datos de telemetría, pero aparecen sin conexión.
 
-**Acción correctiva**: el intervalo de informes no está configurado para este dispositivo. Póngase en contacto con el fabricante del dispositivo para establecer el intervalo de informes. 
+**Acción correctiva**: el intervalo de informes no está configurado para este dispositivo. Póngase en contacto con el fabricante del dispositivo para establecer el intervalo de informes. 
 
 ### <a name="error-deleting-a-resource"></a>Error al eliminar un recurso
 
@@ -125,44 +135,44 @@ Cierre todas las pestañas del explorador que tengan el acelerador abierto y cie
 
 **Acción correctiva**: vuelva a ejecutar el trabajo que ha producido el error o ejecute un trabajo de índices satélite para un rango de fechas de 5 a 7 días y compruebe si el trabajo se ha realizado correctamente.
 
-### <a name="sentinel-hub-wrongurlor-not-accessible"></a>Dirección URL incorrecta del centro de Sentinel o no accesible 
+### <a name="sentinel-hub-wrong-url-or-not-accessible"></a>Dirección URL incorrecta del centro de Sentinel o no accesible 
 
-**Mensaje de error del trabajo**: vaya, algo ha fallado. La página a la que estaba intentando acceder se encuentra no disponible temporalmente. 
+**Mensaje de error del trabajo**: vaya, algo ha fallado. La página a la que estaba intentando acceder se encuentra no disponible temporalmente. 
 
 **Acción correctiva**:
-1.  abra la dirección URL de Sentinel (https://scihub.copernicus.eu/dhus/) ) en el explorador y compruebe si el sitio web es accesible. 
-2.  Si el sitio web no es accesible, compruebe si hay algún firewall, red de la empresa, etc., que está bloqueando el sitio web y adopte los pasos necesarios para permitir la dirección URL anterior. 
+1.  abra la dirección URL de Sentinel (https://scihub.copernicus.eu/dhus/) en el explorador y compruebe si el sitio web es accesible. 
+2.  Si el sitio web no es accesible, compruebe si hay algún firewall, red de la empresa, etc., que está bloqueando el sitio web y adopte los pasos necesarios para permitir la dirección URL anterior. 
 3.  Vuelva a ejecutar el trabajo que ha producido el error o ejecute un trabajo de índices satélite para un rango de fechas de 5 a 7 días y compruebe si el trabajo se ha realizado correctamente.  
 
 ### <a name="sentinel-server-down-for-maintenance"></a>Servidor de Sentinel fuera de servicio por mantenimiento
 
-**Mensaje de error del trabajo**: La central de acceso abierto de Copernicus estará de vuelta próximamente. Lamentamos las molestias, estamos llevando a cabo tareas de mantenimiento en este momento. Pronto volveremos a estar en línea. 
+**Mensaje de error del trabajo**: La central de acceso abierto de Copernicus estará de vuelta próximamente. Lamentamos las molestias, estamos llevando a cabo tareas de mantenimiento en este momento. Pronto volveremos a estar en línea. 
 
 **Acción correctiva**:
 
-1.  Esta incidencia puede producirse si se realizan actividades de mantenimiento en el servidor de Sentinel. 
-2.  Si se produce un error en algún trabajo o canalización con el motivo anterior, vuelva a enviar el trabajo más tarde. 
-3.  El usuario puede visitar https://scihub.copernicus.eu/news/ para comprobar la información sobre las actividades de mantenimiento de Sentinel planeadas o no planeadas.  
+1.  Esta incidencia puede producirse si se realizan actividades de mantenimiento en el servidor de Sentinel. 
+2.  Si se produce un error en algún trabajo o canalización con el motivo anterior, vuelva a enviar el trabajo más tarde. 
+3.  El usuario puede visitar https://scihub.copernicus.eu/news/ para comprobar la información sobre las actividades de mantenimiento de Sentinel planeadas o no planeadas.  
 4.  Vuelva a ejecutar el trabajo que ha producido el error o ejecute un trabajo de índices satélite para un rango de fechas de 5 a 7 días y compruebe si el trabajo se ha realizado correctamente.
 
 ### <a name="sentinel-maximum-number-of-connections-reached"></a>Se ha alcanzado el número máximo de conexiones de Sentinel
 
-**Mensaje de error del trabajo**: el usuario "<username>" ha alcanzado el número máximo de dos flujos simultáneos. 
+**Mensaje de error del trabajo**: el usuario "<username>" ha alcanzado el número máximo de dos flujos simultáneos. 
 
 **Acción correctiva**:
-1.  Si se produce un error en algún trabajo con el motivo anterior, significa que se está usando la misma cuenta de Sentinel en otra implementación o software. 
+1.  Si se produce un error en algún trabajo con el motivo anterior, significa que se está usando la misma cuenta de Sentinel en otra implementación o software. 
 2.  El usuario puede crear una cuenta de Sentinel y volver a ejecutar el instalador para actualizar el centro de datos con el nuevo nombre de usuario y contraseña de Sentinel.  
 3.  Vuelva a ejecutar el trabajo que ha producido el error o ejecute un trabajo de índices satélite para un rango de fechas de 5 a 7 días y compruebe si el trabajo se ha realizado correctamente.
 
-### <a name="sentinel-server-refused-connection"></a>El servidor de Sentinel ha rechazado la conexión 
+### <a name="sentinel-server-refused-connection"></a>El servidor de Sentinel ha rechazado la conexión 
 
 **Mensaje de error del trabajo**:
 
-El servidor ha rechazado la conexión en: http://172.30.175.69:8983/solr/dhus 
+El servidor ha rechazado la conexión en: http://172.30.175.69:8983/solr/dhus 
 
-**Acción correctiva**: esta incidencia puede producirse si se realizan actividades de mantenimiento en el servidor de Sentinel. 
-1.  Si se produce un error en algún trabajo o canalización con el motivo anterior, vuelva a enviar el trabajo más tarde. 
-2.  El usuario puede visitar https://scihub.copernicus.eu/news/ para comprobar la información sobre las actividades de mantenimiento de Sentinel planeadas o no planeadas.  
+**Acción correctiva**: esta incidencia puede producirse si se realizan actividades de mantenimiento en el servidor de Sentinel. 
+1.  Si se produce un error en algún trabajo o canalización con el motivo anterior, vuelva a enviar el trabajo más tarde. 
+2.  El usuario puede visitar https://scihub.copernicus.eu/news/ para comprobar la información sobre las actividades de mantenimiento de Sentinel planeadas o no planeadas.  
 3.  Vuelva a ejecutar el trabajo que ha producido el error o ejecute un trabajo de índices satélite para un rango de fechas de 5 a 7 días y compruebe si el trabajo se ha realizado correctamente.
 
 
@@ -271,11 +281,11 @@ En el panel del grupo de recursos, busque la cuenta de almacenamiento (datahublo
 
 ## <a name="high-cpu-usage"></a>Uso elevado de CPU
 
-**Error**: recibirá una alerta de correo que hace referencia a una alerta de uso intensivo de la CPU. 
+**Error**: recibirá una alerta de correo que hace referencia a una alerta de uso intensivo de la CPU. 
 
-**Acción correctiva**: 
+**Acción correctiva**: 
 1.  Vaya al grupo de recursos del centro de datos de FarmBeats.
-2.  Seleccione la App Service.  
+2.  Seleccione la App Service.  
 3.  Vaya a escalar verticalmente (plan de App Service) y seleccione un [plan de tarifa](https://azure.microsoft.com/pricing/details/app-service/windows/) adecuado.
 
 ## <a name="next-steps"></a>Pasos siguientes

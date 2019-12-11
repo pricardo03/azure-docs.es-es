@@ -1,28 +1,20 @@
 ---
-title: 'Introducción a la arquitectura de red de las instancias de App Service Environment: Azure'
-description: Introducción a la arquitectura de la topología de red de los entornos del Servicio de aplicaciones.
-services: app-service
-documentationcenter: ''
+title: Arquitectura de red en v1
+description: Introducción a la arquitectura de la topología de red de instancias de App Service Environment. Este documento solo se proporciona para los clientes que usan App Service Environment v1 heredado.
 author: stefsch
-manager: erikre
-editor: ''
 ms.assetid: 13d03a37-1fe2-4e3e-9d57-46dfb330ba52
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: 98eb4d7440126bedb3d2e1de5711141eaac8b07a
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: b1b866f3be789c59eea38c5c22b5557d557440be
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070063"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687344"
 ---
 # <a name="network-architecture-overview-of-app-service-environments"></a>Información general sobre la arquitectura de red de los entornos de App Service
-## <a name="introduction"></a>Introducción
 Las instancias de App Service Environment siempre se crean dentro de una subred de una [red virtual][virtualnetwork]; las aplicaciones que se ejecutan en App Service Environment pueden comunicarse con puntos de conexión privados ubicados dentro de la misma topología de red virtual.  Puesto que los clientes pueden bloquear partes de su infraestructura de red virtual, es importante conocer los tipos de flujos de comunicación de red que se producen con un entorno de App Service.
 
 ## <a name="general-network-flow"></a>Flujo de red general

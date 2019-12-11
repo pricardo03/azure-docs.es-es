@@ -1,17 +1,17 @@
 ---
-title: Restauración de un servidor en Azure Database for MySQL
+title: Copia de seguridad y restauración en Azure Database for MySQL mediante Azure Portal
 description: En este artículo se describe cómo restaurar un servidor en Azure Database for MySQL mediante Azure Portal.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 10/25/2019
-ms.openlocfilehash: 2813567eeb9435ca5e1d29dc6a0a246f9cca3b05
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.date: 12/02/2019
+ms.openlocfilehash: f8005bccf3a726a6022efdecb2eb5738669f3bc2
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965946"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74762631"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-portal"></a>Copia de seguridad y restauración de un servidor en Azure Database for MySQL mediante Azure Portal
 
@@ -98,6 +98,6 @@ El servidor creado durante una restauración no tiene las reglas de firewall o l
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Más información sobre las [copias de seguridad](concepts-backup.md) del servicio
-- Más información sobre las [réplicas](concepts-read-replicas.md)
-- Más información sobre las opciones de [continuidad del negocio](concepts-business-continuity.md)
+- Más información sobre las [copias de seguridad](concepts-backup.md) del servicio.
+- Más información sobre las [réplicas](concepts-read-replicas.md).
+- Más información sobre las opciones de [continuidad del negocio](concepts-business-continuity.md).

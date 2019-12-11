@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: sukishen
-ms.openlocfilehash: 3151d72c0e74e7eb694ef2bdd5737f65992fe905
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 10c27c18b8003bf286789e478f504bca98ebe7ca
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824376"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74766489"
 ---
 # <a name="about-azure-networking-msp-partners"></a>Acerca de los asociados de MSP de redes de Azure
 
@@ -28,12 +28,13 @@ Los clientes pueden adquirir ofertas de servicios administrados de MSP en Azure 
 
 Use los vínculos de esta sección para obtener más información acerca los servicios administrados de redes en la nube ofrecidos por los asociados de MSP de redes de Azure. Si el asociado de servicios de redes en la nube no aparece en la sección siguiente, pida a su proveedor que se ponga en contacto con nosotros. Para ello, debe enviarnos un correo electrónico a ManagedVirtualWAN@microsoft.com. 
 
-| **MSP** | **Servicios de transformación de la red en la nube** | **ExpressRoute administrado** | **Virtual WAN administrado** | **Servicios de seguridad de red administrados** |**Proceso de perímetro de red administrado** |
+| **MSP** | **Servicios de transformación de la red en la nube** | **ExpressRoute administrado** | **Virtual WAN administrado** | **Servicios de seguridad de red administrados** |**Proceso perimetral de acceso múltiple administrado** |
 | ---| ---| ---| ---| ---| ---|
 |[Amdocs](https://www.amdocs.com/)|||||Sí|
 |[ANS Group UK](https://www.ans.co.uk/)|Sí|Sí||||
 |[Aryaka Networks](https://www.aryaka.com/azure-msp-vwan-managed-service-provider-launch-partner-aryaka/)|Sí |Sí |Sí | | |
 |[BT](https://www.globalservices.bt.com/en/solutions/products/cloud-connect-azure)|Sí|Sí|Sí|||
+|[Coevolve](https://www.coevolve.com/services/azure-networking-services/)|Sí||Sí|Sí||
 |[Colt](https://www.colt.net/why-colt/strategic-alliances/microsoft-partnership/msp/)|Sí|||||
 |[Dimension Data](https://www.dimensiondata.com/)|Sí|||||
 |[Equinix](https://www.equinix.com/)|Sí|Sí||||
