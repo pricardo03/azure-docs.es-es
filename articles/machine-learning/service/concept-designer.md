@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: peterlu
 author: peterclu
 ms.date: 11/12/2019
-ms.openlocfilehash: 73facea2b99ee038b16053fd818d93d35da4cbdd
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 9301f3e685116c8496dd5e0ec986218a046f0c98
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196176"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707731"
 ---
 # <a name="what-is-azure-machine-learning-designer-preview"></a>¿Qué es el diseñador de Azure Machine Learning (versión preliminar)? 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
@@ -45,7 +45,7 @@ El diseñador proporciona un lienzo visual para compilar, probar e implementar m
     + Publique una **canalización de inferencia por lotes** para hacer predicciones sobre nuevos datos mediante un modelo entrenado previamente.
 + [Implementar](#deploy) una **canalización de inferencia en tiempo real** en un punto de conexión en tiempo real para realizar predicciones sobre nuevos datos en tiempo real.
 
-![Diagrama de flujo de trabajo para entrenamiento, inferencia por lotes e inferencia en tiempo real en el diseñador](media/ui-concept-visual-interface/designer-workflow-diagram.png)
+![Diagrama de flujo de trabajo para entrenamiento, inferencia por lotes e inferencia en tiempo real en el diseñador](media/concept-designer/designer-workflow-diagram.png)
 
 ## <a name="pipeline"></a>Canalización
 
@@ -53,7 +53,7 @@ Una [canalización](concept-azure-machine-learning-architecture.md#ml-pipelines)
 
 ### <a name="pipeline-draft"></a>Borrador de canalización
 
-A medida que edita una canalización en el diseñador, el progreso se guarda como un **borrador de canalización **. Puede editar un borrador de canalización en cualquier momento y agregar o quitar módulos, configurar destinos de proceso, crea parámetros, etc.
+A medida que edita una canalización en el diseñador, el progreso se guarda como un **borrador de canalización**. Puede editar un borrador de canalización en cualquier momento y agregar o quitar módulos, configurar destinos de proceso, crea parámetros, etc.
 
 Una canalización válida tiene estas características:
 
@@ -80,7 +80,7 @@ Un módulo es un algoritmo que puede aplicar sobre sus datos. El diseñador tien
 
 Un módulo puede tener un conjunto de parámetros que puede utilizar para configurar los algoritmos internos del módulo. Al seleccionar un módulo en el lienzo, los parámetros del módulo se muestran en el panel Propiedades a la derecha del lienzo. Puede modificar los parámetros en ese panel para ajustar su modelo. Puede establecer los recursos de proceso para módulos individuales del diseñador. 
 
-![Propiedades del módulo](media/ui-concept-visual-interface/properties.png)
+![Propiedades del módulo](media/concept-designer/properties.png)
 
 Si desea ayuda para desplazarse por la biblioteca de algoritmos de aprendizaje automático disponibles, consulte [Información general sobre la referencia de módulos y algoritmos](../algorithm-module-reference/module-reference.md)
 
@@ -107,7 +107,7 @@ Para aprender a implementar el modelo, consulte [Tutorial: Implemente un modelo 
 
 También puede publicar una canalización en un **punto de conexión de canalización**. Igual que un punto de conexión en tiempo real, un punto de conexión de canalización permite enviar nuevas ejecuciones de canalización desde aplicaciones externas mediante llamadas REST. Sin embargo, no se pueden enviar ni recibir datos en tiempo real.
 
-Las canalizaciones publicadas son flexibles; se pueden usar para entrenar o volver a entrenar modelos, realizar la inferencia por lotes, procesar nuevos datos y mucho más. Puede publicar varias canalizaciones en un único punto de conexión de canalización y especificar la versión de canalización que se va a ejecutar.
+Las canalizaciones publicadas son flexibles; se pueden usar para entrenar o volver a entrenar modelos, [realizar la inferencia por lotes](how-to-run-batch-predictions-designer.md), procesar nuevos datos y mucho más. Puede publicar varias canalizaciones en un único punto de conexión de canalización y especificar la versión de canalización que se va a ejecutar.
 
 Una canalización publicada se ejecuta en los recursos de proceso que se definen en el borrador de canalización de cada módulo.
 

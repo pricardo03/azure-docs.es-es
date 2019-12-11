@@ -1,26 +1,16 @@
 ---
-title: Configuración de entornos de ensayo para aplicaciones web en Azure App Service | Microsoft Docs
-description: Aprenda a utilizar la publicación de ensayo para aplicaciones web en Azure App Service.
-services: app-service
-documentationcenter: ''
-author: cephalin
-writer: cephalin
-manager: jpconnoc
-editor: mollybos
+title: Configuración de entornos de ensayo
+description: Aprenda a implementar aplicaciones en una ranura que no sea de producción y realice intercambios automáticos en producción. Aumente la confiabilidad y elimine el tiempo de inactividad de las aplicaciones en las implementaciones.
 ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/19/2019
-ms.author: cephalin
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 7f98ba9851216737712b6be1ec29156ba0b1a68b
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 1fec6de65fade0bbb35907f9c69334e16d9193bf
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74382281"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671749"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configuración de entornos de ensayo en Azure App Service
 <a name="Overview"></a>
