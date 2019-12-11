@@ -56,6 +56,8 @@
           href: backup-support-matrix-mars-agent.md
         - name: Matriz de compatibilidad de SAP HANA
           href: sap-hana-backup-support-matrix.md
+        - name: Referencias de almacén de máquina virtual admitidas en Azure Policy
+          href: backup-azure-policy-supported-skus.md
     - name: Seguridad
       items:
         - name: Control de acceso basado en roles
@@ -174,6 +176,10 @@
               href: backup-azure-vms-encryption.md
             - name: Restauración de la clave y el secreto para máquinas virtuales cifradas
               href: backup-azure-restore-key-secret.md
+    - name: Instancia de Azure Policy integrada en Azure Backup
+      items:
+        - name: Habilitación automática de la copia de seguridad al crear máquinas virtuales mediante Azure Policy
+          href: backup-azure-auto-enable-backup.md
     - name: Eventos de diagnóstico para almacenes de Recovery Services
       items:
         - name: Uso de la configuración de diagnósticos para almacenes de Recovery Services

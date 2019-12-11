@@ -29,6 +29,8 @@
           href: tutorial-iot-hub-maps.md
         - name: Enrutamiento de EV mediante Azure Notebooks (Python)
           href: tutorial-ev-routing.md
+        - name: Análisis de datos meteorológicos mediante Azure Notebooks (Python)
+          href: weather-service-tutorial.md
 - name: Conceptos
   items:
     - name: Autenticación con Azure Maps

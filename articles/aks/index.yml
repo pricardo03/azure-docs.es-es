@@ -65,6 +65,7 @@ sections:
           - html: <a href="/azure/aks/tutorial-kubernetes-scale">Escala de una aplicación e infraestructura de Kubernetes</a>
           - html: <a href="/azure/aks/tutorial-kubernetes-app-update">Actualización de una aplicación que se ejecuta en Kubernetes</a>
           - html: <a href="/azure/aks/tutorial-kubernetes-upgrade-cluster">Actualización de un clúster de AKS</a>
+          - html: <a href="/azure/architecture/reference-architectures/microservices/aks">Aprendizaje e implementación de la arquitectura de referencia de microservicios</a>
   - title: Desarrollo de aptitudes con Microsoft Learn
     items:
       - type: list
@@ -96,7 +97,7 @@ sections:
         items:
           - title: Línea de comandos
             html: <p><a href="/cli/azure/aks">CLI de Azure</a></p>
-          - title: Languages
+          - title: Lenguajes
             html: <p><a href="/dotnet/api/overview/azure/containerservice">.NET</a></p><p><a href="/python/api/overview/azure/containerservice">Python</a></p><p><a href="/java/api/overview/azure/containerservice">Java</a></p><p><a href="/javascript/api/overview/azure/container-service">Node.js</a></p>
           - title: REST
             html: <p><a href="/rest/api/aks">API DE REST</a></p>
