@@ -7,12 +7,12 @@ ms.service: internet-analyzer
 ms.topic: quickstart
 ms.date: 10/16/2019
 ms.author: mebeatty
-ms.openlocfilehash: bc3b9eb5753d09ca3442633deb259865b07e8b20
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f9ecb8d731945847160b49c68c554fafdd7285d9
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488151"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896379"
 ---
 # <a name="embed-the-internet-analyzer-client"></a>Inserción del cliente de Internet Analyzer
 
@@ -34,6 +34,7 @@ Opción 1. En Azure Portal, use [este vínculo](https://aka.ms/InternetAnalyzerP
 
 Opción 2. Mediante la CLI de Azure, compruebe la propiedad `scriptFileUri`.
 ```azurecli-interactive
+    az extension add --name internet-analyzer    
     az internet-analyzer test list --resource-group "MyInternetAnalyzerResourceGroup" --profile-name "MyInternetAnalyzerProfile"
 ```
 

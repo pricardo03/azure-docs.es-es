@@ -1,5 +1,5 @@
 ---
-title: Creación de informes interactivos con la visualización de los libros de Azure Monitor | Microsoft Docs
+title: Visualizaciones de libro de Azure Monitor
 description: Obtenga información sobre todos los componentes de visualización del libro de Azure Monitor, como texto, charts, cuadrículas, árboles y gráficos.
 services: azure-monitor
 author: mrbullwinkle
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: d878e8b5dd49ba517f85ebb74332bc6a245c33ca
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: bcc60c0f934111f779e3fdedc399881acb16f208
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73164174"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872798"
 ---
 # <a name="azure-monitor-workbook-visualizations"></a>Visualizaciones de libro de Azure Monitor
 
@@ -127,7 +127,7 @@ Los iconos del libro permiten mostrar un título, un subtítulo, texto grande, i
 
 1. Para cambiar el libro al modo de edición, haga clic en _Editar_ en la barra de herramientas.
 2. Use el vínculo **Agregar consulta** para agregar un control de consulta de registro al libro. 
-3. Seleccione el tipo de consulta como **Registro**, el tipo de recurso (por ejemplo, Application Insights) y los recursos de destino.
+3. Seleccione el tipo de consulta **Registro**, el tipo de recurso (por ejemplo, Application Insights) y los recursos de destino.
 4. Utilice el editor de consultas para especificar el KQL para el análisis
     ```kusto
     requests
@@ -160,7 +160,7 @@ En el ejemplo siguiente se muestran las métricas de mantenimiento del contenedo
 ### <a name="adding-a-tree-grid"></a>Agregar una cuadrícula de árbol
 1. Para cambiar el libro al modo de edición, haga clic en _Editar_ en la barra de herramientas.
 2. Use el vínculo **Agregar consulta** para agregar un control de consulta de registro al libro. 
-3. Seleccione el tipo de consulta como **Registro**, el tipo de recurso (por ejemplo, Application Insights) y los recursos de destino.
+3. Seleccione el tipo de consulta **Registro**, el tipo de recurso (por ejemplo, Application Insights) y los recursos de destino.
 4. Utilice el editor de consultas para especificar el KQL para el análisis
     ```kusto
     requests
@@ -208,7 +208,7 @@ En el gráfico siguiente se muestran los datos que fluyen dentro y fuera de un e
 ### <a name="adding-a-graph"></a>Agregar un gráfico
 1. Para cambiar el libro al modo de edición, haga clic en _Editar_ en la barra de herramientas.
 2. Use el vínculo **Agregar consulta** para agregar un control de consulta de registro al libro. 
-3. Seleccione el tipo de consulta como **Registro**, el tipo de recurso (por ejemplo, Application Insights) y los recursos de destino.
+3. Seleccione el tipo de consulta **Registro**, el tipo de recurso (por ejemplo, Application Insights) y los recursos de destino.
 4. Utilice el editor de consultas para especificar el KQL para el análisis
     ```kusto
     let data = dependencies

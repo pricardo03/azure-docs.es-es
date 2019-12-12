@@ -3,17 +3,17 @@ title: Creación de webhooks para reglas en Azure IoT Central | Microsoft Docs
 description: Cree webhooks en Azure IoT Central para notificar automáticamente a otras aplicaciones cuándo se activan las reglas.
 author: viv-liu
 ms.author: viviali
-ms.date: 10/21/2019
+ms.date: 12/02/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: corywink
-ms.openlocfilehash: d1f99be5f21cbf8f1dcfe4a32595a639d3760494
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 206c93c291654d22e945c3064e3c581dceb50cea
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73929932"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895466"
 ---
 # <a name="create-webhook-actions-on-rules-in-azure-iot-central-preview-features"></a>Creación de acciones de webhook en reglas de Azure IoT Central (características en versión preliminar)
 

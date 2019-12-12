@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/21/2019
 ms.author: allensu
-ms.openlocfilehash: 36035d844237115361ccb3c1e1bc0dcb91250881
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 3b6a16436b2719d1571f5d5a3c16711a9100b75d
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74423871"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894426"
 ---
 # <a name="azure-standard-load-balancer-overview"></a>Introducción a Azure Standard Load Balancer
 
@@ -38,11 +38,6 @@ Las funciones de un recurso de Load Balancer se expresan siempre como un front-e
 Un aspecto clave es el ámbito de la red virtual del recurso.  Load Balancer Básico existe dentro del ámbito de un conjunto de disponibilidad, mientras que Load Balancer Estándar está totalmente integrado en el ámbito de una red virtual y se aplican todos los conceptos de red virtual.
 
 Los recursos de Load Balancer son objetos mediante los cuales se puede expresar cómo debe Azure programar su infraestructura multiinquilino para lograr el escenario que se desea crear.  No hay ninguna relación directa entre los recursos de Load Balancer y la infraestructura real; crear un equilibrador de carga no crea una instancia y su capacidad está siempre disponible por lo que no es necesario tener en cuenta retrasos por escalado o inicio. 
-
->[!NOTE]
-> Azure ofrece un conjunto de soluciones de equilibrio de carga completamente administradas para sus escenarios. Si busca la finalización del protocolo de Seguridad de la Capa de Transporte (TLS) o la solicitud por HTTP/HTTPS, el procesamiento de la capa de aplicación, consulte [¿Qué es Azure Application Gateway?](../application-gateway/overview.md) Si busca el equilibrio de carga de DNS global, consulte [¿Qué es Traffic Manager?](../traffic-manager/traffic-manager-overview.md) Los escenarios de un extremo a otro pueden beneficiarse de la combinación de estas soluciones.
->
-> Para obtener una comparación de las opciones de equilibrio de carga de Azure, consulte [Información general sobre las opciones de equilibrio de carga en Azure](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview).
 
 ## <a name="why-use-standard-load-balancer"></a>¿Por qué usar Load Balancer Estándar?
 

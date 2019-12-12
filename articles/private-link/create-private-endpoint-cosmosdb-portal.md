@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: allensu
-ms.openlocfilehash: 90710176ec16d1c565e24ff7df56b0b838f2699e
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: e54aa00df9efa60cce0fd6fa1da32720f2947b12
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229422"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851203"
 ---
 # <a name="connect-privately-to-an-azure-cosmos-account-using-azure-private-link"></a>Conexión privada a una cuenta de Azure Cosmos con Azure Private Link
 
@@ -129,9 +129,6 @@ Conéctese a la máquina virtual *myVm* desde Internet de la siguiente manera:
 ## <a name="access-the-azure-cosmos-account-privately-from-the-vm"></a>Acceso a la cuenta de Azure Cosmos de forma privada desde la máquina virtual
 
 En esta sección, se conectará de forma privada a la cuenta de Azure Cosmos mediante el punto de conexión privado. 
-
-> [!IMPORTANT]
-> La configuración de DNS para la cuenta de Azure Cosmos necesita una modificación manual en el archivo de hosts para incluir el FQDN de la cuenta específica. En escenarios de producción, configurará el servidor DNS para usar las direcciones IP privadas. Sin embargo, para fines de demostración, puede usar permisos de administrador en la máquina virtual y modificar el archivo `c:\Windows\System32\Drivers\etc\hosts` (en Windows) o el `/etc/hosts` (en Linux) para incluir la dirección IP y la asignación de DNS.
 
 1. Para incluir la dirección IP y la asignación de DNS, inicie sesión en la máquina virtual *myVM*, abra el archivo `c:\Windows\System32\Drivers\etc\hosts` e incluya la información de DNS del paso anterior en el siguiente formato:
 

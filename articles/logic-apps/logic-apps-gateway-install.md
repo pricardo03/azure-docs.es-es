@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: article
-ms.date: 11/06/2019
-ms.openlocfilehash: 9f933a9ad63af11bcfee7c90f17318f5a237b962
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.date: 12/05/2019
+ms.openlocfilehash: 4fbfb31feb2183e3175a96023cbb3b08c4d18027
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792098"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893705"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Instalación de una puerta de enlace de datos local para Azure Logic Apps
 
@@ -85,14 +85,6 @@ En este artículo se muestra cómo descargar, instalar y configurar la puerta de
 ## <a name="install-data-gateway"></a>Instalación de la puerta de enlace de datos
 
 1. [Descargue y ejecute el programa de instalación de la puerta de enlace en un equipo local](https://aka.ms/on-premises-data-gateway-installer).
-
-1. Una vez que se abra el instalador, seleccione **Siguiente**.
-
-   ![Pantalla de introducción del instalador de puerta de enlace](./media/logic-apps-gateway-install/gateway-intro-screen.png)
-
-1. Seleccione **Puerta de enlace de datos local (se recomienda)** , que es el modo estándar, y luego seleccione **Siguiente**.
-
-   ![Seleccione el modo de ejecución para la puerta de enlace de datos](./media/logic-apps-gateway-install/select-gateway-running-mode.png)
 
 1. Revise los requisitos mínimos, mantenga la ruta de instalación predeterminada, acepte los términos de uso y, después, seleccione **Instalar**.
 

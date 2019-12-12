@@ -4,17 +4,17 @@ description: En este artículo se muestra cómo enviar el estado de un trabajo y
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 02/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ff455ed355d4412bcf042208d2fd1e7a2a11b965
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: d2433e8193026b8aaa3cbf29eb1411c7449a4953
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186786"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849741"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-azure-monitor-logs"></a>Reenvío del estado de un trabajo y de transmisiones de trabajos de Automation a registros de Azure Monitor
 
@@ -97,9 +97,9 @@ Diagnósticos de Azure Automation crea dos tipos de registros en Azure Monitor y
 | Tenant_g | GUID que identifica al inquilino para el llamador. |
 | JobId_g |GUID que es el identificador del trabajo de Runbook. |
 | ResultType |El estado del trabajo de Runbook. Los valores posibles son:<br>- New<br>- Created<br>Started<br>Stopped<br>Suspended<br>Con error<br>Completado |
-| Categoría | Clasificación del tipo de datos. Para Automation, el valor será JobLogs. |
+| Category | Clasificación del tipo de datos. Para Automation, el valor será JobLogs. |
 | OperationName | Especifica el tipo de operación realizada en Azure. En Automation, el valor es Job. |
-| Recurso | Nombre de la cuenta de Automation |
+| Resource | Nombre de la cuenta de Automation |
 | SourceSystem | Cómo los registros de Azure Monitor recopilan los datos. Siempre *Azure* para Diagnósticos de Azure. |
 | ResultDescription |Describe el estado de resultado del trabajo de Runbook. Los valores posibles son:<br>- Se inicia el trabajo<br>- Error del trabajo<br>- Trabajo completado |
 | CorrelationId |GUID que es el identificador de correlación del trabajo de Runbook. |
@@ -120,9 +120,9 @@ Diagnósticos de Azure Automation crea dos tipos de registros en Azure Monitor y
 | Tenant_g | GUID que identifica al inquilino para el llamador. |
 | JobId_g |GUID que es el identificador del trabajo de Runbook. |
 | ResultType |El estado del trabajo de Runbook. Los valores posibles son:<br>- In Progress |
-| Categoría | Clasificación del tipo de datos. Para Automation, el valor es JobStreams. |
+| Category | Clasificación del tipo de datos. Para Automation, el valor es JobStreams. |
 | OperationName | Especifica el tipo de operación realizada en Azure. En Automation, el valor es Job. |
-| Recurso | Nombre de la cuenta de Automation |
+| Resource | Nombre de la cuenta de Automation |
 | SourceSystem | Cómo los registros de Azure Monitor recopilan los datos. Siempre *Azure* para Diagnósticos de Azure. |
 | ResultDescription |Incluye la secuencia de salida del Runbook. |
 | CorrelationId |GUID que es el identificador de correlación del trabajo de Runbook. |

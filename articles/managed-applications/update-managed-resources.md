@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 10/26/2017
 ms.author: tomfitz
-ms.openlocfilehash: 21f4e0aa339eb0c746f9b9b06f8aaada6c4d4b71
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7f00a99a31a4543ef45c90a86820e627134d8963
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61043455"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74888706"
 ---
 # <a name="work-with-resources-in-the-managed-resource-group-for-azure-managed-application"></a>Trabajo con los recursos del grupo de recursos administrado de una aplicación administrada de Azure
 
 En este artículo se describe cómo actualizar los recursos que se implementan como parte de una aplicación administrada. Como editor de una aplicación administrada, tiene acceso a los recursos del grupo de recursos administrado. Para actualizar estos recursos, debe encontrar el grupo de recursos administrados asociado a una aplicación administrada y acceder a los recursos de ese grupo.
 
-En este artículo se da por supuesto que ha implementado la aplicación administrada del proyecto de ejemplo de [Managed Web Application (IaaS) with Azure management services](https://github.com/Azure/azure-managedapp-samples/tree/master/samples/201-managed-web-app)(Aplicación web administrada (IaaS) con los servicios de administración de Azure). Esa aplicación administrada incluye una máquina virtual **Standard_D1_v2**. Si no ha implementado esa aplicación administrada, puede usar igualmente este artículo para familiarizarse con los pasos para actualizar un grupo de recursos administrados.
+En este artículo se da por supuesto que ha implementado la aplicación administrada del proyecto de ejemplo de [Managed Web Application (IaaS) with Azure management services](https://github.com/Azure/azure-managedapp-samples/tree/master/Managed%20Application%20Sample%20Packages/201-managed-web-app)(Aplicación web administrada (IaaS) con los servicios de administración de Azure). Esa aplicación administrada incluye una máquina virtual **Standard_D1_v2**. Si no ha implementado esa aplicación administrada, puede usar igualmente este artículo para familiarizarse con los pasos para actualizar un grupo de recursos administrados.
 
 La siguiente imagen muestra la aplicación administrada implementada.
 

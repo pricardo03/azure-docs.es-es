@@ -10,23 +10,23 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 09/29/2019
 ms.author: diberry
-ms.openlocfilehash: ae46df875d588186cd083134820f349158d7e307
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: b9da76a80183f353a74d43e667bf6c9219eb6c05
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695212"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74841224"
 ---
-# <a name="regular-expression-entity"></a>Entidad de expresión regular 
+# <a name="regular-expression-entity"></a>Entidad de expresión regular
 
 Una entidad de expresión regular extrae una entidad basada en un patrón de expresión regular que se proporciona.
 
-Una expresión regular es mejor para el texto de enunciado sin formato. No distingue entre mayúsculas y minúsculas e ignora la variante cultural.  La coincidencia de expresiones regulares se aplica después de las modificaciones de la ortografía en los caracteres, no en el nivel de token. Si la expresión regular es demasiado compleja (por ejemplo, uso excesivo de corchetes), no podrá agregar la expresión al modelo. Usa una parte de la biblioteca de [expresiones regulares de .NET](https://docs.microsoft.com/dotnet/standard/base-types/regular-expressions), pero no toda ella. 
+Una expresión regular es mejor para el texto de enunciado sin formato. No distingue entre mayúsculas y minúsculas e ignora la variante cultural.  La coincidencia de expresiones regulares se aplica después de las modificaciones de la ortografía en los caracteres, no en el nivel de token. Si la expresión regular es demasiado compleja (por ejemplo, uso excesivo de corchetes), no podrá agregar la expresión al modelo. Usa una parte de la biblioteca de [expresiones regulares de .NET](https://docs.microsoft.com/dotnet/standard/base-types/regular-expressions), pero no toda ella.
 
 **La entidad es la opción ideal cuando:**
 
 * Los datos tienen un formato coherente con cualquier variación que también sea coherente.
-* La expresión regular no necesita más de 2 niveles de anidamiento. 
+* La expresión regular no necesita más de 2 niveles de anidamiento.
 
 ![Entidad de expresión regular](./media/luis-concept-entities/regex-entity.png)
 
@@ -36,7 +36,7 @@ Las expresiones regulares pueden generar más coincidencias de las esperables. U
 
 ```javascript
 (plus )?(zero|one|two|three|four|five|six|seven|eight|nine)(\s+(zero|one|two|three|four|five|six|seven|eight|nine))*
-``` 
+```
 
 Esta expresión regular también coincide con cualquier palabra que termina con estos números, como `phone`. Para solucionar problemas como este, asegúrese de que las coincidencias de expresiones regulares tienen en cuenta los límites de palabras. La expresión regular para usar los límites de palabras en este ejemplo se utiliza en la siguiente expresión regular:
 
@@ -102,8 +102,8 @@ Este es el valor JSON si `verbose=true` se establece en la cadena de consulta:
 }
 ```
 
-* * * 
+* * *
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este [tutorial](luis-quickstart-intents-regex-entity.md) va a crear una aplicación para extraer datos con formato de forma coherente a partir de una expresión con la entidad de **expresión regular**.
+En este [tutorial](tutorial-regex-entity.md) va a crear una aplicación para extraer datos con formato de forma coherente a partir de una expresión con la entidad de **expresión regular**.

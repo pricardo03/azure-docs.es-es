@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 61deb5361c9857956318f8b9b4ca836fcfa65d48
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: e11f560c2b101d86d41feb3f6c93cffe7c1a748d
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73797369"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851458"
 ---
 # <a name="generate-soil-moisture-heatmap"></a>Generación de un mapa térmico de humedad del suelo
 
@@ -93,4 +93,4 @@ Para ello, siga los pasos que se describen a continuación:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que ha generado correctamente un mapa térmico de humedad del suelo, aprenda a [generar mapas de colocación de sensores](generate-maps.md#sensor-placement-maps) y a [ingerir datos históricos de telemetría](ingest-historical-telemetry-data.md). 
+Ahora que ha generado correctamente un mapa térmico de humedad del suelo, aprenda a [generar mapas de colocación de sensores](generate-maps.md#sensor-placement-map) y a [ingerir datos históricos de telemetría](ingest-historical-telemetry-data.md). 

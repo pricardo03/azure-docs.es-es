@@ -1,6 +1,6 @@
 ---
 title: 'Streaming en vivo con codificadores locales que crean transmisiones de velocidad de bits múltiple: Azure | Microsoft Docs'
-description: 'En este tema se describe cómo configurar un canal que recibe streaming en vivo de velocidad de bits múltiple desde un codificador local. Posteriormente, la transmisión se puede enviar a aplicaciones de reproducción cliente a través de uno o más puntos de conexión de streaming, mediante uno de los siguientes protocolos de streaming adaptable: HLS, Smooth Streaming, DASH.'
+description: En este tema se describe cómo configurar un canal que recibe streaming en vivo de velocidad de bits múltiple desde un codificador local.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: a299c050be37d53acd01ddc2db580c4881eeae07
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: f6366f162cb09898b694b14440718401c57c0adf
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "69015477"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74887108"
 ---
 # <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders"></a>Uso de canales que reciben streaming en vivo con velocidad de bits múltiple de codificadores locales
 
@@ -187,7 +187,7 @@ En la tabla siguiente se muestra cómo se asignan los estados del canal al modo 
 | Estado del canal | Indicadores de la IU del portal | ¿Facturado? |
 | --- | --- | --- |
 | **Starting** (iniciándose) |**Starting** (iniciándose) |No (estado transitorio) |
-| **Ejecución** |**Ready** (Listo) (sin programas en ejecución)<p><p>o<p>**Streaming** (al menos un programa en ejecución) |Sí |
+| **Ejecución** |**Ready** (Listo) (sin programas en ejecución)<p><p>or<p>**Streaming** (al menos un programa en ejecución) |Sí |
 | **Stopping** (Deteniéndose) |**Stopping** (Deteniéndose) |No (estado transitorio) |
 | **Stopped** |**Stopped** |Sin |
 

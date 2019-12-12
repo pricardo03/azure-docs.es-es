@@ -3,12 +3,12 @@ title: Referencia de YAML para el grupo de contenedores
 description: Referencia del archivo YAML compatible con Azure Container Instances para configurar un grupo de contenedores
 ms.topic: article
 ms.date: 08/12/2019
-ms.openlocfilehash: 5603f2e0f63c4f83a6d3761feb540abb8b8b7d5c
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 8497330a327201c4c64e9f7ae57e6fc4225b52de
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533486"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896561"
 ---
 # <a name="yaml-reference-azure-container-instances"></a>Referencia de YAML: Azure Container Instances
 
@@ -38,7 +38,7 @@ properties: # Properties of container group
       image: string # Container image used to create the instance
       command:
       - string
-      ports: # Exposed ports on the instance
+      ports: # External-facing ports exposed on the instance, must also be set in group ipAddress property 
       - protocol: string
         port: integer
       environmentVariables:
@@ -137,7 +137,7 @@ Las tablas siguientes describen los valores que debe establecer en el esquema.
 
 ### <a name="microsoftcontainerinstancecontainergroups-object"></a>Objeto Microsoft.ContainerInstance/containerGroups
 
-|  NOMBRE | type | Obligatorio | Valor |
+|  NOMBRE | Tipo | Obligatorio | Valor |
 |  ---- | ---- | ---- | ---- |
 |  Nombre | string | Sí | Nombre del grupo de contenedores. |
 |  apiVersion | enum | Sí | 2018-10-01 |
@@ -151,7 +151,7 @@ Las tablas siguientes describen los valores que debe establecer en el esquema.
 
 ### <a name="containergroupidentity-object"></a>Objeto ContainerGroupIdentity
 
-|  NOMBRE | type | Obligatorio | Valor |
+|  NOMBRE | Tipo | Obligatorio | Valor |
 |  ---- | ---- | ---- | ---- |
 |  Tipo | enum | Sin | Tipo de identidad utilizado para el grupo de contenedores. El tipo "SystemAssigned, UserAssigned" incluye una identidad creada implícitamente y un conjunto de identidades asignadas por el usuario. El tipo "None" quitará las identidades del grupo de contenedores. - SystemAssigned, UserAssigned, SystemAssigned, UserAssigned, None |
 |  userAssignedIdentities | object | Sin | Lista de identidades de usuario asociadas con el grupo de contenedores. Las referencias clave del diccionario de identidades de usuario serán los identificadores de recursos de Azure Resource Manager con el formato "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}". |
@@ -161,7 +161,7 @@ Las tablas siguientes describen los valores que debe establecer en el esquema.
 
 ### <a name="containergroupproperties-object"></a>Objeto ContainerGroupProperties
 
-|  NOMBRE | type | Obligatorio | Valor |
+|  NOMBRE | Tipo | Obligatorio | Valor |
 |  ---- | ---- | ---- | ---- |
 |  containers | array | Sí | Contenedores del grupo de contenedores. - [Objeto Container](#Container) |
 |  imageRegistryCredentials | array | Sin | Credenciales del registro de imágenes por las que se crea el grupo de contenedores. - [Objeto ImageRegistryCredential](#ImageRegistryCredential) |
@@ -178,7 +178,7 @@ Las tablas siguientes describen los valores que debe establecer en el esquema.
 
 ### <a name="container-object"></a>Objeto Container
 
-|  NOMBRE | type | Obligatorio | Valor |
+|  NOMBRE | Tipo | Obligatorio | Valor |
 |  ---- | ---- | ---- | ---- |
 |  Nombre | string | Sí | Nombre proporcionado por el usuario de la instancia de contenedor. |
 |  properties | object | Sí | Propiedades de la instancia de contenedor. - [Objeto ContainerProperties](#ContainerProperties) |
@@ -188,7 +188,7 @@ Las tablas siguientes describen los valores que debe establecer en el esquema.
 
 ### <a name="imageregistrycredential-object"></a>Objeto ImageRegistryCredential
 
-|  NOMBRE | type | Obligatorio | Valor |
+|  NOMBRE | Tipo | Obligatorio | Valor |
 |  ---- | ---- | ---- | ---- |
 |  server | string | Sí | Servidor de registro de imagen de Docker sin un protocolo como "http" y "https". |
 |  username | string | Sí | Nombre de usuario del registro privado. |
@@ -199,7 +199,7 @@ Las tablas siguientes describen los valores que debe establecer en el esquema.
 
 ### <a name="ipaddress-object"></a>Objeto IpAddress
 
-|  NOMBRE | type | Obligatorio | Valor |
+|  NOMBRE | Tipo | Obligatorio | Valor |
 |  ---- | ---- | ---- | ---- |
 |  ports | array | Sí | Lista de puertos expuestos en el grupo de contenedores. - [Objeto Port](#Port) |
 |  Tipo | enum | Sí | Especifica si la dirección IP se expone a la red pública de Internet o una red virtual privada. - Pública o privada |
@@ -211,7 +211,7 @@ Las tablas siguientes describen los valores que debe establecer en el esquema.
 
 ### <a name="volume-object"></a>Objeto Volume
 
-|  NOMBRE | type | Obligatorio | Valor |
+|  NOMBRE | Tipo | Obligatorio | Valor |
 |  ---- | ---- | ---- | ---- |
 |  Nombre | string | Sí | El nombre del objeto visual. |
 |  azureFile | object | Sin | Volumen de archivos de Azure. - [Objeto AzureFileVolume](#AzureFileVolume) |
@@ -224,7 +224,7 @@ Las tablas siguientes describen los valores que debe establecer en el esquema.
 
 ### <a name="containergroupdiagnostics-object"></a>Objeto ContainerGroupDiagnostics
 
-|  NOMBRE | type | Obligatorio | Valor |
+|  NOMBRE | Tipo | Obligatorio | Valor |
 |  ---- | ---- | ---- | ---- |
 |  logAnalytics | object | Sin | Información de Log Analytics del grupo de contenedores. - [Objeto LogAnalytics](#LogAnalytics) |
 
@@ -233,7 +233,7 @@ Las tablas siguientes describen los valores que debe establecer en el esquema.
 
 ### <a name="containergroupnetworkprofile-object"></a>Objeto ContainerGroupNetworkProfile
 
-|  NOMBRE | type | Obligatorio | Valor |
+|  NOMBRE | Tipo | Obligatorio | Valor |
 |  ---- | ---- | ---- | ---- |
 |  id | string | Sí | Identificador de un perfil de red. |
 
@@ -242,7 +242,7 @@ Las tablas siguientes describen los valores que debe establecer en el esquema.
 
 ### <a name="dnsconfiguration-object"></a>Objeto DnsConfiguration
 
-|  NOMBRE | type | Obligatorio | Valor |
+|  NOMBRE | Tipo | Obligatorio | Valor |
 |  ---- | ---- | ---- | ---- |
 |  nameServers | array | Sí | Servidores DNS para el grupo de contenedores. - cadena |
 |  searchDomains | string | Sin | Dominios de búsqueda de DNS para la búsqueda del nombre de host en el grupo de contenedores. |
@@ -253,7 +253,7 @@ Las tablas siguientes describen los valores que debe establecer en el esquema.
 
 ### <a name="containerproperties-object"></a>Objeto ContainerProperties
 
-|  NOMBRE | type | Obligatorio | Valor |
+|  NOMBRE | Tipo | Obligatorio | Valor |
 |  ---- | ---- | ---- | ---- |
 |  imagen | string | Sí | Nombre de la imagen utilizada para crear la instancia de contenedor. |
 |  command | array | Sin | Comandos para ejecutar dentro de la instancia de contenedor en el formato de ejecución. - cadena |
@@ -269,7 +269,7 @@ Las tablas siguientes describen los valores que debe establecer en el esquema.
 
 ### <a name="port-object"></a>Objeto Port
 
-|  NOMBRE | type | Obligatorio | Valor |
+|  NOMBRE | Tipo | Obligatorio | Valor |
 |  ---- | ---- | ---- | ---- |
 |  protocol | enum | Sin | Protocolo asociado al puerto. - TCP o UDP |
 |  port | integer | Sí | Número del puerto. |
@@ -279,7 +279,7 @@ Las tablas siguientes describen los valores que debe establecer en el esquema.
 
 ### <a name="azurefilevolume-object"></a>Objeto AzureFileVolume
 
-|  NOMBRE | type | Obligatorio | Valor |
+|  NOMBRE | Tipo | Obligatorio | Valor |
 |  ---- | ---- | ---- | ---- |
 |  shareName | string | Sí | Nombre del recurso compartido de archivos de Azure que se va a montar como un volumen. |
 |  readOnly | boolean | Sin | Marca que indica si el recurso compartido de archivos de Azure montado como un volumen es de solo lectura. |
@@ -291,7 +291,7 @@ Las tablas siguientes describen los valores que debe establecer en el esquema.
 
 ### <a name="gitrepovolume-object"></a>Objeto GitRepoVolume
 
-|  NOMBRE | type | Obligatorio | Valor |
+|  NOMBRE | Tipo | Obligatorio | Valor |
 |  ---- | ---- | ---- | ---- |
 |  Directorio | string | Sin | Nombre del directorio de destino. No debe contener ".." ni empezar así.  Si se proporciona ".", el directorio de volumen será el repositorio de GIT.  De lo contrario, si se especifica, el volumen contendrá el repositorio de GIT en el subdirectorio con el nombre especificado. |
 |  repository | string | Sí | Dirección URL del repositorio |
@@ -302,7 +302,7 @@ Las tablas siguientes describen los valores que debe establecer en el esquema.
 
 ### <a name="loganalytics-object"></a>Objeto LogAnalytics
 
-|  NOMBRE | type | Obligatorio | Valor |
+|  NOMBRE | Tipo | Obligatorio | Valor |
 |  ---- | ---- | ---- | ---- |
 |  workspaceId | string | Sí | Identificador del área de trabajo de Log Analytics |
 |  workspaceKey | string | Sí | Clave del área de trabajo de Log Analytics |
@@ -314,7 +314,7 @@ Las tablas siguientes describen los valores que debe establecer en el esquema.
 
 ### <a name="containerport-object"></a>Objeto ContainerPort
 
-|  NOMBRE | type | Obligatorio | Valor |
+|  NOMBRE | Tipo | Obligatorio | Valor |
 |  ---- | ---- | ---- | ---- |
 |  protocol | enum | Sin | Protocolo asociado al puerto. - TCP o UDP |
 |  port | integer | Sí | Número de puerto expuesto en el grupo de contenedores. |
@@ -324,7 +324,7 @@ Las tablas siguientes describen los valores que debe establecer en el esquema.
 
 ### <a name="environmentvariable-object"></a>Objeto EnvironmentVariable
 
-|  NOMBRE | type | Obligatorio | Valor |
+|  NOMBRE | Tipo | Obligatorio | Valor |
 |  ---- | ---- | ---- | ---- |
 |  Nombre | string | Sí | Nombre de la variable de entorno. |
 |  value | string | Sin | Valor de la variable de entorno. |
@@ -335,7 +335,7 @@ Las tablas siguientes describen los valores que debe establecer en el esquema.
 
 ### <a name="resourcerequirements-object"></a>Objeto ResourceRequirements
 
-|  NOMBRE | type | Obligatorio | Valor |
+|  NOMBRE | Tipo | Obligatorio | Valor |
 |  ---- | ---- | ---- | ---- |
 |  Solicitudes | object | Sí | Solicitudes de los recursos de la instancia de contenedor. - [Objeto ResourceRequests](#ResourceRequests) |
 |  límites | object | Sin | Límites de los recursos de la instancia de contenedor. - [Objeto ResourceLimits](#ResourceLimits) |
@@ -345,7 +345,7 @@ Las tablas siguientes describen los valores que debe establecer en el esquema.
 
 ### <a name="volumemount-object"></a>Objeto VolumeMount
 
-|  NOMBRE | type | Obligatorio | Valor |
+|  NOMBRE | Tipo | Obligatorio | Valor |
 |  ---- | ---- | ---- | ---- |
 |  Nombre | string | Sí | Nombre del montaje de volumen. |
 |  mountPath | string | Sí | La ruta de acceso dentro del contenedor en la que se debe montar el volumen. No debe contener dos puntos (:). |
@@ -356,7 +356,7 @@ Las tablas siguientes describen los valores que debe establecer en el esquema.
 
 ### <a name="containerprobe-object"></a>Objeto ContainerProbe
 
-|  NOMBRE | type | Obligatorio | Valor |
+|  NOMBRE | Tipo | Obligatorio | Valor |
 |  ---- | ---- | ---- | ---- |
 |  exec | object | Sin | Comando de ejecución para sondear - [objeto ContainerExec](#ContainerExec) |
 |  httpGet | object | Sin | La configuración de http get para sondear - [objeto ContainerHttpGet](#ContainerHttpGet) |
@@ -371,7 +371,7 @@ Las tablas siguientes describen los valores que debe establecer en el esquema.
 
 ### <a name="resourcerequests-object"></a>Objeto ResourceRequests
 
-|  NOMBRE | type | Obligatorio | Valor |
+|  NOMBRE | Tipo | Obligatorio | Valor |
 |  ---- | ---- | ---- | ---- |
 |  memoryInGB | número | Sí | Solicitud de memoria en GB de esta instancia de contenedor. |
 |  cpu | número | Sí | Solicitud de CPU de esta instancia de contenedor. |
@@ -382,7 +382,7 @@ Las tablas siguientes describen los valores que debe establecer en el esquema.
 
 ### <a name="resourcelimits-object"></a>Objeto ResourceLimits
 
-|  NOMBRE | type | Obligatorio | Valor |
+|  NOMBRE | Tipo | Obligatorio | Valor |
 |  ---- | ---- | ---- | ---- |
 |  memoryInGB | número | Sin | Límite de memoria en GB de esta instancia de contenedor. |
 |  cpu | número | Sin | Límite de CPU de esta instancia de contenedor. |
@@ -393,7 +393,7 @@ Las tablas siguientes describen los valores que debe establecer en el esquema.
 
 ### <a name="containerexec-object"></a>Objeto ContainerExec
 
-|  NOMBRE | type | Obligatorio | Valor |
+|  NOMBRE | Tipo | Obligatorio | Valor |
 |  ---- | ---- | ---- | ---- |
 |  command | array | Sin | Comandos para ejecutar dentro del contenedor. - cadena |
 
@@ -402,7 +402,7 @@ Las tablas siguientes describen los valores que debe establecer en el esquema.
 
 ### <a name="containerhttpget-object"></a>Objeto ContainerHttpGet
 
-|  NOMBRE | type | Obligatorio | Valor |
+|  NOMBRE | Tipo | Obligatorio | Valor |
 |  ---- | ---- | ---- | ---- |
 |  path | string | Sin | Ruta de acceso que se va a sondear. |
 |  port | integer | Sí | Número de puerto que se va a sondear. |
@@ -413,7 +413,7 @@ Las tablas siguientes describen los valores que debe establecer en el esquema.
 
 ### <a name="gpuresource-object"></a>Objeto GpuResource
 
-|  NOMBRE | type | Obligatorio | Valor |
+|  NOMBRE | Tipo | Obligatorio | Valor |
 |  ---- | ---- | ---- | ---- |
 |  count | integer | Sí | Recuento del recurso de GPU. |
 |  sku | enum | Sí | SKU del recurso de GPU. - K80, P100, V100 |

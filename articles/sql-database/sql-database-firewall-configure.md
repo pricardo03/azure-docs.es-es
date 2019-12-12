@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: ed13b5028341637d71dee95f38cc44cc91aa2376
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 5c1a146a12fd8881982826e0a87868a6eaf05cb1
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74481447"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851843"
 ---
 # <a name="azure-sql-database-and-azure-sql-data-warehouse-ip-firewall-rules"></a>Reglas de firewall de IP para Azure SQL Database y Azure SQL Data Warehouse
 
@@ -127,13 +127,15 @@ Para establecer una regla de firewall de IP de nivel de servidor en Azure Portal
 
 #### <a name="from-the-database-overview-page"></a>Desde la página de información general de la base de datos
 
-1. Para establecer una regla de firewall de IP de nivel de servidor desde la página de información general de la base de datos, seleccione **Establecer el firewall del servidor** en la barra de herramientas, como se muestra en la siguiente imagen. Se abrirá la página **Configuración del firewall** del servidor de SQL Database.
+1. Para establecer una regla de firewall de IP de nivel de servidor desde la página de información general de la base de datos, seleccione **Establecer el firewall del servidor** en la barra de herramientas, como se muestra en la siguiente imagen. 
 
-      ![Regla de firewall de IP del servidor](./media/sql-database-get-started-portal/server-firewall-rule.png)
+    ![Regla de firewall de IP del servidor](./media/sql-database-get-started-portal/sql-database-server-set-firewall-rule.png)
+
+    Se abrirá la página **Configuración del firewall** del servidor de SQL Database.
 
 2. Seleccione **Agregar IP de cliente** en la barra de herramientas, para agregar la dirección IP del equipo que está usando y, a continuación, seleccione **Guardar**. Se creará una regla de firewall de IP de nivel de servidor para la dirección IP actual.
 
-      ![Establecimiento de regla de firewall de IP de nivel de servidor](./media/sql-database-get-started-portal/server-firewall-rule-set.png)
+    ![Establecimiento de regla de firewall de IP de nivel de servidor](./media/sql-database-get-started-portal/sql-database-server-firewall-settings.png)
 
 #### <a name="from-the-server-overview-page"></a>Desde la página de información general del servidor
 

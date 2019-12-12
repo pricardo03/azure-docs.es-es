@@ -4,10 +4,8 @@ description: Obtenga información sobre cómo migrar la aplicación de Android d
 services: active-directory
 author: tylermsft
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: Android
 ms.workload: identity
@@ -16,12 +14,12 @@ ms.author: twhitney
 ms.reviewer: shoatman
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be8129de8b1c12965810bd5d9b5dfd1093e18d1c
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 0653eef585dd81d2e03585bf45b45ee9df9de292
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73667897"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74917258"
 ---
 # <a name="adal-to-msal-migration-guide-for-android"></a>Guía de migración de ADAL a MSAL para Android
 
