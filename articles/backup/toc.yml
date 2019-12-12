@@ -222,6 +222,8 @@
       items:
         - name: Crear almacén de Recovery Services
           href: backup-azure-arm-userestapi-createorupdatevault.md
+        - name: Actualización de las configuraciones del almacén de Recovery Services
+          href: use-restapi-update-vault-properties.md
         - name: Creación y actualización de la directiva de copia de seguridad
           href: backup-azure-arm-userestapi-createorupdatepolicy.md
         - name: Copia de seguridad de máquinas virtuales de Azure
