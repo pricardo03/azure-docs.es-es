@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: fc89b6233602c81ea622a528c223adf2003f0f68
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 12/09/2019
+ms.openlocfilehash: 1f5824f349650e340e395221785266096da16d6f
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74772503"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74969554"
 ---
 # <a name="limitations-in-azure-database-for-mariadb"></a>Limitaciones de Azure Database for MariaDB
 En las siguientes secciones se describen la capacidad, la compatibilidad del motor de almacenamiento, la compatibilidad de los privilegios, la compatibilidad de las instrucciones de manipulación de datos y los límites funcionales del servicio de base de datos.
@@ -23,17 +23,17 @@ El número máximo de conexiones por plan de tarifa y núcleos virtuales es el s
 |---|---|---|
 |Básica| 1| 50|
 |Básica| 2| 100|
-|Uso general| 2| 300|
-|Uso general| 4| 625|
-|Uso general| 8| 1250|
-|Uso general| 16| 2\.500|
-|Uso general| 32| 5000|
-|Uso general| 64| 10000|
-|Memoria optimizada| 2| 600|
-|Memoria optimizada| 4| 1250|
-|Memoria optimizada| 8| 2\.500|
-|Memoria optimizada| 16| 5000|
-|Memoria optimizada| 32| 10000|
+|Uso general| 2| 600|
+|Uso general| 4| 1250|
+|Uso general| 8| 2\.500|
+|Uso general| 16| 5000|
+|Uso general| 32| 10000|
+|Uso general| 64| 20000|
+|Memoria optimizada| 2| 800|
+|Memoria optimizada| 4| 2\.500|
+|Memoria optimizada| 8| 5000|
+|Memoria optimizada| 16| 10000|
+|Memoria optimizada| 32| 20000|
 
 Si las conexiones superan el límite, puede que reciba el error siguiente:
 > ERROR 1040 (08004): Demasiadas conexiones

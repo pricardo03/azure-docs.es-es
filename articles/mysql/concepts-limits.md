@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/2/2019
-ms.openlocfilehash: 07feb3ebf9720d70da441486fd0b2e6e274b68e4
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 12/9/2019
+ms.openlocfilehash: 8b3d6ea46c4a88187b70b520457ad34f7e7f36ba
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770924"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975149"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Limitaciones en Azure Database for MySQL
 En las siguientes secciones se describen la capacidad, la compatibilidad del motor de almacenamiento, la compatibilidad de los privilegios, la compatibilidad de las instrucciones de manipulación de datos y los límites funcionales del servicio de base de datos. Consulte también las [limitaciones generales](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) que se aplican al motor de base de datos MySQL.
@@ -23,17 +23,17 @@ El número máximo de conexiones por plan de tarifa y núcleos virtuales es el s
 |---|---|---|
 |Básica| 1| 50|
 |Básica| 2| 100|
-|Uso general| 2| 300|
-|Uso general| 4| 625|
-|Uso general| 8| 1250|
-|Uso general| 16| 2\.500|
-|Uso general| 32| 5000|
-|Uso general| 64| 10000|
-|Memoria optimizada| 2| 600|
-|Memoria optimizada| 4| 1250|
-|Memoria optimizada| 8| 2\.500|
-|Memoria optimizada| 16| 5000|
-|Memoria optimizada| 32| 10000|
+|Uso general| 2| 600|
+|Uso general| 4| 1250|
+|Uso general| 8| 2\.500|
+|Uso general| 16| 5000|
+|Uso general| 32| 10000|
+|Uso general| 64| 20000|
+|Memoria optimizada| 2| 1250|
+|Memoria optimizada| 4| 2\.500|
+|Memoria optimizada| 8| 5000|
+|Memoria optimizada| 16| 10000|
+|Memoria optimizada| 32| 20000|
 
 Si las conexiones superan el límite, puede que reciba el error siguiente:
 > ERROR 1040 (08004): Demasiadas conexiones

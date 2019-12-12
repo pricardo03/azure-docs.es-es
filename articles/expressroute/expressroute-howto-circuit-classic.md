@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: cherylmc
-ms.openlocfilehash: a2a3bdeb0ee454185c92c6e49a17bda7e4e5d5f0
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: e421a534b04f74d2a2eb0bc06aeffa52684ae17a
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083580"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931976"
 ---
 # <a name="modify-an-expressroute-circuit-using-powershell-classic"></a>Modificación de un circuito ExpressRoute mediante PowerShell (clásica)
 
@@ -35,20 +35,7 @@ En este artículo encontrará los pasos para comprobar el estado, actualizar o e
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-Instale las versiones más recientes de los módulos de ExpressRoute y de PowerShell de Azure Service Management (SM). No se puede usar el entorno de Azure CloudShell para ejecutar módulos de SM.
-
-1. Siga las instrucciones del artículo [Instalación del módulo administración de servicios](/powershell/azure/servicemanagement/install-azure-ps) para instalar el módulo de administración de servicios de Azure. Si ya tiene instalado el módulo AZ o RM, asegúrese de usar "-AllowClobber".
-2. Importe los módulos instalados. Cuando use el ejemplo siguiente, ajuste la ruta de acceso para que refleje la ubicación de sus módulos de PowerShell instalados.
-
-   ```powershell
-   Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.3.0\Azure.psd1'
-   Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.3.0\ExpressRoute\ExpressRoute.psd1'
-   ```
-3. Para iniciar sesión en su cuenta de Azure, abra la consola de PowerShell con privilegios elevados y conéctela a su cuenta. Use el ejemplo siguiente de ayuda para conectarse mediante el módulo de administración de servicios:
-
-   ```powershell
-   Add-AzureAccount
-   ```
+[!INCLUDE [classic powershell install instructions](../../includes/expressroute-poweshell-classic-install-include.md)]
 
 ## <a name="get-the-status-of-a-circuit"></a>Obtención del estado de un circuito
 

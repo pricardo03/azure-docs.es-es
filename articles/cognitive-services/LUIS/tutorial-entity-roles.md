@@ -9,28 +9,28 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 10/14/2019
+ms.date: 12/05/2019
 ms.author: diberry
-ms.openlocfilehash: 3e85067439fe412822ac34a065753e9a13c7a506
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 29e43692c1eb543768934a961a2bb8ae5a023b1d
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488731"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894604"
 ---
 # <a name="tutorial-extract-contextually-related-data-from-an-utterance"></a>Tutorial: Extracción de datos relacionados contextualmente de una expresión
 
-En este tutorial, busque datos relacionados en función del contexto. Por ejemplo, una ubicación de origen y destino para una transferencia de una ciudad a otra. Ambas partes de datos pueden ser necesarias y están relacionadas entre sí.  
+En este tutorial, busque datos relacionados en función del contexto. Por ejemplo, una ubicación de origen y destino para una transferencia de una ciudad a otra. Ambas partes de datos pueden ser necesarias y están relacionadas entre sí.
 
-Un rol se puede usar con cualquier tipo de entidad precompilada o personalizada, y tanto en patrones como en expresiones de ejemplo. 
+Un rol se puede usar con cualquier tipo de entidad precompilada o personalizada, y tanto en patrones como en expresiones de ejemplo.
 
-[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+[!INCLUDE [Only valid with current portal](includes/old-portal-only.md)]
 
 **En este tutorial, aprenderá a:**
 
 > [!div class="checklist"]
 > * Crear nueva aplicación
-> * Agregar intención 
+> * Agregar intención
 > * Obtener información sobre el origen y el destino mediante roles
 > * Train
 > * Publicar
@@ -57,9 +57,9 @@ Un rol se debe utilizar cuando los datos de la entidad que se deben extraer:
 
 1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
-1. Haga clic en **Create new intent** (Crear intención). 
+1. Haga clic en **Create new intent** (Crear intención).
 
-1. Escriba `MoveEmployeeToCity` en el cuadro de diálogo emergente y seleccione **Done** (Listo). 
+1. Escriba `MoveEmployeeToCity` en el cuadro de diálogo emergente y seleccione **Done** (Listo).
 
     ![Captura de pantalla del cuadro de diálogo Create new intent (Crear nueva intención)](./media/tutorial-entity-roles/create-new-intent-move-employee-to-city.png)
 
@@ -85,24 +85,24 @@ La entidad precompilada, geographyV2, extrae información de ubicación, incluid
 
 1. Seleccione **Entities** (Entidades) en el menú de navegación de la izquierda.
 
-1. Seleccione **Add prebuilt entity** (Agregar entidad precompilada) y `geo` en la barra de búsqueda para filtrar las entidades precompiladas. 
+1. Seleccione **Add prebuilt entity** (Agregar entidad precompilada) y `geo` en la barra de búsqueda para filtrar las entidades precompiladas.
 
     ![Adición de la entidad precompilada geographyV2 a la aplicación](media/tutorial-entity-roles/add-geographyV2-prebuilt-entity.png)
 1. Seleccione la casilla de verificación y **Listo**.
-1. En la lista **Entidades**, seleccione **geographyV2** para abrir la nueva entidad. 
-1. Agregue dos roles (`Origin` y `Destination`). 
+1. En la lista **Entidades**, seleccione **geographyV2** para abrir la nueva entidad.
+1. Agregue dos roles (`Origin` y `Destination`).
 
     ![Adición de roles a la entidad precompilada](media/tutorial-entity-roles/add-roles-to-prebuilt-entity.png)
 1. Seleccione **Intenciones** desde el panel de navegación del lado izquierdo y la intención **MoveEmployeeToCity**. Tenga en cuenta que los nombres de ciudades están etiquetados con la entidad precompilada **geographyV2**.
 1. En el primer expresión de la lista, seleccione la ubicación de origen. Aparecerá un menú desplegable. Seleccione **geographyV2** en la lista y, a continuación, desplácese por el menú para seleccionar **Origen**.
-1. Use el método del paso anterior para marcar todos los roles de las ubicaciones en todas las expresiones. 
+1. Use el método del paso anterior para marcar todos los roles de las ubicaciones en todas las expresiones.
 
 
-## <a name="add-example-utterances-to-the-none-intent"></a>Incorporación de expresiones de ejemplo a la intención None 
+## <a name="add-example-utterances-to-the-none-intent"></a>Incorporación de expresiones de ejemplo a la intención None
 
 [!INCLUDE [Follow these steps to add the None intent to the app](../../../includes/cognitive-services-luis-create-the-none-intent.md)]
 
-## <a name="train-the-app-so-the-changes-to-the-intent-can-be-tested"></a>Entrenamiento de la aplicación para probar los cambios en la intención 
+## <a name="train-the-app-so-the-changes-to-the-intent-can-be-tested"></a>Entrenamiento de la aplicación para probar los cambios en la intención
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
@@ -152,9 +152,9 @@ La entidad precompilada, geographyV2, extrae información de ubicación, incluid
       ]
     }
     ```
-    
+
     La intención correcta se predice y la matriz de entidades tiene los roles de origen y destino en la propiedad **entities** correspondiente.
-    
+
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
@@ -173,5 +173,5 @@ La entidad precompilada, geographyV2, extrae información de ubicación, incluid
 
 Este tutorial creó una nueva intención y agregó expresiones de ejemplo para los datos aprendidos contextualmente de las ubicaciones de origen y destino. Una vez que la aplicación está entrenada y publicada, una aplicación cliente puede usar esa información para crear un vale de movimiento con la información relevante.
 
-> [!div class="nextstepaction"] 
-> [Más información sobre cómo agregar una entidad compuesta](luis-tutorial-composite-entity.md) 
+> [!div class="nextstepaction"]
+> [Más información sobre cómo agregar una entidad compuesta](luis-tutorial-composite-entity.md)

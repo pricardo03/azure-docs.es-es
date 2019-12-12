@@ -4,21 +4,20 @@ description: Obtenga información acerca del conector Teradata para el servicio 
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.assetid: 98eb76d8-5f3d-4667-b76e-e59ed3eea3ae
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 645dcde949c8f5a6b48a5c02892d4cb2c6c5be0e
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: ecde5784e759ef5259b8c67ed574cef6cae98f30
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73666088"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74929048"
 ---
 # <a name="move-data-from-teradata-using-azure-data-factory"></a>Movimiento de datos de Teradata mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -297,7 +296,7 @@ Al mover datos a Teradata, se usan las asignaciones siguientes de tipo Teradata 
 | ByteInt |Int16 |
 | Decimal |Decimal |
 | Double |Double |
-| Integer |Int32 |
+| Entero |Int32 |
 | Number |Double |
 | SmallInt |Int16 |
 | Date |DateTime |

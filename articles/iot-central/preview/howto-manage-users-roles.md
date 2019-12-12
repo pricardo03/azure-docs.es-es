@@ -3,17 +3,17 @@ title: Administración de usuarios y roles en una aplicación de Azure IoT Centr
 description: Como administrador, aquí se indica la forma de administrar usuarios y roles en su aplicación de Azure IoT Central
 author: lmasieri
 ms.author: lmasieri
-ms.date: 10/22/2019
+ms.date: 12/05/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: corywink
-ms.openlocfilehash: 603bc4ad39a472f2ebc786257bc7c625e3f6b9a4
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 9729a51c36a520a2c196fb83515c9fa616411cf3
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73894452"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974434"
 ---
 # <a name="manage-users-and-roles-in-your-iot-central-application-preview-features"></a>Administración de usuarios y roles en la aplicación de IoT Central (características en versión preliminar)
 

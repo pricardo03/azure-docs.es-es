@@ -3,12 +3,12 @@ title: Conexión de la función de Java a Azure Storage
 description: Aprenda a conectar una función de Java desencadenada por HTTP a Azure Storage mediante un enlace de salida de Queue Storage.
 ms.date: 10/14/2019
 ms.topic: quickstart
-ms.openlocfilehash: f9c3445efbe14c27cad9de62f5b46f50965e3145
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 98f49338f0df935347a26798aceccb80f9f43f50
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231203"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926897"
 ---
 # <a name="connect-your-java-function-to-azure-storage"></a>Conexión de la función de Java a Azure Storage
 
@@ -118,7 +118,7 @@ mvn azure-functions:run
 ```
 
 > [!NOTE]  
-> Como ya habilitó las agrupaciones de extensiones en el archivo host.json, la [extensión de enlace de Storage](functions-bindings-storage-blob.md#packages---functions-2x) se descargó e instaló automáticamente durante el inicio junto con el resto de extensiones de enlace de Microsoft.
+> Como ya habilitó las agrupaciones de extensiones en el archivo host.json, la [extensión de enlace de Storage](functions-bindings-storage-blob.md#packages---functions-2x-and-higher) se descargó e instaló automáticamente durante el inicio junto con el resto de extensiones de enlace de Microsoft.
 
 Al igual que antes, desencadene la función desde la línea de comandos mediante cURL en una ventana de terminal nueva:
 

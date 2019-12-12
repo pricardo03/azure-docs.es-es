@@ -3,17 +3,17 @@ title: 'Tutorial: Creación y administración de reglas en la aplicación de Azu
 description: En este tutorial se muestra cómo las reglas de Azure IoT Central le permiten supervisar los dispositivos casi en tiempo real e invocar automáticamente acciones, como el envío de correo electrónico, cuando la regla se desencadena.
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/24/2019
+ms.date: 12/09/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: e2ec01e372ebda79272b585ea6f1708029ea7b13
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 793bb46e14725b14c766569e8b0fc2aa0246858e
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74702539"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74979060"
 ---
 # <a name="tutorial-create-a-rule-and-set-up-notifications-in-your-azure-iot-central-application-preview-features"></a>Tutorial: Creación de una regla y configuración de las notificaciones en la aplicación de Azure IoT Central (características en versión preliminar)
 

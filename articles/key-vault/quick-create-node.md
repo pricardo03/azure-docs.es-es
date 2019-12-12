@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.date: 10/20/2019
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: 6555e61bab4ee668578b50cd27860fde1909c4dd
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: e36e3ae9ce2e8ca116921de428b4dcc09b37afb6
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546893"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978584"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-nodejs-v4"></a>Inicio rápido: Biblioteca cliente de Azure Key Vault para Node.js (v4)
 
@@ -191,7 +191,7 @@ az keyvault secret show --vault-name <your-unique-keyvault-name> --name mySecret
 Cuando ya no lo necesite, puede usar la CLI de Azure o Azure PowerShell para quitar el almacén de claves y el grupo de recursos correspondiente.
 
 ```azurecli
-az group delete -g "myResourceGroup" -l "EastUS" 
+az group delete -g "myResourceGroup"
 ```
 
 ```azurepowershell

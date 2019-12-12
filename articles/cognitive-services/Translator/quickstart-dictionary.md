@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 09/05/2019
+ms.date: 12/09/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: fcbf6878be53d7aa6bf9569da194b4e90f2b10db
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 42e883a7563072fca771482998bdcdbebec50ae9
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827466"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975778"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary"></a>Inicio rápido: Búsqueda de palabras con un diccionario bilingüe
 
@@ -54,7 +54,7 @@ En esta guía de inicio rápido, se requiere una [cuenta de Azure Cognitive Serv
 
 ::: zone-end
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 * [Traducir texto](quickstart-translate.md)
 * [Transliterar texto](quickstart-transliterate.md)

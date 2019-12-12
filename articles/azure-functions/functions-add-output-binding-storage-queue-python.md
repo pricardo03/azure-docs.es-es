@@ -3,12 +3,12 @@ title: Adición de un enlace de cola de Azure Storage a la función de Python
 description: Aprenda a agregar un enlace de salida de cola de Azure Storage a la función de Python.
 ms.date: 10/02/2019
 ms.topic: quickstart
-ms.openlocfilehash: dede135da56e9ed1eaaed2ae0f7b5cd14d08195c
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: f2db0f470c4205919343e3838a4f73b05bf71fb0
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231248"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928880"
 ---
 # <a name="add-an-azure-storage-queue-binding-to-your-python-function"></a>Adición de un enlace de cola de Azure Storage a la función de Python
 
@@ -55,7 +55,7 @@ func host start
 ```
 
 > [!NOTE]  
-> Como ya habilitó las agrupaciones de extensiones en el archivo host.json, la [extensión de enlace de Storage](functions-bindings-storage-blob.md#packages---functions-2x) se descargó e instaló automáticamente durante el inicio junto con el resto de extensiones de enlace de Microsoft.
+> Como ya habilitó las agrupaciones de extensiones en el archivo host.json, la [extensión de enlace de Storage](functions-bindings-storage-blob.md#packages---functions-2x-and-higher) se descargó e instaló automáticamente durante el inicio junto con el resto de extensiones de enlace de Microsoft.
 
 Copie la dirección URL de la función `HttpTrigger` que aparece en la salida en entorno de ejecución y péguela en la barra de direcciones del explorador. Agregue la cadena de consulta `?name=<yourname>` a esta dirección URL y ejecute la solicitud. Verá la misma respuesta en el explorador que en el artículo anterior.
 

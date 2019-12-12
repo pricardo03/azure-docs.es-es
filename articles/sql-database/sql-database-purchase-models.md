@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/26/2019
-ms.openlocfilehash: be223245c634b8e38dc5e4c89df4c265c22c0b57
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 6dbe61c47a7323e2dec599d2f3c77453aa6f8d82
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821261"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973533"
 ---
 # <a name="choose-between-the-vcore-and-the-dtu-purchasing-models"></a>Elija entre los modelos de compra de núcleo virtual y de DTU
 
@@ -129,7 +129,7 @@ Si desea migrar una carga de trabajo de máquina virtual existente local o de SQ
 
 ### <a name="workloads-that-benefit-from-an-elastic-pool-of-resources"></a>Cargas de trabajo que se benefician de un grupo elástico de recursos
 
-Los grupos son adecuados para las bases de datos con un promedio de uso de recursos bajo y picos de uso relativamente poco frecuentes. SQL Database evalúa automáticamente el historial de uso de recursos de bases de datos en un servidor de SQL Database existente y recomienda la configuración de grupo apropiada en Azure Portal. Para más información, consulte [¿Cuándo se debe usar un grupo elástico de SQL Database?](sql-database-elastic-pool.md)
+Los grupos son adecuados para las bases de datos con un promedio de uso de recursos bajo y picos de uso relativamente poco frecuentes. Para más información, consulte [¿Cuándo se debe usar un grupo elástico de SQL Database?](sql-database-elastic-pool.md)
 
 ## <a name="frequently-asked-questions-faqs"></a>Preguntas más frecuentes (P+F)
 

@@ -1,19 +1,19 @@
 ---
 title: Administración de modelos de la versión preliminar de IoT Plug and Play en el repositorio | Microsoft Docs
 description: Cómo administrar modelos de funcionalidad del dispositivo en el repositorio mediante el portal de Azure Certified for IoT, la CLI de Azure y Visual Studio Code.
-author: YasinMSFT
+author: Philmea
 manager: philmea
 ms.service: iot-pnp
 services: iot-pnp
 ms.topic: conceptual
 ms.date: 06/12/2019
-ms.author: yahajiza
-ms.openlocfilehash: 1b71d8bd0f0417c7dc408c580a1c73ac654743ce
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.author: philmea
+ms.openlocfilehash: 4320a975f74d000bd492d291f5e610f591536b0d
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70932868"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74979111"
 ---
 # <a name="manage-models-in-the-repository"></a>Administración de modelos en el repositorio
 

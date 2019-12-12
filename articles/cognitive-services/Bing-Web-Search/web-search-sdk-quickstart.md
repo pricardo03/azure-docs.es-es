@@ -8,22 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 04/15/2019
+ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: 5e893fda5a0e71703eb867c045de19d391c012ed
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: 2c55aaa0843574981a7643b11161700992ea0b09
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018224"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976458"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-c"></a>Inicio rápido: Uso del SDK de Bing Web Search para C#
 
 El SDK de Bing Web Search facilita la integración de Bing Web Search en la aplicación de C#. En esta guía de inicio rápido, aprenderá a crear una instancia de un cliente, enviar una solicitud e imprimir la respuesta.
-
-[!INCLUDE [bing-web-search-quickstart-signup](../../../includes/bing-web-search-quickstart-signup.md)]
-
-Consulte también [Precios de Cognitive Services - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## <a name="prerequisites"></a>Requisitos previos
 Estas son algunas cosas que necesitará antes de ejecutar esta guía de inicio rápido:
@@ -33,6 +29,8 @@ Estas son algunas cosas que necesitará antes de ejecutar esta guía de inicio r
   * [C# para Visual Studio Code](https://visualstudio.microsoft.com/downloads/)
   * [Administrador de paquetes NuGet](https://github.com/jmrog/vscode-nuget-package-manager)
 * [SDK de .NET Core](https://www.microsoft.com/net/download)
+
+[!INCLUDE [bing-web-search-quickstart-signup](../../../includes/bing-web-search-quickstart-signup.md)]
 
 ## <a name="create-a-project-and-install-dependencies"></a>Creación de un proyecto e instalación de dependencias
 

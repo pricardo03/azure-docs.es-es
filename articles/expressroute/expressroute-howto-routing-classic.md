@@ -5,14 +5,14 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 04/24/2019
+ms.date: 12/06/2019
 ms.author: cherylmc
-ms.openlocfilehash: 814a73900b05b66d1bacc946b9f994135d3fc9f6
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 05602538f206032d924b39a7dd8f4325c48a5224
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083439"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931371"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>Creación y modificación del emparejamiento de un circuito ExpressRoute (clásica)
 > [!div class="op_single_selector"]
@@ -42,40 +42,7 @@ Estas instrucciones se aplican solo a los circuitos que se crean con proveedores
 
 ### <a name="download-the-latest-powershell-cmdlets"></a>Descarga de los cmdlets de PowerShell más recientes
 
-Instale las versiones más recientes de los módulos de ExpressRoute y de PowerShell de Azure Service Management (SM). Cuando se usa el ejemplo siguiente, tenga en cuenta que el número de versión (en este ejemplo, 5.1.1) cambiará a medida que se publiquen las versiones más recientes de los cmdlets.
-
-```powershell
-Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azure.psd1'
-Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRoute\ExpressRoute.psd1'
-```
-
-Para más información sobre cómo configurar el equipo para usar los módulos de Azure PowerShell, siga las indicaciones que aparecen en [Introducción a los cmdlets de PowerShell para Azure](/powershell/azure/overview).
-
-### <a name="sign-in"></a>Iniciar sesión
-
-Para iniciar sesión en la cuenta de Azure, use los ejemplos siguientes:
-
-1. Abra la consola de PowerShell con privilegios elevados y conéctela a su cuenta.
-
-   ```powershell
-   Connect-AzAccount
-   ```
-2. Compruebe las suscripciones para la cuenta.
-
-   ```powershell
-   Get-AzSubscription
-   ```
-3. Si tiene varias suscripciones, seleccione la que quiera usar.
-
-   ```powershell
-   Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
-   ```
-
-4. A continuación, use el cmdlet siguiente para agregar la suscripción de Azure a PowerShell para el modelo de implementación clásica.
-
-   ```powershell
-   Add-AzureAccount
-   ```
+[!INCLUDE [classic powershell install instructions](../../includes/expressroute-poweshell-classic-install-include.md)]
 
 ## <a name="azure-private-peering"></a>Configuración entre pares privados de Azure
 

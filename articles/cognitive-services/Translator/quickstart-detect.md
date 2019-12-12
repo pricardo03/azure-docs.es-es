@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 09/05/2019
+ms.date: 12/09/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 3d5184a531e86bdfbb49464a3bc048844e713503
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 5164ed71b2a513b8d82bee1108964f2f44f710ac
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827853"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975795"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-detect-text-language"></a>Inicio rápido: Uso de la API Translator Text para detectar el idioma del texto
 
@@ -54,7 +54,7 @@ En esta guía de inicio rápido, se requiere una [cuenta de Azure Cognitive Serv
 
 ::: zone-end
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 * [Traducir texto](quickstart-translate.md)
 * [Transliterar texto](quickstart-transliterate.md)

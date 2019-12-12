@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a90151679b71364d93446d1acc46a461d2a9d8f9
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 4cd8e483d6c189e311fdb1925ad0f2effc2affe1
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278165"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849160"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Tutorial: Configuración de Slack para aprovisionar usuarios automáticamente
 
@@ -66,13 +66,13 @@ Esta sección lo guía a través de los pasos necesarios para conectar la API de
 
 4. Establezca el **modo de aprovisionamiento** en **Automático**.
 
-   ![Aprovisionamiento de Slack](./media/slack-provisioning-tutorial/Slack1.PNG)
+   ![Aprovisionamiento de Slack](./media/slack-provisioning-tutorial/slack1.png)
 
 5. En **Credenciales de administrador**, haga clic en **Autorizar**. Se abrirá un cuadro de diálogo de autorización de Slack en una nueva ventana del explorador.
 
 6. En esa nueva ventana, inicie sesión en Slack con su cuenta de administrador de equipo. En el cuadro de diálogo de autorización que aparece, seleccione el equipo de Slack para el que desea habilitar el aprovisionamiento y, luego, seleccione **Autorizar**. Cuando termina, vuelva a Azure Portal para completar la configuración de aprovisionamiento.
 
-    ![Cuadro de diálogo de autorización](./media/slack-provisioning-tutorial/Slack3.PNG)
+    ![Cuadro de diálogo de autorización](./media/slack-provisioning-tutorial/slackauthorize.png)
 
 7. En Azure Portal, haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a la aplicación de Slack. Si se produce un error de conexión, asegúrese de que su cuenta de Slack tiene permisos de administrador de equipo y vuelva a intentar el paso de "Autorizar".
 

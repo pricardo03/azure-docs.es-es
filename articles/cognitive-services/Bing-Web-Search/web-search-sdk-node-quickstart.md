@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 03/12/2019
+ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: 79f0630c65aa438ac5d831b03842cc74b609cd3b
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 059862255ca2cf0ce435496bf22d866a37c8be71
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132742"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977172"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-nodejs"></a>Inicio rápido: Uso del SDK de Bing Web Search para Node.js
 
@@ -23,15 +23,14 @@ El SDK de Bing Web Search facilita la integración de Bing Web Search en la apli
 
 ¿Desea ver el código ahora mismo? Hay [ejemplos del SDK de Bing Web Search para Node.js](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples) disponibles en GitHub.
 
-[!INCLUDE [bing-web-search-quickstart-signup](../../../includes/bing-web-search-quickstart-signup.md)]
-
-Consulte también [Precios de Cognitive Services - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
-
 ## <a name="prerequisites"></a>Requisitos previos
 Estas son algunas cosas que necesitará antes de ejecutar esta guía de inicio rápido:
 
 * [Node.js 6](https://nodejs.org/en/download/) o posterior
 * Una clave de suscripción  
+
+[!INCLUDE [bing-web-search-quickstart-signup](../../../includes/bing-web-search-quickstart-signup.md)]
+
 
 ## <a name="set-up-your-development-environment"></a>Configurado su entorno de desarrollo
 
@@ -109,6 +108,6 @@ Cuando haya terminado con este proyecto, asegúrese de quitar la clave de suscri
 > [!div class="nextstepaction"]
 > [Ejemplos del SDK de Cognitive Services para Node.js](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 * [Referencia del SDK de Nodo de Azure](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-websearch/)

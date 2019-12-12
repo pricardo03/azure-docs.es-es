@@ -2,18 +2,17 @@
 title: Procedimiento para clonar un centro de Azure IoT Hub
 description: Procedimiento para clonar un centro de Azure IoT Hub
 author: robinsh
-manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 11/05/2019
+ms.date: 12/09/2019
 ms.author: robinsh
-ms.openlocfilehash: 4d8771d49f30d94aeb6dfa855f5c2ef107076afb
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 6e4d110221c7f360e8177505de2a7789f9616d51
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083282"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976152"
 ---
 # <a name="how-to-clone-an-azure-iot-hub-to-another-region"></a>Procedimiento para clonar un centro de Azure IoT Hub en otra región
 
@@ -73,9 +72,7 @@ Este es el método general que se recomienda para mover un centro de IoT Hub de 
    1. Agregue todo lo que no se haya exportado a la plantilla. 
    
        Por ejemplo, los grupos de consumidores no se exportan a la plantilla. Tiene que agregar los grupos de consumidores a la plantilla manualmente o usar [Azure Portal](https://portal.azure.com) después de crear el centro. Hay un ejemplo de cómo agregar un grupo de consumidores a una plantilla en el artículo [Uso de una plantilla de Azure Resource Manager para configurar el enrutamiento de mensajes de IoT Hub](tutorial-routing-config-message-routing-rm-template.md).
-
-       Las [mejoras de mensajes](iot-hub-message-enrichments-overview.md) tampoco se exportan a la plantilla. Se usan en combinación con los mensajes de enrutamiento y se tendrán que actualizar manualmente en el nuevo centro cuando se actualice la configuración del enrutamiento de mensajes.
-
+       
    1. Copie los dispositivos del centro original al clon. Esto se trata en la sección [Administración de los dispositivos registrados en el centro de IoT Hub](#managing-the-devices-registered-to-the-iot-hub).
 
 ## <a name="how-to-handle-message-routing"></a>Procedimiento para controlar el enrutamiento de mensajes
@@ -103,9 +100,6 @@ Si el centro usa el enrutamiento de mensajes, tiene dos opciones.
    * El centro sigue haciendo referencia a los recursos de enrutamiento originales y enruta los mensajes a ellos tal y como se ha configurado.
 
    * Habrá un pequeño impacto en el rendimiento porque el centro y los recursos del punto de conexión de enrutamiento no están en la misma ubicación.
-
-> [!NOTE]
-> Si el centro usa [mejoras de mensajes](iot-hub-message-enrichments-overview.md), tendrá que configurarlas manualmente en el nuevo centro de IoT Hub, ya que no se exportan con la plantilla de Resource Manager.
 
 ## <a name="prepare-to-migrate-the-hub-to-another-region"></a>Preparación de la migración del centro a otra región
 

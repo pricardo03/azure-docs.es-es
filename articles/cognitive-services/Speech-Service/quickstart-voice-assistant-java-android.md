@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 07/05/2019
+ms.date: 12/09/2019
 ms.author: travisw
-ms.openlocfilehash: 077f34e94423918d324eb41b56ab84c64a0db719
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 70031513d6f120e539e80d6befad4bf9320fb9c4
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74816198"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975965"
 ---
 # <a name="quickstart-create-a-voice-assistant-in-java-on-android-by-using-the-speech-sdk"></a>Inicio rápido: Creación de un asistente de voz de Java en Android con el SDK de Voz
 
@@ -283,7 +283,7 @@ Cuando se hayan iniciado la aplicación y su actividad, haga clic en el botón p
 > [!div class="nextstepaction"]
 > [Creación e implementación de un bot básico](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 - [Acerca de los asistentes de voz](voice-assistants.md)
 - [Obtenga una clave de suscripción gratuita a los servicios de Voz](get-started.md)
 - [Palabras clave personalizadas](speech-devices-sdk-create-kws.md)

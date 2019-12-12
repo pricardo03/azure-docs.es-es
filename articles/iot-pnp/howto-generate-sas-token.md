@@ -1,19 +1,19 @@
 ---
 title: Generación de un token de seguridad para acceder al repositorio de IoT Plug and Play (versión preliminar) | Microsoft Docs
 description: Genere un token de firma de acceso compartido para usarlo al acceder a un repositorio del modelo de IoT Plug and Play (versión preliminar) mediante programación.
-author: YasinMSFT
-ms.author: yahajiza
+author: Philmea
+ms.author: philmea
 ms.date: 08/06/2019
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: e5d6e7087a7e3d5f4a001e16c5cfa19a6df6a68e
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: f6c4f5b9784eeff9d03b6e93953674736fb78c6c
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69879228"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976033"
 ---
 # <a name="generate-sas-token"></a>Generación de un token de SAS
 

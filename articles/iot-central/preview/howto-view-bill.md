@@ -3,17 +3,17 @@ title: Administrar la factura y convertir la versión de prueba a una de pago po
 description: Como administrador, puede aprender a administrar su factura y a convertir la versión de prueba a una de pago por uso en la aplicación Azure IoT Central
 author: v-krghan
 ms.author: v-krghan
-ms.date: 07/26/2019
+ms.date: 12/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 11bcdaab34cf4d82b688a578ab2d9ee686ffe07e
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 0c1c1643fb8c8394ce3ce50e5926f05fd4d366f6
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73894164"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976424"
 ---
 # <a name="manage-your-bill-in-an-iot-central-application"></a>Administrar la factura en una aplicación de IoT Central
 

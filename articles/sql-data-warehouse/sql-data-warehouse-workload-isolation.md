@@ -11,12 +11,12 @@ ms.date: 11/27/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 51990e02eada52263006627be803c4073b9361ac
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 82270c126d8a0894cd3a388dcab62017ed63c2cd
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555398"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974655"
 ---
 # <a name="sql-data-warehouse-workload-group-isolation-preview"></a>Aislamiento de grupos de cargas de trabajo de SQL Data Warehouse (versión preliminar)
 
@@ -24,13 +24,13 @@ En este artículo se explica cómo se pueden usar los grupos de cargas de trabaj
 
 ## <a name="workload-groups"></a>Grupos de carga de trabajo
 
-Los grupos de cargas de trabajo son contenedores para un conjunto de solicitudes y son la base de la configuración de la administración de cargas de trabajo en un sistema, incluido el aislamiento de la carga de trabajo.  Los grupos de cargas de trabajo se crean con la sintaxis [CREATE WORKLOAD GROUP](https://review.docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest).  Una configuración sencilla de administración de cargas de trabajo puede administrar cargas de datos y consultas de usuario.  Por ejemplo, un grupo de cargas de trabajo denominado `wgDataLoads` definirá los aspectos de la carga de trabajo para los datos que se cargan en el sistema. Además, un grupo de cargas de trabajo denominado `wgUserQueries` definirá los aspectos de la carga de trabajo para los usuarios que ejecutan consultas para leer datos del sistema.
+Los grupos de cargas de trabajo son contenedores para un conjunto de solicitudes y son la base de la configuración de la administración de cargas de trabajo en un sistema, incluido el aislamiento de la carga de trabajo.  Los grupos de cargas de trabajo se crean con la sintaxis [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest).  Una configuración sencilla de administración de cargas de trabajo puede administrar cargas de datos y consultas de usuario.  Por ejemplo, un grupo de cargas de trabajo denominado `wgDataLoads` definirá los aspectos de la carga de trabajo para los datos que se cargan en el sistema. Además, un grupo de cargas de trabajo denominado `wgUserQueries` definirá los aspectos de la carga de trabajo para los usuarios que ejecutan consultas para leer datos del sistema.
 
 En las secciones siguientes se resaltará el modo en que los grupos de cargas de trabajo proporcionan la capacidad de definir el aislamiento, la contención, la definición de recursos de solicitud y el cumplimiento de las reglas de ejecución.
 
 ## <a name="workload-isolation"></a>Aislamiento de cargas de trabajo
 
-El aislamiento de la carga de trabajo significa que los recursos se reservan, de forma exclusiva, para un grupo de cargas de trabajo.  El aislamiento de la carga de trabajo se logra al configurar el parámetro MIN_PERCENTAGE_RESOURCE en un valor mayor que cero en la sintaxis [CREATE WORKLOAD GROUP](https://review.docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest).  En el caso de las cargas de trabajo de ejecución continua que necesiten cumplir con acuerdos de nivel de servicio estrictos, el aislamiento garantiza que los recursos siempre estén disponibles para el grupo de cargas de trabajo. 
+El aislamiento de la carga de trabajo significa que los recursos se reservan, de forma exclusiva, para un grupo de cargas de trabajo.  El aislamiento de la carga de trabajo se logra al configurar el parámetro MIN_PERCENTAGE_RESOURCE en un valor mayor que cero en la sintaxis [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest).  En el caso de las cargas de trabajo de ejecución continua que necesiten cumplir con acuerdos de nivel de servicio estrictos, el aislamiento garantiza que los recursos siempre estén disponibles para el grupo de cargas de trabajo. 
 
 La configuración del aislamiento de cargas de trabajo define implícitamente un nivel garantizado de simultaneidad.  Con un valor MIN_PERCENTAGE_RESOURCE establecido en 30 % y REQUEST_MIN_RESOURCE_GRANT_PERCENT establecido en 2 %, se garantiza un nivel de simultaneidad de 15 para el grupo de cargas de trabajo.  Considere el método siguiente para determinar la simultaneidad garantizada:
 
@@ -50,7 +50,7 @@ Los usuarios deben evitar una solución de administración de cargas de trabajo 
 
 ## <a name="workload-containment"></a>Contención de la carga de trabajo
 
-La contención de la carga de trabajo hace referencia a la limitación de la cantidad de recursos que puede consumir un grupo de cargas de trabajo.  La contención de la carga de trabajo se logra al configurar el parámetro CAP_PERCENTAGE_RESOURCE en un valor menor que 100 en la sintaxis [CREATE WORKLOAD GROUP](https://review.docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest).  Considere el escenario en el que los usuarios necesitan acceso de lectura al sistema para ejecutar un análisis de hipótesis mediante consultas ad hoc.  Estos tipos de solicitudes podrían tener un impacto negativo en otras cargas de trabajo que se ejecutan en el sistema.  Al configurar la contención se garantiza que la cantidad de recursos es limitada.
+La contención de la carga de trabajo hace referencia a la limitación de la cantidad de recursos que puede consumir un grupo de cargas de trabajo.  La contención de la carga de trabajo se logra al configurar el parámetro CAP_PERCENTAGE_RESOURCE en un valor menor que 100 en la sintaxis [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest).  Considere el escenario en el que los usuarios necesitan acceso de lectura al sistema para ejecutar un análisis de hipótesis mediante consultas ad hoc.  Estos tipos de solicitudes podrían tener un impacto negativo en otras cargas de trabajo que se ejecutan en el sistema.  Al configurar la contención se garantiza que la cantidad de recursos es limitada.
 
 La configuración de la contención de cargas de trabajo define implícitamente un nivel de simultaneidad máximo.  Con un valor CAP_PERCENTAGE_RESOURCE establecido en 60 % y REQUEST_MIN_RESOURCE_GRANT_PERCENT establecido en 1 %, se permite un nivel de simultaneidad máximo de 60 para el grupo de cargas de trabajo.  Tenga en cuenta el método que se incluye a continuación para determinar la simultaneidad máxima:
 
@@ -61,7 +61,7 @@ La configuración de la contención de cargas de trabajo define implícitamente 
 
 ## <a name="resources-per-request-definition"></a>Recursos por definición de solicitud
 
-Los grupos de cargas de trabajo proporcionan un mecanismo para definir la cantidad mínima y máxima de recursos que se asignan por solicitud con los parámetros REQUEST_MIN_RESOURCE_GRANT_PERCENT y REQUEST_MAX_RESOURCE_GRANT_PERCENT en la sintaxis [CREATE WORKLOAD GROUP](https://review.docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest).  En este caso, los recursos son la CPU y la memoria.  La configuración de estos valores determina la cantidad de recursos y el nivel de simultaneidad que se puede lograr en el sistema.
+Los grupos de cargas de trabajo proporcionan un mecanismo para definir la cantidad mínima y máxima de recursos que se asignan por solicitud con los parámetros REQUEST_MIN_RESOURCE_GRANT_PERCENT y REQUEST_MAX_RESOURCE_GRANT_PERCENT en la sintaxis [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest).  En este caso, los recursos son la CPU y la memoria.  La configuración de estos valores determina la cantidad de recursos y el nivel de simultaneidad que se puede lograr en el sistema.
 
 > [!NOTE] 
 > REQUEST_MAX_RESOURCE_GRANT_PERCENT es un parámetro opcional cuyo valor predeterminado es el mismo que se especifica para REQUEST_MIN_RESOURCE_GRANT_PERCENT.
@@ -75,7 +75,7 @@ La configuración de REQUEST_MAX_RESOURCE_GRANT_PERCENT en un valor mayor que RE
 
 ## <a name="execution-rules"></a>Reglas de ejecución
 
-En los sistemas de informes ad hoc, los clientes pueden ejecutar por accidente consultas descontroladas que afectan gravemente a la productividad de terceros.  Los administradores del sistema tendrán que dedicar tiempo a eliminar las consultas descontroladas para liberar recursos del sistema.  Los grupos de cargas de trabajo ofrecen la posibilidad de configurar una regla de tiempo de expiración de ejecución de consulta para cancelar las consultas que hayan superado el valor especificado.  Para configurar la regla se establece el parámetro `QUERY_EXECUTION_TIMEOUT_SEC` en la sintaxis [CREATE WORKLOAD GROUP](https://review.docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest).
+En los sistemas de informes ad hoc, los clientes pueden ejecutar por accidente consultas descontroladas que afectan gravemente a la productividad de terceros.  Los administradores del sistema tendrán que dedicar tiempo a eliminar las consultas descontroladas para liberar recursos del sistema.  Los grupos de cargas de trabajo ofrecen la posibilidad de configurar una regla de tiempo de expiración de ejecución de consulta para cancelar las consultas que hayan superado el valor especificado.  Para configurar la regla se establece el parámetro `QUERY_EXECUTION_TIMEOUT_SEC` en la sintaxis [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest).
 
 ## <a name="shared-pool-resources"></a>Recursos de grupo compartidos
 
@@ -88,5 +88,5 @@ El acceso a los recursos del grupo compartido se asigna en función de la [impor
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Inicio rápido: Configuración del aislamiento de cargas de trabajo](quickstart-configure-workload-isolation-tsql.md)
-- [CREATE WORKLOAD GROUP](https://docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest)
+- [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest)
 - [Conversión de las clases de recursos en grupos de cargas de trabajo](sql-data-warehouse-how-to-convert-resource-classes-workload-groups.md).

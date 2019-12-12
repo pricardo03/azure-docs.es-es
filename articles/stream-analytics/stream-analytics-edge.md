@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 07/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8e3b6d0fbefb8e3d3437fd5e24f929e453c573df
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 07fa43563ca9b6c9ae247df6eb28894331b004c1
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621005"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976441"
 ---
 # <a name="azure-stream-analytics-on-iot-edge"></a>Azure Stream Analytics en IoT Edge
  
@@ -147,7 +147,7 @@ El objetivo es tener paridad entre los trabajos de IoT Edge y los trabajos en la
 Sin embargo, las siguientes características aún no se admiten en los trabajos perimetrales:
 * Funciones definidas por el usuario (UDF) en JavaScript. Las UDF están disponibles en [ C# para trabajos de IoT Edge](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-edge-csharp-udf) (versión preliminar).
 * Agregados definidos por el usuario (UDA).
-* Funciones de Azure ML
+* Funciones de Azure Machine Learning.
 * Uso de más de 14 agregados en un solo paso.
 * Formato AVRO para la entrada y salida. En este momento solo se admiten CSV y JSON.
 * Los siguientes operadores SQL:
