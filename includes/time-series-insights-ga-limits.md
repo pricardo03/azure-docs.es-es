@@ -4,17 +4,17 @@ description: archivo de inclusión
 services: digital-twins
 ms.service: digital-twins
 ms.topic: include
-ms.date: 10/16/2019
+ms.date: 12/06/2019
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
 ms.custom: include file
-ms.openlocfilehash: e8c040bc186932680ce7eb4418a787dc061d02ce
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 54796f0c0810afd5559af836c566bf66b430223f
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72991164"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74981385"
 ---
 A continuación se resumen los límites principales en la disponibilidad general.
 
@@ -53,7 +53,7 @@ Los límites de propiedad de la disponibilidad general dependen del entorno de S
 
 ### <a name="event-sources"></a>Orígenes de eventos
 
-Se admite un máximo de dos orígenes del evento por instancia. 
+Se admite un máximo de dos orígenes de evento por instancia. 
 
 * Obtenga información sobre cómo [agregar un origen de Event Hub](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub).
 * Configure [un origen de centro de IoT](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub).

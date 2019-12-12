@@ -3,27 +3,23 @@ title: Configuración del llavero
 titleSuffix: Microsoft identity platform
 description: Obtenga información sobre cómo configurar el llavero para que su aplicación pueda almacenar en caché los tokens en el llavero.
 services: active-directory
-documentationcenter: ''
 author: TylerMSFT
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/28/2019
 ms.author: twhitney
-ms.reviewer: ''
+ms.reviewer: oldalton
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69991d105ff3523310f54e65596f2f379b547052
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 8b4599549e15d6ebe4d0bd04f96c89df86b0c0cd
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803806"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74917512"
 ---
 # <a name="configure-keychain"></a>Configuración del llavero
 
@@ -51,7 +47,7 @@ En macOS 10.15 (macOS Catalina), MSAL usa el atributo de grupo de acceso al ll
 
 Si desea usar un grupo de acceso al llavero diferente, puede pasar el grupo personalizado al crear `MSALPublicClientApplicationConfig`, antes de crear `MSALPublicClientApplication`, de la siguiente manera:
 
-Objective-C:
+# <a name="objective-ctabobjc"></a>[Objective-C](#tab/objc)
 
 ```objc
 MSALPublicClientApplicationConfig *config = [[MSALPublicClientApplicationConfig alloc] initWithClientId:@"your-client-id"
@@ -67,9 +63,7 @@ MSALPublicClientApplication *application = [[MSALPublicClientApplication alloc] 
 // and only shared with other applications declaring the same access group
 ```
 
-
-
-Swift:
+# <a name="swifttabswift"></a>[Swift](#tab/swift)
 
 ```swift
 let config = MSALPublicClientApplicationConfig(clientId: "your-client-id",
@@ -85,25 +79,27 @@ do {
 }       
 ```
 
-
+---
 
 ## <a name="disable-keychain-sharing"></a>Deshabilitar uso compartido del llavero
 
 Si no desea compartir el estado de SSO entre varias aplicaciones ni usar ningún grupo de acceso al llavero, deshabilite el uso compartido del llavero pasando el identificador del paquete de aplicación como keychainGroup:
 
-Objective-C:
+# <a name="objective-ctabobjc"></a>[Objective-C](#tab/objc)
 
 ```objc
 config.cacheConfig.keychainSharingGroup = [[NSBundle mainBundle] bundleIdentifier];
 ```
 
-Swift:
+# <a name="swifttabswift"></a>[Swift](#tab/swift)
 
 ```swift
 if let bundleIdentifier = Bundle.main.bundleIdentifier {
     config.cacheConfig.keychainSharingGroup = bundleIdentifier
 }
 ```
+
+---
 
 ## <a name="handle--34018-error-failed-to-set-item-into-keychain"></a>Identificador: error 34018 (no se pudo establecer el elemento en el llavero)
 

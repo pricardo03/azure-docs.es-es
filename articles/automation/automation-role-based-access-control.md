@@ -5,17 +5,17 @@ keywords: automatización de rbac, control de acceso basado en roles, rbac de az
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 05/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9b2bcdf3d74c6946b8c9f0dacaeabf28d9c76f94
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 0ee524768f46de965b1755f2cfffdf9e2034bec8
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477731"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850795"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Control de acceso basado en rol en Azure Automation
 
@@ -218,10 +218,10 @@ Las siguientes tablas muestran los permisos mínimos necesarios para incorporar 
 |---------|---------|---------|
 |Escribir nueva implementación      | Microsoft.Resources/deployments/*          |Subscription          |
 |Escribir nuevo grupo de recursos      | Microsoft.Resources/subscriptions/resourceGroups/write        | Subscription          |
-|Crear nueva área de trabajo predeterminada      | Microsoft.OperationalInsights/workspaces/write         | Grupos de recursos         |
-|Crear nueva cuenta      |  Microsoft.Automation/automationAccounts/write        |Grupos de recursos         |
+|Crear nueva área de trabajo predeterminada      | Microsoft.OperationalInsights/workspaces/write         | Resource group         |
+|Crear nueva cuenta      |  Microsoft.Automation/automationAccounts/write        |Resource group         |
 |Vincular área de trabajo y cuenta      |Microsoft.OperationalInsights/workspaces/write</br>Microsoft.Automation/automationAccounts/read|Área de trabajo</br>Cuenta de Automation
-|Crear solución      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write |Grupos de recursos          |
+|Crear solución      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write |Resource group          |
 |Crear extensión MMA      | Microsoft.Compute/virtualMachines/write         | Máquina virtual         |
 |Crear búsqueda guardada      | Microsoft.OperationalInsights/workspaces/write          | Área de trabajo         |
 |Crear configuración de ámbito      | Microsoft.OperationalInsights/workspaces/write          | Área de trabajo         |
@@ -242,7 +242,7 @@ Las siguientes tablas muestran los permisos mínimos necesarios para incorporar 
 |---------|---------|---------|
 |Crear una nueva implementación     | Microsoft.Resources/deployments/*        | Subscription         |
 |Crear un grupo de recursos     | Microsoft.Resources/subscriptions/resourceGroups/write         | Subscription        |
-|Hoja AutomationOnboarding: crear nueva área de trabajo     |Microsoft.OperationalInsights/workspaces/write           | Grupos de recursos        |
+|Hoja AutomationOnboarding: crear nueva área de trabajo     |Microsoft.OperationalInsights/workspaces/write           | Resource group        |
 |Hoja AutomationOnboarding: leer área de trabajo vinculada     | Microsoft.Automation/automationAccounts/read        | Cuenta de Automation       |
 |Hoja AutomationOnboarding: leer solución     | Microsoft.OperationalInsights/workspaces/intelligencepacks/read         | Solución        |
 |Hoja AutomationOnboarding: leer área de trabajo     | Microsoft.OperationalInsights/workspaces/intelligencepacks/read        | Área de trabajo        |

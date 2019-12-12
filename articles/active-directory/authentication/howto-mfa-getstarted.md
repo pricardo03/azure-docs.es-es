@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e91a82442b2d436736719d629f70c8dec0e5a6c
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.openlocfilehash: ccffe8d104792d9723c1541466067de3ea2c2e66
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74558549"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848398"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication-deployment"></a>Planificación de una implementación de Azure Multi-Factor Authentication basada en la nube
 
@@ -132,7 +132,7 @@ Se envía al usuario un mensaje de texto que contiene un código de verificació
 
    ![Configuración de métodos de verificación en la pestaña de configuración del servicio Multi-Factor Authentication](media/howto-mfa-getstarted/mfa-servicesettings-verificationoptions.png)
 
-1. Haga clic en **Save**(Guardar).
+1. Haga clic en **Guardar**.
 1. Cierre la pestaña **configuración del servicio**.
 
 ## <a name="plan-registration-policy"></a>Planificación de la directiva de registro

@@ -4,18 +4,18 @@ description: La solución Change Tracking ayuda a identificar los cambios en el 
 services: automation
 ms.service: automation
 ms.subservice: change-inventory-management
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 04/29/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0fc0aeab4e9603995130392e3560325ccaba1ffc
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 1fd800062c4a8362919b1818550b2fca9fa3eb88
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73886801"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850557"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Seguimiento de cambios en el entorno con la solución Change Tracking
 
@@ -200,7 +200,7 @@ La siguiente tabla muestra los límites del elemento sometido a seguimiento por 
 |Registro|250||
 |Software de Windows|250|No se incluyen las revisiones de software.|
 |Paquetes Linux|1250||
-|Services|250||
+|Servicios|250||
 |Daemon|250||
 
 El uso medio de datos de Log Analytics para una máquina con Change Tracking e inventario es aproximadamente de 40MB al mes. Este valor es solo una aproximación y está sujeto a cambios en función de su entorno. Se recomienda que supervise el entorno para ver el uso exacto que tiene.
@@ -247,10 +247,10 @@ Las direcciones siguientes se requieren específicamente para Change Tracking. L
 
 |Azure Public  |Azure Government  |
 |---------|---------|
-|\* .ods.opinsights.azure.com     |*.ods.opinsights.azure.us         |
-|\* .oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
-|\* .blob.core.windows.net|*.blob.core.usgovcloudapi.net|
-|\* .azure-automation.net|*.azure-automation.us|
+|*.ods.opinsights.azure.com     |*.ods.opinsights.azure.us         |
+|*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
+|*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
+|*.azure-automation.net|*.azure-automation.us|
 
 ## <a name="use-change-tracking"></a>Uso de seguimiento de cambios
 

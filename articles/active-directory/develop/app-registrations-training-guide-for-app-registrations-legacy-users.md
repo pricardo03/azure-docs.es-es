@@ -2,27 +2,23 @@
 title: Guía de entrenamiento para la transición desde los registros de aplicaciones (heredado) hasta la nueva experiencia de registros de aplicaciones de Azure Portal
 description: Una introducción a la nueva experiencia de registro de aplicaciones de Azure Portal.
 services: active-directory
-documentationcenter: ''
 author: archieag
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: aragra
 ms.reviewer: lenalepa, keyam
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01d543262a9eb358643c0860b24ac4306d2c5edf
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 2f49cac5c8c49fb5c53d3320cb0ab52e0f61acda
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73927090"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74844267"
 ---
 # <a name="transitioning-from-app-registrations-legacy-to-the-new-app-registrations-experience-in-the-azure-portal"></a>Transición de Registros de aplicaciones (heredado) a la nueva experiencia de Registros de aplicaciones en Azure Portal
 

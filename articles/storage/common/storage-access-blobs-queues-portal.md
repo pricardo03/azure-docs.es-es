@@ -1,20 +1,21 @@
 ---
-title: Usar Azure Portal para tener acceso a datos de blob o de cola - Azure Storage
+title: Usar Azure Portal para tener acceso a datos de blob o de cola
+titleSuffix: Azure Storage
 description: Cuando se accede a datos de blob o de cola mediante Azure Portal, Portal realiza solicitudes a Azure Storage en segundo plano. Estas solicitudes a Azure Storage se pueden autenticar y autorizar utilizando bien la cuenta de Azure AD, bien la clave de acceso a la cuenta de almacenamiento.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/19/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 3d5d5bd6400fdf09216124665b6b236b4da2583b
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 89816e3640c0afad6290e77faa3904c691df4318
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673293"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892404"
 ---
 # <a name="use-the-azure-portal-to-access-blob-or-queue-data"></a>Usar Azure Portal para tener acceso a datos de blob o de cola
 

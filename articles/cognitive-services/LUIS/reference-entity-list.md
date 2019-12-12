@@ -10,23 +10,23 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 11/11/2019
 ms.author: diberry
-ms.openlocfilehash: 1307e6cfca0debe7623eb775c69527a74584033d
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 4313a1d644750c0961298bbee3ae211946de360a
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74011989"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849775"
 ---
-# <a name="list-entity"></a>Entidad de lista 
+# <a name="list-entity"></a>Entidad de lista
 
-Las entidades de lista representan un conjunto fijo y cerrado de palabras relacionadas y sus sinónimos. LUIS no detecta valores adicionales para las entidades de lista. Use la característica **Recommend** (Recomendar) para ver sugerencias de palabras nuevas en función de la lista actual. Si hay más de una entidad de lista con el mismo valor, se devolverá cada entidad en la consulta de punto de conexión. 
+Las entidades de lista representan un conjunto fijo y cerrado de palabras relacionadas y sus sinónimos. LUIS no detecta valores adicionales para las entidades de lista. Use la característica **Recommend** (Recomendar) para ver sugerencias de palabras nuevas en función de la lista actual. Si hay más de una entidad de lista con el mismo valor, se devolverá cada entidad en la consulta de punto de conexión.
 
-Una entidad de lista no está relacionada con el aprendizaje automático. Es una coincidencia de texto exacta. LUIS marca todas las coincidencias de un elemento de cualquier lista como una entidad en la respuesta. 
+Una entidad de lista no está relacionada con el aprendizaje automático. Es una coincidencia de texto exacta. LUIS marca todas las coincidencias de un elemento de cualquier lista como una entidad en la respuesta.
 
 **La entidad es la opción ideal cuando los datos de texto:**
 
 * Son un conjunto conocido.
-* No cambian a menudo. Si necesita cambiar la lista a menudo o desea que la lista se expanda automáticamente, es mejor una entidad sencilla potenciada con una lista de frases. 
+* No cambian a menudo. Si necesita cambiar la lista a menudo o desea que la lista se expanda automáticamente, es mejor una entidad sencilla potenciada con una lista de frases.
 * El conjunto no excede los [límites](luis-boundaries.md) máximos de LUIS para este tipo de entidad.
 * El texto de la expresión es una coincidencia exacta con un sinónimo o el nombre canónico. LUIS no usa la lista más allá de las coincidencias exactas de texto. La coincidencia aproximada, la falta de distinción entre mayúsculas y minúsculas, la lematización, los plurales y otras variaciones no se resuelven con una entidad de lista. Para administrar las variaciones, considere el uso de un [patrón](reference-pattern-syntax.md#syntax-to-mark-optional-text-in-a-template-utterance) con la sintaxis de texto opcional.
 
@@ -54,7 +54,7 @@ Una entidad de lista no está relacionada con el aprendizaje automático. Es una
               "avacado"
           ]
       }
-  ]  
+  ]
   ```
 
 ## <a name="example-json-response"></a>Ejemplo de respuesta JSON
@@ -130,7 +130,7 @@ Este es el valor JSON si `verbose=true` se establece en la cadena de consulta:
 }
 ```
 
-* * * 
+* * *
 
 |Objeto de datos|Nombre de entidad|Valor|
 |--|--|--|
@@ -139,4 +139,4 @@ Este es el valor JSON si `verbose=true` se establece en la cadena de consulta:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este [tutorial](luis-quickstart-intent-and-list-entity.md), aprenderá a usar una **entidad de lista** para extraer las coincidencias exactas del texto de una lista de elementos conocidos. 
+En este [tutorial](tutorial-list-entity.md), aprenderá a usar una **entidad de lista** para extraer las coincidencias exactas del texto de una lista de elementos conocidos.

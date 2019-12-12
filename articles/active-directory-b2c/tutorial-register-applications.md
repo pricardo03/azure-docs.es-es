@@ -1,5 +1,6 @@
 ---
-title: 'Tutorial: Registro de una aplicación en Azure Active Directory B2C'
+title: 'Tutorial: Registro de una aplicación'
+titleSuffix: Azure AD B2C
 description: Aprenda a registrar una aplicación web en Azure Active Directory B2C con Azure Portal.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: article
 ms.date: 10/16/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 3a5d5099c91736276aca56c8b94b846b53a190c1
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 76d38e4b35111cd2c09685653fb4948f98387132
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73642413"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950789"
 ---
 # <a name="tutorial-register-an-application-in-azure-active-directory-b2c"></a>Tutorial: Registro de una aplicación en Azure Active Directory B2C
 
