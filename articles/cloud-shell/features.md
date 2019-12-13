@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2019
 ms.author: damaerte
-ms.openlocfilehash: 1354f7befd8c38537a555e17733f431dd488cf60
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: 60832f9438a602945c63910a436d7638f15a201d
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742052"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74969441"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Características y herramientas de Azure Cloud Shell
 
@@ -69,7 +69,7 @@ Cloud Shell incluye autenticación configurada previamente para herramientas de 
 
 ## <a name="tools"></a>Herramientas
 
-|Categoría   |NOMBRE   |
+|Category   |NOMBRE   |
 |---|---|
 |Herramientas de Linux            |Bash<br> zsh<br> sh<br> tmux<br> dig<br>               |
 |Herramientas de Azure            |[CLI de Azure](https://github.com/Azure/azure-cli) y [CLI de Azure clásica](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy#writing-your-first-azcopy-command)<br> [CLI de Azure Functions](https://github.com/Azure/azure-functions-core-tools)<br> [CLI de Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard)<br> [blobxfer](https://github.com/Azure/blobxfer)|
@@ -84,11 +84,11 @@ Cloud Shell incluye autenticación configurada previamente para herramientas de 
 
 |Idioma   |Versión   |
 |---|---|
-|.NET Core  |2.0.0       |
+|.NET Core  |2.2.402       |
 |Go         |1.9        |
 |Java       |1.8        |
-|Node.js    |8.9.4      |
-|PowerShell |[6.2.0](https://github.com/PowerShell/powershell/releases)       |
+|Node.js    |8.16.0      |
+|PowerShell |[6.2.3](https://github.com/PowerShell/powershell/releases)       |
 |Python     |2.7 y 3.5 (predeterminadas)|
 
 ## <a name="next-steps"></a>Pasos siguientes
