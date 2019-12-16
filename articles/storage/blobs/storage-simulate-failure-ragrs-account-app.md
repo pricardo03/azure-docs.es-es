@@ -1,21 +1,22 @@
 ---
-title: 'Tutorial: Simulación de un error al acceder al almacenamiento con redundancia geográfica con acceso de lectura en Azure | Microsoft Docs'
-description: Simulación de un error al acceder al almacenamiento con redundancia geográfica con acceso de lectura
+title: 'Tutorial: Simulación de un error al leer datos de la región principal'
+titleSuffix: Azure Storage
+description: Simule un error al leer datos de la región principal cuando está habilitado el almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS) para la cuenta de almacenamiento.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: tutorial
-ms.date: 01/03/2019
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: artek
-ms.openlocfilehash: 1f5c404e410ded2714be761e35060f3c07379bd3
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 44c5d037797d845aa9c68af2d7b8e5e45bf418fb
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65508092"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892454"
 ---
-# <a name="tutorial-simulate-a-failure-in-accessing-read-access-redundant-storage"></a>Tutorial: Simulación de un error al acceder al almacenamiento con redundancia con acceso de lectura
+# <a name="tutorial-simulate-a-failure-in-reading-data-from-the-primary-region"></a>Tutorial: Simulación de un error al leer datos de la región principal
 
 Este tutorial es la segunda parte de una serie. En él, obtendrá información sobre las ventajas del [almacenamiento con redundancia geográfica con acceso de lectura](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) (RA-GRS) mediante la simulación de un error.
 
@@ -32,7 +33,7 @@ En la segunda parte de la serie, se aprende a:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Antes de comenzar este tutorial, complete la parte primera, [Logre alta disponibilidad de los datos de aplicación con Azure Storage][previous-tutorial].
+Antes de comenzar este tutorial, complete la parte primera, [Logre la alta disponibilidad de los datos de la aplicación con Azure Storage][previous-tutorial].
 
 Para simular un error con enrutamiento estático, usará un símbolo del sistema con privilegios elevados.
 
@@ -68,7 +69,7 @@ Para agregar una ruta estática para un host de destino, escriba el siguiente co
 route add <destination_ip> gw <gateway_ip>
 ```
 
-#### <a name="windows"></a> Windows
+#### <a name="windows"></a>Windows
 
 ```
 route add <destination_ip> <gateway_ip>
@@ -86,7 +87,7 @@ Para simular que el punto de conexión principal vuelve a funcionar, elimine la 
 route del <destination_ip> gw <gateway_ip>
 ```
 
-#### <a name="windows"></a> Windows
+#### <a name="windows"></a>Windows
 
 ```
 route delete <destination_ip>

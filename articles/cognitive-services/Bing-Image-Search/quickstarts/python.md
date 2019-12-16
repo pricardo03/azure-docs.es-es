@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 08/26/2019
+ms.date: 12/06/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 17864ed471537f80b537af4b3a8679cb9deaab57
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: f3d00688feb0f9d42e80cdbb51753483e53c388d
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74323812"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930740"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-python"></a>Guía de inicio rápido: Búsqueda de imágenes con la API de REST Bing Image Search y Python
 
@@ -40,7 +40,7 @@ El código fuente de este ejemplo está disponible en [GitHub](https://github.co
 
 ## <a name="create-and-initialize-the-application"></a>Creación e inicialización de la aplicación
 
-1. Cree un archivo de Python en su IDE o editor preferidos, e importe los siguientes módulos. Cree una variable para su clave de suscripción, punto de conexión de búsqueda y término de búsqueda.
+1. Cree un archivo de Python en su IDE o editor preferidos, e importe los siguientes módulos. Cree una variable para su clave de suscripción, punto de conexión de búsqueda y término de búsqueda. `search_url` puede ser el punto de conexión global siguiente o el punto de conexión del [subdominio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) que se muestra en Azure Portal para el recurso.
 
     ```python
     import requests

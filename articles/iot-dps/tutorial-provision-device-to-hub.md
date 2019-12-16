@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Aprovisionamiento de un dispositivo mediante el servicio Azure IoT Hub Device Provisioning'
-description: En este tutorial se indica cómo aprovisionar el dispositivo en un único centro de IoT mediante Azure IoT Hub Device Provisioning Service
+description: En este tutorial se indica cómo aprovisionar el dispositivo en un único centro de IoT mediante Azure IoT Hub Device Provisioning Service (DPS)
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/12/2019
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 358fa1fdc767919720ecb26497c818f4945badb6
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 3fe2fa8b094830e2d15c1cebce782381b4ca7bc7
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74702478"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975047"
 ---
 # <a name="tutorial-provision-the-device-to-an-iot-hub-using-the-azure-iot-hub-device-provisioning-service"></a>Tutorial: Aprovisionamiento del dispositivo en una instancia de IoT Hub mediante el servicio Azure IoT Hub Device Provisioning
 

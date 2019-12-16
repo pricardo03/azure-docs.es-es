@@ -1,16 +1,13 @@
 ---
-title: Compilación de una aplicación de página única de AngularJS para el inicio y el cierre de sesión con Azure AD | Microsoft Docs
-description: Obtenga información sobre como compilar una aplicación de página única de AngularJS que se integre con Azure AD para el inicio de sesión y llame a las API protegidas de Azure AD mediante OAuth.
+title: Compilación de una aplicación de página única de AngularJS de Azure AD para el inicio y cierre de sesión | Microsoft Docs
+description: Aprenda compilar una aplicación de página única de AngularJS que integre Azure AD para el inicio y cierre de sesión y llame a las API protegidas con Azure AD mediante OAuth.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.assetid: f2991054-8146-4718-a5f7-59b892230ad7
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 10/25/2019
@@ -18,12 +15,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c239b88a67e1be19e3a95130839ab6fd4598fe77
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 6e66b51199d19ea6af2b88c48aa89a93c1ed731c
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73150047"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74963535"
 ---
 # <a name="quickstart-build-an-angularjs-single-page-app-for-sign-in-and-sign-out-with-azure-active-directory"></a>Inicio rápido: Compilación de una aplicación de página única de AngularJS para el inicio y el cierre de sesión con Azure Active Directory
 

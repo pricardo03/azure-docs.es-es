@@ -1,21 +1,22 @@
 ---
-title: 'Inicio rápido: Uso del Explorador de Azure Storage para crear un blob en el almacenamiento de objetos'
-description: En esta guía de inicio rápido, aprenderá a usar el Explorador de Azure Storage para crear un contenedor y un blob. A continuación, aprenderá a descargar el blob en un equipo local y a ver todos los blobs en un contenedor. También aprenderá a crear una instantánea de un blob, a administrar directivas de acceso al contenedor y a crear una firma de acceso compartido.
+title: 'Inicio rápido: Creación de un blob con el Explorador de Azure Storage'
+titleSuffix: Azure Storage
+description: En esta guía de inicio rápido, aprenderá a usar el Explorador de Azure Storage para crear contenedores y blobs, descargar blobs en el equipo local y ver todos los blobs del contenedor.
 services: storage
 author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 11/15/2018
+ms.date: 12/04/2019
 ms.author: tamram
-ms.openlocfilehash: cd31d1c40f30ebc8341c2126da22f8a74cb05438
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: f19152b5b8bc569fa07109b6135fa85b9b55bff1
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640510"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892471"
 ---
-# <a name="quickstart-use-azure-storage-explorer-to-create-a-blob-in-object-storage"></a>Inicio rápido: Uso del Explorador de Azure Storage para crear un blob en el almacenamiento de objetos
+# <a name="quickstart-use-azure-storage-explorer-to-create-a-blob"></a>Inicio rápido: Uso del Explorador de Azure Storage para crear un blob
 
 En esta guía de inicio rápido, aprenderá a usar el [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/) para crear un contenedor y un blob. A continuación, aprenderá a descargar el blob en un equipo local y a ver todos los blobs en un contenedor. También aprenderá a crear una instantánea de un blob, a administrar directivas de acceso al contenedor y a crear una firma de acceso compartido.
 

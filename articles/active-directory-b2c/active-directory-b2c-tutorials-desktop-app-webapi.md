@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Concesión de acceso a una API web de Node.js desde una aplicación de escritorio mediante Azure Active Directory B2C | Microsoft Docs'
-description: Tutorial acerca de cómo usar Active Directory B2C para proteger una API web de Node.js y llamarla desde una aplicación de escritorio de .NET.
+title: 'Tutorial: Concesión de acceso a una API web de Node.js desde una aplicación de escritorio'
+description: Tutorial acerca de cómo usar Active Directory B2C para proteger una API web de Node.js y llamarla desde una aplicación de escritorio de .NET.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 0cf9a0a13a1c16f5be6d82528849e6e2cc3d466d
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: f271dd23501aa0514faff29f638f695c80c844f2
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73641846"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74949779"
 ---
 # <a name="tutorial-grant-access-to-a-nodejs-web-api-from-a-desktop-app-using-azure-active-directory-b2c"></a>Tutorial: Concesión de acceso a una API web de Node.js desde una aplicación de escritorio mediante Azure Active Directory B2C
 

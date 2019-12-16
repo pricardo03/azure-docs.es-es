@@ -8,15 +8,15 @@ ms.topic: include
 ms.date: 09/12/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 66e21aefa5648262ca2fcc61501905f725ac0e4b
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 945d701a2a7dffc259c601b4dab9fa1333ccc066
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67186219"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896606"
 ---
-Antes de comenzar con la configuración, compruebe que se cumplen los criterios siguientes:
+Antes de iniciar la configuración, compruebe que cumple los siguientes criterios:
 
-* Si ya tiene una red virtual a la que desea conectarse, verifique que ninguna de las subredes de la red local se superpone a las redes virtuales con las que desee conectarse. La red virtual no requiere una subred de puerta de enlace y no puede tener ninguna puerta de enlace de red virtual. Si no tiene una red virtual, puede crear una siguiendo los pasos de este artículo.
-* Obtenga un intervalo de direcciones IP para la región del concentrador. El concentrador es una red virtual y el intervalo de direcciones que especifique para la región del concentrador no se puede superponer a ninguna de las redes virtuales existentes a las que ya esté conectado. Igualmente no se puede superponer a los intervalos de direcciones con las que esté conectadas en el entorno local. Si no está familiarizado con los intervalos de direcciones IP ubicados en la red local, necesita trabajar con alguien que pueda proporcionarle estos detalles.
+* Si ya tiene una red virtual a la que quiere conectarse, compruebe que ninguna de las subredes de la red local se superponga con ella. La red virtual no requiere una subred de puerta de enlace y no puede tener ninguna puerta de enlace de red virtual. Si no tiene una red virtual, siga los pasos de este artículo para crear una.
+* Obtenga un intervalo de direcciones IP para la región del concentrador. El centro de conectividad es una red virtual, y el intervalo de direcciones que especifique para la región del concentrador no se puede superponer con ninguna de las redes virtuales existentes a las que esté conectado. Tampoco se puede superponer con los intervalos de direcciones a los que se conecte en el entorno local. Si no está familiarizado con los intervalos de direcciones IP ubicados en la configuración de red local, consulte a alguien que pueda proporcionarle estos detalles.
 * Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.

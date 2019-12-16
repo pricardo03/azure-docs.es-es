@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 03/12/2019
+ms.date: 12/09/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 20cb5f65ed33bc3e737bbba902ed2d891eaf83be
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 6c847af4f6938923abdfced4d5e8b842ae84eca6
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65823372"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978822"
 ---
 # <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-c"></a>Guía de inicio rápido: Realizar búsquedas en la Web con la API de REST Bing Web Search y C#
 
@@ -62,7 +62,7 @@ namespace BingSearchApisQuickstart
 
 ## <a name="define-variables"></a>Definición de variables
 
-Algunas variables deben establecerse antes de poder continuar. Confirme que el valor `uriBase` es válido y reemplace el valor `accessKey` por una clave de suscripción válida de su cuenta de Azure. No dude en personalizar la consulta de búsqueda reemplazando el valor de `searchTerm`. Recuerde agregar este código a la clase `Program` como se mencionó anteriormente.
+Algunas variables deben establecerse antes de poder continuar.  `uriBase` puede ser el punto de conexión global siguiente o el punto de conexión del [subdominio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) que se muestra en Azure Portal para el recurso. Confirme que el valor `uriBase` es válido y reemplace el valor `accessKey` por una clave de suscripción válida de su cuenta de Azure. No dude en personalizar la consulta de búsqueda reemplazando el valor de `searchTerm`. Recuerde agregar este código a la clase `Program` como se mencionó anteriormente.
 
 ```csharp
 // Enter a valid subscription key.

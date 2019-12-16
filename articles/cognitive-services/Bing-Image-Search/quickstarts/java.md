@@ -9,15 +9,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 07/22/2019
+ms.date: 12/06/2019
 ms.author: aahi
 ms.custom: seodec2018, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 415613d99b3a7b9f3845a458886e93e5655842c8
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: c1e339643613db188819e7eb8853cad8a48ea47f
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70899705"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928133"
 ---
 # <a name="quickstart-search-for-images-with-the-bing-image-search-api-an-azure-cognitive-service"></a>Inicio rápido: Búsqueda de imágenes con la API Bing Image Search, un servicio de Azure Cognitive Services 
 
@@ -48,7 +48,7 @@ El código fuente de este ejemplo está disponible en [GitHub](https://github.co
     import com.google.gson.JsonParser;
     ```
 
-2. Cree variables para el punto de conexión de la API, la clave de suscripción y el término de búsqueda.
+2. Cree variables para el punto de conexión de la API, la clave de suscripción y el término de búsqueda. `host` puede ser el punto de conexión global siguiente o el punto de conexión del [subdominio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) que se muestra en Azure Portal para el recurso.
 
     ```java
     static String subscriptionKey = "enter key here";
@@ -158,7 +158,7 @@ Las respuestas de Bing Image Search API se devuelven como JSON. Esta respuesta d
 > [!div class="nextstepaction"]
 > [Tutorial de aplicación de una sola página de Bing Image Search](../tutorial-bing-image-search-single-page-app.md)
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 * [¿Qué es Bing Image Search?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
 * [Prueba de una demostración interactiva en línea](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/) 

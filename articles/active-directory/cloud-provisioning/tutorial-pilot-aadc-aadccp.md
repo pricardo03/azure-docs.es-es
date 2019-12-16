@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 12/03/2019
+ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 163d1f7f457dcbca7fbb9e331ec889bcc0894dfc
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 812f9bc71cde26b6f32a1259984bb0859ba49d54
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74814463"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74868769"
 ---
 # <a name="pilot-cloud-provisioning-for-an-existing-synced-ad-forest"></a>Aprovisionamiento piloto en la nube para un bosque de AD sincronizado existente 
 
@@ -28,7 +28,11 @@ En este tutorial se explica como realizar una prueba piloto del aprovisionamient
 Antes de empezar con este tutorial, considere los siguientes elementos:
 1. Asegúrese de que conoce los conceptos básicos del aprovisionamiento en la nube. 
 2. Asegúrese de que ejecuta la versión 1.4.32.0 de la sincronización de Azure AD Connect, o cualquier versión posterior, y de que ha configurado las reglas de sincronización como se ha documentado. Al realizar una prueba piloto, eliminará una unidad organizativa o grupo de prueba del ámbito de sincronización de Azure AD Connect. Sacar objetos del ámbito provoca la eliminación de esos objetos en Azure AD. En el caso de los objetos de usuario, los objetos de Azure AD se eliminan de manera temporal y se pueden restaurar. En el caso de los objetos de usuario, los objetos de Azure AD se eliminan de forma permanente y no se pueden restaurar. Se ha introducido un nuevo tipo de vínculo en la sincronización de Azure AD Connect que evitará la eliminación en un escenario de prueba piloto. 
-3. Asegúrese de que los objetos del ámbito de la prueba tengan ms-ds-consistencyGUID relleno para que el aprovisionamiento en la nube se ajuste de forma fija a los objetos. Observe que la sincronización de Azure AD Connect no rellena ms-ds-consistencyGUID de forma predeterminada para los objetos del grupo.
+3. Asegúrese de que los objetos del ámbito de la prueba tengan ms-ds-consistencyGUID relleno para que el aprovisionamiento en la nube se ajuste de forma fija a los objetos. 
+
+   > [!NOTE]
+   > La sincronización de Azure AD Connect no rellena *ms-ds-consistencyGUID* de forma predeterminada para los objetos del grupo. Siga los pasos que se documentan en [esta entrada de blog](https://blogs.technet.microsoft.com/markrenoden/2017/10/13/choosing-a-sourceanchor-for-groups-in-multi-forest-sync-with-aad-connect/) para rellenar *ms-ds-consistencyGUID* para los objetos de grupo.
+
 4. Este es un escenario avanzado. Asegúrese de que sigue los pasos de este tutorial con precisión.
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -36,10 +40,11 @@ A continuación, se indican los requisitos previos necesarios para completar est
 - Un entorno de prueba con la versión 1.4.32.0, o cualquier versión posterior, de la sincronización de Azure AD Connect.
 - Una unidad organizativa o un grupo que estén en el ámbito de la sincronización y que pueda usar en la prueba piloto. Se recomienda empezar con un pequeño conjunto de objetos.
 - Un servidor que ejecuta Windows Server 2012 R2, o cualquier versión posterior, que hospedará el agente de aprovisionamiento.  El servidor no puede ser el servidor de Azure AD Connect.
+- El delimitador de origen para la sincronización de AAD Connect debe ser *objectGuid* o *ms-ds-consistencyGUID*
 
 ## <a name="update-azure-ad-connect"></a>Actualización de Azure AD Connect
 
-Como mínimo, debe tener [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594)1.4.32.0. Para actualizar la sincronización de Azure AD Connect, realice los pasos que se describen en [Azure AD Connect: actualización a la versión más reciente](../hybrid/how-to-upgrade-previous-version.md).  Este paso se proporciona por si el entorno de prueba no tiene la versión más reciente de Azure AD Connect.
+Como mínimo, debe tener [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594)1.4.32.0. Para actualizar la sincronización de Azure AD Connect, realice los pasos que se describen en [Azure AD Connect: actualización a la versión más reciente](../hybrid/how-to-upgrade-previous-version.md).  
 
 ## <a name="stop-the-scheduler"></a>Detención del programador
 La sincronización de Azure AD Connect sincroniza los campos que se incluyen en el directorio local mediante un programador. Para modificar y agregar reglas personalizadas puede que desee deshabilitar el programador para que no se ejecuten sincronizaciones mientras trabaja en esto.  Para ello, siga los pasos que se describen a continuación:
@@ -47,6 +52,9 @@ La sincronización de Azure AD Connect sincroniza los campos que se incluyen en
 1.  En el servidor que ejecuta la sincronización de Azure AD Connect, abra PowerShell con privilegios administrativos.
 2.  Ejecute `Stop-ADSyncSyncCycle`.  Presione Entrar.
 3.  Ejecute `Set-ADSyncScheduler -SyncCycleEnabled $false`.
+
+>[!NOTE] 
+>Si está ejecutando su propio programador personalizado para la sincronización de AAD Connect, deshabilite el programador. 
 
 ## <a name="create-custom-user-inbound-rule"></a>Creación de una regla entrante de usuarios personalizada
 
@@ -81,7 +89,7 @@ La sincronización de Azure AD Connect sincroniza los campos que se incluyen en
  6. En la página **Transformations** (Transformaciones), agregue una transformación de tipo Constant, con el atributo cloudNoFlow establecido en True. Haga clic en **Agregar**.
  ![Regla personalizada](media/how-to-cloud-custom-user-rule/user4.png)</br>
 
-Los mismos pasos deben seguirse para todos los tipos de objetos (usuario, grupo y contacto).
+Los mismos pasos deben seguirse para todos los tipos de objetos (usuario, grupo y contacto). Repita los pasos en todas las instancias de AD Connector configuradas y bosques de AD. 
 
 ## <a name="create-custom-user-outbound-rule"></a>Creación de una regla de salida de usuarios personalizada
 
@@ -92,7 +100,7 @@ Los mismos pasos deben seguirse para todos los tipos de objetos (usuario, grupo 
 
     **Nombre:** asigne un nombre descriptivo a la regla.<br>
     **Descripción:** agregue una descripción significativa.<br> 
-    **Sistema conectado:** elija el conector de AD para el que va a escribir la regla de sincronización personalizada<br>
+    **Sistema conectado:** elija el conector de AAD para el que va a escribir la regla de sincronización personalizada<br>
     **Tipo de objeto de sistema conectado:** Usuario<br>
     **Tipo de objeto de metaverso:** Persona<br>
     **Tipo de vínculo:** JoinNoFlow<br>
@@ -109,48 +117,38 @@ Los mismos pasos deben seguirse para todos los tipos de objetos (usuario, grupo 
 
 Los mismos pasos deben seguirse para todos los tipos de objetos (usuario, grupo y contacto).
 
-## <a name="scope-azure-ad-connect-sync-to-exclude-the-pilot-ou"></a>Asigne un ámbito a la sincronización de Azure AD Connect para excluir la unidad organizativa de la prueba piloto
-Ahora, configurará Azure AD Connect para excluir la unidad organizativa de la prueba piloto que se creó anteriormente.  El agente de aprovisionamiento en la nube controlará la sincronización de estos usuarios.  Use los pasos siguientes para asignar un ámbito a Azure AD Connect.
-
- 1. En el servidor en que se ejecuta Azure AD Connect, haga doble clic en el icono de este.
- 2. Haga clic en **Configurar**.
- 3. Seleccione **Personalizar las opciones de sincronización** y haga clic en Siguiente.
- 4. Inicie sesión en Azure AD y haga clic en **Siguiente**.
- 5. En la pantalla **Conectar sus directorios**, haga clic en **Siguiente**.
- 6. En la pantalla **Filtrado de dominios y unidades organizativas**, seleccione **Sincronizar los dominios y las unidades organizativas seleccionados**.
- 7. Expanda el dominio y **anule la selección** de la unidad organizativa **CPUsers**.  Haga clic en **Next**.
-![scope](media/tutorial-existing-forest/scope1.png)</br>
- 9. En la pantalla **Características opcionales**, haga clic en **Siguiente**.
- 10. En la pantalla **Listo para configurar**, haga clic en **Configurar**.
- 11. Una vez que haya finalizado, haga clic en **Salir**. 
-
-## <a name="start-the-scheduler"></a>Inicio del programador
-La sincronización de Azure AD Connect sincroniza los campos que se incluyen en el directorio local mediante un programador. Ahora que ha modificado las reglas, puede volver a iniciar el programador.  Para ello, siga los pasos que se describen a continuación:
-
-1.  En el servidor que ejecuta la sincronización de Azure AD Connect, abra PowerShell con privilegios administrativos
-2.  Ejecute `Set-ADSyncScheduler -SyncCycleEnabled $true`.
-3.  Ejecute `Start-ADSyncSyncCycle`.  Presione Entrar.  
-
 ## <a name="install-the-azure-ad-connect-provisioning-agent"></a>Instalación del agente de aprovisionamiento de Azure AD Connect
-1. Inicie sesión en el servidor unido al dominio.  Si usa el tutorial [Entorno básico de AD y Azure](tutorial-basic-ad-azure.md), sería DC1.
-2. Inicie sesión en Azure Portal con credenciales de administrador global solo en la nube.
-3. A la izquierda, seleccione **Azure Active Directory**, haga clic en **Azure AD Connect** y, en el centro, seleccione **Administración del aprovisionamiento (versión preliminar)** .</br>
-![Azure Portal](media/how-to-install/install6.png)</br>
-4. Haga clic en "Descargar agente"
-5. Ejecución del agente de aprovisionamiento de Azure AD Connect
-6. En la pantalla de presentación, **acepte** los términos de la licencia y haga clic en **Install** (Instalar).</br>
+1. Inicie sesión en el servidor que va a usar con permisos de administrador de empresa.  Si usa el tutorial [Entorno básico de AD y Azure](tutorial-basic-ad-azure.md), sería CP1.
+2. Descargue [aquí](https://go.microsoft.com/fwlink/?linkid=2109037) el agente de aprovisionamiento en la nube de Azure AD Connect.
+3. Ejecución del aprovisionamiento en la nube de Azure AD Connect (AADConnectProvisioningAgent.Installer)
+3. En la pantalla de presentación, **acepte** los términos de la licencia y haga clic en **Install** (Instalar).</br>
 ![Pantalla principal](media/how-to-install/install1.png)</br>
 
-7. Una vez que finalice esta operación, se iniciará el asistente de configuración.  Inicie sesión con su cuenta de administrador global de Azure AD.  Tenga en cuenta que si la seguridad de IE mejorada está habilitada, bloqueará el inicio de sesión.  En ese caso, cierre la instalación, deshabilite la seguridad mejorada de IE en Administrador del servidor y haga clic en el **AAD Connect Provisioning Agent Wizard** (Asistente para el agente de aprovisionamiento de AAD Connect) para reiniciar la instalación.
-8. En la pantalla **Connect Active Directory** (Conectar Active Directory), haga clic en **Add directory** (Agregar directorio) e inicie sesión con su cuenta de administrador de dominio de Active Directory.  NOTA:  En la cuenta de administrador de dominio no es necesario cambiar la contraseña. Si la contraseña expira o cambia, tendrá que volver a configurar el agente con las credenciales nuevas. Esta operación se agregará a su directorio local.  Haga clic en **Next**.</br>
+4. Una vez que finalice esta operación, se iniciará el asistente para configuración.  Inicie sesión con su cuenta de administrador global de Azure AD.
+5. En la pantalla **Connect Active Directory** (Conectar Active Directory), haga clic en **Add directory** (Agregar directorio) e inicie sesión con su cuenta de administrador de Active Directory.  Esta operación permitirá agregar su directorio local.  Haga clic en **Next**.</br>
 ![Pantalla principal](media/how-to-install/install3.png)</br>
 
-9. En la pantalla **Configuración completa**, haga clic en **Confirmar**.  Esta operación registrará el agente y lo reiniciará.</br>
+6. En la pantalla **Configuración completa**, haga clic en **Confirmar**.  Esta operación registrará el agente y lo reiniciará.</br>
 ![Pantalla principal](media/how-to-install/install4.png)</br>
 
-10. Una vez que se completa esta operación debería aparecer un aviso: **La configuración del agente se ha comprobado correctamente.**  Puede hacer clic en **Salir**.</br>
+7. Una vez que se complete esta operación, debería aparecer un aviso **Your was successfully verified** (Se ha comprobado correctamente).  Puede hacer clic en **Salir**.</br>
 ![Pantalla principal](media/how-to-install/install5.png)</br>
-11. Si la pantalla de presentación inicial no desaparece, haga clic en **Cerrar**.
+8. Si la pantalla de presentación inicial no desaparece, haga clic en **Cerrar**.1. Inicie sesión en el servidor que va a usar con permisos de administrador de empresa.
+2. Descargue [aquí](https://go.microsoft.com/fwlink/?linkid=2109037) el agente de aprovisionamiento en la nube de Azure AD Connect.
+3. Ejecución del aprovisionamiento en la nube de Azure AD Connect (AADConnectProvisioningAgent.Installer)
+3. En la pantalla de presentación, **acepte** los términos de la licencia y haga clic en **Install** (Instalar).</br>
+![Pantalla principal](media/how-to-install/install1.png)</br>
+
+4. Una vez que finalice esta operación, se iniciará el asistente para configuración.  Inicie sesión con su cuenta de administrador global de Azure AD.
+5. En la pantalla **Connect Active Directory** (Conectar Active Directory), haga clic en **Add directory** (Agregar directorio) e inicie sesión con su cuenta de administrador de Active Directory.  Esta operación permitirá agregar su directorio local.  Haga clic en **Next**.</br>
+![Pantalla principal](media/how-to-install/install3.png)</br>
+
+6. En la pantalla **Configuración completa**, haga clic en **Confirmar**.  Esta operación registrará el agente y lo reiniciará.</br>
+![Pantalla principal](media/how-to-install/install4.png)</br>
+
+7. Una vez que se complete esta operación, debería aparecer un aviso **Your was successfully verified** (Se ha comprobado correctamente).  Puede hacer clic en **Salir**.</br>
+![Pantalla principal](media/how-to-install/install5.png)</br>
+8. Si la pantalla de presentación inicial no desaparece, haga clic en **Cerrar**.
 
 ## <a name="verify-agent-installation"></a>Comprobación de la instalación del agente
 La comprobación del agente se produce en Azure Portal y en el servidor local que ejecuta el agente.
@@ -180,11 +178,11 @@ Use los pasos siguientes para configurar el aprovisionamiento:
 
  1. Inicie sesión en el portal de Azure AD.
  2. Haga clic en **Azure Active Directory**
- 3. Haga clic en **Azure AD Connect**
- 4. Seleccione **Administración del aprovisionamiento (versión preliminar)** 
- ![](media/how-to-configure/manage1.png)</br>
+ 3. Haga clic en **Azure AD Connect**.
+ 4. Seleccione **Administrar aprovisionamiento (versión preliminar)** 
+ ![](media/how-to-configure/manage1.png).</br>
  5.  Haga clic en **Nueva configuración**
- ![](media/tutorial-single-forest/configure1.png)</br>
+ ![](media/tutorial-single-forest/configure1.png).</br>
  6.  En la pantalla de configuración, escriba un **correo electrónico de notificación**, mueva el selector a **Habilitar** y haga clic en **Guardar**.
  ![](media/tutorial-single-forest/configure2.png)</br>
  7. En **Configurar**, seleccione **Todos los usuarios** para cambiar el ámbito de la regla de configuración.
@@ -208,10 +206,35 @@ Ahora vamos a comprobar que los usuarios que tenía en nuestro directorio local 
 
 Además, puede comprobar que tanto el usuario como el grupo existen en Azure AD.
 
+## <a name="start-the-scheduler"></a>Inicio del programador
+La sincronización de Azure AD Connect sincroniza los campos que se incluyen en el directorio local mediante un programador. Ahora que ha modificado las reglas, puede volver a iniciar el programador.  Para ello, siga los pasos que se describen a continuación:
+
+1.  En el servidor que ejecuta la sincronización de Azure AD Connect, abra PowerShell con privilegios administrativos
+2.  Ejecute `Set-ADSyncScheduler -SyncCycleEnabled $true`.
+3.  Ejecute `Start-ADSyncSyncCycle`.  Presione Entrar.  
+
+>[!NOTE] 
+>Si está ejecutando su propio programador personalizado para la sincronización de AAD Connect, habilite el programador. 
+
 ## <a name="something-went-wrong"></a>Hubo un problema
 Si la prueba piloto no funciona como cabría esperar, puede volver a la configuración de la sincronización de Azure AD Connect siguiendo estos pasos:
 1.  Deshabilite la configuración del aprovisionamiento en Azure Portal. 
 2.  Deshabilite todas las reglas de sincronización personalizadas creadas para el aprovisionamiento en la nube mediante la herramienta Editor de reglas de sincronización. La deshabilitación debería provocar la sincronización total en todos los conectores.
+
+## <a name="configure-azure-ad-connect-sync-to-exclude-the-pilot-ou"></a>Configuración de la sincronización de Azure AD Connect para excluir la unidad organizativa piloto
+Una vez que haya comprobado que el aprovisionamiento de la nube administra correctamente los usuarios de la unidad organizativa piloto, puede volver a configurar Azure AD Connect para excluir la unidad organizativa piloto que se creó anteriormente.  El agente de aprovisionamiento en la nube controlará la sincronización de los usuarios que avanzan.  Use los pasos siguientes para asignar un ámbito a Azure AD Connect.
+
+ 1. En el servidor en que se ejecuta Azure AD Connect, haga doble clic en el icono de este.
+ 2. Haga clic en **Configurar**.
+ 3. Seleccione **Personalizar las opciones de sincronización** y haga clic en Siguiente.
+ 4. Inicie sesión en Azure AD y haga clic en **Siguiente**.
+ 5. En la pantalla **Conectar sus directorios**, haga clic en **Siguiente**.
+ 6. En la pantalla **Filtrado de dominios y unidades organizativas**, seleccione **Sincronizar los dominios y las unidades organizativas seleccionados**.
+ 7. Expanda el dominio y **anule la selección** de la unidad organizativa **CPUsers**.  Haga clic en **Next**.
+![scope](media/tutorial-existing-forest/scope1.png)</br>
+ 9. En la pantalla **Características opcionales**, haga clic en **Siguiente**.
+ 10. En la pantalla **Listo para configurar**, haga clic en **Configurar**.
+ 11. Una vez que haya finalizado, haga clic en **Salir**. 
 
 ## <a name="next-steps"></a>Pasos siguientes 
 

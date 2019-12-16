@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 03/12/2019
+ms.date: 12/09/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 95a27ff17ca74f930fc1a739c0eb94a90bd82ec4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f45b6ce402a5f61faeabd1534d7e3562af81294c
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57834496"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973873"
 ---
 # <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-nodejs"></a>Inicio rápido: Realizar búsquedas en la Web con la API de REST Bing Web Search y Node.js
 
@@ -57,7 +57,7 @@ if (!SUBSCRIPTION_KEY) {
 
 ## <a name="create-a-function-to-make-the-request"></a>Creación de una función para hacer la solicitud
 
-Esta función protegerá una solicitud GET al guardar la consulta de búsqueda como un parámetro de consulta en la ruta de acceso. `encodeURIComponent` se usa para escapar los caracteres no válidos y la clave de suscripción se pasa en un encabezado. La devolución de llamada recibe una [respuesta](https://nodejs.org/dist/latest-v10.x/docs/api/http.html#http_class_http_serverresponse) que se suscribe al evento `data` para agregar el cuerpo de JSON, el evento `error` para registrar cualquier problema y el evento `end` para saber cuándo el mensaje se debería considerar como completo. Al finalizar, la aplicación imprimirá el cuerpo del mensaje y los encabezados interesantes. Puede jugar con los colores y establecer la profundidad que se adapte a sus preferencias. Una profundidad de `1` resume perfectamente la respuesta.
+Esta función protegerá una solicitud GET al guardar la consulta de búsqueda como un parámetro de consulta en la ruta de acceso. `hostname` puede ser el punto de conexión global siguiente o el punto de conexión del [subdominio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) que se muestra en Azure Portal para el recurso.  `encodeURIComponent` se usa para escapar los caracteres no válidos y la clave de suscripción se pasa en un encabezado. La devolución de llamada recibe una [respuesta](https://nodejs.org/dist/latest-v10.x/docs/api/http.html#http_class_http_serverresponse) que se suscribe al evento `data` para agregar el cuerpo de JSON, el evento `error` para registrar cualquier problema y el evento `end` para saber cuándo el mensaje se debería considerar como completo. Al finalizar, la aplicación imprimirá el cuerpo del mensaje y los encabezados interesantes. Puede jugar con los colores y establecer la profundidad que se adapte a sus preferencias. Una profundidad de `1` resume perfectamente la respuesta.
 
 ```javascript
 function bingWebSearch(query) {

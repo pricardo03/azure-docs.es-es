@@ -1,24 +1,25 @@
 ---
-title: Copia de datos de SQL Server a Blob Storage mediante Azure Data Factory
+title: Copia de datos de SQL Server a Blob Storage mediante PowerShell
 description: Aprenda a copiar datos de un almacén de datos local a la nube de Azure mediante un runtime de integración autohospedado en Azure Data Factory.
 services: data-factory
-documentationcenter: ''
 author: nabhishek
-manager: craigg
+ms.author: abnarain
+manager: anandsub
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
+ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/22/2018
-ms.author: abnarain
-ms.openlocfilehash: d2f59e7e8e86100a2a667634c0e99e6c1d5976da
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: b0e4fcf771f2441d9e1061ee57e83e26b6b1a241
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683490"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74922966"
 ---
 # <a name="tutorial-copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Tutorial: Copia de datos de una base de datos de SQL Server local en Azure Blob Storage
+
 En este tutorial, use Azure PowerShell para crear una canalización de Data Factory que copie los datos de una base de datos de SQL Server local a Azure Blob Storage. Cree y use una instancia de Integration Runtime autohospedado, que mueve los datos entre almacenes locales y en la nube. 
 
 > [!NOTE]

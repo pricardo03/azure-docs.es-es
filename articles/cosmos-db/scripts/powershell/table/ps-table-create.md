@@ -1,18 +1,18 @@
 ---
 title: 'Script de Azure PowerShell: creación de una tabla de Table API para Azure Cosmos DB'
-description: 'Script de Azure PowerShell: creación de una tabla de Table API para Azure Cosmos DB'
+description: Obtenga información sobre cómo usar un script de PowerShell para actualizar el rendimiento de una base de datos o un contenedor en Table API de Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: sample
-ms.date: 05/18/2019
+ms.date: 12/05/2019
 ms.author: mjbrown
-ms.openlocfilehash: 998379384c12c611989bf1ef04b149ab1ceaf25c
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 12a7c9cd6e1a9c1271aa73b9c2b2e1c834c743a7
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178734"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873546"
 ---
 # <a name="create-a-table-for-azure-cosmos-db---table-api"></a>Creación una tabla de Table API de Azure Cosmos DB
 

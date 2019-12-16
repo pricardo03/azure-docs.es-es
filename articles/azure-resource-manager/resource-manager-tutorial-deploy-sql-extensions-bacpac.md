@@ -2,15 +2,15 @@
 title: Importación de archivos BACPAC de SQL con plantillas
 description: Aprenda a usar la extensión de SQL Database para importar archivos BACPAC de SQL con plantillas de Azure Resource Manager.
 author: mumian
-ms.date: 11/21/2019
+ms.date: 12/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 741521551335712400e5f61822d7dda31199d3df
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 9f5e2e402e13076dc538a9c9d55e5b67e0d86d4f
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422173"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978920"
 ---
 # <a name="tutorial-import-sql-bacpac-files-with-azure-resource-manager-templates"></a>Tutorial: Importación de archivos BACPAC de SQL con plantillas de Azure Resource Manager
 
@@ -44,17 +44,15 @@ Para completar este artículo, necesitará lo siguiente:
 
 En [GitHub](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac) se comparte un archivo BACPAC. Para crear el suyo propio, consulte [Exportación de una base de datos de Azure SQL Database a un archivo BACPAC](../sql-database/sql-database-export.md) Si elige publicar el archivo en su propia ubicación, tendrá que actualizar la plantilla más adelante en el tutorial.
 
-El archivo BACPAC se debe almacenar en una cuenta de Azure Storage antes de que se pueda importar mediante una plantilla de Resource Manager.
+El archivo BACPAC se debe almacenar en una cuenta de Azure Storage antes de que se pueda importar mediante una plantilla de Resource Manager. El siguiente script de PowerShell prepara el archivo BACPAC con estos pasos:
 
-1. Abra [Cloud Shell](https://shell.azure.com).
-1. Seleccione **Cargar/Descargar archivos** y, después, seleccione **Cargar**.
-1. Especifique la siguiente dirección URL y, a continuación, seleccione **Abrir**.
+* Descargue el archivo BACPAC.
+* Cree una cuenta de Azure Storage.
+* Cree un contenedor de blobs en una cuenta de almacenamiento.
+* Cargue el archivo BACPAC en el contenedor.
+* Mostrar la clave de la cuenta de almacenamiento y la dirección URL del blob.
 
-    ```url
-    https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac
-    ```
-
-1. Copie y pegue el siguiente script de PowerShell en la ventana de Cloud Shell.
+1. Seleccione **Pruébelo** para abrir Cloud Shell y pegue el siguiente script de PowerShell en la ventana del shell.
 
     ```azurepowershell-interactive
     $projectName = Read-Host -Prompt "Enter a project name that is used to generate Azure resource names"
@@ -63,10 +61,16 @@ El archivo BACPAC se debe almacenar en una cuenta de Azure Storage antes de que 
     $resourceGroupName = "${projectName}rg"
     $storageAccountName = "${projectName}store"
     $containerName = "bacpacfiles"
-    $bacpacFile = "$HOME/SQLDatabaseExtension.bacpac"
-    $blobName = "SQLDatabaseExtension.bacpac"
+    $bacpacFileName = "SQLDatabaseExtension.bacpac"
+    $bacpacUrl = "https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac"
 
+    # Download the bacpac file
+    Invoke-WebRequest -Uri $bacpacUrl -OutFile "$HOME/$bacpacFileName"
+
+    # Create a resource group
     New-AzResourceGroup -Name $resourceGroupName -Location $location
+
+    # Create a storage account
     $storageAccount = New-AzStorageAccount -ResourceGroupName $resourceGroupName `
                                            -Name $storageAccountName `
                                            -SkuName Standard_LRS `
@@ -74,15 +78,17 @@ El archivo BACPAC se debe almacenar en una cuenta de Azure Storage antes de que 
     $storageAccountKey = (Get-AzStorageAccountKey -ResourceGroupName $resourceGroupName `
                                                   -Name $storageAccountName).Value[0]
 
+    # Create a container
     New-AzStorageContainer -Name $containerName -Context $storageAccount.Context
 
-    Set-AzStorageBlobContent -File $bacpacFile `
+    # Upload the BACPAC file to the container
+    Set-AzStorageBlobContent -File $HOME/$bacpacFileName `
                              -Container $containerName `
-                             -Blob $blobName `
+                             -Blob $bacpacFileName `
                              -Context $storageAccount.Context
 
     Write-Host "The storage account key is $storageAccountKey"
-    Write-Host "The BACPAC file URL is https://$storageAccountName.blob.core.windows.net/$containerName/$blobName"
+    Write-Host "The BACPAC file URL is https://$storageAccountName.blob.core.windows.net/$containerName/$bacpacFileName"
     Write-Host "Press [ENTER] to continue ..."
     ```
 
@@ -101,10 +107,9 @@ La plantilla que se usa en este tutorial se almacena en [GitHub](https://raw.git
 
 3. Seleccione **Abrir** para abrir el archivo.
 
-    En la plantilla hay tres recursos definidos.
+    En la plantilla hay dos recursos definidos:
 
    * `Microsoft.Sql/servers`. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/microsoft.sql/servers).
-   * `Microsoft.SQL/servers/securityAlertPolicies`. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/securityalertpolicies).
    * `Microsoft.SQL.servers/databases`.  Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases).
 
      Resulta útil obtener cierta información básica de la plantilla antes de personalizarla.
@@ -138,19 +143,21 @@ La plantilla que se usa en este tutorial se almacena en [GitHub](https://raw.git
     * Para permitir que la extensión de la base de datos SQL importe archivos BACPAC, necesita permitir el tráfico desde los servicios de Azure. Agregue la siguiente definición de regla de firewall en la definición de SQL Server:
 
         ```json
-        {
-          "type": "firewallrules",
-          "apiVersion": "2015-05-01-preview",
-          "name": "AllowAllAzureIps",
-          "location": "[parameters('location')]",
-          "dependsOn": [
-            "[variables('databaseServerName')]"
-          ],
-          "properties": {
-            "startIpAddress": "0.0.0.0",
-            "endIpAddress": "0.0.0.0"
+        "resources": [
+          {
+            "type": "firewallrules",
+            "apiVersion": "2015-05-01-preview",
+            "name": "AllowAllAzureIps",
+            "location": "[parameters('location')]",
+            "dependsOn": [
+              "[parameters('databaseServerName')]"
+            ],
+            "properties": {
+              "startIpAddress": "0.0.0.0",
+              "endIpAddress": "0.0.0.0"
+            }
           }
-        }
+        ]
         ```
 
         La plantilla será así:
@@ -161,22 +168,22 @@ La plantilla que se usa en este tutorial se almacena en [GitHub](https://raw.git
 
         ```json
         "resources": [
-            {
-              "type": "extensions",
-              "apiVersion": "2014-04-01",
-              "name": "Import",
-              "dependsOn": [
-                "[resourceId('Microsoft.Sql/servers/databases', variables('databaseServerName'), variables('databaseName'))]"
-              ],
-              "properties": {
-                "storageKeyType": "StorageAccessKey",
-                "storageKey": "[parameters('storageAccountKey')]",
-                "storageUri": "[parameters('bacpacUrl')]",
-                "administratorLogin": "[variables('databaseServerAdminLogin')]",
-                "administratorLoginPassword": "[variables('databaseServerAdminLoginPassword')]",
-                "operationMode": "Import"
-              }
+          {
+            "type": "extensions",
+            "apiVersion": "2014-04-01",
+            "name": "Import",
+            "dependsOn": [
+              "[resourceId('Microsoft.Sql/servers/databases', parameters('databaseServerName'), parameters('databaseName'))]"
+            ],
+            "properties": {
+              "storageKeyType": "StorageAccessKey",
+              "storageKey": "[parameters('storageAccountKey')]",
+              "storageUri": "[parameters('bacpacUrl')]",
+              "administratorLogin": "[parameters('adminUser')]",
+              "administratorLoginPassword": "[parameters('adminPassword')]",
+              "operationMode": "Import"
             }
+          }
         ]
         ```
 
@@ -192,6 +199,10 @@ La plantilla que se usa en este tutorial se almacena en [GitHub](https://raw.git
         * **storageUri**: Especifique la dirección URL del archivo BACPAC almacenado en una cuenta de almacenamiento.
         * **administratorLoginPassword**: la contraseña del administrador SQL. Use una contraseña generada. Consulte [Requisitos previos](#prerequisites).
 
+La plantilla completada tiene este aspecto:
+
+[!code-json[](~/resourcemanager-templates/tutorial-sql-extension/azuredeploy2.json?range=1-106&highlight=38-49,62-76,86-103)]
+
 ## <a name="deploy-the-template"></a>Implementación de la plantilla
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -199,7 +210,7 @@ La plantilla que se usa en este tutorial se almacena en [GitHub](https://raw.git
 Consulte la sección [Implementación de la plantilla](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template) para conocer el procedimiento de implementación. En su lugar, use el siguiente script de implementación de PowerShell.
 
 ```azurepowershell-interactive
-$projectName = Read-Host -Prompt "Enter a project name that is used to generate Azure resource names"
+$projectName = Read-Host -Prompt "Enter the same project name that is used earlier"
 $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
 $adminUsername = Read-Host -Prompt "Enter the SQL admin username"
 $adminPassword = Read-Host -Prompt "Enter the admin password" -AsSecureString
@@ -207,7 +218,7 @@ $storageAccountKey = Read-Host -Prompt "Enter the storage account key"
 $bacpacUrl = Read-Host -Prompt "Enter the URL of the BACPAC file"
 $resourceGroupName = "${projectName}rg"
 
-New-AzResourceGroup -Name $resourceGroupName -Location $location
+#New-AzResourceGroup -Name $resourceGroupName -Location $location
 New-AzResourceGroupDeployment `
     -ResourceGroupName $resourceGroupName `
     -adminUser $adminUsername `

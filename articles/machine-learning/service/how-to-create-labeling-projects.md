@@ -1,20 +1,20 @@
 ---
-title: Obtención de etiquetas para los datos
+title: Creación de un proyecto de etiquetado de datos
 titleSuffix: Azure Machine Learning
-description: En este artículo se muestra cómo crear y ejecutar proyectos para etiquetar los datos del aprendizaje automático.
+description: Obtenga información sobre cómo crear y ejecutar proyectos para etiquetar los datos del aprendizaje automático.
 author: lobrien
 ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: e66a9f8a775a46c906601ea08be52ca9dfbe0171
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: bdedc3ee0c76eafc4b4bc95116fb5be846f4bee5
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74689290"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978243"
 ---
-# <a name="get-labels-for-data"></a>Obtención de etiquetas para los datos
+# <a name="create-a-data-labeling-project-and-export-labels"></a>Creación de un proyecto de etiquetado de datos y exportación de etiquetas 
 
 Etiquetar datos voluminosos en proyectos de Machine Learning suele ser una tarea compleja. Los proyectos que tienen un componente de Computer Vision (como la clasificación de imágenes o la detección de objetos) normalmente requieren etiquetar miles de imágenes.
  
@@ -24,6 +24,9 @@ Machine Learning realiza un seguimiento del progreso y el mantenimiento de la co
 
 En Machine Learning, puede iniciar y detener el proyecto, agregar y quitar usuarios y equipos, e incluso supervisar el progreso. Puede exportar los datos etiquetados en formato COCO o como un conjunto de datos de Azure Machine Learning.
 
+> [!Important]
+> Actualmente solo se admiten proyectos de etiquetado de clasificación de imágenes e identificación de objetos. Además, las imágenes de datos deben estar disponibles en un almacén de datos de blobs de Azure. (Si no tiene un almacén de datos existente, puede cargar las imágenes durante la creación del proyecto). 
+
 En este artículo, aprenderá a:
 
 > [!div class="checklist"]
@@ -32,6 +35,7 @@ En este artículo, aprenderá a:
 > * Administrar los equipos y usuarios que trabajan en el proyecto
 > * Ejecutar y supervisar el proyecto
 > * Exportar las etiquetas
+
 
 ## <a name="prerequisites"></a>Requisitos previos
 

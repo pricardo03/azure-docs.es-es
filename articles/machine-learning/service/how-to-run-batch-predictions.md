@@ -11,21 +11,21 @@ ms.author: vaidyas
 author: vaidya-s
 ms.date: 11/04/2019
 ms.custom: Ignite2019
-ms.openlocfilehash: 62a2c3324df70c7ccdbbac273d314ff94cbb7b9a
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 207e8def168227cb419d25c8e98aa15c09c72b2c
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671565"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851611"
 ---
 # <a name="run-batch-inference-on-large-amounts-of-data-by-using-azure-machine-learning"></a>Ejecución de la inferencia por lotes en grandes cantidades de datos mediante Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-En esta guía paso a paso aprenderá a obtener inferencias en grandes cantidades de datos de forma asincrónica y en paralelo mediante el uso de Azure Machine Learning. La funcionalidad de inferencia por lotes que se describe aquí se encuentra en versión preliminar pública. Se trata de un método de alto rendimiento y alta capacidad de proceso para generar inferencias y datos para el procesamiento. Proporciona funcionalidades asincrónicas listas para su uso.
+Obtenga información sobre cómo obtener inferencias en grandes cantidades de datos de forma asincrónica y en paralelo mediante el uso de Azure Machine Learning. La funcionalidad de inferencia por lotes que se describe aquí se encuentra en versión preliminar pública. Se trata de un método de alto rendimiento y alta capacidad de proceso para generar inferencias y datos para el procesamiento. Proporciona funcionalidades asincrónicas listas para su uso.
 
 Con la inferencia por lotes es sencillo escalar inferencias sin conexión a grandes clústeres de máquinas en terabytes de datos de producción, lo que aumenta la productividad y optimiza el costo.
 
-En esta guía paso a paso aprenderá a realizar las tareas siguientes:
+En este artículo, obtendrá información sobre las siguientes tareas:
 
 > * Crear un recurso de proceso remoto.
 > * Escribir un script de inferencia personalizado.
@@ -189,7 +189,7 @@ model = Model.register(model_path="models/",
 El script *debe contener* dos funciones:
 - `init()`: utilice esta función para cualquier preparación costosa o común para la inferencia posterior. Por ejemplo, para cargar el modelo en un objeto global.
 -  `run(mini_batch)`: la función se ejecutará para cada instancia de `mini_batch`.
-    -  `mini_batch`: la inferencia por lotes invocará el método run y pasará una trama de datos de Pandas o una lista como argumento al método. Cada entrada de min_batch será una ruta de acceso si la entrada es FileDataset o una trama de datos de Pandas si es TabularDataset.
+    -  `mini_batch`: la inferencia por lotes invocará el método run y pasará una trama de datos de Pandas o una lista como argumento al método. Cada entrada de min_batch será una ruta de acceso de archivo si la entrada es FileDataset o una trama de datos de Pandas si es TabularDataset.
     -  `response`: el método run() debe devolver una trama de datos de Pandas o una matriz. Para append_row output_action, estos elementos devueltos se anexan al archivo de salida común. Para summary_only, se omite el contenido de los elementos. Para todas las acciones de salida, cada elemento de salida devuelto indica una inferencia correcta del elemento de entrada en el minilote de entrada. El usuario debe asegurarse de que se incluyen suficientes datos en el resultado de la inferencia para asignar la entrada a esta. La salida de la inferencia se escribirá en el archivo de salida y no se garantiza que esté en orden, por lo que el usuario debe usar alguna clave en la salida para asignarla a la entrada.
 
 ```python
@@ -237,6 +237,15 @@ def run(mini_batch):
     return resultList
 ```
 
+### <a name="how-to-access-other-files-in-init-or-run-functions"></a>Cómo acceder a otros archivos en las funciones `init()` o `run()`
+
+Si tiene otro archivo o carpeta en el mismo directorio que el script de inferencia, puede hacer referencia a él buscando el directorio de trabajo actual.
+
+```python
+script_dir = os.path.realpath(os.path.join(__file__, '..',))
+file_path = os.path.join(script_dir, "<file_name>")
+```
+
 ## <a name="build-and-run-the-batch-inference-pipeline"></a>Compilación y ejecución de la canalización de inferencias por lotes
 
 Ahora ya tiene todo lo que necesita para compilar la canalización.
@@ -265,7 +274,7 @@ batch_env.spark.precache_packages = False
 - `entry_script`: script de usuario como ruta de acceso de archivo local que se ejecutará en paralelo en varios nodos. Si `source_directly` está presente, utilice una ruta de acceso relativa. De lo contrario, use cualquier ruta de acceso accesible desde la máquina.
 - `mini_batch_size`: tamaño del minilote que se pasa a una sola llamada de `run()`. (Opcional: el valor predeterminado es `1`).
     - En el caso de `FileDataset`, es el número de archivos con un valor mínimo de `1`. Puede combinar varios archivos en un solo minilote.
-    - En el caso de `TabularDataset`, es el tamaño de los datos. Los valores posibles son `1024`, `1024KB`, `10MB` y `1GB`. `1MB` es el valor recomendado. Tenga en cuenta que el minilote de `TabularDataset` nunca cruzará los límites de los archivos. Por ejemplo, si tiene archivos. csv de varios tamaños, el menor es de 100 KB y el mayor es de 10 MB. Si establece `mini_batch_size = 1MB`, los archivos con un tamaño menor que 1 MB se tratarán como un solo minilote. Los archivos de tamaño mayor que 1 MB se dividirán en varios minilotes.
+    - En el caso de `TabularDataset`, es el tamaño de los datos. Los valores posibles son `1024`, `1024KB`, `10MB` y `1GB`. `1MB` es el valor recomendado. El minilote de `TabularDataset` nunca cruzará los límites de los archivos. Por ejemplo, si tiene archivos. csv de varios tamaños, el menor es de 100 KB y el mayor es de 10 MB. Si establece `mini_batch_size = 1MB`, los archivos con un tamaño menor que 1 MB se tratarán como un solo minilote. Los archivos de tamaño mayor que 1 MB se dividirán en varios minilotes.
 - `error_threshold`: número de errores de registro para `TabularDataset` y errores de archivo para `FileDataset` que se deben omitir durante el procesamiento. Si el recuento de errores de la entrada supera este valor, el trabajo se detiene. El umbral de error es para toda la entrada y no para los minilotes individuales que se envían al método `run()`. El intervalo es `[-1, int.max]`. La parte `-1` indica que se omitirán todos los errores durante el procesamiento.
 - `output_action`: uno de los valores siguientes indica cómo se organizará la salida:
     - `summary_only`: el script de usuario almacenará la salida. `ParallelRunStep` usará la salida solo para el cálculo del umbral de error.
@@ -348,6 +357,8 @@ pipeline_run.wait_for_completion(show_output=True)
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para ver cómo funciona esto de un extremo a otro, pruebe el [cuaderno de inferencias por lotes](https://aka.ms/batch-inference-notebooks). 
+
+Para instrucciones sobre depuración y solución de problemas de ParallelRunStep, consulte la [guía de procedimientos](how-to-debug-batch-predictions.md).
 
 Para instrucciones sobre depuración y solución de problemas para las canalizaciones, consulte la [guía paso a paso](how-to-debug-pipelines.md).
 

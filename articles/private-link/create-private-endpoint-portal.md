@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 2cb3c1d798e48017604d72d8a438d6a1071199ea
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 22614b28023a0628fb12c170e934aaab4d1ddfe4
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74419767"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74899861"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-azure-portal"></a>Inicio rápido: Creación de un punto de conexión privado mediante Azure Portal
 
@@ -144,7 +144,7 @@ En esta sección, creará un servidor SQL Server y le agregará un punto de cone
     | Subscription | Seleccione su suscripción. |
     | Resource group | Seleccione **myResourceGroup**. Lo creó en la sección anterior.|
     | **DETALLES DE INSTANCIA** |  |
-    | NOMBRE | Escriba * miPuntoDeConexiónPrivado*. Si el nombre ya existe, cree uno único. |
+    | NOMBRE | Escriba *myPrivateEndpoint*. Si el nombre ya existe, cree uno único. |
     |Region|Seleccione **WestCentralUS**.|
     |||
 5. Seleccione **Siguiente: Resource** (Siguiente: Recurso).
@@ -177,7 +177,7 @@ En esta sección, creará un servidor SQL Server y le agregará un punto de cone
 ## <a name="connect-to-a-vm-using-remote-desktop-rdp"></a>Conéctese a una máquina virtual mediante Escritorio remoto (RDP)
 
 
-Después de crear **myVm*, conéctese a ella desde Internet como se indica a continuación: 
+Después de crear **myVm**, conéctese a ella desde Internet como se indica a continuación: 
 
 1. En la barra de búsqueda del portal, escriba *myVm*.
 
@@ -185,7 +185,7 @@ Después de crear **myVm*, conéctese a ella desde Internet como se indica a con
 
 1. Seleccione **Descargar archivo RDP**. Azure crea un archivo de Protocolo de Escritorio remoto ( *.rdp*) y lo descarga en su equipo.
 
-1. Abra el archivo downloaded.rdp*.
+1. Abra el archivo *downloaded.rdp*.
 
     1. Cuando se le pida, seleccione **Conectar**.
 

@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: overview
-ms.date: 07/03/2019
+ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 95ea1718682340967d5d39fe5f550f2638273796
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 75f2969562dd2de041ffaa146c394f1a18c7756b
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73743705"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74961546"
 ---
 # <a name="what-is-the-azure-face-api"></a>¿Qué es Azure Face API?
 
@@ -45,11 +45,11 @@ En el siguiente ejemplo se muestra la cara objetivo:
 
 ![Una mujer sonriendo](./Images/FaceFindSimilar.QueryFace.jpg)
 
-Y estas son las caras candidatas:
+Y estas imágenes son las caras candidatas:
 
 ![Cinco imágenes de personas sonriendo. Las imágenes a y b muestran a la misma persona.](./Images/FaceFindSimilar.Candidates.jpg)
 
-Al buscar cuatro caras parecidas, el modo matchPerson devuelve a y b, que muestran a la misma persona que la cara objetivo. El modo matchFace devuelve a, b, c y d, exactamente cuatro caras candidatas, aunque algunas no sean la misma persona que el objetivo o el nivel de similitud sea bajo. Para más información, vea la guía de conceptos de [reconocimiento de facial](concepts/face-recognition.md) o la documentación de referencia sobre [Find Similar API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237).
+Al buscar cuatro caras parecidas, el modo matchPerson devuelve a y b, que muestran a la misma persona que la cara objetivo. El modo matchFace devuelve a, b, c y d&mdash; exactamente cuatro caras candidatas, aunque algunas no sean la misma persona que el objetivo o el nivel de similitud sea bajo. Para más información, vea la guía de conceptos de [reconocimiento de facial](concepts/face-recognition.md) o la documentación de referencia sobre [Find Similar API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237).
 
 ## <a name="face-grouping"></a>Agrupación de caras
 

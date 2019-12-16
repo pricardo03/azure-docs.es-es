@@ -1,29 +1,26 @@
 ---
-title: Compilación de una API web de .NET con Azure AD para su autenticación y autorización | Microsoft Docs
+title: Compilación de una API web de .NET de Azure AD para su autenticación y autorización | Microsoft Docs
 description: Cómo crear una API web de .NET MVC que se integra con Azure AD para su autenticación y autorización.
 services: active-directory
-documentationcenter: .net
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.assetid: 67e74774-1748-43ea-8130-55275a18320f
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 07/17/2019
 ms.author: ryanwi
-ms.reviewer: jmprieur, andret
+ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a7891ea6aa2dbe10456c701b5e0216117f6ed27b
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: abc4c05aab6efcfc55d5e4dc812ab41a3e3fc8aa
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68380702"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74963280"
 ---
 # <a name="quickstart-build-a-net-web-api-that-integrates-with-azure-ad-for-authentication-and-authorization"></a>Inicio rápido: compilación de una API web de .NET que se integra con Azure AD para su autenticación y autorización
 

@@ -1,5 +1,6 @@
 ---
-title: 'Inicio rápido: Configuración del inicio de sesión en una aplicación de escritorio mediante Azure Active Directory B2C'
+title: 'Inicio rápido: Configuración del inicio de sesión de una aplicación de escritorio'
+titleSuffix: Azure AD B2C
 description: En este inicio rápido se ejecuta una aplicación de escritorio de Windows Presentation Foundation de ejemplo que usa Azure Active Directory B2C para proporcionar el inicio de sesión de la cuenta.
 services: active-directory-b2c
 author: mmacy
@@ -11,12 +12,12 @@ ms.custom: mvc
 ms.date: 09/12/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: ed92605c7fb74186ddde6ff193a1365146494594
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 8265bad5b756ee2ac23bc41c9c58452251ce0717
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420227"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950654"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-desktop-app-using-azure-active-directory-b2c"></a>Inicio rápido: Configuración del inicio de sesión en una aplicación de escritorio mediante Azure Active Directory B2C
 

@@ -1,6 +1,6 @@
 ---
 title: Inscripción de un dispositivo de TPM al Servicio Azure Device Provisioning mediante C#
-description: 'Inicio rápido: Inscripción de un dispositivo de TPM en Azure IoT Hub Device Provisioning Service mediante el SDK del servicio de C#. En esta guía de inicio rápido se utilizan inscripciones individuales.'
+description: 'Inicio rápido: Inscripción de un dispositivo de TPM en Azure IoT Hub Device Provisioning Service (DPS) mediante el SDK del servicio de C#. En esta guía de inicio rápido se utilizan inscripciones individuales.'
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2019
@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: a95a50e5931f42e442e11fe593a151dd273449e8
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: ee1b803459e0c81b86021b617a29e0b29ee19909
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74423008"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976849"
 ---
 # <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-c-service-sdk"></a>Inicio rápido: Inscripción de un dispositivo de TPM al servicio Azure IoT Hub Device Provisioning mediante el SDK del servicio de C#
 

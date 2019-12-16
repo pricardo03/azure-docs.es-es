@@ -1,29 +1,25 @@
 ---
-title: Adquisición de un token y llamada a Microsoft Graph API mediante la identidad de la consola de aplicación | Azure
+title: Obtención de un token y llamada a Microsoft Graph con la identidad de aplicación de consola | Azure
 titleSuffix: Microsoft identity platform
-description: Aprenda cómo un proceso .NET Core puede obtener un token de acceso y llamar a una API protegida por un punto de conexión de la plataforma de identidad de Microsoft mediante la propia identidad de la aplicación
+description: Aprenda a obtener un token y llamar a una instancia de Microsoft Graph API protegida con él desde una aplicación de .NET Core
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a2617013b90cc9709a27ff8ab8c5046ebdcc9951
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: edcfe4d7dff5d84ceaf07a8aafd5f9b485308bd5
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73149431"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74920674"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-using-console-apps-identity"></a>Inicio rápido: Adquisición de un token y llamada a Microsoft Graph API mediante la identidad de la consola de aplicación
 

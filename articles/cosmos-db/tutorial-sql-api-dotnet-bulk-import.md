@@ -1,20 +1,20 @@
 ---
-title: Optimización de la capacidad de proceso al importar datos en bloque a la cuenta de SQL API de Azure Cosmos DB
-description: Aprenda a compilar una aplicación de consola de .NET que optimice la capacidad de proceso aprovisionada (RU/s) necesaria para importar datos en Azure Cosmos DB.
+title: Importación masiva de datos a la cuenta de SQL API de Azure Cosmos DB mediante el SDK para .NET
+description: Obtenga información sobre cómo importar o ingerir datos en Azure Cosmos DB mediante la creación de una aplicación de consola de .NET que optimice el rendimiento aprovisionado (RU/s) necesario para importar datos.
 author: ealsur
 ms.author: maquaran
 ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.reviewer: sngun
-ms.openlocfilehash: d80d762338744c0ca783d1768bacb8443dbc5020
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 79771e082a4a6ffae15f33f636b0300e93bcdaba
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606215"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896273"
 ---
-# <a name="optimize-throughput-when-bulk-importing-data-to-azure-cosmos-db-sql-api-account"></a>Optimización de la capacidad de proceso al importar datos en bloque a la cuenta de SQL API de Azure Cosmos DB
+# <a name="bulk-import-data-to-azure-cosmos-db-sql-api-account-by-using-the-net-sdk"></a>Importación masiva de datos a la cuenta de SQL API de Azure Cosmos DB mediante el SDK para .NET
 
 En este tutorial se muestra cómo compilar una aplicación de consola de .NET que optimice la capacidad de proceso aprovisionada (RU/s) necesaria para importar datos en Azure Cosmos DB. En este artículo se leen los datos de un origen de datos de ejemplo y se importan en un contenedor de Azure Cosmos.
 Este tutorial usa la [versión 3.0+](https://www.nuget.org/packages/Microsoft.Azure.Cosmos) del SDK de .NET de Azure Cosmos DB, cuyo destino puede ser .NET Framework o .NET Core.

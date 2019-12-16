@@ -1,26 +1,22 @@
 ---
-title: Inicio rápido de la aplicación web de Python para la plataforma de identidad de Microsoft | Azure
+title: Incorporación del inicio de sesión con Microsoft a una aplicación web en Python de la Plataforma de identidad de Microsoft | Azure
 description: Aprenda a implementar el inicio de sesión de Microsoft en una aplicación web de Python mediante OAuth2.
 services: active-directory
-documentationcenter: dev-center-name
 author: abhidnya13
-editor: ''
-ms.assetid: 9551f0b5-04f2-44d7-87b5-756409180fe9
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/25/2019
 ms.author: abpati
 ms.custom: aaddev
-ms.openlocfilehash: d9349391ad9af1a4ec1c84b586f825f3f7632ff8
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 8a6e8dad7549b3656d4387cfad1d0c3a44b13975
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73815750"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74965983"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-python-web-app"></a>Inicio rápido: Adición del inicio de sesión con Microsoft a una aplicación web de Python
 

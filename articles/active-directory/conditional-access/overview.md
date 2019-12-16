@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0463ffad87d00421c2fcb5c8357406d5f692144
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: a4c85fbc2c1f926f89dbfe9f2a5ae47cc48edf73
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71075317"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74966289"
 ---
 # <a name="what-is-conditional-access"></a>¿Qué es el acceso condicional?
 
@@ -80,6 +80,13 @@ Muchas organizaciones tienen problemas de acceso comunes y las directivas de acc
 - Bloquear o conceder el acceso desde ubicaciones concretas
 - Bloquear de comportamientos de inicio de sesión peligrosos
 - Requerir dispositivos administrados por la organización para aplicaciones concretas
+
+## <a name="customer-case-studies"></a>Casos prácticos de clientes
+
+Descubra cómo usan otras organizaciones el acceso condicional de Azure AD para definir e implementar decisiones de control de acceso automatizado. Las historias destacadas siguientes muestran cómo se cumplen estas necesidades de los clientes.
+
+* [Wipro impulsa la productividad móvil con las herramientas de seguridad en la nube de Microsoft para mejorar las relaciones con el cliente.](https://customers.microsoft.com/story/wipro-professional-services-enterprise-mobility-security) Las directivas de acceso condicional de Azure AD permiten a la empresa compartir documentos, recursos y aplicaciones con entidades de confianza externas, que pueden usar sus propias credenciales, sin perder el control sobre sus propios datos corporativos.
+* [Aramex Delivery Limited: es una empresa internacional de transporte y logística que crea oficinas conectadas a la nube con la solución de administración de identidades y acceso](https://customers.microsoft.com/story/aramex-azure-active-directory-travel-transportation-united-arab-emirates-en). Garantizar el acceso seguro era especialmente difícil con los empleados remotos de Aramex. La compañía ahora aplica el acceso condicional para permitir que estos empleados remotos puedan acceder a las aplicaciones SaaS desde fuera de la red. La regla de acceso condicional decidirá si se debe aplicar la autenticación multifactor, lo que proporciona el acceso correcto solo a las personas adecuadas.
 
 ## <a name="license-requirements"></a>Requisitos de licencia
 

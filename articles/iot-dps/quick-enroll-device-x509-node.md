@@ -1,6 +1,6 @@
 ---
 title: Inscripción de dispositivos X.509 en el servicio Azure Device Provisioning con Node.js
-description: Esta guía de inicio rápido usa inscripciones de grupos. En esta guía de inicio rápido, inscribirá dispositivos X.509 en el servicio Azure IoT Hub Device Provisioning Service con el SDK de servicio de Node.js
+description: Esta guía de inicio rápido usa inscripciones de grupos. En este inicio rápido, inscribirá dispositivos X.509 en el servicio Azure IoT Hub Device Provisioning Service (DPS) con el SDK de servicio de Node.js
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2019
@@ -9,14 +9,14 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: nodejs
 ms.custom: mvc
-ms.openlocfilehash: 6056859cf1742fc4bda6056ad7c1c78059a8407a
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 68f274fb50b883c6f252a78f97f31e49e72b135c
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74423232"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974716"
 ---
-# <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-nodejs"></a>Guía de inicio rápido: Inscripción de dispositivos X.509 en el servicio Device Provisioning con Node.js
+# <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-nodejs"></a>Inicio rápido: Inscripción de dispositivos X.509 en el servicio Device Provisioning con Node.js
 
 [!INCLUDE [iot-dps-selector-quick-enroll-device-x509](../../includes/iot-dps-selector-quick-enroll-device-x509.md)]
 

@@ -1,28 +1,23 @@
 ---
-title: 'Llamada a un ASP.NET Web API protegida por Azure AD: identidad de Microsoft'
+title: 'Llamada a una instancia de ASP.NET Web API protegida por Azure AD: Plataforma de identidad de Microsoft'
 description: En esta guía de inicio rápido, aprenderá a llamar a una ASP.NET Web API protegida por Azure Active Directory desde una aplicación de escritorio de Windows (WPF). El cliente de WPF autentica a un usuario, solicita un token de acceso y llama a la API web.
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e0fdeb2c1955eab18b440c3ef3bcac725ad92b6
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: fe3301c3c91343277997be1ee554ced76884274a
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200246"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74963314"
 ---
 # <a name="quickstart-call-an-aspnet-web-api-protected-by-azure-ad"></a>Inicio rápido: Llamada a una ASP.NET Web API protegida por Azure AD
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
-ms.date: 07/26/2019
+ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: e95b9aa8f01142065202e029c6298fc4c4cb1294
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 97bf62c61aee63ce97496e54b99ad641d6150876
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565743"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74972715"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-nodejs"></a>Inicio rápido: Llamada al punto de conexión de Bing Custom Search con Node.js
 
@@ -45,7 +45,7 @@ Use este documento de inicio rápido para comenzar a solicitar los resultados de
 
 ## <a name="send-and-receive-a-search-request"></a>Envío y recepción de una solicitud de búsqueda 
 
-1. Cree una variable para almacenar la información que se va a enviar en la solicitud. Construya la dirección URL de solicitud anexando el término de búsqueda al parámetro de consulta `q=`, y el identificador de configuración personalizada de la instancia de la búsqueda a `customconfig=`. Separe los parámetros con un carácter `&`. 
+1. Cree una variable para almacenar la información que se va a enviar en la solicitud. Construya la dirección URL de solicitud anexando el término de búsqueda al parámetro de consulta `q=`, y el identificador de configuración personalizada de la instancia de la búsqueda a `customconfig=`. Separe los parámetros con un carácter `&`. Puede usar el punto de conexión global siguiente o el punto de conexión del [subdominio personalizado](../../cognitive-services/cognitive-services-custom-subdomains.md) que se muestra en Azure Portal para el recurso.
 
     ```javascript
     var info = {

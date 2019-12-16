@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ebfe5f75d5d8546e0f5e8ad6f8c5d0063e5bda2
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: cc73d7ec81ea0105a5868ec698289bd27526a43b
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72377287"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893508"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ezofficeinventory"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con EZOfficeInventory
 
@@ -94,7 +94,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. La aplicación EZOfficeInventory espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token SAML. La siguiente captura de muestra la lista de atributos predeterminados.
 
-    ![imagen](common/edit-attribute.png)
+    ![imagen](common/default-attributes.png)
 
 1. Además de lo anterior, la aplicación EZOfficeInventory espera que se devuelvan algunos atributos más, que se muestran a continuación, en la respuesta de SAML. Estos atributos también se rellenan previamente, pero puede revisarlos según sus requisitos.
 
@@ -144,13 +144,21 @@ En esta sección, va a permitir que B.Simon acceda a EZOfficeInventory mediante 
 
 ## <a name="configure-ezofficeinventory-sso"></a>Configuración del inicio de sesión único de EZOfficeInventory
 
-1. Abra una nueva ventana del explorador web e inicie sesión en el sitio de empresa de EZOfficeInventory como administrador.
+1. Para automatizar la configuración en EZOfficeInventory, es preciso instalar la **extensión de inicio de sesión seguro de mis aplicaciones**, para lo que es preciso hacer clic en **Instale la extensión**.
 
-2. En la esquina superior derecha de la página, haga clic en **Profile**(Perfil)  y vaya a **Settings** > **Add Ons** (Configuración > Complementos).
+    ![Extensión Mis aplicaciones](common/install-myappssecure-extension.png)
+
+1. Después de agregar la extensión al explorador, haga clic en **Set up EZOfficeInventory** (Configurar EZOfficeInventory) para ir a la aplicación del mismo nombre. En ella, escriba las credenciales de administrador para iniciar sesión en EZOfficeInventory. La extensión de explorador configurará automáticamente la aplicación y automatizará los pasos 3 a 5.
+
+    ![Configuración](common/setup-sso.png)
+
+1. Si quiere configurar EZOfficeInventory manualmente, abra una nueva ventana del explorador web, inicie sesión en el sitio de empresa de EZOfficeInventory como administrador y haga lo siguiente:
+
+1. En la esquina superior derecha de la página, haga clic en su **perfil** y vaya a **Configuración** > **Complementos**.
 
     ![Configuración de EZOfficeInventory](./media/ezofficeinventory-tutorial/configure01.png)
 
-3. Desplácese hacia abajo hasta la sección **SAML Integration** (Integración de SAML) y realice los pasos siguientes:
+1. Desplácese hacia abajo hasta la sección **SAML Integration** (Integración de SAML) y realice los pasos siguientes:
 
     ![Configuración de EZOfficeInventory](./media/ezofficeinventory-tutorial/configure02.png)
 
@@ -176,7 +184,7 @@ En esta sección, va a permitir que B.Simon acceda a EZOfficeInventory mediante 
 
 En esta sección, se crea un usuario llamado Britta Simon en EZOfficeInventory. EZOfficeInventory admite el aprovisionamiento de usuarios Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Si aún no existe un usuario en EZOfficeInventory, se crea uno después de la autenticación.
 
-## <a name="test-sso"></a>Prueba de SSO 
+## <a name="test-sso"></a>Prueba de SSO
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
@@ -191,4 +199,3 @@ Al hacer clic en el icono de EZOfficeInventory en el Panel de acceso, debería i
 - [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Pruebe EZOfficeInventory con Azure AD](https://aad.portal.azure.com/)
-

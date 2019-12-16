@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 08/08/2019
+ms.date: 12/05/2019
 ms.author: anroth
-ms.openlocfilehash: ca21bbd77b269e3034fd69cc4685311e91295f36
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: db98464ecefaaf177161a1e417496ee7c994cff0
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "73519119"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978652"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-net-sdk"></a>Inicio rápido: Creación de un proyecto de clasificación de imágenes con SDK de Custom Vision para .NET
 
-En este artículo se proporciona información y código de ejemplo para ayudarle a empezar a utilizar el SDK de Custom Vision con C# para crear un modelo de clasificación de imágenes. Después de crearlo, puede agregar etiquetas, cargar imágenes, entrenar el proyecto, obtener la dirección URL predeterminada del punto de conexión de predicción del proyecto y utilizar el punto de conexión para probar una imagen mediante programación. Utilice este ejemplo como plantilla para crear su propia aplicación de .NET. Si desea seguir el proceso de creación y utilizar un modelo de clasificación _sin_ código, consulte la [guía basada en explorador](getting-started-build-a-classifier.md) en su lugar.
+En este artículo se proporciona información y código de ejemplo para ayudarle a empezar a utilizar el SDK de Custom Vision con C# para crear un modelo de clasificación de imágenes. Después de crearlo, puede agregar etiquetas, cargar imágenes, entrenar el proyecto, obtener la dirección URL predeterminada del punto de conexión de predicción del proyecto y utilizar el punto de conexión para probar una imagen mediante programación. Utilice este ejemplo como plantilla para crear su propia aplicación de .NET. Si desea seguir el proceso de creación y uso de un modelo de clasificación _sin_ código, consulte la [guía basada en explorador](getting-started-build-a-classifier.md) en su lugar.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -41,7 +41,7 @@ Este proyecto de Visual Studio crea un nuevo proyecto de Custom Vision denominad
 
 ## <a name="understand-the-code"></a>Comprendiendo el código
 
-Abra el archivo _Program.cs_ e inspeccione el código. [Cree variables de entorno](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para las claves de entrenamiento y predicción denominadas `CUSTOM_VISION_TRAINING_KEY` y `CUSTOM_VISION_PREDICTION_KEY`, respectivamente. El script las buscará.
+Abra el archivo _Program.cs_ e inspeccione el código. [Cree variables de entorno](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para las claves de entrenamiento y predicción denominadas `CUSTOM_VISION_TRAINING_KEY` y `CUSTOM_VISION_PREDICTION_KEY`, respectivamente. El script buscará estas variables.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?name=snippet_keys)]
 
@@ -69,7 +69,7 @@ Se incluyen las imágenes de este proyecto. Se hace referencia a ellas en el mé
 
 ### <a name="train-the-classifier-and-publish"></a>Entrenar el clasificador y publicarlo
 
-Este código crea la primera iteración del proyecto y, después, publica dicha iteración en el punto de conexión de la predicción. El nombre que se da a la iteración publicada se puede utilizar para enviar solicitudes de predicción. Una iteración no está disponible en el punto de conexión de la predicción hasta que se publica.
+Este código crea la primera iteración del proyecto y, después, publica dicha iteración en el punto de conexión de la predicción. Puede usar el nombre de la iteración para enviar solicitudes de predicción. Una iteración no está disponible en el punto de conexión de predicción hasta que se publica.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?name=snippet_train)]
 
@@ -81,7 +81,7 @@ El punto de conexión de la predicción es la referencia que puede utilizar para
 
 ### <a name="submit-an-image-to-the-default-prediction-endpoint"></a>Envío de una imagen al punto de conexión de la predicción predeterminado
 
-En este script, se carga la imagen de prueba en el método **LoadImagesFromDisk** y la salida de la predicción del modelo se va a mostrar en la consola. El valor de la variable publishedModelName debe corresponder al valor "Published as" (Publicado como) que se encuentra en la pestaña **Performance** (Rendimiento) del portal de Custom Vision. 
+En este script, se carga la imagen de prueba en el método **LoadImagesFromDisk** y la salida de la predicción del modelo se va a mostrar en la consola. El valor de la variable `publishedModelName` debe corresponder al valor de "Published as" (Publicado como) que se encuentra en la pestaña **Performance** (Rendimiento) del portal de Custom Vision. 
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?name=snippet_prediction)]
 
@@ -106,7 +106,7 @@ Luego puede comprobar que la imagen de prueba (que se encuentra en **imágenes/T
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ya ha visto cómo todos los pasos del proceso de clasificación de imágenes se pueden realizar en código. En este ejemplo se ejecuta una sola iteración de entrenamiento, pero a menudo necesitará entrenar y probar su modelo varias veces para hacerlo más preciso.
+Ahora ha visto cómo realizar cada paso del proceso de clasificación de imágenes en el código. En este ejemplo se ejecuta una sola iteración de entrenamiento, pero a menudo necesitará entrenar y probar su modelo varias veces para hacerlo más preciso.
 
 > [!div class="nextstepaction"]
 > [Prueba y reentrenamiento del modelo](test-your-model.md)

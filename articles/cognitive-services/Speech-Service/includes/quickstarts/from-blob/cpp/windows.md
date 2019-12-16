@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 313332689b0f2df9698f868297c72be7d8bde5bb
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 54c6f920b581a0bbd00910a3b3ddeebecdbb595f
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74828885"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74954936"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -65,13 +65,18 @@ Continúe y coloque sus declaraciones delante de `recognizeSpeech`.
 
 ## <a name="create-and-configure-an-http-client"></a>Creación y configuración de un cliente HTTP
 Lo primero que necesitamos es un cliente HTTP con una dirección URL base y un conjunto de autenticación correctos.
-Inserte este código en `recognizeSpeech` [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/from-blob/helloworld.cpp?range=191-197)].
+Inserte este código en `recognizeSpeech`.
+
+[!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/from-blob/helloworld.cpp?range=191-197)]
 
 ## <a name="generate-a-transcription-request"></a>Generación de una solicitud de transcripción
-A continuación, se generará la solicitud de transcripción. Agregue este código a `recognizeSpeech` [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/from-blob/helloworld.cpp?range=199-203)]
+A continuación, se generará la solicitud de transcripción. Agregue este código a `recognizeSpeech`.
+
+[!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/from-blob/helloworld.cpp?range=199-203)]
 
 ## <a name="send-the-request-and-check-its-status"></a>Envío de la solicitud y comprobación de su estado
 Ahora, se va a publicar la solicitud en el servicio de voz y se va a comprobar el código de respuesta inicial. Este código de respuesta indicará simplemente si el servicio ha recibido la solicitud. El servicio devolverá una dirección URL en los encabezados de respuesta, que es la ubicación en la que se almacenará el estado de la transcripción.
+
 [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/from-blob/helloworld.cpp?range=204-216)]
 
 ## <a name="wait-for-the-transcription-to-complete"></a>Espere a que finalice la operación.
@@ -80,16 +85,20 @@ Dado que el servicio procesa la transcripción de forma asincrónica, es necesar
 Para comprobar el estado se puede recuperar el contenido en la dirección URL que obtuvimos al publicar la solicitud. Cuando se recupera el contenido, se deserializa en una de nuestras clases auxiliares para facilitar la interacción con él.
 
 Este es el código de sondeo con la visualización del estado de todas las tareas, excepto el de una finalización correcta, que se hará a continuación.
+
 [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/from-blob/helloworld.cpp?range=222-245,285-299)]
 
 ## <a name="display-the-transcription-results"></a>Visualización de los resultados de la transcripción
 Cuando el servicio haya finalizado correctamente la transcripción, los resultados se almacenarán en otra dirección URL que se puede obtener de la respuesta de estado.
 
 Se descargará el contenido de esa dirección URL, se deserializará el código JSON y se recorrerán en bucle los resultados, con la impresión del texto en pantalla a medida que avanzamos.
+
 [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/from-blob/helloworld.cpp?range=246-284)]
 
 ## <a name="check-your-code"></a>Comprobación del código
-En este momento, el código debe tener esta apariencia: (Se han agregado algunos comentarios a esta versión) [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/from-blob/helloworld.cpp?range=7-308)]
+En este momento, el código debe tener esta apariencia: (Se han agregado algunos comentarios a esta versión)
+
+[!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/from-blob/helloworld.cpp?range=7-308)]
 
 ## <a name="build-and-run-your-app"></a>Compilación y ejecución de la aplicación
 

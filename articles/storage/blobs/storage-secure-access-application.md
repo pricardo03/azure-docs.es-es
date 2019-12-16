@@ -1,22 +1,23 @@
 ---
-title: Proteger el acceso a los datos de una aplicación en la nube con Azure Storage | Microsoft Docs
+title: Protección del acceso a los datos de la aplicación
+titleSuffix: Azure Storage
 description: Use tokens de SAS, cifrado y HTTPS para proteger los datos de la aplicación en la nube.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: tutorial
-ms.date: 05/30/2018
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.custom: mvc
-ms.openlocfilehash: 2cd7a83b597d656ddbb0210aacfe96f6c056248b
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 1075c03820efba44ceb8dea28aff6302d2667cf2
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68986697"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892437"
 ---
-# <a name="secure-access-to-an-applications-data-in-the-cloud"></a>Proteger el acceso a los datos de una aplicación en la nube
+# <a name="secure-access-to-application-data"></a>Protección del acceso a los datos de la aplicación
 
 Este tutorial es la tercera parte de una serie. Aprenda a proteger el acceso a la cuenta de almacenamiento. 
 
@@ -31,7 +32,7 @@ En la tercera parte de la serie, se aprende a:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para completar este tutorial, debe haber completado el tutorial anterior sobre el almacenamiento: [Automatización del cambio de tamaño de imágenes cargadas mediante Event Grid][previous-tutorial]. 
+Para completar este tutorial, debe haber completado el tutorial anterior sobre el almacenamiento: [Automatización del cambio de tamaño de imágenes cargadas mediante Event Grid][previous-tutorial].
 
 ## <a name="set-container-public-access"></a>Establecimiento del acceso público a contenedores
 

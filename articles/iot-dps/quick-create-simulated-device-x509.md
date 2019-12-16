@@ -1,6 +1,6 @@
 ---
 title: Aprovisionamiento de un dispositivo X.509 simulado en Azure IoT Hub mediante C
-description: En esta guía de inicio rápido se utilizan inscripciones individuales. En esta guía de inicio rápido, creará y aprovisionará un dispositivo X.509 simulado mediante el SDK de dispositivos para C para Azure IoT Hub Device Provisioning Service.
+description: En esta guía de inicio rápido se utilizan inscripciones individuales. En esta guía de inicio rápido, creará y aprovisionará un dispositivo X.509 simulado mediante el SDK de dispositivos de C para Azure IoT Hub Device Provisioning Service (DPS).
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2019
@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 5d0b634de9d296bc56d18b2e7a4a92e6340b07c3
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 8ea962d1d7df9b3d4932a698703e42b27495298c
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74423119"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976900"
 ---
-# <a name="quickstart-provision-an-x509-simulated-device-using-the-azure-iot-c-sdk"></a>Guía de inicio rápido: Aprovisionamiento de un dispositivo X.509 simulado mediante el SDK para C de Azure IoT
+# <a name="quickstart-provision-an-x509-simulated-device-using-the-azure-iot-c-sdk"></a>Inicio rápido: Aprovisionamiento de un dispositivo X.509 simulado mediante el SDK para C de Azure IoT
 
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
 

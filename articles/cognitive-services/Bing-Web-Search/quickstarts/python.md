@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 03/12/2019
+ms.date: 12/09/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 4f7f1c28423e67ff9ff09385a5e0c7675e4a6049
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: c1af1142faca76cc58b6b3ca9a7106bc0433ea18
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67338824"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976373"
 ---
 # <a name="quickstart-use-python-to-call-the-bing-web-search-api"></a>Guía de inicio rápido: Uso de Python para llamar a Bing Web Search API  
 
@@ -41,7 +41,7 @@ subscription_key = "YOUR_ACCESS_KEY"
 assert subscription_key
 ```
 
-Declare el punto de conexión de Bing Web Search API. Si se producen errores de autorización, vuelva a comprobar este valor con el punto de conexión de búsqueda de Bing en el panel de Azure.
+Declare el punto de conexión de Bing Web Search API. Puede usar el punto de conexión global siguiente o el punto de conexión del [subdominio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) que se muestra en Azure Portal para el recurso.
 
 ```python
 search_url = "https://api.cognitive.microsoft.com/bing/v7.0/search"

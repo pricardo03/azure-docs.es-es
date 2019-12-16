@@ -1,18 +1,18 @@
 ---
 title: 'Script de Azure PowerShell: Actualización de RU/s para Cassandra API en Azure Cosmos DB'
-description: 'Script de Azure PowerShell: Actualización de RU/s para Cassandra API en Azure Cosmos DB'
+description: Obtenga información sobre cómo usar un script de PowerShell para actualizar el rendimiento de un espacio de claves o una tabla en Cassandra API de Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: sample
-ms.date: 05/18/2019
+ms.date: 12/05/2019
 ms.author: mjbrown
-ms.openlocfilehash: 7109c393aa37faf1eaddb37cb2861030ef2900e7
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 417ee8d839e65a7625b8ba8daa84cc0dcc41abf5
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178991"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74871982"
 ---
 # <a name="update-rus-for-a-keyspace-or-table-for-azure-cosmos-db---cassandra-api"></a>Actualización de RU/s para una tabla o un espacio de claves de Cassandra API en Azure Cosmos DB
 

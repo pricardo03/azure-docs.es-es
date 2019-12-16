@@ -3,12 +3,12 @@ title: Introducción a Azure Policy
 description: Azure Policy es un servicio de Azure que se usa para crear, asignar y administrar las definiciones de directivas en el entorno de Azure.
 ms.date: 11/25/2019
 ms.topic: overview
-ms.openlocfilehash: db6a7c592213b0ef8a17466300c37c859e96476b
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: a7cc5ebca74e249057d159334e4207a3efca37f5
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74484012"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74885473"
 ---
 # <a name="what-is-azure-policy"></a>¿Qué es Azure Policy?
 
@@ -16,7 +16,9 @@ La gobernanza garantiza que cualquier organización puede alcanzar sus objetivos
 
 ¿Su empresa experimenta muchos problemas de TI que parecen no resolverse nunca? Una buena gobernanza de TI implica planear las iniciativas y establecer prioridades a nivel estratégico que faciliten la administración y eviten problemas. Es en esta necesidad estratégica donde Azure Policy entra en juego.
 
-Azure Policy es un servicio de Azure que se usa para crear, asignar y administrar directivas. Dichas directivas aplican distintas reglas y efectos a los recursos, con el fin de que estos sigan siendo compatibles con los estándares corporativos y los acuerdos de nivel de servicio. Azure Policy satisface esta necesidad mediante la evaluación de los recursos que incumplen las directivas asignadas. Por ejemplo, puede haber una directiva que permita solo un tamaño de SKU concreto de las máquinas virtuales de un entorno. Una vez que se implementa esta directiva, se evalúa el cumplimiento de los recursos nuevos y existentes. Con el tipo correcto de directiva, se puede conseguir el cumplimiento de los recursos existentes. Más adelante se analizará con más detalles cómo crear e implementar directivas con Azure Policy.
+Azure Policy es un servicio de Azure que se usa para crear, asignar y administrar directivas. Dichas directivas aplican distintas reglas y efectos a los recursos, con el fin de que estos sigan siendo compatibles con los estándares corporativos y los acuerdos de nivel de servicio. Azure Policy satisface esta necesidad mediante la evaluación de los recursos que incumplen las directivas asignadas. Todos los datos que almacena Azure Policy se cifran en reposo.
+
+Por ejemplo, puede haber una directiva que permita solo un tamaño de SKU concreto de las máquinas virtuales de un entorno. Una vez que se implementa esta directiva, se evalúa el cumplimiento de los recursos nuevos y existentes. Con el tipo correcto de directiva, se puede conseguir el cumplimiento de los recursos existentes. Más adelante se analizará con más detalles cómo crear e implementar directivas con Azure Policy.
 
 > [!IMPORTANT]
 > La evaluación de cumplimiento de Azure Policy se ofrece ahora para todas las asignaciones independientemente del nivel de precios. Si las asignaciones no muestran los datos de cumplimiento, asegúrese de que la suscripción está registrada con el proveedor de recursos Microsoft.PolicyInsights.

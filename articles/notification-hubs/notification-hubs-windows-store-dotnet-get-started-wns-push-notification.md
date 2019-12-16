@@ -5,24 +5,22 @@ services: notification-hubs
 documentationcenter: windows
 author: sethmanheim
 manager: femila
-editor: jwargo
-ms.assetid: cf307cf3-8c58-4628-9c63-8751e6a0ef43
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 03/22/2019
+ms.date: 12/05/2019
 ms.author: sethm
 ms.reviewer: jowargo
-ms.lastreviewed: 03/22/2019
-ms.openlocfilehash: 82f983f6fc55c01c4e445915d06da33889977d24
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.lastreviewed: 12/04/2019
+ms.openlocfilehash: ec0181dd75cd656859967c30dc3941175407413a
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213434"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894974"
 ---
 # <a name="tutorial-send-notifications-to-universal-windows-platform-apps-by-using-azure-notification-hubs"></a>Tutorial: Envío de notificaciones a aplicaciones de Plataforma universal de Windows mediante Azure Notification Hubs
 
@@ -44,14 +42,14 @@ Siga estos pasos:
 ## <a name="prerequisites"></a>Requisitos previos
 
 - **Suscripción de Azure**. Si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
-- [Microsoft Visual Studio Community 2015 o posterior](https://www.visualstudio.com/products/visual-studio-community-vs).
+- Microsoft Visual Studio 2017 o posterior. En el ejemplo de este tutorial se usa [Visual Studio 2019](https://www.visualstudio.com/products).
 - [Herramientas de desarrollo de aplicaciones de la plataforma universal de Windows instaladas](https://msdn.microsoft.com/windows/uwp/get-started/get-set-up)
 - Una cuenta de la Tienda Windows activa
 - Confirme que el valor **Obtener notificaciones de aplicaciones y otros remitentes** está habilitado. 
     - Abra la ventana **Configuración** en el equipo.
     - Seleccione el icono **Sistema**.
     - Seleccione **Notificaciones y acciones** en el menú izquierdo. 
-    - Confirme que el valor **Obtener notificaciones de aplicaciones y otros remitentes**  está habilitado. Si aún no está habilitado, habilítelo. 
+    - Confirme que el valor **Obtener notificaciones de aplicaciones y otros remitentes**  está habilitado. Si aún no está habilitado, habilítelo.
 
 La realización de este tutorial es un requisito previo para todos los demás tutoriales de Notification Hubs para las aplicaciones de la plataforma universal de Windows.
 
@@ -59,16 +57,16 @@ La realización de este tutorial es un requisito previo para todos los demás tu
 
 Para enviar notificaciones push a las aplicaciones de la plataforma universal de Windows, asocie su aplicación a la Tienda Windows. A continuación, configure su centro de notificaciones para que se integre con los Servicios de notificaciones de inserción de Windows.
 
-1. Vaya al [Centro de desarrollo de Windows](https://partner.microsoft.com/en-us/dashboard/windows/first-run-experience), inicie sesión en su cuenta Microsoft y seleccione **Create a new app** (Crear aplicación).
+1. Vaya al [Centro de desarrollo de Windows](https://partner.microsoft.com/dashboard/windows/first-run-experience), inicie sesión en su cuenta Microsoft y seleccione **Create a new app** (Crear aplicación).
 
     ![Botón de aplicación nueva](./media/notification-hubs-windows-store-dotnet-get-started/windows-store-new-app-button.png)
 2. Escriba el nombre de la aplicación y seleccione **Reserve product name** (Reservar nombre de producto). Así se crea un nuevo registro de la Tienda Windows para el registro de la aplicación.
 
     ![Nombre de aplicación de Store](./media/notification-hubs-windows-store-dotnet-get-started/store-app-name.png)
-3. Expanda **Administración de la aplicación**, seleccione **WNS/MPNS**, y, luego, **Sitio de Servicios Live**. Iniciar sesión en su cuenta de Microsoft. Se abre el **Portal de registro de aplicaciones** en una pestaña nueva. Otra posibilidad es navegar directamente al [Portal de registro de aplicaciones](https://apps.dev.microsoft.com) y seleccionar el nombre de la aplicación para acceder a esta página.
+3. Expanda **Administración de productos**, seleccione **WNS/MPNS** y, a continuación, seleccione **Sitio de Servicios Live**. Iniciar sesión en su cuenta de Microsoft. La página de registro de la aplicación se abre en una nueva pestaña. Como alternativa, puede ir directamente a la página [Mis aplicaciones](https://apps.dev.microsoft.com) y seleccionar el nombre de la aplicación para llegar a esta página.
 
     ![Página de WNS MPNS](./media/notification-hubs-windows-store-dotnet-get-started/wns-mpns-page.png)
-4. Anote la contraseña del **Secreto de aplicación** y el **identificador de seguridad de paquete (SID)** .
+4. Anote la contraseña de **Secretos de aplicación** y el **Identificador de seguridad de paquete (SID)** .
 
     >[!WARNING]
     >El secreto de aplicación y el SID del paquete son credenciales de seguridad importantes. No los comparta con nadie ni los distribuya con su aplicación.
@@ -90,17 +88,18 @@ El centro de notificaciones ya está configurado para funcionar con WNS. Tiene l
 ## <a name="create-a-sample-windows-app"></a>Crear una aplicación de Windows de ejemplo
 
 1. En Visual Studio, en el menú **Archivo**, seleccione **Nuevo** y, después, **Proyecto**.
-2. En el cuadro de diálogo **Nuevo proyecto**, realice estos pasos:
+2. En el cuadro de diálogo **Crear un nuevo proyecto**, realice estos pasos:
 
-    1. Expanda **Visual C#** .
-    2. Seleccione **Windows Universal**.
-    3. Seleccione **Aplicación vacía (Windows universal)** .
-    4. Escriba un **nombre** para el proyecto.
-    5. Seleccione **Aceptar**.
+    1. En el cuadro de búsqueda de la parte superior, escriba **Windows Universal**.
+    2. En los resultados de la búsqueda, seleccione **Aplicación en blanco (Windows universal)** y, después, seleccione **Siguiente**.
 
-        ![Cuadro de diálogo Nuevo proyecto](./media/notification-hubs-windows-store-dotnet-get-started/new-project-dialog.png)
+       ![Cuadro de diálogo Nuevo proyecto](./media/notification-hubs-windows-store-dotnet-get-started/new-project-dialog.png)
+
+    3. En el cuadro de diálogo **Configurar el nuevo proyecto**, escriba un **Nombre de proyecto** y una **Ubicación** para los archivos del proyecto.
+    4. Seleccione **Crear**.
+
 3. Acepte los valores predeterminados de las versiones de plataforma **mínima** y **de destino** y seleccione **Aceptar**.
-4. En el Explorador de soluciones, haga clic con el botón derecho en el proyecto de la aplicación para la Tienda Windows, seleccione **Tienda** y **Asociar aplicación con la Tienda**. Aparece el asistente **Asocie la aplicación con la Tienda Windows** .
+4. En el Explorador de soluciones, haga clic con el botón derecho en el proyecto de la aplicación para la Tienda Windows, seleccione **Publicar** y, a continuación, seleccione **Asociar aplicación con la Tienda**. Aparece el asistente **Asocie la aplicación con la Tienda Windows** .
 5. En el asistente, inicie sesión con su cuenta de Microsoft.
 6. Seleccione la aplicación que registró en el paso 2, **Siguiente** y **Asociar**. De esta manera, se agrega la información de registro necesaria de la Tienda Windows al manifiesto de aplicación.
 7. En Visual Studio, haga clic con el botón derecho en la solución y seleccione **Administrar paquetes NuGet**. Se abre la ventana **Administrar paquetes NuGet**.
@@ -117,7 +116,7 @@ El centro de notificaciones ya está configurado para funcionar con WNS. Tiene l
     using Windows.UI.Popups;
     ```
 
-10. En el archivo `App.xaml.cs` del proyecto, busque la clase `App` y agregue la siguiente definición de método `InitNotificationsAsync`:
+10. En el archivo `App.xaml.cs` del proyecto, busque la clase `App` y agregue la siguiente definición de método `InitNotificationsAsync`. Reemplace `<your hub name>` por el nombre del centro de notificaciones que creó en Azure Portal y reemplace `<Your DefaultListenSharedAccessSignature connection string>` por la cadena de conexión `DefaultListenSharedAccessSignature` de la página **Directivas de acceso** del centro de notificaciones:
 
     ```csharp
     private async void InitNotificationsAsync()

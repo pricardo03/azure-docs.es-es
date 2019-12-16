@@ -9,12 +9,12 @@ ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
 ms.subservice: metrics
-ms.openlocfilehash: 4d150a1f6793cc20d58bebc67d5c6b58c03139d4
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: 2bb275b1ca129d2381fb89fcbe0111c573d4a8e7
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74304702"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893355"
 ---
 # <a name="archive-azure-metric-and-log-data-using-azure-storage"></a>Archivado de datos de registro y métricas de Azure con Azure Storage
 
@@ -70,7 +70,7 @@ Los datos de supervisión de la suscripción ahora fluyen a la cuenta de almacen
 
 ## <a name="route-resource-data-to-the-storage-account"></a>Enrutamiento de datos de recursos a la cuenta de almacenamiento
 
-Ahora configure los datos de nivel de recurso (métricas de recursos y registros de diagnóstico) que se enrutarán a la cuenta de almacenamiento mediante las opciones de **configuración de diagnóstico de recurso**.
+Ahora, configure los datos de nivel de recurso (métricas de recursos y registros de recursos) que se enrutarán a la cuenta de almacenamiento mediante las opciones de **configuración de diagnóstico de recurso**.
 
 1. Haga clic en el botón **Monitor** que se encuentra en la lista de navegación de la izquierda y luego en **Configuración de diagnóstico**. Aquí verá una lista de todos los recursos de la suscripción que generan datos de supervisión a través de Azure Monitor. Si no dispone de ningún recurso en esta lista, puede [crear una aplicación lógica](../../logic-apps/quickstart-create-first-logic-app-workflow.md) antes de continuar para tener un recurso en el que pueda definir una configuración de diagnóstico.
 
@@ -162,7 +162,7 @@ Si ha seguido los pasos anteriores, los datos han comenzado a fluir a la cuenta 
 
 5. Haga clic en los contenedores de ld. de recurso, fecha y hora para navegar hasta el archivo PT1H.json. Haga clic en el archivo PT1H.json y haga clic en **Descargar**. Cada blob PT1H.json contiene un blob JSON de eventos que se produjeron en la hora especificada en la dirección URL del blob (por ejemplo h=12). Durante la hora en cuestión, los eventos se anexan al archivo PT1H.json a medida que se producen. El valor de los minutos (m = 00) siempre es 00, ya que los eventos del registro se dividen en blobs individuales por hora.
 
-   Ahora puede ver el evento JSON que se almacenó en la cuenta de almacenamiento. Para los registros de diagnóstico de recursos, el formato para los blobs es:
+   Ahora puede ver el evento JSON que se almacenó en la cuenta de almacenamiento. Para los registros de recursos, el formato para los blobs es:
 
    insights-logs-{nombre de categoría de registro}/resourceId=/{id. de recurso}/y={año con cuatro dígitos}/m={mes con dos dígitos}/d={día con dos dígitos}/h={hora en formato de 24 horas con dos dígitos}/m=00/PT1H.json
 

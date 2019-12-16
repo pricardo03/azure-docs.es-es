@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Aprovisionamiento de dispositivos en centros de conectividad con equilibrio de carga mediante Azure IoT Hub Device Provisioning Service'
-description: En este tutorial se indica cómo Device Provisioning Service permite el aprovisionamiento de dispositivos automático en instancias de IoT Hub con equilibrio de carga en Azure Portal
+description: En este tutorial se indica cómo Device Provisioning Service (DPS) permite el aprovisionamiento automático de dispositivos en instancias de IoT Hub con equilibrio de carga en Azure Portal.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/12/2019
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: cf1246862a455cfa71f3e170478736e5e07ee6f7
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: e1a66da52eea6d5da711fa6def58eba65d0960ed
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74701956"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976747"
 ---
 # <a name="tutorial-provision-devices-across-load-balanced-iot-hubs"></a>Tutorial: Aprovisionamiento de dispositivos en instancias de IoT Hub con equilibrio de carga
 

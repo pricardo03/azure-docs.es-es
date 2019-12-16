@@ -1,28 +1,22 @@
 ---
-title: 'Ejemplo de script de Azure PowerShell: rotar la clave de acceso de la cuenta de almacenamiento | Microsoft Docs'
+title: Rotación de las claves de acceso de las cuentas de almacenamiento con PowerShell
+titleSuffix: Azure Storage
 description: Cree una cuenta de Azure Storage y luego recupere y rote una de sus claves de acceso de cuenta.
 services: storage
-documentationcenter: na
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: ''
 ms.custom: mvc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: azurecli
 ms.topic: sample
-ms.date: 06/13/2017
+ms.date: 12/04/2019
 ms.author: tamram
-ms.openlocfilehash: 0aae733f94ab4a217ca41ca3de6df2e5da47df50
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 54a7a6cb89c88726853a39ab5b2a61e1f0cde0b5
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244358"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894934"
 ---
-# <a name="create-a-storage-account-and-rotate-its-account-access-keys"></a>Creación de una cuenta de almacenamiento y rotación de sus claves de acceso de cuenta
+# <a name="rotate-storage-account-access-keys-with-powershell"></a>Rotación de las claves de acceso de las cuentas de almacenamiento con PowerShell
 
 Este script crea una cuenta de Azure Storage, muestra la clave de acceso principal de la nueva cuenta de almacenamiento y, por último, renueva (rota) la clave.
 
@@ -34,7 +28,7 @@ Este script crea una cuenta de Azure Storage, muestra la clave de acceso princip
 
 [!code-powershell[main](../../../powershell_scripts/storage/rotate-storage-account-keys/rotate-storage-account-keys.ps1 "Rotate storage account keys")]
 
-## <a name="clean-up-deployment"></a>Limpieza de la implementación 
+## <a name="clean-up-deployment"></a>Limpieza de la implementación
 
 Ejecute el siguiente comando para quitar el grupo de recursos, la cuenta de almacenamiento y todos los recursos relacionados.
 

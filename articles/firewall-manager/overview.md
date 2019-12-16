@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 11/21/2019
+ms.date: 12/06/2019
 ms.author: victorh
-ms.openlocfilehash: 897819928ab0bcf48b58428014c03aea6b2145fd
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: cf8e6ca3a532dea29a413b1afdfc684ac8f08f17
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74267949"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74869568"
 ---
 # <a name="what-is-azure-firewall-manager-preview"></a>¿Qué es Azure Firewall Manager (versión preliminar)?
 
@@ -70,12 +70,13 @@ Azure Firewall Manager (versión preliminar) presenta los siguientes problemas c
 
 |Problema  |DESCRIPCIÓN  |Mitigación  |
 |---------|---------|---------|
-|No se admiten redes virtuales centrales creadas manualmente|Actualmente, Azure Firewall Manager admite redes creadas con centros de conectividad virtuales. Todavía no se admite el uso de su propia red virtual de centro de conectividad creada de forma manual.|Por ahora, use Azure Firewall Manager con redes en estrella tipo hub-and-spoke creadas con centros de conectividad virtuales<br>Actualmente se está investigando.
+|No se admiten redes virtuales centrales creadas manualmente|Actualmente, Azure Firewall Manager admite redes creadas con centros de conectividad virtuales. Todavía no se admite el uso de su propia red virtual de centro de conectividad creada de forma manual.|Por ahora, use Azure Firewall Manager con redes en estrella tipo hub-and-spoke creadas con centros de conectividad virtuales<br>Corrección en curso.
 |Limitaciones del filtrado de terceros|El filtrado de tráfico V2I con proveedores de terceros no es compatible con Azure Firewall B2V y V2V.|Actualmente se está investigando.|
 |Actualmente no se admite la división del tráfico|Actualmente no se admite la división del tráfico de PaaS público de Azure y de Office 365. Como tal, la selección de un proveedor de terceros para V2I o B2I también envía todo el tráfico de PaaS público de Azure y de Office 365 a través del servicio de asociados.|La división del tráfico en el centro de conectividad se está investigando actualmente.
 |Un centro de conectividad por región|No se puede tener más de un centro de conectividad por región|Cree varias WAN virtuales en una región.|
 |Las directivas base deben estar en la misma región que la directiva local|Cree todas las directivas locales en la misma región que la directiva de base. Puede seguir aplicando una directiva que se creó en una región de un centro seguro desde otra región.|Actualmente se está investigando.|
 |La comunicación entre centros no funciona con los centros virtuales protegidos|Aún no se admite la comunicación entre centros virtuales protegidos.|Actualmente se está investigando.|
+|Todos los centros virtuales protegidos que comparten la misma WAN virtual deben estar en el mismo grupo de recursos.|Este comportamiento ya se alinea con los centros WAN virtuales en la actualidad.|Cree varias WAN virtuales para permitir que se creen centros virtuales protegidos en grupos de recursos diferentes.|
 
 ## <a name="next-steps"></a>Pasos siguientes
 

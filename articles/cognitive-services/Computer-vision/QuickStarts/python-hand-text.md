@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 07/03/2019
+ms.date: 12/05/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: aaaafcbf2a20aa96437d06401e0a1d54b647bb28
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: bf9e843123f332a120d6665e6be8ff635ef0b8e2
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72176436"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973771"
 ---
 # <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-rest-api-and-python"></a>Inicio rápido: Extracción de texto impreso y manuscrito mediante la API REST Computer Vision y Python
 
-En este inicio rápido extraerá texto impreso y manuscrito de una imagen mediante la API REST Computer Vision. Los métodos [Batch Read](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) y [Read Operation Result](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) permiten detectar texto de una imagen y extraer los caracteres reconocidos en una secuencia de caracteres de lectura mecánica. La API determinará qué modelo de reconocimiento se usará para cada línea de texto, ya que admite imágenes tanto con texto impreso como manuscrito.
+En este inicio rápido, extraerá texto impreso y manuscrito de una imagen mediante la API REST de Computer Vision. Los métodos [Batch Read](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) y [Read Operation Result](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) permiten detectar texto de una imagen y extraer los caracteres reconocidos en una secuencia de caracteres de lectura mecánica. La API determinará qué modelo de reconocimiento se usará para cada línea de texto, ya que admite imágenes tanto con texto impreso como manuscrito.
 
 > [!IMPORTANT]
 > A diferencia del método [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc), el método [Batch Read](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) se ejecuta de forma asincrónica. Este método no devuelve ninguna información en el cuerpo de una respuesta correcta. En su lugar, el método Batch Read devuelve un identificador URI en el valor del campo del encabezado de respuesta `Operation-Content`. A continuación, puede llamar a este identificador URI, que representa a [Read Operation Result](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) API, para comprobar el estado y devolver los resultados de la llamada al método Batch Read.

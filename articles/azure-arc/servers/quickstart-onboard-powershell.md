@@ -10,12 +10,12 @@ keywords: azure automation, DSC, powershell, desired state configuration, update
 ms.date: 11/04/2019
 ms.custom: mvc
 ms.topic: quickstart
-ms.openlocfilehash: 7fb24d53876ab8c06fca4fbfe929c06a889335f3
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: e7a527fc290433390436eac3d4c291f2a32bf2b3
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74786357"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951452"
 ---
 # <a name="quickstart-connect-machines-to-azure-using-azure-arc-for-servers---powershell"></a>Inicio rápido: Conexión de máquinas a Azure con Azure Arc para servidores mediante PowerShell
 
@@ -55,7 +55,13 @@ Id                    : 5be92c87-01c4-42f5-bade-c1c10af87758
 Type                  :
 ```
 
-Ahora, recupere la contraseña con PowerShell.
+> [!NOTE] 
+> Los permisos de SPN pueden tardar un tiempo en rellenarse correctamente. Ejecución de la siguiente asignación de roles para establecer los permisos mucho más rápidamente.
+> ``` PowerShell
+> New-AzRoleAssignment -RoleDefinitionName "Azure Connected Machine Onboarding" -ServicePrincipalName $sp.ApplicationId
+> ```
+
+Ahora, recupere la contraseña mediante PowerShell.
 
 ```azurepowershell-interactive
 $credential = New-Object pscredential -ArgumentList "temp", $sp.Secret
@@ -66,8 +72,11 @@ De la salida, copie los valores de **password** y **ApplicationId** (del paso an
 
 En el script de incorporación del agente de instalación:
 
-* La propiedad **ApplicationId** se utiliza para el parámetro `--service-principal-id` que se usa en el agente de instalación.
-* La propiedad **password** se utiliza para el parámetro `--service-principal-secret` del agente de instalación.
+* La propiedad **ApplicationId** se utiliza para el parámetro `--service-principal-id` que se usa para conectar el agente.
+* La propiedad **password** se utiliza para el parámetro `--service-principal-secret` que se usa para conectar el agente.
+
+> [!NOTE]
+> Asegúrese de usar la propiedad **ApplicationId** de la entidad de servicio, no la propiedad **Id**. **Id** no funcionará.
 
 ## <a name="manually-install-the-agent-and-connect-to-azure"></a>Instalación manual del agente y conexión a Azure
 
@@ -84,7 +93,6 @@ En el caso de los servidores de **Linux**, el agente se distribuye a través del
 > [!NOTE]
 > Durante la versión preliminar pública, solo se ha lanzado un paquete, que es adecuado para Ubuntu 16.04 o 18.04.
 
-<!-- What about this aks? -->
 La opción más sencilla es registrar el repositorio de paquetes y, a continuación, instalar el paquete mediante el administrador de paquetes de la distribución.
 El script de bash que se encuentra en [https://aka.ms/azcmagent](https://aka.ms/azcmagent) realiza las acciones siguientes:
 

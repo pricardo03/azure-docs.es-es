@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: overview
-ms.date: 07/03/2019
+ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: a78a92a33075a97ddadb2e1fe677b7ded541d12c
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: c1ff74bc358f167612b2bfe05ca47e21203d8702
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565576"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973499"
 ---
 # <a name="what-is-azure-content-moderator"></a>¿Qué es Azure Content Moderator?
 
-Azure Content Moderator API es un servicio Cognitive que comprueba el contenido de texto, imágenes y vídeo de material que es potencialmente ofensivo, arriesgado o no deseable por algún otro motivo. Cuando se encuentra dicho material, el servicio aplica las etiquetas adecuadas (marcas) al contenido. Luego, la aplicación puede controlar el contenido marcado para cumplir las normativas o mantener el entorno adecuado para los usuarios. Consulte la sección [API de moderación](#moderation-apis) para más información sobre lo que indican las diferentes marcas de contenido.
+Azure Content Moderator es un servicio cognitivo que comprueba el contenido de texto, imágenes y vídeo en busca de material que sea potencialmente ofensivo, peligroso o no deseable por algún otro motivo. Cuando se encuentra dicho material, el servicio aplica las etiquetas adecuadas (marcas) al contenido. Luego, la aplicación puede controlar el contenido marcado para cumplir las normativas o mantener el entorno adecuado para los usuarios. Consulte la sección [API de moderación](#moderation-apis) para más información sobre lo que indican las diferentes marcas de contenido.
 
-## <a name="where-it-is-used"></a>Dónde se usa
+## <a name="where-its-used"></a>Dónde se usa
 
 Los siguientes son algunos escenarios en los que un desarrollador de software o un equipo de desarrolladores usaría Content Moderator:
 
@@ -69,7 +69,7 @@ El servicio Content Moderator también incluye la [herramienta de revisión](Rev
 
 ![Página principal de la herramienta de revisión humana de Content Moderator](images/homepage.PNG)
 
-## <a name="data-privacy-and-security"></a>Seguridad y privacidad de los datos
+## <a name="data-privacy-and-security"></a>Seguridad y privacidad de datos
 
 Al igual que sucede con todas las instancias de Cognitive Services, los desarrolladores que usan el servicio Content Moderator deben estar al tanto de las directivas de Microsoft sobre los datos de los clientes. Para más información, consulte la [página de Cognitive Services](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) en Microsoft Trust Center.
 

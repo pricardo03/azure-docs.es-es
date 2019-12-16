@@ -10,12 +10,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 6b59995dc09c0ecf1e5700d8337bd30074083f76
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0cd6cbf21a392f68db707b9c0184320316d45ffe
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73483911"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851033"
 ---
 # <a name="what-is-azure-key-vault"></a>¿Qué es Azure Key Vault?
 
@@ -24,7 +24,7 @@ Azure Key Vault ayuda a solucionar los problemas siguientes:
 - **Administración de secretos**: Azure Key Vault se puede utilizar para almacenar de forma segura y controlar de manera estricta el acceso a los tokens, contraseñas, certificados, claves de API y otros secretos.
 - **Administración de claves**: también se puede usar Azure Key Vault como una solución de administración de claves. Azure Key Vault facilita la creación y control de las claves de cifrado utilizadas para cifrar los datos. 
 - **Administración de certificados**: Azure Key Vault también es un servicio que le permite aprovisionar, administrar e implementar fácilmente certificados públicos y privados de la Capa de sockets seguros y de Seguridad de la capa de transporte (SSL/TLS) para su uso con Azure y sus recursos internos conectados. 
-- **Almacenamiento de secretos basado en módulos de seguridad de hardware**: las claves y secretos se pueden proteger mediante software o mediante dispositivos HSM validados por FIPS 140-2 de nivel 2
+- **Almacenamiento de secretos con el respaldo de módulos de Hardware Security**: las claves y secretos se pueden proteger mediante software o mediante HSM validados por FIPS 140-2 de nivel 2
 
 ## <a name="why-use-azure-key-vault"></a>Motivos para usar Azure Key Vault
 
@@ -60,7 +60,7 @@ Tiene el control sobre los registros y puede protegerlos de forma segura restrin
 
 Al almacenar datos importantes, debe realizar varios pasos. Se debe proteger la información de seguridad, esta debe seguir un ciclo de vida y debe tener alta disponibilidad. Azure Key Vault simplifica el proceso de cumplimiento de estos requisitos mediante:
 
-- La eliminación de la necesidad de poseer conocimientos internos sobre los módulos de seguridad de hardware (HSM).
+- La eliminación de la necesidad de poseer conocimientos internos sobre los módulos de Hardware Security.
 - El escalado vertical en un breve plazo de tiempo para adaptarse a los picos de uso de la organización.
 - La replicación del contenido de una instancia de Key Vault de una región en una región secundaria. La replicación de datos garantiza la alta disponibilidad y elimina la necesidad de intervención del administrador para desencadenar la conmutación por error.
 - La disposición de opciones estándar de administración de Azure a través del portal, la CLI de Azure y PowerShell.

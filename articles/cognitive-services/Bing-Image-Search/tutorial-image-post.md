@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: tutorial
-ms.date: 05/15/2019
+ms.date: 12/06/2019
 ms.author: aahi
-ms.openlocfilehash: e9ba5925ce562e53dbc415d66bbb529c32a725a7
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 9f707dd6b93080e550b4f75e7c9c23139b8adf1d
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327005"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930682"
 ---
 # <a name="tutorial-extract-image-details-using-the-bing-image-search-api-and-c"></a>Tutorial: Extracción de detalles de imágenes con Bing Image Search API y C#
 
@@ -42,7 +42,7 @@ El código fuente del ejemplo está disponible en [GitHub](https://github.com/Az
 
 ## <a name="construct-an-image-details-search-request"></a>Construcción de una solicitud de búsqueda de detalles de la imagen
 
-A continuación, se muestra el punto de conexión `/details`, que acepta solicitudes POST con los datos de imagen en el cuerpo de la solicitud.
+A continuación, se muestra el punto de conexión `/details`, que acepta solicitudes POST con los datos de imagen en el cuerpo de la solicitud. Puede usar el punto de conexión global siguiente o el punto de conexión del [subdominio personalizado](../../cognitive-services/cognitive-services-custom-subdomains.md) que se muestra en Azure Portal para el recurso.
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/images/details
 ```
@@ -111,6 +111,6 @@ Si hay personas o lugares identificables en la imagen, esta solicitud devolverá
 > [!div class="nextstepaction"]
 > [Mostrar imágenes y opciones de búsqueda en una aplicación web de una sola página ](tutorial-bing-image-search-single-page-app.md)
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 * [Referencia de Bing Image Search API](//docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

@@ -6,12 +6,12 @@ author: alexkarcher-msft
 ms.topic: quickstart
 ms.date: 02/22/2019
 ms.author: alkarche
-ms.openlocfilehash: b86ea2367a17baa8c57b8d0c0331c0cd3cfbb481
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: aa2e0e8be8805187ec1f5b8ea6498e90e2d5a7c4
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227097"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976883"
 ---
 # <a name="create-a-function-using-azure-for-students-starter"></a>Creación de una función con Microsoft Azure for Students Starter
 
@@ -121,7 +121,7 @@ En Microsoft Azure for Students Starter, puede acceder a la mayoría de las cara
     * [Consulte los lenguajes admitidos en los planes superiores aquí](supported-languages.md).
 * Windows es el único sistema operativo compatible.
 * El escalado está restringido a [una instancia de nivel Gratis](https://azure.microsoft.com/pricing/details/app-service/windows/) en ejecución durante un máximo de 60 minutos cada día. Podrá escalar sin servidor de 0 a 1 instancia automáticamente a medida que se recibe el tráfico HTTP, pero ninguna otra.
-* Solo es compatible la [versión 2.x en tiempo de ejecución](functions-versions.md).
+* Solo se admiten la [versión 2.x y las versiones posteriores](functions-versions.md) del runtime de Functions.
 * Se admiten todas las herramientas de desarrolladores para editar y publicar funciones. Esto incluye VS Code, Visual Studio, la CLI de Azure y Azure Portal. Si desea usar algo distinto del portal, deberá crear primero una aplicación en el portal y, a continuación, elegirla como un destino de implementación en su herramienta preferida.
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -9,15 +9,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 08/26/2019
+ms.date: 12/06/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: fe6289ce893f959ca958096db80f4b2295f6dd43
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 2aaed57c7e1d817cd892f45c441ab59d4ffba3d3
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327089"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930759"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-nodejs"></a>Guía de inicio rápido: Búsqueda de imágenes con la API de REST Bing Image Search y Node.js
 
@@ -30,7 +30,8 @@ El código fuente de este ejemplo está disponible en [GitHub](https://github.co
 * La última versión de [Node.js](https://nodejs.org/en/download/).
 
 * La [biblioteca de solicitudes de JavaScript](https://github.com/request/request).  
-  [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
+
+[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
 Consulte también [Precios de Cognitive Services - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
@@ -43,7 +44,8 @@ Consulte también [Precios de Cognitive Services - Bing Search API](https://azur
     let https = require('https');
     ```
 
-2. Cree variables para el punto de conexión de la API, la ruta de acceso de búsqueda de API de la imagen, la clave de suscripción y el término de búsqueda.
+2. Cree variables para el punto de conexión de la API, la ruta de acceso de búsqueda de API de la imagen, la clave de suscripción y el término de búsqueda. `host` puede ser el punto de conexión global siguiente o el punto de conexión del [subdominio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) que se muestra en Azure Portal para el recurso.
+
     ```javascript
     let subscriptionKey = 'enter key here';
     let host = 'api.cognitive.microsoft.com';
@@ -154,7 +156,7 @@ Las respuestas de Bing Image Search API se devuelven como JSON. Esta respuesta d
 > [!div class="nextstepaction"]
 > [Creación de una aplicación de una sola página](../tutorial-bing-image-search-single-page-app.md)
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 * [¿Qué es Bing Image Search?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
 * [Prueba de una demostración interactiva en línea](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/) 

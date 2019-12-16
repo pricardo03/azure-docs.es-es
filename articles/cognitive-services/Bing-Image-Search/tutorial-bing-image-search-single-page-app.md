@@ -10,12 +10,12 @@ ms.subservice: bing-image-search
 ms.topic: tutorial
 ms.date: 07/12/2019
 ms.author: aahi
-ms.openlocfilehash: 7b530b3d415761956cbdb45fdc92bfed55a1bae5
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: c0f06f02a274780085fdb3c4c270ad541a0daa8c
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67868254"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930694"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-image-search-api"></a>Tutorial: Crear una aplicación de una sola página con Bing Image Search API
 
@@ -40,7 +40,7 @@ El código fuente completo de este tutorial está disponible en [GitHub](https:/
 
 ## <a name="manage-and-store-user-subscription-keys"></a>Administración y almacenamiento de las claves de suscripción de usuarios
 
-Esta aplicación utiliza el almacenamiento persistente de los exploradores web para almacenar las claves de suscripción de API. Si no se almacena ninguna clave, la página web solicitará al usuario la clave y la almacenará para futuros usos. Si la API rechaza la clave más adelante, la aplicación la eliminará del almacenamiento.
+Esta aplicación utiliza el almacenamiento persistente de los exploradores web para almacenar las claves de suscripción de API. Si no se almacena ninguna clave, la página web solicitará al usuario la clave y la almacenará para futuros usos. Si la API rechaza la clave más adelante, la aplicación la eliminará del almacenamiento. En este ejemplo se usa el punto de conexión global. También puede usar el punto de conexión del [subdominio personalizado](../../cognitive-services/cognitive-services-custom-subdomains.md) que se muestra en Azure Portal para el recurso.
 
 
 Defina funciones `storeValue` y `retrieveValue` que usan el objeto `localStorage` (si el explorador lo admite) o una cookie.
@@ -407,6 +407,6 @@ Deje abierta la ventana de comandos mientras usa la aplicación del tutorial, ya
 > [!div class="nextstepaction"]
 > [Extracción de detalles de imágenes con Bing Image Search API](tutorial-image-post.md)
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 * [Referencia de Bing Image Search API](//docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

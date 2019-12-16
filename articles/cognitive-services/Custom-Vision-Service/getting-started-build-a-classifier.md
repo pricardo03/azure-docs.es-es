@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 07/12/2019
+ms.date: 12/05/2019
 ms.author: anroth
-ms.openlocfilehash: 12be696c74a32909d79be405144582cd8fc05fb6
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: e7aa4a557821ee49867a8ea82f92ef04dfbef689
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "73519152"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978686"
 ---
 # <a name="quickstart-how-to-build-a-classifier-with-custom-vision"></a>Inicio rápido: Cómo crear un clasificador con Custom Vision
 
@@ -53,7 +53,7 @@ En el explorador web, vaya a la [página web de Custom Vision](https://customvis
 
     |Domain|Propósito|
     |---|---|
-    |__Genérico__| Optimizado para una amplia gama de tareas de clasificación de imágenes. Si ninguno de los otros dominios es adecuado, o no está seguro de qué dominio elegir, seleccione el dominio genérico. |
+    |__Genérico__| Optimizado para una amplia gama de tareas de clasificación de imágenes. Si ninguno de los otros dominios es adecuado o si no está seguro de qué dominio elegir, seleccione el dominio genérico. |
     |__Alimentos__|Optimizado para fotos de platos tal y como los vería en el menú de un restaurante. Si quiere clasificar fotos de frutas o verduras individuales, use el dominio de alimentos.|
     |__Puntos de referencia__|Optimizado para puntos de referencia reconocibles, tanto naturales como artificiales. Este dominio funciona mejor cuando el punto de referencia es claramente visible en la foto. Este dominio funciona incluso si hay gente delante del punto de referencia que obstruye parcialmente su visión.|
     |__Minoristas__|Optimizado para imágenes que se encuentran en un catálogo de compra o un sitio web de compras. Si quiere una clasificación de alta precisión entre vestidos, pantalones y camisas, use este dominio.|
@@ -67,9 +67,9 @@ En el explorador web, vaya a la [página web de Custom Vision](https://customvis
 
 ## <a name="upload-and-tag-images"></a>Carga y etiquetado de imágenes
 
-En esta sección cargará y etiquetará manualmente las imágenes para ayudar a entrenar el clasificador. 
+En esta sección, cargará y etiquetará manualmente las imágenes para ayudar a entrenar al clasificador. 
 
-1. Para agregar imágenes, haga clic en el botón __Add images__ (Agregar imágenes) y seleccione __Browse local files__ (Examinar archivos locales). Seleccione __Open__ (Abrir) para empezar a etiquetar. La selección de etiquetas se aplicará a todo el grupo de imágenes que ha seleccionado para cargar, por eso es más fácil cargar imágenes en grupos independientes según sus etiquetas deseadas. También puede cambiar las etiquetas de las imágenes individuales después de haberlas cargado.
+1. Para agregar imágenes, haga clic en el botón __Add images__ (Agregar imágenes) y seleccione __Browse local files__ (Examinar archivos locales). Seleccione __Open__ (Abrir) para empezar a etiquetar. La selección de etiquetas se aplicará a todo el grupo de imágenes que ha seleccionado para cargar, por lo que es más fácil cargar imágenes en grupos independientes según sus etiquetas deseadas. También puede cambiar las etiquetas de las imágenes individuales después de haberlas cargado.
 
     ![El control para agregar imágenes se muestra en la parte superior izquierda y como un botón en la parte inferior central.](./media/getting-started-build-a-classifier/add-images01.png)
 
@@ -109,7 +109,7 @@ Una vez finalizado el entrenamiento, se calcula el rendimiento del modelo y se m
 
 ## <a name="manage-training-iterations"></a>Administración de iteraciones de entrenamiento
 
-Cada vez que entrena al clasificador, se crea una nueva _iteración_ con sus propias métricas de rendimiento actualizadas. Puede ver todas las iteraciones en el panel izquierdo de la pestaña **Performance** (Rendimiento). En el panel izquierdo encontrará también el botón **Delete** (Eliminar), que puede usar para eliminar una iteración si está obsoleta. Cuando se elimina una iteración, elimina las imágenes que están asociadas exclusivamente a ella.
+Cada vez que entrena al clasificador, se crea una nueva _iteración_ con sus propias métricas de rendimiento actualizadas. Puede ver todas las iteraciones en el panel izquierdo de la pestaña **Performance** (Rendimiento). Encontrará también el botón **Delete** (Eliminar), que puede usar para eliminar una iteración si está obsoleta. Cuando se elimina una iteración, elimina las imágenes que están asociadas exclusivamente a ella.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

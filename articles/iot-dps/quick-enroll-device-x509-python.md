@@ -1,6 +1,6 @@
 ---
 title: Inscripción de dispositivos X.509 en Azure Device Provisioning Service mediante Python
-description: Esta guía de inicio rápido usa inscripciones de grupos. En este inicio rápido, inscribirá dispositivos X.509 en el servicio Azure IoT Hub Device Provisioning Service con Python
+description: Esta guía de inicio rápido usa inscripciones de grupos. En este inicio rápido, inscribirá dispositivos X.509 en el servicio Azure IoT Hub Device Provisioning Service (DPS) mediante Python
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2019
@@ -9,14 +9,14 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: ef24195ac1a3d342ac5dcbfe099a2bed429d6197
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 3970f24c704b36bcfd12684e6e72a34c853af8c2
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555417"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974689"
 ---
-# <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-python"></a>Guía de inicio rápido: Inscripción de dispositivos X.509 en el servicio Device Provisioning con Python
+# <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-python"></a>Inicio rápido: Inscripción de dispositivos X.509 en el servicio Device Provisioning con Python
 
 [!INCLUDE [iot-dps-selector-quick-enroll-device-x509](../../includes/iot-dps-selector-quick-enroll-device-x509.md)]
 

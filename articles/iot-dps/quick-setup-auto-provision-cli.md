@@ -1,6 +1,6 @@
 ---
 title: Configuración de Azure IoT Hub Device Provisioning Service mediante la CLI de Azure
-description: 'Inicio rápido: configuración de Azure IoT Hub Device Provisioning Service mediante la CLI de Azure'
+description: 'Inicio rápido: configuración de Azure IoT Hub Device Provisioning Service (DPS) mediante la CLI de Azure'
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2019
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 6406929c3abc3612da2c27edc45e10fd84883d73
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: f5737dccca6baa2dc2c1d98233b80d871cf86007
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228556"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974723"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-azure-cli"></a>Inicio rápido: Configuración del servicio Azure IoT Hub Device Provisioning con la CLI de Azure
 
@@ -135,7 +135,7 @@ az group delete --name my-sample-resource-group
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este inicio rápido, ha implementado un centro de IoT y una instancia de Device Provisioning Service, y ha vinculado los dos recursos. Para aprender a usar esta configuración para aprovisionar un dispositivo simulado, vaya al inicio rápido en que se explica cómo crear un dispositivo simulado.
+En este inicio rápido, ha implementado un centro de IoT y una instancia de Device Provisioning Service, y ha vinculado los dos recursos. Para aprender a usar esta configuración para aprovisionar un dispositivo simulado, vaya al inicio rápido en el que se explica cómo crear un dispositivo simulado.
 
 > [!div class="nextstepaction"]
 > [Inicio rápido para crear un dispositivo simulado](./quick-create-simulated-device.md)

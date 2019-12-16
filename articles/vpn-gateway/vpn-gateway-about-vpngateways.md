@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: overview
 ms.date: 11/13/2019
 ms.author: cherylmc
-ms.openlocfilehash: 58a92536510d2f434154169cbefff60487a422fa
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 11187b403b9bc23a0aa20eb5ee7a5e4923bb7276
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075436"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896665"
 ---
 # <a name="what-is-vpn-gateway"></a>¿Qué es VPN Gateway?
 
@@ -76,7 +76,7 @@ Use los gráficos y las descripciones como ayuda para seleccionar la topología 
 
 ### <a name="S2S"></a>De sitio a sitio
 
-Una conexión de puerta de enlace de VPN de sitio a sitio (S2S) es una conexión a través de un túnel VPN IPsec/IKE (IKEv1 o IKEv2). Se pueden usar conexiones S2S para las configuraciones híbridas y entre locales. Una conexión S2S requiere un dispositivo VPN local que tenga una dirección IP pública asignada y que no se encuentre detrás de una NAT. Para más información acerca de cómo seleccionar un dispositivo VPN, consulte la sección de [preguntas frecuentes sobre VPN Gateway para dispositivos VPN](vpn-gateway-vpn-faq.md#s2s).
+Una conexión de puerta de enlace de VPN de sitio a sitio (S2S) es una conexión a través de un túnel VPN IPsec/IKE (IKEv1 o IKEv2). Se pueden usar conexiones S2S para las configuraciones híbridas y entre locales. Una conexión S2S requiere un dispositivo VPN local que tenga una dirección IP pública asignada. Para más información acerca de cómo seleccionar un dispositivo VPN, consulte la sección de [preguntas frecuentes sobre VPN Gateway para dispositivos VPN](vpn-gateway-vpn-faq.md#s2s).
 
 ![Ejemplo de conexión de sitio a sitio de Azure VPN Gateway](./media/vpn-gateway-about-vpngateways/vpngateway-site-to-site-connection-diagram.png)
 

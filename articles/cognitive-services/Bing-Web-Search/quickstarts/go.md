@@ -8,22 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 03/12/2019
+ms.date: 12/09/2019
 ms.author: aahi
 ms.reviewer: nhoyadx@gmail.com, v-gedod, erhopf
 ms.custom: seodec2018
-ms.openlocfilehash: b7bf73c2948b302ec8294b7dc2ff2dc8f220c91b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 589f7884f390ae57df4e946bcd34ca3bda629ed8
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57843890"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978805"
 ---
 # <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-go"></a>Guía de inicio rápido: Realizar búsquedas en la Web con la API de REST Bing Web Search y Go
 
 Use este inicio rápido para realizar la primera llamada a Bing Web Search API y recibir una respuesta JSON. Esta aplicación de Go envía una solicitud de búsqueda a la API y muestra la respuesta. Si bien esta aplicación está escrita en Go, la API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación.
-
-Consulte también [Precios de Cognitive Services - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## <a name="prerequisites"></a>Requisitos previos
 Estas son algunas cosas que necesitará antes de ejecutar esta guía de inicio rápido:
@@ -113,7 +111,7 @@ type BingAnswer struct {
 
 ## <a name="declare-the-main-function-and-define-variables"></a>Declaración de la función main y definición de variables  
 
-Este código declara la función main y establece las variables necesarias. Confirme que el punto de conexión es correcto y reemplace el valor `token` por una clave de suscripción válida de su cuenta de Azure. No dude en personalizar la consulta de búsqueda reemplazando el valor de `searchTerm`.
+Este código declara la función main y establece las variables necesarias. `endpoint` puede ser el punto de conexión global siguiente o el punto de conexión del [subdominio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) que se muestra en Azure Portal para el recurso. Confirme que el punto de conexión es correcto y reemplace el valor `token` por una clave de suscripción válida de su cuenta de Azure. No dude en personalizar la consulta de búsqueda reemplazando el valor de `searchTerm`.
 
 ```go
 // Declare the main function. This is required for all Go programs.

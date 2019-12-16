@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: tutorial
-ms.date: 09/06/2019
+ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 740b3fae81521fec2cba31e3b8fd161f767c4380
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: ce0b308077505d5af1d757f1684c50505b11831e
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858975"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977801"
 ---
 # <a name="tutorial-create-an-android-app-to-detect-and-frame-faces-in-an-image"></a>Tutorial: Creación de una aplicación Android para detectar y enmarcar caras en una imagen
 
-En este tutorial, creará una aplicación Android sencilla que usa Azure Face API, a través del SDK de Java, para detectar y enmarcar caras en una imagen. La aplicación muestra una imagen seleccionada y dibuja un marco alrededor de cada cara detectada.
+En este tutorial, creará una aplicación Android que usa Azure Face API, con el SDK de Java, para detectar las caras humanas de una imagen. La aplicación muestra una imagen seleccionada y dibuja un marco alrededor de cada cara detectada.
 
 En este tutorial se muestra cómo realizar las siguientes acciones:
 
@@ -103,7 +103,7 @@ La aplicación detectará las caras mediante una llamada al método **faceClient
 
 Cada instancia de **Face** devuelta contiene un rectángulo para indicar su ubicación, junto con una serie de atributos de cara opcionales. En este ejemplo, solo se solicitan los rectángulos de las caras.
 
-Inserte los dos métodos siguientes en la clase **MainActivity**. Tenga en cuenta que cuando se completa la detección de caras, la aplicación llama al método **drawFaceRectanglesOnBitmap** para modificar **ImageView**. Dicho método se definirá a continuación.
+Inserte los dos métodos siguientes en la clase **MainActivity**. Cuando se completa la detección de caras, la aplicación llama al método **drawFaceRectanglesOnBitmap** para modificar **ImageView**. Dicho método se definirá a continuación.
 
 [!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?name=snippet_detection_methods)]
 

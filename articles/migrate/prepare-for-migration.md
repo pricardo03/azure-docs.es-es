@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 11/19/2019
+ms.date: 12/10/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 2c13bc79fccc74da431ba1a6399870b261b24c57
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 6f5535a57fae847c8a376b8b39e43955675da739
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196434"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974791"
 ---
 # <a name="prepare-on-premises-machines-for-migration-to-azure"></a>Preparación de las máquinas locales para la migración a Azure
 
@@ -99,7 +99,7 @@ Por ejemplo, si la instalación local usa un disco de datos que se asigna a la u
 1. En la máquina local (no en el servidor host), abra un símbolo del sistema con privilegios elevados.
 2. Escriba **diskpart**.
 3. Escriba **SAN**. Si no se mantiene la letra de unidad del sistema operativo invitado, se devuelven **Offline All** u **Offline Shared**.
-4. En la petición de **DISKPART**, escriba **SANPOLICY=ONLINEALL**. Esta configuración garantiza que los discos se pongan en línea y que sean legibles y grabables.
+4. En la petición de **DISKPART**, escriba **SAN Policy=OnlineAll**. Esta configuración garantiza que los discos se pongan en línea y que sean legibles y grabables.
 5. Durante la migración de prueba, puede comprobar que se conserven las letras de unidad.
 
 

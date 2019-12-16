@@ -1,6 +1,5 @@
 ---
-title: Configuración guiada de una aplicación de página única de JavaScript en Azure AD v2.0
-titleSuffix: Microsoft identity platform
+title: Guía de aplicaciones de página única de JavaScript para la plataforma de identidad de Microsoft | Azure
 description: Cómo pueden llamar las aplicaciones SPA de JavaScript a una API que requiera tokens de acceso mediante el punto de conexión de Azure Active Directory v2.0
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,12 +16,12 @@ ms.date: 03/20/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc03e6f1610fe6cef9ce72c981f6f800da8a9951
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: a3576c015fcca7eb9c390f38c6527d76353efe06
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802534"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74919399"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Inicio de sesión de usuarios y llamada a Microsoft Graph API desde una aplicación de página única (SPA) de JavaScript
 

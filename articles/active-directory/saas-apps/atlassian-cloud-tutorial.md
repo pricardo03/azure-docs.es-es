@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5f901bd37a54d12dc2afe805f71c7b018a277e34
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: a3a54b096019e9e38bc800ae313016a430062dab
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72969624"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74964334"
 ---
 # <a name="tutorial-integrate-atlassian-cloud-with-azure-active-directory"></a>Tutorial: Integración de Atlassian Cloud con Azure Active Directory
 
@@ -46,6 +46,7 @@ Para empezar, necesita los siguientes elementos:
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba. 
 
 * Atlassian Cloud admite SSO iniciado por **SP e IDP**
+* Atlassian Cloud admite el [aprovisionamiento y desaprovisionamiento automático de usuarios](atlassian-cloud-provisioning-tutorial.md).
 
 ## <a name="adding-atlassian-cloud-from-the-gallery"></a>Incorporación de Atlassian Cloud desde la galería
 

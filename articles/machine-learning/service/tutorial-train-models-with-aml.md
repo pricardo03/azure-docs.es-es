@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4d16c07bf42c99b905868cb956d82e8723da61d6
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: ca0f64fe67865e18c47009779cf8bd307a21c961
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73581536"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978737"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn-using-azure-machine-learning"></a>Tutorial: Entrenamiento de modelos de clasificación de imágenes con los datos MNIST y scikit-learn mediante Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -41,7 +41,7 @@ Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Complete el [Tutorial: Comience a crear su primer experimento de ML ](tutorial-1st-experiment-sdk-setup.md) para:
+* Complete el [Tutorial: Comience a crear su primer experimento de Azure ML ](tutorial-1st-experiment-sdk-setup.md) para:
     * Crear un área de trabajo
     * Clone el cuaderno de tutoriales en su carpeta en el área de trabajo.
     * Crear una máquina virtual de Notebook basada en la nube
@@ -430,7 +430,7 @@ print(model.name, model.id, model.version, sep='\t')
 También puede eliminar solo el clúster de proceso de Azure Machine Learning. Sin embargo, el escalado automático está activado y el mínimo del clúster es cero. Por tanto, este recurso concreto no acumula cargos de proceso adicionales cuando no se usa:
 
 ```python
-# optionally, delete the Azure Machine Learning Compute cluster
+# Optionally, delete the Azure Machine Learning Compute cluster
 compute_target.delete()
 ```
 

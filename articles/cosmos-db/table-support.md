@@ -1,23 +1,23 @@
 ---
 title: Compatibilidad de Azure Table Storage con Azure Cosmos DB
-description: Obtenga información sobre cómo funcionan conjuntamente Table API de Azure Cosmos DB y Azure Table Storage.
+description: Obtenga información acerca de la forma en que Table API de Azure Cosmos DB y las tablas de Azure Storage funcionan conjuntamente compartiendo el mismo modelo de datos de tabla y las mismas operaciones
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: overview
-ms.date: 08/05/2019
+ms.date: 12/02/2019
 author: wmengmsft
 ms.author: wmeng
 ms.reviewer: sngun
-ms.openlocfilehash: 71bc5d73a7b5bc83dc1ac835c80ac1b14d5113e9
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 4f742ce34ec429f0fc822562c1ad4ad07f3e7965
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68814702"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74870435"
 ---
 # <a name="developing-with-azure-cosmos-db-table-api-and-azure-table-storage"></a>Implementación con Table API de Azure Cosmos DB y Azure Table Storage
 
-Table API de Azure Cosmos DB y Azure Table Storage comparten el mismo modelo de datos de tablas y exponen las mismas operaciones de creación, eliminación, actualización y consulta a través de sus SDK. 
+Table API de Azure Cosmos DB y Azure Table Storage comparten el mismo modelo de datos de tablas y exponen las mismas operaciones de creación, eliminación, actualización y consulta a través de sus SDK.
 
 [!INCLUDE [storage-table-cosmos-comparison](../../includes/storage-table-cosmos-comparison.md)]
 

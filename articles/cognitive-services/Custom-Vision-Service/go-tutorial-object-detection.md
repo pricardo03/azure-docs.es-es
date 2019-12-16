@@ -9,13 +9,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 08/08/2019
-ms.openlocfilehash: d0734763ca1dd5ab3162ca00748361bee29cefc1
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.date: 12/05/2019
+ms.openlocfilehash: 986dbc48bae6cd133e74648ad6e900ba7e515f91
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74378737"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74970506"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-go-sdk"></a>Inicio rápido: Creación de un proyecto de detección de objetos con el SDK de Custom Vision para Go
 
@@ -111,7 +111,7 @@ scissorsTag, _ := trainer.CreateTag(ctx, *project.ID, "scissors", "Pair of sciss
 
 Cuando se etiquetan imágenes en los proyectos de detección de objetos, es preciso especificar la región de cada objeto etiquetado mediante coordenadas normalizadas.
 
-Para agregar las imágenes, etiquetas y regiones al proyecto, inserte el siguiente código después de crear la etiqueta. Tenga en cuenta que, para este tutorial, las regiones se codificaron de forma rígida alineadas con el código. Las regiones especifican el rectángulo delimitador en coordenadas normalizadas y las coordenadas se proporcionan en el siguiente orden: izquierda, superior, ancho y alto.
+Para agregar las imágenes, etiquetas y regiones al proyecto, inserte el siguiente código después de crear la etiqueta. Para este tutorial, las regiones se codificaron de forma rígida en el código. Las regiones especifican el rectángulo delimitador en coordenadas normalizadas y las coordenadas se proporcionan en el siguiente orden: izquierda, superior, ancho y alto.
 
 ```Go
 forkImageRegions := map[string][4]float64{
@@ -225,7 +225,7 @@ if (!*scissor_batch.IsBatchSuccessful) {
 
 ### <a name="train-the-project-and-publish"></a>Entrenar el proyecto y publicarlo
 
-Este código crea la primera iteración del proyecto y, después, publica dicha iteración en el punto de conexión de la predicción. El nombre que se da a la iteración publicada se puede utilizar para enviar solicitudes de predicción. Una iteración no está disponible en el punto de conexión de la predicción hasta que se publica.
+Este código crea la primera iteración del proyecto y, después, publica dicha iteración en el punto de conexión de la predicción. El nombre que se da a la iteración publicada se puede utilizar para enviar solicitudes de predicción. Una iteración no está disponible en el punto de conexión de predicción hasta que se publica.
 
 ```go
 iteration, _ := trainer.TrainProject(ctx, *project.ID)

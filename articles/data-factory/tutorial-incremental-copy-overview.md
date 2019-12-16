@@ -1,22 +1,23 @@
 ---
-title: 'Copia incremental de datos con Azure Data Factory '
+title: Copia de datos de forma incremental
 description: En estos tutoriales se muestra cómo copiar datos de forma incremental de un almacén de datos de origen a un almacén de datos de destino. La primera de ellas copia los datos de una tabla.
 services: data-factory
 documentationcenter: ''
 author: dearandyxu
-manager: craigg
+ms.author: yexu
+manager: anandsub
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
+ms.custom: seo-lt-2019
 ms.date: 01/22/2018
-ms.author: yexu
-ms.openlocfilehash: 42dcd6ecc6df1c9877581d89bf22724054e305d0
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: e87f8d648a617aab24008bd63596db31dd24ab68
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74217284"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926433"
 ---
 # <a name="incrementally-load-data-from-a-source-data-store-to-a-destination-data-store"></a>Carga incremental de datos de un almacén de datos de origen a un almacén de datos de destino
 

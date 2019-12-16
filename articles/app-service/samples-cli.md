@@ -6,12 +6,12 @@ ms.assetid: 53e6a15a-370a-48df-8618-c6737e26acec
 ms.topic: sample
 ms.date: 12/12/2017
 ms.custom: mvc
-ms.openlocfilehash: 06f03e0005c4f98370bb1f6430fff506f9145d5a
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 0b3acb1b421962cde7d90398f42bdfeefda578e3
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688510"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74971509"
 ---
 # <a name="cli-samples-for-azure-app-service"></a>Ejemplos de la CLI para Azure App Service
 
@@ -32,6 +32,8 @@ En la tabla siguiente se incluyen vínculos a scripts de Bash creados con la CLI
 |**Escalado de la aplicación**||
 | [Escalado manual de una aplicación](./scripts/cli-scale-manual.md?toc=%2fcli%2fazure%2ftoc.json) | Crea una aplicación de App Service y la escala a través de dos instancias. |
 | [Escalado de una aplicación en todo el mundo con una arquitectura de alta disponibilidad](./scripts/cli-scale-high-availability.md?toc=%2fcli%2fazure%2ftoc.json) | Crea dos aplicaciones de App Service en dos regiones geográficas diferentes y hace que estén disponibles mediante un punto de conexión único con Azure Traffic Manager. |
+|**Protección de aplicaciones**||
+| [Integración con Azure Application Gateway](./scripts/cli-integrate-app-service-with-application-gateway.md?toc=%2fcli%2fazure%2ftoc.json) | Crea una aplicación de App Service y la integra con Application Gateway mediante el punto de conexión de servicio y las restricciones de acceso. |
 |**Conexión de la aplicación a recursos**||
 | [Conexión de una aplicación a SQL Database](./scripts/cli-connect-to-sql.md?toc=%2fcli%2fazure%2ftoc.json)| Crea una aplicación de App Service y una base de datos SQL y, a continuación, agrega la cadena de conexión de base de datos a la configuración de la aplicación. |
 | [Conexión de una aplicación a una cuenta de almacenamiento](./scripts/cli-connect-to-storage.md?toc=%2fcli%2fazure%2ftoc.json)| Crea una aplicación de App Service y una cuenta de almacenamiento y, a continuación, agrega la cadena de conexión de almacenamiento a la configuración de la aplicación. |

@@ -1,21 +1,22 @@
 ---
-title: 'Tutorial: Creación de una aplicación de alta disponibilidad con Blob Storage en Azure Storage'
-description: Use el almacenamiento con redundancia geográfica con acceso de lectura para lograr alta disponibilidad para los datos de aplicación
+title: 'Tutorial: Creación de una aplicación de alta disponibilidad con Blob Storage'
+titleSuffix: Azure Storage
+description: Use el almacenamiento con redundancia geográfica con acceso de lectura para lograr la alta disponibilidad para los datos de la aplicación.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: tutorial
-ms.date: 01/03/2019
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: 6b0ac017704c599e96543ed36a13ff5d3ddef9fc
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 55846c76f2c3ef1c5d884af39af85db3abe38aad
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838572"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892913"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Tutorial: Creación de una aplicación de alta disponibilidad con Blob Storage
 
@@ -40,8 +41,7 @@ Para completar este tutorial:
 
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
-* Instale [Visual Studio 2019](https://www.visualstudio.com/downloads/) con las cargas de trabajo siguientes:
-  - **Desarrollo de Azure**
+* Instale [Visual Studio 2019](https://www.visualstudio.com/downloads/) con la carga de trabajo de **desarrollo de Azure**.
 
   ![Desarrollo de Azure (en web y la nube)](media/storage-create-geo-redundant-storage/workloads.png)
 
@@ -191,7 +191,6 @@ La función de reintento de objeto de Storage se establece en una directiva de r
 
 Antes de la descarga, se definen el objeto de servicio [retry_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) y la función [response_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python). Estas funciones definen los controladores de eventos que se activan cuando una descarga se completa correctamente o si se produce un error de descarga y se vuelve a intentar.
 
-
 # <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
 
 Para ejecutar el ejemplo, abra un símbolo del sistema, vaya a la carpeta de ejemplo y escriba `node index.js`.
@@ -223,7 +222,7 @@ Deleted container newcontainer1550799840726
 
 ## <a name="understand-the-sample-code"></a>Descripción del código de ejemplo
 
-# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
+### <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
 ### <a name="retry-event-handler"></a>Controlador de eventos de reintento
 
@@ -274,7 +273,7 @@ private static void OperationContextRequestCompleted(object sender, RequestEvent
 }
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+### <a name="pythontabpython"></a>[Python](#tab/python)
 
 ### <a name="retry-event-handler"></a>Controlador de eventos de reintento
 
@@ -317,7 +316,7 @@ def response_callback(response):
             secondary_read_count = 0
 ```
 
-# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
+### <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
 
 Con el SDK de Node.js V10, los controladores de devolución de llamada son innecesarios. En su lugar, el ejemplo crea una canalización que se configura con opciones de reintento y un punto de conexión secundario. Esto permite que la aplicación cambie automáticamente a la canalización secundaria si se produce un error al acceder a los datos mediante la canalización principal.
 
@@ -349,4 +348,4 @@ En la primera parte de la serie, aprendió a lograr una alta disponibilidad para
 Vaya a la segunda parte de la serie para aprender a simular un error y obligar a la aplicación a utilizar el punto de conexión de RA-GRS secundario.
 
 > [!div class="nextstepaction"]
-> [Simulación de un error de conexión al punto de conexión de almacenamiento principal](storage-simulate-failure-ragrs-account-app.md)
+> [Simulación de un error al leer desde la región principal](storage-simulate-failure-ragrs-account-app.md)

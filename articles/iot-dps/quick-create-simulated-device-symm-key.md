@@ -1,6 +1,6 @@
 ---
 title: 'Inicio rápido: Uso de una clave simétrica para aprovisionar un dispositivo simulado para Azure IoT Hub mediante C'
-description: En esta guía de inicio rápido usará el SDK de dispositivos C para crear un dispositivo simulado que utiliza la clave simétrica con el Azure IoT Hub Device Provisioning Service
+description: En este inicio rápido usará el SDK de dispositivos de C para crear un dispositivo simulado que utilice la clave simétrica con Azure IoT Hub Device Provisioning Service (DPS)
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2019
@@ -9,14 +9,14 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 4d1e1ff5312cfb5aa0b2e378a24d5e0db7fb3605
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 20416f83c31857417e01de31b787528e20775cdf
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74423553"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976696"
 ---
-# <a name="quickstart-provision-a-simulated-device-with-symmetric-keys"></a>Guía de inicio rápido: Aprovisionamiento de un dispositivo simulado con claves simétricas
+# <a name="quickstart-provision-a-simulated-device-with-symmetric-keys"></a>Inicio rápido: Aprovisionamiento de un dispositivo simulado con claves simétricas
 
 En esta guía de inicio rápido, obtendrá información sobre cómo crear y ejecutar un simulador de dispositivos en una máquina de desarrollo Windows. Configurará este dispositivo simulado para utilizar una clave simétrica a fin de autenticarse con una instancia del Device Provisioning Service y recibir la asignación a un IoT Hub. Se usará código de ejemplo del [SDK para C de Azure IoT](https://github.com/Azure/azure-iot-sdk-c) para simular una secuencia de arranque para el dispositivo que inicia el aprovisionamiento. El dispositivo se reconocerá en función de una inscripción individual en una instancia del servicio de aprovisionamiento y se asignará a un IoT Hub.
 

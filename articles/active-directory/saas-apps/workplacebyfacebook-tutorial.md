@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15e98bf83cedc22aa565ba0f98089e9f6f217728
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 6fc55130bd840de3960a44ddc1bd0617af185148
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72787610"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74969741"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workplace-by-facebook"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Workplace by Facebook
 
@@ -48,8 +48,8 @@ Para empezar, necesita los siguientes elementos:
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
 * Workplace by Facebook admite el inicio de sesión único iniciado por **SP**.
+* Workplace by Facebook admite el **[aprovisionamiento y desaprovisionamiento automático de usuarios (recomendado)](workplacebyfacebook-provisioning-tutorial.md)** .
 * Workplace by Facebook admite el **aprovisionamiento Just-In-Time**.
-* Workplace by Facebook admite el **[aprovisionamiento automático de usuarios](workplacebyfacebook-provisioning-tutorial.md)** .
 * Ahora se puede configurar la aplicación Workplace by Facebook con Azure AD para habilitar el inicio de sesión único. En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
 ## <a name="adding-workplace-by-facebook-from-the-gallery"></a>Incorporación de Workplace by Facebook desde la galería

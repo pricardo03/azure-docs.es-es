@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 08/26/2019
+ms.date: 12/06/2019
 ms.author: aahi
-ms.openlocfilehash: b369dc82e98dff58a42b63b9733e7b786593d534
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: e52101b873e03cd6fcd847e9aa2a2d801f8f583d
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034666"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74918869"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-c"></a>Guía de inicio rápido: Búsqueda de imágenes con la API de REST Bing Image Search y C#
 
@@ -42,7 +42,7 @@ El código fuente de este ejemplo está disponible en [GitHub](https://github.co
     using Newtonsoft.Json.Linq;
     ```
 
-2. Cree variables para el punto de conexión de la API, la clave de suscripción y el término de búsqueda.
+2. Cree variables para el punto de conexión de la API, la clave de suscripción y el término de búsqueda. `uriBase` puede ser el punto de conexión global siguiente o el punto de conexión del [subdominio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) que se muestra en Azure Portal para el recurso.
 
     ```csharp
     //...
@@ -206,7 +206,7 @@ Las respuestas de Bing Image Search API se devuelven como JSON. Esta respuesta d
 > [!div class="nextstepaction"]
 > [Tutorial de aplicación de una sola página de Bing Image Search](../tutorial-bing-image-search-single-page-app.md)
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 * [¿Qué es Bing Image Search?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
 * [Prueba de una demostración interactiva en línea](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/) 

@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/04/2019
+ms.date: 10/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4974f4e39b0b16971d0d666134618d5a1f64e11
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 529c2a453bade8745a596b5cd2e374907a66f613
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68424326"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893729"
 ---
 # <a name="tutorial-integrate-productboard-with-azure-active-directory"></a>Tutorial: Integración de productboard con Azure Active Directory
 
@@ -65,11 +65,11 @@ Configure y pruebe el inicio de sesión único de Azure AD con productboard con
 Para configurar y probar el inicio de sesión único de Azure AD con productboard, complete los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-2. **[Configuración del inicio de sesión único de productboard](#configure-productboard-sso)** , para configurar los valores de inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de productboard](#create-productboard-test-user)** , para tener un homólogo de Britta Simon en productboard que esté vinculado a la representación del usuario en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
+    * **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
+    * **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
+1. **[Configuración del inicio de sesión único de productboard](#configure-productboard-sso)** , para configurar los valores de inicio de sesión único en la aplicación.
+    * **[Creación de un usuario de prueba de productboard](#create-productboard-test-user)** , para tener un homólogo de B.Simon en productboard vinculado a la representación del usuario en Azure AD.
+1. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -81,7 +81,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-1. En la sección **Configuración básica de SAML**, si quiere configurar la aplicación en modo iniciado por **IDP**, escriba los valores de los siguientes campos:
+1. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en modo iniciado por **IDP**, escriba los valores de los siguientes campos:
 
     En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<projectname>.productboard.com/users/auth/saml/callback`
 
@@ -92,13 +92,9 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     > [!NOTE]
     > Estos valores no son reales. Actualice estos valores con los valores reales de URL de respuesta y URL de inicio de sesión. Póngase en contacto con el [equipo de atención al cliente de productboard](mailto:support@productboard.com) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
-1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en el botón de copia para copiar la **dirección URL de metadatos de federación de aplicación** y guárdela en su equipo.
+1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en el botón de copia para copiar la **Dirección URL de metadatos de federación de aplicación** y guárdela en su equipo.
 
     ![Vínculo de descarga del certificado](common/copy-metadataurl.png)
-
-### <a name="configure-productboard-sso"></a>Configuración del inicio de sesión único de productboard
-
-Para configurar el inicio de sesión único en **productboard**, debe enviar la **dirección URL de metadatos de federación de la aplicación** al [equipo de soporte técnico de productboard](mailto:support@productboard.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
@@ -130,9 +126,21 @@ En esta sección, concederá acceso a B.Simon a productboard para usar el inicio
 1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione en la lista el rol adecuado para el usuario y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
+## <a name="configure-productboard-sso"></a>Configuración del inicio de sesión único de productboard
+
+1. Para automatizar la configuración en productboard, debe instalar la **extensión del explorador de inicio de sesión seguro de Mis aplicaciones**. Para ello, haga clic en **Instalar la extensión**.
+
+    ![Extensión Mis aplicaciones](common/install-myappssecure-extension.png)
+
+1. Después de agregar la extensión al explorador, haga clic en **Set up productboard** (Configurar productboard), lo cual le dirigirá a la aplicación del mismo nombre. En ella, escriba las credenciales de administrador para iniciar sesión en productboard. La extensión de explorador configurará automáticamente la aplicación.
+
+    ![Configuración](common/setup-sso.png)
+
+1. Si quiere configurar el inicio de sesión único en **productboard** manualmente, debe enviar la **dirección URL de metadatos de federación de la aplicación** al [equipo de soporte técnico de productboard](mailto:support@productboard.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+
 ### <a name="create-productboard-test-user"></a>Creación de un usuario de prueba de productboard
 
-En esta sección se crea un usuario llamado B.Simon en productboard. productboard admite el aprovisionamiento de usuarios Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Si un usuario no existe en productboard, se crea otro después de la autenticación.
+En esta sección se crea un usuario llamado Britta Simon en productboard. productboard admite el aprovisionamiento de usuarios Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Si un usuario no existe en productboard, se crea otro después de la autenticación.
 
 ### <a name="test-sso"></a>Prueba de SSO
 
@@ -142,8 +150,10 @@ Al hacer clic en el icono de productboard en el Panel de acceso, debería inicia
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [Prueba de productboard con Azure AD](https://aad.portal.azure.com/)

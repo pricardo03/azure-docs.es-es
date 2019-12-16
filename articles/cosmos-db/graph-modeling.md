@@ -1,18 +1,18 @@
 ---
 title: Modelado de datos de grafo para la API para Gremlin de Azure Cosmos DB
-description: Aprenda cómo modelar una base de datos de grafos con la API para Gremlin de Cosmos DB.
+description: Aprenda a modelar una base de datos de grafos mediante Gremlin API de Azure Cosmos DB. En este artículo se describen cuándo se usa una base de datos de grafos, así como los procedimientos recomendados para modelar entidades y relaciones.
 author: LuisBosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: overview
-ms.date: 06/24/2019
+ms.date: 12/02/2019
 ms.author: lbosq
-ms.openlocfilehash: 2bd8c07b384872f3107b5938380cea4c8eb0abae
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.openlocfilehash: 7bc5544249b7e476afde08281aa005569ef6f8ce
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74559127"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873733"
 ---
 # <a name="graph-data-modeling-for-azure-cosmos-db-gremlin-api"></a>Modelado de datos de grafo para la API para Gremlin de Azure Cosmos DB
 
@@ -45,7 +45,7 @@ El [estándar del grafo de propiedades de Apache Tinkerpop](http://tinkerpop.apa
 
 Los siguientes son los procedimientos recomendados para las propiedades de los objetos de grafo:
 
-| Object | Propiedad | type | Notas |
+| Object | Propiedad | Tipo | Notas |
 | --- | --- | --- |  --- |
 | Vértice | id | Cadena | Se aplica de forma exclusiva por partición. Si no se proporciona un valor al realizar la inserción, se almacenará un GUID generado automáticamente. |
 | Vértice | label | Cadena | Esta propiedad se utiliza para definir el tipo de entidad que representa el vértice. Si no se proporciona un valor, se usará el valor predeterminado "vértice". |

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 07/03/2019
+ms.date: 12/05/2019
 ms.author: areddish
-ms.openlocfilehash: 00d3b1dce9bacc01c8319c678ab27a3d4cc8da88
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: d7e3eeeea6bb25b4cddaea1d04e86f23ab7e4f5f
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73718426"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74969846"
 ---
 # <a name="tutorial-run-tensorflow-model-in-python"></a>Tutorial: Ejecución del modelo de TensorFlow en Python
 
@@ -31,7 +31,7 @@ Para usar el tutorial, debe realizar los siguientes pasos:
 - Instale Python 2.7 o posterior o Python 3.5 o posterior.
 - Instale PIP.
 
-A continuación deberá instalar los siguientes paquetes:
+A continuación, deberá instalar los siguientes paquetes:
 
 ```
 pip install tensorflow
@@ -68,7 +68,7 @@ with open(labels_filename, 'rt') as lf:
 
 ## <a name="prepare-an-image-for-prediction"></a>Preparación de una imagen para la predicción
 
-Existen algunos pasos para preparar la imagen para que esté en la forma adecuada para la predicción. Estos pasos imitan la manipulación de imágenes realizada durante el entrenamiento:
+Hay algunos pasos que debe seguir para preparar la imagen para la predicción. Estos pasos imitan la manipulación de imágenes realizada durante el entrenamiento:
 
 ### <a name="open-the-file-and-create-an-image-in-the-bgr-color-space"></a>Apertura del archivo y creación de una imagen en el espacio de colores BGR
 

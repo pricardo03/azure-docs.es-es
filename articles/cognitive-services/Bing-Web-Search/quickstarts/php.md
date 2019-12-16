@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 03/12/2019
+ms.date: 12/09/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: ba132adc6b0fd2b8423a7bce30ad6d52fccc898e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: cf3cf1f69f7b45dd90070f4074e85fa21359837d
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57858208"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74961492"
 ---
 # <a name="quickstart-use-php-to-call-the-bing-web-search-api"></a>Guía de inicio rápido: Uso de PHP para llamar a Bing Web Search API  
 
@@ -43,7 +43,7 @@ Antes de empezar, busque `php.ini` y quite la marca de comentario de esta línea
 
 Cree un nuevo proyecto de PHP en su IDE o editor favorito. No olvide agregar las etiquetas de apertura y de cierre `<?php` y `?>`.
 
-Algunas variables deben establecerse antes de poder continuar. Confirme que el valor `$endpoint` es correcto y reemplace el valor `$accesskey` por una clave de suscripción válida de su cuenta de Azure. No dude en personalizar la consulta de búsqueda reemplazando el valor de `$term`.
+Algunas variables deben establecerse antes de poder continuar. `$endpoint` puede ser el punto de conexión global siguiente o el punto de conexión del [subdominio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) que se muestra en Azure Portal para el recurso. Confirme que el valor `$endpoint` es correcto y reemplace el valor `$accesskey` por una clave de suscripción válida de su cuenta de Azure. No dude en personalizar la consulta de búsqueda reemplazando el valor de `$term`.
 
 ```php
 $accessKey = 'enter key here';

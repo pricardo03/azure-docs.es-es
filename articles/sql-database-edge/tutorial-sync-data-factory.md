@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 11/04/2019
-ms.openlocfilehash: 2bfa65117bf31ad9cb9917fd8a643a0358e02be0
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: e6fd9e6431137708ba93328a8ed1359b93b4ee1f
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74384219"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851713"
 ---
 # <a name="tutorial-sync-data-from-sql-database-edge-to-azure-blob-storage-by-using-azure-data-factory"></a>Tutorial: Sincronización de datos entre SQL Database Edge y Azure Blob Storage mediante Azure Data Factory
 
@@ -177,7 +177,7 @@ Para crear una factoría de datos, siga las instrucciones que se proporcionan en
 
 27. Vaya a la pestaña **Conexión** de SinkDataset y siga estos pasos:
 
-    1. En **Ruta de acceso al archivo**, escriba *asdedatasync/incrementalcopy*, donde *adftutorial* es el nombre del contenedor de blobs e *incrementalcopy* es el nombre de la carpeta. Cree el contenedor, en caso de que no exista, o use el nombre de uno existente. Si no existe, Azure Data Factory crea automáticamente la carpeta de salida *incrementalcopy*. También puede usar el botón **Browse** (Examinar) para ir a una carpeta del contenedor de blobs mediante la **ruta de acceso del archivo**.
+    1. En **Ruta de acceso al archivo**, escriba *asdedatasync/incrementalcopy*, donde *asdedatasync* es el nombre del contenedor de blobs e *incrementalcopy* es el nombre de la carpeta. Cree el contenedor, en caso de que no exista, o use el nombre de uno existente. Si no existe, Azure Data Factory crea automáticamente la carpeta de salida *incrementalcopy*. También puede usar el botón **Browse** (Examinar) para ir a una carpeta del contenedor de blobs mediante la **ruta de acceso del archivo**.
 
     2. En la parte **Archivo** de **Ruta de acceso al archivo**, seleccione **Agregar contenido dinámico [Alt+P]** y, después, escriba **@CONCAT("Incremental-", pipeline().RunId, ".txt")** en la ventana que se abre. Seleccione **Finalizar**. La expresión genera el nombre de archivo dinámicamente. Cada ejecución de canalización tiene un identificador único. La actividad de copia usa el identificador de ejecución para generar el nombre de archivo.
 

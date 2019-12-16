@@ -3,12 +3,12 @@ title: 'Tutorial: Creación de una definición de directiva personalizada'
 description: En este tutorial, creará una definición de directiva personalizada para Azure Policy para aplicar reglas de negocio personalizadas a los recursos de Azure.
 ms.date: 11/25/2019
 ms.topic: tutorial
-ms.openlocfilehash: e30d47ed6e01c4fd8ff061398b1045f9446e466a
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 51899491d7a75dc41bdab94d17769393ab4a6659
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483981"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74885456"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>Tutorial: Creación de una definición de directiva personalizada
 
@@ -200,35 +200,37 @@ Al igual que con la CLI de Azure, los resultados muestran un alias compatible co
 
 ### <a name="azure-resource-graph"></a>Azure Resource Graph
 
-[Azure Resource Graph](../../resource-graph/overview.md) es un nuevo servicio. Este servicio proporciona otro método para buscar propiedades de recursos de Azure. A continuación se describe una consulta sencilla para buscar una única cuenta de almacenamiento con Resource Graph:
+[Azure Resource Graph](../../resource-graph/overview.md) es un servicio que proporciona otro método para buscar las propiedades de los recursos de Azure. A continuación se describe una consulta sencilla para buscar una única cuenta de almacenamiento con Resource Graph:
 
 ```kusto
-where type=~'microsoft.storage/storageaccounts'
+Resources
+| where type=~'microsoft.storage/storageaccounts'
 | limit 1
 ```
 
 ```azurecli-interactive
-az graph query -q "where type=~'microsoft.storage/storageaccounts' | limit 1"
+az graph query -q "Resources | where type=~'microsoft.storage/storageaccounts' | limit 1"
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "where type=~'microsoft.storage/storageaccounts' | limit 1"
+Search-AzGraph -Query "Resources | where type=~'microsoft.storage/storageaccounts' | limit 1"
 ```
 
 Los resultados son similares a lo que se puede ver en las plantillas de Resource Manager y mediante Azure Resource Explorer. Sin embargo, los resultados de Azure Resource Graph también pueden incluir información del [alias](../concepts/definition-structure.md#aliases) _proyectando_ la matriz _aliases_:
 
 ```kusto
-where type=~'microsoft.storage/storageaccounts'
+Resources
+| where type=~'microsoft.storage/storageaccounts'
 | limit 1
 | project aliases
 ```
 
 ```azurecli-interactive
-az graph query -q "where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
+az graph query -q "Resources | where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
+Search-AzGraph -Query "Resources | where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
 ```
 
 Esta es una salida de ejemplo de una cuenta de almacenamiento de alias:

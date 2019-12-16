@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 11/23/2019
 ms.author: victorh
-ms.openlocfilehash: a61b1a44419ac35efa5888de2b5a6e4988dfb512
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 29962fa217c34088ed17fdea68c2c1189a3bfcd2
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422299"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74996585"
 ---
 # <a name="what-is-azure-application-gateway"></a>¿Qué es Azure Application Gateway?
 
@@ -112,7 +112,7 @@ Para más información, consulte [Compatibilidad con WebSocket
 
 ## <a name="connection-draining"></a>Purga de la conexión
 
-La purga de conexión ayuda a lograr la correcta eliminación de miembros del grupo de back-end durante las actualizaciones de servicio planeadas. Esta configuración se habilita a través de la configuración de http de back-end y se puede aplicar a todos los miembros de un grupo de back-end durante la creación de reglas. Una vez habilitado, Application Gateway garantiza que todas las instancias de anulación de registro de un grupo de back-end no reciben solicitudes nuevas y se permite que las solicitudes existentes se completen dentro de un límite de tiempo configurado. Esto se aplica a las dos instancias de back-end que se quitan explícitamente del grupo de back-end mediante una llamada API y a las instancias de back-end que se notifican como incorrectas según determinan los sondeos de estado.
+La purga de conexión ayuda a lograr la correcta eliminación de miembros del grupo de back-end durante las actualizaciones de servicio planeadas. Esta configuración se habilita a través de la configuración de http de back-end y se puede aplicar a todos los miembros de un grupo de back-end durante la creación de reglas. Una vez habilitado, Application Gateway garantiza que las instancias de anulación de registro de un grupo de back-end no reciben solicitudes nuevas y se permite que las solicitudes existentes se completen en un límite de tiempo configurado. Esto se aplica a las dos instancias de back-end que se quitan explícitamente del grupo de back-end mediante un cambio en la configuración del usuario y las instancias de back-end que se notifican como incorrectas según determinan los sondeos de estado. La única excepción a esto son las solicitudes enlazadas para las instancias de cancelación del registro, que se han eliminado explícitamente, debido a la afinidad de la sesión administrada por la puerta de enlace y seguirán siendo procesadas por el proxy hasta las instancias de cancelación del registro.
 
 Para más información, consulte la sección Purga de la conexión de [Introducción a la configuración de Application Gateway](https://docs.microsoft.com/azure/application-gateway/configuration-overview#connection-draining).
 

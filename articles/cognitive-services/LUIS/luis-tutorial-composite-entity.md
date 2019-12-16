@@ -9,27 +9,27 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 10/14/2019
+ms.date: 12/05/2019
 ms.author: diberry
-ms.openlocfilehash: adb8941fd60a955a44a04717958c5203b721639a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0e72563f366330f841d1a61ed67956b6314c769a
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498994"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893199"
 ---
 # <a name="tutorial-group-and-extract-related-data"></a>Tutorial: Agrupación y extracción de datos relacionados
 En este tutorial, agregue una entidad compuesta para agrupar los datos extraídos de varios tipos en una única entidad contenedora. Mediante la agrupación de los datos, la aplicación cliente puede extraer fácilmente los datos relacionados en diferentes tipos de datos.
 
-El propósito de la entidad compuesta es agrupar las entidades relacionadas en una entidad de categoría principal. La información existe como entidades independientes antes de que se cree una compuesta. 
+El propósito de la entidad compuesta es agrupar las entidades relacionadas en una entidad de categoría principal. La información existe como entidades independientes antes de que se cree una compuesta.
 
 La entidad compuesta es una buena opción para este tipo de datos, ya que los datos:
 
-* Están relacionados entre sí. 
+* Están relacionados entre sí.
 * Usan una variedad de tipos de entidad.
 * Debe estar agrupados y procesados por la aplicación cliente como una unidad de información.
 
-[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+[!INCLUDE [Only valid with current portal](includes/old-portal-only.md)]
 
 **En este tutorial, aprenderá a:**
 
@@ -37,7 +37,7 @@ La entidad compuesta es una buena opción para este tipo de datos, ya que los da
 > [!div class="checklist"]
 > * Importar la aplicación de ejemplo
 > * Crear intención
-> * Incorporación de entidad compuesta 
+> * Incorporación de entidad compuesta
 > * Train
 > * Publicar
 > * Obtener intenciones y entidades del punto de conexión
@@ -54,9 +54,9 @@ La entidad compuesta es una buena opción para este tipo de datos, ya que los da
 
 ## <a name="composite-entity"></a>Entidad compuesta
 
-En esta aplicación, se define el nombre del departamento en la lista de entidades **Departamento** y se incluyen los sinónimos. 
+En esta aplicación, se define el nombre del departamento en la lista de entidades **Departamento** y se incluyen los sinónimos.
 
-La intención **TransferEmployeeToDepartment** tiene expresiones de ejemplo para solicitar que un empleado se transfiera a un nuevo departamento. 
+La intención **TransferEmployeeToDepartment** tiene expresiones de ejemplo para solicitar que un empleado se transfiera a un nuevo departamento.
 
 Entre las expresiones de ejemplo de esta intención se incluyen las siguientes:
 
@@ -64,12 +64,12 @@ Entre las expresiones de ejemplo de esta intención se incluyen las siguientes:
 |--|
 |move John W. Smith to the accounting department (mover a John W. Smith al departamento de contabilidad)|
 |transfer Jill Jones from to R&D (transferir a Jill Jones a I+D)|
- 
-La solicitud de transferencia debe incluir el nombre del departamento y el nombre del empleado. 
+
+La solicitud de transferencia debe incluir el nombre del departamento y el nombre del empleado.
 
 ## <a name="add-the-personname-prebuilt-entity-to-help-with-common-data-type-extraction"></a>Incorporación de la entidad PersonName creada previamente para ayudar con la extracción de tipos de datos habituales
 
-LUIS proporciona varias entidades creadas previamente para la extracción de datos comunes. 
+LUIS proporciona varias entidades creadas previamente para la extracción de datos comunes.
 
 1. Seleccione **Build** (Compilación) en el menú de navegación superior y seleccione **Entities** (Entidades) en el menú de navegación de la izquierda.
 
@@ -87,11 +87,11 @@ LUIS proporciona varias entidades creadas previamente para la extracción de dat
 
 1. Seleccione **TransferEmployeeToDepartment** en la lista de intenciones.
 
-1. En la expresión `place John Jackson in engineering`, seleccione la entidad personName, `John Jackson` y, luego, seleccione **Wrap in composite entity** (Ajustar en la entidad compuesta) en la lista del menú emergente de la siguiente expresión: 
+1. En la expresión `place John Jackson in engineering`, seleccione la entidad personName, `John Jackson` y, luego, seleccione **Wrap in composite entity** (Ajustar en la entidad compuesta) en la lista del menú emergente de la siguiente expresión:
 
     ![Captura de pantalla de selección del ajuste compuesto en el cuadro de diálogo desplegable](./media/luis-tutorial-composite-entity/hr-create-composite-entity-1.png)
 
-1. A continuación, seleccione inmediatamente la última entidad, `engineering`, en la expresión. Se dibuja una barra verde debajo de las palabras seleccionadas que indica una entidad compuesta. En el menú emergente, escriba el nombre compuesto `TransferEmployeeInfo` y, a continuación, seleccione Intro. 
+1. A continuación, seleccione inmediatamente la última entidad, `engineering`, en la expresión. Se dibuja una barra verde debajo de las palabras seleccionadas que indica una entidad compuesta. En el menú emergente, escriba el nombre compuesto `TransferEmployeeInfo` y, a continuación, seleccione Intro.
 
     ![Captura de pantalla de inserción del nombre compuesto en el cuadro de diálogo desplegable](./media/luis-tutorial-composite-entity/hr-create-composite-entity-2.png)
 
@@ -103,11 +103,11 @@ LUIS proporciona varias entidades creadas previamente para la extracción de dat
 
 1. En cada expresión de ejemplo, seleccione la entidad que se encuentra más a la izquierda que debería estar en la composición. A continuación, seleccione **Wrap in composite entity** (Ajustar en la entidad compuesta).
 
-1. Seleccione la última palabra en la entidad compuesta y luego seleccione **TransferEmployeeInfo** en el menú emergente. 
+1. Seleccione la última palabra en la entidad compuesta y luego seleccione **TransferEmployeeInfo** en el menú emergente.
 
-1. Compruebe que todas las expresiones de la intención están etiquetadas con la entidad compuesta. 
+1. Compruebe que todas las expresiones de la intención están etiquetadas con la entidad compuesta.
 
-## <a name="train-the-app-so-the-changes-to-the-intent-can-be-tested"></a>Entrenamiento de la aplicación para probar los cambios en la intención 
+## <a name="train-the-app-so-the-changes-to-the-intent-can-be-tested"></a>Entrenamiento de la aplicación para probar los cambios en la intención
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
@@ -115,11 +115,11 @@ LUIS proporciona varias entidades creadas previamente para la extracción de dat
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="get-intent-and-entity-prediction-from-endpoint"></a>Obtención de intención y predicción de entidad desde el punto de conexión 
+## <a name="get-intent-and-entity-prediction-from-endpoint"></a>Obtención de intención y predicción de entidad desde el punto de conexión
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-2. Vaya al final de la dirección URL en la dirección y escriba `Move Jill Jones to DevOps`. El último parámetro de la cadena de consulta es `q`, la expresión query. 
+2. Vaya al final de la dirección URL en la dirección y escriba `Move Jill Jones to DevOps`. El último parámetro de la cadena de consulta es `q`, la expresión query.
 
     Como esta prueba se realiza para comprobar que la entidad compuesta se extrae correctamente, puede incluir una expresión de ejemplo existente o una expresión nueva. En una prueba buena se incluyen todas las entidades secundarias de la entidad compuesta.
 
@@ -185,7 +185,7 @@ LUIS proporciona varias entidades creadas previamente para la extracción de dat
     }
     ```
 
-   Esta expresión devuelve una matriz de entidades compuestas. Cada entidad tiene un tipo y un valor. Para encontrar más precisión para cada entidad secundaria, use la combinación de tipo y valor del elemento de matriz compuesta para buscar el elemento correspondiente en la matriz de entidades.  
+   Esta expresión devuelve una matriz de entidades compuestas. Cada entidad tiene un tipo y un valor. Para encontrar más precisión para cada entidad secundaria, use la combinación de tipo y valor del elemento de matriz compuesta para buscar el elemento correspondiente en la matriz de entidades.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
@@ -202,7 +202,7 @@ LUIS proporciona varias entidades creadas previamente para la extracción de dat
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial se ha creado una entidad compuesta para encapsular las entidades existentes. Esto permite que la aplicación cliente busque un grupo de datos relacionados en diferentes tipos de datos para continuar la conversación. Una aplicación cliente para esta aplicación de recursos humanos puede preguntar el día y la hora en que el traslado debe empezar y terminar. También puede preguntar sobre otros aspectos logísticos del traslado, como un teléfono físico. 
+En este tutorial se ha creado una entidad compuesta para encapsular las entidades existentes. Esto permite que la aplicación cliente busque un grupo de datos relacionados en diferentes tipos de datos para continuar la conversación. Una aplicación cliente para esta aplicación de recursos humanos puede preguntar el día y la hora en que el traslado debe empezar y terminar. También puede preguntar sobre otros aspectos logísticos del traslado, como un teléfono físico.
 
-> [!div class="nextstepaction"] 
-> [Más información sobre cómo agregar una entidad simple con una lista de frases](luis-quickstart-primary-and-secondary-data.md)  
+> [!div class="nextstepaction"]
+> [Corrección de predicciones poco seguras mediante la revisión de las expresiones del punto de conexión](luis-tutorial-review-endpoint-utterances.md)

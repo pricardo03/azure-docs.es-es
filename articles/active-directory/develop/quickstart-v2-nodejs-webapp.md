@@ -1,30 +1,25 @@
 ---
-title: Inicio rápido de la aplicación web de OIDC en Node.js para la plataforma de identidad de Microsoft | Azure
+title: 'Incorporación del inicio de sesión de OIDC a una aplicación web de Node.js: Plataforma de identidad de Microsoft | Azure'
 description: Aprenda a implementar la autenticación en una aplicación web de Node.js mediante OpenID Connect.
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25ac3344fe16d24ae116a5fde289421998f11f18
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: a2869333fe0e9103724b9b1075270a5c3301c472
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73182033"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74968024"
 ---
-# <a name="quickstart-add-sign-in-using-oidc-to-a-nodejs-web-app"></a>Inicio rápido: incorporación del inicio de sesión mediante OIDC a una aplicación web de Node.js
+# <a name="quickstart-add-sign-in-using-openid-connect-to-a-nodejs-web-app"></a>Inicio rápido: Incorporación del inicio de sesión mediante OpenID Connect a una aplicación web de Node.js
 
 [!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
@@ -80,7 +75,7 @@ Desde el shell o la línea de comandos, ejecute:
 
 `$ git clone git@github.com:AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs.git`
 
-o
+or
 
 `$ git clone https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs.git`
 

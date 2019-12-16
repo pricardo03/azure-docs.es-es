@@ -4,16 +4,19 @@ description: En este tutorial, aprenderá a configurar una tarea de Azure Contai
 ms.topic: tutorial
 ms.date: 05/04/2019
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 8af8daa4233fe6461b4e129f56a063e7cc212245
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: a26f1207eccd615804babe230df689d27beae49f
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74454761"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74840789"
 ---
 # <a name="tutorial-automate-container-image-builds-in-the-cloud-when-you-commit-source-code"></a>Tutorial: Automatización de las compilaciones de imágenes de contenedor en la nube al confirmar código fuente
 
-Además de [tareas rápidas](container-registry-tutorial-quick-task.md), ACR Tasks admite compilaciones de imágenes de contenedor Docker automatizadas en la nube al confirmar el código fuente en un repositorio de Git.
+Además de [tareas rápidas](container-registry-tutorial-quick-task.md), ACR Tasks admite compilaciones de imágenes de contenedor Docker automatizadas en la nube al confirmar el código fuente en un repositorio de Git. Los contextos de Git admitidos para ACR Tasks incluyen GitHub público o privado o repositorios de Azure.
+
+> [!NOTE]
+> Actualmente, ACR Tasks no admite desencadenadores de solicitud de confirmación o de extracción en repositorios de GitHub Enterprise.
 
 En este tutorial, la tarea ACR compila e inserta una única imagen de contenedor especificada en un archivo Dockerfile cuando confirma el código fuente en un repositorio de Git. Para crear una [tarea de varios pasos](container-registry-tasks-multi-step.md) que use un archivo YAML para definir los pasos para compilar, insertar y, opcionalmente, probar varios contenedores durante la confirmación del código, consulte el [Tutorial: Ejecución de un flujo de trabajo de contenedor de varios pasos en la nube al confirmar el código fuente](container-registry-tutorial-multistep-task.md). Para información general sobre ACR Tasks, consulte [Automatización de la aplicación de revisiones de sistema operativo y plataforma con ACR Tasks](container-registry-tasks-overview.md).
 

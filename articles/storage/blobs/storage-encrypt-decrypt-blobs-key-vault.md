@@ -1,24 +1,24 @@
 ---
-title: 'Tutorial: Cifrado y descifrado de blobs en Azure Storage con Azure Key Vault | Microsoft Docs'
-description: Cómo cifrar y descifrar un blob mediante el cifrado del lado cliente de Microsoft Azure Storage con Azure Key Vault.
+title: 'Tutorial: Cifrado y descifrado de blobs mediante Azure Key Vault'
+titleSuffix: Azure Storage
+description: Obtenga información sobre cómo cifrar y descifrar un blob mediante el cifrado del lado cliente con Azure Key Vault.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
-ms.date: 05/14/2019
+ms.topic: tutorial
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: 34dbcaeedb544a8a8808aab3e8e3315f1790dd9a
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: c83e56a47f4b212a5612cb9e6965ce8e73228dcb
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003430"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892896"
 ---
-# <a name="tutorial-encrypt-and-decrypt-blobs-in-microsoft-azure-storage-using-azure-key-vault"></a>Tutorial: Cifrado y descifrado de blobs en Microsoft Azure Storage con Azure Key Vault
+# <a name="tutorial---encrypt-and-decrypt-blobs-using-azure-key-vault"></a>Tutorial: Cifrado y descifrado de blobs mediante Azure Key Vault
 
-## <a name="introduction"></a>Introducción
 Este tutorial explica cómo hacer uso del cifrado de almacenamiento del lado cliente con Azure Key Vault. Se explica cómo cifrar y descifrar un blob en una aplicación de consola con estas tecnologías.
 
 **Tiempo estimado para completarla:** 20 minutos
@@ -121,7 +121,7 @@ private async static Task<string> GetToken(string authority, string resource, st
 }
 ```
 
-## <a name="access-storage-and-key-vault-in-your-program"></a>Acceso a Storage y Key Vault en el programa
+## <a name="access-azure-storage-and-key-vault-in-your-program"></a>Acceso a Azure Storage y Key Vault en el programa
 
 Agregue el siguiente código al método Main().
 
@@ -229,6 +229,7 @@ SymmetricKey sec = (SymmetricKey) cloudResolver.ResolveKeyAsync(
     "https://contosokeyvault.vault.azure.net/secrets/TestSecret2/",
     CancellationToken.None).GetAwaiter().GetResult();
 ```
+
 Eso es todo. ¡Disfrute!
 
 ## <a name="next-steps"></a>Pasos siguientes

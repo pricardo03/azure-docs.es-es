@@ -1,18 +1,18 @@
 ---
-title: Cómo usar la herramienta de etiquetado de datos de Azure Machine Learning
+title: Etiquetado de imágenes en un proyecto de etiquetado
 title.suffix: Azure Machine Learning
-description: En este artículo se enseña cómo usar las herramientas de etiquetado de datos en un proyecto de etiquetado de Azure Machine Learning.
+description: Obtenga información sobre el uso de las herramientas de etiquetado de datos en un proyecto de etiquetado de Azure Machine Learning.
 author: lobrien
 ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: bc7eaeefcef042417b29eb7c887cc19acf8c5c02
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: b36eed1918be2c769bcf74c0d8dee09a5bd62756
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688230"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978141"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Etiquetado de imágenes en un proyecto de etiquetado
 
@@ -108,7 +108,7 @@ Después de crear los rectángulos de selección de una imagen, seleccione **Sub
 
 ## <a name="finish-up"></a>Finalizar
 
-Cuando se envía una página de datos etiquetados, Azure envía datos nuevos sin etiquetar desde una cola de trabajo. Si no hay más datos sin etiquetar disponibles, verá un mensaje de aviso junto con un vínculo a la página principal del portal.
+Cuando se envía una página de datos etiquetados, Azure asigna datos nuevos sin etiquetar desde una cola de trabajo. Si no hay más datos sin etiquetar disponibles, verá un mensaje de aviso junto con un vínculo a la página principal del portal.
 
 Cuando haya terminado de etiquetar, seleccione su nombre en la esquina superior derecha del portal de etiquetado y, a continuación, seleccione **sign-out** (Cerrar sesión). Si no lo hace, Azure acabará finalizando su "tiempo de espera" y asignará sus datos a otro etiquetador.
 

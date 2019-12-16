@@ -1,28 +1,24 @@
 ---
-title: Escenarios de autenticación en la Plataforma de identidad de Microsoft | Azure
+title: Escenarios de autenticación para la Plataforma de identidad de Microsoft | Azure
 description: Más información sobre los flujos de autenticación y los escenarios de aplicaciones para la plataforma de identidad de Microsoft. Más información sobre los diferentes tipos de aplicaciones que pueden autenticar identidades, adquirir tokens y llamar a API protegidas.
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/27/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24c891c3de9126de6b833dea30c78c14b709384d
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 969c7b6c86e09ec73ccf1ffa5cc4dc9703a3d25c
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687749"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74963807"
 ---
 # <a name="authentication-flows-and-application-scenarios"></a>Flujos de autenticación y escenarios de aplicaciones
 

@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 08/12/2019
-ms.openlocfilehash: c803de599f6be98512b15e927c6d15f1c7d95ff1
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 3ece5a9d225e48654a0a3a96c3b7b78327565841
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515744"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975183"
 ---
 # <a name="quickstart-ingest-sample-data-into-azure-data-explorer"></a>Inicio rápido: Ingesta de datos de ejemplo en el Explorador de datos de Azure
 
@@ -25,7 +25,7 @@ En este artículo, se muestra cómo ingerir (cargar) datos de ejemplo en una bas
 
 [Base de datos y clúster de prueba](create-cluster-database-portal.md)
 
-## <a name="ingest-data"></a>Introducción de datos
+## <a name="ingest-data"></a>Ingerir datos
 
 El conjunto de datos de ejemplo de **StormEvents** contiene datos relacionados con el tiempo de los [National Centers for Environmental Information](https://www.ncdc.noaa.gov/stormevents/).
 
@@ -35,11 +35,14 @@ El conjunto de datos de ejemplo de **StormEvents** contiene datos relacionados c
 
 1. En el cuadro de diálogo **Agregar clúster**, escriba la URL del clúster con el formato `https://<ClusterName>.<Region>.kusto.windows.net/` y después haga clic en **Agregar**.
 
-1. Pegue el siguiente comando y haga clic en **Ejecutar**.
+1. Pegue el siguiente comando y seleccione **Ejecutar** para crear una tabla de StormEvents.
 
     ```Kusto
     .create table StormEvents (StartTime: datetime, EndTime: datetime, EpisodeId: int, EventId: int, State: string, EventType: string, InjuriesDirect: int, InjuriesIndirect: int, DeathsDirect: int, DeathsIndirect: int, DamageProperty: int, DamageCrops: int, Source: string, BeginLocation: string, EndLocation: string, BeginLat: real, BeginLon: real, EndLat: real, EndLon: real, EpisodeNarrative: string, EventNarrative: string, StormSummary: dynamic)
+    ```
+1. Pegue el siguiente comando y seleccione **Ejecutar** para ingerir datos en la tabla de StormEvents.
 
+    ```Kusto
     .ingest into table StormEvents h'https://kustosamplefiles.blob.core.windows.net/samplefiles/StormEvents.csv?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D' with (ignoreFirstRecord=true)
     ```
 

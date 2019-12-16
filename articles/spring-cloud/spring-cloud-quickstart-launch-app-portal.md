@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 11/4/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 891952000f633d7d873c6d76c475916acc8ac4ec
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: a96429a84fab10c033cc18a2c35edb4b2a056924
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74708843"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895385"
 ---
 # <a name="quickstart-launch-an-azure-spring-cloud-application-using-the-azure-portal"></a>Inicio rápido: Inicio de una aplicación de Azure Spring Cloud desde Azure Portal
 
@@ -148,4 +148,6 @@ En este tutorial, ha aprendido a hacer lo siguiente:
 > * Asignar un punto de conexión público a la puerta de enlace de aplicaciones
 
 > [!div class="nextstepaction"]
-> [Preparación de la aplicación de Azure Spring Cloud para la implementación](spring-cloud-tutorial-prepare-app-deployment.md)
+> [Preparación de la aplicación Azure Spring Cloud para la implementación](spring-cloud-tutorial-prepare-app-deployment.md)
+
+Hay más ejemplos disponibles en GitHub: [Ejemplos de Azure Spring Cloud](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/service-binding-cosmosdb-sql).

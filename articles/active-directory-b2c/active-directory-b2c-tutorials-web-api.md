@@ -1,5 +1,6 @@
 ---
-title: 'Tutorial: Concesión de acceso a una API web de ASP.NET mediante Azure Active Directory B2C'
+title: 'Tutorial: Concesión de acceso a una API web de ASP.NET'
+titleSuffix: Azure AD B2C
 description: Tutorial sobre cómo usar Active Directory B2C para proteger una API web de ASP.NET y llamarla desde una aplicación web para ASP.NET.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 0cd2eff7e3fafc1a6f3418a1f86629cfb1584e89
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: f9f773beb679b4f31e2b735fd0d74fc1b5dae2dd
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73641749"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950173"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-web-api-using-azure-active-directory-b2c"></a>Tutorial: Concesión de acceso a una API web de ASP.NET mediante Azure Active Directory B2C
 

@@ -1,27 +1,24 @@
 ---
-title: 'Configuración de una aplicación para acceder a las API web: plataforma de identidad de Microsoft'
+title: 'Configuración de una aplicación para acceder a las API web: Plataforma de identidad de Microsoft | Azure'
 description: Obtenga información acerca de cómo configurar una aplicación registrada con la plataforma de identidad de Microsoft para incluir los identificadores URI de redireccionamiento, las credenciales o los permisos para acceder a las API web.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/07/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, aragra, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: afa757020ff6de3be23403b78fd9a12c2de97016
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: ec5fe8e93c9032a07c1defe5b28753e0f520a320
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74106614"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74963340"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-web-apis"></a>Inicio rápido: Configuración de una aplicación cliente para tener acceso a las API web
 

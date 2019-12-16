@@ -1,6 +1,6 @@
 ---
 title: Configuración de Azure IoT Hub Device Provisioning mediante una plantilla de Azure Resource Manager
-description: 'Inicio rápido de Azure: configuración de Azure IoT Hub Device Provisioning Service mediante una plantilla'
+description: 'Inicio rápido de Azure: Configuración de Azure IoT Hub Device Provisioning Service (DPS) mediante una plantilla'
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2019
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: b40e126ca23190fbe50a717016b18719be6950e2
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 482401b75cadf44e2cef03cced8dd216d0980524
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74276377"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74969588"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>Inicio rápido: Configuración del servicio IoT Hub Device Provisioning con una plantilla de Azure Resource Manager
 

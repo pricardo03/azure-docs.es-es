@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/13/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 63cc4b902c0bd0281228e23076be6e0a18461597
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 4d137a96a967e017c67da7dfabf25502de32ba7a
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72241428"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74970050"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-salesforce"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Salesforce
 
@@ -46,9 +46,9 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 
 * Salesforce admite el inicio de sesión único iniciado por **SP**
 
-* Salesforce admite el aprovisionamiento de usuarios **Just-In-Time**
+* Salesforce admite el [aprovisionamiento y desaprovisionamiento **automático** de usuarios](salesforce-provisioning-tutorial.md) (recomendado).
 
-* Salesforce admite el [**aprovisionamiento** automático de usuarios](salesforce-provisioning-tutorial.md)
+* Salesforce admite el aprovisionamiento de usuarios **Just-In-Time**
 
 * Ahora se puede configurar la aplicación móvil Salesforce con Azure AD para habilitar el inicio de sesión único. En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 

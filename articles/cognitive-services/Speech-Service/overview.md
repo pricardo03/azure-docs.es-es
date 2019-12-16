@@ -1,7 +1,7 @@
 ---
-title: ¿Qué son los servicios Voz?
+title: ¿Qué es Speech Service?
 titleSuffix: Azure Cognitive Services
-description: Los servicios de voz son la unificación de los servicios de voz a texto, texto a voz y traducción de voz en una única suscripción de Azure. Es fácil agregar voz a sus aplicaciones, herramientas y dispositivos con el SDK de Voz, el SDK de dispositivos de voz o las API de REST.
+description: El Servicio de voz es la unificación de las funcionalidades de conversión de voz a texto, conversión de texto a voz y traducción de voz en una sola suscripción de Azure. Es fácil agregar voz a sus aplicaciones, herramientas y dispositivos con el SDK de Voz, el SDK de dispositivos de voz o las API de REST.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,21 +10,21 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 11/05/2019
 ms.author: erhopf
-ms.openlocfilehash: b1c32042fcb70ff16bb9d014a9f3546f4435e83f
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: c366beb80eda7087f1f74fffbcfbf8b143676f32
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075773"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74995905"
 ---
-# <a name="what-are-the-speech-services"></a>¿Qué son los servicios Voz?
+# <a name="what-is-the-speech-service"></a>¿Qué es Speech Service?
 
-Los servicios de voz son la unificación de los servicios de voz a texto, texto a voz y traducción de voz en una única suscripción de Azure. Es fácil habilitar voz en sus aplicaciones, herramientas y dispositivos con el [SDK de voz](speech-sdk-reference.md), el [SDK de dispositivos de voz](https://aka.ms/sdsdk-quickstart) o las [API de REST](rest-apis.md).
+El Servicio de voz es la unificación de las funcionalidades de conversión de voz a texto, conversión de texto a voz y traducción de voz en una sola suscripción de Azure. Es fácil habilitar voz en sus aplicaciones, herramientas y dispositivos con el [SDK de voz](speech-sdk-reference.md), el [SDK de dispositivos de voz](https://aka.ms/sdsdk-quickstart) o las [API de REST](rest-apis.md).
 
 > [!IMPORTANT]
-> Los servicios de voz han reemplazado Bing Speech API, Translator Speech y Custom Speech. Consulte _Guías de procedimientos > Migración_ para obtener instrucciones de migración.
+> El Servicio de voz ha reemplazado a Bing Speech API, Translator Speech y Custom Speech. Consulte _Guías de procedimientos > Migración_ para obtener instrucciones de migración.
 
-Estas características conforman los servicios de voz de Azure. Use los vínculos en esta tabla para obtener más información sobre los casos de uso comunes para cada característica o examinar la referencia de API.
+Estas características conforman el Servicio de voz. Use los vínculos en esta tabla para obtener más información sobre los casos de uso comunes para cada característica o examinar la referencia de API.
 
 | Servicio | Característica | DESCRIPCIÓN | SDK | REST |
 | ------- | ------- | ----------- | --- | ---- |
@@ -35,11 +35,11 @@ Estas características conforman los servicios de voz de Azure. Use los vínculo
 | [Texto a voz](text-to-speech.md) | Texto a voz | Texto a voz convierte el texto de entrada en voz sintetizada similar a la humana mediante el [Lenguaje de marcado de síntesis de voz (SSML)](text-to-speech.md#speech-synthesis-markup-language-ssml). Elija entre voces estándar y voces neuronales (consulte [Compatibilidad de idioma](language-support.md)). | [Sí](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Sí](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 |         | [Creación de voces personalizadas](#customize-your-speech-experience) | Cree fuentes de voz personalizadas únicas para su marca o producto. | Sin | [Sí](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | [Traducción de voz](speech-translation.md) | Traducción de voz | La traducción de voz habilita la traducción de voz en varios idiomas en tiempo real en sus aplicaciones, herramientas y dispositivos. Use este servicio para la traducción de voz a voz y voz a texto. | [Sí](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | Sin |
-| [Asistentes de voz](voice-assistants.md) | Asistentes de voz | Los asistentes de voz que utilizan los servicios de voz de Azure permiten a los desarrolladores crear interfaces de conversación naturales, similares a la humana, para sus aplicaciones y experiencias. El servicio del asistente de voz proporciona una interacción rápida y confiable entre un dispositivo y una implementación de asistente que usa el canal de voz de Direct Line Speech de Bot Framework o el servicio integrado de comandos personalizados (versión preliminar) para la finalización de tareas. | [Sí](voice-assistants.md) | Sin |
+| [Asistentes de voz](voice-assistants.md) | Asistentes de voz | Los asistentes de voz que utilizan el Servicio de voz permiten a los desarrolladores crear interfaces de conversación naturales, similares a la humana, para sus aplicaciones y experiencias. El servicio del asistente de voz proporciona una interacción rápida y confiable entre un dispositivo y una implementación de asistente que usa el canal de voz de Direct Line Speech de Bot Framework o el servicio integrado de comandos personalizados (versión preliminar) para la finalización de tareas. | [Sí](voice-assistants.md) | Sin |
 
 ## <a name="news-and-updates"></a>Noticias y actualizaciones
 
-Obtenga información sobre las novedades con los servicios de voz de Azure.
+Obtenga información sobre las novedades del Servicio de voz.
 
 - Septiembre de 2019
   - SDK de Voz versión 1.7.0 publicado. Para obtener una lista completa de actualizaciones, mejoras y problemas conocidos, consulte las [Notas de la versión](releasenotes.md).
@@ -53,7 +53,7 @@ Obtenga información sobre las novedades con los servicios de voz de Azure.
   - Speech SDK versión 1.5.1 publicado. Para obtener una lista completa de actualizaciones, mejoras y problemas conocidos, consulte las [Notas de la versión](releasenotes.md).
   - Speech SDK versión 1.5.0 publicado. Para obtener una lista completa de actualizaciones, mejoras y problemas conocidos, consulte las [Notas de la versión](releasenotes.md).
 
-## <a name="try-speech-services"></a>Prueba de los servicios de voz
+## <a name="try-the-speech-service"></a>Prueba del Servicio de voz
 
 Ofrecemos guías de inicio rápido en los lenguajes de programación más populares, cuyo diseño individual le permite ejecutar código en menos de 10 minutos. En esta tabla se incluyen las guías de inicio rápido más populares para cada característica. Use el menú de navegación izquierdo para explorar lenguajes y plataformas adicionales.
 
@@ -66,7 +66,7 @@ Ofrecemos guías de inicio rápido en los lenguajes de programación más popula
 > [!NOTE]
 > Voz a texto y texto a voz también tienen asociados puntos de conexión REST e inicios rápidos.
 
-Una vez que haya tenido la oportunidad de usar los servicios de voz, pruebe nuestro tutorial, que le enseña a reconocer intenciones a partir de contenido de voz mediante el SDK de voz y LUIS.
+Una vez que haya tenido la oportunidad de usar el servicio de voz, pruebe nuestro tutorial, que le enseña a reconocer intenciones a partir de contenido de voz mediante el SDK de voz y LUIS.
 
 - [Tutorial: Reconocimiento de intenciones a partir de contenido de voz con el SDK de voz y LUIS, C#](how-to-recognize-intents-from-speech-csharp.md)
 - [Tutorial: activación del bot con voz mediante el SDK de Speech, C#](tutorial-voice-enable-your-bot-speech-sdk.md)
@@ -74,7 +74,7 @@ Una vez que haya tenido la oportunidad de usar los servicios de voz, pruebe nues
 
 ## <a name="get-sample-code"></a>Obtención de código de ejemplo
 
-El código de ejemplo está disponible en GitHub para cada uno de los servicios de voz de Azure. En estos ejemplos se tratan escenarios comunes como la lectura de audio de un archivo o flujo, el reconocimiento continuo y de una sola emisión, y el trabajo con modelos personalizados. Use estos vínculos para ver ejemplos de SDK y REST:
+Hay código de ejemplo para el Servicio de voz disponible en GitHub. En estos ejemplos se tratan escenarios comunes como la lectura de audio de un archivo o flujo, el reconocimiento continuo y de una sola emisión, y el trabajo con modelos personalizados. Use estos vínculos para ver ejemplos de SDK y REST:
 
 - [Ejemplos de conversión de voz a texto, texto a voz y traducción de voz (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
 - [Ejemplos de transcripción de Azure Batch (REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch)
@@ -83,7 +83,7 @@ El código de ejemplo está disponible en GitHub para cada uno de los servicios 
 
 ## <a name="customize-your-speech-experience"></a>Personalización de su experiencia de voz
 
-Los servicios de voz de Azure funcionan bien con los modelos integrados; sin embargo, es posible que desee personalizar y optimizar más la experiencia para su producto o entorno. Las opciones de personalización abarcan desde la optimización de modelos acústicos a fuentes de voz únicas para su marca. Una vez que haya creado un modelo personalizado, podrá usarlo con cualquiera de los servicios de voz de Azure.
+El Servicio de voz funciona bien con los modelos integrados; sin embargo, es posible que desee personalizar y optimizar más la experiencia para su producto o entorno. Las opciones de personalización abarcan desde la optimización de modelos acústicos a fuentes de voz únicas para su marca.
 
 | Speech Service | Plataforma | DESCRIPCIÓN |
 | -------------- | -------- | ----------- |
@@ -92,7 +92,7 @@ Los servicios de voz de Azure funcionan bien con los modelos integrados; sin emb
 
 ## <a name="reference-docs"></a>Documentos de referencia
 
-- [Speech SDK](speech-sdk-reference.md)
+- [Acerca del SDK de Voz](speech-sdk-reference.md)
 - [Speech Devices SDK](speech-devices-sdk.md)
 - [API REST: Speech-to-text](rest-speech-to-text.md) (API de REST: Voz a texto)
 - [API REST: Text-to-speech](rest-text-to-speech.md) (API de REST: Texto a voz)
