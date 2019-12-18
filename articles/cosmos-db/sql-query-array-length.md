@@ -1,18 +1,18 @@
 ---
 title: ARRAY_LENGTH en el lenguaje de consulta de Azure Cosmos DB
-description: Obtenga información sobre la función del sistema de SQL ARRAY_LENGTH en Azure Cosmos DB.
+description: Obtenga información sobre cómo la función del sistema SQL ARRAY_LENGTH en Azure Cosmos DB devuelve el número de elementos de la expresión de matriz especificada.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: b27b3f09212047e2e8937a4bf649fa3335e15cb2
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 9a8bf33befdd842a2979151fef3d54679ee03de1
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71348663"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74871778"
 ---
 # <a name="array_length-azure-cosmos-db"></a>ARRAY_LENGTH (Azure Cosmos DB)
  Devuelve el número de elementos de la expresión de matriz especificada.  

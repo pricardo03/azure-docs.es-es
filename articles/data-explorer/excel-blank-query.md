@@ -7,12 +7,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: 55198e0c38c2922d69b68d9ce62e16ea25e9cc44
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 4999000e2084922b43b8085034f545d4b5c644a9
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70174459"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849095"
 ---
 # <a name="visualize-data-using-an-azure-data-explorer-kusto-query-imported-into-microsoft-excel"></a>Visualización de datos mediante una consulta de Kusto de Azure Data Explorer importada en Microsoft Excel
 
@@ -22,7 +22,7 @@ Azure Data Explorer proporciona dos opciones para conectarse a datos de Excel: u
 
 * Si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar.
 * Una cuenta de correo electrónico organizativa que sea miembro de Azure Active Directory, para que pueda conectarse al [clúster de ayuda de Azure Data Explorer](https://dataexplorer.azure.com/clusters/help/databases/Samples) 
-.<br>o</br>
+.<br>or</br>
 * Cree [una base de datos y un clúster de prueba](create-cluster-database-portal.md) e inicie sesión en la [aplicación de interfaz de usuario web de Azure Data Explorer](https://dataexplorer.azure.com/).
 
 ## <a name="define-kusto-query-as-an-excel-data-source"></a>Definición de la consulta de Kusto como origen de datos de Excel
@@ -68,3 +68,7 @@ Azure Data Explorer proporciona dos opciones para conectarse a datos de Excel: u
 1. Ahora los datos están en Excel. Use el botón **Actualizar** para actualizar la lista.
 
     ![Visualización de los datos en Excel](media/excel-blank-query/data-in-excel.png)
+
+## <a name="next-steps"></a>Pasos siguientes
+
+[Visualización de datos mediante el conector de Azure Data Explorer para Excel](excel-connector.md)

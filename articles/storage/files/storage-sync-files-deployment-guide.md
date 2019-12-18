@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 593c9ea9c37cc5684e85604340f8aae3d84d9afb
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 4f9a2842f99c7f8b0bb9f820584fb2cd4e41a2b2
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546361"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927890"
 ---
 # <a name="deploy-azure-file-sync"></a>Implementación de Azure File Sync
 Use Azure File Sync para centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma Windows Server en una caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a sus datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -400,6 +400,10 @@ Actualmente, el enfoque de inicialización previa tiene algunas limitaciones:
 - Después de crearse el punto de conexión en la nube, Azure File Sync ejecuta un proceso para detectar los archivos en la nube antes de llevar a cabo la sincronización inicial. El tiempo necesario para completar este proceso depende de distintos factores, como la velocidad de la red, el ancho de banda disponible y el número de archivos y carpetas. Para una estimación aproximada del lanzamiento de la versión preliminar, el proceso de detección se ejecuta a una velocidad aproximada de diez archivos/s. Por lo tanto, incluso si la inicialización previa se ejecuta rápido, el tiempo total para obtener un sistema totalmente operativo puede ser considerablemente mayor cuando los datos se inicializan previamente en la nube.
 
 ## <a name="self-service-restore-through-previous-versions-and-vss-volume-shadow-copy-service"></a>Autoservicio de restauración a través de versiones anteriores y VSS (Servicio de instantáneas de volumen)
+
+> [!IMPORTANT]
+> La siguiente información solo se puede usar con la versión 9 (o superior) del agente de sincronización de almacenamiento. Las versiones inferiores a la 9 no tendrán los cmdlets de StorageSyncSelfService.
+
 Versiones anteriores es una característica de Windows que permite el uso de instantáneas de VSS del servidor de un volumen para presentar versiones restaurables de un archivo a un cliente de SMB.
 Esto permite un escenario eficaz, comúnmente denominado autoservicio de restauración, directamente para los trabajadores de la información en lugar de depender de la restauración de un administrador de TI.
 

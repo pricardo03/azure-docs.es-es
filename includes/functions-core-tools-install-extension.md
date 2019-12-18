@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 05/25/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: ffd9e54c0f39b4256dbc83a336328797a8b53c45
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: a050ce62f745591608249b41ba56992d8fd35204
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67608360"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74935864"
 ---
 ## <a name="register-extensions"></a>Registro de las extensiones
 
-A excepción de los desencadenadores de HTTP y del temporizador, los enlaces de funciones en la versión 2.x de runtime se implementan como paquetes de extensión. En la versión 2.x del runtime de Azure Functions, debe registrar explícitamente las extensiones de los tipos de enlace que use en sus funciones. Las excepciones son los enlaces de HTTP y los desencadenadores de temporizador, que no requieren extensiones.
+A excepción de los desencadenadores de HTTP y del temporizador, los enlaces de Functions en las versiones 2.x y superiores del runtime se implementan como paquetes de extensión. Tanto en la versión 2.x del runtime de Azure Functions como en las posteriores, debe registrar explícitamente las extensiones de los tipos de enlace que use en sus funciones. Las excepciones son los enlaces de HTTP y los desencadenadores de temporizador, que no requieren extensiones.
 
 Puede instalar las extensiones de enlace individualmente o puede agregar una referencia de un conjunto de extensiones al archivo del proyecto host.json. Los conjuntos de extensiones eliminan la posibilidad de tener problemas de compatibilidad con los paquetes cuando se usan varios tipos de enlace. Este el enfoque recomendado para registrar extensiones de enlace. Los conjuntos de extensiones también eliminan el requisito de instalar el SDK de .NET Core 2.x. 
 

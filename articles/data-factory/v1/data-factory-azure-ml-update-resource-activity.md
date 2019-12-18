@@ -1,6 +1,6 @@
 ---
 title: Actualización de los modelos de Machine Learning con Azure Data Factory
-description: Describe cómo crear canalizaciones predictivas con Factoría de datos de Azure y Azure Machine Learning
+description: Describe cómo crear canalizaciones predictivas con Azure Data Factory y Azure Machine Learning
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: 190a4e704b002a4d6d4876d048c693a5fffe0114
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: afc79badd19fa180e631f1f8fa9735567a0b1e33
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683117"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978720"
 ---
 # <a name="updating-azure-machine-learning-models-using-update-resource-activity"></a>Actualización de los modelos de Azure Machine Learning con la actividad de actualización de recurso
 
@@ -41,8 +41,8 @@ Este artículo complementa el artículo de integración principal Azure Data Fac
 ## <a name="overview"></a>Información general
 Pasado algún tiempo, los modelos predictivos en los experimentos de puntuación de Aprendizaje automático de Azure tienen que volver a entrenarse con nuevos conjuntos de datos de entrada. Después de terminar con el nuevo entrenamiento, tendrá que actualizar el servicio web de puntuación con el modelo de Aprendizaje automático que volvió a entrenar. Los pasos más comunes para habilitar el nuevo entrenamiento y actualizar los modelos de Aprendizaje automático de Azure mediante los servicios web son:
 
-1. Crear un experimento en [Azure ML Studio](https://studio.azureml.net).
-2. Cuando esté satisfecho con el modelo, use Azure ML Studio para publicar servicios web para el **experimento de entrenamiento** y el **experimento predictivo o de puntuación**.
+1. Crear un experimento en [Azure Machine Learning Studio (clásico)](https://studio.azureml.net).
+2. Cuando esté satisfecho con el modelo, use Azure Machine Learning Studio (clásico) para publicar los servicios web tanto para el **experimento de entrenamiento** como para el **experimento predictivo** o de puntuación.
 
 En la tabla siguiente se describen los servicios web empleados en este ejemplo.  Consulte [Volver a entrenar modelos de Machine Learning mediante programación](../../machine-learning/machine-learning-retrain-models-programmatically.md) para obtener información detallada.
 
@@ -88,7 +88,7 @@ Si el servicio web es el nuevo tipo de servicio web que expone un punto de conex
 https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resource-group-name}/providers/Microsoft.MachineLearning/webServices/{web-service-name}?api-version=2016-05-01-preview. 
 ```
 
-Puede obtener valores para los marcadores de posición en la dirección URL al consultar el servicio web en el [Portal de servicios web Azure Machine Learning](https://services.azureml.net/). El nuevo tipo de punto de conexión del recurso de actualización requiere un token AAD (Azure Active Directory). Especifique **servicePrincipalId** y **servicePrincipalKey**en el servicio vinculado AzureML. Consulte [Uso del portal para crear una aplicación de Active Directory y una entidad de servicio con acceso a los recursos](../../active-directory/develop/howto-create-service-principal-portal.md). Esta es la definición de un servicio vinculado AzureML de ejemplo: 
+Puede obtener valores para los marcadores de posición en la dirección URL al consultar el servicio web en el [Portal de servicios web Azure Machine Learning](https://services.azureml.net/). El nuevo tipo de punto de conexión del recurso de actualización requiere un token AAD (Azure Active Directory). Especifique **servicePrincipalId** y **servicePrincipalKey** en el servicio vinculado Azure Machine Learning. Consulte [Uso del portal para crear una aplicación de Active Directory y una entidad de servicio con acceso a los recursos](../../active-directory/develop/howto-create-service-principal-portal.md). Esta es la definición de un servicio vinculado AzureML de ejemplo: 
 
 ```json
 {
@@ -138,7 +138,7 @@ Esta es la definición de JSON de ejemplo del servicio vinculado:
 ```
 
 ### <a name="training-input-dataset"></a>Conjunto de datos de entrada de entrenamiento:
-El siguiente conjunto de datos representa los datos de entrenamiento de entrada para el servicio web de entrenamiento de Aprendizaje automático de Azure. La actividad de ejecución de lotes de Azure Machine Learning toma este conjunto de datos como entrada.
+El siguiente conjunto de datos representa los datos de entrenamiento de entrada para el servicio web de entrenamiento de Azure Machine Learning. La actividad de ejecución de lotes de Azure Machine Learning toma este conjunto de datos como entrada.
 
 ```JSON
 {
@@ -192,7 +192,7 @@ El siguiente conjunto de datos representa el archivo iLearner de salida del serv
 }
 ```
 
-### <a name="linked-service-for-azure-ml-training-endpoint"></a>Servicio vinculado para el punto de conexión de entrenamiento de Aprendizaje automático de Azure
+### <a name="linked-service-for-azure-machine-learning-training-endpoint"></a>Servicio vinculado para el punto de conexión de entrenamiento de Azure Machine Learning
 El siguiente fragmento JSON define un servicio vinculado de Azure Machine Learning que apunta al punto de conexión predeterminado del servicio web de entrenamiento.
 
 ```JSON
@@ -208,12 +208,12 @@ El siguiente fragmento JSON define un servicio vinculado de Azure Machine Learni
 }
 ```
 
-En **Azure ML Studio**, haga lo siguiente para obtener los valores de **mlEndpoint** y **apiKey**:
+En **Azure Machine Learning Studio (clásico)** , haga lo siguiente para obtener los valores de **mlEndpoint** y **apiKey**:
 
 1. Haga clic en **SERVICIOS WEB** en el menú de la izquierda.
 2. En la lista de servicios web, haga clic en el **servicio web de entrenamiento** .
 3. Haga clic en Copiar junto al cuadro de texto **Clave de API** . Pegue la clave del portapapeles en el editor de JSON de Data Factory.
-4. En **Azure ML Studio**, haga clic en el vínculo **EJECUCIÓN DE LOTES**.
+4. En **Azure Machine Learning Studio (clásico)** , haga clic en el vínculo **EJECUCIÓN DE LOTES**.
 5. Copie el **URI de solicitud** de la sección **Solicitar** y péguelo en el editor de JSON de Data Factory.   
 
 ### <a name="linked-service-for-azure-ml-updatable-scoring-endpoint"></a>Servicio vinculado para el punto de conexión de puntuación actualizable de Aprendizaje automático de Azure:

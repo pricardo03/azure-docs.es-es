@@ -1,6 +1,6 @@
 ---
 title: Introducción al empaquetado dinámico de Azure Media Services | Microsoft Docs
-description: El tema proporciona información general sobre el empaquetado dinámico.
+description: En este artículo se proporciona información general sobre el empaquetado dinámico de Microsoft Azure Media Services.
 author: Juliako
 manager: femila
 editor: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: juliako
-ms.openlocfilehash: 4b4f2ec779c37f78b371c27df80c354eccb41e7a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 079094965775c140c0343da98e40fd008995d45a
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64869429"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74901180"
 ---
 # <a name="dynamic-packaging"></a>Empaquetado dinámico
 

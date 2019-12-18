@@ -4,12 +4,13 @@ description: Síntomas, causas y soluciones de errores de Azure Backup relaciona
 ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: c4ee8cbeeec21c4af0cc3a7fd83844bc8c676add
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.service: backup
+ms.openlocfilehash: 8331d74528703df1d7c56f25af7df0f53cd1f9be
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172600"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74996279"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Solución de problemas de Azure Backup: Problemas con el agente o la extensión
 
@@ -22,10 +23,11 @@ En este artículo se proporcionan los pasos de solución de problemas que pueden
 **Código de error**: UserErrorGuestAgentStatusUnavailable <br>
 **Mensaje de error**: El agente de máquina virtual no se puede comunicar con Azure Backup<br>
 
-El agente de máquina virtual de Azure podría estar detenido, obsoleto, en un estado incoherente o no instalado e impedir que el servicio Azure Backup desencadene instantáneas.  
+El agente de máquina virtual de Azure podría estar detenido, obsoleto, en un estado incoherente o no instalado e impedir que el servicio Azure Backup desencadene instantáneas.
 
-- Si el agente de máquina virtual está detenido o se encuentra en un estado incoherente, **reinícielo** y vuelva a intentar la operación de copia de seguridad (pruebe a realizar una copia de seguridad a petición). Para conocer los pasos necesarios para reiniciar el agente, consulte [Máquinas virtuales Windows](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms) o [Máquinas virtuales Linux](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent).
-- Si el agente de máquina virtual no está instalado o está obsoleto, instale o actualice el agente de máquina virtual y vuelva a intentar la operación de copia de seguridad. Para conocer los pasos necesarios para instalar o actualizar el agente, consulte [Máquinas virtuales Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) o [Máquinas virtuales Linux](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent).  
+- **Abra Azure Portal > VM > Configuración > hoja Propiedades** > asegúrese de que el valor de **Estado** sea **En ejecución** y que **Estado del agente** sea **Listo**. Si el agente de máquina virtual está detenido o se encuentra en un estado incoherente, reinicie el agente.<br>
+  - Para máquinas virtuales Windows, siga estos [pasos](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms) para reiniciar el agente invitado.<br>
+  - En el caso de las máquinas virtuales Linux, siga estos [pasos](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms) para reiniciar el agente invitado.
 
 ## <a name="guestagentsnapshottaskstatuserror---could-not-communicate-with-the-vm-agent-for-snapshot-status"></a>GuestAgentSnapshotTaskStatusError: No se pudo comunicar con el agente de máquina virtual para el estado de la instantánea
 
@@ -41,6 +43,18 @@ Después de registrar y programar una máquina virtual para el servicio de Azure
 **Causa 3: [no se puede recuperar el estado de las instantáneas o no se pueden tomar instantáneas](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**
 
 **Causa 4: [no se puede actualizar ni cargar la extensión de copia de seguridad](#the-backup-extension-fails-to-update-or-load)**
+
+**Causa 5: [No se han establecido las opciones de configuración del agente de máquina virtual (para máquinas virtuales Linux)](#vm-agent-configuration-options-are-not-set-for-linux-vms)**
+
+## <a name="usererrorvmprovisioningstatefailed---the-vm-is-in-failed-provisioning-state"></a>UserErrorVmProvisioningStateFailed: la máquina virtual está en un estado de aprovisionamiento con errores
+
+**Código de error**: UserErrorVmProvisioningStateFailed<br>
+**Mensaje de error**: la máquina virtual está en un estado de aprovisionamiento con errores<br>
+
+Este error se produce cuando uno de los errores de extensión deja a la máquina virtual en un estado de aprovisionamiento con errores.<br>Abra **Azure Portal > VM > Configuración > Extensiones > Estado de las extensiones** y compruebe que el estado de todas las extensiones es **Aprovisionamiento realizado correctamente**.
+
+- Si la extensión VMSnapshot está en un estado con errores, haga clic con el botón derecho en la extensión con errores y elimínela. Desencadene una copia de seguridad ad-hoc, esto volverá a instalar las extensiones y ejecutará el trabajo de copia de seguridad.  <br>
+- Si cualquier otra extensión está en un estado con errores, puede interferir con la copia de seguridad. Asegúrese que se resuelven esos problemas de extensiones y vuelva a intentar la operación de copia de seguridad.  
 
 ## <a name="usererrorrpcollectionlimitreached---the-restore-point-collection-max-limit-has-reached"></a>UserErrorRpCollectionLimitReached: Se ha alcanzado el límite máximo de colecciones del punto de restauración
 
@@ -183,6 +197,11 @@ Si requiere el registro detallado para waagent, siga estos pasos:
 1. En el archivo /etc/waagent.conf, busque la línea siguiente: **Habilitar el registro detallado (s/n)**
 2. Cambie el valor de **Logs.Verbose** de *n* a *y*.
 3. Guarde el cambio y, a continuación, reinicie waagent siguiendo los pasos descritos anteriormente en esta sección.
+
+### <a name="vm-agent-configuration-options-are-not-set-for-linux-vms"></a>No se han establecido las opciones de configuración del agente de máquina virtual (para máquinas virtuales Linux)
+
+Un archivo de configuración (/etc/waagent.conf) controla las acciones de waagent. Las opciones del archivo de configuración **Extensions.Enable** y **Provisioning.Agent** se deben establecer en **y** para que la copia de seguridad funcione.
+Para obtener una lista completa de las opciones del archivo de configuración del agente de máquina virtual, consulte <https://github.com/Azure/WALinuxAgent#configuration-file-options>.
 
 ### <a name="the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>No se puede recuperar el estado de las instantáneas o no se pueden tomar instantáneas
 

@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 03/05/2019
 ms.author: cshoe
-ms.openlocfilehash: 93a8dc600e8fadb16df8e82fbe02a1b186191d12
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 2940f9e2adff82c100ed347431e8c1d27c30202e
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227253"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74924441"
 ---
 # <a name="azure-iot-hub-bindings-for-azure-functions"></a>Enlaces de Azure IoT Hub para Azure Functions
 
@@ -24,9 +24,9 @@ En Azure Functions versión 1.x, los enlaces de IoT Hub se proporcionan en el pa
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
-## <a name="packages---functions-2x"></a>Paquetes: Functions 2.x
+## <a name="packages---functions-2x-and-higher"></a>Paquetes: Functions 2.x y versiones posteriores
 
-En Functions 2.x, use el paquete [Microsoft.Azure.WebJobs.Extensions.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs), versión 3.x. El código fuente del paquete se encuentra en el repositorio [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/master/src/Microsoft.Azure.WebJobs.Extensions.EventHubs) de GitHub.
+En Functions 2.x y versiones posteriores, use el paquete [Microsoft.Azure.WebJobs.Extensions.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs), versión 3.x. El código fuente del paquete se encuentra en el repositorio [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/master/src/Microsoft.Azure.WebJobs.Extensions.EventHubs) de GitHub.
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 

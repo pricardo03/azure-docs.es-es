@@ -1,5 +1,6 @@
 ---
-title: Ejemplos y definiciones de la API de informes de uso en Azure Active Directory B2C | Microsoft Docs
+title: Ejemplos y definiciones de la API de informes de uso
+titleSuffix: Azure AD B2C
 description: Guía y ejemplos sobre la obtención de informes en las autenticaciones multifactor, las autenticaciones y los usuarios de inquilino de Azure AD B2C.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.workload: identity
 ms.date: 08/04/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: fe7dd90bdec816ee433310a803d85c57f4892f8c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f81acf28b502965f896cd8b38767e7c2e925156c
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66508710"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74949345"
 ---
 # <a name="accessing-usage-reports-in-azure-ad-b2c-via-the-reporting-api"></a>Acceso a informes de uso en Azure AD B2C a través de la API de informes
 
@@ -29,7 +30,7 @@ Este artículo se centra en informes relacionados con el trabajo de facturación
 
 
 ## <a name="prerequisites"></a>Requisitos previos
-Antes de comenzar, debe completar los pasos de [Requisitos previos para acceder a la API de informes de Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/). Cree una aplicación, obtenga un secreto y concédale derechos de acceso a los informes del inquilino de Azure AD B2C. Aquí también se proporcionan ejemplos de *script de Bash* y *script de Python*. 
+Antes de comenzar, debe completar los pasos de [Requisitos previos para acceder a la API de informes de Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/). Cree una aplicación, obtenga un secreto y concédale derechos de acceso a los informes del inquilino de Azure AD B2C. Aquí también se proporcionan ejemplos de *script de Bash* y *script de Python*.
 
 ## <a name="powershell-script"></a>Script de PowerShell
 Este script muestra la creación de cuatro informes de uso con el parámetro `TimeStamp` y el filtro `ApplicationId`.
@@ -38,10 +39,10 @@ Este script muestra la creación de cuatro informes de uso con el parámetro `Ti
 # This script will require the Web Application and permissions setup in Azure Active Directory
 
 # Constants
-$ClientID      = "your-client-application-id-here"  
+$ClientID      = "your-client-application-id-here"
 $ClientSecret  = "your-client-application-secret-here"
 $loginURL      = "https://login.microsoftonline.com"
-$tenantdomain  = "your-b2c-tenant-domain.onmicrosoft.com"  
+$tenantdomain  = "your-b2c-tenant-domain.onmicrosoft.com"
 # Get an Oauth 2 access token based on client id, secret and tenant domain
 $body          = @{grant_type="client_credentials";resource=$resource;client_id=$ClientID;client_secret=$ClientSecret}
 $oauth         = Invoke-RestMethod -Method Post -Uri $loginURL/$tenantdomain/oauth2/token?api-version=1.0 -Body $body

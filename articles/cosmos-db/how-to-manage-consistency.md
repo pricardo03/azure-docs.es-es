@@ -1,17 +1,17 @@
 ---
 title: Aprenda a administrar la coherencia en Azure Cosmos DB
-description: Aprenda a administrar la coherencia en Azure Cosmos DB
+description: Aprenda a configurar y administrar los niveles de coherencia en Azure Cosmos DB mediante Azure Portal, el SDK de .NET, el SDK de Java y otros SDK
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/08/2019
+ms.date: 12/02/2019
 ms.author: mjbrown
-ms.openlocfilehash: bc5554e2d56987e969894ba57052d548e1499938
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 46c4c4afe737fd11c2e711a23a3355f48dbd6231
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70093300"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872084"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>Administración de los niveles de coherencia en Azure Cosmos DB
 

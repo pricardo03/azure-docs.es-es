@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 64662499b4ee782bbf04e9e706cd659e84c90eec
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 12/09/2019
+ms.openlocfilehash: 9c5f6aa2900570aa00ddbc50ec8be4dbb0d16a34
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74773084"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978056"
 ---
 # <a name="audit-logs-in-azure-database-for-mariadb"></a>Registros de auditoría en Azure Database for MariaDB
 
@@ -27,6 +27,9 @@ De forma predeterminada, el registro de auditoría está deshabilitado. Para hab
 Otros parámetros que se pueden ajustar son los siguientes:
 
 - `audit_log_events`: controla los eventos que se registrarán. Consulte la tabla a continuación para ver los eventos de auditoría específicos.
+- `audit_log_include_users`: usuarios de MariaDB que se incluirán en el registro. El valor predeterminado de este parámetro es estar vacío, lo que incluirá todos los usuarios en el registro. Este tiene una mayor prioridad que `audit_log_exclude_users`. La longitud máxima del parámetro es de 512 caracteres.
+> [!Note]
+> `audit_log_include_users` tiene mayor prioridad sobre `audit_log_exclude_users`. Por ejemplo, si `audit_log_include_users` = `demouser` y `audit_log_exclude_users` = `demouser`, el usuario se incluirá en los registros de auditoría porque `audit_log_include_users` tiene mayor prioridad.
 - `audit_log_exclude_users`: Los usuarios de MariaDB que se excluirán del registro. Permite a lo sumo cuatro usuarios. La longitud máxima del parámetro es de 256 caracteres.
 
 | **Evento** | **Descripción** |

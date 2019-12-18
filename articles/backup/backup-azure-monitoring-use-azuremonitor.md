@@ -4,12 +4,12 @@ description: Supervise las cargas de trabajo de Azure Backup y cree alertas pers
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: bdb59e5ec461288c89e4c7d036488b5eaeb9472a
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 1fb739c8d517654c7258fd3a58c93ab29602f228
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74554873"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894069"
 ---
 # <a name="monitor-at-scale-by-using-azure-monitor"></a>Supervisión a escala mediante Azure Monitor
 
@@ -51,7 +51,8 @@ Una vez que los datos estén en el área de Log Analytics, [implemente una plant
 
 ### <a name="view-azure-backup-data-by-using-log-analytics"></a>Visualización de los datos de Azure Backup mediante Log Analytics
 
-Una vez implementada la plantilla, la solución para supervisar e informar en Azure Backup se mostrará en la región resumen del área de trabajo. Para ir al resumen, siga una de estas rutas de acceso:
+> [!IMPORTANT]
+> La plantilla de informes de LA admite actualmente datos del evento heredado AzureBackupReport en modo AzureDiagnostics. Para usar esta plantilla, necesitará [configurar las opciones de diagnóstico del almacén en el modo Azure Diagnostics](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events#legacy-event). 
 
 - **Azure Monitor**: en la sección **Insights**, seleccione **Más** y, a continuación, elija el área de trabajo pertinente.
 - **Áreas de trabajo de Log Analytics**: seleccione el área de trabajo pertinente y, a continuación, en **General**, seleccione **Resumen del área de trabajo**.

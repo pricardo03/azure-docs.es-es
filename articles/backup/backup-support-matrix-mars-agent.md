@@ -3,12 +3,12 @@ title: Matriz de compatibilidad para el agente de MARS
 description: En este artículo se resume la compatibilidad con Azure Backup al realizar copias de seguridad de máquinas que ejecutan el agente de Microsoft Azure Recovery Services (MARS).
 ms.date: 08/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: 43f11bb73578187bd851f58cb6311c95b8648d08
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 26f3dde0bb20443753e2b443ffc00ee23c9124c4
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74195003"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893984"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Matriz de compatibilidad para la copia de seguridad con el agente de Microsoft Azure Recovery Services (MARS)
 
@@ -45,7 +45,7 @@ Cuando usa el agente de MARS para crear copias de seguridad de los datos, este r
 --- | ---
 Size |  El espacio libre en la carpeta de caché debe ser de entre un 5 % y un 10 % del tamaño total de los datos de copia de seguridad.
 Location | La carpeta de caché debe almacenarse de forma local en la máquina de la copia de seguridad y debe estar en línea. La carpeta de caché no debe encontrarse en un recurso compartido de red, en un soporte físico extraíble o en un volumen sin conexión.
-Carpeta | La carpeta de caché debe estar cifrada en un volumen desduplicado o en una carpeta comprimida, dispersa o con un punto de reanálisis.
+Carpeta | La carpeta de caché no debe estar cifrada en un volumen desduplicado o en una carpeta comprimida, dispersa o con un punto de reanálisis.
 Cambios de ubicación | Puede cambiar la ubicación de la caché al detener el motor de copia de seguridad (`net stop bengine`) y copiar la carpeta de caché en una nueva unidad. (Asegúrese de que esta tiene espacio suficiente). A continuación, actualice dos entradas del Registro en **HKLM\SOFTWARE\Microsoft\Windows Azure Backup** (**Config/ScratchLocation** and **Config/CloudBackupProvider/ScratchLocation**) en la nueva ubicación y reinicie el motor.
 
 ## <a name="networking-and-access-support"></a>Compatibilidad con redes y acceso

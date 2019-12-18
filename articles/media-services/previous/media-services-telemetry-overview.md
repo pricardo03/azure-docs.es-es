@@ -1,6 +1,6 @@
 ---
 title: Telemetría de Azure Media Services | Microsoft Docs
-description: Este artículo proporciona información general de la telemetría de Azure Media Services.
+description: En este artículo se proporciona información general sobre la telemetría de Microsoft Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 8e8b493881662483e66dd835d1cc68a471b18454
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e2cbb36158722a47518f575b391340b5e25bd908
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60545527"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895772"
 ---
 # <a name="azure-media-services-telemetry"></a>Sistema de telemetría de Azure Media Services  
 
@@ -53,7 +53,7 @@ Puede utilizar los datos de telemetría de una de las maneras siguientes:
 
 - Leer datos directamente desde Azure Table Storage (por ejemplo, mediante el SDK de Storage). Para la descripción de las tablas de almacenamiento de datos de telemetría, consulte la sección sobre **uso de información de telemetría** de [este](https://msdn.microsoft.com/library/mt742089.aspx) tema.
 
-o
+Or
 
 - Aproveche la compatibilidad del SDK de .NET de Media Services para leer los datos de almacenamiento, tal y como se explica en [este](media-services-dotnet-telemetry.md) tema. 
 
@@ -79,7 +79,7 @@ Propiedad|Valor|Ejemplos y notas
 PartitionKey|{IDdeCuenta}_{IDdeEntidad}|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66<br/<br/>El identificador de cuenta se incluye en la clave de partición para simplificar los flujos de trabajo, donde se crearán varias cuentas de Media Services en la misma cuenta de almacenamiento.
 RowKey|{segundosParaLaMedianoche}_{valorAleatorio}|01688_00199<br/><br/>La clave de fila comienza con el número de segundos para la medianoche con el fin de que puedan realizarse N consultas de estilo superiores en una partición. Para obtener más información, consulte [este](../../cosmos-db/table-storage-design-guide.md#log-tail-pattern) artículo. 
 Timestamp|Fecha y hora|Marca de tiempo creada automáticamente en la tabla de Azure: 2016-09-09T22:43:42.241Z.
-Type|El tipo de la entidad que proporciona los datos de telemetría|Channel, StreamingEndpoint y Archive<br/><br/>El tipo de evento es un valor de cadena.
+Tipo|El tipo de la entidad que proporciona los datos de telemetría|Channel, StreamingEndpoint y Archive<br/><br/>El tipo de evento es un valor de cadena.
 NOMBRE|El nombre del evento de telemetría|ChannelHeartbeat y StreamingEndpointRequestLog
 ObservedTime|La hora a la que se produjo el evento de telemetría (UTC)|2016-09-09T22:42:36.924Z<br/><br/>La entidad que envía los datos de telemetría (por ejemplo, un canal) proporciona la hora observada. Puede haber problemas de sincronización en los componentes, así que este valor es aproximado.
 ServiceID|{IDdeServicio}|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
@@ -100,7 +100,7 @@ Propiedad|Valor|Ejemplos
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
 Timestamp|Timestamp|Marca de tiempo creada automáticamente en la tabla de Azure: 2016-09-09T22:43:42.241Z.
-Type|Type|StreamingEndpoint
+Tipo|Tipo|StreamingEndpoint
 NOMBRE|NOMBRE|StreamingEndpointRequestLog
 ObservedTime|ObservedTime|2016-09-09T22:42:36.924Z
 ServiceID|Identificador de servicio|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
@@ -119,7 +119,7 @@ Propiedad|Valor|Ejemplos y notas
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
 Timestamp|Timestamp|Marca de tiempo creada automáticamente en la tabla de Azure: 2016-09-09T22:43:42.241Z.
-Type|Type|Canal
+Tipo|Tipo|Canal
 NOMBRE|NOMBRE|ChannelHeartbeat
 ObservedTime|ObservedTime|2016-09-09T22:42:36.924Z
 ServiceID|Identificador de servicio|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
@@ -144,7 +144,7 @@ Propiedad|Valor|Ejemplos y notas
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
 Timestamp|Timestamp|Marca de tiempo creada automáticamente en la tabla de Azure: 2016-09-09T22:43:42.241Z.
-Type|Type|Archivar
+Tipo|Tipo|Archivar
 NOMBRE|NOMBRE|ArchiveHeartbeat
 ObservedTime|ObservedTime|2016-09-09T22:42:36.924Z
 ServiceID|Identificador de servicio|f70bd731-691d-41c6-8f2d-671d0bdc9c7e

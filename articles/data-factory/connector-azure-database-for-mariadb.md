@@ -1,23 +1,22 @@
 ---
-title: Copiar datos desde Azure Database for MariaDB mediante Azure Data Factory
+title: Copia de datos desde Azure Database for MariaDB
 description: Obtenga información sobre cómo copiar datos desde Azure Database for MariaDB en almacenes de datos de receptores admitidos mediante una actividad de copia de una canalización de Azure Data Factory.
 services: data-factory
-documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 09/04/2019
-ms.author: jingwang
-ms.openlocfilehash: 937207f9a26b275dea4255198b8a4623229f1cb6
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 00fdeb71cec5995a229c5408429a0369d4317b66
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681261"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931663"
 ---
 # <a name="copy-data-from-azure-database-for-mariadb-using-azure-data-factory"></a>Copiar datos desde Azure Database for MariaDB mediante Azure Data Factory 
 

@@ -7,22 +7,22 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 05/19/2018
-ms.openlocfilehash: 3ad0bdc2ec5db2f34a3bb6a1b8fda54cf9037483
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 177c110ce9679f3d564918dfac50b3e3f66f84ce
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555684"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893593"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>¿Qué son las alertas clásicas en Microsoft Azure?
 
 > [!NOTE]
-> En este artículo se describe cómo crear alertas de métrica clásicas más antiguas. Azure Monitor ahora es compatible con [una nueva experiencia de alertas y las más recientes alertas de métrica casi en tiempo real](../../azure-monitor/platform/alerts-overview.md). Las alertas clásicas están [programadas para retirarse](https://docs.microsoft.com/azure/azure-monitor/platform/monitoring-classic-retirement).  
+> En este artículo se describe cómo crear alertas de métrica clásicas más antiguas. Azure Monitor ahora es compatible con [una nueva experiencia de alertas y las más recientes alertas de métrica casi en tiempo real](../../azure-monitor/platform/alerts-overview.md). Las alertas clásicas se [retiran](https://docs.microsoft.com/azure/azure-monitor/platform/monitoring-classic-retirement), aunque siguen con un uso limitado para los recursos que aún no admiten las nuevas alertas. 
 >
 
 Las alertas le permiten configurar las condiciones en los datos y recibir notificaciones cuando las condiciones coinciden con los datos de supervisión más actualizados.
 
-## <a name="old-and-new-alerting-capabilities"></a>Funcionalidades antiguas y nuevas de generación de alertas
+## <a name="old-and-new-alerting-capabilities"></a>Funcionalidades de alertas antiguas y nuevas
 
 Anteriormente, Azure Monitor, Application Insights, Log Analytics y Service Health tenían funcionalidades independientes de generación de alertas. Con el tiempo, Azure ha mejorado y combinado la interfaz de usuario y los distintos métodos de alerta. La consolidación aún está en proceso.
 
@@ -54,7 +54,7 @@ Hay dos tipos de alertas clásicas disponibles: alertas de métricas y alertas d
 
 * **Alertas clásicas de registro de actividad**: una alerta de registro de streaming que se desencadena en un evento de registro de actividad que coincide con los criterios de filtro. Estas alertas tienen solo un estado "Activado". El motor de alertas simplemente aplica los criterios del filtro a cualquier evento nuevo. No busca las entradas más antiguas. Se pueden utilizar estas alertas para recibir notificaciones cuando se produzca un incidente de Service Health o cuando un usuario o una aplicación realice una operación en su suscripción, por ejemplo, "Eliminar máquina virtual".
 
-Para los datos de registro de diagnóstico disponibles a través de Azure Monitor, enrute los datos a Log Analytics (anteriormente, OMS) y use una alerta de consulta de Log Analytics. Log Analytics utiliza ahora el [nuevo método de alertas](../../azure-monitor/platform/alerts-overview.md) 
+Para los datos del registro de recursos disponibles mediante Azure Monitor, enrute los datos a Log Analytics y use una alerta de consulta de registros. Log Analytics utiliza ahora el [nuevo método de alertas](../../azure-monitor/platform/alerts-overview.md) 
 
 El diagrama siguiente resume los orígenes de datos en Azure Monitor y, de forma conceptual, la manera en la que se puede se puede alertar sobre esos datos.
 

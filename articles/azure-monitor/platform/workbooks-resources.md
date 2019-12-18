@@ -1,5 +1,5 @@
 ---
-title: Creación de informes interactivos con libros de Azure Monitor | Recursos de parámetros | Microsoft Docs
+title: Parámetros de recursos de los libros de Azure Monitor
 description: Simplifique la creación de informes complejos con libros parametrizados creados previamente y personalizados.
 services: azure-monitor
 author: mrbullwinkle
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: 2cd170fdc3bed04a81c66d83b9e75ed77e3c0a5a
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: adc9855d30a3b286cfbc3489ec639ab8b460e314
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73164418"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872815"
 ---
 # <a name="workbook-resource-parameters"></a>Parámetros de recursos de libro
 

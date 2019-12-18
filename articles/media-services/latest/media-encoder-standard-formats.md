@@ -1,6 +1,6 @@
 ---
 title: 'Códecs y formatos de Standard Encoder: Azure'
-description: Este tema ofrece información general sobre los formatos y códecs de Azure Media Encoder.
+description: Este artículo contiene una lista de los formatos de archivo de importación y exportación más comunes que puede usar con StandardEncoderPreset.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
 ms.reviewer: anilmur
-ms.openlocfilehash: 195bbb70ac5062c6bbf6034e6a6e9abac018c62f
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: f1d4d4f4006702ebe0d057e56cf24a022e73b83e
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68677975"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74888077"
 ---
 # <a name="standard-encoder-formats-and-codecs"></a>Códecs y formatos de Standard Encoder
 
@@ -47,7 +47,7 @@ Standard Encoder admite el transporte de los siguientes formatos de audio en con
 
 * Archivos MXF, GXF y QuickTime que tengan pistas de audio con muestras de estéreo entrelazado o 5.1
 
-o
+or
 
 * Archivos MXF, GXF y QuickTime donde el audio se transporte como pistas PCM independientes, pero la asignación de canal (a estéreo o 5.1) se pueda deducir de los metadatos del archivo
 

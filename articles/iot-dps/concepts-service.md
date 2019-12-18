@@ -1,6 +1,6 @@
 ---
 title: Conceptos del servicio Azure IoT Hub Device Provisioning | Microsoft Docs
-description: Describe conceptos del aprovisionamiento de servicios específicos de los dispositivos con el servicio Device Provisioning e IoT Hub
+description: Describe conceptos del aprovisionamiento de servicios específicos de dispositivos con Device Provisioning Service (DPS) e IoT Hub
 author: nberdy
 ms.author: nberdy
 ms.date: 09/18/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: 51486da6b34c0ff1e9b6d05558c2132a416913e9
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: f42502ac4db12a060af5906243d3f8e7584c5df3
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104360"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975608"
 ---
 # <a name="iot-hub-device-provisioning-service-concepts"></a>Conceptos del servicio IoT Hub Device Provisioning
 

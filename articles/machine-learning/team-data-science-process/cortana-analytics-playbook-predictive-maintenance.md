@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: ec87146c721222702073eae067a259aa9848d0f7
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: d5201cd2e7c117e1229fcd04d77e8c429c1fc8ba
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048983"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977138"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Guía de Azure AI para soluciones de mantenimiento predictivo
 
@@ -203,7 +203,9 @@ Los requisitos empresariales definen hasta qué punto el modelo debe predecir en
 #### <a name="rolling-aggregates"></a>Agregados acumulados
 En cada registro de un recurso, elegimos una ventana móvil de tamaño "W", que es el número de unidades de tiempo para las cuales calcular los agregados. A continuación, se calculan las características de retraso mediante los períodos de W _anteriores a la fecha_ de dicho registro. En la ilustración 1, las líneas azules muestran los valores de sensor registrados para un recurso para cada unidad de tiempo. Indican una media móvil de los valores de característica para una ventana de tamaño W=3. La media móvil se calcula sobre todos los registros con marcas de tiempo en el intervalo t<sub>1</sub> (en color naranjo) para t<sub>2</sub> (en color verde). Habitualmente, el valor de W es en minutos u horas, según la naturaleza de los datos. Pero para ciertos problemas, elegir un valor alto para W (digamos de 12 meses) puede proporcionar el historial completo de un recurso hasta el momento del registro.
 
-![Ilustración 1. Características de agregado en ventanas acumuladas](./media/cortana-analytics-playbook-predictive-maintenance/rolling-aggregate-features.png) Ilustración 1 Características de agregado en ventanas acumuladas
+![Figura 1. Características de agregado en ventanas acumuladas](./media/cortana-analytics-playbook-predictive-maintenance/rolling-aggregate-features.png)
+
+Figura 1. Características de agregado en ventanas acumuladas
 
 Ejemplos de agregados acumulados en una ventana de tiempo son recuento, promedio, medidas CUMSUM (suma acumulativa), valores mínimos y máximos. Además, a menudo se usa la varianza, la desviación estándar y el recuento de valores atípicos más allá de N desviaciones estándar. A continuación, se muestran ejemplos de los agregados que se pueden aplicar a los [casos de uso](#sample-pdm-use-cases) que aparecen en esta guía. 
 - _Retraso de vuelos_: recuento de los códigos de error durante el último día o semana.
@@ -217,7 +219,9 @@ Otra técnica útil en el mantenimiento predictivo es capturar los cambios de te
 #### <a name="tumbling-aggregates"></a>Agregados de saltos de tamaño constante
 En cada registro etiquetado de un recurso, se define una ventana de tamaño _W-<sub>k</sub>_ , donde _k_ es el número de ventanas de tamaño _W_. Luego se crean agregados en _k_ _ventanas de saltos de tamaño constante_ _W-k, W-<sub>(k-1)</sub>, …, W-<sub>2</sub>, W-<sub>1</sub>_ para los períodos anteriores a la marcha de tiempo de un registro. _k_ puede ser un número pequeño para capturar efectos a corto plazo o un número grande para capturar patrones de degradación a largo plazo. (Consulte la ilustración 2).
 
-![Ilustración 2. Características de agregados de saltos de tamaño constante](./media/cortana-analytics-playbook-predictive-maintenance/tumbling-aggregate-features.png) Ilustración 2. Características de agregados de saltos de tamaño constante
+![Ilustración 2. Características de agregados de saltos de tamaño constante](./media/cortana-analytics-playbook-predictive-maintenance/tumbling-aggregate-features.png)
+
+Ilustración 2. Características de agregados de saltos de tamaño constante
 
 Por ejemplo, las características de retraso del caso de uso de las turbinas eólicas se pueden crear con W=1 y k=3. Implican el retraso para cada uno de los tres últimos meses con valores atípicos superior e inferior.
 
@@ -262,7 +266,9 @@ En esta técnica, se identifican dos tipos de ejemplos de aprendizaje. Un ejempl
 #### <a name="label-construction-for-binary-classification"></a>Construcción de etiquetas para la clasificación binaria
 Aquí la pregunta es: "¿Cuál es la probabilidad de que el recurso presente un error en las próximas X unidades de tiempo?" Para responder esta pregunta, etiquete X registros antes del error de un recurso como "a punto del error" (etiqueta = 1) y etiquete todos los demás registros como "normales" (etiqueta =0). (Consulte la ilustración 3).
 
-![Ilustración 3. Etiquetado para clasificación binaria](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-binary-classification.png) Ilustración 3. Etiquetado para clasificación binaria
+![Figura 3. Etiquetado para clasificación binaria](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-binary-classification.png)
+
+Figura 3. Etiquetado para clasificación binaria
 
 A continuación, se muestran ejemplos de estrategia de etiquetado para algunos de los casos de uso.
 - _Retrasos de vuelos_: se puede elegir X como 1 día para predecir los retrasos en las 24 horas siguientes. Todos los vuelos que están dentro de las 24 horas antes de los errores están etiquetados como 1.
@@ -277,7 +283,9 @@ Se usan modelos de regresión para _calcular la vida útil restante (RUL) de un 
 #### <a name="label-construction-for-regression"></a>Construcción de etiquetas de la regresión
 Aquí la pregunta es: "¿Cuál es la vida útil restante (RUL) del equipamiento?" Para cada registro antes del error, calcule la etiqueta para que sea el número de unidades de tiempo restantes antes del error siguiente. En este método, las etiquetas son variables continuas. (Consulte la ilustración 4).
 
-![Ilustración 4. Etiquetado de la regresión](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-regression.png) Ilustración 4. Etiquetado de la regresión
+![Figura 4. Etiquetado de la regresión](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-regression.png)
+
+Figura 4. Etiquetado de la regresión
 
 Para la regresión, el etiquetado se hace haciendo referencia a un punto de error. No se puede calcular sin saber cuánto tiempo ha sobrevivido el recurso antes de un error. Por tanto, y a diferencia de la clasificación binaria, los recursos sin errores en los datos no se pueden usar para el modelado. Este problema se aborda mejor con otra técnica estadística llamada [Análisis de supervivencia](https://en.wikipedia.org/wiki/Survival_analysis). Pero pueden surgir complicaciones al aplicar esta técnica a casos de uso de mantenimiento predictivo que implican datos variables en el tiempo a intervalos frecuentes. Para más información sobre Análisis de supervivencia, consulte [este documento de una página](https://www.cscu.cornell.edu/news/news.php/stnews78.pdf).
 
@@ -289,11 +297,15 @@ Las técnicas de clasificación multiclase se pueden usar en las soluciones de m
 #### <a name="label-construction-for-multi-class-classification"></a>Construcción de etiquetas para la clasificación multiclase
 Aquí la pregunta es: "¿Cuál es la probabilidad de que un recurso presente un error en las próximas _nZ_ unidades de tiempo, donde _n_ es el número de períodos?" Para responder esta pregunta, etiquete nZ registros antes del error de un recurso mediante depósitos de tiempo (3Z, 2Z, Z). Etiquete todos los otros registros como "normales" (etiqueta = 0). En este método, la variable de destino contiene los valores de _categoría_. (Consulte la ilustración 5).
 
-![Ilustración 5. Etiquetado de predicción del momento del error para la clasificación multiclase](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-failure-time-prediction.png) Ilustración 5. Etiquetado de la clasificación multiclase para predecir el momento del error
+![Figura 5. Etiquetas de predicción del momento del error para la clasificación multiclase](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-failure-time-prediction.png)
+
+Figura 5. Etiquetado de la clasificación multiclase para predecir el momento del error
 
 Aquí la pregunta es: "¿Cuál es la probabilidad de que el recurso presente un error en las próximas X unidades de tiempo debido a la causa principal/problema _P<sub>i</sub>_ ?" donde _i_ es el número de las causas principales posibles. Para responder esta pregunta, etiquete X registros antes del error de un recurso como "a punto del error debido a la causa principal _P<sub>i</sub>_ " (etiqueta = _P<sub>i</sub>_ ). Etiquete todos los otros registros como "normales" (etiqueta = 0). En este método, las etiquetas también son de categoría (consulte la ilustración 6).
 
-![Ilustración 6. Etiquetado de la predicción de la causa del error para la clasificación multiclase](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-root-cause-prediction.png) Ilustración 6. Etiquetado de la clasificación multiclase para predecir la causa del error
+![Figura 6. Etiquetas de predicción de la causa principal para la clasificación multiclase](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-root-cause-prediction.png)
+
+Figura 6. Etiquetado de la clasificación multiclase para predecir la causa del error
 
 El modelo asigna una probabilidad de error debido a cada _P<sub>i</sub>_ , así como la probabilidad de que no se produzca ningún error. Estas probabilidades se pueden ordenar por magnitud para permitir la predicción de los problemas que es más probable que ocurran en el futuro.
 
@@ -329,7 +341,9 @@ Supongamos que tenemos una secuencia de eventos con marca de fecha y hora, tales
 
 Para la división dependiente del tiempo, seleccione un _tiempo límite de aprendizaje T<sub>c</sub>_ en el que se entrenará un modelo, con hiperparámetros optimizados mediante el uso de datos históricos hasta T<sub>c</sub>. Para evitar que etiquetas futuras que están mas allá de T<sub>c</sub> se fuguen a los datos de aprendizaje, elija el período de tiempo más reciente para etiquetar los ejemplos de aprendizaje en X unidades antes de T<sub>c</sub>. En el ejemplo que se muestra en la ilustración 7, cada cuadrado representa un registro del conjunto de datos donde las características y las etiquetas se calculan como se describió anteriormente. La ilustración muestra los registros que deben ir en los conjuntos de aprendizaje y de prueba para X=2 y W=3:
 
-![Ilustración 7. División dependiente del tiempo para la clasificación binaria](./media/cortana-analytics-playbook-predictive-maintenance/time-dependent-split-for-binary-classification.png) Figura 7. División dependiente del tiempo para la clasificación binaria
+![Ilustración 7. División dependiente del tiempo para la clasificación binaria](./media/cortana-analytics-playbook-predictive-maintenance/time-dependent-split-for-binary-classification.png)
+
+Ilustración 7. División dependiente del tiempo para la clasificación binaria
 
 Los cuadrados verdes representan los registros que pertenecen a las unidades de tiempo que pueden usarse para el aprendizaje. Cada ejemplo de aprendizaje se genera considerando los últimos tres períodos para la generación de características y dos períodos futuros para el etiquetado antes de T<sub>c</sub>. Cuando cualquier parte de los dos períodos futuros vaya más allá de T<sub>c</sub>, excluya ese ejemplo del conjunto de datos de aprendizaje porque no se supone visibilidad ninguna más allá de T<sub>c</sub>.
 
@@ -411,11 +425,11 @@ En la parte final de esta guía se proporciona una lista de plantillas de soluci
 
 | # | Título | DESCRIPCIÓN |
 |--:|:------|-------------|
-| 2 | [Plantilla de soluciones de mantenimiento predictivo de Azure](https://github.com/Azure/AI-PredictiveMaintenance) | Una plantilla de solución de código abierto que demuestra el modelado de aprendizaje automático y una infraestructura completa de Azure que es capaz de admitir escenarios de mantenimiento predictivo en el contexto de supervisión remota de IoT. |
+| 2 | [Plantilla de soluciones de mantenimiento predictivo de Azure](https://github.com/Azure/AI-PredictiveMaintenance) | Una plantilla de solución de código abierto que demuestra el modelado de Azure ML y una infraestructura completa de Azure que es capaz de admitir escenarios de mantenimiento predictivo en el contexto de supervisión remota de IoT. |
 | 3 | [Aprendizaje profundo para mantenimiento predictivo](https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance) | Notebook de Azure con una solución de demostración sobre el uso de redes con memoria a corto y largo plazo (LSTM) (una clase de redes neuronales recurrentes) para el mantenimiento predictivo, con una [entrada de blog sobre este ejemplo](https://azure.microsoft.com/blog/deep-learning-for-predictive-maintenance).|
 | 4 | [Guía de modelado de mantenimiento predictivo en R](https://gallery.azure.ai/Notebook/Predictive-Maintenance-Modelling-Guide-R-Notebook-1) | Guía de modelado de mantenimiento predictivo con scripts en R.|
 | 5 | [Mantenimiento predictivo de Azure para el sector aeroespacial](https://gallery.azure.ai/Solution/Predictive-Maintenance-for-Aerospace-1) | Una de las primeras plantillas de soluciones de mantenimiento predictivo basada en Azure ML v1.0 para el mantenimiento aeronáutico. Esta guía se originó a partir de este proyecto. |
-| 6 | [Kit de herramientas de Azure AI para IoT Edge](https://github.com/Azure/ai-toolkit-iot-edge) | Inteligencia artificial en IoT Edge con TensorFlow: modelos de aprendizaje profundo con paquetes del kit de herramientas en contenedores Docker compatibles con Azure IoT Edge y esos modelos se exponen como API de REST.
+| 6 | [Kit de herramientas de Azure AI para IoT Edge](https://github.com/Azure/ai-toolkit-iot-edge) | Inteligencia artificial en IoT Edge con TensorFlow; modelos de aprendizaje profundo con paquetes del kit de herramientas en contenedores Docker compatibles con Azure IoT Edge y exposición de esos modelos como API REST.
 | 7 | [Mantenimiento predictivo de Azure IoT](https://github.com/Azure/azure-iot-predictive-maintenance) | PCS de Azure IoT Suite: solución preconfigurada. Plantilla de mantenimiento predictivo para el mantenimiento aeronáutico con IoT Suite. [Otro documento](https://docs.microsoft.com/azure/iot-suite/iot-suite-predictive-overview) y [tutorial](https://docs.microsoft.com/azure/iot-suite/iot-suite-predictive-walkthrough) relacionados con el mismo proyecto. |
 | 8 | [Plantilla de mantenimiento predictivo con SQL Server R Services](https://gallery.azure.ai/Tutorial/Predictive-Maintenance-Template-with-SQL-Server-R-Services-1) | Demostración del escenario de vida útil restante basado en R Services. |
 | 9 | [Guía de modelado de mantenimiento predictivo](https://gallery.azure.ai/Collection/Predictive-Maintenance-Modelling-Guide-1) | Características del conjunto de datos de mantenimiento aeronáutico diseñadas a través de R con [experimentos](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Modelling-Guide-Experiment-1) y [conjuntos de datos](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Modelling-Guide-Data-Sets-1) y [Notebook de Azure](https://gallery.azure.ai/Notebook/Predictive-Maintenance-Modelling-Guide-R-Notebook-1) y [experimentos](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Step-1-of-3-data-preparation-and-feature-engineering-2) in Azure ML v1.0|

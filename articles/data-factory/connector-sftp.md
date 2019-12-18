@@ -1,25 +1,26 @@
 ---
-title: Copia de datos desde un servidor SFTP mediante Azure Data Factory
+title: Copia de datos del servidor SFTP
 description: Obtenga información sobre el conector MySQL de Azure Data Factory que permite copiar los datos desde un servidor SFTP a un almacén de datos admitido como receptor.
 services: data-factory
 documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 10/24/2019
-ms.author: jingwang
-ms.openlocfilehash: a3eb3193e0c1cd508bc1fc269cd75254d9392885
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 16ec2bfc23d5ebd7bc72cfff266ff284936b5a6a
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73680201"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931088"
 ---
 # <a name="copy-data-from-sftp-server-using-azure-data-factory"></a>Copia de datos desde un servidor SFTP mediante Azure Data Factory
+
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
 > * [Versión 1](v1/data-factory-sftp-connector.md)
 > * [Versión actual](connector-sftp.md)

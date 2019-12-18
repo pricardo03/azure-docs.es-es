@@ -2,17 +2,17 @@
 title: Roles y permisos de RBAC
 description: Use el control de acceso basado en roles (RBAC) de Azure y la administración de identidades y acceso (IAM) para proporcionar la personalización avanzada de permisos a recursos en una instancia de Azure Container Registry.
 ms.topic: article
-ms.date: 03/20/2019
-ms.openlocfilehash: 8ef4f26dfd59c7b3b177ef58fa23e08f7e66d328
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.date: 12/02/2019
+ms.openlocfilehash: 3fb103ac4c4dac736b3c0fc99b2cf49f01e9e005
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456238"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893491"
 ---
 # <a name="azure-container-registry-roles-and-permissions"></a>Roles y permisos de Azure Container Registry
 
-El servicio Azure Container Registry admite un conjunto de roles de Azure que proporcionan distintos niveles de permisos a una instancia de Azure Container Registry. Use el [control de acceso basado en roles](../role-based-access-control/index.yml) (RBAC) de Azure para asignar permisos específicos a usuarios o entidades de servicio que necesiten interactuar con un registro.
+El servicio Azure Container Registry admite un conjunto de [roles de Azure integrados](../role-based-access-control/built-in-roles.md) que proporcionan distintos niveles de permisos a una instancia de Azure Container Registry. Use el [control de acceso basado en rol](../role-based-access-control/index.yml) (RBAC) de Azure para asignar permisos específicos a usuarios, entidades de servicio u otras entidades que necesiten interactuar con un registro. 
 
 | Rol/permiso       | [Acceso a Resource Manager](#access-resource-manager) | [Crear o eliminar un registro](#create-and-delete-registry) | [Insertar imagen](#push-image) | [Extraer imagen](#pull-image) | [Eliminar los datos de imagen](#delete-image-data) | [Cambiar directivas](#change-policies) |   [Firmar imágenes](#sign-images)  |
 | ---------| --------- | --------- | --------- | --------- | --------- | --------- | --------- |
@@ -68,8 +68,25 @@ Capacidad para configurar directivas en un registro. En las directivas, se inclu
 
 Capacidad para firmar imágenes, que suelen estar asignadas a un proceso automatizado, lo que usaría una entidad de servicio. Este permiso suele combinarse con la inserción de imágenes para permitir [insertar una imagen](#push-image) de confianza en un registro. Para obtener más información, vea [Confianza de contenido en Azure Container Registry](container-registry-content-trust.md).
 
+## <a name="custom-roles"></a>Roles personalizados
+
+Como con otros recursos de Azure, puede crear sus propios [roles personalizados](../role-based-access-control/custom-roles.md) con permisos específicos para Azure Container Registry. A continuación, asigne los roles personalizados a los usuarios, entidades de servicio u otras identidades que necesiten interactuar con un registro. 
+
+Para determinar los permisos que se van a aplicar a un rol personalizado, consulte la lista de [acciones](../role-based-access-control/resource-provider-operations.md#microsoftcontainerregistry) de Microsoft.ContainerRegistry, revise las acciones permitidas de los [roles de ACR integrados](../role-based-access-control/built-in-roles.md) o ejecute el siguiente comando:
+
+```azurecli
+az provider operation show --namespace Microsoft.ContainerRegistry
+```
+
+Para definir un rol personalizado, consulte [Pasos para crear un rol personalizado](../role-based-access-control/custom-roles.md#steps-to-create-a-custom-role).
+
+> [!IMPORTANT]
+> En un rol personalizado, Azure Container Registry no admite actualmente caracteres comodín como `Microsoft.ContainerRegistry/*` o `Microsoft.ContainerRegistry/registries/*` que conceden acceso a todas las acciones coincidentes. Especifique cualquier acción necesaria individualmente en el rol.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Obtenga más información sobre cómo asignar roles RBAC a una identidad de Azure mediante [Azure Portal](../role-based-access-control/role-assignments-portal.md), la [CLI de Azure](../role-based-access-control/role-assignments-cli.md) u otras herramientas de Azure.
 
 * Obtenga información sobre las [opciones de autenticación](container-registry-authentication.md) de Azure Container Registry.
+
+* Obtenga información sobre cómo habilitar [permisos de ámbito de repositorio](container-registry-repository-scoped-permissions.md) (versión preliminar) en un registro de contenedor.

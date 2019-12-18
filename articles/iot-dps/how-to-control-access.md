@@ -1,6 +1,6 @@
 ---
 title: Puntos de conexión de seguridad del servicio de aprovisionamiento de dispositivos IoT | Microsoft Docs
-description: Conceptos sobre cómo controlar el acceso de las aplicaciones back-end al servicio de aprovisionamiento de dispositivos IoT. Incluye información sobre los tokens de seguridad.
+description: Conceptos sobre cómo controlar el acceso de las aplicaciones back-end a IoT Device Provisioning Service (DPS). Incluye información sobre los tokens de seguridad.
 author: wesmc7777
 manager: philmea
 ms.service: iot-dps
@@ -8,12 +8,12 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 04/09/2019
 ms.author: wesmc
-ms.openlocfilehash: 7ff622ceac9c49eda7ba6bca1a8bb3aaabccb816
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f36a48e0cedc309deda8416face5549a54eb8c73
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60626659"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975132"
 ---
 # <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>Control de acceso al servicio Azure IoT Hub Device Provisioning
 
@@ -32,7 +32,7 @@ Debe tener los permisos adecuados para acceder a cualquiera de los puntos de con
 
 Puede conceder los [permisos](#device-provisioning-service-permissions) de las maneras siguientes:
 
-* **Directivas de autorización de acceso compartido**. Las directivas de acceso compartido pueden conceder cualquier combinación de los [permisos](#device-provisioning-service-permissions). Las directivas se pueden definir en [Azure Portal][lnk-management-portal] o mediante programación, para lo que se usan las [API de REST del servicio Device Provisioning][lnk-resource-provider-apis]. Un servicio de aprovisionamiento recién creado tiene la siguiente directiva predeterminada:
+* **Directivas de autorización de acceso compartido**. Las directivas de acceso compartido pueden conceder cualquier combinación de los [permisos](#device-provisioning-service-permissions). Las directivas se pueden definir en [Azure Portal][lnk-management-portal] o mediante programación, para lo que se usan las [API REST de Device Provisioning Service][lnk-resource-provider-apis]. Un servicio de aprovisionamiento recién creado tiene la siguiente directiva predeterminada:
 
 * **provisioningserviceowner**: directiva con todos los permisos.
 
@@ -44,7 +44,7 @@ Puede conceder los [permisos](#device-provisioning-service-permissions) de las m
 El servicio Azure IoT Hub Device Provisioning concede acceso a los puntos de conexión mediante la verificación de un token con las directivas de acceso compartido. Las credenciales de seguridad, como las claves simétricas, nunca se envían en la conexión.
 
 > [!NOTE]
-> El proveedor de recursos del servicio de aprovisionamiento de dispositivos se protege mediante la suscripción de Azure, igual que todos los proveedores en [Azure Resource Manager][lnk-azure-resource-manager].
+> El proveedor de recursos de Device Provisioning Service se protege mediante la suscripción de Azure, igual que todos los proveedores en [Azure Resource Manager][lnk-azure-resource-manager].
 
 Para más información sobre cómo crear y utilizar tokens de seguridad, vea la sección siguiente.
 
@@ -57,11 +57,11 @@ SharedAccessSignature sr =
 ```
 
 > [!NOTE]
-> Los [SDK del servicio Azure IoT Device Provisioning][lnk-sdks] generan tokens automáticamente cuando se conectan al servicio.
+> Los [SDK de Azure IoT Device Provisioning Service][lnk-sdks] generan tokens automáticamente cuando se conectan al servicio.
 
 ## <a name="security-tokens"></a>Tokens de seguridad
 
-El servicio de aprovisionamiento de dispositivos usa tokens de seguridad para autenticar servicios para evitar el envío de claves a través de la red. Además, los tokens de seguridad están limitados en cuanto al ámbito y el período de validez. Los [SDK del servicio Azure IoT Device Provisioning][lnk-sdks] generan automáticamente tokens sin necesidad de ninguna configuración especial. Algunos escenarios, requieren que el usuario genere y utilice directamente los tokens de seguridad. Estos escenarios incluyen el uso directo de la superficie HTTP.
+El servicio de aprovisionamiento de dispositivos usa tokens de seguridad para autenticar servicios para evitar el envío de claves a través de la red. Además, los tokens de seguridad están limitados en cuanto al ámbito y el período de validez. Los [SDK de Azure IoT Device Provisioning Service][lnk-sdks] generan automáticamente tokens sin necesidad de ninguna configuración especial. Algunos escenarios, requieren que el usuario genere y utilice directamente los tokens de seguridad. Estos escenarios incluyen el uso directo de la superficie HTTP.
 
 ### <a name="security-token-structure"></a>Estructura del token de seguridad
 

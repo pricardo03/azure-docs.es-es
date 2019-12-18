@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 424d57c59dea11a49faf7a7bb32d85772ef4de8c
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: d223c3483becdc8ba44bc14ec16150cf1b001943
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74305162"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894535"
 ---
 # <a name="roles-permissions-and-security-in-azure-monitor"></a>Roles, permisos y seguridad en Azure Monitor
 
@@ -116,7 +116,7 @@ New-AzRoleDefinition -Role $role
 Los datos de supervisión, en particular los archivos de registro, pueden obtener información confidencial, como los nombres de usuario o las direcciones IP. Los datos de supervisión de Azure se presentan en tres formatos básicos:
 
 1. El registro de actividades, que describe todas las acciones de plano de control en su suscripción de Azure.
-2. Los registros de diagnóstico, que son registros emitidos por un recurso.
+2. Los registros de recursos, que son registros emitidos por un recurso.
 3. Métricas, que emiten los recursos.
 
 Estos tres tipos de datos pueden almacenarse en una cuenta de almacenamiento o transmitirse a un centro de eventos, y ambos son recursos de Azure de uso general. Dado que son recursos de uso general, su creación, eliminación o el acceso a ellos constituyen una operación privilegiada reservada a un administrador. Se recomienda utilizar los procedimientos siguientes para recursos relacionados con la supervisión para impedir el uso indebido:
@@ -182,7 +182,7 @@ Azure Monitor necesita acceso a los recursos de Azure para proporcionar los serv
 ### <a name="secured-storage-accounts"></a>Cuentas de almacenamiento protegidas 
 
 Los datos de supervisión a menudo se escriben en una cuenta de almacenamiento. Es posible que desee asegurarse de que los usuarios no autorizados no pueden tener acceso a los datos copiados en una cuenta de almacenamiento. Para mayor seguridad, puede bloquear el acceso de red para permitir que solo los recursos autorizados y los servicios de confianza de Microsoft accedan a una cuenta de almacenamiento mediante la restricción del uso de "redes seleccionadas" por parte de una cuenta de almacenamiento.
-![Cuadro de diálogo de configuración de Azure Storage](./media/roles-permissions-security/secured-storage-example.png) Azure Monitor se considera uno de estos "servicios de confianza de Microsoft" Si permite que los servicios de confianza de Microsoft tengan acceso al almacenamiento protegido, Azure Monitor tendrá acceso a su cuenta de almacenamiento protegida, permitiendo la escritura de los registros de diagnóstico de Azure Monitor, del registro de actividad y de las métricas para la cuenta de almacenamiento según estas condiciones protegidas. Esto también permitirá que Log Analytics lea los registros de almacenamiento protegido.   
+![Cuadro de diálogo de configuración de Azure Storage](./media/roles-permissions-security/secured-storage-example.png) Azure Monitor se considera uno de estos "servicios de confianza de Microsoft" Si permite que los servicios de confianza de Microsoft tengan acceso al almacenamiento protegido, Azure Monitor tendrá acceso a su cuenta de almacenamiento protegida, permitiendo la escritura de los registros de recursos de Azure Monitor, del registro de actividad y de las métricas en la cuenta de almacenamiento según estas condiciones protegidas. Esto también permitirá que Log Analytics lea los registros de almacenamiento protegido.   
 
 
 Para obtener más información, consulte [Seguridad de red y Azure Storage](../../storage/common/storage-network-security.md).

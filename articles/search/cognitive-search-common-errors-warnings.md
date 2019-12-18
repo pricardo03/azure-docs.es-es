@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 472c4a75f5a4253220383ae79d88d5b90cec4795
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: fb8aec10d58ed4f2eca462774aeaf61f2ea21dd0
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555044"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973975"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Solución de errores y advertencias comunes con el indexador en Azure Cognitive Search
 
@@ -307,3 +307,9 @@ Los [modos de análisis del indexador](https://docs.microsoft.com/rest/api/searc
 Si no está presente ninguna marca BOM, se asume que el texto está codificado como UTF-8.
 
 Para solucionar esta advertencia, determine cuál es la codificación de texto para este blob y agregue la marca BOM adecuada.
+
+<a name="cosmos-db-collection-has-a-lazy-indexing-policy"/>
+
+## <a name="warning-cosmos-db-collection-x-has-a-lazy-indexing-policy-some-data-may-be-lost"></a>Advertencia: La colección "X" de Cosmos DB tiene una directiva de indexación diferida. Se podrían perder algunos datos
+
+Las colecciones con directivas de indexación [diferida](https://docs.microsoft.com/azure/cosmos-db/index-policy#indexing-mode) no se pueden consultar de forma coherente, lo que hace que su indizador pierda datos. Para evitar esta advertencia, cambie su directiva de indexación a Coherente.

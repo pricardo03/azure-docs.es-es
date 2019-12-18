@@ -1,23 +1,22 @@
 ---
-title: 'Solución de problemas con la administración de SSIS Integration Runtime en Azure Data Factory '
+title: Solución de problemas de administración de SSIS Integration Runtime
 description: En este artículo se proporciona orientación para solucionar problemas de administración de SSIS Integration Runtime (SSIS IR)
 services: data-factory
-documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/08/2019
 author: chinadragon0515
 ms.author: dashe
 ms.reviewer: sawinark
-manager: craigg
-ms.openlocfilehash: 3452fc2274eb646acb19c0e6a203ebadcb81cad5
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+manager: mflasko
+ms.custom: seo-lt-2019
+ms.date: 07/08/2019
+ms.openlocfilehash: 52b1d93935e6428563c72361655893ffddf8a507
+ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684027"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74941869"
 ---
 # <a name="troubleshoot-ssis-integration-runtime-management-in-azure-data-factory"></a>Solución de problemas con la administración de SSIS Integration Runtime en Azure Data Factory
 
@@ -157,3 +156,38 @@ Cuando detenga SSIS IR, se eliminarán todos los recursos relacionados con Virtu
 ### <a name="nodeunavailable"></a>NodeUnavailable
 
 Este error se produce cuando se ejecuta IR y significa que su estado ya no es correcto. Este error siempre se debe a un cambio en la configuración del servidor DNS o de NSG que impide que SSIS IR se conecte a un servicio necesario. Dado que es el cliente quien controla la configuración del servidor DNS y de NSG, debe corregir los problemas de bloqueo en su lado. Para más información, consulte [Configuración de Virtual Network para SSIS IR](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network). Si el problema persiste, póngase en contacto con el equipo de soporte técnico de Azure Data Factory.
+
+## <a name="static-public-ip-addresses-configuration"></a>Configuración de direcciones IP públicas estáticas
+
+Al unir Azure-SSIS IR a Azure Virtual Network, también puede traer sus propias direcciones IP públicas estáticas a IR para que este pueda acceder a los orígenes de datos que limitan el acceso a direcciones IP específicas. Para más información, consulte [Unión de Azure-SSIS Integration Runtime a una red virtual](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network).
+
+Además de los problemas de red virtual anteriores, puede encontrarse también con problemas relacionados con las direcciones IP públicas estáticas. Compruebe los siguientes errores para obtener ayuda.
+
+### <a name="InvalidPublicIPSpecified"></a>InvalidPublicIPSpecified
+
+Este error puede producirse por diversos motivos al iniciar Azure-SSIS IR:
+
+| Mensaje de error | Solución|
+|:--- |:--- |
+| La dirección IP pública estática proporcionada ya está en uso. Proporcione dos sin usar para la instancia de Azure-SSIS Integration Runtime. | Debe seleccionar dos direcciones IP públicas estáticas sin usar o quitar las referencias actuales a la dirección IP pública especificada y, luego, reiniciar Azure-SSIS IR. |
+| La dirección IP pública estática proporcionada no tiene un nombre DNS. Proporcione dos de ellas con el nombre DNS para la instancia de Azure-SSIS Integration Runtime. | Puede configurar el nombre DNS de la dirección IP pública en Azure Portal, como se muestra en la imagen siguiente. Los pasos básicos son los siguientes: (1) Abra Azure Portal y vaya a la página de recursos de esta dirección IP pública. (2) Seleccione la sección **Configuración** y configure el nombre DNS; a continuación, haga clic en el botón **Guardar**. (3) Reinicie Azure-SSIS IR. |
+| La red virtual y las direcciones IP públicas estáticas proporcionadas para Azure-SSIS Integration Runtime deben estar en la misma ubicación. | De acuerdo con los requisitos de la red de Azure, la dirección IP pública estática y la red virtual deben estar en la misma ubicación y suscripción. Proporcione dos direcciones IP públicas estáticas válidas y reinicie Azure-SSIS IR. |
+| La dirección IP pública estática proporcionada es una básica; proporcione dos estándar para Azure-SSIS Integration Runtime. | Consulte las [SKU de dirección IP pública](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#sku) para obtener ayuda. |
+
+![Integration Runtime de SSIS de Azure](media/ssis-integration-runtime-management-troubleshoot/setup-publicipdns-name.png)
+
+### <a name="publicipresourcegrouplockedduringstart"></a>PublicIPResourceGroupLockedDuringStart
+
+Si se produce un error en el aprovisionamiento de Azure SSIS IR, se eliminan todos los recursos que se crearon. Sin embargo, si hay un bloqueo de eliminación de recursos en el nivel de suscripción o grupo de recursos (que contiene la dirección IP pública estática), los recursos de red no se eliminan según lo esperado. Para corregir este error, quite el bloqueo de eliminación y reinicie la instancia de IR.
+
+### <a name="publicipresourcegrouplockedduringstop"></a>PublicIPResourceGroupLockedDuringStop
+
+Al detener Azure-SSIS IR, se eliminarán todos los recursos de red creados en el grupo de recursos que contiene la dirección IP pública. Sin embargo, se puede producir un error en la eliminación si hay un bloqueo de eliminación de recursos en el nivel de suscripción o grupo de recursos (que contiene la dirección IP pública estática). Quite el bloqueo de eliminación y reinicie la instancia de IR.
+
+### <a name="publicipresourcegrouplockedduringupgrade"></a>PublicIPResourceGroupLockedDuringUpgrade
+
+Azure SSIS IR se actualizará automáticamente de forma periódica. Los nuevos nodos de IR se crean durante la actualización y los nodos antiguos se eliminan. Además, los recursos de red creados (por ejemplo, el equilibrador de carga y el grupo de seguridad de red) para los nodos antiguos se eliminan y los nuevos recursos de red se crean en la suscripción. Este error significa que no se pudieron eliminar los recursos de red de los nodos antiguos debido a un bloqueo de eliminación en el nivel de suscripción o grupo de recursos (que contiene la dirección IP pública estática). Quite el bloqueo de eliminación para que podamos limpiar los nodos antiguos y liberar la dirección IP pública estática para ellos. En caso contrario, no se podrá liberar la dirección IP pública estática y no podremos seguir actualizando la instancia de IR.
+
+### <a name="publicipnotusableduringupgrade"></a>PublicIPNotUsableDuringUpgrade
+
+Si quiere traer sus propias direcciones IP públicas estáticas, deben proporcionarse dos direcciones IP públicas. Una de ellas se usará para crear los nodos de IR inmediatamente y la otra se usará durante la actualización de la instancia de IR. Este error puede producirse cuando la otra dirección IP pública no se puede usar durante la actualización. Consulte [InvalidPublicIPSpecified](#InvalidPublicIPSpecified) para ver las posibles causas.

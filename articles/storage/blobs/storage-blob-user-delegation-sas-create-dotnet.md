@@ -1,20 +1,21 @@
 ---
-title: 'Creación de una SAS de delegación de usuarios para un contenedor o blob con .NET (versión preliminar): Azure Storage'
-description: Obtenga información sobre cómo crear una SAS de delegación de usuarios (versión preliminar) con credenciales de Azure Active Directory en Azure Storage mediante la biblioteca de cliente de .NET.
+title: Uso de .NET para crear una SAS de delegación de usuarios para un contenedor o un blob
+titleSuffix: Azure Storage
+description: Aprenda a crear una SAS de delegación de usuarios (versión preliminar) con credenciales de Azure Active Directory en Azure Storage mediante la biblioteca cliente de .NET.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
-ms.date: 12/03/2019
+ms.topic: how-to
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: dada27f1fa08cdaa6c2495246375869ea5a8ab9e
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 915f2895fbc1e543fbbfbb408ba27eb758a40515
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806939"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892539"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-net-preview"></a>Creación de una SAS de delegación de usuarios para un contenedor o blob con .NET (versión preliminar)
 
@@ -234,7 +235,7 @@ private static async Task ReadBlobWithSasAsync(Uri sasUri)
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 - [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../common/storage-sas-overview.md) (Otorgar acceso limitado a recursos de Azure Storage con firmas de acceso compartido [SAS])
 - [Obtener la operación de clave de delegación de usuario](/rest/api/storageservices/get-user-delegation-key)

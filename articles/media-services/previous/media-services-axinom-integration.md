@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: willzhan
 ms.reviewer: Mingfeiy;rajputam;Juliako
-ms.openlocfilehash: 4d4823e8dcce0d1296ebe39a0b7a7c4bbc180317
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 275fa173c5005c4d1609a858c8edb39b5c307c5e
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "69015428"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974621"
 ---
 # <a name="using-axinom-to-deliver-widevine-licenses-to-azure-media-services"></a>Uso de Axinom para entregar licencias de Widevine a Azure Media Services 
 > [!div class="op_single_selector"]
@@ -177,6 +177,7 @@ Por supuesto, hay varias maneras de obtener el identificador de clave. Por ejemp
     }
 
 ## <a name="summary"></a>Resumen
+
 Con la reciente incorporación de la compatibilidad de Widevine tanto en Content Protection de Azure Media Services y en Azure Media Player, podemos implementar el streaming de DASH + Multi-native-DRM (PlayReady + Widevine) con el servicio de licencias de PlayReady en AMS y el servidor de licencias de Widevine de Axinom para los siguientes exploradores actuales:
 
 * Chrome
@@ -193,6 +194,10 @@ Los parámetros siguientes son necesarios en la minisolución que saca partido d
 | Inicialización de clave |Se debe usar para generar la clave de contenido con cualquier id. de clave de contenido determinado (vea [esta](media-services-axinom-integration.md#content-protection) sección). |
 | Dirección URL de adquisición de licencias de Widevine |Se debe usar en la configuración de la directiva de entrega de activos para el streaming de DASH (vea [esta](media-services-axinom-integration.md#content-protection) sección). |
 | Id. de clave de contenido |Se debe incluir como parte del valor de notificación del mensaje de derechos de token JWT (consulte [esta](media-services-axinom-integration.md#jwt-token-generation) sección). |
+
+## <a name="additional-notes"></a>Notas adicionales
+
+* Widevine es un servicio que ofrece Google Inc. y que está sujeto a los términos del servicio y la directiva de privacidad de Google, Inc.
 
 ## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

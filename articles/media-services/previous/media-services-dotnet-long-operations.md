@@ -1,12 +1,12 @@
 ---
 title: Sondeo de operaciones de larga duración | Microsoft Docs
-description: En este tema se muestra cómo sondear las operaciones de larga duración.
+description: Azure Media Services ofrece determinadas API que envían solicitudes a Media Services para iniciar operaciones (por ejemplo, crear, iniciar, detener o eliminar un canal). Estas operaciones son de larga duración. En este tema se muestra cómo sondear las operaciones de larga duración.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: Juliako
+writer: juliako
 manager: femila
 editor: ''
-ms.assetid: 9a68c4b1-6159-42fe-9439-a3661a90ae03
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 752c502268ef53d3c0575d92e75ce6a965fccd9f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 43d9a6adc935010eab6e5e52d73f2019c8afcf5f
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61464987"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74887189"
 ---
 # <a name="delivering-live-streaming-with-azure-media-services"></a>Entrega de transmisión en directo con Azure Media Services
 

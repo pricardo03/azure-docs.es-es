@@ -1,29 +1,25 @@
 ---
-title: Información sobre los protocolos de autorización compatibles con la Plataforma de identidad de Microsoft | Azure
+title: Protocolos de autorización compatibles con la Plataforma de identidad de Microsoft | Azure
 description: Una guía a los protocolos OAuth 2.0 y OpenID Connect compatibles con el punto de conexión de la Plataforma de identidad de Microsoft.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.assetid: 5fb4fa1b-8fc4-438e-b3b0-258d8c145f22
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 446d7178973c1d43d55ff89c429b05c2a10118ba
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: f04ba26f592c02814412493cf4811e30aefa6ee3
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835277"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74918295"
 ---
 # <a name="microsoft-identity-platform-protocols"></a>Protocolos de la Plataforma de identidad de Microsoft
 
@@ -43,7 +39,7 @@ En casi todos los flujos de OAuth 2.0 y OpenID Connect hay cuatro partes implica
 * El **cliente de OAuth** es su aplicación, identificada por su identificador de aplicación. El cliente de OAuth suele ser la parte con la que interactúa el usuario final y solicita tokens del servidor de autorización. El cliente debe contar con el permiso del propietario del recurso para acceder a este.
 * El **servidor de recursos** es donde residen el recurso o los datos. Confía en el servidor de autorización para autenticar y autorizar al cliente de OAuth de forma segura y usa access_tokens de portador para garantizar que se puede conceder el acceso a un recurso.
 
-## <a name="app-registration"></a>Registro de aplicaciones
+## <a name="app-registration"></a>Registro de aplicación
 
 Todas las aplicaciones que quieren aceptar tanto cuentas personales como profesionales o educativas se deben registrar a través de la experiencia de **Registros de aplicaciones** en [Azure Portal](https://aka.ms/appregistrations) antes de poder iniciar la sesión de estos usuarios mediante OAuth 2.0 u OpenID Connect. El proceso de registro de la aplicación recopilará y asignará algunos valores a la aplicación:
 

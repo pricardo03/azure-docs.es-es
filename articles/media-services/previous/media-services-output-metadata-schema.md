@@ -1,6 +1,6 @@
 ---
 title: Esquema de metadatos de salida de Azure Media Services | Microsoft Docs
-description: En este tema se proporciona información general sobre el esquema de metadatos de salida de Azure Media Services.
+description: En este artículo se proporciona información general sobre el esquema de metadatos de salida de Azure Media Services.
 author: Juliako
 manager: femila
 editor: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 42227095c69924cd2922673d020b349aa29f2daa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3f0c6b60e2be625d1f869c3eda4acb9dfd3c6e9e
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61129753"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74886819"
 ---
 # <a name="output-metadata"></a>Metadatos de salida
 ## <a name="overview"></a>Información general
@@ -45,7 +45,7 @@ Colección de entradas AssetFile para el trabajo de codificación.
 Puede encontrar un ejemplo de XML en [Ejemplo de XML](#xml).  
 
 ### <a name="attributes"></a>Atributos
-| NOMBRE | Type | DESCRIPCIÓN |
+| NOMBRE | Tipo | DESCRIPCIÓN |
 | --- | --- | --- |
 | **Nombre**<br/><br/> Obligatorio |**xs:string** |Nombre del archivo de recursos multimedia. |
 | **Tamaño**<br/><br/> minInclusive ="0"<br/><br/> Obligatorio |**xs:long** |Tamaño del archivo de recursos en bytes. |
@@ -74,7 +74,7 @@ Un archivo de entrada/origen que se usa al generar este recurso.
 Puede encontrar un ejemplo de XML en [Ejemplo de XML](#xml).  
 
 ### <a name="attributes"></a>Atributos
-| NOMBRE | Type | DESCRIPCIÓN |
+| NOMBRE | Tipo | DESCRIPCIÓN |
 | --- | --- | --- |
 | **Nombre**<br/><br/> Obligatorio |**xs:string** |Nombre de archivo de origen de entrada. |
 
@@ -94,7 +94,7 @@ Una determinada pista de vídeo en el AssetFile primario.
 Puede encontrar un ejemplo de XML en [Ejemplo de XML](#xml).  
 
 ### <a name="attributes"></a>Atributos
-| NOMBRE | Type | DESCRIPCIÓN |
+| NOMBRE | Tipo | DESCRIPCIÓN |
 | --- | --- | --- |
 | **Id**<br/><br/> minInclusive ="0"<br/><br/> Obligatorio |**xs:int** |Índice de base cero de esta pista de vídeo. **Nota:**  este **identificador** no es necesariamente el objeto TrackID que se usa en un archivo MP4. |
 | **FourCC**<br/><br/> Obligatorio |**xs:string** |Código FourCC de códec de vídeo. |
@@ -126,7 +126,7 @@ Una determinada pista de audio en el AssetFile primario.
 Puede encontrar un ejemplo de XML en [Ejemplo de XML](#xml).  
 
 ### <a name="attributes"></a>Atributos
-| NOMBRE | Type | DESCRIPCIÓN |
+| NOMBRE | Tipo | DESCRIPCIÓN |
 | --- | --- | --- |
 | **Id**<br/><br/> minInclusive ="0"<br/><br/> Obligatorio |**xs:int** |Índice de base cero de esta pista de audio. **Nota:**  no es necesariamente el objeto TrackID que se usa en un archivo MP4. |
 | **Codec** |**xs:string** |Cadena de códec de pista de audio. |
@@ -147,7 +147,7 @@ Parámetros de resultado de medición de la sonoridad.
 Puede encontrar un ejemplo de XML en [Ejemplo de XML](#xml).  
 
 ### <a name="attributes"></a>Atributos
-| NOMBRE | Type | DESCRIPCIÓN |
+| NOMBRE | Tipo | DESCRIPCIÓN |
 | --- | --- | --- |
 | **DPLMVersionInformation** |**xs:string** |Versión del kit de desarrollo de medición de sonoridad profesional **Dolby**. |
 | **DialogNormalization**<br/><br/> minInclusive="-31" maxInclusive="-1"<br/><br/> Obligatorio |**xs:int** |DialogNormalization generado mediante DPLM, requerido si LoudnessMetering está establecido. |

@@ -2,21 +2,21 @@
 title: Administración de recursos de proceso
 description: Conozca las funcionalidades de escalado horizontal del rendimiento en Azure SQL Data Warehouse. Puede escalar horizontalmente mediante el ajuste de las DWU o detener el almacén de datos para reducir los costos.
 services: sql-data-warehouse
-author: kevinvngo
+author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
 ms.date: 11/12/2019
-ms.author: kevin
+ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 936d92d085420e1386e29a924470b9bac9200d43
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 305b17a9118bddac53b19462cb8c3be887395311
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74039098"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74923601"
 ---
 # <a name="manage-compute-in-azure-sql-data-warehouse"></a>Administración de proceso en Azure SQL Data Warehouse
 Aprenda sobre la administración de recursos de proceso en Azure SQL Data Warehouse. Para reducir los costos detenga el almacén de datos o escálelo para satisfacer las demandas de rendimiento. 
@@ -59,7 +59,7 @@ Para ver las ventajas de rendimiento del escalado horizontal, en especial para u
 
 Recomendaciones para encontrar el mejor número de unidades de almacenamiento de datos:
 
-- Para un almacenamiento de datos en desarrollo, comience por seleccionar un número más pequeño de unidades de almacenamiento de datos.  Un buen punto de partida es DW400 o DW200.
+- Para un almacenamiento de datos en desarrollo, comience por seleccionar un número más pequeño de unidades de almacenamiento de datos.  Un buen punto de partida es DW400c o DW200c.
 - Supervise el rendimiento de la aplicación y observe el número de unidades de almacenamiento de datos seleccionadas en comparación con el rendimiento observado.
 - Suponga una escala lineal y determine cuánto debe aumentar o reducir las unidades de almacenamiento de datos. 
 - Continúe realizando ajustes hasta llegar a un nivel de rendimiento adecuado para sus requerimientos empresariales.

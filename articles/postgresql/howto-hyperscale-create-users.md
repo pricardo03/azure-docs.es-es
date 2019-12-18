@@ -1,17 +1,17 @@
 ---
-title: Crear usuarios en Azure Database for PostgreSQL - Hiperescala (Citus)
+title: Creación de usuarios de Hiperescala (Citus) en Azure Database for PostgreSQL
 description: En este artículo se describe cómo puede crear nuevas cuentas de usuario para interactuar con Azure Database for PostgreSQL - Hiperescala (Citus).
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 7187135b29f0a9a790c032330c73bcb1ae27229b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d093d4c23fcc44e7e9f3461f875607926f4b612d
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73511241"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977580"
 ---
 # <a name="create-users-in-azure-database-for-postgresql---hyperscale-citus"></a>Crear usuarios en Azure Database for PostgreSQL - Hiperescala (Citus)
 
@@ -26,15 +26,13 @@ Un grupo de servidores de Hiperescala (Citus) recién creado incluye varios role
 * *postgres*
 * *citus*
 
-El usuario administrador del servidor, *citus*, es miembro del rol *azure_pg_admin*.
-Sin embargo, no forma parte del rol *postgres* (superusuario).  Dado que Hiperescala es un servicio PaaS administrado, solo Microsoft forma parte de la función de superusuario.
-
 El motor de PostgreSQL usa privilegios para controlar el acceso a objetos de base de datos, como se describe en la [documentación de productos de PostgreSQL](https://www.postgresql.org/docs/current/static/sql-createrole.html).
-En Azure Database for PostgreSQL, se le conceden estos privilegios al usuario administrador del servidor: LOGIN, NOSUPERUSER, INHERIT, CREATEDB, CREATEROLE y NOREPLICATION
+El usuario administrador del servidor, *citus*, es miembro del rol *azure_pg_admin*.
+Sin embargo, no forma parte del rol *postgres* (superusuario).  Dado que Hiperescala es un servicio PaaS administrado, solo Microsoft forma parte de la función de superusuario. El usuario *citus* tiene permisos limitados y, por ejemplo, no puede crear nuevas bases de datos.
 
 ## <a name="how-to-create-additional-users"></a>Cómo crear usuarios adicionales
 
-La cuenta de administrador *citus* carece de permiso para crear usuarios adicionales. Para agregar un usuario, use Azure Portal en su lugar.
+La cuenta de administrador *citus* carece de permiso para crear usuarios adicionales. Para agregar un usuario, use la interfaz de Azure Portal.
 
 1. Vaya a la página de **Roles** del grupo Servidor de hiperescala y haga clic en **+ Agregar**:
 

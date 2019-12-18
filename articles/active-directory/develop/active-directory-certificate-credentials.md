@@ -1,38 +1,35 @@
 ---
-title: Credenciales de certificado en Azure AD
+title: Credenciales de certificado en Azure AD
 titleSuffix: Microsoft identity platform
 description: Este artículo describe el registro y el uso de credenciales de certificados para la autenticación de aplicaciones
 services: active-directory
-documentationcenter: .net
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.assetid: 88f0c64a-25f7-4974-aca2-2acadc9acbd8
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: ryanwi
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3fca872d639ab5c2d4053656cdd3e68a59fdc1e6
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d37b390e39d2b991ea01468feffbe39c9578af54
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73473963"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74963875"
 ---
-# <a name="certificate-credentials-for-application-authentication"></a>Credenciales de certificado para la autenticación de aplicaciones
+# <a name="azure-ad-application-authentication-certificate-credentials"></a>Credenciales de certificado para la autenticación de aplicaciones en Azure AD
 
 Azure Active Directory (Azure AD) permite que una aplicación use sus propias credenciales para la autenticación, por ejemplo, en el flujo de concesión de credenciales de cliente de OAuth 2.0 ([v1.0](v1-oauth2-client-creds-grant-flow.md) y [v2.0](v2-oauth2-client-creds-grant-flow.md)) y el flujo en nombre de ([v1.0](v1-oauth2-on-behalf-of-flow.md) y [v2.0](v2-oauth2-on-behalf-of-flow.md)).
 
 Un formato de credencial que una aplicación puede utilizar para autenticación es una aserción de JSON Web Token (JWT) firmada con un certificado que la aplicación posea.
 
 ## <a name="assertion-format"></a>Formato de aserción
+
 Para calcular la aserción, puede usar una de las muchas bibliotecas de [JSON Web Token](https://jwt.ms/) en el idioma que prefiera. La información que lleva el token es la siguiente:
 
 ### <a name="header"></a>Encabezado

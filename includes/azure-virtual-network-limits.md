@@ -5,15 +5,15 @@ services: networking
 author: anavinahar
 ms.service: networking
 ms.topic: include
-ms.date: 06/25/2019
+ms.date: 12/09/2019
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: ac1687d371630089436640af15cf46491a38ab51
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 2596351a0db921276ad74c27e30a8e2af93f2f36
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74485438"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74981490"
 ---
 <a name="azure-resource-manager-virtual-networking-limits"></a>Límites de redes: Azure Resource Manager Los siguientes límites solo son válidos en los recursos de redes administrados mediante **Azure Resource Manager** por región y por suscripción. Aprenda a [ver el uso de recursos actual comparado con los límites de su suscripción](../articles/networking/check-usage-against-limits.md).
 
@@ -32,7 +32,7 @@ ms.locfileid: "74485438"
 | Direcciones IP privadas por máquina virtual |256 |
 | Direcciones IP públicas por interfaz de red |256 |
 | Direcciones IP públicas por máquina virtual |256 |
-| Conexiones TCP concurrentes o flujo UDP por NIC de una máquina virtual o instancia de rol |500.000 |
+| [Conexiones TCP concurrentes o flujo UDP por NIC de una máquina virtual o instancia de rol](../articles/virtual-network/virtual-machine-network-throughput.md#flow-limits-and-recommendations) |500.000 |
 | Tarjetas adaptadoras de red |65 536 |
 | Grupos de seguridad de red |5\.000 |
 | Reglas de NSG por NSG |1000 |

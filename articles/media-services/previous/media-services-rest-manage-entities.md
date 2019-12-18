@@ -1,6 +1,6 @@
 ---
 title: Administración de entidades de Media Services con REST| Microsoft Docs
-description: Obtenga información sobre cómo administrar las entidades de Media Services con la API de REST.
+description: En este artículo se muestra cómo administrar entidades de Media Services con la API REST.
 author: juliako
 manager: femila
 editor: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: ffbf30f2bfdf0a175513a8d2b9182b35c39f6aae
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1ecbca99a65d99cc3b8d842a7b61d858398a80ff
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60761716"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74885711"
 ---
 # <a name="managing-media-services-entities-with-rest"></a>Administración de entidades de Media Services con REST  
 

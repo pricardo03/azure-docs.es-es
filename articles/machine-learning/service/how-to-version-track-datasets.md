@@ -11,12 +11,12 @@ author: sihhu
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
 ms.custom: ''
-ms.openlocfilehash: 426a93473b969c166a847374d1b4c039055e92d5
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 6940b6ecc231befba908271920e31d4821338baa
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73716102"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928952"
 ---
 # <a name="version-and-track-datasets-in-experiments"></a>Versión y seguimiento de conjuntos de valores en experimentos
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -126,6 +126,7 @@ Dado que las canalizaciones de Machine Learning rellenan la salida de cada paso 
 from azureml.core import Dataset
 from azureml.pipeline.steps import PythonScriptStep
 from azureml.pipeline.core import Pipeline, PipelineData
+from azureml.core. runconfig import CondaDependencies, RunConfiguration
 
 # get input dataset 
 input_ds = Dataset.get_by_name(workspace, 'weather_ds')
@@ -134,10 +135,19 @@ input_ds = Dataset.get_by_name(workspace, 'weather_ds')
 output_ds = PipelineData('prepared_weather_ds', datastore=datastore).as_dataset()
 output_ds = output_ds.register(name='prepared_weather_ds', create_new_version=True)
 
+conda = CondaDependencies.create(
+    pip_packages=['azureml-defaults', 'azureml-dataprep[fuse,pandas]'], 
+    pin_sdk_version=False)
+
+run_config = RunConfiguration()
+run_config.environment.docker.enabled = True
+run_config.environment.python.conda_dependencies = conda
+
 # configure pipeline step to use dataset as the input and output
 prep_step = PythonScriptStep(script_name="prepare.py",
                              inputs=[input_ds.as_named_input('weather_ds')],
                              outputs=[output_ds],
+                             runconfig=run_config,
                              compute_target=compute_target,
                              source_directory=project_folder)
 ```
@@ -146,7 +156,24 @@ prep_step = PythonScriptStep(script_name="prepare.py",
 
 ## <a name="track-datasets-in-experiments"></a>Seguimiento de conjuntos de valores en experimentos
 
-Para cada experimento de Machine Learning, puede realizar fácilmente el seguimiento de los conjuntos de datos que se usan como entrada a través del objeto `Run` del modelo registrado.
+Para cada experimento de Machine Learning, puede realizar fácilmente el seguimiento de los conjuntos de datos que se usan como entrada mediante el objeto `Run` del experimento.
+
+El código siguiente usa el método [`get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#get-details--) para realizar un seguimiento de los conjuntos de datos de entrada que se utilizaron en la ejecución del experimento:
+
+```Python
+# get input datasets
+inputs = run.get_details()['inputDatasets']
+input_dataset = inputs[0]['dataset']
+
+# list the files referenced by input_dataset
+input_dataset.to_path()
+```
+
+También encontrará los `input_datasets` en los experimentos con [Azure Machine Learning Studio](https://ml.azure.com/). 
+
+En la imagen siguiente se muestra dónde encontrar el conjunto de datos de entrada de un experimento en Azure Machine Learning Studio. En este ejemplo, vaya al panel **Experimentos** y abra la pestaña **Propiedades** para una ejecución concreta del experimento, `keras-mnist`.
+
+![Conjuntos de datos de entrada](media/how-to-version-datasets/input-datasets.png)
 
 Use el código siguiente para registrar modelos con conjuntos de datos:
 
@@ -156,26 +183,7 @@ model = run.register_model(model_name='keras-mlp-mnist',
                            datasets =[('training data',train_dataset)])
 ```
 
-Después del registro, puede ver la lista de modelos registrados con el conjunto de datos mediante Python o [Azure Machine Learning Studio](https://ml.azure.com/).
-
-El código siguiente usa el método [`get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#get-details--) para realizar un seguimiento de los conjuntos de datos de entrada que se utilizaron en la ejecución del experimento:
-
-```Python
-# get input datasets
-inputs = run.get_details()['inputDatasets']
-train_dataset = inputs[0]['dataset']
-
-# list the files referenced by train_dataset
-train_dataset.to_path()
-```
-
-También encontrará los `input_datasets` en los experimentos con [Azure Machine Learning Studio](https://ml.azure.com/). 
-
-En la imagen siguiente se muestra dónde encontrar el conjunto de datos de entrada de un experimento en Azure Machine Learning Studio. En este ejemplo, vaya al panel **Experimentos** y abra la pestaña **Propiedades** para una ejecución concreta del experimento, `keras-mnist`.
-
-![Conjuntos de datos de entrada](media/how-to-version-datasets/input-datasets.png)
-
-También encontrará los modelos que usaron el conjunto de datos. La siguiente vista es del panel **Conjunto de datos** en **Activos**. Seleccione el conjunto de datos y, después, seleccione la pestaña **Modelos** para obtener una lista de modelos que usan ese conjunto de datos. 
+Después del registro, puede ver la lista de modelos registrados con el conjunto de datos mediante Python o [Azure Machine Learning Studio](https://ml.azure.com/). La siguiente vista es del panel **Conjunto de datos** en **Activos**. Seleccione el conjunto de datos y, después, seleccione la pestaña **Modelos** para obtener una lista de modelos registrados el conjunto de datos. 
 
 ![Modelos de conjuntos de datos de entrada](media/how-to-version-datasets/dataset-models.png)
 

@@ -1,6 +1,6 @@
 ---
 title: Introducción a los registros de plataforma de Azure | Microsoft Docs
-description: Introducción a los registros de diagnóstico en Azure que proporciona datos exhaustivos y frecuentes acerca del funcionamiento de un recurso de Azure.
+description: Información general sobre los registros de Azure Monitor, que proporcionan datos exhaustivos y frecuentes sobre el funcionamiento de un recurso de Azure.
 author: bwren
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: c1602b9beb5e667caf1688901c7ae4e67e5f5839
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 480c028f11de9a7c44168b217ad3553d721d01e1
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71263043"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894564"
 ---
 # <a name="overview-of-azure-platform-logs"></a>Introducción a los registros de plataforma Azure
 Los registros de plataforma proporcionan información detallada de diagnóstico y auditoría para los recursos de Azure y la plataforma Azure de la que dependen. Se generan automáticamente, aunque es necesario configurar determinados registros de plataforma para que se reenvíen a uno o varios destinos para la conservación. En este artículo se proporciona información general sobre los registros de plataforma, incluida la información que proporcionan y cómo puede configurarlos para la recopilación y el análisis.
@@ -37,7 +37,7 @@ Puede ver el [registro de actividad](activity-log-view.md) y los [registros de A
 ## <a name="destinations"></a>Destinations
 Puede enviar registros de plataforma a uno o varios de los destinos de la tabla siguiente en función de sus requisitos de supervisión. 
 
-| Destino | Escenario | Referencias |
+| Destination | Escenario | Referencias |
 |:---|:---|:---|:---|
 | Área de trabajo de Log Analytics | Analice los registros con otros datos de supervisión y aproveche las características de Azure Monitor, como las consultas y las alertas de registro. | [Registros de recurso](resource-logs-collect-storage.md)<br>[Registro de actividad](activity-log-collect.md)<br>[Registros de Azure Active Directory](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) |
 | Almacenamiento de Azure | Archive los registros para auditoría, análisis estático o copia de seguridad. |[Registros de recurso](archive-diagnostic-logs.md)<br>[Registro de actividad](activity-log-export.md)<br>[Registros de Azure Active Directory](../../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md) |

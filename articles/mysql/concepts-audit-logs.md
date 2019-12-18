@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: ea536742b6481cb06fbd3130279ca5d08ba1bc08
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 12/09/2019
+ms.openlocfilehash: eae7e434ce21b5f9d9f3e6c40f94261df8baa426
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74773575"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74972360"
 ---
 # <a name="audit-logs-in-azure-database-for-mysql"></a>Registros de auditoría en Azure Database for MySQL
 
@@ -29,7 +29,7 @@ Otros parámetros que se pueden ajustar son los siguientes:
 - `audit_log_events`: controla los eventos que se registrarán. Consulte la tabla a continuación para ver los eventos de auditoría específicos.
 - `audit_log_include_users`: Usuarios de MySQL que se incluirán para el registro. El valor predeterminado de este parámetro es estar vacío, lo que incluirá todos los usuarios en el registro. Este tiene una mayor prioridad que `audit_log_exclude_users`. La longitud máxima del parámetro es de 512 caracteres.
 > [!Note]
-> `audit_log_include_users` tiene mayor prioridad que `audit_log_exclude_users`, por ejemplo, si audit_log_include_users = `demouser` y audit_log_exclude_users = `demouser`, auditará los registros porque `audit_log_include_users` tiene mayor prioridad.
+> `audit_log_include_users` tiene mayor prioridad sobre `audit_log_exclude_users`. Por ejemplo, si `audit_log_include_users` = `demouser` y `audit_log_exclude_users` = `demouser`, el usuario se incluirá en los registros de auditoría porque `audit_log_include_users` tiene mayor prioridad.
 - `audit_log_exclude_users`: Los usuarios de MySQL que se excluirán del registro. La longitud máxima del parámetro es de 512 caracteres.
 
 > [!Note]

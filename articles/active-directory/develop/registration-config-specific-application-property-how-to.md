@@ -1,6 +1,6 @@
 ---
-title: Cumplimentación de campos específicos en una aplicación personalizada | Microsoft Docs
-description: Guía acerca de cómo deben rellenarse determinados campos cuando se registra una aplicación personalizada desarrollada con Azure AD
+title: Campos de registro de Azure Portal para aplicaciones de desarrollo personalizado
+description: Guía para registrar una aplicación de desarrollo personalizado con Azure AD
 services: active-directory
 documentationcenter: ''
 author: rwike77
@@ -16,14 +16,14 @@ ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: ryanwi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46bc6d2ebbb22ffc37ca73a3fff3b7b5a3a534b8
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: ded0ba36a8eef7adb1be5b5f07408b9f79359f44
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325335"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74965643"
 ---
-# <a name="how-to-fill-out-specific-fields-for-a-custom-developed-application"></a>Cumplimentación de campos específicos en una aplicación personalizada
+# <a name="azure-portal-registration-fields-for-custom-developed-apps"></a>Campos de registro de Azure Portal para aplicaciones de desarrollo personalizado
 
 Este artículo contiene una breve descripción de todos los campos disponibles en el formulario de registro de aplicaciones de [Azure Portal](https://portal.azure.com).
 
@@ -39,7 +39,6 @@ Este artículo contiene una breve descripción de todos los campos disponibles e
 
 ## <a name="fields-in-the-application-registration-form"></a>Campos del formulario de registro de aplicaciones
 
-
 | Campo            | DESCRIPCIÓN                                                                              |
 |------------------|------------------------------------------------------------------------------------------|
 | NOMBRE             | Nombre de la aplicación. Debe tener un mínimo de cuatro caracteres.                |
@@ -49,6 +48,7 @@ Este artículo contiene una breve descripción de todos los campos disponibles e
 Cuando haya rellenado los campos anteriores, la aplicación se registrará en Azure Portal y se le redirigirá a la página de información general de la aplicación. Las páginas de configuración en el panel de la izquierda en **Administrar** tiene más campos para poder personalizar la aplicación. Las tablas siguientes describen todos los campos. En función de si ha creado una aplicación web o una aplicación cliente pública, es posible que solo aparezca un subconjunto de estos campos.
 
 ### <a name="overview"></a>Información general
+
 | Campo           | DESCRIPCIÓN        |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Identificador de aplicación  | Cuando registra una aplicación, Azure AD le asigna un identificador de aplicación. Este identificador puede usarse para identificar la aplicación en las solicitudes de autenticación que se envían a Azure AD, así como para acceder a ciertos recursos, como Graph API.                                                          |
@@ -76,4 +76,5 @@ Cuando haya rellenado los campos anteriores, la aplicación se registrará en Az
 | Secretos de cliente            | Puede crear secretos de cliente, o claves, para acceder mediante programación a las API web protegidas por Azure AD sin interacción del usuario. En la página **Nuevo secreto de cliente**, escriba la descripción de la clave y la fecha de vencimiento. A continuación, haga clic en Guardar para generar la clave. No olvide guardar la clave en un lugar seguro, ya que no podrá acceder a ella más adelante.             |
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 [Administración de aplicaciones con Azure Active Directory](../manage-apps/what-is-application-management.md)

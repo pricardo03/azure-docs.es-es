@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 05/28/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 6395d62947cda47c3779f15445db08b7515d055d
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 208bf37bfcdf0f86fad11611279d1b4e642fb18a
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672329"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74971764"
 ---
 # <a name="app-service-networking-features"></a>Características de redes de App Service
 
@@ -46,7 +46,7 @@ Para un caso de uso determinado, puede haber varias maneras de solucionar el pro
 | Exponer la aplicación en una dirección IP privada de mi red virtual | ASE de ILB </br> dirección IP privada para la entrada en una instancia de Application Gateway con puntos de conexión de servicio |
 | Proteger la aplicación con un WAF | Application Gateway + ASE de ILB </br> Application Gateway con puntos de conexión de servicio </br> Azure Front Door con restricciones de acceso |
 | Equilibrar la carga del tráfico a las aplicaciones en diferentes regiones | Azure Front Door con restricciones de acceso | 
-| Equilibrar la carga del tráfico en la misma región | Application Gateway con puntos de conexión de servicio | 
+| Equilibrar la carga del tráfico en la misma región | [Application Gateway con puntos de conexión de servicio][appgwserviceendpoints] | 
 
 Los siguientes casos de uso de salida sugieren cómo usar las características de redes de App Service para resolver las necesidades de acceso de salida de la aplicación. 
 
@@ -222,3 +222,4 @@ Puede hacer que varias aplicaciones de front-end usen la misma aplicación de AP
 [vnetintegrationp2s]: https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet
 [vnetintegration]: https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet
 [networkinfo]: https://docs.microsoft.com/azure/app-service/environment/network-info
+[appgwserviceendpoints]: https://docs.microsoft.com/azure/app-service/networking/app-gateway-with-service-endpoints

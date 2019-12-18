@@ -1,6 +1,6 @@
 ---
 title: Información general sobre la API de REST de operaciones de Media Services | Microsoft Docs
-description: Información general de la API de REST de Media Services
+description: La API REST "Media Services Operations" se usa para crear trabajos, recursos, canales en vivo y otros recursos en una cuenta de Media Services. En este artículo se proporciona información general sobre la API REST de Azure Media Services v2.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: johndeu
-ms.openlocfilehash: 29b995d722cd304cc85580ac4f2f38a0b0d9cecd
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 7df1651be01b4bed533c1173cc37bddda58f0aa3
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "69014844"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895809"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Información general sobre la API de REST de operaciones de Media Services 
 
 > [!NOTE]
-> No hay características o funcionalidades nuevas para agregar a Media Services, versión 2. <br/>Finalice la compra de la versión más reciente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte también la [guía de migración de la versión v2 a la v3](../latest/migrate-from-v2-to-v3.md).
+> No hay características o funcionalidades nuevas para agregar a Media Services, versión 2. <br/>Finalice la compra de la versión más reciente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte también la [guía de migración de la versión v2 a v3](../latest/migrate-from-v2-to-v3.md).
 
 La API de **REST de Media Services Operations** se usa para crear trabajos, activos, canales en vivo y otros recursos de una cuenta de Media Services. Para obtener más información, consulte la [referencia de la API de REST de Media Services Operations](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference).
 
@@ -58,7 +58,7 @@ Las siguientes consideraciones se aplican al usar REST.
 ## <a name="standard-http-request-headers-supported-by-media-services"></a>Encabezados de solicitud HTTP estándar compatibles con los Media Services
 Para cada llamada que realice en los Media Services, hay un conjunto de encabezados necesarios que debe incluir en la solicitud y también un conjunto de encabezados opcionales que puede incluir si lo desea. En la tabla siguiente se enumeran los encabezados necesarios:
 
-| Encabezado | type | Valor |
+| Encabezado | Tipo | Valor |
 | --- | --- | --- |
 | Authorization |Portador |El portador es el único mecanismo de autorización aceptado. El valor también debe incluir el token de acceso proporcionado por Azure Active Directory. |
 | x-ms-version |Decimal |2.17 (o una versión más reciente)|
@@ -72,7 +72,7 @@ Para cada llamada que realice en los Media Services, hay un conjunto de encabeza
 
 A continuación se muestra un conjunto de encabezados opcionales:
 
-| Encabezado | type | Valor |
+| Encabezado | Tipo | Valor |
 | --- | --- | --- |
 | Date |Fecha RFC 1123 |Marca de tiempo de la solicitud |
 | Accept |Tipo de contenido |El tipo de contenido solicitado para la respuesta, por ejemplo, el siguiente:<p> -application/json;odata=verbose<p> - application/atom+xml<p> Las respuestas pueden tener distintos tipos de contenido, como una captura de blob, donde una respuesta correcta contenga la secuencia de blob como la carga. |
@@ -86,7 +86,7 @@ A continuación se muestra un conjunto de encabezados opcionales:
 ## <a name="standard-http-response-headers-supported-by-media-services"></a>Encabezados de respuesta HTTP estándar compatibles con los Media Services
 A continuación se muestra un conjunto de encabezados que pueden devolverse según el recurso que estuviera solicitando y la acción que deseara realizar.
 
-| Encabezado | type | Valor |
+| Encabezado | Tipo | Valor |
 | --- | --- | --- |
 | request-id |Cadena |Identificador único de la operación o servicio actual generado. |
 | client-request-id |Cadena |Identificador especificado por el autor de la llamada en la solicitud original, si está presente. |

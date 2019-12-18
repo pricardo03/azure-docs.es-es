@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/03/2019
+ms.date: 12/10/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b4a8005cf308d5cfce02976e3b2eff39d5fe8c0
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: d5a40b699c01f50ceb1bedbc36e7f1467772336f
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958631"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997078"
 ---
 # <a name="skip-deletion-of-user-accounts-that-go-out-of-scope"></a>Omisión de la eliminación de cuentas de usuario que están fuera de ámbito
 
@@ -30,7 +30,7 @@ En esta guía se describe cómo usar Microsoft Graph API y Microsoft Graph Explo
 * Si ***SkipOutOfScopeDeletions*** se establece en 0 (false), las cuentas que queden fuera del ámbito se deshabilitarán en el destino
 * Si ***SkipOutOfScopeDeletions*** se establece en 1 (true), las cuentas que queden fuera del ámbito no se deshabilitarán en el destino. Esta marca se establece en el nivel de la *aplicación de aprovisionamiento* y se puede configurar mediante Graph API. 
 
-Dado que esta configuración se utiliza profusamente con la aplicación de *aprovisionamiento de usuarios de Workday a Active Directory*, los siguientes pasos incluyen capturas de pantallas de la aplicación Workday. Sin embargo, también se puede usar con otras aplicaciones de aprovisionamiento.
+Dado que esta configuración se utiliza profusamente con la aplicación de *aprovisionamiento de usuarios de Workday a Active Directory*, los siguientes pasos incluyen capturas de pantallas de la aplicación Workday. Sin embargo, también se puede usar con **todas las demás aplicaciones** como ServiceNow, Salesforce, Dropbox, etc.
 
 ## <a name="step-1-retrieve-your-provisioning-app-service-principal-id-object-id"></a>Paso 1: Recuperar el identificador de la entidad de servicio de la aplicación de aprovisionamiento (identificador de objeto)
 

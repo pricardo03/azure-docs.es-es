@@ -1,17 +1,18 @@
 ---
-title: Gráficos de flujo de datos de Azure Data Factory
+title: Grafos de flujo de datos
 description: Cómo trabajar con gráficos de flujo de datos de factoría de datos
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 11/04/2019
-ms.openlocfilehash: 38f85dea554000daf89689a311c091bc9796a658
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: da180bfb1aec29fa15b070fd73ba84d708ada927
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74018631"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928303"
 ---
 # <a name="mapping-data-flow-graphs"></a>Asignar gráficos de flujo de datos
 

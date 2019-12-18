@@ -2,13 +2,13 @@
 title: 'Funciones de plantillas: recursos'
 description: Describe las funciones para usar en una plantilla de Azure Resource Manager para recuperar valores sobre recursos.
 ms.topic: conceptual
-ms.date: 10/26/2019
-ms.openlocfilehash: 6457bafeeb0b241171311dc3dcea30b7b6993791
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.date: 12/09/2019
+ms.openlocfilehash: ee88e939030650111acafec6c3b9906507176f48
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74150670"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978856"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Funciones de recursos para las plantillas de Azure Resource Manager
 
@@ -36,7 +36,7 @@ Devuelve el identificador de recurso de un [recurso de extensión](extension-res
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | resourceId |Sí |string |El identificador de recurso para el recurso al que se aplica el recurso de extensión. |
 | resourceType |Sí |string |Tipo de recurso, incluido el espacio de nombres del proveedor de recursos. |
@@ -116,7 +116,7 @@ La sintaxis de esta función varía según el nombre de las operaciones de la li
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | resourceName o resourceIdentifier |Sí |string |Identificador único para el recurso. |
 | apiVersion |Sí |string |Versión de API de estado en tiempo de ejecución de un recurso. Por lo general, en el formato, **aaaa-mm-dd**. |
@@ -349,7 +349,7 @@ Devuelve información acerca de un proveedor de recursos y sus tipos de recursos
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | providerNamespace |Sí |string |Espacio de nombres del proveedor |
 | resourceType |Sin |string |El tipo de recurso en el espacio de nombres especificado. |
@@ -426,7 +426,7 @@ Devuelve un objeto que representa el estado de tiempo de ejecución de un recurs
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | resourceName o resourceIdentifier |Sí |string |Nombre o identificador único de un recurso. Al hacer referencia a un recurso en la plantilla actual, proporcione solo el nombre del recurso como parámetro. Al hacer referencia a un recurso implementado previamente, especifique el identificador del recurso. |
 | apiVersion |Sin |string |Versión de la API del recurso especificado. Incluya este parámetro cuando el recurso no esté aprovisionado en la misma plantilla. Por lo general, en el formato, **aaaa-mm-dd**. Para conocer las versiones válidas de la API para su recurso, consulte la [referencia de la plantilla](/azure/templates/). |
@@ -672,21 +672,20 @@ La propiedad **managedBy** solo se devuelve para los grupos de recursos que cont
 
 La función `resourceGroup()` no se puede usar en una plantilla que está [implementada en el nivel de suscripción](deploy-to-subscription.md). Solo puede usarse en las plantillas que se implementan en un grupo de recursos.
 
-Un uso común de la función resourceGroup es crear recursos en la misma ubicación que el grupo de recursos. En el ejemplo siguiente se utiliza la ubicación del grupo de recursos para asignar la ubicación de un sitio web.
+Un uso común de la función resourceGroup es crear recursos en la misma ubicación que el grupo de recursos. En el ejemplo siguiente se utiliza la ubicación del grupo de recursos para un valor de parámetro predeterminado.
 
 ```json
-"resources": [
-   {
-      "apiVersion": "2016-08-01",
-      "type": "Microsoft.Web/sites",
-      "name": "[parameters('siteName')]",
-      "location": "[resourceGroup().location]",
-      ...
-   }
-]
+"parameters": {
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]"
+    }
+}
 ```
 
 También puede usar la función resourceGroup para aplicar etiquetas del grupo de recursos a un recurso. Para más información, consulte [Aplicación de etiquetas de un grupo de recursos](resource-group-using-tags.md#apply-tags-from-resource-group).
+
+Al usar plantillas anidadas para implementar en varios grupos de recursos, puede especificar el ámbito para evaluar la función resourceGroup. Para más información, consulte [Implementación de recursos de Azure en varias suscripciones y grupos de recursos](resource-manager-cross-resource-group-deployment.md).
 
 ### <a name="resource-group-example"></a>Ejemplo de grupo de recursos
 
@@ -730,7 +729,7 @@ Devuelve el identificador único de un recurso. Utilice esta función cuando el 
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | subscriptionId |Sin |Cadena (en formato de GUID) |El valor predeterminado es la suscripción actual. Especifique este valor cuando necesite recuperar un recurso en otra suscripción. |
 | resourceGroupName |Sin |string |El valor predeterminado es el grupo de recursos actual. Especifique este valor cuando necesite recuperar un recurso en otro grupo de recursos. |
@@ -892,6 +891,10 @@ La función devuelve el siguiente formato:
 }
 ```
 
+### <a name="remarks"></a>Comentarios
+
+Al usar plantillas anidadas para implementar en varias suscripciones, puede especificar el ámbito para evaluar la función de suscripción. Para más información, consulte [Implementación de recursos de Azure en varias suscripciones y grupos de recursos](resource-manager-cross-resource-group-deployment.md).
+
 ### <a name="subscription-example"></a>Ejemplo de suscripción
 
 En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/subscription.json) siguiente se muestra la función de suscripción a la que se llama en la sección de salidas. 
@@ -920,7 +923,7 @@ Devuelve el identificador único de un recurso implementado en el nivel de suscr
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | subscriptionId |Sin |Cadena (en formato de GUID) |El valor predeterminado es la suscripción actual. Especifique este valor cuando necesite recuperar un recurso en otra suscripción. |
 | resourceType |Sí |string |Tipo de recurso, incluido el espacio de nombres del proveedor de recursos. |
@@ -1004,7 +1007,7 @@ Devuelve el identificador único de un recurso implementado en el nivel de inqui
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | resourceType |Sí |string |Tipo de recurso, incluido el espacio de nombres del proveedor de recursos. |
 | resourceName1 |Sí |string |Nombre del recurso. |

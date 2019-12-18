@@ -6,12 +6,12 @@ ms.author: cshoe
 ms.topic: reference
 ms.date: 11/21/2017
 ms.custom: seodec18
-ms.openlocfilehash: 18bbfd1b54947bb88ba8f06c65a17b90430b38a3
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: bae027fc5a3b6ce7b4246c403841fa529b8884cb
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74305234"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74925943"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>Enlaces de Azure Cosmos DB para Azure Functions 1.x
 
@@ -22,7 +22,7 @@ ms.locfileid: "74305234"
 En este artículo se explica cómo trabajar con enlaces de [Azure Cosmos DB](../cosmos-db/serverless-computing-database.md) en Azure Functions. Azure Functions enlaces de desencadenador, de entrada y de salida para Azure Cosmos DB.
 
 > [!NOTE]
-> Este artículo trata sobre Azure Functions 1.x. Para obtener información sobre el uso de estos enlaces en Functions 2.x, consulte [Enlaces de Azure Cosmos DB para Azure Functions 2.x](functions-bindings-cosmosdb-v2.md).
+> Este artículo trata sobre Azure Functions 1.x. Para más información acerca del uso de estos enlaces en Functions 2.x y versiones posteriores, consulte [Enlaces de Azure Cosmos DB para Azure Functions 2.x](functions-bindings-cosmosdb-v2.md).
 >
 >Este enlace se llamaba originalmente DocumentDB. En la versión 1.x de Functions, solo se cambió el nombre del desencadenador a Cosmos DB; el enlace de entrada, el enlace de salida y el paquete NuGet conservan el nombre DocumentDB.
 

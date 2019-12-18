@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 07/09/2018
 ms.author: cshoe
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ee78234b43e94a5c537161556410ee6246e625ca
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 3c24e8b6098ba33a2e738a7f5f310ae7e65ee516
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230940"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74925290"
 ---
 # <a name="twilio-binding-for-azure-functions"></a>Enlace de Twilio para Azure Functions
 
@@ -25,7 +25,7 @@ Los enlaces de Twilio se proporcionan en el paquete NuGet [Microsoft.Azure.WebJo
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
-## <a name="packages---functions-2x"></a>Paquetes: Functions 2.x
+## <a name="packages---functions-2x-and-higher"></a>Paquetes: Functions 2.x y versiones posteriores
 
 Los enlaces de Twilio se proporcionan en el paquete NuGet [Microsoft.Azure.WebJobs.Extensions.Twilio](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio), versión 3.x. El código fuente del paquete se encuentra en el repositorio [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/) de GitHub.
 
@@ -197,15 +197,15 @@ module.exports = function (context, myQueueItem) {
 };
 ```
 
-## <a name="example---functions-2x"></a>Ejemplo: Functions 2.x
+## <a name="example---functions-2x-and-higher"></a>Ejemplo: Functions 2.x y versiones posteriores
 
 Vea el ejemplo específico del lenguaje:
 
-* [C# 2.x](#2x-c-example)
-* [Script de C# 2.x (.csx)](#2x-c-script-example)
-* [JavaScript 2.x](#2x-javascript-example)
+* [C# 2.x+](#2x-c-example)
+* [Script de C# 2.x+ (.csx)](#2x-c-script-example)
+* [JavaScript 2.x+](#2x-javascript-example)
 
-### <a name="2x-c-example"></a>Ejemplo de C# 2.x
+### <a name="2x-c-example"></a>Ejemplo de C# 2.x+
 
 En el ejemplo siguiente se muestra una [función de C#](functions-dotnet-class-library.md) que envía un mensaje de texto cuando se desencadena mediante un mensaje de cola.
 
@@ -240,7 +240,7 @@ namespace TwilioQueueOutput
 
 En este ejemplo se usa el atributo `TwilioSms` con el valor devuelto del método. Una alternativa es usar el atributo con un parámetro `out CreateMessageOptions` o un parámetro `ICollector<CreateMessageOptions>` o `IAsyncCollector<CreateMessageOptions>`.
 
-### <a name="2x-c-script-example"></a>Ejemplo de script de C# 2.x
+### <a name="2x-c-script-example"></a>Ejemplo de script de C# 2.x+
 
 En el ejemplo siguiente se muestra un enlace de salida de Twilio en un archivo *function.json* y una [función de script de C#](functions-reference-csharp.md) que usa el enlace. La función usa un parámetro `out` para enviar un mensaje de texto.
 
@@ -326,7 +326,7 @@ public static async Task Run(string myQueueItem, IAsyncCollector<CreateMessageOp
 }
 ```
 
-### <a name="2x-javascript-example"></a>Ejemplo de JavaScript 2.x
+### <a name="2x-javascript-example"></a>Ejemplo de JavaScript 2.x+
 
 En el ejemplo siguiente se muestra un enlace de salida de Twilio en un archivo *function.json* y una [función de JavaScript](functions-reference-node.md) que usa el enlace.
 

@@ -3,17 +3,17 @@ title: Conexión de un dispositivo DevKit a una aplicación de Azure IoT Central
 description: Como desarrollador de dispositivos, aprenda a conectar un dispositivo MXChip IoT DevKit a una aplicación de Azure IoT Central mediante IoT Plug and Play.
 author: liydu
 ms.author: liydu
-ms.date: 08/17/2019
+ms.date: 12/03/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: jeffya
-ms.openlocfilehash: 178f518ed7ab24fc0d3678f77ae75933a7163b58
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 32dd3fa1fc137d786174e47d842f762c2a479d64
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73930144"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849001"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application-preview-features"></a>Conexión de un dispositivo MXChip IoT DevKit a una aplicación de Azure IoT Central (Características en vista previa (GB))
 
@@ -34,9 +34,21 @@ Para completar los pasos de este artículo, necesitará los siguientes recursos:
 
 ## <a name="get-device-connection-details"></a>Obtención de los detalles de conexión del dispositivo
 
-Desde la aplicación de Azure IoT Central, seleccione la pestaña **Administración** y, después, **Conexión de dispositivos**. Anote los valores de **Id. de ámbito** y **Clave principal** (en el vínculo **Ver claves**). Y asegúrese de que la opción **Aprobación automática** está habilitada.
+1. Desde la aplicación de Azure IoT Central, seleccione la pestaña **Plantillas de dispositivo** y, después, **Nueva**. En la sección para **usar una plantilla de dispositivo preconfigurada**, seleccione **MXChip IoT DevKit** en la lista. A continuación, seleccione **Siguiente: Personalizar** y **Crear**.
 
-![Detalles de conexión del grupo de dispositivos](media/howto-connect-devkit/device-group-connection-details.png)
+    ![Plantilla de dispositivo para MXChip IoT DevKit](media/howto-connect-devkit/device-template.png)
+
+1. Seleccione la pestaña **Dispositivos**. En la lista de dispositivos, seleccione **MXChip IoT DevKit** y seleccione **Nuevo** para crear un nuevo dispositivo a partir de la plantilla de dispositivo.
+
+    ![Nuevo dispositivo](media/howto-connect-devkit/new-device.png)
+
+1. En la ventana emergente, escriba el **identificador de dispositivo** como `SampleDevKit` y el **nombre de dispositivo** como `MXChip IoT DevKit - Sample`. Asegúrese de que la opción **Simulado** esté desactivada. Seleccione **Crear**.
+
+    ![Identificador y nombre de dispositivo](media/howto-connect-devkit/device-id-name.png)
+
+1. Haga clic en el dispositivo que acaba de crear y seleccione **Conectar**. Anote el **ámbito del identificador**, el **Identificador de dispositivo** y la **clave principal**.
+
+    ![Información de conexión del dispositivo](media/howto-connect-devkit/device-connection-info.png)
 
 ## <a name="prepare-the-device"></a>Preparar el dispositivo
 
@@ -61,7 +73,7 @@ Desde la aplicación de Azure IoT Central, seleccione la pestaña **Administraci
 
     - El nombre de la red Wi-Fi (SSID).
     - La contraseña de la red Wi-Fi.
-    - Los detalles de la conexión: el **identificador de dispositivo** que puede elegir y el **Id. de ámbito** y la **clave principal de SAS del grupo** que anotó anteriormente.
+    - Los detalles de la conexión: escriba el **identificador de dispositivo**, el **ámbito del identificador** y la **clave principal de SAS** que anotó anteriormente.
 
     > [!NOTE]
     > Actualmente, el dispositivo DevKit de IoT solo puede conectarse a una red Wi-Fi de 2,4 GHz; 5 GHz no se admite debido a las restricciones de hardware.
@@ -86,7 +98,7 @@ En la aplicación de IoT Central, seleccione la pestaña **Dispositivos** y sele
 
 ## <a name="review-the-code"></a>Revisión del código
 
-Para revisar el código o modificarlo y compilarlo, vaya al [repositorio de GitHub de código de ejemplo de MXChip IoT DevKit](https://github.com/MXCHIP/IoTDevKit/tree/master/pnp).
+Para revisar el código, modificarlo y compilarlo, vaya a [Ejemplos de código](https://docs.microsoft.com/samples/azure-samples/mxchip-iot-devkit-pnp/sample/).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

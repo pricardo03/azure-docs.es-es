@@ -1,18 +1,18 @@
 ---
 title: CONTAINS en el lenguaje de consulta de Azure Cosmos DB
-description: Obtenga información sobre la función del sistema SQL CONTAINS en Azure Cosmos DB.
+description: Obtenga información sobre cómo la función del sistema SQL CONTAINS en Azure Cosmos DB devuelve un valor booleano que indica si la primera expresión de cadena contiene la segunda
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 5d5018d0173c316a0a31bd2f70e15e5ff972d153
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 59c0e2628bfde24200bd386adc858ba778790231
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71351093"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74871540"
 ---
 # <a name="contains-azure-cosmos-db"></a>CONTAINS (Azure Cosmos DB)
  Devuelve un valor booleano que indica si la primera expresión de cadena contiene la segunda.  

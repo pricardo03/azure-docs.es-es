@@ -1,25 +1,30 @@
 ---
 title: Examen de la salida de Video Indexer de Azure Media Services producida por la API v2
 titleSuffix: Azure Media Services
-description: En este tema se examina la salida de Video Indexer producida por la API v2.
+description: En este tema se examina la salida de Video Indexer de Azure Media Services generada por la API v2.
 services: media-services
 author: Juliako
 manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 10/11/2019
+ms.date: 12/09/2019
 ms.author: juliako
-ms.openlocfilehash: 0a42c2dce3976a1bf83c85644f56f4c1d8abc9c8
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: c978fed1675ea80ae9b2f6fb7fbe9a4c84472638
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839533"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978311"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-api"></a>Examen de la salida de Video Indexer producida por la API
 
 Cuando se llama a **Get Video Index** API y el estado de la respuesta es correcto, obtendrá una salida JSON detallada como contenido de la respuesta. El contenido JSON incluye información detallada del vídeo especificado. La información detallada incluye dimensiones como: transcripciones, OCR, rostros, temas o bloques, entre otras. Las dimensiones tienen instancias de intervalos de tiempo que muestran cuándo apareció cada dimensión en el vídeo.  
+
+1. Para recuperar el archivo JSON, llame a [Get Video Index API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Index?).
+1. Si también está interesado en artefactos específicos, llame a [Get Video Artifact Download URL API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Artifact-Download-Url?).
+
+    En la llamada API, especifique el tipo de artefacto solicitado (OCR, caras, fotogramas clave, etc.).
 
 También puede examinar visualmente la información detallada del vídeo. Para ello, presione el botón **Reproducir** que hay encima del vídeo en el sitio web de [Video Indexer](https://www.videoindexer.ai/). Para más información, consulte [Visualización y edición de la información detallada de un vídeo](video-indexer-view-edit.md).
 

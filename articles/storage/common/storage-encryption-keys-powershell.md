@@ -1,22 +1,23 @@
 ---
-title: 'Configuración de claves administradas por el cliente con Azure Key Vault mediante PowerShell: Azure Storage'
+title: Uso de PowerShell para configurar las claves administradas por el cliente
+titleSuffix: Azure Storage
 description: Configurar las claves que administra el cliente para el cifrado de Azure Storage desde PowerShell Las claves administradas por el cliente le permiten crear, rotar, deshabilitar y revocar los controles de acceso.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/20/2019
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: bd723787d9cea2d3b9d81ae9db63c70a21190854
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 87ee96b0f6ad27fc34709f3fc20a2dd69be49089
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74666229"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895268"
 ---
-# <a name="configure-customer-managed-keys-for-azure-storage-by-using-powershell"></a>Configuración de claves administradas por el cliente para Azure Storage mediante PowerShell
+# <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-powershell"></a>Configuración de claves administradas por el cliente con Azure Key Vault mediante PowerShell
 
 [!INCLUDE [storage-encryption-configure-keys-include](../../../includes/storage-encryption-configure-keys-include.md)]
 

@@ -7,12 +7,12 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 09/23/2019
 ms.author: spelluru
-ms.openlocfilehash: d2b92759384a9a0b63d784a8cb1afb3d18d55aeb
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: d0118f815a2ceb149c62363fa334c16d28c6d615
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219315"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894405"
 ---
 # <a name="security-controls-for-azure-service-bus-messaging"></a>Controles de seguridad para la mensajería de Azure Service Bus
 
@@ -48,8 +48,8 @@ En este artículo se explican los controles de seguridad integrados en la mensaj
 
 | Control de seguridad | Sí/No | Notas | Documentación |
 |---|---|--|--|
-| Cifrado del lado servidor en reposo: Claves administradas por Microsoft |  Sí, para el cifrado en reposo en el servidor, de forma predeterminada. | No se admiten todavía claves administradas por el cliente ni BYOK. El cifrado del lado del cliente es responsabilidad de este. |
-| Cifrado del lado servidor en reposo: claves administradas por el cliente (BYOK) | Sin |   |   |
+| Cifrado del lado servidor en reposo: Claves administradas por Microsoft |  Sí, para el cifrado en reposo en el servidor, de forma predeterminada. |  |  |
+| Cifrado del lado servidor en reposo: claves administradas por el cliente (BYOK) | Sí. Actualmente en versión preliminar | Se puede usar una clave administrada por el cliente en Azure Key Vault para cifrar los datos en el espacio de nombres de Service Bus en reposo. | [Configuración de claves administradas por el cliente para cifrar datos en reposo de Azure Service Bus mediante Azure Portal (versión preliminar)](configure-customer-managed-key.md)  |
 | Cifrado de nivel de columna (Azure Data Services)| N/D | |   |
 | Cifrado en tránsito (por ejemplo, cifrado de ExpressRoute, cifrado en la red virtual y cifrado de red virtual a red virtual)| Sí | Compatible con el mecanismo estándar de HTTPS/TLS. |   |
 | Llamadas a API cifradas| Sí | Las llamadas de API se realizan mediante [Azure Resource Manager](../azure-resource-manager/index.yml) y HTTPS. |   |

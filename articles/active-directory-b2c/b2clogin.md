@@ -1,5 +1,6 @@
 ---
-title: 'Establecimiento de direcciones URL de redireccionamiento en b2clogin.com: Azure Active Directory B2C'
+title: Migración de aplicaciones y API a b2clogin.com
+titleSuffix: Azure AD B2C
 description: Aprenda a usar b2clogin.com en las direcciones URL de redireccionamiento para Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -7,19 +8,29 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/17/2019
+ms.date: 12/04/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: dbc366daac89f44d4b084081590124f81ff9cc9c
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: e4ebde6295c3f3467dd615b58d2140302aa86a61
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69533745"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74949990"
 ---
 # <a name="set-redirect-urls-to-b2clogincom-for-azure-active-directory-b2c"></a>Establecimiento de direcciones URL de redireccionamiento en b2clogin.com para Azure Active Directory B2C
 
 Cuando se configura un proveedor de identidades para registrarse e iniciar sesión en la aplicación Azure Active Directory B2C (Azure AD B2C), debe especificar una dirección URL de redireccionamiento. Ya no debe hacer referencia a *login.microsoftonline.com* en las aplicaciones y API. En su lugar, use *b2clogin.com* para todas las aplicaciones nuevas y migre las aplicaciones existentes de *login.microsoftonline.com* a *b2clogin.com*.
+
+## <a name="deprecation-of-loginmicrosoftonlinecom"></a>Desuso de login.microsoftonline.com
+
+El 4 de diciembre de 2019 anunciamos la retirada programada de la compatibilidad con login.microsoftonline.com en Azure AD B2C para el **4 de diciembre de 2020**:
+
+[Azure Active Directory B2C está dejando de usar login.microsoftonline.com](https://azure.microsoft.com/updates/b2c-deprecate-msol/)
+
+El desuso de login.microsoftonline.com entrará en vigor en todos los inquilinos de Azure AD B2C el 4 de diciembre de 2020, lo que deja a los inquilinos existentes un (1) año para migrar a b2clogin.com. Los nuevos inquilinos creados después del 4 de diciembre de 2019 no aceptarán solicitudes de login.microsoftonline.com. Toda la funcionalidad sigue igual en el punto de conexión b2clogin.com.
+
+El desuso de login.microsoftonline.com no afecta a los inquilinos de Azure Active Directory. Este cambio solo afecta a los inquilinos de Azure Active Directory B2C.
 
 ## <a name="benefits-of-b2clogincom"></a>Ventajas de b2clogin.com
 
@@ -72,6 +83,10 @@ Por ejemplo, el punto de conexión de la autoridad de la directiva de registro o
 https://contosob2c.b2clogin.com/00000000-0000-0000-0000-000000000000/B2C_1_signupsignin1
 ```
 
+Para obtener información sobre la migración de aplicaciones web basadas en OWIN a b2clogin.com, consulte [Migración de una API web basada en OWIN a b2clogin.com](multiple-token-endpoints.md).
+
+Para migrar las API de Azure API Management protegidas por Azure AD B2C, consulte la sección [Migración a b2clogin.com](secure-api-management.md#migrate-to-b2clogincom) en [Protección de una API de Azure API Management con Azure AD B2C](secure-api-management.md).
+
 ## <a name="microsoft-authentication-library-msal"></a>Biblioteca de autenticación de Microsoft (MSAL)
 
 ### <a name="validateauthority-property"></a>Propiedad ValidateAuthority
@@ -95,6 +110,12 @@ this.clientApplication = new UserAgentApplication(
   }
 );
 ```
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Para obtener información sobre la migración de aplicaciones web basadas en OWIN a b2clogin.com, consulte [Migración de una API web basada en OWIN a b2clogin.com](multiple-token-endpoints.md).
+
+Para migrar las API de Azure API Management protegidas por Azure AD B2C, consulte la sección [Migración a b2clogin.com](secure-api-management.md#migrate-to-b2clogincom) en [Protección de una API de Azure API Management con Azure AD B2C](secure-api-management.md).
 
 <!-- LINKS - External -->
 [msal-dotnet]: https://github.com/AzureAD/microsoft-authentication-library-for-dotnet

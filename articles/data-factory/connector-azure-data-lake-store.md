@@ -1,25 +1,25 @@
 ---
-title: Copia de datos con Azure Data Lake Storage Gen1 como origen o destino mediante Data Factory
+title: Copia de datos hacia o desde Azure Data Lake Storage Gen1
 description: Aprenda a copiar datos desde almacenes de datos de origen compatibles a Azure Data Lake Store o desde Data Lake Store a almacenes de receptores compatibles mediante Data Factory.
 services: data-factory
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 10/24/2019
-ms.author: jingwang
-ms.openlocfilehash: 2aef04c4fe4713b107abe53fe459b7859a9c714e
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 17f7c62600bcc2aa21fbcea8ecd96810be412a26
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681271"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930527"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-using-azure-data-factory"></a>Copia de datos con Azure Data Lake Storage Gen1 como origen o destino mediante Azure Data Factory
+
 > [!div class="op_single_selector" title1="Seleccione la versión de Azure Data Factory que usa:"]
 > * [Versión 1](v1/data-factory-azure-datalake-connector.md)
 > * [Versión actual](connector-azure-data-lake-store.md)
@@ -192,7 +192,7 @@ Las propiedades siguientes se admiten para Azure Data Lake Store Gen1 en la conf
 ### <a name="legacy-dataset-model"></a>Modelo de conjunto de datos heredado
 
 >[!NOTE]
->El siguiente modelo de conjunto de datos se sigue admitiendo tal cual para la compatibilidad con versiones anteriores. A partir de ahora, se recomienda usar el nuevo modelo mencionado en la sección anterior; ademas, la interfaz de usuario de creación de ADF ha pasado a generar el nuevo modelo.
+>El siguiente modelo de conjunto de datos se sigue admitiendo tal cual para la compatibilidad con versiones anteriores. A partir de ahora, se recomienda usar el nuevo modelo mencionado en la sección anterior; además, la interfaz de usuario de creación de ADF ha pasado a generar el nuevo modelo.
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
@@ -301,7 +301,7 @@ Las propiedades siguientes se admiten para Azure Data Lake Store Gen1 en la conf
 #### <a name="legacy-source-model"></a>Modelo de origen heredado
 
 >[!NOTE]
->El siguiente modelo de origen de copia todavía se admite tal cual por compatibilidad con versiones anteriores. A partir de ahora, se recomienda usar el nuevo modelo mencionado anteriormente; ademas, la interfaz de usuario de creación de ADF ha pasado a generar el nuevo modelo.
+>El siguiente modelo de origen de copia se sigue admitiendo tal cual para la compatibilidad con versiones anteriores. A partir de ahora, se recomienda usar el nuevo modelo mencionado anteriormente; además, la interfaz de usuario de creación de ADF ha pasado a generar el nuevo modelo.
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
@@ -391,7 +391,7 @@ Las propiedades siguientes se admiten para Azure Data Lake Store Gen1 en la conf
 #### <a name="legacy-sink-model"></a>Modelo de receptor heredado
 
 >[!NOTE]
->El siguiente modelo de receptor de copia todavía se admite tal cual por compatibilidad con versiones anteriores. A partir de ahora, se recomienda usar el nuevo modelo mencionado anteriormente; ademas, la interfaz de usuario de creación de ADF ha pasado a generar el nuevo modelo.
+>El siguiente modelo de receptor de copia se sigue admitiendo tal cual para compatibilidad con versiones anteriores. A partir de ahora, se recomienda usar el nuevo modelo mencionado anteriormente; además, la interfaz de usuario de creación de ADF ha pasado a generar el nuevo modelo.
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |

@@ -1,5 +1,6 @@
 ---
-title: Llamada a las operaciones de API REST de Azure Storage con autorización de clave compartida | Microsoft Docs
+title: Llamada a operaciones de API REST con autorización de clave compartida
+titleSuffix: Azure Storage
 description: Use la API REST de Azure Storage para hacer una solicitud a Blob Storage mediante la autorización de claves compartidas.
 services: storage
 author: tamram
@@ -9,14 +10,14 @@ ms.date: 10/01/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 05f71d4952d5f500a93adbb740739a46e9036ac1
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 13e9abb2a7b79ad9355261832145766e424c3df6
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71803078"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895173"
 ---
-# <a name="using-the-azure-storage-rest-api"></a>Uso de la API de REST de Azure Storage
+# <a name="call-rest-api-operations-with-shared-key-authorization"></a>Llamada a operaciones de API REST con autorización de clave compartida
 
 En este artículo se muestra cómo llamar a las API REST de Azure Storage, incluyendo la formación del encabezado de autorización. Se ha escrito desde el punto de vista de un desarrollador que no sabe nada sobre REST y no tiene idea de cómo realizar una llamada a REST. Después de obtener información sobre cómo llamar a una operación de REST, puede aprovechar este conocimiento para usar todas las demás operaciones REST de Azure Storage.
 
@@ -58,9 +59,9 @@ La aplicación de ejemplo muestra los contenedores de una cuenta de almacenamien
 
 Si examina la [API de REST de Blob service](/rest/api/storageservices/Blob-Service-REST-API), verá todas las operaciones que puede realizar en el almacenamiento de blobs. Las bibliotecas de cliente de almacenamiento son contenedores de las API de REST, que permiten acceder de forma fácil al almacenamiento sin usar directamente las API de REST. Pero como se ha mencionado anteriormente, en ocasiones querrá usar la API de REST en lugar de una biblioteca de cliente de almacenamiento.
 
-## <a name="rest-api-reference-list-containers-api"></a>Referencia de la API REST: List Containers API
+## <a name="list-containers-operation"></a>Operación ListContainers
 
-Echemos un vistazo a la página de la referencia de la API REST de la operación [ListContainers](/rest/api/storageservices/List-Containers2). Esta información le ayudará a comprender de dónde proceden algunos de los campos de la solicitud y la respuesta.
+Revise la referencia de la operación [ListContainers](/rest/api/storageservices/List-Containers2). Esta información le ayudará a comprender de dónde proceden algunos de los campos de la solicitud y la respuesta.
 
 **Método de solicitud**: GET. Este verbo es el método HTTP que se especifica como una propiedad del objeto de solicitud. Otros valores de este verbo incluyen HEAD, PUT y DELETE, según la API a la que llame.
 
@@ -132,29 +133,29 @@ using (var httpRequestMessage = new HttpRequestMessage(HttpMethod.Get, uri)
 Agregue los encabezados de solicitud para `x-ms-date` y `x-ms-version`. Este lugar en el código también es donde se agregan los encabezados de solicitud adicionales necesarios para la llamada. En este ejemplo, no hay ningún encabezado adicional. Un ejemplo de una API que pasa encabezados adicionales como entrada es la operación Set Container ACL. Esta llamada de API agrega un encabezado llamado "x-ms-blob-public-access" y el valor del nivel de acceso.
 
 ```csharp
-    // Add the request headers for x-ms-date and x-ms-version.
-    DateTime now = DateTime.UtcNow;
-    httpRequestMessage.Headers.Add("x-ms-date", now.ToString("R", CultureInfo.InvariantCulture));
-    httpRequestMessage.Headers.Add("x-ms-version", "2017-07-29");
-    // If you need any additional headers, add them here before creating
-    //   the authorization header.
+// Add the request headers for x-ms-date and x-ms-version.
+DateTime now = DateTime.UtcNow;
+httpRequestMessage.Headers.Add("x-ms-date", now.ToString("R", CultureInfo.InvariantCulture));
+httpRequestMessage.Headers.Add("x-ms-version", "2017-07-29");
+// If you need any additional headers, add them here before creating
+//   the authorization header.
 ```
 
 Llame al método que crea el encabezado de autorización y agréguelo a los encabezados de solicitud. Verá cómo crear el encabezado de autorización más adelante en el artículo. El nombre del método es GetAuthorizationHeader, que puede ver en este fragmento de código:
 
 ```csharp
-    // Get the authorization header and add it.
-    httpRequestMessage.Headers.Authorization = AzureStorageAuthenticationHelper.GetAuthorizationHeader(
-        storageAccountName, storageAccountKey, now, httpRequestMessage);
+// Get the authorization header and add it.
+httpRequestMessage.Headers.Authorization = AzureStorageAuthenticationHelper.GetAuthorizationHeader(
+    storageAccountName, storageAccountKey, now, httpRequestMessage);
 ```
 
 En este momento, `httpRequestMessage` contiene la solicitud REST completa con los encabezados de autorización.
 
-## <a name="call-the-rest-api-with-the-request"></a>Llamada a la API de REST con la solicitud
+## <a name="send-the-request"></a>Envío de la solicitud
 
-Ahora que tiene la solicitud, puede llamar a SendAsync para enviar la solicitud de REST. SendAsync llama a la API y recibe la respuesta. Examine la respuesta StatusCode (200 es correcto) y, a continuación, analícela. En este caso, se obtiene una lista XML de contenedores. Vamos a examinar el código para llamar al método GetRESTRequest y crear la solicitud, ejecutar la solicitud y luego examinar la respuesta de la lista de contenedores.
+Ahora que ha construido la solicitud, puede llamar al método SendAsync para enviarla a Azure Storage. Compruebe que el valor del código de estado de respuesta es 200, lo que significa que la operación se ha realizado correctamente. A continuación, analice la respuesta. En este caso, se obtiene una lista XML de contenedores. Vamos a examinar el código para llamar al método GetRESTRequest y crear la solicitud, ejecutar la solicitud y luego examinar la respuesta de la lista de contenedores.
 
-```csharp 
+```csharp
     // Send the request.
     using (HttpResponseMessage httpResponseMessage =
       await new HttpClient().SendAsync(httpRequestMessage, cancellationToken))

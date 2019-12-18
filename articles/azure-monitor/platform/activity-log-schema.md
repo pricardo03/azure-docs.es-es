@@ -8,15 +8,15 @@ ms.topic: reference
 ms.date: 1/16/2019
 ms.author: dukek
 ms.subservice: logs
-ms.openlocfilehash: d196cf4024513d891182f3b916bd8412a2f81d14
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: 73f6de80348b7d933e45a8145f6bdb8fe22b5954
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74305482"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893610"
 ---
 # <a name="azure-activity-log-event-schema"></a>Esquema de eventos del registro de actividad de Azure
-El **registro de actividad de Azure** es un registro que proporciona información de los eventos de nivel de suscripción que se han producido en Azure. En este artículo se describe el esquema de eventos por categoría de datos. El esquema de los datos es diferente en función de si va a leer los datos en el portal, PowerShell, la CLI o directamente mediante la API REST en comparación con la [transmisión de datos a Storage o Event Hubs mediante un perfil de registro](activity-log-export.md). Los ejemplos siguientes muestran el esquema puesto a disposición por el portal, PowerShell, la CLI y la API REST. Al final del artículo se proporciona una asignación de estas propiedades al [esquema de registros de diagnóstico de Azure](diagnostic-logs-schema.md).
+El **registro de actividad de Azure** es un registro que proporciona información de los eventos de nivel de suscripción que se han producido en Azure. En este artículo se describe el esquema de eventos por categoría de datos. El esquema de los datos es diferente en función de si va a leer los datos en el portal, PowerShell, la CLI o directamente mediante la API REST en comparación con la [transmisión de datos a Storage o Event Hubs mediante un perfil de registro](activity-log-export.md). Los ejemplos siguientes muestran el esquema puesto a disposición por el portal, PowerShell, la CLI y la API REST. Al final del artículo se proporciona una asignación de estas propiedades al [esquema de registros de Azure](diagnostic-logs-schema.md).
 
 ## <a name="administrative"></a>Administrativo
 Esta categoría contiene el registro de todas las operaciones de creación, actualización, eliminación y acción realizadas a través de Resource Manager. Los ejemplos de los tipos de eventos que aparecen en esta categoría incluyen "crear máquina virtual" y "eliminar grupo de seguridad de red". Cada acción realizada por un usuario o una aplicación mediante Resource Manager se modela como una operación en un tipo de recurso determinado. Si el tipo de operación es Write, Delete o Action, los registros de inicio y corrección o error de esa operación se registran en la categoría Administrativo. La categoría Administrativo también incluye los cambios realizados en el control de acceso basado en roles de una suscripción.
@@ -771,11 +771,11 @@ Esta categoría contiene registros de todas las operaciones de acción de efecto
 | properties.policies | Incluye detalles sobre la definición, asignación, efecto y parámetros de directiva que ocasionaron esta evaluación de Azure Policy. |
 | relatedEvents | Este campo está en blanco para los eventos de Azure Policy. |
 
-## <a name="mapping-to-diagnostic-logs-schema"></a>Asignación a esquema de registros de diagnósticos
+## <a name="mapping-to-resource-logs-schema"></a>Asignación al esquema de registros de recursos
 
-Al realizar la transmisión del registro de actividad de Azure a una cuenta de almacenamiento o espacio de nombres de Event Hubs, los datos siguen el [esquema de registros de diagnóstico de Azure](./diagnostic-logs-schema.md). Esta es la asignación de propiedades del esquema anterior para el esquema de registros de diagnóstico:
+Al realizar la transmisión del registro de actividad de Azure a una cuenta de almacenamiento o un espacio de nombres de Event Hubs, los datos siguen el [esquema de registros de recursos de Azure](./diagnostic-logs-schema.md). Esta es la asignación de propiedades del esquema anterior al esquema de registros de recursos:
 
-| Propiedad del esquema de registros de diagnósticos | Propiedad del esquema de API REST de registro de actividad | Notas |
+| Propiedad del esquema de registros de recursos | Propiedad del esquema de API REST de registro de actividad | Notas |
 | --- | --- | --- |
 | time | eventTimestamp |  |
 | resourceId | resourceId | subscriptionId, resourceType, resourceGroupName se deducen todos de resourceId. |

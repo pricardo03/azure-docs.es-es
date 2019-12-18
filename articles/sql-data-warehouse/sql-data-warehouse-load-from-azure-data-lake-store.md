@@ -7,21 +7,25 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: load-data
-ms.date: 08/08/2019
+ms.date: 12/06/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 522cb9b75d5c0db270f8ba4a65850e35a2e8c4fd
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: fdbf0eb849549071b4cbbb961c9e9f71fce1faf8
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685698"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74923639"
 ---
 # <a name="load-data-from-azure-data-lake-storage-to-sql-data-warehouse"></a>Carga de datos de Azure Data Lake Storage en SQL Data Warehouse
-Use tablas externas de PolyBase para cargar datos de Azure Data Lake Storage en Azure SQL Data Warehouse. Aunque puede ejecutar consultas ad hoc en datos almacenados en Data Lake Storage, se recomienda importar los datos en SQL Data Warehouse para obtener un mejor rendimiento.
+Esta guía indica cómo usar tablas externas de PolyBase para cargar datos de Azure Data Lake Storage en Azure SQL Data Warehouse. Aunque puede ejecutar consultas ad hoc en datos almacenados en Data Lake Storage, se recomienda importar los datos en SQL Data Warehouse para obtener un mejor rendimiento. 
 
+> [!NOTE]  
+> Una alternativa a la carga es la [instrucción COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) actualmente en versión preliminar pública. Para realizar comentarios sobre la instrucción COPY, envíe un mensaje de correo electrónico a la siguiente lista de distribución: sqldwcopypreview@service.microsoft.com.
+>
 > [!div class="checklist"]
+
 > * Cree los objetos de base de datos necesarios para cargar datos desde Data Lake Storage.
 > * Conéctese al directorio de Data Lake Storage.
 > * Cargar datos en Azure SQL Data Warehouse
@@ -33,14 +37,13 @@ Antes de completar este tutorial, descargue e instale la versión más reciente 
 
 Para ejecutar este tutorial, necesitará:
 
-* La aplicación Azure Active Directory, que se usará para la autenticación entre servicios. Para la creación, siga [Autenticación con Azure Active Directory](../data-lake-store/data-lake-store-authenticate-using-active-directory.md)
-
 * Una instancia de Azure SQL Data Warehouse Consulte [Guía de inicio rápido: Creación de una instancia de Azure SQL Data Warehouse en Azure Portal, y realización de consultas en ella](create-data-warehouse-portal.md).
-
-* Una cuenta de Data Lake Storage. Consulte [Introducción a Azure Data Lake Storage](../data-lake-store/data-lake-store-get-started-portal.md). 
+* Una cuenta de Data Lake Storage. Consulte [Introducción a Azure Data Lake Storage](../data-lake-store/data-lake-store-get-started-portal.md). Para esta cuenta de almacenamiento, tendrá que configurar o especificar una de las siguientes credenciales para cargar: Una clave de cuenta de almacenamiento, un usuario de la aplicación de Azure Directory o un usuario de AAD que tenga el rol adecuado de control de acceso basado en rol para la cuenta de almacenamiento. 
 
 ##  <a name="create-a-credential"></a>Creación de una credencial
-Para acceder a su cuenta de Data Lake Storage, debe crear una clave maestra de base de datos para cifrar su secreto de credencial que se usa en el paso siguiente. Luego, cree una credencial con ámbito de base de datos. Al autenticarse con las entidades de servicio, la credencial con ámbito de base de datos almacena las credenciales de la entidad de servicio configuradas en AAD. También puede usar la clave de la cuenta de almacenamiento en la credencial de ámbito de base de datos de Gen2. 
+Puede ignorar esta sección y continuar con "Creación del origen de datos externo" al autenticar mediante el paso a través de AAD. No es necesario crear ni especificar una credencial con ámbito de base de datos al usar el paso a través de AAD, pero asegúrese de que el usuario de AAD tiene el rol de RBAC adecuado (los roles Lector de datos de blobs de almacenamiento, Colaborador o Propietario) en la cuenta de almacenamiento. [Aquí](https://techcommunity.microsoft.com/t5/Azure-SQL-Data-Warehouse/How-to-use-PolyBase-by-authenticating-via-AAD-pass-through/ba-p/862260) se destacan más detalles. 
+
+Para acceder a su cuenta de Data Lake Storage, debe crear una clave maestra de base de datos para cifrar su secreto de credencial. Luego, cree una credencial con ámbito de base de datos para almacenar el secreto. Al autenticarse con las entidades de servicio (el usuario de una aplicación de Azure Active Directory), la credencial con ámbito de base de datos almacena las credenciales de la entidad de servicio configuradas en AAD. También puede usar la credencial con ámbito de base de datos para almacenar la clave de la cuenta de almacenamiento de Gen2.
 
 Para conectarse a Data Lake Storage con entidades de servicio, **primero** debe crear una aplicación de Azure Active Directory, crear una clave de acceso y conceder acceso a la aplicación a la cuenta de Data Lake Storage Gen1. Para obtener instrucciones, consulte [Autenticarse en Azure Data Lake Storage mediante Active Directory](../data-lake-store/data-lake-store-authenticate-using-active-directory.md).
 
@@ -75,7 +78,7 @@ WITH
     SECRET = '<azure_storage_account_key>'
 ;
 
--- It should look something like this when authenticating using service principals:
+-- It should look something like this when authenticating using service principal:
 CREATE DATABASE SCOPED CREDENTIAL ADLSCredential
 WITH
     IDENTITY = '536540b4-4239-45fe-b9a3-629f97591c0c@https://login.microsoftonline.com/42f988bf-85f1-41af-91ab-2d2cd011da47/oauth2/token',
@@ -84,7 +87,7 @@ WITH
 ```
 
 ## <a name="create-the-external-data-source"></a>Creación del origen de datos externo
-Utilice el comando [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql) para almacenar la ubicación de los datos. 
+Utilice el comando [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql) para almacenar la ubicación de los datos. Si va a autenticarse con el paso a través de AAD, el parámetro CREDENTIAL no es necesario. 
 
 ```sql
 -- C (for Gen1): Create an external data source
@@ -216,8 +219,8 @@ En este tutorial, creó tablas externas para definir la estructura de los datos 
 
 Hizo todo esto:
 > [!div class="checklist"]
-> * Creó los objetos de base de datos necesarios para cargar datos desde Data Lake Storage Gen1.
-> * Se conectó al directorio de Data Lake Storage Gen1.
+> * Creó los objetos de base de datos necesarios para cargar datos desde Data Lake Storage.
+> * Se conectó al directorio de Data Lake Storage.
 > * Cargó datos en Azure SQL Data Warehouse.
 >
 

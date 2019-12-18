@@ -1,5 +1,5 @@
 ---
-title: Administrar Azure Monitor libros mediante programación con plantillas de Azure Resource Manager | Microsoft docs
+title: Libros de Azure Monitor y plantillas de Azure Resource Manager
 description: Simplifique los informes complejos con libros de Azure Monitor parametrizados predefinidos y personalizados implementados a partir de plantillas de Azure Resource Manager
 services: azure-monitor
 author: mrbullwinkle
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: d5e22093fa796a9fbd60dc2bc242f37a6cac7cf0
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: e3d29beab7b1d82f73c706897af9650b68be11f5
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73164498"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872917"
 ---
 # <a name="programmatically-manage-workbooks"></a>Administración de libros mediante programación
 
@@ -113,7 +113,7 @@ Esta plantilla muestra cómo implementar un libro sencillo que muestra un '¡Hol
 ### <a name="workbook-types"></a>Tipos de libros
 Tipos de libros especifica el tipo de galería de libros en el que se mostrará la nueva instancia de libro. Las opciones incluyen:
 
-| type | Ubicación de la galería |
+| Tipo | Ubicación de la galería |
 | :------------- |:-------------|
 | `workbook` | El valor predeterminado que se usa en la mayoría de los informes, incluida la galería de libros de Application Insights, Azure Monitor, etc.  |
 | `tsg` | La galería de guías de solución de problemas en Application Insights |

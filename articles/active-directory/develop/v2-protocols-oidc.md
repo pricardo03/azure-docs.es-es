@@ -1,5 +1,5 @@
 ---
-title: Plataforma de identidad de Microsoft y el protocolo OpenID Connect | Azure
+title: Plataforma de identidad de Microsoft y protocolo OpenID Connect | Azure
 description: Cree aplicaciones web mediante la implementación de la plataforma de identidad de Microsoft del protocolo de autenticación OpenID Connect.
 services: active-directory
 documentationcenter: ''
@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69aa2da29e18f99e75e09d8f21814b71cc95ef72
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: bc3778f31cb5dd68d3f3f49ed3cddf574b1cc3bd
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68852145"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74966748"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Plataforma de identidad de Microsoft y protocolo OpenID Connect
 

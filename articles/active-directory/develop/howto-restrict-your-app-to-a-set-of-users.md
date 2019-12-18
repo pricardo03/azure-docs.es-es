@@ -1,31 +1,27 @@
 ---
-title: Restricción de una aplicación registrada en Azure Active Directory a un conjunto de usuarios
+title: Restricción de usuarios en aplicaciones registradas en Azure Active Directory | Azure
 titleSuffix: Microsoft identity platform
 description: Aprenda a restringir el acceso a las aplicaciones registradas en Azure AD a un conjunto de usuarios seleccionado.
 services: active-directory
-documentationcenter: ''
 author: kalyankrishna1
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: kkrishna
-ms.reviewer: ''
+ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c768730a00d424333e735bb4f6a385d294f38513
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: f1cd52a62d5ab8185e18c849f6009e4632c96ede
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803955"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74917631"
 ---
-# <a name="how-to-restrict-your-app-to-a-set-of-users"></a>Procedimientos para: Restricción de la aplicación a un conjunto de usuarios
+# <a name="how-to-restrict-your-azure-ad-app-to-a-set-of-users"></a>Procedimientos para: Restricción de la aplicación de Azure AD a un conjunto de usuarios
 
 Las aplicaciones registradas en un inquilino de Azure Active Directory (Azure AD) están disponibles de forma predeterminada para todos los usuarios del inquilino que se autentica correctamente.
 

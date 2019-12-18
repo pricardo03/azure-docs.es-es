@@ -4,12 +4,12 @@ description: Obtenga información sobre los grupos de contenedores de Azure Cont
 ms.topic: article
 ms.date: 11/01/2019
 ms.custom: mvc
-ms.openlocfilehash: bba0aa35ef52d498bdb2028c7180f01b6c5f81ec
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: c4d5217fe96ca2669397bb7f2a94c6394c002534
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706329"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896581"
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Grupos de contenedores en Azure Container Instances
 
@@ -68,7 +68,9 @@ Para obtener más información, consulte la propiedad [ResourceRequirements][res
 
 ## <a name="networking"></a>Redes
 
-Los grupos de contenedores comparten una dirección IP y un espacio de nombres de puerto en esa dirección IP. Para permitir que los clientes externos lleguen a un contenedor dentro del grupo, debe exponer el puerto en la dirección IP y desde el contenedor. Dado que los contenedores dentro del grupo comparten un espacio de nombres de puerto, no se admite la asignación de puertos. Los contenedores dentro de un grupo pueden comunicarse entre sí a través de localhost en los puertos que han expuesto, incluso si estos puertos no se exponen externamente en la dirección IP del grupo.
+Los grupos de contenedores pueden compartir una dirección IP externa y un espacio de nombres de puertos en esa dirección IP. Para permitir que los clientes externos lleguen a un contenedor dentro del grupo, debe exponer el puerto en la dirección IP y desde el contenedor. Dado que los contenedores dentro del grupo comparten un espacio de nombres de puerto, no se admite la asignación de puertos. 
+
+Las instancias de contenedores dentro de un grupo de contenedores pueden comunicarse entre sí mediante localhost en cualquier puerto, incluso si estos puertos no se exponen externamente en la dirección IP del grupo o desde el contenedor.
 
 Opcionalmente, implemente grupos de contenedores en una [red virtual de Azure][virtual-network] (versión preliminar) para permitir que los contenedores se comuniquen de forma segura con otros recursos de la red virtual.
 

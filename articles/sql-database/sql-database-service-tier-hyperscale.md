@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
 ms.date: 10/01/2019
-ms.openlocfilehash: b09e5366584e9974e67d47d34f22a3483be14f7a
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: b2a8ad40092a2c02f00803e699de9d6dd8feebd0
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74805763"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978635"
 ---
 # <a name="hyperscale-service-tier"></a>Nivel de servicio Hiperescala
 
@@ -196,11 +196,9 @@ Si desea crear una base de datos Hiperescala en una región que no conste como a
 
 Para solicitar la capacidad de crear bases de datos Hiperescala en regiones que no constan en la lista:
 
-1. Vaya a [Hoja de ayuda y soporte técnico de Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+1. En el menú de Azure Portal, seleccione **Ayuda y soporte técnico** o busque y seleccione **Ayuda y soporte técnico** en cualquier página.
 
-2. Haga clic en [**Nueva solicitud de soporte técnico**](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
-
-    ![Hoja de ayuda y soporte técnico de Azure](media/sql-database-service-tier-hyperscale/request-screen-1.png)
+2. En [Ayuda y soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) de Azure, seleccione [**Nueva solicitud de soporte técnico**](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 3. En **Tipo de problema**, seleccione **Límites de servicio y suscripción (cuotas)** .
 
@@ -208,13 +206,15 @@ Para solicitar la capacidad de crear bases de datos Hiperescala en regiones que 
 
 5. En **Tipo de cuota**, seleccione **Base de datos SQL**.
 
-6. Haga clic en **Siguiente: Soluciones**
+    ![Hoja de ayuda y soporte técnico de Azure](media/sql-database-service-tier-hyperscale/new-support-request-screen.png)
 
-1. Haga clic en **Proporcionar detalles**
+6. Haga clic en **Siguiente: Soluciones**.
+
+7. Haga clic en **Proporcionar detalles**.
 
     ![Detalles del problema](media/sql-database-service-tier-hyperscale/request-screen-2.png)
 
-8. Elija **Tipo de cuota de base de datos SQL**: **otra solicitud de cuota**
+8. Elija **Tipo de cuota de base de datos SQL**: **otra solicitud de cuota**.
 
 9. Rellene la plantilla siguiente:
 
@@ -227,7 +227,7 @@ Para solicitar la capacidad de crear bases de datos Hiperescala en regiones que 
     > Número de TB estimado 
     >
 
-10. Elija **Severity C** (Gravedad C)
+10. Elija **Severity C** (Gravedad C).
 
 11. Elija el método de contacto adecuado y rellene los detalles.
 
@@ -245,13 +245,14 @@ Estas son las limitaciones actuales para el nivel de servicio Hiperescala en dis
 | Instancia administrada | Instancia administrada de Azure SQL Database no es compatible actualmente con las bases de datos Hiperescala. |
 | Grupos elásticos |  Los grupos elásticos no admiten actualmente con SQL Database Hiperescala.|
 | La migración a Hiperescala actualmente es una operación unidireccional. | Una vez que una base de datos se migra a Hiperescala, no puede migrarse directamente a un nivel de servicio que no sea Hiperescala. En la actualidad, la única manera de migrar una base de datos de Hiperescala a un recursos que no sea de Hiperescala es exportar o importar mediante un archivo BACPAC u otras tecnologías de movimiento de datos (copia masiva, Azure Data Factory, Azure Databricks, SSIS, etc.)|
-| Migración de bases de datos con objetos en memoria persistentes | Hiperescala solo admite objetos en memoria no persistentes (tipos de tabla, SP nativos y funciones).  Las tablas en memoria persistentes y otros objetos deben quitarse y volver a crearse como objetos que no sean en memoria antes de migrar una base de datos al nivel de servicio Hiperescala.|
+| Migración de bases de datos con objetos OLTP en memoria | Hiperescala solo admite un subconjunto de tipos de objeto OLTP en memoria, incluidos los tipos de tablas optimizadas para memoria, los procedimientos almacenados compilados de forma nativa y las funciones. Sin embargo, cuando los objetos OLTP en memoria están presentes en la base de datos, no se admite la migración directa desde los niveles de servicio Premium y Crítico para la empresa a Hiperescala. La migración de una base de datos de ese tipo a Hiperescala requiere tres pasos: (1) Quitar todos los objetos OLTP en memoria y sus dependencias. Para conservar los datos en tablas optimizadas para memoria duraderas, conviértalos en tablas de disco. (2) Cambiar el nivel de servicio de la base de datos a Hiperescala. (3) Volver a crear objetos previamente eliminados. En la actualidad, no se admiten tablas optimizadas para memoria duraderas y no duraderas en Hiperescala, y deben permanecer como tablas de disco. Se admiten las variables de tablas optimizadas para memoria. |
 | Seguimiento de cambios | Change Tracking actualmente está en versión preliminar pública y se puede habilitar en las bases de datos de Hiperescala nuevas o existentes. |
 | Replicación geográfica  | Todavía no se puede configurar la replicación geográfica activa para Azure SQL Database Hiperescala. |
 | Copia de base de datos | Todavía no puede usar la copia de base de datos para crear una base de datos nueva en Hiperescala de Azure SQL. |
 | Integración de TDE/AKV | Cifrado de base de datos transparente con Azure Key Vault (conocido comúnmente como Bring-Your-Own-Key o BYOK) todavía no es compatible con Hiperescalado de Azure SQL Database, pero es totalmente compatible con Claves administradas de servicio. |
 |Características de bases de datos inteligentes | Con la excepción de la opción "Forzar plan",todas las demás opciones de ajuste automático no se admiten aún en Hiperescala: puede parecer que las opciones están habilitadas, pero no se realizarán recomendaciones ni acciones. |
-| Reducir base de datos | DBCC SHRINKDATABASE o DBCC SHRINKFILE no es compatible actualmente con las bases de datos de hiperescala de Azure SQL. |
+| Reducir base de datos | DBCC SHRINKDATABASE o DBCC SHRINKFILE no se admite actualmente con las bases de datos de Hiperescala. |
+| Comprobación de la integridad de la base de datos | DBCC CHECKDB no se admite actualmente con las bases de datos de Hiperescala. Consulte [Integridad de datos en Azure SQL Database](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/) para más información sobre la administración de esta en Azure SQL Database. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

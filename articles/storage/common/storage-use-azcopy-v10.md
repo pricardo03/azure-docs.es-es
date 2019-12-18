@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: af24a6b6d165ba60a0d88a4ddf74a4f18836e813
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 0572a18e530eaff2b5a2d8aa8ced5af26f762aa8
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111760"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873937"
 ---
 # <a name="get-started-with-azcopy"></a>Introducción a AzCopy
 
@@ -73,7 +73,7 @@ Use esta tabla como guía:
 | Tipo de almacenamiento | Método de autorización admitido actualmente |
 |--|--|
 |**Blob Storage** | Azure AD y SAS |
-|**Almacenamiento de blobs (espacio de nombres jerárquico)** | Azure AD y SAS |
+|**Blob Storage (espacio de nombres jerárquico)** | Azure AD y SAS |
 |**Almacenamiento de archivos** | SAS solo |
 
 ### <a name="option-1-use-azure-active-directory"></a>Opción 1: Uso de Azure Active Directory

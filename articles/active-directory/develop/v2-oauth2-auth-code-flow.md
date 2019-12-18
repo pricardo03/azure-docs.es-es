@@ -1,5 +1,5 @@
 ---
-title: Plataforma de identidad y flujo de código de autorización de OAuth | Azure
+title: Plataforma de identidad de Microsoft y flujo del código de autorización de OAuth | Azure
 description: Compilación de aplicaciones web mediante la implementación de la Plataforma de identidad de Microsoft del protocolo de autenticación OAuth 2.0.
 services: active-directory
 documentationcenter: ''
@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a20f540d4d220d5cf7171633b817a496d48b8128
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 58a82caf825daf83ce58dffdf7056e063e74faa6
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74207726"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74964385"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Plataforma de identidad y flujo de código de autorización de OAuth 2.0
 

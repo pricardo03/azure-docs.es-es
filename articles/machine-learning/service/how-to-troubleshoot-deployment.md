@@ -11,12 +11,12 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 10/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1dc66ae0f69c19524b32b55c654f7c8fd2d32762
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 7d7744aab6d83b3415f32ca9e311940836c6f93c
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74123214"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997248"
 ---
 # <a name="troubleshooting-azure-machine-learning-azure-kubernetes-service-and-azure-container-instances-deployment"></a>Solución de problemas con la implementación de Azure Machine Learning, Azure Kubernetes Service y Azure Container Instances
 
@@ -505,7 +505,7 @@ Para hacer cambios en los archivos de la imagen, puede adjuntar el contenedor en
     docker exec -it debug /bin/bash
     ```
 
-1. Para buscar los archivos que usa el servicio, use el comando siguiente desde el shell de Bash en el contenedor:
+1. Para encontrar los archivos que usa el servicio, utilice el siguiente comando del shell de bash en el contenedor si el directorio predeterminado es diferente de `/var/azureml-app`:
 
     ```bash
     cd /var/azureml-app

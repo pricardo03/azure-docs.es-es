@@ -12,16 +12,16 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 12/09/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/23/2019
-ms.openlocfilehash: 66388f139b63c63e1f0f8ee8ee063e0ddd0f9da5
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 236e222da9e9a64d4b93002d28c94fa6fe469c08
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213041"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74972028"
 ---
 # <a name="routing-and-tag-expressions"></a>Expresiones de etiqueta y enrutamiento
 
@@ -41,7 +41,7 @@ La única forma de seleccionar el destino de registros de notificaciones especí
 
 Una etiqueta puede ser cualquier cadena, de hasta 120 caracteres, que contenga caracteres alfanuméricos y los siguientes caracteres no alfanuméricos: "_", "@", "#", ".", ":", "-". En el ejemplo siguiente se muestra una aplicación desde la que puede recibir notificaciones del sistema sobre grupos musicales específicos. En este escenario, una manera sencilla de enrutar notificaciones es etiquetar los registros con etiquetas que representan las distintas bandas, como se muestra en la siguiente imagen:
 
-![](./media/notification-hubs-routing-tag-expressions/notification-hubs-tags.png)
+![Información general de las etiquetas](./media/notification-hubs-tags-segment-push-message/notification-hubs-tags.png)
 
 En esta imagen, el mensaje etiquetado **Beatles** llega solamente a la tableta registrada con la etiqueta **Beatles**.
 
@@ -65,7 +65,7 @@ outcome = await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(to
 
 Las etiquetas no tienen que aprovisionarse previamente y pueden hacer referencia a varios conceptos específicos de la aplicación. Por ejemplo, los usuarios de esta aplicación de ejemplo pueden comentar sobre bandas y desean recibir notificaciones del sistema, no solo de los comentarios sobre sus bandas preferidas, sino también de todos los comentarios de sus amigos, independientemente de la banda sobre la que estén comentando. En la siguiente imagen se muestra un ejemplo de este escenario:
 
-![](./media/notification-hubs-routing-tag-expressions/notification-hubs-tags2.png)
+![Etiquetar amigos](./media/notification-hubs-tags-segment-push-message/notification-hubs-tags2.png)
 
 En esta imagen, Ana está interesada en recibir actualizaciones sobre los Beatles y Pedro está interesado en las actualizaciones sobre los Wailers. Bob también está interesado en los comentarios de Juan Carlos, y Juan Carlos está interesado en los Wailers. Cuando se envía una notificación sobre el comentario de Juan Carlos acerca de los Beatles, Ana y Pedro la reciben.
 
@@ -80,7 +80,7 @@ Para obtener un tutorial completo detallado sobre cómo usar etiquetas para envi
 
 Otra forma de usar etiquetas es identificar todos los dispositivos de un usuario concreto. Los registros se pueden etiquetar con una etiqueta que contenga un identificador de usuario, como se muestra en la siguiente imagen:
 
-![](./media/notification-hubs-routing-tag-expressions/notification-hubs-tags3.png)
+![Etiquetar usuarios](./media/notification-hubs-tags-segment-push-message/notification-hubs-tags3.png)
 
 En esta imagen, el mensaje etiquetado mediante UID: Ana llega a todos los registros etiquetados como "uid:Ana"; por lo tanto, a todos los dispositivos de Ana.
 
@@ -94,7 +94,7 @@ Tome una aplicación de deportes que envía un recordatorio a todas las personas
 (follows_RedSox || follows_Cardinals) && location_Boston
 ```
 
-![](./media/notification-hubs-routing-tag-expressions/notification-hubs-tags4.png)
+![Expresiones de etiqueta](./media/notification-hubs-tags-segment-push-message/notification-hubs-tags4.png)
 
 Las expresiones de etiqueta pueden contener todos los operadores booleanos, por ejemplo, AND (& &), OR (||) y NOT (!). También pueden contener paréntesis. Las expresiones de etiqueta se limita a 20 etiquetas si contienen solamente OR; de lo contrario, se limitan a 6 etiquetas.
 

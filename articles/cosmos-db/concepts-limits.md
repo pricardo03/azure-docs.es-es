@@ -6,12 +6,12 @@ ms.author: arramac
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: 7ce15a0fe55c32ad7e381ba70e4dffee11c76bee
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 8d2873dd2fd36ed1193aed457a04baae94a043a2
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383406"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951826"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Cuotas de servicio de Azure Cosmos DB
 
@@ -115,13 +115,14 @@ No hay ninguna restricción en las cargas de elementos, como el número de propi
 
 ## <a name="per-request-limits"></a>Límites por solicitud
 
-Cosmos DB admite [operaciones CRUD y de consulta](https://docs.microsoft.com/rest/api/cosmos-db/) con recursos como contenedores, elementos y bases de datos.  
+Azure Cosmos DB admite [operaciones CRUD y de consulta](https://docs.microsoft.com/rest/api/cosmos-db/) con recursos como contenedores, elementos y bases de datos. También admite [solicitudes de lotes transaccionales](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.transactionalbatch) con varios elementos con la misma clave de partición en un contenedor.
 
 | Resource | Límite predeterminado |
 | --- | --- |
 | Tiempo máximo de ejecución para una sola operación (por ejemplo, la ejecución de un procedimiento almacenado o la recuperación de una página de consulta única)| 5 segundos |
-| Tamaño máximo de la solicitud (procedimiento almacenado, CRUD)| 2 MB |
+| Tamaño máximo de la solicitud (por ejemplo, procedimiento almacenado, CRUD)| 2 MB |
 | Tamaño máximo de respuesta (por ejemplo, consulta paginada) | 4 MB |
+| Número máximo de operaciones en un lote transaccional | 100 |
 
 Una vez que una operación como una consulta alcanza el límite del tamaño de respuesta o del tiempo de espera de ejecución, esta devuelve una página de resultados y un token de continuación al cliente para reanudar la ejecución. No hay ningún límite práctico en la duración de la ejecución de una sola consulta en páginas o continuaciones.
 

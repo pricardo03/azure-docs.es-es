@@ -16,12 +16,12 @@ ms.date: 09/10/2018
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 570699fe83197a1b5442909d8b89e285a1dfa73b
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 268775d125e783b0c640e565c5f63e416cb197fd
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74275434"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74996959"
 ---
 # <a name="links-on-the-page-dont-work-for-an-application-proxy-application"></a>Los vínculos de la página no funcionan para una aplicación de Proxy de aplicación
 
@@ -38,7 +38,11 @@ Hay tres maneras de resolver este problema. Las siguientes opciones se ordenan p
 
 1.  Asegúrese de que la dirección URL interna es una raíz que contiene todos los vínculos relevantes para la aplicación. Esto permite que todos los vínculos se resuelvan como contenido publicado dentro de la misma aplicación.
 
-    Si cambia la dirección URL interna pero no desea que cambie la página de aterrizaje de los usuarios, cambie la dirección URL de la página principal a la dirección URL interna publicada anteriormente. Para ello, vaya a "Azure Active Directory" -&gt; Registros de aplicaciones -&gt; seleccione la aplicación -&gt; Propiedades. En esta pestaña de propiedades, verá el campo "Dirección URL de la página principal", que podrá ajustar a la página de aterrizaje que desee.
+    Si cambia la dirección URL interna pero no desea que cambie la página de aterrizaje de los usuarios, cambie la dirección URL de la página principal a la dirección URL interna publicada anteriormente. Para ello, vaya a "Azure Active Directory" -&gt;Registros de aplicaciones&gt; y seleccione la aplicación &gt;Personalización de marca. En la sección de personalización de marca, verá el campo "Dirección URL de la página principal", que podrá ajustar a la página de aterrizaje que desee. Si todavía usa la experiencia de Registros de aplicaciones heredada, en la pestaña de propiedades se mostrarán los detalles de la dirección URL de la página principal. 
+    
+    > [!IMPORTANT]
+    > Para realizar los cambios anteriores, necesita derechos para modificar los objetos de aplicación en Azure AD. El usuario debe tener asignado el rol [Administrador de aplicaciones](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/roles-delegate-app-roles#assign-built-in-application-admin-roles), que concede derechos de modificación de aplicaciones en Azure AD al usuario. 
+    >
 
 2.  Si las aplicaciones usan nombres de dominio completos (FQDN), use [dominios personalizados](application-proxy-configure-custom-domain.md) para publicar las aplicaciones. Esta característica permite usar la misma dirección URL de manera tanto interna como externa.
 

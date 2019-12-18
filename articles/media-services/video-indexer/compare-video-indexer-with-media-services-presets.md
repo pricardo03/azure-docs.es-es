@@ -1,6 +1,6 @@
 ---
 title: Comparación de valores predeterminados de Video Indexer y Azure Media Services v3 | Microsoft Docs
-description: En este tema se comparan los valores predeterminados de Video Indexer y Azure Media Services v3.
+description: En este artículo se comparan las funcionalidades de Video Indexer y los valores preestablecidos de Azure Media Services v3.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: 275178998948e357a6a72fbe5d0b3c9c01485a3a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 055e210efbb01268654e7823a0fc1320e9c27646
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65800170"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892828"
 ---
 # <a name="compare-azure-media-services-v3-presets-and-video-indexer"></a>Comparación de los valores predeterminados de Video Indexer y Azure Media Services v3 
 
@@ -35,7 +35,7 @@ Actualmente hay una superposición entre las características que ofrecen las [A
 |Experiencias|Consulte la lista completa de características admitidas: <br/> [Información general](video-indexer-overview.md)|Devuelve solo información de vídeo.|
 |Facturación|[Precios de Media Services](https://azure.microsoft.com/pricing/details/media-services/#analytics)|[Precios de Media Services](https://azure.microsoft.com/pricing/details/media-services/#analytics)|
 |Cumplimiento normativo|Con certificación [ISO 27001](https://www.microsoft.com/TrustCenter/Compliance/ISO-IEC-27001), [ISO 27018](https://www.microsoft.com/trustcenter/Compliance/ISO-IEC-27018), [SOC 1,2,3](https://www.microsoft.com/TrustCenter/Compliance/SOC), [HIPAA](https://www.microsoft.com/trustcenter/compliance/hipaa), [FedRAMP](https://www.microsoft.com/TrustCenter/Compliance/fedramp), [PCI](https://www.microsoft.com/trustcenter/compliance/pci) e [HITRUST](https://www.microsoft.com/TrustCenter/Compliance/hitrust). Para las actualizaciones más recientes, consulte el [estado actual de las certificaciones de Video Indexer](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942).|Media Services es compatible con muchas certificaciones. Consulte el [documento PDF de ofertas de cumplimiento de Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942/file/178110/23/Microsoft%20Azure%20Compliance%20Offerings.pdf) y busque "Media Services" para ver si cumple con un certificado de interés.|
-|Versión de prueba gratuita|Este de EE. UU|No disponible|
+|Versión de prueba gratuita|East US|No disponible|
 |Disponibilidad en regiones|Este de EE. UU. 2, Centro-sur de EE. UU., Oeste de EE. UU. 2, Norte de Europa, Oeste de Europa, Sudeste Asiático, Asia Oriental y Este de Australia.  Para las actualizaciones más recientes, visite la página de los [productos por región](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services).|Consulte el [estado de Azure](https://azure.microsoft.com/global-infrastructure/services/?products=media-services).|
 
 ## <a name="next-steps"></a>Pasos siguientes

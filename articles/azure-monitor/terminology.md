@@ -7,18 +7,18 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
-ms.openlocfilehash: 5324c17cdf2593d8e1022e6ddbf52b4e24ee64e8
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 01d4c8b3b803c5fce4fe24a5c96e649212fc4dca
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597825"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894344"
 ---
 # <a name="azure-monitor-naming-and-terminology-changes"></a>Cambios de nomenclatura y terminología de Azure Monitor
 Se han realizado cambios significativos en Azure Monitor recientemente, con diferentes servicios que se han consolidado para simplificar la supervisión para los clientes de Azure. En este artículo se describen cambios recientes de nombres y de terminología en la documentación de Azure Monitor.
 
 ## <a name="october-2019---diagnostic-log-to-resource-log"></a>Octubre de 2019: registro de diagnóstico en el registro de recursos
-Los registros de diagnóstico se cambiaron a "registros de recursos" para que coincidan mejor con lo que realmente se está recopilando. El término "configuración de diagnóstico" sigue siendo el mismo.  
+Los "registros de diagnóstico" se cambiaron a "registros de recursos" para que reflejen mejor con lo que realmente se recopila. El término "configuración de diagnóstico" sigue siendo el mismo.  
 
 ## <a name="february-2019---log-analytics-terminology"></a>Febrero de 2019: terminología de Log Analytics
 Después de la consolidación de diferentes servicios en Azure Monitor, el siguiente paso consiste en modificar la terminología de la documentación para describir mejor el servicio Azure Monitor y sus distintos componentes. 

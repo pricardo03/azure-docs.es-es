@@ -1,23 +1,25 @@
 ---
-title: Cifrado del lado cliente con Python para Microsoft Azure Storage | Microsoft Docs
+title: Cifrado en el lado de cliente con Python
+titleSuffix: Azure Storage
 description: Biblioteca de cliente de Azure Storage para Python admite el cifrado de lado cliente para obtener una seguridad máxima de las aplicaciones de Azure Storage.
 services: storage
 author: tamram
 ms.service: storage
 ms.devlang: python
-ms.topic: article
-ms.date: 05/11/2017
+ms.topic: how-to
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: cd8ba51b960703fa25371d874ed2bb50e7df2fde
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 16e66cd762b86b27dc6703542ca7261b2300a33b
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360044"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895365"
 ---
-# <a name="client-side-encryption-with-python-for-microsoft-azure-storage"></a>Cifrado del lado cliente con Python para Microsoft Azure Storage
+# <a name="client-side-encryption-with-python"></a>Cifrado en el lado de cliente con Python
+
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
 
 ## <a name="overview"></a>Información general

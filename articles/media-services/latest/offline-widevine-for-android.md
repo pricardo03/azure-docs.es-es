@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/08/2019
 ms.author: willzhan
-ms.openlocfilehash: 9e90951f810c5101a46c29570af8ad71b42be637
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 1c1142f995376a8a640f33402294e20c925bbfbb
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341030"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974162"
 ---
 # <a name="offline-widevine-streaming-for-android"></a>Streaming de Widevine sin conexión para Android
 
@@ -208,6 +208,10 @@ Hay dos maneras de mejorar la velocidad de descarga:
 2.  Proporcione a los usuarios finales la opción de descargar de forma selectiva las capas de la calidad del vídeo y las pistas de audio en lugar de todo el contenido. En el caso del modo sin conexión, no hay ningún punto para descargar todas las capas de calidad. Hay dos formas de lograrlo:
     1.  Controlado por el cliente: la aplicación del reproductor selecciona automáticamente o el usuario selecciona la capa de calidad de vídeo y las pistas de audio para descargar.
     2.  Controlado por el servicio: uno puede utilizar la característica Manifiesto dinámico de Azure Media Services para crear un filtro (global), que limita la lista de reproducción HLS o el MPD de DASH a una sola capa de calidad del vídeo y las pistas de audio seleccionadas. Así pues, la URL de descarga que se presenta a los usuarios finales incluirá este filtro.
+
+## <a name="additional-notes"></a>Notas adicionales
+
+* Widevine es un servicio que ofrece Google Inc. y que está sujeto a los términos del servicio y la directiva de privacidad de Google, Inc.
 
 ## <a name="summary"></a>Resumen
 

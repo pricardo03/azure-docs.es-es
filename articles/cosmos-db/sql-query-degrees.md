@@ -1,18 +1,18 @@
 ---
 title: DEGREES en el lenguaje de consulta de Azure Cosmos DB
-description: Obtenga información acerca de la función del sistema de SQL DEGREES en Azure Cosmos DB.
+description: Obtenga información sobre la función del sistema SQL DEGREES en Azure Cosmos DB que devuelve el ángulo correspondiente en grados para un ángulo especificado en radianes
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: d8c2109c2c11f137b1966741a95d1d0c02895016
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 5f432f5ef57c8eccc0cf629f00d2231364785b9a
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71351217"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74871336"
 ---
 # <a name="degrees-azure-cosmos-db"></a>DEGREES (Azure Cosmos DB)
  Devuelve el ángulo correspondiente en grados de un ángulo especificado en radianes.  

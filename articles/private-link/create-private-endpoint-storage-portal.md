@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: cfe0caaf199821358f8a66ac65ae75c38336c725
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 2a2a96a823867ea7700933c8253a0ba500b0e1cf
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228090"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74899805"
 ---
 # <a name="connect-privately-to-a-storage-account-using-azure-private-endpoint"></a>Conexión privada a una cuenta de almacenamiento mediante el punto de conexión privado de Azure
 Un punto de conexión privado de Azure es el bloque de creación fundamental para Private Link en Azure. Permite que los recursos de Azure, como las máquinas virtuales, se comuniquen de manera privada con recursos de Private Link.
@@ -132,7 +132,7 @@ En esta sección, creará una cuenta de almacenamiento privada con un punto de c
     | Subnet | Seleccione  *mySubnet*. |
     | **INTEGRACIÓN DE DNS PRIVADO**|  |
     | Integración con una zona DNS privada  | Deje el valor predeterminado **Sí**. |
-    | Zona DNS privada  | Deje el valor predeterminado ** (New) privatelink.blob.core.windows.net**. |
+    | Zona DNS privada  | Deje el valor predeterminado **(New) privatelink.blob.core.windows.net**. |
     |||
 7. Seleccione **Aceptar**. 
 8. Seleccione **Revisar + crear**. Se le remitirá a la página **Revisar y crear**, donde Azure validará la configuración. 
@@ -151,7 +151,7 @@ Conéctese a la máquina virtual *myVm* desde Internet de la siguiente manera:
 
 1. Seleccione **Descargar archivo RDP**. Azure crea un archivo de Protocolo de Escritorio remoto ( *.rdp*) y lo descarga en su equipo.
 
-1. Abra el archivo downloaded.rdp*.
+1. Abra el archivo *downloaded.rdp*.
 
     1. Cuando se le pida, seleccione **Conectar**.
 
@@ -169,9 +169,6 @@ Conéctese a la máquina virtual *myVm* desde Internet de la siguiente manera:
 ## <a name="access-storage-account-privately-from-the-vm"></a>Acceso a la cuenta de almacenamiento de forma privada desde la máquina virtual
 
 En esta sección, se conectará de manera privada a la cuenta de almacenamiento mediante el punto de conexión privado.
-
-> [!IMPORTANT]
-> La configuración de DNS para el almacenamiento requiere una modificación manual en el archivo de hosts para incluir el FQDN de la cuenta específica. Para ello, modifique el archivo siguiente con permisos de administrador en Windows: c:\Windows\System32\Drivers\etc\hosts or Linux /etc/hosts. Incluya la información de DNS de la cuenta del paso anterior en el siguiente formato [Dirección IP privada] myaccount.blob.core.windows.net.
 
 1. En el Escritorio remoto de  *myVm*, abra PowerShell.
 2. Escriba  `nslookup mystorageaccount.blob.core.windows.net`. Recibirá un mensaje similar a este:

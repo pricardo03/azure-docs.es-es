@@ -1,5 +1,5 @@
 ---
-title: Inicio de sesión único entre las aplicaciones de ADAL y MSAL en iOS y macOS - Plataforma de identidad de Microsoft
+title: 'Inicio de sesión único entre aplicaciones de ADAL y MSAL para iOS y macOS: Plataforma de identidad de Microsoft | Azure'
 description: ''
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,12 +17,12 @@ ms.author: twhitney
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a554602b9648190926168e4886d4f0773692225
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 13998982b778181febf99d8366eebd25482bc2bc
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264151"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74961512"
 ---
 # <a name="how-to-sso-between-adal-and-msal-apps-on-macos-and-ios"></a>Procedimientos para: Inicio de sesión único entre aplicaciones de ADAL y de MSAL en macOS e iOS
 

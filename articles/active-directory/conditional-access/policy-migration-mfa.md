@@ -4,29 +4,25 @@ description: En este artículo se muestra cómo migrar una directiva clásica qu
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: tutorial
-ms.date: 11/21/2019
+ms.topic: conceptual
+ms.date: 12/04/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca00ae62ba114aecef48117fd8a54b7f2e962dfd
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: d637ac464b689a25ce5d5a79cf47da0c85d38d0f
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74380321"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74846047"
 ---
-# <a name="migrate-a-classic-policy-that-requires-multi-factor-authentication-in-the-azure-portal"></a>Migración de una directiva clásica que requiere autenticación multifactor en Azure Portal
+# <a name="migrate-a-classic-policy-in-the-azure-portal"></a>Migración de una directiva clásica en Azure Portal
 
-En este tutorial se muestra cómo migrar una directiva clásica que requiere **autenticación multifactor** para una aplicación en la nube. Aunque no es un requisito previo, le recomendamos que lea [Migración de directivas clásicas en Azure Portal](policy-migration.md) antes de iniciar la migración de las directivas clásicas.
+En este ejemplo se muestra cómo migrar una directiva clásica que requiere **autenticación multifactor** para una aplicación en la nube. Aunque no es un requisito previo, le recomendamos que lea [Migración de directivas clásicas en Azure Portal](policy-migration.md) antes de iniciar la migración de las directivas clásicas.
 
-## <a name="overview"></a>Información general
-
-En el escenario de este artículo se muestra cómo migrar una directiva clásica que requiere **autenticación multifactor** para una aplicación en la nube.
-
-![Azure Active Directory](./media/policy-migration/33.png)
+![Detalles de la directiva clásica que requieren MFA para la aplicación Salesforce](./media/policy-migration/33.png)
 
 El proceso de migración consta de los pasos siguientes:
 
@@ -36,84 +32,44 @@ El proceso de migración consta de los pasos siguientes:
 
 ## <a name="open-a-classic-policy"></a>Abrir una directiva clásica
 
-1. En [Azure Portal](https://portal.azure.com), en la barra de navegación izquierda, haga clic en **Azure Active Directory**.
+1. En [Azure Portal](https://portal.azure.com), vaya a **Azure Active Directory** > **Seguridad** > **Acceso condicional**.
+1. Seleccione **Directivas clásicas**.
 
-   ![Azure Active Directory](./media/policy-migration-mfa/01.png)
+   ![Vista de directivas clásicas](./media/policy-migration-mfa/12.png)
 
-1. En la página **Azure Active Directory**, en la sección **Administrar**, haga clic en **Acceso condicional**.
-
-   ![Acceso condicional](./media/policy-migration-mfa/02.png)
-
-1. En la sección **Administrar**, haga clic en **Directivas clásicas (vista previa)** .
-
-   ![Directivas clásicas](./media/policy-migration-mfa/12.png)
-
-1. En la lista de directivas clásicas, haga clic en la directiva que requiera **autenticación multifactor** para una aplicación en la nube.
-
-   ![Directivas clásicas](./media/policy-migration-mfa/13.png)
+1. En la lista de directivas clásicas, seleccione la directiva que desea migrar. Documente los valores de configuración para poder recrearlos en una nueva directiva de acceso condicional.
 
 ## <a name="create-a-new-conditional-access-policy"></a>Creación de una directiva de acceso condicional
 
-1. En [Azure Portal](https://portal.azure.com), en la barra de navegación izquierda, haga clic en **Azure Active Directory**.
-
-   ![Azure Active Directory](./media/policy-migration/01.png)
-
-1. En la página **Azure Active Directory**, en la sección **Administrar**, haga clic en **Acceso condicional**.
-
-   ![Acceso condicional](./media/policy-migration/02.png)
-
-1. En la página **Acceso condicional**, en la barra de herramientas de la parte superior, haga clic en **Agregar** para abrir la página **Nuevo**.
-
-   ![Acceso condicional](./media/policy-migration/03.png)
-
+1. En [Azure Portal](https://portal.azure.com), vaya a **Azure Active Directory** > **Seguridad** > **Acceso condicional**.
+1. Para crear una nueva directiva de acceso condicional, seleccione **Nueva directiva**.
 1. En la página **Nuevo**, en el cuadro de texto **Nombre**, escriba un nombre para la directiva.
-
-   ![Acceso condicional](./media/policy-migration/29.png)
-
 1. En la sección **Asignaciones**, haga clic en **Usuarios y grupos**.
-
-   ![Acceso condicional](./media/policy-migration/05.png)
-
    1. Si tiene todos los usuarios seleccionados en la directiva clásica, haga clic en **Todos los usuarios**. 
-
-      ![Acceso condicional](./media/policy-migration/35.png)
-
    1. Si tiene grupos seleccionados en la directiva clásica, haga clic en **Seleccionar usuarios y grupos** y, después, seleccione los grupos y usuarios necesarios.
-
-      ![Acceso condicional](./media/policy-migration/36.png)
-
    1. Si tiene los grupos excluidos, haga clic en la pestaña **Excluir** y, después, seleccione los grupos y usuarios necesarios. 
-
-      ![Acceso condicional](./media/policy-migration/37.png)
-
-1. En la página **Nuevo**, en la sección **Asignación**, haga clic en **Aplicaciones en la nube** para abrir la página **Aplicaciones en la nube**.
-1. En la página **Aplicaciones en la nube**, siga estos pasos:
+   1. Seleccione **Listo**
+1. En la sección**Asignación**, haga clic en **Aplicaciones en la nube o acciones**.
+1. En la página **Aplicaciones en la nube o acciones**, siga estos pasos:
    1. Haga clic en **Seleccionar aplicaciones**.
    1. Haga clic en **Seleccionar**.
    1. En la página **Seleccionar**, seleccione la aplicación en la nube y haga clic en **Seleccionar**.
    1. En la página **Aplicaciones en la nube**, haga clic en **Listo**.
 1. Si seleccionó **Requerir autenticación multifactor**:
-
-   ![Acceso condicional](./media/policy-migration/26.png)
-
    1. En la sección **Controles de acceso**, haga clic en **Conceder**.
-
-      ![Acceso condicional](./media/policy-migration/27.png)
-
    1. En la página **Conceder**, haga clic en **Conceder acceso** y, después, haga clic en **Requerir autenticación multifactor**.
    1. Haga clic en **Seleccionar**.
-1. Haga clic en **On** (Activar) para habilitar la directiva.
+1. Haga clic en **Activado** para habilitar la directiva y, después, seleccione **Guardar**.
 
-   ![Acceso condicional](./media/policy-migration/30.png)
+   ![Creación de directivas de acceso condicional](./media/policy-migration-mfa/conditional-access-policy-migration.png)
 
 ## <a name="disable-the-classic-policy"></a>Deshabilitar la directiva clásica
 
 Para deshabilitar la directiva clásica, haga clic en **Deshabilitar** en la vista **Detalles**.
 
-![Directivas clásicas](./media/policy-migration-mfa/14.png)
+![Deshabilitación de directivas clásicas](./media/policy-migration-mfa/14.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para obtener más información sobre la migración de directivas clásicas, consulte [Migración de directivas clásicas en Azure Portal](policy-migration.md).
-- Si quiere saber cómo configurar una directiva de acceso condicional, consulte [Requerir MFA para aplicaciones específicas con acceso condicional a Azure Active Directory](app-based-mfa.md).
-- Si está listo para configurar directivas de acceso condicional para su entorno, vea [Procedimientos recomendados para el acceso condicional en Azure Active Directory](best-practices.md).
+- [Uso del modo de solo informe de acceso condicional para determinar el impacto de las nuevas decisiones de directiva.](concept-conditional-access-report-only.md)

@@ -1,5 +1,6 @@
 ---
-title: Seguimiento del comportamiento del usuario mediante eventos en Application Insights desde Azure Active Directory B2C
+title: Seguimiento del comportamiento del usuario con Application Insights
+titleSuffix: Azure AD B2C
 description: Aprenda a habilitar registros de eventos en Application Insights a partir de recorridos de usuario de Azure AD B2C mediante directivas personalizadas (versión preliminar).
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.workload: identity
 ms.date: 10/12/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c02757fb4b48ebf1220a5826bc9699741faa5170
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 6643759688817811890fd022c7aa061607270b9e
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71066181"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74948953"
 ---
 # <a name="track-user-behavior-in-azure-active-directory-b2c-using-application-insights"></a>Seguimiento del comportamiento del usuario en Azure Active Directory B2C mediante Application Insights
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/01/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d87f935f503098757e4efe402b37958283431b6e
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 32f3c439460ddc61dbf08fc4e8d7b7a000aa20f9
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74120535"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849180"
 ---
 # <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>Tutorial: Configuración de Salesforce para el aprovisionamiento automático de usuarios
 
@@ -129,6 +129,7 @@ Para más información sobre cómo leer los registros de aprovisionamiento de Az
 * **SalesforceDuplicateUserName:** No se puede aprovisionar al usuario porque tiene un 'Nombre de usuario' de Salesforce.com que está duplicado en otro inquilino de Salesforce.com.  En Salesforce.com, los valores del atributo 'Nombre de usuario' deben ser únicos en todos los inquilinos de Salesforce.com.  De forma predeterminada, el valor de userPrincipalName de un usuario en Azure Active Directory se convierte en su 'Nombre de usuario' en Salesforce.com.   Tiene dos opciones:  Una opción es buscar y cambiar el nombre del usuario con el duplicado 'Nombre de usuario' en el otro inquilino de Salesforce.com, si también administra ese otro inquilino.  La otra opción es eliminar el acceso del usuario de Azure Active Directory al inquilino de Salesforce.com con el que está integrado su directorio. Se volverá a intentar esta operación en el siguiente intento de sincronización. 
 * **SalesforceRequiredFieldMissing:** Salesforce requiere que ciertos atributos estén presentes en el usuario para crear o actualizar el usuario correctamente. A este usuario le falta uno de los atributos requeridos. Asegúrese de que atributos como correo electrónico y alias se llenen en todos los usuarios que quiera que se aprovisionen en Salesforce. Puede buscar usuarios que no tengan estos atributos mediante [filtros de alcance basados ​​en atributos](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 * La asignación de atributos predeterminada para el aprovisionamiento en Salesforce incluye la expresión SingleAppRoleAssignments para asignar appRoleAssignments en Azure AD a ProfileName en Salesforce. Asegúrese de que los usuarios no tengan varias asignaciones de roles de aplicación en Azure AD, ya que la asignación de atributos solo admite el aprovisionamiento de un rol. 
+* Salesforce requiere que las actualizaciones de correo electrónico se aprueben manualmente antes del cambio. Por tanto, es posible que vea varias entradas en los registros de aprovisionamiento para actualizar el correo electrónico del usuario (hasta que se haya aprobado el cambio de correo electrónico).
 
 
 ## <a name="additional-resources"></a>Recursos adicionales

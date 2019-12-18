@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/19/2018
-ms.openlocfilehash: a770fca4f14e5441e5ef4f7bc99d9c0abd9a59d3
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.custom: hdinsightactive
+ms.date: 12/06/2019
+ms.openlocfilehash: 4a1e621570f3bf5fdb78a2fd7b29ce0d1b51187f
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73241635"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951792"
 ---
 # <a name="machine-learning-on-hdinsight"></a>Aprendizaje automático en HDInsight
 
@@ -31,13 +31,13 @@ La biblioteca Microsoft Machine Learning para Apache Spark es [MMLSpark](https:/
 
 ![Aprendizaje para la predicción con R server](./media/hdinsight-machine-learning-overview/training-for-prediction.png)
 
-El nodo perimetral de un clúster proporciona un lugar conveniente para conectarse al clúster y ejecutar los scripts de R.  También tiene la opción de ejecutarlos en estos nodos del clúster utilizando los contextos de proceso de Spark o Hadoop MapReduce de ScaleR.
+El nodo perimetral de un clúster proporciona un lugar conveniente para conectarse al clúster y ejecutar los scripts de R.  También puede ejecutar los scripts de R en los nodos del clúster si usa los contextos de proceso de Spark o Hadoop MapReduce de ScaleR.
 
 Con Machine Learning Services en HDInsight con Spark, puede simultanear el aprendizaje en todos los nodos de un clúster mediante el uso de un contexto de proceso de Spark. Puede ejecutar scripts de R directamente en el nodo perimetral, utilizando todos los núcleos disponibles en paralelo, según sea necesario. Como alternativa, puede ejecutar el código desde el nodo perimetral para iniciar el procesamiento que se distribuye entre todos los nodos del clúster. Machine Learning Services en HDInsight con Spark también permite simultanear las funciones de los paquetes de R de código abierto, si se desea.
 
 ## <a name="azure-machine-learning-and-apache-hive"></a>Azure Machine Learning y Apache Hive
 
-Azure Machine Learning no solo proporciona herramientas para análisis predictivo de modelos, sino también un servicio totalmente administrado que se puede usar para implementar los modelos predictivos como servicios web listos para consumir. Azure Machine Learning proporciona una completa solución de análisis predictivo en la nube que se puede usar para crear modelos predictivos, probarlos, ponerlos en funcionamiento y administrarlos. Seleccione entre una biblioteca de algoritmos de gran tamaño, utilice un estudio basado en web para la compilación de modelos e implemente fácilmente el modelo como un servicio web.
+Azure Machine Learning proporciona herramientas para análisis predictivo de modelos y un servicio totalmente administrado que se puede usar para implementar los modelos predictivos como servicios web listos para consumir. Azure Machine Learning proporciona una completa solución de análisis predictivo en la nube que se puede usar para crear modelos predictivos, probarlos, ponerlos en funcionamiento y administrarlos. Seleccione entre una biblioteca de algoritmos de gran tamaño, utilice un estudio basado en web para la compilación de modelos e implemente fácilmente el modelo como un servicio web.
 
 ![Información general de Microsoft Azure Machine Learning](./media/hdinsight-machine-learning-overview/azure-machine-learning.png)
 
@@ -49,7 +49,7 @@ El [aprendizaje profundo](https://www.microsoft.com/en-us/research/group/dltc/) 
 
 Con el fin de realizar avances en su trabajo de aprendizaje profundo, Microsoft ha desarrollado el kit de herramientas [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/) de código abierto, gratuito y fácil de usar. Actualmente, el kit de herramientas lo usa una amplia variedad de productos de Microsoft, compañías de todo el mundo con necesidad de implementar el aprendizaje profundo a escala y estudiantes interesados en los algoritmos y las técnicas más recientes.
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 ### <a name="scenarios"></a>Escenarios
 

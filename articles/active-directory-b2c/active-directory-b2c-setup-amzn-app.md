@@ -1,5 +1,6 @@
 ---
-title: 'Configuración de la suscripción y del inicio de sesión con una cuenta de Amazon: Azure Active Directory B2C'
+title: Configuración del registro y del inicio de sesión con una cuenta de Amazon
+titleSuffix: Azure AD B2C
 description: Permita suscribirse e iniciar sesión a los clientes con cuentas de Amazon en las aplicaciones con Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: bddbd9b588d8ffc2ace3a937fa2c72876eb5e4e9
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: e43c880fb2e38a235c38e19854da9e2b6e2a10c0
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71065224"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74947730"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-amazon-account-using-azure-active-directory-b2c"></a>Configuración de la suscripción y del inicio de sesión con una cuenta de Amazon mediante Azure Active Directory B2C
 

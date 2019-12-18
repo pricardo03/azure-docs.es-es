@@ -1,30 +1,26 @@
 ---
-title: Vigencia de tokens configurable en Azure Active Directory
+title: Vigencia configurable de los tokens de Azure AD
 titleSuffix: Microsoft identity platform
 description: Aprenda a establecer la vigencia de los tokens emitidos por Azure AD.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.assetid: 06f5b317-053e-44c3-aaaa-cf07d8692735
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/07/2019
 ms.author: ryanwi
 ms.custom: aaddev, annaba, identityplatformtop40
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 021d0c19ecc4bf63861bf95d99b6ba6b8e910220
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: c195a5da6b04a919947c0ae65d7d6109115627d2
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74046548"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74918396"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Vigencia de tokens configurable en Azure Active Directory (versión preliminar)
 
@@ -41,7 +37,6 @@ Puede designar una directiva como la directiva predeterminada para su organizaci
 > La directiva de duración del token configurable no es compatible con SharePoint Online.  Incluso si tiene la capacidad de crear esta directiva a través de PowerShell, SharePoint Online no reconocerá esta directiva. Consulte el [blog de SharePoint Online](https://techcommunity.microsoft.com/t5/SharePoint-Blog/Introducing-Idle-Session-Timeout-in-SharePoint-and-OneDrive/ba-p/119208) para más información sobre cómo configurar los tiempos de expiración de sesiones inactivas.
 >* La duración predeterminada para el token de acceso de SharePoint Online es de 1 hora. 
 >* El tiempo de inactividad máximo predeterminado del token de actualización de SharePoint Online es de 90 días.
-
 
 ## <a name="token-types"></a>Tipos de token
 

@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/07/2019
+ms.date: 11/20/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: f1b2bdcecac0aade21c6c770b2495a1e15ba9bc5
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: dc5869acffe9a42d154bca61b9de7821121c85ec
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74174034"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851643"
 ---
 # <a name="azure-storage-account-overview"></a>Información general acerca de la cuenta de Azure Storage
 
@@ -53,17 +53,17 @@ Las cuentas de almacenamiento de uso general v1 proporcionan acceso a todos los 
 - Colas
 - Tablas
 
-Si bien se recomienda usar las cuentas de uso general v2 en la mayoría de los casos, las cuentas de uso general v1 se adaptan mejor a estos escenarios:
+En la mayoría de los casos, debe usar cuentas de uso general v2. Puede usar cuentas de uso general v1 en estos escenarios:
 
 * Sus aplicaciones requieren el modelo de implementación clásico de Azure. Las cuentas de uso general v2 y las cuentas de Blob Storage solo admiten el modelo de implementación de Azure Resource Manager.
 
 * Sus aplicaciones realizan una gran cantidad de transacciones o utilizan un ancho de banda significativo de replicación geográfica, pero no es necesario que tengan una gran capacidad. En este caso, las cuentas de uso general v1 pueden ser la opción más económica.
 
-* Usa una versión de la [API de REST de servicios de almacenamiento](https://msdn.microsoft.com/library/azure/dd894041.aspx) anterior al 14-02-2014 o una biblioteca de cliente con una versión inferior a la 4.x y no puede actualizar la aplicación.
+* Usa una versión de la [API de REST de servicios de almacenamiento](https://msdn.microsoft.com/library/azure/dd894041.aspx) anterior al 14-02-2014 o una biblioteca de cliente con una versión inferior a la 4.x. No puede actualizar la aplicación.
 
 ### <a name="blockblobstorage-accounts"></a>Cuentas BlockBlobStorage
 
-Una cuenta BlockBlobStorage es una cuenta de almacenamiento especializada que se usa para almacenar datos de objetos no estructurados y crear blobs en bloques premium. Este tipo de cuenta de almacenamiento admite de blobs en bloques y blobs en anexos, pero no de blobs en páginas, tablas ni colas.
+Una cuenta BlockBlobStorage es una cuenta de almacenamiento especializada que puede usar para almacenar datos de objetos no estructurados como blobs en bloques. También puede usar una cuenta BlockBlobStorage para crear blobs en bloques premium. Este tipo de cuenta de almacenamiento admite blobs en bloques y blobs adjuntos, pero no blobs en páginas, tablas ni colas.
 
 En comparación con las cuentas de uso general v2 y BlobStorage, las cuentas BlockBlobStorage ofrecen latencia baja y coherente y mayores tasas de transacción.
 
@@ -99,9 +99,9 @@ Azure Storage ofrece diferentes opciones para obtener acceso a los datos de blob
 
 Los niveles de acceso disponibles son:
 
-* El nivel de acceso **frecuente**, que está optimizado para el acceso frecuente de objetos en la cuenta de almacenamiento. Obtener acceso a los datos en el nivel de acceso frecuente es más rentable, aunque los costos de almacenamiento son más altos. Las nuevas cuentas de almacenamiento se crean en el nivel de acceso frecuente de forma predeterminada.
-* El nivel de acceso **esporádico** está optimizado para almacenar grandes cantidades de datos a los que se accede con poca frecuencia y que llevan guardados al menos 30 días. El almacenamiento de datos en el nivel de acceso esporádico es más rentable, pero el acceso a esos datos puede ser algo más costoso que a los del nivel de acceso frecuente.
-* El nivel de almacenamiento de **archivo** está disponible solo para blobs en bloques individuales. Este nivel está optimizado para los datos que pueden tolerar varias horas de latencia de recuperación y que permanecerán en el nivel de almacenamiento de archivo durante un mínimo de 180 días. El nivel de almacenamiento de archivo es el más rentable de todos para almacenar datos, pero el acceso a esos datos es más costoso que acceder a los datos del nivel de acceso frecuente o esporádico.
+* Nivel de acceso **frecuente**. Este nivel está optimizado para el acceso frecuente de objetos en la cuenta de almacenamiento. Obtener acceso a los datos en el nivel de acceso frecuente es más rentable, aunque los costos de almacenamiento son más altos. Las nuevas cuentas de almacenamiento se crean en el nivel de acceso frecuente de forma predeterminada.
+* Nivel de acceso **esporádico**. Este nivel está optimizado para almacenar grandes cantidades de datos a los que se accede con poca frecuencia y que llevan guardados al menos 30 días. El almacenamiento de datos en el nivel de acceso esporádico es más rentable, pero el acceso a esos datos puede ser algo más costoso que a los del nivel de acceso frecuente.
+* Nivel de **archivo**. Este nivel está disponible solo para blobs en bloques individuales. Este nivel está optimizado para los datos que pueden tolerar varias horas de latencia de recuperación y que permanecerán en el nivel de almacenamiento de archivo durante un mínimo de 180 días. El nivel de archivo es la opción más rentable para almacenar datos. Sin embargo, el acceso a los datos es más caro que en el caso de los niveles de acceso frecuente o esporádico.
 
 Si hay un cambio en el patrón de uso de datos, también se puede cambiar de nivel de acceso en cualquier momento. Para más información acerca de los niveles de acceso, consulte [Azure Blob Storage: niveles de almacenamiento de archivo, esporádico y frecuente](../blobs/storage-blob-storage-tiers.md).
 
@@ -132,7 +132,7 @@ Por ejemplo, si la cuenta de almacenamiento de uso general se llama *mystorageac
 > [!NOTE]
 > Las cuentas de almacenamiento de blob y de blob en bloques solo exponen el punto de conexión del servicio de blob.
 
-La dirección URL para obtener acceso a un objeto en una cuenta de almacenamiento se crea anexando la ubicación del objeto en la cuenta de almacenamiento al punto de conexión. Por ejemplo, una dirección de blob podría tener este formato: http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*.
+Construya la dirección URL para acceder a un objeto de una cuenta de almacenamiento anexando la ubicación de este al punto de conexión. Por ejemplo, una dirección de blob podría tener este formato: http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*.
 
 También puede configurar una cuenta de almacenamiento para usar un dominio personalizado para los blobs. Para obtener más información, consulte [Configuración de un nombre de dominio personalizado para una cuenta de Azure Storage](../blobs/storage-custom-domain-name.md).  
 
@@ -140,13 +140,13 @@ También puede configurar una cuenta de almacenamiento para usar un dominio pers
 
 De forma predeterminada, los datos de su cuenta están disponibles solo para usted, el propietario de la cuenta. Tiene control sobre quién puede acceder a sus datos y qué permisos otorgarle.
 
-Toda solicitud realizada en la cuenta de almacenamiento debe estar autorizada. En el nivel del servicio, la solicitud debe incluir un encabezado de *Autorización* válido, que incluya toda la información necesaria para que el servicio valide la solicitud antes de ejecutarla.
+Toda solicitud realizada en la cuenta de almacenamiento debe estar autorizada. En el nivel del servicio, la solicitud debe incluir un encabezado de *autorización* válido. En concreto, este encabezado incluye toda la información necesaria para que el servicio valide la solicitud antes de ejecutarla.
 
 Puede otorgar acceso a los datos de la cuenta de almacenamiento si usa cualquiera de los siguientes métodos:
 
 - **Azure Active Directory:** Use las credenciales de Azure Active Directory (Azure AD) para autenticar a un usuario, grupo u otra identidad, y que así pueda obtener acceso a los datos de blobs y colas (versión preliminar). Si la autenticación de una identidad se realiza con éxito, entonces Azure AD devuelve un token para autorizar la solicitud a Azure Blob Storage o a Queue Storage. Para obtener más información, consulte [Autenticación del acceso a Azure Storage con Azure Active Directory](storage-auth-aad.md).
 - **Autorización de clave compartida:** use la clave de acceso de la cuenta de almacenamiento para crear una cadena de conexión que la aplicación pueda usar en el tiempo de ejecución para obtener acceso a Azure Storage. Los valores en la cadena de conexión se usan para construir el encabezado *Autorización* que se pasa a Azure Storage. Para obtener más información sobre las cadenas de conexión, consulte [Configuración de las cadenas de conexión de Azure Storage](storage-configure-connection-string.md).
-- **Firma de acceso compartido:** use una Firma de acceso compartido para delegar el acceso a los recursos de la cuenta de almacenamiento, si no usa autorización de Azure AD. Una Firma de acceso compartido es un token que encapsula toda la información necesaria para autorizar una solicitud a Azure Storage en la dirección URL. Puede especificar el recurso de almacenamiento, los permisos concedidos y el intervalo durante el cual los permisos serán válidos como parte de la firma de acceso compartido. Para obtener más información, consulte [Uso de firmas de acceso compartido (SAS)](storage-sas-overview.md).
+- **Firma de acceso compartido:** use una firma de acceso compartido para delegar el acceso a los recursos de la cuenta de almacenamiento, si no usa autorización de Azure AD. Una Firma de acceso compartido es un token que encapsula toda la información necesaria para autorizar una solicitud a Azure Storage en la dirección URL. Puede especificar el recurso de almacenamiento, los permisos concedidos y el intervalo durante el cual los permisos serán válidos como parte de la firma de acceso compartido. Para obtener más información, consulte [Uso de firmas de acceso compartido (SAS)](storage-sas-overview.md).
 
 > [!NOTE]
 > Si autentica a los usuarios o a las aplicaciones que usan las credenciales de Azure AD, mejorará la seguridad y le será más fácil usar esta opción en lugar de otros medios de autorización. Aunque puede seguir utilizando la autorización con clave compartida con las aplicaciones, el uso de Azure AD evita la necesidad de almacenar su clave de acceso de cuenta con el código. Asimismo, aún puede usar firmas de acceso compartido (SAS) para conceder acceso pormenorizado a los recursos de su cuenta de almacenamiento, pero Azure AD ofrece funcionalidades similares sin necesidad de administrar tokens de SAS ni de preocuparse sobre cómo revocar una SAS en peligro. 
@@ -157,7 +157,7 @@ Puede otorgar acceso a los datos de la cuenta de almacenamiento si usa cualquier
 
 Microsoft proporciona herramientas y bibliotecas para importar datos desde dispositivos de almacenamiento local o proveedores de almacenamiento en la nube de terceros. La solución que use dependerá de la cantidad de datos que vaya a transferir. 
 
-Al actualizar a una cuenta de uso general v1 a otra de uso general v2 o a una cuenta Blob Storage, los datos se migran automáticamente. Microsoft recomienda que se usen estos pasos para actualizar la cuenta. Sin embargo, si decide mover datos desde una cuenta de uso general v1 a una cuenta de Blob Storage, deberá migrar manualmente los datos, utilizando las herramientas y bibliotecas que se describen a continuación. 
+Al actualizar a una cuenta de uso general v1 a otra de uso general v2 o a una cuenta Blob Storage, los datos se migran automáticamente. Microsoft recomienda que se usen estos pasos para actualizar la cuenta. Sin embargo, si decide mover datos desde una cuenta de uso general v1 a una cuenta de Blob Storage, deberá migrar manualmente los datos mediante las herramientas y bibliotecas que se describen a continuación. 
 
 ### <a name="azcopy"></a>AzCopy
 
@@ -165,22 +165,16 @@ AzCopy es una utilidad de línea de comandos de Windows diseñada para la copia 
 
 ### <a name="data-movement-library"></a>Data Movement Library
 
-Azure Storage Data Movement Library for .NET se basa en el marco de movimiento de datos principal que se utiliza con AzCopy. La biblioteca está diseñada para operaciones de transferencia de datos de alto rendimiento, confiables y fáciles similares a AzCopy. Se puede usar para sacar partido a las características que proporciona AzCopy en cualquier aplicación de forma nativa, sin tener que ejecutar y supervisar instancias externas de AzCopy. Para más información, consulte [Azure Storage Data Movement Library for .Net](https://github.com/Azure/azure-storage-net-data-movement)
+Azure Storage Data Movement Library for .NET se basa en el marco de movimiento de datos principal que se utiliza con AzCopy. La biblioteca está diseñada para operaciones de transferencia de datos de alto rendimiento, confiables y fáciles similares a AzCopy. Puede usar la biblioteca de movimiento de datos para aprovechar las características de AzCopy de forma nativa. Para más información, consulte [Azure Storage Data Movement Library for .NET](https://github.com/Azure/azure-storage-net-data-movement)
 
 ### <a name="rest-api-or-client-library"></a>API de REST o biblioteca de cliente
 
-Puede crear una aplicación personalizada para migrar sus datos a una cuenta de Almacenamiento de blobs con una de las bibliotecas de cliente de Azure o la API de REST de servicios de almacenamiento de Azure. Azure Storage proporciona bibliotecas de cliente enriquecidas para varios lenguajes y aplicaciones como .NET, Java, C++, Node.JS, PHP, Ruby y Python. Las bibliotecas de cliente ofrecen capacidades avanzadas, como lógica de reintentos, registro y cargas paralelas. También se puede desarrollar directamente en la API de REST, a la que se puede llamar con cualquier lenguaje que genere solicitudes HTTP/HTTPS.
+Puede crear una aplicación personalizada para migrar los datos desde una cuenta de almacenamiento de uso general v1 a una cuenta de Blob Storage. Use una de las bibliotecas de cliente de Azure o la API REST de servicios de almacenamiento de Azure. Azure Storage proporciona bibliotecas de cliente enriquecidas para varios lenguajes y aplicaciones como .NET, Java, C++, Node.JS, PHP, Ruby y Python. Las bibliotecas de cliente ofrecen capacidades avanzadas, como lógica de reintentos, registro y cargas paralelas. También se puede desarrollar directamente en la API de REST, a la que se puede llamar con cualquier lenguaje que genere solicitudes HTTP/HTTPS.
 
 Para obtener más información sobre la API REST de Azure Storage, consulte [Azure Storage Services REST API Reference](https://docs.microsoft.com/rest/api/storageservices/) (Referencia de la API REST de Azure Storage). 
 
 > [!IMPORTANT]
 > Los blobs que usan el cifrado de cliente almacenan metadatos relacionados con el cifrado junto con el blob. Si copia un blob en el que se usa un cifrado de cliente, asegúrese de que la operación de copia conserva los metadatos del blob y, especialmente, los metadatos relacionados con el cifrado. Si copia un blob sin los metadatos de cifrado, su contenido no puede volver a recuperarse. Para más información acerca de los metadatos relacionados con el cifrado, consulte [Cifrado del lado de cliente y Almacén de claves de Azure para Microsoft Azure Storage](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
-
-### <a name="azure-importexport-service"></a>Servicio Azure Import/Export
-
-Si tiene una gran cantidad de datos para importar a la cuenta de almacenamiento, tenga en cuenta el servicio Azure Import/Export. El servicio Import/Export se usa para importar de forma segura grandes cantidades de datos a Azure Blob Storage y Azure Files mediante el envío de unidades de disco a un centro de datos de Azure. 
-
-También se puede usar este servicio Import/Export para transferir datos desde Azure Blob Storage hasta las unidades de disco y enviarlas a los sitios locales. Se pueden importar los datos de una o varias unidades a Azure Blob Storage o Azure Files. Para obtener más información, vaya a [What is Azure Import/Export service?](https://docs.microsoft.com/azure/storage/common/storage-import-export-service) (¿Qué es el servicio Azure Import/Export?).
 
 ## <a name="storage-account-billing"></a>Facturación de la cuenta de almacenamiento
 
@@ -188,6 +182,6 @@ También se puede usar este servicio Import/Export para transferir datos desde A
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para aprender a crear una cuenta de Azure Storage de uso general, consulte [Creación de una cuenta de almacenamiento](storage-quickstart-create-account.md).
-* Para más información sobre cómo crear una cuenta BlockBlobStorage, consulte [Creación de una cuenta de almacenamiento de blobs en bloques](../blobs/storage-blob-create-account-block-blob.md).
-* Para administrar o eliminar una cuenta de almacenamiento, consulte [Manage Azure storage accounts](storage-account-manage.md) (Administrar cuentas de Azure Storage).
+* [Cree una cuenta de almacenamiento](storage-quickstart-create-account.md)
+* [Creación de una cuenta de almacenamiento de blobs en bloques](../blobs/storage-blob-create-account-block-blob.md)
+* [Administración de cuentas de Azure Storage](storage-account-manage.md)

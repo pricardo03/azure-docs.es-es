@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 09/25/2019
+ms.date: 12/05/2019
 ms.author: diberry
-ms.openlocfilehash: 06b16af941004f6506b43fb36b4d79297b403595
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: de078399a29af1c7eb2ae3fb237e1550ccaeacfa
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73486869"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872305"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Uso de avisos de seguimiento para crear múltiples turnos de una conversación
 
@@ -30,7 +30,7 @@ Para ver cómo funciona el multiturno, vea el siguiente vídeo de demostración:
 
 Algunas preguntas no se pueden responder en un único turno. Cuando diseña conversaciones de la aplicación cliente (bot de chat), el usuario puede formular una pregunta que debe filtrarse o mejorarse para determinar la respuesta correcta. Puede crear este flujo de las preguntas posibles presentando al usuario *avisos de seguimiento*.
 
-Cuando un usuario realiza una pregunta, QnA Maker devuelve la respuesta _y_ los avisos de seguimiento. Esta respuesta le permite presentar las opciones de seguimiento como posibles respuestas. 
+Cuando un usuario realiza una pregunta, QnA Maker devuelve la respuesta _y_ los avisos de seguimiento. Esta respuesta le permite presentar las opciones de seguimiento como posibles respuestas.
 
 ## <a name="example-multi-turn-conversation-with-chat-bot"></a>Ejemplo de conversación multiturno con bot de chat
 
@@ -38,7 +38,7 @@ Con multiturno, un bot de chat administra una conversación con un usuario para 
 
 ![Un diálogo multiturno con preguntas que guían a un usuario por una conversación](../media/conversational-context/conversation-in-bot.png)
 
-En la imagen anterior, un usuario ha iniciado una conversación escribiendo **Mi cuenta**. La base de conocimiento tiene tres pares de preguntas y respuestas vinculados. Para mejorar la respuesta, el usuario selecciona una de las tres opciones en la base de conocimiento. La pregunta (1), incluye tres avisos de seguimiento, que se presentan en el bot de chat como tres posibles opciones (2). 
+En la imagen anterior, un usuario ha iniciado una conversación escribiendo **Mi cuenta**. La base de conocimiento tiene tres pares de preguntas y respuestas vinculados. Para mejorar la respuesta, el usuario selecciona una de las tres opciones en la base de conocimiento. La pregunta (1), incluye tres avisos de seguimiento, que se presentan en el bot de chat como tres posibles opciones (2).
 
 Cuando el usuario selecciona una opción (3), se presenta la siguiente lista de opciones de mejora (4). Esta secuencia continúa (5) hasta que el usuario determina la respuesta correcta, final (6).
 
@@ -49,32 +49,34 @@ Después de publicar la base de conocimiento, puede seleccionar el botón **Crea
 
 ## <a name="create-a-multi-turn-conversation-from-a-documents-structure"></a>Creación de una conversación multiturno a partir de la estructura de un documento
 
-Cuando crea una base de conocimiento, la sección **Populate your KB** (Rellenar la base de conocimiento) muestra la casilla **Enable multi-turn extraction from URLs, .pdf or .docx files** (Habilitar extracción multiturno a partir de URL o de archivos .pdf o .docx). 
+Cuando crea una base de conocimiento, la sección **Populate your KB** (Rellenar la base de conocimiento) muestra la casilla **Enable multi-turn extraction from URLs, .pdf or .docx files** (Habilitar extracción multiturno a partir de URL o de archivos .pdf o .docx).
 
 ![Casilla para habilitar la extracción multiturno](../media/conversational-context/enable-multi-turn.png)
 
-Cuando se selecciona esta opción, QnA Maker extrae la jerarquía presente en la estructura del documento. La jerarquía se convierte para hacer un seguimiento de las solicitudes y la raíz de la jerarquía actúa como las preguntas y respuestas principales. En algunos documentos, la raíz de la jerarquía no tiene contenido que podría servir como respuesta, puede proporcionar el "texto de respuesta predeterminado" que se usará como texto sustituto de la respuesta para extraer dichas jerarquías.   
+Cuando se selecciona esta opción, QnA Maker extrae la jerarquía presente en la estructura del documento. La jerarquía se convierte para hacer un seguimiento de las solicitudes y la raíz de la jerarquía actúa como las preguntas y respuestas principales. En algunos documentos, la raíz de la jerarquía no tiene contenido que podría servir como respuesta, puede proporcionar el "texto de respuesta predeterminado" que se usará como texto sustituto de la respuesta para extraer dichas jerarquías.
 
-Solo se puede inferir la estructura multiturno a partir de direcciones URL y de archivos PDF o DOCX. Para obtener un ejemplo de estructura, vea una imagen de un [archivo PDF de manual de usuario de Microsoft Surface](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf). 
+Solo se puede inferir la estructura multiturno a partir de direcciones URL y de archivos PDF o DOCX. Para obtener un ejemplo de estructura, vea una imagen de un [archivo PDF de manual de usuario de Microsoft Surface](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf).
 
-![![Ejemplo de estructura en un manual de usuario](../media/conversational-context/import-file-with-conversational-structure.png)](../media/conversational-context/import-file-with-conversational-structure.png#lightbox)
+![![Ejemplo de estructura en un manual de usuario]\(../media/conversational-context/import-file-with-conversational-structure.png)](../media/conversational-context/import-file-with-conversational-structure.png#lightbox)
 
 ### <a name="building-your-own-multi-turn-document"></a>Creación del propio documento multiturno
 
 Si va a crear un documento multiturno, tenga en cuenta las siguientes directrices:
 
-* Use encabezados y subtítulos para denotar la jerarquía. Por ejemplo, puede agregar h1 para indicar las preguntas y respuestas principales y h2 para las que se deben tomar como aviso. Use el tamaño de encabezado pequeño para indicar la jerarquía subsiguiente. No utilice el estilo, el color u otro mecanismo para inferir la estructura en el documento, QnA Maker no extraerá las indicaciones multiturno. 
+* Use encabezados y subtítulos para denotar la jerarquía. Por ejemplo, puede agregar h1 para indicar las preguntas y respuestas principales y h2 para las que se deben tomar como aviso. Use el tamaño de encabezado pequeño para indicar la jerarquía subsiguiente. No utilice el estilo, el color u otro mecanismo para inferir la estructura en el documento, QnA Maker no extraerá las indicaciones multiturno.
 
-* No termine un encabezado con un signo de interrogación, `?`. 
+* El primer carácter del encabezado debe escribirse en mayúsculas. 
+
+* No termine un encabezado con un signo de interrogación, `?`.
 
 * Puede usar el [documento de ejemplo](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/multi-turn.docx) como ejemplo para crear su propio documento multiturno.
 
 ### <a name="adding-files-to-a-multi-turn-kb"></a>Adición de archivos a una base de conocimiento multiturno
 
-Al agregar un documento multiturno, QnA Maker determina los avisos de seguimiento a partir de la estructura para crear un flujo de conversación. 
+Al agregar un documento multiturno, QnA Maker determina los avisos de seguimiento a partir de la estructura para crear un flujo de conversación.
 
-1. En QnA Maker, seleccione una base de conocimiento existente que se creó con la opción para **habilitar la extracción multiturno de URL, archivos o documentos .pdf o .docx.** habilitado. 
-1. Vaya a la página de **configuración**  y seleccione el archivo o URL que quiere agregar. 
+1. En QnA Maker, seleccione una base de conocimiento existente que se creó con la opción para **habilitar la extracción multiturno de URL, archivos o documentos .pdf o .docx.** habilitado.
+1. Vaya a la página de **configuración**  y seleccione el archivo o URL que quiere agregar.
 1. **Guarde y entrene** la base de conocimiento.
 
 > [!Caution]
@@ -83,25 +85,25 @@ Al agregar un documento multiturno, QnA Maker determina los avisos de seguimient
 
 ## <a name="create-knowledge-base-with-multi-turn-prompts-with-the-create-api"></a>Creación de la base de conocimiento con avisos multiturno con Create API
 
-Puede crear una base de conocimiento con avisos multiturno mediante [Create API de QnA Maker](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create). Los avisos se agregan en la matriz `prompts` de la propiedad `context`. 
+Puede crear una base de conocimiento con avisos multiturno mediante [Create API de QnA Maker](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create). Los avisos se agregan en la matriz `prompts` de la propiedad `context`.
 
 ## <a name="show-questions-and-answers-with-context"></a>Mostrar preguntas y respuestas con contexto
 
-Reduzca los pares de preguntas y respuestas que aparecen a solo aquellos con conversaciones contextuales. 
+Reduzca los pares de preguntas y respuestas que aparecen a solo aquellos con conversaciones contextuales.
 
-Seleccione **View options** (Opciones de vista) y, después, seleccione **Show context** (Mostrar contexto). La lista muestra los pares de preguntas y respuestas que contienen avisos de seguimiento. 
+Seleccione **View options** (Opciones de vista) y, después, seleccione **Show context** (Mostrar contexto). La lista muestra los pares de preguntas y respuestas que contienen avisos de seguimiento.
 
 ![Filtrar pares de preguntas y respuestas por conversaciones contextuales](../media/conversational-context/filter-question-and-answers-by-context.png)
 
 El contexto multiturno se muestra en la primera columna.
 
-![![Columna "Contexto (VERSIÓN PRELIMINAR)"](../media/conversational-context/surface-manual-pdf-follow-up-prompt.png)](../media/conversational-context/surface-manual-pdf-follow-up-prompt.png#lightbox)
+![![Columna "Contexto (VERSIÓN PRELIMINAR)"]\(../media/conversational-context/surface-manual-pdf-follow-up-prompt.png)](../media/conversational-context/surface-manual-pdf-follow-up-prompt.png#lightbox)
 
-En la imagen anterior, **1** indica texto en negrita en la columna, lo cual indica la pregunta actual. La pregunta principal es el elemento superior de la fila. Todas las preguntas por debajo de ella son pares de preguntas y respuestas vinculadas. Estos elementos son seleccionables, por lo que puede pasar inmediatamente a los demás elementos de contexto. 
+En la imagen anterior, **1** indica texto en negrita en la columna, lo cual indica la pregunta actual. La pregunta principal es el elemento superior de la fila. Todas las preguntas por debajo de ella son pares de preguntas y respuestas vinculadas. Estos elementos son seleccionables, por lo que puede pasar inmediatamente a los demás elementos de contexto.
 
 ## <a name="add-an-existing-question-and-answer-pair-as-a-follow-up-prompt"></a>Incorporación de un par de pregunta y respuesta existente como opción de seguimiento
 
-La pregunta original, **Mi cuenta**, tiene avisos de seguimiento, como **Accounts and signing in** (Cuentas e inicio de sesión). 
+La pregunta original, **Mi cuenta**, tiene avisos de seguimiento, como **Accounts and signing in** (Cuentas e inicio de sesión).
 
 ![Respuesta "Accounts and signing in" (Cuentas e inicio de sesión) y avisos de seguimiento](../media/conversational-context/detected-and-linked-follow-up-prompts.png)
 
@@ -118,24 +120,24 @@ Agregue una opción de seguimiento a un par de pregunta y respuesta que no esté
     |Link to answer (Vínculo a la respuesta)|Escriba **Usar la pantalla de inicio de sesión** para encontrar el par de pregunta y respuesta existente.|
 
 
-1.  Se devuelve una coincidencia. Seleccione esta respuesta como seguimiento y, a continuación, seleccione **Guardar**. 
+1.  Se devuelve una coincidencia. Seleccione esta respuesta como seguimiento y, a continuación, seleccione **Guardar**.
 
     ![Página "Follow-up prompt (PREVIEW)" [Aviso de seguimiento (VERSIÓN PRELIMINAR)]](../media/conversational-context/search-follow-up-prompt-for-existing-answer.png)
 
 1. Una vez que haya agregado el aviso de seguimiento, seleccione **Save and train** (Guardar y entrenar) en la barra de navegación superior.
-  
-### <a name="edit-the-display-text"></a>Edición del texto para mostrar 
 
-Cuando se crea un aviso de seguimiento, y se especifica un par de pregunta y respuesta como **vínculo a la respuesta**, puede escribir un nuevo **texto para mostrar**. Este texto no reemplaza la pregunta existente y no agrega una nueva pregunta alternativa. Es independiente de esos valores. 
+### <a name="edit-the-display-text"></a>Edición del texto para mostrar
+
+Cuando se crea un aviso de seguimiento, y se especifica un par de pregunta y respuesta como **vínculo a la respuesta**, puede escribir un nuevo **texto para mostrar**. Este texto no reemplaza la pregunta existente y no agrega una nueva pregunta alternativa. Es independiente de esos valores.
 
 1. Para editar el texto para mostrar, busque y seleccione la pregunta en el campo **Context** (Contexto).
-1. En la fila de esa pregunta, seleccione el aviso de seguimiento de la columna de respuesta. 
+1. En la fila de esa pregunta, seleccione el aviso de seguimiento de la columna de respuesta.
 1. Seleccione el texto para mostrar que desea editar y, a continuación, seleccione **Editar**.
 
     ![Comando Editar texto para mostrar](../media/conversational-context/edit-existing-display-text.png)
 
-1. En la ventana emergente **Follow-up prompt** (Aviso de seguimiento), cambie el texto para mostrar existente. 
-1. Cuando haya terminado de editar el texto para mostrar, seleccione **Guardar**. 
+1. En la ventana emergente **Follow-up prompt** (Aviso de seguimiento), cambie el texto para mostrar existente.
+1. Cuando haya terminado de editar el texto para mostrar, seleccione **Guardar**.
 1. En la barra de navegación superior, seleccione **Save and train** (Guardar y entrenar).
 
 
@@ -143,10 +145,10 @@ Cuando se crea un aviso de seguimiento, y se especifica un par de pregunta y res
 
 Cuando se agrega un nuevo par de pregunta y respuesta a la base de conocimiento, cada par se debe vincular a una pregunta existente como un aviso de seguimiento.
 
-1. En la barra de herramientas de la base de conocimiento, busque y seleccione el par de pregunta y respuesta existente para **Accounts and signing in** (Cuentas e inicio de sesión). 
+1. En la barra de herramientas de la base de conocimiento, busque y seleccione el par de pregunta y respuesta existente para **Accounts and signing in** (Cuentas e inicio de sesión).
 
-1. En la columna **Respuesta** seleccione **Add follow-up prompt** (Agregar opción de seguimiento). 
-1. En **Follow-up prompt (PREVIEW)** [Aviso de seguimiento (VERSIÓN PRELIMINAR)], cree un nuevo aviso de seguimiento mediante la especificación de los valores siguientes: 
+1. En la columna **Respuesta** seleccione **Add follow-up prompt** (Agregar opción de seguimiento).
+1. En **Follow-up prompt (PREVIEW)** [Aviso de seguimiento (VERSIÓN PRELIMINAR)], cree un nuevo aviso de seguimiento mediante la especificación de los valores siguientes:
 
     |Campo|Valor|
     |--|--|
@@ -158,9 +160,9 @@ Cuando se agrega un nuevo par de pregunta y respuesta a la base de conocimiento,
     ![Crear una nueva pregunta y respuesta de seguimiento](../media/conversational-context/create-child-prompt-from-parent.png)
 
 
-1. Seleccione **Crear nuevo** y, a continuación, seleccione **Guardar**. 
+1. Seleccione **Crear nuevo** y, a continuación, seleccione **Guardar**.
 
-    Esta acción crea un nuevo par de pregunta y respuesta, y vincula la pregunta seleccionada como un aviso de seguimiento. La columna **Contexto** de ambas preguntas, indica una relación de aviso de seguimiento. 
+    Esta acción crea un nuevo par de pregunta y respuesta, y vincula la pregunta seleccionada como un aviso de seguimiento. La columna **Contexto** de ambas preguntas, indica una relación de aviso de seguimiento.
 
 1. Seleccione **Ver opciones** y, a continuación, seleccione [**Mostrar contexto (VERSIÓN PRELIMINAR)** ](#show-questions-and-answers-with-context).
 
@@ -170,7 +172,7 @@ Cuando se agrega un nuevo par de pregunta y respuesta a la base de conocimiento,
 
     La pregunta primaria muestra una nueva pregunta como una de sus opciones.
 
-    ![![La columna Contexto de ambas preguntas, indica una relación de aviso de seguimiento](../media/conversational-context/child-prompt-created.png)](../media/conversational-context/child-prompt-created.png#lightbox)
+    ![![La columna Contexto de ambas preguntas, indica una relación de aviso de seguimiento]\(../media/conversational-context/child-prompt-created.png)](../media/conversational-context/child-prompt-created.png#lightbox)
 
 1. Una vez que haya agregado el aviso de seguimiento, seleccione **Save and train** (Guardar y entrenar) en la barra de navegación superior.
 
@@ -184,7 +186,7 @@ Si no habilita el multiturno, se devolverá la respuesta, pero no los avisos de 
 
 ## <a name="a-json-request-to-return-an-initial-answer-and-follow-up-prompts"></a>Una solicitud JSON para devolver una respuesta inicial y avisos de seguimiento
 
-Utilice el objeto `context` vacío para solicitar la respuesta a la pregunta del usuario e incluir avisos de seguimiento. 
+Utilice el objeto `context` vacío para solicitar la respuesta a la pregunta del usuario e incluir avisos de seguimiento.
 
 ```JSON
 {
@@ -198,7 +200,7 @@ Utilice el objeto `context` vacío para solicitar la respuesta a la pregunta del
 
 ## <a name="a-json-response-to-return-an-initial-answer-and-follow-up-prompts"></a>Una respuesta JSON para devolver una respuesta inicial y avisos de seguimiento
 
-En la sección anterior se solicitó una respuesta y todos los avisos de seguimiento para **Accounts and signing in** (Cuentas e inicio de sesión). La respuesta incluye la información del aviso, que se encuentra en *answers[0].context* y el texto para mostrar al usuario. 
+En la sección anterior se solicitó una respuesta y todos los avisos de seguimiento para **Accounts and signing in** (Cuentas e inicio de sesión). La respuesta incluye la información del aviso, que se encuentra en *answers[0].context* y el texto para mostrar al usuario.
 
 ```JSON
 {
@@ -263,7 +265,7 @@ En la sección anterior se solicitó una respuesta y todos los avisos de seguimi
 }
 ```
 
-La matriz `prompts` proporciona el texto en la propiedad `displayText` y el valor `qnaId`. Puede mostrar estas respuestas como las siguientes opciones mostradas en el flujo de conversación y, a continuación, enviar el `qnaId` seleccionado a QnA Maker en la siguiente solicitud. 
+La matriz `prompts` proporciona el texto en la propiedad `displayText` y el valor `qnaId`. Puede mostrar estas respuestas como las siguientes opciones mostradas en el flujo de conversación y, a continuación, enviar el `qnaId` seleccionado a QnA Maker en la siguiente solicitud.
 
 <!--
 
@@ -275,7 +277,7 @@ The `promptsToDelete` array provides the ...
 
 Rellene el objeto `context` para que incluya el contexto anterior.
 
-En la siguiente solicitud JSON, la pregunta actual es *Use Windows Hello to sign in* (Usar Windows Hello para iniciar sesión) y la pregunta anterior era *Accounts and signing in* (Cuentas e inicio de sesión). 
+En la siguiente solicitud JSON, la pregunta actual es *Use Windows Hello to sign in* (Usar Windows Hello para iniciar sesión) y la pregunta anterior era *Accounts and signing in* (Cuentas e inicio de sesión).
 
 ```JSON
 {
@@ -289,7 +291,7 @@ En la siguiente solicitud JSON, la pregunta actual es *Use Windows Hello to sign
     "previousUserQuery": "accounts and signing in"
   }
 }
-``` 
+```
 
 ##  <a name="a-json-response-to-return-a-non-initial-answer-and-follow-up-prompts"></a>Una respuesta JSON para devolver una respuesta que no es la inicial y avisos de seguimiento
 
@@ -353,16 +355,16 @@ La respuesta JSON _GenerateAnswer_ de QnA Maker incluye los avisos de seguimient
 
 ## <a name="query-the-knowledge-base-with-the-qna-maker-id"></a>Consulta de la base de conocimiento con el identificador de QnA Maker
 
-Si va a compilar una aplicación personalizada mediante la característica multiturno. En la respuesta de la pregunta inicial, se devuelven los avisos de seguimiento y sus identificadores `qnaId` asociados. Ahora que tiene el identificador, puede pasarlo en el cuerpo de la solicitud del aviso de seguimiento. Si el cuerpo de la solicitud contiene el identificador `qnaId` y el objeto de contexto (que contiene las propiedades anteriores de QnA Maker), GenerateAnswer devolverá la pregunta exacta por identificador en lugar de usar el algoritmo de clasificación para encontrar la respuesta por el texto de la pregunta. 
+Si va a compilar una aplicación personalizada mediante la característica multiturno. En la respuesta de la pregunta inicial, se devuelven los avisos de seguimiento y sus identificadores `qnaId` asociados. Ahora que tiene el identificador, puede pasarlo en el cuerpo de la solicitud del aviso de seguimiento. Si el cuerpo de la solicitud contiene el identificador `qnaId` y el objeto de contexto (que contiene las propiedades anteriores de QnA Maker), GenerateAnswer devolverá la pregunta exacta por identificador en lugar de usar el algoritmo de clasificación para encontrar la respuesta por el texto de la pregunta.
 
 
 ## <a name="display-order-is-supported-in-the-update-api"></a>Update API admite el orden de presentación
 
-El [texto para mostrar y el orden de presentación](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update#promptdto) que se devuelve en la respuesta JSON, es compatible para su edición con [Update API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update). 
+El [texto para mostrar y el orden de presentación](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update#promptdto) que se devuelve en la respuesta JSON, es compatible para su edición con [Update API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update).
 
 ## <a name="add-or-delete-multi-turn-prompts-with-the-update-api"></a>Incorporación o eliminación de avisos multiturno con Update API
 
-Puede agregar o eliminar avisos multiturno mediante [Update API de QnA Maker](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update).  Los avisos se agregan en la matriz `promptsToAdd` y `promptsToDelete` de la propiedad `context`. 
+Puede agregar o eliminar avisos multiturno mediante [Update API de QnA Maker](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update).  Los avisos se agregan en la matriz `promptsToAdd` y `promptsToDelete` de la propiedad `context`.
 
 ## <a name="export-knowledge-base-for-version-control"></a>Exportar la base de conocimiento para el control de versiones
 

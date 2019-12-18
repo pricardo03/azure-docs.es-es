@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: MGoedtel
 ms.author: magoedte
 ms.date: 09/20/2019
-ms.openlocfilehash: ae737b908aad95f61cef922b493b41752da68f14
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 373c498b9ce58062e42f4318c9fa94688556d8c5
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932347"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894222"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Diseño de la implementación de registros de Azure Monitor
 
@@ -147,7 +147,7 @@ En este escenario se trata un diseño de un área de trabajo único de la suscri
 
 Todos los recursos, las soluciones de supervisión y la información, como Application Insights y Azure Monitor para VM, que dan soporte tanto a la infraestructura como a las aplicaciones que mantienen los diferentes equipos están configurados para reenviar los datos de registro que recopilan al área de trabajo compartida centralizada de las organizaciones de TI. A los usuarios de cada equipo se les concede acceso a los registros de los recursos a los que se les ha dado acceso.
 
-Una vez que haya implementado la arquitectura del área de trabajo, puede aplicarla a los recursos de Azure con [Azure Policy](../../governance/policy/overview.md). Proporciona una forma de definir directivas y garantizar el cumplimiento de los recursos de Azure para que envíen todos los registros de diagnóstico a un área de trabajo concreta. Por ejemplo, en el caso de las máquinas virtuales de Azure o los conjuntos de escalado de máquinas virtuales, puede usar las directivas existentes que evalúan el cumplimiento del área de trabajo y los resultados de los informes, o bien personalizarlas para tomas las medidas necesarias si no lo cumplen.  
+Una vez que haya implementado la arquitectura del área de trabajo, puede aplicarla a los recursos de Azure con [Azure Policy](../../governance/policy/overview.md). Proporciona una forma de definir directivas y garantizar el cumplimiento de los recursos de Azure para que envíen todos los registros de recursos a un área de trabajo específica. Por ejemplo, en el caso de las máquinas virtuales de Azure o los conjuntos de escalado de máquinas virtuales, puede usar las directivas existentes que evalúan el cumplimiento del área de trabajo y los resultados de los informes, o bien personalizarlas para tomas las medidas necesarias si no lo cumplen.  
 
 ## <a name="workspace-consolidation-migration-strategy"></a>Estrategia de migración de la consolidación de áreas de trabajo
 

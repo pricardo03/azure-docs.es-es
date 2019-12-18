@@ -3,12 +3,12 @@ title: Solución de problemas de errores de copia de seguridad de bases de datos
 description: En este artículo se describe cómo se solucionan los errores comunes que pueden producirse al usar Azure Backup para realizar copias de seguridad de bases de datos de SAP HANA.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: e8bb1d3328f95b647a788c53afe3ac1455eefa13
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 9958b241c44d619efea2f9ad516a2bd6d4f33d6e
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74665345"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892607"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Solución de problemas al realizar copias de seguridad de bases de datos de SAP HANA en Azure
 
@@ -102,17 +102,19 @@ En las bases de datos de varios contenedores para HANA, la configuración están
 Si va a proteger bases de datos SAP HANA 1.0 y quiere actualizarlas a la versión 2.0, siga los pasos que se describen a continuación:
 
 - [Detenga la protección](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) con la conservación de datos para la base de datos SDC antigua.
+- Realice la actualización. Después de la finalización, HANA es ahora MDC con una base de datos de sistema y una base de datos de inquilino.
 - Vuelva a ejecutar el [script de registro previo](https://aka.ms/scriptforpermsonhana) con los detalles correctos de (sid y mdc).
-- Vuelva a registrar la extensión (Backup [Copia de seguridad] -> View details [Ver detalles] -> Select the relevant Azure VM [Seleccionar la máquina virtual de Azure pertinente] -> Re-register [Volver a registrar]).
+- Vuelva a registrar la extensión para la misma máquina virtual en Azure Portal: Backup -> View details -> seleccione la máquina virtual de Azure pertinente -> Re-register (Copia de seguridad -> Ver detalles -> seleccione la máquina virtual de Azure pertinente -> Volver a registrar).
 - Haga clic en Rediscover DBs (Volver a detectar bases de datos) para la misma máquina virtual. Esta acción debería mostrar las nuevas bases de datos en el paso 2 con los detalles correctos (SYSTEMDB y base de datos de inquilino, no SDC).
-- Proteja estas nuevas bases de datos.
+- Configure la copia de seguridad de estas nuevas bases de datos.
 
 ## <a name="upgrading-without-an-sid-change"></a>Actualización sin un cambio de identificador de seguridad
 
 Las actualizaciones del sistema operativo o SAP HANA que no causan un cambio de SID se pueden controlar tal como se describe a continuación:
 
 - [Detenga la protección](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) con la conservación de datos para la base de datos.
-- Vuelva a ejecutar el [script de registro previo](https://aka.ms/scriptforpermsonhana).
+- Realice la actualización.
+- Vuelva a ejecutar el [script de registro previo](https://aka.ms/scriptforpermsonhana). Normalmente, hemos detectado que el proceso de actualización elimina los roles necesarios. La ejecución del script de registro previo le ayudará a comprobar todos los roles necesarios.
 - [Reanude la protección](sap-hana-db-manage.md#resume-protection-for-an-sap-hana-database) de la base de datos nuevamente.
 
 ## <a name="next-steps"></a>Pasos siguientes

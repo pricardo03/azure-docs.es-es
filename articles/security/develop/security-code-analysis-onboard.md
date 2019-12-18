@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 77be6d8518774a1e2656e23024490dd9c1431865
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 108d116500454605f33de201caffc11ae263f74c
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707247"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851509"
 ---
 # <a name="onboarding-and-installing"></a>Incorporación e instalación
 
@@ -31,23 +31,23 @@ Requisitos previos para empezar a trabajar con Análisis de código de seguridad
 ## <a name="onboarding-the-microsoft-security-code-analysis-extension"></a>Incorporación de la extensión Análisis de código de seguridad de Microsoft
 
 - Si ya dispone de una de las siguientes ofertas de soporte técnico, póngase en contacto con el responsable técnico de cuentas y compre o cambie horas existentes para acceder a la extensión:
-   - Nivel avanzado de soporte unificado
-   - Nivel de rendimiento de soporte unificado
-   - Soporte técnico Premier para desarrolladores
-   - Soporte técnico Premier para asociados
-   - Soporte técnico Premier para empresas
+  - Nivel avanzado de soporte unificado
+  - Nivel de rendimiento de soporte unificado
+  - Soporte técnico Premier para desarrolladores
+  - Soporte técnico Premier para asociados
+  - Soporte técnico Premier para empresas
 - Si tiene uno de los siguientes servicios de soporte técnico o no tiene ningún plan de soporte técnico de Microsoft, debe actualizarse a una oferta de soporte técnico válida:
-   - Soporte técnico para asociados de Azure
-   - Soporte técnico Basic de Azure
-   - Soporte técnico Developer de Azure
-   - Soporte técnico Standard de Azure
-   - Professional Direct de Azure
-   - Nivel básico de soporte unificado
+  - Soporte técnico para asociados de Azure
+  - Soporte técnico Basic de Azure
+  - Soporte técnico Developer de Azure
+  - Soporte técnico Standard de Azure
+  - Professional Direct de Azure
+  - Nivel básico de soporte unificado
 - Para comprar una oferta de soporte técnico válida, visite nuestra [página principal de servicios de soporte técnico](https://www.microsoft.com/enterprise/services/support).
 - Cuando tenga un contrato de soporte técnico, póngase en contacto con su responsable técnico de cuentas para que le ayude a comenzar y a recopilar todos los detalles necesarios.
 
 >[!NOTE]
-> Si es un asociado registrado en Microsoft Partner Network, puede comprar soporte técnico Premier para asociados. De lo contrario, debe adquirir una de las ofertas de soporte técnico válidas que se han mencionado anteriormente.
+>Si no tiene un contrato de soporte técnico, también trabajamos en un programa de compras de asociados en el que puede emplear asociados de terceros para comprar la extensión sin tener que adquirir el plan de soporte unificado. Por favor, [envíenos un correo electrónico](mailto:mscahelp@microsoft.com?Subject=Microsoft%20Security%20Code%20Analysis%20Onboarding%20Request). para que podamos saber que está interesado en esta opción. Tomaremos nota de su interés y nos pondremos en contacto con usted en cuanto esté disponible esta opción.
 
 ## <a name="installing-the-microsoft-security-code-analysis-extension"></a>Instalación de la extensión Análisis de código de seguridad de Microsoft
 
@@ -87,6 +87,6 @@ Una vez instalada la extensión, las tareas de compilación de desarrollo seguro
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información sobre la configuración de las tareas de compilación, consulte nuestra [guía de configuración](security-code-analysis-customize.md).
+Para más información sobre la configuración de las tareas de compilación, consulte nuestra [guía de configuración](security-code-analysis-customize.md) o la [guía de configuración de YAML](yaml-configuration.md).
 
 Si tiene más preguntas sobre la extensión y las herramientas que se ofrecen, consulte nuestra página de [preguntas más frecuentes.](security-code-analysis-faq.md)

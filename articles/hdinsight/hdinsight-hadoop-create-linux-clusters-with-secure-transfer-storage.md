@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 07/24/2018
-ms.openlocfilehash: ed8e20509c4a3f941d6f215dfc476c87e9a813a7
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.custom: hdinsightactive
+ms.date: 12/04/2019
+ms.openlocfilehash: 09a6b158c4390f881754c90d52a476f0bc249a5a
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687775"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74947646"
 ---
 # <a name="create-apache-hadoop-cluster-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Creación de un clúster de Apache Hadoop con cuentas de almacenamiento de transferencia segura en Azure HDInsight
 
@@ -23,9 +23,9 @@ La característica [Se requiere transferencia segura](../storage/common/storage-
 
 Antes de empezar este artículo, debe tener lo siguiente:
 
-* **Suscripción de Azure**: para crear una cuenta de evaluación gratuita durante un mes, vaya a [azure.microsoft.com/es-es/free](https://azure.microsoft.com/free).
-* **Una cuenta de Azure Storage habilitada para transferencia segura**. Para obtener instrucciones, consulte [Crear una cuenta de almacenamiento](../storage/common/storage-quickstart-create-account.md) y [Requerir transferencia segura](../storage/common/storage-require-secure-transfer.md). La habilitación de la transferencia segura de almacenamiento después de crear un clúster requiere pasos adicionales que no se describen en este artículo.
-* **Un contenedor de blobs en la cuenta de almacenamiento**.
+* Suscripción de Azure: para crear una cuenta de evaluación gratuita durante un mes, vaya a [azure.microsoft.com/es-es/free](https://azure.microsoft.com/free).
+* Una cuenta de Azure Storage habilitada para transferencia segura. Para obtener instrucciones, consulte [Crear una cuenta de almacenamiento](../storage/common/storage-quickstart-create-account.md) y [Requerir transferencia segura](../storage/common/storage-require-secure-transfer.md). La habilitación de la transferencia segura de almacenamiento después de crear un clúster requiere pasos adicionales que no se describen en este artículo.
+* Un contenedor de blobs en la cuenta de almacenamiento.
 
 ## <a name="create-cluster"></a>Crear clúster
 
@@ -37,43 +37,43 @@ En esta sección, se crea un clúster de Hadoop en HDInsight mediante una [plant
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-with-existing-default-storage-account%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
 
-2. Siga las instrucciones para crear el clúster con las especificaciones siguientes: 
+2. Siga las instrucciones para crear el clúster con las especificaciones siguientes:
 
-    - Especifique la versión 3.6 de HDInsight. Se requiere la versión 3.6 o posterior.
-    - Especifique una cuenta de almacenamiento habilitada para transferencia.
-    - Escriba el nombre corto para la cuenta de almacenamiento.
-    - La cuenta de almacenamiento y el contenedor de blobs deben crearse con antelación.
+    * Especifique la versión 3.6 de HDInsight. Se requiere la versión 3.6 o posterior.
+    * Especifique una cuenta de almacenamiento habilitada para transferencia.
+    * Escriba el nombre corto para la cuenta de almacenamiento.
+    * La cuenta de almacenamiento y el contenedor de blobs deben crearse con antelación.
 
       Para obtener las instrucciones, consulte [Crear un clúster](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster).
 
 Si se usa la acción de scrpt para proporcionar sus propios archivos de configuración, debe usar wasbs en la siguiente configuración:
 
-- fs.defaultFS (sitio principal)
-- spark.eventLog.dir 
-- spark.history.fs.logDirectory
+* fs.defaultFS (sitio principal)
+* spark.eventLog.dir
+* spark.history.fs.logDirectory
 
 ## <a name="add-additional-storage-accounts"></a>Adición de cuentas de almacenamiento adicionales
 
 Existen varias opciones para agregar cuentas de almacenamiento adicionales habilitadas para transferencia segura:
 
-- Modificar la plantilla de Azure Resource Manager de la última sección.
-- Crear un clúster mediante [Azure Portal](https://portal.azure.com) y especificar la cuenta de almacenamiento vinculada.
-- Use la acción de script para agregar cuentas de almacenamiento adicionales habilitadas para transferencia segura a un clúster de HDInsight existente. Para más información, consulte [Adición de más cuentas de almacenamiento a HDInsight](hdinsight-hadoop-add-storage.md).
+* Modificar la plantilla de Azure Resource Manager de la última sección.
+* Crear un clúster mediante [Azure Portal](https://portal.azure.com) y especificar la cuenta de almacenamiento vinculada.
+* Use la acción de script para agregar cuentas de almacenamiento adicionales habilitadas para transferencia segura a un clúster de HDInsight existente. Para más información, consulte [Adición de más cuentas de almacenamiento a HDInsight](hdinsight-hadoop-add-storage.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este artículo ha aprendido a crear un clúster de HDInsight y a habilitar la transferencia segura para las cuentas de almacenamiento.
+
+En este artículo aprendió a crear un clúster de HDInsight y a habilitar la transferencia segura para las cuentas de almacenamiento.
 
 Para más información sobre el análisis de datos con HDInsight, consulte los siguientes artículos:
 
-* Para más información sobre el uso de [Apache Hive](https://hive.apache.org/) con HDInsight, como la ejecución de consultas de Hive desde Visual Studio, consulte este artículo sobre el [uso de Apache Hive con HDInsight][hdinsight-use-hive].
-* Para más información sobre [Apache Pig](https://pig.apache.org/), un lenguaje que se utiliza para transformar datos, consulte este artículo sobre el [uso de Apache Pig con HDInsight][hdinsight-use-pig].
-* Para más información sobre [MapReduce de Apache Hadoop](https://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html), un mecanismo para escribir programas que procesan datos en Hadoop, consulte este artículo sobre el [uso de Apache Hadoop MapReduce con HDInsight][hdinsight-use-mapreduce].
+* Para más información sobre el uso de [Apache Hive](https://hive.apache.org/) con HDInsight, como la ejecución de consultas de Hive desde Visual Studio, consulte este artículo sobre el [uso de Apache Hive con HDInsight](hadoop/hdinsight-use-hive.md).
+* Para más información sobre [MapReduce de Apache Hadoop](https://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html), un mecanismo para escribir programas que procesan datos en Hadoop, consulte este artículo sobre el [uso de Apache Hadoop MapReduce con HDInsight](hadoop/hdinsight-use-mapreduce.md).
 * Para más información sobre el uso de las herramientas de HDInsight para Visual Studio para analizar datos en HDInsight, consulte [Introducción al uso de herramientas de Apache Hadoop en Visual Studio para HDInsight para ejecutar una consulta de Hive](hadoop/apache-hadoop-visual-studio-tools-get-started.md).
 
 Para aprender más sobre cómo HDInsight almacena datos o cómo insertar datos en HDInsight, consulte los artículos siguientes:
 
 * Para más información sobre cómo HDInsight usa Azure Storage, consulte [Uso de Azure Storage con HDInsight](hdinsight-hadoop-use-blob-storage.md).
-* Para más información sobre cómo cargar datos en HDInsight, consulte [Carga de datos en HDInsight][hdinsight-upload-data].
+* Para más información sobre cómo cargar datos en HDInsight, consulte [Carga de datos en HDInsight](hdinsight-upload-data.md).
 
 Para aprender más sobre la creación o administración de un clúster de HDInsight, consulte los siguientes artículos:
 
@@ -84,11 +84,3 @@ Para aprender más sobre la creación o administración de un clúster de HDInsi
   * Direcciones URL para los servicios hospedados en el clúster, por ejemplo, [Apache Ambari](https://ambari.apache.org/) y [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat)
   * La ubicación de los archivos y ejemplos de [Apache Hadoop](https://hadoop.apache.org/) en el sistema de archivos local
   * El uso de Azure Storage (WASB) en lugar de [Apache Hadoop HDFS](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsUserGuide.html) como el almacén de datos predeterminado
-
-[1]: ../HDInsight/hadoop/apache-hadoop-visual-studio-tools-get-started.md
-
-[hdinsight-provision]: hdinsight-provision-linux-clusters.md
-[hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-use-mapreduce]:hadoop/hdinsight-use-mapreduce.md
-[hdinsight-use-hive]:hadoop/hdinsight-use-hive.md
-[hdinsight-use-pig]:hadoop/hdinsight-use-pig.md

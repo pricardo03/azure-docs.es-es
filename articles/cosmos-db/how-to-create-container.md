@@ -1,17 +1,17 @@
 ---
 title: Creación de un contenedor en Azure Cosmos DB
-description: Aprenda a crear un contenedor en Azure Cosmos DB.
+description: Aprenda a crear un contenedor en Azure Cosmos DB mediante Azure Portal, .NET, Java, Python, Node.js y otros SDK.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/28/2019
+ms.date: 12/02/2019
 ms.author: mjbrown
-ms.openlocfilehash: 911f56cef58e5d9c161a3ba947850bcfff073200
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 4eaa2974817bfcd8bef83e5139d75a2d4c2ec107
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72242403"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873716"
 ---
 # <a name="create-an-azure-cosmos-container"></a>Creación de un contenedor de Azure Cosmos
 

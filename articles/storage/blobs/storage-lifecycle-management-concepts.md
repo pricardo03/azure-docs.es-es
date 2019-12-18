@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
-ms.openlocfilehash: 41e1228d127ddbbf0749036fc6f0129da1208bc7
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: f5578d00d633b4b1ccce41236526e1696744f59f
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74077114"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851781"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Administración del ciclo de vida de Azure Blob Storage
 
@@ -51,10 +51,12 @@ Puede agregar, editar o quitar una directiva mediante cualquiera de los métodos
 * [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli)
 * [API de REST](https://docs.microsoft.com/rest/api/storagerp/managementpolicies)
 
-En este artículo se muestra cómo administrar la directiva mediante el portal y los métodos de PowerShell.  
+Una directiva se puede leer o escribir en su totalidad. No se admiten las actualizaciones parciales. 
 
 > [!NOTE]
 > Si habilita reglas de firewall para la cuenta de almacenamiento, puede que se bloqueen las solicitudes de administración del ciclo de vida. Puede desbloquear estas solicitudes proporcionando excepciones para los servicios de confianza de Microsoft. Para más información, consulte la sección Excepciones en [Configuración de firewalls y redes virtuales](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
+
+En este artículo se muestra cómo administrar la directiva mediante el portal y los métodos de PowerShell.  
 
 # <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 

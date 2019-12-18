@@ -1,29 +1,25 @@
 ---
-title: Autenticación con Azure Active Directory en nubes nacionales
+title: Autenticación en Azure AD y nubes nacionales | Azure
 titleSuffix: Microsoft identity platform
 description: Obtenga información acerca de los puntos de conexión para la autenticación y registro de aplicaciones en nubes nacionales.
 services: active-directory
-documentationcenter: ''
 author: negoe
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/28/2019
 ms.author: negoe
-ms.reviewer: negoe,CelesteDG
+ms.reviewer: negoe,celested
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70f1f80744043893dd7206bc6388b8e080c07d0f
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 14b97677f5aa9624ba70696114ac34fcd9f46182
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803891"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74918039"
 ---
 # <a name="national-clouds"></a>Nubes nacionales
 

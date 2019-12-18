@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 11/04/2019
-ms.openlocfilehash: 4fe405d4027535eb6b0211f7a3f997194b8819aa
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 9f3dd3c7d1a1352d40f9a15ba9aa1c012d1784d6
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73580760"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978277"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>¿Qué es un área de trabajo de Azure Machine Learning?
 
@@ -73,8 +73,8 @@ También puede realizar las siguientes tareas de administración de áreas de tr
 |---------------------------|---------|---------|------------|------------|
 | Crear un área de trabajo        | **&check;**     | | **&check;** | **&check;** |
 | Administración del acceso al área de trabajo    | **&check;**   || |  **&check;**    |
-| Actualización a Enterprise Edition    | **&check;** |  | |     |
-| Creación y administración de recursos de proceso    |   | **&check;** | **&check;** |  **&check;**   |
+| Actualización a Enterprise Edition    | **&check;** | **&check;**  | |     |
+| Creación y administración de recursos de proceso    | **&check;**   | **&check;** | **&check;** |  **&check;**   |
 | Creación de una máquina virtual de Notebook |   | **&check;** | |     |
 
 
@@ -113,6 +113,6 @@ Para una introducción a Azure Machine Learning, consulte:
 + [Creación de un área de trabajo](how-to-manage-workspace.md)
 + [Administración de un área de trabajo](how-to-manage-workspace.md)
 + [Tutorial: Creación del primer experimento de ML con el SDK de Python](tutorial-1st-experiment-sdk-setup.md)
-+ [Tutorial: Get started with Azure Machine Learning with the R SDK]( tutorial-1st-r-experiment.md) (Introducción a Azure Machine Learning con el SDK de R)
++ [Tutorial: Introducción a Azure Machine Learning con el SDK de R]( tutorial-1st-r-experiment.md)
 + [Tutorial: Creación del primer modelo de clasificación con el aprendizaje automático automatizado](tutorial-first-experiment-automated-ml.md) (disponible solo en las áreas de trabajo de [Enterprise Edition](overview-what-is-azure-ml.md#sku))
 + [Tutorial: Predict automobile price with the designer](tutorial-designer-automobile-price-train-score.md) (Predicción del precio de los automóviles con el diseñador) (disponible solo en las áreas de trabajo de [Enterprise Edition](overview-what-is-azure-ml.md#sku))

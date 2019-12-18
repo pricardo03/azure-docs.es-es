@@ -1,6 +1,6 @@
 ---
 title: 'Códecs y formatos de Media Encoder Standard: Azure'
-description: En este tema se ofrece información general sobre los códecs y formatos de Estándar de codificador multimedia.
+description: En este artículo se ofrece información general sobre los códecs y formatos de Media Encoder Standard.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.reviewer: anilmur
-ms.openlocfilehash: 8fd68269f73506c2d605c0cb4560e6a57e1a2128
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: e2ccce13e4ef09426d0f3a02dcbce2f330b0ead8
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "69016532"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895926"
 ---
 # <a name="media-encoder-standard-formats-and-codecs"></a>Códecs y formatos de Media Encoder Standard
 
@@ -54,7 +54,7 @@ Media Encoder Standard admite el transporte de los siguientes formatos de audio 
 
 * Archivos MXF, GXF y QuickTime que tengan pistas de audio con muestras de estéreo entrelazado o 5.1
 
-o
+or
 
 * Archivos MXF, GXF y QuickTime donde el audio se transporte como pistas PCM independientes, pero la asignación de canal (a estéreo o 5.1) se pueda deducir de los metadatos del archivo
 
@@ -112,7 +112,7 @@ La siguiente tabla enumera los códecs y los formatos de archivo compatibles par
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 [Codificación de contenido a petición con Azure Media Services](media-services-encode-asset.md)
 
 [Codificación con Codificador multimedia estándar](media-services-dotnet-encode-with-media-encoder-standard.md)

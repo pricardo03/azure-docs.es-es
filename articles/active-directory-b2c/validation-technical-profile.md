@@ -1,6 +1,7 @@
 ---
-title: Definición de un perfil técnico de validación en una directiva personalizada en Azure Active Directory B2C | Microsoft Docs
-description: Defina un perfil técnico de Azure Active Directory en una directiva personalizada en Azure Active Directory B2C.
+title: Definición de un perfil técnico de validación en una directiva personalizada
+titleSuffix: Azure AD B2C
+description: Valide las notificaciones mediante un perfil técnico de validación en una directiva personalizada de Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: ad15342e6d35a5c6101beb1ddc09d4ce1f2089d5
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: facef1e1288f2a64872efbf37a9a31fa05244a7e
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74167559"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950806"
 ---
 # <a name="define-a-validation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico de validación en una directiva personalizada en Azure Active Directory B2C
 
@@ -40,7 +41,7 @@ Un perfil técnico de validación se puede ejecutar condicionalmente en función
 Un perfil técnico autoafirmado puede definir un perfil técnico de validación que se use para validar algunas o todas las notificaciones de salida. Todas las notificaciones de entrada del perfil técnico referido tienen que aparecer en las notificaciones de salida del perfil técnico de validación de referencia.
 
 > [!NOTE]
-> Solo los perfiles técnicos autoafirmados pueden usar perfiles técnicos de validación. Si tiene que validar las notificaciones de salida de perfiles técnicos no autoafirmados, considere la posibilidad de usar un paso de orquestación adicional en el recorrido del usuario para dar cabida al perfil técnico a cargo de la validación.    
+> Solo los perfiles técnicos autoafirmados pueden usar perfiles técnicos de validación. Si tiene que validar las notificaciones de salida de perfiles técnicos no autoafirmados, considere la posibilidad de usar un paso de orquestación adicional en el recorrido del usuario para dar cabida al perfil técnico a cargo de la validación.
 
 ## <a name="validationtechnicalprofiles"></a>ValidationTechnicalProfiles
 

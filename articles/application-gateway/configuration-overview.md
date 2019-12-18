@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: absha
-ms.openlocfilehash: 38d86a9ed82c3a242364e788cce371f83575c1ea
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 79867bd048be882414e247af11c133ed481788a0
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74108726"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74996662"
 ---
 # <a name="application-gateway-configuration-overview"></a>Introducción a la configuración de Application Gateway
 
@@ -256,7 +256,7 @@ Esta característica es útil cuando se quiere mantener una sesión de usuario e
 
 ### <a name="connection-draining"></a>Purga de la conexión
 
-La purga de conexión ayuda a la correcta eliminación de miembros del grupo de servidores back-end durante las actualizaciones de servicio planeadas. Puede aplicar esta configuración a todos los miembros de un grupo de servidores back-end durante la creación de reglas. Se asegura de que todas las instancias de anulación de registro de un grupo de servidores back-end no reciben solicitudes nuevas. Mientras tanto, a las solicitudes existentes se les permite finalizar dentro de un límite de tiempo que se puede configurar. La purga de conexión se aplica a instancias de back-end que se eliminan explícitamente del grupo de servidores back-end.
+La purga de conexión ayuda a la correcta eliminación de miembros del grupo de servidores back-end durante las actualizaciones de servicio planeadas. Puede aplicar esta configuración a todos los miembros de un grupo de servidores back-end durante la creación de reglas. Garantiza que todas las instancias de anulación del registro de un grupo de back-end sigan manteniendo las conexiones existentes y atiendan las solicitudes en curso durante un tiempo de espera configurable y no reciban solicitudes o conexiones nuevas. La única excepción a esto son las solicitudes enlazadas para las instancias de cancelación del registro, debido a la afinidad de la sesión administrada por la puerta de enlace y seguirán siendo procesadas por el proxy hasta las instancias de cancelación del registro. La purga de conexión se aplica a instancias de back-end que se eliminan explícitamente del grupo de servidores back-end.
 
 ### <a name="protocol"></a>Protocolo
 

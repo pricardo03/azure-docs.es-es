@@ -6,14 +6,14 @@ author: cherylmc
 Customer intent: As someone with a basic network background, I want to understand zone-redundant gateways.
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/21/2018
+ms.date: 12/05/2019
 ms.author: cherylmc
-ms.openlocfilehash: d076e2b0057f0ba666fa47ffd0b3d7d1fcc14631
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: c13e7b507291d7671ac861fc7a8683c87be947a1
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68725595"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896644"
 ---
 # <a name="about-zone-redundant-virtual-network-gateways-in-azure-availability-zones"></a>Acerca de las puertas de enlace de red virtual con redundancia de zona en Azure Availability Zones
 
@@ -39,21 +39,9 @@ Para implementar puertas de enlace en una zona específica, puede usar puertas d
 
 ## <a name="gwskus"></a>SKU de puerta de enlace
 
-Las puertas de enlace zonales y con redundancia de zona están disponibles como nuevas SKU de puerta de enlace. Hemos agregado nuevas SKU de puerta de enlace de red virtual en las regiones de Azure AZ. Estas SKU son similares a las SKU correspondientes existentes para ExpressRoute y VPN Gateway, salvo que son específicas para puertas de enlace zonales y con redundancia de zona.
+Las puertas de enlace zonales y con redundancia de zona están disponibles como nuevas SKU de puerta de enlace. Hemos agregado nuevas SKU de puerta de enlace de red virtual en las regiones de Azure AZ. Estas SKU son similares a las SKU correspondientes existentes para ExpressRoute y VPN Gateway, salvo que son específicas para puertas de enlace zonales y con redundancia de zona. Puede identificar estas SKU mediante "AZ" en el nombre de la SKU.
 
-Las nuevas SKU de puerta de enlace son:
-
-### <a name="vpn-gateway"></a>VPN Gateway
-
-* VpnGw1AZ
-* VpnGw2AZ
-* VpnGw3AZ
-
-### <a name="expressroute"></a>ExpressRoute
-
-* ErGw1AZ
-* ErGw2AZ
-* ErGw3AZ
+Para obtener información sobre las SKU de puerta de enlace, consulte [SKU de puerta de enlace de VPN](vpn-gateway-about-vpngateways.md#gwsku) y [SKU de puerta de enlace de ExpressRoute](../expressroute/expressroute-about-virtual-network-gateways.md#gwsku).
 
 ## <a name="pipskus"></a>SKU de IP pública
 

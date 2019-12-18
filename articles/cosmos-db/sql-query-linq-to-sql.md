@@ -1,17 +1,17 @@
 ---
 title: Traducción de LINQ a SQL en Azure Cosmos DB
-description: Asignación de consultas de LINQ a consultas SQL de Azure Cosmos DB.
+description: Obtenga información sobre los operadores de LINQ admitidos y cómo se asignan las consultas LINQ a consultas SQL en Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 12/02/2019
 ms.author: tisande
-ms.openlocfilehash: ad6dcf7307955300a781a7a649b6ac76b3c69589
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: d8dd6392cf22852a10c1dc2600edcbc647f3c510
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003549"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74871166"
 ---
 # <a name="linq-to-sql-translation"></a>LINQ para traducción de lenguaje SQL
 

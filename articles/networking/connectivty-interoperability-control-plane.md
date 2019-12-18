@@ -10,16 +10,16 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
-ms.openlocfilehash: 28ce4cfd0c62586510a6f7dfdeca8b552fe9638e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4921e4c4fc0da95250a0171c66d6a69093b10687
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60425639"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873852"
 ---
 # <a name="interoperability-in-azure-back-end-connectivity-features-control-plane-analysis"></a>Interoperabilidad de las características de conectividad del back-end de Azure: Análisis del plano de control
 
-En este artículo se describe el análisis del plano de control de la [configuración de prueba][Setup]. También puede revisar la [configuración de la prueba][Configuration] y el [análisis del plano de control][Data-Analysis] de la configuración de prueba.
+En este artículo se describe el análisis del plano de control de la [configuración de la prueba][Setup]. También puede revisar la [configuración de la prueba][Configuration] y el [análisis del plano de control][Data-Analysis] de la configuración de la prueba.
 
 En esencia, el análisis del plano de control examina las rutas que se intercambian entre las redes dentro de una topología. El análisis del plano de control puede ayudar a entender la forma en la que cada red ve la topología.
 
@@ -27,13 +27,13 @@ En esencia, el análisis del plano de control examina las rutas que se intercamb
 
 En la siguiente ilustración se muestra la red desde la perspectiva de un centro de conectividad y una red virtual de radio (resaltada en azul). En la ilustración también se muestra el número de sistema autónomo (ASN) de las redes y rutas que se intercambian entre las distintas redes: 
 
-[![1]][1]
+![1][1]
 
 Tenga en cuenta que el ASN de la puerta de enlace de Azure ExpressRoute de la red virtual difiere del de los enrutadores de Microsoft Enterprise Edge (MSEE). Generalmente, la puerta de enlace de ExpressRoute usa un ASN privado (con valor **65515**) y los MSEE, uno público (**12076**). Al configurar el emparejamiento de ExpressRoute, como MSEE es del mismo nivel, se usa **12076** como ASN del mismo nivel. Del lado de Azure, MSEE establece emparejamiento de BGP externo con la puerta de enlace de ExpressRoute. El emparejamiento BGP externo dual que el MSEE establece para cada emparejamiento de ExpressRoute es transparente en el nivel del plano de control. Por tanto, al visualizar una tabla de enrutamiento de ExpressRoute, se ve el valor de ASN de la puerta de enlace de ExpressRoute de la red virtual para los prefijos de la esta. 
 
 En la siguiente ilustración se muestra una tabla de enrutamiento de ExpressRoute de ejemplo: 
 
-[![5]][5]
+![5][5]
 
 En Azure, el valor de ASN solo es significativo para el emparejamiento. De forma predeterminada, el valor de ASN de la puerta de enlace tanto de ExpressRoute como de VPN en Azure VPN Gateway es **65515**.
 
@@ -41,19 +41,19 @@ En Azure, el valor de ASN solo es significativo para el emparejamiento. De forma
 
 Tanto la ubicación 1 local como la red virtual remota están conectadas al centro de conectividad a través de ExpressRoute 1. Comparten la misma perspectiva de la topología, como se muestra en el siguiente diagrama:
 
-[![2]][2]
+![2][2]
 
 ## <a name="on-premises-location-1-and-the-branch-vnet-perspective-via-a-site-to-site-vpn"></a>Perspectiva de la ubicación 1 local y de la red virtual remota a través de ExpressRoute 1
 
 Tanto la ubicación 1 local como la red virtual de sucursal están conectadas a una puerta de enlace de centro de conectividad a través de una VPN de sitio a sitio. Comparten la misma perspectiva de la topología, como se muestra en el siguiente diagrama:
 
-[![3]][3]
+![3][3]
 
 ## <a name="on-premises-location-2-perspective"></a>Perspectiva de la ubicación 2 local
 
 La ubicación 2 local está conectada al centro de conectividad a través del emparejamiento privado de ExpressRoute 2: 
 
-[![4]][4]
+![4][4]
 
 ## <a name="expressroute-and-site-to-site-vpn-connectivity-in-tandem"></a>Uso simultáneo de ExpressRoute y la conectividad VPN de sitio a sitio
 
@@ -87,7 +87,7 @@ Para más información, consulte [¿Qué es VPN Gateway?][VPN] e [Implementació
 
 Más información acerca del [análisis del plano de datos][Data-Analysis] de la configuración de prueba y de las vistas de las características de supervisión de red de Azure.
 
-Consulte [P+F de ExpressRoute][ExR-FAQ] para información acerca de:
+Consulte las [preguntas más frecuentes de ExpressRoute][ExR-FAQ] para información acerca de:
 -   Cuántos circuitos de ExpressRoute puede conectar a una puerta de enlace de ExpressRoute.
 -   Cuántas puertas de enlace de ExpressRoute puede conectar a un circuito de ExpressRoute.
 -   Los límites de escala de ExpressRoute.

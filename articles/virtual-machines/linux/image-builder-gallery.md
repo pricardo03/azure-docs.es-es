@@ -1,18 +1,18 @@
 ---
 title: Utilizar Azure Image Builder con una galería de imágenes para máquinas virtuales Linux (versión preliminar)
-description: Cree imágenes de Linux con Azure Image Builder y la galería de imágenes compartidas.
+description: Cree imágenes de máquinas virtuales Linux con Azure Image Builder y Shared Image Gallery.
 author: cynthn
 ms.author: cynthn
 ms.date: 04/20/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: 9fc624ab24cd98d0025fe2a34bf48c29b47c50e9
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 09dceb84a20ef49b3e9d5264b94bb5e74180cd2b
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68695420"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976135"
 ---
 # <a name="preview-create-a-linux-image-and-distribute-it-to-a-shared-image-gallery"></a>Vista previa: Crear una imagen de Linux y distribuirla en una galería de imágenes compartidas 
 

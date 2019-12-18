@@ -1,5 +1,5 @@
 ---
-title: Descripción del flujo de código de autenticación de OpenID Connect en Azure AD | Microsoft Docs
+title: Autorización del acceso a aplicaciones web con OpenID Connect y Azure AD | Microsoft Docs
 description: En este artículo se describe cómo utilizar mensajes HTTP para autorizar el acceso a aplicaciones y API web en su inquilino con Azure Active Directory y OpenID Connect.
 services: active-directory
 documentationcenter: .net
@@ -18,19 +18,18 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c2e80f80ea5d7e7d5ee26eee8b26506386a6e2f
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 67f9107e352f1ae52158d09caea4ba8118a3c515
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70389786"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74964436"
 ---
 # <a name="authorize-access-to-web-applications-using-openid-connect-and-azure-active-directory"></a>Autorización del acceso a aplicaciones web con OpenID Connect y Azure Active Directory
 
 [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) es una capa de identidad sencilla creada basándose en el protocolo OAuth 2.0. OAuth 2.0 define los mecanismos para obtener y usar [**tokens de acceso**](access-tokens.md) para acceder a recursos protegidos, pero no determina métodos estándares para proporcionar información de identidad. OpenID Connect implementa la autenticación como una extensión al proceso de autorización de OAuth 2.0. Proporciona información sobre el usuario final con el formato [`id_token`](id-tokens.md) que comprueba la identidad del usuario y proporciona información de perfil básica sobre dicho usuario.
 
 Nosotros recomendamos OpenID Connect si va a crear una aplicación web que está hospedada en un servidor y a la que se accede mediante un explorador.
-
 
 [!INCLUDE [active-directory-protocols-getting-started](../../../includes/active-directory-protocols-getting-started.md)] 
 

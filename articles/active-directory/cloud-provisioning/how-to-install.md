@@ -1,5 +1,5 @@
 ---
-title: Instalación del agente de aprovisionamiento de Azure AD Connect
+title: Instalación del agente de aprovisionamiento en la nube de Azure AD Connect
 description: En este tema se describe paso a paso cómo instalar el agente de aprovisionamiento.
 services: active-directory
 author: billmath
@@ -11,14 +11,14 @@ ms.date: 12/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8cf479d4962f6d7aa9a0ba43b48f99bd67566fb6
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 11e3b2a113d46ff3d8799927f56fa66601c94ed5
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74795527"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74846239"
 ---
-# <a name="install-azure-ad-connect-provisioning-agent"></a>Instalación del agente de aprovisionamiento de Azure AD Connect
+# <a name="install-azure-ad-connect-cloud-provisioning-agent"></a>Instalación del agente de aprovisionamiento en la nube de Azure AD Connect
 Este documento le guiará en el proceso de instalación del agente de aprovisionamiento de Azure AD Connect y en el modo de configurarlo inicialmente en Azure Portal.
 
 >[!IMPORTANT]

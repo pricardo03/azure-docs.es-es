@@ -1,29 +1,25 @@
 ---
-title: Exposición de una aplicación en la galería de aplicaciones de Azure Active Directory | Microsoft Docs
+title: Registro de una aplicación en la galería de aplicaciones de Azure AD | Microsoft Docs
 description: Información sobre cómo mostrar una aplicación compatible con el inicio de sesión único en la galería de aplicaciones de Azure Active Directory
 services: active-directory
-documentationcenter: dev-center-name
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/16/2019
+ms.date: 12/06/2019
 ms.author: ryanwi
-ms.reviewer: elisol, bryanla
+ms.reviewer: jeedes
 ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c77657101f5cd8a117b2163386f6d551b7985458
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 3bfdeaba26e98f600b81b3a473326ff4086f1aa2
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72374069"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74967157"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Aprenda a mostrar su aplicación en la galería de aplicaciones de Azure Active Directory
 
@@ -46,6 +42,10 @@ En este artículo se explica el proceso para mostrar una aplicación en la galer
 - Para el SSO con contraseña, asegúrese de que la aplicación admita la autenticación por formulario para que se pueda realizar el almacenamiento de contraseña y hacer que el inicio de sesión único funcione del modo previsto.
 - Necesita una cuenta permanente para las pruebas con al menos dos usuarios registrados.
 
+**¿Cómo obtener Azure AD para desarrolladores?**
+
+Puede obtener una cuenta de prueba gratuita con todas las características de Azure AD premium gratis durante 90 días. Este período puede ampliarse siempre que realice labores de desarrollo con dicha cuenta: https://docs.microsoft.com/office/developer-program/office-365-developer-program
+
 ## <a name="submit-the-request-in-the-portal"></a>Envío de la solicitud en el portal
 
 Cuando haya comprobado que la integración de aplicaciones funciona con Azure AD, envíe la solicitud de acceso en el [portal de red de aplicaciones](https://microsoft.sharepoint.com/teams/apponboarding/Apps). Si tiene una cuenta de Office 365, utilícela para iniciar sesión en este portal. De lo contrario, utilice una cuenta Microsoft, como Outlook o Hotmail, para iniciar sesión.
@@ -63,6 +63,26 @@ Si aparece la siguiente página después de iniciar sesión, escriba en el cuadr
 Nuestro equipo revisará los detalles y le proporcionará el acceso según corresponda. Una vez aprobada la solicitud, puede iniciar sesión en el portal y enviar la solicitud. Para ello, seleccione el icono **Enviar solicitud (ISV)** en la página principal.
 
 ![Icono Enviar solicitud (ISV) en la página principal](./media/howto-app-gallery-listing/homepage.png)
+
+## <a name="issues-on-logging-into-portal"></a>Problemas al iniciar sesión en el portal
+
+Si ve este error al iniciar sesión, estos son los detalles sobre el problema y así es como puede corregirlo.
+
+* Si el inicio de sesión se ha bloqueado como se muestra a continuación:
+
+  ![aplicación de resolución de problemas de la galería](./media/howto-app-gallery-listing/blocked.png)
+
+**Qué ocurre:**
+
+El usuario invitado está federado en un inquilino inicial que también es de Azure AD. El riesgo que afronta el usuario invitado es alto. Microsoft no permite que los usuarios de alto riesgo tengan acceso a sus recursos. Todos los usuarios de alto riesgo (empleados o invitados/proveedores) deben poner solución a su riesgo o acabar con este para tener acceso a los recursos de Microsoft. Para los usuarios invitados, este riesgo de usuario procede del inquilino inicial y la directiva procede del inquilino de los recursos (Microsoft en este caso).
+ 
+**Soluciones seguras:**
+
+* Los usuarios invitados registrados para MFA ponen solución a su propio riesgo de usuario. Esto lo puede hacer el usuario invitado cambiando o restableciendo la contraseña segura (https://aka.ms/sspr) en su inquilino inicial (esto requiere MFA y SSPR en el inquilino inicial). El cambio o restablecimiento de la contraseña segura debe iniciarse en Azure AD y no en el entorno local.
+
+* Los usuarios invitados hacen que sus administradores pongan solución a su riesgo. En este caso, el administrador restablecerá la contraseña (generación de contraseñas temporal). Esto no requiere Identity Protection. El administrador del usuario invitado puede ir a https://aka.ms/RiskyUsers y hacer clic en "Restablecer contraseña".
+
+* Los usuarios invitados hacen que sus administradores acaben con su riesgo o lo descarten. Una vez más, esto no requiere Identity Protection. El administrador puede ir a https://aka.ms/RiskyUsers y hacer clic en "Descartar el riesgo del usuario". Sin embargo, el administrador debe llevar a cabo la debida diligencia para asegurarse de que se trataba de una evaluación de riesgos de falsos positivos antes de acabar con el riesgo de usuario. De lo contrario, estarán poniendo en riesgo sus recursos y los de Microsoft mediante la supresión de una evaluación de riesgos sin investigación.
 
 > [!NOTE]
 > Si tiene algún problema con el acceso, póngase en contacto con el [equipo de integración del SSO de Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
@@ -83,6 +103,7 @@ Para agregar una aplicación a la galería de Azure AD, debe implementar uno de 
   ![Adición de una aplicación de SAML 2.0 o WS-Fed a la lista de la galería](./media/howto-app-gallery-listing/saml.png)
 
   * Si desea agregar la aplicación a la lista en la galería mediante **SAML 2.0** o **WS-Fed**, seleccione **SAML 2.0/WS-Fed** como se muestra.
+
   * Si tiene algún problema con el acceso, póngase en contacto con el [equipo de integración del SSO de Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
 ## <a name="implement-sso-by-using-the-password-sso"></a>Implementación del inicio de sesión único con el SSO por contraseña

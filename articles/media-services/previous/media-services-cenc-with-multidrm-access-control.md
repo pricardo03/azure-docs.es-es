@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: willzhan
 ms.reviewer: kilroyh;yanmf;juliako
-ms.openlocfilehash: 6004e08f5f30c7f3c63bb87437147db15da5e335
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: b0fec44a59bd70c6f1d0236861d93e81aaba033c
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "69016777"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74969452"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Diseño de un sistema de protección de contenido con control de acceso mediante Azure Media Services 
 
@@ -463,11 +463,16 @@ En la captura de pantalla siguiente se muestra un escenario que utiliza una clav
 En los dos casos anteriores, la autenticación de usuario permanece igual. Tiene lugar mediante Azure AD. La única diferencia es que los tokens JWT los emite el servicio de token de seguridad personalizado en lugar de Azure AD. Cuando se configura la protección CENC dinámica, la restricción del servicio de entrega de licencias especifica el tipo de token JWT, ya sea una clave simétrica o asimétrica.
 
 ## <a name="summary"></a>Resumen
+
 En este documento se examina el CENC con varias DRM nativas y el control de acceso mediante la autenticación con tokens, su diseño y su implementación mediante Azure, Media Services y Media Player.
 
 * Se presenta un diseño de referencia que contiene todos los componentes necesarios de un subsistema DRM/CENC,
 * y una implementación de referencia en Azure, Media Services y Media Player.
 * También se han tratado algunos temas directamente relacionados con el diseño y la implementación.
+
+## <a name="additional-notes"></a>Notas adicionales
+
+* Widevine es un servicio que ofrece Google Inc. y está sujeto a los términos del servicio y la directiva de privacidad de Google, Inc.
 
 ## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

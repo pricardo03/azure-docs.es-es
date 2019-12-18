@@ -1,22 +1,23 @@
 ---
-title: Usar la CLI de Azure para administrar los derechos de acceso de Azure AD a los datos de blob y cola con RBAC - Azure Storage
-description: Use la CLI de Azure para asignar el acceso a colas y contenedores mediante el control de acceso basado en roles (RBAC). Azure Storage admite roles RBAC tanto integrados como personalizados para la autenticación a través de Azure AD.
+title: Uso de la CLI de Azure para asignar un rol de RBAC para el acceso a datos
+titleSuffix: Azure Storage
+description: Aprenda a usar la CLI de Azure para asignar permisos a una entidad de seguridad de Azure Active Directory con el control de acceso basado en rol (RBAC). Azure Storage admite roles RBAC tanto integrados como personalizados para la autenticación a través de Azure AD.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
-ms.date: 07/25/2019
+ms.topic: how-to
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 606dd88fbad8cbd5c7e24d47dcf71199a25b49a2
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: abe35f3193e2d7ff9a949ca7cd330cb58da2b78c
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673210"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74891975"
 ---
-# <a name="grant-access-to-azure-blob-and-queue-data-with-rbac-using-azure-cli"></a>Conceder acceso a datos de blob y de cola de Azure con RBAC mediante la CLI de Azure
+# <a name="use-azure-cli-to-assign-an-rbac-role-for-access-to-blob-and-queue-data"></a>Uso de la CLI de Azure para asignar un rol de RBAC para el acceso a datos de blobs y colas
 
 Azure Active Directory (Azure AD) autoriza derechos de acceso a los recursos protegidos mediante el [control de acceso basado en rol (RBAC)](../../role-based-access-control/overview.md). Azure Storage define un conjunto de roles RBAC integrados que abarcan conjuntos comunes de permisos utilizados para acceder a los datos de blob o de cola.
 
@@ -28,7 +29,7 @@ En este artículo se describe cómo usar la CLI de Azure para mostrar los roles 
 
 [!INCLUDE [storage-auth-rbac-roles-include](../../../includes/storage-auth-rbac-roles-include.md)]
 
-## <a name="determine-resource-scope"></a>Determinar el ámbito de recursos 
+## <a name="determine-resource-scope"></a>Determinar el ámbito de recursos
 
 [!INCLUDE [storage-auth-resource-scope-include](../../../includes/storage-auth-resource-scope-include.md)]
 

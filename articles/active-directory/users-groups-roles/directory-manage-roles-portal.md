@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ac62a4f318690a1e8156d619c82e9b936973159
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: b2815b496545ca5f920c00df7b2b5b7efe15c12a
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74027894"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900898"
 ---
 # <a name="view-and-assign-administrator-roles-in-azure-active-directory"></a>Visualización y asignación de roles de administrador en Azure Active Directory
 
@@ -26,11 +26,11 @@ Ahora puede ver y administrar todos los miembros de los roles de administrador e
 
 ## <a name="view-all-roles"></a>Ver todos los roles
 
-En Azure Active Directory, seleccione **Roles y administradores** para ver la lista de todos los roles disponibles. 
+Busque y seleccione **Azure Active Directory**. Seleccione **Roles y administradores** para ver la lista de todos los roles disponibles.
 
 Haga clic en el botón de puntos suspensivos a la derecha de cada fila para abrir la descripción detallada del rol.
 
-![lista de roles en el portal de Azure AD](./media/directory-manage-roles-portal/role-list.png)
+![lista de roles en el portal de Azure AD](./media/directory-manage-roles-portal/view-roles-in-azure-active-directory.png)
 
 ## <a name="view-my-roles"></a>Ver mis roles
 

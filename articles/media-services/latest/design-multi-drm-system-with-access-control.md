@@ -1,6 +1,6 @@
 ---
 title: Diseño de un sistema de protección de contenido con DRM múltiple y control de acceso mediante Azure Media Services | Microsoft Docs
-description: Más información sobre las licencias de Microsoft Smooth Streaming Client Porting Kit.
+description: En este artículo se proporciona una descripción detallada de cómo diseñar un sistema de protección de contenido con varios DRM con Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: willzhan
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/21/2018
 ms.author: willzhan
 ms.custom: seodec18
-ms.openlocfilehash: ffbf53c0bb0aaf2832afecc2d0df935f04eeff19
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 00ddedf135d13c07e8abe1094dd5366acb0f4ae5
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68310324"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896168"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Diseño del sistema de protección de contenido con DRM múltiple con control de acceso 
 

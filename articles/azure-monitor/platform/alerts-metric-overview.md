@@ -3,16 +3,16 @@ title: Comprender cómo funcionan las alertas de métricas en Azure Monitor.
 description: Obtenga información general acerca de lo que puede hacer con las alertas de métricas y cómo funcionan en Azure Monitor.
 author: rboucher
 ms.author: robb
-ms.date: 11/18/2019
+ms.date: 12/5/2019
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: alerts
-ms.openlocfilehash: aa54b9ce23ffab266ed6403e3525ae1290d99cec
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 8f84b5641b79514ffed493302f246ecc51a20a87
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74775728"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850064"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Comprender cómo funcionan las alertas de métricas en Azure Monitor
 
@@ -125,7 +125,7 @@ El aumento de los períodos de retroceso y del número de infracciones también 
 
 ## <a name="monitoring-at-scale-using-metric-alerts-in-azure-monitor"></a>Supervisión a escala mediante alertas de métricas en Azure Monitor
 
-Hasta ahora, ha visto cómo se puede usar una única alerta de métrica para supervisar una o varias series temporales de métricas relacionadas con un único recurso de Azure. Con frecuencia, es posible que desee aplicar la misma regla de alertas a muchos recursos. Azure Monitor también admite la supervisión de varios recursos con una sola regla de alerta de métrica. Esta característica solo se admite actualmente en máquinas virtuales. Además, una alerta de métrica individual puede supervisar los recursos de una sola región de Azure.
+Hasta ahora, ha visto cómo se puede usar una única alerta de métrica para supervisar una o varias series temporales de métricas relacionadas con un único recurso de Azure. Con frecuencia, es posible que desee aplicar la misma regla de alertas a muchos recursos. Azure Monitor también admite la supervisión de varios recursos con una sola regla de alerta de métrica. En este momento, esta característica solo se admite en máquinas virtuales, bases de datos de SQL Server, grupos elásticos de SQL Server y dispositivos Data Box Edge. Además, una alerta de métrica individual puede supervisar los recursos de una sola región de Azure.
 
 Puede especificar el ámbito de la supervisión por una única alerta de métrica de cualquiera de estas tres formas:
 

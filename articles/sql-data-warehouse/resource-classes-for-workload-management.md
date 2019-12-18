@@ -7,16 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 11/04/2019
+ms.date: 12/04/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 558a6e3faa207e15000657a17bec99a7b1ac99e4
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 30a3be1365f152a88713604570169091f09f0536
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685927"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975438"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>Administración de carga de trabajo con clases de recursos en Azure SQL Data Warehouse
 
@@ -24,7 +24,7 @@ Instrucciones para usar las clases de recursos para administrar la memoria y la 
 
 ## <a name="what-are-resource-classes"></a>¿Qué son las clases de recursos?
 
-La capacidad de rendimiento de una consulta viene determinada por la clase de recursos del usuario.  Las clases de recursos son límites de recursos predeterminados en Azure SQL Data Warehouse que rigen los recursos de proceso y la simultaneidad para la ejecución de las consultas. Las clases de recursos pueden ayudarlo a administrar la carga de trabajo mediante el establecimiento de límites en el número de consultas que se ejecutan simultáneamente y en los recursos de proceso que se asignan a cada consulta.  Gracias a esto, la memoria y la simultaneidad se compensan.
+La capacidad de rendimiento de una consulta viene determinada por la clase de recursos del usuario.  Las clases de recursos son límites de recursos predeterminados en Azure SQL Data Warehouse que rigen los recursos de proceso y la simultaneidad para la ejecución de las consultas. Las clases de recursos pueden ayudarle a configurar recursos para las consultas mediante el establecimiento de límites en el número de consultas que se ejecutan simultáneamente y en los recursos de proceso que se asignan a cada consulta.  Gracias a esto, la memoria y la simultaneidad se compensan.
 
 - Las clases de recursos más pequeñas reducen la memoria máxima por cada consulta, pero aumentan la simultaneidad.
 - Las clases de recursos más grandes aumentan la memoria máxima por cada consulta, pero reducen la simultaneidad.
@@ -36,7 +36,7 @@ Existen dos tipos de clases de recursos:
 
 Las clases de recursos utilizan espacios de simultaneidad para medir el consumo de recursos.  Los [espacios de simultaneidad](#concurrency-slots) se explican posteriormente en este artículo.
 
-- Para ver el uso de recursos para las clases de recursos, consulte [Límites de memoria y simultaneidad]memory-concurrency-limits.md).
+- Para ver el uso de recursos para las clases de recursos, consulte [Límites de memoria y simultaneidad](memory-concurrency-limits.md).
 - Para ajustar la clase de recurso, puede ejecutar la consulta bajo un usuario diferente o [cambiar la pertenencia de la clase de recurso del usuario actual](#change-a-users-resource-class).
 
 ### <a name="static-resource-classes"></a>Clases de recursos estáticos
@@ -65,14 +65,18 @@ Las clases de recursos dinámicos se implementan con estos roles de base de dato
 - largerc
 - xlargerc
 
-La asignación de memoria para cada clase de recurso es la siguiente, **independientemente del nivel de servicio**.  También se enumeran las consultas de simultaneidad mínima.  En algunos niveles de servicio, se puede superar la simultaneidad mínima.
+La asignación de memoria para cada clase de recurso es la siguiente. 
 
-| Clase de recursos | Porcentaje de memoria | Mínimo de consultas simultáneas |
-|:--------------:|:-----------------:|:----------------------:|
-| smallrc        | 3 %                | 32                     |
-| mediumrc       | 10%               | 10                     |
-| largerc        | 22 %               | 4                      |
-| xlargerc       | 70%               | 1                      |
+| Nivel de servicios  | smallrc           | mediumrc               | largerc                | xlargerc               |
+|:--------------:|:-----------------:|:----------------------:|:----------------------:|:----------------------:|
+| DW100c         | 25 %               | 25 %                    | 25 %                    | 70%                    |
+| DW200c         | 12,5 %             | 12,5 %                  | 22 %                    | 70%                    |
+| DW300c         | 8 %                | 10%                    | 22 %                    | 70%                    |
+| DW400c         | 6,25 %             | 10%                    | 22 %                    | 70%                    |
+| DW500c         | 20%               | 10%                    | 22 %                    | 70%                    |
+| DW1000c a<br> DW30000c | 3 %       | 10%                    | 22 %                    | 70%                    |
+
+
 
 ### <a name="default-resource-class"></a>Clase de recursos predeterminada
 
@@ -105,6 +109,8 @@ Estas operaciones están regidas por clases de recursos:
 
 > [!NOTE]  
 > Ninguno de los límites de simultaneidad se encarga de regular las instrucciones SELECT de las vistas de administración dinámicas (DMV) o de otras vistas del sistema. Puede supervisar el sistema independientemente del número de consultas que se ejecutan en él.
+>
+>
 
 ### <a name="operations-not-governed-by-resource-classes"></a>Operaciones no regidas por clases de recursos
 
@@ -178,6 +184,11 @@ Los usuarios pueden ser miembros de varias clases de recursos. Cuando un usuario
 - Las clases de recursos más grandes tienen prioridad sobre las clases de recursos más pequeñas. Por ejemplo, si un usuario es miembro de mediumrc y largerc, las consultas se ejecutarán con largerc. Del mismo modo, si un usuario es miembro de staticrc20 y statirc80, las consultas se ejecutarán con las asignaciones de recursos de staticrc80.
 
 ## <a name="recommendations"></a>Recomendaciones
+
+>[!NOTE]
+>Considere la posibilidad de aprovechar las funcionalidades de administración de cargas de trabajo ([aislamiento de carga de trabajo](sql-data-warehouse-workload-isolation.md), [clasificación](sql-data-warehouse-workload-classification.md) e [importancia](sql-data-warehouse-workload-importance.md)) para obtener un mayor control sobre la carga de trabajo y un rendimiento predecible.  
+>
+>
 
 Se recomienda crear un usuario que se dedique a ejecutar un tipo específico de consulta u operación de carga. Conceda a ese usuario una clase de recursos permanente en lugar de cambiar la clase de recursos con frecuencia. Las clases de recursos estáticas, en general, proporcionan un mayor control sobre la carga de trabajo, por lo que le recomendamos que use dichas clases antes de plantearse usar las clases de recursos dinámicas.
 

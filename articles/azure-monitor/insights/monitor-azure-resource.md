@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
-ms.openlocfilehash: 230b79a5062262a85d3090e15ed52d67c38ed3e9
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 5a46de9fa17790cb93ce7d5a2af8008d34d4dc35
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73928467"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74888791"
 ---
 # <a name="monitoring-azure-resources-with-azure-monitor"></a>Supervisión de recursos de Azure con Azure Monitor
 Si tiene aplicaciones y procesos empresariales críticos que dependen de recursos de Azure, querrá supervisar esos recursos para su disponibilidad, rendimiento y funcionamiento. En este artículo se describen los datos de supervisión generados por los recursos de Azure y cómo puede usar las características de Azure Monitor para analizar y alertar sobre estos datos.
@@ -164,4 +164,4 @@ Use **Alertas** en el menú de un recurso para ver alertas y administrar las reg
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Consulte [Servicios, esquemas y categorías admitidos en los registros de diagnóstico de Azure](../platform/diagnostic-logs-schema.md) para más información sobre los registros de recursos para los distintos servicios de Azure.  
+* Consulte [Servicios, esquemas y categorías admitidos en los registros de recursos de Azure](../platform/diagnostic-logs-schema.md) para más información sobre los registros de recursos para los distintos servicios de Azure.  

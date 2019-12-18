@@ -3,16 +3,16 @@ title: Instalación o actualización manual de extensiones de enlace de Azure Fu
 description: Obtenga información sobre cómo instalar o actualizar extensiones de enlace de Azure Functions para aplicaciones de función implementada.
 ms.topic: reference
 ms.date: 09/26/2018
-ms.openlocfilehash: 49e8e2ce7eb0267d5a4e6fc0f5566dffaed82661
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 83ae2cdd16bce0b0a5b11b8c24e996306453a7a9
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226505"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977495"
 ---
 # <a name="manually-install-or-update-azure-functions-binding-extensions-from-the-portal"></a>Instalación o actualización manual de extensiones de enlace de Azure Functions desde el portal
 
-El entorno de ejecución de la versión 2.x de Azure Functions usa extensiones de enlace para implementar código para desencadenadores y enlaces. Las extensiones de enlace se proporcionan en paquetes NuGet. Para registrar una extensión, básicamente se instala un paquete. Al desarrollar funciones, la manera de instalar extensiones de enlace depende del entorno de desarrollo. Para más información, consulte [Registro de extensiones de enlace](./functions-bindings-register.md) en el artículo de enlaces y desencadenadores.
+A partir de la versión 2.x, el entorno en tiempo de ejecución de Azure Functions usa extensiones de enlace para implementar código para desencadenadores y enlaces. Las extensiones de enlace se proporcionan en paquetes NuGet. Para registrar una extensión, básicamente se instala un paquete. Al desarrollar funciones, la manera de instalar extensiones de enlace depende del entorno de desarrollo. Para más información, consulte [Registro de extensiones de enlace](./functions-bindings-register.md) en el artículo de enlaces y desencadenadores.
 
 A veces, es necesario instalar o actualizar las extensiones de enlace en Azure Portal manualmente. Por ejemplo, es posible que necesite actualizar un enlace registrado a una versión más reciente. También es posible que deba registrar un enlace compatible que no se puede instalar en la pestaña **Integrar** del portal.
 

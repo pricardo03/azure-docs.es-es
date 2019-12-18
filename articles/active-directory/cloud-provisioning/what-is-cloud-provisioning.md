@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e88f6f344c77109ee01cd6b0332138518f70270d
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 10c778025c3def384f621cb5311d0d71ccb457d7
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74795339"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951129"
 ---
 # <a name="what-is-azure-ad-connect-cloud-provisioning"></a>Qué es el aprovisionamiento en la nube de Azure AD Connect
 El aprovisionamiento en la nube de Azure AD Connect es un nuevo agente de Microsoft diseñado para cumplir objetivos de identidad híbrida para la sincronización de usuarios, grupos y contactos en Azure AD.  Se puede usar junto con la sincronización de Azure AD Connect y proporciona las siguientes ventajas:
@@ -59,8 +59,10 @@ En la tabla siguiente se proporciona una comparación entre Azure AD Connect y 
 | Permitir quitar atributos del flujo de AD a Azure AD |● |● |
 | Permitir personalización avanzada para flujos de atributo |● | |
 | Compatibilidad con la escritura diferida (contraseñas, dispositivos, grupos) |● | |
+| Compatibilidad con Azure AD Domain Services|● | |
+| Configuración híbrida de Exchange |● | |
 
 ## <a name="next-steps"></a>Pasos siguientes 
 
 - [¿Qué es el aprovisionamiento?](what-is-provisioning.md)
-- [¿Qué es el aprovisionamiento en la nube de Azure AD Connect?](what-is-cloud-provisioning.md)
+- [Instalación del aprovisionamiento en la nube](how-to-install.md)

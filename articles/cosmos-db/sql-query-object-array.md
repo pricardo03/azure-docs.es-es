@@ -1,17 +1,17 @@
 ---
 title: Trabajar con matrices y objetos en Azure Cosmos DB
-description: Obtenga información sobre la sintaxis SQL de creación de matrices y objetos para Azure Cosmos DB.
+description: Obtenga información sobre la sintaxis de SQL para crear matrices y objetos en Azure Cosmos DB. En este artículo también se proporcionan algunos ejemplos para realizar operaciones en objetos de matriz.
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/21/2019
+ms.date: 12/02/2019
 ms.author: tisande
-ms.openlocfilehash: 17a0e4ddf5acd267a4cfbb68c218fe9409a91d57
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 5b2801b0a71f04803955e9d8bc18a97133019996
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003928"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74870928"
 ---
 # <a name="working-with-arrays-and-objects-in-azure-cosmos-db"></a>Trabajar con matrices y objetos en Azure Cosmos DB
 

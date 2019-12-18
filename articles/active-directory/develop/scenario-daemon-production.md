@@ -1,6 +1,6 @@
 ---
-title: 'Aplicación de demonio que llama a las API web (paso a producción): Plataforma de identidad de Microsoft'
-description: Obtenga información sobre cómo compilar una aplicación de demonio que llama a las API web (paso a producción)
+title: 'Paso a producción de una aplicación de demonio que llama a las API web: Plataforma de identidad de Microsoft | Azure'
+description: Aprenda a pasar a producción una aplicación de demonio que llama a las API web.
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -16,12 +16,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05418cde7b31392c1a55f64945764e978daba1bf
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 961928499008445207df3a34a51fc016723c294b
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175394"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74962600"
 ---
 # <a name="daemon-app-that-calls-web-apis---move-to-production"></a>Aplicación de demonio que llama a las API web: paso a producción
 

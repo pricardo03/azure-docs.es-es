@@ -1,6 +1,7 @@
 ---
-title: Incorporación de una cuenta de Microsoft (MSA) como proveedor de identidades mediante directivas personalizadas en Azure Active Directory B2C
-description: Ejemplo en el que se usa Microsoft como proveedor de identidades mediante el protocolo OpenID Connect (OIDC).
+title: Configuración del inicio de sesión con una cuenta de Microsoft con directivas personalizadas
+titleSuffix: Azure AD B2C
+description: Cómo usar las directivas personalizadas para habilitar la cuenta de Microsoft (MSA) como proveedor de identidades mediante el protocolo OpenID Connect (OIDC).
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1f068b624b5a8f580f61e9eb2ed0d197f05aa1b0
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 393e6f0b87cbd6a548825276da3f59863e2833eb
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73643659"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74948375"
 ---
 # <a name="set-up-sign-in-with-a-microsoft-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configuración del inicio de sesión con una cuenta Microsoft mediante directivas personalizadas en Azure Active Directory B2C
 

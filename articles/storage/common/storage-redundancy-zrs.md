@@ -1,22 +1,23 @@
 ---
-title: Creación de aplicaciones de Azure Storage de alta disponibilidad en almacenamiento con redundancia de zona (ZRS) | Microsoft Docs
+title: Creación de aplicaciones de alta disponibilidad con el almacenamiento con redundancia de zona (ZRS)
+titleSuffix: Azure Storage
 description: Almacenamiento con redundancia de zona (ZRS) ofrece un modo sencillo de crear aplicaciones de alta disponibilidad. ZRS protege frente a errores de hardware en el centro de datos y algunos desastres regionales.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/28/2019
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: a86d94110e78b7ace0e963469e9f236f7cc72ab4
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 7d341c7081fef7aee2c33b9a7080d60417ce410d
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555468"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895192"
 ---
-# <a name="zone-redundant-storage-zrs-for-building-highly-available-azure-storage-applications"></a>Almacenamiento con redundancia de zona (ZRS) para crear aplicaciones de Azure Storage de alta disponibilidad
+# <a name="build-highly-available-applications-with-zone-redundant-storage-zrs"></a>Creación de aplicaciones de alta disponibilidad con el almacenamiento con redundancia de zona (ZRS)
 
 [!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-zrs.md)]
 
@@ -163,7 +164,7 @@ Para actualizar a ZRS mediante la CLI, llame al comando siguiente:
 az storage account update -g <resource_group> -n <storage_account> --set kind=StorageV2
 ```
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 - [Replicación de Azure Storage](storage-redundancy.md)
 - [Almacenamiento con redundancia local (LRS): redundancia de datos de bajo costo para Azure Storage](storage-redundancy-lrs.md)
 - [Almacenamiento con redundancia geográfica (GRS): replicación entre regiones para Azure Storage](storage-redundancy-grs.md)

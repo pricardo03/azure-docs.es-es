@@ -1,29 +1,25 @@
 ---
-title: Azure AD B2C (biblioteca de autenticación de Microsoft para Android)
+title: Azure AD B2C (MSAL para Android) | Azure
 titleSuffix: Microsoft identity platform
 description: Aprenda las consideraciones específicas de uso de Azure AD B2C con la biblioteca de autenticación de Microsoft para Android (MSAL.Android)
 services: active-directory
-documentationcenter: dev-center-name
 author: brianmel
-manager: omkrishn
-editor: ''
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 9/18/2019
 ms.author: brianmel
 ms.reviewer: rapong
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b5061f1ab341e5872dfa82c9f5c5b133ae40bdf
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 98a31ea2daffba19242e73362af5a44e3a392342
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803241"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74917121"
 ---
 # <a name="use-msal-for-android-with-b2c"></a>Uso de MSAL para Android con B2C
 
@@ -158,7 +154,7 @@ AcquireTokenParameters parameters = new AcquireTokenParameters.Builder()
 
 ## <a name="handle-password-change-policies"></a>Administración de directivas de cambio de contraseña
 
-El flujo de usuario de registro o de inicio de sesión de la cuenta local muestra el vínculo "¿Ha olvidado la contraseña?" Al hacer clic en este vínculo, no se desencadena automáticamente ningún flujo de usuario de restablecimiento de contraseña,
+El flujo de usuario de registro o de inicio de sesión de la cuenta local muestra el vínculo " **¿Ha olvidado la contraseña?** " Al hacer clic en este vínculo, no se desencadena automáticamente ningún flujo de usuario de restablecimiento de contraseña,
 
 sino que se devuelve a la aplicación el código de error `AADB2C90118`. La aplicación debería controlar este código de error mediante la ejecución de un flujo de usuario específico que restablezca la contraseña.
 

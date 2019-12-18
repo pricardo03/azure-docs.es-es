@@ -1,5 +1,6 @@
 ---
-title: Protección de un servicio RESTful mediante certificados de cliente en Azure Active Directory B2C | Microsoft Docs
+title: Protección de un servicio RESTful mediante certificados de cliente
+titleSuffix: Azure AD B2C
 description: Proteja los intercambios de notificaciones de la API de REST personalizada en Azure AD B2C mediante certificados de cliente
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1690adfe5336ea85328e16755c5e3bc82b6d240a
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 1d396de57a12285fb6cc682510fa6f95585465d0
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67835606"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74949864"
 ---
 # <a name="secure-your-restful-service-by-using-client-certificates"></a>Proteja los servicios REST mediante certificados de cliente
 

@@ -5,17 +5,17 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 474cdc52d34d3f5e00dee69b7cc9861042cbcc04
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 051b8780a102a8a1ec4d3979cc53b686e2823dc8
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231127"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928594"
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Enlaces de Mobile Apps para Azure Functions 
 
 > [!NOTE]
-> Los enlaces de Azure Mobile Apps solo están disponibles para Azure Functions 1.x. No se admiten en Azure Functions 2.x.
+> Los enlaces de Azure Mobile Apps solo están disponibles para Azure Functions 1.x. No se admiten en Azure Functions 2.x y versiones posteriores.
 
 En este artículo se explica cómo trabajar con enlaces de [Azure Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md) en Azure Functions. Azure Functions admite enlaces de entrada y salida para Mobile Apps.
 

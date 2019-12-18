@@ -11,27 +11,27 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2b76d8f25cfb8bd1dfda43c8383a538f8cf9769b
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 94cdf683bc8524786e1f32607ef18f976990ba07
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818457"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74979128"
 ---
 # <a name="access-data-in-azure-storage-services"></a>Acceso a los datos en los servicios de almacenamiento de Azure
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-En este artículo, aprenderá a acceder fácilmente a los datos en los servicios de almacenamiento de Azure a través de almacenes de datos de Azure Machine Learning. Los almacenes de datos se usan para almacenar información de conexión, como el identificador de suscripción y la autorización de token. El uso de almacenes de datos permite acceder al almacenamiento sin tener que codificar de forma rígida la información de conexión en los scripts. Puede crear almacenes de datos a partir de estas [soluciones de Azure Storage](#matrix). En el caso de las soluciones de almacenamiento no compatibles, para ahorrar el costo de salida de datos durante los experimentos de aprendizaje automático, se recomienda mover los datos a nuestras soluciones de Azure Storage compatibles. [Obtenga información sobre cómo mover los datos](#move). 
+En este artículo, aprenderá a acceder fácilmente a los datos en los servicios de almacenamiento de Azure a través de almacenes de datos de Azure Machine Learning. Los almacenes de datos se usan para almacenar información de conexión, como el identificador de suscripción y la autorización de token. El uso de almacenes de datos permite acceder al almacenamiento sin tener que codificar de forma rígida la información de conexión en los scripts. Puede crear almacenes de datos a partir de estas [soluciones de Azure Storage](#matrix). En el caso de las soluciones de almacenamiento no compatibles y para ahorrar el costo de salida de datos durante los experimentos de aprendizaje automático, se recomienda mover los datos a nuestras soluciones de Azure Storage compatibles. [Obtenga información sobre cómo mover los datos](#move). 
 
 En este procedimiento se muestran ejemplos de las tareas siguientes:
-* [Registro de almacenes de datos](#access)
-* [Obtención de almacenes de almacenamiento del área de trabajo](#get)
-* [Carga y descarga de datos con almacenes de datos](#up-and-down)
-* [Acceso a los datos durante el aprendizaje](#train)
-* [Migrar datos a Azure](#move)
+* Registro de almacenes de datos
+* Obtención de almacenes de almacenamiento del área de trabajo
+* Carga y descarga de datos con almacenes de datos
+* Acceso a los datos durante el entrenamiento
+* Movimiento de datos a un servicio de almacenamiento de Azure y desde este
 
 ## <a name="prerequisites"></a>Requisitos previos
-
+Necesitará:
 - Una suscripción de Azure. Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
 
 - Una cuenta de Azure Storage con un [contenedor de blobs de Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) o un [recurso compartido de archivos de Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction).
@@ -58,7 +58,13 @@ Cuando se registra una solución de Azure Storage como un almacén de datos, se 
 
 Todos los métodos de registro están en la clase [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) y tienen la forma register_azure_*.
 
-La información necesaria para rellenar el método register() se puede encontrar mediante [Azure Machine Learning Studio](https://ml.azure.com). Seleccione **Cuentas de almacenamiento** en el panel izquierdo y elija la cuenta de almacenamiento que quiere registrar. La página **Información general** proporciona información como el nombre de la cuenta y el nombre del recurso compartido de archivos o el contenedor. Para obtener información de autenticación, como la clave de cuenta o el token de SAS, vaya a **Claves de cuenta** en la opción **Configuración** del panel izquierdo. 
+La información necesaria para rellenar el método register() se puede encontrar mediante [Azure Machine Learning Studio](https://ml.azure.com) y estos pasos.
+
+1. Seleccione **Cuentas de almacenamiento** en el panel izquierdo y elija la cuenta de almacenamiento que quiere registrar. 
+2. La página **Información general** proporciona información como el nombre de la cuenta y el nombre del recurso compartido de archivos o el contenedor. 
+3. Para obtener información de autenticación, como la clave de cuenta o el token de SAS, vaya a **Claves de cuenta** en la opción **Configuración** del panel izquierdo. 
+
+>[IMPORTANTE] Si la cuenta de almacenamiento se encuentra en una red virtual, solo se admite la creación del almacén de datos de blobs de Azure. Establezca el parámetro `grant_workspace_access` en `True` para conceder a su cuenta de almacenamiento acceso a su área de trabajo.
 
 Los ejemplos siguientes le muestran cómo registrar una instancia de Azure Blob Container o un recurso compartido de archivos de Azure como un almacén de datos.
 
@@ -74,7 +80,6 @@ Los ejemplos siguientes le muestran cómo registrar una instancia de Azure Blob 
                                                           account_key='your storage account key',
                                                           create_if_not_exists=True)
     ```
-    Si la cuenta de almacenamiento se encuentra en una red virtual, solo se admite la creación del almacén de datos de blobs de Azure. Establezca el parámetro `grant_workspace_access` en `True` para conceder a su cuenta de almacenamiento acceso a su área de trabajo.
 
 + Para un **almacén de datos de un recurso compartido de archivos de Azure**, use [`register_azure_file_share()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-file-share-workspace--datastore-name--file-share-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-). 
 
@@ -102,9 +107,9 @@ Cree un nuevo almacén de datos en unos cuantos pasos en Azure Machine Learning 
 1. Seleccione **+ Nuevo almacén de datos**.
 1. Complete el nuevo formulario de almacén de datos. El formulario se actualiza de forma inteligente según el tipo de almacenamiento de Azure y las selecciones de tipo de autenticación.
   
-La información necesaria para rellenar el formulario se puede encontrar mediante [Azure Machine Learning Studio](https://ml.azure.com). Seleccione **Cuentas de almacenamiento** en el panel izquierdo y elija la cuenta de almacenamiento que quiere registrar. La página **Información general** proporciona información como el nombre de la cuenta y el nombre del recurso compartido de archivos o el contenedor. En el caso de los elementos de autenticación, como la clave de la cuenta o el token de SAS, vaya a **Claves de cuenta** en el panel **Configuración** de la izquierda.
+La información necesaria para rellenar el formulario se puede encontrar en [Azure Portal](https://portal.azure.com). Seleccione **Cuentas de almacenamiento** en el panel izquierdo y elija la cuenta de almacenamiento que quiere registrar. La página **Información general** proporciona información como el nombre de la cuenta y el nombre del recurso compartido de archivos o el contenedor. En el caso de los elementos de autenticación, como la clave de la cuenta o el token de SAS, vaya a **Claves de cuenta** en el panel **Configuración** de la izquierda.
 
-En el ejemplo siguiente se muestra el aspecto que tendría el formulario para crear un almacén de datos de Azure Blob. 
+En el ejemplo siguiente se muestra el aspecto que tendría el formulario para crear un almacén de datos de blobs de Azure. 
     
  ![Nuevo almacén de datos](media/how-to-access-data/new-datastore-form.png)
 
@@ -128,7 +133,7 @@ for name, datastore in datastores.items():
     print(name, datastore.datastore_type)
 ```
 
-Al crear un área de trabajo, se registra un contenedor de blobs de Azure y un recurso compartido de archivos de Azure en el área de trabajo denominada `workspaceblobstore` y `workspacefilestore`, respectivamente. Almacenan la información de conexión del contenedor de blobs y el recurso compartido de archivos que se aprovisiona en la cuenta de almacenamiento asociada al área de trabajo. `workspaceblobstore` se establece como el almacén de datos predeterminado.
+Al crear un área de trabajo, se registra un contenedor de blobs de Azure y un recurso compartido de archivos de Azure en el área de trabajo denominados `workspaceblobstore` y `workspacefilestore`, respectivamente. Estas áreas almacenan la información de conexión del contenedor de blobs y el recurso compartido de archivos que se aprovisiona en la cuenta de almacenamiento asociada al área de trabajo. `workspaceblobstore` se establece como el almacén de datos predeterminado.
 
 Para obtener el almacén de datos predeterminado del área de trabajo:
 
@@ -189,7 +194,7 @@ En la siguiente tabla se enumeran los métodos que indican al destino de proceso
 
 Función|Método|DESCRIPCIÓN|
 ----|-----|--------
-Montaje| [`as_mount()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.abstractazurestoragedatastore?view=azure-ml-py#as-mount--)| Se usa para montar el almacén de datos en el destino de proceso.
+Montaje| [`as_mount()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.abstractazurestoragedatastore?view=azure-ml-py#as-mount--)| Se usa para montar el almacén de datos en el destino de proceso. Cuando se montan, todos los archivos del almacén de archivos son accesibles para el destino de proceso.
 Descargar|[`as_download()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.abstractazurestoragedatastore?view=azure-ml-py#as-download-path-on-compute-none-)|Se usa para descargar el contenido del almacén de datos en la ubicación especificada por `path_on_compute`. <br><br> Esta descarga se produce antes de la ejecución.
 Cargar|[`as_upload()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.abstractazurestoragedatastore?view=azure-ml-py#as-upload-path-on-compute-none-)| Se usa para cargar un archivo desde la ubicación especificada por `path_on_compute` en el almacén de datos. <br><br> Esta carga se produce después de la ejecución.
 
@@ -199,7 +204,7 @@ Para hacer referencia a una carpeta o archivo concretos del almacén de datos y 
 #to mount the full contents in your storage to the compute target
 datastore.as_mount()
 
-#to download the contents of the `./bar` directory in your storage to the compute target
+#to download the contents of only the `./bar` directory in your storage to the compute target
 datastore.path('./bar').as_download()
 ```
 > [!NOTE]
@@ -207,13 +212,14 @@ datastore.path('./bar').as_download()
 
 ### <a name="examples"></a>Ejemplos 
 
-Los siguientes ejemplos de código son específicos para la clase [`Estimator`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) para tener acceso a los datos durante el entrenamiento. 
+Se recomienda usar la clase [`Estimator`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) para tener acceso a los datos durante el entrenamiento. 
 
-`script_params` es un diccionario que contiene parámetros para entry_script. Úselo para pasar un almacén de datos y describir cómo estarán disponibles los datos en el destino de proceso. Obtenga más información en nuestro completo [tutorial](tutorial-train-models-with-aml.md).
+La variable `script_params` es un diccionario que contiene parámetros para entry_script. Úselo para pasar un almacén de datos y describir cómo estarán disponibles los datos en el destino de proceso. Obtenga más información en nuestro completo [tutorial](tutorial-train-models-with-aml.md).
 
 ```Python
 from azureml.train.estimator import Estimator
 
+# notice '/' is in front, this indicates the absolute path
 script_params = {
     '--data_dir': datastore.path('/bar').as_mount()
 }
@@ -235,6 +241,24 @@ est = Estimator(source_directory='your code directory',
                 compute_target=compute_target,
                 entry_script='train.py',
                 inputs=[datastore1.as_download(), datastore2.path('./foo').as_download(), datastore3.as_upload(path_on_compute='./bar.pkl')])
+```
+Si prefiere usar un objeto RunConfig para el entrenamiento, debe configurar un objeto [DataReference](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py). 
+
+En el código siguiente se muestra cómo trabajar con un objeto DataReference en una canalización de estimación. Para ver el ejemplo completo, consulte este [cuaderno](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-how-to-use-estimatorstep.ipynb).
+
+```Python
+from azureml.core import Datastore
+from azureml.data.data_reference import DataReference
+from azureml.pipeline.core import PipelineData
+
+def_blob_store = Datastore(ws, "workspaceblobstore")
+
+input_data = DataReference(
+       datastore=def_blob_store,
+       data_reference_name="input_data",
+       path_on_datastore="20newsgroups/20news.pkl")
+
+   output = PipelineData("output", datastore=def_blob_store)
 ```
 <a name="matrix"></a>
 

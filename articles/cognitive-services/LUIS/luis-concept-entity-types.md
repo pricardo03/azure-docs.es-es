@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: diberry
-ms.openlocfilehash: 808e110ccb45b0b4f7bf34a43597c1f7a7bc0fed
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 6ee156efb5512c92d86ba05513b6a2b91df4eae8
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422584"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976968"
 ---
 # <a name="entities-and-their-purpose-in-luis"></a>Entidades y su finalidad en LUIS
 
@@ -75,7 +75,7 @@ Las [**entidades con aprendizaje automático**](tutorial-machine-learned-entity.
 
 Un desencadenador de entidades con aprendizaje automático basado en el contexto aprendido a través de expresiones de entrenamiento. Las **restricciones** son reglas opcionales que se aplican a una entidad con aprendizaje automático que restringe aún más la activación en función de la definición de coincidencia exacta de texto de una entidad sin aprendizaje automático, como una [lista](reference-entity-list.md) o [regex](reference-entity-regular-expression.md). Por ejemplo, la entidad con aprendizaje automático `size` puede tener una restricción de una entidad de lista `sizeList` que restringe la entidad `size` para que se desencadene solo cuando se encuentren los valores contenidos en la entidad `sizeList`.
 
-Los [**descriptores**](luis-concept-feature.md) son características aplicadas para aumentar la relevancia de las palabras o frases de la predicción. Se denominan *descriptores* porque se usan para *describir* una intención o una entidad. Los descriptores explican rasgos o atributos de datos diferenciales, como palabras o frases importantes que LUIS observa y aprende.
+Los [**descriptores**](luis-concept-feature.md) son características aplicadas para aumentar la relevancia de las palabras o frases de la predicción. Se denominan *descriptores* porque se usan para *describir* una intención o una entidad. Los descriptores explican rasgos o atributos de datos diferenciales, como palabras o frases importantes que LUIS observa y que le permiten aprender.
 
 Cuando se crea una característica de lista de frases en la aplicación de LUIS, se habilita globalmente de forma predeterminada y se aplica uniformemente en todas las intenciones y entidades. Sin embargo, si aplica la lista de frases como un descriptor (característica) de una entidad con aprendizaje automático (o *modelo*), su ámbito se reduce para aplicarse solo a ese modelo y ya no se usa con los demás modelos. El uso de una lista de frases como descriptor de un modelo ayuda a la descomposición al ayudar con la precisión del modelo al que se aplica.
 
@@ -141,3 +141,4 @@ Aprenda conceptos sobre las buenas [expresiones](luis-concept-utterance.md).
 Vea [Add entities](luis-how-to-add-entities.md) (Agregar entidades) para obtener más información sobre cómo agregar entidades a la aplicación de LUIS.
 
 Vea [Tutorial: Extraiga los datos estructurados de la expresión del usuario con entidades con aprendizaje automático en Language Understanding (LUIS)](tutorial-machine-learned-entity.md) para obtener información sobre cómo extraer datos estructurados de una expresión mediante la entidad con aprendizaje automático.
+ 

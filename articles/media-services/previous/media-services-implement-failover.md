@@ -1,6 +1,6 @@
 ---
 title: Implementación de streaming de conmutación por error con Azure Media Services | Microsoft Docs
-description: En este tema se muestra cómo implementar un escenario de streaming de conmutación por error.
+description: En este artículo se muestra cómo implementar un escenario de streaming de conmutación por error con Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: ea5238df50ff050140453ce655ea041669f6080c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 195f7f089b84e1665f4dd078a7da141d531c2185
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67051652"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74887193"
 ---
 # <a name="implement-failover-streaming-with-media-services"></a>Implementación de streaming de conmutación por error con Media Services 
 

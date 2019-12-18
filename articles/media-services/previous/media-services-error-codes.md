@@ -1,6 +1,6 @@
 ---
 title: Códigos de error de Azure Media Services | Microsoft Docs
-description: En este tema se proporciona información general sobre los códigos de error de Azure Media Services.
+description: Es posible que reciba códigos de error HTTP del servicio debido a problemas como la expiración de los tokens de autenticación o acciones que no se admiten en Media Services. En este artículo se proporciona información general de los códigos de error de API de Azure Media Services v2.
 author: Juliako
 manager: femila
 editor: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: f3c362730e7908e88b363659b7fa580b6f2cddf1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f5a2dd68d86a7a38fc7f2942351c42c84742d104
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61217240"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74887095"
 ---
 # <a name="azure-media-services-error-codes"></a>Códigos de error de Azure Media Services
 Al utilizar Microsoft Azure Media Services, puede recibir los códigos de error HTTP desde el servicio dependiendo de los problemas como los tokens de autenticación que expiran en acciones que no son compatibles en Media Services. La siguiente es una lista de **códigos de error HTTP** que pueden devolver Media Services y las posibles causas de ellos.  

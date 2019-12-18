@@ -7,47 +7,52 @@ ms.service: virtual-wan
 ms.topic: article
 ms.date: 10/11/2019
 ms.author: cherylmc
-Customer intent: I want to connect my on-premises networks to my VNets using S2S VPN connection over my ExpressRoute private peering using Azure Virtual WAN.
-ms.openlocfilehash: 6272d6fe6f8c35c06a8121e10be2dd5a2e5512a8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+Customer intent: I want to connect my on-premises networks to my virtual networks by using an S2S VPN connection over my ExpressRoute private peering through Azure Virtual WAN.
+ms.openlocfilehash: ae971bad47d84b6928ebea64e416d21af25528ad
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73510961"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896622"
 ---
-# <a name="create-a-site-to-site-vpn-connection-over-expressroute-private-peering-using-azure-virtual-wan"></a>Creación de una conexión VPN de sitio a sitio a través del emparejamiento privado de ExpressRoute con Azure Virtual WAN
+# <a name="create-a-site-to-site-vpn-connection-over-expressroute-private-peering-by-using-azure-virtual-wan"></a>Creación de una conexión VPN de sitio a sitio a través del emparejamiento privado de ExpressRoute mediante Azure Virtual WAN
 
-En este artículo se muestra cómo usar Virtual WAN para establecer una conexión VPN de IPsec/IKE desde la red local a Azure a través del emparejamiento privado de un circuito ExpressRoute. Esto puede proporcionar un tránsito cifrado entre las redes locales y las redes virtuales de Azure a través de ExpressRoute, sin pasar por la red pública de Internet o mediante direcciones IP públicas.
+En este artículo se muestra cómo usar Azure Virtual WAN para establecer una conexión VPN de IPsec/IKE desde la red local a Azure a través del emparejamiento privado de un circuito Azure ExpressRoute. Esta técnica puede proporcionar un tránsito cifrado entre las redes locales y las redes virtuales de Azure a través de ExpressRoute sin necesidad de pasar por la red pública de Internet ni utilizar direcciones IP públicas.
 
 ## <a name="topology-and-routing"></a>Topología y enrutamiento
 
-En el diagrama siguiente se muestra un ejemplo de conectividad de emparejamiento privado de VPN a través de ExpressRoute:
+En el diagrama siguiente se muestra un ejemplo de conectividad de VPN a través del emparejamiento privado de ExpressRoute:
 
 ![VPN a través de ExpressRoute](./media/vpn-over-expressroute/vwan-vpn-over-er.png)
 
 El diagrama muestra una red dentro de la red local conectada a la puerta de enlace de VPN del centro de conectividad de Azure a través del emparejamiento privado de ExpressRoute. El establecimiento de la conectividad es sencillo:
 
-1. Establezca la conectividad de ExpressRoute con un circuito ExpressRoute y el emparejamiento privado
-2. Establezca la conectividad VPN como se describe en este documento
+1. Establezca la conectividad de ExpressRoute con un circuito ExpressRoute y emparejamiento privado.
+2. Establezca la conectividad VPN como se describe en este artículo.
 
 Un aspecto importante de esta configuración es el enrutamiento entre las redes locales y Azure a través de las rutas de acceso de ExpressRoute y VPN.
 
 ### <a name="traffic-from-on-premises-networks-to-azure"></a>Tráfico desde redes locales a Azure
 
-Para el tráfico de las redes locales a Azure, los prefijos de Azure (incluido el concentrador virtual y todas las redes virtuales de radios conectadas al concentrador) se anunciarán a través del BGP del emparejamiento privado de ExpressRoute y el BGP de VPN. Esto dará como resultado dos rutas de red (rutas de acceso) hacia Azure desde las redes locales: una a través de la ruta de acceso protegida por IPsec y otra directamente a través de ExpressRoute **sin** protección de IPsec. Para garantizar que el cifrado se aplica a la comunicación, debe asegurarse de que para la red conectada a VPN en el diagrama, se prefieren las rutas de Azure a través de la puerta de enlace de VPN local sobre la ruta de acceso de ExpressRoute directa.
+En el caso del tráfico entre las redes locales y Azure, los prefijos de Azure (lo que incluye el centro de conectividad virtual y todas las redes virtuales de radio conectadas a ese centro) se anuncian a través de los protocolos de puerta de enlace de borde del emparejamiento privado de ExpressRoute y de la red privada virtual. El resultado son dos rutas de red (rutas de acceso) hacia Azure desde las redes locales:
+
+- Una sobre la ruta de acceso protegida mediante IPsec
+- Otra directamente sobre ExpressRoute, *sin* protección de IPsec 
+
+Para aplicar el cifrado a la comunicación, debe asegurarse de que para la red conectada a VPN del diagrama, se prefieren las rutas de Azure a través de la puerta de enlace de VPN local a la ruta de acceso directa de ExpressRoute.
 
 ### <a name="traffic-from-azure-to-on-premises-networks"></a>Tráfico desde Azure a las redes locales
 
-El mismo requisito se aplica al tráfico de Azure a las redes locales. Para asegurarse de que la ruta de acceso de IPsec es preferible a la ruta de acceso directa de ExpressRoute (sin IPsec), tiene dos opciones:
+El mismo requisito se aplica al tráfico de Azure a las redes locales. Para asegurarse de que la ruta de acceso de IPsec se elige antes que la ruta de acceso directa de ExpressRoute (sin IPsec), tiene dos opciones:
 
-- Anuncie prefijos más específicos en la sesión BGP de VPN para la red conectada a VPN. Puede anunciar un intervalo mayor que abarque la "red conectada a VPN" a través del emparejamiento privado de ExpressRoute y, después, intervalos más específicos en la sesión BGP de VPN. Por ejemplo, anuncie 10.0.0.0/16 a través de ExpressRoute y 10.0.1.0/24 a través de VPN.
+- Anuncie prefijos más específicos en la sesión BGP de VPN para la red conectada a VPN. Puede anunciar un rango mayor que abarque la red conectada a VPN a través del emparejamiento privado de ExpressRoute y, después, rangos más específicos en la sesión del protocolo de puerta de enlace de borde de VPN. Por ejemplo, anuncie 10.0.0.0/16 a través de ExpressRoute y 10.0.1.0/24 a través de VPN.
 
-- Anuncie prefijos disjuntos para VPN y ExpressRoute. Si los intervalos de red conectados a VPN no están unidos a otra red conectada de ExpressRoute, puede anunciar los prefijos en las sesiones de BGP ExpressRoute y VPN, respectivamente. Por ejemplo, anuncie 10.0.0.0/24 a través de ExpressRoute y 10.0.1.0/24 a través de VPN.
+- Anuncie prefijos disjuntos para VPN y ExpressRoute. Si los rangos de redes conectadas a VPN no están unidos a otras redes conectadas de ExpressRoute, puede anunciar los prefijos en las sesiones de los protocolos de puerta de enlace de borde de ExpressRoute y VPN, respectivamente. Por ejemplo, anuncie 10.0.0.0/24 a través de ExpressRoute y 10.0.1.0/24 a través de VPN.
 
 En ambos ejemplos, Azure enviará tráfico a 10.0.1.0/24 a través de la conexión VPN en lugar de hacerlo directamente a través de ExpressRoute sin protección VPN.
 
 > [!WARNING]
-> Si anuncia los **mismos** prefijos a través de conexiones de ExpressRoute y VPN, Azure **usará la ruta de acceso de ExpressRoute directamente sin protección de VPN**.
+> Si anuncia los *mismos* prefijos a través de las conexiones de ExpressRoute y VPN, Azure usará la ruta de acceso de ExpressRoute directamente sin protección de VPN.
 >
 
 ## <a name="before-you-begin"></a>Antes de empezar
@@ -56,98 +61,92 @@ En ambos ejemplos, Azure enviará tráfico a 10.0.1.0/24 a través de la conexi�
 
 ## <a name="openvwan"></a>1. Creación de una red virtual WAN y un concentrador con puertas de enlace
 
-Antes de continuar, los siguientes recursos de Azure y las configuraciones locales correspondientes deben estar en vigor:
+Antes de continuar deben estar en vigor los siguientes recursos de Azure y las configuraciones locales correspondientes:
 
-1. Una Azure Virtual WAN
-2. Un concentrador WAN virtual con una [puerta de enlace de ExpressRoute](virtual-wan-expressroute-portal.md) y una [puerta de enlace de VPN](virtual-wan-site-to-site-portal.md)
+- Una Azure Virtual WAN
+- Un concentrador WAN virtual con una [puerta de enlace de ExpressRoute](virtual-wan-expressroute-portal.md) y una [puerta de enlace de VPN](virtual-wan-site-to-site-portal.md)
 
-Consulte [Creación de una asociación de ExpressRoute mediante Azure Virtual WAN](virtual-wan-expressroute-portal.md) para conocer los pasos para crear una red WAN virtual de Azure y un concentrador con una asociación de ExpressRoute y [Creación de una conexión de sitio a sitio mediante la Azure Virtual WAN](virtual-wan-site-to-site-portal.md) para ver los pasos para crear una puerta de enlace de VPN en la WAN virtual.
+Para conocer los pasos que hay que seguir para crear una red de área extensa virtual de Azure y un centro de conectividad con una asociación de ExpressRoute, consulte [Creación de una asociación de ExpressRoute mediante Azure Virtual WAN](virtual-wan-expressroute-portal.md). Para conocer los pasos que deben seguirse para crear una puerta de enlace de VPN en la red de área extensa virtual, consulte [Creación de una conexión de sitio a sitio mediante Azure Virtual WAN](virtual-wan-site-to-site-portal.md).
 
 ## <a name="site"></a>2. Creación de un sitio para la red local
 
-El recurso de sitio es el mismo que el de los sitios VPN que no son de ExpressRoute para la WAN virtual. Lo más importante que debe tener en cuenta es que la dirección IP del dispositivo VPN local ahora puede ser una dirección IP privada o una dirección IP pública en la red local, accesible mediante el emparejamiento privado de ExpressRoute creado en el paso 1.
+El recurso del sitio es el mismo que el de los sitios VPN que no son de ExpressRoute para una red de área extensa virtual. La dirección IP del dispositivo VPN local ahora puede ser una dirección IP privada o una dirección IP pública de la red local a la que se puede acceder mediante el emparejamiento privado de ExpressRoute creado en el paso 1.
 
 > [!NOTE]
-> La dirección IP del dispositivo VPN local DEBE formar parte de los prefijos de dirección anunciados en el concentrador Virtual WAN a través del emparejamiento privado de ExpressRoute de Azure.
+> La dirección IP del dispositivo VPN local *debe* formar parte de los prefijos de dirección anunciados en el centro de conectividad de Virtual WAN a través del emparejamiento privado de ExpressRoute de Azure.
 >
 
-1. En el explorador, vaya a Azure Portal. Haga clic en la red WAN que ha creado. En la página de la red WAN, en **Conectividad**, haga clic en **Sitios de VPN** para abrir la página de los sitios de VPN.
-
-2. En la página **Sitios de VPN**, haga clic en **+Crear sitio**.
-
-3. En la página **Crear sitio** rellene los campos siguientes:
-
+1. Vaya a Azure Portal en el explorador. 
+1. Seleccione la WAN que ha creado. En la página de la WAN, en **Conectividad**, seleccione **Sitios VPN**.
+1. En la página **Sitios de VPN**, seleccione **+Crear sitio**.
+1. En la página **Crear sitio** rellene los campos siguientes:
    * **Suscripción**: compruebe la suscripción.
-   * **Grupos de recursos:** : seleccione o cree el grupo de recursos que desea utilizar.
-   * **Región**: la región de Azure para el recurso de sitio VPN.
-   * **Nombre**: el nombre que desee usar para hacer referencia a su sitio local.
-   * **Proveedor de dispositivos**: el proveedor del dispositivo VPN local.
-   * **Protocolo de puerta de enlace de borde**: seleccione "Habilitar" si la red local usa BGP.
-   * **Espacio de direcciones privadas**: es el espacio de direcciones IP que se encuentra en el sitio local. El tráfico destinado a este espacio de direcciones se enruta a la red local a través de la puerta de enlace de VPN.
-   * **Concentradores**: seleccione uno o más concentradores para conectar este sitio VPN. Los concentradores seleccionados deben tener puertas de enlace de VPN ya creadas.
-
-4. Haga clic en **Siguiente: Vínculos >** para la configuración de vínculo de VPN:
-
+   * **Grupo de recursos**: seleccione o cree el grupo de recursos que desea usar.
+   * **Región**: escriba la región de Azure del recurso del sitio VPN.
+   * **Nombre**: escriba el nombre que desee usar para hacer referencia a su sitio local.
+   * **Proveedor del dispositivo**: escriba el proveedor del dispositivo VPN local.
+   * **Protocolo de puerta de enlace de borde**: seleccione "Habilitar" si la red local usa el protocolo de puerta de enlace de borde.
+   * **Espacio de direcciones privadas**: escriba el espacio de direcciones IP que se encuentra en el sitio local. El tráfico destinado a este espacio de direcciones se enruta a la red local a través de la puerta de enlace de VPN.
+   * **Centros de conectividad**: seleccione uno o varios centros de conectividad para conectar este sitio VPN. Los concentradores seleccionados deben tener puertas de enlace de VPN ya creadas.
+1. Seleccione **Siguiente: Vínculos >** para la configuración de vínculo de VPN:
    * **Nombre del vínculo**: el nombre que desee usar para hacer referencia a esta conexión.
-   * **Nombre del proveedor**: el nombre del proveedor de servicios de Internet para este sitio. En el caso de la red local de ExpressRoute, el nombre del proveedor de servicios de ExpressRoute.
-   * **Velocidad**: la velocidad del vínculo de servicio de Internet o el circuito ExpressRoute.
-   * **Dirección IP**: la dirección IP pública del dispositivo VPN que reside en su sitio local. O bien, en el caso de ExpressRoute local, la dirección IP privada del dispositivo VPN a través de ExpressRoute.
+   * **Nombre de proveedor**: el nombre del proveedor de acceso a Internet de este sitio. En el caso de la red local de ExpressRoute, es el nombre del proveedor de servicios de ExpressRoute.
+   * **Velocidad**: la velocidad del vínculo de servicio de Internet o del circuito de ExpressRoute.
+   * **Dirección IP**: la dirección IP pública del dispositivo VPN que reside en el sitio local. O bien, en el entorno local de ExpressRoute, es la dirección IP privada del dispositivo VPN a través de ExpressRoute.
 
-   Si BGP está habilitado, se aplicará a todas las conexiones creadas para este sitio en Azure. La configuración de BGP en Virtual WAN es equivalente a la configuración de BGP en Azure VPN Gateway. Su dirección del mismo nivel BGP local *no debe* ser la misma que la dirección IP del VPN al dispositivo ni que el espacio de direcciones de red virtual del sitio VPN. Use otra dirección IP en el dispositivo VPN para la dirección IP del par BGP. Puede ser una dirección asignada a la interfaz de bucle invertido en el dispositivo. Sin embargo, *no puede* ser una dirección APIPA (169.254.*x*.*x*). Especifique esta dirección en la puerta de enlace de red local correspondiente que representa la ubicación. Para conocer los requisitos previos de BGP, consulte [Acerca de BGP con Azure VPN Gateway](../vpn-gateway/vpn-gateway-bgp-overview.md).
+   Si BGP está habilitado, se aplicará a todas las conexiones creadas para este sitio en Azure. La configuración del protocolo de puerta de enlace de borde en Virtual WAN es igual a su configuración en Azure VPN Gateway. 
+   
+   La dirección de su par BGP local *no debe* ser la misma que la dirección IP de la VPN al dispositivo o al espacio de direcciones de la red virtual del sitio VPN. Use otra dirección IP en el dispositivo VPN para la dirección IP del par BGP. Puede ser una dirección asignada a la interfaz de bucle invertido en el dispositivo. Sin embargo, *no puede* ser una dirección IP privada automática (169.254.*x*.*x*). Especifique esta dirección en la puerta de enlace de red local correspondiente que representa la ubicación. Para conocer los requisitos previos de BGP, consulte [Acerca de BGP con Azure VPN Gateway](../vpn-gateway/vpn-gateway-bgp-overview.md).
 
-5. Haga clic en **Siguiente: Revisar + Crear >** para comprobar los valores de configuración y crear el sitio VPN. Si seleccionó **Concentradores** para conectarse, se establecerá la conexión entre la red local y la puerta de enlace de VPN de concentrador.
+1. Seleccione **Siguiente: Revisar + Crear >** para comprobar los valores de configuración y crear el sitio VPN. Si seleccionó **Centros de conectividad** para conectarse, la conexión se establecerá entre la red local y la puerta de enlace de VPN del centro de conectividad.
 
 ## <a name="hub"></a>3. Actualización de la configuración de conexión VPN para usar ExpressRoute
 
-Después de crear el sitio VPN y conectarse al concentrador, siga estos pasos para configurar la conexión para usar el emparejamiento privado de ExpressRoute:
+Después de crear el sitio VPN y conectarlo al centro de conectividad, use estos pasos para configurar la conexión para que use el emparejamiento privado de ExpressRoute:
 
-1. Vuelva a la página de recursos de WAN virtual y haga clic en el recurso de concentrador. O bien, vaya desde el sitio VPN hasta el concentrador conectado.
+1. Vuelva a la página de recursos de la red de área extensa virtual y seleccione el recurso del centro de conectividad. O bien, vaya desde el sitio VPN hasta el concentrador conectado.
+1. En **Conectividad**, seleccione **VPN (de sitio a sitio)** .
+1. Seleccione los puntos suspensivos ( **...** ) en el sitio VPN sobre ExpressRoute y seleccione **Editar la conexión de VPN a este concentrador**.
+1. En **Usar dirección IP privada de Azure**, seleccione **Sí**. El ajuste configura la puerta de enlace de VPN de concentrador para que use direcciones IP privadas dentro del intervalo de direcciones del concentrador en la puerta de enlace para esta conexión, en lugar de las direcciones IP públicas. Esto garantizará que el tráfico de la red local atraviesa las rutas de acceso del emparejamiento privado de ExpressRoute, en lugar de usar la red pública de Internet para esta conexión VPN. En la captura de pantalla siguiente se muestra la configuración.
 
-2. En **Conectividad**, haga clic en **VPN (de sitio a sitio)**
-
-3. Haga clic en "..." en el sitio VPN sobre ExpressRoute y elija "**Editar conexión VPN para este concentrador**"
-
-4. Seleccione "Sí" en "**Usar dirección IP privada de Azure**". El ajuste configura la puerta de enlace de VPN de concentrador para que use direcciones IP privadas dentro del intervalo de direcciones del concentrador en la puerta de enlace para esta conexión, en lugar de las direcciones IP públicas. Esto garantizará que el tráfico de la red local atraviesa las rutas de acceso de emparejamiento privado de ExpressRoute en lugar de usar la red pública de Internet para esta conexión VPN. En la captura de pantalla siguiente se muestra la ventana de configuración.
-
-   ![Configuración de la conexión VPN](./media/vpn-over-expressroute/vpn-link-configuration.png)
+   ![Configuración para el uso de una dirección IP privada para la conexión VPN](./media/vpn-over-expressroute/vpn-link-configuration.png)
    
-5. Haga clic en **Save**(Guardar).
+1. Seleccione **Guardar**.
 
-Una vez guardada, la puerta de enlace de VPN de concentrador usará las direcciones IP privadas en la puerta de enlace de VPN para establecer las conexiones de IPsec/IKE con el dispositivo VPN local a través de ExpressRoute.
+Después de guardar los cambios, la puerta de enlace de VPN del centro de conectividad usará las direcciones IP privadas en la puerta de enlace de VPN para establecer las conexiones IPsec/IKE con el dispositivo VPN local a través de ExpressRoute.
 
-## <a name="associate"></a>4. Obtención de direcciones IP privadas de puerta de enlace de VPN de concentrador
+## <a name="associate"></a>4. Obtención de las direcciones IP privadas de puerta de enlace de VPN del centro de conectividad
 
-Descargue la configuración del dispositivo VPN para obtener las direcciones IP privadas de la puerta de enlace de VPN de concentrador. Estas son necesarias para configurar el dispositivo VPN local.
+Descargue la configuración del dispositivo VPN para obtener las direcciones IP privadas de la puerta de enlace de VPN del centro de conectividad. Estas direcciones son necesarias para configurar el dispositivo VPN local.
 
-1. En la página del concentrador, haga clic en **VPN (sitio a sitio)** en **Conectividad**
+1. En la página del centro de conectividad, seleccione **VPN (sitio a sitio)** en **Conectividad**.
+1. En la parte superior de la página de **información general**, seleccione **Descargar la configuración de VPN**. 
 
-2. En la parte superior de la página de información general, haga clic en **Descargar configuración VPN**. Azure crea una cuenta de almacenamiento en el grupo de recursos "microsoft - network-[ubicación]", donde ubicación es la ubicación de la red WAN. Una vez que haya aplicado la configuración a los dispositivos VPN, puede eliminar esta cuenta de almacenamiento.
+   Azure crea una cuenta de almacenamiento en el grupo de recursos "microsoft - network-[location]", donde *location* es la ubicación de la red de área extensa. Después de aplicar la configuración a los dispositivos VPN, puede eliminar esta cuenta de almacenamiento.
+1. Después de que se cree el archivo, seleccione el vínculo para descargarlo.
+1. Aplique la configuración al dispositivo VPN.
 
-3. Una vez el archivo se haya terminado de crear, puede hacer clic en el vínculo para descargarlo.
+### <a name="vpn-device-configuration-file"></a>Archivo de configuración del dispositivo VPN
 
-4. Aplique la configuración al dispositivo VPN.
+El archivo de configuración del dispositivo contiene la configuración que se debe usar al configurar el dispositivo VPN local. Cuando visualice este archivo, tenga en cuenta la siguiente información:
 
-### <a name="understanding-the-vpn-device-configuration-file"></a>Información sobre el archivo de configuración del dispositivo VPN
-
-El archivo de configuración de dispositivo contiene la configuración que se debe usar al configurar el dispositivo VPN local. Cuando visualice este archivo, tenga en cuenta la siguiente información:
-
-* **vpnSiteConfiguration**: en esta sección se indica la configuración de los detalles del dispositivo como un sitio de conexión a la red virtual WAN. Incluye el nombre y la dirección IP pública del dispositivo de rama.
+* **vpnSiteConfiguration**: en esta sección se indica la configuración de los detalles del dispositivo como un sitio que se conecta a la WAN virtual. Incluye el nombre y la dirección IP pública del dispositivo de rama.
 * **vpnSiteConnections**: en esta sección se proporciona información sobre la siguiente configuración:
 
-    * **Espacio de direcciones** de la red virtual de concentradores virtuales<br/>Ejemplo:
+    * Espacio de direcciones de la red virtual del centro de conectividad virtual.<br/>Ejemplo:
            ```
            "AddressSpace":"10.51.230.0/24"
            ```
-    * **Espacio de direcciones** de las redes virtuales que están conectadas al concentrador<br>Ejemplo:
+    * Espacio de direcciones de las redes virtuales que están conectadas al centro de conectividad.<br>Ejemplo:
            ```
            "ConnectedSubnets":["10.51.231.0/24"]
             ```
-    * **Direcciones IP** de vpngateway del concentrador virtual. Dado que cada conexión del elemento vpngateway consta de dos túneles con una configuración activo-activo, verá ambas direcciones IP en este archivo. En este ejemplo, verá "Instance0" y "Instance1" para cada sitio, son direcciones IP privadas en lugar de direcciones IP públicas.<br>Ejemplo:
+    * Direcciones IP de la puerta de enlace de VPN del centro de conectividad virtual. Dado que cada conexión de la puerta de enlace de VPN consta de dos túneles en una configuración activo-activo, verá ambas direcciones IP en este archivo. En este ejemplo, verá `Instance0` y `Instance1` para cada sitio, y son direcciones IP privadas, en lugar de direcciones IP públicas.<br>Ejemplo:
            ``` 
            "Instance0":"10.51.230.4"
            "Instance1":"10.51.230.5"
            ```
-    * **Detalles de configuración de conexión de Vpngateway** como BGP, clave precompartida, etc. La PSK es la clave precompartida que se genera automáticamente para usted. Puede modificar la conexión cuando quiera en la página de información general para una PSK personalizada.
+    * Detalles de la configuración de la conexión de la puerta de enlace de VPN, como BGP y clave precompartida. La clave precompartida se genera automáticamente. La conexión se puede modificar en cualquier momento en la página **Información general** de una clave precompartida personalizada.
   
 ### <a name="example-device-configuration-file"></a>Archivo de configuración de dispositivo de ejemplo
 
@@ -216,32 +215,29 @@ El archivo de configuración de dispositivo contiene la configuración que se de
 
 Si necesita instrucciones para configurar el dispositivo, puede utilizar las que se proporcionan en la [página de scripts de configuración de dispositivo VPN](~/articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#configscripts) con las siguientes advertencias:
 
-* Las instrucciones que aparecen en la página de dispositivos VPN no están escritas para Virtual WAN, pero puede usar los valores de Virtual WAN desde el archivo de configuración para configurar manualmente el dispositivo VPN. 
-* Los scripts descargables de configuración de dispositivo que son para VPN Gateway no funcionan para Virtual WAN, ya que la configuración es diferente.
-* Las redes WAN virtuales nuevas admiten IKEv1 e IKEv2.
-* Virtual WAN solo puede usar dispositivos VPN e instrucciones de dispositivo basados en rutas.
+* Las instrucciones de la página del dispositivo VPN no están escritas para una red de área extensa virtual. Sin embargo, puede usar los valores de la red de área extensa virtual del archivo de configuración para configurar manualmente el dispositivo VPN. 
+* Los scripts de configuración de dispositivo descargables que sean para la puerta de enlace de VPN no funcionan para la red de área extensa virtual, ya que la configuración es diferente.
+* Una red de área extensa virtual nueva puede admitir IKEv1 e IKEv2.
+* Una red de área extensa virtual solo puede usar dispositivos VPN basados en rutas e instrucciones de los dispositivos.
 
 ## <a name="viewwan"></a>5. Visualizar la instancia de Virtual WAN
 
-1. Vaya a la instancia de Virtual WAN.
-
-2. En la página Información general, cada punto del mapa representa un concentrador. Mantenga el mouse sobre cualquier punto para ver el resumen de estado del concentrador.
-
-3. En la sección de concentradores y conexiones, puede ver estado del concentrador, sitio, región, estado de la conexión VPN y bytes de entrada y salida.
+1. Vaya a la red de área extensa virtual.
+1. En la página **Información general**, cada punto del mapa representa un centro de conectividad. Mantenga el mouse sobre cualquier punto para ver el resumen de estado del centro de conectividad.
+1. En la sección **Centros y conexiones**, puede ver el centro de conectividad, sitio, región y el estado de la conexión VPN. También puede ver los bytes que entran y salen.
 
 ## <a name="viewhealth"></a>6. Visualización del estado de los recursos
 
-1. Vaya a su red WAN.
-
-2. En la página de la WAN, en la sección de **Soporte técnico y solución de problemas**, haga clic en **Mantenimiento** y visualice los recursos.
+1. Vaya a su red de área extensa.
+1. En la sección **Soporte técnico y solución de problemas**, seleccione **Estado** y visualice el recurso.
 
 ## <a name="connectmon"></a>7. Supervisar una conexión
 
-Cree una conexión para supervisar la comunicación entre una máquina virtual de Azure y un sitio remoto. Para información acerca de cómo configurar una supervisión de conexión, consulte [Supervisar la comunicación de red](~/articles/network-watcher/connection-monitor.md). El campo de origen es la IP de la máquina virtual en Azure y la dirección IP de destino es la dirección IP del sitio.
+Cree una conexión para supervisar la comunicación entre una máquina virtual de Azure y un sitio remoto. Para información acerca de cómo configurar una supervisión de conexión, consulte [Supervisar la comunicación de red](~/articles/network-watcher/connection-monitor.md). El campo de origen es la dirección IP de la máquina virtual en Azure y la IP de destino es la dirección IP del sitio.
 
 ## <a name="cleanup"></a>8. Limpieza de recursos
 
-Cuando ya no necesite estos recursos, puede usar [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para quitar el grupo de recursos y todos los recursos que contiene. Reemplace "myResourceGroup" con el nombre del grupo de recursos y ejecute el siguiente comando de PowerShell:
+Cuando ya no necesite estos recursos, puede usar [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para quitar el grupo de recursos y todos los recursos que contiene. Ejecute el siguiente comando de PowerShell y reemplace `myResourceGroup` con el nombre del grupo de recursos:
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name myResourceGroup -Force
@@ -249,4 +245,4 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Este artículo le ayuda a crear una conexión VPN a través del emparejamiento privado de ExpressRoute con Virtual WAN. Para más información sobre Virtual WAN y otras características relacionadas, consulte la página [Introducción a Virtual WAN](virtual-wan-about.md).
+Este artículo le ayuda a crear una conexión VPN a través del emparejamiento privado de ExpressRoute mediante Virtual WAN. Para más información sobre Virtual WAN y otras características relacionadas, consulte la página [Acerca de Azure Virtual WAN](virtual-wan-about.md).

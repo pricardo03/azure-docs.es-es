@@ -11,12 +11,12 @@ ms.author: copeters
 author: lostmygithubaccount
 ms.date: 11/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 19dba88bf04ee84459ebd9ef0279f125724d7522
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: f4bb399e24b2c480023eba6bf5b71990f6d39c8c
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406431"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978380"
 ---
 # <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>Supervisión y recopilación de datos de los puntos de conexión del servicio web ML
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -39,7 +39,7 @@ En este artículo, aprenderá a recopilar datos y a supervisar los modelos imple
 
 ## <a name="web-service-input-and-response-data"></a>Datos de entrada y respuesta del servicio web
 
-La entrada y la respuesta al servicio (correspondiente a las entradas para el modelo de aprendizaje automático y su predicción) se registran en los seguimientos de Azure Application Insights en el mensaje `"model_data_collection"`. Puede consultar Azure Application Insights directamente para acceder a estos datos o configurar una [exportación continua](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) a una cuenta de almacenamiento para una retención más larga o un procesamiento adicional. Los datos del modelo se pueden usar en el servicio Azure Machine Learning para configurar el etiquetado, el reciclaje, la explicación, el análisis de datos u otro uso. 
+La entrada y la respuesta al servicio (correspondiente a las entradas para el modelo de aprendizaje automático y su predicción) se registran en los seguimientos de Azure Application Insights en el mensaje `"model_data_collection"`. Puede consultar Azure Application Insights directamente para acceder a estos datos o configurar una [exportación continua](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) a una cuenta de almacenamiento para una retención más larga o un procesamiento adicional. Los datos del modelo se pueden usar en Azure Machine Learning para configurar el etiquetado, el reciclaje, la explicación, el análisis de datos u otro uso. 
 
 ## <a name="use-the-azure-portal-to-configure"></a>Uso de Azure Portal para configurar
 
@@ -121,7 +121,7 @@ Para deshabilitar Azure Application Insights, use el siguiente código:
 Los datos del servicio se almacenan en la cuenta de Azure Application Insights en el mismo grupo de recursos de Azure Machine Learning.
 Para verlo:
 
-1. Vaya al área de trabajo de Machine Learning Service en [Azure Machine Learning Studio](https://ml.azure.com) y haga clic en el vínculo de Application Insights.
+1. Vaya al área de trabajo de Azure Machine Learning en [Azure Machine Learning Studio](https://ml.azure.com) y haga clic en el vínculo de Application Insights.
 
     [![AppInsightsLoc](media/how-to-enable-app-insights/AppInsightsLoc.png)](./media/how-to-enable-app-insights/AppInsightsLoc.png#lightbox)
 

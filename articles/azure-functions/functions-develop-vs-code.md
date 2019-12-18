@@ -3,12 +3,12 @@ title: Desarrollo de Azure Functions con Visual Studio Code
 description: Aprenda a desarrollar y probar Azure Functions mediante la extensión de Azure Functions para Visual Studio Code.
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: f9ad40cd50863990b9af629c77321195dce5e97c
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: cf96a0630440904282f076de2f916fb3dbf3eb1c
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227053"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975591"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Desarrollo de Azure Functions con Visual Studio Code
 
@@ -20,7 +20,7 @@ La extensión de Azure Functions proporciona las siguientes ventajas:
 * Publicar su proyecto de Azure Functions directamente en Azure.
 * Escribir las funciones en varios lenguajes mientras se aprovechan de las ventajas de Visual Studio Code.
 
-Puede utilizar la extensión con los siguientes lenguajes, que se admiten en el entorno de ejecución de Azure Functions versión 2.x:
+Puede utilizar la extensión con los siguientes lenguajes, que se admiten en el entorno en tiempo de ejecución de Azure Functions a partir de la versión 2.x:
 
 * [C# compilado](functions-dotnet-class-library.md)
 * [Script de C#](functions-reference-csharp.md)<sup>*</sup>
@@ -263,7 +263,7 @@ La extensión Azure Functions le permite ejecutar un proyecto de funciones en el
 
 Para ejecutar el proyecto de Functions localmente, tiene que cumplir estos requisitos adicionales:
 
-* Instale la versión 2.x de [Azure Functions Core Tools](functions-run-local.md#v2). El paquete Core Tools se descarga e instala automáticamente al iniciar el proyecto de forma local. Core Tools incluye el entorno de ejecución completo de Azure Functions, por lo que la descarga y la instalación pueden tardar algún tiempo.
+* Instale la versión 2.x o posteriores de [Azure Functions Core Tools](functions-run-local.md#v2). El paquete Core Tools se descarga e instala automáticamente al iniciar el proyecto de forma local. Core Tools incluye el entorno de ejecución completo de Azure Functions, por lo que la descarga y la instalación pueden tardar algún tiempo.
 
 * Instale los requisitos específicos para el lenguaje elegido:
 

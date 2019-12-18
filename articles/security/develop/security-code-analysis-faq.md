@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: b28d02dd0ca375451f6ff75b1253ae8874bf2ab4
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: de76467cc741a65a851e5f3a7ec424d0326aebb2
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828251"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851526"
 ---
 # <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 ¿Tiene alguna pregunta? Consulte estas Preguntas más frecuentes para más información.
@@ -222,9 +222,6 @@ La tarea de compilación de los analizadores basados en Roslyn necesita consulta
 
 Si necesita ayuda adicional, el soporte técnico para el Análisis de código de seguridad de Microsoft está disponible de lunes a viernes de las 9:00 a. m. a las 5:00 p. m. hora estándar del Pacífico.
 
-  - Incorporación: póngase en contacto con los administradores técnicos de cuentas para comenzar.
+- Incorporación: Consulte la [documentación de incorporación](security-code-analysis-onboard.md)
   
-  - Soporte técnico: envíe un correo electrónico a nuestro equipo de [soporte técnico para el Análisis de código de seguridad de Microsoft](mailto:mscahelp@microsoft.com?Subject=Microsoft%20Security%20Code%20Analysis%20Support%20Request).
-
-  >[!NOTE] 
-  >Es posible que no tenga una relación de soporte técnico de pago con Microsoft. O bien, puede tener una oferta de soporte técnico que le impide adquirir servicios del catálogo de Phoenix. Si se cumple alguna de estas condiciones, visite la [página principal de nuestros servicios de soporte técnico](https://www.microsoft.com/enterprise/services/support) para más información.
+- Soporte técnico: envíe un correo electrónico a nuestro equipo de [soporte técnico para el Análisis de código de seguridad de Microsoft](mailto:mscahelp@microsoft.com?Subject=Microsoft%20Security%20Code%20Analysis%20Support%20Request).

@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 09/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 8ad5c4cb4d17443144febd716391803064ccdad1
-ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
+ms.openlocfilehash: 97dafe292ff3ed0ef5fa46eb895136e3b32e62c5
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67626375"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978516"
 ---
 # <a name="platforms-and-tools-for-data-science-projects"></a>Plataformas y herramientas para proyectos de ciencia de datos
 
@@ -124,28 +124,30 @@ Ejecute el siguiente comando de bash para instalar Git en máquinas Linux (CentO
 
 Si se usan máquinas Linux (CentOS) para ejecutar los comandos de GIT, tendrá que agregar la clave SSH pública de su máquina a Azure DevOps Services, a fin de que Azure DevOps Services reconozca esta máquina. En primer lugar, debe generar una clave SSH pública y agregar la clave a las claves públicas de SSH en la página de configuración de seguridad de Azure DevOps Services. 
 
-- Para generar la clave SSH, ejecute los dos comandos siguientes: 
+1. Para generar la clave SSH, ejecute los dos comandos siguientes: 
 
-        ssh-keygen
-        cat .ssh/id_rsa.pub
+   ```
+   ssh-keygen
+   cat .ssh/id_rsa.pub
+   ```
+   
+   ![Comandos para generar la clave SSH](./media/platforms-and-tools/resources-1-generate_ssh.png)
 
-![Comandos para generar la clave SSH](./media/platforms-and-tools/resources-1-generate_ssh.png)
-
-- Copie la clave ssh completa, incluido *ssh-rsa*. 
-- Inicie sesión en Azure DevOps Services. 
-- Haga clic en **<Su nombre\>** en la esquina superior derecha de la página y haga clic en **Seguridad**. 
+1. Copie la clave ssh completa, incluido *ssh-rsa*. 
+1. Inicie sesión en Azure DevOps Services. 
+1. Haga clic en **<Su nombre\>** en la esquina superior derecha de la página y haga clic en **Seguridad**. 
     
-    ![Haga clic en el nombre y luego haga clic en Seguridad.](./media/platforms-and-tools/resources-2-user-setting.png)
+   ![Haga clic en el nombre y luego haga clic en Seguridad.](./media/platforms-and-tools/resources-2-user-setting.png)
 
-- Haga clic en **Claves públicas de SSH** y haga clic en **+Agregar**. 
+1. Haga clic en **Claves públicas de SSH** y haga clic en **+Agregar**. 
 
-    ![Haga clic en Claves públicas de SSH y, luego, haga clic en +Agregar.](./media/platforms-and-tools/resources-3-add-ssh.png)
+   ![Haga clic en Claves públicas de SSH y, luego, haga clic en +Agregar.](./media/platforms-and-tools/resources-3-add-ssh.png)
 
-- Pegue la clave SSH que acaba de copiar en el cuadro de texto y guárdela.
+1. Pegue la clave SSH que acaba de copiar en el cuadro de texto y guárdela.
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 También se proporcionan tutoriales completos que muestran todos los pasos del proceso en **escenarios concretos** . Se enumeran y enlazan con descripciones en miniatura en los [tutoriales de ejemplos](walkthroughs.md). En ellos se ilustra cómo combinar herramientas y servicios locales y en la nube en un flujo de trabajo o canalización para crear una aplicación inteligente. 
 
-Para ver ejemplos de ejecución de los pasos en el Proceso de ciencia de datos en equipo que usan Azure Machine Learning Studio, consulte la ruta de aprendizaje [Con Azure ML](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
+Para ver ejemplos que muestran cómo ejecutar los pasos en el proceso de ciencia de datos en equipo mediante Azure Machine Learning Studio (clásico), consulte la ruta de aprendizaje [con Azure ML](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).

@@ -1,6 +1,7 @@
 ---
-title: Definición de un perfil técnico para un emisor de tokens JWT en una directiva personalizada en Azure Active Directory B2C | Microsoft Docs
-description: Defina un perfil técnico para un emisor de tokens JWT en una directiva personalizada en Azure Active Directory B2C.
+title: Definición de un perfil técnico para un emisor de JWT en una directiva personalizada
+titleSuffix: Azure AD B2C
+description: Defina un perfil técnico para un emisor de JSON Web Token (JWT) en una directiva personalizada de Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +11,12 @@ ms.topic: reference
 ms.date: 10/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a5b8f299826c5688eb80eaea11ffc3b2b5176297
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: 41661277d89c45baf2350282c6e4b500fae63662
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71959678"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74949830"
 ---
 # <a name="define-a-technical-profile-for-a-jwt-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico para un emisor de tokens JWT en una directiva personalizada de Azure Active Directory B2C
 

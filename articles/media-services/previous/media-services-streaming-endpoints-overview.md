@@ -1,6 +1,6 @@
 ---
 title: Información general de punto de conexión de streaming de Azure Media Services | Microsoft Docs
-description: En este tema se proporciona información general sobre los puntos de conexión de streaming de Azure Media Services.
+description: En este artículo se proporciona información general sobre los puntos de conexión de streaming de Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: ac9c9a73e52c678c8a6d9b1e1779d9ec75cab2c8
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 95d8d819aa1b418b4a7ec736cef64cb989f7e37b
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "69016450"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74885643"
 ---
 # <a name="streaming-endpoints-overview"></a>Información general de los puntos de conexión de streaming  
 
@@ -50,7 +50,7 @@ Para los puntos de conexión adicionales: `{EndpointName}-{AccountName}.streamin
 A partir de la versión de enero de 2017 de Media Services, existen dos tipos de streaming: **Estándar** (versión preliminar) y **Premium**. Estos tipos forman parte de la versión "2.0" de los puntos de conexión de streaming.
 
 
-|type|DESCRIPCIÓN|
+|Tipo|DESCRIPCIÓN|
 |--------|--------|  
 |**Estándar**|El punto de conexión de streaming predeterminado es de tipo **Estándar** y se puede cambiar al tipo Premium mediante el ajuste de unidades de streaming.|
 |**Premium** |Esta opción es la preferible para escenarios profesionales en los que se requiere mayor escala o control. El cambio a un tipo **Premium** se realiza ajustando las unidades de streaming.<br/>Los puntos de conexión de streaming dedicados residen en un entorno aislado y no compiten por los recursos.|
@@ -75,7 +75,7 @@ Si el punto de conexión de streaming de la **versión "1.0"** tiene al menos 1 
 
 ### <a name="versions"></a>Versiones
 
-|type|Versión de punto de conexión de streaming|Unidades de escalado|CDN|Facturación|
+|Tipo|Versión de punto de conexión de streaming|Unidades de escalado|CDN|Facturación|
 |--------------|----------|-----------------|-----------------|-----------------|
 |Clásico|1.0|0|N/D|Gratuito|
 |Punto de conexión de streaming estándar (versión preliminar)|2.0|0|Sí|De pago|

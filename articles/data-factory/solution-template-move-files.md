@@ -1,23 +1,22 @@
 ---
-title: Movimiento de archivos entre almacenamiento basado en archivos mediante Azure Data Factory
+title: Traslado de archivos entre almacenes basados en archivos
 description: Obtenga información sobre cómo usar una plantilla de solución para mover archivos entre almacenamiento basado en archivos con Azure Data Factory.
 services: data-factory
-documentationcenter: ''
 author: dearandyxu
 ms.author: yexu
 ms.reviewer: ''
-manager: ''
+manager: shwang
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 7/12/2019
-ms.openlocfilehash: f6f83917e84a880fb86b5f592c4d51b03462753d
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: b3165daa06ed975df9ccb677699d3ceb449327ab
+ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684078"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74941963"
 ---
 # <a name="move-files-with-azure-data-factory"></a>Movimiento de archivos con Azure Data Factory
 
@@ -37,9 +36,11 @@ La plantilla contiene cinco actividades:
 - **Copy** copia un archivo del origen en el almacén de destino.
 - **Delete** elimina el mismo archivo del almacén de origen.
 
-La plantilla define dos parámetros:
-- *FolderPath_SourceStore* es la ruta de acceso de la carpeta del almacén de origen desde el que quiere mover los archivos. 
-- *FolderPath_DestinationStore* es la ruta de acceso de la carpeta del almacén de destino a donde quiere mover los archivos. 
+La plantilla define cuatro parámetros:
+- *SourceStore_Location* es la ruta de acceso de la carpeta del almacén de origen desde el que quiere mover los archivos. 
+- *SourceStore_Directory* es la ruta de acceso de la subcarpeta del almacén de origen desde el que quiere mover los archivos.
+- *DestinationStore_Location* es la ruta de acceso de la carpeta del almacén de destino a donde quiere mover los archivos. 
+- *DestinationStore_Directory* es la ruta de acceso de la subcarpeta del almacén de destino a donde quiere mover los archivos.
 
 ## <a name="how-to-use-this-solution-template"></a>Uso de esta plantilla de solución
 
@@ -51,9 +52,7 @@ La plantilla define dos parámetros:
 
     ![Creación de una nueva conexión con el destino](media/solution-template-move-files/move-files2.png)
 
-3. Seleccione **Usar esta plantilla**.
-
-    ![Uso de esta plantilla](media/solution-template-move-files/move-files3.png)
+3. Seleccione la pestaña **Usar esta plantilla**.
     
 4. Verá la canalización, como en el ejemplo siguiente:
 

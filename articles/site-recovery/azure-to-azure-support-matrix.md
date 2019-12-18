@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: raynew
-ms.openlocfilehash: 9146430f512b065553d4c5362af8655eb01c1206
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: d14b81075d1e1f98449ef655c3e00f172c7f407b
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74530951"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873784"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matriz de soporte para la recuperación ante desastres de máquinas virtuales de Azure entre regiones de Azure
 
@@ -89,12 +89,11 @@ Windows Server 2019 | Se admite para Server Core y Server con Experiencia de esc
 Windows Server 2016  | Se admite para Server Core y Server con Experiencia de escritorio
 Windows Server 2012 R2 | Se admite.
 Windows Server 2012 | Se admite.
-Windows Server 2008 R2 con SP1/SP2 | Se admite.<br/><br/> Desde la versión 9.30.x.x (lanzamiento esperado a partir de noviembre de 2019) de la extensión de servicio de Mobility Service para máquinas virtuales de Azure, necesita instalar la [actualización de la pila de servicio (SSU)](https://support.microsoft.com/help/4490628) de Windows y la [actualización de SHA-2](https://support.microsoft.com/help/4474419) en las máquinas que ejecutan Windows Server 2008 R2 SP1/SP2.  SHA-1 no se admite desde septiembre de 2019 y, si la firma de código SHA-2 no está habilitada, la extensión del agente no se instalará ni actualizará según lo previsto. Más información sobre los [requisitos y la actualización de SHA-2](https://aka.ms/SHA-2KB).
-Windows Server 2008 con SP2 | Desde la versión 9.30.x.x (lanzamiento esperado a partir de noviembre de 2019) de la extensión de servicio de Mobility Service para máquinas virtuales de Azure, necesita instalar la [actualización de la pila de servicio (SSU)](https://support.microsoft.com/help/4493730) de Windows y la [actualización de SHA-2](https://support.microsoft.com/help/4474419) en las máquinas que ejecutan Windows Server 2008 con SP2.  SHA-1 no se admite desde septiembre de 2019 y, si la firma de código SHA-2 no está habilitada, la extensión del agente no se instalará ni actualizará según lo previsto. Más información sobre los [requisitos y la actualización de SHA-2](https://aka.ms/SHA-2KB).
+Windows Server 2008 R2 con SP1/SP2 | Se admite.<br/><br/> Desde la versión [9.30](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery) de la extensión de servicio de Mobility Service para máquinas virtuales de Azure, necesita instalar una [actualización de la pila de servicio (SSU)](https://support.microsoft.com/help/4490628) de Windows y la [actualización de SHA-2](https://support.microsoft.com/help/4474419) en las máquinas que ejecutan Windows Server 2008 R2 SP1/SP2.  SHA-1 no se admite desde septiembre de 2019 y, si la firma de código SHA-2 no está habilitada, la extensión del agente no se instalará ni actualizará según lo previsto. Más información sobre los [requisitos y la actualización de SHA-2](https://aka.ms/SHA-2KB).
 Windows 10 (x64) | Se admite.
 Windows 8.1 (x64) | Se admite.
 Windows 8 (x64) | Se admite.
-Windows 7 (x64) con SP1 en adelante | Desde la versión 9.30.x.x (lanzamiento esperado a partir de noviembre de 2019) de la extensión de servicio de Mobility Service para máquinas virtuales de Azure, necesita instalar la [actualización de la pila de servicio (SSU)](https://support.microsoft.com/help/4490628) de Windows y la [actualización de SHA-2](https://support.microsoft.com/help/4474419) en las máquinas que ejecutan Windows 7 con SP1.  SHA-1 no se admite desde septiembre de 2019 y, si la firma de código SHA-2 no está habilitada, la extensión del agente no se instalará ni actualizará según lo previsto. Más información sobre los [requisitos y la actualización de SHA-2](https://aka.ms/SHA-2KB).
+Windows 7 (x64) con SP1 en adelante | Desde la versión [9.30](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery) de la extensión de servicio de Mobility Service para máquinas virtuales de Azure, necesita instalar una [actualización de la pila de servicio (SSU)](https://support.microsoft.com/help/4490628) de Windows y la [actualización de SHA-2](https://support.microsoft.com/help/4474419) en las máquinas que ejecutan Windows 7 con SP1.  SHA-1 no se admite desde septiembre de 2019 y, si la firma de código SHA-2 no está habilitada, la extensión del agente no se instalará ni actualizará según lo previsto. Más información sobre los [requisitos y la actualización de SHA-2](https://aka.ms/SHA-2KB).
 
 
 

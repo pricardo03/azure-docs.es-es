@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/29/2019
 ms.author: iainfou
-ms.openlocfilehash: a67d3a9fb74b1a4f07fc4995c268bb40a84834f7
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: cccdb54b89dff7c6a1fc9dac55c63b19d661ab65
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035924"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951316"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Vista previa: Inicio de sesión en una máquina virtual Linux en Azure mediante la autenticación de Azure Active Directory
 
@@ -67,6 +67,19 @@ La versión preliminar de esta característica actualmente admite estas regiones
 
 
 Si elige instalar y usar la CLI localmente, para este tutorial es preciso que ejecute la CLI de Azure de la versión 2.0.31 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli).
+
+## <a name="network-requirements"></a>Requisitos de red
+
+Para habilitar la autenticación de Azure AD para las máquinas virtuales Windows en Azure es preciso asegurarse de que la configuración de red de dichas máquinas permita el acceso de salida a los siguientes puntos de conexión a través del puerto TCP 443:
+
+* https://login.microsoftonline.com
+* https://device.login.microsoftonline.com
+* https://pas.windows.net
+* https://management.azure.com
+* https://packages.microsoft.com
+
+> [!NOTE]
+> Actualmente, los grupos de seguridad de red de Azure no se pueden configurar en máquinas virtuales que tengan habilitada la autenticación de Azure AD.
 
 ## <a name="create-a-linux-virtual-machine"></a>Creación de una máquina virtual con Linux
 
@@ -193,6 +206,10 @@ Si completa correctamente el paso de autenticación en un explorador web, es pos
 - Compruebe que el nombre de inicio de sesión que especificó en el símbolo del sistema SSH sea correcto. Un error tipográfico en el nombre de inicio de sesión puede provocar una falta de coincidencia entre el nombre de inicio de sesión que especificó en el símbolo del sistema SSH y la cuenta con que inició sesión en Azure AD. Por ejemplo, ha escrito *azuresuer\@contoso.onmicrosoft.com* en lugar de *azureuser\@contoso.onmicrosoft.com*.
 - Si tiene varias cuentas de usuario, asegúrese de no escribir una distinta en la ventana del explorador cuando inicie sesión en Azure AD.
 - Linux es un sistema operativo que distingue mayúsculas de minúsculas. Hay una diferencia entre "Azureuser@contoso.onmicrosoft.com" y "azureuser@contoso.onmicrosoft.com", lo que puede provocar un error de coincidencia. Asegúrese de especificar el UPN con el uso correcto de mayúsculas y minúsculas en el símbolo del sistema SSH.
+
+### <a name="other-limitations"></a>Otras limitaciones
+
+Actualmente no se admiten los usuarios que hereden los derechos de acceso a través de grupos anidados o asignaciones de roles. Al usuario o grupo se les debe asignar directamente los [roles necesarios](#configure-role-assignments-for-the-vm). Por ejemplo, el uso de grupos de administración o asignaciones de roles de grupos anidados no concederá los permisos correctos que permitan que el usuario inicie sesión.
 
 ## <a name="preview-feedback"></a>Comentarios sobre la versión preliminar
 

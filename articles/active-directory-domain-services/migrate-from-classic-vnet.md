@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: iainfou
-ms.openlocfilehash: 8cba2cbf8fcbad1acae8c36892308c3249fc4181
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: aafefeb94f3b150789a91c3cf669520ccb522dd8
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72674915"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893066"
 ---
 # <a name="preview---migrate-azure-ad-domain-services-from-the-classic-virtual-network-model-to-resource-manager"></a>Versión preliminar: Migración de Azure AD Domain Services desde el modelo de red virtual clásica a Resource Manager
 
@@ -306,12 +306,13 @@ Azure AD DS necesita un grupo de seguridad de red para proteger los puertos ne
 
 Si se produce un error al ejecutar el cmdlet de PowerShell para preparar la migración en el paso 2 o para la propia migración en el paso 3, el dominio administrado de Azure AD DS puede revertirse a la configuración original. Esta reversión requiere la red virtual clásica original. Tenga en cuenta que las direcciones IP todavía pueden cambiar después de la reversión.
 
-Ejecute el cmdlet `Migrate-Aadds` con el parámetro *-Abort*. Proporcione el valor de *-ManagedDomainFqdn* de su propio dominio administrado de Azure AD DS preparado en una sección anterior como, por ejemplo, *contoso.com*:
+Ejecute el cmdlet `Migrate-Aadds` con el parámetro *-Abort*. Proporcione el valor de *-ManagedDomainFqdn* de su propio dominio administrado de Azure AD DS preparado en una sección anterior como, por ejemplo, *contoso.com* y el nombre de la red virtual clásica como, por ejemplo, *myClassicVnet*:
 
 ```powershell
 Migrate-Aadds `
     -Abort `
     -ManagedDomainFqdn contoso.com `
+    -ClassicVirtualNetworkName myClassicVnet `
     -Credentials $creds
 ```
 
@@ -360,4 +361,4 @@ Con el dominio administrado de Azure AD DS migrado al modelo de implementació
 [get-credential]: /powershell/module/microsoft.powershell.security/get-credential
 
 <!-- EXTERNAL LINKS -->
-[powershell-script]: https://www.powershellgallery.com/packages/Migrate-Aadds/1.0
+[powershell-script]: https://www.powershellgallery.com/packages/Migrate-Aadds/

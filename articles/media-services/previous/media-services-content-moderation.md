@@ -1,6 +1,6 @@
 ---
 title: Usar Azure Media Content Moderator para detectar contenido para adultos | Documentos de Microsoft
-description: Gracias a la moderación de vídeo podrá detectar contenido dirigido a adultos en los vídeos.
+description: El procesador multimedia Azure Media Content Moderator ayuda a detectar posible contenido para adultos en los vídeos.
 services: media-services
 documentationcenter: ''
 author: sanjeev3
@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: sajagtap
-ms.openlocfilehash: eb16f5e1e72e5a9379ad530ab9677adba2ccbbcd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a8560df6120dd773e13dbfc7427d9a16e6f6c83b
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61465684"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895994"
 ---
 # <a name="use-azure-media-content-moderator-to-detect-possible-adult-and-racy-content"></a>Usar Azure Media Content Moderator para detectar contenido para adultos 
 
@@ -48,7 +48,7 @@ La salida JSON incluye los siguientes elementos:
 | --- | --- |
 | version |La versión de Content Moderator. |
 | timescale |"Tics" por segundo del vídeo. |
-| Offset |La diferencia horaria de las marcas de tiempo. En la versión 1.0 de las Video API, el valor será siempre 0. Tenga en cuenta que este valor puede cambiar en el futuro. |
+| offset |La diferencia horaria de las marcas de tiempo. En la versión 1.0 de las Video API, el valor será siempre 0. Tenga en cuenta que este valor puede cambiar en el futuro. |
 | framerate |Fotogramas por segundo del vídeo. |
 | width |El ancho del fotograma de vídeo de salida, en píxeles.|
 | height |La altura del fotograma de vídeo de salida, en píxeles.|

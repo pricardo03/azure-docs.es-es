@@ -1,6 +1,6 @@
 ---
 title: Creación de una entrada de trabajo de Azure Media Services desde un archivo local | Microsoft Docs
-description: En este tema se muestra cómo crear una entrada de trabajo a partir de un archivo local.
+description: En este artículo se muestra cómo crear una entrada de trabajo de Azure Media Services desde un archivo local.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: juliako
-ms.openlocfilehash: 94ac332867d46deb426672fbc40cc72cc121fe64
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: a91305f1c5bfb50e0354dc0054d1a149182d921f
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69998134"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74888451"
 ---
 # <a name="create-a-job-input-from-a-local-file"></a>Creación de una entrada de trabajo a partir de un archivo local
 

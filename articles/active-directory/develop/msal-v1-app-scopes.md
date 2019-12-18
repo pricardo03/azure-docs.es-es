@@ -1,28 +1,24 @@
 ---
-title: Ámbitos para una aplicación v1.0 (biblioteca de autenticación de Microsoft) | Azure
+title: Ámbitos MSAL para una aplicación v1.0 | Azure
 description: Conozca los ámbitos para una aplicación de v1.0 mediante la biblioteca de autenticación de Microsoft (MSAL).
 services: active-directory
-documentationcenter: dev-center-name
 author: TylerMSFT
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/25/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70a8a5859c7f1e2353b53d01a25a0ca39e0b04dd
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 0606376c455733ca90f1bff3d0295cbd1a075637
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74532978"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74963263"
 ---
 # <a name="scopes-for-a-web-api-accepting-v10-tokens"></a>Ámbitos para una API web que acepta tokens de la versión 1.0
 
@@ -30,7 +26,7 @@ Los permisos de OAuth2 son ámbitos de permisos que expone una aplicación de AP
 
 ## <a name="scopes-to-request-access-to-specific-oauth2-permissions-of-a-v10-application"></a>Ámbitos para solicitar acceso a permisos específicos de OAuth2 de una aplicación de la versión 1.0
 
-Si quiere adquirir tokens para ámbitos específicos de una aplicación v1.0 (por ejemplo, el grafo de Azure AD, que es https:\//graph.windows.net), deberá crear ámbitos mediante la concatenación de un identificador de recurso deseado con un permiso de OAuth2 deseado para dicho recurso.
+Si desea adquirir tokens para ámbitos específicos de una aplicación v1.0 (por ejemplo, el grafo de Azure AD, que es https://graph.windows.net), cree ámbitos mediante la concatenación de un identificador de recurso deseado con un permiso de OAuth2 deseado para dicho recurso.
 
 Por ejemplo, para el acceso en nombre del usuario de una API web v1.0 donde es el URI de identificador de aplicación es `ResourceId`:
 

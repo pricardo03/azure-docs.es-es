@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: 5557028304d0e2bd5940dd9b01dddf525806d0c6
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 01619027ddc79530dc9541584efa9a3e518f5136
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033676"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74842065"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Captura de una imagen administrada de una máquina virtual generalizada en Azure
 
@@ -70,9 +70,9 @@ Para generalizar la máquina virtual de Windows, siga estos pasos:
 
 ## <a name="create-a-managed-image-in-the-portal"></a>Creación de una imagen administrada en el portal 
 
-1. Abra [Azure Portal](https://portal.azure.com).
+1. Vaya a [Azure Portal](https://portal.azure.com) para administrar la imagen de la máquina virtual. Busque y seleccione **Máquinas virtuales**.
 
-2. En el menú de la izquierda, seleccione **Máquinas virtuales** y seleccione la máquina virtual de la lista.
+2. Seleccione la máquina virtual en la lista.
 
 3. En la página **Máquina virtual** de la máquina virtual, en el menú superior, seleccione **Capturar**.
 
@@ -80,7 +80,7 @@ Para generalizar la máquina virtual de Windows, siga estos pasos:
 
 4. En **Nombre**, acepte el nombre con que se rellena el espacio previamente o escriba un nombre que le gustaría que se usara para la imagen.
 
-5. En **Grupo de recursos**, seleccione **Crear nuevo** y escriba un nombre, o elija **Usar existente** y seleccione en la lista desplegable el grupo de recursos que desea utilizar.
+5. En **Grupo de recursos**, seleccione **Crear nuevo** y escriba un nombre, o seleccione en la lista desplegable el grupo de recursos que desea utilizar.
 
 6. Si desea eliminar la máquina virtual de origen tras haberse creado la imagen, seleccione **Eliminar automáticamente esta máquina virtual después de crear la imagen**.
 
@@ -88,7 +88,7 @@ Para generalizar la máquina virtual de Windows, siga estos pasos:
 
 8. Seleccione **Crear** para crear la imagen.
 
-9. Después de crear la imagen, esta aparecerá como un recurso **Imagen** en la lista de recursos del grupo de recursos.
+Después de crear la imagen, esta aparecerá como un recurso **Imagen** en la lista de recursos del grupo de recursos.
 
 
 

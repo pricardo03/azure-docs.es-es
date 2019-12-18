@@ -1,5 +1,6 @@
 ---
-title: Uso de la Plataforma de identidad de Microsoft para el inicio de sesión de usuarios en dispositivos sin explorador | Azure
+title: Inicio de sesión de usuarios sin un explorador | Azure
+titleSuffix: Microsoft identity platform
 description: Cree flujos de autenticación sin explorador e insertados mediante el uso de la concesión de autorización de dispositivo.
 services: active-directory
 documentationcenter: ''
@@ -17,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c948c59a90e0db17b4704188221cfc3c3d82310
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: e937955f0b122d3a878141655475f34b051622e7
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74207601"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74919246"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-device-authorization-grant-flow"></a>Flujo de concesión de autorización de dispositivo de OAuth 2.0 y la Plataforma de identidad de Microsoft
 

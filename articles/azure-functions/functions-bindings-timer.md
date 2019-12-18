@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: ''
-ms.openlocfilehash: 143a05944799ff04f9c21384f85a4b00cc65b750
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: de36f760fb637ad02446265927e7df7aa91b2abf
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74545726"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928375"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Desencadenador de temporizador para Azure Functions 
 
@@ -26,7 +26,7 @@ El desencadenador del temporizador se proporciona en el paquete NuGet [Microsoft
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
-## <a name="packages---functions-2x"></a>Paquetes: Functions 2.x
+## <a name="packages---functions-2x-and-higher"></a>Paquetes: Functions 2.x y versiones posteriores
 
 El desencadenador del temporizador se proporciona en el paquete NuGet [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions), versión 3.x. El código fuente del paquete está en el repositorio [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/) de GitHub.
 
@@ -254,7 +254,7 @@ Azure Functions usa la biblioteca [NCronTab](https://github.com/atifaziz/NCronta
 
 Cada campo puede tener uno de los siguientes tipos de valores:
 
-|type  |Ejemplo  |Cuándo se desencadena  |
+|Tipo  |Ejemplo  |Cuándo se desencadena  |
 |---------|---------|---------|
 |Un valor específico |<nobr>"0 5 * * * *"</nobr>|A las hh:05:00, donde hh es cada hora (una vez por hora)|
 |Todos los valores (`*`)|<nobr>"0 * 5 * * *"</nobr>|A las 5:mm: 00 cada día, donde mm es cada minuto de la hora (60 veces al día)|
@@ -327,7 +327,7 @@ Si comparte cuentas de almacenamiento en aplicaciones de funciones que no se imp
 
 | Versión de Functions | Configuración                                              |
 | ----------------- | ---------------------------------------------------- |
-| 2.x               | Variable de entorno `AzureFunctionsWebHost__hostid` |
+| 2.x (y versiones posteriores)  | Variable de entorno `AzureFunctionsWebHost__hostid` |
 | 1.x               | `id` en *host.json*                                  |
 
 Puede omitir el valor de identificación o establecer manualmente la configuración de identificación de cada aplicación de funciones en otro valor.

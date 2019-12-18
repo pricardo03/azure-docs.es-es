@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/11/2019
 ms.author: cynthn;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: 402379a99be467e9db7fb692d7d532e9d39a54a6
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 82e62b6d0925aa53fc8456addb4732b16e69080b
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68700802"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74935872"
 ---
 Los tamaños de máquina virtual optimizada para GPU son máquinas virtuales especializadas con GPU de NVIDIA. Estos tamaños están diseñados para cargas de trabajo de proceso intensivo, uso intensivo de gráficos y visualización. En este artículo se proporciona información sobre el número y el tipo de GPU, vCPU, discos de datos y NIC. El ancho de banda de red y el rendimiento del almacenamiento también se incluyen para cada tamaño de esta agrupación.
 
@@ -22,6 +22,9 @@ Los tamaños de máquina virtual optimizada para GPU son máquinas virtuales esp
 * **ND y NDv2**. La serie ND se centra en escenarios de entrenamiento e inferencia para el aprendizaje profundo. Utiliza la GPU NVIDIA Tesla P40 y el procesador Intel Xeon E5-2690 v4 (Broadwell). La serie NDv2 usa el procesador Intel Xeon Platinum 8168 (Skylake).
 
 * Los tamaños **NV y NVv3** están optimizados y diseñados para escenarios de visualización remota, streaming, juegos, codificación y VDI mediante plataformas como OpenGL y DirectX.  Estas máquinas virtuales están respaldadas por la GPU NVIDIA Tesla M60.
+
+* Los tamaños **NVv4** están optimizados y diseñados para VDI y la visualización remota. Con las GPU con particiones, NVv4 ofrece el tamaño adecuado para las cargas de trabajo que requieren recursos de GPU más pequeños.  Estas máquinas virtuales usan la GPU AMD Radeon Instinct MI25.
+
 
 ## <a name="nc-series"></a>Serie NC
 
@@ -167,3 +170,26 @@ Cada GPU de las instancias de NVv3 viene con una licencia de GRID. Esta licencia
 1 GPU = media tarjeta M60.
 
 <sup>1</sup> Las máquinas virtuales de la serie NVv3 cuentan con la tecnología Hyper-Threading de Intel.
+
+## <a name="nvv4-series-preview--sup1sup"></a>Serie NVv4 (versión preliminar) <sup>1</sup>
+
+Premium Storage:  Compatible
+
+Almacenamiento en caché de Premium Storage:  Compatible
+
+Las máquinas virtuales de la serie NVv4 usan la tecnología de las GPU [AMD Radeon instinto MI25](https://www.amd.com/en/products/professional-graphics/instinct-mi25) y las CPU AMD EPYC 7V12 (Rome). Con la serie NVv4, Azure introduce máquinas virtuales con GPU parciales. Elija la máquina virtual del tamaño adecuado para aplicaciones con aceleración gráfica por GPU y escritorios virtuales a partir de un octavo de una GPU con un búfer de cuadros de 2 GiB y hasta una GPU completa con un búfer de cuadros de 16 GiB. Las máquinas virtuales NVv4 actualmente solo admiten el sistema operativo invitado Windows.
+
+[Regístrese y acceda a estas máquinas durante la versión preliminar](https://aka.ms/nvv4signup).
+<br>
+
+| Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | GPU | Memoria de GPU: GiB | Discos de datos máx. | Nº máx. NIC |
+| --- | --- | --- | --- | --- | --- | --- | --- | 
+| Standard_NV4as_v4 |4 |14 |88 | 1/8 | 2 | 4 | 2 |
+| Standard_NV8as_v4 |8 |28 |176 | 1/4 | 4 | 8 | 4 |
+| Standard_NV16as_v4 |16 |56 |352 | 1/2 | 8 | 16 | 8 | 
+| Standard_NV32as_v4 |32 |112 |704 | 1 | 16 | 32 | 8 | 
+
+
+
+<sup>1</sup> las máquinas virtuales de la serie NVv4 incluyen tecnología multithreading simultánea de AMD
+

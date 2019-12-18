@@ -9,12 +9,12 @@ ms.service: data-lake-analytics
 ms.topic: troubleshooting
 ms.workload: big-data
 ms.date: 10/11/2019
-ms.openlocfilehash: 851a405e5143ea5bb3a26de76f713914aa4bb569
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 2be2f50558fef41659c9a3313871b17961f6ad6d
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73648193"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873240"
 ---
 # <a name="azure-data-lake-analytics-is-upgrading-to-the-net-framework-v472"></a>Azure Data Lake Analytics se está actualizando a .NET Framework v4.7.2
 
@@ -39,7 +39,7 @@ Compruebe la posibilidad de que haya problemas importantes de compatibilidad con
 1. Ejecute el comprobador de compatibilidad con versiones anteriores en las bibliotecas de vínculos dinámicos de .NET mediante:
    1. El uso de la extensión de Visual Studio de [Extensión de Visual Studio para el Analizador de portabilidad de .NET](https://marketplace.visualstudio.com/items?itemName=ConnieYau.NETPortabilityAnalyzer).
    1. La descarga y el uso de la herramienta independiente desde [dotnetapiport de GitHub](https://github.com/microsoft/dotnet-apiport). Las instrucciones para ejecutar la herramienta independiente están en los [cambios importantes de dotnetapiport de GitHub](https://github.com/microsoft/dotnet-apiport/blob/dev/docs/HowTo/BreakingChanges.md).
-   1. Para la versión 4.7.2, la lectura de compatibilidad isRetargeting == True es el cambio importante.
+   1. Para la versión 4.7.2, compatibilidad, `read isRetargeting == True` identifica posibles problemas.
 2. Si la herramienta indica si el código puede verse afectado por cualquiera de las posibles incompatibilidades con versiones anteriores (a continuación se enumeran algunos ejemplos comunes de las incompatibilidades), puede realizar una comprobación adicional al:
    1. Analizar el código e identificar si pasa valores a las API afectadas.
    1. Realizar una comprobación en tiempo de ejecución. La implementación en tiempo de ejecución no se hace en paralelo en ADLA. Puede realizar una comprobación en tiempo de ejecución antes de la actualización, mediante la ejecución local de Visual Studio con un .NET Framework  4.7.2 local en un conjunto de datos representativo.

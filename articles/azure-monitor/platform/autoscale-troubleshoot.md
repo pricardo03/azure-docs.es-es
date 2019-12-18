@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/4/2019
 ms.author: robb
 ms.subservice: autoscale
-ms.openlocfilehash: 14e2f79383aa45125ce6955f3611a75ece1df10d
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 410c182075d0aa288ad05195958c396f1a357ff1
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74152345"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893576"
 ---
 # <a name="troubleshooting-azure-autoscale"></a>Solución de problemas de escalabilidad automática de Azure
  
@@ -115,7 +115,7 @@ Al igual que con cualquier servicio compatible con Azure Monitor, puede usar [Co
 
 ![Configuración de diagnóstico de escalabilidad automática](media/autoscale-troubleshoot/diagnostic-settings.png)
 
-En la imagen anterior se muestra la configuración de diagnóstico de escalabilidad automática de Azure Portal. Allí puede seleccionar la pestaña Registros de diagnóstico, y habilitar la recopilación y el enrutamiento de registros. También puede realizar la misma acción mediante la API REST, CLI, PowerShell y plantillas del Administrador de recursos para la configuración de diagnóstico eligiendo el tipo de recurso como *Microsoft.Insights/AutoscaleSettings*. 
+En la imagen anterior se muestra la configuración de diagnóstico de escalabilidad automática de Azure Portal. Allí puede seleccionar la pestaña Registros de diagnóstico/recursos y habilitar la recopilación y el enrutamiento de registros. También puede realizar la misma acción mediante la API REST, CLI, PowerShell y plantillas del Administrador de recursos para la configuración de diagnóstico eligiendo el tipo de recurso como *Microsoft.Insights/AutoscaleSettings*. 
 
 ## <a name="troubleshooting-using-autoscale-logs"></a>Solución de problemas mediante registros de escalabilidad automática 
 

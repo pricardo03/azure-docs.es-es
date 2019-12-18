@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 10/15/2019
-ms.openlocfilehash: d25b9b3bb155dced973d415b396ebfaa4403b011
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 12/04/2019
+ms.openlocfilehash: 0d6615d832059a8b58c0d5d52533b8c8c962640d
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73510833"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74841581"
 ---
 # <a name="configure-hybrid-kubernetes-clusters-with-azure-monitor-for-containers"></a>Configuración de los clústeres híbridos de Kubernetes con Azure Monitor para contenedores
 
@@ -39,8 +39,8 @@ Antes de empezar, asegúrese de que dispone de lo siguiente:
     |Recurso del agente|Puertos |
     |------|---------|   
     |*.ods.opinsights.azure.com |Puerto 443 |  
-    |\* .oms.opinsights.azure.com |Puerto 443 |  
-    |\* .blob.core.windows.net |Puerto 443 |  
+    |*.oms.opinsights.azure.com |Puerto 443 |  
+    |*.blob.core.windows.net |Puerto 443 |  
     |*.dc.services.visualstudio.com |Puerto 443 | 
 
 * El agente en contenedor requiere `cAdvisor port: 10255` para que se abra en todos los nodos del clúster para recopilar las métricas de rendimiento.
@@ -282,6 +282,25 @@ Después de implementar correctamente el gráfico, puede revisar los datos de su
 
 >[!NOTE]
 >La latencia de ingesta de datos es de entre cinco y diez minutos desde el agente para confirmarse en el área de trabajo de Azure Log Analytics. El estado del clúster muestra el valor **Sin datos** o **Desconocido** hasta que todos los datos de supervisión necesarios estén disponibles en Azure Monitor. 
+
+## <a name="troubleshooting"></a>solución de problemas
+
+Si se produce un error al intentar habilitar la supervisión para el clúster híbrido de Kubernetes, copie el script de PowerShell [TroubleshootError_nonAzureK8s.ps1](https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/Troubleshoot/TroubleshootError_nonAzureK8s.ps1) y guárdelo en una carpeta del equipo. Este script se proporciona para ayudar a detectar y corregir los problemas encontrados. Se ha diseñado para detectar e intentar corregir los siguientes problemas:
+
+* El área de trabajo de Log Analytics especificada es válida 
+* El área de trabajo Log Analytics se configura con la solución Azure Monitor para contenedores. Si no es así, configure el área de trabajo.
+* Los pods de ReplicaSet de OmsAgent están en ejecución
+* Los pods de DaemonSet de OmsAgent están en ejecución
+* El servicio Health de OmsAgent está en ejecución 
+* El identificador y la clave del área de trabajo Log Analytics configurados en el agente en contenedor coinciden con el área de trabajo con la que se configura la información.
+* Valide que todos los nodos de trabajo de Linux tienen la etiqueta `kubernetes.io/role=agent` para programar el pod de rs. Si no existe, agréguela.
+* Valide que `cAdvisor port: 10255` está abierto en todos los nodos del clúster.
+
+Para realizar la ejecución con Azure PowerShell, use los siguientes comandos en la carpeta que contiene el script:
+
+```powershell
+.\TroubleshootError_nonAzureK8s.ps1 - azureLogAnalyticsWorkspaceResourceId </subscriptions/<subscriptionId>/resourceGroups/<resourcegroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName> -kubeConfig <kubeConfigFile>
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

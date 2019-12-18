@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 07/26/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 8809bf25c3bcfb26fb0ad251a2b09dfdca2a3e04
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 7ddef1e78b4f8f62145e10b4cabc4537e28aba2f
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68679188"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74969911"
 ---
 # <a name="content-key-policies"></a>Directivas de clave de contenido
 
@@ -26,9 +26,6 @@ Con Media Services puede entregar el contenido cifrado de forma dinámica en viv
 Para especificar opciones de cifrado en la secuencia, debe crear la [directiva de streaming](streaming-policy-concept.md) y asociarla con su [localizador de streaming](streaming-locators-concept.md). La [directiva de clave de contenido](https://docs.microsoft.com/rest/api/media/contentkeypolicies) se crea para configurar el modo en que la clave de contenido (que proporciona acceso seguro a sus [recursos](assets-concept.md)) se entrega a los clientes finales. Debe establecer los requisitos (restricciones) en la directiva de clave de contenido que se deben cumplir para que las claves con la configuración especificada se entreguen a los clientes. La directiva de clave de contenido no es necesaria para el streaming ni la descarga sin cifrar. 
 
 Por lo general, se asocia la directiva de clave de contenido con el [localizador de streaming](streaming-locators-concept.md). Como alternativa, puede especificar la directiva de clave de contenido dentro de una [directiva de streaming](streaming-policy-concept.md) (al crear una directiva de streaming personalizada para escenarios avanzados). 
-
-> [!NOTE]
-> Las propiedades de directivas de clave de contenido que son de tipo `Datetime` siempre están en formato UTC.
 
 ## <a name="best-practices-and-considerations"></a>Procedimientos recomendados y consideraciones
 
@@ -55,6 +52,11 @@ Para obtener la clave, use `GetPolicyPropertiesWithSecretsAsync`, tal y como se 
 ## <a name="filtering-ordering-paging"></a>Filtrado, ordenación, paginación
 
 Consulte [Filtrado, ordenación y paginación de entidades de Media Services](entities-overview.md).
+
+## <a name="additional-notes"></a>Notas adicionales
+
+* Las propiedades de directivas de clave de contenido que son de tipo `Datetime` siempre están en formato UTC.
+* Widevine es un servicio que ofrece Google Inc. y que está sujeto a los términos del servicio y la directiva de privacidad de Google, Inc.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

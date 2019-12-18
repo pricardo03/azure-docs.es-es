@@ -2,18 +2,18 @@
 title: 'Arquitectura: Apache Hadoop local a Azure HDInsight'
 description: Obtenga información acerca de los procedimientos recomendados de arquitectura para migrar clústeres locales de Apache Hadoop a Azure HDInsight.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: ashishth
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/04/2019
-ms.author: hrasheed
-ms.openlocfilehash: 4ef3cded9aba7bd95ecc48e1feadf6c55acd7bdc
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.custom: hdinsightactive
+ms.date: 12/06/2019
+ms.openlocfilehash: 9f532e7bbf9e24e431341344b3172c988f69bfc3
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499265"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951537"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---architecture-best-practices"></a>Procedimientos recomendados de arquitectura para migrar clústeres locales de Apache Hadoop a Azure HDInsight
 
@@ -23,9 +23,9 @@ En este artículo se proporcionan recomendaciones para la arquitectura de sistem
 
 Muchas implementaciones de Apache Hadoop locales consisten en un solo clúster grande que admite muchas cargas de trabajo. Este clúster único puede ser complejo y, para que todo funcione correctamente, podría requerir poner en riesgo los servicios individuales. La migración de clústeres locales de Hadoop a Azure HDInsight requiere un cambio de enfoque.
 
-Los clústeres de Azure HDInsight están diseñados para un tipo específico de uso de proceso. Dado que el almacenamiento se puede compartir entre varios clústeres, es posible crear varios clústeres de proceso optimizados para cargas de trabajo para satisfacer las necesidades de los distintos trabajos. Cada tipo de clúster tiene la configuración óptima para esa carga de trabajo específica. En la tabla siguiente se enumeran los tipos de clústeres compatibles de HDInsight y las cargas de trabajo correspondientes.
+Los clústeres de Azure HDInsight están diseñados para un tipo específico de uso de proceso. Dado que el almacenamiento se puede compartir entre varios clústeres, es posible crear varios clústeres de proceso optimizados para cargas de trabajo a fin de satisfacer las necesidades de los distintos trabajos. Cada tipo de clúster tiene la configuración óptima para esa carga de trabajo específica. En la tabla siguiente se enumeran los tipos de clústeres compatibles de HDInsight y las cargas de trabajo correspondientes.
 
-|**Carga de trabajo**|**Tipo de clúster de HDInsight**|
+|Carga de trabajo|Tipo de clúster de HDInsight|
 |---|---|
 |Procesamiento por lotes (ETL/ELT)|Hadoop, Spark|
 |Almacenamiento de datos|Hadoop, Spark, Interactive Query|
@@ -36,7 +36,7 @@ Los clústeres de Azure HDInsight están diseñados para un tipo específico de 
 
 La tabla siguiente muestra los distintos métodos que se pueden usar para crear un clúster de HDInsight.
 
-|**Herramienta**|**Basado en explorador**|**Línea de comandos**|**API DE REST**|**SDK**|
+|Herramienta|Basado en explorador|Línea de comandos|API DE REST|SDK|
 |---|---|---|---|---|
 |[Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md)|X||||
 |[Azure Data Factory](../hdinsight-hadoop-create-linux-clusters-adf.md)|X|X|X|X|
@@ -62,7 +62,7 @@ Azure Data Factory puede usarse para programar la creación de clústeres de HDI
 
 Normalmente, las implementaciones locales de Hadoop utilizan el mismo conjunto de máquinas para el almacenamiento y el procesamiento de datos. Como están juntos, el proceso y el almacenamiento deben escalarse a la vez.
 
-En los clústeres de HDInsight, no es necesario ubicar el almacenamiento junto al proceso, y puede encontrarse en Azure Storage, Azure Data Lake Storage o ambos. La separación del almacenamiento del proceso tiene las siguientes ventajas:
+En los clústeres de HDInsight, no es necesario ubicar el almacenamiento junto al proceso y pueden encontrarse en Azure Storage, Azure Data Lake Storage o en ambos. La separación del almacenamiento del proceso tiene las siguientes ventajas:
 
 - Uso compartido de datos entre los clústeres.
 - Uso de clústeres transitorios, puesto que los datos no dependen del clúster.
@@ -74,9 +74,7 @@ Los clústeres de proceso se crean cerca de los recursos de la cuenta de almacen
 
 ## <a name="use-external-metadata-stores"></a>Uso de almacenes de metadatos externos
 
-
 Hay dos tiendas de metadatos principales que funcionan con clústeres de HDInsight: [Apache Hive](https://hive.apache.org/) y [Apache Oozie](https://oozie.apache.org/). Hive Metastore es el repositorio de esquema central que se puede usar en motores de procesamiento de datos como Hadoop, Spark, LLAP, Presto y Apache Pig. La tienda de metadatos de Oozie almacena los detalles sobre la programación y el estado de los trabajos de Hadoop completados y en curso.
-
 
 HDInsight usa Azure SQL Database para las tiendas de metadatos de Hive y Oozie. Hay dos formas de configurar una tienda de metadatos para los clústeres de HDInsight:
 
@@ -105,7 +103,7 @@ Estos son algunos procedimientos recomendados para Hive Metastore en HDInsight:
 - Realice una copia de la tienda de metadatos personalizada periódicamente.
 - Mantenga su tienda de metadatos y el clúster de HDInsight en la misma región.
 - Supervise el rendimiento y la disponibilidad de su tienda de metadatos mediante herramientas de supervisión de Azure SQL Database, como Azure Portal o los registros de Azure Monitor.
-- Ejecute el comando **ANALYZE TABLE** según sea necesario para generar estadísticas para tablas y columnas. Por ejemplo, `ANALYZE TABLE [table_name] COMPUTE STATISTICS`.
+- Ejecute el comando `ANALYZE TABLE` según sea necesario a fin de generar estadísticas para tablas y columnas. Por ejemplo, `ANALYZE TABLE [table_name] COMPUTE STATISTICS`.
 
 ## <a name="best-practices-for-different-workloads"></a>Procedimientos recomendados para las distintas cargas de trabajo
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: beaa8561028a9e21d0623c0eb8e19592f3cad055
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 7c259371ccdb55eff01eb7f0605315b17c33cdd3
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74167861"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74842788"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Tutorial: Configuración de G Suite para el aprovisionamiento automático de usuarios
 
@@ -178,7 +178,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Asignaciones de grupo de G Suite](media/google-apps-provisioning-tutorial/groupmappings.png)
 
-12. Revise los atributos de grupo que se sincronizan entre Azure AD y G Suite en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades de **Coincidencia** se usan para establecer coincidencias con los grupos de G Suite con el objetivo de realizar operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
+12. Revise los atributos de grupo que se sincronizan entre Azure AD y G Suite en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades de **Coincidencia** se usan para establecer coincidencias con los grupos de G Suite con el objetivo de realizar operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios. La interfaz de usuario muestra el conjunto predeterminado de asignaciones de atributos entre Azure AD y G Suite. Puede optar por agregar atributos adicionales, como la unidad organizativa, haciendo clic en Agregar nueva asignación. 
 
     ![Atributos de grupo de G Suite](media/google-apps-provisioning-tutorial/groupattributes.png)
 
@@ -204,6 +204,9 @@ Para más información sobre cómo leer los registros de aprovisionamiento de Az
 
 * [Administración del aprovisionamiento de cuentas de usuario para aplicaciones empresariales](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+
+## <a name="common-issues"></a>Problemas comunes
+* Pueden producirse errores de autorización cuando la cuenta utilizada para establecer una conexión no corresponde a un administrador de GSuite. Asegúrese de que la cuenta usada para autorizar el acceso tenga permisos de administrador en **todos los dominios** que se tengan que aprovisionar para los usuarios. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

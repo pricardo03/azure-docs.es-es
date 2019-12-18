@@ -1,5 +1,5 @@
 ---
-title: Ejemplos y tutoriales
+title: Programas de ejemplo y Tutoriales de Machine Learning
 titleSuffix: Azure Data Science Virtual Machine
 description: Mediante estos ejemplos y tutoriales, aprenda a administrar tareas comunes y escenarios con Data Science Virtual Machine.
 keywords: herramientas de ciencia de datos, máquina virtual de ciencia de datos, herramientas para la ciencia de datos, ciencia de datos de linux
@@ -10,12 +10,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: ad58adb85077a27bce65595738ffdbd92bace9bd
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: d064e940997d13e51be4fd38e9f678b778ce31f4
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802448"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900043"
 ---
 # <a name="samples-on-azure-data-science-virtual-machines"></a>Ejemplos de Azure Data Science Virtual Machines
 

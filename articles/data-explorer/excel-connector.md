@@ -7,12 +7,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: 18c6499afe450a0387b0d9f0f13ee4378e0a21a9
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 42f52581d8f2f80deb5d6250ed54ab64fc1ba4d3
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70174491"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849061"
 ---
 # <a name="visualize-data-using-the-azure-data-explorer-connector-for-excel"></a>Visualización de datos mediante el conector de Azure Data Explorer para Excel
 
@@ -75,3 +75,6 @@ Cuando los datos se carguen en Excel y estén disponibles en su hoja, puede anal
 
 1. Cree paneles completos para supervisar los datos.
 
+## <a name="next-steps"></a>Pasos siguientes
+
+[Visualización de datos mediante una consulta de Kusto de Azure Data Explorer importada en Microsoft Excel](excel-blank-query.md)

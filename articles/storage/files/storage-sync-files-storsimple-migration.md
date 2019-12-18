@@ -7,12 +7,12 @@ ms.date: 11/26/2019
 ms.author: fauhse
 ms.subservice: files
 description: StorSimple es un producto que ha llegado al final de su ciclo de vida y Azure File Sync es la solución a la que se va a migrar. Obtenga información sobre el concepto de migración y utilice AzureFiles@microsoft.com para obtener ayuda sobre la migración personalizada.
-ms.openlocfilehash: edad4d1c6be2c39dbf8150b6ab8979ae3924fb53
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 1cc88080522a62085d9a515223512ef25c20a9e4
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74666540"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895076"
 ---
 # <a name="storsimple-migration-to-azure-file-sync"></a>Migración de StorSimple a Azure File Sync
 

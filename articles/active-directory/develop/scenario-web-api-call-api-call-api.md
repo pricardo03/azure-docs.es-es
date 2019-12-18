@@ -1,6 +1,6 @@
 ---
-title: 'API web que llama a otras API web (llamada a API): Plataforma de identidad de Microsoft'
-description: Obtenga información sobre cómo compilar una API web que llame a API web de bajada (llamada a una API web).
+title: 'API web que llama a otras API web: Plataforma de identidad de Microsoft | Azure'
+description: Aprenda a compilar una API web que llama a otras API web.
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1cd093cc68a21558dc326221eeaa8c034c24f1c2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6063d143e2f217426bdf1db217fde46f8542d314
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65074731"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74965218"
 ---
 # <a name="web-api-that-calls-web-apis---call-an-api"></a>API web que llama a otras API web (llamada a una API)
 

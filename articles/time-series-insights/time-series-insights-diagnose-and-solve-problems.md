@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 10/10/2019
+ms.date: 12/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: ca38ebb015552042591fb4cc6b7edfe99527e79f
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: ff723f490a3f6d34f652e0b21e5f6e0b16f0a841
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74007061"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900257"
 ---
 # <a name="diagnose-and-solve-issues-in-your-time-series-insights-environment"></a>Diagnóstico y solución de problemas de su entorno Time Series Insights
 
@@ -38,7 +38,7 @@ Azure Time Series Insights solo admite datos JSON. Para ver ejemplos de JSON, co
 
 ### <a name="cause-b-the-event-source-key-is-missing-a-required-permission"></a>Causa B: a la clave de origen del evento le falta un permiso necesario
 
-* Para IoT Hub en Azure IoT Hub, debe proporcionar la clave con los permisos de **conexión de servicio**. Servirán las directivas **iothubowner** o **service**, dado que ambas tienen permisos de **conexión de servicio**.
+* Para IoT Hub en Azure IoT Hub, debe proporcionar la clave con los permisos de **conexión de servicio**. Seleccione las directivas **iothubowner** o **service**, dado que ambas tienen permisos de **conexión de servicio**.
 
    [![Permisos de conexión de servicio de IoT Hub](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png)](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png#lightbox)
 
@@ -50,13 +50,17 @@ Azure Time Series Insights solo admite datos JSON. Para ver ejemplos de JSON, co
 
 Al registrar un centro de IoT o un centro de eventos, es importante establecer el grupo de consumidores que quiere usar para leer los datos. Este grupo de consumidores *no puede ser compartido*. Si el grupo de consumidores es compartido, el centro de IoT o el centro de eventos subyacente desconectará automáticamente uno de los lectores de forma aleatoria. Proporcione un grupo de consumidor exclusivo del que Time Series Insights pueda leer.
 
+### <a name="cause-d-the-environment-has-just-been-provisioned"></a>Causa D: el entorno se ha aprovisionado recientemente
+
+Los datos aparecerán en el explorador de Time Series Insights en unos minutos después de que se creen por primera vez el entorno y sus datos.
+
 ## <a name="problem-some-data-is-shown-but-data-is-missing"></a>Problema: se muestran algunos datos, pero faltan otros
 
 Cuando los datos aparecen solo parcialmente y parece que están atrasados, debe considerar varias posibilidades.
 
 ### <a name="cause-a-your-environment-is-being-throttled"></a>Causa A: puede que se esté limitando el entorno
 
-La limitación es un problema común cuando se aprovisionan entornos después de crear un origen de eventos que tiene datos. Azure IoT Hub y Azure Events Hubs almacenan datos durante siete días como máximo. Time Series Insights siempre empieza con el evento más antiguo en el origen de eventos (primero en entrar, primero en salir o *FIFO*).
+La [limitación](time-series-insights-environment-mitigate-latency.md) es un problema común cuando se aprovisionan entornos después de crear un origen de eventos que tiene datos. Azure IoT Hub y Azure Events Hubs almacenan datos durante siete días como máximo. Time Series Insights siempre empieza con el evento más antiguo en el origen de eventos (primero en entrar, primero en salir o *FIFO*).
 
 Por ejemplo, si tiene 5 millones de eventos en un origen de eventos al conectarse a un entorno S1 de Time Series Insights de una sola unidad, Time Series Insights lee aproximadamente 1 millón de eventos al día. Puede parecer que Time Series Insights está experimentando cinco días de latencia. Sin embargo, lo que sucede es que el entorno está limitado.
 

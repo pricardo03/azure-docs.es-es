@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: fdde89f9ff88b15c464af805b81708b268e5ddf5
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 95b9c76a2ff962cb2fa4bacbb1b1e9a953b7014f
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721739"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873818"
 ---
 # <a name="morelikethis-preview-in-azure-cognitive-search"></a>moreLikeThis (versión preliminar) en Azure Cognitive Search
 
@@ -25,24 +25,46 @@ ms.locfileid: "73721739"
 
 De forma predeterminada, se tiene en cuenta el contenido de todos los campos que permiten búsquedas de nivel superior. Si quiere especificar campos concretos en su lugar, puede usar el parámetro `searchFields`. 
 
-No se puede usar moreLikeThis en campos secundarios que permiten búsquedas de un [tipo complejo](search-howto-complex-data-types.md).
+No se puede usar `MoreLikeThis` en campos secundarios que permiten búsquedas de un [tipo complejo](search-howto-complex-data-types.md).
 
-## <a name="examples"></a>Ejemplos 
+## <a name="examples"></a>Ejemplos
 
-A continuación se muestra un ejemplo de una consulta moreLikeThis. La consulta busca los documentos cuyos campos de descripción son lo más parecido al campo del documento de origen según se especifica con el parámetro `moreLikeThis`.
+En todos los ejemplos siguientes se usa el ejemplo de hoteles de [Inicio rápido: Creación de un índice de búsqueda en Azure Portal](search-get-started-portal.md).
+
+### <a name="simple-query"></a>Consulta sencilla
+
+La siguiente consulta busca los documentos cuyos campos de descripción son lo más parecido al campo del documento de origen según se especifica con el parámetro `moreLikeThis`:
 
 ```
-Get /indexes/hotels/docs?moreLikeThis=1002&searchFields=description&api-version=2019-05-06-Preview
+GET /indexes/hotels-sample-index/docs?moreLikeThis=29&searchFields=Description&api-version=2019-05-06-Preview
 ```
 
+En este ejemplo, la solicitud busca hoteles parecidos al que tiene el identificador `HotelId` 29.
+En lugar de usar HTTP GET, también puede invocar `MoreLikeThis` con HTTP POST:
+
 ```
-POST /indexes/hotels/docs/search?api-version=2019-05-06-Preview
+POST /indexes/hotels-sample-index/docs/search?api-version=2019-05-06-Preview
     {
-      "moreLikeThis": "1002",
-      "searchFields": "description"
+      "moreLikeThis": "29",
+      "searchFields": "Description"
     }
 ```
 
+### <a name="apply-filters"></a>Aplicación de filtros
+
+`MoreLikeThis` se puede combinar con otros parámetros de consulta habituales como `$filter`. Por ejemplo, la consulta se puede restringir solo a aquellos hoteles cuya categoría es "Budget" y la puntuación superior a 3.5:
+
+```
+GET /indexes/hotels-sample-index/docs?moreLikeThis=20&searchFields=Description&$filter=(Category eq 'Budget' and Rating gt 3.5)&api-version=2019-05-06-Preview
+```
+
+### <a name="select-fields-and-limit-results"></a>Selección de cambios y limitación de resultados
+
+El selector `$top` se puede utilizar para limitar el número de resultados que se devuelven en una consulta de `MoreLikeThis`. Además, los campos pueden seleccionarse con `$select`. Aquí se seleccionan los tres hoteles principales junto con su identificador, nombre y puntuación: 
+
+```
+GET /indexes/hotels-sample-index/docs?moreLikeThis=20&searchFields=Description&$filter=(Category eq 'Budget' and Rating gt 3.5)&$top=3&$select=HotelId,HotelName,Rating&api-version=2019-05-06-Preview
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

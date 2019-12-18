@@ -6,16 +6,16 @@ author: antvgski
 manager: igorstan
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.date: 07/10/2019
+ms.date: 12/04/2019
 ms.author: anvang
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f05e54a3dd4b69fff2bc7d122391d145b222b295
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 49a250a43c7b2654e1317981c853b0117fa0cf28
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692560"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851798"
 ---
 # <a name="database-collation-support-for-azure-sql-data-warehouse"></a>Compatibilidad de la intercalación de base de datos con Azure SQL Data Warehouse
 
@@ -100,5 +100,9 @@ Por ejemplo, si quiere cambiar la intercalación predeterminada para que disting
 *   SQL_EBCDIC277_2_CP1_CS_AS
 
 ## <a name="checking-the-current-collation"></a>Comprobación de la intercalación actual
-Para comprobar la intercalación actual de la base de datos, puede ejecutar el siguiente fragmento de código de T-SQL: "SELECT DATABASEPROPERTYEX(DB_NAME(), 'Collation') AS Collation;". Cuando se pasa "Collation" como parámetro de propiedad, la función DatabasePropertyEx devuelve la intercalación actual de la base de datos especificada. Puede obtener más información sobre la función DatabasePropertyEx en MSDN.
+Para comprobar la intercalación actual de la base de datos, puede ejecutar el siguiente fragmento de código de T-SQL:
+```sql
+SELECT DATABASEPROPERTYEX(DB_NAME(), 'Collation') AS Collation;
+```
+Cuando se pasa "Collation" como parámetro de propiedad, la función DatabasePropertyEx devuelve la intercalación actual de la base de datos especificada. Puede obtener más información sobre la función DatabasePropertyEx en MSDN.
 

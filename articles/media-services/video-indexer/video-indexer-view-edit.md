@@ -1,7 +1,7 @@
 ---
 title: Visualización y edición de la información detallada de Video Indexer
 titlesuffix: Azure Media Services
-description: En este tema se muestra cómo ver y editar la información detallada de Video Indexer.
+description: En este artículo se muestra cómo ver y editar la información detallada de Video Indexer de Azure Media Services.
 services: media-services
 author: Juliako
 manager: femila
@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: 24a723bd32cb40807da1757b3fffb925d4ba1fef
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e9bb516d498d989b97f1069af9a9f4cb673ea96d
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799180"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892675"
 ---
 # <a name="view-and-edit-video-indexer-insights"></a>Visualización y edición de la información detallada de Video Indexer
 
@@ -39,7 +39,7 @@ En este tema se muestra cómo ver y editar la información detallada de Video In
 
 [Uso de información detallada propia en los vídeos](use-editor-create-project.md)
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 [Introducción a Video Indexer](video-indexer-overview.md)
 

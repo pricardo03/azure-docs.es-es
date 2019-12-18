@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
-ms.openlocfilehash: f4d94536a8c1b509e0ce435a764e69984b5d415e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 11c964bedce7a8b979434b888d756c2121d06a60
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60425537"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873835"
 ---
 # <a name="interoperability-in-azure-back-end-connectivity-features-data-plane-analysis"></a>Interoperabilidad de las características de conectividad del back-end de Azure: Análisis del plano de datos
 
@@ -40,7 +40,7 @@ El emparejamiento de redes virtuales emula la funcionalidad de puente de red ent
 En la siguiente ilustración se muestra la vista de conexión gráfica del centro de conectividad y la red virtual de radio desde la perspectiva de Azure Network Watcher:
 
 
-[![1]][1]
+![1][1]
 
 ### <a name="path-to-the-branch-vnet"></a>Ruta de acceso a la red virtual de sucursal
 
@@ -60,11 +60,11 @@ En este comando traceroute, el primer salto es la puerta de enlace de VPN en la 
 
 En la siguiente ilustración se muestra la vista de conexión gráfica del centro de conectividad y la red virtual de sucursal desde la perspectiva de Network Watcher:
 
-[![2]][2]
+![2][2]
 
 Para la misma conexión, en la siguiente ilustración se muestra la vista de cuadrícula de Network Watcher:
 
-[![3]][3]
+![3][3]
 
 ### <a name="path-to-on-premises-location-1"></a>Ruta de acceso a la ubicación 1 local
 
@@ -302,7 +302,7 @@ Network Watcher solo proporciona una vista centrada en Azure. Para una perspecti
 
 En la siguiente ilustración se muestra la vista de topología de la conectividad de la máquina virtual de la ubicación 1 local con la máquina virtual del centro de conectividad mediante ExpressRoute:
 
-[![4]][4]
+![4][4]
 
 Como se comentó anteriormente, en la configuración de prueba se usa VPN de sitio a sitio como conectividad de copia de seguridad para ExpressRoute entre la ubicación 1 local y el centro de conectividad. Para probar la ruta de acceso de datos de copia de seguridad se va a inducir un error de vinculación de ExpressRoute entre el enrutador CE principal de la ubicación 1 local y el MSEE correspondiente. Para inducir un error de vinculación de ExpressRoute, apague la interfaz del lado del cliente que se expone al MSEE:
 
@@ -318,7 +318,7 @@ Como se comentó anteriormente, en la configuración de prueba se usa VPN de sit
 
 En la siguiente ilustración se muestra la vista de topología de la conectividad de la máquina virtual en la ubicación 1 local con la máquina virtual con el centro de conectividad mediante la conectividad VPN de sitio a sitio cuando la de ExpressRoute está inactiva:
 
-[![5]][5]
+![5][5]
 
 ### <a name="path-to-the-spoke-vnet"></a>Ruta a la red virtual de radio
 
@@ -503,7 +503,7 @@ Para más información, consulte [¿Qué es VPN Gateway?][VPN] e [Implementació
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte [P+F de ExpressRoute][ExR-FAQ] para información acerca de:
+Consulte las [preguntas más frecuentes de ExpressRoute][ExR-FAQ] para información acerca de:
 -   Cuántos circuitos de ExpressRoute puede conectar a una puerta de enlace de ExpressRoute.
 -   Cuántas puertas de enlace de ExpressRoute puede conectar a un circuito de ExpressRoute.
 -   Los límites de escala de ExpressRoute.

@@ -1,6 +1,7 @@
 ---
-title: 'Tutorial: Personalización de la interfaz de experiencias de usuario en Azure Active Directory B2C | Microsoft Docs'
-description: Obtenga información acerca de cómo personalizar la interfaz de usuario de la aplicación en Azure Active Directory B2C con Azure Portal.
+title: 'Tutorial: Personalizar la interfaz del usuario'
+titleSuffix: Azure AD B2C
+description: Aprenda a personalizar la interfaz de usuario (IU) de las aplicaciones en Azure Active Directory B2C mediante Azure Portal.
 services: B2C
 author: mmacy
 manager: celestedg
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 08edf6e841dc7d389573d5e5b5ea7e043f750e76
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: eba9919b7a1d89e6aea8fb93ef8c4b3e92960368
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71291103"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950874"
 ---
 # <a name="tutorial-customize-the-interface-of-user-experiences-in-azure-active-directory-b2c"></a>Tutorial: Personalización de la interfaz de experiencias de usuario en Azure Active Directory B2C
 

@@ -1,14 +1,14 @@
 ---
 title: Funciones de Azure Blueprints
 description: Describe las funciones disponibles que se pueden utilizar con artefactos de plano técnico en las definiciones y asignaciones de Azure Blueprints.
-ms.date: 04/15/2019
+ms.date: 12/09/2019
 ms.topic: reference
-ms.openlocfilehash: 92539da02ddbe22f943454aff54dae4ccb5af3ce
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 0aab2fe0511ccc11842d0e132a83d6e3f7fac27f
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74128762"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74970897"
 ---
 # <a name="functions-for-use-with-azure-blueprints"></a>Funciones para usar con Azure Blueprints
 
@@ -29,9 +29,12 @@ Se admiten las siguientes funciones:
 
 Devuelve un objeto de propiedades rellenadas con los resultados de los artefactos de ese plano técnico.
 
+> [!NOTE]
+> No se puede usar la función `artifacts()` desde dentro de una plantilla de Resource Manager. La función solo se puede usar en el JSON de definición de plano técnico o en el JSON del artefacto al administrar el plano técnico con Azure PowerShell o la API REST como parte de [planos técnicos como código](https://github.com/Azure/azure-blueprints/blob/master/README.md).
+
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | artifactName |Sí |string |El nombre de un artefacto de plano técnico. |
 
@@ -103,7 +106,7 @@ Un artefacto de plantilla de Resource Manager con el identificador _myTemplateA
 
 Algunos ejemplos de recuperación de datos de la plantilla _myTemplateArtifact_ son los siguientes:
 
-| Expression | type | Valor |
+| Expression | Tipo | Valor |
 |:---|:---|:---|
 |`[artifacts("myTemplateArtifact").outputs.myArray]` | Array | \["first", "second"\] |
 |`[artifacts("myTemplateArtifact").outputs.myArray[0]]` | Cadena | "first" |
@@ -120,7 +123,7 @@ Combina varios valores de cadena y devuelve la cadena concatenada.
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | string1 |Sí |string |El primer valor para la concatenación. |
 | argumentos adicionales |Sin |string |Valores adicionales en orden secuencial para la concatenación |
@@ -145,7 +148,7 @@ Devuelve un valor de parámetro de plano técnico. El nombre del parámetro espe
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | parameterName |Sí |string |El nombre del parámetro que se va a devolver. |
 
@@ -266,7 +269,7 @@ Devuelve un objeto que representa el artefacto del grupo de recursos especificad
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | placeholderName |Sí |string |El nombre de marcador de posición del artefacto del grupo de recursos que se va a devolver. |
 

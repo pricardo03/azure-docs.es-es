@@ -1,7 +1,7 @@
 ---
 title: Uso de la API Video Indexer
 titleSuffix: Azure Media Services
-description: Tutorial de introducción a la API Video Indexer de Azure Media Services.
+description: En este artículo se describe cómo empezar a usar Video Indexer API de Azure Media Services.
 services: media-services
 author: Juliako
 manager: femila
@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: e1fcfcd9e6bcb6108573f032d81f10ccc2be1e57
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 4da437fecf0529194d72b2d403302ff81055ec0f
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839622"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892692"
 ---
 # <a name="tutorial-use-the-video-indexer-api"></a>Tutorial: Uso de la API Video Indexer
 
@@ -207,7 +207,7 @@ Debug.WriteLine(playerWidgetLink);
 
 ```
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 - [Introducción a Video Indexer](video-indexer-overview.md)
 - [Regiones](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)

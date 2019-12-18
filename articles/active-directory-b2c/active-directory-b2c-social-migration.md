@@ -1,6 +1,7 @@
 ---
-title: Migración de usuarios con identidades de redes sociales a Azure Active Directory B2C | Microsoft Docs
-description: Descripción de conceptos básicos sobre la migración de usuarios con identidades de redes sociales a Azure AD B2C con Graph API.
+title: Migración de usuarios con identidades sociales
+titleSuffix: Azure AD B2C
+description: Revisión de los conceptos básicos sobre la migración de usuarios con identidades de redes sociales a Azure AD B2C mediante Graph API.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -11,12 +12,12 @@ ms.date: 03/03/2018
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 0117a0881422584e3cb949661b1d58cd0257cf67
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: c34535454f80b424fc0500363313a799efbdc001
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68853860"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950127"
 ---
 # <a name="azure-active-directory-b2c-migrate-users-with-social-identities"></a>Azure Active Directory B2C: Migración de usuarios con identidades sociales
 Si planea migrar su proveedor de identidades a Azure AD B2C, también debe migrar usuarios con identidades de redes sociales. En este artículo se explica cómo migrar las cuentas de identidades de redes sociales existentes, como: Cuentas de Google, Facebook, LinkedIn y Microsoft para Azure AD B2C. Este artículo también se aplica a las identidades federadas; sin embargo, estas migraciones son menos habituales. En el resto de este artículo, considere que todo lo que se aplica a las cuentas sociales se aplica también a otros tipos de cuentas federadas.
@@ -47,32 +48,33 @@ Este artículo es una continuación del artículo sobre migración de usuarios y
 * Dependiendo del proveedor de identidades, el **identificador del usuario del emisor** es un valor único para un usuario determinado por aplicación o cuenta de desarrollo. Configure la directiva de Azure AD B2C con el mismo identificador de aplicación que asignó previamente el proveedor de redes sociales u otra aplicación con la misma cuenta de desarrollo.
 
 ## <a name="use-graph-api-to-migrate-users"></a>Uso de Graph API para migrar usuarios
-Va a crear la cuenta de usuario de Azure AD B2C mediante [Graph API](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet). Para comunicarse con Graph API, debe tener una cuenta de servicio con privilegios administrativos. En Azure AD, debe registrar una aplicación y la autenticación en Azure AD. Las credenciales de la aplicación son el identificador de aplicación y el secreto de aplicación. La aplicación actúa como tal, no como un usuario, para llamar a Graph API. Siga las instrucciones del paso 1 en el artículo sobre [migración de usuarios](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-user-migration).
+Va a crear la cuenta de usuario de Azure AD B2C mediante [Graph API](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet).
+Para comunicarse con Graph API, debe tener una cuenta de servicio con privilegios administrativos. En Azure AD, debe registrar una aplicación y la autenticación en Azure AD. Las credenciales de la aplicación son el identificador de aplicación y el secreto de aplicación. La aplicación actúa como tal, no como un usuario, para llamar a Graph API. Siga las instrucciones del paso 1 en el artículo sobre [migración de usuarios](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-user-migration).
 
 ## <a name="required-properties"></a>Propiedades obligatorias
 En la lista siguiente se muestran las propiedades que son obligatorias cuando se crea un usuario.
 * **accountEnabled**: true
 * **displayName**: el nombre para mostrar en la libreta de direcciones del usuario.
-* **passwordProfile**: el perfil de contraseña del usuario. 
+* **passwordProfile**: el perfil de contraseña del usuario.
 
 > [!NOTE]
 > Para las cuentas de redes sociales solamente (sin credenciales de cuenta local), todavía debe especificar la contraseña. Azure AD B2C omite la contraseña que se especifica para las cuentas de redes sociales.
 
 * **userPrincipalName**: el nombre principal de usuario (someuser@contoso.com). El nombre principal de usuario debe contener uno de los dominios comprobados del inquilino. Para especificar el nombre principal de usuario, genere un nuevo valor GUID, concaténelo con `@` y su nombre de inquilino.
-* **mailNickname**: el alias de correo del usuario. Este valor puede ser el mismo identificador que usa para el nombre principal de usuario. 
+* **mailNickname**: el alias de correo del usuario. Este valor puede ser el mismo identificador que usa para el nombre principal de usuario.
 * **signInNames**: uno o varios registros signInNames que especifican los nombres de inicio de sesión del usuario. Cada nombre de inicio de sesión debe ser único en la compañía o inquilino. Para la cuenta de redes sociales únicamente, esta propiedad puede dejarse vacía.
 * **userIdentities**: uno o más registros de identidad de usuario que especifican el tipo de cuenta de redes sociales y el identificador de usuario único del proveedor de identidades de redes sociales.
-* [opcional] **otherMails**: para la cuenta de redes sociales únicamente, las direcciones de correo electrónico del usuario. 
+* [opcional] **otherMails**: para la cuenta de redes sociales únicamente, las direcciones de correo electrónico del usuario.
 
 Para más información, consulte: [Referencia de Graph API](/previous-versions/azure/ad/graph/api/users-operations#CreateLocalAccountUser)
 
 ## <a name="migrate-social-account-only"></a>Migración de cuenta de redes sociales (solo)
-Para crear solo una cuenta de redes sociales, sin credenciales de cuenta local, envíe una solicitud HTTPS POST a Graph API. El cuerpo de la solicitud contiene las propiedades del usuario de cuentas de redes sociales que se va a crear. Como mínimo, debe especificar las propiedades obligatorias. 
+Para crear solo una cuenta de redes sociales, sin credenciales de cuenta local, envíe una solicitud HTTPS POST a Graph API. El cuerpo de la solicitud contiene las propiedades del usuario de cuentas de redes sociales que se va a crear. Como mínimo, debe especificar las propiedades obligatorias.
 
 
 **POST**  https://graph.windows.net/tenant-name.onmicrosoft.com/users
 
-Envíe los datos de formulario siguientes: 
+Envíe los datos de formulario siguientes:
 
 ```JSON
 {
@@ -99,11 +101,11 @@ Envíe los datos de formulario siguientes:
 }
 ```
 ## <a name="migrate-social-account-with-local-account"></a>Migración de una cuenta de redes sociales con cuenta local
-Para crear una cuenta local combinada con identidades de redes sociales, envíe una solicitud HTTPS POST a Graph API. El cuerpo de la solicitud contiene las propiedades del usuario de la cuenta de redes sociales que se va a crear, incluido el nombre de inicio de sesión de la cuenta local. Como mínimo, debe especificar las propiedades obligatorias. 
+Para crear una cuenta local combinada con identidades de redes sociales, envíe una solicitud HTTPS POST a Graph API. El cuerpo de la solicitud contiene las propiedades del usuario de la cuenta de redes sociales que se va a crear, incluido el nombre de inicio de sesión de la cuenta local. Como mínimo, debe especificar las propiedades obligatorias.
 
 **POST**  https://graph.windows.net/tenant-name.onmicrosoft.com/users
 
-Envíe los datos de formulario siguientes: 
+Envíe los datos de formulario siguientes:
 
 ```JSON
 {
@@ -149,11 +151,11 @@ El nombre del emisor, o el nombre del proveedor de identidades, se configura en 
 > Use una cuenta de administrador de inquilinos B2C que sea local para el inquilino B2C. La sintaxis del nombre de la cuenta es admin@tenant-name.onmicrosoft.com.
 
 ### <a name="is-it-possible-to-add-a-social-identity-to-an-existing-user"></a>¿Es posible agregar una identidad de redes sociales a un usuario existente?
-Sí. Puede agregar la identidad de redes sociales una vez creada la cuenta de Azure AD B2C (ya sea una cuenta local, una cuenta de redes sociales o una combinación de ambas). Ejecute una solicitud HTTPS PATCH. Reemplace el objeto userObjectId por el identificador de usuario que quiere actualizar. 
+Sí. Puede agregar la identidad de redes sociales una vez creada la cuenta de Azure AD B2C (ya sea una cuenta local, una cuenta de redes sociales o una combinación de ambas). Ejecute una solicitud HTTPS PATCH. Reemplace el objeto userObjectId por el identificador de usuario que quiere actualizar.
 
 **PATCH** https://graph.windows.net/tenant-name.onmicrosoft.com/users/userObjectId
 
-Envíe los datos de formulario siguientes: 
+Envíe los datos de formulario siguientes:
 
 ```JSON
 {
@@ -167,11 +169,11 @@ Envíe los datos de formulario siguientes:
 ```
 
 ### <a name="is-it-possible-to-add-multiple-social-identities"></a>¿Es posible agregar varias identidades de redes sociales?
-Sí. Puede agregar varias identidades de redes sociales para una única cuenta de Azure AD B2C. Ejecute la solicitud HTTPS PATCH. Reemplace el objeto userObjectId por el identificador de usuario. 
+Sí. Puede agregar varias identidades de redes sociales para una única cuenta de Azure AD B2C. Ejecute la solicitud HTTPS PATCH. Reemplace el objeto userObjectId por el identificador de usuario.
 
 **PATCH** https://graph.windows.net/tenant-name.onmicrosoft.com/users/userObjectId
 
-Envíe los datos de formulario siguientes: 
+Envíe los datos de formulario siguientes:
 
 ```JSON
 {

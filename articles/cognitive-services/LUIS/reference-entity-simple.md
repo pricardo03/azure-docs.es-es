@@ -10,20 +10,20 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 09/29/2019
 ms.author: diberry
-ms.openlocfilehash: 27eb4d827c1488b0d051505e62286fd66d6a286b
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 8b92aa6057c81ec9442372c5b85918cb92196d61
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73671517"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894755"
 ---
-# <a name="simple-entity"></a>Entidad simple 
+# <a name="simple-entity"></a>Entidad simple
 
-Una entidad simple es una entidad genérica que describe un concepto único que se ha aprendido en el contexto de aprendizaje automático. Dado que las entidades simples suelen ser nombres, como por ejemplo, nombres de compañías, de productos u otras categorías de nombres, agregue un [lista de frases](luis-concept-feature.md) cuando se use una entidad simple para aumentar la señal de los nombres usados. 
+Una entidad simple es una entidad genérica que describe un concepto único que se ha aprendido en el contexto de aprendizaje automático. Dado que las entidades simples suelen ser nombres, como por ejemplo, nombres de compañías, de productos u otras categorías de nombres, agregue un [lista de frases](luis-concept-feature.md) cuando se use una entidad simple para aumentar la señal de los nombres usados.
 
 **La entidad es la opción ideal cuando:**
 
-* Los datos no tienen un formato coherente, pero indican lo mismo. 
+* Los datos no tienen un formato coherente, pero indican lo mismo.
 
 ![entidad simple](./media/luis-concept-entities/simple-entity.png)
 
@@ -86,7 +86,7 @@ This is the JSON if `verbose=true` is set in the query string:
 }
 ```
 
-* * * 
+* * *
 
 |Objeto de datos|Nombre de entidad|Valor|
 |--|--|--|
@@ -94,4 +94,5 @@ This is the JSON if `verbose=true` is set in the query string:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este [tutorial](luis-quickstart-primary-and-secondary-data.md) se extraen datos aprendidos automáticamente de un nombre de empleo de una expresión con la **entidad Simple**. Para aumentar la precisión de extracción, agregue una [lista de frases](luis-concept-feature.md) de términos específicos para la entidad simple.
+> [!div class="nextstepaction"]
+> [Sintaxis del patrón de aprendizaje](reference-pattern-syntax.md)

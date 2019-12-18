@@ -1,6 +1,6 @@
 ---
-title: 'Aplicación web que llama a las API web (inicio de sesión): Plataforma de identidad de Microsoft'
-description: Obtenga información sobre cómo compilar una aplicación web que llame a API web (inicio de sesión)
+title: 'Quitar cuentas de la memoria caché en el cierre de sesión: plataforma de identidad de Microsoft | Azure'
+description: Obtenga información sobre cómo quitar una cuenta de la memoria caché de tokens en el cierre de sesión
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,14 +15,14 @@ ms.date: 09/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2cb0190f76ddce79012a5bf97e2d813f40f9f018
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 375382b1245186197657c5067e3c5b4ec2b15655
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596379"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74961665"
 ---
-# <a name="web-app-that-calls-web-apis---sign-in"></a>Aplicación web que llama a las API web: inicio de sesión
+# <a name="remove-accounts-from-the-cache-on-global-sign-out"></a>Quitar cuentas de la memoria caché en el cierre de sesión global
 
 Ya sabe cómo agregar el inicio de sesión a una aplicación web. Obtuvo información sobre esto en [Aplicación web que permite iniciar sesión a los usuarios (inicio de sesión)](scenario-web-app-sign-user-sign-in.md).
 

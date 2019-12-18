@@ -1,6 +1,6 @@
 ---
 title: Administración de puntos de conexión de streaming con Azure Portal | Microsoft Docs
-description: En este tema se muestra cómo administrar los puntos de conexión de streaming mediante el Portal de Azure.
+description: En este artículo se muestra cómo administrar los puntos de conexión de streaming mediante Azure Portal.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 1775bbb2913f6b1a985ca7ec9e89bafed42fd0e6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 57ec22cb02512577f8737718cae9175403fb5603
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61129735"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900883"
 ---
 # <a name="manage-streaming-endpoints-with-the-azure-portal"></a>Administración de puntos de conexión de streaming con el Portal de Azure 
 

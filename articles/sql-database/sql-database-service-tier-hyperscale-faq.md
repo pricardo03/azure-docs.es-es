@@ -1,5 +1,5 @@
 ---
-title: Preguntas más frecuentes sobre Hiperescala
+title: Preguntas más frecuentes sobre Hiperescala (Citus) en Azure Database for PostgreSQL
 description: Da respuesta a las preguntas más habituales que los clientes formulan sobre las bases de datos de Azure SQL en el nivel de servicio Hiperescala, normalmente conocidas como bases de datos de hiperescala.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
 ms.date: 10/12/2019
-ms.openlocfilehash: 89316811f39b4cab918b913b45ae5945686e6b15
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 377de93733d94d8cff5518eebb8ebba38154d10d
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818225"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974026"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>Preguntas más frecuentes sobre Hiperescala de Azure SQL Database
 

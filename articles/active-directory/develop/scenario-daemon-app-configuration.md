@@ -1,6 +1,6 @@
 ---
-title: 'Aplicación de demonio que llama a las API web (configuración de la aplicación): Plataforma de identidad de Microsoft'
-description: Aprenda a compilar una aplicación de demonio que llama a las API web (configuración de la aplicación)
+title: 'Configuración de aplicaciones de demonio que llaman a las API web: Plataforma de identidad de Microsoft | Azure'
+description: Aprenda a configurar el código para la aplicación de demonio que llama a las API web (configuración de aplicaciones).
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -16,12 +16,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 32fbd4af78e02dad2a8a74ee21f9cb8c6ef0a976
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: b0fd50f730c604ba1359218cf5268bd20e570d3c
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175497"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74962651"
 ---
 # <a name="daemon-app-that-calls-web-apis---code-configuration"></a>Aplicación de demonio que llama a las API web: configuración de código
 
@@ -243,7 +243,7 @@ ConfidentialClientApplication app = ConfidentialClientApplication.builder(
         .build();
 ```
 
-o
+or
 
 ```Java
 PrivateKey key = getPrivateKey(); /* RSA private key to sign the assertion */

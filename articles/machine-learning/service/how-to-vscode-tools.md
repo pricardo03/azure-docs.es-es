@@ -10,12 +10,12 @@ ms.author: jimgries
 author: greazer
 ms.date: 09/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: dd85f3a495b90b3a1dc9d3f021d3600496792759
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 84b7f56ebcbb87a31fbfb85ea6d88c3388870872
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824352"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975999"
 ---
 # <a name="get-started-with-azure-machine-learning-for-visual-studio-code"></a>Introducción a Azure Machine Learning para Visual Studio Code
 
@@ -94,8 +94,8 @@ Para modificar el proyecto de forma que Azure pueda tener en cuenta la informaci
     import azureml
     from azureml.core import Run
 
-    # access the Azure ML run
-    # init run param to check if running within AML
+    # Access the Azure ML run
+    # Init run param to check if running within AML
     def get_AMLRun():
         try:
             run = Run.get_submitted_run()
@@ -128,7 +128,7 @@ Para modificar el proyecto de forma que Azure pueda tener en cuenta la informaci
     ...
             acc_val = acc_op.eval(feed_dict = {X: X_test, y: y_test})
 
-            # log accuracies to AML logger if using AML
+            # Log accuracies to AML logger if using AML
             if run != None:
                 run.log('Validation Accuracy', np.float(acc_val))
                 run.log('Training Accuracy', np.float(acc_train))
@@ -143,8 +143,8 @@ Eso es todo. Ahora solo tiene que usar la extensión para ejecutar el script en 
 
 Después de hacer clic en el botón para ejecutar experimento, responda a los mensajes tal como se indica a continuación:
 
-1. Elegir la suscripción de Azure
-1. Cree un área de trabajo de Azure Machine Learning *nueva*.
+1. Elija la suscripción de Azure.
+1. Elija crear una *nueva* área de trabajo de Azure Machine Learning.
 1. Elija un conjunto de plantillas preconfiguradas para inicializar el entorno de Python para las ejecuciones. Las plantillas proporcionan un punto inicial e incluyen la configuración de:
     1. **PyTorch**, **TensorFlow**, o **Scikit-learn**
     1. Entrenamiento de procesos **simple** o **distribuido**

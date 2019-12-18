@@ -1,5 +1,6 @@
 ---
-title: Administración de SSO y personalización de tokens con directivas personalizadas en Azure Active Directory B2C | Microsoft Docs
+title: Administración de SSO y personalización de tokens mediante directivas personalizadas
+titleSuffix: Azure AD B2C
 description: Aprenda cómo administrar SSO y personalizar tokens con directivas personalizadas en Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 36a95b502c13ccf360ba4ac56b4837d41ee487c8
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: de125bf61b5b0ff658f095077eab3ea20742368c
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72296396"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950620"
 ---
 # <a name="manage-sso-and-token-customization-using-custom-policies-in-azure-active-directory-b2c"></a>Administración de SSO y personalización de tokens con directivas personalizadas en Azure Active Directory B2C
 

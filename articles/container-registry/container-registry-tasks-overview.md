@@ -3,12 +3,12 @@ title: Introducción a ACR Tasks
 description: Una introducción a ACR Tasks, un conjunto de características de Azure Container Registry que proporciona compilaciones de imágenes de contenedor, administración y aplicación de revisiones automatizadas y seguras en la nube.
 ms.topic: article
 ms.date: 09/05/2019
-ms.openlocfilehash: b4710591dfd78f0633d5071c78d80e300349f498
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 96997f963f0bcb319d5318e2dd88a6e1e21fb36b
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456160"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74840772"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatización de compilaciones y mantenimiento de imágenes de contenedor con ACR Tasks
 
@@ -52,7 +52,7 @@ Aprenda a usar tareas rápidas en el primer tutorial de ACR Tasks: [Compilación
 
 ## <a name="trigger-task-on-source-code-update"></a>Desencadenamiento de una tarea al actualizar el código fuente
 
-Desencadene una compilación de imágenes de contenedor o una tarea de varios pasos cuando se confirme el código, o bien se actualice o realice una solicitud de incorporación de cambios, en un repositorio de Git en GitHub o Azure DevOps. Por ejemplo, configure una tarea de compilación con el comando [az acr task create][az-acr-task-create] de la CLI de Azure. Para ello, especifique un repositorio de GIT y, si quiere, una rama y un archivo Dockerfile. Cuando el equipo actualiza el código en el repositorio, un webhook creado por ACR Tasks desencadena una compilación de la imagen de contenedor definida en el repositorio. 
+Desencadene una compilación de imágenes de contenedor o una tarea de varios pasos cuando se confirme el código o bien se actualice o realice una solicitud de incorporación de cambios, en un repositorio de Git público o privado en GitHub o Azure DevOps. Por ejemplo, configure una tarea de compilación con el comando [az acr task create][az-acr-task-create] de la CLI de Azure. Para ello, especifique un repositorio de GIT y, si quiere, una rama y un archivo Dockerfile. Cuando el equipo actualiza el código en el repositorio, un webhook creado por ACR Tasks desencadena una compilación de la imagen de contenedor definida en el repositorio. 
 
 ACR Tasks admite los siguientes desencadenadores cuando establece un repositorio de GIT como el contexto de la tarea:
 
@@ -61,7 +61,10 @@ ACR Tasks admite los siguientes desencadenadores cuando establece un repositorio
 | Confirmación | Sí |
 | Solicitud de incorporación de cambios | Sin |
 
-Para configurar el desencadenador, debe proporcionar a la tarea un token de acceso personal (PAT) para establecer el webhook en el repositorio de GitHub o Azure DevOps.
+Para configurar el desencadenador de actualización de código fuente, debe proporcionar un token de acceso personal (PAT) a la tarea para establecer el webhook en el repositorio de GitHub público o privado o el repositorio de Azure DevOps.
+
+> [!NOTE]
+> Actualmente, ACR Tasks no admite desencadenadores de solicitud de confirmación o de extracción en repositorios de GitHub Enterprise.
 
 Aprenda a desencadenar compilaciones tras la confirmación del código fuente en el segundo tutorial de ACR Tasks: [Automatización de compilaciones de imágenes de contenedor con Azure Container Registry Tasks](container-registry-tutorial-build-task.md).
 
@@ -116,17 +119,20 @@ En la tabla siguiente se muestran algunos ejemplos de ubicaciones de contexto ad
 | Ubicación de contexto | DESCRIPCIÓN | Ejemplo |
 | ---------------- | ----------- | ------- |
 | Sistema de archivos local | Archivos en un directorio en el sistema de archivos local. | `/home/user/projects/myapp` |
-| Rama maestra de GitHub | Archivos dentro de la rama maestra (u otra predeterminada) de un repositorio de GitHub.  | `https://github.com/gituser/myapp-repo.git` |
-| Rama de GitHub | Rama específica de un repositorio de GitHub.| `https://github.com/gituser/myapp-repo.git#mybranch` |
-| Subcarpeta de GitHub | Archivos en una subcarpeta en un repositorio de GitHub. En el ejemplo se muestra la combinación de una rama y una especificación de subcarpeta. | `https://github.com/gituser/myapp-repo.git#mybranch:myfolder` |
-| Subcarpeta de Azure DevOps | Archivos en una subcarpeta en un repositorio de Azure. En el ejemplo se muestra la combinación de una rama y una especificación de subcarpeta. | `https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder` |
+| Rama maestra de GitHub | Archivos dentro de la rama maestra (u otra predeterminada) de un repositorio de GitHub público o privado.  | `https://github.com/gituser/myapp-repo.git` |
+| Rama de GitHub | Rama específica de un repositorio de GitHub público o privado.| `https://github.com/gituser/myapp-repo.git#mybranch` |
+| Subcarpeta de GitHub | Archivos en una subcarpeta en un repositorio de GitHub público o privado. En el ejemplo se muestra la combinación de una rama y una especificación de subcarpeta. | `https://github.com/gituser/myapp-repo.git#mybranch:myfolder` |
+| Subcarpeta de Azure DevOps | Archivos en una subcarpeta en un repositorio de Azure público o privado. En el ejemplo se muestra la combinación de una rama y una especificación de subcarpeta. | `https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder` |
 | Tarball remoto | Archivos en un archivo comprimido en un servidor web remoto. | `http://remoteserver/myapp.tar.gz` |
+
+> [!NOTE]
+> Al usar un repositorio de Git privado como contexto para una tarea, debe proporcionar un token de acceso personal (PAT).
 
 ## <a name="image-platforms"></a>Plataformas de imagen
 
 De forma predeterminada, ACR Tasks compila imágenes para el sistema operativo Linux y la arquitectura AMD64. Especifique la etiqueta `--platform` para compilar imágenes de Windows o imágenes de Linux para otras arquitecturas. Especifique el sistema operativo y, opcionalmente, una arquitectura admitida en formato de arquitectura o sistema operativo (por ejemplo,`--platform Linux/arm`). En el caso de las arquitecturas ARM, especifique opcionalmente una variante en formato de sistema operativo,arquitectura o variante (por ejemplo,`--platform Linux/arm64/v8`):
 
-| OS | Arquitectura|
+| SO | Arquitectura|
 | --- | ------- | 
 | Linux | AMD64<br/>ARM<br/>ARM64<br/>386 |
 | Windows | AMD64 |

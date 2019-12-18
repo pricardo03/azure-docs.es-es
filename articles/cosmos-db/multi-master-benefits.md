@@ -1,17 +1,17 @@
 ---
 title: Ventajas de la arquitectura multimaestro de Azure Cosmos DB
-description: Descripción de las ventajas de la arquitectura multimaestro de Azure Cosmos DB.
+description: Conozca las ventajas de la arquitectura multimaestro en Azure Cosmos DB, la comparación de latencia y los requisitos de Acuerdo de Nivel de Servicio en ubicaciones de escritura únicas y múltiples.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/08/2019
+ms.date: 12/02/2019
 ms.author: mjbrown
-ms.openlocfilehash: c78e5e4f8d396d777738bddfd6baf086c0b2ecf4
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: b21b6ba82ba1ada0103501b8beeca270df86abd9
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67788583"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872016"
 ---
 # <a name="understand-multi-master-benefits-in-azure-cosmos-db"></a>Descripción de las ventajas de la arquitectura multimaestro de Azure Cosmos DB
 

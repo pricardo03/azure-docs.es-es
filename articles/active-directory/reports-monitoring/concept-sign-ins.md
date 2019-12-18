@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 12/03/2019
+ms.date: 12/09/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 706cc38c997c91efc890b213444ff779eb86d5c1
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: dc996c7b5d8a63834f548689c83f7a72685120d2
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74805265"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951180"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Informes de actividad de inicio de sesión en el portal de Azure Active Directory
 
@@ -79,7 +79,7 @@ Puede personalizar la vista de lista, haga clic en **Columnas** en la barra de h
 
 ![Actividad de inicio de sesión](./media/concept-sign-ins/19.png "Actividad de inicio de sesión")
 
-Muestra los campos adicionales o quita los campos que ya se están mostrando.
+En el cuadro de diálogo **Columnas** se proporciona acceso a los atributos seleccionables. En un informe de inicio de sesión, solo puede tener atributos que no tengan una relación de uno a varios con otros atributos como columna.
 
 ![Actividad de inicio de sesión](./media/concept-sign-ins/columns.png "Actividad de inicio de sesión")
 

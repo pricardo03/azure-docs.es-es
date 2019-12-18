@@ -3,12 +3,12 @@ title: Referencia de host.json para Azure Functions 1.x
 description: Documentación de referencia para el archivo host.json de Azure Functions con el entorno en tiempo de ejecución de la versión 1.
 ms.topic: conceptual
 ms.date: 10/19/2018
-ms.openlocfilehash: 99a571483086343d4e7d6188b2f401abc616c1bb
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 256cd47fa0f309bef46c7f72951810d5f76d0fba
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230589"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975472"
 ---
 # <a name="hostjson-reference-for-azure-functions-1x"></a>Referencia de host.json para Azure Functions 1.x
 
@@ -19,7 +19,7 @@ ms.locfileid: "74230589"
 El archivo de metadatos *host.json* contiene las opciones de configuración global que afectan a todas las funciones de dicha aplicación de función. En este artículo se incluye una lista de las opciones de configuración disponibles para el entorno en tiempo de ejecución de la versión 1. El esquema JSON está en http://json.schemastore.org/host.
 
 > [!NOTE]
-> Este artículo trata sobre Azure Functions 1.x.  Para obtener una referencia de host.json en Functions 2.x, consulte la [referencia de host.json para Azure Functions, versión 2.x](functions-host-json.md).
+> Este artículo trata sobre Azure Functions 1.x.  Para obtener una referencia de host.json en Functions 2.x y versiones posteriores, consulte [Referencia de host.json para Azure Functions 2.x](functions-host-json.md).
 
 Otras opciones de configuración de aplicación de función se administran en su [configuración de la aplicación](functions-app-settings.md).
 

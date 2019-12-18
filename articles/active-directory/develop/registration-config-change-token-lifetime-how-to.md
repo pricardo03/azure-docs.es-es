@@ -1,5 +1,5 @@
 ---
-title: Modificación de los valores predeterminados de vigencia de los tokens en una aplicación personalizada | Microsoft Docs
+title: Cambio de los valores predeterminados de vigencia del token para aplicaciones personalizadas de Azure AD | Microsoft Docs
 description: Aprenda a actualizar las directivas de vigencia de los tokens para la aplicación que está desarrollando en Azure AD
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 04/08/2019
 ms.author: ryanwi
 ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8dd69ff41c890c654fc41bb601b17d135ff0e984
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: a603be6d57581541c0868b9f48a0bf9997cadd71
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68320941"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74962838"
 ---
 # <a name="how-to-change-the-token-lifetime-defaults-for-a-custom-developed-application"></a>Modificación de los valores predeterminados de vigencia de los tokens en una aplicación personalizada
 
@@ -36,4 +36,3 @@ En este artículo se muestra cómo usar Azure AD PowerShell para establecer un
 
 * Consulte [Configurable token lifetimes in Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-configurable-token-lifetimes) (Duraciones de tokens configurables) para aprender a configurar las duraciones de los tokens generadas por Azure AD, lo que incluye cómo establecer las duraciones de los tokens de todas las aplicaciones de su organización, de una aplicación multiinquilino o de una entidad de servicio concreta de su organización. 
 * [Referencia de tokens de Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims)
-

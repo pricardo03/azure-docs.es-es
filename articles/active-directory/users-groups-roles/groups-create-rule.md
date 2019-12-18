@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c487ed02abda652a384f2f295c3edac4b56fc654
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 7e8ce4f2fbdffc46d18a5f94496e9433c01a65fb
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74027242"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900955"
 ---
 # <a name="create-a-dynamic-group-and-check-status"></a>Creación de un grupo dinámico y comprobación de su estado
 
@@ -47,10 +47,10 @@ Para ver ejemplos de sintaxis, propiedades admitidas, operadores y valores de un
 ## <a name="to-create-a-group-membership-rule"></a>Para crear una regla de pertenencia a grupo, siga estos pasos:
 
 1. Inicie sesión en el [Centro de administración de Azure AD](https://aad.portal.azure.com) con una cuenta de administrador global, administrador de Intune o administrador de usuarios en el inquilino.
-1. Seleccione **Grupos**.
+1. Busque y seleccione **Grupos**.
 1. Seleccione **Todos los grupos** y, luego, **Nuevo grupo**.
 
-   ![Selección del comando para agregar nuevo grupo](./media/groups-create-rule/new-group-creation.png)
+   ![Selección del comando para agregar nuevo grupo](./media/groups-create-rule/create-new-group-azure-active-directory.png)
 
 1. En la página **Grupo**, escriba un nombre y una descripción para el nuevo grupo. Seleccione un **tipo de pertenencia** para los usuarios o dispositivos y, luego, seleccione **Agregar una consulta dinámica**. El generador de reglas admite hasta cinco expresiones. Para agregar más de cinco expresiones, debe usar el cuadro de texto.
 
@@ -88,7 +88,7 @@ Los mensajes de estado siguientes se pueden mostrar para el estado **Última act
 - **En curso**: las actualizaciones están actualmente en curso.
 - **Desconocido**: no se puede recuperar la hora de la última actualización. El grupo podría ser nuevo.
 
-Si se produce un error al procesar la regla de pertenencia para un grupo específico, se muestra una alerta en la parte superior de la **página de información general** del grupo. Si no se puede procesar ninguna actualización de pertenencia dinámica pendiente para todos los grupos del inquilino durante más de 24 horas, se muestra una alerta en la parte superior de **Todos los grupos**.
+Si se produce un error al procesar la regla de pertenencia para un grupo específico, se muestra una alerta en la parte superior de la **página de información general** del grupo. Si no se puede procesar ninguna actualización de pertenencia dinámica pendiente para todos los grupos del inquilino durante más de 24 horas, se muestra una alerta en la parte superior de **Todos los grupos**.
 
 ![alertas de mensajes de error de procesamiento](./media/groups-create-rule/processing-error.png)
 

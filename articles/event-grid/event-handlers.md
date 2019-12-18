@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: spelluru
-ms.openlocfilehash: 279d7f2ac6481f3aa3ebd8e5a18a52b9e52f6201
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: c88ef8c3996b1e7d998d3eff12c15077ec2482ff
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74169315"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900728"
 ---
 # <a name="event-handlers-in-azure-event-grid"></a>Controladores de eventos de Azure Event Grid
 
@@ -79,7 +79,7 @@ Use Logic Apps para automatizar los procesos de negocios para responder a evento
 
 Puede redirigir los eventos de Event Grid directamente a las colas de Service Bus para usarlos en escenarios de almacenamiento en búfer o comando y control en aplicaciones empresariales.
 
-En Azure Portal, al crear una suscripción de eventos, seleccione "Cola de Service Bus" como tipo de punto de conexión y, a continuación, haga clic en "Seleccionar un punto de conexión" para elegir una cola de Service Bus.
+En Azure Portal, al crear una suscripción de eventos, seleccione "Cola de Service Bus" como tipo de punto de conexión y, a continuación, haga clic en "Seleccionar un punto de conexión" para elegir una cola de Service Bus.
 
 #### <a name="using-cli-to-add-a-service-bus-queue-handler"></a>Uso de la CLI para agregar un controlador de colas de Service Bus
 

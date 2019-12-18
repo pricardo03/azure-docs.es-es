@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/12/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 9b0602f526991be37b7a9cce1d621dc2138dec48
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 3071effeb2d5eeaafc48fd742559b093a0517c1c
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279133"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851679"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>Uso del portal para conectar un disco de datos a una máquina virtual Linux 
 En este artículo se muestra cómo adjuntar discos nuevos y existentes a una máquina virtual Linux a través del Portal de Azure. También puede [adjuntar un disco de datos a una máquina virtual con Windows en Azure Portal](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
@@ -33,10 +33,9 @@ Antes de conectar discos a la VM, revise estas sugerencias:
 
 
 ## <a name="find-the-virtual-machine"></a>Búsqueda de la máquina virtual
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
-2. En el menú de la izquierda, haga clic en **Máquinas virtuales**.
-3. Seleccione la máquina virtual en la lista.
-4. En la página Máquinas virtuales, en **Essentials**, haga clic en **Discos**.
+1. Vaya a [Azure Portal](https://portal.azure.com/) para encontrar la máquina virtual. Busque y seleccione **Máquinas virtuales**.
+2. Seleccione la VM en la lista.
+3. En la barra lateral de la página **Máquinas virtuales**, en **configuración**, elija **Discos**.
    
     ![Abrir configuración de disco](./media/attach-disk-portal/find-disk-settings.png)
 

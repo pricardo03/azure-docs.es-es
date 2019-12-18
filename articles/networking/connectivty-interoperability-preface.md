@@ -10,26 +10,26 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
-ms.openlocfilehash: 8be546c5dba4c6c694c8cef03a4bdd6005d68189
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0cbd4b620a03ed26e95679cf7cb1abef277a9471
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60811101"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873802"
 ---
 # <a name="interoperability-in-azure-back-end-connectivity-features-test-setup"></a>Interoperabilidad de las características de conectividad del back-end de Azure: Prueba de configuración
 
 En este artículo se describe una configuración de prueba que permite analizar cómo los servicios de redes de Azure interactúan en el nivel del plano de control y en el nivel del plano de datos. Echemos un vistazo a los componentes de red de Azure:
 
--   **Azure ExpressRoute**: use el emparejamiento privado de Azure ExpressRoute para conectar directamente espacios IP privados de la red local a las implementaciones de la red virtual de Azure. ExpressRoute puede ayudarle a lograr un ancho de banda mayor y una conexión privada. Muchos asociados de ExpressRoute ofrecen conectividad de ExpressRoute con contratos de nivel de servicio. Para obtener más información acerca de ExpressRoute y aprender a configurarlo, vea [Información general sobre ExpressRoute][ExpressRoute].
--   **VPN de sitio a sitio**: puede usar Azure VPN Gateway como una VPN de sitio a sitio para conectar de forma segura una red local a Azure a través de Internet o ExpressRoute. Para obtener información acerca de cómo configurar una VPN de sitio a sitio para conectarse a Azure,vea [Configure VPN Gateway][VPN] (Configurar VPN Gateway).
--   **Emparejamiento de VNET**: use el emparejamiento de red virtual (VNet) para establecer conectividad entre las redes virtuales de Azure Virtual Network. Para obtener más información sobre el emparejamiento de VNET, vea [el tutorial acerca del emparejamiento de redes virtuales][VNet].
+-   **Azure ExpressRoute**: use el emparejamiento privado de Azure ExpressRoute para conectar directamente espacios IP privados de la red local a las implementaciones de la red virtual de Azure. ExpressRoute puede ayudarle a lograr un ancho de banda mayor y una conexión privada. Muchos asociados de ExpressRoute ofrecen conectividad de ExpressRoute con contratos de nivel de servicio. Para más información acerca de ExpressRoute y su configuración, consulte [Información general sobre ExpressRoute][ExpressRoute].
+-   **VPN de sitio a sitio**: puede usar Azure VPN Gateway como una VPN de sitio a sitio para conectar de forma segura una red local a Azure a través de Internet o ExpressRoute. Para más información acerca de cómo configurar una VPN de sitio a sitio para conectarse a Azure, consulte [Configurar VPN Gateway][VPN].
+-   **Emparejamiento de VNET**: use el emparejamiento de red virtual (VNet) para establecer conectividad entre las redes virtuales de Azure Virtual Network. Para más información sobre el emparejamiento de VNET, consulte el [tutorial acerca del emparejamiento de redes virtuales][VNet].
 
 ## <a name="test-setup"></a>Prueba de configuración
 
 En la siguiente ilustración se muestra la configuración de prueba:
 
-[![1]][1]
+![1][1]
 
 La pieza central de la configuración de prueba es la red virtual del concentrador en la región 1 de Azure. La red virtual del concentrador se conecta a otras redes de las siguientes maneras:
 
@@ -71,11 +71,11 @@ Para más información, consulte [¿Qué es VPN Gateway?][VPN] e [Implementació
 
 Obtenga información acerca de los [detalles de configuración][Configuration] de la topología de prueba.
 
-Obtenga información acerca del [análisis del plano de control][Control-Analysis] de la configuración de prueba y de las vistas de otras redes virtuales y VLAN de la topología.
+Más información acerca del [análisis del plano de control][Control-Analysis] de la configuración de prueba y de las vistas de otras redes virtuales y VLAN de la topología.
 
 Obtenga información acerca del [análisis del plano de datos][Data-Analysis] de la configuración de prueba y de las vistas de las características de supervisión de red de Azure.
 
-Consulte [P+F de ExpressRoute][ExR-FAQ] para obtener información acerca de:
+Consulte las [preguntas más frecuentes de ExpressRoute][ExR-FAQ] para información acerca de:
 -   Cuántos circuitos de ExpressRoute puede conectar a una puerta de enlace de ExpressRoute.
 -   Cuántas puertas de enlace de ExpressRoute puede conectar a un circuito de ExpressRoute.
 -   Los límites de escala de ExpressRoute.

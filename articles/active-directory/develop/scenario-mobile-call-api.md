@@ -1,5 +1,5 @@
 ---
-title: 'Aplicación móvil que llama a las API web: llamada a una API web'
+title: Llamada a una API web desde una aplicación móvil | Azure
 titleSuffix: Microsoft identity platform
 description: 'Obtenga información sobre cómo compilar una aplicación móvil que llama a las API web: llamada a una API web'
 services: active-directory
@@ -17,12 +17,12 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e70b828219fc497fc07e2bc128eb480a532a176
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: db58f94501590eb3150700d282377ec1b2378cea
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802554"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74962549"
 ---
 # <a name="mobile-app-that-calls-web-apis---call-a-web-api"></a>Aplicación móvil que llama a las API web: llamada a una API web
 

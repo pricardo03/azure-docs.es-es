@@ -1,17 +1,17 @@
 ---
 title: Administración de directivas de indexación en Azure Cosmos DB
-description: Aprenda a administrar directivas de indexación en Azure Cosmos DB
+description: Obtenga información sobre cómo administrar directivas de indexación, incluir o excluir una propiedad de la indexación y cómo definir la indexación mediante diferentes SDK de Azure Cosmos DB.
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/28/2019
+ms.date: 12/02/2019
 ms.author: thweiss
-ms.openlocfilehash: 46d0124eb701b0c2d779a96c8efd50ba43e8fc07
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: 3b98975df194af4625087e1beb556efb2a347f43
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72034457"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872067"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Administración de directivas de indexación en Azure Cosmos DB
 

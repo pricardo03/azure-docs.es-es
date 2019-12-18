@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/29/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: eeb1dc44341768984bd6e337a2fe65a277f5aa77
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 1ae8645f3e782305ed5e1b7847b019a978e48dde
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73581212"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977784"
 ---
 # <a name="protect-your-content-with-media-services-dynamic-encryption"></a>Protección del contenido mediante el cifrado dinámico de Media Services
 
@@ -245,7 +245,10 @@ streamingPolicy.EnvelopEncryption.customKeyAcquisitionUrlTemplate = "https://myk
 
 `ContentKeyId` tiene un valor de la clave solicitada. Puede usar el identificador `AlternativeMediaId` si desea asignar la solicitud a una entidad en su lado. Por ejemplo, `AlternativeMediaId` se puede usar para ayudarle a buscar los permisos.
 
- Para ejemplos de REST que utilizan direcciones URL de adquisición de claves y licencias personalizadas, consulte [Directivas de streaming: creación](https://docs.microsoft.com/rest/api/media/streamingpolicies/create).
+Para ejemplos de REST que utilizan direcciones URL de adquisición de claves y licencias personalizadas, consulte [Directivas de streaming: creación](https://docs.microsoft.com/rest/api/media/streamingpolicies/create).
+
+> [!NOTE]
+> Widevine es un servicio que ofrece Google Inc. y está sujeto a los términos del servicio y la directiva de privacidad de Google, Inc.
 
 ## <a name="troubleshoot"></a>Solución de problemas
 

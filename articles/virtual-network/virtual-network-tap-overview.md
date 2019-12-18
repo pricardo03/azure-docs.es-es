@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2019
 ms.author: kaanan
-ms.openlocfilehash: 99cd9fc1da009660023a246c5210e7f54bdebcfd
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: f287d3782148ca48a0367fa2a6a9a346a0299684
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177428"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931341"
 ---
 # <a name="virtual-network-tap"></a>Virtual Network TAP
 
@@ -52,7 +52,7 @@ Azure Virtual Network TAP (punto de acceso del terminal) permite transmitir en s
 - [NetWitness® Platform de RSA](https://www.rsa.com/azure)
 - [Cognito de Vectra](https://vectra.ai/microsoftazure)
 
-En la siguiente imagen se muestra cómo funciona Virtual Network TAP. Puede agregar una configuración de TAP en una [interfaz de red](virtual-network-network-interface.md) adjunta a una máquina virtual implementada en la red virtual. El destino es una dirección IP de red virtual en la misma red virtual que la interfaz de red supervisada o una red [virtual emparejada](virtual-network-peering-overview.md). La solución del recopilador para Virtual Network TAP se puede implementar detrás de un [equilibrador de carga interno de Azure](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#concepts) para lograr alta disponibilidad. Para evaluar las opciones de implementación para una solución individual, consulte las [soluciones de partners](#virtual-network-tap-partner-solutions).
+En la siguiente imagen se muestra cómo funciona Virtual Network TAP. Puede agregar una configuración de TAP en una [interfaz de red](virtual-network-network-interface.md) adjunta a una máquina virtual implementada en la red virtual. El destino es una dirección IP de red virtual en la misma red virtual que la interfaz de red supervisada o una red [virtual emparejada](virtual-network-peering-overview.md). La solución del recopilador para el punto de acceso de terminal de red virtual se puede implementar detrás de un equilibrador de carga interno de Azure para lograr alta disponibilidad. Para evaluar las opciones de implementación para una solución individual, consulte las [soluciones de partners](#virtual-network-tap-partner-solutions).
 
 ![Cómo funciona Virtual Network TAP](./media/virtual-network-tap/architecture.png)
 

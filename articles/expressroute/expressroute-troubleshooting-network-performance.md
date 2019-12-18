@@ -1,5 +1,5 @@
 ---
-title: 'Solución de problemas de rendimiento de red virtual: Azure | Microsoft Docs'
+title: 'Solución de problemas de rendimiento en los vínculos de red: Azure'
 description: En esta página se proporciona un método de prueba normalizado del rendimiento de vínculos de red de Azure.
 services: expressroute
 author: tracsman
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/20/2017
 ms.author: jonor
 ms.custom: seodec18
-ms.openlocfilehash: 9ec310ffaa9d2bb297abde9341bf7b6c2dc763b4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bb68919fba731caa32dcca3f4c991b8881afc6f9
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60883340"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74869653"
 ---
 # <a name="troubleshooting-network-performance"></a>Solución de problemas de rendimiento de red
 ## <a name="overview"></a>Información general
@@ -28,7 +28,7 @@ En este documento se explica cómo puede probar la latencia de red y el ancho de
 
 ## <a name="network-components"></a>Componentes de red
 Antes de adentrarnos en la solución de problemas, veamos algunos componentes y términos comunes. Esta explicación garantiza que estamos pensando en cada componente de la cadena de un extremo a otro que permite la conectividad en Azure.
-[![1]][1]
+![1][1]
 
 En el nivel más alto, describo los tres dominios de enrutamiento de red principales:
 
@@ -59,7 +59,7 @@ La mayoría de los problemas de red se pueden analizar y aislar con herramientas
 He encapsulado todas estas herramientas y métodos en un módulo de PowerShell (AzureCT) que puede instalar y usar.
 
 ### <a name="azurect---the-azure-connectivity-toolkit"></a>AzureCT (Azure Connectivity Toolkit)
-El módulo AzureCT PowerShell tiene dos componentes: [pruebas de disponibilidad][Availability Doc] y [pruebas de rendimiento][Performance Doc]. En este documento solo se tratan las pruebas de rendimiento, por lo que vamos a centrarnos en dos comandos para medir el rendimiento de los vínculos en este módulo de PowerShell.
+El módulo AzureCT de PowerShell tiene dos componentes: [pruebas de disponibilidad][Availability Doc] y [pruebas de rendimiento][Performance Doc]. En este documento solo se tratan las pruebas de rendimiento, por lo que vamos a centrarnos en dos comandos para medir el rendimiento de los vínculos en este módulo de PowerShell.
 
 Hay tres pasos básicos para usar este kit de herramientas para pruebas de rendimiento. 1) Instalación del módulo de PowerShell, 2) Instalación de las aplicaciones auxiliares iPerf y PSPing y 3) Ejecución de la prueba de rendimiento.
 
@@ -93,7 +93,7 @@ Hay tres pasos básicos para usar este kit de herramientas para pruebas de rendi
 
     El formato del resultado de PowerShell tiene un aspecto similar al siguiente:
 
-    [![4]][4]
+    ![4][4]
 
     Los resultados detallados de todas las pruebas de iPerf y PSPing están en archivos de texto individuales en el directorio de herramientas de AzureCT en "C:\ACTTools".
 
@@ -118,7 +118,7 @@ Además, no olvide examinar otras capas del modelo OSI. Es fácil centrarse en l
 ## <a name="advanced-expressroute-troubleshooting"></a>Solución avanzada de problemas de ExpressRoute
 Si no está seguro de dónde está realmente el perímetro de la nube, aislar los componentes de Azure puede ser un desafío. Cuando se utiliza ExpressRoute, el perímetro es un componente de red llamado Microsoft Enterprise Edge (MSEE). **Al usar ExpressRoute**, MSEE es el primer punto de contacto en la red de Microsoft y el último salto que sale de la red de Microsoft. Al crear un objeto de conexión entre la puerta de enlace de red virtual y el circuito ExpressRoute, lo que se hace realmente es establecer una conexión a MSEE. Reconocer MSEE en el primer o último salto (según la dirección que siga) es fundamental para aislar los problemas de la red de Azure, a fin de demostrar que el problema está en Azure o en un nivel inferior en la red WAN o corporativa. 
 
-[![2]][2]
+![2][2]
 
 >[!NOTE]
 > Tenga en cuenta que MSEE no se encuentra en la nube de Azure. ExpressRoute realmente se encuentra en el perímetro de la red de Microsoft, y no en Azure. Una vez conectado a ExpressRoute para una instancia de MSEE, se establece la conexión con la red de Microsoft, desde donde puede acceder a cualquier servicio en la nube, como Office 365 (con el Emparejamiento de Microsoft) o Azure (con el emparejamiento privado o el Emparejamiento de Microsoft).
@@ -169,7 +169,7 @@ Configuración de la prueba:
  - Los datos de la columna "Latencia" resultan de la prueba sin carga (una prueba de latencia de TCP sin la ejecución de iPerf).
  - Los datos de la columna "Ancho de banda máx." proceden de la prueba de carga del flujo de TCP 16 con un tamaño de ventana de 1 Mb.
 
-[![3]][3]
+![3][3]
 
 ### <a name="latencybandwidth-results"></a>Resultados de latencia y ancho de banda
 >[!IMPORTANT]
@@ -179,14 +179,14 @@ Configuración de la prueba:
 
 | | | | | | |
 |-|-|-|-|-|-|
-|ExpressRoute<br/>Ubicación|Azure<br/>Region|Estimación<br/>Distancia (km)|Latencia|1 Sesión<br/>Ancho de banda|Máxima<br/>Ancho de banda|
+|ExpressRoute<br/>Location|Azure<br/>Region|Estimación<br/>Distancia (km)|Latencia|1 Sesión<br/>Ancho de banda|Máxima<br/>Ancho de banda|
 | Seattle | Oeste de EE. UU. 2        |    191 km |   5 ms | 262,0 Mbits/s |  3,74 Gbits/s |
 | Seattle | Oeste de EE. UU.          |  1094 km |  18 ms |  82,3 Mbits/s |  3,70 Gbits/s |
 | Seattle | Centro de EE. UU.       |  2357 km |  40 ms |  38,8 Mbits/s |  2,55 Gbits/s |
 | Seattle | Centro-Sur de EE. UU |  2877 km |  51 ms |  30,6 Mbits/s |  2,49 Gbits/s |
 | Seattle | Centro-Norte de EE. UU |  2792 km |  55 ms |  27,7 Mbits/s |  2,19 Gbits/s |
 | Seattle | Este de EE. UU. 2        |  3769 km |  73 ms |  21,3 Mbits/s |  1,79 Gbits/s |
-| Seattle | Este de EE. UU          |  3699 km |  74 ms |  21,1 Mbits/s |  1,78 Gbits/s |
+| Seattle | East US          |  3699 km |  74 ms |  21,1 Mbits/s |  1,78 Gbits/s |
 | Seattle | Este de Japón       |  7705 km | 106 ms |  14,6 Mbits/s |  1,22 Gbits/s |
 | Seattle | Sur de Reino Unido 2         |  7708 km | 146 ms |  10,6 Mbits/s |   896 Mbits/s |
 | Seattle | Europa occidental      |  7834 km | 153 ms |  10,2 Mbits/s |   761 Mbits/s |
@@ -204,7 +204,7 @@ Configuración de la prueba:
 <!--Image References-->
 [1]: ./media/expressroute-troubleshooting-network-performance/network-components.png "Componentes de la red de Azure"
 [2]: ./media/expressroute-troubleshooting-network-performance/expressroute-troubleshooting.png "Solución de problemas de ExpressRoute"
-[3]: ./media/expressroute-troubleshooting-network-performance/test-diagram.png "Entorno de pruebas de rendimiento"
+[3]: ./media/expressroute-troubleshooting-network-performance/test-diagram.png "Entorno de prueba de Perf"
 [4]: ./media/expressroute-troubleshooting-network-performance/powershell-output.png "Salida de PowerShell"
 
 <!--Link References-->

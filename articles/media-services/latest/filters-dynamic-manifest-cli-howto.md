@@ -1,6 +1,6 @@
 ---
 title: Uso de la CLI para crear filtros con Azure Media Services| Microsoft Docs
-description: En este tema se muestra cómo usar la CLI para crear filtros con Media Services.
+description: En este artículo se muestra cómo usar la CLI para crear filtros con Azure Media Services v3.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/13/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 26350479f0f066f45c143e1a35061b3a409de309
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: 74516aa921e45917f327a193a1c972b021c9c8ff
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67786489"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896069"
 ---
 # <a name="creating-filters-with-cli"></a>Creación de filtros con la CLI 
 
@@ -102,7 +102,7 @@ Vea también la sección de [ejemplos de JSON para los filtros](https://docs.mic
 
 ## <a name="associate-filters-with-streaming-locator"></a>Asociación de filtros con localizadores de streaming
 
-Ahora puede especificar una lista de filtros de recursos o cuentas, que se aplicarían a su localizador de streaming. El [empaquetador dinámico (punto de conexión de streaming)](dynamic-packaging-overview.md) se aplica a esta lista de filtros junto con los que el cliente especifica en la dirección URL. Esta combinación se genera un [manifiesto dinámico](filters-dynamic-manifest-overview.md), que se basa en los filtros de la dirección URL y en los filtros que especifique en el localizador de streaming. Se recomienda usar esta característica si quiere aplicar filtros, pero no quiere exponer los nombres de filtro en la dirección URL.
+Ahora puede especificar una lista de filtros de cuentas o recursos, que se aplicarían a su localizador de streaming. El [empaquetado dinámico (punto de conexión de streaming)](dynamic-packaging-overview.md) se aplica a esta lista de filtros junto con los que el cliente especifica en la dirección URL. Esta combinación genera un [manifiesto dinámico](filters-dynamic-manifest-overview.md), que se basa en los filtros de la dirección URL y en los filtros que especifique en el localizador de streaming. Se recomienda usar esta característica si quiere aplicar filtros, pero no quiere exponer los nombres de filtro en la dirección URL.
 
 El siguiente código de CLI muestra cómo crear un localizador de streaming y especificar `filters`. Esta es una propiedad opcional que toma una lista separada por espacios de nombres de filtro de recursos o de nombres de cuenta de filtro.
 
@@ -130,6 +130,6 @@ En la tabla siguiente se muestran algunos ejemplos de direcciones URL con filtro
 
 [Streaming de vídeos](stream-files-tutorial-with-api.md) 
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 [CLI de Azure](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)

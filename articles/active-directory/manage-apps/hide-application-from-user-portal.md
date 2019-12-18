@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/12/2018
+ms.date: 11/26/2019
 ms.author: mimart
 ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e01c79c5cc9391922333af4e9a60ba44a6a6b13
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: be29f51771e24c67a8cd99a81e6a69be830dacb8
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74274002"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74970642"
 ---
 # <a name="hide-applications-from-end-users-in-azure-active-directory"></a>Ocultar aplicaciones de usuarios finales en Azure Active Directory
 
@@ -42,6 +42,19 @@ Siga estos pasos para ocultar una aplicación del panel MyApps y del iniciador d
 7.  Para la pregunta **¿Es visible para los usuarios?** , haga clic en **No**.
 8.  Haga clic en **Save**(Guardar).
 
+## <a name="use-azure-ad-powershell-to-hide-an-application"></a>Uso de Azure AD PowerShell para ocultar una aplicación
+
+Para ocultar una aplicación del panel Mis aplicaciones, puede agregar manualmente la etiqueta HideApp a la entidad de servicio de la aplicación. Ejecute los siguientes comandos de [Azure AD PowerShell](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#service_principals) para establecer la propiedad **¿Es visible para los usuarios?** en **No**. 
+
+```PowerShell
+Connect-AzureAD
+
+$objectId = "<objectId>"
+$servicePrincipal = Get-AzureADServicePrincipal -ObjectId $objectId
+$tags = $servicePrincipal.tags
+$tags.Add("HideApp")
+Set-AzureADServicePrincipal -ObjectId $objectId -Tags $tags
+```
 
 ## <a name="hide-office-365-applications-from-the-myapps-panel"></a>Ocultar las aplicaciones de Office 365 del panel MyApps
 
@@ -53,7 +66,6 @@ Siga estos pasos para ocultar todas las aplicaciones de Office 365 del panel MyA
 4.  En **Aplicaciones empresariales**, haga clic en **Administrar cómo los usuarios finales inician y ven sus aplicaciones**.
 5.  En **Los usuarios solo pueden ver las aplicaciones de Office 365 en el Portal de Office 365**, haga clic en **Sí**.
 6.  Haga clic en **Save**(Guardar).
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Ver todos mis grupos](../fundamentals/active-directory-groups-view-azure-portal.md)

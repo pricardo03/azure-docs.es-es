@@ -1,6 +1,6 @@
 ---
-title: 'Aplicación de escritorio que llama a las API web: paso a producción - Plataforma de identidad de Microsoft'
-description: Obtenga información sobre cómo compilar una aplicación de escritorio que llama a las API web (paso a producción)
+title: 'Paso a producción de una aplicación de escritorio que llama a las API web: Plataforma de identidad de Microsoft | Azure'
+description: Aprenda a pasar a producción una aplicación de escritorio que llama a las API web.
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -17,16 +17,16 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5331f01c5dc6acf01f567dbe4c332853bf7aa47e
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 81a5e57d0ef37a3a2e758e42f122c8e014c94958
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175554"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74919990"
 ---
 # <a name="desktop-app-that-calls-web-apis---move-to-production"></a>Aplicación de escritorio que llama a las API web: paso a producción
 
-Este artículo proporciona detalles para mejorar aún más la aplicación y moverla a producción.
+En este artículo se proporcionan detalles para pasar a producción la aplicación de escritorio que llama a las API web.
 
 ## <a name="handling-errors-in-desktop-applications"></a>Control de errores en aplicaciones de escritorio
 

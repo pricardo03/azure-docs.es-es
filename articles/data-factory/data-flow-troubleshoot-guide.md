@@ -1,18 +1,20 @@
 ---
-title: Solución de problemas de flujos de datos en Azure Data Factory
+title: Solución de problemas de flujos de datos
 description: Obtenga información acerca de la solución de problemas relacionados con flujos de datos en Azure Data Factory.
 services: data-factory
+ms.author: makromer
 author: kromerm
+manager: anandsub
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 10/08/2019
-ms.author: makromer
-ms.openlocfilehash: 1b2309ec71cb3d43f4e5a39b80db593ab201c614
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.custom: seo-lt-2019
+ms.date: 12/06/2019
+ms.openlocfilehash: b972bbeac419d88afdd257a7fd19587dbaedf0d9
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721349"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930165"
 ---
 # <a name="troubleshoot-azure-data-factory-data-flows"></a>Solución de problemas de flujos de datos en Azure Data Factory
 
@@ -83,6 +85,14 @@ En este artículo se exploran métodos comunes de solución de problemas de fluj
 - **Causa**: al leer desde un origen JSON con un solo documento en muchas líneas anidadas, ADF, a través de Spark, no puede determinar dónde comienza un nuevo documento y dónde finaliza el documento anterior.
 
 - **Resolución**: en la transformación de origen que usa un conjunto de valores JSON, expanda "JSON Settings" (Configuración de JSON) y active "Single Document" (Documento único).
+
+### <a name="error-message-duplicate-columns-found-in-join"></a>Mensaje de error: Duplicate columns found in Join (Columnas duplicadas encontradas en la combinación)
+
+- **Síntomas**: la transformación de la combinación provocó que las columnas de la izquierda y la derecha incluyan nombres de columna duplicados
+
+- **Causa**: los flujos que se combinan tienen nombres de columna comunes
+
+- **Resolución**: agregue una transformación Select después de la combinación y seleccione "Remove duplicate columns" (Quitar columnas duplicadas) para la entrada y la salida.
 
 
 ## <a name="general-troubleshooting-guidance"></a>Guía de solución de problemas generales

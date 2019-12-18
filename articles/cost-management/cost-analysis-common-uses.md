@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/16/2019
+ms.date: 12/04/2019
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: adwise
 ms.custom: ''
-ms.openlocfilehash: 01087f3e40e278490abb87d0ab3b7b6ab5052b6b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 4798b6908069af229c2bed4a2e5f38fa60e0d554
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74219490"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849112"
 ---
 # <a name="common-cost-analysis-uses"></a>Usos del análisis de costos comunes
 
@@ -64,6 +64,8 @@ Examinar los costos diarios y mensuales puede ayudarle a comprender mejor si hay
 ## <a name="view-costs-for-a-specific-tag"></a>Ver los costos de una etiqueta específica
 
 Muchos usuarios de Azure aplican etiquetas a sus recursos, como un centro de costos o un entorno de desarrollo (producción y pruebas), para clasificar mejor los cargos. Las etiquetas aparecen como una dimensión en el análisis de costos. Puede usar la dimensión para obtener información detallada sobre las categorías de etiquetas personalizadas.
+
+La compatibilidad con etiquetas se aplica al uso indicado *después* de que la etiqueta se aplicara al recurso. Las etiquetas no se aplican de forma retroactiva para los resúmenes de costos.
 
 1. En Azure Portal, vaya al análisis de los costos para su ámbito. Por ejemplo:  **Administración de costos + facturación** > **Administración de costos** > **Análisis de costos**.
 1. Seleccione **Agrupar por** para la etiqueta.

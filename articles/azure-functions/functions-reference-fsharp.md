@@ -6,19 +6,19 @@ ms.assetid: e60226e5-2630-41d7-9e5b-9f9e5acc8e50
 ms.topic: reference
 ms.date: 10/09/2018
 ms.author: syclebsc
-ms.openlocfilehash: cf080b841e5fb3bbf3b36a2629a619f77fe52ddd
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 669701f91ab28a4eb734b0346be6515dc44e8685
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226747"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975013"
 ---
 # <a name="azure-functions-f-developer-reference"></a>Referencia para desarrolladores de F# de Azure Functions
 
 F# para Azure Functions es una solución para ejecutar fácilmente pequeños fragmentos de código, o "funciones", en la nube. Los datos fluyen en la función de F# a través de los argumentos de función. Los nombres de los argumentos se especifican en `function.json`, y hay nombres predefinidos para acceder a cosas como el registrador de funciones y los tokens de cancelación. 
 
 >[!IMPORTANT]
->El script de F# (.fsx) solo es compatible con la [versión 1.x](functions-versions.md#creating-1x-apps) del tiempo de ejecución de Azure Functions. Si desea usar F# con el tiempo de ejecución de la versión 2.x, debe usar un proyecto de la biblioteca de clases (.fs) de F# precompilado. Cree, administre y publique un proyecto de la biblioteca de clases de F# con Visual Studio como lo haría con un [proyecto de la biblioteca de clases de C#](functions-dotnet-class-library.md). Para más información sobre las versiones de Functions, vea [Introducción a las versiones de tiempo de ejecución de Azure Functions](functions-versions.md).
+>El script de F# (.fsx) solo es compatible con la [versión 1.x](functions-versions.md#creating-1x-apps) del tiempo de ejecución de Azure Functions. Si desea usar F# con la versión 2.x y posteriores del entorno en tiempo de ejecución, debe utilizar un proyecto de la biblioteca de clases de F# (.fs) precompilado. Cree, administre y publique un proyecto de la biblioteca de clases de F# con Visual Studio como lo haría con un [proyecto de la biblioteca de clases de C#](functions-dotnet-class-library.md). Para más información sobre las versiones de Functions, vea [Introducción a las versiones de tiempo de ejecución de Azure Functions](functions-versions.md).
 
 En este artículo se supone que ya ha leído [Referencia para desarrolladores de Azure Functions](functions-reference.md).
 
@@ -48,7 +48,7 @@ FunctionsProject
 
 Hay un archivo [host.json](functions-host-json.md) compartido que se puede usar para configurar la aplicación de función. Cada función tiene su propio archivo de código (.fsx) y archivo de configuración de enlace (function.json).
 
-Las extensiones de enlace necesarias en la [versión 2.x](functions-versions.md) del tiempo de ejecución de Functions se definen en el archivo `extensions.csproj`, con los archivos de biblioteca de la carpeta `bin`. Al desarrollar de forma local, debe [registrar las extensiones de enlace](./functions-bindings-register.md#extension-bundles). Al desarrollar funciones en Azure Portal, este registro se realiza automáticamente.
+Las extensiones de enlace necesarias en la [versión 2.x y posteriores](functions-versions.md) del entorno en tiempo de ejecución de Functions se definen en el archivo `extensions.csproj`, con los archivos de biblioteca reales de la carpeta `bin`. Al desarrollar de forma local, debe [registrar las extensiones de enlace](./functions-bindings-register.md#extension-bundles). Al desarrollar funciones en Azure Portal, este registro se realiza automáticamente.
 
 ## <a name="binding-to-arguments"></a>Enlace a argumentos
 Cada enlace admite un conjunto de argumentos, como se detalla en [Referencias para desarrolladores de desencadenadores y enlaces de Azure Functions](functions-triggers-bindings.md). Por ejemplo, uno de los enlaces de argumento que un desencadenador de blob admite es un POCO, que se puede expresar utilizando un registro de F#. Por ejemplo:

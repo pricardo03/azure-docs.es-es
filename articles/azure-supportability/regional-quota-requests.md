@@ -7,16 +7,16 @@ ms.date: 06/07/2019
 ms.topic: article
 ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: 6c2d7dc64bca00ce664dc470e7c4405d69b49779
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 132cf6ccfec5af9951f5dc6d6a3c6d3c81363d81
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74531518"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850013"
 ---
 # <a name="standard-quota-regional-vcpu-limit-increase"></a>Cuota estándar: aumento del límite de vCPU regional 
 
-Resource Manager admite dos tipos de cuotas de vCPU para máquinas virtuales. Las **máquinas virtuales de pago por uso** y las **instancias reservadas de máquina virtual** usan la cuota estándar. Las **máquinas virtuales de prioridad baja** usan la cuota de prioridad baja. 
+Resource Manager admite dos tipos de cuotas de vCPU para máquinas virtuales. Las **máquinas virtuales de pago por uso** y las **instancias reservadas de máquina virtual** usan la cuota estándar. **Las máquinas virtuales de Spot** usan la cuota de Spot. 
 
 La cuota de vCPU estándar para las instancias reservadas de máquina virtual y de pago por uso se aplica en dos niveles para cada suscripción de cada región.
  
@@ -26,7 +26,7 @@ Cuando se crea una nueva suscripción, el total de vCPU regionales predeterminad
 
 Para más información acerca de las cuotas de vCPU estándar, consulte la [página sobre las cuotas de vCPU de máquinas virtuales](https://docs.microsoft.com/azure/virtual-machines/windows/quotas) y los [límites de suscripción y servicios de Azure](https://aka.ms/quotalimits).
 
-Más información sobre cómo **aumentar los límites de vCPU de máquina virtual de prioridad baja** [aquí](https://docs.microsoft.com/azure/azure-supportability/low-priority-quota).
+Más información sobre cómo **aumentar los límites de vCPU de máquina virtual de Spot** [aquí](https://docs.microsoft.com/azure/azure-supportability/low-priority-quota).
 
 Puede solicitar un aumento en el **límite de vCPU regional total de máquina virtual estándar** mediante la hoja **Ayuda y soporte técnico** o la hoja **Usos y cuota** en el portal.
 

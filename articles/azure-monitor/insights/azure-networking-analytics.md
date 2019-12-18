@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/21/2018
-ms.openlocfilehash: 8a8a2f32de905ab7c12f4886d889b2a6fc20c449
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 5cce4ccd3acd9df896f6c28bd010a92ed4ec1a7a
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899150"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893321"
 ---
 # <a name="azure-networking-monitoring-solutions-in-azure-monitor"></a>Soluciones de supervisión de redes de Azure en Azure Monitor
 
@@ -45,7 +45,7 @@ Para usar las soluciones:
 
 Puede habilitar los diagnósticos y la solución correspondiente solo para Application Gateway, solo para Networking Security Groups o para ambas.
 
-Si no habilita el registro de diagnósticos para un tipo de recurso en particular, pero instala la solución, las hojas de panel para ese recurso estarán en blanco y mostrarán un mensaje de error.
+Si no habilita el registro de recursos de diagnósticos para un tipo de recurso en particular, pero instala la solución, las hojas de panel de ese recurso estarán en blanco y mostrarán un mensaje de error.
 
 > [!NOTE]
 > En enero de 2017, cambió la forma de enviar registros de Application Gateway y los grupos de seguridad de red a un área de trabajo de Log Analytics. Si consulta la solución **Azure Networking Analytics (en desuso)** , remítase a la sección [Migración desde la solución Networking Analytics antigua ](#migrating-from-the-old-networking-analytics-solution) para conocer los pasos que debe seguir.
@@ -100,7 +100,7 @@ Para instalar y configurar la solución Azure Application Gateway, siga estas in
 
 #### <a name="enable-azure-network-diagnostics-using-powershell"></a>Habilitación de los diagnósticos de red de Azure con PowerShell
 
-El siguiente script de PowerShell proporciona un ejemplo de cómo habilitar el registro de diagnósticos puertas de enlace de aplicaciones.
+El siguiente script de PowerShell proporciona un ejemplo de cómo habilitar el registro de recursos para puertas de enlace de aplicaciones.
 
 ```powershell
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
@@ -141,7 +141,7 @@ En cualquiera de las páginas de búsqueda de registros, puede ver los resultado
 > La solución de análisis Grupo de seguridad de red se traslada a la compatibilidad con la comunidad ya que su funcionalidad se ha reemplazado por [Análisis de tráfico](../../network-watcher/traffic-analytics.md).
 > - La solución ahora está disponible en [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/oms-azurensg-solution/) y pronto ya no estarán disponibles en Azure Marketplace.
 > - Para los clientes existentes que ya agregaron la solución a su área de trabajo, seguirá funcionando sin cambios.
-> - Microsoft seguirá admitiendo el envío de registros de diagnóstico de grupos de seguridad de red al área de trabajo mediante Configuración de diagnóstico.
+> - Microsoft seguirá admitiendo el envío de registros de recursos de grupos de seguridad de red al área de trabajo mediante Configuración de diagnóstico.
 
 Para los grupos de seguridad de red se admiten los siguientes registros:
 
@@ -171,7 +171,7 @@ Para instalar y configurar la solución Azure Networking Analytics, siga estas i
 
 ### <a name="enable-azure-network-diagnostics-using-powershell"></a>Habilitación de los diagnósticos de red de Azure con PowerShell
 
-El siguiente script de PowerShell proporciona un ejemplo de cómo habilitar el registro de diagnósticos para grupos de seguridad de red:
+El siguiente script de PowerShell proporciona un ejemplo de cómo habilitar el registro de recursos para grupos de seguridad de red.
 ```powershell
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
 

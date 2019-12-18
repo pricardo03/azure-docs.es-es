@@ -1,20 +1,21 @@
 ---
-title: Diseño de aplicaciones de alta disponibilidad mediante almacenamiento con redundancia geográfica con acceso de lectura (RA-GZRS o RA-GRS) | Microsoft Docs
-description: Cómo usar el almacenamiento RA-GZRS o RA-GRS de Azure para diseñar una aplicación de alta disponibilidad lo bastante flexible como para enfrentarse a interrupciones.
+title: Diseño de aplicaciones de alta disponibilidad mediante almacenamiento con redundancia geográfica
+titleSuffix: Azure Storage
+description: Aprenda a usar el almacenamiento el almacenamiento con redundancia geográfica con acceso de lectura para diseñar una aplicación de alta disponibilidad lo bastante flexible como para enfrentarse a interrupciones.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/14/2019
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: a6d724f834fb8a4c54cd613c61ca90a77a36bdea
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 8cb644495d99b331ec95eb0a9759be45a65e97a6
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673113"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895338"
 ---
 # <a name="designing-highly-available-applications-using-read-access-geo-redundant-storage"></a>Diseño de aplicaciones de alta disponibilidad mediante almacenamiento con redundancia geográfica con acceso de lectura
 

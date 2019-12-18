@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 3477820cb20d856c2e979cdfbe5528113bf4b562
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 12/9/2019
+ms.openlocfilehash: ba091d05aa243fab08138c96827d2f657d9755de
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74769411"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976305"
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mariadb-by-using-the-azure-portal"></a>Configuración de parámetros del servidor en Azure Database for MariaDB mediante Azure Portal
 
@@ -37,21 +37,21 @@ La lista de parámetros del servidor admitidos crece constantemente. Use la pest
 
 El grupo de búferes de InnoDB y el número máximo de conexiones no son configurables y están vinculados a su [plan de tarifa](concepts-pricing-tiers.md).
 
-|**Plan de tarifa**| **Núcleos virtuales**|**Grupo de búferes InnoDB (MB)**| **Conexiones máximas**|
-|---|---|---|---|
-|Básica| 1| 1024| 50|
-|Básica| 2| 2560| 100|
-|Uso general| 2| 3584| 300|
-|Uso general| 4| 7680| 625|
-|Uso general| 8| 15360| 1250|
-|Uso general| 16| 31232| 2\.500|
-|Uso general| 32| 62976| 5000|
-|Uso general| 64| 125952| 10000|
-|Memoria optimizada| 2| 7168| 600|
-|Memoria optimizada| 4| 15360| 1250|
-|Memoria optimizada| 8| 30720| 2\.500|
-|Memoria optimizada| 16| 62464| 5000|
-|Memoria optimizada| 32| 125952| 10000|
+|**Plan de tarifa**| **Núcleos virtuales**|**Grupo de búferes InnoDB (MB)**|
+|---|---|---|
+|Básica| 1| 1024|
+|Básica| 2| 2560|
+|Uso general| 2| 3584|
+|Uso general| 4| 7680|
+|Uso general| 8| 15360|
+|Uso general| 16| 31232|
+|Uso general| 32| 62976|
+|Uso general| 64| 125952|
+|Memoria optimizada| 2| 7168|
+|Memoria optimizada| 4| 15360|
+|Memoria optimizada| 8| 30720|
+|Memoria optimizada| 16| 62464|
+|Memoria optimizada| 32| 125952|
 
 Estos parámetros adicionales del servidor no son configurables en el sistema:
 
@@ -77,6 +77,8 @@ Las tablas de la zona horaria del servidor se pueden rellenar mediante una llama
 CALL mysql.az_load_timezone();
 ```
 
+> [!IMPORTANT]
+> Debe reiniciar el servidor para asegurarse de que las tablas de zona horaria se rellenen correctamente. Para reiniciar el servidor, use [Azure Portal](howto-restart-server-portal.md) o la [CLI](howto-restart-server-cli.md).
 Para ver los valores de zonas horarias disponibles, ejecute el comando siguiente:
 
 ```sql

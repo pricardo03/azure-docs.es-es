@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 6f6aa90553f3a69d2d287c7d59e166884a1a8f66
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 15db96824336c92611b9e1113c42c621f6508744
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113733"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978124"
 ---
 # <a name="soft-delete-for-azure-storage-blobs"></a>Eliminación temporal de blobs de Azure Storage
 
@@ -152,7 +152,17 @@ En los pasos siguientes se muestra cómo empezar a trabajar con la eliminación 
 
 # <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
-Para habilitar la eliminación temporal, vaya a la opción **Eliminación temporal** de **Blob Service**. Luego, haga clic en **Habilitado** y escriba el número de días que desea conservar los datos que se han eliminado temporalmente.
+Habilite la eliminación temporal de blobs en la cuenta de almacenamiento mediante Azure Portal:
+
+1. En [Azure Portal](https://portal.azure.com/), seleccione la cuenta de almacenamiento. 
+
+2. Vaya a la opción **Protección de datos** en **Blob service**.
+
+3. Haga clic en **Habilitado** en **Eliminación temporal del blob**
+
+4. Escriba el número de días en *Retener durante* en **Directivas de retención**
+
+5. Elija el botón **Guardar** para confirmar la configuración de protección de datos.
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-portal-configuration.png)
 

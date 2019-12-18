@@ -1,19 +1,19 @@
 ---
-title: Exploración de los registros de seguimiento de .NET en Azure Application Insights con ILogger
+title: 'Exploración de los registros de seguimiento de .NET con ILogger: Azure Application Insights'
 description: Ejemplos de uso del proveedor ILogger para Azure Application Insights con aplicaciones de ASP.NET Core y de consola.
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
-author: cijothomas
-ms.author: cithomas
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 02/19/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 0e93e2a98d96ca7f436f20e579ab625341024686
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 86ed494d3a6005ae74ee3f1aa4d5aa53ffc3098e
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819480"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931156"
 ---
 # <a name="applicationinsightsloggerprovider-for-net-core-ilogger-logs"></a>ApplicationInsightsLoggerProvider para los registros de ILogger de .NET Core
 
@@ -22,11 +22,12 @@ Para más información, consulte [Registro en ASP.NET Core](https://docs.microso
 
 ## <a name="aspnet-core-applications"></a>Aplicaciones de ASP.NET Core
 
-ApplicationInsightsLoggerProvider se habilita de forma predeterminada en el [SDK de Microsoft.ApplicationInsights.AspNet](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) versión 2.7.0-beta3 (y versiones posteriores) al activar una supervisión normal de Application Insights por medio de uno de los siguientes métodos estándar:
-- Mediante una llamada al método de extensión **UseApplicationInsights** en IWebHostBuilder 
+ApplicationInsightsLoggerProvider está habilitado de forma predeterminada en el [SDK de Microsoft.ApplicationInsights.AspNet](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) versión 2.7.1 (y posteriores) al activar una supervisión normal de Application Insights mediante uno de los siguientes métodos estándar:
+
+- Mediante una llamada al método de extensión **UseApplicationInsights** en IWebHostBuilder
 - Mediante una llamada al método de extensión **AddApplicationInsightsTelemetry** en IServiceCollection
 
-Los registros de ILogger que captura ApplicationInsightsLoggerProvider están sujetos a la misma configuración que los otros datos de telemetría recopilados. Tienen el mismo conjunto de objetos TelemetryInitializer y TelemetryProcessor, usan el mismo objeto TelemetryChannel, y se ponen en correlación y muestrean de la misma manera que otros datos de telemetría. Si usa la versión 2.7.0-beta3 o versiones posteriores, no necesita realizar ninguna acción para capturar registros de ILogger.
+Los registros de ILogger que captura ApplicationInsightsLoggerProvider están sujetos a la misma configuración que los otros datos de telemetría recopilados. Tienen el mismo conjunto de objetos TelemetryInitializer y TelemetryProcessor, usan el mismo objeto TelemetryChannel, y se ponen en correlación y muestrean de la misma manera que otros datos de telemetría. Si usa la versión 2.7.1 o posteriores, no necesita realizar ninguna acción para capturar registros de ILogger.
 
 De forma predeterminada, solo se envían a Application Insights los registros de *Advertencia* o superiores de ILogger (de todas las categorías). Sin embargo, puede [aplicar filtros para modificar este comportamiento](#control-logging-level). Se necesitan pasos adicionales para capturar registros de ILogger desde **Program.cs** o **Startup.cs** (consulte [Captura de registros de ILogger de Startup.cs y Program.cs en aplicaciones de ASP.NET Core](#capture-ilogger-logs-from-startupcs-and-programcs-in-aspnet-core-apps)).
 
@@ -109,7 +110,7 @@ public class ValuesController : ControllerBase
 > [!NOTE]
 > En ASP.NET Core 3.0 y versiones posteriores, ya no es posible insertar `ILogger` en Startup.cs y Program.cs. Para obtener más información, consulte https://github.com/aspnet/Announcements/issues/353.
 
-El nuevo proveedor ApplicationInsightsLoggerProvider puede capturar registros antes en la canalización de inicio de una aplicación. Aunque ApplicationInsightsLoggerProvider se habilita automáticamente en Application Insights (a partir de la versión 2.7.0-beta3), no tiene una clave de instrumentación configurada hasta más adelante en la canalización. Por lo tanto, solo se capturarán registros de **Controller** y otras clases. Para capturar todos los registros, ya desde **Program.cs** y **Startup.cs**, debe habilitar explícitamente una clave de instrumentación para ApplicationInsightsLoggerProvider. Además, la configuración de *TelemetryConfiguration* no está completa cuando se registra desde los propios **Program.cs** o **Startup.cs**. Por lo tanto, esos registros tendrán una configuración mínima que utiliza InMemoryChannel, sin muestreo y sin inicializadores ni procesadores de telemetría estándar.
+El nuevo proveedor ApplicationInsightsLoggerProvider puede capturar registros antes en la canalización de inicio de una aplicación. Aunque ApplicationInsightsLoggerProvider está habilitado automáticamente en Application Insights (a partir de la versión 2.7.1), no tiene una clave de instrumentación configurada hasta más adelante en la canalización. Por lo tanto, solo se capturarán registros de **Controller** y otras clases. Para capturar todos los registros, ya desde **Program.cs** y **Startup.cs**, debe habilitar explícitamente una clave de instrumentación para ApplicationInsightsLoggerProvider. Además, la configuración de *TelemetryConfiguration* no está completa cuando se registra desde los propios **Program.cs** o **Startup.cs**. Por lo tanto, esos registros tendrán una configuración mínima que utiliza InMemoryChannel, sin muestreo y sin inicializadores ni procesadores de telemetría estándar.
 
 En los siguientes ejemplos se muestra esta funcionalidad con **Program.cs** y **Startup.cs**.
 
@@ -203,7 +204,7 @@ public class Startup
 
 ## <a name="migrate-from-the-old-applicationinsightsloggerprovider"></a>Migración desde el antiguo ApplicationInsightsLoggerProvider
 
-Las versiones del SDK de Microsoft.ApplicationInsights.AspNet anteriores a 2.7.0-beta2 eran compatibles con un proveedor de registro que ahora está obsoleto. Este proveedor se habilitaba a través del método de extensión **AddApplicationInsights()** de ILoggerFactory. Le recomendamos que migre al nuevo proveedor, lo que implica dos pasos:
+Las versiones del SDK de Microsoft.ApplicationInsights.AspNet anteriores a 2.7.1 eran compatibles con un proveedor de registro que ahora está obsoleto. Este proveedor se habilitaba a través del método de extensión **AddApplicationInsights()** de ILoggerFactory. Le recomendamos que migre al nuevo proveedor, lo que implica dos pasos:
 
 1. Quitar la llamada a *ILoggerFactory.AddApplicationInsights()* del método **Startup.Configure()** para evitar un registro doble.
 2. Volver a aplicar las reglas de filtrado en el código, porque el nuevo proveedor no las respetará. Las sobrecargas de *ILoggerFactory.AddApplicationInsights()* incluían un mínimo de funciones de LogLevel o filtro. Con el nuevo proveedor, el filtrado forma parte de la propia plataforma de registro. Ya no lo realiza el proveedor de Application Insights. Por lo tanto, deben quitarse los filtros que se proporcionan a través de las sobrecargas de *ILoggerFactory.AddApplicationInsights()* . Las reglas de filtrado deben proporcionarse siguiendo las instrucciones de [Control del nivel de registro](#control-logging-level). Si usa *appsettings.json* para filtrar el registro, seguirá funcionando con el nuevo proveedor, ya que ambos usan el mismo alias de proveedor, *ApplicationInsights*.
@@ -221,8 +222,7 @@ Todavía puede usar el proveedor anterior (solo se quitará en un cambio de vers
 ## <a name="console-application"></a>Aplicación de consola
 
 > [!NOTE]
-> Hay un nuevo SDK de Application Insights en versión beta llamado [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) que se puede usar para habilitar Application Insights (ILogger y otra información de telemetría de Application Insights) en cualquier aplicación de consola. Se recomienda usar este paquete y las instrucciones asociadas que se indican [aquí](../../azure-monitor/app/worker-service.md).
-El siguiente ejemplo estará en desuso cuando se lance la versión estable de este nuevo paquete.
+> Hay un nuevo SDK de Application Insights llamado [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) que se puede usar para habilitar Application Insights (ILogger y otra información de telemetría de Application Insights) en cualquier aplicación de consola. Se recomienda usar este paquete y las instrucciones asociadas que se indican [aquí](../../azure-monitor/app/worker-service.md).
 
 En el siguiente código se muestra una aplicación de ejemplo de la consola configurada para enviar seguimientos de ILogger a Application Insights.
 
@@ -366,11 +366,11 @@ En el siguiente fragmento de código se configuran los registros para que el niv
 
 ### <a name="what-are-the-old-and-new-versions-of-applicationinsightsloggerprovider"></a>¿Cuáles son las versiones antigua y nueva de ApplicationInsightsLoggerProvider?
 
-El [SDK de Microsoft.ApplicationInsights.AspNet](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) incluía un elemento ApplicationInsightsLoggerProvider integrado (Microsoft.ApplicationInsights.AspNetCore.Logging.ApplicationInsightsLoggerProvider), que se habilitaba a través de métodos de extensión de  **ILoggerFactory**. Este proveedor está marcado como obsoleto desde la versión 2.7.0-beta2. Se quitará por completo en el siguiente cambio de versión principal. El paquete [Microsoft.ApplicationInsights.AspNetCore 2.6.1](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) en sí no está obsoleto. Se necesita para habilitar la supervisión de las solicitudes, las dependencias, etcétera.
+El [SDK de Microsoft.ApplicationInsights.AspNet](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) incluía un elemento ApplicationInsightsLoggerProvider integrado (Microsoft.ApplicationInsights.AspNetCore.Logging.ApplicationInsightsLoggerProvider), que se habilitaba a través de métodos de extensión de  **ILoggerFactory**. Este proveedor está marcado como obsoleto desde la versión 2.7.1. Se quitará por completo en el siguiente cambio de versión principal. El paquete [Microsoft.ApplicationInsights.AspNetCore 2.6.1](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) en sí no está obsoleto. Se necesita para habilitar la supervisión de las solicitudes, las dependencias, etcétera.
 
 La alternativa propuesta es el nuevo paquete independiente [Microsoft.Extensions.Logging.ApplicationInsights](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights), que contiene un proveedor ApplicationInsightsLoggerProvider (Microsoft.Extensions.Logging.ApplicationInsights.ApplicationInsightsLoggerProvider) y métodos de extensión en ILoggerBuilder para habilitarlo.
 
-El [SDK de Microsoft.ApplicationInsights.AspNet](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) versión 2.7.0-beta3 depende del nuevo paquete y habilita la captura de ILogger automáticamente.
+El [SDK de Microsoft.ApplicationInsights.AspNet](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) versión 2.7.1 depende del nuevo paquete y habilita la captura de ILogger automáticamente.
 
 ### <a name="why-are-some-ilogger-logs-shown-twice-in-application-insights"></a>¿Por qué algunos registros de ILogger se muestran dos veces en Application Insights?
 
@@ -396,7 +396,7 @@ Si se produce un registro doble cuando se depura desde Visual Studio, establezca
  }
 ```
 
-### <a name="i-updated-to-microsoftapplicationinsightsaspnet-sdkhttpswwwnugetorgpackagesmicrosoftapplicationinsightsaspnetcore-version-270-beta3-and-logs-from-ilogger-are-captured-automatically-how-do-i-turn-off-this-feature-completely"></a>Actualicé al [SDK de Microsoft.ApplicationInsights.AspNet](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) versión 2.7.0-beta3 y los registros de ILogger se capturan automáticamente. ¿Cómo desactivo por completo esta característica?
+### <a name="i-updated-to-microsoftapplicationinsightsaspnet-sdkhttpswwwnugetorgpackagesmicrosoftapplicationinsightsaspnetcore-version-271-and-logs-from-ilogger-are-captured-automatically-how-do-i-turn-off-this-feature-completely"></a>Actualicé al [SDK de Microsoft.ApplicationInsights.AspNet](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) versión 2.7.1 y los registros de ILogger se capturan automáticamente. ¿Cómo desactivo por completo esta característica?
 
 Consulte en la sección [Control del nivel de registro](../../azure-monitor/app/ilogger.md#control-logging-level) cómo filtrar los registros en general. Para desactivar ApplicationInsightsLoggerProvider, utilice `LogLevel.None`:
 
@@ -454,7 +454,7 @@ Si prefiere enviar siempre un elemento TraceTelemetry, use este fragmento de có
 
 ### <a name="i-dont-have-the-sdk-installed-and-i-use-the-azure-web-apps-extension-to-enable-application-insights-for-my-aspnet-core-applications-how-do-i-use-the-new-provider"></a>No tengo instalado el SDK y uso la extensión Web Apps de Azure para habilitar Application Insights para mis aplicaciones de ASP.NET Core. ¿Cómo uso el nuevo proveedor? 
 
-La extensión de Application Insights en Azure Web Apps usa el proveedor anterior. Puede modificar las reglas de filtrado en el archivo *appsettings.json* para la aplicación. Para aprovechar las ventajas del nuevo proveedor, use la instrumentación en tiempo de compilación mediante una dependencia de NuGet en el SDK. Este artículo se actualizará cuando la extensión cambie para utilizar el nuevo proveedor.
+La extensión de Application Insights en Azure Web Apps usa el nuevo proveedor. Puede modificar las reglas de filtrado en el archivo *appsettings.json* para la aplicación.
 
 ### <a name="im-using-the-standalone-package-microsoftextensionsloggingapplicationinsights-and-enabling-application-insights-provider-by-calling-builderaddapplicationinsightsikey-is-there-an-option-to-get-an-instrumentation-key-from-configuration"></a>Estoy usando el paquete independiente Microsoft.Extensions.Logging.ApplicationInsights y habilito el proveedor de Application Insights mediante una llamada a **builder.AddApplicationInsights("ikey")** . ¿Existe alguna opción para obtener una clave de instrumentación a partir de la configuración?
 

@@ -1,17 +1,17 @@
 ---
 title: Introducción a las consultas SQL en Azure Cosmos DB
-description: Introducción a las consultas SQL
+description: Obtenga información sobre cómo usar consultas SQL para consultar datos de Azure Cosmos DB. Puede cargar datos de ejemplo en un contenedor en Azure Cosmos DB y consultarlos.
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/21/2019
 ms.author: tisande
-ms.openlocfilehash: 8de5140d0146ccbb18f41867e1c716aa2f3897b7
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 1d24261edea843fa928ad00e3ce7babcb84acd3b
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71001903"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873342"
 ---
 # <a name="getting-started-with-sql-queries"></a>Introducción a las consultas SQL
 

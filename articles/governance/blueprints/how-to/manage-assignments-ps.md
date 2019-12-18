@@ -2,13 +2,13 @@
 title: Administración de asignaciones con PowerShell
 description: Obtenga información sobre cómo administrar las asignaciones de planos técnicos con el módulo oficial de PowerShell de Azure Blueprints, Az.Blueprint.
 ms.date: 09/30/2019
-ms.topic: conceptual
-ms.openlocfilehash: 00824ceed2e86683a86b172e529ba88704dbb050
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.topic: how-to
+ms.openlocfilehash: 765ed5e1849443d6ac73fe4507327e97e4fdc4c2
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74210312"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973652"
 ---
 # <a name="how-to-manage-assignments-with-powershell"></a>Administración de asignaciones con PowerShell
 
@@ -246,6 +246,8 @@ En lugar de pasar parámetros al cmdlet, en el ejemplo se muestra el uso de un a
 $bpAssignment = New-AzBlueprintAssignment -Name 'my-blueprint-assignment' -SubscriptionId '{subId}' `
     -AssignmentFile '.\assignment.json'
 ```
+
+Para un ejemplo del archivo de definición de asignación JSON para una identidad administrada asignada por el usuario, consulte el cuerpo de la solicitud en [Ejemplo: Asignación con la identidad administrada asignada por el usuario](/rest/api/blueprints/assignments/createorupdate#assignment-with-user-assigned-managed-identity) para API REST.
 
 ## <a name="update-blueprint-assignments"></a>Actualización de asignaciones de planos técnicos
 

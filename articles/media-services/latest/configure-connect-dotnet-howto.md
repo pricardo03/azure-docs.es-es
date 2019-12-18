@@ -1,6 +1,6 @@
 ---
 title: 'Conexión a la API de Azure Media Services v3: .NET'
-description: Aprenda a conectarse a la API de Media Services v3 con .NET.
+description: En este artículo se muestra cómo conectarse a la API de Media Services v3 con .NET.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2019
 ms.author: juliako
-ms.openlocfilehash: b2cfe8014e6ffbd7a6d5449192acde9780a2d303
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: b8f4de1a5b9d8216ae2442631f5f9135c3c72d0b
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122881"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74899888"
 ---
 # <a name="connect-to-media-services-v3-api---net"></a>Conexión a la API de Media Services v3: .NET
 
@@ -240,7 +240,7 @@ namespace ConsoleApp1
 - [Creación de filtros con Media Services: .NET](filters-dynamic-manifest-dotnet-howto.md)
 - [Ejemplos avanzados de vídeo bajo demanda de Azure Functions v2 con Media Services v3](https://aka.ms/ams3functions)
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 * [Referencia de .NET](https://docs.microsoft.com/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet)
 * Para obtener más ejemplos de código, consulte el repositorio de [ejemplos del SDK de .NET](https://github.com/Azure-Samples/media-services-v3-dotnet).

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: b2d02ed5a9fb2cb10e4cf18fe7d878da5b032fe0
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: ba95723e62cec9708684665a9d141b1e39ccb831
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74816406"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951843"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Preparación de los datos para Custom Speech
 
@@ -62,6 +62,9 @@ Utilice esta tabla para asegurarse de que los archivos de audio están formatead
 | Formato de archivo | .zip |
 | Tamaño de archivo máximo | 2 GB |
 
+> [!TIP]
+> Al cargar los datos del entrenamiento y de las pruebas, el archivo ZIP no puede superar los 2 GB. Si requiere más datos para el entrenamiento y las pruebas, divídalos en varios archivos ZIP y cárguelos por separado. Más adelante, puede optar por realizar el entrenamiento y las pruebas desde *varios* conjuntos de datos.
+
 Si el audio no satisface estas propiedades o desea comprobar si lo hace, le sugerimos que descargue [sox](http://sox.sourceforge.net) para comprobar o convertir el audio. A continuación se muestran algunos ejemplos de cómo se puede realizar cada una de estas actividades mediante la línea de comandos:
 
 | Actividad | DESCRIPCIÓN | Comando SOX |
@@ -71,7 +74,7 @@ Si el audio no satisface estas propiedades o desea comprobar si lo hace, le suge
 
 ## <a name="audio--human-labeled-transcript-data-for-testingtraining"></a>Datos de transcripción de audio y con etiqueta humanos para pruebas y entrenamiento
 
-Para medir la precisión de la precisión de la conversión de voz a texto de Microsoft al procesar sus archivos de audio, debe proporcionar transcripciones con etiqueta humana (palabra por palabra) para su comparación. Aunque la transcripción con etiqueta humana a menudo requiere mucho tiempo, es necesario evaluar la precisión y entrenar al modelo para los casos de uso. Tenga en cuenta que las mejoras en el reconocimiento solo serán tan buenas como los datos proporcionados. Por ese motivo, es importante que solo se carguen las transcripciones de alta calidad.  
+Para medir la precisión de la precisión de la conversión de voz a texto de Microsoft al procesar sus archivos de audio, debe proporcionar transcripciones con etiqueta humana (palabra por palabra) para su comparación. Aunque la transcripción con etiqueta humana a menudo requiere mucho tiempo, es necesario evaluar la precisión y entrenar al modelo para los casos de uso. Tenga en cuenta que las mejoras en el reconocimiento solo serán tan buenas como los datos proporcionados. Por ese motivo, es importante que solo se carguen las transcripciones de alta calidad.
 
 | Propiedad | Valor |
 |----------|-------|
@@ -82,6 +85,9 @@ Para medir la precisión de la precisión de la conversión de voz a texto de Mi
 | Formato de ejemplo | PCM, 16 bits |
 | Formato de archivo | .zip |
 | Tamaño máximo de archivo zip | 2 GB |
+
+> [!TIP]
+> Al cargar los datos del entrenamiento y de las pruebas, el archivo ZIP no puede superar los 2 GB. Si requiere más datos para el entrenamiento y las pruebas, divídalos en varios archivos ZIP y cárguelos por separado. Más adelante, puede optar por realizar el entrenamiento y las pruebas desde *varios* conjuntos de datos.
 
 Para abordar problemas como la eliminación o sustitución de palabras, se necesita una cantidad significativa de datos para mejorar el reconocimiento. Por lo general, se recomienda proporcionar transcripciones palabra por palabra para aproximadamente de 10 a 1000 horas de audio. Las transcripciones para todos los archivos WAV deben incluirse en un único archivo de texto sin formato. Cada línea del archivo de transcripción debe contener el nombre de uno de los archivos de audio, seguido de la transcripción correspondiente. El nombre de archivo y la transcripción deben estar separados por un carácter de tabulación (\t).
 

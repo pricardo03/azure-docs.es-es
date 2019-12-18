@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b3cbb6afb96ccea32aa78d1f587377e5d67e1a5b
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: bbbe882acda532a54333ca8013693121d5b677b7
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381018"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74964096"
 ---
 # <a name="require-app-protection-policy-for-cloud-app-access-with-conditional-access-preview"></a>Uso obligatorio de directivas de protección de aplicaciones para el acceso a aplicaciones en la nube con acceso condicional en Azure Active Directory (versión preliminar)
 
@@ -330,7 +330,7 @@ Todas las directivas de protección de aplicaciones de Intune son necesarias par
 
 ### <a name="configuration"></a>Configuración
 
-**Paso 1: Configuración de una directiva de acceso condicional de Azure AD para Exchange Online**
+**Paso 1: Configuración de una directiva de acceso condicional de Azure AD para Exchange Online y SharePoint Online**
 
 Para la directiva de acceso condicional descrita en este paso, configure los componentes siguientes:
 
@@ -338,7 +338,7 @@ Para la directiva de acceso condicional descrita en este paso, configure los com
 
 1. Escriba el nombre de la directiva de acceso condicional.
 1. En **Asignaciones**, en **Usuarios y grupos**, seleccione al menos un usuario o grupo para cada directiva de acceso condicional.
-1. En **Aplicaciones en la nube**, seleccione **Office 365 Exchange Online**. 
+1. En **Aplicaciones en la nube**, seleccione **Office 365 Exchange Online** y **Office 365 SharePoint Online**. 
 
    ![Acceso condicional](./media/app-protection-based-conditional-access/02.png)
 

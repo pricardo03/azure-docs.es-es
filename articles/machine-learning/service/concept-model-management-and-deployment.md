@@ -11,14 +11,14 @@ author: jpe316
 ms.author: jordane
 ms.date: 11/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 19552747db427bf780a140c15f11bed322d1f867
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: a56096ffa760bcddd6bd423d1262e57dc1db3e3c
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420073"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973567"
 ---
-# <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: administración de modelos, implementación y supervisión con Azure Machine Learning
+# <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: Administración, implementación y supervisión de modelos con Azure Machine Learning
 
 En este artículo, obtendrá información sobre cómo usar Azure Machine Learning para administrar el ciclo de vida de los modelos. Azure Machine Learning usa un enfoque de Operaciones de Machine Learning (MLOps). MLOps mejora la calidad y la coherencia de las soluciones de aprendizaje automático. 
 
@@ -116,7 +116,6 @@ Para obtener más información, consulte [Implementación de modelos](how-to-dep
 
 Microsoft Power BI admite el uso de modelos de Machine Learning para el análisis de datos. Para obtener más información, consulte la [integración de Azure Machine Learning en Power BI (versión preliminar)](https://docs.microsoft.com/power-bi/service-machine-learning-integration).
 
-
 ## <a name="capture-the-governance-data-required-for-capturing-the-end-to-end-ml-lifecycle"></a>Captura de los datos de gobernanza necesarios para capturar el ciclo de vida de ML de un extremo a otro
 
 Azure Machine Learning ofrece la capacidad de realizar un seguimiento del registro de auditoría de un extremo a otro de todos los recursos de ML. Concretamente:
@@ -129,6 +128,7 @@ Azure Machine Learning ofrece la capacidad de realizar un seguimiento del regi
 ## <a name="notify-automate-and-alert-on-events-in-the-ml-lifecycle"></a>Notificación, automatización y alerta sobre eventos en el ciclo de vida de ML
 Azure Machine Learning publica eventos clave en Azure EventGrid, que se puede usar para notificar y automatizar eventos en el ciclo de vida de ML. Para obtener más información, vea [este documento](how-to-use-event-grid.md).
 
+
 ## <a name="monitor-for-operational--ml-issues"></a>Supervisión de problemas operativos y de Machine Learning
 
 La supervisión permite comprender qué datos se envían a su modelo y las predicciones que devuelve.
@@ -136,7 +136,6 @@ La supervisión permite comprender qué datos se envían a su modelo y las predi
 Esta información le ayudará a comprender cómo se usa el modelo. Los datos de entrada recopilados también pueden ser útiles para entrenar versiones futuras del modelo.
 
 Para más información, consulte [cómo habilitar la recopilación de datos de un modelo](how-to-enable-data-collection.md).
-
 
 ## <a name="automate-the-ml-lifecycle"></a>Automatización del ciclo de vida de Machine Learning 
 

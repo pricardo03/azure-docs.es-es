@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: mlearned
-ms.openlocfilehash: 70272413ef4952cfeed558dd313f12096204d569
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 601f89c4510899dbb1f5d8a238961d9a4e5864e0
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74120496"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74913712"
 ---
 # <a name="storage-options-for-applications-in-azure-kubernetes-service-aks"></a>Opciones de almacenamiento de aplicaciones en Azure Kubernetes Service (AKS)
 
@@ -60,8 +60,8 @@ Para definir niveles de almacenamiento diferentes, como Premium y Estándar, pue
 
 En AKS, se crean dos clases StorageClass iniciales:
 
-- *default*: usa el almacenamiento estándar de Azure para crear un disco administrado. La directiva de reclamación indica que el disco de Azure Disks subyacente se elimina cuando se elimina el pod que lo utiliza.
-- *managed-premium*: utiliza el almacenamiento Premium de Azure para crear un disco administrado. De nuevo, la directiva de reclamación indica que el disco de Azure Disks subyacente se elimina cuando se elimina el pod que lo utiliza.
+- *default*: usa el almacenamiento estándar de Azure para crear un disco administrado. La directiva de reclamación indica que el almacenamiento de Azure Disks subyacente se elimina cuando se elimina el volumen persistente que lo utiliza.
+- *managed-premium*: utiliza el almacenamiento Premium de Azure para crear un disco administrado. De nuevo, la directiva de reclamación indica que el almacenamiento de Azure Disks subyacente se elimina cuando se elimina el volumen persistente que lo utiliza.
 
 Si no se especifica ninguna clase StorageClass para un volumen persistente, se usa el valor de StorageClass predeterminado. Tenga cuidado cuando solicite volúmenes persistentes y compruebe que usan el almacenamiento adecuado que necesita. Puede crear una clase StorageClass para satisfacer necesidades adicionales mediante `kubectl`. En el siguiente ejemplo se utilizan discos administrados Premium y se especifica que el disco de Azure Disks subyacente debe *conservarse* cuando se elimine el pod:
 

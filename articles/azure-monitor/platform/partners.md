@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 03/14/2019
-ms.openlocfilehash: 8e04369e3e070054c5095abde29ecca99d071cb8
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 61b43329fcc840bc68f454400a4b5e917f43110c
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74144437"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894584"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Integraciones de asociados de Azure Monitor
 
@@ -255,7 +255,7 @@ Turbonomic ofrece automatización de cargas de trabajo en nubes híbridas, ya qu
 - [Obtener más información sobre Azure Monitor](../../azure-monitor/overview.md)
 - [Acceder a métricas mediante la API de REST](rest-api-walkthrough.md)
 - [Transmitir el registro de actividad a un servicio que no es de Microsoft](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)
-- [Transmitir los registros de diagnóstico a un servicio que no es de Microsoft](../../azure-monitor/platform/resource-logs-stream-event-hubs.md)
+- [Transmisión de los registros de recursos a un servicio que no es de Microsoft](../../azure-monitor/platform/resource-logs-stream-event-hubs.md)
 
 
 

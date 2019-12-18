@@ -12,21 +12,23 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/05/2018
+ms.date: 11/12/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 88fdfce58bdd8e13637e77d01d4b6c0ab21f696a
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 138ca9bf3352c46b8ac495b58a2fd6d7bafeb658
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68607657"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74889909"
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Sincronización de Azure AD Connect: Sincronización de Azure AD Connect: Extensiones de directorio
-Puede usar extensiones de directorio para ampliar el esquema de Azure Active Directory (Azure AD) con sus propios atributos desde Active Directory local. Esta característica le permite compilar aplicaciones de LOB mediante el consumo de atributos que sigue administrando de forma local. Estos atributos se pueden consumir mediante [extensiones de directorio de API de Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) o [Microsoft Graph](https://developer.microsoft.com/graph/). Puede ver los atributos disponibles mediante el [Explorador de Azure AD Graph](https://graphexplorer.azurewebsites.net/) y el [Probador de Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer), respectivamente.
+Puede usar extensiones de directorio para ampliar el esquema de Azure Active Directory (Azure AD) con sus propios atributos desde Active Directory local. Esta característica le permite compilar aplicaciones de LOB mediante el consumo de atributos que sigue administrando de forma local. Estos atributos se pueden consumir mediante [extensiones de directorio de API de Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) o [Microsoft Graph](https://developer.microsoft.com/graph/). Puede ver los atributos disponibles mediante el [Explorador de Azure AD Graph](https://graphexplorer.azurewebsites.net/) y el [Probador de Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer), respectivamente. También puede usar esta característica para crear grupos dinámicos en Azure AD.
 
 En la actualidad, ninguna carga de trabajo de Office 365 consume estos atributos.
+
+## <a name="customize-which-attributes-to-synchronize-with-azure-ad"></a>Personalización de los atributos que se van a sincronizar con Azure AD
 
 Configure qué atributos adicionales desea sincronizar en la ruta de acceso de configuración personalizada en el Asistente para instalación.
 
@@ -49,11 +51,17 @@ La lista de atributos se lee de la memoria caché de esquemas creada durante la 
 
 Un objeto de Azure AD puede tener hasta 100 atributos para las extensiones de directorio. La longitud máxima es de 250 caracteres. Si un valor de atributo es mayor, el motor de sincronización lo trunca.
 
-Durante la instalación de Azure AD Connect, se registra una aplicación donde estos atributos estén disponibles. Puede ver esta aplicación en el Portal de Azure.
+## <a name="configuration-changes-in-azure-ad-made-by-the-wizard"></a>Cambios de configuración en Azure AD realizados por el asistente
+
+Durante la instalación de Azure AD Connect, se registra una aplicación donde estos atributos estén disponibles. Puede ver esta aplicación en el Portal de Azure. Su nombre es siempre **Tenant Schema Extension App**.
 
 ![Aplicación de extensión de esquema](./media/how-to-connect-sync-feature-directory-extensions/extension3new.png)
 
-Los atributos tienen el prefijo de extensión \_{AppClientId}\_. AppClientId tiene el mismo valor en todos los atributos del inquilino de Azure AD.
+Asegúrese de seleccionar **Todas las aplicaciones** para ver esta aplicación.
+
+Los atributos tienen el prefijo **extensión \_{IdDeAplicación}\_** . IdDeAplicación tiene el mismo valor en todos los atributos del inquilino de Azure AD. Necesitará este valor para los demás escenarios de este tema.
+
+## <a name="viewing-attributes-using-graph"></a>Consulta de atributos mediante Graph
 
 Estos atributos ahora están disponibles en Azure AD Graph API. Puede consultarlos mediante el [Explorador de Azure AD Graph](https://graphexplorer.azurewebsites.net/).
 
@@ -62,9 +70,31 @@ Estos atributos ahora están disponibles en Azure AD Graph API. Puede consultarl
 O bien puede consultar los atributos a través de Microsoft Graph API, mediante el uso del [Probador de Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer#).
 
 >[!NOTE]
-> Debe pedir que se devuelvan los atributos. Seleccione los atributos de forma explícita del modo siguiente: https\://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com$select=extension_9d98ed114c4840d298fad781915f27e4_employeeID,extension_9d98ed114c4840d298fad781915f27e4_division. 
+> En Microsoft Graph, debe pedir que se devuelvan los atributos. Seleccione los atributos de forma explícita del modo siguiente: https\://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com$select=extension_9d98ed114c4840d298fad781915f27e4_employeeID,extension_9d98ed114c4840d298fad781915f27e4_division.
 >
 > Para más información, consulte [Microsoft Graph: Usar parámetros de consulta](https://developer.microsoft.com/graph/docs/concepts/query_parameters#select-parameter).
+
+## <a name="use-the-attributes-in-dynamic-groups"></a>Uso de los atributos en grupos dinámicos
+
+Uno de los escenarios más útiles consiste en usar estos atributos en grupos dinámicos de seguridad o de Office 365.
+
+1. Cree un grupo en Azure AD. Asígnele un nombre adecuado y asegúrese de que la opción **Tipo de pertenencia** está establecida en **Usuario dinámico**.
+
+   ![Captura de pantalla con un nuevo grupo](./media/how-to-connect-sync-feature-directory-extensions/dynamicgroup1.png)
+
+2. Seleccione **Agregar una consulta dinámica**. Si examina las propiedades, no verá estos atributos extendidos. Antes debe agregarlos manualmente. Haga clic en **Obtener propiedades de extensión personalizadas**, escriba el identificador de la aplicación y haga clic en **Actualizar propiedades**.
+
+   ![Captura de pantalla en la que se han agregado las extensiones de directorio](./media/how-to-connect-sync-feature-directory-extensions/dynamicgroup2.png) 
+
+3. Abra la lista desplegable de propiedades y observe que los atributos que ha agregado ahora están visibles.
+
+   ![Captura de pantalla con los nuevos atributos en la interfaz de usuario](./media/how-to-connect-sync-feature-directory-extensions/dynamicgroup3.png)
+
+   Complete la expresión para satisfacer sus necesidades. En nuestro ejemplo, la regla se establece en **(user.extension_9d98ed114c4840d298fad781915f27e4_division -eq "Sales and marketing")** .
+
+4. Una vez creado el grupo, dé a Azure AD algún tiempo para rellenar los miembros y, a continuación, revíselos.
+
+   ![Captura de pantalla con miembros en el grupo dinámico](./media/how-to-connect-sync-feature-directory-extensions/dynamicgroup4.png)  
 
 ## <a name="next-steps"></a>Pasos siguientes
 Obtenga más información sobre la configuración de la [Sincronización de Azure AD Connect](how-to-connect-sync-whatis.md) .

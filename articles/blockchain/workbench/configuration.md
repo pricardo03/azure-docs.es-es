@@ -1,15 +1,15 @@
 ---
 title: Referencia de metadatos sobre la configuración de Azure Blockchain Workbench
 description: Introducción a los metadatos de configuración de aplicaciones de la versión preliminar de Azure Blockchain Workbench.
-ms.date: 09/05/2019
+ms.date: 12/09/2019
 ms.topic: article
 ms.reviewer: brendal
-ms.openlocfilehash: 2ee1d1da1a9a5d8e890a6578eaec42cc6bf9f3ed
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 661e795f0e85f872b1072a8f641b8938115c5d7a
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74326063"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74972449"
 ---
 # <a name="azure-blockchain-workbench-configuration-reference"></a>Referencia sobre la configuración de Azure Blockchain Workbench
 
@@ -61,11 +61,11 @@ Se puede modelar la lógica de negocios de una aplicación como una máquina de 
 
 Para obtener un ejemplo, consulte [ejemplo de archivo de configuración](#configuration-file-example).
 
-## <a name="type"></a>type
+## <a name="type"></a>Tipo
 
 Tipos de datos admitidos.
 
-| type | Description |
+| Tipo | Description |
 |-------|-------------|
 | address  | Tipo de dirección de Blockchain, como *contratos* o *usuarios*. |
 | array    | Matriz de nivel único de tipo integer, booleano, money o time. Las matrices pueden ser estáticas o dinámicas. Use **ElementType** para especificar el tipo de datos de los elementos dentro de la matriz. Consulte la [configuración de ejemplo](#example-configuration-of-type-array). |
@@ -391,6 +391,7 @@ Los identificadores representan una colección de información que se usa para d
 | Name | El nombre único de la propiedad o parámetro. El contrato inteligente correspondiente debe usar el mismo **nombre** para la propiedad o parámetro aplicables. | Sí | 50 |
 | DisplayName | Nombre descriptivo para mostrar de la propiedad o parámetro. | Sí | 255 |
 | Description | Descripción de la propiedad o parámetro. | Sin | 255 |
+| Tipo | [Tipo de datos](#type) de la propiedad. | Sí |
 
 ### <a name="identifiers-example"></a>Ejemplo de identificadores
 

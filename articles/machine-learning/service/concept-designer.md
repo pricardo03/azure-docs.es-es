@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: peterlu
 author: peterclu
 ms.date: 11/12/2019
-ms.openlocfilehash: 9301f3e685116c8496dd5e0ec986218a046f0c98
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: efc9d7fb31dc9f63780c3f94238bbbfb17756089
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707731"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973635"
 ---
 # <a name="what-is-azure-machine-learning-designer-preview"></a>¿Qué es el diseñador de Azure Machine Learning (versión preliminar)? 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
@@ -93,7 +93,7 @@ Use recursos de proceso del área de trabajo para ejecutar la canalización y ho
 | Proceso de Azure Machine Learning | ✓ | |
 | Azure Kubernetes Service | | ✓ |
 
-Los destinos de proceso están conectados a su [área de trabajo](concept-workspace.md) de Machine Learning. Los destinos de proceso se administran en el área de trabajo de [Azure Machine Learning Studio](https://ml.azure.com).
+Los destinos de proceso están conectados a su [área de trabajo de Azure Machine Learning](concept-workspace.md). Los destinos de proceso se administran en el área de trabajo de [Azure Machine Learning Studio (clásico)](https://ml.azure.com).
 
 ## <a name="deploy"></a>Implementación
 

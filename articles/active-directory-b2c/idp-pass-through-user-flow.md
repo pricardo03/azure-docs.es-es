@@ -1,5 +1,6 @@
 ---
-title: 'Transmisión de un token de acceso a través de un flujo de usuario a la aplicación: Azure Active Directory B2C'
+title: Transmisión de un token de acceso a la aplicación mediante un flujo de usuario
+titleSuffix: Azure AD B2C
 description: Obtenga información sobre cómo pasar un token de acceso para proveedores de identidades de OAuth 2.0 como una notificación en un flujo de usuario a la aplicación en Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a1a9ad0c615e50db746548a1ed5b557fe6fdea5a
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 345924c10feabe9a7d5f50905689a4a0edb065ce
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064298"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74948818"
 ---
 # <a name="pass-an-access-token-through-a-user-flow-to-your-application-in-azure-active-directory-b2c"></a>Transmisión de un token de acceso a través de un flujo de usuario a la aplicación en Azure Active Directory B2C
 

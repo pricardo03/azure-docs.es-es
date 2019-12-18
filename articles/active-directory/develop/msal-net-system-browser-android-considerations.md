@@ -1,29 +1,25 @@
 ---
-title: Consideraciones sobre el explorador del sistema Xamarin Android (biblioteca de autenticación de Microsoft para .NET)
+title: Consideraciones sobre el explorador del sistema de Xamarin Android con (MSAL.NET) | Azure
 titleSuffix: Microsoft identity platform
-description: Obtenga información sobre las consideraciones específicas al usar los exploradores del sistema en Xamarin Android con la biblioteca de autenticación de Microsoft para .NET (MSAL.NET).
+description: Conozca las consideraciones específicas al usar los exploradores del sistema en Xamarin Android con la biblioteca de autenticación de Microsoft para .NET (MSAL.NET).
 services: active-directory
-documentationcenter: dev-center-name
 author: TylerMSFT
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/30/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f83283cc02c60eb452d0e414c0b21843b48f343b
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 1d3ea2554fac8654b052e3e38633af23e7c778b3
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73150361"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74915467"
 ---
 #  <a name="xamarin-android-system-browser-considerations-with-msalnet"></a>Consideraciones del explorador del sistema de Xamarin Android con MSAL.NET
 

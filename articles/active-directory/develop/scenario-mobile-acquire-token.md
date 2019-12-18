@@ -1,5 +1,5 @@
 ---
-title: 'Aplicación móvil que llama a las API web: obtención de un token para la aplicación'
+title: Obtención de un token para llamar a las API web en aplicaciones móviles | Azure
 titleSuffix: Microsoft identity platform
 description: Obtenga información sobre cómo compilar una aplicación móvil que llama a otras API web (para obtener un token para la aplicación).
 services: active-directory
@@ -17,12 +17,12 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b1d6a0e4bfffaaf4ed0fa836bcf62a7f1104e6a
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 1101a1923e094c22e9f6a82853f4dec4deb089a1
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803770"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74919926"
 ---
 # <a name="mobile-app-that-calls-web-apis---get-a-token"></a>Aplicación móvil que llama a las API web: obtener un token
 

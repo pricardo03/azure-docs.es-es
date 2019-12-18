@@ -1,23 +1,22 @@
 ---
-title: Copia de datos de Oracle Service Cloud con Azure Data Factory (versión preliminar)
+title: Copia de datos de Oracle Service Cloud (versión preliminar)
 description: Obtenga información sobre cómo copiar datos de Oracle Service Cloud en almacenes de datos receptores compatibles a través de una actividad de copia de una canalización de Azure Data Factory.
 services: data-factory
-documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 08/01/2019
-ms.author: jingwang
-ms.openlocfilehash: 2b2d41d7ef2c42fea90555d2b24f6d055712bfc5
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: c655ddf47318951f01cb86841a72389489941db2
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73680526"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930504"
 ---
 # <a name="copy-data-from-oracle-service-cloud-using-azure-data-factory-preview"></a>Copia de datos de Oracle Service Cloud con Azure Data Factory (versión preliminar)
 

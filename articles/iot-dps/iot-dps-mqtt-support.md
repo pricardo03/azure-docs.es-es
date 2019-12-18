@@ -1,18 +1,18 @@
 ---
 title: Comprender la compatibilidad con MQTT del Servicio de aprovisionamiento de dispositivos de Azure IoT | Microsoft Docs
-description: 'Guía para desarrolladores: compatibilidad con dispositivos que se conectan al punto final de dispositivo de servicio de aprovisionamiento de dispositivos de Azure IoT mediante el protocolo MQTT.'
+description: 'Guía para desarrolladores: compatibilidad con dispositivos que se conectan al punto de conexión de Azure IoT Hub Device Provisioning Service (DPS) mediante el protocolo MQTT.'
 author: rajeevmv
 ms.service: iot-dps
 services: iot-dps
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: ravokkar
-ms.openlocfilehash: fb39979e321c4815aec74c801cd2d04e81b7e533
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: ea6ece7e34ddb9c25f9f8349239ab3a1c3405abf
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74093274"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973380"
 ---
 # <a name="communicate-with-your-dps-using-the-mqtt-protocol"></a>Comunicación con su DPS mediante el protocolo MQTT
 

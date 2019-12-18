@@ -7,16 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 10/04/2019
+ms.date: 12/04/2019
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 3611e61b303997a4291f4436403bb0a95e647e65
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: dfdaef0002f068dc4c9044e979b169de779cf6d5
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686023"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851288"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-sql-data-warehouse"></a>Límites de memoria y simultaneidad para Azure SQL Data Warehouse
 Vea los límites de simultaneidad y memoria asignados a los distintos niveles de rendimiento y las clases de recursos en Azure SQL Data Warehouse.  
@@ -50,7 +50,7 @@ Los niveles de servicio van de DW100c a DW30000c.
 El nivel de servicio máximo es DW30000c, que tiene 60 nodos de proceso y una distribución por nodo de proceso. Por ejemplo, un almacenamiento de datos de 600 TB con DW30000c procesa, aproximadamente, 10 TB por nodo de proceso.
 
 ## <a name="concurrency-maximums-for-workload-groups"></a>Valores máximos de simultaneidad para grupos de cargas de trabajo
-Con la introducción de los grupos de cargas de trabajo LINK TBD, ya no se aplica el concepto de espacios de simultaneidad.  Los recursos por solicitud se asignan de forma porcentual y se especifican en la definición del grupo de cargas de trabajo.  Sin embargo, incluso con la eliminación de los espacios de simultaneidad, se necesita una cantidad mínima de recursos por consultas basada en el nivel de servicio.  En la tabla siguiente se han definido la cantidad mínima de recursos necesarios por consulta en los niveles de servicio y la simultaneidad asociada que se puede lograr. 
+Con la introducción de los [grupos de cargas de trabajo](sql-data-warehouse-workload-isolation.md), ya no se aplica el concepto de espacios de simultaneidad.  Los recursos por solicitud se asignan de forma porcentual y se especifican en la definición del grupo de cargas de trabajo.  Sin embargo, incluso con la eliminación de los espacios de simultaneidad, se necesita una cantidad mínima de recursos por consultas basada en el nivel de servicio.  En la tabla siguiente se han definido la cantidad mínima de recursos necesarios por consulta en los niveles de servicio y la simultaneidad asociada que se puede lograr. 
 
 |Nivel de servicios|N.º máximo de consultas simultáneas|% mínimo admitido para REQUEST_MIN_RESOURCE_GRANT_PERCENT|
 |---|---|---|

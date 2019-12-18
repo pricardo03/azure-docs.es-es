@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/18/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: df488c2a3033015175943f7d092beaaa41e34046
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: b819264895e35c6ef4fe9dc5263444dcac17eaa2
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74260875"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74935905"
 ---
 Por ahora, los discos Ultra tienen limitaciones adicionales, como se indica a continuación:
 
@@ -32,8 +32,8 @@ Por ahora, los discos Ultra tienen limitaciones adicionales, como se indica a co
     - FSv2
     - [M](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md)
     - [Mv2](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md)
-- No todos los tamaños de máquina virtual están disponibles en todas las regiones admitidas con discos Ultra.
-- Solo están disponibles como discos de datos y solo admiten el tamaño de sector físico 4k.  
+- No todos los tamaños de máquina virtual están disponibles en las regiones admitidas con discos Ultra
+- Solo están disponibles como discos de datos y solo admiten un tamaño de sector físico de 4000. Debido al tamaño de sector nativo de 4000 de los discos Ultra, hay algunas aplicaciones que no son compatibles con ellos. Un ejemplo sería Oracle Database, que requiere la versión 12.2, o posterior, para admitir discos Ultra.  
 - Solo pueden crearse como discos vacíos.  
 - Todavía no admiten instantáneas de disco, imágenes de máquinas virtuales, conjuntos de disponibilidad ni Azure Disk Encryption.
 - Todavía no admiten la integración con Azure Backup o Azure Site Recovery.

@@ -1,5 +1,5 @@
 ---
-title: 'Limpieza y preparación de datos para Azure Machine Learning: Team Data Science Process'
+title: 'Preparación de datos para ML Studio (clásico): Proceso de ciencia de los datos en equipos'
 description: Procesamiento previo y limpieza de los datos para prepararlos para su uso eficaz en el aprendizaje automático.
 services: machine-learning
 author: marktab
@@ -11,21 +11,21 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 2b3ec3352d6e1939b195bbba87b8a824404346ae
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d0754f7ac85976b5ef307bf1266d26a9380ab1c6
+ms.sourcegitcommit: 6e42ce0ca0a7ac572398e9d024fcf69906670d74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61044607"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74936044"
 ---
 # <a name="tasks-to-prepare-data-for-enhanced-machine-learning"></a>Tareas para preparar los datos para el aprendizaje automático mejorado
 El preprocesamiento y la limpieza de datos son tareas importantes que normalmente se deben llevar a cabo para que el conjunto de datos se pueda usar de forma eficaz para el aprendizaje automático. Los datos sin procesar son a menudo ruidosos no confiables y es posible que les falten valores. El uso de estos datos para el modelado puede producir resultados engañosos. Estas tareas forman parte del proceso de ciencia de datos en equipos (TDSP) y normalmente siguen una exploración inicial de un conjunto de datos que se usa para detectar y planear el procesamiento previo necesario. Para obtener instrucciones más detalladas sobre el proceso TDSP, consulte los pasos que se describen en el [proceso de ciencia de datos en equipos](overview.md).
 
 Las tareas de procesamiento previo y de limpieza, como la tarea de exploración de datos, se pueden llevar a cabo en una amplia variedad de entornos, como SQL o Hive o Azure Machine Learning Studio, y con diversas herramientas y lenguajes, como R o Python, en función de dónde se almacenen los datos y cómo se le apliquen formato. Como TDSP es iterativo por naturaleza, estas tareas pueden tener lugar en diversos pasos del flujo de trabajo del proceso.
 
-Este artículo presenta varios conceptos de procesamiento de datos y tareas que se pueden llevar a cabo antes o después de introducir datos en Azure Machine Learning.
+Este artículo presenta varios conceptos sobre el procesamiento de datos y las tareas que se pueden llevar a cabo antes o después de ingerir datos en Azure ML Studio (clásico).
 
-Para ver un ejemplo de exploración de datos y de procesamiento previo realizado dentro de Azure Machine Learning Studio, vea el vídeo [Preprocessing Data in Azure Machine Learning Studio](https://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/) (Procesamiento previo de datos en Azure Machine Learning Studio).
+Para ver un ejemplo de exploración y preprocesamiento de datos realizados en Azure ML Studio (clásico), puede visionar el vídeo [Preprocesamiento de datos](https://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/).
 
 ## <a name="why-pre-process-and-clean-data"></a>¿Por qué preprocesar y limpiar datos?
 Se recopilan datos del mundo real de varios orígenes y procesos y pueden contener irregularidades o datos dañados que comprometen la calidad del conjunto de datos. Los problemas de calidad de datos más habituales que surgen son:
@@ -51,7 +51,7 @@ Podemos comprobar la calidad general de los datos comprobando:
 
 Cuando encuentre problemas con los datos, serán necesarios los **pasos de procesamiento** que implican a menudo limpieza de los valores que faltan, normalización de datos, discretización, proceso para quitar o reemplazar caracteres incrustados que puedan afectar a la alineación de datos y tipos de datos mixtos en campos comunes, entre otros.
 
-**Azure Machine Learning consume datos tabulares con formato correcto**.  Si los datos ya están en formato tabular, el procesamiento previo de datos se puede realizar directamente con Azure Machine Learning en Machine Learning Studio.  Si los datos no están en formato tabular, por ejemplo, XML, se puede requerir el análisis para convertir los datos en formato tabular.  
+**Azure Machine Learning consume datos tabulares con formato correcto**.  Si los datos ya están en formato tabular, el preprocesamiento de datos se puede realizar directamente con Azure Machine Learning en Machine Learning.  Si los datos no están en formato tabular, por ejemplo, XML, se puede requerir el análisis para convertir los datos en formato tabular.  
 
 ## <a name="what-are-some-of-the-major-tasks-in-data-pre-processing"></a>¿Cuáles son algunas de las tareas principales de preprocesamiento de datos?
 * **Limpieza de datos**:  rellene los valores que faltan, detecte y quite los valores atípicos y los datos con ruido.

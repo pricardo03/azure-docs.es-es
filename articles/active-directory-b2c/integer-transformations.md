@@ -1,6 +1,7 @@
 ---
-title: Ejemplos de transformación de notificaciones de entero para el esquema del marco de experiencia de identidad de Azure Active Directory B2C | Microsoft Docs
-description: Ejemplos de transformación de notificaciones de entero para el esquema del marco de experiencia de identidad de Azure Active Directory B2C.
+title: Ejemplos de transformación de notificaciones de enteros para directivas personalizadas
+titleSuffix: Azure AD B2C
+description: Ejemplos de transformación de notificaciones de entero para el esquema de Identity Experience Framework (IEF) de Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d82f7fecfb35c63d586993fed73a83209782a890
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 7295e03f0a0f94b3450b99acc4d10d6ff86c92e7
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064210"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74948913"
 ---
 # <a name="integer-claims-transformations"></a>Transformaciones de notificaciones de entero
 

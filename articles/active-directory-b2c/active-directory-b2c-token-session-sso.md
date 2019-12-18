@@ -1,6 +1,7 @@
 ---
-title: 'Configuración de sesiones e inicio de sesión único: Azure Active Directory B2C | Microsoft Docs'
-description: Configuración de sesiones e inicio de sesión único en Azure Active Directory B2C.
+title: Configuración de sesiones e inicio de sesión único
+titleSuffix: Azure AD B2C
+description: Configuración de sesiones e inicio de sesión único (SSO) en Azure Active Directory B2C
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 472e494d445ae4a22c988076994649543ec1f7f8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 736dd1f0490c2c9c7c4f526df96dd5ace6a1f819
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66508116"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950076"
 ---
 # <a name="session-and-single-sign-on-configuration-in-azure-active-directory-b2c"></a>Configuración de sesiones e inicio de sesión único en Azure Active Directory B2C
 
@@ -37,7 +38,7 @@ Azure AD B2C admite el [protocolo de autenticación OpenID Connect](active-direc
 Los siguientes casos de uso se habilitan mediante estas propiedades:
 
 - Conformidad con los requisitos de cumplimiento normativo y seguridad de la industria mediante el establecimiento de la duración adecuada de la sesión de la aplicación web.
-- Obligación de volver a autenticarse después de un período de tiempo establecido durante la interacción del usuario con una zona de alta seguridad de la aplicación web. 
+- Obligación de volver a autenticarse después de un período de tiempo establecido durante la interacción del usuario con una zona de alta seguridad de la aplicación web.
 
 Estas opciones no están disponibles para flujos de usuario de restablecimiento de contraseña.
 
@@ -46,9 +47,9 @@ Estas opciones no están disponibles para flujos de usuario de restablecimiento 
 Si tiene varias aplicaciones y flujos de usuario en el inquilino B2C, puede administrar las interacciones del usuario a través de ellos con la propiedad **Configuración de inicio de sesión único**. Puede establecer la propiedad en uno de los siguientes valores:
 
 - **Inquilino**: esta es la configuración predeterminada. Esta configuración permite que varias aplicaciones y flujos de usuario del inquilino B2C compartan la misma sesión de usuario. Por ejemplo, una vez que un usuario inicia sesión en una aplicación, puede también iniciar sesión perfectamente en otra llamada Contoso Pharmacy simplemente con acceder a ella.
-- **Aplicación**: este valor permite mantener una sesión de usuario exclusivamente para una aplicación, independientemente de otras aplicaciones. Por ejemplo, si desea que el usuario inicie sesión en Contoso Pharmacy (con las mismas credenciales), aunque ya haya iniciado sesión en Contoso Shopping, otra aplicación en el mismo inquilino B2C. 
+- **Aplicación**: este valor permite mantener una sesión de usuario exclusivamente para una aplicación, independientemente de otras aplicaciones. Por ejemplo, si desea que el usuario inicie sesión en Contoso Pharmacy (con las mismas credenciales), aunque ya haya iniciado sesión en Contoso Shopping, otra aplicación en el mismo inquilino B2C.
 - **Directiva**: este valor permite mantener una sesión de usuario exclusivamente para un flujo de usuario, independientemente de las aplicaciones que lo usen. Por ejemplo, si el usuario ya ha iniciado sesión y ha realizado un paso de autenticación multifactor (MFA), se le puede dar acceso a zonas de mayor seguridad de varias aplicaciones mientras no expire la sesión asociada al flujo de usuario.
 - **Deshabilitado**: este valor obliga al usuario a ejecutar todo el flujo de usuario cada vez que se ejecuta la directiva.
 
-Estas opciones no están disponibles para flujos de usuario de restablecimiento de contraseña. 
+Estas opciones no están disponibles para flujos de usuario de restablecimiento de contraseña.
 

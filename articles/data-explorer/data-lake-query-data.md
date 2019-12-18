@@ -7,12 +7,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/17/2019
-ms.openlocfilehash: b0056df16dccaf1dc7e94aad1a2c6c262ffd89ee
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: d572e7f3fceaf2df8ad0ec684eaa421922389e71
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70383374"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74922147"
 ---
 # <a name="query-data-in-azure-data-lake-using-azure-data-explorer-preview"></a>Consulta de datos en Azure Data Lake con Azure Data Explorer (versión preliminar)
 
@@ -21,13 +21,8 @@ Azure Data Lake Storage es una solución de lago de datos rentable y muy escalab
 Azure Data Explorer se integra con Azure Blob Storage y Azure Data Lake Storage Gen2, de modo que proporciona un acceso rápido, indexado y almacenado en caché a los datos del lago. Puede analizar y consultar los datos del lago sin una ingesta previa en Azure Data Explorer. También puede consultar al mismo tiempo los datos ingeridos y sin ingerir del lago nativo.  
 
 > [!TIP]
-> Para obtener el mejor rendimiento de consultas, se necesita la ingesta de datos en Azure Data Explorer. La funcionalidad para consultar datos en Azure Data Lake Storage Gen2 sin una ingesta previa solo debe usarse para datos históricos o para datos que se consultan con poca frecuencia.
+> Para obtener el mejor rendimiento de consultas, se necesita la ingesta de datos en Azure Data Explorer. La funcionalidad para consultar datos en Azure Data Lake Storage Gen2 sin una ingesta previa solo debe usarse para datos históricos o para datos que se consultan con poca frecuencia. [Optimice el rendimiento de las consultas en el lago](#optimize-your-query-performance) para obtener los mejores resultados.
  
-## <a name="optimize-query-performance-in-the-lake"></a>Optimización del rendimiento de consultas en el lago 
-
-* Cree particiones de datos para mejorar el rendimiento y optimizar el tiempo de consulta.
-* Comprima los datos para potenciar el rendimiento (en formato gzip para una mejor compresión y lz4 para un mejor rendimiento).
-* Use Azure Blob Storage o Azure Data Lake Storage Gen2 con la misma región que el clúster de Azure Data Explorer. 
 
 ## <a name="create-an-external-table"></a>Creación de una tabla externa
 
@@ -231,6 +226,37 @@ Esta consulta usa particiones, lo que optimiza el rendimiento y el tiempo de con
 ![Representación de una consulta con particiones](media/data-lake-query-data/taxirides-with-partition.png)
   
 Puede escribir otras consultas para ejecutarlas en la tabla externa *TaxiRides* y obtener más información sobre los datos. 
+
+## <a name="optimize-your-query-performance"></a>Optimización del rendimiento de las consultas
+
+Optimice el rendimiento de las consultas en el lago mediante los siguientes procedimientos recomendados para consultar datos externos. 
+ 
+### <a name="data-format"></a>Formato de datos
+ 
+Use un formato de columnas para las consultas analíticas dado que:
+* Solo se pueden leer las columnas pertinentes para una consulta. 
+* Las técnicas de codificación de columnas pueden reducir considerablemente el tamaño de los datos.  
+Azure Data Explorer admite los formatos de columna Parquet y ORC. Se sugiere el formato Parquet debido a su implementación optimizada. 
+ 
+### <a name="azure-region"></a>Región de Azure 
+ 
+Compruebe que los datos externos se encuentran en la misma región de Azure que el clúster de Azure Data Explorer. Así se reduce el costo y el tiempo de recopilación de los datos.
+ 
+### <a name="file-size"></a>Tamaño de archivo
+ 
+Un tamaño de archivo óptimo es de cientos de Mb (hasta 1 Gb) por archivo. Evite muchos archivos pequeños que requieran una sobrecarga innecesaria, como un proceso de enumeración de archivos más lento y el uso limitado del formato de las columnas. Tenga en cuenta que el número de archivos debe ser mayor que el de núcleos de CPU del clúster de Azure Data Explorer. 
+ 
+### <a name="compression"></a>Compresión
+ 
+Use la compresión para reducir la cantidad de datos que se capturan desde el almacenamiento remoto. En el formato Parquet, use el mecanismo interno de compresión Parquet que comprime los grupos de columnas por separado, lo que permite leerlos también por separado. Para validar el uso del mecanismo de compresión, compruebe que los archivos se denominan de la siguiente manera: "<filename>.gz.parquet" o "<filename>.snappy.parquet" en lugar de "<filename>.parquet.gz"). 
+ 
+### <a name="partitioning"></a>Creación de particiones
+ 
+Organice los datos con particiones de "carpeta" que permitan que la consulta omita rutas de acceso irrelevantes. Al planear la creación de particiones, tenga en cuenta el tamaño de archivo y los filtros comunes en las consultas, como la marca de tiempo o el identificador de inquilino.
+ 
+### <a name="vm-size"></a>Tamaño de VM
+ 
+Seleccione las SKU de máquinas virtuales con más núcleos y mayor rendimiento de la red (la memoria es menos importante). Para más información, consulte [Selección de la SKU de máquina virtual correcta para el clúster de Azure Data Explorer](manage-cluster-choose-sku.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

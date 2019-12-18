@@ -1,23 +1,22 @@
 ---
-title: 'Instalación de componentes con licencia para Azure-SSIS Integration Runtime '
+title: Instalación de componentes con licencia para Azure SSIS Integration Runtime
 description: Más información sobre cómo un ISV puede desarrollar e instalar componentes personalizados de pago o con licencia en un entorno de ejecución para la integración de SSIS en Azure
 services: data-factory
-documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.topic: conceptual
-ms.date: 08/01/2019
 author: swinarko
 ms.author: sawinark
+manager: mflasko
 ms.reviewer: douglasl
-manager: craigg
-ms.openlocfilehash: f1f8a017153d95beed4979b6059383a41cd6a972
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.topic: conceptual
+ms.custom: seo-lt-2019
+ms.date: 08/01/2019
+ms.openlocfilehash: 599b54f8a5d97ee5ed29ce4df16980f456ffb919
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73673580"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74914579"
 ---
 # <a name="install-paid-or-licensed-custom-components-for-the-azure-ssis-integration-runtime"></a>Instalación de componentes personalizados de pago o con licencia para la instancia de Integration Runtime para la integración de SSIS en Azure
 

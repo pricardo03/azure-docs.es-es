@@ -1,20 +1,18 @@
 ---
 title: Controles de seguridad para Azure Cosmos DB
-description: Lista de comprobación de controles de seguridad para evaluar Azure Cosmos DB
+description: Obtenga una lista de comprobación de los controles de seguridad como la red, la supervisión, la identidad y la protección de datos para evaluar Azure Cosmos DB
 services: cosmos-db
-documentationcenter: ''
-author: msmbaldwin
-manager: rkarlin
+author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/04/2019
-ms.author: mbaldwin
-ms.openlocfilehash: 20cdfc61a4cdfe5263e48d049aab14cad2458b06
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.date: 12/02/2019
+ms.author: sngun
+ms.openlocfilehash: 5ab4281f1ad591befda5a439906604331a1ab323
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70886312"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872152"
 ---
 # <a name="security-controls-for-azure-cosmos-db"></a>Controles de seguridad para Azure Cosmos DB
 
@@ -27,8 +25,8 @@ En este artículo, se explican los controles de seguridad integrados en Azure Co
 | Control de seguridad | Sí/no | Notas |
 |---|---|--|
 | Compatibilidad con el punto de conexión de servicio| Sí |  |
-| Compatibilidad con la inserción de redes virtuales| Sí | Con el punto de conexión de servicio de red virtual, puede configurar la cuenta de Azure Cosmos DB para permitir el acceso solo desde una subred específica de una red virtual (VNet). También puede combinar el acceso de red virtual con reglas de firewall.  Consulte [Acceso a Azure Cosmos DB desde redes virtuales](VNet-service-endpoint.md) |
-| Compatibilidad con el aislamiento de red y los firewalls| Sí | Gracias a la compatibilidad con el firewall, puede configurar su cuenta de Azure Cosmos para permitir el acceso solo desde un conjunto de direcciones IP aprobado, un intervalo de direcciones IP o servicios en la nube. Consulte [Configuración del firewall de IP en Azure Cosmos DB](how-to-configure-firewall.md).|
+| Compatibilidad con la inserción de redes virtuales| Sí | Con el punto de conexión de servicio de red virtual, puede configurar la cuenta de Azure Cosmos DB para permitir el acceso solo desde una subred específica de una red virtual (VNet). También puede combinar el acceso de red virtual con reglas de firewall. Para más información, consulte [Acceso a Azure Cosmos DB desde redes virtuales](VNet-service-endpoint.md). |
+| Compatibilidad con el aislamiento de red y los firewalls| Sí | Gracias a la compatibilidad con el firewall, puede configurar su cuenta de Azure Cosmos para permitir el acceso solo desde un conjunto de direcciones IP aprobado, un intervalo de direcciones IP o servicios en la nube. Para más información, consulte [Configuración del firewall de IP en Azure Cosmos DB](how-to-configure-firewall.md).|
 | Compatibilidad con la tunelización forzada| Sí | Se puede configurar en el cliente en la red virtual donde se encuentran las máquinas virtuales.   |
 
 ## <a name="monitoring--logging"></a>Supervisión y registro
@@ -50,7 +48,7 @@ En este artículo, se explican los controles de seguridad integrados en Azure Co
 
 | Control de seguridad | Sí/no | Notas |
 |---|---|--|
-| Cifrado del lado servidor en reposo: Claves administradas por Microsoft | Sí | Todas las bases de datos de Cosmos y las copias de seguridad se cifran de forma predeterminada; consulte [Cifrado de datos en Azure Cosmos DB](database-encryption-at-rest.md). No se admite el cifrado del servidor con claves administradas por el cliente. |
+| Cifrado del lado servidor en reposo: Claves administradas por Microsoft | Sí | Todas las bases de datos y las copias de seguridad de Azure Cosmos se cifran de forma predeterminada; consulte [Cifrado de datos en Azure Cosmos DB](database-encryption-at-rest.md). No se admite el cifrado del servidor con claves administradas por el cliente. |
 | Cifrado del lado servidor en reposo: claves administradas por el cliente (BYOK) | Sin |  |
 | Cifrado de nivel de columna (Azure Data Services)| Sí | Solo en las instancias de Table API Premium. No todas las API admiten esta característica. Consulte [Introducción a Azure Cosmos DB: Table API](table-introduction.md). |
 | Cifrado en tránsito (por ejemplo, cifrado de ExpressRoute, cifrado en la red virtual y cifrado de red virtual a red virtual)| Sí | Todos los datos de Azure Cosmos DB se cifran en tránsito. |

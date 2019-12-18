@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/26/2019
+ms.date: 12/06/2019
 ms.author: cabailey
-ms.openlocfilehash: e72b9012b41f50b36ba7d92582d0c697e6db0683
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 5b347848c9c6a58a70ab1093a6f9c70b62f3f769
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546860"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900454"
 ---
-# <a name="use-hunting-livestream-in-azure-sentinel-to-detect-threats"></a>Use el streaming en vivo de búsqueda de Azure Sentinel para detectar amenaza
+# <a name="use-hunting-livestream-in-azure-sentinel-to-detect-threats"></a>Uso del streaming en vivo de búsqueda de Azure Sentinel para detectar amenazas
 
 > [!IMPORTANT]
 > El streaming en vivo de búsqueda de Azure Sentinel se encuentra actualmente en versión preliminar pública y se implementa gradualmente en los inquilinos.
@@ -37,7 +37,7 @@ Use el streaming en vivo de búsqueda para crear sesiones interactivas que permi
 
 - **Reciba una notificación cuando se produzcan amenazas**
     
-    Puede comparar las fuentes de distribución de datos de amenazas con los datos de registro agregados y recibir una notificación cuando se produzca una coincidencia. Las fuentes de distribución de datos de amenazas son secuencias de datos en curso que están relacionadas con amenazas potenciales o actuales, por lo que la notificación podría indicar una amenaza potencial para la organización. Cree una sesión de streaming en vivo en lugar de una regla de alerta personalizada cuando quiera recibir la notificación de un problema potencial sin las sobrecargas del mantenimiento de una regla de alerta personalizada.
+    Puede comparar las fuentes de distribución de datos de amenazas con los datos de registro agregados y recibir una notificación cuando se produzca una coincidencia. Las fuentes de distribución de datos de amenazas son secuencias de datos en curso que están relacionadas con amenazas potenciales o actuales, por lo que la notificación podría indicar una amenaza potencial para la organización. Cree una sesión de streaming en vivo en lugar de una regla de alerta personalizada cuando quiera recibir la notificación de un problema potencial sin las sobrecargas del mantenimiento de una regla de alertas personalizada.
 
 - **Inicio de investigaciones**
     
@@ -70,7 +70,7 @@ Puede crear una sesión de streaming en vivo a partir de una consulta de búsque
 
 5. En la barra de comandos, seleccione **Reproducir**.
     
-    La barra de estado de la barra de comandos indica si el streaming en vivo está en ejecución o en pausa. En el ejemplo siguiente, la sesión se está ejecutando:
+    La barra de estado de la barra de comandos indica si la sesión de streaming en vivo está en ejecución o en pausa. En el ejemplo siguiente, la sesión se está ejecutando:
     
     > [!div class="mx-imgBorder"]
     > ![creación de una sesión de streaming en vivo desde una búsqueda de Azure Sentinel](./media/livestream/livestream-session.png)
@@ -110,7 +110,6 @@ Esta acción abre el asistente para crear reglas, que se rellena previamente con
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este artículo, aprendió cómo ejecutar un streaming en vivo de búsqueda en Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
-
 
 - [Búsqueda de amenazas con Azure Sentinel, versión preliminar](hunting.md)
 - [Uso de cuadernos de Jupyter Notebook para buscar amenazas de seguridad](notebooks.md)

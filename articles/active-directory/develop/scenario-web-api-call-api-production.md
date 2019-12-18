@@ -1,6 +1,6 @@
 ---
-title: 'API web que llama a las API web (paso a producción): Plataforma de identidad de Microsoft'
-description: Obtenga información sobre cómo compilar una API web que llame a API web de bajada (paso a producción).
+title: 'Paso a producción de una API web que llama a las API web: Plataforma de identidad de Microsoft | Azure'
+description: Aprenda a pasar a producción una API web que llama a las API web.
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7de892a0851e556c5046fe4b3691f39b42a9d237
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0d59a5b2a74c10e36103713725113cbe8c9cc412
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65074761"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74965176"
 ---
 # <a name="web-api-that-calls-web-apis---move-to-production"></a>API web que llama a las API web: paso a producción
 

@@ -3,19 +3,19 @@ title: Experiencias de administración entre inquilinos
 description: La administración de recursos delegados de Azure habilita una experiencia de administración entre inquilinos.
 ms.date: 11/7/2019
 ms.topic: conceptual
-ms.openlocfilehash: 2db1cfd7cc8145ff3020bf232021b4f1a63b2ddd
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: 0f69fc6b606f2f848b9a14d29addbbde11f07a3e
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74464035"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928000"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiencias de administración entre inquilinos
 
 Como proveedor de servicios, puede usar la [administración de recursos delegados de Azure](../concepts/azure-delegated-resource-management.md) para administrar los recursos de Azure para varios clientes desde su propio inquilino en [Azure Portal](https://portal.azure.com). La mayoría de las tareas y servicios se pueden realizar en recursos delegados de Azure a través de inquilinos administrados. En este artículo se describen algunos de los escenarios mejorados en los que la administración de recursos delegados de Azure puede ser eficaz.
 
 > [!NOTE]
-> La administración de recursos delegados de Azure también se puede usar en una empresa que tenga varios inquilinos propios para simplificar la administración entre inquilinos.
+> La administración de recursos delegados de Azure también se puede usar [en una empresa que tenga varios inquilinos Azure AD propios](enterprise.md) para simplificar la administración entre inquilinos.
 
 ## <a name="understanding-customer-tenants"></a>Descripción de los inquilinos de cliente
 

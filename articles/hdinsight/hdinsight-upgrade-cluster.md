@@ -5,15 +5,15 @@ author: omidm1
 ms.author: omidm
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 04/04/2017
-ms.openlocfilehash: 808e592a01bca2066b7d3d37a5fdfa697d739d4b
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.custom: hdinsightactive
+ms.date: 12/06/2019
+ms.openlocfilehash: 1a1d4a71786ebb1e68f59084086b3256a1c1ea40
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122442"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951163"
 ---
 # <a name="upgrade-hdinsight-cluster-to-a-newer-version"></a>Actualización del clúster de HDInsight a una versión más reciente
 
@@ -34,14 +34,15 @@ El flujo de trabajo para actualizar el clúster de HDInsight es el siguiente.
 
 Cuando haya comprobado que todo funciona según lo esperado, programe el tiempo de inactividad para la migración. Durante este tiempo de inactividad, realice las acciones siguientes:
 
-1.  Haga copia de seguridad de todos los datos transitorios almacenados localmente en los nodos del clúster. Por ejemplo, si tiene datos que se almacenan directamente en un nodo principal.
-2.  Elimine el clúster existente.
-3.  Cree un clúster en la misma subred de red virtual con la versión de HDI más reciente (o compatible) con el mismo almacén de datos predeterminado que usaba el clúster anterior. Esto permitirá que el nuevo clúster siga trabajando con los datos de producción existentes.
-4.  Importe los datos transitorios cuya copia de seguridad realizó.
-5.  Inicie trabajos o continúe el procesamiento con el nuevo clúster.
+1. Haga copia de seguridad de todos los datos transitorios almacenados localmente en los nodos del clúster. Por ejemplo, si tiene datos que se almacenan directamente en un nodo principal.
+1. [Elimine el clúster existente](./hdinsight-delete-cluster.md).
+1. Cree un clúster en la misma subred de red virtual con la versión de HDI más reciente (o compatible) con el mismo almacén de datos predeterminado que usaba el clúster anterior. Esto permitirá que el nuevo clúster siga trabajando con los datos de producción existentes.
+1. Importe los datos transitorios cuya copia de seguridad realizó.
+1. Inicie trabajos o continúe el procesamiento con el nuevo clúster.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Más información sobre cómo crear clústeres de HDInsight basado en Linux](hdinsight-hadoop-provision-linux-clusters.md)
 * [Conexión a HDInsight mediante SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 * [Administración de un clúster basado en Linux mediante Apache Ambari](hdinsight-hadoop-manage-ambari.md)
+* [Notas de la versión de HDInsight](./hdinsight-version-release.md)

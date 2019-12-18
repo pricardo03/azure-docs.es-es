@@ -1,6 +1,7 @@
 ---
-title: Uso de la Plataforma de identidad de Microsoft para el inicio de sesión de los usuarios mediante la concesión de credenciales de contraseña de propietario de recursos (ROPC) | Azure
-description: Admita flujos de autenticación sin explorador mediante la concesión de credenciales de contraseña de propietario de recursos.
+title: Inicio de sesión con la concesión de credenciales de contraseña del propietario del recurso | Azure
+titleSuffix: Microsoft identity platform
+description: Admita flujos de autenticación sin explorador mediante la concesión de credenciales de contraseña de propietario de recursos (ROPC).
 services: active-directory
 documentationcenter: ''
 author: rwike77
@@ -17,16 +18,16 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4504a1ae60aaac790ca15c120433159c2ff78fa
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 24c6bfdc7efc8f15378d4a126b978bc77741b43c
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74207780"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74919331"
 ---
-# <a name="microsoft-identity-platform-and-the-oauth-20-resource-owner-password-credentials"></a>Plataforma de identidad de Microsoft y las credenciales de contraseña de propietario de recursos de OAuth 2.0
+# <a name="microsoft-identity-platform-and-oauth-20-resource-owner-password-credentials"></a>Plataforma de identidad de Microsoft y credenciales de contraseña de propietario de recursos de OAuth 2.0
 
-La Plataforma de identidad de Microsoft admite la [concesión de credenciales de contraseña de propietario de recursos (ROPC) de OAuth 2.0](https://tools.ietf.org/html/rfc6749#section-4.3), que permite que, para que una aplicación inicie la sesión del usuario, se pueda controlar directamente su contraseña.  En este artículo se describe cómo programar directamente con el protocolo en la aplicación.  Cuando sea posible, se recomienda usar las Bibliotecas de autenticación de Microsoft (MSAL) admitidas, en lugar de [adquirir tokens y llamar a API web protegidas](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Además, eche un vistazo a las [aplicaciones de ejemplo que usan MSAL](sample-v2-code.md).
+La Plataforma de identidad de Microsoft admite la [concesión de credenciales de contraseña de propietario de recursos (ROPC) de OAuth 2.0](https://tools.ietf.org/html/rfc6749#section-4.3), que permite que, para que una aplicación inicie la sesión del usuario, se pueda controlar directamente su contraseña.  En este artículo se describe cómo programar directamente con el protocolo en la aplicación.  Cuando sea posible, se recomienda usar las bibliotecas de autenticación de Microsoft (MSAL) admitidas, en lugar de [adquirir tokens y API web protegidas por llamadas](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Además, eche un vistazo a las [aplicaciones de ejemplo que usan MSAL](sample-v2-code.md).
 
 > [!WARNING]
 > Microsoft recomienda que _no_ use el flujo de ROPC. En la mayoría de los escenarios, hay alternativas más seguras y recomendables. Este flujo requiere un alto grado de confianza en la aplicación y conlleva riesgos que no están presentes en otros flujos. Solo debe usar este flujo cuando no se puedan usar otros más seguros.

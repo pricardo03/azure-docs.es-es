@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 11/12/2019
+ms.date: 12/09/2019
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: adwise
 ms.custom: seodec18
-ms.openlocfilehash: edb46bc361c515439a93d9c3d0b9987bebe4b1b1
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 4b0e5be0e5f71fa61e3a6c6fa39e720c4c298898
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229872"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74967954"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Tutorial: Creación y administración de presupuestos de Azure
 
@@ -27,7 +27,7 @@ Los presupuestos se restablecen automáticamente al final de un período (mensua
 
 Los ejemplos de este tutorial le guiarán a través de la creación y edición de un presupuesto para una suscripción de Contrato Enterprise (EA) de Azure.
 
-En el vídeo sobre [cómo crear un presupuesto para supervisar los gastos con Azure Cost Management](https://www.youtube.com/watch?v=ExIVG_Gr45A) descubrirá la manera de crear presupuestos en Azure para supervisar los gastos.
+Vea el vídeo [Aplicar presupuestos a las suscripciones mediante Azure Portal](https://www.youtube.com/watch?v=UrkHiUx19Po) si desea ver cómo puede crear presupuestos en Azure para supervisar los gastos.
 
 
 En este tutorial, aprenderá a:
@@ -62,7 +62,7 @@ Para crear o ver un presupuesto, abra el ámbito deseado en Azure Portal y selec
 
 Después de crear los presupuestos, muestran a un lado una vista sencilla de su gasto actual.
 
-Haga clic en **Agregar**.
+Seleccione **Agregar**.
 
 ![Ejemplo en el que se muestra una lista de presupuestos ya creada](./media/tutorial-acm-create-budgets/budgets01.png)
 
@@ -78,7 +78,7 @@ En función de los campos elegidos en el presupuesto hasta el momento, se muestr
 
 ![Ejemplo que muestra la creación de un presupuesto con datos de costos mensuales ](./media/tutorial-acm-create-budgets/monthly-budget01.png)
 
-Después de configurar la cantidad del presupuesto, haga clic en **Siguiente** para configurar las alertas de presupuesto. Los presupuestos requieren al menos un umbral de costos (% del presupuesto) y una dirección de correo electrónico correspondiente. De manera opcional, puede incluir hasta cinco umbrales y cinco direcciones de correo electrónico en un único presupuesto. Normalmente, cuando se alcanza el umbral del presupuesto, las notificaciones por correo electrónico se reciben en menos de 20 horas. Para más información acerca de las notificaciones, consulte [Use cost alerts](cost-mgt-alerts-monitor-usage-spending.md) (Uso de alertas de costos). En el siguiente ejemplo, se genera una alerta por correo electrónico cuando se alcanza el 90 % del presupuesto. Si crea un presupuesto con API Budgets, también puede asignar roles a los usuarios para que reciban alertas. No se admite la asignación de roles a personas en Azure Portal. Para más información sobre la API de presupuestos de Azure, consulte [API Budgets](/rest/api/consumption/budgets).
+Después de configurar el importe del presupuesto, haga clic en **Siguiente** para configurar las alertas de presupuesto. Los presupuestos requieren al menos un umbral de costos (% del presupuesto) y una dirección de correo electrónico correspondiente. De manera opcional, puede incluir hasta cinco umbrales y cinco direcciones de correo electrónico en un único presupuesto. Normalmente, cuando se alcanza el umbral del presupuesto, las notificaciones por correo electrónico se reciben en menos de 20 horas. Para más información acerca de las notificaciones, consulte [Use cost alerts](cost-mgt-alerts-monitor-usage-spending.md) (Uso de alertas de costos). En el siguiente ejemplo, se genera una alerta por correo electrónico cuando se alcanza el 90 % del presupuesto. Si crea un presupuesto con API Budgets, también puede asignar roles a los usuarios para que reciban alertas. No se admite la asignación de roles a personas en Azure Portal. Para más información sobre la API de presupuestos de Azure, consulte [API Budgets](/rest/api/consumption/budgets).
 
 ![Ejemplo en el que se muestran las condiciones de la alerta](./media/tutorial-acm-create-budgets/monthly-budget-alert.png)
 
@@ -94,12 +94,12 @@ Al crear o editar un presupuesto para un ámbito de suscripción o grupo de recu
 
 
 
-Para crear o actualizar grupos de acciones, haga clic en **Administrar los grupos de acciones** al crear o editar un presupuesto.
+Para crear o actualizar los grupos de acciones, seleccione **Administrar los grupos de acciones** al crear o editar un presupuesto.
 
 ![Ejemplo de creación de un presupuesto para mostrar la opción Administrar los grupos de acciones](./media/tutorial-acm-create-budgets/manage-action-groups01.png)
 
 
-Después, haga clic en **Agregar grupo de acciones** y cree el grupo de acciones.
+Después, seleccione **Agregar grupo de acciones** y cree el grupo de acciones.
 
 
 ![Imagen del cuadro Agregar grupo de acciones](./media/tutorial-acm-create-budgets/manage-action-groups02.png)
@@ -115,6 +115,12 @@ En el ejemplo siguiente se muestran los umbrales del presupuesto establecidos en
 ![Ejemplo en el que se muestran las condiciones de alerta configuradas con varios grupos de acciones y tipos de acciones](./media/tutorial-acm-create-budgets/manage-action-groups04.png)
 
 La integración de presupuesto con los grupos de acciones solo funciona para los grupos de acciones que tienen deshabilitado el esquema de alertas común. Para más información sobre cómo deshabilitar el esquema, consulte [¿Cómo habilito el esquema de alertas comunes?](../azure-monitor/platform/alerts-common-schema.md#how-do-i-enable-the-common-alert-schema)
+
+## <a name="edit-an-existing-budget"></a>Edición de un presupuesto existente
+Si desea realizar cambios en presupuesto existente, vaya a la ventana de presupuestos principales y seleccione el que desee editar. En la ventana de detalles del presupuesto, seleccione **Editar presupuesto** y realice los cambios necesarios; a continuación, seleccione **Guardar**.
+
+![Ejemplo que muestra el presupuesto de edición](./media/tutorial-acm-create-budgets/edit-budget.png)
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

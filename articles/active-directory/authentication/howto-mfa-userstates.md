@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6261de14f80f966718507d2d3506e55db9786df9
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 46195a0a799f9edabcd8cd5a27e1b79752d03a45
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74785864"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74964062"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user"></a>Exigencia de verificación en dos pasos para un usuario
 
@@ -52,7 +52,10 @@ Las cuentas de usuario de Azure Multi-Factor Authentication tienen los siguiente
 
 El estado de un usuario refleja si un administrador lo ha inscrito en Azure MFA, y si ha completado el proceso de registro.
 
-Todos los usuarios comienzan con el estado *Deshabilitado*. Cuando inscribe usuarios en Azure MFA, cambia a *Habilitado*. Cuando los usuarios habilitados inician sesión y completan el proceso de registro, el estado cambia a *Aplicado*.  
+Todos los usuarios comienzan con el estado *Deshabilitado*. Cuando inscribe usuarios en Azure MFA, cambia a *Habilitado*. Cuando los usuarios habilitados inician sesión y completan el proceso de registro, el estado cambia a *Aplicado*.
+
+> [!NOTE]
+> Si se vuelve a habilitar MFA en un objeto de usuario que ya tiene detalles de registro, como el teléfono o el correo electrónico, los administradores deben hacer que el usuario se vuelva a registrar en MFA a través de Azure Portal o PowerShell. Si el usuario no se vuelve a registrar, su estado de MFA no pasa de *Habilitado* a *Aplicado* en la interfaz de usuario de administración de MFA.
 
 ### <a name="view-the-status-for-a-user"></a>Ver el estado de un usuario
 
@@ -100,10 +103,15 @@ Instale el módulo en primer lugar, mediante:
 > [!TIP]
 > No se olvide de conectarse primero con **Connect-MsolService**
 
+   ```PowerShell
+   Connect-MsolService
+   ```
+
 Este ejemplo de script de PowerShell habilita MFA para un usuario individual:
 
    ```PowerShell
    Import-Module MSOnline
+   Connect-MsolService
    $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
    $st.RelyingParty = "*"
    $st.State = "Enabled"
@@ -179,6 +187,8 @@ Get-MsolUser -All | Set-MfaState -State Disabled
 
 > [!NOTE]
 > Recientemente hemos cambiado el comportamiento y el script de PowerShell anterior en consecuencia. Anteriormente, el script se guardaba fuera de los métodos de MFA, se deshabilitó MFA y restauraba los métodos. Ahora, ya no es necesario que el comportamiento predeterminado para deshabilitar no borre los métodos.
+>
+> Si se vuelve a habilitar MFA en un objeto de usuario que ya tiene detalles de registro, como el teléfono o el correo electrónico, los administradores deben hacer que el usuario se vuelva a registrar en MFA a través de Azure Portal o PowerShell. Si el usuario no se vuelve a registrar, su estado de MFA no pasa de *Habilitado* a *Aplicado* en la interfaz de usuario de administración de MFA.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

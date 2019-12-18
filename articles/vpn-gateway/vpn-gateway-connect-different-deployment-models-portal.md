@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: cherylmc
-ms.openlocfilehash: 722907328fe17c4116f4f8d948e081f9582ca712
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: c26c4c47cb17acf88bc545af3a1fc979138d56b1
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266574"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951741"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Conexión de redes virtuales a partir de diferentes modelos de implementación con el portal
 
@@ -99,8 +99,8 @@ Si ya tiene una red virtual con una puerta de enlace VPN, compruebe que la puert
 ### 2. <a name="local"></a>Configuración del sitio local
 
 1. Vaya a **Todos los recursos** y ubique **ClassicVNet** en la lista.
-2. En la página **Información general**, en la sección **Conexiones de VPN**, haga clic en **Puerta de enlace** para crear una puerta de enlace.
-  ![Configurar una puerta de enlace VPN](./media/vpn-gateway-connect-different-deployment-models-portal/gatewaygraphic.png "Configurar una puerta de enlace VPN")
+2. Haga clic en **Puerta de enlace** en la sección **Configuración** del menú y, a continuación, haga clic en el banner para crear una puerta de enlace.
+  ![Configuración de una puerta de enlace de VPN](./media/vpn-gateway-connect-different-deployment-models-portal/gatewaygraphic.png "CConfiguración de una VPN Gateway")
 3. En la página **Nueva conexión de VPN**, en la opción **Tipo de conexión**, seleccione **De sitio a sitio**.
 4. En **Sitio local**, haga clic en **Configurar los valores obligatorios**. Con esto se abre la página **Sitio local**.
 5. En la página **Sitio Local**, cree un nombre para hacer referencia a la red virtual de Resource Manager. Por ejemplo, "RMVNetLocal".
@@ -113,7 +113,7 @@ Si ya tiene una red virtual con una puerta de enlace VPN, compruebe que la puert
 1. En la página **Nueva conexión VPN**, active la casilla **Crear puerta de enlace inmediatamente**.
 2. Haga clic en **Configuración de puerta de enlace opcional** para abrir la página **Configuración de puerta de enlace**.
 
-   ![Abrir página de configuración de puerta de enlace](./media/vpn-gateway-connect-different-deployment-models-portal/optionalgatewayconfiguration.png "Abrir página de configuración de puerta de enlace")
+   ![Apertura de la página de configuración de las puertas de enlace](./media/vpn-gateway-connect-different-deployment-models-portal/optionalgatewayconfiguration.png "Apertura de la página de configuración de las puertas de enlace")
 3. Haga clic en **Subred: configurar los valores obligatorios** para abrir la página **Agregar subred**. El campo **Nombre** ya está establecido en el valor apropiado: **GatewaySubnet**.
 4. **Intervalo de direcciones** hace referencia al intervalo para la subred de puerta de enlace. Si bien puede crear una subred de puerta de enlace con un intervalo de direcciones de /29 (3 direcciones), se recomienda crear una subred de puerta de enlace que incluya más direcciones IP. Esto permitirá configuraciones futuras que puedan requerir más direcciones IP disponibles. Si es posible, utilice /27 o /28. Si usa estos pasos como ejercicio, puede hacer referencia a los [valores de ejemplo](#values). En este ejemplo se usa "10.0.0.32/28". Haga clic en **Aceptar** para crear la subred de puerta de enlace.
 5. En la página **Configuración de puerta de enlace**, la opción **Tamaño** hace referencia a la SKU de la puerta de enlace. Seleccione la SKU de puerta de enlace para la puerta de enlace VPN.
@@ -187,16 +187,16 @@ En esta sección se reemplaza la dirección IP de marcador de posición que usó
 2. En la página de la red virtual, haga clic en **Información general**.
 3. En la sección **Conexiones VPN**, haga clic en el nombre del sitio local en el gráfico.
 
-   ![Conexiones VPN](./media/vpn-gateway-connect-different-deployment-models-portal/vpnconnections.png "Conexiones VPN")
+   ![VPN-connections](./media/vpn-gateway-connect-different-deployment-models-portal/vpnconnections.png "VPN Connections")
 4. En la página **Conexiones de VPN de sitio a sitio**, haga clic en el nombre del sitio.
 
-   ![Nombre del sitio](./media/vpn-gateway-connect-different-deployment-models-portal/sitetosite3.png "Nombre del sitio local")
+   ![Site-name](./media/vpn-gateway-connect-different-deployment-models-portal/sitetosite3.png "Nombre del sitio local")
 5. En la página de conexión del sitio local, haga clic en el nombre del sitio local para abrir la página **Sitio local**.
 
-   ![Abrir sitio local](./media/vpn-gateway-connect-different-deployment-models-portal/openlocal.png "Abrir sitio local")
+   ![Open-local-site](./media/vpn-gateway-connect-different-deployment-models-portal/openlocal.png "Sitio local abierto")
 6. En la página **Sitio local**, reemplace la **dirección IP de la puerta de enlace de VPN** por la dirección IP de la puerta de enlace de Resource Manager.
 
-   ![Dirección IP de puerta de enlace](./media/vpn-gateway-connect-different-deployment-models-portal/gwipaddress.png "Dirección IP de puerta de enlace")
+   ![Gateway-ip-address](./media/vpn-gateway-connect-different-deployment-models-portal/gwipaddress.png "Dirección IP de la puerta de enlace")
 7. Haga clic en **Aceptar** para actualizar la dirección IP.
 
 ## <a name="RMtoclassic"></a>Sección 4: Creación de conexión de red virtual de Resource Manager a red virtual clásica

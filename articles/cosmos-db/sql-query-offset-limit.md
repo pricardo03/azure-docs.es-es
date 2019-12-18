@@ -1,17 +1,17 @@
 ---
 title: Cláusula OFFSET LIMIT en Azure Cosmos DB
-description: Obtenga información sobre la cláusula OFFSET LIMIT para Azure Cosmos DB.
+description: Obtenga información sobre cómo usar la cláusula OFFSET LIMIT para omitir y tomar algunos valores concretos al realizar consultas en Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: mjbrown
-ms.openlocfilehash: 7aae56783f83f13b50321c88d69f07d910e589dd
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 68515c51862ada0b1aa794c09b3a6730504a57ee
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72326873"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873257"
 ---
 # <a name="offset-limit-clause-in-azure-cosmos-db"></a>Cláusula OFFSET LIMIT en Azure Cosmos DB
 

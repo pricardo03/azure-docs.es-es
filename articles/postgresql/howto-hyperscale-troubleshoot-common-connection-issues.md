@@ -7,12 +7,12 @@ ms.author: jonels
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/8/2019
-ms.openlocfilehash: b812b730cebba4dbf0735f49f544e53bf7f8787c
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: c064aca484f85c44dada9888012140784a96863f
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72942089"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977512"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql---hyperscale-citus"></a>Solución de problemas de conexión a Azure Database for PostgreSQL- Hiperescala (Citus)
 
@@ -50,7 +50,7 @@ Si la aplicación no se puede conectar de forma persistente a Hiperescala (Citus
 
 * Configuración del firewall del nodo de coordinación: Asegúrese de que el firewall del servidor de Hiperescala está configurado para permitir las conexiones desde el cliente, incluidas las puertas de enlace y los servidores proxy.
 * Configuración del firewall del cliente: El firewall en el cliente debe permitir las conexiones con el servidor de bases de datos. Algunos firewalls requieren no solo permitir la aplicación por nombre, sino permitir además las direcciones IP y los puertos del servidor.
-* Error del usuario: compruebe de nuevo la cadena de conexión. Es posible que falten parámetros como el nombre del servidor o que haya olvidado un sufijo *\@servername* en el nombre de usuario.
+* Error del usuario: compruebe de nuevo la cadena de conexión. Puede que haya escrito incorrectamente parámetros como el del nombre del servidor. Puede encontrar cadenas de conexión para diversas plataformas de lenguaje y psql en Azure Portal. Vaya a la página **Cadenas de conexión** en el grupo de servidores de Hiperescala (Citus). Tenga en cuenta también que los clústeres de Hiperescala (Citus) tienen una sola base de datos y su nombre predefinido es **citus**.
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Pasos para resolver los problemas de conectividad persistentes
 

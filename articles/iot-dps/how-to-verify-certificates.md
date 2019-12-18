@@ -1,18 +1,18 @@
 ---
 title: Comprobación de los certificados de entidad de certificación X.509 con el servicio Azure IoT Hub Device Provisioning
-description: Realización de una prueba de posesión de certificados de entidad de certificación X.509 con Azure IoT Hub Device Provisioning Service
+description: Realización de una prueba de posesión de certificados de entidad de certificación X.509 con Azure IoT Hub Device Provisioning Service (DPS)
 author: wesmc7777
 ms.author: wesmc
 ms.date: 02/26/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: b701b15b3dd4463b2d5adbb38ee23bf0c3bfdfe9
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: b008c4ebc83200043d51fc8ef367f1983c549949
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228682"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973448"
 ---
 # <a name="how-to-do-proof-of-possession-for-x509-ca-certificates-with-your-device-provisioning-service"></a>Realización de una prueba de posesión de certificados de entidad de certificación X.509 con el servicio Device Provisioning
 

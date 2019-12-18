@@ -1,6 +1,6 @@
 ---
 title: Introducción a Azure Media Services | Microsoft Docs
-description: En este tema se proporciona información general de Azure Media Services.
+description: Microsoft Azure Media Services es una plataforma extensible basada en la nube que permite a los desarrolladores crear aplicaciones de administración y entrega de contenido multimedia escalables. En este artículo se proporciona información general sobre Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/19/2019
 ms.author: juliako
-ms.openlocfilehash: 7f0a071012685ee192d4f866396a5953d0a4508c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d339fd16b1eef8df367bdcb375a1cb3dc71ddde2
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64937252"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895874"
 ---
 # <a name="azure-media-services-overview"></a>Introducción a Azure Media Services 
 

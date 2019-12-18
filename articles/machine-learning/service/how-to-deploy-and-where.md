@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 09/13/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 63d2aa5c9e4ec751d9b95ba0d884e6dc17e207bb
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: bb86d551d83668a3558cf63827a64a481cf87e02
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74276787"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926949"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Implementación de modelos con Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -867,6 +867,9 @@ az ml model download --model-id mymodel:1 --target-dir model_folder
 La implementación del modelo sin código se encuentra actualmente en versión preliminar y admite los siguientes marcos de aprendizaje automático:
 
 ### <a name="tensorflow-savedmodel-format"></a>Formato Tensorflow SavedModel
+Los modelos Tensorflow deben registrarse en **formato de SavedModel** para que funcionen con la implementación de modelos sin código.
+
+Consulte [este vínculo](https://www.tensorflow.org/guide/saved_model) para información sobre cómo crear un formato SavedModel.
 
 ```python
 from azureml.core import Model

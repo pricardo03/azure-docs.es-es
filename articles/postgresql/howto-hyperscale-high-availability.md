@@ -1,17 +1,17 @@
 ---
-title: Configurar alta disponibilidad para Azure Database for PostgreSQL-Hiperescala (Citus)
+title: 'Configuración de una alta disponibilidad en Azure Database for PostgreSQL: Hiperescala (Citus)'
 description: Cómo habilitar o deshabilitar la alta disponibilidad
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 5ed29be1e890ddf2c4208ce9c03f01ce44f0e0d1
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a8d4b5949b34d16191e9ec10a1dd39faff3660dc
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73511233"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977678"
 ---
 # <a name="configure-hyperscale-citus-high-availability"></a>Configurar la alta disponibilidad de Hiperescala (Citus)
 
@@ -20,13 +20,15 @@ Azure Database for PostgreSQL - Hiperescala (Citus) proporciona alta disponibili
 > [!IMPORTANT]
 > Dado que la alta disponibilidad duplica el número de servidores del grupo, también duplicará el coste.
 
-La habilitación de la alta disponibilidad es posible durante la creación de grupos de servidores, o después en la pestaña **Configurarar** para su grupo de servidores en el Azure Portal. La interfaz de usuario es similar en cualquier caso. Arrastre el control deslizante para **Alta disponibilidad** a Activar o Desactivar:
+La habilitación de la alta disponibilidad es posible durante la creación de grupos de servidores, o después en la pestaña **Configurarar** para su grupo de servidores en el Azure Portal. La interfaz de usuario es similar en cualquier caso. Arrastre el control deslizante de **Alta disponibilidad** a SÍ:
 
 ![control de alta disponibilidad](./media/howto-hyperscale-high-availability/01-ha-slider.png)
 
 Haga clic en el botón **Guardar** para aplicar la selección. La habilitación de la alta disponibilidad puede llevar algún tiempo, ya que el grupo de servidores aprovisiona los datos en espera y los transmite por secuencias.
 
 En la pestaña **Introducción** del grupo de servidores se enumerarán todos los nodos y sus esperas, junto con una columna **Alta disponibilidad** que indica si la alta disponibilidad está habilitada correctamente para cada nodo.
+
+![Columna de alta disponibilidad en la información general del grupo de servidores](./media/howto-hyperscale-high-availability/02-ha-column.png)
 
 ### <a name="next-steps"></a>Pasos siguientes
 

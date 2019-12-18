@@ -1,5 +1,6 @@
 ---
-title: Definición de un perfil técnico de Azure Active Directory en una directiva personalizada en Azure Active Directory B2C | Microsoft Docs
+title: Definición de un perfil técnico de Azure AD en una directiva personalizada
+titleSuffix: Azure AD B2C
 description: Defina un perfil técnico de Azure Active Directory en una directiva personalizada en Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 4383980953147560b9e51e4ccab3032dd8173dd4
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 1a839c86a717122778f736f01fea4bdd08da8945
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064620"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74949565"
 ---
 # <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico de Azure Active Directory en una directiva personalizada en Azure Active Directory B2C
 

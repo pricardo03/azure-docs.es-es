@@ -4,12 +4,12 @@ description: Use Azure Functions para programar una tarea que se conecte a Azure
 ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
 ms.topic: conceptual
 ms.date: 10/02/2019
-ms.openlocfilehash: f70b5b83561e7c580dd7192850c8eb50be5aac0a
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 3dafe275dcd5eb172e744f1d163b33ebb0bac7cc
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230391"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74972241"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Uso de Azure Functions para conectarse a una base de datos de Azure SQL Database
 
@@ -19,7 +19,7 @@ Si es la primera vez que trabaja con funciones de C#, debe leer la [referencia p
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-+ Complete los pasos del artículo [Creación de la primera función mediante Visual Studio](functions-create-your-first-function-visual-studio.md) para crear una aplicación de función local que tenga como destino la versión 2.x del entorno de ejecución. También debe haber publicado el proyecto en una aplicación de función en Azure.
++ Complete los pasos del artículo [Creación de la primera función mediante Visual Studio](functions-create-your-first-function-visual-studio.md) para crear una aplicación de funciones local que tenga como destino la versión 2.x o una posterior del entorno en tiempo de ejecución. También debe haber publicado el proyecto en una aplicación de función en Azure.
 
 + En este artículo se realiza una demostración de un comando de Transact-SQL que ejecuta una operación de limpieza masiva en la tabla **SalesOrderHeader** de la base de datos AdventureWorksLT de ejemplo. Para crear la base de datos de ejemplo AdventureWorksLT, efectúe los pasos indicados en el artículo [Creación de una base de datos de Azure SQL en Azure Portal](../sql-database/sql-database-get-started-portal.md).
 

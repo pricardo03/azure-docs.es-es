@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: e9daf1be1f931bb13cda446cbb9d6e37acce3bcf
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7b86d643540e46f9a4fc86c83fc77d739bfba418
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498109"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978499"
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Acceso a conjuntos de datos con Python mediante la biblioteca de cliente de Python de Azure Machine Learning
 La versión preliminar de la biblioteca de cliente de Python de Microsoft Azure Machine Learning puede permitir un acceso seguro a los conjuntos de datos de Azure Machine Learning desde un entorno local de Python, así como la creación y administración de conjuntos de datos en un área de trabajo.
@@ -56,13 +56,13 @@ Si tiene git instalado en su equipo, puede usar pip para instalar directamente d
     pip install git+https://github.com/Azure/Azure-MachineLearning-ClientLibrary-Python.git
 
 
-## <a name="datasetAccess"></a>Utilizar fragmentos de código del Estudio para tener acceso a los conjuntos de datos
+## <a name="datasetAccess"></a>Uso de fragmentos de código para acceder a conjuntos de datos
 La biblioteca de cliente de Python proporciona acceso mediante programación a los conjuntos de datos existentes de los experimentos que se han ejecutado.
 
-Desde la interfaz de web del Estudio, puede generar fragmentos de código que incluyen toda la información necesaria para descargar y deserializar los conjuntos de datos como objetos pandas DataFrame en la máquina local.
+Desde la interfaz web de Azure Machine Learning Studio (clásico), puede generar fragmentos de código que incluyen toda la información necesaria para descargar y deserializar conjuntos de datos como objetos pandas DataFrame en la máquina local.
 
 ### <a name="security"></a>Seguridad de acceso a datos
-Los fragmentos de código proporcionados por el Estudio para su uso con la biblioteca de cliente de Python incluyen el identificador de área de trabajo y el token de autorización. Estos proporcionan acceso completo a su área de trabajo y se deben proteger, como una contraseña.
+Los fragmentos de código que se proporcionan en Azure Machine Learning Studio (clásico) para su uso con la biblioteca cliente de Python incluyen el identificador de área de trabajo y el token de autorización. Estos proporcionan acceso completo a su área de trabajo y se deben proteger, como una contraseña.
 
 Por motivos de seguridad, la funcionalidad de fragmento de código solo está disponible para los usuarios que tengan su rol definido como **Propietario** para el área de trabajo. Su rol se muestra en la página **USUARIOS** de Azure Machine Learning Studio (clásico), en **Configuración**.
 
@@ -72,18 +72,18 @@ Si su rol no está establecido como **Propietario**, puede solicitar que se le v
 
 Para obtener el token de autorización, puede realizar una de las acciones siguientes:
 
-* Solicite un token a un propietario. Los propietarios pueden tener acceso a sus tokens de autorización en la página Configuración de su área de trabajo en el Estudio. Seleccione **Configuración** en el panel izquierdo y haga clic en **TOKENS DE AUTORIZACIÓN** para ver los tokens primarios y secundarios. Aunque se pueden utilizar los tokens de autorización principales y secundarios, se recomienda que los propietarios solo compartan los tokens de autorización secundarios.
+* Solicite un token a un propietario. Los propietarios pueden acceder a sus tokens de autorización desde la página de configuración de su área de trabajo en Azure Machine Learning Studio (clásico). Seleccione **Configuración** en el panel izquierdo y haga clic en **TOKENS DE AUTORIZACIÓN** para ver los tokens primarios y secundarios. Aunque se pueden utilizar los tokens de autorización principales y secundarios, se recomienda que los propietarios solo compartan los tokens de autorización secundarios.
 
-![Tokens de autorización](./media/python-data-access/ml-python-access-settings-tokens.png)
+   ![Tokens de autorización](./media/python-data-access/ml-python-access-settings-tokens.png)
 
 * Pida que le amplíen al rol de propietario. Para ello, un propietario actual del área de trabajo debe quitarle primero del área de trabajo y, a continuación, volver a invitarle como propietario.
 
-Cuando los desarrolladores hayan obtenido el identificador de área de trabajo y el token de autorización, podrán acceder al área de trabajo usando el fragmento de código independientemente de su rol.
+Cuando los desarrolladores hayan obtenido el identificador de área de trabajo y el token de autorización, podrán acceder al área de trabajo con el fragmento de código independientemente de su rol.
 
 Los tokens de autorización se administran en la página **TOKENS DE AUTORIZACIÓN**, en **CONFIGURACIÓN**. Puede volver a generarlos, pero este procedimiento revoca el acceso al token anterior.
 
 ### <a name="accessingDatasets"></a>Obtener acceso a los conjuntos de datos desde una aplicación local de Python
-1. En Machine Learning Studio, haga clic en la opción **CONJUNTOS DE DATOS** de la barra de navegación de la izquierda.
+1. En Machine Learning Studio (clásico), haga clic en la opción **DATASETS** (CONJUNTOS DE DATOS) en la barra de navegación izquierda.
 2. Seleccione el conjunto de datos al que le gustaría tener acceso. Puede seleccionar cualquiera de los conjuntos de datos de las listas **MIS CONJUNTOS DE DATOS** o **EJEMPLOS**.
 3. En la barra de herramientas de la parte inferior, haga clic en **Generate Data Access Code**(Generar código de acceso a datos). Este botón se deshabilitará si los datos están en un formato no compatible con la biblioteca cliente de Python.
    
@@ -96,7 +96,7 @@ Los tokens de autorización se administran en la página **TOKENS DE AUTORIZACI�
     ![Pegar el código en el cuaderno][ipython-dataset]
 
 ## <a name="accessingIntermediateDatasets"></a>Obtener acceso a los conjuntos de datos intermedios de experimentos de Machine Learning
-Después de ejecutar un experimento en Machine Learning Studio, es posible tener acceso a los conjuntos de datos intermedios desde los nodos de salida de los módulos. Los conjuntos de datos intermedios son datos que se han creado y utilizado para pasos intermedios cuando se ha ejecutado una herramienta de modelo.
+Después de ejecutar un experimento en la versión clásica de Machine Learning Studio, es posible acceder a los conjuntos de datos intermedios desde los nodos de salida de los módulos. Los conjuntos de datos intermedios son datos que se han creado y utilizado para pasos intermedios cuando se ha ejecutado una herramienta de modelo.
 
 El acceso a los conjuntos de datos intermedios es posible siempre que el formato de los datos sea compatible con la biblioteca de cliente de Python.
 
@@ -141,7 +141,7 @@ Los pasos siguientes muestran un ejemplo que crea un experimento, lo ejecuta y t
 
 ## <a name="clientApis"></a>Use la biblioteca de cliente de Python de Machine Learning para obtener acceso, leer, crear y administrar conjuntos de datos.
 ### <a name="workspace"></a>Área de trabajo
-El área de trabajo es el punto de entrada para la biblioteca de cliente de Python. Proporcione la clase `Workspace` con su id. de área de trabajo y token de autorización para crear una instancia:
+El área de trabajo es el punto de entrada para la biblioteca de cliente de Python. Proporcione la clase `Workspace` junto con su identificador de área de trabajo y token de autorización para crear una instancia:
 
     ws = Workspace(workspace_id='4c29e1adeba2e5a7cbeb0e4f4adfb4df',
                    authorization_token='f4f3ade2c6aefdb1afb043cd8bcf3daf')

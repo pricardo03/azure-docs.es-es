@@ -4,12 +4,12 @@ description: Cree y administre una instancia de Blockchain Data Manager para Azu
 ms.date: 11/04/2019
 ms.topic: article
 ms.reviewer: chroyal
-ms.openlocfilehash: 9c682f449fbab823134d626870c7dcfe8a8f2847
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 03c22a7a23f1579a846746f21ce048b3425399c3
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74455814"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977033"
 ---
 # <a name="configure-blockchain-data-manager-using-the-azure-portal"></a>Configuración de cadena de bloques Data Manager con Azure Portal
 
@@ -78,13 +78,15 @@ La ABI del contrato define las interfaces del contrato inteligente. Describe có
 
 1. Guarde la matriz **abi** como archivo JSON. Por ejemplo, *abi.json*. Usará este archivo en un paso posterior.
 
-Blockchain Data Manager requiere el código de bytes implementado para el contrato inteligente. El código de bytes implementado es diferente del código de bytes del contrato inteligente. Puede obtener el código de bytes implementado del archivo de metadatos del contrato compilado.
+Blockchain Data Manager requiere el código de bytes implementado para el contrato inteligente. El código de bytes implementado es diferente del código de bytes del contrato inteligente. Puede usar la extensión del kit de desarrollo de Azure Blockchain para copiar el código de bytes en el portapapeles.
 
-1. Abra el archivo de metadatos del contrato incluido en la carpeta **build/contracts** del proyecto de Solidity. El nombre de archivo es el nombre del contrato inteligente seguido de la extensión **.json**.
-1. Busque el elemento **deployedBytecode** en el archivo JSON.
-1. Copie el valor hexadecimal sin las comillas.
+1. En el panel del explorador de Visual Studio Code, expanda la carpeta **build/contracts** del proyecto de Solidity.
+1. Haga clic con el botón derecho en el archivo JSON de metadatos del contrato. El nombre de archivo es el nombre del contrato inteligente seguido de la extensión **.json**.
+1. Seleccione **Copiar código de bytes de la transacción**.
 
-    ![Panel de Visual Studio Code con código de bytes en los metadatos](./media/data-manager-portal/bytecode-metadata.png)
+    ![Panel de Visual Studio Code con la selección Copiar código de bytes de la transacción](./media/data-manager-portal/bytecode-devkit.png)
+
+    El código de bytes se copia en el portapapeles.
 
 1. Guarde el valor del **código de bytes** como archivo JSON. Por ejemplo, *bytecode.json*. Lo usará en un paso posterior.
 

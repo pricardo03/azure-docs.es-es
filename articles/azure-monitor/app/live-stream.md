@@ -1,5 +1,5 @@
 ---
-title: Live Metrics Stream con métricas y diagnósticos personalizados en Azure Application Insights | Microsoft Docs
+title: 'Diagnóstico con Live Metrics Stream: Azure Application Insights'
 description: Supervise la aplicación web en tiempo real con métricas personalizadas y diagnostique problemas con una fuente directa de errores, seguimientos y eventos.
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/22/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 69aaa61bb0be9a5f07de85ff4ef81b28a86aefaa
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: ac2aabe12697336377df808e02e283dde0e4da16
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73575616"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927221"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: supervisión y diagnóstico con una latencia de 1 segundo
 
@@ -22,7 +22,7 @@ Sondee la maquinaria que mantiene operativa la aplicación web, ya activa y en p
 Con Live Metrics Stream, puede:
 
 * Inspeccionar el rendimiento y los recuentos de errores mientras se publica una solución para validarla.
-* Inspeccionar el efecto de las cargas de prueba y diagnosticar problemas en tiempo real. 
+* Inspeccionar el efecto de las cargas de prueba y diagnosticar problemas en tiempo real.
 * Centrarse en ciertas sesiones de prueba o filtrar problemas conocidos seleccionando las métricas que quiera inspeccionar y filtrándolas.
 * Obtener seguimientos de las excepciones cuando se produzcan.
 * Experimentar con filtros para localizar los indicadores clave de rendimiento más pertinentes.

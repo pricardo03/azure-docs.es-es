@@ -1,5 +1,5 @@
 ---
-title: Creación de informes interactivos con libros de Azure Monitor de distintos orígenes de datos de Azure | Microsoft Docs
+title: Orígenes de datos de libros de Azure Monitor | Microsoft docs
 description: Simplifique los informes complejos con libros de Azure Monitor parametrizados predefinidos y personalizados creados a partir de varios orígenes de datos.
 services: azure-monitor
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: dd5068da31c3aa863fc56022834a28b60ee15004
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 368da2baaea1be41331d77f4dae1bdd9567b8cc5
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73164526"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872900"
 ---
 # <a name="azure-monitor-workbooks-data-sources"></a>Orígenes de datos de libros de Azure Monitor
 

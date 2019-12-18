@@ -1,22 +1,23 @@
 ---
-title: Autorización del acceso a blobs y colas de Azure con Azure Active Directory | Microsoft Docs
+title: Autorización del acceso a blobs y colas con Active Directory
+titleSuffix: Azure Storage
 description: Autorice el acceso a blobs y colas de Azure con Azure Active Directory.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/02/2019
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: aed61e5cf32ed0148e8b9eee6edf44daa03acd17
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 445d98ab07a91b056d4cf747f7c0f4cf1cdf9d53
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72598107"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74891820"
 ---
-# <a name="authorize-access-to-azure-blobs-and-queues-using-azure-active-directory"></a>Autorización del acceso a blobs y colas de Azure con Azure Active Directory
+# <a name="authorize-access-to-blobs-and-queues-using-azure-active-directory"></a>Autorización del acceso a blobs y colas con Azure Active Directory
 
 Azure Storage admite el uso de Azure Active Directory (AD) para autorizar solicitudes a Blob Storage y Queue Storage. Con Azure AD, puede usar el control de acceso basado en rol (RBAC) para conceder permisos a una entidad de seguridad, que puede ser un usuario, un grupo o una entidad de servicio de aplicación. Azure AD autentica la entidad de seguridad para devolver un token de OAuth 2.0. El token se puede usar para autorizar una solicitud para obtener acceso a un recurso de almacenamiento en Blob Storage o Queue Storage.
 

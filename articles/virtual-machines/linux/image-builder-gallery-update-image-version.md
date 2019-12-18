@@ -1,20 +1,20 @@
 ---
-title: Creación de una versión de imagen a partir de otra ya existente con Azure Image Builder (versión preliminar)
-description: Cree una versión de imagen a partir de otra ya existente con Azure Image Builder.
+title: Creación de una versión de una imagen de una máquina virtual a partir de otra existente mediante Azure Image Builder (versión preliminar)
+description: Cree una versión de una imagen de una máquina virtual a partir de otra existente mediante Azure Image Builder.
 author: cynthn
 ms.author: cynthn
 ms.date: 05/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: 9155f6fc1243f0d2e4d63f2718ccfd6846ebbc50
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: d226a7b31dc9f8cf219c6d0d0f886fb5b21741a6
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671496"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976339"
 ---
-# <a name="preview-create-a-new-image-version-from-an-existing-image-version-using-azure-image-builder"></a>Vista previa: Creación de una versión de imagen a partir de otra ya existente con Azure Image Builder
+# <a name="preview-create-a-new-vm-image-version-from-an-existing-image-version-using-azure-image-builder"></a>Vista previa: Creación de una versión de una imagen de una máquina virtual a partir de otra existente mediante Azure Image Builder
 
 En este artículo se muestra cómo tomar una versión de imagen existente en una [galería de imágenes compartidas](shared-image-galleries.md), actualizarla y publicarla como una nueva versión de imagen en la galería.
 

@@ -1,6 +1,6 @@
 ---
-title: Prepararse para el cambio de formato a los registros de diagnóstico de Azure Monitor
-description: Los registros de diagnóstico de Azure pasarán a usar blobs en anexos el 1 de noviembre de 2018.
+title: Preparación para el cambio de formato a los registros de recursos de Azure Monitor
+description: Los registros de recursos de Azure se migraron para usar los blobs en anexos el 1 de noviembre de 2018.
 author: johnkemnetz
 services: monitoring
 ms.service: azure-monitor
@@ -8,23 +8,22 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: c6f21ffdcf94f23d089073710f2e6c18fd20558d
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 09a5d95ead9f294d54a7491734b11c7247353444
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262999"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894498"
 ---
 # <a name="prepare-for-format-change-to-azure-monitor-platform-logs-archived-to-a-storage-account"></a>Prepararse para el cambio de formato a los registros de la plataforma Azure Monitor archivados en una cuenta de almacenamiento
 
 > [!WARNING]
-> Si va a enviar [registros o métricas de recursos de Azure Monitor a una cuenta de almacenamiento mediante la configuración de diagnóstico](resource-logs-collect-storage.md) o [registros de actividad a una cuenta de almacenamiento mediante perfiles de registro](activity-log-export.md), el formato de los datos de la cuenta de almacenamiento cambió a Líneas JSON el 1 de noviembre de 2018. En las instrucciones siguientes se describe la repercusión y el modo de actualizar las herramientas para administrar el nuevo formato. 
+> Si va a enviar [registros o métricas de recursos de Azure Monitor a una cuenta de almacenamiento mediante la configuración de diagnóstico](resource-logs-collect-storage.md) o [registros de actividad a una cuenta de almacenamiento mediante perfiles de registro](activity-log-export.md), el formato de los datos de la cuenta de almacenamiento cambió a Líneas JSON el 1 de noviembre de 2018. En las instrucciones siguientes se describe la repercusión y el modo de actualizar las herramientas para administrar el nuevo formato.
 >
-> 
 
-## <a name="what-is-changing"></a>Lo que está cambiando
+## <a name="what-changed"></a>Qué cambia
 
-Azure Monitor ofrece una funcionalidad que permite enviar registros de recursos y actividad a una cuenta de almacenamiento de Azure, al espacio de nombres de Event Hubs o al área de trabajo de Log Analytics en Azure Monitor. Para solucionar un problema de rendimiento del sistema, **a las 12:00 de la noche (UTC) del 1 de noviembre de 2018** se cambiará el formato de los datos de registro que se envían a Blob Storage. Si tiene herramientas que leen los datos fuera de Blob Storage, deberá actualizarlas para que entiendan el formato de datos nuevo.
+Azure Monitor ofrece una funcionalidad que permite enviar registros de recursos y actividad a una cuenta de almacenamiento de Azure, al espacio de nombres de Event Hubs o al área de trabajo de Log Analytics en Azure Monitor. Para solucionar un problema de rendimiento del sistema, **a las 12:00 de la noche (UTC) del 1 de noviembre de 2018** se cambió el formato de los datos del registro que se envían a Blob Storage. Si tiene herramientas que leen los datos fuera de Blob Storage, deberá actualizarlas para que entiendan el formato de datos nuevo.
 
 * A las 12:00 de la noche (UTC) del jueves 1 de noviembre de 2018, el formato de blob cambió a [Líneas JSON](http://jsonlines.org/). Esto significa que todos los registros se delimitarán mediante una nueva línea, sin matrices de registros exteriores y sin comas entre los registros JSON.
 * El formato de blob cambió para todas las configuraciones de diagnóstico de todas las suscripciones a la vez. En el primer archivo PT1H.json emitido el 1 de noviembre se usó este formato nuevo. Los nombres de blobs y contenedores se mantienen sin cambios.
@@ -36,8 +35,8 @@ Azure Monitor ofrece una funcionalidad que permite enviar registros de recursos 
   * [Datos del registro de actividad de Azure que se exportan mediante perfiles de registro](activity-log-collect.md).
 * Este cambio no afecta a:
   * Los registros de flujo de red.
-  * Los registros de servicio de Azure que todavía no están disponible a través de Azure Monitor (por ejemplo, los registros de diagnóstico de Azure App Service y los de análisis de almacenamiento).
-  * El enrutamiento de los registros de diagnóstico de Azure y los de actividad a otros destinos (Event Hubs, Log Analytics).
+  * Los registros de servicio de Azure que todavía no están disponible mediante Azure Monitor (por ejemplo, los registros de recursos de Azure App Service y los de análisis de almacenamiento).
+  * Enrutamiento de los registros de diagnóstico de Azure y los de actividad a otros destinos (Event Hubs, Log Analytics)
 
 ### <a name="how-to-see-if-you-are-impacted"></a>Cómo comprobar si se va a ver afectado
 
@@ -135,6 +134,6 @@ Las herramientas personalizadas se deben actualizar para controlar el formato ac
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Obtenga información sobre cómo [archivar los registros de diagnóstico en una cuenta de almacenamiento](./../../azure-monitor/platform/archive-diagnostic-logs.md)
+* Obtenga información sobre cómo [archivar los registros de recursos en una cuenta de almacenamiento](./../../azure-monitor/platform/archive-diagnostic-logs.md).
 * Obtenga información sobre cómo [archivar los datos de registro de actividad en una cuenta de almacenamiento](./../../azure-monitor/platform/archive-activity-log.md)
 

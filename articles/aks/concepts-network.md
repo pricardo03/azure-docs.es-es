@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: mlearned
-ms.openlocfilehash: 26ba3ff600ddca6158579941ab5d32b60ff13101
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 429205d1df91b5a63679d1189903e5340ab837f8
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71950361"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74913883"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Conceptos de redes de aplicaciones en Azure Kubernetes Service (AKS)
 
@@ -33,7 +33,7 @@ En Kubernetes, los *servicios* agrupan lógicamente los pods para permitir el ac
 
 La plataforma Azure también ayuda a simplificar las redes virtuales de los clústeres de AKS. Cuando se crea un equilibrador de carga de Kubernetes, se crea y se configura el recurso de equilibrador de carga de Azure subyacente. Cuando abre los puertos de red a los pods, se configuran las reglas de los grupos de seguridad de red de Azure correspondientes. Para el enrutamiento de aplicaciones HTTP, Azure también puede configurar un *DNS externo* a medida que se configuran nuevas rutas de entrada.
 
-## <a name="services"></a>Services
+## <a name="services"></a>Servicios
 
 Para simplificar la configuración de red de las cargas de trabajo de la aplicación, Kubernetes usa *servicios* para agrupar lógicamente un conjunto de pods y proporcionar conectividad de red. Están disponibles los siguientes tipos de servicio:
 
@@ -92,7 +92,7 @@ Kubenet y Azure CNI proporcionan conectividad de red para los clústeres de AKS.
     * Debe administrar y mantener las rutas definidas por el usuario (UDR) de manera manual.
     * 400 nodos por clúster como máximo.
 * **Azure CNI**
-    * Los pods logran una conectividad de red virtual completa y se alcanzan directamente desde fuera del clúster.
+    * Los pods obtienen conectividad de red virtual completa y se pueden alcanzar directamente a través de su dirección IP privada desde redes conectadas.
     * Requiere más espacio de direcciones IP.
 
 Existen las siguientes diferencias de comportamiento entre kubenet y Azure CNI:

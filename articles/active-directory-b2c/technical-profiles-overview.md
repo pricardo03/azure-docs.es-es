@@ -1,6 +1,7 @@
 ---
-title: Acerca de los perfiles técnicos en las directivas personalizadas de Azure Active Directory B2C | Microsoft Docs
-description: Obtenga información sobre cómo se usan los perfiles técnicos en una directiva personalizada en Azure Active Directory B2C.
+title: Introducción a los perfiles técnicos en las directivas personalizadas
+titleSuffix: Azure AD B2C
+description: Aprenda cómo se usan los perfiles técnicos en una directiva personalizada de Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f90b69cde4a961457c987f004e2605e6884bf323
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: af08a24ff28d59bf743f92aa69ffa823dcdcc544
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71063314"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951044"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>Acerca de los perfiles técnicos en las directivas personalizadas de Azure Active Directory B2C
 

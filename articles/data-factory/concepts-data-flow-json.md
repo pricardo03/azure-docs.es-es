@@ -1,18 +1,19 @@
 ---
-title: Uso de JSON en flujo de datos de asignación en Azure Data Factory
+title: JSON en el flujo de datos de asignación
 description: El flujo de datos de asignación de Azure Data Factory incluye funcionalidades integradas para administrar documentos JSON con jerarquías.
 author: kromerm
 ms.author: makromer
 ms.review: djpmsft
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 08/30/2019
-ms.openlocfilehash: fe412e9e682fb55f1664c546e6b6c5a347527adb
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 153c7a1003c68526c960644bebcc4800e92edc3c
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72387360"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928323"
 ---
 # <a name="mapping-data-flow-json-handling"></a>Administración de JSON con flujo de datos de asignación
 

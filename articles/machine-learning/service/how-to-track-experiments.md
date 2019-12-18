@@ -10,14 +10,14 @@ ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/11/2019
+ms.date: 12/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: d8a2c456c725a3170bc940bf17dec6b0c4ad2c3e
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 3de34c1da20df17fb5fb65cef28669fb73ff33a5
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73584524"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978567"
 ---
 # <a name="monitor-azure-ml-experiment-runs-and-metrics"></a>Supervisión de métricas y ejecuciones de experimentos de Azure ML
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -34,7 +34,7 @@ Realice el seguimiento de sus experimentos y supervise las métricas de ejecuci�
 
 Las siguientes métricas se pueden agregar a una ejecución durante el entrenamiento de un experimento. Para ver una lista más detallada de aquello de lo que puede realizar el seguimiento en una ejecución, consulte la [documentación de referencia de la clase Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py).
 
-|type| Función de Python | Notas|
+|Tipo| Función de Python | Notas|
 |----|:----|:----|
 |Valores escalares |Función:<br>`run.log(name, value, description='')`<br><br>Ejemplo:<br>run.log("accuracy", 0.95) |Registra un valor numérico o de cadena en la ejecución con el nombre especificado. Al registrar una métrica en una ejecución, esa métrica se almacena en el registro de ejecución en el experimento.  Puede registrar la misma métrica varias veces dentro de una ejecución y el resultado se considerará un vector de esa métrica.|
 |Listas|Función:<br>`run.log_list(name, value, description='')`<br><br>Ejemplo:<br>run.log_list("accuracies", [0.6, 0.7, 0.87]) | Registra una lista de valores en la ejecución con el nombre especificado.|
@@ -232,6 +232,25 @@ En el artículo [Inicio, supervisión y cancelación de las ejecuciones de entre
 
 ## <a name="view-run-details"></a>Visualización de los detalles de ejecución
 
+### <a name="view-activequeued-runs-from-the-browser"></a>Visualización de ejecuciones activas o en cola desde el explorador
+
+Los destinos de proceso utilizados para entrenar los modelos son recursos compartidos. Como tal, pueden tener varias ejecuciones en cola o activas en un momento dado. Para ver las ejecuciones de un destino de proceso específico desde el explorador, siga estos pasos:
+
+1. En [Azure Machine Learning Studio](https://ml.azure.com/), seleccione el área de trabajo y, a continuación, seleccione __Compute__ (Proceso) en el lado izquierdo de la página.
+
+1. Seleccione __Training Clusters__ (Clústeres de entrenamiento) para mostrar una lista de los destinos de proceso usados para el entrenamiento. Después, seleccione el clúster.
+
+    ![Selección del clúster de entrenamiento](./media/how-to-track-experiments/select-training-compute.png)
+
+1. Seleccione __Runs__ (Ejecuciones). Se muestra la lista de ejecuciones que usan este clúster. Para ver los detalles de una ejecución específica, use el vínculo de la columna __Run__ (Ejecución). Para ver los detalles del experimento, use el vínculo de la columna __Experiment__ (Experimento).
+
+    ![Selección de ejecuciones para el clúster de entrenamiento](./media/how-to-track-experiments/show-runs-for-compute.png)
+    
+    > [!TIP]
+    > Una ejecución puede contener ejecuciones secundarias, por lo que un trabajo de entrenamiento puede dar lugar a varias entradas.
+
+Una vez finalizada la ejecución, ya no se muestra en esta página. Para ver información sobre las ejecuciones completadas, visite la sección de __experimentos__ de Studio, seleccione el experimento y ejecútelo. Para más información, consulte la sección sobre las [métricas de ejecución de consultas](#queryrunmetrics).
+
 ### <a name="monitor-run-with-jupyter-notebook-widget"></a>Supervisar la ejecución con widgets de cuadernos de Jupyter
 Cuando se usa el método **ScriptRunConfig** para enviar ejecuciones, se puede ver el progreso de la ejecución con un [widget de Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py). Al igual que el envío de ejecución, el widget es asincrónico y proporciona las actualizaciones directas cada 10 a 15 segundos hasta que se completa el trabajo.
 
@@ -244,11 +263,11 @@ Cuando se usa el método **ScriptRunConfig** para enviar ejecuciones, se puede v
 
    ![Captura de pantalla del widget de cuaderno de Jupyter](./media/how-to-track-experiments/run-details-widget.png)
 
-También puede obtener un vínculo a la misma pantalla en el área de trabajo.
+   También puede obtener un vínculo a la misma pantalla en el área de trabajo.
 
-```python
-print(run.get_portal_url())
-```
+   ```python
+   print(run.get_portal_url())
+   ```
 
 2. **[Para ejecuciones de aprendizaje automático automatizado]**  Para acceder a los gráficos de una ejecución anterior. Reemplace `<<experiment_name>>` por el nombre del experimento adecuado:
 
@@ -271,6 +290,7 @@ Para ver más detalles de una canalización, haga clic en la canalización que q
 
 El entrenamiento y la supervisión de modelos tienen lugar en segundo plano, de modo que pueden ejecutar otras tareas mientras espera. También puede esperar a que el modelo haya completado el entrenamiento antes de ejecutar más código. Cuando se usa **ScriptRunConfig**, se puede usar ```run.wait_for_completion(show_output = True)``` para mostrar cuándo finaliza el entrenamiento del modelo. La marca ```show_output``` le ofrece una salida detallada. 
 
+<a id="queryrunmetrics"></a>
 
 ### <a name="query-run-metrics"></a>Métricas de ejecución de consulta
 

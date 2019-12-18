@@ -11,17 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/19/2019
+ms.date: 12/09/2019
 ms.author: takamath
-ms.openlocfilehash: 080dd91b2ab6792debfae3a3ccc97b0927015de4
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: e2dd642139ae082cc0d0838e61399c549d2d812a
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73580147"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74970803"
 ---
 # <a name="enable-browser-connection-on-lab-virtual-machines"></a>Habilitar una conexión del explorador en máquinas virtuales de laboratorio 
-
 DevTest Labs se integra con [Azure Bastion](https://docs.microsoft.com/azure/bastion/), lo que le permite conectarse a sus máquinas virtuales a través de un explorador. En primer lugar, hay que habilitar una conexión del explorador en las máquinas virtuales de laboratorio en cuestión.
 
 Como propietario de un laboratorio, puede habilitar el acceso a todas las máquinas virtuales de laboratorio a través de un explorador. No es necesario un cliente, agente o componente de software adicional. Azure Bastion proporciona una conexión RDP/SSH segura e ininterrumpida a las máquinas virtuales directamente en Azure Portal a través de SSL. Cuando se conecta a través de Azure Bastion, las máquinas virtuales no necesitan una dirección IP pública. Para más información, vea [¿Qué es Azure Bastion?](../bastion/bastion-overview.md)
@@ -30,11 +29,19 @@ Como propietario de un laboratorio, puede habilitar el acceso a todas las máqui
 En este artículo se explica cómo habilitar una conexión del explorador en máquinas virtuales de laboratorio.
 
 ## <a name="prerequisites"></a>Requisitos previos 
-Implemente un host de Bastion en la red virtual del laboratorio existente **O** conecte el laboratorio a una red virtual configurada con Bastion. 
+Implemente un host de Bastion en la red virtual del laboratorio existente **(O)** conecte el laboratorio a una red virtual configurada con Bastion. 
 
-Para saber cómo implementar un host de Bastion en una red virtual, vea [Creación de un host de Azure Bastion (versión preliminar)](../bastion/bastion-create-host-portal.md). Al crear el host de Bastion, seleccione la red virtual del laboratorio. 
+Para aprender cómo implementar un host de Bastion en una red virtual, consulte [Creación de un host de Azure Bastion](../bastion/bastion-create-host-portal.md). Al crear el host de Bastion, seleccione la red virtual del laboratorio. 
 
-Para saber cómo conectar el laboratorio con una red virtual configurada de Bastion, vea [Configuración de una red virtual en Azure DevTest Labs](devtest-lab-configure-vnet.md). Seleccione la red virtual que tenga implementado el host de Bastion y **AzureBastionSubnet**. Estos son los pasos detallados: 
+En primer lugar, tiene que crear una segunda subred en la red virtual de Bastion porque AzureBastionSubnet no permite que se creen en ella recursos que no sean Bastion. 
+
+## <a name="create-a-second-sub-net-in-the-bastion-virtual-network"></a>Creación de una segunda subred en la red virtual de Bastion
+En una subred de Azure Bastion no se pueden crear máquinas virtuales de laboratorio. Cree otra subred en la red virtual de Bastion tal como se muestra en la siguiente imagen:
+
+![Segunda subred en la red virtual de Azure Bastion](./media/connect-virtual-machine-through-browser/second-subnet.png)
+
+## <a name="enable-vm-creation-in-the-subnet"></a>Habilitación de la creación de máquinas virtuales en la subred
+Ahora, habilite la creación de máquinas virtuales en esta subred siguiendo estos pasos: 
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 1. Seleccione **Todos los servicios** en el menú de navegación izquierdo. 
@@ -48,22 +55,22 @@ Para saber cómo conectar el laboratorio con una red virtual configurada de Bast
 1. Seleccione **Redes virtuales**.
 1. Seleccione **Agregar** en la barra de herramientas. 
 1. Seleccione la **red virtual** que tenga implementado el host de Bastion. 
-1. Seleccione la subred **AzureBastionSubnet**. 
+1. Seleccione la subred para las máquinas virtuales, no **AzureBastionSubnet**, que fue la que creó primero. Si no ve la subred en la lista de la parte inferior, cierre la página y vuelva a abrirla. 
 
-    ![Subnet](./media/enable-browser-connection-lab-virtual-machines/subnet.png)
+    ![Habilitación de la creación de máquinas virtuales en la subred](./media/connect-virtual-machine-through-browser/enable-vm-creation-subnet.png)
 1. Seleccione la opción **Usar en la creación de máquinas virtuales**. 
 1. Seleccione **Guardar** en la barra de herramientas. 
-1. Si tiene una red virtual anterior del laboratorio, quítela seleccionando * *...* y, después, **Quitar**. 
+1. Si tiene una red virtual de laboratorio anterior, quítela seleccionando * *...* y, después, **Quitar**. 
 
 ## <a name="enable-browser-connection"></a>Habilitar una conexión del explorador 
 
-Una vez que tenga configurada una red virtual de Bastion en el laboratorio, como propietario del laboratorio, puede habilitar una conexión del explorador en máquinas virtuales del laboratorio.
+Una vez que tenga configurada una red virtual de Bastion en el laboratorio, como propietario del laboratorio puede habilitar una conexión del explorador en las máquinas virtuales del laboratorio.
 
 Haga lo siguiente para habilitar una conexión del explorador en las máquinas virtuales de laboratorio:
 
 1. En Azure Portal, vaya a *su laboratorio*.
 1. Seleccione **Configuration and policies** (Directivas y configuración).
-1. En **Configuración**, seleccione **Browser connect (Preview)** (Conexión de explorador [versión preliminar]).
+1. En **Configuración**, seleccione **Conexión del explorador**. Si no ve esta opción, cierre la página **Directivas de configuración** y vuelva a abrirla. 
 
     ![Habilitar una conexión del explorador](./media/enable-browser-connection-lab-virtual-machines/browser-connect.png)
 

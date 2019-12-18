@@ -1,5 +1,6 @@
 ---
-title: 'Aplicación de escritorio que llama a las API web: adquisición de un token para la aplicación - Plataforma de identidad de Microsoft'
+title: Obtención de tokens para aplicaciones de escritorio que llaman a las API web | Azure
+titleSuffix: Microsoft identity platform
 description: Obtener información sobre cómo compilar una aplicación de escritorio que llama a otras API web (para adquirir un token para la aplicación)
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,12 +16,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce79a2dcbb0d79d84019c350eb4693160c8f7d50
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: e33eed25f79d90bd513e79b23619fd4c575bc874
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175467"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74920233"
 ---
 # <a name="desktop-app-that-calls-web-apis---acquire-a-token"></a>Aplicación de escritorio que llama a las API web: adquisición de un token
 

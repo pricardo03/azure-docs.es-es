@@ -1,59 +1,95 @@
 ---
-title: Generador de expresiones en el flujo de datos de asignación de Azure Data Factory
-description: El Generador de expresiones para los flujos de datos de asignación de Azure Data Factory
+title: Generador de expresiones del flujo de datos de asignación
+description: Genere expresiones con el generador de expresiones de los flujos de datos de asignación en Azure Data Factory
 author: kromerm
 ms.author: makromer
+ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 11/17/2019
-ms.openlocfilehash: 0eb2c2692ed2444a85e7253c6fdd8734385ff881
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.date: 12/9/2019
+ms.openlocfilehash: 01aa2574ac6edd1ce5e1b209eac3e43bbed82fce
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672265"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74969402"
 ---
-# <a name="mapping-data-flow-expression-builder"></a>Generador de expresiones del flujo de datos de asignación
+# <a name="building-expressions-in-mapping-data-flow"></a>Generación de expresiones del flujo de datos de asignación
 
+En el flujo de datos de asignación, muchas propiedades de transformación se especifican como expresiones. Estas expresiones se componen de valores de columna, parámetros, funciones, operadores y literales que se evalúan como un tipo de datos de Spark en tiempo de ejecución.
 
+## <a name="opening-the-expression-builder"></a>Apertura del generador de expresiones
 
-En el flujo de datos de asignación de Azure Data Factory encontrará cuadros de expresión donde puede escribir expresiones para la transformación de datos. En dichos cuadros puede usar columnas, campos, variables, parámetros o funciones de su flujo de datos. Para compilar la expresión, use el Generador de expresiones, que se inicia haciendo clic en el cuadro de texto de expresiones dentro de la transformación. A veces también verá las opciones de "Columna calculada" al seleccionar las columnas para la transformación. Al hacer clic en ella, también verá cómo se ejecuta el Generador de expresiones.
+La interfaz de edición de expresiones de la experiencia de usuario de Data Factory se conoce como el **generador de expresiones**. Al indicar su lógica de expresión, la factoría de datos usa la finalización de código de [IntelliSense](https://docs.microsoft.com/visualstudio/ide/using-intellisense?view=vs-2019) para el resaltado, la comprobación de sintaxis y la finalización automática.
 
 ![Generador de expresiones](media/data-flow/xpb1.png "Generador de expresiones")
 
-El valor predeterminado de la herramienta Generador de expresiones es la opción de editor de texto. La característica Autocompletar lee de todo el modelo de objetos de Azure Data Factory Data Flow con la comprobación y el resaltado de la sintaxis.
+En transformaciones como la columna derivada y el filtro, donde las expresiones son obligatorias, abra el generador de expresiones haciendo clic en el cuadro de expresión azul.
 
-![Autocompletar del Generador de expresiones](media/data-flow/expb1.png "Autocompletar del Generador de expresiones")
+![Generador de expresiones](media/data-flow/expressionbox.png "Generador de expresiones")
 
-## <a name="build-schemas-in-output-schema-pane"></a>Compilación de esquemas en el panel Output Schema (Esquema de salida)
+Al hacer referencia a columnas en una coincidencia o grupo por condición, una expresión puede extraer valores de las columnas. Para crear una expresión, seleccione la opción "columna calculada".
 
-![Agregar columna compleja](media/data-flow/complexcolumn.png "Add columns (Agregar columnas)")
+![Generador de expresiones](media/data-flow/computedcolumn.png "Generador de expresiones")
 
-En el panel izquierdo Output Schema (Esquema de salida) verá las columnas que está modificando y agregando al esquema. Aquí puede compilar de manera interactiva estructuras de datos simples y complejas. Agregue campos adicionales mediante "Add column" (Agregar columna) y compile jerarquías mediante "Add subcolumn" (Agregar subcolumna).
+En los casos en los que una expresión o un valor literal son entradas válidas, "agregar contenido dinámico" le permitirá crear una expresión que se evalúe como un literal.
 
-![Add subcolumn (Agregar subcolumna)](media/data-flow/addsubcolumn.png "Add subcolumn (Agregar subcolumna)")
+![Generador de expresiones](media/data-flow/add-dynamic-content.png "Generador de expresiones")
 
-## <a name="data-preview-in-debug-mode"></a>Vista previa de los datos en el modo de depuración
+## <a name="expression-language-reference"></a>Referencia de lenguaje de expresiones
+
+La asignación de flujos de datos tiene funciones y operadores integrados que se pueden usar en las expresiones. En la página de referencia del [lenguaje de expresiones del flujo de datos de asignación](data-flow-expression-functions.md) encontrará una lista de funciones disponibles.
+
+## <a name="column-names-with-special-characters"></a>Nombres de columna con caracteres especiales
+
+Si tiene nombres de columna que incluyen caracteres especiales o espacios, escriba el nombre entre llaves para hacer referencia a estos en una expresión.
+
+```{[dbo].this_is my complex name$$$}```
+
+## <a name="previewing-expression-results"></a>Vista previa de los resultados de la expresión
+
+Si el [modo de depuración](concepts-data-flow-debug-mode.md) está activado, puede usar el clúster de Spark activo para ver una versión preliminar en curso de cómo se evalúa su expresión. Al crear su lógica, puede depurar su expresión en tiempo real. 
 
 ![Generador de expresiones](media/data-flow/exp4b.png "Vista previa de datos de expresión")
 
-Cuando trabaja en sus expresiones de flujo de datos, active el modo de depuración desde la superficie de diseño de Azure Data Factory Data Flow para habilitar la vista previa en curso y en directo de los resultados de los datos de la expresión que está compilando. Depuración en vivo en tiempo real está habilitada para las expresiones.
-
-![Modo de depuración](media/data-flow/debugbutton.png "Botón Debug (Depurar)")
-
-Haga clic en el botón Actualizar para actualizar los resultados de la expresión en un ejemplo en directo del origen en tiempo real.
+Haga clic en el botón Actualizar para actualizar los resultados de la expresión en un ejemplo en directo del origen.
 
 ![Generador de expresiones](media/data-flow/exp5.png "Vista previa de datos de expresión")
 
-## <a name="comments"></a>Comentarios
+## <a name="string-interpolation"></a>Interpolación de cadena
+
+Use comillas dobles para incluir texto de cadena literal junto con expresiones. Puede incluir parámetros, columnas y funciones de expresión. La interpolación de cadena es útil para evitar el uso extensivo de la concatenación de cadenas al incluir parámetros en cadenas de consulta. Para usar la sintaxis de expresión, escríbala entre llaves.
+
+Algunos ejemplos de interpolación de cadena:
+
+* ```"My favorite movie is {iif(instr(title,', The')>0,"The {split(title,', The')[1]}",title)}"```
+
+* ```"select * from {$tablename} where orderyear > {$year}"```
+
+* ```"Total cost with sales tax is {round(totalcost * 1.08,2)}"```
+
+## <a name="commenting-expressions"></a>Comentarios de las expresiones
 
 Agregue comentarios a sus expresiones mediante la sintaxis de comentarios de una línea y de varias líneas:
 
 ![Comentarios](media/data-flow/comments.png "Comentarios")
 
+A continuación se muestran ejemplos de comentarios válidos:
+
+* ```/* This is my comment */```
+
+* ```/* This is a```
+*   ```multi-line comment */```
+   
+* ```// This is a single line comment```
+
+Si coloca un comentario al comienzo de la expresión, aparecerá en el cuadro de texto de transformación para documentar las expresiones de transformación:
+
+![Comentarios](media/data-flow/comments2.png "Comentarios")
+
 ## <a name="regular-expressions"></a>Expresiones regulares
 
-El lenguaje de expresiones de Azure Data Factory Mapping Data Flow ([aquí se encuentra toda la documentación](https://aka.ms/dataflowexpressions)) habilita funciones que incluyen la sintaxis de expresiones regulares. Al utilizar las funciones de expresión regular, el Generador de expresiones intentará interpretar la barra diagonal inversa (\\) como una secuencia de caracteres de escape. Al usar barras diagonales inversas en una expresión regular, encierre toda la expresión regular entre marcas (\`) o utilice una doble barra diagonal inversa.
+Muchas funciones de lenguaje de expresiones usan la sintaxis de expresión regular. Al utilizar las funciones de expresión regular, el Generador de expresiones intentará interpretar la barra diagonal inversa (\\) como una secuencia de caracteres de escape. Al usar barras diagonales inversas en una expresión regular, encierre toda la expresión regular entre marcas (\`) o utilice una doble barra diagonal inversa.
 
 Ejemplo de uso de marcas
 
@@ -73,11 +109,6 @@ Con las funciones de expresiones que devuelvan matrices, utilice los corchetes [
 
 ![Matriz del Generador de expresiones](media/data-flow/expb2.png "Vista previa de datos de expresión")
 
-## <a name="handling-names-with-special-characters"></a>Control de nombres con caracteres especiales
-
-Si tiene nombres de columna que incluyen caracteres especiales o espacios, escriba el nombre entre llaves.
-* ```{[dbo].this_is my complex name$$$}```
-
 ## <a name="keyboard-shortcuts"></a>Métodos abreviados de teclado
 
 * ```Ctrl-K Ctrl-C```: Comentar en toda la línea
@@ -87,36 +118,17 @@ Si tiene nombres de columna que incluyen caracteres especiales o espacios, escri
 * ```Alt-Up Arrow```: Subir la línea actual
 * ```Cntrl-Space```: Mostrar ayuda contextual
 
-## <a name="manual-comments"></a>Comentarios manuales
-
-* ```/* This is my comment */```
-
-* ```/* This is a```
-*   ```multi-line comment */```
-   
-* ```// This is a single line comment```
-
-Si coloca un comentario al comienzo de la expresión, aparecerá en el cuadro de texto de transformación para documentar las expresiones de transformación:
-
-![Comentarios](media/data-flow/comments2.png "Comentarios")
-
 ## <a name="convert-to-dates-or-timestamps"></a>Conversión en fechas o marcas de tiempo
+
+Para incluir literales de cadena en la salida de la marca de tiempo, debe ajustar la conversión en ```toString()```.
 
 ```toString(toTimestamp('12/31/2016T00:12:00', 'MM/dd/yyyy\'T\'HH:mm:ss'), 'MM/dd /yyyy\'T\'HH:mm:ss')```
 
-Tenga en cuenta que para incluir literales de cadena en la salida de la marca de tiempo, debe ajustar la conversión dentro de ```toString()```.
-
-Aquí se muestra cómo convertir los segundos de la hora a una fecha o marca de tiempo:
+Para convertir los milisegundos de la época a una fecha o marca de tiempo, use `toTimestamp(<number of milliseconds>)`. Si el tiempo estará disponible en segundos, multiplíquelo por 1000.
 
 ```toTimestamp(1574127407*1000l)```
 
-Observe el signo "l" al final de la expresión anterior. Esto significa que la conversión es demasiado larga como sintaxis en línea.
-
-## <a name="handling-column-names-with-special-characters"></a>Control de nombres de columna con caracteres especiales
-
-Si tiene nombres de columna que incluyen caracteres especiales o espacios, escriba el nombre entre llaves.
-
-```{[dbo].this_is my complex name$$$}```
+El signo "l" final al final de la expresión anterior indica que hay una conversión a un tipo long como sintaxis insertada.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

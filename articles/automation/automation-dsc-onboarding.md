@@ -4,17 +4,17 @@ description: Configuración de máquinas para su administración mediante Azure 
 services: automation
 ms.service: automation
 ms.subservice: dsc
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.topic: conceptual
 ms.date: 08/08/2018
 manager: carmonm
-ms.openlocfilehash: cf95a66cf68cf0b33444a17cf762bae79db4b50c
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 89b51af3beaad645dc27b599c2493be4d4bdf30f
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243427"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951418"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>Incorporación de máquinas para su administración mediante Azure Automation State Configuration
 
@@ -305,6 +305,15 @@ Puede obtener la información necesaria para el protocolo de registro de State C
 
 Para mayor seguridad, se pueden volver a generar las claves de acceso principal y secundaria de una cuenta de Automation en cualquier momento (en la página **Administrar claves** ) para evitar que los registros de nodo futuros usen claves anteriores.
 
+## <a name="certificate-expiration-and-re-registration"></a>Expiración y repetición del registro del certificado
+
+Después de registrar un equipo como un nodo de DSC en Azure Automation State Configuration, hay una serie de motivos por los que puede que necesite volver a registrar ese nodo en el futuro:
+
+- Para las versiones de Windows Server anteriores a Windows Server 2019, cada nodo negocia automáticamente un certificado único para la autenticación que expira después de un año. En la actualidad, el protocolo de registro de DSC de PowerShell no puede renovar automáticamente los certificados que vayan a expirar, por lo que tendrá que volver a registrar los nodos transcurrido un año. Antes de volver a registrar, asegúrese de que cada nodo ejecute Windows Management Framework 5.0 RTM. Si el certificado de autenticación de un nodo expira y el nodo no se registra de nuevo, este no puede comunicarse con la Azure Automation y se marcará como "No responde". Si dicha actualización se realiza en un plazo de 90 días o menos desde la fecha de expiración del certificado o en cualquier momento después de dicha fecha, se generará y usará un certificado nuevo.  En Windows Server 2019 y versiones posteriores se incluye una solución a este problema.
+- Para cambiar cualquier [valor del Administrador de configuración local de DSC de PowerShell](/powershell/scripting/dsc/managing-nodes/metaConfig4) que se estableció durante el registro inicial del nodo, como ConfigurationMode. Actualmente, estos valores de agente DSC solo pueden cambiarse mediante un nuevo registro. La única excepción es la configuración de nodo asignada al nodo, que se puede cambiar directamente en DSC de Azure Automation.
+
+El nuevo registro se puede realizar tal y como registró el nodo inicialmente, con cualquiera de los métodos incorporados descritos en este documento. No es necesario anular el registro de un nodo desde Azure Automation State Configuration antes de volver a registrarlo.
+
 ## <a name="troubleshooting-azure-virtual-machine-onboarding"></a>Solución de problemas de incorporación de máquinas virtuales de Azure
 
 Azure Automation State Configuration permite incorporar fácilmente máquinas virtuales de Azure con Windows para la administración de configuraciones. Internamente, la extensión Configuración de estado deseado de la máquina virtual de Azure se usa para registrar la máquina virtual con Azure Automation State Configuration. Puesto que la extensión Configuración de estado deseado de la máquina virtual de Azure se ejecuta de forma asincrónica, puede ser importante realizar el seguimiento de su progreso y solucionar los problemas de ejecución.
@@ -314,14 +323,7 @@ Azure Automation State Configuration permite incorporar fácilmente máquinas vi
 
 Para solucionar problemas o ver el estado de la extensión Azure VM Desired State Configuration en Azure Portal, vaya a la máquina virtual que se va a incorporar y haga clic en **Extensiones** dentro de **Configuración**. A continuación, haga clic en **DSC** o **DSCForLinux** según el sistema operativo. Para obtener más detalles, puede hacer clic en **Ver estado detallado**.
 
-## <a name="certificate-expiration-and-reregistration"></a>Expiración y repetición del registro del certificado
-
-Después de registrar un equipo como un nodo de DSC en Azure Automation State Configuration, hay una serie de motivos por los que puede que necesite volver a registrar ese nodo en el futuro:
-
-- Para las versiones de Windows Server anteriores a Windows Server 2019, cada nodo negocia automáticamente un certificado único para la autenticación que expira después de un año. En la actualidad, el protocolo de registro de DSC de PowerShell no puede renovar automáticamente los certificados que vayan a expirar, por lo que tendrá que volver a registrar los nodos transcurrido un año. Antes de volver a registrar, asegúrese de que cada nodo ejecute Windows Management Framework 5.0 RTM. Si el certificado de autenticación de un nodo expira y el nodo no se registra de nuevo, este no puede comunicarse con la Azure Automation y se marcará como "No responde". Si dicha actualización se realiza en un plazo de 90 días o menos desde la fecha de expiración del certificado o en cualquier momento después de dicha fecha, se generará y usará un certificado nuevo.  En Windows Server 2019 y versiones posteriores se incluye una solución a este problema.
-- Para cambiar cualquier [valor del Administrador de configuración local de DSC de PowerShell](/powershell/scripting/dsc/managing-nodes/metaConfig4) que se estableció durante el registro inicial del nodo, como ConfigurationMode. Actualmente, estos valores de agente DSC solo pueden cambiarse mediante un nuevo registro. La única excepción es la configuración de nodo asignada al nodo, que se puede cambiar directamente en DSC de Azure Automation.
-
-El nuevo registro se puede realizar tal y como registró el nodo inicialmente, con cualquiera de los métodos incorporados descritos en este documento. No es necesario anular el registro de un nodo desde Azure Automation State Configuration antes de volver a registrarlo.
+Para más información sobre la solución de problemas, consulte [Solución de problemas con Desired State Configuration (DSC) de Azure Automation](./troubleshoot/desired-state-configuration.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

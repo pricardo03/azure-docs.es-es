@@ -8,20 +8,23 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 11/11/2019
+ms.date: 12/09/2019
 ms.author: diberry
-ms.openlocfilehash: c1353ae530493c34413399a7fbbfe56fb74d452f
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: e1393b02948f2d86329263504d582fe78a474377
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74010757"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974349"
 ---
 # <a name="pattern-syntax"></a>Sintaxis del patrón
 
-La sintaxis del patrón es una plantilla para una expresión. La plantilla debe contener las palabras y entidades que quiere que coincidan, así como las palabras y los signos de puntuación que quiere omitir. **No** es una expresión regular. 
+La sintaxis del patrón es una plantilla para una expresión. La plantilla debe contener las palabras y entidades que quiere que coincidan, así como las palabras y los signos de puntuación que quiere omitir. **No** es una expresión regular.
 
-Las entidades en los patrones aparecen entre llaves, `{}`. Los patrones pueden incluir entidades y entidades con roles. [Pattern.any](luis-concept-entity-types.md#patternany-entity) es una entidad que solo se usa en los patrones. 
+> [!CAUTION]
+> Los patrones solo incluyen elementos primarios de la entidad de aprendizaje automático, no los subcomponentes.
+
+Las entidades en los patrones aparecen entre llaves, `{}`. Los patrones pueden incluir entidades y entidades con roles. [Pattern.any](luis-concept-entity-types.md#patternany-entity) es una entidad que solo se usa en los patrones.
 
 La sintaxis de patrón admite la sintaxis siguiente:
 
@@ -30,12 +33,12 @@ La sintaxis de patrón admite la sintaxis siguiente:
 |Entidad| {}: llaves|2|Where is form {entity-name}?|
 |opcional|[]: corchetes<BR><BR>Hay un límite de 3 niveles de anidamiento de cualquier combinación de opcional y agrupación. |2|El signo de interrogación es opcional [?]|
 |agrupación|(): paréntesis|2|es (a \| b)|
-|o| \|: barra vertical<br><br>Hay un límite de 2 en las barras verticales (o) en un grupo. |-|Where is form ({form-name-short} &#x7c; {form-name-long} &#x7c; {form-number})| 
+|or| \|: barra vertical<br><br>Hay un límite de 2 en las barras verticales (o) en un grupo. |-|Where is form ({form-name-short} &#x7c; {form-name-long} &#x7c; {form-number})|
 |principio o final de la expresión|^: símbolo de intercalación|-|^comienzo de la expresión<br>la expresión está terminada^<br>^coincidencia estricta de literal de la expresión entera con la entidad {number}^|
 
 ## <a name="nesting-syntax-in-patterns"></a>Sintaxis de anidamiento en los patrones
 
-La sintaxis **opcional**, con corchetes, se puede anidar dos niveles. Por ejemplo: `[[this]is] a new form`. Este ejemplo permite las expresiones siguientes: 
+La sintaxis **opcional**, con corchetes, se puede anidar dos niveles. Por ejemplo: `[[this]is] a new form`. Este ejemplo permite las expresiones siguientes:
 
 |Ejemplo de expresión opcional anidada|Explicación|
 |--|--|
@@ -43,7 +46,7 @@ La sintaxis **opcional**, con corchetes, se puede anidar dos niveles. Por ejempl
 |is a new form|coincide con la palabra opcional externa y las palabras no opcionales del patrón|
 |a new form|solo coincide con las palabras necesarias|
 
-La sintaxis de **agrupación**, con paréntesis, se puede anidar dos niveles. Por ejemplo: `(({Entity1.RoleName1} | {Entity1.RoleName2} ) | {Entity2} )`. Esta característica permite buscar la coincidencia con cualquiera de las tres entidades. 
+La sintaxis de **agrupación**, con paréntesis, se puede anidar dos niveles. Por ejemplo: `(({Entity1.RoleName1} | {Entity1.RoleName2} ) | {Entity2} )`. Esta característica permite buscar la coincidencia con cualquiera de las tres entidades.
 
 Si Entity1 es una ubicación con roles como origen (Seattle) y destino (El Cairo) y Entity2 es un nombre de edificio conocido de una entidad de la lista (RedWest-C), las expresiones siguientes se asignarían a este patrón:
 
@@ -72,23 +75,23 @@ Una combinación de sintaxis de **agrupación** con sintaxis **or-ing** tiene un
 |Sin|( test1 &#x7c; test2 &#x7c; test3 &#x7c; ( test4 &#x7c; test5 ) ) |
 
 ## <a name="syntax-to-add-an-entity-to-a-pattern-template"></a>Sintaxis para agregar una entidad a una plantilla de patrón
-Para agregar una entidad a la plantilla de patrón, incluya el nombre de la entidad entre llaves, por ejemplo, `Who does {Employee} manage?`. 
+Para agregar una entidad a la plantilla de patrón, incluya el nombre de la entidad entre llaves, por ejemplo, `Who does {Employee} manage?`.
 
 |Patrón con entidad|
 |--|
 |`Who does {Employee} manage?`|
 
 ## <a name="syntax-to-add-an-entity-and-role-to-a-pattern-template"></a>Sintaxis para agregar una entidad y un rol a una plantilla de patrón
-Un rol de entidad se representa como `{entity:role}`, donde el nombre de la entidad va seguido por un signo de dos puntos y, a continuación, el nombre del rol. Para agregar una entidad con un rol a la plantilla de patrón, incluya el nombre de la entidad y el nombre del rol entre llaves, por ejemplo, `Book a ticket from {Location:Origin} to {Location:Destination}`. 
+Un rol de entidad se representa como `{entity:role}`, donde el nombre de la entidad va seguido por un signo de dos puntos y, a continuación, el nombre del rol. Para agregar una entidad con un rol a la plantilla de patrón, incluya el nombre de la entidad y el nombre del rol entre llaves, por ejemplo, `Book a ticket from {Location:Origin} to {Location:Destination}`.
 
 |Patrón con roles de entidad|
 |--|
 |`Book a ticket from {Location:Origin} to {Location:Destination}`|
 
 ## <a name="syntax-to-add-a-patternany-to-pattern-template"></a>Sintaxis para agregar pattern.any a una plantilla de patrón
-La entidad pattern.any permite agregar una entidad de longitud variable al patrón. Mientras se siga la plantilla de patrón, pattern.any puede tener cualquier longitud. 
+La entidad pattern.any permite agregar una entidad de longitud variable al patrón. Mientras se siga la plantilla de patrón, pattern.any puede tener cualquier longitud.
 
-Para agregar una entidad **pattern.any** a la plantilla de patrón, incluya dicha entidad entre llaves, por ejemplo, `How much does {Booktitle} cost and what format is it available in?`.  
+Para agregar una entidad **pattern.any** a la plantilla de patrón, incluya dicha entidad entre llaves, por ejemplo, `How much does {Booktitle} cost and what format is it available in?`.
 
 |Patrón con entidad Pattern.any|
 |--|
@@ -98,7 +101,7 @@ Para agregar una entidad **pattern.any** a la plantilla de patrón, incluya dich
 |--|
 |¿Cuánto cuesta **robar este libro** y en qué formato está disponible?|
 |¿Cuánto cuesta **preguntar** y en qué formato está disponible?|
-|¿Cuánto cuesta **El curioso incidente del perro en la noche** y en qué formato está disponible?| 
+|¿Cuánto cuesta **El curioso incidente del perro en la noche** y en qué formato está disponible?|
 
 Las palabras del título de un libro no resultan confusas para LUIS porque sabe dónde finaliza el título del libro, en función de la entidad Pattern.any.
 
@@ -107,7 +110,7 @@ Las palabras del título de un libro no resultan confusas para LUIS porque sabe 
 Cree una [lista explícita](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5ade550bd5b81c209ce2e5a8) mediante la API de creación para permitir la excepción cuando:
 
 * El patrón contenga una entidad [Pattern.any](luis-concept-entity-types.md#patternany-entity).
-* Y la sintaxis de ese patrón permita la posibilidad de una extracción de entidades incorrecta según la expresión. 
+* Y la sintaxis de ese patrón permita la posibilidad de una extracción de entidades incorrecta según la expresión.
 
 Por ejemplo, suponga que tiene un patrón que contiene tanto la sintaxis opcional, `[]`, como la sintaxis de la entidad, `{}`, combinadas para extraer datos de forma incorrecta.
 
@@ -120,7 +123,7 @@ En las siguientes expresiones, las entidades **subject** y **person** se extraen
 |email about dogs from Chris|subject=dogs<br>person=Chris|✔|
 |email about the man from La Mancha|subject=the man<br>person=La Mancha|X|
 
-En la tabla anterior, el asunto debería ser `the man from La Mancha` (el título de un libro), pero como el asunto incluye la palabra opcional `from`, el título se predice de forma incorrecta. 
+En la tabla anterior, el asunto debería ser `the man from La Mancha` (el título de un libro), pero como el asunto incluye la palabra opcional `from`, el título se predice de forma incorrecta.
 
 Para corregir esta excepción al patrón, agregue `the man from la mancha` como una coincidencia de lista explícita de la entidad {subject} mediante la [API de creación de lista explícita](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5ade550bd5b81c209ce2e5a8).
 
@@ -132,7 +135,7 @@ Marque texto opcional en la expresión mediante la sintaxis de corchetes de expr
 |`[find] email about {subject} [from {person}]`|`find` y `from {person}` son opcionales.|
 |"¿Puede ayudarme[?]|El signo de puntuación es opcional.|
 
-Los signos de puntuación (`?`, `!`, `.`) se deben omitir y deberá omitirlos usando la sintaxis de corchetes en los patrones. 
+Los signos de puntuación (`?`, `!`, `.`) se deben omitir y deberá omitirlos usando la sintaxis de corchetes en los patrones.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

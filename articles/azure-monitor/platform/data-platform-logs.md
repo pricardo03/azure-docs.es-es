@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 9aed19c88517868c2e8cb860dc01d01b7a7c3127
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 269744d5e9552d87c3fa619f33e02c833b3841be
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262073"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894171"
 ---
 # <a name="logs-in-azure-monitor"></a>Registros en Azure Monitor
 
@@ -26,7 +26,7 @@ ms.locfileid: "71262073"
 Los registros en Azure Monitor son especialmente útiles para llevar a cabo un análisis complejo de datos procedentes de orígenes diversos. En este artículo se describe cómo se estructuran los registros en Azure Monitor y qué se puede hacer con los datos, y se identifican los diferentes orígenes de datos que almacenan datos en los registros.
 
 > [!NOTE]
-> Es importante distinguir entre registros de Azure Monitor y orígenes de datos de registro de Azure. Por ejemplo, los eventos de nivel de suscripción de Azure se escriben en un [registro de actividad](activity-logs-overview.md) que puede verse en el menú de Azure Monitor. La mayoría de los recursos escriben información operativa en un [registro de diagnóstico](resource-logs-overview.md) que puede reenviar a ubicaciones diferentes. Los registros de Azure Monitor son una plataforma de datos de registro que recopila los registros de actividad y los registros de diagnóstico, junto con otros datos de supervisión, para proporcionar un análisis profundo de todo el conjunto de recursos.
+> Es importante distinguir entre registros de Azure Monitor y orígenes de datos de registro de Azure. Por ejemplo, los eventos de nivel de suscripción de Azure se escriben en un [registro de actividad](activity-logs-overview.md) que puede verse en el menú de Azure Monitor. La mayoría de los recursos escriben información operativa en un [registro de recursos](resource-logs-overview.md) que se puede reenviar a distintas ubicaciones. Los registros de Azure Monitor son una plataforma de datos de registro que recopila los registros de actividad y los registros de recursos, junto con otros datos de supervisión, para proporcionar un análisis profundo de todo el conjunto de recursos.
 
 ## <a name="what-are-azure-monitor-logs"></a>¿Qué son los registros de Azure Monitor?
 
@@ -85,9 +85,9 @@ Azure Monitor puede recopilar datos de registro de diversos orígenes, tanto en 
 
 | Datos | DESCRIPCIÓN |
 |:---|:---|
-| Diagnóstico de recursos | Configure los ajustes de diagnóstico para escribir en los datos de diagnóstico, incluidas las métricas en un área de trabajo de Log Analytics. Consulte [Transmisión de registros de Azure Diagnostics a un área de trabajo de Log Analytics en Azure Monitor](resource-logs-collect-storage.md). |
+| Diagnóstico de recursos | Configure los ajustes de diagnóstico para escribir en los datos de diagnóstico, incluidas las métricas en un área de trabajo de Log Analytics. Consulte [Transmisión de registros de recursos de Azure a Log Analytics](resource-logs-collect-storage.md). |
 | Soluciones de supervisión | Las soluciones de supervisión escriben los datos que recopilan en su área de trabajo de Log Analytics. Consulte [Detalles de la recopilación de inventario y datos para la supervisión de soluciones en Azure](../insights/solutions-inventory.md) para ver una lista de soluciones. Consulte [Soluciones de supervisión en Azure Monitor](../insights/solutions.md) para obtener más información sobre la instalación y el uso de soluciones. |
-| Métricas | Envíe las métricas de la plataforma para los recursos de Azure Monitor a un área de trabajo de Log Analytics para conservar los datos de registro durante períodos más largos y realizar análisis complejos con otros tipos de datos utilizando el [lenguaje de consulta Kusto](/azure/kusto/query/). Consulte [Transmisión de registros de Azure Diagnostics a un área de trabajo de Log Analytics en Azure Monitor](resource-logs-collect-storage.md). |
+| Métricas | Envíe las métricas de la plataforma para los recursos de Azure Monitor a un área de trabajo de Log Analytics para conservar los datos de registro durante períodos más largos y realizar análisis complejos con otros tipos de datos utilizando el [lenguaje de consulta Kusto](/azure/kusto/query/). Consulte [Transmisión de registros de recursos de Azure a Log Analytics](resource-logs-collect-storage.md). |
 | Almacenamiento de tablas de Azure | Recopile datos de la instancia de Azure Storage donde algunos recursos de Azure escriben datos de supervisión. Consulte [Use Azure blob storage for IIS and Azure table storage for events with Log Analytics](azure-storage-iis-table.md) (Uso de Azure Blob Storage para el almacenamiento de tablas de Azure e IIS de eventos con Log Analytics). |
 
 ### <a name="virtual-machines"></a>Virtual Machines

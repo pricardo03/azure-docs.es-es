@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/15/2018
-ms.openlocfilehash: 18c7a06e656cbd5c16151381a76ec7725eb2785e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 12/06/2019
+ms.openlocfilehash: 803deb9a4d9eaf02129bd16dd6465362b87b7e84
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73468413"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74995922"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Configuración de la replicación de clústeres de Apache HBase en redes virtuales de Azure
 
@@ -275,6 +275,10 @@ Al replicar un clúster, debe especificar las tablas que quere replicar. En esta
 
 Para crear una tabla **Contacts** e insertar algunos datos en ella, siga las instrucciones que se indican en el [Tutorial de HBase: Introducción a HBase Apache en HDInsight](apache-hbase-tutorial-get-started-linux.md).
 
+> [!NOTE]
+> Si desea replicar tablas desde un espacio de nombres personalizado, debe asegurarse de que también se definen los espacios de nombres personalizados adecuados en el clúster de destino.
+>
+
 ## <a name="enable-replication"></a>Habilitar replicación
 
 En los pasos siguientes se describe cómo llamar al script de acción de script desde Azure Portal. Para información sobre la ejecución de una acción de script mediante Azure PowerShell y la CLI clásica de Azure, consulte [Personalización de clústeres de HDInsight mediante la acción de scripts](../hdinsight-hadoop-customize-cluster-linux.md).
@@ -296,6 +300,8 @@ En los pasos siguientes se describe cómo llamar al script de acción de script 
     
       > [!NOTE]
       > Use el nombre de host en lugar de FQDN para el nombre DNS del clúster de origen y de destino.
+      >
+      > En este tutorial se da por supuesto que hn1 es el nodo principal activo. Compruebe el clúster para identificar el nodo principal activo.
 
 6. Seleccione **Crear**. El script puede tardar un poco en ejecutarse, especialmente cuando se usa el argumento **-copydata**.
 
@@ -315,7 +321,7 @@ Argumentos opcionales:
 |-su, --src-ambari-user | Especifica el nombre de usuario de administrador de Ambari en el clúster de HBase de origen. El valor predeterminado es **admin**. |
 |-du, --dst-ambari-user | Especifica el nombre de usuario de administrador de Ambari en el clúster de HBase de destino. El valor predeterminado es **admin**. |
 |-t, --table-list | Especifica las tablas que se van a replicar. Por ejemplo: --table-list="table1;table2;table3". Si no se especifica unas tablas determinadas, se replican todas las tablas de HBase existentes.|
-|-m, --machine | Especifica el nodo principal en el que se ejecuta la acción de script. El valor es **hn0** o **hn1** y debe elegirse en función de cuál sea el nodo principal activo. Use esta opción si se está ejecutando el script $0 como acción de script desde el portal de HDInsight o Azure PowerShell.|
+|-m, --machine | Especifica el nodo principal en el que se ejecuta la acción de script. El valor debe elegirse en función del nodo principal activo. Use esta opción si se está ejecutando el script $0 como acción de script desde el portal de HDInsight o Azure PowerShell.|
 |-cp, -copydata | Habilita la migración de datos existentes en las tablas en las que está habilitada la replicación. |
 |-rpm, -replicate-phoenix-meta | Habilita la replicación en las tablas del sistema Phoenix. <br><br>*Esta opción se debe utilizar con precaución.* Se recomienda volver a crear tablas de Phoenix en clústeres de réplica antes de utilizar este script. |
 |-h, --help | Muestra información de uso. |
@@ -386,13 +392,17 @@ La sección `print_usage()` del [script](https://raw.githubusercontent.com/Azure
 - **Deshabilitar la replicación en todas las tablas**:
 
         -m hn1 -s <source hbase cluster name> -sp Mypassword\!789 -all
-  o
+  or
 
         --src-cluster=<source hbase cluster name> --dst-cluster=<destination hbase cluster name> --src-ambari-user=<source cluster Ambari user name> --src-ambari-password=<source cluster Ambari password>
 
 - **Deshabilitar la replicación en las tablas especificadas (table1, table2 y table3)** :
 
         -m hn1 -s <source hbase cluster name> -sp <source cluster Ambari password> -t "table1;table2;table3"
+
+> [!NOTE]
+> Si piensa eliminar el clúster de destino, asegúrese de quitarlo de la lista del mismo nivel del clúster de origen. Esto puede ejecutando el comando remove_peer '1' en el shell de HBase en el clúster de origen. Si se produce un error, es posible que el clúster de origen no funcione correctamente.
+>
 
 ## <a name="next-steps"></a>Pasos siguientes
 

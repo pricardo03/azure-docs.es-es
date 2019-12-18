@@ -1,6 +1,6 @@
 ---
-title: 'Aplicación web que llama a las API web (registro de la aplicación): Plataforma de identidad de Microsoft'
-description: Obtenga información sobre cómo compilar una aplicación web que llame a API web (registro de la aplicación)
+title: 'Registro de una aplicación web que llama a las API web: Plataforma de identidad de Microsoft | Azure'
+description: Aprenda a registrar una aplicación web que llama a las API web.
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5becdc287f7cad28aa6c7c07ebc107586e9a2b2a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 784de823e94aace6f91222c19c1ff8130c3f995f
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65075196"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74962940"
 ---
 # <a name="web-app-that-calls-web-apis---app-registration"></a>Aplicación web que llama a las API web: registro de la aplicación
 

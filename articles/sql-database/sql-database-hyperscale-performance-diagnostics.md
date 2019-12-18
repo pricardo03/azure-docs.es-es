@@ -10,12 +10,12 @@ author: denzilribeiro
 ms.author: denzilr
 ms.reviewer: sstein
 ms.date: 10/18/2019
-ms.openlocfilehash: a7c64284c958fa8b3ec89c2b27515fe167a04011
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 2e162b30a0227c5f04c74dae01413177d1623235
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73811148"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74901236"
 ---
 # <a name="sql-hyperscale-performance-troubleshooting-diagnostics"></a>Diagnóstico de la solución de problemas de rendimiento de Hiperescala de SQL
 
@@ -44,13 +44,14 @@ Las réplicas de proceso no almacenan en caché una copia completa de la base de
  
 Cuando se emite una lectura en una réplica de proceso, si los datos no existen en el grupo de búferes o en la caché de RBPEX local, se emite una llamada de función getPage (pageId, LSN) y la página se captura desde el servidor de páginas correspondiente. Las lecturas de los servidores de páginas son lecturas remotas y, por tanto, son más lentas que las lecturas del RBPEX local. Al solucionar problemas de rendimiento relacionados con la E/S, es necesario poder saber cuántas E/S se realizaron a través de lecturas de servidor de páginas remotas relativamente más lentas.
 
-Varias DMV y eventos extendidos tienen columnas y campos que especifican el número de lecturas remotas de un servidor de páginas. Este número se puede comparar con el total de lecturas. 
+Varias DMV y eventos extendidos tienen columnas y campos que especifican el número de lecturas remotas de un servidor de páginas. Este número se puede comparar con el total de lecturas. El almacén de consultas también captura lecturas remotas como parte de las estadísticas de tiempo de ejecución de la consulta.
 
-- Las columnas para informar las lecturas del servidor de páginas están disponibles en las DMV de ejecución, como:
+- Las columnas para informar sobre las lecturas del servidor de páginas están disponibles en las DMV de ejecución y las vistas de catálogo, como:
     - [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql/)
     - [sys.dm_exec_query_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-stats-transact-sql/)
     - [sys.dm_exec_procedure_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-procedure-stats-transact-sql/)
     - [sys.dm_exec_trigger_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-trigger-stats-transact-sql/)
+    - [sys.query_store_runtime_stats](/sql/relational-databases/system-catalog-views/sys-query-store-runtime-stats-transact-sql/)
 - Las lecturas del servidor de páginas se agregan a los siguientes eventos extendidos:
     - sql_statement_completed
     - sp_statement_completed

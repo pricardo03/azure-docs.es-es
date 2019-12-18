@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: cshoe
-ms.openlocfilehash: f253aeb202671a3f90eabb1d04af95333540a239
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 77915409e3c44a01e26c35c0facb2d577c331fd8
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231164"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74914935"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Enlaces de Microsoft Graph para Azure Functions
 
@@ -28,7 +28,7 @@ La extensión de Microsoft Graph proporciona los siguientes enlaces:
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!Note]
-> Los enlaces de Microsoft Graph se encuentran actualmente en versión preliminar para Azure Functions, versión 2.x. No se admiten en la versión de Functions 1.x.
+> Los enlaces de Microsoft Graph se encuentran actualmente en versión preliminar para Azure Functions versión 2.x y posteriores. No se admiten en la versión de Functions 1.x.
 
 ## <a name="packages"></a>Paquetes
 

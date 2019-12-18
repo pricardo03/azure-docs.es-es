@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 40e0ba21d472097e34938878ddc1fa0c47b30417
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 85281088692d1c4b0245eb9d069519198f8f315d
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74803740"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74919348"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Guía de referencia de operaciones de administración de autenticación de Azure Active Directory
 
@@ -292,16 +292,16 @@ Si la autenticación heredada se usa ampliamente en su entorno, debe planear la 
 
 ### <a name="consent-grants"></a>Otorgar consentimientos
 
-En un ataque para otorgar consentimientos ilícito, el atacante crea una aplicación registrada en Azure AD que solicita acceso a ciertos datos, como la información de contacto, el correo electrónico o los documentos. Los usuarios pueden otorgar su consentimiento a aplicaciones malintencionadas a través de ataques de suplantación de identidad (phishing), o indirectamente al acceder a sitios web malintencionados.
+En un ataque para otorgar consentimientos ilícito, el atacante crea una aplicación registrada en Azure AD que solicita acceso a ciertos datos, como la información de contacto, el correo electrónico o los documentos. Los usuarios pueden otorgar su consentimiento a aplicaciones malintencionadas a través de ataques de suplantación de identidad (phishing) al acceder a sitios web malintencionados.
 
-A continuación se muestran los permisos que es posible quiera examinar en cuanto a los servicios en la nube de Microsoft:
+A continuación se muestra una lista de aplicaciones con permisos que es posible quiera examinar para los servicios en la nube de Microsoft:
 
-- Aplicaciones con permisos \*. ReadWrite delegados o de aplicación.
-- Aplicaciones con permisos delegados que pueden leer, enviar o administrar el correo electrónico en nombre del usuario.
+- Aplicaciones con permisos \*.ReadWrite delegados o de aplicación
+- Aplicaciones con permisos delegados que pueden leer, enviar o administrar el correo electrónico en nombre del usuario
 - Aplicaciones a las que se concede el uso de los siguientes permisos:
 
 | Resource | Permiso |
-| -------------------------- | -------------------- |
+| :- | :- |
 | Office 365 Exchange Online | EAS.AccessAsUser.All |
 | | EWS.AccessAsUser.All |
 | | Mail.Read |
@@ -309,11 +309,19 @@ A continuación se muestran los permisos que es posible quiera examinar en cuant
 | | Mail.Read.Shared |
 | | Mail.ReadWrite |
 
-Para evitar este escenario, debe consultar [Detectar y corregir las opciones para otorgar un consentimiento ilícito en Office 365](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) y así poder identificar y corregir cualquier aplicación con concesiones ilícitas o aplicaciones que tengan más concesiones de las necesarias. Programe revisiones periódicas de los permisos de la aplicación y quítelos cuando no sea necesario; o bien, quite el autoservicio y establezca procedimientos de gobernanza.
+- Aplicaciones a las que se le concede la suplantación completa del usuario que inició sesión. Por ejemplo:
+
+|Resource | Permiso |
+| :- | :- |
+| Azure AD Graph | Directory.AccessAsUser.All |
+| Microsoft Graph | Directory.AccessAsUser.All |
+| API REST de Azure | user_impersonation |
+
+Para evitar este escenario, consulte [Detectar y solucionar la concesión de consentimiento ilegal en Office 365](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) para identificar y corregir cualquier aplicación con concesiones ilícitas o aplicaciones que tengan más concesiones de las necesarias. A continuación, [quite el autoservicio por completo](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-user-consent) y [establezca los procedimientos de gobernanza](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-admin-consent-workflow). Por último, programe revisiones periódicas de los permisos de la aplicación y quítelos cuando no sean necesarios.
 
 #### <a name="consent-grants-recommended-reading"></a>Lectura recomendada para otorgar consentimientos
 
-- [Ámbitos de permiso de Graph API de Azure Active Directory (AD)](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes)
+- [Permisos para Microsoft Graph](https://docs.microsoft.com/graph/permissions-reference)
 
 ### <a name="user-and-group-settings"></a>Configuración de usuario y de grupo
 

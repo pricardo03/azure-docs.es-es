@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, carlrab
 ms.date: 08/06/2019
-ms.openlocfilehash: ba309b864056b10fe6540e85ffbc4c013af00455
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 0cda55d42f0d89d61919b751335ec95ef8143274
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186463"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74901172"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Los grupos elásticos pueden ayudarle a administrar y escalar varias bases de datos de Azure SQL
 
@@ -155,7 +155,7 @@ Las bases de datos agrupadas suelen ser compatibles con las mismas [característ
 
 Hay dos maneras de crear un grupo elástico en Azure Portal.
 
-1. Seleccione **Azure SQL** en el menú izquierdo de Azure Portal. Si Azure SQL no está en la lista, seleccione **Todos los servicios** y, luego, escriba *Azure SQL* en el cuadro de búsqueda.
+1. Vaya a [Azure Portal](https://portal.azure.com) para crear un grupo elástico. Busque y seleccione **Azure SQL**.
 2. Seleccione **+ Agregar** para abrir la página **Select SQL deployment option** (Seleccionar la opción de implementación de SQL). Para ver más información acerca de los grupos elásticos, seleccione **Mostrar detalles** en el icono **Bases de datos**.
 3. En el icono **Bases de datos**, seleccione **Grupo elástico** en la lista desplegable **Tipo de recurso** y, después, seleccione **Crear**:
 

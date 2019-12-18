@@ -1,17 +1,17 @@
 ---
 title: Establecimiento de alias en Azure Cosmos DB
-description: Obtenga información acerca del establecimiento de alias para valores en las consultas SQL de Azure Cosmos DB
+description: Aprenda a usar el alias en las consultas SQL de Azure Cosmos DB para diferenciar dos propiedades con el mismo nombre
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/20/2019
+ms.date: 12/02/2019
 ms.author: mjbrown
-ms.openlocfilehash: 3b17cbc7710647b1e1875025a1db1849034ec1dc
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 74849eec4c5808a584894321269c49c41f0b8a5c
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002084"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873478"
 ---
 # <a name="aliasing-in-azure-cosmos-db"></a>Establecimiento de alias en Azure Cosmos DB
 

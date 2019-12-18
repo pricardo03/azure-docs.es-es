@@ -1,6 +1,6 @@
 ---
 title: Configuración de Postman para llamadas API de REST de Azure Media Services
-description: Aprenda cómo configurar Postman para llamadas API de REST de Media Services.
+description: En este artículo se describe cómo configurar Postman para llamadas API REST de Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 5d0b5a57f3fe587a06a102c958b17dbf2a73225c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f55b3d5767f38c8fba2e79925f6f6e1e390aad2d
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61466710"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74887800"
 ---
 # <a name="configure-postman-for-media-services-rest-api-calls"></a>Configuración de Postman para llamadas API de REST de Azure Media Services  
 
