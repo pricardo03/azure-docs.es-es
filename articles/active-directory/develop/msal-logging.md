@@ -1,29 +1,25 @@
 ---
-title: Registro en aplicaciones de la biblioteca de autenticación de Microsoft (MSAL)
+title: Inicio de sesión en aplicaciones de MSAL | Azure
 titleSuffix: Microsoft identity platform
 description: Aprenda a registrar aplicaciones de la biblioteca de autenticación de Microsoft (MSAL).
 services: active-directory
-documentationcenter: dev-center-name
 author: TylerMSFT
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/11/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5960389389e4b75794a7334c0bff12ce3ac0f170
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 9a71093ee05e032a5df89bb0560b6daa82e2fbf2
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74452460"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74916152"
 ---
 # <a name="logging-in-msal-applications"></a>Inicio de sesión en aplicaciones de MSAL
 

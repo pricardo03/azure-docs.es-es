@@ -2,13 +2,13 @@
 title: Lenguajes admitidos en Azure Functions
 description: Obtenga información acerca de qué lenguajes se admiten (versión de disponibilidad general) y cuáles son experimentales o están en versión preliminar.
 ms.topic: conceptual
-ms.date: 08/02/2018
-ms.openlocfilehash: 3b61dd83e481d42dd15f089247d016c6b71ff0de
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.date: 11/27/2019
+ms.openlocfilehash: 029ea753439dca3093bf214a5adfb6d58a1fe567
+ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230282"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74942263"
 ---
 # <a name="supported-languages-in-azure-functions"></a>Lenguajes admitidos en Azure Functions
 
@@ -24,7 +24,7 @@ Hay tres niveles de soporte:
 
 ## <a name="languages-by-runtime-version"></a>Lenguaje por versión de entorno de tiempo de ejecución 
 
-[Hay disponibles dos versiones del entorno de tiempo de ejecución de Azure Functions](functions-versions.md). En la tabla siguiente se indica qué lenguajes se admiten en cada versión del sistema de tiempo de ejecución.
+Hay disponibles [tres versiones del entorno en tiempo de ejecución de Azure Functions](functions-versions.md). En la tabla siguiente se indica qué lenguajes se admiten en cada versión del sistema de tiempo de ejecución.
 
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
 
@@ -34,7 +34,7 @@ En la versión 1.x, los lenguajes experimentales no escalan bien y no admiten to
 
 No use características experimentales para nada importante, porque no se admiten oficialmente. No se deben abrir casos de soporte técnico para problemas con lenguajes experimentales. 
 
-La versión 2.x del sistema de tiempo de ejecución no admite lenguajes experimentales. La compatibilidad para nuevos idiomas solamente se agrega cuando el idioma puede admitirse en producción. 
+Las versiones posteriores de entornos en tiempo de ejecución no admiten lenguajes experimentales. La compatibilidad para nuevos idiomas solamente se agrega cuando el idioma puede admitirse en producción. 
 
 ### <a name="language-extensibility"></a>Extensibilidad de lenguaje
 

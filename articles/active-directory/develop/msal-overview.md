@@ -1,29 +1,25 @@
 ---
-title: Información sobre Microsoft Authentication Library (MSAL)
+title: Más información sobre MSAL | Azure
 titleSuffix: Microsoft identity platform
 description: La Biblioteca de autenticación de Microsoft (MSAL) permite que los desarrolladores de aplicaciones adquieran tokens para llamar a API web protegidas. Estas API web pueden ser Microsoft Graph, otras API de Microsoft, API web de terceros o su propia API web. MSAL admite varias plataformas y arquitecturas de aplicación.
 services: active-directory
-documentationcenter: dev-center-name
 author: TylerMSFT
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/30/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dedd9f3458118117546a900aa1a2c8c5aa627100
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 718c33fc8a834a6abbbc9f1a1c33e02eb810a991
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73473728"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74915295"
 ---
 # <a name="overview-of-microsoft-authentication-library-msal"></a>Introducción a la Biblioteca de autenticación de Microsoft (MSAL)
 La Biblioteca de autenticación de Microsoft (MSAL) permite que los desarrolladores adquieran [tokens](developer-glossary.md#security-token) desde el punto de conexión de la Plataforma de identidad de Microsoft para acceder a API web protegidas. Estas API web pueden ser Microsoft Graph, otras API de Microsoft, API web de terceros o su propia API web. MSAL está disponible para .NET, JavaScript, Android e iOS, que admiten muchas plataformas y arquitecturas de aplicación distintas.

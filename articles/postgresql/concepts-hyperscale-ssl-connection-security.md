@@ -1,17 +1,17 @@
 ---
-title: 'Configuración de SSL in Azure Database for PostgreSQL: Hiperescala (Citus)'
+title: SSL de Hiperescala (Citus) en Azure Database for PostgreSQL
 description: 'Instrucciones e información para configurar Azure Database for PostgreSQL: Hiperescala (Citus) y las aplicaciones asociadas, a fin de usar correctamente las conexiones SSL.'
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: be02c9114f30a63fe710cfd2fc56347bfc68fab5
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: 3e4ef5d2d6db3a3d4f8923f47079f2484639a751
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71275298"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973992"
 ---
 # <a name="configure-ssl-in-azure-database-for-postgresql---hyperscale-citus"></a>Configuración de SSL in Azure Database for PostgreSQL: Hiperescala (Citus)
 Las conexiones de la aplicación cliente al nodo de coordinación de Hiperescala (Citus) requieren la Capa de sockets seguros (SSL). Aplicar conexiones SSL entre el servidor de base de datos y las aplicaciones cliente ayuda a proteger contra los ataques de tipo "Man in the middle" mediante el cifrado del flujo de datos entre el servidor y la aplicación.

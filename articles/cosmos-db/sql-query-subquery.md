@@ -1,17 +1,17 @@
 ---
 title: Subconsultas SQL para Azure Cosmos DB
-description: Obtenga información acerca de las subconsultas SQL y sus casos de uso comunes en Azure Cosmos DB
+description: Obtenga información acerca de las subconsultas SQL y sus casos de uso comunes y los distintos tipos de subconsultas en Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/23/2019
+ms.date: 12/02/2019
 ms.author: tisande
-ms.openlocfilehash: cea9963f5073834a24ede44306eb89414909fc83
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 42d9e8b190747a3ffaf0e46ea1eddda33d09bb24
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003494"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74870571"
 ---
 # <a name="sql-subquery-examples-for-azure-cosmos-db"></a>Ejemplos de subconsultas SQL para Azure Cosmos DB
 
@@ -211,7 +211,7 @@ Ambas consultas producen este resultado:
 ]
 ```
 
-**Ejemplo 2**
+**Ejemplo 2**
 
 ```sql
 SELECT TOP 5 Concat('id_', f.id) AS id
@@ -291,7 +291,7 @@ Resultado de la consulta:
 ]
 ```
 
-**Ejemplo 2**
+**Ejemplo 2**
 
 Esta es una subconsulta con varias expresiones de función agregada:
 

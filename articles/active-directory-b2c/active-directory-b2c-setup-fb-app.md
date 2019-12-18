@@ -1,5 +1,6 @@
 ---
-title: 'Configuración de la suscripción y del inicio de sesión con una cuenta de Facebook: Azure Active Directory B2C'
+title: Configuración del registro y del inicio de sesión con una cuenta de Facebook
+titleSuffix: Azure AD B2C
 description: Permita suscribirse e iniciar sesión en sus aplicaciones a los clientes con cuentas de Facebook mediante Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/26/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 77b2fccaeba3cd1d164a3ce428c04083fd69fb5a
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: c85ba3079fe09078d3e68eab070317c199242d81
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71264215"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74947696"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-facebook-account-using-azure-active-directory-b2c"></a>Configuración de la suscripción y del inicio de sesión con una cuenta de Facebook mediante Azure Active Directory B2C
 

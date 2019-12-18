@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 92de47041791c8b6c540844adb62391268b81c34
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: 83b91be52694076373d950e0ad785ef22671ef4f
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200507"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894527"
 ---
 # <a name="collect-azure-resource-logs-in-log-analytics-workspace-in-azure-monitor"></a>Recopilación de registros de recurso de Azure en el área de trabajo de Log Analytics en Azure Monitor
 Los [registros de recurso](resource-logs-overview.md) en Azure proporcionan datos exhaustivos y frecuentes acerca del funcionamiento interno de un recurso de Azure. En este artículo se describe la recopilación de registros de recurso en un área de trabajo de Log Analytics que permita el análisis con otros datos de supervisión recopilados en los registros de Azure Monitor mediante consultas de registro eficaces y también el aprovechamiento de otras características de Azure Monitor, como las alertas y las visualizaciones. 
@@ -110,7 +110,7 @@ Puede continuar por el blog [Actualizaciones de Azure](https://azure.microsoft.c
 ### <a name="column-limit-in-azurediagnostics"></a>Límite de columnas en AzureDiagnostics
 En los registros de Azure Monitor hay un límite de 500 propiedades por tabla. Una vez alcanzado este límite, cualquier fila que contenga datos con cualquier propiedad fuera de las primeras 500 se eliminará en el momento de la ingesta. Estos límites afectan particularmente a la tabla *AzureDiagnostics*, ya que incluye propiedades para todos los servicios de Azure que escriben en ella.
 
-Si va a recopilar registros de diagnóstico de varios servicios, _AzureDiagnostics_ puede superar este límite y que se omitan datos. Hasta que todos los servicios de Azure admitan el modo específico del recurso, debe configurar los recursos para escribir en varias áreas de trabajo con el fin de reducir la posibilidad de alcanzar el límite de 500 columnas.
+Si va a recopilar registros de recursos de varios servicios, _AzureDiagnostics_ puede superar este límite, y se omitirán datos. Hasta que todos los servicios de Azure admitan el modo específico del recurso, debe configurar los recursos para escribir en varias áreas de trabajo con el fin de reducir la posibilidad de alcanzar el límite de 500 columnas.
 
 ### <a name="azure-data-factory"></a>Azure Data Factory
 Azure Data Factory, debido a un conjunto muy detallado de registros, es un servicio del cual se sabe que escribe un gran número de columnas y que puede provocar que _AzureDiagnostics_ supere el límite. Para cualquier configuración de diagnóstico configurada antes de que se habilitara el modo específico del recurso, se creará una nueva columna para cada parámetro de usuario con nombre único en cualquier actividad. Se crearán más columnas debido a la naturaleza detallada de las entradas y salidas de la actividad.

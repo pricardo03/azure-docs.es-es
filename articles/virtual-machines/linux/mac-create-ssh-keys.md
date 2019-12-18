@@ -12,14 +12,14 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 12/06/2019
 ms.author: cynthn
-ms.openlocfilehash: cb3bb6a91c25298535cfba1107b85f200031a7d6
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 6cf636e7d7ee35680c1da872b186748c333a81dc
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035910"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930008"
 ---
 # <a name="quick-steps-create-and-use-an-ssh-public-private-key-pair-for-linux-vms-in-azure"></a>Pasos rápidos: Creación y uso de un par de claves pública-privada SSH para máquinas virtuales Linux en Azure
 
@@ -38,10 +38,10 @@ Para ver otras formas de generar y usar claves SSH en un equipo con Windows, con
 
 Use el comando `ssh-keygen` para generar archivos de clave pública y privada SSH. De forma predeterminada, estos archivos se crean en el directorio ~/.ssh. Puede especificar una ubicación distinta y una contraseña opcional (una *frase de contraseña*) para acceder al archivo de clave privada. Si existe un par de claves SSH con el mismo nombre en la ubicación escogida, estos archivos se sobrescriben.
 
-El siguiente comando crea un par de claves SSH utilizando el cifrado RSA y una longitud en bits de 2048:
+El siguiente comando crea un par de claves SSH con ayuda del cifrado RSA y una longitud en bits de 4096:
 
 ```bash
-ssh-keygen -t rsa -b 2048
+ssh-keygen -m PEM -t rsa -b 4096
 ```
 
 Si usa la [CLI de Azure](/cli/azure) para crear la máquina virtual con el comando [az vm create](/cli/azure/vm#az-vm-create), tiene la opción de generar archivos de clave pública y privada SSH con la opción `--generate-ssh-keys`. Los archivos de claves se almacenan en el directorio ~/.ssh a menos que se especifique lo contrario con la opción `--ssh-dest-key-path`. La opción `--generate-ssh-keys` no sobrescribirá los archivos de claves existentes; en su lugar, devolverá un error. En el siguiente comando, reemplace *VMname* y *RGname* por sus propios valores:

@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: c0d49c3ce06f6fa72daf7aff466ef65e09ced09a
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 6c88fec4e6bea34dd3cf2e45300ae2c1ac15a1c6
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241813"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851543"
 ---
 # <a name="configure-and-customize-the-build-tasks"></a>Configuración y personalización de las tareas de compilación
 
@@ -26,7 +26,7 @@ En este artículo se describen de forma detallada las opciones de configuración
 ## <a name="anti-malware-scanner-task"></a>Tarea de Anti-Malware Scanner
 
 >[!NOTE]
-> La tarea de compilación de Anti-Malware Scanner requiere un agente de compilación con Windows Defender habilitado. Tanto Visual Studio 2017 hospedado como las versiones posteriores proporcionan ese agente. La tarea de compilación no se ejecutará en el agente hospedado de Visual Studio 2015.
+> La tarea de compilación de Anti-Malware Scanner requiere un agente de compilación con Windows Defender habilitado. Tanto Visual Studio 2017 hospedado como las versiones posteriores proporcionan ese agente. La tarea de compilación no se ejecutará en el agente hospedado de Visual Studio 2015.
 >
 > Aunque las firmas no se pueden actualizar en estos agentes, siempre deben tener una antigüedad inferior a tres horas.
 
@@ -40,12 +40,14 @@ Windows Defender usa el cliente de Windows Update para descargar e instalar firm
 
 Para obtener más información sobre los errores de Windows Update y su mitigación, consulte [Códigos de error de Windows Update por componente](https://docs.microsoft.com/windows/deployment/update/windows-update-error-reference) y el artículo de TechNet sobre los [códigos de error del agente de Windows Update](https://social.technet.microsoft.com/wiki/contents/articles/15260.windows-update-agent-error-codes.aspx).
 
+Para obtener información sobre la configuración de YAML para esta tarea, consulte nuestras [opciones de antimalware de YAML](yaml-configuration.md#anti-malware-scanner-task).
+
 ## <a name="binskim-task"></a>Tarea de BinSkim
 
 > [!NOTE]
 > Para poder ejecutar la tarea de BinSkim, su compilación debe cumplir una de estas condiciones:
->    - La compilación genera artefactos binarios a partir de código administrado.
->    - Se han confirmado artefactos binarios que desea analizar con BinSkim.
+>  - La compilación genera artefactos binarios a partir de código administrado.
+>  - Se han confirmado artefactos binarios que desea analizar con BinSkim.
 
 En la captura de pantalla y la lista siguientes se muestran detalles de la configuración de tareas.
 
@@ -79,6 +81,8 @@ En la captura de pantalla y la lista siguientes se muestran detalles de la confi
 
 Para obtener más información sobre los argumentos de la línea de comandos de BinSkim, las reglas por identificador o los códigos de salida, consulte la [guía de usuario de BinSkim](https://github.com/Microsoft/binskim/blob/master/docs/UserGuide.md).
 
+Para obtener información sobre la configuración de YAML para esta tarea, consulte nuestras [opciones de BinSkim de YAML](yaml-configuration.md#binskim-task).
+
 ## <a name="credential-scanner-task"></a>Tarea de Credential Scanner
 
 En la captura de pantalla y la lista siguientes se muestran detalles de la configuración de tareas.
@@ -99,6 +103,8 @@ Las opciones disponibles incluyen:
   - **Bytes de lectura máximos para el examen de archivos**: número máximo de bytes que van a leerse en un archivo durante un análisis de contenido. El valor predeterminado es 104 857 600.
   - **Opciones de control** > **Ejecutar esta tarea**: especifica cuándo se ejecutará la tarea. Seleccione **Condiciones personalizadas** para especificar condiciones más complejas.
   - **Versión**: versión de la tarea de compilación en Azure DevOps. Esta opción no se usa con frecuencia.
+
+Para obtener información sobre la configuración de YAML para esta tarea, consulte nuestras [opciones del detector de credenciales (CredScan) de YAML](yaml-configuration.md#credential-scanner-task).
 
 ## <a name="microsoft-security-risk-detection-task"></a>Tarea de Microsoft Security Risk Detection
 
@@ -128,10 +134,13 @@ En la siguiente lista se muestran detalles para la configuración de esta tarea.
        - **Test Driver Can Be Renamed** (se puede cambiar el nombre del controlador de prueba): active esta casilla si al cambiar el nombre del archivo ejecutable del controlador de prueba, este puede seguir funcionando correctamente.
        - **The Fuzzing Application Runs as a Single OS Process** (la aplicación de pruebas de vulnerabilidad se ejecuta como un proceso de sistema operativo único): active esta casilla si el controlador de prueba se ejecuta en un único proceso del sistema operativo. Desactívela si el controlador de prueba genera procesos adicionales.
 
+Para obtener información sobre la configuración de YAML para esta tarea, consulte nuestras [opciones de detección de riesgos de seguridad de Microsoft de YAML](yaml-configuration.md#microsoft-security-risk-detection-task).
+
 ## <a name="roslyn-analyzers-task"></a>Tarea de analizadores basados en Roslyn
 
 > [!NOTE]
 > Antes de poder ejecutar la tarea de analizadores basados en Roslyn, su compilación debe cumplir estas condiciones:
+>
 > - La definición de compilación incluye la tarea de compilación integrada de MSBuild o VSBuild para compilar código de C# o Visual Basic. La tarea de analizadores se basa en la entrada y la salida de la tarea integrada para ejecutar la compilación de MSBuild con los analizadores basados en Roslyn habilitados.
 > - El agente de compilación que ejecuta esta tarea de compilación tiene instalado Visual Studio 2017 versión 15.5 o posterior, por lo que usa la versión 2.6 o posterior del compilador.
 
@@ -145,6 +154,7 @@ Las opciones disponibles incluyen:
 - **Opciones de control** > **Ejecutar esta tarea**: especifica cuándo se ejecutará la tarea. Elija **Condiciones personalizadas** para especificar condiciones más complejas.
 
 > [!NOTE]
+>
 > - Los analizadores basados en Roslyn están integrados con el compilador y solo se pueden ejecutar como parte de la compilación de csc.exe. Por lo tanto, esta tarea requiere que se vuelva a reproducir o ejecutar el comando del compilador que se ejecutó anteriormente en la compilación. Esta reproducción o ejecución se realiza consultando Visual Studio Team Services (VSTS) para los registros de tareas de compilación de MSBuild.
 >
 >   No hay ninguna otra manera de que la tarea obtenga de forma confiable la línea de comandos de compilación de MSBuild de la definición de compilación. Consideramos la posibilidad de agregar un cuadro de texto de forma libre para permitir a los usuarios escribir sus líneas de comandos. Sin embargo, sería difícil en ese caso mantener esas líneas de comandos actualizadas y sincronizadas con la compilación principal.
@@ -161,12 +171,16 @@ Para obtener recursos adicionales para la tarea del analizador basado en Roslyn,
 
 Encontrará el paquete de analizadores instalado y usado por esta tarea de compilación en la página de NuGet [Microsoft.CodeAnalysis.FxCopAnalyzers](https://www.nuget.org/packages/Microsoft.CodeAnalysis.FxCopAnalyzers).
 
+Para obtener información sobre la configuración de YAML para esta tarea, consulte nuestras [opciones de analizadores de Roslyn de YAML](yaml-configuration.md#roslyn-analyzers-task).
+
 ## <a name="tslint-task"></a>Tarea de TSLint
 
 Para obtener más información sobre TSLint, vaya al [repositorio de GitHub de TSLint](https://github.com/palantir/tslint).
 
 >[!NOTE] 
 >Como tal vez sepa, en la página principal del [repositorio de GitHub de TSLint](https://github.com/palantir/tslint) se indica que TSLint quedará obsoleto en algún momento de 2019. Microsoft investiga [ESLint](https://github.com/eslint/eslint) como tarea alternativa.
+
+Para obtener información sobre la configuración de YAML para esta tarea, consulte nuestras [opciones de TSLint de YAML](yaml-configuration.md#tslint-task).
 
 ## <a name="publish-security-analysis-logs-task"></a>Tarea de Publish Security Analysis Logs
 
@@ -175,8 +189,10 @@ En la captura de pantalla y la lista siguientes se muestran detalles de la confi
 ![Configuración de la tarea de compilación de Publish Security Analysis Logs](./media/security-tools/9-publish-security-analsis-logs600.png)  
 
 - **Nombre del artefacto**: cualquier identificador de cadena.
-- **Tipo de artefacto**: dependiendo de su selección, puede publicar los registros en el servidor de Azure-DevOps o en un recurso compartido al que pueda acceder el agente de compilación.
+- **Tipo de artefacto**: Dependiendo de su selección, puede publicar los registros en Azure DevOps Server o en un recurso compartido al que pueda acceder el agente de compilación.
 - **Herramientas**: puede optar por conservar los registros de herramientas específicas, o bien puede seleccionar **Todas las herramientas** para conservar todos los registros.
+
+Para obtener información sobre la configuración de YAML para esta tarea, consulte nuestras [opciones de publicación de registros de seguridad de YAML](yaml-configuration.md#publish-security-analysis-logs-task).
 
 ## <a name="security-report-task"></a>Tarea de Security Report
 
@@ -189,6 +205,8 @@ En la captura de pantalla y la lista siguientes se muestran detalles de la confi
 - **Opciones avanzadas**: si no hay registros para alguna de las herramientas seleccionadas, puede optar por registrar una advertencia o un error. Si registra un error, se produce un error en la tarea.
 - **Carpeta de registros base**: puede personalizar la carpeta de registros base donde se encuentran los registros. Sin embargo, esta opción no se utiliza normalmente.
 
+Para obtener información sobre la configuración de YAML para esta tarea, consulte nuestras [opciones de informes de seguridad de YAML](yaml-configuration.md#security-report-task).
+
 ## <a name="post-analysis-task"></a>Tarea de Post-Analysis
 
 En la captura de pantalla y la lista siguientes se muestran detalles de la configuración de tareas.
@@ -199,6 +217,10 @@ En la captura de pantalla y la lista siguientes se muestran detalles de la confi
 - **Informe**: puede escribir de forma opcional los resultados que provocan la interrupción de la compilación. Los resultados se escriben en el archivo de registro y la ventana de consola de Azure DevOps.
 - **Opciones avanzadas**: si no hay registros para alguna de las herramientas seleccionadas, puede optar por registrar una advertencia o un error. Si registra un error, se produce un error en la tarea.
 
+Para obtener información sobre la configuración de YAML para esta tarea, consulte nuestras [opciones de análisis posteriores de YAML](yaml-configuration.md#post-analysis-task).
+
 ## <a name="next-steps"></a>Pasos siguientes
+
+Para obtener información sobre la configuración basada en YAML, consulte la [guía de configuración de YAML](yaml-configuration.md).
 
 Si tiene más preguntas sobre la extensión de Análisis de código de seguridad y las herramientas que se ofrecen, consulte [nuestra página de preguntas más frecuentes](security-code-analysis-faq.md).

@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 12/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ee091d1c8f0f477354f6bb422d041278ec5668e
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: c10171ae59772f58411997d16dc4ad1472e94e29
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73574264"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74996942"
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Tutorial: Configuración de Workplace by Facebook para el aprovisionamiento automático de usuarios
 
@@ -99,7 +99,7 @@ Para más información sobre cómo configurar el aprovisionamiento automático, 
 Ahora puede crear una cuenta de prueba. Espere 20 minutos para comprobar que la cuenta se ha sincronizado con Workplace by Facebook.
 
 > [!NOTE]
-> Estamos trabajando en estrecha colaboración con el equipo de Workplace by Facebook para asegurarnos de que la aplicación Azure AD esté aprobada y cumpla sus nuevas directrices. La fecha límite de Workplace by Facebook es el 16 de diciembre y es nuestra intención respetarla. No se espera ningún trabajo por parte de los clientes en ese momento. El 28 de febrero de 2020, los clientes deberán realizar la transición a la nueva integración. Publicaremos aquí la ruta de migración en cuanto esté disponible.    
+> Se aprobó la aplicación de Azure AD de terceros en Workplace by Facebook. Los clientes no experimentarán una interrupción del servicio el 16 de diciembre. Verá una nota en la consola de administración de Workplace by Facebook que indica como fecha límite el 28 de febrero de 2020. Deberá migrar a la nueva aplicación antes de esa fecha. Estamos trabajando para que la transición sea lo más simple posible y proporcionaremos actualizaciones sobre la transición en esta página al final del mes.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

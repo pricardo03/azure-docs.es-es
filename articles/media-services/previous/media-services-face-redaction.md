@@ -1,6 +1,6 @@
 ---
 title: Censura de rostros con Azure Media Analytics | Microsoft Docs
-description: Este tema muestra cómo censurar caras con Análisis multimedia de Azure.
+description: Azure Media Redactor es un procesador multimedia (MP) de Azure Media Analytics que ofrece censura de rostros escalable en la nube. En este artículo se muestra cómo censurar caras con Azure Media Analytics.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: e350b6ed90324e7ed645d85c046fd74c0a089452
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 6a1b7a76ef1efda51f09ac733b3d434235ff40ef
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "69016029"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900297"
 ---
 # <a name="redact-faces-with-azure-media-analytics"></a>Censura de rostros con Azure Media Analytics 
 ## <a name="overview"></a>Información general

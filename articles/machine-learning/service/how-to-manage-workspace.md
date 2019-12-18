@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9e3915a2f55680fc2e24ac63d5e7170ada026c2e
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 80b554b7dd4f37e1a215892962d8ec5622d8ae5c
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615167"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974043"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces-in-the-azure-portal"></a>Creación y administración de áreas de trabajo de Azure Machine Learning en Azure Portal
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -73,15 +73,15 @@ Para crear un área de trabajo, necesita una suscripción de Azure. Si no tiene 
 
 Puede actualizar el área de trabajo de la edición Basic a la edición Enterprise para aprovechar las ventajas de las características mejoradas, como experiencias de bajo código y características de seguridad mejoradas.
 
-1. Inicie sesión en el [portal de Azure](https://portal.azure.com).
+1. Inicie sesión en [Azure Machine Learning Studio](https://ml.azure.com).
 
 1. Seleccione el área de trabajo que desea actualizar.
 
-1. Seleccione **Actualizar** en la parte superior o en el mensaje de actualización.
+1. Seleccione **Más información** en la parte superior derecha de la página.
 
-    ![Actualizar un área de trabajo](media/how-to-manage-workspace/upgrade.png)
+   [ ![](media/how-to-manage-workspace/upgrade.png) ](media/how-to-manage-workspace/upgrade.png#lightbox)
 
-1. Seleccione **Confirmar actualización**.
+1. Seleccione **Actualizar** en la ventana que aparece.
 
 
 > [!IMPORTANT]

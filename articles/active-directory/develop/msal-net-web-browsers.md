@@ -1,29 +1,25 @@
 ---
-title: Exploradores web en la biblioteca de autenticación de Microsoft para .NET
+title: Uso de exploradores web con MSAL.NET | Azure
 titleSuffix: Microsoft identity platform
 description: Obtenga información sobre las consideraciones específicas al usar Xamarin Android con Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
-documentationcenter: dev-center-name
 author: TylerMSFT
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/16/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2446166aa8078040c06d7cb54ce01666d9931727
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: d5b8c8e78c554994b71f9e246f8bacc39828b17f
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802678"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74921598"
 ---
 # <a name="using-web-browsers-in-msalnet"></a>Uso de los exploradores web en MSAL.NET
 Se requieren exploradores web para la autenticación no interactiva. De forma predeterminada, MSAL.NET admite el [explorador web del sistema](#system-web-browser-on-xamarinios-xamarinandroid) en Xamarin.iOS y Xamarin.Android. Pero [también puede habilitar el explorador web insertado](#enable-embedded-webviews-on-ios-and-android) en función de los necesidades (UX, necesidad de inicio de sesión único (SSO), seguridad) en aplicaciones [Xamarin.iOS](#choosing-between-embedded-web-browser-or-system-browser-on-xamarinios) y [Xamarin.Android](#detecting-the-presence-of-custom-tabs-on-xamarinandroid). E incluso puede [elegir dinámicamente](#detecting-the-presence-of-custom-tabs-on-xamarinandroid) qué explorador web utilizar en función de la presencia de Chrome o de un explorador compatible con las pestañas personalizadas de Chrome en Android. MSAL.NET solo admite el explorador del sistema en aplicaciones de escritorio de .NET Core.

@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/05/2019
 ms.author: cshoe
-ms.openlocfilehash: 0f94c89a52de138b261796cbef25c0acb57622c4
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 27333f272ca5000fd3b09b305712875c065f6bc7
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73800111"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74924433"
 ---
 ## <a name="trigger"></a>Desencadenador
 
@@ -105,7 +105,7 @@ En el ejemplo siguiente se muestra un enlace de desencadenador de centro de even
 
 Los ejemplos siguientes muestran datos de enlace de Event Hubs en el archivo *function.json*.
 
-#### <a name="version-2x"></a>Versión 2.x
+#### <a name="version-2x-and-higher"></a>Versión 2.x y posteriores
 
 ```json
 {
@@ -186,7 +186,7 @@ En el ejemplo siguiente se muestra un enlace de desencadenador de centro de even
 
 Los ejemplos siguientes muestran datos de enlace de Event Hubs en el archivo *function.json*. 
 
-#### <a name="version-2x"></a>Versión 2.x
+#### <a name="version-2x-and-higher"></a>Versión 2.x y posteriores
 
 ```json
 {
@@ -223,7 +223,7 @@ En el ejemplo siguiente se muestra un enlace de desencadenador de centro de even
 
 Los ejemplos siguientes muestran datos de enlace de Event Hubs en el archivo *function.json*.
 
-#### <a name="version-2x"></a>Versión 2.x
+#### <a name="version-2x-and-higher"></a>Versión 2.x y posteriores
 
 ```json
 {
@@ -262,7 +262,7 @@ module.exports = function (context, myEventHubMessage) {
 
 Para recibir eventos en un lote, establezca `cardinality` en `many` en el archivo *function.json*, como se muestra en los ejemplos siguientes.
 
-#### <a name="version-2x"></a>Versión 2.x
+#### <a name="version-2x-and-higher"></a>Versión 2.x y posteriores
 
 ```json
 {
@@ -389,7 +389,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 |**direction** | N/D | Se debe establecer en `in`. Esta propiedad se establece automáticamente cuando se crea el desencadenador en Azure Portal. |
 |**name** | N/D | Nombre de la variable que representa el elemento de evento en el código de la función. |
 |**path** |**EventHubName** | Solo Functions 1.x. El nombre del centro de eventos. Cuando el nombre del centro de eventos también está presente en la cadena de conexión, ese valor reemplaza esta propiedad en tiempo de ejecución. |
-|**eventHubName** |**EventHubName** | Solo Functions 2.x. El nombre del centro de eventos. Cuando el nombre del centro de eventos también está presente en la cadena de conexión, ese valor reemplaza esta propiedad en tiempo de ejecución. |
+|**eventHubName** |**EventHubName** | Functions 2.x y versiones posteriores. El nombre del centro de eventos. Cuando el nombre del centro de eventos también está presente en la cadena de conexión, ese valor reemplaza esta propiedad en tiempo de ejecución. |
 |**consumerGroup** |**ConsumerGroup** | Una propiedad opcional que establece el [grupo de consumidores](../articles/event-hubs/event-hubs-features.md#event-consumers) que se usará para suscribirse a los eventos del centro. Si se pasa por alto, se utilizará el grupo de consumidores `$Default`. |
 |**cardinalidad** | N/D | Para JavaScript. Defínalo como `many` para permitir el procesamiento por lotes.  Si se omite o se define como `one`, se pasa un único mensaje a la función. |
 |**conexión** |**Connection** | El nombre de una configuración de aplicación que contenga la cadena de conexión para el espacio de nombres del centro de eventos. Copie esta cadena de conexión haciendo clic en el botón **Información de conexión** del [espacio de nombres](../articles/event-hubs/event-hubs-create.md#create-an-event-hubs-namespace), no del propio centro de eventos. Esta cadena de conexión debe tener al menos permisos de lectura para activar el desencadenador.|
@@ -423,7 +423,7 @@ El archivo [host.json](../articles/azure-functions/functions-host-json.md#eventh
 
 Use el enlace de salida de Event Hubs para escribir eventos en una secuencia. Debe tener permiso de envío a un centro de eventos para escribir eventos en él.
 
-Asegúrese de que las referencias de los paquetes necesarios están en su lugar: Functions 1.x o Functions 2.x
+Asegúrese de que las referencias de paquete necesarias están implementadas antes de tratar de implementar un enlace de salida.
 
 ## <a name="output---example"></a>Salida: ejemplo
 
@@ -474,7 +474,7 @@ public static async Task Run(
 
 En el ejemplo siguiente se muestra un enlace de desencadenador de centro de eventos en un archivo *function.json* y una [función de script de C#](../articles/azure-functions/functions-reference-csharp.md) que usa el enlace. La función escribe un mensaje a un centro de eventos.
 
-Los ejemplos siguientes muestran datos de enlace de Event Hubs en el archivo *function.json*. El primer ejemplo es para Functions 2.x y el segundo para Functions 1.x. 
+Los ejemplos siguientes muestran datos de enlace de Event Hubs en el archivo *function.json*. El primer ejemplo es para Functions 2.x y posteriores, y el segundo para Functions 1.x. 
 
 ```json
 {
@@ -526,7 +526,7 @@ public static void Run(TimerInfo myTimer, ICollector<string> outputEventHubMessa
 
 En el ejemplo siguiente se muestra un enlace de desencadenador de centro de eventos en un archivo *function.json* y una [función de F#](../articles/azure-functions/functions-reference-fsharp.md) que usa el enlace. La función escribe un mensaje a un centro de eventos.
 
-Los ejemplos siguientes muestran datos de enlace de Event Hubs en el archivo *function.json*. El primer ejemplo es para Functions 2.x y el segundo para Functions 1.x. 
+Los ejemplos siguientes muestran datos de enlace de Event Hubs en el archivo *function.json*. El primer ejemplo es para Functions 2.x y posteriores, y el segundo para Functions 1.x. 
 
 ```json
 {
@@ -560,7 +560,7 @@ let Run(myTimer: TimerInfo, outputEventHubMessage: byref<string>, log: ILogger) 
 
 En el ejemplo siguiente se muestra un enlace de desencadenador de centro de eventos en un archivo *function.json* y una [función de JavaScript](../articles/azure-functions/functions-reference-node.md) que usa el enlace. La función escribe un mensaje a un centro de eventos.
 
-Los ejemplos siguientes muestran datos de enlace de Event Hubs en el archivo *function.json*. El primer ejemplo es para Functions 2.x y el segundo para Functions 1.x. 
+Los ejemplos siguientes muestran datos de enlace de Event Hubs en el archivo *function.json*. El primer ejemplo es para Functions 2.x y posteriores, y el segundo para Functions 1.x. 
 
 ```json
 {
@@ -680,7 +680,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 |**direction** | N/D | Debe establecerse en "out". Este parámetro se establece automáticamente cuando se crea el enlace en Azure Portal. |
 |**name** | N/D | Nombre de la variable que se usa en el código de la función que representa el evento. |
 |**path** |**EventHubName** | Solo Functions 1.x. El nombre del centro de eventos. Cuando el nombre del centro de eventos también está presente en la cadena de conexión, ese valor reemplaza esta propiedad en tiempo de ejecución. |
-|**eventHubName** |**EventHubName** | Solo Functions 2.x. El nombre del centro de eventos. Cuando el nombre del centro de eventos también está presente en la cadena de conexión, ese valor reemplaza esta propiedad en tiempo de ejecución. |
+|**eventHubName** |**EventHubName** | Functions 2.x y versiones posteriores. El nombre del centro de eventos. Cuando el nombre del centro de eventos también está presente en la cadena de conexión, ese valor reemplaza esta propiedad en tiempo de ejecución. |
 |**conexión** |**Connection** | El nombre de una configuración de aplicación que contenga la cadena de conexión para el espacio de nombres del centro de eventos. Copie esta cadena de conexión haciendo clic en el botón **Información de conexión** del *espacio de nombres*, no del propio centro de eventos. Esta cadena de conexión debe tener permisos de envío para enviar el mensaje a la secuencia de eventos.|
 
 [!INCLUDE [app settings to local.settings.json](../articles/azure-functions/../../includes/functions-app-settings-local.md)]
@@ -701,7 +701,7 @@ En JavaScript, puede obtener acceso al evento de salida usando `context.bindings
 
 ## <a name="hostjson-settings"></a>configuración de host.json
 
-En esta sección se describen las opciones de configuración globales disponibles para este enlace en la versión 2.x. El siguiente archivo host.json de ejemplo contiene solo la configuración de la versión 2.x para este enlace. Para obtener más información acerca de las opciones de configuración globales de la versión 2.x, consulte la [referencia de host.json para Azure Functions, versión 2.x](../articles/azure-functions/functions-host-json.md).
+En esta sección se describen las opciones de configuración globales disponibles para este enlace en las versiones 2.x y posteriores. El siguiente archivo host.json de ejemplo contiene solo la configuración de la versión 2.x (y posteriores) para este enlace. Para obtener más información acerca de las opciones de configuración globales de la versión 2.x y posteriores, consulte la [referencia de host.json para Azure Functions](../articles/azure-functions/functions-host-json.md).
 
 > [!NOTE]
 > Para obtener una referencia de host.json en Functions 1.x, consulte la [referencia de host.json para Azure Functions, versión 1.x](../articles/azure-functions/functions-host-json-v1.md).

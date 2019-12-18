@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/09/2019
 ms.author: raynew
-ms.openlocfilehash: 9ddb63fcf4d960d2d8ed2671eba83fc38cddcbe4
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: 68026af5b96728ea66fd9e584e67e5e596e690fb
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71710052"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974672"
 ---
 # <a name="select-a-vmware-migration-option"></a>Selección de una opción de migración de VMware
 
@@ -45,6 +45,7 @@ Después de revisar las limitaciones, una descripción de los pasos necesarios p
 
 **Task** | **Detalles** |**Sin agente** | **Basado en agente**
 --- | --- | --- | ---
+**Valoración** | Evalúe los servidores antes de la migración.  La valoración es opcional. Se recomienda evaluar las máquinas antes de migrarlas, aunque no es obligatorio. <br/><br/> Para la valoración, Azure Migrate configura un dispositivo ligero para detectar y evaluar las máquinas virtuales. | Si ejecuta una migración sin agente después de la valoración, se usa el mismo dispositivo de Azure Migrate configurado para la valoración.  |  Si ejecuta una migración basada en agente después de la valoración, el dispositivo configurado para la valoración no se usa durante la migración sin agente. Puede dejar el dispositivo en su lugar o quitarlo si no quiere realizar más detecciones y valoraciones.
 **Preparación de máquinas virtuales y servidor de VMware para la migración** | Configure diversas opciones en máquinas virtuales y servidores de VMware. | Obligatorio | Obligatorio
 **Incorporación de la herramienta Server Migration** | Agregue la herramienta Azure Migrate Server Migration en el proyecto de Azure Migrate. | Obligatorio | Obligatorio
 **Implementación del dispositivo de Azure Migrate** | Configure un dispositivo ligero en una máquina virtual de VMware para la detección y la valoración de máquinas virtuales. | Obligatorio | No se requiere.

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/18/2019
 ms.author: erhopf
-ms.openlocfilehash: 15a0e27f3f96eda27182e8437dc95d047f56e260
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 42bcc336bfeb325a08c3d65438d66690c0b35100
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815295"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896412"
 ---
 # <a name="create-a-custom-keyword-by-using-the-speech-service"></a>Creación de una palabra clave personalizada mediante el servicio Voz
 
@@ -50,17 +50,29 @@ Antes de poder usar una palabra clave personalizada, deberá crear una palabra c
 
 1. Vaya a [Speech Studio](https://aka.ms/sdsdk-speechportal) e **inicie sesión** o, si todavía no tiene una suscripción a Voz, elija [**Crear una suscripción**](https://go.microsoft.com/fwlink/?linkid=2086754).
 
-1. En la página [Palabra clave personalizada](https://aka.ms/sdsdk-wakewordportal), escriba la palabra clave que prefiera y haga clic en **Agregar palabra clave**. Existen algunas [directrices](#choose-an-effective-keyword) para ayudarlo a elegir una palabra clave efectiva. Actualmente, la compatibilidad está limitada al idioma en-US.
+1. En la página [Custom Keyword](https://aka.ms/sdsdk-wakewordportal) (Palabra clave personalizada), cree un **Nuevo proyecto**. 
 
-    ![Escriba su palabra clave](media/speech-devices-sdk/custom-kws-portal-enter-keyword.png)
+1. Escriba un **Nombre**, una **Descripción** opcional y seleccione el idioma. Necesitará un proyecto por idioma, y la compatibilidad está limitada actualmente al idioma en-US.
 
-1. Ahora, el portal creará pronunciaciones candidatas para la palabra clave. Para escuchar a cada candidato, haga clic en los botones de reproducción y desactive las pronunciaciones que sean incorrectas. Una vez que solo las pronunciaciones correctas estén marcadas como activas, seleccione **Enviar** para empezar a generar la palabra clave. Si quiere cambiar la palabra clave, primero quite la existente; para ello, haga clic en el botón de eliminación que aparece en el lado derecho de la fila mientras se mantiene el puntero sobre ella.
+    ![Descripción del proyecto de palabra clave](media/custom-keyword/custom-kws-portal-new-project.png)
 
-    ![Revisión de la palabra clave](media/speech-devices-sdk/custom-kws-portal-review-keyword.png)
+1. Seleccione el proyecto de la lista. 
 
-1. El modelo puede tardar hasta un minuto en generarse. Se le pedirá que descargue el archivo.
+    ![Selección del proyecto de palabra clave](media/custom-keyword/custom-kws-portal-project-list.png)
 
-    ![Descarga de la palabra clave](media/speech-devices-sdk/custom-kws-portal-download-keyword.png)
+1. Para iniciar un nuevo modelo de palabra clave, haga clic en **Entrenar modelo**.
+
+1. Escriba un **Nombre** para el modelo de palabra clave y una **Descripción** opcional, y escriba la **Palabra clave** de su elección y haga clic en **Siguiente**. Existen algunas [directrices](#choose-an-effective-keyword) para ayudarlo a elegir una palabra clave efectiva.
+
+    ![Escriba su palabra clave](media/custom-keyword/custom-kws-portal-new-model.png) 
+
+1. Ahora, el portal creará pronunciaciones candidatas para la palabra clave. Para escuchar a cada candidato, haga clic en los botones de reproducción y desactive las pronunciaciones que sean incorrectas. Una vez que solo las pronunciaciones correctas estén marcadas como activas, haga clic en **Entrenar** para empezar a generar la palabra clave. 
+
+    ![Revisión de la palabra clave](media/custom-keyword/custom-kws-portal-choose-prons.png) 
+
+1. El modelo puede tardar hasta diez minutos en generarse. La lista de palabras clave cambiará de **Procesando** a **Correcto** cuando el modelo esté completo. Luego puede descargar el archivo.
+
+    ![Revisión de la palabra clave](media/custom-keyword/custom-kws-portal-download-model.png) 
 
 1. Guarde el archivo .zip en el equipo. Necesitará este archivo para implementar la palabra clave personalizada en el dispositivo.
 

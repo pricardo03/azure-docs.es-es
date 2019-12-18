@@ -1,6 +1,6 @@
 ---
 title: Uso de reproductores existentes para reproducir el contenido - Azure | Microsoft Docs
-description: En este tema se enumeran los reproductores existentes que puede usar para reproducir el contenido.
+description: En este artículo se enumeran los reproductores existentes que puede usar para reproducir el contenido.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 0da8ce396ce07b7c9859fcfccb5cb524c0ce21c1
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: fdcaa7d8eec0065ad9acd76df9918ed7bccc081b
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "69015289"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895871"
 ---
 # <a name="playing-your-content-with-existing-players"></a>Reproducción de contenido con existentes
 Azure Media Services admite muchos formatos de streaming populares como Smooth Streaming, HTTP Live Streaming y MPEG-Dash. Este tema remite a reproductores existentes que puede usar para probar sus transmisiones.

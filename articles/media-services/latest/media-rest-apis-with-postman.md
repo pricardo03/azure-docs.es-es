@@ -1,6 +1,6 @@
 ---
 title: Configuración de Postman para llamadas API de REST de Azure Media Services
-description: Aprenda cómo configurar Postman para llamadas API de REST de Media Services.
+description: En este artículo se muestra cómo configurar Postman para que se pueda usar para llamar a las API de REST de Azure Media Services (AMS).
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2019
+ms.date: 12/05/2019
 ms.author: juliako
-ms.openlocfilehash: 7b4e2d14e8719808db138a4f2607b19cece401a6
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: eee46bd8642f5ad4a8d036b9f6bf9a464c0d09f3
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839597"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74888111"
 ---
 # <a name="configure-postman-for-media-services-rest-api-calls"></a>Configuración de Postman para llamadas API de REST de Azure Media Services
 
@@ -97,7 +97,7 @@ Antes de empezar a manipular recursos de AMS v3, debe obtener y establecer el to
 * Si en la aplicación se produce el error "HTTP 504: Tiempo de espera de puerta de enlace ", asegúrese de que la variable de ubicación no se haya establecido explícitamente en un valor distinto de la ubicación esperada de la cuenta de Media Services. 
 * Si aparece el error "no se encuentra la cuenta", asegúrese también de que la propiedad ubicación en el mensaje JSON del cuerpo se haya establecido en la ubicación en la que se encuentra la cuenta de Media Services. 
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 - [Carga de archivos en una cuenta de Media Services: REST](upload-files-rest-how-to.md)
 - [Creación de filtros con Media Services: REST](filters-dynamic-manifest-rest-howto.md)

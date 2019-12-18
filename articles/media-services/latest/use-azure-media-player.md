@@ -1,6 +1,6 @@
 ---
 title: 'Reproducción con Azure Media Player: Azure | Microsoft Docs'
-description: En este tema se proporciona información general sobre Azure Media Player.
+description: Azure Media Player es un reproductor de vídeo web integrado que reproduce contenido multimedia de Microsoft Azure Media Services en una gran variedad de exploradores y dispositivos.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 07/17/2019
 ms.author: juliako
-ms.openlocfilehash: 6157f59d96770298d947a1cf6ca28aa343e1a0d4
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: a0b0a4e89242103811f20071b7235c825c9d8bd2
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68311818"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74967531"
 ---
 # <a name="azure-media-player-overview"></a>Información general sobre Azure Media Player
 
@@ -50,6 +50,10 @@ Puede usar la [página de demostración de Azure Media Player](https://aka.ms/az
 ## <a name="set-up-azure-media-player-in-your-html"></a>Configuración de Azure Media Player en HTML
 
 Azure Media Player es fácil de configurar. Solo se tarda unos minutos en obtener la reproducción básica de contenido multimedia desde la cuenta de Media Services. Para más información sobre cómo instalar y configurar Azure Media Player, consulte la [documentación de Azure Media Player](https://aka.ms/ampdocs). 
+
+## <a name="additional-notes"></a>Notas adicionales
+
+* Widevine es un servicio que ofrece Google Inc. y que está sujeto a los términos del servicio y la directiva de privacidad de Google, Inc.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 3c27ff06237336d37ad1b5bed1b90aaa6b076f0b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 3e72bd366cdbba1d73bc05f98d3848e2d4f0ca6c
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231009"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74925337"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Enlaces de Azure Queue Storage para Azure Functions
 
@@ -27,7 +27,7 @@ Los enlaces de almacenamiento de Queue se proporcionan en el paquete NuGet [Micr
 
 [!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
 
-## <a name="packages---functions-2x"></a>Paquetes: Functions 2.x
+## <a name="packages---functions-2x-and-higher"></a>Paquetes: Functions 2.x y posteriores
 
 Los enlaces de almacenamiento de Queue se proporcionan en el paquete NuGet [Microsoft.Azure.WebJobs.Extensions.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage), versión 3.x. El código fuente del paquete se encuentra en el repositorio [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/dev/src/Microsoft.Azure.WebJobs.Extensions.Storage/Queues) de GitHub.
 
@@ -649,7 +649,7 @@ En las funciones de JavaScript, use `context.bindings.<name>` para tener acceso 
 
 ## <a name="hostjson-settings"></a>configuración de host.json
 
-En esta sección se describen las opciones de configuración globales disponibles para este enlace en la versión 2.x. El siguiente archivo host.json de ejemplo contiene solo la configuración de la versión 2.x para este enlace. Para obtener más información acerca de las opciones de configuración globales de la versión 2.x, consulte la [referencia de host.json para Azure Functions, versión 2.x](functions-host-json.md).
+En esta sección se describen las opciones de configuración globales disponibles para este enlace en las versiones 2.x y posteriores. El siguiente archivo host.json de ejemplo contiene solo la configuración de la versión 2.x (y posteriores) para este enlace. Para obtener más información acerca de las opciones de configuración globales de la versión 2.x y posteriores, consulte la [referencia de host.json para Azure Functions](functions-host-json.md).
 
 > [!NOTE]
 > Para obtener una referencia de host.json en Functions 1.x, consulte la [referencia de host.json para Azure Functions, versión 1.x](functions-host-json-v1.md).
@@ -672,7 +672,7 @@ En esta sección se describen las opciones de configuración globales disponible
 
 |Propiedad  |Valor predeterminado | DESCRIPCIÓN |
 |---------|---------|---------|
-|maxPollingInterval|00:00:01|Intervalo máximo entre sondeos de la cola. El mínimo es 00:00:00.100 (100 ms) y se incrementa hasta 00:01:00 (1 min).  En 1. x, el tipo de datos es milisegundos y en 2. x es un intervalo de tiempo.|
+|maxPollingInterval|00:00:01|Intervalo máximo entre sondeos de la cola. El mínimo es 00:00:00.100 (100 ms) y se incrementa hasta 00:01:00 (1 min).  En la versión 1.x, el tipo de datos es milisegundos. En cambio, en la 2.x y posteriores, es un intervalo de tiempo.|
 |visibilityTimeout|00:00:00|Intervalo de tiempo entre los reintentos cuando se produce un error al procesar un mensaje. |
 |batchSize|16|El número de mensajes en cola que el runtime de Functions recupera simultáneamente y procesa en paralelo. Cuando el número que se está procesando llega a `newBatchThreshold` el runtime obtiene otro lote y empieza a procesar esos mensajes. Por lo tanto, el número máximo de mensajes simultáneos que se procesan por función es `batchSize` más `newBatchThreshold`. Este límite se aplica por separado a cada función desencadenada por la cola. <br><br>Si desea evitar la ejecución en paralelo de los mensajes de una cola, puede establecer `batchSize` en 1. Sin embargo, este valor solo elimina la simultaneidad siempre y cuando la aplicación de función se ejecute en una única máquina virtual (VM). Si la aplicación de función se escala horizontalmente a varias máquinas virtuales, cada una de ellas podría ejecutar una instancia de cada función desencadenada por la cola.<br><br>El valor máximo de `batchSize` es 32. |
 |maxDequeueCount|5|Número de veces que se intenta procesar un mensaje antes de pasarlo a la cola de mensajes dudosos.|

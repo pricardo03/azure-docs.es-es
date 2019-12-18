@@ -1,17 +1,17 @@
 ---
 title: Funciones de agregado en Azure Cosmos DB
-description: Obtenga información sobre la sintaxis de las funciones de agregado de SQL para Azure Cosmos DB.
+description: Obtenga información sobre la sintaxis de las funciones de agregado de SQL, los tipos de funciones de agregado compatibles con Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/31/2019
+ms.date: 12/02/2019
 ms.author: mjbrown
-ms.openlocfilehash: a6937e9e811ea8e44eda6f2bcb5d2c7d78db4934
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 1ce3b18dd31944a1a4d4e6fad8fb49e63996dace
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67343150"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74871846"
 ---
 # <a name="aggregate-functions-in-azure-cosmos-db"></a>Funciones de agregado en Azure Cosmos DB
 
@@ -61,7 +61,7 @@ Los resultados son:
 
 ## <a name="types-of-aggregate-functions"></a>Tipos de funciones de agregado
 
-API de SQL admite las siguientes funciones de agregado. SUM y AVG operan en valores numéricos, y COUNT, MIN y MAX trabajan con números, cadenas, valores booleanos y null.
+API de SQL admite las siguientes funciones de agregado. SUM y AVG operan en valores numéricos, y COUNT, MIN y MAX trabajan con números, cadenas, valores booleanos y valores null.
 
 | Función | DESCRIPCIÓN |
 |-------|-------------|

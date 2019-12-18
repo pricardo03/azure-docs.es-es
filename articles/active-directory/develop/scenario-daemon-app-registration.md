@@ -1,5 +1,5 @@
 ---
-title: 'Aplicación de demonio que llama a las API web (registro de la aplicación): Plataforma de identidad de Microsoft'
+title: 'Registro de una aplicación demonio que llama a las API web: Plataforma de identidad de Microsoft | Azure'
 description: 'Obtenga información sobre cómo compilar una aplicación de demonio que llame a las API web: registro de la aplicación'
 services: active-directory
 documentationcenter: dev-center-name
@@ -16,12 +16,12 @@ ms.date: 09/15/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d0d88f72cca45280bd76ac7bb9d7a6e0a1d37fb
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: bcdad9b1ea56a41613c5d8d815d1418783fea4ce
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175450"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74965592"
 ---
 # <a name="daemon-app-that-calls-web-apis---app-registration"></a>Aplicación de demonio que llama a las API web: registro de la aplicación
 

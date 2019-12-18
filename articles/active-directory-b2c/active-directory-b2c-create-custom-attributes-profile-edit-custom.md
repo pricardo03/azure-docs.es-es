@@ -1,5 +1,6 @@
 ---
-title: Agregar sus propios atributos a las directivas personalizadas en Azure Active Directory B2C | Microsoft Docs
+title: Incorporación de atributos a las directivas personalizadas
+titleSuffix: Azure AD B2C
 description: Un tutorial sobre cómo usar las propiedades de extensión y los atributos personalizados, y cómo incluirlos en la interfaz de usuario.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 82a796a3252a4de6eacabcad45c61c864e963fe0
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 92050261777482bae8055f697ef50c2295675c5b
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71066169"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74948784"
 ---
 # <a name="azure-active-directory-b2c-use-custom-attributes-in-a-custom-profile-edit-policy"></a>Azure Active Directory B2C: uso de los atributos personalizados en una directiva de edición de perfil personalizada
 
@@ -302,3 +303,4 @@ Para más información sobre las propiedades de extensión, consulte el artícul
 > * **TechnicalProfile** es un tipo de elemento (o función) que define el nombre, los metadatos y el protocolo de un punto de conexión. **TechnicalProfile** detalla el intercambio de notificaciones que realiza el Marco de experiencia de identidad. Cuando se llama a esta función en un paso de la orquestación o desde otra instancia de **TechnicalProfile**, quien realiza la llamada especifica **InputClaims** y **OutputClaims** como parámetros.
 > * Los atributos de extensión en Graph API se denominan mediante la convención `extension_ApplicationObjectID_attributename`.
 > * Las directivas personalizadas hacen referencia a los atributos de extensión como **extension_attributename**. Esta referencia omite el valor de **ApplicationObjectId** en el XML.
+> * Tiene que especificar el Id. de atributo en el formato siguiente **extensión_nombredeatributo** donde se haga referencia a él.

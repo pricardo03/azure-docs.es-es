@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 956962503dcb3a6355d455ff96744143c5965d1e
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: f08a1359cfd8a2793d92315a6b03567b0b3f847d
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74795471"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997129"
 ---
 # <a name="azure-ad-connect-cloud-provisioning-new-configuration"></a>Configuración del nuevo aprovisionamiento en la nube de Azure AD Connect
 
@@ -32,8 +32,7 @@ Para configurar el aprovisionamiento, siga estos pasos:
 
 4.  Haga clic en **Nueva configuración**.
 5.  En la pantalla de configuración, el dominio local se ha rellenado previamente.
-6. Escriba un **correo electrónico de notificación de alerta**. Se notificará a este correo electrónico 
-7. cuando el aprovisionamiento no sea correcto.  
+6. Escriba un **correo electrónico de notificación de alerta**. Este correo electrónico recibirá una notificación cuando el aprovisionamiento no sea correcto.  
 8. Mueva el selector a **Habilitar** y haga clic en **Guardar**.
 ![](media/tutorial-single-forest/configure2.png)
 

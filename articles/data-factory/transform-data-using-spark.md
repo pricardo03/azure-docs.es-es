@@ -1,22 +1,21 @@
 ---
-title: Transformación de datos mediante la actividad de Spark en Azure Data Factory
+title: Transformación de datos mediante la actividad de Spark
 description: Obtenga información sobre cómo transformar datos mediante la ejecución de programas de Spark desde una canalización de Azure Data Factory mediante la actividad de Spark.
 services: data-factory
-documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/31/2018
 author: nabhishek
 ms.author: abnarain
-manager: craigg
-ms.openlocfilehash: 5f3bb88d3a2e43abe1776a4b46e4ab35490db8ec
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+manager: shwang
+ms.custom: seo-lt-2019
+ms.date: 05/31/2018
+ms.openlocfilehash: eb887a7d9081875c28964ddb1e3d1b2e609862fd
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683752"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74912968"
 ---
 # <a name="transform-data-using-spark-activity-in-azure-data-factory"></a>Transformación de datos mediante la actividad de Spark en Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -78,7 +77,7 @@ Los trabajos de Spark son más extensibles que los de Pig y Hive. En los trabajo
 
 Cree la siguiente estructura de carpetas en la instancia de Azure Blob Storage a la que hace referencia el servicio vinculado de HDInsight. Luego, cargue los archivos dependientes en las subcarpetas adecuadas de la carpeta raíz que representa **entryFilePath**. Por ejemplo, cargue los archivos de Python en la subcarpeta pyFiles y los archivos JAR en la subcarpeta jars de la carpeta raíz. En el entorno de tiempo de ejecución, el servicio Data Factory espera la siguiente estructura de carpetas en Azure Blob Storage:     
 
-| Path                  | DESCRIPCIÓN                              | Obligatorio | type   |
+| Path                  | DESCRIPCIÓN                              | Obligatorio | Tipo   |
 | --------------------- | ---------------------------------------- | -------- | ------ |
 | `.` (raíz)            | Ruta de acceso raíz del trabajo de Spark en el servicio vinculado de almacenamiento. | Sí      | Carpeta |
 | &lt;Definida por el usuario&gt; | Ruta de acceso que apunta al archivo de entrada del trabajo de Spark. | Sí      | Archivo   |

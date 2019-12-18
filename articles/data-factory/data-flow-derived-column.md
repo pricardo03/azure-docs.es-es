@@ -1,17 +1,18 @@
 ---
-title: Transformación Columna derivada en el flujo de datos de asignación de Azure Data Factory
+title: Transformación Columna derivada en Asignación de Data Flow
 description: Aprenda a transformar datos a escala en Azure Data Factory con la transformación Columna derivada en Asignación de Data Flow.
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 10/15/2019
-ms.openlocfilehash: 387af25b87fdedff5d15ccb6a03819ad8b020e9a
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: c2d4c9b089a6673a5cff716d2901cc2b9483ede1
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73676885"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74972258"
 ---
 # <a name="derived-column-transformation-in-mapping-data-flow"></a>Transformación Columna derivada en Asignación de Data Flow
 
@@ -26,6 +27,16 @@ Para reemplazar una columna existente, selecciónela mediante la lista desplegab
 Para agregar columnas derivadas adicionales, mantenga el mouse sobre una columna derivada existente y haga clic en el icono "más". Elija **Agregar columna** o **Add column pattern** (Agregar patrón de columna). Los patrones de columna pueden resultar útiles si los nombres de columna son variables de los orígenes. Para más información, consulte [Patrones de columna](concepts-data-flow-column-pattern.md).
 
 ![Nueva selección de columna derivada](media/data-flow/columnpattern.png "Nueva selección de columna derivada")
+
+## <a name="build-schemas-in-output-schema-pane"></a>Compilación de esquemas en el panel Output Schema (Esquema de salida)
+
+Las columnas que va a modificar y agregar al esquema se muestran en el panel Esquema de salida. Aquí puede compilar de manera interactiva estructuras de datos simples y complejas. Para agregar campos adicionales, seleccione **Agregar columna**. Para crear jerarquías, seleccione **Agregar subcolumna**.
+
+![Add subcolumn (Agregar subcolumna)](media/data-flow/addsubcolumn.png "Agregar subcolumna")
+
+Para obtener más información sobre cómo administrar tipos complejos en el flujo de datos, consulte [Administración de JSON con flujo de datos de asignación](concepts-data-flow-json.md).
+
+![Agregar columna compleja](media/data-flow/complexcolumn.png "Add columns (Agregar columnas)")
 
 ## <a name="data-flow-script"></a>Script de flujo de datos
 

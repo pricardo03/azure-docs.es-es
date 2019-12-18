@@ -12,12 +12,12 @@ ms.date: 11/15/2018
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c4666a9d084f6fc12cd68b69d5c71cafc3de0439
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 1c2036bf9995725e4bbef44e4c039f8336eb81a0
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807789"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997044"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Descripción de los conectores del Proxy de aplicación de Azure AD
 
@@ -102,7 +102,9 @@ En general, cuantos más usuarios tenga, mayor será la máquina que necesitará
 \* Esta máquina usa una configuración personalizada para generar algunos de los límites de conexión predeterminados más allá de la configuración recomendada de .NET. Se recomienda ejecutar una prueba con la configuración predeterminada antes de ponerse en contacto con el equipo de soporte técnico para obtener este límite cambiado para el inquilino.
 
 > [!NOTE]
-> No hay mucha diferencia en el TPS máximo entre máquinas de 4, 8 y 16 núcleos. La diferencia principal entre ellas está en la latencia esperada.  
+> No hay mucha diferencia en el TPS máximo entre máquinas de 4, 8 y 16 núcleos. La diferencia principal entre ellas está en la latencia esperada.
+>
+> Esta tabla también se centra en el rendimiento esperado de un conector en función del tipo de equipo en el que está instalado. Esto es independiente de los límites del servicio de Application Proxy. Consulte [Límites y restricciones del servicio](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-service-limits-restrictions).
 
 ## <a name="security-and-networking"></a>Seguridad y redes
 

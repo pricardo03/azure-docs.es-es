@@ -1,27 +1,23 @@
 ---
-title: Reconocimiento de las diferencias entre permisos delegados y permisos de aplicación | Microsoft Docs
+title: Diferencias entre los permisos de aplicación y los delegados | Azure
 description: Conozca los permisos delegados y de aplicación, y descubra cómo los usan los clientes y los exponen los recursos de las aplicaciones que está desarrollando con Azure AD.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: ryanwi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62a82fd71da5741b6ff7747f92dd38650f6a0fae
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: b349424b13addbbd5dcc384b9ae04aa7599f191f
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68324643"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74963705"
 ---
 # <a name="how-to-recognize-differences-between-delegated-and-application-permissions"></a>Reconocimiento de las diferencias entre permisos delegados y permisos de aplicación
 

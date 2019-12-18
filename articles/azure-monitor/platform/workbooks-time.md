@@ -1,5 +1,5 @@
 ---
-title: Creación de informes interactivos con libros de Azure Monitor | Parámetros temporales | Microsoft Docs
+title: Parámetros temporales de los libros de Azure Monitor
 description: Simplifique la creación de informes complejos con libros parametrizados creados previamente y personalizados.
 services: azure-monitor
 author: mrbullwinkle
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: 906ebcc49eca72744abf5854a1b320407d0384dc
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 1d1ee243fa9df8a77a6ce80ecb9d8e5336e8b19b
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73164314"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872764"
 ---
 # <a name="workbook-time-parameters"></a>Parámetros temporales de los libros
 

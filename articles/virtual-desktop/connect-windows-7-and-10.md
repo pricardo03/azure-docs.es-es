@@ -7,18 +7,18 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: helohr
-ms.openlocfilehash: 420978e79da99847f16e5c85b2d2510083ca97a7
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 745b33efe46c82e3b9358c9c5a2ed13292242db1
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74006265"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997350"
 ---
 # <a name="connect-with-the-windows-desktop-client"></a>Conexión con el cliente de Escritorio de Windows
 
-> Se aplica a: Windows 7 y Windows 10
+> Se aplica a: Windows 7, Windows 10 y Windows 10 IoT Enterprise
 
-Para acceder a los recursos de Windows Virtual Desktop en dispositivos con Windows 7 o Windows 10, use el cliente de escritorio de Windows.
+Para acceder a los recursos de Windows Virtual Desktop en dispositivos con Windows 7, Windows 10 o Windows 10 IoT Enterprise use el cliente de escritorio de Windows.
 
 > [!IMPORTANT]
 > Windows Virtual Desktop no es compatible con el cliente de Conexión de RemoteApp y Escritorio (RADC) ni con el cliente de Conexión a Escritorio remoto (MSTSC).

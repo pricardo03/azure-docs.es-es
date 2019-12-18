@@ -1,17 +1,17 @@
 ---
 title: Ejecución de consultas SQL en Azure Cosmos DB
-description: Obtenga información sobre la ejecución de consultas SQL en Azure Cosmos DB.
+description: Obtenga información sobre cómo crear una consulta SQL y ejecutarla en Azure Cosmos DB. En este artículo se describe cómo crear y ejecutar una consulta SQL con la API de REST, el SDK de .Net, el SDK de JavaScript y otros varios SDK.
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/31/2019
+ms.date: 12/02/2019
 ms.author: tisande
-ms.openlocfilehash: c42732df1bcfa8649c89899febc364bb1f5f9b5a
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 70eb81b6d13c57a7ebc131244c7aa318cb2b2fd4
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70999911"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74871268"
 ---
 # <a name="azure-cosmos-db-sql-query-execution"></a>Ejecución de consultas SQL en Azure Cosmos DB
 

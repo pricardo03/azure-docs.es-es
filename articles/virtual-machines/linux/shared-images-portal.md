@@ -1,11 +1,10 @@
 ---
-title: Creación de imágenes de máquina virtual de Azure compartidas para Linux mediante Azure Portal
+title: Creación de imágenes de máquina virtual de Azure compartidas para Linux mediante el portal
 description: Obtenga información sobre cómo usar Azure Portal para crear y compartir imágenes de máquina virtual.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
 manager: gwallace
-editor: tysonn
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
 ms.topic: article
@@ -14,14 +13,14 @@ ms.workload: infrastructure
 ms.date: 11/06/2019
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: 89c98379a8e79d1b00db47021ae737ae471f79b3
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 44df85a94ad26d3abcd48f01c31e7aa093c1123f
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035005"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978703"
 ---
-# <a name="create-a-shared-image-gallery-using-the-azure-portal"></a>Creación de una galería de imágenes compartidas mediante Azure Portal
+# <a name="create-an-azure-shared-image-gallery-using-the-portal"></a>Creación de una instancia de Azure Shared Image Gallery mediante el portal
 
 Una [galería de imágenes compartidas](shared-image-galleries.md) simplifica el uso compartido de imágenes personalizadas en toda una organización. Las imágenes personalizadas son como las imágenes de Marketplace, pero las puede crear usted mismo. Las imágenes personalizadas se pueden usar para realizar tareas de implementación de arranque, como la carga previa de aplicaciones, configuraciones de aplicaciones y otras configuraciones del sistema operativo. 
 

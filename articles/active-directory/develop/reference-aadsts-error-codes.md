@@ -1,5 +1,5 @@
 ---
-title: Autenticación de Azure Active Directory y códigos de error de autorización | Microsoft Docs
+title: Códigos de error de autenticación y autorización de Azure AD | Azure
 description: Obtenga información sobre los códigos de error AADSTS que devuelve el servicio de token de seguridad (STS) de Azure AD.
 services: active-directory
 documentationcenter: ''
@@ -17,14 +17,14 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 261fe2142fc3bc45625b5d088a46ad92c34222db
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 02ed0b84a29ea0c3ce3b58db1c029798655bfb06
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70193169"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74965813"
 ---
-# <a name="authentication-and-authorization-error-codes"></a>Códigos de error de autenticación y autorización
+# <a name="azure-ad-authentication-and-authorization-error-codes"></a>Códigos de error de autenticación y autorización de Azure AD
 
 ¿Busca información sobre los códigos de error AADSTS que devuelve el servicio de token de seguridad (STS) de Azure Active Directory? Lea este documento para ver las descripciones de los errores AADSTS, sus correcciones y algunas soluciones alternativas.
 

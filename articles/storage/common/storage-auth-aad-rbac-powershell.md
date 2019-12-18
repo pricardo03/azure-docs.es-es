@@ -1,24 +1,25 @@
 ---
-title: Usar Azure PowerShell para administrar los derechos de acceso de Azure AD a los datos de blob y cola con RBAC - Azure Storage
-description: Use Azure PowerShell para asignar el acceso a colas y contenedores mediante el control de acceso basado en roles (RBAC). Azure Storage admite roles RBAC tanto integrados como personalizados para la autenticación a través de Azure AD.
+title: Uso de PowerShell para asignar un rol de RBAC para el acceso a datos
+titleSuffix: Azure Storage
+description: Aprenda a usar PowerShell para asignar permisos a una entidad de seguridad de Azure Active Directory con el control de acceso basado en rol (RBAC). Azure Storage admite roles RBAC tanto integrados como personalizados para la autenticación a través de Azure AD.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
-ms.date: 07/25/2019
+ms.topic: how-to
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 967e1754ec4be504669e176a5643186d08efb9d4
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 57d30803f20d17ee31c3d42d9a26e04c1b0832b6
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673192"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892024"
 ---
-# <a name="grant-access-to-azure-blob-and-queue-data-with-rbac-using-powershell"></a>Conceder acceso a datos de blob y cola de Azure con RBAC mediante PowerShell
+# <a name="use-powershell-to-assign-an-rbac-role-for-access-to-blob-and-queue-data"></a>Uso de PowerShell para asignar un rol de RBAC para el acceso a datos de blobs y colas
 
-Azure Active Directory (Azure AD) autoriza derechos de acceso a los recursos protegidos mediante el [control de acceso basado en rol (RBAC)](../../role-based-access-control/overview.md). Azure Storage define un conjunto de roles de RBAC integrados que abarcan conjuntos comunes de permisos utilizados para acceder a los contenedores o las colas. 
+Azure Active Directory (Azure AD) autoriza derechos de acceso a los recursos protegidos mediante el [control de acceso basado en rol (RBAC)](../../role-based-access-control/overview.md). Azure Storage define un conjunto de roles de RBAC integrados que abarcan conjuntos comunes de permisos utilizados para acceder a los contenedores o las colas.
 
 Cuando un rol RBAC se asigna a una entidad de seguridad de Azure AD, Azure concede acceso a esos recursos a esa entidad de seguridad. El acceso se puede limitar al nivel de la suscripción, el grupo de recursos, la cuenta de almacenamiento o un contenedor individual o una cola. Una entidad de seguridad de Azure AD puede ser un usuario, un grupo, una entidad de servicio de aplicación o una [identidad de servicio administrada para recursos de Azure](../../active-directory/managed-identities-azure-resources/overview.md).
 

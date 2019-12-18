@@ -1,6 +1,6 @@
 ---
 title: 'Servicio IoT Hub Device Provisioning: Conceptos de aprovisionamiento automático'
-description: Este artículo proporciona información conceptual general sobre las fases de aprovisionamiento automático de un dispositivo, mediante el servicio IoT Hub Device Provisioning, IoT Hub y los SDK de cliente.
+description: Este artículo proporciona información conceptual general sobre las fases de aprovisionamiento automático de un dispositivo, mediante el servicio IoT Hub Device Provisioning Service (DPS), IoT Hub y los SDK de cliente.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/04/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 0df4eb664accd828c47d834fb0014d0d60f57458
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c94fa6b851dfc9923628a738a15f7c245204f73f
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60746017"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975336"
 ---
 # <a name="auto-provisioning-concepts"></a>Conceptos de aprovisionamiento automático
 
@@ -47,11 +47,11 @@ El aprovisionamiento automático también establece requisitos para el fabricant
 
 La tabla de contenido a la izquierda proporciona una serie de guías de inicio rápido para ayudar a entender el aprovisionamiento automático mediante la experiencia práctica. Para facilitar y simplificar el proceso de aprendizaje, el software se usa para simular un dispositivo físico para su inscripción y registro. Algunas de estas guías de inicio rápido, debido a su naturaleza de simulacros, le solicitan que realice operaciones que corresponden a varios roles, incluidas operaciones para roles inexistentes.
 
-| Rol | Operación | DESCRIPCIÓN |
+| Role | Operación | DESCRIPCIÓN |
 |------| --------- | ------------|
 | Fabricante | Codificar la identidad y la URL de registro | Según el mecanismo de atestación utilizado, el fabricante es responsable de codificar la información de identidad del dispositivo y la dirección URL de registro del servicio Device Provisioning.<br><br>**Guías de inicio rápido**: puesto que el dispositivo está simulado, no hay ningún rol de fabricante. Consulte el rol de desarrollador para ver más detalles de cómo se obtiene esta información, que se utiliza en la codificación de una aplicación de registro de ejemplo. |
 | | Proporcionar la identidad del dispositivo | Como autor de la información de identidad del dispositivo, el fabricante es responsable de comunicársela al operador (o a un agente designado) o de inscribirla directamente en el servicio Device Provisioning mediante las API.<br><br>**Guías de inicio rápido**: puesto que el dispositivo está simulado, no hay ningún rol de fabricante. Consulte el rol de operador para más información acerca de cómo obtener la identidad del dispositivo que se usa para inscribir un dispositivo simulado en la instancia del servicio Device Provisioning. |
-| Operador | Configurar el aprovisionamiento automático | Esta operación se corresponde con la primera fase del aprovisionamiento automático.<br><br>**Inicios rápidos:** en ellas realiza el rol de operador, de modo que configura las instancias del servicio Device Provisioning y de IoT Hub en su suscripción de Azure. |
+| Operator | Configurar el aprovisionamiento automático | Esta operación se corresponde con la primera fase del aprovisionamiento automático.<br><br>**Inicios rápidos:** en ellas realiza el rol de operador, de modo que configura las instancias del servicio Device Provisioning y de IoT Hub en su suscripción de Azure. |
 |  | Inscribir la identidad del dispositivo | Esta operación se corresponde con la segunda fase del aprovisionamiento automático.<br><br>**Inicios rápidos:** en ellas realiza el rol de operador, de modo que inscribe el dispositivo simulado en la instancia del servicio Device Provisioning. La identidad del dispositivo está determinada por el método de atestación simulado en la guía de inicio rápido (TPM o X.509). Consulte el rol de desarrollador para ver los detalles de atestación. |
 | Servicio Device Provisioning,<br>IoT Hub | \<todas las operaciones\> | Para obtener una implementación de producción con dispositivos físicos y guías de inicio rápido con dispositivos simulados, estos roles se realizan mediante los servicios IoT que configure en la suscripción de Azure. Las operaciones o roles funcionan exactamente igual, ya que los servicios IoT no diferencian entre el aprovisionamiento de dispositivos físicos y el de dispositivos simulados. |
 | Developer | Compilar/implementar software de registro | Esta operación se corresponde con la tercera fase del aprovisionamiento automático. El desarrollador es responsable de compilar e implementar el software de registro en el dispositivo mediante el SDK adecuado.<br><br>**Inicios rápidos:** la aplicación de registro de ejemplo que compila simula un dispositivo real para su plataforma/lenguaje preferido, que se ejecuta en la estación de trabajo (en lugar de implementarla en un dispositivo físico). La aplicación de registro realiza las mismas operaciones que una implementada en un dispositivo físico. Especifique el método de atestación (TPM o certificado X.509), además de la dirección URL de registro y el "Ámbito de identificador" de la instancia del servicio Device Provisioning. La identidad del dispositivo viene determinada por la lógica de atestación del SDK en tiempo de ejecución, en función del método que especifique: <ul><li>**Atestación del TPM**: su estación de trabajo de desarrollo ejecuta una [aplicación de simulador del TPM](how-to-use-sdk-tools.md#trusted-platform-module-tpm-simulator). Una vez que se ejecuta, se utiliza una aplicación independiente para extraer la "Clave de aprobación" del TPM y el "Identificador del registro" para su uso en la inscripción de la identidad del dispositivo. La lógica de atestación del SDK también utiliza el simulador durante el registro, para presentar un token SAS firmado para la autenticación y comprobación de inscripción.</li><li>**Atestación X509**: se utiliza una herramienta para [generar un certificado](how-to-use-sdk-tools.md#x509-certificate-generator). Una vez generado, se crea el archivo de certificado necesario para su uso en la inscripción. La lógica de atestación del SDK también utiliza el certificado durante el registro, para presentarlo para la autenticación y comprobación de inscripción.</li></ul> |

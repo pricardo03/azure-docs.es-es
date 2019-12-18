@@ -1,18 +1,18 @@
 ---
 title: Funciones de fecha y hora en el lenguaje de consulta de Azure Cosmos DB
-description: Obtenga información acerca de las funciones de fecha y hora del sistema de SQL en Azure Cosmos DB.
+description: Obtenga información sobre las funciones del sistema de fecha y hora de SQL en Azure Cosmos DB para realizar operaciones de fecha y hora y marca de tiempo.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 763cac8736109952fdb32500dc669ace2ae7b585
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 93b3e90deb5e3764cb5402938c5d0e14cadb7883
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71351233"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873393"
 ---
 # <a name="date-and-time-functions-azure-cosmos-db"></a>Funciones de fecha y hora (Azure Cosmos DB)
 

@@ -1,6 +1,7 @@
 ---
-title: 'Configuración de la suscripción y el inicio de sesión con OpenID Connect: Azure Active Directory B2C | Microsoft Docs'
-description: Configuración de la suscripción y el inicio de sesión con OpenID Connect mediante Azure Active Directory B2C.
+title: Configuración del registro y del inicio de sesión con OpenID Connect
+titleSuffix: Azure AD B2C
+description: Configuración del registro y del inicio de sesión con cualquier proveedor de identidades de OpenID Connect (IdP) en Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 0303f8c7e18a5c229bc5a8c5e9b90d95cdaccbe7
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 471163fc8fe8c5bad550d0615683ef2b97b818dc
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71672920"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950480"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-openid-connect-using-azure-active-directory-b2c"></a>Configuración de la suscripción y el inicio de sesión con OpenID Connect mediante Azure Active Directory B2C
 

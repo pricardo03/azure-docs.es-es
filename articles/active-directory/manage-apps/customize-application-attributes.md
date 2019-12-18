@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82c1a536bb86f0b3a4fe6a24af00379686ccc292
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 804eb63406b33b94e70ef56e0066fa213be04708
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73641503"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997061"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalización de asignaciones de atributos de aprovisionamiento de usuarios para aplicaciones SaaS en Azure Active Directory
 
@@ -78,12 +78,12 @@ Además de esta propiedad, las asignaciones de atributos también admiten los si
   - **Solo durante la creación**: esta asignación se aplica solo a las acciones de creación de usuarios.
 
 ## <a name="matching-users-in-the-source-and-target--systems"></a>Emparejamiento de usuarios en los sistemas de origen y destino
-El servicio de aprovisionamiento de Azure AD se puede implementar en escenarios Greenfield (los usuarios no existen en el sistema de destino) y Brownfield (los usuarios ya existen en el sistema de destino). Para admitir ambos escenarios, el servicio de aprovisionamiento usa el concepto de atributos coincidentes. Los atributos coincidentes permiten determinar cómo identificar de forma única a un usuario en el origen y emparejarlo en el destino. Como parte de la planeación de la implementación, identifique el atributo que se puede usar para identificar de forma única a un usuario en los sistemas de origen y destino. Cosas que hay que tener en cuenta:
+El servicio de aprovisionamiento de Azure AD se puede implementar en escenarios Greenfield (donde los usuarios no existen en el sistema de destino) y Brownfield (donde los usuarios ya existen en el sistema de destino). Para admitir ambos escenarios, el servicio de aprovisionamiento usa el concepto de atributos coincidentes. Los atributos coincidentes permiten determinar la forma de identificar de forma única a un usuario en el origen y emparejarlo en el destino. Como parte de la planeación de la implementación, identifique el atributo que se puede usar para identificar de forma única a un usuario en los sistemas de origen y destino. Cosas que hay que tener en cuenta:
 
 - **Los atributos coincidentes deben ser únicos:** los clientes a menudo usan atributos como userPrincipalName, mail u object ID como atributo coincidente.
 - **Se pueden usar varios atributos como atributos coincidentes:** puede definir varios atributos para que se evalúen al emparejar usuarios y el orden en el que se evalúan (definido como precedencia de coincidencias en la interfaz de usuario). Por ejemplo, si define tres atributos como atributos coincidentes y un usuario se empareja de forma única después de evaluar los dos primeros atributos, el servicio no evalúa el tercero. El servicio evalúa los atributos coincidentes en el orden especificado y deja de evaluar cuando se encuentra una coincidencia.  
 - **El valor en el origen y el destino no tienen que coincidir exactamente:** el valor en el destino puede ser una función sencilla del valor del origen. Así, uno podría tener un atributo emailAddress en el origen y userPrincipalName en el destino, y emparejar mediante una función del atributo emailAddress que reemplace algunos caracteres por algún valor constante.  
-- **No se admite el emparejamiento en función de una combinación de atributos:** la mayoría de las aplicaciones no admiten consultas basadas en dos propiedades y, por lo tanto, no es posible emparejar en función de una combinación de atributos. Es posible evaluar propiedades únicas una después de otra.
+- **No se admite el emparejamiento en función de una combinación de atributos:** La mayoría de las aplicaciones no admiten consultas basadas en dos propiedades. Por lo tanto, no es posible realizar coincidencias en función de una combinación de atributos. Es posible evaluar propiedades únicas una después de otra.
 - **Todos los usuarios deben tener un valor para al menos un atributo coincidente:** si define un atributo coincidente, todos los usuarios deben tener un valor para ese atributo en el sistema de origen. Si, por ejemplo, define userPrincipalName como atributo coincidente, todos los usuarios deben tener un valor userPrincipalName. Si define varios atributos coincidentes (por ejemplo, extensionAttribute1 y mail), no todos los usuarios deben tener el mismo atributo coincidente. Un usuario podría tener extensionAttribute1 pero no mail mientras que otro usuario podría tener mail pero no extensionAttribute1. 
 - **La aplicación de destino debe admitir el filtrado en el atributo coincidente:** los desarrolladores de aplicaciones permiten filtrar por un subconjunto de atributos en su API de usuario o grupo. En el caso de las aplicaciones de la galería, se garantiza que la asignación de atributos predeterminada es para un atributo en el que la API de la aplicación de destino admite el filtrado. Al cambiar el atributo coincidente predeterminado de la aplicación de destino, compruebe la documentación de las API de terceros para asegurarse de que se puede filtrar por el atributo.  
 
@@ -134,7 +134,61 @@ Al editar la lista de atributos admitidos, se proporcionan las siguientes propie
 - **Expresión de API**: no se usa, salvo que así se indique en la documentación de un conector de aprovisionamiento específico (como Workday).
 - **Atributo de objeto con referencia**: si este es un atributo de tipo referencia, este menú le permite seleccionar la tabla y el atributo de la aplicación de destino que contiene el valor asociado al atributo. Por ejemplo, si tiene un atributo llamado "Department" cuyo valor almacenado hace referencia a un objeto de una tabla "Departments" independiente, seleccionaría "Departments.Name". Las tablas de referencia y los campos de identificador principal admitidos en una determinada aplicación están preconfigurados y actualmente no se pueden editar mediante Azure Portal, pero se pueden modificar con la [Graph API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes).
 
-Para agregar un nuevo atributo, desplácese hasta el final de la lista de atributos admitidos, rellene los campos anteriores mediante las entradas proporcionadas y seleccione **Agregar atributo**. Cuando termine de agregar atributos, seleccione **Guardar**. Tendrá que volver a cargar la pestaña **Aprovisionamiento** para que los nuevos atributos estén disponibles en el editor de asignación de atributos.
+#### <a name="provisioning-a-custom-extension-attribute-to-a-scim-compliant-application"></a>Aprovisionamiento de un atributo de extensión personalizado para una aplicación compatible con SCIM
+El RFC de SCIM define un esquema principal de grupo y usuario, a la vez que permite que las extensiones del esquema cumplan los requisitos de la aplicación. Para agregar un atributo personalizado a una aplicación de SCIM:
+   1. Inicie sesión en el [portal de Azure Active Directory](https://aad.portal.azure.com), seleccione **Aplicaciones empresariales**, seleccione la aplicación y, a continuación, **Aprovisionamiento**.
+   2. En **Asignaciones**, seleccione el objeto (usuario o grupo) al que quiere agregar un atributo personalizado.
+   3. En la parte inferior de la página, seleccione **Mostrar opciones avanzadas**.
+   4. Seleccione **Editar lista de atributos para AppName**.
+   5. En la parte inferior de la lista de atributos, escriba la información sobre el atributo personalizado en los campos proporcionados. Después, seleccione **Agregar atributo**.
+
+En el caso de las aplicaciones de SCIM, el nombre del atributo debe seguir el patrón que se muestra en el ejemplo siguiente. "CustomExtensionName" y "CustomAttribute" se pueden personalizar según los requisitos de la aplicación, por ejemplo: urn:ietf:params:scim:schemas:extension:2.0:CustomExtensionName:CustomAttribute.
+
+Estas instrucciones solo se aplican a las aplicaciones habilitadas para SCIM. Las aplicaciones como ServiceNow y Salesforce no se integran con Azure AD mediante SCIM y, por lo tanto, no requieren este espacio de nombres específico al agregar un atributo personalizado.
+
+Los atributos personalizados no pueden ser atributos referenciales ni atributos de varios valores. Los atributos de extensión personalizados de varios valores solo se admiten actualmente para las aplicaciones de la galería.  
+ 
+**Representación de ejemplo de un usuario con un atributo de extensión:**
+
+```json
+   {
+     "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User",
+      "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User",
+      "urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User"],
+     "userName":"bjensen",
+     "externalId":"bjensen",
+     "name":{
+       "formatted":"Ms. Barbara J Jensen III",
+       "familyName":"Jensen",
+       "givenName":"Barbara"
+     },
+     "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {
+     "employeeNumber": "701984",
+     "costCenter": "4130",
+     "organization": "Universal Studios",
+     "division": "Theme Park",
+     "department": "Tour Operations",
+     "manager": {
+       "value": "26118915-6090-4610-87e4-49d8ca9f808d",
+       "$ref": "../Users/26118915-6090-4610-87e4-49d8ca9f808d",
+       "displayName": "John Smith"
+     }
+   },
+     "urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:CustomAttribute:User": {
+     "CustomAttribute": "701984",
+   },
+   "meta": {
+     "resourceType": "User",
+     "created": "2010-01-23T04:56:22Z",
+     "lastModified": "2011-05-13T04:42:34Z",
+     "version": "W\/\"3694e05e9dff591\"",
+     "location":
+ "https://example.com/v2/Users/2819c223-7f76-453a-919d-413861904646"
+   }
+ }
+```
+
+
 ## <a name="provisioning-a-role-to-a-scim-app"></a>Aprovisionamiento de un rol para una aplicación de SCIM
 Use los pasos siguientes para aprovisionar roles para un usuario para la aplicación. Tenga en cuenta que la descripción siguiente es específica de las aplicaciones de SCIM personalizadas. En el caso de las aplicaciones de la galería como Salesforce y ServiceNow, use las asignaciones de roles predefinidas. En las viñetas siguientes se explica cómo transformar el atributo AppRoleAssignments al formato que espera la aplicación.
 

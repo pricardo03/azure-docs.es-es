@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 3563b56e596f5c79f2107bdbf74219a19c6c0d06
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: ed67981a79e2bc998d0f1f64858206243c0a7070
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74784619"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997214"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>Problemas conocidos y soluciones de Azure Machine Learning
 
@@ -90,9 +90,22 @@ Los gráficos de clasificación binaria (precisión-retirada, ROC, curva de gana
 
 Estos son problemas conocidos de los conjuntos de datos de Azure Machine Learning.
 
+### <a name="typeerror-filenotfound-no-such-file-or-directory"></a>TypeError: FileNotFound: No se encontró el archivo o directorio.
+
+Este error se produce si la ruta de acceso al archivo que se proporcionó no es donde se encuentra el archivo. Debe asegurarse de que la forma en que hace referencia al archivo es coherente con la ubicación en la que montó el conjunto de archivos en el destino de proceso. Para garantizar un estado determinista, se recomienda usar la ruta de acceso abstracta al montar un conjunto de datos en un destino de proceso. Por ejemplo, en el código siguiente se monta el conjunto de datos en la raíz del sistema de archivos del destino de proceso, `/tmp`. 
+
+```python
+# Note the leading / in '/tmp/dataset'
+script_params = {
+    '--data-folder': dset.as_named_input('dogscats_train').as_mount('/tmp/dataset'),
+} 
+```
+
+Si no incluye la barra diagonal inicial ("/"), tendrá que prefijar el directorio de trabajo (por ejemplo, `/mnt/batch/.../tmp/dataset`) en el destino de proceso para indicar dónde quiere que se monte el conjunto de datos. 
+
 ### <a name="fail-to-read-parquet-file-from-http-or-adls-gen-2"></a>No se puede leer el archivo Parquet desde HTTP o ADLS Gen 2
 
-Existe un problema conocido en la versión 1.1.25 del SDK de DataPrep de AzureML que produce un error al crear un conjunto de archivos mediante la lectura de archivos Parquet desde HTTP o ADLS Gen2. Se producirá un error con `Cannot seek once reading started.`. Para corregir esta incidencia, actualice `azureml-dataprep` a una versión superior a la 1.1.26, o bien cambie a una versión anterior a la 1.1.24.
+Existe un problema conocido en la versión 1.1.25 del SDK de DataPrep de AzureML que produce un error al crear un conjunto de archivos mediante la lectura de archivos Parquet desde HTTP o ADLS Gen2. Se producirá un error con `Cannot seek once reading started.`. Para corregir esta incidencia, actualice `azureml-dataprep` a una versión superior a la 1.1.26, o bien cambie a una versión anterior a la 1.1.24.
 
 ```python
 pip install --upgrade azureml-dataprep
@@ -128,7 +141,7 @@ Al usar las funcionalidades de aprendizaje automático automatizado en Azure Dat
 
 En la configuración del aprendizaje automático automatizado, si tiene más de 10 iteraciones, establezca `show_output` en `False` cuando envíe la ejecución.
 
-### <a name="widget-for-the-azure-machine-learning-sdkautomated-machine-learning"></a>Widget para el SDK de Azure Machine Learning/aprendizaje automático automatizado
+### <a name="widget-for-the-azure-machine-learning-sdk-and-automated-machine-learning"></a>Widget para el SDK de Azure Machine Learning y aprendizaje automático automatizado
 
 El widget del SDK de Azure Machine Learning no se admite en un cuaderno de Databricks porque los cuadernos no pueden analizar los widgets HTML. Para ver el widget en el portal, use este código de Python en la celda del cuaderno de Azure Databricks:
 
@@ -215,7 +228,7 @@ Las actualizaciones a componentes de Azure Machine Learning instalados en un cl�
 > [!WARNING]
 > Antes de realizar las siguientes acciones, compruebe la versión del clúster de Azure Kubernetes Service. Si es la 1.14, o cualquier versión superior, no podrá volver a adjuntar el clúster al área de trabajo de Azure Machine Learning.
 
-Para aplicar estas actualizaciones, puede desasociar el clúster del área de trabajo de Azure Machine Learning y, luego, volver a asociarlo al área de trabajo. Si SSL está habilitado en el clúster, tendrá que proporcionar el certificado SSL y la clave privada al volver a asociar el clúster. 
+Para aplicar estas actualizaciones, puede desconectar el clúster del área de trabajo de Azure Machine Learning y, luego, volver a conectarlo al área de trabajo. Si SSL está habilitado en el clúster, tendrá que proporcionar el certificado SSL y la clave privada al volver a conectar el clúster. 
 
 ```python
 compute_target = ComputeTarget(workspace=ws, name=clusterWorkspaceName)
@@ -248,6 +261,16 @@ kubectl get secret/azuremlfessl -o yaml
 ## <a name="recommendations-for-error-fix"></a>Recomendaciones para corregir errores
 En función de la observación general, a continuación se incluyen las recomendaciones de Azure ML para corregir algunos de los errores comunes en Azure ML.
 
+### <a name="metric-document-is-too-large"></a>El documento de métricas es demasiado grande
+Azure Machine Learning Service tiene límites internos en cuanto al tamaño de los objetos de métricas que se pueden registrar a la vez desde una ejecución de entrenamiento. Si aparece el error "El documento de métricas es demasiado grande" al registrar una métrica con valores de lista, intente dividir la lista en fragmentos más pequeños, por ejemplo:
+
+```python
+run.log_list("my metric name", my_metric[:N])
+run.log_list("my metric name", my_metric[N:])
+```
+
+ De forma interna, el servicio del historial de ejecución concatena los bloques con el mismo nombre de métrica en una lista contigua.
+
 ### <a name="moduleerrors-no-module-named"></a>ModuleErrors (ningún módulo con nombre)
 Si está ejecutando ModuleErrors mientras envía experimentos en Azure ML, significa que el script de entrenamiento espera que se instale un paquete pero no se agrega. Una vez que proporcione el nombre del paquete, Azure ML instalará el paquete en el entorno que se usa para el entrenamiento. 
 
@@ -255,16 +278,17 @@ Si usa [Estimadores](concept-azure-machine-learning-architecture.md#estimators) 
 
 Azure ML también proporciona estimadores específicos del marco para Tensorflow, PyTorch, Chainer y SKLearn. El uso de estos estimadores asegurará que las dependencias del marco se instalen en su nombre en el entorno utilizado para el entrenamiento. Tiene la opción de especificar dependencias adicionales como se describe anteriormente. 
  
- Azure ML mantuvo las imágenes acopladas y su contenido se puede ver en [Contenedores AzureML](https://github.com/Azure/AzureML-Containers).
-Las dependencias específicas del marco se enumeran en la documentación del marco respectivo: [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py#remarks), [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py#remarks), [TensorFlow ](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py#remarks), [SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py#remarks).
+Azure ML mantuvo las imágenes acopladas y su contenido se puede ver en [Contenedores AzureML](https://github.com/Azure/AzureML-Containers).
+Las dependencias específicas del marco se enumeran en la documentación del marco respectivo: [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py#remarks), [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py#remarks), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py#remarks), [SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py#remarks).
 
->[Nota] Si cree que un paquete en particular es lo suficientemente común como para agregarlo en imágenes y entornos mantenidos por Azure ML, plantee un problema de GitHub en [Contenedores AzureML](https://github.com/Azure/AzureML-Containers). 
+> [!Note]
+> Si cree que un paquete en particular es lo suficientemente común como para agregarlo en imágenes y entornos mantenidos por Azure ML, cree una incidencia de GitHub en [Contenedores de AzureML](https://github.com/Azure/AzureML-Containers). 
  
  ### <a name="nameerror-name-not-defined-attributeerror-object-has-no-attribute"></a>NameError (Nombre no definido), AttributeError (El objeto no tiene ningún atributo)
 Esta excepción debería provenir de sus scripts de entrenamiento. Puede consultar los archivos de registro de Azure Portal para obtener más información sobre el nombre específico no definido o el error de atributo. Desde el SDK, puede usar `run.get_details()` para ver el mensaje de error. Esto también mostrará una lista de todos los archivos de registro generados para su ejecución. Asegúrese de revisar su secuencia de comandos de entrenamiento, corrija el error antes de volver a intentarlo. 
 
-### <a name="horovod-is-shutdown"></a>Horovod está apagado
-En la mayoría de los casos, esta excepción significa que hubo una excepción subyacente en uno de los procesos que causó el apagado del horovod. Cada clasificación en el trabajo MPI obtiene su propio archivo de registro dedicado en Azure ML. Estos registros son nombrados `70_driver_logs`. En caso de entrenamiento distribuido, los nombres de registro tienen el sufijo `_rank` para facilitar la diferenciación de los registros. Para encontrar el error exacto que provocó el apagado de horovod, revise todos los archivos de registro y busque `Traceback` al final de los archivos driver_log. Uno de estos archivos le dará la excepción subyacente real. 
+### <a name="horovod-is-shut-down"></a>Horovod está apagado
+En la mayoría de los casos, esta excepción significa que hubo una excepción subyacente en uno de los procesos, y esto causó el apagado de Horovod. Cada clasificación en el trabajo MPI obtiene su propio archivo de registro dedicado en Azure ML. Estos registros son nombrados `70_driver_logs`. En caso de entrenamiento distribuido, los nombres de registro tienen el sufijo `_rank` para facilitar la diferenciación de los registros. Para encontrar el error exacto que provocó el apagado de horovod, revise todos los archivos de registro y busque `Traceback` al final de los archivos driver_log. Uno de estos archivos le dará la excepción subyacente real. 
 
 ## <a name="labeling-projects-issues"></a>Incidencias en el etiquetado de proyectos
 

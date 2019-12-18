@@ -1,17 +1,17 @@
 ---
 title: 'Registros de consultas lentas: Azure Database for MariaDB'
 description: Se describen los registros disponibles en Azure Database for MariaDB y los parámetros disponibles para habilitar diferentes niveles de registro.
-author: rachel-msft
-ms.author: raagyema
+author: ajlam
+ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 8a451b06c8166b48fd892050e53204e2b65856c3
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 12/09/2019
+ms.openlocfilehash: 9b9babc9db9dd7fa225b9649d4ac96b15debec2b
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74772111"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976322"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mariadb"></a>Registros de consultas lentas en Azure Database for MariaDB
 En Azure Database for MariaDB, el registro de consultas lentas está disponible para los usuarios. No se admite el acceso al registro de transacciones. El registro de consultas lentas puede utilizarse para identificar cuellos de botella que afectan al rendimiento a fin de solucionar el problema.
@@ -24,6 +24,8 @@ Puede enumerar y descargar los registros de consultas lentas de Azure Database f
 En Azure Portal, seleccione el servidor de Azure Database for MariaDB. En el encabezado **Supervisión**, seleccione la página **Registros de servidor**.
 
 Para obtener más información sobre la CLI de Azure, consulte [Configuración y acceso a los registros del servidor con la CLI de Azure](howto-configure-server-logs-cli.md).
+
+Del mismo modo, puede canalizar los registros a Azure Monitor mediante los registros de diagnóstico. Para más información, [siga leyendo](concepts-server-logs.md#diagnostic-logs).
 
 ## <a name="log-retention"></a>Retención de registros
 Los registros están disponibles hasta siete días después de su creación. Si el tamaño total de los registros disponibles supera los 7 GB, se eliminan los archivos más antiguos hasta que haya espacio disponible.
@@ -39,6 +41,7 @@ Otros parámetros que se pueden ajustar son los siguientes:
 - **log_slow_admin_statements**: si ON incluye instrucciones administrativas como ALTER_TABLE y ANALYZE_TABLE en las instrucciones escritas en slow_query_log.
 - **log_queries_not_using_indexes**: determina si las consultas que no utilizan índices se registran en slow_query_log.
 - **log_throttle_queries_not_using_indexes**: este parámetro limita el número de consultas que no son de índice que se pueden escribir en el registro de consultas lentas. Este parámetro surte efecto cuando log_queries_not_using_indexes está configurado en ON.
+- **log_output**: si es "File", permite escribir el registro de consultas lento en el almacenamiento del servidor local y en los registros de diagnóstico de Azure Monitor. Si es "None", el registro de consultas lento solo se escribirá en el almacenamiento del servidor local. 
 
 Consulte la [documentación del registro de consultas lentas](https://mariadb.com/kb/en/library/slow-query-log-overview/) de MariaDB para obtener una descripción completa de los parámetros de registro de consultas lentas.
 

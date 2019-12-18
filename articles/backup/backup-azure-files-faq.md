@@ -3,12 +3,12 @@ title: Preguntas frecuentes sobre la copia de seguridad de archivos de Azure
 description: En este artículo, encontrará respuestas a preguntas habituales sobre cómo proteger los recursos compartidos de archivos de Azure con el servicio Azure Backup.
 ms.date: 07/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: bf04458d859601de7ca0e9d07f6a3dbf506a51e6
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: bc4d7f9ad6512831687b974ae68870314775457d
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173109"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892582"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Preguntas acerca de la copia de seguridad de archivos de Azure
 
@@ -70,6 +70,18 @@ La copia de seguridad de recursos compartidos de archivos de Azure se encuentra 
 - US Gov Arizona (UGA)
 - US Gov Texas (UGT)
 - US Gov Virginia (UGV)
+- Centro de Australia (ACL)
+- India occidental (INW)
+- Norte de Sudáfrica (SAN)
+- Norte de Emiratos Árabes (UAN)
+- Centro de Francia (FRC)
+- Norte de Alemania (GN)                       
+- Centro-oeste de Alemania (GWC)
+- Oeste de Sudáfrica (SAW)
+- Centro de Emiratos Árabes Unidos (UAC)
+- NWE (Este de Noruega)     
+- NWW (Oeste de Noruega)
+- SZN (Norte de Suiza)
 
 Escriba a [AskAzureBackupTeam@microsoft.com](email:askazurebackupteam@microsoft.com) si tiene que usarla en una zona geográfica específica que no se haya indicado anteriormente.
 

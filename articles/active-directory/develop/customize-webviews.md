@@ -1,33 +1,29 @@
 ---
-title: Personalización de exploradores y vistas web
+title: Personalización de los exploradores y las vistas web | Azure
 titleSuffix: Microsoft identity platform
-description: Obtenga información sobre cómo personalizar la experiencia del explorador que MSAL usa para iOS y macOS cuando los usuarios inician sesión
+description: Obtenga información sobre cómo personalizar la experiencia del explorador de MSAL para iOS y macOS cuando los usuarios inician sesión.
 services: active-directory
-documentationcenter: dev-center-name
 author: tylermsft
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/28/2019
 ms.author: twhitney
-ms.reviewer: ''
+ms.reviewer: oldalton
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fcb314e46094bb6c283a17508c35b7fc17e010e5
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: d5dbdadc6afa3a6822a76fdcecdfcaa6f2ad8c98
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803384"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74963722"
 ---
 # <a name="how-to-customize-browsers-and-webviews-for-iosmacos"></a>Procedimientos para: Personalizar exploradores y vistas web para iOS/macOS
 
-Se requiere un explorador web para la autenticación no interactiva. En iOS, la biblioteca de autenticación de Microsoft (MSAL) usa un explorador web de sistema de forma predeterminada (que puede aparecer en la parte superior de la aplicación) para realizar la autenticación interactiva cuando los usuarios inician sesión. El uso del explorador del sistema tiene la ventaja de compartir el estado de inicio de sesión único con otras aplicaciones y con aplicaciones web.
+Se requiere un explorador web para la autenticación no interactiva. En iOS, la biblioteca de autenticación de Microsoft (MSAL) usa un explorador web de sistema de forma predeterminada (que puede aparecer en la parte superior de la aplicación) para realizar la autenticación interactiva cuando los usuarios inician sesión. El uso del explorador del sistema tiene la ventaja de compartir el estado de inicio de sesión único (SSO) con otras aplicaciones y con aplicaciones web.
 
 Puede cambiar la experiencia personalizando la configuración de otras opciones para mostrar el contenido web, como:
 

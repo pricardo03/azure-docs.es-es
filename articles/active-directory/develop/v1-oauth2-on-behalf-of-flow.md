@@ -1,5 +1,5 @@
 ---
-title: Autenticación entre servicios de Azure AD mediante la especificación provisional On-Behalf-Of de OAuth 2.0 | Microsoft Docs
+title: Autenticación entre servicios con el flujo On-Behalf-Of de OAuth 2.0 | Microsoft Docs
 description: En este artículo se describe cómo usar los mensajes HTTP para implementar la autenticación entre servicios con el flujo On-Behalf-Of de OAuth 2.0.
 services: active-directory
 documentationcenter: .net
@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: accd14446ab8f4a70336e3bd6787cbd8c93ff21d
-ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
+ms.openlocfilehash: b22abde182437bfeb4a42e5c9a0d8e41a4643f8f
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69891512"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74964453"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>Llamadas entre servicios que usan la identidad de usuarios delegada en el flujo de On-Behalf-Of
 

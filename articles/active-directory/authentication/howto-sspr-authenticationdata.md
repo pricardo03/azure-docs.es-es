@@ -5,22 +5,22 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.date: 12/09/2019
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a0d7edb6c7faafcad55e827c2d9e3d2eeea40f5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a14338e552250ac63c344365099a16f20616ea9a
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60358044"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74964042"
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Implementación del restablecimiento de contraseña sin necesidad de registro del usuario final
 
-Para implementar el restablecimiento de contraseña de autoservicio (SSPR) de Azure Active Directory (Azure AD), los datos de autenticación deben estar presentes. Algunas organizaciones hacen que los usuarios introduzcan sus propios datos de autenticación. Pero muchas organizaciones prefieren sincronizarse con los datos que ya existen en Active Directory. Los datos sincronizados se ponen a disposición de Azure AD y SSPR sin necesidad de la interacción del usuario:
+Para implementar el restablecimiento de contraseña de autoservicio (SSPR) de Azure Active Directory (Azure AD), los datos de autenticación deben estar presentes. Algunas organizaciones hacen que los usuarios introduzcan sus propios datos de autenticación. Otras organizaciones prefieren sincronizarse con los datos que ya existen en Active Directory. Los datos sincronizados se ponen a disposición de Azure AD y SSPR sin necesidad de la interacción del usuario si se cumplen los siguientes requisitos:
 
 * Dé formato correctamente a los datos en su directorio local.
 * Configure [Azure AD Connect mediante la configuración rápida](../hybrid/how-to-connect-install-express.md).
@@ -41,21 +41,18 @@ Si usa la configuración predeterminada en Azure AD Connect, se realizan las sig
 | telephoneNumber | Teléfono del trabajo |
 | mobile | Teléfono móvil |
 
-Una vez que un usuario verifica el número de teléfono móvil, el campo Teléfono de la información de contacto para la autenticación de Azure AD se rellenará también con dicho número.
+Después de que un usuario verifica el número de teléfono móvil, el campo *Teléfono* de la **Información de contacto para la autenticación** de Azure AD se rellena también con dicho número.
 
 ## <a name="authentication-contact-info"></a>Información de contacto para la autenticación
 
-Un administrador global puede establecer manualmente la información de contacto de autenticación para el usuario, como se muestra en la captura de pantalla siguiente.
+En la página **Métodos de autenticación** de un usuario de Azure AD en Azure Portal, un administrador global puede establecer manualmente la información del contacto de autenticación, tal como se muestra en la siguiente captura de pantalla de ejemplo:
 
 ![Información de contacto de autenticación en un usuario en Azure AD][Contact]
 
-Si se rellena el campo de teléfono y el teléfono móvil está habilitado en la directiva de SSPR, el usuario verá dicho número en la página de registro de restablecimiento de la contraseña y durante el flujo de trabajo de restablecimiento de la contraseña.
-
-El campo de teléfono alternativo no se utiliza para restablecer la contraseña.
-
-Si se rellena el campo de correo electrónico y el correo electrónico está habilitado en la directiva de SSPR, el usuario verá dicho correo electrónico en la página de registro de restablecimiento de la contraseña y durante el flujo de trabajo de restablecimiento de la contraseña.
-
-Si se rellena el campo de correo electrónico alternativo y el correo electrónico está habilitado en la directiva de SSPR, el usuario **no** verá dicho correo electrónico en la página de registro de restablecimiento de la contraseña, pero sí durante el flujo de trabajo de restablecimiento de la contraseña.
+* Si se rellena el campo **Teléfono** y el **Teléfono móvil** está habilitado en la directiva de SSPR, el usuario ve dicho número en la página de registro de restablecimiento de la contraseña y durante el flujo de trabajo de restablecimiento de la contraseña.
+* El campo de **Teléfono alternativo** no se utiliza para restablecer la contraseña.
+* Si se rellena el campo de **Correo electrónico** y el **Correo electrónico** está habilitado en la directiva de SSPR, el usuario ve dicho correo electrónico en la página de registro de restablecimiento de la contraseña y durante el flujo de trabajo de restablecimiento de la contraseña.
+* Si se rellena el campo de **Correo electrónico alternativo** y el **Correo electrónico** está habilitado en la directiva de SSPR, el usuario **no** verá dicho correo electrónico en la página de registro de restablecimiento de la contraseña, pero sí durante el flujo de trabajo de restablecimiento de la contraseña.
 
 ## <a name="security-questions-and-answers"></a>Preguntas y respuestas de seguridad
 
@@ -69,7 +66,7 @@ Cuando se registre un usuario, la página de registro establecerá los campos si
 * **Correo electrónico de autenticación**
 * **Preguntas y respuestas de seguridad**
 
-Si ha especificado un valor para **Teléfono móvil** o **Correo electrónico alternativo**, los usuarios podrán usarlos inmediatamente para restablecer sus contraseñas, aunque no se hayan registrado para el servicio. Además, los usuarios ven esos valores cuando se registran por primera vez y pueden modificarlos si lo desean. Cuando están correctamente registrados, dichos valores se conservarán en los campos **Teléfono de autenticación** y **Correo electrónico de autenticación**, respectivamente.
+Si ha especificado un valor para **Teléfono móvil** o **Correo electrónico alternativo**, los usuarios podrán usarlos inmediatamente para restablecer sus contraseñas, aunque no se hayan registrado para el servicio. Además, los usuarios ven esos valores cuando se registran por primera vez y pueden modificarlos si lo desean. Cuando están correctamente registrados, dichos valores se conservan en los campos **Teléfono de autenticación** y **Correo electrónico de autenticación**, respectivamente.
 
 ## <a name="set-and-read-the-authentication-data-through-powershell"></a>Establecimiento y lectura de datos de autenticación mediante PowerShell
 

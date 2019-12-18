@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: juliako
-ms.openlocfilehash: 8665f6daa698f2e885f1fe768ad6b9c87dbbe164
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e99d72a0bce51d5d61e5f248f5ba279afe13a405
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67074518"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74970132"
 ---
 # <a name="using-azure-media-packager-to-accomplish-static-packaging-tasks"></a>Uso de Azure Media Packager para realizar tareas de paquetes estáticos  
 
@@ -1478,6 +1478,10 @@ Asegúrese de actualizar el código siguiente para que señale a la carpeta dond
         }
     }
 ```
+
+## <a name="additional-notes"></a>Notas adicionales
+
+* Widevine es un servicio que ofrece Google Inc. y que está sujeto a los términos del servicio y la directiva de privacidad de Google, Inc.
 
 ## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

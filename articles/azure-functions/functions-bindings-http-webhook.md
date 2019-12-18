@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 598074a6d5093c4febd4d62266a1c852200e3f69
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: f1bb2731f5f14b80ca46f4fb28b9b9cb4284c4d7
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231167"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74972377"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Enlaces y desencadenadores HTTP de Azure Functions
 
@@ -22,7 +22,7 @@ Es posible personalizar un desencadenador HTTP para responder a [webhooks](https
 
 [!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
 
-El código en este artículo toma como valor predeterminado la sintaxis de Functions 2.x, que usa .NET Core. Para obtener información sobre la sintaxis de 1.x, consulte las [plantillas de Functions 1.x](https://github.com/Azure/azure-functions-templates/tree/v1.x/Functions.Templates/Templates).
+El código de este artículo tiene como valor predeterminado la sintaxis que usa .NET Core, que se usa en Functions versión 2.x y posteriores. Para obtener información sobre la sintaxis de 1.x, consulte las [plantillas de Functions 1.x](https://github.com/Azure/azure-functions-templates/tree/v1.x/Functions.Templates/Templates).
 
 ## <a name="packages---functions-1x"></a>Paquetes: Functions 1.x
 
@@ -30,7 +30,7 @@ Los enlaces HTTP se proporcionan en el paquete NuGet [Microsoft.Azure.WebJobs.Ex
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
-## <a name="packages---functions-2x"></a>Paquetes: Functions 2.x
+## <a name="packages---functions-2x-and-higher"></a>Paquetes: Functions 2.x y posteriores
 
 Los enlaces HTTP se proporcionan en el paquete NuGet [Microsoft.Azure.WebJobs.Extensions.Http](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http), versión 3.x. El código fuente del paquete está en el repositorio [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Http/) de GitHub.
 
@@ -40,7 +40,7 @@ Los enlaces HTTP se proporcionan en el paquete NuGet [Microsoft.Azure.WebJobs.Ex
 
 El desencadenador HTTP permite invocar una función con una solicitud HTTP. Puede usar un desencadenador HTTP para crear API sin servidor y responder a webhooks.
 
-De forma predeterminada, un desencadenador HTTP devuelve HTTP 200 OK con un cuerpo vacío en Functions 1.x, o HTTP 204 No Content con un cuerpo vacío en Functions 2.x. Para modificar la respuesta, configure un [enlace de salida HTTP](#output).
+De forma predeterminada, un desencadenador HTTP devuelve HTTP 200 OK con un cuerpo vacío en Functions 1.x, o HTTP 204 Sin contenido con un cuerpo vacío en Functions 2.x y versiones posteriores. Para modificar la respuesta, configure un [enlace de salida HTTP](#output).
 
 ## <a name="trigger---example"></a>Desencadenador: ejemplo
 
@@ -680,11 +680,29 @@ De forma predeterminada, todas las rutas de la función tienen el prefijo *api*.
 }
 ```
 
+### <a name="using-route-parameters"></a>Uso de parámetros de ruta
+
+Los parámetros de ruta definidos por el patrón de `route` de una función están disponibles para cada enlace. Por ejemplo, si tiene una ruta definida como `"route": "products/{id}"`, un enlace de almacenamiento de tabla puede utilizar el valor del parámetro `{id}` en la configuración de enlace.
+
+La configuración siguiente muestra cómo se pasa el parámetro `{id}` al elemento `rowKey` del enlace.
+
+```json
+{
+    "type": "table",
+    "direction": "in",
+    "name": "product",
+    "partitionKey": "products",
+    "tableName": "products",
+    "rowKey": "{id}"
+}
+```
+
+
 ### <a name="working-with-client-identities"></a>Uso de identidades de cliente
 
 Si la aplicación de función está usando la [autenticación/autorización de App Service](../app-service/overview-authentication-authorization.md), puede ver información sobre los clientes autenticados desde el código. Esta información está disponible como [encabezados de solicitud insertados por la plataforma](../app-service/app-service-authentication-how-to.md#access-user-claims). 
 
-También puede leer esta información desde los datos de enlace. Esta funcionalidad solo está disponible para el entorno de ejecución de Functions 2.x. Actualmente, también está disponible para lenguajes .NET.
+También puede leer esta información desde los datos de enlace. Esta funcionalidad solo está disponible para el entorno en tiempo de ejecución de Functions en la versión 2.x y posteriores. Actualmente, también está disponible para lenguajes .NET.
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -774,7 +792,7 @@ Functions permite usar claves para dificultar el acceso a los puntos de conexió
 > Aunque las claves pueden ayudar a ofuscar los puntos de conexión HTTP durante el desarrollo, no están diseñadas como una manera de proteger un desencadenador HTTP en producción. Para obtener más información, vea [Proteger un punto de conexión HTTP en producción](#secure-an-http-endpoint-in-production).
 
 > [!NOTE]
-> En el runtime 1.x de Functions, los proveedores de webhooks pueden usar claves para autorizar solicitudes de varias maneras, según lo que admita el proveedor. Esto se trata en [Webhooks y claves](#webhooks-and-keys). La versión 2.x del runtime no incluye compatibilidad integrada con proveedores de webhooks.
+> En el runtime 1.x de Functions, los proveedores de webhooks pueden usar claves para autorizar solicitudes de varias maneras, según lo que admita el proveedor. Esto se trata en [Webhooks y claves](#webhooks-and-keys). El entorno en tiempo de ejecución de Functions en la versión 2.x y posteriores no incluye compatibilidad integrada con proveedores de webhooks.
 
 Existen dos tipos de claves:
 
@@ -825,9 +843,9 @@ Cuando use alguno de estos métodos de seguridad de nivel de aplicación de func
 ### <a name="webhooks"></a>webhooks
 
 > [!NOTE]
-> El modo de webhook solo está disponible para la versión 1.x del runtime de Functions. Este cambio se realizó para mejorar el rendimiento de los desencadenadores HTTP en la versión 2.x.
+> El modo de webhook solo está disponible para la versión 1.x del runtime de Functions. Este cambio se realizó para mejorar el rendimiento de los desencadenadores HTTP en la versión 2.x y posteriores.
 
-En la versión 1.x, las plantillas de webhook proporcionan una validación adicional para las cargas de webhook. En la versión 2.x, el desencadenador HTTP base todavía funciona y es el modo recomendado para webhooks. 
+En la versión 1.x, las plantillas de webhook proporcionan una validación adicional para las cargas de webhook. En la versión 2.x y posteriores, el desencadenador HTTP base todavía funciona y es el modo recomendado para webhooks. 
 
 #### <a name="github-webhooks"></a>Webhooks de GitHub
 
@@ -854,7 +872,7 @@ Si una función que usa el desencadenador HTTP no se completa en menos de 2,5 mi
 
 ## <a name="output"></a>Output
 
-Use el enlace de salida HTTP para responder al remitente de la solicitud HTTP. Este enlace requiere un desencadenador HTTP y le permite personalizar la respuesta asociada con la solicitud del desencadenador. Si no se proporciona un enlace de salida HTTP, un desencadenador HTTP devuelve HTTP 200 OK con un cuerpo vacío en Functions 1.x, o HTTP 204 No Content con un cuerpo vacío en Functions 2.x.
+Use el enlace de salida HTTP para responder al remitente de la solicitud HTTP. Este enlace requiere un desencadenador HTTP y le permite personalizar la respuesta asociada con la solicitud del desencadenador. Si no se proporciona un enlace de salida HTTP, un desencadenador HTTP devuelve HTTP 200 OK con un cuerpo vacío en Functions 1.x, o HTTP 204 Sin contenido con un cuerpo vacío en Functions 2.x y versiones posteriores.
 
 ## <a name="output---configuration"></a>Salida: configuración
 
@@ -874,7 +892,7 @@ Para obtener respuestas de ejemplo, vea el [ejemplo de desencadenador](#trigger-
 
 ## <a name="hostjson-settings"></a>configuración de host.json
 
-En esta sección se describen las opciones de configuración globales disponibles para este enlace en la versión 2.x. El siguiente archivo host.json de ejemplo contiene solo la configuración de la versión 2.x para este enlace. Para obtener más información acerca de las opciones de configuración globales de la versión 2.x, consulte la [referencia de host.json para Azure Functions, versión 2.x](functions-host-json.md).
+En esta sección se describen las opciones de configuración globales disponibles para este enlace en las versiones 2.x y posteriores. El siguiente archivo host.json de ejemplo contiene solo la configuración de la versión 2.x (y posteriores) para este enlace. Para obtener más información acerca de las opciones de configuración globales de la versión 2.x y posteriores, consulte la [referencia de host.json para Azure Functions](functions-host-json.md).
 
 > [!NOTE]
 > Para obtener una referencia de host.json en Functions 1.x, consulte la [referencia de host.json para Azure Functions, versión 1.x](functions-host-json-v1.md#http).

@@ -1,5 +1,5 @@
 ---
-title: 'API web que llama a API web de bajada (registro de la aplicación): Plataforma de identidad de Microsoft'
+title: 'Registro de una API web que llama a las API web: Plataforma de identidad de Microsoft | Azure'
 description: Obtenga información sobre cómo compilar una API web que llame a API web de bajada (registro de la aplicación).
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb03869cdea2150b6e922e2d6d81e577c3be02da
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cb5f4763e13935b99564bfcb6d8b6e7f463ed59e
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65075391"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74919807"
 ---
 # <a name="web-api-that-calls-web-apis---app-registration"></a>Aplicación API que llama a API web: registro de la aplicación
 

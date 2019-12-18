@@ -1,5 +1,6 @@
 ---
-title: 'Configuración del inicio de sesión con una cuenta de LinkedIn mediante directivas personalizadas: Azure Active Directory B2C'
+title: Configuración del inicio de sesión con una cuenta de LinkedIn mediante el uso de directivas personalizadas
+titleSuffix: Azure AD B2C
 description: Configuración del inicio de sesión con una cuenta de LinkedIn en Azure Active Directory B2C mediante directivas personalizadas
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 6d7beae75e13ef797c9e80a9a012e9f48b69d407
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 442c50df5da42da6d63c926845efd4a6bc3fcb12
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827192"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74948392"
 ---
 # <a name="set-up-sign-in-with-a-linkedin-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configuración del inicio de sesión con una cuenta de LinkedIn mediante directivas personalizadas en Azure Active Directory B2C
 

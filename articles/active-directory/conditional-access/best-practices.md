@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b8402279b5c2717b1f73a28f2efc02ade5e479c
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: ccfbb31c29b9e240a4865c8d7d98d7b6af00d1fd
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175765"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74963943"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Procedimientos recomendados para el acceso condicional en Azure Active Directory
 
@@ -45,17 +45,18 @@ Para realizar un trabajo de directiva, debe configurar:
 
 ### <a name="how-are-conditional-access-policies-applied"></a>¿Cómo se aplican las directivas de acceso condicional?
 
-Al acceder a una aplicación en la nube se puede aplicar más de una directiva de acceso condicional. En este caso, se tienen que satisfacer todas las directivas que se aplican. Por ejemplo, si una directiva exige MFA y una segunda requiere un dispositivo compatible, tendrá que pasar la MFA y usar un dispositivo compatible. 
+Al acceder a una aplicación en la nube se puede aplicar más de una directiva de acceso condicional. En este caso, se tienen que satisfacer todas las directivas que se aplican. Por ejemplo, si una directiva exige la autenticación multifactor (MFA) y otra requiere un dispositivo compatible, tendrá que completar la MFA y usar un dispositivo compatible. 
 
 Todas las directivas se aplican en dos fases:
 
-- En el **primera** fase, se evalúan todas las directivas y se recopilan todos los controles de acceso que no se cumplen. 
-
-- En la **segunda** fase, se le pide que satisfaga los requisitos que no se han cumplido. Si una de las directivas bloquea el acceso, se le bloquea y no se le solicitará que satisfaga otros controles de directiva. Si ninguna de las directivas le bloquea, se le pedirá que cumpla con otros controles de directiva en el orden siguiente:
-
-   ![Orden](./media/best-practices/06.png)
-    
-   Lo siguiente son los proveedores externos de MFA y las condiciones de uso.
+- Fase 1: 
+   - Recopilación de detalles: recopile detalles para identificar las directivas que ya se han cumplido.
+   - Durante esta fase, es posible que se solicite un certificado a los usuarios si el cumplimiento del dispositivo forma parte de las directivas de acceso condicional. Esta solicitud puede producirse en aplicaciones de explorador cuando el sistema operativo del dispositivo no es Windows 10.
+   - La fase 1 de la evaluación de directivas se produce para todas las directivas habilitadas, así como para las directivas en [modo de solo informe](concept-conditional-access-report-only.md).
+- Fase 2:
+   - Cumplimiento: teniendo en cuenta los detalles recopilados en la fase 1, solicite al usuario que cumpla con los requisitos adicionales que aún no se hayan cumplido.
+   - Aplicación de los resultados a la sesión. 
+   - La fase 2 de la evaluación de directivas se realiza para todas las directivas habilitadas.
 
 ### <a name="how-are-assignments-evaluated"></a>¿Cómo se evalúan las asignaciones?
 

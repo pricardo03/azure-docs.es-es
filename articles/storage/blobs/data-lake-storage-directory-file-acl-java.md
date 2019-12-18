@@ -8,12 +8,12 @@ ms.author: normesta
 ms.topic: conceptual
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
-ms.openlocfilehash: b01370bb8c86da07549775ec1a1399e09c80f9af
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 0a57e87cc408d111893cbb2beaf4fc5afee2eca2
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74534264"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930782"
 ---
 # <a name="use-java-for-files--acls-in-azure-data-lake-storage-gen2-preview"></a>Uso de Java con archivos y listas de control de acceso (ACL) en Azure Data Lake Storage Gen2 (versión preliminar)
 
@@ -32,17 +32,9 @@ En este artículo se muestra cómo usar Java para crear y administrar directorio
 
 ## <a name="set-up-your-project"></a>Configurar su proyecto
 
-Para empezar, abra el archivo *pom.xml* en el editor de texto. Agregue el siguiente elemento de dependencia al grupo de dependencias.
+Para empezar, abra [esta página](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake) y busque la versión más reciente de la biblioteca de Java. Después, abra el archivo *pom.xml* en el editor de texto. Agregue un elemento de dependencia que haga referencia a esa versión.
 
-```xml
-<dependency>
-  <groupId>com.azure</groupId>
-  <artifactId>azure-storage-file-datalake</artifactId>
-  <version>12.0.0-preview.6</version>
-</dependency>
-```
-
-Luego, agregue estas instrucciones Imports al archivo de código.
+A continuación, agregue estas instrucciones Imports al archivo de código.
 
 ```java
 import com.azure.storage.common.StorageSharedKeyCredential;
@@ -133,7 +125,7 @@ static public DataLakeDirectoryClient
 }
 ```
 
-En este ejemplo se mueve un directorio denominado `my-subdirectory-renamed` a un subdirectorio de un directorio denominado `my-directory-2`. 
+En este ejemplo se mueve un directorio denominado `my-subdirectory-renamed` a un subdirectorio de un directorio denominado `my-directory-2`. 
 
 ```java
 static public DataLakeDirectoryClient MoveDirectory
@@ -320,7 +312,7 @@ static public void ListFilesInDirectory(DataLakeFileSystemClient fileSystemClien
 }
 ```
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 * [Documentación de referencia de API](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.0.0-preview.6/index.html)
 * [Paquete (Maven)](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake/12.0.0-preview.6/jar)

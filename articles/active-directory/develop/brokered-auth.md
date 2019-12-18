@@ -1,32 +1,27 @@
 ---
 title: Autenticación con agente en Android | Azure
+titlesuffix: Microsoft identity platform
 description: Introducción a la autenticación y autorización con agente para Android en la plataforma de identidad de Microsoft
 services: active-directory
-documentationcenter: ''
 author: shoatman
-manager: nadima
-editor: ''
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2019
 ms.author: shoatman
 ms.custom: aaddev
-ms.reviewer: shoatman
+ms.reviewer: shoatman, hahamil, brianmel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a535cbefc3520cbf0c0fc14fbcfd0dd9ebd92ac
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: f5204ad71efa2587341600d2c5c1e5195d15445e
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175662"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74843723"
 ---
-# <a name="brokered-auth-in-android"></a>Autenticación con agente en Android
-
-## <a name="introduction"></a>Introducción
+# <a name="brokered-authentication-in-android"></a>Autenticación con agente en Android
 
 Debe usar uno de los agentes de autenticación de Microsoft para participar en el inicio de sesión único (SSO) en todo el dispositivo y para cumplir las directivas de acceso condicional de la organización. La integración con un agente proporciona las siguientes ventajas:
 
@@ -39,7 +34,7 @@ Debe usar uno de los agentes de autenticación de Microsoft para participar en e
   -  Mediante la configuración y administración de cuentas de Android
   - "Cuenta profesional": tipo de cuenta personalizada
 
-En Android, el agente de autenticación de Microsoft es un componente que se incluye con la aplicación [Microsoft Authenticator](https://play.google.com/store/apps/details?id=com.azure.authenticator) y el [Portal de empresa de Intune](https://play.google.com/store/apps/details?id=com.microsoft.windowsintune.companyportal).
+En Android, el agente de autenticación de Microsoft es un componente que se incluye con la [aplicación Microsoft Authenticator](https://play.google.com/store/apps/details?id=com.azure.authenticator) y el [Portal de empresa de Intune](https://play.google.com/store/apps/details?id=com.microsoft.windowsintune.companyportal).
 
 > [!TIP]
 > Solo habrá activa como agente una aplicación que hospede el agente a la vez. La aplicación que está activa como agente viene determinada por el orden de instalación del dispositivo. La primera en instalarse, o la última que quede en el dispositivo, se convierte en el agente activo.
@@ -52,8 +47,8 @@ En el siguiente diagrama se ilustra la relación entre la aplicación, la biblio
 
 El propietario del dispositivo puede instalar aplicaciones que hospeden un agente desde su tienda de aplicaciones (normalmente Google Play Store) en cualquier momento. Sin embargo, algunas API (recursos) están protegidas por las directivas de acceso condicional que requieren que los dispositivos estén:
 
-- registrados (unidos al área de trabajo), o
-- inscritos en la administración de dispositivos, o
+- registrados (unidos al área de trabajo); o
+- inscritos en la administración de dispositivos; o
 - inscritos en Intune App Protection.
 
 Si un dispositivo aún no tiene instalada una aplicación de agente, MSAL indica al usuario que instale una en cuanto la aplicación intente obtener un token de forma interactiva. A continuación, la aplicación deberá guiar al usuario por los pasos necesarios para que el dispositivo sea compatible con la directiva requerida.

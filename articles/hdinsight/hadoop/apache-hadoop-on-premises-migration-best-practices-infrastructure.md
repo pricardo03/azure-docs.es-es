@@ -2,18 +2,18 @@
 title: 'Infraestructura: Apache Hadoop local a Azure HDInsight'
 description: Obtenga información acerca de las prácticas recomendadas de infraestructura para migrar clústeres locales de Apache Hadoop a Azure HDInsight.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/04/2019
-ms.author: hrasheed
-ms.openlocfilehash: adc0e5f5eef41dcb1f826ffbf0cfe91a937fac01
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.custom: hdinsightactive
+ms.date: 12/06/2019
+ms.openlocfilehash: d7ee8ae121e3cbb9760a87c95d12109a9b05e0c5
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499232"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951520"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>Procedimientos recomendados de infraestructura para migrar clústeres locales de Apache Hadoop a Azure HDInsight
 
@@ -23,10 +23,17 @@ En este artículo se proporcionan recomendaciones para administrar la infraestru
 
 Estas son las principales decisiones que tiene que tomar para planear la capacidad del clúster de HDInsight:
 
-- **Elija la región**: la región de Azure determina dónde se aprovisiona físicamente el clúster. Para minimizar la latencia de lecturas y escrituras, el clúster debe estar en la misma región que los datos.
-- **Elija la ubicación y el tamaño de almacenamiento**: el almacenamiento predeterminado debe estar en la misma región que el clúster. Para un clúster de 48 nodos, se recomienda tener de 4 a 8 cuentas de almacenamiento. Aunque puede que ya haya suficiente espacio de almacenamiento total, cada cuenta de almacenamiento proporciona ancho de banda de red adicional para los nodos de ejecución. Si tiene varias cuentas de almacenamiento, utilice un nombre aleatorio para cada cuenta de almacenamiento, sin prefijo. El propósito de la nomenclatura aleatoria es reducir la posibilidad de que se produzcan cuellos de botella de almacenamiento (limitación) o errores comunes en todas las cuentas. Para mejorar el rendimiento, utilice un único contenedor por cada cuenta de almacenamiento.
-- **Elija el tamaño y el tipo de máquina virtual (ya se admite la serie G)** : cada tipo de clúster tiene un conjunto de tipos de nodos, y cada uno de ellos incluye opciones específicas para el tamaño y el tipo de máquina virtual. El tamaño y el tipo de máquina virtual los determinan la capacidad de procesamiento de la CPU, el tamaño de RAM y la latencia de red. Se puede utilizar una carga de trabajo simulada para determinar el tamaño y el tipo óptimos de máquina virtual para cada tipo de nodo.
-- **Elija el número de nodos de trabajo**: se puede determinar el número inicial de nodos de trabajo con cargas de trabajo simuladas. Más adelante se puede escalar el clúster mediante la adición de más nodos de trabajo para satisfacer las demandas de carga máximas. A continuación, cuando los nodos de trabajo adicionales ya no sean necesarios, se puede revertir el escalado del clúster.
+**Región**  
+La región de Azure determina dónde se aprovisiona físicamente el clúster. Para minimizar la latencia de lecturas y escrituras, el clúster debe estar en la misma región que los datos.
+
+**Tamaño y ubicación de almacenamiento**  
+El almacenamiento predeterminado debe estar en la misma región que el clúster. Para un clúster de 48 nodos, se recomienda tener de 4 a 8 cuentas de almacenamiento. Aunque puede que ya haya suficiente espacio de almacenamiento total, cada cuenta de almacenamiento proporciona ancho de banda de red adicional para los nodos de ejecución. Si tiene varias cuentas de almacenamiento, utilice un nombre aleatorio para cada cuenta de almacenamiento, sin prefijo. El propósito de la nomenclatura aleatoria es reducir la posibilidad de que se produzcan cuellos de botella de almacenamiento (limitación) o errores comunes en todas las cuentas. Para mejorar el rendimiento, utilice un único contenedor por cada cuenta de almacenamiento.
+
+**Tamaño y tipo de máquina virtual (ahora es compatible con la serie G)**  
+Cada tipo de clúster tiene un conjunto de tipos de nodos, y cada uno de ellos incluye opciones específicas para el tamaño y el tipo de máquina virtual. El tamaño y el tipo de máquina virtual los determinan la capacidad de procesamiento de la CPU, el tamaño de RAM y la latencia de red. Se puede utilizar una carga de trabajo simulada para determinar el tamaño y el tipo óptimos de máquina virtual para cada tipo de nodo.
+
+**Número de nodos de trabajo**  
+Se puede determinar el número inicial de nodos de trabajo con cargas de trabajo simuladas. Más adelante se puede escalar el clúster mediante la adición de más nodos de trabajo para satisfacer las demandas de carga máximas. A continuación, cuando los nodos de trabajo adicionales ya no sean necesarios, se puede revertir el escalado del clúster.
 
 Para más información, consulte el artículo [Planeamiento de la capacidad de los clústeres de HDInsight](../hdinsight-capacity-planning.md).
 
@@ -191,6 +198,4 @@ Para obtener más información, consulte el artículo [Conexión de HDInsight a 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Lea el siguiente artículo de esta serie:
-
-- [Storage best practices for on-premises to Azure HDInsight Hadoop migration](apache-hadoop-on-premises-migration-best-practices-storage.md) (Procedimientos recomendados de almacenamiento para la migración local a Azure HDInsight Hadoop)
+Lea el siguiente artículo de esta serie: [Procedimientos recomendados de almacenamiento para la migración local a Azure HDInsight Hadoop](apache-hadoop-on-premises-migration-best-practices-storage.md).

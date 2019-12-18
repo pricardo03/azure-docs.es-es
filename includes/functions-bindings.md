@@ -4,16 +4,17 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
-ms.openlocfilehash: 5d2608d1c374fadac18cebc093ce50ef93f9656a
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 193968b5acf8288cb3f602c90374535fc2046b01
+ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597377"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74941743"
 ---
-En esta tabla se muestran los enlaces que son compatibles con las dos versiones principales del entorno de ejecución de Azure Functions:
+En esta tabla se muestran los enlaces que son compatibles con las versiones principales del entorno en tiempo de ejecución de Azure Functions:
 
-| type | 1.x | 2.x<sup>1</sup> | Desencadenador | Entrada | Output |
+
+| Tipo | 1.x | 2.x y posteriores<sup>1</sup> | Desencadenador | Entrada | Output |
 | ---- | :-: | :-: | :------: | :---: | :----: |
 | [Blob Storage](../articles/azure-functions/functions-bindings-storage-blob.md)          |✔|✔|✔|✔|✔|
 | [Cosmos DB](../articles/azure-functions/functions-bindings-documentdb.md)               |✔|✔|✔|✔|✔|
@@ -36,4 +37,4 @@ En esta tabla se muestran los enlaces que son compatibles con las dos versiones 
 | [Temporizador](../articles/azure-functions/functions-bindings-timer.md)                         |✔|✔|✔| | |
 | [Twilio](../articles/azure-functions/functions-bindings-twilio.md)                       |✔|✔| | |✔|
 
-<sup>1</sup> En el entorno de ejecución de la versión 2.x, se deben registrar todos los enlaces, excepto HTTP y el temporizador. Consulte [Registro de extensiones de enlace](../articles/azure-functions/functions-bindings-register.md). Todos los enlaces admitidos de la versión 2.x también se admiten en la versión 3.x, a menos que se indique lo contrario.   
+<sup>1</sup> A partir del entorno en tiempo de ejecución de la versión 2.x, se deben registrar todos los enlaces, excepto HTTP y el temporizador. Consulte [Registro de extensiones de enlace](../articles/azure-functions/functions-bindings-register.md).

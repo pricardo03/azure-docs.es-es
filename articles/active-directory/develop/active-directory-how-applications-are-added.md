@@ -1,30 +1,26 @@
 ---
-title: Cómo y por qué se añaden aplicaciones a Azure Active Directory
+title: Cómo y por qué agregar aplicaciones a Azure AD
 titleSuffix: Microsoft identity platform
 description: ¿Por qué se añade una aplicación a Azure AD y cómo llega hasta ahí?
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.assetid: 3321d130-f2a8-4e38-b35e-0959693f3576
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/26/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d2efdcf03b829b43f797ddb7ca32bb6d120609e
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: f031389dc37fbf48f8a69db8c42419eed9605373
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533000"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74918345"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Cómo y por qué se agregan aplicaciones a Azure AD
 

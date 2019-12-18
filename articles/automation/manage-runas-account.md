@@ -4,17 +4,17 @@ description: En este artículo se describe cómo administrar las cuenta de ejecu
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 05/24/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: fd7e94261d8302224b0e31e5f4ac46978dfa812f
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 2ce6c27487e834325b59fb21ba0d54d1e788ea57
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72690874"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951384"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Administración de cuentas de ejecución de Azure Automation
 
@@ -67,7 +67,7 @@ Para configurar o renovar las cuentas de ejecución clásicas, debe tener el rol
 En esta sección, realizará los pasos que se describen a continuación para actualizar su cuenta de Azure Automation en Azure Portal. Las cuentas de ejecución y de ejecución clásica se crean de forma individual. Si no es necesario administrar los recursos clásicos, basta con crear la cuenta de ejecución de Azure.
 
 1. Inicie sesión en Azure Portal con una cuenta que sea miembro del rol Administradores de suscripciones y coadministrador de la suscripción.
-2. En Azure Portal, haga clic en **Todos los servicios**. En la lista de recursos, escriba **Automation**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Seleccione **Cuentas de Automation**.
+2. En Azure Portal, busque y seleccione **Cuentas de Automation**.
 3. En la página **Cuentas de Automation**, seleccione su cuenta de Automation en la lista Cuentas de Automation.
 4. En el panel izquierdo, seleccione **Cuentas de ejecución** en la sección **Configuración de la cuenta**.
 5. En función de la cuenta que necesite, seleccione **Cuenta de ejecución de Azure** o **Cuenta de ejecución de Azure clásica**. Después de seleccionar **Agregar cuenta de ejecución de Azure** o **Agregar cuenta de ejecución de Azure clásico**, aparece el panel. Revise la información general y haga clic en **Crear** para continuar con la creación de la cuenta de ejecución.
@@ -86,7 +86,7 @@ En la lista siguiente se proporcionan los requisitos para crear una cuenta de ej
 
 Para obtener los valores de *SubscriptionID*, *ResourceGroup* y *AutomationAccountName*, que son parámetros necesarios para el script, siga estos pasos:
 
-1. En Azure Portal, haga clic en **Todos los servicios**. En la lista de recursos, escriba **Automation**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Seleccione **Cuentas de Automation**.
+1. En Azure Portal, busque y seleccione **Cuentas de Automation**.
 1. En la página Cuenta de Automation, seleccione su cuenta de Automation y, en **Configuración de la cuenta**, seleccione **Propiedades**.
 1. Anote los valores de **Id. de suscripción**, **Nombre** y **Grupo de recursos** en la página **Propiedades**.
 

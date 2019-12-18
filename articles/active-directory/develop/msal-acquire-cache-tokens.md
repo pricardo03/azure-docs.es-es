@@ -1,29 +1,25 @@
 ---
-title: Adquisición y almacenamiento en caché de tokens con MSAL
+title: Adquisición y almacenamiento en caché de tokens con MSAL | Azure
 titleSuffix: Microsoft identity platform
 description: Más información sobre la adquisición y el almacenamiento en caché de tokens mediante la biblioteca de autenticación de Microsoft (MSAL).
 services: active-directory
-documentationcenter: dev-center-name
 author: TylerMSFT
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/07/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2df30156cde0244209f5f07c2627887252642525
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 3060f79f85db6504c38ba4fc6b7d3df97f0edb55
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903016"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74963569"
 ---
 # <a name="acquire-and-cache-tokens-using-the-microsoft-authentication-library-msal"></a>Adquisición y almacenamiento en caché de tokens con la biblioteca de autenticación de Microsoft (MSAL)
 

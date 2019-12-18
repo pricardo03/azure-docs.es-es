@@ -4,17 +4,17 @@ description: Azure Storage protege los datos cifrándolos automáticamente antes
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 11/26/2019
+ms.date: 12/05/2019
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 63fa30b4cf4c5887e8fb44b357eb22e55fe230e7
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: a09d2c0c2a393acd4882842dc023b0f5f682e813
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74666144"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895129"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>Cifrado de Azure Storage para datos en reposo
 
@@ -38,7 +38,7 @@ Para más información sobre de los módulos criptográficos subyacentes al cifr
 
 Puede confiar en las claves administradas por Microsoft para el cifrado de la cuenta de almacenamiento, o puede administrar el cifrado con sus propias claves. Si opta por administrar el cifrado con sus propias claves, tiene dos opciones:
 
-- Puede especificar una *clave administrada por el cliente* con Azure Key Vault para utilizarla para el cifrado y descifrado de todos los datos de la cuenta de almacenamiento. Una clave administrada por el cliente se usa para cifrar todos los datos de todos los servicios de la cuenta de almacenamiento.
+- Puede especificar una *clave administrada por el cliente* con Azure Key Vault para utilizarla para el cifrado y descifrado de datos en Blob Storage y en Azure Files.
 - En las operaciones de almacenamiento de blobs, puede especificar una *clave proporcionada por el cliente*. Un cliente que realiza una solicitud de lectura o escritura en el almacenamiento de blobs puede incluir una clave de cifrado en la solicitud para tener un control detallado sobre el cifrado y el descifrado de los datos de blob.
 
 En la tabla siguiente se comparan las opciones de administración de claves para el cifrado de Azure Storage.
@@ -62,7 +62,7 @@ De forma predeterminada, la cuenta de almacenamiento usa claves de cifrado admin
 
 ## <a name="customer-managed-keys-with-azure-key-vault"></a>Claves administradas por el cliente con Azure Key Vault
 
-El cifrado de Azure Storage se puede administrar en el nivel de la cuenta de almacenamiento con sus propias claves. Cuando especifica una clave administrada por el cliente en el nivel de la cuenta de almacenamiento, esa clave se usa para cifrar y descifrar todos los datos de la cuenta de almacenamiento, incluidos los datos de blobs, colas, archivos y tablas. Las claves administradas por el cliente ofrecen más flexibilidad para crear, rotar, deshabilitar y revocar controles de acceso. También permite auditar las claves de cifrado que se usan para proteger los datos.
+El cifrado de Azure Storage se puede administrar en el nivel de la cuenta de almacenamiento con sus propias claves. Cuando especifica una clave administrada por el cliente en el nivel de la cuenta de almacenamiento, esa clave se usa para cifrar y descifrar todos los datos de blobs y archivos en la cuenta de almacenamiento. Las claves administradas por el cliente ofrecen más flexibilidad para crear, rotar, deshabilitar y revocar controles de acceso. También permite auditar las claves de cifrado que se usan para proteger los datos.
 
 Debe usar Azure Key Vault para almacenar las claves administradas por el cliente. Puede crear sus propias claves y almacenarlas en un almacén de claves, o puede usar las API de Azure Key Vault para generarlas. La cuenta de almacenamiento y el almacén de claves deben estar en la misma región, pero pueden estar en distintas suscripciones. Para más información sobre Azure Key Vault, vea [¿Qué es Azure Key Vault?](../../key-vault/key-vault-overview.md).
 

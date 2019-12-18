@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 07/05/2019
 ms.author: juliako
-ms.openlocfilehash: 3740c42c6b6721af4d885f7b63ee4ca4e58f6fa6
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: a833fd808049cfce95b182910e50e38d3c39f4e5
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806729"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976611"
 ---
 # <a name="scenes-shots-and-keyframes"></a>Escenas, capturas y fotogramas clave
 
@@ -36,7 +36,7 @@ Video Indexer determina cuándo cambia un corte en el vídeo según indicaciones
 
 ## <a name="keyframe-detection"></a>Detección de fotogramas clave
 
-Selecciona los fotogramas que mejor representan el corte. Los fotogramas clave son los fotogramas representativos seleccionados de todo el vídeo según propiedades estéticas (por ejemplo, el contraste y la estabilidad). Video Indexer recupera una lista de identificadores de fotograma clave como parte de los metadatos del corte, en función de los cuales los clientes pueden extraer la miniatura del fotograma clave. 
+Video Indexer selecciona los fotogramas que mejor representan cada toma. Los fotogramas clave son los fotogramas representativos seleccionados de todo el vídeo según propiedades estéticas (por ejemplo, el contraste y la estabilidad). Video Indexer recupera una lista de identificadores de fotograma clave como parte de los metadatos del corte, en función de los cuales los clientes pueden extraer el fotograma clave como una imagen en alta resolución.  
 
 ### <a name="extracting-keyframes"></a>Extracción de fotogramas clave
 

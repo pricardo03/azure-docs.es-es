@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 11/06/2019
+ms.date: 12/05/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 345822847ddd60794cd912ccb52c14f6e240cd66
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 80c961c1aa4da199fa87b97bc8e0a37e60c2235f
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075410"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74903095"
 ---
 ### <a name="is-custom-ipsecike-policy-supported-on-all-azure-vpn-gateway-skus"></a>¿Se admite la directiva de IPsec o IKE personalizada en todas las SKU de Azure VPN Gateway?
 La directiva de IPsec o IKE personalizada se admite en todas las SKU de Azure, excepto la SKU básica.
@@ -110,7 +110,7 @@ Las conexiones IKEv1 se pueden crear en todas las SKU de tipo VPN RouteBased, ex
 Sí. Se admite el tránsito entre conexiones IKEv1 e IKEv2.
 
 ### <a name="can-i-have-ikev1-site-to-site-connections-on-basic-skus-of-routebased-vpn-type"></a>¿Puedo tener conexiones de sitio a sitio de IKEv1 en SKU básicas del tipo de VPN RouteBased?
-No. Todas las SKU de VPN RouteBased, excepto las SKU básicas del tipo de VPN basada en rutas, admiten conexiones IKEv1 de sitio a sitio.
+No. La SKU básica no es compatible con esta operación.
 
 ### <a name="can-i-change-the-connection-protocol-type-after-the-connection-is-created-ikev1-to-ikev2-and-vice-versa"></a>¿Puedo cambiar el tipo de protocolo de conexión después de crear la conexión (IKEv1 a IKEv2 y viceversa)?
 No. Cuando se crea la conexión, los protocolos IKEv1 y IKEv2 no se pueden cambiar. Debe eliminar y volver a crear una nueva conexión con el tipo de protocolo deseado.

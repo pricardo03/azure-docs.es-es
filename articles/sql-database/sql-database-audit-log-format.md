@@ -4,19 +4,17 @@ description: Comprender cómo se estructuran los registros de auditoría de SQL 
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: ''
-ms.devlang: ''
 ms.topic: conceptual
 author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 01/03/2019
-ms.openlocfilehash: 14465e918fd4ac4e436e64d468c58e1d2ed83bb3
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 5bd3a3ae5ab95076129e2565a578bdc6ac0e1e38
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688170"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928632"
 ---
 # <a name="sql-database-audit-log-format"></a>Formato del registro de auditoría de SQL Database
 
@@ -32,15 +30,16 @@ Por ejemplo, para la base de datos `Database1` en `Server1`, la siguiente es una
 
     Server1/Database1/SqlDbAuditing_ServerAudit_NoRetention/2019-02-03/12_23_30_794_0.xel
 
-Los registros de auditoría de las réplicas de solo lectura se almacenan en el mismo contenedor. La jerarquía de directorios dentro del contenedor tiene el formato `<ServerName>/<DatabaseName>/<AuditName>/<Date>/RO/`. El nombre de archivo del BLOB comparte el mismo formato.
+Los registros de auditoría de las [réplicas de solo lectura](sql-database-read-scale-out.md) se almacenan en el mismo contenedor. La jerarquía de directorios dentro del contenedor tiene el formato `<ServerName>/<DatabaseName>/<AuditName>/<Date>/RO/`. El nombre de archivo del BLOB comparte el mismo formato. Los registros de auditoría de las réplicas de solo lectura se almacenan en el mismo contenedor.
+
 
 ### <a name="event-hub"></a>Centro de eventos
 
-Los eventos de auditoría se escriben en el espacio de nombres y en el centro de eventos que se definió durante la configuración de auditoría. Se capturan en el cuerpo de los eventos de [Apache Avro](https://avro.apache.org/) y se almacenan mediante el formato JSON con codificación UTF-8. Para leer los registros de auditoría, puede usar [Avro Tools](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview#use-avro-tools) o herramientas similares que procesen este formato.
+Los eventos de auditoría se escriben en el espacio de nombres y en el centro de eventos que se definió durante la configuración de auditoría. Se capturan en el cuerpo de los eventos de [Apache Avro](https://avro.apache.org/) y se almacenan mediante el formato JSON con codificación UTF-8. Para leer los registros de auditoría, puede usar [Avro Tools](../event-hubs/event-hubs-capture-overview.md#use-avro-tools) o herramientas similares que procesen este formato.
 
 ### <a name="log-analytics"></a>Log Analytics
 
-Los eventos de auditoría se escriben en el área de trabajo de Log Analytics definida durante la configuración de auditoría, en la tabla `AzureDiagnostics` con la categoría `SQLSecurityAuditEvents`. Para información útil adicional sobre los comandos y el lenguaje de búsqueda de Log Analytics, consulte la [referencia de búsqueda de Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-search).
+Los eventos de auditoría se escriben en el área de trabajo de Log Analytics definida durante la configuración de auditoría, en la tabla `AzureDiagnostics` con la categoría `SQLSecurityAuditEvents`. Para información útil adicional sobre los comandos y el lenguaje de búsqueda de Log Analytics, consulte la [referencia de búsqueda de Log Analytics](../log-analytics/log-analytics-log-search.md).
 
 ## <a id="subheading-1"></a>Campos del registro de auditoría
 

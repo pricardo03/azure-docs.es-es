@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 01/28/2018
-ms.openlocfilehash: 9796b41d0df091bc6eb23ba525a79da278e00bbd
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: b655181f41aeda71364edd061b7c81db23e59990
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802310"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951146"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Información general sobre las alertas en Microsoft Azure 
 
@@ -211,6 +211,7 @@ Puede usar la [API de REST de Alert Management](https://aka.ms/alert-management-
 - [Información sobre los grupos de acciones](../../azure-monitor/platform/action-groups.md)
 - [Administración de instancias de alertas en Azure](https://aka.ms/managing-alert-instances)
 - [Administración de grupos inteligentes](https://aka.ms/managing-smart-groups)
+- [Más información acerca de los precios de alertas de Azure](https://azure.microsoft.com/pricing/details/monitor/)
 
 
 

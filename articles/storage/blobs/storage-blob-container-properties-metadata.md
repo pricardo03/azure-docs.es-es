@@ -1,18 +1,19 @@
 ---
-title: Administración de propiedades y metadatos de un contenedor de blobs con .NET en Azure Storage
+title: Uso de .NET para administrar propiedades y metadatos de un contenedor de blobs
+titleSuffix: Azure Storage
 description: Aprenda a establecer y recuperar propiedades del sistema y a almacenar metadatos personalizados de contenedores de blobs en su cuenta de Azure Storage mediante la biblioteca cliente de .NET.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
-ms.date: 07/10/2019
+ms.topic: how-to
+ms.date: 12/04/2019
 ms.author: tamram
-ms.openlocfilehash: d63c78fedb8dbd48655d36fecc3544fd512072e3
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 17ed10d424d606091bd2b7d6f3e325955c48a5a2
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673368"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894205"
 ---
 # <a name="manage-container-properties-and-metadata-with-net"></a>Administración de propiedades y metadatos de contenedor con .NET
 
@@ -127,7 +128,7 @@ public static async Task ReadContainerMetadataAsync(CloudBlobContainer container
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 - [Operación Get Container Properties](/rest/api/storageservices/get-container-properties)
 - [Operación Set Container Metadata](/rest/api/storageservices/set-container-metadata)

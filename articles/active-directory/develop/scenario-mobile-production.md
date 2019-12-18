@@ -1,5 +1,5 @@
 ---
-title: 'Aplicación móvil que llama a las API web (paso a producción): plataforma de identidad de Microsoft'
+title: 'Paso a producción de una aplicación móvil que llama a las API web: Plataforma de identidad de Microsoft | Azure'
 description: Obtenga información sobre cómo compilar una aplicación móvil que llama a las API web (paso a producción)
 services: active-directory
 documentationcenter: dev-center-name
@@ -16,12 +16,12 @@ ms.author: jmprieur
 ms.reviwer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 67788dd9257a0a4685313dce44c6a3dfb5e514df
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: 3e267b2f398480da6949a4c85133342aad5c2ba7
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68413606"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74919909"
 ---
 # <a name="mobile-app-that-calls-web-apis---move-to-production"></a>Aplicación móvil que llama a las API web: paso a producción
 

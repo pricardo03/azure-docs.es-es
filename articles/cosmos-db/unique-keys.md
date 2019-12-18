@@ -1,22 +1,22 @@
 ---
 title: Uso de claves únicas en Azure Cosmos DB
-description: Aprenda a usar las claves únicas en la base de datos de Azure Cosmos DB
+description: Aprenda a definir y usar claves únicas para una base de datos de Azure Cosmos. En este artículo también se describe cómo las claves únicas agregan una capa de integridad de datos.
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 12/02/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 4a929566d464f8548c4bffeb9f89099e77722e67
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: f234579c6fb2b6f1bc0cd518b87ea69fae30093a
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756783"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74869840"
 ---
 # <a name="unique-key-constraints-in-azure-cosmos-db"></a>Restricciones de clave únicas de Azure Cosmos DB
 
-Las claves únicas agregan una capa de integridad de datos a un contenedor de Azure Cosmos. Cree una directiva de clave única cuando cree un contenedor de Azure Cosmos. Con las claves únicas, se garantiza que uno o varios valores dentro de una partición lógica son únicos. También puede garantizar la exclusividad por [clave de partición](partition-data.md). 
+Las claves únicas agregan una capa de integridad de datos a un contenedor de Azure Cosmos. Cree una directiva de clave única cuando cree un contenedor de Azure Cosmos. Con las claves únicas, se garantiza que uno o varios valores dentro de una partición lógica son únicos. También puede garantizar la exclusividad por [clave de partición](partition-data.md).
 
 Después de crear un contenedor con una directiva de clave única, se impide la creación de una versión nueva o actualizada de un elemento existente que dé lugar a un elemento duplicado en una partición lógica, según especifique la restricción de clave única. La clave de partición combinada con la clave única garantiza la exclusividad de un elemento dentro del ámbito del contenedor.
 

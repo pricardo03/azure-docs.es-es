@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/8/2019
+ms.date: 12/6/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 633465e9123d679b1aa0e7f7ad048b17c18f2acb
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 8caa66801dda223681c38e966ba3d08b1b0c5921
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74771043"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931079"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Notas de la versión del agente de Azure File Sync
 Azure File Sync le permite centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Las instalaciones de Windows Server se transforman en una memoria caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a los datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -77,7 +77,8 @@ Las notas siguientes corresponden a la versión 9.0.0.0 del agente de Azure File
     - Errores de recuperación reducidos. El tamaño de la recuperación ahora se ajusta automáticamente en función del ancho de banda de red. 
     - Rendimiento de descarga mejorado al agregar un nuevo servidor a un grupo de sincronización. 
     - Archivos reducidos que no se sincronizan debido a conflictos de restricción. 
-
+    - Los archivos no se pueden segmentar o se recuperan de forma inesperada en ciertos escenarios si la ruta de acceso del punto de conexión del servidor es un punto de montaje del volumen.
+    
 ### <a name="evaluation-tool"></a>Herramienta de evaluación
 Antes de implementar Azure File Sync, debe evaluar si es compatible con el sistema mediante la herramienta de evaluación de Azure File Sync. Esta herramienta es un cmdlet de Azure PowerShell que busca posibles problemas con el sistema de archivos y el conjunto de datos, tales como caracteres no admitidos o una versión de sistema operativo no compatible. Para la instalación y las instrucciones de uso, consulte la sección [Herramienta de evaluación](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-cmdlet) en la Guía de planeación. 
 

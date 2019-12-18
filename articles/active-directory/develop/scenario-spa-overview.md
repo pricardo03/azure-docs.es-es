@@ -1,5 +1,5 @@
 ---
-title: 'Introducción al escenario de aplicación de página única de JavaScript: Plataforma de identidad de Microsoft'
+title: 'Escenario de aplicaciones de página única de JavaScript: plataforma de identidad de Microsoft | Azure'
 description: Aprenda a compilar una aplicación de página única (información general del escenario) mediante la plataforma de identidad de Microsoft.
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77f59e8c628d7ba37aaf258541664e40e1d4a2dc
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 6ab7b0f1e59504eae64422fd4bbaf6f9e0804ed4
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74764685"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74919824"
 ---
 # <a name="scenario-single-page-application"></a>Escenario: Aplicación de una sola página
 

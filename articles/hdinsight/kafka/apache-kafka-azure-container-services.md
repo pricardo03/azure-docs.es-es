@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/07/2018
-ms.openlocfilehash: 31eefbad8e8d7cb626d87d53690388d09b85257e
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.custom: hdinsightactive
+ms.date: 12/04/2019
+ms.openlocfilehash: e035c1ff4c8e16fbf40883b54e3153eab9729040
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122655"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894277"
 ---
 # <a name="use-azure-kubernetes-service-with-apache-kafka-on-hdinsight"></a>Usar Azure Kubernetes Service con Apache Kafka en HDInsight
 
@@ -57,52 +57,56 @@ Si aún no dispone de un clúster AKS, use uno de los siguientes documentos para
 * [Implementación de un clúster de Azure Kubernetes Service (AKS): Portal](../../aks/kubernetes-walkthrough-portal.md)
 * [Implementación de un clúster de Azure Kubernetes Service (AKS): CLI](../../aks/kubernetes-walkthrough.md)
 
-> [!NOTE]  
-> AKS crea una red virtual durante la instalación. Esta red se empareja con la creada para HDInsight en la sección siguiente.
+> [!IMPORTANT]  
+> AKS crea una red virtual durante la instalación en un grupo de recursos **adicional**. El grupo de recursos adicional sigue la convención de nomenclatura de **MC_grupoDeRecursos_nombreDeClusterDeAKS_ubicación**.  
+> Esta red se empareja con la creada para HDInsight en la sección siguiente.
 
 ## <a name="configure-virtual-network-peering"></a>Configuración del emparejamiento de red virtual
 
-1. En [Azure Portal](https://portal.azure.com), seleccione __Grupos de recursos__ y luego busque el grupo de recursos que contiene la red virtual del clúster de AKS. El nombre del grupo de recursos es `MC_<resourcegroup>_<akscluster>_<location>`. Las entradas `resourcegroup` y `akscluster` son el nombre del grupo de recursos en el que creó el clúster y el nombre del clúster. `location` es la ubicación en la que se ha creado el clúster.
+### <a name="identify-preliminary-information"></a>Identificación de la información preliminar
 
-2. En el grupo de recursos, seleccione el recurso __Red virtual__.
+1. En [Azure Portal](https://portal.azure.com), ubique el **Grupos de recursos** adicional que contiene la red virtual del clúster de AKS.
 
-3. Seleccione __Espacio de direcciones__. Observe el espacio de direcciones que se muestra.
+2. En el grupo de recursos, seleccione el recurso __Red virtual__. Anote el nombre para usarlo más adelante.
 
-4. Para crear una red virtual para HDInsight, seleccione __+ Crear un recurso__, __Redes__ y, luego, __Red virtual__.
+3. En __Configuración__, seleccione **Espacio de direcciones**. Observe el espacio de direcciones que se muestra.
 
-    > [!IMPORTANT]  
-    > Al especificar los valores de la nueva red virtual, debe usar un espacio de direcciones que no se superponga con el usado por la red del clúster de AKS.
+### <a name="create-virtual-network"></a>Creación de una red virtual
 
-    Use la misma __ubicación__ para la red virtual que la que usó para el clúster de AKS.
+1. Para crear una red virtual para HDInsight, vaya a __+ Crear un recurso__ > __Redes__ > __Red virtual__.
 
-    Espere a que se cree la red virtual antes de pasar al siguiente paso.
+1. Cree la red siguiendo las directrices a continuación para ciertas propiedades:
 
-5. Para configurar el emparejamiento entre la red de HDInsight y la red del clúster de AKS, seleccione la red virtual y, a continuación, seleccione __Emparejamientos__. Seleccione __+ Agregar__ y use los siguientes valores para rellenar el formulario:
+    |Propiedad | Valor |
+    |---|---|
+    |Espacio de direcciones|Debe usar un espacio de direcciones que no se superponga con el usado por la red del clúster de AKS.|
+    |Location|Use la misma __ubicación__ para la red virtual que la que usó para el clúster de AKS.|
 
-   * __Nombre__: escriba un nombre único para esta configuración de emparejamiento.
-   * __Red virtual__: use este campo para seleccionar la red virtual para el **clúster de AKS**.
+1. Espere a que se cree la red virtual antes de pasar al siguiente paso.
 
-     Deje todos los demás campos en el valor predeterminado y, luego, seleccione __Aceptar__ para configurar el emparejamiento.
+### <a name="configure-peering"></a>Configuración del emparejamiento
 
-6. Para configurar el emparejamiento entre la red del clúster de AKS y la red de HDInsight, seleccione la __red virtual del clúster de AKS__ y, luego, seleccione __Emparejamientos__. Seleccione __+ Agregar__ y use los siguientes valores para rellenar el formulario:
+1. Para configurar el emparejamiento entre la red de HDInsight y la red del clúster de AKS, seleccione la red virtual y, a continuación, seleccione __Emparejamientos__.
 
-   * __Nombre__: escriba un nombre único para esta configuración de emparejamiento.
-   * __Red virtual__: use este campo para seleccionar la red virtual para el __clúster de HDInsight__.
+1. Seleccione __+ Agregar__ y use los siguientes valores para rellenar el formulario:
 
-     Deje todos los demás campos en el valor predeterminado y, luego, seleccione __Aceptar__ para configurar el emparejamiento.
+    |Propiedad |Valor |
+    |---|---|
+    |Nombre del emparejamiento de \<esta VN> a la red virtual remota|escriba un nombre único para esta configuración de emparejamiento.|
+    |Virtual network|Seleccione la red virtual para el **clúster de AKS**.|
+    |Nombre del emparejamiento de la \<VN de AKS> a \<esta VN>|Escriba un nombre único.|
 
-## <a name="install-apache-kafka-on-hdinsight"></a>Instalar Apache Kafka en HDInsight
+    Deje todos los demás campos en el valor predeterminado y, luego, seleccione __Aceptar__ para configurar el emparejamiento.
+
+## <a name="create-apache-kafka-cluster-on-hdinsight"></a>Creación de un clúster de Apache Kafka en HDInsight
 
 Al crear el clúster de Kafka en HDInsight, debe unir la red virtual que creó anteriormente para HDInsight. Para más información sobre cómo crear un clúster de Kafka, consulte el documento [Creación de un clúster de Apache Kafka](apache-kafka-get-started.md).
-
-> [!IMPORTANT]  
-> Al crear el clúster, debe usar la opción __Configuración avanzada__ para unirse a la red virtual que creó para HDInsight.
 
 ## <a name="configure-apache-kafka-ip-advertising"></a>Configurar el anuncio de direcciones IP de Apache Kafka
 
 Use los pasos siguientes para configurar Kafka para anunciar direcciones IP en lugar de nombres de dominio:
 
-1. Vaya a https://CLUSTERNAME.azurehdinsight.net desde un explorador web. Reemplace __CLUSTERNAME__ por el nombre del clúster de Kafka en HDInsight.
+1. Vaya a `https://CLUSTERNAME.azurehdinsight.net` desde un explorador web. Reemplace CLUSTERNAME por el nombre del clúster de Kafka en HDInsight.
 
     Cuando se le solicite, use el nombre de usuario y la contraseña HTTPS para el clúster. Aparece la interfaz de usuario web de Ambari para el clúster.
 

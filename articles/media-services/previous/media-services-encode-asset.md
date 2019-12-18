@@ -1,6 +1,6 @@
 ---
 title: Introducción a los codificadores multimedia a petición de Azure | Microsoft Docs
-description: En este tema se proporciona información general de los codificadores multimedia a petición de Azure.
+description: Azure Media Services ofrece varias opciones para la codificación de medios en la nube. En este artículo se proporciona información general de los codificadores multimedia a petición de Azure.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: juliako
-ms.openlocfilehash: 5c55b419b88a66d2e1acf1687478ab35d9f0a059
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.openlocfilehash: d5d5b8a7328ee82e94d494795617832cb0258667
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70019032"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74901506"
 ---
 # <a name="overview-of-azure-on-demand-media-encoders"></a>Introducción a los codificadores multimedia a petición de Azure 
 
@@ -68,7 +68,7 @@ Para más información, consulte [Recorte de un vídeo](media-services-advanced-
 ### <a name="create-overlays"></a>Creación de superposiciones
 Para más información, consulte [Creación de una superposición](media-services-advanced-encoding-with-mes.md#overlay).
 
-### <a name="see-also"></a>Otras referencias
+### <a name="see-also"></a>Consulte también
 [El blog de Media Services](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)
 
 ## <a name="media-encoder-premium-workflow"></a>Flujo de trabajo del Codificador multimedia

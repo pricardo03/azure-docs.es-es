@@ -1,5 +1,5 @@
 ---
-title: 'Aplicación móvil que llama a las API web: información general'
+title: Compilación de una aplicación móvil que llama a las API web | Azure
 titleSuffix: Microsoft identity platform
 description: 'Obtener información sobre cómo compilar una aplicación móvil que llama a las API web: información general'
 services: active-directory
@@ -17,16 +17,16 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 98f05470a07bad82a1e51517a787fb98c78f92ce
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: c6ebeed4a7806c013205d01621107ef65655e753
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803744"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74965473"
 ---
 # <a name="scenario-mobile-application-that-calls-web-apis"></a>Escenario: Una aplicación móvil que llama a las API web
 
-Obtenga la información que necesita sobre cómo compilar una aplicación móvil que llama a las API web.
+Obtenga información sobre cómo compilar una aplicación móvil que llama a las API web.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

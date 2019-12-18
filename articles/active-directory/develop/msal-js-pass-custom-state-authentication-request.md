@@ -1,29 +1,25 @@
 ---
-title: Paso del estado personalizado en las solicitudes de autenticación (Biblioteca de autenticación de Microsoft para JavaScript)
+title: Paso del estado personalizado en solicitudes de autenticación (MSAL.js) | Azure
 titleSuffix: Microsoft identity platform
 description: Aprenda a pasar un valor de estado personalizado en la solicitud de autenticación con la Biblioteca de autenticación de Microsoft para JavaScript (MSAL.js).
 services: active-directory
-documentationcenter: dev-center-name
 author: TylerMSFT
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/29/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 527c1937da8634f7448c82ca8c0331fb5cfb85e3
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: a4cb0f3d054f9afd0c606f80fd6fc5d553eff806
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73150612"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74916322"
 ---
 # <a name="pass-custom-state-in-authentication-requests-using-msaljs"></a>Paso del estado personalizado en solicitudes de autenticación con MSAL.js
 El parámetro *state*, tal como se define en OAuth 2.0, se incluye en una solicitud de autenticación y también se devuelve en la respuesta del token para evitar ataques de falsificación de la solicitud entre sitios. De forma predeterminada, la Biblioteca de autenticación de Microsoft para JavaScript (MSAL.js) pasa un valor único del parámetro *state* generado al azar en las solicitudes de autenticación.

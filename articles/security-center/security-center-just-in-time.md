@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: fb092a3c6b473680480c3bba0ad6f437176833de
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 3e344afc29ae398394a1aa2aa527f2f32e24eef7
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73576397"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997197"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Administración del acceso a máquina virtual mediante Just-In-Time
 
@@ -176,10 +176,10 @@ Para su comodidad, puede conectarse a una máquina virtual con JIT directamente 
 
 Para facilitar el despliegue del acceso Just-In-Time en las VM, puede establecer una VM para permitir solo el acceso Just-In-Time directamente desde dentro de la VM.
 
-1. En Azure Portal, seleccione **Máquinas virtuales**.
-2. Haga clic en la máquina virtual a la que quiere limitar el acceso Just-In-Time.
-3. En el menú, haga clic en **Configuración**.
-4. En **Acceso Just-In-Time** haga clic en **Habilitar directiva Just-In-Time**. 
+1. En [Azure Portal](https://ms.portal.azure.com), busque y seleccione **Máquinas virtuales**. 
+2. Seleccione la máquina virtual a la que quiere limitar el acceso Just-In-Time.
+3. En el menú, seleccione **Configuración**.
+4. En **Acceso Just-In-Time** seleccione **Habilitar directiva Just-In-Time**. 
 
 Esto habilita el acceso Just-In-Time para la VM con las siguientes opciones:
 

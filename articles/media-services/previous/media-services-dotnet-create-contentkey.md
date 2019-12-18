@@ -1,6 +1,6 @@
 ---
 title: Creación de claves de contenido con .NET
-description: Aprenda a crear claves de contenido que proporcionen un acceso seguro a los recursos.
+description: En este artículo se muestra cómo crear claves de contenido que proporcionen un acceso seguro a los recursos.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: ab26be3b9ac5d209cfe8117bdf9e87e0c7e74188
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: aebd6dee9314d6e5641988767c024790b6b721f4
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61465582"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74887704"
 ---
 # <a name="create-contentkeys-with-net"></a>Creación de claves de contenido con .NET 
 > [!div class="op_single_selector"]

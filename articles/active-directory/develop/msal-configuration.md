@@ -1,33 +1,29 @@
 ---
-title: Descripción del archivo de configuración de la biblioteca de autenticación de Microsoft (MSAL) para Android
+title: Archivo de configuración de la biblioteca de autenticación de Microsoft para Android | Azure
 titleSuffix: Microsoft identity platform
 description: Información general sobre el archivo de configuración de la biblioteca de autenticación de Microsoft (MSAL) para Android, que representa la configuración de una aplicación en Azure Active Directory.
 services: active-directory
-documentationcenter: ''
 author: shoatman
-manager: nadima
-editor: ''
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/12/2019
 ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c06bc1ebf3b87f622029e9e875fe478eae7e6a30
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: f643022c85a44b2202fcbd91be50664882c8ba7b
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803159"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74916833"
 ---
-# <a name="android-microsoft-authentication-library-msal-configuration-file"></a>Archivo de configuración de la biblioteca de autenticación de Microsoft (MSAL) para Android
+# <a name="android-microsoft-authentication-library-configuration-file"></a>Archivo de configuración de la biblioteca de autenticación de Microsoft para Android
 
-MSAL se suministra con un [archivo JSON de configuración predeterminada](https://github.com/AzureAD/microsoft-authentication-library-for-android/blob/dev/msal/src/main/res/raw/msal_default_config.json) que se personaliza a fin de definir el comportamiento de la aplicación cliente pública para elementos como la autoridad predeterminada, las autoridades que se van a utilizar, etc.
+La biblioteca de autenticación de Microsoft para Android (MSAL) se suministra con un [archivo JSON de configuración predeterminada](https://github.com/AzureAD/microsoft-authentication-library-for-android/blob/dev/msal/src/main/res/raw/msal_default_config.json) que se personaliza a fin de definir el comportamiento de la aplicación cliente pública para elementos como la autoridad predeterminada, las autoridades que se van a utilizar, etc.
 
 Este artículo le ayudará a comprender los distintos valores del archivo de configuración y a especificar el archivo de configuración que utilizará en la aplicación basada en MSAL.
 
@@ -91,7 +87,7 @@ Lista de autoridades que conoce y en las que confía. Además de las autoridades
 
 #### <a name="map-aad-authority--audience-to-microsoft-identity-platform-endpoints"></a>Asignación de una autoridad de AAD y audiencia a puntos de conexión de la Plataforma de identidad de Microsoft
 
-| type | Público | Id. de inquilino | Authority_Url | Punto de conexión resultante | Notas |
+| Tipo | Público | Id. de inquilino | Authority_Url | Punto de conexión resultante | Notas |
 |------|------------|------------|----------------|----------------------|---------|
 | AAD | AzureADandPersonalMicrosoftAccount | | | https://login.microsoftonline.com/common | `common` es un alias de inquilino de donde se encuentra la cuenta. Como, por ejemplo, un inquilino de Azure Active Directory específico o el sistema de cuentas de Microsoft. |
 | AAD | AzureADMyOrg | contoso.com | | https://login.microsoftonline.com/contoso.com | Solo las cuentas presentes en contoso.com pueden adquirir un token. Cualquier dominio comprobado, o el GUID del inquilino, se puede usar como identificador de inquilino. |

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/01/2019
 ms.author: willzhan
-ms.openlocfilehash: 25559c7a6f66a1092007054c72f601b428fa4e7b
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 0798cffdca8d5876373c35f3f5fd657551586d43
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845515"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974060"
 ---
 # <a name="offline-playready-streaming-for-windows-10"></a>Streaming de PlayReady sin conexión para Windows 10
 
@@ -113,7 +113,6 @@ private async void LoadUri_Click(object sender, RoutedEventArgs e)
 
 ![Reproducción del modo sin conexión de fMP4 protegido por PlayReady](./media/offline-playready-for-windows/offline-playready1.jpg)
 
-
 Como el vídeo se encuentra bajo la protección de PlayReady, en la captura de pantalla no se puede incluir el vídeo.
 
 En resumen, hemos obtenido el modo sin conexión en Azure Media Services:
@@ -122,6 +121,10 @@ En resumen, hemos obtenido el modo sin conexión en Azure Media Services:
 * El contenido se puede hospedar en Azure Media Services o Azure Storage para su descarga progresiva.
 * La entrega de licencia de PlayReady puede realizarse desde Azure Media Services o desde otra ubicación.
 * El contenido preparado de streaming con velocidad de transmisión adaptable puede usarse para el streaming en línea mediante DASH o transmisión suave con PlayReady como el DRM.
+
+## <a name="additional-notes"></a>Notas adicionales
+
+* Widevine es un servicio que ofrece Google Inc. y que está sujeto a los términos del servicio y la directiva de privacidad de Google, Inc.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
