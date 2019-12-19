@@ -56,7 +56,7 @@ Si tiene acceso a Azure a través de un Contrato Enterprise (EA) o un Contrato d
 
 ### <a name="review-estimated-costs-in-the-azure-portal"></a>Revisión de los costos estimados en Azure Portal
 
-Puede ver el costo estimado mensual al agregar un servicio en Azure Portal. Por ejemplo, al elegir el tamaño de la máquina virtual Windows verá el costo mensual estimado de las horas de proceso:
+Puede ver el costo estimado mensual al agregar un servicio en Azure Portal. Por ejemplo, al elegir el tamaño de la máquina virtual Windows, verá el costo mensual estimado de las horas de proceso:
 
 ![Ejemplo: una máquina virtual Windows A1 que muestra el costo estimado al mes](./media/billing-getting-started/vm-size-cost.png)
 
@@ -76,7 +76,7 @@ Cuando todos los servicios de Azure estén en funcionamiento, compruebe regularm
 
 1. Visite la [página Administración de costos + facturación en Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade).
 
-2. Haga clic en **Análisis de costos** en el lado izquierdo de la pantalla para ver el costo actual desglosado por varias tablas dinámicas como servicio, ubicación y suscripción. Después de agregar un servicio o realizar una compra, espere 24 para que se muestren los datos. De manera predeterminada, el análisis de costos muestra el costo del ámbito en que se encuentra. Por ejemplo, en la captura de pantalla siguiente, se muestra el costo de la cuenta de facturación de Contoso. Use la píldora Ámbito para cambiar a otro ámbito del análisis de costos. Para más información sobre los ámbitos, consulte [Descripción y uso de ámbitos](../cost-management/understand-work-scopes.md#scopes)
+2. Haga clic en **Análisis de costos** en el lado izquierdo de la pantalla para ver el costo actual desglosado por varias tablas dinámicas como servicio, ubicación y suscripción. Después de agregar un servicio o realizar una compra, espere 24 horas para que se muestren los datos. De manera predeterminada, el análisis de costos muestra el costo del ámbito en que se encuentra. Por ejemplo, en la captura de pantalla siguiente, se muestra el costo de la cuenta de facturación de Contoso. Use la píldora Ámbito para cambiar a otro ámbito del análisis de costos. Para más información sobre los ámbitos, consulte [Descripción y uso de ámbitos](../cost-management/understand-work-scopes.md#scopes)
 
     ![Captura de pantalla de la vista de análisis de costes en Azure Portal](./media/billing-getting-started/cost-analysis.png)
 
@@ -91,7 +91,7 @@ Si no está familiarizado con los principios de la administración de costos, co
 
 En Azure Portal, también puede optimizar y reducir los costos de Azure con el apagado automático de las máquinas virtuales y las recomendaciones de Advisor.
 
-### <a name="consider-cost-cutting-features-like-auto-shutdown-for-vms"></a>Consideración de características de reducción de costos como el apagado automático de las máquinas virtuales
+### <a name="consider-cost-cutting-features-like-auto-shutdown-for-vms"></a>Posibilidad de usar características de reducción de costos como el apagado automático de las máquinas virtuales
 
 Según el escenario, puede configurar el apagado automático de las VM en Azure Portal. Para más información, consulte [Auto-shutdown for VMs using Azure Resource Manager](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/) (Apagado automático de VM mediante Azure Resource Manager).
 
@@ -141,7 +141,7 @@ Si es el administrador de una infraestructura de TI para una organización grand
 Las vistas de los costos de Enterprise están actualmente en la versión preliminar pública. Elementos que tener en cuenta:
 
 - Los costos de suscripción se basan en el uso y no incluyen los importes de prepago, uso por encima del límite, cantidades incluidas, ajustes ni impuestos. Los cargos reales se calculan en el nivel de inscripción.
-- Los importes que se muestran en Azure Portal podrían ser diferentes de lo que está en Enterprise Portal. Las actualizaciones de Enterprise Portal pueden tardar unos minutos antes de que se muestran los cambios en Azure Portal.
+- Los importes que se muestran en Azure Portal podrían ser diferentes de lo que está en Enterprise Portal. Las actualizaciones de Enterprise Portal pueden tardar unos minutos antes de que se muestren los cambios en Azure Portal.
 - Si no ve los costos, puede deberse a uno de los siguientes motivos:
     - No tiene permisos en el nivel de suscripción. Para ver las vistas de costos de la empresa, debe ser un lector de facturación, un lector, un colaborador o un propietario en el nivel de suscripción.
     - Es el propietario de la cuenta y su administrador de inscripción ha deshabilitado la opción para que el propietario de la cuenta vea los cargos.  Póngase en contacto con el administrador de inscripción para obtener acceso a los costos.

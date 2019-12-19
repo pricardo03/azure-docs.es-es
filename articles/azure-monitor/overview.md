@@ -51,7 +51,7 @@ Azure Monitor puede recopilar datos de diversos orígenes. Puede pensar en super
 
 - **Datos de supervisión de aplicaciones**: datos sobre el rendimiento y la funcionalidad del código que ha escrito, independientemente de la plataforma.
 - **Datos de supervisión del sistema operativo invitado**: datos sobre el sistema operativo en el que se ejecuta la aplicación. La aplicación se puede ejecutar en Azure, en otra nube o en el entorno local. 
-- **Supervisión de recursos con DMV**: datos sobre el funcionamiento de un recurso de Azure.
+- **Supervisión de recursos de Azure**: datos sobre el funcionamiento de un recurso de Azure.
 - **Datos de supervisión de la suscripción de Azure**: datos sobre el funcionamiento y la administración de una suscripción de Azure, así como sobre el estado y el funcionamiento del propio Azure. 
 - **Datos de supervisión de inquilino de Azure**: datos sobre el funcionamiento de los servicios de Azure en el nivel del inquilino, como Azure Active Directory.
 

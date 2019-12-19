@@ -121,7 +121,7 @@ Si utiliza la verificación en dos pasos con la cuenta profesional o educativa y
 
 ## <a name="if-your-app-passwords-arent-working-properly"></a>Si las contraseñas de aplicaciones no funcionan correctamente
 
-Asegúrese de escribir correctamente la contraseña. Si está seguro de que ha introducido tu contraseña correctamente, vuelva a iniciar sesión y cree una nueva contraseña de la aplicación. Si ninguna de estas opciones soluciona el problema, póngase en contacto con el departamento de soporte técnico de la empresa para que pueda eliminar las contraseñas de aplicaciones existentes, permitiéndole crear otras nuevas.
+Asegúrese de escribir correctamente la contraseña. Si está seguro de que ha introducido su contraseña correctamente, vuelva a iniciar sesión y cree una nueva contraseña de la aplicación. Si ninguna de estas opciones soluciona el problema, póngase en contacto con el departamento de soporte técnico de la empresa para que pueda eliminar las contraseñas de aplicaciones existentes, permitiéndole crear otras nuevas.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
