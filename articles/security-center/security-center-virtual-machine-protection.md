@@ -115,7 +115,7 @@ Seleccione una recomendación para ver su descripción, una lista de los recurso
 
    - Seleccione una evaluación aprobada en la lista para obtener su descripción, una lista de los recursos con estados correctos e incorrectos, y una lista de los recursos sin examinar. Hay una pestaña para los recursos con estado incorrecto, pero está siempre vacía ya que se trata de una evaluación aprobada.
 
-### <a name="vmscale-sets">Conjuntos de escala de las máquinas virtuales</a>
+### <a name="vmscale-sets"></a>Conjuntos de escala de las máquinas virtuales
 Security Center detecta automáticamente si tiene conjuntos de escalado y recomienda instalar Microsoft Monitoring Agent en ellos.
 
 Para la instalación de Microsoft Monitoring Agent: 
