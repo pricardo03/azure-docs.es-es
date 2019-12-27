@@ -1,5 +1,5 @@
 ---
-title: Qué es una base de datos única
+title: ¿Qué es una base de datos única?
 description: Obtenga información acerca de la base de datos única en Azure SQL Database
 services: sql-database
 ms.service: sql-database

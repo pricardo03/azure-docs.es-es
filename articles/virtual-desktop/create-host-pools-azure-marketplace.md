@@ -73,7 +73,7 @@ En la hoja **Configuración de las máquinas virtuales**:
 En la hoja **Configuración de la máquina virtual**:
 
 >[!NOTE]
-> Si va a unir las máquinas virtuales a un entorno de Azure Active Directory Domain Services (Azure AD DS), asegúrese de que el usuario de unión a un dominio es miembro del [grupo de administradores del controlador de dominio de AAD](../active-directory-domain-services/tutorial-create-instance-advanced.md#configure-an-administrative-group).
+> Si va a unir las máquinas virtuales a un entorno de Azure Active Directory Domain Services (Azure AD DS), asegúrese de que el usuario de unión a un dominio sea miembro del [grupo de administradores del controlador de dominio de AAD](../active-directory-domain-services/tutorial-create-instance-advanced.md#configure-an-administrative-group).
 >
 > La cuenta también debe formar parte del dominio administrado de Azure AD DS o del inquilino de Azure AD, ya que las cuentas de directorios externos asociadas al inquilino de Azure AD no se pueden autenticar correctamente durante el proceso de unión al dominio. 
 

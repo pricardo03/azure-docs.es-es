@@ -62,7 +62,7 @@ Azure DevOps Projects crea una canalización de CI/CD en Azure Pipelines. Puede 
 
 1. Seleccione **GitHub** o un repositorio de código de **Git** externo. Para este tutorial, seleccione **GitHub**. Es posible que se le pida que se autentique en GitHub la primera vez, para que Azure pueda acceder al repositorio de GitHub.
 
-1. Seleccione un **Repositorio** y una **Rama** y, a continuación, seleccione **Siguiente**.
+1. Seleccione un **repositorio** y una **rama** y, a continuación, seleccione **Siguiente**.
 
 1. Si usa contenedores de Docker, cambie **¿Está dockerizada la aplicación?** a **Sí**. En este tutorial, deje **No** seleccionado y, a continuación, seleccione **Siguiente**. Para más información sobre el uso de contenedores de Docker, mantenga el puntero sobre el icono **i**.
 

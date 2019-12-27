@@ -25,7 +25,7 @@ En este artículo se describe cómo usar el módulo Evaluate Recommender (Evalua
   
 Al crear predicciones con un modelo de recomendación, se devuelven resultados ligeramente diferentes para cada uno de estos tipos de predicción admitidos. El módulo Evaluate Recommender (Evaluar recomendador) deduce el tipo de predicción del formato de columna del conjunto de datos puntuado. Por ejemplo, el conjunto de datos puntuado puede contener:
 
-- Tripleta clasificación-usuario-elemento
+- Tripleta usuario-elemento-clasificación
 - Usuarios y sus elementos recomendados
 
 El módulo también aplica las métricas de rendimiento adecuadas, en función del tipo de predicción que se realice. 

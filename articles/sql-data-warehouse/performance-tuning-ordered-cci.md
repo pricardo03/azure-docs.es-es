@@ -113,7 +113,7 @@ OPTION (MAXDOP 1);
 - Ordene previamente los datos por las claves de ordenación antes de cargarlos en tablas de Azure SQL Data Warehouse.
 
 
-El siguiente es un ejemplo de una distribución de tabla de CCI ordenado que no tiene ningún segmento superpuesto tras aplicar las recomendaciones anteriores. La tabla de CCI ordenada se crea en una base de datos de DWU1000c a través de la instrucción CTAS a partir de una tabla de montón de 20 GB mediante MAXDOP 1 y xlargerc.  El CCI se ordena en una columna BIGINT sin duplicados.  
+El siguiente es un ejemplo de una distribución de tabla de CCI ordenado que no tiene ningún segmento superpuesto tras aplicar las recomendaciones anteriores. La tabla de CCI ordenada se crea en una base de datos DWU1000c mediante la instrucción CTAS a partir de una tabla de montón de 20 GB mediante MAXDOP 1 y xlargerc.  El CCI se ordena en una columna BIGINT sin duplicados.  
 
 ![Segment_No_Overlapping](media/performance-tuning-ordered-cci/perfect-sorting-example.png)
 

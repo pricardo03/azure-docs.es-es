@@ -29,17 +29,17 @@ En este artículo se describe la versión `api-version=2019-05-06-Preview` de la
 
 + El [indexador de Cosmos DB](search-howto-index-cosmosdb.md) admite MongoDB API, Gremlin API y Cassandra API.
 
-+ El [indexador de Data Lake Storage Gen2](search-howto-index-azure-data-lake-storage.md) puede indexar el contenido y los metadatos de Data Lake Storage Gen2.
++ El [indexador de Azure Data Lake Storage Gen2](search-howto-index-azure-data-lake-storage.md) puede indexar el contenido y los metadatos de Data Lake Storage Gen2.
 
 + La [extracción de documentos (versión preliminar)](cognitive-search-skill-document-extraction.md) es una aptitud cognitiva que se usa durante la indexación y que permite extraer el contenido de un archivo de un conjunto de aptitudes. Antes, el descifrado de documentos solo tenía lugar antes de la ejecución del conjunto de aptitudes. Con la incorporación de esta aptitud, también puede realizar esta operación dentro de la ejecución del conjunto de aptitudes.
 
 + La [traducción de texto (versión preliminar)](cognitive-search-skill-text-translation.md) es una aptitud cognitiva que se usa durante la indexación que evalúa el texto y devuelve en todos los registros el texto traducido al idioma de destino especificado.
 
-+ El [almacén de conocimiento](knowledge-store-concept-intro.md)es un nuevo destino de una canalización de enriquecimiento basada en inteligencia artificial. La estructura de datos física existe en Azure Blob Storage y Azure Table Storage, y se crea y rellena al ejecutar un indexador que tiene un conjunto de aptitudes cognitivas conectado. La definición de un almacén de conocimiento se especifica en la definición de un conjunto de aptitudes. En la definición del almacén de conocimiento, controla las estructuras físicas de los datos a través de los elementos de *proyección* que determinan cómo se forman los datos, si estos se almacenan en Table Storage o Blob Storage, y si hay varias vistas.
++ El [almacén de conocimiento](knowledge-store-concept-intro.md) es un nuevo destino de una canalización de enriquecimiento basada en inteligencia artificial. La estructura de datos física existe en Azure Blob Storage y Azure Table Storage, y se crea y rellena al ejecutar un indexador que tiene un conjunto de aptitudes cognitivas conectado. La definición de un almacén de conocimiento se especifica en la definición de un conjunto de aptitudes. En la definición del almacén de conocimiento, controla las estructuras físicas de los datos mediante los elementos de *proyección* que determinan cómo se forman los datos, si estos se almacenan en Table Storage o Blob Storage y si hay varias vistas.
 
-+ Las [claves de cifrado administradas por el cliente](search-security-manage-encryption-keys.md) para el cifrado en reposo desde el servicio son también una nueva característica de versión preliminar. Además del cifrado en reposo integrado administrado por Microsoft, puede aplicar una capa adicional de cifrado, donde será el titular exclusivo de las claves de cifrado.
++ Las [claves de cifrado administradas por el cliente](search-security-manage-encryption-keys.md) para el cifrado en reposo desde el servicio son también una nueva característica en versión preliminar. Además del cifrado en reposo integrado administrado por Microsoft, puede aplicar una capa adicional de cifrado, donde será el titular exclusivo de las claves de cifrado.
 
-## <a name="earlier-preview-features"></a>Características de las versiones preliminares anteriores
+## <a name="earlier-preview-features"></a>Características en versiones preliminares anteriores
 
 Las características anunciadas en versiones preliminares anteriores aún están en versión preliminar pública. Si está llamando a una API con una versión anterior de la API en versión preliminar, puede continuar usando esa versión o cambiar a `2019-05-06-Preview` sin que se produzcan cambios en el comportamiento esperado.
 

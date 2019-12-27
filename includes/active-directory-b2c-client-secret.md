@@ -25,4 +25,4 @@ ms.locfileid: "73641787"
 1. Seleccione **Nuevo secreto de cliente**.
 1. Escriba una descripción para el secreto de cliente en el cuadro **Descripción**. Por ejemplo, *clientsecret1*.
 1. En **Expira**, seleccione el tiempo durante el cual el secreto es válido y, a continuación, seleccione **Agregar**.
-1. Registre el **Valor** del secreto. Este valor se usa para la configuración en un paso posterior.
+1. Registre el **valor** del secreto. Este valor se usa para la configuración en un paso posterior.

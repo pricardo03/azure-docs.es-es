@@ -1,5 +1,5 @@
 ---
-title: 'Continuidad empresarial en la nube: recuperación de bases de datos'
+title: 'Continuidad empresarial en la nube: Recuperación de bases de datos'
 description: Obtenga información acerca de cómo Azure SQL Database permite la continuidad del negocio en la nube y la recuperación de la base de datos, y ayuda a que las aplicaciones críticas de la nube se sigan ejecutando.
 keywords: continuidad del negocio, continuidad del negocio en la nube, recuperación de desastres de la base de datos, recuperación de la base de datos
 services: sql-database

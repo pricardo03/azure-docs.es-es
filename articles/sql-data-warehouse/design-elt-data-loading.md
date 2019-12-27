@@ -20,10 +20,10 @@ ms.locfileid: "73748510"
 ---
 # <a name="data-loading-strategies-for-azure-sql-data-warehouse"></a>Estrategias de carga de datos para Azure SQL Data Warehouse
 
-Los almacenes de datos SMP tradicionales usan un proceso de extracción, transformación y carga (ETL) para cargar los datos. Azure SQL Data Warehouse es una arquitectura de diseño de procesamiento paralelo masivo (MPP) que aprovecha la escalabilidad y la flexibilidad de los recursos de proceso y almacenamiento. El uso de un proceso de extracción, carga y transformación (ELT) puede aprovechar las ventajas de MPP y eliminar los recursos necesarios para transformar los datos antes de cargarlos. Aunque SQL Data Warehouse admite muchos métodos de carga, entre los que se incluyen las conocidas opciones de SQL Server como BCP y SQL BulkCopy API, la manera más rápida y escalable de cargar datos es a través de tablas externas de PolyBase y la [instrucción COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest).  Con PolyBase y la instrucción COPY, es posible acceder a datos externos almacenados en Azure Blob Storage o Azure Data Lake Store mediante el lenguaje T-SQL. Para obtener la máxima flexibilidad al realizar la carga en SQL Data Warehouse, se recomienda usar la instrucción COPY. 
+Los almacenes de datos SMP tradicionales usan un proceso de extracción, transformación y carga (ETL) para cargar los datos. Azure SQL Data Warehouse es una arquitectura de diseño de procesamiento paralelo masivo (MPP) que aprovecha la escalabilidad y la flexibilidad de los recursos de proceso y almacenamiento. El uso de un proceso de extracción, carga y transformación (ELT) puede aprovechar las ventajas de MPP y eliminar los recursos necesarios para transformar los datos antes de cargarlos. Aunque SQL Data Warehouse admite muchos métodos de carga, entre los que se incluyen conocidas opciones de SQL Server como BCP y SQL BulkCopy API, la manera más rápida y escalable de cargar datos es mediante tablas externas de PolyBase y la [instrucción COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) (versión preliminar).  Con PolyBase y la instrucción COPY, es posible acceder a datos externos almacenados en Azure Blob Storage o Azure Data Lake Store mediante el lenguaje T-SQL. Para obtener la máxima flexibilidad al realizar la carga en SQL Data Warehouse, se recomienda usar la instrucción COPY. 
 
 > [!NOTE]  
-> Actualmente, la instrucción COPY está en versión preliminar pública. Para realizar los comentarios que desee, envíe un mensaje de correo electrónico a la siguiente lista de distribución: sqldwcopypreview@service.microsoft.com.
+> Actualmente, la instrucción COPY está en versión preliminar pública. Para proporcionar comentarios, envíe un correo electrónico a la siguiente lista de distribución: sqldwcopypreview@service.microsoft.com.
 >
         
  
@@ -32,9 +32,9 @@ Los almacenes de datos SMP tradicionales usan un proceso de extracción, transfo
 
 ## <a name="what-is-elt"></a>¿Qué es ELT?
 
-Extracción, carga y transformación (ELT) es un proceso mediante el que se extraen datos se extraen de un sistema de origen, se cargan en un almacén de datos y, después, se transforman. 
+Extracción, carga y transformación (ELT) es un proceso por el cual se extraen datos de un sistema de origen, se cargan en un almacén de datos y, después, se transforman. 
 
-Los pasos básicos para implementar ELT para SQL Data Warehouse son:
+Los pasos básicos para implementar el proceso ELT para SQL Data Warehouse son:
 
 1. Extraer los datos de origen en archivos de texto.
 2. Llevar los datos a Azure Blob Storage o Azure Data Lake Store.
@@ -44,7 +44,7 @@ Los pasos básicos para implementar ELT para SQL Data Warehouse son:
 6. Insertar los datos en tablas de producción.
 
 
-Si desea un tutorial sobre la carga con PolyBase, consulte el artículo sobre el [uso de PolyBase para cargar datos de Azure Blob Storage en Azure SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md).
+Si desea ver un tutorial sobre la carga con PolyBase, consulte el artículo [Uso de PolyBase para cargar datos de Azure Blob Storage en Azure SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md).
 
 Para obtener más información, consulte [el blog de patrones de carga](https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-loading-patterns-and-strategies/). 
 
@@ -55,7 +55,7 @@ La obtención de datos del sistema de origen depende de la ubicación del almace
 
 ### <a name="polybase-and-copy-external-file-formats"></a>Formatos de archivo externos de PolyBase y de COPY
 
-Con PolyBase y la instrucción COPY, puede cargar datos a archivos CSV o de texto delimitados con codificación UTF-8 y UTF-16. Además de los archivos CSV o de texto delimitados, carga datos desde formatos de archivos Hadoop, como ORC y Parquet. PolyBase y la instrucción COPY también pueden cargar datos desde archivos comprimidos Gzip y Snappy. No se admiten el formato ASCII extendido, el formato de ancho fijo ni los formatos anidados como WinZip o XML. Si va a exportar desde SQL Server, puede usar la [herramienta de línea de comandos bcp](/sql/tools/bcp-utility?view=azure-sqldw-latest) para exportar los datos en archivos de texto delimitados. 
+Con PolyBase y la instrucción COPY, puede cargar datos a partir de archivos CSV o de texto delimitados con codificación UTF-8 y UTF-16. Además de los archivos CSV o de texto delimitados, carga datos desde formatos de archivos Hadoop, como ORC y Parquet. PolyBase y la instrucción COPY también pueden cargar datos desde archivos comprimidos Gzip y Snappy. No se admiten el formato ASCII extendido, el formato de ancho fijo ni los formatos anidados como WinZip o XML. Si va a exportar desde SQL Server, puede usar la [herramienta de línea de comandos bcp](/sql/tools/bcp-utility?view=azure-sqldw-latest) para exportar los datos en archivos de texto delimitados. 
 
 ## <a name="2-land-the-data-into-azure-blob-storage-or-azure-data-lake-store"></a>2. Llevar los datos a Azure Blob Storage o Azure Data Lake Store
 
@@ -81,7 +81,7 @@ Si define tablas externas debe especificar el origen de datos, el formato de los
 - [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest)
 - [CREATE EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql?view=azure-sqldw-latest)
 
-Al cargar Parquet, la asignación del tipo de datos con SQL DW es:
+Al cargar Parquet, la asignación del tipo de datos con SQL DW es:
 
 | **Tipo de datos de Parquet** |                      **Tipo de datos de SQL**                       |
 | :-------------------: | :----------------------------------------------------------: |

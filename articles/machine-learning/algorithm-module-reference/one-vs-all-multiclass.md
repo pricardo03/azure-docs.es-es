@@ -24,11 +24,11 @@ Este módulo es útil para crear modelos que predicen tres o más resultados pos
 
 ### <a name="more-about-one-versus-all-models"></a>Más información sobre los modelos uno frente a todos
 
-Algunos algoritmos de clasificación permiten el uso de más de dos clases intencionadamente. Otros restringen los posibles resultados a uno de dos valores (un modelo binario, o de dos clases). Pero, incluso los algoritmos de clasificación binaria se pueden adaptar a las tareas de clasificación de varias clases con diversas estrategias. 
+Algunos algoritmos de clasificación permiten el uso de más de dos clases intencionadamente. Otros restringen los posibles resultados a uno de dos valores (un modelo binario o de dos clases). Pero, incluso los algoritmos de clasificación binaria se pueden adaptar a las tareas de clasificación de varias clases con diversas estrategias. 
 
-Este módulo implementa el método uno frente a todos, en el que se crea un modelo binario para cada una de las distintas clases de salida. El módulo evalúa cada uno de estos modelos binarios para las clases individuales con respecto a su complemento (todas las demás clases del modelo) como si fuese un problema de clasificación binaria. El módulo realiza entonces la predicción mediante la ejecución de estos clasificadores binarios, y la elección de la predicción con la puntuación de confianza más alta.  
+Este módulo implementa el método uno frente a todos, en el que se crea un modelo binario para cada una de las distintas clases de salida. El módulo evalúa cada uno de estos modelos binarios para las clases individuales con respecto a su complemento (todas las demás clases del modelo) como si fuese un problema de clasificación binaria. El módulo realiza entonces la predicción; para ello, ejecuta estos clasificadores binarios y elige la predicción con la puntuación de confianza más alta.  
 
-En esencia, el módulo crea un conjunto de modelos individuales, y luego combina los resultados para crear un único modelo que predice todas las clases. Cualquier clasificador binario se puede utilizar como base para un modelo uno frente a todos.  
+En esencia, el módulo crea un conjunto de modelos individuales y luego combina los resultados para crear un único modelo que predice todas las clases. Cualquier clasificador binario se puede utilizar como base para un modelo uno frente a todos.  
 
 Por ejemplo, supongamos que configura un modelo de [Máquina de vectores de soporte de dos clases](two-class-support-vector-machine.md) y lo proporciona como entrada al módulo One-vs-All Multiclass (Uno frente a todos multiclase). El módulo creará modelos de máquina de vectores de soporte de dos clases para todos los miembros de la clase de salida. A continuación, aplicará el método uno frente a todos para combinar los resultados de todas las clases.  
 
@@ -40,7 +40,7 @@ Conecte el modelo binario al módulo One-vs-All Multiclass (Uno frente a todos m
 
 Cuando combina los modelos, One-vs-All Multiclass (Uno frente a todos multiclase) crea varios modelos de clasificación binaria, optimiza el algoritmo para cada clase y, después, combina los modelos. El módulo realiza estas tareas aunque el conjunto de datos de entrenamiento pueda tener varios valores de clase.
 
-1. Agregue el módulo One-vs-All Multiclass (Uno frente a todos multiclase) a la canalización en el diseñador. Puede encontrar este módulo en **Machine Learning - Inicializar**, en la categoría **Clasificación**.
+1. Agregue el módulo One-vs-All Multiclass (Uno frente a todos multiclase) a la canalización del diseñador. Puede encontrar este módulo en **Machine Learning - Inicializar**, en la categoría **Clasificación**.
 
    El clasificador One-vs-All Multiclass (Uno frente a todos multiclase) no tiene parámetros configurables propios. Las personalizaciones tienen que realizarse en el modelo de clasificación binaria que se proporciona como entrada.
 

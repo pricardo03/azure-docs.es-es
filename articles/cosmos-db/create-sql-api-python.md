@@ -33,13 +33,13 @@ En esta guía de inicio rápido se muestra cómo crear una cuenta de [SQL API](s
 
 Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribución global de Microsoft. Puede crear y consultar documentos, claves y valores, columnas anchas y bases de datos de grafos rápidamente. Todas estas operaciones se benefician de la distribución y la escalabilidad de Azure Cosmos DB.
 
-Este inicio rápido usa la versión 4 del [SDK de Python](https://pypi.org/project/azure-cosmos/#history).
+Este inicio rápido usa la versión 4 del [SDK de Python](https://pypi.org/project/azure-cosmos/#history).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)][!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* [Python 3.6](https://www.python.org/downloads/), con el ejecutable `python` disponible en `PATH`.
+* [Python 3.6 o versiones posteriores](https://www.python.org/downloads/), con el ejecutable `python` disponible en `PATH`.
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [Extensión de Python para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python#overview)
 
@@ -112,7 +112,7 @@ Este paso es opcional. Aprenda sobre los recursos de base de datos creados en c�
 
 Los fragmentos de código siguientes se han tomado del archivo `cosmos_get_started.py`.
 
-* Se inicializa CosmosClient. Asegúrese de actualizar los valores de "endpoint" y "key" según se describe en la sección [Actualización de la cadena de conexión](#update-your-connection-string). 
+* Se inicializa CosmosClient. Asegúrese de actualizar los valores de "endpoint" y "key", según se describe en la sección [Actualización de la cadena de conexión](#update-your-connection-string). 
 
     [!code-python[](~/azure-cosmos-db-python-getting-started/cosmos_get_started.py?name=create_cosmos_client)]
 
@@ -165,7 +165,7 @@ Los fragmentos de código siguientes se han tomado del archivo `cosmos_get_start
     python cosmos_get_started.py
     ```
 
-7. Para confirmar que los nuevos elementos se han creado y guardado, en Azure Portal, seleccione **Data Explorer** > **AzureSampleFamilyDatabase** > **Elementos**. Vea los elementos que se han creado. Por ejemplo, este es un documento JSON de ejemplo para la familia Andersen:
+7. Para confirmar que los nuevos elementos se han creado y guardado, en Azure Portal, seleccione **Explorador de datos** > **AzureSampleFamilyDatabase** > **Elementos**. Vea los elementos que se han creado. Por ejemplo, este es un documento JSON de ejemplo para la familia Andersen:
 
 ```json
 {

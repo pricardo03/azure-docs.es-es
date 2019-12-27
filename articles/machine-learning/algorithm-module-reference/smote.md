@@ -30,7 +30,7 @@ SMOTE es una técnica estadística de sobremuestreo de minorías sintéticas par
 
 Las instancias nuevas no son meras copias de los casos minoritarios existentes. En su lugar, el algoritmo toma muestras del *espacio de características* de cada clase de destino y de sus vecinos más próximos. Luego, el algoritmo genera nuevos ejemplos que combinan las características del caso que nos ocupa con características de sus vecinos. Este enfoque aumenta las características disponibles para cada clase y hace que las muestras sean más generales.
   
-SMOTE toma todo el conjunto de datos como una entrada, pero solo aumenta el porcentaje de los casos minoritarios. Por ejemplo, suponga que tiene un conjunto de datos con desequilibrios en el que solo el 1 % de los casos tiene el valor de destino A (la clase minoritaria), mientras que el 99 % restante tienen el valor B. Para aumentar al doble el porcentaje de los casos minoritarios, es preciso especificar **200**como**porcentaje de SMOTE** en las propiedades del módulo.  
+SMOTE toma todo el conjunto de datos como una entrada, pero solo aumenta el porcentaje de los casos minoritarios. Por ejemplo, suponga que tiene un conjunto de datos con desequilibrios en el que solo el 1 % de los casos tiene el valor de destino A (la clase minoritaria), mientras que el 99 % restante tienen el valor B. Para aumentar al doble el porcentaje de los casos minoritarios, es preciso especificar **200**como**porcentaje de SMOTE** en las propiedades del módulo.  
   
 ## <a name="examples"></a>Ejemplos  
 
@@ -45,7 +45,7 @@ Para aumentar el número de casos, puede usar múltiplos de 100 para establecer 
 |Conjunto de datos original<br /><br /> (equivalente a **porcentaje SMOTE** = **0**)|570<br /><br /> 76%|178<br /><br /> 24%|748|  
 |**Porcentaje SMOTE** = **100**|570<br /><br /> 62%|356<br /><br /> 38%|926|  
 |**Porcentaje SMOTE** = **200**|570<br /><br /> 52%|534<br /><br /> 48%|1104|  
-|**Porcentaje SMOTE** = **300**|570<br /><br /> 44%|712<br /><br /> 56%|1\.282|  
+|**Porcentaje SMOTE** = **300**|570<br /><br /> 44%|712<br /><br /> 56%|1282|  
   
 > [!WARNING]
 > El aumento del número de casos mediante SMOTE no garantiza la producción de modelos más precisos. Pruebe la canalización con diferentes porcentajes, conjuntos de características y números de vecinos más próximos para ver de qué forma la adición de casos afecta al modelo.  
@@ -54,15 +54,15 @@ Para aumentar el número de casos, puede usar múltiplos de 100 para establecer 
   
 1.  Agregue el módulo SMOTE a la canalización. Puede encontrarlo en los **módulos de Transformación de datos**, en la categoría **Manipulación**.
 
-2. Conecte el conjunto de datos que desee potenciar. Si desea especificar el espacio de características para compilar los nuevos casos, ya sea mediante el uso exclusivo de columnas concretas o mediante la exclusión de algunas, use el módulo [Select Columns in Dataset](select-columns-in-dataset.md) (Seleccionar columnas del conjunto de datos). A continuación, puede aislar las columnas que desea usar antes de utilizar SMOTE.
+2. Conecte el conjunto de datos que desee potenciar. Si desea especificar el espacio de características para compilar los nuevos casos, ya sea mediante el uso solo de columnas concretas o mediante la exclusión de algunas, use el módulo [Select Columns in Dataset](select-columns-in-dataset.md) (Seleccionar columnas del conjunto de datos). A continuación, puede aislar las columnas que desea usar antes de utilizar SMOTE.
   
     De lo contrario, la creación de nuevos casos en SMOTE se basa en *todas* las columnas que se proporcionan como entradas. Al menos una de las columnas de características es numérica.
   
-3.  Asegúrese que la columna que contiene la etiqueta o la clase de destino está seleccionada. SMOTE solo acepta etiquetas binarias.
+3.  Asegúrese de que la columna que contiene la etiqueta o la clase de destino esté seleccionada. SMOTE solo acepta etiquetas binarias.
   
 4.  El módulo SMOTE identifica automáticamente la clase minoritaria en la columna de la etiqueta y luego obtiene todos los ejemplos de la clase minoritaria. Todas las columnas no pueden tener valores NaN.
   
-5.  En la opción **SMOTE percentage** (Porcentaje de SMOTE), escriba un número entero que indique el porcentaje destino de los casos minoritarios en el conjunto de datos de salida. Por ejemplo:  
+5.  En la opción **SMOTE percentage** (Porcentaje de SMOTE), escriba un número entero que indique el porcentaje de destino de los casos minoritarios en el conjunto de datos de salida. Por ejemplo:  
   
     - Escriba **0**. El módulo SMOTE devuelve exactamente el mismo conjunto de datos que proporcionó como entrada. No agrega ningún caso minoritario nuevo. En este conjunto de datos, la proporción de la clase no ha cambiado.  
   
@@ -78,7 +78,7 @@ Para aumentar el número de casos, puede usar múltiplos de 100 para establecer 
     + Al aumentar el número de vecinos más próximos, se obtienen características en más casos.
     + Al mantener bajo el número de vecinos más próximos, se usan características que son más similares a las de la muestra original.  
   
-7. Escriba un valor en el cuadro de texto **Random seed** (Valor de inicialización aleatorio) si desea garantizar los mismos resultados en las ejecuciones de la misma canalización, con los mismos datos. De lo contrario, el módulo genera un valor de inicialización aleatorio basada en los valores del reloj del procesador cuando se implementa la canalización. La generación de un valor de inicialización aleatorio puede producir resultados ligeramente diferentes en las distintas ejecuciones.
+7. Escriba un valor en el cuadro de texto **Random seed** (Valor de inicialización aleatorio) si desea garantizar los mismos resultados en las ejecuciones de la misma canalización, con los mismos datos. De lo contrario, el módulo genera un valor de inicialización aleatorio basado en los valores del reloj del procesador cuando se implementa la canalización. La generación de un valor de inicialización aleatorio puede producir resultados ligeramente diferentes en las distintas ejecuciones.
 
 8. Ejecución de la canalización  
   
@@ -86,7 +86,7 @@ Para aumentar el número de casos, puede usar múltiplos de 100 para establecer 
 
 ## <a name="technical-notes"></a>Notas técnicas
 
-+ Cuando publique un modelo que utilice el módulo **SMOTE**, elimine **SMOTE** del canal de predicción antes de que se publique como un servicio web. El motivo de dicha eliminación es que SMOTE está diseñado para mejorar un modelo durante el entrenamiento, no para la puntuación. Es posible que se produzca un error si una canalización predictiva publicada contiene el módulo SMOTE.
++ Cuando publique un modelo que utilice el módulo **SMOTE**, elimine **SMOTE** de la canalización de predicción antes de que se publique como un servicio web. El motivo de dicha eliminación es que SMOTE está diseñado para mejorar un modelo durante el entrenamiento, no para la puntuación. Es posible que se produzca un error si una canalización predictiva publicada contiene el módulo SMOTE.
 
 + A menudo se pueden obtener mejores resultados si se borran los valores que faltan o se aplican otras transformaciones para corregir los datos antes de aplicar SMOTE. 
 

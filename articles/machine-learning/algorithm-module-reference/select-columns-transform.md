@@ -47,7 +47,7 @@ En este escenario se supone que desea usar la selección de características par
    *No conecte el conjunto de datos de entrada.* En su lugar, agregue el módulo de [Aplicar transformación](apply-transformation.md) y conecte la salida de la transformación de selección de características.
 
    > [!IMPORTANT]
-   > No puede esperar aplicar [Selección de características basada en filtros](filter-based-feature-selection.md) al conjunto de datos de puntuación y obtener los mismos resultados. Dado que la selección de características se basa en valores, puede elegir un conjunto diferente de columnas, lo que provocaría el fracaso de la operación de puntuación.
+   > No puede esperar aplicar [Filter Based Feature Selection](filter-based-feature-selection.md) (Selección de características basada en filtros) al conjunto de datos de puntuación y obtener los mismos resultados. Dado que la selección de características se basa en valores, puede elegir un conjunto diferente de columnas, lo que provocaría el fracaso de la operación de puntuación.
 7. Ejecución de la canalización
 
 Este proceso de guardar y después aplicar una selección de columnas garantiza que el mismo esquema de datos esté disponible para el entrenamiento y la puntuación.

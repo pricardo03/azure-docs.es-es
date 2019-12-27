@@ -87,7 +87,7 @@ Cree una colección de reglas de aplicación que permita al clúster enviar y re
 
 Cree las reglas de red para configurar correctamente el clúster de HDInsight.
 
-1. Siguiendo con el paso anterior, vaya a **Recopilación de reglas de red** >  **+ Agregar recopilación de reglas de red**.
+1. Siguiendo con el paso anterior, vaya a **Recopilación de reglas de red** >  **+ Agregar una colección de reglas de red**.
 
 1. En la pantalla **Agregar una colección de reglas de red**, proporcione la siguiente información:
 

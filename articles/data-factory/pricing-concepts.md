@@ -1,5 +1,5 @@
 ---
-title: Información sobre los precios de Azure Data Factory a través de ejemplos
+title: Descripción de los precios de Azure Data Factory mediante ejemplos
 description: En este artículo se explica y muestra el modelo de precios de Azure Data Factory con ejemplos detallados
 documentationcenter: ''
 author: djpmsft

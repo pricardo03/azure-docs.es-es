@@ -1,5 +1,5 @@
 ---
-title: 'Límites de recursos de núcleo virtual: base de datos única'
+title: 'Límites de recursos de núcleo virtual: Base de datos única'
 description: En esta página se describen algunos límites de recursos en núcleos virtuales comunes para una base de datos única en Azure SQL Database.
 services: sql-database
 ms.service: sql-database

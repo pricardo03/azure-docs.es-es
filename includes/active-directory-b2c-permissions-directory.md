@@ -32,4 +32,4 @@ ms.locfileid: "73800109"
 1. Seleccione **Conceder consentimiento de administrador para (el nombre de inquilino)** .
 1. Seleccione una cuenta de administrador de inquilinos.
 1. Seleccione **Aceptar**.
-1. Seleccione **Actualizar** y, a continuación, compruebe que aparece "Concedido para..." bajo **Estado**. Los permisos pueden tardar unos minutos en propagarse.
+1. Seleccione **Actualizar** y, a continuación, compruebe que aparece "Concedido para..." en **Estado**. Los permisos pueden tardar unos minutos en propagarse.

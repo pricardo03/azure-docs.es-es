@@ -72,7 +72,7 @@ Cuando se produce una interrupción en una zona, los nodos se pueden reequilibra
 
 ## <a name="create-an-aks-cluster-across-availability-zones"></a>Crear un clúster de AKS en zonas de disponibilidad
 
-Cuando crea un clúster con el comando [az aks create][az-aks-create], el parámetro `--zones` define en qué zonas se implementan los nodos de agente. Cuando se define este parámetro `--zones` al crear el clúster, los componentes del plano de control de AKS del clúster también se extienden a través de las zonas, con la máxima configuración disponible.
+Cuando crea un clúster con el comando [az aks create][az-aks-create], el parámetro `--zones` define en qué zonas se implementan los nodos de agente. Cuando se define este parámetro `--zones` al crear el clúster, los componentes del plano de control de AKS del clúster también se extienden por las zonas, con la máxima configuración disponible.
 
 Si no define ninguna zona para el grupo de agentes predeterminado cuando crea un clúster de AKS, los componentes del plano de control AKS del clúster no usarán las zonas de disponibilidad. Puede agregar grupos de nodos adicionales mediante el comando [az aks nodepool add][az-aks-nodepool-add] y especificar `--zones` para esos nuevos nodos; sin embargo, los componentes del plano de control permanecen sin conocimiento de la zona de disponibilidad. No puede cambiar el reconocimiento de zona para un grupo de nodos o los componentes del plano de control de AKS una vez que se implementan.
 

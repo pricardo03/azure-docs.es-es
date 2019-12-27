@@ -25,7 +25,7 @@ Los conjuntos de datos incluyen datos de dominio público para el clima, censos,
 ## <a name="curated-prepared-datasets"></a>Conjuntos de datos mantenidos, preparados
 Los conjuntos de datos públicos abiertos seleccionados en Azure Open Datasets están optimizados para su uso en los flujos de trabajo de aprendizaje automático. 
 
-En general, los científicos de datos dedican la mayor parte de su tiempo a la limpieza y preparación de los datos para análisis avanzados. Open Datasets se copia a la nube de Azure y se preprocesa para ahorrarle tiempo. A intervalos regulares, los datos se extraen de los orígenes, por ejemplo, mediante una conexión FTP a la Administración Nacional Oceánica y Atmosférica (NOAA). A continuación, los datos se analizan en un formato estructurado y, después, se enriquecen según corresponda con características como el código postal o la ubicación de la estación meteorológica más cercana.
+En general, los científicos de datos dedican la mayor parte de su tiempo a la limpieza y preparación de los datos para análisis avanzados. Open Datasets se copia a la nube de Azure y se preprocesa para ahorrarle tiempo. A intervalos regulares, los datos se extraen de los orígenes, por ejemplo, mediante una conexión FTP a la Administración Nacional Oceánica y Atmosférica (NOAA). A continuación, los datos se redistribuyen en un formato estructurado y, después, se enriquecen según corresponda con características como el código postal o la ubicación de la estación meteorológica más cercana.
 
 Los conjuntos de datos se hospedan conjuntamente con los procesos en la nube en Azure, lo que facilita el acceso y la manipulación.  
 

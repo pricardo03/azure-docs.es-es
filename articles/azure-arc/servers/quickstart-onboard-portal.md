@@ -69,7 +69,7 @@ Para desconectar una máquina de Azure Arc para servidores, debe realizar dos pa
   
   ![Aplicaciones y características](./media/quickstart-onboard/apps-and-features.png)
 
-   Si desea crear un script para la desinstalación, puede utilizar el ejemplo siguiente, que recupera el **PackageId** y desinstalar el agente mediante `msiexec /X`.
+   Si desea crear un script para la desinstalación, puede utilizar el ejemplo siguiente, que recupera el **PackageId**, y desinstalar el agente mediante `msiexec /X`.
 
    Busque en la clave del Registro `HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall` y busque **PackageId**. A continuación, puede desinstalar el agente mediante `msiexec`.
 

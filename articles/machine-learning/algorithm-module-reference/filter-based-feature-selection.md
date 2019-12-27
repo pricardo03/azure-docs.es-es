@@ -20,7 +20,7 @@ ms.locfileid: "73717208"
 
 En este artículo se describe cómo usar el módulo Filter Based Feature Selection (Selección de características basada en filtro) en el diseñador de Azure Machine Learning (versión preliminar). Este módulo ayuda a identificar las columnas del conjunto de datos de entrada con la máxima eficacia predictiva. 
 
-En general, la *selección de características* hace referencia al proceso de aplicar pruebas estadísticas a las entradas, dada una salida especificada para determinar qué columnas son más predecibles de la salida. El módulo Filter Based Feature Selection (Selección de características basada en filtro) proporciona varios algoritmos de selección de características entre los que elegir. El módulo incluye métodos de correlación como la correlación de Pearson y valores de la χ2. 
+En general, la *selección de características* hace referencia al proceso de aplicar pruebas estadísticas a las entradas, dada una salida especificada. El objetivo es determinar qué columnas de la salida son más predecibles. El módulo Filter Based Feature Selection (Selección de características basada en filtro) proporciona varios algoritmos de selección de características entre los que elegir. El módulo incluye métodos de correlación como la correlación de Pearson y valores de χ2. 
 
 Al usar el módulo Filter Based Feature Selection (Selección de características basada en filtro), se proporciona un conjunto de datos y se identifica la columna que contiene la etiqueta o la variable dependiente. A continuación, se especifica un único método que se va a usar para medir la importancia de la característica.
 
@@ -28,7 +28,7 @@ El módulo genera un conjunto de datos que contiene las mejores columnas de cara
 
 ## <a name="what-filter-based-feature-selection-is"></a>Qué es la selección de características basada en filtro  
 
-Este módulo para la selección de características se denomina "basado en filtro" porque se usa la métrica seleccionada para identificar atributos irrelevantes y se filtran las columnas redundantes del modelo. Se elige una única medida estadística que se adapta a los datos y el módulo calcula una puntuación para cada columna de característica. Las columnas se devuelven según sus puntuaciones de características. 
+Este módulo para la selección de características se denomina "basado en filtro" porque se usa la métrica seleccionada para identificar atributos irrelevantes. Después, se filtran las columnas redundantes del modelo. Se elige una única medida estadística que se adapta a los datos y el módulo calcula una puntuación para cada columna de característica. Las columnas se devuelven según sus puntuaciones de características. 
 
 Al elegir las características correctas, puede mejorar la precisión y la eficacia de la clasificación. 
 
@@ -36,7 +36,7 @@ Normalmente, solo se usan las columnas con las mejores puntuaciones para crear e
 
 ## <a name="how-to-choose-a-feature-selection-metric"></a>Cómo elegir una métrica de selección de características
 
-El módulo Filter Based Feature Selection (Selección de características basada en filtro) proporciona una variedad de métricas para evaluar el valor de la información de cada columna. En esta sección se proporciona una descripción general de cada métrica y cómo se aplica. Los requisitos adicionales para usar cada métrica se indican en las [notas técnicas](#technical-notes) y en las [instrucciones](#how-to-configure-filter-based-feature-selection) de configuración de cada módulo.
+El módulo Filter Based Feature Selection (Selección de características basada en filtro) proporciona diversas métricas para evaluar el valor de la información de cada columna. En esta sección se proporciona una descripción general de cada métrica y cómo se aplica. Los requisitos adicionales para usar cada métrica se indican en las [notas técnicas](#technical-notes) y en las [instrucciones](#how-to-configure-filter-based-feature-selection) de configuración de cada módulo.
 
 -   **Correlación de Pearson**  
 
@@ -50,7 +50,7 @@ El módulo Filter Based Feature Selection (Selección de características basada
 
 
 > [!TIP]
-> Si necesita una opción diferente para el método de selección de características personalizado, use el módulo [Execute R Script](execute-r-script.md) (Ejecutar script R). 
+> Si necesita una opción diferente para el método de selección de características personalizado, use el módulo [Execute R Script](execute-r-script.md) (Ejecutar script de R). 
 
 ## <a name="how-to-configure-filter-based-feature-selection"></a>Cómo configurar de la selección de características basada en filtros
 
@@ -63,7 +63,7 @@ Elija una métrica estadística estándar. El módulo calcula la correlación en
     Para asegurarse de que se analiza una columna y se genera una puntuación de características, use el módulo [Edit Metadata](edit-metadata.md) (Editar metadatos) para establecer el atributo **IsFeature**. 
 
     > [!IMPORTANT]
-    > Asegúrese de que las columnas que va a proporcionar como entrada son características potenciales. Por ejemplo, una columna que contiene un valor único no tiene ningún valor de información.
+    > Asegúrese de que las columnas que va a proporcionar como entrada sea características potenciales. Por ejemplo, una columna que contiene un valor único no tiene ningún valor de información.
     >
     > Si sabe que hay columnas que crearían características incorrectas, puede quitarlas de la selección. También puede usar el módulo [Edit Metadata](edit-metadata.md) (Editar metadatos) para marcarlos como **Categorical** (Categórico). 
 3.  Para el **Método de puntuación de características**, elija uno de los siguientes métodos estadísticos establecidos para usar en el cálculo de puntuaciones.  

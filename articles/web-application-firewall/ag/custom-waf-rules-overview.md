@@ -163,10 +163,10 @@ Lista de valores con los que se va a comparar, que se pueden considerar como com
 
 ## <a name="geomatch-custom-rules-preview"></a>Reglas personalizadas de Geomatch (vista previa)
 
-Las reglas personalizadas permiten la creación de reglas adaptadas para satisfacer las necesidades precisas de las aplicaciones y las directivas de seguridad. Ahora puede restringir el acceso a las aplicaciones web por país o región, característica que está disponible en versión preliminar pública. Como con todas las reglas personalizadas, esta lógica se puede componer con otras reglas para satisfacer las necesidades de la aplicación. 
+Las reglas personalizadas permiten la creación de reglas adaptadas para satisfacer las necesidades precisas de las aplicaciones y las directivas de seguridad. Ahora puede restringir el acceso a las aplicaciones web por país o región, característica que está disponible en versión preliminar pública. Como con todas las reglas personalizadas, esta lógica puede estar compuesta de otras reglas que se adapten a las necesidades de la aplicación. 
 
    > [!NOTE]
-   > Las reglas personalizadas de geocoincidencia están disponibles en Centro-sur de EE. UU. y Norte de Europa. Para acceder a ellas en el portal, use [este vínculo](https://aka.ms/AppGWWAFGeoMatch) hasta que esté disponible para todos. 
+   > Las reglas personalizadas de Geomatch están disponibles en Centro-sur de EE. UU. y Norte de Europa. Para acceder a ellas en el portal, use [este vínculo](https://aka.ms/AppGWWAFGeoMatch) hasta que esté disponible para todos. 
 
 Si usa el operador Geomatch, los selectores pueden ser cualquiera de los siguientes códigos de país de dos dígitos. 
 
