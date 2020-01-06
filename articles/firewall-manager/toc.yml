@@ -19,7 +19,7 @@
       href: trusted-security-partners.md
     - name: Lógica de procesamiento de reglas
       href: rule-processing.md
-- name: Guías de procedimientos
+- name: Guías paso a paso
   items:
     - name: Implementación de asociados de seguridad de confianza
       href: deploy-trusted-security-partner.md
@@ -27,7 +27,7 @@
       href: migrate-to-policy.md
 - name: Referencia
   items:
-    - name: CLI de Azure
+    - name: Azure CLI
       href: /cli/azure/ext/azure-firewall/network/firewall
     - name: Azure PowerShell
       href: /powershell/module/az.network/new-azfirewall
@@ -42,11 +42,11 @@
     - name: REST
       href: /rest/api/firewall
     - name: Azure Resource Manager
-      href: ../azure-resource-manager/resource-group-overview.md
+      href: ../azure-resource-manager/management/overview.md
 - name: Recursos
   items:
     - name: Creación de plantillas
-      href: ../azure-resource-manager/resource-group-authoring-templates.md
+      href: ../azure-resource-manager/templates/template-syntax.md
     - name: Azure Roadmap
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Plantillas de la comunidad

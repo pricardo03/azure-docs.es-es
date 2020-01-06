@@ -59,7 +59,7 @@
       href: tutorial-auth-aad.md
 - name: Ejemplos
   items:
-    - name: CLI de Azure
+    - name: Azure CLI
       href: ../samples-cli.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: Azure PowerShell
       href: ../samples-powershell.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
@@ -169,7 +169,7 @@
       items:
         - name: Copia de seguridad de una aplicación
           href: ../manage-backup.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-        - name: Restauración de una copia de seguridad
+        - name: Restaurar una copia de seguridad
           href: ../web-sites-restore.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
         - name: Clonación de una aplicación
           href: ../app-service-web-app-cloning.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
@@ -177,7 +177,7 @@
           href: '../../azure-resource-manager/resource-group-move-resources.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-service-limitations'
 - name: Referencia
   items:
-    - name: CLI de Azure
+    - name: Azure CLI
       href: /cli/azure/appservice
     - name: Azure PowerShell
       href: /powershell
@@ -192,7 +192,7 @@
     - name: Precios
       href: 'https://azure.microsoft.com/pricing/details/app-service/'
     - name: Información de cuota
-      href: '../../azure-subscription-service-limits.md#app-service-limits'
+      href: '../../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits'
     - name: Actualizaciones del servicio
       href: 'https://azure.microsoft.com/updates/?product=app-service'
     - name: Guías de Migration Assistant
@@ -209,7 +209,7 @@
           href: /azure/architecture/reference-architectures/app-service-web-app/basic-web-app
         - name: Scripts de implementación
           href: 'https://azure.microsoft.com/documentation/scripts/'
-    - name: solución de problemas
+    - name: Solución de problemas
       items:
         - name: Solución de problemas con Visual Studio
           href: ../troubleshoot-dotnet-visual-studio.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json

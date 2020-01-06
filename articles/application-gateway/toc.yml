@@ -31,7 +31,7 @@
   items:
     - name: Azure PowerShell
       href: powershell-samples.md
-    - name: CLI de Azure
+    - name: Azure CLI
       href: cli-samples.md
     - name: Plantillas de Resource Manager
       href: resource-manager-template-samples.md
@@ -83,13 +83,13 @@
       href: application-gateway-websocket.md
     - name: Preguntas más frecuentes
       href: application-gateway-faq.md
-- name: Guías de procedimientos
+- name: Guías paso a paso
   items:
     - name: Sitio único de host
       items:
         - name: Azure PowerShell
           href: tutorial-manage-web-traffic-powershell.md
-        - name: CLI de Azure
+        - name: Azure CLI
           href: tutorial-manage-web-traffic-cli.md
     - name: Configuración del equilibrador de carga interno
       items:
@@ -153,13 +153,13 @@
       items:
         - name: Azure PowerShell
           href: tutorial-url-route-powershell.md
-        - name: CLI de Azure
+        - name: Azure CLI
           href: tutorial-url-route-cli.md
     - name: Hospedar varios sitios
       items:
         - name: Azure PowerShell
           href: tutorial-multiple-sites-powershell.md
-        - name: CLI de Azure
+        - name: Azure CLI
           href: tutorial-multiple-sites-cli.md
     - name: Redirección del tráfico
       items:
@@ -171,7 +171,7 @@
               href: redirect-external-site-cli.md
         - name: HTTP a HTTPS
           items:
-            - name: Azure Portal
+            - name: Portal de Azure
               href: redirect-http-to-https-portal.md
             - name: Azure PowerShell
               href: redirect-http-to-https-powershell.md
@@ -231,7 +231,7 @@
   items:
     - name: Entrada para anotaciones de AKS
       href: ingress-controller-annotations.md
-    - name: CLI de Azure
+    - name: Azure CLI
       href: /cli/azure/network/application-gateway
     - name: Azure PowerShell
       href: /powershell/azure/overview
@@ -247,7 +247,7 @@
       href: /rest/api/applicationgateway
     - name: Azure Resource Manager
       displayName: ARM
-      href: ../azure-resource-manager/resource-group-overview.md
+      href: ../azure-resource-manager/management/overview.md
     - name: Plantilla de Resource Manager
       displayName: ARM
       href: 'https://docs.microsoft.com/azure/templates/microsoft.network/applicationgateways'
@@ -255,7 +255,7 @@
   items:
     - name: Creación de plantillas
       displayName: ARM
-      href: ../azure-resource-manager/resource-group-authoring-templates.md
+      href: ../azure-resource-manager/templates/template-syntax.md
     - name: Azure Roadmap
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Plantillas de la comunidad

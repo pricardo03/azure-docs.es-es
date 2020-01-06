@@ -46,7 +46,7 @@
       href: 'https://docs.microsoft.com/azure/app-service/containers/quickstart-docker-go'
 - name: Ejemplos
   items:
-    - name: CLI de Azure
+    - name: Azure CLI
       items:
         - name: Web Apps
           href: 'https://docs.microsoft.com/azure/app-service/samples-cli'
@@ -90,7 +90,7 @@
           href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/'
         - name: Patrones y escenarios de microservicios
           href: 'https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-and-scenarios'
-    - name: Desarrollo
+    - name: Desarrollar
       items:
         - name: Máquina virtual de Linux
           href: 'https://docs.microsoft.com/azure/virtual-machines/linux/create-ssh-secured-vm-from-template'
@@ -112,7 +112,7 @@
           href: 'https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm'
     - name: Almacenamiento de datos
       items:
-        - name: Blobs
+        - name: Datos BLOB
           href: 'https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-how-to-use-blobs'
         - name: Recursos compartidos de archivos
           href: 'https://docs.microsoft.com/azure/storage/files/storage-dotnet-how-to-use-files'
@@ -180,7 +180,7 @@
           href: 'https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md'
     - name: Interfaces de línea de comandos
       items:
-        - name: CLI de Azure
+        - name: Azure CLI
           href: 'https://docs.microsoft.com/cli/azure/'
         - name: Azure PowerShell
           href: 'https://docs.microsoft.com/powershell/'
@@ -189,7 +189,7 @@
 - name: Recursos
   items:
     - name: Límites y cuotas de Azure
-      href: ../../azure-subscription-service-limits.md?toc=%2fazure%2fguides%2fdeveloper%2ftoc.json
+      href: ../../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fguides%2fdeveloper%2ftoc.json
     - name: Regiones de Azure
       href: 'https://azure.microsoft.com/regions/'
     - name: Azure Roadmap

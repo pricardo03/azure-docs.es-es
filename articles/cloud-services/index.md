@@ -2,19 +2,18 @@
 title: 'Documentación sobre Azure Cloud Services: tutoriales y referencia de API | Microsoft Docs'
 description: Los tutoriales, las referencias de API y otra documentación muestran cómo usar Cloud Services para hospedar y ejecutar API y aplicaciones de nube escalables de alta disponibilidad.
 services: cloud-services
-author: georgewallace
-manager: gwallace
+author: tgore03
 layout: LandingPage
 ms.service: cloud-services
 ms.topic: landing-page
 ms.date: 01/23/2017
-ms.author: gwallace
-ms.openlocfilehash: f30032ff2d7189e45075c74152bb6903128217ad
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.author: tagore
+ms.openlocfilehash: 7265880f6356988d594cb2ea91a080fc45b92029
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68609722"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75360385"
 ---
 # <a name="cloud-services-documentation"></a>Documentación de Cloud Services
 
@@ -104,7 +103,7 @@ Aprenda a usar Cloud Services para hospedar y ejecutar API y aplicaciones de nub
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Languages</h3>
+                        <h3>Lenguajes</h3>
                         <p><a href="/azure/cloud-services/schema-csdef-file">Esquema XML de .csdef</a></p>
                         <p><a href="/azure/cloud-services/schema-csdef-loadbalancerprobe">Esquema LoadBalancerProbe</a></p>
                         <p><a href="/azure/cloud-services/schema-csdef-webrole">Esquema WebRole</a></p>
@@ -124,10 +123,14 @@ Aprenda a usar Cloud Services para hospedar y ejecutar API y aplicaciones de nub
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/compute/cloudservices">API DE REST</a></p>
+                        <p><a href="/rest/api/compute/cloudservices">REST API</a></p>
                     </div>
                 </div>
             </div>
         </div>
     </li>
 </ul>
+
+
+
+

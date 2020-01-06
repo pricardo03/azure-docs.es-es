@@ -103,7 +103,7 @@
           href: plan-your-environment.md
     - name: Adquisición y comprensión de datos
       items:
-        - name: Introducción de datos
+        - name: Ingerir datos
           displayName: 'move data, manage data logistics'
           items:
             - name: Información general
@@ -130,11 +130,11 @@
               href: parallel-load-sql-partitioned-tables.md
             - name: Traslado desde SQL local
               href: move-sql-azure-adf.md
-        - name: Exploración y visualización de los datos
+        - name: Explorar y visualizar datos
           items:
             - name: Preparación de los datos
               href: prepare-data.md
-            - name: Exploración de los datos
+            - name: Exploración de datos
               items:
                 - name: Información general
                   href: explore-data.md
@@ -144,7 +144,7 @@
                   href: explore-data-sql-server.md
                 - name: Exploración de tablas de Hive
                   href: explore-data-hive-tables.md
-            - name: Datos de ejemplo
+            - name: Datos de muestra
               items:
                 - name: Información general
                   href: sample-data.md
@@ -193,7 +193,7 @@
 - name: Temas relacionados
   items:
     - name: Azure Machine Learning
-      href: ../service/
+      href: ../
     - name: Galería de Azure AI
       href: 'https://gallery.azure.ai'
     - name: Cortana Analytics
@@ -206,7 +206,7 @@
           items:
             - name: Información general
               href: cortana-analytics-playbook-predictive-maintenance.md
-            - name: Arquitectura
+            - name: Architecture
               href: cortana-analytics-architecture-predictive-maintenance.md
             - name: Guía técnica
               href: cortana-analytics-technical-guide-predictive-maintenance.md

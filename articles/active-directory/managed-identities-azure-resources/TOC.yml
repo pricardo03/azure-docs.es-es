@@ -22,8 +22,6 @@
           href: tutorial-vm-windows-access-storage.md
         - name: Acceso a Azure Storage mediante una clave de acceso
           href: tutorial-windows-vm-access-storage.md
-        - name: Acceso a Azure Storage mediante SAS
-          href: tutorial-windows-vm-access-storage-sas.md
         - name: Acceso a Azure SQL
           href: tutorial-windows-vm-access-sql.md
         - name: Acceso a Azure Key Vault
@@ -62,7 +60,7 @@
       href: /azure/event-hubs/event-hubs-managed-service-identity?context=azure/active-directory/managed-identities-azure-resources/context/msi-context
     - name: Azure Container Instances
       href: /azure/container-instances/container-instances-managed-identity?context=azure/active-directory/managed-identities-azure-resources/context/msi-context
-- name: Guías de procedimientos
+- name: Guías paso a paso
   items:
     - name: Configuración de identidades administradas en las máquinas virtuales
       items:

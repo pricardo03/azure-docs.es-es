@@ -22,11 +22,17 @@
       href: quickstarts/python.md
     - name: Ruby
       href: quickstarts/ruby.md
+- name: Biblioteca de cliente
+  items:
+    - name: 'C#'
+      href: quickstarts/csharp-sdk.md
+    - name: Go
+      href: quickstarts/go-sdk.md
 - name: Tutoriales
   items:
     - name: Aplicación web de una sola página
       href: tutorials/autosuggest.md
-- name: Guías de procedimientos
+- name: Guías paso a paso
   items:
     - name: Actualizar de v5 a v7
       href: bing-autosuggest-upgrade-guide-v5-to-v7.md

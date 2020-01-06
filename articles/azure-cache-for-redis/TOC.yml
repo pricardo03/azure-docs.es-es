@@ -1,5 +1,5 @@
 - name: Documentación de Azure Cache for Redis
-  href: index.md
+  href: index.yml
 - name: Información general
   items:
     - name: Acerca de Azure Cache for Redis
@@ -39,7 +39,7 @@
       href: cache-best-practices.md
     - name: Procedimientos arquitectónicos recomendados para el almacenamiento en caché
       href: 'https://docs.microsoft.com/azure/architecture/best-practices/caching?toc=%2Fazure%2Fredis-cache%2Ftoc.json'
-- name: Guías de procedimientos
+- name: Guías paso a paso
   items:
     - name: Plan
       items:
@@ -77,7 +77,7 @@
           items:
             - name: Uso de Spring Boot Initializer
               href: cache-java-spring-boot-initializer-with-redis-cache.md
-    - name: administración
+    - name: Administrar
       items:
         - name: Configuración en Azure Portal
           href: cache-configure.md

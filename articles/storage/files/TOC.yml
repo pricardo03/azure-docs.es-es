@@ -53,8 +53,6 @@
       items:
         - name: Authorization
           href: ../common/storage-auth.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Seguridad de Azure Storage
-          href: ../common/storage-security-guide.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Cifrado de Azure Storage
           href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Autenticación de Azure AD sobre SMB
@@ -85,7 +83,7 @@
       href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Preguntas más frecuentes
       href: storage-files-faq.md
-- name: Guías de procedimientos
+- name: Guías paso a paso
   items:
     - name: Crear
       items:
@@ -121,7 +119,7 @@
           href: storage-files-configure-p2s-vpn-windows.md
         - name: Configuración de una VPN de punto a sitio en Linux
           href: storage-files-configure-p2s-vpn-linux.md
-    - name: administración
+    - name: Administrar
       items:
         - name: Registro de un servidor en Azure Files Sync
           href: storage-sync-files-server-registration.md
@@ -145,7 +143,7 @@
           href: storage-sync-files-storsimple-migration.md
         - name: Traslado de datos con AzCopy
           items:
-            - name: Primeros pasos
+            - name: Introducción
               href: ../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
             - name: Uso con Files
               href: ../common/storage-use-azcopy-files.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
@@ -153,7 +151,7 @@
               href: ../common/storage-use-azcopy-configure.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
             - name: Transferencia de datos con la biblioteca de movimiento de datos
               href: ../common/storage-use-data-movement-library.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: Desarrollo
+    - name: Desarrollar
       items:
         - name: Configurar cadenas de conexión
           href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
@@ -165,7 +163,7 @@
           href: storage-c-plus-plus-how-to-use-files.md
         - name: Python
           href: storage-python-how-to-use-file-storage.md
-    - name: Protección
+    - name: Seguridad
       items:
         - name: Configuración de firewalls y redes virtuales
           href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json

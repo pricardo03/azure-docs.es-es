@@ -49,6 +49,8 @@
           href: concept-mfa-authprovider.md
         - name: Guía de seguridad
           href: multi-factor-authentication-security-best-practices.md
+        - name: Residencia de datos
+          href: concept-mfa-data-residency.md
         - name: Multi-Factor Authentication para Office 365
           href: 'https://docs.microsoft.com/office365/admin/security-and-compliance/set-up-multi-factor-authentication?view=o365-worldwide'
         - name: Preguntas frecuentes sobre Multi-Factor Authentication
@@ -61,7 +63,7 @@
           href: concept-password-ban-bad-on-premises.md
     - name: Controles de acceso resistentes
       href: concept-resilient-controls.md
-- name: Guías de procedimientos
+- name: Guías paso a paso
   items:
     - name: Restablecimiento de la contraseña de autoservicio
       items:
@@ -81,7 +83,7 @@
           href: howto-mfa-userstates.md
         - name: Configuración de usuario y de dispositivo
           href: howto-mfa-userdevicesettings.md
-        - name: Definición de la configuración
+        - name: Definición de configuración
           href: howto-mfa-mfasettings.md
         - name: Federación de directorios
           items:
@@ -150,7 +152,7 @@
               href: active-directory-certificate-based-authentication-android.md
             - name: CBA en dispositivos iOS
               href: active-directory-certificate-based-authentication-ios.md
-    - name: Informes
+    - name: Notificación
       items:
         - name: Uso y conclusiones
           href: howto-authentication-methods-usage-insights.md
@@ -158,7 +160,7 @@
           href: howto-sspr-reporting.md
         - name: Informes de MFA
           href: howto-mfa-reporting.md
-        - name: Colección de datos
+        - name: 'datos, recopilación'
           href: howto-mfa-reporting-datacollection.md
     - name: Servidor MFA
       items:

@@ -50,7 +50,7 @@
           href: ./afds/waf-front-door-geo-filtering.md
         - name: Preguntas más frecuentes
           href: ./afds/waf-faq.md
-- name: Guías de procedimientos
+- name: Guías paso a paso
   items:
     - name: Application Gateway
       items:
@@ -60,17 +60,17 @@
           items:
             - name: Azure PowerShell
               href: ./ag/tutorial-restrict-web-traffic-powershell.md
-            - name: CLI de Azure
+            - name: Azure CLI
               href: ./ag/tutorial-restrict-web-traffic-cli.md
         - name: Migración de una directiva de WAF
           href: ./ag/migrate-policy.md
         - name: Personalización de las reglas de WAF
           items:
-            - name: Azure Portal
+            - name: Portal de Azure
               href: ./ag/application-gateway-customize-waf-rules-portal.md
             - name: Azure PowerShell
               href: ./ag/application-gateway-customize-waf-rules-powershell.md
-            - name: CLI de Azure
+            - name: Azure CLI
               href: ./ag/application-gateway-customize-waf-rules-cli.md
         - name: 'Configuración de la regla personalizada de WAF V2: PowerShell'
           href: ./ag/configure-waf-custom-rules.md
@@ -127,11 +127,11 @@
     - name: REST
       href: /rest/api/firewall
     - name: Azure Resource Manager
-      href: ../azure-resource-manager/resource-group-overview.md
+      href: ../azure-resource-manager/management/overview.md
 - name: Recursos
   items:
     - name: Creación de plantillas
-      href: ../azure-resource-manager/resource-group-authoring-templates.md
+      href: ../azure-resource-manager/templates/template-syntax.md
     - name: Azure Roadmap
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Plantillas de la comunidad

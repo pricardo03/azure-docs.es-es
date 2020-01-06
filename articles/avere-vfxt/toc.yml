@@ -10,7 +10,7 @@
       href: avere-vfxt-deploy-plan.md
     - name: Introducción a la implementación de Avere vFXT
       href: avere-vfxt-deploy-overview.md
-- name: Guías de procedimientos
+- name: Guías paso a paso
   items:
     - name: Preparación para la creación de Avere vFXT
       href: avere-vfxt-prereqs.md
@@ -20,7 +20,7 @@
       href: avere-vfxt-cluster-gui.md
     - name: Habilitación de cargas de soporte
       href: avere-vfxt-enable-support.md
-    - name: Configurar el almacenamiento
+    - name: Configuración del almacenamiento
       href: avere-vfxt-add-storage.md
     - name: Montaje del clúster de Avere de vFXT
       href: avere-vfxt-mount-clients.md

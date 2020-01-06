@@ -14,7 +14,7 @@ metadata:
 abstract:
   description: 'Aprenda a usar IoT Hub para conectar, supervisar y controlar millones de recursos de Internet de las cosas. Tutoriales, referencias de API, vídeos y otra documentación le ayudan a implementar una comunicación confiable y bidireccional entre los dispositivos de IoT y una solución de back-end.'
 sections:
-  - title: Inicio rápido en 5 minutos
+  - title: Guías de inicio rápido de 5 minutos
     items:
       - type: table
         style: dataMatrix
@@ -48,6 +48,7 @@ sections:
               - href: /azure/iot-hub/quickstart-send-telemetry-ios
           - title: Control de un dispositivo
             values:
+              - href: null
               - href: /azure/iot-hub/quickstart-control-device-node
               - href: /azure/iot-hub/quickstart-control-device-dotnet
               - href: /azure/iot-hub/quickstart-control-device-java
@@ -55,6 +56,7 @@ sections:
               - href: /azure/iot-hub/quickstart-control-device-android
           - title: Comunicación mediante flujos de dispositivos (versión preliminar)
             values:
+              - href: null
               - href: /azure/iot-hub/quickstart-device-streams-echo-nodejs
               - href: /azure/iot-hub/quickstart-device-streams-echo-csharp
               - href: null
@@ -64,6 +66,7 @@ sections:
               - href: null
           - title: SSH o RDP mediante flujos de dispositivos (versión preliminar)
             values:
+              - href: null
               - href: /azure/iot-hub/quickstart-device-streams-proxy-nodejs
               - href: /azure/iot-hub/quickstart-device-streams-proxy-csharp
               - href: null
@@ -71,7 +74,7 @@ sections:
               - href: null
               - href: /azure/iot-hub/quickstart-device-streams-proxy-c
               - href: null
-  - title: Tutoriales detallados
+  - title: Tutoriales paso a paso
     items:
       - type: list
         style: ordered

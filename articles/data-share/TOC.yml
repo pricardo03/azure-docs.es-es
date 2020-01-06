@@ -19,13 +19,15 @@
       href: terminology.md
     - name: Roles y requisitos
       href: concepts-roles-permissions.md
+    - name: Recuperación ante desastres
+      href: disaster-recovery.md
 - name: Ejemplos
   items:
     - name: Ejemplos de código
       href: 'https://docs.microsoft.com/samples/browse/?service=data-share/'
     - name: Azure PowerShell
       href: samples-powershell.md
-- name: Guías de procedimientos
+- name: Guías paso a paso
   items:
     - name: Supervisión
       href: how-to-monitor.md

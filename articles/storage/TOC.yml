@@ -7,7 +7,7 @@
       href: ./common/storage-introduction.md
     - name: 'Elección de blobs, archivos o discos'
       href: ./common/storage-decide-blobs-files-disks.md
-- name: Blobs
+- name: Datos BLOB
   href: ./blobs/index.yml?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
 - name: Data Lake Storage Gen2
   href: ./blobs/index.yml?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -16,7 +16,7 @@
 - name: Colas
   href: ./queues/index.yml?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
 - name: Tablas
-  href: ./tables/table-storage-overview.md
+  href: ./tables/index.yml?toc=%2fazure%2fstorage%2ftables%2ftoc.json
 - name: Discos
   items:
     - name: Windows

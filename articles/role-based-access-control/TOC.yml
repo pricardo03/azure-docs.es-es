@@ -32,7 +32,7 @@
       href: pim-azure-resource.md
     - name: Acceso condicional para la administración de Azure
       href: conditional-access-azure-management.md
-- name: Guías de procedimientos
+- name: Guías paso a paso
   items:
     - name: Lista de definiciones de roles
       items:
@@ -60,7 +60,7 @@
           href: role-assignments-external-users.md
         - name: PowerShell
           href: role-assignments-powershell.md
-        - name: CLI de Azure
+        - name: Azure CLI
           href: role-assignments-cli.md
         - name: API DE REST
           href: role-assignments-rest.md
@@ -82,7 +82,7 @@
           href: custom-roles.md
         - name: PowerShell
           href: custom-roles-powershell.md
-        - name: CLI de Azure
+        - name: Azure CLI
           href: custom-roles-cli.md
         - name: API DE REST
           href: custom-roles-rest.md
@@ -99,10 +99,10 @@
     - name: Operaciones del proveedor de recursos
       href: resource-provider-operations.md
     - name: Límites del control de acceso basado en rol
-      href: '../azure-subscription-service-limits.md#role-based-access-control-limits'
+      href: '../azure-resource-manager/management/azure-subscription-service-limits.md#role-based-access-control-limits'
     - name: Azure PowerShell
       href: /powershell/module/az.resources
-    - name: CLI de Azure
+    - name: Azure CLI
       href: /cli/azure/role?view=azure-cli-latest
     - name: API DE REST
       href: /rest/api/authorization/

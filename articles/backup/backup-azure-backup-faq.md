@@ -3,12 +3,12 @@ title: Respuestas a preguntas comunes
 description: 'Respuestas a preguntas comunes sobre las características de Azure Backup, incluidos los almacenes de Recovery Services, las copias de seguridad que puede realizar, cómo funciona, el cifrado y los límites. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: 4005b171ef61fa02821b4a32db3be26cfb94c9ff
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: c8449ef27ca73cd6e0c2908ce4cbebea2c513dbc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74668072"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450093"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Preguntas más frecuentes de Azure Backup
 
@@ -107,7 +107,7 @@ Windows 8 o posterior | 54 400 GB
 Windows 7 |1700 GB
 Windows Server 2012 o superior | 54 400 GB
 Windows Server 2008, Windows Server 2008 R2 | 1700 GB
-Azure VM | 16 discos de datos<br/><br/> Disco de datos de hasta 4095 GB
+Azure VM | 16 discos de datos<br/> Para suscribirse a la versión preliminar privada de las máquinas virtuales con más de 16 discos (hasta 32 discos), escríbanos a AskAzureBackupTeam@microsoft.com <br><br> Disco de datos de hasta 32 TB
 
 ### <a name="how-is-the-data-source-size-determined"></a>¿Cómo se determina el tamaño del origen de datos?
 

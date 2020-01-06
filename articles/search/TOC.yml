@@ -13,9 +13,9 @@
       href: search-create-service-portal.md
     - name: Portal
       items:
-        - name: Creación de un índice de búsqueda
+        - name: Creación de un índice
           href: search-get-started-portal.md
-        - name: Creación de una aplicación (versión preliminar)
+        - name: Creación de una aplicación
           href: search-create-app-portal.md
         - name: Creación de un conjunto de aptitudes cognitivas
           href: cognitive-search-quickstart-blob.md
@@ -95,7 +95,7 @@
       href: knowledge-store-projection-overview.md
     - name: Indexación incremental
       href: cognitive-search-incremental-indexing-conceptual.md
-- name: Guías de procedimientos
+- name: Guías paso a paso
   items:
     - name: Planificación
       items:
@@ -315,7 +315,7 @@
           href: cognitive-search-common-errors-warnings.md
 - name: Referencia
   items:
-    - name: CLI de Azure
+    - name: Azure CLI
       href: 'https://docs.microsoft.com/cli/azure/search?view=azure-cli-latest'
     - name: Azure PowerShell
       href: /powershell/module/az.search

@@ -3,18 +3,18 @@ title: Ejemplo de plano técnico de Fundación CAF, introducción
 description: Introducción y arquitectura del ejemplo de plano técnico de una base de Cloud Adoption Framework (CAF) para Azure.
 ms.date: 08/20/2019
 ms.topic: sample
-ms.openlocfilehash: 8339b7335ff2946dcd602db6ece4637ac4bc1d92
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 79b47127b81caf148054f4223e5fa7ad9fbf86fe
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74545447"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75562568"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-foundation-blueprint-sample"></a>Introducción al ejemplo de plano técnico de fundamentos de Microsoft Cloud Adoption Framework para Azure
 
 El plano técnico de fundamentos de Microsoft Cloud Adoption Framework para Azure (CAF) implementa un conjunto de recursos de infraestructura principales y controles de directiva necesarios para la primera aplicación de Azure para producción. Este plano técnico de fundamentos se basa en el patrón recomendado que se encuentra en CAF.
 
-## <a name="architecture"></a>Arquitectura
+## <a name="architecture"></a>Architecture
 
 En el ejemplo de plano técnico de fundamentos de CAF se implementan los recursos de infraestructura recomendados en Azure que pueden usar las organizaciones para poner en marcha los controles fundamentales necesarios para administrar su propia nube. En este ejemplo se implementarán y aplicarán los recursos, las directivas y las plantillas que permitirán a una organización comenzar con confianza en Azure.
 
@@ -43,7 +43,7 @@ Todos estos elementos se atienen a los procedimientos probados que se publicaron
 > Los fundamentos de CAF diseñan una arquitectura básica para las cargas de trabajo.
 > Deberá implementar cargas de trabajo adicionales más allá de esta arquitectura básica.
 
-Para más información, consulte el paso de [preparación a Microsoft Cloud Adoption Framework para Azure](/azure/architecture/cloud-adoption/ready/azure-readiness-guide/govern-org-compliance?tabs=AzurePolicy).
+Para más información, consulte el paso de [preparación a Microsoft Cloud Adoption Framework para Azure](/azure/cloud-adoption-framework/ready/).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
