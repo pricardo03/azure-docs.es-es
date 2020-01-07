@@ -76,7 +76,7 @@
       href: sql-api-python-samples.md
     - name: PowerShell
       href: powershell-samples-sql.md
-    - name: CLI de Azure
+    - name: Azure CLI
       href: cli-samples.md
     - name: Azure Resource Manager
       href: resource-manager-samples.md
@@ -129,6 +129,8 @@
           href: set-throughput.md
         - name: 'Aprovisionamiento del rendimiento: modo AutoPilot'
           href: provision-throughput-autopilot.md
+        - name: Preguntas frecuentes de AutoPilot
+          href: autopilot-faq.md
     - name: Referencia de consultas SQL
       items:
         - name: Introducción
@@ -566,7 +568,7 @@
             - name: 4 - Migración de los datos
               displayName: import
               href: cassandra-import-data.md
-        - name: Guías de procedimientos
+        - name: Guías paso a paso
           items:
             - name: Fuente de cambios
               href: cassandra-change-feed.md
@@ -653,7 +655,7 @@
               href: tutorial-query-mongodb.md
             - name: 4 - Distribución de datos global
               href: tutorial-global-distribution-mongodb.md
-        - name: Guías de procedimientos
+        - name: Guías paso a paso
           items:
             - name: Guía previa a la migración
               href: mongodb-pre-migration.md
@@ -725,7 +727,7 @@
               href: gremlin-limits.md
             - name: Compatibilidad
               href: gremlin-compatibility.md
-        - name: Guías de procedimientos
+        - name: Guías paso a paso
           items:
             - name: Modelado de datos de Graph
               href: graph-modeling.md
@@ -796,7 +798,7 @@
             - name: 'F#'
               href: /dotnet/articles/fsharp/using-fsharp-on-azure/table-storage
               maintainContext: true
-        - name: Guías de procedimientos
+        - name: Guías paso a paso
           items:
             - name: Compilación de aplicaciones con Table API
               href: table-support.md
@@ -828,13 +830,13 @@
           href: etcd-api-introduction.md
         - name: Azure Kubernetes con Azure Cosmos DB
           href: bootstrap-kubernetes-cluster.md
-- name: Guías de procedimientos
+- name: Guías paso a paso
   items:
     - name: Uso de la cuenta de Azure Cosmos
       href: how-to-manage-database-account.md
     - name: Uso de recursos de Azure Cosmos DB
       items:
-        - name: Con PowerShell
+        - name: Usar PowerShell
           href: manage-with-powershell.md
         - name: Uso de la CLI de Azure
           href: manage-with-cli.md
@@ -982,6 +984,8 @@
       items:
         - name: "Supervisión de Cosmos\_DB"
           href: monitor-cosmos-db.md
+        - name: Supervisión con registros de diagnóstico
+          href: cosmosdb-monitor-resource-logs.md
         - name: Azure Monitor para Cosmos (versión preliminar)
           href: ../azure-monitor/insights/cosmosdb-insights-overview.md?toc=/azure/cosmos-db/toc.json
         - name: Visualización de métricas desde la cuenta de Cosmos DB

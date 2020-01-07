@@ -36,6 +36,14 @@
       href: tutorial-backup-windows-server-to-azure.md
     - name: Restauración de archivos en Windows Server
       href: tutorial-backup-restore-files-windows-server.md
+    - name: 'Bases de datos de SAP HANA en máquinas virtuales de Azure: con la CLI'
+      items:
+        - name: 'Copia de seguridad de bases de datos de SAP HANA: CLI'
+          href: tutorial-sap-hana-backup-cli.md
+        - name: 'Restauración de bases de datos de SAP HANA: CLI'
+          href: tutorial-sap-hana-restore-cli.md
+        - name: 'Administración de bases de datos de SAP HANA con copia de seguridad: CLI'
+          href: tutorial-sap-hana-manage-cli.md
 - name: Ejemplos
   items:
     - name: Azure PowerShell
@@ -100,7 +108,7 @@
       items:
         - name: Matriz de protección de Azure Backup Server
           href: backup-mabs-protection-matrix.md
-        - name: Instalación o actualización
+        - name: Instalar o actualizar
           items:
             - name: Instalar Azure Backup Server
               href: backup-azure-microsoft-azure-backup.md
@@ -244,6 +252,8 @@
           href: manage-monitor-sql-database-backup.md
     - name: Bases de datos de SAP HANA en máquinas virtuales de Azure
       items:
+        - name: Acerca de las copias de seguridad de SAP HANA en máquinas virtuales de Azure
+          href: sap-hana-db-about.md
         - name: Copia de seguridad de bases de datos de SAP HANA en máquinas virtuales de Azure
           href: backup-azure-sap-hana-database.md
         - name: Restauración de bases de datos de SAP HANA en máquinas virtuales de Azure
@@ -308,7 +318,7 @@
   items:
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.recoveryservices.backup
-    - name: CLI de Azure
+    - name: Azure CLI
       href: /cli/azure/backup?view=azure-cli-latest
     - name: PowerShell
       href: /powershell/module/az.recoveryservices

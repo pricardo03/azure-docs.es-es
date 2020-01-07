@@ -6,7 +6,7 @@
       href: security-center-intro.md
     - name: Plataformas compatibles
       href: security-center-os-coverage.md
-    - name: Características compatibles
+    - name: Características admitidas
       href: security-center-services.md
 - name: Guías de inicio rápido
   expanded: true
@@ -49,6 +49,8 @@
       items:
         - name: Introducción a las alertas de seguridad
           href: security-center-alerts-overview.md
+        - name: Referencia a lista de alertas
+          href: alerts-reference.md
         - name: Administración de alertas de seguridad
           href: security-center-managing-and-responding-alerts.md
         - name: Administración de incidentes de seguridad
@@ -61,7 +63,7 @@
           href: security-center-alerts-data-services.md
         - name: Detección de amenazas para capas de servicios de Azure
           href: security-center-alerts-service-layer.md
-        - name: Integración con productos de seguridad de Azure
+        - name: Detección de amenazas en Azure WAF y Azure DDoS Protection
           href: security-center-alerts-integration.md
         - name: Correlación de alertas inteligentes en la nube (incidentes)
           href: security-center-alerts-cloud-smart.md
@@ -69,12 +71,20 @@
           href: security-center-threat-intel.md
         - name: Validación de alertas (archivo de prueba EICAR)
           href: security-center-alert-validation.md
-- name: Guías de procedimientos
+- name: Guías paso a paso
   items:
     - name: Mejora de su puntuación de seguridad
       href: security-center-secure-score.md
     - name: Actualización a la seguridad avanzada
       href: security-center-onboarding.md
+    - name: Detección de vulnerabilidades en máquinas virtuales
+      items:
+        - name: Introducción a la detección de vulnerabilidades
+          href: security-center-vulnerability-assessment-recommendations.md
+        - name: Detector de vulnerabilidades integrado en máquinas virtuales
+          href: built-in-vulnerability-assessment.md
+        - name: Uso de detectores externos
+          href: partner-vulnerability-assessment.md
     - name: "Protección de servidores con Microsoft\_Defender\_ATP"
       href: security-center-wdatp.md
     - name: Uso de Advanced Data Security para SQL en Azure VM
@@ -125,14 +135,12 @@
           href: security-center-remediate-recommendations.md
         - name: Reforzamiento de la posición de seguridad
           href: security-center-monitoring.md
+        - name: Referencia de lista de recomendaciones
+          href: recommendations-reference.md
         - name: Protección de máquinas y aplicaciones
           href: security-center-virtual-machine-protection.md
-        - name: Referencia sobre recomendaciones de máquinas y aplicaciones
-          href: recommendations-compute-and-apps.md
         - name: Protección de recursos de red
           href: security-center-network-recommendations.md
-        - name: Referencia sobre recomendaciones de red
-          href: recommendations-network.md
         - name: Protección de datos y servicios de almacenamiento
           href: security-center-sql-service-recommendations.md
         - name: Protección de identidades y accesos
@@ -155,8 +163,6 @@
           href: security-center-apply-system-updates.md
         - name: Instalación de Endpoint Protection
           href: security-center-install-endpoint-protection.md
-        - name: Evaluación de vulnerabilidades no instalada
-          href: security-center-vulnerability-assessment-recommendations.md
         - name: Informes de amenazas
           href: security-center-threat-report.md
         - name: Puntuación de confianza de la alerta

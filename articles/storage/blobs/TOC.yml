@@ -15,7 +15,7 @@
       items:
         - name: Administración de blobs sin código
           items:
-            - name: Azure Portal
+            - name: Portal de Azure
               href: storage-quickstart-blobs-portal.md
             - name: Explorador de Storage
               href: storage-quickstart-blobs-storage-explorer.md
@@ -115,11 +115,11 @@
           href: ../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Seguridad
           items:
-            - name: Introducción a la seguridad
-              href: ../common/storage-security-guide.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Recomendaciones de seguridad
+              href: security-recommendations.md
             - name: Cifrado de Azure Storage
               href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Authorization
+            - name: Autorización de operaciones de datos
               href: ../common/storage-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
               items:
                 - name: Autorización con Azure AD
@@ -130,6 +130,8 @@
                   href: ../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: Acceso anónimo a blobs
                   href: storage-manage-access-to-resources.md
+            - name: Autorización de operaciones de administración
+              href: ../common/authorization-resource-provider.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Blobs inalterables
               href: storage-blob-immutable-storage.md
             - name: Protección contra amenazas avanzada
@@ -165,8 +167,6 @@
               href: storage-lifecycle-management-concepts.md
         - name: 'Rendimiento, escalado y optimización de costos'
           items:
-            - name: Objetivos de escalabilidad y rendimiento
-              href: ../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Lista de comprobación de rendimiento y escalabilidad
               href: storage-performance-checklist.md
             - name: Latencia en Blob Storage
@@ -205,7 +205,7 @@
                   href: ../common/storage-import-export-data-to-files.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: Exportación de datos de blobs
                   href: ../common/storage-import-export-data-from-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: Procedimiento
+                - name: Instrucciones
                   items:
                     - name: Visualización de estado de la unidad
                       href: ../common/storage-import-export-view-drive-status.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -259,11 +259,9 @@
           items:
             - name: Creación de una cuenta de almacenamiento de uso general
               displayName: 'Resource Manager, Resource Manager template, template, ARM'
-              href: ../common/storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+              href: ../common/storage-account-create.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Creación de una cuenta de almacenamiento de blobs en bloques
               href: storage-blob-create-account-block-blob.md
-            - name: Administración de una cuenta de almacenamiento
-              href: ../common/storage-account-manage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Actualización de una cuenta de almacenamiento
               href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Obtener el tipo de cuenta y el nombre de la SKU (.NET)
@@ -276,8 +274,6 @@
               href: storage-blob-containers-list.md
             - name: Administración de propiedades y metadatos (.NET)
               href: storage-blob-container-properties-metadata.md
-            - name: Establecimiento y administración de directivas de inmutabilidad
-              href: storage-blob-immutability-policies-manage.md
         - name: Creación y administración de blobs
           items:
             - name: Enumeración de blobs (.NET)
@@ -296,15 +292,17 @@
                   items:
                     - name: Portal
                       href: ../common/storage-access-blobs-queues-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                    - name: PowerShell o CLI de Azure
-                      href: ../common/storage-auth-aad-script.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                    - name: PowerShell
+                      href: ../common/authorize-active-directory-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                    - name: Azure CLI
+                      href: ../common/authorize-active-directory-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: Administración de derechos de acceso con RBAC
                   items:
                     - name: Portal
                       href: ../common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                     - name: PowerShell
                       href: ../common/storage-auth-aad-rbac-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                    - name: CLI de Azure
+                    - name: Azure CLI
                       href: ../common/storage-auth-aad-rbac-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: Autenticación y autorización con Azure AD
                   items:
@@ -314,6 +312,8 @@
                       href: ../common/storage-auth-aad-app.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: Autorización con clave compartida
                   items:
+                    - name: Visualización y administración de claves de cuentas
+                      href: ../common/storage-account-keys-manage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                     - name: Configurar cadenas de conexión
                       href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                     - name: Uso de la API REST de Azure Storage
@@ -348,7 +348,7 @@
                           href: ../common/storage-encryption-keys-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                         - name: PowerShell
                           href: ../common/storage-encryption-keys-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                        - name: CLI de Azure
+                        - name: Azure CLI
                           href: ../common/storage-encryption-keys-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: Especificación de una clave de cifrado en una solicitud
                   href: storage-blob-customer-provided-key.md
@@ -368,6 +368,8 @@
                   href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: Habilitar Seguridad de la capa de transporte
                   href: ../common/storage-security-tls.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Establecimiento y administración de directivas de inmutabilidad
+              href: storage-blob-immutability-policies-manage.md
         - name: Recuperación ante desastres
           items:
             - name: Iniciación de la conmutación por error de la cuenta
@@ -394,7 +396,7 @@
           items:
             - name: AzCopy
               items:
-                - name: Primeros pasos
+                - name: Introducción
                   href: ../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: Uso con Blobs
                   href: ../common/storage-use-azcopy-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -430,7 +432,7 @@
                   href: storage-quickstart-blobs-javascript-client-libraries.md
         - name: Administración de blobs
           items:
-            - name: CLI de Azure
+            - name: Azure CLI
               href: ../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: CLI de Azure clásica
               href: ../common/storage-azure-cli-nodejs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -442,6 +444,18 @@
               href: ../common/troubleshoot-latency-storage-analytics-logs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Referencia
       items:
+        - name: Objetivos de escalabilidad y rendimiento
+          items:
+            - name: Almacenamiento de blobs
+              href: scalability-targets.md
+            - name: Cuentas de almacenamiento estándar
+              href: ../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Cuentas de almacenamiento de blobs en bloques Prémium
+              href: scalability-targets-premium-block-blobs.md
+            - name: Cuentas de almacenamiento de blobs en páginas Prémium
+              href: scalability-targets-premium-page-blobs.md
+            - name: Proveedor de recursos de Storage
+              href: ../common/scalability-targets-resource-provider.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Azure PowerShell
           href: /powershell/module/az.storage
         - name: Azure CLI
@@ -675,8 +689,6 @@
           items:
             - name: Creación de una cuenta de almacenamiento para Data Lake
               href: ../blobs/data-lake-storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Administración de una cuenta de almacenamiento
-              href: ../common/storage-account-manage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Administración de datos con el Explorador de Storage
               href: ../blobs/data-lake-storage-explorer.md
             - name: Actualización de una cuenta de almacenamiento
@@ -699,7 +711,7 @@
           items:
             - name: AzCopy
               items:
-                - name: Primeros pasos
+                - name: Introducción
                   href: ../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: Uso con Data Lake Storage Gen2
                   href: ../common/storage-use-azcopy-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -719,7 +731,7 @@
                   href: ../common/storage-encryption-keys-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: PowerShell
                   href: ../common/storage-encryption-keys-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: CLI de Azure
+                - name: Azure CLI
                   href: ../common/storage-encryption-keys-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Administración de derechos de acceso con RBAC
               items:
@@ -727,7 +739,7 @@
                   href: ../common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: PowerShell
                   href: ../common/storage-auth-aad-rbac-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: CLI de Azure
+                - name: Azure CLI
                   href: ../common/storage-auth-aad-rbac-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Establecimiento de permisos en el nivel de directorio y archivo
               href: ../blobs/data-lake-storage-how-to-set-permissions-storage-explorer.md

@@ -72,12 +72,15 @@
           href: active-directory-b2c-overview-custom.md
     - name: Cuentas de usuario
       href: user-overview.md
-- name: Guías de procedimientos
+- name: Guías paso a paso
   items:
     - name: Integración de la aplicación
       items:
-        - name: Registro de una aplicación
+        - name: Registro de una aplicación OIDC
           href: tutorial-register-applications.md
+        - name: Registro de un proveedor de servicios de SAML
+          href: connect-with-saml-service-providers.md
+          displayName: 'SP, RP, service provider, connect'
         - name: Incorporar una aplicación de API web
           href: add-web-application.md
         - name: Incorporación de una aplicación cliente nativa
@@ -150,7 +153,7 @@
           href: idp-pass-through-user-flow.md
     - name: Directiva personalizada
       items:
-        - name: Para crear una directiva
+        - name: Crear una directiva
           items:
             - name: Introducción a las directivas personalizadas
               href: active-directory-b2c-get-started-custom.md
@@ -160,6 +163,9 @@
               href: active-directory-b2c-reference-kmsi-custom.md
             - name: Cambio de contraseña
               href: active-directory-b2c-reference-password-change-custom.md
+            - name: Registro e inicio de sesión telefónico
+              href: phone-authentication.md
+              displayName: 'otp, passwordless, phone number'
         - name: Personalización de la experiencia del usuario
           items:
             - name: Configuración de entrada de usuario
@@ -168,6 +174,9 @@
               href: active-directory-b2c-ui-customization-custom.md
             - name: Personalización de la interfaz de usuario de forma dinámica
               href: active-directory-b2c-ui-customization-custom-dynamic.md
+            - name: Correo electrónico personalizado
+              href: custom-email.md
+              displayName: verification
             - name: Diseño de página
               href: page-layout.md
             - name: Habilitar JavaScript
@@ -196,8 +205,10 @@
               items:
                 - name: ADFS
                   href: active-directory-b2c-custom-setup-adfs2016-idp.md
+                  displayName: SAML
                 - name: Salesforce
                   href: active-directory-b2c-setup-sf-app-custom.md
+                  displayName: SAML
         - name: Administración de tokens y sesiones
           items:
             - name: Personalización de tokens
@@ -222,7 +233,7 @@
               href: active-directory-b2c-custom-rest-api-netfw-secure-cert.md
         - name: Definición de atributos personalizados
           href: active-directory-b2c-create-custom-attributes-profile-edit-custom.md
-        - name: solución de problemas
+        - name: Solución de problemas
           items:
             - name: Recopilación de registros con Application Insights
               href: active-directory-b2c-troubleshoot-custom.md
@@ -244,7 +255,7 @@
                 - name: ClaimsTransformations
                   href: claimstransformations.md
                   items:
-                    - name: boolean
+                    - name: Boolean
                       href: boolean-transformations.md
                     - name: Date
                       href: date-transformations.md
@@ -254,11 +265,13 @@
                       href: integer-transformations.md
                     - name: JSON
                       href: json-transformations.md
+                    - name: Número de teléfono
+                      href: phone-number-claims-transformations.md
                     - name: Cuentas externas
                       href: social-transformations.md
                     - name: StringCollection
                       href: stringcollection-transformations.md
-                    - name: string
+                    - name: String
                       href: string-transformations.md
                 - name: Predicados
                   href: predicates.md
@@ -277,6 +290,9 @@
                   items:
                     - name: Acerca de los perfiles técnicos
                       href: technical-profiles-overview.md
+                    - name: Azure Multi-Factor Authentication
+                      href: multi-factor-auth-technical-profile.md
+                      displayName: mfa
                     - name: Solucionadores de notificaciones
                       href: claim-resolver-overview.md
                     - name: Azure Active Directory
@@ -289,6 +305,9 @@
                       href: oauth1-technical-profile.md
                     - name: OAuth2
                       href: oauth2-technical-profile.md
+                    - name: Contraseña de un solo uso
+                      href: one-time-password-technical-profile.md
+                      displayName: otp
                     - name: OpenID Connect
                       href: openid-connect-technical-profile.md
                     - name: REST
@@ -301,6 +320,11 @@
                       href: active-directory-b2c-reference-sso-custom.md
                     - name: Validación
                       href: validation-technical-profile.md
+            - name: DisplayControls
+              href: display-controls.md
+              items:
+                - name: Comprobación
+                  href: display-control-verification.md
             - name: UserJourneys
               href: userjourneys.md
             - name: RelyingParty

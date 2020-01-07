@@ -4,9 +4,9 @@
   items:
     - name: Información general
       href: stages-overview.md
-    - name: Elección de la plataforma de desarrollo para dispositivos móviles
+    - name: Elección de un marco de desarrollo de aplicaciones móviles
       href: front-end-development-platform.md
-    - name: Planeación y diseño de aplicaciones móviles con servicios de back-end
+    - name: Planeación y diseño de una aplicación móvil con servicios de back-end
       items:
         - name: Authentication
           href: authentication.md
@@ -14,7 +14,7 @@
           href: data-storage.md
         - name: Proceso sin servidor
           href: serverless-compute.md
-        - name: Almacenamiento de Azure
+        - name: Azure Storage
           href: azure-storage.md
         - name: Aplicaciones en tiempo real
           href: real-time.md
@@ -32,7 +32,7 @@
           href: continuous-delivery.md
     - name: Análisis del uso y del comportamiento del usuario
       href: analytics.md
-    - name: Informes de bloqueos en tiempo real
+    - name: Informes de error en tiempo real
       href: diagnostics.md
     - name: Notificaciones de inserción
       href: push-notifications.md
@@ -42,7 +42,7 @@
       href: cognitive-services.md
     - name: Azure Maps
       href: azure-maps.md
-    - name: Azure CDN
+    - name: Azure Content Delivery Network
       href: azure-cdn.md
     - name: Azure Cognitive Search
       href: azure-search.md

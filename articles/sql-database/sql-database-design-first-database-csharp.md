@@ -10,20 +10,20 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: carlrab
 ms.date: 07/29/2019
-ms.openlocfilehash: 6c4a99367c7fc6a864f6a16bc614e4c10663d0ff
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 0f1140bbefc7508666e763fcd4f1a04ba48cdfdd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837175"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75354953"
 ---
 # <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-cx23-and-adonet"></a>Tutorial: Diseño de una base de datos relacional en una base de datos única en Azure SQL Database con C# y ADO.NET
 
 Azure SQL Database es una base de datos como servicio (DBaaS) relacional en Microsoft Cloud (Azure). En este tutorial se aprenderá a usar Azure Portal y ADO.NET con Visual Studio para:
 
 > [!div class="checklist"]
-> * Creación de una base de datos única mediante Azure Portal*
-> * Configuración de una regla de firewall por IP de nivel a servidor mediante Azure Portal
+> * Crear una base de datos única mediante Azure Portal*
+> * Configurar una regla de firewall por IP de nivel de servidor mediante Azure Portal
 > * Conectarse a la base de datos con ADO.NET y Visual Studio
 > * Crear tablas con ADO.NET
 > * Insertar, actualizar y eliminar datos con ADO.NET
@@ -34,13 +34,13 @@ Azure SQL Database es una base de datos como servicio (DBaaS) relacional en Micr
 > [!TIP]
 > El siguiente módulo de Microsoft Learn le ayuda a aprender gratis cómo [desarrollar y configurar una aplicación de ASP.net que consulta una instancia de Azure SQL Database](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/), incluida la creación de una base de datos simple.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Una instalación de [Visual Studio 2019](https://www.visualstudio.com/downloads/) o posterior.
 
 ## <a name="create-a-blank-single-database"></a>Crear una base de datos única en blanco
 
-Se crea una base de datos única en Azure SQL Database con un conjunto definido de recursos de proceso y almacenamiento. La base de datos se crea dentro de un [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) y se administra mediante un [servidor de bases de datos](sql-database-servers.md).
+Se crea una base de datos única en Azure SQL Database con un conjunto definido de recursos de proceso y almacenamiento. La base de datos se crea dentro de un [grupo de recursos de Azure](../azure-resource-manager/management/overview.md) y se administra mediante un [servidor de bases de datos](sql-database-servers.md).
 
 Siga estos pasos para crear una base de datos única en blanco.
 
@@ -51,7 +51,7 @@ Siga estos pasos para crear una base de datos única en blanco.
 
 3. Rellene el formulario de **SQL Database** con la siguiente información, como se muestra en la imagen anterior:
 
-    | Configuración       | Valor sugerido | DESCRIPCIÓN |
+    | Configuración       | Valor sugerido | Descripción |
     | ------------ | ------------------ | ------------------------------------------------- |
     | **Nombre de la base de datos** | *yourDatabase* | Para conocer los nombres de base de datos válidos, consulte [Identificadores de base de datos](/sql/relational-databases/databases/database-identifiers). |
     | **Suscripción** | *yourSubscription*  | Para más información acerca de sus suscripciones, consulte [Suscripciones](https://account.windowsazure.com/Subscriptions). |
@@ -60,7 +60,7 @@ Siga estos pasos para crear una base de datos única en blanco.
 
 4. Haga clic en **Servidor** para usar un servidor de bases de datos existente o para crear y configurar uno nuevo. Seleccione un servidor existente o haga clic en **Crear un nuevo servidor** y rellene el formulario **Nuevo servidor** con la información siguiente:
 
-    | Configuración       | Valor sugerido | DESCRIPCIÓN |
+    | Configuración       | Valor sugerido | Descripción |
     | ------------ | ------------------ | ------------------------------------------------- |
     | **Nombre del servidor** | Cualquier nombre globalmente único | Para conocer cuáles son los nombres de servidor válidos, consulte el artículo [Naming conventions](/azure/architecture/best-practices/resource-naming) (Convenciones de nomenclatura). |
     | **Inicio de sesión del administrador del servidor** | Cualquier nombre válido | Para conocer los nombres de inicio de sesión válidos, consulte [Identificadores de base de datos](/sql/relational-databases/databases/database-identifiers). |

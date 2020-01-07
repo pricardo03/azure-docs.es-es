@@ -43,8 +43,10 @@
       href: tutorial-azure-security.md
     - name: 14 - Implementación de Jenkins
       href: tutorial-jenkins-github-docker-cicd.md
-    - name: 15 - CI/CD con Azure Pipelines
+    - name: 15a - Implementación con Azure Pipelines
       href: tutorial-build-deploy-jenkins.md
+    - name: 15b - CI/CD con Azure Pipelines
+      href: tutorial-build-deploy-azure-pipelines.md
     - name: 16a - Creación de pila LAMP
       href: tutorial-lamp-stack.md
     - name: 16a - Creación de pila LEMP
@@ -55,14 +57,14 @@
       href: tutorial-secure-web-server.md
 - name: Ejemplos
   items:
-    - name: CLI de Azure
+    - name: Azure CLI
       href: cli-samples.md
     - name: Azure PowerShell
       href: powershell-samples.md
 - name: Conceptos
   items:
     - name: Azure Resource Manager
-      href: ../../azure-resource-manager/resource-group-overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+      href: ../../azure-resource-manager/management/overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Regions
       href: regions.md
     - name: Disponibilidad y rendimiento
@@ -178,7 +180,7 @@
       href: backup-recovery.md
     - name: Directrices de infraestructura
       href: infrastructure-example.md
-- name: Guías de procedimientos
+- name: Guías paso a paso
   items:
     - name: Creación de máquinas virtuales
       items:
@@ -429,7 +431,7 @@
       items:
         - name: Ansible
           items:
-            - name: Instalación y configuración
+            - name: Instalar y configurar
               href: ansible-install-configure.md
             - name: Creación de una máquina virtual Linux
               href: ansible-create-vm.md
@@ -437,7 +439,7 @@
               href: ansible-manage-linux-vm.md
         - name: Terraform
           items:
-            - name: Instalación y configuración
+            - name: Instalar y configurar
               href: terraform-install-configure.md
             - name: Creación de una máquina virtual completa
               href: terraform-create-complete-vm.md
@@ -526,7 +528,7 @@
           href: 'https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/'
         - name: IBM Db2 pureScale
           items:
-            - name: Arquitectura
+            - name: Architecture
               href: ibm-db2-purescale-azure.md
             - name: Implementación
               href: deploy-ibm-db2-purescale-azure.md
@@ -534,9 +536,9 @@
       items:
         - name: Agregar un disco
           items:
-            - name: CLI de Azure
+            - name: Azure CLI
               href: add-disk.md
-            - name: Azure Portal
+            - name: Portal de Azure
               href: attach-disk-portal.md
         - name: Desconexión de un disco
           href: detach-disk.md
@@ -657,7 +659,7 @@
               href: migration-classic-resource-manager-faq.md
 - name: Referencia
   items:
-    - name: CLI de Azure
+    - name: Azure CLI
       href: /cli/azure/vm
     - name: PowerShell
       href: /powershell/azureps-cmdlets-docs

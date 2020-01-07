@@ -141,7 +141,7 @@
 - name: Conceptos
   items:
     - name: Azure Resource Manager
-      href: ../../azure-resource-manager/resource-group-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      href: ../../azure-resource-manager/management/overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Regions
       href: regions.md
     - name: Disponibilidad y rendimiento
@@ -186,6 +186,8 @@
               href: sizes-gpu.md
             - name: Configuración de los controladores de GPU
               href: n-series-driver-setup.md
+            - name: Configuración de controladores de GPU de AMD
+              href: n-series-amd-driver-setup.md
         - name: Informática de alto rendimiento
           displayName: H-series
           href: sizes-hpc.md
@@ -262,7 +264,7 @@
       href: backup-recovery.md
     - name: Ejemplo de infraestructura
       href: infrastructure-example.md
-- name: Guías de procedimientos
+- name: Guías paso a paso
   items:
     - name: Creación de máquinas virtuales
       items:
@@ -535,7 +537,7 @@
           items:
             - name: Azure PowerShell
               href: attach-disk-ps.md
-            - name: Azure Portal
+            - name: Portal de Azure
               href: attach-managed-disk-portal.md
         - name: Desconexión de un disco
           href: detach-disk.md
@@ -650,7 +652,7 @@
   href: ../troubleshooting/index.md
 - name: Referencia
   items:
-    - name: CLI de Azure
+    - name: Azure CLI
       href: /cli/azure/vm
     - name: Azure PowerShell
       href: /powershell/azureps-cmdlets-docs
@@ -672,7 +674,7 @@
 - name: Recursos
   items:
     - name: Creación de plantillas
-      href: ../../azure-resource-manager/resource-group-authoring-templates.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      href: ../../azure-resource-manager/templates/template-syntax.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Desarrollo de aptitudes con Microsoft Learn
       href: /learn/browse/?products=azure-virtual-machines
     - name: Azure Roadmap

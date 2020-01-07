@@ -1,34 +1,34 @@
 ---
-title: Compilación de aplicaciones móviles con Visual Studio App Center y los servicios de Azure
-description: Más información sobre servicios como App Center que le permite compilar aplicaciones móviles reales además de otros servicios de Azure.
+title: Compilación de aplicaciones móviles con Visual Studio App Center y los servicios de Azure
+description: Aprenda a usar servicios como Visual Studio App Center para compilar aplicaciones móviles reales, junto con otros servicios de Azure.
 author: elamalani
 ms.assetid: 98899889-9b3c-4faf-8588-ccff02097224
 ms.service: vs-appcenter
 ms.topic: article
 ms.date: 10/22/2019
 ms.author: emalani
-ms.openlocfilehash: 581aecb113a2c6e0bb03d04de46c7dbeb71db3ce
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 6e60aa223b3c4f362ed13411c54212e9d1fa2c87
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901387"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454421"
 ---
 # <a name="mobile-application-development-in-microsoft"></a>Desarrollo de aplicaciones móviles en Microsoft
-Los responsables de la toma de decisiones, los equipos de desarrollo y el departamento de TI necesitan crear una estrategia sólida de desarrollo de aplicaciones móviles que aborde muchas cuestiones:
-- Dirigirse a los tipos de aplicaciones que se adaptan a su objetivo empresarial como, por ejemplo, aplicaciones de negocio a empresa (B2E), negocio a negocio (B2B) o negocio a consumidor (B2C).
-- Decidir si se desea invertir y compilar aplicaciones para iOS, Android o Windows con lenguajes de una sola plataforma o adoptar un enfoque multiplataforma.
-- Ofrecer servicios de back-end que se puedan escalar.
-- Integrarse sin problemas con los datos de back-end, ya sea en línea o sin conexión.
-- Compilar aplicaciones seguras con funcionalidades de administración de dispositivos y autenticación.
-- Realizar entregas rápidas y continuas.
-- Conectarse a sistemas de back-end, ya sea en la nube o de forma local.
-- Integrarse con las herramientas y procesos existentes.
-- Desarrollar la aplicación a medida que evoluciona su negocio.
-- Reducir el tiempo de comercialización y dejar que sus desarrolladores se centren en la creación de aplicaciones de alta calidad.
+Tanto los responsables de la toma de decisiones, como los equipos de desarrollo y los departamentos de TI necesitan crear una sólida estrategia de desarrollo de aplicaciones móviles que:
+- Vaya dirigida a los tipos de aplicaciones que se ajustan a su objetivo empresarial como, por ejemplo, aplicaciones de negocio a empresa (B2E), de negocio a negocio (B2B) o de negocio a consumidor (B2C).
+- Determine no solo si se desea invertir en aplicaciones para iOS, Android o Windows con lenguajes de una sola plataforma sino también compilarlas, o bien si de prefiere adoptar un enfoque multiplataforma.
+- Ofrezca servicios de back-end que se puedan escalar.
+- Se integre perfectamente con los datos de back-end, ya sea en línea o sin conexión.
+- Compile aplicaciones seguras con funcionalidades de administración de dispositivos y autenticación.
+- Realice entregas rápidas y continuas.
+- Se conecte a sistemas de back-end, tanto en la nube como de forma local.
+- Se integre con las herramientas y procesos existentes.
+- Evolucione la aplicación al mismo tiempo que el negocio.
+- Reduzca el tiempo de comercialización y deje que los desarrolladores se centren en la creación de aplicaciones de alta calidad.
 
-En esta serie de documentación se exploran los **servicios que proporciona Microsoft que le permiten crear aplicaciones móviles seguras, confiables, escalables y basadas en la nube**.
+En esta serie de documentos se exploran aquellos servicios que proporciona Microsoft y que se pueden usar para crear aplicaciones móviles seguras, confiables, escalables y basadas en la nube.
 
 **Audiencia objetivo**
 
-Esta serie de documentación será útil tanto para desarrolladores que están empezando como para los que ya son expertos en la creación de aplicaciones móviles y buscan obtener información sobre los servicios en la nube que le ayudarán a mejorar su éxito en el desarrollo de aplicaciones. Los desarrolladores encontrarán una visión general concisa de todos los servicios, herramientas y tecnologías de Microsoft que necesiten conocer. No hay ejemplos de código ni demostraciones agregadas a esta documentación. Está diseñada para proporcionarle información general de alto nivel sobre el proceso de desarrollo de aplicaciones y los servicios asociados que se deben usar. Cada tema se vincula a otros recursos que permiten obtener información más detallada. Cada parte de la serie se puede leer de forma independiente, por lo que puede elegir los temas que le interesen.
+Esta serie de documentos será útil tanto para los desarrolladores que están empezando como para los que ya son expertos en la creación de aplicaciones móviles y buscan obtener información sobre los servicios en la nube que les ayude a mejorar el desarrollo de aplicaciones. Aquí encontrará una concisa información general acerca de todos los servicios, herramientas y tecnologías de Microsoft que necesite conocer. No se han agregado hay ejemplos de código ni demostraciones a esta documentación. Está diseñada para proporcionarle información general de alto nivel acerca del proceso de desarrollo de aplicaciones, así como de los servicios asociados que se deben usar. Cada artículo tiene vínculos a otros recursos, lo que permite obtener información más detallada. Cada parte de la serie se puede leer de forma independiente, con el fin de que pueda elegir solo los temas que le interesen.

@@ -24,7 +24,7 @@
         - name: Authentication
           tocHref: /azure/active-directory/authentication/
           topicHref: /azure/active-directory/authentication/
-        - name: Desarrollo
+        - name: Desarrollar
           tocHref: /azure/active-directory/develop/
           topicHref: /azure/active-directory/develop/
         - name: Privileged Identity Management
@@ -48,7 +48,7 @@
         - name: 'Usuarios, grupos y roles'
           tocHref: /azure/active-directory/users-groups-roles/
           topicHref: /azure/active-directory/users-groups-roles/
-        - name: Gobernanza de identidades
+        - name: Identity Governance
           tocHref: /azure/active-directory/governance/
           topicHref: /azure/active-directory/governance/
         - name: Administración de aplicaciones
@@ -102,7 +102,7 @@
     - name: Application Gateway
       tocHref: /azure/application-gateway/
       topicHref: /azure/application-gateway/
-    - name: ASC para IoT
+    - name: ASC for IoT
       tocHref: /azure/asc-for-iot/
       topicHref: /azure/asc-for-iot/
     - name: Automation
@@ -139,6 +139,10 @@
     - name: Azure Monitor
       tocHref: /azure/azure-monitor/
       topicHref: /azure/azure-monitor/
+      items:
+        - name: Application Insights
+          tocHref: /azure/azure-monitor/azure-monitor-app-hub
+          topicHref: /azure/azure-monitor/azure-monitor-app-hub
     - name: Azure Spatial Anchors
       tocHref: /azure/spatial-anchors/
       topicHref: /azure/spatial-anchors/
@@ -170,7 +174,7 @@
     - name: Azure VMware Solution by CloudSimple
       tocHref: /azure/vmware-cloudsimple/
       topicHref: /azure/vmware-cloudsimple/
-    - name: Personalización de Azure Portal
+    - name: Documentación de Azure Portal
       tocHref: /azure/azure-portal/
       topicHref: /azure/azure-portal/\
     - name: Internet de las cosas
@@ -226,6 +230,19 @@
     - name: Resource Manager
       tocHref: /azure/azure-resource-manager/
       topicHref: /azure/azure-resource-manager/
+      items:
+        - name: Plantillas
+          tocHref: /azure/azure-resource-manager/templates/
+          topicHref: /azure/azure-resource-manager/templates/
+        - name: Administración
+          tocHref: /azure/azure-resource-manager/management/
+          topicHref: /azure/azure-resource-manager/management/
+        - name: Aplicaciones administradas
+          tocHref: /azure/azure-resource-manager/managed-applications/
+          topicHref: /azure/azure-resource-manager/managed-applications/
+        - name: Proveedores personalizados de Azure
+          tocHref: /azure/azure-resource-manager/custom-providers/
+          topicHref: /azure/azure-resource-manager/custom-providers/
     - name: Servicio SignalR
       tocHref: /azure/azure-signalr/
       topicHref: /azure/azure-signalr/
@@ -256,7 +273,7 @@
     - name: Servicio de bots
       tocHref: /azure/bot-service/
       topicHref: /azure/bot-service/
-    - name: Memoria caché
+    - name: Cache
       tocHref: /azure/cache/
       topicHref: /azure/cache/
     - name: CDN
@@ -408,7 +425,7 @@
         - name: DC/OS y Swarm
           tocHref: /azure/container-service/dcos-swarm/
           topicHref: /azure/container-service/dcos-swarm/
-        - name: kubernetes
+        - name: Kubernetes
           tocHref: /azure/container-service/kubernetes/
           topicHref: /azure/container-service/kubernetes/
     - name: Bastion
@@ -607,7 +624,7 @@
     - name: Redes
       tocHref: /azure/networking/
       topicHref: /azure/networking/networking-overview
-    - name: Notebooks
+    - name: Cuaderno
       tocHref: /azure/notebooks/
       topicHref: /azure/notebooks/azure-notebooks-overview
     - name: Notification Hubs
@@ -656,9 +673,12 @@
         - name: Aspectos básicos
           tocHref: /azure/security/fundamentals/
           topicHref: /azure/security/fundamentals/
-        - name: Desarrollo
+        - name: Desarrollar
           tocHref: /azure/security/develop/
           topicHref: /azure/security/develop/
+        - name: Pruebas comparativas
+          tocHref: /azure/security/benchmarks/
+          topicHref: /azure/security/benchmarks/
     - name: Security Center
       tocHref: /azure/security-center/
       topicHref: /azure/security-center/
@@ -699,7 +719,7 @@
       tocHref: /azure/storage/
       topicHref: /azure/storage/
       items:
-        - name: Blobs
+        - name: Datos BLOB
           tocHref: /azure/storage/blobs/
           topicHref: /azure/storage/blobs/storage-blobs-introduction
         - name: Data Lake Storage Gen2

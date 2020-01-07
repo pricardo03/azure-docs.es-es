@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 title: Documentación de Form Recognizer
-summary: Azure Form Recognizer es un servicio cognitivo que utiliza tecnología de aprendizaje automático para identificar y extraer pares clave-valor, así como datos de tablas de los documentos de formularios. A continuación, genera datos estructurados que incluyen las relaciones del fichero original. El aprendizaje sin supervisión permite que el modelo comprenda el diseño y las relaciones entre los campos y las entradas sin necesidad de un etiquetado de datos manual o de una codificación y un mantenimiento intensivos.
+summary: Azure Form Recognizer es un servicio cognitivo que utiliza tecnología de aprendizaje automático para identificar y extraer pares clave-valor, así como datos de tablas de los documentos de formularios. A continuación, genera datos estructurados que incluyen las relaciones del fichero original. El aprendizaje sin supervisión permite que el modelo conozca tanto el diseño como los datos de los campos sin necesidad de un etiquetado manual de los datos o de una codificación intensiva. El aprendizaje supervisado también se puede realizar con datos etiquetados manualmente. Los modelos entrenados con datos etiquetados pueden funcionar mejor y pueden trabajar con documentos más complicados.
 metadata:
   title: 'Documentación de Form Recognizer: inicios rápidos, tutoriales, referencia de API - Azure Cognitive Services | Microsoft Docs'
-  description: Azure Form Recognizer es un servicio cognitivo que utiliza tecnología de aprendizaje automático para identificar y extraer pares clave-valor, así como datos de tablas de los documentos de formularios. A continuación, genera datos estructurados que incluyen las relaciones del fichero original. El aprendizaje sin supervisión permite que el modelo comprenda el diseño y las relaciones entre los campos y las entradas sin necesidad de un etiquetado de datos manual o de una codificación y un mantenimiento intensivos.
+  description: Azure Form Recognizer es un servicio cognitivo que utiliza tecnología de aprendizaje automático para identificar y extraer pares clave-valor, así como datos de tablas de los documentos de formularios. A continuación, genera datos estructurados que incluyen las relaciones del fichero original. El aprendizaje sin supervisión permite que el modelo conozca tanto el diseño como los datos de los campos sin necesidad de un etiquetado manual de los datos o de una codificación intensiva. El aprendizaje supervisado también se puede realizar con datos etiquetados manualmente. Los modelos entrenados con datos etiquetados no solo pueden funcionar mejor, sino que también pueden trabajar con documentos más complicados.
   services: cognitive-services
   ms.service: cognitive-services
   ms.subservice: form-recognizer
@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 09/05/2019
-  ms.openlocfilehash: 3a3146c6a918916792a331c0dab74683db82a02d
-  ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+  ms.openlocfilehash: 835eb7bece58e93375c09c51149381d7882702de
+  ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 10/25/2019
-  ms.locfileid: "72931301"
+  ms.lasthandoff: 12/25/2019
+  ms.locfileid: "75446502"
 landingContent:
 - title: Acerca de Form Recognizer
   linkLists:
@@ -24,6 +24,10 @@ landingContent:
     links:
     - text: ¿Qué es Form Recognizer?
       url: overview.md
+  - linkListType: whats-new
+    links:
+    - text: Novedades en Form Recognizer
+      url: whats-new.md
   - linkListType: video
     links:
     - text: Automatización de procesos con inteligencia artificial con Form Recognizer
@@ -38,18 +42,38 @@ landingContent:
       url: quickstarts/python-train-extract.md
     - text: Uso de la API REST (cURL)
       url: quickstarts/curl-train-extract.md
-- title: Extracción de datos de las confirmaciones
-  linkLists:
-  - linkListType: quickstart
-    links:
-    - text: Uso del SDK de .NET
-      url: quickstarts/dotnet-sdk.md
 - title: Creación de un conjunto de datos de aprendizaje
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: Creación de un conjunto de datos de aprendizaje
       url: build-training-data-set.md
+- title: Entrenamiento de modelos personalizados mediante etiquetas
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Datos etiquetados
+      url: overview.md#train-with-labels
+  - linkListType: quickstart
+    links:
+    - text: Entrenamiento mediante la herramienta de etiquetado de ejemplo
+      url: quickstarts/label-tool.md
+    - text: Entrenamiento con etiquetas mediante la API REST y Python
+      url: quickstarts/python-labeled-data.md
+- title: Extracción de datos de las confirmaciones
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Uso de la API REST (Python)
+      url: quickstarts/python-receipts.md
+    - text: Uso de la API REST (cURL)
+      url: quickstarts/curl-receipts.md
+- title: Obtención información acerca del diseño de texto
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Uso de la API REST (Python)
+      url: quickstarts/python-layout.md
 - title: Uso de contenedores
   linkLists:
   - linkListType: get-started
@@ -68,8 +92,10 @@ landingContent:
   linkLists:
   - linkListType: reference
     links:
-    - text: API de Form Recognizer
-      url: https://aka.ms/form-recognizer/api
+    - text: API de Form Recognizer, versión 2.0
+      url: https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm
+    - text: API de Form Recognizer, versión 1.0
+      url: https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api/operations/AnalyzeWithCustomModel
     - text: .NET SDK
       url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/formrecognizer?view=azure-dotnet-preview
     - text: Azure PowerShell

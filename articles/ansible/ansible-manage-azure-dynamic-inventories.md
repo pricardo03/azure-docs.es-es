@@ -4,12 +4,12 @@ description: Más información acerca del uso de Ansible para administrar sus in
 keywords: ansible, azure, devops, bash, cloudshell, inventario dinámico
 ms.topic: tutorial
 ms.date: 10/23/2019
-ms.openlocfilehash: dea6b47e5e263fdd2e048a0435efbebfa90fe69e
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: f159322a19cc79758de33904bbad9dfce32ff7cc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74156178"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442785"
 ---
 # <a name="tutorial-configure-dynamic-inventories-of-your-azure-resources-using-ansible"></a>Tutorial: Configuración de inventarios dinámicos de los recursos de Azure con Ansible
 
@@ -24,7 +24,7 @@ Ansible puede utilizarse para extraer información de inventario de varios oríg
 > * Instalar Nginx en las máquinas virtuales etiquetadas.
 > * Configurar un inventario dinámico que incluya los recursos de Azure configurados.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [open-source-devops-prereqs-create-service-principal.md](../../includes/open-source-devops-prereqs-create-service-principal.md)]
@@ -32,7 +32,7 @@ Ansible puede utilizarse para extraer información de inventario de varios oríg
 
 ## <a name="create-the-test-vms"></a>Creación de las máquinas virtuales de prueba
 
-1. Inicie sesión en el [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Inicie sesión en [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Abra [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
 
@@ -228,7 +228,7 @@ El objetivo de las etiquetas es permitir que se pueda trabajar de forma rápida 
           become: yes
           tasks:
           - name: install nginx
-            apt: pkg=nginx state=installed
+            apt: pkg=nginx state=present
             notify:
             - start nginx
     

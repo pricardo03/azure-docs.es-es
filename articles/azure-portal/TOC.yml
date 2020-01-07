@@ -14,8 +14,12 @@
       href: azure-portal-dashboard-share-access.md
     - name: Creación mediante programación de paneles de Azure
       href: azure-portal-dashboards-create-programmatically.md
-- name: Guías de procedimientos
+- name: Guías paso a paso
   items:
+    - name: Configuración de las preferencias de Azure Portal
+      href: set-preferences.md
+    - name: Configuración de los valores de tiempo de espera de todos los usuarios
+      href: admin-timeout.md
     - name: Activación del contraste alto o cambio de tema
       href: azure-portal-change-theme-high-contrast.md
     - name: 'Adición, eliminación y ordenación de favoritos'
@@ -30,7 +34,7 @@
       href: azure-portal-video-series.md
 - name: Referencia
   items:
-    - name: Métodos abreviados de teclado
+    - name: Accesos directos del teclado
       href: azure-portal-keyboard-shortcuts.md
     - name: Guarde en la lista de direcciones IP seguras las URL de Azure Portal
       href: azure-portal-safelist-urls.md

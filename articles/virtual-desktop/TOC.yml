@@ -20,7 +20,7 @@
       href: manage-resources-using-ui.md
     - name: 7. Configuración de alertas de servicio
       href: set-up-service-alerts.md
-- name: Procedimiento
+- name: Instrucciones
   items:
     - name: Conexión a recursos de Windows Virtual Desktop
       items:
@@ -56,6 +56,8 @@
           href: customize-rdp-properties.md
         - name: Equilibrio de carga para grupos de hosts agrupados
           href: configure-host-pool-load-balancing.md
+        - name: Tipo de asignación de escritorio personal
+          href: configure-host-pool-personal-desktop-assignment-type.md
     - name: Uso de la licencia de Windows Virtual Desktop
       href: apply-windows-license.md
     - name: Personalización de una imagen de host de sesión
@@ -68,8 +70,12 @@
       href: set-up-scaling-script.md
     - name: Personalización de fuente
       href: customize-feed-for-virtual-desktop-users.md
-    - name: Implementación de la herramienta de diagnósticos
-      href: deploy-diagnostics.md
+    - name: Uso de diagnósticos de servicios
+      items:
+        - name: Implementación de la herramienta de diagnósticos
+          href: deploy-diagnostics.md
+        - name: Uso de diagnósticos con Log Analytics
+          href: diagnostics-log-analytics.md
     - name: Publicación de aplicaciones integradas
       href: publish-apps.md
     - name: Configuración de la asociación de aplicaciones en formato .MSIX
@@ -78,8 +84,6 @@
   items:
     - name: Entorno de Windows Virtual Desktop
       href: environment-setup.md
-    - name: Recomendaciones de ancho de banda para sesiones remotas
-      href: bandwidth-recommendations.md
     - name: Determinación de la latencia de la conexión del usuario
       href: connection-latency.md
     - name: Acceso delegado en Windows Virtual Desktop
@@ -110,8 +114,10 @@
       href: troubleshoot-windows-7-vm.md
     - name: Solución de problemas de la herramienta Windows Virtual Desktop
       href: troubleshoot-management-tool.md
-    - name: Conexiones de cliente de Escritorio remoto
-      href: troubleshoot-client-connection.md
+    - name: Conexiones de servicios de Escritorio remoto
+      href: troubleshoot-service-connection.md
+    - name: Problemas de los clientes de Escritorio remoto
+      href: troubleshoot-client.md
     - name: "PowerShell para Windows\_Virtual\_Desktop"
       href: troubleshoot-powershell.md
     - name: Diagnóstico de problemas de rendimiento de los gráficos

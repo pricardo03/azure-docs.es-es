@@ -6,6 +6,8 @@
       href: api-management-key-concepts.md
     - name: Disponibilidad de características de API Management
       href: api-management-features.md
+    - name: Administración de los microservicios implementados en AKS
+      href: api-management-kubernetes.md
 - name: Guías de inicio rápido
   expanded: true
   items:
@@ -63,7 +65,7 @@
       href: api-management-api-import-restrictions.md
     - name: Introducción a la puerta de enlace autohospedada
       href: self-hosted-gateway-overview.md
-- name: Guías de procedimientos
+- name: Guías paso a paso
   items:
     - name: Definición de API
       items:
@@ -105,7 +107,7 @@
           href: api-management-howto-deploy-self-hosted-gateway-to-docker.md
         - name: Configuración de un dominio personalizado para la puerta de enlace autohospedada
           href: api-management-howto-configure-custom-domain-gateway.md
-    - name: Memoria caché
+    - name: Cache
       items:
         - name: Agregar almacenamiento en caché para mejorar el rendimiento
           href: api-management-howto-cache.md
@@ -249,7 +251,7 @@
       href: 'https://aka.ms/apimpricing'
     - name: Disponibilidad regional
       href: 'https://azure.microsoft.com/regions/services/'
-    - name: Roadmap
+    - name: Plan de desarrollo
       href: 'https://aka.ms/apimroadmap'
     - name: Solicitudes de características
       href: 'https://aka.ms/apimwish'
