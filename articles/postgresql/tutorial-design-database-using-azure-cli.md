@@ -8,12 +8,12 @@ ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 06/25/2019
-ms.openlocfilehash: 0f1f4c07f3dc694bcae9b540c71a11e53a00eb7f
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: c79e64fddaf404b459dd2215e4a2e9236f1bc221
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74773700"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460011"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-azure-cli"></a>Tutorial: Diseño de una instancia de Azure Database for PostgreSQL: servidor único con la CLI de Azure 
 En este tutorial, usa la CLI (interfaz de la línea de comandos) de Azure y otras utilidades para aprender a hacer lo siguiente:
@@ -21,7 +21,7 @@ En este tutorial, usa la CLI (interfaz de la línea de comandos) de Azure y otra
 > * Creación de un servidor de Azure Database for PostgreSQL
 > * Configuración del firewall del servidor
 > * Uso de la utilidad [**psql**](https://www.postgresql.org/docs/9.6/static/app-psql.html) para crear una base de datos
-> * Carga de datos de ejemplo
+> * Carga de datos de muestra
 > * Consultar datos
 > * Actualización de datos
 > * Restauración de datos
@@ -38,7 +38,7 @@ az account set --subscription 00000000-0000-0000-0000-000000000000
 ```
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
-Cree un [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) con el comando [az group create](/cli/azure/group). Un grupo de recursos es un contenedor lógico en el que se implementan y se administran recursos de Azure como un grupo. En el ejemplo siguiente, se crea un grupo de recursos denominado `myresourcegroup` en la ubicación `westus`.
+Cree un [grupo de recursos de Azure](../azure-resource-manager/management/overview.md) con el comando [az group create](/cli/azure/group). Un grupo de recursos es un contenedor lógico en el que se implementan y se administran recursos de Azure como un grupo. En el ejemplo siguiente, se crea un grupo de recursos denominado `myresourcegroup` en la ubicación `westus`.
 ```azurecli-interactive
 az group create --name myresourcegroup --location westus
 ```
@@ -199,7 +199,7 @@ az postgres server restore --resource-group myresourcegroup --name mydemoserver-
 
 El comando `az postgres server restore` necesita los parámetros siguientes:
 
-| Configuración | Valor sugerido | DESCRIPCIÓN  |
+| Configuración | Valor sugerido | Descripción  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  Grupo de recursos en el que existe el servidor de origen.  |
 | name | mydemoserver-restored | Nombre del nuevo servidor que se crea mediante el comando de restauración. |
@@ -208,7 +208,7 @@ El comando `az postgres server restore` necesita los parámetros siguientes:
 
 Al restaurar un servidor a un momento dado, se crea un servidor que se copia como servidor original a un momento dado que especifique. Los valores de ubicación y plan de tarifa del servidor restaurado son los mismos que los del servidor de origen.
 
-El comando es sincrónico y se devolverá después de que se haya restaurado el servidor. Una vez finalizada la restauración, busque el servidor que ha creado. Compruebe que los datos se han restaurado del modo esperado.
+El comando es sincrónico y se devolverá después de que se haya restaurado el servidor. Una vez finalizada la restauración, busque el servidor que se ha creado. Compruebe que los datos se han restaurado del modo esperado.
 
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -217,7 +217,7 @@ En este tutorial, aprendió a usar la CLI (interfaz de la línea de comandos) de
 > * Creación de un servidor de Azure Database for PostgreSQL
 > * Configuración del firewall del servidor
 > * Uso de la utilidad [**psql**](https://www.postgresql.org/docs/9.6/static/app-psql.html) para crear una base de datos
-> * Carga de datos de ejemplo
+> * Carga de datos de muestra
 > * Consultar datos
 > * Actualización de datos
 > * Restauración de datos

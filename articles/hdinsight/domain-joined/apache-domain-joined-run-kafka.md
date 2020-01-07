@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 09/04/2019
-ms.openlocfilehash: cb99b747cb5de01c616c4cab0ac6c14823f7d4db
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: a0205d57fa68585b1a91b99b19e008eb92e73c0d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73044627"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435853"
 ---
 # <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Tutorial: Configuración de directivas de Apache Kafka en HDInsight con Enterprise Security Package (versión preliminar)
 
@@ -93,7 +93,7 @@ Para crear dos temas `salesevents` y `marketingspend`:
    ssh DOMAINADMIN@CLUSTERNAME-ssh.azurehdinsight.net
    ```
 
-   Reemplace `DOMAINADMIN` por el usuario administrador del clúster que se configuró durante la [creación del clúster](./apache-domain-joined-configure-using-azure-adds.md#create-a-hdinsight-cluster-with-esp) y reemplace `CLUSTERNAME` por el nombre del clúster. Si se le solicita, escriba la contraseña de la cuenta de usuario administrador. Para obtener más información sobre cómo usar `SSH` con HDInsight, consulte [Conexión a través de SSH con HDInsight](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
+   Reemplace `DOMAINADMIN` por el usuario administrador del clúster que se configuró durante la [creación del clúster](./apache-domain-joined-configure-using-azure-adds.md#create-an-hdinsight-cluster-with-esp) y reemplace `CLUSTERNAME` por el nombre del clúster. Si se le solicita, escriba la contraseña de la cuenta de usuario administrador. Para obtener más información sobre cómo usar `SSH` con HDInsight, consulte [Conexión a través de SSH con HDInsight](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. Use los siguientes comandos para guardar el nombre del clúster en una variable e instalar una utilidad de análisis de JSON `jq`. Cuando se le solicite, escriba el nombre del clúster de Kafka.
 
@@ -189,11 +189,11 @@ Según las directivas de Ranger configuradas, **sales_user** puede producir o co
 
 Si no va a seguir usando esta aplicación, puede eliminar el clúster Kafka que creó mediante los siguientes pasos:
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 1. En el cuadro **Búsqueda** en la parte superior, escriba **HDInsight**.
 1. Seleccione **Clústeres de HDInsight** en **Servicios**.
 1. En la lista de clústeres de HDInsight que aparece, haga clic en el signo **...**  situado junto al clúster que ha creado para este tutorial. 
-1. Hacer clic en **Eliminar**. Haga clic en **Sí**.
+1. Haga clic en **Eliminar**. Haga clic en **Sí**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

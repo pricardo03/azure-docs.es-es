@@ -1,9 +1,9 @@
 ---
-title: Revisión del sistema operativo Windows en el clúster de Service Fabric | Microsoft Docs
+title: Revisión del sistema operativo Windows en el clúster de Service Fabric
 description: En este artículo se explica cómo automatizar la aplicación de revisiones de sistema operativo en un clúster de Service Fabric mediante la aplicación de orquestación de revisiones.
 services: service-fabric
 documentationcenter: .net
-author: khandelwalbrijeshiitr
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: de7dacf5-4038-434a-a265-5d0de80a9b1d
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
-ms.author: brkhande
-ms.openlocfilehash: a02228593a9d8efc9fb363232da1cede3c80a8b3
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.author: atsenthi
+ms.openlocfilehash: 3115c65c7027f5624b7b60b9be702ee4192d8cb6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72592528"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464452"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Revisión del sistema operativo Windows en el clúster de Service Fabric
 
@@ -63,7 +63,7 @@ POA consta de los siguientes subcomponentes:
 > [!NOTE]
 > POA usa el servicio de administrador de reparaciones de Service Fabric para habilitar o deshabilitar el nodo, y llevar a cabo comprobaciones de estado. La tarea de reparación creada por POA sigue el progreso de Windows Update en cada nodo.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 > [!NOTE]
 > La versión mínima requerida de .NET framework es 4.6.
@@ -155,7 +155,7 @@ Para descargar el paquete de la aplicación, vaya a la página de la [versión d
 
 Puede configurar el comportamiento de POA para satisfacer sus necesidades. Invalide los valores predeterminados al pasar el parámetro de la aplicación durante la creación o actualización de la aplicación. Puede proporcionar los parámetros de la aplicación especificando `ApplicationParameter` en los cmdlets `Start-ServiceFabricApplicationUpgrade` o `New-ServiceFabricApplication`.
 
-| Parámetro        | type                          | Detalles |
+| Parámetro        | Tipo                          | Detalles |
 |:-|-|-|
 |MaxResultsToCache    |long                              | El número máximo de resultados de Windows Update que deben almacenarse en caché. <br><br>El valor predeterminado es 3000 suponiendo que: <br> &nbsp;&nbsp;- El número de nodos es 20. <br> &nbsp;&nbsp;- El número de actualizaciones en un nodo al mes es 5. <br> &nbsp;&nbsp;- El número de resultados por cada operación es 10. <br> &nbsp;&nbsp;- Deben almacenarse los resultados de los últimos tres meses. |
 |TaskApprovalPolicy   |Enum <br> { NodeWise, UpgradeDomainWise }                          |TaskApprovalPolicy indica la directiva que usará Coordinator Service para instalar las actualizaciones de Windows en todos los nodos del clúster de Service Fabric.<br><br>Los valores permitidos son: <br>*NodeWise*: Las actualizaciones de Windows se instalan en un nodo cada vez. <br> *UpgradeDomainWise*: Las actualizaciones de Windows se instalan en un dominio de actualización cada vez. (Como máximo, todos los nodos que pertenecen a un dominio de actualización son aptos para una actualización de Windows).<br><br> Para ayudar a decidir qué directiva es la más adecuada para el clúster, consulte la sección [P+F](#frequently-asked-questions).
@@ -313,7 +313,7 @@ Vayamos paso a paso para comprender cómo funcionan las actualizaciones en un no
 
    Si quedan más problemas, inicie sesión en la máquina virtual (VM) o en las máquinas virtuales y obtenga información sobre ellas mediante el uso de registros de eventos de Windows. La tarea de reparación mencionada anteriormente solo puede existir en los siguientes subestados de ejecutor:
 
-      ExecutorSubState | DESCRIPCIÓN
+      ExecutorSubState | Descripción
     -- | -- 
       None=1 |  Implica que no hubo una operación en curso en el nodo. El estado puede estar en transición.
       DownloadCompleted=2 | Implica que la operación de descarga se completó correctamente, con un error parcial o con error.
@@ -357,7 +357,7 @@ POA también publica los informes de estado en el servicio Coordinator Service o
 
 **P: ¿Por qué veo el clúster en estado de error cuando se ejecuta POA?**
 
-R: Durante el proceso de instalación, POA deshabilita o reinicia los nodos, lo que puede provocar temporalmente un clúster incorrecto.
+A. Durante el proceso de instalación, POA deshabilita o reinicia los nodos, lo que puede provocar temporalmente un clúster incorrecto.
 
 En función de la directiva de la aplicación, un nodo puede dejar de estar activo durante una operación de aplicación de revisiones, *o bien* un dominio de actualización completo puede dejar de estar activo.
 
@@ -371,15 +371,15 @@ Si el problema persiste, consulte la sección de solución de problemas.
 
 **P: ¿Qué puedo hacer si POA está en un estado de advertencia?**
 
-R: Compruebe si un informe de estado publicado a la aplicación indica la causa principal. Normalmente la advertencia contiene los detalles del problema. Si el problema es transitorio, se espera que la aplicación se recupere automáticamente.
+A. Compruebe si un informe de estado publicado a la aplicación indica la causa principal. Normalmente la advertencia contiene los detalles del problema. Si el problema es transitorio, se espera que la aplicación se recupere automáticamente.
 
 **P: ¿Qué puedo hacer si el clúster está en mal estado y tengo que realizar una actualización urgente del sistema operativo?**
 
-R: POA no instala actualizaciones cuando el clúster está en mal estado. Intente devolver el clúster a un estado correcto para desbloquear el flujo de trabajo de POA.
+A. POA no instala actualizaciones cuando el clúster está en mal estado. Intente devolver el clúster a un estado correcto para desbloquear el flujo de trabajo de POA.
 
 **P: ¿Debo definir TaskApprovalPolicy como "NodeWise" o "UpgradeDomainWise" para el clúster?**
 
-R: La configuración "UpgradeDomainWise" acelera la reparación general del clúster mediante la revisión en paralelo de todos los nodos que pertenecen a un dominio de actualización. Durante el proceso, los nodos que pertenecen a un dominio de actualización completo no están disponibles (en [estado *deshabilitado*](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabled)).
+A. La configuración "UpgradeDomainWise" acelera la reparación general del clúster mediante la revisión en paralelo de todos los nodos que pertenecen a un dominio de actualización. Durante el proceso, los nodos que pertenecen a un dominio de actualización completo no están disponibles (en [estado *deshabilitado*](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabled)).
 
 En cambio, la configuración "NodeWise" solo revisa un nodo a la vez, lo que implicaría que la revisión del clúster general podría tardar más tiempo. Sin embargo, como máximo, solo habría un nodo no disponible (en estado *deshabilitado*) durante el proceso de aplicación de revisiones.
 
@@ -387,7 +387,7 @@ Si el clúster puede tolerar la ejecución en un número N-1 de dominios de actu
 
 **P: ¿Cuánto se tarda en aplicar revisiones a un nodo?**
 
-R: La aplicación de revisiones a un nodo puede tardar minutos (por ejemplo, [actualizaciones de definiciones de Windows Defender](https://www.microsoft.com/en-us/wdsi/definitions)) u horas (por ejemplo: [actualizaciones acumulativas de Windows](https://www.catalog.update.microsoft.com/Search.aspx?q=windows%20server%20cumulative%20update)). El tiempo necesario para aplicar revisiones en un nodo depende, principalmente, de: 
+A. La aplicación de revisiones a un nodo puede tardar minutos (por ejemplo, [actualizaciones de definiciones de Windows Defender](https://www.microsoft.com/en-us/wdsi/definitions)) u horas (por ejemplo: [actualizaciones acumulativas de Windows](https://www.catalog.update.microsoft.com/Search.aspx?q=windows%20server%20cumulative%20update)). El tiempo necesario para aplicar revisiones en un nodo depende, principalmente, de: 
  - El tamaño de las actualizaciones.
  - El número de actualizaciones, que deben aplicarse en un periodo de revisión.
  - El tiempo necesario para instalar las actualizaciones, reiniciar el nodo (si es necesario) y completar los pasos de instalación posteriores al reinicio.
@@ -395,13 +395,13 @@ R: La aplicación de revisiones a un nodo puede tardar minutos (por ejemplo, [ac
 
 **P: ¿Cuánto se tarda en aplicar revisiones a todo un clúster?**
 
-R: El tiempo necesario para aplicar una revisión a un clúster completo depende de:
+A. El tiempo necesario para aplicar una revisión a un clúster completo depende de:
 
 - El tiempo necesario para aplicar revisiones a un nodo.
 
 - La directiva del servicio Coordinator Service. La directiva predeterminada, "NodeWise", da como resultado la revisión de un solo nodo cada vez, un enfoque más lento que el uso de "UpgradeDomainWise". 
 
-   Por ejemplo:  si la aplicación de revisiones a un nodo tarda, aproximadamente, una hora, para aplicar revisiones en un clúster de 20 nodos (mismo tipo de nodos) con 5 dominios de actualización que contienen, cada uno, 4 nodos, requiere lo siguiente:
+   Por ejemplo: si la aplicación de revisiones a un nodo tarda, aproximadamente, una hora, para aplicar revisiones en un clúster de 20 nodos (mismo tipo de nodos) con 5 dominios de actualización que contienen, cada uno, 4 nodos, requiere lo siguiente:
     - Para "NodeWise": aproximadamente 20 horas.
     - Para "UpgradeDomainWise": aproximadamente 5 horas.
 
@@ -411,19 +411,19 @@ R: El tiempo necesario para aplicar una revisión a un clúster completo depende
 
 **P: ¿Por qué veo algunas actualizaciones en los resultados de Windows Update obtenidos a través de la API de REST, pero no en el historial de Windows Update en la máquina?**
 
-R: Algunas actualizaciones del producto solo aparecen en su propio historial de actualizaciones o revisiones. Por ejemplo, puede que se muestren o que no se muestren las actualizaciones de Windows Defender en el historial de Windows Update en Windows Server 2016.
+A. Algunas actualizaciones del producto solo aparecen en su propio historial de actualizaciones o revisiones. Por ejemplo, puede que se muestren o que no se muestren las actualizaciones de Windows Defender en el historial de Windows Update en Windows Server 2016.
 
 **P: ¿POA se puede utilizar para aplicar revisiones al clúster de desarrollo (clúster con un solo nodo)?**
 
-R: No, POA no se puede utilizar para aplicar revisiones a un clúster de un nodo. Esta limitación se produce por diseño, ya que los [servicios del sistema de Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-technical-overview#system-services) u otras aplicaciones de cliente incurrirían en tiempo de inactividad. Por lo tanto, la revisión de los trabajos de reparación nunca se aprobó por el Administrador de reparaciones.
+A. No, POA no se puede utilizar para aplicar revisiones a un clúster de un nodo. Esta limitación se produce por diseño, ya que los [servicios del sistema de Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-technical-overview#system-services) u otras aplicaciones de cliente incurrirían en tiempo de inactividad. Por lo tanto, la revisión de los trabajos de reparación nunca se aprobó por el Administrador de reparaciones.
 
 **P: ¿Cómo se pueden revisar los nodos del clúster en Linux?**
 
-R: Para aprender a para organizar las actualizaciones en Linux, consulte [Azure virtual machine scale set automatic OS image upgrades](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) (Actualizaciones de imagen automáticas del sistema operativo del conjunto de escalado de máquinas virtuales de Azure).
+A. Para aprender a para organizar las actualizaciones en Linux, consulte [Azure virtual machine scale set automatic OS image upgrades](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) (Actualizaciones de imagen automáticas del sistema operativo del conjunto de escalado de máquinas virtuales de Azure).
 
 **P: ¿Por qué está tardando tanto el ciclo de actualización?**
 
-R: Consulte el resultado de JSON, y vaya a la entrada del ciclo de actualizaciones de todos los nodos; a continuación, averigüe el tiempo que tarda la instalación de la actualización en cada nodo mediante OperationStartTime y OperationTime (OperationCompletionTime). 
+A. Consulte el resultado de JSON, y vaya a la entrada del ciclo de actualizaciones de todos los nodos; a continuación, averigüe el tiempo que tarda la instalación de la actualización en cada nodo mediante OperationStartTime y OperationTime (OperationCompletionTime). 
 
 Si hay un período de tiempo grande en la que no se realiza ninguna actualización, el clúster puede estar en un estado de error y, por consiguiente, Administrador de reparaciones no puede aprobar las tareas de reparación de POA. Si la instalación de la actualización está tardando mucho en un nodo, es posible que ese nodo no se haya actualizado durante un tiempo. Es posible que haya una gran cantidad de actualizaciones pendientes de instalación, lo que puede dar lugar a retrasos. 
 
@@ -431,7 +431,7 @@ También es posible que se bloquee la revisión del nodo porque está atascado e
 
 **P: ¿Por qué debe deshabilitarse el nodo cuando POA lo está aplicando?**
 
-R: POA inhabilita el nodo con el intento de *reinicio* que detiene o reasigna todos los servicios de la estructura de Service Fabric que se ejecutan en el nodo. POA hace esto para garantizar que las aplicaciones no terminen usando una combinación de archivos DLL nuevos y antiguos, por lo que no recomendamos revisar un nodo sin desactivarlo antes.
+A. POA inhabilita el nodo con el intento de *reinicio* que detiene o reasigna todos los servicios de la estructura de Service Fabric que se ejecutan en el nodo. POA hace esto para garantizar que las aplicaciones no terminen usando una combinación de archivos DLL nuevos y antiguos, por lo que no recomendamos revisar un nodo sin desactivarlo antes.
 
 ## <a name="disclaimers"></a>Declinación de responsabilidades
 
@@ -439,7 +439,7 @@ R: POA inhabilita el nodo con el intento de *reinicio* que detiene o reasigna to
 
 - POA recopila datos de telemetría para realizar el seguimiento de uso y rendimiento. Los datos de telemetría de la aplicación siguen la configuración de telemetría del runtime de Service Fabric (que se activa de forma predeterminada).
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 
 En esta sección se proporcionan posibles soluciones para solucionar problemas relacionados con la revisión de nodos.
 
