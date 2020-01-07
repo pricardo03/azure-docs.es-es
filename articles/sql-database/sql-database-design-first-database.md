@@ -9,12 +9,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: v-masebo
 ms.date: 07/29/2019
-ms.openlocfilehash: d3fecd54e36c8a3dd43c88f5aa4e4233057c3f91
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 9764c4bc794eb8d133270b762fa2bca30a056fea
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838588"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459629"
 ---
 # <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-using-ssms"></a>Tutorial: Diseño de una base de datos relacional en una base de datos única en Azure SQL Database con SSMS
 
@@ -35,7 +35,7 @@ Azure SQL Database es una base de datos como servicio (DBaaS) relacional en Micr
 > [!NOTE]
 > Para este tutorial, se utiliza una base de datos única. También puede usar una base de datos agrupada en un grupo elástico o una base de datos de instancia en una instancia administrada. Para la conectividad a una instancia administrada, consulte estos artículos de inicio rápido sobre la instancia administrada: [Inicio rápido: Configuración de una máquina virtual de Azure para la conexión a Instancia administrada de Azure SQL Database](sql-database-managed-instance-configure-vm.md) y [Inicio rápido: Configuración de una conexión de punto a sitio a una Instancia administrada de Azure SQL Database desde el entorno local](sql-database-managed-instance-configure-p2s.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar este tutorial, asegúrese de que tiene instalados los siguientes elementos:
 
@@ -44,11 +44,11 @@ Para completar este tutorial, asegúrese de que tiene instalados los siguientes 
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
-Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-blank-single-database"></a>Crear una base de datos única en blanco
 
-Se crea una base de datos única en Azure SQL Database con un conjunto definido de recursos de proceso y almacenamiento. La base de datos se crea dentro de un [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) y se administra mediante un [servidor de bases de datos](sql-database-servers.md).
+Se crea una base de datos única en Azure SQL Database con un conjunto definido de recursos de proceso y almacenamiento. La base de datos se crea dentro de un [grupo de recursos de Azure](../azure-resource-manager/management/overview.md) y se administra mediante un [servidor de bases de datos](sql-database-servers.md).
 
 Siga estos pasos para crear una base de datos única en blanco.
 
@@ -59,7 +59,7 @@ Siga estos pasos para crear una base de datos única en blanco.
 
 3. Rellene el formulario de **SQL Database** con la siguiente información, como se muestra en la imagen anterior:
 
-    | Configuración       | Valor sugerido | DESCRIPCIÓN |
+    | Configuración       | Valor sugerido | Descripción |
     | ------------ | ------------------ | ------------------------------------------------- |
     | **Nombre de la base de datos** | *yourDatabase* | Para conocer los nombres de base de datos válidos, consulte [Identificadores de base de datos](/sql/relational-databases/databases/database-identifiers). |
     | **Suscripción** | *yourSubscription*  | Para más información acerca de sus suscripciones, consulte [Suscripciones](https://account.windowsazure.com/Subscriptions). |
@@ -68,7 +68,7 @@ Siga estos pasos para crear una base de datos única en blanco.
 
 4. Haga clic en **Servidor** para usar un servidor de bases de datos existente o para crear y configurar uno nuevo. Seleccione un servidor existente o haga clic en **Crear un nuevo servidor** y rellene el formulario **Nuevo servidor** con la información siguiente:
 
-    | Configuración       | Valor sugerido | DESCRIPCIÓN |
+    | Configuración       | Valor sugerido | Descripción |
     | ------------ | ------------------ | ------------------------------------------------- |
     | **Nombre del servidor** | Cualquier nombre globalmente único | Para conocer cuáles son los nombres de servidor válidos, consulte el artículo [Naming conventions](/azure/architecture/best-practices/resource-naming) (Convenciones de nomenclatura). |
     | **Inicio de sesión del administrador del servidor** | Cualquier nombre válido | Para conocer los nombres de inicio de sesión válidos, consulte [Identificadores de base de datos](/sql/relational-databases/databases/database-identifiers). |
@@ -120,14 +120,14 @@ Ahora la dirección IP puede pasar a través del firewall de IP; además, puede 
 > [!IMPORTANT]
 > De forma predeterminada, el acceso a través del firewall por IP de SQL Database está habilitado para todos los servicios de Azure. Haga clic en **OFF** en esta página para deshabilitar todos los servicios de Azure.
 
-## <a name="connect-to-the-database"></a>Conexión a la base de datos
+## <a name="connect-to-the-database"></a>Conectarse a la base de datos
 
 Use [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) para establecer una conexión con la base de datos única.
 
 1. Abra SQL Server Management Studio.
 2. En el cuadro de diálogo **Conectar con el servidor**, especifique la siguiente información:
 
-   | Configuración       | Valor sugerido | DESCRIPCIÓN |
+   | Configuración       | Valor sugerido | Descripción |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Tipo de servidor** | Motor de base de datos | Este valor es necesario. |
    | **Nombre del servidor** | Nombre completo del servidor | Por ejemplo, *yourserver.database.windows.net*. |
@@ -151,7 +151,7 @@ Use [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) 
 
 Cree un esquema de base de datos con cuatro tablas que modelan un sistema de administración de estudiantes para universidades con [Transact-SQL](/sql/t-sql/language-reference):
 
-- Persona
+- Person
 - Curso
 - Estudiante
 - Créditos
@@ -238,7 +238,7 @@ En el diagrama siguiente se muestra cómo estas tablas se relacionan entre sí. 
 
 De esta forma, ya ha cargado los datos de ejemplo en las tablas que ha creado anteriormente.
 
-## <a name="query-data"></a>Datos de consulta
+## <a name="query-data"></a>Consultar datos
 
 Ejecute las siguientes consultas para recuperar información de las tablas de base de datos. Vea [Writing SQL Queries](https://technet.microsoft.com/library/bb264565.aspx) (Escribir consultas SQL) para más información sobre cómo escribir consultas SQL. La primera consulta combina las cuatro tablas para buscar los alumnos del profesor "Dominick Pope" que tienen una calificación superior al 75 %. La segunda consulta combina las cuatro tablas y busca los cursos en los que nunca se ha matriculado "Noe Coleman".
 

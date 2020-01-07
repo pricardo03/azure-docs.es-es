@@ -3,18 +3,18 @@ title: Creación de un dispositivo IoT Plug and Play (versión preliminar) que e
 description: Los desarrolladores de dispositivos deben aprender a crear un dispositivo IoT Plug and Play (versión preliminar) que esté listo para su certificación.
 author: tbhagwat3
 ms.author: tanmayb
-ms.date: 06/28/2019
+ms.date: 12/28/2019
 ms.topic: tutorial
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: e4dd5215812f0fd1a43afe0923601417bc8e6916
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 43fc928b1274159839dc0df395e86d065f84b4c7
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73569635"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75550273"
 ---
 # <a name="build-an-iot-plug-and-play-preview-device-thats-ready-for-certification"></a>Creación de un dispositivo IoT Plug and Play (versión preliminar) que esté listo para la certificación
 
@@ -28,14 +28,14 @@ Las pruebas de certificación comprueban que:
 - El código del dispositivo implementa la interfaz de información del dispositivo.
 - El modelo de funcionalidad y el código de dispositivo funcionan con IoT Central.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar este tutorial, necesita:
 
 - [Visual Studio Code](https://code.visualstudio.com/download)
 - Paquete de extensiones [Azure IoT Tools para VS Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
 
-También necesita el dispositivo IoT Plug and Play que creó en el [Inicio rápido: Uso de un modelo de funcionalidad de dispositivo para crear un dispositivo](quickstart-create-pnp-device.md).
+También necesita el dispositivo IoT Plug and Play que creó en el [Inicio rápido: Uso de un modelo de funcionalidad de dispositivo para crear un dispositivo](quickstart-create-pnp-device-windows.md).
 
 ## <a name="store-a-capability-model-and-interfaces"></a>Almacenamiento de un modelo de funcionalidad y las interfaces
 
@@ -58,7 +58,7 @@ Para pasar el proceso de certificación, es preciso incluir e implementar la int
 ```
 
 > [!NOTE]
-> Si ha completado el [Inicio rápido: Uso de un modelo de funcionalidad para crear un dispositivo](quickstart-create-pnp-device.md), ya ha incluido la interfaz de **información del dispositivo** en el modelo.
+> Si ha completado el [Inicio rápido: Uso de un modelo de funcionalidad para crear un dispositivo](quickstart-create-pnp-device-windows.md), ya ha incluido la interfaz de **información del dispositivo** en el modelo.
 
 Para incluir la interfaz de **información del dispositivo** en el modelo de dispositivo, agregue el identificador de la interfaz a la propiedad `implements` del modelo de capacidad:
 

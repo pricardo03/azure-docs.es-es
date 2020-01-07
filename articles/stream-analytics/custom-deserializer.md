@@ -1,19 +1,18 @@
 ---
 title: 'Tutorial: Deserializadores de .NET personalizados para trabajos en la nube de Azure Stream Analytics'
 description: En este tutorial se muestra cómo crear un deserializador de .NET personalizado para un trabajo en la nube de Azure Stream Analytics mediante Visual Studio.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 05/06/2019
-ms.openlocfilehash: f5fa0a4398c904113dbce5d80844b42b6e775df0
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 1fffeec1434cb066487bf383589554edec2e6a86
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74702432"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443689"
 ---
 # <a name="tutorial-custom-net-deserializers-for-azure-stream-analytics"></a>Tutorial: Deserializadores de .NET personalizados para Azure Stream Analytics
 
@@ -29,7 +28,7 @@ En este tutorial, aprenderá a:
 > * Configurar el trabajo de Stream Analytics para usar el deserializador personalizado.
 > * Ejecutar de forma local el trabajo de Stream Analytics para probar el deserializador personalizado.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -82,12 +81,12 @@ El contenedor que cree se usará para almacenar los recursos relacionados con el
    |Source|Blob Storage|
    |Resource|Selección del origen de datos desde la cuenta actual|
    |Subscription|< su suscripción >|
-   |Cuenta de almacenamiento|< su cuenta de almacenamiento>|
+   |Cuenta de almacenamiento|< su cuenta de almacenamiento >|
    |Contenedor|< su contenedor de almacenamiento >|
    |Formato de serialización de eventos|Otro (protobuf, XML, propietario...)|
    |Resource|Carga desde Referencia de proyecto ASA o de CodeBehind|
    |Nombre del ensamblado CSharp|ProtobufDeserializer.dll|
-   |Nombre de clase|MessageBodyProto.MessageBodyDeserializer|
+   |Class Name (Nombre de clase)|MessageBodyProto.MessageBodyDeserializer|
    |Tipo de compresión de eventos|None|
 
 3. Agregue la siguiente consulta al archivo **Script.asaql**.
@@ -104,7 +103,7 @@ El contenedor que cree se usará para almacenar los recursos relacionados con el
    |Tipo de origen|Flujo de datos|
    |Formato de serialización de eventos|Otro (protobuf, XML, propietario...)|
    |Nombre del ensamblado CSharp|ProtobufDeserializer.dll|
-   |Nombre de clase|MessageBodyProto.MessageBodyDeserializer|
+   |Class Name (Nombre de clase)|MessageBodyProto.MessageBodyDeserializer|
    |La ruta de acceso del archivo de entrada local|< la ruta de acceso del archivo de entrada de protobuf de ejemplo descargado >|
 
 ## <a name="execute-the-stream-analytics-job"></a>Ejecución del trabajo de Stream Analytics

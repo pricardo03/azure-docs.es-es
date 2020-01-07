@@ -1,7 +1,6 @@
 ---
 title: Implementación de trabajos de Azure Stream Analytics con CI/CD y Azure DevOps
 description: En este artículo se describe cómo implementar un trabajo de Stream Analytics con CI/CD mediante Azure DevOps Services.
-services: stream-analytics
 author: su-jie
 ms.author: sujie
 ms.reviewer: mamccrea
@@ -9,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7810cf9950d919469c4b47053a878518726f4393
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: d9360ff64206cdce208f9643cf8ca86515aaeb7e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72925081"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75354433"
 ---
 # <a name="tutorial-deploy-an-azure-stream-analytics-job-with-cicd-using-azure-pipelines"></a>Tutorial: Implementación de un trabajo de Azure Stream Analytics con CI/CD mediante Azure Pipelines
 En este tutorial se describe cómo configurar la integración y la implementación continuas de un trabajo de Azure Stream Analytics mediante Azure Pipelines. 
@@ -27,7 +26,7 @@ En este tutorial, aprenderá a:
 > * Crear una canalización de versión en Azure Pipelines
 > * Implementar y actualizar una aplicación automáticamente
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 Antes de empezar, asegúrese de que dispone de lo siguiente:
 
 * Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -118,7 +117,7 @@ Abra un explorador web y vaya hasta el proyecto que acaba de crear en [Azure Dev
     |**Configuración**  |**Valor sugerido**  |
     |---------|---------|
     |Subscription  |  Elija su suscripción.   |
-    |.  |  Creación o actualización del grupo de recursos   |
+    |Acción  |  Creación o actualización del grupo de recursos   |
     |Grupo de recursos  |  Escriba el nombre de un grupo de recursos.   |
     |Plantilla  | [La ruta de acceso a la solución]\bin\Debug\Deploy\\[El nombre del proyecto].JobTemplate.json   |
     |Parámetros de plantilla  | [La ruta de acceso a la solución]\bin\Debug\Deploy\\[El nombre del proyecto].JobTemplate.parameters.json   |

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 2cb07a94b2ae85cc0755e1e7069a76e1ef2a5252
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 233d8f345eceb188fcc849457c5243a3c64aaec2
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977342"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75548860"
 ---
 # <a name="tutorial-use-a-device-capability-model-to-create-an-iot-plug-and-play-device-and-connect-it-to-your-iot-central-application"></a>Tutorial: Uso de un modelo de funcionalidad de dispositivo para crear un dispositivo IoT Plug and Play y conectarlo a la aplicación IoT Central
 
@@ -28,16 +28,16 @@ En este tutorial, aprenderá a:
 > * Ejecutar el código del dispositivo en Windows y ver si se conecta a la aplicación IoT Central.
 > * Especificar los datos de telemetría simulados que envía el dispositivo.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-Complete el inicio rápido [Creación de una aplicación de Azure IoT Central (características de versión preliminar)](./quick-deploy-iot-central.md) para crear una aplicación de IoT Central mediante la plantilla **Custom app > Preview application** (Personalizar aplicación > Aplicación de versión preliminar).
+Complete el inicio rápido de [Creación de una aplicación de Azure IoT Central (características de versión preliminar)](./quick-deploy-iot-central.md) para crear una aplicación de IoT Central mediante la Plantilla de **Aplicación personalizada > Versión preliminar de la aplicación**.
 
 Para completar este tutorial, es preciso instalar el siguiente software en la máquina local:
 
 * [Herramientas de compilación para Visual Studio](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools&rel=16) con las cargas de trabajo de **herramientas de compilación de C++** y el **componente Administrador de paquetes Nuget**. O si ya tiene [Visual Studio (Community, Professional o Enterprise)](https://visualstudio.microsoft.com/downloads/) 2019, 2017 o 2015 con las mismas cargas de trabajo instaladas.
 * [Git](https://git-scm.com/download/).
 * [CMake](https://cmake.org/download/): al instalar **CMake**, seleccione la opción **Add CMake to the system PATH** (Agregar CMake a la ruta de acceso del sistema).
-* [Visual Studio Code](https://code.visualstudio.com/)
+* [Visual Studio Code](https://code.visualstudio.com/).
 * [Node.js](https://nodejs.org/)
 * La utilidad `dps-keygen`:
 
@@ -57,7 +57,7 @@ Siga estos pasos para instalar el paquete de extensiones Azure IoT Tools en VS
 
 En este tutorial, utilizará el administrador de bibliotecas [Vcpkg](https://github.com/microsoft/vcpkg) para instalar el SDK para dispositivos C de Azure IoT en el entorno de desarrollo.
 
-1. Abra el símbolo del sistema. Ejecute el comando siguiente para instalar Vcpkg:
+1. Abra un símbolo del sistema. Ejecute el comando siguiente para instalar Vcpkg:
 
     ```cmd
     git clone https://github.com/Microsoft/vcpkg.git
@@ -166,10 +166,10 @@ El SDK del dispositivo se usa para compilar el código auxiliar del dispositivo 
     cmake .. -G "Visual Studio 14 2015" -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON -DCMAKE_TOOLCHAIN_FILE="<directory of your Vcpkg repo>\scripts\buildsystems\vcpkg.cmake"
     ```
 
-1. Después de que la compilación finalice correctamente, ejecute la aplicación en el mismo símbolo del sistema. Reemplace `<scopeid>` y `<devicekey>` por los valores que anotó anteriormente:
+1. Después de que la compilación finalice correctamente, ejecute la aplicación en el mismo símbolo del sistema. Reemplace `<scopeid>` y `<primarykey>` por los valores que anotó anteriormente:
 
     ```cmd
-    .\Release\devkit_device.exe mxchip-001 <scopeid> <devicekey>
+    .\Release\devkit_device.exe mxchip-001 <scopeid> <primarykey>
     ```
 
 1. La aplicación del dispositivo comienza a enviar datos a IoT Hub. En algunas ocasiones, puede que vea el error `Error registering device for DPS` la primera vez que ejecute el comando anterior. Si ve este error, vuelva a ejecutar de nuevo el comando.

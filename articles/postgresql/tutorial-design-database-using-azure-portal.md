@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
 ms.date: 06/25/2019
-ms.openlocfilehash: 11276d532f0f978b127f48924e383b7aeb7f4ad5
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: d7ddb286285de9be089c0a5176e33b7108021c77
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770108"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459955"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Tutorial: Diseño de una instancia de Azure Database for PostgreSQL: servidor único con Azure Portal
 
@@ -23,17 +23,17 @@ En este tutorial usará Azure Portal para aprender a hacer lo siguiente:
 > * Creación de un servidor de Azure Database for PostgreSQL
 > * Configuración del firewall del servidor
 > * Uso de la utilidad [**psql**](https://www.postgresql.org/docs/9.6/static/app-psql.html) para crear una base de datos
-> * Carga de datos de ejemplo
+> * Carga de datos de muestra
 > * Consultar datos
 > * Actualización de datos
 > * Restauración de datos
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="create-an-azure-database-for-postgresql"></a>Creación de una instancia de Azure Database for PostgreSQL
 
-Un servidor de Azure Database for PostgreSQL se crea con un conjunto definido de [recursos de proceso y almacenamiento](./concepts-compute-unit-and-storage.md). El servidor se crea dentro de un [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md).
+Un servidor de Azure Database for PostgreSQL se crea con un conjunto definido de [recursos de proceso y almacenamiento](./concepts-compute-unit-and-storage.md). El servidor se crea dentro de un [grupo de recursos de Azure](../azure-resource-manager/management/overview.md).
 
 Para crear un servidor de Azure Database for PostgreSQL, siga estos pasos:
 1. Haga clic en **Crear un recurso** de la esquina superior izquierda de Azure Portal.
@@ -48,7 +48,7 @@ Para crear un servidor de Azure Database for PostgreSQL, siga estos pasos:
 
     ![Creación de un servidor](./media/tutorial-design-database-using-azure-portal/create-basics.png)
 
-    Configuración|Valor sugerido|DESCRIPCIÓN
+    Configuración|Valor sugerido|Descripción
     ---|---|---
     Subscription|Nombre de la suscripción|La suscripción de Azure que desea usar para el servidor. Si tiene varias suscripciones, elija aquella en la que se factura el recurso.
     Resource group|*myresourcegroup*| Un nuevo nombre de grupo de recursos o uno existente de la suscripción.
@@ -198,7 +198,7 @@ Imagine que eliminó accidentalmente esta tabla. No se puede recuperar con facil
 
    - **Punto de restauración**: seleccione el momento antes de que se modificara el servidor.
    - **Servidor de destino:** : especifique el nombre del nuevo servidor donde desea restaurar.
-   - **Ubicación**: no se puede seleccionar la región; de forma predeterminada, es la misma que la del servidor de origen
+   - **Ubicación**: no se puede seleccionar la región; de forma predeterminada, es la misma que la del servidor de origen.
    - **Plan de tarifa**: no se puede cambiar este valor al restaurar un servidor. Es el mismo que el del servidor de origen. 
 3. Haga clic en **Aceptar** para [restaurar el servidor a un momento dado](./howto-restore-server-portal.md) antes de que se eliminara la tabla. Restaurar un servidor a un momento dado distinto crea un servidor nuevo duplicado como el servidor original a partir del momento dado que especifique, siempre que se encuentre dentro del período de retención para el [plan de tarifa](./concepts-pricing-tiers.md).
 
@@ -208,7 +208,7 @@ En este tutorial, aprendió a usar Azure Portal y otras utilidades para hacer lo
 > * Creación de un servidor de Azure Database for PostgreSQL
 > * Configuración del firewall del servidor
 > * Uso de la utilidad [**psql**](https://www.postgresql.org/docs/9.6/static/app-psql.html) para crear una base de datos
-> * Carga de datos de ejemplo
+> * Carga de datos de muestra
 > * Consultar datos
 > * Actualización de datos
 > * Restauración de datos

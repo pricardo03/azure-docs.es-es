@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 11/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 906ac3b28a512a866e712cefda4355ad901c258d
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: aca1f8ce2c125cd90f2e61a7829be09bc81c3938
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74064714"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464967"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-azure-powershell"></a>Tutorial: Creación de una imagen personalizada de una máquina virtual de Azure con Azure PowerShell
 
@@ -62,7 +62,7 @@ Entre otras características, Sysprep elimina toda la información personal de l
 4. En **Opciones de apagado**, seleccione **Apagar** y, a continuación, haga clic en **Aceptar**.
 5. Cuando Sysprep finaliza, apaga la máquina virtual. **No reinicie la VM**.
 
-### <a name="deallocate-and-mark-the-vm-as-generalized"></a>Desasignación y marcado de la VM como generalizada
+### <a name="deallocate-and-mark-the-vm-as-generalized"></a>Desasignar y marcar la máquina virtual como generalizada
 
 Para crear una imagen, la VM debe desasignarse y estar marcada como generalizada en Azure.
 
@@ -113,7 +113,7 @@ New-AzImage `
 ``` 
 
  
-## <a name="create-vms-from-the-image"></a>Creación de VM a partir de la imagen
+## <a name="create-vms-from-the-image"></a>Creación de máquinas virtuales a partir de la imagen
 
 Ahora que tiene una imagen, puede crear una o varias VM desde la imagen. Crear una máquina virtual a partir de una imagen personalizada es muy similar a crear una máquina virtual mediante una imagen de Marketplace. Cuando use una imagen de Marketplace, tendrá que proporcionar información sobre la imagen, el proveedor de esa imagen, la oferta, la SKU y la versión. Mediante el parámetro simplificado establecido para el cmdlet [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm), basta con que proporcione el nombre de la imagen personalizada, siempre que se encuentre en el mismo grupo de recursos. 
 

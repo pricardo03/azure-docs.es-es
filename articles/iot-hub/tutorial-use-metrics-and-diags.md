@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 3/13/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 88101aacab8b4745ce6bc9180521e66500086edd
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: e6a2057eee6cf294e401f60c889bcf58ac6fbe32
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084356"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429099"
 ---
 # <a name="tutorial-set-up-and-use-metrics-and-diagnostic-logs-with-an-iot-hub"></a>Tutorial: Configuración y uso de métricas y registros de diagnóstico con una instancia de IoT Hub
 
@@ -34,9 +34,9 @@ En este tutorial se realizan las siguientes tareas:
 > * Ejecutar la aplicación hasta que empiecen a activarse las alertas. 
 > * Ver los resultados de las métricas y comprobar los registros de diagnóstico. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-- Una suscripción de Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+- Suscripción a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
 - Instale [Visual Studio](https://www.visualstudio.com/). 
 
@@ -50,7 +50,7 @@ Para los objetivos de este tutorial, necesita un centro de IoT, una cuenta de al
 
 Estos son los pasos necesarios.
 
-1. Cree un [grupo de recursos](../azure-resource-manager/resource-group-overview.md). 
+1. Cree un [grupo de recursos](../azure-resource-manager/management/overview.md). 
 
 2. Cree un Centro de IoT.
 
@@ -209,7 +209,7 @@ IoT Hub no se ha migrado aún a las [métricas de Azure Monitor](/azure/azure-mo
 
     Rellene los campos:
 
-    **Nombre**: proporcione un nombre para la regla de alerta, como *mensajes-telemetría*.
+    **Name**: proporcione un nombre para la regla de alerta, como *mensajes-telemetría*.
 
     **Descripción**: proporcione una descripción de la alerta, como *avisar cuando se hayan enviado 1000 mensajes de telemetría*. 
 
@@ -239,7 +239,7 @@ IoT Hub no se ha migrado aún a las [métricas de Azure Monitor](/azure/azure-mo
 
    En la pantalla **Ver alertas clásicas**, haga clic en **Agregar alerta de métrica (clásica)** y, luego, rellene estos campos en el panel **Agregar regla**.
 
-   **Nombre**: proporcione un nombre para la regla de alerta, como *número-de-mensajes-usados*.
+   **Name**: proporcione un nombre para la regla de alerta, como *número-de-mensajes-usados*.
 
    **Descripción**: proporcione una descripción de la alerta, como *avisar cuando se acerque a la cuota*.
 

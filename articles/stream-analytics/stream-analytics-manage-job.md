@@ -1,20 +1,18 @@
 ---
 title: 'Tutorial: Creación y administración de un trabajo de Stream Analytics con Azure Portal'
 description: En este tutorial se proporciona una demostración de un extremo a otro completa de cómo usar Azure Stream Analytics para analizar las llamadas fraudulentas en una secuencia de llamadas de teléfono.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
-ms.workload: data-services
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/03/2019
-ms.openlocfilehash: cca9f25fae9646b4207db7aa98f4c334457fc426
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 488664b028568b3014b9b839122705d35104861e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707393"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459555"
 ---
 # <a name="tutorial-analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>Tutorial: Analizar los datos de llamadas de teléfono con Stream Analytics y visualizar los resultados en un panel de Power BI
 
@@ -30,12 +28,12 @@ En este tutorial, aprenderá a:
 > * Probar e iniciar el trabajo
 > * Visualizar los resultados en Power BI
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de empezar, realice las siguientes acciones:
 
 * Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/).
-* Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+* Inicie sesión en [Azure Portal](https://portal.azure.com/).
 * Descargue la aplicación de generación de eventos de llamada telefónica [TelcoGenerator.zip](https://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip) del Centro de descarga de Microsoft u obtenga el código fuente de [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator).
 * Necesitará la cuenta de Power BI.
 
@@ -45,7 +43,7 @@ Para que Stream Analytics pueda analizar el flujo de datos de las llamadas fraud
 
 Siga estos pasos para crear una instancia de Event Hub y enviar datos de la llamada a dicha instancia:
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 2. Seleccione **Crear un recurso** > **Internet de las cosas** > **Event Hubs**.
 
    ![Creación de un centro de eventos de Azure mediante Azure Portal](media/stream-analytics-manage-job/find-event-hub-resource.png)
@@ -53,7 +51,7 @@ Siga estos pasos para crear una instancia de Event Hub y enviar datos de la llam
 
    |**Configuración**  |**Valor sugerido** |**Descripción**  |
    |---------|---------|---------|
-   |NOMBRE     | myEventHubsNS        |  Un nombre único para identificar el espacio de nombres del centro de eventos.       |
+   |Nombre     | myEventHubsNS        |  Un nombre único para identificar el espacio de nombres del centro de eventos.       |
    |Subscription     |   \<Su suscripción\>      |   Seleccione una suscripción de Azure donde quiere crear el centro de eventos.      |
    |Resource group     |   MyASADemoRG      |  Seleccione **Crear nuevo** y escriba un nuevo nombre de grupo de recursos para la cuenta.       |
    |Location     |   Oeste de EE. UU. 2      |    Ubicación donde se puede implementar el espacio de nombres del centro de eventos.     |
@@ -183,7 +181,7 @@ El último paso consiste en definir un receptor de salida para el trabajo en el 
    |---------|---------|
    |Alias de salida  |  MyPBIoutput  |
    |Nombre del conjunto de datos  |   ASAdataset  |
-   |Nombre de tabla |  ASATable  |
+   |Nombre de la tabla |  ASATable  |
 
    ![Configuración de la salida de Stream Analytics](media/stream-analytics-manage-job/configure-stream-analytics-output.png)
 
