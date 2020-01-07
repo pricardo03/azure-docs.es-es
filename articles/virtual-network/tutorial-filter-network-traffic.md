@@ -14,12 +14,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/13/2018
 ms.author: kumud
-ms.openlocfilehash: a700cc83c6bd34f5f726b9cc1c97bd7e1476963b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b5a136ae05b3cd410ca252b6d5a1df443aff6f7a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73519294"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75350134"
 ---
 # <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-the-azure-portal"></a>Tutorial: Filtrado del tráfico de red con un grupo de seguridad de red mediante Azure Portal
 
@@ -45,12 +45,12 @@ Inicie sesión en Azure Portal en https://portal.azure.com.
 2. Seleccione **Redes** y **Red virtual**.
 3. Escriba o seleccione la siguiente información, acepte los valores predeterminados para el resto de la configuración y luego seleccione **Crear**:
 
-    | Configuración                 | Valor                                              |
+    | Configuración                 | Value                                              |
     | ---                     | ---                                                |
-    | NOMBRE                    | myVirtualNetwork                                   |
+    | Nombre                    | myVirtualNetwork                                   |
     | Espacio de direcciones           | 10.0.0.0/16                                        |
     | Subscription            | Seleccione su suscripción.                          |
-    | Grupos de recursos          | Haga clic en **Crear nuevo** y escriba *myResourceGroup*. |
+    | Resource group          | Haga clic en **Crear nuevo** y escriba *myResourceGroup*. |
     | Location                | Seleccione **Este de EE. UU**.                                |
     | Nombre de subred            | mySubnet                                           |
     | Subred: intervalo de direcciones  | 10.0.0.0/24                                        |
@@ -63,18 +63,18 @@ Un grupo de seguridad de aplicaciones permite agrupar servidores con funciones s
 2. En el cuadro **Buscar en Marketplace**, escriba *Grupo de seguridad de aplicaciones*. Cuando **Grupo de seguridad de aplicaciones** aparezca en los resultados de la búsqueda, selecciónelo, vuelva a seleccionar **Grupo de seguridad de aplicaciones** en **Todo** y, después, haga clic en **Crear**.
 3. Especifique o seleccione los siguientes datos y haga clic en **Crear**:
 
-    | Configuración        | Valor                                                         |
+    | Configuración        | Value                                                         |
     | ---            | ---                                                           |
-    | NOMBRE           | myAsgWebServers                                               |
+    | Nombre           | myAsgWebServers                                               |
     | Subscription   | Seleccione su suscripción.                                     |
     | Resource group | Seleccione **Usar existente** y después seleccione **myResourceGroup**. |
     | Location       | East US                                                       |
 
 4. Complete el paso 3 de nuevo, especificando los valores siguientes:
 
-    | Configuración        | Valor                                                         |
+    | Configuración        | Value                                                         |
     | ---            | ---                                                           |
-    | NOMBRE           | myAsgMgmtServers                                              |
+    | Nombre           | myAsgMgmtServers                                              |
     | Subscription   | Seleccione su suscripción.                                     |
     | Resource group | Seleccione **Usar existente** y después seleccione **myResourceGroup**. |
     | Location       | East US                                                       |
@@ -85,11 +85,11 @@ Un grupo de seguridad de aplicaciones permite agrupar servidores con funciones s
 2. Seleccione **Redes** y **Grupo de seguridad de red**.
 3. Especifique o seleccione los siguientes datos y haga clic en **Crear**:
 
-    |Configuración|Valor|
+    |Configuración|Value|
     |---|---|
-    |NOMBRE|myNsg|
+    |Nombre|myNsg|
     |Subscription| Seleccione su suscripción.|
-    |Grupos de recursos | Seleccione **Usar existente** y después seleccione *myResourceGroup*.|
+    |Resource group | Seleccione **Usar existente** y después seleccione *myResourceGroup*.|
     |Location|East US|
 
 ## <a name="associate-network-security-group-to-subnet"></a>Asociación del grupo de seguridad de red a la subred
@@ -109,22 +109,22 @@ Un grupo de seguridad de aplicaciones permite agrupar servidores con funciones s
 
 2. Cree una regla de seguridad que permita a los puertos 80 y 443 para el grupo de seguridad de la aplicación **myAsgWebServers**. En **Agregar regla de seguridad de entrada**, escriba o seleccione los valores siguientes, acepte el resto de valores predeterminados y, después, seleccione **Agregar**:
 
-    | Configuración                 | Valor                                                                                                           |
+    | Configuración                 | Value                                                                                                           |
     | ---------               | ---------                                                                                                       |
     | Destination             | Seleccione **Grupo de seguridad de la aplicación** y, a continuación, seleccione **myAsgWebServers** para **Grupo de seguridad de la aplicación**.  |
     | Intervalos de puertos de destino | Escriba 80,443                                                                                                    |
     | Protocolo                | Selección de TCP                                                                                                      |
-    | NOMBRE                    | Allow-Web-All                                                                                                   |
+    | Nombre                    | Allow-Web-All                                                                                                   |
 
 3. Repita el paso 2 de nuevo, utilizando los siguientes valores:
 
-    | Configuración                 | Valor                                                                                                           |
+    | Configuración                 | Value                                                                                                           |
     | ---------               | ---------                                                                                                       |
     | Destination             | Seleccione **Grupo de seguridad de la aplicación** y, a continuación, seleccione **myAsgMgmtServers** para **Grupo de seguridad de la aplicación**. |
     | Intervalos de puertos de destino | Escriba 3389                                                                                                      |
     | Protocolo                | Selección de TCP                                                                                                      |
     | Priority                | Escriba 110                                                                                                       |
-    | NOMBRE                    | Allow-RDP-All (Permitir-RDP-Todo)                                                                                                   |
+    | Nombre                    | Allow-RDP-All (Permitir-RDP-Todo)                                                                                                   |
 
     En este tutorial, se expone RDP (puerto 3389) a Internet para la máquina virtual que se asigna al grupo de seguridad de la aplicación *myAsgMgmtServers*. En entornos de producción, en lugar de exponer el puerto 3389 a Internet, se recomienda conectarse a los recursos de Azure que desee administrar mediante una VPN o una conexión de red privada.
 
@@ -142,25 +142,25 @@ Cree dos máquinas virtuales en la red virtual.
 2. Seleccione **Compute** y, después, seleccione **Windows Server 2016 Datacenter**.
 3. Escriba o seleccione la siguiente información y acepte los valores predeterminados para el resto de la configuración:
 
-    |Configuración|Valor|
+    |Configuración|Value|
     |---|---|
     |Subscription| Seleccione su suscripción.|
     |Resource group| Seleccione **Usar existente** y, a continuación, **myResourceGroup**.|
-    |NOMBRE|myVmWeb|
+    |Nombre|myVmWeb|
     |Location| Seleccione **Este de EE. UU**.|
     |Nombre de usuario| Escriba un nombre de usuario de su elección.|
-    |Password| Escriba una contraseña de su elección. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    |Contraseña| Escriba una contraseña de su elección. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
 
    
 
 4. Seleccione un tamaño para la máquina virtual y luego **Seleccionar**.
 5. En **Redes**, seleccione los valores siguientes y acepte los valores predeterminados restantes:
 
-    |Configuración|Valor|
+    |Configuración|Value|
     |---|---|
     |Virtual network |Seleccione **myVirtualNetwork**.|
-    |Grupo de seguridad de red de NIC |Seleccione **Advanced** (Avanzadas).|
-    |Puertos de entrada públicos|Seleccione **Ninguno**. |
+    |Grupo de seguridad de red de NIC |Seleccione **Ninguno**.|
+  
 
 6. Seleccione **Revisar y crear** en la esquina inferior izquierda y seleccione **Crear** para iniciar la implementación de la máquina virtual.
 

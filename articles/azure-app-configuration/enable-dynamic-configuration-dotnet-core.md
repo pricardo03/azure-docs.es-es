@@ -1,5 +1,6 @@
 ---
-title: Tutorial sobre el uso de la configuración dinámica de Azure App Configuration en una aplicación de .NET Core | Microsoft Docs
+title: 'Tutorial: Uso de la configuración dinámica en una aplicación de .NET Core'
+titleSuffix: Azure App Configuration
 description: En este tutorial aprenderá a actualizar dinámicamente los datos de configuración de aplicaciones de .NET Core
 services: azure-app-configuration
 documentationcenter: ''
@@ -13,12 +14,12 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 07/01/2019
 ms.author: abarora
-ms.openlocfilehash: ae753758a3cd5b7dfa8794ccf98f7a8a063f5b18
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: afecc84748ae8ce85c07e3b482bd9b596bdca251
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185188"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433676"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-net-core-app"></a>Tutorial: Uso de la configuración dinámica en una aplicación de .NET Core
 
@@ -36,7 +37,7 @@ En este tutorial, aprenderá a:
 > * Configurar la aplicación de .NET Core para actualizar su configuración en respuesta a los cambios en un almacén de App Configuration.
 > * Consuma en la aplicación la configuración más reciente.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para realizar este tutorial, instale el [SDK de .NET Core](https://dotnet.microsoft.com/download).
 
@@ -119,11 +120,11 @@ El método `ConfigureRefresh` se utiliza para especificar la configuración usad
 
     ![Inicio de la aplicación del artículo de inicio rápido en un entorno local](./media/quickstarts/dotnet-core-app-run.png)
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com). Seleccione **Todos los recursos** y seleccione la instancia de almacén de App Configuration que creó en el inicio rápido.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com). Seleccione **Todos los recursos** y seleccione la instancia de almacén de App Configuration que creó en el inicio rápido.
 
 1. Seleccione **Explorador de configuración** y actualice los valores de las claves siguientes:
 
-    | Clave | Valor |
+    | Clave | Value |
     |---|---|
     | TestApp:Settings:Message | Datos de Azure App Configuration, actualizados |
 
