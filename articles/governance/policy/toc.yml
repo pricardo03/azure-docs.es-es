@@ -277,7 +277,7 @@
     - name: Auditoría de máquinas virtuales con la configuración de invitado
       displayName: 'provider, tools, definition'
       href: ./concepts/guest-configuration.md
-- name: Guías de procedimientos
+- name: Guías paso a paso
   items:
     - name: "Extensión de Azure Policy para VS\_Code"
       displayName: visual studio code
@@ -300,6 +300,11 @@
     - name: Corrección de recursos no compatibles
       displayName: 'managed identity, task, definition, roleDefinitionIds'
       href: ./how-to/remediate-resources.md
+    - name: Integración de Azure Key Vault
+      items:
+        - name: Integración de Key Vault con Azure Policy
+          displayName: 'key vault, certificate, key'
+          href: ../../key-vault/azure-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
     - name: Integración de Azure Lighthouse
       items:
         - name: Implementación de una directiva a escala
@@ -315,7 +320,7 @@
           href: ../../azure-monitor/insights/vminsights-enable-at-scale-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
 - name: Referencia
   items:
-    - name: CLI de Azure
+    - name: Azure CLI
       href: /cli/azure/policy
     - name: Azure PowerShell
       items:

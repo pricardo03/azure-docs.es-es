@@ -3,21 +3,21 @@ title: Documentación de Azure Portal
 summary: Azure Portal es una consola unificada basada en web que proporciona una alternativa a las herramientas de línea de comandos. Puede administrar su suscripción de Azure con Azure Portal. Compile, administre y supervise todo, desde aplicaciones web sencillas hasta complejas implementaciones en la nube. Cree paneles personalizados para una vista organizada de los recursos y configure las opciones de accesibilidad para obtener la mejor experiencia.
 metadata:
   title: Documentación de Azure Portal
-  description: Aprenda a administrar la suscripción y los recursos de Azure mediante la consola basada en web de Azure Portal.
+  description: Aprenda a administrar las suscripciones y los recursos de Azure mediante la consola basada en web de Azure Portal. Azure Portal es una alternativa al uso de herramientas de línea de comandos.
   services: Azure portal
   ms.service: azure-portal
   ms.subservice: 
   ms.topic: landing-page
   ms.collection: collection
-  author: kfollis
-  ms.author: kfollis
-  ms.date: 09/17/2019
-  ms.openlocfilehash: 7fdd6f95ee2f84abc151f5c6e6e7929df2bc57a1
-  ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+  author: mblythe
+  ms.author: mblythe
+  ms.date: 12/19/2019
+  ms.openlocfilehash: 4c04ae88f69ab4e17ea70e94683ce0add4823040
+  ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 09/17/2019
-  ms.locfileid: "71076652"
+  ms.lasthandoff: 01/03/2020
+  ms.locfileid: "75640047"
 landingContent:
 - title: Acerca de Azure Portal
   linkLists:
@@ -31,6 +31,8 @@ landingContent:
   linkLists:
   - linkListType: how-to-guide
     links:
+    - text: Configuración de las preferencias del portal
+      url: set-preferences.md
     - text: Creación y uso compartido de paneles personalizados
       url: azure-portal-dashboards.md
     - text: Administración de favoritos
@@ -49,7 +51,7 @@ landingContent:
       url: /learn/paths/manage-resources-in-azure/
     - text: Protección de los recursos de Azure con el control de acceso basado en rol (RBAC)
       url: /learn//modules/secure-azure-resources-with-rbac/
-- title: Primeros pasos
+- title: Introducción
   linkLists:
   - linkListType: quickstart
     links:
@@ -69,7 +71,7 @@ landingContent:
   linkLists:
   - linkListType: reference
     links:
-    - text: Métodos abreviados de teclado
+    - text: Accesos directos del teclado
       url: azure-portal-keyboard-shortcuts.md
   - linkListType: how-to-guide
     links:

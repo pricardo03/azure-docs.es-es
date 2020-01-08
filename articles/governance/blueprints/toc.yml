@@ -63,6 +63,17 @@
         - name: Pasos de implementación
           displayName: 'standards, fedramp, moderate'
           href: ./samples/fedramp-m/deploy.md
+    - name: HIPAA/HITRUST
+      items:
+        - name: Información general
+          displayName: 'standards, HIPAA HITRUST'
+          href: ./samples/HIPAA-HITRUST/index.md
+        - name: Asignación de controles
+          displayName: 'standards, HIPAA HITRUST'
+          href: ./samples/HIPAA-HITRUST/control-mapping.md
+        - name: Pasos de implementación
+          displayName: 'standards, HIPAA HITRUST'
+          href: ./samples/HIPAA-HITRUST/deploy.md
     - name: IRS 1075
       items:
         - name: Información general
@@ -184,7 +195,7 @@
     - name: Bloqueo de recursos en planos técnicos
       displayName: 'mode, state, read only, edit, denyAssignments'
       href: ./concepts/resource-locking.md
-- name: Guías de procedimientos
+- name: Guías paso a paso
   items:
     - name: Administración de asignaciones con PowerShell
       displayName: 'create, update, remove'
