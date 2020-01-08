@@ -69,6 +69,8 @@
   items:
     - name: Área de trabajo
       href: concept-workspace.md
+    - name: Entornos
+      href: concept-environments.md
     - name: data
       href: concept-data.md
     - name: Entrenamiento del modelo
