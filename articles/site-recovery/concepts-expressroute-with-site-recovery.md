@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/13/2019
 ms.author: mayg
-ms.openlocfilehash: dcc5105fcf2ad7b6a9f0695b3086dc2956a76a50
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: e4525bdc6165e8e736db5f539c764d25250cb248
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954064"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465221"
 ---
 # <a name="azure-expressroute-with-azure-site-recovery"></a>Azure ExpressRoute con Azure Site Recovery
 
@@ -31,11 +31,11 @@ Un circuito ExpressRoute tiene asociados varios dominios de enrutamiento. Obteng
 
 Azure Site Recovery permite la recuperación ante desastres y la migración a Azure para las [máquinas virtuales de Hyper-V](hyper-v-azure-architecture.md), [máquinas virtuales de VMware](vmware-azure-architecture.md) y [servidores físicos](physical-azure-architecture.md) locales. Para todos los escenarios de replicación de sitios locales a Azure, los datos de replicación se envían a una cuenta de Azure Storage y se almacenan en ella. Durante la replicación, no paga ningún cargo de las máquinas virtuales. Cuando se ejecuta una conmutación por error en Azure, Site Recovery crea automáticamente máquinas virtuales IaaS de Azure.
 
-Site Recovery replica datos a una cuenta de Azure Storage o a un disco administrado de réplica en la región de Azure de destino a través de un punto de conexión público. Para usar ExpressRoute para el tráfico de replicación de Site Recovery, puede utilizar el [emparejamiento de Microsoft](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) o un [emparejamiento público](../expressroute/expressroute-circuit-peerings.md#publicpeering) existente (en desuso para las creaciones nuevas). El emparejamiento de Microsoft es el dominio de enrutamiento recomendado para la replicación. Observe que no se admite la replicación a través del emparejamiento privado.
+Site Recovery replica datos a una cuenta de Azure Storage o a un disco administrado de réplica en la región de Azure de destino a través de un punto de conexión público. Para usar ExpressRoute para el tráfico de replicación de Site Recovery, puede utilizar el [emparejamiento de Microsoft](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) o un [emparejamiento público](../expressroute/about-public-peering.md) existente (en desuso para las creaciones nuevas). El emparejamiento de Microsoft es el dominio de enrutamiento recomendado para la replicación. Observe que no se admite la replicación a través del emparejamiento privado.
 
 Asegúrese de que también se cumplan los [requisitos de red](vmware-azure-configuration-server-requirements.md#network-requirements) para el servidor de configuración. El servidor de configuración requiere conectividad a direcciones URL específicas para la orquestación de la replicación de Site Recovery. Para esta conectividad no se puede usar ExpressRoute. 
 
-En caso de que use el proxy de forma local y desee utilizar ExpressRoute para el tráfico de replicación, debe configurar la lista de omisión del proxy en el servidor de configuración y los servidores de proceso. Siga estos pasos:
+En caso de que use el proxy de forma local y desee utilizar ExpressRoute para el tráfico de replicación, debe configurar la lista de omisión del proxy en el servidor de configuración y los servidores de proceso. Para hacerlo, siga estos pasos:
 
 - Descargue la herramienta PsExec desde [aquí](https://aka.ms/PsExec) para acceder al contexto de usuario del sistema.
 - Abra Internet Explorer en el contexto de usuario del sistema mediante la ejecución de la siguiente línea de comandos: psexec -s -i "%programfiles%\Internet Explorer\iexplore.exe"

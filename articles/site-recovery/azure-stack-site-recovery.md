@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: site-recovery
 ms.date: 08/05/2019
 ms.author: raynew
-ms.openlocfilehash: 1932221e18241d8a2d921f61375019f969e61912
-ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
+ms.openlocfilehash: 15cd729063545914f791de39a075af9084f72bef
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68782675"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426564"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Replicación de máquinas virtuales de Azure Stack en Azure
 
@@ -27,7 +27,7 @@ Site Recovery contribuye a su estrategia de continuidad empresarial y recuperaci
 - Cuando todo vuelve a estar activo y en ejecución, puede conmutar por recuperación las máquinas virtuales de Azure a su sitio principal y empezar a replicar de nuevo Azure Storage.
 
 
-En este artículo, aprenderá a:
+En este artículo aprenderá a:
 
 > [!div class="checklist"]
 > * **Paso 1: Preparación de las máquinas virtuales de Azure Stack para la replicación**. Compruebe que las máquinas virtuales cumplen los requisitos de Site Recovery y prepare la instalación del servicio Site Recovery Mobility. Este servicio se instala en cada máquina virtual que quiere replicar.
@@ -39,15 +39,15 @@ En este artículo, aprenderá a:
 
 Con estos pasos completados, puede ejecutar una conmutación por error completa a Azure como y cuando necesite.
 
-## <a name="architecture"></a>Arquitectura
+## <a name="architecture"></a>Architecture
 
-![Arquitectura](./media/azure-stack-site-recovery/architecture.png)
+![Architecture](./media/azure-stack-site-recovery/architecture.png)
 
 **Ubicación** | **Componente** |**Detalles**
 --- | --- | ---
 **Servidor de configuración** | Se ejecuta en una única máquina virtual de Azure Stack. | En cada suscripción se configura una máquina virtual de configuración. Esta máquina virtual ejecuta los siguientes componentes de Site Recovery:<br/><br/> - Servidor de configuración: coordina las comunicaciones entre el entorno local y Azure, además de administrar la replicación de datos. - Servidor de procesos: Actúa como puerta de enlace de replicación. Recibe los datos de la replicación, los optimiza mediante el almacenamiento en caché, compresión y cifrado, y los envía a Azure Storage.<br/><br/> Si las máquinas virtuales que va a replicar superan los límites indicados a continuación, puede configurar un servidor de procesos independiente. [Más información](https://docs.microsoft.com/azure/site-recovery/vmware-azure-set-up-process-server-scale).
 **Servicio de movilidad** | Se instala en cada máquina virtual que quiere replicar. | En los pasos de este artículo, se prepara una cuenta para que Mobility Service se instale automáticamente en una máquina virtual cuando se habilite la replicación. Si no quiere instalar automáticamente el servicio, hay una serie de otros métodos que puede usar. [Más información](https://docs.microsoft.com/azure/site-recovery/vmware-azure-install-mobility-service).
-**Las tablas de Azure** | En Azure, necesita un almacén de Recovery Services, una cuenta de almacenamiento y una red virtual. |  Los datos replicados se almacenan en la cuenta de almacenamiento. Las máquinas virtuales de Azure se agregan a la red de Azure cuando se produce una conmutación por error. 
+**Azure** | En Azure, necesita un almacén de Recovery Services, una cuenta de almacenamiento y una red virtual. |  Los datos replicados se almacenan en la cuenta de almacenamiento. Las máquinas virtuales de Azure se agregan a la red de Azure cuando se produce una conmutación por error. 
 
 
 La replicación funciona de la manera siguiente:
@@ -61,7 +61,7 @@ La replicación funciona de la manera siguiente:
 7. Las máquinas replicadas se comunican con el servidor de configuración (puerto HTTPS 443 de entrada) para la administración de la replicación. Las máquinas envían los datos de replicación al servidor de procesos (puerto HTTPS 9443 de entrada) (se puede modificar).
 8. El tráfico se replica en los puntos de conexión públicos del almacenamiento de Azure a través de Internet. Como alternativa, puede usar el emparejamiento público de Azure ExpressRoute. No se admite la replicación del tráfico a través de una VPN de sitio a sitio desde un sitio local en Azure.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Esto es lo que va a necesitar para configurar este escenario.
 
@@ -158,7 +158,7 @@ Para cada equipo que quiera replicar, busque la dirección IP:
 2. En **Introducción**, seleccione Site Recovery. Luego, seleccione **Preparar infraestructura**.
 3. En **Objetivo de protección** >  **¿Dónde están ubicadas las máquinas?** , seleccione **Local**.
 4. En **¿A dónde quiere replicar las máquinas?** , seleccione **En Azure**.
-5. En **Are your machines virtualized** (¿Están las máquinas virtualizadas?), seleccione **Not virtualized/Other** (No virtualizadas/Otros). Después seleccione **Aceptar**.
+5. En **Are your machines virtualized** (¿Están las máquinas virtualizadas?), seleccione **Not virtualized/Other** (No virtualizadas/Otros). Después, seleccione **Aceptar**.
 
     ![Objetivo de protección](./media/azure-stack-site-recovery/protection-goal.png)
 
@@ -332,7 +332,7 @@ Cuando el sitio principal esté de nuevo activo y en ejecución, puede conmutar 
         - Nombre de disco duro virtual: copied-3676553984.vhd
 
 5. Ahora, use el Explorador de Azure Storage para descargar el disco duro virtual.
-6. Cargue el disco duro virtual en Azure Stack con [estos pasos](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-manage-vm-disks#use-powershell-to-add-multiple-unmanaged-disks-to-a-vm).
+6. Cargue el disco duro virtual en Azure Stack con [estos pasos](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-manage-vm-disks#use-powershell-to-add-multiple-disks-to-a-vm).
 7. En la máquina virtual existente o en una nueva, conecte los discos duros virtuales cargados.
 8. Compruebe que el disco del sistema operativo sea correcto e inicie la máquina virtual.
 

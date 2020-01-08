@@ -7,12 +7,12 @@ ms.author: janeng
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: b598fafbbfce9a2c0a824dd6530d07a5933a2873
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 92e213a87796247128e7e3810db99fde8525e12a
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74765213"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75659226"
 ---
 # <a name="handle-transient-errors-and-connect-efficiently-to-azure-database-for-mysql"></a>Controlar los errores transitorios y conectarse de forma eficaz a Azure Database for MySQL
 
@@ -52,7 +52,7 @@ Las conexiones de base de datos son un recurso limitado, por lo que usar de form
 
 La administración de conexiones de base de datos puede tener un impacto significativo en el rendimiento de la aplicación en su conjunto. Para optimizar el rendimiento de la aplicación, el objetivo debe ser reducir el número de veces que se establecen las conexiones y el tiempo para establecer las conexiones en las rutas de acceso clave del código. Es muy recomendable usar la agrupación de conexiones de base de datos o conexiones persistentes para conectarse a Azure Database for MySQL. La agrupación de conexiones de base de datos controla la creación, administración y asignación de conexiones de base de datos. Cuando un programa solicita una conexión de base de datos, da prioridad a la asignación de las conexiones de base de datos inactivas existentes, en lugar de crear una nueva conexión. Una vez que el programa ha terminado de usar la conexión de base de datos, se recupera y se prepara para más usos, en lugar de simplemente cerrarse.
 
-Para ilustrar este concepto, en este artículo se proporciona [un fragmento de código de ejemplo](./sample-scripts-java-connection-pooling.md) que usa JAVA. Para más información, consulte los [grupos de conexiones de base de datos comunes de Apache](http://commons.apache.org/proper/commons-dbcp/).
+Para ilustrar este concepto, en este artículo se proporciona [un fragmento de código de ejemplo](./sample-scripts-java-connection-pooling.md) que usa JAVA. Para más información, consulte los [grupos de conexiones de base de datos comunes de Apache](https://commons.apache.org/proper/commons-dbcp/).
 
 > [!NOTE]
 > El servidor configura un mecanismo de tiempo de espera para cerrar una conexión que ha estado inactiva durante un tiempo con el fin de liberar recursos. Asegúrese de configurar el sistema de comprobación para garantizar la eficiencia de las conexiones persistentes cuando se usan. Para más información, consulte [Configuarción de sistemas de comprobación en el lado cliente para garantizar la eficiencia de las conexiones persistentes](concepts-connectivity.md#configure-verification-mechanisms-in-clients-to-confirm-the-effectiveness-of-persistent-connections).

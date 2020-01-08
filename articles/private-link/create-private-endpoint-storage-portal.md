@@ -2,23 +2,25 @@
 title: Conexión privada a una cuenta de almacenamiento mediante el punto de conexión privado de Azure
 description: Aprenda cómo conectarse de forma privada a una cuenta de almacenamiento en Azure mediante un punto de conexión privado.
 services: private-link
-author: asudbring
+author: malopMSFT
 ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 2a2a96a823867ea7700933c8253a0ba500b0e1cf
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: 96edbd62dcb95fa8f24ea5a8a6f0716c1fefdcd8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74899805"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75357573"
 ---
 # <a name="connect-privately-to-a-storage-account-using-azure-private-endpoint"></a>Conexión privada a una cuenta de almacenamiento mediante el punto de conexión privado de Azure
 Un punto de conexión privado de Azure es el bloque de creación fundamental para Private Link en Azure. Permite que los recursos de Azure, como las máquinas virtuales, se comuniquen de manera privada con recursos de Private Link.
 
 En este inicio rápido, obtendrá información sobre cómo crear una máquina virtual en una red virtual de Azure, una cuenta de almacenamiento con un punto de conexión privado mediante Azure Portal. Después, puede acceder de forma segura a la cuenta de almacenamiento desde la VM.
 
+> [!NOTE]
+> No se permiten puntos de conexión privados junto con los puntos de conexión de servicio en la misma subred.
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
@@ -34,9 +36,9 @@ En esta sección, va a crear una red virtual y una subred para hospedar la máqu
 1. En la parte superior izquierda de la pantalla, seleccione **Crear un recurso** > **Redes** > **Red virtual**.
 1. En **Creación de una red virtual**, escriba o seleccione esta información:
 
-    | Configuración | Valor |
+    | Configuración | Value |
     | ------- | ----- |
-    | NOMBRE | Escriba *MyVirtualNetwork*. |
+    | Nombre | Escriba *MyVirtualNetwork*. |
     | Espacio de direcciones | Escriba *10.1.0.0/16*. |
     | Subscription | Seleccione su suscripción.|
     | Resource group | Seleccione **Crear nuevo**, escriba *myResourceGroup* y, después, seleccione **Aceptar**. |
@@ -53,7 +55,7 @@ En esta sección, va a crear una red virtual y una subred para hospedar la máqu
 
 1. En **Creación de una máquina virtual: conceptos básicos**, escriba o seleccione esta información:
 
-    | Configuración | Valor |
+    | Configuración | Value |
     | ------- | ----- |
     | **DETALLES DEL PROYECTO** | |
     | Subscription | Seleccione su suscripción. |
@@ -80,7 +82,7 @@ En esta sección, va a crear una red virtual y una subred para hospedar la máqu
 
 1. En **Creación de una máquina virtual: Redes**, escriba o seleccione esta información:
 
-    | Configuración | Valor |
+    | Configuración | Value |
     | ------- | ----- |
     | Virtual network | Deje el valor predeterminado **MyVirtualNetwork**.  |
     | Espacio de direcciones | Deje el valor predeterminado **10.1.0.0/24**.|
@@ -101,7 +103,7 @@ En esta sección, creará una cuenta de almacenamiento privada con un punto de c
 
 1. En **Crear cuenta de almacenamiento: Aspectos básicos**, escriba o seleccione esta información:
 
-    | Configuración | Valor |
+    | Configuración | Value |
     | ------- | ----- |
     | **DETALLES DEL PROYECTO** | |
     | Subscription | Seleccione su suscripción. |
@@ -119,13 +121,13 @@ En esta sección, creará una cuenta de almacenamiento privada con un punto de c
 5. En **Crear una cuenta de almacenamiento: Redes**, seleccione **Agregar un punto de conexión privado**. 
 6. En **Crear un punto de conexión privado**, escriba o seleccione esta información:
 
-    | Configuración | Valor |
+    | Configuración | Value |
     | ------- | ----- |
     | **DETALLES DEL PROYECTO** | |
     | Subscription | Seleccione su suscripción. |
     | Resource group | Seleccione **myResourceGroup**. Lo creó en la sección anterior.|
     |Location|Seleccione **WestCentralUS**.|
-    |NOMBRE|Escriba  *myPrivateEndpoint*.  |
+    |Nombre|Escriba  *myPrivateEndpoint*.  |
     |Recurso secundario de almacenamiento|Deje el valor predeterminado **Blob**. |
     | **REDES** |  |
     | Virtual network  | Seleccione *MyVirtualNetwork* en el grupo de recursos *myResourceGroup*. |

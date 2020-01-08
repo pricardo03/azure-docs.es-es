@@ -1,20 +1,16 @@
 ---
-title: Inclusión de una aplicación de .NET existente en un contenedor para Service Fabric Mesh | Microsoft Docs
+title: Inclusión de una aplicación .NET existente en un contenedor para Service Fabric Mesh
 description: Agregue compatibilidad con la orquestación de contenedores de Service Fabric Mesh a ASP.NET y a proyectos de consola que usen el marco .NET completo.
-services: service-fabric-mesh
-keywords: inclusión del servicio fabric mesh en un contenedor
 author: dkkapur
 ms.author: dekapur
 ms.date: 11/08/2018
 ms.topic: conceptual
-ms.service: service-fabric-mesh
-manager: chakdan
-ms.openlocfilehash: 070d07316c0ff06a45e76936e75cb5345548e78f
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: d67ea5bb7df5910ec87e69adf3c414c303bf0182
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686280"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462038"
 ---
 # <a name="containerize-an-existing-net-app-for-service-fabric-mesh"></a>Inclusión de una aplicación .NET existente en un contenedor para Service Fabric Mesh
 
@@ -25,7 +21,7 @@ En Visual Studio 2017, puede agregar compatibilidad con la inclusión de los pro
 > [!NOTE]
 > Actualmente no se admiten los proyectos .NET **Core**.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * Si no tiene una suscripción a Azure, puede [crear una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 

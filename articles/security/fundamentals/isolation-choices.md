@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: TomSh
-ms.openlocfilehash: 5e6910db7765c4cb8f151401a6803e6d4d3f998e
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: c666d718586d3e5351974da287a91f6a3a8c04ba
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73159764"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459177"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Aislamiento en la nube pública de Azure
 Azure permite ejecutar aplicaciones y máquinas virtuales (VM) en una infraestructura física compartida. Una de las motivaciones económicas principales para ejecutar aplicaciones en un entorno de nube es la capacidad de distribuir el costo de los recursos compartidos entre varios clientes. Esta práctica de multiinquilino mejora la eficiencia al multiplexar los recursos entre los distintos clientes a un bajo costo. Lamentablemente, también presenta el riesgo del uso compartido de servidores físicos y otros recursos de infraestructura al ejecutar aplicaciones confidenciales y máquinas virtuales que pueden pertenecer a un usuario arbitrario y potencialmente malintencionado.
@@ -205,14 +205,14 @@ Cifrado en tránsito es un mecanismo para proteger datos cuando se transmiten a 
 
 -   [Cifrado de nivel de transporte](../../storage/common/storage-security-guide.md), como HTTPS para transferir datos a Azure Storage o desde este servicio.
 
--   [Cifrado en el cable](../../storage/common/storage-security-guide.md#using-encryption-during-transit-with-azure-file-shares), como el cifrado SMB 3.0 para recursos compartidos de Azure File.
+-   [Cifrado en el cable](../../storage/common/storage-security-guide.md), como el cifrado SMB 3.0 para recursos compartidos de Azure File.
 
 -   [Cifrado de cliente](../../storage/common/storage-security-guide.md), para cifrar los datos antes de transferirlos al almacenamiento y descifrarlos una vez transferidos desde este servicio.
 
 #### <a name="encryption-at-rest"></a>Cifrado en reposo
 Para muchas organizaciones, el [cifrado de los datos en reposo](isolation-choices.md) es un paso obligatorio en lo que respecta a la privacidad de los datos, el cumplimiento y la soberanía de los datos. Hay tres características de Azure que proporcionan cifrado de datos "en reposo":
 
--   [Cifrado del servicio Storage](../../storage/common/storage-security-guide.md) permite solicitar que el servicio de almacenamiento cifre automáticamente los datos al escribirlos en Azure Storage.
+-   [Cifrado del servicio de almacenamiento](../../storage/common/storage-security-guide.md) permite solicitar que el servicio de almacenamiento cifre automáticamente los datos al escribirlos en Azure Storage.
 
 -   [Cifrado de cliente](../../storage/common/storage-security-guide.md) también proporciona la característica de cifrado en reposo.
 

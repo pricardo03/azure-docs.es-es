@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: FrancescaLazzeri
 ms.author: lazzeri
 ms.date: 11/04/2019
-ms.openlocfilehash: 10714e155bebdd7acc5d7febb345c17fa81bab13
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d8b381c1afdea05618d9ad5d791a7597092c8519
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73511349"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530789"
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-designer"></a>Hoja de características de los algoritmos de Machine Learning para el diseñador de Azure Machine Learning
 
@@ -56,10 +56,10 @@ En el aprendizaje de refuerzo, el algoritmo elige una acción en respuesta a cad
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Obtenga información sobre Studio en Azure Machine Learning y Azure Portal](service/overview-what-is-azure-ml.md).
+* [Obtenga información sobre Studio en Azure Machine Learning y Azure Portal](overview-what-is-azure-ml.md).
 
 * Vea una lista de algoritmos y módulos en la[ referencia de módulos y algoritmos](algorithm-module-reference/module-reference.md).
 
 * [Tutorial: Compilar un modelo de predicción en el diseñador de Azure Machine Learning ](service/ui-tutorial-automobile-price-train-score.md).
 
-* [Más información sobre el aprendizaje profundo y el aprendizaje automático](service/concept-deep-learning-vs-machine-learning.md).
+* [Más información sobre el aprendizaje profundo y el aprendizaje automático](concept-deep-learning-vs-machine-learning.md).

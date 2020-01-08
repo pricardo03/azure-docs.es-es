@@ -1,24 +1,21 @@
 ---
-title: Aptitud cognitiva Text Translation (versión preliminar)
+title: Aptitud cognitiva Text Translation
 titleSuffix: Azure Cognitive Search
-description: Evalúa el texto y devuelve para cada registro el texto traducido al idioma de destino especificado en una canalización de enriquecimiento de inteligencia artificial de Azure Cognitive Search. Esta aptitud está actualmente en versión preliminar pública.
+description: Evalúa el texto y devuelve para cada registro el texto traducido al idioma de destino especificado en una canalización de enriquecimiento de inteligencia artificial de Azure Cognitive Search.
 manager: nitinme
 author: careyjmac
 ms.author: chalton
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 7c42c9033fac057c12426726a96ae6079f3080da
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 5089174fcfd5a97128c1f789b818243243a5282f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73715400"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460776"
 ---
 #   <a name="text-translation-cognitive-skill"></a>Aptitud cognitiva Text Translation
-
-> [!IMPORTANT] 
-> Esta aptitud está actualmente en versión preliminar pública. La funcionalidad en versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no es aconsejable usarla para cargas de trabajo de producción. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). En la [API REST versión 2019-05-06-Preview](search-api-preview.md) se proporcionan características en versión preliminar. Actualmente hay compatibilidad limitada con el portal y no la hay con el SDK de .NET.
 
 La aptitud **Text Translation** evalúa el texto y, para cada registro, devuelve el texto traducido al idioma de destino especificado. Esta aptitud usa [Translator Text API v3.0](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate), disponible en Cognitive Services.
 
@@ -29,7 +26,7 @@ Esta funcionalidad es útil si espera que los documentos no estén en un único 
 > [!NOTE]
 > A medida que expanda el ámbito aumentando la frecuencia de procesamiento, agregando más documentos o agregando más algoritmos de IA, tendrá que [asociar un recurso facturable de Cognitive Services](cognitive-search-attach-cognitive-services.md). Los cargos se acumulan cuando se llama a las API de Cognitive Services y por la extracción de imágenes como parte de la fase de descifrado de documentos de Azure Cognitive Search. No hay ningún cargo por la extracción de texto de documentos.
 >
-> La ejecución de aptitudes integradas se cobra según los [precios de pago por uso de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/) existentes. Los precios de la extracción de imágenes se describen en la [página de precios de Azure Cognitive Search](https://go.microsoft.com/fwlink/?linkid=2042400).
+> La ejecución de aptitudes integradas se cobra según los [precios de pago por uso de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/) existentes. Los precios de la extracción de imágenes se describen en la [página de precios de Búsqueda cognitiva de Azure](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.TranslationSkill
@@ -41,7 +38,7 @@ El tamaño máximo de un registro debe tener menos de 50 000 caracteres según 
 
 Los parámetros distinguen mayúsculas de minúsculas.
 
-| Entradas                | DESCRIPCIÓN |
+| Entradas                | Descripción |
 |---------------------|-------------|
 | defaultToLanguageCode | (Obligatorio) Código de idioma al que traducir los documentos para aquellos documentos que no especifican el idioma de destino explícitamente. <br/> Vea [Full list of supported languages](https://docs.microsoft.com/azure/cognitive-services/translator/language-support) (Lista completa de idiomas admitidos). |
 | defaultFromLanguageCode | (Opcional) Código de idioma desde el que traducir los documentos para aquellos documentos que no especifican el idioma de origen explícitamente.  Si no se especifica defaultFromLanguageCode, se usará la detección automática de idioma proporcionada por Translator Text API para determinar el idioma de origen. <br/> Vea [Full list of supported languages](https://docs.microsoft.com/azure/cognitive-services/translator/language-support) (Lista completa de idiomas admitidos). |
@@ -49,7 +46,7 @@ Los parámetros distinguen mayúsculas de minúsculas.
 
 ## <a name="skill-inputs"></a>Entradas de la aptitud
 
-| Nombre de entrada     | DESCRIPCIÓN |
+| Nombre de entrada     | Descripción |
 |--------------------|-------------|
 | text | Texto que se va a traducir.|
 | toLanguageCode    | Cadena que indica el idioma al que se debe traducir el texto. Si no se especifica esta entrada, se usará defaultToLanguageCode para traducir el texto. <br/>Vea [Full list of supported languages](https://docs.microsoft.com/azure/cognitive-services/translator/language-support) (Lista completa de idiomas admitidos).|
@@ -57,7 +54,7 @@ Los parámetros distinguen mayúsculas de minúsculas.
 
 ## <a name="skill-outputs"></a>Salidas de la aptitud
 
-| Nombre de salida    | DESCRIPCIÓN |
+| Nombre de salida    | Descripción |
 |--------------------|-------------|
 | translatedText | Cadena resultante de la traducción del texto desde translatedFromLanguageCode a translatedToLanguageCode.|
 | translatedToLanguageCode  | Cadena que indica el código de idioma al que se ha traducido el texto. Resulta útil si va a traducir a varios idiomas y desea poder realizar un seguimiento del idioma de cada texto.|
@@ -151,7 +148,7 @@ Si proporciona un código de idioma no admitido para el lenguaje de origen o des
 Si el texto está vacío, se creará una advertencia.
 Si el texto tiene más de 50 000 caracteres, solo se traducirán los primeros 50 000 caracteres y se emitirá una advertencia.
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 + [Aptitudes integradas](cognitive-search-predefined-skills.md)
 + [Definición de un conjunto de aptitudes](cognitive-search-defining-skillset.md)

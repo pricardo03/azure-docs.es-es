@@ -16,12 +16,12 @@ ms.date: 04/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 04/04/2019
-ms.openlocfilehash: 3aaa99caca461d4b8e339cf4c1f7847adef4027a
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 3c84277603420567485b5199cdd2fa63ee3a2654
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076845"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75378388"
 ---
 # <a name="diagnose-dropped-notifications-in-azure-notification-hubs"></a>Diagnóstico de notificaciones eliminadas en Azure Notification Hubs
 
@@ -88,7 +88,7 @@ Por ejemplo, supongamos que todos los registros con Notification Hubs usan la et
 
 ### <a name="template-issues"></a>Problemas de plantillas ###
 
-Si utiliza plantillas, asegúrese de seguir las directrices descritas en [Plantillas].
+Si utiliza plantillas, asegúrese de seguir las directrices descritas en [Templates].
 
 ### <a name="invalid-registrations"></a>Registros no válidos ###
 
@@ -103,7 +103,7 @@ Cada lote se envía al servicio de notificaciones push que, a su vez, acepta y v
 
 En este caso, el registro de errores se quita de la base de datos. A continuación, volvemos a intentar la entrega de notificaciones para el resto de los dispositivos de ese lote.
 
-Para obtener más información del error del intento de entrega erróneo en un registro, pude usar las API REST de Notification Hubs: [Telemetría por mensaje: Obtención de telemetría de mensaje de notificación](https://msdn.microsoft.com/library/azure/mt608135.aspx) y [Comentarios de PNS](https://msdn.microsoft.com/library/azure/mt705560.aspx). Para ver un ejemplo de código, consulte el [ejemplo de REST de envío](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/SendRestExample/).
+Para obtener más información del error del intento de entrega erróneo en un registro, pude usar las API REST de Notification Hubs: [Telemetría por mensaje: Obtención de telemetría de mensaje de notificación](https://docs.microsoft.com/rest/api/notificationhubs/get-notification-message-telemetry) y [Comentarios de PNS](https://msdn.microsoft.com/library/azure/mt705560.aspx). Para ver un ejemplo de código, consulte el [ejemplo de REST de envío](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/SendRestExample/).
 
 ## <a name="push-notification-service-issues"></a>Problemas del servicio de notificaciones push
 
@@ -125,7 +125,7 @@ Estas son rutas de acceso para diagnosticar la causa principal de las notificaci
 
 #### <a name="push-notification-service-developer-portal"></a>Portal para desarrolladores del servicio de notificaciones push ####
 
-Compruebe las credenciales en el portal para desarrolladores de los servicios de notificaciones push respectivos (APN, FCM, servicio de notificaciones de Windows, etc.). Para más información, consulte [Tutorial: Envío de notificaciones a aplicaciones de Plataforma universal de Windows mediante Azure Notification Hubs](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification).
+Compruebe las credenciales en el portal para desarrolladores de los servicios de notificaciones push respectivos (APN, FCM, servicio de notificaciones de Windows, etc.). Para más información, consulte el [Tutorial: Envío de notificaciones a aplicaciones de Plataforma universal de Windows mediante Azure Notification Hubs](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification).
 
 #### <a name="azure-portal"></a>Portal de Azure ####
 
@@ -285,7 +285,7 @@ Para más información sobre el acceso mediante programación, consulte [Acceso 
 <!-- LINKS -->
 [Introducción a Notification Hubs]: notification-hubs-push-notification-overview.md
 [Introducción a Azure Notification Hubs]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
-[Plantillas]: https://msdn.microsoft.com/library/dn530748.aspx
+[Templates]: https://msdn.microsoft.com/library/dn530748.aspx (Plantillas [C++])
 [APNs overview]: https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html (Introducción a Apple Push Notification Service)
 [Acerca de los mensajes de FCM]: https://firebase.google.com/docs/cloud-messaging/concept-options
 [Export and modify registrations in bulk]: https://msdn.microsoft.com/library/dn790624.aspx

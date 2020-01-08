@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 11/07/2019
-ms.openlocfilehash: 470e9a9c36b6b4ec2e40db5dfc47ae03fb6b5aa8
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 48eb9cfe16062ac587a12b845b2fb226ac5faf23
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74421373"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75348871"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Uso de grupos de conmutación por error automática para permitir la conmutación por error de varias bases de datos de manera transparente y coordinada
 
@@ -32,8 +32,9 @@ Además, los grupos de conmutación por error automática proporcionan puntos de
 Cuando se usan grupos de conmutación por error automática con la directiva de conmutación por error automática, cualquier interrupción que afecte a las bases de datos del servidor de SQL Database o de la instancia administrada tiene como resultado la conmutación por error automática. Puede administrar el grupo de conmutación por error automática mediante:
 
 - [Azure Portal](sql-database-implement-geo-distributed-database.md)
+- [CLI de Azure: grupo de conmutación por error](scripts/sql-database-add-single-db-to-failover-group-cli.md)
 - [PowerShell: grupo de conmutación por error](scripts/sql-database-add-single-db-to-failover-group-powershell.md)
-- [API REST: grupo de conmutación por error](https://docs.microsoft.com/rest/api/sql/failovergroups)
+- [API REST: grupo de conmutación por error](/rest/api/sql/failovergroups)
 
 Después de la conmutación por error, asegúrese de que los requisitos de autenticación para el servidor y la base de datos se configuran en el nuevo elemento principal. Para obtener más información, consulte [Administración de la seguridad de Azure SQL Database después de la recuperación ante desastres](sql-database-geo-replication-security-config.md).
 
@@ -331,7 +332,7 @@ Como se ha mencionado antes, los grupos de conmutación automática por error y 
 
 ### <a name="manage-sql-database-failover-with-single-databases-and-elastic-pools"></a>Administración de la conmutación por error de bases de datos SQL con bases de datos únicas y grupos elásticos
 
-| Cmdlet | DESCRIPCIÓN |
+| Cmdlet | Descripción |
 | --- | --- |
 | [New-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/new-azsqldatabasefailovergroup) |Este comando crea un grupo de conmutación por error y lo registra en el servidor principal y el servidor secundario|
 | [Remove-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/remove-azsqldatabasefailovergroup) | Quita el grupo de conmutación por error del servidor y elimina todas las bases de datos secundarias incluidas en el grupo |
@@ -342,7 +343,7 @@ Como se ha mencionado antes, los grupos de conmutación automática por error y 
 
 ### <a name="manage-sql-database-failover-groups-with-managed-instances"></a>Administración de grupos de conmutación por error de SQL Database con instancias administradas
 
-| Cmdlet | DESCRIPCIÓN |
+| Cmdlet | Descripción |
 | --- | --- |
 | [New-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/new-azsqldatabaseinstancefailovergroup) |Este comando crea un grupo de conmutación por error y lo registra en el servidor principal y el servidor secundario|
 | [Set-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/set-azsqldatabaseinstancefailovergroup) |Modifica la configuración del grupo de conmutación por error|
@@ -354,7 +355,7 @@ Como se ha mencionado antes, los grupos de conmutación automática por error y 
 
 ### <a name="manage-sql-database-failover-with-single-databases-and-elastic-pools"></a>Administración de la conmutación por error de bases de datos SQL con bases de datos únicas y grupos elásticos
 
-| Get-Help | DESCRIPCIÓN |
+| Get-Help | Descripción |
 | --- | --- |
 | [az sql failover-group create](/cli/azure/sql/failover-group#az-sql-failover-group-create) |Este comando crea un grupo de conmutación por error y lo registra en el servidor principal y el servidor secundario|
 | [az sql failover-group delete](/cli/azure/sql/failover-group#az-sql-failover-group-delete) | Quita el grupo de conmutación por error del servidor y elimina todas las bases de datos secundarias incluidas en el grupo |
@@ -364,7 +365,7 @@ Como se ha mencionado antes, los grupos de conmutación automática por error y 
 
 ### <a name="manage-sql-database-failover-groups-with-managed-instances"></a>Administración de grupos de conmutación por error de SQL Database con instancias administradas
 
-| Get-Help | DESCRIPCIÓN |
+| Get-Help | Descripción |
 | --- | --- |
 | [az sql instance-failover-group create](/cli/azure/sql/instance-failover-group#az-sql-instance-failover-group-create) | Este comando crea un grupo de conmutación por error y lo registra en el servidor principal y el servidor secundario|
 | [az sql instance-failover-group update](/cli/azure/sql/instance-failover-group#az-sql-instance-failover-group-update) | Modifica la configuración del grupo de conmutación por error|
@@ -379,7 +380,7 @@ Como se ha mencionado antes, los grupos de conmutación automática por error y 
 
 ### <a name="rest-api-manage-sql-database-failover-groups-with-single-and-pooled-databases"></a>API REST: Administración de grupos de conmutación por error de base de datos SQL con bases de datos únicas y agrupadas
 
-| API | DESCRIPCIÓN |
+| API | Descripción |
 | --- | --- |
 | [Crear o actualizar grupo de conmutación por error](https://docs.microsoft.com/rest/api/sql/failovergroups/createorupdate) | Crea o actualiza un grupo de conmutación por error. |
 | [Eliminar grupo de conmutación por error](https://docs.microsoft.com/rest/api/sql/failovergroups/delete) | Quita el grupo de conmutación por error del servidor. |
@@ -391,7 +392,7 @@ Como se ha mencionado antes, los grupos de conmutación automática por error y 
 
 ### <a name="rest-api-manage-failover-groups-with-managed-instances"></a>API REST: Administración de grupos de conmutación por error con instancias administradas
 
-| API | DESCRIPCIÓN |
+| API | Descripción |
 | --- | --- |
 | [Crear o actualizar grupo de conmutación por error](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/createorupdate) | Crea o actualiza un grupo de conmutación por error. |
 | [Eliminar grupo de conmutación por error](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/delete) | Quita el grupo de conmutación por error del servidor. |

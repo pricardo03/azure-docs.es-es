@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/25/2019
 ms.author: barclayn
-ms.openlocfilehash: fc3c7ea2f0060fc6ab20fa821c9e45d6e5173d4f
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: da8dfe61e92c4839deb1f7fbc289be0136087720
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73795797"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75497298"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Cifrado en reposo de datos de Azure
 
@@ -111,7 +111,7 @@ Los modelos de cifrado admitidos en Azure se dividen en dos grupos principales: 
 
 El modelo de cifrado del cliente hace referencia al cifrado que se realiza fuera del proveedor de recursos o Azure mediante el servicio o la aplicación que realiza la llamada. El cifrado puede realizarse mediante la aplicación de servicio de Azure o por una aplicación que se ejecuta en el centro de datos del cliente. En cualquier caso, cuando se saca provecho de este modelo de cifrado, el proveedor de recursos de Azure recibe un blob cifrado de datos sin la capacidad de descifrar los datos de ninguna forma ni tener acceso a las claves de cifrado. En este modelo, la administración de claves se realiza mediante el servicio o aplicación que realiza la llamada y es opaca para el servicio de Azure.
 
-![Cliente](./media/encryption-atrest/azure-security-encryption-atrest-fig2.png)
+![Remoto](./media/encryption-atrest/azure-security-encryption-atrest-fig2.png)
 
 ### <a name="server-side-encryption-model"></a>Modelo de cifrado del lado servidor
 
@@ -305,7 +305,7 @@ Se admite el cifrado del lado cliente de los datos de Azure SQL Database a trav�
 | **Servicios IoT**                 |                    |                    |                    |
 | IoT Hub                          | Sí                | -                  | Sí                |
 | **Administración y gobernanza**    |                    |                    |                    |
-| Azure Site Recovery              | Sí                | Sí, RSA de 2048 bits  | Sí                |
+| Azure Site Recovery              | Sí                | -                  | -                  |
 | **Elementos multimedia**                        |                    |                    |                    |
 | Media Services                   | Sí                | -                  | Sí                |
 | **Storage**                      |                    |                    |                    |

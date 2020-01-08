@@ -14,19 +14,19 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/20/2017
 ms.author: spelluru
-ms.openlocfilehash: a7bb26cdfec4042a1963f929f92e5505045124a7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c2f15008149de00ba232824280c69bcf4da978f4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60749247"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459265"
 ---
 # <a name="create-a-relay-namespace-using-the-azure-portal"></a>Creación de un espacio de nombres de Relay mediante Azure Portal
 
 Un espacio de nombres es un contenedor con un ámbito para todos los componentes de Azure Relay. Varias instancias de Azure Relay pueden residir en un único espacio de nombres y los espacios de nombres suelen servir de contenedores de aplicación. Actualmente existen dos formas diferentes de crear espacios de nombres de Relay:
 
 1. Azure Portal (este artículo).
-2. Plantillas de [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+2. Plantillas de [Azure Resource Manager](../azure-resource-manager/management/overview.md).
 
 ## <a name="create-a-namespace-in-the-azure-portal"></a>Creación de un espacio de nombres en Azure Portal
 

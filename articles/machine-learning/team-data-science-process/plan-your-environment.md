@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 46d0e8aa1fa934f778e950f0187a853ba46772d1
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: ba87461c6c195a6b483538fd94d8be76239b8dc5
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495038"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647312"
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>Identificación de escenarios y planeamiento del procesamiento analítico avanzado de datos
 
@@ -56,7 +56,7 @@ Es posible que tenga que mover los datos varias veces durante el proceso de aná
 
 * Azure Blob Storage
 * Bases de datos SQL Azure
-* SQL Server en máquinas virtuales de Azure
+* SQL Server en máquina virtual de Azure
 * HDInsight (Hadoop en Azure) o tablas de Hive
 * Azure Machine Learning
 * Discos duros virtuales de Azure que se pueden montar
@@ -103,13 +103,13 @@ Estas cuestiones son clave para planear los entornos de almacenamiento y procesa
 ### <a name="how-large-is-your-data"></a>¿Qué tamaño tienen los datos?
 
 * Pequeño: menos de 2 GB
-* Medio: más de 2 GB y menos de 10 GB
+* Media: más de 2 GB y menos de 10 GB
 * Grande: más de 10 GB
 
 Veamos por ejemplo Azure Machine Learning Studio (clásico):
 
 * Para obtener una lista de los formatos de datos y los tipos admitidos por Azure Machine Learning Studio, consulte la sección [Tipos y formatos de datos admitidos](../studio/import-data.md#supported-data-formats-and-data-types) .
-* Para obtener más información sobre las limitaciones de otros servicios de Azure usados en el proceso de análisis, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../../azure-subscription-service-limits.md).
+* Para obtener más información sobre las limitaciones de otros servicios de Azure usados en el proceso de análisis, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 ## <a name="data-quality-questions-exploration-and-pre-processing"></a>Cuestiones sobre la calidad de los datos: exploración y procesamiento previo
 
@@ -149,7 +149,7 @@ Hay muchas opciones para lenguajes, entornos de desarrollo y herramientas. Sea c
 * [Azure Machine Learning Studio](../studio/what-is-ml-studio.md)
 * [Revolution Analytics](https://www.microsoft.com/sql-server/machinelearningserver)
 * [RStudio](https://www.rstudio.com)
-* [Python Tools para Visual Studio](https://aka.ms/ptvsdocs)
+* [Herramientas de Python para Visual Studio](https://aka.ms/ptvsdocs)
 * [Anaconda](https://www.continuum.io/why-anaconda)
 * [Jupyter Notebooks](https://jupyter.org/)
 * [Microsoft Power BI](https://powerbi.microsoft.com)

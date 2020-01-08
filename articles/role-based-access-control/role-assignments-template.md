@@ -13,16 +13,16 @@ ms.workload: identity
 ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: a183dc3b318cb9d740fe91bf553dc9f0c7ec99c4
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: ad6c63ee15bc97ddd0ca6432f0b0f7b25a859804
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707789"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462198"
 ---
 # <a name="add-role-assignments-using-azure-rbac-and-azure-resource-manager-templates"></a>Adición de asignaciones de roles mediante RBAC de Azure y plantillas de Azure Resource Manager
 
-[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] Además de usar Azure PowerShell o la CLI de Azure, puede asignar roles mediante [plantillas de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md). Las plantillas se pueden usar si necesita implementar recursos de manera repetida y uniforme. En este artículo se describe cómo asignar roles mediante plantillas.
+[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] Además de usar Azure PowerShell o la CLI de Azure, puede asignar roles mediante [plantillas de Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md). Las plantillas se pueden usar si necesita implementar recursos de manera repetida y uniforme. En este artículo se describe cómo asignar roles mediante plantillas.
 
 ## <a name="get-object-ids"></a>Obtener los identificadores de objeto
 
@@ -362,6 +362,6 @@ A continuación se muestra un ejemplo de la asignación del rol de colaborador a
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Inicio rápido: Creación e implementación de plantillas de Azure Resource Manager mediante Azure Portal](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md)
-- [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)
+- [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md)
 - [Creación de grupos de recursos y otros recursos en el nivel de suscripción](../azure-resource-manager/deploy-to-subscription.md)
 - [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/?term=rbac)

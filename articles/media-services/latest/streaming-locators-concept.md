@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 05/26/2019
 ms.author: juliako
-ms.openlocfilehash: a227c5d0edfb9b49e70452cfcfd08b29ba381857
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 1cc0132cc17217c858060e107dfcfc090a3ef8a7
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74969113"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75611005"
 ---
 # <a name="streaming-locators"></a>Localizadores de streaming
 
@@ -24,7 +24,7 @@ Para que los vídeos en el recurso de salida estén disponibles para los cliente
 
 El proceso de creación de un objeto **StreamingLocator** se denomina publicación. De forma predeterminada, el objeto **StreamingLocator** es válido inmediatamente después de realizar las llamadas a la API y dura hasta que se elimina, salvo que configure las horas de inicio y de finalización opcionales. 
 
-Al crear un objeto **StreamingLocator**, debe especificar el nombre del **Recurso** y el nombre de la **Directiva de streaming**. Para obtener más información, consulte los temas siguientes:
+Al crear un objeto **StreamingLocator**, debe especificar el nombre del **Recurso** y el nombre de la **Directiva de streaming**. Para obtener más información, vea los temas siguientes:
 
 * [Recursos](assets-concept.md)
 * [Directivas de streaming](streaming-policy-concept.md)
@@ -76,7 +76,7 @@ StreamingLocator locator = await client.StreamingLocators.CreateAsync(
 Si también quiere cifrar su transmisión de HLS con CBCS (FairPlay), use "Predefined_MultiDrmStreaming".
 
 > [!NOTE]
-> Widevine es un servicio que ofrece Google Inc. y está sujeto a los términos del servicio y la directiva de privacidad de Google, Inc.
+> Widevine es un servicio que ofrece Google Inc. y que está sujeto a los términos del servicio y la directiva de privacidad de Google, Inc.
 
 ## <a name="associate-filters-with-streaming-locators"></a>Asociación de filtros con localizadores de streaming
 
@@ -95,7 +95,7 @@ Para obtener los localizadores de streaming según el nombre de recurso asociado
 |REST|[liststreaminglocators](https://docs.microsoft.com/rest/api/media/assets/liststreaminglocators)|
 |CLI|[az ams asset list-streaming-locators](https://docs.microsoft.com/cli/azure/ams/asset?view=azure-cli-latest#az-ams-asset-list-streaming-locators)|
 |.NET|[ListStreamingLocators](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.assetsoperationsextensions.liststreaminglocators?view=azure-dotnet#Microsoft_Azure_Management_Media_AssetsOperationsExtensions_ListStreamingLocators_Microsoft_Azure_Management_Media_IAssetsOperations_System_String_System_String_System_String_)|
-|Java|[AssetStreamingLocator](https://docs.microsoft.com/java/api/com.microsoft.azure.management.mediaservices.v2018_07_01.assetstreaminglocator?view=azure-java-stable)|
+|Java|[AssetStreamingLocator](https://docs.microsoft.com/rest/api/media/assets/liststreaminglocators#assetstreaminglocator)|
 |Node.js|[listStreamingLocators](https://docs.microsoft.com/javascript/api/@azure/arm-mediaservices/assets#liststreaminglocators-string--string--string--msrest-requestoptionsbase-)|
 
 ## <a name="also-see"></a>Consulte también:

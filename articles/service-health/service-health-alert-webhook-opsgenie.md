@@ -1,17 +1,15 @@
 ---
 title: Envío de alertas de Azure Service Health con OpsGenie mediante webhooks
 description: Obtenga notificaciones personalizadas sobre los eventos del estado de servicio en la instancia de OpsGenie.
-author: stephbaron
-ms.author: stbaron
-ms.topic: article
 ms.service: service-health
+ms.topic: article
 ms.date: 06/10/2019
-ms.openlocfilehash: fab99b7093ac3f18f6313273d21905e0a3ed7e5b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d1f0ddb506b915697335ec71eab341a7cdb73dd7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067164"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465232"
 ---
 # <a name="send-azure-service-health-alerts-with-opsgenie-using-webhooks"></a>Envío de alertas de Azure Service Health con OpsGenie mediante webhooks
 

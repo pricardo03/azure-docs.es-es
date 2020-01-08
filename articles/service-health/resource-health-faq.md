@@ -1,18 +1,14 @@
 ---
-title: P+F sobre Azure Resource Health | Microsoft Docs
+title: P+F sobre Azure Resource Health
 description: Introducción a Azure Resource Health
-author: stephbaron
-ms.author: stbaron
 ms.topic: conceptual
-ms.service: service-health
 ms.date: 01/29/2019
-ms.workload: Supportability
-ms.openlocfilehash: 03c5fb0f399e43af2584743655eeea8af4c5b2f5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5a15ded1c279e700fb71e5ea7aa866e5afc29f8a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64924444"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426518"
 ---
 # <a name="azure-resource-health-faq"></a>P+F sobre Azure Resource Health
 Aprenda las respuestas a las preguntas más frecuentes sobre Azure Resource Health.
@@ -92,4 +88,4 @@ Según el estado, Resource Health proporciona recomendaciones con el objetivo de
 
 Más información sobre Resource Health:
 -  [Información general sobre Azure Resource Health](Resource-health-overview.md)
--  [Tipos de recursos y comprobaciones de estado disponibles con Azure Resource Health](resource-health-checks-resource-types.md)
+-  [Tipos de recursos y comprobaciones de mantenimiento disponibles a través de Azure Resource Health](resource-health-checks-resource-types.md)

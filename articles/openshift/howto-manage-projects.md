@@ -8,12 +8,12 @@ ms.author: b-majude
 ms.date: 07/19/2019
 ms.topic: conceptual
 ms.service: container-service
-ms.openlocfilehash: 5028ce3c71538e67b50a15abb6076871d5af7050
-ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.openlocfilehash: d88be50468f55a848b43613e1f7851621202052d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69559205"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75378235"
 ---
 # <a name="manage-projects-templates-image-streams-in-an-azure-red-hat-openshift-cluster"></a>Administración de proyectos, plantillas y secuencias de imágenes en un clúster de Red Hat OpenShift en Azure 
 
@@ -25,7 +25,7 @@ Puede permitir que los desarrolladores creen sus propios proyectos. Un punto de 
 
 Cuando se envía una solicitud de proyecto, la API sustituye los parámetros siguientes de la plantilla:
 
-| Parámetro               | DESCRIPCIÓN                                    |
+| Parámetro               | Descripción                                    |
 | ----------------------- | ---------------------------------------------- |
 | PROJECT_NAME            | Nombre del proyecto. Necesario.             |
 | PROJECT_DISPLAYNAME     | Nombre para mostrar del proyecto. Puede estar vacío. |
@@ -66,7 +66,7 @@ Puede impedir que un grupo de usuarios autenticados realice el aprovisionamiento
 2. Edite el enlace del rol de clúster de aprovisionadores automáticos.
 
    ```
-   oc edit clusterrolebinding self-provisioners
+   oc edit clusterrolebinding.rbac.authorization.k8s.io self-provisioners
    ```
 
 3. Para quitar el rol del proceso de actualización de ARO, agregue la siguiente anotación: `openshift.io/reconcile-protect: "true"`.
@@ -82,7 +82,7 @@ Puede impedir que un grupo de usuarios autenticados realice el aprovisionamiento
 4. Cambie el enlace del rol de clúster para impedir que `system:authenticated:oauth` cree proyectos:
 
    ```
-   apiVersion: authorization.openshift.io/v1
+   apiVersion: rbac.authorization.k8s.io/v1
    groupNames:
    - osa-customer-admins
    kind: ClusterRoleBinding

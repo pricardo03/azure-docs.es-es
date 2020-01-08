@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/20/2019
-ms.openlocfilehash: 75611dd36196c722254d694e9753deb982e2570d
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.openlocfilehash: a4c435b4874301fe6fb804085c5b265954cd4f5a
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74539337"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75637599"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-purchasing-model"></a>Límites de recursos para bases de datos únicas que usan el modelo de compra de DTU
 
@@ -33,7 +33,7 @@ Las siguientes tablas muestran los recursos disponibles para una base de datos �
 
 ### <a name="basic-service-tier"></a>Nivel de servicio Básico
 
-| **Tamaño de proceso** | **Básico** |
+| **Tamaño de proceso** | **Basic** |
 | :--- | --: |
 | DTU máx. | 5 |
 | Almacenamiento incluido (GB) | 2 |
@@ -100,9 +100,9 @@ Las siguientes tablas muestran los recursos disponibles para una base de datos �
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para conocer los límites de recursos de los núcleos virtuales de una sola base de datos, consulte los [límites de recursos para bases de datos únicas con el modelo de compra del núcleo virtual](sql-database-vcore-resource-limits-single-databases.md).
+- Para conocer los límites de recursos de los núcleos virtuales de una base de datos única, consulte los [límites de recursos para bases de datos únicas con el modelo de compra del núcleo virtual](sql-database-vcore-resource-limits-single-databases.md).
 - Para conocer los límites de recursos de núcleos virtuales para grupos elásticos, consulte los [límites de recursos para grupos elásticos con el modelo de compra del núcleo virtual](sql-database-vcore-resource-limits-elastic-pools.md).
 - Para conocer los límites de recursos de DTU para grupos elásticos, consulte los [límites de recursos para grupos elásticos que usan el modelo de compra de DTU](sql-database-dtu-resource-limits-elastic-pools.md).
 - Para conocer los límites de recursos para instancias administradas, consulte los [límites de recursos para instancias administradas](sql-database-managed-instance-resource-limits.md).
-- Para más información sobre los límites generales de Azure, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-subscription-service-limits.md).
+- Para más información sobre los límites generales de Azure, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-resource-manager/management/azure-subscription-service-limits.md).
 - Para más información sobre los límites de recursos en un servidor de bases de datos, consulte [Límites de recursos en un servidor de SQL Database](sql-database-resource-limits-database-server.md) para obtener información acerca de los límites en los niveles de servidor y suscripción.

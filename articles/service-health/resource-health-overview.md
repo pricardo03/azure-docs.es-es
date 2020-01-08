@@ -1,17 +1,14 @@
 ---
-title: Introducción a Azure Resource Health | Microsoft Docs
+title: Introducción a Azure Resource Health
 description: Introducción a Azure Resource Health
-author: stephbaron
-ms.author: stbaron
 ms.topic: conceptual
-ms.service: service-health
 ms.date: 05/10/2019
-ms.openlocfilehash: 9c2096f94f38d13288c6ce3742252bc6d576835a
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: 5609c7f09dc81a54a941dea391c0d717ad4bb06a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67854228"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75356792"
 ---
 # <a name="resource-health-overview"></a>Introducción a Resource Health
  
@@ -83,11 +80,11 @@ Puede acceder al historial de 14 días en la sección **Historial de estado** d
 
 ![Lista de eventos de Resource Health durante las últimas dos semanas](./media/resource-health-overview/history-blade.png)
 
-## <a name="get-started"></a>Primeros pasos
+## <a name="get-started"></a>Introducción
 
 Para abrir Resource Health para un recurso:
 
-1. Inicie sesión en el Portal de Azure.
+1. Inicie sesión en Azure Portal.
 2. Vaya a su sitio.
 3. En el menú de recursos del panel izquierdo, seleccione **Resource Health**.
 

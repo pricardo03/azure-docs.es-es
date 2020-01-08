@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: df7d0fde05c974ef4cec739236a3ac0aebd63ecc
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 0ed2bd7f1e03d8d5fa11f7e76010d087605f0fe1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74534553"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460702"
 ---
 # <a name="import-data-wizard-for-azure-cognitive-search"></a>Asistente para la importación de datos de Azure Cognitive Search
 
@@ -61,7 +61,7 @@ Solo se puede importar desde una única tabla, vista de base de datos o estructu
 
 Debe crear esta tabla o vista única antes de ejecutar el asistente y debe incluir contenido. Por motivos obvios, no tiene sentido ejecutar el asistente para la **importación de datos** en un origen de datos vacío.
 
-|  Número de selección | DESCRIPCIÓN |
+|  Número de selección | Descripción |
 | ---------- | ----------- |
 | **Origen de datos existente** |Si ya tiene indexadores definidos en el servicio de búsqueda, es posible que tenga una definición de origen de datos ya existente que puede volver a utilizar. En Azure Cognitive Search, solo los indizadores usan objetos de origen de datos. Puede crear un objeto de origen de datos mediante programación o con el asistente para la **importación de datos** y reutilizarlo cuando sea necesario.|
 | **Muestras**| Azure Cognitive Search proporciona dos orígenes de datos de ejemplo integrados que se usan en tutoriales e inicios rápidos: una base de datos SQL con información inmobiliaria y una base de datos de hoteles hospedada en Cosmos DB. Para ver un tutorial basado en el ejemplo de los hoteles, consulte el inicio rápido [Creación de un índice de Azure Search en Azure Portal](search-get-started-portal.md). |
@@ -75,10 +75,10 @@ Debe crear esta tabla o vista única antes de ejecutar el asistente y debe inclu
 
 En segundo plano, el asistente crea, configura e invoca los siguientes objetos. Después de ejecutar el asistente, puede encontrar su salida en las páginas del portal. La página de información general de su servicio tiene listas de índices, indexadores, orígenes de datos y conjuntos de aptitudes. Las definiciones de índice se pueden ver en JSON completo en el portal. Para otras definiciones, puede usar la [API REST](https://docs.microsoft.com/rest/api/searchservice/) para OBTENER objetos específicos.
 
-| Object | DESCRIPCIÓN | 
+| Object | Descripción | 
 |--------|-------------|
 | [Data Source](https://docs.microsoft.com/rest/api/searchservice/create-data-source) (Origen de datos)  | Conserva la información de conexión en los datos de origen, incluidas las credenciales. Un objeto de origen de datos se utiliza exclusivamente con indexadores. | 
-| [Índice](https://docs.microsoft.com/rest/api/searchservice/create-index) | Estructura de datos física que se usa para la búsqueda de texto completo y otras consultas. | 
+| [Index](https://docs.microsoft.com/rest/api/searchservice/create-index) | Estructura de datos física que se usa para la búsqueda de texto completo y otras consultas. | 
 | [Conjunto de aptitudes](https://docs.microsoft.com/rest/api/searchservice/create-skillset) | Un conjunto completo de instrucciones para manipular, transformar y dar forma al contenido que incluye el análisis y la extracción de información de archivos de imagen. Excepto en el caso de estructuras muy simples y limitadas, incluye una referencia a un recurso de Cognitive Services que proporciona enriquecimiento. Opcionalmente, también puede contener una definición de almacén de conocimiento.  | 
 | [Indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer)  | Un objeto de configuración que especifica un origen de datos, un índice de destino, un conjunto de aptitudes opcional, una programación opcional y valores de configuración opcionales para el control de errores y la codificación en base 64. |
 
@@ -109,7 +109,7 @@ El asistente genera un índice incompleto que se rellena con los documentos que 
 
 1. Establezca los atributos para determinar cómo se utiliza ese campo en un índice. 
 
-   Realice con cuidado este paso porque los atributos determinarán la expresión física de los campos del índice. Si desea cambiar los atributos más adelante, incluso mediante programación, casi siempre tendrá que quitar y recompilar el índice. Los atributos principales como **Searchable** y **Retrievable** tienen un [impacto insignificante en el almacenamiento](search-what-is-an-index.md#storage-implications). La habilitación de filtros y el uso de proveedores de sugerencias aumentan los requisitos de almacenamiento. 
+   Realice con cuidado este paso porque los atributos determinarán la expresión física de los campos del índice. Si desea cambiar los atributos más adelante, incluso mediante programación, casi siempre tendrá que quitar y recompilar el índice. Los atributos principales como **Searchable** y **Retrievable** tienen un [impacto insignificante en el almacenamiento](search-what-is-an-index.md#index-size). La habilitación de filtros y el uso de proveedores de sugerencias aumentan los requisitos de almacenamiento. 
    
    + **Searchable** permite la búsqueda de texto completo. Todos los campos utilizados en consultas de formato libre o en expresiones de consulta deben tener este atributo. Para cada campo que marque como **Searchable**, se crearán índices invertidos.
 

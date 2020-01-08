@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/20/2019
 ms.author: memildin
-ms.openlocfilehash: 0479918ad2afa99dcd9f18d3ba81f94a3e262e9e
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 7174003485d51cf582c798c4b18404b1b72de0fb
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74479381"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530959"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integración de soluciones de seguridad en Azure Security Center
 Este documento le ayuda a administrar las soluciones de seguridad que ya está conectadas a Azure Security Center y a agregar otras nuevas.
@@ -47,7 +47,7 @@ Las soluciones de seguridad de Azure que se implementan desde Security Center se
 
 ## <a name="manage-integrated-azure-security-solutions-and-other-data-sources"></a>Administración de soluciones de seguridad de Azure integradas y otros orígenes de datos
 
-1. Inicie sesión en el [Azure Portal](https://azure.microsoft.com/features/azure-portal/).
+1. Inicie sesión en [Azure Portal](https://azure.microsoft.com/features/azure-portal/).
 
 2. En el **menú de Microsoft Azure**, seleccione **Security Center**. Se abre **Security Center: Información general**.
 
@@ -135,7 +135,7 @@ Consulte el artículo [Transmisión del registro de actividad a Event Hubs](../a
 
 El enrutamiento de los datos de supervisión a un centro de eventos con Azure Monitor facilita la integración con las herramientas de asociados de SIEM y de supervisión.
 
-Consulte el siguiente artículo para conocer la lista de [SIEM admitidos](../azure-monitor/platform/resource-logs-stream-event-hubs.md#what-you-can-do-with-resource-logs-sent-to-an-event-hub).
+Consulte el siguiente artículo para conocer la lista de [SIEM admitidos](../azure-monitor/platform/resource-logs-stream-event-hubs.md#what-you-can-do-with-platform-logs-sent-to-an-event-hub).
 
 ### <a name="example-for-querying-data"></a>Ejemplo de consulta de datos 
 

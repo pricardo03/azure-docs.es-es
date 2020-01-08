@@ -2,17 +2,17 @@
 title: Administración de una conexión de punto de conexión privado en Azure
 description: Aprenda a administrar conexiones de punto de conexión privado en Azure
 services: private-link
-author: asudbring
+author: malopMSFT
 ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 929dfedbbbbe58a30eaa186398c595eaaabeb0a9
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 62b24b3e2f5c1b89fa7db581ac34cf58381db2a0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232534"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452961"
 ---
 # <a name="manage-a-private-endpoint-connection"></a>Administrar una conexión de punto de conexión privado
 Azure Private Link trabaja en un modelo de flujo de llamadas de aprobación en el que el consumidor del servicio Private Link puede solicitar una conexión al proveedor de servicios para consumir el servicio. A partir de ese momento, el proveedor de servicios puede decidir si va a permitir al consumidor conectarse o no. Azure Private Link permite a los proveedores de servicios administrar la conexión de punto de conexión privado en sus recursos. En este artículo se proporcionan instrucciones sobre cómo administrar las conexiones de punto de conexión privado.
@@ -26,11 +26,11 @@ Hay dos métodos de aprobación de conexión entre los que puede elegir un consu
 En la siguiente tabla se muestran las distintas acciones del proveedor de servicios y los estados de conexión resultantes para los puntos de conexión privados.  El proveedor de servicios también puede cambiar el estado de conexión de la conexión de punto de conexión privado en un momento posterior sin la intervención del consumidor. La acción actualizará el estado del punto de conexión en el lado del consumidor. 
 
 
-|Acción del proveedor de servicios   |Estado de punto de conexión privado del consumidor del servicio   |DESCRIPCIÓN   |
+|Acción del proveedor de servicios   |Estado de punto de conexión privado del consumidor del servicio   |Descripción   |
 |---------|---------|---------|
 |None    |    Pending     |    La conexión se crea manualmente y está pendiente de aprobación por parte del propietario del recurso de Private Link.       |
 |Aprobación    |  Aprobado       |  La conexión se aprobó de forma automática o manual y está lista para usarse.     |
-|Reject     | Rechazada        | El propietario del recurso de Private Link rechazó la conexión.        |
+|Reject     | Rechazada        | El propietario del recurso de vínculo privado rechazó la conexión.        |
 |Remove    |  Escenario desconectado       | El propietario del recurso de Private Link quitó la conexión, el punto de conexión privado se vuelve informativo y debe eliminarse para la limpieza.        |
 |   |         |         |
    
@@ -77,7 +77,7 @@ Use el cmdlet `Remove-AzPrivateEndpointConnection` para quitar una conexión de 
 Remove-AzPrivateEndpointConnection -Name myPrivateEndpointConnection1 -ResourceGroupName myResourceGroup -ServiceName myPrivateLinkServiceName 
 ```
  
-### <a name="azure-cli"></a>CLI de Azure 
+### <a name="azure-cli"></a>Azure CLI 
  
 Use `az network private-link-service update` para administrar sus conexiones de punto de conexión privado. El estado de conexión se especifica en el parámetro ```azurecli connection-status```. 
 ```azurecli
