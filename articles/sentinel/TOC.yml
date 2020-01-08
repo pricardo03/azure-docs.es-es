@@ -27,75 +27,83 @@
       href: roles.md
     - name: Detección avanzada de ataques de varias fases
       href: fusion.md
-- name: Guías de procedimientos
+- name: Guías paso a paso
   items:
     - name: Conexión con orígenes de datos
       href: connect-data-sources.md
       items:
-        - name: Conexión de servicios de Microsoft
+        - name: Conexión de servicio a servicio
           items:
-            - name: Conexión de Azure AD
+            - name: AWS
+              href: connect-aws.md
+            - name: Azure AD
               href: connect-azure-active-directory.md
-            - name: Conexión de Office 365
+            - name: Office 365
               href: connect-office-365.md
-            - name: Conexión de Cloud App Security
+            - name: Cloud App Security
               href: connect-cloud-app-security.md
-            - name: Conexión del registro de actividad de Azure
+            - name: Azure Activity Log
               href: connect-azure-activity.md
-            - name: Conexión de Azure AD Identity Protection
+            - name: Azure AD Identity Protection
               href: connect-azure-ad-identity-protection.md
-            - name: Conexión de Azure Information Protection
+            - name: Azure Information Protection
               href: connect-azure-information-protection.md
-            - name: Conexión de ATP de Microsoft Defender
+            - name: ATP de Microsoft Defender
               href: connect-microsoft-defender-advanced-threat-protection.md
-            - name: Conexión de Azure ATP
+            - name: Azure ATP
               href: connect-azure-atp.md
-            - name: Conexión de Azure Security Center
+            - name: Azure Security Center
               href: connect-azure-security-center.md
-            - name: Conexión del servidor de nombres de dominio
+            - name: Servidor de nombres de dominio
               href: connect-dns.md
-            - name: Conexión del firewall de aplicaciones web de Microsoft
+            - name: Firewall de aplicaciones web de Microsoft
               href: connect-microsoft-waf.md
-            - name: Conexión del firewall de Windows
+            - name: Firewall de Windows
               href: connect-windows-firewall.md
-            - name: Conexión de eventos de seguridad de Windows
+            - name: Eventos de seguridad de Windows
               href: connect-windows-security-events.md
         - name: Conexión de soluciones externas
           items:
-            - name: Conexión de CEF genérico
-              href: connect-common-event-format.md
-            - name: Conexión de AWS
-              href: connect-aws.md
-            - name: Conexión de Barracuda
+            - name: Barracuda
               href: connect-barracuda.md
-            - name: Conexión de Check Point
-              href: connect-checkpoint.md
-            - name: Conexión con Palo Alto Networks
-              href: connect-paloalto.md
-            - name: Conexión de Fortinet
-              href: connect-fortinet.md
-            - name: Conexión de F5
-              href: connect-f5.md
-            - name: Conexión de F5 BIG-IP
+            - name: F5 BIG-IP
               href: connect-f5-big-ip.md
-            - name: Conexión de Syslog
+            - name: syslog
               href: connect-syslog.md
-            - name: Conexión con Symantec ICDX
+            - name: Symantec ICDX
               href: connect-symantec.md
-            - name: Conexión de Cisco
-              href: connect-cisco.md
-            - name: Conexión de Barracuda CloudGen Firewall
+            - name: Barracuda CloudGen Firewall
               href: connect-barracuda-cloudgen-firewall.md
-            - name: "Conexión de Citrix\_Analytics (Security)"
+            - name: Citrix Analytics (Security)
               href: connect-citrix-analytics.md
-            - name: Conexión de ExtraHop Reveal(x)
-              href: connect-extrahop.md
-            - name: "One\_Identity\_Safeguard"
-              href: connect-one-identity.md
-            - name: Trend Micro Deep Security
-              href: connect-trend-micro.md
-            - name: Conexión de Zscaler
-              href: connect-zscaler.md
+            - name: Soluciones basadas en CEF
+              href: connect-common-event-format.md
+              items:
+                - name: 'PASO 1: implementación del agente'
+                  href: connect-cef-agent.md
+                - name: 'PASO 2: configuración de una solución de seguridad'
+                  href: connect-cef-solution-config.md
+                  items:
+                    - name: Punto de comprobación
+                      href: connect-checkpoint.md
+                    - name: Cisco
+                      href: connect-cisco.md
+                    - name: ExtraHop Reveal(x)
+                      href: connect-extrahop.md
+                    - name: F5
+                      href: connect-f5.md
+                    - name: Fortinet
+                      href: connect-fortinet.md
+                    - name: "One\_Identity\_Safeguard"
+                      href: connect-one-identity.md
+                    - name: Palo Alto Networks
+                      href: connect-paloalto.md
+                    - name: Trend Micro Deep Security
+                      href: connect-trend-micro.md
+                    - name: Zscaler
+                      href: connect-zscaler.md
+                - name: 'PASO 3: validación de conectividad'
+                  href: connect-cef-verify.md
         - name: Conexión de información sobre amenazas
           href: connect-threat-intelligence.md
         - name: Conexión a máquinas virtuales de Azure Stack

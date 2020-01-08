@@ -31,6 +31,16 @@
           href: tutorial-ev-routing.md
         - name: Análisis de datos meteorológicos mediante Azure Notebooks (Python)
           href: weather-service-tutorial.md
+    - name: Migración desde Google Maps
+      items:
+        - name: Migración desde Google Maps
+          href: migrate-from-google-maps.md
+        - name: Migración de una aplicación web
+          href: migrate-from-google-maps-web-app.md
+        - name: Migración de una aplicación de Android
+          href: migrate-from-google-maps-android-app.md
+        - name: Migración de un servicio web
+          href: migrate-from-google-maps-web-services.md
 - name: Conceptos
   items:
     - name: Autenticación con Azure Maps
@@ -63,7 +73,7 @@
       href: mobility-service-data-structure.md
     - name: Conceptos del servicio meteorológico
       href: weather-services-concepts.md
-- name: Guías de procedimientos
+- name: Guías paso a paso
   items:
     - name: Administración de cuentas de Maps
       items:
@@ -103,44 +113,48 @@
               href: create-data-source-web-sdk.md
             - name: Adición de una capa de símbolo
               href: map-add-pin.md
+            - name: Adición de un elemento emergente
+              href: map-add-popup.md
             - name: Adición de una capa de burbuja
               href: map-add-bubble-layer.md
+            - name: Adición de marcadores HTML
+              href: map-add-custom-html.md
             - name: Adición de una capa de línea
               href: map-add-line-layer.md
             - name: Adición de una capa de polígono
               href: map-add-shape.md
-            - name: Adición de una capa de polígono de extrusión
+            - name: Adición de una capa de extrusión de polígono
               href: map-extruded-polygon.md
             - name: Adición de una capa de mapa térmico
               href: map-add-heat-map-layer.md
-            - name: Adición de un elemento emergente
-              href: map-add-popup.md
+            - name: Adición de una capa de imagen
+              href: map-add-image-layer.md
+            - name: Adición de capas de iconos
+              href: map-add-tile-layer.md
+            - name: Visualización del tráfico
+              href: map-show-traffic.md
             - name: Punto de datos del clúster
               href: clustering-point-data-web-sdk.md
             - name: Uso de expresiones de estilo controladas por datos
               href: data-driven-style-expressions-web-sdk.md
             - name: Uso de plantillas de imagen
               href: how-to-use-image-templates-web-sdk.md
-            - name: Adición de una capa de imagen
-              href: map-add-image-layer.md
-            - name: Adición de capas de iconos
-              href: map-add-tile-layer.md
-            - name: Marcadores HTML
-              href: map-add-custom-html.md
-            - name: Visualización del tráfico
-              href: map-show-traffic.md
             - name: Reacción a eventos
               href: map-events.md
             - name: Accesibilidad de la aplicación
               href: map-accessibility.md
         - name: Diseño de herramientas
           items:
-            - name: Incorporación de la barra de herramientas Dibujo
-              href: map-add-drawing-toolbar.md
-            - name: Establecimiento de las opciones de dibujo
+            - name: Uso del módulo de herramientas de dibujo
               href: set-drawing-options.md
+            - name: Incorporación de una barra de herramientas de dibujo
+              href: map-add-drawing-toolbar.md
             - name: Obtención de datos de forma
               href: map-get-shape-data.md
+            - name: Reaccionar a eventos de dibujo
+              href: drawing-tools-events.md
+            - name: Tipos de interacción y métodos abreviados de teclado
+              href: drawing-tools-interactions-keyboard-shortcuts.md
         - name: Módulo de servicios
           items:
             - name: Uso del módulo de servicios
@@ -231,6 +245,8 @@
       href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=azurelbs'
     - name: Vídeos de Azure Maps
       href: 'https://aka.ms/AzureMapsVideos'
+    - name: Proyectos de código abierto
+      href: open-source-projects.md
     - name: Casos prácticos de Azure Maps
       href: 'https://aka.ms/AzureMapsCaseStudies'
     - name: Glosario de Azure Maps

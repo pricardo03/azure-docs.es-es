@@ -14,11 +14,11 @@
       href: use.md
 - name: Conceptos
   items:
-    - name: Arquitectura
+    - name: Architecture
       href: architecture.md
     - name: Patrones de integración
       href: integration-patterns.md
-- name: Guías de procedimientos
+- name: Guías paso a paso
   expanded: true
   items:
     - name: Implementación de Workbench
@@ -55,14 +55,16 @@
       href: 'https://docs.microsoft.com/rest/api/azure-blockchain-workbench'
 - name: Recursos
   items:
-    - name: Blog
-      href: 'https://azure.microsoft.com/blog/topics/blockchain/'
     - name: Ejemplos de código
       href: 'https://github.com/Azure-Samples/blockchain'
-    - name: Comunidad
-      href: 'https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain'
-    - name: Foro de soporte
+    - name: Blog
+      href: 'https://azure.microsoft.com/blog/topics/blockchain/'
+    - name: Foro de soporte de MSDN
       href: 'https://aka.ms/workbenchforum'
+    - name: Soporte técnico de la comunidad
+      href: 'https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain'
+    - name: Soporte de Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-blockchain-workbench'
     - name: Comentarios sobre el producto
       href: 'https://aka.ms/blockchainuservoice'
 - name: Plantillas de solución

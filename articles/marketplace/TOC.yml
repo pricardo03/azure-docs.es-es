@@ -76,6 +76,8 @@
 - name: Cloud Partner Portal
   href: ./cloud-partner-portal-orig/cloud-partner-portal-getting-started-with-the-cloud-partner-portal.md
   items:
+    - name: Migración de Cloud Partner Portal al Centro de partners
+      href: ./cloud-partner-portal-orig/cloud-partner-portal-migration-to-partner-center.md
     - name: Paseo por el portal
       href: ./cloud-partner-portal/portal-tour/cpp-portal-tour.md
       items:
@@ -171,7 +173,7 @@
         - name: Oferta de aplicación de Azure
           href: ./cloud-partner-portal/azure-applications/cpp-azure-app-offer.md
           items:
-            - name: Requisitos previos
+            - name: Prerequisites
               href: ./cloud-partner-portal/azure-applications/cpp-prerequisites.md
             - name: Creación de una oferta de aplicación de Azure
               href: ./cloud-partner-portal/azure-applications/cpp-create-offer.md
@@ -197,7 +199,7 @@
         - name: Servicios de consultoría
           href: ./cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer.md
           items:
-            - name: Requisitos previos
+            - name: Prerequisites
               href: ./cloud-partner-portal/consulting-services/cpp-consulting-service-prerequisites.md
             - name: Creación de una oferta de servicios de consultoría
               href: ./cloud-partner-portal/consulting-services/cpp-consulting-service-create-offer.md
@@ -211,7 +213,7 @@
         - name: Oferta de Containers
           href: ./cloud-partner-portal/containers/cpp-containers-offer.md
           items:
-            - name: Requisitos previos
+            - name: Prerequisites
               href: ./cloud-partner-portal/containers/cpp-prerequisites.md
             - name: Creación de oferta de contenedor
               href: ./cloud-partner-portal/containers/cpp-create-offer.md
@@ -248,7 +250,7 @@
         - name: Oferta de Dynamics 365 for Customer Engagement
           href: ./cloud-partner-portal/dyn365ce/cpp-customer-engagement-offer.md
           items:
-            - name: Requisitos previos
+            - name: Prerequisites
               href: ./cloud-partner-portal/dyn365ce/cpp-prerequisites.md
             - name: Creación de una oferta de Customer Engagement
               href: ./cloud-partner-portal/dyn365ce/cpp-create-offer.md
@@ -270,7 +272,7 @@
         - name: Oferta de Dynamics 365 for Operations
           href: ./cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md
           items:
-            - name: Requisitos previos
+            - name: Prerequisites
               href: ./cloud-partner-portal-orig/pre-requisites.md
             - name: Publicación
               href: ./cloud-partner-portal-orig/manage-dynamics-365-for-operations.md
@@ -287,7 +289,7 @@
         - name: Oferta de módulo de IoT Edge
           href: ./cloud-partner-portal/iot-edge-module/cpp-offer-process-parts.md
           items:
-            - name: Requisitos previos
+            - name: Prerequisites
               href: ./cloud-partner-portal/iot-edge-module/cpp-prerequisites.md
             - name: Creación de una oferta del módulo de IoT Edge
               href: ./cloud-partner-portal/iot-edge-module/cpp-create-offer.md
@@ -309,7 +311,7 @@
         - name: Oferta de la aplicación Power BI
           href: ./cloud-partner-portal/power-bi/cpp-power-bi-offer.md
           items:
-            - name: Requisitos previos
+            - name: Prerequisites
               href: ./cloud-partner-portal/power-bi/cpp-prerequisites.md
             - name: Creación de oferta de la aplicación Power BI
               href: ./cloud-partner-portal/power-bi/cpp-create-offer.md
@@ -333,7 +335,7 @@
         - name: Oferta de máquina virtual
           href: ./cloud-partner-portal/virtual-machine/cpp-virtual-machine-offer.md
           items:
-            - name: Requisitos previos
+            - name: Prerequisites
               href: ./cloud-partner-portal/virtual-machine/cpp-prerequisites.md
             - name: Creación de oferta de máquina virtual
               href: ./cloud-partner-portal/virtual-machine/cpp-create-offer.md
@@ -397,7 +399,7 @@
       items:
         - name: Información general
           href: ./cloud-partner-portal-orig/cloud-partner-portal-api-overview.md
-        - name: Requisitos previos
+        - name: Prerequisites
           href: ./cloud-partner-portal-orig/cloud-partner-portal-api-prerequisites.md
         - name: Consideraciones
           href: ./cloud-partner-portal-orig/cloud-partner-portal-api-considerations.md
@@ -449,6 +451,8 @@
               href: ./partner-center-portal/create-new-azure-apps-offer.md
             - name: Administración de los comentarios de revisión
               href: ./partner-center-portal/azure-apps-review-feedback.md
+            - name: API para la incorporación
+              href: ./partner-center-portal/azure-app-apis.md
         - name: "Ofertas de Dynamics\_365"
           items:
             - name: Creación de una oferta de Dynamics 365 for Customer Engagement y PowerApps
@@ -512,13 +516,33 @@
     - name: Opciones de soporte técnico
       href: ./partner-center-portal/support.md
     - name: Partner Center Analytics
-      href: ./partner-center-portal/analytics.md
+      items:
+        - name: Análisis del Marketplace comercial
+          href: ./partner-center-portal/analytics.md
+        - name: Panel Resumen
+          href: ./partner-center-portal/summary-dashboard.md
+        - name: Panel Pedidos
+          href: ./partner-center-portal/orders-dashboard.md
+        - name: Panel de uso
+          href: ./partner-center-portal/usage-dashboard.md
+        - name: Panel Cliente
+          href: ./partner-center-portal/customer-dashboard.md
+        - name: Panel de información de Marketplace
+          href: ./partner-center-portal/insights-dashboard.md
+        - name: Panel Descargas
+          href: ./partner-center-portal/downloads-dashboard.md
+        - name: Panel de calificaciones y reseñas
+          href: ./partner-center-portal/ratings-reviews.md
+        - name: Preguntas frecuentes y terminología
+          href: ./partner-center-portal/faq-terminology.md
     - name: Recepción del pago
       items:
         - name: Recepción del pago
           href: ./partner-center-portal/get-paid.md
         - name: Configuración de la cuenta de pago y los formularios de impuestos
           href: ./partner-center-portal/set-up-your-payout-account-tax-forms.md
+        - name: Detalles de facturación
+          href: ./partner-center-portal/billing-details.md
         - name: 'Umbrales de pago, métodos e intervalos de tiempo'
           href: ./partner-center-portal/payment-thresholds-methods-timeframes.md
         - name: Resumen de pagos

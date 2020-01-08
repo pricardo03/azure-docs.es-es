@@ -8,7 +8,17 @@
       href: terminology.md
 - name: Guías de inicio rápido
   items:
-    - name: APLICACIONES
+    - name: Supervisión de un recurso de Azure
+      href: learn/quick-monitor-azure-resource.md
+    - name: Supervisión de máquinas virtuales
+      items:
+        - name: 'Recopilación: máquinas virtuales de Azure'
+          href: learn/quick-collect-azurevm.md
+        - name: 'Recopilación: equipo con Linux'
+          href: learn/quick-collect-linux-computer.md
+        - name: 'Recopilación: equipo con Windows'
+          href: learn/quick-collect-windows-computer.md
+    - name: Supervisión de aplicaciones
       items:
         - name: Aplicación .NET
           href: learn/quick-monitor-portal.md
@@ -20,26 +30,20 @@
           href: learn/mobile-center-quickstart.md
         - name: Aplicación web
           href: app/website-monitoring.md
-    - name: Máquinas virtuales
-      items:
-        - name: 'Recopilación: máquinas virtuales de Azure'
-          href: learn/quick-collect-azurevm.md
-        - name: 'Recopilación: equipo con Linux'
-          href: learn/quick-collect-linux-computer.md
-        - name: 'Recopilación: equipo con Windows'
-          href: learn/quick-collect-windows-computer.md
 - name: Tutoriales
   items:
-    - name: Registros
-      items:
-        - name: Log Analytics
-          href: log-query/get-started-portal.md
-        - name: Consultas de registros
-          href: log-query/get-started-queries.md
-        - name: Panel con datos de registro
-          href: learn/tutorial-logs-dashboards.md
-        - name: Alerta sobre datos de registro
-          href: learn/tutorial-response.md
+    - name: Creación de un gráfico de métricas
+      href: learn/tutorial-metrics-explorer.md
+    - name: Recopilación de registros de un recurso de Azure
+      href: learn/tutorial-resource-logs.md
+    - name: Escritura de consultas de registros
+      href: log-query/get-started-queries.md
+    - name: Creación de un panel a partir de una consulta de registro
+      href: learn/tutorial-logs-dashboards.md
+    - name: Creación de una alerta a partir de una consulta de registro
+      href: learn/tutorial-response.md
+    - name: Escalado automático del rendimiento y programación
+      href: learn/tutorial-autoscale-performance-schedule.md
     - name: Application Insights
       items:
         - name: Búsqueda de excepciones del entorno de ejecución de la aplicación
@@ -52,10 +56,6 @@
           href: learn/tutorial-users.md
         - name: Panel con datos de aplicación
           href: learn/tutorial-app-dashboards.md
-    - name: Archivado de métricas de plataforma y datos de registro
-      href: learn/tutorial-archive-data.md
-    - name: Escalado automático del rendimiento y programación
-      href: learn/tutorial-autoscale-performance-schedule.md
 - name: Ejemplos
   items:
     - name: Azure PowerShell
@@ -117,7 +117,7 @@
         - name: Application Insights
           displayName: FAQ
           href: app/troubleshoot-faq.md
-- name: Guías de procedimientos
+- name: Guías paso a paso
   items:
     - name: Administración de Azure Monitor
       items:
@@ -291,7 +291,7 @@
               href: app/availability-alerts.md
             - name: Pruebas de rendimiento
               href: app/performance-testing.md
-            - name: solución de problemas
+            - name: Solución de problemas
               displayname: 'availability, troubleshoot, troubleshoot availability'
               href: app/troubleshoot-availability.md
         - name: Seguimiento distribuido
@@ -429,7 +429,7 @@
               href: app/asp-net-exceptions.md
             - name: Seguimientos de registro
               href: app/asp-net-trace-logs.md
-            - name: contadores de rendimiento
+            - name: Contadores de rendimiento
               href: app/performance-counters.md
             - name: EventCounters
               href: app/eventcounters.md
@@ -479,50 +479,46 @@
           href: insights/monitor-azure-resource.md
         - name: Supervisión de grupos de recursos
           href: insights/resource-group-insights.md
-        - name: Introducción a los registros de plataforma
-          href: platform/platform-logs-overview.md
-        - name: Registros del recurso
+        - name: Registros de plataforma
           items:
             - name: Información general
-              displayname: Resource logs
-              href: platform/resource-logs-overview.md
-            - name: Recopilación en registros de Azure Monitor
-              displayname: Resource logs
-              href: platform/resource-logs-collect-workspace.md
-            - name: Archivar en Storage
-              displayname: Resource logs
-              href: platform/resource-logs-collect-storage.md
-            - name: Transmisión a Event Hubs
-              displayname: Resource logs
-              href: platform/resource-logs-stream-event-hubs.md
-        - name: Registro de actividades
-          items:
-            - name: Información general
-              displayname: Activity log
-              href: platform/activity-logs-overview.md
-            - name: Recopilación con configuración de diagnóstico
-              displayname: Activity log
-              href: platform/diagnostic-settings-subscription.md
-            - name: Visualización y recuperación
-              displayname: Activity log
+              displayName: 'Platform logs, Resource logs, Activity log'
+              href: platform/platform-logs-overview.md
+            - name: Visualización del registro de actividades
+              displayName: Platform logs
               href: platform/activity-log-view.md
-            - name: Recopilación y análisis
-              displayname: Activity log
-              href: platform/activity-log-collect.md
-            - name: Recopilación entre inquilinos
-              displayname: Activity log
-              href: platform/activity-log-collect-tenants.md
-            - name: Exportación
-              displayname: Activity log
-              href: platform/activity-log-export.md
-            - name: Schema
-              displayname: Activity log
-              href: platform/activity-log-schema.md
+            - name: Envío a destinos
+              items:
+                - name: Área de trabajo de Log Analytics
+                  displayname: 'Resource logs, Activity log, Platform logs'
+                  href: platform/resource-logs-collect-workspace.md
+                - name: Almacenamiento de Azure
+                  displayname: 'Resource logs, Activity log, Platform logs'
+                  href: platform/resource-logs-collect-storage.md
+                - name: Event Hubs
+                  displayname: 'Resource logs, Activity log, Platform logs'
+                  href: platform/resource-logs-stream-event-hubs.md
+            - name: Recopilación de registros de actividades heredadas
+              items:
+                - name: Información general
+                  displayName: Resource logs
+                  href: platform/diagnostic-settings-legacy.md
+                - name: Recopilación y análisis
+                  displayname: Activity log
+                  href: platform/activity-log-collect.md
+                - name: Recopilación entre inquilinos
+                  displayname: Activity log
+                  href: platform/activity-log-collect-tenants.md
+                - name: Exportación
+                  displayname: Activity log
+                  href: platform/activity-log-export.md
         - name: Configuración de diagnóstico
           items:
             - name: Creación de la configuración de diagnóstico
+              displayName: 'Platform logs, Resource logs, Activity log'
               href: platform/diagnostic-settings.md
-            - name: Creación de la configuración de diagnóstico con Resource Manager
+            - name: Creación con Resource Manager
+              displayName: 'diagnostic setting, Platform logs, Resource logs, Activity log'
               href: platform/diagnostic-settings-template.md
             - name: Cambio al formato de almacenamiento de blobs
               displayname: Diagnostic settings
@@ -565,7 +561,7 @@
                           href: platform/collect-custom-metrics-guestos-vm-cloud-service-classic.md
                     - name: Formato de registros de recursos de líneas JSON
                       href: platform/diagnostic-logs-append-blobs.md
-                    - name: solución de problemas
+                    - name: Solución de problemas
                       href: platform/diagnostics-extension-troubleshooting.md
                 - name: Linux
                   items:
@@ -579,6 +575,8 @@
                   href: platform/log-analytics-agent.md
                 - name: Agentes de Windows
                   href: platform/agent-windows.md
+                - name: Agentes de Linux
+                  href: platform/agent-linux.md
                 - name: Extensión de VM para Windows
                   href: ../virtual-machines/windows/extensions-oms.md
                 - name: Extensión de VM para Linux
@@ -612,7 +610,7 @@
               href: platform/data-sources-collectd.md
             - name: syslog
               href: platform/data-sources-syslog.md
-            - name: contadores de rendimiento
+            - name: Contadores de rendimiento
               href: platform/data-sources-performance-counters.md
             - name: Rendimiento de aplicaciones de Linux
               href: platform/data-sources-linux-applications.md
@@ -700,7 +698,7 @@
               items:
                 - name: Introducción a los datos en directo (versión preliminar)
                   href: insights/container-insights-livedata-overview.md
-                - name: Configuración
+                - name: Configurar
                   href: insights/container-insights-livedata-setup.md
                 - name: Visualización de métricas de clúster
                   href: insights/container-insights-livedata-metrics.md
@@ -724,7 +722,7 @@
               href: insights/container-insights-optout.md
             - name: Desactivación de la supervisión de Red Hat OpenShift
               href: insights/container-insights-optout-openshift.md
-            - name: solución de problemas
+            - name: Solución de problemas
               href: insights/container-insights-troubleshoot.md
         - name: Supervisión de contenedores de Docker y Windows
           href: insights/containers.md
@@ -755,7 +753,7 @@
               items:
                 - name: Información general de la solución
                   href: insights/network-performance-monitor.md
-                - name: Supervisión del rendimiento
+                - name: Monitor de rendimiento
                   href: insights/network-performance-monitor-performance-monitor.md
                 - name: Monitor de conectividad de servicio
                   href: insights/network-performance-monitor-service-connectivity.md
@@ -899,7 +897,7 @@
       items:
         - name: Vistas
           items:
-            - name: Ver diseñador
+            - name: Diseñador de vistas
               href: platform/view-designer.md
             - name: Referencia de iconos
               href: platform/view-designer-tiles.md
@@ -973,7 +971,7 @@
               href: platform/alerts-log-query.md
             - name: Acciones de webhook
               href: platform/alerts-log-webhook.md
-            - name: solución de problemas
+            - name: Solución de problemas
               href: platform/alert-log-troubleshoot.md
         - name: Reglas de alertas de registro de actividad
           items:
@@ -1059,7 +1057,7 @@
               href: platform/autoscale-overview.md
             - name: Tutorial
               href: platform/autoscale-get-started.md
-            - name: Valores de configuración
+            - name: Parámetros de configuración
               href: platform/autoscale-understanding-settings.md
             - name: Procedimientos recomendados
               href: platform/autoscale-best-practices.md
@@ -1075,7 +1073,7 @@
               href: platform/autoscale-virtual-machine-scale-sets.md
             - name: Uso de notificaciones por correo electrónico y webhooks
               href: platform/autoscale-webhook-email.md
-            - name: solución de problemas
+            - name: Solución de problemas
               href: platform/autoscale-troubleshoot.md
             - name: Esquemas del registro de recursos
               href: platform/autoscale-resource-log-schema.md
@@ -1161,11 +1159,17 @@
       items:
         - name: Métricas compatibles
           href: platform/metrics-supported.md
+        - name: Métricas exportables con la configuración de diagnóstico
+          href: platform/metrics-supported-export-diagnostic-settings.md
         - name: Métricas compatibles con alertas más recientes
           href: platform/alerts-metric-near-real-time.md
-    - name: 'Servicios, categorías y esquemas de registro de plataformas'
-      href: platform/diagnostic-logs-schema.md
-    - name: CLI de Azure
+    - name: Registros de plataforma
+      items:
+        - name: 'Servicios, categorías y esquemas de registros de recursos'
+          href: platform/diagnostic-logs-schema.md
+        - name: Esquema de registro de actividad
+          href: platform/activity-log-schema.md
+    - name: Azure CLI
       href: /cli/azure/monitor?view=azure-cli-latest
     - name: 'CLI de Azure: Application Insights (versión preliminar)'
       href: 'https://docs.microsoft.com/cli/azure/ext/application-insights/monitor?view=azure-cli-latest'

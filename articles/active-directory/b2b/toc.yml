@@ -28,6 +28,8 @@
     - name: Conceptos
       expanded: false
       items:
+        - name: Procedimientos recomendados de B2B
+          href: b2b-fundamentals.md
         - name: Licencias B2B
           href: licensing-guidance.md
         - name: Uso compartido externo de B2B y Office 365
@@ -48,7 +50,7 @@
           href: hybrid-organizations.md
         - name: Limitaciones actuales
           href: current-limitations.md
-    - name: Guías de procedimientos
+    - name: Guías paso a paso
       expanded: true
       items:
         - name: Administración del uso compartido de B2B

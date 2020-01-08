@@ -69,7 +69,9 @@
         - name: Introducción a la seguridad
           href: sql-database-security-overview.md
           displayName: 'compliance, fedramp, soc, fact, fisc, hitrust, pci, iso'
-        - name: administración de acceso
+        - name: Recomendaciones de seguridad
+          href: sql-database-security-best-practice.md
+        - name: Administración de acceso
           items:
             - name: Control de acceso
               href: sql-database-control-access.md
@@ -90,7 +92,7 @@
               href: transparent-data-encryption-byok-azure-sql-key-rotation.md
             - name: Eliminación del protector de TDE
               href: transparent-data-encryption-byok-azure-sql-remove-tde-protector.md
-        - name: Protección de datos
+        - name: Protección de los datos
           items:
             - name: Cifrado de datos transparente (TDE)
               items:
@@ -116,7 +118,7 @@
           items:
             - name: Advanced Data Security
               href: sql-database-advanced-data-security.md
-            - name: Detección y clasificación de datos
+            - name: Clasificación y detección de datos
               href: sql-database-data-discovery-and-classification.md
             - name: Evaluación de vulnerabilidades
               href: sql-vulnerability-assessment.md
@@ -148,7 +150,7 @@
               href: sql-database-managed-instance-public-endpoint-securely.md
             - name: Auditoría de Instancia administrada
               href: sql-database-managed-instance-auditing.md
-    - name: Conexión y consulta
+    - name: Conexión y consultas
       href: sql-database-connect-query.md
       items:
         - name: Conexión y ejecución de consultas ad hoc
@@ -202,7 +204,7 @@
                   href: /sql/connect/ruby/ruby-driver-for-sql-server
     - name: 'Copia de seguridad, restauración y alta disponibilidad (BCDR)'
       items:
-        - name: Continuidad del negocio
+        - name: Continuidad empresarial
           href: sql-database-business-continuity.md
         - name: Alta disponibilidad
           href: sql-database-high-availability.md
@@ -212,7 +214,7 @@
               href: sql-database-automated-backups.md
             - name: Recuperación mediante copias de seguridad
               href: sql-database-recovery-using-backups.md
-            - name: Recuperación de base de datos acelerada
+            - name: Recuperación acelerada de bases de datos.
               href: sql-database-accelerated-database-recovery.md
             - name: Retención de copia de seguridad a largo plazo
               href: sql-database-long-term-retention.md
@@ -236,7 +238,7 @@
           href: sql-database-monitoring-tuning-index.yml
         - name: Introducción sobre la supervisión y el rendimiento
           href: sql-database-monitor-tune-overview.md
-        - name: Supervisión del rendimiento
+        - name: Supervisión de rendimiento
           items:
             - name: Supervisión de Azure SQL Analytics
               href: 'https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql'
@@ -292,7 +294,7 @@
               href: sql-database-elastic-scale-introduction.md
             - name: Glosario
               href: sql-database-elastic-scale-glossary.md
-            - name: 'Biblioteca de cliente elástica: consolidación'
+            - name: Biblioteca de cliente elástica
               href: sql-database-elastic-database-client-library.md
             - name: Mapas de particiones
               href: sql-database-elastic-scale-shard-map-management.md
@@ -540,7 +542,7 @@
               href: sql-database-best-practices-data-sync.md
             - name: Solución de problemas de Data Sync
               href: sql-database-troubleshoot-data-sync.md
-        - name: Supervisión del rendimiento
+        - name: Supervisión de rendimiento
           items:
             - name: Información de rendimiento de consultas
               href: sql-database-query-performance.md
@@ -674,7 +676,7 @@
               href: elastic-jobs-migrate.md
     - name: Ejemplos
       items:
-        - name: CLI de Azure
+        - name: Azure CLI
           href: sql-database-cli-samples.md?tabs=single-database
         - name: Azure PowerShell
           href: sql-database-powershell-samples.md?tabs=single-database
@@ -683,22 +685,23 @@
         - name: Ejemplos de código
           href: 'https://azure.microsoft.com/resources/samples/?service=sql-database'
 - name: Instancia administrada de SQL
+  href: sql-database-managed-instance-index.yml
   items:
-    - name: Documentación de instancia administrada
-      href: sql-database-managed-instance-index.yml
     - name: Información general
-      href: sql-database-managed-instance.md
-    - name: Grupos de instancias
-      href: sql-database-instance-pools.md
-    - name: Preguntas más frecuentes
-      href: sql-database-managed-instance-faq.md
+      items:
+        - name: instancia administrada
+          href: sql-database-managed-instance.md
+        - name: Grupos de instancias
+          href: sql-database-instance-pools.md
+        - name: Preguntas más frecuentes
+          href: sql-database-managed-instance-faq.md
     - name: Guías de inicio rápido
       items:
         - name: Crear
           items:
             - name: Uso de Azure Portal
               href: sql-database-managed-instance-get-started.md
-            - name: Con PowerShell
+            - name: Usar PowerShell
               href: scripts/sql-database-create-configure-managed-instance-powershell.md
             - name: Creación de grupos de instancias
               href: sql-database-instance-pools-how-to.md
@@ -710,7 +713,7 @@
               href: sql-database-managed-instance-configure-vm.md
             - name: Conexión de punto a sitio
               href: sql-database-managed-instance-configure-p2s.md
-        - name: Carga de datos
+        - name: Cargar datos
           items:
             - name: Restauración de la copia de seguridad de una base de datos
               href: sql-database-managed-instance-get-started-restore.md
@@ -718,14 +721,18 @@
       items:
         - name: Migración mediante DMS
           href: ../dms/tutorial-sql-server-to-managed-instance.md?toc=/azure/sql-database/toc.json
-        - name: Configuración de la replicación transaccional
-          href: replication-with-sql-database-managed-instance.md
         - name: Configuración de seguridad
           href: sql-database-managed-instance-aad-security-tutorial.md
         - name: Adición de una instancia administrada a un grupo de conmutación por error
           href: sql-database-managed-instance-failover-group-tutorial.md
         - name: Migración de usuarios y grupos locales
           href: tutorial-managed-instance-azure-active-directory-migration.md
+        - name: Replicación transaccional
+          items:
+            - name: MI pub a MI sub
+              href: replication-with-sql-database-managed-instance.md
+            - name: 'MI pub, MI dist, SQL Sub'
+              href: sql-database-managed-instance-configure-replication-tutorial.md
     - name: Conceptos
       items:
         - name: Referencia de Management API
@@ -780,7 +787,7 @@
           href: sql-database-managed-instance-connect-app.md
     - name: Ejemplos
       items:
-        - name: CLI de Azure
+        - name: Azure CLI
           href: sql-database-cli-samples.md?tabs=managed-instance
         - name: Azure PowerShell
           href: sql-database-powershell-samples.md?tabs=managed-instance
@@ -790,7 +797,7 @@
           href: 'https://azure.microsoft.com/resources/samples/?service=sql-database'
 - name: Referencia
   items:
-    - name: CLI de Azure
+    - name: Azure CLI
       href: /cli/azure/sql
     - name: Azure PowerShell
       href: /powershell/module/az.sql

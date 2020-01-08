@@ -49,7 +49,7 @@
           href: stream-analytics-define-inputs.md
         - name: Entradas de datos de referencia
           href: stream-analytics-use-reference-data.md
-        - name: Escritura de deserializadores personalizados de .NET
+        - name: Lectura de entradas en cualquier formato mediante deserializadores personalizados
           href: custom-deserializer-examples.md
     - name: Tipos de salida para un trabajo
       items:
@@ -79,9 +79,9 @@
       href: stream-analytics-concepts-checkpoint-replay.md
     - name: Directiva de error
       href: stream-analytics-output-error-policy.md
-- name: Guías de procedimientos
+- name: Guías paso a paso
   items:
-    - name: administración
+    - name: Administrar
       items:
         - name: Actualización de credenciales
           href: stream-analytics-login-credentials-inputs-outputs.md
@@ -174,9 +174,9 @@
       items:
         - name: Instalación de herramientas
           href: stream-analytics-tools-for-visual-studio-install.md
-        - name: Prueba con datos de ejemplo
+        - name: Prueba local con datos de ejemplo
           href: stream-analytics-vs-tools-local-run.md
-        - name: Prueba con datos activos
+        - name: Prueba local con datos activos
           href: stream-analytics-live-data-local-testing.md
         - name: Visualización de trabajos en Visual Studio
           href: stream-analytics-vs-tools.md
@@ -188,17 +188,19 @@
           href: stream-analytics-edge-csharp-udf-methods.md
     - name: Visual Studio Code
       items:
-        - name: Prueba con datos de ejemplo
-          href: vscode-local-run.md
+        - name: Prueba local con datos de ejemplo
+          href: visual-studio-code-local-run.md
+        - name: Prueba local con datos activos
+          href: visual-studio-code-local-run-live-input.md
         - name: Configuración de canalizaciones de integración y entrega continuas
           href: setup-cicd-vs-code.md
         - name: Exploración de trabajos
-          href: vscode-explore-jobs.md
+          href: visual-studio-code-explore-jobs.md
     - name: Solución de problemas
       items:
         - name: Entrada
           href: stream-analytics-troubleshoot-input.md
-        - name: Salida
+        - name: Output
           href: stream-analytics-troubleshoot-output.md
         - name: Lógica de consulta
           href: stream-analytics-troubleshoot-query.md

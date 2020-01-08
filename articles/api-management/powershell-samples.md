@@ -1,5 +1,6 @@
 ---
-title: Ejemplos de Azure PowerShell | Microsoft Docs
+title: Ejemplos de Azure PowerShell
+titleSuffix: Azure API Management
 description: Infórmese sobre de los scripts de Azure PowerShell disponibles para Azure API Management.
 services: api-management
 documentationcenter: ''
@@ -13,12 +14,12 @@ ms.topic: sample
 ms.date: 10/09/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: e47432f6c82dc83cc13730c658ce61ba4a026c3d
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 34526c53757690353ff3756b12ad9f8a5250bb0c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70074178"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442324"
 ---
 # <a name="azure-powershell-samples-for-api-management"></a>Ejemplos de Azure PowerShell para API Management
 

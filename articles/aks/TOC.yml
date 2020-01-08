@@ -104,7 +104,7 @@
       href: security-hardened-vm-host-image.md
     - name: Introducción a los diagnósticos de Azure Kubernetes Service
       href: concepts-diagnostics.md
-- name: Guías de procedimientos
+- name: Guías paso a paso
   items:
     - name: Operaciones del clúster
       items:
@@ -218,6 +218,8 @@
           maintainContext: true
         - name: Rotación de certificados
           href: certificate-rotation.md
+        - name: Creación de un clúster privado
+          href: private-clusters.md
     - name: Supervisión y registro
       items:
         - name: Azure Monitor para contenedores
@@ -236,7 +238,7 @@
           href: windows-container-cli.md
         - name: Conexión remota
           href: rdp.md
-        - name: Limitaciones conocidas
+        - name: Restricciones conocidas
           href: windows-node-limitations.md
         - name: Uso del panel de Kubernetes
           href: kubernetes-dashboard.md
@@ -309,6 +311,9 @@
         - name: Uso de Azure Database para PostgreSQL
           href: ../postgresql/concepts-aks.md
           maintainContext: true
+        - name: Uso de Azure API Management
+          href: ../api-management/api-management-kubernetes.md
+          maintainContext: true
     - name: Selección e implementación de una malla de servicio
       items:
         - name: Acerca de las mallas de servicio
@@ -317,7 +322,7 @@
           items:
             - name: Acerca de Istio
               href: servicemesh-istio-about.md
-            - name: Instalación y configuración
+            - name: Instalar y configurar
               href: servicemesh-istio-install.md
             - name: 'Escenario: enrutamiento inteligente y versiones controladas'
               href: servicemesh-istio-scenario-routing.md
@@ -325,13 +330,13 @@
           items:
             - name: Acerca de Linkerd
               href: servicemesh-linkerd-about.md
-            - name: Instalación y configuración
+            - name: Instalar y configurar
               href: servicemesh-linkerd-install.md
         - name: Uso de Consul
           items:
             - name: Acerca de Consul
               href: servicemesh-consul-about.md
-            - name: Instalación y configuración
+            - name: Instalar y configurar
               href: servicemesh-consul-install.md
     - name: DevOps
       items:
@@ -383,7 +388,7 @@
       href: 'https://azure.microsoft.com/pricing/details/container-service/'
     - name: Directivas de soporte técnico
       href: support-policies.md
-    - name: Roadmap
+    - name: Plan de desarrollo
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Proporcionar comentarios sobre el producto
       href: 'https://feedback.azure.com/forums/914020-azure-kubernetes-service-aks'

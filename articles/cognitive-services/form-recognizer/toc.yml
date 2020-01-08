@@ -4,30 +4,60 @@
   items:
     - name: ¿Qué es Form Recognizer?
       href: overview.md
+    - name: Novedades
+      href: whats-new.md
 - name: Guías de inicio rápido
   expaned: true
   items:
+    - name: Uso de la herramienta de etiquetado de ejemplo
+      items:
+        - name: Entrenamiento de un modelo personalizado con etiquetas
+          href: quickstarts/label-tool.md
     - name: Uso de la API de REST
       items:
-        - name: Entrenamiento de modelos personalizados y extracción de datos
+        - name: Entrenamiento y uso de un modelo personalizado sin etiquetas
           items:
-            - name: cURL
-              href: quickstarts/curl-train-extract.md
+            - name: v2.0
+              items:
+                - name: cURL
+                  href: quickstarts/curl-train-extract.md
+                - name: Python
+                  href: quickstarts/python-train-extract.md
+            - name: v1.0
+              items:
+                - name: cURL
+                  href: quickstarts/curl-train-extract-v1.md
+                - name: Python
+                  href: quickstarts/python-train-extract-v1.md
+        - name: Entrenamiento y uso de un modelo personalizado con etiquetas
+          items:
             - name: Python
-              href: quickstarts/python-train-extract.md
+              href: quickstarts/python-labeled-data.md
         - name: Uso de un modelo de recibo creado previamente
           items:
-            - name: cURL
-              href: quickstarts/curl-receipts.md
+            - name: v2.0
+              items:
+                - name: cURL
+                  href: quickstarts/curl-receipts.md
+                - name: Python
+                  href: quickstarts/python-receipts.md
+            - name: v1.0
+              items:
+                - name: cURL
+                  href: quickstarts/curl-receipts-v1.md
+                - name: Python
+                  href: quickstarts/python-receipts-v1.md
+        - name: Obtención información acerca del diseño de texto
+          items:
             - name: Python
-              href: quickstarts/python-receipts.md
+              href: quickstarts/python-layout.md
     - name: Uso del SDK de .NET
       href: quickstarts/dotnet-sdk.md
 - name: Tutoriales
   items:
     - name: Uso de Form Recognizer con Logic Apps
       href: tutorial-form-recognizer-with-logic-apps.md
-- name: Guías de procedimientos
+- name: Guías paso a paso
   items:
     - name: Creación de un conjunto de datos de aprendizaje
       href: build-training-data-set.md
@@ -43,8 +73,10 @@
           href: deploy-form-recognizer-on-container-instances.md
 - name: Referencia
   items:
-    - name: API de Form Recognizer
-      href: 'https://aka.ms/form-recognizer/api'
+    - name: 'API de Form Recognizer, versión 2.0'
+      href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm'
+    - name: 'API de Form Recognizer, versión 1.0'
+      href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api/operations/AnalyzeWithCustomModel'
     - name: SDK
       items:
         - name: .NET

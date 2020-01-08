@@ -7,13 +7,13 @@ services: iot-pnp
 ms.topic: tutorial
 ms.author: koichih
 author: konichi3
-ms.date: 06/21/2019
-ms.openlocfilehash: 1516a132372a81d06d82de2409c48220f27b8d87
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.date: 12/27/2019
+ms.openlocfilehash: dc2c33659f3f3a3df0f11fcc6ab36a9fc993da43
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69878736"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75550169"
 ---
 # <a name="tutorial-certify-your-iot-plug-and-play-preview-device"></a>Tutorial: Certificación de un dispositivo IoT Plug and Play (versión preliminar)
 
@@ -28,7 +28,7 @@ En este tutorial, aprenderá:
 > * Cómo revisar las interfaces de IoT Plug and Play y ejecutar pruebas de certificación
 > * Cómo publicar el dispositivo IoT Plug and Play certificado en el catálogo
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar este tutorial, necesita:
 

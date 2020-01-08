@@ -3,18 +3,18 @@ title: Creación y prueba de un dispositivo IoT Plug and Play (versión prelimin
 description: Como desarrollador de dispositivos, aprenda a usar VS Code para crear y probar un nuevo modelo de funcionalidad para un dispositivo IoT Plug and Play (versión preliminar).
 author: dominicbetts
 ms.author: dobett
-ms.date: 07/10/2019
+ms.date: 12/30/2019
 ms.topic: tutorial
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: b7b9cd1040accda4d39af4d0a18940b56a45f929
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 209c63207653e98967a5a66e36c0cae53b7e044f
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73569897"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75550339"
 ---
 # <a name="tutorial-create-and-test-a-device-capability-model-using-visual-studio-code"></a>Tutorial: Creación y prueba de un modelo de funcionalidad del dispositivo mediante Visual Studio Code
 
@@ -30,7 +30,7 @@ En este tutorial, aprenderá a:
 > * Implementar los códigos auxiliares en el código generado
 > * Ejecutar el código para probar las interacciones con un centro de IoT
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para trabajar con el modelo de funcionalidad del dispositivo en este tutorial, necesita lo siguiente:
 
@@ -50,7 +50,7 @@ Para compilar el código C generado en Windows en este tutorial, necesitará lo 
 Para probar el código del dispositivo en este tutorial, necesitará lo siguiente:
 
 * [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer/releases).
-* Una suscripción de Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+* Suscripción a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -72,7 +72,7 @@ Para crear un archivo de interfaz que defina las funcionalidades del dispositivo
 
 1. Luego, escriba **EnvironmentalSensor** como el nombre de la interfaz y presione **Entrar**. VS Code crea un archivo de interfaz de ejemplo denominado **EnvironmentalSensor.interface.json**.
 
-1. Reemplace el contenido de este archivo por el siguiente JSON y reemplace `{your name}` en el campo `@id` por un valor único. Use solo los caracteres a-z, A-Z, 0-9 y el carácter de subrayado. Para más información, consulte el [formato del identificador de gemelo digital](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL#digital-twin-identifier-format). El identificador de interfaz debe ser único para guardar la interfaz en el repositorio:
+1. Reemplace el contenido de este archivo por el siguiente JSON y reemplace `{your name}` en el campo `@id` por un valor único. Use solo los caracteres a-z, A-Z, 0-9 y el carácter de subrayado. Para más información, consulte [Formato de identificador de gemelo digital](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL#digital-twin-identifier-format). El identificador de interfaz debe ser único para guardar la interfaz en el repositorio:
 
     ```json
     {

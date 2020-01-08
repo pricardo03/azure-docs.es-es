@@ -66,13 +66,8 @@
           href: luis-tutorial-review-endpoint-utterances.md
         - name: Conjuntos de datos de prueba de Batch
           href: luis-tutorial-batch-testing.md
-        - name: Incorporación de formatos comunes de expresiones
+        - name: Adición de patrones para mejorar las predicciones
           href: luis-tutorial-pattern.md
-        - name: Extracción de patrones relacionados contextualmente
-          href: luis-tutorial-pattern-roles.md
-          displayName: roles
-        - name: Extracción de datos de forma libre
-          href: luis-tutorial-pattern-any.md
     - name: Uso con bot
       items:
         - name: 'Con C#'
@@ -154,7 +149,7 @@
         - name: Estrategias de diseño
           href: luis-concept-enterprise.md
           displayName: import
-- name: Guías de procedimientos
+- name: Guías paso a paso
   items:
     - name: Inicio de una nueva aplicación
       href: luis-how-to-start-new-app.md
@@ -173,6 +168,8 @@
         - name: Adición de Descriptor
           displayName: 'synonym, interchange, phrase list, descriptor'
           href: luis-how-to-add-features.md
+        - name: Migración a la creación V3
+          href: luis-migration-authoring-entities.md
         - name: Con API REST
           items:
             - name: Compilar la aplicación mediante programación con Node.js
@@ -267,7 +264,7 @@
           href: luis-reference-prebuilt-entities.md
         - name: Entidad de edad
           href: luis-reference-prebuilt-age.md
-        - name: Entidad de moneda
+        - name: Entidad de la moneda
           href: luis-reference-prebuilt-currency.md
         - name: Entidad DatetimeV2
           href: luis-reference-prebuilt-datetimev2.md
@@ -319,10 +316,10 @@
       href: reference-pattern-syntax.md
     - name: Opinión
       href: luis-reference-prebuilt-sentiment.md
-    - name: Recursos para el desarrollador
+    - name: Recursos para desarrolladores
       href: developer-reference-resource.md
       displayName: 'SDK, API, quickstart, REST, cli, powershell, azure, rm, resource manager, samples, package, module, tool, dispatch, bot'
-    - name: CLI de Azure
+    - name: Azure CLI
       href: 'https://go.microsoft.com/fwlink/?linkid=2092156'
     - name: Azure RM PowerShell
       href: 'https://go.microsoft.com/fwlink/?linkid=2092157'
@@ -416,7 +413,7 @@
       href: 'https://go.microsoft.com/fwlink/?linkid=2092089'
     - name: Glosario
       href: luis-glossary.md
-    - name: solución de problemas
+    - name: Solución de problemas
       href: troubleshooting.md
       displayName: 'FAQ, import'
     - name: Precios y límites

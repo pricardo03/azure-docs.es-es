@@ -1,0 +1,125 @@
+### YamlMime:Landing
+title: Documentación sobre plantillas de Azure Resource Manager
+summary: La plantilla de Resource Manager es un archivo JSON (notación de objetos JavaScript) que define tanto la infraestructura como la configuración de un proyecto.
+metadata:
+  title: Documentación de Azure Resource Manager
+  description: Aprenda a desarrollar plantillas de Azure Resource Manager y a usarlas para implementar recursos de Azure
+  services: azure-resource-manager
+  ms.service: azure-resource-manager
+  ms.subservice: templates
+  ms.topic: landing-page
+  ms.collection: na
+  author: mumian
+  ms.author: jgao
+  ms.date: 12/19/2019
+  ms.openlocfilehash: 43cd4dadc33ddc498106084ee26ef0819c14b973
+  ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 12/25/2019
+  ms.locfileid: "75469937"
+landingContent:
+- title: Acerca de las plantillas de Azure Resource Manager
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: ¿Qué son las plantillas?
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: Procedimientos recomendados
+      url: template-best-practices.md
+    - text: Modos de implementación
+      url: deployment-modes.md
+    - text: Plantillas vinculadas
+      url: linked-templates.md
+    - text: Implementación de nivel de suscripción
+      url: deploy-to-subscription.md
+  - linkListType: video
+    links:
+    - text: Novedades
+      url: https://youtu.be/3D-JIKShrws
+- title: Introducción
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: 'Creación de plantillas: portal'
+      url: quickstart-create-templates-use-the-portal.md
+    - text: 'Creación de plantillas: VS Code'
+      url: quickstart-create-templates-use-visual-studio-code.md
+    - text: 'Creación de plantillas: Visual Studio'
+      url: create-visual-studio-deployment-project.md
+  - linkListType: tutorial
+    links:
+    - text: Tutorial para principiantes
+      url: template-tutorial-create-first-template.md
+    - text: Implementación de varias instancias
+      url: template-tutorial-create-multiple-instances.md
+    - text: Establecimiento del orden de implementación
+      url: template-tutorial-create-templates-with-dependent-resources.md
+    - text: Integración de almacén de claves
+      url: template-tutorial-use-key-vault.md
+- title: Desarrollo de plantillas
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Uso de VS Code
+      url: use-vs-code-to-create-template.md
+    - text: Uso de las funciones
+      url: template-functions.md
+    - text: Definición de parámetros
+      url: template-parameters.md
+    - text: Definición de variables
+      url: template-variables.md
+    - text: Definición de recursos
+      url: template-syntax.md#resources
+    - text: Definir las salidas
+      url: template-outputs.md
+  - linkListType: reference
+    links:
+    - text: Sintaxis de un archivo de plantilla
+      url: template-syntax.md
+    - text: Plantillas de inicio rápido de Azure
+      url: https://azure.microsoft.com/resources/templates/
+- title: Implementación de plantillas
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Mediante PowerShell
+      url: deploy-powershell.md
+    - text: Mediante la CLI
+      url: deploy-cli.md
+    - text: Mediante el portal
+      url: deploy-portal.md
+    - text: Mediante la API REST
+      url: deploy-rest.md
+    - text: Implementación de tipo "y si"
+      url: template-deploy-what-if.md
+    - text: Visualización del historial de implementaciones
+      url: deployment-history.md
+- title: Administración de plantillas
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Exportar plantillas
+      url: export-template-portal.md
+    - text: CI/CD
+      url: add-template-to-azure-pipelines.md
+- title: Exploración de contenido de referencia
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Referencia de plantilla
+      url: /azure/templates/
+    - text: API DE REST
+      url: /rest/api/resources/
+    - text: Azure PowerShell
+      url: /powershell/module/az.resources
+    - text: Azure CLI
+      url: /cli/azure/resource
+    - text: .NET
+      url: /dotnet/api/microsoft.azure.management.resourcemanager
+    - text: Java
+      url: /java/api/com.microsoft.azure.management.resources
+    - text: Python
+      url: /python/api/overview/azure/resources?view=azure-python

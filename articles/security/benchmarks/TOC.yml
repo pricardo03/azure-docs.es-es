@@ -1,0 +1,30 @@
+- name: Prueba comparativa de la seguridad de Azure
+  href: index.yml
+- name: Introducción
+  href: introduction.md
+- name: Controles de seguridad
+  items:
+    - name: Información general
+      href: overview.md
+    - name: Seguridad de redes
+      href: security-control-network-security.md
+    - name: Registro y supervisión
+      href: security-control-logging-monitoring.md
+    - name: Identidad y Access Control
+      href: security-control-identity-access-control.md
+    - name: Protección de datos
+      href: security-control-data-protection.md
+    - name: Administración de vulnerabilidades
+      href: security-control-vulnerability-management.md
+    - name: Administración de recursos y del inventario
+      href: security-control-inventory-asset-management.md
+    - name: Configuración segura
+      href: security-control-secure-configuration.md
+    - name: Defensa contra malware
+      href: security-control-malware-defense.md
+    - name: Recuperación de datos
+      href: security-control-data-recovery.md
+    - name: Respuesta a los incidentes
+      href: security-control-incident-response.md
+    - name: Pruebas de penetración y ejercicios del equipo rojo
+      href: security-control-penetration-tests-red-team-exercises.md

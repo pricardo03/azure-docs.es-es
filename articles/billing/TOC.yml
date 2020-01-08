@@ -3,6 +3,12 @@
 - name: Descripción de la facturación de Azure
   expanded: true
   items:
+    - name: Ámbitos y cuentas de facturación
+      href: billing-view-all-accounts.md
+    - name: Cuentas de facturación del contrato de cliente de Microsoft
+      href: billing-mca-overview.md
+    - name: Cuentas de facturación del contrato de Microsoft Partner
+      href: mpa-overview.md
     - name: Descripción de la factura
       href: billing-understand-your-bill.md
     - name: 'Descripción de la factura: contrato de cliente de Microsoft'
@@ -29,10 +35,6 @@
       href: billing-mpa-invoice-terms-explained.md
     - name: 'Pago de la factura: contrato de cliente de Microsoft'
       href: billing-how-to-pay-bill.md
-    - name: Cuentas de facturación del contrato de cliente de Microsoft
-      href: billing-mca-overview.md
-    - name: Cuentas de facturación del contrato de Microsoft Partner
-      href: mpa-overview.md
 - name: Administrar costos
   items:
     - name: Prevención de costos inesperados
@@ -147,8 +149,6 @@
       href: billing-understand-mca-roles.md
     - name: Vinculación de Id. de partner
       href: billing-partner-admin-link-started.md
-    - name: Visualización de cuentas de facturación
-      href: billing-view-all-accounts.md
     - name: Organización de costos con secciones de factura
       href: billing-mca-section-invoice.md
     - name: Tareas de EA del contrato de cliente de Microsoft
@@ -161,9 +161,9 @@
           href: billing-understand-your-bill-ea.md
         - name: Roles de EA en Azure
           href: billing-understand-ea-roles.md
-        - name: Administración del portal de Azure EA
+        - name: Administración del portal del Contrato Enterprise de Azure
           href: billing-ea-portal-administration.md
-        - name: Acuerdos y enmiendas de Azure EA
+        - name: Acuerdos y enmiendas de Contrato Enterprise de Azure
           href: billing-ea-portal-agreements.md
         - name: Facturas de inscripciones de la empresa
           href: billing-ea-portal-enrollment-invoices.md
@@ -216,7 +216,7 @@
     - name: Vinculación con el inquilino de Azure AD
       href: ../active-directory/active-directory-how-subscriptions-associated-directory.md?toc=/azure/billing/TOC.json
     - name: Límites y cuotas
-      href: ../azure-subscription-service-limits.md?toc=/azure/billing/TOC.json
+      href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=/azure/billing/TOC.json
 - name: Solución de problemas
   items:
     - name: No se han encontrado suscripciones

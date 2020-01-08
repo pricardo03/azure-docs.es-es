@@ -91,9 +91,11 @@
           href: how-to/run-dev-spaces-windows-containers.md
         - name: Uso de traefik para la entrada personalizada y HTTPS
           href: how-to/ingress-https-traefik.md
+        - name: Uso de NGINX para la entrada personalizada y HTTPS
+          href: how-to/ingress-https-nginx.md
         - name: Conexión de una máquina de desarrollo a un clúster de AKS (versión preliminar)
           href: how-to/connect.md
-    - name: solución de problemas
+    - name: Solución de problemas
       href: troubleshooting.md
     - name: Preguntas más frecuentes
       href: faq.md

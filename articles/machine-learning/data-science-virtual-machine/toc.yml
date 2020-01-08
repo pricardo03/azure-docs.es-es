@@ -24,24 +24,24 @@
 - name: Conceptos
   items:
     - name: Marcos de aprendizaje profundo y de AI
-      href: dsvm-deep-learning-ai-frameworks.md
+      href: dsvm-tools-deep-learning-frameworks.md
     - name: Lenguajes de programación
-      href: dsvm-languages.md
+      href: dsvm-tools-languages.md
     - name: Herramientas de desarrollo
       href: dsvm-tools-development.md
     - name: Herramientas de ciencia de datos y ML
-      href: dsvm-ml-data-science-tools.md
+      href: dsvm-tools-data-science.md
     - name: Plataformas de datos
-      href: dsvm-data-platforms.md
+      href: dsvm-tools-data-platforms.md
     - name: Herramientas de ingesta de datos
       href: dsvm-tools-ingestion.md
-    - name: Herramientas de visualización y exploración de datos
-      href: dsvm-tools-explore-and-visualize.md
+    - name: Herramientas de productividad
+      href: dsvm-tools-productivity.md
     - name: Seguridad y guía empresarial
       href: dsvm-enterprise-overview.md
 - name: Ejemplos
   href: dsvm-samples-and-walkthroughs.md
-- name: Guías de procedimientos
+- name: Guías paso a paso
   items:
     - name: Uso de una instancia de DSVM de Windows
       href: vm-do-ten-things.md

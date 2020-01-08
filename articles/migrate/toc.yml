@@ -6,6 +6,14 @@
       href: migrate-services-overview.md
     - name: Novedades
       href: whats-new.md
+    - name: Preguntas frecuentes
+      items:
+        - name: Preguntas acerca de Azure Migrate
+          href: resources-faq.md
+        - name: Preguntas acerca de un dispositivo con Azure Migrate
+          href: common-questions-appliance.md
+        - name: 'Preguntas acerca de la detección, evaluación y visualización de dependencias'
+          href: common-questions-discovery-assessment.md
 - name: Tutoriales
   items:
     - name: Evaluación y migración de máquinas virtuales de VMware
@@ -44,8 +52,6 @@
           href: tutorial-assess-import.md
 - name: Conceptos
   items:
-    - name: Preguntas frecuentes
-      href: resources-faq.md
     - name: Matrices de compatibilidad
       items:
         - name: Matriz de compatibilidad para Azure Migrate
@@ -70,7 +76,7 @@
       href: concepts-assessment-calculation.md
     - name: Visualización de dependencia
       href: concepts-dependency-visualization.md
-- name: Guías de procedimientos
+- name: Guías paso a paso
   items:
     - name: Uso de una versión anterior
       href: migrate-v1.md

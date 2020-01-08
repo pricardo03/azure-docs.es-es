@@ -13,8 +13,16 @@
           href: storage-quickstart-queues-portal.md
     - name: Desarrollo con colas
       items:
-        - name: .NET
+        - name: .NET (v12)
           href: storage-quickstart-queues-dotnet.md
+        - name: .NET (v11)
+          href: storage-quickstart-queues-dotnet-legacy.md
+        - name: Java (v12)
+          href: storage-quickstart-queues-java.md
+        - name: Python (v12)
+          href: storage-quickstart-queues-python.md
+        - name: JavaScript (v12)
+          href: storage-quickstart-queues-nodejs.md
 - name: Tutoriales
   items:
     - name: Uso de las colas de Azure Storage
@@ -31,11 +39,11 @@
       href: ../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Seguridad
       items:
-        - name: Introducción a la seguridad
-          href: ../common/storage-security-guide.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        - name: Recomendaciones de seguridad
+          href: security-recommendations.md
         - name: Cifrado de Azure Storage
           href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-        - name: Authorization
+        - name: Autorización de operaciones de datos
           href: ../common/storage-auth.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
           items:
             - name: Autenticación y autorización con Azure AD
@@ -44,6 +52,8 @@
               href: /rest/api/storageservices/authorize-with-shared-key
             - name: Autorización con SAS
               href: ../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        - name: Autorización de operaciones de administración
+          href: ../common/authorization-resource-provider.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Protección contra amenazas avanzada
           href: ../common/storage-advanced-threat-protection.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Controles de seguridad integrados
@@ -65,12 +75,8 @@
           href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Diseño de aplicaciones de alta disponibilidad con RA-GRS
           href: ../common/storage-designing-ha-apps-with-ragrs.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-    - name: Rendimiento y escalado
-      items:
-        - name: Objetivos de escalabilidad y rendimiento
-          href: ../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-        - name: Lista de comprobación de rendimiento y escalabilidad
-          href: storage-performance-checklist.md
+    - name: Lista de comprobación de rendimiento y escalabilidad
+      href: storage-performance-checklist.md
     - name: Simultaneidad
       href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Supervisión y solución de problemas
@@ -99,9 +105,7 @@
       items:
         - name: Crear una cuenta de almacenamiento
           displayName: 'resource manager, resource manager template, template, ARM'
-          href: ../common/storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-        - name: Administración de una cuenta de almacenamiento
-          href: ../common/storage-account-manage.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+          href: ../common/storage-account-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Actualización de una cuenta de almacenamiento
           href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Protección de datos de la cola
@@ -112,15 +116,17 @@
               items:
                 - name: Portal
                   href: ../common/storage-access-blobs-queues-portal.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-                - name: PowerShell o CLI de Azure
-                  href: ../common/storage-auth-aad-script.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+                - name: PowerShell
+                  href: ../common/authorize-active-directory-powershell.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+                - name: Azure CLI
+                  href: ../common/authorize-active-directory-cli.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
             - name: Administración de derechos de acceso con RBAC
               items:
                 - name: Portal
                   href: ../common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
                 - name: PowerShell
                   href: ../common/storage-auth-aad-rbac-powershell.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-                - name: CLI de Azure
+                - name: Azure CLI
                   href: ../common/storage-auth-aad-rbac-cli.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
             - name: Autenticación y autorización con Azure AD
               items:
@@ -130,6 +136,8 @@
                   href: ../common/storage-auth-aad-app.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
             - name: Autorización con clave compartida
               items:
+                - name: Visualización y administración de claves de cuentas
+                  href: ../common/storage-account-keys-manage.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
                 - name: Configurar cadenas de conexión
                   href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
                 - name: Uso de la API REST de Azure Storage
@@ -144,7 +152,7 @@
                       href: ../common/storage-encryption-keys-portal.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
                     - name: PowerShell
                       href: ../common/storage-encryption-keys-powershell.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-                    - name: CLI de Azure
+                    - name: Azure CLI
                       href: ../common/storage-encryption-keys-cli.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Configuración del cifrado en el lado de cliente
           items:
@@ -202,6 +210,14 @@
           href: ../common/troubleshoot-latency-storage-analytics-logs.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
 - name: Referencia
   items:
+    - name: Objetivos de escalabilidad y rendimiento
+      items:
+        - name: Queue Storage
+          href: scalability-targets.md
+        - name: Cuentas de almacenamiento estándar
+          href: ../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        - name: Proveedor de recursos de Storage
+          href: ../common/scalability-targets-resource-provider.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Azure PowerShell
       href: /powershell/module/az.storage
     - name: Azure CLI

@@ -107,7 +107,7 @@
       href: production-checklist.md
     - name: Glosario de IoT Edge
       href: iot-edge-glossary.md
-- name: Guías de procedimientos
+- name: Guías paso a paso
   items:
     - name: Registro de un dispositivo de IoT Edge
       href: how-to-register-device.md
@@ -123,8 +123,12 @@
           href: how-to-install-iot-edge-windows-server-vm.md
         - name: Máquina virtual de Ubuntu
           href: how-to-install-iot-edge-ubuntuvm.md
-        - name: kubernetes
+        - name: Kubernetes
           href: how-to-install-iot-edge-kubernetes.md
+        - name: Instalar certificados de producción
+          href: how-to-install-production-certificates.md
+        - name: Creación de certificados de prueba
+          href: how-to-create-test-certificates.md
         - name: Actualización de la versión del entorno de ejecución
           href: how-to-update-iot-edge.md
     - name: Aprovisionamiento automático con DPS
@@ -145,7 +149,7 @@
           href: how-to-vs-code-develop-module.md
     - name: Implementación de módulos
       items:
-        - name: Azure Portal
+        - name: Portal de Azure
           href: how-to-deploy-modules-portal.md
         - name: Azure CLI
           href: how-to-deploy-modules-cli.md
@@ -153,9 +157,9 @@
           href: how-to-deploy-modules-vscode.md
     - name: Implementación y supervisión a escala
       items:
-        - name: Azure Portal
+        - name: Portal de Azure
           href: how-to-deploy-monitor.md
-        - name: CLI de Azure
+        - name: Azure CLI
           href: how-to-deploy-monitor-cli.md
     - name: Uso de dispositivos de IoT Edge como puertas de enlace
       items:
