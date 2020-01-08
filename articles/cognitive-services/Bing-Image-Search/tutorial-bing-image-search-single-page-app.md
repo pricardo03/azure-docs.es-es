@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: tutorial
-ms.date: 07/12/2019
+ms.date: 12/18/2019
 ms.author: aahi
-ms.openlocfilehash: c0f06f02a274780085fdb3c4c270ad541a0daa8c
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: decfeb9c46c32c6388228de6597db0c840354c19
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930694"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448582"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-image-search-api"></a>Tutorial: Crear una aplicación de una sola página con Bing Image Search API
 
@@ -31,7 +31,7 @@ En la aplicación del tutorial se muestra cómo:
 
 El código fuente completo de este tutorial está disponible en [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/Tutorials/Bing-Image-Search).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * La última versión de [Node.js](https://nodejs.org/).
 * El marco de [Express.js](https://expressjs.com/) para Node.js. Las instrucciones de instalación del código fuente están disponibles en el archivo Léame del ejemplo de GitHub.
@@ -121,13 +121,13 @@ Bing Image Search API ofrece varios [parámetros de consulta de filtro](https://
 |              |                                                                                                                                                                                    |
 |--------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `where`      | Un menú desplegable para seleccionar el mercado (ubicación e idioma) que se usa en la búsqueda.                                                                                             |
-| `query`      | El campo de texto en que se especificarán los términos de búsqueda.                                                                                                                                 |
+| `query`      | El campo de texto en el que se especifican los términos de búsqueda.                                                                                                                                 |
 | `aspect`     | Botones de radio para elegir las proporciones de las imágenes que se encuentren: cuadradas, horizontales o verticales.                                                                                     |
 | `color`      |                                                                                                                                                                                    |
 | `when`       | Menú desplegable para, opcionalmente, limitar la búsqueda al día, la semana o el mes más reciente.                                                                                          |
 | `safe`       | Una casilla que indica si se usa la característica Búsqueda segura de Bing para filtrar los resultados "para adultos".                                                                                      |
 | `count`      | Campo oculto. Número de resultados de búsqueda que se devolverán en cada solicitud. Cambie este valor para mostrar más o menos resultados por página.                                                            |
-| `offset`     | Campo oculto. El desplazamiento del primer resultado de búsqueda de la solicitud; se usa para la paginación. Se restablece a `0` para cada nueva solicitud.                                                           |
+| `offset`     | Campo oculto. El desplazamiento del primer resultado de búsqueda de la solicitud; se usa para la paginación. Se restablece a `0` en cada nueva solicitud.                                                           |
 | `nextoffset` | Campo oculto. Al recibir un resultado de búsqueda, este campo se define con el valor de `nextOffset` en la respuesta. El uso de este campo evita resultados superpuestos en páginas sucesivas. |
 | `stack`      | Campo oculto. Una lista codificada en JSON de los desplazamientos de las páginas anteriores de los resultados de búsqueda para volver a páginas anteriores.                                                      |
 
@@ -316,7 +316,7 @@ function renderImageResults(items) {
 
 Bing Image Search API puede devolver los cuatro tipos de sugerencias de búsqueda para ayudar a guiar las experiencias de búsqueda de los usuarios, cada una en su propio objeto de nivel superior:
 
-| Sugerencia         | DESCRIPCIÓN                                                                                                                                                                                                         |
+| Sugerencia         | Descripción                                                                                                                                                                                                         |
 |--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `pivotSuggestions` | Consultas que reemplazan una palabra dinámica de la búsqueda original por otra. Por ejemplo, si busca "flores rojas", una palabra dinámica podría ser "rojas", y una sugerencia dinámica podría ser "flores amarillas". |
 | `queryExpansions`  | Consultas que limitan la búsqueda original al agregar más términos. Por ejemplo, si busca "Microsoft Surface", una expansión de consulta podría ser "Microsoft Surface Pro".                                   |
@@ -338,7 +338,7 @@ searchItemRenderers = {
 
 Estas funciones de representador aceptan los parámetros siguientes:
 
-| Parámetro         | DESCRIPCIÓN                                                                                              |
+| Parámetro         | Descripción                                                                                              |
 |---------|----------------------------------------------------------------------------------------------|
 | `item`  | El objeto de JavaScript que contiene las propiedades del elemento, como su dirección URL y la descripción. |
 | `index` | El índice del elemento de resultado dentro de su colección.                                          |
@@ -347,7 +347,7 @@ Estas funciones de representador aceptan los parámetros siguientes:
 Los parámetros `index` y `count` se usan para enumerar los resultados, generar HTML para las colecciones y organizar el contenido. Concretamente:
 
 * Calcula el tamaño de miniatura de imagen (el ancho varía, con un mínimo de 120 píxeles, mientras que la altura se fija en 90 píxeles).
-* Crea la etiqueta HTML `<img>` para mostrar la miniatura de imagen.
+* Crea la etiqueta HTML `<img>` para mostrar la miniatura de la imagen.
 * Compila etiquetas `<a>` HTML vinculadas con la imagen y la página que la contiene.
 * Compila la descripción que muestra información sobre la imagen y el sitio en que se encuentra.
 

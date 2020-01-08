@@ -9,18 +9,18 @@ ms.subservice: translator-text
 ms.date: 12/09/2019
 ms.author: swmachan
 ms.topic: quickstart
-ms.openlocfilehash: d93c6333b811885eec37e8401bee27afeedf1475
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 82f2acb811bcb239f6329ab8d8b4008e13ac6490
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975761"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446745"
 ---
 # <a name="quickstart-build-deploy-and-use-a-custom-model-for-translation"></a>Inicio rápido: Compilación, implementación y uso de un modelo personalizado para la traducción
 
 En este artículo se proporcionan instrucciones detalladas para compilar un sistema de traducción con Custom Translator.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 1. Para usar el portal de [Custom Translator](https://portal.customtranslator.azure.ai), necesitará una [cuenta Microsoft](https://signup.live.com) o [cuenta de Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) (cuenta de organización hospedada en Azure) para iniciar sesión.
 
@@ -37,7 +37,7 @@ En la página de aterrizaje del portal de Custom Translator, haga clic en Nuevo 
 
 ## <a name="upload-documents"></a>Cargar documentos
 
-A continuación, cargue los conjuntos de documentos de [aprendizaje](training-and-model.md#training-dataset-for-custom-translator), [optimización](training-and-model.md#tuning-dataset-for-custom-translator) y [pruebas](training-and-model.md#testing-dataset-for-custom-translator). Puede cargar documentos [paralelos](what-are-parallel-documents.md) y documentos de cuadro combinado. También puede cargar un [diccionario](what-is-dictionary.md).
+A continuación, cargue los conjuntos de documentos de [aprendizaje](training-and-model.md#training-document-type-for-custom-translator), [optimización](training-and-model.md#tuning-document-type-for-custom-translator) y [pruebas](training-and-model.md#testing-dataset-for-custom-translator). Puede cargar documentos [paralelos](what-are-parallel-documents.md) y documentos de cuadro combinado. También puede cargar un [diccionario](what-is-dictionary.md).
 
 Puede cargar documentos desde la pestaña de documentos o desde la página de un proyecto concreto.
 
@@ -49,7 +49,7 @@ Al cargar los documentos, elija el tipo de documento (aprendizaje, optimización
 
 Una vez cargados todos los documentos necesarios el siguiente paso es crear el modelo.
 
-Seleccione el proyecto que ha creado. Verá todos los documentos que ha cargado que compartan el par de idiomas con este proyecto. Seleccione los documentos que desea incluir en el modelo. Puede seleccionar datos de [aprendizaje](training-and-model.md#training-dataset-for-custom-translator), [optimización](training-and-model.md#tuning-dataset-for-custom-translator) y [prueba](training-and-model.md#testing-dataset-for-custom-translator) o solo seleccionar datos de aprendizaje y dejar que Custom Translator compile automáticamente los conjuntos de datos de optimización y prueba del modelo.
+Seleccione el proyecto que ha creado. Verá todos los documentos que ha cargado que compartan el par de idiomas con este proyecto. Seleccione los documentos que desea incluir en el modelo. Puede seleccionar datos de [aprendizaje](training-and-model.md#training-document-type-for-custom-translator), [optimización](training-and-model.md#tuning-document-type-for-custom-translator) y [prueba](training-and-model.md#testing-dataset-for-custom-translator) o solo seleccionar datos de aprendizaje y dejar que Custom Translator compile automáticamente los conjuntos de datos de optimización y prueba del modelo.
 
 ![Crear un modelo](media/quickstart/ct-how-to-train.png)
 

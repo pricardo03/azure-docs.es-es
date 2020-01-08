@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/26/2019
-ms.openlocfilehash: 3bd40e9a266305ac94ed53806bf394891e89c125
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 6d85ada428ab448bd8e96545999ca038e532a32b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932512"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450664"
 ---
 # <a name="custom-logs-in-azure-monitor"></a>Registros personalizados en Azure Monitor
 
@@ -75,7 +75,7 @@ Por ejemplo, una aplicación puede crear un archivo de registro cada día con la
 
 La tabla siguiente proporciona ejemplos de patrones válidos para especificar diferentes archivos de registro.
 
-| DESCRIPCIÓN | Path |
+| Descripción | Path |
 |:--- |:--- |
 | Todos los archivos en *C:\Logs* con la extensión .txt en el agente de Windows |C:\Logs\\\*.txt |
 | Todos los archivos en *C:\Logs* con un nombre que empieza con "registro" y una extensión .txt en el agente de Windows |C:\Logs\log\*.txt |
@@ -86,7 +86,7 @@ La tabla siguiente proporciona ejemplos de patrones válidos para especificar di
 2. Escriba la ruta de acceso y haga clic en el botón **+** .
 3. Repita el proceso para rutas de acceso adicionales.
 
-### <a name="step-4-provide-a-name-and-description-for-the-log"></a>Paso 4 Suministro de un nombre y una descripción del registro
+### <a name="step-4-provide-a-name-and-description-for-the-log"></a>Paso 4. Suministro de un nombre y una descripción del registro
 El nombre que especifique se utilizará para el tipo de registro como se describió anteriormente.  Siempre finalizará con _CL para distinguirlo como un registro personalizado.
 
 1. Escriba un nombre para el registro.  El sufijo **\_CF** se anexa automáticamente.
@@ -110,7 +110,7 @@ Use el proceso siguiente en Azure Portal para eliminar un registro personalizado
 1. En el menú **Datos** en **Configuración avanzada** del área de trabajo, seleccione **Registros personalizados** para enumerar todos los registros personalizados.
 2. Haga clic en la opción **Quitar** situada junto al registro personalizado que desea quitar.
 
-## <a name="data-collection"></a>Colección de datos
+## <a name="data-collection"></a>datos, recopilación
 Azure Monitor recopilará nuevas entradas de cada registro personalizado aproximadamente cada cinco minutos.  El agente registrará su lugar en cada archivo de registro del que se recopila.  Si el agente se desconecta durante un período de tiempo, Azure Monitor recopilará entradas a partir de donde lo haya dejado, incluso si se crearon mientras el agente estaba sin conexión.
 
 Todo el contenido de la entrada del registro se escribe en una sola propiedad denominada **RawData**.  Vea [Análisis de datos de texto en Azure Monitor](../log-query/parse-text.md) para obtener métodos con el fin de analizar cada entrada de registro importada en varias propiedades.
@@ -118,7 +118,7 @@ Todo el contenido de la entrada del registro se escribe en una sola propiedad de
 ## <a name="custom-log-record-properties"></a>Propiedades de las entradas del registro personalizado
 Las entradas del registro personalizado tienen un tipo con el nombre del registro que asigne y las propiedades en la tabla siguiente.
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 |:--- |:--- |
 | TimeGenerated |Fecha y hora en las que Azure Monitor recopiló el registro.  Si el registro usa un delimitador basado en el tiempo, es el tiempo recopilado en la entrada. |
 | SourceSystem |Tipo de agente del que se recopiló el registro. <br> OpsManager: agente de Windows, ya sea una conexión directa o System Center Operations Manager <br> Linux: todos los agentes de Linux. |

@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 7ea7b48e1fc36399a0ca173f9068faf8b88849d5
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 2fa90a8099778bf37ce8534e968a2b1b4345c2d8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73836589"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446781"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Migración del área de trabajo y los proyectos de Microsoft Translator Hub a Custom Translator
 
@@ -27,7 +27,7 @@ Estas acciones se realizan durante la migración:
 * En cualquier momento, la puntuación BLEU migrada desde el entrenamiento del centro se puede encontrar en la página TrainingDetails del modelo en el encabezado "Puntuación BLEU del centro de MT".
 
 > [!Note] 
-> Para que un entrenamiento se realice correctamente, el Traductor personalizado necesita un mínimo de 10 000 frases extraídas únicas. El Traductor personalizado no puede realizar un entrenamiento con menos del [mínimo sugerido](sentence-alignment.md#suggested-minimum-number-of-sentences).
+> Para que un entrenamiento se realice correctamente, el Traductor personalizado necesita un mínimo de 10 000 frases extraídas únicas. El Traductor personalizado no puede realizar un entrenamiento con menos del [mínimo sugerido](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/sentence-alignment#suggested-minimum-number-of-sentences).
 
 ## <a name="find-custom-translator-workspace-id"></a>Búsqueda del identificador de área de trabajo de Traductor personalizado
 
@@ -134,9 +134,9 @@ En la siguiente tabla se comparan las características de Microsoft Translator H
 |:-----|:----:|:----:|
 |Estado de la característica de personalización   | Disponibilidad general  | Disponibilidad general |
 | Versión de Text API  | V2    | V3  |
-| Personalización de SMT | Sí   | Sin |
-| Personalización de NMT | Sin    | Sí |
-| Nueva personalización unificada de servicios de voz | Sin    | Sí |
+| Personalización de SMT | Sí   | No |
+| Personalización de NMT | No    | Sí |
+| Nueva personalización unificada de servicios de voz | No    | Sí |
 | Sin seguimiento | Sí | Sí |
 
 ## <a name="new-languages"></a>Nuevos idiomas

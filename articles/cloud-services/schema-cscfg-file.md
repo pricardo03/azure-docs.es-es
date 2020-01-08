@@ -6,14 +6,14 @@ ms.date: 12/07/2016
 ms.service: cloud-services
 ms.topic: reference
 caps.latest.revision: 35
-author: georgewallace
-ms.author: gwallace
-ms.openlocfilehash: 0009f843f8de31b92817dc86ccd718fa5eeeb1ba
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+author: tgore03
+ms.author: tagore
+ms.openlocfilehash: 71c0bb1b09d480a05a9e5a54b269d0da8fde5bc3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68358930"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449115"
 ---
 # <a name="azure-cloud-services-config-schema-cscfg-file"></a>Esquema de configuración de Azure Cloud Services (archivo .cscfg)
 El archivo de configuración de servicio especifica el número de instancias de rol que se implementan para cada rol del servicio, los valores de los parámetros de configuración y las huellas digitales de los certificados asociados a un rol. Si el servicio forma parte de una red virtual, se debe proporcionar información de configuración de la red en el archivo de configuración de servicio, así como en el archivo de configuración de red virtual. La extensión predeterminada del archivo de configuración de servicio es. cscfg.
@@ -55,7 +55,7 @@ El elemento `ServiceConfiguration` es el elemento de nivel superior del archivo 
 
 En la tabla siguiente se describen los atributos del elemento `ServiceConfiguration`: Todos los valores de atributo son tipos de cadena.
 
-| Atributo | DESCRIPCIÓN |
+| Atributo | Descripción |
 | --------- | ----------- |
 |serviceName|Necesario. El nombre del servicio en la nube. El nombre especificado aquí debe coincidir con el nombre especificado en el archivo de definición de servicio.|
 |osFamily|Opcional. Especifica el sistema operativo invitado que se ejecutará en las instancias de rol del servicio en la nube. Para información sobre las versiones admitidas del SO invitado, consulte [Matriz de compatibilidad del SDK y versiones del SO invitado de Azure](cloud-services-guestos-update-matrix.md).<br /><br /> Si no incluye un valor `osFamily` y no ha establecido el atributo `osVersion` en una versión específica del sistema operativo invitado, se usa un valor predeterminado de 1.|

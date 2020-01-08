@@ -4,12 +4,12 @@ description: Restauración de una máquina virtual de Azure desde un punto de re
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 9426a66115513cf02af501eb6271cf1f1b9fdf76
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 0caad9488e4ab84c85ef27b559c34453ad6cad32
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74996347"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450173"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Restauración de datos de máquinas virtuales de Azure en Azure Portal
 
@@ -114,8 +114,8 @@ Una vez restaurado el disco, use la plantilla generada como parte de la operaci�
     ![Exploración en profundidad del trabajo de restauración](./media/backup-azure-arm-restore-vms/restore-job-drill-down1.png)
 
 3. Para personalizar la configuración de la máquina virtual proporcionada en la plantilla, haga clic en **Editar plantilla**. Si desea agregar más personalizaciones, haga clic en **Editar parámetros**.
-    - [Obtenga más información](../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template) sobre cómo implementar recursos desde una plantilla personalizada.
-    - [Obtenga más información](../azure-resource-manager/resource-group-authoring-templates.md) sobre la creación de plantillas.
+    - [Obtenga más información](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template) sobre cómo implementar recursos desde una plantilla personalizada.
+    - [Obtenga más información](../azure-resource-manager/templates/template-syntax.md) sobre la creación de plantillas.
 
    ![Carga de la implementación de plantilla](./media/backup-azure-arm-restore-vms/edit-template1.png)
 

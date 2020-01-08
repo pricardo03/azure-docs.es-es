@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 07/24/2019
+ms.date: 12/11/2019
 ms.author: aahi
-ms.openlocfilehash: 48d2b36e35a2e0b41b1202beda9944339dc7530c
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: f3585e96376a25721f478f9dd621835e75e3c600
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327112"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448630"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-nodejs"></a>Inicio rápido: Envío de una solicitud de búsqueda a Bing Entity Search REST API con Node.js
 
@@ -23,7 +23,7 @@ Use este inicio rápido para realizar la primera llamada a Bing Entity Search AP
 
 Si bien esta aplicación está escrita en Java, la API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * La última versión de [Node.js](https://nodejs.org/en/download/).
 
@@ -40,7 +40,7 @@ Si bien esta aplicación está escrita en Java, la API es un servicio web RESTfu
     let https = require ('https');
     ```
 
-2. Cree variables para el punto de conexión de la API, la clave de suscripción y la consulta de búsqueda.
+2. Cree variables para el punto de conexión de la API, la clave de suscripción y la consulta de búsqueda. Puede usar el punto de conexión global siguiente o el punto de conexión del [subdominio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) que se muestra en Azure Portal para el recurso.
 
     ```javascript
     let subscriptionKey = 'ENTER YOUR KEY HERE';

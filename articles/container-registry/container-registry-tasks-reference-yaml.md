@@ -3,12 +3,12 @@ title: 'Referencia de YAML: ACR Tasks'
 description: Referencia para definir tareas en YAML para ACR Tasks, como propiedades de tareas, tipos de pasos, propiedades de pasos y variables integradas.
 ms.topic: article
 ms.date: 10/23/2019
-ms.openlocfilehash: a27f55d08a7ed5d7bf3360030eabefc4b7720b82
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: da1b1613d880b9edf6ec6d6018011f43a7ac69a5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74454637"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445692"
 ---
 # <a name="acr-tasks-reference-yaml"></a>Referencia de ACR Tasks: YAML
 
@@ -75,9 +75,9 @@ az configure --defaults acr=myregistry
 
 Las propiedades de tareas suelen aparecer en la parte superior de un archivo `acr-task.yaml` y son propiedades globales que se aplican a lo largo de la ejecución completa de los pasos de una tarea. Algunas de estas propiedades globales se pueden reemplazar dentro de un paso individual.
 
-| Propiedad | type | Opcional | DESCRIPCIÓN | Invalidación admitida | Valor predeterminado |
+| Propiedad | Tipo | Opcional | Descripción | Invalidación admitida | Valor predeterminado |
 | -------- | ---- | -------- | ----------- | ------------------ | ------------- |
-| `version` | string | Sí | La versión del archivo `acr-task.yaml` analizada por el servicio ACR Tasks. Si bien ACR Tasks se esfuerza por mantener la compatibilidad con versiones anteriores, este valor permite que ACR Tasks mantenga la compatibilidad dentro de una versión definida. Si no se especifica, se establece de manera predeterminada en la versión más reciente. | Sin | None |
+| `version` | string | Sí | La versión del archivo `acr-task.yaml` analizada por el servicio ACR Tasks. Si bien ACR Tasks se esfuerza por mantener la compatibilidad con versiones anteriores, este valor permite que ACR Tasks mantenga la compatibilidad dentro de una versión definida. Si no se especifica, se establece de manera predeterminada en la versión más reciente. | No | None |
 | `stepTimeout` | int (segundos) | Sí | El número máximo de segundos que se puede ejecutar un paso. Si la propiedad se especifica en una tarea, establece la propiedad `timeout` predeterminada de todos los pasos. Si la propiedad `timeout` se especifica en un paso, invalida la propiedad que la tarea proporciona. | Sí | 600 (10 minutos) |
 | `workingDirectory` | string | Sí | El directorio de trabajo del contenedor durante el tiempo de ejecución. Si la propiedad se especifica en una tarea, establece la propiedad `workingDirectory` predeterminada de todos los pasos. Si se especifica en un paso, invalida la propiedad que la tarea proporciona. | Sí | `$HOME` |
 | `env` | [string, string, ...] | Sí |  Matriz de cadenas en formato `key=value` que define las variables de entorno de la tarea. Si la propiedad se especifica en una tarea, establece la propiedad `env` predeterminada de todos los pasos. Si se especifica en un paso, invalida las variables de entorno heredadas de la tarea. | None |
@@ -88,9 +88,9 @@ Las propiedades de tareas suelen aparecer en la parte superior de un archivo `ac
 
 El objeto de secreto tiene estas propiedades.
 
-| Propiedad | type | Opcional | DESCRIPCIÓN | Valor predeterminado |
+| Propiedad | Tipo | Opcional | Descripción | Valor predeterminado |
 | -------- | ---- | -------- | ----------- | ------- |
-| `id` | string | Sin | El identificador del secreto. | None |
+| `id` | string | No | El identificador del secreto. | None |
 | `keyvault` | string | Sí | La dirección URL del secreto de Azure Key Vault. | None |
 | `clientID` | string | Sí | El identificador de cliente de la [identidad administrada asignada por el usuario](container-registry-tasks-authentication-managed-identity.md) para los recursos de Azure. | None |
 
@@ -98,9 +98,9 @@ El objeto de secreto tiene estas propiedades.
 
 El objeto de red tiene estas propiedades.
 
-| Propiedad | type | Opcional | DESCRIPCIÓN | Valor predeterminado |
+| Propiedad | Tipo | Opcional | Descripción | Valor predeterminado |
 | -------- | ---- | -------- | ----------- | ------- | 
-| `name` | string | Sin | El nombre de la red. | None |
+| `name` | string | No | El nombre de la red. | None |
 | `driver` | string | Sí | El controlador para administrar la red. | None |
 | `ipv6` | bool | Sí | Si la red IPv6 está habilitada. | `false` |
 | `skipCreation` | bool | Sí | Si se omite la creación de la red. | `false` |
@@ -110,7 +110,7 @@ El objeto de red tiene estas propiedades.
 
 ACR Tasks admite tres tipos de pasos. Cada tipo de paso admite varias propiedades, que se detallan en la sección para cada tipo de paso.
 
-| Tipo de paso | DESCRIPCIÓN |
+| Tipo de paso | Descripción |
 | --------- | ----------- |
 | [`build`](#build) | Compila una imagen de contenedor mediante la conocida sintaxis `docker build`. |
 | [`push`](#push) | Ejecuta una acción `docker push` de imágenes recién compiladas o etiquetadas de nuevo en un registro de contenedor. Se admite Azure Container Registry, otros registros privados y Docker Hub público. |
@@ -131,11 +131,11 @@ steps:
 
 El tipo de paso `build` admite los parámetros de la tabla siguiente. El tipo de paso `build` también es compatible con todas las opciones del comando [compilación de docker](https://docs.docker.com/engine/reference/commandline/build/), como `--build-arg` para establecer las variables en tiempo de compilación.
 
-| Parámetro | DESCRIPCIÓN | Opcional |
+| Parámetro | Descripción | Opcional |
 | --------- | ----------- | :-------: |
 | `-t` &#124; `--image` | Define el elemento completo `image:tag` de la imagen compilada.<br /><br />Como se pueden usar imágenes para las validaciones de tareas internas, no todas las imágenes requieren la acción `push` en un registro. Sin embargo, para crear una instancia de una imagen dentro de una ejecución de tareas, la imagen necesita un nombre al que hacer referencia.<br /><br />A diferencia de `az acr build`, la ejecución de ACR Tasks no proporciona un comportamiento de inserción predeterminado. Con ACR Tasks, en el escenario predeterminado se da por hecho la posibilidad de compilar, validar y luego insertar una imagen. Consulte [push](#push) para ver como insertar opcionalmente imágenes compiladas. | Sí |
 | `-f` &#124; `--file` | Especifica el archivo Dockerfile que se pasa a `docker build`. Si no se especifica, se da por hecho el archivo Dockerfile predeterminado en la raíz del contexto. Para especificar un archivo Dockerfile, pase el nombre de archivo relativo a la raíz del contexto. | Sí |
-| `context` | El directorio raíz pasado a `docker build`. El directorio raíz de cada tarea se establece en un directorio [workingDirectory](#task-step-properties) compartido, e incluye la raíz del directorio clonado de Git asociado. | Sin |
+| `context` | El directorio raíz pasado a `docker build`. El directorio raíz de cada tarea se establece en un directorio [workingDirectory](#task-step-properties) compartido, e incluye la raíz del directorio clonado de Git asociado. | No |
 
 ### <a name="properties-build"></a>Propiedades: build
 
@@ -356,7 +356,7 @@ Mediante la convención de referencia de imágenes `docker run` estándar, `cmd`
 
 Cada tipo de paso admite varias propiedades adecuadas para su tipo. En la tabla siguiente se definen todas las propiedades de pasos disponibles. No todos los tipos de pasos admiten todas las propiedades. Para ver cuál de estas propiedades está disponible para cada tipo de paso, consulte las acciones de referencia de tipos de pasos [cmd](#cmd), [build](#build) y [push](#push).
 
-| Propiedad | type | Opcional | DESCRIPCIÓN | Valor predeterminado |
+| Propiedad | Tipo | Opcional | Descripción | Valor predeterminado |
 | -------- | ---- | -------- | ----------- | ------- |
 | `detach` | bool | Sí | Si el contenedor se debe desasociar cuando se ejecuta. | `false` |
 | `disableWorkingDirectoryOverride` | bool | Sí | Si se deshabilita la funcionalidad de invalidación de `workingDirectory`. Use en combinación con `workingDirectory` para tener el control total sobre el directorio de trabajo del contenedor. | `false` |
@@ -541,9 +541,9 @@ Cada uno de los siguientes alias apunta a una imagen estable en Microsoft Contai
 | Alias | Imagen |
 | ----- | ----- |
 | `acr` | `mcr.microsoft.com/acr/acr-cli:0.1` |
-| `az` | `mcr.microsoft.com/acr/azure-cli:d0725bc` |
-| `bash` | `mcr.microsoft.com/acr/bash:d0725bc` |
-| `curl` | `mcr.microsoft.com/acr/curl:d0725bc` |
+| `az` | `mcr.microsoft.com/acr/azure-cli:a80af84` |
+| `bash` | `mcr.microsoft.com/acr/bash:a80af84` |
+| `curl` | `mcr.microsoft.com/acr/curl:a80af84` |
 
 En la tarea de ejemplo siguiente se usan varios alias para [purgar](container-registry-auto-purge.md) las etiquetas de imagen con una antigüedad mayor a siete días en el repositorio `samples/hello-world` del registro de ejecución:
 

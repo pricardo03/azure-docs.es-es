@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2019
 ms.author: tomsh
-ms.openlocfilehash: c5ab994ce7b4e3d195ec3a4c83094974c5767e66
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: bcaf45af4c02dad22e2cc611fa7ea5a32ad3a853
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73643783"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443879"
 ---
 # <a name="azure-operational-security-overview"></a>Información general sobre la seguridad operativa de Azure
 
@@ -48,7 +48,7 @@ Puede consolidar datos de varios orígenes y combinar datos de los servicios de 
 
 Azure Backup ofrece componentes que se descargan e implementan en el equipo o servidor adecuados, o en la nube. El componente, o agente, que se implemente depende de lo que quiera proteger. Todos los componentes de Azure Backup (tanto si va a proteger los datos de forma local como en la nube) se pueden usar para realizar una copia de seguridad de datos en un almacén de Azure Recovery Services en Azure.
 
-Para obtener más información, consulte la [tabla de componentes de Azure Backup](/azure/backup/backup-introduction-to-azure-backup#which-backup-agent-should-i-use).
+Para obtener más información, consulte la [tabla de componentes de Azure Backup](/azure/backup/backup-overview#what-can-i-back-up).
 
 ### <a name="site-recovery"></a>Site Recovery
 
@@ -64,7 +64,7 @@ Para obtener más información, consulte la [tabla de componentes de Azure Backu
 
 Azure AD también incluye un conjunto completo de [funcionalidades de administración de identidades](/azure/security/security-identity-management-overview#security-monitoring-alerts-and-machine-learning-based-reports), como las siguientes:
 
-- [Multi-factor Authentication](/azure/multi-factor-authentication/multi-factor-authentication)
+- [Autenticación multifactor](/azure/multi-factor-authentication/multi-factor-authentication)
 - [Administración de contraseñas de autoservicio](https://azure.microsoft.com/resources/videos/self-service-password-reset-azure-ad/)
 - [Administración de grupos de autoservicio](/azure/active-directory/active-directory-passwords-update-your-own-password)
 - [Administración de cuentas con privilegios](/azure/active-directory/active-directory-privileged-identity-management-configure)

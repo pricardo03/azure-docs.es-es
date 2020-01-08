@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
-ms.openlocfilehash: b4eb083b0f98112274a5d00631af8662ff5c063a
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: c8ef1d4dacf500c459ae1ab9a534ed118ca9e05a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73835882"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446695"
 ---
 # <a name="translator-text-api-30-breaksentence"></a>Translator Text API 3.0: BreakSentence
 
@@ -35,7 +35,7 @@ Los parámetros de solicitud que se pasaron en la cadena de consulta son:
 
 <table width="100%">
   <th width="20%">Parámetro de consulta</th>
-  <th>DESCRIPCIÓN</th>
+  <th>Descripción</th>
   <tr>
     <td>api-version</td>
     <td>*parámetro de consulta obligatorio*.<br/>Versión de la API que el cliente solicitó. El valor debe ser `3.0`.</td>
@@ -54,7 +54,7 @@ Los encabezados de solicitud incluyen lo siguiente:
 
 <table width="100%">
   <th width="20%">encabezados</th>
-  <th>DESCRIPCIÓN</th>
+  <th>Descripción</th>
   <tr>
     <td>Encabezados de autenticación</td>
     <td><em>Encabezado de solicitud obligatorio</em>.<br/>Consulte las <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">opciones disponibles para la autenticación</a>.</td>
@@ -109,7 +109,7 @@ Un ejemplo de respuesta JSON es:
 ```json
 [
   {
-    "sentenceLengths": [ 13, 11, 22 ]
+    "sentLen": [ 13, 11, 22 ]
     "detectedLanguage": {
       "language": "en",
       "score": 401
@@ -122,7 +122,7 @@ Un ejemplo de respuesta JSON es:
 
 <table width="100%">
   <th width="20%">encabezados</th>
-  <th>DESCRIPCIÓN</th>
+  <th>Descripción</th>
   <tr>
     <td>X-RequestId</td>
     <td>Valor generado por el servicio para identificar la solicitud. Se usa para solucionar problemas.</td>
@@ -135,10 +135,10 @@ A continuación se indican los códigos de estado HTTP posibles que devuelve una
 
 <table width="100%">
   <th width="20%">Código de estado</th>
-  <th>DESCRIPCIÓN</th>
+  <th>Descripción</th>
   <tr>
     <td>200</td>
-    <td>Correcta.</td>
+    <td>Correcto.</td>
   </tr>
   <tr>
     <td>400</td>

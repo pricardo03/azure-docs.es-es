@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/22/2018
 ms.author: genli
-ms.openlocfilehash: dac941b621c8df6b5c242bb5d0e0d5cdd1f864a9
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 9eb7a80599966345d90cc4a079b586e743ca37d4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71057949"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451221"
 ---
 #  <a name="an-internal-error-occurs-when-you-try-to-connect-to-an-azure-vm-through-remote-desktop"></a>Se produce un error interno al intentar conectarse a una máquina virtual de Azure a través de Escritorio remoto
 
@@ -135,7 +135,7 @@ Conéctese a una [consola serie y abra una instancia de PowerShell](./serial-con
 
 4. Reinicie la máquina virtual e intente iniciar una conexión mediante Escritorio remoto a la máquina virtual. Si el error no desaparece, vaya al paso siguiente.
 
-Paso 3: Habilitación de todas las versiones de TLS compatibles
+#### <a name="step-3-enable-all-supported-tls-versions"></a>Paso 3: Habilitación de todas las versiones de TLS compatibles
 
 El cliente de RDP usa TLS 1.0 como protocolo predeterminado. Sin embargo, es posible cambiarlo por TLS 1.1, que se ha convertido en el nuevo estándar. Si TLS 1.1 está deshabilitado en la máquina virtual, se producirá un error en la conexión.
 1.  En una instancia de CMD, habilite el protocolo TLS:
@@ -160,7 +160,7 @@ El cliente de RDP usa TLS 1.0 como protocolo predeterminado. Sin embargo, es pos
 #### <a name="attach-the-os-disk-to-a-recovery-vm"></a>Conecte el disco del sistema operativo a una máquina virtual de recuperación.
 
 1. [Conecte el disco del sistema operativo a una máquina virtual de recuperación](../windows/troubleshoot-recovery-disks-portal.md).
-2. Después de que el disco del sistema operativo esté conectado a una máquina virtual de recuperación, asegúrese de que el disco aparece marcado como **En línea** en la consola de administración de discos. Tenga en cuenta la letra de unidad que se asigna al disco del sistema operativo conectado.
+2. Después de que el disco del sistema operativo esté conectado a una máquina virtual de recuperación, asegúrese de que el disco aparece marcado como **En línea** en la consola de administración de discos. Anote la letra de unidad que se asigna al disco del sistema operativo conectado.
 3. Inicie una conexión mediante el Escritorio remoto a la máquina virtual de recuperación.
 
 #### <a name="enable-dump-log-and-serial-console"></a>Habilitación del registro de volcado de memoria y Serial Console
@@ -263,7 +263,7 @@ Para habilitar el registro de volcado de memoria y Serial Console, ejecute el si
         REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\Terminal Server\WinStations\RDP-Tcp" /v UserAuthentication /t REG_DWORD /d 1 /f
 
         REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\Terminal Server\WinStations\RDP-Tcp" /v fAllowSecProtocolNegotiation /t REG_DWORD /d 1 /f reg unload HKLM\BROKENSYSTEM
-5.  [Desconecte el disco del sistema operativo y vuelva a crear la máquina virtual](../windows/troubleshoot-recovery-disks-portal.md)y, después, compruebe si se ha resuelto el problema.
+5.  [Desasocie el disco del sistema operativo y vuelva a crear la máquina virtual](../windows/troubleshoot-recovery-disks-portal.md) y, a continuación, compruebe si se ha resuelto el problema.
 
 
 

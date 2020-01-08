@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 07/24/2019
+ms.date: 12/11/2019
 ms.author: aahi
-ms.openlocfilehash: f39355613382bd5d02b7ef6918598f38737e850f
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: b907b1ed945cd72d51d0b1acd037dbfc93be4873
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327155"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448656"
 ---
 # <a name="quickstart-send-a-search-request-with-the-bing-entity-search-sdk-for-java"></a>Inicio rápido: Envío de una solicitud de búsqueda el SDK de Bing Entity Search para Java
 
 Use este inicio rápido para empezar a buscar entidades con el SDK de Bing Entity Search para Java. Aunque Bing Entity Search tiene una API REST compatible con la mayoría de los lenguajes de programación, el SDK proporciona una forma sencilla de integrar el servicio en sus aplicaciones. El código fuente de este ejemplo está disponible en [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingEntitySearch).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * [Kit de desarrollo de Java (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/)
 
@@ -67,7 +67,7 @@ Instale las dependencias del SDK de Bing Entity Search con Maven, Gradle u otro 
 
 ## <a name="create-a-search-client"></a>Creación de un cliente de búsqueda
 
-1. Implemente el cliente `dominantEntityLookup`, lo que requiere un punto de conexión de API y una instancia de la clase `ServiceClientCredentials`.
+1. Implemente el cliente `dominantEntityLookup`, lo que requiere un punto de conexión de API y una instancia de la clase `ServiceClientCredentials`. Puede usar el punto de conexión global siguiente o el punto de conexión del [subdominio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) que se muestra en Azure Portal para el recurso.
 
     ```java
     public static EntitySearchAPIImpl getClient(final String subscriptionKey) {

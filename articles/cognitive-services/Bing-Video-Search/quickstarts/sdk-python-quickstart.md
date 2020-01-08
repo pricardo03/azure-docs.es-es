@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 06/26/2019
+ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: 62f929f3428ef7534d833e54b0b8f492636b8a7e
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: c1afea4e6cacc1f6e9ac84ca20e638836540396e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74378750"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448390"
 ---
 # <a name="quickstart-perform-a-video-search-with-the-bing-video-search-sdk-for-python"></a>Inicio rápido: Realización de una búsqueda de vídeo con el SDK de Bing Video Search para Python
 
@@ -23,7 +23,7 @@ Use este artículo de inicio rápido para empezar a buscar vídeos con el SDK de
 
 [!INCLUDE [cognitive-services-bing-video-search-signup-requirements](../../../../includes/cognitive-services-bing-video-search-signup-requirements.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 - [Python](https://www.python.org/) 2.x o 3.x
 - SDK de Bing Video Search para Python
@@ -91,7 +91,7 @@ client = VideoSearchAPI(CognitiveServicesCredentials(subscription_key))
 > [!div class="nextstepaction"]
 > [Creación de una aplicación web de una sola página](../tutorial-bing-video-search-single-page-app.md)
 
-## <a name="see-also"></a>Otras referencias 
+## <a name="see-also"></a>Consulte también 
 
 - [¿Qué es Bing Video Search API?](../overview.md)
 - [Ejemplos del SDK de Cognitive Services para .NET](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)

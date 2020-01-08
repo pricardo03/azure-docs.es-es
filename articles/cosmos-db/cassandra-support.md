@@ -1,5 +1,5 @@
 ---
-title: Características y comandos de Apache Cassandra admitidos por Cassandra API de Azure Cosmos DB
+title: Características de Apache Cassandra admitidas por Cassandra API de Azure Cosmos DB
 description: Obtenga información sobre la compatibilidad con las características de Apache Cassandra en Cassandra API de Azure Cosmos DB
 author: kanshiG
 ms.author: govindk
@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/24/2018
-ms.openlocfilehash: c0a47e922ae8cdca3c70cb53f9fa2f7dafe191c6
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 8598be504f62089cf20123918779c310b2fb8ec8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889222"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445637"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Características de Apache Cassandra admitidas por Cassandra API de Azure Cosmos DB 
 
@@ -47,20 +47,20 @@ Cassandra API de Azure Cosmos DB admite los siguientes tipos de datos CQL:
 * boolean  
 * counter  
 * date  
-* decimal  
+* Decimal  
 * double  
-* float  
+* FLOAT  
 * frozen  
 * inet  
 * int  
 * list  
 * set  
-* smallint  
+* SMALLINT  
 * text  
 * time  
 * timestamp  
 * timeuuid  
-* tinyint  
+* TINYINT  
 * tuple  
 * uuid  
 * varchar  
@@ -73,7 +73,7 @@ Cassandra API de Azure Cosmos DB admite los siguientes tipos de datos CQL:
 
 Cassandra API de Azure Cosmos DB admite las siguientes funciones de CQL:
 
-* Se necesita el cifrado de tokens  
+* Token  
 * Funciones de agregado
   * min, max, avg, count
 * Funciones de conversión de blobs 
@@ -151,7 +151,7 @@ Azure Cosmos DB admite los siguientes comandos de base de datos en las cuentas d
 * SELECT 
 * UPDATE 
 * BATCH (solo se admiten los comandos no registrados) 
-* DELETE
+* Delete
 
 Cuando se ejecutan mediante un SDK compatible con CQL v4, todas las operaciones CRUD devuelven información adicional sobre el error o las unidades de solicitud consumidas. Los comandos DELETE y UPDATE se deben controlar teniendo en cuenta la gobernanza de recursos para garantizar el uso más eficaz del rendimiento aprovisionado.
 

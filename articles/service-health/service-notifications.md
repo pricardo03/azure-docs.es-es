@@ -1,19 +1,14 @@
 ---
 title: Visualización de las notificaciones de mantenimiento del servicio mediante Azure Portal
 description: Las notificaciones de mantenimiento del servicio permiten ver los mensajes de mantenimiento del servicio que publica Microsoft Azure.
-author: stephbaron
-ms.author: stbaron
-services: monitoring
-ms.service: service-health
 ms.topic: conceptual
 ms.date: 6/27/2019
-ms.subservice: ''
-ms.openlocfilehash: d2e18ae28e79590cb04ee0045341ea817be4a3bc
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: c8017d23e0f7e3ab7bf48c9d7ba6b930fa80d0da
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67538144"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451416"
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Visualización de las notificaciones de mantenimiento del servicio mediante Azure Portal
 
@@ -21,7 +16,7 @@ Las notificaciones de mantenimiento del servicio se publican mediante la infraes
 
 En función de la clase, las notificaciones de mantenimiento del servicio pueden ser meramente informativas o pueden requerir acciones.
 
-Para obtener más información sobre las distintas clases de notificaciones de mantenimiento del servicio, consulte [Propiedades de las notificaciones de Service Health](service-health-notifications-properties.md).
+Para obtener más información sobre las distintas clases de notificaciones de mantenimiento del servicio, vea [Propiedades de las notificaciones de Service Health](service-health-notifications-properties.md).
 
 ## <a name="view-your-service-health-notifications-in-the-azure-portal"></a>Visualización de las notificaciones de mantenimiento del servicio en Azure Portal
 

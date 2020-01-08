@@ -6,14 +6,14 @@ services: cloud-services
 ms.service: cloud-services
 ms.topic: reference
 caps.latest.revision: 42
-author: georgewallace
-ms.author: gwallace
-ms.openlocfilehash: b832723fdf773ff06c0b03b9aa80f542279cd309
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+author: tgore03
+ms.author: tagore
+ms.openlocfilehash: 11660fe4f76cad9577b66e72893670dd1b9b559d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360617"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449072"
 ---
 # <a name="azure-cloud-services-definition-schema-csdef-file"></a>Esquema de definición de Azure Cloud Services (archivo .csdef)
 El archivo de definición de servicio define el modelo de servicio de una aplicación. El archivo contiene las definiciones de los roles que están disponibles para un servicio en la nube, especifica los puntos de conexión de servicio y establece los valores de configuración del servicio. Los valores de configuración se establecen en el archivo de configuración de servicio, como se describe en el [esquema de configuración de servicio en la nube (clásico)](/previous-versions/azure/reference/ee758710(v=azure.100)).
@@ -64,7 +64,7 @@ En la tabla siguiente se describen los atributos del elemento `ServiceDefinition
 
 | Atributo               | Descripción |
 | ----------------------- | ----------- |
-| Nombre                    |Necesario. El nombre del servicio. El nombre debe ser único dentro de la cuenta de servicio.|
+| name                    |Necesario. El nombre del servicio. El nombre debe ser único dentro de la cuenta de servicio.|
 | topologyChangeDiscovery | Opcional. Especifica el tipo de notificación de cambio de topología. Los valores posibles son:<br /><br /> -   `Blast`: envía la actualización en cuanto es posible a todas las instancias de rol. Si elige esta opción, el rol debe ser capaz de controlar la actualización de la topología sin tener que reiniciarse.<br />-   `UpgradeDomainWalk`: envía la actualización a cada instancia de rol de forma secuencial después de que la instancia anterior ha aceptado correctamente la actualización.|
 | schemaVersion           | Opcional. Especifica la versión del esquema de definición de servicio. La versión del esquema permite que Visual Studio seleccione las herramientas del SDK correcto que se usarán en la validación del esquema si se instala más de una versión del SDK en paralelo.|
 | upgradeDomainCount      | Opcional. Especifica el número de dominios de actualización en los que se asignan roles de este servicio. Las instancias de rol se asignan a un dominio de actualización cuando se implementa el servicio. Para obtener más información, consulte [Actualización de una implementación o un rol de servicio en la nube](cloud-services-how-to-manage-portal.md#update-a-cloud-service-role-or-deployment), [Administración de la disponibilidad de las máquinas virtuales](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability) y [Qué es un modelo de servicio en la nube](https://docs.microsoft.com/azure/cloud-services/cloud-services-model-and-package).<br /><br /> Puede especificar hasta 20 dominios de actualización. Si no lo especifica, el número predeterminado de dominios de actualización es 5.|

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 6d52062561e3f08a214f3e191706583edc844786
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: ec19f4b4140fb6f4a1dc968f4e2cac3c3d7a1e76
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73794209"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75447710"
 ---
 # <a name="manage-qna-maker-resources"></a>Administración de recursos de QnA Maker
 
@@ -28,10 +28,10 @@ En el servicio QnA Maker se usan dos tipos de claves: **claves de suscripción**
 
 ![Administración de claves](../media/qnamaker-how-to-key-management/key-management.png)
 
-|NOMBRE|Location|Propósito|
+|Nombre|Location|Propósito|
 |--|--|--|
 |Subscription key|[Azure Portal](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)|estas claves se usan para acceder a las [API del servicio de administración de QnA Maker](https://go.microsoft.com/fwlink/?linkid=2092179). Estas API permiten editar las preguntas y respuestas de una base de conocimiento y publicar una base de conocimiento. Estas claves se crean al crear al mismo tiempo que los servicios QnA Maker.<br><br>Busque estas claves en el recurso **Cognitive Services** de la página **Claves**.|
-|Clave de punto de conexión|[Portal de QnA Maker](http://www.qnamaker.ai)|Estas claves se usan para acceder al punto de conexión de la base de conocimiento publicado para obtener una respuesta para una pregunta de un usuario. Este punto de conexión normalmente se usa en un bot de chat o el código de la aplicación cliente que se conecta el servicio QnA Maker. Estas claves se crean al publicar una base de conocimiento de QnA Maker.<br><br>Busque estas claves en la página **Configuración del servicio**. Busque esta página en el menú del usuario de la parte superior derecha de la página, en el menú desplegable.|
+|Clave de punto de conexión|[Portal de QnA Maker](https://www.qnamaker.ai)|Estas claves se usan para acceder al punto de conexión de la base de conocimiento publicado para obtener una respuesta para una pregunta de un usuario. Este punto de conexión normalmente se usa en un bot de chat o el código de la aplicación cliente que se conecta el servicio QnA Maker. Estas claves se crean al publicar una base de conocimiento de QnA Maker.<br><br>Busque estas claves en la página **Configuración del servicio**. Busque esta página en el menú del usuario de la parte superior derecha de la página, en el menú desplegable.|
 
 ## <a name="create-a-new-qna-maker-service"></a>Creación de un servicio QnA Maker
 
@@ -63,7 +63,7 @@ En este procedimiento se crean los recursos de Azure necesarios para administrar
 
     * Elija si desea habilitar **Application Insights**. Si **Application Insights** está habilitado, QnA Maker recopila telemetría de tráfico, registros de chat y errores.
     * Elija la **ubicación de App Insights** en la que se implementará el recurso de Application Insights.
-    * Como medidas de ahorro de los costos, puede [compartir](#share-existing-services-with-qna-maker) algunos pero no todos los recursos de Azure creados para QnA Maker. 
+    * Como medidas de ahorro de los costos, puede [compartir](#share-existing-services-with-qna-maker) algunos pero no todos los recursos de Azure creados para QnA Maker.
 
 1. Una vez que se hayan validado todos los campos, seleccione **Crear**. El proceso puede tardar unos minutos en completarse.
 

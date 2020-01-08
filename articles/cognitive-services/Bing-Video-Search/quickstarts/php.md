@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 06/26/2019
+ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: 481bc700f86dfd8a28c074134fd5dcc85bb748c4
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 357cc85991ac88aef4fd0958e2bc776373f56dc8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74378611"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448355"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-php"></a>Inicio rápido: Búsqueda de vídeos con Bing Video Search API y PHP
 
@@ -24,7 +24,7 @@ El ejemplo de código se escribió para ejecutarse en PHP 5.6.
 
 Consulte la [referencia de la API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference) para obtener detalles técnicos acerca de las API.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * PHP 5.6 o posterior
 
@@ -34,10 +34,10 @@ Consulte la [referencia de la API](https://docs.microsoft.com/rest/api/cognitive
 
 [Bing Video Search API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference) devuelve resultados relacionados con los vídeos desde el motor de búsqueda de Bing.
 
-1. Asegúrese de que la compatibilidad con HTTP segura está habilitada en `php.ini`, tal como se describe en el comentario del código.
+1. Asegúrese de que la compatibilidad segura con HTTP está habilitada en `php.ini`, tal como se describe en el comentario del código.
 2. Cree un nuevo proyecto de PHP en su IDE o editor favorito.
 3. Agregue el código que se proporciona a continuación.
-4. Reemplace el valor `accessKey` por una clave de acceso válida para la suscripción.
+4. Reemplace el valor `$accessKey` por una clave de acceso válida para la suscripción. `$endpoint` puede ser el punto de conexión global siguiente o el punto de conexión del [subdominio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) que se muestra en Azure Portal para el recurso.
 5. Ejecute el programa.
 
 ```php
@@ -215,6 +215,6 @@ Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejem
 > [!div class="nextstepaction"]
 > [Compilar una aplicación web de una sola página](../tutorial-bing-video-search-single-page-app.md)
 
-## <a name="see-also"></a>Otras referencias 
+## <a name="see-also"></a>Consulte también 
 
  [¿Qué es Bing Video Search API?](../overview.md)

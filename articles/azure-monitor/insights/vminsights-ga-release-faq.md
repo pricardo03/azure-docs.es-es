@@ -4,15 +4,15 @@ description: Azure Monitor para máquinas virtuales es una solución de Azure qu
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 12/05/2019
-ms.openlocfilehash: ec0580d3360a56fc6b779b8c0a69eb2a09b007db
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 4833b8a1835bd5da3327c73058f170fb0a5738a8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928936"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450703"
 ---
 # <a name="azure-monitor-for-vms-generally-available-ga-frequently-asked-questions"></a>Preguntas frecuentes sobre Azure Monitor para VM disponible de forma general (GA): preguntas más frecuentes
 
@@ -100,7 +100,7 @@ Los clientes existentes que usen la característica Health seguirán teniendo ac
 
 Para acceder a la característica, puede agregar la siguiente marca de la característica `feature.vmhealth=true` a la dirección URL de Azure Portal, [https://portal.azure.com](https://portal.azure.com). Ejemplo: `https://portal.azure.com/?feature.vmhealth=true`.
 
-También puede usar esta dirección URL corta, que establece la marca de la característica automáticamente: [ https://aka.ms/vmhealthpreview ](https://aka.ms/vmhealthpreview).
+También puede usar esta dirección URL corta, que establece la marca de la característica automáticamente: [https://aka.ms/vmhealthpreview](https://aka.ms/vmhealthpreview).
 
 Como cliente existente, puede seguir usando la característica Health en las máquinas virtuales conectadas a una configuración de área de trabajo existente con la funcionalidad de estado.  
 

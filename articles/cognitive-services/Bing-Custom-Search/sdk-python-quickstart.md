@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Llamada al punto de conexión de Bing Custom Search con el SDK para Python | Microsoft Docs'
+title: 'Inicio rápido: Llamada al punto de conexión de Bing Custom Search con el SDK para Python'
 titleSuffix: Azure Cognitive Services
 description: Use este inicio rápido para comenzar a solicitar los resultados de la búsqueda de la instancia de Bing Custom Search con el SDK para Python.
 services: cognitive-services
@@ -10,18 +10,18 @@ ms.subservice: bing-custom-search
 ms.topic: quickstart
 ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: 98070ab8f715305fe01c940026ecf5f49f8c28f9
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: ca0c1174abb80452f78766c3c4f49af73c790d3e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976050"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448681"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-the-python-sdk"></a>Inicio rápido: Llamada al punto de conexión de Bing Custom Search con el SDK para Python 
 
 Use este inicio rápido para comenzar a solicitar los resultados de la búsqueda de la instancia de Bing Custom Search con el SDK para Python. Aunque Bing Custom Search tiene una API de REST compatible con la mayoría de los lenguajes de programación, el SDK de Bing Custom Search proporciona una forma sencilla de integrar el servicio en sus aplicaciones. El código fuente de este ejemplo está disponible en [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/custom_search_samples.py) con anotaciones y control de errores adicionales.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 - Una instancia de Bing Custom Search. Consulte [Quickstart: Creación de la primera instancia de Bing Custom Search](quick-start.md) para obtener más información.
 - Python [2.x o 3.x](https://www.python.org/) 

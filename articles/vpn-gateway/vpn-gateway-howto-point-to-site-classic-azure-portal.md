@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/11/2018
 ms.author: cherylmc
-ms.openlocfilehash: d28893133c27fe4945918071c60b889e997b775b
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 01327d24aebee02c3b14594c2b0b2f2f175211fd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74424160"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450799"
 ---
 # <a name="configure-a-point-to-site-connection-by-using-certificate-authentication-classic"></a>Configuración de una conexión de punto a sitio mediante la autenticación de certificado (clásica)
 
@@ -43,7 +43,7 @@ Use una puerta de enlace de VPN de punto a sitio (P2S) para crear una conexión 
 
 ![Diagrama de punto a sitio](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/point-to-site-connection-diagram.png)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Las conexiones de autenticación de certificado de punto a sitio necesitan los siguientes requisitos previos:
 
@@ -61,12 +61,12 @@ Para más información sobre las conexiones de punto a sitio, vea [Preguntas má
 Use los siguientes valores para crear un entorno de prueba o hacer referencia a ellos para comprender mejor los ejemplos de este artículo:
 
 - **Configuración para crear una red virtual (clásica)**
-   - **Nombre**: escriba *VNet1*.
+   - **Name**: escriba *VNet1*.
    - **Espacio de direcciones**: escriba *192.168.0.0/16*. En este ejemplo, se utiliza solo un espacio de direcciones. Puede tener más de un espacio de direcciones para su red virtual, como se muestra en el diagrama.
    - **Nombre de subred**: escriba *FrontEnd*.
-   - **Intervalo de direcciones de subred**: escriba *192.168.1.0/24*.
+   - **Rango de direcciones de subred**: escriba *192.168.1.0/24*.
    - **Suscripción**: Elija una suscripción de la lista de suscripciones disponibles.
-   - **Grupos de recursos**: escriba *TestRG*. Seleccione **Crear nuevo**, si no existe el grupo de recursos.
+   - **Grupo de recursos**: escriba *TestRG*. Seleccione **Crear nuevo**, si no existe el grupo de recursos.
    - **Ubicación**: Seleccione **Este de EE. UU.** en la lista.
 
   - **Configuración de conexión VPN**
@@ -74,22 +74,22 @@ Use los siguientes valores para crear un entorno de prueba o hacer referencia a 
     - **Espacio de direcciones de clientes**: escriba *172.16.201.0/24*. Los clientes de VPN que se conectan a la red virtual mediante esta conexión de punto a sitio reciben una dirección IP del grupo especificado.
 
 - **Opciones de la subred para configurar la puerta de enlace**
-   - **Nombre**: se rellena automáticamente con *GatewaySubnet*.
+   - **Name**: se rellena automáticamente con *GatewaySubnet*.
    - **Intervalo de direcciones**: escriba *192.168.200.0/24*. 
 
 - **Opciones de configuración de la puerta de enlace**:
-   - **Tamaño**: seleccione la SKU de la puerta de enlace que desea utilizar.
+   - **Size**: seleccione la SKU de la puerta de enlace que desea utilizar.
    - **Tipo de enrutamiento**: seleccione **Dinámico**.
 
 ## <a name="create-a-virtual-network-and-a-vpn-gateway"></a>Crear una red virtual y una puerta de enlace de VPN
 
 Antes de empezar, compruebe que tiene una suscripción a Azure. Si todavía no la tiene, puede activar sus [ventajas como suscriptor de MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) o registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial).
 
-### <a name="part-1-create-a-virtual-network"></a>Parte 1: Creación de una red virtual
+### <a name="part-1-create-a-virtual-network"></a>Parte 1: Creación de una red virtual
 
 Si no tiene una red virtual, créela. Las capturas de pantalla se proporcionan a modo de ejemplo. Asegúrese de reemplazar los valores por los suyos. Para crear una red virtual mediante Azure Portal, siga estos pasos:
 
-1. En el menú de [Azure Portal](https://portal.azure.com) o en la **página principal**, seleccione **Crear un recurso**. Se abre la página **Nuevos**.
+1. En el menú [Azure Portal](https://portal.azure.com) o en la página **Inicio**, seleccione **Crear un recurso**. Se abre la página **Nuevos**.
 
 2. En el campo **Buscar en Marketplace**, escriba *red virtual* y seleccione **Red virtual** en la lista de resultados. Se abre la página **Red virtual**.
 
@@ -101,7 +101,7 @@ Si no tiene una red virtual, créela. Las capturas de pantalla se proporcionan a
 
 5. Seleccione la **suscripción** que desea usar en la lista desplegable.
 
-6. Seleccione un **grupo de recursos** existente. También puede seleccionar **Crear nuevo** y escribir un nombre para crear un grupo de recursos. Si va a crear un grupo de recursos, asígnele un nombre según los valores de configuración planeados. Para más información sobre los grupos de recursos, consulte [Información general de Azure Resource Manager](../azure-resource-manager/resource-group-overview.md#resource-groups).
+6. Seleccione un **grupo de recursos** existente. También puede seleccionar **Crear nuevo** y escribir un nombre para crear un grupo de recursos. Si va a crear un grupo de recursos, asígnele un nombre según los valores de configuración planeados. Para más información sobre los grupos de recursos, consulte [Información general de Azure Resource Manager](../azure-resource-manager/management/overview.md#resource-groups).
 
 7. Seleccione una **ubicación** para la red virtual. Esta configuración determina la ubicación geográfica de los recursos que se implementan en esta red virtual.
 
@@ -113,7 +113,7 @@ Si no tiene una red virtual, créela. Las capturas de pantalla se proporcionan a
 
     Para agregar un servidor DNS, seleccione **Servidores DNS** en la página de la red virtual. A continuación, escriba la dirección IP del servidor DNS que desea usar y seleccione **Guardar**.
 
-### <a name="part-2-create-a-gateway-subnet-and-a-dynamic-routing-gateway"></a>Parte 2: Creación de una subred de puerta de enlace y una puerta de enlace de enrutamiento dinámico
+### <a name="part-2-create-a-gateway-subnet-and-a-dynamic-routing-gateway"></a>Parte 2: Creación de una subred de puerta de enlace y una puerta de enlace de enrutamiento dinámico
 
 En este paso se crea una subred de puerta de enlace y una puerta de enlace de enrutamiento dinámico. En Azure Portal para el modelo de implementación clásica, cree la subred de puerta de enlace y la puerta de enlace en las mismas páginas de configuración. Use la subred de puerta de enlace únicamente para los servicios de puerta de enlace. No implemente nunca nada directamente en la subred de puerta de enlace (por ejemplo, máquinas virtuales u otros servicios).
 
@@ -275,7 +275,7 @@ Lo más habitual es usar el certificado raíz para administrar el acceso a nivel
 
 Puede revocar un certificado de cliente si agrega la huella digital a la lista de revocación.
 
-1. Recupere la huella digital del certificado de cliente. Para más información, consulte [Cómo recuperar la huella digital de un certificado](https://msdn.microsoft.com/library/ms734695.aspx).
+1. Recupere la huella digital del certificado de cliente. Para más información, vea: [Cómo: recuperar la huella digital de un certificado](https://msdn.microsoft.com/library/ms734695.aspx).
 2. Copie la información en un editor de texto y quite sus espacios de forma que sea una sola cadena continua.
 3. Vaya a la red virtual clásica. Seleccione **Conexión VPN de punto a sitio** y, después, **Administrar certificado** para abrir la página **Certificados**.
 4. Seleccione **Lista de revocación** para abrir la página **Lista de revocación**. 

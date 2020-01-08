@@ -2,19 +2,15 @@
 title: Creación gráfica en Azure Automation
 description: Creación gráfica le permite crear runbooks para Azure Automation sin trabajar con el código. Este artículo brinda una introducción a la creación gráfica y todos los detalles necesarios para comenzar a crear un runbook gráfico.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 03/16/2018
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 82a06510bd9d1e0de2b38260773cb4848156bf12
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 8c1b864eb83a9ffb69c0cb532dc2061636010c60
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850302"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450746"
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Creación gráfica en Azure Automation
 
@@ -44,7 +40,7 @@ Puede utilizar los controles en la parte inferior del lienzo para acercar y alej
 
 El control de Biblioteca es donde selecciona las [actividades](#activities) para agregar a su runbook. Puede agregarlas al lienzo donde las conecta a otras actividades. Incluye cuatro secciones que se describen en la tabla siguiente:
 
-| Sección | Description |
+| Sección | Descripción |
 |:--- |:--- |
 | Cmdlets |Incluye todos los cmdlets que se pueden usar en su runbook. Los cmdlets se organizan por módulo. Están disponibles todos los módulos que ha instalado en su cuenta de Automation. |
 | Runbooks |Incluye los runbooks de la cuenta de Automatización de Azure. Estos runbooks se pueden agregar al lienzo para usarse como runbooks secundarios. Solo se muestran los runbooks del mismo tipo básico que el del runbook que se está editando; para los runbooks gráficos, solo se muestran los basados en PowerShell, mientras que para los runbooks gráficos de flujo de trabajo de PowerShell, solo se muestran los basados en el flujo de trabajo de PowerShell. |
@@ -105,11 +101,11 @@ En el ejemplo siguiente, el cmdlet Get-AzureRmVM tiene tres conjuntos de paráme
 
 ![Conjunto de parámetros](media/automation-graphical-authoring-intro/get-azurermvm-parameter-sets.png)
 
-#### <a name="parameter-values"></a>Valores de parámetro
+#### <a name="parameter-values"></a>Valores de parámetros
 
 Cuando se especifica un valor para un parámetro, se selecciona un origen de datos para determinar cómo se especifica el valor. Los orígenes de datos disponibles para un parámetro concreto dependen de los valores válidos para dicho parámetro. Por ejemplo, Null no es una opción disponible para un parámetro que no permita valores nulos.
 
-| Origen de datos | Description |
+| Origen de datos | Descripción |
 |:--- |:--- |
 | Valor constante |Escriba un valor para el parámetro. Solo se encuentra disponible para los siguientes tipos de datos: Int32, Int64, String, Boolean, DateTime, Switch. |
 | Salida de la actividad |Salida de una actividad que precede la actividad actual en el flujo de trabajo. Se enumeran todas las actividades válidas. Seleccione solo la actividad para usar su salida en el valor de parámetro. Si la actividad genera un objeto con varias propiedades, puede escribir el nombre de la propiedad después de seleccionar la actividad. |
@@ -139,7 +135,7 @@ La condición de reintento es una expresión de PowerShell que se evalúa cada v
 
 La condición de reintento puede utilizar una variable denominada $RetryData que proporciona acceso a información sobre los reintentos de actividad. Esta variable tiene las propiedades de la tabla siguiente:
 
-| Propiedad | Description |
+| Propiedad | Descripción |
 |:--- |:--- |
 | NumberOfAttempts |Número de veces que se ha ejecutado la actividad. |
 | Output |Salida de la última ejecución de la actividad. |
@@ -191,7 +187,7 @@ Para crear un vínculo entre dos actividades, seleccione la actividad de origen 
 
 Seleccione el vínculo para configurar sus propiedades en la hoja Configuración. Aquí se incluye el tipo de vínculo, que se describe en la siguiente tabla:
 
-| Tipo de vínculo | Description |
+| Tipo de vínculo | Descripción |
 |:--- |:--- |
 | Canalización |La actividad de destino se ejecuta una vez para cada salida de objeto desde la actividad de origen. La actividad de destino no se ejecuta si la actividad de origen no genera salida. La salida de la actividad de origen está disponible como objeto. |
 | Secuencia |La actividad de destino se ejecuta solo una vez. Recibe una matriz de objetos desde la actividad de origen. La salida de la actividad de origen está disponible como una matriz de objetos. |
@@ -245,7 +241,7 @@ El ejemplo siguiente forma parte de un runbook que inicia un conjunto de máquin
 
 ![unión](media/automation-graphical-authoring-intro/runbook-junction.png)
 
-### <a name="cycles"></a>Ciclos
+### <a name="cycles"></a>Cycles
 
 Un ciclo es cuando una actividad de destino se vincula de vuelta a su actividad de origen o a otra actividad que, al final, se vincule a su origen. La creación gráfica no permite actualmente los ciclos. Si el runbook tiene un ciclo, lo guarda como corresponde, pero recibe un error cuando se ejecuta.
 
@@ -324,8 +320,8 @@ Las propiedades de la siguiente tabla definen los parámetros de entrada:
 
 | Propiedad | Descripción |
 |:--- |:--- |
-| Name |El nombre único del parámetro. Solo puede contener caracteres alfanuméricos y no puede contener un espacio. |
-| Description |Una descripción opcional del parámetro de entrada. |
+| Nombre |El nombre único del parámetro. Solo puede contener caracteres alfanuméricos y no puede contener un espacio. |
+| Descripción |Una descripción opcional del parámetro de entrada. |
 | Tipo |El tipo de datos que se espera para el valor del parámetro. Azure Portal proporciona un control adecuado para el tipo de datos de cada parámetro cuando se solicite una entrada. |
 | Mandatory |Especifica si se debe proporcionar un valor para el parámetro. No es posible iniciar el runbook si no se proporciona un valor para cada parámetro obligatorio que no tiene definido un valor predeterminado. |
 | Valor predeterminado |Especifica el valor que se usa para el parámetro si no se brinda alguno. Puede ser Null o un valor específico. |

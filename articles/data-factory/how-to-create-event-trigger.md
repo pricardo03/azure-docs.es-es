@@ -11,12 +11,12 @@ manager: jroth
 ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 10/18/2018
-ms.openlocfilehash: 0b1d9fad2992397a3a6768d0f5e7ff26a400a2b3
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: e4301afafb48fb9a1b0c9e36dde9800e2b8390f1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889325"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443935"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>Creación de un desencadenador que ejecuta una canalización en respuesta a un evento
 
@@ -30,7 +30,7 @@ Si desea ver una demostración y una introducción de diez minutos de esta carac
 
 
 > [!NOTE]
-> La integración descrita en este artículo depende de [Azure Event Grid](https://azure.microsoft.com/services/event-grid/). Asegúrese de que el proveedor de la suscripción se registra con el proveedor de recursos de Event Grid. Para más información, consulte [Tipos y proveedores de recursos](../azure-resource-manager/resource-manager-supported-services.md#azure-portal).
+> La integración descrita en este artículo depende de [Azure Event Grid](https://azure.microsoft.com/services/event-grid/). Asegúrese de que el proveedor de la suscripción se registra con el proveedor de recursos de Event Grid. Para más información, consulte [Tipos y proveedores de recursos](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
 
 ## <a name="data-factory-ui"></a>Interfaz de usuario de Data Factory
 
@@ -80,11 +80,11 @@ En la tabla siguiente se proporciona información general acerca de los elemento
 
 | **Elemento de JSON** | **Descripción** | **Tipo** | **Valores permitidos** | **Obligatorio** |
 | ---------------- | --------------- | -------- | ------------------ | ------------ |
-| **scope** | El identificador de recursos de Azure Resource Manager de la cuenta de almacenamiento. | Cadena | Identificador de Azure Resource Manager | Sí |
+| **scope** | El identificador de recursos de Azure Resource Manager de la cuenta de almacenamiento. | String | Identificador de Azure Resource Manager | Sí |
 | **eventos** | El tipo de eventos que provocan la activación de este desencadenador. | Array    | Microsoft.Storage.BlobCreated, Microsoft.Storage.BlobDeleted | Sí, cualquier combinación de estos valores. |
-| **blobPathBeginsWith** | La ruta de acceso del blob debe comenzar con el patrón proporcionado para que se active el desencadenador. Por ejemplo, `/records/blobs/december/` solo activa el desencadenador de blobs en la carpeta `december` bajo el contenedor `records`. | Cadena   | | Tendrá que proporcionar un valor para al menos una de estas propiedades: `blobPathBeginsWith` o `blobPathEndsWith`. |
-| **blobPathEndsWith** | La ruta de acceso del blob debe finalizar con el patrón proporcionado para que se active el desencadenador. Por ejemplo, `december/boxes.csv` solo activa el desencadenador de blobs denominado "`boxes`" en una carpeta `december`. | Cadena   | | Tendrá que proporcionar un valor para al menos una de estas propiedades: `blobPathBeginsWith` o `blobPathEndsWith`. |
-| **ignoreEmptyBlobs** | Indica si los blobs de cero bytes desencadenarán o no la ejecución de una canalización. De manera predeterminada, se establece en true. | Boolean | true o false | Sin |
+| **blobPathBeginsWith** | La ruta de acceso del blob debe comenzar con el patrón proporcionado para que se active el desencadenador. Por ejemplo, `/records/blobs/december/` solo activa el desencadenador de blobs en la carpeta `december` bajo el contenedor `records`. | String   | | Tendrá que proporcionar un valor para al menos una de estas propiedades: `blobPathBeginsWith` o `blobPathEndsWith`. |
+| **blobPathEndsWith** | La ruta de acceso del blob debe finalizar con el patrón proporcionado para que se active el desencadenador. Por ejemplo, `december/boxes.csv` solo activa el desencadenador de blobs denominado "`boxes`" en una carpeta `december`. | String   | | Tendrá que proporcionar un valor para al menos una de estas propiedades: `blobPathBeginsWith` o `blobPathEndsWith`. |
+| **ignoreEmptyBlobs** | Indica si los blobs de cero bytes desencadenarán o no la ejecución de una canalización. De manera predeterminada, se establece en true. | Boolean | true o false | No |
 
 ## <a name="examples-of-event-based-triggers"></a>Ejemplos de desencadenadores basados en eventos
 
@@ -93,7 +93,7 @@ En esta sección encontrará ejemplos de configuración de desencadenadores basa
 > [!IMPORTANT]
 > Debe incluir el segmento `/blobs/` de la ruta de acceso, tal como se muestra en los siguientes ejemplos, siempre que especifique el contenedor y la carpeta, el contenedor y el archivo, o el contenedor, la carpeta y el archivo. En el caso de **blobPathBeginsWith**, la interfaz de usuario de Data Factory agregará automáticamente `/blobs/` entre la carpeta y el nombre del contenedor en el JSON del desencadenador.
 
-| Propiedad | Ejemplo | DESCRIPCIÓN |
+| Propiedad | Ejemplo | Descripción |
 |---|---|---|
 | **Ruta de acceso de blobs que empieza con** | `/containername/` | Recibe eventos de cualquier blob del contenedor. |
 | **Ruta de acceso de blobs que empieza con** | `/containername/blobs/foldername/` | Recibe eventos de los blobs en el contenedor `containername` y la carpeta `foldername`. |

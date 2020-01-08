@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: fasttrack-new
 services: batch
 ms.service: batch
-ms.openlocfilehash: 47665171ee5ae137e0503b3e5fa1d369aeabb356
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 7f471032d69213fc11ff748e3fa9093991ee23d6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840060"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449796"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Usar Azure Pipelines para compilar e implementar soluciones HPC
 
@@ -27,12 +27,12 @@ En este ejemplo, crearemos una canalización de compilación y versión para imp
 
 ![Diagrama que muestra el flujo de implementación en nuestra canalización](media/batch-ci-cd/DeploymentFlow.png)
 
-### <a name="setup"></a>Configuración
+### <a name="setup"></a>Configurar
 
 Para realizar los pasos descritos en este artículo, se necesita una organización de Azure DevOps y un proyecto de equipo.
 
 * [Crear una organización de Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization?view=azure-devops)
-* [Crear un proyecto en Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/projects/create-project?view=azure-devops)
+* [Creación de un proyecto en Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/projects/create-project?view=azure-devops)
 
 ### <a name="source-control-for-your-environment"></a>Control de código fuente del entorno
 
@@ -52,7 +52,7 @@ La estructura del código base utilizada en este ejemplo es parecida a la siguie
 En esta sección se supone que está familiarizado con el control de versiones y el diseño de plantillas de Resource Manager. Si no lo está, consulte las siguientes páginas para obtener más información.
 
 * [¿Qué es el control de código fuente?](https://docs.microsoft.com/azure/devops/user-guide/source-control?view=azure-devops)
-* [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)
+* [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md)
 
 #### <a name="azure-resource-manager-templates"></a>Plantillas del Administrador de recursos de Azure
 

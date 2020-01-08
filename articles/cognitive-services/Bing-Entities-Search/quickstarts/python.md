@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 07/24/2019
+ms.date: 12/11/2019
 ms.author: aahi
-ms.openlocfilehash: 52695cca2fe49829705ac2283c9f083ada8ae0b0
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 07b563308e80055d699d1cefeb3b2db71ffa4cd7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327100"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448613"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-python"></a>Inicio rápido: Envío de una solicitud de búsqueda a Bing Entity Search REST API con Python
 
@@ -23,7 +23,7 @@ Use este inicio rápido para realizar la primera llamada a Bing Entity Search AP
 
 Si bien esta aplicación está escrita en Python, la API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * [Python](https://www.python.org/downloads/) 2.x o 3.x
 
@@ -31,7 +31,7 @@ Si bien esta aplicación está escrita en Python, la API es un servicio web REST
 
 ## <a name="create-and-initialize-the-application"></a>Creación e inicialización de la aplicación
 
-1. Cree un archivo de Python en el IDE o editor que prefiera y agregue las siguientes importaciones. Cree variables para la clave de suscripción, un punto de conexión, un mercado y una consulta de búsqueda. Puede encontrar el punto de conexión en el panel de Azure.
+1. Cree un archivo de Python en el IDE o editor que prefiera y agregue las siguientes importaciones. Cree variables para la clave de suscripción, un punto de conexión, un mercado y una consulta de búsqueda. Puede usar el punto de conexión global siguiente o el punto de conexión del [subdominio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) que se muestra en Azure Portal para el recurso.
 
     ```python
     import http.client, urllib.parse
