@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/23/2019
-ms.openlocfilehash: 1c78336880d685090ae21c725becc90d689c1817
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 22a7ab7aa5d85e716d9b594ee3fb11aad3fa6a36
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73581816"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75496557"
 ---
 # <a name="end-to-end-blob-ingestion-into-azure-data-explorer-through-python"></a>Ingesta de blobs de un extremo a otro en Azure Data Explorer a través de Python
 
@@ -25,7 +25,7 @@ Azure Data Explorer es un servicio de exploración de datos escalable y rápido 
 
 Aprenderá a crear un grupo de recursos mediante programación, una cuenta de almacenamiento y un contenedor, un centro de eventos y un clúster y una base de datos de Azure Data Explorer. También aprenderá a configurar Azure Data Explorer mediante programación para ingerir datos de la nueva cuenta de almacenamiento.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar.
 
@@ -38,6 +38,7 @@ pip install azure-common
 pip install azure-mgmt-resource
 pip install azure-mgmt-kusto
 pip install azure-mgmt-eventgrid
+pip install azure-kusto-data
 pip install azure-storage-blob
 ```
 [!INCLUDE [data-explorer-authentication](../../includes/data-explorer-authentication.md)]

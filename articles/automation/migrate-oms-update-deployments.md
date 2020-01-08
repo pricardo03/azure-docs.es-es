@@ -2,19 +2,15 @@
 title: Migración de las implementaciones de actualizaciones de OMS a Azure
 description: En este artículo se describe cómo migrar las implementaciones de actualizaciones de OMS a Azure
 services: automation
-ms.service: automation
 ms.subservice: update-management
-author: mgoedtel
-ms.author: magoedte
 ms.date: 07/16/2018
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 08b3f11f3e44c6580df9942aab2a890115c79ba3
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 2660e4a348d2ffd71f912ff80c36a5a9a3c9fe88
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849503"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75417780"
 ---
 # <a name="migrate-your-oms-update-deployments-to-azure"></a>Migración de las implementaciones de actualizaciones de OMS a Azure
 
@@ -59,7 +55,7 @@ Para actualizar las máquinas, seleccione la búsqueda guardada usada por la imp
 
 | Propiedad | Descripción |
 | --- | --- |
-|NOMBRE |Nombre único para identificar la implementación de actualizaciones. |
+|Nombre |Nombre único para identificar la implementación de actualizaciones. |
 |Sistema operativo| Seleccione **Linux** o **Windows**.|
 |Máquinas para actualizar |Seleccione una búsqueda guardada, un grupo importado o elija la máquina en la lista desplegable y seleccione equipos individuales. Si elige **Máquinas**, la preparación de la máquina se muestra en la columna **PREPARACIÓN DE ACTUALIZACIONES DEL AGENTE**.</br> Para información sobre los distintos métodos de creación de grupos de equipos en los registros de Azure Monitor, consulte el artículo sobre los [Grupos de equipos en los registros de Azure Monitor](../azure-monitor/platform/computer-groups.md) |
 |Clasificaciones de actualizaciones|Seleccione todas las clasificaciones de actualizaciones que necesite. CentOS no admite estas clasificaciones de forma nativa.|

@@ -12,22 +12,22 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: kumud
-ms.openlocfilehash: 1b201957a33acd609eed8a2373c8201bdefe9d7d
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 5acda69ce08bc493d5349b084d1cfafc8432145b
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "64691974"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647465"
 ---
 # <a name="associate-a-public-ip-address-to-a-virtual-machine"></a>Asociar una dirección IP pública a una máquina virtual
 
-En este artículo, obtendrá información sobre cómo asociar una dirección IP pública a una máquina virtual (VM) existente. Si quiere conectarse a una VM desde Internet, la VM debe tener una dirección IP pública asociada. Si quiere crear una nueva VM con una dirección IP pública, puede hacerlo mediante [Azure Portal](virtual-network-deploy-static-pip-arm-portal.md), la [interfaz de la línea de comandos (CLI) de Azure](virtual-network-deploy-static-pip-arm-cli.md) o [PowerShell](virtual-network-deploy-static-pip-arm-ps.md). Las direcciones IP públicas tienen un precio simbólico. Para obtener información detallada, consulte [Precios](https://azure.microsoft.com/pricing/details/ip-addresses/). Existe un límite para el número de direcciones IP públicas que puede usar por suscripción. Para obtener información detallada, consulte [Límites](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#publicip-address).
+En este artículo, obtendrá información sobre cómo asociar una dirección IP pública a una máquina virtual (VM) existente. Si quiere conectarse a una VM desde Internet, la VM debe tener una dirección IP pública asociada. Si quiere crear una nueva VM con una dirección IP pública, puede hacerlo mediante [Azure Portal](virtual-network-deploy-static-pip-arm-portal.md), la [interfaz de la línea de comandos (CLI) de Azure](virtual-network-deploy-static-pip-arm-cli.md) o [PowerShell](virtual-network-deploy-static-pip-arm-ps.md). Las direcciones IP públicas tienen un precio simbólico. Para obtener información detallada, consulte [Precios](https://azure.microsoft.com/pricing/details/ip-addresses/). Existe un límite para el número de direcciones IP públicas que puede usar por suscripción. Para obtener información detallada, consulte [Límites](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#publicip-address).
 
 Puede usar [Azure Portal](#azure-portal), la [interfaz de la línea de comandos](#azure-cli) (CLI) de Azure o [PowerShell](#powershell) para asociar una dirección IP pública a una VM.
 
 ## <a name="azure-portal"></a>Portal de Azure
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Busque o vaya a la máquina virtual a la que quiere agregar la dirección IP pública y, a continuación, selecciónela.
 3. En **Configuración**, seleccione **Redes** y, a continuación, seleccione la interfaz de red a la que quiere agregar la dirección IP pública, como se muestra en la siguiente imagen:
 

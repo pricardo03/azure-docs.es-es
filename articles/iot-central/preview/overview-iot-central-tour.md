@@ -3,18 +3,18 @@ title: Un paseo por la interfaz de usuario de Azure IoT Central | Microsoft Docs
 description: Familiarícese con las áreas clave de la interfaz de usuario de Azure IoT Central que se usa para crear, administrar y usar la solución de IoT.
 author: lmasieri
 ms.author: lmasieri
-ms.date: 10/21/2019
+ms.date: 12/09/2019
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: corywink
-ms.openlocfilehash: f8aa467f95bb97c42e726d1392deca53e15df624
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 23deb77b6fda0b3801057d2ae97a740301449e28
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73896493"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434895"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui-preview-features"></a>Paseo por la interfaz de usuario de Azure IoT Central (características en versión preliminar)
 
@@ -42,7 +42,7 @@ En la [página de inicio de IoT Central](https://aka.ms/iotcentral-get-started) 
 > [!div class="mx-imgBorder"]
 > ![Página principal de IoT Central](media/overview-iot-central-tour/iot-central-homepage-pnp.png)
 
-### <a name="create-an-application"></a>Creación de una aplicación
+### <a name="create-an-application"></a>Crear una aplicación
 
 En la sección Compilación puede examinar la lista de plantillas de IoT Central relevantes para el sector para ayudarle a empezar a trabajar rápidamente o empezar desde cero con una plantilla de aplicación personalizada.  
 > [!div class="mx-imgBorder"]
@@ -113,11 +113,11 @@ Puede elegir entre un tema claro o un tema oscuro para la interfaz de usuario:
 > [!div class="mx-imgBorder"]
 > ![Elegir un tema para la interfaz de usuario](media/overview-iot-central-tour/themes-pnp.png)
 
-### <a name="dashboard"></a>panel
+### <a name="dashboard"></a>Panel
 > [!div class="mx-imgBorder"]
 > ![Panel](media/overview-iot-central-tour/dashboard-pnp.png)
 
-* El panel es la primera página que verá cuando inicie sesión en la aplicación de Azure IoT Central. Como un *generador de soluciones*, puede crear y personalizar varios paneles de aplicaciones globales para otros usuarios. Más información sobre [agregar iconos al panel](../core/howto-add-tiles-to-your-dashboard.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json)
+* El panel es la primera página que verá cuando inicie sesión en la aplicación de Azure IoT Central. Como *creador de soluciones*, puede crear y personalizar varios paneles de aplicaciones globales para otros usuarios. Más información sobre [agregar iconos al panel](../core/howto-add-tiles-to-your-dashboard.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json)
 
 * Como *operador*, si su rol de usuario lo permite, puede crear paneles personales para supervisar lo que le interesa. Para más información, consulte el artículo [Creación de paneles personales de Azure IoT Central](../core/howto-create-personal-dashboards.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json).
 
@@ -167,8 +167,8 @@ La página de trabajos le permite realizar operaciones de administración de dis
 
 La página de plantillas de dispositivos es donde un generador crea y administra las plantillas de dispositivo en la aplicación. Una plantilla de dispositivo especifica características de dispositivos como:
 
-* Telemetría, estado y medidas de eventos
-* properties (Propiedades)
+* Medidas de telemetría, estado y eventos.
+* Propiedades
 * Comandos:
 * Vistas
 

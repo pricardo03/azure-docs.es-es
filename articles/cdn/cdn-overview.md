@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 05/09/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 6aaa98bea5e6cf1bdffc3dbe28e42e9545a626ea
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 4158df06b4eea175a4225e478325f8f151795850
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67593605"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75660637"
 ---
 # <a name="what-is-a-content-delivery-network-on-azure"></a>¿Qué es una red de entrega de contenido en Azure?
 Una red de entrega de contenido (CDN) es una red distribuida de servidores que puede proporcionar contenido web a los usuarios de manera eficaz. Las redes CDN guardan contenido almacenado en caché en servidores perimetrales en ubicaciones de punto de presencia (POP) que están cerca de los usuarios finales, para minimizar la latencia. 
@@ -35,7 +35,7 @@ Entre las ventajas de usar Azure CDN para entregar los recursos de un sitio web 
 
 Para ver una lista de las ubicaciones actuales de los nodos de CDN, consulte [Ubicaciones POP de Azure CDN](cdn-pop-locations.md).
 
-## <a name="how-it-works"></a>Cómo funciona
+## <a name="how-it-works"></a>Funcionamiento
 ![Información general de la red CDN](./media/cdn-overview/cdn-overview.png)
 
 1. Un usuario (Alice) solicita un archivo (también llamado un recurso) mediante una dirección URL con un nombre de dominio especial, como _&lt;nombre del punto de conexión&gt;_ .azureedge.net. Este nombre puede ser un nombre de host del punto de conexión o un dominio personalizado. El sistema DNS enruta la solicitud hasta la ubicación POP con mejor rendimiento, que normalmente es el punto POP más cercano geográficamente al usuario.
@@ -59,7 +59,7 @@ Cada suscripción de Azure tiene límites predeterminados para los siguientes re
  - El número de puntos de conexión que pueden crearse en un perfil de CDN. 
  - El número de dominios personalizados que pueden asignarse a un punto de conexión.
 
-Para más información acerca de los límites de la suscripción de Azure CDN, consulte [Límites de CDN](https://docs.microsoft.com/azure/azure-subscription-service-limits).
+Para más información acerca de los límites de la suscripción de Azure CDN, consulte [Límites de CDN](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
     
 ## <a name="azure-cdn-features"></a>Características de Azure CDN
 Azure CDN ofrece las siguientes características principales:

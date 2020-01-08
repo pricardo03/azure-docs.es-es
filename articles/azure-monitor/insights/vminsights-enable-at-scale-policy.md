@@ -4,15 +4,15 @@ description: En este artículo se describe cómo habilitar Azure Monitor para VM
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 10/15/2019
-ms.openlocfilehash: 4a89eb36c9aa7369d6145304b572b4245cef3483
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: d9458230d07c1c40a3eec2d51879f58fac6543b5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74109336"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75365825"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-by-using-azure-policy"></a>Habilitar Azure Monitor para VM (vista preliminar) mediante Azure Policy
 
@@ -51,7 +51,7 @@ Esta opción no está relacionada con las acciones de directiva. Está disponibl
 
 En la tabla siguiente se proporciona un desglose de la información que se presenta en la página de cobertura de la directiva y cómo interpretarla.
 
-| Función | DESCRIPCIÓN | 
+| Función | Descripción | 
 |----------|-------------| 
 | **Ámbito** | Grupo de administración y suscripciones a las que tenga o haya heredado el acceso con capacidad de explorar en profundidad la jerarquía de grupos de administración.|
 | **Rol** | Rol para el ámbito, que puede ser lector, propietario o colaborador. En algunos casos, puede aparecer en blanco para indicar que es posible acceder a la suscripción pero no al grupo de administración al que pertenece. La información de las otras columnas varía en función de su rol. El rol es clave para determinar qué datos puede ver y qué acciones puede realizar en cuanto a la asignación de directivas e iniciativas (propietario), editarlas o ver el cumplimiento. |
@@ -77,7 +77,7 @@ Para más información acerca de la asignación de Azure Policy, consulte [Infor
 
 En la tabla siguiente se enumeran las definiciones de directiva para una VM de Azure:
 
-|NOMBRE |DESCRIPCIÓN |type |
+|Nombre |Descripción |Tipo |
 |-----|------------|-----|
 |\[Versión preliminar\]: Habilitar Azure Monitor para VM |Se habilita Azure Monitor para las máquinas virtuales del ámbito especificado (grupo de administración, suscripción o grupo de recursos). Toma el área de trabajo de Log Analytics como parámetro. |Iniciativa |
 |\[Versión preliminar\]: Auditoría de implementación de Dependency Agent: imagen de la VM (SO) no mostrada |Notifica que las máquinas virtuales no son compatibles si la imagen de la máquina virtual (SO) no está definida en la lista y el agente no está instalado. |Directiva |
@@ -91,7 +91,7 @@ En la tabla siguiente se enumeran las definiciones de directiva para una VM de A
 
 En la tabla siguiente se enumeran las definiciones de directiva para un conjunto de escalado de máquinas virtuales de Azure:
 
-|NOMBRE |DESCRIPCIÓN |type |
+|Nombre |Descripción |Tipo |
 |-----|------------|-----|
 |\[Versión preliminar\]: Habilitar Azure Monitor para conjunto de escalado de máquinas virtuales |Se habilita Azure Monitor para los conjuntos de escalado de máquinas virtuales en el ámbito especificado (grupo de administración, suscripción o grupo de recursos). Toma el área de trabajo de Log Analytics como parámetro. Nota: Si establece la directiva Actualizar el conjunto de escalado en Manual, aplique la extensión a todas las máquinas virtuales del conjunto mediante una llamada a la actualización. En el CLI, esto es `az vmss update-instances`. |Iniciativa |
 |\[Versión preliminar\]: Auditoría de implementación de Dependency Agent en conjuntos de escalado de máquinas virtuales: la imagen de la VM (SO) no está en la lista |Notifica que los conjuntos de escalado de máquinas virtuales no son compatibles si la imagen de la máquina virtual (SO) no está definida en la lista y el agente no está instalado. |Directiva |
@@ -103,7 +103,7 @@ En la tabla siguiente se enumeran las definiciones de directiva para un conjunto
 
 La directiva independiente (no se incluye con la iniciativa) se describe a continuación:
 
-|NOMBRE |DESCRIPCIÓN |type |
+|Nombre |Descripción |Tipo |
 |-----|------------|-----|
 |\[Versión preliminar\]: Auditar área de trabajo de Log Analytics en la máquina virtual: error de coincidencia del informe |Se notifica que las máquinas virtuales no son compatibles si no se registran en el área de trabajo de Log Analytics especificada en la asignación de la directiva o iniciativa. |Directiva |
 
@@ -113,7 +113,7 @@ Para crear la asignación de directiva desde la página **Cobertura de directiva
 
 Al asignar la directiva o iniciativa, el ámbito seleccionado en la asignación podría ser el ámbito que se muestra aquí o un subconjunto del mismo. Por ejemplo, es posible que haya creado una asignación para la suscripción (ámbito de la directiva) y no el grupo de administración (ámbito de la cobertura). En este caso, el porcentaje de cobertura indicaría el número de VM del ámbito de la directiva o iniciativa dividido entre las VM del ámbito de la cobertura. En otro caso, es posible que haya excluido algunas VM, grupos de recursos o una suscripción del ámbito de la directiva. Si está en blanco, indica que la directiva o la iniciativa no existe o no tiene permiso. Se proporciona información en **Estado de asignación**.
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 2. En Azure Portal, seleccione **Monitor**. 
 
@@ -143,7 +143,7 @@ Después de crear la asignación, la página **Cobertura de directiva de Azure M
 
 La siguiente matriz asigna cada estado de cumplimiento posible a la iniciativa.  
 
-| Estado de cumplimiento | DESCRIPCIÓN | 
+| Estado de cumplimiento | Descripción | 
 |------------------|-------------|
 | **Compatible** | Todas las VM del ámbito tienen los agentes de Log Analytics y Dependency Agent implementados en ellas.|
 | **No compatible** | No todas las VM del ámbito tienen los agentes de Log Analytics y Dependency Agent implementados en ellas y puede ser necesaria una corrección.|
@@ -155,7 +155,7 @@ La siguiente matriz asigna cada estado de cumplimiento posible a la iniciativa.
 
 En la tabla siguiente se asigna cada estado de la asignación posible a la iniciativa.
 
-| Estado de la asignación | DESCRIPCIÓN | 
+| Estado de la asignación | Descripción | 
 |------------------|-------------|
 | **Success** | Todas las VM del ámbito tienen los agentes de Log Analytics y Dependency Agent implementados en ellas.|
 | **Warning (ADVERTENCIA)** | La suscripción no está en un grupo de administración.|
@@ -195,7 +195,7 @@ En función de los resultados de las directivas incluidas con la iniciativa, las
 En cualquier momento después de asignar una iniciativa a un grupo de administración o una suscripción, puede editarla para modificar las propiedades siguientes:
 
 - Nombre de asignación
-- DESCRIPCIÓN
+- Descripción
 - Asignada por
 - Área de trabajo de Log Analytics
 - Excepciones

@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 07/26/2018
 ms.author: malop
 ms.reviewer: kumud
-ms.openlocfilehash: 6046ab98e657cd14a2ac883cd32709c9a1b5da57
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: ba65c8ed30bce1f0128e1a1f8604744a732384c1
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721486"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646836"
 ---
 # <a name="security-groups"></a>Grupos de seguridad
 <a name="network-security-groups"></a>
@@ -29,26 +29,26 @@ En este artículo se explican los conceptos de los grupos de seguridad de red pa
 
 ## <a name="security-rules"></a>Reglas de seguridad
 
-Un grupo de seguridad de red puede contener cero reglas, o tantas reglas como desee, siempre que esté dentro de los [límites](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) de la suscripción de Azure. Cada regla especifica las siguientes propiedades:
+Un grupo de seguridad de red puede contener cero reglas, o tantas reglas como desee, siempre que esté dentro de los [límites](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) de la suscripción de Azure. Cada regla especifica las siguientes propiedades:
 
 |Propiedad  |Explicación  |
 |---------|---------|
-|NOMBRE|Un nombre único dentro del grupo de seguridad de red.|
+|Nombre|Un nombre único dentro del grupo de seguridad de red.|
 |Priority | Un número entre 100 y 4096. Las reglas se procesan en orden de prioridad. Se procesan primero las reglas con los números más bajos ya que estos tienen más prioridad. Si el tráfico coincide con una regla, se detiene el procesamiento. Como resultado, las reglas con menor prioridad (números más altos) que tengan los mismos atributos que las reglas con una prioridad mayor no se procesarán.|
 |Origen o destino| Cualquiera, una dirección IP individual, un bloque CIDR de enrutamiento entre dominios sin clases (10.0.0.0/24, por ejemplo), una [etiqueta de servicio](service-tags-overview.md) o un [grupo de seguridad de aplicaciones](#application-security-groups). Si especifica una dirección para un recurso de Azure, especifique la dirección IP privada asignada al recurso. Las grupos de seguridad de red se procesan después de que Azure traduzca una dirección IP pública a una dirección IP privada para el tráfico de entrada y antes de que Azure traduzca una dirección IP privada a una dirección IP pública para el tráfico de salida. Más información sobre [direcciones IP](virtual-network-ip-addresses-overview-arm.md) de Azure. La especificación de un intervalo, una etiqueta de servicio o grupo de seguridad de aplicaciones le permite crear menos reglas de seguridad. La posibilidad de especificar varias direcciones IP individuales e intervalos (no puede especificar varias etiquetas de servicio ni grupos de aplicaciones) en una regla se conoce como [reglas de seguridad aumentada](#augmented-security-rules). Las reglas de seguridad aumentada solo se pueden generar en los grupos de seguridad de red creados mediante el modelo de implementación de Resource Manager. No puede especificar varias direcciones IP ni intervalos de ellas en grupos de seguridad de red creados mediante el modelo de implementación clásica. Más información acerca de los [modelos de implementación de Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).|
 |Protocolo     | TCP, UDP, ICMP o Cualquiera.|
 |Dirección| Si la regla se aplica al tráfico entrante o al saliente.|
 |Intervalo de puertos     |Puede especificar un puerto individual o un intervalo de puertos. Por ejemplo, puede especificar 80 o 10000-10005. La especificación de intervalos le permite crear menos reglas de seguridad. Las reglas de seguridad aumentada solo se pueden generar en los grupos de seguridad de red creados mediante el modelo de implementación de Resource Manager. No puede especificar varios puertos ni intervalos de ellos en la misma regla de seguridad de los grupos de seguridad de red creados mediante el modelo de implementación clásica.   |
-|.     | Permitir o denegar        |
+|Acción     | Permitir o denegar        |
 
 Las reglas de seguridad de los grupos de seguridad de red se evalúan por prioridad mediante información en tuplas de 5 elementos (origen, puerto de origen, destino, puerto de destino y protocolo) para permitir o denegar el tráfico. Se crea un registro de flujo para las conexiones existentes. Se permite o deniega la comunicación en función del estado de conexión del registro de flujo. El registro de flujo permite que un grupo de seguridad de red sea con estado. Por ejemplo, si especifica una regla de seguridad de salida para cualquier dirección a través del puerto 80, no será necesario especificar una regla de seguridad de entrada para la respuesta al tráfico saliente. Solo debe especificar una regla de seguridad de entrada si la comunicación se inicia de forma externa. Lo contrario también es cierto. Si se permite el tráfico entrante a través de un puerto, no es necesario especificar una regla de seguridad de salida para responder al tráfico a través del puerto.
 No es posible interrumpir las conexiones existentes cuando se elimina una regla de seguridad que habilitó el flujo. Los flujos de tráfico se interrumpen cuando se detienen las conexiones y no fluye ningún tráfico en ambas direcciones durante al menos unos minutos.
 
-Hay límites en el número de reglas de seguridad que puede crear en un grupo de seguridad de red. Para más información, consulte el artículo acerca de los [límites de Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+Hay límites en el número de reglas de seguridad que puede crear en un grupo de seguridad de red. Para más información, consulte el artículo acerca de los [límites de Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
 ## <a name="augmented-security-rules"></a>Reglas de seguridad aumentada
 
-Las reglas de seguridad aumentada permiten simplificar la definición de seguridad para las redes virtuales, lo que le permitirá definir directivas de seguridad de red más grandes y complejas, con menos reglas. Puede combinar varios puertos y varias direcciones IP explícitas e intervalos en una única regla de seguridad de fácil comprensión. Use reglas aumentadas en los campos de origen, destino y puerto de una regla. Para simplificar el mantenimiento de la definición de la regla de seguridad, combine las reglas de seguridad aumentada con [etiquetas de servicio](service-tags-overview.md) o [grupos de seguridad de aplicaciones](#application-security-groups). Hay límites en el número de direcciones, intervalos y puertos que se pueden especificar en una regla. Para más información, consulte el artículo acerca de los [límites de Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+Las reglas de seguridad aumentada permiten simplificar la definición de seguridad para las redes virtuales, lo que le permitirá definir directivas de seguridad de red más grandes y complejas, con menos reglas. Puede combinar varios puertos y varias direcciones IP explícitas e intervalos en una única regla de seguridad de fácil comprensión. Use reglas aumentadas en los campos de origen, destino y puerto de una regla. Para simplificar el mantenimiento de la definición de la regla de seguridad, combine las reglas de seguridad aumentada con [etiquetas de servicio](service-tags-overview.md) o [grupos de seguridad de aplicaciones](#application-security-groups). Hay límites en el número de direcciones, intervalos y puertos que se pueden especificar en una regla. Para más información, consulte el artículo acerca de los [límites de Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
 ## <a name="service-tags"></a>Etiquetas de servicio
 
@@ -64,19 +64,19 @@ Azure crea las siguientes reglas predeterminadas en cada grupo de seguridad de r
 
 #### <a name="allowvnetinbound"></a>AllowVNetInBound
 
-|Priority|Source|Puertos de origen|Destination|Puertos de destino|Protocolo|Access|
+|Priority|Source|Puertos de origen|Destination|Puertos de destino|Protocolo|Acceso|
 |---|---|---|---|---|---|---|
 |65000|VirtualNetwork|0-65535|VirtualNetwork|0-65535|Any|Allow|
 
 #### <a name="allowazureloadbalancerinbound"></a>AllowAzureLoadBalancerInBound
 
-|Priority|Source|Puertos de origen|Destination|Puertos de destino|Protocolo|Access|
+|Priority|Source|Puertos de origen|Destination|Puertos de destino|Protocolo|Acceso|
 |---|---|---|---|---|---|---|
 |65001|AzureLoadBalancer|0-65535|0.0.0.0/0|0-65535|Any|Allow|
 
 #### <a name="denyallinbound"></a>DenyAllInbound
 
-|Priority|Source|Puertos de origen|Destination|Puertos de destino|Protocolo|Access|
+|Priority|Source|Puertos de origen|Destination|Puertos de destino|Protocolo|Acceso|
 |---|---|---|---|---|---|---|
 |65500|0.0.0.0/0|0-65535|0.0.0.0/0|0-65535|Any|Denegar|
 
@@ -84,19 +84,19 @@ Azure crea las siguientes reglas predeterminadas en cada grupo de seguridad de r
 
 #### <a name="allowvnetoutbound"></a>AllowVnetOutBound
 
-|Priority|Source|Puertos de origen| Destination | Puertos de destino | Protocolo | Access |
+|Priority|Source|Puertos de origen| Destination | Puertos de destino | Protocolo | Acceso |
 |---|---|---|---|---|---|---|
 | 65000 | VirtualNetwork | 0-65535 | VirtualNetwork | 0-65535 | Any | Allow |
 
 #### <a name="allowinternetoutbound"></a>AllowInternetOutBound
 
-|Priority|Source|Puertos de origen| Destination | Puertos de destino | Protocolo | Access |
+|Priority|Source|Puertos de origen| Destination | Puertos de destino | Protocolo | Acceso |
 |---|---|---|---|---|---|---|
 | 65001 | 0.0.0.0/0 | 0-65535 | Internet | 0-65535 | Any | Allow |
 
 #### <a name="denyalloutbound"></a>DenyAllOutBound
 
-|Priority|Source|Puertos de origen| Destination | Puertos de destino | Protocolo | Access |
+|Priority|Source|Puertos de origen| Destination | Puertos de destino | Protocolo | Acceso |
 |---|---|---|---|---|---|---|
 | 65500 | 0.0.0.0/0 | 0-65535 | 0.0.0.0/0 | 0-65535 | Any | Denegar |
 
@@ -110,13 +110,13 @@ Los grupos de seguridad de aplicaciones le permiten configurar la seguridad de r
 
 ![Grupos de seguridad de aplicaciones](./media/security-groups/application-security-groups.png)
 
-En la imagen anterior, *NIC1* y *NIC2* son miembros del grupo de seguridad de aplicaciones *AsgWeb*. *NIC3* es miembro del grupo de seguridad de aplicaciones *AsgLogic*. *NIC4* es miembro del grupo de seguridad de aplicaciones *AsgDb*. Aunque cada interfaz de red de este ejemplo solo es miembro de un grupo de seguridad de aplicaciones, una interfaz de red puede ser miembro de varios grupos de seguridad de aplicaciones, hasta los [límites de Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). Ninguna de las interfaces de red tiene un grupo de seguridad de red asociado. *NSG1* está asociado a ambas subredes y contiene las siguientes reglas:
+En la imagen anterior, *NIC1* y *NIC2* son miembros del grupo de seguridad de aplicaciones *AsgWeb*. *NIC3* es miembro del grupo de seguridad de aplicaciones *AsgLogic*. *NIC4* es miembro del grupo de seguridad de aplicaciones *AsgDb*. Aunque cada interfaz de red de este ejemplo solo es miembro de un grupo de seguridad de aplicaciones, una interfaz de red puede ser miembro de varios grupos de seguridad de aplicaciones, hasta los [límites de Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). Ninguna de las interfaces de red tiene un grupo de seguridad de red asociado. *NSG1* está asociado a ambas subredes y contiene las siguientes reglas:
 
 ### <a name="allow-http-inbound-internet"></a>Allow-HTTP-Inbound-Internet
 
 Esta regla es necesaria para permitir el tráfico de Internet a los servidores web. Dado que la regla de seguridad predeterminada [DenyAllInbound](#denyallinbound) deniega el tráfico entrante desde Internet, no es necesaria ninguna regla adicional para los grupos de seguridad de aplicaciones *AsgLogic* y *AsgDb*.
 
-|Priority|Source|Puertos de origen| Destination | Puertos de destino | Protocolo | Access |
+|Priority|Source|Puertos de origen| Destination | Puertos de destino | Protocolo | Acceso |
 |---|---|---|---|---|---|---|
 | 100 | Internet | * | AsgWeb | 80 | TCP | Allow |
 
@@ -124,7 +124,7 @@ Esta regla es necesaria para permitir el tráfico de Internet a los servidores w
 
 Dado que la regla de seguridad predeterminada [AllowVNetInBound](#allowvnetinbound) permite todas las comunicaciones entre los recursos de la misma red virtual, se necesita esta regla para denegar el tráfico desde todos los recursos.
 
-|Priority|Source|Puertos de origen| Destination | Puertos de destino | Protocolo | Access |
+|Priority|Source|Puertos de origen| Destination | Puertos de destino | Protocolo | Acceso |
 |---|---|---|---|---|---|---|
 | 120 | * | * | AsgDb | 1433 | Any | Denegar |
 
@@ -132,7 +132,7 @@ Dado que la regla de seguridad predeterminada [AllowVNetInBound](#allowvnetinbou
 
 Esta regla permite el tráfico desde el grupo de seguridad de aplicaciones *AsgLogic* al grupo de seguridad de aplicaciones *AsgDb*. La prioridad de esta regla es mayor que la prioridad de la regla *Deny-Database-All*. Como resultado, esta regla se procesa antes que la regla *Deny-Database-All*, por lo que se permite el tráfico del grupo de seguridad de aplicaciones *AsgLogic*, mientras que el resto del tráfico es bloqueado.
 
-|Priority|Source|Puertos de origen| Destination | Puertos de destino | Protocolo | Access |
+|Priority|Source|Puertos de origen| Destination | Puertos de destino | Protocolo | Acceso |
 |---|---|---|---|---|---|---|
 | 110 | AsgLogic | * | AsgDb | 1433 | TCP | Allow |
 
@@ -140,7 +140,7 @@ Las reglas que especifican un grupo de seguridad de aplicaciones como origen o d
 
 Los grupos de seguridad de aplicaciones presentan las siguientes restricciones:
 
--   Hay límites en el número de grupos de seguridad de aplicaciones que puede tener en una suscripción, así como otros límites relacionados con los grupos de seguridad de aplicaciones. Para más información, consulte el artículo acerca de los [límites de Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+-   Hay límites en el número de grupos de seguridad de aplicaciones que puede tener en una suscripción, así como otros límites relacionados con los grupos de seguridad de aplicaciones. Para más información, consulte el artículo acerca de los [límites de Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 - Puede especificar un grupo de seguridad de aplicaciones como origen y destino en una regla de seguridad. No puede especificar varios grupos de seguridad de aplicaciones en el origen o el destino.
 - Todas las interfaces de red asignadas a un grupo de seguridad de aplicaciones deben existir en la misma red virtual en la que se encuentra la primera interfaz de red asignada a dicho grupo. Por ejemplo, si la primera interfaz de red asignada a un grupo de seguridad de aplicaciones llamado *AsgWeb* está en la red virtual llamada *VNet1*, todas las sucesivas interfaces de red asignadas a *ASGWeb* deben existir en *VNet1*. No se pueden agregar interfaces de red de distintas redes virtuales al mismo grupo de seguridad de aplicaciones.
 - Si especifica grupos de seguridad de aplicaciones como origen y destino de una regla de seguridad, las interfaces de red de ambos grupos de seguridad de aplicaciones deben existir en la misma red virtual. Por ejemplo, si *AsgLogic* contiene interfaces de red de *VNet1* y *AsgDb* contiene interfaces de red de *VNet2*, no puede asignar *AsgLogic* como origen y *AsgDb* como destino en una regla. Todas las interfaces de red para los grupos de seguridad de aplicaciones de origen y de destino deben existir en la misma red virtual.

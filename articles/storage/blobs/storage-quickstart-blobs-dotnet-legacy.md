@@ -7,12 +7,12 @@ ms.date: 07/20/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: ee95ccd30d0f2eddcca7327dc4e5b60a3efe7e64
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: b243d05619642e1dd3ad8dfe2bbe1d0a9661b773
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825415"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351319"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v11-for-net"></a>Inicio rápido: Biblioteca cliente de Azure Blob Storage v11 para .NET
 
@@ -21,7 +21,7 @@ Introducción a la biblioteca cliente de Azure Blob Storage v11 para .NET. Azure
 Use la biblioteca cliente de Azure Blob Storage para .NET para:
 
 * Crear un contenedor
-* Establecer los permisos en un contenedor
+* Establecimiento de los permisos en un contenedor
 * Crear un blob en Azure Storage
 * Descargar el blob en el equipo local
 * Enumerar todos los blobs de un contenedor
@@ -31,7 +31,7 @@ Use la biblioteca cliente de Azure Blob Storage para .NET para:
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
 * Una cuenta de Azure Storage: [cree una cuenta de almacenamiento](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
@@ -78,7 +78,7 @@ Build succeeded.
 Time Elapsed 00:00:03.08
 ```
 
-### <a name="install-the-package"></a>Instalación del paquete
+### <a name="install-the-package"></a>Instalar el paquete
 
 Mientras sigue en el directorio de aplicaciones, instale el paquete de la biblioteca de cliente de Azure Blob Storage para .NET con el comando `dotnet add package`.
 
@@ -145,7 +145,7 @@ Una vez que haya copiado la cadena de conexión, escríbala en una variable de e
 #### <a name="windows"></a>Windows
 
 ```cmd
-setx CONNECT_STR "<yourconnectionstring>"
+setx AZURE_STORAGE_CONNECTION_STRING "<yourconnectionstring>"
 ```
 
 Después de agregar la variable de entorno en Windows, debe iniciar una nueva instancia de la ventana de comandos.
@@ -153,13 +153,13 @@ Después de agregar la variable de entorno en Windows, debe iniciar una nueva in
 #### <a name="linux"></a>Linux
 
 ```bash
-export CONNECT_STR="<yourconnectionstring>"
+export AZURE_STORAGE_CONNECTION_STRING="<yourconnectionstring>"
 ```
 
 #### <a name="macos"></a>MacOS
 
 ```bash
-export CONNECT_STR="<yourconnectionstring>"
+export AZURE_STORAGE_CONNECTION_STRING="<yourconnectionstring>"
 ```
 
 Después de agregar la variable de entorno, reinicie todos los programas en ejecución que necesiten leer esta variable. Por ejemplo, reinicie el entorno de desarrollo o el editor antes de continuar.
@@ -187,7 +187,7 @@ Use las siguientes clases de .NET para interactuar con estos recursos:
 
 Estos fragmentos de código de ejemplo muestran cómo realizar las siguientes acciones con la biblioteca de cliente de Azure Blob Storage para. NET:
 
-   * [Autenticación del cliente](#authenticate-the-client)
+   * [Autenticar el cliente](#authenticate-the-client)
    * [Creación de un contenedor](#create-a-container)
    * [Establecimiento de los permisos en un contenedor](#set-permissions-on-a-container)
    * [Carga de los blobs en un contenedor](#upload-blobs-to-a-container)
@@ -195,7 +195,7 @@ Estos fragmentos de código de ejemplo muestran cómo realizar las siguientes ac
    * [Descarga de los blobs](#download-blobs)
    * [Eliminación de un contenedor](#delete-a-container)
 
-### <a name="authenticate-the-client"></a>Autenticación del cliente
+### <a name="authenticate-the-client"></a>Autenticar el cliente
 
 El código siguiente comprueba que la variable de entorno contiene una cadena de conexión que se pueda analizar para crear un objeto [CloudStorageAccount](/dotnet/api/microsoft.azure.storage.cloudstorageaccount?view=azure-dotnet) que señala a la cuenta de almacenamiento. Para comprobar que la cadena de conexión es válida, use el método [TryParse](/dotnet/api/microsoft.azure.storage.cloudstorageaccount.tryparse?view=azure-dotnet). Si `TryParse` es correcto, inicializa la variable `storageAccount` y devuelve `true`.
 
@@ -204,11 +204,11 @@ Agregue este código dentro del método `ProcessAsync`:
 ```csharp
 // Retrieve the connection string for use with the application. The storage 
 // connection string is stored in an environment variable on the machine 
-// running the application called CONNECT_STR. If the 
+// running the application called AZURE_STORAGE_CONNECTION_STRING. If the 
 // environment variable is created after the application is launched in a 
 // console or with Visual Studio, the shell or application needs to be closed
 // and reloaded to take the environment variable into account.
-string storageConnectionString = Environment.GetEnvironmentVariable("CONNECT_STR");
+string storageConnectionString = Environment.GetEnvironmentVariable("AZURE_STORAGE_CONNECTION_STRING");
 
 // Check whether the connection string can be parsed.
 CloudStorageAccount storageAccount;
@@ -223,7 +223,7 @@ else
     // Otherwise, let the user know that they need to define the environment variable.
     Console.WriteLine(
         "A connection string has not been defined in the system environment variables. " +
-        "Add an environment variable named 'CONNECT_STR' with your storage " +
+        "Add an environment variable named 'AZURE_STORAGE_CONNECTION_STRING' with your storage " +
         "connection string as a value.");
     Console.WriteLine("Press any key to exit the application.");
     Console.ReadLine();

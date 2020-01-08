@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/06/2019
 ms.author: kumud
-ms.openlocfilehash: 340c9192b43cbcf2daacfb791d85135518dd970c
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 6eab9ac7cf4547cb7fe3e736c16c3c0bd5f5bd9d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747885"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425883"
 ---
 # <a name="add-or-remove-a-subnet-delegation"></a>Adición o eliminación de una delegación de subred
 
@@ -36,9 +36,9 @@ En esta sección, creará una red virtual y la subred que posteriormente delegar
 1. En la parte superior izquierda de la pantalla, seleccione **Crear un recurso** > **Redes** > **Red virtual**.
 1. En **Creación de una red virtual**, escriba o seleccione esta información:
 
-    | Configuración | Valor |
+    | Configuración | Value |
     | ------- | ----- |
-    | NOMBRE | Escriba *MyVirtualNetwork*. |
+    | Nombre | Escriba *MyVirtualNetwork*. |
     | Espacio de direcciones | Escriba *10.0.0.0/16*. |
     | Subscription | Seleccione su suscripción.|
     | Resource group | Seleccione **Crear nuevo**, escriba *myResourceGroup* y, después, seleccione **Aceptar**. |
@@ -70,7 +70,7 @@ En esta sección, delegará la subred que creó en la sección anterior en un se
 3. Seleccione **Subredes** en **CONFIGURACIÓN** y, después, seleccione **mySubnet**.
 4. En la página *mySubnet*, en la lista **Subnet delegation** (Delegación de subred), seleccione **None** (Ninguno) en los servicios enumerados en **Delegate subnet to a service** (Delegar subred en un servicio). 
 
-## <a name="azure-cli"></a>CLI de Azure
+## <a name="azure-cli"></a>Azure CLI
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -124,7 +124,7 @@ Use [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network
 Para comprobar que la delegación se ha aplicado, use [az network vnet subnet show](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-show). Compruebe que el servicio esté delegado en la subred bajo la propiedad **serviceName**:
 
 ```azurecli-interactive
-  az network vnet show \
+  az network vnet subnet show \
   --resource-group myResourceGroup \
   --name mySubnet \
   --vnet-name myVnet
@@ -177,7 +177,7 @@ La salida del comando es un corchete nulo:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-### <a name="connect-to-azure"></a>Conexión a Azure
+### <a name="connect-to-azure"></a>Conexión con Azure
 
 ```azurepowershell-interactive
   Connect-AzAccount

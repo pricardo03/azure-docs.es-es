@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 10/30/2019
 ms.author: mahender
 ms.reviewer: yevbronsh
-ms.openlocfilehash: 6fa8e560dc50859fc0501dde8109ddc7cbd596b8
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: f341f5bbf7221664301ca53eea1edd6af7544950
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688630"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422050"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Cómo usar identidades administradas para App Service y Azure Functions
 
@@ -40,7 +40,7 @@ Para configurar una identidad administrada en el portal, primero creará una apl
 
 4. En la pestaña **Asignado por el sistema**, cambie **Estado** a **Activado**. Haga clic en **Save**(Guardar).
 
-    ![Identidad administrada en App Service](media/app-service-managed-service-identity/msi-blade-system.png)
+    ![Identidad administrada en App Service](media/app-service-managed-service-identity/system-assigned-managed-identity-in-azure-portal.png)
 
 ### <a name="using-the-azure-cli"></a>Uso de la CLI de Azure
 
@@ -169,7 +169,7 @@ En primer lugar, tendrá que crear un recurso de identidad asignada por el usuar
 
 6. Busque la identidad que creó anteriormente y selecciónela. Haga clic en **Agregar**.
 
-    ![Identidad administrada en App Service](media/app-service-managed-service-identity/msi-blade-user.png)
+    ![Identidad administrada en App Service](media/app-service-managed-service-identity/user-assigned-managed-identity-in-azure-portal.png)
 
 ### <a name="using-an-azure-resource-manager-template"></a>Uso de una plantilla de Azure Resource Manager
 
@@ -251,7 +251,7 @@ Una aplicación con una identidad administrada tiene dos variables de entorno de
 
 La variable **MSI_ENDPOINT** es una dirección URL local desde la que la aplicación puede solicitar tokens. Para obtener un token para un recurso, realice una solicitud HTTP GET para este punto de conexión, incluyendo los parámetros siguientes:
 
-> |Nombre de parámetro|En|DESCRIPCIÓN|
+> |Nombre de parámetro|En|Descripción|
 > |-----|-----|-----|
 > |resource|Consultar|El URI del recurso del recurso AAD para el que se debe obtener un token. Este podría ser uno de los [servicios de Azure que admiten la autenticación de Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) o cualquier otro URI de recurso.|
 > |api-version|Consultar|La versión de la API de token que se usará. Actualmente, la única versión admitida es "2017-09-01".|
@@ -263,7 +263,7 @@ La variable **MSI_ENDPOINT** es una dirección URL local desde la que la aplicac
 
 Una respuesta 200 OK incluye un cuerpo JSON con las siguientes propiedades:
 
-> |Nombre de propiedad|DESCRIPCIÓN|
+> |Nombre de propiedad|Descripción|
 > |-------------|----------|
 > |access_token|El token de acceso solicitado. El servicio web de llamada puede usar este token para autenticarse en el servicio web de recepción.|
 > |expires_on|La hora a la que expira el token de acceso. La fecha se representa como el número de segundos desde 1970-01-01T0:0:0Z UTC hasta la fecha de expiración. Este valor se utiliza para determinar la duración de los tokens almacenados en caché.|

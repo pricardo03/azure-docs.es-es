@@ -1,5 +1,6 @@
 ---
-title: 'Azure VMware Solution by CloudSimple: mantenimiento y actualizaciones de CloudSimple'
+title: Mantenimiento y actualizaciones de CloudSimple
+titleSuffix: Azure VMware Solution by CloudSimple
 description: Describe el proceso de servicio de CloudSimple para las operaciones de mantenimiento y las actualizaciones programadas
 author: sharaths-cs
 ms.author: dikamath
@@ -8,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 92f02c0abef6755213d4c73189c7e0a593867ef6
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 826fae1123b355a4143118b53ba649f0939acaf7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877930"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75372830"
 ---
 # <a name="cloudsimple-maintenance-and-updates"></a>Mantenimiento y actualizaciones de CloudSimple
 
@@ -38,7 +39,7 @@ CloudSimple también supervisa continuamente si hay errores en los elementos sig
 * Puertos de NIC física
 * Servidores
 * Ventiladores
-* Potencia
+* Power
 * Conmutadores
 * Puertos de conmutador
 
@@ -52,7 +53,7 @@ CloudSimple crea copias de seguridad de estos elementos de VMware en las nubes p
 * vSAN
 * NSX
 
-## <a name="back-up-and-restore"></a>Creación de copias de seguridad y restauración de datos
+## <a name="back-up-and-restore"></a>Copia de seguridad y restauración
 
 La copia de seguridad de CloudSimple incluye:
 

@@ -10,12 +10,12 @@ ms.date: 02/20/2019
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
-ms.openlocfilehash: d7cafa6ec385ed296a5341efdaec1b16f7742683
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 7ad0367a89730c3aba37c5f75158cb42ae4ae668
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928805"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440070"
 ---
 # <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Tutorial: Creación de una instancia de Azure Data Factory mediante una plantilla de Azure Resource Manager
 
@@ -38,7 +38,7 @@ Instale los módulos de Azure PowerShell siguiendo las instrucciones de [Cómo i
 
 ## <a name="resource-manager-templates"></a>Plantillas de Resource Manager
 
-Para más información acerca de las plantillas de Azure Resource Manager en general, consulte [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
+Para más información acerca de las plantillas de Azure Resource Manager en general, consulte [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md).
 
 En la siguiente sección se proporciona la plantilla completa de Resource Manager para definir las entidades de Data Factory para que pueda ejecutar el tutorial rápidamente y probar la plantilla. Para entender cómo se define cada entidad de Data Factory, consulte la sección [Entidades de Data Factory en la plantilla](#data-factory-entities-in-the-template).
 
@@ -287,7 +287,7 @@ Cree un archivo JSON denominado **ADFTutorialARM Parameters.json** que contenga 
 
 > [!IMPORTANT]
 > - Especifique el nombre y la clave de la cuenta de Azure Storage para los parámetros **storageAccountName** y **storageAccountKey** en este archivo de parámetros. Ha creado el contenedor adftutorial y ha cargado el archivo de ejemplo (emp.txt) en la carpeta de entrada en esta instancia de Azure Blob Storage.
-> - Especifique un nombre globalmente único para el generador de datos para el parámetro **dataFactoryName**. Por ejemplo:  ARMTutorialFactoryJohnDoe11282017.
+> - Especifique un nombre globalmente único para el generador de datos para el parámetro **dataFactoryName**. Por ejemplo: ARMTutorialFactoryJohnDoe11282017.
 > - En **triggerStartTime**, especifique el día actual con el formato: `2019-09-08T00:00:00`.
 > - En **triggerEndTime**, especifique el día siguiente con el formato: `2019-09-09T00:00:00`. También puede comprobar la hora UTC actual y especificar la hora, o dos horas, siguiente como hora de finalización. Por ejemplo, si la hora UTC actual es 1:32 a. m., especifique `2019-09-09:03:00:00` como la hora de finalización. En ese caso, el desencadenador ejecuta la canalización dos veces (a las 2 a. m. y a las 3 a. m.).
 

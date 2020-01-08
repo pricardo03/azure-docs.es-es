@@ -1,18 +1,14 @@
 ---
 title: Actualización de Azure Monitor para contenedores para habilitar métricas | Microsoft Docs
 description: En este artículo se describe cómo actualizar Azure Monitor para contenedores para habilitar la característica de métricas personalizadas, que permite explorar métricas y recibir alertas de métricas agregadas.
-ms.service: azure-monitor
-ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
 ms.date: 11/11/2019
-ms.openlocfilehash: 5a43d7e23c9d6550e8985599786ff968050f19c1
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 0a2674df4a05d856b35dd51dbb33af0f407db29f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707485"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75403238"
 ---
 # <a name="how-to-update-azure-monitor-for-containers-to-enable-metrics"></a>Actualización de Azure Monitor para contenedores para habilitar métricas
 
@@ -24,7 +20,7 @@ Azure Monitor para contenedores permite recopilar métricas de pods y nodos de c
 
 Las siguientes métricas están habilitadas como parte de esta característica:
 
-| Espacio de nombres de métricas | Métrica | DESCRIPCIÓN |
+| Espacio de nombres de métricas | Métrica | Descripción |
 |------------------|--------|-------------|
 | insights.container/nodes | cpuUsageMillicores, cpuUsagePercentage, memoryRssBytes, memoryRssPercentage, memoryWorkingSetBytes, memoryWorkingSetPercentage, nodesCount | Son métricas de *nodo* e incluyen *host* como una dimensión. También incluyen el<br> nombre del nodo como valor de la dimensión *host*. |
 | insights.container/pods | podCount | Son métricas de *pod*, e incluyen las siguientes dimensiones: ControllerName, espacio de nombres de Kubernetes, nombre y fase. |
@@ -33,7 +29,7 @@ La actualización del clúster para admitir estas nuevas capacidades se puede re
 
 Cada proceso asigna el rol **Publicador de métricas de supervisión** a la entidad de servicio del clúster para que los datos recopilados por el agente se puedan publicar en el recurso del clúster. El rol Publicador de métricas de supervisión tiene permiso únicamente para insertar métricas en el recurso; no puede modificar ningún estado, actualizar el recurso ni leer datos. Para obtener más información sobre este rol, vea [Rol Publicador de métricas de supervisión](../../role-based-access-control/built-in-roles.md#monitoring-metrics-publisher).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de empezar, confirme lo siguiente:
 

@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 12/02/2019
 ms.author: lbosq
-ms.openlocfilehash: 7bc5544249b7e476afde08281aa005569ef6f8ce
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: d1e21827dda26f1c577f6cc70a5e34bb09a34d9c
+ms.sourcegitcommit: 801e9118fae92f8eef8d846da009dddbd217a187
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873733"
+ms.lasthandoff: 12/27/2019
+ms.locfileid: "75500064"
 ---
 # <a name="graph-data-modeling-for-azure-cosmos-db-gremlin-api"></a>Modelado de datos de grafo para la API para Gremlin de Azure Cosmos DB
 
@@ -23,7 +23,7 @@ El siguiente documento está diseñado para proporcionar recomendaciones para el
 El proceso descrito en esta guía se basa en los siguientes supuestos:
  * Las **entidades** en el espacio del problema están identificadas. Estas entidades están diseñadas para utilizarse _de forma atómica_ para cada solicitud. En otras palabras, el sistema de base de datos no está diseñado para recuperar datos de una sola entidad en varias solicitudes de consulta.
  * Hay un reconocimiento de **requisitos de lectura y escritura** para el sistema de base de datos. Estos requisitos guiarán las optimizaciones que sean necesarias para el modelo de datos de grafo.
- * Los principios del [estándar del grafo de propiedades de Apache Tinkerpop](http://tinkerpop.apache.org/docs/current/reference/#graph-computing) se han entendido bien.
+ * Los principios del [estándar del grafo de propiedades de Apache Tinkerpop](https://tinkerpop.apache.org/docs/current/reference/#graph-computing) se han entendido bien.
 
 ## <a name="when-do-i-need-a-graph-database"></a>¿Cuándo es necesaria una base de datos de grafos?
 
@@ -41,18 +41,18 @@ El siguiente paso es determinar si el grafo se va a usar para fines analíticos 
 
 ## <a name="how-to-use-graph-objects"></a>Cómo usar objetos de grafo
 
-El [estándar del grafo de propiedades de Apache Tinkerpop](http://tinkerpop.apache.org/docs/current/reference/#graph-computing) define dos tipos de objetos **Vértices** y **Bordes**. 
+El [estándar del grafo de propiedades de Apache Tinkerpop](https://tinkerpop.apache.org/docs/current/reference/#graph-computing) define dos tipos de objetos **Vértices** y **Bordes**. 
 
 Los siguientes son los procedimientos recomendados para las propiedades de los objetos de grafo:
 
 | Object | Propiedad | Tipo | Notas |
 | --- | --- | --- |  --- |
-| Vértice | id | Cadena | Se aplica de forma exclusiva por partición. Si no se proporciona un valor al realizar la inserción, se almacenará un GUID generado automáticamente. |
-| Vértice | label | Cadena | Esta propiedad se utiliza para definir el tipo de entidad que representa el vértice. Si no se proporciona un valor, se usará el valor predeterminado "vértice". |
+| Vértice | id | String | Se aplica de forma exclusiva por partición. Si no se proporciona un valor al realizar la inserción, se almacenará un GUID generado automáticamente. |
+| Vértice | etiqueta | String | Esta propiedad se utiliza para definir el tipo de entidad que representa el vértice. Si no se proporciona un valor, se usará el valor predeterminado "vértice". |
 | Vértice | properties | Cadena, booleano, numérico | Una lista de propiedades independientes que se almacenan como pares de clave-valor en cada vértice. |
 | Vértice | clave de partición | Cadena, booleano, numérico | Esta propiedad define dónde se almacenará el vértice y sus bordes salientes. Más información acerca de la [creación de particiones de grafos](graph-partitioning.md). |
-| perimetral | id | Cadena | Se aplica de forma exclusiva por partición. Generado automáticamente de forma predeterminada. Normalmente, con los bordes no hay necesidad de recuperarlos de forma exclusiva mediante un identificador. |
-| perimetral | label | Cadena | Esta propiedad se utiliza para definir el tipo de relación que tienen dos vértices. |
+| perimetral | id | String | Se aplica de forma exclusiva por partición. Generado automáticamente de forma predeterminada. Normalmente, con los bordes no hay necesidad de recuperarlos de forma exclusiva mediante un identificador. |
+| perimetral | etiqueta | String | Esta propiedad se utiliza para definir el tipo de relación que tienen dos vértices. |
 | perimetral | properties | Cadena, booleano, numérico | Una lista de propiedades independientes que se almacenan como pares de clave-valor en cada borde. |
 
 > [!NOTE]

@@ -2,19 +2,15 @@
 title: Reenvío de datos de un trabajo de Azure Automation a registros de Azure Monitor
 description: En este artículo se muestra cómo enviar el estado de un trabajo y las transmisiones de trabajos de runbook a registros de Azure Monitor para ofrecer información y administración adicionales.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 02/05/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: d2433e8193026b8aaa3cbf29eb1411c7449a4953
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: beb69edc57b5a13db0f6d2e5e1536804f3472aff
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849741"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75421917"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-azure-monitor-logs"></a>Reenvío del estado de un trabajo y de transmisiones de trabajos de Automation a registros de Azure Monitor
 
@@ -89,7 +85,7 @@ Diagnósticos de Azure Automation crea dos tipos de registros en Azure Monitor y
 
 ### <a name="job-logs"></a>Registros de trabajo
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 | --- | --- |
 | TimeGenerated |Fecha y hora en que se ejecuta el trabajo de Runbook. |
 | RunbookName_s |El nombre del Runbook. |
@@ -111,7 +107,7 @@ Diagnósticos de Azure Automation crea dos tipos de registros en Azure Monitor y
 
 
 ### <a name="job-streams"></a>Flujos de trabajo
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 | --- | --- |
 | TimeGenerated |Fecha y hora en que se ejecuta el trabajo de Runbook. |
 | RunbookName_s |El nombre del Runbook. |

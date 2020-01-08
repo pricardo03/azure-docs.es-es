@@ -1,17 +1,17 @@
 ---
-title: Conversión de una máquina virtual Windows con discos no administrados a discos administrados - Azure Managed Disks
+title: Conversión de máquina virtual Windows con discos no administrados en discos administrados
 description: Conversión de una máquina virtual Windows con discos no administrados a discos administrados mediante PowerShell en el modelo de implementación de Resource Manager
 author: roygara
 ms.service: virtual-machines-windows
 ms.topic: conceptual
 ms.date: 07/12/2018
 ms.author: rogarana
-ms.openlocfilehash: 92f70cbfcf261c218ea43b159ed49126f7b2ecd5
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 8c180cfc597c0ade27b1fe8cca5a8751176ea12e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033911"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460117"
 ---
 # <a name="convert-a-windows-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Conversión de máquina virtual Windows con discos no administrados en discos administrados
 
@@ -85,7 +85,7 @@ Si las VM que desea convertir en discos administrados se encuentran en un conjun
    ```
 
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 
 Si se produce un error durante la conversión, o si una máquina virtual presenta un estado de error debido a errores en una conversión anterior, ejecute el cmdlet `ConvertTo-AzVMManagedDisk` de nuevo. Normalmente, un simple reintento desbloquea la situación.
 Antes de realizar la conversión, asegúrese de que todas las extensiones de máquina virtual se encuentran en el estado de "Aprovisionamiento realizado correctamente". De lo contrario, se producirá un error de conversión con el código de error 409.
@@ -94,7 +94,7 @@ Antes de realizar la conversión, asegúrese de que todas las extensiones de má
 
 Puede convertir discos no administrados en discos administrados mediante Azure Portal.
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Seleccione la máquina virtual en la lista de máquinas virtuales en el portal.
 3. En la hoja de la máquina virtual, seleccione **Discos** en el menú.
 4. En la parte superior de la hoja **Discos**, seleccione **Migrar a discos administrados**.

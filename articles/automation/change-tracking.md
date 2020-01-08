@@ -2,20 +2,16 @@
 title: Seguimiento de cambios con Azure Automation
 description: La solución Change Tracking ayuda a identificar los cambios en el software y el servicio de Windows que se producen en su entorno.
 services: automation
-ms.service: automation
 ms.subservice: change-inventory-management
-author: mgoedtel
-ms.author: magoedte
 ms.date: 04/29/2019
 ms.topic: conceptual
-manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1fd800062c4a8362919b1818550b2fca9fa3eb88
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 7dce249a3e1e13fc9d7d2a962e7f056c803eb23e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850557"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75418745"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Seguimiento de cambios en el entorno con la solución Change Tracking
 
@@ -44,7 +40,7 @@ Las distribuciones Linux siguientes son compatibles oficialmente. Aunque tambié
 * Red Hat Enterprise Linux Server 6 y 7
 * Debian GNU/Linux 8 y 9
 * Ubuntu Linux 14.04 LTS, 16.04 LTS y 18.04 LTS
-* SUSE Linux Enterprise Server 12
+* SUSE Linux Enterprise Server 12
 
 ### <a name="32-bit"></a>32 bits
 
@@ -95,7 +91,7 @@ Use los pasos siguientes para configurar el seguimiento de archivos en equipos L
 2. En la página **Change Tracking**, seleccione **Archivos Linux** y, a continuación, haga clic en **+ Agregar** para agregar un nuevo archivo para realizar su seguimiento.
 3. En **Agregar archivo de Linux a Change Tracking**, escriba la información del archivo o directorio cuyo seguimiento se va a realizar y haga clic en **Guardar**.
 
-|Propiedad  |DESCRIPCIÓN  |
+|Propiedad  |Descripción  |
 |---------|---------|
 |habilitado     | Determina si se aplica la configuración.        |
 |Nombre del elemento     | Nombre descriptivo del archivo cuyo seguimiento se va a realizar.        |
@@ -118,7 +114,7 @@ Use los pasos siguientes para configurar los archivos de los que se realizará u
 2. En la página **Change Tracking**, seleccione **Archivos de Windows** y, a continuación, haga clic en **+ Agregar** para agregar un nuevo archivo para realizar su seguimiento.
 3. En **Agregar archivo de Windows a Change Tracking**, escriba la información del archivo cuyo seguimiento se va a realizar y haga clic en **Guardar**.
 
-|Propiedad  |DESCRIPCIÓN  |
+|Propiedad  |Descripción  |
 |---------|---------|
 |habilitado     | Determina si se aplica la configuración.        |
 |Nombre del elemento     | Nombre descriptivo del archivo cuyo seguimiento se va a realizar.        |
@@ -150,12 +146,12 @@ Use los pasos siguientes para configurar las claves del registro para realizar u
 2. En la página **Change Tracking**, seleccione **Registro de Windows** y, a continuación, haga clic en **+ Agregar** para agregar una nueva clave del registro para realizar su seguimiento.
 3. En **Agregar registro de Windows a Change Tracking**, escriba la información de la clave cuyo seguimiento se va a realizar y haga clic en **Guardar**.
 
-|Propiedad  |DESCRIPCIÓN  |
+|Propiedad  |Descripción  |
 |---------|---------|
 |habilitado     | Determina si se aplica la configuración.        |
 |Nombre del elemento     | Nombre descriptivo de la clave del Registro cuyo seguimiento se va a realizar.        |
 |Grupo     | Un nombre de grupo para agrupar lógicamente las claves del Registro.        |
-|Clave del registro de Windows   | La ruta de acceso para buscar la clave del Registro. Por ejemplo:  "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
+|Clave del registro de Windows   | La ruta de acceso para buscar la clave del Registro. Por ejemplo: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
 
 ## <a name="limitations"></a>Limitaciones
 
@@ -201,7 +197,7 @@ La siguiente tabla muestra los límites del elemento sometido a seguimiento por 
 |Software de Windows|250|No se incluyen las revisiones de software.|
 |Paquetes Linux|1250||
 |Servicios|250||
-|Daemon|250||
+|Demonio|250||
 
 El uso medio de datos de Log Analytics para una máquina con Change Tracking e inventario es aproximadamente de 40MB al mes. Este valor es solo una aproximación y está sujeto a cambios en función de su entorno. Se recomienda que supervise el entorno para ver el uso exacto que tiene.
 
@@ -272,7 +268,7 @@ Además de los detalles que se proporcionan en el portal, se puede buscar en los
 
 En la tabla siguiente se proporcionan ejemplos de búsquedas de registros para los registros de cambios recopilados por esta solución:
 
-|Consultar  |DESCRIPCIÓN  |
+|Consultar  |Descripción  |
 |---------|---------|
 |ConfigurationData<br>&#124; where   ConfigDataType == "WindowsServices" and SvcStartupType == "Auto"<br>&#124; where SvcState == "Stopped"<br>&#124; summarize arg_max(TimeGenerated, *) by SoftwareName, Computer         | Muestra los registros de inventario más recientes para los servicios de Windows que se establecieron en Automático, pero se han notificado como Detenidos<br>Los resultados se limitan a la entrada más reciente para esos valores de SoftwareName y Computer      |
 |ConfigurationChange<br>&#124; where ConfigChangeType == "Software" and ChangeCategory == "Removed"<br>&#124; order by TimeGenerated desc|Muestra los registros de cambios para el software eliminado|
@@ -301,7 +297,7 @@ Una vez configurados todos los parámetros y la lógica, la alerta se puede apli
 
 Si bien la creación de alertas sobre los cambios en el archivo de hosts es una aplicación conveniente de las alertas para los datos de inventario o Change Tracking, existen muchos más escenarios para las alertas, entre otros, los casos definidos junto con las consultas de ejemplo en la sección siguiente.
 
-|Consultar  |DESCRIPCIÓN  |
+|Consultar  |Descripción  |
 |---------|---------|
 |ConfigurationChange <br>&#124; where ConfigChangeType == "Files" and FileSystemPath contains " c:\\windows\\system32\\drivers\\"|Útil para el seguimiento de cambios en archivos críticos del sistema.|
 |ConfigurationChange <br>&#124; where FieldsChanged contains "FileContentChecksum" and FileSystemPath == "c:\\windows\\system32\\drivers\\etc\\hosts"|Útil para el seguimiento de las modificaciones de los archivos de configuración de claves.|

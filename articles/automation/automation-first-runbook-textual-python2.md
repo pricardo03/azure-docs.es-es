@@ -2,19 +2,15 @@
 title: Mi primer runbook de Python en Azure Automation
 description: Tutorial que le guiará a través de la creación, prueba y publicación de un runbook de Python.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 03/19/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 54b008939b3d083769756b9ac3c3c9e3f7aebea5
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: b17a0403a3b2a3ff8c3586ed26a4b833db54922d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850285"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75365944"
 ---
 # <a name="my-first-python-runbook"></a>Mi primer runbook de Python
 
@@ -29,7 +25,7 @@ Este tutorial le guiará por la creación de un [runbook de Python](automation-r
 > [!NOTE]
 > No se admite el uso de un webhook para iniciar un runbook de Python.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar este tutorial, necesitará lo siguiente:
 

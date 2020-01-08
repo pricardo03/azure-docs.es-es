@@ -2,19 +2,15 @@
 title: Recursos de conexión en Azure Automation
 description: Los activos de conexión en Azure Automation contienen la información necesaria para conectarse a una aplicación o a un servicio externo desde un runbook o una configuración de DSC. En este artículo se explican los detalles de las conexiones y cómo trabajar con ellas en la creación de texto y de gráficos.
 services: automation
-ms.service: automation
 ms.subservice: shared-capabilities
-author: mgoedtel
-ms.author: magoedte
 ms.date: 01/16/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 621441afaa9bef08a8ebf3b0af082c6a17c77b1b
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 0843277ce74bcc10865792367096aefa7591b244
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850438"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75366797"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Recursos de conexión en Azure Automation
 
@@ -39,7 +35,7 @@ En la mayoría de los casos no es necesario crear un recurso de conexión, ya qu
 
 Los cmdlets de la tabla siguiente se usan para crear y administrar conexiones de Automatización con Windows PowerShell. Se incluyen como parte del [módulo Azure PowerShell](/powershell/azure/overview) que está disponible para su uso en las configuraciones de DSC y los runbooks de Automation.
 
-|Cmdlet|DESCRIPCIÓN|
+|Cmdlet|Descripción|
 |:---|:---|
 |[Get-AzureRmAutomationConnection](/powershell/module/azurerm.automation/get-azurermautomationconnection)|Recupera una conexión. Incluye una tabla hash con los valores de los campos de la conexión.|
 |[New-AzureRmAutomationConnection](/powershell/module/azurerm.automation/new-azurermautomationconnection)|Crea una conexión nueva.|
@@ -50,7 +46,7 @@ Los cmdlets de la tabla siguiente se usan para crear y administrar conexiones de
 
 Las actividades de la siguiente tabla se usan para tener acceso a las conexiones de un runbook o de una configuración de DSC.
 
-|Actividades|DESCRIPCIÓN|
+|Actividades|Descripción|
 |---|---|
 |[Get-AutomationConnection](/powershell/module/servicemanagement/azure/get-azureautomationconnection?view=azuresmps-3.7.0)|Obtiene una conexión para usar. Devuelve una tabla hash con las propiedades de la conexión.|
 
@@ -61,7 +57,7 @@ Las actividades de la siguiente tabla se usan para tener acceso a las conexiones
 ## <a name="python2-functions"></a>Funciones de Python2
 La función de la tabla siguiente se usa para obtener acceso a las conexiones de un runbook de Python2.
 
-| Función | DESCRIPCIÓN |
+| Función | Descripción |
 |:---|:---|
 | automationassets.get_automation_connection | Recupera una conexión. Devuelve un diccionario con las propiedades de la conexión. |
 

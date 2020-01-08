@@ -1,18 +1,17 @@
 ---
 title: 'Inicio rápido: Creación de un trabajo de Azure Stream Analytics mediante Visual Studio'
 description: En esta guía de inicio rápido se muestra cómo empezar a crear un trabajo de Stream Analytics, configurar las entradas y salidas y definir una consulta con Visual Studio.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.date: 06/11/2019
 ms.topic: quickstart
 ms.service: stream-analytics
-ms.openlocfilehash: ec3318201fd3fe8f7daf78d05bf316fb88914daf
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 21dbd4128cad7df11aeb713286d868879a58519b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707330"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431540"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-by-using-visual-studio"></a>Inicio rápido: Creación de un trabajo de Azure Stream Analytics con Visual Studio
 
@@ -22,7 +21,7 @@ En esta guía de inicio rápido se muestra cómo crear y ejecutar un trabajo de 
 
 * Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/).
 
-* Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+* Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 * Instale Visual Studio 2019, Visual Studio 2015 o Visual Studio 2013 Update 4. Se admiten las ediciones Enterprise (Ultimate y Premium), Professional y Community. No se admite la edición Express.
 
@@ -32,7 +31,7 @@ En esta guía de inicio rápido se muestra cómo crear y ejecutar un trabajo de 
 
 Antes de definir el trabajo de Stream Analytics, debe preparar los datos, que se configuran más adelante como entrada del trabajo. Para preparar los datos de entrada que requiere el trabajo, siga estos pasos:
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 2. Seleccione **Crear un recurso** > **Internet de las cosas** > **IoT Hub**.
 
@@ -188,7 +187,7 @@ Observe los elementos que se incluyen en un proyecto de Azure Stream Analytics.
 
 4. Para ver los resultados, en el menú **Ver**, seleccione **Cloud Explorer** y vaya a la cuenta de almacenamiento del grupo de recursos. En **Contenedores de blob**, haga doble clic en **contenedor1** y, luego, en la ruta de acceso al archivo de **salida**.
 
-   ![Visualización de los resultados](./media/stream-analytics-quick-create-vs/stream-analytics-vs-results.png)
+   ![Vista de resultados](./media/stream-analytics-quick-create-vs/stream-analytics-vs-results.png)
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

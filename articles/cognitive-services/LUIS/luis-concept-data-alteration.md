@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: diberry
-ms.openlocfilehash: a199821c4db7fd8131ec54700b8c999dfe604a6e
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 1bde70dadbe1e5b8ba9bf90bd9ca2f48a4c65491
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74222022"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75381807"
 ---
 # <a name="alter-utterance-data-before-or-during-prediction"></a>Modificación de datos de expresiones antes o durante la predicción
 LUIS proporciona distintos métodos para manipular la expresión antes o durante la predicción. Entre ellos se incluyen la [corrección de la ortografía](luis-tutorial-bing-spellcheck.md) y la solución de los problemas de la zona horaria para elementos [datetimeV2](luis-reference-prebuilt-datetimev2.md) creados previamente. 
@@ -37,7 +37,7 @@ Usage of the key in the test panel and at the endpoint count toward the [key usa
 
 El punto de conexión requiere dos parámetros para que las correcciones ortográficas funcionen:
 
-|Parámetro|Valor|
+|Parámetro|Value|
 |--|--|
 |`spellCheck`|boolean|
 |`bing-spell-check-subscription-key`|Clave de punto de conexión de [Bing Spell Check API V7](https://azure.microsoft.com/services/cognitive-services/spell-check/)|
@@ -87,7 +87,7 @@ Cuando una aplicación de LUIS usa la entidad [datetimeV2](luis-reference-prebui
 ### <a name="endpoint-querystring-parameter"></a>Parámetro de cadena de consulta de punto de conexión
 La zona horaria se puede corregir agregando la zona horaria del usuario al [punto de conexión](https://go.microsoft.com/fwlink/?linkid=2092356) mediante el parámetro `timezoneOffset`. El valor de `timezoneOffset` debe ser un número positivo o negativo (en minutos) para modificar la hora.  
 
-|Parámetro|Valor|
+|Parámetro|Value|
 |--|--|
 |`timezoneOffset`|número positivo o negativo (en minutos)|
 
@@ -121,7 +121,7 @@ Más información acerca del [punto de conexión de predicción de V3](luis-migr
 ## <a name="c-code-determines-correct-value-of-timezoneoffset"></a>El código de C# determina el valor correcto de timezoneOffset
 El siguiente código de C# usa el método [FindSystemTimeZoneById](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.findsystemtimezonebyid#examples) de la clase [TimeZoneInfo](https://docs.microsoft.com/dotnet/api/system.timezoneinfo) para determinar el `timezoneOffset` correcto según la hora del sistema:
 
-```CSharp
+```csharp
 // Get CST zone id
 TimeZoneInfo targetZone = TimeZoneInfo.FindSystemTimeZoneById("Central Standard Time");
 

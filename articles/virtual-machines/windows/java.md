@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: bf0f2928bd7cbac08a2a887481f19b3acb99f6fa
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 618d9a8d941202db05981566203bf96c02f415a5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74039722"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75358316"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-java"></a>Creación y administración de máquinas virtuales Windows en Azure mediante Java
 
@@ -188,7 +188,7 @@ Antes de empezar este paso, asegúrese de que tiene acceso a una [entidad de ser
 
 ### <a name="create-the-resource-group"></a>Creación del grupo de recursos
 
-Todos los recursos deben encontrarse en un [grupo de recursos](../../azure-resource-manager/resource-group-overview.md).
+Todos los recursos deben encontrarse en un [grupo de recursos](../../azure-resource-manager/management/overview.md).
 
 Para especificar los valores de la aplicación y crear el grupo de recursos, agregue este código al bloque Try del método Main:
 

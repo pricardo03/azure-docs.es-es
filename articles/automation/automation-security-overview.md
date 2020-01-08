@@ -3,20 +3,16 @@ title: Introducción a la autenticación en Azure Automation
 description: Este artículo proporciona información general sobre la seguridad de Automation y los diferentes métodos de autenticación disponibles para las cuentas de automatización de Azure Automation.
 keywords: seguridad de automatización, automatización segura; autenticación de automatización
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 03/19/2018
 ms.topic: conceptual
-manager: carmonm
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0a05497c05051576868c1311857d58caa0d76055
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: b2003469fa35de837c3a9214e40cfb333156b40c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850676"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75420682"
 ---
 # <a name="introduction-to-authentication-in-azure-automation"></a>Introducción a la autenticación en Azure Automation  
 Azure Automation le permite automatizar tareas en recursos de Azure, locales y de otros proveedores de servicios en la nube como Amazon Web Services (AWS).  Para que un runbook realice las acciones necesarias, debe tener permiso de acceso seguro a los recursos con los derechos mínimos necesarios en la suscripción.
@@ -35,7 +31,7 @@ Actualmente, al crear una nueva cuenta de Automation en el portal de Azure, se c
 * Una cuenta de ejecución que crea a una nueva entidad de servicio en Azure Active Directory y un certificado, y asigna el control de acceso basado en rol (RBAC) Colaborador, que se utilizará para administrar los recursos de Resource Manager mediante runbooks.
 * Una cuenta de ejecución clásica mediante la carga de un certificado de administración, que se usa para administrar recursos clásicos mediante runbooks.  
 
-El control de acceso basado en rol está disponible en Azure Resource Manager para conceder las acciones permitidas a una cuenta de usuario de Azure AD y a una cuenta de ejecución, y para autenticar dicha entidad de servicio.  Para más información que le ayude a desarrollar su modelo de administración de permisos de Automatización, consulte el [artículo Control de acceso basado en rol en Azure Automation](automation-role-based-access-control.md) .  
+El control de acceso basado en rol está disponible en Azure Resource Manager para conceder las acciones permitidas a una cuenta de usuario de Azure AD y a una cuenta de ejecución, y para autenticar dicha entidad de servicio.  Para más información que le ayude a desarrollar su modelo de administración de permisos de Automation, consulte el [artículo Control de acceso basado en rol en Azure Automation](automation-role-based-access-control.md) .  
 
 Los Runbooks que se ejecutan en un trabajo Hybrid Runbook Worker en su centro de datos o en servicios de proceso en AWS no pueden usar el mismo método que se usa normalmente para los Runbooks que se autentican en recursos de Azure.  Esto se debe a que esos recursos se ejecutan fuera de Azure y, por lo tanto, requieren sus propias credenciales de seguridad definidas en Automatización para la autenticación en los recursos a los que tienen acceso localmente.  
 
@@ -45,7 +41,7 @@ La tabla siguiente resume los diferentes métodos de autenticación para cada en
 | Método | Entorno | Artículo |
 | --- | --- | --- |
 | Cuenta de usuario de Azure AD |Azure Resource Manager y Azure clásico |[Autenticación de Runbooks con una cuenta de usuario de Azure AD](automation-create-aduser-account.md) |
-| Cuenta de ejecución de Azure |Administrador de recursos de Azure |[Autenticación de Runbooks con una cuenta de ejecución de Azure](automation-sec-configure-azure-runas-account.md) |
+| Cuenta de ejecución de Azure |Azure Resource Manager |[Autenticación de Runbooks con una cuenta de ejecución de Azure](automation-sec-configure-azure-runas-account.md) |
 | Cuenta de ejecución de Azure clásico |Azure clásico |[Autenticación de Runbooks con una cuenta de ejecución de Azure](automation-sec-configure-azure-runas-account.md) |
 | Autenticación de Windows |Centro de datos local |[Autenticación de Runbooks para Hybrid Runbook Worker](automation-hybrid-runbook-worker.md) |
 | Credenciales de AWS |Amazon Web Services |[Autenticación de Runbooks con Amazon Web Services (AWS)](automation-config-aws-account.md) |

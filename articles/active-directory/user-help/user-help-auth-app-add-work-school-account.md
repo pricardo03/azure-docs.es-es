@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bcd69fab269e39a8c78a56c08854262ca839d60f
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: d1d781ee16cd1c78f03b58288bf75e036e38cf00
+ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74267136"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75681232"
 ---
 # <a name="add-your-work-or-school-account-to-the-microsoft-authenticator-app"></a>Agregue la cuenta profesional o educativa a la aplicación Microsoft Authenticator
 
@@ -28,7 +28,7 @@ Si su organización usa la verificación en dos pasos, puede configurar su cuent
 
 ## <a name="add-your-work-or-school-account"></a>Adición de una cuenta profesional o educativa
 
-1. En el equipo, vaya a la página [Comprobación de seguridad adicional](https://aka.ms/mfasetup).
+1. En el equipo, vaya a la página [Comprobación de seguridad adicional](https://account.activedirectory.windowsazure.com/proofup.aspx?proofup=1).
 
     >[!Note]
     >Si no ve la página **Comprobación de seguridad adicional**, es posible que el administrador haya activado la experiencia de información de seguridad (versión preliminar). Si es así, debe seguir las instrucciones de la sección [Configuración de la información de seguridad para usar una aplicación autenticadora](security-info-setup-auth-app.md). Si no es así, deberá ponerse en contacto con el departamento de soporte técnico de su organización para obtener ayuda. Para más información sobre seguridad, consulte [Introducción a la información de seguridad (versión preliminar)](user-help-security-info-overview.md).

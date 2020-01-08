@@ -7,12 +7,12 @@ author: vhorne
 ms.service: web-application-firewall
 ms.date: 10/04/2019
 ms.author: victorh
-ms.openlocfilehash: 0ac37378797c59d79af5d026200b68154836c5ac
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 323f01e08007260d4fb6d651b20937c5d5d5e357
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73585395"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645096"
 ---
 # <a name="custom-rules-for-web-application-firewall-v2-on-azure-application-gateway"></a>Personalización de reglas del Firewall de aplicaciones web v2 en Azure Application Gateway
 
@@ -29,7 +29,7 @@ En una misma regla, las condiciones de coincidencia diferentes siempre se combin
 Si quiere aplicar **o** a dos condiciones diferentes, las dos deben estar en reglas distintas. Por ejemplo, bloquear el tráfico desde una dirección IP específica o bloquear el tráfico si se usa un explorador determinado.
 
 > [!NOTE]
-> El número máximo de reglas personalizadas de WAF es 100. Para más información sobre los límites de Application Gateway, vea [Suscripción de Azure y límites de servicio, cuotas y restricciones](../../azure-subscription-service-limits.md#application-gateway-limits).
+> El número máximo de reglas personalizadas de WAF es 100. Para más información sobre los límites de Application Gateway, vea [Suscripción de Azure y límites de servicio, cuotas y restricciones](../../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits).
 
 En las reglas personalizadas también se admiten expresiones regulares, como en los conjuntos de reglas CRS. Para obtener ejemplos, vea los ejemplos 3 y 5 en [Creación y uso de reglas personalizadas del firewall de aplicaciones web](create-custom-waf-rules.md).
 
@@ -163,10 +163,10 @@ Lista de valores con los que se va a comparar, que se pueden considerar como com
 
 ## <a name="geomatch-custom-rules-preview"></a>Reglas personalizadas de Geomatch (vista previa)
 
-Las reglas personalizadas permiten la creación de reglas adaptadas para satisfacer las necesidades precisas de las aplicaciones y las directivas de seguridad. Ahora puede restringir el acceso a las aplicaciones web por país o región, característica que está disponible en versión preliminar pública. Como con todas las reglas personalizadas, esta lógica puede estar compuesta de otras reglas que se adapten a las necesidades de la aplicación. 
+Las reglas personalizadas permiten la creación de reglas adaptadas para satisfacer las necesidades precisas de las aplicaciones y las directivas de seguridad. Ahora puede restringir el acceso a las aplicaciones web por país o región, característica que está disponible en versión preliminar pública. Como con todas las reglas personalizadas, esta lógica se puede componer con otras reglas para satisfacer las necesidades de la aplicación. 
 
    > [!NOTE]
-   > Las reglas personalizadas de Geomatch están disponibles en Centro-sur de EE. UU. y Norte de Europa. Para acceder a ellas en el portal, use [este vínculo](https://aka.ms/AppGWWAFGeoMatch) hasta que esté disponible para todos. 
+   > Las reglas personalizadas de geocoincidencia están disponibles en Centro-sur de EE. UU. y Norte de Europa. Para acceder a ellas en el portal, use [este vínculo](https://aka.ms/AppGWWAFGeoMatch) hasta que esté disponible para todos. 
 
 Si usa el operador Geomatch, los selectores pueden ser cualquiera de los siguientes códigos de país de dos dígitos. 
 
@@ -264,7 +264,7 @@ Si usa el operador Geomatch, los selectores pueden ser cualquiera de los siguien
 | KW | Kuwait|
 | KY | Islas Caimán|
 | KZ | Kazajistán|
-| LA | República Democrática Popular de Laos|
+| Los Ángeles | República Democrática Popular de Laos|
 | LB | Líbano|
 | LI | Liechtenstein|
 | LK | Sri Lanka|
@@ -295,7 +295,7 @@ Si usa el operador Geomatch, los selectores pueden ser cualquiera de los siguien
 | NG | Nigeria|
 | NI | Nicaragua|
 | NL | Países Bajos|
-| NO | Noruega|
+| No | Noruega|
 | NP | Nepal|
 | NR | Nauru|
 | NZ | Nueva Zelanda|

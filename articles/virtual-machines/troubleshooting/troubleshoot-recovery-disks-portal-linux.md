@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/19/2019
 ms.author: genli
-ms.openlocfilehash: 87b4d761eb7bd1c4a16998e44e8160cda24a05b4
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: e45de5c12f0d93645a0b1253acf8300527cafdbc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71088241"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75374648"
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>Solución de problemas de una máquina virtual Linux mediante la conexión del disco del sistema operativo a una máquina virtual de recuperación mediante Azure Portal
 Si la máquina virtual Linux se encuentra un error de disco o de arranque, deberá realizar los pasos para solucionar problemas en el propio disco duro virtual. Un ejemplo habitual sería una entrada no válida en `/etc/fstab` que impide que la máquina virtual se pueda arrancar correctamente. En este artículo se detalla cómo utilizar Azure Portal para conectar el disco duro virtual a otra máquina virtual Linux para solucionar los errores y, posteriormente, volver a crear la máquina virtual original.
@@ -45,7 +45,7 @@ Seleccione la máquina virtual en el portal y, a continuación, desplácese haci
 
 También puede hacer clic en **Captura de pantalla** en la parte superior del registro de diagnóstico de arranque para descargar una captura de la captura de pantalla de la máquina virtual.
 
-## <a name="take-a-snapshot-of-the-os-disk"></a>Realización de una instantánea del disco del SO
+## <a name="take-a-snapshot-of-the-os-disk"></a>Realización de la instantánea del disco del sistema operativo
 Una instantánea es una copia completa de solo lectura de un disco duro virtual (VHD). Se recomienda apagar limpiamente la máquina virtual antes de realizar una instantánea para así limpiar cualquier proceso que esté en curso. Para realizar una instantánea de un disco del sistema operativo, siga estos pasos:
 
 1. Vaya al [Portal de Azure](https://portal.azure.com). Seleccione **Máquinas virtuales** en la barra lateral y luego la máquina virtual que tiene el problema.
@@ -90,7 +90,7 @@ Para crear un disco a partir de la instantánea, siga estos pasos:
      
     New-AzDisk -Disk $diskConfig -ResourceGroupName $resourceGroupName -DiskName $diskName
     ```
-3. Si los comandos se ejecutan correctamente, se ve el nuevo disco en el grupo de recursos proporcionado.
+3. Si los comandos se ejecutan correctamente, se verá el nuevo disco en el grupo de recursos proporcionado.
 
 ## <a name="attach-disk-to-another-vm"></a>Conexión de un disco a otra máquina virtual
 Para los pasos siguientes, se usa otra máquina virtual con el fin de solucionar problemas. Después de conectar el disco a la máquina virtual de solución de problemas, puede examinar y modificar el contenido del disco. Este proceso permite corregir los errores de configuración o revisar otros archivos de registro de la aplicación o el sistema. Para conectar el disco a otra máquina virtual, siga estos pasos:
@@ -178,4 +178,4 @@ Azure Portal ahora permite cambiar el disco del sistema operativo de la máquina
 ## <a name="next-steps"></a>Pasos siguientes
 Si tiene problemas para conectarse a la máquina virtual, consulte [Solución de problemas de conexiones SSH a una máquina virtual Linux de Azure](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Para problemas con el acceso a aplicaciones que se ejecutan en su máquina virtual, consulte [Solucionar problemas de conectividad de aplicaciones en una máquina virtual de Linux en Azure](../windows/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Para más información sobre el uso de Resource Manager, consulte [Información general de Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Para más información sobre el uso de Resource Manager, consulte [Información general de Azure Resource Manager](../../azure-resource-manager/management/overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

@@ -4,15 +4,15 @@ description: En este artículo se describe cómo entender el mantenimiento de la
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 11/14/2019
-ms.openlocfilehash: 5fd5295e52f0fef5e1432fdb2f81d2ba0e1717e8
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: e01223783130ea6b276db26bab709e2b51a8f76d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74109770"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75399789"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines"></a>Descripción del mantenimiento de las máquinas virtuales de Azure
 
@@ -27,8 +27,8 @@ En este artículo se muestra cómo evaluar, investigar y resolver incidencias de
 Para obtener más información sobre cómo configurar Azure Monitor para máquinas virtuales, consulte el artículo [Enable Azure Monitor for VMs](vminsights-enable-overview.md) (Habilitar Azure Monitor para máquinas virtuales).
 
 >[!NOTE]
->Recientemente [anunciamos los cambios](https://azure.microsoft.com/updates/updates-to-azure-monitor-for-virtual-machines-preview-before-general-availability-release/
-) que estamos realizando en la característica mantenimiento en función de los comentarios que hemos recibido de nuestros clientes de la versión preliminar pública. Dado el número de cambios que realizaremos, vamos a dejar de ofrecer esta característica a los nuevos clientes. Los clientes existentes pueden seguir usando la característica de mantenimiento. Para más información, consulte las [preguntas frecuentes sobre la disponibilidad general](vminsights-ga-release-faq.md). 
+>Recientemente [anunciamos cambios](https://azure.microsoft.com/updates/updates-to-azure-monitor-for-virtual-machines-preview-before-general-availability-release/
+) que estamos realizando en la característica de mantenimiento en función de los comentarios que hemos recibido de nuestros clientes de la versión preliminar pública. Dado el número de cambios que realizaremos, vamos a dejar de ofrecer esta característica a los nuevos clientes. Los clientes existentes pueden seguir usando la característica de mantenimiento. Para más información, consulte las [preguntas frecuentes sobre la disponibilidad general](vminsights-ga-release-faq.md). 
 
 ## <a name="monitoring-configuration-details"></a>Detalles de configuración de supervisión
 
@@ -72,7 +72,7 @@ En esta sección se describen los criterios de mantenimiento predeterminados par
 | Porcentaje de memoria asignada en uso | 5 | 10 | > | 80 % | Crítico | Sev1 | Windows | 
 | Media de segundos del disco por transferencia | 1 | 15 | > | 0,04 s | Advertencia | Sev2 | Windows | 
 | Promedio de segundos del disco por escritura | 1 | 15 | > | 0,04 s | Advertencia | Sev2 | Windows | 
-| Longitud actual de cola de disco | 5 | 60 | >= | 32 | Advertencia | Sev2 | Windows | 
+| Current Disk Queue Length | 5 | 60 | >= | 32 | Advertencia | Sev2 | Windows | 
 | Porcentaje de tiempo de inactividad del disco | 5 | 60 | >= | 20% | Advertencia | Sev2 | Windows | 
 
 >[!NOTE]
@@ -300,7 +300,7 @@ No se pretende incluir en esta vista las alertas de otros tipos de recursos o se
 
 Para filtrar esta vista, seleccione los valores en los menús desplegables que aparecen en la parte superior de la página.
 
-|Columna |DESCRIPCIÓN |
+|Columna |Descripción |
 |-------|------------|
 |Subscription |Seleccione una suscripción de Azure. Solo se incluyen las alertas de la suscripción seleccionada en la vista. |
 |Grupo de recursos |Seleccione un solo grupo de recursos. Solo las alertas con destinos en el grupo de recursos seleccionado se incluyen en la vista. |
@@ -310,7 +310,7 @@ Para filtrar esta vista, seleccione los valores en los menús desplegables que a
 |Condición de supervisión |Seleccione una condición de supervisión para filtrar las alertas en función de si el sistema las ha desencadenado o resuelto, en el caso de que la condición ya no esté activa. O bien seleccione **Todas** para incluir alertas de todas las condiciones. |
 |Estado de alerta |Seleccione un estado de alerta, **Nueva**, **Confirmación** o **Cerrada** o seleccione **Todas** para incluir alertas de todos los estados. |
 |Servicio de supervisión |Seleccione un servicio o seleccione **Todo** para incluir todos los servicios. Solo las alertas de Conclusiones de la máquina virtual son compatibles con esta característica.|
-|Intervalo de tiempo| Solo las alertas activadas dentro del período de tiempo seleccionado se incluyen en la vista. Los valores compatibles son Última hora, Últimas 24 horas, Últimos 7 días y Últimos 30 días. |
+|Intervalo de horas| Solo las alertas activadas dentro del período de tiempo seleccionado se incluyen en la vista. Los valores compatibles son Última hora, Últimas 24 horas, Últimos 7 días y Últimos 30 días. |
 
 La página **Detalles de la alerta** se muestra cuando se selecciona una alerta. Esta página proporciona detalles de la alerta y permite cambiar su estado.
 

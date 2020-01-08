@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: aahi
-ms.openlocfilehash: 529568cf4f667e72b0b4fb7ba83d0b85c4a90341
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4927a26b78c8f68f1752abc76c30f143a361a912
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499989"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75611124"
 ---
 # <a name="language-and-region-support-for-the-text-analytics-api"></a>Compatibilidad de idiomas y regiones para Text Analytics API
 
@@ -32,7 +32,7 @@ Si tiene contenido que se expresa en un idioma que se usa con menos frecuencia, 
 ## <a name="sentiment-analysis-key-phrase-extraction-and-named-entity-recognition"></a>Análisis de sentimiento, Extracción de frases clave y Reconocimiento entidad con nombre
 
 Para el Análisis de sentimiento, la Extracción de frases clave y el Reconocimiento entidad, la lista de idiomas admitidos es más selectiva, ya que los analizadores se perfeccionan para dar cabida a las reglas lingüísticas de idiomas adicionales. En Reconocimiento de entidades con nombre v2, es compatible con el conjunto completo de [tipos de entidad](how-tos/text-analytics-how-to-entity-linking.md#supported-types-for-named-entity-recognition-v2) actualmente está limitada a los idiomas siguientes: 
-* English
+* Inglés
 * Chino simplificado
 * Francés
 * Alemán
@@ -47,7 +47,7 @@ La compatibilidad de idiomas se introduce inicialmente en la versión preliminar
 > [!NOTE]
 > Para obtener más información sobre la compatibilidad de idioma para la versión preliminar pública del Reconocimiento de entidades con nombre (NER) v3, consulte [tipos de entidades con nombre](named-entity-types.md).
 
-| Idioma              | Código de idioma | Opinión | Frases clave | Reconocimiento de entidades con nombre | Vinculación de entidad |       Notas        |
+| Idioma              | Código de lenguaje | Opinión | Frases clave | Reconocimiento de entidades con nombre | Vinculación de entidad |       Notas        |
 |:----------------------|:-------------:|:---------:|:-----------:|:------------------------:|:--------------:|:------------------:|
 | Árabe                |     `ar`      |           |             |           ✔ \*           |                |                    |
 | Checo                 |     `cs`      |           |             |           ✔ \*           |                |                    |
@@ -55,7 +55,7 @@ La compatibilidad de idiomas se introduce inicialmente en la versión preliminar
 | Chino (tradicional)   |   `zh-hant`   |  ✔ \*\*   |             |                          |                |                    |
 | Danés                |     `da`      |   ✔ \*    |      ✔      |           ✔ \*           |                |                    |
 | Neerlandés                 |     `nl`      |   ✔ \**   |      ✔      |           ✔ \*           |                |                    |
-| English               |     `en`      |   ✔ \**   |      ✔      |          ✔ \*\*          |     ✔ \**      |                    |
+| Inglés               |     `en`      |   ✔ \**   |      ✔      |          ✔ \*\*          |     ✔ \**      |                    |
 | Finés               |     `fi`      |   ✔ \*    |      ✔      |           ✔ \*           |                |                    |
 | Francés                |     `fr`      |   ✔ \**   |      ✔      |            ✔             |                |                    |
 | Alemán                |     `de`      |   ✔ \**   |      ✔      |            ✔             |                |                    |
@@ -75,9 +75,9 @@ La compatibilidad de idiomas se introduce inicialmente en la versión preliminar
 
 \* La compatibilidad con idiomas está en versión preliminar
 
-\** También está disponible en las versiones preliminares públicas [Análisis de sentimiento v3](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis#sentiment-analysis-v3-public-preview) o [Reconocimiento de entidades con nombre V3](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-v3-public-preview).
+\** También está disponible en las versiones preliminares públicas [Análisis de sentimiento v3](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis#sentiment-analysis-versions-and-features) o [Reconocimiento de entidades con nombre V3](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-v3-public-preview).
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 [Página de documentación de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/)   
 [Página de producto de Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)

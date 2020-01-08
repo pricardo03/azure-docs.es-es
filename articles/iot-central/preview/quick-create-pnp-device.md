@@ -3,17 +3,17 @@ title: 'Inicio rápido: Adición de un dispositivo simulado a Azure IoT Central'
 description: En este inicio rápido se muestra cómo crear una plantilla de dispositivo y agregar un dispositivo simulado a la aplicación en IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/24/2019
+ms.date: 12/10/2019
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 46d325fd609363a5425fc16845552e75b575c231
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 669bdcddc7e4bb0c63250d9b571ff7ef4343ef5c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706713"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434839"
 ---
 # <a name="quickstart-add-a-simulated-device-to-your-iot-central-application-preview-features"></a>Inicio rápido: Agregar un dispositivo simulado a la aplicación de IoT Central (características de vista previa)
 
@@ -30,7 +30,7 @@ En esta guía de inicio rápido, creará una plantilla de dispositivo de **Senso
 * Responde a comandos como, por ejemplo, activar y desactivar.
 * Notifica propiedades genéricas del dispositivo, como la versión de firmware y el número de serie.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Complete el inicio rápido de [Creación de una aplicación de Azure IoT Central (características de versión preliminar)](./quick-deploy-iot-central.md) para crear una aplicación de IoT Central mediante la Plantilla de **Aplicación personalizada > Versión preliminar de la aplicación**.
 
@@ -64,16 +64,16 @@ En los pasos siguientes se muestra cómo importar el modelo de funcionalidad de 
 
     Estas interfaces definen las funcionalidades de un dispositivo **Environmental Sensor**. Entre las funcionalidades se incluyen la telemetría que envía un dispositivo, las propiedades que notifica un dispositivo y los comandos a los que responde un dispositivo.
 
-### <a name="add-cloud-properties"></a>Adición de propiedades de la nube
+### <a name="add-cloud-properties"></a>Adición de propiedades de nube
 
 Una plantilla de dispositivo puede incluir propiedades de la nube. Las propiedades de la nube solo existen en la aplicación IoT Central y nunca se envían a un dispositivo ni se reciben de él.
 
 1. Seleccione **Cloud Properties** (Propiedades de nube) y, luego, **+ Add Cloud Property** (+ Agregar propiedad de la nube). Use la información de la tabla siguiente para agregar una propiedad de la nube a la plantilla de dispositivo.
 
-    | Display Name (Nombre para mostrar)      | Tipo semántico | Schema |
+    | Display Name (Nombre para mostrar)      | Semantic Type (Tipo semántico) | Schema |
     | ----------------- | ------------- | ------ |
     | Fecha de la última revisión | None          | Date   |
-    | Nombre del cliente     | None          | Cadena |
+    | Nombre del cliente     | None          | String |
 
 1. Seleccione **Save** (Guardar) para guardar los cambios.
 

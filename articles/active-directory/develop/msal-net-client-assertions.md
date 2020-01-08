@@ -14,12 +14,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4731a7265265c48bed02e836de91d61971b9be14
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 17f02d38c77fce6a256e3c42d887f2b7d560add9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74921903"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424234"
 ---
 # <a name="confidential-client-assertions"></a>Aserciones de cliente confidenciales
 
@@ -42,7 +42,7 @@ MSAL.NET tiene cuatro métodos para proporcionar credenciales o aserciones a la 
 
 Una aserción de cliente firmada adopta la forma de un JWT firmado con la carga que contiene las notificaciones de autenticación necesarias impuestas por Azure AD, codificado en Base64. Para usarla:
 
-```CSharp
+```csharp
 string signedClientAssertion = ComputeAssertion();
 app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
                                           .WithClientAssertion(signedClientAssertion)
@@ -51,7 +51,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 
 Las notificaciones esperadas por Azure AD son las siguientes:
 
-Tipo de notificación | Valor | DESCRIPCIÓN
+Tipo de notificación | Value | Descripción
 ---------- | ---------- | ----------
 aud | https://login.microsoftonline.com/{tenantId}/v2.0 | La notificación "aud" (audiencia) identifica los destinatarios para los que está previsto el JWT (en este caso Azure AD) Vea [RFC 7519, sección 4.1.3]
 exp | Jueves 27 de junio de 2019 15:04:17 GMT+0200 (Hora de verano romance) | La notificación "exp" (fecha de expiración) identifica la hora de expiración en la que o después de la que el token JWT no debe ser aceptado para su procesamiento. Vea [RFC 7519, Sección 4.1.4]
@@ -62,7 +62,7 @@ sub | {ClientID} | La notificación "sub" (asunto) identifica el asunto del JWT.
 
 Este es un ejemplo de cómo crear estas notificaciones:
 
-```CSharp
+```csharp
 private static IDictionary<string, string> GetClaims()
 {
       //aud = https://login.microsoftonline.com/ + Tenant ID + /v2.0
@@ -88,7 +88,7 @@ private static IDictionary<string, string> GetClaims()
 
 Aquí se muestra cómo crear una aserción de cliente firmada:
 
-```CSharp
+```csharp
 string Encode(byte[] arg)
 {
     char Base64PadCharacter = '=';
@@ -138,7 +138,7 @@ string GetSignedClientAssertion()
 
 También tiene la opción de usar [Microsoft.IdentityModel.JsonWebTokens](https://www.nuget.org/packages/Microsoft.IdentityModel.JsonWebTokens/) para crear la aserción. El código será más elegante, tal como se muestra en el ejemplo siguiente:
 
-```CSharp
+```csharp
         string GetSignedClientAssertion()
         {
             var cert = new X509Certificate2("Certificate.pfx", "Password", X509KeyStorageFlags.EphemeralKeySet);
@@ -171,7 +171,7 @@ También tiene la opción de usar [Microsoft.IdentityModel.JsonWebTokens](https:
 
 Una vez que tenga la aserción de cliente firmada, puede usarla con las API de MSAL, como se muestra a continuación.
 
-```CSharp
+```csharp
             string signedClientAssertion = GetSignedClientAssertion();
 
             var confidentialApp = ConfidentialClientApplicationBuilder
@@ -184,7 +184,7 @@ Una vez que tenga la aserción de cliente firmada, puede usarla con las API de M
 
 De forma predeterminada, `WithClientClaims(X509Certificate2 certificate, IDictionary<string, string> claimsToSign, bool mergeWithDefaultClaims = true)` generará una aserción firmada que contiene las notificaciones esperadas por Azure AD más las notificaciones de cliente adicionales que se quieren enviar. Este es un fragmento de código sobre cómo hacerlo.
 
-```CSharp
+```csharp
 string ipAddress = "192.168.1.2";
 X509Certificate2 certificate = ReadCertificate(config.CertificateName);
 app = ConfidentialClientApplicationBuilder.Create(config.ClientId)

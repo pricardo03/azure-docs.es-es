@@ -4,15 +4,15 @@ description: En este artículo se describe cómo habilitar Azure Monitor para VM
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 10/15/2019
-ms.openlocfilehash: e9e5504125920cedaf383f8fa4299a4b1b1d60ed
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 40d89dd675e063283d1ed90cf145575b8164e4e5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553872"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75400701"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-for-a-hybrid-environment"></a>Habilitar Azure Monitor para VM (versión preliminar) para un entorno híbrido
 
@@ -49,7 +49,7 @@ Para instalar Dependency Agent manualmente en equipos Windows, puede ejecutar `I
 
 En la tabla siguiente se destacan los parámetros que admite el programa de instalación para el agente desde la línea de comandos.
 
-| Parámetro | DESCRIPCIÓN |
+| Parámetro | Descripción |
 |:--|:--|
 | /? | Devuelve una lista de las opciones de la línea de comandos. |
 | /S | Realiza una instalación silenciosa sin interacción del usuario. |
@@ -66,10 +66,10 @@ Dependency Agent se instala en los servidores Linux desde *InstallDependencyAgen
 > Es necesario el acceso raíz para instalar o configurar el agente.
 >
 
-| Parámetro | DESCRIPCIÓN |
+| Parámetro | Descripción |
 |:--|:--|
 | -help | Obtenga una lista de las opciones de la línea de comandos. |
-| -s | Realice una instalación silenciosa sin preguntas. |
+| -S | Realice una instalación silenciosa sin preguntas. |
 | --check | Compruebe los permisos y el sistema operativo, pero no instale el agente. |
 
 Por ejemplo, para ejecutar el programa de instalación con el parámetro `-help`, escriba **InstallDependencyAgent-Linux64.bin -help**.
@@ -107,7 +107,7 @@ wget --content-disposition https://aka.ms/dependencyagentlinux -O InstallDepende
 sudo sh InstallDependencyAgent-Linux64.bin -s
 ```
 
-## <a name="desired-state-configuration"></a>Configuración de estado deseada
+## <a name="desired-state-configuration"></a>Configuración de estado deseado
 
 Para implementar Dependency Agent mediante Desired State Configuration (DSC), puede usar el módulo xPSDesiredStateConfiguration con el siguiente código de ejemplo:
 
@@ -224,7 +224,7 @@ Para usar la CLI de Azure, primero debe instalar y usar la CLI localmente. Debe 
     ```
    Después de habilitar la supervisión, pueden pasar unos 10 minutos hasta que pueda ver la métrica y el estado del equipo híbrido.
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 
 ### <a name="vm-doesnt-appear-on-the-map"></a>La VM no aparece en la asignación
 

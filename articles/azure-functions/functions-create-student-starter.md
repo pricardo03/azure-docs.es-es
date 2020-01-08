@@ -6,12 +6,12 @@ author: alexkarcher-msft
 ms.topic: quickstart
 ms.date: 02/22/2019
 ms.author: alkarche
-ms.openlocfilehash: aa2e0e8be8805187ec1f5b8ea6498e90e2d5a7c4
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 5c0228feb88296e0c82efa52648ce38d70e5b921
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976883"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75409897"
 ---
 # <a name="create-a-function-using-azure-for-students-starter"></a>Creación de una función con Microsoft Azure for Students Starter
 
@@ -43,11 +43,11 @@ Debe tener una Function App para hospedar la ejecución de las funciones. Una Fu
 
     <img src="./media/functions-create-student-starter/Function-create-start.png" width="315">
 
-    | Configuración      | Valor sugerido  | DESCRIPCIÓN                                        |
+    | Configuración      | Valor sugerido  | Descripción                                        |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Nombre de la aplicación** | Nombre único globalmente | Nombre que identifica la nueva Function App. Los caracteres válidos son `a-z`, `0-9` y `-`.  | 
     | **Suscripción** | Su suscripción | Suscripción en la que se creará esta nueva aplicación de función. | 
-    | **[Grupo de recursos](../azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | Nombre para el nuevo grupo de recursos en el que se va a crear la Function App. |
+    | **[Grupo de recursos](../azure-resource-manager/management/overview.md)** |  myResourceGroup | Nombre para el nuevo grupo de recursos en el que se va a crear la Function App. |
    | **[Plan/ubicación de App Service](./functions-scale.md)** | Nuevo | El plan de hospedaje que controla en qué región se implementa la aplicación de función y la densidad de los recursos. Varias aplicaciones de función implementadas en el mismo plan compartirán la misma instancia gratuita única. Se trata de una restricción del plan Student Starter. Las opciones de hospedaje completas [se explican aquí](./functions-scale.md).|
     | **Pila en tiempo de ejecución** | Lenguaje preferido | Elija un tiempo de ejecución que admita su lenguaje de programación de funciones preferido. Elija **.NET** para funciones de C# y F#. |
     |**[Application Insights](./functions-monitoring.md)**| habilitado | Application Insights se usa para almacenar y analizar los registros de la aplicación de función. Está habilitado de forma predeterminada si elige una ubicación compatible con Application Insights. Application Insights pueden habilitarse para cualquier función al elegir manualmente una región cercana para implementar Application Insights. Sin Application Insights, solo podrá ver los registros de streaming en vivo.

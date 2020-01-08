@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/13/2018
 ms.author: genli
 ms.custom: include file
-ms.openlocfilehash: ac5599a38c3fcbc4a6c331d2b14c6b6c55c31d82
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 8d13d5d93dba66fa0dce08ffbf569164fb03398d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73850489"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75468569"
 ---
 ## <a name="how-to-create-a-classic-vnet-in-the-azure-portal"></a>Cómo crear una red virtual clásica en el Portal de Azure
 Para crear una red virtual clásica basada en el escenario anterior, siga estos pasos.
@@ -25,7 +25,7 @@ Para crear una red virtual clásica basada en el escenario anterior, siga estos 
 4. En el panel **Red virtual**, escriba el **Nombre** de la red virtual y haga clic en **Espacio de direcciones**. Configure los valores del espacio de direcciones de la red virtual y su primera subred, a continuación, haga clic en **Aceptar**. En la siguiente ilustración se muestra la configuración del bloque CIDR de este escenario.
    
     ![Panel Espacio de direcciones](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure2.png)
-5. Haga clic en **Grupo de recursos** y seleccione el grupo al que va a agregar la red virtual, o bien haga clic en **Crear nuevo grupo de recursos** para agregar la red virtual a un nuevo grupo de recursos. En la siguiente ilustración se muestra la configuración de un nuevo grupo de recursos denominado **TestRG**. Para obtener más información sobre los grupos de recursos, visite [Información general del Administrador de recursos de Azure](../articles/azure-resource-manager/resource-group-overview.md#resource-groups).
+5. Haga clic en **Grupo de recursos** y seleccione el grupo al que va a agregar la red virtual, o bien haga clic en **Crear nuevo grupo de recursos** para agregar la red virtual a un nuevo grupo de recursos. En la siguiente ilustración se muestra la configuración de un nuevo grupo de recursos denominado **TestRG**. Para obtener más información sobre los grupos de recursos, visite [Información general del Administrador de recursos de Azure](../articles/azure-resource-manager/management/overview.md#resource-groups).
    
     ![Panel Crear grupo de recursos](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure3.png)
 6. Si es necesario, cambie la configuración de la **Suscripción** y la **Ubicación** de la red virtual. 

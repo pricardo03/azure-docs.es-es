@@ -1,24 +1,18 @@
 ---
-title: Integración con identidades administradas de Azure | Microsoft Docs
+title: Integración con identidades administradas de Azure
 description: Aprenderá a usar identidades administradas de Azure para autenticarse en Azure App Configuration y acceder a este servicio
 services: azure-app-configuration
-documentationcenter: ''
 author: yegu-ms
-manager: balans
-editor: ''
-ms.assetid: ''
+ms.author: yegu
 ms.service: azure-app-configuration
-ms.workload: tbd
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/24/2019
-ms.author: yegu
-ms.openlocfilehash: b0c6e39aebe7864ab132805b78aa7be2d61c5160
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 3af13a3009886c88f1a30eab2e6cc9f498ad6e45
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185143"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665252"
 ---
 # <a name="integrate-with-azure-managed-identities"></a>Integración con identidades administradas de Azure
 
@@ -39,7 +33,7 @@ En este tutorial, aprenderá a:
 > * Configurar la aplicación para usar una identidad administrada al conectarse a App Configuration.
 > * También puede configurar la aplicación para que use una identidad administrada cuando se conecte a Key Vault mediante una referencia de Key Vault de App Configuration.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para realizar este tutorial, necesitará lo siguiente:
 

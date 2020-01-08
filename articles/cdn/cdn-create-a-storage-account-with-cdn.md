@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 05/24/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 729ae34d90fd2415fc44fc75391950f18fee6fc0
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: ffcbeb311a91791432bb285b59f5486393ffe4f7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083067"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75386993"
 ---
 # <a name="quickstart-integrate-an-azure-storage-account-with-azure-cdn"></a>Inicio rápido: Integración de una cuenta de una instancia de Azure Storage con Azure CDN
 En esta guía de inicio rápido, habilitará [Azure Content Delivery Network (CDN)](cdn-overview.md) para almacenar en caché el contenido de Azure Storage. Azure CDN ofrece a los desarrolladores una solución global para entregar contenido con alto ancho de banda. Es posible almacenar en caché blobs y contenido estático de instancias de proceso en nodos físicos en los Estados Unidos, Europa, Asia, Australia y Sudamérica.
@@ -66,7 +66,7 @@ Se pueden usar varios métodos para crear una cuenta de almacenamiento, incluido
     
 4. En el resto de la configuración, utilice los valores especificados en la tabla siguiente:
 
-    | Configuración  | Valor |
+    | Configuración  | Value |
     | -------- | ----- |
     | **Modelo de implementación** | Use el valor predeterminado. |
     | **Tipo de cuenta** | Use el valor predeterminado. |
@@ -75,7 +75,7 @@ Se pueden usar varios métodos para crear una cuenta de almacenamiento, incluido
     | **Rendimiento** | Use el valor predeterminado. |
     | **Se requiere transferencia segura** | Use el valor predeterminado. |
     | **Suscripción** | Seleccione una suscripción de Azure en la lista desplegable. |
-    | **Grupos de recursos** | Seleccione **Crear nuevo** y escriba *my-resource-group-123* y un nombre para el nuevo grupo de recursos. Este nombre debe ser único globalmente. Si ya está en uso, puede especificar un nombre diferente o puede seleccionar **Usar existente** y seleccionar **my-resource-group-123** en la lista desplegable. <br />Para más información sobre los grupos de recursos, consulte [Información general sobre Azure Resource Manager](../azure-resource-manager/resource-group-overview.md#resource-groups).| 
+    | **Grupos de recursos** | Seleccione **Crear nuevo** y escriba *my-resource-group-123* y un nombre para el nuevo grupo de recursos. Este nombre debe ser único globalmente. Si ya está en uso, puede especificar un nombre diferente o puede seleccionar **Usar existente** y seleccionar **my-resource-group-123** en la lista desplegable. <br />Para más información sobre los grupos de recursos, consulte [Información general sobre Azure Resource Manager](../azure-resource-manager/management/overview.md#resource-groups).| 
     | **Configuración de redes virtuales** | Use el valor predeterminado. |  
     
 5. Seleccione **Anclar al panel** para guardar la cuenta de almacenamiento en el panel después de su creación.
@@ -94,7 +94,7 @@ Puede habilitar Azure CDN para la cuenta de almacenamiento directamente desde es
     
 2. Para crear un nuevo punto de conexión, escriba la información necesaria que se especifica en la tabla siguiente:
 
-    | Configuración  | Valor |
+    | Configuración  | Value |
     | -------- | ----- |
     | **Perfil de CDN** | Seleccione **Crear nuevo** y escriba su nombre de perfil, por ejemplo, *my-cdn-profile-123*. Este nombre debe ser único globalmente.  |
     | **Plan de tarifa** | Seleccione **Verizon estándar** en la lista desplegable. |

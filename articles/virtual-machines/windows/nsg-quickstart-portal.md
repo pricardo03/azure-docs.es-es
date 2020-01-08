@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: fe9b0f590dbb728a54ac66fcaa49bf3d00417e41
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 130d3315b5a9a6f175bd3d67ed33a034ab5f8dda
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033104"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75371418"
 ---
 # <a name="how-to-open-ports-to-a-virtual-machine-with-the-azure-portal"></a>Apertura de puertos en una máquina virtual con Azure Portal
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
@@ -85,5 +85,5 @@ Para las aplicaciones web de alta disponibilidad, considere la posibilidad de co
 En este artículo ha creado un grupo de seguridad de red, creó una regla de entrada que permite el tráfico HTTP en el puerto 80 y luego ha asociado esta regla con una subred. 
 
 Puede encontrar información sobre la creación de entornos más detallados en los siguientes artículos:
-- [Información general sobre Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md)
+- [Información general sobre Azure Resource Manager](../../azure-resource-manager/management/overview.md)
 - [Grupos de seguridad](../../virtual-network/security-overview.md)

@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 01/03/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 082ef9753f84aef3f867a9dee4b4e9fbf73dd379
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: e9647c1833416b9b225be988acaffb4022f655c1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74670113"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422090"
 ---
 # <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>Guía de implementación de aplicaciones web mediante plantillas de Azure Resource Manager
 
@@ -94,7 +94,7 @@ Si la plantilla de Resource Manager usa MSDeploy, los mensajes de error de imple
 
 ## <a name="choose-a-unique-web-app-name"></a>Elija un nombre único para la aplicación web.
 
-El nombre de la aplicación web debe ser globalmente único. Puede usar una convención de nomenclatura que es probable que sea única o la [función uniqueString](../azure-resource-manager/resource-group-template-functions-string.md#uniquestring), que le ayudará a generar un nombre único.
+El nombre de la aplicación web debe ser globalmente único. Puede usar una convención de nomenclatura que es probable que sea única o la [función uniqueString](../azure-resource-manager/templates/template-functions-string.md#uniquestring), que le ayudará a generar un nombre único.
 
 ```json
 {

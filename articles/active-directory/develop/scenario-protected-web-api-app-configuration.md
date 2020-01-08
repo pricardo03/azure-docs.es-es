@@ -17,12 +17,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f78fa35096b7e17d3736190bfa49619c2c81520
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 76d5aabc30d0375185130b9781caeaf4d5457455
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74965405"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423736"
 ---
 # <a name="protected-web-api-code-configuration"></a>API web protegida: Configuración del código
 
@@ -43,7 +43,7 @@ La información sobre la identidad de la aplicación y el usuario (a menos que l
 
 Este es un ejemplo de código de C# que muestra a un cliente que llama a la API después de adquirir un token con la biblioteca de autenticación de Microsoft para .NET (MSAL.NET):
 
-```CSharp
+```csharp
 var scopes = new[] {$"api://.../access_as_user}";
 var result = await app.AcquireToken(scopes)
                       .ExecuteAsync();
@@ -96,19 +96,19 @@ Cuando se llama a una aplicación en una acción de controlador que contiene un 
 
 En ASP.NET Core, este middleware se inicializa en el archivo Startup.cs:
 
-```CSharp
+```csharp
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 ```
 
 El middleware se agrega a la API web mediante esta instrucción:
 
-```CSharp
+```csharp
  services.AddAzureAdBearer(options => Configuration.Bind("AzureAd", options));
 ```
 
  Actualmente, las plantillas de ASP.NET Core crean API web de Azure Active Directory (Azure AD) a las que se conectan usuarios dentro de su organización o de cualquier organización, no con cuentas personales. Pero puede cambiarlas fácilmente para que usen el punto de conexión de la plataforma de identidad de Microsoft mediante la adición de este código al archivo Startup.cs:
 
-```CSharp
+```csharp
 services.Configure<JwtBearerOptions>(AzureADDefaults.JwtBearerAuthenticationScheme, options =>
 {
     // This is a Microsoft identity platform web API.
@@ -148,7 +148,7 @@ Los pasos de validación se capturan en los validadores, que están en la biblio
 
 En esta tabla se describen los validadores:
 
-| Validador | DESCRIPCIÓN |
+| Validador | Descripción |
 |---------|---------|
 | `ValidateAudience` | Garantiza que el token es para la aplicación que valida el token (para mí). |
 | `ValidateIssuer` | Garantiza que el token lo ha emitido un STS de confianza (de alguien en quien confío). |

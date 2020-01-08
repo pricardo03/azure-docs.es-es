@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 0196d39f5b131bc54e00412beb7fdf10b7352336
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 4e01dbb0036761215a9a05c464b20ead340a2e3d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67186498"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423747"
 ---
 ### <a name="authenticationresult-properties-in-msalnet"></a>Propiedades de AuthenticationResult en MSAL.NET
 
@@ -44,7 +44,7 @@ En el siguiente diagrama se muestra la estructura de la interfaz `IAccount`:
 
 La clase `AccountId` identifica una cuenta en un inquilino específico. Tiene las siguientes propiedades:
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 |----------|-------------|
 | `TenantId` | Representación de una cadena en un GUID, que es el identificador del inquilino donde reside la cuenta. |
 | `ObjectId` | Representación de una cadena en un GUID, que es el identificador del usuario a quien pertenece la cuenta en el inquilino. |
@@ -52,7 +52,7 @@ La clase `AccountId` identifica una cuenta en un inquilino específico. Tiene la
 
 La interfaz `IAccount` representa información sobre una sola cuenta. El mismo usuario puede estar presente en distintos inquilinos, es decir, un usuario puede tener varias cuentas. Sus miembros son:
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 |----------|-------------|
 | `Username` | Una cadena que contiene el valor que se puede mostrar en formato UserPrincipalName (UPN), por ejemplo, john.doe@contoso.com. Esta cadena puede ser NULL, mientras que HomeAccountId y HomeAccountId.Identifier no serán NULL. Esta propiedad reemplaza la propiedad `DisplayableId` de `IUser` en versiones anteriores de MSAL.NET. |
 | `Environment` | Una cadena que contiene el proveedor de identidades de dicha cuenta, por ejemplo, `login.microsoftonline.com`. Esta propiedad reemplaza la propiedad `IdentityProvider` de `IUser`, salvo que `IdentityProvider` también tenía información sobre el inquilino (además del entorno de nube), mientras que aquí el valor es solo el host. |
@@ -62,7 +62,7 @@ La interfaz `IAccount` representa información sobre una sola cuenta. El mismo u
 
 Cuando MSAL haya devuelto `AuthenticationResult` (en `result`), deberá agregarlo al encabezado de autorización HTTP, antes de realizar la llamada para acceder a la API web protegida.
 
-```CSharp
+```csharp
 httpClient = new HttpClient();
 httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.AccessToken);
 

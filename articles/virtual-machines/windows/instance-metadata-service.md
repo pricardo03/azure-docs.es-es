@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: f62406a341c7e1467cdf17b21662bb5c0993881c
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 901e075572e0ed73dc7d0633941311c04b4f3c1c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232393"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75358367"
 ---
 # <a name="azure-instance-metadata-service"></a>Servicio de metadatos de instancia de Azure
 
@@ -36,7 +36,7 @@ El punto de conexión está disponible en una dirección IP no enrutable conocid
 
 El servicio está disponible con carácter general en las regiones de Azure. Puede que no todas las versiones de API estén disponibles en todas las regiones de Azure.
 
-Regions                                        | ¿Disponibilidad?                                 | Versiones compatibles
+Regions                                        | ¿Disponibilidad?                                 | Versiones admitidas
 -----------------------------------------------|-----------------------------------------------|-----------------
 [Todas las regiones globales de Azure disponibles con carácter general](https://azure.microsoft.com/regions/)     | Disponibilidad general | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Disponibilidad general | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30
@@ -341,7 +341,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 
 #### <a name="the-following-apis-are-available-through-the-metadata-endpoint"></a>Las siguientes API están disponibles a través del punto de conexión de metadatos:
 
-Datos | DESCRIPCIÓN | Versión de introducción
+data | Descripción | Versión de introducción
 -----|-------------|-----------------------
 attested | Consulte [Datos atestiguados](#attested-data) | 2018-10-01
 identity | Identidades administradas de recursos de Azure. Consulte [Obtener un token de acceso](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01
@@ -354,12 +354,12 @@ scheduledevents | Consulte [Scheduled Events](scheduled-events.md). | 2017-08-01
 > [!NOTE]
 > Mediante el punto de conexión de metadatos, se accede a las siguientes categorías a través de la instancia y los procesos:
 
-Datos | DESCRIPCIÓN | Versión de introducción
+data | Descripción | Versión de introducción
 -----|-------------|-----------------------
 azEnvironment | Entorno de Azure donde se está ejecutando la máquina virtual | 2018-10-01
 customData | Vea [Datos personalizados](#custom-data). | 01-02-2019
-location | La región de Azure donde se ejecuta la máquina virtual | 2017-04-02
-Nombre | Nombre de la máquina virtual | 2017-04-02
+ubicación | La región de Azure donde se ejecuta la máquina virtual | 2017-04-02
+name | Nombre de la máquina virtual | 2017-04-02
 offer | Ofrece información de la imagen de la máquina virtual y solo está presente para imágenes implementadas desde la galería de imágenes de Azure. | 2017-04-02
 osType | Linux o Windows | 2017-04-02
 placementGroupId | [Grupo de selección de ubicación](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) de su conjunto de escalado de máquina virtual | 2017-08-01
@@ -369,7 +369,7 @@ platformFaultDomain | El [dominio de error](manage-availability.md) en que se ej
 provider | Proveedor de la máquina virtual | 2018-10-01
 publicKeys | [Colección de claves públicas](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey) asignada a la máquina virtual y rutas de acceso | 2018-04-02
 publisher | Publicador de la imagen de VM | 2017-04-02
-resourceGroupName | [Grupo de recursos](../../azure-resource-manager/resource-group-overview.md) para su máquina virtual | 2017-08-01
+resourceGroupName | [Grupo de recursos](../../azure-resource-manager/management/overview.md) para su máquina virtual | 2017-08-01
 resourceId | El identificador [completo](https://docs.microsoft.com/rest/api/resources/resources/getbyid) del recurso | 2019-03-11
 sku | SKU específica de la imagen de VM | 2017-04-02
 subscriptionId | Suscripción de Azure para la máquina virtual | 2017-08-01
@@ -386,7 +386,7 @@ zona | [Zona de disponibilidad](../../availability-zones/az-overview.md) de la m
 > [!NOTE]
 > Mediante el punto de conexión de metadatos, se accede a las siguientes categorías a través de la instancia, la red o la interfaz.
 
-Datos | DESCRIPCIÓN | Versión de introducción
+data | Descripción | Versión de introducción
 -----|-------------|-----------------------
 ipv4/privateIpAddress | Dirección IPv4 local de la máquina virtual | 2017-04-02
 ipv4/publicIpAddress | Dirección IPv4 pública de la máquina virtual | 2017-04-02
@@ -641,7 +641,7 @@ Verification successful
 }
 ```
 
-Datos | DESCRIPCIÓN
+data | Descripción
 -----|------------
 valor de seguridad | El usuario especificó una cadena opcional con la solicitud. Si no se proporcionó ningún nonce en la solicitud, se devuelve la marca de tiempo UTC actual
 plan | [Plan](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) en una máquina virtual es una imagen de Azure Marketplace que contiene el nombre, producto y editor
@@ -657,7 +657,7 @@ Una vez que obtenga la firma anterior, podrá comprobar que esta es de Microsoft
 > [!NOTE]
 > El certificado para la nube pública y la nube soberana serán diferentes.
 
- Nube | Certificate
+ Nube | Certificado
 ---------|-----------------
 [Todas las regiones globales de Azure disponibles con carácter general](https://azure.microsoft.com/regions/)     | metadata.azure.com
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | metadata.azure.us

@@ -7,18 +7,18 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/15/2018
-ms.openlocfilehash: 99f26bb2b89ef9642a36aa2be2037d04aafcdcd4
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: ef67801fee574ae43d83af650d6b715e12426c7e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819271"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432560"
 ---
 # <a name="collect-distributed-traces-from-go-preview"></a>Recopilación de seguimientos distribuidos en Go (versión preliminar)
 
 Ahora, Application Insights permite realizar seguimientos distribuidos de las aplicaciones de Go mediante la integración con [OpenCensus](https://opencensus.io) y el nuevo [reenviador local](./opencensus-local-forwarder.md). En este artículo, encontrará instrucciones paso a paso que le guiarán por el proceso de configuración de OpenCensus para Go y le ayudarán a llevar los datos de seguimiento a Application Insights.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 - Necesita una suscripción de Azure.
 - Go debe estar instalado (en este artículo, se utiliza usa la versión 1.11; [Descarga de Go](https://golang.org/dl/)).
@@ -28,7 +28,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
-Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-application-insights-resource"></a>Creación de un recurso de Application Insights
 
@@ -43,13 +43,13 @@ En primer lugar, tiene que crear un recurso de Application Insights. Este recurs
 
    Aparece un cuadro de configuración, use la tabla siguiente para rellenar los campos de entrada.
 
-    | Configuración        | Valor           | DESCRIPCIÓN  |
+   | Configuración        | Value           | Descripción  |
    | ------------- |:-------------|:-----|
    | **Nombre**      | Nombre único global | Nombre que identifica la aplicación que se está supervisando |
    | **Grupo de recursos**     | myResourceGroup      | Nombre para el nuevo grupo de recursos que hospedará los datos de Application Insights |
    | **Ubicación** | East US | Elija una ubicación cerca de usted o de donde se hospeda la aplicación |
 
-2. Haga clic en **Create**(Crear).
+2. Haga clic en **Crear**.
 
 ## <a name="configure-local-forwarder"></a>Configuración del reenviador local
 

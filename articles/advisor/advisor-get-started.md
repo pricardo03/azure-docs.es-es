@@ -1,20 +1,14 @@
 ---
-title: Introducción a Azure Advisor | Microsoft Docs
+title: Introducción a Azure Advisor
 description: Introducción a Azure Advisor.
-services: advisor
-author: kasparks
-ms.service: advisor
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/01/2019
-ms.author: kasparks
-ms.openlocfilehash: f91e48a532a278c95d50775e135ac6379e8d8070
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 8c2699030b1a6d428ddc2a4db40a66003824cf10
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67332053"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443137"
 ---
 # <a name="get-started-with-azure-advisor"></a>Introducción a Azure Advisor
 
@@ -25,7 +19,7 @@ Obtenga información acerca de cómo acceder a Advisor mediante Azure Portal y o
 
 ## <a name="get-recommendations"></a>Obtención de recomendaciones
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 1. En el panel izquierdo, haga clic en **Advisor**.  Si no ve Asesor en el panel izquierdo, haga clic en **Todos los servicios**.  En el panel de menú de servicio, en **Supervisión y administración**, haga clic en **Advisor**. Se muestra el panel de Advisor.
 
@@ -88,7 +82,7 @@ Puede que tenga grupos de recursos o suscripciones para los que no desee recibir
 
     ![Ejemplo de recursos de configuración de Advisor](./media/advisor-get-started/advisor-configure-resources.png)
 
-1. Haga clic en el botón **Apply** (Aplicar).
+1. Haga clic en el botón **Aplicar**.
 
 ## <a name="configure-low-usage-vm-recommendation"></a>Configuración de recomendaciones sobre máquinas virtuales con poco uso
 

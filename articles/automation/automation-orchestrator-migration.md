@@ -2,19 +2,15 @@
 title: Migración de Orchestrator a Azure Automation
 description: Describe cómo migrar runbooks y paquetes de integración desde System Center Orchestrator a Azure Automation.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 03/16/2018
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: b34554798130d9741318e0f518c32a41f82a17e3
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 528b961ca07ec86ad502ee1b589772e354564a3d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849673"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75421694"
 ---
 # <a name="migrating-from-orchestrator-to-azure-automation-beta"></a>Migración de Orchestrator a Azure Automation (beta)
 Los runbooks de [System Center Orchestrator](https://technet.microsoft.com/library/hh237242.aspx) se basan en actividades provenientes de paquetes de integración escritos específicamente para Orchestrator, mientras que los runbooks de Azure Automation se basan en Windows PowerShell.  [Runbooks gráficos](automation-runbook-types.md#graphical-runbooks) de Azure Automation tienen una apariencia similar a los runbooks de Orchestrator, con sus actividades que representan los cmdlets de PowerShell, runbooks secundarios y recursos.
@@ -62,7 +58,7 @@ Microsoft proporciona [paquetes de integración](https://technet.microsoft.com/l
 Mediante la versión RTM de esta herramienta, se publicarán las versiones actualizadas de los paquetes de integración basados en OIT que se pueden convertir con el Convertidor de paquetes de integración.  También se proporcionarán instrucciones para ayudarle a convertir runbooks mediante actividades de los paquetes de integración que no se basan en OIT.
 
 ## <a name="runbook-converter"></a>Convertidor de runbooks
-Esta herramienta convierte runbooks de Orchestrator en [runbooks gráficos](automation-runbook-types.md#graphical-runbooks) que se pueden importar en Azure Automation.  
+Esta herramienta convertirá runbooks de Orchestrator en [runbooks gráficos](automation-runbook-types.md#graphical-runbooks) que se pueden importar a Azure Automation.  
 
 El Convertidor de runbooks se implementa como un módulo de PowerShell con un cmdlet denominado **ConvertFrom-SCORunbook** que realiza la conversión.  Al instalar la herramienta, creará un acceso directo a una sesión de PowerShell que carga el cmdlet.   
 

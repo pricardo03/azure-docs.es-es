@@ -8,12 +8,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: bbbf511286c63acf4a939e0a0e7d9c3dc9efa75b
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 8e14b065132e648f9c800655cfe69e5a2ec80c41
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899390"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432271"
 ---
 # <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>Crear informes interactivos con libros de Azure Monitor
 
@@ -154,7 +154,7 @@ Hay cuatro tipos diferentes de parámetros que se admiten actualmente:
 
   |         |          |
    | ---------------- |:-----|
-   | **Text**    | El usuario modificará un cuadro de texto y, si usted quiere, puede proporcionar una consulta para rellenar el valor predeterminado. |
+   | **Texto**    | El usuario modificará un cuadro de texto y, si usted quiere, puede proporcionar una consulta para rellenar el valor predeterminado. |
    | **Lista desplegable** | El usuario podrá elegir entre un conjunto de valores. |
    | **Selector de intervalo de tiempo**| El usuario elegirá entre un conjunto predefinido de valores de intervalo de tiempo o seleccionará entre un intervalo de tiempo personalizado.|
    | **Selector de recursos** | El usuario podrá elegir entre los recursos seleccionados para el libro.|

@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 06/25/2019
-ms.openlocfilehash: fa4b9fb9be6ac4f541448abef1f676875a7ddcfc
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: d93c1d81e1434ffdd41297ed54e874c6b71240d2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74774990"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430480"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-in-the-azure-portal"></a>Inicio rápido: Creación de un servidor de Azure Database for PostgreSQL en Azure Portal
 
@@ -25,7 +25,7 @@ Abra el explorador web y vaya al [portal](https://portal.azure.com/). Introduzca
 
 ## <a name="create-an-azure-database-for-postgresql-server"></a>Creación de un servidor de Azure Database for PostgreSQL
 
-Un servidor de Azure Database for PostgreSQL se crea con un conjunto configurado de [recursos de proceso y almacenamiento](./concepts-pricing-tiers.md). El servidor se crea dentro de un [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md).
+Un servidor de Azure Database for PostgreSQL se crea con un conjunto configurado de [recursos de proceso y almacenamiento](./concepts-pricing-tiers.md). El servidor se crea dentro de un [grupo de recursos de Azure](../azure-resource-manager/management/overview.md).
 
 Para crear un servidor de Azure Database for PostgreSQL, siga los pasos siguientes:
 1. En la esquina superior izquierda del portal, seleccione **Crear un recurso** (+).
@@ -42,7 +42,7 @@ Para crear un servidor de Azure Database for PostgreSQL, siga los pasos siguient
 
     ![Creación de un servidor](./media/quickstart-create-database-portal/create-basics.png)
 
-    Configuración|Valor sugerido|DESCRIPCIÓN
+    Configuración|Valor sugerido|Descripción
     ---|---|---
     Subscription|Nombre de la suscripción|La suscripción de Azure que desea usar para el servidor. Si tiene varias suscripciones, elija aquella en la que se factura el recurso.
     Resource group|*myresourcegroup*| Un nuevo nombre de grupo de recursos o uno existente de la suscripción.
@@ -170,7 +170,7 @@ pgAdmin es una herramienta de código abierto que se usa con PostgreSQL. Puede i
 
    ![Pestaña "Conexión"](./media/quickstart-create-database-portal/10-pgadmin-create-server.png)
 
-    parámetro pgAdmin |Valor|DESCRIPCIÓN
+    parámetro pgAdmin |Value|Descripción
     ---|---|---
     Host name/address | Nombre de servidor | El valor de nombre de servidor que usó al crear el servidor de Azure Database for MySQL. El servidor de ejemplo es **mydemoserver.postgres.database.azure.com.** Use el nombre de dominio completo ( **\*.postgres.database.azure.com**) tal como se muestra en el ejemplo. Si no recuerda el nombre del servidor, siga los pasos de la sección anterior para obtener la información de conexión. 
     Port | 5432 | El puerto se usará al conectarse al servidor de Azure Database for PostgreSQL. 
@@ -200,7 +200,7 @@ pgAdmin es una herramienta de código abierto que se usa con PostgreSQL. Puede i
 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
-Hay dos formas de eliminar los recursos que ha creado en la guía de inicio rápido. Puede eliminar el [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md), lo que incluye todos los recursos del grupo de recursos. Si desea mantener intactos los restantes recursos, elimine solo el recurso del servidor.
+Hay dos formas de eliminar los recursos que ha creado en la guía de inicio rápido. Puede eliminar el [grupo de recursos de Azure](../azure-resource-manager/management/overview.md), lo que incluye todos los recursos del grupo de recursos. Si desea mantener intactos los restantes recursos, elimine solo el recurso del servidor.
 
 > [!TIP]
 > Otras guías de inicio rápido de esta colección se basan en esta. Si tiene previsto seguir usando otras guías de inicio rápido, no elimine los recursos que ha creado en esta. Si no tiene previsto continuar, siga estos pasos para eliminar los recursos creados en esta guía de inicio rápido en el portal.

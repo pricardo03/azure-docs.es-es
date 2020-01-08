@@ -11,12 +11,12 @@ ms.date: 05/28/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 4ae1d9ce8a4683f8d55962843fb1070ef24b3a87
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 841041cb9fa20b034dd4522a5231813b71558bd7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815802"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457810"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Inicio rápido: Creación de una instancia de Azure SQL Data Warehouse en Azure Portal, y realización de consultas
 
@@ -33,11 +33,11 @@ Descargue e instale la versión más reciente de [SQL Server Management Studio](
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
-Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-data-warehouse"></a>Creación del almacenamiento de datos
 
-Una instancia de Azure SQL Data Warehouse se crea con un conjunto definido de [recursos de proceso](memory-concurrency-limits.md). La base de datos se crea dentro de un [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) y en un [servidor lógico de Azure SQL](../sql-database/sql-database-logical-servers.md). 
+Una instancia de Azure SQL Data Warehouse se crea con un conjunto definido de [recursos de proceso](memory-concurrency-limits.md). La base de datos se crea dentro de un [grupo de recursos de Azure](../azure-resource-manager/management/overview.md) y en un [servidor lógico de Azure SQL](../sql-database/sql-database-logical-servers.md). 
 
 Siga estos pasos para crear una instancia de SQL Data Warehouse que contenga los datos de ejemplo AdventureWorksDW. 
 
@@ -49,7 +49,7 @@ Siga estos pasos para crear una instancia de SQL Data Warehouse que contenga lo
 
 3. Rellene el formulario SQL Data Warehouse con la siguiente información:
 
-    | Configuración | Valor sugerido | DESCRIPCIÓN |
+    | Configuración | Valor sugerido | Descripción |
     | :------ | :-------------- | :---------- |
     | **Suscripción** | Su suscripción | Para más información acerca de sus suscripciones, consulte [Suscripciones](https://account.windowsazure.com/Subscriptions). |
     | **Grupos de recursos** | myResourceGroup | Para conocer cuáles son los nombres de grupo de recursos válidos, consulte el artículo [Convenciones de nomenclatura](/azure/architecture/best-practices/resource-naming). |
@@ -60,7 +60,7 @@ Siga estos pasos para crear una instancia de SQL Data Warehouse que contenga lo
 
 4. Seleccione un **servidor** existente, o bien haga clic en **Crear nuevo** para crear y configurar un servidor nuevo para la nueva base de datos. Rellene el **formulario de servidor nuevo** con la siguiente información: 
 
-    | Configuración | Valor sugerido | DESCRIPCIÓN |
+    | Configuración | Valor sugerido | Descripción |
     | :------ | :-------------- | :---------- |
     | **Nombre del servidor** | Cualquier nombre globalmente único | Para conocer cuáles son los nombres de servidor válidos, consulte el artículo [Naming conventions](/azure/architecture/best-practices/resource-naming) (Convenciones de nomenclatura). |
     | **Inicio de sesión del administrador del servidor** | Cualquier nombre válido | Para conocer los nombres de inicio de sesión válidos, consulte [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificadores de base de datos).|
@@ -124,7 +124,7 @@ Ahora puede conectarse a SQL server y sus almacenamientos de datos mediante esta
 
 En Azure Portal encontrará el nombre completo del servidor SQL. Más adelante usará el nombre completo cuando se conecte al servidor.
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 2. Seleccione **Almacenes de SQL Data Warehouse** en el menú izquierdo y haga clic en el almacenamiento de datos en la página **Almacenes de SQL Data Warehouse**.
 3. En el panel **Essentials** de la página de Azure Portal de la base de datos, busque y copie el **nombre del servidor**. En este ejemplo, el nombre completo es mynewserver-20180430.database.windows.net.
 
@@ -138,7 +138,7 @@ En esta sección se usa [SQL Server Management Studio](/sql/ssms/download-sql-se
 
 2. En el cuadro de diálogo **Conectar con el servidor**, especifique la siguiente información:
 
-   | Configuración | Valor sugerido | DESCRIPCIÓN |
+   | Configuración | Valor sugerido | Descripción |
    | :------ | :-------------- | :---------- |
    | Tipo de servidor | Motor de base de datos | Este valor es obligatorio |
    | Nombre de servidor | Nombre completo del servidor | Este es un ejemplo: **mynewserver-20180430.database.windows.net**. |
@@ -149,7 +149,7 @@ En esta sección se usa [SQL Server Management Studio](/sql/ssms/download-sql-se
 
     ![conectar con el servidor](media/load-data-from-azure-blob-storage-using-polybase/connect-to-server.png)
 
-3. Haga clic en **Conectar**. Se abre la ventana del Explorador de objetos en SSMS. 
+3. Haga clic en **Conectar**. La ventana Explorador de objetos se abre en SSMS. 
 
 4. En el Explorador de objetos, expanda **Bases de datos**. Después, expanda **mySampleDatabase** para ver los objetos de la base de datos.
 
@@ -159,7 +159,7 @@ En esta sección se usa [SQL Server Management Studio](/sql/ssms/download-sql-se
 
 SQL Data Warehouse utiliza T-SQL como lenguaje de consulta. Para abrir una ventana de consulta y ejecutar algunas consultas de T-SQL, siga estos pasos:
 
-1. Haga clic con el botón derecho en **mySampleDataWarehouse** y seleccione **Nueva consulta**. Se abre una nueva ventana de consulta.
+1. Haga clic con el botón derecho en **mySampleDataWarehouse** y seleccione **Nueva consulta**. Se abrirá una nueva ventana de consulta.
 2. En la ventana de consulta, escriba el siguiente comando para ver una lista de bases de datos.
 
     ```sql

@@ -3,19 +3,15 @@ title: Control de acceso basado en rol en Azure Automation
 description: El control de acceso basado en rol (RBAC) permite la administración del acceso en los recursos de Azure. En este artículo se describe cómo configurar RBAC en Azure Automation.
 keywords: automatización de rbac, control de acceso basado en roles, rbac de azure
 services: automation
-ms.service: automation
 ms.subservice: shared-capabilities
-author: mgoedtel
-ms.author: magoedte
 ms.date: 05/17/2018
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 0ee524768f46de965b1755f2cfffdf9e2034bec8
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 122e1f69e952acc00aba3cad2d75cb87b8fd08ee
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850795"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75421588"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Control de acceso basado en rol en Azure Automation
 
@@ -47,7 +43,7 @@ Las tablas siguientes describen los permisos específicos concedidos a cada rol.
 
 Un propietario puede administrar todo, incluido el acceso. La siguiente tabla muestra los permisos concedidos para el rol:
 
-|Acciones|DESCRIPCIÓN|
+|Acciones|Descripción|
 |---|---|
 |Microsoft.Automation/automationAccounts/|Crear y administrar recursos de todos los tipos.|
 
@@ -339,7 +335,7 @@ AssignableScopes : {/}
 ```
 
 [Get-AzureRmRoleAssignment](/previous-versions/azure/mt619413(v=azure.100)) enumera las asignaciones de roles RBAC de Azure AD en el ámbito especificado. Sin parámetros, este comando devuelve todas las asignaciones de roles realizadas en la suscripción. Use el parámetro **ExpandPrincipalGroups** para enumerar las asignaciones de acceso del usuario especificado, así como los grupos a los que pertenezca.
-    **Ejemplo:** use el siguiente comando para enumerar todos los usuarios de una cuenta de automatización y sus roles.
+    **Ejemplo**: use el siguiente comando para enumerar todos los usuarios de una cuenta de automatización y sus roles.
 
 ```azurepowershell-interactive
 Get-AzureRMRoleAssignment -scope '/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation account name>'
@@ -360,7 +356,7 @@ ObjectType         : User
 ```
 
 [New-AzureRmRoleAssignment](/previous-versions/azure/mt603580(v=azure.100)) para asignar acceso a usuarios, grupos y aplicaciones en un ámbito determinado.
-    **Ejemplo:** use el siguiente comando para asignar el rol "Operador de Automation" para un usuario en el ámbito de la cuenta de Automation.
+    **Ejemplo**: use el siguiente comando para asignar el rol "Operador de Automation" para un usuario en el ámbito de la cuenta de Automation.
 
 ```azurepowershell-interactive
 New-AzureRmRoleAssignment -SignInName <sign-in Id of a user you wish to grant access> -RoleDefinitionName 'Automation operator' -Scope '/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation account name>'
@@ -381,7 +377,7 @@ ObjectType         : User
 ```
 
 Use [Remove-AzureRmRoleAssignment](/previous-versions/azure/mt603781(v=azure.100)) para quitar el acceso a un usuario, grupo o aplicación concretos de un ámbito determinado.
-    **Ejemplo:** use el siguiente comando para quitar el usuario del rol "Operador de Automation" en el ámbito de la cuenta de Automation.
+    **Ejemplo**: use el siguiente comando para quitar el usuario del rol "Operador de Automation" en el ámbito de la cuenta de Automation.
 
 ```azurepowershell-interactive
 Remove-AzureRmRoleAssignment -SignInName <sign-in Id of a user you wish to remove> -RoleDefinitionName 'Automation Operator' -Scope '/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation account name>'

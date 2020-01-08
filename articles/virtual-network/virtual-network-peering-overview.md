@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2019
 ms.author: anavin
-ms.openlocfilehash: 59854d7d46f533510bea97a6845554fc0ce83dbb
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 335b956701a87b6a0e5984ae50507a91d212ab67
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74328370"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646751"
 ---
 # <a name="virtual-network-peering"></a>Emparejamiento de redes virtuales de Azure
 
@@ -91,7 +91,7 @@ Cuando las redes virtuales están emparejadas globalmente, se aplican las siguie
 * Los recursos de una red virtual no pueden comunicarse con la dirección IP de front-end de un equilibrador de carga interno (ILB) básico en una red virtual emparejada globalmente.
 * Algunos servicios que usan un equilibrador de carga básico no funcionan en el emparejamiento de red virtual global. Para más información, consulte [¿Cuáles son las restricciones relacionadas con el emparejamiento de red virtual global y los equilibradores de carga?](virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers).
 
-Para más información, consulte [Requisitos y restricciones](virtual-network-manage-peering.md#requirements-and-constraints). Para más información sobre el número de emparejamientos que se admiten, consulte [Límites de la red](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+Para más información, consulte [Requisitos y restricciones](virtual-network-manage-peering.md#requirements-and-constraints). Para más información sobre el número de emparejamientos que se admiten, consulte [Límites de la red](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
 ## <a name="permissions"></a>Permisos
 

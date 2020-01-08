@@ -8,18 +8,18 @@ author: bwren
 ms.author: bwren
 ms.date: 01/09/2018
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 47ee691186da7f915ca8fcf87415784ab12ef1e0
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 517b9768c1df928012c34a4dcdd2dfa6b0c94d0c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553849"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75401598"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>Creación de un archivo de solución de administración en Azure (versión preliminar)
 > [!NOTE]
 > La versión de la documentación para crear soluciones de administración en Azure está actualmente en fase preliminar. Cualquier esquema descrito a continuación está sujeto a cambios.  
 
-Las soluciones de administración de Azure se implementan como [plantillas de Resource Manager](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md).  La tarea principal para aprender a crear soluciones de administración es saber cómo [crear una plantilla](../../azure-resource-manager/resource-group-authoring-templates.md).  En este artículo se proporcionan detalles únicos de plantillas que se usan para soluciones y sobre cómo configurar recursos de solución típicos.
+Las soluciones de administración de Azure se implementan como [plantillas de Resource Manager](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md).  La tarea principal para aprender a crear soluciones de administración es saber cómo [crear una plantilla](../../azure-resource-manager/templates/template-syntax.md).  En este artículo se proporcionan detalles únicos de plantillas que se usan para soluciones y sobre cómo configurar recursos de solución típicos.
 
 
 ## <a name="tools"></a>Herramientas
@@ -32,8 +32,8 @@ Puede usar cualquier editor de texto para trabajar con archivos de solución, pe
 
 
 
-## <a name="structure"></a>sección Estructura
-La estructura básica del archivo de una solución de administración es la misma que la de una [plantilla de Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md#template-format) y se muestra a continuación.  En cada una de las siguientes secciones se describen los elementos de nivel superior y su contenido en una solución.  
+## <a name="structure"></a>Estructura
+La estructura básica del archivo de una solución de administración es la misma que la de una [plantilla de Resource Manager](../../azure-resource-manager/templates/template-syntax.md#template-format) y se muestra a continuación.  En cada una de las siguientes secciones se describen los elementos de nivel superior y su contenido en una solución.  
 
     {
        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -45,7 +45,7 @@ La estructura básica del archivo de una solución de administración es la mism
     }
 
 ## <a name="parameters"></a>Parámetros
-Los [parámetros](../../azure-resource-manager/resource-group-authoring-templates.md#parameters) son valores que el usuario le debe proporcionar al instalar la solución de administración.  Hay parámetros estándar que tendrán todas las soluciones, y puede agregar parámetros adicionales según sea necesario para su solución particular.  La manera en que los usuarios proporcionarán valores de parámetros al instalar la solución dependerá del parámetro particular y de cómo se instala la solución.
+Los [parámetros](../../azure-resource-manager/templates/template-syntax.md#parameters) son valores que el usuario le debe proporcionar al instalar la solución de administración.  Hay parámetros estándar que tendrán todas las soluciones, y puede agregar parámetros adicionales según sea necesario para su solución particular.  La manera en que los usuarios proporcionarán valores de parámetros al instalar la solución dependerá del parámetro particular y de cómo se instala la solución.
 
 Cuando un usuario [instala la solución de administración](solutions.md#install-a-monitoring-solution) mediante plantillas de Azure Marketplace o Azure QuickStart, se le pide que seleccione un [área de trabajo de Log Analytics y una cuenta de Automation](solutions.md#log-analytics-workspace-and-automation-account).  Estos se usan para rellenar los valores de cada uno de los parámetros estándar.  Al usuario no se le pide que proporcione valores directamente para los parámetros estándar, pero se le pide que proporcione valores para cualquier parámetro adicional.
 
@@ -62,7 +62,7 @@ A continuación se muestra un parámetro de ejemplo.
 
 En la tabla siguiente se describen los atributos de un parámetro.
 
-| Atributo | DESCRIPCIÓN |
+| Atributo | Descripción |
 |:--- |:--- |
 | type |Tipo de datos para el parámetro. El control de entrada que se muestra para el usuario depende del tipo de datos.<br><br>bool: cuadro desplegable<br>string: cuadro de texto<br>int: cuadro de texto<br>Securestring: campo de contraseña<br> |
 | category |Categoría opcional para el parámetro.  Los parámetros de la misma categoría se agrupan juntos. |
@@ -77,7 +77,7 @@ En la tabla siguiente se enumeran los parámetros estándar de todas las solucio
 >
 >
 
-| Parámetro | type | DESCRIPCIÓN |
+| Parámetro | Tipo | Descripción |
 |:--- |:--- |:--- |
 | accountName |string |Nombre de la cuenta de Azure Automation. |
 | pricingTier |string |Plan de tarifa del área de trabajo de Log Analytics y de la cuenta de Azure Automation. |
@@ -126,7 +126,7 @@ Esta es la estructura de los parámetros estándar que puede copiar y pegar en e
 Consulte los valores de parámetro de otros elementos de la solución con la sintaxis **parameters('nombre de parámetro')** .  Por ejemplo, para tener acceso al nombre de área de trabajo, use **parameters('workspaceName')**
 
 ## <a name="variables"></a>variables
-[Variables](../../azure-resource-manager/resource-group-authoring-templates.md#variables) son valores que usará en el resto de la solución de administración.  Estos valores no se exponen al usuario que instala la solución.  Están destinados a proporcionar al creador una única ubicación donde pueda administrar los valores que pueden utilizarse varias veces a lo largo de la solución. Debe colocar los valores específicos para su solución en variables en lugar de codificarlos de forma rígida en el elemento **resources**.  De este modo, el código es más legible y los valores se pueden cambiar fácilmente en versiones posteriores.
+[Variables](../../azure-resource-manager/templates/template-syntax.md#variables) son valores que usará en el resto de la solución de administración.  Estos valores no se exponen al usuario que instala la solución.  Están destinados a proporcionar al creador una única ubicación donde pueda administrar los valores que pueden utilizarse varias veces a lo largo de la solución. Debe colocar los valores específicos para su solución en variables en lugar de codificarlos de forma rígida en el elemento **resources**.  De este modo, el código es más legible y los valores se pueden cambiar fácilmente en versiones posteriores.
 
 A continuación se muestra un ejemplo del elemento **variables** con parámetros típicos usados en las soluciones.
 
@@ -155,7 +155,7 @@ También puede definir variables complejas en varios conjuntos de valores.  Esta
 En este caso, consulte los valores de las variables a través de la solución con la sintaxis **variables('nombre de variable').property**.  Por ejemplo, para tener acceso a la variable SolutionName, se usaría **variables('Solution').Name**.
 
 ## <a name="resources"></a>Recursos
-[Recursos](../../azure-resource-manager/resource-group-authoring-templates.md#resources) define los diferentes recursos que instalará y configurará la solución de administración.  Se trata de la parte más grande y compleja de la plantilla.  Puede obtener la estructura y la descripción completa de los elementos de recurso en [Creación de plantillas de Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md#resources).  Se detallan distintos recursos que se definirán normalmente en otros artículos en esta documentación. 
+[Recursos](../../azure-resource-manager/templates/template-syntax.md#resources) define los diferentes recursos que instalará y configurará la solución de administración.  Se trata de la parte más grande y compleja de la plantilla.  Puede obtener la estructura y la descripción completa de los elementos de recurso en [Creación de plantillas de Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md#resources).  Se detallan distintos recursos que se definirán normalmente en otros artículos en esta documentación. 
 
 
 ### <a name="dependencies"></a>Dependencias
@@ -202,10 +202,10 @@ Cada solución requiere una entrada de recursos en el elemento **resources** que
 ### <a name="dependencies"></a>Dependencias
 El recurso de la solución debe tener un [dependencia](../../azure-resource-manager/resource-group-define-dependencies.md) en todos los recursos de la solución, ya que estos deben existir antes de que se cree la solución.  Para ello, agregue una entrada para cada recurso en el elemento **dependsOn**.
 
-### <a name="properties"></a>properties (Propiedades)
+### <a name="properties"></a>Propiedades
 Este recurso de la solución tiene las propiedades de la tabla siguiente.  Esto incluye los recursos a los que hace referencia la solución y contenidos en ella, que define cómo se administra el recurso después de instalar la solución.  Cada recurso de la solución debe aparecer en una de las propiedades **referencedResources** o **containedResources**.
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 |:--- |:--- |
 | workspaceResourceId |Identificador del área de trabajo de Log Analytics con la forma *\<Identificador del grupo de recursos>/providers/Microsoft.OperationalInsights/workspaces/\<Nombre del área de trabajo\>* . |
 | referencedResources |Lista de recursos de la solución que no se deben quitar cuando se quita la solución. |
@@ -216,7 +216,7 @@ El ejemplo anterior es para una solución con un runbook, una programación y un
 ### <a name="plan"></a>Plan
 La entidad **plan** del recurso de la solución tiene las propiedades en la tabla siguiente.
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 |:--- |:--- |
 | name |Nombre de la solución. |
 | version |Versión de la solución según determine el autor. |
@@ -229,5 +229,5 @@ La entidad **plan** del recurso de la solución tiene las propiedades en la tabl
 * [Incorporación de búsquedas y alertas guardadas](solutions-resources-searches-alerts.md) a la solución de administración.
 * [Incorporación de vistas](solutions-resources-views.md) a la solución de administración.
 * [Incorporación de runbooks de y otros recursos Automation](solutions-resources-automation.md) a la solución de administración.
-* Obtenga más información en [Creación de plantillas de Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md).
+* Obtenga más información en [Creación de plantillas de Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md).
 * Búsqueda de [plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates) para obtener ejemplos de diferentes plantillas de Resource Manager.

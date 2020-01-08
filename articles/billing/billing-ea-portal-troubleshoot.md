@@ -4,16 +4,16 @@ description: En este artículo se describen algunos problemas comunes que pueden
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/04/2019
+ms.date: 01/02/2020
 ms.topic: troubleshooting
 ms.service: cost-management-billing
 manager: boalcsva
-ms.openlocfilehash: ff8408a098049d860a614900bdeea80da1bd95e4
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: f48aaee34dd35f065fd7e2d065316674b72db7c5
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74841394"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644433"
 ---
 # <a name="troubleshoot-azure-ea-portal-access"></a>Solución de problemas de acceso al portal de Azure EA
 
@@ -58,7 +58,7 @@ Si recibe un mensaje de error al intentar iniciar sesión en el portal del Contr
 - Asegúrese de que usa la dirección URL correcta del portal del Contrato Enterprise de Azure, que es https://ea.azure.com.
 - Determine si el acceso al portal del Contrato Enterprise de Azure se ha agregado como una cuenta profesional o educativa, o bien como cuenta de Microsoft.
   - Si usa una cuenta profesional, escriba su correo electrónico y contraseña profesionales. La contraseña se la proporciona su organización. Si tiene algún problema, puede consultar al departamento de TI cómo restablecer la contraseña.
-  - Si utiliza una cuenta de Microsoft, escriba su dirección de correo electrónico y contraseña de la cuenta de Microsoft. Si ha olvidado la contraseña de cuenta de Microsoft, puede restablecerla en [https://account.live.com/password/reset ](https://account.live.com/password/reset).
+  - Si utiliza una cuenta de Microsoft, escriba su dirección de correo electrónico y contraseña de la cuenta de Microsoft. Si ha olvidado la contraseña de cuenta de Microsoft, puede restablecerla en [https://account.live.com/password/reset](https://account.live.com/password/reset).
 - Use una sesión InPrivate o de incógnito en el explorador para iniciar sesión, con el fin de que no se guarden cookies ni la información almacenada en la caché de las sesiones anteriores o existentes. Borre la memoria caché del explorador y use una ventana InPrivate o de incógnito para abrir https://ea.azure.com.
 - Si recibe el error _Usuario no válido_  al usar un cuenta de Microsoft, podría deberse a que tiene varias cuentas de Microsoft. La dirección con la que intenta iniciar sesión no es la principal.
 También aparecería el error _Usuario no válido_ si se ha usado un tipo de cuenta incorrecto al agregar el usuario a la inscripción. Por ejemplo, una cuenta profesional o educativa, en lugar de una cuenta de Microsoft. En este ejemplo, pida a administrador de EA que agregue la cuenta correcta o póngase en contacto con el [servicio de soporte técnico](https://support.microsoft.com/supportforbusiness/productselection?sapId=cf791efa-485b-95a3-6fad-3daf9cd4027c).

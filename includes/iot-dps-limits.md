@@ -4,12 +4,12 @@ ms.service: cost-management-billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: fb77682bce0d9faef8f9ac8197afd8751560d515
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: a306a05899a644f2ee8ea738789b84ee98221531
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74224558"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75392351"
 ---
 En la tabla siguiente se enumeran los límites que se aplican a los recursos de Azure IoT Hub Device Provisioning Service.
 
@@ -22,10 +22,6 @@ En la tabla siguiente se enumeran los límites que se aplican a los recursos de 
 | Número máximo de CA | 25 |
 | Número máximo de centros de IoT vinculados | 50 |
 | Tamaño máximo de mensaje | 96 KB|
-
-
-> [!NOTE]
-> Para aumentar el número de instancias de la suscripción, póngase en contacto con [Soporte técnico de Microsoft](https://azure.microsoft.com/support/options/).
 
 > [!NOTE]
 > Para aumentar el número de inscripciones y registros del servicio de aprovisionamiento, póngase en contacto con [Soporte técnico de Microsoft](https://azure.microsoft.com/support/options/).

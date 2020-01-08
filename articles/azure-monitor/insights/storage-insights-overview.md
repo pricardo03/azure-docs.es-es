@@ -4,15 +4,15 @@ description: En este artículo se describe la característica Azure Monitor para
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 08/15/2019
-ms.openlocfilehash: aaf7d1a38d4b809b904b6c607a4cfc23efd4dde5
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: 790d6ad9fb26253697ea36b402799d3eb488ca47
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74286368"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75401131"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage-preview"></a>Supervisión del servicio de almacenamiento con Azure Monitor para Storage (versión preliminar)
 
@@ -47,7 +47,7 @@ En Azure Monitor, puede ver los detalles de transacciones, latencia y capacidad 
 
 Para ver el uso y la disponibilidad de las cuentas de almacenamiento en todas las suscripciones, realice los pasos siguientes.
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 2. Seleccione **Monitor** en el panel izquierdo y, en la sección **Insights**, seleccione **Cuentas de almacenamiento (versión preliminar)** .
 
@@ -227,7 +227,7 @@ En este ejemplo, vamos a trabajar con el libro de capacidad de la cuenta de alma
 
 7. Seleccione **Save as** (Guardar como) en la barra de comandos para guardar una copia del libro con las personalizaciones y, luego, haga clic en **Done editing** (Edición finalizada) para regresar el modo de lectura.
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 
 Esta sección le ayudará con el diagnóstico y la solución de algunos de los problemas habituales que pueden producirse en la aplicación al usar Azure Monitor para Storage (versión preliminar). Utilice la siguiente lista para buscar la información relacionada con el problema específico.
 

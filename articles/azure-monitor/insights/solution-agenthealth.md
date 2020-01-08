@@ -4,20 +4,20 @@ description: Este artículo está pensado para ayudarle a entender cómo usar es
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 03/19/2017
-ms.openlocfilehash: 5a48bbff89f0d6a0be9adf2ad242dbca41eec6db
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: cbeaa3e148d6fbe20d7ddb4d04cd00d6300f9818
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555323"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75402444"
 ---
 #  <a name="agent-health-solution-in-azure-monitor"></a>Solución Agent Health en Azure Monitor
 La solución Agent Health en Azure le ayuda a entender, para todos los agentes que informan directamente al área de trabajo de Log Analytics en Azure Monitor o a un grupo de administración de System Center Operations Manager conectado a Azure Monitor, cuáles no responden y cuáles envían datos operativos.  También puede realizar un seguimiento del número de agentes que se implementan, dónde están distribuidos geográficamente y llevar a cabo otras consultas para mantener el conocimiento de la distribución de los agentes implementados en Azure, en otros entornos de nube o en un entorno local.    
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 Antes de implementar esta solución, confirme que tiene actualmente [agentes de Windows](../../log-analytics/log-analytics-windows-agent.md) compatibles que informan al área de trabajo de Log Analytics o a un [grupo de administración de Operations Manager](../../azure-monitor/platform/om-agents.md) integrado con el área de trabajo.
 
 ## <a name="solution-components"></a>Componentes de soluciones
@@ -35,11 +35,11 @@ Para obtener más información sobre cómo se actualizan los módulos de adminis
 Agregue la solución Agent Health al área de trabajo de Log Analytics mediante el proceso descrito en [Incorporación de soluciones](solutions.md). No es necesario realizar ninguna configuración más.
 
 
-## <a name="data-collection"></a>Colección de datos
+## <a name="data-collection"></a>datos, recopilación
 ### <a name="supported-agents"></a>Agentes admitidos
 En la tabla siguiente se describen los orígenes conectados que son compatibles con esta solución.
 
-| Origen conectado | Compatible | DESCRIPCIÓN |
+| Origen conectado | Compatible | Descripción |
 | --- | --- | --- |
 | Agentes de Windows | Sí | Se recopilan eventos de latido de agentes directos de Windows.|
 | Grupo de administración de System Center Operations Manager | Sí | Se recopilan eventos de latido de agentes que informan al grupo de administración cada 60 segundos y después se reenvían a Azure Monitor. No se requiere ninguna conexión directa entre los agentes de Operations Manager y Azure Monitor. Los datos de eventos de latido se reenvían del grupo de administración al área de trabajo de Log Analytics.|
@@ -49,7 +49,7 @@ Al agregar la solución al área de trabajo de Log Analytics, se agrega el icono
 
 Haga clic en el icono **Agent Health** para abrir el panel **Agent Health**.  El panel incluye las columnas de la tabla siguiente. Cada columna muestra los diez principales eventos por recuento que coinciden con los criterios de esa columna para el intervalo de tiempo especificado. Puede ejecutar una búsqueda de registros que proporcione toda la lista si selecciona **Ver todo** en la parte inferior derecha de la columna o hace clic en el encabezado de columna.
 
-| Columna | DESCRIPCIÓN |
+| Columna | Descripción |
 |--------|-------------|
 | Agent count over time (Número de agentes a lo largo del tiempo) | Una tendencia del número de agentes durante un período de siete días para agentes de Linux y Windows.|
 | Count of unresponsive agents (Número de agentes que no responden) | Una lista de agentes que no ha enviado ningún latido en las últimas 24 horas.|
@@ -68,7 +68,7 @@ La solución crea un tipo de registro en el área de trabajo de Log Analytics.
 ### <a name="heartbeat-records"></a>Registros de latidos
 Se crea un registro del tipo **Heartbeat**.  Estos registros tienen las propiedades de la tabla siguiente.  
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 | --- | --- |
 | `Type` | *Heartbeat*|
 | `Category` | El valor es *Direct Agent*, *SCOM Agent* o *SCOM Management Server*.|
@@ -91,7 +91,7 @@ Cada agente que informa a un servidor de administración de Operations Manager e
 ## <a name="sample-log-searches"></a>Búsquedas de registros de ejemplo
 En la tabla siguiente se proporcionan búsquedas de registros de ejemplo para los registros recopilados por esta solución.
 
-| Consultar | DESCRIPCIÓN |
+| Consultar | Descripción |
 |:---|:---|
 | Heartbeat &#124; distinct Computer |Número total de agentes |
 | Heartbeat &#124; summarize LastCall = max(TimeGenerated) by Computer &#124; where LastCall < ago(24h) |Número de agentes que no responden en las últimas 24 horas |

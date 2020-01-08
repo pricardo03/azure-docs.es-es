@@ -3,18 +3,18 @@ title: Introducción a IoT Plug and Play (versión preliminar) | Microsoft Docs
 description: Más información acerca de IoT Plug and Play (versión preliminar). IoT Plug and Play se basa en un lenguaje de modelado abierto que permite a los dispositivos IoT declarar sus funcionalidades. Los dispositivos IoT presentan esa declaración, denominada modelo de funcionalidad del dispositivo, al conectarse a soluciones en la nube como Azure IoT Central o aplicaciones de asociados. Luego, la solución en la nube puede comprender automáticamente el dispositivo y empezar a interactuar con él (y todo ello sin necesidad de escribir código).
 author: ChrisGMsft
 ms.author: chrisgre
-ms.date: 06/21/2019
+ms.date: 12/23/2019
 ms.topic: overview
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: fd1479a224255f74f4d47cfd90576a5afd25010f
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 54a18bb20ab9af3ad794ed678ea3234a712bf5cb
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72935392"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531169"
 ---
 # <a name="what-is-iot-plug-and-play-preview"></a>¿Qué es IoT Plug and Play (versión preliminar)?
 
@@ -86,6 +86,6 @@ Durante la versión preliminar pública, los dispositivos IoT Plug and Play env�
 
 Ahora que tiene una visión general de IoT Plug and Play, el siguiente paso que se recomienda es probar uno de los tutoriales de inicio rápido:
 
-- [Uso de un modelo de funcionalidad de dispositivo para un dispositivo IoT Plug and Play](./quickstart-create-pnp-device.md)
-- [Conexión de un dispositivo a IoT Hub](./quickstart-connect-pnp-device.md)
-- [Conexión a un dispositivo en la solución](./quickstart-connect-pnp-device-solution.md)
+- [Uso de un modelo de funcionalidad de dispositivo para un dispositivo IoT Plug and Play](./quickstart-create-pnp-device-windows.md)
+- [Conexión de un dispositivo a IoT Hub](./quickstart-connect-pnp-device-c-windows.md)
+- [Conexión a un dispositivo en la solución](./quickstart-connect-pnp-device-solution-node.md)

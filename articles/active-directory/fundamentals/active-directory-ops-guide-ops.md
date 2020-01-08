@@ -11,19 +11,19 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 46e5af9d54cf818366bd2730de0da85dcbe6cade
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: d039373d3e70076149da2b970a234b59d7aa661a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74534768"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422941"
 ---
 # <a name="azure-active-directory-general-operations-guide-reference"></a>Referencia de la guía de operaciones generales de Azure Active Directory
 
 En esta sección de la [guía de referencia de operaciones de Azure AD](active-directory-ops-guide-intro.md) se describen las comprobaciones y las acciones que debe realizar para optimizar las operaciones generales de Azure Active Directory (Azure AD).
 
 > [!NOTE]
-> Estas recomendaciones están actualizadas según la fecha de publicación, pero pueden cambiar con el tiempo. Las organizaciones deben evaluar continuamente sus prácticas de operaciones a medida que los productos y servicios de Microsoft evolucionen con el tiempo.
+> Estas recomendaciones están actualizadas hasta la fecha de publicación, pero pueden cambiar con el tiempo. Las organizaciones deben evaluar continuamente sus prácticas de operaciones a medida que los productos y servicios de Microsoft evolucionen con el tiempo.
 
 ## <a name="key-operational-processes"></a>Procesos operativos clave
 
@@ -107,7 +107,7 @@ La adopción de procedimientos recomendados puede ayudarle a optimizar el funcio
 #### <a name="on-premises-agents-management-recommended-reading"></a>Lectura recomendada para la administración de agentes locales
 
 - [Descripción de los conectores del Proxy de aplicación de Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectors)
-- [Autenticación de paso a través de Azure AD: inicio rápido](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-quick-start#step-5-ensure-high-availability)
+- [Autenticación de paso a través de Azure AD: inicio rápido](../hybrid/how-to-connect-pta-quick-start.md#step-4-ensure-high-availability)
 
 ## <a name="management-at-scale"></a>Administración a escala
 
@@ -131,7 +131,7 @@ Existen dos direcciones de "remitente" que usa Azure AD: <o365mc@email2.microso
 
 - [Revisiones de acceso de Azure AD](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
 - [Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-operations#enable-email-notifications)
-- [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/notifications)
+- [Azure AD Identity Protection](/azure/active-directory/identity-protection/howto-identity-protection-configure-notifications)
 - [Azure AD Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-email-notifications)
 - [Notificaciones de certificado que expirarán con una aplicación empresarial](https://docs.microsoft.com/azure/active-directory/manage-apps/manage-certificates-for-federated-single-sign-on#add-email-notification-addresses-for-certificate-expiration)
 - Aplicación empresarial: aprovisionamiento de las notificaciones de servicio

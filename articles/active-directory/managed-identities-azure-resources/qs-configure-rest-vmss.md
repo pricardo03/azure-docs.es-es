@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 06/25/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f757819e16db9908e80c5e7350c082dbf1573677
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: dce9894b26d03c351a2209792cc076de91feba54
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74547227"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429992"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-rest-api-calls"></a>Configuración de identidades administradas de recursos de Azure en un conjunto de escalado de máquinas virtuales mediante llamadas a la API REST
 
@@ -33,7 +33,7 @@ En este artículo, mediante CURL para llamar al punto de conexión REST de Azure
 - Habilitación y deshabilitación de la identidad administrada asignada por el sistema en un conjunto de escalado de máquinas virtuales de Azure
 - Adición y eliminación de una identidad asignada por el usuario un conjunto de escalado de máquinas virtuales de Azure
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 - Si no está familiarizado con las identidades administradas de los recursos de Azure, consulte la [sección de introducción](overview.md). **No olvide revisar la [diferencia entre una identidad administrada asignada por el sistema y una identidad administrada asignada por el usuario](overview.md#how-does-the-managed-identities-for-azure-resources-work)** .
 - Si aún no tiene una cuenta de Azure, [regístrese para una cuenta gratuita](https://azure.microsoft.com/free/) antes de continuar.
@@ -60,7 +60,7 @@ En esta sección, aprenderá a habilitar y deshabilitar una identidad administra
 
 Para crear un conjunto de escalado de máquinas virtuales con la identidad administrada asignada por el sistema habilitada, debe crear un conjunto de escalado de máquinas virtuales y recuperar un token de acceso para usar CURL y llamar al punto de conexión de Resource Manager con el valor del tipo de identidad administrada asignada por el sistema.
 
-1. Cree un [grupo de recursos](../../azure-resource-manager/resource-group-overview.md#terminology) para contener e implementar el conjunto de escalado de máquinas virtuales y sus recursos relacionados, con [az group create](/cli/azure/group/#az-group-create). Puede omitir este paso si ya tiene un grupo de recursos que le gustaría usar en su lugar:
+1. Cree un [grupo de recursos](../../azure-resource-manager/management/overview.md#terminology) para contener e implementar el conjunto de escalado de máquinas virtuales y sus recursos relacionados, con [az group create](/cli/azure/group/#az-group-create). Puede omitir este paso si ya tiene un grupo de recursos que le gustaría usar en su lugar:
 
    ```azurecli-interactive 
    az group create --name myResourceGroup --location westus
@@ -90,7 +90,7 @@ Para crear un conjunto de escalado de máquinas virtuales con la identidad admin
 
    **Encabezados de solicitud**
 
-   |Encabezado de solicitud  |DESCRIPCIÓN  |
+   |Encabezado de solicitud  |Descripción  |
    |---------|---------|
    |*Content-Type*     | Necesario. Establézcalo en `application/json`.        |
    |*Autorización*     | Necesario. Establézcalo en un token de acceso `Bearer` válido. | 
@@ -185,7 +185,7 @@ Para habilitar la identidad administrada asignada por el sistema en un conjunto 
 
    **Encabezados de solicitud**
 
-   |Encabezado de solicitud  |DESCRIPCIÓN  |
+   |Encabezado de solicitud  |Descripción  |
    |---------|---------|
    |*Content-Type*     | Necesario. Establézcalo en `application/json`.        |
    |*Autorización*     | Necesario. Establézcalo en un token de acceso `Bearer` válido. | 
@@ -218,7 +218,7 @@ Para habilitar la identidad administrada asignada por el sistema en un conjunto 
 
    **Encabezados de solicitud**
 
-   |Encabezado de solicitud  |DESCRIPCIÓN  |
+   |Encabezado de solicitud  |Descripción  |
    |---------|---------|
    |*Content-Type*     | Necesario. Establézcalo en `application/json`.        |
    |*Autorización*     | Necesario. Establézcalo en un token de acceso `Bearer` válido. |
@@ -252,7 +252,7 @@ Para habilitar la identidad administrada asignada por el sistema en un conjunto 
 
    **Encabezados de solicitud**
 
-   |Encabezado de solicitud  |DESCRIPCIÓN  |
+   |Encabezado de solicitud  |Descripción  |
    |---------|---------|
    |*Content-Type*     | Necesario. Establézcalo en `application/json`.        |
    |*Autorización*     | Necesario. Establézcalo en un token de acceso `Bearer` válido. | 
@@ -296,7 +296,7 @@ Para deshabilitar la identidad asignada por el sistema en un conjunto de escalad
 
    **Encabezados de solicitud**
 
-   |Encabezado de solicitud  |DESCRIPCIÓN  |
+   |Encabezado de solicitud  |Descripción  |
    |---------|---------|
    |*Content-Type*     | Necesario. Establézcalo en `application/json`.        |
    |*Autorización*     | Necesario. Establézcalo en un token de acceso `Bearer` válido. | 
@@ -353,7 +353,7 @@ En esta sección, aprenderá a agregar y quitar una identidad administrada asign
 
    **Encabezados de solicitud**
 
-   |Encabezado de solicitud  |DESCRIPCIÓN  |
+   |Encabezado de solicitud  |Descripción  |
    |---------|---------|
    |*Content-Type*     | Necesario. Establézcalo en `application/json`.        |
    |*Autorización*     | Necesario. Establézcalo en un token de acceso `Bearer` válido. | 
@@ -440,7 +440,7 @@ En esta sección, aprenderá a agregar y quitar una identidad administrada asign
 
    **Encabezados de solicitud**
 
-   |Encabezado de solicitud  |DESCRIPCIÓN  |
+   |Encabezado de solicitud  |Descripción  |
    |---------|---------|
    |*Content-Type*     | Necesario. Establézcalo en `application/json`.        |
    |*Autorización*     | Necesario. Establézcalo en un token de acceso `Bearer` válido. |
@@ -535,7 +535,7 @@ En esta sección, aprenderá a agregar y quitar una identidad administrada asign
 
    **Encabezados de solicitud**
 
-   |Encabezado de solicitud  |DESCRIPCIÓN  |
+   |Encabezado de solicitud  |Descripción  |
    |---------|---------|
    |*Autorización*     | Necesario. Establézcalo en un token de acceso `Bearer` válido. |   
  
@@ -556,7 +556,7 @@ En esta sección, aprenderá a agregar y quitar una identidad administrada asign
 
    **Encabezados de solicitud**
 
-   |Encabezado de solicitud  |DESCRIPCIÓN  |
+   |Encabezado de solicitud  |Descripción  |
    |---------|---------|
    |*Content-Type*     | Necesario. Establézcalo en `application/json`.        |
    |*Autorización*     | Necesario. Establézcalo en un token de acceso `Bearer` válido. | 
@@ -588,7 +588,7 @@ En esta sección, aprenderá a agregar y quitar una identidad administrada asign
 
    **Encabezados de solicitud**
 
-   |Encabezado de solicitud  |DESCRIPCIÓN  |
+   |Encabezado de solicitud  |Descripción  |
    |---------|---------|
    |*Content-Type*     | Necesario. Establézcalo en `application/json`.        |
    |*Autorización*     | Necesario. Establézcalo en un token de acceso `Bearer` válido. | 
@@ -624,7 +624,7 @@ En esta sección, aprenderá a agregar y quitar una identidad administrada asign
 
    **Encabezados de solicitud**
 
-   |Encabezado de solicitud  |DESCRIPCIÓN  |
+   |Encabezado de solicitud  |Descripción  |
    |---------|---------|
    |*Content-Type*     | Necesario. Establézcalo en `application/json`.        |
    |*Autorización*     | Necesario. Establézcalo en un token de acceso `Bearer` válido. | 
@@ -663,7 +663,7 @@ En esta sección, aprenderá a agregar y quitar una identidad administrada asign
 
     **Encabezados de solicitud**
 
-   |Encabezado de solicitud  |DESCRIPCIÓN  |
+   |Encabezado de solicitud  |Descripción  |
    |---------|---------|
    |*Content-Type*     | Necesario. Establézcalo en `application/json`.        |
    |*Autorización*     | Necesario. Establézcalo en un token de acceso `Bearer` válido. | 
@@ -702,7 +702,7 @@ En esta sección, aprenderá a agregar y quitar una identidad administrada asign
 
    **Encabezados de solicitud**
 
-   |Encabezado de solicitud  |DESCRIPCIÓN  |
+   |Encabezado de solicitud  |Descripción  |
    |---------|---------|
    |*Autorización*     | Necesario. Establézcalo en un token de acceso `Bearer` válido. |
    
@@ -724,7 +724,7 @@ En esta sección, aprenderá a agregar y quitar una identidad administrada asign
 
    **Encabezados de solicitud**
 
-   |Encabezado de solicitud  |DESCRIPCIÓN  |
+   |Encabezado de solicitud  |Descripción  |
    |---------|---------|
    |*Content-Type*     | Necesario. Establézcalo en `application/json`.        |
    |*Autorización*     | Necesario. Establézcalo en un token de acceso `Bearer` válido. | 
@@ -756,7 +756,7 @@ En esta sección, aprenderá a agregar y quitar una identidad administrada asign
 
    **Encabezados de solicitud**
 
-   |Encabezado de solicitud  |DESCRIPCIÓN  |
+   |Encabezado de solicitud  |Descripción  |
    |---------|---------|
    |*Content-Type*     | Necesario. Establézcalo en `application/json`.        |
    |*Autorización*     | Necesario. Establézcalo en un token de acceso `Bearer` válido. | 
@@ -786,7 +786,7 @@ PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 
 **Encabezados de solicitud**
 
-|Encabezado de solicitud  |DESCRIPCIÓN  |
+|Encabezado de solicitud  |Descripción  |
 |---------|---------|
 |*Content-Type*     | Necesario. Establézcalo en `application/json`.        |
 |*Autorización*     | Necesario. Establézcalo en un token de acceso `Bearer` válido. | 
@@ -813,7 +813,7 @@ PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 
 **Encabezados de solicitud**
 
-|Encabezado de solicitud  |DESCRIPCIÓN  |
+|Encabezado de solicitud  |Descripción  |
 |---------|---------|
 |*Content-Type*     | Necesario. Establézcalo en `application/json`.        |
 |*Autorización*     | Necesario. Establézcalo en un token de acceso `Bearer` válido. | 

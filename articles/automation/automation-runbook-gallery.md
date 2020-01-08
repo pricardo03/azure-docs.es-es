@@ -2,19 +2,15 @@
 title: Galerías de runbooks y módulos para Azure Automation
 description: Dispone de runbooks y módulos de Microsoft y la comunidad para instalarlos y usarlos en su entorno de Azure Automation.  En este artículo, se describe cómo acceder a estos recursos y contribuir sus runbooks a la galería.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 03/20/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 94910d0f42ad6b208cac54dd2826cbd2d917504b
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 52a0ab0a31600c1548283c7d899b17e497811b5a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850727"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75421484"
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Galerías de runbooks y módulos para Azure Automation
 
@@ -69,7 +65,7 @@ Los módulos de PowerShell contienen cmdlets que puede usar en sus runbooks; los
 
 4. En la página **Examinar galería**, puede buscar por los campos siguientes:
 
-   * Nombre de módulo
+   * Nombre del módulo
    * Etiquetas
    * Autor
    * Nombre de cmdlet/recurso de DSC

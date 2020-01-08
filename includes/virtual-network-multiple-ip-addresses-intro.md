@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/09/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: 0c3bc3f2995131c7777bfc48269a17fceda33192
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: c63160d7514dccb0d2a9c2879db6d3fd614e1a96
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67186239"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646402"
 ---
 > [!div class="op_single_selector"]
 > * [Azure Portal](../articles/virtual-network/virtual-network-multiple-ip-addresses-portal.md)
@@ -29,4 +29,4 @@ Una máquina virtual (VM) de Azure tiene una o varias interfaces de red (NIC) as
 
 Cada NIC conectada a una VM tiene una o varias configuraciones de IP asociadas. Se asigna a cada configuración una dirección IP privada estática o dinámica. Cada configuración también puede tener un recurso de dirección IP pública asociado. Un recurso de dirección IP pública tiene una dirección IP pública dinámica o estática asignada. Para más información sobre las direcciones IP en Azure, lea el artículo sobre [direcciones IP en Azure](../articles/virtual-network/virtual-network-ip-addresses-overview-arm.md). 
 
-Existe un límite para el número de direcciones IP privadas que pueden asignarse a una NIC. También existe un límite para el número de direcciones IP públicas que pueden usarse en una suscripción de Azure. Para más información, consulte el artículo sobre los [límites de Azure](../articles/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+Existe un límite para el número de direcciones IP privadas que pueden asignarse a una NIC. También existe un límite para el número de direcciones IP públicas que pueden usarse en una suscripción de Azure. Para más información, consulte el artículo sobre los [límites de Azure](../articles/azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).

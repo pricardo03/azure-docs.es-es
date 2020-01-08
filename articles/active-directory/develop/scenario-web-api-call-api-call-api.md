@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6063d143e2f217426bdf1db217fde46f8542d314
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 5829ca41aaa4bd61f8878657e5eedbf6351b5df4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74965218"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423576"
 ---
 # <a name="web-api-that-calls-web-apis---call-an-api"></a>API web que llama a otras API web (llamada a una API)
 
@@ -32,7 +32,7 @@ Esta es la continuación del código de ejemplo que se muestra en [API web prote
 
 Una vez que haya adquirido el token, úselo como token de portador para llamar a la API de bajada.
 
-```CSharp
+```csharp
 private async Task GetTodoList(bool isAppStarting)
 {
  ...

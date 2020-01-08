@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: queues
-ms.openlocfilehash: 8ab4cb6b06f0f023a8f6368dac633a97afe29fd4
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 55bcefc19723dc275cc8b421d5620c5dfe2c96e7
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390020"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614970"
 ---
 # <a name="performance-and-scalability-checklist-for-queue-storage"></a>Lista de comprobación de rendimiento y escalabilidad para Queue Storage
 
@@ -28,7 +28,7 @@ En este artículo se organizan los procedimientos de eficacia probada a la hora 
 | ¡Listo! | Category | Consideraciones acerca del diseño |
 | --- | --- | --- |
 | &nbsp; |Objetivos de escalabilidad |[¿Puede diseñar la aplicación para que no supere el número máximo de cuentas de almacenamiento?](#maximum-number-of-storage-accounts) |
-| &nbsp; |Objetivos de escalabilidad |[¿Va a evitar acercarse a los límites de transacción y capacidad?](#capacity-and-transaction-targets) |
+| &nbsp; |Objetivos de escalabilidad |[¿Evita acercarse a los límites de transacción y capacidad?](#capacity-and-transaction-targets) |
 | &nbsp; |Redes |[¿Disponen los dispositivos del cliente de un ancho de banda suficientemente grande y una latencia suficientemente baja como para lograr el rendimiento necesario?](#throughput) |
 | &nbsp; |Redes |[¿Tienen los dispositivos del cliente un enlace de red de alta calidad?](#link-quality) |
 | &nbsp; |Redes |[¿Está la aplicación cliente en la misma región que la cuenta de almacenamiento?](#location) |
@@ -45,17 +45,17 @@ En este artículo se organizan los procedimientos de eficacia probada a la hora 
 | &nbsp; |Recuperación en masa |[¿Recupera varios mensajes en una sola operación GET?](#batch-retrieval) |
 | &nbsp; |Frecuencia de sondeo |[¿Realiza sondeos con la suficiente frecuencia para reducir la latencia percibida de su aplicación?](#queue-polling-interval) |
 | &nbsp; |Actualizar mensaje |[¿Usa la operación Actualizar mensaje para almacenar el progreso en los mensajes de procesamiento con el fin de evitar volver a procesar todo el mensaje si se produce un error?](#use-update-message) |
-| &nbsp; |Arquitectura |[¿Usa colas para hacer que toda su aplicación sea más escalable manteniendo cargas de trabajo de ejecución prolongada fuera de la ruta de acceso crítica y escala después de forma independiente?](#application-architecture) |
+| &nbsp; |Architecture |[¿Usa colas para hacer que toda su aplicación sea más escalable manteniendo cargas de trabajo de ejecución prolongada fuera de la ruta de acceso crítica y escala después de forma independiente?](#application-architecture) |
 
 ## <a name="scalability-targets"></a>Objetivos de escalabilidad
 
 Si su aplicación se aproxima o supera cualquiera de estos objetivos de escalabilidad, puede encontrar un aumento en la limitación o latencias de transacción. Cuando Azure Storage limita su aplicación, el servicio comienza a devolver códigos de error 503 (Servidor ocupado) o 500 (Tiempo de espera de la operación). Evitar estos errores, mediante la permanencia en los límites de los objetivos de escalabilidad, es una parte importante de la mejora del rendimiento de la aplicación.
 
-Para más información acerca de los objetivos de escalabilidad de Queue service, consulte [Objetivos de escalabilidad y rendimiento de Azure Storage en cuentas de almacenamiento](/azure/storage/common/storage-scalability-targets?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#azure-queue-storage-scale-targets).
+Para más información acerca de los objetivos de escalabilidad de Queue service, consulte [Objetivos de escalabilidad y rendimiento de Azure Storage en cuentas de almacenamiento](/azure/storage/queues/scalability-targets#scale-targets-for-queue-storage).
 
 ### <a name="maximum-number-of-storage-accounts"></a>Número máximo de cuentas de almacenamiento
 
-Si se aproxima al número máximo de cuentas de almacenamiento permitido para una combinación de suscripción/región concreta, ¿usa varias cuentas de almacenamiento para la partición para aumentar la entrada, la salida, las operaciones de E/S por segundo o la capacidad? En este escenario, Microsoft recomienda aprovechar el aumento de los límites de las cuentas de almacenamiento para reducir el número de cuentas de almacenamiento necesarias para la carga de trabajo, siempre que sea posible. Póngase en contacto con el [soporte técnico de Azure](https://azure.microsoft.com/support/options/) para solicitar el aumento de los límites de la cuenta de almacenamiento. Para más información, consulte [Announcing larger, higher scale storage accounts](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/) (Anuncio de cuentas de almacenamiento más grandes y con mayor escala).
+Si se aproxima al número máximo de cuentas de almacenamiento permitido para una combinación de suscripción/región concreta, ¿usa varias cuentas de almacenamiento para la partición para aumentar la entrada, la salida, las operaciones de E/S por segundo o la capacidad? En este escenario, Microsoft recomienda aprovechar las ventajas del aumento de los límites de las cuentas de almacenamiento para reducir el número de cuentas de almacenamiento necesarias para la carga de trabajo, siempre que sea posible. Póngase en contacto con el [soporte técnico de Azure](https://azure.microsoft.com/support/options/) para solicitar el aumento de los límites de la cuenta de almacenamiento. Para más información, consulte [Announcing larger, higher scale storage accounts](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/) (Anuncio de cuentas de almacenamiento más grandes y con mayor escala).
 
 ### <a name="capacity-and-transaction-targets"></a>Objetivos de capacidad y transacción
 
@@ -66,7 +66,7 @@ Si su aplicación se aproxima a los objetivos de escalabilidad para una sola cue
 - Si su aplicación debe superar uno de los objetivos de escalabilidad, cree varias cuentas de almacenamiento y realice particiones de los datos de su aplicación entre esas cuentas. Si usa este patrón, entonces debe asegurarse de designar la aplicación de forma que pueda agregar más cuentas de almacenamiento en el futuro para equilibrio de carga. Las propias cuentas de almacenamiento no tienen ningún costo aparte del de su uso en términos de datos almacenados, transacciones realizadas o datos transferidos.
 - Si la aplicación se aproxima a los objetivos de ancho de banda, considere la posibilidad de comprimir los datos en el cliente para reducir el ancho de banda necesario para enviar los datos a Azure Storage.
     Aunque comprimir datos puede ahorrar ancho de banda y mejorar el rendimiento de la red, también puede tener efectos negativos en el rendimiento. Evalúe el impacto en el rendimiento de los requisitos de procesamiento adicionales para la compresión y descompresión de datos en el cliente. Tenga en cuenta que el almacenamiento de los datos comprimidos puede dificultar la solución de problemas, ya que es muy probable que sea más complicado ver los datos con herramientas estándar.
-- Si la aplicación se acerca a los objetivos de escalabilidad, asegúrese de que usa un retroceso exponencial para los reintentos. Es recomendable que intente evitar llegar a los objetivos de escalabilidad mediante la implementación de las recomendaciones que se describen en este artículo. Sin embargo, el uso de un retroceso exponencial para los reintentos impedirá que la aplicación vuelva a intentarlo rápidamente, lo que podría empeorar la limitación. Para más información, consulte la sección relativa a los [errores debidos al tiempo de expiración y a que el servidor está ocupado](#timeout-and-server-busy-errors).
+- Si la aplicación se acerca a los objetivos de escalabilidad, asegúrese de que usa un retroceso exponencial para los reintentos. Es recomendable que intente evitar llegar a los objetivos de escalabilidad mediante la implementación de las recomendaciones que se describen en este artículo. Sin embargo, el uso de un retroceso exponencial para los reintentos impedirá que la aplicación vuelva a intentarlo rápidamente, lo que podría empeorar la limitación. Para más información, consulte la sección [Errores de tiempo de expiración y servidor ocupado](#timeout-and-server-busy-errors).
 
 ## <a name="networking"></a>Redes
 
@@ -100,7 +100,7 @@ Por lo general, los exploradores web no permiten que haya código JavaScript en 
 
 Por ejemplo, supongamos que una aplicación web que se ejecuta en Azure realiza una solicitud de un recurso en una cuenta de Azure Storage. La aplicación web es el dominio de origen y la cuenta de almacenamiento es el dominio de destino. Puede configurar CORS para que cualquiera de los servicios de Azure Storage comunique al explorador web que Azure Storage confía en las solicitudes del dominio de origen. Para más información sobre CORS, consulte [Soporte técnico del uso compartido de recursos entre orígenes (CORS) para Azure Storage](/rest/api/storageservices/Cross-Origin-Resource-Sharing--CORS--Support-for-the-Azure-Storage-Services).  
   
-Tanto SAS como CORS pueden ayudarle a evitar que haya una carga innecesaria en la aplicación web.  
+Tanto SAS como CORS pueden evitar una carga innecesaria en la aplicación web.  
 
 ## <a name="net-configuration"></a>Configuración de .NET
 
@@ -161,7 +161,7 @@ Los errores de conectividad se pueden reintentar inmediatamente porque no se der
 
 Las bibliotecas cliente controlan los reintentos y saben qué errores se pueden reintentar y cuáles no. Sin embargo, si va a llamar directamente a la API REST de Azure Storage, hay algunos errores que no debe reintentar. Por ejemplo, un error 400 (solicitud incorrecta) indica que la aplicación cliente ha enviado una solicitud que no se pudo procesar porque no tenía el formato esperado. El reenvío de esta solicitud genera la misma respuesta siempre, por lo que no tiene sentido reintentarla. Si llama directamente a la API REST de Azure Storage, tenga en cuenta los posibles errores y si deben reintentarse.
 
-Para más información acerca de los códigos de error de Azure Storage, consulte [Estado y códigos de error](/rest/api/storageservices/status-and-error-codes2).
+Para más información sobre los códigos de error de Azure Storage, consulte [Estado y códigos de error](/rest/api/storageservices/status-and-error-codes2).
 
 ## <a name="disable-nagle"></a>Deshabilitación de Nagle
 

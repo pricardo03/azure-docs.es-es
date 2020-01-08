@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 03/14/2019
-ms.openlocfilehash: 941dcc268c2af9e011af01d3da224b90e9ee5018
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: aea0adc9217a7729c9bf14211cf5da422ac9e198
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820804"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432533"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Solución de problemas y preguntas y respuestas sobre Application Insights para Java
 Preguntas o problemas relacionados con [Azure Application Insights en Java][java]. a continuación se incluyen algunas sugerencias.
@@ -22,7 +22,7 @@ Preguntas o problemas relacionados con [Azure Application Insights en Java][java
 
 * Si el elemento `<version>` de dependencia usa un patrón con caracteres comodín (por ejemplo, (Maven) `<version>[2.0,)</version>` o (Gradle) `version:'2.0.+'`), pruebe a especificar una versión específica en su lugar, como `2.0.1`. Consulte la [notas de la versión](https://github.com/Microsoft/ApplicationInsights-Java/releases) para la versión más reciente.
 
-## <a name="no-data"></a>No aparecen datos
+## <a name="no-data"></a>Sin datos
 **He agregado Application Insights correctamente y he ejecutado mi aplicación, pero no aparecen datos en el portal.**
 
 * Espere un minuto y haga clic en Actualizar, Los gráficos se actualizan automáticamente de forma periódica, pero puede actualizarlos manualmente. El intervalo de actualización depende del intervalo de tiempo del gráfico.
@@ -52,7 +52,6 @@ Preguntas o problemas relacionados con [Azure Application Insights en Java][java
 * ¿Ha configurado el agente de Java siguiendo el [agente de configuración de Java](java-agent.md)?
 * Asegúrese de que el archivo JAR del agente de Java y el archivo AI-Agent.xml se coloquen en la misma carpeta.
 * Asegúrese de que la dependencia que intenta recopilar automáticamente admita la recopilación automática. Actualmente solo se admiten colecciones de dependencias de MySQL, MsSQL, Oracle DB y Azure Cache for Redis.
-* ¿Usa JDK 1.7 o 1.8? Actualmente no se admite la colección de dependencias en JDK 9.
 
 ## <a name="no-usage-data"></a>No aparecen datos de uso
 **Veo datos sobre solicitudes y tiempos de respuesta, pero no de vista de página, del explorador o de datos de usuarios.**
@@ -193,7 +192,7 @@ Application Insights usa `org.apache.http`. Se reubica en los archivos JAR princ
 * [Escribir código para realizar un seguimiento del uso de la aplicación][track]
 * [Capturar los registros de diagnóstico][javalogs]
 
-## <a name="get-help"></a>Obtención de ayuda
+## <a name="get-help"></a>Obtener ayuda
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/ms-application-insights)
 * [Notificación de un problema en GitHub](https://github.com/Microsoft/ApplicationInsights-Java/issues)
 

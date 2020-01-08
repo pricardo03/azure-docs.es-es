@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 3/19/2019
 ms.author: victorh
-ms.openlocfilehash: e52a32c1897a7add939880fbe27d6b4b7fbee0bd
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 64b90afd598b96604fc9c3ddc4bc10586e714363
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883574"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75657988"
 ---
 # <a name="overview-of-ssl-termination-and-end-to-end-ssl-with-application-gateway"></a>Introducción a la terminación SSL y a SSL de extremo a extremo con Application Gateway
 
@@ -50,7 +50,7 @@ Application Gateway admite los siguientes tipos de certificados:
 Para más información, consulte la [configuración de la terminación SSL con una puerta de enlace de aplicaciones](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal).
 
 ### <a name="size-of-the-certificate"></a>Tamaño del certificado
-Consulte la sección [Límites de Application Gateway](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits) para conocer el tamaño máximo de certificado SSL admitido.
+Consulte la sección [Límites de Application Gateway](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#application-gateway-limits) para conocer el tamaño máximo de certificado SSL admitido.
 
 ## <a name="end-to-end-ssl-encryption"></a>Cifrado SSL de un extremo a extremo
 

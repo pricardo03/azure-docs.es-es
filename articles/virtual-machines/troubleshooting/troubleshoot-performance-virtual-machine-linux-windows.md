@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: v-miegge
-ms.openlocfilehash: 50c0a670eb492aef01c3499bc2c8605917f4c7b8
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: a836c6b47e0e1346b5e8de9ba5fbe94f88961cbd
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965485"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75615043"
 ---
 # <a name="troubleshoot-azure-virtual-machine-performance-on-linux-or-windows"></a>Solución de problemas de rendimiento de máquinas virtuales de Azure en Linux o Windows
 
@@ -30,7 +30,7 @@ En este artículo se explica el uso de la supervisión para diagnosticar cuellos
 
 ### <a name="azure-iaas-virtual-machine-monitoring"></a>Supervisión de máquinas virtuales IaaS de Azure
 
-Para supervisar la máquina virtual invitada, use la supervisión de máquinas virtuales de Azure, que le avisará sobre ciertas condiciones de recursos de alto nivel. Para comprobar si tiene habilitados los diagnósticos de máquina virtual, consulte [Información general sobre los registros de recursos de Azure](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-overview#collecting-resource-logs). Si ve lo siguiente, lo más probable es que no tenga habilitados los diagnósticos:
+Para supervisar la máquina virtual invitada, use la supervisión de máquinas virtuales de Azure, que le avisará sobre ciertas condiciones de recursos de alto nivel. Para comprobar si tiene habilitados los diagnósticos de máquina virtual, consulte [Información general sobre los registros de recursos de Azure](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-resource-logs). Si ve lo siguiente, lo más probable es que no tenga habilitados los diagnósticos:
 
 ![La supervisión no está habilitada](media/troubleshoot-performance-virtual-machine-linux-windows/1-virtual-machines-monitoring-not-enabled.png)
  

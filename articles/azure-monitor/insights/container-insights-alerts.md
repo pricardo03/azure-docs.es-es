@@ -1,18 +1,14 @@
 ---
 title: Creación de alertas de rendimiento para Azure Monitor para contenedores | Microsoft Docs
 description: En este artículo se describe cómo crear alertas personalizadas basadas en consultas de registro para el uso de memoria y de CPU desde Azure Monitor para contenedores.
-ms.service: azure-monitor
-ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
 ms.date: 04/26/2019
-ms.openlocfilehash: 66baa3095744c8b486430d587b992ba507d87733
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: efeb86dc0b71217cf566f7e6671e72601ec69371
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74841632"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75405610"
 ---
 # <a name="how-to-set-up-alerts-for-performance-problems-in-azure-monitor-for-containers"></a>Cómo configurar alertas para problemas de rendimiento en Azure Monitor para contenedores
 
@@ -287,7 +283,7 @@ Siga estos pasos para crear una alerta de registro en Azure Monitor mediante el 
 >En el siguiente procedimiento para crear una regla de alerta para el uso de recursos de contenedor, deberá cambiar a una nueva API de alertas de registro, tal como se describe en [Cambio de la preferencia de API para las alertas de registro](../platform/alerts-log-api-switch.md).
 >
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Seleccione **Monitor** en el panel del lado izquierdo. En **Detalles**, seleccione **Contenedores**.
 3. En la pestaña **Clústeres supervisados**, seleccione un clúster de la lista.
 4. En el panel de la izquierda, bajo **Supervisión**, seleccione **Registros** para abrir la página de registros de Azure Monitor. Utilice esta página para escribir y ejecutar consultas de Azure Log Analytics.

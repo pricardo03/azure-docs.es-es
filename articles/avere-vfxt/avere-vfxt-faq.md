@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 11/06/2019
 ms.author: rohogue
-ms.openlocfilehash: 7839530463ea834ed5f8ae2ae06854985a77c673
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.openlocfilehash: 5340952d6d30ae80d53234530a7e2ca6c067cf1f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73847359"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75415356"
 ---
 # <a name="avere-vfxt-for-azure-faq"></a>Preguntas frecuentes acerca de Avere vFXT for Azure
 
@@ -77,10 +77,10 @@ Sí, Avere vFXT se ejecuta exclusivamente como solución de alta disponibilidad.
 
 Sí, los clientes pueden usar más de un proveedor de nube con el clúster de Avere vFXT. Es compatible con cubos estándar de AWS S3 y cubos estándar de Google Cloud Services, así como contenedores de Azure Blob.
 
-> [!NOTE] 
+> [!NOTE]
 > Se aplica una tarifa de software para usar Avere vFXT en AWS o Google Cloud, pero no con Azure.
 
-## <a name="technical-compute"></a>Técnico: Proceso
+## <a name="technical-compute"></a>Técnica: Proceso
 
 ### <a name="can-you-describe-what-an-avere-vfxt-environment-looks-like"></a>¿Cómo puede describirse el "aspecto" de un entorno de Avere vFXT?
 
@@ -97,7 +97,6 @@ No, you must choose one virtual machine type or the other.
 ### Can I move between virtual machine types?
 
 Yes, there is a migration path to move from one VM type to the other. [Open a support ticket](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt) to learn how.
-
 -->
 
 ### <a name="does-the-avere-vfxt-environment-scale"></a>¿Puede escalarse el entorno de Avere vFXT?
@@ -130,13 +129,13 @@ No. El modelo de alta disponibilidad en Avere vFXT actualmente no es compatible
 
 ### <a name="can-i-clone-avere-vfxt-virtual-machines"></a>¿Puedo clonarse las máquinas virtuales de Avere vFXT?
 
-No, debe usar el script de Python compatible para agregar o quitar nodos del clúster de Avere vFXT. Para más información, lea [Manage the Avere vFXT cluster](avere-vfxt-manage-cluster.md) (Administración del clúster de Avere vFXT).  
+No, debe usar el script de Python compatible para agregar o quitar nodos del clúster de Avere vFXT. Para más información, lea [Manage the Avere vFXT cluster](avere-vfxt-manage-cluster.md) (Administración del clúster de Avere vFXT).
 
 ### <a name="is-there-a-vm-version-of-the-software-i-can-run-in-my-own-local-environment"></a>¿Existe una versión de "VM" del software que puedo ejecutar en mi propio entorno local?
 
 No, el sistema se ofrece como dispositivo en clúster y se ha probado en tipos de máquina virtual específicos. Esta restricción ayuda a los clientes a evitar la creación de un sistema que no sea compatible con los requisitos de alto rendimiento de un flujo de trabajo típico de Avere vFXT.
 
-## <a name="technical-disks"></a>Técnico: Discos
+## <a name="technical-disks"></a>Técnica: Discos
 
 ### <a name="what-types-of-disks-are-supported-for-the-azure-vms"></a>¿Qué tipos de discos son compatibles con las VM de Azure?
 
@@ -162,7 +161,7 @@ No se admite desasociar y reconectar SSD. Los metadatos o el contenido de los ar
 
 Los datos se reparten entre los discos, pero no se cifran. Sin embargo, puede cifrar los discos en sí. Para más información, consulte [Protección y uso de directivas en máquinas virtuales en Azure](https://docs.microsoft.com/azure/virtual-machines/linux/security-policy#encryption).
 
-## <a name="technical-networking"></a>Técnico: Redes
+## <a name="technical-networking"></a>Técnica: Redes
 
 ### <a name="what-network-is-recommended"></a>¿Qué red se recomienda?
 

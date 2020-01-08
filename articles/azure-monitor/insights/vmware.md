@@ -4,15 +4,15 @@ description: Obtenga información sobre cómo la solución de supervisión de VM
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 05/04/2018
-ms.openlocfilehash: dc453ad42312bb096aed1356d376b0906870a7b0
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: ac735c9131ebe7b7273d93a927cb4d4a8be24508
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900603"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75399186"
 ---
 # <a name="vmware-monitoring-deprecated-solution-in-azure-monitor"></a>Solución VMware Monitoring (en desuso) en Azure Monitor
 
@@ -67,7 +67,7 @@ Cree una máquina virtual con el sistema operativo de Linux para recibir todos l
 
 1. En Azure Portal, realice una búsqueda de registros por `VMware_CL`. Cuando Azure Monitor recopila los datos de Syslog, conserva el formato de registro del sistema. En el portal, se capturan algunos campos específicos, como *Hostname* y *ProcessName*.  
 
-    ![Tipo](./media/vmware/type.png)  
+    ![type](./media/vmware/type.png)  
 
     Si los resultados de búsqueda de registros de visualización son similares a la imagen anterior, significa que puede usar el panel de la solución VMware Monitoring.  
 

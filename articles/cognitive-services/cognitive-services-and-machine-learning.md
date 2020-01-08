@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: diberry
-ms.openlocfilehash: 48bac68b518706cf3a23d2283da7cda49846e0a7
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: cde505e4c95de9b9693a0e9d260d7fa84f3e905b
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73795826"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531486"
 ---
 # <a name="cognitive-services-and-machine-learning"></a>Cognitive Services y Machine Learning
 
@@ -26,7 +26,7 @@ Cognitive Services proporciona funciones de aprendizaje automático para solucio
 |--|--|
 |[Decisión](https://azure.microsoft.com/services/cognitive-services/directory/decision/)|Cree aplicaciones que presenten recomendaciones para tomar decisiones informadas y eficaces.|
 |[Lenguaje](https://azure.microsoft.com/services/cognitive-services/directory/lang/)|Permita que sus aplicaciones procesen lenguaje natural con scripts precompilados, evalúen sentimientos y aprendan a reconocer lo que los usuarios quieren.|
-|[Search](https://azure.microsoft.com/services/cognitive-services/directory/search/)|Agregue Bing Search API a las aplicaciones e implemente la funcionalidad que permite combinar miles de millones de páginas web, imágenes, vídeos y noticias con una sola llamada API.|
+|[Búsqueda](https://azure.microsoft.com/services/cognitive-services/directory/search/)|Agregue Bing Search API a las aplicaciones e implemente la funcionalidad que permite combinar miles de millones de páginas web, imágenes, vídeos y noticias con una sola llamada API.|
 |[Voz](https://azure.microsoft.com/services/cognitive-services/directory/speech/)|Convierta voz en texto y texto en voz que suene natural. Traduzca de un idioma a otro y habilite el reconocimiento y la verificación del hablante.|
 |[Visión](https://azure.microsoft.com/services/cognitive-services/directory/vision/)|Reconozca, identifique, ponga título, indexe y modere sus imágenes, vídeos y contenido de lápiz digital.|
 ||||
@@ -134,7 +134,7 @@ Cognitive Services que proporcionan modelos exportados para otras herramientas d
 ## <a name="learn-more"></a>Más información
 
 * [Guía de arquitectura: ¿Cuáles son los productos de aprendizaje automático de Microsoft?](https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning)
-* [Aprendizaje automático: Introducción a la relación entre aprendizaje profundo y aprendizaje automático](../machine-learning/service/concept-deep-learning-vs-machine-learning.md)
+* [Aprendizaje automático: Introducción a la relación entre aprendizaje profundo y aprendizaje automático](../machine-learning/concept-deep-learning-vs-machine-learning.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

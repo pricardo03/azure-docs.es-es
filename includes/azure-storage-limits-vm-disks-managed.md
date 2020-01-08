@@ -9,10 +9,10 @@ ms.date: 12/12/2018
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: dd5c0782e1132f8592d9c6381b541c6f1a7d84cd
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
+ms.lasthandoff: 12/25/2019
 ms.locfileid: "67186306"
 ---
 **Discos administrados HDD estándar**
@@ -26,7 +26,7 @@ ms.locfileid: "67186306"
 
 **Discos administrados SSD Premium: límites por máquina virtual**
 
-| Recurso | Límite predeterminado |
+| Resource | Límite predeterminado |
 | --- | --- |
 | Número máximo de IOPS por máquina virtual |80 000 IOPS con máquina virtual GS5 |
 | Rendimiento máximo por máquina virtual |2000 MB/s con máquina virtual GS5 |

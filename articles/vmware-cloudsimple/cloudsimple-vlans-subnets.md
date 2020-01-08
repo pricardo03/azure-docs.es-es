@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 7af191893d6b3cf1c38e5ff44a7a8a04509347a8
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 2451fbb69636624db354006df2a7925ef9e75459
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69543802"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75372744"
 ---
 # <a name="vlans-and-subnets-overview"></a>Introducción a las VLAN y subredes
 
@@ -38,7 +38,7 @@ Una nube privada se crea como un entorno de pila VMware aislada (hosts ESXi, vCe
 * Prefijo de intervalo de CIDR de subredes vSphere/vSAN mínimo: **/24**
 * Prefijo de intervalo de CIDR de subredes vSphere/vSAN máximo: **/21**
 
-> [!IMPORTANT]
+> [!CAUTION]
 > Las direcciones IP en el intervalo CIDR de vSphere/vSAN están reservadas para que las use la infraestructura de nube privada.  No use la dirección IP de este intervalo en ninguna máquina virtual.
 
 ### <a name="vspherevsan-subnets-cidr-range-limits"></a>Límites del intervalo de CIDR de subredes vSphere/vSAN

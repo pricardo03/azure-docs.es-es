@@ -2,25 +2,21 @@
 title: Tipos de runbooks de Azure Automation
 description: 'Describe los distintos tipos de Runbooks que puede usar en Azure Automation y las consideraciones que debe tener en cuenta al determinar qué tipo usar. '
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 03/05/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 1991b7c227e62efcd8c0b637f3e732d737cabb34
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 6346c29210b6390f11c884ff51e0b60af89bbbb7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850693"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75420906"
 ---
 # <a name="azure-automation-runbook-types"></a>Tipos de runbooks de Azure Automation
 
 Azure Automation admite numerosos tipos de runbooks que se describen brevemente en la tabla siguiente.  Las secciones siguientes proporcionan información adicional sobre cada tipo, incluidas consideraciones sobre cuándo usar cada uno.
 
-| Tipo | DESCRIPCIÓN |
+| Tipo | Descripción |
 |:--- |:--- |
 | [Gráfico](#graphical-runbooks)|Basado en Windows PowerShell y creado y editado completamente en el editor gráfico del Portal de Azure. |
 | [Flujo de trabajo gráfico de PowerShell](#graphical-runbooks)|Basado en el flujo de trabajo de Windows PowerShell y creado y editado completamente en el editor gráfico del Portal de Azure. |
@@ -119,4 +115,4 @@ Tenga en cuenta las siguientes consideraciones adicionales al determinar qué ti
 * Para más información sobre la creación de runbooks de gráficos, consulte [Creación gráfica en Azure Automation](automation-graphical-authoring-intro.md)
 * Para comprender las diferencias entre PowerShell y los flujos de trabajo de PowerShell para runbooks, consulte [Aprendizaje del flujo de trabajo de Windows PowerShell](automation-powershell-workflow.md)
 * Para más información sobre cómo crear o importar un Runbook, vea [Crear o importar un Runbook](manage-runbooks.md)
-* Para más información sobre PowerShell, incluidos los módulos de referencia de lenguaje y aprendizaje, consulte la [documentación de PowerShell](https://docs.microsoft.com/powershell/scripting/overview).
+* Para obtener más información sobre PowerShell, incluidos los módulos de referencia de lenguaje y aprendizaje, consulte la [documentación de PowerShell](https://docs.microsoft.com/powershell/scripting/overview).

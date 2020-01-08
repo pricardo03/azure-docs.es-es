@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 803b1e397efd4a6f9ddaa3bae1d101c8f204e728
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: a0fbed1f4dd62b2d75d39f475d2fe124c55a2b97
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74328292"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645810"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Implementación de DBMS de Azure Virtual Machines de SQL Server para la carga de trabajo de SAP NetWeaver
 
@@ -77,8 +77,8 @@ ms.locfileid: "74328292"
 [azure-ps]:/powershell/azureps-cmdlets-docs
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
 [azure-script-ps]:https://go.microsoft.com/fwlink/p/?LinkID=395017
-[azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
-[azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md#subscription-limits
+[azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits
 
 [dbms-guide]:dbms-guide_general.md 
 [dbms-guide-2.1]:dbms-guide.md#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f 
@@ -235,7 +235,7 @@ ms.locfileid: "74328292"
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f 
 
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
-[resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
+[resource-group-overview]:../../../azure-resource-manager/management/overview.md
 [resource-groups-networking]:../../../networking/networking-overview.md
 [sap-pam]:https://support.sap.com/pam 
 [sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
@@ -249,7 +249,7 @@ ms.locfileid: "74328292"
 [storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
 [storage-premium-storage-preview-portal]:../../windows/disks-types.md
 [storage-redundancy]:../../../storage/common/storage-redundancy.md
-[storage-scalability-targets]:../../../storage/common/storage-scalability-targets.md
+[storage-scalability-targets]:../../../storage/common/scalability-targets-standard-accounts.md
 [storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
 [template-201-vm-from-specialized-vhd]:https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd
 [templates-101-simple-windows-vm]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-windows-vm
@@ -531,7 +531,7 @@ En casos en los que se mueven bases de datos de SQL Server de SAP desde una ubic
  
 Si solo trata la aplicación del cifrado de TDE con ninguna carga de trabajo de SAP, o con una ínfima, debería efectuar pruebas en su configuración específica sobre si es mejor aplicar el TDE a la base de datos de SAP local o aplicarlo a Azure. En Azure sin duda tiene más flexibilidad en términos de exceso de aprovisionamiento de infraestructura y de reducir la infraestructura una vez aplicado el TDE.
 
-### <a name="using-azure-key-vault"></a>Usar Azure Key Vault
+### <a name="using-azure-key-vault"></a>Uso de Azure Key Vault
 Azure ofrece el servicio de un [almacén de claves](https://azure.microsoft.com/services/key-vault/) para almacenar claves de cifrado. Por otro lado, SQL Server ofrece un conector para aprovechar Azure Key Vault como almacén para los certificados de TDE.
 
 A continuación tiene más información detallada sobre cómo usar Azure Key Vault para el TDE de SQL Server:
@@ -552,7 +552,7 @@ En esta guía se ofrecen muchas recomendaciones: le sugerimos que la lea más de
 1. Use la versión de DBMS más reciente, como SQL Server 2017, que presenta la mayoría de las ventajas de Azure. 
 2. Planee cuidadosamente su infraestructura de sistema SAP en Azure para equilibrar el diseño del archivo de datos y las restricciones de Azure:
    * No disponga de un número de discos demasiado elevado, solo el suficiente para asegurarse de que puede alcanzar los IOPS necesarios.
-   * Si no utiliza Managed Disks, recuerde que los valores de IOPS también están limitados por cuenta de Azure Storage y que las cuentas de Storage están limitadas en cada suscripción de Azure ([más información][azure-subscription-service-limits]). 
+   * Si no utiliza Managed Disks, recuerde que los valores de IOPS también están limitados por cuenta de Azure Storage y que las cuentas de Storage están limitadas en cada suscripción de Azure ([más información][azure-resource-manager/management/azure-subscription-service-limits]). 
    * Cree secciones en los discos solo si necesita obtener un mayor rendimiento.
 3. Nunca instale software o coloque los archivos que requieren persistencia en la unidad D:\, ya que no es permanente y todos los datos que albergue se pierden tras reiniciar Windows.
 4. No utilice el almacenamiento en caché de disco para Azure Standard Storage.

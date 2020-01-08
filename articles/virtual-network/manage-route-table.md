@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: kumud
-ms.openlocfilehash: a39d9f9c5a138ece5d40cc5afe1d1dcdd8e7a41a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 809c0501c95b07f7c39a0885ea30c83507b90d53
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65849797"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647006"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Creación, modificación o eliminación de una tabla de rutas
 
@@ -38,7 +38,7 @@ La cuenta en la que inicia sesión o con la que se conecta a Azure debe tener as
 
 ## <a name="create-a-route-table"></a>Creación de una tabla de rutas
 
-Existe un límite para la cantidad de tablas de rutas que puede crear por suscripción y ubicación de Azure. Para más información, consulte el artículo acerca de los [límites de Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+Existe un límite para la cantidad de tablas de rutas que puede crear por suscripción y ubicación de Azure. Para más información, consulte el artículo acerca de los [límites de Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
 1. En la esquina superior izquierda del portal, seleccione **+ Crear un recurso**.
 1. Seleccione **Redes** y, luego, **Tabla de rutas**.
@@ -68,7 +68,7 @@ En el cuadro de búsqueda que aparece en la parte superior del portal, escriba *
     * [Control de acceso (IAM)](../role-based-access-control/overview.md)<br>
     * [Etiquetas](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br>
     * [Bloqueos](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br>
-    * [Script de Automation](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates)
+    * [Script de Automation](../azure-resource-manager/templates/export-template-portal.md)
 
 ### <a name="view-details-of-route-table---commands"></a>Vista de los detalles de una tabla de rutas: comandos
 
@@ -132,7 +132,7 @@ Una tabla de rutas no se puede eliminar si está asociada a alguna subred. [Desa
 
 ## <a name="create-a-route"></a>Creación de una ruta
 
-Existe un límite para la cantidad de rutas por tabla de rutas que puede crear por suscripción y ubicación de Azure. Para más información, consulte el artículo acerca de los [límites de Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+Existe un límite para la cantidad de rutas por tabla de rutas que puede crear por suscripción y ubicación de Azure. Para más información, consulte el artículo acerca de los [límites de Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
 1. En el cuadro de búsqueda que aparece en la parte superior del portal, escriba *tablas de rutas*. Cuando la opción **Tablas de rutas** aparezca en los resultados de la búsqueda, selecciónela.
 1. Seleccione en la lista la tabla de rutas a la que desea agregar una ruta.
@@ -236,7 +236,7 @@ Puede determinar el tipo de próximo paso entre una máquina virtual y la direcc
 
 Para realizar tareas en rutas y en tablas de rutas, la cuenta debe estar asignada al rol de [colaborador de red](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) o a un rol [personalizado](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) que tenga asignadas las acciones adecuadas que se muestran en la tabla siguiente:
 
-| .                                                          |   NOMBRE                                                  |
+| Acción                                                          |   Nombre                                                  |
 |--------------------------------------------------------------   |   -------------------------------------------           |
 | Microsoft.Network/routeTables/read                              |   Lectura de una tabla de rutas                                    |
 | Microsoft.Network/routeTables/write                             |   Creación o actualización de una tabla de rutas                        |

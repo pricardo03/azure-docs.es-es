@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/12/2018
 ms.author: genli
-ms.openlocfilehash: 675e7a7b557a3f19ea4d8d4960316c3859cbb9c1
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: c1de86c1d12109853bb5d6d1aac4143caab9199f
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058475"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75638228"
 ---
 # <a name="reserved-ip-addresses-classic-deployment"></a>Direcciones IP reservadas (implementación clásica)
 
@@ -41,7 +41,7 @@ Para más información sobre las direcciones IP en Azure, lea el artículo sobre
 - ¿Puedo usar una IP reservada para todos los servicios de Azure?
     No. Las IP reservadas solo pueden usarse para máquinas virtuales y roles de instancia del servicio en la nube que se hayan expuesto a través de una VIP.
 - ¿Cuántas direcciones IP reservadas puedo tener?
-    Para detalles, vea el artículo sobre [límites de Azure](../azure-subscription-service-limits.md#networking-limits).
+    Para detalles, vea el artículo sobre [límites de Azure](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
 - ¿Hay un cargo por las IP reservadas?
     A veces. Para detalles sobre los precios, consulte la página [Detalles de precios de las direcciones IP reservadas](https://go.microsoft.com/fwlink/?LinkID=398482).
 - ¿Cómo se reserva una dirección IP?

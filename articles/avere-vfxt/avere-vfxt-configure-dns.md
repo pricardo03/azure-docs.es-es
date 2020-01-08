@@ -6,24 +6,24 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: rohogue
-ms.openlocfilehash: c28189bf227a6a81ae9e72e889a0dc598cd7949e
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 11ff310dae3c4733283d965a518df42a0711ce01
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72256268"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75416050"
 ---
 # <a name="avere-cluster-dns-configuration"></a>Configuración de DNS del clúster de Avere
 
-En esta sección se explican los conceptos básicos de la configuración de un sistema DNS para el equilibrio de carga de su clúster de Avere vFXT. 
+En esta sección se explican los conceptos básicos de la configuración de un sistema DNS para el equilibrio de carga de su clúster de Avere vFXT.
 
-Este documento *no incluye* instrucciones para configurar y administrar un servidor DNS en el entorno de Azure. 
+Este documento *no incluye* instrucciones para configurar y administrar un servidor DNS en el entorno de Azure.
 
-En lugar de usar DNS round robin para el equilibrio de carga de un clúster de vFXT en Azure, considere la posibilidad de usar métodos manuales para asignar direcciones IP de manera uniforme entre los clientes cuando se monten. Se describen varios métodos en el tema sobre el [montaje del clúster de Avere](avere-vfxt-mount-clients.md). 
+En lugar de usar DNS round robin para el equilibrio de carga de un clúster de vFXT en Azure, considere la posibilidad de usar métodos manuales para asignar direcciones IP de manera uniforme entre los clientes cuando se monten. Se describen varios métodos en el tema sobre el [montaje del clúster de Avere](avere-vfxt-mount-clients.md).
 
-Tenga esto en mente la hora de decidir si quiere usar un servidor DNS: 
+Tenga esto en mente la hora de decidir si quiere usar un servidor DNS:
 
-* Si solo acceden a su sistema los clientes de NFS, no es necesario utilizar DNS (es posible especificar todas las direcciones de red mediante direcciones IP numéricas). 
+* Si solo acceden a su sistema los clientes de NFS, no es necesario utilizar DNS (es posible especificar todas las direcciones de red mediante direcciones IP numéricas).
 
 * Si el sistema admite el acceso de SMB (CIFS), DNS es necesario, ya que debe especificar un dominio DNS para el servidor de Active Directory.
 
@@ -41,12 +41,12 @@ Para obtener un rendimiento óptimo, configure el servidor DNS para controlar la
 
 Un vserver de clúster se muestra a la izquierda y las direcciones IP aparecen en el centro y a la derecha. Configure todos los puntos de acceso de cliente con registros A y punteros como se muestra en la ilustración.
 
-![Diagrama de DNS round robin del clúster de Avere](media/avere-vfxt-rrdns-diagram.png) 
+![Diagrama de DNS round robin del clúster de Avere](media/avere-vfxt-rrdns-diagram.png)
 <!--- separate text description file provided  [diagram text description](avere-vfxt-rrdns-alt-text.md) -->
 
 Cada dirección IP orientada al cliente debe tener un nombre único para que el clúster la use internamente. (En este diagrama, las direcciones IP del cliente se denominan vs1-client-IP-* por motivos de claridad, pero en producción debería usar probablemente algo más conciso, como client*.)
 
-Los clientes montan el clúster con el nombre de vserver como argumento del servidor. 
+Los clientes montan el clúster con el nombre de vserver como argumento del servidor.
 
 Modifique el archivo ``named.conf`` del servidor DNS para establecer un orden cíclico para las consultas en su vserver. Esta opción garantiza que todos los valores disponibles se recorran de forma cíclica. Agregue una instrucción como la siguiente:
 
@@ -58,7 +58,7 @@ options {
 };
 ```
 
-Los siguientes comandos nsupdate proporcionan un ejemplo de configuración correcta de DNS:
+Los siguientes comandos ``nsupdate`` proporcionan un ejemplo de configuración correcta de DNS:
 
 ```
 update add vserver1.example.com. 86400 A 10.0.0.10
@@ -81,5 +81,3 @@ Especifique el servidor DNS que usa el clúster de vFXT en la página de configu
 * Dominios de búsqueda DNS
 
 Lea [DNS Settings](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_admin_network.html#gui-dns>) (Configuración de DNS) en la guía de configuración del clúster de Avere para obtener más detalles sobre el uso de esta página.
-
-

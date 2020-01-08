@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 08/05/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: ae1d04043c740456368b0831bee84490778f0171
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 3bbc2dcc86d50e0a88e2f3e96c426cb317f41dea
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687205"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75375039"
 ---
 # <a name="create-and-use-an-internal-load-balancer-app-service-environment"></a>Creación y uso de un entorno de una instancia de Azure App Service Environment de Load Balancer 
 
@@ -126,7 +126,7 @@ Para más información sobre cómo configurar la instancia de ASE de ILB con un 
 
 Con las instancias de ASE de ILB que se crearon antes de mayo de 2019, había que establecer el sufijo de dominio durante la creación de ASE. También era necesario cargar un certificado predeterminado que se basaba en dicho sufijo de dominio. Además, con una instancia antigua de ASE de ILB, no puede realizar el inicio de sesión único en la consola de Kudu con las aplicaciones de dicha instancia. Al configurar DNS para una instancia de este tipo, deberá establecer el registro D comodín en una zona que coincida con el sufijo de dominio. 
 
-## <a name="get-started"></a>Primeros pasos ##
+## <a name="get-started"></a>Introducción ##
 
 * Para empezar a trabajar con instancias de App Service Environment, consulte [Introducción a App Service Environment][Intro]. 
 
@@ -150,7 +150,7 @@ Con las instancias de ASE de ILB que se crearon antes de mayo de 2019, había qu
 [mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md
 [Functions]: ../../azure-functions/index.yml
 [Pricing]: https://azure.microsoft.com/pricing/details/app-service/
-[ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
+[ARMOverview]: ../../azure-resource-manager/management/overview.md
 [ConfigureSSL]: ../configure-ssl-certificate.md
 [Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md

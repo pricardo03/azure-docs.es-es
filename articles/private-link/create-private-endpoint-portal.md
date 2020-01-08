@@ -2,17 +2,17 @@
 title: 'Inicio rápido: Administración de puntos de conexión privados en Azure'
 description: Obtenga información sobre cómo crear un punto de conexión privado mediante Azure Portal en este inicio rápido.
 services: private-link
-author: asudbring
+author: malopMSFT
 ms.service: private-link
 ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 22614b28023a0628fb12c170e934aaab4d1ddfe4
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: bc8141b951dbc27972dc2efb6819a7c0137ea7fc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74899861"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459943"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-azure-portal"></a>Inicio rápido: Creación de un punto de conexión privado mediante Azure Portal
 
@@ -20,9 +20,6 @@ Un punto de conexión privado es el bloque de creación fundamental para el vín
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-
-> [!NOTE]
-> No se permiten puntos de conexión privados junto con los puntos de conexión de servicio en la misma subred.
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
@@ -39,9 +36,9 @@ En esta sección, va a crear una red virtual y una subred para hospedar la máqu
 1. En la parte superior izquierda de la pantalla, seleccione **Crear un recurso** > **Redes** > **Red virtual**.
 1. En **Creación de una red virtual**, escriba o seleccione esta información:
 
-    | Configuración | Valor |
+    | Configuración | Value |
     | ------- | ----- |
-    | NOMBRE | Escriba *MyVirtualNetwork*. |
+    | Nombre | Escriba *MyVirtualNetwork*. |
     | Espacio de direcciones | Escriba *10.1.0.0/16*. |
     | Subscription | Seleccione su suscripción.|
     | Resource group | Seleccione **Crear nuevo**, escriba *myResourceGroup* y, después, seleccione **Aceptar**. |
@@ -58,7 +55,7 @@ En esta sección, va a crear una red virtual y una subred para hospedar la máqu
 
 1. En **Creación de una máquina virtual: conceptos básicos**, escriba o seleccione esta información:
 
-    | Configuración | Valor |
+    | Configuración | Value |
     | ------- | ----- |
     | **DETALLES DEL PROYECTO** | |
     | Subscription | Seleccione su suscripción. |
@@ -85,7 +82,7 @@ En esta sección, va a crear una red virtual y una subred para hospedar la máqu
 
 1. En **Creación de una máquina virtual: Redes**, escriba o seleccione esta información:
 
-    | Configuración | Valor |
+    | Configuración | Value |
     | ------- | ----- |
     | Virtual network | Deje el valor predeterminado **MyVirtualNetwork**.  |
     | Espacio de direcciones | Deje el valor predeterminado **10.1.0.0/24**.|
@@ -107,7 +104,7 @@ En esta sección, va a crear un servidor de SQL Database en Azure.
 
 1. En **Crear SQL Database: Conceptos básicos**, escriba o seleccione esta información:
 
-    | Configuración | Valor |
+    | Configuración | Value |
     | ------- | ----- |
     | **Detalles de la base de datos** | |
     | Subscription | Seleccione su suscripción. |
@@ -118,7 +115,7 @@ En esta sección, va a crear un servidor de SQL Database en Azure.
 5. En **Servidor**, seleccione **Crear nuevo**. 
 6. En **Nuevo servidor**, escriba o seleccione esta información:
 
-    | Configuración | Valor |
+    | Configuración | Value |
     | ------- | ----- |
     |Nombre de servidor  | Escriba *miServidor*. Si el nombre ya existe, cree uno único.|
     | Inicio de sesión de administrador de servidor| Escriba el nombre de administrador que prefiera. |
@@ -138,19 +135,19 @@ En esta sección, creará un servidor SQL Server y le agregará un punto de cone
 2. En **Centro de vínculos privados: Información general**, en la opción**Build a private connection to a service** (Crear una conexión privada a un servicio), seleccione **Start** (Iniciar).
 1. En **Create a private endpoint (Preview) - Basics** (Crear un punto de conexión privado [versión preliminar]: Conceptos básicos), escriba o seleccione esta información:
 
-    | Configuración | Valor |
+    | Configuración | Value |
     | ------- | ----- |
     | **Detalles del proyecto** | |
     | Subscription | Seleccione su suscripción. |
     | Resource group | Seleccione **myResourceGroup**. Lo creó en la sección anterior.|
     | **DETALLES DE INSTANCIA** |  |
-    | NOMBRE | Escriba *myPrivateEndpoint*. Si el nombre ya existe, cree uno único. |
+    | Nombre | Escriba *myPrivateEndpoint*. Si el nombre ya existe, cree uno único. |
     |Region|Seleccione **WestCentralUS**.|
     |||
 5. Seleccione **Siguiente: Resource** (Siguiente: Recurso).
 6. En **Create a private endpoint - Resource** (Crear un punto de conexión privado: recurso), escriba o seleccione esta información:
 
-    | Configuración | Valor |
+    | Configuración | Value |
     | ------- | ----- |
     |Método de conexión  | Seleccione Connect to an Azure resource in my directory (Conectarse a un recurso de Azure en mi directorio).|
     | Subscription| Seleccione su suscripción. |
@@ -161,7 +158,7 @@ En esta sección, creará un servidor SQL Server y le agregará un punto de cone
 7. Seleccione **Siguiente: Configuration** (Siguiente: Configuración).
 8. En **Create a private endpoint (Preview) - Configuración** (Crear un punto de conexión privado [versión preliminar]: Configuración), escriba o seleccione esta información:
 
-    | Configuración | Valor |
+    | Configuración | Value |
     | ------- | ----- |
     |**REDES**| |
     | Virtual network| Seleccione *MyVirtualNetwork*. |
@@ -202,9 +199,9 @@ Después de crear **myVm**, conéctese a ella desde Internet como se indica a co
 
 ## <a name="access-the-sql-database-server-privately-from-the-vm"></a>Acceso al servidor de SQL Database de forma privada desde la máquina virtual
 
-1. En el Escritorio remoto de *myVm*, abra PowerShell.
+1. En el Escritorio remoto de  *myVm*, abra PowerShell.
 
-2. Escriba `nslookup myserver.database.windows.net`. 
+2. Escriba  `nslookup myserver.database.windows.net`. 
 
     Recibirá un mensaje similar a este:
     ```azurepowershell
@@ -219,7 +216,7 @@ Después de crear **myVm**, conéctese a ella desde Internet como se indica a co
 
 4. En **Conectar con el servidor**, escriba o seleccione esta información:
 
-    | Configuración | Valor |
+    | Configuración | Value |
     | ------- | ----- |
     | Tipo de servidor| Seleccione **Motor de base de datos**.|
     | Nombre de servidor| Seleccione *myserver.database.windows.net*. |

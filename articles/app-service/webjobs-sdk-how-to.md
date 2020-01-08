@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 8e29c632ff3920c77a757fe45475a12c212cf579
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 2d9de5e7294fdca7514989ba009e9dee8985a084
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74683997"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75421962"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Uso del SDK de Azure WebJobs para el procesamiento en segundo plano basado en eventos
 
@@ -84,7 +84,7 @@ El proceso para habilitar el modo de desarrollo depende de la versión del SDK.
 La versión 3.*x* usa las API estándar de ASP.NET Core. Llame al método [`UseEnvironment`](/dotnet/api/microsoft.extensions.hosting.hostinghostbuilderextensions.useenvironment) en la instancia [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder). Pase una cadena denominada `development`, como en este ejemplo:
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.UseEnvironment("development");
@@ -95,7 +95,7 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
@@ -236,7 +236,7 @@ El proceso para instalar y administrar tipos de enlace depende de si usa la vers
 En la versión 3.*x*, los enlaces de almacenamiento se incluyen en el paquete `Microsoft.Azure.WebJobs.Extensions.Storage`. Llame al método de extensión `AddAzureStorage` en el método `ConfigureWebJobs`, como se muestra aquí:
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -247,7 +247,7 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
@@ -255,7 +255,7 @@ static void Main()
 Para usar otros tipos de enlaces y desencadenadores, instale el paquete NuGet que los contenga y llame al método de extensión `Add<binding>` implementado en la extensión. Por ejemplo, si quiere usar un enlace de Azure Cosmos DB, instale `Microsoft.Azure.WebJobs.Extensions.CosmosDB` y llame a `AddCosmosDB`, como en el ejemplo siguiente:
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -266,7 +266,7 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
@@ -318,7 +318,7 @@ El proceso para enlazar con [`ExecutionContext`] depende de la versión del SDK.
 Llame al método de extensión `AddExecutionContextBinding` en el método `ConfigureWebJobs`, como se muestra aquí:
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -329,7 +329,7 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
@@ -373,7 +373,7 @@ Puede configurar los enlaces siguientes:
 En este ejemplo se muestra cómo configurar el desencadenador de Azure Cosmos DB:
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -390,8 +390,7 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
@@ -403,7 +402,7 @@ Para más información, consulte el artículo [Enlaces de Azure CosmosDB](../azu
 En este ejemplo se muestra cómo configurar el desencadenador de Event Hubs:
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -419,8 +418,7 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
@@ -434,7 +432,7 @@ Estos ejemplos muestran cómo configurar el desencadenador de Queue Storage:
 #### <a name="version-3x"></a>Versión 3.*x*
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -450,8 +448,7 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
@@ -480,7 +477,7 @@ Para más información, consulte la [referencia de host.json v1.x](../azure-func
 En este ejemplo se muestra cómo configurar el enlace de salida de SendGrid:
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -495,8 +492,7 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
@@ -508,7 +504,7 @@ Para más información, consulte el artículo [Enlace de SendGrid](../azure-func
 En este ejemplo se muestra cómo configurar el desencadenador de Service Bus:
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -523,8 +519,7 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
@@ -538,7 +533,7 @@ Algunos tipos de desencadenador y enlace definen su propio tipo de configuració
 #### <a name="version-3x"></a>Versión 3.*x*
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -549,8 +544,7 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
@@ -690,7 +684,7 @@ En la documentación de Azure Functions se proporciona información de referenci
 * [Ejemplos](../azure-functions/functions-bindings-storage-queue.md#trigger---example). Ejemplos de código. La biblioteca de clases de C# se aplica al SDK de WebJobs. Omita simplemente el atributo `FunctionName`.
 * [Atributos](../azure-functions/functions-bindings-storage-queue.md#trigger---attributes). Los atributos que se usarán para el tipo de enlace.
 * [Configuración](../azure-functions/functions-bindings-storage-queue.md#trigger---configuration). Explicaciones de las propiedades de atributo y de los parámetros del constructor.
-* [Uso](../azure-functions/functions-bindings-storage-queue.md#trigger---usage). Los tipos con los que puede enlazar e información sobre cómo funciona el enlace. Por ejemplo: sondear algoritmos o procesar colas dudosas.
+* [Uso](../azure-functions/functions-bindings-storage-queue.md#trigger---usage) Los tipos con los que puede enlazar e información sobre cómo funciona el enlace. Por ejemplo: sondear algoritmos o procesar colas dudosas.
   
 Para obtener una lista de artículos de referencia de enlace, consulte la sección "Enlaces admitidos" del artículo [Enlaces y desencadenadores](../azure-functions/functions-triggers-bindings.md#supported-bindings) de Azure Functions. En esa lista, solo Azure Functions admite los enlaces de HTTP, Webhooks y Event Grid; el SDK de WebJobs no los admite.
 
@@ -924,7 +918,7 @@ internal class CustomTelemetryInitializer : ITelemetryInitializer
 Llame a [`ConfigureServices`] en el compilador para agregar su valor de [`ITelemetryInitializer`] personalizado a la canalización.
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -951,8 +945,7 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```

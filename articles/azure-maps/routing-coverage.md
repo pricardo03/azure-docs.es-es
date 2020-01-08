@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 0991a0df8d34ddbcebf3d4097c0219b47793120b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4ca837d871dc439cadd1ca5b69bf9c7a5d12fddc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65779936"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75408364"
 ---
 # <a name="azure-maps-routing-coverage"></a>Cobertura de enrutamiento en Azure Maps
 
@@ -138,6 +138,7 @@ En la siguiente tabla se proporciona información sobre la cobertura del enrutam
 | RAE de Hong Kong                  |        ✓       |         ✓            |             |
 | India                          |        ✓       |         ✓            |             |
 | Indonesia                      |        ✓       |         ✓            |             |
+| Kazajistán                |        ✓       |                     |             |
 | Corea                          |        Ø       |                      |             |
 | Laos                           |        ✓       |                      |             |
 | RAE de Macao                      |        ✓       |         ✓            |             |

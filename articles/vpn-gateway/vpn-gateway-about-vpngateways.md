@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: overview
 ms.date: 11/13/2019
 ms.author: cherylmc
-ms.openlocfilehash: 11187b403b9bc23a0aa20eb5ee7a5e4923bb7276
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 1a5859517d2f858086c9034c8ee190e99bce5cd5
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74896665"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647754"
 ---
 # <a name="what-is-vpn-gateway"></a>¿Qué es VPN Gateway?
 
@@ -159,5 +159,5 @@ Para conocer las preguntas más frecuentes acerca de VPN Gateway, consulte [Preg
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Consulte las [Preguntas más frecuentes sobre VPN Gateway](vpn-gateway-vpn-faq.md) para más información.
-- Consulte [Límites del servicio y la suscripción](../azure-subscription-service-limits.md#networking-limits).
+- Consulte [Límites del servicio y la suscripción](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
 - Obtenga información sobre las demás [funcionalidades de red](../networking/networking-overview.md) clave de Azure.

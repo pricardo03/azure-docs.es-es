@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: fe838ade7a65161efaeb60b9e4d8de17a7080da1
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: bb0962991701dc780e50fec60982083b20d4ab0e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74032785"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75358384"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-c"></a>Creación y administración de máquinas virtuales Windows en Azure mediante C# #
 
@@ -27,7 +27,7 @@ Las [máquinas virtuales de Azure](overview.md?toc=%2fazure%2fvirtual-machines%2
 
 > [!div class="checklist"]
 > * Creación de un proyecto de Visual Studio
-> * Instalación del paquete
+> * Instalar el paquete
 > * Crear credenciales
 > * Crear recursos
 > * Realizar tareas de administración
@@ -42,7 +42,7 @@ Tardará unos 20 minutos en realizar estos pasos.
 2. En Visual Studio, haga clic en **Archivo** > **Nuevo** > **proyecto**.
 3. En **Plantillas** > **Visual C#** , seleccione **Aplicación de consola (.NET Framework)** , escriba *myDotnetProject* como nombre del proyecto, seleccione la ubicación del proyecto y, haga clic en **Aceptar**.
 
-## <a name="install-the-package"></a>Instalación del paquete
+## <a name="install-the-package"></a>Instalar el paquete
 
 Los paquetes de NuGet son la manera más fácil de instalar las bibliotecas que necesita para finalizar estos pasos. Para obtener las bibliotecas que necesita en Visual Studio, siga estos pasos:
 
@@ -111,7 +111,7 @@ Antes de empezar este paso, asegúrese de que tiene acceso a una [entidad de ser
 
 ### <a name="create-the-resource-group"></a>Creación del grupo de recursos
 
-Todos los recursos deben encontrarse en un [grupo de recursos](../../azure-resource-manager/resource-group-overview.md).
+Todos los recursos deben encontrarse en un [grupo de recursos](../../azure-resource-manager/management/overview.md).
 
 Para especificar los valores de la aplicación y crear el grupo de recursos, agregue este código al método Main:
 

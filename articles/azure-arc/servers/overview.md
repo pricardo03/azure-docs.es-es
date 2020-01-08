@@ -10,12 +10,12 @@ keywords: azure automation, DSC, powershell, desired state configuration, update
 ms.date: 11/04/2019
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: d091b89342570b73ccde5fe496a3432102617918
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 06e3b490f4f9cef64ae8bca5aed4d0518f10ba0e
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951435"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75659628"
 ---
 # <a name="what-is-azure-arc-for-servers"></a>¿Qué es Azure Arc para servidores?
 
@@ -41,7 +41,7 @@ La versión preliminar pública está diseñada con fines de evaluación y no de
 
 ## <a name="azure-subscription-and-service-limits"></a>Límites del servicio y la suscripción de Azure
 
-Asegúrese de que lee los límites de Azure Resource Manager y de que planea el número de máquinas que se van a conectar según las instrucciones indicadas para la [suscripción](../../azure-subscription-service-limits.md#subscription-limits---azure-resource-manager) y para los [grupos de recursos](../../azure-subscription-service-limits.md#resource-group-limits). Más concretamente, hay un límite de 800 servidores por cada grupo de recursos de forma predeterminada.
+Asegúrese de que lee los límites de Azure Resource Manager y de que planea el número de máquinas que se van a conectar según las instrucciones indicadas para la [suscripción](../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits---azure-resource-manager) y para los [grupos de recursos](../../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits). Más concretamente, hay un límite de 800 servidores por cada grupo de recursos de forma predeterminada.
 
 ## <a name="networking-configuration"></a>Configuración de redes
 
@@ -90,7 +90,7 @@ Para usar Azure Arc para servidores, debe registrar los proveedores de recursos 
 
 Puede registrar los proveedores de recursos con los siguientes comandos:
 
-Azure PowerShell:
+Azure PowerShell:
 
 ```azurepowershell-interactive
 Login-AzAccount
@@ -107,7 +107,7 @@ az provider register --namespace 'Microsoft.HybridCompute'
 az provider register --namespace 'Microsoft.GuestConfiguration'
 ```
 
-Para registrar también los proveedores de recursos mediante el portal siga los pasos que se describen en [Azure Portal](../../azure-resource-manager/resource-manager-supported-services.md#azure-portal).
+Para registrar también los proveedores de recursos mediante el portal siga los pasos que se describen en [Azure Portal](../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
 
 ## <a name="machine-changes-after-installing-the-agent"></a>Cambios en la máquina después de instalar el agente
 

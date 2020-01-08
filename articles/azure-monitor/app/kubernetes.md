@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: tokaplan
 ms.author: alkaplan
 ms.date: 04/25/2019
-ms.openlocfilehash: 3056b6c56be32cf5c054c4526a88157650a3e30b
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: a7821db85d4218cbccb6c10f12ecbc624f2702fe
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820767"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432520"
 ---
 # <a name="zero-instrumentation-application-monitoring-for-kubernetes-hosted-applications"></a>Supervisión de aplicaciones sin instrumentación para aplicaciones hospedadas de Kubernetes
 
@@ -24,9 +24,9 @@ ms.locfileid: "72820767"
 Azure Monitor ahora aprovecha la tecnología de malla de servicio en el clúster de Kubernetes para proporcionar la supervisión de aplicaciones lista para usar para cualquier aplicación hospedada de Kubernetes. Incluye características de Application Insights predeterminadas como el [Mapa de aplicación](../../azure-monitor/app/app-map.md) para modelar las dependencias, [Live Metrics Stream](../../azure-monitor/app/live-stream.md) para la supervisión en tiempo real, visualizaciones eficaces con el [panel predeterminado](../../azure-monitor/app/overview-dashboard.md), el [Explorador de métricas](../../azure-monitor/platform/metrics-getting-started.md) y [Workbooks](../../azure-monitor/app/usage-workbooks.md). Esta característica ayudará a los usuarios a detectar cuellos de botella de rendimiento y zonas activas de error en todas las cargas de trabajo de Kubernetes dentro de un espacio de nombres de Kubernetes seleccionado. Al aprovechar las inversiones existentes en malla de servicio con tecnologías como Istio, Azure Monitor habilita la supervisión de aplicaciones instrumentada automáticamente sin ninguna modificación en el código de la aplicación.
 
 > [!NOTE]
-> Se trata de una de las muchas maneras de realizar la supervisión de aplicaciones en Kubernetes. También puede instrumentar cualquier aplicación hospedada en Kubernetes mediante la [SDK de Application Insights](../../azure-monitor/azure-monitor-app-hub.md) sin necesidad de una malla de servicio. Para supervisar Kubernetes sin instrumentar la aplicación con una SDK, puede usar el método siguiente.
+> Se trata de una de las muchas maneras de realizar la supervisión de aplicaciones en Kubernetes. También puede instrumentar cualquier aplicación hospedada en Kubernetes mediante la [SDK de Application Insights](../../azure-monitor/azure-monitor-app-hub.yml) sin necesidad de una malla de servicio. Para supervisar Kubernetes sin instrumentar la aplicación con una SDK, puede usar el método siguiente.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 - Un [clúster de Kubernetes](https://docs.microsoft.com/azure/aks/concepts-clusters-workloads).
 - Acceso de la consola al clúster para ejecutar *kubectl*.
@@ -98,7 +98,7 @@ Las aplicaciones que se ejecutan fuera de la malla de servicio no se ven afectad
 - Genere una solicitud de ejemplo en la aplicación para confirmar que la supervisión funcione correctamente.
 - En un plazo de 3 a 5 minutos, debería empezar a ver los datos de telemetría en Azure Portal. Asegúrese de consultar la sección *Mapa de aplicación* del recurso de Application Insights en el Portal.
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 
 A continuación se muestra el flujo de solución de problemas que deberá usar si los datos de telemetría no aparecen en Azure Portal como se espera.
 

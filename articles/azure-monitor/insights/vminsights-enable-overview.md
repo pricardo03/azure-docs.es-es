@@ -4,15 +4,15 @@ description: Aprenda a implementar y configurar Azure Monitor para VM. Más info
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 11/14/2019
-ms.openlocfilehash: 40282fdb192037d63bff8b0037f09b8b27cf3b1e
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: ce95223e9501ad7bec2bd260a8fe6f1537db5593
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74109185"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75400618"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-overview"></a>Habilitación de Azure Monitor para VM (versión preliminar)
 
@@ -25,7 +25,7 @@ Para configurar Azure Monitor para VM:
 * Use PowerShell para habilitar dos o más máquinas virtuales o conjuntos de escalado de máquinas virtuales de Azure en una suscripción o grupo de recursos concreto.
 * Habilite Azure Monitor para VM para supervisar las máquinas virtuales o equipos físicos hospedados en la red corporativa o en otro entorno de nube.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de empezar, asegúrese de conocer la información de los apartados siguientes. 
 
@@ -77,7 +77,7 @@ Para configurar el área de trabajo para el escenario a escala, use uno de los m
 * Use [Azure PowerShell](vminsights-enable-at-scale-powershell.md#set-up-a-log-analytics-workspace).
 * En la página de la [**cobertura de la directiva**](vminsights-enable-at-scale-policy.md#manage-policy-coverage-feature-overview) de Azure Monitor para VM, seleccione **Configurar área de trabajo**. 
 
-### <a name="supported-operating-systems"></a>Sistemas operativos compatibles
+### <a name="supported-operating-systems"></a>Sistemas operativos admitidos
 
 La siguiente es una lista de los sistemas operativos Windows y Linux que son compatibles con Azure Monitor para VM. Más adelante en esta sección, encontrará una lista completa que detalla las versiones de kernel admitidas y las versiones de sistema operativo Linux principales y secundarias.
 
@@ -166,15 +166,15 @@ En un entorno híbrido, puede descargar e instalar Dependency Agent manualmente 
 
 En la tabla siguiente se describen los orígenes conectados que son compatibles con la característica Asignación en un entorno híbrido.
 
-| Origen conectado | Compatible | DESCRIPCIÓN |
+| Origen conectado | Compatible | Descripción |
 |:--|:--|:--|
 | Agentes de Windows | Sí | Junto con el [agente de Log Analytics para Windows](../../azure-monitor/platform/log-analytics-agent.md), los agentes de Windows requieren Dependency Agent. Para más información, consulte el artículo sobre los [sistemas operativos compatibles](#supported-operating-systems). |
 | Agentes de Linux | Sí | Junto con el [agente de Log Analytics para Linux](../../azure-monitor/platform/log-analytics-agent.md), los agentes de Linux requieren Dependency Agent. Para más información, consulte el artículo sobre los [sistemas operativos compatibles](#supported-operating-systems). |
-| Grupo de administración de System Center Operations Manager | Sin | |
+| Grupo de administración de System Center Operations Manager | No | |
 
 Puede descargar Dependency Agent desde estas ubicaciones:
 
-| Archivo | OS | Versión | SHA-256 |
+| Archivo | SO | Versión | SHA-256 |
 |:--|:--|:--|:--|
 | [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.9.2 | 6DFF19B9690E42CA190E3B69137C77904B657FA02895033EAA4C3A6A41DA5C6A |
 | [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.9.1 | 1CB447EF30FC042FE7499A686638F3F9B4F449692FB9D80096820F8024BE4D7C |
@@ -189,7 +189,7 @@ Para más información acerca de cómo controlar el acceso a un área de trabajo
 
 Azure Monitor para VM se habilita mediante alguno de los métodos que se describen en esta tabla:
 
-| Estado de la implementación | Método | DESCRIPCIÓN |
+| Estado de la implementación | Método | Descripción |
 |------------------|--------|-------------|
 | Máquina virtual de Azure única o conjunto de escalado de máquinas virtuales de Azure | [Habilitar desde la máquina virtual](vminsights-enable-single-vm.md) | Puede habilitar una sola máquina virtual de Azure, seleccionando **Insights (versión preliminar)** directamente desde la máquina virtual o el conjunto de escalado de máquinas virtuales. |
 | Varias máquinas virtuales de Azure o conjuntos de escalado de máquinas virtuales | [Habilitar a través de Azure Policy](vminsights-enable-at-scale-policy.md) | Puede habilitar varias máquinas virtuales de Azure con Azure Policy y las definiciones de directivas disponibles. |

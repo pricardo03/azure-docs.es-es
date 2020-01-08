@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/09/2019
 ms.author: sagonzal
 ms.custom: aaddev, scenarios:getting-started, languages:Java
-ms.openlocfilehash: 1a5401ee76f60c9b9c2a75561cad8f6571d3b308
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 7534d425a9a7e00c4e57c0d9faea0750d311dcaf
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74920708"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75549948"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>Inicio rápido: Adición de inicio de sesión con Microsoft a una aplicación web de Java
 
@@ -28,7 +28,7 @@ Cuando haya completado esta guía de inicio rápido, la aplicación aceptará in
 
 ![Muestra cómo funciona la aplicación de ejemplo generada por este inicio rápido.](media/quickstart-v2-java-webapp/java-quickstart.svg)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para ejecutar este ejemplo, necesitará lo siguiente:
 
@@ -61,14 +61,14 @@ Para ejecutar este ejemplo, necesitará lo siguiente:
 >    - Deje **URI de redirección** en blanco por ahora y seleccione **Registrar**.
 > 1. En la página **Información general**, busque los valores de **Identificador de la aplicación (cliente)** y **el identificador del Directorio (inquilino)**  de la aplicación. Copie estos valores para más adelante.
 > 1. Seleccione la **Autenticación** en el menú y, después, agregue la siguiente información:
->    - En **URI de redirección**, agregue `http://localhost:8080/msal4jsamples/secure/aad` y `http://localhost:8080/msal4jsamples/graph/me`.
+>    - En **URI de redirección**, agregue `http://localhost:8080/msal4jsample/secure/aad` y `http://localhost:8080/msal4jsample/graph/me`.
 >    - Seleccione **Guardar**.
 > 1. Seleccione los **Certificados y secretos** en el menú y, en la sección de **Secretos de cliente**, haga clic en **Nuevo secreto de cliente**:
 >
 >    - Escriba una descripción de clave (por ejemplo, secreto de aplicación).
 >    - Seleccione una duración clave **En 1 año**.
 >    - El valor de la clave se mostrará al seleccionar **Agregar**.
->    - Copie el valor de la clave para más adelante. Este valor de clave no se volverá a mostrar ni se recuperará de ningún otro modo, por lo que debe grabarlo en cuanto esté visible desde el Azure Portal.
+>    - Copie el valor de la clave para más adelante. Este valor de clave no se volverá a mostrar ni a recuperar de ninguna otra forma, de modo que regístrelo en cuanto esté visible en Azure Portal.
 >
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Paso 1: Configuración de la aplicación en Azure Portal
@@ -121,7 +121,7 @@ Si está ejecutando la aplicación web desde un IDE, haga clic en ejecutar y, lu
 
 1. En la página de información, seleccione el botón **Inicio de sesión** para redirigir a Azure Active Directory y solicite al usuario sus credenciales.
 
-1. Una vez autenticado el usuario, se redirigen a *http://localhost:8080/msal4jsamples/secure/aad* . Ahora han iniciado sesión y la página mostrará información sobre la cuenta que ha iniciado sesión. La interfaz de usuario de ejemplo tiene los siguientes botones:
+1. Una vez autenticado el usuario, se redirigen a *http://localhost:8080/msal4jsample/secure/aad* . Ahora han iniciado sesión y la página mostrará información sobre la cuenta que ha iniciado sesión. La interfaz de usuario de ejemplo tiene los siguientes botones:
     - *Sign Out* (Cerrar sesión): Cierra la sesión del usuario actual de la aplicación y lo redirige a la página principal.
     - *Mostrar información de usuario*: Adquiere un token para Microsoft Graph y llama a Microsoft Graph con una solicitud que contiene el token, que devuelve información básica sobre el usuario que inició sesión.
 

@@ -2,20 +2,17 @@
 title: Introducción a Azure Automation
 description: Obtenga información sobre cómo usar Azure Automation para automatizar el ciclo de vida de la infraestructura y las aplicaciones.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: eamonoreilly
-ms.author: eamono
 keywords: Azure Automation, DSC, PowerShell, Desired State Configuration, Update Management, Change Tracking, inventario, runbooks, Python, gráfico
 ms.date: 10/18/2018
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: b14550d0e03382a6709924ca5671cb26d09fcc35
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 3037f96464b0902ca3923bdaea2bddff39c47733
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434060"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75421941"
 ---
 # <a name="an-introduction-to-azure-automation"></a>Introducción a Azure Automation
 
@@ -44,14 +41,14 @@ Actualice los sistemas Windows y Linux en entornos híbridos con Azure Automatio
 
 Azure Automation consta de un conjunto de recursos compartidos que le facilitan la automatización y configuración de los entornos a escala.
 
-* **[Programaciones](automation-schedules.md)**: se usan en el servicio para desencadenar la automatización en momentos predefinidos.
-* **[Módulos ](automation-integration-modules.md)**: módulos usados para administrar Azure y otros sistemas. Importe a la cuenta de Automation para Microsoft, recursos de DSC y cmdlets definidos personalizados, de la comunidad o de terceros.
+* **[Programaciones](automation-schedules.md)** : se usan en el servicio para desencadenar la automatización en momentos predefinidos.
+* **[Módulos ](automation-integration-modules.md)** : módulos usados para administrar Azure y otros sistemas. Importe a la cuenta de Automation para Microsoft, recursos de DSC y cmdlets definidos personalizados, de la comunidad o de terceros.
 * **[Galería de módulos](automation-runbook-gallery.md)** : integración nativa con la Galería de PowerShell para ver runbooks e importarlos a la cuenta de Automation.
-* **[Paquetes de Python 2](python-packages.md)**: incorporación de paquetes de Python 2 a su cuenta de automatización para su uso en runbooks de Python.
-* **[Credenciales](automation-credentials.md)**: almacene de forma segura la información confidencial que los runbooks y las configuraciones pueden usar en tiempo de ejecución.
-* **[Conexiones](automation-connections.md)**: almacene información de pares de nombre-valor con información común de cuándo se conecta a sistemas en los recursos de conexión. El autor del módulo define las conexiones para usarlas en tiempo de ejecución en runbooks y configuraciones.
-* **[Certificados](automation-certificates.md)**: almacénelos y póngalos a disposición en tiempo de ejecución para que puedan usarse para la protección y autenticación de los recursos implementados.
-* **[Variables](automation-variables.md)**: proporcionan una manera de almacenar el contenido que puede usarse en runbooks y configuraciones. Puede cambiar los valores sin tener que modificar los runbooks ni las configuraciones que les hagan referencia.
+* **[Paquetes de Python 2](python-packages.md)** : incorporación de paquetes de Python 2 a su cuenta de automatización para su uso en runbooks de Python.
+* **[Credenciales](automation-credentials.md)** : almacene de forma segura la información confidencial que los runbooks y las configuraciones pueden usar en tiempo de ejecución.
+* **[Conexiones](automation-connections.md)** : almacene información de pares de nombre-valor con información común de cuándo se conecta a sistemas en los recursos de conexión. El autor del módulo define las conexiones para usarlas en tiempo de ejecución en runbooks y configuraciones.
+* **[Certificados](automation-certificates.md)** : almacénelos y póngalos a disposición en tiempo de ejecución para que puedan usarse para la protección y autenticación de los recursos implementados.
+* **[Variables](automation-variables.md)** : proporcionan una manera de almacenar el contenido que puede usarse en runbooks y configuraciones. Puede cambiar los valores sin tener que modificar los runbooks ni las configuraciones que les hagan referencia.
 
 ### <a name="source-control-integration"></a>Integración de control de código fuente
 

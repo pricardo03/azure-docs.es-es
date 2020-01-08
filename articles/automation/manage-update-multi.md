@@ -2,19 +2,15 @@
 title: Administración de actualizaciones para varias máquinas virtuales de Azure
 description: En este artículo se describe cómo administrar actualizaciones para máquinas virtuales de Azure y que no son de Azure.
 services: automation
-ms.service: automation
 ms.subservice: update-management
-author: mgoedtel
-ms.author: magoedte
 ms.date: 11/20/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 16e79043db80b69d2a2ca7d0a90e6d4921c15b22
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: e9a5a4330a90bd376114f836250e290944f03860
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806514"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75417824"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Administración de actualizaciones para varias máquinas
 
@@ -25,7 +21,7 @@ Puede usar la solución Update Management para administrar las actualizaciones y
 - Programar la instalación de las actualizaciones necesarias
 - Revisar los resultados de la implementación para comprobar que se han aplicado correctamente actualizaciones a todas las máquinas virtuales para las cuales se ha habilitado Update Management
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para usar Update Management, necesita lo siguiente:
 
@@ -33,7 +29,7 @@ Para usar Update Management, necesita lo siguiente:
 
 - Acceso a un repositorio de actualizaciones para máquinas virtuales Linux incorporadas a la solución.
 
-## <a name="supported-operating-systems"></a>Sistemas operativos compatibles
+## <a name="supported-operating-systems"></a>Sistemas operativos admitidos
 
 Update Management es compatible con los sistemas operativos siguientes:
 
@@ -99,12 +95,12 @@ Los agentes que están instalados en máquinas virtuales y equipos recopilan dat
 
 En la tabla siguiente se describen los orígenes conectados compatibles con esta solución:
 
-| Origen conectado | Compatible | DESCRIPCIÓN |
+| Origen conectado | Compatible | Descripción |
 | --- | --- | --- |
 | Agentes de Windows |Sí |Update Management recopila información sobre las actualizaciones del sistema de los agentes de Windows e inicia la instalación de las actualizaciones necesarias. |
 | Agentes de Linux |Sí |Update Management recopila información sobre las actualizaciones del sistema de los agentes de Linux e inicia la instalación de las actualizaciones necesarias en las distribuciones admitidas. |
 | Grupo de administración de Operations Manager |Sí |Update Management recopila información sobre las actualizaciones del sistema de los agentes de un grupo de administración conectado. |
-| Cuenta de Azure Storage |Sin |Azure Storage no incluye información sobre las actualizaciones del sistema. |
+| Cuenta de Azure Storage |No |Azure Storage no incluye información sobre las actualizaciones del sistema. |
 
 ### <a name="collection-frequency"></a>Frecuencia de recopilación
 
@@ -128,7 +124,7 @@ Para programar una nueva implementación de actualizaciones de una o varias máq
 
 En el panel **Nueva implementación de actualización**, especifique la siguiente información:
 
-- **Nombre**: proporcione un nombre único para identificar la implementación de actualizaciones.
+- **Name**: proporcione un nombre único para identificar la implementación de actualizaciones.
 - **Sistema operativo**: seleccione **Windows** o **Linux**.
 - **Grupos que se deben actualizar**: Defina una consulta basada en una combinación de suscripción, grupos de recursos, ubicaciones y etiquetas para crear un grupo dinámico de VM de Azure e incluirlo en la implementación. En el caso de las máquinas virtuales que no son de Azure, las búsquedas guardadas se usan para crear un grupo dinámico que se incluirá en la implementación. Para obtener más información, vea [Grupos dinámicos](automation-update-management-groups.md).
 - **Máquinas para actualizar**: seleccione una Búsqueda guardada, Grupo importado o Máquinas para elegir las máquinas que desea actualizar.
@@ -163,7 +159,7 @@ En el panel **Nueva implementación de actualización**, especifique la siguient
 
 - **Reboot control**: esta configuración determina cómo se controlan los reinicios para la implementación de actualizaciones.
 
-   |Opción|DESCRIPCIÓN|
+   |Opción|Descripción|
    |---|---|
    |Reiniciar si es necesario| **(Valor predeterminado)** En caso necesario, se inicia un reinicio cuando la ventana de mantenimiento lo permite.|
    |Always reboot (Reiniciar siempre)|Se inicia un reinicio, independientemente de si se necesita. |

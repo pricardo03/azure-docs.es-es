@@ -6,18 +6,18 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: rohogue
-ms.openlocfilehash: c461b379629927e8f367fad9bfc70b87413f47b7
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 39c4d6a77121e0b52a1da827ebb9e1976f609b30
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255392"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75415281"
 ---
-# <a name="mount-the-avere-vfxt-cluster"></a>Montaje del clúster de Avere de vFXT  
+# <a name="mount-the-avere-vfxt-cluster"></a>Montaje del clúster de Avere de vFXT
 
 Siga estos pasos para conectar equipos cliente a su clúster de vFXT.
 
-1. Decida cómo equilibrar la carga del tráfico del cliente entre los nodos de su clúster. Lea la sección [Equilibrar la carga de cliente](#balance-client-load) que tiene a continuación para obtener más información. 
+1. Decida cómo equilibrar la carga del tráfico del cliente entre los nodos de su clúster. Lea la sección [Equilibrar la carga de cliente](#balance-client-load) que tiene a continuación para obtener más información.
 1. Identifique la dirección IP y la ruta de acceso de unión que se van a montar.
 1. Ejecute el [comando de montaje](#mount-command-arguments) con los argumentos apropiados.
 
@@ -25,9 +25,9 @@ Siga estos pasos para conectar equipos cliente a su clúster de vFXT.
 
 Para equilibrar las solicitudes de cliente entre todos los nodos del clúster, debe montar a los clientes en el rango completo de direcciones IP orientadas al cliente. Existen varias formas sencillas de automatizar esta tarea.
 
-> [!TIP] 
+> [!TIP]
 > Otros métodos para equilibrar la carga pueden ser apropiados para sistemas grandes o complicados; [abra una incidencia de soporte técnico](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt) para obtener ayuda.
-> 
+>
 > Si prefiere usar un servidor DNS para el equilibrio de carga automático del lado servidor, debe configurar y administrar su propio servidor DNS en Azure. En ese caso, puede configurar el DNS round robin para el clúster de vFXT según este documento: [Configuración de DNS del clúster de Avere](avere-vfxt-configure-dns.md).
 
 ### <a name="sample-balanced-client-mounting-script"></a>Script de ejemplo para el montaje de cliente equilibrado
@@ -36,7 +36,7 @@ Este ejemplo de código usa las direcciones IP de los clientes como un elemento 
 
 ```bash
 function mount_round_robin() {
-    # to ensure the nodes are spread out somewhat evenly the default 
+    # to ensure the nodes are spread out somewhat evenly the default
     # mount point is based on this node's IP octet4 % vFXT node count.
     declare -a AVEREVFXT_NODES="($(echo ${NFS_IP_CSV} | sed "s/,/ /g"))"
     OCTET4=$((`hostname -i | sed -e 's/^.*\.\([0-9]*\)/\1/'`))
@@ -53,23 +53,23 @@ function mount_round_robin() {
     fi
     if ! grep -qs "${DEFAULT_MOUNT_POINT} " /proc/mounts; then
         retrycmd_if_failure 12 20 mount "${DEFAULT_MOUNT_POINT}" || exit 1
-    fi   
-} 
+    fi
+}
 ```
 
 La función anterior forma parte del ejemplo de Batch que está disponible en el sitio de [ejemplos de Avere vFXT](https://github.com/Azure/Avere#tutorials).
 
-## <a name="create-the-mount-command"></a>Crear el comando de montaje 
+## <a name="create-the-mount-command"></a>Crear el comando de montaje
 
 > [!NOTE]
 > Si no creó un nuevo contenedor de blobs al crear el clúster de Avere vFXT, siga los pasos descritos en la [configuración del almacenamiento](avere-vfxt-add-storage.md) antes de intentar montar los clientes.
 
 Desde el cliente, el comando ``mount`` asigna el servidor virtual (vserver) en el clúster de vFXT a una ruta de acceso en el sistema de archivos local. El formato es ``mount <vFXT path> <local path> {options}``.
 
-Hay tres elementos para el comando de montaje: 
+Hay tres elementos para el comando de montaje:
 
 * Ruta de acceso de vFXT: es una combinación de la dirección IP y la ruta de acceso de la unión del espacio de nombres descrita a continuación.
-* Ruta de acceso local: es la ruta en el cliente. 
+* Ruta de acceso local: es la ruta en el cliente.
 * Opciones del comando de montaje: están enumeradas en los [argumentos del comando de montaje](#mount-command-arguments).
 
 ### <a name="junction-and-ip"></a>Unión e IP
@@ -84,14 +84,13 @@ Si agregó el almacenamiento después de crear el clúster, la ruta de acceso de
 
 ![Cuadro de diálogo "Agregar nueva unión" con/avere/files en el campo de la ruta de acceso del espacio de nombres](media/avere-vfxt-create-junction-example.png)
 
-
 La dirección IP es una de las direcciones IP orientadas al cliente que se definen para el servidor virtual (vserver). Puede encontrar el rango de direcciones IP orientadas al cliente en dos lugares del panel de control de Avere:
 
-* Tabla **VServers** (pestaña de panel) - 
+* Tabla **VServers** (pestaña de panel) -
 
   ![Pestaña "Panel" del panel de control de Avere con la pestaña del servidor virtual seleccionada en la tabla de datos que está debajo del gráfico, y con la sección de dirección IP indicada](media/avere-vfxt-ip-addresses-dashboard.png)
 
-* Página de configuración de **red orientada al cliente** - 
+* Página de configuración de **red orientada al cliente** -
 
   ![Configuración> Servidor virtual > Página de configuración de red orientada al cliente en la que se indica la sección Rango de direcciones de la tabla de un servidor virtual en particular](media/avere-vfxt-ip-addresses-settings.png)
 
@@ -99,22 +98,20 @@ Además de las rutas de acceso, incluya los [argumentos del comando de montaje](
 
 ### <a name="mount-command-arguments"></a>Argumentos del comando de montaje
 
-Para garantizar un montaje de cliente sin problemas, use estos valores y argumentos en el comando de montaje: 
+Para garantizar un montaje de cliente sin problemas, use estos valores y argumentos en el comando de montaje:
 
 ``mount -o hard,nointr,proto=tcp,mountproto=tcp,retry=30 ${VSERVER_IP_ADDRESS}:/${NAMESPACE_PATH} ${LOCAL_FILESYSTEM_MOUNT_POINT}``
 
-
 | Configuración requerida | |
---- | --- 
-``hard`` | Los montajes leves en el clúster de vFXT están asociados con errores de la aplicación y la posible pérdida de datos. 
+--- | ---
+``hard`` | Los montajes leves en el clúster de vFXT están asociados con errores de la aplicación y la posible pérdida de datos.
 ``proto=netid`` | Esta opción es compatible con el control adecuado de los errores de la red NFS.
 ``mountproto=netid`` | Esta opción es compatible con el control adecuado de errores de red para las operaciones de montaje.
 ``retry=n`` | Configure ``retry=30`` para evitar errores de montaje transitorios. (Se recomienda usar un valor diferente en los montajes de primer plano).
 
 | Configuración preferida  | |
---- | --- 
+--- | ---
 ``nointr``            | La opción "nointr" es la opción preferida para los clientes con kernels heredados (antes de abril de 2008) que admitan esta opción. Tenga en cuenta que la opción "intr" es el valor predeterminado.
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

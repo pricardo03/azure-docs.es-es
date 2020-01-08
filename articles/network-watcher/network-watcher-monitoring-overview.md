@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 04/24/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: e6ff3e6798fadca89455790efa28891c02e9e459
-ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
+ms.openlocfilehash: 45470733c9cfed104e39786be48a6edae20ad489
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71996964"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645215"
 ---
 # <a name="what-is-azure-network-watcher"></a>¿Qué es Azure Network Watcher?
 
@@ -79,7 +79,7 @@ Las reglas de seguridad vigentes de una interfaz de red son una combinación de 
 
 ## <a name="metrics"></a>Métricas
 
-Hay [límites](../azure-subscription-service-limits.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#azure-resource-manager-virtual-networking-limits) al número de recursos de red que se pueden crear dentro de una suscripción y región de Azure. Si se alcanzan tales límites, ya no podrá crear más recursos dentro de la suscripción o región. La funcionalidad *Límite de suscripción de red* ofrece un resume de cuántos recursos de red se han implementado en una suscripción y región, y cuál es el límite para el recurso. En la siguiente imagen se muestra el resultado parcial de los recursos de red implementados en la región Este de EE. UU. para una suscripción de ejemplo:
+Hay [límites](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#azure-resource-manager-virtual-networking-limits) al número de recursos de red que se pueden crear dentro de una suscripción y región de Azure. Si se alcanzan tales límites, ya no podrá crear más recursos dentro de la suscripción o región. La funcionalidad *Límite de suscripción de red* ofrece un resume de cuántos recursos de red se han implementado en una suscripción y región, y cuál es el límite para el recurso. En la siguiente imagen se muestra el resultado parcial de los recursos de red implementados en la región Este de EE. UU. para una suscripción de ejemplo:
 
 ![Límites de suscripción](./media/network-watcher-monitoring-overview/subscription-limit.png)
 
@@ -100,7 +100,7 @@ Más información acerca de los registros de flujo NSG siguiendo el tutorial [Re
 Puede habilitar el registro de diagnóstico de recursos de red de Azure, como grupos de seguridad de red, direcciones IP públicas, equilibradores de carga, puertas de enlace de red virtual y puertas de enlace de aplicación. La funcionalidad *Registros de diagnóstico* proporciona una única interfaz para habilitar y deshabilitar los registros de diagnóstico de recursos de red de cualquier recurso de red existente que genera un registro de diagnóstico. Los registros de diagnóstico se pueden ver con herramientas como Microsoft Power BI y los registros de Azure Monitor. Para más información acerca del análisis de los registros de diagnóstico de la red de Azure, consulte [Soluciones de supervisión de redes de Azure en Log Analytics](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
 ## <a name="network-watcher-automatic-enablement"></a>Habilitación automática de Network Watcher
-Al crear o actualizar una red virtual en su suscripción, Network Watcher se habilitará automáticamente en la región de Virtual Network. El hecho de habilitar Network Watcher de forma automática no afecta a sus recursos ni a los cargos asociados. Para más información, consulte [Creación de una instancia de Network Watcher](network-watcher-create.md).
+Al crear o actualizar una red virtual en su suscripción, Network Watcher se habilitará automáticamente en la región de la red virtual. El hecho de habilitar Network Watcher de forma automática no afecta a sus recursos ni supone un cargo adicional. Para más información, consulte [Creación de una instancia de Network Watcher](network-watcher-create.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
-ms.openlocfilehash: 38655a9da103d1d669f87c6195be7f17702f9348
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 0002e61827817af958007e1f789219e9291990d8
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71056671"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647771"
 ---
 # <a name="what-is-an-endpoint-access-control-list"></a>¿Qué es una lista de control de acceso de puntos de conexión?
 
 > [!IMPORTANT]
-> Azure tiene dos [modelos de implementación](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) diferentes para crear recursos y trabajar con ellos: Resource Manager y el clásico. Este artículo trata del modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo de implementación Resource Manager. 
+> Azure tiene dos [modelos de implementación](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) diferentes para crear recursos y trabajar con ellos: el de Resource Manager y el clásico. Este artículo trata del modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo de implementación de Resource Manager. 
 
 Una lista de control de acceso (ACL) de puntos de conexión es una mejora de seguridad disponible para la implementación de Azure. Una ACL proporciona la capacidad de permitir o denegar tráfico a un extremo de la máquina virtual de forma selectiva. Esta capacidad de filtro de paquetes proporciona un nivel adicional de seguridad. Puede especificar ACL de red solo para extremos. No se puede especificar una ACL para una red virtual o para una subred específica contenida en una red virtual. Siempre que sea posible, se recomienda utilizar grupos de seguridad de red (NSG) en lugar de ACL. Al utilizar los grupos de seguridad de red, se reemplazará la lista de control de acceso del punto de conexión y ya no se aplicará más. Para obtener más información sobre los grupos de seguridad de red, consulte [Información general de los grupos de seguridad de red](security-overview.md).
 
@@ -39,7 +39,7 @@ Con las ACL de red, puede hacer lo siguiente:
 * Usar el orden de reglas para garantizar que se aplica el conjunto correcto de reglas en un extremo de máquina virtual determinado (de menor a mayor)
 * Especificar una ACL para una dirección IPv4 de la subred remota específica.
 
-Para más información sobre los límites de las listas de control de acceso, consulte el artículo [Límites de Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits).
+Para más información sobre los límites de las listas de control de acceso, consulte el artículo [Límites de Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits).
 
 ## <a name="how-acls-work"></a>Funcionamiento de las ACL
 Una ACL es un objeto que contiene una lista de reglas. Al crear una ACL y al aplicarla a un extremo de máquina virtual, el filtrado de paquetes tiene lugar en el nodo de host de la máquina virtual. Esto significa que el tráfico de direcciones IP remotas lo filtra el nodo de host para hacer coincidir las reglas de ACL en lugar de en su máquina virtual. De esta forma se evita que la máquina virtual gaste preciosos ciclos de CPU en el filtrado de paquetes.

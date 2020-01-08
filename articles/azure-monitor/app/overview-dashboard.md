@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/03/2019
-ms.openlocfilehash: 218ae158512326bcad8efd6c598f68d296fe9370
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 45c04cc32733873061bd6ff44b2e5484b106a893
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819156"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75406655"
 ---
 # <a name="application-insights-overview-dashboard"></a>Panel de información general de Application Insights
 
@@ -28,7 +28,7 @@ Ahora, el nuevo panel de información general se inicia de forma predeterminada:
 
 Se ha simplificado la selección de intervalo de tiempo a favor de una interfaz más sencilla con un solo clic.
 
-![Intervalo de tiempo](./media/overview-dashboard/app-insights-overview-dashboard-03.png)
+![Intervalo de horas](./media/overview-dashboard/app-insights-overview-dashboard-03.png)
 
 El rendimiento en general ha aumentado enormemente. Se tiene acceso con un solo clic a funciones populares como **Buscar** y **Análisis**. Cada mosaico de KPI de actualización dinámica predeterminado proporciona información de las funciones correspondientes de Application Insights. Para obtener más información acerca de las solicitudes erróneas, seleccione **Errores** en el encabezado **Investigar**:
 
@@ -55,7 +55,7 @@ Para volver a la experiencia de información general, simplemente seleccione:
 
 ![Botón Información general](./media/overview-dashboard/app-insights-overview-dashboard-07.png)
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 
 Si selecciona **Configurar las opciones del icono** y establece un intervalo de tiempo personalizado que supere los 31 días, el panel no mostrará más de 31 días de datos, incluso con la retención de datos predeterminada de 90 días. Actualmente no hay ninguna solución alternativa para este comportamiento.
 

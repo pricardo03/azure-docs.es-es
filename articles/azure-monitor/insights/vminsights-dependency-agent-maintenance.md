@@ -4,15 +4,15 @@ description: En este artículo se describe cómo actualizar el agente Dependency
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 09/30/2019
-ms.openlocfilehash: f062dead8d479fe4da5de46b76b82cee9207bd83
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 548a578365b03162396fb8618718ab1e7ce5b081
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933713"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75400795"
 ---
 # <a name="how-to-upgrade-the-azure-monitor-for-vms-dependency-agent"></a>Actualización del agente Dependency Agent en Azure Monitor para VM
 
@@ -54,7 +54,7 @@ Puede descargar la versión más reciente del agente de Windows [aquí](https://
 
 1. Inicie sesión en el equipo con una cuenta con derechos administrativos.
 
-2. Ejecute el siguiente comando.
+2. Ejecute el siguiente comando:
 
     ```dos
     InstallDependencyAgent-Windows.exe /S /RebootMode=manual

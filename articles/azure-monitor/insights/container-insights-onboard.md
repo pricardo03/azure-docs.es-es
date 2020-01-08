@@ -1,18 +1,14 @@
 ---
 title: Cómo habilitar Azure Monitor para contenedores | Microsoft Docs
 description: En este artículo se describe cómo habilitar y configurar Azure Monitor para contenedores, de forma que pueda conocer el rendimiento de su contenedor y qué problemas relacionados con su rendimiento se han identificado.
-ms.service: azure-monitor
-ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
 ms.date: 11/18/2019
-ms.openlocfilehash: 43016cfb72b90a74ce1313ad2d2316228d743f5f
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: fce2699c18f0fe426b85c165656100c097e69598
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74195348"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75404323"
 ---
 # <a name="how-to-enable-azure-monitor-for-containers"></a>Cómo habilitar Azure Monitor para contenedores
 
@@ -32,7 +28,7 @@ Azure Monitor para contenedores puede habilitarse para implementaciones de Kuber
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de empezar, asegúrese de que dispone de lo siguiente:
 
@@ -63,9 +59,9 @@ La información de la tabla siguiente muestra la configuración de proxy y firew
 
 |Recurso del agente|Puertos |
 |--------------|------|
-| \* .ods.opinsights.azure.com | 443 |  
-| \* .oms.opinsights.azure.com | 443 | 
-| \* .blob.core.windows.net | 443 |
+| *.ods.opinsights.azure.com | 443 |  
+| *.oms.opinsights.azure.com | 443 | 
+| *.blob.core.windows.net | 443 |
 | dc.services.visualstudio.com | 443 |
 | *.microsoftonline.com | 443 |
 | *.monitoring.azure.com | 443 |
@@ -73,21 +69,21 @@ La información de la tabla siguiente muestra la configuración de proxy y firew
 
 En la información de la tabla siguiente se muestra la información de configuración de proxy y firewall para Azure China.
 
-|Recurso del agente|Puertos |DESCRIPCIÓN | 
+|Recurso del agente|Puertos |Descripción | 
 |--------------|------|-------------|
 | *.ods.opinsights.azure.cn | 443 | Ingesta de datos |
 | *.oms.opinsights.azure.cn | 443 | Incorporación de OMS |
-| \* .blob.core.windows.net | 443 | Se usa para supervisar la conectividad saliente. |
+| *.blob.core.windows.net | 443 | Se usa para supervisar la conectividad saliente. |
 | microsoft.com | 80 | Se usa para la conectividad de red. Solo es necesario si la versión de la imagen del agente es ciprod09262019 o anterior. |
 | dc.services.visualstudio.com | 443 | Para la telemetría del agente que usa Application Insights en la nube pública de Azure. |
 
 En la información de la tabla siguiente se muestra la información de configuración de proxy y firewall para Azure US Government.
 
-|Recurso del agente|Puertos |DESCRIPCIÓN | 
+|Recurso del agente|Puertos |Descripción | 
 |--------------|------|-------------|
 | *.ods.opinsights.azure.us | 443 | Ingesta de datos |
 | *.oms.opinsights.azure.us | 443 | Incorporación de OMS |
-| \* .blob.core.windows.net | 443 | Se usa para supervisar la conectividad saliente. |
+| *.blob.core.windows.net | 443 | Se usa para supervisar la conectividad saliente. |
 | microsoft.com | 80 | Se usa para la conectividad de red. Solo es necesario si la versión de la imagen del agente es ciprod09262019 o anterior. |
 | dc.services.visualstudio.com | 443 | Para la telemetría del agente que usa Application Insights en la nube pública de Azure. |
 
@@ -107,7 +103,7 @@ Cuando se publica una nueva versión del agente, se actualiza automáticamente e
 
 Para habilitar Azure Monitor para contenedores, puede usar uno de los métodos descritos en la tabla siguiente.
 
-| Estado de la implementación | Método | DESCRIPCIÓN |
+| Estado de la implementación | Método | Descripción |
 |------------------|--------|-------------|
 | Nuevo clúster de Kubernetes | [Creación de un clúster de AKS con la CLI de Azure](../../aks/kubernetes-walkthrough.md#create-aks-cluster)| Puede habilitar la supervisión de un nuevo clúster de AKS que cree con la CLI de Azure. |
 | | [Creación de un clúster de AKS con Terraform](container-insights-enable-new-cluster.md#enable-using-terraform)| Puede habilitar la supervisión de un nuevo clúster de AKS que cree mediante la herramienta de código abierto Terraform. |

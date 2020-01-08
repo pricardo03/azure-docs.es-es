@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 03/14/2019
 ms.reviewer: vitalyg
-ms.openlocfilehash: 4b0dca1215cfecea5c9943bd27ee8a5c1de45311
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: d88df0c7e17d297162a1921021b89f02077c2ac7
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893372"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75560392"
 ---
 # <a name="sampling-in-application-insights"></a>Muestreo en Application Insights.
 
@@ -361,7 +361,7 @@ Utilice este tipo de muestreo si con frecuencia su aplicación sobrepasa su cuot
 
 Establecer la frecuencia de muestreo en la página Uso y costos estimados:
 
-![En la hoja Información general de la aplicación, haga clic en Configuración, Cuota, Ejemplos y, luego, seleccione una frecuencia de muestreo y haga clic en Actualizar.](./media/sampling/04.png)
+![En la hoja Información general de la aplicación, haga clic en Configuración, Cuota, Ejemplos y, luego, seleccione una frecuencia de muestreo y haga clic en Actualizar.](./media/sampling/data-sampling.png)
 
 Al igual que otros tipos de muestreo, el algoritmo conserva elementos de telemetría relacionados. Por ejemplo, cuando se inspeccione la telemetría en Búsqueda, podrá buscar la solicitud relacionada con una excepción determinada. Los recuentos de métrica, como la tasa de solicitudes y la tasa de excepciones se mantienen correctamente.
 
@@ -478,7 +478,7 @@ El SDK del lado cliente (JavaScript) participa en el muestreo de frecuencia fija
 
 Siga las instrucciones de [este artículo](https://docs.microsoft.com/azure/azure-functions/functions-monitoring#configure-sampling) para configurar el muestreo de las aplicaciones que se ejecutan en Azure Functions.
 
-## <a name="frequently-asked-questions"></a>Preguntas frecuentes
+## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 
 *¿Cuál es el comportamiento de muestreo predeterminado en el SDK de ASP.NET y ASP.NET Core?*
 
@@ -543,7 +543,7 @@ Siga las instrucciones de [este artículo](https://docs.microsoft.com/azure/azur
         {
             if(somecondition)
             {
-                ((ISupportSampling)item).SamplingPercentage = 100;
+                ((ISupportSampling)telemetry).SamplingPercentage = 100;
             }
         }
       }

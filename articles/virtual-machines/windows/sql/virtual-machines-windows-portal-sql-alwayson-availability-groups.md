@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
-ms.openlocfilehash: a06ea59af0776fe3decb0b56a3ef886f08b2dfda
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: d7c88e500886453fbfb53655748ccf7025ab7d3d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100711"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75374269"
 ---
 # <a name="configure-always-on-availability-groups-in-azure-virtual-machines-automatically-resource-manager"></a>Configuración de grupos de disponibilidad Always On automáticamente en Azure Virtual Machines: Resource Manager
 
@@ -76,7 +76,7 @@ Haga clic en **Basics** (Aspectos básicos) y configure las opciones siguientes:
 * **Nombre de usuario del administrador** es una cuenta de usuario que tiene permisos de administrador de dominio y un miembro del rol de servidor fijo sysadmin de SQL Server en ambas instancias de SQL Server. Use **DomainAdmin**en este tutorial.
 * **Contraseña** es la contraseña de la cuenta de administrador del dominio. Utilice una contraseña compleja. Confirme la contraseña.
 * **Suscripción** es la suscripción que Azure facturará por ejecutar todos los recursos implementados para el grupo de disponibilidad. Si su cuenta tiene varias suscripciones, puede especificar una suscripción distinta.
-* **Grupo de recursos** es el nombre del grupo al que pertenecen todos los recursos de Azure creados mediante esta plantilla. Use **SQL-HA-RG**en este tutorial. Para más información, consulte [Información general de Azure Resource Manager](../../../azure-resource-manager/resource-group-overview.md#resource-groups).
+* **Grupo de recursos** es el nombre del grupo al que pertenecen todos los recursos de Azure creados mediante esta plantilla. Use **SQL-HA-RG**en este tutorial. Para más información, consulte [Información general de Azure Resource Manager](../../../azure-resource-manager/management/overview.md#resource-groups).
 * **Ubicación** es la región de Azure en la que el tutorial crea los recursos. Elija una región de Azure.
 
 En la captura de pantalla siguiente hay una hoja **Aspectos básicos** completada:
@@ -197,7 +197,7 @@ Supervise el progreso de la implementación desde el portal de Azure. Un icono q
 
 ![Panel de Azure](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/11-deploydashboard.png)
 
-## <a name="connect-to-sql-server"></a>Conexión con SQL Server
+## <a name="connect-to-sql-server"></a>Conectar a SQL Server
 Las nuevas instancias de SQL Server se ejecutan en máquinas virtuales que tienen direcciones IP conectadas a Internet. Puede usar Escritorio remoto (RDP) directamente con cada máquina virtual de SQL Server.
 
 Para RDP a servidor SQL Server, siga estos pasos:

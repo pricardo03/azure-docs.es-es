@@ -2,19 +2,15 @@
 title: Aprenda a incorporar las soluciones Update Management, Change Tracking e Inventory en varias máquinas virtuales en Azure Automation
 description: Obtenga información acerca de cómo incorporar una máquina virtual de Azure con las soluciones Update Management, Change Tracking e Inventory que forman parte de Azure Automation
 services: automation
-ms.service: automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 04/11/2019
 ms.topic: article
-manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: cc6e3f3aaa77d7691e0443ee74405058bde2dfa0
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 188306ca02cee05f17514826ae6d973a17e6bb97
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850812"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75421855"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Habilitación de las soluciones Update Management, Change Tracking e Inventory en varias máquinas virtuales
 
@@ -109,7 +105,7 @@ Si ha usado la solución de inicio y detención de máquinas virtuales durante l
 
 También puede desvincular el área de trabajo de la cuenta de Automation desde el área de trabajo de Log Analytics. En el área de trabajo, seleccione **Cuenta de Automation** en **Recursos relacionados**. En la página Cuenta de Automation, seleccione **Desvincular cuenta**.
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 
 Al incorporar varias máquinas, puede haber algunas en las que aparezca **No se puede habilitar**. Hay diferentes motivos por los que algunas máquinas no se pueden habilitar. Las secciones siguientes muestran las posibles razones para que aparezca el estado **No se puede habilitar** en una máquina virtual al intentar incorporarla.
 

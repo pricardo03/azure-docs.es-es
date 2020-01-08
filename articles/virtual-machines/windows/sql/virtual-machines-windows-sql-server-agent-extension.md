@@ -17,12 +17,12 @@ ms.date: 08/30/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 9aae386e21df6711fc4984a7abfd34f418399f76
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 6ccc04ccdaf92764da8f45af1e5dda98af822587
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034193"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75690838"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-by-using-the-sql-server-iaas-agent-extension"></a>Automatización de las tareas de administración en Azure Virtual Machines con la extensión del Agente de IaaS de SQL Server
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ Para ver la versión clásica de este artículo, consulte [Extensión del Agente
 ## <a name="supported-services"></a>Servicios admitidos
 La extensión del Agente de IaaS SQL Server es compatible con las siguientes tareas de administración:
 
-| Característica de administración | DESCRIPCIÓN |
+| Característica de administración | Descripción |
 | --- | --- |
 | **Copia de seguridad automatizada de SQL Server** |Automatiza la programación de copias de seguridad de todas las bases de datos para la instancia predeterminada o una instancia con nombre [instalada de forma correcta](virtual-machines-windows-sql-server-iaas-faq.md#administration) de SQL Server en la máquina virtual. Para más información, consulte [Automated Backup para SQL Server en Azure Virtual Machines (Resource Manager)](virtual-machines-windows-sql-automated-backup.md). |
 | **Aplicación de revisiones automatizada de SQL Server** |Configura una ventana de mantenimiento durante la cual tienen lugar actualizaciones importantes de Windows en la máquina virtual, de tal forma que puede evitar las actualizaciones durante las horas punta de la carga de trabajo. Para más información, consulte [Automated Patching para SQL Server en Azure Virtual Machines (Resource Manager)](virtual-machines-windows-sql-automated-patching.md). |
@@ -50,7 +50,7 @@ Una vez que la extensión del Agente de IaaS de SQL Server está instalada y en 
 * En el panel de SQL Server de la máquina virtual en Azure Portal y a través de Azure PowerShell para las imágenes de SQL Server en Azure Marketplace.
 * A través de Azure PowerShell para instalaciones manuales de la extensión. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 A continuación se indican los requisitos para usar la extensión del Agente de IaaS SQL Server en la VM:
 
 **Sistema operativo**:
@@ -69,6 +69,7 @@ A continuación se indican los requisitos para usar la extensión del Agente de 
 * SQL Server 2014
 * SQL Server 2016
 * SQL Server 2017
+* SQL Server 2019
 
 **Azure PowerShell**:
 

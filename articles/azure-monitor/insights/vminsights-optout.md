@@ -4,15 +4,15 @@ description: En este artículo se describe cómo puede interrumpir la supervisi�
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 11/05/2018
-ms.openlocfilehash: 70e71688fde5aff4002c7d49b1408bcefeab1eed
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: b2d58b501429a47c3011fc727f756edeeb7775e6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555165"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75399303"
 ---
 # <a name="disable-monitoring-of-your-vms-in-azure-monitor-for-vms-preview"></a>Deshabilitación de la supervisión de las VM en Azure Monitor para VM (versión preliminar)
 
@@ -43,7 +43,7 @@ Si aún necesita el área de trabajo de Log Analytics, siga estos pasos para qui
 >Si usó la solución de supervisión de Service Map antes de habilitar Azure Monitor para VM y todavía confía en ella, no la quite como se describe en el último paso del procedimiento siguiente.  
 >
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. En Azure Portal, seleccione **Todos los servicios**. En la lista de recursos, escriba **Log Analytics**. Cuando comience a escribir, la lista filtrará las sugerencias en función de la entrada. Seleccione **Log Analytics**.
 3. En la lista de áreas de trabajo de Log Analytics, seleccione el área de trabajo que eligió al incorporarse a Azure Monitor para VM.
 4. A la izquierda, seleccione **Soluciones**.  
@@ -64,7 +64,7 @@ Si el área de trabajo de Log Analytics aún debe admitir la supervisión de otr
 >
 > Si quita el agente de Log Analytics, impedirá que esos servicios y soluciones administren de forma proactiva la VM. 
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com). 
+1. Inicie sesión en [Azure Portal](https://portal.azure.com). 
 2. En Azure Portal, seleccione **Virtual Machines**. 
 3. En la lista, seleccione una máquina virtual. 
 4. En el panel izquierdo, seleccione **Extensiones**. En la página **Extensiones**, seleccione **DependencyAgent**.

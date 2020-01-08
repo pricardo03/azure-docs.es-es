@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 11/21/2019
 ms.author: dapine
-ms.openlocfilehash: 1679862b1660d3c8b2505c6e0c54f203f5d4665d
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 18f4edf5cc63a448779423cc1b302130b4b80724
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383536"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75692564"
 ---
 ## <a name="create-an-azure-container-instance-resource"></a>Crear un recurso de instancia de contenedor de Azure
 
@@ -22,7 +22,7 @@ ms.locfileid: "74383536"
 
 2. En la pestaña **Datos básicos**, escriba la siguientes información:
 
-    |Configuración|Valor|
+    |Configuración|Value|
     |--|--|
     |Subscription|Seleccione su suscripción.|
     |Resource group|Seleccione el grupo de recursos disponible o cree uno nuevo, como `cognitive-services`.|
@@ -35,18 +35,18 @@ ms.locfileid: "74383536"
 
 3. En la pestaña **Redes**, escriba los siguientes detalles:
 
-    |Configuración|Valor|
+    |Configuración|Value|
     |--|--|
     |Puertos|Establezca el puerto TCP en `5000`. Expone el contenedor en el puerto 5000.|
 
 4. En la pestaña **Avanzado**, escriba las **Variables de entorno** necesarias para la configuración de la facturación del recurso de la instancia de contenedor de Azure:
 
-    | Clave | Valor |
+    | Clave | Value |
     |--|--|
     |`apikey`|Se copia desde la página **Claves** del recurso. Es una cadena de 32 caracteres alfanuméricos sin espacios ni guiones, `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.|
     |`billing`|Se copia desde la página **Información general** del recurso.|
     |`eula`|`accept`|
 
-1. Haga clic en **Revisar y crear**.
-1. Después de realizar correctamente la validación, haga clic en **Crear** para finalizar el proceso de creación.
-1. Cuando el recurso se implemente con éxito, estará listo.
+5. Haga clic en **Revisar y crear**.
+6. Después de realizar correctamente la validación, haga clic en **Crear** para finalizar el proceso de creación.
+7. Cuando el recurso se implemente con éxito, estará listo.

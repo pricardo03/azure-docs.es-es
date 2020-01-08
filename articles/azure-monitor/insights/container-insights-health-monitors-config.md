@@ -1,23 +1,14 @@
 ---
 title: Configuración de los monitores de estado de Azure Monitor para contenedores | Microsoft Docs
 description: En este artículo se proporciona contenido que describe la configuración detallada de los monitores de estado en Azure Monitor para contenedores.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: azure-monitor
 ms.topic: conceptual
-ms.workload: infrastructure-services
-ms.date: 11/12/2019
-ms.author: magoedte
-ms.openlocfilehash: 7d4400b563a1d0b8bf094f946a37d7ff4a17e7cf
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.date: 12/01/2019
+ms.openlocfilehash: d2d602d767fa6a39b7f72650c426c90be210a6ed
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74664954"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75405040"
 ---
 # <a name="azure-monitor-for-containers-health-monitor-configuration-guide"></a>Guía de configuración de los monitores de estado de Azure Monitor para contenedores
 
@@ -35,7 +26,7 @@ El estado general de un objeto determinado se determina a partir del estado de c
 
 ## <a name="types-of-monitors"></a>Tipos de monitores
 
-|Supervisión | DESCRIPCIÓN | 
+|Supervisión | Descripción | 
 |--------|-------------|
 | Monitor de unidad |Un monitor de unidad mide algún aspecto de un recurso o una aplicación. Esto podría estar comprobando un contador de rendimiento para determinar el rendimiento del recurso o su disponibilidad. |
 |Monitor agregado | Los monitores agregados agrupan varios monitores para proporcionar un estado de mantenimiento agregado de un solo mantenimiento. Normalmente, los monitores de unidad se configuran en un determinado monitor agregado. Por ejemplo, un monitor agregado de nodo acumula el estado del uso de CPU del nodo, el uso de memoria y el estado del nodo.

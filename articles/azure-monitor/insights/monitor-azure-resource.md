@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
-ms.openlocfilehash: 5a46de9fa17790cb93ce7d5a2af8008d34d4dc35
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 0748047581945d513300d929c2d34d20099bf4d6
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74888791"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75529701"
 ---
 # <a name="monitoring-azure-resources-with-azure-monitor"></a>Supervisión de recursos de Azure con Azure Monitor
 Si tiene aplicaciones y procesos empresariales críticos que dependen de recursos de Azure, querrá supervisar esos recursos para su disponibilidad, rendimiento y funcionamiento. En este artículo se describen los datos de supervisión generados por los recursos de Azure y cómo puede usar las características de Azure Monitor para analizar y alertar sobre estos datos.
@@ -30,7 +30,7 @@ Al crear un recurso de Azure, se habilita Azure Monitor, y se inicia la recopila
 
 
 ## <a name="costs-associated-with-monitoring"></a>Costos asociados con la supervisión
-El análisis de los datos de supervisión que se recopilan de forma predeterminada no supone ningún costo. Aquí se incluye lo siguiente:
+El análisis de los datos de supervisión que se recopilan de forma predeterminada no supone ningún costo. Incluye lo siguiente:
 
 - Recopilación de métricas de la plataforma y su análisis con el Explorador de métricas.
 - Recopilación del registro de actividad y su análisis en Azure Portal.
@@ -127,7 +127,7 @@ Los registros de Azure Monitor consolidan los registros y las métricas de vario
 
 - Consulte [Introducción a las consultas de registro en Azure Monitor](../log-query/get-started-queries.md) para ver un tutorial sobre el uso del lenguaje de consulta que se utiliza para escribir consultas de registro.
 - Consulte [Recopilación de registros de recurso de Azure en el área de trabajo de Log Analytics en Azure Monitor](../platform/resource-logs-collect-workspace.md) para información sobre cómo se recopilan los registros de recurso en los registros de Azure Monitor y detalles sobre cómo obtener acceso a ellos en una consulta.
-- Consulte [Modo de recopilación](../platform/resource-logs-collect-workspace.md#collection-mode) para ver una explicación de cómo se estructuran los datos del registro de recursos en los registros de Azure Monitor.
+- Consulte [Modo de recopilación](../platform/resource-logs-collect-workspace.md#resource-log-collection-mode) para ver una explicación de cómo se estructuran los datos del registro de recursos en los registros de Azure Monitor.
 - Consulte la documentación de cada servicio de Azure para más información sobre su tabla en los registros de Azure Monitor.
 
 ![Registros](media/monitor-azure-resource/logs.png)

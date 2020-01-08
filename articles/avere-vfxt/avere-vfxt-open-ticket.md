@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: rohogue
-ms.openlocfilehash: 068747fd51779bd8a20636355a9ce2b032f6151d
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 8a371f902703287ed3105ed53a57d6341b9528d4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255365"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75415108"
 ---
 # <a name="get-help-with-your-system"></a>Obtenga ayuda con el sistema
 
@@ -19,13 +19,13 @@ Si necesita ayuda con Avere vFXT para Azure, estas son las diversas maneras de o
 
 * **Problema con Avere vFXT**: use Azure Portal para abrir una incidencia de soporte técnico referente a Avere vFXT tal como se describe [a continuación](#open-a-support-ticket-for-your-avere-vfxt).
 * **Cuota**: si tiene un problema relacionado con la cuota, [solicite un aumento de cuota](#request-a-quota-increase).
-* **Documentación y ejemplos**: si tiene problemas con esta documentación o con los ejemplos, vaya al final de la página que tenga el problema y use la sección de **comentarios** para consultar los problemas existentes y crear uno nuevo si es necesario.  
+* **Documentación y ejemplos**: si tiene problemas con esta documentación o con los ejemplos, vaya al final de la página que tenga el problema y use la sección de **comentarios** para consultar los problemas existentes y crear uno nuevo si es necesario.
 
 ## <a name="open-a-support-ticket-for-your-avere-vfxt"></a>Abrir una incidencia de soporte técnico en Avere vFXT
 
-Si tiene problemas al implementar o usar Avere vFXT, solicite ayuda mediante Azure Portal.  
+Si tiene problemas al implementar o usar Avere vFXT, solicite ayuda mediante Azure Portal.
 
-Siga estos pasos para asegurarse de que su incidencia de soporte técnico se etiqueta con un recurso del clúster. Gracias a esta etiqueta podremos ofrecerle el recurso correcto de soporte técnico. 
+Siga estos pasos para asegurarse de que su incidencia de soporte técnico se etiqueta con un recurso del clúster. Gracias a esta etiqueta podremos ofrecerle el recurso correcto de soporte técnico.
 
 1. En [https://portal.azure.com](https://portal.azure.com), seleccione **Grupos de recursos**.
 
@@ -43,7 +43,7 @@ Siga estos pasos para asegurarse de que su incidencia de soporte técnico se eti
 
     ![captura de pantalla de la nueva pantalla de solicitud de soporte técnico en Azure Portal con el encabezado "Basics" (Datos básicos) y una marca indicando el elemento "Service" (Servicio). Se selecciona el botón "All services" (Todos los servicios) y en el campo del menú desplegable se mostrará el valor "Avere vFXT"](media/avere-vfxt-ticket-service.png)
 
-1. En la página dos, elija el tipo de problema y la categoría que mejor coincida con su problema. Agregue un título corto y una descripción que incluya la hora en la que se produjo el problema. 
+1. En la página dos, elija el tipo de problema y la categoría que mejor coincida con su problema. Agregue un título corto y una descripción que incluya la hora en la que se produjo el problema.
 
    ![captura de pantalla de la nueva pantalla de solicitud de soporte técnico con el encabezado "Problem" (Problema), que contiene varios campos que deben completarse](media/avere-vfxt-ticket-problem.png)
 

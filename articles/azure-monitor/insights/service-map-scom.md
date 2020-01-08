@@ -4,15 +4,15 @@ description: Azure Monitor para VM detecta automáticamente los componentes de a
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 07/12/2019
-ms.openlocfilehash: f1acf3c1574fd94606d75c6250dedd40a9c7ea4d
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: a8d0e0980b0d3634626bc1332e8219bdca7fbe01
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849826"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75402635"
 ---
 # <a name="integrate-system-center-operations-manager-with-azure-monitor-for-vms-map-feature"></a>Integración de System Center Operations Manager con la característica Map de Azure Monitor para VM
 
@@ -21,7 +21,7 @@ En Azure Monitor para VM, puede ver los componentes de la aplicación detectados
 >[!NOTE]
 >Si ya ha implementado Service Map, ahora puede ver las asignaciones en Azure Monitor para VM, lo que incluye características adicionales para supervisar el rendimiento y el estado de las VM. La característica Asignar de Azure Monitor para VM está pensada para reemplazar la solución de Service Map independiente. Para obtener más información, consulte [¿Qué es Azure Monitor para máquinas virtuales?](vminsights-overview.md)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * Un grupo de administración de System Center Operations Manager (2012 R2 o posterior).
 * Un área de trabajo de Log Analytics configurada para admitir Azure Monitor para VM.
@@ -122,12 +122,12 @@ Una regla, *Microsoft.SystemCenter.ServiceMapImport.Rule*, captura información 
 
 ![Ventana de propiedades de invalidaciones de Operations Manager](media/service-map-scom/scom-overrides.png)
 
-* **Enabled**: sirve para habilitar o deshabilitar las actualizaciones automáticas.
+* **Habilitado**: sirve para habilitar o deshabilitar las actualizaciones automáticas.
 * **IntervalMinutes**: Especifica el tiempo entre actualizaciones. El intervalo predeterminado es de una hora. Si quiere sincronizar las asignaciones con más frecuencia, puede cambiar el valor.
 * **TimeoutSeconds**: especifica el período de tiempo antes de que se agote el tiempo de espera de la solicitud.
 * **TimeWindowMinutes**: especifica el período de tiempo para consultar datos. El valor predeterminado es de 60 minutos, que es el intervalo máximo permitido.
 
-## <a name="known-issues-and-limitations"></a>Problemas conocidos y limitaciones
+## <a name="known-issues-and-limitations"></a>Limitaciones y problemas conocidos
 
 El diseño actual presenta los problemas y limitaciones siguientes:
 

@@ -4,15 +4,15 @@ description: Service Map es una solución de Azure que detecta automáticamente 
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 07/24/2019
-ms.openlocfilehash: 00bb58c88b7dc535bf76e1a96e9748a2c366b338
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: d4fd443959604f1a50dffbcb646bbe66fa159f8d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554004"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75402593"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Uso de la solución Service Map en Azure
 
@@ -54,7 +54,7 @@ Mapa de servicio ayuda a eliminar las suposiciones de aislamiento de problemas m
 
 El empleo de Service Map permite planear, acelerar y validar de forma eficaz las migraciones de Azure, lo que ayuda a garantizar que nada se quede atrás y que no se produzcan interrupciones por sorpresa. Puede detectar todos los sistemas interdependientes que tienen que migrarse juntos, evaluar la capacidad y la configuración del sistema e identificar si un sistema en ejecución sigue ofreciendo servicio a los usuarios o si es un candidato para la retirada en lugar de la migración. Después de realizar la migración, puede ver la carga y la identidad del cliente para comprobar que los sistemas de prueba y los clientes se están conectando. Si las definiciones de firewall y planeación de la subred tienen problemas, los errores de conexión en las asignaciones de Service Map harán referencia a los sistemas que necesitan conectividad.
 
-### <a name="business-continuity"></a>Continuidad del negocio
+### <a name="business-continuity"></a>Continuidad empresarial
 
 Si utiliza Azure Site Recovery y necesita ayuda para definir la secuencia de recuperación para su entorno de aplicaciones, Mapa de servicio puede automáticamente mostrarle cómo los sistemas dependen entre sí para asegurarse de que su plan de recuperación es confiable. Al elegir un servidor o grupo crítico y ver sus clientes, puede identificar los sistemas front-end que deben recuperarse después de que el servidor esté restaurado y disponible. A la inversa, al examinar las dependencias de back-end de los servidores críticos, puede identificar aquellos sistemas que deben recuperarse antes de restaurar los sistemas de foco.
 
@@ -155,7 +155,7 @@ Haga clic en el menú de puntos suspensivos situado junto al nombre del grupo en
 
 Ciertos procesos cumplen roles determinados en los equipos: servidores web, servidores de aplicaciones, base de datos, etc. Service Map marca las casillas de proceso y máquina con iconos de rol, lo que facilita la identificación rápida del rol que desempeña un proceso o un servidor.
 
-| Icono de rol | DESCRIPCIÓN |
+| Icono de rol | Descripción |
 |:--|:--|
 | ![Servidor Web](media/service-map/role-web-server.png) | Servidor Web |
 | ![Servidor de aplicaciones](media/service-map/role-application-server.png) | Servidor de aplicaciones |
@@ -327,7 +327,7 @@ Los registros de estas tablas se generan a partir de los datos que notifica el a
 
 Para administrar el costo y la complejidad, los registros de conexión no representan conexiones de red físicas individuales. Varias conexiones de red físicas se agrupan en una conexión lógica, que, a continuación, se refleja en la tabla correspondiente.  Lo que significa que los registros de la tabla *VMConnection* representan una agrupación lógica, y no las conexiones físicas individuales que se observan. Las conexiones de red físicas que comparten el mismo valor para los siguientes atributos durante un intervalo determinado de un minuto se agregan en un registro lógico único en *VMConnection*. 
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 |:--|:--|
 | `Direction` |Dirección de la conexión; el valor es *inbound* u *outbound* |
 | `Machine` |FQDN del equipo |
@@ -339,7 +339,7 @@ Para administrar el costo y la complejidad, los registros de conexión no repres
 
 Para tener en cuenta el impacto de la agrupación, se proporciona información sobre el número de conexiones físicas agrupadas en las siguientes propiedades del registro:
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 |:--|:--|
 | `LinksEstablished` |Número de conexiones de red físicas que se han establecido durante el período de tiempo de generación de informes |
 | `LinksTerminated` |Número de conexiones de red físicas que han finalizado durante el período de tiempo de generación de informes |
@@ -350,7 +350,7 @@ Para tener en cuenta el impacto de la agrupación, se proporciona información s
 
 Además de las métricas de recuento de conexión, también se incluye información sobre el volumen de datos enviado y recibido en una conexión lógica o puerto de red concreto en las siguientes propiedades del registro:
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 |:--|:--|
 | `BytesSent` |Número total de bytes enviados durante el período de tiempo de generación de informes |
 | `BytesReceived` |Número total de bytes recibidos durante el período de tiempo de generación de informes |
@@ -378,7 +378,7 @@ Para mayor comodidad, la dirección IP del extremo remoto de una conexión se in
 
 *VMConnection* también incluye información de ubicación geográfica para el extremo remoto de cada registro de conexión en las siguientes propiedades del registro: 
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 |:--|:--|
 | `RemoteCountry` |Nombre del país o región que hospeda la dirección IP de RemoteIp.  Por ejemplo: *United States* |
 | `RemoteLatitude` |Latitud de geolocalización.  Por ejemplo, *47.68* |
@@ -388,7 +388,7 @@ Para mayor comodidad, la dirección IP del extremo remoto de una conexión se in
 
 Todas las propiedades de RemoteIp de la tabla *VMConnection* se comparan con un conjunto de direcciones IP con actividad malintencionada conocida. Si el valor de RemoteIp se identifica como malintencionado, las propiedades siguientes se completarán (si la IP no se considera malintencionada, están vacías) en las siguientes propiedades del registro:
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 |:--|:--|
 | `MaliciousIp` |Dirección RemoteIp |
 | `IndicatorThreadType` |El indicador de amenazas detectado es uno de los siguientes valores: *Botnet*, *C2*, *CryptoMining*, *Darknet*, *DDos* , *MaliciousUrl*, *Malware*, *Phishing*, *Proxy*, *PUA*, *Watchlist*.   |
@@ -406,7 +406,7 @@ Todas las propiedades de RemoteIp de la tabla *VMConnection* se comparan con un 
 
 Los registros con un tipo de *ServiceMapComputer_CL* tienen datos de inventario de servidores con agentes de Mapa de servicio. Estos registros tienen las propiedades de la tabla siguiente:
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 |:--|:--|
 | `Type` | *ServiceMapComputer_CL* |
 | `SourceSystem` | *OpsManager* |
@@ -432,7 +432,7 @@ Los registros con un tipo de *ServiceMapComputer_CL* tienen datos de inventario 
 
 Los registros con un tipo de *ServiceMapProcess_CL* tienen datos de inventario para procesos con conexión TCP en servidores con agentes de Mapa de servicio. Estos registros tienen las propiedades de la tabla siguiente:
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 |:--|:--|
 | `Type` | *ServiceMapProcess_CL* |
 | `SourceSystem` | *OpsManager* |
@@ -553,7 +553,7 @@ Para más información sobre el uso y la recopilación de datos, vea la [Declara
 
 Más información sobre las [búsquedas de registros](../../azure-monitor/log-query/log-query-overview.md) de Log Analytics para recuperar datos recopilados por Service Map.
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 
 Esta sección puede ayudarle si tiene problemas para instalar o ejecutar Service Map. Si sigue sin poder resolver el problema, póngase en contacto con Soporte técnico de Microsoft.
 
@@ -572,7 +572,7 @@ Puede ser útil instalar uno mismo las [últimas bibliotecas en entorno de ejecu
 
 En la tabla siguiente se muestran números de código y resoluciones sugeridas.
 
-| Código | DESCRIPCIÓN | Resolución |
+| Código | Descripción | Solución |
 |:--|:--|:--|
 | 0 x 17 | El instalador de la biblioteca requiere una actualización de Windows que no se ha instalado. | Mire el registro del instalador de la biblioteca más reciente.<br><br>Si una referencia a `Windows8.1-KB2999226-x64.msu` va seguida de una línea `Error 0x80240017: Failed to execute MSU package,`, no tiene los requisitos previos para instalar KB2999226. Siga las instrucciones que aparecen en la sección de requisitos previos en el artículo [Universal C Runtime en Windows](https://support.microsoft.com/kb/2999226). Es posible que tenga que ejecutar Windows Update y reiniciar varias veces para instalar los requisitos previos.<br><br>Ejecute de nuevo el instalador Microsoft Dependency Agent. |
 

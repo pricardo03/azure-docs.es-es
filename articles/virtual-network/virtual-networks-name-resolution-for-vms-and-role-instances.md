@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 3/25/2019
 ms.author: rohink
-ms.openlocfilehash: 69e9e09b3f2c488f62732e0a74d212126826e8bf
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 246af99cfec5ca41347da70e80bfc6dfff448eb3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707569"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75368042"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Resolución de nombres de recursos en redes virtuales de Azure
 
@@ -193,22 +193,16 @@ Si usa sus propios servidores DNS, Azure permite especificar varios servidores D
 
 > [!NOTE]
 > Las propiedades de conexión de red, como las direcciones IP del servidor DNS, no deben editarse directamente dentro de las máquinas virtuales. Esto se debe a que podrían borrarse durante el servicio de reparación cuando se reemplaza el adaptador de la red virtual. Esto se aplica a las máquinas virtuales Windows y Linux.
->
->
 
 Si se usa el modelo de implementación de Azure Resource Manager, puede especificar servidores DNS para una red virtual y una interfaz de red. Para obtener más información, consulte [Administración de una red virtual](manage-virtual-network.md) y [Administración de una interfaz de red](virtual-network-network-interface.md).
 
 > [!NOTE]
 > Si opta por el servidor DNS personalizado para la red virtual, debe especificar al menos una dirección IP de servidor DNS; en caso contrario, la red virtual omitirá la configuración y usará en su lugar el DNS proporcionado por Azure.
->
->
 
 Cuando se usa el modelo de implementación clásica, puede especificar servidores DNS para la red virtual en Azure Portal o en el [archivo de configuración de red](https://msdn.microsoft.com/library/azure/jj157100). En el caso de los servicios en la nube, puede especificar los servidores DNS mediante el [archivo de configuración del servicio](https://msdn.microsoft.com/library/azure/ee758710) o mediante PowerShell, con [New-AzureVM](/powershell/module/servicemanagement/azure/new-azurevm).
 
 > [!NOTE]
-> Si cambia la configuración de DNS de una máquina o red virtual que ya está implementada, para que la nueva configuración de DNS surta efecto, debe realizar una renovación de la concesión de DHCP en todas las máquinas virtuales afectadas de la red virtual. En el caso de las máquinas virtuales que ejecutan el sistema operativo Windows, puede hacerlo escribiendo `ipconfig /renew` directamente en la máquina virtual. Los pasos varían en función del sistema operativo. Consulte la documentación correspondiente para su tipo de sistema operativo. 
->
->
+> Si cambia la configuración de DNS de una máquina o red virtual que ya está implementada, para que la nueva configuración de DNS surta efecto, debe realizar una renovación de la concesión de DHCP en todas las máquinas virtuales afectadas de la red virtual. En el caso de las máquinas virtuales que ejecutan el sistema operativo Windows, puede hacerlo escribiendo `ipconfig /renew` directamente en la máquina virtual. Los pasos varían en función del sistema operativo. Consulte la documentación correspondiente para su tipo de sistema operativo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

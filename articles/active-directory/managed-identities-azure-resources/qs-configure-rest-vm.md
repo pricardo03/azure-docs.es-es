@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 06/25/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d78ddaaae886a33b4d22e8724ade04ab63508f1
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 9f975595e935a5c0254450168aa295e6e7366a94
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74547335"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429999"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-rest-api-calls"></a>Configuración de identidades administradas de recursos de Azure en una VM de Azure mediante llamadas a la API REST
 
@@ -30,10 +30,10 @@ Las identidades administradas de los recursos de Azure proporcionan a los servic
 
 En este artículo, mediante CURL para llamar al punto de conexión REST de Azure Resource Manager, aprenderá a realizar las siguientes operaciones de identidades administradas de recursos de Azure en una VM de Azure:
 
-- Habilitación y deshabilitación de la identidad administrada asignada por el sistema en una VM de Azure
+- Habilitar y deshabilitar la identidad administrada asignada por el sistema en una VM de Azure
 - Agregar y quitar una identidad administrada asignada por el usuario en una VM de Azure
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 - Si no está familiarizado con las identidades administradas de los recursos de Azure, consulte la [sección de introducción](overview.md). **No olvide revisar la [diferencia entre una identidad administrada asignada por el sistema y una identidad administrada asignada por el usuario](overview.md#how-does-the-managed-identities-for-azure-resources-work)** .
 - Si aún no tiene una cuenta de Azure, [regístrese para una cuenta gratuita](https://azure.microsoft.com/free/) antes de continuar.
@@ -51,7 +51,7 @@ En esta sección, aprenderá a habilitar y deshabilitar una identidad administra
 
 Para crear una máquina virtual de Azure que tenga habilitada la identidad administrada asignada por el sistema, la cuenta debe tener la asignación de roles [Colaborador de la máquina Virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor).  No se requiere ninguna otra asignación de roles de directorio de Azure AD.
 
-1. Cree un [grupo de recursos](../../azure-resource-manager/resource-group-overview.md#terminology) para contener e implementar la máquina virtual y sus recursos relacionados, con [az group create](/cli/azure/group/#az-group-create). Puede omitir este paso si ya tiene un grupo de recursos que le gustaría usar en su lugar:
+1. Cree un [grupo de recursos](../../azure-resource-manager/management/overview.md#terminology) para contener e implementar la máquina virtual y sus recursos relacionados, con [az group create](/cli/azure/group/#az-group-create). Puede omitir este paso si ya tiene un grupo de recursos que le gustaría usar en su lugar:
 
    ```azurecli-interactive 
    az group create --name myResourceGroup --location westus
@@ -81,7 +81,7 @@ Para crear una máquina virtual de Azure que tenga habilitada la identidad admin
    
    **Encabezados de solicitud**
    
-   |Encabezado de solicitud  |DESCRIPCIÓN  |
+   |Encabezado de solicitud  |Descripción  |
    |---------|---------|
    |*Content-Type*     | Necesario. Establézcalo en `application/json`.        |
    |*Autorización*     | Necesario. Establézcalo en un token de acceso `Bearer` válido.        | 
@@ -170,7 +170,7 @@ Para habilitar una identidad administrada asignada por el sistema en una máquin
    ```
    **Encabezados de solicitud**
 
-   |Encabezado de solicitud  |DESCRIPCIÓN  |
+   |Encabezado de solicitud  |Descripción  |
    |---------|---------|
    |*Content-Type*     | Necesario. Establézcalo en `application/json`.        |
    |*Autorización*     | Necesario. Establézcalo en un token de acceso `Bearer` válido.        | 
@@ -202,7 +202,7 @@ Para habilitar una identidad administrada asignada por el sistema en una máquin
    ```
    **Encabezados de solicitud**
 
-   |Encabezado de solicitud  |DESCRIPCIÓN  |
+   |Encabezado de solicitud  |Descripción  |
    |---------|---------|
    |*Content-Type*     | Necesario. Establézcalo en `application/json`.        |
    |*Autorización*     | Necesario. Establézcalo en un token de acceso `Bearer` válido.        | 
@@ -237,7 +237,7 @@ Para habilitar una identidad administrada asignada por el sistema en una máquin
     
    **Encabezados de solicitud**
 
-   |Encabezado de solicitud  |DESCRIPCIÓN  |
+   |Encabezado de solicitud  |Descripción  |
    |---------|---------|
    |*Content-Type*     | Necesario. Establézcalo en `application/json`.        |
    |*Autorización*     | Necesario. Establézcalo en un token de acceso `Bearer` válido.        | 
@@ -280,7 +280,7 @@ Para deshabilitar una identidad administrada asignada por el sistema en una máq
    ```
    **Encabezados de solicitud**
 
-   |Encabezado de solicitud  |DESCRIPCIÓN  |
+   |Encabezado de solicitud  |Descripción  |
    |---------|---------|
    |*Content-Type*     | Necesario. Establézcalo en `application/json`.        |
    |*Autorización*     | Necesario. Establézcalo en un token de acceso `Bearer` válido.        | 
@@ -339,7 +339,7 @@ Para asignar una identidad asignada por un usuario a una máquina virtual, la cu
 
    **Encabezados de solicitud**
 
-   |Encabezado de solicitud  |DESCRIPCIÓN  |
+   |Encabezado de solicitud  |Descripción  |
    |---------|---------|
    |*Content-Type*     | Necesario. Establézcalo en `application/json`.        |
    |*Autorización*     | Necesario. Establézcalo en un token de acceso `Bearer` válido.        | 
@@ -420,7 +420,7 @@ Para asignar una identidad asignada por un usuario a una máquina virtual, la cu
 
    **Encabezados de solicitud**
 
-   |Encabezado de solicitud  |DESCRIPCIÓN  |
+   |Encabezado de solicitud  |Descripción  |
    |---------|---------|
    |*Content-Type*     | Necesario. Establézcalo en `application/json`.        |
    |*Autorización*     | Necesario. Establézcalo en un token de acceso `Bearer` válido.        | 
@@ -511,7 +511,7 @@ Para asignar una identidad asignada por un usuario a una máquina virtual, la cu
    ```
    **Encabezados de solicitud**
 
-   |Encabezado de solicitud  |DESCRIPCIÓN  |
+   |Encabezado de solicitud  |Descripción  |
    |---------|---------|
    |*Autorización*     | Necesario. Establézcalo en un token de acceso `Bearer` válido.
 
@@ -532,7 +532,7 @@ Para asignar una identidad asignada por un usuario a una máquina virtual, la cu
    ```
    **Encabezados de solicitud**
 
-   |Encabezado de solicitud  |DESCRIPCIÓN  |
+   |Encabezado de solicitud  |Descripción  |
    |---------|---------|
    |*Content-Type*     | Necesario. Establézcalo en `application/json`.        |
    |*Autorización*     | Necesario. Establézcalo en un token de acceso `Bearer` válido.        |
@@ -564,7 +564,7 @@ Para asignar una identidad asignada por un usuario a una máquina virtual, la cu
    
    **Encabezados de solicitud**
 
-   |Encabezado de solicitud  |DESCRIPCIÓN  |
+   |Encabezado de solicitud  |Descripción  |
    |---------|---------|
    |*Content-Type*     | Necesario. Establézcalo en `application/json`.        |
    |*Autorización*     | Necesario. Establézcalo en un token de acceso `Bearer` válido.        | 
@@ -600,7 +600,7 @@ Para asignar una identidad asignada por un usuario a una máquina virtual, la cu
    
    **Encabezados de solicitud**
 
-   |Encabezado de solicitud  |DESCRIPCIÓN  |
+   |Encabezado de solicitud  |Descripción  |
    |---------|---------|
    |*Content-Type*     | Necesario. Establézcalo en `application/json`.        |
    |*Autorización*     | Necesario. Establézcalo en un token de acceso `Bearer` válido.        | 
@@ -639,7 +639,7 @@ Para asignar una identidad asignada por un usuario a una máquina virtual, la cu
 
    **Encabezados de solicitud**
 
-   |Encabezado de solicitud  |DESCRIPCIÓN  |
+   |Encabezado de solicitud  |Descripción  |
    |---------|---------|
    |*Content-Type*     | Necesario. Establézcalo en `application/json`.        |
    |*Autorización*     | Necesario. Establézcalo en un token de acceso `Bearer` válido.        | 
@@ -680,7 +680,7 @@ Para quitar una identidad asignada por un usuario de una máquina virtual, la cu
 
    **Encabezados de solicitud**
 
-   |Encabezado de solicitud  |DESCRIPCIÓN  |
+   |Encabezado de solicitud  |Descripción  |
    |---------|---------|
    |*Content-Type*     | Necesario. Establézcalo en `application/json`.        |
    |*Autorización*     | Necesario. Establézcalo en un token de acceso `Bearer` válido.
@@ -703,7 +703,7 @@ Para quitar una identidad asignada por un usuario de una máquina virtual, la cu
 
    **Encabezados de solicitud**
 
-   |Encabezado de solicitud  |DESCRIPCIÓN  |
+   |Encabezado de solicitud  |Descripción  |
    |---------|---------|
    |*Content-Type*     | Necesario. Establézcalo en `application/json`.        |
    |*Autorización*     | Necesario. Establézcalo en un token de acceso `Bearer` válido.        | 
@@ -735,7 +735,7 @@ Para quitar una identidad asignada por un usuario de una máquina virtual, la cu
 
    **Encabezados de solicitud**
 
-   |Encabezado de solicitud  |DESCRIPCIÓN  |
+   |Encabezado de solicitud  |Descripción  |
    |---------|---------|
    |*Content-Type*     | Necesario. Establézcalo en `application/json`.        |
    |*Autorización*     | Necesario. Establézcalo en un token de acceso `Bearer` válido.        | 
@@ -765,7 +765,7 @@ PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 
 **Encabezados de solicitud**
 
-|Encabezado de solicitud  |DESCRIPCIÓN  |
+|Encabezado de solicitud  |Descripción  |
 |---------|---------|
 |*Content-Type*     | Necesario. Establézcalo en `application/json`.        |
 |*Autorización*     | Necesario. Establézcalo en un token de acceso `Bearer` válido. | 
@@ -792,7 +792,7 @@ PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 
 **Encabezados de solicitud**
 
-|Encabezado de solicitud  |DESCRIPCIÓN  |
+|Encabezado de solicitud  |Descripción  |
 |---------|---------|
 |*Content-Type*     | Necesario. Establézcalo en `application/json`.        |
 |*Autorización*     | Necesario. Establézcalo en un token de acceso `Bearer` válido.| 

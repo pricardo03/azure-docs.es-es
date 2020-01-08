@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/21/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 4ee9d651e1ec7807d191bc3393c0c280ce1e52f9
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 015aa4c209a99921a930a51b15c3d0230722519a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790551"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75353885"
 ---
 # <a name="bulk-register-sql-virtual-machines-in-azure-with-the-sql-vm-resource-provider"></a>Registro masivo de máquinas virtuales con SQL en Azure con el proveedor de recursos de VM de SQL
 
@@ -30,7 +30,7 @@ El proceso de registro no conlleva ningún riesgo, no tiene ningún tiempo de in
 
 Para más información sobre el proveedor de recursos, vea [Registro de una máquina virtual con SQL Server en Azure con el proveedor de recursos de máquina virtual con SQL](virtual-machines-windows-sql-register-with-resource-provider.md). 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para registrar una máquina virtual con SQL Server con el proveedor de recursos, necesita lo siguiente: 
 
@@ -57,7 +57,7 @@ Abra un terminal de PowerShell administrativo y navegue hasta la ubicación en l
 Import-Module .\RegisterSqlVMs.psm1
 ```
 
-### <a name="connect-to-azure"></a>Conexión a Azure
+### <a name="connect-to-azure"></a>Conexión con Azure
 
 Use el siguiente cmdlet de PowerShell para conectarse a Azure:
 
@@ -218,7 +218,7 @@ El informe se genera como un archivo `.txt` denominado `RegisterSqlVMScriptRepor
 
 Los errores se registran en el archivo de registro denominado `VMsNotRegisteredDueToError<Timestamp>.log`, donde la marca de tiempo es la hora en la que se inició el script. Si el error se encuentra en el nivel de suscripción, el registro contiene el identificador de suscripción separado por comas y el mensaje de error. Si el error está en el registro de la máquina virtual, el registro contiene el identificador de la suscripción, el nombre del grupo de recursos, el nombre de la máquina virtual, el código de error y el mensaje separados por comas. 
 
-## <a name="remarks"></a>Comentarios
+## <a name="remarks"></a>Observaciones
 
 Al registrar máquinas virtuales con SQL Server con el proveedor de recursos mediante el script proporcionado, tenga en cuenta lo siguiente:
 
@@ -232,8 +232,6 @@ Para el script completo en GitHub, consulte [Registro de forma masiva de máquin
 Copie el script completo y guárdelo como `RegisterSqLVMs.psm1`.
 
 [!code-powershell-interactive[main](../../../../powershell_scripts/sql-virtual-machine/register-sql-vms/RegisterSqlVMs.psm1 "Bulk register SQL Server virtual machines")]
-
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

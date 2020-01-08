@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/09/2019
 ms.author: mathoma
-ms.openlocfilehash: 7676077f0122cb731d2d5d2c7acf78acbd8aa1a7
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: f92226a76462289b9f26ae9d3bab22d780fb35db
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792195"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464993"
 ---
 # <a name="configure-a-sql-server-failover-cluster-instance-with-premium-file-share-on-azure-virtual-machines"></a>Configuración de una instancia de clúster de conmutación por error de SQL Server con un recurso compartido de archivos Premium en Azure Virtual Machines
 
@@ -55,7 +55,7 @@ Muchas cargas de trabajo tienen ráfagas de E/S, por lo que es una buena idea re
 
 Para obtener más información sobre el rendimiento del recurso compartido de archivos premium, consulte [Niveles de rendimiento de un recurso compartido de archivos](https://docs.microsoft.com/azure/storage/files/storage-files-planning#file-share-performance-tiers).
 
-### <a name="licensing-and-pricing"></a>Licencias y precio
+### <a name="licensing-and-pricing"></a>Licencias y precios
 
 En Azure Virtual Machines, puede obtener licencias de SQL Server mediante imágenes de VM de pago por uso (PAYG) o traiga su propia licencia (BYOL). El tipo de imagen que elija afecta a cómo se le cobra.
 
@@ -71,7 +71,7 @@ Para obtener información completa acerca de las licencias de SQL Server, consul
 
 La secuencia de archivos no se admite en los clústeres de conmutación por error con un recurso compartido de archivos Premium. Para usar la secuencia de archivos, implemente el clúster con [Espacios de almacenamiento directo](virtual-machines-windows-portal-sql-create-failover-cluster.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de completar los pasos de este artículo, ya debe tener:
 
@@ -84,7 +84,6 @@ Antes de completar los pasos de este artículo, ya debe tener:
    - Una dirección IP para cada FCI.
 - DNS configurado en la red de Azure que señala a los controladores de dominio.
 - Un [recurso compartido de archivos Premium](../../../storage/files/storage-how-to-create-premium-fileshare.md) basado en la cuota de almacenamiento de la base de datos para los archivos de datos.
-- Un recurso compartido de archivos para las copias de seguridad que es diferente del recurso compartido de archivos Premium que se usa para los archivos de datos. Este recurso compartido de archivos puede ser Estándar o Premium.
 
 Una vez que cumpla los requisitos previos, puede comenzar la creación de un clúster de conmutación por error. El primer paso es crear las máquinas virtuales.
 
@@ -102,7 +101,7 @@ Una vez que cumpla los requisitos previos, puede comenzar la creación de un cl�
    1. Seleccione **Conjunto de disponibilidad**.
    1. Seleccione **Crear**.
    1. En **Crear conjunto de disponibilidad**, proporcione estos valores:
-      - **Nombre**: nombre del conjunto de disponibilidad.
+      - **Name**: nombre del conjunto de disponibilidad.
       - **Suscripción**: Su suscripción de Azure.
       - **Grupo de recursos**: si quiere utilizar un grupo existente, haga clic en **Seleccionar existente** y, luego, seleccione el grupo de la lista. De lo contrario, seleccione **Crear nuevo** y escriba el nombre del grupo.
       - **Ubicación**: establezca la ubicación en la que planea crear las máquinas virtuales.
@@ -332,7 +331,7 @@ Para crear el equilibrador de carga:
 
    - **Suscripción**: Su suscripción de Azure.
    - **Grupo de recursos**: El grupo de recursos que contiene las máquinas virtuales.
-   - **Nombre**: un nombre que identifica el equilibrador de carga.
+   - **Name**: un nombre que identifica el equilibrador de carga.
    - **Región**: La ubicación de Azure que contiene las máquinas virtuales.
    - **Tipo**: Pública o privada. A los equilibradores de carga privados se puede acceder desde la red virtual. La mayoría de las aplicaciones de Azure pueden usar un equilibrador de carga privado. Si la aplicación necesita acceder a SQL Server directamente a través de Internet, utilice un equilibrador de carga público.
    - **SKU**: Estándar.
@@ -365,7 +364,7 @@ Para crear el equilibrador de carga:
 
 1. En la hoja **Add health probe** (Agregar sonda de mantenimiento), <a name="probe"></a>establezca los parámetros del sondeo de mantenimiento siguientes.
 
-   - **Nombre**: nombre del sondeo de estado.
+   - **Name**: nombre del sondeo de estado.
    - **Protocolo**: TCP.
    - **Puerto**: el puerto que creó en el firewall para el sondeo de estado en [este paso](#ports). En este artículo, el ejemplo usa el puerto TCP `59999`.
    - **Intervalo**: 5 segundos.
@@ -381,7 +380,7 @@ Para crear el equilibrador de carga:
 
 1. Establezca los parámetros de la regla de equilibrio de carga:
 
-   - **Nombre**: nombre de las reglas de equilibrio de carga.
+   - **Name**: nombre de las reglas de equilibrio de carga.
    - **Dirección IP de front-end**: la dirección IP del recurso de red del clúster de la FCI de SQL Server.
    - **Puerto**: el puerto TCP de la FCI de SQL Server. El puerto de la instancia predeterminado es 1433.
    - **Puerto back-end**: utiliza el mismo puerto que el valor **Puerto** cuando se habilita **IP flotante (Direct Server Return)** .
@@ -459,7 +458,7 @@ En máquinas virtuales de Azure, MSDTC no se admite en Windows Server 2016 y ver
 - El recurso MSDTC en clúster no puede configurarse para usar almacenamiento compartido. En Windows Server 2016, si crea un recurso MSDTC, no mostrará ningún almacenamiento compartido disponible para su uso, incluso si el almacenamiento está disponible. Este problema se ha corregido en Windows Server 2019.
 - El equilibrador de carga básico no controla los puertos RPC.
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 - [Tecnologías de clúster de Windows](/windows-server/failover-clustering/failover-clustering-overview)
 - [Instancias del clúster de conmutación por error de SQL Server](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)

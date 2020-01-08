@@ -3,18 +3,18 @@ title: 'Inicio rápido: Configuración de reglas y acciones en Azure IoT Central
 description: En esta guía de inicio rápido se muestra cómo puede, como generador, configurar las reglas y las acciones basadas en la telemetría en la aplicación de Azure IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/24/2019
+ms.date: 12/09/2019
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: f81171d0f545bbf7f903d54bee761817e9451d9d
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 489a512ea5658aaeaccdba4b91eae7def14a589c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706715"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434812"
 ---
 # <a name="quickstart-configure-rules-and-actions-for-your-device-in-azure-iot-central-preview-features"></a>Inicio rápido: Configuración de reglas y acciones para el dispositivo en Azure IoT Central (características en versión preliminar)
 
@@ -24,7 +24,7 @@ ms.locfileid: "74706715"
 
 En esta guía de inicio rápido, creará una regla que enviará un correo cuando la temperatura de un dispositivo de sensor ambiental supere los 90&deg;F.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de comenzar, debe completar los dos inicios rápidos anteriores [Crear una aplicación de Azure IoT Central](./quick-deploy-iot-central.md) y [Agregar un dispositivo simulado a la aplicación de IoT Central](./quick-create-pnp-device.md) para crear la plantilla de dispositivo **Sensor ambiental** con la que trabajar.
 
@@ -40,11 +40,11 @@ Antes de comenzar, debe completar los dos inicios rápidos anteriores [Crear una
 
 1. En la sección **Condiciones**, se define lo que desencadena la regla. Use la siguiente información para definir una condición basada en los datos de telemetría de temperatura:
 
-    | Campo                                        | Valor                             |
+    | Campo                                        | Value                             |
     | -------------------------------------------- | ------------------------------    |
     | Medición                                  | Temperatura                       |
     | Operator                                     | es mayor que                   |
-    | Valor                                        | 90                                |
+    | Value                                        | 90                                |
 
     Para agregar más condiciones, seleccione **+ Condition** (+ Condición).
 
@@ -54,10 +54,10 @@ Antes de comenzar, debe completar los dos inicios rápidos anteriores [Crear una
 
 1. Use la información de la tabla siguiente para definir la acción:
 
-    | Configuración   | Valor                                             |
+    | Configuración   | Value                                             |
     | --------- | ------------------------------------------------- |
     | Nombre para mostrar | Adición de una acción de correo electrónico                          |
-    | Para        | La dirección de correo electrónico propia                                |
+    | A        | La dirección de correo electrónico propia                                |
     | Notas     | La temperatura ambiental superó el umbral. |
 
     > [!NOTE]

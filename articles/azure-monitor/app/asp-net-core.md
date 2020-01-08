@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/22/2019
-ms.openlocfilehash: 823527af81e0cb22fb59421b84983684d4cdfffd
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: 52314f0802acd6a296177d53ee9babb133172761
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74286244"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75407505"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights para aplicaciones de ASP.NET Core
 
@@ -34,7 +34,7 @@ El [SDK de Application Insights para ASP.NET Core](https://nuget.org/packages/Mi
 > [!NOTE]
 > Si usa ASP.NET Core 3.0 junto con Application Insights, utilice la versión [2.8.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0) o una posterior. Esta es la única versión que admite ASP.NET Core 3.0.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 - Una aplicación de ASP.NET Core en funcionamiento. Si necesita crear una aplicación de ASP .NET Core, siga este [tutorial de ASP.NET Core](https://docs.microsoft.com/aspnet/core/getting-started/).
 - Una clave de instrumentación de Application Insights válida. Esta clave es necesaria para enviar los datos de telemetría a Application Insights. Si necesita crear un nuevo recurso de Application Insights para obtener un clave de instrumentación, consulte [Creación de recursos en Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource).
@@ -66,7 +66,7 @@ El [SDK de Application Insights para ASP.NET Core](https://nuget.org/packages/Mi
 
     ```xml
         <ItemGroup>
-          <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.8.0" />
+          <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.12.0" />
         </ItemGroup>
     ```
 
@@ -134,7 +134,7 @@ Los registros emitidos a través de `ILogger` de gravedad `Warning` o mayor se c
 
 La recopilación de dependencias está habilitada de manera predeterminada. En [este](asp-net-dependencies.md#automatically-tracked-dependencies) artículo se explican las dependencias que se recopilan automáticamente; también contiene pasos para realizar el seguimiento manual.
 
-### <a name="performance-counters"></a>contadores de rendimiento
+### <a name="performance-counters"></a>Contadores de rendimiento
 
 La compatibilidad con los [contadores de rendimiento](https://azure.microsoft.com/documentation/articles/app-insights-web-monitor-performance/) en ASP.Net Core es limitada:
 
@@ -195,7 +195,7 @@ public void ConfigureServices(IServiceCollection services)
 
 Lista completa de valores de `ApplicationInsightsServiceOptions`
 
-|Configuración | DESCRIPCIÓN | Valor predeterminado
+|Configuración | Descripción | Valor predeterminado
 |---------------|-------|-------
 |EnableQuickPulseMetricStream | Habilitar o deshabilitar la característica LiveMetrics | true
 |EnableAdaptiveSampling | Habilitar o deshabilitar el muestreo adaptable | true
@@ -203,7 +203,7 @@ Lista completa de valores de `ApplicationInsightsServiceOptions`
 |AddAutoCollectedMetricExtractor | Habilitar o deshabilitar el extractor de AutoCollectedMetrics, que es un elemento TelemetryProcessor que envía métricas previamente agregadas sobre las solicitudes o dependencias antes de que tenga lugar el muestreo. | true
 |RequestCollectionOptions.TrackExceptions | Habilitar o deshabilitar los informes de seguimiento de excepciones no controladas por el módulo de recopilación de solicitudes. | false en NETSTANDARD2.0 (porque se realiza un seguimiento de las excepciones con ApplicationInsightsLoggerProvider); en caso contrario, true.
 
-Consulte los [valores configurables en `ApplicationInsightsServiceOptions` ](https://github.com/microsoft/ApplicationInsights-dotnet/blob/develop/NETCORE/src/Shared/Extensions/ApplicationInsightsServiceOptions.cs) para obtener la lista más actualizada.
+Consulte los [valores configurables en `ApplicationInsightsServiceOptions`](https://github.com/microsoft/ApplicationInsights-dotnet/blob/develop/NETCORE/src/Shared/Extensions/ApplicationInsightsServiceOptions.cs) para obtener la lista más actualizada.
 
 ### <a name="sampling"></a>muestreo
 
@@ -441,7 +441,7 @@ Este SDK requiere `HttpContext` y, por lo tanto, no funciona en ninguna aplicaci
 
 ## <a name="open-source-sdk"></a>SDK de código abierto
 
-[Lectura y contribución al código](https://github.com/Microsoft/ApplicationInsights-aspnetcore#recent-updates).
+[Lectura y contribución al código](https://github.com/microsoft/ApplicationInsights-dotnet#recent-updates).
 
 ## <a name="video"></a>Vídeo
 

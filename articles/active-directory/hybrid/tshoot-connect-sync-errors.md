@@ -15,12 +15,12 @@ ms.date: 10/29/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d824606b1b602d006e53be619d6d955ac2cfb71f
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 745ddcc95bb91e61478307265aec1ac8a7ebba54
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74213026"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75609203"
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>Solución de errores durante la sincronización
 Pueden producirse errores cuando se sincronizan datos de identidad de Windows Server Active Directory (AD DS) con Azure Active Directory (Azure AD). En este artículo se proporciona información general sobre los distintos tipos de errores de sincronización, algunos de los posibles escenarios que provocan dichos errores y las posibles maneras de corregirlos. También se incluyen los tipos de error comunes, pero puede que no cubra todos los posibles errores.
@@ -41,7 +41,7 @@ Los errores que se producen durante la exportación a Azure AD indican que la op
 
 ## <a name="data-mismatch-errors"></a>Errores de coincidencia de datos
 ### <a name="invalidsoftmatch"></a>InvalidSoftMatch
-#### <a name="description"></a>DESCRIPCIÓN
+#### <a name="description"></a>Descripción
 * Cuando Azure AD Connect \(motor de sincronización\) indica a Azure Active Directory que agregue o actualice objetos, Azure AD hace coincidir el objeto entrante que utiliza el atributo **sourceAnchor** con el atributo **immutableId** de los objetos de Azure AD. Esta se denomina una **coincidencia exacta**.
 * Cuando Azure AD **no encuentra** ningún objeto que hace coincidir con el atributo **immutableId** con el atributo **sourceAnchor** del objeto entrante, antes de aprovisionar un nuevo objeto, recurre al uso de los atributos ProxyAddresses y UserPrincipalName para encontrar una coincidencia. Esta se denomina **coincidencia parcial**. La coincidencia parcial está diseñada para hacer coincidir objetos que ya están presentes en Azure AD (cuyo origen en Azure AD) con los nuevos que se van a agregar o actualizar durante la sincronización de objetos que representan la misma entidad (usuarios, grupos) de forma local.
 * El error **InvalidSoftMatch** se produce cuando la coincidencia exacta no encuentra ningún objeto coincidente **Y la** coincidencia parcial encuentra un objeto coincidente, pero cuyo atributo *immutableId* tiene un valor diferente que el atributo *SourceAnchor* del objeto de entrada, lo que sugiere que el objeto coincidente se sincronizó con otro objeto de una versión local de Active Directory.
@@ -109,7 +109,7 @@ El informe de errores de sincronización de Azure AD Connect Health para sincron
 * [Atributos duplicados o no válidos evitan la sincronización de directorios en Office 365](https://support.microsoft.com/kb/2647098)
 
 ### <a name="objecttypemismatch"></a>ObjectTypeMismatch
-#### <a name="description"></a>DESCRIPCIÓN
+#### <a name="description"></a>Descripción
 Cuando Azure AD intenta realizar una coincidencia parcial de dos objetos, es posible que dos objetos de diferentes "tipos de objeto" (como, Usuario, Grupo, Contacto, etc.) tengan los mismos valores en los atributos que se utilizan para realizar la coincidencia parcial. Dado que no se permite la duplicación de estos atributos en Azure AD, la operación puede provocar un error de sincronización "ObjectTypeMismatch".
 
 #### <a name="example-scenarios-for-objecttypemismatch-error"></a>Escenarios de ejemplo para el error ObjectTypeMismatch
@@ -130,7 +130,7 @@ El motivo más común por el que aparece el error ObjectTypeMismatch es que dos 
 
 ## <a name="duplicate-attributes"></a>Atributos duplicados
 ### <a name="attributevaluemustbeunique"></a>AttributeValueMustBeUnique
-#### <a name="description"></a>DESCRIPCIÓN
+#### <a name="description"></a>Descripción
 El esquema de Azure Active Directory no permite que dos o más objetos tengan el mismo valor en los atributos siguientes. Es decir, cada objeto de Azure AD debe tener un valor único en estos atributos en una instancia determinada.
 
 * ProxyAddresses
@@ -168,7 +168,7 @@ El motivo más común por el que se aparece el error AttributeValueMustBeUnique 
 
 ## <a name="data-validation-failures"></a>Errores de validación de datos
 ### <a name="identitydatavalidationfailed"></a>IdentityDataValidationFailed
-#### <a name="description"></a>DESCRIPCIÓN
+#### <a name="description"></a>Descripción
 Azure Active Directory aplica varias restricciones a los datos antes de permitir que se escriban en el directorio. Estas restricciones garantizan que los usuarios finales obtienen las mejores experiencias posibles al usar las aplicaciones que dependen de dichos datos.
 
 #### <a name="scenarios"></a>Escenarios
@@ -182,7 +182,7 @@ a. Asegúrese de que el atributo userPrincipalName tiene caracteres compatibles 
 * [Preparación del aprovisionamiento de usuarios a Office 365 mediante la sincronización de directorios](https://support.office.com/article/Prepare-to-provision-users-through-directory-synchronization-to-Office-365-01920974-9e6f-4331-a370-13aea4e82b3e)
 
 ### <a name="federateddomainchangeerror"></a>FederatedDomainChangeError
-#### <a name="description"></a>DESCRIPCIÓN
+#### <a name="description"></a>Descripción
 Este caso produce el error de sincronización **"FederatedDomainChangeError"** cuando el sufijo del atributo UserPrincipalName de un usuario se cambia de un dominio federado a otro.
 
 #### <a name="scenarios"></a>Escenarios
@@ -204,7 +204,7 @@ Si se actualizó el sufijo de UserPrincipalName de un usuario de bob@**contoso.c
 * [Los cambios no son sincronizados por la herramienta de sincronización de Azure Active Directory después de cambiar el UPN de una cuenta de usuario para usar un dominio federado diferente](https://support.microsoft.com/help/2669550/changes-aren-t-synced-by-the-azure-active-directory-sync-tool-after-you-change-the-upn-of-a-user-account-to-use-a-different-federated-domain)
 
 ## <a name="largeobject"></a>LargeObject
-### <a name="description"></a>DESCRIPCIÓN
+### <a name="description"></a>Descripción
 Cuando un atributo supera los límites de tamaño, longitud o recuento establecidos por el esquema de Azure Active Directory, la operación de sincronización provoca que aparezcan los errores de sincronización **LargeObject** o **ExceededAllowedLength**. Este error se produce normalmente en los siguientes atributos
 
 * userCertificate
@@ -223,7 +223,7 @@ Cuando un atributo supera los límites de tamaño, longitud o recuento estableci
 
 ## <a name="existing-admin-role-conflict"></a>Conflicto de rol de administrador existente
 
-### <a name="description"></a>DESCRIPCIÓN
+### <a name="description"></a>Descripción
 Se producirá un **conflicto de rol de administrador existente** en un objeto de usuario durante la sincronización cuando ese objeto de usuario tenga:
 
 - permisos administrativos y
@@ -235,12 +235,12 @@ Azure AD Connect no puede hacer coincidir parcialmente un objeto de usuario de A
 
 
 ### <a name="how-to-fix"></a>Solución
-Para resolver este problema, realice una de las siguientes acciones:
+Para resolver este problema, haga lo siguiente:
 
- - Quite la cuenta de Azure AD (propietario) de todos los roles de administrador. 
- - **Elimine de forma rígida** el objeto en cuarentena en la nube. 
- - El siguiente ciclo de sincronización se encargará de realizar una coincidencia parcial entre el usuario en el entorno local y la cuenta en la nube (ya que el usuario en la nube ya no es una disponibilidad general global). 
- - Restaure las pertenencias a roles para el propietario. 
+1. Quite la cuenta de Azure AD (propietario) de todos los roles de administrador. 
+2. **Elimine de forma rígida** el objeto en cuarentena en la nube. 
+3. El siguiente ciclo de sincronización se encargará de realizar una coincidencia parcial entre el usuario en el entorno local y la cuenta en la nube (ya que el usuario en la nube ya no es una disponibilidad general global). 
+4. Restaure las pertenencias a roles para el propietario. 
 
 >[!NOTE]
 >Puede asignar el rol administrativo al objeto de usuario existente después de que se haya completado la coincidencia parcial entre el objeto de usuario local y el objeto de usuario de Azure AD.

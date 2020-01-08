@@ -7,12 +7,12 @@ ms.reviewer: gabilehner
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/07/2019
-ms.openlocfilehash: dd2c29632d70da64251c5e1736a9cb7d82f5d0dc
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 495f53bc97835c4940f7b36d23349b768a7a637f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74667351"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440965"
 ---
 # <a name="use-follower-database-to-attach-databases-in-azure-data-explorer"></a>Uso de la base de datos del seguidor para adjuntar bases de datos en Azure Data Explorer
 
@@ -26,7 +26,7 @@ Se adjunta una base de datos a otro clúster mediante la funcionalidad del segui
 * Un solo clúster puede seguir bases de datos de varios clústeres de responsables. 
 * Un clúster puede contener bases de datos del seguidor y del responsable.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 1. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 1. [Cree el clúster y la base de datos](/azure/data-explorer/create-cluster-database-portal) del responsable y el seguidor.
@@ -127,7 +127,7 @@ poller = kusto_management_client.attached_database_configurations.create_or_upda
 
 ### <a name="attach-a-database-using-an-azure-resource-manager-template"></a>Adjunción de una base de datos mediante una plantilla de Azure Resource Manager
 
-En esta sección, aprenderá a adjuntar una base de datos mediante una [plantilla de Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). 
+En esta sección, aprenderá a adjuntar una base de datos mediante una [plantilla de Azure Resource Manager](../azure-resource-manager/management/overview.md). 
 
 ```json
 {

@@ -3,18 +3,18 @@ title: 'Inicio rápido: Creación de un plano técnico con la API de REST'
 description: En este inicio rápido se usa Azure Blueprints para crear, definir e implementar artefactos mediante la API REST.
 ms.date: 11/21/2019
 ms.topic: quickstart
-ms.openlocfilehash: 0338afb3dbcb7b2c6d7d204d4387873ac7607182
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 13a6cce25b17fdfbfa5f62dbf16cd2cfbbdc4fe2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74322153"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436592"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-rest-api"></a>Inicio rápido: Definición y asignación de un plano técnico de Azure Blueprint con API REST
 
 Entender cómo crear y asignar planos técnicos permite la definición de patrones comunes para desarrollar configuraciones reutilizables y de implementación rápida basadas en plantillas de Resource Manager, directivas, seguridad y mucho más. En este tutorial, aprenderá a usar planos técnicos de Azure Blueprint para realizar algunas de las tareas más comunes relacionadas con la creación, asignación y administración de directivas en toda la organización, como, por ejemplo:
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free) antes de empezar.
 
@@ -407,7 +407,9 @@ En cada identificador URI de la API REST, hay variables usadas que se deben reem
      > [!IMPORTANT]
      > Los planos técnicos no administran la identidad administrada asignada por el usuario. Los usuarios son responsables de asignar los roles y permisos necesarios o, de lo contrario, se producirá un error en la asignación del plano técnico.
 
-## <a name="unassign-a-blueprint"></a>Cancelación de la asignación de un plano técnico
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+### <a name="unassign-a-blueprint"></a>Cancelación de la asignación de un plano técnico
 
 Puede eliminar un plano de una suscripción. A menudo, la eliminación se realiza cuando ya no son necesarios los recursos de artefacto. Cuando se quita un plano técnico, se omiten los artefactos que se asignaron como parte de ese plano técnico. Para quitar una asignación del plano técnico, use la siguiente operación de la API REST:
 
@@ -417,7 +419,7 @@ Puede eliminar un plano de una suscripción. A menudo, la eliminación se realiz
   DELETE https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Blueprint/blueprintAssignments/assignMyBlueprint?api-version=2018-11-01-preview
   ```
 
-## <a name="delete-a-blueprint"></a>Eliminación de un plano técnico
+### <a name="delete-a-blueprint"></a>Eliminación de un plano técnico
 
 Para quitar el mismo plano técnico, utilice la siguiente operación de la API REST:
 

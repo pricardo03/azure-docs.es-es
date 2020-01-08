@@ -1,18 +1,14 @@
 ---
 title: Cómo solucionar problemas de Azure Monitor para contenedores | Microsoft Docs
 description: En este artículo se describe cómo se pueden detectar y solucionar problemas con Azure Monitor para contenedores.
-ms.service: azure-monitor
-ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
 ms.date: 10/15/2019
-ms.openlocfilehash: 3d6ed3b13c134d8e9c1df72ae2cb880a477a803a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 17a2817b320599b2aa2c331c354d316b9d864a32
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73477040"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75403380"
 ---
 # <a name="troubleshooting-azure-monitor-for-containers"></a>Solución de problemas de Azure Monitor para contenedores
 
@@ -25,7 +21,7 @@ Durante el proceso de incorporación o de actualización, se intenta la asignaci
 
 También puede conceder este rol de forma manual desde Azure Portal siguiendo estos pasos:
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com). 
+1. Inicie sesión en [Azure Portal](https://portal.azure.com). 
 2. En Azure Portal, haga clic en **Todos los servicios**, en la esquina superior izquierda. En la lista de recursos, escriba **Kubernetes**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Seleccione **Azure Kubernetes**.
 3. En la lista de clústeres de Kubernetes, seleccione uno.
 2. En el menú de la izquierda, haga clic en **Control de acceso (IAM)** .
@@ -99,11 +95,11 @@ Si Azure Monitor para contenedores está habilitado y configurado correctamente,
     docker-cimprov 1.0.0.31
     ```
 
-## <a name="error-messages"></a>mensajes de error
+## <a name="error-messages"></a>Mensajes de error
 
 En la tabla siguiente se resumen los errores conocidos que pueden producirse al usar Azure Monitor para contenedores.
 
-| mensajes de error  | . |  
+| Mensajes de error  | Acción |  
 | ---- | --- |  
 | Mensaje de error `No data for selected filters`  | Puede tardar algún tiempo en establecer el flujo de datos de supervisión de clústeres recién creados. Espere de 10 a 15 minutos como mínimo para que aparezcan los datos del clúster. |   
 | Mensaje de error `Error retrieving data` | Mientras el clúster de Azure Kubernetes Service se configura para la supervisión de rendimiento y de mantenimiento, se establece una conexión entre el clúster y el área de trabajo de Azure Log Analytics. Se utiliza un área de trabajo de Log Analytics para almacenar todos los datos de supervisión del clúster. Este error puede producirse cuando el área de trabajo de Log Analytics se ha eliminado. Compruebe si se eliminó el área de trabajo y si fue así, deberá volver a habilitar la supervisión del clúster con Azure Monitor para los contenedores y especificar un área de trabajo existente o crear una nueva. Para volver a habilitarlo, tiene que [deshabilitar](container-insights-optout.md) la supervisión del clúster y [habilitar](container-insights-enable-new-cluster.md) de nuevo Azure Monitor para contenedores. |  

@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/08/2019
-ms.openlocfilehash: f4d10f6b0934e7dea9779f45d0f05d7c28966965
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: bb284ad336e7110b0354450f3438fadb592370be
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74819179"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428648"
 ---
 # <a name="quickstart-create-automated-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Inicio rápido: Creación y automatización de tareas, procesos y flujos de trabajo con Azure Logic Apps en Visual Studio
 
@@ -26,9 +26,9 @@ En este inicio rápido, crea la misma aplicación lógica que en el inicio rápi
 
 <a name="prerequisites"></a>
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-* Una suscripción de Azure. Si aún no tiene una, [regístrese para obtener una cuenta de Azure gratuita](https://azure.microsoft.com/free/).
+* Suscripción a Azure. Si aún no tiene una, [regístrese para obtener una cuenta de Azure gratuita](https://azure.microsoft.com/free/).
 
 * Descargue e instale estas herramientas si no las tiene aún:
 
@@ -61,7 +61,7 @@ En este inicio rápido, crea la misma aplicación lógica que en el inicio rápi
 
 ## <a name="create-azure-resource-group-project"></a>Creación de un proyecto de grupo de recursos de Azure
 
-Para empezar, cree un [proyecto de grupo de recursos de Azure](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md). Más información sobre [grupos de recursos y recursos de Azure](../azure-resource-manager/resource-group-overview.md).
+Para empezar, cree un [proyecto de grupo de recursos de Azure](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md). Más información sobre [grupos de recursos y recursos de Azure](../azure-resource-manager/management/overview.md).
 
 1. Inicie Visual Studio. Inicie sesión con su cuenta de Azure.
 
@@ -101,7 +101,7 @@ Cuando tenga el proyecto del grupo de recursos de Azure, cree la aplicación ló
    ![Abrir archivo logicapp.json en el Diseñador de aplicación lógica](./media/quickstart-create-logic-apps-with-visual-studio/open-logic-app-designer.png)
 
    > [!TIP]
-   > Si no tiene este comando en Visual Studio 2019, compruebe que tiene las actualizaciones más recientes de Visual Studio.
+   > Si no tiene este comando en Visual Studio 2019, compruebe que tiene las actualizaciones más recientes de Visual Studio.
 
    Visual Studio necesita su suscripción de Azure y un grupo de recursos para crear e implementar recursos de la aplicación lógica y las conexiones.
 
@@ -109,7 +109,7 @@ Cuando tenga el proyecto del grupo de recursos de Azure, cree la aplicación ló
 
    ![Selección de una suscripción de Azure, un grupo de recursos y una ubicación de recursos](./media/quickstart-create-logic-apps-with-visual-studio/select-azure-subscription-resource-group-location.png)
 
-   | Configuración | Valor de ejemplo | DESCRIPCIÓN |
+   | Configuración | Valor de ejemplo | Descripción |
    | ------- | ------------- | ----------- |
    | Cuenta de usuario | Fabrikam <br> sophia-owen@fabrikam.com | Cuenta que usó al iniciar sesión en Visual Studio |
    | **Suscripción** | Pay-As-You-Go <br> (sophia-owen@fabrikam.com) | Nombre de la suscripción de Azure y cuenta asociada |

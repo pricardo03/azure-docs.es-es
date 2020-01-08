@@ -2,19 +2,15 @@
 title: Visualización de las evaluaciones de actualizaciones de Azure Update Management
 description: En este artículo se describe cómo ver las evaluaciones de actualizaciones para las implementaciones de actualizaciones.
 services: automation
-ms.service: automation
 ms.subservice: update-management
-author: mgoedtel
-ms.author: magoedte
 ms.date: 05/17/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: d27df57e9371f16a15d3a18b7722598062377d88
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: b6f86c72bfc1a1d51ed509a70d786e67f11d8166
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850523"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75419879"
 ---
 # <a name="view-azure-update-management-update-assessments"></a>Visualización de las evaluaciones de actualizaciones de Azure Update Management
 
@@ -38,7 +34,7 @@ En las siguientes tablas se muestran las clasificaciones de actualizaciones en U
 
 ### <a name="windows"></a>Windows
 
-|clasificación  |DESCRIPCIÓN  |
+|clasificación  |Descripción  |
 |---------|---------|
 |Actualizaciones críticas     | Actualización para un problema específico que resuelve un error crítico no relacionado con la seguridad.        |
 |Actualizaciones de seguridad     | Actualización para un problema específico del producto relacionado con la seguridad.        |
@@ -51,7 +47,7 @@ En las siguientes tablas se muestran las clasificaciones de actualizaciones en U
 
 ### <a name="linux-2"></a>Linux
 
-|clasificación  |DESCRIPCIÓN  |
+|clasificación  |Descripción  |
 |---------|---------|
 |Actualizaciones críticas y de seguridad     | Actualizaciones para un problema específico o un problema de un producto específico relacionado con la seguridad.         |
 |Otras actualizaciones     | Todas las demás actualizaciones que ni son críticas por naturaleza ni son actualizaciones de seguridad.        |

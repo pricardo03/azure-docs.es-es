@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 63a2a3a68adaa2e389cc2af173c8f75a18fbc36d
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: e4de954d55725f36d48d09ac46ef3700787d937b
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70078707"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647652"
 ---
 # <a name="prepare-the-azure-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster-and-shared-disk-for-sap-ascsscs"></a>Preparación de la infraestructura de Azure para alta disponibilidad de SAP con un clúster de conmutación por error de Windows y un disco compartido para ASCS/SCS de SAP
 
@@ -34,8 +34,8 @@ ms.locfileid: "70078707"
 [sap-installation-guides]:http://service.sap.com/instguides
 [tuning-failover-cluster-network-thresholds]:https://techcommunity.microsoft.com/t5/Failover-Clustering/Tuning-Failover-Cluster-Network-Thresholds/ba-p/371834
 
-[azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
-[azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
 
 [dbms-guide]:../../virtual-machines-windows-sap-dbms-guide.md
 
@@ -154,7 +154,7 @@ ms.locfileid: "70078707"
 [sap-templates-3-tier-multisid-apps-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps%2Fazuredeploy.json
 [sap-templates-3-tier-multisid-apps-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps-md%2Fazuredeploy.json
 
-[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/resource-group-overview.md#the-benefits-of-using-resource-manager
+[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
@@ -164,7 +164,7 @@ ms.locfileid: "70078707"
 
 Este artículo describe los pasos a seguir para preparar la infraestructura de Azure para instalar y configurar un sistema SAP de alta disponibilidad en un clúster de conmutación por error de Windows mediante el uso de un *disco compartido de clúster* como una opción de agrupación en clústeres de una instancia de ASCS de SAP.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de comenzar la instalación, consulte este artículo:
 
@@ -186,7 +186,7 @@ Para preparar la plantilla 1 de arquitectura, siga estos pasos:
 
 - En Azure Portal, en el panel **Parámetros**, en el cuadro **SYSTEMAVAILABILITY**, seleccione **Alta disponibilidad**.
 
-  ![Ilustración 1: Configuración de los parámetros de Azure Resource Manager para alta disponibilidad de SAP][sap-ha-guide-figure-3000]
+  ![Figura 1: Configuración de los parámetros de Azure Resource Manager para alta disponibilidad de SAP][sap-ha-guide-figure-3000]
 
 _**Ilustración 1:** Configuración de los parámetros de Azure Resource Manager para alta disponibilidad de SAP_
 
@@ -403,7 +403,7 @@ Para la implementación local, necesita estas direcciones IP y nombres de host r
 | Nombre de host virtual de la instancia de ASCS/SCS de SAP |pr1-ascs-sap |10.0.0.43 |
 | Segundo nombre de host virtual de clúster de DBMS de SAP (administración del clúster) |pr1-dbms-vir |10.0.0.32 |
 
-Cuando crea el clúster, crea los nombres de host virtual pr1-ascs-vir y pr1-dbms-vir, además de las direcciones IP asociadas que administran el clúster mismo. Para obtener información sobre cómo hacerlo, vea [Recopilación de nodos del clúster en la configuración de clúster][sap-high-availability-infrastructure-wsfc-shared-disk-collect-cluster-config].
+Cuando crea el clúster, crea los nombres de host virtual pr1-ascs-vir y pr1-dbms-vir, además de las direcciones IP asociadas que administran el clúster mismo. Para más información sobre cómo hacerlo, consulte [Recopilación de nodos del clúster en la configuración de clúster][sap-high-availability-infrastructure-wsfc-shared-disk-collect-cluster-config].
 
 Puede crear manualmente los otros dos nombres de host virtual, pr1-ascs-sap y pr1-dbms-sap y las direcciones IP asociadas en el servidor DNS. La instancia de ASCS/SCS de SAP en clúster y la instancia de DBMS en clúster usan estos recursos. Para más información sobre cómo hacerlo, vea [Creación de un nombre de host virtual para la instancia de ASCS/SCS de SAP en clúster][sap-ha-guide-9.1.1].
 
@@ -430,7 +430,7 @@ En este ejemplo, aparecen estas máquinas virtuales y direcciones IP estáticas:
 | --- | --- | --- | --- |
 | Primer servidor de aplicaciones de SAP |pr1-di-0 |pr1-nic-di-0 |10.0.0.50 |
 | Segundo servidor de aplicaciones de SAP |pr1-di-1 |pr1-nic-di-1 |10.0.0.51 |
-| ... |... |... |... |
+| … |… |… |… |
 | Último servidor de aplicaciones de SAP |pr1-di-5 |pr1-nic-di-5 |10.0.0.55 |
 | Primer nodo de clúster para la instancia de ASCS/SCS |pr1-ascs-0 |pr1-nic-ascs-0 |10.0.0.40 |
 | Segundo nodo de clúster para la instancia de ASCS/SCS |pr1-ascs-1 |pr1-nic-ascs-1 |10.0.0.41 |
@@ -524,7 +524,7 @@ Si desea usar otros números para las instancias de ASCS o SCS de SAP, debe actu
 1. En Azure Portal, seleccione **\<SID\>-lb-ascs equilibrador de carga** > **Reglas de equilibrio de carga**.
 2. Cambie estos valores para todas las reglas de equilibrio de carga que pertenezcan a la instancia de ASCS o SCS de SAP:
 
-   * NOMBRE
+   * Nombre
    * Port
    * Puerto de back-end
 
@@ -554,7 +554,7 @@ Para agregar entradas de registro en los dos nodos de clúster de la instancia d
 | --- | --- |
 | Nombre de la variable |`KeepAliveTime` |
 | Tipo de variable |REG_DWORD (Decimal) |
-| Valor |120000 |
+| Value |120000 |
 | Vínculo a la documentación |[https://technet.microsoft.com/library/cc957549.aspx](https://technet.microsoft.com/library/cc957549.aspx) |
 
 **Tabla 3:** Cambio del primer parámetro de TCP/IP
@@ -565,7 +565,7 @@ Luego, agregue estas entradas del registro de Windows en ambos nodos del clúste
 | --- | --- |
 | Nombre de la variable |`KeepAliveInterval` |
 | Tipo de variable |REG_DWORD (Decimal) |
-| Valor |120000 |
+| Value |120000 |
 | Vínculo a la documentación |[https://technet.microsoft.com/library/cc957548.aspx](https://technet.microsoft.com/library/cc957548.aspx) |
 
 **Tabla 4:** Cambio del segundo parámetro de TCP/IP
@@ -643,7 +643,7 @@ Para configurar un clúster de conmutación por error de Windows Server para una
    _**Figura 17:** Escriba el segundo nombre de host del nodo de clúster_
 
    > [!IMPORTANT]
-   > Asegúrese de que la casilla **Agregar todo el almacenamiento apto al clúster** *no* esté activada.  
+   > Asegúrese de que la casilla **Agregar todo el almacenamiento apto al clúster***no* esté activada.  
    >
    >
 

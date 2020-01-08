@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 9635798720667e38a767f26fc2e5f5374e420059
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 838145f8573e11deff8566c932a9c73c6f59f03b
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73795549"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561667"
 ---
 # <a name="what-is-application-gateway-ingress-controller"></a>¿Qué es el controlador de entrada de Application Gateway?
 El controlador de entrada de Application Gateway (AGIC) es una aplicación de Kubernetes, lo que hace posible que los clientes de [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) aprovechen la tecnología nativa de Azure [Application Gateway](https://azure.microsoft.com/services/application-gateway/): el equilibrador de carga L7 para exponer software en la nube a Internet. AGIC supervisa el clúster de Kubernetes en el que se hospeda y actualiza continuamente una instancia de Application Gateway para que los servicios seleccionados se expongan a Internet.
@@ -28,7 +28,7 @@ El uso de Application Gateway, además de AGIC, también ayuda a proteger el cl�
 
 ![Azure Application Gateway + AKS](./media/application-gateway-ingress-controller-overview/architecture.png)
 
-AGIC se configura a través del [recurso de entrada](http://kubernetes.io/docs/user-guide/ingress/) de Kubernetes, junto con los servicios, las implementaciones y los pods. Proporciona una serie de características que aprovechan el equilibrador de carga L7 nativo de Azure Application Gateway. Por mencionar algunas:
+AGIC se configura a través del [recurso de entrada](https://kubernetes.io/docs/user-guide/ingress/) de Kubernetes, junto con los servicios, las implementaciones y los pods. Proporciona una serie de características que aprovechan el equilibrador de carga L7 nativo de Azure Application Gateway. Por mencionar algunas:
   - Enrutamiento de direcciones URL
   - Afinidad basada en cookies
   - Terminación de SSL

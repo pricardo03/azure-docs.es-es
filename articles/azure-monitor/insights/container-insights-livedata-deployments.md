@@ -1,19 +1,14 @@
 ---
 title: Visualización de implementaciones de Azure Monitor para contenedores (versión preliminar) | Microsoft Docs
 description: En este artículo se describe la vista en tiempo real de las implementaciones de Kubernetes sin usar kubectl en Azure Monitor para contenedores.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.author: magoedte
-ms.openlocfilehash: c7135aec98936b5247b39ae659e21735168bd289
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7d0344851e1db8c014a1bb16b228a0c2f76444d5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73510761"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75404771"
 ---
 # <a name="how-to-view-deployments-preview-in-real-time"></a>Cómo ver implementaciones (versión preliminar) en tiempo real
 
@@ -27,7 +22,7 @@ Con Azure Monitor para contenedores, la característica ver implementaciones (ve
 
 Para más información, consulte la documentación de Kubernetes sobre las [Implementaciones](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/). 
 
-## <a name="how-it-works"></a>Cómo funciona
+## <a name="how-it-works"></a>Funcionamiento
 
 La característica de datos en directo (versión preliminar) accede directamente a la API Kubernetes y se puede encontrar información adicional sobre el modelo de autenticación [aquí](https://kubernetes.io/docs/concepts/overview/kubernetes-api/). 
 

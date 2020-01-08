@@ -2,16 +2,16 @@
 title: Preguntas frecuentes sobre Azure Cache for Redis
 description: Conozca las respuestas a preguntas comunes, patrones y procedimientos recomendados para Azure Cache for Redis.
 author: yegu-ms
+ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 04/29/2019
-ms.author: yegu
-ms.openlocfilehash: e497a5c54a80dbed2ea94f8251d198c1c8bc5043
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: ddf7999153e9d9722e627d148b116750fe3aaecf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122784"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433447"
 ---
 # <a name="azure-cache-for-redis-faq"></a>Preguntas frecuentes sobre Azure Cache for Redis
 Conozca las respuestas a preguntas comunes, patrones y procedimientos recomendados para Azure Cache for Redis.
@@ -106,7 +106,7 @@ Las siguientes son consideraciones para elegir una oferta de caché.
 * **Configuración de Redis**: tanto en los niveles Estándar como Prémium, puede configurar Redis para las notificaciones de Keyspace.
 * **Número máximo de conexiones de cliente**: el nivel Prémium ofrece el número máximo de clientes que se pueden conectar a Redis, con un número mayor de conexiones para memorias caché de mayor tamaño. La agrupación en clústeres no aumenta el número de conexiones disponibles para una caché en clúster. Para más información, consulte [Precios de Azure Cache for Redis](https://azure.microsoft.com/pricing/details/cache/).
 * **Núcleo específico para el servidor de Redis**: en el nivel Prémium todos los tamaños de caché tienen un núcleo específico para Redis. En los niveles Básico/Estándar, el tamaño C1 y superiores tienen un núcleo dedicado para el servidor Redis.
-* **Redis es de subproceso único**, por tanto tener dos o más núcleos no proporciona una ventaja adicional sobre tener solo dos núcleos, pero las máquinas virtuales de mayor tamaño suelen tener más ancho de banda que las de menor tamaño. Si el servidor o el cliente de caché alcanza los límites del ancho de banda, recibirá los tiempos de espera del cliente.
+* **Redis es de subproceso único** , por tanto tener dos o más núcleos no proporciona una ventaja adicional sobre tener solo dos núcleos, pero las máquinas virtuales de mayor tamaño suelen tener más ancho de banda que las de menor tamaño. Si el servidor o el cliente de caché alcanza los límites del ancho de banda, recibirá los tiempos de espera del cliente.
 * **Mejoras en el rendimiento**: las memorias caché en el nivel Prémium se implementan en el hardware que tiene procesadores más rápidos y ofrecen un mejor rendimiento en comparación con el nivel Básico o Estándar. Las cachés de nivel Premium tienen un mayor rendimiento y latencias más bajas.
 
 <a name="cache-performance"></a>
@@ -128,7 +128,7 @@ A partir de esta tabla, podemos extraer las conclusiones siguientes:
 | Plan de tarifa | Size | Núcleos de CPU | Ancho de banda disponible | Tamaño del valor de 1 kB | Tamaño del valor de 1 kB |
 | --- | --- | --- | --- | --- | --- |
 | **Tamaños de caché estándar** | | |**Megabits por segundo (Mb/s) o Megabytes por segundo (MB/s)** |**Solicitudes por segundo (RPS) sin SSL** |**Solicitudes por segundo (RPS) SSL** |
-| C0 | 250 MB | Compartido | 100 / 12.5  |  15 000 |   7500 |
+| C0 | 250 MB | Compartido | 100 / 12.5  |  15,000 |   7500 |
 | C1 |   1 GB | 1      | 500 / 62.5  |  38 000 |  20 720 |
 | C2 | 2,5 GB | 2      | 500 / 62.5  |  41 000 |  37 000 |
 | C3 |   6 GB | 4      | 1000 / 125  | 100 000 |  90 000 |
@@ -177,7 +177,7 @@ Para más información sobre el uso de Azure Cache for Redis con PowerShell en l
 ### <a name="what-do-the-stackexchangeredis-configuration-options-do"></a>¿Qué hacen las opciones de configuración de StackExchange.Redis?
 StackExchange.Redis tiene muchas opciones. En esta sección se describen algunas de las configuraciones comunes. Para obtener más información acerca de las opciones de StackExchange.Redis, consulte [Configuración de StackExchange.Redis](https://stackexchange.github.io/StackExchange.Redis/Configuration).
 
-| ConfigurationOptions | DESCRIPCIÓN | Recomendación |
+| ConfigurationOptions | Descripción | Recomendación |
 | --- | --- | --- |
 | AbortOnConnectFail |Cuando se establece en true, la conexión no se volverá a conectar después de un error de red. |Establézcalo en false y deje que StackExchange.Redis se vuelva a conectar automáticamente. |
 | ConnectRetry |El número de veces que se repiten los intentos de conexión durante la conexión inicial. |Consulte la siguiente imagen para obtener instrucciones. |
@@ -330,7 +330,7 @@ Para obtener instrucciones acerca de cómo descargar las herramientas de Redis, 
 <a name="cache-benchmarking"></a>
 
 ### <a name="how-can-i-benchmark-and-test-the-performance-of-my-cache"></a>¿Cómo se pueden realizar bancos de pruebas y probar el rendimiento del caché?
-* [Habilite los diagnósticos de la memoria caché](cache-how-to-monitor.md#enable-cache-diagnostics) para que pueda [supervisar](cache-how-to-monitor.md) su estado. Puede ver las métricas en el Portal de Azure y también [descargarlas y revisarlas](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) mediante las herramientas que prefiera.
+* [Habilite los diagnósticos de la memoria caché](cache-how-to-monitor.md#enable-cache-diagnostics) para que pueda [supervisar](cache-how-to-monitor.md) su estado. Puede ver las métricas en Azure Portal y también [descargarlas y revisarlas](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) mediante las herramientas que prefiera.
 * Puede utilizar redis-benchmark.exe para la prueba de carga del servidor Redis.
 * Asegúrese de que el cliente para la prueba de carga y la instancia de Azure Cache for Redis se encuentran la misma región.
 * Use redis cli.exe y supervise la memoria caché mediante el comando INFO.
@@ -398,7 +398,7 @@ void Application_Start(object sender, EventArgs e)
   > [!NOTE]
   > El valor especificado por este método es una configuración global, que afecta a todo AppDomain. Por ejemplo, si tiene una máquina de 4 núcleos y desea establecer *minWorkerThreads* y *minIOThreads* a 50 por CPU durante el tiempo de ejecución, usaría **ThreadPool.SetMinThreads (200, 200)** .
 
-* También es posible especificar el valor mínimo de subprocesos mediante el conjunto de configuración [*minIoThreads* o *minWorkerThreads* ](https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx) del elemento de configuración `<processModel>` de `Machine.config`, que normalmente está ubicado en `%SystemRoot%\Microsoft.NET\Framework\[versionNumber]\CONFIG\`. **Por lo general, no se recomienda establecer el número mínimo de subprocesos de esta forma, ya que es una configuración que afecta a todo el sistema.**
+* También es posible especificar el valor mínimo de subprocesos mediante el conjunto de configuración [*minIoThreads* o *minWorkerThreads*](https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx) del elemento de configuración `<processModel>` de `Machine.config`, que normalmente está ubicado en `%SystemRoot%\Microsoft.NET\Framework\[versionNumber]\CONFIG\`. **Por lo general, no se recomienda establecer el número mínimo de subprocesos de esta forma, ya que es una configuración que afecta a todo el sistema.**
 
   > [!NOTE]
   > El valor especificado en este elemento de configuración es *por núcleo*. Por ejemplo, si tiene una máquina de 4 núcleos y quiere que el valor de *minIOThreads* sea 200 en tiempo de ejecución, use `<processModel minIoThreads="50"/>`.
@@ -471,7 +471,7 @@ A diferencia de las memorias caché tradicionales que solo tratan con pares clav
 
 Otro aspecto clave para el éxito de Redis es su ecosistema de código abierto dinámico y en buen estado. Esto se refleja en el variado conjunto de clientes de Redis disponibles en varios lenguajes, Este ecosistema y la amplia variedad de clientes permiten que prácticamente cualquier carga de trabajo que compilaría dentro de Azure use Azure Cache for Redis.
 
-Para más información sobre los primeros pasos con Azure Cache for Redis, consulte el artículo sobre el [uso de Azure Cache for Redis](cache-dotnet-how-to-use-azure-redis-cache.md) y la [Documentación de Azure Cache for Redis](index.md).
+Para más información sobre los primeros pasos con Azure Cache for Redis, consulte el artículo sobre el [uso de Azure Cache for Redis](cache-dotnet-how-to-use-azure-redis-cache.md) y la [Documentación de Azure Cache for Redis](index.yml).
 
 ### <a name="managed-cache-service"></a>Managed Cache service
 [Managed Cache Service se retiró el 30 de noviembre de 2016.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)

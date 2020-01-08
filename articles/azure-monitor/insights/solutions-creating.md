@@ -8,12 +8,12 @@ author: bwren
 ms.author: bwren
 ms.date: 03/20/2017
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 97472a65af6eb2c5c2da93d93f38450cc021f680
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 8c08dc5091e7ab0eec5d4e6dd455e6adb3caa35f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555296"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75402040"
 ---
 # <a name="design-and-build-a-management-solution-in-azure-preview"></a>Diseño y compilación de una solución de administración en Azure (versión preliminar)
 > [!NOTE]
@@ -60,7 +60,7 @@ Las vistas de análisis de Log Analytics se usan para visualizar los datos del r
 
 
 ## <a name="create-solution-file"></a>Creación del archivo de solución
-Una vez que haya configurado y probado los componentes que van a formar parte de la solución, puede [crear el archivo de solución]( solutions-solution-file.md).  Para ello implementará los componentes de la solución en un [plantilla de Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) que incluye un [recurso de solución]( solutions-solution-file.md#solution-resource) con relaciones con los otros recursos en el archivo.  
+Una vez que haya configurado y probado los componentes que van a formar parte de la solución, puede [crear el archivo de solución]( solutions-solution-file.md).  Para ello implementará los componentes de la solución en un [plantilla de Resource Manager](../../azure-resource-manager/templates/template-syntax.md) que incluye un [recurso de solución]( solutions-solution-file.md#solution-resource) con relaciones con los otros recursos en el archivo.  
 
 
 ## <a name="test-your-solution"></a>Prueba de la solución
@@ -76,5 +76,5 @@ Una vez haya finalizado y probado la solución, puede ponerla a disposición de 
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtenga información acerca de cómo [crear un archivo de solución]( solutions-solution-file.md) para la solución de administración.
-* Obtenga más información en [Creación de plantillas de Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md).
+* Obtenga más información en [Creación de plantillas de Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md).
 * Búsqueda de [plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates) para obtener ejemplos de diferentes plantillas de Resource Manager.

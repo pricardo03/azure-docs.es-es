@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: 5fae340ae933b8165a2ea9bb9f6337189fd576d6
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: ef7e29351717daf91981f844f1d911a404cf9402
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457041"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646887"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Preguntas más frecuentes (P+F) acerca de Azure Virtual Network
 
@@ -51,7 +51,7 @@ Para crear o configurar una red virtual se pueden usar las siguientes herramient
 
 * Portal de Azure
 * PowerShell
-* CLI de Azure
+* Azure CLI
 * Un archivo de configuración de red (netcfg; solo para redes virtuales clásicas). Consulte el artículo [Configuración de una red virtual con un archivo de configuración de red](virtual-networks-using-network-configuration-file.md).
 
 ### <a name="what-address-ranges-can-i-use-in-my-vnets"></a>¿Qué intervalos de direcciones puedo usar en mis redes virtuales?
@@ -66,7 +66,7 @@ Cualquier intervalo de direcciones IP definido en [RFC 1918](https://tools.ietf.
 Sí. Para más información sobre los intervalos de direcciones IP públicas, consulte [Creación de una red virtual](manage-virtual-network.md#create-a-virtual-network). Las direcciones IP públicas no son accesibles directamente desde Internet.
 
 ### <a name="is-there-a-limit-to-the-number-of-subnets-in-my-vnet"></a>¿Existe algún límite en el número de subredes de que puede tener una red virtual?
-Sí. Para más información, consulte los [límites de Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits). Los espacios de direcciones de las subredes no pueden superponerse entre sí.
+Sí. Para más información, consulte los [límites de Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits). Los espacios de direcciones de las subredes no pueden superponerse entre sí.
 
 ### <a name="are-there-any-restrictions-on-using-ip-addresses-within-these-subnets"></a>¿Hay alguna restricción en el uso de direcciones IP dentro de estas subredes?
 Sí. Azure reserva 5 direcciones IP dentro de cada subred. Son x.x.x.0-x.x.x.3 y la última dirección de la subred. x.x.x.1-x.x.x.3 está reservada en cada subred para los servicios de Azure.   
@@ -128,7 +128,7 @@ Use la tabla de decisiones de la página [Resolución de nombres para las máqui
 Sí. Puede especificar direcciones IP de servidor DNS en la configuración de la red virtual. La configuración se aplica al servidor DNS predeterminado en todas las máquinas virtuales de la red virtual.
 
 ### <a name="how-many-dns-servers-can-i-specify"></a>¿Cuántos servidores DNS puedo especificar?
-Consulte los [límites de Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits).
+Consulte los [límites de Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits).
 
 ### <a name="can-i-modify-my-dns-servers-after-i-have-created-the-network"></a>¿Puedo modificar mis servidores DNS después de haber creado la red?
 Sí. Puede cambiar la lista de servidores DNS de la red virtual en cualquier momento. Si cambia la lista de servidores DNS, debe realizar una renovación de la concesión DHCP en todas las máquinas virtuales afectadas de la red virtual para que la nueva configuración de DNS surta efecto. En el caso de las máquinas virtuales que ejecutan el sistema operativo Windows, puede hacerlo escribiendo `ipconfig /renew` directamente en la máquina virtual. Para otros tipos de sistema operativo, consulte la documentación respectiva sobre la renovación de las concesiones DHCP. 
@@ -394,7 +394,7 @@ Las directivas de punto de conexión de servicio de la red virtual (VNet) le per
 
 ### <a name="does-azure-active-directory-azure-ad-support-vnet-service-endpoints"></a>¿Admite Azure Active Directory (Azure AD) puntos de conexión de servicio de red virtual?
 
-Azure Active Directory (Azure AD) no admite puntos de conexión de servicio de forma nativa. [Aquí](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) encontrará una lista completa de los servicios de Azure que admiten puntos de conexión de servicio de red virtual. Cabe mencionar que la etiqueta "Microsoft.AzureActiveDirectory" que aparece bajo los servicios compatibles con los puntos de conexión de servicio se usa para admitir los puntos de conexión de servicio para ADLS Gen 1. En el caso de ADLS Gen 1, la integración de red virtual de Azure Data Lake Storage Gen1 emplea la seguridad del punto de conexión de servicio de red virtual entre la red virtual y Azure Active Directory (Azure AD) para generar notificaciones de seguridad adicionales en el token de acceso. Estas notificaciones se usan entonces para autenticar la red virtual en la cuenta de Data Lake Storage Gen1 y permitir el acceso. Más información sobre la [integración con redes virtuales de Azure Data Lake Store Gen 1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+Azure Active Directory (Azure AD) no admite los puntos de conexión de servicio de forma nativa. [Aquí](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) encontrará una lista completa de los servicios de Azure que admiten puntos de conexión de servicio de red virtual. Cabe mencionar que la etiqueta "Microsoft.AzureActiveDirectory" que aparece bajo los servicios compatibles con los puntos de conexión de servicio se usa para admitir los puntos de conexión de servicio para ADLS Gen 1. En el caso de ADLS Gen 1, la integración de red virtual de Azure Data Lake Storage Gen1 emplea la seguridad del punto de conexión de servicio de red virtual entre la red virtual y Azure Active Directory (Azure AD) para generar notificaciones de seguridad adicionales en el token de acceso. Estas notificaciones se usan entonces para autenticar la red virtual en la cuenta de Data Lake Storage Gen1 y permitir el acceso. Más información sobre la [integración con redes virtuales de Azure Data Lake Store Gen 1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
 ### <a name="are-there-any-limits-on-how-many-vnet-service-endpoints-i-can-set-up-from-my-vnet"></a>¿Hay algún límite en la cantidad de puntos de conexión de servicio de la red virtual que puedo configurar desde mi red virtual?
 No hay límite en el número total de puntos de conexión de servicio de la red virtual en una red virtual. Para un recurso de servicio de Azure (por ejemplo, una cuenta de Azure Storage), los servicios pueden exigir límites en el número de subredes que se usan para proteger el recurso. En la tabla siguiente se muestran algunos límites de ejemplo: 

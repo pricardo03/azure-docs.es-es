@@ -6,12 +6,12 @@ ms.service: virtual-network
 ms.topic: article
 ms.date: 08/29/2019
 ms.author: allensu
-ms.openlocfilehash: 2610afe9df06d28f2b75bd0023f7ec5a3fe9e56c
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: 6d10265e8383b68ebe13c95d8b2a9632668e85da
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219223"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75641408"
 ---
 # <a name="move-azure-public-ip-to-another-region-using-the-azure-portal"></a>Movimiento de una dirección IP pública de Azure a otra región mediante Azure Portal
 
@@ -20,7 +20,7 @@ Hay varios escenarios en los que puede que deba mover sus direcciones IP públic
 Las direcciones IP públicas de Azure son específicas de la región y no se pueden migrar de una región a otra. Sin embargo, puede usar una plantilla de Azure Resource Manager para exportar la configuración actual de una dirección IP pública.  Después, puede preparar el recurso en otra región exportando la dirección IP pública a una plantilla y modificando los parámetros para que coincidan con la región de destino, y luego implementar la plantilla en la nueva región.  Para más información sobre Resource Manager y las plantillas, consulte [Inicio rápido: Creación e implementación de plantillas de Azure Resource Manager mediante Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 - Asegúrese de que la dirección IP pública de Azure se encuentra en la región de Azure desde la que va a moverla.
 
@@ -32,10 +32,10 @@ Las direcciones IP públicas de Azure son específicas de la región y no se pue
 
 - Compruebe que su suscripción de Azure permite crear direcciones IP públicas en la región de destino que se usa. Para habilitar la cuota necesaria, póngase en contacto con el soporte técnico.
 
-- Asegúrese de que la suscripción tiene suficientes recursos para admitir la adición de direcciones IP públicas para este proceso.  Vea [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits).
+- Asegúrese de que la suscripción tiene suficientes recursos para admitir la adición de direcciones IP públicas para este proceso.  Vea [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
 
 
-## <a name="prepare-and-move"></a>Preparación y movimiento
+## <a name="prepare-and-move"></a>Preparación y traslado
 En los pasos siguientes se muestra cómo preparar la dirección IP pública para mover la configuración mediante una plantilla de Resource Manager y cómo mover la configuración de IP pública a la región de destino mediante Azure Portal.
 
 ### <a name="export-the-template-and-deploy-from-a-script"></a>Exportación de la plantilla e implementación desde un script
@@ -44,7 +44,7 @@ En los pasos siguientes se muestra cómo preparar la dirección IP pública para
 2. Busque el grupo de recursos que contiene la dirección IP pública de origen y haga clic en él.
 3. Seleccione > **Configuración** > **Exportar plantilla**.
 4. En la hoja **Exportar plantilla**, elija **Implementar**.
-5. Haga clic en **Plantilla** > **Editar parámetros** para abrir el archivo **parameters.json** en el editor en línea.
+5. Haga clic en **PLANTILLA** > **Editar parámetros** para abrir el archivo **parameters.json** en el editor en línea.
 8. Para editar el parámetro del nombre de la dirección IP pública, cambie la propiedad en **parameters** > **value** del nombre de la dirección IP pública de origen al nombre de la dirección IP pública de destino. Asegúrese de que el nombre se encuentra entre comillas:
 
     ```json
@@ -110,7 +110,7 @@ En los pasos siguientes se muestra cómo preparar la dirección IP pública para
 
         Para más información sobre las diferencias entre las direcciones IP públicas de la SKU básica y estándar, consulte [Creación, modificación o eliminación de una dirección IP pública](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address):
 
-    * **Método de asignación de IP pública** y **Tiempo de espera de inactividad**: puede cambiar estas dos opciones en la plantilla modificando la propiedad **publicIPAllocationMethod** de **Dynamic** a **Static** o bien de **Static** a **Dynamic**. El tiempo de espera de inactividad se puede cambiar modificando la propiedad **idleTimeoutInMinutes** con la cantidad deseada.  El valor predeterminado es **4**:
+    * **Método de asignación de IP pública** y **tiempo de espera de inactividad**: puede cambiar estas dos opciones en la plantilla si cambia la propiedad **publicIPAllocationMethod** de **Dynamic** a **Static** o bien de **Static** a **Dynamic**. El tiempo de espera de inactividad se puede cambiar modificando la propiedad **idleTimeoutInMinutes** con la cantidad deseada.  El valor predeterminado es **4**:
 
         ```json
           "resources": [
@@ -145,9 +145,9 @@ En los pasos siguientes se muestra cómo preparar la dirección IP pública para
 
 16. Compruebe que **Aspectos básicos** > **Ubicación** está establecido en la ubicación de destino en la que quiere que se implemente la dirección IP pública.
 
-17. En **Configuración**, compruebe que el nombre coincide con el que especificó en el editor de parámetros anterior.
+17. En **CONFIGURACIÓN**, compruebe que el nombre coincide con el nombre que especificó en el editor de parámetros anterior.
 
-18. Active la casilla en **Términos y condiciones**.
+18. Marque la casilla en **TÉRMINOS Y CONDICIONES**.
 
 19. Haga clic en el botón **Comprar** para implementar la dirección IP pública de destino.
 
@@ -161,7 +161,7 @@ Para confirmar los cambios y completar el movimiento de la dirección IP públic
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha movido una dirección IP pública de Azure de una región a otra y ha limpiado los recursos de origen.  Para más información sobre cómo mover recursos entre regiones y sobre la recuperación ante desastres en Azure, consulte:
+En este tutorial, ha movido una dirección IP pública de Azure de una región a otra y ha limpiado los recursos de origen.  Para obtener más información sobre cómo trasladar recursos entre regiones y la recuperación ante desastres en Azure, consulte:
 
 
 - [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)

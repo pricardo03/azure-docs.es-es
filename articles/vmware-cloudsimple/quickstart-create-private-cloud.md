@@ -1,5 +1,6 @@
 ---
-title: 'Inicio rápido de Azure VMware Solution by CloudSimple: creación de una nube privada'
+title: 'Inicio rápido: Creación de una nube privada'
+titleSuffix: Azure VMware Solution by CloudSimple
 description: Obtenga información sobre cómo crear y configurar una nube privada con Azure VMware Solution by CloudSimple
 author: sharaths-cs
 ms.author: dikamath
@@ -8,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: c32045c6d68a813eaeb6e4e5de433160c2a30634
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: e4890186022842179ef4b66c03db03dd9b58a3d8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901453"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452390"
 ---
 # <a name="quickstart---configure-a-private-cloud-environment"></a>Inicio rápido: configuración del entorno de una nube privada
 
@@ -21,7 +22,7 @@ En este artículo, obtenga información sobre cómo crear una nube privada de Cl
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-Revise los [requisitos previos de redes](cloudsimple-network-checklist.md).
+Consulte [Requisitos previos de redes avanzadas](cloudsimple-network-checklist.md).
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
@@ -57,7 +58,7 @@ Las nubes privadas se administran desde el portal de CloudSimple. Tienen su prop
 
 11. Haga clic en **Siguiente: Revisar y crear**.
 12. Revise la configuración. Si necesita cambiar la configuración, haga clic en **Anterior**.
-13. Haga clic en **Create**(Crear).
+13. Haga clic en **Crear**.
 
 Se inicia el proceso de aprovisionamiento de la nube privada.  La nube privada puede tardar hasta dos horas en aprovisionarse.
 
@@ -131,7 +132,7 @@ Después de crear una nube privada, cree la VLAN en que va a implementar las má
 
 1. En el portal de CloudSimple, seleccione **Network** (Red).
 2. Haga clic en **VLANs/Sunets** (VLAN/Subredes).
-3. Haga clic en **Create VLAN/Subnet** (Crear VLAN/Subred).
+3. Haga clic en **Create VLAN/Subnet** (Crear VLAN o subred).
 
     ![Creación de una VLAN o subred](media/create-new-vlan-subnet.png)
 
@@ -153,7 +154,7 @@ CloudSimple le proporciona un circuito ExpressRoute para la nube privada. Puede 
 
 Ahora puede iniciar sesión en vCenter para configurar las máquinas virtuales y las directivas.
 
-1. Para acceder a vCenter, inicie el proceso desde el portal de CloudSimple. En la página principal, en **Common Tasks** (Tareas comunes), haga clic en **Launch vSphere Client** (Iniciar cliente vSphere).  Seleccione la nube privada y, después, haga clic en **Launch vSphere Client** (Iniciar cliente vSphere) en la nube privada.
+1. Para acceder a vCenter, empiece desde el portal de CloudSimple. En la página principal, en **Common Tasks** (Tareas comunes), haga clic en **Launch vSphere Client** (Iniciar cliente vSphere).  Seleccione la nube privada y, después, haga clic en **Launch vSphere Client** (Iniciar cliente vSphere) en la nube privada.
 
     ![Inicio del cliente vSphere](media/launch-vcenter-from-cloudsimple-portal.png)
 

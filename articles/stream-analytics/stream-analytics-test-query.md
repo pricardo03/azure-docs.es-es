@@ -1,36 +1,35 @@
 ---
 title: Probar un trabajo en Azure Stream Analytics con datos de ejemplo
 description: En este artículo se describe cómo usar Azure Portal para probar un trabajo de Azure Stream Analytics, crear entradas de ejemplo y cargar datos de ejemplo.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: d68c1ee084efc146d69d8404aadb8acbb4cc33d1
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 85d32e96335a9fffa874f1f370f72883ff420df0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73891748"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75369871"
 ---
 # <a name="test-an-azure-stream-analytics-job-with-sample-data"></a>Probar un trabajo en Azure Stream Analytics con datos de ejemplo
 
-En Azure Stream Analytics, puede probar la consulta sin iniciar o detener el trabajo. Puede probar consultas en los datos entrantes del receptor de entrada o en los datos de ejemplo cargados desde un archivo local en Azure Portal. También puede probar las consultas de forma local desde los datos de ejemplo locales o los datos en directo en [Visual Studio](stream-analytics-live-data-local-testing.md) y [Visual Studio Code](vscode-local-run.md). 
+En Azure Stream Analytics, puede probar la consulta sin iniciar o detener el trabajo. Puede probar consultas en los datos entrantes del receptor de entrada o en los datos de ejemplo cargados desde un archivo local en Azure Portal. También puede probar las consultas de forma local desde los datos de ejemplo locales o los datos en directo en [Visual Studio](stream-analytics-live-data-local-testing.md) y [Visual Studio Code](visual-studio-code-local-run-live-input.md).
 
 ## <a name="sample-incoming-data-from-input"></a>Datos entrantes de ejemplo de entrada
 
 Azure Stream Analytics captura automáticamente los eventos de la entrada de streaming. Puede ejecutar consultas en el ejemplo predeterminado o establecer un período de tiempo específico para el ejemplo.
 
-1. Inicie sesión en el Portal de Azure.
+1. Inicie sesión en Azure Portal.
 
 2. Busque y seleccione el trabajo de Stream Analytics existente.
 
 3. En la página del trabajo de Stream Analytics, en el encabezado **Topología del trabajo**, seleccione **Consulta** para abrir la ventana del editor de consultas. 
 
-4. Para ver una lista de ejemplos de eventos de entrada, seleccione la entrada con el icono de archivo, y los eventos de ejemplo aparecerán automáticamente en la **vista previa de entrada**. 
+4. Para ver una lista de ejemplos de eventos de entrada, seleccione la entrada con el icono de archivo, y los eventos de ejemplo aparecerán automáticamente en la **vista previa de entrada**.
 
    a. El tipo de serialización de los datos se detecta automáticamente si es JSON o CSV. También puede cambiarlo manualmente a JSON, CSV y AVRO con solo cambiar la opción en el menú desplegable.
     
@@ -62,7 +61,7 @@ Azure Stream Analytics captura automáticamente los eventos de la entrada de str
 
    ![Resultados de la prueba de vista de Azure Stream Analytics](./media/stream-analytics-test-query/asa-view-test-results.png)
 
-9. Seleccione **Reset** (Restablecer) para ver la lista de ejemplos de eventos entrantes. Al seleccionar esta opción, la selección del intervalo de tiempo se perderá. Seleccione **Test query** (Probar consulta) para probar la consulta y revise los resultados de la pestaña **Test results** (Resultados de prueba).
+9. Seleccione **Reset** (Restablecer) para ver la lista de ejemplos de eventos entrantes. Al seleccionar esta opción, la selección del intervalo de tiempo se perderá **.** Seleccione **Test query** (Probar consulta) para probar la consulta y revise los resultados de la pestaña **Test results** (Resultados de prueba).
 
 10. Cuando realice cambios en la consulta, seleccione **Save query** (Guardar consulta) para probar la nueva lógica de consulta. Esto le permite modificar iterativamente la consulta y probarla repetidamente para ver cómo cambia la salida.
 
@@ -72,7 +71,7 @@ Azure Stream Analytics captura automáticamente los eventos de la entrada de str
 
 En lugar de usar datos en vivo, puede usar datos de ejemplo de un archivo local para probar la consulta de Azure Stream Analytics.
 
-1. Inicie sesión en el Portal de Azure.
+1. Inicie sesión en Azure Portal.
    
 2. Busque el trabajo de Stream Analytics existente y selecciónelo.
 

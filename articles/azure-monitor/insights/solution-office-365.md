@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/13/2019
-ms.openlocfilehash: aff6be1a6abf2550013b752ba4f796ffe255499f
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.date: 12/27/2019
+ms.openlocfilehash: 1c482166ffe27bde900a102c39def400728c102f
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74539045"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75529718"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Solución de administración de Office 365 en Azure (versión preliminar)
 
@@ -37,7 +37,7 @@ La solución de administración de Office 365 permite supervisar el entorno de O
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Se requiere lo siguiente antes de la instalación y configuración de esta solución.
 
@@ -51,7 +51,7 @@ Se requiere lo siguiente antes de la instalación y configuración de esta soluc
 Esta solución no instala ningún módulo de administración en [grupos de administración conectados](../platform/om-agents.md).
   
 
-## <a name="install-and-configure"></a>Instalación y configuración
+## <a name="install-and-configure"></a>Instalar y configurar
 
 Empiece por agregar la [solución Office 365 a su suscripción](solutions.md#install-a-monitoring-solution). Una vez agregada, debe realizar los pasos de configuración de esta sección para proporcionar acceso a la suscripción a Office 365.
 
@@ -367,7 +367,7 @@ El último paso es suscribirse la aplicación al área de trabajo de Log Analyti
     Office-Subscribe-Call -ErrorAction Stop
     ```
 
-2. Ejecute el siguiente comando para ejecutar el script:
+2. Ejecute el script con el siguiente comando:
 
     ```
     .\office365_subscription.ps1 -WorkspaceName <Log Analytics workspace name> -ResourceGroupName <Resource Group name> -SubscriptionId <Subscription ID> -OfficeUsername <OfficeUsername> -OfficeTennantID <Tenant ID> -OfficeClientId <Client ID> -OfficeClientSecret <Client secret>
@@ -379,7 +379,7 @@ El último paso es suscribirse la aplicación al área de trabajo de Log Analyti
     .\office365_subscription.ps1 -WorkspaceName MyWorkspace -ResourceGroupName MyResourceGroup -SubscriptionId '60b79d74-f4e4-4867-b631-yyyyyyyyyyyy' -OfficeUsername 'admin@contoso.com' -OfficeTennantID 'ce4464f8-a172-4dcf-b675-xxxxxxxxxxxx' -OfficeClientId 'f8f14c50-5438-4c51-8956-zzzzzzzzzzzz' -OfficeClientSecret 'y5Lrwthu6n5QgLOWlqhvKqtVUZXX0exrA2KRHmtHgQb='
     ```
 
-### <a name="troubleshooting"></a>solución de problemas
+### <a name="troubleshooting"></a>Solución de problemas
 
 Puede que vea el siguiente error si la aplicación ya está suscrita a esta área de trabajo o si este inquilino está suscrito a otra área de trabajo.
 
@@ -495,7 +495,7 @@ Puede quitar la solución de administración de Office 365 mediante el proceso d
     Office-UnSubscribe-Call -ErrorAction Stop
     ```
 
-2. Ejecute el siguiente comando para ejecutar el script:
+2. Ejecute el script con el siguiente comando:
 
     ```
     .\office365_unsubscribe.ps1 -WorkspaceName <Log Analytics workspace name> -ResourceGroupName <Resource Group name> -SubscriptionId <Subscription ID> -OfficeTennantID <Tenant ID> 
@@ -509,7 +509,7 @@ Puede quitar la solución de administración de Office 365 mediante el proceso d
 
 Se le pedirán las credenciales. Proporcione las credenciales para el área de trabajo de Log Analytics.
 
-## <a name="data-collection"></a>Colección de datos
+## <a name="data-collection"></a>datos, recopilación
 
 ### <a name="supported-agents"></a>Agentes admitidos
 
@@ -532,7 +532,7 @@ Haga clic en el icono de **Office 365** para abrir el panel de **Office 365**.
 
 El panel incluye las columnas de la tabla siguiente. Cada columna muestra las diez principales alertas por recuento que coinciden con los criterios de esa columna para el ámbito e intervalo de tiempo especificados. Puede ejecutar una búsqueda de registros que proporcione toda la lista haciendo clic en Ver todo en la parte inferior de la columna o haciendo clic en el encabezado de columna.
 
-| Columna | DESCRIPCIÓN |
+| Columna | Descripción |
 |:--|:--|
 | Operaciones | Proporciona información acerca de los usuarios activos de todas las suscripciones de Office 365 supervisadas. También podrá ver el número de actividades que se producen con el tiempo.
 | Exchange | Muestra el desglose de las actividades del servidor de Exchange, como Add-Mailbox Permission o Set-Mailbox. |
@@ -550,9 +550,9 @@ El valor de **Tipo** es **OfficeActivity** para todos los registros creados en e
 
 Las siguientes propiedades son comunes a todos los registros de Office 365.
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 |:--- |:--- |
-| type | *OfficeActivity* |
+| Tipo | *OfficeActivity* |
 | ClientIP | La dirección IP del dispositivo que se usó cuando se registró la actividad. La dirección IP se muestra en formato de dirección IPv4 o IPv6. |
 | OfficeWorkload | Servicio de Office 365 al que hace referencia el registro.<br><br>AzureActiveDirectory<br>Exchange<br>SharePoint|
 | Operación | El nombre de la actividad de usuario o administrador.  |
@@ -568,7 +568,7 @@ Las siguientes propiedades son comunes a todos los registros de Office 365.
 
 Las siguientes propiedades son comunes a todos los registros de Azure Active Directory.
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 |:--- |:--- |
 | OfficeWorkload | AzureActiveDirectory |
 | RecordType     | AzureActiveDirectory |
@@ -580,7 +580,7 @@ Las siguientes propiedades son comunes a todos los registros de Azure Active Dir
 
 Estos registros se crean cuando un usuario de Active Directory intenta iniciar sesión.
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 |:--- |:--- |
 | `OfficeWorkload` | AzureActiveDirectory |
 | `RecordType`     | AzureActiveDirectoryAccountLogon |
@@ -594,7 +594,7 @@ Estos registros se crean cuando un usuario de Active Directory intenta iniciar s
 
 Estos registros se crean cuando se realizan cambios o adiciones en objetos de Active Directory de Azure.
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 |:--- |:--- |
 | OfficeWorkload | AzureActiveDirectory |
 | RecordType     | AzureActiveDirectory |
@@ -612,7 +612,7 @@ Estos registros se crean cuando se realizan cambios o adiciones en objetos de Ac
 
 Estos registros se crean a partir de los datos de auditoría de Data Center Security.  
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 |:--- |:--- |
 | EffectiveOrganization | El nombre del inquilino al que estaba destinada la elevación o el cmdlet. |
 | ElevationApprovedTime | La marca de tiempo en el momento de la aprobación de la elevación. |
@@ -628,7 +628,7 @@ Estos registros se crean a partir de los datos de auditoría de Data Center Secu
 
 Estos registros se crean cuando se realizan cambios en la configuración de Exchange.
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 |:--- |:--- |
 | OfficeWorkload | Exchange |
 | RecordType     | ExchangeAdmin |
@@ -643,7 +643,7 @@ Estos registros se crean cuando se realizan cambios en la configuración de Exch
 
 Estos registros se crean cuando se realizan cambios o agregaciones en los buzones de Exchange.
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 |:--- |:--- |
 | OfficeWorkload | Exchange |
 | RecordType     | ExchangeItem |
@@ -666,11 +666,11 @@ Estos registros se crean cuando se realizan cambios o agregaciones en los buzone
 
 Estos registros se crean cuando se crea una entrada de auditoría de buzones de correo.
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 |:--- |:--- |
 | OfficeWorkload | Exchange |
 | RecordType     | ExchangeItem |
-| item | Representa el elemento en el que se realizó la operación | 
+| Elemento | Representa el elemento en el que se realizó la operación | 
 | SendAsUserMailboxGuid | El identificador GUID de Exchange del buzón de correo al que se obtuvo acceso para enviar correo. |
 | SendAsUserSmtp | Dirección SMTP del usuario que se está suplantando. |
 | SendonBehalfOfUserMailboxGuid | El identificador GUID de Exchange del buzón de correo al que se obtuvo acceso para enviar correo en su nombre. |
@@ -681,7 +681,7 @@ Estos registros se crean cuando se crea una entrada de auditoría de buzones de 
 
 Estos registros se crean cuando se realizan cambios o agregaciones en los grupos de Exchange.
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 |:--- |:--- |
 | OfficeWorkload | Exchange |
 | OfficeWorkload | ExchangeItemGroup |
@@ -700,7 +700,7 @@ Estos registros se crean cuando se realizan cambios o agregaciones en los grupos
 
 Estas propiedades son comunes a todos los registros de SharePoint.
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 |:--- |:--- |
 | OfficeWorkload | SharePoint |
 | OfficeWorkload | SharePoint |
@@ -717,7 +717,7 @@ Estas propiedades son comunes a todos los registros de SharePoint.
 
 Estos registros se crean cuando se realizan cambios en la configuración de SharePoint.
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 |:--- |:--- |
 | OfficeWorkload | SharePoint |
 | OfficeWorkload | SharePoint |
@@ -730,7 +730,7 @@ Estos registros se crean cuando se realizan cambios en la configuración de Shar
 
 Estos registros se crean en respuesta a las operaciones de archivos en SharePoint.
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 |:--- |:--- |
 | OfficeWorkload | SharePoint |
 | OfficeWorkload | SharePointFileOperation |
@@ -751,7 +751,7 @@ Estos registros se crean en respuesta a las operaciones de archivos en SharePoin
 
 En la tabla siguiente se proporcionan ejemplos de búsquedas de registros para los registros de actualización recopilados por esta solución.
 
-| Consultar | DESCRIPCIÓN |
+| Consultar | Descripción |
 | --- | --- |
 |Recuento de todas las operaciones de la suscripción a Office 365 |OfficeActivity &#124; summarize count() by Operation |
 |Uso de sitios de SharePoint|OfficeActivity &#124; where OfficeWorkload =~ "sharepoint" &#124; summarize count() by SiteUrl \| sort by Count asc|

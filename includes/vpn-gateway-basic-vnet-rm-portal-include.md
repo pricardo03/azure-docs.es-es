@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/30/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 5bf93980a8be86c77240ab981eb812a738a96204
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 02297a45c9560f867e97d7024862ea0de5d3f7b2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74829042"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75469524"
 ---
 Para crear una red virtual con el modelo de implementación de Resource Manager y Azure Portal, siga los pasos que se indican a continuación. Para más información acerca de redes virtuales, consulte [Introducción a las redes virtuales](../articles/virtual-network/virtual-networks-overview.md).
 
@@ -22,7 +22,7 @@ Para crear una red virtual con el modelo de implementación de Resource Manager 
 >
 >
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).  En el menú de Azure Portal o en la página **Inicio**, seleccione **Crear un recurso**. Se abre la página **Nuevos**.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).  En el menú de Azure Portal o en la página **Inicio**, seleccione **Crear un recurso**. Se abre la página **Nuevos**.
 
 2. En **Buscar en Marketplace**, escriba *virtual network* y seleccione **Virtual Network** en los resultados.
 
@@ -36,13 +36,13 @@ Para crear una red virtual con el modelo de implementación de Resource Manager 
 
 4. En la página **Crear red virtual**, configure los valores de la red virtual. Al rellenar los campos, el signo de exclamación rojo se convierte en una marca de verificación verde cuando los caracteres escritos en el campo sean válidos. Algunos valores se rellenan automáticamente, que puede sustituir por sus propios valores:
 
-   - **Nombre**: escriba el nombre de la red virtual.
+   - **Name**: escriba el nombre de la red virtual.
 
    - **Espacio de direcciones**: escriba el espacio de direcciones. Si tiene varios espacios de direcciones que agregar, indique aquí su primer espacio de direcciones. Podrá agregar más espacios de direcciones posteriormente, tras crear la red virtual.
 
    - **Suscripción**: compruebe que la suscripción que aparece en la lista es la correcta. Puede cambiar las suscripciones mediante la lista desplegable.
 
-   - **Grupo de recursos**: seleccione un grupo de recursos existente, o bien cree uno nuevo y escriba su nombre. Si va a crear un nuevo grupo, dé un nombre al grupo de recursos según los valores de configuración planeados. Para más información sobre los grupos de recursos, consulte [Información general de Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md#resource-groups).
+   - **Grupo de recursos**: seleccione un grupo de recursos existente, o bien cree uno nuevo y escriba su nombre. Si va a crear un nuevo grupo, dé un nombre al grupo de recursos según los valores de configuración planeados. Para más información sobre los grupos de recursos, consulte [Información general de Azure Resource Manager](../articles/azure-resource-manager/management/overview.md#resource-groups).
 
    - **Ubicación**: seleccione la ubicación de la red virtual. La ubicación determina dónde van a residir los recursos que se implementen en esta red virtual.
 

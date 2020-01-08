@@ -6,23 +6,23 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: rohogue
-ms.openlocfilehash: c8ac08e3d03e8eb525cad7d73bece40c515e31a1
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: fbd763827383c5ded2bb4ef0047ea3c5f650d78e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72256281"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75416328"
 ---
 # <a name="additional-documentation"></a>Documentación adicional
 
-En este artículo encontrará vínculos que le permitirán obtener documentación adicional sobre la interfaz de administración del panel de control de Avere y otros temas relacionados. 
+En este artículo encontrará vínculos que le permitirán obtener documentación adicional sobre la interfaz de administración del panel de control de Avere y otros temas relacionados.
 
 ## <a name="avere-cluster-documentation"></a>Documentación del clúster de Avere
 
-Puede encontrar documentación adicional sobre el clúster de Avere en el sitio web de <https://azure.github.io/Avere/>. Gracias a estos documentos podrá comprender las capacidades del clúster y sabrá cómo configurar sus ajustes. 
+Puede encontrar documentación adicional sobre el clúster de Avere en el sitio web de <https://azure.github.io/Avere/>. Gracias a estos documentos podrá comprender las capacidades del clúster y sabrá cómo configurar sus ajustes.
 
 * La [guía de creación de clústeres de FXT](<https://azure.github.io/Avere/#fxt_cluster>) está diseñada para crear clústeres compuestos por nodos de hardware físicos, pero también podrá encontrar cierta información que también es relevante para los clústeres de vFXT. En particular, los nuevos administradores de clústeres de vFXT pueden obtener información valiosa si leen estas secciones:
-  * En [Customizing Support and Monitoring Settings](<https://azure.github.io/Avere/legacy/create_cluster/4_8/html/config_support.html#config-support>) (Personalización de la configuración de soporte y supervisión) se explica cómo personalizar la configuración de la carga de soporte técnico y habilitar la supervisión remota. 
+  * En [Customizing Support and Monitoring Settings](<https://azure.github.io/Avere/legacy/create_cluster/4_8/html/config_support.html#config-support>) (Personalización de la configuración de soporte y supervisión) se explica cómo personalizar la configuración de la carga de soporte técnico y habilitar la supervisión remota.
   * En [Configuring VServers and Global Namespace](<https://azure.github.io/Avere/legacy/create_cluster/4_8/html/config_vserver.html#config-vserver>) (Configuración de VServers y el espacio de nombres global) encontrará información sobre cómo crear un espacio de nombres orientado al cliente.
   * En [Configuring DNS for the Avere cluster](<https://azure.github.io/Avere/legacy/create_cluster/4_8/html/config_network.html#dns-overview>) (Configuración DNS para el clúster de Avere) se explica cómo configurar el DNS de round robin.
   * En [Adding Backend Storage](<https://azure.github.io/Avere/legacy/create_cluster/4_8/html/config_core_filer.html#add-core-filer>) (Agregar el almacenamiento de back-end) se documenta el modo de agregar archivadores centrales.
@@ -33,4 +33,4 @@ Puede encontrar documentación adicional sobre el clúster de Avere en el sitio 
 
 ## <a name="vfxt-creation-and-management-documentation"></a>Documentación de creación y administración de vFXT
 
-En GitHub se ofrece una guía completa del uso de vfxt.py, la creación de clústeres en la nube y la utilidad de administración: [Cloud Cluster Management with vfxt.py](https://github.com/Azure/AvereSDK/blob/master/docs/README.md) (Administración de clústeres en la nube con vfxt.py).  
+En GitHub se ofrece una guía completa del uso de vfxt.py, la creación de clústeres en la nube y la utilidad de administración: [Cloud Cluster Management with vfxt.py](https://github.com/Azure/AvereSDK/blob/master/docs/README.md) (Administración de clústeres en la nube con vfxt.py).

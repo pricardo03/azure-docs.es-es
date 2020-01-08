@@ -2,19 +2,15 @@
 title: Compilación de configuraciones en Azure Automation State Configuration
 description: En este artículo se describe cómo compilar configuraciones de configuración de estado deseado (DSC) para Azure Automation.
 services: automation
-ms.service: automation
 ms.subservice: dsc
-author: mgoedtel
-ms.author: magoedte
 ms.date: 09/10/2018
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: fdea8ed9a9e59a169a6ffb525ed286eb7d1ada53
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 9d8efce09c2981e4ee256228d4792bcf97172e6c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850914"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75366420"
 ---
 # <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>Compilación de configuraciones de DSC en Azure Automation State Configuration
 
@@ -191,7 +187,7 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -A
 
 Las referencias de recursos son las mismas en Azure Automation State Configuration y en los runbooks. Para obtener más información, vea lo siguiente:
 
-- [Certificates](automation-certificates.md)
+- [Certificados](automation-certificates.md)
 - [Conexiones](automation-connections.md)
 - [Credenciales](automation-credentials.md)
 - [Variables](automation-variables.md)

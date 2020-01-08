@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/20/2019
-ms.openlocfilehash: 45b9cdc74fc57e53ca2cd76f8b1f98671f5bbc7e
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 6fd9166168a5b21900aa49d42a1dd5b81039dbcd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74791861"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428759"
 ---
 # <a name="quickstart-create-your-first-workflow-by-using-azure-logic-apps---azure-portal"></a>Inicio rápido: Creación del primer flujo de trabajo mediante Azure Logic Apps: Azure Portal
 
@@ -42,11 +42,11 @@ Inicie sesión en [Azure Portal](https://portal.azure.com) con sus credenciales 
 
    ![Especificar los detalles de la nueva aplicación lógica](./media/quickstart-create-first-logic-app-workflow/create-logic-app-settings.png)
 
-   | Propiedad | Valor | DESCRIPCIÓN |
+   | Propiedad | Value | Descripción |
    |----------|-------|-------------|
    | **Nombre** | <*nombre-de-la-aplicación-lógica*> | El nombre de la aplicación lógica, que solo puede contener letras, números,guiones (`-`), caracteres de subrayado (`_`), paréntesis (`(`,`)`) y puntos (`.`). En este ejemplo se usa "My-First-Logic-App". |
    | **Suscripción** | <*Azure-subscription-name*> | El nombre de la suscripción de Azure |
-   | **Grupos de recursos** | <*nombre del grupo de recursos de Azure*> | Nombre del [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) que se utiliza para organizar recursos relacionados. En este ejemplo se usa "My-First-LA-RG". |
+   | **Grupos de recursos** | <*nombre del grupo de recursos de Azure*> | Nombre del [grupo de recursos de Azure](../azure-resource-manager/management/overview.md) que se utiliza para organizar recursos relacionados. En este ejemplo se usa "My-First-LA-RG". |
    | **Ubicación** | <*Azure-region*> | La región en la que desea almacenar la información de la aplicación lógica. En este ejemplo se utiliza "West US". |
    | **Log Analytics** | Off | Mantenga el valor **Off** para el registro de diagnóstico. |
    ||||
@@ -77,11 +77,11 @@ A continuación, añada un [desencadenador](../logic-apps/logic-apps-overview.md
 
    ![Configuración del desencadenador con la fuente RSS, la frecuencia y el intervalo](./media/quickstart-create-first-logic-app-workflow/add-rss-trigger-settings.png)
 
-   | Propiedad | Valor | DESCRIPCIÓN |
+   | Propiedad | Value | Descripción |
    |----------|-------|-------------|
    | **URL de fuente RSS** | `http://feeds.reuters.com/reuters/topNews` | Vínculo de la fuente RSS que desea supervisar |
    | **Intervalo** | 1 | Número de intervalos que se espera entre comprobaciones |
-   | **Frecuencia** | Minuto | La unidad de tiempo de cada intervalo entre comprobaciones  |
+   | **Frecuencia** | Minute | La unidad de tiempo de cada intervalo entre comprobaciones  |
    ||||
 
    Juntos, el intervalo y la frecuencia definen la programación para el desencadenador de la aplicación lógica. Esta aplicación lógica comprueba la fuente cada minuto.
@@ -147,7 +147,7 @@ Ahora, agregue una [acción](../logic-apps/logic-apps-overview.md#logic-app-conc
 
       ![Seleccionar las propiedades del contenido del cuerpo del correo electrónico](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-body.png)
 
-      | Propiedad | DESCRIPCIÓN |
+      | Propiedad | Descripción |
       |----------|-------------|
       | **Título de fuente** | Título del elemento |
       | **Fuente publicada el** | Fecha y hora de publicación del elemento |

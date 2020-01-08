@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: yegu
-ms.openlocfilehash: 06d1895a807b4e618be3dc1f816da2c1b3faaf3b
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 6eeabb279f5bd5165ebb249651b8bc926deb92a6
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122140"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530925"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-powershell"></a>Administración de Azure Cache for Redis con Azure PowerShell
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ Este tema muestra cómo realizar tareas comunes, como crear, actualizar y escala
 
 Para más información sobre el modelo de implementación clásico, consulte [Implementación mediante Azure Resource Manager frente al modelo clásico. Conozca los modelos de implementación y el estado de los recursos](../azure-resource-manager/resource-manager-deployment-model.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 Si ya ha instalado Azure PowerShell, debe tener la versión 1.0.0 (o posterior) de Azure PowerShell. Puede comprobar la versión de Azure PowerShell que ha instalado con este comando en el símbolo del sistema de Azure PowerShell.
 
     Get-Module Az | format-table version
@@ -70,7 +70,7 @@ Para conectarse a la nube de Azure Government, utilice uno de los siguientes com
 
     Connect-AzAccount -EnvironmentName AzureUSGovernment
 
-o
+or
 
     Connect-AzAccount -Environment (Get-AzEnvironment -Name AzureUSGovernment)
 
@@ -86,7 +86,7 @@ Para conectarse a la nube de China de Azure, use uno de los siguientes comandos.
 
     Connect-AzAccount -EnvironmentName AzureChinaCloud
 
-o
+or
 
     Connect-AzAccount -Environment (Get-AzEnvironment -Name AzureChinaCloud)
 
@@ -95,7 +95,7 @@ Para crear una caché en la nube de China de Azure, use una de las siguientes ub
 * Este de China
 * Norte de China
 
-Para obtener más información acerca de la nube de China de Azure, consulte [AzureChinaCloud for Azure operated by 21Vianet in China (Nube de China de Azure operada por 21Vianet en China)](http://www.windowsazure.cn/).
+Para obtener más información acerca de la nube de China de Azure, consulte [AzureChinaCloud for Azure operated by 21Vianet in China (Nube de China de Azure operada por 21Vianet en China)](https://www.windowsazure.cn/).
 
 ### <a name="to-connect-to-microsoft-azure-germany"></a>Conexión a Microsoft Azure Alemania
 Para conectarse a Microsoft Azure Alemania, utilice uno de los siguientes comandos.
@@ -103,7 +103,7 @@ Para conectarse a Microsoft Azure Alemania, utilice uno de los siguientes comand
     Connect-AzAccount -EnvironmentName AzureGermanCloud
 
 
-o
+or
 
     Connect-AzAccount -Environment (Get-AzEnvironment -Name AzureGermanCloud)
 
@@ -117,9 +117,9 @@ Para obtener más información acerca de Microsoft Azure Alemania, consulte [Mic
 ### <a name="properties-used-for-azure-cache-for-redis-powershell"></a>Propiedades utilizadas para Azure Cache for Redis PowerShell
 La tabla siguiente contiene las propiedades y las descripciones de los parámetros normalmente utilizados al crear y administrar las instancias de Azure Cache for Redis mediante Azure PowerShell.
 
-| Parámetro | DESCRIPCIÓN | Valor predeterminado |
+| Parámetro | Descripción | Valor predeterminado |
 | --- | --- | --- |
-| Name |Nombre de la memoria caché | |
+| Nombre |Nombre de la memoria caché | |
 | Location |Ubicación de la memoria caché | |
 | ResourceGroupName |Nombre del grupo de recursos en el que se va a crear la memoria caché | |
 | Size |El tamaño de la memoria caché. Los valores válidos son: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250MB, 1GB, 2.5GB, 6GB, 13GB, 26GB, 53GB |1 GB |
@@ -134,7 +134,7 @@ La tabla siguiente contiene las propiedades y las descripciones de los parámetr
 | KeyType |Especifica la clave de acceso que hay que volver a generar cuando se renueven las claves de acceso. Los valores válidos son: Principal, secundario | |
 
 ### <a name="redisconfiguration-properties"></a>Propiedades de RedisConfiguration
-| Propiedad | DESCRIPCIÓN | Planes de tarifa |
+| Propiedad | Descripción | Planes de tarifa |
 | --- | --- | --- |
 | rdb-backup-enabled |Si [Persistencia de los datos en Redis](cache-how-to-premium-persistence.md) está habilitado |Solo Premium |
 | rdb-storage-connection-string |La cadena de conexión a la cuenta de almacenamiento para [Persistencia de los datos en Redis](cache-how-to-premium-persistence.md) |Solo Premium |

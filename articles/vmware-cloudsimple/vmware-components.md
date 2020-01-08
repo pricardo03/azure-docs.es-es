@@ -1,5 +1,6 @@
 ---
-title: 'Solución de VMware en Azure de CloudSimple: componentes de VMware para nubes privadas'
+title: Componentes de VMware de nube privada
+titleSuffix: Azure VMware Solution by CloudSimple
 description: Se describe la instalación de componentes de VMware en nubes privadas
 author: sharaths-cs
 ms.author: dikamath
@@ -8,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: bd83cff243c94ed62014ff95f6ca7c4e878f6af7
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 9c9b80cd4d8a7a7ac5597d10bbb87095564bd461
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814574"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452313"
 ---
 # <a name="private-cloud-vmware-components"></a>Componentes de VMware de nube privada
 
@@ -85,7 +86,7 @@ Los hosts de ESXi se configuran como un clúster para garantizar la alta disponi
 
 ### <a name="vsphere-cluster-limits"></a>Límites del clúster de vSphere
 
-| Recurso | Límite |
+| Resource | Límite |
 |----------|-------|
 | Número mínimo de nodos para crear una nube privada (primer clúster de vSphere) | 3 |
 | Número máximo de nodos en un clúster de vSphere en una nube privada | 16 |

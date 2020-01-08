@@ -8,17 +8,17 @@ author: bwren
 ms.author: bwren
 ms.date: 07/29/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1f4f0ac5d592a01b284a12e899b0aa5a9a62d122
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: 488130fbd2939fa4d98e379126ba3353a417fd72
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74304932"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75401762"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Adición de búsquedas y alertas guardadas de Log Analytics en la solución de administración (versión preliminar)
 
 > [!IMPORTANT]
-> Como [se anunció anteriormente](https://azure.microsoft.com/updates/switch-api-preference-log-alerts/), las áreas de trabajo de Log Analytics creadas después del *1 de junio de 2019*, podrán administrar reglas de alerta **únicamente** mediante la [API REST](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) Azure scheduledQueryRules, la [plantilla de Azure Resource Manager](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-azure-resource-template) y los [cmdlets de PowerShell](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-powershell). Los clientes pueden [cambiar fácilmente su forma preferida de administración de reglas de alertas](../../azure-monitor/platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api) para las áreas de trabajo más antiguas con el fin de aprovechar scheduledQueryRules de Azure Monitor como valor predeterminado y obtener muchas [nuevas ventajas](../../azure-monitor/platform/alerts-log-api-switch.md#benefits-of-switching-to-new-azure-api), por ejemplo, la posibilidad de usar cmdlets nativos de PowerShell, el aumento del período de retrospectiva, la creación de reglas en un grupo de recursos o una suscripción independientes y mucho más.
+> Como [se anunció anteriormente](https://azure.microsoft.com/updates/switch-api-preference-log-alerts/), las áreas de trabajo de Log Analytics creadas después del *1 de junio de 2019*, podrán administrar reglas de alerta **únicamente** mediante la [API REST](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) Azure scheduledQueryRules, la [plantilla de Azure Resource Manager](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-azure-resource-template) y los [cmdlets de PowerShell](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-powershell). Los clientes pueden [cambiar fácilmente su forma preferida de administración de reglas de alertas](../../azure-monitor/platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api) para que las áreas de trabajo anteriores aprovechen scheduledQueryRules de Azure Monitor como valor predeterminado y consigan muchas de las [nuevas ventajas](../../azure-monitor/platform/alerts-log-api-switch.md#benefits-of-switching-to-new-azure-api), como la posibilidad de usar cmdlets nativos de PowerShell, el aumento del período de retrospectiva en las reglas, la creación de reglas en un grupo de recursos o una suscripción independientes y mucho más.
 
 > [!NOTE]
 > Esta es la documentación preliminar para crear soluciones de administración que se encuentran actualmente en versión preliminar. Cualquier esquema descrito a continuación está sujeto a cambios.
@@ -28,8 +28,8 @@ Las [soluciones de administración](solutions.md) suelen incluir [búsquedas gua
 > [!NOTE]
 > En los ejemplos de este artículo se usan parámetros y variables que son necesarios o comunes para las soluciones de administración, y se describen en [Diseño y compilación de una solución de administración en Azure](solutions-creating.md).
 
-## <a name="prerequisites"></a>Requisitos previos
-En este artículo se supone que ya está familiarizado con la manera de [crear una solución de administración](solutions-creating.md) y la estructura de una [plantilla de Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) y un archivo de solución.
+## <a name="prerequisites"></a>Prerequisites
+En este artículo se supone que ya está familiarizado con la manera de [crear una solución de administración](solutions-creating.md) y la estructura de una [plantilla de Resource Manager](../../azure-resource-manager/templates/template-syntax.md) y un archivo de solución.
 
 
 ## <a name="log-analytics-workspace"></a>Área de trabajo de Log Analytics
@@ -71,11 +71,11 @@ Los recursos de [búsquedas guardadas de Log Analytics](../../azure-monitor/log-
 
 En la tabla siguiente se describe cada propiedad de una búsqueda guardada.
 
-| Propiedad | description |
+| Propiedad | Descripción |
 |:--- |:--- |
 | category | Categoría de la búsqueda guardada.  Las búsquedas guardadas en la misma solución comparten a menudo una única categoría por lo que están agrupadas juntas en la consola. |
 | displayname | Nombre para mostrar de la búsqueda guardada en el portal. |
-| query | La consulta que se ejecutará. |
+| Query | La consulta que se ejecutará. |
 
 > [!NOTE]
 > Puede que necesite utilizar caracteres de escape en la consulta si incluye caracteres que puedan interpretarse como JSON. Por ejemplo, si la consulta era **AzureActivity | OperationName:"Microsoft.Compute/virtualMachines/write"** , en el archivo de solución debe escribirse como **AzureActivity | OperationName:/\"Microsoft.Compute/virtualMachines/write\"** .
@@ -112,7 +112,7 @@ Una búsqueda guardada puede tener una o más programaciones y cada programació
     }
 En la tabla siguiente se describen las propiedades para los recursos de programación.
 
-| Nombre del elemento | Obligatorio | description |
+| Nombre del elemento | Obligatorio | Descripción |
 |:--|:--|:--|
 | enabled       | Sí | Especifica si la alerta está habilitada cuando se crea. |
 | interval      | Sí | Frecuencia con la que se ejecuta la consulta en minutos. |
@@ -164,17 +164,17 @@ Las acciones de alerta tienen la siguiente estructura. Aquí se incluyen las var
 
 En las tablas siguientes se describen las propiedades para los recursos de acción de alerta.
 
-| Nombre del elemento | Obligatorio | DESCRIPCIÓN |
+| Nombre del elemento | Obligatorio | Descripción |
 |:--|:--|:--|
 | `type` | Sí | Tipo de la acción.  Es **Alert** para las acciones de alerta. |
 | `name` | Sí | Nombre para mostrar de la alerta.  Es el nombre que se muestra en la consola para la regla de alerta. |
-| `description` | Sin | Descripción opcional de la alerta. |
+| `description` | No | Descripción opcional de la alerta. |
 | `severity` | Sí | Gravedad del registro de alertas según los siguientes valores:<br><br> **crítica**<br>**advertencia**<br>**informativa**
 
 #### <a name="threshold"></a>Umbral
 Esta sección es obligatoria. Define las propiedades para el umbral de alerta.
 
-| Nombre del elemento | Obligatorio | DESCRIPCIÓN |
+| Nombre del elemento | Obligatorio | Descripción |
 |:--|:--|:--|
 | `Operator` | Sí | Operador para la comparación según los valores siguientes:<br><br>**gt = mayor que<br>lt = menor que** |
 | `Value` | Sí | Valor para comparar los resultados. |
@@ -182,7 +182,7 @@ Esta sección es obligatoria. Define las propiedades para el umbral de alerta.
 ##### <a name="metricstrigger"></a>MetricsTrigger
 Esta sección es opcional. Inclúyala para una alerta de unidades métricas.
 
-| Nombre del elemento | Obligatorio | DESCRIPCIÓN |
+| Nombre del elemento | Obligatorio | Descripción |
 |:--|:--|:--|
 | `TriggerCondition` | Sí | Especifica si el umbral es para el número total de infracciones o para infracciones consecutivas con los siguientes valores:<br><br>**Total<br>Consecutive** (Total, Consecutivos) |
 | `Operator` | Sí | Operador para la comparación según los valores siguientes:<br><br>**gt = mayor que<br>lt = menor que** |
@@ -192,7 +192,7 @@ Esta sección es opcional. Inclúyala para una alerta de unidades métricas.
 #### <a name="throttling"></a>Limitaciones
 Esta sección es opcional. Incluya esta sección si desea suprimir alertas en la misma regla durante cierto tiempo después de crear una alerta.
 
-| Nombre del elemento | Obligatorio | description |
+| Nombre del elemento | Obligatorio | Descripción |
 |:--|:--|:--|
 | DurationInMinutes | Sí, si hay una limitación de elementos incluida | Número de minutos para suprimir alertas después de crear una en la misma regla de alerta. |
 
@@ -201,18 +201,18 @@ Todas las alertas de Azure usan el grupo de acciones como el mecanismo predeterm
 
 Para los usuarios que han extendido sus alertas a Azure, ahora una programación tendrá los detalles del grupo de acciones junto con el umbral, para así poder crear una alerta. Antes de crear una alerta, es necesario definir los detalles de correo electrónico, las direcciones URL de webhooks, los detalles de automatización de runbooks y otras acciones dentro de un grupo de acciones. Es posible crear un [grupo de acciones desde Azure Monitor](../../azure-monitor/platform/action-groups.md) en el portal o usar el [grupo de acciones: plantilla de recursos](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
 
-| Nombre del elemento | Obligatorio | description |
+| Nombre del elemento | Obligatorio | Descripción |
 |:--|:--|:--|
 | AzNsNotification | Sí | El identificador de recurso del grupo de acciones de Azure que se asociará con la alerta para realizar las acciones necesarias cuando se cumplan los criterios de alerta. |
-| CustomEmailSubject | Sin | Línea de asunto personalizada del correo enviado a todas las direcciones especificadas en el grupo de acciones asociado. |
-| CustomWebhookPayload | Sin | Carga personalizada para enviarse a todos los puntos de conexión de webhook definidos en el grupo de acciones asociadas. El formato depende de lo que espera el webhook y debe ser un valor JSON serializado válido. |
+| CustomEmailSubject | No | Línea de asunto personalizada del correo enviado a todas las direcciones especificadas en el grupo de acciones asociado. |
+| CustomWebhookPayload | No | Carga personalizada para enviarse a todos los puntos de conexión de webhook definidos en el grupo de acciones asociadas. El formato depende de lo que espera el webhook y debe ser un valor JSON serializado válido. |
 
 ## <a name="sample"></a>Muestra
 
 Aquí se muestra un ejemplo de una solución que incluye los siguientes recursos:
 
 - Búsqueda guardada
-- Schedule
+- Programación
 - Grupo de acciones
 
 En el ejemplo se utilizan variables de [parámetros de solución estándar]( solutions-solution-file.md#parameters) que se suelen utilizar en una solución en lugar de codificar valores en las definiciones de recursos.

@@ -8,12 +8,12 @@ author: bwren
 ms.author: bwren
 ms.date: 05/24/2017
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 63e09bacd1ce70f05f04798f092d3eb4b3e36ab5
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: d55af7354ea7d78263e55872e257a2814ebe4130
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555241"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75401817"
 ---
 # <a name="adding-azure-automation-resources-to-a-management-solution-preview"></a>Adición de recursos de Azure Automation a una solución de administración (versión preliminar)
 > [!NOTE]
@@ -26,12 +26,12 @@ Normalmente, las [soluciones de administración]( solutions.md) incluyen runbook
 > En los ejemplos de este artículo se usan parámetros y variables que son necesarios o comunes para las soluciones de administración, y se describen en [Diseño y compilación de una solución de administración en Azure]( solutions-creating.md). 
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 En este artículo se supone que ya está familiarizado con la información siguiente.
 
 - Cómo [crear una solución de administración]( solutions-creating.md).
 - La estructura de un [archivo de solución]( solutions-solution-file.md).
-- Cómo [crear plantillas de Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md)
+- Cómo [crear plantillas de Resource Manager](../../azure-resource-manager/templates/template-syntax.md)
 
 ## <a name="automation-account"></a>Cuenta de Automation
 Todos los recursos de Azure Automation están incluidos en una [cuenta de Automation](../../automation/automation-security-overview.md#automation-account-overview).  Tal como se describe en el [área de trabajo de Log Analytics y cuenta de Automation]( solutions.md#log-analytics-workspace-and-automation-account), la cuenta de Automation no se incluye en la solución de administración, pero debe existir antes de que se instale la solución.  Si no está disponible, se producirá un error en la instalación de la solución.
@@ -69,7 +69,7 @@ Los recursos de [runbook de Azure Automation](../../automation/automation-runboo
 
 En la tabla siguiente se describen las propiedades para los runbooks.
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 |:--- |:--- |
 | runbookType |Especifica los tipos del runbook. <br><br> Script: script de PowerShell <br>PowerShell: flujo de trabajo de PowerShell <br> GraphPowerShell: runbook de script de PowerShell gráfico <br> GraphPowerShellWorkflow: runbook de flujo de trabajo de PowerShell gráfico |
 | logProgress |Especifica si se deben generar [registros de progreso](../../automation/automation-runbook-output-and-messages.md) para el runbook. |
@@ -105,10 +105,10 @@ Los recursos de trabajo tienen un tipo de **Microsoft.Automation/automationAccou
 
 En la tabla siguiente se describen las propiedades para los trabajos de automatización.
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 |:--- |:--- |
 | runbook |Entidad name única con el nombre del runbook que se va a iniciar. |
-| parameters |Entidad de cada valor del parámetro que necesita el runbook. |
+| parámetros |Entidad de cada valor del parámetro que necesita el runbook. |
 
 El trabajo incluye el nombre del runbook y los valores de los parámetros que se deben enviar al runbook.  El trabajo debe [depender del]( solutions-solution-file.md#resources) runbook que se inicia, ya que el runbook debe crearse antes del trabajo.  Si tiene varios runbooks que deben iniciarse, puede definir su orden teniendo un trabajo dependiente de cualquier otro trabajo que deba ejecutarse primero.
 
@@ -136,7 +136,7 @@ Los [certificados de Azure Automation](../../automation/automation-certificates.
 
 En la tabla siguiente se describen las propiedades para los recursos de certificados.
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 |:--- |:--- |
 | base64Value |Valor Base 64 del certificado. |
 | thumbprint |Huella digital del certificado. |
@@ -163,7 +163,7 @@ Las [credenciales de Azure Automation](../../automation/automation-credentials.m
 
 En la tabla siguiente se describen las propiedades para los recursos de credenciales.
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 |:--- |:--- |
 | userName |Nombre de usuario de la credencial. |
 | password |Contraseña de la credencial. |
@@ -191,7 +191,7 @@ Las [programaciones de Azure Automation](../../automation/automation-schedules.m
 
 En la tabla siguiente se describen las propiedades para los recursos de programación.
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 |:--- |:--- |
 | description |Descripción opcional de la programación. |
 | startTime |Especifica la hora de inicio de una programación como un objeto DateTime. Se puede proporcionar una cadena si esta se puede convertir en un valor DateTime válido. |
@@ -207,7 +207,7 @@ Use una de las dos estrategias siguientes al usar recursos de programación en u
 - Cree las programaciones mediante un runbook que se inicie al instalarse la solución.  De este modo, ya no es necesario que el usuario especifique una hora, pero usted no puede contener la programación en su solución, por lo que se quitará al quitarse también la solución.
 
 
-### <a name="job-schedules"></a>Programaciones del trabajo
+### <a name="job-schedules"></a>Programación de trabajos
 Los recursos de programación de trabajo vinculan un runbook con una programación.  Tienen un tipo de **Microsoft.Automation/automationAccounts/jobSchedules** y tienen la estructura siguiente.  Aquí se incluyen las variables y los parámetros habituales para que pueda copiar y pegar este fragmento de código en su archivo de solución y cambiar los nombres de parámetro. 
 
     {
@@ -234,7 +234,7 @@ Los recursos de programación de trabajo vinculan un runbook con una programaci�
 
 En la tabla siguiente se describen las propiedades para las programaciones de trabajo.
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 |:--- |:--- |
 | schedule name |Entidad **name** única con el nombre de la programación. |
 | runbook name  |Entidad **name** única con el nombre del runbook.  |
@@ -261,7 +261,7 @@ Las [variables de Azure Automation](../../automation/automation-variables.md) ti
 
 En la tabla siguiente se describen las propiedades para los recursos de variables.
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 |:--- |:--- |
 | description | Descripción opcional de la variable. |
 | isEncrypted | Especifica si se debe cifrar la variable. |
@@ -273,10 +273,10 @@ En la tabla siguiente se describen las propiedades para los recursos de variable
 
 Si establece el valor inicial de la variable, este debe configurarse con el tipo de datos correcto.  La tabla siguiente muestra los tipos de datos permitidos y su sintaxis.  Tenga en cuenta que es previsible que los valores en formato JSON vayan siempre entre comillas, incluyendo todos los caracteres especiales.  Por ejemplo, un valor de cadena se especificaría con comillas alrededor de la cadena (mediante el carácter de escape [\\]) mientras que un valor numérico se especificaría con un conjunto de comillas.
 
-| Tipo de datos | DESCRIPCIÓN | Ejemplo | Se resuelve como |
+| Tipo de datos | Descripción | Ejemplo | Se resuelve como |
 |:--|:--|:--|:--|
 | string   | Incluya el valor entre comillas dobles.  | "\"Hello world\"" | "Hello world" |
-| numeric  | Valor numérico con comillas simples.| "64" | 64 |
+| NUMERIC  | Valor numérico con comillas simples.| "64" | 64 |
 | boolean  | **true** o **false** entre comillas.  Tenga en cuenta que este valor debe ir en minúsculas. | "true" | true |
 | datetime | Valor de fecha serializado.<br>Puede usar el cmdlet ConvertTo-Json de PowerShell para generar este valor para una fecha determinada.<br>Ejemplo: get-date "5/24/2017 13:14:57" \| ConvertTo-Json | "\\/Date(1495656897378)\\/" | 2017-05-24 13:14:57 |
 
@@ -301,7 +301,7 @@ Los [módulos de integración](../../automation/automation-integration-modules.m
 
 En la tabla siguiente se describen las propiedades para los recursos de módulos.
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 |:--- |:--- |
 | contentLink |Especifica el contenido del módulo. <br><br>uri: URI del contenido del módulo.  Será un archivo. ps1 para los runbooks de PowerShell y script, y un archivo de runbook gráfico exportado para un runbook gráfico.  <br> version: versión del módulo para su propio seguimiento. |
 

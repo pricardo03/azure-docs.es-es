@@ -2,20 +2,16 @@
 title: Administración de una máquina virtual de Azure con la recopilación de inventario | Microsoft Docs
 description: Administración de una máquina virtual con la recopilación de inventario
 services: automation
-ms.service: automation
 ms.subservice: change-inventory-management
 keywords: inventario, automatización, cambio, seguimiento
-author: jennyhunter-msft
-ms.author: jehunte
 ms.date: 02/06/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 59f36595e0b6cc8b9d9ea0669c9ecb5be1e74b42
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c5ac5cb1b1f02ea1e8b7eccb65fba978c99cc4f7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61304151"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75419826"
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>Administración de una máquina virtual de Azure con la recopilación de inventario
 
@@ -29,7 +25,7 @@ En este artículo se da por supuesto que tiene una máquina virtual activada par
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
-Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 ## <a name="enable-inventory-collection-from-the-virtual-machine-resource-page"></a>Habilitación de la recopilación de inventario desde la página de recursos de la máquina virtual
 
@@ -60,7 +56,7 @@ Las tablas siguientes proporcionan información sobre cada propiedad que se pued
 
 ### <a name="windows-registry"></a>Registro de Windows
 
-|Propiedad  |DESCRIPCIÓN  |
+|Propiedad  |Descripción  |
 |---------|---------|
 |habilitado     | Determina si se aplica la configuración        |
 |Nombre del elemento     | Nombre descriptivo del archivo cuyo seguimiento se va a realizar        |
@@ -69,23 +65,23 @@ Las tablas siguientes proporcionan información sobre cada propiedad que se pued
 
 ### <a name="windows-files"></a>Archivos de Windows
 
-|Propiedad  |DESCRIPCIÓN  |
+|Propiedad  |Descripción  |
 |---------|---------|
 |habilitado     | Determina si se aplica la configuración        |
 |Nombre del elemento     | Nombre descriptivo del archivo cuyo seguimiento se va a realizar        |
 |Grupo     | Un nombre de grupo para agrupar lógicamente los archivos        |
-|Indicar ruta de acceso     | La ruta de acceso para buscar el archivo, por ejemplo: "c:\temp\myfile.txt"
+|Escriba la ruta de acceso     | La ruta de acceso para buscar el archivo, por ejemplo: "c:\temp\myfile.txt"
 
 ### <a name="linux-files"></a>Archivos de Linux
 
-|Propiedad  |DESCRIPCIÓN  |
+|Propiedad  |Descripción  |
 |---------|---------|
 |habilitado     | Determina si se aplica la configuración        |
 |Nombre del elemento     | Nombre descriptivo del archivo cuyo seguimiento se va a realizar        |
 |Grupo     | Un nombre de grupo para agrupar lógicamente los archivos        |
-|Indicar ruta de acceso     | La ruta de acceso para buscar el archivo, por ejemplo: "/etc/*.conf"       |
+|Escriba la ruta de acceso     | La ruta de acceso para buscar el archivo, por ejemplo: "/etc/*.conf"       |
 |Tipo de ruta de acceso     | Tipo de elemento cuyo seguimiento se va a realizar; posibles valores son Archivo y Directorio        |
-|Recursión     | Determina si se usa recursividad al buscar el elemento cuyo seguimiento se va a realizar.        |
+|Recursividad     | Determina si se usa recursividad al buscar el elemento cuyo seguimiento se va a realizar.        |
 |Usar sudo     | Esta configuración determina si se va a utilizar sudo al buscar el elemento.         |
 |Vínculos     | Esta configuración determina cómo se tratan los vínculos simbólicos cuando se recorren directorios.<br> **Omitir**: ignora los vínculos simbólicos y no incluye los archivos y directorios de referencia.<br>**Seguir**: sigue los vínculos simbólicos durante la recursión y también incluye los archivos y directorios de referencia.<br>**Administrar**: sigue los vínculos simbólicos y permite modificar el tratamiento del contenido devuelto.      |
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 7616bcdaf2a2ae6f80b0c1e964f311ef5409a64f
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: b08a124ade6e2db8ca27ef61c7f5a6b3fe839885
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707112"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442772"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Orígenes de datos admitidos en Azure Analysis Services
 
@@ -24,13 +24,13 @@ Los orígenes de datos y los conectores que se muestran en Obtener datos o en el
 |---------|---------|---------|---------|
 |Azure SQL Database      |   Sí      |    Sí      |<sup>[2](#azprovider)</sup>, <sup>[3](#azsqlmanaged)</sup>|
 |Azure SQL Data Warehouse      |   Sí      |   Sí       |<sup>[2](#azprovider)</sup>|
-|Azure Blob Storage      |   Sí       |    Sin      | <sup>[1](#tab1400a)</sup> |
-|Azure Table Storage     |   Sí       |    Sin      | <sup>[1](#tab1400a)</sup>|
-|Azure Cosmos DB     |  Sí        |  Sin        |<sup>[1](#tab1400a)</sup> |
-|Azure Data Lake Store Gen1      |   Sí       |    Sin      |<sup>[1](#tab1400a)</sup> |
-|Azure Data Lake Store Gen2       |   Sí       |    Sin      |<sup>[1](#tab1400a)</sup>, <sup>[5](#gen2)</sup>|
-|Azure HDInsight HDFS    |     Sí     |   Sin       |<sup>[1](#tab1400a)</sup> |
-|Azure HDInsight Spark     |   Sí       |   Sin       |<sup>[1](#tab1400a)</sup>, <sup>[4](#databricks)</sup>|
+|Azure Blob Storage      |   Sí       |    No      | <sup>[1](#tab1400a)</sup> |
+|Azure Table Storage     |   Sí       |    No      | <sup>[1](#tab1400a)</sup>|
+|Azure Cosmos DB     |  Sí        |  No        |<sup>[1](#tab1400a)</sup> |
+|Azure Data Lake Store Gen1      |   Sí       |    No      |<sup>[1](#tab1400a)</sup> |
+|Azure Data Lake Store Gen2       |   Sí       |    No      |<sup>[1](#tab1400a)</sup>, <sup>[5](#gen2)</sup>|
+|Azure HDInsight HDFS    |     Sí     |   No       |<sup>[1](#tab1400a)</sup> |
+|Azure HDInsight Spark     |   Sí       |   No       |<sup>[1](#tab1400a)</sup>, <sup>[4](#databricks)</sup>|
 ||||
 
 **Notas:**    
@@ -44,35 +44,35 @@ Los orígenes de datos y los conectores que se muestran en Obtener datos o en el
 
 |Origen de datos | En memoria | DirectQuery |Notas   |
 |  --- | --- | --- | --- |
-|Base de datos de Access     |  Sí | Sin |  |
-|Active Directory     |  Sí | Sin | <sup>[6](#tab1400b)</sup>  |
-|Analysis Services     |  Sí | Sin |  |
-|Analytics Platform System     |  Sí | Sin |  |
-|Archivo CSV  |Sí | Sin |  |
-|Dynamics 365     |  Sí | Sin | <sup>[6](#tab1400b)</sup> |
-|Libro de Excel     |  Sí | Sin |  |
-|Exchange      |  Sí | Sin | <sup>[6](#tab1400b)</sup> |
-|Carpeta      |Sí | Sin | <sup>[6](#tab1400b)</sup> |
-|IBM Informix  |Sí | Sin |  |
-|Documento JSON      |  Sí | Sin | <sup>[6](#tab1400b)</sup> |
-|Líneas de archivo binario      | Sí | Sin | <sup>[6](#tab1400b)</sup> |
-|Base de datos MySQL     | Sí | Sin |  |
-|Fuente OData      |  Sí | Sin | <sup>[6](#tab1400b)</sup> |
-|Consulta ODBC     | Sí | Sin |  |
-|OLE DB     |   Sí | Sin |  |
+|Base de datos de Access     |  Sí | No |  |
+|Active Directory     |  Sí | No | <sup>[6](#tab1400b)</sup>  |
+|Analysis Services     |  Sí | No |  |
+|Sistema de la plataforma de análisis     |  Sí | No |  |
+|Archivo CSV  |Sí | No |  |
+|Dynamics 365     |  Sí | No | <sup>[6](#tab1400b)</sup> |
+|Libro de Excel     |  Sí | No |  |
+|Exchange      |  Sí | No | <sup>[6](#tab1400b)</sup> |
+|Carpeta      |Sí | No | <sup>[6](#tab1400b)</sup> |
+|IBM Informix  |Sí | No |  |
+|Documento JSON      |  Sí | No | <sup>[6](#tab1400b)</sup> |
+|Líneas de archivo binario      | Sí | No | <sup>[6](#tab1400b)</sup> |
+|Base de datos de MySQL     | Sí | No |  |
+|Fuente OData      |  Sí | No | <sup>[6](#tab1400b)</sup> |
+|Consulta ODBC     | Sí | No |  |
+|OLE DB     |   Sí | No |  |
 |Oracle  | Sí  |Sí  | <sup>[9](#oracle)</sup> |
-|Base de datos PostgreSQL   | Sí | Sin | <sup>[6](#tab1400b)</sup> |
-|Objetos de Salesforce|  Sí | Sin | <sup>[6](#tab1400b)</sup> |
-|Informes de Salesforce |Sí | Sin | <sup>[6](#tab1400b)</sup> |
-|SAP HANA     |  Sí | Sin |  |
-|SAP Business Warehouse    |  Sí | Sin | <sup>[6](#tab1400b)</sup> |
-|Lista de SharePoint      |   Sí | Sin | <sup>[6](#tab1400b)</sup>, <sup>[11](#filesSP)</sup> |
+|Base de datos de PostgreSQL   | Sí | No | <sup>[6](#tab1400b)</sup> |
+|Objetos de Salesforce|  Sí | No | <sup>[6](#tab1400b)</sup> |
+|Informes de Salesforce |Sí | No | <sup>[6](#tab1400b)</sup> |
+|SAP HANA     |  Sí | No |  |
+|SAP Business Warehouse    |  Sí | No | <sup>[6](#tab1400b)</sup> |
+|Lista de SharePoint      |   Sí | No | <sup>[6](#tab1400b)</sup>, <sup>[11](#filesSP)</sup> |
 |SQL Server |Sí   | Sí  | <sup>[7](#sqlim)</sup>, <sup>[8](#instgw)</sup> | 
 |SQL Server Data Warehouse |Sí   | Sí  | <sup>[7](#sqlim)</sup>, <sup>[8](#instgw)</sup> |
-|Base de datos de Sybase     |  Sí | Sin |  |
+|Base de datos de Sybase     |  Sí | No |  |
 |Teradata | Sí  | Sí  | <sup>[10](#teradata)</sup> |
-|Archivo TXT  |Sí | Sin |  |
-|Tabla XML    |  Sí | Sin | <sup>[6](#tab1400b)</sup> |
+|Archivo TXT  |Sí | No |  |
+|Tabla XML    |  Sí | No | <sup>[6](#tab1400b)</sup> |
 | | | |
 
 **Notas:**    
@@ -87,7 +87,7 @@ Para conectarse a los orígenes de datos locales desde un servidor de Azure Anal
 
 ## <a name="understanding-providers"></a>Descripción de los proveedores
 
-Cuando crea proyectos de modelos tabulares 1400 y superiores en Visual Studio, no se especifica un proveedor de datos de forma predeterminada al conectarse a un origen de datos mediante **Get Data**. Los modelos tabulares 1400 y posteriores usan conectores de [Power Query](/power-query/power-query-what-is-power-query.md) para administrar conexiones, consultas de datos y mashups entre el origen de datos y Analysis Services. A veces se hace referencia a ellos como conexiones de origen de datos *estructuradas* en los que la configuración de las propiedades de conexión se establece automáticamente. Sin embargo, puede habilitar orígenes de datos heredados. Cuando está habilitado, puede usar el **Asistente para la importación de tablas** para conectarse a ciertos orígenes de datos admitidos tradicionalmente en modelos tabulares 1200 y modelos inferiores como orígenes de datos *heredados* o del *proveedor*. Cuando se especifica como un origen de datos del proveedor, puede especificar un proveedor de datos determinado y otras propiedades de conexión avanzadas. Por ejemplo, puede conectarse a un almacenamiento de datos de SQL Server local o incluso a una instancia de Azure SQL Database como un origen de datos heredado. Después, puede seleccionar el proveedor de datos MSOLEDBSQL de OLE DB Driver for SQL Server. En este caso, la selección de un proveedor de datos de OLE DB puede proporcionar un rendimiento mejorado en el conector de Power Query. 
+Cuando crea proyectos de modelos tabulares 1400 y superiores en Visual Studio, no se especifica un proveedor de datos de forma predeterminada al conectarse a un origen de datos mediante **Get Data**. Los modelos tabulares 1400 y posteriores usan conectores de [Power Query](/power-query/power-query-what-is-power-query) para administrar conexiones, consultas de datos y mashups entre el origen de datos y Analysis Services. A veces se hace referencia a ellos como conexiones de origen de datos *estructuradas* en los que la configuración de las propiedades de conexión se establece automáticamente. Sin embargo, puede habilitar orígenes de datos heredados. Cuando está habilitado, puede usar el **Asistente para la importación de tablas** para conectarse a ciertos orígenes de datos admitidos tradicionalmente en modelos tabulares 1200 y modelos inferiores como orígenes de datos *heredados* o del *proveedor*. Cuando se especifica como un origen de datos del proveedor, puede especificar un proveedor de datos determinado y otras propiedades de conexión avanzadas. Por ejemplo, puede conectarse a un almacenamiento de datos de SQL Server local o incluso a una instancia de Azure SQL Database como un origen de datos heredado. Después, puede seleccionar el proveedor de datos MSOLEDBSQL de OLE DB Driver for SQL Server. En este caso, la selección de un proveedor de datos de OLE DB puede proporcionar un rendimiento mejorado en el conector de Power Query. 
 
 Cuando se usa el Asistente para la importación de tablas en Visual Studio, las conexiones a cualquier origen de datos requieren un proveedor de datos. Se selecciona un proveedor de datos predeterminado. Puede cambiarlo si es necesario. El tipo de proveedor que elija puede depender del rendimiento, de si el modelo usa el almacenamiento en memoria o DirectQuery, y de en qué plataforma de Analysis Services implementa el modelo.
 

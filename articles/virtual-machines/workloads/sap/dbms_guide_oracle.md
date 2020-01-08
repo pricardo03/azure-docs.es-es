@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 12/14/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b912743c758f33173b568944341fab4e815300ed
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: a23fb981e24f6152d99b76bd72115f8159f5d60f
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099983"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645851"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Implementación de DBMS de Azure Virtual Machines para la carga de trabajo de SAP
 
@@ -77,8 +77,8 @@ ms.locfileid: "70099983"
 [azure-ps]:/powershell/azureps-cmdlets-docs
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
 [azure-script-ps]:https://go.microsoft.com/fwlink/p/?LinkID=395017
-[azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
-[azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md#subscription-limits
+[azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits
 
 [dbms-guide]:dbms-guide.md 
 [dbms-guide-2.1]:dbms-guide.md#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f 
@@ -235,7 +235,7 @@ ms.locfileid: "70099983"
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f 
 
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
-[resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
+[resource-group-overview]:../../../azure-resource-manager/management/overview.md
 [resource-groups-networking]:../../../networking/networking-overview.md
 [sap-pam]:https://support.sap.com/pam 
 [sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
@@ -249,7 +249,7 @@ ms.locfileid: "70099983"
 [storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
 [storage-premium-storage-preview-portal]:../../windows/disks-types.md
 [storage-redundancy]:../../../storage/common/storage-redundancy.md
-[storage-scalability-targets]:../../../storage/common/storage-scalability-targets.md
+[storage-scalability-targets]:../../../storage/common/scalability-targets-standard-accounts.md
 [storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
 [template-201-vm-from-specialized-vhd]:https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd
 [templates-101-simple-windows-vm]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-windows-vm
@@ -326,7 +326,7 @@ Las siguientes notas de SAP están relacionadas con SAP en Azure.
 | [2178632] |Key Monitoring Metrics for SAP on Microsoft Azure (Métricas de supervisión clave para SAP en Microsoft Azure) |
 | [2191498] |SAP on Linux with Azure: Enhanced Monitoring (SAP en Linux con Azure: supervisión mejorada) |
 | [2039619] |SAP Applications on Microsoft Azure using the Oracle Database: Supported products and versions (Aplicaciones de SAP en Microsoft Azure con Base de datos de Oracle: versiones y productos compatibles) |
-| [2243692] |Linux on Microsoft Azure (IaaS) VM: SAP license issues (Linux en máquinas virtuales de Microsoft Azure (IaaS): problemas de licencia de SAP) |
+| [2243692] |Linux on Microsoft Azure (IaaS) VM: SAP license issues (Linux y máquinas virtuales de Microsoft Azure (IaaS): problemas de licencia de SAP) |
 | [2069760] |Instalación y actualización de SAP en Oracle Linux 7.x |
 | [1597355] |Recomendación de espacio de intercambio para Linux |
 | [2171857] |Oracle Database 12c - compatibilidad con sistema de archivos en Linux |
@@ -353,7 +353,7 @@ Si no hay espacio libre disponible suficiente, se puede [cambiar el tamaño](htt
 Para determinar la cantidad de espacio correcta para los archivos temporales, puede revisar el tamaño de los archivos temporales de los sistemas existentes.
 
 ### <a name="storage-configuration"></a>Configuración de almacenamiento
-Solo se admiten versiones de Oracle de solo una versión que usen discos con formato NTFS. Todos los archivos de la base de datos se deben almacenar en el sistema de archivos NTFS en discos VHD o Managed Disks (recomendado). Estos discos se montan en la máquina virtual de Azure y se basan en [Azure Page BLOB Storage](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) o [Azure Managed Disks](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview). 
+Solo se admiten versiones de Oracle de solo una versión que usen discos con formato NTFS. Todos los archivos de la base de datos se deben almacenar en el sistema de archivos NTFS en discos VHD o Managed Disks (recomendado). Estos discos se montan en la máquina virtual de Azure y se basan en [Azure Page BLOB Storage](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) o en [Azure Managed Disks](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview). 
 
 Se recomienda [Azure Managed Disks](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview). También se recomienda encarecidamente usar [discos SSD Premium](../../windows/disks-types.md) para las implementaciones de Oracle Database.
 
@@ -372,7 +372,7 @@ Para identificar los tipos de máquina virtual de Azure compatibles, consulte la
 
 La configuración mínima es la siguiente: 
 
-| Componente | Disco | Almacenamiento en caché | Bloque de almacenamiento |
+| Componente | Disco | Almacenamiento en memoria caché | Bloque de almacenamiento |
 | --- | ---| --- | --- |
 | \oracle\<SID>\origlogaA & mirrlogB | Premium | None | No es necesario |
 | \oracle\<SID>\origlogaB & mirrlogA | Premium | None | No es necesario |
@@ -385,7 +385,7 @@ La selección de discos para hospedar los registros de la fase de puesta al día
 
 La configuración de rendimiento es la siguiente:
 
-| Componente | Disco | Almacenamiento en caché | Bloque de almacenamiento |
+| Componente | Disco | Almacenamiento en memoria caché | Bloque de almacenamiento |
 | --- | ---| --- | --- |
 | \oracle\<SID>\origlogaA | Premium | None | Se puede usar  |
 | \oracle\<SID>\origlogaB | Premium | None | Se puede usar |
@@ -462,7 +462,7 @@ Para identificar los tipos de máquina virtual de Azure compatibles, consulte la
 
 Configuración mínima:
 
-| Componente | Disco | Almacenamiento en caché | Recorte* |
+| Componente | Disco | Almacenamiento en memoria caché | Recorte* |
 | --- | ---| --- | --- |
 | /oracle/\<SID>/origlogaA & mirrlogB | Premium | None | No es necesario |
 | /oracle/\<SID>/origlogaB & mirrlogA | Premium | None | No es necesario |
@@ -476,7 +476,7 @@ La selección de discos para hospedar los registros de la fase de puesta al día
 
 Configuración del rendimiento:
 
-| Componente | Disco | Almacenamiento en caché | Recorte* |
+| Componente | Disco | Almacenamiento en memoria caché | Recorte* |
 | --- | ---| --- | --- |
 | /oracle/\<SID>/origlogaA | Premium | None | Se puede usar  |
 | /oracle/\<SID>/origlogaB | Premium | None | Se puede usar |

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/28/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 4b2dcf8f156f231041d7636d103eea59816ec65f
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 09179ff0cf8275e96cb87e0c183eb4a384dcb37b
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74008439"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75564680"
 ---
 Es importante saber cómo y donde operan las máquinas virtuales (VM) en Azure, así como las opciones para maximizar el rendimiento, la disponibilidad y la redundancia. Este artículo proporciona una visión general de las características de disponibilidad y redundancia de Azure.
 
@@ -29,7 +29,7 @@ Azure tiene algunas regiones especiales que se pueden usar al crear las aplicaci
 * **Virginia Gob. EE. UU.** e **Iowa Gob. EE. UU.**
   * Una instancia física y lógica con aislamiento de red de Azure para asociados y agencias de la administración pública de EE. UU., operada por personal estadounidense seleccionado con rigor. Incluye certificaciones de cumplimiento adicionales como [FedRAMP](https://www.microsoft.com/en-us/TrustCenter/Compliance/FedRAMP) y [DISA](https://www.microsoft.com/en-us/TrustCenter/Compliance/DISA). Más información sobre [Azure Government](https://azure.microsoft.com/features/gov/).
 * **China (Este)** y **China (Norte)**
-  * Estas regiones están disponibles gracias a una exclusiva asociación entre Microsoft y 21Vianet, por el cual Microsoft no mantiene directamente los centros de datos. Obtenga más información sobre [Azure China 21Vianet](http://www.windowsazure.cn/).
+  * Estas regiones están disponibles gracias a una exclusiva asociación entre Microsoft y 21Vianet, por el cual Microsoft no mantiene directamente los centros de datos. Obtenga más información sobre [Azure China 21Vianet](https://www.windowsazure.cn/).
 * **Centro de Alemania** y **Noreste de Alemania**
   * Estas regiones están disponibles mediante un modelo de administrador de datos con el cual los datos del cliente permanecen en Alemania bajo el control de T-Systems, una empresa perteneciente a Deutsche Telekom que actúa como administrador de datos en Alemania.
 
@@ -74,8 +74,8 @@ La tabla siguiente proporciona una breve descripción de las diferencias entre l
 
 | Estrategia de replicación | LRS | ZRS | GRS | RA-GRS |
 |:--- |:--- |:--- |:--- |:--- |
-| Los datos se replican entre varias instalaciones |Sin |Sí |Sí |Sí |
-| Los datos se pueden leer tanto desde la ubicación secundaria como desde la ubicación principal. |Sin |No |No |Sí |
+| Los datos se replican entre varias instalaciones |No |Sí |Sí |Sí |
+| Los datos se pueden leer tanto desde la ubicación secundaria como desde la ubicación principal. |No |No |No |Sí |
 | Cantidad de copias de datos mantenidas en nodos independientes |3 |3 |6 |6 |
 
 Puede obtener más información sobre las [opciones de replicación de Azure Storage aquí](../articles/storage/common/storage-redundancy.md). Para más información acerca de los discos administrados, consulte [Azure Managed Disks overview](../articles/virtual-machines/windows/managed-disks-overview.md) (Introducción a los discos administrados de Azure).

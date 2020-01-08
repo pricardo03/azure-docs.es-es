@@ -3,18 +3,18 @@ title: 'Inicio rápido: Creación de un plano técnico en Azure Portal'
 description: En este inicio rápido, se usa Azure Blueprints para crear, definir e implementar artefactos mediante Azure Portal.
 ms.date: 11/21/2019
 ms.topic: quickstart
-ms.openlocfilehash: efef8db6086f050829b60b5051ad683bbae9ab75
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: fa9eb8285086e35f8b23798c41a09529d0f49582
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74321936"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436615"
 ---
 # <a name="quickstart-define-and-assign-a-blueprint-in-the-portal"></a>Inicio rápido: Definición y asignación de un plano técnico en Azure Portal
 
 Cuando aprenda a crear y asignar planos técnicos podrá definir patrones comunes para desarrollar configuraciones reutilizables y de implementación rápida basadas en plantillas de Azure Resource Manager, directivas, seguridad y mucho más. En este tutorial, aprenderá a usar planos técnicos de Azure Blueprints para realizar algunas de las tareas más comunes relacionadas con la creación, publicación y asignación de planos técnicos en toda la organización. Estas tareas incluyen:
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free) antes de empezar.
 
@@ -268,7 +268,9 @@ Ahora que el plano técnico se ha asignado a una suscripción, compruebe el prog
 
 1. En la página **Asignación de plano técnico**, asegúrese de que todos los artefactos se implementaron correctamente y que no ha habido ningún error durante el proceso. Si se han producido errores, consulte la [solución de problemas de planos técnicos](./troubleshoot/general.md) para conocer los pasos necesarios que le permitan determinar el motivo del error.
 
-## <a name="unassign-a-blueprint"></a>Cancelación de la asignación de un plano técnico
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+### <a name="unassign-a-blueprint"></a>Cancelación de la asignación de un plano técnico
 
 Si ya no necesita una asignación de plano técnico, puede eliminarla de una suscripción. Es posible que el plano técnico haya sido reemplazado por otro plano más reciente con patrones, directivas y diseños actualizados. Cuando se quita un plano técnico, se omiten los artefactos que se asignaron como parte de ese plano técnico. Para eliminar una asignación de plano técnico, siga estos pasos:
 
@@ -278,7 +280,7 @@ Si ya no necesita una asignación de plano técnico, puede eliminarla de una sus
 
 1. Lea el mensaje de confirmación y haga clic en **Aceptar**.
 
-## <a name="delete-a-blueprint"></a>Eliminación de un plano técnico
+### <a name="delete-a-blueprint"></a>Eliminación de un plano técnico
 
 1. Seleccione **Definiciones del plano técnico** en la página de la izquierda.
 

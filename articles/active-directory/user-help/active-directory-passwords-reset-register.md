@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/11/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9748c0d04f958648f7919b7ac29dc58d5a137ac
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: a6dddd13f31366e5a99d6c68ab82b048de4064b2
+ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279045"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75681368"
 ---
 # <a name="register-your-verification-method-info-to-reset-your-own-password"></a>Registre la información del método de comprobación para restablecer su propia contraseña
 
@@ -29,7 +29,7 @@ Como usuario final, puede restablecer su contraseña o desbloquear su cuenta con
 
 ## <a name="register-or-confirm-authentication-data-with-sspr"></a>Registro o confirmación de los datos de autenticación con SSPR
 
-1. Abra el explorador web en el dispositivo y vaya a la [página de registro en el restablecimiento de contraseña](https://aka.ms/ssprsetup).
+1. Abra el explorador web en el dispositivo y vaya a la [página de registro en el restablecimiento de contraseña](https://account.activedirectory.windowsazure.com/PasswordReset/Register.aspx?regref=ssprsetup).
 2. Escriba el nombre de usuario y la contraseña proporcionados por el administrador.
 3. Según el modo en que el personal de TI haya realizado la configuración, una o varias de las opciones siguientes estarán a su disposición para que lleve a cabo la configuración y la verificación. Si el administrador tiene permiso para usar su información, puede rellenar una parte en su lugar.
     * **Teléfono del trabajo**: Solo el administrador puede establecer esta opción.

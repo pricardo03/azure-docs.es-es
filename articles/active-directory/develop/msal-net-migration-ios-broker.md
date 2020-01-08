@@ -1,5 +1,5 @@
 ---
-title: Migración de ADAL de Xamarin iOS a MSAL.NET
+title: Migración de aplicaciones de Xamarin mediante agentes a MSAL.NET
 titleSuffix: Microsoft identity platform
 description: Aprenda a migrar aplicaciones de Xamarin iOS que usan Microsoft Authenticator de ADAL.NET a MSAL.NET.
 author: jmprieur
@@ -13,12 +13,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e70865c897e408f1cebb7359d0890d27b11243b
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: c830b7f6d13d9b85eae34b6193ad2a10e7bfb410
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74921820"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424213"
 ---
 # <a name="migrate-ios-applications-that-use-microsoft-authenticator-from-adalnet-to-msalnet"></a>Migración de aplicaciones de iOS que usan Microsoft Authenticator de ADAL.NET a MSAL.NET
 
@@ -26,10 +26,10 @@ Ha estado usando la biblioteca de autenticación de Azure Active Directory par
 
 ¿Por dónde debe empezar? Este artículo le ayuda a migrar la aplicación de Xamarin iOS de ADAL a MSAL.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 En este documento se supone que ya tiene una aplicación de Xamarin iOS que se integra con el agente de iOS. Si no es así, pase directamente a MSAL.NET y comience ahí la implementación del agente. Para información sobre cómo invocar el agente de iOS en MSAL.net con una nueva aplicación, consulte [esta documentación](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Leveraging-the-broker-on-iOS#why-use-brokers-on-xamarinios-and-xamarinandroid-applications).
 
-## <a name="background"></a>Fondo
+## <a name="background"></a>Información previa
 
 ### <a name="what-are-brokers"></a>¿Qué son los agentes?
 
@@ -52,14 +52,14 @@ En ADAL.NET, la compatibilidad con el agente se habilitaba en cada contexto de a
 
 `useBroker` en true en el constructor `PlatformParameters` para llamar al agente:
 
-```CSharp
+```csharp
 public PlatformParameters(
         UIViewController callerViewController, 
         bool useBroker)
 ```
 Además, en el código específico de la plataforma de este ejemplo, en el representador de páginas para iOS, establezca el valor de la marca `useBroker` 
 en true:
-```CSharp
+```csharp
 page.BrokerParameters = new PlatformParameters(
           this, 
           true, 
@@ -67,7 +67,7 @@ page.BrokerParameters = new PlatformParameters(
 ```
 
 A continuación, incluya los parámetros en la llamada de adquisición de token:
-```CSharp
+```csharp
  AuthenticationResult result =
                     await
                         AuthContext.AcquireTokenAsync(
@@ -83,7 +83,7 @@ En MSAL.NET, la compatibilidad con el agente se habilita según el elemento Publ
 
 parámetro `WithBroker()` (establecido en true de manera predeterminada) para llamar al agente:
 
-```CSharp
+```csharp
 var app = PublicClientApplicationBuilder
                 .Create(ClientId)
                 .WithBroker()
@@ -91,7 +91,7 @@ var app = PublicClientApplicationBuilder
                 .Build();
 ```
 En la llamada al token de adquisición:
-```CSharp
+```csharp
 result = await app.AcquireTokenInteractive(scopes)
              .WithParentActivityOrWindow(App.RootViewController)
              .ExecuteAsync();
@@ -107,7 +107,7 @@ Se pasaba UIViewController a
 
 `PlatformParameters` en la plataforma específica de iOS.
 
-```CSharp
+```csharp
 page.BrokerParameters = new PlatformParameters(
           this, 
           true, 
@@ -122,16 +122,16 @@ En MSAL.NET, deberá hacer dos cosas para establecer la ventana de objeto para i
 **Por ejemplo:**
 
 En `App.cs`:
-```CSharp
+```csharp
    public static object RootViewController { get; set; }
 ```
 En `AppDelegate.cs`:
-```CSharp
+```csharp
    LoadApplication(new App());
    App.RootViewController = new UIViewController();
 ```
 En la llamada al token de adquisición:
-```CSharp
+```csharp
 result = await app.AcquireTokenInteractive(scopes)
              .WithParentActivityOrWindow(App.RootViewController)
              .ExecuteAsync();
@@ -140,7 +140,7 @@ result = await app.AcquireTokenInteractive(scopes)
 </table>
 
 ### <a name="step-3-update-appdelegate-to-handle-the-callback"></a>Paso 3: Actualizar AppDelegate para controlar la devolución de llamada
-Tanto ADAL como MSAL llaman al agente y, el agente, a su vez, devuelve la llamada a la aplicación con el método `OpenUrl` de la clase `AppDelegate`. Para obtener más información, consulte [esta documentación](msal-net-use-brokers-with-xamarin-apps.md#step-2-update-appdelegate-to-handle-the-callback).
+Tanto ADAL como MSAL llaman al agente y, el agente, a su vez, devuelve la llamada a la aplicación con el método `OpenUrl` de la clase `AppDelegate`. Para obtener más información, consulte [esta documentación](msal-net-use-brokers-with-xamarin-apps.md#step-3-update-appdelegate-to-handle-the-callback).
 
 No hay ningún cambio aquí entre ADAL.NET y MSAL.NET.
 
@@ -162,7 +162,7 @@ como prefijo, seguido del `CFBundleURLName`.
 
 Por ejemplo: `$"msauth.(BundleId")`
 
-```CSharp
+```csharp
  <key>CFBundleURLTypes</key>
     <array>
       <dict>
@@ -195,7 +195,7 @@ Usos
 `msauth`
 
 
-```CSharp
+```csharp
 <key>LSApplicationQueriesSchemes</key>
 <array>
      <string>msauth</string>
@@ -207,10 +207,11 @@ Usos
 `msauthv2`
 
 
-```CSharp
+```csharp
 <key>LSApplicationQueriesSchemes</key>
 <array>
      <string>msauthv2</string>
+     <string>msauthv3</string>
 </array>
 ```
 </table>
@@ -237,7 +238,7 @@ Ejemplo:
 
 </table>
 
-Para más información sobre cómo registrar el URI de redirección en el portal, consulte [Uso del agente en las aplicaciones de Xamarin.iOS](msal-net-use-brokers-with-xamarin-apps.md#step-7-make-sure-the-redirect-uri-is-registered-with-your-app).
+Para más información sobre cómo registrar el URI de redirección en el portal, consulte [Uso del agente en las aplicaciones de Xamarin.iOS](msal-net-use-brokers-with-xamarin-apps.md#step-8-make-sure-the-redirect-uri-is-registered-with-your-app).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

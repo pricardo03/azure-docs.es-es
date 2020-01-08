@@ -2,19 +2,15 @@
 title: Integración del control de código fuente en Azure Automation
 description: En este artículo se describe la integración del control de código fuente con GitHub en Azure Automation.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 12/10/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 4e5e0135e4ab56d319c78b7daeab9dd2e9d101f9
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 837ebd71886e9435a44080b06c079623c3936c69
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74996517"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75417064"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Integración del control de código fuente en Azure Automation
 
@@ -45,7 +41,7 @@ Elija **Tipo de control de código fuente** y haga clic en **Autenticar**. Se ab
 
 En la página **Resumen del control de código fuente**, rellene la información y haga clic en **Guardar**. En la tabla siguiente se proporciona breve descripción de los campos disponibles.
 
-|Propiedad  |DESCRIPCIÓN  |
+|Propiedad  |Descripción  |
 |---------|---------|
 |Nombre del control de código fuente     | Nombre descriptivo del control de código fuente. *Este nombre solo puede contener letras y números.*        |
 |Tipo de control de código fuente     | Tipo del control de código fuente. Las opciones disponibles son la siguientes:</br> GitHub</br>Azure Repos (Git)</br> Azure Repos (TFVC)        |
@@ -54,7 +50,7 @@ En la página **Resumen del control de código fuente**, rellene la información
 |Ruta de acceso a la carpeta     | Carpeta que contiene los runbooks que se van a sincronizar. Ejemplo: /Runbooks </br>*Solo se sincronizan los de la carpeta especificada. No se admite la recursión.*        |
 |Sincronización automática<sup>1</sup>     | Activa o desactiva la sincronización automática cuando se realiza una confirmación en el repositorio de control de código fuente.         |
 |Publicar runbook     | Si se establece en **Activado**, una vez que los runbooks se sincronizan desde el control de código fuente, se publican automáticamente.         |
-|DESCRIPCIÓN     | Campo de texto para proporcionar detalles adicionales.        |
+|Descripción     | Campo de texto para proporcionar detalles adicionales.        |
 
 <sup>1</sup> Para habilitar la sincronización automática al configurar la integración del control de código fuente con Azure Repos, debe ser un administrador del proyecto.
 
@@ -93,7 +89,7 @@ El control de código fuente requiere algunos permisos mínimos para los tokens 
 
 Para más información sobre cómo crear un token de acceso personal en GitHub, visite [Creating a personal access token for the command line](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/) (Creación de un token de acceso personal para la línea de comandos).
 
-|Ámbito  |DESCRIPCIÓN  |
+|Ámbito  |Descripción  |
 |---------|---------|
 |**repo**     |         |
 |repo:status     | Acceder al estado de confirmación         |

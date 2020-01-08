@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 5/03/2019
 ms.author: alkarche
 ms.reviewer: glenga
-ms.openlocfilehash: 12815d3ca0136cec8af294118ff192a4f31df6a0
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 0c70c69f547405eb8ebdcf6dcc6ae597db151e53
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227094"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433209"
 ---
 # <a name="tutorial-integrate-functions-with-an-azure-virtual-network"></a>Tutorial: integración de Functions con una red virtual de Azure
 
@@ -32,7 +32,7 @@ El siguiente diagrama muestra la arquitectura de la solución que se ha creado:
 
 La ejecución de Functions en el plan Premium tiene las mismas capacidades de hospedaje que las aplicaciones web en Azure App Service, que incluye la característica de integración de red virtual. Para obtener más información sobre la integración de red virtual, incluida la solución de problemas y la configuración avanzada, vea [Integración de su aplicación con una red virtual de Azure](../app-service/web-sites-integrate-with-vnet.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 En este tutorial, es importante que comprenda el direccionamiento IP y las subredes. Puede empezar con [este artículo que trata los aspectos básicos del direccionamiento y las subredes](https://support.microsoft.com/help/164015/understanding-tcp-ip-addressing-and-subnetting-basics). Hay muchos más artículos y vídeos disponibles en línea.
 
@@ -58,10 +58,10 @@ Luego, cree una máquina virtual preconfigurada que ejecute WordPress en una red
 
     ![Pestaña Básico para crear una máquina virtual](./media/functions-create-vnet/create-vm-1.png)
 
-    | Configuración      | Valor sugerido  | DESCRIPCIÓN      |
+    | Configuración      | Valor sugerido  | Descripción      |
     | ------------ | ---------------- | ---------------- |
     | **Suscripción** | Su suscripción | Suscripción en la que se han creado los recursos. | 
-    | **[Grupo de recursos](../azure-resource-manager/resource-group-overview.md)**  | myResourceGroup | Elija `myResourceGroup` o el grupo de recursos que ha creado con la aplicación de funciones. Con el uso del mismo grupo de recursos para la aplicación de funciones, la máquina virtual de WordPress y el plan de hospedaje, resulta más sencillo limpiar los recursos cuando haya acabado este tutorial. |
+    | **[Grupo de recursos](../azure-resource-manager/management/overview.md)**  | myResourceGroup | Elija `myResourceGroup` o el grupo de recursos que ha creado con la aplicación de funciones. Con el uso del mismo grupo de recursos para la aplicación de funciones, la máquina virtual de WordPress y el plan de hospedaje, resulta más sencillo limpiar los recursos cuando haya acabado este tutorial. |
     | **Nombre de la máquina virtual** | Wordpress de red virtual | El nombre de la máquina virtual debe ser único en el grupo de recursos |
     | **[Región](https://azure.microsoft.com/regions/)** | (Europa) Oeste de Europa | Elija una región cerca de usted o cerca de las funciones que tienen acceso a la máquina virtual. |
     | **Tamaño** | B1s | Elija **Cambiar tamaño** y luego seleccione la imagen estándar B1s, que tiene 1 vCPU y 1 GB de memoria. |
@@ -116,7 +116,7 @@ Gracias a un sitio de WordPress que se ejecuta en una máquina virtual en una re
 
     ![Definición de la red virtual de la aplicación de funciones](./media/functions-create-vnet/networking-3.png)
 
-    | Configuración      | Valor sugerido  | DESCRIPCIÓN      |
+    | Configuración      | Valor sugerido  | Descripción      |
     | ------------ | ---------------- | ---------------- |
     | **Virtual Network** | MyResourceGroup-vnet | Esta red virtual es la que se ha creado anteriormente. |
     | **Subred** | Creación de una subred nueva | Cree una subred en la red virtual para aplicación de funciones que se va a usar. La integración de red virtual se debe configurar para usar una subred vacía. No importa que las funciones usen una subred diferente a la máquina virtual. La red virtual enruta automáticamente el tráfico entre las dos subredes. |
