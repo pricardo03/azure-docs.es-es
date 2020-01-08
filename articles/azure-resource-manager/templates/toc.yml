@@ -1,0 +1,261 @@
+- name: Documentación sobre plantillas de Azure Resource Manager
+  href: index.yml
+- name: Información general
+  items:
+    - name: ¿Qué son las plantillas de Azure Resource Manager?
+      href: overview.md
+- name: Guías de inicio rápido
+  items:
+    - name: 'Creación de plantillas: portal'
+      href: quickstart-create-templates-use-the-portal.md
+    - name: 'Creación de plantillas: VS Code'
+      href: quickstart-create-templates-use-visual-studio-code.md
+    - name: 'Creación de plantillas: Visual Studio'
+      href: create-visual-studio-deployment-project.md
+    - name: 'Creación de plantillas: IntelliJ IDEA'
+      href: create-templates-use-intellij.md
+- name: Tutoriales
+  items:
+    - name: Principiante
+      items:
+        - name: '1: creación de la primera plantilla'
+          href: template-tutorial-create-first-template.md
+        - name: '2: incorporación de un recurso'
+          href: template-tutorial-add-resource.md
+        - name: '3: incorporación de parámetros'
+          href: template-tutorial-add-parameters.md
+        - name: '4: incorporación de funciones de plantillas'
+          href: template-tutorial-add-functions.md
+        - name: '5: incorporación de variables'
+          href: template-tutorial-add-variables.md
+        - name: '6: incorporación de salidas'
+          href: template-tutorial-add-outputs.md
+        - name: '7: uso de una plantilla exportada'
+          href: template-tutorial-export-template.md
+        - name: '8: uso de una plantilla de inicio rápido'
+          href: template-tutorial-quickstart-template.md
+        - name: '9: incorporación de etiquetas'
+          href: template-tutorial-add-tags.md
+        - name: '10: uso de un archivo de parámetros'
+          href: template-tutorial-use-parameter-file.md
+    - name: Avanzado
+      items:
+        - name: Utilización de la referencia de la plantilla
+          href: template-tutorial-create-encrypted-storage-accounts.md
+        - name: Creación de varias instancias
+          displayName: 'iteration,copy'
+          href: template-tutorial-create-multiple-instances.md
+        - name: Establecimiento del orden de implementación de los recursos
+          displayName: 'dependent resources, dependency'
+          href: template-tutorial-create-templates-with-dependent-resources.md
+        - name: Condiciones de uso
+          href: template-tutorial-use-conditions.md
+        - name: Integración de Key Vault
+          displayName: secrets
+          href: template-tutorial-use-key-vault.md
+        - name: Creación de plantillas vinculadas
+          href: template-tutorial-create-linked-templates.md
+        - name: Implementación de extensiones de máquina virtual
+          displayName: virtual machine extensions
+          href: template-tutorial-deploy-vm-extensions.md
+        - name: Implementación de extensiones de SQL
+          href: template-tutorial-deploy-sql-extensions-bacpac.md
+        - name: Protección de artefactos
+          href: template-tutorial-secure-artifacts.md
+        - name: Integración continua con Azure Pipelines
+          displayName: DevOps
+          href: template-tutorial-use-azure-pipelines.md
+        - name: Actualización de un script de implementación de VS a Az PowerShell
+          href: update-visual-studio-deployment-script.md
+        - name: Uso de procedimientos de implementación seguros
+          displayName: adm
+          href: deployment-manager-tutorial.md
+        - name: Uso de la comprobación de estado en el Administrador de implementaciones
+          displayName: adm
+          href: deployment-manager-tutorial-health-check.md
+        - name: Solución de problemas de las implementaciones de plantillas
+          href: template-tutorial-troubleshoot.md
+- name: Ejemplos
+  items:
+    - name: Plantillas de inicio rápido de Azure
+      href: 'https://azure.microsoft.com/resources/templates/'
+    - name: Ejemplos de plantillas
+      href: template-samples.md
+- name: Conceptos
+  items:
+    - name: Procedimientos recomendados para plantillas
+      href: template-best-practices.md
+    - name: Plantillas para mantener la coherencia en la nube
+      href: templates-cloud-consistency.md
+    - name: Modos de implementación
+      href: deployment-modes.md
+    - name: Administrador de implementaciones
+      items:
+        - name: Información general
+          displayName: 'adm, deployment manager'
+          href: deployment-manager-overview.md
+        - name: Comprobación de estado
+          displayName: 'adm, deployment manager'
+          href: deployment-manager-health-check.md
+- name: Procedimientos
+  items:
+    - name: Crear plantillas
+      items:
+        - name: Uso de VS Code
+          href: use-vs-code-to-create-template.md
+        - name: Escritura de expresiones de plantilla
+          href: template-expressions.md
+        - name: Parámetros
+          href: template-parameters.md
+        - name: variables
+          href: template-variables.md
+        - name: Funciones definidas por el usuario
+          href: template-user-defined-functions.md
+        - name: Recursos
+          items:
+            - name: Nombre y tipo del recurso secundario
+              href: child-resource-name-type.md
+            - name: Implementación condicional
+              href: conditional-resource-deployment.md
+            - name: Establecimiento de dependencias de recursos
+              href: define-resource-dependency.md
+            - name: Establecimiento de la ubicación del recurso
+              href: resource-location.md
+            - name: Uso de extensiones de plantilla
+              href: add-resource-extensions.md
+        - name: Salidas
+          href: template-outputs.md
+        - name: Modularización de plantillas
+          displayName: 'linked templates, nested templates'
+          href: linked-templates.md
+        - name: Creación de varias instancias
+          href: create-multiple-instances.md
+        - name: Recursos de nivel de suscripción
+          href: deploy-to-subscription.md
+        - name: Recursos del nivel de grupo de administración
+          href: deploy-to-management-group.md
+    - name: Implementación de plantillas
+      items:
+        - name: 'Implementación: Portal'
+          displayName: deployment
+          href: deploy-portal.md
+        - name: 'Implementación: CLI'
+          displayName: deployment
+          href: deploy-cli.md
+        - name: 'Implementación: PowerShell'
+          displayName: deployment
+          href: deploy-powershell.md
+        - name: 'Implementación: API REST'
+          displayName: deployment
+          href: deploy-rest.md
+        - name: Implementación de tipo "y si"
+          href: template-deploy-what-if.md
+        - name: Nueva implementación si se produce un error
+          displayName: rollback
+          href: rollback-on-error.md
+        - name: Protección de plantillas con un token de SAS
+          href: secure-template-with-sas-token.md
+        - name: Implementación en varios grupos de recursos o suscripciones
+          href: cross-resource-group-deployment.md
+    - name: Suministro de parámetros
+      items:
+        - name: Creación de archivo de parámetros
+          href: parameter-files.md
+        - name: Paso de valores confidenciales
+          displayname: key vault
+          href: key-vault-parameter.md
+    - name: CI/CD
+      items:
+        - name: Proyecto de VS con canalizaciones
+          href: add-template-to-azure-pipelines.md
+    - name: Exportación de la plantilla
+      href: export-template-portal.md
+    - name: Visualización del historial de implementaciones
+      href: deployment-history.md
+    - name: Solución de problemas de implementaciones
+      items:
+        - name: Solución de errores de implementación
+          href: common-deployment-errors.md
+        - name: AccountNameInvalid
+          href: error-storage-account-name.md
+        - name: DeploymentQuotaExceeded
+          href: deployment-quota-exceeded.md
+        - name: InvalidTemplate
+          href: error-invalid-template.md
+        - name: Problemas de implementación de Linux
+          href: ../../virtual-machines/linux/troubleshoot-deploy-vm.md
+        - name: NoRegisteredProviderFound
+          href: error-register-resource-provider.md
+        - name: NotFound
+          href: error-not-found.md
+        - name: ParentResourceNotFound
+          href: error-parent-resource.md
+        - name: Problemas de aprovisionamiento y asignación de Linux
+          href: ../../virtual-machines/linux/troubleshoot-deployment-new-vm.md
+        - name: Problemas de aprovisionamiento y asignación de Windows
+          href: ../../virtual-machines/windows/troubleshoot-deployment-new-vm.md
+        - name: RequestDisallowedByPolicy
+          href: error-policy-requestdisallowedbypolicy.md
+        - name: ReservedResourceName
+          href: error-reserved-resource-name.md
+        - name: ResourceQuotaExceeded
+          href: error-resource-quota.md
+        - name: SkuNotAvailable
+          href: error-sku-not-available.md
+        - name: Problemas de implementación de Windows
+          href: ../../virtual-machines/windows/troubleshoot-deploy-vm.md
+- name: Referencia
+  items:
+    - name: Estructura de archivos de plantilla
+      displayName: 'parameters,variables,resources,outputs,condition'
+      href: template-syntax.md
+    - name: Referencia de plantilla
+      href: /azure/templates/
+    - name: Funciones de plantillas
+      items:
+        - name: Todas las funciones
+          href: template-functions.md
+        - name: Funciones de matriz y objeto
+          href: template-functions-array.md
+        - name: Funciones de comparación
+          href: template-functions-comparison.md
+        - name: Funciones de implementación
+          href: template-functions-deployment.md
+        - name: Funciones lógicas
+          href: template-functions-logical.md
+        - name: Funciones numéricas
+          href: template-functions-numeric.md
+        - name: Funciones de recursos
+          href: template-functions-resource.md
+        - name: Funciones de cadena
+          href: template-functions-string.md
+    - name: Funcionalidades de los recursos
+      items:
+        - name: Eliminación del modo completo
+          href: complete-mode-deletion.md
+        - name: Tipos de recursos de extensión
+          href: extension-resource-types.md
+    - name: REST
+      href: /rest/api/resources/
+    - name: Azure PowerShell
+      href: /powershell/module/az.resources
+    - name: Azure CLI
+      href: /cli/azure/resource
+    - name: .NET
+      href: /dotnet/api/microsoft.azure.management.resourcemanager
+    - name: Java
+      href: /java/api/com.microsoft.azure.management.resources
+    - name: Python
+      href: /python/api/overview/azure/resources?view=azure-python
+- name: Recursos
+  items:
+    - name: Azure Roadmap
+      href: 'https://azure.microsoft.com/roadmap/?category=monitoring-management'
+    - name: Calculadora de precios
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Actualizaciones del servicio
+      href: 'https://azure.microsoft.com/updates/?product=azure-resource-manager'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-resource-manager'
+    - name: Vídeos
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager'

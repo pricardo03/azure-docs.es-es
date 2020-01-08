@@ -1,5 +1,5 @@
 ---
-title: Uso de la CLI de Azure con Azure Storage | Microsoft Docs
+title: Uso de la CLI de Azure con Azure Storage
 description: Aprenda a usar la interfaz de línea de comandos (CLI de Azure) de Azure con Azure Storage para crear y administrar cuentas de almacenamiento y trabajar con archivos y blobs de Azure.
 services: storage
 author: tamram
@@ -10,12 +10,12 @@ ms.date: 06/02/2017
 ms.author: tamram
 ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: 46ae70bf4f1c2fe0276a3327ff37650dd57341d0
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: f8e745b214ced865ac41d72bdfd5e44ca36b803a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70259383"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460456"
 ---
 # <a name="using-the-azure-cli-with-azure-storage"></a>Uso de la CLI de Azure con Azure Storage
 
@@ -29,7 +29,7 @@ Los ejemplos de la guía se basan en el shell Bash en Ubuntu, pero el resto de l
 
 [!INCLUDE [storage-cli-versions](../../../includes/storage-cli-versions.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 En esta guía se supone que conoce los conceptos básicos de Azure Storage. También se da por sentado que puede cumplir los requisitos para la creación de cuentas que se especifican a continuación en Azure y el servicio Almacenamiento.
 
 ### <a name="accounts"></a>Cuentas
@@ -350,7 +350,7 @@ Un recurso compartido de archivos de Azure es un recurso compartido de archivos 
 az storage share create --name myshare
 ```
 
-### <a name="create-a-directory"></a>Creación de directorios
+### <a name="create-a-directory"></a>Creación de un directorio
 Un directorio proporciona una estructura jerárquica para los recursos compartidos de archivos de Azure. En el ejemplo siguiente se crea el directorio **myDir** en el recurso compartido de archivos.
 
 ```azurecli

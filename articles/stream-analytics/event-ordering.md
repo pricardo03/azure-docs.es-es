@@ -1,19 +1,18 @@
 ---
 title: Configuración de las directivas de ordenación de eventos para Azure Stream Analytics
 description: En este artículo se describe cómo establecer la configuración del orden de los eventos en Stream Analytics.
-services: stream-analytics
 author: sidram
 ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/12/2019
-ms.openlocfilehash: 47a8ee2c03e67d4fd9b34888430ed0cc702205f6
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: c0a108565a6a0f62c6252113f984e8b10967c5db
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67273179"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75461198"
 ---
 # <a name="configuring-event-ordering-policies-for-azure-stream-analytics"></a>Configuración de las directivas de ordenación de eventos para Azure Stream Analytics
 

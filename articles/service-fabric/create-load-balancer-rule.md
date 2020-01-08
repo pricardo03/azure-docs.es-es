@@ -1,24 +1,14 @@
 ---
 title: Creación de una regla de Azure Load Balancer para un clúster
 description: Configure una instancia de Azure Load Balancer para abrir puertos para el clúster de Azure Service Fabric.
-services: service-fabric
-documentationcenter: na
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 12/06/2017
-ms.author: atsenthi
-ms.openlocfilehash: 2e730ae8ecf6f1fab12aff23cab0ac3aa246233a
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 5cc392a74b8cf5ef92be8b5783b5b70289e602af
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70173358"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351481"
 ---
 # <a name="open-ports-for-a-service-fabric-cluster"></a>Abrir puertos para un clúster de Service Fabric
 
@@ -44,7 +34,7 @@ Para crear una regla de equilibrador de carga, debe recopilar la información si
 - Puerto externo.
 - Puerto interno.
 
-## <a name="azure-cli"></a>CLI de Azure
+## <a name="azure-cli"></a>Azure CLI
 Solo hace falta un comando para crear una regla de equilibrador de carga con la **CLI de Azure**. Tiene que saber el nombre del grupo de recursos y del equilibrador de carga para crear una regla.
 
 >[!NOTE]
@@ -60,7 +50,7 @@ az network lb rule create --backend-port 40000 --frontend-port 39999 --protocol 
 
 El comando de la CLI de Azure tiene unos parámetros que se describen en la tabla siguiente:
 
-| Parámetro | DESCRIPCIÓN |
+| Parámetro | Descripción |
 | --------- | ----------- |
 | `--backend-port`  | El puerto en que escucha la aplicación de Service Fabric. |
 | `--frontend-port` | El puerto que expone el equilibrador de carga para las conexiones externas. |

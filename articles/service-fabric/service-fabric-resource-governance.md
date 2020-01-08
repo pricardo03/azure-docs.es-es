@@ -1,27 +1,16 @@
 ---
-title: Gobernanza de recursos de Azure Service Fabric para contenedores y servicios | Microsoft Docs
+title: Gobernanza de recursos para contenedores y servicios
 description: Azure Service Fabric permite especificar los límites de recursos de servicios que se ejecutan dentro o fuera de contenedores.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 8/9/2017
-ms.author: atsenthi
-ms.openlocfilehash: 44abb297b9ce0eafadd3af9539d5b12751360319
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: 0a4cdc7dd7c2e81447201ca85843c9ba4c7e2af4
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73242931"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75609459"
 ---
-# <a name="resource-governance"></a>Gobernanza de recursos
+# <a name="resource-governance"></a>Regulación de recursos
 
 Cuando se ejecutan varios servicios en el mismo clúster o nodo, es posible que un servicio pueda consumir más recursos y privar así a otros servicios en el proceso. A este problema se le conoce como el problema del entorno ruidoso. Azure Service Fabric permite al desarrollador establecer reservas y límites por servicio, a fin de garantizar la disponibilidad de recursos y, además, limita el uso de recursos.
 

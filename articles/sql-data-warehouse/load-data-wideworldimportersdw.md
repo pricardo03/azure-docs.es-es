@@ -11,12 +11,12 @@ ms.date: 07/17/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f58623ec179965c8f8f165805cb181f8c102e746
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: a2adc2acdb9c1d850bb12833540ed8da51701e58
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132360"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75370143"
 ---
 # <a name="tutorial-load-data-to-azure-sql-data-warehouse"></a>Tutorial: Carga de datos en Azure SQL Data Warehouse
 
@@ -41,11 +41,11 @@ Antes de completar este tutorial, descargue e instale la versión más reciente 
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
-Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-blank-sql-data-warehouse"></a>Creación de una instancia de SQL Data Warehouse en blanco
 
-Una instancia de Azure SQL Data Warehouse se crea con un conjunto definido de [recursos de proceso](memory-concurrency-limits.md). La base de datos se crea dentro de un [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) y en un [servidor lógico de Azure SQL](../sql-database/sql-database-features.md). 
+Una instancia de Azure SQL Data Warehouse se crea con un conjunto definido de [recursos de proceso](memory-concurrency-limits.md). La base de datos se crea dentro de un [grupo de recursos de Azure](../azure-resource-manager/management/overview.md) y en un [servidor lógico de Azure SQL](../sql-database/sql-database-features.md). 
 
 Siga estos pasos para crear una instancia de SQL Data Warehouse en blanco. 
 
@@ -57,7 +57,7 @@ Siga estos pasos para crear una instancia de SQL Data Warehouse en blanco.
 
 3. Rellene el formulario SQL Data Warehouse con la siguiente información:   
 
-   | Configuración | Valor sugerido | DESCRIPCIÓN | 
+   | Configuración | Valor sugerido | Descripción | 
    | ------- | --------------- | ----------- | 
    | **Nombre de la base de datos** | SampleDW | Para conocer los nombres de base de datos válidos, consulte [Database Identifiers](/sql/relational-databases/databases/database-identifiers) (Identificadores de base de datos). | 
    | **Suscripción** | Su suscripción  | Para más información acerca de sus suscripciones, consulte [Suscripciones](https://account.windowsazure.com/Subscriptions). |
@@ -68,7 +68,7 @@ Siga estos pasos para crear una instancia de SQL Data Warehouse en blanco.
 
 4. Haga clic en **Servidor** para crear y configurar un servidor nuevo para la nueva base de datos. Rellene el **formulario de servidor nuevo** con la siguiente información: 
 
-    | Configuración | Valor sugerido | DESCRIPCIÓN | 
+    | Configuración | Valor sugerido | Descripción | 
     | ------- | --------------- | ----------- |
     | **Nombre del servidor** | Cualquier nombre globalmente único | Para conocer cuáles son los nombres de servidor válidos, consulte el artículo [Naming conventions](/azure/architecture/best-practices/resource-naming) (Convenciones de nomenclatura). | 
     | **Inicio de sesión del administrador del servidor** | Cualquier nombre válido | Para conocer los nombres de inicio de sesión válidos, consulte [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificadores de base de datos).|
@@ -133,7 +133,7 @@ Ahora puede conectarse a SQL server y sus almacenamientos de datos mediante esta
 
 En Azure Portal encontrará el nombre completo del servidor SQL. Más adelante usará el nombre completo cuando se conecte al servidor.
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 2. Seleccione **SQL Database** en el menú de la izquierda y haga clic en la base de datos en la página **SQL Database**. 
 3. En el panel **Essentials** de la página de Azure Portal de la base de datos, busque y copie el **nombre del servidor**. En este ejemplo, el nombre completo es mynewserver-20171113.database.windows.net. 
 
@@ -147,7 +147,7 @@ En esta sección se usa [SQL Server Management Studio](/sql/ssms/download-sql-se
 
 2. En el cuadro de diálogo **Conectar con el servidor**, especifique la siguiente información:
 
-    | Configuración      | Valor sugerido | DESCRIPCIÓN | 
+    | Configuración      | Valor sugerido | Descripción | 
     | ------------ | --------------- | ----------- | 
     | Tipo de servidor | Motor de base de datos | Este valor es obligatorio |
     | Nombre de servidor | Nombre completo del servidor | Por ejemplo, **sample-svr.database.windows.net** es el nombre completo de un servidor. |
@@ -157,7 +157,7 @@ En esta sección se usa [SQL Server Management Studio](/sql/ssms/download-sql-se
 
     ![conectar con el servidor](media/load-data-wideworldimportersdw/connect-to-server.png)
 
-4. Haga clic en **Conectar**. Se abre la ventana del Explorador de objetos en SSMS. 
+4. Haga clic en **Conectar**. La ventana Explorador de objetos se abre en SSMS. 
 
 5. En el Explorador de objetos, expanda **Bases de datos**. A continuación, expanda **Bases de datos del sistema** y **maestro** para ver los objetos de la base de datos maestra.  Expanda **SampleDW** para ver los objetos de la base de datos nueva.
 
@@ -171,7 +171,7 @@ Es mejor crear un inicio de sesión y un usuario que esté dedicado para cargar 
 
 Puesto que actualmente está conectado como administrador del servidor, puede crear inicios de sesión y usuarios. Siga estos pasos para crear un inicio de sesión y un usuario llamado **LoaderRC60**. Luego, asigne el usuario a la clase de recurso **staticrc60**. 
 
-1.  En SSMS, haga clic en **maestro** para mostrar un menú desplegable y elija **Nueva consulta**. Se abre una nueva ventana de consulta.
+1.  En SSMS, haga clic en **maestro** para mostrar un menú desplegable y elija **Nueva consulta**. Se abrirá una nueva ventana de consulta.
 
     ![Nueva consulta en maestro](media/load-data-wideworldimportersdw/create-loader-login.png)
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 06/26/2019
+ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: 270117430b997921e0df486b1760db317bcb1611
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: fbf20c2d54506b0f314697d6df34f9a430e7c016
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383765"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75382691"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-python"></a>Inicio rápido: Búsqueda de vídeos con Bing Video Search API y Python
 
@@ -26,7 +26,7 @@ Para ejecutar este ejemplo como Jupyter Notebook en [MyBinder](https://mybinder.
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=BingVideoSearchAPI.ipynb)
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * Python [2.x o 3.x](https://python.org)
 
@@ -40,7 +40,7 @@ Para ejecutar este ejemplo como Jupyter Notebook en [MyBinder](https://mybinder.
     import requests
     from IPython.display import HTML
     ```
-2.  Cree variables para la clave de suscripción, un punto de conexión de búsqueda y un término de búsqueda.
+2.  Cree variables para la clave de suscripción, un punto de conexión de búsqueda y un término de búsqueda. `search_url` puede ser el punto de conexión global siguiente o el punto de conexión del [subdominio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) que se muestra en Azure Portal para el recurso.
     
     ```python
     subscription_key = None
@@ -193,6 +193,6 @@ Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejem
 > [!div class="nextstepaction"]
 > [Compilar una aplicación web de una sola página](../tutorial-bing-video-search-single-page-app.md)
 
-## <a name="see-also"></a>Otras referencias 
+## <a name="see-also"></a>Consulte también 
 
  [¿Qué es Bing Video Search API?](../overview.md)

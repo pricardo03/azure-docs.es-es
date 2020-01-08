@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2fd72aea9087b03dcd5c6072676e8f98e7cfc1ee
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 8be047caf8631cda4e48b7bf10987db616a9b86f
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73816446"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75608615"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Preguntas más frecuentes acerca de la colaboración B2B de Azure Active Directory
 
@@ -48,7 +48,7 @@ Actualmente, esta característica no se admite. Si el acceso a los recursos de l
 Algunas organizaciones pueden desear agregar usuarios de colaboración B2B, aprovisionarlos en las aplicaciones cuando sea necesario y, luego, enviar las invitaciones. Puede usar la API de invitación de colaboración B2B para personalizar el flujo de trabajo de incorporación.
 
 ### <a name="can-i-make-guest-users-visible-in-the-exchange-global-address-list"></a>¿Puedo hacer visibles a los usuarios invitados en la lista global de direcciones de Exchange?
-Sí. De manera predeterminada, los objetos de invitado no aparecen en la lista global de direcciones de la organización (GAL), pero puede usar Azure Active Directory PowerShell para que figuren. Consulte [¿Puedo hacer que los objetos de invitado sean visibles en la lista global de direcciones?](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups#can-i-make-guest-objects-visible-in-the-global-address-list).
+Sí. De manera predeterminada, los objetos de invitado no aparecen en la lista global de direcciones de la organización (GAL), pero puede usar Azure Active Directory PowerShell para que figuren. Consulte [¿Puedo hacer que los objetos de invitado sean visibles en la lista global de direcciones?](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups#add-guests-to-the-global-address-list).
 
 ### <a name="can-i-make-a-guest-user-a-limited-administrator"></a>¿Puedo hacer que un usuario invitado sea un administrador limitado?
 Totalmente. Para más información, consulte [Asignación de roles de administrador en la versión preliminar de Azure Active Directory](add-guest-to-role.md).

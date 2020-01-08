@@ -1,21 +1,20 @@
 ---
 title: 'Inicio rápido: Reconocimiento de la voz de un archivo de audio en Java: servicio de voz'
 titleSuffix: Azure Cognitive Services
-description: TBD
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
-ms.date: 10/28/2019
+ms.topic: include
+ms.date: 12/17/2019
 ms.author: erhopf
-ms.openlocfilehash: 3054ba5b654d678a90a26d050de037569fb78e8c
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 4ad05a843b80f1ebd7e67ad1d296b4994ec6bf55
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74819313"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75466794"
 ---
 > [!div class="nextstepaction"]
 > [Exploración de ejemplos de Java en GitHub](https://aka.ms/speech/github-java)

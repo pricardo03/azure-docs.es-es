@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: 9a93786759941def4cf8677509b1b2565cac5090
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f5e0344cb1da86661ae87b5e45bd93dd181e7bb0
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60325432"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75659566"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Glosario de Microsoft Azure: un diccionario de terminología de la nube sobre la plataforma de Azure
 
@@ -75,7 +75,7 @@ Vea [Navegación y selección de las imágenes de máquina virtual Windows en Az
 
 ## <a name="limits"></a>límites
 El número de recursos que se pueden crear o las pruebas comparativas de rendimiento que se pueden lograr. Los límites se suelen asociar a las suscripciones, los servicios y las ofertas.  
-Vea [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](azure-subscription-service-limits.md)
+Vea [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](azure-resource-manager/management/azure-subscription-service-limits.md)
 
 ## <a name="load-balancer"></a>load balancer
 Un recurso que distribuye el tráfico entrante entre equipos en una red. En Azure, un equilibrador de carga distribuye el tráfico a las máquinas virtuales definidas en un conjunto de equilibrador de carga. Un [equilibrador de carga](load-balancer/load-balancer-overview.md) puede ser accesible desde Internet o de uso interno.  
@@ -110,7 +110,7 @@ Vea [Creación de plantillas de Azure Resource Manager](resource-group-authoring
 Un servicio que proporciona los recursos que puede implementar y administrar mediante Resource Manager. Cada proveedor de recursos ofrece operaciones para trabajar con los recursos que se implementan. Es posible acceder a los proveedores de recursos mediante el Portal de Azure, Azure PowerShell y varios SDK de programación.  
 Vea [Información general del Azure Resource Manager](azure-resource-manager/resource-group-overview.md)
 
-## <a name="role"></a>role
+## <a name="role"></a>rol
 Un medio para controlar el acceso que se puede asignar a usuarios, grupos y servicios. Los roles pueden realizar acciones como crear, administrar y leer en recursos de Azure.  
 Consulte [RBAC: roles integrados](role-based-access-control/built-in-roles.md)
 
@@ -125,7 +125,7 @@ Firma que le permite otorgar acceso limitado a un recurso, sin exponer su clave 
 Cuenta que proporciona acceso a los servicios de Azure Blob, Queue, Table y File en Azure Storage. El nombre de la cuenta de almacenamiento define el espacio de nombres exclusivo para los objetos de datos de Azure Storage.  
 Consulte [Acerca de las cuentas de Azure Storage](storage/common/storage-create-storage-account.md)
 
-## <a name="subscription"></a>suscripción
+## <a name="subscription"></a>subscription
 Contrato de un cliente con Microsoft que le permite obtener servicios de Azure. Los precios de la suscripción y los términos relacionados se rigen por la oferta elegida para la suscripción.
 Consulte [Contrato Microsoft Online Subscription](https://azure.microsoft.com/support/legal/subscription-agreement/) y [Asociación de las suscripciones de Azure con Azure Active Directory](active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
@@ -153,7 +153,7 @@ Consulte [Información general sobre redes virtuales](virtual-network/virtual-ne
 ## <a name="web-app"></a>Aplicación web
 Otro nombre para [aplicación de App Service](#app-service-app).
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 * [Comience a usar Azure](https://azure.microsoft.com/get-started/)
 * [Centro de recursos en la nube](https://azure.microsoft.com/resources/)  

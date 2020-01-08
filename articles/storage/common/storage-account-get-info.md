@@ -1,5 +1,6 @@
 ---
-title: 'Obtención del tipo de cuenta de almacenamiento y el nombre de SKU con .NET: Azure Storage'
+title: Obtención del tipo de cuenta de almacenamiento y el nombre de SKU con .NET
+titleSuffix: Azure Storage
 description: Aprenda a obtener el tipo de cuenta de Azure Storage y el nombre de SKU mediante la biblioteca cliente de .NET.
 services: storage
 author: mhopkins-msft
@@ -8,12 +9,12 @@ ms.date: 08/06/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.openlocfilehash: 0008d8fa9a33db95b0695ce998d4fc267d6222da
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 1cff950f2c420651ffa09ffe76a0d1389da84c10
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68985345"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457470"
 ---
 # <a name="get-storage-account-type-and-sku-name-with-net"></a>Obtención del tipo de cuenta de almacenamiento y el nombre de SKU con .NET
 
@@ -63,6 +64,4 @@ private static async Task GetAccountInfoAsync(CloudBlob blob)
 
 Obtenga información sobre otras operaciones que puede realizar en una cuenta de almacenamiento mediante [Azure Portal](https://portal.azure.com) y la API REST de Azure.
 
-- [Administración de una cuenta de almacenamiento](storage-account-manage.md)
-- [Actualización de una cuenta de almacenamiento](storage-account-upgrade.md)
 - [Obtención de una operación de información de la cuenta (REST)](/rest/api/storageservices/get-account-information)

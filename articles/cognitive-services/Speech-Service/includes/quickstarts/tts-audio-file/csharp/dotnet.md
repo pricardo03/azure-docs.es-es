@@ -7,17 +7,17 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
+ms.topic: include
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: 0b34c65f6b7003cbdd4d99b684fe2b5a3249c410
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: dfe2d5925e19697a2e3ed4491958da1325df5574
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74817901"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75469794"
 ---
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de comenzar, compruebe lo siguiente:
 
@@ -103,7 +103,7 @@ var result = await synthesizer.SpeakTextAsync(text);
 
 Cuando el servicio de voz devuelve el resultado de la síntesis, debe comprobar que el texto se ha sintetizado correctamente.
 
-Agregue este código dentro de la instrucción using, debajo de `SpeakTextAsync()`:
+Dentro de la instrucción using, debajo de `SpeakTextAsync()`, agregue este código:
 ````C#
 if (result.Reason == ResultReason.SynthesizingAudioCompleted)
 {
@@ -197,7 +197,7 @@ Ya está listo para compilar la aplicación y probar la síntesis de voz con el 
 
 [!INCLUDE [footer](./footer.md)]
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 - [Creación de una voz personalizada](~/articles/cognitive-services/Speech-Service/how-to-custom-voice-create-voice.md)
 - [Grabación de ejemplos de voz personalizada](~/articles/cognitive-services/Speech-Service/record-custom-voice-samples.md)

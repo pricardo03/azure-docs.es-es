@@ -1,25 +1,16 @@
 ---
-title: Restauración de una copia de seguridad en Azure Service Fabric | Microsoft Docs
+title: Restauración de una copia de seguridad en Azure Service Fabric
 description: Use la característica de copia de seguridad y restauración periódicas de Service Fabric para restaurar datos de una copia de seguridad de los datos de aplicación.
-services: service-fabric
-documentationcenter: .net
 author: aagup
-manager: chackdan
-editor: aagup
-ms.assetid: 802F55B6-6575-4AE1-8A8E-C9B03512FF88
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 10/30/2018
 ms.author: aagup
-ms.openlocfilehash: ff705eabde111b5ebac1e2d714e3ece221c36e90
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 1737102ee652cc2263bd0a908c1336bc93a6757b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819309"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75377912"
 ---
 # <a name="restoring-backup-in-azure-service-fabric"></a>Restauración de una copia de seguridad en Azure Service Fabric
 
@@ -32,12 +23,12 @@ Por ejemplo, puede configurar un servicio para realizar una copia de seguridad d
 - **Caso de pérdida de datos**: eliminación accidental o daños del servicio. Por ejemplo, un administrador elimina por error el servicio.
 - **Caso de datos dañados**: Los errores en el servicio provocan daños en los datos. Por ejemplo, se pueden producir daños en los datos cuando una actualización del código de servicio escribe datos defectuosos en una colección de confianza. En tal caso, puede que tenga que restaurar el código y los datos a un estado anterior.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 - Para desencadenar la restauración, el _servicio de análisis de errores (FAS)_ debe estar habilitado para el clúster.
 - El _servicio de restauración de copia de seguridad (BRS)_ creó la copia de seguridad.
 - La restauración solo se puede desencadenar en una partición.
-- Instale el módulo de Microsoft.ServiceFabric.Powershell.Http [en versión preliminar] para realizar llamadas de configuración.
+- Instale el módulo Microsoft.ServiceFabric.Powershell.Http [en versión preliminar] para realizar llamadas de configuración.
 
 ```powershell
     Install-Module -Name Microsoft.ServiceFabric.Powershell.Http -AllowPrerelease
@@ -72,7 +63,7 @@ Get-SFBackupsFromBackupLocation -Application -ApplicationName 'fabric:/SampleApp
 
 ```
 
-#### <a name="rest-call-using-powershell"></a>Llamada de REST mediante PowerShell
+#### <a name="rest-call-using-powershell"></a>Llamada a REST mediante PowerShell
 
 Ejecute un script de PowerShell para usar la API REST para devolver una lista de copias de seguridad creadas para todas las particiones dentro de la aplicación `SampleApp`. La API requiere la información de almacenamiento de copia de seguridad para enumerar las copias de seguridad disponibles.
 
@@ -173,7 +164,7 @@ Restore-SFPartition  -PartitionId '1c42c47f-439e-4e09-98b9-88b8f60800c6' -Backup
 
 ```
 
-#### <a name="rest-call-using-powershell"></a>Llamada de REST mediante PowerShell
+#### <a name="rest-call-using-powershell"></a>Llamada a REST mediante PowerShell
 
 La restauración se solicita en la partición del clúster de copia de seguridad mediante la siguiente [API de restauración](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-restorepartition):
 
@@ -200,13 +191,13 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 Puede realizar un seguimiento del progreso de una restauración con TrackRestoreProgress.
 
 ### <a name="using-service-fabric-explorer"></a>Uso de Service Fabric Explorer
-Puede desencadenar una restauración desde Service Fabric Explorer. Asegúrese de que se ha habilitado Modo avanzado en la configuración de Service Fabric Explorer.
+Puede desencadenar una restauración desde Service Fabric Explorer. Asegúrese de que se ha habilitado el modo avanzado en la configuración de Service Fabric Explorer.
 1. Seleccione las particiones deseadas y haga clic en Acciones. 
 2. Seleccione Trigger Partition Restore (Desencadenar restauración de particiones) y rellene la información para Azure:
 
     ![Trigger Partition Restore (Desencadenar restauración de particiones)][2]
 
-    o el recurso compartido de archivos:
+    o recurso compartido de archivos:
 
     ![Recurso compartido de archivos Trigger Partition Restore (Desencadenar restauración de particiones)][3]
 
@@ -244,7 +235,7 @@ Restore-SFPartition  -PartitionId '974bd92a-b395-4631-8a7f-53bd4ae9cf22' -Backup
 
 ```
 
-#### <a name="rest-call-using-powershell"></a>Llamada de REST mediante PowerShell
+#### <a name="rest-call-using-powershell"></a>Llamada a REST mediante PowerShell
 
 ```powershell
 $RestorePartitionReference = @{
@@ -270,7 +261,7 @@ Una partición de un servicio de confianza con estado o de Reliable Actors acept
     Get-SFPartitionRestoreProgress -PartitionId '974bd92a-b395-4631-8a7f-53bd4ae9cf22'
 ```
 
-#### <a name="rest-call-using-powershell"></a>Llamada de REST mediante PowerShell
+#### <a name="rest-call-using-powershell"></a>Llamada a REST mediante PowerShell
 
 ```powershell
 $url = "https://mysfcluster-backup.southcentralus.cloudapp.azure.com:19080/Partitions/974bd92a-b395-4631-8a7f-53bd4ae9cf22/$/GetRestoreProgress?api-version=6.4"

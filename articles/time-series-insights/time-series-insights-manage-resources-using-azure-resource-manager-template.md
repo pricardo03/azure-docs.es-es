@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: e5e04716ae67df94428a678f6572738d4ad46232
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: 4edf5189b54a5b1fb1b953064c5db1cd50930b84
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74901459"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452840"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Creación de recursos de Time Series Insights mediante plantillas de Azure Resource Manager
 
@@ -24,7 +24,7 @@ En este artículo se describe cómo crear e implementar recursos de Time Series 
 
 Time Series Insights admite los siguientes recursos:
 
-   | Resource | DESCRIPCIÓN |
+   | Resource | Descripción |
    | --- | --- |
    | Entorno | Un entorno de Time Series Insights es una agrupación lógica de eventos que se leen en los agentes de eventos, se almacenan y están disponibles para consulta. Para más información, consulte [Planeamiento del entorno de Azure Time Series Insights](time-series-insights-environment-planning.md). |
    | Origen de eventos | Un origen de eventos es una conexión a un agente de eventos del que Time Series Insights lee e ingiere eventos en el entorno. Los orígenes de eventos actualmente admitidos son IoT Hub y Event Hub. |
@@ -59,7 +59,7 @@ En el procedimiento siguiente se describe cómo usar PowerShell para implementar
 
    * Parámetros obligatorios
 
-     | Parámetro | DESCRIPCIÓN |
+     | Parámetro | Descripción |
      | --- | --- |
      | eventHubNamespaceName | El espacio de nombres del centro de eventos de origen. |
      | eventHubName | El nombre del centro de eventos de origen. |
@@ -71,7 +71,7 @@ En el procedimiento siguiente se describe cómo usar PowerShell para implementar
 
    * Parámetros opcionales
 
-     | Parámetro | DESCRIPCIÓN |
+     | Parámetro | Descripción |
      | --- | --- |
      | existingEventHubResourceId | Un identificador de recurso opcional de un centro de eventos existente que se conectará al entorno de Time Series Insights mediante el origen de eventos. **NOTA:** El usuario que implementa la plantilla tiene que tener privilegios para realizar la operación listkeys en el centro de eventos. Si no se pasa ningún valor, se crea un nuevo centro de eventos mediante la plantilla. |
      | environmentDisplayName | Un nombre descriptivo opcional que se muestra en las herramientas o las interfaces de usuario en el lugar del nombre del entorno. |
@@ -119,7 +119,7 @@ En el procedimiento siguiente se describe cómo usar PowerShell para implementar
      }
      ```
   
-    * Para obtener más información, consulte el artículo [Parámetros](../azure-resource-manager/resource-group-template-deploy.md#parameter-files).
+    * Para obtener más información, consulte el artículo [Parámetros](../azure-resource-manager/templates/parameter-files.md).
 
 ## <a name="deploy-the-quickstart-template-locally-using-powershell"></a>Implementación de la plantilla de inicio rápido localmente mediante PowerShell
 

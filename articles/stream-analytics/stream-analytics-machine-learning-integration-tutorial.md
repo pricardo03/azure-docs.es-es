@@ -1,20 +1,19 @@
 ---
 title: Integración de Azure Stream Analytics con Azure Machine Learning
 description: En este artículo se explica cómo configurar rápidamente un trabajo sencillo de Azure Stream Analytics que integre Azure Machine Learning mediante una función definida por el usuario.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: b078c92d02c55080cb84c386b7bbdabf3e1f85bf
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c683cfeadcc13e5112a4687e18db9338d3574cd3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467881"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459588"
 ---
 # <a name="perform-sentiment-analysis-with-azure-stream-analytics-and-azure-machine-learning-studio-classic-preview"></a>Realización de un análisis de opinión con Azure Stream Analytics y Azure Machine Learning Studio (clásico) (versión preliminar)
 En este artículo se explica cómo configurar rápidamente un trabajo sencillo de Azure Stream Analytics que integre Azure Machine Learning Studio (clásico). Un modelo de análisis de opiniones de Machine Learning de la galería de Cortana Intelligence se usa para analizar datos de texto que se están transmitiendo y determinar la puntuación de opiniones en tiempo real. Cortana Intelligence Suite permite realizar esta tarea sin preocuparse por las complejidades de la creación de un modelo de análisis de opiniones.
@@ -36,7 +35,7 @@ La imagen siguiente muestra esta configuración. Como se ha indicado, para un es
 
 ![Información general sobre la integración de Stream Analytics Machine Learning](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-figure-1.png)  
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 Antes de empezar, asegúrese de que dispone de lo siguiente:
 
 * Una suscripción de Azure activa.
@@ -54,7 +53,7 @@ Para este paso puede usar cualquier archivo CSV, por ejemplo alguno de los dispo
 
 1. En Azure Portal, haga clic en **Crear un recurso** > **Almacenamiento** > **Cuenta de almacenamiento**.
 
-2. Proporcione un nombre (`samldemo` en el ejemplo). El nombre solo puede incluir letras minúsculas y números y debe ser único en Azure. 
+2. Proporcione un nombre (`samldemo` en el ejemplo). El nombre solo puede incluir letras minúsculas y números y ser único en Azure. 
 
 3. Especifique un grupo de recursos existente y una ubicación. Con respecto a la ubicación, se recomienda que todos los recursos creados en este tutorial usen la misma.
 
@@ -136,7 +135,7 @@ El trabajo obtiene su entrada del archivo CSV cargado anteriormente en el almace
 3. Rellene la hoja **Blob Storage** con estos valores:
 
    
-   |Campo  |Valor  |
+   |Campo  |Value  |
    |---------|---------|
    |**Alias de entrada** | Use el nombre `datainput` y seleccione **Seleccionar Blob Storage de las suscripciones**       |
    |**Cuenta de almacenamiento**  |  Seleccione la cuenta de almacenamiento creada anteriormente.  |
@@ -156,7 +155,7 @@ El trabajo envía los resultados al mismo almacenamiento de blobs del que obtien
 
 3. Rellene la hoja **Blob Storage** con estos valores:
 
-   |Campo  |Valor  |
+   |Campo  |Value  |
    |---------|---------|
    |**Alias de salida** | Use el nombre `datamloutput` y seleccione **Seleccionar Blob Storage de las suscripciones**       |
    |**Cuenta de almacenamiento**  |  Seleccione la cuenta de almacenamiento creada anteriormente.  |
@@ -179,7 +178,7 @@ En esta sección del tutorial se define una función en el trabajo de Stream Ana
 
 3. Rellene la hoja **Función de Azure Machine Learning** con estos valores:
 
-   |Campo  |Valor  |
+   |Campo  |Value  |
    |---------|---------|
    | **Alias de función** | Use el nombre `sentiment` y seleccione **Proporcionar la configuración de la función de Azure Machine Learning manualmente**, que proporciona una opción para especificar la dirección URL y la clave.      |
    | **URL**| Pegue la dirección URL del servicio web.|

@@ -1,19 +1,18 @@
 ---
 title: Análisis de sentimiento de Twitter en tiempo real con Azure Stream Analytics
 description: En este artículo se describe cómo usar Stream Analytics para el análisis en tiempo real de opinión de Twitter. Pasos desde la generación de eventos a los datos en un panel dinámico.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 07/09/2019
-ms.openlocfilehash: 8561789d53c3c1b00ac1477909bcbe356fe6a85d
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: f3ab21d55b7d59bb58760bfba452b4ea2d103496
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70173197"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75369905"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Análisis de sentimiento de Twitter en tiempo real en Azure Stream Analytics
 
@@ -29,7 +28,7 @@ Una empresa que tiene un sitio web multimedia de noticias está interesada en ob
 
 Para identificar los temas que son tendencias en tiempo real en Twitter, la empresa necesita el análisis en tiempo real del volumen de tweets y la opinión sobre los temas clave.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 En esta guía paso a paso va a utilizar una aplicación cliente que se conecta a Twitter y busca tweets con ciertas etiquetas (que se pueden establecer). Para ejecutar la aplicación y analizar los tweets mediante Azure Stream Analytics, debe tener lo siguiente:
 
 * Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/).
@@ -61,7 +60,7 @@ Cree un espacio de nombres del centro de eventos y, luego, agregue un centro de 
 
     ![Hoja para la creación de un centro de eventos](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-eventhub.png)
  
-7. Haga clic en **Create**(Crear).
+7. Haga clic en **Crear**.
 
 
 ### <a name="grant-access-to-the-event-hub"></a>Concesión de acceso al centro de eventos
@@ -79,7 +78,7 @@ Para que un proceso pueda enviar datos a un centro de eventos, este debe tener u
 
     ![Hoja para la creación de una directiva de acceso al centro de eventos](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-shared-access-policy-manage.png)
  
-4.  Haga clic en **Create**(Crear).
+4.  Haga clic en **Crear**.
 
 5.  Una vez implementada la directiva, haga clic en ella en la lista de directivas de acceso compartido.
 
@@ -114,17 +113,17 @@ Si no dispone de una aplicación de Twitter que pueda usar para esta guía paso 
 
 1. En un explorador web, vaya a [Twitter For Developers](https://developer.twitter.com/en/apps) y seleccione **Create an app** (Crear una aplicación). Es posible que vea un mensaje en el que se le indique que es necesario solicitar una cuenta de desarrollador de Twitter. Hágalo; una vez que la aplicación se haya aprobado, verá un correo electrónico de confirmación. Tenga en cuenta que una cuenta de desarrollador puede tardar varios días en aprobarse.
 
-   ![Confirmación de la cuenta de desarrollador de Twitter](./media/stream-analytics-twitter-sentiment-analysis-trends/twitter-dev-confirmation.png "Twitter developer account confirmation")
+   ![Confirmación de la cuenta de desarrollador de Twitter](./media/stream-analytics-twitter-sentiment-analysis-trends/twitter-dev-confirmation.png "Confirmación de la cuenta de desarrollador de Twitter")
 
-   ![Detalles de la aplicación de Twitter](./media/stream-analytics-twitter-sentiment-analysis-trends/provide-twitter-app-details.png "Twitter application details")
+   ![Detalles de la aplicación Twitter](./media/stream-analytics-twitter-sentiment-analysis-trends/provide-twitter-app-details.png "Detalles de la aplicación Twitter")
 
 2. En la página **Create an application** (Crear una aplicación), proporcione los detalles de la nueva aplicación y, a continuación, seleccione **Create your Twitter application** (Crear su aplicación de Twitter).
 
-   ![Detalles de la aplicación de Twitter](./media/stream-analytics-twitter-sentiment-analysis-trends/provide-twitter-app-details-create.png "Twitter application details")
+   ![Detalles de la aplicación Twitter](./media/stream-analytics-twitter-sentiment-analysis-trends/provide-twitter-app-details-create.png "Detalles de la aplicación Twitter")
 
 3. En la página de la aplicación, seleccione la pestaña **Keys and Tokens** (Claves y tokens de acceso) y copie los valores de **Consumer API Key** (Clave de API de consumidor) y **Consumer API Secret Key** (Clave secreta de API de consumidor). Además, seleccione **Create** (Crear) en **Access Token and Access Token Secret** (Token de acceso y secreto de token de acceso) para generar los tokens de acceso. Copie los valores de **Access Token** (Token de acceso) y **Access Token Secret** (Secreto del token de acceso).
 
-    ![Detalles de la aplicación de Twitter](./media/stream-analytics-twitter-sentiment-analysis-trends/twitter-app-key-secret.png "Twitter application details")
+    ![Detalles de la aplicación Twitter](./media/stream-analytics-twitter-sentiment-analysis-trends/twitter-app-key-secret.png "Detalles de la aplicación Twitter")
 
 Guarde los valores que ha recuperado de la aplicación de Twitter. Necesitará estos valores más adelante en la guía paso a paso.
 
@@ -199,7 +198,7 @@ Ahora que los eventos Tweet se transmiten en tiempo real desde Twitter, se puede
 
     ![Creación de un trabajo de Stream Analytics](./media/stream-analytics-twitter-sentiment-analysis-trends/newjob.png)
 
-3. Haga clic en **Create**(Crear).
+3. Haga clic en **Crear**.
 
     El trabajo se crea y el portal muestra los detalles del trabajo.
 
@@ -220,7 +219,7 @@ Ahora que los eventos Tweet se transmiten en tiempo real desde Twitter, se puede
 
      ![Creación de una entrada del trabajo de Stream Analytics](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-twitter-new-input.png)
 
-3. Haga clic en **Create**(Crear).
+3. Haga clic en **Crear**.
 
 
 ## <a name="specify-the-job-query"></a>Especificación de la consulta del trabajo
@@ -305,7 +304,7 @@ En esta guía paso a paso va a escribir los eventos Tweet agregados de nuestra c
     
      ![Hoja "Nueva salida" del trabajo de Stream Analytics](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-output-blob-storage.png)
     
-4. Haga clic en **Create**(Crear). 
+4. Haga clic en **Crear**. 
 
     Azure crea la cuenta de almacenamiento y genera una clave automáticamente. 
 

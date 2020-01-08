@@ -1,20 +1,17 @@
 ---
 title: Reglas configurables basadas en umbrales en Azure Stream Analytics
 description: En este artículo se describe cómo usar los datos de referencia para lograr una solución de alertas que tenga reglas configurables basadas en umbrales Azure Stream Analytics.
-services: stream-analytics
-author: zhongc
-ms.author: zhongc
-manager: kfile
-ms.reviewer: jasonh
+author: mamccrea
+ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.openlocfilehash: f8fd21f411093e22b2b1dc5afd6da9cb26db6ff8
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 94fdddf11acb6763ed98a4b7e17304fbde0e25dd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72934254"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75369718"
 ---
 # <a name="process-configurable-threshold-based-rules-in-azure-stream-analytics"></a>Procesar reglas configurables basadas en umbrales en Azure Stream Analytics
 En este artículo se describe cómo usar los datos de referencia para lograr una solución de alertas que use reglas configurables basadas en umbrales Azure Stream Analytics.
@@ -138,7 +135,7 @@ HAVING
 En este ejemplo, los datos JSON representan los datos de entrada de **metrics** que se utilizan en la consulta de streaming anterior. 
 
 - Tres eventos de ejemplos se muestran en el intervalo de tiempo de 1 minuto, valor `T14:50`. 
-- Los tres tienen el mismo valor de `deviceId` `978648`.
+- Los tres tienen el mismo valor de `deviceId``978648`.
 - Los valores de métrica de CPU varían en cada evento, `98`, `95`, `80`, respectivamente. Solo los dos primeros eventos de ejemplo superan la regla de alerta de CPU establecida en la regla.
 - El campo includeDim en la regla de alerta era la clave número 2. El campo correspondiente de clave 2 en los eventos de ejemplo se denomina `NodeName`. Los tres eventos de ejemplo tienen valores `N024`, `N024`, y `N014`, respectivamente. En la salida, verá solo el nodo `N024`, ya que estos son los únicos datos que coinciden con los criterios de alerta para el uso elevado de la CPU. `N014` no cumple el umbral de uso elevado de la CPU.
 - La regla de alertas se configura solo con un `filter` en la clave número 2, que se corresponde con el campo `cluster` en los eventos de ejemplo. Los tres eventos de ejemplo tienen el valor `C1` y coinciden con los criterios de filtro.

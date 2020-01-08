@@ -1,26 +1,15 @@
 ---
-title: Integración de API Management con Service Fabric en Azure | Microsoft Docs
+title: Integrar API Management con Service Fabric en Azure
 description: Aprenda a usar rápidamente Azure API Management y a enrutar el tráfico a un servicio de back-end de Service Fabric.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/10/2019
-ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 470eacee5c71742678497edf48169e14a4073829
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 201d617ce15216ba168bc484f644e165d5ae0e71
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598827"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465343"
 ---
 # <a name="integrate-api-management-with-service-fabric-in-azure"></a>Integrar API Management con Service Fabric en Azure
 
@@ -36,7 +25,7 @@ En este artículo se muestra cómo configurar [Azure API Management](../api-mana
 > [!IMPORTANT]
 > Esta característica ya está disponible en los niveles **Premium** y **Developer** de API Management debido a la compatibilidad requerida con redes virtuales.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de empezar:
 
@@ -197,11 +186,11 @@ Para obtener un conjunto completo de los atributos de directiva de back-end de S
 
 Rellene los siguientes parámetros vacíos en *apim.parameters.json* para la implementación.
 
-|.|Valor|
+|Parámetro|Value|
 |---|---|
 |apimInstanceName|sf-apim|
 |apimPublisherEmail|myemail@contosos.com|
-|apimSku|Developer|
+|apimSku|Desarrollador|
 |serviceFabricCertificateName|sfclustertutorialgroup320171031144217|
 |certificatePassword|q6D7nN%6ck@6|
 |serviceFabricCertificateThumbprint|C4C1E541AD512B8065280292A8BA6079C3F26F10 |

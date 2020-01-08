@@ -1,7 +1,6 @@
 ---
 title: Solución de problemas con entradas de Azure Stream Analytics
 description: En este artículo se describen técnicas para solucionar problemas de las conexiones de entrada en los trabajos de Azure Stream Analytics.
-services: stream-analytics
 author: sidram
 ms.author: sidram
 ms.reviewer: mamccrea
@@ -9,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 8357a53ee065812922b5df53fbdef7c14e5f0ff7
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 20a161ffc82cb8f74cfcac838856434f83c4e258
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621022"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75354281"
 ---
 # <a name="troubleshoot-input-connections"></a>Solución de problemas de conexiones de entrada
 
@@ -69,7 +68,7 @@ El error que se muestra cuando el número de receptores supera el máximo: `The 
 ### <a name="add-a-consumer-group-in-event-hubs"></a>Agregar un grupo de consumidores a Event Hubs
 Para agregar un nuevo grupo de consumidores a la instancia de Event Hubs, siga estos pasos:
 
-1. Inicie sesión en el Portal de Azure.
+1. Inicie sesión en Azure Portal.
 
 2. Busque la instancia de Event Hubs.
 
@@ -136,9 +135,9 @@ FROM data
 
 Para las consultas en las que hay conectadas tres o más entradas al mismo grupo de consumidores de Event Hubs, cree grupos de consumidores independientes. Esto requiere la creación de entradas de Stream Analytics adicionales.
 
-## <a name="get-help"></a>Obtención de ayuda
+## <a name="get-help"></a>Obtener ayuda
 
-Para obtener ayuda adicional, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+Para obtener más ayuda, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

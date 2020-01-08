@@ -1,27 +1,25 @@
 ---
 title: Visualización de trabajos de Azure Stream Analytics en Visual Studio
 description: Obtenga información sobre cómo ver, iniciar y detener, probar conexiones, comprobar los resultados y exportar los trabajos de Azure Stream Analytics con Visual Studio.
-services: stream-analytics
 author: su-jie
 ms.author: sujie
-manager: kfile
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 07/10/2018
-ms.openlocfilehash: d73955436e651dfdb9db9d602481213fcc2cf502
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: ad35ed342dfd40b98d61919749479ec5612cdd4f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72893550"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75369633"
 ---
 # <a name="use-visual-studio-to-view-azure-stream-analytics-jobs"></a>Uso de Visual Studio para ver trabajos de Azure Stream Analytics
 
 Las herramientas de Azure Stream Analytics para Visual Studio hacen que sea fácil para los desarrolladores administrar sus trabajos de Stream Analytics directamente desde el IDE. Con las herramientas de Azure Stream Analytics, puede:
 - [Crear trabajos](stream-analytics-quick-create-vs.md)
 - Iniciar, detener y [supervisar trabajos](stream-analytics-monitor-jobs-use-vs.md)
-- Comprobar los resultados de trabajos
+- Comprobación de resultados de trabajos
 - Exportar los trabajos existentes a un proyecto
 - Probar las conexiones de entrada y salida
 - [Ejecutar consultas de forma local](stream-analytics-vs-tools-local-run.md)

@@ -1,20 +1,18 @@
 ---
 title: Configuración de herramientas de Azure Stream Analytics para Visual Studio
 description: En este artículo se describen los requisitos de instalación de las herramientas de Azure Stream Analytics para Visual Studio y cómo configurarlas.
-services: stream-analytics
 author: su-jie
 ms.author: sujie
-manager: kfile
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/22/2018
-ms.openlocfilehash: 447fa07953c15fe67b8a2e313fe9534164f47bbd
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: fa3990d2239da71fb27f4c9a06699f758fcfe7a0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71130506"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75354368"
 ---
 # <a name="install-azure-stream-analytics-tools-for-visual-studio"></a>Instalación de las herramientas de Azure Stream Analytics para Visual Studio
 
@@ -22,7 +20,7 @@ Visual Studio 2019 y Visual Studio 2017 admiten herramientas de Azure Data Lak
 
 Para más información sobre el uso de las herramientas, consulte [Inicio rápido: Creación de un trabajo de Azure Stream Analytics con Visual Studio](stream-analytics-quick-create-vs.md).
 
-## <a name="install"></a>Instalación
+## <a name="install"></a>Instalar
 
 Las ediciones Visual Studio Enterprise (Ultimate y Premium), Professional y Community admiten las herramientas. La edición Express y Visual Studio para Mac no las admiten.
 

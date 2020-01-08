@@ -1,25 +1,16 @@
 ---
-title: Actualización de la configuración de un clúster independiente de Azure Service Fabric | Microsoft Docs
+title: Actualización de la configuración de un clúster independiente
 description: Obtenga información acerca de cómo actualizar la configuración que ejecuta un clúster de Service Fabric independiente.
-services: service-fabric
-documentationcenter: .net
 author: dkkapur
-manager: chackdan
-editor: ''
-ms.assetid: 66296cc6-9524-4c6a-b0a6-57c253bdf67e
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2018
 ms.author: dekapur
-ms.openlocfilehash: f99c1ebb64bf881bcd42f15e13bb81b96ccfa064
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8e7e01dac29cb9ba91c83270dac4e46c73b2089e
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60387135"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610136"
 ---
 # <a name="upgrade-the-configuration-of-a-standalone-cluster"></a>Actualización de la configuración de un clúster independiente 
 

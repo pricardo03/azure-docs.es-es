@@ -1,20 +1,19 @@
 ---
 title: Detección de fraudes en tiempo real con Azure Stream Analytics
 description: Aprenda a crear una solución para la detección de fraudes en tiempo real con Stream Analytics. Use un centro de eventos para el procesamiento de eventos en tiempo real.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 19c9448b6a743302eb81bb208444336d6435f114
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 168f11e82305a0e08923289e71ae6ea0d36c1734
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68947039"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458796"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Introducción al uso de Azure Stream Analytics: Detección de fraudes en tiempo real
 
@@ -32,7 +31,7 @@ En este tutorial se usa el ejemplo de detección de fraudes en tiempo real basad
 
 Una empresa de telecomunicaciones tiene un gran volumen de datos en llamadas entrantes. La compañía quiere detectar llamadas fraudulentas en tiempo real para poder notificarlo a los clientes o cancelar el servicio para un número concreto. Un tipo de fraude de SIM implica varias llamadas desde la misma identidad aproximadamente a la misma hora, pero en distintas ubicaciones geográficas. Para detectar este tipo de fraude, la compañía ha de examinar los registros de llamadas entrantes y buscar patrones concretos (en este caso, llamadas realizadas aproximadamente a la misma hora en distintos países o regiones). Los registros de teléfono que entren en esta categoría se escriben en el almacenamiento para su análisis posterior.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 En este tutorial, simulará datos de llamadas telefónicas mediante una aplicación cliente que genera metadatos de llamada telefónica de muestra. Algunos de los registros que genera la aplicación parecen llamadas fraudulentas. 
 
@@ -75,7 +74,7 @@ En este procedimiento, cree primero un espacio de nombres del centro de eventos 
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-new-portal.png" alt="Name event hub in Azure portal" width="400px"/>
     
  
-7. Haga clic en **Create**(Crear).
+7. Haga clic en **Crear**.
 
 ### <a name="grant-access-to-the-event-hub-and-get-a-connection-string"></a>Concesión de acceso al centro de eventos y obtención de una cadena de conexión
 
@@ -92,7 +91,7 @@ Para que un proceso pueda enviar datos a un centro de eventos, este debe tener u
 
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-shared-access-policy-manage-new-portal.png" alt="Create shared access policy for Stream Analytics" width="300px"/>
  
-4.  Haga clic en **Create**(Crear).
+4.  Haga clic en **Crear**.
 
 5.  Una vez implementada la directiva, haga clic en ella en la lista de directivas de acceso compartido.
 
@@ -172,7 +171,7 @@ Ahora que tiene un flujo de eventos de llamada, puede configurar un trabajo de S
 
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sa-job-new-portal.png" alt="Create Stream Analytics job in portal" width="300px"/>
 
-3. Haga clic en **Create**(Crear).
+3. Haga clic en **Crear**.
 
     El trabajo se crea y el portal muestra los detalles del trabajo. Pero todavía no se ejecuta nada, hay que configurar el trabajo para poder iniciarlo.
 
@@ -197,7 +196,7 @@ Ahora que tiene un flujo de eventos de llamada, puede configurar un trabajo de S
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sa-input-new-portal.png" alt="Create Stream Analytics input in portal" width="300px"/>
 
 
-4. Haga clic en **Create**(Crear).
+4. Haga clic en **Crear**.
 
 ## <a name="create-queries-to-transform-real-time-data"></a>Creación de consultas para transformar datos en tiempo real
 

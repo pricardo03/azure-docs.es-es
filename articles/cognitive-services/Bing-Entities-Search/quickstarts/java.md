@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 07/24/2019
+ms.date: 12/11/2019
 ms.author: aahi
-ms.openlocfilehash: 13e25ce0a237d34b98ec42140b86c4955f9058cb
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: c4335e1ac0f0ffc7ee5570a8f0819827fc77dd18
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74323784"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75384158"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-java"></a>Inicio rápido: Envío de una solicitud de búsqueda a Bing Entity Search REST API con Java
 
@@ -23,7 +23,7 @@ Use este inicio rápido para realizar la primera llamada a Bing Entity Search AP
 
 Si bien esta aplicación está escrita en Java, la API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * [Kit de desarrollo de Java (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/)
 * [Biblioteca Gson](https://github.com/google/gson)
@@ -50,7 +50,7 @@ Si bien esta aplicación está escrita en Java, la API es un servicio web RESTfu
    import com.google.gson.JsonParser;
    ```
 
-2. En una nueva clase, cree variables para el punto de conexión de la API, la clave de suscripción y el término de búsqueda.
+2. En una nueva clase, cree variables para el punto de conexión de la API, la clave de suscripción y el término de búsqueda. Puede usar el punto de conexión global siguiente o el punto de conexión del [subdominio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) que se muestra en Azure Portal para el recurso.
 
    ```java
    public class EntitySearch {

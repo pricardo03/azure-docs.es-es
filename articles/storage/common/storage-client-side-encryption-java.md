@@ -10,12 +10,12 @@ ms.date: 05/11/2017
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 4fa5657a7ee2043e09c80593651d88a527770d7a
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 8fe95a471df6ea86aad90f387088824c3c92bd3f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70998985"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460451"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-with-java-for-microsoft-azure-storage"></a>Cifrado del lado de cliente y Azure Key Vault para Microsoft Azure Storage
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -46,7 +46,7 @@ El descifrado mediante la técnica de sobres funciona de la siguiente manera:
 ## <a name="encryption-mechanism"></a>Mecanismo de cifrado
 La biblioteca de cliente de almacenamiento usa [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) para cifrar los datos del usuario. En concreto, emplea el modo [Cipher Block Chaining (CBC)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) con AES. Cada servicio funciona de forma ligeramente diferente, por lo que describiremos aquí cada uno de ellos.
 
-### <a name="blobs"></a>Blobs
+### <a name="blobs"></a>Datos BLOB
 La biblioteca de cliente solo admite actualmente el cifrado de blobs completos. En concreto, se admite el cifrado cuando los usuarios emplean los métodos **upload*** o el método **openOutputStream**. En el caso de las descargas, se admiten tanto las descargas de intervalo como las completas.  
 
 Durante el cifrado, la biblioteca de cliente generará un vector de inicialización (IV) aleatorio de 16 bytes, junto con una clave de cifrado de contenido (CEK) aleatoria de 32 bytes, y realiza el cifrado de sobres de los datos de blob con esta información. Posteriormente, la CEK encapsulada y algunos metadatos de cifrado adicionales se almacenan como metadatos de blob junto con el objeto blob cifrado en el servicio.
@@ -246,11 +246,13 @@ public void setEncryptedProperty1(final String encryptedProperty1) {
 ```
 
 ## <a name="encryption-and-performance"></a>Cifrado y rendimiento
+
 Tenga en cuenta que el cifrado de sus resultados de datos de almacenamiento da lugar a la sobrecarga de rendimiento adicional. Se deben generar la clave de contenido e IV, se debe cifrar el propio contenido y se deben formatear y cargar metadatos adicionales. Esta sobrecarga variará según la cantidad de datos que se cifran. Se recomienda que los clientes prueben siempre sus aplicaciones para obtener un rendimiento durante el desarrollo.
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 * Descargue el [paquete Maven de la Biblioteca de cliente de Azure Storage para Java](https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage)  
-* Descargue el [Código fuente de la Biblioteca de cliente de Azure Storage para Java desde GitHub](https://github.com/Azure/azure-storage-java)   
+* Descargue el [Código fuente de la Biblioteca de cliente de Azure Storage para Java desde GitHub](https://github.com/Azure/azure-storage-java)
 * Descargue la biblioteca Maven de Azure Key Vault para los paquetes Maven de Java:
   * [principal](https://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault-core)
   * [cliente](https://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault)

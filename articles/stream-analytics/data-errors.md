@@ -1,18 +1,17 @@
 ---
 title: Errores de datos de registro de diagnóstico de Azure Stream Analytics
 description: En este artículo se explican los distintos errores de datos de entrada y salida que pueden producirse al usar Azure Stream Analytics.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: ecc7077bf208adf1ac89adcce2f2e480ce34888e
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 0546464b4d1bcc9eaa4fbffe265486985d9c58f3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67329597"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465033"
 ---
 # <a name="azure-stream-analytics-data-errors"></a>Errores de datos de Azure Stream Analytics
 
@@ -167,8 +166,8 @@ Para ver el esquema de los registros de diagnóstico, consulte [Solución de pro
 ### <a name="lateinputevent"></a>LateInputEvent
 
 * Causa: La diferencia entre el tiempo de aplicación y la hora de llegada es mayor que la ventana de tolerancia de llegada tardía.
-* Notificación del portal proporcionada: Sin
-* Nivel de registro de diagnóstico: Información
+* Notificación del portal proporcionada: No
+* Nivel de registro de diagnóstico: Information
 * Impacto:  Los eventos de entrada con retardo se controlan según la opción "Controlar otros eventos" de la sección Ordenación de eventos de la configuración del trabajo. Para más información, consulte [Directivas de control de tiempo](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics).
 * Detalles del registro
    * Tiempo de aplicación y hora de llegada. 
@@ -183,8 +182,8 @@ Para ver el esquema de los registros de diagnóstico, consulte [Solución de pro
 ### <a name="earlyinputevent"></a>EarlyInputEvent
 
 * Causa: La diferencia entre el tiempo de aplicación y la hora de llegada es mayor que 5 minutos.
-* Notificación del portal proporcionada: Sin
-* Nivel de registro de diagnóstico: Información
+* Notificación del portal proporcionada: No
+* Nivel de registro de diagnóstico: Information
 * Impacto:  Los eventos de entrada tempranos se controlan según la opción "Controlar otros eventos" de la sección Ordenación de eventos de la configuración del trabajo. Para más información, consulte [Directivas de control de tiempo](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics).
 * Detalles del registro
    * Tiempo de aplicación y hora de llegada. 
@@ -199,8 +198,8 @@ Para ver el esquema de los registros de diagnóstico, consulte [Solución de pro
 ### <a name="outoforderevent"></a>OutOfOrderEvent
 
 * Causa: Se considera que el evento está desorganizado según la ventana de tolerancia de desorganización definida.
-* Notificación del portal proporcionada: Sin
-* Nivel de registro de diagnóstico: Información
+* Notificación del portal proporcionada: No
+* Nivel de registro de diagnóstico: Information
 * Impacto:  Los eventos de entrada fuera de secuencia se controlan según la opción "Controlar otros eventos" de la sección Ordenación de eventos de la configuración del trabajo. Para más información, consulte [Directivas de control de tiempo](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics).
 * Detalles del registro
    * Carga útil real hasta algunos kilobytes.

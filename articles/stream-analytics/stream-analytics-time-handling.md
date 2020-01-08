@@ -1,18 +1,18 @@
 ---
 title: Descripción del control del tiempo en Azure Stream Analytics
 description: Obtenga información sobre cómo funciona el control de tiempo en Azure Stream Analytics, por ejemplo, cómo elegir la mejor hora de inicio, cómo controlar los eventos retrasados y adelantados y las métricas de control de tiempo.
-author: jasonwhowell
-ms.author: zhongc
+author: mamccrea
+ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/05/2018
-ms.openlocfilehash: ae53663f78b684d41c36607760e30db9e48a6434
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 367b7c2e1ce1c8b3c0dbc02003218b76096b409d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901421"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75354646"
 ---
 # <a name="understand-time-handling-in-azure-stream-analytics"></a>Descripción del control del tiempo en Azure Stream Analytics
 
@@ -128,7 +128,7 @@ Los trabajos de Stream Analytics tienen varias opciones de **ordenación de even
 
 Puede observar diferentes efectos de tolerancia de hora de ordenación de eventos mediante las [métricas de trabajo de Stream Analytics](stream-analytics-monitoring.md). Las métricas siguientes son pertinentes:
 
-|Métrica  | DESCRIPCIÓN  |
+|Métrica  | Descripción  |
 |---------|---------|
 | **Eventos desordenados** | Indica el número de eventos recibidos desordenados, que se eliminan o se les asigna una marca de tiempo ajustada. Esta métrica se ve afectada directamente por la opción **Eventos desordenados** de la página **Ordenación de eventos** del trabajo en Azure Portal. |
 | **Eventos de entrada retrasada** | Indica el número de eventos que llegan tarde desde el origen. Esta métrica incluye eventos que se han quitado o han hecho que su marca de tiempo se ajustara. Esta métrica se ve afectada directamente por la configuración de la opción **Eventos que llegan tarde** de la página **Ordenación de eventos** del trabajo en Azure Portal. |

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 24d601dc2116b7daf315bb3c6f20c4dc0b6f6ce5
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: d75f12953c0ec767dba8a49b3ed76c176223b30c
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72382042"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613897"
 ---
 # <a name="performance-and-scalability-checklist-for-blob-storage"></a>Lista de comprobación de escalabilidad y rendimiento para Blob Storage
 
@@ -36,8 +36,8 @@ En este artículo se organizan los procedimientos de eficacia probada para mejor
 | &nbsp; |Redes |[¿Tienen los dispositivos del cliente un enlace de red de alta calidad?](#link-quality) |
 | &nbsp; |Redes |[¿Está la aplicación cliente en la misma región que la cuenta de almacenamiento?](#location) |
 | &nbsp; |Acceso directo del cliente |[¿Utiliza firmas de acceso compartido (SAS) y el uso compartido de recursos entre orígenes (CORS) para habilitar el acceso directo a Azure Storage?](#sas-and-cors) |
-| &nbsp; |Almacenamiento en caché |[¿La aplicación almacena en caché datos a los que se accede con frecuencia y que rara vez cambian?](#reading-data) |
-| &nbsp; |Almacenamiento en caché |[¿Su aplicación procesa por lotes las actualizaciones (las almacena en caché en el cliente y, luego, las carga en conjuntos más grandes)?](#uploading-data-in-batches) |
+| &nbsp; |Almacenamiento en memoria caché |[¿La aplicación almacena en caché datos a los que se accede con frecuencia y que rara vez cambian?](#reading-data) |
+| &nbsp; |Almacenamiento en memoria caché |[¿Su aplicación procesa por lotes las actualizaciones (las almacena en caché en el cliente y, luego, las carga en conjuntos más grandes)?](#uploading-data-in-batches) |
 | &nbsp; |Configuración de .NET |[¿Usa .NET Core 2.1, o cualquier versión posterior, para lograr un rendimiento óptimo?](#use-net-core) |
 | &nbsp; |Configuración de .NET |[¿Ha configurado el cliente para usar un número suficiente de conexiones simultáneas?](#increase-default-connection-limit) |
 | &nbsp; |Configuración de .NET |[En el caso de las aplicaciones .NET, ¿ha configurado .NET para que use un número suficiente de subprocesos?](#increase-minimum-number-of-threads) |
@@ -58,7 +58,7 @@ En este artículo se organizan los procedimientos de eficacia probada para mejor
 
 Si su aplicación se aproxima o supera cualquiera de estos objetivos de escalabilidad, puede encontrar un aumento en la limitación o latencias de transacción. Cuando Azure Storage limita su aplicación, el servicio comienza a devolver códigos de error 503 (Servidor ocupado) o 500 (Tiempo de espera de la operación). Evitar estos errores, mediante la permanencia en los límites de los objetivos de escalabilidad, es una parte importante de la mejora del rendimiento de la aplicación.
 
-Para más información acerca de los objetivos de escalabilidad de Queue service, consulte [Objetivos de escalabilidad y rendimiento de Azure Storage en cuentas de almacenamiento](/azure/storage/common/storage-scalability-targets?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets).
+Para más información acerca de los objetivos de escalabilidad de Queue service, consulte [Objetivos de escalabilidad y rendimiento de Azure Storage en cuentas de almacenamiento](/azure/storage/queues/scalability-targets#scale-targets-for-queue-storage).
 
 ### <a name="maximum-number-of-storage-accounts"></a>Número máximo de cuentas de almacenamiento
 
@@ -151,7 +151,7 @@ Por ejemplo, supongamos que una aplicación web que se ejecuta en Azure realiza 
   
 Tanto SAS como CORS pueden evitar una carga innecesaria en la aplicación web.  
 
-## <a name="caching"></a>Almacenamiento en caché
+## <a name="caching"></a>Almacenamiento en memoria caché
 
 El almacenamiento en caché desempeña un papel importante en el rendimiento. En las secciones siguientes se describen los procedimientos recomendados de almacenamiento en caché.
 

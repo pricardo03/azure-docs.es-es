@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo para crear, administrar y eliminar
 keywords: ansible, azure, devops, bash, cuaderno de estrategias, redes, ruta, tabla de rutas
 ms.topic: tutorial
 ms.date: 04/30/2019
-ms.openlocfilehash: d1e44a98405bc1009f6f3d56d90fc1fd655d77d5
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 1f08aebe7e9dcc1c5687f50ac91c7cb8cc8a62eb
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74156494"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75659804"
 ---
 # <a name="tutorial-configure-azure-route-tables-using-ansible"></a>Tutorial: Configuración de tablas de rutas de Azure con Ansible
 
@@ -23,14 +23,14 @@ Azure enruta automáticamente el tráfico entre redes locales, las redes virtual
 >
 > Creación de una tabla de rutas Creación de una red virtual y una subred Asociación de una tabla de rutas con una subred Desasociación de una tabla de rutas de una subred Creación y eliminación de rutas Consulta de una tabla de rutas Eliminación de una tabla de rutas
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
 ## <a name="create-a-route-table"></a>Creación de una tabla de rutas
 
-El código del cuaderno de estrategias de esta sección crea una tabla de rutas. Para más información sobre los límites de la tabla de rutas, consulte [límites de Azure](/azure/azure-subscription-service-limits#azure-resource-manager-virtual-networking-limits). 
+El código del cuaderno de estrategias de esta sección crea una tabla de rutas. Para más información sobre los límites de la tabla de rutas, consulte [límites de Azure](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-resource-manager-virtual-networking-limits). 
 
 Guarde el siguiente cuaderno de estrategias como `route_table_create.yml`:
 
@@ -249,7 +249,7 @@ Guarde el siguiente cuaderno de estrategias como `route_table_delete.yml`:
         state: absent
 ```
 
-Ejecute el comando de estrategias con el comando `ansible-playbook`:
+Use el comando `ansible-playbook` para ejecutar el cuaderno de estrategias:
 
 ```bash
 ansible-playbook route_table_delete.yml

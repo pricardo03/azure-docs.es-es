@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/05/2016
 ms.author: matd
-ms.openlocfilehash: 85c04b6ea3e40f1f1dcd12eb5d6f4a8f53836867
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 4dcda65384190050e11f1bf9b15c706b0e38c6b3
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "67876799"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561650"
 ---
 # <a name="storsimple-as-a-backup-target-with-backup-exec"></a>StorSimple como destino de copia de seguridad con Backup Exec
 
@@ -37,7 +37,7 @@ La información de este artículo será de especial utilidad para administradore
 
 ## <a name="supported-versions"></a>Versiones compatibles
 
--   [Backup Exec 16 y versiones posteriores](http://backupexec.com/compatibility)
+-   [Backup Exec 16 y versiones posteriores](https://www.veritas.com/content/support/en_US/article.100040087)
 -   [StorSimple Update 3 y versiones posteriores](storsimple-overview.md#storsimple-workload-summary)
 
 
@@ -73,7 +73,7 @@ StorSimple ofrece las siguientes ventajas:
 -   Algoritmos de desduplicación y compresión únicos que usan la nube para lograr unos niveles de desduplicación sin precedentes
 -   Alta disponibilidad
 -   Replicación geográfica mediante el uso de la replicación geográfica de Azure
--   Integración de Azure
+-   Integración con Azure
 -   Cifrado de datos en la nube
 -   Mejor recuperación ante desastres y cumplimiento normativo
 
@@ -84,7 +84,7 @@ Para más información sobre StorSimple, consulte [Serie StorSimple 8000: una so
 > [!IMPORTANT]
 > El uso del dispositivo StorSimple como destino de copia de seguridad es compatible solo con StorSimple 8000 Update 3 y versiones posteriores.
 
-## <a name="architecture-overview"></a>Introducción a la arquitectura
+## <a name="architecture-overview"></a>Información general sobre la arquitectura
 
 Las tablas siguientes muestran la guía inicial de la relación entre el modelo del dispositivo y la arquitectura.
 
@@ -255,7 +255,7 @@ De acuerdo con los supuestos anteriores, cree un volumen en capas de StorSimple 
 | Retención de tipo de copia de seguridad | Tamaño (TiB) | Multiplicador de GFS\* | Capacidad total (TiB)  |
 |---|---|---|---|
 | Completa semanal | 1 | 4  | 4 |
-| Incremental diaria | 0,5 | 20 (los ciclos equivalen al número de semanas al mes) | 12 (2 para cuota adicional) |
+| Incremental diaria | 0.5 | 20 (los ciclos equivalen al número de semanas al mes) | 12 (2 para cuota adicional) |
 | Completa mensual | 1 | 12 | 12 |
 | Completa anual | 1  | 10 | 10 |
 | Requisito de GFS |   | 38 |   |

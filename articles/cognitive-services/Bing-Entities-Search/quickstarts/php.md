@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 07/24/2019
+ms.date: 12/11/2019
 ms.author: aahi
-ms.openlocfilehash: 2328313e15fafb3c0f96fdb77f3023afc1e4774f
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 41fa0b469d0d86b8c1d9234455ade0395fa86f3d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74323584"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75383958"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-php"></a>Inicio rápido: Envío de una solicitud de búsqueda a Bing Entity Search REST API con PHP
 
@@ -23,7 +23,7 @@ Use este inicio rápido para realizar la primera llamada a Bing Entity Search AP
 
 Si bien esta aplicación está escrita en PHP, la API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * [PHP 5.6.x](https://php.net/downloads.php) o posterior
 
@@ -33,10 +33,11 @@ Si bien esta aplicación está escrita en PHP, la API es un servicio web RESTful
 
 Para ejecutar esta aplicación, siga estos pasos.
 
-1. Cree un nuevo proyecto de PHP en su IDE favorito.
+1. Cree un nuevo proyecto PHP en su IDE favorito.
 2. Agregue el código que se proporciona a continuación.
 3. Reemplace el valor `key` por una clave de acceso válida para la suscripción.
-4. Ejecute el programa.
+4. Puede usar el punto de conexión global siguiente o el punto de conexión del [subdominio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) que se muestra en Azure Portal para el recurso.
+5. Ejecute el programa.
 
 ```php
 <?php

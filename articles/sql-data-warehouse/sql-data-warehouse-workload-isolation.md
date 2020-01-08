@@ -11,12 +11,12 @@ ms.date: 11/27/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 82270c126d8a0894cd3a388dcab62017ed63c2cd
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: cd1d57643f9a1eb7c50d0de06d42fbbcec085f34
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974655"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458786"
 ---
 # <a name="sql-data-warehouse-workload-group-isolation-preview"></a>Aislamiento de grupos de cargas de trabajo de SQL Data Warehouse (versión preliminar)
 
@@ -32,18 +32,18 @@ En las secciones siguientes se resaltará el modo en que los grupos de cargas de
 
 El aislamiento de la carga de trabajo significa que los recursos se reservan, de forma exclusiva, para un grupo de cargas de trabajo.  El aislamiento de la carga de trabajo se logra al configurar el parámetro MIN_PERCENTAGE_RESOURCE en un valor mayor que cero en la sintaxis [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest).  En el caso de las cargas de trabajo de ejecución continua que necesiten cumplir con acuerdos de nivel de servicio estrictos, el aislamiento garantiza que los recursos siempre estén disponibles para el grupo de cargas de trabajo. 
 
-La configuración del aislamiento de cargas de trabajo define implícitamente un nivel garantizado de simultaneidad.  Con un valor MIN_PERCENTAGE_RESOURCE establecido en 30 % y REQUEST_MIN_RESOURCE_GRANT_PERCENT establecido en 2 %, se garantiza un nivel de simultaneidad de 15 para el grupo de cargas de trabajo.  Considere el método siguiente para determinar la simultaneidad garantizada:
+La configuración del aislamiento de cargas de trabajo define implícitamente un nivel garantizado de simultaneidad. Con un valor MIN_PERCENTAGE_RESOURCE establecido en 30 % y REQUEST_MIN_RESOURCE_GRANT_PERCENT establecido en 2 %, se garantiza un nivel de simultaneidad de 15 para el grupo de cargas de trabajo.  Considere el método siguiente para determinar la simultaneidad garantizada:
 
 [Simultaneidad garantizada] = [`MIN_PERCENTAGE_RESOURCE`] / [`REQUEST_MIN_RESOURCE_GRANT_PERCENT`]
 
 > [!NOTE] 
-> Hay valores mínimos de nivel de servicio viables para min_percentage_resource.  Para obtener más información, vea [Valores efectivos](https://review.docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest#effective-values).
+> Hay valores mínimos de nivel de servicio viables para min_percentage_resource.  Para obtener más información, vea [Valores efectivos](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest#effective-values).
 
 En ausencia del aislamiento de la carga de trabajo, las solicitudes operan en el [grupo compartido](#shared-pool-resources) de recursos.  El acceso a los recursos del grupo compartido no está garantizado y se asigna en función de la [importancia](sql-data-warehouse-workload-importance.md).
 
-La configuración del aislamiento de la carga de trabajo se debe hacer con precaución, ya que los recursos se asignan al grupo de cargas de trabajo incluso si no hay ninguna solicitud activa en el grupo de cargas de trabajo.  La configuración excesiva del aislamiento puede reducir el uso general del sistema.
+La configuración del aislamiento de la carga de trabajo se debe hacer con precaución, ya que los recursos se asignan al grupo de cargas de trabajo incluso si no hay ninguna solicitud activa en el grupo de cargas de trabajo. La configuración excesiva del aislamiento puede reducir el uso general del sistema.
 
-Los usuarios deben evitar una solución de administración de cargas de trabajo que configure el aislamiento del 100 % de las cargas de trabajo: El aislamiento del 100 % se consigue cuando la suma de min_percentage_resource configurada en todos los grupos de cargas de trabajo es igual a 100 %.  Este tipo de configuración es excesivamente restrictiva y rígida, lo que deja poco espacio para las solicitudes de recursos que se clasifican de forma incorrecta.  Hay una disposición para permitir que una solicitud se ejecute desde grupos de cargas de trabajo que no estén configurados para el aislamiento.  Los recursos asignados a esta solicitud se mostrarán como un cero en las DMV de los sistemas y tomarán un nivel de concesión de recursos smallrc de los recursos reservados del sistema.
+Los usuarios deben evitar una solución de administración de cargas de trabajo que configure el aislamiento del 100 % de las cargas de trabajo: El aislamiento del 100 % se consigue cuando la suma de min_percentage_resource configurada en todos los grupos de cargas de trabajo es igual a 100 %.  Este tipo de configuración es excesivamente restrictiva y rígida, lo que deja poco espacio para las solicitudes de recursos que se clasifican de forma incorrecta. Hay una disposición para permitir que una solicitud se ejecute desde grupos de cargas de trabajo que no estén configurados para el aislamiento. Los recursos asignados a esta solicitud se mostrarán como un cero en las DMV de los sistemas y tomarán un nivel de concesión de recursos smallrc de los recursos reservados del sistema.
 
 > [!NOTE] 
 > Para garantizar un uso óptimo de los recursos, considere la posibilidad de usar una solución de administración de cargas de trabajo que aproveche cierto aislamiento para asegurarse de que se cumplen y se mezclan con recursos compartidos a los que se accede en función de la [importancia de la carga de trabajo](sql-data-warehouse-workload-importance.md).
@@ -57,7 +57,7 @@ La configuración de la contención de cargas de trabajo define implícitamente 
 [Simultaneidad máxima] = [`CAP_PERCENTAGE_RESOURCE`] / [`REQUEST_MIN_RESOURCE_GRANT_PERCENT`]
 
 > [!NOTE] 
-> El valor CAP_PERCENTAGE_RESOURCE efectivo de un grupo de cargas de trabajo no alcanzará el 100 % cuando se crean grupos de cargas de trabajo con un valor MIN_PERCENTAGE_RESOURCE en un nivel mayor que cero.  Vea [sys.dm_workload_management_workload_groups_stats](https://review.docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-workload-management-workload-group-stats-transact-sql?view=azure-sqldw-latest) para obtener los valores en tiempo de ejecución efectivos.
+> El valor CAP_PERCENTAGE_RESOURCE efectivo de un grupo de cargas de trabajo no alcanzará el 100 % cuando se crean grupos de cargas de trabajo con un valor MIN_PERCENTAGE_RESOURCE en un nivel mayor que cero.  Vea [sys.dm_workload_management_workload_groups_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-workload-management-workload-group-stats-transact-sql?view=azure-sqldw-latest) para obtener los valores en tiempo de ejecución efectivos.
 
 ## <a name="resources-per-request-definition"></a>Recursos por definición de solicitud
 
@@ -71,7 +71,7 @@ Como sucede al elegir una clase de recursos, la configuración de REQUEST_MIN_RE
 La configuración de REQUEST_MAX_RESOURCE_GRANT_PERCENT en un valor mayor que REQUEST_MIN_RESOURCE_GRANT_PERCENT permite al sistema asignar más recursos por solicitud.  Durante la programación de una solicitud, el sistema determina la asignación de recursos real a la solicitud, que se encuentra entre REQUEST_MIN_RESOURCE_GRANT_PERCENT y REQUEST_MAX_RESOURCE_GRANT_PERCENT, en función de la disponibilidad de los recursos en el grupo compartido y la carga actual en el integrado.  Los recursos deben existir en el [grupo compartido](#shared-pool-resources) de recursos cuando se programa la consulta.  
 
 > [!NOTE] 
-> REQUEST_MIN_RESOURCE_GRANT_PERCENT y REQUEST_MAX_RESOURCE_GRANT_PERCENT tienen valores efectivos que dependen de los valores efectivos de MIN_PERCENTAGE_RESOURCE y CAP_PERCENTAGE_RESOURCE.  Vea [sys.dm_workload_management_workload_groups_stats](https://review.docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-workload-management-workload-group-stats-transact-sql?view=azure-sqldw-latest) para obtener los valores en tiempo de ejecución efectivos.
+> REQUEST_MIN_RESOURCE_GRANT_PERCENT y REQUEST_MAX_RESOURCE_GRANT_PERCENT tienen valores efectivos que dependen de los valores efectivos de MIN_PERCENTAGE_RESOURCE y CAP_PERCENTAGE_RESOURCE.  Vea [sys.dm_workload_management_workload_groups_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-workload-management-workload-group-stats-transact-sql?view=azure-sqldw-latest) para obtener los valores en tiempo de ejecución efectivos.
 
 ## <a name="execution-rules"></a>Reglas de ejecución
 

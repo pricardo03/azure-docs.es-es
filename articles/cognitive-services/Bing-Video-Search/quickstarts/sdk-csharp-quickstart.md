@@ -8,22 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 06/26/2019
+ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: d29aef614b8308dfeba8da7925bd2880c25fe72d
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 1cbb5880c38aca649dffb91f31b9340648b85f68
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383754"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75382519"
 ---
 # <a name="quickstart-perform-a-video-search-with-the-bing-video-search-sdk-for-c"></a>Inicio rápido: Realización de una búsqueda de vídeo con el SDK de Bing Video Search para C#
 
 Use este artículo de inicio rápido para empezar a buscar vídeos con el SDK de Bing Video Search para C#. Aunque Bing Video Search tiene una API de REST compatible con la mayoría de los lenguajes de programación, el SDK proporciona una forma sencilla de integrar el servicio en sus aplicaciones. El código fuente de este ejemplo está disponible en [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingVideoSearch) con anotaciones adicionales y características.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-* Cualquier edición de [Visual Studio 2017 o posterior](https://visualstudio.microsoft.com/downloads/).
+* Cualquier edición de [Visual Studio 2017 o versiones posteriores](https://visualstudio.microsoft.com/downloads/).
 * El marco Json.NET, disponible como [paquete NuGet](https://www.nuget.org/packages/Newtonsoft.Json/).
 
 Para agregar el SDK de Bing Video Search, seleccione **Administración de paquetes de NuGet** en el **Explorador de soluciones** en Visual Studio. Agregue el paquete `Microsoft.Azure.CognitiveServices.Search.VideoSearch`.
@@ -86,7 +86,7 @@ La instalación del [[paquete del SDK de NuGet Video Search]](https://www.nuget.
 > [!div class="nextstepaction"]
 > [Creación de una aplicación web de una sola página](../tutorial-bing-video-search-single-page-app.md)
 
-## <a name="see-also"></a>Otras referencias 
+## <a name="see-also"></a>Consulte también 
 
 * [¿Qué es Bing Video Search API?](../overview.md)
 * [Ejemplos del SDK de Cognitive Services para .NET](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)

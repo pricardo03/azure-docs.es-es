@@ -26,8 +26,10 @@
       items:
         - name: Uso de laboratorios para impartir clases
           href: classroom-labs-scenarios.md
-- name: Guías de procedimientos
+- name: Guías paso a paso
   items:
+    - name: Guía del administrador
+      href: administrator-guide.md
     - name: 'Laboratorios educativos: tipos de clase'
       items:
         - name: Información general sobre tipos de clase
@@ -52,6 +54,8 @@
           href: how-to-connect-peer-virtual-network.md
         - name: Asociación o desasociación de una galería de imágenes compartidas
           href: how-to-attach-detach-shared-image-gallery.md
+        - name: Adición de un usuario como propietario a un laboratorio de clase
+          href: how-to-add-user-lab-owner.md
     - name: Creación y configuración de laboratorios educativos (instructor)
       items:
         - name: Creación y administración de laboratorios educativos
@@ -70,6 +74,8 @@
           href: how-to-use-shared-image-gallery.md
         - name: Habilitar conexión de escritorio remoto para Linux
           href: how-to-enable-remote-desktop-linux.md
+        - name: Habilitación del apagado automático al desconectar
+          href: how-to-enable-shutdown-disconnect.md
         - name: Habilitación de la virtualización anidada en una máquina virtual de plantilla
           href: how-to-enable-nested-virtualization-template-vm.md
         - name: Preparación de una plantilla de máquina virtual de Windows

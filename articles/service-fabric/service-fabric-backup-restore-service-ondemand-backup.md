@@ -1,25 +1,16 @@
 ---
-title: Copia de seguridad a petición en Azure Service Fabric | Microsoft Docs
+title: Copia de seguridad a petición en Azure Service Fabric
 description: Use la característica de copia de seguridad y restauración de Service Fabric para realizar la copia de seguridad de sus datos de aplicación cuando lo necesite.
-services: service-fabric
-documentationcenter: .net
 author: aagup
-manager: chackdan
-editor: aagup
-ms.assetid: 02DA262A-EEF6-4F90-842E-FFC4A09003E5
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 10/30/2018
 ms.author: aagup
-ms.openlocfilehash: 88698a7a0f78987dc96bf7f39831ec1a7560a359
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: d5eada62bec49fe771373671e9438d2786d6b165
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73815860"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458421"
 ---
 # <a name="on-demand-backup-in-azure-service-fabric"></a>Copia de seguridad a petición en Azure Service Fabric
 
@@ -28,9 +19,9 @@ Puede realizar una copia de seguridad de los servicios de confianza sin estado y
 Azure Service Fabric incluye características para la [copia de seguridad periódica de los datos](service-fabric-backuprestoreservice-quickstart-azurecluster.md) y la copia de seguridad de los datos cuando sea necesaria. La copia de seguridad a petición es útil porque protege frente a la _pérdida de datos_/_los daños en los datos_ debidos a los cambios planeados en el servicio subyacente o su entorno.
 
 Las características de copia de seguridad a petición son útiles para capturar el estado de los servicios antes de cualquier operación desencadenada manualmente relacionada con el servicio o el entorno de este. Por ejemplo, si realiza un cambio en los binarios del servicio al actualizarlo o degradarlo. En tal caso, la copia de seguridad a petición puede ayudar a proteger los datos de daños causados por errores de código de las aplicaciones.
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-- Instale el módulo de Microsoft.ServiceFabric.Powershell.Http [en versión preliminar] para realizar llamadas de configuración.
+- Instale el módulo Microsoft.ServiceFabric.Powershell.Http [en versión preliminar] para realizar llamadas de configuración.
 
 ```powershell
     Install-Module -Name Microsoft.ServiceFabric.Powershell.Http -AllowPrerelease
@@ -63,7 +54,7 @@ Backup-SFPartition -PartitionId '974bd92a-b395-4631-8a7f-53bd4ae9cf22'
 
 ```
 
-#### <a name="rest-call-using-powershell"></a>Llamada de REST mediante PowerShell
+#### <a name="rest-call-using-powershell"></a>Llamada a REST mediante PowerShell
 
 Use [BackupPartition](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition) API para configurar el desencadenamiento de la copia de seguridad a petición para el identificador de partición `974bd92a-b395-4631-8a7f-53bd4ae9cf22`.
 
@@ -88,7 +79,7 @@ Backup-SFPartition -PartitionId '974bd92a-b395-4631-8a7f-53bd4ae9cf22' -AzureBlo
 
 ```
 
-#### <a name="rest-call-using-powershell"></a>Llamada de REST mediante PowerShell
+#### <a name="rest-call-using-powershell"></a>Llamada a REST mediante PowerShell
 
 Use [BackupPartition](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition) API para configurar el desencadenamiento de la copia de seguridad a petición para el identificador de partición `974bd92a-b395-4631-8a7f-53bd4ae9cf22`. Incluya la siguiente información de Azure Storage:
 
@@ -136,7 +127,7 @@ Particiones distintas pueden desencadenar solicitudes de copia de seguridad a pe
 Get-SFPartitionBackupProgress -PartitionId '974bd92a-b395-4631-8a7f-53bd4ae9cf22'
 
 ```
-#### <a name="rest-call-using-powershell"></a>Llamada de REST mediante PowerShell
+#### <a name="rest-call-using-powershell"></a>Llamada a REST mediante PowerShell
 
 ```powershell
 $url = "https://mysfcluster-backup.southcentralus.cloudapp.azure.com:19080/Partitions/974bd92a-b395-4631-8a7f-53bd4ae9cf22/$/GetBackupProgress?api-version=6.4"
@@ -148,7 +139,7 @@ $backupResponse
 
 Las solicitudes de copia de seguridad a petición pueden tener los siguientes estados:
 
-- **Accepted**: la copia de seguridad se ha iniciado en la partición y está en curso.
+- **Accepted** (Aceptado): la copia de seguridad se ha iniciado en la partición y está en curso.
   ```
   BackupState             : Accepted
   TimeStampUtc            : 0001-01-01T00:00:00Z

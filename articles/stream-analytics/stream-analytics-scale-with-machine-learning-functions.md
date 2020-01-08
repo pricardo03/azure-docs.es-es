@@ -1,19 +1,18 @@
 ---
 title: Escalado de funciones de Machine Learning en Azure Stream Analytics
 description: En este artículo se describe cómo escalar los trabajos de Stream Analytics que usan funciones de Machine Learning mediante la configuración de creación de particiones y unidades de streaming.
-services: stream-analytics
 author: jseb225
 ms.author: jeanb
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: 28734e5eaa693ca4ee31603863b69605a1d92c88
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: dedffab0b17515cedc54569d5debf6d29b273644
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467876"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458749"
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-studio-classic-functions"></a>Escalado del trabajo de Stream Analytics con funciones de Azure Machine Learning Studio (clásico)
 
@@ -104,11 +103,11 @@ A continuación se muestra una tabla del rendimiento del trabajo de Stream Analy
 
 | Tamaño del lote (latencia de Aprendizaje automático) | 500 (200 ms) | 1000 (200 ms) | 5000 (250 ms) | 10 000 (300 ms) | 25 000 (500 ms) |
 | --- | --- | --- | --- | --- | --- |
-| **1 unidad de búsqueda** |2500 |5\.000 |20.000 |30 000 |50.000 |
-| **3 unidades de búsqueda** |2500 |5\.000 |20.000 |30 000 |50.000 |
-| **6 unidades de búsqueda** |2500 |5\.000 |20.000 |30 000 |50.000 |
+| **1 unidad de búsqueda** |2500 |5\.000 |20.000 |30,000 |50.000 |
+| **3 unidades de búsqueda** |2500 |5\.000 |20.000 |30,000 |50.000 |
+| **6 unidades de búsqueda** |2500 |5\.000 |20.000 |30,000 |50.000 |
 | **12 unidades de búsqueda** |5\.000 |10 000 |40.000 |60 000 |100 000 |
-| **18 unidades de búsqueda** |7500 |15 000 |60 000 |90 000 |150 000 |
+| **18 unidades de búsqueda** |7500 |15,000 |60 000 |90 000 |150 000 |
 | **24 unidades de búsqueda** |10 000 |20.000 |80 000 |120 000 |200 000 |
 | **…** |… |… |… |… |… |
 | **60 unidades de búsqueda** |25 000 |50.000 |200 000 |300 000 |500.000 |

@@ -1,20 +1,18 @@
 ---
 title: Depuración controlada por datos en Azure Stream Analytics
 description: En este artículo se describe cómo solucionar problemas de un trabajo de Azure Stream Analytics mediante el uso del diagrama de trabajo y métricas en Azure Portal.
-services: stream-analytics
 author: jseb225
 ms.author: jeanb
-manager: kfile
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/01/2017
-ms.openlocfilehash: 472d7fcbca1a221b69d681ce33d39978b53a3204
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 3c0c29e1793e56efae8d13cb01d57faf257d8805
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620944"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426075"
 ---
 # <a name="data-driven-debugging-by-using-the-job-diagram"></a>Depuración orientada a datos mediante el diagrama de trabajo
 
@@ -80,7 +78,7 @@ Si el paso de consulta anterior es un procesador de entrada, use las métricas d
 *   **Input Events Backlogged (Total)** indica cuántos mensajes más es necesario leer para las entradas de Event Hubs y Azure IoT Hub. Cuando este número es mayor que 0, significa que el trabajo no puede procesar los datos a la misma velocidad con la que entran. En este caso, debe aumentar el número de unidades de streaming o asegurarse de que el trabajo se puede ejecutar en paralelo. Puede ver más información al respecto en la [página de paralelización de consultas](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization). 
 
 
-## <a name="get-help"></a>Obtención de ayuda
+## <a name="get-help"></a>Obtener ayuda
 Para obtener más ayuda, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics). 
 
 ## <a name="next-steps"></a>Pasos siguientes

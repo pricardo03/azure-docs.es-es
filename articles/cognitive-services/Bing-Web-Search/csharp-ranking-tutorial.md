@@ -9,14 +9,14 @@ ms.assetid: 2575A80C-FC74-4631-AE5D-8101CF2591D3
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: tutorial
-ms.date: 06/18/2019
+ms.date: 12/19/2019
 ms.author: aahi
-ms.openlocfilehash: cfe198352cae95227a76535544d55a6be0c66abc
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 1c8e0bb136fddeb84dc991e63a761378b38cc470
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67203256"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75382334"
 ---
 # <a name="build-a-console-app-search-client-in-c"></a>Compilación de un cliente de búsqueda de aplicación de consola en C#
 
@@ -27,12 +27,12 @@ En este tutorial se muestra cómo realizar las siguientes acciones:
 - Realizar una consulta simple en Bing Web Search API
 - Mostrar resultados de la consulta en orden de clasificación
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para seguir el tutorial, necesitará:
 
 - Visual Studio. Si no lo tiene, [descargue e instale la versión gratuita de Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/).
-- Una clave de suscripción para Bing Web Search API. Si no tiene una, [suscríbase para una evaluación gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api).
+- Una clave de suscripción para Bing Web Search API. Si no tiene ninguna, [suscríbase para obtener una evaluación gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api).
 
 ## <a name="create-a-new-console-app-project"></a>Creación de un proyecto de aplicación de consola
 

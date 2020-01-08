@@ -1,20 +1,19 @@
 ---
 title: Evitar interrupciones de servicio en trabajos de Azure Stream Analytics
 description: En este artículo se describe la guía sobre cómo realizar la actualización resistente de los trabajos de Stream Analytics.
-services: stream-analytics
 author: jseb225
 ms.author: sidram
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: e38f8a923daa210d8aa5b56631e5f8157d4b3f70
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: d2d21e081b274bd985c48dac91fff5203a6b5b8a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620875"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425986"
 ---
 # <a name="guarantee-stream-analytics-job-reliability-during-service-updates"></a>Garantía de la confiabilidad del trabajo de Stream Analytics durante las actualizaciones del servicio
 

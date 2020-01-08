@@ -1,25 +1,16 @@
 ---
-title: Supervisión de contenedores en Azure Service Fabric con los registros de Azure Monitor | Microsoft Docs
+title: Supervisión de contenedores con los registros de Azure Monitor
 description: Use los registros de Azure Monitor para supervisar los contenedores que se ejecutan en clústeres de Azure Service Fabric.
-services: service-fabric
-documentationcenter: .net
 author: srrengar
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/25/2019
 ms.author: srrengar
-ms.openlocfilehash: d03d68560502821b9c343be983d9f7b5a83ed977
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8d4231de13da3f8b2960bd4852136f803a97a546
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60321917"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614441"
 ---
 # <a name="monitor-containers-with-azure-monitor-logs"></a>Supervisión de contenedores con los registros de Azure Monitor
  
@@ -57,5 +48,5 @@ El agente habilita la recopilación de varios registros específicos de contened
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtenga más información sobre la [solución de contenedores de registros de Azure Monitor](../azure-monitor/insights/containers.md).
 * Obtenga más información sobre la orquestación de contenedores en Service Fabric en [Service Fabric y contenedores](service-fabric-containers-overview.md)
-* Familiarícese con las características de [búsqueda de registros y consulta](../log-analytics/log-analytics-log-searches.md) que se ofrecen como parte de los registros de Azure Monitor.
+* Familiarícese con las características de [consultas y búsqueda de registros](../log-analytics/log-analytics-log-searches.md) que se ofrecen como parte de los registros de Azure Monitor.
 * Configure los registros de Azure Monitor para configurar [alertas automáticas](../log-analytics/log-analytics-alerts.md) que ayuden a la detección y el diagnóstico.

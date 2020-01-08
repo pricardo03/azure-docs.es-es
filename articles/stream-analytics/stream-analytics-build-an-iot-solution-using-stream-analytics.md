@@ -1,20 +1,19 @@
 ---
 title: Compilación de una solución de IoT con Azure Stream Analytics
 description: Tutorial de introducción a la solución de IoT de Stream Analytics de un escenario de cabinas de peaje.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 4b250a5e14ab37553d93453d05f8ff388bf1ba84
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: f506cc526a824d45ae2d6b7a75e1c1a99dae4d64
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620523"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426456"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Compilación de una solución de IoT con Stream Analytics
 
@@ -29,7 +28,7 @@ Después de completar esta solución, podrá:
 * Desarrollar soluciones de streaming para los clientes usando el lenguaje de consulta de Stream Analytics.
 * Usar la experiencia de supervisión y registro para solucionar problemas.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 Necesita cumplir con estos requisitos previos para completar esta solución:
 * [Una suscripción de Azure](https://azure.microsoft.com/pricing/free-trial/)
 
@@ -44,7 +43,7 @@ Esta solución funciona con dos secuencias de datos. Los sensores instalados a l
 ### <a name="entry-data-stream"></a>Flujo de datos de entrada
 El flujo de datos de entrada contiene información sobre los vehículos que entran en las estaciones de peaje. Los eventos de datos de salida se transmiten a la cola de un Centro de eventos desde una instancia de Web App incluida en la misma aplicación.
 
-| TollId | EntryTime | LicensePlate | Estado | Asegúrese | Modelo | VehicleType | VehicleWeight | Toll | Etiqueta |
+| TollId | EntryTime | LicensePlate | State | Asegúrese | Modelo | VehicleType | VehicleWeight | Toll | Etiqueta |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 1 |10-09-2014 12:01:00.000 |JNB 7001 |NY |Honda |CRV |1 |0 |7 | |
 | 1 |10-09-2014 12:02:00.000 |YXZ 1001 |NY |Toyota |Camry |1 |0 |4 |123456789 |
@@ -55,12 +54,12 @@ El flujo de datos de entrada contiene información sobre los vehículos que entr
 
 Breve descripción de las columnas:
 
-| Columna | DESCRIPCIÓN |
+| Columna | Descripción |
 | --- | --- |
 | TollId |El identificador de la cabina de peaje que identifica de forma única una cabina de peaje. |
 | EntryTime |Fecha y hora de entrada del vehículo en la cabina de peaje en UTC. |
 | LicensePlate |Número de matrícula del vehículo. |
-| Estado |Estado de los Estados Unidos. |
+| State |Estado de los Estados Unidos. |
 | Asegúrese |Fabricante del automóvil. |
 | Modelo |Número de modelo de vehículo. |
 | VehicleType |1 para los vehículos de pasajeros o 2 para vehículos comerciales. |
@@ -82,7 +81,7 @@ El flujo de datos de salida contiene información sobre los vehículos que salen
 
 Breve descripción de las columnas:
 
-| Columna | DESCRIPCIÓN |
+| Columna | Descripción |
 | --- | --- |
 | TollId |El identificador de la cabina de peaje que identifica de forma única una cabina de peaje. |
 | ExitTime |La fecha y hora de salida del vehículo de la cabina de peaje en UTC. |
@@ -102,7 +101,7 @@ En la solución se usa una instantánea estática de una base de datos de regist
 
 Breve descripción de las columnas:
 
-| Columna | DESCRIPCIÓN |
+| Columna | Descripción |
 | --- | --- |
 | LicensePlate |Número de matrícula del vehículo. |
 | RegistrationId |Identificador de registro del vehículo. |

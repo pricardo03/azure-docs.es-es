@@ -121,7 +121,7 @@
       items:
         - name: Copia de Data Lake Storage Gen1
           href: load-azure-data-lake-storage-gen2-from-gen1.md
-    - name: Cargar SQL Data Warehouse
+    - name: Carga de Synapse Analytics (anteriormente SQL Data Warehouse)
       href: load-azure-sql-data-warehouse.md
     - name: Carga de Data Lake Storage Gen1
       href: load-azure-data-lake-store.md
@@ -175,7 +175,7 @@
           items:
             - name: Introducción a los flujos de datos de limpieza y transformación
               href: wrangling-data-flow-overview.md
-            - name: Funciones compatibles
+            - name: Funciones admitidas
               href: wrangling-data-flow-functions.md
     - name: Roles y permisos
       href: concepts-roles-permissions.md
@@ -183,7 +183,7 @@
       href: pricing-concepts.md
     - name: Reglas de nomenclatura
       href: naming-rules.md
-- name: Guías de procedimientos
+- name: Guías paso a paso
   items:
     - name: Autor
       items:
@@ -233,7 +233,7 @@
           href: connector-azure-sql-database.md
         - name: Instancia administrada de Azure SQL Database
           href: connector-azure-sql-database-managed-instance.md
-        - name: Azure SQL Data Warehouse
+        - name: Azure Synapse Analytics (anteriormente SQL Data Warehouse)
           href: connector-azure-sql-data-warehouse.md
         - name: Azure Table Storage
           href: connector-azure-table-storage.md
@@ -389,14 +389,18 @@
           href: delete-activity.md
         - name: Herramienta Copiar datos
           href: copy-data-tool.md
-        - name: Rendimiento y optimización
-          href: copy-activity-performance.md
         - name: Compatibilidad con formato y compresión
           href: supported-file-formats-and-compression-codecs.md
+        - name: Rendimiento y optimización
+          href: copy-activity-performance.md
+        - name: Conservación de metadatos y listas de control de acceso
+          href: copy-activity-preserve-metadata.md
         - name: Esquema y asignación de tipos
           href: copy-activity-schema-and-type-mapping.md
         - name: Tolerancia a errores
           href: copy-activity-fault-tolerance.md
+        - name: Compatibilidad con formato y compresión (heredado)
+          href: supported-file-formats-and-compression-codecs-legacy.md
     - name: Transformación de datos
       href: transform-data.md
       items:
@@ -480,7 +484,7 @@
           href: data-flow-exists.md
         - name: Filter
           href: data-flow-filter.md
-        - name: Unión
+        - name: Join
           href: data-flow-join.md
         - name: Búsqueda
           href: data-flow-lookup.md
@@ -498,7 +502,7 @@
           href: data-flow-source.md
         - name: Clave suplente
           href: data-flow-surrogate-key.md
-        - name: Unión
+        - name: Union
           href: data-flow-union.md
         - name: Anulación de dinamización
           href: data-flow-unpivot.md
@@ -674,7 +678,7 @@
       href: frequently-asked-questions.md
     - name: Notas del producto
       href: whitepapers.md
-    - name: Roadmap
+    - name: Plan de desarrollo
       href: 'https://azure.microsoft.com/roadmap/?tag=data-factory'
     - name: Precios
       href: 'https://azure.microsoft.com/pricing/details/data-factory/'

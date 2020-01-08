@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: tutorial
-ms.date: 07/12/2019
+ms.date: 12/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 424fdc9fa0f31b3de664945ff49b119939488fed
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: e128daa82eca8142a636df0958ddca574e398713
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68423608"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75383122"
 ---
 # <a name="tutorial-create-a-single-page-web-app"></a>Tutorial: Creación de una aplicación web de una sola página
 
@@ -53,15 +53,15 @@ La mayor parte del código HTML y CSS es convencional, por lo que el tutorial no
 ```html
 <form name="bing" onsubmit="return newBingNewsSearch(this)">
 ```
-El controlador `onsubmit` devuelve `false`, que impide que el formulario que se envíe a un servidor. El código de JavaScript se encarga de recopilar la información necesaria del formulario y realizar la búsqueda.
+El controlador `onsubmit` devuelve `false`, lo que impide que el formulario que se envíe a un servidor. El código de JavaScript se encarga de recopilar la información necesaria del formulario y realizar la búsqueda.
 
-El código HTML también contiene las divisiones (etiquetas `<div>` HTML) donde aparecen los resultados de búsqueda.
+El HTML también contiene las divisiones (etiquetas `<div>` HTML) en que aparecen los resultados de la búsqueda.
 
 ## <a name="managing-subscription-key"></a>Administrar la clave de suscripción
 
 Para evitar tener que incluir la clave de suscripción de Bing Search API en el código, usamos el almacenamiento persistente del explorador para almacenar la clave. Antes de almacenar la clave, se solicitará la clave de usuario. Si, más tarde, la API rechaza la clave, se invalidará la clave almacenada y se le volverá a pedir al usuario.
 
-Definimos las funciones `storeValue` y `retrieveValue` que usan el objeto `localStorage` (no todos los exploradores lo admite) o una cookie. La función `getSubscriptionKey()` usa estas funciones para almacenar y recuperar la clave del usuario.
+Definimos las funciones `storeValue` y `retrieveValue` que usan el objeto `localStorage` (no todos los exploradores lo admite) o una cookie. La función `getSubscriptionKey()` usa estas funciones para almacenar y recuperar la clave del usuario. Puede usar el punto de conexión global siguiente o el punto de conexión del [subdominio personalizado](../../cognitive-services/cognitive-services-custom-subdomains.md) que se muestra en Azure Portal para el recurso.
 
 ``` javascript
 // Cookie names for data we store
@@ -94,19 +94,19 @@ La etiqueta `<form>` HTML `onsubmit` llama a la función `bingWebSearch` para de
 <form name="bing" onsubmit="this.offset.value = 0; return bingWebSearch(this.query.value, 
     bingSearchOptions(this), getSubscriptionKey())">
 ```
-## <a name="selecting-search-options"></a>Seleccionar opciones de búsqueda
+## <a name="selecting-search-options"></a>Selección de las opciones de búsqueda
 En la siguiente ilustración se muestra el cuadro de texto de la consulta y las opciones que definen una búsqueda de noticias acerca de fondos escolares.
 
 ![Opciones de Bing News Search](media/news-search-categories.png)
 
 El formulario HTML incluye elementos con los nombres siguientes:
 
-|Elemento|DESCRIPCIÓN|
+|Elemento|Descripción|
 |-|-|
 | `where` | Un menú desplegable para seleccionar el mercado (ubicación e idioma) que se usa en la búsqueda. |
 | `query` | El campo de texto en el que se especifican los términos de búsqueda. |
 | `category` | Las casillas para la promoción de determinados tipos de resultados. Por ejemplo, al promocionar la salud, aumenta la clasificación de las noticias relacionadas con la salud. |
-| `when` | Menú desplegable para, opcionalmente, limitar la búsqueda al día, semana o mes más recientes. |
+| `when` | Menú desplegable para, opcionalmente, limitar la búsqueda al día, la semana o el mes más reciente. |
 | `safe` | Una casilla que indica si se usa la característica Búsqueda segura de Bing para filtrar los resultados "para adultos". |
 | `count` | Campo oculto. Número de resultados de búsqueda que se devolverán en cada solicitud. Cambie este valor para mostrar más o menos resultados por página. |
 | `offset`|  Campo oculto. El desplazamiento del primer resultado de búsqueda de la solicitud; se usa para la paginación. Se restablece a `0` en cada nueva solicitud. |
@@ -267,7 +267,7 @@ function handleBingResponse() {
 ```
 
 > [!IMPORTANT]
-> Una solicitud HTTP correcta *no* indica necesariamente que la búsqueda se haya realizado correctamente. Si se produce un error en la operación de búsqueda, Bing News Search API devuelve un código de estado HTTP distinto de 200 e incluye información de error en la respuesta JSON. Además, si la solicitud tenía limitación de frecuencia, la API devuelve una respuesta vacía.
+> Una solicitud HTTP correcta *no* indica necesariamente que la búsqueda se haya realizado correctamente. Si se produce un error en la operación de búsqueda, Bing News Search API devuelve un código de estado HTTP distinto de 200 e incluye información del error en la respuesta JSON. Además, si la solicitud tenía limitación de frecuencia, la API devuelve una respuesta vacía.
 
 Gran parte del código de las dos funciones anteriores está dedicado al control de errores. Pueden producirse errores en las siguientes fases:
 
@@ -279,8 +279,8 @@ Gran parte del código de las dos funciones anteriores está dedicado al control
 
 Los errores se controlan mediante una llamada a `renderErrorMessage()` con los detalles que se conocen sobre el error. Si la respuesta pasa todas las pruebas de error, llamamos a `renderSearchResults()` para mostrar los resultados de la búsqueda en la página.
 
-## <a name="displaying-search-results"></a>Mostrar los resultados de búsqueda
-La función principal para mostrar los resultados de búsqueda es `renderSearchResults()`. Esta función utiliza el valor de JSON que devuelve el servicio Bing News Search y procesa las imágenes y las búsquedas relacionadas, si las hay.
+## <a name="displaying-search-results"></a>Presentación de los resultados de la búsqueda
+La función principal para mostrar los resultados de búsqueda es `renderSearchResults()`. Esta función utiliza el valor de JSON que devuelve el servicio Bing News Search y procesa los resultados de noticias y las búsquedas relacionadas, si los hay.
 
 ```javascript
 // render the search results given the parsed JSON response
@@ -315,7 +315,7 @@ function renderResults(items) {
 ```
 Bing News Search API devuelve hasta cuatro tipos distintos de resultados relacionados, cada uno en su propio objeto de nivel superior. Son las siguientes:
 
-|Relación|DESCRIPCIÓN|
+|Relación|Descripción|
 |-|-|
 |`pivotSuggestions`|Consultas que reemplazan una palabra dinámica de la búsqueda original por otra. Por ejemplo, si busca "flores rojas", una palabra dinámica podría ser "rojas", y una sugerencia dinámica podría ser "flores amarillas".|
 |`queryExpansions`|Consultas que limitan la búsqueda original al agregar más términos. Por ejemplo, si busca "Microsoft Surface", una expansión de consulta podría ser "Microsoft Surface Pro".|
@@ -324,7 +324,7 @@ Bing News Search API devuelve hasta cuatro tipos distintos de resultados relacio
 
 Como ya hemos visto en `renderSearchResults()`, solo representamos sugerencias de `relatedItems` y colocamos los vínculos resultantes en la barra lateral de la página.
 
-## <a name="rendering-result-items"></a>Renderizar elementos de resultado
+## <a name="rendering-result-items"></a>Representación de los elementos del resultado
 
 En el código de JavaScript, `searchItemRenderers` es un objeto que contiene *representadores:* esto es, funciones que generan código HTML para cada tipo de resultado de búsqueda.
 
@@ -338,7 +338,7 @@ searchItemRenderers = {
 ```
 Una función de representador puede aceptar los parámetros siguientes:
 
-|Parámetro|DESCRIPCIÓN|
+|Parámetro|Descripción|
 |-|-|
 |`item`| El objeto de JavaScript que contiene las propiedades del elemento, como su dirección URL y la descripción.|
 |`index`| El índice del elemento de resultado dentro de su colección.|
@@ -375,7 +375,7 @@ El representador `news` se muestra en el siguiente fragmento de JavaScript:
 ```
 Función del representador de noticias:
 > [!div class="checklist"]
-> * Crea una etiqueta de párrafo, la asigna a la clase `news` y la inserta en la matriz de HTML.
+> * Crea una etiqueta de párrafo, la asigna a la clase `news` y la inserta en la matriz HTML.
 > * Calcula el tamaño de la miniatura de la imagen (el ancho se fija en 60 píxeles, y el alto se calcula proporcionalmente).
 > * Crea la etiqueta HTML `<img>` para mostrar la miniatura de la imagen. 
 > * Compila etiquetas `<a>` HTML vinculadas con la imagen y la página que la contiene.
@@ -383,7 +383,7 @@ Función del representador de noticias:
 
 El tamaño de las miniaturas se usa tanto en la etiqueta `<img>` como en los campos `h` y `w` en la dirección URL de la miniatura. El [servicio de miniaturas de Bing](../bing-web-search/resize-and-crop-thumbnails.md), a continuación, proporciona una miniatura de exactamente ese tamaño.
 
-## <a name="persisting-client-id"></a>Id. de cliente persistente
+## <a name="persisting-client-id"></a>Identificador de cliente persistente
 Las respuestas de Bing Search API pueden incluir un encabezado `X-MSEdge-ClientID` que debe devolverse a la API con las solicitudes sucesivas. Si se usan varias instancias de Bing Search API, se debe usar el mismo identificador de cliente con todas ellas, si es posible.
 
 Especificar el encabezado `X-MSEdge-ClientID` permite a las API de Bing asociar todas las búsquedas de un usuario, lo que tiene dos ventajas importantes.
@@ -392,10 +392,10 @@ En primer lugar, permite al motor de búsqueda de Bing aplicar un contexto pasad
 
 En segundo lugar, Bing puede seleccionar aleatoriamente usuarios para disfrutar de nuevas características antes de que estén disponibles públicamente. Especificar el mismo identificador de cliente en todas las solicitudes garantiza que los usuarios que ven una característica la vean siempre. Sin el identificador de cliente, el usuario puede ver una característica aparecer y desaparecer, de forma aparentemente aleatoria, en los resultados de búsqueda.
 
-Las directivas de seguridad del explorador (CORS) pueden impedir que el encabezado `X-MSEdge-ClientID` esté disponible para JavaScript. Esta limitación tiene lugar cuando la respuesta a la búsqueda tiene un origen distinto al de la página que la solicitó. En un entorno de producción, debería abordar esta directiva mediante el hospedaje de un script de lado servidor que realice la llamada API en el mismo dominio que la página web. Puesto que el script tiene el mismo origen que la página web, el encabezado `X-MSEdge-ClientID` está disponible para JavaScript.
+Las directivas de seguridad del explorador (CORS) pueden impedir que el encabezado `X-MSEdge-ClientID` esté disponible para JavaScript. Esta limitación tiene lugar cuando la respuesta a la búsqueda tiene un origen distinto al de la página que la solicitó. En un entorno de producción, debería abordar esta directiva mediante el hospedaje de un script de lado servidor que realice la llamada API en el mismo dominio que la página web. Como el script tiene el mismo origen que la página web, el encabezado `X-MSEdge-ClientID` está disponible para JavaScript.
 
 > [!NOTE]
-> En una aplicación web de producción, debe realizar la solicitud del lado servidor. En caso contrario, es necesario incluir la clave de Bing Search API en la página web, donde está disponible para cualquiera que vea el origen. Se le facturará todo el uso bajo su clave de suscripción a API, incluso las solicitudes que realicen partes no autorizadas, por lo que es importante no exponer su clave.
+> En una aplicación web de producción, debe realizar la solicitud del lado servidor. En caso contrario, es preciso incluir la clave de Bing Search API en la página web, donde está disponible para cualquiera que vea el origen. Se le facturará todo el uso bajo su clave de suscripción a API, incluso las solicitudes que realicen partes no autorizadas, por lo que es importante no exponer su clave.
 
 Para fines de desarrollo, puede realizar la solicitud de Bing Web Search API a través de un proxy CORS. La respuesta de un proxy de este tipo tiene un encabezado `Access-Control-Expose-Headers` que permite los encabezados de respuesta y hace que estén disponibles para JavaScript.
 

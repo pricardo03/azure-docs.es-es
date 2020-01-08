@@ -1,25 +1,24 @@
 ---
 title: Estados de trabajo de Azure Stream Analytics
 description: 'En este artículo se describen los cuatro estados de un trabajo de Stream Analytics: en ejecución, detenido, degradado y erróneo.'
-services: stream-analytics
 author: sidram
 ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: c533463ff544dc315142f7fb95c34c67933f9614
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 454474333cac94dc25deae8196e9ba45bcb3a574
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68444250"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75359773"
 ---
 # <a name="azure-stream-analytics-job-states"></a>Estados de trabajo de Azure Stream Analytics
 
 Un trabajo de Stream Analytics puede encontrarse en uno de cuatro estados en un momento dado: en ejecución, detenido, degradado y erróneo. Puede averiguar el estado de un trabajo en la página de información general del trabajo de Stream Analytics en Azure Portal. 
 
-| Estado | DESCRIPCIÓN | Acciones recomendadas |
+| State | Descripción | Acciones recomendadas |
 | --- | --- | --- |
 | **Ejecución** | El trabajo se ejecuta en los eventos de lectura de Azure procedentes de los orígenes de entrada definidos, los procesa y escribe los resultados en los receptores de salida configurados. | Es una práctica recomendada para realizar el seguimiento del rendimiento mediante la supervisión de las [métricas clave](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-set-up-alerts#scenarios-to-monitor). |
 | **Stopped** | El trabajo está detenido y no procesa eventos. | N/D | 

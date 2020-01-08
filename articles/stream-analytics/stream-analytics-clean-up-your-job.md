@@ -1,20 +1,19 @@
 ---
 title: Limpiar un trabajo de Azure Stream Analytics
 description: En este artículo se muestran distintos métodos para eliminar los trabajos de Azure Stream Analytics.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 093ada2b2751540b986154be3a2f333784c1259f
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: d99920417f20034da1001a821c02376ac19274d2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70173299"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426484"
 ---
 # <a name="stop-or-delete-your-azure-stream-analytics-job"></a>Detener o eliminar un trabajo de Azure Stream Analytics
 
@@ -27,7 +26,7 @@ Los trabajos de Azure Stream Analytics se pueden detener o eliminar fácilmente 
 
 Cuando se detiene un trabajo, los recursos se desaprovisionan y se detiene el procesamiento de eventos. También se detienen los cargos relacionados con este trabajo. Sin embargo, se mantiene toda su configuración y puede reiniciar el trabajo más tarde. 
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com). 
+1. Inicie sesión en [Azure Portal](https://portal.azure.com). 
 
 2. Busque el trabajo de Stream Analytics que se está ejecutando y selecciónelo.
 
@@ -41,7 +40,7 @@ Cuando se detiene un trabajo, los recursos se desaprovisionan y se detiene el pr
 >[!WARNING] 
 >Un trabajo de Stream Analytics no puede recuperarse una vez que se ha eliminado.
 
-1. Inicie sesión en el Portal de Azure. 
+1. Inicie sesión en Azure Portal. 
 
 2. Busque el trabajo de Stream Analytics existente y selecciónelo.
 

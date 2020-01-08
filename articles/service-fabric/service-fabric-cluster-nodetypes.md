@@ -1,25 +1,15 @@
 ---
-title: Tipos de nodos y conjuntos de escalado de máquinas virtuales de Azure Service Fabric | Microsoft Docs
+title: Tipos de nodo y conjuntos de escalado de máquinas virtuales
 description: Aprenda a relacionar los tipos de nodos de Azure Service Fabric con los conjuntos de escalado de máquinas virtuales y a conectarse de forma remota a una instancia de conjunto de escalado o un nodo de clúster.
-services: service-fabric
-documentationcenter: .net
-author: ChackDan
-manager: chackdan
-editor: ''
-ms.assetid: 5441e7e0-d842-4398-b060-8c9d34b07c48
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 03/23/2018
 ms.author: pepogors
-ms.openlocfilehash: cec134f9e71f86cd0ed17912f1a3c76adc9a4164
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: d67a99be7b55cfa75980688ee30edc4fce7c0946
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72167317"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610172"
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Tipos de nodos y conjuntos de escalado de máquinas virtuales de Azure Service Fabric
 Los [conjuntos de escalado de máquinas virtuales](/azure/virtual-machine-scale-sets) son un recurso de Azure Compute. Puede usarlos para implementar y administrar una colección de máquinas virtuales como conjunto. Cada tipo de nodo que defina en un clúster de Azure Service Fabric configura un escalado independiente.  El tiempo de ejecución de Service Fabric que la extensión de máquina virtual Microsoft.Azure.ServiceFabric instala en cada máquina virtual del conjunto de escalado. Cada tipo de nodo se puede escalar o reducir verticalmente de forma independiente; puede cambiar la SKU del sistema operativo que se ejecuta en cada nodo de clúster, tener diferentes conjuntos de puertos abiertos y usar distintas métricas de capacidad.
@@ -78,7 +68,7 @@ Estas son las descripciones de la propiedad:
 | **Nombre** | **Valores permitidos** | ** --- ** | **Orientación o breve descripción** |
 | --- | --- | --- | --- |
 | name | string | --- | nombre único para la extensión |
-| Tipo | "ServiceFabricLinuxNode" o "ServiceFabricWindowsNode" | --- | Identifica el sistema operativo donde arranca Service Fabric |
+| type | "ServiceFabricLinuxNode" o "ServiceFabricWindowsNode" | --- | Identifica el sistema operativo donde arranca Service Fabric |
 | autoUpgradeMinorVersion | true o false | --- | Habilita la actualización automática de las versiones secundarias del tiempo de ejecución de SF |
 | publisher | Microsoft.Azure.ServiceFabric | --- | Nombre del editor de la extensión de Service Fabric |
 | clusterEndpont | string | --- | URI:PUERTO al punto de conexión de administración |

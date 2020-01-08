@@ -11,12 +11,12 @@ ms.date: 04/26/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 5b33d8fc804d339d3808e5231998fbba41cd4ee9
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 8a7da1bf80025cfe9b59c42f3338254b86f2ff05
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839860"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75376348"
 ---
 # <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>Tutorial: Carga de datos de taxis de Nueva York en Azure SQL Data Warehouse
 
@@ -45,7 +45,7 @@ Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-blank-sql-data-warehouse"></a>Creación de una instancia de SQL Data Warehouse en blanco
 
-Se crea una instancia de Azure SQL Data Warehouse con un conjunto definido de [recursos de proceso]memory-concurrency-limits.md). La base de datos se crea dentro de un [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) y en un [servidor lógico de Azure SQL](../sql-database/sql-database-features.md). 
+Se crea una instancia de Azure SQL Data Warehouse con un conjunto definido de [recursos de proceso]memory-concurrency-limits.md). La base de datos se crea dentro de un [grupo de recursos de Azure](../azure-resource-manager/management/overview.md) y en un [servidor lógico de Azure SQL](../sql-database/sql-database-features.md). 
 
 Siga estos pasos para crear una instancia de SQL Data Warehouse en blanco. 
 
@@ -57,18 +57,18 @@ Siga estos pasos para crear una instancia de SQL Data Warehouse en blanco.
 
 3. Rellene el formulario SQL Data Warehouse con la siguiente información:   
 
-   | Configuración | Valor sugerido | DESCRIPCIÓN | 
+   | Configuración | Valor sugerido | Descripción | 
    | ------- | --------------- | ----------- | 
    | **Nombre de la base de datos** | mySampleDataWarehouse | Para conocer los nombres de base de datos válidos, consulte [Database Identifiers](/sql/relational-databases/databases/database-identifiers) (Identificadores de base de datos). | 
    | **Suscripción** | Su suscripción  | Para más información acerca de sus suscripciones, consulte [Suscripciones](https://account.windowsazure.com/Subscriptions). |
-   | **Grupos de recursos** | myResourceGroup | Para conocer cuáles son los nombres de grupo de recursos válidos, consulte el artículo [Naming conventions](/azure/architecture/best-practices/resource-naming) (Convenciones de nomenclatura). |
+   | **Grupos de recursos** | myResourceGroup | Para conocer cuáles son los nombres de grupo de recursos válidos, consulte el artículo [Convenciones de nomenclatura](/azure/architecture/best-practices/resource-naming). |
    | **Seleccionar origen** | Base de datos en blanco | Se especifica para crear una base de datos en blanco. Tenga en cuenta que un almacenamiento de datos es un tipo de base de datos.|
 
     ![creación del almacenamiento de datos](media/load-data-from-azure-blob-storage-using-polybase/create-data-warehouse.png)
 
 4. Haga clic en **Servidor** para crear y configurar un servidor nuevo para la nueva base de datos. Rellene el **formulario de servidor nuevo** con la siguiente información: 
 
-    | Configuración | Valor sugerido | DESCRIPCIÓN | 
+    | Configuración | Valor sugerido | Descripción | 
     | ------- | --------------- | ----------- |
     | **Nombre del servidor** | Cualquier nombre globalmente único | Para conocer cuáles son los nombres de servidor válidos, consulte el artículo [Naming conventions](/azure/architecture/best-practices/resource-naming) (Convenciones de nomenclatura). | 
     | **Inicio de sesión del administrador del servidor** | Cualquier nombre válido | Para conocer los nombres de inicio de sesión válidos, consulte [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificadores de base de datos).|
@@ -147,7 +147,7 @@ En esta sección se usa [SQL Server Management Studio](/sql/ssms/download-sql-se
 
 2. En el cuadro de diálogo **Conectar con el servidor**, especifique la siguiente información:
 
-    | Configuración      | Valor sugerido | DESCRIPCIÓN | 
+    | Configuración      | Valor sugerido | Descripción | 
     | ------------ | --------------- | ----------- | 
     | Tipo de servidor | Motor de base de datos | Este valor es obligatorio |
     | Nombre de servidor | Nombre completo del servidor | Este nombre debería parecerse al siguiente: **mynewserver-20180430.database.windows.net**. |
@@ -157,7 +157,7 @@ En esta sección se usa [SQL Server Management Studio](/sql/ssms/download-sql-se
 
     ![conectar con el servidor](media/load-data-from-azure-blob-storage-using-polybase/connect-to-server.png)
 
-4. Haga clic en **Conectar**. Se abre la ventana del Explorador de objetos en SSMS. 
+4. Haga clic en **Conectar**. La ventana Explorador de objetos se abre en SSMS. 
 
 5. En el Explorador de objetos, expanda **Bases de datos**. A continuación, expanda **Bases de datos del sistema** y **maestro** para ver los objetos de la base de datos maestra.  Expanda **mySampleDatabase** para ver los objetos de la base de datos.
 
@@ -171,7 +171,7 @@ Es mejor crear un inicio de sesión y un usuario que esté dedicado para cargar 
 
 Puesto que actualmente está conectado como administrador del servidor, puede crear inicios de sesión y usuarios. Siga estos pasos para crear un inicio de sesión y un usuario llamado **LoaderRC20**. Luego, asigne el usuario a la clase de recurso **staticrc20**. 
 
-1.  En SSMS, haga clic en **maestro** para mostrar un menú desplegable y elija **Nueva consulta**. Se abre una nueva ventana de consulta.
+1.  En SSMS, haga clic en **maestro** para mostrar un menú desplegable y elija **Nueva consulta**. Se abrirá una nueva ventana de consulta.
 
     ![Nueva consulta en maestro](media/load-data-from-azure-blob-storage-using-polybase/create-loader-login.png)
 
@@ -565,7 +565,7 @@ El script utiliza la instrucción de T-SQL [CREATE TABLE AS SELECT (CTAS)](/sql/
 ## <a name="authenticate-using-managed-identities-to-load-optional"></a>Autenticación con identidades administradas para cargar (opcional)
 La carga con PolyBase y la autenticación mediante identidades administradas es el mecanismo más seguro y le permite aprovechar los puntos de conexión de servicio de red virtual con almacenamiento de Azure. 
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerequisites
 1.  Instale Azure PowerShell mediante esta [guía](https://docs.microsoft.com/powershell/azure/install-az-ps).
 2.  Si tiene una cuenta de uso general v1 o de Blob Storage, primero debe actualizar a Uso general v2 mediante esta [guía](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
 3.  Debe activar **Permitir que los servicios de Microsoft de confianza accedan a esta cuenta de almacenamiento** en el menú de configuración **Firewalls y redes virtuales** de la cuenta de Azure Storage. Consulte [esta guía](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) para obtener más información.

@@ -1,19 +1,18 @@
 ---
 title: Integración del panel de Power BI con Azure Stream Analytics
 description: En este artículo se describe cómo usar un panel de Power BI en tiempo real para visualizar datos fuera de un trabajo de Azure Stream Analytics.
-services: stream-analytics
 author: jseb225
 ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/11/2019
-ms.openlocfilehash: c415bdecdaf55f3068dcd804ab34de402fe7a31f
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 76f5c1f0cd3186244e9a262358c9c9a652a73fdb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67612288"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431628"
 ---
 # <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Stream Analytics y Power BI: panel de análisis en tiempo real de flujo de datos
 
@@ -24,7 +23,7 @@ Este artículo continúa a partir del tutorial [Detección de fraudes en tiempo 
 Puede ver un [vídeo](https://www.youtube.com/watch?v=SGUpT-a99MA) que muestra este escenario.
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de empezar, asegúrese de que dispone de lo siguiente:
 
@@ -46,7 +45,7 @@ En el tutorial de detección de fraudes en tiempo real, la salida se envía a Az
    |---------|---------|
    |Alias de salida  |  CallStream PowerBI  |
    |Nombre del conjunto de datos  |   sa-dataset  |
-   |Nombre de tabla |  fraudulent-calls  |
+   |Nombre de la tabla |  fraudulent-calls  |
 
    ![Configuración de la salida de Stream Analytics](media/stream-analytics-power-bi-dashboard/configure-stream-analytics-output.png)
 
@@ -57,7 +56,7 @@ En el tutorial de detección de fraudes en tiempo real, la salida se envía a Az
 
 4. Después de seleccionar **Autorizar**, se abre una ventana emergente y se le pide que escriba las credenciales para autenticarse en su cuenta de Power BI. Una vez que la autorización se realice correctamente, **guarde** la configuración.
 
-8. Haga clic en **Create**(Crear).
+8. Haga clic en **Crear**.
 
 El conjunto de datos se crea con la siguiente configuración:
 
@@ -121,7 +120,7 @@ Esta sección es opcional pero conveniente.
 
 4. Haga clic en **Probar** y revise los resultados.
 
-## <a name="run-the-job"></a>Ejecución del trabajo
+## <a name="run-the-job"></a>Ejecutar el trabajo
 
 1. Asegúrese de que la aplicación TelcoStreaming se ejecuta.
 
@@ -235,8 +234,8 @@ De forma similar, si un trabajo intenta iniciarse después de que el token haya 
 
 Después de que la autorización se haya actualizado con Power BI, se mostrará una alerta verde en el área de autorización para indicar que el problema se ha resuelto.
 
-## <a name="get-help"></a>Obtención de ayuda
-Para obtener ayuda adicional, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+## <a name="get-help"></a>Obtener ayuda
+Para obtener más ayuda, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Introducción a Azure Stream Analytics](stream-analytics-introduction.md)

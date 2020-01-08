@@ -1,5 +1,5 @@
 ---
-title: Objetivos de escalabilidad y rendimiento de Azure Files | Microsoft Docs
+title: Objetivos de escalabilidad y rendimiento de Azure Files
 description: Obtenga información sobre los objetivos de escalabilidad y rendimiento de Azure Files, como la capacidad, la tasa de solicitudes, y los límites de ancho de banda entrante y saliente.
 author: roygara
 ms.service: storage
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 267a63eba90c74b79078a7c04c1d2d8929cf2a44
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 060b4a8992ab1c48cceb9506b4f556d9098b9be0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615768"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452947"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Objetivos de escalabilidad y rendimiento de Azure Files
 
@@ -24,7 +24,7 @@ Los objetivos de escalabilidad y rendimiento que aparecen aquí son exigentes, p
 
 El recurso primario de un recurso compartido de archivos de Azure es una cuenta de Azure Storage. Una cuenta de almacenamiento representa un grupo de almacenamiento de Azure que pueden utilizar varios servicios de almacenamiento, como Azure Files, para almacenar datos. Otros servicios que almacenan datos en cuentas de almacenamiento son Azure Blob Storage, Azure Queue Storage y Azure Table Storage. Los objetivos siguientes se aplican a todos los servicios de almacenamiento que guardan datos en una cuenta de almacenamiento:
 
-[!INCLUDE [azure-storage-limits](../../../includes/azure-storage-limits.md)]
+[!INCLUDE [azure-storage-account-limits-standard](../../../includes/azure-storage-account-limits-standard.md)]
 
 [!INCLUDE [azure-storage-limits-azure-resource-manager](../../../includes/azure-storage-limits-azure-resource-manager.md)]
 
@@ -35,7 +35,7 @@ El recurso primario de un recurso compartido de archivos de Azure es una cuenta 
 
 Existen tres categorías de limitaciones a tener en cuenta para Azure Files: cuentas de almacenamiento, recursos compartidos y archivos.
 
-Por ejemplo:  con los recursos compartidos de archivos Premium, un solo recurso compartido puede lograr 100 000 IOPS y un único archivo puede escalar verticalmente hasta 5000 IOPS. Por lo tanto, si tiene tres archivos en un recurso compartido, el número máximo de IOPS que puede obtener de ese recurso compartido es de 15 000.
+Por ejemplo: con los recursos compartidos de archivos Premium, un solo recurso compartido puede lograr 100 000 IOPS y un único archivo puede escalar verticalmente hasta 5000 IOPS. Por lo tanto, si tiene tres archivos en un recurso compartido, el número máximo de IOPS que puede obtener de ese recurso compartido es de 15 000.
 
 ### <a name="standard-storage-account-limits"></a>Límites de la cuenta de almacenamiento estándar
 
@@ -111,7 +111,7 @@ Como guía general para la implementación, debería tener varios factores en cu
 - El rendimiento de los objetos se escala aproximadamente en proporción al número de grupos de sincronización del servidor. La división de los datos en varios grupos de sincronización en un servidor mejora el rendimiento, que también está limitado por el servidor y la red.
 - El rendimiento de los objetos es inversamente proporcional al rendimiento de MiB por segundo. En archivos pequeños, el rendimiento será mayor en cuanto al número de objetos procesados por segundo, pero el rendimiento en MiB por segundo será inferior. Por el contrario, en archivos grandes, se procesarán menos objetos por segundo, pero el rendimiento en MiB por segundo será superior. El rendimiento en MiB por segundo está limitado por los destinos del escalado de Azure Files.
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 - [Planeamiento de una implementación de Azure Files](storage-files-planning.md)
 - [Planeamiento de una implementación de Azure File Sync](storage-sync-files-planning.md)

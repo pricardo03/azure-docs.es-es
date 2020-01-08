@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 12/04/2019
 ms.author: tamram
-ms.openlocfilehash: 7c7b0a0bb79f3f00d7a8dff64ec1b7143241a1f8
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: e7228556659a7a4a9f01ea31f61e75b5e870d50c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892233"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457421"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Actualización a una cuenta de almacenamiento de uso general v2
 
@@ -26,7 +26,7 @@ Actualizar a una cuenta de almacenamiento de uso general v2 desde la cuenta de u
 
 # <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Vaya a la cuenta de almacenamiento.
 3. En la sección **Configuración**, haga clic en **Configuración**.
 4. En **Tipo de cuenta**, haga clic en **Actualizar**.
@@ -168,4 +168,3 @@ El costo de transferencia de datos de replicación geográfica para cuentas de B
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Cree una cuenta de almacenamiento](storage-quickstart-create-account.md)
-* [Administración de cuentas de Azure Storage](storage-account-manage.md)

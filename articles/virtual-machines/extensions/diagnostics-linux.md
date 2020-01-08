@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: gwallace
-ms.openlocfilehash: b8a5a344f2f1d8280ca60169786e72a0e1dd291e
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 046e61d82893bf1fcdb2d6697cfaaa9f5bde8c2c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073167"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75359369"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Uso de la extensión Diagnostics de Linux para supervisar métricas y registros
 
@@ -49,7 +49,7 @@ Mediante estas instrucciones de instalación y una [configuración de ejemplo de
 
 La configuración que se puede descargar es solo un ejemplo; modifíquela como corresponda para adaptarla a sus necesidades.
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerequisites
 
 * **Versión 2.2.0 o posterior del agente Linux de Azure**. La mayoría de las imágenes de la galería de máquina virtual Linux de Azure incluyen la versión 2.2.7 o posterior. Ejecute `/usr/sbin/waagent -version` para confirmar la versión instalada en la máquina virtual. Si la máquina virtual está ejecutando una versión anterior del agente invitado, siga [estas instrucciones](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) para actualizarla.
 * **Azure CLI**. [Instale el entorno de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) en la máquina.
@@ -127,7 +127,7 @@ Este conjunto de información de configuración contiene información confidenci
 }
 ```
 
-NOMBRE | Valor
+Nombre | Value
 ---- | -----
 storageAccountName | Es el nombre de la cuenta de almacenamiento en la que la extensión escribe los datos.
 storageAccountEndPoint | (Opcional) es el punto de conexión que identifica la nube en la que existe la cuenta de almacenamiento. Si no hubiera configuración, LAD selecciona la nube pública de Azure (`https://core.windows.net`) de forma predeterminada. Para usar una cuenta de almacenamiento en Azure Alemania, Azure Government o Azure China, establezca este valor como corresponda.
@@ -135,7 +135,7 @@ storageAccountSasToken | Es un [token de SAS de cuenta](https://azure.microsoft.
 mdsdHttpProxy | (Opcional) es información del proxy HTTP necesaria para habilitar la extensión para conectarse a la cuenta de almacenamiento y el punto de conexión especificados.
 sinksConfig | (Opcional) es información sobre destinos alternativos a los que pueden enviarse métricas y eventos. La información específica de cada receptor de datos admitido por la extensión se trata en las siguientes secciones.
 
-Para obtener un token de SAS en una plantilla de Resource Manager, utilice la función **listAccountSas**. Para ver una plantilla de ejemplo, consulte un [ejemplo de función de lista](../../azure-resource-manager/resource-group-template-functions-resource.md#list-example).
+Para obtener un token de SAS en una plantilla de Resource Manager, utilice la función **listAccountSas**. Para ver una plantilla de ejemplo, consulte un [ejemplo de función de lista](../../azure-resource-manager/templates/template-functions-resource.md#list-example).
 
 Es posible construir el token de SAS necesario de forma muy sencilla mediante Azure Portal.
 
@@ -165,10 +165,10 @@ Copie la SAS generada en el campo storageAccountSasToken. Elimine el signo de in
 
 En esta sección opcional se definen destinos adicionales a los que la extensión envía la información que recopila. La matriz "sink" contiene un objeto para cada receptor de datos adicional. El atributo "type" determina los demás atributos del objeto.
 
-Elemento | Valor
+Elemento | Value
 ------- | -----
-Nombre | Una cadena usada para hacer referencia a este receptor en cualquier otra parte de la configuración de la extensión.
-Tipo | Es el tipo de receptor que se va a definir. Determina los demás valores (si los hubiera) en instancias de este tipo.
+name | Una cadena usada para hacer referencia a este receptor en cualquier otra parte de la configuración de la extensión.
+type | Es el tipo de receptor que se va a definir. Determina los demás valores (si los hubiera) en instancias de este tipo.
 
 La versión 3.0 de la extensión Diagnostics de Linux admite dos tipos de receptores: de EventHub y Json BLOB.
 
@@ -227,7 +227,7 @@ Esta estructura contiene varios bloques de valores de configuración que control
 }
 ```
 
-Elemento | Valor
+Elemento | Value
 ------- | -----
 StorageAccount | Es el nombre de la cuenta de almacenamiento en la que la extensión escribe los datos. Debe ser el mismo nombre que se especifique en la [Configuración protegida](#protected-settings).
 mdsdHttpProxy | (Opcional) es el mismo que en la [Configuración protegida](#protected-settings). El valor público reemplaza al privado, en caso de estar establecido. Coloque elementos de configuración de proxy que contengan un secreto, como una contraseña, en la [Configuración protegida](#protected-settings).
@@ -250,7 +250,7 @@ El resto de los elementos se describen con más detalle en las secciones siguien
 
 Esta estructura opcional controla la recopilación de métricas y registros para enviarlos al servicio de Métricas de Azure y otros receptores de datos. Debe especificar `performanceCounters`, `syslogEvents` o ambos. Debe especificar la estructura de `metrics`.
 
-Elemento | Valor
+Elemento | Value
 ------- | -----
 eventVolume | (Opcional) controla el número de particiones creadas en la tabla de almacenamiento. Debe ser uno de los siguientes valores: `"Large"`, `"Medium"` o `"Small"`. Si no se especifica, el valor predeterminado es `"Medium"`.
 sampleRateInSeconds | (Opcional) es el intervalo predeterminado entre la recopilación de métricas sin procesar (sin agregar). La frecuencia de muestreo más pequeña admitida es de 15 segundos. Si no se especifica, el valor predeterminado es `15`.
@@ -267,7 +267,7 @@ sampleRateInSeconds | (Opcional) es el intervalo predeterminado entre la recopil
 }
 ```
 
-Elemento | Valor
+Elemento | Value
 ------- | -----
 resourceId | El identificador de recurso de Azure Resource Manager de la VM o del conjunto de escalado de máquinas virtuales al que pertenezca la VM. Esta configuración también debe especificarse en caso de usar cualquier receptor de Json BLOB en la configuración.
 scheduledTransferPeriod | La frecuencia con la que se computarán métricas agregadas y se transferirán a Métricas de Azure, expresadas en forma de intervalo de tiempo ISO 8601. El período de transferencia mínimo es de 60 segundos, es decir, PT1M. Debe especificar al menos un elemento scheduledTransferPeriod.
@@ -307,19 +307,19 @@ Esta sección opcional controla la recopilación de métricas. Se agregan muestr
 * last-collected value
 * Número de muestras sin procesar usadas para computar el agregado
 
-Elemento | Valor
+Elemento | Value
 ------- | -----
 sinks | (Opcional) es una lista separada por comas de nombres de receptores a los que LAD envía los resultados de las métricas agregadas. Todas las métricas agregadas se publican en cada receptor indicado. Consulte [sinksConfig](#sinksconfig). Ejemplo: `"EHsink1, myjsonsink"`.
-Tipo | Identifica el proveedor real de la métrica.
+type | Identifica el proveedor real de la métrica.
 class | Junto con "counter", identifica la métrica específica en el espacio de nombres del proveedor.
 counter | Junto con "class", identifica la métrica específica en el espacio de nombres del proveedor.
 counterSpecifier | Identifica la métrica específica en el espacio de nombres de Métricas de Azure.
-condition | (Opcional) selecciona una instancia específica del objeto al que se aplica la métrica o selecciona la agregación en todas las instancias de este objeto. Para más información, consulte las definiciones de las métricas `builtin`.
+condición | (Opcional) selecciona una instancia específica del objeto al que se aplica la métrica o selecciona la agregación en todas las instancias de este objeto. Para más información, consulte las definiciones de las métricas `builtin`.
 sampleRate | Intervalo de ISO 8601 que establece la frecuencia de recopilación de muestras sin procesar de esta métrica. Si no se establece, el intervalo de recopilación se establece a partir del valor de [sampleRateInSeconds](#ladcfg). La frecuencia de muestreo más corta admitida es de 15 segundos (PT15S).
 unit | Debería ser una de estas cadenas: "Count", "Bytes", "Seconds", "Percent", "CountPerSecond", "BytesPerSecond" o "Millisecond". Define la unidad para la métrica. Los consumidores de los datos recopilados esperan que los valores de los datos recopilados coincidan con esta unidad. LAD omite este campo.
 DisplayName | La etiqueta (en el idioma especificado por la configuración regional correspondiente) que va a adjuntarse a estos datos en el servicio de Métricas de Azure. LAD omite este campo.
 
-El elemento counterSpecifier es un identificador arbitrario. Los consumidores de métricas, como la característica de creación de grafos y desencadenamiento alertas de Azure Portal, usan counterSpecifier como "clave" para identificar una métrica o instancia de una métrica. Para las métricas de `builtin`, se recomienda usar valores counterSpecifier que empiecen por `/builtin/`. Si va a recopilar una instancia específica de una métrica, se recomienda adjuntar el identificador de la instancia al valor de counterSpecifier. Estos son algunos ejemplos:
+El elemento counterSpecifier es un identificador arbitrario. Los consumidores de métricas, como la característica de creación de grafos y desencadenamiento alertas de Azure Portal, usan counterSpecifier como "clave" para identificar una métrica o instancia de una métrica. Para las métricas de `builtin`, se recomienda usar valores counterSpecifier que empiecen por `/builtin/`. Si va a recopilar una instancia específica de una métrica, se recomienda adjuntar el identificador de la instancia al valor de counterSpecifier. He aquí algunos ejemplos:
 
 * `/builtin/Processor/PercentIdleTime`: tiempo de inactividad promediado en todas las vCPU
 * `/builtin/Disk/FreeSpace(/mnt)`: espacio libre para el elemento /mnt filesystem
@@ -353,7 +353,7 @@ Esta sección opcional controla la recopilación de eventos de registro de syslo
 
 La recopilación de syslogEventConfiguration tiene una entrada para cada recurso de syslog de interés. Si el valor de minSeverity es "NONE" para un recurso en particular, o si el recurso no aparece en el elemento, no se captura ningún evento de dicho recurso.
 
-Elemento | Valor
+Elemento | Value
 ------- | -----
 sinks | Es una lista separada por comas de nombres de receptores en los que se publican los eventos de registros individuales. Todos los eventos de registro que coincidan con las restricciones de syslogEventConfiguration se publican en cada receptor indicado. Ejemplo: "EHforsyslog"
 facilityName | Es un nombre de recurso de syslog (como "LOG\_USER" o "LOG\_LOCAL0"). Consulte la sección "facility" de la [página man de syslog](http://man7.org/linux/man-pages/man3/syslog.3.html) para obtener la lista completa.
@@ -382,10 +382,10 @@ Esta sección opcional controla la exclusión de consultas [OMI](https://github.
 ]
 ```
 
-Elemento | Valor
+Elemento | Value
 ------- | -----
 espacio de nombres | (Opcional) es el espacio de nombres OMI en el que la consulta debería ejecutarse. Si no se especifica, el valor predeterminado es "root/scx", implementado por los [proveedores multiplataforma de System Center](https://github.com/Microsoft/SCXcore).
-query | Es la consulta de OMI que va a ejecutarse.
+Query | Es la consulta de OMI que va a ejecutarse.
 table | (Opcional) es la tabla de almacenamiento de Azure, en la cuenta de almacenamiento designada (consulte [Configuración protegida](#protected-settings)).
 frequency | (Opcional) es el número de segundos entre la ejecución de la consulta. El valor predeterminado es de 300 (5 minutos) y el mínimo es de 15 segundos.
 sinks | (Opcional) es una lista separada por comas de nombres de receptores adicionales en los que deberían publicarse los resultados de las métricas de muestra sin procesar. Ni la extensión ni Métricas de Azure computan ninguna agregación de estos ejemplos sin procesar.
@@ -406,9 +406,9 @@ Controla la captura de los archivos de registro. LAD captura nuevas líneas de t
 ]
 ```
 
-Elemento | Valor
+Elemento | Value
 ------- | -----
-file | Es la ruta de acceso completa del archivo de registro que va a inspeccionarse y capturarse. La ruta de acceso debe denominar un único archivo. No puede denominar un directorio ni contener caracteres comodín.
+archivo | Es la ruta de acceso completa del archivo de registro que va a inspeccionarse y capturarse. La ruta de acceso debe denominar un único archivo. No puede denominar un directorio ni contener caracteres comodín.
 table | (Opcional) es la tabla de Azure Storage en la cuenta de almacenamiento designada (especificada en la configuración protegida) en la que se escriben nuevas líneas de la "cola" del archivo.
 sinks | (Opcional) es una lista separada por combas de nombres de receptores adicionales a la que se envían líneas de registro.
 
@@ -421,7 +421,7 @@ El proveedor de métricas builtin es una fuente de métricas del máximo interé
 * Procesador
 * Memoria
 * Red
-* Filesystem
+* Sistema de archivos
 * Disco
 
 ### <a name="builtin-metrics-for-the-processor-class"></a>Métricas builtin para la clase Processor

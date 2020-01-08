@@ -1,7 +1,6 @@
 ---
 title: Prueba de datos en vivo con Azure Stream Analytics para Visual Studio
 description: Aprenda a probar los trabajos de Azure Stream Analytics localmente mediante datos de streaming en vivo.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
@@ -9,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: ea55d2f96a87503d43a69d288ce85dcff32a39ce
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cda02408f9e90cb9f19a4f7d806a34e5cff9c33c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61479837"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426039"
 ---
 # <a name="test-live-data-locally-using-azure-stream-analytics-tools-for-visual-studio-preview"></a>Prueba local de datos activos mediante herramientas de Azure Stream Analytics para Visual Studio (versión preliminar)
 

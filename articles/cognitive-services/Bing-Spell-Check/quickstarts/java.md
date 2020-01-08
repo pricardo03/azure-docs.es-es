@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 04/11/2019
+ms.date: 12/16/2019
 ms.author: aahi
-ms.openlocfilehash: 0a40163eddffd4e406dd0644f950f6af636a1dfa
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 43c528a1e9e46a67e895679b1a0fd04fef8900a7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383870"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75382966"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-java"></a>Inicio rápido: Revisión ortográfica con la API REST de Bing Spell Check y Java
 
 Use este inicio rápido para realizar la primera llamada a la API REST de Bing Spell Check. Esta sencilla aplicación de Java envía una solicitud a la API y devuelve una lista de correcciones sugeridas. Si bien esta aplicación está escrita en Java, la API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación. El código fuente de esta aplicación está disponible en [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingSpellCheckv7.java).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * Kit de desarrollo de Java (JDK) 7 o superior
 
@@ -40,7 +40,7 @@ Use este inicio rápido para realizar la primera llamada a la API REST de Bing S
     import javax.net.ssl.HttpsURLConnection;
     ```
 
-2. Cree variables para el host, la ruta de acceso y la clave de suscripción del punto de conexión de API. A continuación, cree variables para su mercado, el texto cuya ortografía quiere revisar y una cadena para el modo de revisión ortográfica.
+2. Cree variables para el host, la ruta de acceso y la clave de suscripción del punto de conexión de API. A continuación, cree variables para su mercado, el texto cuya ortografía quiere revisar y una cadena para el modo de revisión ortográfica. Puede usar el punto de conexión global siguiente o el punto de conexión del [subdominio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) que se muestra en Azure Portal para el recurso.
 
     ```java
     static String host = "https://api.cognitive.microsoft.com";
