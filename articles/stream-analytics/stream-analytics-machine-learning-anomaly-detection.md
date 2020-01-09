@@ -1,19 +1,18 @@
 ---
 title: Detección de anomalías en Azure Stream Analytics
 description: En este artículo se describe cómo usar Azure Stream Analytics y Azure Machine Learning conjuntamente para detectar anomalías.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: e2fd226f1c605821f0fd595832b2cbe26d994fb4
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: e29ac6671d71ea02b432c9843541796984737c8b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67612337"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459616"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Detección de anomalías en Azure Stream Analytics
 
@@ -112,7 +111,7 @@ El rendimiento de estos modelos depende del tamaño del historial, la duración 
 * **Tamaño del historial**: estos modelos se ejecutan linealmente con el **tamaño historial**. Cuanto mayor sea, más tiempo tardarán los modelos en puntuar un nuevo evento. Esto es porque los modelos comparan el nuevo evento con cada uno de los eventos anteriores en el búfer del historial.
 * **Duración de la ventana**: la **duración de la ventana** debe reflejar cuánto tarda en recibir todos los eventos según lo especificado por el tamaño del historial. Si no hay muchos eventos en la ventana, Azure Stream Analytics imputará los valores que falten. Por lo tanto, el consumo de CPU es una función del tamaño del historial.
 * **Carga de eventos**: cuanto mayor sea la **carga de eventos**, más trabajo realizarán los modelos, lo cual afecta al consumo de CPU. El trabajo se puede escalar horizontalmente de manera vergonzosamente paralela, dando por hecho que tiene sentido según la lógica de negocios usar más particiones de entrada.
-* **Partición del nivel de función**: la **partición del nivel de función** se realiza mediante ```PARTITION BY``` dentro de la llamada de la función de detección de anomalías. Este tipo de partición agrega una sobrecarga, ya que el estado debe mantenerse para varios modelos al mismo tiempo. La partición del nivel de función se usa en escenarios como la partición del nivel de dispositivo.
+* **Partición del nivel de función** -  la **partición del nivel de función** se realiza mediante ```PARTITION BY``` dentro de la llamada de la función de detección de anomalías. Este tipo de partición agrega una sobrecarga, ya que el estado debe mantenerse para varios modelos al mismo tiempo. La partición del nivel de función se usa en escenarios como la partición del nivel de dispositivo.
 
 ### <a name="relationship"></a>Relación
 El tamaño del historial, la duración de ventana y la carga total de eventos están relacionados de la siguiente manera:
@@ -144,7 +143,7 @@ En la siguiente tabla se incluyen las observaciones de rendimiento para un solo 
 El código de ejemplo para ejecutar las configuraciones sin particiones anterior se encuentra en el [repositorio Streaming At Scale](https://github.com/Azure-Samples/streaming-at-scale/blob/f3e66fa9d8c344df77a222812f89a99b7c27ef22/eventhubs-streamanalytics-eventhubs/anomalydetection/create-solution.sh) de los ejemplos de Azure. El código crea un trabajo de Stream Analytics sin particiones del nivel de función que usa Event Hubs como entrada y salida. La carga de entrada se genera con clientes de prueba. Cada evento de entrada es un documento json de 1 KB. Los eventos simulan el envío de datos JSON desde un dispositivo IoT (para hasta mil dispositivos). El tamaño del historial, la duración de ventana y la carga total de eventos varían en 2 particiones de entrada.
 
 > [!Note]
-> Para una estimación más precisa, personalice los ejemplos para que se ajusten a su escenario.
+> Para lograr una estimación más precisa, personalice los ejemplos de forma que se ajusten a su escenario.
 
 ### <a name="identifying-bottlenecks"></a>Identificación de los cuellos de botella
 Utilice el panel Métricas del trabajo de Azure Stream Analytics para identificar los cuellos de botella en la canalización. Revise **Eventos de entrada/salida** para ver el rendimiento y [Retraso de la marca de agua](https://azure.microsoft.com/blog/new-metric-in-azure-stream-analytics-tracks-latency-of-your-streaming-pipeline/) o **Eventos de trabajos pendientes** para ver si el trabajo está al día con respecto a la tasa de entrada. Para métricas de Event Hubs, busque **Solicitudes limitadas** y ajuste las unidades de umbral como corresponda. En lo relativo a las métricas de Cosmos DB, vea **Máximo de RU/s consumidas por cada intervalo de claves de partición**  en Rendimiento para garantizar que los intervalos de claves de partición se consumen uniformemente. Para Azure SQL DB, supervise las **E/S de registro** y la **CPU**.
