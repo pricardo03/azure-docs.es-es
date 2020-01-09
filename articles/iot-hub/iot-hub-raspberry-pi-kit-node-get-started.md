@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: wesmc
-ms.openlocfilehash: 28897ca6f80632210032b7f800404fc921143adf
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 5780477be71988653e89379ae17e9009337bbc0f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954540"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457103"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>Conectar Raspberry Pi a Azure IoT Hub (Node.js)
 
@@ -51,7 +51,7 @@ En este tutorial, empezará por aprender los principios básicos del uso de Rasp
 
 * Una placa de Raspberry Pi 2 o Raspberry Pi 3.
 
-* Una suscripción de Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+* Suscripción a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
 * Un monitor, un teclado USB y un mouse que se conecten a Pi.
 
@@ -148,7 +148,7 @@ En las patillas del sensor, use el siguiente cableado:
 | LED VDD (patilla 18F)        | GPIO 24 (patilla 18)       | Cable blanco   |
 | LED GND (patilla 17F)        | GND (patilla 20)           | Cable negro   |
 
-Haga clic para ver [Raspberry Pi 2 & 3 Pin mappings](https://developer.microsoft.com/windows/iot/docs/pinmappingsrpi) (Asignaciones de patillas de Raspberry Pi 2 y 3) para su referencia.
+Haga clic para ver [Raspberry Pi 2 & 3 Pin mappings](/windows/iot-core/learn-about-hardware/pinmappings/pinmappingsrpi) (Asignaciones de patillas de Raspberry Pi 2 y 3) para su referencia.
 
 Una vez que haya conectado correctamente BME280 a Raspberry Pi, su aspecto debería ser el de la imagen siguiente.
 

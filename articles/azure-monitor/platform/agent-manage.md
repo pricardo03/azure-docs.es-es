@@ -4,15 +4,15 @@ description: En este artículo se describen las diferentes tareas de administrac
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 06/14/2019
-ms.openlocfilehash: 8dec91a3987aed978bb088d1aeab48a6fd0f9fb4
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 7e9725c2a33bd63b7ce6751f346da17eb68fe6f7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932801"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75364788"
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Administrar y mantener el agente de Log Analytics para Windows y Linux
 
@@ -34,7 +34,7 @@ Para actualizar el agente en una VM de Windows a la última versión que no se i
 
 Puede descargar la versión más reciente del agente de Windows desde el área de trabajo de Log Analytics, realizando los pasos siguientes.
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 2. En Azure Portal, haga clic en **Todos los servicios**. En la lista de recursos, escriba **Log Analytics**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Seleccione **Áreas de trabajo de Log Analytics**.
 
@@ -241,7 +241,7 @@ Use uno de los procedimientos siguientes para desinstalar al agente de Windows o
 >También se puede ejecutar el Asistente para instalación del agente; para ello, haga doble clic en **MMASetup-\<plataforma\>.exe**, que está disponible para descargar desde un área de trabajo de Azure Portal.
 
 #### <a name="uninstall-from-the-command-line"></a>Desinstalar desde la línea de comandos
-El archivo descargado para el agente es un paquete de instalación independiente creado con IExpress. El programa de instalación para el agente y los archivos auxiliares se encuentran en el paquete y deben extraerse para realizar la desinstalación correctamente con la línea de comandos que se muestra en el ejemplo siguiente.
+El archivo descargado del agente es un paquete de instalación independiente creado con IExpress. El programa de instalación para el agente y los archivos auxiliares se encuentran en el paquete y deben extraerse para realizar la desinstalación correctamente con la línea de comandos que se muestra en el ejemplo siguiente.
 
 1. Inicie sesión en el equipo con una cuenta con derechos administrativos.
 

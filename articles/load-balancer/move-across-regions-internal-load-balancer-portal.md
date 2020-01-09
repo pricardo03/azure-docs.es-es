@@ -6,21 +6,21 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 09/18/2019
 ms.author: allensu
-ms.openlocfilehash: 88aedb97f659725887026d0c83be88cbde27ae4f
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: f23923b9d847ef393ebd609eb5fbba530b1a07d6
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219684"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75638816"
 ---
 # <a name="move-azure-internal-load-balancer-to-another-region-using-the-azure-portal"></a>Traslado de equilibradores de carga internos de Azure a otra región mediante Azure Portal
 
 Hay varios escenarios en los que quizá quiera trasladar su equilibrador de carga interno actual de una región a otra. Por ejemplo, puede que quiera crear un equilibrador de carga interno con la misma configuración para realizar pruebas. También puede que quiera trasladar un equilibrador de carga interno a otra región como parte del planeamiento para la recuperación ante desastres.
 
-Los equilibradores de carga internos de Azure no se pueden trasladar de una región a otra. Sin embargo, puede usar una plantilla de Azure Resource Manager para exportar la configuración y la red virtual actuales de un equilibrador de carga interno.  Después, puede preparar el recurso para otra región al exportar el equilibrador de carga y la red virtual a una plantilla, modificar los parámetros para que coincidan con la región de destino y, a continuación, implementar la plantilla en la nueva región.  Para obtener más información sobre Resource Manager y las plantillas, consulte [Inicio rápido: Creación e implementación de plantillas de Azure Resource Manager mediante Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
+Los equilibradores de carga internos de Azure no se pueden trasladar de una región a otra. Sin embargo, puede usar una plantilla de Azure Resource Manager para exportar la configuración y la red virtual actuales de un equilibrador de carga interno.  Después, puede preparar el recurso para otra región al exportar el equilibrador de carga y la red virtual a una plantilla, modificar los parámetros para que coincidan con la región de destino y, a continuación, implementar la plantilla en la nueva región.  Para más información sobre Resource Manager y las plantillas, consulte [Inicio rápido: Creación e implementación de plantillas de Azure Resource Manager mediante Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 - Asegúrese de que el equilibrador de carga interno de Azure se encuentra en la región de Azure desde la que va a realizar el traslado.
 
@@ -32,7 +32,7 @@ Los equilibradores de carga internos de Azure no se pueden trasladar de una regi
 
 - Compruebe que su suscripción a Azure permite crear equilibradores de carga internos en la región de destino que se usa. Para habilitar la cuota necesaria, póngase en contacto con el soporte técnico.
 
-- Asegúrese de que la suscripción tiene suficientes recursos para admitir la adición de equilibradores de carga para este proceso.  Vea [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits)
+- Asegúrese de que la suscripción tiene suficientes recursos para admitir la adición de equilibradores de carga para este proceso.  Vea [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits)
 
 
 ## <a name="prepare-and-move"></a>Preparación y traslado
@@ -65,7 +65,7 @@ En los pasos siguientes se muestra cómo preparar el equilibrador de carga inter
 
 8. Haga clic en **Guardar** en el editor.
 
-9. Haga clic en **PLANTILLA** > **Editar plantilla** para abrir el archivo **template.json** en el editor en línea.
+9. Haga clic en **Plantilla** > **Editar plantilla** para abrir el archivo **template.json** en el editor en línea.
 
 10. Para editar la región de destino a la que se va a trasladar la red virtual, cambie la propiedad **location** en resources:
 
@@ -87,7 +87,7 @@ En los pasos siguientes se muestra cómo preparar el equilibrador de carga inter
 
     ```
 
-11. Para obtener los códigos de ubicación de la región, consulte [Ubicaciones de Azure](https://azure.microsoft.com/global-infrastructure/locations/).  El código de una región es el nombre en inglés de la región sin espacios. Por ejemplo, Centro de EE. UU. es **Central US** = **centralus**.
+11. Para obtener los códigos de ubicación de la región, consulte [Ubicaciones de Azure](https://azure.microsoft.com/global-infrastructure/locations/).  El código de una región es el nombre de la región sin espacios, **Centro de EE. UU.**  = **centralus**.
 
 12. Si quiere, también puede cambiar otros parámetros del archivo **template.json**. Estos son opcionales según sus necesidades:
 
@@ -216,12 +216,12 @@ En los pasos siguientes se muestra cómo preparar el equilibrador de carga inter
              }
     ```
 
-6. Para editar el valor de la red virtual de destino que se traslado anteriormente, primero debe obtener el Id. de recurso y después copiarlo y pegarlo en el archivo **parameters.json**. Para obtener el Id. realice lo siguiente:
+6. Para editar el valor de la red virtual de destino que se traslado anteriormente, primero debe obtener el Id. de recurso y después copiarlo y pegarlo en el archivo **parameters.json**. Para obtener el identificador realice lo siguiente:
 
     1. Inicie sesión en [Azure Portal](https://portal.azure.com) > **Grupos de recursos** en otra pestaña o ventana del explorador.
     2. Busque el grupo de recursos de destino que contiene la red virtual trasladada en los pasos anteriores y haga clic en él.
     3. Seleccione **Configuración** > **Propiedades**.
-    4. En la hoja de la derecha, resalte **Id. de recurso** y cópielo en el Portapapeles.  También puede hacer clic en el botón **Copiar al Portapapeles** a la derecha de la ruta de acceso del **Id. de recurso**.
+    4. En la hoja de la derecha, resalte **Id. de recurso** y cópielo en el Portapapeles.  También puede hacer clic en el botón **Copiar en el Portapapeles** a la derecha de la ruta de acceso del **Id. de recurso**.
     5. Pegue el Id. de recurso en la propiedad **defaultValue** del editor **Editar parámetros** que abrió en otra ventana o pestaña del explorador:
 
         ```json
@@ -239,7 +239,7 @@ En los pasos siguientes se muestra cómo preparar el equilibrador de carga inter
         ```
     6. Haga clic en **Guardar** en el editor en línea.
 
-7. Haga clic en **PLANTILLA** > **Editar plantilla** para abrir el archivo **template.json** en el editor en línea.
+7. Haga clic en **Plantilla** > **Editar plantilla** para abrir el archivo **template.json** en el editor en línea.
 8. Para editar la región de destino a la que se va a trasladar la configuración del equilibrador de carga interno, cambie la propiedad **location** en **resources** del archivo **template.json**:
 
     ```json
@@ -257,7 +257,7 @@ En los pasos siguientes se muestra cómo preparar el equilibrador de carga inter
 
 9.  Para obtener los códigos de ubicación de la región, consulte [Ubicaciones de Azure](https://azure.microsoft.com/global-infrastructure/locations/).  El código de una región es el nombre de la región sin espacios, **Centro de EE. UU.**  = **centralus**.
 
-10. Si quiere, también puede cambiar otros parámetros de la plantilla. Estos son opcionales según sus necesidades:
+10. También puede cambiar otros parámetros de la plantilla si así lo desea; son opcionales según sus requisitos:
 
     * **SKU**: puede cambiar la SKU del equilibrador de carga interno en la configuración del nivel estándar al básico o viceversa si modifica la propiedad **sku** > **name** en el archivo **template.json**:
 
@@ -273,7 +273,7 @@ En los pasos siguientes se muestra cómo preparar el equilibrador de carga inter
                 "tier": "Regional"
             },
         ```
-      Para obtener más información sobre las diferencias entre los equilibradores de carga de la SKU básica y estándar, consulte [Introducción a Azure Standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).
+      Para más información sobre las diferencias entre los equilibradores de carga de la SKU básica y estándar, consulte [Introducción a Azure Standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).
 
     * **Reglas de equilibrio de carga**: puede agregar o quitar reglas de equilibrio de carga en la configuración agregando o quitando entradas en la sección **loadBalancingRules** del archivo **template.json**:
 
@@ -373,13 +373,13 @@ En los pasos siguientes se muestra cómo preparar el equilibrador de carga inter
             }
         }
         ```
-        Para obtener más información sobre las reglas NAT de entrada, consulte [¿Qué es Azure Load Balancer?](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
+        Para más información sobre las reglas NAT de entrada, consulte [¿Qué es Azure Load Balancer?](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
 
 12. Haga clic en **Guardar** en el editor en línea.
 
 13. Haga clic en **BÁSICO** > **Suscripción** para elegir la suscripción en la que se implementará el equilibrador de carga interno de destino.
 
-15. Haga clic en **BÁSICO** > **Grupo de recursos** para elegir el grupo de recursos en el que se implementará el equilibrador de carga interno de destino.  Puede hacer clic en **Crear nuevo** para crear un nuevo grupo de recursos para el equilibrador de carga interno de destino o puede elegir el grupo de recursos existente que se creó anteriormente para la red virtual.  Asegúrese de que el nombre no es el mismo que el del grupo de recursos de origen del equilibrador de carga interno de origen existente.
+15. Haga clic en **BÁSICO** > **Grupo de recursos** para elegir el grupo de recursos en el que se implementará el equilibrador de carga de destino.  Puede hacer clic en **Crear nuevo** para crear un nuevo grupo de recursos para el equilibrador de carga interno de destino o puede elegir el grupo de recursos existente que se creó anteriormente para la red virtual.  Asegúrese de que el nombre no es el mismo que el del grupo de recursos de origen del equilibrador de carga interno de origen existente.
 
 16. Compruebe que **BÁSICO** > **Ubicación** está establecido en la ubicación de destino en la que quiere implementar el equilibrador de carga interno.
 
@@ -391,7 +391,7 @@ En los pasos siguientes se muestra cómo preparar el equilibrador de carga inter
 
 ## <a name="discard"></a>Discard (Descartar)
 
-Si quiere descartar la red virtual de destino y el equilibrador de carga interno, elimine el grupo de recursos que contiene la red virtual de destino y el equilibrador de carga interno.  Para ello, seleccione el grupo de recursos desde el panel en el portal y seleccione **Eliminar** en la parte superior de la página de información general.
+Si quiere descartar la red virtual de destino y el equilibrador de carga interno, elimine el grupo de recursos que contiene la red virtual de destino y el equilibrador de carga interno.  Para ello, en el portal, seleccione el grupo de recursos en el panel y, luego, **Eliminar** en la parte superior de la página de información general.
 
 ## <a name="clean-up"></a>Limpieza
 

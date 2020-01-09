@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: c0b30ecb9bc2b029141e528139f2b8a308c3a8dd
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: f03dbb783fe1374fe138f251d813b3333ed9e025
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892845"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613846"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Azure Metadata Service: Scheduled Events para máquinas virtuales Linux
 
@@ -78,7 +78,7 @@ El servicio Scheduled Events tiene versiones. Las versiones son obligatorias; la
 | - | - | - | - | 
 | 01-11-2017 | Disponibilidad general | All | <li> Se agregó compatibilidad para la expulsión de la máquina virtual de Azure Spot EventType 'Preempt'<br> | 
 | 2017-08-01 | Disponibilidad general | All | <li> Se quitó el guion bajo antepuesto de los nombres de recursos en las máquinas virtuales de IaaS<br><li>Se aplicó el requisito de encabezado de metadatos para todas las solicitudes | 
-| 2017-03-01 | Vista previa | All | <li>Versión inicial.
+| 2017-03-01 | Vista previa | All | <li>Versión inicial
 
 
 > [!NOTE] 
@@ -87,7 +87,7 @@ El servicio Scheduled Events tiene versiones. Las versiones son obligatorias; la
 ### <a name="enabling-and-disabling-scheduled-events"></a>Habilitación y deshabilitación de Scheduled Events
 Scheduled Events se habilita para un servicio la primera vez que se realiza una solicitud de eventos. Debe esperar hasta dos minutos de demora en la respuesta en la primera llamada.
 
-Scheduled Events está deshabilitado para su servicio si no realiza una solicitud durante 24 horas.
+Scheduled Events se deshabilita para el servicio si no se realiza una solicitud durante 24 horas.
 
 ### <a name="user-initiated-maintenance"></a>Mantenimiento iniciado por el usuario
 El mantenimiento de las máquinas virtuales iniciado por el usuario a través de Azure Portal, API, CLI o PowerShell, da lugar a un evento programado. Esto permite probar la lógica de preparación del mantenimiento en la aplicación, además de que la aplicación pueda prepararse para el mantenimiento iniciado por el usuario.
@@ -126,7 +126,7 @@ En caso de que haya eventos programados, la respuesta contiene una matriz de eve
 ```
 
 ### <a name="event-properties"></a>Propiedades de evento
-|Propiedad  |  DESCRIPCIÓN |
+|Propiedad  |  Descripción |
 | - | - |
 | EventId | Es un identificador único global del evento. <br><br> Ejemplo: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
 | EventType | Es el impacto causado por el evento. <br><br> Valores: <br><ul><li> `Freeze`: la máquina virtual está programada para pausarse durante unos segundos. Puede que se suspenda la conectividad de la CPU y la red, pero no afecta a la memoria ni a los archivos abiertos.<li>`Reboot`: la máquina virtual está programada para reiniciarse (se borrará la memoria no persistente). <li>`Redeploy`: la máquina virtual está programada para moverse a otro nodo (los discos efímeros se pierden). <li>`Preempt`: se está eliminando la máquina virtual de Azure Spot (se pierden los discos efímeros).|
@@ -176,20 +176,20 @@ En el siguiente ejemplo se realiza una consulta a Metadata Service para eventos 
 #!/usr/bin/python
 
 import json
-import urllib2
 import socket
-import sys
+import urllib2
 
-metadata_url = "http://169.254.169.254/metadata/scheduledevents?api-version=2017-11-01"
-headers = "{Metadata:true}"
+metadata_url = "http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01"
 this_host = socket.gethostname()
 
+
 def get_scheduled_events():
-   req = urllib2.Request(metadata_url)
-   req.add_header('Metadata', 'true')
-   resp = urllib2.urlopen(req)
-   data = json.loads(resp.read())
-   return data
+    req = urllib2.Request(metadata_url)
+    req.add_header('Metadata', 'true')
+    resp = urllib2.urlopen(req)
+    data = json.loads(resp.read())
+    return data
+
 
 def handle_scheduled_events(data):
     for evt in data['Events']:
@@ -198,19 +198,20 @@ def handle_scheduled_events(data):
         resources = evt['Resources']
         eventtype = evt['EventType']
         resourcetype = evt['ResourceType']
-        notbefore = evt['NotBefore'].replace(" ","_")
+        notbefore = evt['NotBefore'].replace(" ", "_")
         if this_host in resources:
-            print "+ Scheduled Event. This host " + this_host + " is scheduled for " + eventtype + " not before " + notbefore
+            print("+ Scheduled Event. This host " + this_host +
+                " is scheduled for " + eventtype + " not before " + notbefore)
             # Add logic for handling events here
 
 
 def main():
-   data = get_scheduled_events()
-   handle_scheduled_events(data)
+    data = get_scheduled_events()
+    handle_scheduled_events(data)
+
 
 if __name__ == '__main__':
-  main()
-  sys.exit(0)
+    main()
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes 

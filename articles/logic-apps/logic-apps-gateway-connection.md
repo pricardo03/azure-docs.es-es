@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: article
 ms.date: 11/06/2019
-ms.openlocfilehash: 0e2dcec15566749b58c439b68532829b67716754
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 29c1aaf18ea45d869d32a8817aeb03faa3b67c32
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815184"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456582"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Conexión a orígenes de datos locales desde Azure Logic Apps
 
@@ -50,7 +50,7 @@ En Azure Logic Apps, la puerta de enlace de datos local admite los [conectores l
 
 Azure Logic Apps admite operaciones de lectura y escritura a través de la puerta de enlace de datos. Sin embargo, estas operaciones tienen [límites en su tamaño de carga](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem#considerations). Aunque la puerta de enlace por sí sola no incurre en costos adicionales, el [modelo de precios de Logic Apps](../logic-apps/logic-apps-pricing.md) se aplica a estos conectores y a otras operaciones en Azure Logic Apps.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * Ya ha [instalado la puerta de enlace de datos local en un equipo local](../logic-apps/logic-apps-gateway-install.md).
 
@@ -78,11 +78,11 @@ Después de instalar la puerta de enlace en un equipo local, cree un recurso de 
 
 1. En **Crear puerta de enlace de conexión**, especifique la siguiente información el recurso de puerta de enlace. Seleccione **Crear** cuando haya terminado.
 
-   | Propiedad | DESCRIPCIÓN |
+   | Propiedad | Descripción |
    |----------|-------------|
    | **Nombre de recurso** | Proporcione un nombre para el recurso de puerta de enlace, que contenga solo letras, números, guiones (`-`), caracteres de subrayado (`_`), paréntesis (`(`,`)`) o puntos (`.`). |
    | **Suscripción** | Seleccione la suscripción de Azure para la cuenta de Azure que se usó para la instalación de la puerta de enlace. La suscripción predeterminada se basa en la cuenta de Azure que usó para iniciar sesión. |
-   | **Grupos de recursos** | El [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) que quiere usar. |
+   | **Grupos de recursos** | El [grupo de recursos de Azure](../azure-resource-manager/management/overview.md) que quiere usar. |
    | **Ubicación** | La misma región o ubicación seleccionada para el servicio en la nube de la puerta de enlace durante la [instalación de la puerta de enlace](../logic-apps/logic-apps-gateway-install.md). De lo contrario, la instalación de la puerta de enlace no aparecerá en la lista **Nombre de la instalación**. La ubicación de la aplicación lógica puede diferir de la ubicación del recurso de la puerta de enlace. |
    | **Nombre de instalación** | Seleccione una instalación de la puerta de enlace, que aparece en la lista solo cuando se cumplen estas condiciones: <p><p>- La instalación de la puerta de enlace usa la misma región que el recurso de puerta de enlace que quiere crear. <br>- La instalación de la puerta de enlace no está vinculada a otro recurso de puerta de enlace de Azure. <br>- La instalación de la puerta de enlace está vinculada a la misma cuenta de Azure que está usando para crear el recurso de puerta de enlace. <br>- Su cuenta de Azure pertenece a un único [inquilino o directorio de Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md#terminology) y es la misma cuenta que se usó para la instalación de la puerta de enlace. <p><p>Para más información, consulte la sección [Preguntas frecuentes](#faq). |
    |||

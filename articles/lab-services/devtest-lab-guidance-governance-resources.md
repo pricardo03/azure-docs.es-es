@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 11/26/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 9ba9be7b4761e6633ffe3063b6bdba53c56b93bd
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 0be2efd3783d9a0a7992819c984c993c64000ecd
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561645"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644875"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---resources"></a>Gobernanza de la infraestructura de Azure DevTest Labs: recursos
 Este artículo aborda la alineación y la administración de recursos de DevTest Labs dentro de su organización. 
@@ -44,7 +44,7 @@ La **segunda práctica recomendada** consiste en habilitar la suscripción a Dev
 
 Este modelo proporciona a una organización la flexibilidad para implementar Azure DevTest Labs a escala. Una organización puede admitir cientos de laboratorios para diversas unidades de negocio con la ejecución en paralelo de 100 a 1000 máquinas virtuales. Promociona la noción de una solución de laboratorio empresarial centralizada que puede compartir los mismos principios de administración de configuración y controles de seguridad.
 
-Este modelo también garantiza que la organización no agote sus límites de recursos asociados con su suscripción de Azure. Para obtener información detallada sobre suscripciones y límites de servicio, vea [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-subscription-service-limits.md). El proceso de aprovisionamiento de DevTest Labs puede consumir una gran cantidad de grupos de recursos. Puede solicitar un aumento de los límites con una solicitud de soporte técnico en la suscripción de Azure DevTest. El aumento del uso de la suscripción de desarrollo no afecta a los recursos incluidos en la suscripción de producción. Para más información sobre el escalado de DevTest Labs, vea [Escalado de cuotas y límites en DevTest Labs](devtest-lab-scale-lab.md).
+Este modelo también garantiza que la organización no agote sus límites de recursos asociados con su suscripción de Azure. Para obtener información detallada sobre suscripciones y límites de servicio, vea [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-resource-manager/management/azure-subscription-service-limits.md). El proceso de aprovisionamiento de DevTest Labs puede consumir una gran cantidad de grupos de recursos. Puede solicitar un aumento de los límites con una solicitud de soporte técnico en la suscripción de Azure DevTest. El aumento del uso de la suscripción de desarrollo no afecta a los recursos incluidos en la suscripción de producción. Para más información sobre el escalado de DevTest Labs, vea [Escalado de cuotas y límites en DevTest Labs](devtest-lab-scale-lab.md).
 
 Un límite a nivel de suscripción común que debe tenerse en cuenta es cómo se realizan las asignaciones de intervalos IP de red para que admitan suscripciones de desarrollo y producción. Deben tenerse en cuenta estas asignaciones para el crecimiento a lo largo del tiempo (suponiendo la conectividad local u otra topología de red que requiere la empresa para administrar su pila de red en lugar de usar como opción predeterminada la implementación de Azure). La práctica recomendada es tener algunas redes virtuales que tengan un prefijo de dirección IP grande asignado y dividido con muchas subredes grandes, en lugar de disponer de varias redes virtuales con subredes pequeñas. Por ejemplo, con 10 suscripciones, puede definir 10 redes virtuales (una para cada suscripción). Todos los laboratorios que no requieran el aislamiento pueden compartir la misma subred en la red virtual de la suscripción.
 

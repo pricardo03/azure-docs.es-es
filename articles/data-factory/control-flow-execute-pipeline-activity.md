@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 093050952ed826a540c35b2b73acd107fafc45ab
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 26dd7c4f33360030b13ddbfc1516396436724c40
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73679936"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440439"
 ---
 # <a name="execute-pipeline-activity-in-azure-data-factory"></a>Actividad de ejecución de canalización en Azure Data Factory
 La actividad de ejecución de canalización permite que una canalización de Data Factory invoque otra canalización.
@@ -59,13 +59,13 @@ La actividad de ejecución de canalización permite que una canalización de Dat
 
 ## <a name="type-properties"></a>Propiedades de tipo
 
-Propiedad | DESCRIPCIÓN | Valores permitidos | Obligatorio
+Propiedad | Descripción | Valores permitidos | Obligatorio
 -------- | ----------- | -------------- | --------
-Nombre | Nombre de la actividad de ejecución de canalización. | Cadena | Sí
-Tipo | Se debe establecer en: **ExecutePipeline**. | Cadena | Sí
+name | Nombre de la actividad de ejecución de canalización. | String | Sí
+type | Se debe establecer en: **ExecutePipeline**. | String | Sí
 pipeline | Referencia a la canalización dependiente que invoca esta canalización. Un objeto de referencia de canalización tiene dos propiedades: **referenceName** y **type**. La propiedad referenceName especifica el nombre de la canalización de referencia. La propiedad type se debe establecer en PipelineReference. | PipelineReference | Sí
-parameters | Parámetros que se deben pasar a la canalización invocada | Objeto JSON que asigna nombres de parámetro a los valores de argumento | Sin
-waitOnCompletion | Define si la ejecución de la actividad espera que finalice la ejecución de la canalización dependiente. El valor predeterminado es false. | Boolean | Sin
+parámetros | Parámetros que se deben pasar a la canalización invocada | Objeto JSON que asigna nombres de parámetro a los valores de argumento | No
+waitOnCompletion | Define si la ejecución de la actividad espera que finalice la ejecución de la canalización dependiente. El valor predeterminado es False. | Boolean | No
 
 ## <a name="sample"></a>Muestra
 Este escenario consta de dos canalizaciones:
@@ -168,10 +168,7 @@ Este escenario consta de dos canalizaciones:
     "properties": {
     "type": "AzureStorage",
     "typeProperties": {
-      "connectionString": {
-        "value": "DefaultEndpointsProtocol=https;AccountName=*****",
-        "type": "SecureString"
-      }
+      "connectionString": "DefaultEndpointsProtocol=https;AccountName=*****;AccountKey=*****"
     }
   }
 }
@@ -258,6 +255,6 @@ La canalización principal reenvía estos valores a la canalización invocada, c
 Consulte otras actividades de flujo de control compatibles con Data Factory: 
 
 - [Para cada actividad](control-flow-for-each-activity.md)
-- [Actividad de obtención de metadatos](control-flow-get-metadata-activity.md)
+- [Actividad GetMetadata](control-flow-get-metadata-activity.md)
 - [Actividad Lookup](control-flow-lookup-activity.md)
 - [Actividad web](control-flow-web-activity.md)

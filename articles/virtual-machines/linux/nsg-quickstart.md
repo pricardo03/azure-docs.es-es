@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: cynthn
-ms.openlocfilehash: 424dfc1dac21f227869f23e7401a083b06cef1d9
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: cfcea8c775b2d6a9bee3c078cf67f0a942af5984
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035551"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75354045"
 ---
 # <a name="open-ports-and-endpoints-to-a-linux-vm-with-the-azure-cli"></a>Abrir puertos y puntos de conexión para una máquina virtual de Linux con la CLI de Azure
 
@@ -92,5 +92,5 @@ Para las aplicaciones web de alta disponibilidad, debe colocar las máquinas vir
 ## <a name="next-steps"></a>Pasos siguientes
 En este ejemplo, se ha creado una regla sencilla para permitir tráfico HTTP. Puede encontrar información sobre la creación de entornos más detallados en los siguientes artículos:
 
-* [Información general sobre Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md)
+* [Información general sobre Azure Resource Manager](../../azure-resource-manager/management/overview.md)
 * [¿Qué es un grupo de seguridad de red?](../../virtual-network/security-overview.md)

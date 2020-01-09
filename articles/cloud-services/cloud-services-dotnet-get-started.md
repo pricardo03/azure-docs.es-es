@@ -3,19 +3,19 @@ title: Introducción a Azure Cloud Services y ASP.NET | Microsoft Docs
 description: Aprenda a crear una aplicación de varios niveles utilizando ASP.NET MVC y Azure. La aplicación se ejecuta en un servicio en la nube, con un rol web y un rol de trabajo. Utiliza Entity Framework, SQL Database y blobs y colas de Azure Storage.
 services: cloud-services, storage
 documentationcenter: .net
-author: georgewallace
+author: tgore03
 manager: carmonm
 ms.service: cloud-services
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.author: gwallace
-ms.openlocfilehash: 3f2c60be29d679d0b0d30b6bf471f083c66ba93f
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.author: tagore
+ms.openlocfilehash: f5ebb8874b7e277d15ef89aa419c4d26560a6e76
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827658"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75386738"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Introducción a Azure Cloud Services y ASP.NET
 
@@ -42,7 +42,7 @@ En este tutorial se muestra cómo ejecutar un front-end y un back-end en un serv
 * Carga de archivos y almacenamiento de los mismos en Azure Blob service.
 * Uso del servicio Cola de Azure para comunicación entre niveles.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 En este tutorial se da por supuesto que comprende los [conceptos básicos sobre Azure Cloud Services](cloud-services-choose-me.md) como, por ejemplo, la terminología *rol web* y *rol de trabajo*.  También se supone que sabe trabajar con proyectos [ASP.NET MVC](https://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) o [Web Forms](https://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview) en Visual Studio. La aplicación de ejemplo usa MVC, pero la mayoría del tutorial también se aplica a Web Forms.
 
 Puede ejecutar la aplicación localmente sin una suscripción de Azure, pero necesitará una para implementar la aplicación en la nube. Si aún no la tiene, puede [activar los beneficios de suscripción a MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668) o [registrarse para obtener una evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A55E3C668).
@@ -105,7 +105,7 @@ Llevará a cabo los pasos siguientes para ejecutar la aplicación en la nube:
 
 * Cree un servicio en la nube de Azure.
 * Cree una base de datos de Azure SQL.
-* Cree una cuenta de Azure Storage.
+* Cree una cuenta de almacenamiento de Azure.
 * Configure la solución para usar la base de datos de Azure SQL cuando se ejecuta en Azure.
 * Configure la solución para usar la cuenta de almacenamiento de Azure cuando se ejecuta en Azure.
 * Implementar el proyecto en su servicio en la nube de Azure.
@@ -124,7 +124,7 @@ Un servicio en la nube de Azure es el entorno en el que se ejecutará la aplicac
 5. Elija la región en la que desea implementar la aplicación.
 
     Este campo especifica el centro de datos en el que se hospedará el servicio en la nube. Para una aplicación de producción, elegiría la región más cercana a sus clientes. Para este tutorial, elija la región más cercana a usted.
-5. Haga clic en **Create**(Crear).
+5. Haga clic en **Crear**.
 
     En la siguiente imagen, se crea un servicio en la nube con la dirección URL CSvccontosoads.cloudapp.net.
 
@@ -153,7 +153,7 @@ Cuando la aplicación se ejecute en la nube, usará una base de datos basada en 
 9. Haga clic en **Seleccionar** para el nuevo servidor.
 
     ![Nuevo servidor de SQL Database](./media/cloud-services-dotnet-get-started/newdbserver.png)
-10. Haga clic en **Create**(Crear).
+10. Haga clic en **Crear**.
 
 ### <a name="create-an-azure-storage-account"></a>Creación de una cuenta de Azure Storage
 Una cuenta de almacenamiento de Azure proporciona recursos para almacenar datos de cola y blob en la nube.
@@ -176,7 +176,7 @@ En una aplicación real, normalmente crearía cuentas independientes para los da
     Cuando la cuenta de almacenamiento y el servicio en la nube se encuentren en centros de datos diferentes (distintas regiones), la latencia aumentará y se le cobrará el ancho de banda no perteneciente al centro de datos. El ancho de banda del centro de datos es gratuito.
 
     Los grupos de afinidad de Azure proporcionan un mecanismo para minimizar la distancia entre los recursos de un centro de datos, lo que puede reducir la latencia. Este tutorial no usa grupos de afinidad. Para obtener información, consulte [Creación de un grupo de afinidad en Azure](/previous-versions/azure/reference/gg715317(v=azure.100)).
-7. Haga clic en **Create**(Crear).
+7. Haga clic en **Crear**.
 
     ![New storage account](./media/cloud-services-dotnet-get-started/newstorage.png)
 
@@ -388,7 +388,7 @@ En esta sección configurará Azure Storage y cadenas de conexión de SQL para p
 8. Todavía en la ventana de propiedades **ContosoAdsWorker [Rol]** , agregue otra cadena de conexión:
 
    * Nombre: ContosoAdsDbConnectionString
-   * Escriba:  Cadena
+   * Escriba:  String
    * Valor: pegue la misma cadena de conexión que usó para el proyecto de rol web. (En el ejemplo siguiente es para Visual Studio 2013. No olvide cambiar el origen de datos si copia este ejemplo y va a usar Visual Studio 2015 o una versión superior).
 
        ```
@@ -398,7 +398,7 @@ En esta sección configurará Azure Storage y cadenas de conexión de SQL para p
 ### <a name="add-code-files"></a>Agregar archivos de código
 En esta sección copiará archivos de código de la solución descargada a la nueva solución. En las siguientes secciones se muestran y explican partes clave de este código.
 
-Para agregar archivos a un proyecto o carpeta, haga clic con el botón derecho en dicho proyecto o carpeta y después en **Agregar** - **Elemento existente**. Seleccione los archivos que desee y haga clic en **Agregar**. Si se le pregunta si desea reemplazar los archivos existentes, haga clic en **Sí**.
+Para agregar archivos a un proyecto o carpeta, haga clic con el botón secundario en dicho proyecto o carpeta y después en **Agregar** - **Elemento existente**. Seleccione los archivos que desee y haga clic en **Agregar**. Si se le pregunta si desea reemplazar los archivos existentes, haga clic en **Sí**.
 
 1. En el proyecto ContosoAdsCommon, elimine el archivo *Class1.cs* y agregue en su lugar los archivos *Ad.cs* y *ContosoAdscontext.cs* desde el proyecto descargado.
 2. En el proyecto ContosoAdsWeb, agregue los siguientes archivos desde el proyecto descargado.
@@ -738,7 +738,7 @@ Este código lee la base de datos para obtener la dirección URL de la imagen, c
 >
 >
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 En el caso de que algo no funcionen a pesar de seguir las instrucciones de este tutorial, aquí tiene algunos errores comunes y cómo resolverlos.
 
 ### <a name="serviceruntimeroleenvironmentexception"></a>ServiceRuntime.RoleEnvironmentException
@@ -774,5 +774,8 @@ Para obtener más información, consulte los siguientes recursos:
 
 * [Azure Cloud Services Part 1 (Azure Cloud Services, parte 1): Introducción](https://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [Administración de Cloud Services](cloud-services-how-to-manage-portal.md)
-* [Azure Storage](https://docs.microsoft.com/azure/storage/)
+* [Almacenamiento de Azure](https://docs.microsoft.com/azure/storage/)
 * [Cómo se elige un proveedor de servicios en la nube](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)
+
+
+

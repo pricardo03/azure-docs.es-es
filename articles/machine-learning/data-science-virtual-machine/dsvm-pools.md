@@ -10,18 +10,18 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.openlocfilehash: 2a74df3aaf70270353b10f757cf3a61e8f479d74
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: c5b7f4eaac91e79dde625ea00bfb6b1ea8782b31
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73052994"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530619"
 ---
 # <a name="create-a-shared-pool-of-data-science-virtual-machines"></a>Crear un grupo compartido de máquinas virtuales de Data Science Virtual Machine
 
 En este artículo, aprenderá a crear un grupo compartido de instancias de Data Science Virtual Machine (DSVM) para un equipo. Las ventajas de usar un grupo compartido son mejor uso de los recursos, colaboración y el uso compartido más fáciles y administración más eficaz de los recursos de DSVM.
 
-Puede utilizar muchos métodos y tecnologías para crear un grupo de DSVM. Este artículo se centra en los grupos de máquinas virtuales (VM) interactivas. Una infraestructura de proceso administrado alternativa es Proceso de Azure Machine Learning. Para más información, consulte [Configuración de los destinos de proceso](../service/how-to-set-up-training-targets.md#amlcompute).
+Puede utilizar muchos métodos y tecnologías para crear un grupo de DSVM. Este artículo se centra en los grupos de máquinas virtuales (VM) interactivas. Una infraestructura de proceso administrado alternativa es Proceso de Azure Machine Learning. Para más información, consulte [Configuración de los destinos de proceso](../how-to-set-up-training-targets.md#amlcompute).
 
 ## <a name="interactive-vm-pool"></a>Grupo de máquinas virtuales interactivas
 

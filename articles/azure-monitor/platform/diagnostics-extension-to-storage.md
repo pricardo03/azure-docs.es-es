@@ -2,18 +2,18 @@
 title: Almacenamiento y visualización de los datos de diagnóstico en Azure Storage
 description: Obtenga información sobre cómo recopilar datos de diagnóstico de Azure en una cuenta de Azure Storage para que pueda verlos con una de las diversas herramientas disponibles.
 services: azure-monitor
-author: jpconnock
+author: bwren
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 08/01/2016
-ms.author: jeconnoc
+ms.author: bwren
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 35e852a36ebc52edff338ed640419afe32297b81
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: c9d751a7e3d01860b3b5860f1e75fa3767cd4f3c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74304954"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75395011"
 ---
 # <a name="store-and-view-diagnostic-data-in-azure-storage"></a>Almacenamiento y visualización de los datos de diagnóstico en Azure Storage
 Los datos de diagnóstico no se almacenan de forma permanente a menos que se transfieran al emulador de almacenamiento de Microsoft Azure o a Almacenamiento de Azure. Una vez que se encuentren almacenados, los datos se pueden ver con una de las diversas herramientas disponibles.
@@ -38,7 +38,7 @@ Dependiendo del tipo de datos de diagnóstico que se recopila, Diagnósticos de 
 | Registros de infraestructura de diagnóstico de Azure |Tabla |
 | Registros de seguimiento de solicitudes con error |Blob |
 | Registros de eventos de Windows |Tabla |
-| contadores de rendimiento |Tabla |
+| Contadores de rendimiento |Tabla |
 | Volcados de memoria |Blob |
 | Registros de errores personalizados |Blob |
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: 56607de57939be769b1951f0eee9078c46d610c0
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 615d9a3c5c359174ef15028e82044a85da0dd733
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035460"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561293"
 ---
 # <a name="deploy-openshift-container-platform-311-in-azure"></a>Implementación de OpenShift Container Platform 3.11 en Azure
 
@@ -27,7 +27,7 @@ Puede usar uno de los diversos métodos para implementar OpenShift Container Pla
 
 - Puede implementar manualmente los componentes necesarios de la infraestructura de Azure y, a continuación, seguir la [documentación de OpenShift Container Platform](https://docs.openshift.com/container-platform).
 - También puede usar una plantilla existente de [Resource Manager](https://github.com/Microsoft/openshift-container-platform/) que simplifica la implementación del clúster de OpenShift Container Platform.
-- Otra opción consiste en usar la [oferta de Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.openshift-container-platform?tab=Overview).
+- Otra opción consiste en usar la [oferta de Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/osatesting.open-shift-azure-proxy).
 
 En todos los casos, se requiere una suscripción a Red Hat. Durante la implementación, la instancia de Red Hat Enterprise Linux está registrada en la suscripción de Red Hat y asociada al identificador de grupo que contiene los derechos para OpenShift Container Platform.
 Asegúrese de que tiene un nombre de usuario, una contraseña y un identificador de grupo válidos para Red Hat Subscription Manager (RHSM). Puede usar una clave de activación, identificador de organización e identificador de grupo. Puede comprobar esta información iniciando sesión en https://access.redhat.com.
@@ -248,7 +248,7 @@ Diferentes versiones pueden tener distintos parámetros; por ello, compruebe los
 
 ### <a name="azuredeployparametersjson-file-explained"></a>Explicación del archivo azuredeploy.Parameters.json
 
-| Propiedad | DESCRIPCIÓN | Opciones válidas | Valor predeterminado |
+| Propiedad | Descripción | Opciones válidas | Valor predeterminado |
 |----------|-------------|---------------|---------------|
 | `_artifactsLocation`  | Dirección URL para artefactos (json, scripts, etc.). |  |  https:\//raw.githubusercontent.com/Microsoft/openshift-container-platform/master  |
 | `location` | Región de Azure en la que se implementan los recursos. |  |  |
@@ -286,7 +286,7 @@ Diferentes versiones pueden tener distintos parámetros; por ello, compruebe los
 | `masterClusterDns` | Nombre DNS personalizado para tener acceso a la consola web de OpenShift si ha seleccionado "custom" para `masterClusterDnsType`. |  | console.contoso.com |
 | `routingSubDomainType` | Si se establece en "nipio", `routingSubDomain` usará nip.io.  Use "custom" si tiene su propio dominio y quiere utilizarlo para el enrutamiento. | nipio <br> custom | nipio |
 | `routingSubDomain` | Nombre DNS con carácter comodín que quiere usar para el enrutamiento si ha seleccionado "custom" para `routingSubDomainType`. |  | apps.contoso.com |
-| `virtualNetworkNewOrExisting` | Seleccione si quiere usar una red virtual existente o crear una nueva. | existing <br> new | new |
+| `virtualNetworkNewOrExisting` | Seleccione si quiere usar una red virtual existente o crear una nueva. | existing <br> nuevo | nuevo |
 | `virtualNetworkResourceGroupName` | Nombre del grupo de recursos para la nueva red virtual si ha seleccionado "new" para `virtualNetworkNewOrExisting`. |  | resourceGroup().name |
 | `virtualNetworkName` | Nombre de la nueva red virtual que se va a crear si ha seleccionado "new" para `virtualNetworkNewOrExisting`. |  | openshiftvnet |
 | `addressPrefixes` | Prefijo de dirección de la nueva red virtual. |  | 10.0.0.0/14 |

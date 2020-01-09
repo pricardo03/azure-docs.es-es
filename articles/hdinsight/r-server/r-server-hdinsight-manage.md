@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2019
-ms.openlocfilehash: e0ce8b97df6f2d6e95255d3f4dfc9f76fa08a594
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: b2c16c27c0dfc0c30a99c52544cc4d2278eadfc7
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123551"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647737"
 ---
 # <a name="manage-ml-services-cluster-on-azure-hdinsight"></a>Administración de clústeres de ML Services en Azure HDInsight
 
 En este artículo, aprenderá a administrar un clúster de ML Services en Azure HDInsight para realizar tareas como agregar varios usuarios simultáneos, conectarse de forma remota a un cliente o un clúster de ML Services, cambiar el contexto de proceso, etc.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * Un clúster de ML Services en HDInsight. Consulte el artículo sobre la [Creación de clústeres de Apache Hadoop mediante Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md) y seleccione **ML Services** como **Tipo de clúster**.
 
@@ -70,7 +70,7 @@ Cuando se le pida la "contraseña actual de Kerberos", presione **Entrar** para 
 
 ### <a name="step-3-use-rstudio-community-version-with-the-user-created"></a>Paso 3: Utilizar la versión de comunidad de RStudio con el usuario creado.
 
-Acceda a RStudio desde https://CLUSTERNAME.azurehdinsight.net/rstudio/. La primera vez que inicie sesión después de crear el clúster, escriba las credenciales de administrador del clúster seguidas de las credenciales del usuario SSH que ha creado. Si no se trata del primer inicio de sesión, escriba solo las credenciales del usuario SSH que ha creado.
+Acceda a RStudio desde `https://CLUSTERNAME.azurehdinsight.net/rstudio/`. La primera vez que inicie sesión después de crear el clúster, escriba las credenciales de administrador del clúster seguidas de las credenciales del usuario SSH que ha creado. Si no se trata del primer inicio de sesión, escriba solo las credenciales del usuario SSH que ha creado.
 
 También puede iniciar sesión con las credenciales originales (de forma predeterminada es *sshuser*) simultáneamente desde otra ventana del explorador.
 

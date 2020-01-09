@@ -3,17 +3,17 @@ title: Cloud Services y certificados de administración | Microsoft Docs
 description: Aprenda a crear y a usar certificados con Microsoft Azure
 services: cloud-services
 documentationcenter: .net
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: gwallace
-ms.openlocfilehash: 3c84c6832856986a45be7d275fb94a6c5fc066f0
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: 783343dd8877bdf18e783494960c3052c293cc7c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359197"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75361354"
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Introducción a los certificados para Azure Cloud Services
 Los certificados se usan en Azure para los servicios en la nube ([certificados de servicio](#what-are-service-certificates)) y para realizar la autenticación con la API de administración ([certificados de administración](#what-are-management-certificates)). En este tema se proporciona información general de ambos tipos de certificado y se explica cómo [crearlos](#create) y cómo implementarlos en Azure.
@@ -82,7 +82,7 @@ Si quiere utilizar este [certificado con el portal de administración](../azure-
 Export-Certificate -Type CERT -Cert $cert -FilePath .\my-cert-file.cer
 ```
 
-### <a name="internet-information-services-iis"></a>Internet Information Services (IIS)
+### <a name="internet-information-services-iis"></a>Servicios de Internet Information Server (IIS)
 Hay muchas páginas en Internet que explican cómo hacer esto con IIS. [Aquí](https://www.sslshopper.com/article-how-to-create-a-self-signed-certificate-in-iis-7.html) hay una excelente que encontré en la que se explica bien. 
 
 ### <a name="linux"></a>Linux
@@ -92,4 +92,7 @@ Hay muchas páginas en Internet que explican cómo hacer esto con IIS. [Aquí](h
 [Cargue el certificado de servicio en Azure Portal](cloud-services-configure-ssl-certificate-portal.md).
 
 Cargue un [certificado de API de administración](../azure-api-management-certs.md) en Azure Portal.
+
+
+
 

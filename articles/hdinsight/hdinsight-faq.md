@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/20/2019
-ms.openlocfilehash: 37b8ad0fc09644d746c3528c174d1bf95d546d0f
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: f688f0ddfb62e988ddebada1f612aa842afa5181
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706256"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644603"
 ---
 # <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight: Preguntas más frecuentes
 
@@ -114,7 +114,7 @@ No, no es posible ejecutar Apache Kafka y Apache Spark en el mismo clúster de H
 
 ### <a name="how-do-i-change-timezone-in-ambari"></a>¿Cómo cambio la zona horaria en Ambari?
 
-1. Abra la interfaz de usuario de Ambari Web en https://CLUSTERNAME.azurehdinsight.net, donde CLUSTERNAME es el nombre del clúster.
+1. Abra la interfaz de usuario de Ambari Web en `https://CLUSTERNAME.azurehdinsight.net`, donde CLUSTERNAME es el nombre del clúster.
 2. En la esquina superior derecha, seleccione admin | Settings (Administrador | Configuración). 
 
    ![Configuración de Ambari](media/hdinsight-faq/ambari-settings.png)
@@ -263,7 +263,7 @@ Puede buscar la configuración en el **acceso a Data Lake Storage Gen1** en las 
  
 ### <a name="how-can-i-calculate-the-usage-of-storage-accounts-and-blob-containers-for-my-hdinsight-clusters"></a>¿Cómo puedo calcular el uso de cuentas de almacenamiento y contenedores de blobs para mis clústeres de HDInsight?
 
-Realice una de las operaciones siguientes:
+Realice una de las siguientes acciones:
 
 - [Uso de PowerShell](../storage/scripts/storage-blobs-container-calculate-size-powershell.md)
 

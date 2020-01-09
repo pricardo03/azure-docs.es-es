@@ -3,22 +3,22 @@ title: Implementación de Azure Policy en suscripciones delegadas a escala
 description: Obtenga información sobre cómo la administración de recursos delegados de Azure permite implementar una definición de directivas y una asignación de directivas en varios inquilinos.
 ms.date: 11/8/2019
 ms.topic: conceptual
-ms.openlocfilehash: 3853e8fc163dfc662adc675dd3df1d15958d329a
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: 9e061995b728e2864d1bd33a32d530634ab794d8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74463856"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456847"
 ---
 # <a name="deploy-azure-policy-to-delegated-subscriptions-at-scale"></a>Implementación de Azure Policy en suscripciones delegadas a escala
 
 Como proveedor de servicios, es posible que haya incorporado varios inquilinos de cliente para la administración de recursos delegados de Azure. [Azure Lighthouse](../overview.md) permite a los proveedores de servicios realizar operaciones a escala a través de varios inquilinos a la vez, lo que hace que las tareas de administración sean más eficaces.
 
-En este tema se muestra cómo usar [Azure Policy](https://docs.microsoft.com/azure/governance/policy/) para implementar una definición de directivas y una asignación de directivas en varios inquilinos mediante comandos de PowerShell. En este ejemplo, la definición de directivas garantiza que las cuentas de almacenamiento estén protegidas al permitir solo el tráfico HTTPS.
+En este tema se muestra cómo usar [Azure Policy](../../governance/policy/index.yml) para implementar una definición de directivas y una asignación de directivas en varios inquilinos mediante comandos de PowerShell. En este ejemplo, la definición de directivas garantiza que las cuentas de almacenamiento estén protegidas al permitir solo el tráfico HTTPS.
 
 ## <a name="use-azure-resource-graph-to-query-across-customer-tenants"></a>Uso de Azure Resource Graph para consultar entre inquilinos de cliente
 
-Puede usar [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/) para realizar consultas en todas las suscripciones de los inquilinos de cliente que administra. En este ejemplo, se identificarán todas las cuentas de almacenamiento de estas suscripciones que no requieran actualmente tráfico HTTPS.  
+Puede usar [Azure Resource Graph](../../governance/resource-graph/index.yml) para realizar consultas en todas las suscripciones de los inquilinos de cliente que administra. En este ejemplo, se identificarán todas las cuentas de almacenamiento de estas suscripciones que no requieran actualmente tráfico HTTPS.  
 
 ```powershell
 $MspTenant = "insert your managing tenantId here"
@@ -90,5 +90,5 @@ foreach ($ManagedSub in $ManagedSubscriptions)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Más información acerca de [Azure Policy](https://docs.microsoft.com/azure/governance/policy/).
+- Más información acerca de [Azure Policy](../../governance/policy/index.yml).
 - Más información sobre las [experiencias de administración entre inquilinos](../concepts/cross-tenant-management-experience.md).

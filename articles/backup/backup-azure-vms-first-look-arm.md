@@ -3,12 +3,12 @@ title: Copia de seguridad de una máquina virtual de Azure desde la configuraci�
 description: En este artículo, aprenderá a realizar copias de seguridad de una sola máquina virtual o de varias máquinas virtuales de Azure con el servicio Azure Backup.
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: 02cdab727adc29be99f52b262cb94de4fc4fe8f8
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 1895f27370e6f928ce2183798dd892a2ff7225c3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172507"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75391432"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>Copia de seguridad de una máquina virtual de Azure desde la configuración de esta
 
@@ -31,7 +31,7 @@ Para realizar una copia de seguridad de máquinas virtuales de Azure, Azure Back
 
 ## <a name="back-up-from-azure-vm-settings"></a>Copia de seguridad a partir de la configuración de la máquina virtual de Azure
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 2. Haga clic en **Todos los servicios** y, en el filtro, escriba **Máquinas virtuales** y después haga clic en **Máquinas virtuales**.
 3. En la lista de máquinas virtuales, seleccione la máquina virtual de la que desea realizar una copia de seguridad.
 4. En el menú de la máquina virtual, haga clic en **Copia de seguridad**.
@@ -61,10 +61,6 @@ Para realizar una copia de seguridad de máquinas virtuales de Azure, Azure Back
 10. Una vez habilitada la copia de seguridad, se realiza una copia de seguridad inicial. Puede iniciar la copia de seguridad inicial inmediatamente o esperar hasta que se inicie según la programación de copia de seguridad.
     - Hasta que se haya completado la copia de seguridad inicial, el **estado de la última copia de seguridad** se muestra como **Advertencia (copia de seguridad inicial pendiente)** .
     - Para ver cuándo se ejecutará la siguiente copia de seguridad programada, haga clic en el nombre de la directiva de copia de seguridad.
-
-> [!NOTE]
-> El servicio Azure Backup crea un grupo de recursos independiente (distinto del grupo de recursos de máquina virtual) para almacenar la instantánea con el formato de nomenclatura **AzureBackupRG_región_número** (ejemplo: AzureBackupRG_northeurope_1). Los datos de este grupo de recursos se conservarán durante el intervalo de días especificado en la sección "	Conservar las instantáneas de recuperación instantánea" de la directiva de copia de seguridad de la máquina virtual de Azure. Si se aplica un bloqueo a este grupo de recursos, pueden provocarse errores de copia de seguridad.<br>
-Este grupo de recursos también debe excluirse de todas las restricciones de nombre o etiqueta, ya que una directiva de restricción podría bloquear la creación de colecciones de puntos de recursos en el grupo, lo que provocaría errores de copia de seguridad.
 
 ## <a name="run-a-backup-immediately"></a>Ejecutar una copia de seguridad inmediatamente
 

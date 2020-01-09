@@ -1,7 +1,6 @@
 ---
 title: Solución de problemas en las salidas de Azure Stream Analytics
 description: En este artículo se describen técnicas para solucionar problemas de las conexiones de salida en los trabajos de Azure Stream Analytics.
-services: stream-analytics
 author: sidram
 ms.author: sidram
 ms.reviewer: mamccrea
@@ -9,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: a07ac40ad3adda486b5216e83d683e00ec93265d
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 65d01c5c4dd852cb424c75f170ce52156f1633cc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620787"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75354101"
 ---
 # <a name="troubleshoot-azure-stream-analytics-outputs"></a>Solución de problemas en las salidas de Azure Stream Analytics
 
@@ -95,9 +94,9 @@ Tenga en cuenta las observaciones siguientes al configurar IGNORE_DUP_KEY para v
 Cuando se usa el nivel de compatibilidad original (1.0), Azure Stream Analytics cambiaba los nombres de columna a minúsculas. Este comportamiento se corrigió en niveles de compatibilidad posteriores. Con el fin de conservar las mayúsculas y minúsculas, se recomienda a los clientes usar el nivel de compatibilidad 1.1 y posteriores. Puede encontrar más información en [Nivel de compatibilidad de los trabajos de Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level).
 
 
-## <a name="get-help"></a>Obtención de ayuda
+## <a name="get-help"></a>Obtener ayuda
 
-Para obtener ayuda adicional, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+Para obtener más ayuda, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

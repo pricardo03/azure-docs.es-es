@@ -4,15 +4,15 @@ description: En este artículo, se proporciona información sobre cómo configur
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 05/04/2017
-ms.openlocfilehash: 60f09035f4aabcbd6348fb5608b812ca4b001b45
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 75fd0453534e3a656bb1d8e2940b716dadfdf869
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932447"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75395845"
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-azure-monitor"></a>Recopilación de contadores de rendimiento para aplicaciones de Linux en Azure Monitor 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
@@ -46,7 +46,7 @@ Las entradas del archivo de autenticación se describen en la tabla siguiente.
 |:--|:--|
 | Port | Representa el puerto actual en el que está escuchando la instancia de MySQL. El puerto 0 especifica que las propiedades que siguen se usan para la instancia predeterminada. |
 | Dirección de enlace| Dirección de enlace actual de MySQL. |
-| nombre de usuario| Usuario de MySQL usado para supervisar la instancia del servidor MySQL. |
+| username| Usuario de MySQL usado para supervisar la instancia del servidor MySQL. |
 | Contraseña codificada en Base64| Contraseña del usuario de supervisión de MySQL codificada en Base64. |
 | Actualización automática| Especifica si se volverán a examinar los cambios en el archivo my.cnf y si se sobrescribirá el archivo de autenticación de MySQL para OMI cuando el proveedor de MySQL para OMI se actualice. |
 
@@ -71,7 +71,7 @@ Con la instalación del proveedor de MySQL para OMI se incluye un programa del a
 
 En la tabla siguiente se proporciona información sobre la sintaxis para usar mycimprovauth.
 
-| Operación | Ejemplo | DESCRIPCIÓN
+| Operación | Ejemplo | Descripción
 |:--|:--|:--|
 | autoupdate *false o true* | mycimprovauth autoupdate false | Establece si el archivo de autenticación se actualizará automáticamente o no al reiniciar o actualizar. |
 | *nombre de usuario y contraseña de la dirección de enlace* predeterminada | mycimprovauth default 127.0.0.1 root pwd | Establece la instancia predeterminada del archivo de autenticación de MySQL para OMI.<br>El campo de contraseña debe escribirse en texto sin formato, ya que la contraseña del archivo de autenticación de MySQL para OMI se codificará en Base 64. |
@@ -112,8 +112,8 @@ Después de configurar el agente de Log Analytics para Linux de forma que envíe
 
 | Nombre de objeto | Nombre del contador |
 |:--|:--|
-| Base de datos MySQL | Espacio en disco en bytes |
-| Base de datos MySQL | Tablas |
+| Base de datos de MySQL | Espacio en disco en bytes |
+| Base de datos de MySQL | Tablas |
 | MySQL Server | Porcentaje de conexiones anuladas |
 | MySQL Server | Porcentaje de uso de conexión |
 | MySQL Server | Uso de espacio en disco en bytes |

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2019
 ms.author: spelluru
-ms.openlocfilehash: c391aa157e35bdc389bd30efe48fa380d06c193e
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: ff410d3767e90f92a946b72354b39f87e4f37b9e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508357"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429014"
 ---
 # <a name="add-an-artifact-repository-to-your-lab-in-devtest-labs"></a>Agregar un repositorio de artefactos a un laboratorio en Azure DevTest Labs
 DevTest Labs permite especificar que se agregue un artefacto a una máquina virtual en el mismo momento de crear la máquina virtual o después de que se haya creado. Este artefacto puede ser una herramienta o una aplicación que desee instalar en la máquina virtual. Los artefactos se definen en un archivo JSON que se carga desde un repositorio GitHub o un repositorio GIT de Azure DevOps. 
@@ -29,7 +29,7 @@ En este artículo se proporciona información acerca de cómo agregar un reposit
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 Para agregar un repositorio al laboratorio, obtenga cierta información clave del repositorio. En las secciones siguientes, se describe cómo obtener la información requerida para los repositorios hospedados en **GitHub** o **Azure DevOps**.
 
 ### <a name="get-the-github-repository-clone-url-and-personal-access-token"></a>Obtención de la dirección URL de clonación del repositorio de GitHub y el token de acceso personal
@@ -65,7 +65,7 @@ Para agregar un repositorio al laboratorio, obtenga cierta información clave de
 ## <a name="use-azure-portal"></a>Usar Azure Portal
 En esta sección se proporcionan los pasos necesarios para agregar un repositorio de artefactos a un laboratorio en Azure Portal. 
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Seleccione **Más servicios** y, luego, **DevTest Labs** en la lista de servicios.
 3. En la lista de laboratorios, seleccione el suyo. 
 4. Seleccione **Configuración y directivas** en el menú de la izquierda.
@@ -84,7 +84,7 @@ En esta sección se proporcionan los pasos necesarios para agregar un repositori
 6. Seleccione **Guardar**.
 
 ## <a name="use-azure-resource-manager-template"></a>Usar plantillas de Azure Resource Manager
-Las plantillas de Azure Resource Management (Azure Resource Manager) son archivos JSON que describen los recursos de Azure que se desean crear. Para más información acerca de dichas plantillas, consulte [Creación de plantillas de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
+Las plantillas de Azure Resource Management (Azure Resource Manager) son archivos JSON que describen los recursos de Azure que se desean crear. Para más información acerca de dichas plantillas, consulte [Creación de plantillas de Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md).
 
 En esta sección se proporcionan los pasos necesarios para agregar un repositorio de artefactos a un laboratorio mediante una plantilla de Azure Resource Manager.  La plantilla crea el laboratorio, en caso de que no exista. 
 
@@ -165,7 +165,7 @@ La plantilla de ejemplo que se usa en este artículo, recopila la siguiente info
 
 
 ### <a name="deploy-the-template"></a>Implementación de la plantilla
-Hay varias formas de implementar la plantilla en Azure y de que el recurso se cree, si no existe, o se actualice, si existe. Para más información, consulte los siguientes artículos:
+Hay varias formas de implementar la plantilla en Azure y de que el recurso se cree, si no existe, o se actualice, si existe. Para obtener detalles, vea los siguientes artículos:
 
 - [Implementación de recursos con las plantillas de Resource Manager y Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
 - [Implementación de recursos con plantillas de Resource Manager y la CLI de Azure](../azure-resource-manager/resource-group-template-deploy-cli.md)
@@ -348,7 +348,7 @@ Set-AzContext -SubscriptionId <Your Azure subscription ID>
 ### <a name="parameters"></a>Parámetros
 El script de PowerShell de ejemplo de este artículo usa los parámetros siguientes:
 
-| Parámetro | DESCRIPCIÓN | 
+| Parámetro | Descripción | 
 | --------- | ----------- | 
 | LabName | El nombre del laboratorio. |
 | ArtifactRepositoryName | Nombre del nuevo repositorio de artefactos. El script crea un nombre aleatorio para el repositorio si no se especifica. |

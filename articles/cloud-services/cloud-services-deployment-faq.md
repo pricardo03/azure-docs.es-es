@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 2ffa6d7b1cf0550c97a60614f3f00ddc4b955218
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: f935e8fc1e5d6d64bffaeb582e8b248317f49687
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71154798"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75660603"
 ---
 # <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de implementación de Azure Cloud Services: Preguntas más frecuentes (P+F)
 
@@ -52,7 +52,7 @@ Como ayuda para mitigar estos errores de asignación, consulte [Error de asignac
 Para comprobar los tamaños disponibles en su región, consulte [Microsoft Azure: Productos disponibles por región](https://azure.microsoft.com/regions/services).
 
 ## <a name="why-does-deploying-a-cloud-service-sometime-fail-due-to-limitsquotasconstraints-on-my-subscription-or-service"></a>¿Por qué implementar un servicio en la nube en ocasiones produce errores por límites, cuotas o restricciones en la suscripción o el servicio?
-La implementación de un servicio en la nube puede producir un error si los recursos que deben asignarse superan la cuota máxima o permitida o predeterminada para su servicio en el nivel de región/centro de datos. Para más información, consulte [Límites de Cloud Services](../azure-subscription-service-limits.md#azure-cloud-services-limits).
+La implementación de un servicio en la nube puede producir un error si los recursos que deben asignarse superan la cuota máxima o permitida o predeterminada para su servicio en el nivel de región/centro de datos. Para más información, consulte [Límites de Cloud Services](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-cloud-services-limits).
 
 También puede realizar el seguimiento del uso o la cuota actual de la suscripción en el portal: Azure Portal => Suscripciones => \<suscripción correspondiente> => "Usage + quota" (Uso y cuota).
 

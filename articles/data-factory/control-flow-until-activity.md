@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: ab24b4f3a819e2b44c68d052c355f10219eb1dc4
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: b4786b612dedb065239f57e0286bafb688180dff
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73679351"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440368"
 ---
 # <a name="until-activity-in-azure-data-factory"></a>Actividad Until en Azure Data Factory
 La actividad Until proporciona la misma funcionalidad que una estructura de bucle Do-Until en lenguajes de programación. Ejecuta un conjunto de actividades en un bucle hasta que la condición asociada a la actividad la evalúa como "true". Puede especificar un valor de tiempo de espera para la actividad Until en Data Factory. 
@@ -51,12 +51,12 @@ La actividad Until proporciona la misma funcionalidad que una estructura de bucl
 
 ## <a name="type-properties"></a>Propiedades de tipo
 
-Propiedad | DESCRIPCIÓN | Valores permitidos | Obligatorio
+Propiedad | Descripción | Valores permitidos | Obligatorio
 -------- | ----------- | -------------- | --------
-Nombre | Nombre de la actividad `Until`. | Cadena | Sí
-Tipo | Debe establecerse en **Until**. | Cadena | Sí
+name | Nombre de la actividad `Until`. | String | Sí
+type | Debe establecerse en **Until**. | String | Sí
 expresión | Expresión que debe evaluarse como "true" o "false" | Expresión.  | Sí
-timeout | El tiempo de espera del bucle Do-Until se agota transcurrido el tiempo especificado aquí. | String. `d.hh:mm:ss` (o) `hh:mm:ss`. El valor predeterminado es de 7 días. El valor máximo es: 90 días. | Sin
+timeout | El tiempo de espera del bucle Do-Until se agota transcurrido el tiempo especificado aquí. | String. `d.hh:mm:ss` (o) `hh:mm:ss`. El valor predeterminado es de 7 días. El valor máximo es: 90 días. | No
 Actividades | Conjunto de actividades que se ejecutan hasta que la expresión se evalúa como `true`. | Matriz de actividades. |  Sí
 
 ## <a name="example-1"></a>Ejemplo 1
@@ -199,10 +199,7 @@ La canalización de esta muestra copia los datos de una carpeta de entrada a una
     "properties": {
         "type": "AzureStorage",
         "typeProperties": {
-            "connectionString": {
-                "value": "DefaultEndpointsProtocol=https;AccountName=<Azure Storage account name>;AccountKey=<Azure Storage account key>",
-                "type": "SecureString"
-            }
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<Azure Storage account name>;AccountKey=<Azure Storage account key>"
         }
     }
 }
@@ -294,6 +291,6 @@ Consulte otras actividades de flujo de control compatibles con Data Factory:
 - [Actividad If Condition](control-flow-if-condition-activity.md)
 - [Actividad de ejecución de canalización](control-flow-execute-pipeline-activity.md)
 - [Para cada actividad](control-flow-for-each-activity.md)
-- [Actividad de obtención de metadatos](control-flow-get-metadata-activity.md)
+- [Actividad GetMetadata](control-flow-get-metadata-activity.md)
 - [Actividad Lookup](control-flow-lookup-activity.md)
 - [Actividad web](control-flow-web-activity.md)

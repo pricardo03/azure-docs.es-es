@@ -3,8 +3,8 @@ title: Uso compartido de paneles de Azure Portal mediante RBAC | Microsoft Docs
 description: En este artículo se explica cómo compartir un panel en Azure Portal mediante el control de acceso basado en rol.
 services: azure-portal
 documentationcenter: ''
-author: tfitzmac
-manager: timlt
+author: mblythe
+manager: mtillman
 editor: tysonn
 ms.assetid: 8908a6ce-ae0c-4f60-a0c9-b3acfe823365
 ms.service: azure-portal
@@ -13,15 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/01/2016
-ms.author: tomfitz
-ms.openlocfilehash: fbbc8a4f636a95d18baa0dc5de541279ce36789b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: mblythe
+ms.openlocfilehash: da983a6a3c86be87f1a24b67252a40adac2fa59d
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60552017"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75641397"
 ---
 # <a name="share-azure-dashboards-by-using-role-based-access-control"></a>Uso compartido de paneles de Azure mediante el control de acceso basado en rol
+
 Después de configurar un panel, puede publicarlo y compartirlo con otros usuarios de su organización. Mediante el [control de acceso basado en rol](../role-based-access-control/role-assignments-portal.md)de Azure puede permitir que otros usuarios vean su panel. Asigne un usuario o grupo de usuarios a un rol y ese rol definirá si los usuarios pueden ver o modificar el panel publicado. 
 
 Todos los paneles publicados se implementan como recursos de Azure, lo que significa que existen como elementos administrables dentro de su suscripción y se encuentran en un grupo de recursos.  Desde una perspectiva de control de acceso, los paneles no son distintos de otros recursos como una máquina virtual o una cuenta de almacenamiento.
@@ -34,13 +35,13 @@ Todos los paneles publicados se implementan como recursos de Azure, lo que signi
 ## <a name="understanding-access-control-for-dashboards"></a>Descripción del control de acceso para los paneles
 Mediante el control de acceso basado en rol (RBAC), puede asignar a usuarios a los roles en tres niveles distintos de ámbito:
 
-* suscripción
+* subscription
 * resource group
 * resource
 
 Los permisos que asigne se heredan desde la suscripción hasta el recurso. El panel publicado es un recurso. Por lo tanto, es posible que ya tenga usuarios asignados a los roles de la suscripción que también funcionen para el panel publicado. 
 
-Aquí tiene un ejemplo.  Supongamos que tiene una suscripción de Azure y que a varios miembros del equipo se les han asignado los roles de **propietario**, **colaborador** o **lector** en la suscripción. Los usuarios que son propietarios o colaboradores pueden enumerar, ver, crear, modificar o eliminar paneles dentro de la suscripción.  Los usuarios que sean lectores pueden enumerar y ver los paneles, pero no pueden modificarlos ni eliminarlos.  Los usuarios con acceso de lectura pueden realizar modificaciones locales en un panel publicado (por ejemplo, para solucionar un problema), pero no tienen la opción de publicar esos cambios de vuelta en el servidor.  Podrán realizar una copia privada del panel para ellos mismos.
+A continuación se muestra un ejemplo:  Supongamos que tiene una suscripción de Azure y que a varios miembros del equipo se les han asignado los roles de **propietario**, **colaborador** o **lector** en la suscripción. Los usuarios que son propietarios o colaboradores pueden enumerar, ver, crear, modificar o eliminar paneles dentro de la suscripción.  Los usuarios que sean lectores pueden enumerar y ver los paneles, pero no pueden modificarlos ni eliminarlos.  Los usuarios con acceso de lectura pueden realizar modificaciones locales en un panel publicado (por ejemplo, para solucionar un problema), pero no tienen la opción de publicar esos cambios de vuelta en el servidor.  Podrán realizar una copia privada del panel para ellos mismos.
 
 Sin embargo, también puede asignar permisos al grupo de recursos que contiene varios paneles o a un panel individual. Por ejemplo, puede decidir que un grupo de usuarios tenga permisos limitados a través de la suscripción pero un mayor acceso a un panel determinado. Asigne estos usuarios a un rol para ese panel. 
 
@@ -59,7 +60,7 @@ Tras esto, el panel ya se ha publicado. Si son adecuados los permisos heredados 
 ## <a name="assign-access-to-a-dashboard"></a>Asignación de acceso a un panel
 1. Después de publicar el panel, seleccione **Administrar usuarios**.
    
-     ![Administrar usuarios](./media/azure-portal-dashboard-share-access/manage-users.png)
+     ![administrar usuarios](./media/azure-portal-dashboard-share-access/manage-users.png)
 2. Verá una lista de los usuarios existentes que ya están asignados a un rol para este panel. La lista de usuarios existentes será diferente a la de la imagen siguiente. Probablemente, las asignaciones se heredan de la suscripción. Seleccione **Agregar**para agregar un usuario o grupo nuevo.
    
      ![agregar usuario](./media/azure-portal-dashboard-share-access/existing-users.png)

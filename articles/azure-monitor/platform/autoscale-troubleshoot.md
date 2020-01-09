@@ -1,19 +1,15 @@
 ---
 title: Solución de problemas de escalabilidad automática de Azure
 description: Seguimiento de problemas con la escalabilidad automática de Azure utilizada en Service Fabric, Virtual Machines, Web Apps y Cloud Services.
-author: rboucher
-services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 11/4/2019
-ms.author: robb
 ms.subservice: autoscale
-ms.openlocfilehash: 410c182075d0aa288ad05195958c396f1a357ff1
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: effef22bea0b4224f67737fe1c34c9758749c093
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893576"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75364448"
 ---
 # <a name="troubleshooting-azure-autoscale"></a>Solución de problemas de escalabilidad automática de Azure
  

@@ -3,18 +3,18 @@ title: Implementación de la detección de modelo de IoT Plug and Play (versión
 description: Los desarrolladores de soluciones deben aprender a implementar la detección de modelo de IoT Plug and Play en las soluciones.
 author: ChrisGMsft
 ms.author: chrisgre
-ms.date: 07/17/2019
+ms.date: 12/26/2019
 ms.topic: conceptual
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: c37446fd5a0cdc986044405a9aa3da32462d9c04
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: 66da0321930ac38217a336380c9889963a433e67
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114271"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531367"
 ---
 # <a name="implement-iot-plug-and-play-preview-model-discovery-in-an-iot-solution"></a>Implementación de la detección de modelo de IoT Plug and Play (versión preliminar) en una solución de IoT
 
@@ -33,7 +33,7 @@ Estos son los pasos que da un dispositivo IoT Plug and Play cuando usa el servic
 1. Cuando el dispositivo está activado, se conecta al punto de conexión global del DPS y se autentica mediante uno de los métodos permitidos.
 1. Luego, el DPS autentica el dispositivo y busca la regla que le indica a qué centro de IoT se debe asignar el dispositivo. Después, el DPS registra el dispositivo en ese centro.
 1. El DPS devuelve una cadena de conexión del centro de IoT al dispositivo.
-1. A continuación, el dispositivo envía un mensaje de telemetría de detección a su centro de IoT. Este mensaje contiene los identificadores de las interfaces que el dispositivo implementa.
+1. Luego, el dispositivo envía un mensaje de telemetría de detección a su centro de IoT. Este mensaje contiene los identificadores de las interfaces que el dispositivo implementa.
 1. El dispositivo IoT Plug and Play ya está listo para trabajar con una solución que usa su centro de IoT.
 
 Si el dispositivo se conecta directamente a su centro de IoT, lo hace mediante una cadena de conexión que se ha insertado en el código del dispositivo. Luego, el dispositivo envía un mensaje de telemetría de detección a su centro de IoT.

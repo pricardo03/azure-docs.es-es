@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: jeffya
-ms.openlocfilehash: 32dd3fa1fc137d786174e47d842f762c2a479d64
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 9ba68e90b5ac64c7bdb08af2b567f00c1a076808
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849001"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453929"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application-preview-features"></a>Conexión de un dispositivo MXChip IoT DevKit a una aplicación de Azure IoT Central (Características en vista previa (GB))
 
@@ -25,7 +25,7 @@ En este artículo paso a paso, puede:
 - Preparar el dispositivo y conectarlo a la aplicación de IoT Central.
 - Ver la telemetría y las propiedades del dispositivo en IoT Central.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar los pasos de este artículo, necesitará los siguientes recursos:
 
@@ -52,7 +52,7 @@ Para completar los pasos de este artículo, necesitará los siguientes recursos:
 
 ## <a name="prepare-the-device"></a>Preparar el dispositivo
 
-1. Descargue el [firmware de Azure IoT Central Plug and Play precompilado](https://github.com/MXCHIP/IoTDevKit/raw/master/pnp/iotc_devkit/bin/iotc_devkit.bin) más reciente para el dispositivo DevKit desde GitHub.
+1. Descargue el [firmware de Azure IoT Central Plug and Play precompilado](https://github.com/Azure-Samples/mxchip-iot-devkit-pnp/raw/master/bin/iotc_devkit.bin) más reciente para el dispositivo DevKit desde GitHub.
 
 1. Conecte el dispositivo DevKit en el equipo de desarrollo con un cable USB. En Windows, se abre una ventana del explorador de archivos en una unidad asignada al almacenamiento en el dispositivo DevKit. Por ejemplo, la unidad podría denominarse **AZ3166 (D:)** .
 

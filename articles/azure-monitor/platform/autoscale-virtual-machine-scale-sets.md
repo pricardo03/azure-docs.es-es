@@ -1,19 +1,15 @@
 ---
 title: Escalado automático avanzado mediante Azure Virtual Machines
 description: Usa Resource Manager y VM Scale Sets con varias reglas y perfiles que envían correo electrónico y llaman a direcciones URL de webhook con acciones de escalado.
-author: anirudhcavale
-services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 02/22/2016
-ms.author: ancav
 ms.subservice: autoscale
-ms.openlocfilehash: 6da653bc94c8b549282ab9124dba23b08771c5f1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e22806ff94ce2eb830bb6918bfc7f80e5ad3ba0a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60787807"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75364227"
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Configuración avanzada de escalado automático con plantillas de Resource Manager para conjuntos de escalado de máquinas virtuales
 Puede reducir y escalar horizontalmente los conjuntos de escalado de máquinas virtuales según umbrales de métricas de rendimiento, siguiendo una programación periódica o por una fecha determinada. También puede configurar notificaciones de correo electrónico y webhook para las acciones de escalado. Este tutorial muestra un ejemplo de configuración de todos estos objetos utilizando una plantilla de Resource Manager en un conjunto de escalado de máquinas virtuales.
@@ -35,7 +31,7 @@ En este tutorial, usaremos el [Explorador de recursos de Azure](https://resource
 
 3. Ahora puede agregar más perfiles y reglas basadas en la programación o requisitos específicos. Creamos una configuración de escalado automático con tres perfiles. Para comprender los perfiles y las reglas de escalado automático, revise el artículo [Procedimientos recomendados de escalado automático](autoscale-best-practices.md).  
 
-    | Perfiles y reglas | DESCRIPCIÓN |
+    | Perfiles y reglas | Descripción |
     |--- | --- |
     | **Perfil** |**Basado en rendimiento/métrica** |
     | Regla |Recuento de mensajes de cola de Service Bus > x |
@@ -62,7 +58,7 @@ En este tutorial, usaremos el [Explorador de recursos de Azure](https://resource
 
 6. Haga clic en Editar. **Reemplace** el elemento "perfiles" en la configuración de escalado automático por la siguiente configuración:
 
-    ![perfiles](media/autoscale-virtual-machine-scale-sets/profiles.png)
+    ![profiles](media/autoscale-virtual-machine-scale-sets/profiles.png)
 
     ```
     {

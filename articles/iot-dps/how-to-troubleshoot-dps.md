@@ -8,12 +8,12 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: xujing
-ms.openlocfilehash: ffe20ff80e26bc5564b9379ea21ca99e2890b519
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 3cbab09c6b50abb590cfe9f2720713a8fa547aa7
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974826"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646479"
 ---
 # <a name="troubleshooting-with-azure-iot-hub-device-provisioning-service"></a>Solución de problemas con Azure IoT Hub Device Provisioning Service
 
@@ -23,7 +23,7 @@ Los problemas de conectividad de los dispositivos IoT pueden ser difíciles de s
 
 En el procedimiento siguiente se describe cómo ver y configurar alertas en las métricas de IoT Hub Device Provisioning Service. 
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 2. Vaya a IoT Hub Device Provisioning Service.
 
@@ -32,7 +32,7 @@ En el procedimiento siguiente se describe cómo ver y configurar alertas en las 
 4. Seleccione la métrica que desee. 
    <br />En estos momentos hay tres métricas para DPS:
 
-    | Nombre de métrica | DESCRIPCIÓN |
+    | Nombre de la métrica | Descripción |
     |-------|------------|
     | Intentos de atestación | Número de dispositivos que intentaron autenticarse con Device Provisioning Service|
     | Intentos de registro | Número de dispositivos que intentaron registrarse en IoT Hub después de una autenticación correcta|
@@ -48,7 +48,7 @@ Para más información, consulte [¿Qué son las alertas clásicas en Microsoft 
 
 ## <a name="using-log-analytic-to-view-and-resolve-errors"></a>Uso de Log Analytics para ver y resolver errores
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 2. Vaya a su instancia de IoT Hub.
 
@@ -58,7 +58,7 @@ Para más información, consulte [¿Qué son las alertas clásicas en Microsoft 
 
 5. Permite que se recopilen los registros deseados.
 
-    | Nombre de registro | DESCRIPCIÓN |
+    | Nombre de registro | Descripción |
     |-------|------------|
     | DeviceOperations | Registros relacionados con eventos de conexión de dispositivo |
     | ServiceOperations | Registros de eventos relacionados con el uso del SDK de servicio (por ejemplo, crear o actualizar grupos de inscripción)|
@@ -75,11 +75,11 @@ Para más información, consulte [¿Qué son las alertas clásicas en Microsoft 
 ## <a name="common-error-codes"></a>Códigos comunes de error
 Use esta tabla para comprender y resolver errores comunes.
 
-| Código de error| DESCRIPCIÓN | Código de estado HTTP |
+| Código de error| Descripción | Código de estado HTTP |
 |-------|------------|------------|
 | 400 | El cuerpo de la solicitud no es válido; por ejemplo, no se puede analizar o no se puede validar el objeto.| 400 Formato erróneo |
 | 401 | No se puede validar el token de autorización; por ejemplo, ha expirado o no se aplica al URI de la solicitud. Este código de error también se devuelve a los dispositivos como parte del flujo de atestación de TPM. | 401 No autorizado|
 | 404 | La instancia de Device Provisioning Service o un recurso (por ejemplo, una inscripción) no existe. |404 No encontrado |
 | 412 | La ETag de la solicitud no coincide con la ETag del recurso existente, según las especificaciones de RFC7232. | 412 Error en la condición previa |
-| 429 | El servicio está limitando las operaciones. Para conocer los límites de servicio específicos, consulte [Límites de IoT Hub Device Provisioning Service](https://docs.microsoft.com/azure/azure-subscription-service-limits#iot-hub-device-provisioning-service-limits). | 429 Demasiadas solicitudes |
+| 429 | El servicio está limitando las operaciones. Para conocer los límites de servicio específicos, consulte [Límites de IoT Hub Device Provisioning Service](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#iot-hub-device-provisioning-service-limits). | 429 Demasiadas solicitudes |
 | 500 | Error interno. | Error de servidor interno 500|

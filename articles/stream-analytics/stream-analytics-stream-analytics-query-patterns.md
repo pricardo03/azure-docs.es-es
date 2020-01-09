@@ -1,19 +1,18 @@
 ---
 title: Patrones de consulta comunes en Azure Stream Analytics
 description: En este artículo se describe una serie de patrones de consulta comunes y diseños que son útiles en los trabajos de Azure Stream Analytics.
-services: stream-analytics
 author: jseb225
 ms.author: jeanb
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/16/2019
-ms.openlocfilehash: 729385a2ce9feb6e69f9be29c2175b403093be3f
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: 61f9e128fa9299a743012e18882fe32591fdd3f0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68413368"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75369956"
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Ejemplos de consulta para patrones de uso comunes de Stream Analytics
 
@@ -35,7 +34,7 @@ Tanto JSON como Avro pueden contener tipos complejos como objetos anidados (regi
 
 **Entrada**:
 
-| Asegúrese | Hora | Peso |
+| Asegúrese | Time | Peso |
 | --- | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |"1000" |
 | Honda |2015-01-01T00:00:02.0000000Z |"2000" |
@@ -68,7 +67,7 @@ Por ejemplo, compruebe que el resultado devuelve las matrículas que empiezan po
 
 **Entrada**:
 
-| Asegúrese | LicensePlate | Hora |
+| Asegúrese | LicensePlate | Time |
 | --- | --- | --- |
 | Honda |ABC-123 |2015-01-01T00:00:01.0000000Z |
 | Toyota |AAA-999 |2015-01-01T00:00:02.0000000Z |
@@ -76,7 +75,7 @@ Por ejemplo, compruebe que el resultado devuelve las matrículas que empiezan po
 
 **Salida**:
 
-| Asegúrese | LicensePlate | Hora |
+| Asegúrese | LicensePlate | Time |
 | --- | --- | --- |
 | Toyota |AAA-999 |2015-01-01T00:00:02.0000000Z |
 | Nissan |ABC-369 |2015-01-01T00:00:03.0000000Z |
@@ -100,7 +99,7 @@ Por ejemplo, compruebe que el resultado devuelve las matrículas que empiezan po
 
 **Entrada**:
 
-| Asegúrese | Hora |
+| Asegúrese | Time |
 | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |
 | Toyota |2015-01-01T00:00:02.0000000Z |
@@ -108,7 +107,7 @@ Por ejemplo, compruebe que el resultado devuelve las matrículas que empiezan po
 
 **Salida**:
 
-| CarsPassed | Hora |
+| CarsPassed | Time |
 | --- | --- |
 | 1 Honda |2015-01-01T00:00:10.0000000Z |
 | 2 Toyotas |2015-01-01T00:00:10.0000000Z |
@@ -137,7 +136,7 @@ Por ejemplo, compruebe que el resultado devuelve las matrículas que empiezan po
 
 **Entrada**:
 
-| Asegúrese | Hora |
+| Asegúrese | Time |
 | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |
 | Honda |2015-01-01T00:00:02.0000000Z |
@@ -147,7 +146,7 @@ Por ejemplo, compruebe que el resultado devuelve las matrículas que empiezan po
 
 **Salida1**:
 
-| Asegúrese | Hora |
+| Asegúrese | Time |
 | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |
 | Honda |2015-01-01T00:00:02.0000000Z |
@@ -157,7 +156,7 @@ Por ejemplo, compruebe que el resultado devuelve las matrículas que empiezan po
 
 **Salida2**:
 
-| Asegúrese | Hora | Count |
+| Asegúrese | Time | Count |
 | --- | --- | --- |
 | Toyota |2015-01-01T00:00:10.0000000Z |3 |
 
@@ -211,7 +210,7 @@ Por ejemplo:
 
 **Entrada**:
 
-| Asegúrese | Hora |
+| Asegúrese | Time |
 | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |
 | Honda |2015-01-01T00:00:02.0000000Z |
@@ -221,7 +220,7 @@ Por ejemplo:
 
 **Salida:**
 
-| CountMake | Hora |
+| CountMake | Time |
 | --- | --- |
 | 2 |2015-01-01T00:00:02.000Z |
 | 1 |2015-01-01T00:00:04.000Z |
@@ -247,14 +246,14 @@ GROUP BY
 
 **Entrada**:
 
-| Asegúrese | Hora |
+| Asegúrese | Time |
 | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |
 | Toyota |2015-01-01T00:00:02.0000000Z |
 
 **Salida**:
 
-| Asegúrese | Hora |
+| Asegúrese | Time |
 | --- | --- |
 | Toyota |2015-01-01T00:00:02.0000000Z |
 
@@ -278,7 +277,7 @@ GROUP BY
 
 **Entrada**:
 
-| LicensePlate | Asegúrese | Hora |
+| LicensePlate | Asegúrese | Time |
 | --- | --- | --- |
 | DXE 5291 |Honda |2015-07-27T00:00:05.0000000Z |
 | YZK 5704 |Ford |2015-07-27T00:02:17.0000000Z |
@@ -290,7 +289,7 @@ GROUP BY
 
 **Salida**:
 
-| LicensePlate | Asegúrese | Hora |
+| LicensePlate | Asegúrese | Time |
 | --- | --- | --- |
 | DXE 5291 |Honda |2015-07-27T00:00:05.0000000Z |
 | QYF 9358 |Honda |2015-07-27T00:12:02.0000000Z |
@@ -310,7 +309,7 @@ GROUP BY
 
 Ahora se va a cambiar el problema y se va a buscar el primer vehículo de una marca concreta en un intervalo de cada diez minutos.
 
-| LicensePlate | Asegúrese | Hora |
+| LicensePlate | Asegúrese | Time |
 | --- | --- | --- |
 | DXE 5291 |Honda |2015-07-27T00:00:05.0000000Z |
 | YZK 5704 |Ford |2015-07-27T00:02:17.0000000Z |
@@ -337,7 +336,7 @@ Ahora se va a cambiar el problema y se va a buscar el primer vehículo de una ma
 
 **Entrada**:
 
-| LicensePlate | Asegúrese | Hora |
+| LicensePlate | Asegúrese | Time |
 | --- | --- | --- |
 | DXE 5291 |Honda |2015-07-27T00:00:05.0000000Z |
 | YZK 5704 |Ford |2015-07-27T00:02:17.0000000Z |
@@ -349,7 +348,7 @@ Ahora se va a cambiar el problema y se va a buscar el primer vehículo de una ma
 
 **Salida**:
 
-| LicensePlate | Asegúrese | Hora |
+| LicensePlate | Asegúrese | Time |
 | --- | --- | --- |
 | VFE 1616 |Toyota |2015-07-27T00:09:31.0000000Z |
 | MDR 6128 |BMW |2015-07-27T00:13:45.0000000Z |
@@ -385,7 +384,7 @@ Ahora se va a cambiar el problema y se va a buscar el primer vehículo de una ma
 
 **Entrada**:
 
-| Asegúrese | LicensePlate | Hora |
+| Asegúrese | LicensePlate | Time |
 | --- | --- | --- |
 | Honda |ABC-123 |2015-01-01T00:00:01.0000000Z |
 | Honda |AAA-999 |2015-01-01T00:00:02.0000000Z |
@@ -394,7 +393,7 @@ Ahora se va a cambiar el problema y se va a buscar el primer vehículo de una ma
 
 **Salida**:
 
-| Asegúrese | Hora | CurrentCarLicensePlate | FirstCarLicensePlate | FirstCarTime |
+| Asegúrese | Time | CurrentCarLicensePlate | FirstCarLicensePlate | FirstCarTime |
 | --- | --- | --- | --- | --- |
 | Honda |2015-01-01T00:00:02.0000000Z |AAA-999 |ABC-123 |2015-01-01T00:00:01.0000000Z |
 
@@ -421,7 +420,7 @@ Ahora se va a cambiar el problema y se va a buscar el primer vehículo de una ma
 
 **Entrada**:  
 
-| Usuario | Característica | Evento | Hora |
+| Usuario | Característica | Evento | Time |
 | --- | --- | --- | --- |
 | user@location.com |RightMenu |Start |2015-01-01T00:00:01.0000000Z |
 | user@location.com |RightMenu |End |2015-01-01T00:00:08.0000000Z |
@@ -455,7 +454,7 @@ Por ejemplo, supongamos que por error todos los vehículos tienen un peso incorr
 
 **Entrada**:
 
-| Asegúrese | Hora | Peso |
+| Asegúrese | Time | Peso |
 | --- | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |2000 |
 | Toyota |2015-01-01T00:00:02.0000000Z |25000 |
@@ -618,7 +617,7 @@ WHERE
 
 **Entrada**:
 
-| LicensePlate | Asegúrese | Hora | TollId |
+| LicensePlate | Asegúrese | Time | TollId |
 | --- | --- | --- | --- |
 | DXE 5291 |Honda |2015-07-27T00:00:01.0000000Z | 1 |
 | YHN 6970 |Toyota |2015-07-27T00:00:05.0000000Z | 1 |
@@ -659,7 +658,7 @@ GROUP BY TUMBLINGWINDOW(second, 5), TollId
 
 **Entrada**:  
 
-| deviceId | Hora | Atributo | Valor |
+| deviceId | Time | Atributo | Value |
 | --- | --- | --- | --- |
 | 1 |2018-07-27T00:00:01.0000000Z |Temperatura |50 |
 | 1 |2018-07-27T00:00:01.0000000Z |Temperatura |50 |
@@ -709,9 +708,9 @@ El lenguaje de consultas de Azure Stream Analytics se puede ampliar con funcione
 * [Agregados definidos por el usuario en JavaScript para Azure Stream Analytics](stream-analytics-javascript-user-defined-aggregates.md)
 * [Desarrollar funciones definidas por el usuario de .NET Standard para trabajos perimetrales de Azure Stream Analytics](stream-analytics-edge-csharp-udf-methods.md)
 
-## <a name="get-help"></a>Obtención de ayuda
+## <a name="get-help"></a>Obtener ayuda
 
-Para obtener ayuda adicional, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+Para obtener más ayuda, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Introducción a Azure Stream Analytics](stream-analytics-introduction.md)

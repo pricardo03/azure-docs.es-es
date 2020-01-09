@@ -3,18 +3,18 @@ title: Uso de Azure Toolkit for IntelliJ con Hortonworks Sandbox
 description: Aprenda a usar las herramientas de HDInsight del kit de herramientas de Azure para IntelliJ con Hortonworks Sandbox.
 keywords: herramientas de hadoop,consulte de hive,intellij,hortonworks sandbox,kit de herramientas de azure para intellij
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
+ms.custom: hdinsightactive
 ms.date: 05/16/2018
-ms.author: hrasheed
-ms.openlocfilehash: 783d7fc8bc26ce2c715c774e63ecf60c5b75a439
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 65a15a8506b88e95e14af8c87bcbe33087301519
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076267"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647839"
 ---
 # <a name="use-hdinsight-tools-for-intellij-with-hortonworks-sandbox"></a>Uso de las herramientas de HDInsight para IntelliJ con Hortonworks Sandbox
 
@@ -22,7 +22,7 @@ Aprenda a usar las herramientas de HDInsight para IntelliJ para desarrollar apli
 
 [IntelliJ IDEA](https://www.jetbrains.com/idea/) es un entorno de desarrollo integrado (IDE) de Java para desarrollar software informático. Después de desarrollar y probar las aplicaciones en Hortonworks Sandbox, puede moverlas a [Azure HDInsight](apache-hadoop-introduction.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de empezar este artículo, debe tener los siguientes elementos:
 
@@ -63,7 +63,7 @@ En esta sección, creará un proyecto de Scala de ejemplo con IntelliJ IDEA. En 
    1. En el cuadro **Nombre del proyecto**, escriba un nombre de proyecto.
    2. En el cuadro **Ubicación del proyecto**, escriba una ubicación del proyecto.
    3. Junto a la lista desplegable **Project SDK** (SDK de proyecto), seleccione **New** (Nuevo), elija **JDK** y, después, especifique la carpeta de Java JDK versión 1.7 o posterior. Seleccione **Java 1.8** para el clúster de Spark 2.x. Seleccione **Java 1.7** para el clúster de Spark 1.x. La ubicación predeterminada es C:\Program Files\Java\jdk1.8.x_xxx.
-   4. En la lista desplegable **Spark version** (Versión de Spark), el asistente para la creación de proyectos de Scala integra la versión correcta del SDK de Spark y el SDK de Scala. Si la versión del clúster de Spark es inferior a la 2.0, seleccione **Spark 1.x**. De lo contrario, seleccione **Spark 2.x**. Este ejemplo utiliza Spark 1.6.2 (Scala 2.10.5). Asegúrese de que está usando el repositorio marcado como **Scala 2.10.x**. No utilice el repositorio marcado como Scala 2.11.x.
+   4. En la lista desplegable **Spark version** (Versión de Spark), el asistente para la creación de proyectos de Scala integra la versión correcta del SDK de Spark y el SDK de Scala. Si la versión del clúster de Spark es anterior a 2.0, seleccione **Spark 1.x**. De lo contrario, seleccione **Spark2.x**. Este ejemplo utiliza Spark 1.6.2 (Scala 2.10.5). Asegúrese de que está usando el repositorio marcado como **Scala 2.10.x**. No utilice el repositorio marcado como Scala 2.11.x.
     
       ![Creación de las propiedades del proyecto de Scala en IntelliJ](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project-properties.png)
 
@@ -139,7 +139,7 @@ Después de haber vinculado IntelliJ IDEA al emulador, puede enviar el proyecto.
 Para enviar un proyecto a un emulador, siga estos pasos:
 
 1. En el **explorador de proyectos**, haga clic con el botón derecho en el proyecto y seleccione **Submit Spark Application to HDInsight** (Enviar aplicación Spark a HDInsight).
-2. Complete los siguientes pasos:
+2. Complete los pasos siguientes:
 
     1. En la lista desplegable **Spark cluster (Linux only)** (Clúster de Spark [solo Linux]), seleccione su instancia local de Hortonworks Sandbox.
     2. En el cuadro **Main class name** (Nombre de clase principal), elija o escriba el nombre de clase principal. En este artículo, el nombre es **GroupByTest**.
@@ -158,4 +158,3 @@ Para enviar un proyecto a un emulador, siga estos pasos:
 
 - Aprenda a [usar las herramientas de HDInsight de Azure Toolkit for Eclipse con el fin de crear aplicaciones Apache Spark](../spark/apache-spark-eclipse-tool-plugin.md).
 
-- Si quiere obtener información sobre las herramientas de HDInsight para Eclipse, vea este vídeo sobre cómo [usar las herramientas de HDInsight para Eclipse para crear aplicaciones de Spark](https://mix.office.com/watch/1rau2mopb6fha).

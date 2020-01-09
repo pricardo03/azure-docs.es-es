@@ -3,17 +3,17 @@ title: Configuración de un nombre de dominio personalizado en Cloud Services | 
 description: Aprenda a exponer su aplicación o sus datos de Azure en Internet en un dominio personalizado mediante la configuración de sus valores DNS.  Estos ejemplos usan el Portal de Azure.
 services: cloud-services
 documentationcenter: .net
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 07/05/2017
-ms.author: gwallace
-ms.openlocfilehash: 8940d1a319d5bfabf8fd32b98f47cc6d283a8517
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: b1f75a5f7a97907bf5b8bb460ff2df420d053f9e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359386"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75386806"
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Configuración de un nombre de dominio personalizado para un servicio en la nube de Azure
 Cuando se crea un servicio en la nube, Azure lo asigna a un subdominio de **cloudapp.net**. Por ejemplo, si el nombre del servicio en la nube es "contoso", los usuarios podrán tener acceso a la aplicación en una dirección URL como `http://contoso.cloudapp.net`. Azure también asigna una dirección IP virtual.
@@ -62,7 +62,7 @@ Para crear un registro CNAME, debe agregar una nueva entrada en la tabla DNS par
 
        ![sección de vista rápida que muestra la dirección URL del sitio][csurl]
 
-       **O bien**
+       **OR**
    * Instale y configure [Azure Powershell](/powershell/azure/overview)y, luego, use el siguiente comando:
 
        ```powershell
@@ -95,7 +95,7 @@ Para crear un registro D, primero debe buscar la dirección IP virtual de su ser
 
        ![sección de vista rápida que muestra la IP virtual][vip]
 
-       **O bien**
+       **OR**
    * Instale y configure [Azure Powershell](/powershell/azure/overview)y, luego, use el siguiente comando:
 
        ```powershell
@@ -138,3 +138,6 @@ En este ejemplo se crea un registro D para el dominio raíz. Si desea crear una 
 [Azure Portal]: https://portal.azure.com
 [vip]: ./media/cloud-services-custom-domain-name-portal/csvip.png
 [csurl]: ./media/cloud-services-custom-domain-name-portal/csurl.png
+
+
+

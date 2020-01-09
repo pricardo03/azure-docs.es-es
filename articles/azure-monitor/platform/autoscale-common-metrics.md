@@ -1,19 +1,15 @@
 ---
 title: Métricas comunes de escalado automático
 description: Aprenda qué métricas se utilizan normalmente para el escalado automático de Cloud Services, Virtual Machines y Web Apps.
-author: anirudhcavale
-services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/6/2016
-ms.author: ancav
 ms.subservice: autoscale
-ms.openlocfilehash: 9da8e5fb88ff34e561b579b760973ecd23c884a3
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 7b9c19ba3b85813eb12f6b906427f3cfdc9a0f67
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "66129743"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75364601"
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Métricas comunes de escalado automático de Azure Monitor
 
@@ -51,7 +47,7 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 
 Puede crear una alerta para las siguientes métricas:
 
-| Nombre de métrica | Unidad |
+| Nombre de la métrica | Unidad |
 | --- | --- |
 | Procesador(_Total)\% Hora del procesador |Percent |
 | \Procesador(_Total)\% de tiempo con privilegios |Percent |
@@ -92,7 +88,7 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 
  Puede crear una alerta para las siguientes métricas:
 
-| Nombre de métrica | Unidad |
+| Nombre de la métrica | Unidad |
 | --- | --- |
 | \Memory\AvailableMemory |Bytes |
 | \Memory\PercentAvailableMemory |Percent |
@@ -145,7 +141,7 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 
 Puede alertar sobre estas métricas o escalar por las mismas.
 
-| Nombre de métrica | Unidad |
+| Nombre de la métrica | Unidad |
 | --- | --- |
 | CpuPercentage |Percent |
 | MemoryPercentage |Percent |

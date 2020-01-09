@@ -1,19 +1,15 @@
 ---
 title: Introducción al escalado automático en Azure
 description: Obtenga información sobre cómo escalar Web Apps, Cloud Services, Virtual Machines o Virtual Machine Scale Set del recurso en Azure.
-author: rajram
-services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 07/07/2017
-ms.author: rajram
 ms.subservice: autoscale
-ms.openlocfilehash: 0535c84a8ee0776c2c35a46d3c7510a2cd615cf6
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 0a40496e4d496d0062c6ee7a6ab935c1ad9b35a1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "60788591"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75396346"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Introducción al escalado automático en Azure
 Este artículo describe cómo configurar el escalado automático de recursos en Microsoft Azure Portal.
@@ -35,7 +31,7 @@ Para cada recurso, encontrará el recuento de instancias actual y el estado de e
 
 - **No configurado**: aún no se ha habilitado el escalado automático para este recurso.
 - **Habilitado**: se ha habilitado el escalado automático para este recurso.
-- **Deshabilitado**: se ha deshabilitado el escalado automático para este recurso.
+- **Disabled**: se ha deshabilitado el escalado automático para este recurso.
 
 ## <a name="create-your-first-autoscale-setting"></a>Creación de la primera configuración de escalado automático
 

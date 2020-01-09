@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 03/19/2018
-ms.openlocfilehash: 68c90f6c763fe7cd634aee886c5c8c6b8153253e
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 4ce1272c38bcb066f9e88ca739561ccd7696c989
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72551828"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75363513"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Tutorial sobre la API de REST de supervisión de Azure
 
@@ -614,7 +614,7 @@ La lista siguiente contiene algunos ejemplos de formatos de identificador de rec
 
 Hay enfoques alternativos para recuperar el identificador de recurso, incluido el uso del explorador de recursos de Azure, la visualización del recurso deseado en Azure Portal y a través de PowerShell o la CLI de Azure.
 
-### <a name="azure-resource-explorer"></a>Explorador de recursos de Azure
+### <a name="azure-resource-explorer"></a>Azure Resource Explorer
 
 Para buscar el identificador de recurso para un recurso deseado, un enfoque útil consiste en utilizar el [Explorador de recursos de Azure](https://resources.azure.com) . Vaya al recurso deseado y observe el identificador que se muestra, como en la captura de pantalla siguiente:
 
@@ -654,7 +654,7 @@ PlanId         :
 Version        : 08586982649483762729
 ```
 
-### <a name="azure-cli"></a>CLI de Azure
+### <a name="azure-cli"></a>Azure CLI
 
 Para recuperar el identificador de recurso para una cuenta de Azure Storage mediante la CLI de Azure, ejecute el comando `az storage account show`, tal como se muestra en el ejemplo siguiente:
 

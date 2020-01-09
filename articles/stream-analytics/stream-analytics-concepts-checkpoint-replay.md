@@ -1,20 +1,19 @@
 ---
 title: Conceptos de punto de control y reproducción para la recuperación en Azure Stream Analytics
 description: En este artículo se describen los conceptos de punto de control y reproducción para la recuperación de trabajos en Azure Stream Analytics.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 26d8d8248c9dcc57edaaa4a90f87071ee61a70ce
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: f5bb2b97d7da770828c2f4f03167483ad2044c79
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72935037"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426406"
 ---
 # <a name="checkpoint-and-replay-concepts-in-azure-stream-analytics-jobs"></a>Conceptos de punto de control y reproducción en trabajos de Azure Stream Analytics
 En este artículo se describen los conceptos de punto de control y reproducción internos en Azure Stream Analytics y el impacto que tienen en la recuperación de trabajos. Cada vez que se ejecuta un trabajo de Stream Analytics, la información de estado se mantiene internamente. La información de estado se guarda en un punto de control de manera periódica. En algunos escenarios, la información de punto de control se usa para la recuperación del trabajo si se produce algún error o actualización del trabajo. En otros casos, no se puede usar el punto de control para la recuperación y es necesaria la reproducción.

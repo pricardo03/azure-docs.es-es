@@ -2,17 +2,17 @@
 title: Ejecución de tareas de inicio en Azure Cloud Services | Microsoft Docs
 description: Las tareas de inicio ayudan a preparar el entorno de servicio en la nube para su aplicación. Esto le enseñará cómo funcionan las tareas de inicio y cómo realizarlas
 services: cloud-services
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 07/05/2017
-ms.author: gwallace
-ms.openlocfilehash: cea28aba4c57f69a030d05ac192f9578967cbc3f
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: fa48953e5e86ffa758fe556b7fb1072be9d74647
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359460"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75360317"
 ---
 # <a name="how-to-configure-and-run-startup-tasks-for-a-cloud-service"></a>Configuración y ejecución de tareas de inicio para un servicio en la nube
 Puede usar las tareas de inicio para realizar operaciones antes de que se inicie un rol. Estas operaciones incluyen la instalación de un componente, el registro de componentes COM, el establecimiento de las claves del registro o el inicio de un proceso de ejecución largo.
@@ -161,3 +161,6 @@ Aprenda a realizar algunas [tareas de inicio comunes](cloud-services-startup-tas
 [Variable]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx
+
+
+

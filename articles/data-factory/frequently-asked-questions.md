@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 2da12bbc760ff06ad0737ed9d48e12ea81260655
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 8238f2ea8395fc53044703db619d768918cb1834
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73674727"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644705"
 ---
 # <a name="azure-data-factory-faq"></a>Preguntas más frecuentes de Azure Data Factory
 Este artículo ofrece respuestas a las preguntas más frecuentes sobre Azure Data Factory.  
@@ -46,7 +46,7 @@ Data Factory proporciona la libertad de modelar cualquier estilo de flujo necesa
 - Flujos delta:
     - Los parámetros se pueden usar para definir el límite máximo de la copia delta al mover tablas de dimensiones o de referencia desde un almacén relacional de forma local o en la nube para cargar los datos en Data Lake. 
 
-Para más información, consulte [Tutorial: Flujos de control](tutorial-control-flow.md).
+Para más información, consulte el [Tutorial: Flujos de control](tutorial-control-flow.md).
 
 ### <a name="data-transformed-at-scale-with-code-free-pipelines"></a>Datos transformados a escala con canalizaciones sin código
 La nueva experiencia de herramientas basadas en explorador proporciona la creación e implementación de canalizaciones sin código con una experiencia actual, interactiva y basada en la web.
@@ -80,7 +80,7 @@ Desde el lanzamiento inicial de la versión preliminar pública en 2017, Data F
 
 -   Compatibilidad con tres configuraciones o variantes más de Azure SQL Database para hospedar los paquetes o proyectos de la base de datos SSIS (SSISDB):
 -   SQL Database con puntos de conexión de servicio de red virtual
--   Instancia administrada
+-   instancia administrada
 -   Grupo elástico
 -   Compatibilidad con una red virtual de Azure Resource Manager en una red virtual clásica que caerá en desuso en el futuro, lo que le permite insertar o unir su entorno de ejecución de integración de Azure-SSIS a una red virtual que esté configurada para SQL Database con acceso a puntos de conexión de servicio de red virtual, Instancias administradas o datos locales. Para más información, consulte también [Unión de una instancia de Integration Runtime de SSIS de Azure a una red virtual](join-azure-ssis-integration-runtime-virtual-network.md).
 -   Compatibilidad con la autenticación de Azure Active Directory (Azure AD) y la autenticación de SQL para conectarse a SSISDB, lo que le permite usar la autenticación de Azure AD con su identidad administrada de Data Factory para los recursos de Azure
@@ -101,7 +101,7 @@ Puede implementar una o varias instancias del entorno de ejecución de integraci
 Para más información, consulte [Integration Runtime en Azure Data Factory](concepts-integration-runtime.md).
 
 ## <a name="what-is-the-limit-on-the-number-of-integration-runtimes"></a>¿Cuál es el límite del número de Integration Runtimes?
-No hay ningún límite estricto acerca del número de instancias de Integration Runtime que puede tener en una factoría de datos. Sin embargo, existe un límite acerca del número de núcleos de máquina virtual que Integration Runtime puede usar por suscripción para la ejecución de paquetes SSIS. Para más información, consulte los [Límites de Data Factory](../azure-subscription-service-limits.md#data-factory-limits).
+No hay ningún límite estricto acerca del número de instancias de Integration Runtime que puede tener en una factoría de datos. Sin embargo, existe un límite acerca del número de núcleos de máquina virtual que Integration Runtime puede usar por suscripción para la ejecución de paquetes SSIS. Para más información, consulte los [Límites de Data Factory](../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits).
 
 ## <a name="what-are-the-top-level-concepts-of-azure-data-factory"></a>¿Cuáles son los conceptos de nivel superior de Azure Data Factory?
 Una suscripción de Azure puede tener una o varias instancias de Azure Data Factory (o factorías de datos). Azure Data Factory contiene cuatro componentes principales que funcionan juntos como plataforma en la que pueda crear flujos de trabajo orientados a datos con pasos para moverlos y transformarlos.
@@ -110,7 +110,7 @@ Una suscripción de Azure puede tener una o varias instancias de Azure Data Fact
 Una factoría de datos puede tener una o más canalizaciones. Una canalización es una agrupación lógica de actividades para realizar una unidad de trabajo. Juntas, las actividades de una canalización realizan una tarea. Por ejemplo, una canalización puede contener un grupo de actividades que ingiere datos de un blob de Azure y luego ejecuta una consulta de Hive en un clúster de HDInsight para particionar los datos. La ventaja es que puede usar una canalización para administrar las actividades como un conjunto en lugar de tener que administrar individualmente cada actividad. Puede encadenar juntas las actividades en una canalización para hacerlas funcionar de forma secuencial o puede hacerlas funcionar de forma independiente en paralelo.
 
 ### <a name="data-flows"></a>Flujos de datos
-Los flujos de datos son objetos que se compilan visualmente en Data Factory que transforman los datos a escala de los servicios Spark de back-end. No es necesario saber programar ni conocer los elementos internos de Spark. Solo tiene que diseñar su intención de transformación de datos mediante grafos (asignación) u hojas de cálculo (limpieza y transformación).
+Los flujos de datos son objetos que se compilan visualmente en Data Factory que transforman los datos a escala de los servicios Spark de back-end. No es necesario saber programar ni conocer los elementos internos de Spark. Solo tiene que diseñar su intención de transformación de datos mediante gráficos (asignación) u hojas de cálculo (limpieza y transformación).
 
 ### <a name="activities"></a>Actividades
 Las actividades representan un paso del procesamiento en una canalización. Por ejemplo, puede utilizar una actividad de Copia para copiar datos de un almacén de datos a otro. De igual forma, puede usar una actividad de Hive, que ejecuta una consulta de Hive en un clúster de Azure HDInsight para transformar o analizar los datos. Data Factory admite tres tipos de actividades: actividades de movimiento de datos, actividades de transformación de datos y actividades de control.
@@ -247,17 +247,17 @@ El flujo de datos de limpieza y transformación admite los siguientes tipos de d
 * short
 * double
 * real
-* float
+* FLOAT
 * char
-* nchar
+* NCHAR
 * varchar
-* nvarchar
+* NVARCHAR
 * integer
 * int
 * bit
 * boolean
-* smallint
-* tinyint
+* SMALLINT
+* TINYINT
 * bigint
 * long
 * text
@@ -266,7 +266,7 @@ El flujo de datos de limpieza y transformación admite los siguientes tipos de d
 * datetime2
 * smalldatetime
 * timestamp
-* uniqueidentifier
+* UNIQUEIDENTIFIER
 * Xml
 
 En el futuro se admitirán otros tipos de datos.

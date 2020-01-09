@@ -8,23 +8,23 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2019
-ms.openlocfilehash: 1fd59bd18947d2c7aaba787ff7ce286e76f4f890
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 21acbde147d5c1751480332e5cd9c89cdb43f8e8
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74150041"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644960"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Información sobre el uso de HDInsight en Linux
 
 Los clústeres de Azure HDInsight proporcionan Apache Hadoop en un entorno conocido de Linux, que se ejecuta en la nube de Azure. En la mayoría de los casos, debiera funcionar exactamente como cualquier otra instalación de Hadoop en Linux. Este documento detalla las diferencias específicas que debe tener en cuenta.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Muchos de los pasos de este documento utilizan las siguientes utilidades, que pueden tener que instalarse en el sistema.
 
 * [cURL](https://curl.haxx.se/): se usa para comunicarse con servicios basados en web.
-* **jq**, un procesador JSON de línea de comandos.  Consulte [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/).
+* **jq**, un procesador JSON de línea de comandos.  Vea [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/).
 * [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli): se usa para administrar servicios de Azure remotamente.
 * **Un cliente SSH**. Para más información, consulte [Conexión a través de SSH con HDInsight (Apache Hadoop)](hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -52,7 +52,7 @@ Este comando devuelve un documento JSON que describe el servicio y, luego, [jq](
 
 ## <a name="remote-access-to-services"></a>Acceso remoto a los servicios
 
-* **Ambari (web)**  - https://CLUSTERNAME.azurehdinsight.net
+* **Ambari (web)**  - `https://CLUSTERNAME.azurehdinsight.net`
 
     Realice la autenticación con el usuario y la contraseña del administrador de clúster y, a continuación, inicie sesión en Ambari.
 
@@ -63,14 +63,14 @@ Este comando devuelve un documento JSON que describe el servicio y, luego, [jq](
     >
     > Para usar la funcionalidad completa de la interfaz de usuario de la web Ambari, usa un túnel SSH para delegar el tráfico web al nodo principal del clúster. Consulte [Uso de la tunelización SSH para tener acceso a la interfaz de usuario Ambari Web, ResourceManager, JobHistory, NameNode, Oozie y otras interfaces de usuario web](hdinsight-linux-ambari-ssh-tunnel.md)
 
-* **Ambari (REST)**  - https://CLUSTERNAME.azurehdinsight.net/ambari
+* **Ambari (REST)**  - `https://CLUSTERNAME.azurehdinsight.net/ambari`
 
     > [!NOTE]  
     > Realice la autenticación con el usuario y la contraseña del administrador de clúster.
     >
     > La autenticación es texto no cifrado: use siempre HTTPS para asegurarse de que la conexión sea segura.
 
-* **WebHCat (Templeton)**  - https://CLUSTERNAME.azurehdinsight.net/templeton
+* **WebHCat (Templeton)**  - `https://CLUSTERNAME.azurehdinsight.net/templeton`
 
     > [!NOTE]  
     > Realice la autenticación con el usuario y la contraseña del administrador de clúster.

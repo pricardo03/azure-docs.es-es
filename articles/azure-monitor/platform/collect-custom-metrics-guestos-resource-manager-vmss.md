@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 691b2ae7e497c9292975083e3687d9240ce6f3e6
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: ec9f7ecf218b635588065c14bd4d11283d027c11
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74286132"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75364091"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Enviar métricas de SO invitado al almacén de métricas de Azure Monitor con una plantilla de Azure Resource Manager para un conjunto de escalado de máquinas virtuales de Windows
 
@@ -23,9 +23,9 @@ Mediante el uso de la [extensión Windows Azure Diagnostics (WAD)](diagnostics-e
 
 En este artículo se describe el proceso de envío de métricas de rendimiento del SO invitado para un conjunto de escalado de máquinas virtuales de Windows al almacén de datos de Azure Monitor. A partir de Windows Azure Diagnostics versión 1.11, puede escribir las métricas directamente en el almacén de métricas de Azure Monitor, donde ya se recopilan métricas de la plataforma estándar. Al almacenarlas en esta ubicación, se permite tener acceso a las mismas acciones disponibles para las métricas de la plataforma. Las acciones incluyen la generación de alertas casi en tiempo real, la creación de gráficos, el enrutamiento, el acceso desde la API REST y mucho más. Anteriormente, la extensión Windows Azure Diagnostics se escribía en Azure Storage, pero no en el almacén de datos de Azure Monitor.  
 
-Si no está familiarizado con las plantillas de Resource Manager, obtenga información sobre las [implementaciones de plantilla](../../azure-resource-manager/resource-group-overview.md) y su estructura y sintaxis.  
+Si no está familiarizado con las plantillas de Resource Manager, obtenga información sobre las [implementaciones de plantilla](../../azure-resource-manager/management/overview.md) y su estructura y sintaxis.  
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 - La suscripción debe estar registrada en [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
 
@@ -272,7 +272,7 @@ Para implementar la plantilla de Resource Manager, se usa Azure PowerShell:
 
 ## <a name="chart-your-metrics"></a>Gráfico de las métricas 
 
-1. Inicie sesión en el Portal de Azure. 
+1. Inicie sesión en Azure Portal. 
 
 1. En el menú de la izquierda, seleccione **Monitor**. 
 

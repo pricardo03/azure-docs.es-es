@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 9/24/2019
 ms.author: rohink
-ms.openlocfilehash: 462c873221a4bdc622a9b118b6699a9719a5f88d
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: a951bc07c4a8ed42b1c116332d13674656bbaafd
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71963736"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646802"
 ---
 # <a name="what-is-a-private-azure-dns-zone"></a>¿Qué es una zona de Azure DNS privada?
 
@@ -25,7 +25,7 @@ También puede habilitar la característica de [registro automático](./private-
 
 ## <a name="limits"></a>límites
 
-Para saber el número de zonas DNS privadas que puede crear en una suscripción y el número de conjuntos de registros que se admiten en una zona DNS privada, consulte [Límites de Azure DNS](https://docs.microsoft.com/azure/azure-subscription-service-limits#azure-dns-limits)
+Para saber el número de zonas DNS privadas que puede crear en una suscripción y el número de conjuntos de registros que se admiten en una zona DNS privada, consulte [Límites de Azure DNS](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-dns-limits)
 
 ## <a name="restrictions"></a>Restricciones
 

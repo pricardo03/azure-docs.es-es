@@ -5,15 +5,14 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 12/12/2019
 ms.author: cherylmc
-ms.custom: seodec18
-ms.openlocfilehash: f9ed841d347d99a2208971d164bbd7b9044e3b09
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 48ecfcc0d6241e7926892a3ca1c9925b0dc07241
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74031602"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436841"
 ---
 # <a name="move-a-public-peering-to-microsoft-peering"></a>Cambiar un emparejamiento público a emparejamiento de Microsoft
 
@@ -83,9 +82,8 @@ Para configurar filtros de ruta, use cualquiera de los siguientes artículos:
 
 Tras constatar que el emparejamiento de Microsoft está configurado y que los prefijos que se van a usar se anuncian correctamente en el emparejamiento de Microsoft, puede eliminar el emparejamiento público. Para eliminar el emparejamiento público, use cualquiera de los siguientes artículos:
 
-* [Eliminación del emparejamiento público de Azure con Azure Portal](expressroute-howto-routing-portal-resource-manager.md#deletepublic)<br>
-* [Eliminación del emparejamiento público de Azure con Azure PowerShell](expressroute-howto-routing-arm.md#deletepublic)<br>
-* [Eliminación del emparejamiento público de Azure con la CLI](howto-routing-cli.md#deletepublic)
+* [Eliminación del emparejamiento público de Azure con Azure PowerShell](about-public-peering.md#powershell)
+* [Eliminación del emparejamiento público de Azure con la CLI](about-public-peering.md#cli)
   
 ## <a name="view"></a>5. Visualización de emparejamientos
   

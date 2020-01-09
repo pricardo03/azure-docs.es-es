@@ -1,18 +1,17 @@
 ---
 title: Operadores útiles en las consultas de registros de Azure Monitor | Microsoft Docs
 description: Funciones comunes que se usan en diferentes escenarios de consultas de registros de Azure Monitor.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2018
-ms.openlocfilehash: 022a9f638b3a7d8ae4ebeff8062f258ada7a14f8
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: ff63b9b7027e99c70971230936ed98186c2208e8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932879"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75397722"
 ---
 # <a name="useful-operators-in-azure-monitor-log-queries"></a>Operadores útiles en las consultas de registros de Azure Monitor
 

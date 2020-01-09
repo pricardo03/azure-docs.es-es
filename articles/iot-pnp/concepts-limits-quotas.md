@@ -3,16 +3,16 @@ title: Límites y cuotas de IoT Plug and Play (versión preliminar) | Microsoft 
 description: Comprenda los límites, las cuotas y las limitaciones que se aplican al usar IoT Plug and Play (versión preliminar).
 author: miagdp
 ms.author: miag
-ms.date: 08/01/2019
+ms.date: 12/26/2019
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 2df8a8820422a22b0512e24c4b052377cb0e61e0
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 48ecaaba6d956efd9da75d0582fa06d231cb3f80
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69878928"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531384"
 ---
 # <a name="iot-plug-and-play-preview-limits-quotas-and-throttles"></a>Límites, cuotas y limitaciones de IoT Plug and Play (versión preliminar)
 
@@ -22,7 +22,7 @@ En este artículo se explican los límites, las cuotas y las limitaciones espec�
 
 En la versión preliminar pública, los límites y las cuotas siguientes se aplican a un centro de IoT:
 
-| Límites, restricciones y limitaciones | Valor | Notas |
+| Límites, restricciones y limitaciones | Value | Notas |
 |-----|-----|-----|
 | Número de modelos de funcionalidad del dispositivo (DCM) o interfaces que se pueden registrar por centro | 1\.500 ||
 | Número máximo de interfaces que se pueden registrar por dispositivo | 40 ||
@@ -39,7 +39,7 @@ En la versión preliminar pública, los límites y las cuotas siguientes se apli
 
 En la versión preliminar pública, los límites y las cuotas siguientes se aplican a un repositorio de modelos:
 
-| Límites, restricciones y limitaciones| Valor |
+| Límites, restricciones y limitaciones| Value |
 |-----|-----|
 | Número de repositorios de modelos de empresa por inquilino de Azure Active Directory | 1 |
 | Número de claves de autorización por repositorio de modelos | 10  |

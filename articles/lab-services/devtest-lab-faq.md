@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2019
 ms.author: spelluru
-ms.openlocfilehash: fb66fa2d4a6a03841fa057c4d1982b7bf4c6976d
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 4e95cc6a724c17402ed1ed0cda83377492787a3a
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565326"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644926"
 ---
 # <a name="azure-devtest-labs-faq"></a>Preguntas más frecuentes sobre Azure DevTest Labs
 En este artículo se ofrecen respuestas a algunas de las preguntas más frecuentes sobre Azure DevTest Labs.
@@ -162,11 +162,11 @@ Escenario del grupo de recursos común:
 Es posible que desee ampliar las convenciones de nomenclatura empresariales actuales para las operaciones de Azure y que sean coherentes en todo el entorno de DevTest Labs. Al implementar DevTest Labs, se recomienda que tenga directivas específicas de partida. Implemente estas directivas mediante plantillas JSON y un script central para garantizar la coherencia. Las directivas de nomenclatura se pueden implementar mediante directivas de Azure aplicadas a nivel de suscripción. Para consultar ejemplos de JSON para Azure Policy, vea [Ejemplos de Azure Policy](../governance/policy/samples/index.md).
 
 ### <a name="how-many-labs-can-i-create-under-the-same-subscription"></a>¿Cuántos laboratorios se pueden crear con una misma suscripción?
-No hay ningún límite específico en el número de laboratorios que se pueden crear por cada suscripción. Sin embargo, la cantidad de recursos que se usan para cada suscripción está limitada. Puede leer sobre los [límites y las cuotas de las suscripciones de Azure](../azure-subscription-service-limits.md) y [cómo aumentar estos límites](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests).
+No hay ningún límite específico en el número de laboratorios que se pueden crear por cada suscripción. Sin embargo, la cantidad de recursos que se usan para cada suscripción está limitada. Puede leer sobre los [límites y las cuotas de las suscripciones de Azure](../azure-resource-manager/management/azure-subscription-service-limits.md) y [cómo aumentar estos límites](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests).
 
 
 ### <a name="how-many-vms-can-i-create-per-lab"></a>¿Cuántas máquinas virtuales se pueden crear por laboratorio?
-No hay ningún límite específico en el número de máquinas virtuales que se pueden crear por cada laboratorio. Sin embargo, los recursos (los núcleos de máquinas virtuales, las direcciones IP públicas, etc) están limitados para cada suscripción. Puede leer sobre los [límites y las cuotas de las suscripciones de Azure](../azure-subscription-service-limits.md) y [cómo aumentar estos límites](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests).
+No hay ningún límite específico en el número de máquinas virtuales que se pueden crear por cada laboratorio. Sin embargo, los recursos (los núcleos de máquinas virtuales, las direcciones IP públicas, etc) están limitados para cada suscripción. Puede leer sobre los [límites y las cuotas de las suscripciones de Azure](../azure-resource-manager/management/azure-subscription-service-limits.md) y [cómo aumentar estos límites](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests).
 
 ### <a name="how-do-i-determine-the-ratio-of-users-per-lab-and-the-overall-number-of-labs-that-are-needed-across-an-organization"></a>¿Cómo se puede determinar la proporción de usuarios por laboratorio y el número total de laboratorios necesarios en toda la organización?
 Se recomienda que las unidades de negocio y los grupos de desarrollo que están asociados con el mismo proyecto de desarrollo estén asociados con el mismo laboratorio. Esto permite aplicar a ambos grupos los mismos tipos de directivas, imágenes y directivas de cierre.
@@ -285,7 +285,7 @@ Para automatizar la carga de archivos VHD para crear imágenes personalizadas, d
 
 Para buscar la cuenta de almacenamiento de destino asociada al laboratorio:
 
-1.  Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1.  Inicie sesión en [Azure Portal](https://portal.azure.com).
 2.  En el menú de la izquierda, seleccione **Grupos de recursos**.
 3.  Busque y seleccione el grupo de recursos asociado al laboratorio.
 4.  En **Información general**, seleccione una de las cuentas de almacenamiento.
@@ -352,7 +352,7 @@ Si las máquinas virtuales necesitan interactuar con la infraestructura existent
 
 Considere la posibilidad de usar aquí también el patrón de emparejamiento de la red virtual ([modelo tipo hub-and-spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)). Este enfoque permite la comunicación de red virtual o subred entre suscripciones. En caso contrario, cada entorno de DevTest Labs podría tener su propia red virtual. 
 
-Hay [límites](../azure-subscription-service-limits.md) en el número de redes virtuales por suscripción. La cantidad predeterminada es 50, aunque este límite puede aumentarse a 100.
+Hay [límites](../azure-resource-manager/management/azure-subscription-service-limits.md) en el número de redes virtuales por suscripción. La cantidad predeterminada es 50, aunque este límite puede aumentarse a 100.
 
 ### <a name="when-should-i-use-a-shared-ip-vs-public-ip-vs-private-ip"></a>¿Cuándo se debe usar una dirección IP compartida en lugar de una pública o privada?
  
@@ -375,7 +375,7 @@ Sí. Hay dos aspectos que se deben tener en cuenta: el tráfico entrante y salie
 
 También puede usar grupos de seguridad de red para máquinas virtuales o subredes. Este paso agrega una capa adicional de protección para permitir o bloquear el tráfico.
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 
 ### <a name="why-isnt-my-existing-virtual-network-saving-properly"></a>¿Por qué mi máquina virtual existente no se guarda correctamente?
 Una posibilidad es que el nombre de la red virtual contenga puntos. Si es así, intente quitar los puntos o reemplazarlos con guiones. A continuación, vuelva a intentar guardar la red virtual.

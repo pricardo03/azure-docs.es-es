@@ -4,15 +4,15 @@ description: Para mantener su inversión existente en System Center Operations M
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 08/13/2019
-ms.openlocfilehash: 79fcbb6f972eb022ce4d0e47a608e6f0d053a9ad
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 5dc9412c7884eb62795fd04240f6cfa7d103e3be
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162244"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75363666"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Conexión de Operations Manager con Azure Monitor
 
@@ -34,7 +34,7 @@ En el siguiente diagrama se muestra la conexión entre los agentes y servidores 
 
 Si las directivas de seguridad de TI no permiten que los equipos de la red se conecten a Internet, se pueden configurar los servidores de administración de forma que se conecten a la puerta de enlace de Log Analytics para recibir información de configuración y enviar los datos recopilados según las soluciones que haya habilitado. Para obtener más información y conocer los pasos para configurar el grupo de administración de Operations Manager con el fin de que se comunique mediante una puerta de enlace de Log Analytics con Azure Monitor, consulte [Conexión de equipos a Azure Monitor con la puerta de enlace de Log Analytics](../../azure-monitor/platform/gateway.md).  
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de comenzar, revise los siguientes requisitos.
 

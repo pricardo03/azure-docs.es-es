@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: takamath
-ms.openlocfilehash: 13e3f6be851e81b1186d55bb313dd23f1920f007
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: ca843213760cee60799568a6f33059c2bd91c835
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616348"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75643294"
 ---
 # <a name="deliver-a-proof-of-concept"></a>Entrega de una prueba de concepto 
 
@@ -43,7 +43,7 @@ Para empezar a entregar una prueba de concepto, es importante dedicar algún tie
 * [DevTest Labs en la empresa](devtest-lab-guidance-prescriptive-adoption.md)
 * [¿Qué es Azure Virtual Network?](../virtual-network/virtual-networks-overview.md)
 
-## <a name="prerequisites"></a>Requisitos previos 
+## <a name="prerequisites"></a>Prerequisites 
 
 Para completar correctamente una prueba piloto o una prueba de concepto con DevTest Labs, hay algunos requisitos previos: 
 
@@ -124,7 +124,7 @@ Esperamos que la solución tenga los componentes siguientes:
 
 Antes de lanzar una solución completa de DevTest Labs, hay que tomar algunas decisiones importantes sobre planeamiento y diseño. La experiencia de trabajar en una prueba de concepto puede ayudarle a tomar estas decisiones. Tenga en cuenta lo siguiente: 
 
-* **Topología de la suscripción**: Los requisitos de nivel empresarial para los recursos de Azure pueden extenderse más allá de las [cuotas disponibles dentro de una sola suscripción](https://docs.microsoft.com/azure/azure-subscription-service-limits). Se requerirían así varias suscripciones o solicitudes de servicio de Azure para aumentar los límites iniciales de la suscripción. Es importante decidir con antelación cómo distribuir los recursos entre las suscripciones. Un recurso valioso es la [guía para la toma de decisiones sobre las suscripciones](https://docs.microsoft.com/azure/architecture/cloud-adoption/decision-guides/subscriptions/) porque es difícil trasladar los recursos a otra suscripción más adelante. Por ejemplo, un laboratorio no se puede trasladar a otra suscripción después de crearlo.  
+* **Topología de la suscripción**: Los requisitos de nivel empresarial para los recursos de Azure pueden extenderse más allá de las [cuotas disponibles dentro de una sola suscripción](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits). Se requerirían así varias suscripciones o solicitudes de servicio de Azure para aumentar los límites iniciales de la suscripción. Es importante decidir con antelación cómo distribuir los recursos entre las suscripciones. Un recurso valioso es la [guía para la toma de decisiones sobre las suscripciones](https://docs.microsoft.com/azure/architecture/cloud-adoption/decision-guides/subscriptions/) porque es difícil trasladar los recursos a otra suscripción más adelante. Por ejemplo, un laboratorio no se puede trasladar a otra suscripción después de crearlo.  
 * **Topología de red**: La [infraestructura de red predeterminada](../app-service/networking-features.md) creada automáticamente por DevTest Labs puede no ser suficiente para cumplir los requisitos y las restricciones de los usuarios empresariales. Es habitual ver [redes virtuales conectadas de Azure ExpressRoute](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/), [conexiones de concentrador y radio](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) para la conectividad entre suscripciones e incluso el [enrutamiento forzado](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md) para garantizar únicamente la conectividad local. DevTest Labs permite que la redes virtuales existentes se conecten al laboratorio para habilitar su uso al crear máquinas virtuales nuevas en el laboratorio. 
 * **Acceso remoto de máquinas virtuales**: Hay muchas opciones para obtener acceso de forma remota a las máquinas virtuales que se encuentran en DevTest Labs. Lo más sencillo es usar direcciones IP públicas o direcciones IP públicas compartidas. Estos son [los valores de configuración disponibles en el laboratorio](devtest-lab-shared-ip.md). Si estas opciones no son suficientes, el uso de una puerta de enlace de acceso remoto también es una opción, tal como se muestra en la [arquitectura de referencia empresarial de DevTest Labs](devtest-lab-reference-architecture.md) y se describe más adelante en la [documentación de puerta de enlace de Escritorio remoto de DevTest Labs](configure-lab-remote-desktop-gateway.md). Las empresas también pueden usar ExpressRoute o una VPN de sitio a sitio para conectar sus laboratorios a su red local. Esta opción permite conexiones directas de Escritorio remoto o SSH a máquinas virtuales en función de su dirección IP privada sin exposición en Internet. 
 * **Tratamiento de permisos**: Los dos permisos clave que se usan habitualmente en DevTest Labs son [Propietario y Usuario del laboratorio](devtest-lab-add-devtest-user.md). Es importante decidir antes de implementar DevTest Labs ampliamente en quién se confiará en cada nivel de acceso en el laboratorio. Un modelo común es el propietario del presupuesto (líder de equipo, por ejemplo) como propietario del laboratorio y los miembros del equipo como usuarios del laboratorio. Este modelo permite a la persona responsable del presupuesto (líder de equipo) ajustar la configuración de la directiva para mantener el equipo dentro del presupuesto.  

@@ -1,7 +1,6 @@
 ---
 title: Particionamiento de la salida de blobs personalizada en Azure Stream Analytics
 description: En este artículo se describen las características de patrones personalizados de rutas de acceso de fecha y hora y de atributo o campo personalizado para la salida de Blob Storage desde trabajos de Azure Stream Analytics.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
@@ -9,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: e06313cf83768421bedc6c7baddd30c2ef2e4846
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e978771eaafafe4120f9eec802525c293fb9c7c9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65789418"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426378"
 ---
 # <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Particionamiento de la salida de blobs personalizada en Azure Stream Analytics
 
@@ -72,7 +71,7 @@ Los patrones de la ruta de acceso de fecha y hora personalizados le permiten esp
 
 Los siguientes tokens del especificador de formato se pueden utilizar solos o en combinación para conseguir formatos personalizados de fecha y hora:
 
-|Especificador de formato   |DESCRIPCIÓN   |Resultados en la hora de ejemplo 2018-01-02T10: 06: 08|
+|Especificador de formato   |Descripción   |Resultados en la hora de ejemplo 2018-01-02T10: 06: 08|
 |----------|-----------|------------|
 |{datetime:yyyy}|El año como un número de cuatro dígitos|2018|
 |{datetime:MM}|Mes desde 01 hasta 12|01|

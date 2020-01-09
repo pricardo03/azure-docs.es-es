@@ -3,17 +3,17 @@ title: Creación e implementación de un servicio en la nube | Microsoft Docs
 description: Aprenda a crear e implementar un servicio en la nube mediante el Portal de Azure.
 services: cloud-services
 documentationcenter: ''
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 05/18/2017
-ms.author: gwallace
-ms.openlocfilehash: 3d5b3f291eb42edc1f7999f33cf6c0879c33bcf4
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: 53f53976b20359afc45abe1b25ca60325b5d6a2b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359134"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75386177"
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>Creación e implementación de un servicio en la nube
 Azure Portal le ofrece dos formas de crear e implementar un servicio en la nube: *Creación rápida* y *Creación personalizada*.
@@ -89,5 +89,8 @@ Si el paquete de implementación se [configuró para usar certificados](cloud-se
 ## <a name="next-steps"></a>Pasos siguientes
 * [Configuración general de su servicio en la nube](cloud-services-how-to-configure-portal.md).
 * Configuración de un [nombre de dominio personalizado](cloud-services-custom-domain-name-portal.md).
-* [Administración de su servicio en la nube](cloud-services-how-to-manage-portal.md).
+* [Administración del servicio en la nube](cloud-services-how-to-manage-portal.md).
 * Configuración de [certificados ssl](cloud-services-configure-ssl-certificate-portal.md).
+
+
+

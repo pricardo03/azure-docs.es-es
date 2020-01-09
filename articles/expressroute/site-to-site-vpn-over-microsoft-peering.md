@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 89c7e398e24fb48c1829dbaa2811f440c5485a60
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: f3044a2701b0f1cd0e5f9ab3ab60c1d60cfb8f45
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74038100"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436809"
 ---
 # <a name="configure-a-site-to-site-vpn-over-expressroute-microsoft-peering"></a>Configuración de una VPN de sitio a sitio a través del emparejamiento de Microsoft de ExpressRoute
 
@@ -130,7 +130,7 @@ El diagrama siguiente muestra la información general resumida de la red de ejem
 
 ### <a name="about-the-azure-resource-manager-template-examples"></a>Acerca de los ejemplos de plantillas de Azure Resource Manager
 
-En los ejemplos, las terminaciones de túneles IPsec y VPN Gateway se configuran mediante una plantilla de Azure Resource Manager. Si no está familiarizado con el uso de plantillas de Resource Manager o con los conceptos básicos de las plantillas de Resource Manager, consulte [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md). La plantilla de esta sección crea un entorno de Azure virgen (VNet). Sin embargo, si tiene una red virtual existente, puede hacer referencia a esta en la plantilla. Si no está familiarizado con las configuraciones IPsec/IKE de sitio a sitio de VPN Gateway, consulte el tema sobre la [creación de una conexión de sitio a sitio](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md).
+En los ejemplos, las terminaciones de túneles IPsec y VPN Gateway se configuran mediante una plantilla de Azure Resource Manager. Si no está familiarizado con el uso de plantillas de Resource Manager o con los conceptos básicos de las plantillas de Resource Manager, consulte [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md). La plantilla de esta sección crea un entorno de Azure virgen (VNet). Sin embargo, si tiene una red virtual existente, puede hacer referencia a esta en la plantilla. Si no está familiarizado con las configuraciones IPsec/IKE de sitio a sitio de VPN Gateway, consulte el tema sobre la [creación de una conexión de sitio a sitio](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md).
 
 >[!NOTE]
 >No es necesario usar plantillas de Azure Resource Manager para crear esta configuración. Puede crear esta configuración mediante Azure Portal o PowerShell.

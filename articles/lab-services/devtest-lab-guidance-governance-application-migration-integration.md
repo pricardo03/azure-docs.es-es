@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 11/26/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 25342cfbb8ac7ad5538b1f009c75f1d101bfc047
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 14641e9096fa9366334e9f7460ae55cda0e6c2e8
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74560646"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644893"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---application-migration-and-integration"></a>Gobernanza de la infraestructura de Azure DevTest Labs: migración e integración de aplicaciones
 Una vez establecido el entorno de laboratorio de desarrollo y pruebas, necesita pensar en las siguientes preguntas:
@@ -93,7 +93,7 @@ También puede usar grupos de seguridad de red para máquinas virtuales o subred
 ### <a name="answer"></a>Respuesta
 Si las máquinas virtuales necesitan interactuar con la infraestructura existente, debe considerar la posibilidad de utilizar una red virtual existente dentro de su entorno de DevTest Labs. Además, si usa ExpressRoute, puede minimizar la cantidad de redes virtuales y subredes para no fragmentar el espacio de direcciones IP que se asigna para su uso en las suscripciones. También debe considerar la posibilidad de usar aquí el patrón de emparejamiento de la red virtual (modelo tipo hub-and-spoke). Este enfoque permite la comunicación de la red virtual o la subred entre las suscripciones dentro de una región determinada, aunque el emparejamiento entre regiones es una característica que se incorporará pronto a las redes de Azure.
 
-En caso contrario, cada entorno de DevTest Labs podría tener su propia red virtual. Sin embargo, tenga en cuenta que hay [límites](../azure-subscription-service-limits.md) en el número de redes virtuales por suscripción. La cantidad predeterminada es 50, aunque este límite puede aumentarse a 100.
+En caso contrario, cada entorno de DevTest Labs podría tener su propia red virtual. Sin embargo, tenga en cuenta que hay [límites](../azure-resource-manager/management/azure-subscription-service-limits.md) en el número de redes virtuales por suscripción. La cantidad predeterminada es 50, aunque este límite puede aumentarse a 100.
 
 ## <a name="shared-public-or-private-ip"></a>Dirección IP compartida, pública o privada
 
@@ -117,7 +117,7 @@ Si se usan direcciones IP compartidas, las máquinas virtuales del laboratorio c
 Para determinar el número de máquinas virtuales por usuario o laboratorio, existen tres inquietudes principales:
 
 - El **costo total** en que el equipo puede incurrir por los recursos del laboratorio. Es fácil poner en marcha varias máquinas. Para controlar los costos, un mecanismo consiste en limitar el número de máquinas virtuales por usuario o laboratorio.
-- Las [cuotas a nivel de suscripción](../azure-subscription-service-limits.md) disponibles repercuten en el número total de máquinas virtuales de un laboratorio. Uno de los límites máximos es 800 grupos de recursos por suscripción. DevTest Labs actualmente crea un grupo de recursos para cada máquina virtual (a menos que se usen direcciones IP públicas compartidas). Si hay 10 laboratorios en una suscripción, los laboratorios podrían incluir aproximadamente 79 máquinas en cada laboratorio (Límite máximo de 800 – 10 grupos de recursos para los 10 laboratorios) = 79 máquinas virtuales por laboratorio.
+- Las [cuotas a nivel de suscripción](../azure-resource-manager/management/azure-subscription-service-limits.md) disponibles repercuten en el número total de máquinas virtuales de un laboratorio. Uno de los límites máximos es 800 grupos de recursos por suscripción. DevTest Labs actualmente crea un grupo de recursos para cada máquina virtual (a menos que se usen direcciones IP públicas compartidas). Si hay 10 laboratorios en una suscripción, los laboratorios podrían incluir aproximadamente 79 máquinas en cada laboratorio (Límite máximo de 800 – 10 grupos de recursos para los 10 laboratorios) = 79 máquinas virtuales por laboratorio.
 - Si el laboratorio está conectado a un entorno local a través de ExpressRoute, por ejemplo, hay **espacios de direcciones IP definidos disponibles** para la red virtual o subred. Para garantizar que no se produzcan errores al crear máquinas virtuales en el laboratorio (error: no se puede obtener la dirección IP), los propietarios del laboratorio pueden especificar el número máximo de máquinas virtuales por laboratorio de tal forma que esté en consonancia con el espacio de direcciones IP disponible.
 
 ## <a name="use-resource-manager-templates"></a>Uso de plantillas de Resource Manager

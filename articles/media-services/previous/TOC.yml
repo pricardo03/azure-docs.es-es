@@ -7,7 +7,7 @@
       href: scenarios-and-availability.md
     - name: Conceptos
       href: media-services-concepts.md
-- name: Primeros pasos
+- name: Introducción
   items:
     - name: Creación y administración de cuentas
       href: media-services-portal-create-account.md
@@ -50,6 +50,7 @@
 - name: Procedimientos
   items:
     - name: Componentes heredados
+      displayName: 'deprecated, deprecation, retired, retirement, legacy'
       href: legacy-components.md
       items:
         - name: Migración desde Azure Media Encoder
@@ -60,7 +61,7 @@
           displayName: WAME
         - name: Migración de Indexer V1 y V2
           href: migrate-indexer-v1-v2.md
-    - name: administración
+    - name: Administrar
       items:
         - name: Cuentas
           displayName: subscription
@@ -228,7 +229,7 @@
               href: media-services-rest-get-media-processor.md
         - name: Códigos de error
           href: media-services-encoding-error-codes.md
-        - name: En desuso
+        - name: Obsoleto
           items:
             - name: Cifrado y empaquetado estático
               href: media-services-static-packaging.md
@@ -321,7 +322,7 @@
               href: hybrid-design-drm-sybsystem.md
             - name: Diseño con DRM múltiple de referencia
               href: media-services-cenc-with-multidrm-access-control.md
-    - name: Análisis
+    - name: Analizar
       href: media-services-analytics-overview.md
       items:
         - name: Análisis multimedia mediante Azure Portal
@@ -462,6 +463,9 @@
           href: ../media-services-specifications-live-timed-metadata.md
         - name: HEVC de Smooth Streaming
           href: ../media-services-specifications-ms-sstr-amendment-hevc.md
+    - name: Componentes heredados
+      displayName: 'deprecated, deprecation, retired, retirement, legacy'
+      href: legacy-components.md
 - name: Recursos
   items:
     - name: Comunidad de Azure Media Services

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2019
-ms.openlocfilehash: 03e5e1bc79702a979be352095bb4833a7f5fe1c6
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: dec81bfde160cd9913db07bb99629b8fbcc37364
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900233"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75365213"
 ---
 # <a name="log-query-scope-and-time-range-in-azure-monitor-log-analytics"></a>Ámbito e intervalo de tiempo de una consulta de registro en Log Analytics de Azure Monitor
 Al ejecutar una [consulta de registro](log-query-overview.md) en [Log Analytics en Azure Portal](get-started-portal.md), el conjunto de datos que evalúa la consulta depende del ámbito y el intervalo de tiempo que seleccione. En este artículo se describe el ámbito y el intervalo de tiempo y cómo puede establecer cada uno de ellos en función de sus requisitos. También describe el comportamiento de distintos tipos de ámbitos.
@@ -33,7 +33,7 @@ El ámbito lo determina el método que se utiliza para iniciar Log Analytics y, 
 | Aplicación de Application Insights | Todos los registros de la aplicación de Application Insights. | Seleccione **Analytics** en la página **Introducción** de Application Insights. | Solo se puede cambiar el ámbito a otra aplicación de Application Insights. |
 | Resource group | Recursos creados por todos los recursos del grupo de recursos. Puede incluir datos de varias áreas de trabajo de Log Analytics. | Seleccione **Registros** en el menú de grupo de recursos. | No se puede cambiar el ámbito.|
 | Subscription | Registros creados por todos los recursos de la suscripción. Puede incluir datos de varias áreas de trabajo de Log Analytics. | Seleccione **Registros** en el menú de la suscripción.   | No se puede cambiar el ámbito. |
-| Otros recursos de Azure | Registros creados por el recurso. Puede incluir datos de varias áreas de trabajo de Log Analytics.  | Seleccione **Registros** en el menú de recursos.<br>OR<br>Seleccione **Registros** en el menú **Azure Monitor** y luego seleccione un nuevo ámbito. | Solo se puede cambiar el ámbito al mismo tipo de recurso. |
+| Otros recursos de Azure | Registros creados por el recurso. Puede incluir datos de varias áreas de trabajo de Log Analytics.  | Seleccione **Registros** en el menú de recursos.<br>O BIEN<br>Seleccione **Registros** en el menú **Azure Monitor** y luego seleccione un nuevo ámbito. | Solo se puede cambiar el ámbito al mismo tipo de recurso. |
 
 ### <a name="limitations-when-scoped-to-a-resource"></a>Limitaciones cuando el ámbito se aplica a un recurso
 
@@ -63,7 +63,7 @@ Se bloqueará la ejecución de la consulta si el ámbito incluye áreas de traba
 ![Error en la consulta](media/scope/query-failed.png)
 
 
-## <a name="time-range"></a>Intervalo de tiempo
+## <a name="time-range"></a>Intervalo de horas
 El intervalo de tiempo especifica el conjunto de registros que se evalúan para la consulta en función de cuándo se creó el registro. Esto se define mediante una propiedad estándar en todos los registros del área de trabajo o la aplicación, tal como se especifica en la tabla siguiente.
 
 | Location | Propiedad |

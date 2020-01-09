@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 8c9258f099587ba4dbdfe3a7e46f72cd7a825024
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 63cd7cea65515488649507cb7d3c52877211ca04
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73603833"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531452"
 ---
 # <a name="event-sources-in-azure-event-grid"></a>Orígenes de eventos de Azure Event Grid
 
@@ -24,7 +24,7 @@ Este artículo contiene vínculos a contenido para cada origen de eventos.
 
 Suscríbase a eventos de suscripciones de Azure para responder a los cambios en los recursos de una suscripción de Azure.
 
-|Título |DESCRIPCIÓN  |
+|Título |Descripción  |
 |---------|---------|
 | [Tutorial: Integración de Azure Automation con Event Grid y Microsoft Teams](ensure-tags-exists-on-new-virtual-machines.md) |Cree una máquina virtual, que envía un evento. El evento desencadena un runbook de Automation que etiqueta la máquina virtual y genera un mensaje que se envía a un canal de Equipos de Microsoft. |
 | [Suscripción a eventos mediante el portal](subscribe-through-portal.md) | Uso del portal para la suscripción a eventos desde una suscripción de Azure. |
@@ -36,7 +36,7 @@ Suscríbase a eventos de suscripciones de Azure para responder a los cambios en 
 
 Suscríbase a los eventos de Container Registry para responder a los cambios en las imágenes.
 
-|Título |DESCRIPCIÓN  |
+|Título |Descripción  |
 |---------|---------|
 | [Guía de inicio rápido: Envío de eventos de Container Registry](../container-registry/container-registry-event-grid-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Explica cómo utilizar la CLI de Azure para enviar eventos de Container Registry. |
 | [Esquema del evento](event-schema-container-registry.md) | Describe los campos de los eventos de Container Registry. |
@@ -45,7 +45,7 @@ Suscríbase a los eventos de Container Registry para responder a los cambios en 
 
 Suscríbase a temas personalizados para responder a eventos de la aplicación.
 
-|Título  |DESCRIPCIÓN  |
+|Título  |Descripción  |
 |---------|---------|
 | [Guía de inicio rápido: creación y enrutamiento de eventos personalizados con la CLI de Azure](custom-event-quickstart.md) | Muestra cómo utilizar la CLI de Azure para enviar eventos personalizados. |
 | [Guía de inicio rápido: creación y enrutamiento de eventos personalizados con Azure PowerShell](custom-event-quickstart-powershell.md) | Muestra cómo utilizar Azure PowerShell para enviar eventos personalizados. |
@@ -65,7 +65,7 @@ Suscríbase a temas personalizados para responder a eventos de la aplicación.
 
 Suscríbase a eventos de Event Hubs para responder a eventos de archivos de captura. Event Hubs puede actuar como origen de eventos o como controlador de eventos. En los siguientes artículos se explica cómo utilizar Event Hubs como origen.
 
-|Título  |DESCRIPCIÓN  |
+|Título  |Descripción  |
 |---------|---------|
 | [Tutorial: transmisión de macrodatos a un almacén de datos](event-grid-event-hubs-integration.md) | Cuando Event Hubs crea un archivo de captura, Event Grid envía un evento a una aplicación de función. La aplicación recupera el archivo de captura y migra los datos a un almacenamiento de datos. |
 | [Esquema del evento](event-schema-event-hubs.md) | Muestra los campos de los eventos de Event Hubs. |
@@ -76,7 +76,7 @@ Para ejemplos de Event Hubs como controlador, consulte este artículo sobre el [
 
 Suscríbase a eventos de IoT Hub para responder a eventos de telemetría y de dispositivo creado, eliminado, conectado y desconectado.
 
-|Título  |DESCRIPCIÓN  |
+|Título  |Descripción  |
 |---------|---------|
 | [Envío de notificaciones por correo electrónico sobre eventos de Azure IoT Hub mediante Logic Apps](publish-iot-hub-events-to-logic-apps.md) | Una aplicación lógica envía un correo electrónico de notificación cada vez que se agrega un dispositivo a IoT Hub. |
 | [Reacción a eventos de IoT Hub usando Event Grid para desencadenar acciones](../iot-hub/iot-hub-event-grid.md) | Información general sobre la integración de IoT Hub con Event Grid. |
@@ -89,7 +89,7 @@ La integración de Key Vault con Event Grid se encuentra actualmente en versión
 
 Suscríbase a los eventos de Key Vault para recibir notificaciones cuando un secreto está a punto de expirar, expira o tiene una nueva versión disponible. 
 
-|Título  |DESCRIPCIÓN  |
+|Título  |Descripción  |
 |---------|---------|
 | [Supervisión de eventos de Key Vault con Azure Event Grid](../key-vault/event-grid-overview.md) | Información general sobre la integración de Key Vault con Event Grid. |
 | [Tutorial: Creación y supervisión de eventos de Key Vault con Event Grid](../key-vault/event-grid-tutorial.md) | Obtenga información sobre cómo configurar notificaciones de Event Grid para Key Vault. |
@@ -99,7 +99,7 @@ Suscríbase a los eventos de Key Vault para recibir notificaciones cuando un sec
 
 Suscríbase a eventos de Media Services para responder a eventos de estado de trabajo.
 
-|Título  |DESCRIPCIÓN  |
+|Título  |Descripción  |
 |---------|---------|
 | [Introducción: reacción ante eventos de Media Services](../media-services/latest/reacting-to-media-services-events.md) | Información general de la integración de Media Services con Event Grid. |
 | [Tutorial: enrutamiento de eventos de Azure Media Services a un punto de conexión web personalizado mediante la CLI](../media-services/latest/job-state-events-cli-how-to.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Muestra cómo enviar eventos desde Media Services. |
@@ -109,7 +109,7 @@ Suscríbase a eventos de Media Services para responder a eventos de estado de tr
 
 Suscríbase a eventos de grupos de recursos para responder a los cambios de los recursos de un grupo de recursos.
 
-|Título  |DESCRIPCIÓN  |
+|Título  |Descripción  |
 |---------|---------|
 | [Tutorial: supervisión de los cambios en máquinas virtuales con Azure Event Grid y Logic Apps](monitor-virtual-machine-changes-event-grid-logic-app.md) | Una aplicación lógica supervisa los cambios realizados en una máquina virtual y envía mensajes de correo electrónico sobre dichos cambios. |
 | [CLI de Azure: suscripción a eventos para un grupo de recursos](./scripts/event-grid-cli-resource-group.md)| Script de ejemplo que se suscribe a eventos para un grupo de recursos. Envía eventos a un webhook. |
@@ -123,7 +123,7 @@ Suscríbase a eventos de grupos de recursos para responder a los cambios de los 
 
 Suscríbase a eventos de Service Bus para responder a mensajes sin un agente de escucha activo.
 
-|Título  |DESCRIPCIÓN  |
+|Título  |Descripción  |
 |---------|---------|
 | [Tutorial: Ejemplos de integración de Azure Service Bus en Azure Event Grid](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Event Grid envía mensajes de temas de Service Bus a la aplicación de función y a la aplicación lógica. |
 | [Información general: Integración de Azure Service Bus en Event Grid](../service-bus-messaging/service-bus-to-event-grid-integration-concept.md) | Información general de la integración de Service Bus con Event Grid. |
@@ -133,7 +133,7 @@ Suscríbase a eventos de Service Bus para responder a mensajes sin un agente de 
 
 Suscríbase a eventos de Blob Storage para responder a eventos creados y eliminados del blob.
 
-|Título  |DESCRIPCIÓN  |
+|Título  |Descripción  |
 |---------|---------|
 | [Guía de inicio rápido: enrutamiento de eventos de Blob Storage a un punto de conexión web personalizado con la CLI de Azure](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Muestra cómo utilizar la CLI de Azure para enviar eventos de Blob Storage a un webhook. |
 | [Guía de inicio rápido: enrutamiento de eventos de Blob Storage a un punto de conexión web personalizado con PowerShell](../storage/blobs/storage-blob-event-quickstart-powershell.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Muestra cómo utilizar Azure PowerShell para enviar eventos de Blob Storage a un webhook. |
@@ -147,7 +147,7 @@ Suscríbase a eventos de Blob Storage para responder a eventos creados y elimina
 ## <a name="maps"></a>Mapas
 Suscribirse a eventos de Azure Maps para responder a eventos de la geovalla. Por ejemplo, una aplicación puede entregar una notificación por correo electrónico cada vez que un dispositivo entra o sale de una geovalla.
 
-|Título  |DESCRIPCIÓN  |
+|Título  |Descripción  |
 |---------|---------|
 | [Reaccionar a eventos de Azure Maps mediante Event Grid](../azure-maps/azure-maps-event-grid-integration.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Información general de la integración de Azure Maps con Event Grid. |
 | [Tutorial: configuración de una geovalla](../azure-maps/tutorial-geofence.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Este tutorial le guiará por los pasos básicos para configurar la geovalla con Azure Maps. Usará Azure Event Grid para transmitir los resultados de la geovalla y establecer una notificación basada en los resultados de esa geovalla. |
@@ -156,7 +156,7 @@ Suscribirse a eventos de Azure Maps para responder a eventos de la geovalla. Por
 ## <a name="app-configuration"></a>Configuración de la aplicación
 Suscríbase a eventos Azure App Configuration para responder a los eventos de modificación de pares clave-valor.
 
-|Título | DESCRIPCIÓN |
+|Título | Descripción |
 |---------|---------|
 | [Reacción a eventos de Azure App Configuration con Event Grid](../azure-app-configuration/concept-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Información general de la integración de Azure App Configuration con Event Grid. |
 | [Inicio rápido: Enrutamiento de eventos de Azure App Configuration a un punto de conexión web personalizado con la CLI de Azure](../azure-app-configuration/howto-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Muestra cómo utilizar la CLI de Azure para enviar eventos de Azure App Configuration a un webhook. |
@@ -165,7 +165,7 @@ Suscríbase a eventos Azure App Configuration para responder a los eventos de mo
 ## <a name="azure-signalr"></a>Azure SignalR
 Suscríbase a eventos de Azure SignalR Service para responder a eventos de conexión de cliente.
 
-|Título | DESCRIPCIÓN |
+|Título | Descripción |
 |---------|---------|
 | [Reaccionar a eventos de Azure SignalR Service mediante Event Grid](../azure-signalr/signalr-concept-event-grid-integration.md) | Información general sobre la integración de Azure SignalR Service con Event Grid. |
 | [Cómo enviar eventos de Azure SignalR Service a Event Grid](../azure-signalr/signalr-howto-event-grid-integration.md) | Muestra cómo enviar eventos de Azure SignalR Service a una aplicación a través de Event Grid. |
@@ -175,9 +175,9 @@ Suscríbase a eventos de Azure SignalR Service para responder a eventos de conex
 
 Suscríbase a eventos de área de trabajo de Azure Machine Learning para responder al registro del modelo.
 
-| Título | DESCRIPCIÓN |
+| Título | Descripción |
 | ----- | ----- |
-| [Consumo de eventos de Azure Machine Learning](../machine-learning/service/concept-event-grid-integration.md) | Información general de la integración de Azure Machine Learning con Event Grid. |
+| [Consumo de eventos de Azure Machine Learning](../machine-learning/concept-event-grid-integration.md) | Información general de la integración de Azure Machine Learning con Event Grid. |
 | [Esquema de eventos de Azure Event Grid para Azure Machine Learning](event-schema-machine-learning.md) | Muestra los campos de los eventos de Azure Machine Learning. |
 
 ## <a name="next-steps"></a>Pasos siguientes

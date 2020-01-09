@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/08/2019
-ms.openlocfilehash: 582e0c6b9f6a51f97e8d4990634ceac61c6d9f23
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: fd0e6d526f0c47304e7bf53f91d08f42b924ff23
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73679416"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440386"
 ---
 # <a name="switch-activity-in-azure-data-factory"></a>Actividad Switch en Azure Data Factory
 
@@ -65,10 +65,10 @@ La actividad Switch proporciona la misma funcionalidad que una instrucción swit
 
 ## <a name="type-properties"></a>Propiedades de tipo
 
-Propiedad | DESCRIPCIÓN | Valores permitidos | Obligatorio
+Propiedad | Descripción | Valores permitidos | Obligatorio
 -------- | ----------- | -------------- | --------
-Nombre | Nombre de la actividad switch | Cadena | Sí
-Tipo | Debe establecerse en *Switch** . | Cadena | Sí
+name | Nombre de la actividad switch | String | Sí
+type | Debe establecerse en *Switch** . | String | Sí
 expresión | Expresión que debe evaluarse como un valor de cadena | Expresión con resultado de tipo cadena | Sí
 cases | Conjunto de casos que contienen un valor y un conjunto de actividades que se ejecutan cuando el valor coincide con la evaluación de la expresión. Debe proporcionar al menos un caso. Hay un límite máximo de 25 casos. | Matriz de objetos Case | Sí
 defaultActivities | Conjunto de actividades que se ejecutan cuando la evaluación de la expresión no se cumple. | Matriz de actividades | Sí
@@ -236,10 +236,7 @@ La canalización de este ejemplo copia los datos de una carpeta de entrada a una
     "properties": {
         "type": "AzureStorage",
         "typeProperties": {
-            "connectionString": {
-                "value": "DefaultEndpointsProtocol=https;AccountName=<Azure Storage account name>;AccountKey=<Azure Storage account key>",
-                "type": "SecureString"
-            }
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<Azure Storage account name>;AccountKey=<Azure Storage account key>"
         }
     }
 }
@@ -337,6 +334,6 @@ Consulte otras actividades de flujo de control compatibles con Data Factory:
 - [Actividad If Condition](control-flow-if-condition-activity.md)
 - [Actividad de ejecución de canalización](control-flow-execute-pipeline-activity.md)
 - [Para cada actividad](control-flow-for-each-activity.md)
-- [Actividad de obtención de metadatos](control-flow-get-metadata-activity.md)
+- [Actividad GetMetadata](control-flow-get-metadata-activity.md)
 - [Actividad Lookup](control-flow-lookup-activity.md)
 - [Actividad web](control-flow-web-activity.md)

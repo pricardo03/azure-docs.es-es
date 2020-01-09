@@ -1,25 +1,25 @@
 ---
 title: Topologías de Apache Storm de ejemplo en Azure HDInsight
 description: Una lista de topologías de ejemplo de Storm creada y probada con Apache Storm en HDInsight, incluidas las topologías básicas de C# y Java, y trabajando con Event Hubs.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.custom: hdinsightactive
+ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 05/30/2018
-ms.openlocfilehash: 831d3a187a4388a429c6fabb1bb0e0ec6dd584cc
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.custom: hdinsightactive
+ms.date: 12/27/2019
+ms.openlocfilehash: 302ba583f11b15be98832316b1ea05c7f9be931f
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72800041"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530670"
 ---
 # <a name="example-apache-storm-topologies-and-components-for-apache-storm-on-hdinsight"></a>Topologías y componentes de ejemplo de Apache Storm para Apache Storm en HDInsight
 
 La siguiente es una lista de ejemplos creada y mantenida por Microsoft para su uso con [Apache Storm](https://storm.apache.org/) en HDInsight. Estos ejemplos tratan diversos temas, desde la creación de topologías básicas en C# y Java para trabajar con servicios de Azure como Event Hubs, Cosmos DB, SQL Database, [Apache HBase](https://hbase.apache.org/) en HDInsight y Azure Storage. Algunos ejemplos también muestran cómo trabajar con tecnologías que no son de Azure, o incluso que no son de Microsoft, como SignalR y Socket.IO.
 
-| DESCRIPCIÓN | Muestra | Lenguaje/Marco de trabajo |
+| Descripción | Muestra | Lenguaje/Marco de trabajo |
 |:--- |:--- |:--- |
 | [Escritura en Azure Data Lake Storage desde Apache Storm](apache-storm-write-data-lake-store.md) |Escritura en Azure Data Lake Storage |Java |
 | [Origen de spout y bolt de Centro de eventos](https://github.com/apache/storm/tree/master/external/storm-eventhubs) |Origen de spout y bolt de Centro de eventos |Java |
@@ -47,7 +47,6 @@ Consulte [Uso de Python con Apache Storm en HDInsight](apache-storm-develop-pyth
 * [Creación y supervisión de una topología de Apache Storm en Azure HDInsight](./apache-storm-quickstart.md)
 * [Implementación y administración de topologías de Apache Storm con Apache Storm en HDInsight][6eb0d3b8]
 
-
 [6eb0d3b8]:apache-storm-deploy-monitor-topology-linux.md "Aprenda a implementar y administrar topologías mediante el panel de Apache Storm basado en web y la interfaz de usuario de Storm o las Herramientas de HDInsight para Visual Studio."
 [16fce2d1]:apache-storm-develop-csharp-visual-studio-topology.md "Aprenda a crear topologías de Storm en C# mediante las Herramientas de HDInsight para Visual Studio."
 [5797064f]:apache-storm-develop-java-topology.md "Aprenda a crear topologías de Storm en Java mediante Maven creando una topología de recuento de palabras básica."
@@ -56,4 +55,3 @@ Consulte [Uso de Python con Apache Storm en HDInsight](apache-storm-develop-pyth
 [d6c540e3]: https://github.com/hdinsight/hdinsight-storm-examples/blob/master/EventCountExample "Varias topologías para mostrar el rendimiento cuando se lee desde Azure Event Hubs y se realiza el almacenamiento en SQL Database mediante Apache Storm en HDInsight."
 [b4b68194]: https://github.com/hdinsight/hdinsight-storm-examples/blob/master/RealTimeETLExample "Aprenda a leer datos desde Azure Event Hubs, a agregar y transformar los datos y, a continuación, a almacenarlos en HBase en HDInsight."
 [ce0c02a2]: https://github.com/hdinsight/hdinsight-storm-examples/tree/master/templates/HDInsightStormExamples "Este proyecto contiene plantillas para spouts, bolts y topologías para interactuar con distintos servicios de Azure como Event Hubs, Cosmos DB y SQL Database."
-

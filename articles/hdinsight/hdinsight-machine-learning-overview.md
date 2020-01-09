@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
-ms.openlocfilehash: 4a1e621570f3bf5fdb78a2fd7b29ce0d1b51187f
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 679b59ac786f863c8a5f34aec71f51c5dc75a167
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951792"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75608710"
 ---
 # <a name="machine-learning-on-hdinsight"></a>Aprendizaje automático en HDInsight
 
@@ -64,4 +64,4 @@ Con el fin de realizar avances en su trabajo de aprendizaje profundo, Microsoft 
 
 * [Uso del modelo de aprendizaje profundo de Microsoft Cognitive Toolkit con un clúster de Azure HDInsight Spark](spark/apache-spark-microsoft-cognitive-toolkit.md)
 * [Uso de Caffe en Azure HDInsight Spark para el aprendizaje profundo distribuido](spark/apache-spark-deep-learning-caffe.md)
-* [Marcos de aprendizaje profundo e inteligencia artificial en Data Science Virtual Machine (DSVM)](../machine-learning/data-science-virtual-machine/dsvm-deep-learning-ai-frameworks.md)
+* [Marcos de aprendizaje profundo e inteligencia artificial en Data Science Virtual Machine (DSVM)](../machine-learning/data-science-virtual-machine/dsvm-tools-deep-learning-frameworks.md)

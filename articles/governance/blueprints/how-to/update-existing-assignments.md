@@ -3,12 +3,12 @@ title: Actualización de una asignación existente desde el portal
 description: Obtenga información acerca del mecanismo para actualizar una asignación de plano técnico existente desde el portal en Azure Blueprints.
 ms.date: 11/21/2019
 ms.topic: how-to
-ms.openlocfilehash: 3cce84127475b2f11388b4ad4eb48dedec19cd1d
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 2c1a24399d8fa1529665bfa60d1b889a84a29a60
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873172"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436577"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>Procedimiento para actualizar una asignación de plano técnico
 
@@ -55,7 +55,7 @@ La implementación de las asignaciones actualizadas sigue unas reglas importante
 
 ## <a name="possible-errors-on-updating-assignments"></a>Posibles errores en la actualización de asignaciones
 
-Al actualizar las asignaciones, es posible realizar cambios que se interrumpan cuando se ejecutan. Un ejemplo se da al cambiar la ubicación de un grupo de recursos una vez que se haya implementado. Puede realizarse cualquier cambio que [Azure Resource Manager](../../../azure-resource-manager/resource-group-overview.md) admita, pero, si este produjera un error con Azure Resource Manager, también lo generaría en la asignación.
+Al actualizar las asignaciones, es posible realizar cambios que se interrumpan cuando se ejecutan. Un ejemplo se da al cambiar la ubicación de un grupo de recursos una vez que se haya implementado. Puede realizarse cualquier cambio que [Azure Resource Manager](../../../azure-resource-manager/management/overview.md) admita, pero, si este produjera un error con Azure Resource Manager, también lo generaría en la asignación.
 
 No hay ningún límite en el número de veces que una asignación se puede actualizar. Si se produce un error, determínelo y realice otra actualización en la asignación.  Escenarios de error de ejemplo:
 

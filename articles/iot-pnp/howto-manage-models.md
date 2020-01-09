@@ -6,14 +6,14 @@ manager: philmea
 ms.service: iot-pnp
 services: iot-pnp
 ms.topic: conceptual
-ms.date: 06/12/2019
+ms.date: 12/26/2019
 ms.author: philmea
-ms.openlocfilehash: 4320a975f74d000bd492d291f5e610f591536b0d
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 7e71c940d0c083642954114cf4fa1617b93335b9
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74979111"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531267"
 ---
 # <a name="manage-models-in-the-repository"></a>Administración de modelos en el repositorio
 
@@ -37,9 +37,9 @@ Existen dos tipos de repositorio de modelos donde almacenar las interfaces y los
 En el [portal de Azure Certified for IoT](https://preview.catalog.azureiotsolutions.com) se pueden realizar las siguientes tareas:
 
 - [Completar el proceso de certificación del dispositivo IoT](./tutorial-certification-test.md).
-- Buscar modelos de funcionalidad del dispositivo de IoT Plug and Play. Estos modelos se pueden usar para [crear rápidamente dispositivos listos para IoT e integrarlos con soluciones](./quickstart-connect-pnp-device-solution.md).
+- Buscar modelos de funcionalidad del dispositivo de IoT Plug and Play. Estos modelos se pueden usar para [crear rápidamente dispositivos listos para IoT e integrarlos con soluciones](./quickstart-connect-pnp-device-solution-node.md).
 
-## <a name="azure-cli"></a>CLI de Azure
+## <a name="azure-cli"></a>Azure CLI
 
 La CLI de Azure pone a disposición comandos para administrar interfaces y modelos de funcionalidad del dispositivo en los repositorios de modelo público y de empresa de IoT Plug and Play. Para obtener más información, consulte la guía paso a paso [Instalación y uso de la extensión de Azure IoT para la CLI de Azure](./howto-install-pnp-cli.md).
 

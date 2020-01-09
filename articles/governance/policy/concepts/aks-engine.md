@@ -3,12 +3,12 @@ title: Información sobre Azure Policy para AKS Engine
 description: Obtenga información sobre cómo Azure Policy usa CustomResourceDefinitions y Open Policy Agent desde Gatekeeper v3 para administrar clústeres con AKS Engine.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: 2d1ae33755dcb52c5fe65ec46f0d02e090f6f417
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: c41a9d84dfe43e356e9a4a17af523a37209c2933
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74267249"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436426"
 ---
 # <a name="understand-azure-policy-for-aks-engine"></a>Explicación de Azure Policy para AKS Engine
 
@@ -29,13 +29,13 @@ Para habilitar y usar Azure Policy para AKS Engine con el clúster de Kubernetes
 - [Asigne una definición de directiva para AKS Engine](#built-in-policies)
 - [Espere la validación](#validation-and-reporting-frequency)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de instalar el complemento de Azure Policy o habilitar cualquiera de las características del servicio, su suscripción debe tener habilitados el proveedor de recursos **Microsoft.PolicyInsights** y crear una asignación de roles para la entidad de servicio del clúster. 
 
-1. Para habilitar el proveedor de recursos, siga los pasos descritos en [Tipos y proveedores de recursos](../../../azure-resource-manager/resource-manager-supported-services.md#azure-portal) o ejecute el comando de PowerShell o la CLI de Azure:
+1. Para habilitar el proveedor de recursos, siga los pasos descritos en [Tipos y proveedores de recursos](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal) o ejecute el comando de PowerShell o la CLI de Azure:
 
-   - CLI de Azure
+   - Azure CLI
 
      ```azurecli-interactive
      # Log in first with az login if you're not using Cloud Shell
@@ -73,7 +73,7 @@ Antes de instalar el complemento de Azure Policy o habilitar cualquiera de las c
 
 ## <a name="azure-policy-add-on"></a>Complemento de Azure Policy
 
-El _complemento de Azure Policy_ para Kubernetes conecta el servicio Azure Policy al controlador de admisión Gatekeeper. El complemento, que se instala en el espacio de nombres _kube-system_, ejecuta las siguientes funciones:
+El _complemento de Azure Policy_ para Kubernetes conecta el servicio de Azure Policy al controlador de admisión de Gatekeeper. El complemento, que se instala en el espacio de nombres _kube-system_, ejecuta las siguientes funciones:
 
 - Comprueba con Azure Policy las asignaciones al clúster de AKS Engine.
 - Descarga e instala los detalles de la directiva, las plantillas de restricción y las restricciones.
@@ -255,10 +255,10 @@ Para quitar el complemento de Azure Policy y Gatekeeper del clúster de AKS Engi
 
 ## <a name="diagnostic-data-collected-by-azure-policy-add-on"></a>Datos de diagnóstico recopilados por el complemento de Azure Policy
 
-El complemento de Azure Policy para Kubernetes recopila datos de diagnóstico de clúster limitados. Estos datos de diagnóstico son datos técnicos esenciales relacionados con el software y el rendimiento. Se usa para estos fines:
+El complemento de Azure Policy para Kubernetes recopila datos de diagnóstico de clúster limitados. Estos datos de diagnóstico son datos técnicos esenciales relacionados con el software y el rendimiento. Se utiliza para lo siguiente:
 
 - Mantener el complemento de Azure Policy actualizado.
-- Mantener la seguridad, la confiabilidad y el rendimiento del complemento de Azure Policy.
+- Mantener la seguridad, la confiabilidad y el rendimiento del complemento de Azure Policy
 - Mejorar el complemento de Azure Policy mediante el análisis agregado del uso del complemento
 
 La información recopilada por el complemento no son datos personales. Actualmente se recopilan los detalles siguientes:

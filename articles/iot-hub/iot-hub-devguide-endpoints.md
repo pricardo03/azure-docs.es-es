@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: 689a702863dda53870f775bd8520d5dd406d242f
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: da6d17e42407048b7ecbcacade67ef48046d7fe1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640604"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457126"
 ---
 # <a name="reference---iot-hub-endpoints"></a>Referencia: Puntos de conexión de IoT Hub
 
@@ -25,13 +25,13 @@ Puede encontrar el nombre de host de la instancia de IoT Hub que hospeda los pun
 
 ## <a name="list-of-built-in-iot-hub-endpoints"></a>Lista de puntos de conexión de IoT Hub integrados
 
-Azure IoT Hub es un servicio multiempresa que muestra su funcionalidad a diversos actores. En el siguiente diagrama se muestran los diferentes puntos de conexión expuestos por IoT Hub.
+Azure IoT Hub es un servicio multiinquilino que muestra su funcionalidad a diversos actores. En el siguiente diagrama se muestran los diferentes puntos de conexión expuestos por IoT Hub.
 
 ![Puntos de conexión de IoT Hub](./media/iot-hub-devguide-endpoints/endpoints.png)
 
 En la lista siguiente se describen los puntos de conexión:
 
-* **Proveedor de recursos**. El proveedor de recursos de IoT Hub expone una interfaz de [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). Esta interfaz permite que los propietarios de suscripciones de Azure creen y eliminen instancias de IoT Hub para actualizar sus propiedades. Las propiedades de IoT Hub controlan las [directivas de seguridad a nivel de centro](iot-hub-devguide-security.md#access-control-and-permissions), a diferencia del control de acceso de nivel de dispositivo y las opciones funcionales para la mensajería de nube a dispositivo y de dispositivo a nube. El proveedor de recursos también permite [exportar identidades de dispositivo](iot-hub-devguide-identity-registry.md#import-and-export-device-identities).
+* **Proveedor de recursos**. El proveedor de recursos de IoT Hub expone una interfaz de [Azure Resource Manager](../azure-resource-manager/management/overview.md). Esta interfaz permite que los propietarios de suscripciones de Azure creen y eliminen instancias de IoT Hub para actualizar sus propiedades. Las propiedades de IoT Hub controlan las [directivas de seguridad a nivel de centro](iot-hub-devguide-security.md#access-control-and-permissions), a diferencia del control de acceso de nivel de dispositivo y las opciones funcionales para la mensajería de nube a dispositivo y de dispositivo a nube. El proveedor de recursos también permite [exportar identidades de dispositivo](iot-hub-devguide-identity-registry.md#import-and-export-device-identities).
 
 * **Administración de identidades de dispositivo**. Cada instancia de IoT Hub muestra un conjunto de puntos de conexión HTTPS REST para administrar las identidades de dispositivo (crear, recuperar, actualizar y eliminar). Las [identidades del dispositivo](iot-hub-devguide-identity-registry.md) se usan para autenticación de dispositivos y control de acceso.
 
@@ -84,7 +84,7 @@ Para conocer los límites del número de puntos de conexión que se pueden agreg
 
 Puede usar la API REST [Get Endpoint Health](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) para obtener el estado de mantenimiento de los puntos de conexión. Se recomienda usar las [métricas de IoT Hub](iot-hub-metrics.md) relativas a la latencia de mensajes de enrutamiento para identificar y depurar errores cuando el estado del punto de conexión no responda o esté en mal estado, ya que se espera que la latencia sea mayor con el punto de conexión en uno de esos estados.
 
-|Estado de mantenimiento|DESCRIPCIÓN|
+|Estado de mantenimiento|Descripción|
 |---|---|
 |healthy|El punto de conexión acepta los mensajes según lo previsto.|
 |unhealthy|El punto de conexión no acepta los mensajes según lo previsto e IoT Hub le está intentando volver a enviar datos. El estado del punto de conexión incorrecto se actualizará a correcto cuando IoT Hub haya establecido finalmente un estado de mantenimiento coherente.|

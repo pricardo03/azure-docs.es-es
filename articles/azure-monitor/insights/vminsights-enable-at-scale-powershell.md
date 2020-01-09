@@ -4,15 +4,15 @@ description: En este artículo se describe cómo habilitar Azure Monitor para VM
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 10/14/2019
-ms.openlocfilehash: 7d5107279654aa883a040a9168eb099a6543caa8
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: 5f37971e9680468c29efd5733517cb900852431f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74286233"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75400754"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-using-azure-powershell-or-resource-manager-templates"></a>Habilitar Azure Monitor para VM (versión preliminar) mediante Azure PowerShell o plantillas de Resource Manager
 

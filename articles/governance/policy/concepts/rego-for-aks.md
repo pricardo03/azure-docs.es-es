@@ -3,12 +3,12 @@ title: Más información sobre Azure Policy para Azure Kubernetes Service
 description: Obtenga información sobre cómo Azure Policy usa Rego y el agente de directivas público para administrar clústeres en Azure Kubernetes Service.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: d8d5c1ebeded62f475804e4e704f823aba2c10eb
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 9a4dd6bbc71c66c3ff37200ed57859b309909ae9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279390"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436389"
 ---
 # <a name="understand-azure-policy-for-azure-kubernetes-service"></a>Cómo usar Azure Policy para Azure Kubernetes Service
 
@@ -33,7 +33,7 @@ Antes de instalar el complemento de Azure Policy o habilitar cualquiera de las c
 
 - Azure Portal:
 
-  1. Registre los proveedores de recursos **Microsoft.ContainerService** y **Microsoft.PolicyInsights**. Para conocer los pasos, consulte [Proveedores de recursos y sus tipos](../../../azure-resource-manager/resource-manager-supported-services.md#azure-portal).
+  1. Registre los proveedores de recursos **Microsoft.ContainerService** y **Microsoft.PolicyInsights**. Para conocer los pasos, consulte [Proveedores de recursos y sus tipos](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
 
   1. Inicie el servicio Azure Policy en Azure Portal. Para ello, haga clic en **Todos los servicios** y, a continuación, busque y seleccione **Directiva**.
 
@@ -89,7 +89,7 @@ El _complemento de Azure Policy_ para Kubernetes conecta el servicio de Azure Po
 
 ### <a name="installing-the-add-on"></a>Instalación del complemento
 
-#### <a name="prerequisites"></a>Requisitos previos
+#### <a name="prerequisites"></a>Prerequisites
 
 Antes de instalar el complemento en su clúster de AKS, debe instalar la extensión de la versión preliminar. Este paso se realiza con la CLI de Azure:
 
@@ -140,7 +140,7 @@ Una vez completados los requisitos previos, instale el complemento de Azure Poli
      > [!NOTE]
      > Si el botón **Enable add-on** (Habilitar complemento) está en gris, es que la suscripción aún no se ha agregado a la versión preliminar. Consulte [Opt-in for preview](#opt-in-for-preview) (Participar en la versión preliminar) para ver los pasos necesarios.
 
-- CLI de Azure
+- Azure CLI
 
   ```azurecli-interactive
   # Log in first with az login if you're not using Cloud Shell
@@ -220,7 +220,7 @@ Para eliminar el complemento de Azure Policy del clúster de AKS, use Azure Port
 
      ![Deshabilitar Azure Policy para el complemento de AKS](../media/rego-for-aks/disable-policy-add-on.png)
 
-- CLI de Azure
+- Azure CLI
 
   ```azurecli-interactive
   # Log in first with az login if you're not using Cloud Shell

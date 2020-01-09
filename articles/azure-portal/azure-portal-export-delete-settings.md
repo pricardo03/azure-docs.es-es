@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.service: azure-portal
 ms.custom: ''
 manager: mtillman
-ms.author: kfollis
-ms.openlocfilehash: fde7ffbaa3ef4d47eea48302a99948932aeb4f00
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: mblythe
+ms.openlocfilehash: f033af37985077f4d8df9d541b55764df0c75eda
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60551674"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75640183"
 ---
 # <a name="export-or-delete-user-settings"></a>Exportación o eliminación de la configuración de usuario
 
@@ -31,7 +31,7 @@ Es una buena idea exportar y revisar la configuración antes de eliminarla. Volv
 
 ## <a name="export-or-delete-your-portal-settings"></a>Exportación o eliminación de la configuración del portal
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. En la parte superior del portal, seleccione **Configuración**.
 
     ![Captura de pantalla que muestra el engranaje de configuración del portal](media/azure-portal-export-delete-settings/azure-portal-settings-icon.png)
@@ -42,7 +42,7 @@ Es una buena idea exportar y revisar la configuración antes de eliminarla. Volv
 
       En la siguiente tabla se describen estas acciones.
 
-      | . | DESCRIPCIÓN |
+      | Acción | Descripción |
       | --- | --- |
       | **Exportar todas las opciones de configuración** | Crea un archivo .json que contiene la configuración de usuario, como el tema de color, los favoritos y los paneles privados.|
       | **Eliminar todas las opciones de configuración y los paneles privados** | Elimina todos los vínculos a paneles privados y otras configuraciones personalizadas que haya realizado en el portal. |

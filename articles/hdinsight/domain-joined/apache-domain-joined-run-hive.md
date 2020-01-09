@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
-ms.openlocfilehash: 9005b2e01cdb17d6aa6c630ec8be3d702d5b138c
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: ff612c43a058fce02bd801e15632c27979f22d17
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688099"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435867"
 ---
 # <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Configuración de directivas de Apache Hive en HDInsight con Enterprise Security Package
 
 Aprenda a configurar las directivas de Apache Ranger para Apache Hive. En este artículo, cree dos directivas Ranger para restringir el acceso a hivesampletable. hivesampletable viene con los clústeres de HDInsight. Una vez configuradas las directivas, utilice Excel y el controlador ODBC para conectarse a las tablas de Hive en HDInsight.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * Un clúster de HDInsight con Enterprise Security Package. Consulte [Configuración de clústeres de HDInsight con Enterprise Security Package](apache-domain-joined-configure.md).
 * Un equipo con Office 2016, Office 2013 Professional Plus, Office 2013 Pro Plus, Excel 365 Standalone u Office 2010 Professional Plus.
@@ -40,11 +40,11 @@ Aprenda a configurar las directivas de Apache Ranger para Apache Hive. En este a
 
 ## <a name="create-domain-users"></a>Creación de usuarios del dominio
 
-Consulte [Crear un clúster de HDInsight con ESP](apache-domain-joined-configure-using-azure-adds.md#create-a-hdinsight-cluster-with-esp), para más información sobre cómo crear hiveruser1 y hiveuser2. Para este artículo usará las dos cuentas de usuario.
+Consulte [Crear un clúster de HDInsight con ESP](apache-domain-joined-configure-using-azure-adds.md#create-an-hdinsight-cluster-with-esp), para más información sobre cómo crear hiveruser1 y hiveuser2. Para este artículo usará las dos cuentas de usuario.
 
 ## <a name="create-ranger-policies"></a>Creación de directivas de Ranger
 
-En esta sección, creará dos directivas Ranger para acceder a hivesampletable. Se concede el permiso select en un conjunto diferente de columnas. Ambos usuarios se crearon en [Crear un clúster de HDInsight con ESP](apache-domain-joined-configure-using-azure-adds.md#create-a-hdinsight-cluster-with-esp). En la siguiente sección probará las dos directivas en Excel.
+En esta sección, creará dos directivas Ranger para acceder a hivesampletable. Se concede el permiso select en un conjunto diferente de columnas. Ambos usuarios se crearon en [Crear un clúster de HDInsight con ESP](apache-domain-joined-configure-using-azure-adds.md#create-an-hdinsight-cluster-with-esp). En la siguiente sección probará las dos directivas en Excel.
 
 **Para crear directivas de Ranger**
 
@@ -52,7 +52,7 @@ En esta sección, creará dos directivas Ranger para acceder a hivesampletable. 
 2. Seleccione **CLUSTERNAME_Hive** en **Hive**. Deben aparecer dos directivas preconfiguradas.
 3. Seleccione **Agregar nueva directiva** y escriba los siguientes valores:
 
-    |Propiedad |Valor |
+    |Propiedad |Value |
     |---|---|
     |Nombre de la directiva|read-hivesampletable-all|
     |Base de datos de Hive|default|
@@ -70,7 +70,7 @@ En esta sección, creará dos directivas Ranger para acceder a hivesampletable. 
 
 5. Repita los dos últimos pasos para crear otra directiva con las siguientes propiedades:
 
-    |Propiedad |Valor |
+    |Propiedad |Value |
     |---|---|
     |Nombre de la directiva|read-hivesampletable-devicemake|
     |Base de datos de Hive|default|
@@ -83,7 +83,7 @@ En esta sección, creará dos directivas Ranger para acceder a hivesampletable. 
 
 Las instrucciones se pueden encontrar en el artículo sobre la [creación de origen de datos ODBC en Hive](../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md).  
 
- | Propiedad  |DESCRIPCIÓN |
+ | Propiedad  |Descripción |
  | --- | --- |
  | Data Source Name | Asigne un nombre al origen de datos |
  | Host | Escriba CLUSTERNAME.azurehdinsight.net. Por ejemplo, myHDICluster.azurehdinsight.net |
@@ -92,7 +92,7 @@ Las instrucciones se pueden encontrar en el artículo sobre la [creación de ori
  | Hive Server Type | Seleccione **Hive Server 2** |
  | Mechanism | Seleccione **Azure HDInsight Service** |
  | HTTP Path | Deje este parámetro en blanco. |
- | User Name | Escriba hiveuser1@contoso158.onmicrosoft.com. Actualice el nombre de dominio si es diferente. |
+ | Nombre de usuario | Escriba hiveuser1@contoso158.onmicrosoft.com. Actualice el nombre de dominio si es diferente. |
  | Contraseña | Escriba la contraseña de hiveuser1. |
 
 Haga clic **Prueba** antes de guardar el origen de datos.

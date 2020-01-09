@@ -2,17 +2,17 @@
 title: Qué es un modelo y un paquete de servicio en la nube en Azure | Microsoft Docs
 description: Describe el modelo (.csdef, .cscfg) y el paquete (.cspkg) de servicio en la nube en Azure
 services: cloud-services
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 07/05/2017
-ms.author: gwallace
-ms.openlocfilehash: 47d031e339b3677e0bf6ddcbad9456041c53c6e2
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: 0d04236861287074087cc125d7b0d44dc65eccbf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359557"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75360708"
 ---
 # <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>¿Qué es el modelo de servicio en la nube y cómo se empaqueta?
 Un servicio en la nube se crea a partir de tres componentes: la definición de servicio *(.csdef)* , la configuración de servicio *(.cscfg)* y un paquete de servicio *(.cspkg)* . Los archivos **ServiceDefinition.csdef** y **ServiceConfig.cscfg** se basan ambos en XML y describen la estructura del servicio en la nube y cómo se configura; lo que se conoce en conjunto como modelo. **ServicePackage.cspkg** es un archivo ZIP que se genera a partir de **ServiceDefinition.csdef** y, entre otros, contiene todas las dependencias necesarias basadas en archivos binarios. Azure crea un servicio en la nube a partir de **ServicePackage.cspkg** y **ServiceConfig.cscfg**.
@@ -97,7 +97,7 @@ contiene las definiciones de los extremos que se usan en las instancias de rol p
 **ConfigurationSettings**  
 contiene las definiciones de configuración de las características de un rol concreto.
 
-**Certificates**  
+**Certificados**  
 contiene las definiciones de los certificados que son necesarios para un rol. En el ejemplo de código anterior se muestra un certificado que se usa para la configuración de Azure Connect.
 
 **LocalResources**  
@@ -142,7 +142,7 @@ configura el número de instancias en ejecución para el rol. Para evitar la pos
 **ConfigurationSettings**  
 configura los valores de las instancias en ejecución de un rol. El nombre de los elementos `<Setting>` debe coincidir con las definiciones de configuración del archivo de definición de servicio.
 
-**Certificates**  
+**Certificados**  
 configura los certificados usados por el servicio. En el ejemplo de código anterior se muestra cómo definir el certificado para el módulo RemoteAccess. El valor del atributo *thumbprint* debe establecerse en la huella digital del certificado que se va a usar.
 
 <p/>
@@ -259,7 +259,7 @@ cspack [DirectoryName]\[ServiceDefinition]
 
 Donde las variables se definen como de la manera siguiente:
 
-| Variable | Valor |
+| Variable | Value |
 | --- | --- |
 | \[DirectoryName\] |El subdirectorio bajo el directorio raíz del proyecto que contiene el archivo .csdef del proyecto de Azure. |
 | \[ServiceDefinition\] |El nombre del archivo de definición de servicio. De forma predeterminada, este archivo se denomina ServiceDefinition.csdef. |
@@ -289,3 +289,6 @@ Estoy usando Visual Studio y quiero...
 [vs_deploy]: ../vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md
 [vs_reconfigure]: ../vs-azure-tools-configure-roles-for-cloud-service.md
 [vs_create]: ../vs-azure-tools-azure-project-create.md
+
+
+

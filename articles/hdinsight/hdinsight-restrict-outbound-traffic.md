@@ -7,18 +7,18 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/23/2019
-ms.openlocfilehash: 8f6959eb6f9d17a368e7df7b95ecc511d0396f87
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 6771cdb206920c8e3b746e28573de1742543b4c8
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73621452"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646700"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall"></a>Configuración del tráfico de red saliente para clústeres de Azure HDInsight mediante Firewall
 
 Este artículo proporciona los pasos para proteger el tráfico saliente del clúster de HDInsight con Azure Firewall. En los pasos siguientes se supone que va a configurar Azure Firewall para un clúster existente. Si va a implementar un nuevo clúster detrás de un firewall, cree primero el clúster de HDInsight y una subred y, a continuación, siga los pasos descritos en esta guía.
 
-## <a name="background"></a>Fondo
+## <a name="background"></a>Información previa
 
 Los clústeres de Azure HDInsight se implementan normalmente en su propia red virtual. El clúster tiene dependencias de servicios fuera de dicha red virtual que requieren que el acceso a la red funcione correctamente.
 
@@ -59,21 +59,21 @@ Cree una colección de reglas de aplicación que permita al clúster enviar y re
 
     **Sección superior**
 
-    | Propiedad|  Valor|
+    | Propiedad|  Value|
     |---|---|
-    |NOMBRE| FwAppRule|
+    |Nombre| FwAppRule|
     |Priority|200|
-    |.|Allow|
+    |Acción|Allow|
 
     **Sección de etiquetas FQDN**
 
-    | NOMBRE | Dirección de origen | Etiqueta FQDN | Notas |
+    | Nombre | Dirección de origen | Etiqueta FQDN | Notas |
     | --- | --- | --- | --- |
     | Rule_1 | * | WindowsUpdate y HDInsight | Necesario para los servicios de HDI |
 
     **Sección de FQDN de destino**
 
-    | NOMBRE | Direcciones de origen | Protocolo:Puerto | FQDN de destino | Notas |
+    | Nombre | Direcciones de origen | Protocolo:Puerto | FQDN de destino | Notas |
     | --- | --- | --- | --- | --- |
     | Rule_2 | * | https:443 | login.windows.net | Permite la actividad de inicio de sesión de Windows |
     | Rule_3 | * | https:443 | login.microsoftonline.com | Permite la actividad de inicio de sesión de Windows |
@@ -87,21 +87,21 @@ Cree una colección de reglas de aplicación que permita al clúster enviar y re
 
 Cree las reglas de red para configurar correctamente el clúster de HDInsight.
 
-1. Siguiendo con el paso anterior, vaya a **Recopilación de reglas de red** >  **+ Agregar una colección de reglas de red**.
+1. Siguiendo con el paso anterior, vaya a **Recopilación de reglas de red** >  **+ Agregar recopilación de reglas de red**.
 
 1. En la pantalla **Agregar una colección de reglas de red**, proporcione la siguiente información:
 
     **Sección superior**
 
-    | Propiedad|  Valor|
+    | Propiedad|  Value|
     |---|---|
-    |NOMBRE| FwNetRule|
+    |Nombre| FwNetRule|
     |Priority|200|
-    |.|Allow|
+    |Acción|Allow|
 
     **Sección de direcciones IP**
 
-    | NOMBRE | Protocolo | Direcciones de origen | Direcciones de destino | Puertos de destino | Notas |
+    | Nombre | Protocolo | Direcciones de origen | Direcciones de destino | Puertos de destino | Notas |
     | --- | --- | --- | --- | --- | --- |
     | Rule_1 | UDP | * | * | 123 | Servicio de hora |
     | Rule_2 | Any | * | DC_IP_Address_1, DC_IP_Address_2 | * | Si usa Enterprise Security Package (ESP), agregue una regla de red en la sección Direcciones IP que permita la comunicación de los clústeres de ESP con AAD-DS. Puede encontrar las direcciones IP de los controladores de dominio en la sección de AAD-DS en el portal. |
@@ -110,7 +110,7 @@ Cree las reglas de red para configurar correctamente el clúster de HDInsight.
 
     **Sección de etiquetas de servicio**
 
-    | NOMBRE | Protocolo | Direcciones de origen | Etiquetas de servicio | Puertos de destino | Notas |
+    | Nombre | Protocolo | Direcciones de origen | Etiquetas de servicio | Puertos de destino | Notas |
     | --- | --- | --- | --- | --- | --- |
     | Rule_7 | TCP | * | SQL | 1433 | Configure una regla de red en la sección Etiquetas de servicio para SQL que le permita registrar y auditar el tráfico SQL, a menos que haya configurado puntos de conexión de servicio para SQL Server en la subred de HDInsight, los cuales omiten el firewall. |
 
@@ -178,7 +178,7 @@ AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
 
 La integración de Azure Firewall con los registros de Azure Monitor resulta útil la primera vez que se pone una aplicación en funcionamiento, cuando aún no se conocen todas sus dependencias. Puede obtener más información acerca de los registros de Azure Monitor en [Análisis de datos de registro en Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
 
-Para información sobre los límites de escala de Azure Firewall y los aumentos de solicitud, consulte [este](../azure-subscription-service-limits.md#azure-firewall-limits) documento o las [preguntas más frecuentes](../firewall/firewall-faq.md).
+Para información sobre los límites de escala de Azure Firewall y los aumentos de solicitud, consulte [este](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits) documento o las [preguntas más frecuentes](../firewall/firewall-faq.md).
 
 ## <a name="access-to-the-cluster"></a>Acceso al clúster
 

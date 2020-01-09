@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/22/2018
-ms.openlocfilehash: a1a4dbffed37480178d1b94a77587ca251396db6
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 05d849aa0edf5892e568c4078ca619490cfcd98e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931951"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75363207"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-azure-monitor"></a>Creación de vistas personalizadas mediante el Diseñador de vistas en Azure Monitor
 Con el uso del Diseñador de vistas en Azure Monitor, puede crear una variedad de vistas personalizadas en Azure Portal que pueden ayudarle a visualizar datos en el área de trabajo de Log Analytics. Este artículo presenta una información general sobre Diseñador de vistas y los procedimientos para crear y editar vistas personalizadas.
@@ -32,7 +32,7 @@ Las vistas se muestran en la página **Información general** de Azure Monitor e
 
 Las vistas que se crean con el Diseñador de vistas contienen los elementos que se describen en la tabla siguiente:
 
-| Elemento | DESCRIPCIÓN |
+| Parte | Descripción |
 |:--- |:--- |
 | Iconos | Se muestran en la página **Información general** de Azure Monitor. Cada icono muestra un resumen visual de la vista personalizada que representa. Cada tipo de icono proporciona una visualización distinta de los registros. Seleccione un icono para mostrar una vista personalizada. |
 | Vista personalizada | Se muestra al seleccionar un icono. Cada vista contiene uno o varios elementos de visualización. |
@@ -49,12 +49,12 @@ Las vistas que se crearon con el Diseñador de vistas muestran las siguientes op
 
 Las opciones se describen en la tabla siguiente:
 
-| Opción | DESCRIPCIÓN |
+| Opción | Descripción |
 |:--|:--|
 | Actualizar   | Actualiza la vista con los datos más recientes. | 
 | Registros      | Abre [Log Analytics](../log-query/portals.md) para analizar los datos con consultas de registro. |
-| Edit       | Abre la vista en el Diseñador de vistas para editar su contenido y configuración.  |
-| Clon      | Crea una vista nueva y la abre en el Diseñador de vistas. La vista nueva tiene el mismo nombre que la original con la palabra *Copy* agregada al final. |
+| Editar       | Abre la vista en el Diseñador de vistas para editar su contenido y configuración.  |
+| Clonar      | Crea una vista nueva y la abre en el Diseñador de vistas. La vista nueva tiene el mismo nombre que la original con la palabra *Copy* agregada al final. |
 | Intervalo de fechas | Establezca un filtro de tiempo y fechas para los datos que se incluye en la vista. Este intervalo de fechas se aplica antes de cualquier conjunto de intervalo de fechas en consultas de la vista.  |
 | +          | Defina un filtro personalizado definido para la vista. |
 
@@ -73,7 +73,7 @@ El Diseñador de vistas tiene tres paneles:
 * **Controles**: contiene los iconos y los elementos que se agregan al panel **Diseño**. 
 * **Propiedades**: muestra las propiedades de los iconos o elementos seleccionados.
 
-![Ver diseñador](media/view-designer/view-designer-screenshot.png)
+![Diseñador de vistas](media/view-designer/view-designer-screenshot.png)
 
 ### <a name="configure-the-view-tile"></a>Configuración del icono de vista
 Una vista personalizada solo puede tener un único icono. Para ver el icono actual o seleccionar otro, seleccione la pestaña **Tile** (icono) del panel de **control**. El panel **Properties** (Propiedades) muestra las propiedades del icono actual. 
@@ -95,14 +95,14 @@ Las opciones para trabajar con vistas en modo de edición se describen en la tab
 
 ![Menú Edición](media/view-designer/edit-menu.png)
 
-| Opción | DESCRIPCIÓN |
+| Opción | Descripción |
 |:--|:--|
 | Save        | Guarda los cambios y cierra la vista. |
 | Cancelar      | Descarta los cambios y cierra la vista. |
 | Eliminar vista | Elimina la vista. |
-| Exportación      | Exporta la vista a una [plantilla de Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) que puede importar en otra área de trabajo. El nombre del archivo es el nombre de la vista con la extensión *omsview*. |
+| Exportación      | Exporta la vista a una [plantilla de Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) que puede importar en otra área de trabajo. El nombre del archivo es el nombre de la vista con la extensión *omsview*. |
 | Importar      | Importa el archivo *omsview* que haya exportado de otra área de trabajo. Esta acción sobrescribe la configuración de la vista existente. |
-| Clon       | Crea una vista nueva y la abre en el Diseñador de vistas. La vista nueva tiene el mismo nombre que la original con la palabra *Copy* agregada al final. |
+| Clonar       | Crea una vista nueva y la abre en el Diseñador de vistas. La vista nueva tiene el mismo nombre que la original con la palabra *Copy* agregada al final. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Agregue [iconos](view-designer-tiles.md) a la vista personalizada.

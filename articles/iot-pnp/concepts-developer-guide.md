@@ -3,16 +3,16 @@ title: 'Guía para desarrolladores: IoT Plug and Play (versión preliminar) | Mi
 description: Descripción del modelado0 de dispositivos para desarrolladores de IoT Plug and Play
 author: dominicbetts
 ms.author: dobett
-ms.date: 07/05/2019
+ms.date: 12/26/2019
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 6d8e0e9e675b88c69b74cdad261280f5dcaf7161
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 21001a22be6297595658ff347e9f8a7b04bb6faf
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73581623"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531401"
 ---
 # <a name="iot-plug-and-play-preview-modeling-developer-guide"></a>Guía para desarrolladores de modelado de IoT Plug and Play (versión preliminar)
 
@@ -103,7 +103,7 @@ En este sencillo ejemplo, hay solo un campo de telemetría. Una descripción de 
 
 Otros campos opcionales, como nombre para mostrar y descripción, permiten agregar más detalles a la interfaz y a las funcionalidades.
 
-### <a name="properties"></a>properties (Propiedades)
+### <a name="properties"></a>Propiedades
 
 De forma predeterminada, las propiedades son de solo lectura. Las propiedades de solo lectura significan que el dispositivo informa de las actualizaciones de valores de propiedad a su centro de IoT. Su centro de IoT Hub no puede establecer el valor de una propiedad de solo lectura.
 

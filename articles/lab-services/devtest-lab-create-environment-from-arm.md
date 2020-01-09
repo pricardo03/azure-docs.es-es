@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 51c699f9b392be5f2e2bc16b5729d6567ace7f17
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: 9e80bc3e176f831f8609dd7f2a2ee22a2495e89b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69016206"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428939"
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Creación de entornos de varias máquinas virtuales y recursos de PaaS con plantillas de Azure Resource Manager
 
-Los entornos de Azure DevTest Labs permiten a los usuarios implementar fácilmente infraestructuras complejas de forma coherente dentro de los confines del laboratorio. Puede usar las [plantillas de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) para crear entornos con conjuntos de recursos en DevTest Labs. Estos entornos pueden contener cualquiera de los recursos de Azure que pueden crear las plantillas de Resource Manager. 
+Los entornos de Azure DevTest Labs permiten a los usuarios implementar fácilmente infraestructuras complejas de forma coherente dentro de los confines del laboratorio. Puede usar las [plantillas de Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md) para crear entornos con conjuntos de recursos en DevTest Labs. Estos entornos pueden contener cualquiera de los recursos de Azure que pueden crear las plantillas de Resource Manager. 
 
 Puede [agregar fácilmente una máquina virtual (VM) a la vez](devtest-lab-add-vm.md) a un laboratorio mediante [Azure Portal](https://portal.azure.com). Sin embargo, los escenarios como las aplicaciones web de niveles múltiples o las granjas de servidores de SharePoint necesitan un mecanismo para crear varias máquinas virtuales en un solo paso. Mediante el uso de plantillas de Azure Resource Manager, puede definir la infraestructura y la configuración de la solución de Azure e implementar repetidamente varias máquinas virtuales en un estado coherente. 
 
@@ -34,7 +34,7 @@ Las plantillas de Azure Resource Manager también proporcionan las siguientes ve
 - Puede aprovisionar recursos de PaaS de Azure así como máquinas virtuales de IaaS en un entorno a partir de una plantilla de Azure Resource Manager.
 - Puede controlar el costo de los entornos desde el laboratorio además del de las máquinas virtuales individuales creadas por otros tipos de bases de datos. Se crean los recursos de PaaS y se muestran en el seguimiento de costos, aunque el cierre automático de las máquinas virtuales no se aplica a los recursos de PaaS.
 
-Para obtener más información acerca de las ventajas del uso de plantillas de Resource Manager para implementar, actualizar o eliminar muchos recursos de laboratorio en una sola operación, consulte las [Ventajas de usar plantillas de Resource Manager](../azure-resource-manager/resource-group-overview.md#the-benefits-of-using-resource-manager).
+Para obtener más información acerca de las ventajas del uso de plantillas de Resource Manager para implementar, actualizar o eliminar muchos recursos de laboratorio en una sola operación, consulte las [Ventajas de usar plantillas de Resource Manager](../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager).
 
 > [!NOTE]
 > Cuando usa una plantilla de Resource Manager como punto de partida para crear más máquinas virtuales de laboratorio, existen algunas diferencias entre crear una o varias. Para obtener más información, consulte [Uso de una plantilla de Azure Resource Manager en una máquina virtual](devtest-lab-use-resource-manager-template.md).
@@ -73,7 +73,7 @@ Hay varias reglas que debe seguir para organizar las plantillas de Azure Resourc
 
 Después de crear y configurar el repositorio, puede agregarlo al laboratorio mediante Azure Portal: 
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. Seleccione **Todos los servicios** y, luego, **DevTest Labs** en la lista.
 1. En la lista de laboratorios, seleccione el laboratorio que quiera. 
 1. En el panel **Información general** del laboratorio, seleccione **Configuración y directivas**.
@@ -88,7 +88,7 @@ Después de crear y configurar el repositorio, puede agregarlo al laboratorio me
    
 1. En el panel **Repositorios**, escriba la siguiente información:
    
-   - **Nombre**: escriba un nombre de repositorio para usarlo en el laboratorio.
+   - **Name**: escriba un nombre de repositorio para usarlo en el laboratorio.
    - **URL de clonación de Git**: escriba la URL de clonación HTTPS de Git de GitHub o Azure Repos. 
    - **Branch (rama)** (opcional): nombre de la rama para acceder a las definiciones de plantilla de Azure Resource Manager.
    - **Token de acceso personal**: se usa para acceder de forma segura al repositorio.
@@ -120,7 +120,7 @@ La siguiente sección le guía a través de la creación de entornos a partir de
 
 Una vez que agrega una plantilla de Azure Resource Manager al laboratorio, los usuarios del laboratorio pueden crear entornos en Azure Portal mediante los pasos siguientes:
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
    
 1. Seleccione **Todos los servicios** y, luego, **DevTest Labs** en la lista.
    

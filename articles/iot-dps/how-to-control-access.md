@@ -8,12 +8,12 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 04/09/2019
 ms.author: wesmc
-ms.openlocfilehash: f36a48e0cedc309deda8416face5549a54eb8c73
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 2a7e0932d226b1533c039b8529c2c11de06cf525
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975132"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453805"
 ---
 # <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>Control de acceso al servicio Azure IoT Hub Device Provisioning
 
@@ -24,7 +24,7 @@ En este artículo se describe:
 * Los distintos permisos que puede conceder a una aplicación back-end para acceder al servicio de aprovisionamiento.
 * El proceso de autenticación y los tokens que utiliza para comprobar los permisos.
 
-### <a name="when-to-use"></a>Cuándo se deben usar
+### <a name="when-to-use"></a>Cuándo se usa
 
 Debe tener los permisos adecuados para acceder a cualquiera de los puntos de conexión del servicio de aprovisionamiento. Por ejemplo, una aplicación back-end tiene que incluir un token que contenga las credenciales de seguridad junto con cada mensaje que se envía al servicio.
 
@@ -75,7 +75,7 @@ El token de seguridad tiene el formato siguiente:
 
 Estos son los valores esperados:
 
-| Valor | DESCRIPCIÓN |
+| Value | Descripción |
 | --- | --- |
 | {signature} |Una cadena de firma HMAC-SHA256 con el formato: `{URL-encoded-resourceURI} + "\n" + expiry`. **Importante**: La clave se descodifica en base64 y se utiliza para realizar el cálculo de HMAC-SHA256.|
 | {expiry} |Cadenas UTF8 para el número de segundos transcurridos desde el tiempo 00:00:00 UTC el 1 de enero de 1970. |
@@ -190,5 +190,5 @@ En la tabla siguiente se enumeran los permisos que se pueden utilizar para contr
 [img-add-shared-access-policy]: ./media/how-to-control-access/how-to-add-shared-access-policy.PNG
 [lnk-sdks]: ../iot-hub/iot-hub-devguide-sdks.md
 [lnk-management-portal]: https://portal.azure.com
-[lnk-azure-resource-manager]: ../azure-resource-manager/resource-group-overview.md
+[lnk-azure-resource-manager]: ../azure-resource-manager/management/overview.md
 [lnk-resource-provider-apis]: https://docs.microsoft.com/rest/api/iot-dps/

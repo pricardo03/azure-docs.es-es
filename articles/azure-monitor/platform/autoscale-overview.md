@@ -1,18 +1,15 @@
 ---
 title: Información general de la funcionalidad de escalado automático de Virtual Machines, Cloud Services y Web Apps
 description: Escalado automático en Microsoft Azure. Se aplica a Virtual Machines, Virtual Machine Scale Sets, Cloud Services y Web Apps.
-ms.service: azure-monitor
 ms.subservice: autoscale
 ms.topic: conceptual
-author: rboucher
-ms.author: robb
 ms.date: 09/24/2018
-ms.openlocfilehash: 2aeb0bc174eb5a94d485f4eafe000ecb3f693e5f
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: a60c03f1928b38c78a59edca4b5493307d7d19d3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72552285"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75364380"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Información general de la funcionalidad de escalado automático de Microsoft Azure Virtual Machines, Cloud Services y Web Apps
 En este artículo se explican el concepto del escalado automático de Microsoft Azure y las ventajas que aporta, y se realiza una introducción para empezar a usarlo.  
@@ -42,7 +39,7 @@ Los conjuntos de escalado de máquinas virtuales usan datos de telemetría de lo
 ## <a name="custom-metrics"></a>Métricas personalizadas
 También puede usar métricas personalizadas que las aplicaciones pueden generar. Si ha configurado las aplicaciones para que envíen métricas a Application Insights, puede usarlas para tomar decisiones sobre si necesita escalar o no.
 
-## <a name="time"></a>Hora
+## <a name="time"></a>Time
 Las reglas basadas en programaciones emplean el huso horario UTC. Debe establecer la zona horaria correctamente al configurar las reglas.  
 
 ## <a name="rules"></a>Reglas

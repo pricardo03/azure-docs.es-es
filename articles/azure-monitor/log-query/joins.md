@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
-ms.openlocfilehash: 526c359367271c69ccd461e4421c3223b00fbc36
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: f2880044e48e59d0d5f005f9772cdd0f807f7f29
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900284"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75397824"
 ---
 # <a name="joins-in-azure-monitor-log-queries"></a>Combinaciones en consultas de registros de Azure Monitor
 
@@ -80,7 +80,7 @@ SecurityEvent
 ## <a name="join-kinds"></a>Tipos de combinación
 Especifique el tipo de combinación con el argumento _kind_. Cada tipo realiza a una coincidencia diferente entre los registros de las tablas dadas, como se describe en la tabla siguiente.
 
-| Tipo de combinación | DESCRIPCIÓN |
+| Tipo de combinación | Descripción |
 |:---|:---|
 | innerunique | Este es el modo de combinación predeterminado. En primer lugar, se buscan los valores de la columna coincidente de la tabla izquierda y se quitan los valores duplicados.  A continuación, el conjunto de valores únicos se compara con la tabla derecha. |
 | interna | Solo los registros coincidentes en ambas tablas se incluyen en los resultados. |

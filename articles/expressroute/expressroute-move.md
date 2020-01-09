@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: ganesr
-ms.openlocfilehash: f232e1e8a1f7121b047a846fc2c614b48e757f76
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: c4fed30f7f4b723f04cd59b2a987b498e3d614a5
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076639"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645912"
 ---
 # <a name="moving-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>Transición de los circuitos ExpressRoute del modelo de implementación clásica al modelo de implementación de Resource Manager
 En este artículo se ofrece información general de lo que significa mover un circuito Azure ExpressRoute del modelo de implementación clásica al de Azure Resource Manager.
@@ -39,7 +39,7 @@ Puede habilitar los circuitos ExpressRoute creados en el modelo de implementaci�
 * El acceso al modelo de implementación clásica se controla mediante el parámetro **allowClassicOperations** del circuito ExpressRoute.
 
 > [!IMPORTANT]
-> Se aplican todas las cuotas documentadas en la página de [límites de servicio](../azure-subscription-service-limits.md) . Por ejemplo, un circuito estándar puede tener como máximo 10 vínculos de red virtual/conexiones entre los modelos de implementación clásica y de Resource Manager.
+> Se aplican todas las cuotas documentadas en la página de [límites de servicio](../azure-resource-manager/management/azure-subscription-service-limits.md) . Por ejemplo, un circuito estándar puede tener como máximo 10 vínculos de red virtual/conexiones entre los modelos de implementación clásica y de Resource Manager.
 > 
 > 
 

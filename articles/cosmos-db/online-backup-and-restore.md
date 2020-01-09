@@ -1,5 +1,5 @@
 ---
-title: Copias de seguridad automáticas en línea y restauración de datos a petición con Azure Cosmos DB
+title: Copias de seguridad en línea y restauración de datos a petición en Azure Cosmos DB
 description: Este artículo describe cómo funcionan en Azure Cosmos DB las copias de seguridad automáticas en línea y la restauración de datos a petición.
 author: kanshiG
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 066549f1343eaceb9a47fccc3b5d4508f226a89b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4ca4fa8699d9bd4b35f26983f2f7004c63da180f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65967476"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441535"
 ---
 # <a name="online-backup-and-on-demand-data-restore-in-azure-cosmos-db"></a>Copias de seguridad en línea y restauración de datos a petición en Azure Cosmos DB
 
@@ -30,7 +30,7 @@ Con Azure Cosmos DB no solo los datos, sino también las copias de seguridad de 
 
 * Las copias de seguridad se crean sin afectar el rendimiento ni la disponibilidad de la aplicación. Azure Cosmos DB realiza la copia de seguridad de datos en segundo plano y no consume rendimiento aprovisionado (RU) aprovisionadas, tampoco afecta al rendimiento ni a la disponibilidad de su base de datos.
 
-* Si accidentalmente ha eliminado o dañado los datos, debe ponerse en contacto con [soporte técnico de Azure](https://azure.microsoft.com/support/options/) en un plazo de 8 horas para que el equipo de Azure Cosmos DB pueda ayudarle a restaurar los datos a partir de las copias de seguridad.
+* Si accidentalmente ha eliminado o dañado los datos, debe ponerse en contacto con el [soporte técnico de Azure](https://azure.microsoft.com/support/options/) en un plazo de ocho horas para que el equipo de Azure Cosmos DB pueda ayudarle a restaurar los datos a partir de las copias de seguridad.
 
 La imagen siguiente muestra cómo se crea una copia de seguridad de un contenedor de Azure Cosmos con las tres particiones físicas principales en el Oeste de EE. UU. en una cuenta de Azure Blob Storage remota en el Oeste de EE. UU. y, luego, se replica al Este de EE. UU.:
 

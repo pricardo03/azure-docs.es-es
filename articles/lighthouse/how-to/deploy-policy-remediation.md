@@ -3,20 +3,20 @@ title: Implementación de una directiva que se pueda corregir
 description: Obtenga información sobre cómo incorporar un cliente a la administración de recursos delegados de Azure, lo que permite administrar sus recursos y acceder a ellos desde su propio inquilino.
 ms.date: 10/11/2019
 ms.topic: conceptual
-ms.openlocfilehash: 4522c9ebad741f5ec0cb7e56e68467312ef8f037
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: c06ed4ea597808aee18d4a848bcfea7152b9cf8e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74463883"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456861"
 ---
 # <a name="deploy-a-policy-that-can-be-remediated-within-a-delegated-subscription"></a>Implementación de una directiva que se pueda corregir en una suscripción delegada
 
-[Azure Lighthouse](../overview.md) permite a los proveedores de servicios crear y editar definiciones de directivas en una suscripción delegada. Sin embargo, para implementar directivas que usen una [tarea de corrección](https://docs.microsoft.com/azure/governance/policy/how-to/remediate-resources) (es decir, directivas con[deployIfNotExists ](https://docs.microsoft.com/azure/governance/policy/concepts/effects#deployifnotexists) o el efecto [Modify](https://docs.microsoft.com/azure/governance/policy/concepts/effects#modify)), deberá crear una [identidad administrada](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) en el inquilino del cliente. Azure Policy puede usar esta identidad administrada para implementar la plantilla dentro de la directiva. Para habilitar este escenario hay varios pasos obligatorios, tanto al incorporar el cliente para la administración de recursos delegados de Azure como al implementar la propia directiva.
+[Azure Lighthouse](../overview.md) permite a los proveedores de servicios crear y editar definiciones de directivas en una suscripción delegada. Sin embargo, para implementar directivas que usen una [tarea de corrección](../../governance/policy/how-to/remediate-resources.md) (es decir, directivas con[deployIfNotExists ](../../governance/policy/concepts/effects.md#deployifnotexists) o el efecto [Modify](../../governance/policy/concepts/effects.md#modify)), deberá crear una [identidad administrada](../../active-directory/managed-identities-azure-resources/overview.md) en el inquilino del cliente. Azure Policy puede usar esta identidad administrada para implementar la plantilla dentro de la directiva. Para habilitar este escenario hay varios pasos obligatorios, tanto al incorporar el cliente para la administración de recursos delegados de Azure como al implementar la propia directiva.
 
 ## <a name="create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant"></a>Creación de un usuario que pueda asignar roles a una identidad administrada en el inquilino del cliente
 
-Al incorporar un cliente para la administración de recursos delegados de Azure, use una [plantilla de Azure Resource Manager](https://docs.microsoft.com/azure/lighthouse/how-to/onboard-customer#create-an-azure-resource-manager-template), junto con un archivo de parámetros que define los usuarios, grupos de usuarios y entidades de servicio en el inquilino de administración que podrán acceder a los recursos delegados en el inquilino del cliente. En el archivo de parámetros, a cada uno de estos usuarios (**principalId**) se le asigna un [rol integrado](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) (**roleDefinitionId**) que define el nivel de acceso.
+Al incorporar un cliente para la administración de recursos delegados de Azure, use una [plantilla de Azure Resource Manager](onboard-customer.md#create-an-azure-resource-manager-template), junto con un archivo de parámetros que define los usuarios, grupos de usuarios y entidades de servicio en el inquilino de administración que podrán acceder a los recursos delegados en el inquilino del cliente. En el archivo de parámetros, a cada uno de estos usuarios (**principalId**) se le asigna un [rol integrado](../../role-based-access-control/built-in-roles.md) (**roleDefinitionId**) que define el nivel de acceso.
 
 Para permitir que **principalId**  cree una identidad administrada en el inquilino del cliente, debe establecer su **roleDefinitionId**  en **Administrador de acceso de usuario**. Aunque por lo general este rol no se admite, se puede usar en este escenario concreto, lo que permite a los usuarios con este permiso asignar uno o varios roles integrados específicos a identidades administradas. Estos roles se definen en la propiedad **delegatedRoleDefinitionIds** . Aquí puede incluir todos los roles integrados, excepto Administrador de acceso de usuario o Propietario.
 
@@ -66,5 +66,5 @@ En el ejemplo siguiente se muestra una asignación de roles con **delegatedManag
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Más información acerca de [Azure Policy](https://docs.microsoft.com/azure/governance/policy/).
-- Más información acerca de las [identidades administradas de recursos de Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+- Más información acerca de [Azure Policy](../../governance/policy/index.yml).
+- Más información acerca de las [identidades administradas de recursos de Azure](../../active-directory/managed-identities-azure-resources/overview.md).

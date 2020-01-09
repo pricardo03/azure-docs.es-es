@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/03/2019
 ms.author: spelluru
-ms.openlocfilehash: a0505b987deb67f93de6f6166154211359515ad7
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: fc5051667100a2ebaa01b7815f825fadd766b08f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74807706"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456977"
 ---
 # <a name="troubleshoot-issues-when-applying-artifacts-in-an-azure-devtest-labs-virtual-machine"></a>Solución de problemas al aplicar artefactos en una máquina virtual de Azure DevTest Labs
 Se puede producir un error en la aplicación de artefactos en una máquina virtual por varias razones. Este artículo le guía en algunos de los métodos para ayudar a identificar las posibles causas.
@@ -69,7 +69,7 @@ Cuando parece que un artefacto deja de responder, lo primero es determinar dónd
 - **Al intentar ejecutar el artefacto**. Podría deberse a problemas de redes o de almacenamiento. Consulte la sección correspondiente más adelante en este artículo para más información. También puede ocurrir debido al modo en el que se crea el script. Por ejemplo:
     - Un script de PowerShell tiene **parámetros obligatorios**, pero a uno no se le ha pasado un valor, ya sea porque se permite que el usuario lo deje en blanco o porque no tiene un valor predeterminado para la propiedad en el archivo de definición artifactfile.json. El script se bloqueará porque está esperando la entrada del usuario.
     - Un script de PowerShell **requiere de entrada del usuario** como parte de la ejecución. Los scripts se deben escribir para que funcionen de forma silenciosa sin necesidad de intervención del usuario.
-- **El agente de máquina virtual tarda mucho en estar listo**. Cuando la máquina virtual se inicia por primera vez o cuando la extensión de script personalizado se instala por primera vez para atender la solicitud de aplicación de artefactos, es posible que la máquina virtual requiera actualizar el agente de máquina virtual o esperar a que se inicialice el agente de máquina virtual. Puede haber servicios de los que depende el agente de máquina virtual y que tardan mucho tiempo en inicializarse. En tales casos, consulte [Introducción al agente de máquina virtual de Azure](/virtual-machines/extensions/agent-windows.md) para más información de solución de problemas.
+- **El agente de máquina virtual tarda mucho en estar listo**. Cuando la máquina virtual se inicia por primera vez o cuando la extensión de script personalizado se instala por primera vez para atender la solicitud de aplicación de artefactos, es posible que la máquina virtual requiera actualizar el agente de máquina virtual o esperar a que se inicialice el agente de máquina virtual. Puede haber servicios de los que depende el agente de máquina virtual y que tardan mucho tiempo en inicializarse. En tales casos, consulte [Introducción al agente de máquina virtual de Azure](../virtual-machines/extensions/agent-windows.md) para más información de solución de problemas.
 
 ### <a name="to-verify-if-the-artifact-appears-to-hang-because-of-the-script"></a>Para comprobar si parece que el artefacto deja de responder debido al script
 
@@ -101,7 +101,7 @@ Cuando parece que un artefacto deja de responder, lo primero es determinar dónd
     En este ejemplo, puede ver que la hora de inicio del agente de máquina virtual tardó 10 minutos y 20 segundos porque se envió un latido. La causa en este caso era que el servicio OOBE tardaba mucho tiempo en iniciarse.
 
 > [!TIP]
-> Para una información general sobre las extensiones de Azure, consulte [Características y extensiones de las máquinas virtuales de Azure](/virtual-machines/extensions/overview.md).
+> Para una información general sobre las extensiones de Azure, consulte [Características y extensiones de las máquinas virtuales de Azure](../virtual-machines/extensions/overview.md).
 
 ## <a name="storage-errors"></a>Errores de almacenamiento
 DevTest Labs requiere acceso a la cuenta de almacenamiento del laboratorio que se crea para almacenar en memoria caché los artefactos. Cuando DevTest Labs aplica un artefacto, leerá la configuración del artefacto y sus archivos de los repositorios configurados. De forma predeterminada, DevTest Labs configura el acceso al **repositorio de artefactos públicos**.

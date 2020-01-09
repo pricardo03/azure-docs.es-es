@@ -7,12 +7,12 @@ services: firewall-manager
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: victorh
-ms.openlocfilehash: cb8a2fdd14cfa7d361e3d78a64f3aaf60ea7676d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b92242ce9086579d0397f78853402cfc08453f68
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73510053"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436774"
 ---
 # <a name="what-are-trusted-security-partners-preview"></a>¿Qué son los asociados de seguridad de confianza (versión preliminar)?
 
@@ -35,13 +35,13 @@ Puede usar los asociados de seguridad para filtrar el tráfico de Internet en lo
 
 - De red virtual (VNet) a Internet
 
-   Aproveche la protección de Internet avanzada que tiene en cuenta al usuario para sus cargas de trabajo en la nube que se ejecutan en Azure.
+   Aproveche la protección de Internet avanzada con reconocimiento del usuario para sus cargas de trabajo en la nube que se ejecutan en Azure.
 
 - De rama a Internet
 
    Aproveche la conectividad de Azure y la distribución global para agregar fácilmente el filtrado de NSaaS de terceros para escenarios de rama a Internet. Puede crear la red de tránsito global y el perímetro de seguridad mediante Azure Virtual WAN.
 
-Se admiten los siguientes escenarios:
+Se admiten los escenarios siguientes:
 -   De red virtual a Internet a través de una oferta de asociado de terceros.
 -   De rama a Internet a través de una oferta de asociado de terceros.
 -   De rama a Internet a través de una oferta de asociado de terceros; el resto del tráfico privado (de radio a radio, de radio a ramas, de rama a radio) a través de Azure Firewall.
@@ -75,7 +75,7 @@ Para Office 365, la latencia y el rendimiento de la red son fundamentales para l
 
 Los [principios de conectividad de red de Office 365](https://docs.microsoft.com/office365/enterprise/office-365-network-connectivity-principles) requieren que las principales conexiones de red de Office 365 se enruten localmente desde la rama del usuario o el dispositivo móvil y directamente a través de Internet en el punto de presencia de la red de Microsoft más cercano.
 
-Además, las conexiones de Office 365 están fuertemente cifradas para proteger la privacidad, y usan protocolos propietarios eficaces por motivos de rendimiento. En consecuencia, el hecho de someter estas conexiones a las soluciones de seguridad de nivel de red tradicionales puede ser poco práctico y tener un gran impacto. Por estos motivos, se recomienda encarecidamente que los clientes envíen el tráfico de Office 365 directamente desde las ramas, antes de enviar el resto del tráfico a través de Azure. Microsoft se ha asociado con varios proveedores de soluciones SD-WAN, que se integran con Azure y Office 365, y que permiten a los clientes habilitar fácilmente el desglose de Internet de Office 365 directo y local. Para obtener más información, consulte [¿Cómo configuro mis directivas de Office 365 a través de Virtual WAN?](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-office365-overview#how-do-i-set-my-o365-policies-via-virtual-wan)
+Además, las conexiones de Office 365 están fuertemente cifradas para proteger la privacidad, y usan protocolos propietarios eficaces por motivos de rendimiento. En consecuencia, el hecho de someter estas conexiones a las soluciones de seguridad de nivel de red tradicionales puede ser poco práctico y tener un gran impacto. Por estos motivos, se recomienda encarecidamente que los clientes envíen el tráfico de Office 365 directamente desde las ramas, antes de enviar el resto del tráfico a través de Azure. Microsoft se ha asociado con varios proveedores de soluciones SD-WAN, que se integran con Azure y Office 365, y que permiten a los clientes habilitar fácilmente el desglose de Internet de Office 365 directo y local. Para obtener más información, consulte [¿Cómo configuro mis directivas de Office 365 a través de Virtual WAN?](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-office365-overview)
 
 
 ## <a name="next-steps"></a>Pasos siguientes

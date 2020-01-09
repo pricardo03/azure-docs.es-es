@@ -3,18 +3,18 @@ title: Guía de introducción a Node.js
 description: Aprenda a crear una sencilla aplicación web de Node.js e impleméntela en un servicio en la nube de Azure.
 services: cloud-services
 documentationcenter: nodejs
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 08/17/2017
-ms.author: gwallace
-ms.openlocfilehash: 81ad3bce6c7e331fd67fba60b35de6b8a37c5da9
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: 23fbb0b4c506b2f72000add9704618337b8b24cf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359534"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75386194"
 ---
 # <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>Compilación e implementación de una aplicación Node.js en un Servicio en la nube de Azure
 
@@ -31,7 +31,7 @@ La aplicación es una aplicación sencilla de "Hola a todos":
 
 ![Un explorador web muestra la página web Hello World][A web browser displaying the Hello World web page]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 > [!NOTE]
 > Este tutorial usa PowerShell de Azure, que requiere Windows.
 
@@ -177,3 +177,6 @@ Para más información, vea el [Centro para desarrolladores de Node.js].
 [A browser window displaying the hello world page; the URL indicates the page is hosted on Azure.]: ./media/cloud-services-nodejs-develop-deploy-app/node21.png
 [The status of the Stop-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node48.png
 [The status of the Remove-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node49.png
+
+
+

@@ -7,12 +7,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/08/2019
-ms.openlocfilehash: 2448550cf35f92bc8d91bc6ad9d5b22cc90b5ae0
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 47bcc9a4f906fa1e0cc0560cdbd2e0cebec481ab
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494312"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435376"
 ---
 # <a name="integrate-apache-spark-and-apache-hive-with-the-hive-warehouse-connector"></a>Integración de Apache Spark y Apache Hive con el conector de Hive Warehouse
 
@@ -74,7 +74,7 @@ Desde la interfaz de usuario web de Spark Ambari, vaya a **Spark2** > **CONFIGS*
 
 Seleccione **Add Property...** (Agregar propiedad) según sea necesario para agregar o actualizar lo siguiente:
 
-| Clave | Valor |
+| Clave | Value |
 |----|----|
 |`spark.hadoop.hive.llap.daemon.service.hosts`|El valor obtenido anteriormente de **hive.llap.daemon.service.hosts**.|
 |`spark.sql.hive.hiveserver2.jdbc.url`|`jdbc:hive2://LLAPCLUSTERNAME.azurehdinsight.net:443/;user=admin;password=PWD;ssl=true;transportMode=http;httpPath=/hive2`. Establézcalo en la cadena de conexión JDBC, que se conecta a Hiveserver2 en el clúster de Interactive Query. REEMPLACE `LLAPCLUSTERNAME` por el nombre del clúster de Interactive Query. Reemplace `PWD` por la contraseña real.|
@@ -107,7 +107,7 @@ Para iniciar una sesión de spark-shell, realice los pasos siguientes:
 
     ```bash
     spark-shell --master yarn \
-    --jars /usr/hdp/current/hive_warehouse_connector/hive-warehouse-connector-assembly-1.0.0.3.0.2.1-8.jar \
+    --jars /usr/hdp/current/hive_warehouse_connector/hive-warehouse-connector-assembly-<STACK_VERSION>.jar \
     --conf spark.security.credentials.hiveserver2.enabled=false
     ```
 
@@ -132,7 +132,7 @@ Enterprise Security Package (ESP) le proporciona funcionalidades de nivel empres
 
     ```bash
     spark-shell --master yarn \
-    --jars /usr/hdp/3.0.1.0-183/hive_warehouse_connector/hive-warehouse-connector-assembly-1.0.0.3.0.1.0-183.jar \
+    --jars /usr/hdp/current/hive_warehouse_connector/hive-warehouse-connector-assembly-<STACK_VERSION>.jar \
     --conf spark.security.credentials.hiveserver2.enabled=false
     --conf spark.hadoop.hive.llap.daemon.service.hosts='<LLAP_APP_NAME>'
     --conf spark.sql.hive.hiveserver2.jdbc.url='jdbc:hive2://<ZOOKEEPER_QUORUM>;serviceDiscoveryMode=zookeeper;zookeeperNamespace=hiveserver2-interactive'

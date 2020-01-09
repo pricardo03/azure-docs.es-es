@@ -3,23 +3,23 @@ title: Tamaños de máquina virtual para Azure Cloud Services | Microsoft Docs
 description: Enumera los diferentes tamaños (e ids.) de máquina virtual para los roles web y de trabajo del servicio en la nube de Azure.
 services: cloud-services
 documentationcenter: ''
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 07/18/2017
-ms.author: gwallace
-ms.openlocfilehash: 0df9ee859ae8e341537f5e832d9ff90e9736cb0c
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.author: tagore
+ms.openlocfilehash: 34cb4282f64544e67b3724699380d1d54fd9b806
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68443015"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75660433"
 ---
 # <a name="sizes-for-cloud-services"></a>Tamaños de Cloud Services
 En este tema se describen las opciones y los tamaños disponibles para las instancias de rol de servicio en la nube (roles web y roles de trabajo). También ofrece consideraciones de implementación que hay que tener en cuenta a la hora de planear usar estos recursos. Cada tamaño tiene un identificador que pondrá en su [archivo de definición de servicio](cloud-services-model-and-package.md#csdef). Los precios para cada tamaño están disponibles en la página [Precios de Cloud Services](https://azure.microsoft.com/pricing/details/cloud-services/).
 
 > [!NOTE]
-> Para ver límites relacionados de Azure, consulte [Suscripción de Azure y límites de servicio, cuotas y restricciones](../azure-subscription-service-limits.md)
+> Para ver límites relacionados de Azure, consulte [Suscripción de Azure y límites de servicio, cuotas y restricciones](../azure-resource-manager/management/azure-subscription-service-limits.md)
 >
 >
 
@@ -41,7 +41,7 @@ Las consideraciones siguientes pueden ayudarle a decidirse por un tamaño:
 * Puede que algunos de los hosts físicos de los centros de datos de Azure no admitan tamaños de máquinas virtuales grandes, como A5 – A11. En consecuencia, puede ver el mensaje de error **No se pudo configurar la máquina virtual {nombre de la máquina}** o **No se pudo crear la máquina virtual {nombre de la máquina}** al cambiar el tamaño de una máquina virtual existente por un nuevo tamaño, al crear una nueva máquina virtual en una red virtual creada antes del 16 de abril de 2013 o al agregar una nueva máquina virtual a un servicio en la nube existente. Consulte [Error: "No se pudo configurar la máquina virtual"](https://social.msdn.microsoft.com/Forums/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows) en el foro de soporte técnico para ver una lista de soluciones alternativas para cada escenario de implementación.
 * La suscripción también podría limitar el número de núcleos que se pueden implementar en ciertas familias de tamaños. Para aumentar una cuota, póngase en contacto con el soporte técnico de Azure.
 
-## <a name="performance-considerations"></a>Consideraciones sobre rendimiento
+## <a name="performance-considerations"></a>Consideraciones de rendimiento
 Creamos el concepto de unidad de Azure Compute (ACU) para brindar una forma de comparar el rendimiento de los procesos (CPU) en todas las SKU de Azure e identificar qué SKU es más probable que satisfaga nuestras necesidades de rendimiento.  Actualmente, una ACU está estandarizada en una máquina virtual pequeña (Standard_A1) como 100 y todas las demás SKU representan, aproximadamente, qué tanto más rápido esa SKU puede ejecutar una prueba comparativa estándar.
 
 > [!IMPORTANT]
@@ -80,7 +80,7 @@ Las siguientes tablas muestran los tamaños y las capacidades que ofrecen.
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | ExtraSmall      | 1         | 0,768        | 20                   | 1 / bajo |
 | Pequeña           | 1         | 1,75         | 225                  | 1 / moderado |
-| Mediano          | 2         | 3,5          | 490                  | 1 / moderado |
+| Media          | 2         | 3,5          | 490                  | 1 / moderado |
 | grande           | 4         | 7            | 1000                 | 2 / alto |
 | ExtraLarge      | 8         | 14           | 2040                 | 4 / alto |
 | A5              | 2         | 14           | 490                  | 1 / moderado |
@@ -136,7 +136,7 @@ Para más información y consideraciones sobre el uso de estos tamaños, consult
 | Standard_D12_v2 | 4         | 28           | 200                  | 4 / alto |
 | Standard_D13_v2 | 8         | 56           | 400                  | 8 / alto |
 | Standard_D14_v2 | 16        | 112          | 800                  | 8 / extremadamente alto |
-| Standard_D15_v2 | 20        | 140          | 1000                | 8 / extremadamente alto |
+| Standard_D15_v2 | 20        | 140          | 1,000                | 8 / extremadamente alto |
 
 ## <a name="dv3-series"></a>Serie Dv3
 
@@ -214,5 +214,8 @@ Get-AzureRoleSize | where SupportedByWebWorkerRoles -eq $true | select InstanceS
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Conozca los [límites, cuotas y restricciones de suscripción y servicios de Azure](../azure-subscription-service-limits.md).
+* Conozca los [límites, cuotas y restricciones de suscripción y servicios de Azure](../azure-resource-manager/management/azure-subscription-service-limits.md).
 * Más información [sobre los tamaños de máquinas virtuales de procesos de alto rendimiento](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para cargas de trabajo HPC.
+
+
+

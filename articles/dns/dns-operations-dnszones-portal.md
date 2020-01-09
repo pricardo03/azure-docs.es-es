@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/18/2017
 ms.author: allensu
-ms.openlocfilehash: 5d4cc57c4cb5db7f04d604c8ccbc408df1a3e707
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 4e6b5dc200f49b34d8f808e5587b173197b9da8f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74211907"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437326"
 ---
 # <a name="how-to-manage-dns-zones-in-the-azure-portal"></a>Administración de zonas DNS en Azure Portal
 
@@ -43,7 +43,7 @@ En este artículo se muestra cómo administrar sus zonas DNS mediante Azure Port
    |---|---|---|
    |**Nombre**|contoso.com|El nombre de la zona DNS|
    |**Suscripción**|[Su suscripción]|Seleccione la suscripción en la que se creará la zona DNS.|
-   |**Grupos de recursos**|**Crear nuevo:** contosoDNSRG|Cree un grupo de recursos. El nombre del grupo de recursos debe ser único dentro de la suscripción seleccionada. Para más información sobre los grupos de recursos, lea el artículo [Información general de Azure Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fdns%2ftoc.json#resource-groups).|
+   |**Grupos de recursos**|**Crear nuevo:** contosoDNSRG|Cree un grupo de recursos. El nombre del grupo de recursos debe ser único dentro de la suscripción seleccionada. Para más información sobre los grupos de recursos, lea el artículo [Información general de Azure Resource Manager](../azure-resource-manager/management/overview.md?toc=%2fazure%2fdns%2ftoc.json#resource-groups).|
    |**Ubicación**|Oeste de EE. UU.||
 
 > [!NOTE]

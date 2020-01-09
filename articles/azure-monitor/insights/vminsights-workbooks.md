@@ -4,15 +4,15 @@ description: Simplifique la creación de informes complejos con libros parametri
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 10/15/2019
-ms.openlocfilehash: dff5027f2ff9ff244f0fa04177a04e446e98465b
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: b89e61f0c268df0ed6dd69ae1c6d97f00678fc32
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200534"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75365927"
 ---
 # <a name="create-interactive-reports-azure-monitor-for-vms-with-workbooks"></a>Creación de informes interactivos Azure Monitor para VM con libros
 
@@ -27,10 +27,10 @@ Los libros son útiles en escenarios como los siguientes:
 
 Azure Monitor para VM incluye varios libros para ayudarle a empezar y todos ellos se resumen en la tabla siguiente.
 
-| Libro | DESCRIPCIÓN | Ámbito |
+| Libro | Descripción | Ámbito |
 |----------|-------------|-------|
 | Rendimiento | Proporciona una versión personalizable de la vista de la Lista y Gráficos de N principales en un único libro que aprovecha todos los contadores de rendimiento de Log Analytics que se han habilitado.| A escala |
-| contadores de rendimiento | Una vista de Gráfico de N principales entre un amplio conjunto de contadores de rendimiento. | A escala |
+| Contadores de rendimiento | Una vista de Gráfico de N principales entre un amplio conjunto de contadores de rendimiento. | A escala |
 | Conexiones | Las conexiones ofrecen una visión detallada de las conexiones entrantes y salientes de las máquinas virtuales supervisadas. | A escala |
 | Puertos activos | Proporciona una lista de los procesos que se han enlazado a los puertos en las máquinas virtuales supervisadas y su actividad en el periodo de tiempo seleccionado. | A escala |
 | Open Ports (Abrir puertos) | Proporciona el número de puertos abiertos en las máquinas virtuales supervisadas, así como los detalles de estos puertos. | A escala |
@@ -45,7 +45,7 @@ Azure Monitor para VM incluye varios libros para ayudarle a empezar y todos ello
 
 Un libro se compone de secciones que constan de tablas, texto, controles de entrada y gráficos que se pueden editar de forma independientemente. Para entender mejor los libros, empecemos por abrir una plantilla para recorrer la creación de un libro personalizado. 
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 2. Seleccione **Máquinas virtuales**.
 
@@ -160,7 +160,7 @@ Hay cuatro tipos diferentes de parámetros que se admiten actualmente:
 
 |                  |      |
 | ---------------- |:-----|
-| **Text**    | Permite al usuario editar un cuadro de texto y, si se quiere, se puede proporcionar una consulta para rellenar el valor predeterminado. |
+| **Texto**    | Permite al usuario editar un cuadro de texto y, si se quiere, se puede proporcionar una consulta para rellenar el valor predeterminado. |
 | **Lista desplegable** | Permite al usuario elegir entre un conjunto de valores. |
 | **Selector de intervalo de tiempo**| Permite al usuario elegir entre un conjunto predefinido de valores de intervalo de tiempo o seleccionar entre un intervalo de tiempo personalizado.|
 | **Selector de recursos** | Permite al usuario elegir entre los recursos seleccionados para el libro.|

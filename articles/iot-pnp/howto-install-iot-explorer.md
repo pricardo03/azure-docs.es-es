@@ -3,28 +3,28 @@ title: Instalación y uso Azure IoT Explorer | Microsoft Docs
 description: Use la herramienta Azure IoT Explorer para interactuar con el dispositivo IoT Plug and Play (versión preliminar) conectado a su instancia de IoT Hub.
 author: miagdp
 ms.author: miag
-ms.date: 07/02/2019
+ms.date: 12/27/2019
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 3b5e9a70f9eecbf187a6748073de009653061dc0
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: fd180404ca18b5ea84c745a543ae7e87bf16c27d
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72679863"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75529633"
 ---
 # <a name="install-and-use-azure-iot-explorer"></a>Instalación y uso de Azure IoT Explorer
 
 Azure IoT Explorer es una herramienta gráfica para interactuar con dispositivos IoT Plug and Play (versión preliminar) y probarlos. Después de instalar la herramienta en la máquina local, puede usarla para conectarse a un dispositivo. Puede usar la herramienta para ver la telemetría que el dispositivo envía, trabajar con propiedades de dispositivo y llamar a comandos.
 
-Este artículo muestra cómo:
+En este artículo aprenderá a:
 
 - Instale y configure la herramienta Azure IoT Explorer.
 - Use la herramienta para interactuar con los dispositivos y probarlos.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para usar la herramienta Azure IoT Explorer, necesitará lo siguiente:
 
@@ -97,7 +97,7 @@ Puede usar la herramienta para ver una instancia del gemelo digital del disposit
 
 En la página **Interfaz**, puede ver la definición de JSON de la interfaz.
 
-#### <a name="properties"></a>properties (Propiedades)
+#### <a name="properties"></a>Propiedades
 
 Puede ver las propiedades de solo lectura definidas en una interfaz en la página **Non-writeable Properties** (Propiedades que no se pueden escribir). Puede actualizar las propiedades que se pueden escribir definidas en una interfaz en la página **Writeable properties** (Propiedades que se pueden escribir):
 

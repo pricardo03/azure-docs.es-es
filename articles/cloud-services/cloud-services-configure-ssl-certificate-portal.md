@@ -3,17 +3,17 @@ title: Configuración de SSL para un servicio en la nube | Microsoft Docs
 description: Aprenda a especificar un punto de conexión HTTPS para un rol web y cómo cargar un certificado SSL para proteger su aplicación. Estos ejemplos usan el Portal de Azure.
 services: cloud-services
 documentationcenter: .net
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 05/26/2017
-ms.author: gwallace
-ms.openlocfilehash: cc5b142558a21d1364254e555f3cf8f64bba0e58
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.author: tagore
+ms.openlocfilehash: 6ddb7001f770a9d8aea38d1a4698e15c167aeaa4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73469019"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75386772"
 ---
 # <a name="configuring-ssl-for-an-application-in-azure"></a>Configuración de SSL para una aplicación en Azure
 
@@ -41,7 +41,7 @@ Para propósitos de prueba, puede [crear](cloud-services-certs-create.md) y usar
 
 A continuación, debe incluir información sobre el certificado en su definición de servicio y los archivos de configuración del servicio.
 
-<a name="modify"></a>
+<a name="modify"> </a>
 
 ## <a name="step-2-modify-the-service-definition-and-configuration-files"></a>Paso 2: Modificar los archivos de definición y configuración del servicio
 Su aplicación debe estar configurada para usar el certificado y se debe agregar un punto de conexión HTTPS. Como resultado, se deben actualizar la definición de servicio y los archivos de configuración del servicio.
@@ -76,7 +76,7 @@ Su aplicación debe estar configurada para usar el certificado y se debe agregar
 
    Se pueden establecer permisos (atributo `permissionLevel`) en uno de los siguientes casos:
 
-   | Valor del permiso | DESCRIPCIÓN |
+   | Valor del permiso | Descripción |
    | --- | --- |
    | limitedOrElevated |**(Predeterminado)** todos los procesos de rol pueden tener acceso a la clave privada. |
    | elevated |Solo los procesos elevados pueden tener acceso a la clave privada. |
@@ -176,3 +176,6 @@ Ahora que su implementación está funcionando en Azure, puede conectarse a ella
 * Obtenga información sobre cómo [implementar un servicio en la nube](cloud-services-how-to-create-deploy-portal.md).
 * Configuración de un [nombre de dominio personalizado](cloud-services-custom-domain-name-portal.md).
 * [Administración del servicio en la nube](cloud-services-how-to-manage-portal.md).
+
+
+

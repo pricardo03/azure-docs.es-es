@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 4512fd8a236c888937eb60a75d01cfb0ef2c1913
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 616f10b32d0a9c1a05d759a0e27550cd2808808b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792649"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428878"
 ---
 # <a name="export-flows-from-power-automate-and-deploy-to-azure-logic-apps"></a>Exportación de flujos desde Power Automate y su implementación en Azure Logic Apps
 
@@ -22,9 +22,9 @@ Para ampliar y expandir las funcionalidades de un flujo, puede migrarlo desde [P
 >
 > Los flujos basados en OpenAPI exportados desde Power Automate no se admiten actualmente para la implementación como plantillas de aplicación lógica. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-* Una suscripción de Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
+* Suscripción a Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
 
 * El flujo que desea exportar desde Power Automate
 
@@ -81,7 +81,7 @@ Para más información, consulte [Crecer hasta Azure Logic Apps](https://flow.mi
 
       Todas las conexiones que requieren autorización muestran un icono de advertencia:
 
-      ![Icono Advertencia](./media/export-from-microsoft-flow-logic-app-template/authorize-connections.png)
+      ![Icono de advertencia](./media/export-from-microsoft-flow-logic-app-template/authorize-connections.png)
 
    1. En todos los pasos que requieran una conexión autorizada, expanda el paso y seleccione **Agregar nueva**.
 
@@ -133,7 +133,7 @@ Si ha configurado Visual Studio con los [requisitos previos](../logic-apps/quick
 
 1. En el Explorador de soluciones, abra el menú contextual del proyecto y seleccione **Implementar** > **Nuevo**. Si se le pide, inicie sesión en su cuenta de Azure.
 
-1. Cuando se le solicite, confirme la suscripción de Azure, el grupo de recursos de Azure y cualquier otro valor que desee usar para la implementación, como el [archivo de parámetros](../azure-resource-manager/resource-group-template-deploy.md#parameter-files) que se usará para pasar los valores de los parámetros de la plantilla y, después, seleccione **Implementar**.
+1. Cuando se le solicite, confirme la suscripción de Azure, el grupo de recursos de Azure y cualquier otro valor que desee usar para la implementación, como el [archivo de parámetros](../azure-resource-manager/templates/parameter-files.md) que se usará para pasar los valores de los parámetros de la plantilla y, después, seleccione **Implementar**.
 
    ![Confirmar valores de implementación](./media/export-from-microsoft-flow-logic-app-template/confirm-azure-subscription-resource-group-deployment.png)
 

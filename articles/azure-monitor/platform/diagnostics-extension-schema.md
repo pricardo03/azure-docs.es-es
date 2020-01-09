@@ -4,15 +4,15 @@ description: Se utiliza para recopilar contadores de rendimiento en Azure Virtua
 ms.service: azure-monitor
 ms.subservice: diagnostic-extension
 ms.topic: reference
-author: rboucher
-ms.author: robb
+author: bwren
+ms.author: bwren
 ms.date: 09/04/2019
-ms.openlocfilehash: fe07c93ada2e8635d0f64caf8451ccdf530f6a22
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: fe1c1018768c81248640521ae278bfb571934601
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72552138"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75395121"
 ---
 # <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Historial y versiones del esquema de configuración de la extensión Azure Diagnostics
 Esta página es un índice de las versiones del esquema de la extensión Azure Diagnostics que se incluyen como parte de Microsoft Azure SDK.  

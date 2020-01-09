@@ -2,14 +2,14 @@
 title: Solución de problemas de Azure Backup Server
 description: Solucionar problemas de instalación, registro de Azure Backup Server y copia de seguridad y restauración de las cargas de trabajo de la aplicación.
 ms.reviewer: srinathv
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: eed90cd6b684891efe1996e22bbdd7c3ead2a83f
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: bf641c4ef27ce561c005709e6de94f40855b9a5f
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172947"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665327"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Solución de problemas de Azure Backup Server
 
@@ -95,7 +95,7 @@ Antes de empezar a solucionar problemas de Microsoft Azure Backup Server (MABS),
 | Copia de seguridad | Se produjo un error inesperado mientras se ejecutaba el trabajo. El dispositivo no está listo. | **Si no funciona la acción recomendada que se muestra en el producto, siga los pasos siguientes:** <br> <ul><li>Configure el espacio de almacenamiento de instantáneas como ilimitado para los elementos del grupo de protección y, después, ejecute la comprobación de coherencia.<br></li> O BIEN <li>Intente eliminar el grupo de protección existente y la creación de varios grupos nuevos. Cada nuevo grupo de protección debe tener un elemento individual.</li></ul> |
 | Copia de seguridad | Si está haciendo una copia de seguridad solo del Estado del sistema, compruebe si hay suficiente espacio disponible en el equipo protegido para almacenarla. | <ol><li>Compruebe que Windows Server Backup está instalado en la máquina protegida.</li><li>Compruebe que hay suficiente espacio en el equipo protegido para el estado del sistema. La manera más fácil de comprobar esto consiste en ir al equipo protegido, abrir Windows Server Backup, hacer clic en las diferentes selecciones y, después, seleccionar BMR. A continuación, la interfaz de usuario indica cuánto espacio es necesario. Abra **WSB** > **Copia de seguridad local** > **Programación de copia de seguridad** > **Seleccionar configuración de copia de seguridad** > **Servidor completo** (se muestra el tamaño). Use este tamaño para la comprobación.</li></ol>
 | Copia de seguridad | Error en la copia de seguridad de BMR | Si el tamaño de la reconstrucción completa es grande, mueva algunos archivos de aplicación a la unidad de sistema operativo y vuelva a intentarlo. |
-| Copia de seguridad | La opción para volver a proteger una máquina virtual de VMware en una instancia nueva de Microsoft Azure Backup Server no se muestra como disponible para agregarla. | Las propiedades de VMware señalan a una instancia anterior y retirada de Microsoft Azure Backup Server. Para resolver este problema:<br><ol><li>En VCenter (equivalente a SC-VMM), vaya a la pestaña **Resumen** y, después, a **Atributos personalizados**.</li>  <li>Elimine el nombre antiguo de Microsoft Azure Backup Server del valor de **DPMServer**.</li>  <li>Vuelva a la nueva instancia de Microsoft Azure Backup Server y modifique el PG.  Después de usar el botón **Actualizar**, se presentará la máquina virtual con una casilla disponible para agregar a la protección.</li></ol> |
+| Copia de seguridad | La opción para volver a proteger una máquina virtual de VMware en una instancia nueva de Microsoft Azure Backup Server no se muestra como disponible para agregarla. | Las propiedades de VMware señalan a una instancia anterior y retirada de Microsoft Azure Backup Server. Para solucionar este problema:<br><ol><li>En VCenter (equivalente a SC-VMM), vaya a la pestaña **Resumen** y, después, a **Atributos personalizados**.</li>  <li>Elimine el nombre antiguo de Microsoft Azure Backup Server del valor de **DPMServer**.</li>  <li>Vuelva a la nueva instancia de Microsoft Azure Backup Server y modifique el PG.  Después de usar el botón **Actualizar**, se presentará la máquina virtual con una casilla disponible para agregar a la protección.</li></ol> |
 | Copia de seguridad | Error al acceder a carpetas o archivos compartidos | Intente modificar la configuración del antivirus como se sugiere en el artículo [Ejecución de software antivirus en el servidor DPM](https://technet.microsoft.com/library/hh757911.aspx) de TechNet.|
 
 ## <a name="change-passphrase"></a>Cambiar la frase de contraseña
@@ -103,7 +103,7 @@ Antes de empezar a solucionar problemas de Microsoft Azure Backup Server (MABS),
 | Operación | Detalles del error | Solución alternativa |
 | --- | --- | --- |
 | Cambiar la frase de contraseña |El PIN de seguridad escrito no es correcto. Proporcione el PIN de seguridad correcto para completar esta operación. |**Causa:**<br/> Este error se produce cuando se escribe un PIN de seguridad no válido o expirado al realizar una operación crítica (por ejemplo, la modificación de una frase de contraseña). <br/>**Acción recomendada:**<br/> Para completar la operación, debe escribir un PIN de seguridad válido. Para obtener el PIN, inicie sesión en Azure Portal y vaya al almacén de Recovery Services. A continuación, vaya a **Configuración** > **Propiedades** > **Generar PIN de seguridad**. Use este código PIN para cambiar la frase de contraseña. |
-| Cambiar la frase de contraseña |Error en la operación Id.: 120002 |**Causa:**<br/>Este error se produce cuando se habilita la configuración de seguridad, o al intentar cambiar la frase de contraseña usando una versión no compatible.<br/>**Acción recomendada:**<br/> Para cambiar la frase de contraseña, primero debe actualizar el agente de copia de seguridad a la versión mínima, que es 2.0.9052. También debe actualizar Azure Backup Server a la actualización 1 como mínimo y, después, escribir un PIN de seguridad válido. Para obtener el PIN, inicie sesión en Azure Portal y vaya al almacén de Recovery Services. A continuación, vaya a **Configuración** > **Propiedades** > **Generar PIN de seguridad**. Use este código PIN para cambiar la frase de contraseña. |
+| Cambiar la frase de contraseña |No se pudo realizar la operación. Id.: 120002 |**Causa:**<br/>Este error se produce cuando se habilita la configuración de seguridad, o al intentar cambiar la frase de contraseña usando una versión no compatible.<br/>**Acción recomendada:**<br/> Para cambiar la frase de contraseña, primero debe actualizar el agente de copia de seguridad a la versión mínima, que es 2.0.9052. También debe actualizar Azure Backup Server a la actualización 1 como mínimo y, después, escribir un PIN de seguridad válido. Para obtener el PIN, inicie sesión en Azure Portal y vaya al almacén de Recovery Services. A continuación, vaya a **Configuración** > **Propiedades** > **Generar PIN de seguridad**. Use este código PIN para cambiar la frase de contraseña. |
 
 ## <a name="configure-email-notifications"></a>Configuración de notificaciones de correo electrónico
 

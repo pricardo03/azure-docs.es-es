@@ -10,12 +10,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: bcc60c0f934111f779e3fdedc399881acb16f208
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: f3f8f377ac8e65d375f8f78c803db5427fd31007
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872798"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75394483"
 ---
 # <a name="azure-monitor-workbook-visualizations"></a>Visualizaciones de libro de Azure Monitor
 
@@ -51,7 +51,7 @@ Los libros admiten gráficos para registros y orígenes de datos de métricas.
 
 1. Para cambiar el libro al modo de edición, haga clic en el elemento de la barra de herramientas **Editar**.
 2. Use el vínculo **Agregar consulta** para agregar un control de consulta de registro al libro.
-3. Seleccione el tipo de consulta como **Registro**, el tipo de recurso (por ejemplo, Application Insights) y los recursos de destino.
+3. Seleccione el tipo de consulta **Registro**, el tipo de recurso (por ejemplo, Application Insights) y los recursos de destino.
 4. Utilice el editor de consultas para especificar el [KQL](https://docs.microsoft.com/azure/kusto/query/) para el análisis (por ejemplo, la tendencia de las solicitudes).
 5. Establezca la visualización en una de las siguientes opciones: **Área**, **Barra**, **Barra (categoría)** , **Línea**, **Circular**, **Dispersión**o **tiempo**.
 6. Si es necesario, establezca otros parámetros, como el intervalo de tiempo, la visualización, el tamaño, la paleta de colores y la leyenda.
@@ -67,7 +67,7 @@ Los libros admiten gráficos para registros y orígenes de datos de métricas.
 | `Resources` | Un conjunto de recursos del que obtener el valor de las métricas | MyApp1 |
 | `Time Range` | La ventana de tiempo para ver el gráfico de registro | Última hora, últimas 24 horas, etc. |
 | `Visualization` | La visualización que se utilizará | Área, barra, línea, círculo, dispersión, hora, categoría de la barra |
-| `Size` | Tamaño vertical del control | Pequeño, mediano, grande o completo |
+| `Size` | El tamaño vertical del control | Pequeño, mediano, grande o completo |
 | `Color palette` | Paleta de colores que se va a utilizar en el gráfico. Se omite en modo de varias métricas o segmentadas. | Azul, verde, rojo, etc. |
 | `Legend` | Función de agregación que se va a usar para la leyenda | Suma o promedio de valores o Máx, mín, primero, último valor |
 | `Query` | Cualquier consulta de KQL que devuelva datos en el formato esperado por la visualización del gráfico | _solicitudes \| las solicitudes make-series= número () valor predeterminado= 0 en la marca de tiempo de hace(1D) a ahora() paso 1h_ |
@@ -108,7 +108,7 @@ En el ejemplo siguiente se muestra una cuadrícula que combina iconos, mapas té
 
 1. Para cambiar el libro al modo de edición, haga clic en el elemento de la barra de herramientas **Editar**.
 2. Use el vínculo **Agregar consulta** para agregar un control de consulta de registro al libro.
-3. Seleccione el tipo de consulta como **Registro**, el tipo de recurso (por ejemplo, Application Insights) y los recursos de destino.
+3. Seleccione el tipo de consulta **Registro**, el tipo de recurso (por ejemplo, Application Insights) y los recursos de destino.
 4. Utilice el editor de consultas para ingresar el KQL para el análisis (por ejemplo, máquinas virtuales con memoria por debajo de un umbral)
 5. Establezca la visualización a **Cuadrícula**
 6. Si es necesario, establezca otros parámetros, como el intervalo de tiempo, el tamaño, la paleta de colores y la leyenda.
@@ -125,10 +125,10 @@ Los iconos del libro permiten mostrar un título, un subtítulo, texto grande, i
 
 ### <a name="adding-a-tile"></a>Adición de un icono
 
-1. Para cambiar el libro al modo de edición, haga clic en _Editar_ en la barra de herramientas.
+1. Para cambiar el libro al modo de edición, haga clic en el elemento de la barra de herramientas _Editar_.
 2. Use el vínculo **Agregar consulta** para agregar un control de consulta de registro al libro. 
 3. Seleccione el tipo de consulta **Registro**, el tipo de recurso (por ejemplo, Application Insights) y los recursos de destino.
-4. Utilice el editor de consultas para especificar el KQL para el análisis
+4. Use el editor de consultas para especificar el KQL para el análisis.
     ```kusto
     requests
     | summarize Requests = count() by appName, name
@@ -158,10 +158,10 @@ En el ejemplo siguiente se muestran las métricas de mantenimiento del contenedo
 ![Captura de pantalla de la vista de un resumen de iconos](./media/workbooks-visualizations/trees.png)
 
 ### <a name="adding-a-tree-grid"></a>Agregar una cuadrícula de árbol
-1. Para cambiar el libro al modo de edición, haga clic en _Editar_ en la barra de herramientas.
+1. Para cambiar el libro al modo de edición, haga clic en el elemento de la barra de herramientas _Editar_.
 2. Use el vínculo **Agregar consulta** para agregar un control de consulta de registro al libro. 
 3. Seleccione el tipo de consulta **Registro**, el tipo de recurso (por ejemplo, Application Insights) y los recursos de destino.
-4. Utilice el editor de consultas para especificar el KQL para el análisis
+4. Use el editor de consultas para especificar el KQL para el análisis.
     ```kusto
     requests
     | summarize Requests = count() by ParentId = appName, Id = name
@@ -206,10 +206,10 @@ En el gráfico siguiente se muestran los datos que fluyen dentro y fuera de un e
 ![Captura de pantalla de la vista de un resumen de iconos](./media/workbooks-visualizations/graph.png)
 
 ### <a name="adding-a-graph"></a>Agregar un gráfico
-1. Para cambiar el libro al modo de edición, haga clic en _Editar_ en la barra de herramientas.
+1. Para cambiar el libro al modo de edición, haga clic en el elemento de la barra de herramientas _Editar_.
 2. Use el vínculo **Agregar consulta** para agregar un control de consulta de registro al libro. 
 3. Seleccione el tipo de consulta **Registro**, el tipo de recurso (por ejemplo, Application Insights) y los recursos de destino.
-4. Utilice el editor de consultas para especificar el KQL para el análisis
+4. Use el editor de consultas para especificar el KQL para el análisis.
     ```kusto
     let data = dependencies
     | summarize Calls = count() by App = appName, Request = operation_Name, Dependency = name

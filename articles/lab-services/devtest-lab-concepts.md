@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 08cae51da20b6093b284618de92c61aab4bf5b55
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 22fd78ccd58be1790fcd167da396600e8b876564
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65508383"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428915"
 ---
 # <a name="devtest-labs-concepts"></a>Conceptos de DevTest Labs
 ## <a name="overview"></a>Información general
@@ -51,7 +51,7 @@ Los artefactos se utilizan para implementar y configurar la aplicación después
 * Acciones que desea ejecutar en la máquina virtual, como la clonación de un repositorio.
 * Aplicaciones que desea probar.
 
-Los artefactos son archivos JSON basados de [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) que contienen instrucciones para realizar la implementación y aplicar la configuración.
+Los artefactos son archivos JSON basados de [Azure Resource Manager](../azure-resource-manager/management/overview.md) que contienen instrucciones para realizar la implementación y aplicar la configuración.
 
 ## <a name="artifact-repositories"></a>Repositorios de artefacto
 Los repositorios de artefactos son repositorios de Git donde se insertan los artefactos. Es posible agregar los repositorios de artefactos a varios laboratorios de la organización a fin de reutilizarlos y compartirlos.

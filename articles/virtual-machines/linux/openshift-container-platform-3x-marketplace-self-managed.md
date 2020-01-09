@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: 20a17e52064c5beb09ce4db5815ddd6faf7cbcba
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 235efd746562ea4bd52b9cb57da0d8165d60de02
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035519"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561327"
 ---
 # <a name="configure-prerequisites"></a>Configuración de los requisitos previos
 
@@ -28,7 +28,7 @@ Antes de usar la oferta de Marketplace para implementar un clúster autoadminist
  
 ## <a name="deploy-using-the-marketplace-offer"></a>Implementar mediante la oferta de Marketplace
 
-La manera más sencilla de implementar un clúster autoadministrado de OpenShift Container Platform 3.11 en Azure es usar la [oferta de Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.openshift-container-platform?tab=Overview).
+La manera más sencilla de implementar un clúster autoadministrado de OpenShift Container Platform 3.11 en Azure es usar la [oferta de Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/osatesting.open-shift-azure-proxy).
 
 Esta opción es la más sencilla, pero también tiene funcionalidades de personalización limitadas. La oferta de Marketplace implementa OpenShift Container Platform 3.11.82 e incluye las siguientes opciones de configuración:
 
@@ -57,7 +57,7 @@ Haga clic en la oferta para ver los detalles de la misma. Para implementar esta 
    ![Página del título de la oferta](media/openshift-marketplace-self-managed/ocp-titlepage.png)  
 <br>
 
-**Aspectos básicos**
+**Conceptos básicos**
 
 Para obtener ayuda sobre cualquiera de los parámetros de entrada, mantenga el mouse sobre la ***i*** junto al nombre del parámetro.
 
@@ -88,7 +88,7 @@ Escriba los valores para los parámetros de entrada y haga clic en **Aceptar**.
 | Tamaño del host de tipo bastión | Acepte el tamaño de máquina virtual predeterminado o haga clic en **Cambiar tamaño** para seleccionar un tamaño de máquina virtual diferente.  Seleccione el tamaño de máquina virtual adecuado para su carga de trabajo. |
 | Red virtual nueva o existente | Crear una nueva red virtual (valor predeterminado) o usar una red virtual existente. |
 | Elegir la configuración predeterminada de CIDR o personalizar el intervalo de IP (CIDR) | Acepte los intervalos de CIDR predeterminados o seleccione **Intervalo IP personalizado** y escriba la información de CIDR personalizada.  La configuración predeterminada creará una red virtual con CIDR de 10.0.0.0/14, una subred maestra con 10.1.0.0/16, una subred de infraestructura con 10.2.0.0/16, y un proceso y subred de cns con 10.3.0.0/16. |
-| Nombre del grupo de recursos de Key Vault | El nombre del grupo de recursos que contiene la instancia de Key Vault. |
+| Nombre del grupo de recursos de Key Vault | Nombre del grupo de recursos que contiene la instancia de Key Vault. |
 | Nombre de Key Vault | El nombre de Key Vault que contiene el secreto con la clave privada ssh.  Puede contener solo caracteres alfanuméricos y guiones, y debe tener entre 3 y 24 caracteres. |
 | Nombre del secreto | El nombre del secreto que contiene la clave privada ssh.  Puede contener solo caracteres alfanuméricos o guiones. |
 
@@ -189,7 +189,7 @@ Confirme la información de contacto en la página de compra y haga clic en **Co
 
 ## <a name="connect-to-the-openshift-cluster"></a>Conexión con el clúster de OpenShift
 
-Cuando finalice la implementación, puede recuperar la conexión de la sección de salida de la implementación. Conéctese a la consola de OpenShift con el explorador con la **dirección URL de la consola OpenShift**. También puede acceder mediante SSH al host de tipo bastión. El siguiente es un ejemplo en el que el nombre de usuario administrador es clusteradmin y el nombre de dominio completo de DNS de la dirección IP pública del host de tipo bastión es bastiondns4hawllzaavu6g.eastus.cloudapp.azure.com:
+Cuando finalice la implementación, puede recuperar la conexión de la sección de salida de la implementación. Conéctese a la consola de OpenShift con el explorador mediante la **dirección URL de la consola de OpenShift**. También puede acceder mediante SSH al host de tipo bastión. El siguiente es un ejemplo en el que el nombre de usuario administrador es clusteradmin y el nombre de dominio completo de DNS de la dirección IP pública del host de tipo bastión es bastiondns4hawllzaavu6g.eastus.cloudapp.azure.com:
 
 ```bash
 $ ssh clusteradmin@bastiondns4hawllzaavu6g.eastus.cloudapp.azure.com

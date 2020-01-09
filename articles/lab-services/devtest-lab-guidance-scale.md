@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 02/11/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 25a088686c739c53feadd6354baf75f3147bdc33
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3a48cef2210721bf7116b1c4ad1169779288f47d
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60561496"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644841"
 ---
 # <a name="scale-up-your-azure-devtest-labs-infrastructure"></a>Escalado vertical de la infraestructura de Azure DevTest Labs
 Antes de implementar DevTest Labs a escala empresarial, hay varios puntos de decisión claves. Reconocer estos puntos de decisión a un nivel alto ayuda a las organizaciones con las decisiones de diseño en el futuro. Sin embargo, estos puntos no deben impedir que una organización empiece una prueba de concepto. Las tres áreas principales para el planeamiento del escalado vertical inicial son:
@@ -53,7 +53,7 @@ A menudo, el enfoque de una suscripción no es fácil de administrar en una gran
 ### <a name="subscription-per-user"></a>Suscripción por usuario
 Una suscripción independiente por usuario proporciona igualdad de oportunidades en el espectro de alternativo. Las ventajas de tener muchas suscripciones incluyen:
 
-- Las **cuotas de escalado de Azure** no impiden la adopción. Por ejemplo, en el momento en que se escribe este artículo, Azure admite 200 cuentas de almacenamiento por suscripción. Existen cuotas operativas para la mayoría de los servicios de Azure (muchas se pueden personalizar, pero otras no). En este modelo de una suscripción por usuario, es muy poco probable que se alcancen la mayoría de las cuotas. Para obtener más información sobre las cuotas de escalado de Azure actuales, vea: [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-subscription-service-limits.md).
+- Las **cuotas de escalado de Azure** no impiden la adopción. Por ejemplo, en el momento en que se escribe este artículo, Azure admite 200 cuentas de almacenamiento por suscripción. Existen cuotas operativas para la mayoría de los servicios de Azure (muchas se pueden personalizar, pero otras no). En este modelo de una suscripción por usuario, es muy poco probable que se alcancen la mayoría de las cuotas. Para obtener más información sobre las cuotas de escalado de Azure actuales, vea: [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-resource-manager/management/azure-subscription-service-limits.md).
 - Los **contracargos** a grupos o desarrolladores individuales son más sencillos, lo que permite a las organizaciones tener en cuenta los costos mediante su modelo actual.
 - La **propiedad y los permisos** de los entornos de DevTest Labs son sencillos. Se proporciona a los desarrolladores el acceso de nivel de suscripción y son responsables de todo, como configuración de redes, directivas de laboratorio y administración de máquinas virtuales.
 

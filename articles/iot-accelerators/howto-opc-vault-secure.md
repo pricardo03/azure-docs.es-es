@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: b5c886625c944e2f5501859e78506ca89ec3d765
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: af5e511cbf273bc4e4fa0a08d089a955426fe75c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "71203690"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454189"
 ---
 # <a name="use-the-opc-vault-certificate-management-service"></a>Uso del servicio de administración de certificados de OPC Vault
 
 En este artículo se explica cómo registrar las aplicaciones y cómo emitir certificados de aplicación firmados para los dispositivos OPC UA.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 ### <a name="deploy-the-certificate-management-service"></a>Implementar el servicio de administración de certificados
 
@@ -98,7 +98,7 @@ Ahora la aplicación del nuevo par de claves depende del dispositivo OPC UA. Por
 
 Ahora la aplicación del nuevo certificado depende del dispositivo OPC UA. Por lo general, el certificado de entidad de certificación y la CRL se copian en una carpeta `trusted`, mientras que el certificado de aplicación se aplica a una carpeta `own` en el almacén de certificados. Es posible que algunos dispositivos ya admitan la inserción de servidor para las actualizaciones de certificados. Consulte la documentación del dispositivo OPC UA.
 
-### <a name="step-4-device-secured"></a>Paso 4: dispositivo protegido
+### <a name="step-3-device-secured"></a>Paso 3: dispositivo protegido
 
 El dispositivo OPC UA ya está listo para comunicarse con otros dispositivos de OPC UA protegidos por certificados firmados por una entidad de certificación sin más configuraciones.
 

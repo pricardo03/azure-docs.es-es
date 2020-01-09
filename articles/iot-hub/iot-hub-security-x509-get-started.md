@@ -8,18 +8,18 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: 32219eeaee7980b685ac3453c6af3beff716abe2
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 968241eff1bcab449f9a4def7a394a508461ec95
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824082"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457011"
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>Configuración de la seguridad de X.509 en Azure IoT Hub
 
 Este tutorial muestra los pasos necesarios para proteger Azure IoT Hub mediante la *autenticación de certificado X.509*. Con fines ilustrativos, usaremos la herramienta de código abierto OpenSSL para crear certificados localmente en una máquina Windows. Se recomienda usar este tutorial solo para la realización de pruebas. Para el entorno de producción debe comprar los certificados a una *entidad de certificación (CA) raíz*.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Este tutorial requiere que tenga listos los siguientes recursos:
 
@@ -99,7 +99,7 @@ A continuación, se mostrará cómo crear una aplicación de C# para simular el 
 
 1. Agregue las siguientes instrucciones `using` al principio del archivo **Program.cs** :
 
-    ```CSharp
+    ```csharp
         using Microsoft.Azure.Devices.Client;
         using Microsoft.Azure.Devices.Shared;
         using System.Security.Cryptography.X509Certificates;
@@ -107,7 +107,7 @@ A continuación, se mostrará cómo crear una aplicación de C# para simular el 
 
 1. Agregue los campos siguientes a la clase **Program**:
 
-    ```CSharp
+    ```csharp
         private static int MESSAGE_COUNT = 5;
         private const int TEMPERATURE_THRESHOLD = 30;
         private static String deviceId = "<your-device-id>";
@@ -120,7 +120,7 @@ A continuación, se mostrará cómo crear una aplicación de C# para simular el 
 
 1. Agregue la siguiente función para crear números aleatorios de temperatura y humedad, y enviar dichos valores al centro:
 
-    ```CSharp
+    ```csharp
     static async Task SendEvent(DeviceClient deviceClient)
     {
         string dataBuffer;
@@ -142,7 +142,7 @@ A continuación, se mostrará cómo crear una aplicación de C# para simular el 
 
 1. Por último, agregue las siguientes líneas de código a la función **Main**, pero reemplace los marcadores de posición _device-id_, _your-iot-hub-name_ y _absolute-path-to-your-device-pfx-file_ en función de lo que solicite el programa de instalación.
 
-    ```CSharp
+    ```csharp
     try
     {
         var cert = new X509Certificate2(@"<absolute-path-to-your-device-pfx-file>", "1234");

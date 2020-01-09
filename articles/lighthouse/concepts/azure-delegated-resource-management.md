@@ -3,12 +3,12 @@ title: Administración de recursos delegados de Azure
 description: Los servicios administrados permiten a los proveedores de servicios vender ofertas de administración de recursos a los clientes de Azure Marketplace.
 ms.date: 07/11/2019
 ms.topic: conceptual
-ms.openlocfilehash: ccbd09cd51216f9076e3b5bd462ee2180ac8f3ab
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: 2baa66acb4abc250ff69a1560f1bc6fe9a531ba8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74464009"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453640"
 ---
 # <a name="azure-delegated-resource-management"></a>Administración de recursos delegados de Azure
 
@@ -21,7 +21,7 @@ La administración de recursos delegados de Azure permite la proyección lógica
 > [!NOTE]
 > La administración de recursos delegados de Azure también se puede usar [en una empresa que tenga varios inquilinos de Azure AD propios](enterprise.md) para simplificar la administración entre inquilinos.
 
-Con la administración de recursos delegados de Azure, los usuarios autorizados pueden trabajar directamente en el contexto de una suscripción de cliente sin tener una cuenta en el inquilino del cliente ni ser un copropietario del inquilino del cliente. También pueden [ver y administrar todas las suscripciones de clientes delegados en la nueva página **Mis clientes** ](../how-to/view-manage-customers.md) de Azure Portal.
+Con la administración de recursos delegados de Azure, los usuarios autorizados pueden trabajar directamente en el contexto de una suscripción de cliente sin tener una cuenta en el inquilino del cliente ni ser un copropietario del inquilino del cliente. También pueden [ver y administrar todas las suscripciones de clientes delegados en la nueva página **Mis clientes**](../how-to/view-manage-customers.md) de Azure Portal.
 
 La [experiencia de administración entre inquilinos](cross-tenant-management-experience.md) le ayuda a trabajar de forma más eficaz con los servicios de administración de Azure, como Azure Policy, Azure Security Center, etc. En el registro de actividad se realiza un seguimiento de toda la actividad del proveedor de servicios, que se almacena en los inquilinos del cliente y del proveedor de servicios. Esto significa que el cliente y el proveedor de servicios pueden identificar fácilmente al usuario asociado con los cambios.
 
@@ -33,7 +33,7 @@ Puede [publicar el nuevo tipo de oferta de servicios administrados en Azure Mark
 
 En un nivel alto, este es el funcionamiento de la administración de recursos delegados de Azure:
 
-1. Como proveedor de servicios, identifica el acceso (roles) que los grupos, las entidades de servicio o los usuarios necesitarán para administrar los recursos de Azure del cliente. La definición de acceso contiene el identificador de inquilino del proveedor de servicios junto con el acceso necesario para la oferta, que se define con identidades **principalId** del inquilino asignadas a valores [integrados **roleDefinition** ](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) (colaborador, colaborador de VM, lector, etc.).
+1. Como proveedor de servicios, identifica el acceso (roles) que los grupos, las entidades de servicio o los usuarios necesitarán para administrar los recursos de Azure del cliente. La definición de acceso contiene el identificador de inquilino del proveedor de servicios junto con el acceso necesario para la oferta, que se define con identidades **principalId** del inquilino asignadas a valores [integrados **roleDefinition**](../../role-based-access-control/built-in-roles.md) (colaborador, colaborador de VM, lector, etc.).
 2. Puede especificar este acceso e incorporar el cliente a la administración de recursos delegados de Azure de una de estas dos maneras:
    - [Publicar una oferta de servicios administrados de Azure Marketplace](../how-to/publish-managed-services-offers.md) (privada o pública) que el cliente aceptará
    - [Implementar una plantilla de Azure Resource Manager en el inquilino del cliente](../how-to/onboard-customer.md) para una o varias suscripciones o grupos de recursos específicos

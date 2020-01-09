@@ -6,12 +6,12 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: 9358d99c66b3b8e3d6988b1881e51c11848ad97b
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 5cd5ce2635ce05c4d5962f12ddc3945342897ecd
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300630"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75638534"
 ---
 # <a name="move-an-external-load-balancer-to-another-region-by-using-the-azure-portal"></a>Traslado de un equilibrador de carga externo a otra región mediante Azure Portal
 
@@ -20,7 +20,7 @@ Hay varios escenarios en los que quizá quiera trasladar un equilibrador de carg
 En un sentido literal, no se puede trasladar un equilibrador de carga externo de Azure de una región a otra. Aunque se puede usar una plantilla de Azure Resource Manager para exportar la configuración y dirección IP pública actuales de un equilibrador de carga externo. Después, puede preparar el recurso para otra región al exportar el equilibrador de carga y la dirección IP pública a una plantilla, modificar los parámetros para que coincidan con la región de destino y, a continuación, implementar la plantilla en la nueva región. Para más información sobre Resource Manager y sus plantillas, consulte [Exportación de grupos de recursos a plantillas](https://docs.microsoft.com/azure/azure-resource-manager/manage-resource-groups-powershell#export-resource-groups-to-templates).
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 - Asegúrese de que el equilibrador de carga externo de Azure se encuentra en la región de Azure desde la que va a realizar el traslado.
 
@@ -32,7 +32,7 @@ En un sentido literal, no se puede trasladar un equilibrador de carga externo de
 
 - Compruebe que la suscripción a Azure permite crear equilibradores de carga externos en la región de destino. Para habilitar la cuota necesaria, póngase en contacto con el soporte técnico.
 
-- Asegúrese de que la suscripción tiene suficientes recursos para admitir la adición de equilibradores de carga. Vea [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits).
+- Asegúrese de que la suscripción tiene suficientes recursos para admitir la adición de equilibradores de carga. Vea [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
 
 ## <a name="prepare-and-move"></a>Preparación y traslado
 En los procedimientos siguientes se muestra cómo preparar el equilibrador de carga externo para el traslado mediante una plantilla de Resource Manager y cómo trasladar la configuración del equilibrador de carga externo a la región de destino mediante Azure Portal. En primer lugar, debe exportar la configuración de IP pública del equilibrador de carga externo.
@@ -411,7 +411,7 @@ Para confirmar los cambios y completar el traslado de la dirección IP pública 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha migrado un equilibrador de carga externo de Azure de una región a otra y ha limpiado los recursos de origen. Para obtener más información sobre el traslado de recursos entre regiones y la recuperación ante desastres en Azure, consulte:
+En este tutorial, ha migrado un equilibrador de carga externo de Azure de una región a otra y ha limpiado los recursos de origen. Para más información sobre el traslado de recursos entre regiones y la recuperación ante desastres en Azure, consulte:
 
 
 - [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)

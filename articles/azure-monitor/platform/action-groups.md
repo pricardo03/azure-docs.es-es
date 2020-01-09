@@ -2,18 +2,16 @@
 title: Creación y administración de grupos de acciones en Azure Portal
 description: Obtenga información acerca de cómo crear y administrar grupos de acciones en Azure Portal.
 author: dkamstra
-services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 8/19/2019
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 6b3d1ff76d4f7611da8e08dd4ce42293c805978e
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: a954898a334ead15d8ffdf6dab6e6a309bd57089
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74423853"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75659838"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Creación y administración de grupos de acciones en Azure Portal
 Un grupo de acciones es una colección de las preferencias de notificación que el propietario de una suscripción de Azure define. Las alertas de Azure Monitor y Service Health usan grupos de acciones para notificar a los usuarios que se ha desencadenado una alerta. Varias alertas pueden usar el mismo grupo de acciones o distintos grupos de acciones en función de los requisitos del usuario. Puede configurar un máximo de 2000 grupos de acciones en una suscripción.
@@ -24,7 +22,7 @@ En este artículo se muestra cómo crear y administrar grupos de acciones en el 
 
 Cada acción se compone de las siguientes propiedades:
 
-* **Nombre**: un identificador único dentro del grupo de acciones.  
+* **Name**: un identificador único dentro del grupo de acciones.  
 * **Tipo de acción**: acción realizada. El envío de llamadas de voz, mensajes de texto o correo electrónico o el desencadenamiento de varios tipos de acciones automatizadas son algunos ejemplos. Consulte los tipos más adelante en este artículo.
 * **Detalles**: detalles correspondientes que varían según el *tipo de acción*.
 
@@ -52,7 +50,7 @@ Para más información sobre el uso de plantillas de Azure Resource Manager para
 
 1. Defina una lista de acciones. Proporcione lo siguiente para cada acción:
 
-    1. **Nombre**: escriba un identificador único para esta acción.
+    1. **Name**: escriba un identificador único para esta acción.
 
     1. **Tipo de acción**: seleccione correo electrónico, SMS, notificación push, voz, aplicación lógica, webhook, ITSM o runbook de Automation.
 
@@ -72,10 +70,10 @@ Después de crear un grupo de acciones, este se puede ver en la sección **Grupo
 ## <a name="action-specific-information"></a>Información específica de la acción
 
 > [!NOTE]
-> Consulte los [límites de servicio de suscripción para la supervisión](https://docs.microsoft.com/azure/azure-subscription-service-limits#azure-monitor-limits) para los límites numéricos de cada uno de los siguientes elementos.  
+> Consulte los [límites de servicio de suscripción para la supervisión](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-monitor-limits) para los límites numéricos de cada uno de los siguientes elementos.  
 
 ### <a name="automation-runbook"></a>Runbook de automatización
-Consulte los [límites de servicio de suscripción de Azure](../../azure-subscription-service-limits.md) para los límites relacionados con las cargas de runbook.
+Consulte los [límites de servicio de suscripción de Azure](../../azure-resource-manager/management/azure-subscription-service-limits.md) para los límites relacionados con las cargas de runbook.
 
 En un grupo de acciones puede tener un número limitado de acciones de runbook. 
 
@@ -113,7 +111,7 @@ En un grupo de acciones puede tener un número limitado de acciones de aplicaci�
 
 La acción de webhook de Grupos de acciones le permite aprovechar Azure Active Directory para proteger la conexión entre el grupo de acciones y la API web protegida (punto de conexión de webhook). A continuación se describe el flujo de trabajo general para aprovechar esta funcionalidad. Para una introducción a las entidades de servicio y aplicaciones de Azure AD, consulte [Introducción a la Plataforma de identidad de Microsoft (versión 2.0)](https://docs.microsoft.com/azure/active-directory/develop/v2-overview).
 
-1. Cree una aplicación Azure AD para la API web. Consulte https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-overview.
+1. Cree una aplicación Azure AD para la API web. Vea https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-overview.
     - Configure la API protegida para que la llame una aplicación de demonio.
     
 1. Habilite Grupos de acciones para usar la aplicación de Azure AD.

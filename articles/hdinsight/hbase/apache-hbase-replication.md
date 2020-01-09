@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/06/2019
-ms.openlocfilehash: 803deb9a4d9eaf02129bd16dd6465362b87b7e84
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 1e6465584dd4e67f736b94d2939678c1a69163bf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74995922"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435664"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Configuración de la replicación de clústeres de Apache HBase en redes virtuales de Azure
 
@@ -38,8 +38,8 @@ Los siguientes son casos de uso de replicación de HBase para dos redes virtuale
 
 Puede replicar clústeres mediante scripts de [acción de script](../hdinsight-hadoop-customize-cluster-linux.md) disponibles en [GitHub](https://github.com/Azure/hbase-utils/tree/master/replication).
 
-## <a name="prerequisites"></a>Requisitos previos
-Para comenzar este artículo, es preciso tener una suscripción a Azure. Consulte cómo [obtener una evaluación gratuita de Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+## <a name="prerequisites"></a>Prerequisites
+Para comenzar a trabajar con este artículo, es preciso tener una suscripción a Azure. Consulte cómo [obtener una evaluación gratuita de Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 ## <a name="set-up-the-environments"></a>Configuración de los entornos
 
@@ -51,7 +51,7 @@ Existen tres opciones de configuración:
 
 Este artículo trata sobre el escenario de replicación geográfica.
 
-Para ayudar a configurar los entornos, hemos creado algunas [plantillas de Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md). Si prefiere configurar los entornos mediante otros métodos, consulte:
+Para ayudar a configurar los entornos, hemos creado algunas [plantillas de Azure Resource Manager](../../azure-resource-manager/management/overview.md). Si prefiere configurar los entornos mediante otros métodos, consulte:
 
 - [Creación de clústeres de Apache Hadoop en HDInsight](../hdinsight-hadoop-provision-linux-clusters.md)
 - [Creación de clústeres de Apache HBase en Azure Virtual Network](apache-hbase-provision-vnet.md)
@@ -66,7 +66,7 @@ Algunos de los valores de la plantilla están codificados de forma rígida:
 
 **Red virtual 1**
 
-| Propiedad | Valor |
+| Propiedad | Value |
 |----------|-------|
 | Location | Oeste de EE. UU. |
 | Nombre de red virtual | &lt;ClusterNamePrevix>-vnet1 |
@@ -83,7 +83,7 @@ Algunos de los valores de la plantilla están codificados de forma rígida:
 
 **Red virtual 2**
 
-| Propiedad | Valor |
+| Propiedad | Value |
 |----------|-------|
 | Location | East US |
 | Nombre de red virtual | &lt;ClusterNamePrevix>-vnet2 |
@@ -285,16 +285,16 @@ En los pasos siguientes se describe cómo llamar al script de acción de script 
 
 **Para habilitar la replicación de HBase desde Azure Portal**
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Abra el clúster de HBase de origen.
 3. En el menú de clúster, seleccione **Acciones de script**.
 4. En la parte superior de la página, seleccione **Enviar nuevo**.
 5. Seleccione o escriba la siguiente información:
 
-   1. **Name** (Nombre): especifique **Enable replication** (Habilitar replicación).
+   1. **Name**: especifique **Enable replication** (Habilitar replicación).
    2. **Bash Script URL** (Dirección URL de script de Bash): Escriba **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh** .
    3. **Head** (Encabezado): asegúrese de que esta opción está seleccionada. Borre los demás tipos de nodo.
-   4. **Parameters** (Parámetros): los siguientes parámetros de ejemplo permiten la replicación en todas las tablas existentes y copian todos los datos del clúster de origen al clúster de destino:
+   4. **Parámetros**: los siguientes parámetros de ejemplo permiten la replicación en todas las tablas existentes y copian todos los datos del clúster de origen al clúster de destino:
 
           -m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -copydata
     
@@ -307,7 +307,7 @@ En los pasos siguientes se describe cómo llamar al script de acción de script 
 
 Argumentos necesarios:
 
-|NOMBRE|DESCRIPCIÓN|
+|Nombre|Descripción|
 |----|-----------|
 |-s, --src-cluster | Especifica el nombre DNS del clúster de HBase de origen. Por ejemplo: -s hbsrccluster, --src-cluster=hbsrccluster |
 |-d, --dst-cluster | Especifica el nombre DNS del clúster de HBase de destino (réplica). Por ejemplo: -s dsthbcluster, --src-cluster=dsthbcluster |
@@ -316,7 +316,7 @@ Argumentos necesarios:
 
 Argumentos opcionales:
 
-|NOMBRE|DESCRIPCIÓN|
+|Nombre|Descripción|
 |----|-----------|
 |-su, --src-ambari-user | Especifica el nombre de usuario de administrador de Ambari en el clúster de HBase de origen. El valor predeterminado es **admin**. |
 |-du, --dst-ambari-user | Especifica el nombre de usuario de administrador de Ambari en el clúster de HBase de destino. El valor predeterminado es **admin**. |

@@ -3,18 +3,18 @@ title: Guardado en la lista de IP seguras de las direcciones URL de Azure Portal
 description: Agregar estas direcciones URL a la omisión del servidor proxy para comunicarse con Azure Portal y sus servicios
 services: azure-portal
 keywords: ''
-author: kfollis
-ms.author: kfollis
+author: mblythe
+ms.author: mblythe
 ms.date: 09/13/2019
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 9618d99495e65231de22eb719355e2ca75a17600
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: 4f4badbd923b10cf2cd66f7df9742a6bc657a01c
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71218040"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75637549"
 ---
 # <a name="safelist-the-azure-portal-urls-on-your-firewall-or-proxy-server"></a>Guardado en la lista de IP seguras de las direcciones URL de Azure Portal en el servidor proxy o firewall
 
@@ -47,7 +47,7 @@ Los puntos de conexión de URL a la lista de IP seguras de Azure Portal son espe
 *.windows-int.net
 ```
 
-#### <a name="us-government-cloudtabus-government-cloud"></a>[Nube del gobierno de Estados Unidos](#tab/us-government-cloud)
+#### <a name="us-government-cloudtabus-government-cloud"></a>[Gobierno de gobierno de Estados Unidos](#tab/us-government-cloud)
 ```
 *.azure.us
 *.loganalytics.us

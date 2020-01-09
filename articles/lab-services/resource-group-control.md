@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/03/2019
 ms.author: spelluru
-ms.openlocfilehash: 574cc0c41ce645c71302178afcf6e7deaec69d8e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b6f51dee948d9e4d9e3f8594f9f7e60fb11b7057
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66476087"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647346"
 ---
 # <a name="specify-a-resource-group-for-lab-virtual-machines-in-azure-devtest-labs"></a>Especificación de un grupo de recursos para máquinas virtuales de laboratorio en Azure DevTest Labs
 
@@ -31,12 +31,12 @@ Como propietario de un laboratorio, puede configurar las máquinas virtuales del
 Con esta característica, puede usar un script para especificar un grupo de recursos nuevo o uno existente dentro de su suscripción de Azure para todas las máquinas virtuales del laboratorio. Actualmente, Azure DevTest Labs admite esta característica con una API.
 
 > [!NOTE]
-> Todos los límites de suscripción se aplican al crear laboratorios de DevTest Labs. Piense en un laboratorio como cualquier otro recurso en su suscripción. En el caso de los grupos de recursos, el límite es de [980 grupos de recursos por suscripción](../azure-subscription-service-limits.md#subscription-limits---azure-resource-manager). 
+> Todos los límites de suscripción se aplican al crear laboratorios de DevTest Labs. Piense en un laboratorio como cualquier otro recurso en su suscripción. En el caso de los grupos de recursos, el límite es de [980 grupos de recursos por suscripción](../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits---azure-resource-manager). 
 
 ## <a name="use-azure-portal"></a>Usar Azure Portal
 Siga estos pasos para especificar un grupo de recursos para todas las máquinas virtuales creadas en el laboratorio. 
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Seleccione **Todos los servicios** en el menú de navegación izquierdo. 
 3. Seleccione **DevTest Labs** en la lista.
 4. En la lista de laboratorios, seleccione el **suyo**.  
@@ -118,7 +118,7 @@ Cómo usar esta API:
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte los artículos siguientes: 
+Vea los artículos siguientes: 
 
 - [Set policies for a lab](devtest-lab-get-started-with-lab-policies.md) (Definición de directivas para un laboratorio)
 - [Preguntas más frecuentes](devtest-lab-faq.md)

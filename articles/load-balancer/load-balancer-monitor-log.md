@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: allensu
-ms.openlocfilehash: 23a3a2629c6f2f89c4b8f6d5af57bcf3b6bb67dd
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 63f386212b0277c3b5ee383e707d4c32fa4e63fc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74214911"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428844"
 ---
 # <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>Registros de Azure Monitor para el equilibrador de carga básica público
 
@@ -38,7 +38,7 @@ Puede usar diferentes tipos de registros en Azure para administrar y solucionar 
 
 El registro de actividades se habilita automáticamente para todos los recursos de Resource Manager. Habilite el registro de eventos y de sondeos de estado para iniciar la recopilación de los datos disponibles a través de esos registros. Para habilitar el registro, realice los siguientes pasos.
 
-Inicie sesión en el [Azure Portal](https://portal.azure.com). Si aún no tiene un equilibrador de carga, [cree uno](https://docs.microsoft.com/azure/load-balancer/quickstart-create-basic-load-balancer-portal) antes de continuar.
+Inicie sesión en [Azure Portal](https://portal.azure.com). Si aún no tiene un equilibrador de carga, [cree uno](https://docs.microsoft.com/azure/load-balancer/quickstart-create-basic-load-balancer-portal) antes de continuar.
 
 1. En el portal, haga clic en **Grupos de recursos**.
 2. Seleccione el **\<nombre-grupo-recursos>** donde está el equilibrador de carga.
@@ -171,7 +171,7 @@ Conéctese a la cuenta de almacenamiento y recupere las entradas del registro JS
 > Si está familiarizado con Visual Studio y con los conceptos básicos de cambio de los valores de constantes y variables de C#, puede usar las [herramientas convertidoras de registros](https://github.com/Azure-Samples/networking-dotnet-log-converter) que encontrará en GitHub.
 
 ## <a name="stream-to-an-event-hub"></a>Transmitir a un centro de eventos
-Cuando se transmite información de diagnóstico a un centro de eventos, se puede usar para el análisis de registros centralizado en una herramienta SIEM de terceros con la integración de Azure Monitor. Para más información, consulte [Transmisión de datos de supervisión de Azure a un centro de eventos](https://docs.microsoft.com/azure/azure-monitor/platform/stream-monitoring-data-event-hubs#tools-with-azure-monitor-integration).
+Cuando se transmite información de diagnóstico a un centro de eventos, se puede usar para el análisis de registros centralizado en una herramienta SIEM de terceros con la integración de Azure Monitor. Para más información, consulte [Transmisión de datos de supervisión de Azure a un centro de eventos](../azure-monitor/platform/stream-monitoring-data-event-hubs.md#partner-tools-with-azure-monitor-integration).
 
 ## <a name="send-to-log-analytics"></a>Enviar a Log Analytics
 Los recursos de Azure pueden hacer que su información de diagnóstico se envíe directamente a un área de trabajo de Log Analytics, donde se pueden ejecutar consultas complejas en la información para la solución de problemas y el análisis.  Para más información, consulte [Recopilación de registros de recursos de Azure en el área de trabajo de Log Analytics en Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-workspace)

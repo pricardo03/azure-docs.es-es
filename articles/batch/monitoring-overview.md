@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: lahugh
-ms.openlocfilehash: 3ac852b1d69c0e9fa224b449d6261eba6abaff32
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: ef57e0f63f8cfad5bc5fa5710661657176171194
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260951"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530806"
 ---
 # <a name="monitor-batch-solutions"></a>Supervisión de soluciones de Batch
 
@@ -25,7 +25,7 @@ Para información general de los componentes y servicios de Azure disponibles pa
 
 ## <a name="subscription-level-monitoring"></a>Supervisión a nivel de suscripción
 
-El nivel de suscripción, que incluye las cuentas de Batch, el [registro de actividad de Azure](../azure-monitor/platform/activity-logs-overview.md) recopila datos de eventos operativos de [varias categorías](../azure-monitor/platform/activity-logs-overview.md#categories-in-the-activity-log).
+El nivel de suscripción, que incluye las cuentas de Batch, el [registro de actividad de Azure](../azure-monitor/platform/platform-logs-overview.md) recopila datos de eventos operativos de [varias categorías](../azure-monitor/platform/activity-log-view.md#categories-in-the-activity-log).
 
 Para las cuentas de Batch en concreto, el registro de actividad recopila eventos relacionados con la creación y la eliminación de cuentas, y la administración de claves.
 

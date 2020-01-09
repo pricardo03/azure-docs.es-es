@@ -2,17 +2,17 @@
 title: Escalar automáticamente un servicio en la nube en el portal | Microsoft Docs
 description: Obtenga información sobre cómo usar el portal para configurar reglas de escalado automático de un rol de trabajo o un rol web de servicio en la nube en Azure.
 services: cloud-services
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 05/18/2017
-ms.author: gwallace
-ms.openlocfilehash: 7e106dbd237be79be924afadbe893669c4f3daf8
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: 5880544137855a2ea5bcd6d6e4bada46563564ad
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359626"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75360844"
 ---
 # <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-portal"></a>Procedimiento para configurar el escalado automático para un servicio en la nube en el Portal
 
@@ -105,3 +105,6 @@ Con esta configuración se elimina la escala automática del rol y podrá establ
 3. Las instancias del rol en las que se realizar la operación de escala.
 
 Después de configurar la configuración de escala, seleccione el icono de **Guardar** situado en la parte superior.
+
+
+

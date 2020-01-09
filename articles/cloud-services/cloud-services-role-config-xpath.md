@@ -2,17 +2,17 @@
 title: Hoja de referencia rápida de XPath de configuración del rol de Cloud Services | Microsoft Docs
 description: Distintas configuraciones de XPath que puede usar en la configuración del rol de servicio en la nube para exponer la configuración como una variable de entorno.
 services: cloud-services
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: gwallace
-ms.openlocfilehash: cd2bdc4fc4b2a135907851ca4d3034430618e0cd
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: 380b0be4e4e4b19d16cb611b0b472294339f2199
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359007"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75386092"
 ---
 # <a name="expose-role-configuration-settings-as-an-environment-variable-with-xpath"></a>Exponer los valores de configuración de rol como una variable de entorno con XPath
 En el archivo de definición de servicio de un rol web o trabajo en el servicio en la nube, puede exponer los valores de configuración en tiempo de ejecución como variables de entorno. Se admiten los siguientes valores de XPath (que se corresponden con valores de API).
@@ -22,7 +22,7 @@ Estos valores de XPath también están disponibles en la biblioteca [Microsoft.W
 ## <a name="app-running-in-emulator"></a>Aplicación en ejecución en el emulador
 Indica que la aplicación se ejecuta en el emulador.
 
-| type | Ejemplo |
+| Tipo | Ejemplo |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/Deployment/@emulated" |
 | Código |var x = RoleEnvironment.IsEmulated; |
@@ -30,7 +30,7 @@ Indica que la aplicación se ejecuta en el emulador.
 ## <a name="deployment-id"></a>Id. de implementación
 Recupera el identificador de implementación de la instancia.
 
-| type | Ejemplo |
+| Tipo | Ejemplo |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/Deployment/@id" |
 | Código |var deploymentId = RoleEnvironment.DeploymentId; |
@@ -38,15 +38,15 @@ Recupera el identificador de implementación de la instancia.
 ## <a name="role-id"></a>Id. de rol
 Recupera el identificador del rol actual de la instancia.
 
-| type | Ejemplo |
+| Tipo | Ejemplo |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/@id" |
 | Código |var id = RoleEnvironment.CurrentRoleInstance.Id; |
 
-## <a name="update-domain"></a> Actualizar dominio
+## <a name="update-domain"></a>Actualizar dominio
 Recupera el dominio de actualización de la instancia.
 
-| type | Ejemplo |
+| Tipo | Ejemplo |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/@updateDomain" |
 | Código |var ud = RoleEnvironment.CurrentRoleInstance.UpdateDomain; |
@@ -54,7 +54,7 @@ Recupera el dominio de actualización de la instancia.
 ## <a name="fault-domain"></a>Dominio de error
 Recupera el dominio de error de la instancia.
 
-| type | Ejemplo |
+| Tipo | Ejemplo |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/@faultDomain" |
 | Código |var fd = RoleEnvironment.CurrentRoleInstance.FaultDomain; |
@@ -62,7 +62,7 @@ Recupera el dominio de error de la instancia.
 ## <a name="role-name"></a>Nombre de rol
 Recupera el nombre de rol de las instancias.
 
-| type | Ejemplo |
+| Tipo | Ejemplo |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/@roleName" |
 | Código |var rname = RoleEnvironment.CurrentRoleInstance.Role.Name; |
@@ -70,7 +70,7 @@ Recupera el nombre de rol de las instancias.
 ## <a name="config-setting"></a>Opción de configuración
 Recupera el valor de la opción de configuración especificada.
 
-| type | Ejemplo |
+| Tipo | Ejemplo |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/ConfigurationSettings/ConfigurationSetting[@name='Setting1']/@value" |
 | Código |var setting = RoleEnvironment.GetConfigurationSettingValue("Setting1"); |
@@ -78,7 +78,7 @@ Recupera el valor de la opción de configuración especificada.
 ## <a name="local-storage-path"></a>Ruta de acceso de almacenamiento local
 Recupera la ruta de acceso de almacenamiento local de la instancia.
 
-| type | Ejemplo |
+| Tipo | Ejemplo |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/LocalResources/LocalResource[@name='LocalStore1']/@path" |
 | Código |var localResourcePath = RoleEnvironment.GetLocalResource("LocalStore1").RootPath; |
@@ -86,7 +86,7 @@ Recupera la ruta de acceso de almacenamiento local de la instancia.
 ## <a name="local-storage-size"></a>Tamaño del almacenamiento local
 Recupera el tamaño del almacenamiento local de la instancia.
 
-| type | Ejemplo |
+| Tipo | Ejemplo |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/LocalResources/LocalResource[@name='LocalStore1']/@sizeInMB" |
 | Código |var localResourceSizeInMB = RoleEnvironment.GetLocalResource("LocalStore1").MaximumSizeInMegabytes; |
@@ -94,7 +94,7 @@ Recupera el tamaño del almacenamiento local de la instancia.
 ## <a name="endpoint-protocol"></a>Protocolo del punto de conexión
 Recupera el protocolo del punto de conexión de la instancia.
 
-| type | Ejemplo |
+| Tipo | Ejemplo |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/Endpoints/Endpoint[@name='Endpoint1']/@protocol" |
 | Código |var prot = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["Endpoint1"].Protocol; |
@@ -102,7 +102,7 @@ Recupera el protocolo del punto de conexión de la instancia.
 ## <a name="endpoint-ip"></a>IP del punto de conexión
 Obtiene la dirección IP del punto de conexión especificado.
 
-| type | Ejemplo |
+| Tipo | Ejemplo |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/Endpoints/Endpoint[@name='Endpoint1']/@address" |
 | Código |var address = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["Endpoint1"].IPEndpoint.Address |
@@ -110,7 +110,7 @@ Obtiene la dirección IP del punto de conexión especificado.
 ## <a name="endpoint-port"></a>Puerto del punto de conexión
 Recupera el puerto del punto de conexión de la instancia.
 
-| type | Ejemplo |
+| Tipo | Ejemplo |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/Endpoints/Endpoint[@name='Endpoint1']/@port" |
 | Código |var port = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["Endpoint1"].IPEndpoint.Port; |
@@ -161,4 +161,7 @@ Obtenga más información sobre el archivo [ServiceConfiguration.cscfg](cloud-se
 Cree un paquete [ServicePackage.cspkg](cloud-services-model-and-package.md#servicepackagecspkg) .
 
 Habilite [Escritorio remoto](cloud-services-role-enable-remote-desktop-new-portal.md) para un rol.
+
+
+
 

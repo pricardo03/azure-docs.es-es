@@ -6,16 +6,16 @@ keywords: herramientas de ciencia de datos, máquina virtual de ciencia de datos
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
-author: gvashishtha
-ms.author: gopalv
+author: lobrien
+ms.author: laobri
 ms.topic: conceptual
-ms.date: 10/11/2019
-ms.openlocfilehash: 72a881a2ab508caa2274f3b9299157921cb8ceff
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.date: 12/12/2019
+ms.openlocfilehash: d86858f8d7f09628457b718ca3c481934d720081
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330690"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75612636"
 ---
 # <a name="data-science-virtual-machine-data-ingestion-tools"></a>Herramientas de ingesta de datos de Data Science Virtual Machine
 
@@ -34,7 +34,7 @@ Estas son algunas herramientas de movimiento de datos disponibles en DSVM.
 | Vínculos a ejemplos      | [Uso de AdlCopy](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob)      |
 | Herramientas relacionadas en DSVM      | AzCopy, CLI de Azure     |
 
-## <a name="azure-cli"></a>CLI de Azure
+## <a name="azure-cli"></a>Azure CLI
 
 |    |           |
 | ------------- | ------------- |
@@ -80,7 +80,7 @@ Estas son algunas herramientas de movimiento de datos disponibles en DSVM.
 | Vínculos a ejemplos      | [Explorador de Azure Storage](vm-do-ten-things.md#access-azure-data-and-analytics-services)      |
 
 
-## <a name="bcp"></a>bcp
+## <a name="bcp"></a>BCP
 
 |    |           |
 | ------------- | ------------- |
@@ -100,4 +100,4 @@ Estas son algunas herramientas de movimiento de datos disponibles en DSVM.
 | Usos típicos      | Leer y escribir en los blobs de un contenedor.      |
 |  ¿Cómo se usa y cómo se ejecuta?    |   Ejecute _blobfuse_ en un terminal.    |
 | Vínculos a ejemplos      | [blobfuse en GitHub](https://github.com/Azure/azure-storage-fuse)      |
-| Herramientas relacionadas en DSVM      | CLI de Azure      |
+| Herramientas relacionadas en DSVM      | Azure CLI      |

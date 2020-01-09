@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 0225405c5d3a511bbb2bbb08c1c13e5adedd5096
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: ad408df140be49da2e50ef810285dd850e9da6a1
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903773"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75638876"
 ---
 # <a name="copy-data-from-azure-storage-blobs-to-azure-data-lake-storage-gen1"></a>Copia de datos de Azure Storage Blobs a Azure Data Lake Storage Gen1
 
@@ -31,7 +31,7 @@ Además, puede usar la herramienta AdlCopy en dos modos diferentes:
 * **Independiente**, donde la herramienta usa recursos de Data Lake Storage Gen1 para realizar la tarea.
 * **Con una cuenta de Análisis de Data Lake**, donde las unidades asignadas a la cuenta de Análisis de Data Lake se usan para realizar la operación de copia. Puede que desee usar esta opción cuando quiera realizar las tareas de copia de forma predecible.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de empezar este artículo, debe tener lo siguiente:
 
@@ -49,7 +49,7 @@ Use la siguiente sintaxis para trabajar con la herramienta AdlCopy.
 
 A continuación, se describen los parámetros de la sintaxis:
 
-| Opción | DESCRIPCIÓN |
+| Opción | Descripción |
 | --- | --- |
 | Source |Especifica la ubicación de los datos de origen en el blob de almacenamiento de Azure. El origen puede ser un contenedor de blobs, un blob u otra cuenta de Data Lake Storage Gen1. |
 | Dest |Especifica el destino de Azure Data Lake Storage Gen1 al que copiar. |
@@ -88,9 +88,9 @@ A continuación, se describen los parámetros de la sintaxis:
 
         AdlCopy /Source https://mystorage.blob.core.windows.net/mycluster/example/data/gutenberg/ /dest adl://mydatalakestorage.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ==
 
-### <a name="performance-considerations"></a>Consideraciones sobre rendimiento
+### <a name="performance-considerations"></a>Consideraciones de rendimiento
 
-Si va a copiar de una cuenta de Azure Blob Storage, puede tener alguna limitación durante la copia en Blob Storage. Como consecuencia, disminuirá el rendimiento de su trabajo de copia. Para aprender sobre los límites de Azure Blob Storage, consulte la información al respecto en [Límites de suscripciones y servicios de Azure](../azure-subscription-service-limits.md).
+Si va a copiar de una cuenta de Azure Blob Storage, puede tener alguna limitación durante la copia en Blob Storage. Como consecuencia, disminuirá el rendimiento de su trabajo de copia. Para aprender sobre los límites de Azure Blob Storage, consulte la información al respecto en [Límites de suscripciones y servicios de Azure](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 ## <a name="use-adlcopy-as-standalone-to-copy-data-from-another-data-lake-storage-gen1-account"></a>Uso de AdlCopy (en modo independiente) para copiar datos desde otra cuenta de Data Lake Storage Gen1
 
@@ -121,7 +121,7 @@ También puede usar AdlCopy para copiar datos entre dos cuentas de Data Lake Sto
 
         AdlCopy /Source adl://mydatastorage.azuredatalakestore.net/mynewfolder/ /dest adl://mynewdatalakestorage.azuredatalakestore.net/mynewfolder/
 
-### <a name="performance-considerations"></a>Consideraciones sobre rendimiento
+### <a name="performance-considerations"></a>Consideraciones de rendimiento
 
 Cuando se usa AdlCopy como una herramienta independiente, la copia se ejecuta en recursos administrados de Azure compartidos. El rendimiento que obtenga en este entorno depende de la carga del sistema y de los recursos disponibles. Este modo se usa preferiblemente en el caso de pequeñas transferencias de manera ad hoc. Cuando se usa AdlCopy como herramienta independiente, no es necesario ajustar ningún parámetro.
 
@@ -148,7 +148,7 @@ De forma similar, ejecute el siguiente comando para copiar todos los archivos de
 
     AdlCopy /Source adl://mysourcedatalakestorage.azuredatalakestore.net/mynewfolder/ /dest adl://mydestdatastorage.azuredatalakestore.net/mynewfolder/ /Account mydatalakeanalyticaccount /Units 2
 
-### <a name="performance-considerations"></a>Consideraciones sobre rendimiento
+### <a name="performance-considerations"></a>Consideraciones de rendimiento
 
 Cuando se copian datos en el intervalo de terabytes, el uso de AdlCopy con su propia cuenta de Azure Data Lake Analytics proporciona un rendimiento mejor y más predecible. El parámetro que debe ajustarse es el número de unidades de Azure Data Lake Analytics que se usarán con el trabajo de copia. Al aumentar el número de unidades, aumentará el rendimiento de su trabajo de copia. Cada archivo que se va a copiar puede usar como máximo una unidad. Si se especifican más unidades que el número de archivos que se copian, no aumentará el rendimiento.
 
@@ -186,4 +186,4 @@ AdlCopy admite la copia de datos que contienen miles de archivos y carpetas. Sin
 
 * [Protección de datos en Data Lake Storage Gen1](data-lake-store-secure-data.md)
 * [Use Azure Data Lake Analytics with Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md) (Uso de Azure Data Lake Analytics con Data Lake Storage Gen1)
-* [Uso de Azure HDInsight con Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Use Azure HDInsight with Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md) (Uso de Azure HDInsight con Data Lake Storage Gen1)

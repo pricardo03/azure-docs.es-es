@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 7c0b5cbfe77a39cbc8ac660178a1c573d1fe8f7d
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 1b042c0279e458cf83bd5c81147f4b1f25d7687d
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70139813"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645147"
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Azure Data Factory: preguntas más frecuentes
 > [!NOTE]
@@ -44,9 +44,9 @@ Vea la página de [detalles de precios de Data Factory][adf-pricing-details] par
 Data Factory está disponible en las regiones **Oeste de EE. UU.** y **Europa del Norte**. Los servicios de Compute y Storage utilizados por las factorías de datos pueden estar en otras regiones. Consulte las [regiones admitidas](data-factory-introduction.md#supported-regions).
 
 ### <a name="what-are-the-limits-on-number-of-data-factoriespipelinesactivitiesdatasets"></a>¿Cuáles son los límites en el número de factorías, canalizaciones, actividades y conjuntos de datos?
-Consulte la sección **Límites de Azure Data Factory** del artículo [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../../azure-subscription-service-limits.md#data-factory-limits) .
+Consulte la sección **Límites de Azure Data Factory** del artículo [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits) .
 
-### <a name="what-is-the-authoringdeveloper-experience-with-azure-data-factory-service"></a>¿Cuál es la experiencia de desarrollador/creación con el servicio Azure Data Factory?
+### <a name="what-is-the-authoringdeveloper-experience-with-azure-data-factory-service"></a>¿Cuál es la experiencia de desarrollador/creación con el servicio de Azure Data Factory?
 Puede crear factorías de datos mediante una de las siguientes herramientas y SDK:
 
 * **Visual Studio** : puede usar Visual Studio para crear una instancia de Data Factory de Azure. Consulte [Compilación de la primera Data Factory de Azure mediante Microsoft Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) .
@@ -66,7 +66,7 @@ Sí. Use el botón **Mover** situado en la hoja de la factoría de datos tal com
 ### <a name="what-are-the-compute-environments-supported-by-data-factory"></a>¿Cuáles son los entornos de proceso compatibles con Data Factory?
 En la tabla siguiente se proporciona una lista de entornos de proceso compatibles con Data Factory y las actividades que se pueden ejecutar en ellos.
 
-| Entorno de procesos | actividades |
+| Entorno de procesos | activities |
 | --- | --- |
 | [Clúster de HDInsight a petición](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) o [clúster HDInsight propio](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) |[DotNet](data-factory-use-custom-activities.md), [Hive](data-factory-hive-activity.md), [Pig](data-factory-pig-activity.md), [MapReduce](data-factory-map-reduce.md), [Hadoop Streaming](data-factory-hadoop-streaming-activity.md) |
 | [Azure Batch](data-factory-compute-linked-services.md#azure-batch-linked-service) |[DotNet](data-factory-use-custom-activities.md) |

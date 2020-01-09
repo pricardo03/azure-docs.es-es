@@ -3,16 +3,16 @@ title: 'Interfaces comunes: IoT Plug and Play (versión preliminar) | Microsoft 
 description: Descripción de las interfaces comunes para desarrolladores de Plug and Play de IoT
 author: ChrisGMsft
 ms.author: chrisgre
-ms.date: 09/08/2019
+ms.date: 12/26/2019
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 2eae778230fa5fce1be095106a02b2b643ff436e
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: f697a0d6aba4f137b75faa2a200424c72aa78c3b
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70935322"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531418"
 ---
 # <a name="iot-plug-and-play-preview-common-interfaces"></a>Interfaces comunes de IoT Plug and Play (versión preliminar)
 
@@ -20,13 +20,13 @@ Se espera que todos los dispositivos IoT Plug and Play implementen algunas inter
 
 ## <a name="summary-of-common-interfaces"></a>Resumen de las interfaces comunes
 
-| NOMBRE | id | DESCRIPCIÓN | Implementado por el SDK de Azure IoT | Debe declararse en el modelo de funcionalidad |
+| Nombre | id | Descripción | Implementado por el SDK de Azure IoT | Debe declararse en el modelo de funcionalidad |
 | -------- | -------- | -------- | -------- | -------- | -------- |
-| Información del modelo | urn:azureiot:ModelDiscovery:ModelInformation:1 | Para que los dispositivos declaren el identificador de modelo de funcionalidad y las interfaces. Se requiere para todos los dispositivos IoT Plug and Play. | Sí | Sin |
-| Información del SDK de cliente de gemelos digitales | urn:azureiot:Client:SDKInformation:1 | SDK de cliente para conectar el dispositivo con Azure. Se requiere para la [certificación](tutorial-build-device-certification.md) | Sí | Sin |
-| Información del dispositivo | urn:azureiot:DeviceManagement:DeviceInformation:1 | Información del hardware y del sistema operativo sobre el dispositivo. Se requiere para la [certificación](tutorial-build-device-certification.md) | Sin | Sí |
-| Definición de modelo | urn:azureiot:ModelDiscovery:ModelDefinition:1 | Para que los dispositivos declaren la definición completa de su modelo de funcionalidad e interfaces. Debe implementarse cuando las definiciones de modelo no se hospedan en un repositorio de modelos. | Sin | Sí |
-| Gemelo digital | urn:azureiot:ModelDiscovery:DigitalTwin:1 | Para que los desarrolladores de soluciones recuperen el identificador del modelo de funcionalidad y los identificadores de interfaz para un gemelo digital. Esta interfaz no se declara ni se implementa por un dispositivo IoT Plug and Play. | Sin | Sin |
+| Información del modelo | urn:azureiot:ModelDiscovery:ModelInformation:1 | Para que los dispositivos declaren el identificador de modelo de funcionalidad y las interfaces. Se requiere para todos los dispositivos IoT Plug and Play. | Sí | No |
+| Información del SDK de cliente de gemelos digitales | urn:azureiot:Client:SDKInformation:1 | SDK de cliente para conectar el dispositivo con Azure. Se requiere para la [certificación](tutorial-build-device-certification.md) | Sí | No |
+| Información del dispositivo | urn:azureiot:DeviceManagement:DeviceInformation:1 | Información del hardware y del sistema operativo sobre el dispositivo. Se requiere para la [certificación](tutorial-build-device-certification.md) | No | Sí |
+| Definición de modelo | urn:azureiot:ModelDiscovery:ModelDefinition:1 | Para que los dispositivos declaren la definición completa de su modelo de funcionalidad e interfaces. Debe implementarse cuando las definiciones de modelo no se hospedan en un repositorio de modelos. | No | Sí |
+| Gemelo digital | urn:azureiot:ModelDiscovery:DigitalTwin:1 | Para que los desarrolladores de soluciones recuperen el identificador del modelo de funcionalidad y los identificadores de interfaz para un gemelo digital. Esta interfaz no se declara ni se implementa por un dispositivo IoT Plug and Play. | No | No |
 
 - Implementado por el SDK de Azure IoT: si el SDK de Azure IoT implementa las funcionalidades declaradas en las interfaces. Los dispositivos IoT Plug and Play que usan el SDK de Azure IoT no necesitan implementar esta interfaz.
 - Se debe declarar en el modelo de funcionalidad: si es "Sí", esta interfaz se debe declarar dentro de la sección `"implements":` del modelo de funcionalidad del dispositivo para este dispositivo IoT Plug and Play.

@@ -1,5 +1,5 @@
 ---
-title: Tipos de resolución de conflictos y directivas de resolución con varias regiones de escritura de Azure Cosmos DB
+title: Tipos de resolución de conflictos y directivas de resolución en Azure Cosmos DB
 description: En este artículo se describen las categorías de conflicto y las directivas de resolución de conflictos de Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: f69a70ef3bfc8830ed12173fddee41095937a1c0
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: a8ee72f46e1789088e779c10a0824262469ffde8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815098"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441988"
 ---
 # <a name="conflict-types-and-resolution-policies"></a>Tipos de conflicto y directivas de resolución de conflictos
 
@@ -39,7 +39,7 @@ Azure Cosmos DB ofrece un mecanismo flexible controlado por directivas para reso
 
   Para obtener más información, consulte los [ejemplos de uso de directivas de resolución de conflictos LWW](how-to-manage-conflicts.md).
 
-* **Personalizada**: esta directiva de resolución se ha diseñado para la conciliación de conflictos con la semántica definida por la aplicación. Al establecer esta directiva en el contenedor de Azure Cosmos, debe registrar también un *procedimiento almacenado de combinación*. Este se invoca automáticamente cuando se detectan conflictos en una transacción de base de datos en el servidor. El sistema garantiza exactamente una vez la ejecución de un procedimiento de combinación como parte del protocolo de confirmación.  
+* **Personalizado**: esta directiva de resolución se ha diseñado para la conciliación de conflictos con la semántica definida por la aplicación. Al establecer esta directiva en el contenedor de Azure Cosmos, debe registrar también un *procedimiento almacenado de combinación*. Este se invoca automáticamente cuando se detectan conflictos en una transacción de base de datos en el servidor. El sistema garantiza exactamente una vez la ejecución de un procedimiento de combinación como parte del protocolo de confirmación.  
 
   Si configura el contenedor con la opción de resolución personalizada y no registra un procedimiento de combinación en el contenedor o procedimiento de combinación lanza una excepción en tiempo de ejecución, los conflictos se escriben en la *fuente de conflictos*. La aplicación tendrá luego que resolver manualmente los conflictos en la fuente de conflictos. Para obtener más información, consulte los [ejemplos de uso de la directiva de resolución personalizada y la fuente de conflictos](how-to-manage-conflicts.md).
 

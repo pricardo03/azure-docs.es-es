@@ -1,19 +1,15 @@
 ---
 title: Información sobre la configuración de escalado automático en Azure Monitor
 description: Un análisis detallado de la configuración de escalado automático y de cómo funciona. Se aplica a Virtual Machines, Cloud Services, Web Apps
-author: anirudhcavale
-services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/18/2017
-ms.author: ancav
 ms.subservice: autoscale
-ms.openlocfilehash: 02840b8a909f46c37130bdb7162674c694a0ff96
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9a2b94208de7ce490a0e7acfbb71175b4a7c846e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60787502"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75364312"
 ---
 # <a name="understand-autoscale-settings"></a>Información acerca de la configuración de escalado automático
 La configuración de escalado automático le ayuda a asegurarse de que tiene la cantidad adecuada de recursos en ejecución para administrar las fluctuaciones de carga de la aplicación. Puede configurar los valores de escalado automático para que se desencadene en función de métricas que indican carga o rendimiento, o para que se desencadene en una fecha y hora programadas. En este artículo se proporciona una visión detallada de la estructura de una configuración de escalado automático. El artículo comienza con el esquema y las propiedades de una configuración y luego le guía por los diferentes tipos de perfil que se pueden configurar. Por último, en el artículo se describe cómo la característica de escalado automático de Azure evalúa qué perfil ejecutar en un momento dado.
@@ -89,27 +85,27 @@ Para ilustrar este esquema, se utiliza la siguiente configuración de escalado a
 }
 ```
 
-| Sección | Nombre del elemento | DESCRIPCIÓN |
+| Sección | Nombre del elemento | Descripción |
 | --- | --- | --- |
 | Configuración | id | Identificador de recurso de la configuración de escalado automático. La configuración de escalado automático es un recurso de Azure Resource Manager. |
 | Configuración | name | Nombre de la configuración de escalado automático. |
-| Configuración | location | Ubicación de la configuración de escalado automático. Esta ubicación puede ser diferente de la ubicación de los recursos que se van a escalar. |
+| Configuración | ubicación | Ubicación de la configuración de escalado automático. Esta ubicación puede ser diferente de la ubicación de los recursos que se van a escalar. |
 | properties | targetResourceUri | Identificador de recurso del recurso que se va a escalar. Solo puede tener una configuración de escalado automático por recurso. |
 | properties | profiles | Una configuración de escalado automático se compone de uno o varios perfiles. Cada vez que se ejecuta el motor de escalado automático, ejecuta un perfil. |
-| profiles | name | Nombre del perfil. Puede elegir cualquier nombre que le ayude a identificar el perfil. |
-| profiles | capacity.maximum | La capacidad máxima permitida. Garantiza que, al ejecutar este perfil, el escalado automático no escalará el recurso por encima de este número. |
-| profiles | Capacity.minimum | La capacidad mínima permitida. Garantiza que, al ejecutar este perfil, el escalado automático no escalará el recurso por debajo de este número. |
-| profiles | Capacity.default | Si hay algún problema al leer la métrica del recurso (en este caso, la CPU de "vmss1") y la capacidad actual es inferior a la predeterminada, el escalado automático escalará horizontalmente al valor predeterminado. De esta forma, se garantiza la disponibilidad del recurso. Si la capacidad actual ya es mayor que la predeterminada, el escalado automático no reduce horizontalmente. |
-| profiles | reglas | El escalado automático permite escalar automáticamente entre las capacidades máxima y mínima mediante las reglas del perfil. Puede tener varias reglas en un perfil. Normalmente hay dos reglas: una para determinar cuándo escalar horizontalmente y la otra para determinar cuándo reducir horizontalmente. |
-| rules | metricTrigger | Define la condición de métrica de la regla. |
+| perfile | name | Nombre del perfil. Puede elegir cualquier nombre que le ayude a identificar el perfil. |
+| perfile | capacity.maximum | La capacidad máxima permitida. Garantiza que, al ejecutar este perfil, el escalado automático no escalará el recurso por encima de este número. |
+| perfile | Capacity.minimum | La capacidad mínima permitida. Garantiza que, al ejecutar este perfil, el escalado automático no escalará el recurso por debajo de este número. |
+| perfile | Capacity.default | Si hay algún problema al leer la métrica del recurso (en este caso, la CPU de "vmss1") y la capacidad actual es inferior a la predeterminada, el escalado automático escalará horizontalmente al valor predeterminado. De esta forma, se garantiza la disponibilidad del recurso. Si la capacidad actual ya es mayor que la predeterminada, el escalado automático no reduce horizontalmente. |
+| perfile | reglas | El escalado automático permite escalar automáticamente entre las capacidades máxima y mínima mediante las reglas del perfil. Puede tener varias reglas en un perfil. Normalmente hay dos reglas: una para determinar cuándo escalar horizontalmente y la otra para determinar cuándo reducir horizontalmente. |
+| rule | metricTrigger | Define la condición de métrica de la regla. |
 | metricTrigger | metricName | El nombre de la métrica. |
 | metricTrigger |  metricResourceUri | El identificador de recurso del recurso que emite esta métrica. En la mayoría de los casos, es el mismo que el recurso que se va a escalar. En algunos casos, puede ser diferente. Por ejemplo, puede escalar un conjunto de escalado de máquinas virtuales en función del número de mensajes en una cola de almacenamiento. |
 | metricTrigger | timeGrain | La duración del muestreo de métricas. Por ejemplo, **TimeGrain = "PT1M"** significa que las métricas se deberían agregar cada minuto mediante el método de agregación especificado en "statistic". |
 | metricTrigger | statistic | El método de agregación del período timeGrain. Por ejemplo, **statistic = "Average"** y **timeGrain = "PT1M"** significa que las métricas se deberían agregar cada minuto tomando la media. Esta propiedad determina cómo se muestrea la métrica. |
 | metricTrigger | timeWindow | La cantidad de tiempo necesario para recuperar las métricas. Por ejemplo, **timeWindow = "PT10M"** significa que, cada vez que se ejecuta el escalado automático, se consultan las métricas de los últimos 10 minutos. La ventana de tiempo permite que las métricas se normalicen y evita que reaccionen a picos transitorios. |
 | metricTrigger | timeAggregation | Método de agregación que se usa para agregar métricas muestreadas. Por ejemplo, **TimeAggregation = "Average"** agregará las métricas muestreadas teniendo en cuenta la media. En el caso anterior, toma las diez muestras de 1 minuto y hace la media. |
-| rules | scaleAction | La acción que se realizará cuando se desencadene la propiedad metricTrigger de la regla. |
-| scaleAction | dirección | "Aumentar" para escalar horizontalmente o "Reducir" para reducir horizontalmente.|
+| rule | scaleAction | La acción que se realizará cuando se desencadene la propiedad metricTrigger de la regla. |
+| scaleAction | direction | "Aumentar" para escalar horizontalmente o "Reducir" para reducir horizontalmente.|
 | scaleAction | value | El grado de aumento o reducción de la capacidad del recurso. |
 | scaleAction | cooldown | La cantidad de tiempo que debe transcurrir después de realizar una operación de escalado antes de poder iniciar otra. Por ejemplo, si **cooldown = "PT10M"** , el escalado automático no intenta escalar de nuevo durante otros 10 minutos. Cooldown permite que las métricas se estabilicen después de la adición o eliminación de instancias. |
 
@@ -156,7 +152,7 @@ Hay tres tipos de perfiles de escalado automático:
     
 - **Perfil de periodicidad:** este tipo de perfil le permite garantizar que este perfil se usará siempre un día concreto de la semana. Los perfiles de periodicidad solo tienen una hora de inicio. Se ejecutan hasta que el siguiente perfil de periodicidad o perfil de fecha fija está configurado para iniciarse. Una configuración de escalado automático que solo incluya un perfil de periodicidad ejecuta ese perfil incluso aunque haya un perfil normal definido en la misma configuración. En los dos ejemplos siguientes se muestra cómo se usa este perfil:
 
-    **Ejemplo 1: Días laborables frente a fines de semana**
+    **Ejemplo 1: Días laborables frente a fines de semana**
     
     Supongamos que quiere que los fines de semana su capacidad máxima sea 4. Como en los días laborables la carga esperada es mayor, quiere que su capacidad máxima sea 10. En este caso, la configuración contendría dos perfiles de periodicidad, uno para ejecutarse durante los fines de semana y el otro los días laborables.
     La configuración es parecida a esta:
@@ -217,7 +213,7 @@ Hay tres tipos de perfiles de escalado automático:
 
     Por ejemplo, en la configuración anterior, "weekdayProfile" está configurado para iniciarse los lunes a las 12:00 a.m. Eso significa que este perfil comienza a ejecutarse los lunes a las 12:00 a.m. Y continúa hasta el sábado a las 12:00 a.m., cuando está programado que comience a ejecutarse "weekendProfile".
 
-    **Ejemplo 2: horario comercial**
+    **Ejemplo 2: horario comercial**
     
     Supongamos que tiene un umbral de métrica durante las horas laborables (de 9:00 a.m. a 5:00 p.m.) y otro para todas las demás horas. La configuración sería parecida a esta:
     

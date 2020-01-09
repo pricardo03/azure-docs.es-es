@@ -4,14 +4,14 @@ description: Aprenda a aprovisionar el rendimiento en el nivel de contenedor en 
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/12/2019
+ms.date: 12/13/2019
 ms.author: mjbrown
-ms.openlocfilehash: ed6a55c8b6049f16e96a4a95ecf3ef125db908d7
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: bfd18a009ed9ab5edffafcd0327b1d846cae02d8
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872050"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75643855"
 ---
 # <a name="provision-throughput-on-an-azure-cosmos-container"></a>Aprovisionamiento del rendimiento en un contenedor de Azure Cosmos
 
@@ -19,7 +19,7 @@ En este artículo se explica cómo aprovisionar el rendimiento de un contenedor 
 
 ## <a name="azure-portal"></a>Portal de Azure
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 1. [Cree una cuenta de Azure Cosmos](create-sql-api-dotnet.md#create-account) o seleccione una ya existente.
 
@@ -49,7 +49,7 @@ Para crear un contenedor con capacidad de procesamiento dedicada, consulte:
 > Use los SDK de Cosmos de la API de SQL para aprovisionar el rendimiento de todas las API de Cosmos DB, excepto Cassandra API.
 
 ### <a id="dotnet-most"></a>API de MongoDB y versiones de SQL, Gremlin y Table API
-### <a name="net-v2-sdk"></a>SDK para .NET V2
+### <a name="net-v2-sdk"></a>SDK de .NET V2
 
 ```csharp
 // Create a container with a partition key and provision throughput of 400 RU/s
@@ -77,7 +77,7 @@ const { database } = await client.databases.createIfNotExists({ id: "databaseId"
 
 // Create a container with the specified throughput
 const { resource } = await database.containers.createIfNotExists({
-id: "contaierId ",
+id: "containerId",
 throughput: 1000
 });
 

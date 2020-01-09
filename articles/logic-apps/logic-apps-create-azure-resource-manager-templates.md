@@ -6,16 +6,16 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 07/26/2019
-ms.openlocfilehash: d9b2dc7432ee1b847c8c7900a3e91daa71b5a771
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: d45cf8d951eb542e248a3ff4fe714b4d2af90cc7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793206"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428724"
 ---
 # <a name="create-azure-resource-manager-templates-to-automate-deployment-for-azure-logic-apps"></a>Creación de plantillas de Azure Resource Manager para automatizar la implementación de Azure Logic Apps
 
-Para ayudarle a automatizar la creación e implementación de su aplicación lógica, en este artículo se describen las formas en que puede crear una [plantilla de Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) para la aplicación lógica. Para obtener información general sobre la estructura y la sintaxis de una plantilla que incluye la definición de flujo de trabajo y otros recursos necesarios para la implementación, consulte [Introducción: Implementación automatizada de aplicaciones lógicas con plantillas de Azure Resource Manager](logic-apps-azure-resource-manager-templates-overview.md).
+Para ayudarle a automatizar la creación e implementación de su aplicación lógica, en este artículo se describen las formas en que puede crear una [plantilla de Azure Resource Manager](../azure-resource-manager/management/overview.md) para la aplicación lógica. Para obtener información general sobre la estructura y la sintaxis de una plantilla que incluye la definición de flujo de trabajo y otros recursos necesarios para la implementación, consulte [Introducción: Implementación automatizada de aplicaciones lógicas con plantillas de Azure Resource Manager](logic-apps-azure-resource-manager-templates-overview.md).
 
 Azure Logic Apps proporciona una [plantilla precompilada de Azure Resource Manager para aplicaciones lógicas](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json) que puede reutilizar no solo para crear aplicaciones lógicas, sino también para definir los recursos y parámetros que desea usar para la implementación. Puede usar esta plantilla para sus propios escenarios empresariales o personalizar para satisfacer sus requisitos.
 
@@ -24,8 +24,8 @@ Azure Logic Apps proporciona una [plantilla precompilada de Azure Resource Manag
 
 Para obtener más información acerca de las plantillas de Azure Resource Manager, consulte estos temas:
 
-* [Estructura y sintaxis de las plantillas de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)
-* [Creación de plantillas del Administrador de recursos de Azure](../azure-resource-manager/resource-group-authoring-templates.md)
+* [Estructura y sintaxis de las plantillas de Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md)
+* [Creación de plantillas del Administrador de recursos de Azure](../azure-resource-manager/templates/template-syntax.md)
 * [Desarrollo de plantillas de Azure Resource Manager para mantener la coherencia en la nube](../azure-resource-manager/templates-cloud-consistency.md)
 
 <a name="visual-studio"></a>
@@ -104,10 +104,10 @@ Para la extracción con referencias de Azure Key Vault (solo estática), ejecute
 PS> Get-ParameterTemplate -TemplateFile $filename -KeyVault Static | Out-File $fileNameParameter
 ```
 
-| Parámetros | Obligatorio | DESCRIPCIÓN |
+| Parámetros | Obligatorio | Descripción |
 |------------|----------|-------------|
 | TemplateFile | Sí | Ruta de acceso al archivo de plantilla |
-| KeyVault | Sin | Una enumeración que describe cómo controlar los posibles valores del almacén de claves. El valor predeterminado es `None`. |
+| KeyVault | No | Una enumeración que describe cómo controlar los posibles valores del almacén de claves. El valor predeterminado es `None`. |
 ||||
 
 ## <a name="next-steps"></a>Pasos siguientes

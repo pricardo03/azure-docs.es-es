@@ -3,18 +3,18 @@ title: Glosario de términos - Versión preliminar de IoT Plug and Play | Micros
 description: 'Conceptos: glosario de términos comunes relacionados con la versión preliminar de IoT Plug and Play.'
 author: ChrisGMsft
 ms.author: chrisgre
-ms.date: 10/10/2019
+ms.date: 12/23/2019
 ms.topic: conceptual
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 22b2cb8caa815b2ce8343a060a5f12133b763b83
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: b6516b07f24c40fcb95d47e05b22dd7672c10f2a
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890336"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531208"
 ---
 # <a name="glossary-of-terms-for-iot-plug-and-play-preview"></a>Glosario de términos de la versión preliminar de IoT Plug and Play
 
@@ -28,7 +28,7 @@ Puede usar el sitio web del [portal de Azure Certified for IoT](https://aka.ms/A
 - Buscar [modelos de funcionalidad del dispositivo](#device-capability-model).
 - Publicar un modelo de funcionalidad del dispositivo en el [repositorio de modelos público](#public-model-repository).
 
-## <a name="azure-cli"></a>CLI de Azure
+## <a name="azure-cli"></a>Azure CLI
 
 La CLI de Azure es una herramienta de línea de comandos multiplataforma para administrar recursos de Azure. La extensión de Azure IOT para la CLI de Azure es una herramienta de línea de comandos para interactuar con los [dispositivos IoT Plug and Play](#iot-plug-and-play-device) y probarlos. Puede usar la extensión para lo siguiente:
 
@@ -171,7 +171,7 @@ En el repositorio de modelos se almacenan las [interfaces](#interface) y los [mo
 
 Una API para administrar e interactuar con los repositorios de modelos. Por ejemplo, puede usar la API para agregar [modelos de funcionalidad del dispositivo](#device-capability-model) y buscar modelos de funcionalidad.
 
-## <a name="properties"></a>properties (Propiedades)
+## <a name="properties"></a>Propiedades
 
 Las propiedades son campos de datos definidos en una [interfaz](#interface) que representan un estado de un gemelo digital. Las propiedades se pueden declarar como de solo lectura o de escritura. Las propiedades de solo lectura, como el número de serie, se establecen mediante código que se ejecuta en el propio [dispositivo IoT Plug and Play](#iot-plug-and-play-device).  Las propiedades que se pueden escribir, como un umbral de alarma, se establecen normalmente a partir de la solución de IoT basada en la nube.
 

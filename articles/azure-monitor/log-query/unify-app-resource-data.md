@@ -1,23 +1,18 @@
 ---
 title: Unificación de varios recursos de Application Insights de Azure Monitor | Microsoft Docs
 description: En este artículo se proporcionan detalles sobre cómo usar una función en registros de Azure Monitor para consultar varios recursos de Application Insights y visualizar los datos.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.service: azure-monitor
+author: bwren
+ms.author: bwren
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.author: magoedte
-ms.openlocfilehash: d441b72b34da6146eba523563a09c2908cdcbbf4
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 07dd4c96ba51b1ac1e0cb2807c9e26df87a6daa7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650134"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75364975"
 ---
 # <a name="unify-multiple-azure-monitor-application-insights-resources"></a>Unificación de varios recursos de Application Insights de Azure Monitor 
 En este artículo se describe el proceso para consultar y ver todos los datos de registro de Application Insights en un mismo lugar (incluso si pertenecen a suscripciones a Azure distintas) como reemplazo de Application Insights Connector, que se encuentra en desuso. El número de recursos de Application Insights que se pueden incluir en una sola consulta se limita a 100.
@@ -37,7 +32,7 @@ Cree una función mediante el operador de unión con la lista de aplicaciones y 
 Puede modificar las aplicaciones enumeradas en cualquier momento en el portal; para ello, vaya al explorador de consultas en el área de trabajo y seleccione la función para editarla y guardarla, o use el cmdlet `SavedSearch` de PowerShell. 
 
 >[!NOTE]
->Este método no se puede usar con alertas de registro porque la validación de acceso de los recursos para las regla de alertas (incluidas las áreas de trabajo y las aplicaciones) se realiza en el momento de la creación de la alerta. No se admite la adición de nuevos recursos a la función después de crear la alerta. Si prefiere usar la función para el ámbito de los recursos en las alertas de registro, debe editar la regla de alerta en el portal o usar una plantilla de Resource Manager para actualizar los recursos de ámbito. También puede incluir la lista de recursos en la consulta de alerta de registro.
+>Este método no se puede usar con alertas de registro porque la validación de acceso de los recursos para las regla de alertas (incluidas las áreas de trabajo y las aplicaciones) se realiza en el momento de la creación de la alerta. No se admite la adición de nuevos recursos a la función después de crear la alerta. Si prefiere usar la función para el ámbito de los recursos en las alertas de registro, debe editar la regla de alertas en el portal o usar una plantilla de Resource Manager para actualizar los recursos de ámbito. También puede incluir la lista de recursos en la consulta de alerta de registro.
 
 El comando `withsource= SourceApp` agrega una columna a los resultados, que designa la aplicación que envió el registro. El operador de análisis es opcional en este ejemplo y se usa para extraer el nombre de la aplicación de la propiedad SourceApp. 
 
@@ -105,7 +100,7 @@ En la tabla siguiente se muestran las diferencias de esquema entre Log Analytics
 | AvailabilityCount | itemCount |
 | AvailabilityDuration | duration |
 | AvailabilityMessage | message |
-| AvailabilityRunLocation | location |
+| AvailabilityRunLocation | ubicación |
 | AvailabilityTestId | id |
 | AvailabilityTestName | name |
 | AvailabilityTimestamp | timestamp |
@@ -125,7 +120,7 @@ En la tabla siguiente se muestran las diferencias de esquema entre Log Analytics
 | ExceptionType | type |
 | OperationID | operation_id |
 | OperationName | operation_Name | 
-| OS | client_OS | 
+| SO | client_OS | 
 | PageViewCount | itemCount |
 | PageViewDuration | duration | 
 | PageViewName | name | 

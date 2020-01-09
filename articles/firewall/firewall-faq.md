@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: victorh
-ms.openlocfilehash: 418fafdec9bd44fa3682e33cc53bbca9c716dcf2
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: ac8ec9a86c388f41493d60d79a21db28fbf2aa95
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74167040"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646218"
 ---
 # <a name="azure-firewall-faq"></a>Preguntas frecuentes sobre Azure Firewall
 
@@ -40,7 +40,7 @@ La ventaja de este modelo es la posibilidad de ejercer control centralizado sobr
 
 ## <a name="how-can-i-install-the-azure-firewall"></a>¿Cómo puedo instalar Azure Firewall?
 
-Puede configurar Azure Firewall mediante Azure Portal, PowerShell, API REST o a través del uso de plantillas. Vea [Tutorial: Implementación y configuración de Azure Firewall mediante Azure Portal](tutorial-firewall-deploy-portal.md) para obtener instrucciones detalladas.
+Puede configurar Azure Firewall mediante Azure Portal, PowerShell, API REST o a través del uso de plantillas. Consulte [Tutorial: Implementación y configuración de Azure Firewall mediante Azure Portal](tutorial-firewall-deploy-portal.md) para obtener instrucciones detalladas.
 
 ## <a name="what-are-some-azure-firewall-concepts"></a>¿Cuáles son algunos de los conceptos de Azure Firewall?
 
@@ -58,7 +58,7 @@ Azure Firewall es compatible con el filtrado entrante y saliente. La protección
 
 ## <a name="which-logging-and-analytics-services-are-supported-by-the-azure-firewall"></a>¿Qué servicios de registro y análisis son compatibles con Azure Firewall?
 
-Azure Firewall se integra con Azure Monitor para ver y analizar los registros de firewall. Los registros se pueden enviar a Log Analytics, Azure Storage o Event Hubs. Puede analizarse en Log Analytics o usando distintas herramientas, como Excel y Power BI. Para obtener más información, vea [Tutorial: Supervisión de los registros de Azure Firewall](tutorial-diagnostics.md).
+Azure Firewall se integra con Azure Monitor para ver y analizar los registros de firewall. Los registros se pueden enviar a Log Analytics, Azure Storage o Event Hubs. Puede analizarse en Log Analytics o usando distintas herramientas, como Excel y Power BI. Para más información, consulte el [Tutorial: Supervisión de los registros de Azure Firewall](tutorial-diagnostics.md).
 
 ## <a name="how-does-azure-firewall-work-differently-from-existing-services-such-as-nvas-in-the-marketplace"></a>¿Cómo Azure Firewall funciona distinto de servicios existentes como NVA que ya están en el mercado?
 
@@ -113,7 +113,7 @@ Set-AzFirewall -AzureFirewall $azfw
 
 ## <a name="what-are-the-known-service-limits"></a>¿Cuáles son los límites conocidos del servicio?
 
-Para ver los límites del servicio Azure Firewall, consulte [Suscripción de Azure y límites de servicio, cuotas y restricciones](../azure-subscription-service-limits.md#azure-firewall-limits).
+Para ver los límites del servicio Azure Firewall, consulte [Suscripción de Azure y límites de servicio, cuotas y restricciones](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits).
 
 ## <a name="can-azure-firewall-in-a-hub-virtual-network-forward-and-filter-network-traffic-between-two-spoke-virtual-networks"></a>¿Azure Firewall en la red virtual de un concentrador puede reenviar y filtrar el tráfico de red entre dos redes virtuales de radio?
 

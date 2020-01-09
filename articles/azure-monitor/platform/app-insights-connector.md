@@ -4,15 +4,15 @@ description: Puede usar la solución Application Insights Connector para diagnos
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 02/13/2019
-ms.openlocfilehash: b956c3bc7d04908db1cc45092cf5926ecfcc305c
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: d0cfca44878130e870c633040afcfbdd55ba8b7b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932744"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75396544"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Solución de administración de Application Insights Connector (en desuso)
 
@@ -43,14 +43,14 @@ Cuando usa la solución, puede:
 
 A diferencia de la mayoría de las demás soluciones de Log Analytics, los agentes no recopilan datos para Application Insights Connector. Todos los datos usados por la solución proceden directamente de Azure.
 
-| Origen conectado | Compatible | DESCRIPCIÓN |
+| Origen conectado | Compatible | Descripción |
 | --- | --- | --- |
-| [Agentes de Windows](../../azure-monitor/platform/agent-windows.md) | Sin | La solución no recopila información de los agentes de Windows. |
-| [Agentes de Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | Sin | La solución no recopila información de los agentes de Linux. |
-| [Grupo de administración de SCOM](../../azure-monitor/platform/om-agents.md) | Sin | La solución no recopila información de los agentes de un grupo de administración SCOM conectado. |
-| [Cuenta de Almacenamiento de Azure](collect-azure-metrics-logs.md) | Sin | La solución no recopila información de Azure Storage. |
+| [Agentes de Windows](../../azure-monitor/platform/agent-windows.md) | No | La solución no recopila información de los agentes de Windows. |
+| [Agentes de Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | No | La solución no recopila información de los agentes de Linux. |
+| [Grupo de administración de SCOM](../../azure-monitor/platform/om-agents.md) | No | La solución no recopila información de los agentes de un grupo de administración SCOM conectado. |
+| [Cuenta de Almacenamiento de Azure](collect-azure-metrics-logs.md) | No | La solución no recopila información de Azure Storage. |
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 - Para obtener acceso a la información sobre Application Insights Connector, debe tener una suscripción de Azure
 - Debe tener como mínimo un recurso de Application Insights configurado.
@@ -175,9 +175,9 @@ Se crea un registro con un *tipo* de *ApplicationInsights* para cada tipo de dat
 
 ### <a name="generic-fields"></a>Campos genéricos
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 | --- | --- |
-| type | ApplicationInsights |
+| Tipo | ApplicationInsights |
 | ClientIP |   |
 | TimeGenerated | Hora del registro |
 | ApplicationId | Clave de instrumentación de la aplicación de Application Insights |
@@ -201,7 +201,7 @@ Se crea un registro con un *tipo* de *ApplicationInsights* para cada tipo de dat
 
 ### <a name="availability-specific-fields"></a>Campos específicos de disponibilidad
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 | --- | --- |
 | TelemetryType | Disponibilidad |
 | AvailabilityTestName | Nombre de la prueba web |
@@ -226,7 +226,7 @@ Se crea un registro con un *tipo* de *ApplicationInsights* para cada tipo de dat
 
 ### <a name="exception-specific-fields"></a>Campos específicos de excepción
 
-| type | ApplicationInsights |
+| Tipo | ApplicationInsights |
 | --- | --- |
 | TelemetryType | Excepción |
 | ExceptionType | Tipo de la excepción |
@@ -243,9 +243,9 @@ Se crea un registro con un *tipo* de *ApplicationInsights* para cada tipo de dat
 
 ### <a name="request-specific-fields"></a>Campos específicos de solicitud
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 | --- | --- |
-| type | ApplicationInsights |
+| Tipo | ApplicationInsights |
 | TelemetryType | Solicitud |
 | ResponseCode | Respuesta HTTP enviada al cliente |
 | RequestSuccess | Indica una solicitud correcta o errónea. True o false. |

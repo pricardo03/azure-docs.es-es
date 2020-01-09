@@ -4,15 +4,15 @@ description: Configuración de Diagnósticos de Azure con Event Hubs de un extre
 ms.service: azure-monitor
 ms.subservice: diagnostic-extension
 ms.topic: conceptual
-author: rboucher
-ms.author: robb
+author: bwren
+ms.author: bwren
 ms.date: 07/13/2017
-ms.openlocfilehash: 2b24618e4d7c12366db5e72226c6f94924d4d3a5
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 2b84f752467d630142f1920aac08bf5321b13acb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555533"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75363734"
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>Transmisión de datos de Diagnósticos de Azure en la ruta de acceso activa mediante Event Hubs
 Diagnósticos de Azure proporciona maneras flexibles de recopilar métricas y registros de máquinas virtuales de servicios en la nube (VM) y transferir los resultados a Azure Storage. A partir de marzo de 2016 (SDK 2.9), puede enviar diagnósticos a orígenes de datos personalizados y transferir datos de rutas de acceso activas en cuestión de segundos mediante [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/).
@@ -20,7 +20,7 @@ Diagnósticos de Azure proporciona maneras flexibles de recopilar métricas y re
 Entre los tipos de datos admitidos se incluyen:
 
 * Eventos de Seguimiento de eventos para Windows (ETW)
-* contadores de rendimiento
+* Contadores de rendimiento
 * Registros de eventos de Windows
 * Registros de aplicación
 * Registros de infraestructura de diagnóstico de Azure
@@ -32,7 +32,7 @@ En este artículo se muestra cómo configurar Diagnósticos de Azure con Event H
 * Cómo ver los datos de secuencia de Event Hubs
 * Cómo solucionar los problemas de conexión  
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 La recepción de datos de Azure Diagnostics en Event Hubs se admite en Cloud Services, Virtual Machines, Virtual Machine Scale Sets y Service Fabric a partir de Azure SDK 2.9 y las correspondientes herramientas de Azure Tools para Visual Studio.
 
 * La extensión de Diagnósticos de Azure 1.6 ([Azure SDK para .NET 2.9 o posterior](https://azure.microsoft.com/downloads/) sirve a este fin de forma predeterminada).
@@ -319,7 +319,7 @@ namespace EventHubListener
 ## <a name="next-steps"></a>Pasos siguientes
 •    [Más información sobre Event Hubs](https://azure.microsoft.com/services/event-hubs/)
 
-## <a name="appendix-complete-azure-diagnostics-configuration-file-wadcfgx-example"></a>Anexo: Ejemplo del archivo de configuración completo de Azure Diagnostics (.wadcfgx)
+## <a name="appendix-complete-azure-diagnostics-configuration-file-wadcfgx-example"></a>Apéndice: Ejemplo del archivo de configuración completo de Azure Diagnostics (.wadcfgx)
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <DiagnosticsConfiguration xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">

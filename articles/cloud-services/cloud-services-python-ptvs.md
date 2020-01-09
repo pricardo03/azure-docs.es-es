@@ -3,24 +3,24 @@ title: Introducción a Python y a Azure Cloud Services | Microsoft Docs
 description: Información general sobre el uso de Python Tools para Visual Studio para crear servicios en la nube de Azure, incluidos roles web y roles de trabajo.
 services: cloud-services
 documentationcenter: python
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.devlang: python
 ms.topic: conceptual
 ms.date: 07/18/2017
-ms.author: gwallace
-ms.openlocfilehash: 981b1cc4a7adb98ba68ebf3a7673b7116479e704
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.author: tagore
+ms.openlocfilehash: b832831a2483b11a7a3c1942dd79065e8be65bf9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68359562"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75360725"
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Roles web y de trabajo de Python con herramientas de Python para Visual Studio
 
 En este artículo se ofrece información general sobre el uso de roles web y de trabajo de Python con [herramientas de Python para Visual Studio][Python Tools for Visual Studio]. Obtenga información acerca de cómo usar Visual Studio para crear e implementar un servicio en la nube básico que usa Python.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 * [Visual Studio 2013, 2015 o 2017](https://www.visualstudio.com/)
 * [Herramientas de Python para Visual Studio][Python Tools for Visual Studio] (PTVS)
 * [Herramientas de Azure SDK para VS 2013][Azure SDK Tools for VS 2013] o  
@@ -334,7 +334,7 @@ Para más información sobre el uso de servicios de Azure desde roles web y de t
 
 * [Blob Service][Blob Service]
 * [Table service][Table Service]
-* [Queue service][Queue Service]
+* [Queue Service][Queue Service]
 * [Colas de Service Bus][Service Bus Queues]
 * [Temas de Service Bus][Service Bus Topics]
 
@@ -363,3 +363,6 @@ Para más información sobre el uso de servicios de Azure desde roles web y de t
 [Azure SDK Tools for VS 2017]: https://go.microsoft.com/fwlink/?LinkId=746483
 [Python 2.7 32-bit]: https://www.python.org/downloads/
 [Python 3.5 32-bit]: https://www.python.org/downloads/
+
+
+

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
-ms.openlocfilehash: f34e71c4e15e3bb09676e366313e90a7261439e5
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 882582191b5794e3978d955dfa9bded294064037
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900445"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75398309"
 ---
 # <a name="advanced-aggregations-in-azure-monitor-log-queries"></a>Agregaciones avanzadas en consultas de registros de Azure Monitor
 
@@ -37,7 +37,7 @@ Event
 |---|---|
 | computer1 | [704,701,1501,1500,1085,704,704,701] |
 | computer2 | [326,105,302,301,300,102] |
-| ... | ... |
+| … | … |
 
 El elemento `makelist` genera una lista en el orden en el que se le pasaron datos. Para ordenar los eventos del más antiguo al más reciente, use el elemento `asc` en la instrucción order en lugar del elemento `desc`. 
 
@@ -54,7 +54,7 @@ Event
 |---|---|
 | computer1 | [704,701,1501,1500,1085] |
 | computer2 | [326,105,302,301,300,102] |
-| ... | ... |
+| … | … |
 
 Igual que con el elemento `makelist`, el elemento `makeset` también funciona con datos ordenados y generará las matrices en función del orden de las filas que se le pasen.
 
@@ -72,7 +72,7 @@ Heartbeat
 | computer1 | "security", "updates", "changeTracking" |
 | computer2 | "security", "updates" |
 | computer3 | "antiMalware", "changeTracking" |
-| ... | ... |
+| … | … |
 
 Use `mvexpand` para mostrar cada valor en una fila separada, en lugar de una lista separada por comas:
 
@@ -92,7 +92,7 @@ Heartbeat
 | computer2 | "updates" |
 | computer3 | "antiMalware" |
 | computer3 | "changeTracking" |
-| ... | ... |
+| … | … |
 
 
 Luego puede usar `makelist` de nuevo para agrupar elementos y, esta vez, ver la lista de equipos por solución:
@@ -111,7 +111,7 @@ Heartbeat
 | "updates" | ["computer1", "computer2"] |
 | "changeTracking" | ["computer1", "computer3"] |
 | "antiMalware" | ["computer3"] |
-| ... | ... |
+| … | … |
 
 ## <a name="handling-missing-bins"></a>Control de la ausencia de intervalos
 Una aplicación útil del elemento `mvexpand` es la necesidad de rellenar valores predeterminados para los intervalos que faltan. Por ejemplo, suponga que busca el tiempo de actividad de un equipo determinado explorando su latido. También quiere ver el origen del latido que se encuentra en la columna _categoría_. Normalmente, se usaría una instrucción summarize simple, de la forma siguiente:
@@ -129,7 +129,7 @@ Heartbeat
 | Agente directo | 2017-06-06T20:00:00Z | 55 |
 | Agente directo | 2017-06-06T21:00:00Z | 57 |
 | Agente directo | 2017-06-06T22:00:00Z | 60 |
-| ... | ... | ... |
+| … | … | … |
 
 Aunque, en estos resultados, falta el cubo asociado con "2017-06-06T19:00:00Z" porque no hay ningún dato de latido para esa hora. Use la función `make-series` para asignar un valor predeterminado a los cubos vacíos. Esto generará una fila para cada categoría con dos columnas de matriz adicionales, una para los valores y otra para los cubos de tiempo coincidentes:
 
@@ -141,7 +141,7 @@ Heartbeat
 | Category | count_ | TimeGenerated |
 |---|---|---|
 | Agente directo | [15,60,0,55,60,57,60,...] | ["2017-06-06T17:00:00.0000000Z","2017-06-06T18:00:00.0000000Z","2017-06-06T19:00:00.0000000Z","2017-06-06T20:00:00.0000000Z","2017-06-06T21:00:00.0000000Z",...] |
-| ... | ... | ... |
+| … | … | … |
 
 El tercer elemento de la matriz *count_* es 0, según lo previsto, y hay una marca de tiempo coincidente de "2017-06-06T19:00:00.0000000Z" en la matriz _TimeGenerated_. Aunque, este formato de matriz es difícil de leer. Use el elemento `mvexpand` para expandir las matrices y producir la salida en el mismo formato que el que genera la instrucción `summarize`:
 
@@ -160,7 +160,7 @@ Heartbeat
 | Agente directo | 2017-06-06T20:00:00Z | 55 |
 | Agente directo | 2017-06-06T21:00:00Z | 57 |
 | Agente directo | 2017-06-06T22:00:00Z | 60 |
-| ... | ... | ... |
+| … | … | … |
 
 
 

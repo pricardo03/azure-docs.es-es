@@ -4,16 +4,16 @@ description: Cree trabajos perimetrales en Azure Stream Analytics e impleméntel
 ms.service: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.topic: conceptual
 ms.date: 07/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 07fa43563ca9b6c9ae247df6eb28894331b004c1
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: ff2a7e571c771a73c46959f35e341d861533bb55
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976441"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426329"
 ---
 # <a name="azure-stream-analytics-on-iot-edge"></a>Azure Stream Analytics en IoT Edge
  
@@ -225,7 +225,7 @@ Esta información de versión se actualizó por última vez el 27 de junio de 20
       - so: windows
       
       
-## <a name="get-help"></a>Obtención de ayuda
+## <a name="get-help"></a>Obtener ayuda
 Para más ayuda, pruebe el [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Pasos siguientes

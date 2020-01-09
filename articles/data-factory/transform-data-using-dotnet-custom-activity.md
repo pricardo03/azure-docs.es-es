@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/26/2018
-ms.openlocfilehash: 0f0e2b6164eab7afc39532b0d572d367e3d4ae64
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 4913152125b0fafd74db575f835d53fa992b075e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74913074"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439545"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Uso de actividades personalizadas en una canalización de Azure Data Factory
 
@@ -99,18 +99,18 @@ En este ejemplo, el archivo helloworld.exe es una aplicación personalizada que 
 
 En la tabla siguiente se describen los nombres y descripciones de las propiedades que son específicas de esta actividad.
 
-| Propiedad              | DESCRIPCIÓN                              | Obligatorio |
+| Propiedad              | Descripción                              | Obligatorio |
 | :-------------------- | :--------------------------------------- | :------- |
-| Nombre                  | Nombre de la actividad en la canalización     | Sí      |
-| description           | Texto que describe para qué se usa la actividad.  | Sin       |
-| Tipo                  | Para la actividad personalizada, el tipo de actividad es **Custom**. | Sí      |
+| name                  | Nombre de la actividad en la canalización     | Sí      |
+| description           | Texto que describe para qué se usa la actividad.  | No       |
+| type                  | Para la actividad personalizada, el tipo de actividad es **Custom**. | Sí      |
 | linkedServiceName     | Servicio vinculado a Azure Batch. Para obtener más información sobre este servicio vinculado, vea el artículo [Compute linked services](compute-linked-services.md) (Servicios vinculados de procesos).  | Sí      |
 | command               | Comando de la aplicación personalizada que se va a ejecutar. Si la aplicación ya está disponible en el nodo del grupo de Azure Batch, se pueden omitir las propiedades resourceLinkedService y folderPath. Por ejemplo, puede especificar que el comando sea `cmd /c dir`, que el nodo del grupo de lotes de Windows admite de forma nativa. | Sí      |
 | resourceLinkedService | Servicio de Azure Storage vinculado a la cuenta de almacenamiento en la que está almacenada la aplicación personalizada | No &#42;       |
 | folderPath            | Ruta de acceso a la carpeta de la aplicación personalizada y todas sus dependencias<br/><br/>Si tiene dependencias que se almacenan en subcarpetas (es decir, en una estructura jerárquica de carpetas bajo *folderPath*) la estructura de carpetas se elimina cuando los archivos se copian en Azure Batch. Es decir, todos los archivos se copian en una sola carpeta sin subcarpetas. Para evitar este comportamiento, considere la posibilidad de comprimir los archivos, copiar el archivo comprimido y, a continuación, descomprimirlo con código personalizado en la ubicación deseada. | No &#42;       |
-| referenceObjects      | Matriz de servicios vinculados y conjuntos de datos existentes. Los servicios vinculados y los conjuntos de datos a los que se hace referencia se pasan a la aplicación personalizada en formato JSON, por lo que el código personalizado puede hacer referencia a recursos de Data Factory | Sin       |
-| extendedProperties    | Propiedades definidas por el usuario que se pueden pasar a la aplicación personalizada en formato JSON, por lo que el código personalizado puede hacer referencia a propiedades adicionales | Sin       |
-| retentionTimeInDays | Tiempo de retención de los archivos enviados para la actividad personalizada. El valor predeterminado es 30 días. | Sin |
+| referenceObjects      | Matriz de servicios vinculados y conjuntos de datos existentes. Los servicios vinculados y los conjuntos de datos a los que se hace referencia se pasan a la aplicación personalizada en formato JSON, por lo que el código personalizado puede hacer referencia a recursos de Data Factory | No       |
+| extendedProperties    | Propiedades definidas por el usuario que se pueden pasar a la aplicación personalizada en formato JSON, por lo que el código personalizado puede hacer referencia a propiedades adicionales | No       |
+| retentionTimeInDays | Tiempo de retención de los archivos enviados para la actividad personalizada. El valor predeterminado es 30 días. | No |
 
 &#42;Las propiedades `resourceLinkedService` y `folderPath` deben especificarse ambas u omitirse ambas.
 
@@ -121,7 +121,7 @@ En la tabla siguiente se describen los nombres y descripciones de las propiedade
 
 La actividad personalizada establece la cuenta de usuario automático de Azure Batch en *Acceso sin privilegios de administrador con ámbito de la tarea* (la especificación de usuario automático predeterminada). No se puede cambiar el nivel de permiso de la cuenta de usuario automático. Para más información, consulte [Ejecución de tareas en cuentas de usuario en Batch | Cuentas de usuario automático](../batch/batch-user-accounts.md#auto-user-accounts).
 
-## <a name="executing-commands"></a>Ejecución de comandos
+## <a name="executing-commands"></a>Ejecutar comandos
 
 Puede ejecutar directamente un comando mediante la actividad personalizada. En el ejemplo siguiente se ejecuta un comando "echo hello world" en los nodos de grupo de destino de Azure Batch y se imprime la salida en stdout.
 
@@ -174,7 +174,7 @@ En este ejemplo se muestra cómo usar las propiedades referenceObjects y extende
             "type": "LinkedServiceReference"
           }]
         },
-        "extendedProperties": {
+        "extendedProperties": {          
           "connectionString": {
             "type": "SecureString",
             "value": "aSampleSecureString"

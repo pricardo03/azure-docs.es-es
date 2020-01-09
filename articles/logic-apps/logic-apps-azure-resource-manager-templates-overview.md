@@ -6,18 +6,18 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 07/25/2019
-ms.openlocfilehash: 0f5216181efcd6593fc9f85de0792b98a5d7fd0a
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 000271095530e269472fba4bc5f1c5563aa16ff9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792550"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428819"
 ---
-# <a name="overview-automate-deployment-for-azure-logic-apps-by-using-azure-resource-manager-templates"></a>Información general: Automatización de la implementación para Azure Logic Apps mediante plantillas de Azure Resource Manager
+# <a name="overview-automate-deployment-for-azure-logic-apps-by-using-azure-resource-manager-templates"></a>Introducción: Automatización de la implementación para Azure Logic Apps mediante plantillas de Azure Resource Manager
 
-Cuando esté listo para automatizar la creación e implementación de la aplicación lógica, puede expandir la definición de flujo de trabajo subyacente de la aplicación lógica en una [plantilla de Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). Esta plantilla define la infraestructura, los recursos, los parámetros y otra información para aprovisionar e implementar la aplicación lógica. Al definir los parámetros para los valores que varían en la implementación, lo que también se conoce como *parametrización*, puede implementar de forma repetida y coherente aplicaciones lógicas según las diferentes necesidades de implementación.
+Cuando esté listo para automatizar la creación e implementación de la aplicación lógica, puede expandir la definición de flujo de trabajo subyacente de la aplicación lógica en una [plantilla de Azure Resource Manager](../azure-resource-manager/management/overview.md). Esta plantilla define la infraestructura, los recursos, los parámetros y otra información para aprovisionar e implementar la aplicación lógica. Al definir los parámetros para los valores que varían en la implementación, lo que también se conoce como *parametrización*, puede implementar de forma repetida y coherente aplicaciones lógicas según las diferentes necesidades de implementación.
 
-Por ejemplo, si realiza implementaciones en entornos de desarrollo, prueba y producción, probablemente usa cadenas de conexión diferentes para cada entorno. Puede declarar parámetros de plantilla que acepten cadenas de conexión diferentes y, a continuación, almacenar dichas cadenas en un [archivo de parámetros](../azure-resource-manager/resource-group-template-deploy.md#parameter-files) independiente. De este modo, puede cambiar esos valores sin tener que actualizar y volver a implementar la plantilla. En los casos en los que tenga valores de parámetros que sean confidenciales o deban protegerse, como contraseñas y secretos, puede almacenarlos en [Azure Key Vault](../azure-resource-manager/resource-manager-keyvault-parameter.md) y hacer que el archivo de parámetros recupere esos valores. Sin embargo, en estos casos, debería hacer la implementación de nuevo para recuperar los valores actuales.
+Por ejemplo, si realiza implementaciones en entornos de desarrollo, prueba y producción, probablemente usa cadenas de conexión diferentes para cada entorno. Puede declarar parámetros de plantilla que acepten cadenas de conexión diferentes y, a continuación, almacenar dichas cadenas en un [archivo de parámetros](../azure-resource-manager/templates/parameter-files.md) independiente. De este modo, puede cambiar esos valores sin tener que actualizar y volver a implementar la plantilla. En los casos en los que tenga valores de parámetros que sean confidenciales o deban protegerse, como contraseñas y secretos, puede almacenarlos en [Azure Key Vault](../azure-resource-manager/resource-manager-keyvault-parameter.md) y hacer que el archivo de parámetros recupere esos valores. Sin embargo, en estos casos, debería hacer la implementación de nuevo para recuperar los valores actuales.
 
 En esta información general se describen los atributos de una plantilla de Resource Manager que incluye una definición de flujo de trabajo de una aplicación lógica. Tanto la plantilla como la definición de flujo de trabajo usan la sintaxis JSON, pero existen algunas diferencias porque la definición de flujo de trabajo también sigue el [esquema del lenguaje de definición de flujo de trabajo](../logic-apps/logic-apps-workflow-definition-language.md). Por ejemplo, las expresiones de plantilla y las de definición de flujo de trabajo difieren en la manera en que [hacen referencia a los parámetros](#parameter-references) y los valores que pueden aceptar.
 
@@ -30,7 +30,7 @@ En la aplicación lógica de ejemplo de este tema se usa un [desencadenador de O
 
 Para obtener más información sobre las plantillas de Resource Manager, consulte los temas siguientes:
 
-* [Estructura y sintaxis de las plantillas de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)
+* [Estructura y sintaxis de las plantillas de Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md)
 * [Azure Resource Manager template best practices](../azure-resource-manager/template-best-practices.md) (Procedimientos recomendados de plantillas de Azure Resource Manager)
 * [Desarrollo de plantillas de Azure Resource Manager para mantener la coherencia en la nube](../azure-resource-manager/templates-cloud-consistency.md)
 
@@ -45,7 +45,7 @@ Para obtener información sobre los recursos de plantilla específicos de Logic 
 
 ## <a name="template-structure"></a>Estructura de plantilla
 
-En el nivel superior, una plantilla de Resource Manager sigue esta estructura, que se describe detalladamente en el tema [Estructura y sintaxis de las plantillas de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md):
+En el nivel superior, una plantilla de Resource Manager sigue esta estructura, que se describe detalladamente en el tema [Estructura y sintaxis de las plantillas de Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md):
 
 ```json
 {
@@ -61,10 +61,10 @@ En el nivel superior, una plantilla de Resource Manager sigue esta estructura, q
 
 En el caso de una plantilla de aplicación lógica, principalmente debe trabajar con estos objetos de plantilla:
 
-| Atributo | DESCRIPCIÓN |
+| Atributo | Descripción |
 |-----------|-------------|
-| `parameters` | Declara los [parámetros de plantilla](../azure-resource-manager/resource-group-authoring-templates.md#parameters) para aceptar los valores que se van a usar al crear y personalizar los recursos para la implementación en Azure. Por ejemplo, estos parámetros aceptan los valores del nombre y la ubicación de la aplicación lógica, las conexiones y otros recursos necesarios para la implementación. Puede almacenar estos valores de parámetros en un [archivo de parámetros](#template-parameter-files), que se describe más adelante en este tema. Para obtener información general, consulte la sección [Parámetros del artículo Estructura y sintaxis de las plantillas de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md#parameters). |
-| `resources` | Define los [recursos](../azure-resource-manager/resource-group-authoring-templates.md#resources) que se crean o actualizan e implementan en un grupo de recursos de Azure, como la aplicación lógica, las conexiones, las cuentas de Azure Storage, etc. Para obtener información general, consulte la sección [Recursos del artículo Estructura y sintaxis de las plantillas de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md#resources). |
+| `parameters` | Declara los [parámetros de plantilla](../azure-resource-manager/templates/template-syntax.md#parameters) para aceptar los valores que se van a usar al crear y personalizar los recursos para la implementación en Azure. Por ejemplo, estos parámetros aceptan los valores del nombre y la ubicación de la aplicación lógica, las conexiones y otros recursos necesarios para la implementación. Puede almacenar estos valores de parámetros en un [archivo de parámetros](#template-parameter-files), que se describe más adelante en este tema. Para obtener información general, consulte la sección [Parámetros del artículo Estructura y sintaxis de las plantillas de Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md#parameters). |
+| `resources` | Define los [recursos](../azure-resource-manager/templates/template-syntax.md#resources) que se crean o actualizan e implementan en un grupo de recursos de Azure, como la aplicación lógica, las conexiones, las cuentas de Azure Storage, etc. Para obtener información general, consulte la sección [Recursos del artículo Estructura y sintaxis de las plantillas de Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md#resources). |
 ||||
 
 La plantilla de la aplicación lógica usa este formato de nombre de archivo:
@@ -78,7 +78,7 @@ La plantilla de la aplicación lógica usa este formato de nombre de archivo:
 
 ## <a name="template-parameters"></a>Parámetros de plantilla
 
-Una plantilla de aplicación lógica tiene varios objetos `parameters` que existen en diferentes niveles y realizan diferentes funciones. Por ejemplo, en el nivel superior, puede declarar [parámetros de plantilla](../azure-resource-manager/resource-group-authoring-templates.md#parameters) para los valores que se deben aceptar y usar en la implementación al crear e implementar recursos en Azure, por ejemplo:
+Una plantilla de aplicación lógica tiene varios objetos `parameters` que existen en diferentes niveles y realizan diferentes funciones. Por ejemplo, en el nivel superior, puede declarar [parámetros de plantilla](../azure-resource-manager/templates/template-syntax.md#parameters) para los valores que se deben aceptar y usar en la implementación al crear e implementar recursos en Azure, por ejemplo:
 
 * Su aplicación lógica
 * Conexiones que usa la lógica para acceder a otros servicios y sistemas a través de [conectores administrados](../connectors/apis-list.md)
@@ -86,7 +86,7 @@ Una plantilla de aplicación lógica tiene varios objetos `parameters` que exist
 
   Por ejemplo, si la aplicación lógica usa una [cuenta de integración](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) para escenarios negocio a negocio (B2B), el objeto `parameters` de nivel superior de la plantilla declara el parámetro que acepta el identificador del recurso para esa cuenta de integración.
 
-A continuación, se muestra la estructura y la sintaxis generales de una definición de parámetro, que se describe detalladamente en la sección [Parámetros del artículo Estructura y sintaxis de las plantillas de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md#parameters):
+A continuación, se muestra la estructura y la sintaxis generales de una definición de parámetro, que se describe detalladamente en la sección [Parámetros del artículo Estructura y sintaxis de las plantillas de Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md#parameters):
 
 ```json
 "<parameter-name>": {
@@ -147,9 +147,9 @@ Excepto en el caso de los parámetros que controlan valores que son confidencial
 
 Para proteger los parámetros de plantilla, consulte estos temas:
 
-* [Recomendaciones de seguridad para parámetros de plantilla](../azure-resource-manager/template-best-practices.md#parameters)
+* [Recomendaciones de seguridad para parámetros de plantilla](../azure-resource-manager/templates/template-best-practices.md#parameters)
 * [Protección de parámetros de plantilla](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-deployment-template)
-* [Pasar valores de parámetro seguros con Azure Key Vault](../azure-resource-manager/resource-manager-keyvault-parameter.md)
+* [Pasar valores de parámetros seguros con Azure Key Vault](../azure-resource-manager/resource-manager-keyvault-parameter.md)
 
 Otros objetos de plantilla a menudo hacen referencia a los parámetros de plantilla a fin de poder usar los valores que pasan a través de los parámetros de plantilla, por ejemplo:
 
@@ -169,7 +169,7 @@ Estos son algunos procedimientos recomendados para definir parámetros:
 
 * Incluya el atributo `defaultValue`, que puede especificar valores vacíos, para todos los parámetros excepto los valores que sean confidenciales o que se deban proteger. Use siempre parámetros seguros para los nombres de usuario, las contraseñas y los secretos. Para ocultar o proteger los valores de parámetros confidenciales, siga las instrucciones de estos temas:
 
-  * [Recomendaciones de seguridad para parámetros de plantilla](../azure-resource-manager/template-best-practices.md#parameters)
+  * [Recomendaciones de seguridad para parámetros de plantilla](../azure-resource-manager/templates/template-best-practices.md#parameters)
 
   * [Protección de parámetros de plantilla](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-deployment-template)
 
@@ -177,13 +177,13 @@ Estos son algunos procedimientos recomendados para definir parámetros:
 
 * Para diferenciar los nombres de los parámetros de plantilla de los nombres de los parámetros de la definición de flujo de trabajo, puede usar nombres de parámetros de plantilla descriptivos, por ejemplo: `TemplateFabrikamPassword`.
 
-Para obtener más procedimientos recomendados de plantillas, consulte [Procedimientos recomendados para parámetros de plantilla](../azure-resource-manager/template-best-practices.md#parameters).
+Para obtener más procedimientos recomendados de plantillas, consulte [Procedimientos recomendados para parámetros de plantilla](../azure-resource-manager/templates/template-best-practices.md#parameters).
 
 <a name="template-parameter-files"></a>
 
 ## <a name="template-parameters-file"></a>Archivo de parámetros de plantilla
 
-Para proporcionar los valores de los parámetros de plantilla, almacénelos en un [archivo de parámetros](../azure-resource-manager/resource-group-template-deploy.md#parameter-files). De este modo, puede usar diferentes archivos de parámetros en función de sus necesidades de implementación. Este es el formato de nombre de archivo que se va a usar:
+Para proporcionar los valores de los parámetros de plantilla, almacénelos en un [archivo de parámetros](../azure-resource-manager/templates/parameter-files.md). De este modo, puede usar diferentes archivos de parámetros en función de sus necesidades de implementación. Este es el formato de nombre de archivo que se va a usar:
 
 * Nombre de archivo de la plantilla de la aplicación lógica: **<*logic-app-name*>.json**
 * Nombre del archivo de parámetros: **<*logic-app-name*>.parameters.json**
@@ -267,8 +267,8 @@ La plantilla tiene un objeto `resources`, que es una matriz que contiene las def
 
 Para obtener información general sobre los recursos de plantilla y sus atributos, consulte estos temas:
 
-* [Recursos en Estructura y sintaxis de las plantillas de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md#resources)
-* [Procedimientos recomendados para los recursos de plantilla](../azure-resource-manager/template-best-practices.md#resources)
+* [Recursos en Estructura y sintaxis de las plantillas de Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md#resources)
+* [Procedimientos recomendados para los recursos de plantilla](../azure-resource-manager/templates/template-best-practices.md#resources)
 
 <a name="logic-app-resource-definition"></a>
 
@@ -319,13 +319,13 @@ La definición de recursos de la aplicación lógica se inicia con el objeto `pr
 
 Estos son los atributos que son específicos de la definición de recursos de la aplicación lógica:
 
-| Atributo | Obligatorio | type | DESCRIPCIÓN |
+| Atributo | Obligatorio | Tipo | Descripción |
 |-----------|----------|------|-------------|
-| `state` | Sí | Cadena | El estado de la aplicación lógica en la implementación, en que `Enabled` significa que la aplicación lógica está activa y `Disabled` significa que la aplicación lógica está inactiva. Por ejemplo, si no está listo para que la aplicación lógica pase a estar activa, pero quiere implementar una versión de borrador, puede usar la opción `Disabled`. |
-| `integrationAccount` | Sin | Object | Si la aplicación lógica usa una cuenta de integración, que almacena artefactos para escenarios negocio a negocio (B2B), este objeto incluye el atributo `id`, que especifica el identificador de la cuenta de integración. |
+| `state` | Sí | String | El estado de la aplicación lógica en la implementación, en que `Enabled` significa que la aplicación lógica está activa y `Disabled` significa que la aplicación lógica está inactiva. Por ejemplo, si no está listo para que la aplicación lógica pase a estar activa, pero quiere implementar una versión de borrador, puede usar la opción `Disabled`. |
+| `integrationAccount` | No | Object | Si la aplicación lógica usa una cuenta de integración, que almacena artefactos para escenarios negocio a negocio (B2B), este objeto incluye el atributo `id`, que especifica el identificador de la cuenta de integración. |
 | `definition` | Sí | Object | La definición de flujo de trabajo subyacente de la aplicación lógica, que es el mismo objeto que aparece en la vista de código y se describe detalladamente en el tema [Referencia de esquema del lenguaje de definición de flujo de trabajo](../logic-apps/logic-apps-workflow-definition-language.md). En esta definición de flujo de trabajo, el objeto `parameters` declara los parámetros de los valores que se van a usar en el tiempo de ejecución de la aplicación lógica. Para obtener más información, consulte [Definición y parámetros del flujo de trabajo](#workflow-definition-parameters). <p><p>Para ver los atributos de la definición de flujo de trabajo de la aplicación lógica, cambie de la "vista de diseño" a la "vista de código" en Azure Portal o Visual Studio, o mediante una herramienta como [Azure Resource Explorer](https://resources.azure.com). |
-| `parameters` | Sin | Object | [Valores del parámetro de definición de flujo de trabajo](#workflow-definition-parameters) que se usarán en el tiempo de ejecución de la aplicación lógica. Las definiciones de los parámetros de estos valores se muestran dentro del [objeto de parámetros de la definición de flujo de trabajo](#workflow-definition-parameters). Además, si la aplicación lógica usa [conectores administrados](../connectors/apis-list.md) para acceder a otros servicios y sistemas, este objeto incluye un objeto `$connections` que establece los valores de conexión que se usarán en tiempo de ejecución. |
-| `accessControl` | Sin | Object | Se usa para especificar los atributos de seguridad de la aplicación lógica, por ejemplo, para restringir el acceso IP a los desencadenadores de solicitud o ejecutar entradas y salidas del historial. Para obtener más información, consulte [Protección del acceso a las aplicaciones lógicas](../logic-apps/logic-apps-securing-a-logic-app.md). |
+| `parameters` | No | Object | [Valores del parámetro de definición de flujo de trabajo](#workflow-definition-parameters) que se usarán en el tiempo de ejecución de la aplicación lógica. Las definiciones de los parámetros de estos valores se muestran dentro del [objeto de parámetros de la definición de flujo de trabajo](#workflow-definition-parameters). Además, si la aplicación lógica usa [conectores administrados](../connectors/apis-list.md) para acceder a otros servicios y sistemas, este objeto incluye un objeto `$connections` que establece los valores de conexión que se usarán en tiempo de ejecución. |
+| `accessControl` | No | Object | Se usa para especificar los atributos de seguridad de la aplicación lógica, por ejemplo, para restringir el acceso IP a los desencadenadores de solicitud o ejecutar entradas y salidas del historial. Para obtener más información, consulte [Protección del acceso a las aplicaciones lógicas](../logic-apps/logic-apps-securing-a-logic-app.md). |
 ||||
 
 Para obtener información sobre los recursos de plantilla específicos de Logic Apps, las cuentas de integración y los artefactos de la cuenta de integración, consulte [Tipos de recursos de Microsoft.Logic](https://docs.microsoft.com/azure/templates/microsoft.logic/allversions).
@@ -906,7 +906,7 @@ En el ejemplo siguiente, se proporciona el nombre de la cuenta y la clave de acc
 
 <a name="authenticate-connections"></a>
 
-### <a name="authenticate-connections"></a>Autenticación de conexiones
+### <a name="authenticate-connections"></a>Autenticar conexiones
 
 Después de la implementación, la aplicación lógica funciona por completo con parámetros válidos. Aun así, igualmente debe autorizar las conexiones de OAuth para generar tokens de acceso válidos a fin de [autenticar las credenciales](../active-directory/develop/authentication-scenarios.md). Para obtener más información, consulte el artículo [Autorización de conexiones de OAuth](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md#authorize-oauth-connections).
 
@@ -936,7 +936,7 @@ Algunas conexiones admiten el uso de una [entidad de servicio](../active-directo
 }
 ```
 
-| Atributo | DESCRIPCIÓN |
+| Atributo | Descripción |
 |-----------|-------------|
 | `token:clientId` | Identificador de cliente o aplicación asociado a la entidad de servicio |
 | `token:clientSecret` | Valor de clave asociado a la entidad de servicio |

@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2019
-ms.openlocfilehash: eefa17b699a0599d2d3323409cafddd1d0984c61
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 45908557ed40eb249bbac08cfca83bca7ff06ad1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61440325"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429134"
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-powershell"></a>Creación de un centro de IoT con una plantilla de Azure Resource Manager (PowerShell)
 
@@ -47,7 +47,7 @@ New-AzResourceGroupDeployment `
     -iotHubName $iotHubName
 ```
 
-Como puede ver en el script de PowerShell, la plantilla utilizada es de plantillas de inicio rápido de Azure. Para usar una propia, primero debe cargar el archivo de plantilla en el shell de Cloud y luego usar el modificador `-TemplateFile` para especificar el nombre de archivo.  Para ver un ejemplo, consulte [Implementar la plantilla](../azure-resource-manager/resource-manager-quickstart-create-templates-use-visual-studio-code.md?tabs=PowerShell#deploy-the-template).
+Como puede ver en el script de PowerShell, la plantilla utilizada es de plantillas de inicio rápido de Azure. Para usar una propia, primero debe cargar el archivo de plantilla en el shell de Cloud y luego usar el modificador `-TemplateFile` para especificar el nombre de archivo.  Para ver un ejemplo, consulte [Implementar la plantilla](../azure-resource-manager/templates/quickstart-create-templates-use-visual-studio-code.md?tabs=PowerShell#deploy-the-template).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -59,12 +59,12 @@ Ahora que ha implementado un centro de IoT mediante una plantilla de Azure Resou
 
 Para obtener más información sobre cómo desarrollar para IoT Hub, consulte los siguientes artículos:
 
-* [Introducción a C SDK][lnk-c-sdk]
+* [Introducción a SDK para C][lnk-c-sdk]
 * [SDK de IoT de Azure][lnk-sdks]
 
 Para explorar aún más las funcionalidades de IoT Hub, consulte:
 
-* [Implementación de Azure IoT Edge en un dispositivo simulado en Linux: versión preliminar][lnk-iotedge]
+* [Implementación de IA en dispositivos perimetrales con Azure IoT Edge][lnk-iotedge]
 
 <!-- Links -->
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
@@ -72,7 +72,7 @@ Para explorar aún más las funcionalidades de IoT Hub, consulte:
 [lnk-status]: https://azure.microsoft.com/status/
 [lnk-powershell-install]: /powershell/azure/install-Az-ps
 [lnk-rest-api]: https://docs.microsoft.com/rest/api/iothub/iothubresource
-[lnk-azure-rm-overview]: ../azure-resource-manager/resource-group-overview.md
+[lnk-azure-rm-overview]: ../azure-resource-manager/management/overview.md
 [lnk-powershell-arm]: ../azure-resource-manager/manage-resources-powershell.md
 
 [lnk-c-sdk]: iot-hub-device-sdk-c-intro.md

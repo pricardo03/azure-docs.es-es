@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 8bfff7790fa4984241e1c3dda19a20c8b13591fb
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 819929fb157444ae53df113c0318dd18146156c9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872186"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442040"
 ---
 # <a name="consistency-levels-and-azure-cosmos-db-apis"></a>Niveles de coherencia y API de Azure Cosmos DB
 
@@ -21,7 +21,6 @@ Azure Cosmos DB también proporciona compatibilidad nativa con las API compatibl
 Al usar la API de SQL, la API de Gremlin y Table API, se usa el nivel de coherencia predeterminado configurado en la cuenta de Azure Cosmos. 
 
 Al usar Cassandra API o la API de Azure Cosmos DB para MongoDB, las aplicaciones obtienen un conjunto completo de los niveles de coherencia que ofrece Apache Cassandra y MongoDB, respectivamente, con garantías de coherencia y durabilidad más fuertes. En este documento se muestran los niveles de coherencia de Azure Cosmos DB correspondientes para los niveles de coherencia de Apache Cassandra y MongoDB.
-
 
 ## <a id="cassandra-mapping"></a>Asignación entre niveles de coherencia de Apache Cassandra y Azure Cosmos DB
 
@@ -55,7 +54,7 @@ En la tabla siguiente se muestra cómo las preocupaciones de lectura o escritura
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Lea más acerca de los niveles de coherencia y la compatibilidad entre las API de Azure Cosmos DB con las API de código abierto: Consulte los artículos siguientes:
+Lea más acerca de los niveles de coherencia y la compatibilidad entre las API de Azure Cosmos DB con las API de código abierto: Vea los artículos siguientes:
 
 * [Availability and performance tradeoffs for various consistency levels](consistency-levels-tradeoffs.md) (Compromisos entre rendimiento y disponibilidad en los distintos niveles de coherencia)
 * [Características de MongoDB que admite la API de Azure Cosmos DB para MongoDB](mongodb-feature-support.md)

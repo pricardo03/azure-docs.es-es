@@ -3,17 +3,17 @@ title: Supervisión de un servicio en la nube de Azure | Microsoft Docs
 description: Se describe qué conlleva la supervisión de un servicio en la nube de Azure y cuáles son algunas de las opciones.
 services: cloud-services
 documentationcenter: ''
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 01/29/2018
-ms.author: gwallace
-ms.openlocfilehash: ac0ea7557774f0e59cb6a6eca1fc739592ab971d
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: 096077550a426d7eb77ed0d71e720149dd103a55
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359116"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75386075"
 ---
 # <a name="introduction-to-cloud-service-monitoring"></a>Introducción a la supervisión de servicios en la nube
 
@@ -96,4 +96,7 @@ Tenga en cuenta que, aunque puede usar Application Insights para mostrar los con
 
 - [Información sobre Application Insights con Cloud Services](../azure-monitor/app/cloudservices.md)
 - [Configuración de contadores de rendimiento](diagnostics-performance-counters.md)
+
+
+
 

@@ -3,17 +3,17 @@ title: Configuración de un servicio en la nube (portal) | Microsoft Docs
 description: Aprenda a configurar servicios en la nube en Azure. Aprenda a actualizar la configuración del servicio en la nube y configurar el acceso remoto en instancias de rol. Estos ejemplos usan el Portal de Azure.
 services: cloud-services
 documentationcenter: ''
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 12/07/2016
-ms.author: gwallace
-ms.openlocfilehash: 8b60a81e06b95c69a02f88ff3275743b056c191d
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: 554d3e465b42ca889ba03565e87193f80e89ed1d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359654"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75361014"
 ---
 # <a name="how-to-configure-cloud-services"></a>Configuración de Cloud Service
 
@@ -102,5 +102,8 @@ Puede que necesite volver a configurar el servicio en la nube a través del arch
 
 * Obtenga información sobre cómo [implementar un servicio en la nube](cloud-services-how-to-create-deploy-portal.md).
 * Configuración de un [nombre de dominio personalizado](cloud-services-custom-domain-name-portal.md).
-* [Administración de su servicio en la nube](cloud-services-how-to-manage-portal.md).
+* [Administración del servicio en la nube](cloud-services-how-to-manage-portal.md).
 * Configuración de [certificados ssl](cloud-services-configure-ssl-certificate-portal.md).
+
+
+

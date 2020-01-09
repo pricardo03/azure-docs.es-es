@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: spelluru
-ms.openlocfilehash: ca6ed58cfabb5027830828812c4820c1b586875c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0778759958e70c564779f5493d7cf8b646f6ced0
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61322884"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644654"
 ---
 # <a name="import-virtual-machines-from-another-lab-in-azure-devtest-labs"></a>Importación de máquinas virtuales de otro laboratorio de Azure DevTest Labs
 En este artículo se proporciona información sobre cómo importar máquinas virtuales de otro laboratorio al suyo.
@@ -26,7 +26,7 @@ En este artículo se proporciona información sobre cómo importar máquinas vir
 Estos son algunos escenarios en los que es necesario importar máquinas virtuales de un laboratorio a otro:
 
 - Una persona del equipo se cambia a otro grupo dentro de la empresa y quiere tomar el escritorio del desarrollador al laboratorio DevTest del nuevo equipo.
-- El grupo ha alcanzado una [cuota de nivel de suscripción](../azure-subscription-service-limits.md) y quiere dividir los equipos en varias suscripciones.
+- El grupo ha alcanzado una [cuota de nivel de suscripción](../azure-resource-manager/management/azure-subscription-service-limits.md) y quiere dividir los equipos en varias suscripciones.
 - La empresa se cambia a Express Route (o a cualquier otra topología de redes nueva) y el equipo quiere mover las máquinas virtuales para que usen esta nueva infraestructura.
 
 ## <a name="solution-and-constraints"></a>Solución y restricciones
@@ -83,7 +83,7 @@ POST https://management.azure.com/subscriptions/<DestinationSubscriptionID>/reso
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte los artículos siguientes:
+Vea los artículos siguientes:
 
 - [Set policies for a lab](devtest-lab-get-started-with-lab-policies.md) (Definición de directivas para un laboratorio)
 - [Preguntas más frecuentes](devtest-lab-faq.md)

@@ -2,13 +2,13 @@
 title: Solución de problemas de las copias de seguridad de recursos compartidos de archivos de Azure
 description: Este artículo contiene información para solución de problemas que se producen al proteger recursos compartidos de archivos de Azure.
 ms.date: 08/20/2019
-ms.topic: conceptual
-ms.openlocfilehash: 62a4f83c93230c150a7c406d0614dbee3d125e9c
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.topic: troubleshooting
+ms.openlocfilehash: 8b88ae568b07b36d2dd80c0ef30fe86646335043
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74171764"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75664622"
 ---
 # <a name="troubleshoot-problems-backing-up-azure-file-shares"></a>Solución de problemas en las copias de seguridad de recursos compartidos de archivos de Azure
 
@@ -31,7 +31,7 @@ La copia de seguridad de recursos compartidos de archivos de Azure en cuentas de
 
 La tabla siguiente es para configurar la copia de seguridad:
 
-| mensajes de error | Sugerencias de solución alternativa o resolución |
+| Mensajes de error | Sugerencias de solución alternativa o resolución |
 | ------------------ | ----------------------------- |
 | No se pudo encontrar la cuenta de almacenamiento para configurar la copia de seguridad para los recursos compartidos de archivos de Azure | <ul><li>Espere a que la detección finalice. <li>Compruebe si algún recurso compartido de archivos de la cuenta de almacenamiento ya está protegido con otro almacén de Recovery Services. **Nota**: Todos los recursos compartidos de archivos de una cuenta de almacenamiento solo se pueden proteger en un almacén de Recovery Services. <li>Asegúrese de que el recurso compartido de archivos no esté presente en ninguna de las cuentas de almacenamiento no admitidas.<li> Asegúrese de que la casilla **Permitir que los servicios de Microsoft de confianza accedan a esta cuenta de almacenamiento** esté activada en la cuenta de almacenamiento.[Más información.](../storage/common/storage-network-security.md)|
 | Error en la detección de estados del portal de las cuentas de almacenamiento. | Si la suscripción es de un asociado (habilitada para CSP), haga caso omiso del error. Si la suscripción no está habilitada para CSP y las cuentas de almacenamiento no se pueden detectar, póngase en contacto con el servicio de soporte técnico.|
@@ -42,7 +42,7 @@ La tabla siguiente es para configurar la copia de seguridad:
 
 ## <a name="error-messages-for-backup-or-restore-job-failures"></a>Mensajes de error de trabajos de copia de seguridad o restauración
 
-| mensajes de error | Sugerencias de solución alternativa o resolución |
+| Mensajes de error | Sugerencias de solución alternativa o resolución |
 | -------------- | ----------------------------- |
 | No se pudo realizar la operación porque no se encuentra el recurso compartido de archivos. | Asegúrese de que el recurso compartido de archivos que busca proteger no se ha eliminado.|
 | La cuenta de almacenamiento no se encuentra o no se admite. | <ul><li>Asegúrese de que la cuenta de almacenamiento existe en el grupo de recursos y que no se ha eliminado o quitado del grupo de recursos tras la validación final. <li> Asegúrese de que la cuenta de almacenamiento es una cuenta de almacenamiento admitida para la copia de seguridad de recursos compartidos de archivos.|
@@ -60,7 +60,7 @@ La tabla siguiente es para configurar la copia de seguridad:
 
 ## <a name="modify-policy"></a>Modificación de directivas
 
-| mensajes de error | Sugerencias de solución alternativa o resolución |
+| Mensajes de error | Sugerencias de solución alternativa o resolución |
 | ------------------ | ----------------------------- |
 | Hay otra operación de protección de configuración en curso para este elemento. | Espere a que termine la operación de modificación de directivas anterior y vuelva a intentarlo al cabo de un tiempo.|
 | Hay otra operación en curso en el elemento seleccionado. | Espere a que la otra operación en curso termine y vuelva a intentarlo al cabo de un tiempo. |

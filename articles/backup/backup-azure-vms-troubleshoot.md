@@ -2,14 +2,14 @@
 title: Solución de errores de copia de seguridad con VM de Azure
 description: En este artículo, aprenderá a solucionar los errores detectados al llevar a cabo la copia de seguridad y la restauración de máquinas virtuales de Azure.
 ms.reviewer: srinathv
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: e5ee0e06d444db809ce3e168f8883048eaf45e27
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 1e71f6f711bcee78538c573a8869b8fdfa2a10b0
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172459"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75664638"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Solución de errores de copia de seguridad en las máquinas virtuales de Azure
 
@@ -61,7 +61,6 @@ Se produjo un error en la operación de copia de seguridad porque la VM se encue
 Código de error: UserErrorFsFreezeFailed <br/>
 Mensaje de error: No se pudieron inmovilizar uno o varios puntos de montaje de la máquina virtual para tomar una instantánea coherente con el sistema de archivos.
 
-* Compruebe el estado del sistema de archivos de todos los dispositivos montados mediante el comando **tune2fs** , por ejemplo **tune2fs- l/dev/sdb1\\** .\| grep **filesystem State**.
 * Desmonte los dispositivos cuyo estado del sistema de archivos no estuviera limpio; para ello, use el comando **umount**.
 * Ejecute una comprobación de coherencia del sistema de archivos en estos dispositivos mediante el comando **fsck**.
 * Vuelva a montar los dispositivos e intente realizar de nuevo la operación de copia de seguridad.</ol>
@@ -184,7 +183,6 @@ Esto garantizará que las instantáneas se realizan con permisos de host en luga
 | Detalles del error | Solución alternativa |
 | ------ | --- |
 | **Código de error**: 320001, ResourceNotFound <br/> **Mensaje de error**: No se pudo realizar la operación porque la máquina virtual ya no existe. <br/> <br/> **Código de error**: 400094, BCMV2VMNotFound <br/> **Mensaje de error**: No existe la máquina virtual <br/> <br/>  No se encontró una máquina virtual de Azure.  |Este error sucede cuando se elimina la máquina virtual principal, pero la directiva de copia de seguridad continúa buscando una máquina virtual para realizar la copia de seguridad. Para corregir este error, siga estos pasos: <ol><li> Vuelva a crear la máquina virtual con el mismo nombre y el mismo nombre de grupo de recursos, **nombre del servicio en la nube**,<br>**or**</li><li> Deje de proteger la máquina virtual eliminando o sin eliminar los datos de la copia de seguridad. Para más información, consulte [Detener la protección de máquinas virtuales](backup-azure-manage-vms.md#stop-protecting-a-vm).</li></ol>|
-| **Código de error**: UserErrorVmProvisioningStateFailed<br/> **Mensaje de error**: La máquina virtual está en un estado de aprovisionamiento incorrecto: <br>Reinicie la máquina y asegúrese de que se esté ejecutando o esté apagada. | Este error ocurre cuando uno de los errores de extensión pone a la máquina virtual en un estado de aprovisionamiento erróneo. Vaya a la lista de extensiones y compruebe si hay una extensión errónea, quítela e intente reiniciar la máquina virtual. Si todas las extensiones están en estado de ejecución, compruebe si el servicio del agente de VM está en ejecución. Si no es así, reinicie el servicio del agente de VM. |
 |**Código de error**: UserErrorBCMPremiumStorageQuotaError<br/> **Mensaje de error**: No se pudo copiar la instantánea de la máquina virtual debido a que no había espacio suficiente disponible en la cuenta de almacenamiento | En el caso de máquinas virtuales Prémium de la versión 1 de la pila de copia de seguridad de máquinas virtuales, la instantánea se copia a la cuenta de almacenamiento. Este pase sirve para garantizar que el tráfico de administración de copias de seguridad, que trabaja en la instantánea, no limite el número de IOPS disponibles para la aplicación con discos Prémium. <br><br>Se recomienda asignar solo un 50 por ciento, 17,5 TB, del espacio total de la cuenta de almacenamiento. El servicio de Azure Backup puede copiar la instantánea a la cuenta de almacenamiento y transferir datos desde la ubicación copiada en la cuenta de almacenamiento al almacén. |
 | **Código de error**: 380008, AzureVmOffline <br/> **Mensaje de error**: No se pudo instalar la extensión de Microsoft Recovery Services dado que la máquina virtual no se está ejecutando | Se requiere tener el agente de VM para instalar la extensión de Azure Recovery Services. Instale el agente de máquina virtual de Azure y reinicie la operación de registro. <br> <ol> <li>Compruebe si el agente de máquina virtual se ha instalado correctamente. <li>Asegúrese de que la marca de la configuración de la máquina virtual se haya establecido correctamente.</ol> Obtenga más información acerca de la instalación del agente de máquina virtual y de cómo validar dicha instalación. |
 | **Código de error**: ExtensionSnapshotBitlockerError <br/> **Mensaje de error**: Error en la operación de instantánea con el error de operación del Servicio de instantáneas de volumen **El Cifrado de unidad BitLocker está bloqueando esta unidad. Esta unidad se debe desbloquear en el Panel de control.** |Desactive BitLocker para todas las unidades de la máquina virtual y observe si se resuelve el problema de VSS. |

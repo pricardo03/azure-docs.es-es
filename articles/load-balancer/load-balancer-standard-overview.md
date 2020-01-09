@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/21/2019
 ms.author: allensu
-ms.openlocfilehash: 3b6a16436b2719d1571f5d5a3c16711a9100b75d
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: ce60062a49f08bb3409c8445e0aaf79c0d361865
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894426"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552821"
 ---
 # <a name="azure-standard-load-balancer-overview"></a>Introducción a Azure Standard Load Balancer
 
@@ -88,7 +88,7 @@ Consulte la [explicación detallada de las funcionalidades relativas a las zonas
 
 Load Balancer Estándar proporciona métricas multidimensionales mediante Azure Monitor.  Estas métricas se pueden filtrar, agrupar y desglosar para una dimensión determinada.  Proporcionan una perspectiva actual e histórica del rendimiento y el mantenimiento del servicio.  También se admite Resource Health.  A continuación se muestra una breve descripción de los diagnósticos admitidos:
 
-| Métrica | DESCRIPCIÓN |
+| Métrica | Descripción |
 | --- | --- |
 | Disponibilidad de VIP | Standard Load Balancer usa continuamente la ruta de acceso a los datos desde una región hasta el servidor front-end de Load Balancer y, finalmente, hasta la pila de SDN que respalda la máquina virtual. Siempre que permanezcan las instancias correctas, la medida sigue la misma ruta de acceso que el tráfico con equilibrio de carga de las aplicaciones. También se valida la ruta de acceso a los datos usada por los clientes. La medida es invisible para la aplicación y no interfiere con otras operaciones.|
 | Disponibilidad de DIP | Load Balancer Estándar usa un servicio de sondeo de mantenimiento distribuido que supervisa el mantenimiento del punto de conexión de la aplicación de acuerdo con la configuración. Esta métrica proporciona una vista agregada o filtrada por punto de conexión de cada punto de conexión de instancia individual del grupo de Load Balancer.  Puede ver cómo Load Balancer observa el estado de su aplicación según se indica en la configuración de sondeo de estado.
@@ -182,14 +182,6 @@ Las SKU no son mutables. Siga los pasos de esta sección para cambiar de una SKU
 3. Quite los recursos de SKU básica (Load Balancer y direcciones IP públicas, según corresponda) de todas las instancias de máquina virtual. Asegúrese de quitar también todas las instancias de máquina virtual de un conjunto de disponibilidad.
 
 4. Asocie todas las instancias de máquina virtual a los nuevos recursos de SKU estándar.
-
-### <a name="migrate-from-standard-to-basic-sku"></a>Migración de SKU estándar a básica
-
-1. Cree un nuevo recurso básico (Load Balancer y direcciones IP públicas cuando sea necesario). Vuelva a crear sus reglas y definiciones de sondeo.  Cambie un sondeo HTTPS a un sondeo TCP a un protocolo de sondeo 443/tcp. 
-
-2. Quite los recursos de SKU estándar (Load Balancer y direcciones IP públicas, según corresponda) de todas las instancias de máquina virtual. Asegúrese de quitar también todas las instancias de máquina virtual de un conjunto de disponibilidad.
-
-3. Asocie todas las instancias de máquina virtual a los nuevos recursos de SKU básica.
 
 >[!IMPORTANT]
 >

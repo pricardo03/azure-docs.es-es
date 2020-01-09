@@ -3,17 +3,17 @@ title: Recopilar contadores de rendimiento en Azure Cloud Services | Microsoft D
 description: Obtenga información acerca de cómo detectar, usar y crear contadores de rendimiento en Cloud Services con Azure Diagnostics y Application Insights.
 services: cloud-services
 documentationcenter: .net
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 02/02/2018
-ms.author: gwallace
-ms.openlocfilehash: d6b16b859b29ef835bca75c5fca0ea1a9d35a306
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.author: tagore
+ms.openlocfilehash: 16b0727a78ad8ad582535fa1f5b0e57079cc4c05
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68358934"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75385593"
 ---
 # <a name="collect-performance-counters-for-your-azure-cloud-service"></a>Recopilar información con contadores de rendimiento para Azure Cloud Service
 
@@ -292,3 +292,6 @@ Como se indicó anteriormente, los contadores de rendimiento que quiere recopila
 - [Contadores de rendimiento de sistema en Application Insights](../azure-monitor/app/performance-counters.md)
 - [Specifying a Counter Path](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85)) (Especificar una ruta de acceso de contador)
 - [Esquema de Azure Diagnostics - Contadores de rendimiento](../azure-monitor/platform/diagnostics-extension-schema-1dot3.md#performancecounters-element)
+
+
+

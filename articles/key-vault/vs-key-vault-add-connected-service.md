@@ -9,12 +9,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: ghogen
-ms.openlocfilehash: 1df0ff3b6fea335dde5a3200f824adf14f924d9c
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 1c12cf4a7bd097c6d33d032065734b477920644b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74452372"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457002"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Adición de Key Vault a una aplicación web mediante los servicios conectados de Visual Studio
 
@@ -22,7 +22,7 @@ En este tutorial, aprenderá cómo agregar con facilidad todo lo que necesita pa
 
 Para obtener información sobre los cambios que los servicios conectados realizan en el proyecto para habilitar Key Vault, vea [Servicio conectado de Key Vault : ¿Qué ha sucedido con mi proyecto de ASP.NET 4.7.1?](#how-your-aspnet-framework-project-is-modified) o [Servicio conectado de Key Vault: ¿Qué ha sucedido con mi proyecto de ASP.NET Core?](#how-your-aspnet-core-project-is-modified)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 - **Una suscripción de Azure**. Si aún no tiene una suscripción, regístrese para obtener una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/).
 - **Visual Studio 2019 versión 16.3** o posterior o **Visual Studio 2017 versión 15.7** con la carga de trabajo de **Desarrollo Web** instalada. [Descárguelo ahora](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
@@ -112,7 +112,7 @@ Ahora, puede acceder a los secretos en el código. Los pasos siguientes son dist
                 {
                     webBuilder.UseStartup<Startup>();
                 });
-        private static string GetKeyVaultEndpoint() => "https://WebApplication4-3-kv.vault.azure.net";
+        private static string GetKeyVaultEndpoint() => "https://<YourKeyVaultName>.vault.azure.net";
     ```
 
 1. A continuación, abra uno de los archivos de paginación, como *Index.cshtml.cs* y escriba el código siguiente:
@@ -182,7 +182,7 @@ Cuando ya no necesite el grupo de recursos, elimínelo. De esta forma, se elimin
 2. Seleccione **Eliminar grupo de recursos**.
 3. En el cuadro **ESCRIBA EL NOMBRE DEL GRUPO DE RECURSOS**, escriba el nombre del grupo de recursos y seleccione **Eliminar**.
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 
 Si la instancia de Key Vault se está ejecutando en una cuenta Microsoft diferente de aquella con la cual ha iniciado sesión en Visual Studio (por ejemplo, si se está ejecutando en su cuenta profesional, pero Visual Studio usa su cuenta privada), recibirá un error en el archivo Program.cs que le indica que Visual Studio no puede acceder a la instancia de Key Vault. Para corregir este problema:
 
@@ -205,7 +205,7 @@ En esta sección se identifican los cambios exactos realizados en el proyecto de
 
 Afecta a las referencias de paquetes de NuGet y a las referencias de .NET del archivo de proyecto.
 
-| type | Referencia |
+| Tipo | Referencia |
 | --- | --- |
 | NuGet | Microsoft.AspNetCore.AzureKeyVault.HostingStartup |
 
@@ -241,7 +241,7 @@ En esta sección se identifican los cambios exactos realizados en el proyecto de
 
 Afecta a las referencias .NET y a `packages.config` (referencias de NuGet) del archivo del proyecto.
 
-| type | Referencia |
+| Tipo | Referencia |
 | --- | --- |
 | .NET; NuGet | Microsoft.Azure.KeyVault |
 | .NET; NuGet | Microsoft.Azure.KeyVault.WebKey |

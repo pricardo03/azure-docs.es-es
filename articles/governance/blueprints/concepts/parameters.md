@@ -3,12 +3,12 @@ title: Uso de parámetros para crear planos técnicos dinámicos
 description: Obtenga información sobre los parámetros estáticos y dinámicos y cómo usarlos para crear planos técnicos seguros y dinámicos.
 ms.date: 03/12/2019
 ms.topic: conceptual
-ms.openlocfilehash: 31fff8fddd8e1969ef0d33047ae070f6302c9c83
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 68987b3e0f418721986003dc796f00ac1dd6dda1
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74128924"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644977"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Creación de planos técnicos mediante parámetros
 
@@ -40,7 +40,7 @@ Si la asignación del plano técnico utiliza una **identidad administrada asigna
 Si usa la asignación del plano técnico un **asignada por el usuario de la identidad administrada**, la hace referencia a Key Vault _puede_ existe en una suscripción centralizada. Se deben conceder los derechos adecuados a la identidad administrada en Key Vault antes de la asignación del plano técnico.
 
 > [!IMPORTANT]
-> En ambos casos, Key Vault debe tener configurada la opción **Habilitar el acceso a Azure Resource Manager para la implementación de plantillas** en la página **Directivas de acceso**. Para obtener instrucciones sobre cómo habilitar esta característica, consulte [Key Vault: Habilitar la implementación de plantillas](../../../managed-applications/key-vault-access.md#enable-template-deployment).
+> En ambos casos, Key Vault debe tener configurada la opción **Habilitar el acceso a Azure Resource Manager para la implementación de plantillas** en la página **Directivas de acceso**. Para obtener instrucciones sobre cómo habilitar esta característica, consulte [Key Vault: Habilitar la implementación de plantillas](../../../azure-resource-manager/managed-applications/key-vault-access.md#enable-template-deployment).
 
 Para más información sobre Azure Key Vault, consulte [Introducción a Key Vault](../../../key-vault/key-vault-overview.md).
 

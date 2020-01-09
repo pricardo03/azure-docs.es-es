@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
-ms.openlocfilehash: fa1aa8c560f4b9cc48c7a6a761abe4d69d5d0265
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: b84855057b43daa0aeff4878a69dac4ae765d2ef
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70773169"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429305"
 ---
 # <a name="control-access-to-iot-hub"></a>Control del acceso a IoT Hub
 
@@ -64,7 +64,7 @@ Azure IoT Hub concede acceso a los puntos de conexión mediante la comprobación
 Las credenciales de seguridad, como las claves simétricas, nunca se envían en la conexión.
 
 > [!NOTE]
-> El proveedor de recursos de Azure IoT Hub está protegido mediante la suscripción de Azure, igual que todos los proveedores en [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+> El proveedor de recursos de Azure IoT Hub está protegido mediante la suscripción de Azure, igual que todos los proveedores en [Azure Resource Manager](../azure-resource-manager/management/overview.md).
 
 Consulte el artículo [Tokens de seguridad de IoT Hub](iot-hub-devguide-security.md#security-tokens) para más información sobre cómo crear y usar tokens de seguridad.
 
@@ -134,7 +134,7 @@ El token de seguridad tiene el formato siguiente:
 
 Estos son los valores esperados:
 
-| Valor | DESCRIPCIÓN |
+| Value | Descripción |
 | --- | --- |
 | {signature} |Una cadena de firma HMAC-SHA256 con el formato: `{URL-encoded-resourceURI} + "\n" + expiry`. **Importante**: La clave se descodifica en base64 y se utiliza para realizar el cálculo de HMAC-SHA256. |
 | {resourceURI} |Prefijo del identificador URI (por segmento) de los puntos de conexión a los que se puede obtener acceso con este token, que comienza por un nombre de host de IoT Hub (sin protocolo) Por ejemplo: `myHub.azure-devices.net/devices/device1` |
@@ -431,7 +431,7 @@ Para que un dispositivo o un módulo se conecten a su concentrador, tiene que ag
 
 ### <a name="comparison-with-a-custom-gateway"></a>Comparación con una puerta de enlace personalizada
 
-El modelo de servicio de token es el método recomendado para implementar un esquema de autenticación o registro de identidades personalizado en IoT Hub. Este modelo se recomienda porque IoT Hub sigue controlando la mayoría del tráfico de la solución. Hay casos, sin embargo, en los que el esquema de autenticación personalizado está tan imbricado con el protocolo que se necesita una *puerta de enlace personalizada* que procese todo el tráfico. Un ejemplo de escenario de este tipo es la [seguridad de la capa de transporte (TLS) y las claves previamente compartidas (PSK)](https://tools.ietf.org/html/rfc4279). Para más información, consulte el artículo [Puerta de enlace de protocolos](iot-hub-protocol-gateway.md).
+El modelo de servicio de token es el método recomendado para implementar un esquema de autenticación o registro de identidades personalizado en Azure IoT Hub. Este modelo se recomienda porque IoT Hub sigue controlando la mayoría del tráfico de la solución. Hay casos, sin embargo, en los que el esquema de autenticación personalizado está tan imbricado con el protocolo que se necesita una *puerta de enlace personalizada* que procese todo el tráfico. Un ejemplo de escenario de este tipo es la [seguridad de la capa de transporte (TLS) y las claves previamente compartidas (PSK)](https://tools.ietf.org/html/rfc4279). Para más información, consulte el artículo [Puerta de enlace de protocolos](iot-hub-protocol-gateway.md).
 
 ## <a name="reference-topics"></a>Temas de referencia:
 

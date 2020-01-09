@@ -3,17 +3,17 @@ title: Supervisar la conectividad de dispositivos con Azure IoT Central Explorer
 description: Supervise los mensajes de los dispositivo y observe los cambios de los dispositivos gemelos mediante la CLI de IoT Central Explorer.
 author: viv-liu
 ms.author: viviali
-ms.date: 09/27/2019
+ms.date: 12/18/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: corywink
-ms.openlocfilehash: 2b1c4c64fc02df67f38e36194072efd5db3b8e38
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 90cf83f86acb647b8194619bc1b572e5147cc0cf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73894436"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434948"
 ---
 # <a name="monitor-device-connectivity-using-azure-cli-preview-features"></a>Supervisión de la conectividad de dispositivos mediante la CLI de Azure (Características en vista previa (GB))
 
@@ -23,7 +23,7 @@ Use la extensión de IoT de la CLI de Azure para ver los mensajes que sus dispos
 
 [Consulte la referencia de extensiones de la CLI de Azure para obtener más detalles](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/central)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 + CLI de Azure instalada, versión 2.0.7 o posterior. Compruebe la versión de la CLI de Azure al ejecutar `az --version`. Obtenga información sobre la instalación y actualización en los [docs de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli)
 + Una cuenta profesional o educativa de Azure, agregada como usuario en una aplicación de IoT Central.

@@ -4,15 +4,15 @@ description: La versión 1.3 y posterior del esquema de Azure Diagnostics se inc
 ms.service: azure-monitor
 ms.subservice: diagnostic-extension
 ms.topic: reference
-author: rboucher
-ms.author: robb
+author: bwren
+ms.author: bwren
 ms.date: 09/20/2018
-ms.openlocfilehash: 3d79fe6a415b7d1f862797bf41caed89bfe50a41
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 2a3ee9731ebeb3b002f4dd9f5b856e720bf719d2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73834745"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75395091"
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Esquema de configuración de Azure Diagnostics 1.3 y posterior
 > [!NOTE]
@@ -414,18 +414,18 @@ Elemento de nivel superior del archivo de configuración de diagnóstico.
 `http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration`
 
 
-|Elementos secundarios|DESCRIPCIÓN|  
+|Elementos secundarios|Descripción|  
 |--------------------|-----------------|  
 |**PublicConfig**|Necesario. Consulte la descripción en cualquier parte de esta página.|  
 |**PrivateConfig**|Opcional. Consulte la descripción en cualquier parte de esta página.|  
-|**IsEnabled**|Booleano. Consulte la descripción en cualquier parte de esta página.|  
+|**IsEnabled**|booleano. Consulte la descripción en cualquier parte de esta página.|  
 
 ## <a name="publicconfig-element"></a>Elemento PublicConfig  
  *Tree: Root - DiagnosticsConfiguration - PublicConfig*
 
  Describe la configuración de diagnóstico pública.  
 
-|Elementos secundarios|DESCRIPCIÓN|  
+|Elementos secundarios|Descripción|  
 |--------------------|-----------------|  
 |**WadCfg**|Necesario. Consulte la descripción en cualquier parte de esta página.|  
 |**StorageAccount**|El nombre de la cuenta de Azure Storage en la que se van a almacenar los datos. También se puede especificar como un parámetro al ejecutar el cmdlet Set-AzureServiceDiagnosticsExtension.|  
@@ -443,7 +443,7 @@ Elemento de nivel superior del archivo de configuración de diagnóstico.
 
  Obligatorio
 
-|Atributos|DESCRIPCIÓN|  
+|Atributos|Descripción|  
 |----------------|-----------------|  
 | **overallQuotaInMB** | La cantidad máxima de espacio en disco local que se puede utilizar en los distintos tipos de datos de diagnóstico que recopila Azure Diagnostics. La configuración predeterminada es 4096 MB.<br />
 |**useProxyServer** | Configure Azure Diagnostics para utilizar la configuración del servidor proxy tal como se estableció en la configuración de Internet Explorer.|
@@ -452,7 +452,7 @@ Elemento de nivel superior del archivo de configuración de diagnóstico.
 
 <br /> <br />
 
-|Elementos secundarios|DESCRIPCIÓN|  
+|Elementos secundarios|Descripción|  
 |--------------------|-----------------|  
 |**CrashDumps**|Consulte la descripción en cualquier parte de esta página.|  
 |**DiagnosticInfrastructureLogs**|Habilite la recopilación de registros generados por Diagnósticos de Azure. Los registros de infraestructura de diagnóstico son útiles para solucionar problemas del mismo sistema de diagnóstico. Los atributos opcionales son:<br /><br /> - **scheduledTransferLogLevelFilter**: configura el nivel de gravedad mínimo de los registros recopilados.<br /><br /> - **scheduledTransferPeriod**: el intervalo existente entre las transferencias programadas en el almacenamiento, redondeado al minuto más cercano. El valor es un [“tipo de datos de duración” XML](https://www.w3schools.com/xml/schema_dtypes_date.asp). |  
@@ -470,13 +470,13 @@ Elemento de nivel superior del archivo de configuración de diagnóstico.
 
  Habilita la recopilación de volcados de memoria.  
 
-|Atributos|DESCRIPCIÓN|  
+|Atributos|Descripción|  
 |----------------|-----------------|  
 |**containerName**|Opcional. El nombre del contenedor de blobs en la cuenta de Azure Storage que se usará para almacenar los volcados de memoria.|  
 |**crashDumpType**|Opcional.  Configura Diagnósticos de Azure para recopilar volcados de memoria parciales o completos.|  
 |**directoryQuotaPercentage**|Opcional.  Configura el porcentaje de **overallQuotaInMB** que se va a reservar para los volcados de memoria en la máquina virtual.|  
 
-|Elementos secundarios|DESCRIPCIÓN|  
+|Elementos secundarios|Descripción|  
 |--------------------|-----------------|  
 |**CrashDumpConfiguration**|Necesario. Define los valores de configuración para cada proceso.<br /><br /> También se necesita el atributo siguiente:<br /><br /> **processName**: el nombre del proceso para el que desea que Diagnósticos de Azure recopile un volcado de memoria.|  
 
@@ -487,7 +487,7 @@ Elemento de nivel superior del archivo de configuración de diagnóstico.
 
  Atributo **scheduledTransferPeriod** opcional. Consulte la explicación anterior.  
 
-|Elementos secundarios|DESCRIPCIÓN|  
+|Elementos secundarios|Descripción|  
 |--------------------|-----------------|  
 |**IISLogs**|La inclusión de este elemento en la configuración habilita la recopilación de registros de IIS:<br /><br /> **containerName**: el nombre del contenedor de blobs en la cuenta de Azure Storage que se usará para almacenar los registros de IIS.|   
 |**FailedRequestLogs**|La inclusión de este elemento en la configuración habilita la recopilación de registros sobre las solicitudes erróneas en un sitio o aplicación de IIS. También debe habilitar las opciones de seguimiento en **system.WebServer** de **Web.config**.|  
@@ -501,7 +501,7 @@ Elemento de nivel superior del archivo de configuración de diagnóstico.
 
  Una lista de directorios que se van a supervisar.  
 
-|Elementos secundarios|DESCRIPCIÓN|  
+|Elementos secundarios|Descripción|  
 |--------------------|-----------------|  
 |**DirectoryConfiguration**|Necesario. Atributo necesario:<br /><br /> **containerName**: el nombre del contenedor de blobs en la cuenta de Azure Storage que se usará para almacenar los archivos de registro.|  
 
@@ -514,7 +514,7 @@ Elemento de nivel superior del archivo de configuración de diagnóstico.
 
  Puede incluir el elemento **Absolute** o el elemento **LocalResource**, pero no ambos.  
 
-|Elementos secundarios|DESCRIPCIÓN|  
+|Elementos secundarios|Descripción|  
 |--------------------|-----------------|  
 |**Absolute**|La ruta de acceso absoluta al directorio que se va a supervisar. Los atributos siguientes son necesarios:<br /><br /> - **Path**: la ruta de acceso absoluta al directorio que se va a supervisar.<br /><br /> - **expandEnvironment**: configura si se expanden las variables de entorno en Path.|  
 |**LocalResource**|La ruta de acceso relativa a un recurso local que se va a supervisar. Los atributos necesarios son:<br /><br /> - **Name**: el recurso local que contiene el directorio que se va a supervisar<br /><br /> - **relativePath**: la ruta de acceso relativa al nombre que contiene el directorio que se va a supervisar|  
@@ -526,7 +526,7 @@ Elemento de nivel superior del archivo de configuración de diagnóstico.
 
  Configura la recopilación de eventos ETW en EventSource o el manifiesto de ETW en función de los proveedores.  
 
-|Elementos secundarios|DESCRIPCIÓN|  
+|Elementos secundarios|Descripción|  
 |--------------------|-----------------|  
 |**EtwEventSourceProviderConfiguration**|Configura la recopilación de eventos generados a partir de la [clase EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx). Atributo necesario:<br /><br /> **provider**: el nombre de clase del evento EventSource.<br /><br /> Los atributos opcionales son:<br /><br /> - **scheduledTransferLogLevelFilter**: el nivel de gravedad mínimo para transferir a la cuenta de almacenamiento.<br /><br /> - **scheduledTransferPeriod**: el intervalo existente entre las transferencias programadas en el almacenamiento, redondeado al minuto más cercano. El valor es un [“tipo de datos de duración” XML](https://www.w3schools.com/xml/schema_dtypes_date.asp). |  
 |**EtwManifestProviderConfiguration**|Atributo necesario:<br /><br /> **provider**: el GUID del proveedor de eventos<br /><br /> Los atributos opcionales son:<br /><br /> - **scheduledTransferLogLevelFilter**: el nivel de gravedad mínimo para transferir a la cuenta de almacenamiento.<br /><br /> - **scheduledTransferPeriod**: el intervalo existente entre las transferencias programadas en el almacenamiento, redondeado al minuto más cercano. El valor es un [“tipo de datos de duración” XML](https://www.w3schools.com/xml/schema_dtypes_date.asp). |  
@@ -538,7 +538,7 @@ Elemento de nivel superior del archivo de configuración de diagnóstico.
 
  Configura la recopilación de eventos generados a partir de la [clase EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx).  
 
-|Elementos secundarios|DESCRIPCIÓN|  
+|Elementos secundarios|Descripción|  
 |--------------------|-----------------|  
 |**DefaultEvents**|Atributo opcional:<br/><br/> **eventDestination**: el nombre de la tabla en la que se van a almacenar los eventos|  
 |**Evento**|Atributo necesario:<br /><br /> **id**: el identificador del evento.<br /><br /> Atributo opcional:<br /><br /> **eventDestination**: el nombre de la tabla en la que se van a almacenar los eventos|  
@@ -548,7 +548,7 @@ Elemento de nivel superior del archivo de configuración de diagnóstico.
 ## <a name="etwmanifestproviderconfiguration-element"></a>Elemento EtwManifestProviderConfiguration  
  *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - EtwProviders - EtwManifestProviderConfiguration*
 
-|Elementos secundarios|DESCRIPCIÓN|  
+|Elementos secundarios|Descripción|  
 |--------------------|-----------------|  
 |**DefaultEvents**|Atributo opcional:<br /><br /> **eventDestination**: el nombre de la tabla en la que se van a almacenar los eventos|  
 |**Evento**|Atributo necesario:<br /><br /> **id**: el identificador del evento.<br /><br /> Atributo opcional:<br /><br /> **eventDestination**: el nombre de la tabla en la que se van a almacenar los eventos|  
@@ -562,7 +562,7 @@ Elemento de nivel superior del archivo de configuración de diagnóstico.
 
  El atributo **resourceId** es necesario.  El identificador de recurso de la máquina virtual o conjunto de escalado de máquinas virtuales en donde se va a implementar Azure Diagnostics. Obtenga el valor de **resourceID** en [Azure Portal](https://portal.azure.com). Seleccione **Examinar** -> **Grupos de recursos** ->  **<Nombre\>** . Haga clic en el icono **Propiedades** y copie el valor del campo **ID**.  
 
-|Elementos secundarios|DESCRIPCIÓN|  
+|Elementos secundarios|Descripción|  
 |--------------------|-----------------|  
 |**MetricAggregation**|Atributo necesario:<br /><br /> **scheduledTransferPeriod**: el intervalo existente entre las transferencias programadas en el almacenamiento, redondeado al minuto más cercano. El valor es un [“tipo de datos de duración” XML](https://www.w3schools.com/xml/schema_dtypes_date.asp). |  
 
@@ -577,7 +577,7 @@ Elemento de nivel superior del archivo de configuración de diagnóstico.
 
  Atributo **scheduledTransferPeriod** opcional. Consulte la explicación anterior.
 
-|Elemento secundario|DESCRIPCIÓN|  
+|Elemento secundario|Descripción|  
 |-------------------|-----------------|  
 |**PerformanceCounterConfiguration**|Los atributos siguientes son necesarios:<br /><br /> - **counterSpecifier**: el nombre del contador de rendimiento. Por ejemplo, `\Processor(_Total)\% Processor Time`. Para obtener una lista de contadores de rendimiento en el host, ejecute el comando `typeperf`.<br /><br /> - **sampleRate**: la frecuencia de muestreo del contador.<br /><br /> Atributo opcional:<br /><br /> **unit**: la unidad de medida del contador.|
 |**sinks** | Agregado en 1.5. Opcional. Apunta a una ubicación de receptor para enviar datos de diagnóstico. Por ejemplo, Azure Monitor o Event Hubs.|    
@@ -592,7 +592,7 @@ Elemento de nivel superior del archivo de configuración de diagnóstico.
 
  Atributo **scheduledTransferPeriod** opcional. Consulte la explicación anterior.  
 
-|Elemento secundario|DESCRIPCIÓN|  
+|Elemento secundario|Descripción|  
 |-------------------|-----------------|  
 |**DataSource**|Los registros de eventos de Windows que se van a recopilar. Atributo necesario:<br /><br /> **name**: la consulta de XPath que describe los eventos de Windows que se van a recopilar. Por ejemplo:<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> Para recopilar todos los eventos, especifique "*".|  
 
@@ -606,7 +606,7 @@ Elemento de nivel superior del archivo de configuración de diagnóstico.
 
  Define la configuración del búfer para los registros básicos de Azure.  
 
-|Atributo|type|DESCRIPCIÓN|  
+|Atributo|Tipo|Descripción|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|**unsignedInt**|Opcional. Especifica la cantidad máxima de almacenamiento del sistema de archivos que está disponible para los datos especificados.<br /><br /> El valor predeterminado es 0.|  
 |**scheduledTransferLogLevelFilter**|**string**|Opcional. Especifica el nivel de gravedad mínimo para las entradas de registro que se van a transferir. El valor predeterminado es **Undefined**, que transfiere todos los registros. Otros valores posibles (en orden de mayor a menor información) son **Verbose**, **Information**, **Warning**, **Error** y **Critical**.|  
@@ -618,7 +618,7 @@ Elemento de nivel superior del archivo de configuración de diagnóstico.
 
  Se agregó en la versión 1.9.
 
-|Nombre del elemento|DESCRIPCIÓN|  
+|Nombre del elemento|Descripción|  
 |------------------|-----------------|  
 |**Stats**|Indica al sistema para recopilar estadísticas de los contenedores de Docker.|  
 
@@ -627,7 +627,7 @@ Elemento de nivel superior del archivo de configuración de diagnóstico.
 
  Una lista de ubicaciones donde enviar datos de diagnóstico y la configuración asociada a estas ubicaciones.  
 
-|Nombre del elemento|DESCRIPCIÓN|  
+|Nombre del elemento|Descripción|  
 |------------------|-----------------|  
 |**Sink**|Consulte la descripción en cualquier parte de esta página.|  
 
@@ -638,11 +638,11 @@ Elemento de nivel superior del archivo de configuración de diagnóstico.
 
  Define las ubicaciones donde se van a enviar datos de diagnóstico. Por ejemplo, el servicio Application Insights.  
 
-|Atributo|type|DESCRIPCIÓN|  
+|Atributo|Tipo|Descripción|  
 |---------------|----------|-----------------|  
 |**name**|string|Cadena que identifica el nombre de receptor.|  
 
-|Elemento|type|DESCRIPCIÓN|  
+|Elemento|Tipo|Descripción|  
 |-------------|----------|-----------------|  
 |**Application Insights**|string|Se usa solo al enviar datos a Application Insights. Contiene la clave de instrumentación para una cuenta activa de Application Insights a la que tiene acceso.|  
 |**Channels**|string|Uno para cada filtrado adicional transmitido|  
@@ -654,7 +654,7 @@ Elemento de nivel superior del archivo de configuración de diagnóstico.
 
  Define los filtros para los flujos de datos de registro que se pasan a través de un receptor.  
 
-|Elemento|type|DESCRIPCIÓN|  
+|Elemento|Tipo|Descripción|  
 |-------------|----------|-----------------|  
 |**Channel**|string|Consulte la descripción en cualquier parte de esta página.|  
 
@@ -665,7 +665,7 @@ Elemento de nivel superior del archivo de configuración de diagnóstico.
 
  Define las ubicaciones donde se van a enviar datos de diagnóstico. Por ejemplo, el servicio Application Insights.  
 
-|Atributos|type|DESCRIPCIÓN|  
+|Atributos|Tipo|Descripción|  
 |----------------|----------|-----------------|  
 |**logLevel**|**string**|Especifica el nivel de gravedad mínimo para las entradas de registro que se van a transferir. El valor predeterminado es **Undefined**, que transfiere todos los registros. Otros valores posibles (en orden de mayor a menor información) son **Verbose**, **Information**, **Warning**, **Error** y **Critical**.|  
 |**name**|**string**|Un nombre único del canal al que se hace referencia|  
@@ -680,7 +680,7 @@ Elemento de nivel superior del archivo de configuración de diagnóstico.
 
  Almacena los detalles privados de la cuenta de almacenamiento (nombre, clave y punto de conexión). Esta información se envía a la máquina virtual, pero no se puede recuperar de ella.  
 
-|Elementos secundarios|DESCRIPCIÓN|  
+|Elementos secundarios|Descripción|  
 |--------------------|-----------------|  
 |**StorageAccount**|La cuenta de almacenamiento que se va a usar. Los atributos siguientes son necesarios<br /><br /> - **name**: el nombre de la cuenta de almacenamiento.<br /><br /> - **key**: la clave de la cuenta de almacenamiento.<br /><br /> - **endpoint**: el punto de conexión para acceder a la cuenta de almacenamiento. <br /><br /> -**sasToken** (se agregó en la versión 1.8.1): puede especificar un token de SAS en lugar de una clave de cuenta de almacenamiento en la configuración privada. Si se proporciona, se omite la clave de cuenta de almacenamiento. <br />Requisitos del token de SAS: <br />- Solo admite el token de SAS de la cuenta. <br />Se requieren los tipos de servicio - *b* y *t*. <br /> Se requieren los permisos - *a*, *c*, *u* y *w*. <br /> Se requieren los tipos de recursos - *c* y *o*. <br /> - Solo admite únicamente el protocolo HTTPS. <br /> - La hora de inicio y de expiración debe ser válida.|  
 
@@ -688,5 +688,5 @@ Elemento de nivel superior del archivo de configuración de diagnóstico.
 ## <a name="isenabled-element"></a>Elemento IsEnabled  
  *Tree: Root - DiagnosticsConfiguration - IsEnabled*
 
- Booleano. Use `true` para habilitar los diagnósticos o `false` para deshabilitarlos.
+ booleano. Use `true` para habilitar los diagnósticos o `false` para deshabilitarlos.
 

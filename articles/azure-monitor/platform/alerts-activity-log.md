@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 06/25/2019
-ms.openlocfilehash: 6c133f99ce31d4994753aba11cee90cfc1b5afc9
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 54122d784467bc090d82f4126e03ab688883ea7d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72552819"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75364805"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>Crear, ver y administrar las alertas del registro de actividad mediante Azure Monitor  
 
@@ -55,7 +55,7 @@ Use el siguiente procedimiento.
 
      > [!NOTE]
      > 
-     > Puede seleccionar solo el recurso de seguimiento de [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md), el grupo de recursos o una suscripción completa de una señal del registro de actividad. 
+     > Puede seleccionar solo el recurso de seguimiento de [Azure Resource Manager](../../azure-resource-manager/management/overview.md), el grupo de recursos o una suscripción completa de una señal del registro de actividad. 
 
      **Vista de ejemplo de la alerta de destino**
 
@@ -228,7 +228,7 @@ Las alertas del registro de actividad tienen cmdlets dedicados de PowerShell dis
 - [Disable-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Disable-AzActivityLogAlert): deshabilita una alerta de registro de actividad existente y establece sus etiquetas.
 - [Remove-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Remove-AzActivityLogAlert): quita una alerta de registro de actividad.
 
-## <a name="azure-cli"></a>CLI de Azure
+## <a name="azure-cli"></a>Azure CLI
 
 Los comandos dedicados de la CLI de Azure en el conjunto de comandos [az monitor activity-log alert](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert) están disponibles para administrar las reglas de alertas del registro de actividad.
 

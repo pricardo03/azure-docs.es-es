@@ -6,12 +6,12 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: 52a43dff5d2e740633675b71d5177d0df876d3cd
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: f8e431124155fe23853fe61e985fe4db522c3f77
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71092453"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644280"
 ---
 # <a name="move-azure-internal-load-balancer-to-another-region-using-powershell"></a>Traslado de un equilibrador de carga interno de Azure a otra región mediante PowerShell
 
@@ -20,7 +20,7 @@ Hay varios escenarios en los que quizá quiera trasladar su equilibrador de carg
 Los equilibradores de carga internos de Azure no se pueden trasladar de una región a otra. Sin embargo, puede usar una plantilla de Azure Resource Manager para exportar la configuración y la red virtual actuales de un equilibrador de carga interno.  Después, puede preparar el recurso para otra región al exportar el equilibrador de carga y la red virtual a una plantilla, modificar los parámetros para que coincidan con la región de destino y, a continuación, implementar la plantilla en la nueva región.  Para más información sobre Resource Manager y sus plantillas, consulte [Exportación de grupos de recursos a plantillas](https://docs.microsoft.com/azure/azure-resource-manager/manage-resource-groups-powershell#export-resource-groups-to-templates).
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 - Asegúrese de que el equilibrador de carga interno de Azure se encuentra en la región de Azure desde la que va a realizar el traslado.
 
@@ -32,7 +32,7 @@ Los equilibradores de carga internos de Azure no se pueden trasladar de una regi
 
 - Compruebe que su suscripción a Azure permite crear equilibradores de carga internos en la región de destino que se usa. Para habilitar la cuota necesaria, póngase en contacto con el soporte técnico.
 
-- Asegúrese de que la suscripción tiene suficientes recursos para admitir la adición de equilibradores de carga para este proceso.  Vea [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits)
+- Asegúrese de que la suscripción tiene suficientes recursos para admitir la adición de equilibradores de carga para este proceso.  Vea [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits)
 
 
 ## <a name="prepare-and-move"></a>Preparación y traslado
@@ -60,7 +60,7 @@ En los pasos siguientes se muestra cómo preparar el equilibrador de carga inter
    Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceVNETID -IncludeParameterDefaultValue
    ```
 
-4. El nombre del archivo descargado se asignará en función del grupo de recursos desde el que se exportó el recurso.  Busque el archivo que se exportó desde el comando denominado **\<resource-group-name>.json** y ábralo en el editor que prefiera:
+4. El nombre del archivo descargado se asignará en función del grupo de recursos desde el que se exportó el recurso.  Busque el archivo que se exportó desde el comando denominado **\<nombre-del-grupo-de-recursos>.json** y ábralo en el editor que prefiera:
    
    ```azurepowershell
    notepad.exe <source-resource-group-name>.json

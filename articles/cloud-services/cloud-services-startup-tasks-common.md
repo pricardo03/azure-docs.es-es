@@ -3,17 +3,17 @@ title: Tareas de inicio comunes para Cloud Services | Microsoft Docs
 description: Este artículo proporciona algunos ejemplos de tareas de inicio comunes que puede realizar en el rol web o rol de trabajo del servicio en la nube.
 services: cloud-services
 documentationcenter: ''
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 07/18/2017
-ms.author: gwallace
-ms.openlocfilehash: 2eb299ad841444a3100eac207b225d5377959f85
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: 5c6173971ac5272c2c2d769551fc9caf3dfa2573
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68358955"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75385803"
 ---
 # <a name="common-cloud-service-startup-tasks"></a>Tareas de inicio comunes para los servicios en la nube
 Este artículo proporciona algunos ejemplos de tareas comunes de inicio que puede realizar en su servicio en la nube. Puede usar las tareas de inicio para realizar operaciones antes de que se inicie un rol. Estas operaciones incluyen la instalación de un componente, el registro de componentes COM, el establecimiento de las claves del registro o el inicio de un proceso de ejecución largo. 
@@ -119,7 +119,7 @@ EXIT %ERRORLEVEL%
 ```
 
 ## <a name="add-firewall-rules"></a>Adición de reglas de firewall
-A efectos prácticos, hay dos firewalls en Azure. El primer firewall controla las conexiones entre la máquina virtual y el exterior. El firewall se controla mediante el elemento [EndPoints] en el archivo [ServiceDefinition.csdef].
+A efectos prácticos, hay dos firewalls en Azure. El primer firewall controla las conexiones entre la máquina virtual y el exterior. El firewall se controla mediante el elemento [Extremos] en el archivo [ServiceDefinition.csdef].
 
 El segundo firewall controla las conexiones entre la máquina virtual y los procesos dentro de esa máquina virtual. Este firewall puede controlarse mediante la herramienta de línea de comandos `netsh advfirewall firewall`.
 
@@ -508,7 +508,10 @@ Obtener más información acerca de cómo funcionan las [tareas](cloud-services-
 [Variable]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx
-[Endpoints]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Endpoints
+[Extremos]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Endpoints
 [LocalStorage]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalStorage
 [LocalResources]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalResources
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
+
+
+
