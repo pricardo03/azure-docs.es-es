@@ -35,7 +35,7 @@
     - name: "Enlace de una aplicación a Azure\_MySQL"
       href: spring-cloud-tutorial-bind-mysql.md
     - name: Implementación de aplicaciones en Azure Spring Cloud mediante Jenkins y la CLI de Azure
-      href: /jenkins/tutorial-jenkins-deploy-cli-spring-cloud-service
+      href: /azure/jenkins/tutorial-jenkins-deploy-cli-spring-cloud-service
 - name: Conceptos
   items:
     - name: Descripción de los límites y las cuotas de Azure Spring Cloud
